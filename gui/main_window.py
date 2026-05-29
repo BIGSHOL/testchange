@@ -36,6 +36,7 @@ from core.pdf_handler import (
     pdf_to_images,
 )
 from core.ocr_engine import OCREngine, validate_ocr_response
+from core.crop_detector import detect_crops
 from core.quality_checker import check_image_quality
 from core.content_parser import parse_ocr_response, build_document
 from core.hwpx_writer import write_exam_to_hwpx
@@ -60,6 +61,8 @@ class ConversionWorker(QObject):
     ocr_warning = Signal(int, str)       # (페이지번호, 경고메시지)
     # 미리보기 요청: 워커가 GUI 스레드에 미리보기 표시를 요청
     preview_requested = Signal(list)     # list[PageInfo]
+    # 크롭 검수 요청: 워커가 GUI 스레드에 크롭 편집 다이얼로그 표시를 요청
+    crop_requested = Signal(list)        # list[(PIL.Image, list[CropBox])]
 
     def __init__(
         self,
@@ -68,6 +71,7 @@ class ConversionWorker(QObject):
         api_key: str,
         template_path: str | None = None,
         skip_first_page: bool = False,
+        use_crop: bool = False,
     ):
         super().__init__()
         self.file_path = file_path
@@ -75,20 +79,32 @@ class ConversionWorker(QObject):
         self.api_key = api_key
         self.template_path = template_path
         self.skip_first_page = skip_first_page
+        self.use_crop = use_crop
         self._cancelled = False
         # 미리보기 응답 동기화용
         self._preview_event = threading.Event()
         self._preview_approved = False
+        # 크롭 편집 응답 동기화용
+        self._crop_event = threading.Event()
+        self._crop_result: list | None = None   # list[list[CropBox]] | None
+        self._crop_approved = False
 
     def cancel(self):
         self._cancelled = True
-        # 미리보기 대기 중이면 깨우기
+        # 대기 중이면 깨우기
         self._preview_event.set()
+        self._crop_event.set()
 
     def set_preview_result(self, approved: bool):
         """GUI 스레드에서 미리보기 결과를 설정."""
         self._preview_approved = approved
         self._preview_event.set()
+
+    def set_crop_result(self, boxes_per_page):
+        """GUI 스레드에서 크롭 편집 결과를 설정(None이면 취소)."""
+        self._crop_result = boxes_per_page
+        self._crop_approved = boxes_per_page is not None
+        self._crop_event.set()
 
     def run(self):
         # COM은 스레드별 초기화 필요 — 워커는 QThread 백그라운드에서 돈다.
@@ -173,6 +189,34 @@ class ConversionWorker(QObject):
         pages = []
         page_infos: list[PageInfo] = []
 
+        # ── Step 1.5: 크롭 검출 + 사용자 검수 (use_crop 시) ──
+        crop_boxes_per_page = None  # valid_indices 와 정렬된 list[list[CropBox]]
+        if self.use_crop:
+            self.progress.emit(13, "문제 영역(크롭) 검출 중...")
+            detected = []
+            for seq, idx in enumerate(valid_indices):
+                if self._cancelled:
+                    self.error.emit("사용자에 의해 취소되었습니다.")
+                    return
+                self.progress.emit(13, f"문제 영역 검출 중... ({seq + 1}/{len(valid_indices)})")
+                try:
+                    boxes = detect_crops(images[idx], api_key=self.api_key)
+                except Exception as e:
+                    logger.warning("크롭 검출 실패(p%d): %s", idx + 1, e)
+                    boxes = []
+                detected.append((images[idx], boxes))
+
+            # 크롭 편집 게이트 (GUI 스레드)
+            self._crop_event.clear()
+            self._crop_result = None
+            self._crop_approved = False
+            self.crop_requested.emit(detected)
+            self._crop_event.wait()
+            if self._cancelled or not self._crop_approved:
+                self.error.emit("사용자에 의해 취소되었습니다.")
+                return
+            crop_boxes_per_page = self._crop_result
+
         for seq, idx in enumerate(valid_indices):
             if self._cancelled:
                 self.error.emit("사용자에 의해 취소되었습니다.")
@@ -181,9 +225,28 @@ class ConversionWorker(QObject):
             img = images[idx]
             page_num = idx + 1 + page_offset
             pct = 15 + int((seq / len(valid_indices)) * 60)
-            self.progress.emit(pct, f"OCR 처리 중... ({seq + 1}/{len(valid_indices)})")
 
-            ocr_result = engine.recognize_page(img)
+            if crop_boxes_per_page is not None:
+                # 크롭별 개별 OCR → 한 페이지로 병합
+                boxes = crop_boxes_per_page[seq]
+                merged = {"header": "", "questions": []}
+                for bi, box in enumerate(boxes):
+                    if self._cancelled:
+                        self.error.emit("사용자에 의해 취소되었습니다.")
+                        return
+                    self.progress.emit(
+                        pct, f"OCR 처리 중... (p{seq + 1} 크롭 {bi + 1}/{len(boxes)})")
+                    sub = box.crop_image(img, pad=0.01)
+                    r = engine.recognize_crop(sub)
+                    qs = r.get("questions", [])
+                    if box.number is not None:
+                        for q in qs:
+                            q["number"] = box.number  # 검출 번호로 보정
+                    merged["questions"].extend(qs)
+                ocr_result = merged
+            else:
+                self.progress.emit(pct, f"OCR 처리 중... ({seq + 1}/{len(valid_indices)})")
+                ocr_result = engine.recognize_page(img)
 
             # ── Gate 2: OCR 응답 검증 ──
             ocr_quality = validate_ocr_response(ocr_result)
@@ -360,6 +423,16 @@ class MainWindow(QMainWindow):
         )
         self._skip_cover_cb.setStyleSheet("font-size: 12px; color: #344054;")
         layout.addWidget(self._skip_cover_cb)
+
+        self._crop_cb = QCheckBox("문제 영역 직접 검수 (크롭 편집)")
+        self._crop_cb.setChecked(False)
+        self._crop_cb.setToolTip(
+            "AI가 문제별 영역을 검출하면 직접 보고 수정한 뒤,\n"
+            "영역별로 개별 OCR합니다. 2단·도형 레이아웃 정확도가 올라가지만\n"
+            "페이지당 검출 호출 1회와 영역별 OCR이 추가됩니다."
+        )
+        self._crop_cb.setStyleSheet("font-size: 12px; color: #344054;")
+        layout.addWidget(self._crop_cb)
         layout.addSpacing(6)
 
         # ── 양식 파일(템플릿) 선택 ──
@@ -686,6 +759,7 @@ class MainWindow(QMainWindow):
             self._selected_file, output_path, api_key,
             template_path=self._selected_template,
             skip_first_page=self._skip_cover_cb.isChecked(),
+            use_crop=self._crop_cb.isChecked(),
         )
         self._worker.moveToThread(self._thread)
 
@@ -696,6 +770,7 @@ class MainWindow(QMainWindow):
         self._worker.quality_warning.connect(self._on_quality_warning)
         self._worker.ocr_warning.connect(self._on_ocr_warning)
         self._worker.preview_requested.connect(self._on_preview_requested)
+        self._worker.crop_requested.connect(self._on_crop_requested)
         self._worker.finished.connect(self._thread.quit)
         self._worker.error.connect(self._thread.quit)
         self._thread.finished.connect(self._cleanup_thread)
@@ -748,6 +823,19 @@ class MainWindow(QMainWindow):
         approved = result == PreviewDialog.DialogCode.Accepted
         if self._worker:
             self._worker.set_preview_result(approved)
+
+    def _on_crop_requested(self, pages: list):
+        """워커에서 크롭 검수 요청 → GUI 스레드에서 편집 다이얼로그 표시.
+
+        pages: list[(PIL.Image, list[CropBox])]. 확정 시 페이지별 박스 리스트 반환,
+        취소 시 None.
+        """
+        from gui.crop_editor_dialog import CropEditorDialog
+        dialog = CropEditorDialog(list(pages), parent=self)
+        result = dialog.exec()
+        boxes = dialog.result_boxes if result == CropEditorDialog.DialogCode.Accepted else None
+        if self._worker:
+            self._worker.set_crop_result(boxes)
 
     def _set_ui_converting(self, converting: bool):
         self._convert_btn.setEnabled(not converting)

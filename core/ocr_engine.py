@@ -221,6 +221,33 @@ class OCREngine:
             )
             return self._extract_json(message2.content[0].text)
 
+    def recognize_crop(self, image: Image.Image) -> dict:
+        """크롭(잘라낸 단일 문제 영역) 이미지를 OCR.
+
+        recognize_page 와 동일 스키마({header, questions:[...]})를 반환하되,
+        이미지가 보통 문제 1개임을 모델에 알려 경계 혼동을 줄인다.
+        """
+        base64_image = image_to_base64(image, format="PNG")
+        prompt = (
+            "이 이미지는 시험지에서 잘라낸 **단일 문제 영역**입니다. "
+            "보통 문제 1개(번호·본문·선택지·딸린 그림/표 포함)만 들어 있습니다. "
+            "잘린 옆 문제의 일부가 가장자리에 보여도 무시하고, 중심 문제 하나만 추출하세요.\n\n"
+            + EXAM_OCR_PROMPT
+        )
+        message = self.client.messages.create(
+            model=CLAUDE_MODEL,
+            max_tokens=CLAUDE_MAX_TOKENS,
+            messages=[{
+                "role": "user",
+                "content": [
+                    {"type": "image", "source": {"type": "base64",
+                                                 "media_type": "image/png", "data": base64_image}},
+                    {"type": "text", "text": prompt},
+                ],
+            }],
+        )
+        return self._extract_json(message.content[0].text)
+
     def _extract_json(self, text: str) -> dict:
         """응답에서 JSON 추출 (LaTeX 수식이 포함된 경우도 처리).
 
