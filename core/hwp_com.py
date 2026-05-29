@@ -190,6 +190,27 @@ class HwpSession:
         self.text(s)
         h.HAction.Run("CharShapeUnderline")
 
+    def superscript_run(self, s: str) -> None:
+        """위첨자(글자모양) 텍스트 run 삽입. 수식 객체보다 본문에 밀착돼
+
+        네이티브 입력과 동일하게 렌더된다(예: 3²). 앞뒤로 토글.
+        """
+        if not s:
+            return
+        h = self.hwp
+        h.HAction.Run("CharShapeSuperscript")
+        self.text(s)
+        h.HAction.Run("CharShapeSuperscript")
+
+    def subscript_run(self, s: str) -> None:
+        """아래첨자(글자모양) 텍스트 run 삽입(예: a_n). 앞뒤로 토글."""
+        if not s:
+            return
+        h = self.hwp
+        h.HAction.Run("CharShapeSubscript")
+        self.text(s)
+        h.HAction.Run("CharShapeSubscript")
+
     def equation(self, script: str) -> None:
         """HWP 수식 스크립트를 인라인(글자처럼 취급)으로 삽입.
 

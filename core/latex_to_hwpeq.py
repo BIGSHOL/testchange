@@ -29,6 +29,18 @@ _SENT_RB = "\x02"  # \}
 # 하나의 \overline{전체숫자}로 합침. 예: 0.\dot{3}7\dot{5} → 0.\overline{375},
 # 0.\dot{6} → 0.\overline{6}. (한글 순환마디 점 = 순환구간 막대와 동일 의미,
 # HWP는 dot over-dot 미렌더라 bar(overline)로 통일.)
+# 첨자(^,_) 내용이 단순 영숫자 런이면 중괄호 없이(밀착 렌더), 아니면 그룹핑.
+_SIMPLE_SCRIPT_RE = re.compile(r"^[A-Za-z0-9]+$")
+
+
+def _wrap_script(content: str) -> str:
+    """위/아래첨자 본문을 HWP 표기로. 단순 영숫자면 무중괄호, 아니면 {}."""
+    content = content.strip()
+    if _SIMPLE_SCRIPT_RE.match(content):
+        return content          # 예: 2, 48, n, ab → ^2 ^48 (밀착)
+    return "{" + content + "}"  # 예: -1, n+1, 2k → ^{...} (그룹 필요)
+
+
 _REPEAT_DECIMAL_RE = re.compile(r"\.((?:\\dot\s*\{\s*\d\s*\}|\d)+)")
 _DOT_TOKEN_RE = re.compile(r"\\dot\s*\{\s*(\d)\s*\}|(\d)")
 
@@ -535,12 +547,15 @@ class LaTeXToHWPConverter:
         ):
             s = s.replace(latex_cmd, hwp_func)
 
-        # 11. 상첨자/하첨자 (braces 유지)
+        # 11. 상첨자/하첨자.
+        #   HWP는 첨자 내용에 중괄호를 쓰면 본문과 간격이 벌어진다(3^{2}→"3 ²").
+        #   편집기 네이티브 입력(3^2)처럼 **단순 영숫자 첨자는 중괄호 없이** 출력해
+        #   밀착 렌더한다. 공백·연산자 등이 있으면 그룹핑 위해 중괄호 유지. (실측 확정)
         s = self._superscript.sub(
-            lambda m: " ^{" + self._convert_expr(self._get_match(m, "sup")) + "}", s
+            lambda m: "^" + _wrap_script(self._convert_expr(self._get_match(m, "sup"))), s
         )
         s = self._subscript.sub(
-            lambda m: " _{" + self._convert_expr(self._get_match(m, "sub")) + "}", s
+            lambda m: "_" + _wrap_script(self._convert_expr(self._get_match(m, "sub"))), s
         )
 
         # 12. { } 내부 재귀 처리 (단순 그룹)
