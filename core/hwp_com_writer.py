@@ -29,6 +29,37 @@ _ESSAY_SEPARATOR = "──────────── 서술형 ────�
 _ESSAY_BLANK_LINES = 6
 
 
+import re
+
+# 조건/보기 박스 마커·불릿·경계대시
+_COND_MARKER_RE = re.compile(r"(<\s*조건\s*>|<\s*보기\s*>|\[\s*조건\s*\]|\[\s*보기\s*\])")
+_BULLET_RE = re.compile(r"\s*[•·▪◦]\s*")
+_DASH_RUN_RE = re.compile(r"\s*[-−—–―─━]{2,}\s*")  # 하이픈·각종 대시·박스선(U+2500/2501)
+
+
+def _has_box_markup(text: str) -> bool:
+    """줄 분리가 필요한 박스 텍스트인지 — **불릿(•)이 있을 때만** 참.
+
+    (불릿 없이 "<조건>에 맞게"처럼 본문에서 박스를 가리키는 인라인 참조는
+    줄을 끊으면 안 되므로 제외.)
+    """
+    return bool(_BULLET_RE.search(text))
+
+
+def _segment_box_text(text: str) -> list[str]:
+    """박스 텍스트를 줄 단위 리스트로 분리.
+
+    - 경계 대시(−−, --) → 줄 경계로 제거
+    - <조건>/<보기> 마커 → 독립 줄
+    - 불릿(•) → 각 항목을 "• "로 시작하는 독립 줄
+    """
+    t = _DASH_RUN_RE.sub("\n", text)
+    t = _COND_MARKER_RE.sub(lambda m: "\n" + re.sub(r"\s+", "", m.group(1)) + "\n", t)
+    t = _BULLET_RE.sub("\n• ", t)
+    lines = [ln.strip() for ln in t.split("\n")]
+    return [ln for ln in lines if ln]
+
+
 def _eq_script(block: ContentBlock) -> str:
     """ContentBlock에서 HWP 수식 스크립트를 얻는다(없으면 LaTeX에서 변환)."""
     if block.hwp_equation:
@@ -57,9 +88,22 @@ class HwpComWriter:
         elif block.type == ContentType.TEXT:
             if block.underline:
                 self.s.underline_run(block.value)
+            elif _has_box_markup(block.value):
+                self._write_segmented_text(block.value)
             else:
                 self.s.text(block.value)
         # ContentType.IMAGE: 파서가 생성하지 않는 dead type — 미구현(기존과 동일)
+
+    def _write_segmented_text(self, text: str) -> None:
+        """조건/보기 박스 텍스트를 줄 단위로 분리해 출력.
+
+        OCR이 박스를 한 줄로 흘려 "−−<조건>−−• A• B• C" 처럼 뭉쳐 들어오면
+        <조건>·각 불릿(•)을 개별 줄로 분리한다.
+        """
+        lines = _segment_box_text(text)
+        for line in lines:
+            self.s.break_para()  # 박스 각 줄은 새 줄에서 시작(앞 문장과 분리)
+            self.s.text(line)
 
     def _has_table(self, blocks: list[ContentBlock]) -> bool:
         return any(b.type == ContentType.TABLE for b in blocks)
@@ -67,6 +111,10 @@ class HwpComWriter:
     # ── 문제 ──────────────────────────────────────────────
     def _write_question(self, question: Question) -> None:
         is_essay = not question.choices
+        has_subs = bool(question.sub_questions)
+        # 소문항이 있는 부모는 배점이 '총점'이라 본문에 "[총 N점]"으로 이미 표기됨.
+        # 인라인 배점([N점])을 또 찍으면 중복 → 부모는 인라인 배점 생략, 소문항만 표기.
+        show_score = bool(question.score) and not has_subs
 
         # 번호 "N. " (숫자는 일반 텍스트)
         self.s.text(f"{question.number}. ")
@@ -74,14 +122,14 @@ class HwpComWriter:
         # 배점은 본문 텍스트 끝(표 앞)에 둬 표 셀로 들어가는 것을 방지.
         # 표가 본문에 있으면 배점을 먼저, 없으면 본문 뒤에 인라인으로.
         has_table = self._has_table(question.contents)
-        if has_table and question.score:
+        if has_table and show_score:
             # 표가 있으면 배점을 본문 앞에 둬 표 셀로 들어가는 것을 방지
             self.s.text(f"[{question.score}점] ")
 
         for block in question.contents:
             self._write_block(block)
 
-        if not has_table and question.score:
+        if not has_table and show_score:
             self._write_score(question.score)
 
         self.s.break_para()
@@ -95,8 +143,8 @@ class HwpComWriter:
         for sub in question.sub_questions:
             self._write_question(sub)
 
-        # 서술형 풀이 공간
-        if is_essay:
+        # 서술형 풀이 공간 (소문항이 있으면 각 소문항이 처리하므로 부모는 생략)
+        if is_essay and not has_subs:
             self._write_essay_space()
 
         # 문제 간 빈 줄

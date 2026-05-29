@@ -25,6 +25,33 @@ import re
 _SENT_LB = "\x01"  # \{
 _SENT_RB = "\x02"  # \}
 
+# 순환소수: 소수점 뒤 \dot{d} 와 일반 숫자가 섞인 연쇄(점이 1개 이상)를
+# 하나의 \overline{전체숫자}로 합침. 예: 0.\dot{3}7\dot{5} → 0.\overline{375},
+# 0.\dot{6} → 0.\overline{6}. (한글 순환마디 점 = 순환구간 막대와 동일 의미,
+# HWP는 dot over-dot 미렌더라 bar(overline)로 통일.)
+_REPEAT_DECIMAL_RE = re.compile(r"\.((?:\\dot\s*\{\s*\d\s*\}|\d)+)")
+_DOT_TOKEN_RE = re.compile(r"\\dot\s*\{\s*(\d)\s*\}|(\d)")
+
+
+def _normalize_repeating_decimal(s: str) -> str:
+    """소수점 뒤 \\dot{} 순환마디 표기를 \\overline{...}로 정규화.
+
+    순환마디는 첫 점부터 마지막 점까지의 숫자. 점 앞/뒤의 일반 숫자는 제외.
+    예: 0.1\\dot{8}\\dot{7}5 → 0.1\\overline{87}5, 0.\\dot{3}7\\dot{5} → 0.\\overline{375}.
+    """
+    def _repl(m: "re.Match") -> str:
+        run = m.group(1)
+        if r"\dot" not in run:
+            return m.group(0)
+        seq = [(d or p, bool(d)) for d, p in _DOT_TOKEN_RE.findall(run)]
+        dotted = [i for i, (_, is_dot) in enumerate(seq) if is_dot]
+        first, last = dotted[0], dotted[-1]
+        lead = "".join(c for c, _ in seq[:first])
+        mid = "".join(c for c, _ in seq[first:last + 1])
+        trail = "".join(c for c, _ in seq[last + 1:])
+        return "." + lead + r"\overline{" + mid + "}" + trail
+    return _REPEAT_DECIMAL_RE.sub(_repl, s)
+
 
 class LaTeXToHWPConverter:
     """LaTeX → HWP 수식 스크립트 변환기."""
@@ -228,7 +255,7 @@ class LaTeXToHWPConverter:
         r"\grave": "grave",
         r"\check": "check",
         r"\breve": "arch",
-        r"\overline": "overline",
+        r"\overline": "bar",
         r"\underline": "underline",
         r"\overrightarrow": "VEC",
         r"\widehat": "HAT",
@@ -340,6 +367,10 @@ class LaTeXToHWPConverter:
         """
         # 전처리: 불필요한 공백, $기호 제거
         s = latex.strip().strip("$").strip()
+
+        # 순환소수 정규화: 소수점 뒤 \dot{} 연쇄를 \overline{...}로 합침.
+        # (HWP는 dot 키워드의 over-dot를 렌더하지 못함 — bar(overline)만 정상. 실측 확정.)
+        s = _normalize_repeating_decimal(s)
 
         # 리터럴 중괄호 \{ \} 를 sentinel로 보호(그룹핑 {}와 구분, 변환 중 훼손 방지).
         s = s.replace(r"\{", _SENT_LB).replace(r"\}", _SENT_RB)

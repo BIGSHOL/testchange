@@ -44,8 +44,22 @@ def _parse_question(q_data: dict) -> Question:
         score=q_data.get("score"),
     )
 
+    # 배점 처리(원시 단계): 숫자 분리 전에 raw 텍스트에서 [N점]을 추출·제거한다.
+    # (숫자 분리가 "[9점]"의 9를 수식으로 떼어내면 정규식이 못 맞추므로 반드시 먼저.)
+    raw_contents = [dict(bd) for bd in q_data.get("contents", [])]
+    if not question.score:
+        for bd in raw_contents:
+            if bd.get("type") == "text":
+                m = re.search(r'\[(\d+)점\]', bd.get("value", ""))
+                if m:
+                    question.score = int(m.group(1))
+                    break
+    for bd in raw_contents:
+        if bd.get("type") == "text" and bd.get("value"):
+            bd["value"] = _SCORE_TEXT_RE.sub(' ', bd["value"])
+
     # 문제 본문
-    for block_data in q_data.get("contents", []):
+    for block_data in raw_contents:
         result = _parse_content_block(block_data)
         if isinstance(result, list):
             question.contents.extend(result)
@@ -55,9 +69,8 @@ def _parse_question(q_data: dict) -> Question:
     # 쉼표로 구분된 독립 수식 분리 (안전 폴백)
     question.contents = _split_comma_equations(question.contents)
 
-    # 본문에서 배점 텍스트 제거 (score 필드에 이미 있으므로 중복 방지)
-    if question.score:
-        question.contents = _strip_score_text(question.contents)
+    # 잔여 [N점] 제거 (분리 후에도 온전히 남은 경우 대비)
+    question.contents = _strip_score_text(question.contents)
 
     # 선택지
     for choice_data in q_data.get("choices", []):
@@ -362,6 +375,16 @@ def _split_latex_commands(text: str) -> list[ContentBlock]:
     return blocks if len(blocks) > 1 else [
         ContentBlock(type=ContentType.TEXT, value=text)
     ]
+
+
+def _extract_score(blocks: list[ContentBlock]) -> int | None:
+    """텍스트 블록에서 첫 [N점] 배점 숫자를 추출 (score 필드 보강용)."""
+    for block in blocks:
+        if block.type == ContentType.TEXT:
+            m = re.search(r'\[(\d+)점\]', block.value)
+            if m:
+                return int(m.group(1))
+    return None
 
 
 def _strip_score_text(blocks: list[ContentBlock]) -> list[ContentBlock]:
