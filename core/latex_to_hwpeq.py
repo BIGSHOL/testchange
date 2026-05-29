@@ -18,6 +18,13 @@ from __future__ import annotations
 
 import re
 
+# 리터럴 중괄호 \{ \} 보호용 sentinel.
+# HWP 수식에선 보이는 중괄호를 \{ \} 로 표기하지만(그룹핑 {}와 구분),
+# 변환 도중 그룹핑 처리(\{...\} 재귀)나 명령어 정리에 망가지기 쉽다.
+# 그래서 변환 시작 시 sentinel로 치환해 보호하고, 마지막에 \{ \} 로 복원한다.
+_SENT_LB = "\x01"  # \{
+_SENT_RB = "\x02"  # \}
+
 
 class LaTeXToHWPConverter:
     """LaTeX → HWP 수식 스크립트 변환기."""
@@ -258,9 +265,11 @@ class LaTeXToHWPConverter:
             r"\\(" + accent_cmds + r")\s*" + self._brace_group("body")
         )
 
-        # \left( ... \right)
+        # \left( ... \right) — 구분자로 \{ \}(sentinel로 보호됨) \langle \rangle \| 도 허용
+        _ldelim = r"(\\langle|\\rangle|\\\||[(\[{|." + _SENT_LB + _SENT_RB + r"])"
+        _rdelim = r"(\\langle|\\rangle|\\\||[)\]}|." + _SENT_LB + _SENT_RB + r"])"
         self._leftright_pattern = re.compile(
-            r"\\left\s*([(\[{|.])\s*(.*?)\s*\\right\s*([)\]}|.])",
+            r"\\left\s*" + _ldelim + r"\s*(.*?)\s*\\right\s*" + _rdelim,
             re.DOTALL,
         )
 
@@ -332,6 +341,9 @@ class LaTeXToHWPConverter:
         # 전처리: 불필요한 공백, $기호 제거
         s = latex.strip().strip("$").strip()
 
+        # 리터럴 중괄호 \{ \} 를 sentinel로 보호(그룹핑 {}와 구분, 변환 중 훼손 방지).
+        s = s.replace(r"\{", _SENT_LB).replace(r"\}", _SENT_RB)
+
         # displaymath 환경 제거
         for env in [r"\[", r"\]", r"\(", r"\)"]:
             s = s.replace(env, "")
@@ -341,6 +353,10 @@ class LaTeXToHWPConverter:
 
         s = s.strip()
         result = self._convert_expr(s)
+
+        # sentinel 복원: 보호했던 리터럴 중괄호 → HWP 따옴표 리터럴 "{" "}".
+        # (escaped \{ \}는 뒤 문자와 인접 시 파싱이 깨지는 반면, 따옴표형은 항상 안정적 — 실측 확정.)
+        result = result.replace(_SENT_LB, '"{"').replace(_SENT_RB, '"}"')
 
         # 후처리: 다중 공백 정리
         result = re.sub(r"  +", " ", result).strip()
@@ -436,13 +452,21 @@ class LaTeXToHWPConverter:
             # 구분 문자 매핑
             delim_map = {
                 "(": "(", ")": ")", "[": "[", "]": "]",
-                r"\{": "lbrace", r"\}": "rbrace",
-                "{": "lbrace", "}": "rbrace",
+                # 중괄호는 sentinel 유지(step 12 그룹핑 처리 회피) → convert()에서 \{ \} 로 복원
+                _SENT_LB: _SENT_LB, _SENT_RB: _SENT_RB,
+                "{": _SENT_LB, "}": _SENT_RB,
+                r"\langle": "langle", r"\rangle": "rangle",
+                r"\|": "parallel",
                 "|": "|", ".": "",
             }
             l_str = delim_map.get(left, left)
             r_str = delim_map.get(right, right)
             inner = self._convert_expr(body)
+            # 중괄호 리터럴은 HWP의 LEFT/RIGHT 자동크기 구분자로 못 쓴다(렌더 깨짐).
+            # 어느 한쪽이라도 중괄호면 LEFT/RIGHT 없이 인라인으로 출력한다.
+            braces = {_SENT_LB, _SENT_RB}
+            if l_str in braces or r_str in braces:
+                return f"{l_str} {inner} {r_str}".strip()
             if l_str and r_str:
                 return f"LEFT {l_str} {inner} RIGHT {r_str}"
             elif l_str:
