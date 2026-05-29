@@ -37,7 +37,8 @@ def _load_config() -> dict:
         return _config
 
     if CONFIG_PATH.exists():
-        with open(CONFIG_PATH, "r", encoding="utf-8") as f:
+        # utf-8-sig: 메모장/PowerShell 등이 붙인 BOM이 있어도 안전하게 읽는다.
+        with open(CONFIG_PATH, "r", encoding="utf-8-sig") as f:
             _config = json.load(f)
     else:
         # 최초 실행: 기본 config.json 생성
