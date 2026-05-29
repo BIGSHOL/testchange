@@ -235,10 +235,7 @@ def _split_mixed_text_equation(text: str) -> list[ContentBlock]:
         # 한글이 포함된 매치는 건너뜀
         if re.search(r'[\uac00-\ud7a3]', expr):
             continue
-        # 단독 숫자 1자리는 문맥에 따라 건너뜀 (문제번호 등)
-        # 단, 연산자가 포함되어 있으면 수식으로 처리
-        if expr.isdigit() and len(expr) == 1:
-            continue
+        # 단독 숫자도 모두 수식화 (사용자 요구: 숫자는 전부 수식)
 
         before = text[last_end:m.start()]
         if before:

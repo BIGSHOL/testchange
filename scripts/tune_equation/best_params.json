@@ -1,0 +1,14 @@
+{
+  "hangul_w": 650,
+  "lr_w": 1800,
+  "binop_sp": 0,
+  "frac_pad": 400,
+  "square_w": 600,
+  "char_pad": 100,
+  "scale": 0.8076,
+  "bias": 394.0844,
+  "mape": 0.0654,
+  "median": 0.0418,
+  "p95": 0.1859,
+  "note": "v5 튜닝 결과 (MAPE-centered score). 기준 v1 대비 MAPE 8.1%→6.5%, p95 22.3%→18.6%, median 6.0%→4.2%"
+}

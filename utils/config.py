@@ -1,55 +1,128 @@
+import json
 import os
+import sys
 from pathlib import Path
-from dotenv import load_dotenv
 
-# 프로젝트 루트 디렉토리
-PROJECT_ROOT = Path(__file__).parent.parent
+# 프로젝트 루트 디렉토리 (exe 빌드 시 _MEIPASS 기준)
+if getattr(sys, 'frozen', False):
+    PROJECT_ROOT = Path(sys.executable).parent
+else:
+    PROJECT_ROOT = Path(__file__).parent.parent
 
-# .env 파일 로드
-load_dotenv(PROJECT_ROOT / ".env")
+# ─── config.json 로드 ───────────────────────────────────────
+CONFIG_PATH = PROJECT_ROOT / "config.json"
+
+_DEFAULTS = {
+    "ANTHROPIC_API_KEY": "",
+    "OUTPUT_DIR": "",
+    "CLAUDE_MODEL": "claude-sonnet-4-6",
+    "CLAUDE_MAX_TOKENS": 8192,
+    "PDF_DPI": 300,
+    "MAX_IMAGE_SIZE": 4096,
+    "QC_MIN_WIDTH": 500,
+    "QC_MIN_HEIGHT": 500,
+    "QC_BLUR_THRESHOLD": 100.0,
+    "QC_BLANK_THRESHOLD": 1.0,
+    "QC_CONTRAST_THRESHOLD": 30.0,
+    "QC_PASS_SCORE": 40.0,
+}
+
+_config: dict = {}
+
+
+def _load_config() -> dict:
+    """config.json을 읽어 dict로 반환. 없으면 기본값으로 생성."""
+    global _config
+    if _config:
+        return _config
+
+    if CONFIG_PATH.exists():
+        with open(CONFIG_PATH, "r", encoding="utf-8") as f:
+            _config = json.load(f)
+    else:
+        # 최초 실행: 기본 config.json 생성
+        _config = dict(_DEFAULTS)
+        save_config(_config)
+
+    return _config
+
+
+def save_config(cfg: dict | None = None):
+    """현재 설정을 config.json에 저장."""
+    if cfg is None:
+        cfg = _config
+    with open(CONFIG_PATH, "w", encoding="utf-8") as f:
+        json.dump(cfg, f, indent=2, ensure_ascii=False)
+
+
+def _get(key: str):
+    """config에서 값 조회. 없으면 기본값 반환."""
+    cfg = _load_config()
+    return cfg.get(key, _DEFAULTS.get(key))
 
 
 def get_api_key() -> str:
     """Anthropic API 키 반환."""
-    key = os.getenv("ANTHROPIC_API_KEY", "")
+    key = str(_get("ANTHROPIC_API_KEY")).strip()
     if not key or key == "your-api-key-here":
         raise ValueError(
             "ANTHROPIC_API_KEY가 설정되지 않았습니다. "
-            ".env 파일에 API 키를 입력해주세요."
+            "config.json 파일에 API 키를 입력해주세요."
         )
     return key
 
 
+def set_api_key(key: str):
+    """API 키를 config에 저장."""
+    cfg = _load_config()
+    cfg["ANTHROPIC_API_KEY"] = key
+    save_config(cfg)
+
+
 def get_output_dir() -> Path:
     """기본 출력 디렉토리 반환."""
-    output_dir = Path(os.getenv("OUTPUT_DIR", str(PROJECT_ROOT / "output")))
+    val = _get("OUTPUT_DIR")
+    output_dir = Path(val) if val else PROJECT_ROOT / "output"
     output_dir.mkdir(parents=True, exist_ok=True)
     return output_dir
 
 
 # Claude 모델 설정
-CLAUDE_MODEL = os.getenv("CLAUDE_MODEL", "claude-sonnet-4-6")
-CLAUDE_MAX_TOKENS = int(os.getenv("CLAUDE_MAX_TOKENS", "8192"))
+CLAUDE_MODEL = str(_DEFAULTS["CLAUDE_MODEL"])
+CLAUDE_MAX_TOKENS = int(_DEFAULTS["CLAUDE_MAX_TOKENS"])
 
 # PDF 변환 DPI
-PDF_DPI = int(os.getenv("PDF_DPI", "300"))
+PDF_DPI = int(_DEFAULTS["PDF_DPI"])
 
-# 이미지 최대 크기 (Claude Vision API 제한)
-MAX_IMAGE_SIZE = int(os.getenv("MAX_IMAGE_SIZE", "4096"))
+# 이미지 최대 크기
+MAX_IMAGE_SIZE = int(_DEFAULTS["MAX_IMAGE_SIZE"])
 
-# ─── 이미지 품질 검사 임계값 ───────────────────────────────
-# 최소 해상도 (가로 또는 세로가 이 값 미만이면 경고)
-QC_MIN_WIDTH = int(os.getenv("QC_MIN_WIDTH", "500"))
-QC_MIN_HEIGHT = int(os.getenv("QC_MIN_HEIGHT", "500"))
+# 품질 검사 임계값
+QC_MIN_WIDTH = int(_DEFAULTS["QC_MIN_WIDTH"])
+QC_MIN_HEIGHT = int(_DEFAULTS["QC_MIN_HEIGHT"])
+QC_BLUR_THRESHOLD = float(_DEFAULTS["QC_BLUR_THRESHOLD"])
+QC_BLANK_THRESHOLD = float(_DEFAULTS["QC_BLANK_THRESHOLD"])
+QC_CONTRAST_THRESHOLD = float(_DEFAULTS["QC_CONTRAST_THRESHOLD"])
+QC_PASS_SCORE = float(_DEFAULTS["QC_PASS_SCORE"])
 
-# 흐림(블러) 감지: Laplacian 분산이 이 값 미만이면 흐린 이미지로 판정
-QC_BLUR_THRESHOLD = float(os.getenv("QC_BLUR_THRESHOLD", "100.0"))
 
-# 빈 페이지 감지: 비백색 픽셀 비율(%)이 이 값 미만이면 빈 페이지로 판정
-QC_BLANK_THRESHOLD = float(os.getenv("QC_BLANK_THRESHOLD", "1.0"))
+def _init_module_vars():
+    """config.json 값으로 모듈 변수 갱신."""
+    global CLAUDE_MODEL, CLAUDE_MAX_TOKENS, PDF_DPI, MAX_IMAGE_SIZE
+    global QC_MIN_WIDTH, QC_MIN_HEIGHT, QC_BLUR_THRESHOLD
+    global QC_BLANK_THRESHOLD, QC_CONTRAST_THRESHOLD, QC_PASS_SCORE
 
-# 대비 부족 감지: 히스토그램 표준편차가 이 값 미만이면 대비 부족
-QC_CONTRAST_THRESHOLD = float(os.getenv("QC_CONTRAST_THRESHOLD", "30.0"))
+    cfg = _load_config()
+    CLAUDE_MODEL = str(cfg.get("CLAUDE_MODEL", _DEFAULTS["CLAUDE_MODEL"]))
+    CLAUDE_MAX_TOKENS = int(cfg.get("CLAUDE_MAX_TOKENS", _DEFAULTS["CLAUDE_MAX_TOKENS"]))
+    PDF_DPI = int(cfg.get("PDF_DPI", _DEFAULTS["PDF_DPI"]))
+    MAX_IMAGE_SIZE = int(cfg.get("MAX_IMAGE_SIZE", _DEFAULTS["MAX_IMAGE_SIZE"]))
+    QC_MIN_WIDTH = int(cfg.get("QC_MIN_WIDTH", _DEFAULTS["QC_MIN_WIDTH"]))
+    QC_MIN_HEIGHT = int(cfg.get("QC_MIN_HEIGHT", _DEFAULTS["QC_MIN_HEIGHT"]))
+    QC_BLUR_THRESHOLD = float(cfg.get("QC_BLUR_THRESHOLD", _DEFAULTS["QC_BLUR_THRESHOLD"]))
+    QC_BLANK_THRESHOLD = float(cfg.get("QC_BLANK_THRESHOLD", _DEFAULTS["QC_BLANK_THRESHOLD"]))
+    QC_CONTRAST_THRESHOLD = float(cfg.get("QC_CONTRAST_THRESHOLD", _DEFAULTS["QC_CONTRAST_THRESHOLD"]))
+    QC_PASS_SCORE = float(cfg.get("QC_PASS_SCORE", _DEFAULTS["QC_PASS_SCORE"]))
 
-# 품질 점수 최소 합격선 (0~100)
-QC_PASS_SCORE = float(os.getenv("QC_PASS_SCORE", "40.0"))
+
+_init_module_vars()

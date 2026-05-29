@@ -65,7 +65,7 @@ _SYMBOL_KEYWORDS = [
     # latex_to_hwpeq.py가 생성하는 대문자 키워드
     "PLUSMINUS", "MINUSPLUS", "SMALLUNION", "SMALLINTER",
     "APPROX", "PROPTO", "LAPLACE", "BULLET", "TRIANGLE",
-    "DIAMOND",
+    "DIAMOND", "SQUARE",
     "EQUIV", "SIMEQ", "ASYMP", "DOTEQ",
     "TIMES", "CDOT", "EXIST",
     "WEDGE", "LNOT", "OPLUS", "OTIMES",
@@ -91,11 +91,13 @@ _SYMBOL_KEYWORDS = [
 _LARGE_OP_KEYWORDS = ["SUM", "PROD", "OINT", "DINT", "TINT", "INT"]
 
 # 구조 명령어 (렌더링에 기여하지 않음)
+# LEFT/RIGHT는 대문자형 자동크기 괄호 명령으로, 실제 괄호 문자는 뒤에 따로 온다.
+# array는 {array}{|c|c|} 형태의 매트릭스 환경 선언이다.
 _STRUCT_KEYWORDS = [
-    "eqalign", "matrix", "cases", "pile",
+    "eqalign", "matrix", "cases", "pile", "array",
     "sqrt", "root", "of",
     "over", "atop",
-    "from", "left", "right",
+    "from", "left", "right", "LEFT", "RIGHT",
     "roman", "bold", "ital",
     "to",
     # 꾸밈 명령어 (문자 위/아래 기호, 폭에 기여하지 않음)
@@ -126,6 +128,32 @@ _HWPEQ_CHAR_WIDTHS: dict[str, int] = {
     "*": 500, "!": 416, "?": 500, "~": 791, "#": 833,
 }
 
+# 한글 음절·한자 기본 폭 — 정답 HWPX 84개 그리드 서치로 도출.
+# HYhwpEQ 자체는 영문 폰트지만, 한글이 섞이면 HWP가 본문 폰트(7) 메트릭을 참조.
+_HWPEQ_HANGUL_WIDTH = 650
+
+# LEFT/RIGHT 자동 크기 괄호 — 일반 괄호 폭 500에 추가로 가산되는 양.
+# 내부 컨텐츠 높이만큼 수직으로 늘어나며, 한컴은 가로로도 대략 이만큼 확장한다.
+_HWPEQ_LEFT_RIGHT_EXTRA = 1800
+
+# 분수 렌더링 파라미터 (정답 HWPX 84개 그리드 서치로 도출).
+# 분자/분모는 FRAC_SCALE로 축소, 분수선 양쪽에 FRAC_PADDING 만큼 여백이 추가된다.
+_HWPEQ_FRAC_SCALE = 0.75
+_HWPEQ_FRAC_PADDING = 400
+
+# 이항 연산자(+,-,=,<,>) 주변의 HWP 공백 — 각 발생마다 가산 (n × BINOP_SPACE).
+# 튠 결과 개별 연산자 여백은 char-level 트래킹에 흡수되어 0으로 수렴.
+_HWPEQ_BINOP_SPACE = 0
+
+# 가시 문자당 추가 트래킹 — HYhwpEQ의 내재 자간(inter-character padding)을 근사한다.
+# `a+b+c+d` 같은 선형식에서 문자 폭만으로는 실제 렌더링 폭을 못 맞추는 원인.
+_HWPEQ_CHAR_PAD = 100
+
+# 전체 선형 보정 — _measure_hwpeq_width + LEFT/RIGHT 가산 후 마지막에 적용.
+# actual ≈ GLOBAL_SCALE × estimate + GLOBAL_BIAS (84개 정답에 대한 최소제곱)
+_HWPEQ_GLOBAL_SCALE = 0.8076
+_HWPEQ_GLOBAL_BIAS = 394
+
 _HWPEQ_KEYWORD_WIDTHS: dict[str, int] = {
     "alpha": 500, "beta": 554, "gamma": 444, "delta": 554,
     "epsilon": 444, "varepsilon": 444, "zeta": 304, "eta": 500,
@@ -151,7 +179,7 @@ _HWPEQ_KEYWORD_WIDTHS: dict[str, int] = {
     "PLUSMINUS": 811, "MINUSPLUS": 811,
     "SMALLUNION": 1000, "SMALLINTER": 1000,
     "APPROX": 1000, "PROPTO": 1000, "LAPLACE": 1000,
-    "BULLET": 1000, "TRIANGLE": 1000, "DIAMOND": 1000,
+    "BULLET": 1000, "TRIANGLE": 1000, "DIAMOND": 1000, "SQUARE": 600,
     "EQUIV": 1000, "SIMEQ": 1000, "ASYMP": 1000, "DOTEQ": 1000,
     "TIMES": 811, "CDOT": 1000, "EXIST": 1000,
     "WEDGE": 1000, "LNOT": 785, "OPLUS": 1000, "OTIMES": 1000,
@@ -215,6 +243,14 @@ def _measure_hwpeq_width(script: str, scale: float = 1.0) -> float:
     """
     s = script
 
+    # 0. XML 엔티티 디코드: &amp; → &, &lt; → <, &gt; → >
+    # 매트릭스 구분자 &가 &amp;로 들어오는 케이스 등을 정상화.
+    s = s.replace("&amp;", "&").replace("&lt;", "<").replace("&gt;", ">").replace("&quot;", '"')
+
+    # 이스케이프 중괄호 \{, \} 는 실제 중괄호 문자로 변환.
+    # (문자 폭 테이블에 { } 를 따로 두지 않으므로 (, ) 와 동일 폭으로 근사)
+    s = s.replace("\\{", "(").replace("\\}", ")")
+
     # 구문용 공백 제거: "10 ^{5}" → "10^{5}" (공백은 시각적 너비에 기여하지 않음)
     s = re.sub(r'\s+([\^_])', r'\1', s)
     s = re.sub(r'([\^_])\s+', r'\1', s)
@@ -250,12 +286,22 @@ def _measure_hwpeq_width(script: str, scale: float = 1.0) -> float:
     s = re.sub(r"[\^_]\S", "", s)
 
     # 4. 나머지 문자의 개별 폭 합산
+    # 한글은 CJK 전각폭 사용 (HYhwpEQ의 한글 메트릭은 UAX에서 일정).
     for ch in s:
         if ch in "{}\x01":
             continue
-        w = _HWPEQ_CHAR_WIDTHS.get(ch, 0)
+        if ch in ('"', "&", "$"):
+            # 따옴표는 텍스트 리터럴 구분자, &는 매트릭스 구분자, $는 LaTeX 잔재 — 폭 0
+            continue
+        w = _HWPEQ_CHAR_WIDTHS.get(ch)
+        if w is None:
+            # 한글 음절 (U+AC00~U+D7A3) 또는 한자 (U+4E00~U+9FFF)
+            if "가" <= ch <= "힣" or "一" <= ch <= "鿿":
+                w = _HWPEQ_HANGUL_WIDTH
+            else:
+                w = 0
         if w > 0:
-            width += w * scale
+            width += (w + _HWPEQ_CHAR_PAD) * scale
 
     return width
 
@@ -370,11 +416,10 @@ def _estimate_equation_size(hwp_eq_script: str) -> tuple[int, int]:
             else:
                 den_content, suffix = after, ""
 
-            # 분수 내용은 75% 크기로 렌더링
-            FRAC_SCALE = 0.75
-            num_w = _measure_hwpeq_width(num_content, FRAC_SCALE)
-            den_w = _measure_hwpeq_width(den_content, FRAC_SCALE)
-            frac_w = max(num_w, den_w) + 200  # 분수선 양쪽 여백
+            # 분수 내용은 축소 렌더링, 분수선 양쪽 여백은 상수로 관리 (튜닝 파라미터).
+            num_w = _measure_hwpeq_width(num_content, _HWPEQ_FRAC_SCALE)
+            den_w = _measure_hwpeq_width(den_content, _HWPEQ_FRAC_SCALE)
+            frac_w = max(num_w, den_w) + _HWPEQ_FRAC_PADDING
 
             prefix_w = _measure_hwpeq_width(prefix) if prefix.strip() else 0
             suffix_w = _measure_hwpeq_width(suffix) if suffix.strip() else 0
@@ -385,22 +430,29 @@ def _estimate_equation_size(hwp_eq_script: str) -> tuple[int, int]:
     else:
         width = _measure_hwpeq_width(hwp_eq_script)
 
-    width = max(int(width) + 100, 400)
+    # LEFT/RIGHT 자동 크기 괄호 가산 — 구조 키워드로 제거된 폭을 복원.
+    n_left_right = len(re.findall(r"\b(LEFT|RIGHT)\b", hwp_eq_script))
+    width += n_left_right * _HWPEQ_LEFT_RIGHT_EXTRA
 
-    # 높이: baseUnit=1000 기준 (HYhwpEQ 실측)
-    # 일반 수식: ascent(800) + descent(200) = 1000
-    # 분수: 분자(750) + 분수선(100) + 분모(750) + 여백(200) = 1800
-    # 제곱근: 루트 기호 오버헤드(250) 추가
-    height = 1000
-    has_sup_sub = "^" in hwp_eq_script or "_" in hwp_eq_script
-    if has_sup_sub:
-        height = 1150  # 첨자로 인한 상하 확장
-    if has_fraction:
-        height = 1800
-    if has_sqrt:
-        height = max(height, 1250)
-    if has_fraction and has_sqrt:
-        height = max(height, 2100)
+    # 이항 연산자 주변 여백 — `a+b+c` 형태에서 연산자마다 실제 공백이 들어간다.
+    n_binop = len(re.findall(r"[=+\-<>]", hwp_eq_script))
+    width += n_binop * _HWPEQ_BINOP_SPACE
+
+    # 정답 데이터(84개) 최소제곱 보정 — 평균 수준의 체계적 편향 제거.
+    width = _HWPEQ_GLOBAL_SCALE * width + _HWPEQ_GLOBAL_BIAS
+    width = max(int(width), 400)
+
+    # 높이: 정답 HWPX 84개 분석 결과, 한컴은 2단/1단 이진으로만 사용한다.
+    #   - 1단 수식 → 1200 (일반 문자, 첨자, 선형 기호)
+    #   - 2단 수식 → 2400 (분수 over/atop, 루트, 큰 연산자+한계, 2행+ 행렬)
+    two_line = (
+        has_fraction
+        or has_sqrt
+        or re.search(r"\b(SUM|INT|OINT|PROD|COPROD|UNION|INTER|BIGUNION|BIGINTER)\b", hwp_eq_script) is not None
+        or re.search(r"\bmatrix\b|\{array\}", hwp_eq_script) is not None
+        or ("pile" in hwp_eq_script.lower())
+    )
+    height = 2400 if two_line else 1200
 
     return (width, height)
 
@@ -660,9 +712,10 @@ class HWPXWriter:
         # 문제 본문 첫 줄에 번호 포함
         p_elem = self._create_paragraph(sec_elem)
 
-        # 번호 run
+        # 번호: 숫자는 수식, ". "는 텍스트
+        self._insert_equation(p_elem, str(question.number))
         run = self._create_run(p_elem, char_pr_id="1")
-        self._set_run_text(run, f"{question.number}. ")
+        self._set_run_text(run, ". ")
 
         # 본문 내용
         for block in question.contents:
@@ -714,10 +767,13 @@ class HWPXWriter:
         score: int,
         leading_space: bool = True,
     ):
-        """배점을 [N점] 형태로 삽입."""
-        score_text = f" [{score}점]" if leading_space else f"[{score}점]"
+        """배점을 [N점] 형태로 삽입. 숫자는 수식으로 렌더링."""
+        prefix = " [" if leading_space else "["
         run = self._create_run(p_elem)
-        self._set_run_text(run, score_text)
+        self._set_run_text(run, prefix)
+        self._insert_equation(p_elem, str(score))
+        run = self._create_run(p_elem)
+        self._set_run_text(run, "점]")
 
     @staticmethod
     def _estimate_last_line_width(question: Question) -> int:
@@ -1036,25 +1092,22 @@ class HWPXWriter:
         eq.set("lock", "0")
         eq.set("dropcapstyle", "None")
         eq.set("version", "Equation Version 60")
-        # 분수는 분수선이 텍스트 기준선에 오도록 baseLine=50
-        has_frac = "over" in hwp_eq_script or "atop" in hwp_eq_script
-        eq.set("baseLine", "50" if has_frac else "85")
+        # 정답 HWPX 84개 전부 baseLine=85 고정 (treatAsChar=1 인라인 규칙)
+        eq.set("baseLine", "85")
         eq.set("textColor", "#000000")
         eq.set("baseUnit", "1000")
         eq.set("lineMode", "CHAR")
         eq.set("font", "HYhwpEQ")
 
-        # ShapeSize — 자동 스케일링 유도를 위해 0 할당 (렌더링 왜곡 및 여백 과다 생성 방지)
+        # ShapeSize — 한컴 네이티브는 실측 width/height를 기입한다.
+        # width=0이면 한글이 제로폭으로 인식해 옆 글자와 겹친다.
         est_width, est_height = size
         sz = etree.SubElement(eq, _qn("hp", "sz"))
-        sz.set("width", "0")
-        sz.set("height", "0")
+        sz.set("width", str(est_width))
+        sz.set("height", str(est_height))
         sz.set("widthRelTo", "ABSOLUTE")
         sz.set("heightRelTo", "ABSOLUTE")
         sz.set("protect", "0")
-        
-        # 줄간격 중첩 방지 로직 보존용 임시 높이 데이터 은닉 보관
-        eq.set("data-est-height", str(est_height))
 
         # ShapePosition — 글자처럼 취급 (인라인)
         pos = etree.SubElement(eq, _qn("hp", "pos"))
@@ -1070,10 +1123,10 @@ class HWPXWriter:
         pos.set("vertOffset", "0")
         pos.set("horzOffset", "0")
 
-        # 외부 여백 (실제 한컴 기준: left=56, right=56)
+        # 외부 여백 — 정답 HWPX 84개 전부 left=right=170 (주변 글자와 최소 간격 확보)
         out_margin = etree.SubElement(eq, _qn("hp", "outMargin"))
-        out_margin.set("left", "56")
-        out_margin.set("right", "56")
+        out_margin.set("left", "170")
+        out_margin.set("right", "170")
         out_margin.set("top", "0")
         out_margin.set("bottom", "0")
 

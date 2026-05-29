@@ -39,6 +39,8 @@ from core.ocr_engine import OCREngine, validate_ocr_response
 from core.quality_checker import check_image_quality
 from core.content_parser import parse_ocr_response, build_document
 from core.hwpx_writer import write_exam_to_hwpx
+from core.hwp_com import is_hwp_available
+from core.hwp_com_writer import write_exam_to_hwp
 from core.template_loader import load_template
 from gui.preview_dialog import PreviewDialog, PageInfo
 from utils.config import get_output_dir
@@ -89,11 +91,26 @@ class ConversionWorker(QObject):
         self._preview_event.set()
 
     def run(self):
+        # COM은 스레드별 초기화 필요 — 워커는 QThread 백그라운드에서 돈다.
+        # (HWP COM writer + 템플릿 변환 모두 이 스레드에서 COM을 사용한다.)
+        try:
+            import pythoncom
+            pythoncom.CoInitialize()
+            _com_init = True
+        except Exception:
+            _com_init = False
         try:
             self._do_conversion()
         except Exception as e:
             logger.exception("변환 중 오류 발생")
             self.error.emit(f"변환 실패: {e}\n\n{traceback.format_exc()}")
+        finally:
+            if _com_init:
+                try:
+                    import pythoncom
+                    pythoncom.CoUninitialize()
+                except Exception:
+                    pass
 
     def _do_conversion(self):
         file_path = Path(self.file_path)
@@ -209,11 +226,18 @@ class ConversionWorker(QObject):
         # Step 3: 문서 구성
         document = build_document(pages)
 
-        # Step 4: HWPX 생성
-        self.progress.emit(90, "HWPX 파일 생성 중...")
-        result_path = write_exam_to_hwpx(
-            document, self.output_path, template_path=self.template_path
-        )
+        # Step 4: 문서 생성 — HWP 설치 시 COM 직접 입력(수식 크기 네이티브 계산),
+        # 미설치 시 XML 생성기로 폴백.
+        if is_hwp_available():
+            self.progress.emit(90, "한글(HWP) 구동하여 문서 생성 중...")
+            result_path = write_exam_to_hwp(
+                document, self.output_path, template_path=self.template_path
+            )
+        else:
+            self.progress.emit(90, "HWP 미설치 — XML 생성기로 생성 중...")
+            result_path = write_exam_to_hwpx(
+                document, self.output_path, template_path=self.template_path
+            )
 
         self.progress.emit(100, "변환 완료!")
         self.finished.emit(str(result_path))
@@ -623,6 +647,10 @@ class MainWindow(QMainWindow):
         if not api_key or api_key == "your-api-key-here":
             QMessageBox.warning(self, "알림", "Anthropic API 키를 입력하세요.")
             return
+
+        # API 키를 config.json에 저장
+        from utils.config import set_api_key
+        set_api_key(api_key)
 
         output_path = self._output_input.text().strip()
         if not output_path:

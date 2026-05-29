@@ -8,4 +8,5 @@
 | `manage-skills` | 세션 변경사항을 분석하고, 검증 스킬을 생성/업데이트하며, CLAUDE.md를 관리합니다 |
 | `verify-latex-hwpeq` | LaTeX→HWP 수식 변환 매핑 무결성 검증 |
 | `verify-hwpx-structure` | HWPX 문서 생성 구조 검증 |
+| `verify-equation-metrics` | 수식 크기 추정기 정확도 회귀 검증 (골든셋 84개 기반) |
 | `verify-ocr-parser-sync` | OCR 엔진↔콘텐츠 파서 동기화 검증 |
