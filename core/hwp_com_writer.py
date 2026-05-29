@@ -60,6 +60,33 @@ def _segment_box_text(text: str) -> list[str]:
     return [ln for ln in lines if ln]
 
 
+def _choice_complexity(choice: Choice) -> int:
+    """보기 하나의 '길이' 추정. 블록수식/표가 있으면 매우 큼(→1단)."""
+    score = 0
+    for b in choice.contents:
+        if b.type in (ContentType.TABLE, ContentType.EQUATION_BLOCK, ContentType.IMAGE):
+            return 999
+        score += len(b.value or "")
+    return score
+
+
+def _choice_columns(choices: list[Choice]) -> int:
+    """보기 배치 단 수(1~5)를 보기 길이로 자동 결정.
+
+    아주 짧은 보기는 한 줄에 여러 개(최대 5), 길면 한 줄당 하나.
+    """
+    if not choices:
+        return 1
+    n = len(choices)
+    maxc = max(_choice_complexity(c) for c in choices)
+    if maxc >= 18:
+        return 1
+    if maxc >= 9:
+        return 2
+    # 매우 짧음: 전부 한 줄(최대 5단) 또는 적절히 나눔
+    return min(n, 5)
+
+
 def _eq_script(block: ContentBlock) -> str:
     """ContentBlock에서 HWP 수식 스크립트를 얻는다(없으면 LaTeX에서 변환)."""
     if block.hwp_equation:
@@ -92,7 +119,14 @@ class HwpComWriter:
                 self._write_segmented_text(block.value)
             else:
                 self.s.text(block.value)
-        # ContentType.IMAGE: 파서가 생성하지 않는 dead type — 미구현(기존과 동일)
+        elif block.type == ContentType.IMAGE:
+            # 도형/그림 크롭 이미지 임베딩 (value=이미지 파일 경로)
+            if block.value:
+                self.s.break_para()
+                self.s.align_center()
+                self.s.insert_picture(block.value)
+                self.s.break_para()
+                self.s.align_left()
 
     def _write_segmented_text(self, text: str) -> None:
         """조건/보기 박스 텍스트를 줄 단위로 분리해 출력.
@@ -134,10 +168,16 @@ class HwpComWriter:
 
         self.s.break_para()
 
-        # 보기 (한 보기당 한 줄)
-        for choice in question.choices:
-            self._write_choice(choice)
-            self.s.break_para()
+        # 보기 — 길이에 따라 1~5단 배치(짧으면 여러 단을 한 줄에, 길면 한 줄당 하나)
+        if question.choices:
+            cols = _choice_columns(question.choices)
+            last = len(question.choices) - 1
+            for i, choice in enumerate(question.choices):
+                self._write_choice(choice)
+                if i % cols == cols - 1 or i == last:
+                    self.s.break_para()
+                else:
+                    self.s.text("\t")
 
         # 소문항 재귀
         for sub in question.sub_questions:

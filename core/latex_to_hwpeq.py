@@ -41,6 +41,28 @@ def _wrap_script(content: str) -> str:
     return "{" + content + "}"  # 예: -1, n+1, 2k → ^{...} (그룹 필요)
 
 
+# \textcircled{...} → 유니코드 동그라미 문자 (숫자 ①~⑳, 자음 ㉠~, 음절 ㉮~)
+_CIRCLED_RE = re.compile(r"\\textcircled\s*\{\s*([^}]+?)\s*\}")
+_CIRCLED_HANGUL_CONS = "ㄱㄴㄷㄹㅁㅂㅅㅇㅈㅊㅋㅌㅍㅎ"
+_CIRCLED_HANGUL_SYL = "가나다라마바사아자차카타파하"
+
+
+def _normalize_circled(s: str) -> str:
+    def _repl(m: "re.Match") -> str:
+        v = m.group(1).strip()
+        if v.isdigit():
+            n = int(v)
+            if 1 <= n <= 20:
+                return chr(0x2460 + n - 1)          # ①~⑳
+        if len(v) == 1:
+            if v in _CIRCLED_HANGUL_CONS:
+                return chr(0x3260 + _CIRCLED_HANGUL_CONS.index(v))   # ㉠~
+            if v in _CIRCLED_HANGUL_SYL:
+                return chr(0x326E + _CIRCLED_HANGUL_SYL.index(v))    # ㉮~
+        return v
+    return _CIRCLED_RE.sub(_repl, s)
+
+
 _REPEAT_DECIMAL_RE = re.compile(r"\.((?:\\dot\s*\{\s*\d\s*\}|\d)+)")
 _DOT_TOKEN_RE = re.compile(r"\\dot\s*\{\s*(\d)\s*\}|(\d)")
 
@@ -383,6 +405,9 @@ class LaTeXToHWPConverter:
         # 순환소수 정규화: 소수점 뒤 \dot{} 연쇄를 \overline{...}로 합침.
         # (HWP는 dot 키워드의 over-dot를 렌더하지 못함 — bar(overline)만 정상. 실측 확정.)
         s = _normalize_repeating_decimal(s)
+
+        # 동그라미 기호 정규화: \textcircled{N|ㄱ|가} → 유니코드 ①/㉠/㉮
+        s = _normalize_circled(s)
 
         # 리터럴 중괄호 \{ \} 를 sentinel로 보호(그룹핑 {}와 구분, 변환 중 훼손 방지).
         s = s.replace(r"\{", _SENT_LB).replace(r"\}", _SENT_RB)

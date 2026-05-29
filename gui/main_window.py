@@ -30,6 +30,7 @@ from PySide6.QtWidgets import (
 )
 
 from core.pdf_handler import (
+    detect_and_correct_rotation,
     get_supported_extensions,
     is_pdf,
     load_image,
@@ -106,6 +107,31 @@ class ConversionWorker(QObject):
         self._crop_approved = boxes_per_page is not None
         self._crop_event.set()
 
+    def _save_figure_crop(self, box, img, page_num, bi):
+        """도형 크롭 영역을 임시 PNG로 저장하고 경로 반환(실패 시 None).
+
+        표시 과대화를 막기 위해 가로 폭을 일정 픽셀로 축소(HWP 표시 크기 제어).
+        """
+        import os
+        import tempfile
+        from PIL import Image as _Image
+        try:
+            if not getattr(self, "_fig_dir", None):
+                self._fig_dir = tempfile.mkdtemp(prefix="exam_fig_")
+            crop = box.crop_image(img, pad=0.005)
+            target_w = 420
+            if crop.width > target_w:
+                crop = crop.resize(
+                    (target_w, int(crop.height * target_w / crop.width)),
+                    _Image.LANCZOS,
+                )
+            path = os.path.join(self._fig_dir, f"fig_p{page_num}_{bi}.png")
+            crop.save(path)
+            return path
+        except Exception as e:
+            logger.warning("도형 크롭 저장 실패: %s", e)
+            return None
+
     def run(self):
         # COM은 스레드별 초기화 필요 — 워커는 QThread 백그라운드에서 돈다.
         # (HWP COM writer + 템플릿 변환 모두 이 스레드에서 COM을 사용한다.)
@@ -137,6 +163,9 @@ class ConversionWorker(QObject):
             images = pdf_to_images(file_path)
         else:
             images = [load_image(file_path)]
+
+        # 누운(가로) 페이지 자동 보정 (디지털 PDF·정상 이미지는 무변경)
+        images = [detect_and_correct_rotation(im) for im in images]
 
         total_pages = len(images)
         self.progress.emit(10, f"{total_pages}페이지 로드 완료")
@@ -227,22 +256,39 @@ class ConversionWorker(QObject):
             pct = 15 + int((seq / len(valid_indices)) * 60)
 
             if crop_boxes_per_page is not None:
-                # 크롭별 개별 OCR → 한 페이지로 병합
+                # 크롭별 개별 OCR → 한 페이지로 병합. figure 크롭은 이미지로 임베딩.
                 boxes = crop_boxes_per_page[seq]
                 merged = {"header": "", "questions": []}
+                pending_figs: list[dict] = []   # 첫 문제 앞에 나온 그림
+                last_q: dict | None = None
                 for bi, box in enumerate(boxes):
                     if self._cancelled:
                         self.error.emit("사용자에 의해 취소되었습니다.")
                         return
                     self.progress.emit(
                         pct, f"OCR 처리 중... (p{seq + 1} 크롭 {bi + 1}/{len(boxes)})")
+                    if box.kind == "figure":
+                        # 도형 영역 → 임시 PNG 저장 후 IMAGE 블록 생성
+                        fig_path = self._save_figure_crop(box, img, page_num, bi)
+                        if fig_path:
+                            block = {"type": "image", "value": fig_path}
+                            if last_q is not None:
+                                last_q.setdefault("contents", []).append(block)
+                            else:
+                                pending_figs.append(block)
+                        continue
                     sub = box.crop_image(img, pad=0.01)
                     r = engine.recognize_crop(sub)
                     qs = r.get("questions", [])
                     if box.number is not None:
                         for q in qs:
                             q["number"] = box.number  # 검출 번호로 보정
+                    if qs and pending_figs:
+                        qs[0].setdefault("contents", [])[:0] = pending_figs
+                        pending_figs = []
                     merged["questions"].extend(qs)
+                    if qs:
+                        last_q = qs[-1]
                 ocr_result = merged
             else:
                 self.progress.emit(pct, f"OCR 처리 중... ({seq + 1}/{len(valid_indices)})")

@@ -229,6 +229,35 @@ class HwpSession:
         h.HAction.Run("Cancel")           # 선택 해제
         h.HAction.Run("MoveRight")        # 수식 객체 뒤로 커서 이동
 
+    def insert_picture(self, path: str | Path) -> None:
+        """그림 파일을 본문에 삽입(글자처럼 취급, 인라인).
+
+        도형 크롭 이미지를 HWPX에 임베딩할 때 사용. 표시 크기는 호출 전에
+        이미지 픽셀 크기로 조절한다(ShapeObjDialog는 모달이라 헤드리스 hang →
+        COM 리사이즈 대신 PIL 리사이즈 사용).
+        """
+        path = str(Path(path))
+        if not os.path.exists(path):
+            return
+        h = self.hwp
+        try:
+            # InsertPicture(파일, Embedded, sizeoption, reverse, watermark, effect, width, height)
+            # Embedded=True: 문서에 포함. sizeoption=2(=이미지 원래 크기).
+            h.InsertPicture(path, True, 2, 0, 0, 0, 0, 0)
+        except Exception:
+            try:
+                h.InsertPicture(path, True, 2)
+            except Exception:
+                return
+        # 방금 삽입한 그림 선택 → 글자처럼 취급(인라인)
+        try:
+            h.FindCtrl()
+            h.HAction.Run("ShapeObjTreatAsChar")
+            h.HAction.Run("Cancel")
+            h.HAction.Run("MoveRight")
+        except Exception:
+            pass
+
     def break_para(self) -> None:
         """단락 나누기(새 줄)."""
         self.hwp.HAction.Run("BreakPara")
