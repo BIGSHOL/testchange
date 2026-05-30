@@ -232,7 +232,19 @@ class ConversionWorker(QObject):
                     boxes = detect_crops(images[idx], api_key=self.api_key)
                 except Exception as e:
                     logger.warning("크롭 검출 실패(p%d): %s", idx + 1, e)
+                    # 검출 실패 → 사용자에게 경고(빈 박스로 편집기에 표시, 수동 보강 가능)
+                    self.quality_warning.emit(
+                        idx + 1 + page_offset,
+                        f"페이지 {idx + 1 + page_offset} 문제영역 검출 실패 — "
+                        f"편집기에서 직접 추가하거나 빈 채로 두면 건너뜁니다.")
                     boxes = []
+                if not boxes:
+                    # 검출 0개 → 표지/빈 페이지 의심(인식률 낮음 경고). 편집기에서 확인 후
+                    # 그대로 두면 자동 스킵된다.
+                    self.quality_warning.emit(
+                        idx + 1 + page_offset,
+                        f"페이지 {idx + 1 + page_offset} 문항 미검출 — 표지/빈 페이지로 "
+                        f"보입니다. 비워두면 자동 건너뜁니다.")
                 detected.append((images[idx], boxes))
 
             # 크롭 편집 게이트 (GUI 스레드)
@@ -245,6 +257,25 @@ class ConversionWorker(QObject):
                 self.error.emit("사용자에 의해 취소되었습니다.")
                 return
             crop_boxes_per_page = self._crop_result
+
+            # ── 무쓸모 페이지 자동 스킵: 편집 후에도 박스 0개인 페이지(표지·빈 페이지·
+            #    답안지)는 처리 대상에서 제외 ──
+            kept_indices: list[int] = []
+            kept_boxes: list[list] = []
+            for seq, idx in enumerate(valid_indices):
+                page_boxes = crop_boxes_per_page[seq] if crop_boxes_per_page else []
+                if page_boxes:
+                    kept_indices.append(idx)
+                    kept_boxes.append(page_boxes)
+                else:
+                    self.progress.emit(
+                        14, f"페이지 {idx + 1 + page_offset} 건너뜀 (문항 없음)")
+                    logger.info("무쓸모 페이지 자동 스킵: p%d", idx + 1 + page_offset)
+            if not kept_indices:
+                self.error.emit("문항이 검출된 페이지가 없습니다 (모두 표지/빈 페이지).")
+                return
+            valid_indices = kept_indices
+            crop_boxes_per_page = kept_boxes
 
         for seq, idx in enumerate(valid_indices):
             if self._cancelled:
@@ -289,6 +320,13 @@ class ConversionWorker(QObject):
                     merged["questions"].extend(qs)
                     if qs:
                         last_q = qs[-1]
+                # 인식률 낮음 경고: 박스는 있었지만 OCR 결과 문항이 0개
+                problem_boxes = [b for b in boxes if b.kind != "figure"]
+                if problem_boxes and not merged["questions"]:
+                    self.quality_warning.emit(
+                        page_num,
+                        f"페이지 {page_num} 인식률 낮음 — 문제영역 {len(problem_boxes)}개에서 "
+                        f"문항을 추출하지 못했습니다. 이미지 품질을 확인하세요.")
                 ocr_result = merged
             else:
                 self.progress.emit(pct, f"OCR 처리 중... ({seq + 1}/{len(valid_indices)})")
@@ -461,24 +499,12 @@ class MainWindow(QMainWindow):
         layout.addLayout(btn_layout)
         layout.addSpacing(6)
 
-        # ── 표지 건너뛰기 체크박스 ──
-        self._skip_cover_cb = QCheckBox("첫 페이지 건너뛰기 (표지)")
-        self._skip_cover_cb.setChecked(True)
-        self._skip_cover_cb.setToolTip(
-            "PDF 첫 페이지가 표지인 경우 OCR 처리를 건너뛰어\nAPI 비용을 절약합니다"
-        )
-        self._skip_cover_cb.setStyleSheet("font-size: 12px; color: #344054;")
-        layout.addWidget(self._skip_cover_cb)
-
-        self._crop_cb = QCheckBox("문제 영역 직접 검수 (크롭 편집)")
-        self._crop_cb.setChecked(False)
-        self._crop_cb.setToolTip(
-            "AI가 문제별 영역을 검출하면 직접 보고 수정한 뒤,\n"
-            "영역별로 개별 OCR합니다. 2단·도형 레이아웃 정확도가 올라가지만\n"
-            "페이지당 검출 호출 1회와 영역별 OCR이 추가됩니다."
-        )
-        self._crop_cb.setStyleSheet("font-size: 12px; color: #344054;")
-        layout.addWidget(self._crop_cb)
+        # ── 처리 방식 안내 (항상 크롭 검수 + 자동 페이지 스킵) ──
+        # 크롭 검수는 항상 켜고(2단·도형 정확도↑), 표지/빈 페이지는 문항 미검출로
+        # 자동 건너뛴다(수동 '첫 페이지 건너뛰기' 폐지). 인식률 낮은 페이지는 경고.
+        info_label = QLabel("✓ 문제 영역 직접 검수(크롭) · 표지·빈 페이지 자동 건너뜀")
+        info_label.setStyleSheet("font-size: 12px; color: #027A48;")
+        layout.addWidget(info_label)
         layout.addSpacing(6)
 
         # ── 양식 파일(템플릿) 선택 ──
@@ -804,8 +830,8 @@ class MainWindow(QMainWindow):
         self._worker = ConversionWorker(
             self._selected_file, output_path, api_key,
             template_path=self._selected_template,
-            skip_first_page=self._skip_cover_cb.isChecked(),
-            use_crop=self._crop_cb.isChecked(),
+            skip_first_page=False,   # 수동 표지 스킵 폐지 — 무쓸모 페이지는 자동 스킵
+            use_crop=True,           # 항상 크롭 검수 모드
         )
         self._worker.moveToThread(self._thread)
 
