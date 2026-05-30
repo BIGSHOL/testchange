@@ -72,11 +72,13 @@ class HwpSession:
     ``__exit__`` 에서 항상 ``Quit`` 을 보장해 고아 Hwp.exe 프로세스를 막는다.
     """
 
-    def __init__(self, visible: bool = False, base_pt: int = 10, eq_pt: int = 11):
+    def __init__(self, visible: bool = False, base_pt: int = 10, eq_pt: int = 11,
+                 eq_font: str = "HYhwpEQ"):
         if _win32 is None:
             raise RuntimeError("win32com을 사용할 수 없습니다 (HWP COM 미지원 환경).")
         self.base_pt = base_pt   # 본문 텍스트(한글 등) 글자 크기(pt)
         self.eq_pt = eq_pt       # 수식 글자 크기(pt)
+        self.eq_font = eq_font   # 수식 글꼴 — HYhwpEQ 고정(편집기 직접입력과 동일)
         self.hwp = _dispatch_hwp()
         # 모든 대화상자 자동응답 — 복구/저장 팝업 hang 방지(필수).
         try:
@@ -222,6 +224,13 @@ class HwpSession:
         h.HAction.GetDefault("EquationCreate", h.HParameterSet.HEqEdit.HSet)
         h.HParameterSet.HEqEdit.string = script
         h.HParameterSet.HEqEdit.BaseUnit = h.PointToHwpUnit(self.eq_pt)
+        # 수식 글꼴을 HYhwpEQ로 명시 고정(빈 값이면 HWP가 다른 기본폰트로 렌더해
+        # 편집기 직접입력과 달라 보이는 문제 방지).
+        if self.eq_font:
+            try:
+                h.HParameterSet.HEqEdit.EqFontName = self.eq_font
+            except Exception:
+                pass
         h.HAction.Execute("EquationCreate", h.HParameterSet.HEqEdit.HSet)
         h.HAction.Run("Close")            # 수식편집기 닫고 본문 복귀(객체 선택 상태)
         h.FindCtrl()                      # 방금 삽입한 수식 컨트롤 선택
