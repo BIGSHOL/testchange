@@ -1,8 +1,12 @@
-"""Claude Vision 기반 문제 경계(크롭) 검출.
+"""문제 경계(크롭) 검출 — Gemini 3.5 Flash 우선, Claude 폴백.
 
 페이지 이미지에서 각 문제(및 그림/표) 영역의 바운딩 박스를 검출한다.
 좌표는 0~1로 정규화(좌상단 원점, x=가로비율, y=세로비율)되어 이미지 크기와 무관.
 사용자는 GUI에서 이 박스를 드래그로 조정한 뒤, 박스별로 개별 OCR 한다.
+
+bbox 그라운딩은 Gemini 가 더 정확하다(mathg-gen 도 Gemini 3 Flash 사용). 따라서
+Gemini 키가 있으면 Gemini 로 검출하고, 없으면 Claude 로 폴백한다. 두 모델 모두
+``[yMin, xMin, yMax, xMax]`` 0~1000 포맷으로 출력하도록 동일 프롬프트를 쓴다.
 """
 from __future__ import annotations
 
@@ -14,7 +18,7 @@ from PIL import Image
 import anthropic
 
 from core.pdf_handler import image_to_base64
-from utils.config import get_api_key, CLAUDE_MODEL
+from utils.config import get_api_key, get_gemini_key, CLAUDE_MODEL, GEMINI_MODEL
 
 logger = logging.getLogger(__name__)
 
@@ -156,14 +160,27 @@ Rules:
 
 
 def detect_crops(image: Image.Image, api_key: str | None = None) -> list[CropBox]:
-    """페이지 이미지에서 문제 경계 박스 리스트를 검출."""
+    """페이지 이미지에서 문제 경계 박스 리스트를 검출.
+
+    Gemini 키가 있으면 Gemini 3.5 Flash(bbox 정확)로, 없으면 Claude 로 검출한다.
+    """
+    gem_key = get_gemini_key()
+    if gem_key:
+        try:
+            return _detect_with_gemini(image, gem_key)
+        except Exception as e:
+            logger.warning("Gemini 크롭 검출 실패 → Claude 폴백: %s", e)
+    return _detect_with_claude(image, api_key)
+
+
+def _detect_with_claude(image: Image.Image, api_key: str | None = None) -> list[CropBox]:
+    """Claude Vision 으로 크롭 검출(폴백)."""
     client = anthropic.Anthropic(api_key=api_key or get_api_key())
     b64 = image_to_base64(image, format="PNG")
     msg = client.messages.create(
         model=CLAUDE_MODEL,
         max_tokens=8192,
         # 좌표 검출은 결정적 작업 — 기본 1.0이면 bbox 가 매 호출 흔들린다.
-        # mathg-gen 과 동일하게 낮은 temperature 로 고정(0)해 분산을 없앤다.
         temperature=0.0,
         messages=[{
             "role": "user",
@@ -175,6 +192,35 @@ def detect_crops(image: Image.Image, api_key: str | None = None) -> list[CropBox
         }],
     )
     return _parse_crops(msg.content[0].text)
+
+
+def _detect_with_gemini(image: Image.Image, api_key: str) -> list[CropBox]:
+    """Gemini 3.5 Flash 로 크롭 검출(mathg-gen 과 동일 모델·설정).
+
+    bbox 그라운딩이 Claude 보다 정확하다. 출력은 동일하게 items[].cropBox
+    ``[yMin, xMin, yMax, xMax]`` 0~1000 → ``_parse_crops`` 로 처리.
+    """
+    from google import genai
+    from google.genai import types
+
+    import base64
+    b64 = image_to_base64(image, format="PNG")
+    img_bytes = base64.b64decode(b64)
+
+    client = genai.Client(api_key=api_key)
+    resp = client.models.generate_content(
+        model=GEMINI_MODEL,
+        contents=[
+            types.Part.from_bytes(data=img_bytes, mime_type="image/png"),
+            _CROP_PROMPT,
+        ],
+        config=types.GenerateContentConfig(
+            response_mime_type="application/json",
+            temperature=0.1,
+            max_output_tokens=65536,
+        ),
+    )
+    return _parse_crops(resp.text or "")
 
 
 def _parse_crops(text: str) -> list[CropBox]:

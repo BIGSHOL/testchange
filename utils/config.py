@@ -14,6 +14,8 @@ CONFIG_PATH = PROJECT_ROOT / "config.json"
 
 _DEFAULTS = {
     "ANTHROPIC_API_KEY": "",
+    "GEMINI_API_KEY": "",
+    "GEMINI_MODEL": "gemini-3.5-flash",
     "OUTPUT_DIR": "",
     "CLAUDE_MODEL": "claude-sonnet-4-6",
     "CLAUDE_MAX_TOKENS": 8192,
@@ -78,6 +80,18 @@ def set_api_key(key: str):
     cfg = _load_config()
     cfg["ANTHROPIC_API_KEY"] = key
     save_config(cfg)
+
+
+def get_gemini_key() -> str:
+    """Gemini API 키 반환(없으면 빈 문자열). 크롭 검출에만 사용."""
+    key = str(_get("GEMINI_API_KEY") or "").strip()
+    if not key:
+        key = os.environ.get("GEMINI_API_KEY", "").strip()
+    return key
+
+
+# Gemini 모델(크롭 검출 — bbox 그라운딩 특화)
+GEMINI_MODEL = str(_DEFAULTS["GEMINI_MODEL"])
 
 
 def get_output_dir() -> Path:
