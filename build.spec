@@ -17,6 +17,7 @@ a = Analysis(
         (str(project_root / 'hwpx_조암'), 'hwpx_조암'),
         *collect_data_files('hwpx'),
         *collect_data_files('google.genai'),
+        *collect_data_files('google.auth'),
     ],
     hiddenimports=[
         'PySide6.QtCore',
@@ -29,10 +30,14 @@ a = Analysis(
         'lxml.etree',
         'numpy',
         'matplotlib',
-        # Gemini 크롭 검출(core/crop_detector.py)
+        # Gemini 크롭 검출(core/crop_detector.py) — google.genai + 전이 의존
         'google.genai',
         'google.genai.types',
+        'google.auth',
+        'google.oauth2',
         *collect_submodules('google.genai'),
+        *collect_submodules('google.auth'),
+        *collect_submodules('google.oauth2'),
         # HWP COM 자동화(core/hwp_com.py) — pywin32 런타임 의존성
         'win32com',
         'win32com.client',
