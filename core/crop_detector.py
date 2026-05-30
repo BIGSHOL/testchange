@@ -59,46 +59,99 @@ class CropBox:
         return image.crop((left, top, right, bottom))
 
 
-_CROP_PROMPT = """당신은 한국 수학 시험지 한 페이지의 레이아웃을 분석해, **각 문항의 크롭 박스**를 찾는 전문가입니다.
+_CROP_PROMPT = """You are analyzing ONE page of a Korean math exam. For EVERY problem on the page, output a crop box that tightly encloses the whole problem.
 
-좌표계: bbox = [x0, y0, x1, y1], **0~1 정규화** (좌상단 (0,0), 우하단 (1,1), x=가로비율 y=세로비율, x0<x1, y0<y1).
+Coordinate system: [yMin, xMin, yMax, xMax] on a 0-1000 grid over the FULL PAGE. yMin = top edge, xMin = left edge, 1000 = bottom / right edge.
 
-페이지 구성: 한국 시험지는 보통 **2단(좌우 컬럼)** 입니다. **좌측 컬럼을 위→아래로 먼저, 그다음 우측 컬럼**. 한 문항은 한 컬럼 안에만 — 박스가 두 컬럼을 가로지르면 안 됩니다.
+Page layout: Korean exam pages are usually TWO COLUMNS. Read the LEFT column top-to-bottom first, then the RIGHT column. A problem stays entirely within ONE column — never let a crop box span both columns.
 
-## 🚨 가장 중요 — 인쇄물 vs 학생 손글씨 구분
-시험지는 학생이 풀이를 적은 뒤 촬영된 경우가 많습니다. **인쇄된 문항 내용만** 박스에 넣고 **학생 손글씨는 반드시 제외**하세요.
-- **인쇄물**(박스에 포함): 균일한 굵기의 활자, 순수 검정, 일정한 베이스라인, 깨끗한 도형 선.
-- **학생 손글씨**(박스에서 제외): 굵기가 들쭉날쭉(1px↔3px), **빨강/파랑 펜**, 불규칙·기울어진 글씨, 자유곡선. 정답에 친 **동그라미**, 풀이식, 화살표, 인수분해 나무, 문항 사이 빈칸에 적은 숫자.
-- 학생 필기는 보통 `(N점)` 마커 아래 빈 풀이 공간이나 문항 사이에 있습니다. **빨강/파랑 잉크가 보이면 즉시 박스 하단을 그 위로 끌어올리세요.** 크롭은 마지막 **인쇄된** 줄에서 끝나야 합니다.
+🚨 **CRITICAL — DISTINGUISH PRINTED PROBLEM CONTENT FROM STUDENT HANDWRITING (글자체·획 특성 기반)**
 
-## 문항별 끝 경계 규칙
-1. **객관식**(보기 ①②③④⑤ 있음): 위=문항번호 줄, 아래=**마지막 보기 줄 하단**(보통 ⑤, 4지선다면 ④). 보기가 다단이어도 마지막 보기가 든 줄까지. 딸린 그림은 본문과 보기 사이에 있어 자동 포함됨. → type="choice".
-2. **단순 서술형**(보기 없음, `(N점)`/`[N점]` 배점 하나): 위=문항번호, 아래=**배점 `(N점)` 줄에서 HARD STOP**. 그 아래 학생 풀이 공간은 제외. 단, 배점 아래에 **인쇄된 도형**이 문항 일부면 도형까지 포함. → type="essay".
-3. **분할 서술형**(소문항 (1)(2)… 있음): 헤더+모든 인쇄 소문항이 **하나의 박스**. 아래=**마지막 인쇄 소문항 텍스트 줄**(예 "(2) …구하시오."). 소문항 사이 빈칸·학생필기는 박스 안에 있을 수밖에 없지만, 하단은 마지막 소문항 인쇄 줄에서 끝. → type="essay".
+Korean exam papers are often photographed AFTER a student has written on them. The PRINTED text and the HANDWRITTEN ink have **dramatically different visual character** — use these traits to tell them apart:
 
-## 분류 (class)
-거의 모든 박스는 **"problem"**(문항 전체 — 텍스트+내부 도형·표·그림 모두 포함). 문항 *안의* 도형/표/그림은 별도로 빼지 말고 problem 박스에 포함하세요. 다음은 *드문* 예외(문항과 분리된 standalone 요소일 때만):
-- **"figure"**: 문항과 분리된 독립 기하 도형(작도 가능한 line art).
-- **"table"**: 문항과 분리된 독립 표(시간표·점수표 등).
-- **"artwork"**: 문항과 분리된 독립 실사 이미지(회화·사진 — 벡터화 불가).
-의심되면 **"problem"**. 박스가 문항번호를 포함하면 무조건 "problem".
+**PRINTED content** (problem text, figures, numbers) — the ONLY thing that belongs in the crop box:
+  - **Stroke uniformity**: every glyph has *consistent, even-thickness* strokes (typeset font output — width within 10% along a stroke).
+  - **Color**: pure black ink, no red/blue/green pigment.
+  - **Geometry**: characters sit on a strict baseline grid; letterforms are *geometric and repeatable* (every "ㅇ" looks identical, every "5" looks identical).
+  - **Alignment**: text wraps in straight columns; figures have crisp clean line art.
 
-## 기타
-- 페이지 머리글(학교명·과목)·바닥글·페이지번호는 박스에 넣지 마세요.
-- 문항번호를 읽을 수 있으면 number에 기록(못 읽으면 null).
-- 좌우는 넉넉히(문항번호·우측 내용 안 잘리게), 서술형 하단은 인색하게(학생 답안 공간 침범 금지).
+**STUDENT HANDWRITING** (solutions, scribbles, circled answers) — MUST be EXCLUDED from every crop box:
+  - **Stroke variability**: 굵기가 *들쭉날쭉* — same pen produces 1px and 3px within the same stroke (pen pressure variation). Stroke ends often taper or blob.
+  - **Color**: typically red marker (사용자 정답·답안 동그라미), blue ballpoint (풀이식), or *uneven* black (compared to print's pure black).
+  - **Irregular character shape**: every "x" looks slightly different, every digit "5" has its own quirks; characters often slanted, not on a baseline; size variation within one expression.
+  - **Free-form curves**: circled numbers (사용자가 정답 표시), arrows pointing into the problem, factor trees with diagonal lines, freehand "=" lines or check marks.
+  - **Location**: typically in the *blank space below the (N점) marker* or *between problems*, where the student answered.
 
-## 출력 (순수 JSON만)
+Common student handwriting to IGNORE:
+  - Red/blue pen scribbles in the answer space below the problem
+  - Circled numbers (사용자 정답 표시) drawn over or beside the problem
+  - Freehand calculations, factoring trees, arrows pointing at the problem
+  - Numbers written in the blank space between problems (e.g. "64", "36 3", "9 81" written between two printed problems)
+  - 빨간 마커로 그린 동그라미 (학생이 자신의 풀이 답을 표시) — 절대 박스 안에 포함 X
+
+The space where the student wrote is BELOW the printed problem's last text/figure line. The crop MUST end at that last printed line — NOT extend into the handwriting zone. **빨간/파란 잉크가 박스 후보 안에 보이면 즉시 박스 bottom 을 그 위 인쇄 줄까지 끌어올리세요.**
+
+---
+
+🎨 **4-CLASS CROP CLASSIFICATION (class field)**:
+
+거의 모든 박스는 class="problem" (한 문항 전체 — 텍스트 + 모든 내부 시각 요소 포함). 다음은 *드문* 예외:
+  - **"figure"**: 페이지에 *문제와 분리된 standalone 기하 도형*. 일반적인 *문항 안의 도형* 은 problem 박스에 *포함* — 별도 figure 박스 X.
+  - **"table"**: 페이지에 *문제와 분리된 standalone 표* (시간표/달력/점수표). 문항 안의 표는 problem 박스 안.
+  - **"artwork"**: 페이지에 *문제와 분리된 standalone 회화/사진/실사 이미지* (vectorize 불가). 문항 안에서 작품 referencing 하면 problem 박스 안에 포함.
+  - **"problem"** (default, 99% case): 한 문항 전체. 안에 어떤 시각 요소가 있어도 problem 박스 안에 모두 포함.
+
+🚨 결정 룰 (의심 시 "problem"): 박스가 문항 번호 ([서술형 N], 1., 2. 등) 를 포함하면 → "problem".
+
+---
+
+For each problem, decide its TYPE and find its crop box:
+
+1. CHOICE problem (객관식 — has multiple-choice options ① ② ③ ④ ⑤):
+   - Crop TOP = the line of the printed problem number.
+   - Crop BOTTOM = the bottom of the LAST option row (the row holding the highest marker — usually ⑤, or ④ if only 4 options). Options may be one-per-line OR in a 2/3-column grid; the last marker is always in the last option row.
+   - Any figure sits between the problem text and the options, so this box always contains it.
+   - type = "choice", endMarkerKind = "choice".
+
+2. SIMPLE ESSAY problem (서술형 — NO ①②③④⑤ options, NO sub-numbers like (1)(2); a single points marker like "(7점)" or "(8점)"):
+   - Crop TOP = the line of the printed problem number ([서술형 N] or N. or similar).
+   - Crop BOTTOM = the line containing the "(N점)" points marker.
+   - 🚨 **HARD STOP at the (N점) line.** The space below it is where the student writes their solution — it is NOT part of the printed problem. Do NOT extend into that blank/handwritten zone.
+   - 🚨 **IGNORE all student handwriting** in the answer space below: scribbled numbers, factor trees, circled answers, red pen marks.
+   - EXCEPTION — printed figure (clean line art, uniform stroke, NOT handwriting): if a printed figure sits below the (N점) marker as part of the problem, extend the bottom to include the figure.
+   - type = "essay", endMarkerKind = "points".
+
+3. SPLIT ESSAY problem (서술형 with sub-numbered parts (1), (2), …):
+   The WHOLE thing (problem header + all printed sub-parts) is ONE problem → ONE crop box.
+   - Crop TOP = the line of the printed problem number.
+   - Crop BOTTOM = the bottom of the LAST printed sub-part's text line (e.g., the line containing "(2) 완전제곱식을 이용하여 구하시오.").
+   - 🚨 Sub-parts (1)(2)(3) are separated by BLANK SPACE for the student to solve. That blank space — and any handwriting in it — is INSIDE the single box (you cannot split sub-parts), BUT the box must STILL end at the last printed sub-part's text line, NOT at the bottom of the student's handwriting after the last sub-part.
+   - 🚨 Recognize sub-part markers "(1)" "(2)" "(3)" (with parenthesis). Distinguish from option markers "①②③" and from inline "(N점)".
+   - EXCEPTION — printed figure below the last sub-part text: include the figure.
+   - type = "essay", endMarkerKind = "total".
+
+🚨 **사용자 보고 사례 (반드시 따를 것)**:
+  사례 A — 서술형 (8점), 풀이 영역 침범 (잘못): 빈 풀이 공간에 빨간 펜으로 "9 3 48" 학생 필기. 잘못된 크롭: 박스가 "(8점)" 줄을 넘어 "48" 까지 포함. 올바른 크롭: 박스 bottom = "(8점)" 줄. 그 아래 학생 필기는 박스 *밖*.
+  사례 B — 서술형 (1)(2) 서브문항: 올바른 크롭 top = "[서술형 N]" 줄, bottom = "(2) …구하시오." 줄. (1)(2) 사이 학생 필기는 박스 안에 들어가지만, bottom edge 는 (2) 의 인쇄 텍스트 줄에서 정확히 끝남.
+
+Rules:
+- Bias toward OVER-cropping *horizontally* (LEFT edge must include the printed number; RIGHT edge must include the rightmost content). Pad ~15 units on left/right.
+- Bias toward UNDER-cropping *vertically* on the bottom for essay problems — never extend past the last printed problem element (last sub-part text, last (N점), last printed figure) into the student's answer space.
+- Only emit boxes for actual printed problems — never for empty answer space, the page header, or page furniture.
+- 문항번호를 읽을 수 있으면 number 에 기록.
+
+## OUTPUT — pure JSON only:
 ```json
 {
-  "crops": [
-    {"number": 8, "type": "choice", "kind": "problem", "bbox": [0.05, 0.10, 0.48, 0.28], "note": "⑤ 하단"}
+  "items": [
+    {"number": 8, "type": "choice", "class": "problem", "cropBox": [100, 50, 280, 480], "endMarkerKind": "choice", "note": "⑤ bottom-right"}
   ]
 }
 ```
-- bbox=[x0,y0,x1,y1] 정규화, kind="problem"|"figure"|"table"|"artwork", type="choice"|"essay".
-- note: 하단 경계를 정한 근거(디버그용, 예 "⑤ 하단", "(8점) 줄", "마지막 소문항 (2)").
-- 위→아래, 좌단 전체→우단 순서로 나열.
+- cropBox = [yMin, xMin, yMax, xMax] on the 0-1000 grid.
+- type = "choice"|"essay", class = "problem"|"figure"|"table"|"artwork", endMarkerKind = "choice"|"points"|"total".
+- note: short reason for the bottom edge (e.g., "⑤ bottom-right", "(8점) line", "last sub-part (2)").
+- List in reading order: left column top→bottom, then right column.
 """
 
 
@@ -108,7 +161,7 @@ def detect_crops(image: Image.Image, api_key: str | None = None) -> list[CropBox
     b64 = image_to_base64(image, format="PNG")
     msg = client.messages.create(
         model=CLAUDE_MODEL,
-        max_tokens=2048,
+        max_tokens=8192,
         messages=[{
             "role": "user",
             "content": [
@@ -122,7 +175,11 @@ def detect_crops(image: Image.Image, api_key: str | None = None) -> list[CropBox
 
 
 def _parse_crops(text: str) -> list[CropBox]:
-    """응답 텍스트에서 crops JSON 파싱 → CropBox 리스트."""
+    """응답 텍스트에서 items JSON 파싱 → CropBox 리스트.
+
+    mathg-gen 포맷: ``cropBox = [yMin, xMin, yMax, xMax]`` (0~1000 그리드).
+    내부 표준(0~1, [x0,y0,x1,y1])으로 변환한다.
+    """
     t = text.strip()
     if "```json" in t:
         t = t.split("```json", 1)[1].split("```", 1)[0].strip()
@@ -141,17 +198,30 @@ def _parse_crops(text: str) -> list[CropBox]:
         logger.warning("크롭 JSON 파싱 실패: %s", e)
         return []
 
+    # 신규 "items"(cropBox) 우선, 구버전 "crops"(bbox) 하위호환.
+    raw_items = data.get("items")
+    legacy = raw_items is None
+    if legacy:
+        raw_items = data.get("crops", [])
+
     boxes: list[CropBox] = []
-    for c in data.get("crops", []):
-        bbox = c.get("bbox")
-        if not (isinstance(bbox, list) and len(bbox) == 4):
+    for c in raw_items:
+        bb = c.get("bbox") if legacy else c.get("cropBox")
+        if not (isinstance(bb, list) and len(bb) == 4):
             continue
         try:
-            x0, y0, x1, y1 = (float(v) for v in bbox)
+            v = [float(x) for x in bb]
         except (TypeError, ValueError):
             continue
+        if legacy:
+            # 구포맷: [x0, y0, x1, y1] 0~1
+            x0, y0, x1, y1 = v
+        else:
+            # mathg-gen: [yMin, xMin, yMax, xMax] 0~1000 → [x0,y0,x1,y1] 0~1
+            y_min, x_min, y_max, x_max = v
+            x0, y0, x1, y1 = x_min / 1000.0, y_min / 1000.0, x_max / 1000.0, y_max / 1000.0
         box = CropBox(x0, y0, x1, y1,
-                      kind=c.get("kind", "problem"),
+                      kind=c.get("class", c.get("kind", "problem")),
                       number=c.get("number"),
                       qtype=c.get("type", ""),
                       note=c.get("note", "")).clamp()
