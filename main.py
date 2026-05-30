@@ -19,7 +19,38 @@ def setup_logging():
     )
 
 
+def _selftest_imports() -> int:
+    """동결(frozen) exe의 핵심 의존성 import 자가진단(--selftest).
+
+    GUI 없이 google.genai(Gemini 크롭)·anthropic·win32com 등이 동결 환경에서
+    실제로 로드되는지 확인한다. 정상 0, 실패 1.
+    """
+    # 윈도우 exe(console=False)는 stdout이 없으므로 결과를 파일로 기록.
+    out = Path(sys.executable).parent / "selftest_result.txt"
+    try:
+        idx = sys.argv.index("--selftest")
+        if idx + 1 < len(sys.argv):
+            out = Path(sys.argv[idx + 1])
+    except ValueError:
+        pass
+    try:
+        import google.genai  # noqa: F401
+        from google.genai import types  # noqa: F401
+        import google.auth, google.oauth2  # noqa: F401
+        import anthropic, fitz, PySide6  # noqa: F401
+        from core.crop_detector import detect_crops, _detect_with_gemini  # noqa: F401
+        out.write_text(f"SELFTEST OK: {google.genai.__file__}\n", encoding="utf-8")
+        return 0
+    except Exception as e:
+        import traceback
+        out.write_text("SELFTEST FAIL:\n" + traceback.format_exc(), encoding="utf-8")
+        return 1
+
+
 def main():
+    if "--selftest" in sys.argv:
+        sys.exit(_selftest_imports())
+
     setup_logging()
 
     from PySide6.QtWidgets import QApplication
