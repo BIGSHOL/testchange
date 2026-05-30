@@ -94,6 +94,19 @@ def _eq_script(block: ContentBlock) -> str:
     return latex_to_hwpeq(block.value)
 
 
+# 숫자만으로 이뤄진 인라인 수식(예: "15", "3.14", "1,000")은 일반 텍스트로 렌더한다.
+# HWP COM으로 만든 '숫자 전용' 수식 객체는 베이스라인 메트릭이 stale 상태로 남아
+# 줄 위로 떠오르는(=잘못 렌더되는) 버그가 있다(편집기 재저장 시에만 정상화). 글자·연산자가
+# 하나라도 섞이면(x, x+y, x=15, x^2 …) 정상 렌더되므로 '순수 숫자'만 강등한다.
+_PLAIN_NUMBER_RE = re.compile(r"^[\d\s.,]+$")
+
+
+def _is_plain_number(script: str) -> bool:
+    """수식 스크립트가 숫자·공백·구두점(.,)만으로 이뤄졌는지 — 텍스트 강등 대상."""
+    s = (script or "").strip()
+    return bool(s) and any(c.isdigit() for c in s) and bool(_PLAIN_NUMBER_RE.match(s))
+
+
 class HwpComWriter:
     """ExamDocument를 HWP 세션에 렌더링한다."""
 
@@ -109,9 +122,17 @@ class HwpComWriter:
             self.s.table(block.rows or [])
         elif block.type == ContentType.EQUATION_BLOCK:
             self.s.break_para()
-            self.s.equation(_eq_script(block))
+            script = _eq_script(block)
+            if _is_plain_number(script):
+                self.s.text(script.strip())
+            else:
+                self.s.equation(script)
         elif block.type == ContentType.EQUATION:
-            self.s.equation(_eq_script(block))
+            script = _eq_script(block)
+            if _is_plain_number(script):
+                self.s.text(script.strip())  # 숫자 전용 수식 → 텍스트(베이스라인 버그 회피)
+            else:
+                self.s.equation(script)
         elif block.type == ContentType.TEXT:
             if block.underline:
                 self.s.underline_run(block.value)
