@@ -16,7 +16,7 @@ from __future__ import annotations
 from PIL import Image
 
 from PySide6.QtCore import Qt, QRectF, QPointF
-from PySide6.QtGui import QImage, QPixmap, QPen, QColor, QBrush, QFont
+from PySide6.QtGui import QImage, QPixmap, QPen, QColor, QBrush, QFont, QPainterPath
 from PySide6.QtWidgets import (
     QDialog, QGraphicsView, QGraphicsScene, QGraphicsRectItem,
     QGraphicsPixmapItem, QVBoxLayout, QHBoxLayout, QPushButton, QLabel,
@@ -102,9 +102,24 @@ class _CropItem(QGraphicsRectItem):
                 return name
         return None
 
+    def shape(self) -> QPainterPath:
+        """히트 영역 = 박스 + (선택 시) 핸들 영역. 핸들이 박스 밖으로 나가도
+        모든 방향에서 잡히도록 path 에 핸들 사각형을 더한다(좌상단만 잡히던 문제 해결).
+        """
+        path = QPainterPath()
+        path.addRect(self.rect())
+        if self.isSelected():
+            for hr in self._handles().values():
+                path.addRect(hr)
+        return path
+
     # ── 그리기 ─────────────────────────────────────────────
     def paint(self, painter, option, widget=None):
-        super().paint(painter, option, widget)
+        # 박스 본체를 직접 그린다(super().paint() 의 기본 '선택 점선'을 쓰지 않음 —
+        # 확대된 boundingRect 에 점선이 그려져 실제 박스와 어긋나 보이던 문제 해결).
+        painter.setPen(self.pen())
+        painter.setBrush(self.brush())
+        painter.drawRect(self.rect())
         inv = 1.0 / self._view_scale()    # scene 단위로 환산된 화면 px
         r = self.rect()
 
