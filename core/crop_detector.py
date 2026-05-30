@@ -162,6 +162,9 @@ def detect_crops(image: Image.Image, api_key: str | None = None) -> list[CropBox
     msg = client.messages.create(
         model=CLAUDE_MODEL,
         max_tokens=8192,
+        # 좌표 검출은 결정적 작업 — 기본 1.0이면 bbox 가 매 호출 흔들린다.
+        # mathg-gen 과 동일하게 낮은 temperature 로 고정(0)해 분산을 없앤다.
+        temperature=0.0,
         messages=[{
             "role": "user",
             "content": [
