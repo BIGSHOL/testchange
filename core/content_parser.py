@@ -136,6 +136,10 @@ def _parse_content_block(block_data: dict) -> ContentBlock | None:
         rows = block_data.get("rows", [])
         return ContentBlock(type=ContentType.TABLE, value=value, rows=rows)
 
+    # LaTeX \(...\)·\[...\] 구분자를 $...$로 정규화(OCR이 $ 대신 \( \)로 줄 때 대비).
+    if content_type == ContentType.TEXT:
+        value = _normalize_math_delims(value)
+
     # 텍스트 블록에 __밑줄__ 마크업이 있으면 분리
     if content_type == ContentType.TEXT and "__" in value:
         split = _split_underline_markup(value)
@@ -261,6 +265,20 @@ def _split_mixed_text_equation(text: str) -> list[ContentBlock]:
         blocks.append(ContentBlock(type=ContentType.TEXT, value=after))
 
     return blocks if len(blocks) > 1 else [ContentBlock(type=ContentType.TEXT, value=text)]
+
+
+def _normalize_math_delims(text: str) -> str:
+    """LaTeX 수식 구분자 ``\\(...\\)``(인라인)·``\\[...\\]``(디스플레이)를 ``$...$``로 변환.
+
+    OCR이 인라인 수식을 ``$`` 대신 ``\\(`` ``\\)`` 로 감싸 줄 때 그대로 출력되던
+    문제(조건 박스의 ``\\(A = 2x^2y\\)`` 등이 raw로 찍힘)를 막는다. 변환 후엔 기존
+    ``$...$`` 분리 경로가 수식으로 처리한다.
+    """
+    if "\\(" in text or "\\)" in text:
+        text = text.replace("\\(", "$").replace("\\)", "$")
+    if "\\[" in text or "\\]" in text:
+        text = text.replace("\\[", "$").replace("\\]", "$")
+    return text
 
 
 def _split_inline_latex(text: str) -> list[ContentBlock]:
