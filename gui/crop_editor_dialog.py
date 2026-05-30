@@ -20,6 +20,7 @@ from PySide6.QtGui import QImage, QPixmap, QPen, QColor, QBrush, QFont, QPainter
 from PySide6.QtWidgets import (
     QDialog, QGraphicsView, QGraphicsScene, QGraphicsRectItem,
     QGraphicsPixmapItem, QVBoxLayout, QHBoxLayout, QPushButton, QLabel,
+    QApplication,
 )
 
 from core.crop_detector import CropBox
@@ -294,7 +295,20 @@ class CropEditorDialog(QDialog):
     def __init__(self, pages: list[tuple[Image.Image, list[CropBox]]], parent=None):
         super().__init__(parent)
         self.setWindowTitle("문제 영역(크롭) 검수 · 수정")
-        self.resize(1100, 880)
+        # 화면(작업 영역)에 맞춰 크기 제한 — 큰 고정 크기로 하단 버튼이 잘리던 문제 방지.
+        # 시험지는 세로형이라 너무 넓을 필요 없음(좌우 여백 낭비) → 세로 우선 비율.
+        screen = self.screen() or QApplication.primaryScreen()
+        avail = screen.availableGeometry() if screen else None
+        if avail:
+            w = min(900, int(avail.width() * 0.9))
+            h = min(940, int(avail.height() * 0.9))
+            self.resize(w, h)
+            self.setMinimumSize(min(560, w), min(420, h))
+            # 화면 중앙 배치
+            self.move(avail.center().x() - w // 2, avail.center().y() - h // 2)
+        else:
+            self.resize(900, 900)
+            self.setMinimumSize(560, 420)
         self._pages = pages
         self._idx = 0
         self.result_boxes: list[list[CropBox]] | None = None
@@ -310,42 +324,53 @@ class CropEditorDialog(QDialog):
         info = QLabel("휠=확대/축소 · 가운데버튼 드래그=이동 · 빈 곳 드래그=박스 추가 · "
                       "박스 선택 후 모서리 핸들=크기조절, Delete=삭제")
         info.setStyleSheet("color:#475467; font-size:12px;")
+        info.setWordWrap(True)   # 좁은 창에서 가로 폭 강제 방지
         root.addWidget(info)
 
         root.addWidget(self._view, 1)
 
-        # 페이지 네비 + 줌 + 도구
+        # 페이지 네비 + 줌 + 도구 — 좁은 화면에서도 한 줄에 들어가도록 컴팩트하게.
         bar = QHBoxLayout()
-        self._prev_btn = QPushButton("◀ 이전")
-        self._next_btn = QPushButton("다음 ▶")
+        bar.setSpacing(4)
+        self._prev_btn = QPushButton("◀")
+        self._next_btn = QPushButton("▶")
         self._page_lbl = QLabel()
         self._prev_btn.clicked.connect(lambda: self._go(-1))
         self._next_btn.clicked.connect(lambda: self._go(1))
-        zoom_in = QPushButton("＋ 확대")
-        zoom_out = QPushButton("－ 축소")
-        zoom_fit = QPushButton("전체 보기")
+        zoom_in = QPushButton("＋")
+        zoom_out = QPushButton("－")
+        zoom_fit = QPushButton("맞춤")
+        zoom_in.setToolTip("확대"); zoom_out.setToolTip("축소")
         zoom_in.clicked.connect(lambda: self._view.scale(1.25, 1.25))
         zoom_out.clicked.connect(lambda: self._view.scale(0.8, 0.8))
         zoom_fit.clicked.connect(self._fit)
-        add_btn = QPushButton("＋ 박스 추가")
-        del_btn = QPushButton("－ 선택 삭제")
+        add_btn = QPushButton("＋박스")
+        del_btn = QPushButton("삭제")
+        add_btn.setToolTip("박스 추가"); del_btn.setToolTip("선택 박스 삭제")
         add_btn.clicked.connect(self._add_box)
         del_btn.clicked.connect(self._delete_selected)
-        for wdg in (self._prev_btn, self._page_lbl, self._next_btn):
-            bar.addWidget(wdg)
+        for b in (self._prev_btn, self._next_btn, zoom_out, zoom_in, zoom_fit):
+            b.setFixedWidth(44)
+        for b in (add_btn, del_btn):
+            b.setFixedWidth(62)
+        bar.addWidget(self._prev_btn)
+        bar.addWidget(self._page_lbl)
+        bar.addWidget(self._next_btn)
         bar.addStretch(1)
-        for wdg in (zoom_out, zoom_fit, zoom_in, add_btn, del_btn):
+        for wdg in (zoom_out, zoom_in, zoom_fit, add_btn, del_btn):
             bar.addWidget(wdg)
         root.addLayout(bar)
 
-        # 확인/취소
+        # 확인/취소 — 항상 보이도록 하단 고정. OK 버튼 라벨 단축.
         btns = QHBoxLayout()
-        btns.addStretch(1)
+        btns.setSpacing(6)
         cancel = QPushButton("취소")
-        ok = QPushButton("이 영역으로 OCR 진행")
+        ok = QPushButton("이 영역으로 OCR ▶")
         ok.setDefault(True)
+        ok.setMinimumHeight(34)
         cancel.clicked.connect(self.reject)
         ok.clicked.connect(self._accept)
+        btns.addStretch(1)
         btns.addWidget(cancel)
         btns.addWidget(ok)
         root.addLayout(btns)
