@@ -309,7 +309,18 @@ class ConversionWorker(QObject):
                                 pending_figs.append(block)
                         continue
                     sub = box.crop_image(img, pad=0.01)
-                    r = engine.recognize_crop(sub)
+                    try:
+                        r = engine.recognize_crop(sub)
+                    except Exception as exc:
+                        # 크롭 1개의 OCR/JSON 파싱 실패가 전체 변환을 중단시키지
+                        # 않도록 격리 — 해당 문항만 건너뛰고 경고 후 계속.
+                        logger.warning("크롭 OCR 실패 (p%s 박스 %s): %s",
+                                       page_num, bi + 1, exc)
+                        self.quality_warning.emit(
+                            page_num,
+                            f"페이지 {page_num} {bi + 1}번째 문제영역 인식 실패 — "
+                            f"건너뜀 (수동 확인 필요)")
+                        continue
                     qs = r.get("questions", [])
                     if box.number is not None:
                         for q in qs:

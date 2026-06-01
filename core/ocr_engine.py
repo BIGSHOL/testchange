@@ -305,21 +305,30 @@ class OCREngine:
             pass
 
         # ── 5단계: 줄 단위 복구 (최후 수단) ──
+        # 4단계 복구 결과를 토대로, 한 줄짜리 "키": "값" 형태에서 값 안의
+        # 이스케이프 안 된 큰따옴표를 보정한다("value" 뿐 아니라 모든 키 대상).
         logger.warning("JSON 파싱 재실패, 줄 단위 복구 시도")
-        lines = text.split("\n")
+        lines = repaired.split("\n")
         for i, line in enumerate(lines):
-            # "value" 필드에서 이스케이프 안 된 큰따옴표 수정
-            match = re.match(r'^(\s*"value"\s*:\s*")(.*)(")(.*)$', line)
+            # ^  "키": "  …값…  "  ,?  $   (값이 한 줄 안에서 닫히는 경우만)
+            match = re.match(r'^(\s*"[^"]+"\s*:\s*")(.*)("\s*,?\s*)$', line)
             if match:
                 inner = match.group(2)
                 inner = inner.replace('\\"', '\x00')
                 inner = inner.replace('"', '\\"')
                 inner = inner.replace('\x00', '\\"')
-                lines[i] = match.group(1) + inner + match.group(3) + match.group(4)
+                lines[i] = match.group(1) + inner + match.group(3)
 
         text = "\n".join(lines)
         text = re.sub(r",\s*([}\]])", r"\1", text)
-        return json.loads(text)
+        try:
+            return json.loads(text)
+        except json.JSONDecodeError as e:
+            # 모든 복구 실패 — 호출부(recognize_crop 등)에서 격리해 변환을
+            # 중단하지 않도록 명확한 예외로 올린다. 원문 일부를 로그로 남김.
+            logger.error("JSON 복구 최종 실패: %s\n원문 앞부분:\n%s",
+                         e, text[:800])
+            raise
 
     @staticmethod
     def _fix_json_backslashes(text: str) -> str:

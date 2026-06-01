@@ -15,7 +15,7 @@ from __future__ import annotations
 
 from PIL import Image
 
-from PySide6.QtCore import Qt, QRectF, QPointF
+from PySide6.QtCore import Qt, QRectF, QPointF, QTimer
 from PySide6.QtGui import QImage, QPixmap, QPen, QColor, QBrush, QFont, QPainterPath
 from PySide6.QtWidgets import (
     QDialog, QGraphicsView, QGraphicsScene, QGraphicsRectItem,
@@ -297,18 +297,21 @@ class CropEditorDialog(QDialog):
         self.setWindowTitle("문제 영역(크롭) 검수 · 수정")
         # 화면(작업 영역)에 맞춰 크기 제한 — 큰 고정 크기로 하단 버튼이 잘리던 문제 방지.
         # 시험지는 세로형이라 너무 넓을 필요 없음(좌우 여백 낭비) → 세로 우선 비율.
+        # 시험지는 세로형(A4 ≈ 1:1.41) → 세로로 길고 폭은 좁게. 폭을 키우면
+        # fitInView(KeepAspectRatio) 가 높이에 맞추고 좌우 여백만 커져 페이지가
+        # 가운데 작게 몰려 보인다. 페이지 비율에 가깝게 폭을 잡아 여백 최소화.
         screen = self.screen() or QApplication.primaryScreen()
         avail = screen.availableGeometry() if screen else None
         if avail:
-            w = min(900, int(avail.width() * 0.9))
-            h = min(940, int(avail.height() * 0.9))
+            h = min(980, int(avail.height() * 0.92))
+            w = min(int(h * 0.78), int(avail.width() * 0.9))   # 페이지 비율 근사
             self.resize(w, h)
-            self.setMinimumSize(min(560, w), min(420, h))
+            self.setMinimumSize(min(520, w), min(420, h))
             # 화면 중앙 배치
             self.move(avail.center().x() - w // 2, avail.center().y() - h // 2)
         else:
-            self.resize(900, 900)
-            self.setMinimumSize(560, 420)
+            self.resize(720, 940)
+            self.setMinimumSize(520, 420)
         self._pages = pages
         self._idx = 0
         self.result_boxes: list[list[CropBox]] | None = None
@@ -350,30 +353,32 @@ class CropEditorDialog(QDialog):
         add_btn.clicked.connect(self._add_box)
         del_btn.clicked.connect(self._delete_selected)
         for b in (self._prev_btn, self._next_btn, zoom_out, zoom_in, zoom_fit):
-            b.setFixedWidth(44)
+            b.setFixedWidth(40)
         for b in (add_btn, del_btn):
-            b.setFixedWidth(62)
+            b.setFixedWidth(58)
+        # 취소/OCR 도 같은 줄 우측에 배치(별도 2번째 줄 제거 → 하단 한 줄).
+        cancel = QPushButton("취소")
+        ok = QPushButton("OCR 실행 ▶")
+        ok.setToolTip("선택한 영역만 OCR하여 변환을 진행합니다")
+        cancel.setFixedWidth(52)
+        ok.setDefault(True)
+        ok.setMinimumWidth(96)
+        for b in (self._prev_btn, self._next_btn, zoom_out, zoom_in,
+                  zoom_fit, add_btn, del_btn, cancel, ok):
+            b.setMinimumHeight(32)
+        cancel.clicked.connect(self.reject)
+        ok.clicked.connect(self._accept)
+
         bar.addWidget(self._prev_btn)
         bar.addWidget(self._page_lbl)
         bar.addWidget(self._next_btn)
         bar.addStretch(1)
         for wdg in (zoom_out, zoom_in, zoom_fit, add_btn, del_btn):
             bar.addWidget(wdg)
+        bar.addSpacing(10)
+        bar.addWidget(cancel)
+        bar.addWidget(ok)
         root.addLayout(bar)
-
-        # 확인/취소 — 항상 보이도록 하단 고정. OK 버튼 라벨 단축.
-        btns = QHBoxLayout()
-        btns.setSpacing(6)
-        cancel = QPushButton("취소")
-        ok = QPushButton("이 영역으로 OCR ▶")
-        ok.setDefault(True)
-        ok.setMinimumHeight(34)
-        cancel.clicked.connect(self.reject)
-        ok.clicked.connect(self._accept)
-        btns.addStretch(1)
-        btns.addWidget(cancel)
-        btns.addWidget(ok)
-        root.addLayout(btns)
 
     # ── 페이지 로드/저장 ───────────────────────────────────
     def _load_page(self, idx: int):
@@ -390,16 +395,27 @@ class CropEditorDialog(QDialog):
             item = _CropItem(QRectF(l, t, r - l, bot - t), b.kind, b.number, b.qtype)
             self._scene.addItem(item)
         self._fit()
-        empties = sum(1 for (_i, bx) in self._pages if not bx)
-        warn = "  ⚠ 빈 페이지는 자동 건너뜀" if not boxes else ""
-        self._page_lbl.setText(f"  {idx + 1} / {len(self._pages)} 페이지"
-                               f" · 박스 {len(boxes)}개{warn}  ")
+        warn = " ⚠빈페이지" if not boxes else ""
+        self._page_lbl.setText(
+            f" {idx + 1}/{len(self._pages)} · {len(boxes)}박스{warn} ")
+        self._page_lbl.setToolTip("⚠ 빈 페이지는 OCR에서 자동 건너뜁니다" if not boxes else "")
         self._prev_btn.setEnabled(idx > 0)
         self._next_btn.setEnabled(idx < len(self._pages) - 1)
 
     def _fit(self):
-        if self._pixitem:
+        if getattr(self, "_pixitem", None):
             self._view.fitInView(self._scene.sceneRect(), Qt.KeepAspectRatio)
+
+    def showEvent(self, event):
+        # __init__ 시점엔 뷰가 아직 최종 크기가 아니라 fitInView 가 작게 맞춰진다.
+        # 창이 실제로 표시·레이아웃된 뒤 다시 맞춰 페이지가 뷰를 꽉 채우게 한다.
+        super().showEvent(event)
+        QTimer.singleShot(0, self._fit)
+
+    def resizeEvent(self, event):
+        # 창 크기가 바뀌면 페이지도 다시 맞춰 항상 뷰를 채우도록.
+        super().resizeEvent(event)
+        self._fit()
 
     def _save_current(self):
         image, _ = self._pages[self._idx]
