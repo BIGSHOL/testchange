@@ -333,6 +333,9 @@ class CropEditorDialog(QDialog):
         root.addWidget(self._view, 1)
 
         # 페이지 네비 + 줌 + 도구 — 좁은 화면에서도 한 줄에 들어가도록 컴팩트하게.
+        # 전역 스타일시트의 버튼 padding(좌우 16px)이 커서 좁은 고정폭에 한글이
+        # 잘린다. 이 줄의 버튼만 padding 을 줄여 텍스트가 온전히 보이게 한다.
+        _COMPACT_BTN = "QPushButton{padding:5px 8px; font-size:12px;}"
         bar = QHBoxLayout()
         bar.setSpacing(4)
         self._prev_btn = QPushButton("◀")
@@ -352,20 +355,22 @@ class CropEditorDialog(QDialog):
         add_btn.setToolTip("박스 추가"); del_btn.setToolTip("선택 박스 삭제")
         add_btn.clicked.connect(self._add_box)
         del_btn.clicked.connect(self._delete_selected)
-        for b in (self._prev_btn, self._next_btn, zoom_out, zoom_in, zoom_fit):
-            b.setFixedWidth(40)
-        for b in (add_btn, del_btn):
-            b.setFixedWidth(58)
         # 취소/OCR 도 같은 줄 우측에 배치(별도 2번째 줄 제거 → 하단 한 줄).
         cancel = QPushButton("취소")
         ok = QPushButton("OCR 실행 ▶")
         ok.setToolTip("선택한 영역만 OCR하여 변환을 진행합니다")
-        cancel.setFixedWidth(52)
         ok.setDefault(True)
-        ok.setMinimumWidth(96)
-        for b in (self._prev_btn, self._next_btn, zoom_out, zoom_in,
-                  zoom_fit, add_btn, del_btn, cancel, ok):
+        _bar_btns = (self._prev_btn, self._next_btn, zoom_out, zoom_in,
+                     zoom_fit, add_btn, del_btn, cancel, ok)
+        for b in _bar_btns:
+            b.setStyleSheet(_COMPACT_BTN)
             b.setMinimumHeight(32)
+        # 기호만 있는 버튼은 좁게 고정, 한글 라벨 버튼은 내용에 맞춰(잘림 방지)
+        # 최소폭을 sizeHint 로 보장한다. "최소 가로폭 유지" 요구 반영.
+        for b in (self._prev_btn, self._next_btn, zoom_out, zoom_in):
+            b.setFixedWidth(34)
+        for b in (zoom_fit, add_btn, del_btn, cancel, ok):
+            b.setMinimumWidth(b.sizeHint().width())
         cancel.clicked.connect(self.reject)
         ok.clicked.connect(self._accept)
 
