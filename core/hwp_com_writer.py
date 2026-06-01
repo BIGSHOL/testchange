@@ -259,6 +259,66 @@ class HwpComWriter:
             self._write_page(page)
 
 
+def _fix_invisible_charpr(hwpx_path: str | Path) -> int:
+    """저장된 .hwpx 의 글자모양에서 장평(ratio)·상대크기(relSz) 0 을 100 으로 보정.
+
+    템플릿(.hwp/.hwpx)을 열어 작성하면 그 컨텍스트의 글자모양이 장평/상대크기
+    0 으로 상속되는 경우가 있다. ratio=0 이면 글자 폭이 0, relSz=0 이면 글자
+    높이가 0 이라 **본문 텍스트가 통째로 안 보인다**(수식은 별도 객체라 영향 없음).
+    COM 으로는 이 컨텍스트를 안정적으로 못 덮으므로(SelectAll+CharShape 는 수식
+    객체 포함 시 헤드리스에서 hang), 저장 후 header.xml 을 직접 패치한다.
+
+    ``<hh:ratio …="0"…>`` / ``<hh:relSz …="0"…>`` 의 0 속성만 100 으로 바꾼다
+    (이 태그들엔 스크립트별 비율값만 들어 있어 0→100 치환이 안전하며, 정상값
+    100/90 등은 그대로 둔다). 반환값은 치환한 0 필드 수.
+
+    Returns:
+        보정한 0 값 속성의 개수(0 이면 손댈 것 없음).
+    """
+    import zipfile, tempfile, os
+
+    hwpx_path = Path(hwpx_path)
+    # 원본 엔트리 메타(ZipInfo: 이름·순서·압축방식·플래그)를 그대로 보존해야
+    # HWP 가 정상적으로 연다. 재압축/순서변경 시 HWP 가 복구 모드로 hang 한다.
+    with zipfile.ZipFile(hwpx_path) as z:
+        infos = z.infolist()
+        hdr_info = next((i for i in infos if i.filename.endswith("header.xml")), None)
+        if hdr_info is None:
+            return 0
+        contents = {i.filename: z.read(i.filename) for i in infos}
+
+    hdr = contents[hdr_info.filename].decode("utf-8")
+    count = 0
+
+    def _bump(m: "re.Match") -> str:
+        nonlocal count
+        tag = m.group(0)
+        count += tag.count('="0"')
+        return tag.replace('="0"', '="100"')
+
+    hdr = re.sub(r'<hh:ratio\b[^>]*/>', _bump, hdr)
+    hdr = re.sub(r'<hh:relSz\b[^>]*/>', _bump, hdr)
+    if count == 0:
+        return 0
+    contents[hdr_info.filename] = hdr.encode("utf-8")
+
+    # 원본 ZipInfo 를 그대로 재사용해 같은 순서·같은 압축방식으로 재작성.
+    fd, tmp = tempfile.mkstemp(suffix=".hwpx", dir=str(hwpx_path.parent))
+    os.close(fd)
+    with zipfile.ZipFile(tmp, "w") as zout:
+        for info in infos:
+            # ZipInfo 복제(압축방식·외부속성·플래그 유지), 내용만 교체
+            zi = zipfile.ZipInfo(info.filename, date_time=info.date_time)
+            zi.compress_type = info.compress_type
+            zi.external_attr = info.external_attr
+            zi.internal_attr = info.internal_attr
+            zi.create_system = info.create_system
+            zi.flag_bits = info.flag_bits
+            zout.writestr(zi, contents[info.filename])
+    os.replace(tmp, hwpx_path)
+    return count
+
+
 def write_exam_to_hwp(
     document: ExamDocument,
     output_path: str | Path,
@@ -283,6 +343,12 @@ def write_exam_to_hwp(
         writer = HwpComWriter(s)
         writer.write(document)
         s.save_hwpx(output_path)
+    # 저장 후 본문 글자모양의 장평/상대크기 0(투명) 보정 — 템플릿 상속으로
+    # 본문이 안 보이는 문제 방지. COM 종료 뒤 XML 직접 패치(안전·결정적).
+    try:
+        _fix_invisible_charpr(output_path)
+    except Exception:
+        pass
     return output_path
 
 

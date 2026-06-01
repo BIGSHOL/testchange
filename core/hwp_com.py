@@ -117,11 +117,25 @@ class HwpSession:
         """이후 입력될 텍스트의 글자 크기(pt)를 고정한다.
 
         선택 영역이 없으면 캐럿 위치의 글자모양에 적용되어 이후 입력에 반영된다.
+
+        주의: 템플릿(.hwp/.hwpx)을 연 상태에서 ``GetDefault("CharShape")`` 는
+        그 컨텍스트의 글자모양을 돌려주는데, 장평(Ratio)·글자크기비율(Size)이
+        **0** 으로 오는 경우가 있다. 그대로 Execute 하면 모든 본문 글자가
+        폭/높이 0 으로 렌더돼 **보이지 않는다**(수식은 별도 객체라 영향 없음).
+        따라서 Ratio·Size 를 항상 100% 로 명시해 0 적용을 차단한다.
         """
         h = self.hwp
-        h.HAction.GetDefault("CharShape", h.HParameterSet.HCharShape.HSet)
-        h.HParameterSet.HCharShape.Height = h.PointToHwpUnit(pt)
-        h.HAction.Execute("CharShape", h.HParameterSet.HCharShape.HSet)
+        cs = h.HParameterSet.HCharShape
+        h.HAction.GetDefault("CharShape", cs.HSet)
+        cs.Height = h.PointToHwpUnit(pt)
+        for _script in ("Hangul", "Latin", "Hanja", "Japanese",
+                        "Other", "Symbol", "User"):
+            try:
+                setattr(cs, f"Ratio{_script}", 100)   # 장평 0 → 글자 폭 0(투명) 방지
+                setattr(cs, f"Size{_script}", 100)     # 상대크기 0 → 글자 높이 0 방지
+            except Exception:
+                pass
+        h.HAction.Execute("CharShape", cs.HSet)
 
     def force_layout(self) -> None:
         """전체 문서 레이아웃을 일괄 계산하도록 강제한다.
