@@ -16,7 +16,10 @@ from __future__ import annotations
 from PIL import Image
 
 from PySide6.QtCore import Qt, QRectF, QPointF, QTimer
-from PySide6.QtGui import QImage, QPixmap, QPen, QColor, QBrush, QFont, QPainterPath
+from PySide6.QtGui import (
+    QImage, QPixmap, QPen, QColor, QBrush, QFont, QPainterPath,
+    QShortcut, QKeySequence,
+)
 from PySide6.QtWidgets import (
     QDialog, QGraphicsView, QGraphicsScene, QGraphicsRectItem,
     QGraphicsPixmapItem, QVBoxLayout, QHBoxLayout, QPushButton, QLabel,
@@ -343,6 +346,12 @@ class CropEditorDialog(QDialog):
         self._page_lbl = QLabel()
         self._prev_btn.clicked.connect(lambda: self._go(-1))
         self._next_btn.clicked.connect(lambda: self._go(1))
+        self._prev_btn.setToolTip("이전 페이지 (←)")
+        self._next_btn.setToolTip("다음 페이지 (→)")
+        # 좌우 화살표로 페이지 이동(창 단위 단축키 — 그래픽뷰가 포커스를 가져도 동작).
+        # QShortcut 은 포커스 위젯의 화살표 스크롤보다 먼저 처리되므로 일관되게 작동한다.
+        QShortcut(QKeySequence(Qt.Key_Left), self, activated=lambda: self._go(-1))
+        QShortcut(QKeySequence(Qt.Key_Right), self, activated=lambda: self._go(1))
         zoom_in = QPushButton("＋")
         zoom_out = QPushButton("－")
         zoom_fit = QPushButton("맞춤")
