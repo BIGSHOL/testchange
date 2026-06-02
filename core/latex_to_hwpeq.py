@@ -296,8 +296,50 @@ class LaTeXToHWPConverter:
         r"\widetilde": "TILDE",
     }
 
+    # 대문자 연속런(AB, ABC, ABCD …)을 정자(rm)로 감쌀 때 **제외**할 HWP 키워드.
+    # HWP 수식은 라틴 문자를 기본으로 이탤릭 렌더하므로(실측 확정 2026-06-02:
+    # `x+ay-1` 기본 = `it {x+ay-1}` 와 픽셀 동일), 변수는 손대지 않는다. 다만
+    # 도형 라벨(선분 AB·삼각형 ABC·사각형 ABCD 등)도 이탤릭이 되어버리므로,
+    # 연속 대문자 2자 이상을 `rm {…}` 로 정자화한다. 이때 SUM·LEFT·LEQ 같은
+    # 전부-대문자 키워드는 라벨이 아니라 제어어이므로 감싸면 안 된다 → 이 집합으로 제외.
+    _ROMAN_LABEL_RE = re.compile(r"(?<![A-Za-z])([A-Z]{2,})(?![A-Za-z])")
+    # 맵에 없는 구조 키워드(대형연산자·괄호·행렬·이항계수)도 제외 대상.
+    _ROMAN_SKIP_EXTRA = {
+        "LEFT", "RIGHT", "SUM", "PROD", "COPROD", "INT", "DINT", "TINT",
+        "OINT", "UNION", "INTER", "CASES", "MATRIX", "PMATRIX", "BMATRIX",
+        "DMATRIX", "RM", "IT", "BOLD", "ROOT", "OF", "OVER", "ATOP", "SQRT",
+    }
+
     def __init__(self):
         self._build_patterns()
+        # 변환기 맵의 값 중 '전부 대문자 2자 이상'인 것을 라벨 정자화에서 제외.
+        skip = set(self._ROMAN_SKIP_EXTRA)
+        for mp in (self.SYMBOL_MAP, self.FUNC_MAP, self.ACCENT_MAP, self.GREEK_MAP):
+            for v in mp.values():
+                if re.fullmatch(r"[A-Z]{2,}", v):
+                    skip.add(v)
+        self._roman_skip = skip
+
+    def _apply_roman_labels(self, script: str) -> str:
+        """변환된 HWP 스크립트에서 도형 라벨(연속 대문자 2자+)을 `rm {…}` 로 정자화.
+
+        HWP 기본이 이탤릭이라 변수(x, a, 단일 대문자)는 그대로 두고, 선분/삼각형/
+        사각형 라벨(AB, ABC, ABCD)만 정자로 만든다. HWP 키워드(SUM, LEFT, LEQ …)와
+        이미 `rm {` 로 감싼 구간은 건드리지 않는다.
+        """
+        def _repl(m: "re.Match") -> str:
+            run = m.group(1)
+            if run in self._roman_skip:
+                return run
+            start = m.start(1)
+            prev = m.string[max(0, start - 4):start]
+            # 이미 rm/it/bold 로 감싸진 라벨(예: \mathrm 출력)은 중복 적용 방지.
+            if prev.endswith("rm {") or prev.endswith("rm ") \
+                    or prev.endswith("it {") or prev.endswith("bold"):
+                return run
+            return "rm {" + run + "}"
+
+        return self._ROMAN_LABEL_RE.sub(_repl, script)
 
     def _build_patterns(self):
         """정규식 패턴 사전 컴파일."""
@@ -425,6 +467,10 @@ class LaTeXToHWPConverter:
         # sentinel 복원: 보호했던 리터럴 중괄호 → HWP 따옴표 리터럴 "{" "}".
         # (escaped \{ \}는 뒤 문자와 인접 시 파싱이 깨지는 반면, 따옴표형은 항상 안정적 — 실측 확정.)
         result = result.replace(_SENT_LB, '"{"').replace(_SENT_RB, '"}"')
+
+        # 도형 라벨(연속 대문자 2자+) 정자화: HWP 기본 이탤릭이라 선분/삼각형/
+        # 사각형 라벨(AB, ABC, ABCD)이 기울어 보이는 것을 rm {…} 로 바로세운다.
+        result = self._apply_roman_labels(result)
 
         # 후처리: 다중 공백 정리
         result = re.sub(r"  +", " ", result).strip()

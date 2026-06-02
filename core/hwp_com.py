@@ -235,22 +235,28 @@ class HwpSession:
         if not script:
             return
         h = self.hwp
-        h.HAction.GetDefault("EquationCreate", h.HParameterSet.HEqEdit.HSet)
-        h.HParameterSet.HEqEdit.string = script
-        h.HParameterSet.HEqEdit.BaseUnit = h.PointToHwpUnit(self.eq_pt)
-        # 수식 글꼴을 HYhwpEQ로 명시 고정(빈 값이면 HWP가 다른 기본폰트로 렌더해
-        # 편집기 직접입력과 달라 보이는 문제 방지).
+        # ParameterSet 은 반드시 한 번만 가져와 캐싱해 재사용한다. ``h.HParameterSet
+        # .HEqEdit`` 를 매번 새로 접근하면 GetDefault/설정/Execute 가 서로 다른
+        # 인스턴스를 보게 되어, 수식이 "미확정"(version="") 상태로 남아 HWP 가
+        # 구형 메트릭으로 무겁게 렌더한다(편집기로 한 번 열었다 닫으면 정상화됨).
+        # 같은 객체에 모든 설정을 쌓고 그 HSet 으로 Execute 해야 version 이 스탬프되어
+        # 편집기 직접입력과 동일한(가벼운) 렌더가 된다. (실측 확정 2026-06-02)
+        eq = h.HParameterSet.HEqEdit
+        h.HAction.GetDefault("EquationCreate", eq.HSet)
+        eq.string = script
+        eq.BaseUnit = h.PointToHwpUnit(self.eq_pt)
+        eq.TreatAsChar = 1                # 글자처럼 취급(인라인) — 생성 시점에 지정.
+        # 수식 글꼴 명시 고정(빈 값이면 HWP 기본 HancomEQN 으로 렌더).
         if self.eq_font:
             try:
-                h.HParameterSet.HEqEdit.EqFontName = self.eq_font
+                eq.EqFontName = self.eq_font
             except Exception:
                 pass
-        h.HAction.Execute("EquationCreate", h.HParameterSet.HEqEdit.HSet)
-        h.HAction.Run("Close")            # 수식편집기 닫고 본문 복귀(객체 선택 상태)
-        h.FindCtrl()                      # 방금 삽입한 수식 컨트롤 선택
-        h.HAction.Run("ShapeObjTreatAsChar")  # 글자처럼 취급 → 인라인
-        h.HAction.Run("Cancel")           # 선택 해제
-        h.HAction.Run("MoveRight")        # 수식 객체 뒤로 커서 이동
+        h.HAction.Execute("EquationCreate", eq.HSet)
+        # 편집기 닫기. TreatAsChar=1 로 이미 인라인이며, Close 가 커서를 수식 뒤에
+        # 두므로 사후 FindCtrl/ShapeObjTreatAsChar 처리(미확정 version="" 유발)는
+        # 불필요하다. (실측 확정 2026-06-02: 사후 처리 제거로 version 스탬프 + 인라인 동시 달성)
+        h.HAction.Run("Close")
 
     def insert_picture(self, path: str | Path) -> None:
         """그림 파일을 본문에 삽입(글자처럼 취급, 인라인).
