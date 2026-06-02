@@ -64,14 +64,21 @@ def _repeat_find(hwp, s: str) -> bool:
 
 
 def _find_all(hwp, s: str, count: int) -> list[tuple[int, int, int]]:
-    """문서 처음부터 ``s`` 를 count 개까지 찾아 각 매치 **뒤** 캐럿 위치를 모은다."""
+    """문서 처음부터 ``s`` 를 최대 count 개까지 찾아 각 매치 **뒤** 캐럿 위치를 모은다.
+
+    RepeatFind 는 끝에 도달하면 처음으로 **순환(wrap)** 한다. 위치가 더 이상 전진하지
+    않으면(역행/제자리) 순환으로 보고 멈춘다 → 실제 개수만 정확히 센다.
+    """
     hwp.Run("MoveDocBegin")
     pts = []
     for _ in range(count):
         if not _repeat_find(hwp, s):
             break
         hwp.Run("Cancel")          # 선택 해제 → 캐럿이 매치 뒤
-        pts.append(hwp.GetPos())
+        p = hwp.GetPos()
+        if pts and (p[1], p[2]) <= (pts[-1][1], pts[-1][2]):
+            break                  # 전진 안 함 → 순환(wrap), 중복 방지
+        pts.append(p)
     return pts
 
 
@@ -96,6 +103,78 @@ def _eq_script(block) -> str:
     return block.hwp_equation or latex_to_hwpeq(block.value)
 
 
+def _put_block(ses, b) -> None:
+    """ContentBlock 하나를 현재 캐럿에 삽입(수식/텍스트)."""
+    if b.type in (ContentType.EQUATION, ContentType.EQUATION_BLOCK):
+        ses.equation(_eq_script(b))  # 숫자도 수식 객체로 유지(정렬)
+    elif b.type == ContentType.TEXT:
+        if b.value:
+            ses.text(b.value)
+
+
+def _put_score(ses, h, score: int) -> bool:
+    """배점 ``[N점]`` 삽입. 단독으로 다음 줄로 넘어가면 줄바꿈 후 우측정렬.
+
+    Returns: 우측정렬 단락으로 넘겼으면 True(현재 단락이 우측정렬 상태).
+    """
+    def line():
+        try:
+            return h.KeyIndicator()[5]
+        except Exception:
+            return -1
+
+    sp = h.GetPos()
+    la = line()
+    ses.text(f" [{score}점]")
+    lb = line()
+    if la >= 0 and lb > la:
+        h.SetPos(sp[0], sp[1], sp[2])
+        h.Run("MoveSelParaEnd")
+        h.HAction.Run("Delete")
+        h.Run("BreakPara")
+        h.Run("ParagraphShapeAlignRight")
+        _set_plain(h)
+        ses.text(f"[{score}점]")
+        return True
+    return False
+
+
+def _fill_essay_at(ses, h, pos, q: Question, label_idx: int) -> None:
+    """서술형 슬롯 채움: 번호줄 ``[라벨 M] 문제`` + 소문항((k) 수식 마커) + 배점.
+
+    label_idx 는 서술형 일련번호(서답형 1, 2, …; 전체 문항번호와 별개).
+    번호줄의 ``[서술형 ]`` 플레이스홀더는 삭제 후 다시 쓴다.
+    """
+    label = q.label_type or "서답형"
+    h.SetPos(pos[0], pos[1], pos[2])
+    h.Run("MoveRight")                       # 번호(미주) 다음
+    # 슬롯 템플릿: 번호줄 [서술형] + 빈줄 + 둘째 [서술형] 까지 선택 삭제([중단원] 전까지).
+    h.Run("MoveSelParaEnd")                   # 번호 단락 끝(첫 [서술형])
+    h.Run("MoveSelDown")                      # 빈 단락으로
+    h.Run("MoveSelDown")                      # 둘째 [서술형] 단락으로
+    h.Run("MoveSelParaEnd")                   # 둘째 [서술형] 단락 끝
+    h.HAction.Run("Delete")
+    _set_plain(h)
+    ses.text(f" [{label} {label_idx}] ")
+    for b in q.contents:
+        _put_block(ses, b)
+    if q.sub_questions:
+        for k, sub in enumerate(q.sub_questions):
+            ses.break_para()
+            h.Run("ParagraphShapeAlignLeft")  # 직전 배점이 우측정렬됐어도 새 줄은 좌측
+            _set_plain(h)
+            ses.equation(f"({k + 1})")        # 소문항 마커 (1)(2)… 는 수식으로
+            ses.text(" ")
+            for b in sub.contents:
+                _put_block(ses, b)
+            if sub.score:
+                _put_score(ses, h, sub.score)  # 배점 줄넘침 시 우측정렬
+            ses.break_para()                  # 답안 공간 한 줄
+            h.Run("ParagraphShapeAlignLeft")
+    elif q.score:
+        _put_score(ses, h, q.score)
+
+
 def _choice_len(choice) -> int:
     return sum(len(b.value or "") for b in choice.contents)
 
@@ -107,31 +186,19 @@ def _is_long_choices(q: Question) -> bool:
 
 
 # ── 1단계: COM 채움 ───────────────────────────────────────
-def _fill_form(mc: list[Question], form_path, out_path) -> int:
-    """폼을 열어 슬롯 수 조절 + 문제/보기 채움 → out_path 저장. 채운 문항 수 반환."""
-    N = len(mc)
+def _fill_form(mc: list[Question], essays: list[Question], form_path, out_path) -> tuple[int, int]:
+    """폼을 열어 슬롯 수 조절 + 객관식/서술형 채움 → out_path 저장.
+
+    폼은 앞쪽 객관식 슬롯(①②③④⑤ 사전배치) + 뒤쪽 서술형 슬롯([서술형]). 잉여 객관식
+    슬롯만 삭제하면 미주 자동번호로 **서술형 번호가 객관식 다음으로 이어진다**.
+
+    Returns: (채운 객관식 수, 채운 서술형 수).
+    """
+    n_mc, n_es = len(mc), len(essays)
     with HwpSession(visible=False) as ses:
         h = ses.hwp
         ses.open(form_path)
         ses.set_char_size(ses.base_pt)
-
-        def put_text(t):
-            if t:
-                ses.text(t)
-
-        def put_block(b):
-            if b.type in (ContentType.EQUATION, ContentType.EQUATION_BLOCK):
-                # 보기·본문의 숫자도 수식 객체로 유지(고정 탭/정렬 위해 강등 안 함).
-                ses.equation(_eq_script(b))
-            elif b.type == ContentType.TEXT:
-                put_text(b.value)
-
-        def put_choice_at(pos, choice):
-            h.SetPos(pos[0], pos[1], pos[2])
-            _set_plain(h)
-            put_text(" ")
-            for b in choice.contents:
-                put_block(b)
 
         def cur_line():
             try:
@@ -139,48 +206,53 @@ def _fill_form(mc: list[Question], form_path, out_path) -> int:
             except Exception:
                 return -1
 
-        def put_question_at(pos, q):
-            # 미주(번호) 다음으로 이동 후 본문 삽입(번호가 앞에 유지되도록).
+        def put_choice_at(pos, choice):
             h.SetPos(pos[0], pos[1], pos[2])
-            h.Run("MoveRight")
             _set_plain(h)
-            put_text(" ")
-            for b in q.contents:
-                put_block(b)
-            if q.score:
-                sp = h.GetPos()
-                la = cur_line()
-                put_text(f" [{q.score}점]")
-                lb = cur_line()
-                if la >= 0 and lb > la:
-                    # 배점이 혼자 다음 줄로 넘어가면 → 인라인 제거 후 우측정렬 단락으로.
-                    h.SetPos(sp[0], sp[1], sp[2])
-                    h.Run("MoveSelParaEnd")
-                    h.HAction.Run("Delete")
-                    h.Run("BreakPara")
-                    h.Run("ParagraphShapeAlignRight")
-                    _set_plain(h)
-                    put_text(f"[{q.score}점]")
+            ses.text(" ")
+            for b in choice.contents:
+                _put_block(ses, b)
 
-        # (1) 슬롯 N개로 축소 (잉여 슬롯 bulk 삭제 → 미주 자동 재번호).
+        def put_question_at(pos, q):
+            h.SetPos(pos[0], pos[1], pos[2])
+            h.Run("MoveRight")            # 번호(미주) 다음
+            _set_plain(h)
+            ses.text(" ")
+            for b in q.contents:
+                _put_block(ses, b)
+            if q.score:
+                _put_score(ses, h, q.score)   # 배점 줄넘침 시 우측정렬
+
+        # (0) 폼 슬롯 구성 파악: 객관식 슬롯 수 = ① 개수, 서술형 = 나머지.
         anc = _en_anchors(h)
-        if len(anc) > N:
+        mc_form = len(_find_all(h, "①", len(anc)))
+        es_form = len(anc) - mc_form
+        n_mc = min(n_mc, mc_form)     # TODO: 초과 시 슬롯 복사
+        n_es = min(n_es, es_form)
+
+        # (1) 잉여 서술형 슬롯 삭제(뒤). 그 다음 잉여 객관식 슬롯 삭제(중간).
+        anc = _en_anchors(h)
+        if mc_form + n_es < len(anc):
             h.Run("MoveDocEnd")
             end = h.GetPos()
-            s0 = anc[N]
+            s0 = anc[mc_form + n_es]
             h.SelectText(s0[1], s0[2], end[1], end[2])
             h.HAction.Run("Delete")
             h.Run("Cancel")
-        elif len(anc) < N:
-            # TODO: 슬롯 부족 시 복사(Copy/Paste). MVP 는 폼 슬롯 범위 내 가정.
-            N = len(anc)
+        anc = _en_anchors(h)
+        if n_mc < mc_form:
+            s0 = anc[n_mc]
+            e0 = anc[mc_form]          # 첫 서술형 슬롯 시작(잉여 MC 제거 → 서술형 번호 연속)
+            h.SelectText(s0[1], s0[2], e0[1], e0[2])
+            h.HAction.Run("Delete")
+            h.Run("Cancel")
 
-        # (2) 긴 보기 슬롯은 ②④ 앞에 단락나눔 → 1열. (문서 위치 내림차순)
-        long_slots = [_is_long_choices(q) for q in mc[:N]]
-        c2 = _find_all(h, "②", N)
-        c4 = _find_all(h, "④", N)
+        # (2) 긴 보기 슬롯(객관식)은 ②④ 앞에 단락나눔 → 1열. (문서 위치 내림차순)
+        long_slots = [_is_long_choices(q) for q in mc[:n_mc]]
+        c2 = _find_all(h, "②", n_mc)
+        c4 = _find_all(h, "④", n_mc)
         conv = []
-        for i in range(N):
+        for i in range(n_mc):
             if long_slots[i]:
                 if i < len(c2):
                     conv.append(c2[i])
@@ -192,10 +264,12 @@ def _fill_form(mc: list[Question], form_path, out_path) -> int:
             h.Run("MoveLeft")
             h.Run("BreakPara")
 
-        # (3) 위치 재수집 후 아래→위로 채움(삽입이 위쪽 위치를 시프트하지 않도록).
+        # (3) 위치 재수집 후 아래→위로 채움(서술형이 아래 → 먼저, 그 다음 객관식).
         qpts = _en_anchors(h)
-        cpts = {m: _find_all(h, m, N) for m in CIRCLES}
-        for i in range(N - 1, -1, -1):
+        cpts = {m: _find_all(h, m, n_mc) for m in CIRCLES}
+        for i in range(n_es - 1, -1, -1):
+            _fill_essay_at(ses, h, qpts[n_mc + i], essays[i], i + 1)
+        for i in range(n_mc - 1, -1, -1):
             q = mc[i]
             chs = {c.number: c for c in q.choices}
             for mi, m in enumerate(reversed(CIRCLES)):
@@ -205,7 +279,7 @@ def _fill_form(mc: list[Question], form_path, out_path) -> int:
             put_question_at(qpts[i], q)
 
         ses.save_hwpx(out_path)
-    return N
+    return n_mc, n_es
 
 
 # ── 2단계: XML 행정렬 레이아웃 ────────────────────────────
@@ -436,18 +510,23 @@ def write_exam_to_form(
     if _win32 is None:
         raise RuntimeError("win32com을 사용할 수 없습니다 (HWP COM 미지원 환경).")
     output_path = Path(output_path)
-    # MVP: 객관식(보기 있는 문항)만.
-    mc = [q for page in document.pages for q in page.questions if q.choices]
-    if not mc:
-        raise ValueError("채울 객관식 문항이 없습니다(MVP 범위).")
+    qs = [q for page in document.pages for q in page.questions]
+    mc = [q for q in qs if q.choices]            # 객관식
+    essays = [q for q in qs if not q.choices]    # 서술형(보기 없음)
+    if not mc and not essays:
+        raise ValueError("채울 문항이 없습니다.")
 
     # 1단계: COM 채움 → 임시 hwpx.
     fd, filled = tempfile.mkstemp(suffix=".hwpx", dir=str(output_path.parent))
     os.close(fd)
     try:
-        n = _fill_form(mc, form_path, filled)
-        # 2단계: 행정렬 레이아웃 → 출력.
-        _layout_form(filled, output_path, per_col, n)
+        n_mc, n_es = _fill_form(mc, essays, form_path, filled)
+        if n_es == 0:
+            # 객관식만 → 행정렬 레이아웃.
+            _layout_form(filled, output_path, per_col, n_mc)
+        else:
+            # 서술형 포함 → 현재는 폼 자연 흐름 유지(객관식+서술형 혼합 레이아웃은 후속).
+            shutil.copy(filled, output_path)
     finally:
         try:
             os.remove(filled)

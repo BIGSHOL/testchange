@@ -43,6 +43,9 @@ class Question:
     contents: list[ContentBlock] = field(default_factory=list)   # 문제 본문
     choices: list[Choice] = field(default_factory=list)          # 선택지
     sub_questions: list[Question] = field(default_factory=list)  # 소문항
+    # 서술형 라벨 유형(서답형/서술형/단답형 등). 원본에 따라 다르며 크롭/OCR 단계에서
+    # 판별한다. 빈 값이면 폼 채움 시 기본값("서답형") 사용. choices 가 없으면 서술형 문항.
+    label_type: str = ""
 
 
 @dataclass
