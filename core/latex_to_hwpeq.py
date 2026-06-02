@@ -34,11 +34,19 @@ _SIMPLE_SCRIPT_RE = re.compile(r"^[A-Za-z0-9]+$")
 
 
 def _wrap_script(content: str) -> str:
-    """위/아래첨자 본문을 HWP 표기로. 단순 영숫자면 무중괄호, 아니면 {}."""
+    """위/아래첨자 본문을 HWP 표기로.
+
+    **한 글자**(예: 2, n)만 무중괄호로 밀착 렌더하고, **두 글자 이상**은 반드시
+    중괄호로 묶는다. 무중괄호 다글자 첨자(예: ``x^2y``)는 HWP가 구분자 없는 ``^``를
+    뒤따르는 연산자·괄호까지 탐욕적으로 삼켜(over-capture) 수식이 깨진다
+    (예: ``10x^2y-6xy^2)÷2y`` → x 지수가 ``2y-6xy^2)÷`` 전체를 먹음). 실측 확정 2026-06-02.
+    """
     content = content.strip()
-    if _SIMPLE_SCRIPT_RE.match(content):
-        return content          # 예: 2, 48, n, ab → ^2 ^48 (밀착)
-    return "{" + content + "}"  # 예: -1, n+1, 2k → ^{...} (그룹 필요)
+    # 항상 중괄호로 묶는다. 무중괄호 ``^`` 는 구분자(공백) 없이는 뒤따르는 연산자·
+    # 괄호까지 탐욕적으로 삼킨다 — 한 글자 지수도 ``6xy^2)÷`` 처럼 뒤에 ``)÷`` 가
+    # 붙으면 ``2)÷`` 를 전부 지수로 먹어 깨진다(실측 확정 2026-06-02). 중괄호가 유일한
+    # 안전한 경계다(사용자 정답도 ``x^{2y}``·``6xy^{2}`` 모두 중괄호 사용).
+    return "{" + content + "}"
 
 
 # \textcircled{...} → 유니코드 동그라미 문자 (숫자 ①~⑳, 자음 ㉠~, 음절 ㉮~)
@@ -61,6 +69,28 @@ def _normalize_circled(s: str) -> str:
                 return chr(0x326E + _CIRCLED_HANGUL_SYL.index(v))    # ㉮~
         return v
     return _CIRCLED_RE.sub(_repl, s)
+
+
+# 단위: 수식 내 "숫자+단위"의 단위를 로만체로(rm) + 1/4칸(`) 살짝 띄움.
+# HWP 수식은 라틴 문자를 기본 이탤릭으로 렌더하므로 단위(kg, cm …)도 기울어진다.
+# 사용자 요구: 0.5kg → "0.5 rm`kg" (단위는 정자, 숫자와 살짝 띄움). 실측 확정 2026-06-02.
+# 긴 단위 먼저(min 이 m 보다, cm 이 m 보다 우선). 한글 단위(원 등)는 수식에서 깨질 수 있어 제외.
+_UNITS = [
+    "min", "km", "cm", "mm", "kg", "mg", "mL", "dL", "kL",
+    "m", "g", "t", "L", "s", "h", "%", "°", "℃", "℉", "ℓ",
+]
+_UNIT_RE = re.compile(
+    r"(?<=\d)(" + "|".join(re.escape(u) for u in _UNITS) + r")(?![A-Za-z])"
+)
+
+
+def _romanize_units(s: str) -> str:
+    """수식 내 '숫자 바로 뒤 단위'를 ``rm`<단위>`` (정자 + 1/4칸)로 변환.
+
+    예: ``10kg`` → ``10 rm`kg``, ``5cm`` → ``5 rm`cm`` (cm 뒤 ``^2`` 는 그대로 → cm²).
+    숫자 뒤 + 뒤에 영문자가 이어지지 않을 때만(변수 ``5x`` 등은 건드리지 않음).
+    """
+    return _UNIT_RE.sub(lambda m: " rm`" + m.group(1), s)
 
 
 _REPEAT_DECIMAL_RE = re.compile(r"\.((?:\\dot\s*\{\s*\d\s*\}|\d)+)")
@@ -461,6 +491,13 @@ class LaTeXToHWPConverter:
             s = re.sub(r"\\begin\{" + env_name + r"\*?\}", "", s)
             s = re.sub(r"\\end\{" + env_name + r"\*?\}", "", s)
 
+        # 부등호 보호: bare ``<`` ``>`` 를 공백으로 감싼다. HWP 수식에서 ``<-`` 는
+        # 왼쪽화살표(←), ``->`` 는 오른쪽화살표로 오인식되므로, 관계연산자 뒤에 음수가
+        # 붙으면(예: ``x<-3``) 화살표로 깨진다. 화살표 토큰(``<-`` ``->`` ``<->`` ``<<``
+        # ``>>``)은 \leftarrow·\to·\ll 등 명령에서 _convert_expr 내부(이 시점 이후)에
+        # 생성되므로 영향받지 않는다. (실측 확정 2026-06-02)
+        s = s.replace("<", " < ").replace(">", " > ")
+
         s = s.strip()
         result = self._convert_expr(s)
 
@@ -471,6 +508,9 @@ class LaTeXToHWPConverter:
         # 도형 라벨(연속 대문자 2자+) 정자화: HWP 기본 이탤릭이라 선분/삼각형/
         # 사각형 라벨(AB, ABC, ABCD)이 기울어 보이는 것을 rm {…} 로 바로세운다.
         result = self._apply_roman_labels(result)
+
+        # 단위 정자화: 숫자 뒤 단위(kg, cm …)를 rm`<단위>로 (정자 + 살짝 띄움).
+        result = _romanize_units(result)
 
         # 후처리: 다중 공백 정리
         result = re.sub(r"  +", " ", result).strip()

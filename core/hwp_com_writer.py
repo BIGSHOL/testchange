@@ -204,16 +204,15 @@ class HwpComWriter:
         for sub in question.sub_questions:
             self._write_question(sub)
 
-        # 서술형 풀이 공간 (소문항이 있으면 각 소문항이 처리하므로 부모는 생략)
-        if is_essay and not has_subs:
-            self._write_essay_space()
+        # 서술형 '풀이)' 답안 공간은 넣지 않는다(사용자 요구 2026-06-02): 배점에서 끝낸다.
 
         # 문제 간 빈 줄
         self.s.break_para()
 
     def _write_choice(self, choice: Choice) -> None:
+        # 선택지는 들여쓰기 없이 좌측에 붙인다(사용자 요구 2026-06-02).
         circle = CIRCLE_NUMBERS.get(choice.number, f"({choice.number})")
-        self.s.text(f"  {circle} ")
+        self.s.text(f"{circle} ")
         for block in choice.contents:
             self._write_block(block)
 
