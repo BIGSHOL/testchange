@@ -71,20 +71,18 @@ def _choice_complexity(choice: Choice) -> int:
 
 
 def _choice_columns(choices: list[Choice]) -> int:
-    """보기 배치 단 수(1~5)를 보기 길이로 자동 결정.
+    """보기 배치 단 수(1~2)를 보기 길이로 자동 결정.
 
-    아주 짧은 보기는 한 줄에 여러 개(최대 5), 길면 한 줄당 하나.
+    짧은 보기는 항상 2열(①②/③④/⑤ — 5지선다면 2열 3행), 길면 한 줄당 하나.
+    (사용자 요구 2026-06-02: 짧은 보기는 항상 2열 3행. 탭으로 줄맞춤.)
     """
     if not choices:
         return 1
-    n = len(choices)
     maxc = max(_choice_complexity(c) for c in choices)
     if maxc >= 18:
         return 1
-    if maxc >= 9:
-        return 2
-    # 매우 짧음: 전부 한 줄(최대 5단) 또는 적절히 나눔
-    return min(n, 5)
+    # 짧음/중간: 항상 2열
+    return 2
 
 
 def _eq_script(block: ContentBlock) -> str:
@@ -115,7 +113,11 @@ class HwpComWriter:
         self._title = ""
 
     # ── 콘텐츠 블록 ────────────────────────────────────────
-    def _write_block(self, block: ContentBlock) -> None:
+    def _write_block(self, block: ContentBlock, force_equation: bool = False) -> None:
+        # force_equation: 보기(선택지)에서 호출. 순수 숫자도 수식 객체로 유지한다.
+        # 텍스트 탭은 HWP가 삽입 시점의 width 를 캐시해 고정 탭 정지점으로 재계산하지
+        # 않지만(→ 둘째 열이 안 맞음), 수식 객체가 든 단락은 재계산되어 7cm 고정 탭에
+        # 정렬된다. (베이스라인 떠오름 버그는 수식 확정 수정 이후 해소됨 — 렌더 검증.)
         if block.type == ContentType.TABLE:
             # 표는 자체 단락 필요 — 앞 단락과 분리
             self.s.break_para()
@@ -123,13 +125,13 @@ class HwpComWriter:
         elif block.type == ContentType.EQUATION_BLOCK:
             self.s.break_para()
             script = _eq_script(block)
-            if _is_plain_number(script):
+            if _is_plain_number(script) and not force_equation:
                 self.s.text(script.strip())
             else:
                 self.s.equation(script)
         elif block.type == ContentType.EQUATION:
             script = _eq_script(block)
-            if _is_plain_number(script):
+            if _is_plain_number(script) and not force_equation:
                 self.s.text(script.strip())  # 숫자 전용 수식 → 텍스트(베이스라인 버그 회피)
             else:
                 self.s.equation(script)
@@ -214,7 +216,8 @@ class HwpComWriter:
         circle = CIRCLE_NUMBERS.get(choice.number, f"({choice.number})")
         self.s.text(f"{circle} ")
         for block in choice.contents:
-            self._write_block(block)
+            # 보기는 순수 숫자도 수식 객체로 유지(force_equation) — 고정 탭 정렬 위해.
+            self._write_block(block, force_equation=True)
 
     def _write_score(self, score: int) -> None:
         self.s.text(f" [{score}점]")
@@ -318,6 +321,67 @@ def _fix_invisible_charpr(hwpx_path: str | Path) -> int:
     return count
 
 
+# 보기 2열 배치의 두 번째 열 시작 위치(HWPUNIT). 7cm ≈ 19842 (1cm=2834.6).
+# 본문 탭(`\t`)은 보기 열 구분에만 쓰이므로, 모든 tabPr에 이 고정 좌측 탭을 주입하면
+# 보기 ②④가 첫 열 내용 폭(수식 객체 포함)과 무관하게 항상 같은 x에서 정렬된다.
+# COM ParagraphShape 로는 TabDef 가 문서에 커밋되지 않으므로(검증: tabItem 미저장)
+# 저장 후 header.xml 을 직접 패치한다([[hwp-com-layout-limits]] 회피책).
+_CHOICE_COL2_HWPUNIT = 19842
+
+
+def _inject_choice_tabstop(hwpx_path: str | Path, pos: int = _CHOICE_COL2_HWPUNIT) -> int:
+    """저장된 .hwpx 의 header.xml tabPr 에 고정 좌측 탭 정지점을 주입한다.
+
+    자기닫음 ``<hh:tabPr …/>`` 만 대상(이미 자식 tabItem 이 있는 커스텀 탭은 건드리지
+    않음). 문서 내 탭은 보기 2열 구분용뿐이라, 단일 좌측 탭 정지점이면 모든 보기의
+    둘째 열이 같은 위치에서 정렬된다.
+
+    Returns:
+        주입한 tabPr 개수(0 이면 손댈 것 없음).
+    """
+    import zipfile, tempfile, os
+
+    hwpx_path = Path(hwpx_path)
+    with zipfile.ZipFile(hwpx_path) as z:
+        infos = z.infolist()
+        hdr_info = next((i for i in infos if i.filename.endswith("header.xml")), None)
+        if hdr_info is None:
+            return 0
+        contents = {i.filename: z.read(i.filename) for i in infos}
+
+    hdr = contents[hdr_info.filename].decode("utf-8")
+    item = f'<hh:tabItem pos="{pos}" type="LEFT" leader="NONE"/>'
+
+    def _add_item(m: "re.Match") -> str:
+        tag = m.group(0)
+        # 자동탭(autoTabLeft/Right)을 끈다 — 켜져 있으면 기본 자동탭이 고정탭보다
+        # 먼저 잡혀(짧은 텍스트 보기에서 둘째 열이 덜 정렬됨) 7cm 고정 정렬이 깨진다.
+        tag = re.sub(r'autoTabLeft="\d+"', 'autoTabLeft="0"', tag)
+        tag = re.sub(r'autoTabRight="\d+"', 'autoTabRight="0"', tag)
+        # 자기닫음 `…/>` → `…>{item}</hh:tabPr>`
+        return tag[:-2] + ">" + item + "</hh:tabPr>"
+
+    hdr, count = re.subn(r'<hh:tabPr\b[^>]*/>', _add_item, hdr)
+    if count == 0:
+        return 0
+    contents[hdr_info.filename] = hdr.encode("utf-8")
+
+    # 원본 ZipInfo 를 그대로 재사용해 같은 순서·같은 압축방식으로 재작성.
+    fd, tmp = tempfile.mkstemp(suffix=".hwpx", dir=str(hwpx_path.parent))
+    os.close(fd)
+    with zipfile.ZipFile(tmp, "w") as zout:
+        for info in infos:
+            zi = zipfile.ZipInfo(info.filename, date_time=info.date_time)
+            zi.compress_type = info.compress_type
+            zi.external_attr = info.external_attr
+            zi.internal_attr = info.internal_attr
+            zi.create_system = info.create_system
+            zi.flag_bits = info.flag_bits
+            zout.writestr(zi, contents[info.filename])
+    os.replace(tmp, hwpx_path)
+    return count
+
+
 def write_exam_to_hwp(
     document: ExamDocument,
     output_path: str | Path,
@@ -346,6 +410,11 @@ def write_exam_to_hwp(
     # 본문이 안 보이는 문제 방지. COM 종료 뒤 XML 직접 패치(안전·결정적).
     try:
         _fix_invisible_charpr(output_path)
+    except Exception:
+        pass
+    # 보기 2열 정렬: header.xml tabPr 에 고정 좌측 탭 주입(COM 미커밋 회피책).
+    try:
+        _inject_choice_tabstop(output_path)
     except Exception:
         pass
     return output_path
