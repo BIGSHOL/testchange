@@ -44,7 +44,12 @@ _MINGAP = 1
 
 # ── 저수준 COM 헬퍼 ───────────────────────────────────────
 def _en_anchors(hwp) -> list[tuple[int, int, int]]:
-    """본문 미주(en=문항번호) 앵커 위치 목록 (List, Para, Pos)."""
+    """본문 미주(en=문항번호) 앵커 위치 목록 (List, Para, Pos), **문서 위치순 정렬**.
+
+    HeadCtrl 연결리스트는 컨트롤 **생성 순서**라, 슬롯을 Paste 로 복제하면 새 미주가
+    리스트 끝에 붙어 문서 위치와 어긋난다. 채움/삭제는 위치 인덱스로 동작하므로 반드시
+    (List, Para, Pos) 로 정렬해 문서 순서를 보장해야 한다(안 하면 인접 슬롯 오삭제).
+    """
     out = []
     ctrl = hwp.HeadCtrl
     while ctrl is not None:
@@ -52,7 +57,35 @@ def _en_anchors(hwp) -> list[tuple[int, int, int]]:
             ap = ctrl.GetAnchorPos(0)
             out.append((ap.Item("List"), ap.Item("Para"), ap.Item("Pos")))
         ctrl = ctrl.Next
-    return out
+    return sorted(out)
+
+
+def _merge_sections(hwp) -> None:
+    """문서의 구역나누기(secd)를 모두 제거해 **단일 구역**으로 병합.
+
+    폼은 2구역(객관식 일부 + 서술형/정답)이라, 슬롯 삭제가 구역 경계를 넘지 않는 경우
+    (예: 14개 이상 객관식, 또는 슬롯 복사)에는 2구역으로 남는다. 그러면 XML 레이아웃
+    (`_build_layout`)이 section0 만 처리해 서술형/정답 레이아웃·짝수쪽 쪽나누기가 적용되지
+    않는다. 완성본(수기)도 단일 구역이므로, 채움 전에 구역을 병합해 항상 단일 section0 로
+    만든다. (secd 단락 줄 시작에서 DeleteBack → 앞 구역과 합쳐짐.)
+    """
+    for _ in range(8):  # 구역나누기 수만큼(보통 1) 반복, 안전 상한
+        # 문서 시작의 **초기 구역정의**(para==0)는 지울 수 없으므로 제외. 실제 구역나누기
+        # (para>0) 중 가장 앞을 골라 그 줄 시작에서 DeleteBack → 앞 구역과 병합.
+        pos = None
+        ctrl = hwp.HeadCtrl
+        while ctrl is not None:
+            if ctrl.CtrlID == "secd":
+                ap = ctrl.GetAnchorPos(0)
+                p = (ap.Item("List"), ap.Item("Para"), ap.Item("Pos"))
+                if p[1] > 0 and (pos is None or p[1] < pos[1]):
+                    pos = p
+            ctrl = ctrl.Next
+        if pos is None:
+            return
+        hwp.SetPos(pos[0], pos[1], pos[2])
+        hwp.Run("MoveLineBegin")
+        hwp.Run("DeleteBack")
 
 
 def _answer_block_pos(hwp) -> tuple[int, int, int] | None:
@@ -119,6 +152,20 @@ def _set_plain(hwp) -> None:
     hwp.HAction.Execute("CharShape", cs.HSet)
 
 
+def _copy_range(hwp, start, end) -> None:
+    """본문 구간(start~end = (list,para,pos))을 클립보드로 복사(슬롯 복제용)."""
+    hwp.SelectText(start[1], start[2], end[1], end[2])
+    hwp.HAction.Run("Copy")
+    hwp.Run("Cancel")
+
+
+def _paste_at(hwp, pos) -> None:
+    """클립보드 내용을 pos 에 붙여넣기. 슬롯(미주 포함) 복제 시 미주 자동 재번호."""
+    hwp.SetPos(pos[0], pos[1], pos[2])
+    hwp.HAction.Run("Paste")
+    hwp.Run("Cancel")
+
+
 def _eq_script(block) -> str:
     return block.hwp_equation or latex_to_hwpeq(block.value)
 
@@ -159,20 +206,32 @@ def _put_score(ses, h, score: int) -> bool:
     return False
 
 
-def _fill_essay_at(ses, h, pos, q: Question, label_idx: int) -> None:
+def _fill_essay_at(ses, h, pos, q: Question, label_idx: int, next_pos=None) -> None:
     """서술형 슬롯 채움: 번호줄 ``[라벨 M] 문제`` + 소문항((k) 수식 마커) + 배점.
 
     label_idx 는 서술형 일련번호(서답형 1, 2, …; 전체 문항번호와 별개).
     번호줄의 ``[서술형 ]`` 플레이스홀더는 삭제 후 다시 쓴다.
+    next_pos: 다음 슬롯(서술형/정답) 앵커 위치. 플레이스홀더 삭제가 **단 경계를 넘어**
+    다음 슬롯 미주까지 먹지 않도록 클램프한다(서술형은 1/단이라 MoveSelDown 이 다음 단의
+    슬롯으로 점프해 인접 미주를 삭제하는 버그가 있었음).
     """
     label = q.label_type or "서답형"
     h.SetPos(pos[0], pos[1], pos[2])
     h.Run("MoveRight")                       # 번호(미주) 다음
     # 슬롯 템플릿: 번호줄 [서술형] + 빈줄 + 둘째 [서술형] 까지 선택 삭제([중단원] 전까지).
     h.Run("MoveSelParaEnd")                   # 번호 단락 끝(첫 [서술형])
-    h.Run("MoveSelDown")                      # 빈 단락으로
-    h.Run("MoveSelDown")                      # 둘째 [서술형] 단락으로
+    for _ in range(2):
+        h.Run("MoveSelDown")
+        cur = h.GetPos()
+        if next_pos is not None and cur[1] >= next_pos[1]:   # 다음 슬롯 침범
+            h.Run("MoveSelUp")                # 한 줄 되돌림
+            break
     h.Run("MoveSelParaEnd")                   # 둘째 [서술형] 단락 끝
+    end = h.GetPos()
+    if next_pos is not None and end[1] >= next_pos[1]:        # 그래도 넘으면 번호줄만
+        h.SetPos(pos[0], pos[1], pos[2])
+        h.Run("MoveRight")
+        h.Run("MoveSelParaEnd")
     h.HAction.Run("Delete")
     _set_plain(h)
     ses.text(f" [{label} {label_idx}] ")
@@ -220,6 +279,7 @@ def _fill_form(mc: list[Question], essays: list[Question], form_path, out_path) 
         h = ses.hwp
         ses.open(form_path)
         ses.set_char_size(ses.base_pt)
+        _merge_sections(h)        # 2구역 → 단일 구역(레이아웃·짝수쪽이 전 영역에 적용되도록)
 
         def cur_line():
             try:
@@ -248,8 +308,42 @@ def _fill_form(mc: list[Question], essays: list[Question], form_path, out_path) 
         anc = _en_anchors(h)
         mc_form = len(_find_all(h, "①", len(anc)))
         es_form = len(anc) - mc_form
-        n_mc = min(n_mc, mc_form)     # TODO: 초과 시 슬롯 복사
-        n_es = min(n_es, es_form)
+
+        # (0b) 문항 수 > 폼 슬롯이면 슬롯 복사(grow). 미주 자동 재번호 → 번호 연속.
+        #      COM Paste 가 비결정적으로 한 번 누락/오삽입될 수 있어, **실제 개수로 자가보정**
+        #      한다: 객관식 = ① 개수, 서술형 = (전체 미주 − ①). 목표 개수에 도달할 때까지
+        #      반복(매 회 MoveDocBegin 으로 컨트롤 목록 flush). guard 로 무한루프 방지.
+        def _mc_count():
+            return len(_find_all(h, "①", len(_en_anchors(h)) + 4))
+
+        # 객관식: 템플릿(2번 슬롯) 복사 → MC 끝(첫 서술형 앞)에 삽입.
+        if n_mc > mc_form >= 2:
+            a = _en_anchors(h)
+            _copy_range(h, a[1], a[2])
+            guard = 0
+            while _mc_count() < n_mc and guard < (n_mc - mc_form) + 12:
+                h.Run("MoveDocBegin")
+                cur = _mc_count()
+                a = _en_anchors(h)
+                _paste_at(h, a[cur])                # a[현재 MC수] = 첫 서술형 = MC 끝
+                guard += 1
+            mc_form = n_mc
+        else:
+            n_mc = min(n_mc, mc_form)
+        # 서술형: 템플릿(첫 서술형 슬롯) 복사 → 정답 블록 앞(서술형 끝)에 삽입.
+        if n_es > es_form >= 1:
+            a = _en_anchors(h)
+            mc_now = _mc_count()
+            end = a[mc_now + 1] if mc_now + 1 < len(a) else _answer_block_pos(h)
+            _copy_range(h, a[mc_now], end)
+            guard = 0
+            while (len(_en_anchors(h)) - _mc_count()) < n_es and guard < (n_es - es_form) + 12:
+                h.Run("MoveDocBegin")
+                _paste_at(h, _answer_block_pos(h))  # 정답 블록 앞에 삽입
+                guard += 1
+            es_form = n_es
+        else:
+            n_es = min(n_es, es_form)
 
         # (1) 잉여 서술형 슬롯 삭제(뒤) — **정답 블록 앞까지만**(정답 페이지 보존).
         #     그 다음 잉여 객관식 슬롯 삭제(중간).
@@ -289,7 +383,10 @@ def _fill_form(mc: list[Question], essays: list[Question], form_path, out_path) 
         qpts = _en_anchors(h)
         cpts = {m: _find_all(h, m, n_mc) for m in CIRCLES}
         for i in range(n_es - 1, -1, -1):
-            _fill_essay_at(ses, h, qpts[n_mc + i], essays[i], i + 1)
+            p = qpts[n_mc + i]
+            later = [a for a in _en_anchors(h) if a > p]      # 다음 슬롯(삭제 경계)
+            nxt = min(later) if later else _answer_block_pos(h)
+            _fill_essay_at(ses, h, p, essays[i], i + 1, nxt)
         for i in range(n_mc - 1, -1, -1):
             q = mc[i]
             chs = {c.number: c for c in q.choices}
@@ -486,7 +583,11 @@ def _measure_first_choice_lines(hwpx, n: int) -> list[tuple[int, int, int]]:
 
 
 def _measure_answer_page(hwpx) -> int:
-    """COM 으로 열어 정답(답지) 블록이 놓인 쪽 번호를 측정(0=못 찾음)."""
+    """COM 으로 열어 정답(답지) 블록이 놓인 쪽 번호를 측정(0=못 찾음).
+
+    텍스트 "정답" 검색은 **꼬리말의 "(정답)"** 을 먼저 잡아 오측정되므로, 정답 블록
+    그리기객체(gso) 앵커 위치(`_answer_block_pos`)로 쪽을 측정한다.
+    """
     import pythoncom
 
     pythoncom.CoInitialize()
@@ -502,10 +603,10 @@ def _measure_answer_page(hwpx) -> int:
         except Exception:
             pass
         hwp.Open(str(hwpx), "HWPX", "")
-        hwp.Run("MoveDocBegin")
         page = 0
-        if _repeat_find(hwp, "정답"):
-            hwp.Run("Cancel")
+        pos = _answer_block_pos(hwp)
+        if pos is not None:
+            hwp.SetPos(pos[0], pos[1], pos[2])
             page = hwp.KeyIndicator()[3]
         hwp.Quit()
         return page
