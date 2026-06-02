@@ -38,6 +38,7 @@ CAP = 46             # 한 단의 줄 용량(채움 목표; 실측 ~42 + 헤더 
 LONG_CHOICE_LEN = 15 # 짝 보기(①②③④) 최대 길이 ≥ 이 값이면 1열 배치
 CHARS_PER_LINE = 18  # 줄 수 추정용(현재 미사용 — 측정값 우선)
 CIRCLES = ["①", "②", "③", "④", "⑤"]
+ESSAY_SUB_BLANKS = 3   # 서술형 소문항마다 답안 공간(빈 줄 수)
 _MINGAP = 1
 
 
@@ -52,6 +53,25 @@ def _en_anchors(hwp) -> list[tuple[int, int, int]]:
             out.append((ap.Item("List"), ap.Item("Para"), ap.Item("Pos")))
         ctrl = ctrl.Next
     return out
+
+
+def _answer_block_pos(hwp) -> tuple[int, int, int] | None:
+    """정답(답지) 블록 시작 위치 = 본문(list 0) **마지막 gso**(답안표 그리기객체) 앵커.
+
+    폼 끝 정답 페이지는 본문 마지막 gso 로 앵커된다(머리말 로고 gso 는 para 0). 잉여
+    서술형 슬롯을 지울 때 이 위치 **앞까지만** 삭제해야 정답 페이지가 보존된다.
+    """
+    best = None
+    ctrl = hwp.HeadCtrl
+    while ctrl is not None:
+        if ctrl.CtrlID == "gso":
+            ap = ctrl.GetAnchorPos(0)
+            if ap.Item("List") == 0:
+                p = ap.Item("Para")
+                if best is None or p > best[1]:
+                    best = (0, p, 0)
+        ctrl = ctrl.Next
+    return best
 
 
 def _repeat_find(hwp, s: str) -> bool:
@@ -169,8 +189,9 @@ def _fill_essay_at(ses, h, pos, q: Question, label_idx: int) -> None:
                 _put_block(ses, b)
             if sub.score:
                 _put_score(ses, h, sub.score)  # 배점 줄넘침 시 우측정렬
-            ses.break_para()                  # 답안 공간 한 줄
-            h.Run("ParagraphShapeAlignLeft")
+            for _ in range(ESSAY_SUB_BLANKS):  # 소문항 답안 공간(2~3줄)
+                ses.break_para()
+                h.Run("ParagraphShapeAlignLeft")
     elif q.score:
         _put_score(ses, h, q.score)
 
@@ -230,13 +251,13 @@ def _fill_form(mc: list[Question], essays: list[Question], form_path, out_path) 
         n_mc = min(n_mc, mc_form)     # TODO: 초과 시 슬롯 복사
         n_es = min(n_es, es_form)
 
-        # (1) 잉여 서술형 슬롯 삭제(뒤). 그 다음 잉여 객관식 슬롯 삭제(중간).
+        # (1) 잉여 서술형 슬롯 삭제(뒤) — **정답 블록 앞까지만**(정답 페이지 보존).
+        #     그 다음 잉여 객관식 슬롯 삭제(중간).
         anc = _en_anchors(h)
-        if mc_form + n_es < len(anc):
-            h.Run("MoveDocEnd")
-            end = h.GetPos()
+        ans = _answer_block_pos(h)
+        if n_es < es_form and ans is not None:
             s0 = anc[mc_form + n_es]
-            h.SelectText(s0[1], s0[2], end[1], end[2])
+            h.SelectText(s0[1], s0[2], ans[1], ans[2])
             h.HAction.Run("Delete")
             h.Run("Cancel")
         anc = _en_anchors(h)
@@ -301,10 +322,17 @@ def _slot_opens(sec: str, en_phs: list[str]) -> list[int]:
     return sorted(set(out))
 
 
-def _build_layout(src_hwpx, out_hwpx, slot_blanks: dict, per_col: int) -> None:
+def _build_layout(src_hwpx, out_hwpx, slot_blanks: dict, colbreak_slots, n_mc: int = -1,
+                  answer_pagebreak: bool = False, answer_blank_pages: int = 0) -> None:
     """src 의 채운 내용을 바탕으로: 폼 빈줄 제거 + 슬롯별 빈줄 삽입 + columnBreak.
 
-    위치기반 편집만 사용(재조립 금지). endNote/표/수식을 마스킹해 바깥 단락만 다룬다.
+    colbreak_slots: 새 단을 시작할 슬롯 인덱스 집합(객관식 3/단·서술형 1/단을 따로 지정).
+    n_mc: 객관식 슬롯 수. 빈줄 제거는 **객관식 영역에만** 적용(서술형은 소문항 답안 여백을
+    보존). n_mc<0 이면 전체에 적용(객관식 전용 문서).
+    answer_pagebreak: True 면 정답(답지) 블록을 새 페이지로 보낸다(쪽나누기).
+    answer_blank_pages: 정답 블록 앞에 끼울 빈 페이지 수(짝수 마무리용 — 정답이 홀수쪽에
+    오도록 보정). 정답 페이지가 짝수면 1을 줘서 한 장 밀어 홀수로 만든다.
+    위치기반 편집만 사용(재조립 금지). 답안블록(container)/endNote/표/수식을 마스킹.
     """
     shutil.copy(src_hwpx, out_hwpx)
     with zipfile.ZipFile(out_hwpx) as z:
@@ -312,10 +340,8 @@ def _build_layout(src_hwpx, out_hwpx, slot_blanks: dict, per_col: int) -> None:
         data = {i.filename: z.read(i.filename) for i in infos}
     name = next(n for n in data if n.endswith("section0.xml"))
     sec = data[name].decode("utf-8")
-    # 폼 잔존 단/쪽 나누기 전부 리셋(내가 의도한 것만 다시 설정).
-    sec = sec.replace('columnBreak="1"', 'columnBreak="0"').replace('pageBreak="1"', 'pageBreak="0"')
 
-    # 마스킹: endNote/table/equation → 플레이스홀더(중첩 단락 안전).
+    # 마스킹: 답안(정답) 블록/endNote/table/equation → 플레이스홀더(중첩 단락 안전).
     store: list[str] = []
 
     def _mask(pat):
@@ -326,6 +352,13 @@ def _build_layout(src_hwpx, out_hwpx, slot_blanks: dict, per_col: int) -> None:
             return f"@@X{len(store) - 1}@@"
 
         sec = re.sub(pat, _r, sec, flags=re.S)
+
+    # 정답(답지) 블록 = '정답' 텍스트를 품은 그리기객체 컨테이너 — 통째 마스킹(가장 먼저).
+    _mask(r"<hp:container\b.*?</hp:container>")
+    answer_ph = next((f"@@X{i}@@" for i, s in enumerate(store) if "정답" in s), None)
+
+    # 폼 잔존 단/쪽 나누기 리셋(마스킹된 정답 블록 내부는 보존, 내가 의도한 것만 재설정).
+    sec = sec.replace('columnBreak="1"', 'columnBreak="0"').replace('pageBreak="1"', 'pageBreak="0"')
 
     _mask(r"<hp:endNote\b.*?</hp:endNote>")
     en_phs = [f"@@X{i}@@" for i, s in enumerate(store) if s.startswith("<hp:endNote")]
@@ -347,12 +380,15 @@ def _build_layout(src_hwpx, out_hwpx, slot_blanks: dict, per_col: int) -> None:
     ]
     blank = min(cands, key=len) if cands else ""
 
-    # (1) 폼 과잉 빈줄 전부 삭제(첫 슬롯 이후의 빈 바깥단락). 완전 span, 뒤→앞.
-    first = _slot_opens(sec, en_phs)[0]
+    # (1) 폼 과잉 빈줄 삭제 — **객관식 영역에만**(서술형 소문항 답안 여백 보존).
+    ops0 = _slot_opens(sec, en_phs)
+    first = ops0[0]
+    # 서술형 시작(첫 서술형 슬롯) 이후는 건드리지 않음.
+    es_start = ops0[n_mc] if (0 <= n_mc < len(ops0)) else len(sec)
     empties = [
         (m.start(), m.end())
         for m in _PARA.finditer(sec)
-        if m.start() >= first and is_empty(m.group(0))
+        if first <= m.start() < es_start and is_empty(m.group(0))
     ]
     for s, e in sorted(empties, reverse=True):
         sec = sec[:s] + sec[e:]
@@ -367,13 +403,33 @@ def _build_layout(src_hwpx, out_hwpx, slot_blanks: dict, per_col: int) -> None:
             last_end = m.end() + st
         sec = sec[:last_end] + blank * slot_blanks.get(si, _MINGAP) + sec[last_end:]
 
-    # (3) columnBreak: 각 단 첫 슬롯의 바깥 단락에. 뒤→앞.
-    boundaries = [g * per_col for g in range(1, (N + per_col - 1) // per_col)]
+    # (3) columnBreak: 지정된 단 첫 슬롯의 바깥 단락에. 뒤→앞.
+    boundaries = sorted(b for b in colbreak_slots if 0 < b < N)
     for b in sorted(boundaries, reverse=True):
         ops = _slot_opens(sec, en_phs)
         s0 = ops[b]
         e0 = sec.find(">", s0)
         sec = sec[:s0] + re.sub(r'columnBreak="\d"', 'columnBreak="1"', sec[s0:e0 + 1]) + sec[e0 + 1:]
+
+    # (4) 정답(답지) 블록: 새 페이지로(문제는 짝수쪽 마무리, 정답은 홀수쪽). 마지막에.
+    def _force_pagebreak(open_tag: str) -> str:
+        if "pageBreak=" in open_tag:
+            return re.sub(r'pageBreak="\d"', 'pageBreak="1"', open_tag)
+        return open_tag[:-1] + ' pageBreak="1">'
+
+    if answer_ph and answer_pagebreak:
+        pos = sec.find(answer_ph)
+        if pos >= 0:
+            ap = sec.rfind("<hp:p ", 0, pos)
+            e0 = sec.find(">", ap)
+            new_open = _force_pagebreak(sec[ap:e0 + 1])
+            # 짝수 보정: pageBreak 걸린 빈 단락을 앞에 끼워 정답을 다음(홀수) 쪽으로 민다.
+            blank_pages = ""
+            if blank and answer_blank_pages > 0:
+                bo = blank.find(">")
+                blank_pb = _force_pagebreak(blank[:bo + 1]) + blank[bo + 1:]
+                blank_pages = blank_pb * answer_blank_pages
+            sec = sec[:ap] + blank_pages + new_open + sec[e0 + 1:]
 
     # 언마스킹(높은 인덱스부터 — 표/수식이 미주 플레이스홀더를 품을 수 있음).
     for i in range(len(store) - 1, -1, -1):
@@ -429,6 +485,34 @@ def _measure_first_choice_lines(hwpx, n: int) -> list[tuple[int, int, int]]:
         pythoncom.CoUninitialize()
 
 
+def _measure_answer_page(hwpx) -> int:
+    """COM 으로 열어 정답(답지) 블록이 놓인 쪽 번호를 측정(0=못 찾음)."""
+    import pythoncom
+
+    pythoncom.CoInitialize()
+    try:
+        hwp = _dispatch_hwp()
+        hwp.SetMessageBoxMode(0xFFFFFF)
+        try:
+            hwp.RegisterModule("FilePathCheckDLL", "FilePathCheckerModule")
+        except Exception:
+            pass
+        try:
+            hwp.XHwpWindows.Item(0).Visible = True
+        except Exception:
+            pass
+        hwp.Open(str(hwpx), "HWPX", "")
+        hwp.Run("MoveDocBegin")
+        page = 0
+        if _repeat_find(hwp, "정답"):
+            hwp.Run("Cancel")
+            page = hwp.KeyIndicator()[3]
+        hwp.Quit()
+        return page
+    finally:
+        pythoncom.CoUninitialize()
+
+
 def _row_align_blanks(pos: list[tuple[int, int, int]], n: int, per_col: int) -> dict:
     """측정한 ① 위치로 슬롯 높이·단 시작을 구해 행정렬 빈줄을 계산.
 
@@ -471,22 +555,40 @@ def _row_align_blanks(pos: list[tuple[int, int, int]], n: int, per_col: int) -> 
     return blanks
 
 
-def _layout_form(filled_hwpx, out_hwpx, per_col: int, n: int) -> None:
-    """채운 hwpx → (tight 측정 → 행정렬 빈줄 계산 → 최종) 레이아웃."""
+def _layout_form(filled_hwpx, out_hwpx, per_col: int, n_mc: int, n_es: int) -> None:
+    """채운 hwpx → 혼합 레이아웃. 객관식: 측정 기반 행정렬(per_col/단). 서술형: 1/단.
+
+    객관식과 서술형은 폼의 별도 구역(섹션)이라 서술형은 새 페이지에서 시작한다.
+    columnBreak: 객관식은 per_col 마다, 서술형은 매 문항(첫 서술형 제외).
+    """
+    n = n_mc + n_es
+    colbreak = set(range(per_col, n_mc, per_col))     # 객관식 단나누기(per_col마다)
+    colbreak |= set(range(n_mc, n))                   # 서술형 1/단(매 문항이 새 단)
+
     tight = str(Path(out_hwpx).with_suffix("")) + "_tight.hwpx"
-    # tight: 빈줄 최소(측정용). columnBreak 포함.
-    _build_layout(filled_hwpx, tight, {i: _MINGAP for i in range(n)}, per_col)
-    pos = _measure_first_choice_lines(tight, n)
+    _build_layout(filled_hwpx, tight, {i: _MINGAP for i in range(n)}, colbreak, n_mc)
+    pos = _measure_first_choice_lines(tight, n_mc) if n_mc else []
     try:
         os.remove(tight)
     except Exception:
         pass
-    if len(pos) < n:
-        # 측정 실패 시 균일 폴백(문제 이후 4줄).
-        blanks = {i: 4 for i in range(n)}
-    else:
-        blanks = _row_align_blanks(pos, n, per_col)
-    _build_layout(filled_hwpx, out_hwpx, blanks, per_col)
+
+    blanks = {}
+    if n_mc:
+        if len(pos) >= n_mc:
+            blanks.update(_row_align_blanks(pos, n_mc, per_col))
+        else:
+            blanks.update({i: 4 for i in range(n_mc)})  # 측정 실패 폴백
+    for i in range(n_mc, n):
+        blanks[i] = 0                                 # 서술형: 1/단, 후행 0(답안 공간)
+
+    # 정답(답지) 블록을 새 페이지로 보낸 뒤, 짝수쪽에 떨어지면 빈 페이지 1장으로 밀어
+    # 홀수쪽에 오도록(문제는 짝수쪽 마무리). 정답 페이지를 측정해 패리티 보정.
+    _build_layout(filled_hwpx, out_hwpx, blanks, colbreak, n_mc, answer_pagebreak=True)
+    ans_page = _measure_answer_page(out_hwpx)
+    if ans_page and ans_page % 2 == 0:
+        _build_layout(filled_hwpx, out_hwpx, blanks, colbreak, n_mc,
+                      answer_pagebreak=True, answer_blank_pages=1)
 
 
 # ── 진입점 ────────────────────────────────────────────────
@@ -521,12 +623,8 @@ def write_exam_to_form(
     os.close(fd)
     try:
         n_mc, n_es = _fill_form(mc, essays, form_path, filled)
-        if n_es == 0:
-            # 객관식만 → 행정렬 레이아웃.
-            _layout_form(filled, output_path, per_col, n_mc)
-        else:
-            # 서술형 포함 → 현재는 폼 자연 흐름 유지(객관식+서술형 혼합 레이아웃은 후속).
-            shutil.copy(filled, output_path)
+        # 혼합 레이아웃(객관식 행정렬 + 서술형 1/단).
+        _layout_form(filled, output_path, per_col, n_mc, n_es)
     finally:
         try:
             os.remove(filled)
