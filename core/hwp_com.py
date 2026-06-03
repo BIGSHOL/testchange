@@ -303,17 +303,40 @@ class HwpSession:
         """현재 단락 오른쪽 정렬."""
         self.hwp.HAction.Run("ParagraphShapeAlignRight")
 
-    def table(self, rows: list[list[str]], line_width: int = 8000) -> None:
-        """문자열 2D 배열로 표를 만들고 채운다.
+    def endnote(self) -> bool:
+        """현재 위치에 미주(자동번호)를 삽입하고 **본문으로 복귀**한다. 성공 시 True.
 
-        rows: 행 우선(row-major) 문자열 배열. 셀은 텍스트만 지원.
+        문항번호를 미주 자동번호로 쓰기 위함(문항 N개 = 미주 N개). InsertEndnote 는 커서를
+        미주 편집영역으로 옮기는데, 그대로 두면 이후 본문이 전부 미주로 들어가 문서가 깨진다.
+        → 삽입 전 본문 위치(GetPos)를 기억했다가 **SetPos 로 마크 다음(본문)으로 강제 복귀**.
+        복귀가 본문 list 로 확인되지 않으면 MoveDocEnd 로 안전 복구하고 False(호출부가 텍스트
+        번호로 폴백). COM 미주 '생성'은 이 코드베이스 전례가 없어 실측 검증 필요(2026-06-04).
         """
-        if not rows:
-            return
         h = self.hwp
-        nrow = len(rows)
-        ncol = max(len(r) for r in rows)
+        try:
+            before = h.GetPos()                  # (list, para, pos) — 본문 번호 위치
+            h.HAction.Run("InsertEndnote")       # 미주 삽입(마크 1글자) → 커서 미주영역
+            # 본문 복귀: 마크 다음 위치로. (미주영역 list 에서 본문 list 로 빠져나옴)
+            h.SetPos(before[0], before[1], before[2] + 1)
+            after = h.GetPos()
+            if after[0] != before[0]:            # 본문 list 로 복귀 못 하면 실패
+                h.HAction.Run("MoveDocEnd")
+                return False
+            return True
+        except Exception:
+            try:
+                h.HAction.Run("MoveDocEnd")
+            except Exception:
+                pass
+            return False
 
+    def table_begin(self, nrow: int = 1, ncol: int = 1, line_width: int = 42000) -> None:
+        """빈 표를 만들고 커서를 (0,0) 셀에 둔다.
+
+        셀에 텍스트/수식 등 리치 콘텐츠를 직접 입력할 때 사용(보기/조건 테두리 박스).
+        입력이 끝나면 반드시 ``table_end()`` 로 표 밖으로 탈출한다.
+        """
+        h = self.hwp
         h.HAction.GetDefault("TableCreate", h.HParameterSet.HTableCreation.HSet)
         ps = h.HParameterSet.HTableCreation
         ps.Rows = nrow
@@ -328,16 +351,32 @@ class HwpSession:
         for r in range(nrow):
             ps.RowHeight.SetItem(r, 1000)
         h.HAction.Execute("TableCreate", ps.HSet)
+        # 커서는 (0,0) 셀에 위치
 
-        # 셀 채우기 — 생성 직후 커서는 (0,0) 셀.
+    def table_next_cell(self) -> None:
+        """다음 셀로 이동(좌→우, 행 끝이면 다음 행 첫 셀)."""
+        self.hwp.HAction.Run("TableRightCell")
+
+    def table_end(self) -> None:
+        """표 밖(뒤 단락)으로 탈출 — 실측으로 확정된 시퀀스."""
+        self.hwp.HAction.Run("Close")
+        self.hwp.HAction.Run("MoveRight")
+
+    def table(self, rows: list[list[str]], line_width: int = 8000) -> None:
+        """문자열 2D 배열로 표를 만들고 채운다.
+
+        rows: 행 우선(row-major) 문자열 배열. 셀은 텍스트만 지원.
+        """
+        if not rows:
+            return
+        nrow = len(rows)
+        ncol = max(len(r) for r in rows)
+        self.table_begin(nrow, ncol, line_width)
         for ri in range(nrow):
             row = rows[ri]
             for ci in range(ncol):
                 val = row[ci] if ci < len(row) else ""
                 self.text(str(val))
                 if not (ri == nrow - 1 and ci == ncol - 1):
-                    h.HAction.Run("TableRightCell")
-
-        # 표 밖(뒤 단락)으로 탈출 — 실측으로 확정된 시퀀스.
-        h.HAction.Run("Close")
-        h.HAction.Run("MoveRight")
+                    self.table_next_cell()
+        self.table_end()

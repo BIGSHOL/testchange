@@ -35,6 +35,17 @@ import re
 _COND_MARKER_RE = re.compile(r"(<\s*조건\s*>|<\s*보기\s*>|\[\s*조건\s*\]|\[\s*보기\s*\])")
 _BULLET_RE = re.compile(r"\s*[•·▪◦]\s*")
 _DASH_RUN_RE = re.compile(r"\s*[-−—–―─━]{2,}\s*")  # 하이픈·각종 대시·박스선(U+2500/2501)
+# 보기 항목 라벨(ㄱ. ㄴ. …) 뒤에 공백이 없으면("ㅁ.0") 한 칸 띄운다("ㅁ. 0"). (A6)
+_LABEL_SPACE_RE = re.compile(r"^([ㄱ-ㅎ가-힣]\s*\.)\s*(\S)")
+# 보기/조건 박스 '머리'(블록 시작이 <보기>/<조건>) — 발문 끝 배점 위치 판정용(A2).
+# 발문이 "<보기>에서…"처럼 마커로 시작해도 그건 인라인 참조다(뒤에 조사=가-힣 음절).
+# 박스 머리는 뒤에 항목(ㄱ./숫자) 또는 줄끝이 온다 → 마커 뒤 가-힣이 오면 머리 아님(부정 전망).
+_COND_HEADER_RE = re.compile(
+    r"^\s*(<\s*조건\s*>|<\s*보기\s*>|\[\s*조건\s*\]|\[\s*보기\s*\])(?!\s*[가-힣])")
+# 박스 내부 줄 경계: 마커(<보기>/<조건>) 또는 항목 라벨(ㄱ. ㄴ. …, 앞이 공백/시작). 표 셀
+# 안에서 마커는 자기 줄, 각 항목은 새 줄로 나누는 데 쓴다(A3/A5). (B3-2 라벨 뒤 공백은 token+공백.)
+_BOX_BOUNDARY_RE = re.compile(
+    r"(<\s*조건\s*>|<\s*보기\s*>|\[\s*조건\s*\]|\[\s*보기\s*\]|(?:(?<=\s)|^)[ㄱ-ㅎ]\s*\.)")
 
 
 def _has_box_markup(text: str) -> bool:
@@ -51,13 +62,29 @@ def _segment_box_text(text: str) -> list[str]:
 
     - 경계 대시(−−, --) → 줄 경계로 제거
     - <조건>/<보기> 마커 → 독립 줄
-    - 불릿(•) → 각 항목을 "• "로 시작하는 독립 줄
+    - 불릿(•) → 항목 분리자로만(독립 줄), 출력엔 • 미부착 (A4)
+    - 항목 라벨(ㄱ. …) 뒤 공백 보정 (A6)
     """
     t = _DASH_RUN_RE.sub("\n", text)
     t = _COND_MARKER_RE.sub(lambda m: "\n" + re.sub(r"\s+", "", m.group(1)) + "\n", t)
-    t = _BULLET_RE.sub("\n• ", t)
+    t = _BULLET_RE.sub("\n", t)   # 불릿(•)은 항목 분리자로만 쓰고 출력엔 붙이지 않는다 (A4)
     lines = [ln.strip() for ln in t.split("\n")]
-    return [ln for ln in lines if ln]
+    # 라벨 뒤 공백 보정("ㅁ.0"→"ㅁ. 0") (A6)
+    return [_LABEL_SPACE_RE.sub(r"\1 \2", ln) for ln in lines if ln]
+
+
+def _condition_start(blocks: list[ContentBlock]) -> int | None:
+    """발문이 끝나고 보기/조건 박스(또는 표)가 시작되는 contents 인덱스. 없으면 None.
+
+    배점을 '발문 끝'(보기/조건·표 앞)에 두기 위한 경계(A2). 보기/조건 박스는
+    블록 시작이 <보기>/<조건> 머리이거나, OCR이 표(table)로 준 경우다.
+    """
+    for i, b in enumerate(blocks):
+        if b.type == ContentType.TABLE:
+            return i
+        if b.type == ContentType.TEXT and _COND_HEADER_RE.search(b.value or ""):
+            return i
+    return None
 
 
 def _choice_complexity(choice: Choice) -> int:
@@ -92,49 +119,33 @@ def _eq_script(block: ContentBlock) -> str:
     return latex_to_hwpeq(block.value)
 
 
-# 숫자만으로 이뤄진 인라인 수식(예: "15", "3.14", "1,000")은 일반 텍스트로 렌더한다.
-# HWP COM으로 만든 '숫자 전용' 수식 객체는 베이스라인 메트릭이 stale 상태로 남아
-# 줄 위로 떠오르는(=잘못 렌더되는) 버그가 있다(편집기 재저장 시에만 정상화). 글자·연산자가
-# 하나라도 섞이면(x, x+y, x=15, x^2 …) 정상 렌더되므로 '순수 숫자'만 강등한다.
-_PLAIN_NUMBER_RE = re.compile(r"^[\d\s.,]+$")
-
-
-def _is_plain_number(script: str) -> bool:
-    """수식 스크립트가 숫자·공백·구두점(.,)만으로 이뤄졌는지 — 텍스트 강등 대상."""
-    s = (script or "").strip()
-    return bool(s) and any(c.isdigit() for c in s) and bool(_PLAIN_NUMBER_RE.match(s))
-
-
 class HwpComWriter:
     """ExamDocument를 HWP 세션에 렌더링한다."""
 
     def __init__(self, session: HwpSession):
         self.s = session
         self._title = ""
+        # 문항번호를 미주 자동번호로(A1). 미주 삽입이 한 번이라도 실패하면 False 로 떨궈
+        # 이후 문항은 텍스트 번호로(반복 실패·문서 깨짐 방지).
+        self._use_endnote = True
 
     # ── 콘텐츠 블록 ────────────────────────────────────────
-    def _write_block(self, block: ContentBlock, force_equation: bool = False) -> None:
-        # force_equation: 보기(선택지)에서 호출. 순수 숫자도 수식 객체로 유지한다.
-        # 텍스트 탭은 HWP가 삽입 시점의 width 를 캐시해 고정 탭 정지점으로 재계산하지
-        # 않지만(→ 둘째 열이 안 맞음), 수식 객체가 든 단락은 재계산되어 7cm 고정 탭에
-        # 정렬된다. (베이스라인 떠오름 버그는 수식 확정 수정 이후 해소됨 — 렌더 검증.)
+    def _write_block(self, block: ContentBlock, inline: bool = False) -> None:
+        # 모든 수식(EQUATION/EQUATION_BLOCK)은 수식 객체로 삽입한다 — 순수 숫자도 포함(A8:
+        # "200" 등 모든 숫자·문자 수식화). 과거엔 숫자 전용 수식이 베이스라인 메트릭 stale 로
+        # 줄 위로 떠올라 텍스트로 강등했으나, 수식 확정(version-stamp, 2026-06-02) 이후 해소됐다.
+        # 수식 객체가 든 단락은 고정 탭(7cm)에도 정상 재계산되어 보기 정렬에도 유리하다.
+        # inline=True: EQUATION_BLOCK 도 줄바꿈 없이 인라인 — 번호-발문 같은 줄(A7)·보기 항목(A5).
         if block.type == ContentType.TABLE:
             # 표는 자체 단락 필요 — 앞 단락과 분리
             self.s.break_para()
             self.s.table(block.rows or [])
         elif block.type == ContentType.EQUATION_BLOCK:
-            self.s.break_para()
-            script = _eq_script(block)
-            if _is_plain_number(script) and not force_equation:
-                self.s.text(script.strip())
-            else:
-                self.s.equation(script)
+            if not inline:
+                self.s.break_para()
+            self.s.equation(_eq_script(block))
         elif block.type == ContentType.EQUATION:
-            script = _eq_script(block)
-            if _is_plain_number(script) and not force_equation:
-                self.s.text(script.strip())  # 숫자 전용 수식 → 텍스트(베이스라인 버그 회피)
-            else:
-                self.s.equation(script)
+            self.s.equation(_eq_script(block))
         elif block.type == ContentType.TEXT:
             if block.underline:
                 self.s.underline_run(block.value)
@@ -162,32 +173,90 @@ class HwpComWriter:
             self.s.break_para()  # 박스 각 줄은 새 줄에서 시작(앞 문장과 분리)
             self.s.text(line)
 
-    def _has_table(self, blocks: list[ContentBlock]) -> bool:
-        return any(b.type == ContentType.TABLE for b in blocks)
+    def _write_box_content(self, blocks: list[ContentBlock]) -> None:
+        """보기/조건 박스 '내부'를 줄 단위로 출력(표 셀 안에서 호출).
+
+        마커(<보기>)는 자기 줄, 각 항목 라벨(ㄱ. …)은 새 줄로 나눈다(A5). 수식 블록은
+        항목 줄 안에 인라인으로 유지(A8). 항목 라벨 뒤엔 공백 1칸(A6).
+        """
+        started = False
+
+        def emit_text(text: str) -> None:
+            nonlocal started
+            pos = 0
+            for m in _BOX_BOUNDARY_RE.finditer(text):
+                pre = text[pos:m.start()]
+                if pre.strip():
+                    self.s.text(pre if started else pre.lstrip())
+                    started = True
+                if started:
+                    self.s.break_para()   # 마커/항목 라벨 앞에서 줄바꿈
+                tok = re.sub(r"\s+", "", m.group(0))   # "ㄱ ." → "ㄱ.", "< 보기 >" → "<보기>"
+                self.s.text(tok + " ")                  # 라벨/마커 뒤 공백(A6)
+                started = True
+                pos = m.end()
+            tail = text[pos:]
+            if tail.strip():
+                self.s.text(tail if started else tail.lstrip())
+                started = True
+
+        for block in blocks:
+            if block.type == ContentType.TEXT:
+                emit_text(block.value or "")
+            elif block.type in (ContentType.EQUATION, ContentType.EQUATION_BLOCK):
+                self.s.equation(_eq_script(block))   # 항목 줄 안 인라인 수식
+                started = True
+            elif block.type == ContentType.IMAGE and block.value:
+                self.s.break_para()
+                self.s.align_center()
+                self.s.insert_picture(block.value)
+                self.s.break_para()
+                self.s.align_left()
+                started = True
+
+    def _write_condition_box(self, blocks: list[ContentBlock]) -> None:
+        """보기/조건 블록들을 1×1 테두리 표(박스) 안에 줄 단위로 렌더한다(A3)."""
+        # OCR이 이미 표(table)로 준 경우는 이중 표를 피해 그대로 렌더.
+        if any(b.type == ContentType.TABLE for b in blocks):
+            for b in blocks:
+                self._write_block(b)
+            return
+        self.s.break_para()
+        self.s.table_begin(1, 1)        # 한 칸 테두리 박스
+        self._write_box_content(blocks)
+        self.s.table_end()
 
     # ── 문제 ──────────────────────────────────────────────
-    def _write_question(self, question: Question) -> None:
+    def _write_question(self, question: Question, top_level: bool = True) -> None:
         is_essay = not question.choices
         has_subs = bool(question.sub_questions)
         # 소문항이 있는 부모는 배점이 '총점'이라 본문에 "[총 N점]"으로 이미 표기됨.
         # 인라인 배점([N점])을 또 찍으면 중복 → 부모는 인라인 배점 생략, 소문항만 표기.
         show_score = bool(question.score) and not has_subs
 
-        # 번호 "N. " (숫자는 일반 텍스트)
-        self.s.text(f"{question.number}. ")
+        # 번호(A1): 주문항은 미주 자동번호("1." 스타일). 미주 삽입 성공 시 마크 뒤 ". " 만 찍고,
+        # 실패하면 텍스트 번호로 폴백 + 이후 문항도 텍스트(self._use_endnote=False).
+        if top_level and self._use_endnote and self.s.endnote():
+            self.s.text(". ")
+        else:
+            if top_level and self._use_endnote:
+                self._use_endnote = False
+            self.s.text(f"{question.number}. ")
 
-        # 배점은 본문 텍스트 끝(표 앞)에 둬 표 셀로 들어가는 것을 방지.
-        # 표가 본문에 있으면 배점을 먼저, 없으면 본문 뒤에 인라인으로.
-        has_table = self._has_table(question.contents)
-        if has_table and show_score:
-            # 표가 있으면 배점을 본문 앞에 둬 표 셀로 들어가는 것을 방지
-            self.s.text(f"[{question.score}점] ")
+        # 발문 / 보기·조건 박스 경계(A2/A3). 배점은 '발문 끝'(박스 앞)에 둔다.
+        box_start = _condition_start(question.contents)
+        stem = question.contents if box_start is None else question.contents[:box_start]
+        box = [] if box_start is None else question.contents[box_start:]
 
-        for block in question.contents:
-            self._write_block(block)
-
-        if not has_table and show_score:
+        # 발문 — 첫 블록은 인라인(번호와 같은 줄), 발문 선두 수식 줄바꿈 방지(A7).
+        for i, block in enumerate(stem):
+            self._write_block(block, inline=(i == 0))
+        # 배점 — 발문 끝(보기/조건 앞) (A2)
+        if show_score:
             self._write_score(question.score)
+        # 보기/조건 → 1×1 테두리 표 박스 (A3)
+        if box:
+            self._write_condition_box(box)
 
         self.s.break_para()
 
@@ -202,9 +271,9 @@ class HwpComWriter:
                 else:
                     self.s.text("\t")
 
-        # 소문항 재귀
+        # 소문항 재귀 (소문항 번호는 미주 아님)
         for sub in question.sub_questions:
-            self._write_question(sub)
+            self._write_question(sub, top_level=False)
 
         # 서술형 '풀이)' 답안 공간은 넣지 않는다(사용자 요구 2026-06-02): 배점에서 끝낸다.
 
@@ -216,11 +285,13 @@ class HwpComWriter:
         circle = CIRCLE_NUMBERS.get(choice.number, f"({choice.number})")
         self.s.text(f"{circle} ")
         for block in choice.contents:
-            # 보기는 순수 숫자도 수식 객체로 유지(force_equation) — 고정 탭 정렬 위해.
-            self._write_block(block, force_equation=True)
+            self._write_block(block)
 
-    def _write_score(self, score: int) -> None:
-        self.s.text(f" [{score}점]")
+    def _write_score(self, score: int, leading_space: bool = True) -> None:
+        # 배점 숫자도 수식 객체로(A8). "[" "점]"는 텍스트.
+        self.s.text(" [" if leading_space else "[")
+        self.s.equation(str(score))
+        self.s.text("점]")
 
     def _write_essay_space(self) -> None:
         self.s.text("풀이)")

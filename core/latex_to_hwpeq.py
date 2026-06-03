@@ -631,6 +631,11 @@ class LaTeXToHWPConverter:
 
         s = self._leftright_pattern.sub(_leftright_repl, s)
 
+        # 고아 \left/\right 제거: OCR이 짝(\right\})을 놓쳐 비대칭이면 위 패턴이 매칭
+        # 실패해 \left 가 잔존한다. 그대로 두면 step 9 기호매핑에서 \le 가 \left 의
+        # 'le' 를 먹어 "LEQft"(=≤ft) 로 깨진다(구분자 sentinel/괄호는 보존). (실측 2026-06-04)
+        s = re.sub(r"\\(?:left|right)(?![a-zA-Z])", "", s)
+
         # 7. accent: \vec{A} → VEC A
         def _accent_repl(m: re.Match) -> str:
             cmd = "\\" + m.group(1)
