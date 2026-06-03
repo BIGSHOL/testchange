@@ -55,7 +55,8 @@ logger = logging.getLogger(__name__)
 class ConversionWorker(QObject):
     """백그라운드 스레드에서 변환 수행."""
 
-    progress = Signal(int, str)    # (진행률%, 메시지)
+    progress = Signal(int, str)    # (진행률%, 메시지) — 진행바·상태라벨 실시간 갱신용
+    log = Signal(str, str)         # (레벨, 메시지) — 로그 패널 기록용 (step/info/success/warning/error)
     finished = Signal(str)         # 결과 파일 경로
     error = Signal(str)            # 에러 메시지
     quality_warning = Signal(int, str)   # (페이지번호, 경고메시지)
@@ -155,6 +156,11 @@ class ConversionWorker(QObject):
                     pass
 
     def _do_conversion(self):
+        from time import perf_counter
+        t_start = perf_counter()
+        total_q = 0          # 누적 문항 수
+        total_eq = 0         # 누적 수식 수
+        total_crops = 0      # 전체 크롭 수(진행바 분모)
         file_path = Path(self.file_path)
 
         # Step 1: 이미지 로드
@@ -169,6 +175,7 @@ class ConversionWorker(QObject):
 
         total_pages = len(images)
         self.progress.emit(10, f"{total_pages}페이지 로드 완료")
+        self.log.emit("step", f"{file_path.name} — {total_pages}페이지 로드")
 
         # ── 표지 건너뛰기 ──
         page_offset = 0
@@ -212,6 +219,11 @@ class ConversionWorker(QObject):
             self.progress.emit(
                 12, f"{skipped}페이지 건너뜀, {len(valid_indices)}페이지 처리 예정"
             )
+        self.log.emit(
+            "info",
+            f"품질 검사 — {len(valid_indices)}페이지 처리"
+            + (f" · {skipped}페이지 제외" if skipped else ""),
+        )
 
         # Step 2: OCR 처리
         engine = OCREngine(api_key=self.api_key)
@@ -276,6 +288,18 @@ class ConversionWorker(QObject):
                 return
             valid_indices = kept_indices
             crop_boxes_per_page = kept_boxes
+            self.log.emit(
+                "step",
+                f"크롭 검출 완료 — {sum(len(b) for b in crop_boxes_per_page)}개 영역")
+
+        # OCR 인식 시작 — 진행바를 크롭 단위로 부드럽게 움직이기 위해 전체 크롭 수를 분모로.
+        if crop_boxes_per_page is not None:
+            total_crops = sum(len(b) for b in crop_boxes_per_page)
+        crops_done = 0
+        self.log.emit(
+            "step",
+            f"OCR 인식 시작 — {len(valid_indices)}페이지"
+            + (f" · {total_crops}크롭" if total_crops else ""))
 
         for seq, idx in enumerate(valid_indices):
             if self._cancelled:
@@ -284,6 +308,7 @@ class ConversionWorker(QObject):
 
             img = images[idx]
             page_num = idx + 1 + page_offset
+            page_t0 = perf_counter()
             pct = 15 + int((seq / len(valid_indices)) * 60)
 
             if crop_boxes_per_page is not None:
@@ -296,8 +321,10 @@ class ConversionWorker(QObject):
                     if self._cancelled:
                         self.error.emit("사용자에 의해 취소되었습니다.")
                         return
+                    crops_done += 1
                     self.progress.emit(
-                        pct, f"OCR 처리 중... (p{seq + 1} 크롭 {bi + 1}/{len(boxes)})")
+                        15 + int(crops_done / max(total_crops, 1) * 60),
+                        f"OCR 처리 중... (p{seq + 1} 크롭 {bi + 1}/{len(boxes)})")
                     if box.kind == "figure":
                         # 도형 영역 → 임시 PNG 저장 후 IMAGE 블록 생성
                         fig_path = self._save_figure_crop(box, img, page_num, bi)
@@ -365,6 +392,17 @@ class ConversionWorker(QObject):
                 ocr_quality=ocr_quality,
             ))
 
+            # 페이지 요약(크롭별 8줄 대신 페이지당 1줄로 압축 + 통계)
+            total_q += ocr_quality.question_count
+            total_eq += ocr_quality.equation_count
+            crop_n = len(crop_boxes_per_page[seq]) if crop_boxes_per_page is not None else 0
+            self.log.emit(
+                "success",
+                f"p{page_num} 완료 — "
+                + (f"크롭 {crop_n}개 · " if crop_n else "")
+                + f"문항 {ocr_quality.question_count} · 수식 {ocr_quality.equation_count} "
+                f"({perf_counter() - page_t0:.1f}s)")
+
         self.progress.emit(78, "OCR 완료, 미리보기 준비 중...")
 
         # ── Gate 3: 미리보기 다이얼로그 (GUI 스레드에서 실행) ──
@@ -380,6 +418,7 @@ class ConversionWorker(QObject):
             return
 
         self.progress.emit(80, "문서 구성 중...")
+        self.log.emit("step", "문서 구성 중...")
 
         # Step 3: 문서 구성
         document = build_document(pages)
@@ -388,16 +427,22 @@ class ConversionWorker(QObject):
         # 미설치 시 XML 생성기로 폴백.
         if is_hwp_available():
             self.progress.emit(90, "한글(HWP) 구동하여 문서 생성 중...")
+            self.log.emit("step", "한글(HWP) 문서 생성 중...")
             result_path = write_exam_to_hwp(
                 document, self.output_path, template_path=self.template_path
             )
         else:
             self.progress.emit(90, "HWP 미설치 — XML 생성기로 생성 중...")
+            self.log.emit("step", "XML 생성기로 문서 생성 중...")
             result_path = write_exam_to_hwpx(
                 document, self.output_path, template_path=self.template_path
             )
 
         self.progress.emit(100, "변환 완료!")
+        self.log.emit(
+            "success",
+            f"변환 완료 — {len(pages)}페이지 · 문항 {total_q} · 수식 {total_eq} · "
+            f"총 {perf_counter() - t_start:.1f}s")
         self.finished.emit(str(result_path))
 
 
@@ -652,9 +697,37 @@ class MainWindow(QMainWindow):
         except ValueError:
             pass
 
+    # 로그 레벨별 (색상, 아이콘, 굵게) — _append_log 가 사용
+    _LOG_STYLES = {
+        "step":    ("#1570ef", "▸", True),
+        "info":    ("#475467", "",  False),
+        "success": ("#067647", "✓", False),
+        "warning": ("#b54708", "⚠", False),
+        "error":   ("#d92d20", "✕", True),
+    }
+
     def _log(self, msg: str):
-        """로그 메시지 추가."""
-        self._log_output.appendPlainText(msg)
+        """로그 메시지 추가(info 레벨)."""
+        self._append_log("info", msg)
+
+    def _on_log(self, level: str, text: str):
+        """워커 log 시그널 수신 → 패널에 레벨별 포맷으로 기록."""
+        self._append_log(level, text)
+
+    def _append_log(self, level: str, text: str):
+        """타임스탬프 + 레벨 색상으로 로그 한 줄을 패널에 추가."""
+        import html as _html
+        from datetime import datetime
+        color, icon, bold = self._LOG_STYLES.get(level, self._LOG_STYLES["info"])
+        ts = datetime.now().strftime("%H:%M:%S")
+        body = _html.escape(text)
+        if bold:
+            body = f"<b>{body}</b>"
+        prefix = f"{icon} " if icon else ""
+        self._log_output.appendHtml(
+            f'<span style="color:#98a2b3;">{ts}</span> '
+            f'<span style="color:{color};">{prefix}{body}</span>'
+        )
 
     # ── 드래그앤드롭 ──
 
@@ -848,6 +921,7 @@ class MainWindow(QMainWindow):
 
         self._thread.started.connect(self._worker.run)
         self._worker.progress.connect(self._on_progress)
+        self._worker.log.connect(self._on_log)
         self._worker.finished.connect(self._on_finished)
         self._worker.error.connect(self._on_error)
         self._worker.quality_warning.connect(self._on_quality_warning)
@@ -866,13 +940,13 @@ class MainWindow(QMainWindow):
             self._log("취소 요청됨...")
 
     def _on_progress(self, percent: int, message: str):
+        # 진행바·상태라벨만 실시간 갱신(크롭마다). 로그 기록은 log 시그널로 분리.
         self._progress_bar.setValue(percent)
         self._status_label.setText(message)
-        self._log(f"[{percent}%] {message}")
 
     def _on_finished(self, result_path: str):
         self._set_ui_converting(False)
-        self._log(f"변환 완료: {result_path}")
+        self._append_log("success", f"저장됨: {result_path}")
         self._status_label.setText("변환 완료!")
 
         QMessageBox.information(
@@ -883,7 +957,7 @@ class MainWindow(QMainWindow):
 
     def _on_error(self, error_msg: str):
         self._set_ui_converting(False)
-        self._log(f"오류: {error_msg}")
+        self._append_log("error", error_msg)
         self._status_label.setText("오류 발생")
         self._progress_bar.setValue(0)
 
@@ -894,10 +968,10 @@ class MainWindow(QMainWindow):
         self._worker = None
 
     def _on_quality_warning(self, page_num: int, message: str):
-        self._log(f"[품질] {message}")
+        self._append_log("warning", message)
 
     def _on_ocr_warning(self, page_num: int, message: str):
-        self._log(f"[OCR] {message}")
+        self._append_log("warning", message)
 
     def _on_preview_requested(self, page_infos: list):
         """워커에서 미리보기 요청 → GUI 스레드에서 다이얼로그 표시."""
