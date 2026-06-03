@@ -34,7 +34,7 @@ class ImageQuality:
     height: int = 0
     blur_score: float = 0.0       # Laplacian 분산 (높을수록 선명)
     blank_ratio: float = 0.0      # 비백색 픽셀 비율 (%)
-    contrast_std: float = 0.0     # 히스토그램 표준편차
+    contrast_sep: float = 0.0     # 전경(잉크)/배경(종이) 평균밝기 분리도 (Otsu, 밀도 무관)
 
 
 def check_image_quality(image: Image.Image) -> ImageQuality:
@@ -64,8 +64,10 @@ def check_image_quality(image: Image.Image) -> ImageQuality:
     result.blank_ratio = _compute_non_white_ratio(arr)
     _check_blank(result)
 
-    # 5) 대비 부족 감지
-    result.contrast_std = float(np.std(gray))
+    # 5) 대비 부족 감지 — 전체 표준편차(np.std)는 문서에서 '잉크 밀도'에 좌우되어
+    #    여백 많은/획 얇은 수식 페이지를 오탐한다(std ≈ √(f(1−f))·(종이−잉크)).
+    #    전경/배경 분리도(Otsu)로 밀도와 무관하게 실제 가독 대비만 측정.
+    result.contrast_sep = _compute_contrast_separation(gray)
     _check_contrast(result)
 
     # 최종 합격 판정
@@ -132,11 +134,42 @@ def _check_blank(result: ImageQuality) -> None:
         )
 
 
+def _otsu_threshold(gray: np.ndarray) -> int:
+    """Otsu 이진화 임계값(클래스간 분산 최대화). cv2 없이 numpy 벡터화."""
+    hist = np.bincount(
+        gray.astype(np.int64).ravel(), minlength=256)[:256].astype(np.float64)
+    levels = np.arange(256, dtype=np.float64)
+    w_b = np.cumsum(hist)               # 임계값 이하(어두운 전경) 누적 화소수
+    w_f = gray.size - w_b               # 임계값 초과(밝은 배경) 화소수
+    sum_total = float(np.dot(levels, hist))
+    sum_b = np.cumsum(levels * hist)
+    m_b = np.divide(sum_b, w_b, out=np.zeros(256), where=w_b > 0)
+    m_f = np.divide(sum_total - sum_b, w_f, out=np.zeros(256), where=w_f > 0)
+    var_between = w_b * w_f * (m_b - m_f) ** 2
+    return int(np.argmax(var_between))
+
+
+def _compute_contrast_separation(gray: np.ndarray) -> float:
+    """전경(잉크)·배경(종이) 평균 밝기 차(0~255). 잉크 밀도와 무관한 실제 대비.
+
+    Otsu 임계값으로 두 군집을 나눈 뒤 평균차를 반환. 선명한 인쇄는 ~180+,
+    바랜 스캔은 낮아진다. 균일/단색 이미지는 한쪽 군집이 비어 0.
+    """
+    t = _otsu_threshold(gray)
+    fg = gray[gray <= t]    # 어두운 전경(잉크): Otsu 임계값 이하 (class0)
+    bg = gray[gray > t]     # 밝은 배경(종이): 임계값 초과
+    if fg.size == 0 or bg.size == 0:
+        return 0.0
+    return float(bg.mean() - fg.mean())
+
+
 def _check_contrast(result: ImageQuality) -> None:
-    if result.contrast_std < QC_CONTRAST_THRESHOLD:
+    # 분리도 < 기준(기본 30)은 잉크와 종이가 거의 안 갈리는 '바랜/저대비' 스캔.
+    # (정상 흑백 인쇄는 분리도가 높아 밀도가 낮아도 걸리지 않는다.)
+    if result.contrast_sep < QC_CONTRAST_THRESHOLD:
         penalty = 25.0
         result.score -= penalty
         result.warnings.append(
-            f"대비 부족: 표준편차 {result.contrast_std:.1f} "
+            f"대비 부족: 전경/배경 분리 {result.contrast_sep:.1f} "
             f"(기준 {QC_CONTRAST_THRESHOLD})"
         )

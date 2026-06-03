@@ -25,7 +25,7 @@ _DEFAULTS = {
     "QC_MIN_HEIGHT": 500,
     "QC_BLUR_THRESHOLD": 100.0,
     "QC_BLANK_THRESHOLD": 1.0,
-    "QC_CONTRAST_THRESHOLD": 30.0,
+    "QC_CONTRAST_THRESHOLD": 30.0,   # 최소 전경/배경 분리도(Otsu, 0~255). 미만이면 대비부족 경고
     "QC_PASS_SCORE": 40.0,
 }
 
