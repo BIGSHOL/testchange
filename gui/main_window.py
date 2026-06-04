@@ -16,6 +16,7 @@ from PySide6.QtGui import QDragEnterEvent, QDropEvent, QFont
 from PySide6.QtWidgets import (
     QApplication,
     QCheckBox,
+    QComboBox,
     QFileDialog,
     QHBoxLayout,
     QLabel,
@@ -43,7 +44,8 @@ from core.content_parser import parse_ocr_response, build_document
 from core.hwpx_writer import write_exam_to_hwpx
 from core.hwp_com import is_hwp_available
 from core.hwp_com_writer import write_exam_to_hwp
-from core.template_loader import load_template
+from core.hwp_form_writer import write_exam_to_form
+from core.form_registry import list_forms, resolve_auto
 from gui.preview_dialog import PreviewDialog, PageInfo
 from utils.config import get_output_dir
 
@@ -72,6 +74,7 @@ class ConversionWorker(QObject):
         output_path: str,
         api_key: str,
         template_path: str | None = None,
+        form_path: str | None = None,
         skip_first_page: bool = False,
         use_crop: bool = False,
     ):
@@ -80,6 +83,7 @@ class ConversionWorker(QObject):
         self.output_path = output_path
         self.api_key = api_key
         self.template_path = template_path
+        self.form_path = form_path   # 선택된 대수회 폼(.hwp). 있으면 폼 채움 경로 사용.
         self.skip_first_page = skip_first_page
         self.use_crop = use_crop
         self._cancelled = False
@@ -423,9 +427,20 @@ class ConversionWorker(QObject):
         # Step 3: 문서 구성
         document = build_document(pages)
 
-        # Step 4: 문서 생성 — HWP 설치 시 COM 직접 입력(수식 크기 네이티브 계산),
-        # 미설치 시 XML 생성기로 폴백.
-        if is_hwp_available():
+        # Step 4: 문서 생성 — 폼 선택 시 폼 채움(대수회), 없으면 COM 기본 렌더,
+        # HWP 미설치 시 XML 생성기로 폴백.
+        if self.form_path and is_hwp_available():
+            self.progress.emit(90, "한글(HWP) 폼지에 채우는 중...")
+            self.log.emit("step", f"폼지 채움: {Path(self.form_path).name}")
+            try:
+                result_path = write_exam_to_form(
+                    document, self.form_path, self.output_path
+                )
+            except Exception as e:
+                # 폼 채움 실패(구조 불일치 등) → 기본 서식으로 폴백(변환은 산출되게).
+                self.log.emit("warning", f"폼 채움 실패 → 기본 서식으로: {e}")
+                result_path = write_exam_to_hwp(document, self.output_path)
+        elif is_hwp_available():
             self.progress.emit(90, "한글(HWP) 구동하여 문서 생성 중...")
             self.log.emit("step", "한글(HWP) 문서 생성 중...")
             result_path = write_exam_to_hwp(
@@ -563,29 +578,30 @@ class MainWindow(QMainWindow):
         layout.addWidget(info_label)
         layout.addSpacing(6)
 
-        # ── 양식 파일(템플릿) 선택 ──
-        template_layout = QHBoxLayout()
-        template_layout.setSpacing(10)
-        self._template_btn = QPushButton("양식 파일 선택")
-        self._template_btn.setFixedHeight(self._BTN_HEIGHT)
-        self._template_btn.setFixedWidth(120)
-        self._template_btn.setToolTip(
-            "한글(.hwpx/.hwp) 양식 파일을 선택하면\n해당 서식(여백, 글꼴, 스타일)이 적용됩니다"
+        # ── 폼지(양식) 선택 ──
+        # '자동'은 입력 파일명의 학년(예: [조암중][2] → 중2)을 감지해 맞는 폼을 고른다.
+        # 구체 폼을 직접 고르면 그 폼으로, '기본 서식'이면 폼 없이 표준 렌더.
+        form_layout = QHBoxLayout()
+        form_layout.setSpacing(10)
+        form_lbl = QLabel("폼지")
+        form_lbl.setFixedWidth(120)
+        form_layout.addWidget(form_lbl)
+
+        self._form_combo = QComboBox()
+        self._form_combo.setFixedHeight(self._BTN_HEIGHT)
+        self._form_combo.setToolTip(
+            "대수회 폼지에 채워 출력합니다.\n"
+            "· 자동: 파일명의 학년을 감지해 맞는 폼 선택\n"
+            "· 기본 서식: 폼 없이 표준 서식으로 생성"
         )
-        self._template_btn.clicked.connect(self._browse_template)
-        template_layout.addWidget(self._template_btn)
-
-        self._template_label = QLabel("양식 없음 (기본 서식)")
-        self._template_label.setStyleSheet("color: #98a2b3; font-size: 12px;")
-        template_layout.addWidget(self._template_label, 1)
-
-        self._template_clear_btn = QPushButton("해제")
-        self._template_clear_btn.setFixedHeight(self._BTN_HEIGHT)
-        self._template_clear_btn.setFixedWidth(80)
-        self._template_clear_btn.setEnabled(False)
-        self._template_clear_btn.clicked.connect(self._clear_template)
-        template_layout.addWidget(self._template_clear_btn)
-        layout.addLayout(template_layout)
+        self._form_combo.addItem("자동 (학년 감지)", "__AUTO__")
+        self._form_combo.addItem("기본 서식 (폼 없음)", "__NONE__")
+        for fi in list_forms():
+            self._form_combo.addItem(f"폼지 — {fi.display}", fi.path)
+        self._form_combo.addItem("직접 찾아보기…", "__BROWSE__")
+        self._form_combo.currentIndexChanged.connect(self._on_form_changed)
+        form_layout.addWidget(self._form_combo, 1)
+        layout.addLayout(form_layout)
 
         # 구분선
         layout.addSpacing(16)
@@ -797,6 +813,13 @@ class MainWindow(QMainWindow):
         out_path = get_output_dir() / out_name
         self._output_input.setText(str(out_path))
         self._log(f"파일 선택: {path}")
+        # 폼 '자동'이면 파일명에서 감지한 폼을 안내(드롭다운은 그대로 '자동' 유지).
+        if self._form_combo.currentData() == "__AUTO__":
+            fp = resolve_auto(path)
+            if fp:
+                self._log(f"  자동 폼 감지: {Path(fp).name}")
+            else:
+                self._log("  자동 폼 미감지 → 기본 서식으로 생성됩니다(드롭다운에서 직접 선택 가능)")
 
     # ── 파일 선택 ──
 
@@ -825,45 +848,38 @@ class MainWindow(QMainWindow):
             self._output_input.setText(path)
             self._log(f"출력 경로 지정: {path}")
 
-    # ── 양식 파일(템플릿) ──
+    # ── 폼지(양식) 선택 ──
 
-    def _browse_template(self):
-        path, _ = QFileDialog.getOpenFileName(
-            self,
-            "양식 파일 선택",
-            "",
-            "한글 파일 (*.hwpx *.hwp);;HWPX 파일 (*.hwpx);;HWP 파일 (*.hwp);;모든 파일 (*.*)",
-        )
-        if path:
-            self._set_template(path)
-
-    def _set_template(self, path: str):
-        """템플릿 파일 설정 및 유효성 검사."""
-        try:
-            config = load_template(path)
-        except (FileNotFoundError, ValueError) as e:
-            QMessageBox.warning(
-                self, "양식 파일 오류", f"양식 파일을 사용할 수 없습니다.\n\n{e}"
+    def _on_form_changed(self, idx: int):
+        """드롭다운 변경. '직접 찾아보기…' 선택 시 파일 대화상자로 폼 추가."""
+        data = self._form_combo.currentData()
+        if data == "__BROWSE__":
+            path, _ = QFileDialog.getOpenFileName(
+                self, "폼지(.hwp) 선택", "",
+                "한글 폼 (*.hwp *.hwpx);;모든 파일 (*.*)",
             )
+            if path:
+                # '직접 찾아보기…'(마지막) 앞에 항목 추가하고 선택
+                self._form_combo.blockSignals(True)
+                self._form_combo.insertItem(
+                    self._form_combo.count() - 1, f"폼지 — {Path(path).name}", path)
+                self._form_combo.setCurrentIndex(self._form_combo.count() - 2)
+                self._form_combo.blockSignals(False)
+                self._log(f"폼지 직접 선택: {path}")
+            else:
+                self._form_combo.setCurrentIndex(0)  # 취소 → 자동
             return
+        label = self._form_combo.currentText()
+        self._log(f"폼지 선택: {label}")
 
-        self._selected_template = path
-        name = Path(path).name
-        self._template_label.setText(name)
-        self._template_label.setStyleSheet(
-            "color: #027a48; font-size: 12px; font-weight: 600;"
-        )
-        self._template_clear_btn.setEnabled(True)
-        self._log(f"양식 파일 설정: {path}")
-        self._log(f"  {config.summary}")
-
-    def _clear_template(self):
-        """템플릿 선택 해제."""
-        self._selected_template = None
-        self._template_label.setText("양식 없음 (기본 서식)")
-        self._template_label.setStyleSheet("color: #98a2b3; font-size: 12px;")
-        self._template_clear_btn.setEnabled(False)
-        self._log("양식 파일 해제됨")
+    def _resolve_form_path(self) -> str | None:
+        """현재 드롭다운 선택 → 실제 폼 경로(없으면 None=기본 서식)."""
+        data = self._form_combo.currentData()
+        if data in ("__NONE__", "__BROWSE__"):
+            return None
+        if data == "__AUTO__":
+            return resolve_auto(self._selected_file or "")
+        return data  # 구체 폼 경로
 
     # ── 변환 ──
 
@@ -914,6 +930,7 @@ class MainWindow(QMainWindow):
         self._worker = ConversionWorker(
             self._selected_file, output_path, api_key,
             template_path=self._selected_template,
+            form_path=self._resolve_form_path(),   # 폼 선택(자동/수동) → 경로 or None
             skip_first_page=False,   # 수동 표지 스킵 폐지 — 무쓸모 페이지는 자동 스킵
             use_crop=True,           # 항상 크롭 검수 모드
         )
@@ -1000,7 +1017,4 @@ class MainWindow(QMainWindow):
         self._browse_btn.setEnabled(not converting)
         self._output_browse_btn.setEnabled(not converting)
         self._api_key_input.setEnabled(not converting)
-        self._template_btn.setEnabled(not converting)
-        self._template_clear_btn.setEnabled(
-            not converting and self._selected_template is not None
-        )
+        self._form_combo.setEnabled(not converting)

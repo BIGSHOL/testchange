@@ -28,6 +28,8 @@ a = Analysis(
     binaries=[*_google_binaries],
     datas=[
         (str(project_root / 'hwpx_조암'), 'hwpx_조암'),
+        # 대수회 폼지(학년별 색상 7종) 번들 → _internal/forms/ (core/form_registry 가 _MEIPASS/forms 에서 읽음)
+        (str(project_root / 'forms'), 'forms'),
         *collect_data_files('hwpx'),
         *_google_datas,
     ],
