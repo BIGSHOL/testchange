@@ -256,7 +256,15 @@ class HwpSession:
         # 편집기 닫기. TreatAsChar=1 로 이미 인라인이며, Close 가 커서를 수식 뒤에
         # 두므로 사후 FindCtrl/ShapeObjTreatAsChar 처리(미확정 version="" 유발)는
         # 불필요하다. (실측 확정 2026-06-02: 사후 처리 제거로 version 스탬프 + 인라인 동시 달성)
-        h.HAction.Run("Close")
+        #
+        # 단 **본문(list 0)에서만** Close 한다. 표 셀(list!=0) 안에서는 열린 편집기가
+        # 없어 Run("Close")가 '셀 편집영역'을 닫는다 → 커서가 본문으로 튕겨 보기/조건
+        # 박스(1×1 표) 안 수식이 셀 밖으로 새고, 게다가 표 객체가 닫힘/선택 상태로 남아
+        # **다음 TableCreate 가 COM 예외로 실패**한다(SetPos 로 커서만 되돌려도 표 상태는
+        # 깨진 채). 셀 안에선 Execute 만으로 수식이 인라인 삽입되고 커서가 그 뒤에 오므로
+        # Close 가 애초에 불필요하다. (실측 확정 2026-06-04)
+        if h.GetPos()[0] == 0:
+            h.HAction.Run("Close")
 
     def insert_picture(self, path: str | Path) -> None:
         """그림 파일을 본문에 삽입(글자처럼 취급, 인라인).
@@ -337,20 +345,28 @@ class HwpSession:
         입력이 끝나면 반드시 ``table_end()`` 로 표 밖으로 탈출한다.
         """
         h = self.hwp
-        h.HAction.GetDefault("TableCreate", h.HParameterSet.HTableCreation.HSet)
-        ps = h.HParameterSet.HTableCreation
-        ps.Rows = nrow
-        ps.Cols = ncol
-        ps.WidthType = 0
-        ps.HeightType = 0
+        # **반드시 CreateAction/CreateSet 으로 독립 파라미터셋**을 쓴다. 공유
+        # ``h.HParameterSet.HTableCreation`` 을 재사용하면, 문서에 수식(EquationCreate)이
+        # 한 번이라도 삽입된 뒤로는 공유 HParameterSet 가 오염돼 **두 번째 TableCreate
+        # 부터 COM 서버 예외(-2147417851)로 실패**한다(첫 표는 통과). 보기/조건을 1×1 표
+        # 박스로 감싸면(A3) 문항마다 표가 생기는데, 수식 든 문항이 흔해 둘째 문항부터
+        # 전량 크래시했다. CreateSet 는 호출마다 새 파라미터셋이라 수식 오염·재사용과
+        # 무관하게 N개 표가 안정 생성된다. (실측 확정 2026-06-04: 수식+표3개 생존.)
+        act = h.CreateAction("TableCreate")
+        pset = act.CreateSet()
+        act.GetDefault(pset)
+        pset.SetItem("Rows", nrow)
+        pset.SetItem("Cols", ncol)
+        pset.SetItem("WidthType", 0)    # 0=절대너비(ColWidth 합). 원본 동작 유지.
+        pset.SetItem("HeightType", 0)
         col_w = max(int(line_width // ncol), 1)
-        ps.CreateItemArray("ColWidth", ncol)
+        col_arr = pset.CreateItemArray("ColWidth", ncol)
         for c in range(ncol):
-            ps.ColWidth.SetItem(c, col_w)
-        ps.CreateItemArray("RowHeight", nrow)
+            col_arr.SetItem(c, col_w)
+        row_arr = pset.CreateItemArray("RowHeight", nrow)
         for r in range(nrow):
-            ps.RowHeight.SetItem(r, 1000)
-        h.HAction.Execute("TableCreate", ps.HSet)
+            row_arr.SetItem(r, 1000)
+        act.Execute(pset)
         # 커서는 (0,0) 셀에 위치
 
     def table_next_cell(self) -> None:
@@ -358,9 +374,22 @@ class HwpSession:
         self.hwp.HAction.Run("TableRightCell")
 
     def table_end(self) -> None:
-        """표 밖(뒤 단락)으로 탈출 — 실측으로 확정된 시퀀스."""
-        self.hwp.HAction.Run("Close")
-        self.hwp.HAction.Run("MoveRight")
+        """표 밖(표 '다음' 단락)으로 탈출.
+
+        ``Run("Close")`` 는 셀 편집을 끝내고 커서를 본문으로 보내지만 **표 '앞' 단락**
+        (표의 앵커 단락)에 둔다. 여기서 ``Run("MoveRight")`` 를 하면 표를 건너뛰는 게
+        아니라 **표 셀 안(시작)으로 재진입**해(실측: Close→(0,P,0) → MoveRight→(2,0,0)),
+        이후 쓰는 내용이 전부 셀 맨 앞에 쌓여 보기/조건 박스 뒤 문항이 박스 안으로
+        빨려들어간다. 대신 **표 다음 단락(P+1)으로 SetPos** 한다(단락 인덱스 기반이라
+        박스 높이와 무관·결정적). 표 뒤엔 항상 트레일링 단락이 있다. (실측 확정 2026-06-04)
+        """
+        h = self.hwp
+        h.HAction.Run("Close")
+        p = h.GetPos()                       # (list, 표 앵커 단락, 0)
+        try:
+            h.SetPos(p[0], p[1] + 1, 0)      # 표 '다음' 단락 시작으로
+        except Exception:
+            h.HAction.Run("MoveDown")
 
     def table(self, rows: list[list[str]], line_width: int = 8000) -> None:
         """문자열 2D 배열로 표를 만들고 채운다.

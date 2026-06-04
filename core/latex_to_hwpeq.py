@@ -219,6 +219,10 @@ class LaTeXToHWPConverter:
         r"\angle": "angle",
         r"\perp": "BOT",
         r"\parallel": "parallel",
+        r"\mid": "|",          # 집합 표기 바: {x | x≤3}. 없으면 누락돼 "xx"로 붙음
+        r"\vert": "|",
+        r"\Vert": "PARALLEL",
+        r"\setminus": "\\",    # 차집합 A\B
         r"\triangle": "TRIANGLE",
         r"\square": '"□"',
         r"\circ": "CIRC",
