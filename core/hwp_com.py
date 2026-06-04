@@ -73,11 +73,12 @@ class HwpSession:
     """
 
     def __init__(self, visible: bool = False, base_pt: int = 10, eq_pt: int = 11,
-                 eq_font: str = "HYhwpEQ"):
+                 eq_font: str = "HYhwpEQ", note_pt: int = 12):
         if _win32 is None:
             raise RuntimeError("win32com을 사용할 수 없습니다 (HWP COM 미지원 환경).")
         self.base_pt = base_pt   # 본문 텍스트(한글 등) 글자 크기(pt)
         self.eq_pt = eq_pt       # 수식 글자 크기(pt)
+        self.note_pt = note_pt   # 문항번호(미주 자동번호) 글자 크기(pt) — 폼 스타일
         self.eq_font = eq_font   # 수식 글꼴 — HYhwpEQ 고정(편집기 직접입력과 동일)
         self.hwp = _dispatch_hwp()
         # 모든 대화상자 자동응답 — 복구/저장 팝업 hang 방지(필수).
@@ -311,6 +312,35 @@ class HwpSession:
         """현재 단락 오른쪽 정렬."""
         self.hwp.HAction.Run("ParagraphShapeAlignRight")
 
+    def set_char_shape(self, pt: float | None = None, bold: bool | None = None) -> None:
+        """캐럿 글자모양을 설정한다(이후 입력되는 글자에 적용). 지정 안 한 항목은 현 상태 유지.
+
+        **장평(Ratio*)·상대크기(Size*)를 모든 스크립트에 100 으로 명시**해야 한다. GetDefault
+        가 이들을 0 으로 주는 경우가 있고, 0 이면 글자가 투명(폭/크기 0)으로 렌더돼 본문이
+        통째로 사라진다(실측 2026-06-04: 누락 시 한글·번호 전부 소실). hwp_form_writer
+        ``_set_plain`` 과 동일한 안전 패턴.
+        """
+        h = self.hwp
+        h.HAction.GetDefault("CharShape", h.HParameterSet.HCharShape.HSet)
+        cs = h.HParameterSet.HCharShape
+        if pt is not None:
+            try:
+                cs.Height = h.PointToHwpUnit(pt)
+            except Exception:
+                pass
+        if bold is not None:
+            try:
+                cs.Bold = 1 if bold else 0
+            except Exception:
+                pass
+        for sc in ("Hangul", "Latin", "Hanja", "Japanese", "Other", "Symbol", "User"):
+            try:
+                setattr(cs, f"Ratio{sc}", 100)
+                setattr(cs, f"Size{sc}", 100)
+            except Exception:
+                pass
+        h.HAction.Execute("CharShape", cs.HSet)
+
     def endnote(self) -> bool:
         """현재 위치에 미주(자동번호)를 삽입하고 **본문으로 복귀**한다. 성공 시 True.
 
@@ -319,14 +349,21 @@ class HwpSession:
         → 삽입 전 본문 위치(GetPos)를 기억했다가 **SetPos 로 마크 다음(본문)으로 강제 복귀**.
         복귀가 본문 list 로 확인되지 않으면 MoveDocEnd 로 안전 복구하고 False(호출부가 텍스트
         번호로 폴백). COM 미주 '생성'은 이 코드베이스 전례가 없어 실측 검증 필요(2026-06-04).
+
+        번호 글자모양은 **note_pt(기본 12pt)·볼드**로 — 사용자 폼 스타일(문항번호 12pt 볼드).
+        마크는 삽입 시점의 캐럿 글자모양을 상속하므로 InsertEndnote 직전에 12pt 볼드를 걸고,
+        복귀 후 본문(base_pt·일반)으로 되돌려 발문은 기본 크기로 입력되게 한다. (번호 형식
+        "1." 의 마침표 suffix 는 supscript=0 과 함께 저장 후 XML 후처리 ``_set_endnote_suffix``.)
         """
         h = self.hwp
         try:
+            self.set_char_shape(self.note_pt, bold=True)   # 번호 12pt 볼드
             before = h.GetPos()                  # (list, para, pos) — 본문 번호 위치
             h.HAction.Run("InsertEndnote")       # 미주 삽입(마크 1글자) → 커서 미주영역
             # 본문 복귀: 마크 다음 위치로. (미주영역 list 에서 본문 list 로 빠져나옴)
             h.SetPos(before[0], before[1], before[2] + 1)
             after = h.GetPos()
+            self.set_char_shape(self.base_pt, bold=False)  # 발문은 기본 크기·일반
             if after[0] != before[0]:            # 본문 list 로 복귀 못 하면 실패
                 h.HAction.Run("MoveDocEnd")
                 return False

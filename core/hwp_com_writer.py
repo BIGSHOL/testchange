@@ -139,7 +139,7 @@ class HwpComWriter:
         if block.type == ContentType.TABLE:
             # 표는 자체 단락 필요 — 앞 단락과 분리
             self.s.break_para()
-            self.s.table(block.rows or [])
+            self._write_equation_table(block.rows or [])
         elif block.type == ContentType.EQUATION_BLOCK:
             if not inline:
                 self.s.break_para()
@@ -161,6 +161,30 @@ class HwpComWriter:
                 self.s.insert_picture(block.value)
                 self.s.break_para()
                 self.s.align_left()
+
+    def _write_equation_table(self, rows: list[list[str]]) -> None:
+        """표를 만들고 각 셀을 **수식 객체**로 채운다.
+
+        OCR 표(rows)는 LaTeX 문자열(예: "x", "f(x)", "-1", "\\frac{1}{2}")이라,
+        수학 표는 셀도 수식으로 렌더해야 본문 수식과 글꼴·기울임이 일치한다(사용자
+        요구 2026-06-04: 표 안 값이 일반 텍스트로 들어가면 안 됨). 빈 셀은 비운다.
+        """
+        if not rows:
+            return
+        nrow = len(rows)
+        ncol = max((len(r) for r in rows), default=0)
+        if ncol == 0:
+            return
+        self.s.table_begin(nrow, ncol)
+        for ri in range(nrow):
+            row = rows[ri]
+            for ci in range(ncol):
+                val = str(row[ci]).strip() if ci < len(row) else ""
+                if val:
+                    self.s.equation(latex_to_hwpeq(val))
+                if not (ri == nrow - 1 and ci == ncol - 1):
+                    self.s.table_next_cell()
+        self.s.table_end()
 
     def _write_segmented_text(self, text: str) -> None:
         """조건/보기 박스 텍스트를 줄 단위로 분리해 출력.
@@ -234,10 +258,11 @@ class HwpComWriter:
         # 인라인 배점([N점])을 또 찍으면 중복 → 부모는 인라인 배점 생략, 소문항만 표기.
         show_score = bool(question.score) and not has_subs
 
-        # 번호(A1): 주문항은 미주 자동번호("1." 스타일). 미주 삽입 성공 시 마크 뒤 ". " 만 찍고,
+        # 번호(A1): 주문항은 미주 자동번호("1." 스타일, 12pt 볼드). 미주 마크의 번호 형식
+        # "1." 의 마침표는 suffix(저장 후 XML 후처리)에서 오므로, 성공 시 마크 뒤엔 공백만.
         # 실패하면 텍스트 번호로 폴백 + 이후 문항도 텍스트(self._use_endnote=False).
         if top_level and self._use_endnote and self.s.endnote():
-            self.s.text(". ")
+            self.s.text(" ")
         else:
             if top_level and self._use_endnote:
                 self._use_endnote = False
@@ -488,7 +513,57 @@ def write_exam_to_hwp(
         _inject_choice_tabstop(output_path)
     except Exception:
         pass
+    # 미주(문항번호) 번호 형식 "1)" → "1." : 저장 후 section XML 의 autoNumFormat
+    # suffixChar 패치(COM EndnoteShape 는 캐럿 부작용·인코딩 불확실 → XML 결정적).
+    try:
+        _set_endnote_suffix(output_path)
+    except Exception:
+        pass
     return output_path
+
+
+def _set_endnote_suffix(hwpx_path: str | Path, suffix: str = ".") -> int:
+    """저장된 .hwpx section XML 의 미주/각주 번호 suffixChar 를 ``)`` → ``suffix`` 로.
+
+    문항번호를 미주 자동번호로 쓰는데(A1), 폼 스타일은 "1." 형식이라 기본 ")" 를 "." 로
+    바꾼다(본문 마크·답란 번호 모두 이 형식을 따른다). ``<hp:autoNumFormat … suffixChar=")"``
+    만 대상(이미 다른 suffix 면 건드리지 않음).
+
+    Returns:
+        패치한 autoNumFormat 개수.
+    """
+    import zipfile, tempfile, os
+
+    hwpx_path = Path(hwpx_path)
+    with zipfile.ZipFile(hwpx_path) as z:
+        infos = z.infolist()
+        contents = {i.filename: z.read(i.filename) for i in infos}
+
+    count = 0
+    pat = re.compile(r'(<hp:autoNumFormat\b[^>]*?suffixChar=")\)(")')
+    for fn in list(contents):
+        if not (fn.endswith(".xml") and "section" in fn.lower()):
+            continue
+        text = contents[fn].decode("utf-8")
+        new, n = pat.subn(lambda m: m.group(1) + suffix + m.group(2), text)
+        if n:
+            contents[fn] = new.encode("utf-8")
+            count += n
+    if not count:
+        return 0
+
+    tmp = str(hwpx_path) + ".tmp"
+    with zipfile.ZipFile(tmp, "w") as zout:
+        for info in infos:
+            zi = zipfile.ZipInfo(info.filename, date_time=info.date_time)
+            zi.compress_type = info.compress_type
+            zi.external_attr = info.external_attr
+            zi.internal_attr = info.internal_attr
+            zi.create_system = info.create_system
+            zi.flag_bits = info.flag_bits
+            zout.writestr(zi, contents[info.filename])
+    os.replace(tmp, hwpx_path)
+    return count
 
 
 # ── 스모크 테스트 ─────────────────────────────────────────
