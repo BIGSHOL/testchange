@@ -15,8 +15,10 @@
 ## 시험지 출력 포맷 합의사항 (COM writer — 강제 준수)
 
 `core/hwp_com_writer.py`·`core/hwp_com.py` 의 렌더 출력은 아래 합의를 **반드시** 지킨다.
-회귀 방지는 `verify-output-format` 스킬로 강제 검증한다(수정 후/PR 전 실행). 합의가
-바뀌면 코드와 그 스킬을 함께 갱신한다.
+회귀 방지는 **자동 강제**된다: `.claude/settings.json` 의 PostToolUse 훅이 위 파일(+`latex_to_hwpeq.py`)
+편집 시마다 `scripts/verify_output_format.py` 를 돌려 위반이면 차단(exit 2)한다. 수동 검증은
+`verify-output-format` 스킬 또는 `python scripts/verify_output_format.py --all`. 합의가
+바뀌면 코드·그 스크립트·`verify-output-format` SKILL.md 를 **함께** 갱신한다.
 
 1. **문항번호** = 미주 자동번호, 형식 **"1."**(suffix `.`), **12pt 볼드**.
 2. **배점** — 객관식: 발문 끝 인라인 `[N점]`. **서술형: 줄바꿈 후 우측정렬**.

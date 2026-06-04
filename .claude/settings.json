@@ -8,5 +8,18 @@
       "WebFetch(domain:jundamin.github.io)",
       "WebFetch(domain:www.n8n-diy.com)"
     ]
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python \"$CLAUDE_PROJECT_DIR/scripts/verify_output_format.py\""
+          }
+        ]
+      }
+    ]
   }
 }

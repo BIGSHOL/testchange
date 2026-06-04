@@ -11,8 +11,18 @@ HWP COM writer(`core/hwp_com_writer.py`, `core/hwp_com.py`)가 사용자와 **�
 유지하는지 검증한다. 이 합의들은 렌더 실측으로 확정됐고, 회귀하면 시험지 모양이 틀어진다.
 각 합의는 코드의 특정 마커로 강제되며, 이 스킬이 그 마커의 존재·정합을 확인한다.
 
-> **합의사항(스펙) 자체가 이 문서다.** 포맷 합의가 추가/변경되면 이 스킬의 검사 항목도 함께
-> 갱신해 "강제 행사"를 유지한다.
+> **합의사항(스펙) 자체가 이 문서다.** 포맷 합의가 추가/변경되면 이 스킬의 검사 항목과
+> `scripts/verify_output_format.py` 를 함께 갱신해 "강제 행사"를 유지한다.
+
+## 자동 강제 (PostToolUse 훅)
+
+`.claude/settings.json` 의 PostToolUse 훅이 `core/hwp_com_writer.py`·`core/hwp_com.py`·
+`core/latex_to_hwpeq.py` 를 **편집할 때마다** `scripts/verify_output_format.py` 를 자동
+실행한다. 합의 위반이 생기면 훅이 **exit 2 로 차단 피드백**을 주므로 회귀가 즉시 잡힌다.
+이 SKILL 의 검사 항목과 그 스크립트는 동일한 17개 합의를 검증한다(스크립트=실행 백엔드,
+SKILL=사람이 읽는 스펙·수동 실행 절차). 수동 전체 검증: `python scripts/verify_output_format.py --all`.
+
+> 훅 설정 변경은 Claude Code 재시작(또는 `/hooks` 확인) 후 적용된다.
 
 ## When to Run
 
