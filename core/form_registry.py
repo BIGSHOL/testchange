@@ -124,3 +124,89 @@ def match_by_grade(grade: str, subtag: str = "") -> str | None:
 def resolve_auto(input_path: str) -> str | None:
     """입력 파일명으로 학년 추정 → 폼 경로(없으면 None)."""
     return match_by_grade(detect_grade(input_path))
+
+
+# ── 파일명 규칙 파싱 (머리말 채움·폼 선택용) ─────────────────────────
+# 규칙: 중등 [학교중][학년][시기][출판사] / 고등 [학교고][학년][시기][과목][출판사]
+#   학년 = 1|2|3, 시기 = "25-1-중간"(년-학기-중간/기말), 과목 = 고등만(브래킷).
+_BRACKET_RE = re.compile(r"\[([^\]]*)\]")
+_TERM_RE = re.compile(r"(\d{2,4})\s*[-_.]\s*([12])\s*[-_.]\s*(중간|기말)")
+
+# 고등 과목 정규화: 15개정 ↔ 22개정 혼재. 표준키로 통일 후 폼 subtag 로 매핑.
+#   수1=대수 → 수1폼 / 수2=미적분1 → 수2폼 / 미적분(미적분2)·기하·확통 → 선택과목폼
+#   고1(공수1·공수2·수상·수하) → 고1폼(subtag 없음)
+_SUBJECT_ALIASES = {
+    # 고1
+    "공수1": "공통수학1", "공통수학1": "공통수학1", "수상": "공통수학1",
+    "공수2": "공통수학2", "공통수학2": "공통수학2", "수하": "공통수학2",
+    # 고2 수1 계열
+    "수1": "대수", "수학1": "대수", "대수": "대수",
+    # 고2 수2 계열
+    "수2": "미적분1", "수학2": "미적분1", "미적분1": "미적분1",
+    # 선택과목
+    "미적분": "미적분2", "미적분2": "미적분2",
+    "기하": "기하",
+    "확통": "확률과통계", "확률과통계": "확률과통계",
+}
+# 표준 과목 → 폼 subtag(고2). 고1 과목은 학년으로 고1폼 직행.
+_SUBJECT_TO_SUBTAG = {
+    "대수": "수1", "미적분1": "수2",
+    "미적분2": "선택과목", "기하": "선택과목", "확률과통계": "선택과목",
+}
+_HS1_SUBJECTS = {"공통수학1", "공통수학2"}
+
+
+def parse_filename(input_path: str) -> dict:
+    """입력 파일명을 규칙대로 파싱. 채움/폼선택에 필요한 값과 유효성 반환.
+
+    반환: {valid, 학교, 학년("중2"/"고2"), 년도("2025"), 학기("1"), 구분("중간"),
+           과목(표시명, 중등="수학"), form_subtag, raw_subject}
+    """
+    name = Path(input_path).stem
+    out = {"valid": False, "학교": "", "학년": "", "년도": "", "학기": "",
+           "구분": "", "과목": "", "form_subtag": "", "raw_subject": ""}
+    toks = _BRACKET_RE.findall(name)
+    if len(toks) < 3:
+        return out
+    school = toks[0].strip()
+    level = "중" if "중" in school else ("고" if "고" in school else "")
+    gnum = toks[1].strip()
+    if level not in ("중", "고") or gnum not in ("1", "2", "3"):
+        return out
+    out["학교"] = school
+    out["학년"] = level + gnum
+    # 시기
+    joined = " ".join(toks)
+    m = _TERM_RE.search(joined)
+    if m:
+        y = m.group(1)
+        out["년도"] = ("20" + y) if len(y) == 2 else y
+        out["학기"] = m.group(2)
+        out["구분"] = m.group(3)
+    # 과목
+    if level == "중":
+        out["과목"] = "수학"
+        out["valid"] = bool(out["년도"])
+        return out
+    # 고등: 브래킷 중 과목 토큰 탐색
+    for tk in toks[2:]:
+        key = tk.strip().replace(" ", "")
+        if key in _SUBJECT_ALIASES:
+            std = _SUBJECT_ALIASES[key]
+            out["raw_subject"] = tk.strip()
+            out["과목"] = tk.strip()
+            if std in _HS1_SUBJECTS:
+                out["form_subtag"] = ""          # 고1폼
+            else:
+                out["form_subtag"] = _SUBJECT_TO_SUBTAG.get(std, "선택과목")
+            break
+    out["valid"] = bool(out["과목"] and out["년도"])
+    return out
+
+
+def resolve_form(input_path: str) -> str | None:
+    """파일명 규칙 파싱 → (학년+과목) 맞는 폼 경로. 규칙 미일치/매칭 실패 시 None."""
+    info = parse_filename(input_path)
+    if not info["valid"]:
+        return None
+    return match_by_grade(info["학년"], info["form_subtag"])

@@ -693,11 +693,72 @@ def _layout_form(filled_hwpx, out_hwpx, per_col: int, n_mc: int, n_es: int) -> N
 
 
 # ── 진입점 ────────────────────────────────────────────────
+def _fill_form_header(hwpx_path: str | Path, values: dict) -> int:
+    """출력 .hwpx 의 폼 머리말/꼬리말 텍스트를 학년·과목·시기 값으로 치환(결정적 XML).
+
+    폼마다 박힌 텍스트가 제각각이라(예: 중2폼인데 머리말이 "고 1학년 수학") 고정 텍스트가
+    아니라 **구조 패턴**(학년+과목 / 시험명 / "… 대비 (과목)" 꼬리말)을 정규식으로 잡아 값으로
+    바꾼다. 모든 머리말 요소(홀/짝수쪽)·밴드를 한 번에. 값이 비면(학년/과목 없음) 건너뜀.
+    꼬리말의 "(정답)" 은 보존. (toten 삽입 대신 출력 후처리 — 폼 원본 미변경.)
+
+    values 키: 학년("중2"), 과목("수학"/"대수"…), 년도("2025"), 학기("1"), 구분("중간"/"기말").
+    Returns: 치환 건수(0 이면 손댄 것 없음).
+    """
+    g = (values.get("학년") or "").strip()
+    subj = (values.get("과목") or "").strip()
+    if not (g and subj):
+        return 0
+    yr = (values.get("년도") or "").strip()
+    term = (values.get("학기") or "").strip()
+    kind = (values.get("구분") or "").strip()
+    exam = (f"{yr}년 {term}학기 {kind}고사" if yr else f"{term}학기 {kind}고사").replace("  ", " ").strip()
+    center = f"{g} {subj}"
+    footer = f"{g} {exam} 대비 ({subj})"
+    pats = [
+        # 꼬리말 먼저(시험명 패턴이 "고사"를 먼저 먹지 않게). "(정답)" 보존.
+        (re.compile(r'(?:중|고)\s*\d{2,4}\s*년\s*학기\s*고사\s*대비\s*\(\s*수학[12]?\s*\)(\s*\(\s*정답\s*\))?'),
+         lambda mm: footer + (mm.group(1) or "")),
+        (re.compile(r'(?:중|고)\s*[1-3]\s*학년\s*수학[12]?'), lambda mm: center),
+        (re.compile(r'\d{2,4}\s*년\s*학기\s*고사(?!\s*대비)'), lambda mm: exam),
+    ]
+    hwpx_path = Path(hwpx_path)
+    with zipfile.ZipFile(hwpx_path) as z:
+        infos = z.infolist()
+        contents = {i.filename: z.read(i.filename) for i in infos}
+    cnt = 0
+    for fn in list(contents):
+        if not (fn.endswith(".xml") and "section" in fn.lower()):
+            continue
+        text = contents[fn].decode("utf-8")
+        n = 0
+        for rx, repl in pats:
+            text, k = rx.subn(repl, text)
+            n += k
+        if n:
+            contents[fn] = text.encode("utf-8")
+            cnt += n
+    if not cnt:
+        return 0
+    tmp = str(hwpx_path) + ".tmp"
+    with zipfile.ZipFile(tmp, "w") as zout:
+        for info in infos:
+            zi = zipfile.ZipInfo(info.filename, date_time=info.date_time)
+            zi.compress_type = info.compress_type
+            zi.external_attr = info.external_attr
+            zi.internal_attr = info.internal_attr
+            zi.create_system = info.create_system
+            zi.flag_bits = info.flag_bits
+            zout.writestr(zi, contents[info.filename])
+    os.replace(tmp, hwpx_path)
+    return cnt
+
+
 def write_exam_to_form(
     document: ExamDocument,
     form_path: str | Path,
     output_path: str | Path,
     per_col: int = PER_COL,
+    header_values: dict | None = None,
 ) -> Path:
     """ExamDocument 를 대수회 폼(.hwp)에 채워 .hwpx 로 저장.
 
@@ -706,6 +767,7 @@ def write_exam_to_form(
         form_path: 폼 양식(.hwp) 경로.
         output_path: 출력 .hwpx 경로.
         per_col: 한 단당 문항 수(기본 3 → 페이지당 6).
+        header_values: 머리말/꼬리말 채울 값(학년·과목·년도·학기·구분). None 이면 폼 원문 유지.
 
     Returns:
         저장된 파일 경로.
@@ -729,6 +791,12 @@ def write_exam_to_form(
     finally:
         try:
             os.remove(filled)
+        except Exception:
+            pass
+    # 2단계: 머리말/꼬리말 학년·과목·시기 채움(결정적 XML 후처리).
+    if header_values:
+        try:
+            _fill_form_header(output_path, header_values)
         except Exception:
             pass
     return output_path

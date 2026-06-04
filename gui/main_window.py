@@ -45,7 +45,7 @@ from core.hwpx_writer import write_exam_to_hwpx
 from core.hwp_com import is_hwp_available
 from core.hwp_com_writer import write_exam_to_hwp
 from core.hwp_form_writer import write_exam_to_form
-from core.form_registry import list_forms, resolve_auto
+from core.form_registry import list_forms, resolve_auto, resolve_form, parse_filename
 from gui.preview_dialog import PreviewDialog, PageInfo
 from utils.config import get_output_dir
 
@@ -75,6 +75,7 @@ class ConversionWorker(QObject):
         api_key: str,
         template_path: str | None = None,
         form_path: str | None = None,
+        header_values: dict | None = None,
         skip_first_page: bool = False,
         use_crop: bool = False,
     ):
@@ -84,6 +85,7 @@ class ConversionWorker(QObject):
         self.api_key = api_key
         self.template_path = template_path
         self.form_path = form_path   # 선택된 대수회 폼(.hwp). 있으면 폼 채움 경로 사용.
+        self.header_values = header_values   # 머리말/꼬리말 채움 값(파일명에서 추출).
         self.skip_first_page = skip_first_page
         self.use_crop = use_crop
         self._cancelled = False
@@ -434,7 +436,8 @@ class ConversionWorker(QObject):
             self.log.emit("step", f"폼지 채움: {Path(self.form_path).name}")
             try:
                 result_path = write_exam_to_form(
-                    document, self.form_path, self.output_path
+                    document, self.form_path, self.output_path,
+                    header_values=self.header_values,
                 )
             except Exception as e:
                 # 폼 채움 실패(구조 불일치 등) → 기본 서식으로 폴백(변환은 산출되게).
@@ -813,13 +816,19 @@ class MainWindow(QMainWindow):
         out_path = get_output_dir() / out_name
         self._output_input.setText(str(out_path))
         self._log(f"파일 선택: {path}")
-        # 폼 '자동'이면 파일명에서 감지한 폼을 안내(드롭다운은 그대로 '자동' 유지).
+        # 폼 '자동'이면 파일명 규칙 검사·감지 결과 안내(드롭다운은 '자동' 유지).
         if self._form_combo.currentData() == "__AUTO__":
-            fp = resolve_auto(path)
-            if fp:
-                self._log(f"  자동 폼 감지: {Path(fp).name}")
+            info = parse_filename(path)
+            if info["valid"]:
+                fp = resolve_form(path)
+                self._log(
+                    f"  파일명 인식: {info['학년']} {info['과목']} · "
+                    f"{info['년도']}년 {info['학기']}학기 {info['구분']}")
+                self._log(f"  자동 폼: {Path(fp).name if fp else '미매칭(드롭다운에서 선택)'}")
             else:
-                self._log("  자동 폼 미감지 → 기본 서식으로 생성됩니다(드롭다운에서 직접 선택 가능)")
+                self._log(
+                    "  ⚠ 파일명이 규칙과 다릅니다 → 폼 자동 채움 불가. "
+                    "형식: [학교][학년][년-학기-중간/기말]([과목])[출판사]")
 
     # ── 파일 선택 ──
 
@@ -873,12 +882,15 @@ class MainWindow(QMainWindow):
         self._log(f"폼지 선택: {label}")
 
     def _resolve_form_path(self) -> str | None:
-        """현재 드롭다운 선택 → 실제 폼 경로(없으면 None=기본 서식)."""
+        """현재 드롭다운 선택 → 실제 폼 경로(없으면 None=기본 서식).
+
+        자동(__AUTO__)은 파일명 규칙(학년+과목)으로 폼을 고른다(resolve_form).
+        """
         data = self._form_combo.currentData()
         if data in ("__NONE__", "__BROWSE__"):
             return None
         if data == "__AUTO__":
-            return resolve_auto(self._selected_file or "")
+            return resolve_form(self._selected_file or "")
         return data  # 구체 폼 경로
 
     # ── 변환 ──
@@ -896,6 +908,19 @@ class MainWindow(QMainWindow):
         # API 키를 config.json에 저장
         from utils.config import set_api_key
         set_api_key(api_key)
+
+        # 폼 '자동' 모드는 파일명 규칙이 맞아야 분석(미일치 차단). 폼 직접선택/기본서식은 통과.
+        info = parse_filename(self._selected_file)
+        if self._form_combo.currentData() == "__AUTO__" and not info["valid"]:
+            QMessageBox.warning(
+                self, "파일명 규칙 확인",
+                "폼 자동 채움은 파일명이 규칙과 맞아야 합니다.\n\n"
+                "형식: [학교][학년][년-학기-중간/기말]([과목])[출판사]\n"
+                "예) [조암중][2][25-1-중간][동아강]\n"
+                "예) [○○고][2][25-1-중간][대수][동아강]\n\n"
+                "파일명을 맞춰 다시 올리거나, 폼 목록에서 직접 선택/‘기본 서식’을 고르세요.",
+            )
+            return
 
         output_path = self._output_input.text().strip()
         if not output_path:
@@ -931,6 +956,7 @@ class MainWindow(QMainWindow):
             self._selected_file, output_path, api_key,
             template_path=self._selected_template,
             form_path=self._resolve_form_path(),   # 폼 선택(자동/수동) → 경로 or None
+            header_values=(info if info["valid"] else None),  # 머리말 채움 값(파일명)
             skip_first_page=False,   # 수동 표지 스킵 폐지 — 무쓸모 페이지는 자동 스킵
             use_crop=True,           # 항상 크롭 검수 모드
         )
