@@ -179,12 +179,14 @@ class HwpComWriter:
         for ri in range(nrow):
             row = rows[ri]
             for ci in range(ncol):
+                self.s.align_center()        # 셀 값 가운데 정렬(사용자 요구 2026-06-04)
                 val = str(row[ci]).strip() if ci < len(row) else ""
                 if val:
                     self.s.equation(latex_to_hwpeq(val))
                 if not (ri == nrow - 1 and ci == ncol - 1):
                     self.s.table_next_cell()
         self.s.table_end()
+        self.s.align_left()                  # 표 뒤 본문은 좌측 정렬 복귀
 
     def _write_segmented_text(self, text: str) -> None:
         """조건/보기 박스 텍스트를 줄 단위로 분리해 출력.
@@ -282,15 +284,19 @@ class HwpComWriter:
         # 보기/조건 → 1×1 테두리 표 박스 (A3)
         if box:
             self._write_condition_box(box)
-
-        self.s.break_para()
+            # 박스(표) 뒤 트레일링 단락이 이미 새 줄 → 추가 break 없이 바로 선택지로.
+            # (break 를 또 넣으면 박스와 선택지 사이에 빈 줄이 생김 — 사용자 지적 2026-06-04)
+        else:
+            self.s.break_para()
 
         # 보기 — 길이에 따라 1~5단 배치(짧으면 여러 단을 한 줄에, 길면 한 줄당 하나)
         if question.choices:
             cols = _choice_columns(question.choices)
             last = len(question.choices) - 1
             for i, choice in enumerate(question.choices):
-                self._write_choice(choice)
+                # 2열 배치일 때만 보기 내용을 수식 객체로(텍스트 단락은 \t 탭이 7cm
+                # 고정정지점으로 재계산되지 않아 2열이 안 맞음 — 수식 든 단락은 재계산됨).
+                self._write_choice(choice, as_equation=(cols == 2))
                 if i % cols == cols - 1 or i == last:
                     self.s.break_para()
                 else:
@@ -305,12 +311,17 @@ class HwpComWriter:
         # 문제 간 빈 줄
         self.s.break_para()
 
-    def _write_choice(self, choice: Choice) -> None:
+    def _write_choice(self, choice: Choice, as_equation: bool = False) -> None:
         # 선택지는 들여쓰기 없이 좌측에 붙인다(사용자 요구 2026-06-02).
         circle = CIRCLE_NUMBERS.get(choice.number, f"({choice.number})")
         self.s.text(f"{circle} ")
         for block in choice.contents:
-            self._write_block(block)
+            # 2열 정렬(as_equation): TEXT 도 수식 객체로 삽입해 단락을 재계산시킨다
+            # → \t 가 7cm 고정탭에 정렬돼 ②④ 가 같은 열에 선다. (이미 수식/표면 그대로)
+            if as_equation and block.type == ContentType.TEXT and (block.value or "").strip():
+                self.s.equation(latex_to_hwpeq(block.value))
+            else:
+                self._write_block(block)
 
     def _write_score(self, score: int, leading_space: bool = True) -> None:
         # 배점 숫자도 수식 객체로(A8). "[" "점]"는 텍스트.
