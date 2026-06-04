@@ -38,7 +38,8 @@ from core.pdf_handler import (
     pdf_to_images,
 )
 from core.ocr_engine import OCREngine, validate_ocr_response
-from core.crop_detector import detect_crops
+from core.crop_detector import detect_crops, CropBox
+from core.figure_generator import render_figure
 from core.quality_checker import check_image_quality
 from core.content_parser import parse_ocr_response, build_document
 from core.hwpx_writer import write_exam_to_hwpx
@@ -114,30 +115,76 @@ class ConversionWorker(QObject):
         self._crop_approved = boxes_per_page is not None
         self._crop_event.set()
 
-    def _save_figure_crop(self, box, img, page_num, bi):
-        """도형 크롭 영역을 임시 PNG로 저장하고 경로 반환(실패 시 None).
-
-        표시 과대화를 막기 위해 가로 폭을 일정 픽셀로 축소(HWP 표시 크기 제어).
-        """
-        import os
+    def _ensure_fig_dir(self) -> str:
+        """세션 임시 그림 디렉터리를 보장하고 경로 반환."""
         import tempfile
-        from PIL import Image as _Image
+        if not getattr(self, "_fig_dir", None):
+            self._fig_dir = tempfile.mkdtemp(prefix="exam_fig_")
+        return self._fig_dir
+
+    def _render_figure_crop(self, crop, hint, basename):
+        """그림 크롭을 재생성(또는 폴백)해 PNG 경로 반환(실패 시 None).
+
+        벡터화 가능·고신뢰 → SVG 재생성 PNG, 그 외 → 원본 크롭 PNG(폴백).
+        """
         try:
-            if not getattr(self, "_fig_dir", None):
-                self._fig_dir = tempfile.mkdtemp(prefix="exam_fig_")
-            crop = box.crop_image(img, pad=0.005)
-            target_w = 420
-            if crop.width > target_w:
-                crop = crop.resize(
-                    (target_w, int(crop.height * target_w / crop.width)),
-                    _Image.LANCZOS,
-                )
-            path = os.path.join(self._fig_dir, f"fig_p{page_num}_{bi}.png")
-            crop.save(path)
-            return path
-        except Exception as e:
-            logger.warning("도형 크롭 저장 실패: %s", e)
+            png_path, _mode = render_figure(
+                crop, hint or "", self._ensure_fig_dir(), basename,
+                api_key=self.api_key)
+            return png_path
+        except Exception as e:  # noqa: BLE001
+            logger.warning("그림 재생성 실패: %s", e)
             return None
+
+    def _resolve_figures(self, ocr_dict, source_img, page_num, bi):
+        """OCR dict 내 figure 블록을 image 블록으로 해소(재생성/폴백).
+
+        bbox 는 source_img 기준 0~1 정규화. questions 의 contents·choices·
+        sub_questions(재귀)를 모두 순회한다. 재생성 실패한 블록은 제거한다.
+        """
+        counter = [0]
+
+        def _resolve_contents(contents):
+            if not isinstance(contents, list):
+                return contents
+            out = []
+            for blk in contents:
+                if not (isinstance(blk, dict) and blk.get("type") == "figure"):
+                    out.append(blk)
+                    continue
+                bbox = blk.get("bbox")
+                try:
+                    if (isinstance(bbox, (list, tuple)) and len(bbox) == 4):
+                        x0, y0, x1, y1 = (float(v) for v in bbox)
+                        # bbox 는 LLM 추정이라 타이트/저편향 경향 → 여유 pad 로 클리핑 방지
+                        # (비전은 주변 텍스트를 무시하고 그림만 재현하므로 넉넉히 잡아도 안전)
+                        crop = CropBox(x0, y0, x1, y1).crop_image(source_img, pad=0.05)
+                    else:
+                        crop = source_img
+                except Exception:  # noqa: BLE001
+                    crop = source_img
+                base = f"fig_p{page_num}_{bi}_{counter[0]}"
+                counter[0] += 1
+                png = self._render_figure_crop(crop, blk.get("value", ""), base)
+                if png:
+                    out.append({"type": "image", "value": png})
+                # 실패 시 블록 드롭(텍스트 잔재 방지)
+            return out
+
+        def _walk_question(q):
+            if not isinstance(q, dict):
+                return
+            if "contents" in q:
+                q["contents"] = _resolve_contents(q.get("contents"))
+            for ch in q.get("choices", []) or []:
+                if isinstance(ch, dict) and "contents" in ch:
+                    ch["contents"] = _resolve_contents(ch.get("contents"))
+            for sub in q.get("sub_questions", []) or []:
+                _walk_question(sub)
+
+        for q in ocr_dict.get("questions", []) or []:
+            _walk_question(q)
+        return ocr_dict
 
     def run(self):
         # COM은 스레드별 초기화 필요 — 워커는 QThread 백그라운드에서 돈다.
@@ -332,8 +379,10 @@ class ConversionWorker(QObject):
                         15 + int(crops_done / max(total_crops, 1) * 60),
                         f"OCR 처리 중... (p{seq + 1} 크롭 {bi + 1}/{len(boxes)})")
                     if box.kind == "figure":
-                        # 도형 영역 → 임시 PNG 저장 후 IMAGE 블록 생성
-                        fig_path = self._save_figure_crop(box, img, page_num, bi)
+                        # standalone 도형 → 재생성(또는 크롭 폴백) 후 IMAGE 블록 생성
+                        crop = box.crop_image(img, pad=0.005)
+                        fig_path = self._render_figure_crop(
+                            crop, "", f"fig_p{page_num}_{bi}")
                         if fig_path:
                             block = {"type": "image", "value": fig_path}
                             if last_q is not None:
@@ -344,6 +393,8 @@ class ConversionWorker(QObject):
                     sub = box.crop_image(img, pad=0.01)
                     try:
                         r = engine.recognize_crop(sub)
+                        # 문제 내 figure 블록을 재생성/폴백으로 해소(bbox 는 sub 기준)
+                        self._resolve_figures(r, sub, page_num, bi)
                     except Exception as exc:
                         # 크롭 1개의 OCR/JSON 파싱 실패가 전체 변환을 중단시키지
                         # 않도록 격리 — 해당 문항만 건너뛰고 경고 후 계속.
@@ -375,6 +426,8 @@ class ConversionWorker(QObject):
             else:
                 self.progress.emit(pct, f"OCR 처리 중... ({seq + 1}/{len(valid_indices)})")
                 ocr_result = engine.recognize_page(img)
+                # 페이지 내 figure 블록 해소(bbox 는 페이지 이미지 기준)
+                self._resolve_figures(ocr_result, img, page_num, 0)
 
             # ── Gate 2: OCR 응답 검증 ──
             ocr_quality = validate_ocr_response(ocr_result)

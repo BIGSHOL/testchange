@@ -7,6 +7,7 @@ python-hwpx로 문서 골격을 생성하고, lxml로 수식 XML을 직접 삽�
 from __future__ import annotations
 
 import logging
+import os
 import random
 import re
 import shutil
@@ -889,6 +890,61 @@ class HWPXWriter:
             # 표: 새 문단에 삽입
             if block.rows:
                 self._write_table(sec_elem, block.rows)
+
+        elif block.type == ContentType.IMAGE:
+            # 그림(재생성 SVG PNG 또는 크롭 폴백): 새 문단에 BinData 임베드.
+            # HWP COM 미설치 폴백 경로 전용(프로덕션은 hwp_com_writer.insert_picture).
+            if block.value and os.path.exists(block.value):
+                self._write_image_block(sec_elem, block.value)
+
+    def _write_image_block(self, sec_elem: etree._Element, img_path: str):
+        """그림 파일을 BinData 로 임베드해 새 문단에 인라인 삽입.
+
+        픽셀 크기에서 표시 크기(HWP unit)를 산출(가로 60mm 상한, 종횡비 보존).
+        """
+        try:
+            with open(img_path, "rb") as f:
+                data = f.read()
+            from PIL import Image as _Image
+            with _Image.open(img_path) as im:
+                pw, ph = im.size
+        except Exception as e:  # noqa: BLE001
+            logger.warning("그림 임베드 실패(%s): %s", img_path, e)
+            return
+        if pw <= 0 or ph <= 0:
+            return
+        # 1px ≈ 75 HWP unit(96dpi). 표시 폭 60mm(≈17000 unit) 상한.
+        max_w = 17000
+        w = min(pw * 75, max_w)
+        h = max(1, int(w * ph / pw))
+        para = self._create_paragraph(sec_elem)
+        self._inject_picture(para, data, w, h)
+
+    def _inject_picture(
+        self, p_elem: etree._Element, img_data: bytes, w: int, h: int
+    ):
+        """임의 크기 그림을 문단에 인라인 삽입(BinData 참조). 저장 시 ZIP 에 포함."""
+        self._image_counter += 1
+        filename = f"fig_img_{self._image_counter}.png"
+        self._embedded_images[filename] = img_data
+
+        run = etree.SubElement(p_elem, _qn("hp", "run"))
+        run.set("charPrIDRef", "0")
+        ctrl = etree.SubElement(run, _qn("hp", "ctrl"))
+        pic = etree.SubElement(ctrl, _qn("hp", "pic"))
+        pic.set("id", _random_id())
+        pic.set("width", str(w))
+        pic.set("height", str(h))
+        img_rect = etree.SubElement(pic, _qn("hp", "imgRect"))
+        img_rect.set("x", "0")
+        img_rect.set("y", "0")
+        img_rect.set("cx", str(w))
+        img_rect.set("cy", str(h))
+        img_clip = etree.SubElement(pic, _qn("hp", "imgClip"))
+        for k in ("left", "top", "right", "bottom"):
+            img_clip.set(k, "0")
+        img_data_elem = etree.SubElement(pic, _qn("hp", "imgData"))
+        img_data_elem.text = f"BinData/{filename}"
 
     def _write_table(
         self,

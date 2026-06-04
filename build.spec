@@ -22,16 +22,25 @@ for _pkg in ('google.genai', 'google.auth', 'google.oauth2', 'google.api_core'):
     except Exception:
         pass
 
+# resvg_py 는 Rust 확장(.pyd + 네이티브 바이너리)이라 collect_all 로 전부 수집해야
+# 동결 빌드에서 누락되지 않는다(core/figure_generator.py 그림 재생성 의존).
+_resvg_datas, _resvg_binaries, _resvg_hidden = [], [], []
+try:
+    _resvg_datas, _resvg_binaries, _resvg_hidden = collect_all('resvg_py')
+except Exception:
+    pass
+
 a = Analysis(
     [str(project_root / 'main.py')],
     pathex=[str(project_root)],
-    binaries=[*_google_binaries],
+    binaries=[*_google_binaries, *_resvg_binaries],
     datas=[
         (str(project_root / 'hwpx_조암'), 'hwpx_조암'),
         # 대수회 폼지(학년별 색상 7종) 번들 → _internal/forms/ (core/form_registry 가 _MEIPASS/forms 에서 읽음)
         (str(project_root / 'forms'), 'forms'),
         *collect_data_files('hwpx'),
         *_google_datas,
+        *_resvg_datas,
     ],
     hiddenimports=[
         'PySide6.QtCore',
@@ -44,6 +53,9 @@ a = Analysis(
         'lxml.etree',
         'numpy',
         'matplotlib',
+        # 그림 재생성 SVG→PNG 렌더러(core/figure_generator.py)
+        'resvg_py',
+        *_resvg_hidden,
         # Gemini 크롭 검출(core/crop_detector.py) — google.genai + 전이 의존
         # (collect_all 로 _google_hidden 에 하위모듈 전부 수집됨)
         *_google_hidden,

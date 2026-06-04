@@ -116,6 +116,11 @@ def _parse_content_block(block_data: dict) -> ContentBlock | None:
     type_str = block_data.get("type", "")
     value = block_data.get("value", "")
 
+    # figure 블록은 워커(_resolve_figures)에서 image 로 해소되어야 한다.
+    # 여기까지 남아 있으면 해소 실패분이므로 드롭(설명 텍스트 잔재 방지).
+    if type_str == "figure":
+        return None
+
     if not value and type_str != "image":
         return None
 
