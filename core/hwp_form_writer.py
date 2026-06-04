@@ -701,19 +701,34 @@ def _fill_form_header(hwpx_path: str | Path, values: dict) -> int:
     바꾼다. 모든 머리말 요소(홀/짝수쪽)·밴드를 한 번에. 값이 비면(학년/과목 없음) 건너뜀.
     꼬리말의 "(정답)" 은 보존. (toten 삽입 대신 출력 후처리 — 폼 원본 미변경.)
 
-    values 키: 학년("중2"), 과목("수학"/"대수"…), 년도("2025"), 학기("1"), 구분("중간"/"기말").
+    학교+학년+과목이 들어가는 자리(머리말 가운데·꼬리말 대비문구)는 **항상
+    "{학교} {N}학년 {과목}"** 형식(예 "침산중 2학년 수학", "영진고 2학년 수학1").
+    시험명 자리는 "{년도}년 {학기}학기 {구분}고사".
+
+    values 키: 학교("침산중"), 학년("중2"), 과목("수학"/"수학1"/"대수"…),
+               년도("2025"), 학기("1"), 구분("중간"/"기말").
     Returns: 치환 건수(0 이면 손댄 것 없음).
     """
+    school = (values.get("학교") or "").strip()
     g = (values.get("학년") or "").strip()
+    gnum = g[-1] if g and g[-1].isdigit() else ""   # "중2" → "2"
     subj = (values.get("과목") or "").strip()
     if not (g and subj):
         return 0
     yr = (values.get("년도") or "").strip()
+    yr2 = yr[-2:] if yr else ""          # "2025" → "25" (꼬리말 학년도)
     term = (values.get("학기") or "").strip()
     kind = (values.get("구분") or "").strip()
+    # 시험명(머리말 좌측): "2025년 1학기 중간고사"
     exam = (f"{yr}년 {term}학기 {kind}고사" if yr else f"{term}학기 {kind}고사").replace("  ", " ").strip()
-    center = f"{g} {subj}"
-    footer = f"{g} {exam} 대비 ({subj})"
+    # 머리말 가운데: "{학교} {N}학년 {과목}"  (예 "침산중 2학년 수학", "영진고 2학년 수학1")
+    who = (f"{school} {gnum}학년" if school and gnum else (f"{gnum}학년" if gnum else g))
+    center = f"{who} {subj}".strip()
+    # 꼬리말(우하단): "{학교} {YY}학년 {학기}학기 {구분}고사 대비 ({과목})"
+    #   (예 "침산중 25학년 1학기 중간고사 대비 (수학)", "칠성고 25학년 1학기 기말고사 대비 (미적분)")
+    prep = ((f"{school} " if school else "") + (f"{yr2}학년 " if yr2 else "")
+            + f"{term}학기 {kind}고사").replace("  ", " ").strip()
+    footer = f"{prep} 대비 ({subj})"
     pats = [
         # 꼬리말 먼저(시험명 패턴이 "고사"를 먼저 먹지 않게). "(정답)" 보존.
         (re.compile(r'(?:중|고)\s*\d{2,4}\s*년\s*학기\s*고사\s*대비\s*\(\s*수학[12]?\s*\)(\s*\(\s*정답\s*\))?'),
