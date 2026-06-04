@@ -278,9 +278,16 @@ class HwpComWriter:
         # 발문 — 첫 블록은 인라인(번호와 같은 줄), 발문 선두 수식 줄바꿈 방지(A7).
         for i, block in enumerate(stem):
             self._write_block(block, inline=(i == 0))
-        # 배점 — 발문 끝(보기/조건 앞) (A2)
+        # 배점 — 객관식은 발문 끝 인라인. 서술형은 줄바꿈 후 우측정렬(사용자 합의 2026-06-04).
         if show_score:
-            self._write_score(question.score)
+            if is_essay:
+                self.s.break_para()
+                self.s.align_right()
+                self._write_score(question.score, leading_space=False)
+                self.s.break_para()
+                self.s.align_left()
+            else:
+                self._write_score(question.score)
         # 보기/조건 → 1×1 테두리 표 박스 (A3)
         if box:
             self._write_condition_box(box)
