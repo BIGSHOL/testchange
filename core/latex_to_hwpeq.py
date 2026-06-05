@@ -117,6 +117,40 @@ def _normalize_repeating_decimal(s: str) -> str:
     return _REPEAT_DECIMAL_RE.sub(_repl, s)
 
 
+# 괄호 자동크기 대상: 분수·근호·이항계수·대형연산자 등 '키 큰' 구조.
+# 평문 ``(...)`` 안에 이게 있으면 괄호가 내용보다 작아 보기 나쁨(사용자 2026-06-05) →
+# ``\left(...\right)`` 로 바꿔 기존 LEFT/RIGHT 자동크기 경로를 태운다.
+_TALL_DELIM_RE = re.compile(
+    r"\\(?:d|t)?frac|\\cfrac|\\sqrt|\\binom|\\sum|\\prod|\\int|\\iint|\\iiint|\\oint"
+    r"|\\bigcup|\\bigcap|\\bigoplus|\\bigotimes")
+
+
+def _autosize_parens(s: str) -> str:
+    """평문 ``(...)`` 중 분수·근호 등 키 큰 내용을 담은 쌍을 ``\\left(...\\right)`` 로.
+
+    균형 잡힌 괄호를 스택으로 매칭하고, 내용에 `_TALL_DELIM_RE` 가 있으면 그 쌍만 감싼다.
+    이미 ``\\left(``/``\\right)`` 인 괄호는 건드리지 않는다. 삽입은 인덱스 큰 쪽부터 적용해
+    중첩/오프셋 안전. (``[ ]``·``\\{ \\}`` 는 사용자 요구가 괄호라 현재 미대상.)
+    """
+    if "(" not in s:
+        return s
+    stack: list[tuple[int, bool]] = []
+    inserts: list[tuple[int, str]] = []
+    for i, c in enumerate(s):
+        if c == "(":
+            is_left = s[max(0, i - 5):i].endswith("\\left")
+            stack.append((i, is_left))
+        elif c == ")" and stack:
+            oidx, is_left = stack.pop()
+            is_right = s[max(0, i - 6):i].endswith("\\right")
+            if not is_left and not is_right and _TALL_DELIM_RE.search(s[oidx + 1:i]):
+                inserts.append((oidx, r"\left"))
+                inserts.append((i, r"\right"))
+    for idx, text in sorted(inserts, key=lambda x: -x[0]):
+        s = s[:idx] + text + s[idx:]
+    return s
+
+
 class LaTeXToHWPConverter:
     """LaTeX → HWP 수식 스크립트 변환기."""
 
@@ -501,6 +535,9 @@ class LaTeXToHWPConverter:
         # ``>>``)은 \leftarrow·\to·\ll 등 명령에서 _convert_expr 내부(이 시점 이후)에
         # 생성되므로 영향받지 않는다. (실측 확정 2026-06-02)
         s = s.replace("<", " < ").replace(">", " > ")
+
+        # 분수·근호 든 평문 괄호를 \left(...\right) 로 → 괄호 자동크기(사용자 2026-06-05).
+        s = _autosize_parens(s)
 
         s = s.strip()
         result = self._convert_expr(s)
