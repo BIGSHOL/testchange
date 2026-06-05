@@ -728,6 +728,10 @@ class LaTeXToHWPConverter:
         s = s.replace("\\!", "")
         s = s.replace("\\qquad", "~~~~")
         s = s.replace("\\quad", "~~")
+        # 제어 공백 ``\␣``(백슬래시+공백)·``\:`` — 좌표 ``(,\ a)`` 등에서 누수돼
+        # ``\a`` 로 렌더되던 문제(2026-06-05). 작은/중간 공백으로 치환.
+        s = s.replace("\\ ", "`")
+        s = s.replace("\\:", "~")
         s = s.replace("\\\\", "")
         s = re.sub(r"\\[a-zA-Z]+", "", s)  # 남은 알 수 없는 명령어 제거
 

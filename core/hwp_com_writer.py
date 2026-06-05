@@ -95,41 +95,75 @@ def _condition_start(blocks: list[ContentBlock]) -> int | None:
 def _tail_start(blocks: list[ContentBlock]) -> int | None:
     """발문이 끝나고 '뒤 영역'(조건/보기 박스·표·그림·블록수식)이 시작되는 인덱스.
 
-    배점은 이 경계 **앞**(발문 끝)에 둔다. `_condition_start`(조건/표만)에 더해
-    **그림(IMAGE)·블록수식(EQUATION_BLOCK)** 도 경계로 본다(배점이 그림/수식 앞에 오도록).
-    폼·기본 경로 공통 경계(사용자 '항상 동일' 요구 2026-06-05).
+    배점은 이 경계 **앞**(발문 끝)에 둔다. 폼·기본 경로 공통 경계(사용자 '항상 동일'
+    요구 2026-06-05).
+
+    경계 판정(2026-06-05 개정 — 발문 중간 블록수식/그림 오인 방지):
+    - **조건/보기 머리(TEXT) 또는 표(TABLE)** 가 나오면 거기서부터 뒤 영역(1순위).
+      (보기 박스가 시작되면 그 뒤는 전부 박스 내용.)
+    - **그림(IMAGE)·블록수식(EQUATION_BLOCK)** 은 *발문 끝의 독립 표시*일 때만 경계로
+      본다 = **끝에서부터 이어지는 IMAGE/EQUATION_BLOCK 연속 run** 의 시작. 문장 중간에
+      박힌 블록수식(예: "연립방정식 {…} 의 풀이에 대한 …")은 뒤에 발문 TEXT 가 더
+      이어지므로 경계가 **아니다**(과거: 첫 블록수식에서 끊겨 배점이 발문 첫 단어 뒤로
+      튀고 블록이 문장 중간에서 가운데정렬됨 — 사용자 보고 4·16번).
     """
+    # 1순위: 조건/보기 머리 또는 표 — 진짜 발문뒤 영역 시작.
     for i, b in enumerate(blocks):
-        if b.type in (ContentType.TABLE, ContentType.IMAGE, ContentType.EQUATION_BLOCK):
+        if b.type == ContentType.TABLE:
             return i
         if b.type == ContentType.TEXT and _COND_HEADER_RE.search(b.value or ""):
             return i
-    return None
+    # 2순위: 끝에 매달린 그림/블록수식 연속 run 의 시작(문장 중간 블록은 제외).
+    i = len(blocks)
+    while i > 0 and blocks[i - 1].type in (ContentType.IMAGE, ContentType.EQUATION_BLOCK):
+        i -= 1
+    return i if i < len(blocks) else None
 
 
 # 발문 끝에 박힌 총점/배점 [총 N점]·[N점] (소문항 부모는 우측정렬로 따로 표기).
 _TRAIL_SCORE_RE = re.compile(r'\s*\[\s*(?:총\s*)?(\d+)\s*점\s*\]\s*$')
+_OPEN_SCORE_RE = re.compile(r'\[\s*(?:총\s*)?$')   # 텍스트 끝이 "[" 또는 "[총"
+_CLOSE_SCORE_RE = re.compile(r'^\s*점\s*\]')        # 텍스트 시작이 "점]"
 
 
 def _split_trailing_score(blocks: list[ContentBlock]):
-    """마지막(비어있지 않은) 텍스트 블록 끝의 ``[총 N점]``/``[N점]`` 을 떼어낸다.
+    """발문 끝의 ``[총 N점]``/``[N점]`` 을 떼어낸다(한 블록 안이든, 숫자가 수식 객체로
+    쪼개져 ``TEXT "[총 " + EQ "N" + TEXT "점]"`` 든).
 
     소문항 부모의 총점을 발문 본문에서 빼내 **우측정렬**로 따로 렌더하기 위함
     (사용자 2026-06-05). Returns: (떼어낸 뒤 blocks, N|None).
     """
+    # (1) 한 텍스트 블록 안에 통째로 [총 N점].
     for i in range(len(blocks) - 1, -1, -1):
         b = blocks[i]
         if b.type == ContentType.TEXT and (b.value or "").strip():
             m = _TRAIL_SCORE_RE.search(b.value)
-            if not m:
-                return blocks, None
-            num = int(m.group(1))
-            nv = b.value[:m.start()].rstrip()
-            cleaned = list(blocks)
-            if nv:
-                cleaned[i] = ContentBlock(type=ContentType.TEXT, value=nv)
-            else:
-                cleaned.pop(i)
+            if m:
+                num = int(m.group(1))
+                nv = b.value[:m.start()].rstrip()
+                cleaned = list(blocks)
+                if nv:
+                    cleaned[i] = ContentBlock(type=ContentType.TEXT, value=nv)
+                else:
+                    cleaned.pop(i)
+                return cleaned, num
+            break   # 마지막 비어있지 않은 텍스트 → 단일 매칭 실패 시 (2) 쪼개진 경우로
+    # (2) 숫자가 수식 객체화돼 쪼개진 경우: 끝 3블록 = TEXT "[총 " + EQ(숫자) + TEXT "점]".
+    if len(blocks) >= 3:
+        t1, eq, t2 = blocks[-3], blocks[-2], blocks[-1]
+        if (t1.type == ContentType.TEXT and t2.type == ContentType.TEXT
+                and eq.type in (ContentType.EQUATION, ContentType.EQUATION_BLOCK)
+                and (eq.value or "").strip().isdigit()
+                and _OPEN_SCORE_RE.search(t1.value or "")
+                and _CLOSE_SCORE_RE.match(t2.value or "")):
+            num = int(eq.value.strip())
+            nv1 = _OPEN_SCORE_RE.sub("", t1.value or "").rstrip()
+            nv2 = _CLOSE_SCORE_RE.sub("", t2.value or "").lstrip()
+            cleaned = list(blocks[:-3])
+            if nv1:
+                cleaned.append(ContentBlock(type=ContentType.TEXT, value=nv1))
+            if nv2:
+                cleaned.append(ContentBlock(type=ContentType.TEXT, value=nv2))
             return cleaned, num
     return blocks, None
 
@@ -260,12 +294,17 @@ class HwpComWriter:
             nonlocal started
             pos = 0
             broke = False   # 직전이 빈 경계 줄바꿈이면 중복 줄바꿈 방지(불릿+라벨 인접)
+            after_label = False  # 라벨 직후면 뒤 내용 선행공백 strip(이중공백 방지, 2026-06-05)
             for m in _BOX_BREAK_RE.finditer(text):
                 pre = text[pos:m.start()]
                 if pre.strip():
-                    self.s.text(pre if started else pre.lstrip())
+                    seg = pre if started else pre.lstrip()
+                    if after_label:
+                        seg = seg.lstrip()   # "ㄱ. " + " 내용" → "ㄱ. 내용"(한 칸)
+                    self.s.text(seg)
                     started = True
                     broke = False
+                    after_label = False
                 is_bullet = _BULLET_RE.fullmatch(m.group(0)) is not None
                 if started and not broke:
                     self.s.break_para()   # 마커/항목 라벨/불릿 앞에서 줄바꿈
@@ -275,11 +314,15 @@ class HwpComWriter:
                     tok = re.sub(r"\s+", "", m.group(0))   # "ㄱ ." → "ㄱ.", "< 보기 >" → "<보기>"
                     self.s.text(tok + " ")                 # 라벨/마커 뒤 공백(A6)
                     broke = False
+                    after_label = True
                 started = True
                 pos = m.end()
             tail = text[pos:]
             if tail.strip():
-                self.s.text(tail if started else tail.lstrip())
+                seg = tail if started else tail.lstrip()
+                if after_label:
+                    seg = seg.lstrip()
+                self.s.text(seg)
                 started = True
 
         for block in blocks:

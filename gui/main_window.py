@@ -79,6 +79,7 @@ class ConversionWorker(QObject):
         header_values: dict | None = None,
         skip_first_page: bool = False,
         use_crop: bool = False,
+        render_figures: bool = False,
     ):
         super().__init__()
         self.file_path = file_path
@@ -89,6 +90,7 @@ class ConversionWorker(QObject):
         self.header_values = header_values   # 머리말/꼬리말 채움 값(파일명에서 추출).
         self.skip_first_page = skip_first_page
         self.use_crop = use_crop
+        self.render_figures = render_figures   # True=그림 렌더(경고 감수), False=안내 박스(경고 없음)
         self._cancelled = False
         # 미리보기 응답 동기화용
         self._preview_event = threading.Event()
@@ -286,6 +288,17 @@ class ConversionWorker(QObject):
         # ── Step 1.5: 크롭 검출 + 사용자 검수 (use_crop 시) ──
         crop_boxes_per_page = None  # valid_indices 와 정렬된 list[list[CropBox]]
         if self.use_crop:
+            # 크롭 검출기 표시: Gemini 키 있으면 Gemini(정확), 없으면 Claude 폴백(품질 저하).
+            try:
+                from utils.config import get_gemini_key
+                _gem = bool(get_gemini_key())
+            except Exception:
+                _gem = False
+            self.log.emit(
+                "info" if _gem else "warning",
+                "크롭 검출: Gemini 사용" if _gem
+                else "크롭 검출: Gemini 키 없음 → Claude 폴백(크롭 정확도 낮음). "
+                     "Gemini 키를 입력하면 개선됩니다.")
             self.progress.emit(13, "문제 영역(크롭) 검출 중...")
             detected = []
             for seq, idx in enumerate(valid_indices):
@@ -400,10 +413,15 @@ class ConversionWorker(QObject):
                         # 않도록 격리 — 해당 문항만 건너뛰고 경고 후 계속.
                         logger.warning("크롭 OCR 실패 (p%s 박스 %s): %s",
                                        page_num, bi + 1, exc)
+                        # 실제 원인을 GUI 에 노출(프리뷰는 박스만 보여 정상처럼 보이므로
+                        # 사용자가 왜 실패했는지 알 수 있게). 잘림(max_tokens)은 명시.
+                        reason = str(exc).strip() or type(exc).__name__
+                        if "max_tokens" in reason or "잘렸" in reason or "truncat" in reason.lower():
+                            reason = "응답이 max_tokens 로 잘림(수식이 많은 문항). 자동 재시도했으나 실패"
                         self.quality_warning.emit(
                             page_num,
-                            f"페이지 {page_num} {bi + 1}번째 문제영역 인식 실패 — "
-                            f"건너뜀 (수동 확인 필요)")
+                            f"페이지 {page_num} {bi + 1}번째 문제영역 인식 실패 — 건너뜀. "
+                            f"원인: {reason[:160]}")
                         continue
                     qs = r.get("questions", [])
                     if box.number is not None:
@@ -491,6 +509,7 @@ class ConversionWorker(QObject):
                 result_path = write_exam_to_form(
                     document, self.form_path, self.output_path,
                     header_values=self.header_values,
+                    render_figures=self.render_figures,
                 )
             except Exception as e:
                 # 폼 채움 실패(구조 불일치 등) → 기본 서식으로 폴백(변환은 산출되게).
@@ -572,6 +591,22 @@ class MainWindow(QMainWindow):
         api_layout.addWidget(api_label)
         api_layout.addWidget(self._api_key_input)
         layout.addLayout(api_layout)
+
+        # Gemini 키(크롭 검출 정확도 — 없으면 Claude 폴백, 크롭 품질 저하)
+        layout.addSpacing(8)
+        gem_layout = QHBoxLayout()
+        gem_layout.setSpacing(10)
+        gem_label = QLabel("Gemini")
+        gem_label.setFixedWidth(48)
+        gem_label.setStyleSheet("font-size: 13px; color: #344054; font-weight: 500;")
+        self._gemini_key_input = QLineEdit()
+        self._gemini_key_input.setEchoMode(QLineEdit.EchoMode.Password)
+        self._gemini_key_input.setPlaceholderText("Gemini API 키 (문제영역 크롭 검출용 — 권장)")
+        self._gemini_key_input.setFixedHeight(self._BTN_HEIGHT)
+        self._load_gemini_key()
+        gem_layout.addWidget(gem_label)
+        gem_layout.addWidget(self._gemini_key_input)
+        layout.addLayout(gem_layout)
 
         # 구분선
         layout.addSpacing(16)
@@ -663,6 +698,17 @@ class MainWindow(QMainWindow):
         self._form_combo.currentIndexChanged.connect(self._on_form_changed)
         form_layout.addWidget(self._form_combo, 1)
         layout.addLayout(form_layout)
+
+        # 그림(문제 내 도형/그래프) 처리 모드 선택
+        layout.addSpacing(8)
+        self._render_fig_check = QCheckBox("그림 렌더링(도형/그래프 삽입) — 끄면 그림 자리에 안내 박스")
+        self._render_fig_check.setChecked(False)   # 기본=끔(보안 경고 없음). 켜면 그림 보이나 경고.
+        self._render_fig_check.setToolTip(
+            "끔(기본): 그림을 넣지 않고 '직접 캡처해 붙여넣으세요' 안내 박스를 둔다 — "
+            "문서가 보안 경고 없이 열린다.\n"
+            "켬: 도형/그래프를 실제로 삽입한다 — 단 한글에서 열 때 '문서 보안 설정' 경고가 뜰 수 있다.")
+        self._render_fig_check.setStyleSheet("font-size: 12px; color: #475467;")
+        layout.addWidget(self._render_fig_check)
 
         # 구분선
         layout.addSpacing(16)
@@ -772,6 +818,14 @@ class MainWindow(QMainWindow):
             key = get_api_key()
             self._api_key_input.setText(key)
         except ValueError:
+            pass
+
+    def _load_gemini_key(self):
+        """설정에서 Gemini 키 로드(없으면 빈칸)."""
+        try:
+            from utils.config import get_gemini_key
+            self._gemini_key_input.setText(get_gemini_key())
+        except Exception:
             pass
 
     # 로그 레벨별 (색상, 아이콘, 굵게) — _append_log 가 사용
@@ -963,9 +1017,11 @@ class MainWindow(QMainWindow):
             QMessageBox.warning(self, "알림", "Anthropic API 키를 입력하세요.")
             return
 
-        # API 키를 config.json에 저장
-        from utils.config import set_api_key
+        # API 키를 config.json에 저장(Anthropic + Gemini). Gemini 키는 크롭 검출 정확도에
+        # 쓰이며 비면 Claude 폴백(크롭 품질 저하)이라, 입력돼 있으면 함께 저장한다.
+        from utils.config import set_api_key, set_gemini_key
         set_api_key(api_key)
+        set_gemini_key(self._gemini_key_input.text().strip())
 
         # 폼 '자동' 모드는 파일명 규칙이 맞아야 분석(미일치 차단). 폼 직접선택/기본서식은 통과.
         info = parse_filename(self._selected_file)
@@ -1018,6 +1074,7 @@ class MainWindow(QMainWindow):
             header_values=(info if info["valid"] else None),  # 머리말 채움 값(파일명)
             skip_first_page=False,   # 수동 표지 스킵 폐지 — 무쓸모 페이지는 자동 스킵
             use_crop=True,           # 항상 크롭 검수 모드
+            render_figures=self._render_fig_check.isChecked(),  # 그림 렌더(경고 감수) 여부
         )
         self._worker.moveToThread(self._thread)
 
@@ -1102,4 +1159,6 @@ class MainWindow(QMainWindow):
         self._browse_btn.setEnabled(not converting)
         self._output_browse_btn.setEnabled(not converting)
         self._api_key_input.setEnabled(not converting)
+        self._gemini_key_input.setEnabled(not converting)
         self._form_combo.setEnabled(not converting)
+        self._render_fig_check.setEnabled(not converting)

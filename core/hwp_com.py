@@ -72,7 +72,7 @@ class HwpSession:
     ``__exit__`` 에서 항상 ``Quit`` 을 보장해 고아 Hwp.exe 프로세스를 막는다.
     """
 
-    def __init__(self, visible: bool = False, base_pt: int = 10, eq_pt: int = 11,
+    def __init__(self, visible: bool = False, base_pt: int = 11, eq_pt: int = 11,
                  eq_font: str = "HYhwpEQ", note_pt: int = 12):
         if _win32 is None:
             raise RuntimeError("win32com을 사용할 수 없습니다 (HWP COM 미지원 환경).")

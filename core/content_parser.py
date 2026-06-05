@@ -136,6 +136,13 @@ def _parse_content_block(block_data: dict) -> ContentBlock | None:
     if content_type is None:
         content_type = ContentType.TEXT
 
+    # 연립방정식(cases)을 OCR이 equation_block 으로 줘도 **인라인**으로 강등한다
+    # (2026-06-05). 발문 중간의 연립("연립방정식 {…} 의 풀이…")이 가운데정렬 블록으로
+    # 떠서 문장이 끊기던 문제 — 워드처럼 연립방정식 옆에 중괄호가 붙도록. (진짜 독립
+    # 표시 수식은 equation_block 그대로 두어 가운데정렬 유지.)
+    if content_type == ContentType.EQUATION_BLOCK and r"\begin{cases}" in (value or ""):
+        content_type = ContentType.EQUATION
+
     # 표(table) 블록 처리
     if content_type == ContentType.TABLE:
         rows = block_data.get("rows", [])

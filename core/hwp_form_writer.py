@@ -210,34 +210,43 @@ def _put_block(ses, b) -> None:
         if b.value:
             ses.text(b.value)
     elif b.type == ContentType.IMAGE and b.value:
-        # 재생성/크롭 그림 — 단 너비에 맞게 축소 후 가운데·독립줄 삽입(폼 안전 inserter).
+        # 그림 자동삽입 보류 — 가운데·독립줄에 '직접 캡처해 붙여넣으세요' 안내(사용자 2026-06-05).
         ses.break_para()
         ses.align_center()
-        _insert_picture_inline(ses, ses.hwp, _fit_image_width(b.value))
+        _place_figure(ses, ses.hwp, b.value)
         ses.break_para()
         ses.align_left()
 
 
 def _fig_token(idx: int) -> str:
-    """그림 위치 마킹 토큰 ``⟦F{idx}⟧``. 후처리(`_embed_figures`)가 이 토큰 다음 pic 의
-    binItem 참조를 교정하고 토큰을 제거한다. (드문 유니코드라 본문과 충돌 없음.)"""
-    return f"⟦F{idx}⟧"
+    """그림 위치 마킹 토큰(추후 그림 자동삽입 숙제용 — 현재 미사용)."""
+    return f"그림삽입자리{idx}끝표식"
 
 
-def _insert_picture_inline(ses, h, path: str) -> bool:
-    """폼 안전 그림 삽입: 고유 토큰을 그림 **바로 앞**에 찍고 InsertPicture 로 인라인 삽입.
+# 그림 자리 안내 문구(기본 모드 — 그림 자동삽입 보류). 그림(IMAGE)이 있던 자리에 넣어
+# 사용자가 원본 PDF 영역을 직접 캡처해 붙이도록 한다. ⚠️ "[그림 …]" 으로 시작하면 HWP 가
+# 그림 **캡션 필드**로 오인해 재저장 때 사라질 수 있어 "※ …" 로 시작한다. 상세: 메모리
+# form-figure-pending.
+_FIGURE_NOTE = "※ 그림 자리 — 원본에서 이 영역을 캡처해 여기에 붙여넣으세요"
 
-    ⚠️ COM `InsertPicture` 는 HWPX SaveAs 시 **새 binItem 을 만들지 않고** 폼에 이미 있는
-    binItem(머리말 배너 image1)을 재사용한다(HWP 버그, 진단 확인) → 삽입 자리에 배너가
-    표시됨. 따라서 그림 바이트 임베드·binItem 교정은 저장 후 `_embed_figures` 가 XML
-    후처리로 결정적으로 처리한다. 여기서는 (1) 위치 토큰을 찍고 (2) 그림 경로를
-    ``ses._fig_paths`` 에 등록(토큰 인덱스=리스트 인덱스)하고 (3) 인라인 삽입만 한다.
 
-    FindCtrl/ShapeObjTreatAsChar 는 폼 배너 gso 를 오선택해 본문으로 끌어오는 파괴 버그가
-    있어 금지. InsertPicture 는 캐럿 위치에 TreatAsChar=1(인라인)으로 삽입한다(진단 확인).
-    성공 True.
+def _place_figure(ses, h, path: str) -> bool:
+    """그림(IMAGE) 자리 처리 — 모드 분기(`ses._render_figures`).
+
+    - **렌더 모드**(True): 그림을 실제로 삽입(자리표시 pic + 토큰 → 저장후 `_embed_figures` 가
+      binItem 교정). 단 보안경고가 뜬다(재저장 생략 — 재저장이 그림을 드롭하므로).
+    - **기본 모드**(False): 그림 자동삽입 보류 → 그림 자리에 **1×1 테두리 박스 안내 문구**.
+      재저장(launder)으로 보안경고 제거. (느슨한 단락은 재저장에 드롭되므로 **표 박스**에 넣어
+      보존 — 사용자 결정 2026-06-05. 자세히: 메모리 `form-figure-pending`.)
     """
-    if not os.path.exists(path):
+    if getattr(ses, "_render_figures", False):
+        return _place_figure_embed(ses, h, path)
+    return _place_figure_note(ses, h, path)
+
+
+def _place_figure_embed(ses, h, path: str) -> bool:
+    """렌더 모드: 그림 자리표시 pic(배너참조) + 토큰 삽입, 경로 등록(저장후 _embed_figures 교정)."""
+    if not path or not os.path.exists(path):
         return False
     paths = getattr(ses, "_fig_paths", None)
     if paths is None:
@@ -245,20 +254,33 @@ def _insert_picture_inline(ses, h, path: str) -> bool:
         ses._fig_paths = paths
     idx = len(paths)
     paths.append(path)
-    try:                                  # 위치 토큰(그림 단락을 빈줄삭제에서 보호 + 후처리 앵커)
+    try:
         ses.text(_fig_token(idx))
     except Exception:
         pass
+    fitted = _fit_image_width(path)
     try:
-        h.InsertPicture(path, True, 2, 0, 0, 0, 0, 0)
+        h.InsertPicture(fitted, True, 2, 0, 0, 0, 0, 0)
     except Exception:
         try:
-            h.InsertPicture(path, True, 2)
+            h.InsertPicture(fitted, True, 2)
         except Exception:
-            paths.pop()                   # 삽입 실패 → 토큰만 남지 않게 등록 취소
-            return False
+            pass
     try:
-        h.Run("MoveRight")                # 캐럿을 그림 뒤로
+        h.Run("MoveRight")
+    except Exception:
+        pass
+    return True
+
+
+def _place_figure_note(ses, h, path: str) -> bool:
+    """기본 모드: 그림 자리에 안내 문구를 가운데 평문으로 넣는다. path 는 호환 위해 받되 미사용.
+
+    (표 박스는 에세이 슬롯에서 COM 표 생성이 hang 을 유발해 평문으로. "※ …" 문구라 그림
+    캡션 오인·재저장 드롭을 피한다 — 실측 2026-06-05.)
+    """
+    try:
+        ses.text(_FIGURE_NOTE)
     except Exception:
         pass
     return True
@@ -271,12 +293,17 @@ def _emit_box_text(ses, text: str, st: dict) -> None:
     마커(<조건>)/자모 라벨(ㄱ.)은 토큰 출력. 인접 빈 경계는 중복 줄바꿈 방지.
     """
     pos = 0
+    after_label = False   # 라벨 직후면 뒤 내용 선행공백 strip(이중공백 방지, 2026-06-05)
     for m in _BOX_BREAK_RE.finditer(text):
         pre = text[pos:m.start()]
         if pre.strip():
-            ses.text(pre if st["started"] else pre.lstrip())
+            seg = pre if st["started"] else pre.lstrip()
+            if after_label:
+                seg = seg.lstrip()
+            ses.text(seg)
             st["started"] = True
             st["broke"] = False
+            after_label = False
         is_bullet = _BULLET_RE.fullmatch(m.group(0)) is not None
         if st["started"] and not st["broke"]:
             ses.break_para()
@@ -285,11 +312,15 @@ def _emit_box_text(ses, text: str, st: dict) -> None:
             tok = re.sub(r"\s+", "", m.group(0))
             ses.text(tok + " ")
             st["broke"] = False
+            after_label = True
         st["started"] = True
         pos = m.end()
     tail = text[pos:]
     if tail.strip():
-        ses.text(tail if st["started"] else tail.lstrip())
+        seg = tail if st["started"] else tail.lstrip()
+        if after_label:
+            seg = seg.lstrip()
+        ses.text(seg)
         st["started"] = True
         st["broke"] = False
 
@@ -310,7 +341,7 @@ def _put_tail(ses, h, blocks) -> None:
         if b.type == ContentType.IMAGE and b.value:
             ses.break_para()
             ses.align_center()
-            _insert_picture_inline(ses, h, _fit_image_width(b.value))
+            _place_figure(ses, h, b.value)         # 모드 분기(렌더/안내 박스)
             # 트레일링 break 없음 — 조건 박스가 단락시작(pos==0) 재사용으로 빈 줄 방지
         else:
             w._write_block(b)                      # EQUATION_BLOCK 가운데·EQUATION 인라인·TEXT
@@ -457,17 +488,20 @@ def _is_long_choices(q: Question) -> bool:
 
 
 # ── 1단계: COM 채움 ───────────────────────────────────────
-def _fill_form(mc: list[Question], essays: list[Question], form_path, out_path) -> tuple[int, int, list]:
+def _fill_form(mc: list[Question], essays: list[Question], form_path, out_path,
+               render_figures: bool = False) -> tuple[int, int, list]:
     """폼을 열어 슬롯 수 조절 + 객관식/서술형 채움 → out_path 저장.
 
     폼은 앞쪽 객관식 슬롯(①②③④⑤ 사전배치) + 뒤쪽 서술형 슬롯([서술형]). 잉여 객관식
     슬롯만 삭제하면 미주 자동번호로 **서술형 번호가 객관식 다음으로 이어진다**.
+    render_figures: True 면 그림 실제 삽입(저장후 _embed_figures), False 면 안내 박스.
 
     Returns: (채운 객관식 수, 채운 서술형 수, 그림 경로 리스트(토큰 인덱스순)).
     """
     n_mc, n_es = len(mc), len(essays)
     with HwpSession(visible=False) as ses:
         h = ses.hwp
+        ses._render_figures = render_figures   # 그림 처리 모드(_place_figure 가 분기)
         ses.open(form_path)
         ses.set_char_size(ses.base_pt)
         _merge_sections(h)        # 2구역 → 단일 구역(레이아웃·짝수쪽이 전 영역에 적용되도록)
@@ -653,6 +687,10 @@ def _build_layout(src_hwpx, out_hwpx, slot_blanks: dict, colbreak_slots, n_mc: i
     _mask(r"<hp:equation\b.*?</hp:equation>")
 
     def is_empty(p):
+        # 그림(pic/gso) 든 단락은 '빈 줄' 아님 — 인라인 그림(보이는 텍스트 없음)이 빈줄삭제로
+        # 지워지는 것 방지(그림은 _finalize_com 이 native 로 교체할 마커이기도 함).
+        if "<hp:pic" in p or "<hp:gso" in p:
+            return False
         return (not _visible_text(p).strip()) and ("@@X" not in p)
 
     N = len(_slot_opens(sec, en_phs))
@@ -1083,12 +1121,39 @@ def _dedupe_essay_labels(hwpx_path: str | Path) -> int:
     return total
 
 
+def _com_relaunder(hwpx_path: str | Path) -> bool:
+    """후처리한 hwpx 를 HWP COM 으로 한 번 더 열어 다시 저장(launder)해 '변조' 보안경고 제거.
+
+    XML 후처리(레이아웃·라벨·머리말)는 HWP 저장 **후** 파일을 외부에서 고치므로, HWP 가 여는
+    시점에 "문서가 손상/변조됐을 수 있음 — 보안 설정을 낮춰야 열림" 경고를 띄운다(사용자 보고
+    2026-06-05). HWP 가 그 파일을 직접 다시 저장하면 HWP authoring 으로 인식돼 경고가
+    사라진다(폼 원본·재저장본 모두 경고 없음 사용자 확인). 레이아웃/박스/안내문구 보존(검증).
+    실패해도 출력은 유효(경고만)하므로 변환을 중단하지 않는다. Returns: 성공 여부.
+    """
+    hwpx_path = Path(hwpx_path)
+    fd, tmp = tempfile.mkstemp(suffix=".hwpx", dir=str(hwpx_path.parent))
+    os.close(fd)
+    try:
+        with HwpSession(visible=False) as ses:
+            ses.open(hwpx_path)
+            ses.save_hwpx(tmp)
+        os.replace(tmp, hwpx_path)
+        return True
+    except Exception:
+        try:
+            os.remove(tmp)
+        except Exception:
+            pass
+        return False
+
+
 def write_exam_to_form(
     document: ExamDocument,
     form_path: str | Path,
     output_path: str | Path,
     per_col: int = PER_COL,
     header_values: dict | None = None,
+    render_figures: bool = False,
 ) -> Path:
     """ExamDocument 를 대수회 폼(.hwp)에 채워 .hwpx 로 저장.
 
@@ -1115,7 +1180,8 @@ def write_exam_to_form(
     fd, filled = tempfile.mkstemp(suffix=".hwpx", dir=str(output_path.parent))
     os.close(fd)
     try:
-        n_mc, n_es, fig_paths = _fill_form(mc, essays, form_path, filled)
+        n_mc, n_es, fig_paths = _fill_form(mc, essays, form_path, filled,
+                                           render_figures=render_figures)
         # 혼합 레이아웃(객관식 행정렬 + 서술형 1/단).
         _layout_form(filled, output_path, per_col, n_mc, n_es)
     finally:
@@ -1123,21 +1189,24 @@ def write_exam_to_form(
             os.remove(filled)
         except Exception:
             pass
-    # 1.5단계: 그림 binItem 결정적 임베드(COM InsertPicture 의 HWPX binItem 누락 교정).
-    if fig_paths:
-        try:
-            _embed_figures(output_path, fig_paths)
-        except Exception:
-            pass
-    # 1.6단계: 서술형 중복 라벨([서답형 N] [서술형 N]) 결정적 제거(폼 grow 잔존 라벨 보정).
+    # 1.5단계: 서술형 중복 라벨([서답형 N] [서술형 N]) 결정적 제거(폼 grow 잔존 라벨 보정).
     try:
         _dedupe_essay_labels(output_path)
     except Exception:
         pass
-    # 2단계: 머리말/꼬리말 학년·과목·시기 채움(결정적 XML 후처리).
+    # 1.6단계: 서술형 중복 라벨 제거는 위에서 완료. 머리말/꼬리말 채움(결정적 XML 후처리).
     if header_values:
         try:
             _fill_form_header(output_path, header_values)
         except Exception:
             pass
+    # 2단계: 그림 렌더 모드면 그림 binItem 임베드(경고 감수). 아니면(기본) COM 재저장(launder)
+    # 으로 '변조' 보안경고 제거 — 그림 자리엔 안내 박스(표라서 재저장에 보존).
+    if render_figures and fig_paths:
+        try:
+            _embed_figures(output_path, fig_paths)
+        except Exception:
+            pass
+    else:
+        _com_relaunder(output_path)
     return output_path

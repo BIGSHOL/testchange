@@ -15,6 +15,11 @@ logger = logging.getLogger(__name__)
 from core.pdf_handler import image_to_base64
 from utils.config import get_api_key, CLAUDE_MODEL, CLAUDE_MAX_TOKENS
 
+# OCR 응답 토큰 예산: 수식이 많은 문항은 JSON 이 길어 8192 면 **잘려서**(max_tokens)
+# JSON 이 깨지고 그 문항이 통째로 건너뛰어진다(실데이터 다사중 p2 박스2). 크롭 1개라도
+# 넉넉히 준다. config 가 더 크면 그 값을 쓴다. (Claude Sonnet 4.x 출력 한계 내.)
+OCR_MAX_TOKENS = max(int(CLAUDE_MAX_TOKENS), 16384)
+
 
 @dataclass
 class OCRQuality:
@@ -98,6 +103,11 @@ EXAM_OCR_PROMPT = """당신은 한국 수학 시험지를 정밀하게 OCR하는
 - ≠ (\neq), ≤ (\leq), ≥ (\geq), < (\lt), > (\gt)를 정확히 구분.
 - 여러 변수(x, y, z)가 있는 수식에서 **변수를 누락하지 마세요**:
   - (x^a y^b z^c)^d에서 z^c를 빠뜨리면 안 됩니다!
+- **기하 도형 이름(점·선·면)은 정자(로만체)로**: 점·꼭짓점·원점·교점의 대문자 이름,
+  삼각형/사각형/직선/선분 이름은 반드시 `\\mathrm{}` 로 감싸세요(한국 교과서 표기 — 변수
+  이탤릭과 구분). 예: 점 A → `\\mathrm{A}`, 원점 O → `\\mathrm{O}`, 삼각형 ABC →
+  `\\triangle \\mathrm{ABC}`, 선분 AB → `\\overline{\\mathrm{AB}}`, 직선 ℓ → `\\mathrm{l}`.
+  (단, 함수·미지수로 쓰인 소문자 x,y,a,b 등은 그대로 이탤릭.)
 
 ## 지수(위첨자) 정확도 (매우 중요!)
 - 지수는 글자가 작아서 오인식이 빈번합니다. 확대해서 확인하세요.
@@ -114,6 +124,10 @@ EXAM_OCR_PROMPT = """당신은 한국 수학 시험지를 정밀하게 OCR하는
 - 박스 안에 여러 항목이 나열되면 **각 항목을 불릿(•)으로 구분**하여 하나의 text 블록에 담으세요:
   {"type":"text","value":"<조건> • a, b를 분수로 나타낼 것 • 기약분수로 나타낼 것 • 순환마디에 점을 찍을 것"}
 - 박스 제목은 "<조건>" 또는 "<보기>"로 표기하고, 항목 사이는 반드시 "•"로 구분하세요. 박스 테두리 대시(──)는 넣지 마세요.
+- **서술형 지문/제시문(이야기·상황 설명이 테두리 박스 안에 있는 경우)은 그 본문 전체를
+  절대 누락하지 말고**, 하나의 text 블록에 `<조건>` 머리를 붙여 담으세요(박스로 렌더됨).
+  예: {"type":"text","value":"<조건> 독수리들이 하늘 높이 날다가 ... (지문 전문) ... 같게 되지."}
+  지문 안의 따옴표 대화·문장도 빠짐없이. (지문은 발문/질문 문장과 **분리된 별도 text 블록**.)
 
 ## 조건 박스·표 (매우 중요!)
 - 테두리/박스 안의 내용(조건, 정의 등)은 **절대 누락하지 마세요.**
@@ -189,7 +203,7 @@ class OCREngine:
 
         message = self.client.messages.create(
             model=CLAUDE_MODEL,
-            max_tokens=CLAUDE_MAX_TOKENS,
+            max_tokens=OCR_MAX_TOKENS,
             messages=[
                 {
                     "role": "user",
@@ -219,7 +233,7 @@ class OCREngine:
             logger.warning("JSON 파싱 실패 (1차), 재시도: %s", e)
             message2 = self.client.messages.create(
                 model=CLAUDE_MODEL,
-                max_tokens=CLAUDE_MAX_TOKENS,
+                max_tokens=OCR_MAX_TOKENS,
                 messages=[
                     {
                         "role": "user",
@@ -255,19 +269,35 @@ class OCREngine:
             "잘린 옆 문제의 일부가 가장자리에 보여도 무시하고, 중심 문제 하나만 추출하세요.\n\n"
             + EXAM_OCR_PROMPT
         )
-        message = self.client.messages.create(
-            model=CLAUDE_MODEL,
-            max_tokens=CLAUDE_MAX_TOKENS,
-            messages=[{
-                "role": "user",
-                "content": [
-                    {"type": "image", "source": {"type": "base64",
-                                                 "media_type": "image/png", "data": base64_image}},
-                    {"type": "text", "text": prompt},
-                ],
-            }],
-        )
-        return self._extract_json(message.content[0].text)
+        content = [
+            {"type": "image", "source": {"type": "base64",
+                                         "media_type": "image/png", "data": base64_image}},
+            {"type": "text", "text": prompt},
+        ]
+
+        def _call(max_toks: int):
+            return self.client.messages.create(
+                model=CLAUDE_MODEL, max_tokens=max_toks,
+                messages=[{"role": "user", "content": content}])
+
+        message = _call(OCR_MAX_TOKENS)
+        # 응답 잘림(max_tokens) → JSON 이 깨져 복구 불가 → 더 큰 예산으로 1회 재시도.
+        if getattr(message, "stop_reason", None) == "max_tokens":
+            logger.warning("크롭 OCR 응답 잘림(max_tokens=%d) → 재시도", OCR_MAX_TOKENS)
+            message = _call(min(OCR_MAX_TOKENS * 2, 32768))
+            if getattr(message, "stop_reason", None) == "max_tokens":
+                raise ValueError(
+                    f"OCR 응답이 max_tokens({OCR_MAX_TOKENS * 2})로 잘렸습니다 — "
+                    f"수식이 매우 많은 문항(크롭을 더 작게 나눠 보세요)")
+        try:
+            return self._extract_json(message.content[0].text)
+        except json.JSONDecodeError as e:
+            # 구조적 깨진 JSON(예: `"value", "value":` ←콜론 누락)은 복구 단계로 못 고친다.
+            # 모델이 한 번 더 생성하면 정상 JSON 을 주는 경우가 많아 OCR 자체를 1회 재호출
+            # (밀집 문항이 통째로 누락되던 문제 — 2026-06-05 Q8 사례).
+            logger.warning("크롭 OCR JSON 파싱 실패 → OCR 재호출 1회: %s", e)
+            message = _call(min(OCR_MAX_TOKENS * 2, 32768))
+            return self._extract_json(message.content[0].text)
 
     def _extract_json(self, text: str) -> dict:
         """응답에서 JSON 추출 (LaTeX 수식이 포함된 경우도 처리).

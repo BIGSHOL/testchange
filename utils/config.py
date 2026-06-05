@@ -90,6 +90,16 @@ def get_gemini_key() -> str:
     return key
 
 
+def set_gemini_key(key: str):
+    """Gemini API 키를 config 에 저장(크롭 검출용). 빈 값이면 기존 키 유지."""
+    key = (key or "").strip()
+    if not key:
+        return
+    cfg = _load_config()
+    cfg["GEMINI_API_KEY"] = key
+    save_config(cfg)
+
+
 # Gemini 모델(크롭 검출 — bbox 그라운딩 특화)
 GEMINI_MODEL = str(_DEFAULTS["GEMINI_MODEL"])
 
