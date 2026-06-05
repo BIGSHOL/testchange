@@ -314,11 +314,19 @@ class ConversionWorker(QObject):
                     boxes = detect_crops(images[idx], api_key=self.api_key)
                 except Exception as e:
                     logger.warning("크롭 검출 실패(p%d): %s", idx + 1, e)
+                    # 실제 원인을 GUI 에 노출 — "검출 실패"만 뜨면 일시적 레이트리밋/크레딧
+                    # 부족을 빌드 버그로 오해(2026-06-05). 알려진 원인은 친절히 안내.
+                    reason = str(e).strip() or type(e).__name__
+                    low = reason.lower()
+                    if "credit" in low or "balance" in low:
+                        reason = "Anthropic 크레딧 부족 — 크레딧 충전 필요(폼/OCR 도 동일)"
+                    elif any(k in low for k in ("rate", "429", "quota", "resource", "exhaust")):
+                        reason = "Gemini 레이트리밋/쿼터 초과 — 잠시 후 다시 시도하세요"
                     # 검출 실패 → 사용자에게 경고(빈 박스로 편집기에 표시, 수동 보강 가능)
                     self.quality_warning.emit(
                         idx + 1 + page_offset,
-                        f"페이지 {idx + 1 + page_offset} 문제영역 검출 실패 — "
-                        f"편집기에서 직접 추가하거나 빈 채로 두면 건너뜁니다.")
+                        f"페이지 {idx + 1 + page_offset} 문제영역 검출 실패 — {reason[:180]} "
+                        f"(편집기에서 직접 추가하거나 빈 채로 두면 건너뜁니다.)")
                     boxes = []
                 if not boxes:
                     # 검출 0개 → 표지/빈 페이지 의심(인식률 낮음 경고). 편집기에서 확인 후

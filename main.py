@@ -45,8 +45,28 @@ def _selftest_imports() -> int:
             from _version import __version__ as _ver
         except Exception:
             _ver = "?"
+
+        # ── frozen 환경에서 **실제 Gemini API 호출**까지 검증(import 만으론 SSL/데이터
+        # 파일 누락에 의한 런타임 실패를 못 잡음 — 2026-06-05 배포본 크롭 0개 사례). ──
+        gem_line = "GEMINI LIVE: 건너뜀(키 없음)"
+        try:
+            from utils.config import get_gemini_key
+            _gk = get_gemini_key()
+            if _gk:
+                from PIL import Image, ImageDraw
+                _im = Image.new("RGB", (600, 800), "white")
+                _d = ImageDraw.Draw(_im)
+                _d.rectangle([60, 80, 540, 240], outline="black", width=3)
+                _d.text((80, 100), "1. test problem  x+y=2", fill="black")
+                _boxes = _detect_with_gemini(_im, _gk)
+                gem_line = f"GEMINI LIVE OK: {len(_boxes)} boxes"
+        except Exception as ge:  # noqa: BLE001
+            import traceback as _tb
+            gem_line = "GEMINI LIVE FAIL: " + repr(ge) + "\n" + _tb.format_exc()
+
         out.write_text(
-            f"SELFTEST OK (v{_ver}): {google.genai.__file__}\n", encoding="utf-8")
+            f"SELFTEST OK (v{_ver}): {google.genai.__file__}\n{gem_line}\n",
+            encoding="utf-8")
         return 0
     except Exception as e:
         import traceback
