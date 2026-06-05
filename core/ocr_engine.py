@@ -190,6 +190,21 @@ class OCREngine:
         self.api_key = api_key or get_api_key()
         self.client = anthropic.Anthropic(api_key=self.api_key)
 
+    def _stream_message(self, content: list, max_tokens: int):
+        """스트리밍으로 메시지를 생성하고 최종 Message 를 반환한다.
+
+        **논스트리밍(create) 은 max_tokens 가 커서 10분 초과 가능성이 있으면 SDK 가
+        "Streaming is required for operations that may take longer than 10 minutes"
+        예외를 던진다**(밀집 문항 재시도에서 max_tokens 를 32768 로 올릴 때 발생 —
+        2026-06-05). 스트리밍은 이 제한이 없다. `.content`/`.stop_reason` 동일.
+        """
+        with self.client.messages.stream(
+            model=CLAUDE_MODEL,
+            max_tokens=max_tokens,
+            messages=[{"role": "user", "content": content}],
+        ) as stream:
+            return stream.get_final_message()
+
     def recognize_page(self, image: Image.Image) -> dict:
         """한 페이지 이미지에서 텍스트+수식 추출.
 
@@ -200,60 +215,21 @@ class OCREngine:
             구조화된 OCR 결과 dict
         """
         base64_image = image_to_base64(image, format="PNG")
+        # 프롬프트 앞배치 + 캐싱(②). 페이지 OCR 도 동일 프롬프트라 캐시 적중.
+        content = [
+            {"type": "text", "text": EXAM_OCR_PROMPT,
+             "cache_control": {"type": "ephemeral"}},
+            {"type": "image", "source": {"type": "base64",
+                                         "media_type": "image/png", "data": base64_image}},
+        ]
 
-        message = self.client.messages.create(
-            model=CLAUDE_MODEL,
-            max_tokens=OCR_MAX_TOKENS,
-            messages=[
-                {
-                    "role": "user",
-                    "content": [
-                        {
-                            "type": "image",
-                            "source": {
-                                "type": "base64",
-                                "media_type": "image/png",
-                                "data": base64_image,
-                            },
-                        },
-                        {
-                            "type": "text",
-                            "text": EXAM_OCR_PROMPT,
-                        },
-                    ],
-                }
-            ],
-        )
-
-        response_text = message.content[0].text
+        message = self._stream_message(content, OCR_MAX_TOKENS)
         try:
-            return self._extract_json(response_text)
+            return self._extract_json(message.content[0].text)
         except json.JSONDecodeError as e:
             # JSON 파싱 완전 실패 시 1회 재시도
             logger.warning("JSON 파싱 실패 (1차), 재시도: %s", e)
-            message2 = self.client.messages.create(
-                model=CLAUDE_MODEL,
-                max_tokens=OCR_MAX_TOKENS,
-                messages=[
-                    {
-                        "role": "user",
-                        "content": [
-                            {
-                                "type": "image",
-                                "source": {
-                                    "type": "base64",
-                                    "media_type": "image/png",
-                                    "data": base64_image,
-                                },
-                            },
-                            {
-                                "type": "text",
-                                "text": EXAM_OCR_PROMPT,
-                            },
-                        ],
-                    }
-                ],
-            )
+            message2 = self._stream_message(content, OCR_MAX_TOKENS)
             return self._extract_json(message2.content[0].text)
 
     def recognize_crop(self, image: Image.Image) -> dict:
@@ -269,16 +245,17 @@ class OCREngine:
             "잘린 옆 문제의 일부가 가장자리에 보여도 무시하고, 중심 문제 하나만 추출하세요.\n\n"
             + EXAM_OCR_PROMPT
         )
+        # 프롬프트를 **앞**(안정 prefix)에 두고 캐싱(②) — 모든 크롭이 동일 프롬프트라
+        # 캐시 적중. 이미지는 캐시 경계 뒤(크롭마다 다름). 입력토큰·지연 대폭 절감.
         content = [
+            {"type": "text", "text": prompt,
+             "cache_control": {"type": "ephemeral"}},
             {"type": "image", "source": {"type": "base64",
                                          "media_type": "image/png", "data": base64_image}},
-            {"type": "text", "text": prompt},
         ]
 
         def _call(max_toks: int):
-            return self.client.messages.create(
-                model=CLAUDE_MODEL, max_tokens=max_toks,
-                messages=[{"role": "user", "content": content}])
+            return self._stream_message(content, max_toks)
 
         message = _call(OCR_MAX_TOKENS)
         # 응답 잘림(max_tokens) → JSON 이 깨져 복구 불가 → 더 큰 예산으로 1회 재시도.

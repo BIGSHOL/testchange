@@ -9,6 +9,7 @@ import logging
 import sys
 import threading
 import traceback
+from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
 from PySide6.QtCore import Qt, Signal, QThread, QObject
@@ -51,6 +52,9 @@ from gui.preview_dialog import PreviewDialog, PageInfo
 from utils.config import get_output_dir
 
 logger = logging.getLogger(__name__)
+
+# 크롭 OCR 병렬 처리 동시 실행 수(①). 너무 크면 API 레이트리밋, 작으면 속도 이득 적음.
+_OCR_WORKERS = 6
 
 
 # ─── 백그라운드 변환 워커 ────────────────────────────────────
@@ -383,56 +387,74 @@ class ConversionWorker(QObject):
                 merged = {"header": "", "questions": []}
                 pending_figs: list[dict] = []   # 첫 문제 앞에 나온 그림
                 last_q: dict | None = None
-                for bi, box in enumerate(boxes):
-                    if self._cancelled:
-                        self.error.emit("사용자에 의해 취소되었습니다.")
-                        return
-                    crops_done += 1
-                    self.progress.emit(
-                        15 + int(crops_done / max(total_crops, 1) * 60),
-                        f"OCR 처리 중... (p{seq + 1} 크롭 {bi + 1}/{len(boxes)})")
-                    if box.kind == "figure":
-                        # standalone 도형 → 재생성(또는 크롭 폴백) 후 IMAGE 블록 생성
-                        crop = box.crop_image(img, pad=0.005)
-                        fig_path = self._render_figure_crop(
-                            crop, "", f"fig_p{page_num}_{bi}")
-                        if fig_path:
-                            block = {"type": "image", "value": fig_path}
-                            if last_q is not None:
-                                last_q.setdefault("contents", []).append(block)
-                            else:
-                                pending_figs.append(block)
-                        continue
+
+                # ── ① 문제 박스 OCR 을 병렬 실행(크롭별 독립 API 호출) — 페이지 OCR
+                # 시간 대폭 단축. 결과는 아래에서 **박스 순서대로** 병합(순서·pending_figs·
+                # last_q 보존). figure 박스 렌더는 순서 의존이라 병합 패스에서 순차 처리.
+                def _ocr_box(bi: int, box) -> dict:
                     sub = box.crop_image(img, pad=0.01)
-                    try:
-                        r = engine.recognize_crop(sub)
-                        # 문제 내 figure 블록을 재생성/폴백으로 해소(bbox 는 sub 기준)
-                        self._resolve_figures(r, sub, page_num, bi)
-                    except Exception as exc:
-                        # 크롭 1개의 OCR/JSON 파싱 실패가 전체 변환을 중단시키지
-                        # 않도록 격리 — 해당 문항만 건너뛰고 경고 후 계속.
-                        logger.warning("크롭 OCR 실패 (p%s 박스 %s): %s",
-                                       page_num, bi + 1, exc)
-                        # 실제 원인을 GUI 에 노출(프리뷰는 박스만 보여 정상처럼 보이므로
-                        # 사용자가 왜 실패했는지 알 수 있게). 잘림(max_tokens)은 명시.
-                        reason = str(exc).strip() or type(exc).__name__
-                        if "max_tokens" in reason or "잘렸" in reason or "truncat" in reason.lower():
-                            reason = "응답이 max_tokens 로 잘림(수식이 많은 문항). 자동 재시도했으나 실패"
-                        self.quality_warning.emit(
-                            page_num,
-                            f"페이지 {page_num} {bi + 1}번째 문제영역 인식 실패 — 건너뜀. "
-                            f"원인: {reason[:160]}")
-                        continue
-                    qs = r.get("questions", [])
-                    if box.number is not None:
-                        for q in qs:
-                            q["number"] = box.number  # 검출 번호로 보정
-                    if qs and pending_figs:
-                        qs[0].setdefault("contents", [])[:0] = pending_figs
-                        pending_figs = []
-                    merged["questions"].extend(qs)
-                    if qs:
-                        last_q = qs[-1]
+                    r = engine.recognize_crop(sub)
+                    self._resolve_figures(r, sub, page_num, bi)  # 문제 내 figure(bbox=sub)
+                    return r
+
+                problem_items = [(bi, box) for bi, box in enumerate(boxes)
+                                 if box.kind != "figure"]
+                self._ensure_fig_dir()   # 병렬 전 메인스레드에서 임시폴더 선생성(레이스 방지)
+                ocr_futures: dict = {}
+                ex = ThreadPoolExecutor(max_workers=min(_OCR_WORKERS, max(1, len(problem_items))))
+                try:
+                    if not self._cancelled:
+                        ocr_futures = {bi: ex.submit(_ocr_box, bi, box)
+                                       for bi, box in problem_items}
+                    for bi, box in enumerate(boxes):
+                        if self._cancelled:
+                            self.error.emit("사용자에 의해 취소되었습니다.")
+                            return
+                        crops_done += 1
+                        self.progress.emit(
+                            15 + int(crops_done / max(total_crops, 1) * 60),
+                            f"OCR 처리 중... (p{seq + 1} 크롭 {bi + 1}/{len(boxes)})")
+                        if box.kind == "figure":
+                            # standalone 도형 → 재생성(또는 크롭 폴백) 후 IMAGE 블록 생성
+                            crop = box.crop_image(img, pad=0.005)
+                            fig_path = self._render_figure_crop(
+                                crop, "", f"fig_p{page_num}_{bi}")
+                            if fig_path:
+                                block = {"type": "image", "value": fig_path}
+                                if last_q is not None:
+                                    last_q.setdefault("contents", []).append(block)
+                                else:
+                                    pending_figs.append(block)
+                            continue
+                        try:
+                            r = ocr_futures[bi].result()
+                        except Exception as exc:
+                            # 크롭 1개의 OCR/JSON 파싱 실패가 전체 변환을 중단시키지
+                            # 않도록 격리 — 해당 문항만 건너뛰고 경고 후 계속.
+                            logger.warning("크롭 OCR 실패 (p%s 박스 %s): %s",
+                                           page_num, bi + 1, exc)
+                            # 실제 원인을 GUI 에 노출(프리뷰는 박스만 보여 정상처럼 보이므로
+                            # 사용자가 왜 실패했는지 알 수 있게). 잘림(max_tokens)은 명시.
+                            reason = str(exc).strip() or type(exc).__name__
+                            if "max_tokens" in reason or "잘렸" in reason or "truncat" in reason.lower():
+                                reason = "응답이 max_tokens 로 잘림(수식이 많은 문항). 자동 재시도했으나 실패"
+                            self.quality_warning.emit(
+                                page_num,
+                                f"페이지 {page_num} {bi + 1}번째 문제영역 인식 실패 — 건너뜀. "
+                                f"원인: {reason[:160]}")
+                            continue
+                        qs = r.get("questions", [])
+                        if box.number is not None:
+                            for q in qs:
+                                q["number"] = box.number  # 검출 번호로 보정
+                        if qs and pending_figs:
+                            qs[0].setdefault("contents", [])[:0] = pending_figs
+                            pending_figs = []
+                        merged["questions"].extend(qs)
+                        if qs:
+                            last_q = qs[-1]
+                finally:
+                    ex.shutdown(wait=False, cancel_futures=True)
                 # 인식률 낮음 경고: 박스는 있었지만 OCR 결과 문항이 0개
                 problem_boxes = [b for b in boxes if b.kind != "figure"]
                 if problem_boxes and not merged["questions"]:
