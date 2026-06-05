@@ -172,29 +172,76 @@ def _parse_content_block(block_data: dict) -> ContentBlock | None:
     return ContentBlock(type=content_type, value=value)
 
 
-def _split_comma_equations(blocks: list[ContentBlock]) -> list[ContentBlock]:
-    """쉼표로 구분된 독립 수식을 개별 블록으로 분리.
+# 콤마 분리에서 '문자(변수)'로 인정하는 단일 항목: 한 글자 + 선택적 첨자(a, b, A, x_1 …).
+_VAR_ITEM_RE = re.compile(r'^[A-Za-z](?:[_^]\{?[A-Za-z0-9]+\}?)?$')
 
-    예: "A=2^6, B=3^6" → equation("A=2^6") + text(", ") + equation("B=3^6")
-    괄호·중괄호 안의 쉼표는 분리하지 않습니다.
+
+def _wrapped_in_parens(v: str) -> bool:
+    """문자열 전체가 **한 쌍**의 괄호로 감싸여 있는지(중간에 먼저 안 닫힘)."""
+    if not (v.startswith("(") and v.endswith(")")):
+        return False
+    depth = 0
+    for i, ch in enumerate(v):
+        if ch == "(":
+            depth += 1
+        elif ch == ")":
+            depth -= 1
+            if depth == 0 and i != len(v) - 1:
+                return False
+    return depth == 0
+
+
+def _split_comma_equations(blocks: list[ContentBlock]) -> list[ContentBlock]:
+    """쉼표로 구분된 수식 항목 처리(사용자 규칙 2026-06-05).
+
+    HWP 수식 객체는 공백을 무시하므로 ``a, b, c`` 를 한 수식으로 넣으면 ``a,b,c`` 로 붙어
+    보기 나쁘다. 그래서:
+      - **문자(변수) 나열**(``a, b, c`` / ``(a, b, c)``): 문자별 **개별 수식 객체** + 쉼표·
+        괄호는 **일반 텍스트** → 텍스트 공백이 살아 ``a, b, c`` 로 깔끔히.
+      - **좌표/수식 나열**(``(3, 2)`` 처럼 숫자 포함): 쪼개지 않고 **한 수식**으로 두되 쉼표
+        뒤를 ``~``(HWP 강제공백)으로 → ``(3,~2)``.
+      - 괄호 없는 최상위 수식 나열(예 ``A=2^6, B=3^6``): 종전처럼 개별 수식 + 텍스트 쉼표.
     """
     result: list[ContentBlock] = []
     for block in blocks:
-        if block.type == ContentType.EQUATION and "," in block.value:
-            parts = _split_at_top_level_commas(block.value)
-            valid = [p.strip() for p in parts if p.strip()]
-            if len(valid) > 1:
-                for i, part in enumerate(valid):
-                    if i > 0:
-                        result.append(
-                            ContentBlock(type=ContentType.TEXT, value=", ")
-                        )
-                    result.append(
-                        ContentBlock(type=ContentType.EQUATION, value=part)
-                    )
+        if block.type == ContentType.EQUATION and "," in (block.value or ""):
+            if _split_one_eq_commas(block, result):
                 continue
         result.append(block)
     return result
+
+
+def _split_one_eq_commas(block: ContentBlock, result: list[ContentBlock]) -> bool:
+    """쉼표 든 수식 한 블록을 규칙대로 분해해 ``result`` 에 추가. 처리했으면 True."""
+    v = (block.value or "").strip()
+    paren = _wrapped_in_parens(v)
+    inner = v[1:-1] if paren else v
+    parts = [p.strip() for p in _split_at_top_level_commas(inner) if p.strip()]
+    if len(parts) < 2:
+        return False
+    all_vars = all(_VAR_ITEM_RE.match(p) for p in parts)
+    if all_vars:
+        # 문자(변수) 나열 → 개별 수식 객체 + 텍스트 쉼표/괄호(공백 보존).
+        if paren:
+            result.append(ContentBlock(type=ContentType.TEXT, value="("))
+        for i, p in enumerate(parts):
+            if i > 0:
+                result.append(ContentBlock(type=ContentType.TEXT, value=", "))
+            result.append(ContentBlock(type=ContentType.EQUATION, value=p))
+        if paren:
+            result.append(ContentBlock(type=ContentType.TEXT, value=")"))
+        return True
+    if paren:
+        # 좌표/수식 묶음(숫자 포함) → 한 수식 유지, 쉼표 뒤 ~ 강제공백.
+        result.append(ContentBlock(type=ContentType.EQUATION,
+                                   value=re.sub(r",\s*", ",~", v)))
+        return True
+    # 괄호 없는 수식 나열 → 개별 수식 + 텍스트 쉼표(종전 동작).
+    for i, p in enumerate(parts):
+        if i > 0:
+            result.append(ContentBlock(type=ContentType.TEXT, value=", "))
+        result.append(ContentBlock(type=ContentType.EQUATION, value=p))
+    return True
 
 
 def _split_at_top_level_commas(s: str) -> list[str]:
