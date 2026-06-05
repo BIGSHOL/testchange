@@ -41,7 +41,12 @@ def _selftest_imports() -> int:
         import resvg_py  # noqa: F401  (그림 재생성 SVG→PNG — Rust 확장 번들 확인)
         from core.crop_detector import detect_crops, _detect_with_gemini  # noqa: F401
         from core.figure_generator import render_figure  # noqa: F401
-        out.write_text(f"SELFTEST OK: {google.genai.__file__}\n", encoding="utf-8")
+        try:
+            from _version import __version__ as _ver
+        except Exception:
+            _ver = "?"
+        out.write_text(
+            f"SELFTEST OK (v{_ver}): {google.genai.__file__}\n", encoding="utf-8")
         return 0
     except Exception as e:
         import traceback

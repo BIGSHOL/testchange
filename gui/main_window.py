@@ -534,7 +534,12 @@ class MainWindow(QMainWindow):
     _ICON_SIZE = 16
 
     def _setup_ui(self):
-        self.setWindowTitle("수학 시험지 한글화 변환기")
+        try:
+            from _version import __version__ as _ver
+        except Exception:
+            _ver = ""
+        self.setWindowTitle(
+            f"수학 시험지 한글화 변환기  v{_ver}" if _ver else "수학 시험지 한글화 변환기")
         self.setMinimumSize(720, 600)
         self.setAcceptDrops(True)
 

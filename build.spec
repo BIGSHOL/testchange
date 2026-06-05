@@ -43,6 +43,7 @@ a = Analysis(
         *_resvg_datas,
     ],
     hiddenimports=[
+        '_version',          # 배포 버전(0.1.0~) — GUI 제목·selftest 표시
         'PySide6.QtCore',
         'PySide6.QtGui',
         'PySide6.QtWidgets',
