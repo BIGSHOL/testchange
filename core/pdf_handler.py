@@ -8,6 +8,11 @@ from pathlib import Path
 import fitz  # PyMuPDF
 from PIL import Image
 
+# 고해상도(예 300DPI A3·대형 스캔) PDF 페이지는 PIL 기본 한계(~179MP)를 넘어
+# DecompressionBombError 를 낸다. 처리 대상은 사용자 본인의 신뢰된 시험지 PDF·이미지라
+# 압축폭탄 위험이 없으므로 한계를 해제한다(연 직후 _resize_if_needed 로 다운스케일됨).
+Image.MAX_IMAGE_PIXELS = None
+
 from utils.config import PDF_DPI, MAX_IMAGE_SIZE
 
 
