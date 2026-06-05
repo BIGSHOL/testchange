@@ -92,6 +92,48 @@ def _condition_start(blocks: list[ContentBlock]) -> int | None:
     return None
 
 
+def _tail_start(blocks: list[ContentBlock]) -> int | None:
+    """발문이 끝나고 '뒤 영역'(조건/보기 박스·표·그림·블록수식)이 시작되는 인덱스.
+
+    배점은 이 경계 **앞**(발문 끝)에 둔다. `_condition_start`(조건/표만)에 더해
+    **그림(IMAGE)·블록수식(EQUATION_BLOCK)** 도 경계로 본다(배점이 그림/수식 앞에 오도록).
+    폼·기본 경로 공통 경계(사용자 '항상 동일' 요구 2026-06-05).
+    """
+    for i, b in enumerate(blocks):
+        if b.type in (ContentType.TABLE, ContentType.IMAGE, ContentType.EQUATION_BLOCK):
+            return i
+        if b.type == ContentType.TEXT and _COND_HEADER_RE.search(b.value or ""):
+            return i
+    return None
+
+
+# 발문 끝에 박힌 총점/배점 [총 N점]·[N점] (소문항 부모는 우측정렬로 따로 표기).
+_TRAIL_SCORE_RE = re.compile(r'\s*\[\s*(?:총\s*)?(\d+)\s*점\s*\]\s*$')
+
+
+def _split_trailing_score(blocks: list[ContentBlock]):
+    """마지막(비어있지 않은) 텍스트 블록 끝의 ``[총 N점]``/``[N점]`` 을 떼어낸다.
+
+    소문항 부모의 총점을 발문 본문에서 빼내 **우측정렬**로 따로 렌더하기 위함
+    (사용자 2026-06-05). Returns: (떼어낸 뒤 blocks, N|None).
+    """
+    for i in range(len(blocks) - 1, -1, -1):
+        b = blocks[i]
+        if b.type == ContentType.TEXT and (b.value or "").strip():
+            m = _TRAIL_SCORE_RE.search(b.value)
+            if not m:
+                return blocks, None
+            num = int(m.group(1))
+            nv = b.value[:m.start()].rstrip()
+            cleaned = list(blocks)
+            if nv:
+                cleaned[i] = ContentBlock(type=ContentType.TEXT, value=nv)
+            else:
+                cleaned.pop(i)
+            return cleaned, num
+    return blocks, None
+
+
 def _choice_complexity(choice: Choice) -> int:
     """보기 하나의 '길이' 추정. 블록수식/표가 있으면 매우 큼(→1단)."""
     score = 0
@@ -148,7 +190,9 @@ class HwpComWriter:
         elif block.type == ContentType.EQUATION_BLOCK:
             if not inline:
                 self.s.break_para()
+                self.s.align_center()   # 발문 아래 독립 블록수식은 가운데 정렬(사용자 2026-06-05)
             self.s.equation(_eq_script(block))
+            # 좌측 복귀는 소비처(조건 박스·선택지)에서 — 연속 블록수식은 가운데 유지(빈 줄 없음)
         elif block.type == ContentType.EQUATION:
             self.s.equation(_eq_script(block))
         elif block.type == ContentType.TEXT:
@@ -259,10 +303,38 @@ class HwpComWriter:
             for b in blocks:
                 self._write_block(b)
             return
-        self.s.break_para()
+        # 단락 시작(pos==0, 예: 그림 뒤 빈 단락)이면 추가 줄바꿈 없이 그 단락을 재사용
+        # → 그림↔조건 사이 빈 줄 방지(사용자 2026-06-05). 아니면 새 줄로.
+        try:
+            at_para_start = self.s.hwp.GetPos()[2] == 0
+        except Exception:
+            at_para_start = False
+        if not at_para_start:
+            self.s.break_para()
+        self.s.align_left()             # 직전 블록수식/그림 가운데정렬 해제(표는 좌측)
         self.s.table_begin(1, 1)        # 한 칸 테두리 박스
         self._write_box_content(blocks)
         self.s.table_end()
+        self.s.align_left()
+
+    def _write_tail(self, tail: list[ContentBlock]) -> bool:
+        """발문 뒤 영역 렌더(**폼·기본 경로 공통** — 사용자 '항상 동일' 요구 2026-06-05).
+
+        그림(IMAGE)·블록수식(EQUATION_BLOCK)은 개별 렌더(그림 가운데·수식 가운데),
+        보기/조건(<보기>/<조건> 머리 이후)은 1×1 테두리 표 박스로. 그림↔조건 사이 빈 줄은
+        `_write_condition_box` 가 단락시작(pos==0) 재사용으로 방지.
+
+        Returns: 표 박스로 끝났는지(True면 트레일링 단락이 이미 새 줄이라 추가 줄바꿈 불필요).
+        """
+        cs = _condition_start(tail)               # 표/조건 머리 시작(없으면 전부 pre)
+        pre = tail if cs is None else tail[:cs]
+        box = [] if cs is None else tail[cs:]
+        for b in pre:
+            self._write_block(b)                  # IMAGE 가운데·EQUATION_BLOCK 가운데(인라인 아님)
+        if box:
+            self._write_condition_box(box)
+            return True
+        return False
 
     # ── 문제 ──────────────────────────────────────────────
     def _write_question(self, question: Question, top_level: bool = True) -> None:
@@ -282,10 +354,17 @@ class HwpComWriter:
                 self._use_endnote = False
             self.s.text(f"{question.number}. ")
 
-        # 발문 / 보기·조건 박스 경계(A2/A3). 배점은 '발문 끝'(박스 앞)에 둔다.
-        box_start = _condition_start(question.contents)
-        stem = question.contents if box_start is None else question.contents[:box_start]
-        box = [] if box_start is None else question.contents[box_start:]
+        # 발문 / 뒤 영역(조건·표·그림·블록수식) 경계(A2/A3). 배점은 '발문 끝'(경계 앞)에 둔다.
+        tail_start = _tail_start(question.contents)
+        stem = question.contents if tail_start is None else question.contents[:tail_start]
+        tail = [] if tail_start is None else question.contents[tail_start:]
+
+        # 소문항 부모: 발문 끝 [총 N점] 을 본문에서 분리해 우측정렬로 따로 표기(사용자 2026-06-05).
+        total_num = None
+        if has_subs:
+            stem, total_num = _split_trailing_score(stem)
+            if total_num is None:
+                total_num = question.score
 
         # 발문 — 첫 블록은 인라인(번호와 같은 줄), 발문 선두 수식 줄바꿈 방지(A7).
         for i, block in enumerate(stem):
@@ -300,11 +379,23 @@ class HwpComWriter:
                 self.s.align_left()
             else:
                 self._write_score(question.score)
-        # 보기/조건 → 1×1 테두리 표 박스 (A3)
-        if box:
-            self._write_condition_box(box)
-            # 박스(표) 뒤 트레일링 단락이 이미 새 줄 → 추가 break 없이 바로 선택지로.
-            # (break 를 또 넣으면 박스와 선택지 사이에 빈 줄이 생김 — 사용자 지적 2026-06-04)
+        elif has_subs and total_num:
+            # 소문항 부모 총점: 줄바꿈 후 우측정렬 "[총 N점]"(N 은 수식 객체).
+            self.s.break_para()
+            self.s.align_right()
+            self.s.text("[총 ")
+            self.s.equation(str(total_num))
+            self.s.text("점]")
+            self.s.break_para()
+            self.s.align_left()
+        # 뒤 영역: 그림/블록수식은 개별(가운데), 보기/조건은 1×1 테두리 표 박스 (A3)
+        if tail:
+            ended_box = self._write_tail(tail)
+            # 박스(표) 뒤 트레일링 단락이 이미 새 줄 → 선택지 사이 빈 줄 없음(사용자 2026-06-04).
+            # 박스로 안 끝났으면(그림/블록수식) 선택지 전에 좌측 새 줄 확보.
+            if question.choices and not ended_box:
+                self.s.break_para()
+                self.s.align_left()
         else:
             self.s.break_para()
 

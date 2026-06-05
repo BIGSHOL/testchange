@@ -48,7 +48,7 @@ SKILL=사람이 읽는 스펙·수동 실행 절차). 수동 전체 검증: `pyt
 | 4 | 객관식 배점 = 발문 끝 인라인 | `_write_question` 의 `else: self._write_score(question.score)` |
 | 5 | 서술형 배점 = 줄바꿈 + 우측정렬 | `if is_essay:` 블록에서 `align_right()` 후 `_write_score(..., leading_space=False)` |
 | 6 | 보기/조건 = 1×1 테두리 표 박스 | `_write_condition_box` 의 `table_begin(1, 1)` |
-| 7 | 박스 ↔ 선택지 빈 줄 없음 | `if box:` 분기엔 `break_para` 없음, `else:` 분기에만 `break_para` |
+| 7 | 박스 ↔ 선택지 빈 줄 없음 | `ended_box = self._write_tail(tail)` + `if question.choices and not ended_box:` (박스로 끝나면 추가 줄바꿈 없음) |
 | 8 | 선택지 2열 ②④ 정렬 | `_write_choice(choice, as_equation=(cols == 2))` + `_write_choice` 의 `as_equation` 분기 |
 | 9 | 표 셀 = 수식 객체 | `_write_equation_table` 의 `self.s.equation(latex_to_hwpeq(` |
 | 10 | 표 셀 = 가운데 정렬 | `_write_equation_table` 의 `align_center()` |
@@ -59,6 +59,13 @@ SKILL=사람이 읽는 스펙·수동 실행 절차). 수동 전체 검증: `pyt
 | 15 | 표 탈출 = 다음 단락 | `table_end()` 가 `SetPos(p[0], p[1] + 1, 0)` (MoveRight 재진입 금지) |
 | 16 | 글자모양 투명 방지 | `set_char_shape` 가 `Ratio*`/`Size*` 를 100 으로 설정 |
 | 17 | 집합 기호 바 `\mid` | `latex_to_hwpeq` SYMBOL_MAP 에 `\mid` |
+| 18 | 발문 아래 블록수식 가운데정렬 | `_write_block` 의 `EQUATION_BLOCK` 분기 `if not inline:` 에 `align_center()` |
+| 19 | 소문항 부모 총점 우측정렬 | `_split_trailing_score` 정의 + `elif has_subs and total_num:` 에 `align_right()` |
+| 20 | 발문뒤 영역 공통 렌더 | `_write_tail`·`_tail_start` 정의 + `_write_condition_box(box)` 호출(폼·기본 공유) |
+
+**참고(2026-06-05):** 위 합의는 **폼 경로(`core/hwp_form_writer.py`)에도 동일 적용**된다(사용자
+'항상 동일' 요구). 폼은 발문뒤 렌더를 `HwpComWriter(ses)._write_tail`/`_write_condition_box` 로
+**재사용**하므로 같은 코드로 보장된다. 그림만 폼 전용 토큰 임베드(`_insert_picture_inline`).
 
 ## Workflow
 

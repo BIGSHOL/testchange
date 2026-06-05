@@ -61,9 +61,10 @@ def run_checks():
     chk(5, "서술형 배점 우측정렬",
         bool(re.search(r"if is_essay:.*?align_right\(\).*?leading_space=False", W, re.S)))
     chk(6, "보기 1×1 테두리 박스", "table_begin(1, 1)" in W)
-    chk(7, "박스↔선택지 빈줄 없음",
-        bool(re.search(r"if box:\s*\n\s*self\._write_condition_box\(box\)", W))
-        and bool(re.search(r"\n\s*else:\s*\n\s*self\.s\.break_para\(\)", W)))
+    chk(7, "박스↔선택지 빈줄 없음(_write_tail)",
+        "ended_box = self._write_tail(tail)" in W
+        and "if question.choices and not ended_box:" in W
+        and "self._write_condition_box(box)" in W)
     chk(8, "선택지 2열 정렬",
         "as_equation=(cols == 2)" in W and "as_equation: bool = False" in W)
     chk(9, "표 셀 수식 객체", "self.s.equation(latex_to_hwpeq(val))" in W)
@@ -78,6 +79,15 @@ def run_checks():
     chk(15, "표 탈출 SetPos(para+1)", "SetPos(p[0], p[1] + 1, 0)" in C)
     chk(16, "글자 투명 방지(Ratio/Size 100)",
         'setattr(cs, f"Ratio{sc}", 100)' in C and 'setattr(cs, f"Size{sc}", 100)' in C)
+
+    chk(18, "블록수식 가운데정렬",
+        bool(re.search(r"EQUATION_BLOCK:.*?if not inline:.*?align_center\(\)", W, re.S)))
+    chk(19, "소문항 총점 우측정렬",
+        "def _split_trailing_score" in W
+        and bool(re.search(r"elif has_subs and total_num:.*?align_right\(\)", W, re.S)))
+    chk(20, "발문뒤 영역 공통 렌더(_write_tail)",
+        "def _write_tail" in W and "def _tail_start" in W
+        and "_write_condition_box(box)" in W)
 
     mid_ok = ("mid" in L) and (r"\mid" in L)
     try:

@@ -15,17 +15,27 @@
 ## 시험지 출력 포맷 합의사항 (COM writer — 강제 준수)
 
 `core/hwp_com_writer.py`·`core/hwp_com.py` 의 렌더 출력은 아래 합의를 **반드시** 지킨다.
-회귀 방지는 **자동 강제**된다: `.claude/settings.json` 의 PostToolUse 훅이 위 파일(+`latex_to_hwpeq.py`)
-편집 시마다 `scripts/verify_output_format.py` 를 돌려 위반이면 차단(exit 2)한다. 수동 검증은
+**폼 경로(`core/hwp_form_writer.py`)도 이 합의를 똑같이 따른다 — 사용자 '항상 동일, 폼이든
+아니든' 요구(2026-06-05).** 그래서 발문뒤 영역(조건/보기 박스·블록수식·그림) 렌더는 두 경로가
+**공유 코드**(`_tail_start`·`_write_tail`·`_write_condition_box`·`_write_block`·`_split_trailing_score`,
+모두 `hwp_com_writer.py`)를 쓴다. 폼은 그림만 토큰 임베드(`_insert_picture_inline`)를 따로 쓴다
+(폼 binItem 버그 회피, 메모리 `form-figure-embed`). 회귀 방지는 **자동 강제**된다:
+`.claude/settings.json` 의 PostToolUse 훅이 위 파일(+`latex_to_hwpeq.py`) 편집 시마다
+`scripts/verify_output_format.py` 를 돌려 위반이면 차단(exit 2)한다. 수동 검증은
 `verify-output-format` 스킬 또는 `python scripts/verify_output_format.py --all`. 합의가
 바뀌면 코드·그 스크립트·`verify-output-format` SKILL.md 를 **함께** 갱신한다.
 
 1. **문항번호** = 미주 자동번호, 형식 **"1."**(suffix `.`), **12pt 볼드**.
-2. **배점** — 객관식: 발문 끝 인라인 `[N점]`. **서술형: 줄바꿈 후 우측정렬**.
-3. **보기/조건** = 1×1 테두리 표 박스. 박스↔선택지 사이 **빈 줄 없음**.
+2. **배점** — 객관식: 발문 끝 인라인 `[N점]`. **서술형: 줄바꿈 후 우측정렬**. **소문항 부모의
+   총점은 발문 본문의 `[총 N점]` 을 떼어내(`_split_trailing_score`) 줄바꿈 후 우측정렬**.
+3. **보기/조건** = 1×1 테두리 표 박스. 박스↔선택지 사이 **빈 줄 없음**. **발문뒤 경계
+   (`_tail_start`)는 조건/보기 머리 + 표 + 그림 + 블록수식**(배점은 그 앞=발문 끝).
 4. **선택지** — 짧으면 2열(①②/③④/⑤). 2열일 때 **수식 객체화**로 ②④ 열 정렬.
 5. **표 셀** = **수식 객체 + 가운데 정렬**(평문 금지).
 6. **수식** — 모든 숫자·문자 수식 객체화(순수숫자 텍스트 강등 금지). 번호-발문 같은 줄.
+   **발문 아래 독립 블록수식(EQUATION_BLOCK)은 가운데 정렬**. 연속 블록수식은 빈 줄 없이 각
+   줄 가운데. **그림(IMAGE)도 가운데**, 그림↔조건 박스 사이 **빈 줄 없음**(`_write_condition_box`
+   가 단락시작 pos==0 이면 그 빈 단락을 재사용).
 7. **COM 안전장치**(깨지면 위 합의가 무너짐): 표 생성 `CreateAction/CreateSet`(다중표
    크래시), 셀 안 수식 `Close` 본문(list 0)한정, 표 탈출 `SetPos(para+1)`, 글자모양
    `Ratio*/Size*`=100(투명 방지), `\mid`→`|` 매핑. 상세 함정: 메모리 `hwp-com-table-equation`.

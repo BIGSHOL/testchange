@@ -29,8 +29,9 @@ from collections import defaultdict
 from pathlib import Path
 
 from .hwp_com import HwpSession, _dispatch_hwp, _win32
-from .hwp_com_writer import (_BOX_BREAK_RE, _BULLET_RE, _COND_HEADER_RE,
-                             _has_box_markup)
+from .hwp_com_writer import (HwpComWriter, _BOX_BREAK_RE, _BULLET_RE,
+                             _COND_HEADER_RE, _condition_start, _has_box_markup,
+                             _split_trailing_score, _tail_start)
 from .latex_to_hwpeq import latex_to_hwpeq
 from models.exam_document import ContentBlock, ContentType, ExamDocument, Question
 
@@ -263,20 +264,6 @@ def _insert_picture_inline(ses, h, path: str) -> bool:
     return True
 
 
-def _tail_start(blocks) -> int | None:
-    """발문이 끝나고 '뒤 영역'(조건/보기 박스·표·그림·블록수식)이 시작되는 인덱스.
-
-    배점은 발문 끝(이 경계 앞)에 둔다. 기본 경로 `_condition_start`(조건/표만)에
-    더해 **그림(IMAGE)·블록수식(EQUATION_BLOCK)** 도 경계로 본다(13·17번 배점 위치).
-    """
-    for i, b in enumerate(blocks):
-        if b.type in (ContentType.TABLE, ContentType.IMAGE, ContentType.EQUATION_BLOCK):
-            return i
-        if b.type == ContentType.TEXT and _COND_HEADER_RE.search(b.value or ""):
-            return i
-    return None
-
-
 def _emit_box_text(ses, text: str, st: dict) -> None:
     """박스 텍스트를 줄 단위로 출력(불릿/마커/라벨 경계). st={'started','broke'} 상태 공유.
 
@@ -308,35 +295,27 @@ def _emit_box_text(ses, text: str, st: dict) -> None:
 
 
 def _put_tail(ses, h, blocks) -> None:
-    """발문 뒤 영역(조건/보기 박스·그림·블록수식) 렌더. 발문↔조건 사이 빈 줄 없음(G)."""
-    ses.break_para()              # 새 줄 시작(빈 줄 아님)
-    h.Run("ParagraphShapeAlignLeft")
-    _set_plain(h)
-    st = {"started": False, "broke": True}   # 방금 줄바꿈 → broke=True
-    for b in blocks:
-        if b.type == ContentType.TEXT and b.value:
-            _emit_box_text(ses, b.value, st)
-        elif b.type == ContentType.EQUATION:
-            ses.equation(_eq_script(b)); st["started"] = True; st["broke"] = False
-        elif b.type == ContentType.EQUATION_BLOCK:
-            if st["started"] and not st["broke"]:
-                ses.break_para(); st["broke"] = True
-            ses.equation(_eq_script(b)); st["started"] = True; st["broke"] = False
-        elif b.type == ContentType.IMAGE and b.value:
-            if st["started"] and not st["broke"]:
-                ses.break_para()
+    """발문 뒤 영역 렌더 — **기본 경로와 동일**(사용자 '항상 동일' 요구 2026-06-05).
+
+    그림(IMAGE)·블록수식(EQUATION_BLOCK)은 개별(그림 가운데·수식 가운데), 보기/조건은
+    공유 ``HwpComWriter._write_condition_box`` 의 1×1 테두리 표 박스로 렌더한다. 단,
+    **그림만 폼 전용 토큰 삽입**(``_insert_picture_inline``: COM InsertPicture 의 HWPX
+    binItem 누락을 후처리 임베드로 교정)을 쓴다 — 나머지는 기본 경로 코드 그대로.
+    """
+    w = HwpComWriter(ses)
+    cs = _condition_start(blocks)                  # 표/조건 머리 시작(없으면 전부 pre)
+    pre = blocks if cs is None else blocks[:cs]
+    box = [] if cs is None else blocks[cs:]
+    for b in pre:
+        if b.type == ContentType.IMAGE and b.value:
+            ses.break_para()
             ses.align_center()
             _insert_picture_inline(ses, h, _fit_image_width(b.value))
-            ses.break_para()
-            h.Run("ParagraphShapeAlignLeft"); _set_plain(h)
-            st["started"] = True; st["broke"] = True
-        elif b.type == ContentType.TABLE and b.rows:
-            # 표 박스(후속에 테두리). 현재: 각 행을 줄로, 셀은 수식/텍스트.
-            for row in b.rows:
-                if st["started"] and not st["broke"]:
-                    ses.break_para(); st["broke"] = True
-                ses.text("  ".join(c for c in row if c))
-                st["started"] = True; st["broke"] = False
+            # 트레일링 break 없음 — 조건 박스가 단락시작(pos==0) 재사용으로 빈 줄 방지
+        else:
+            w._write_block(b)                      # EQUATION_BLOCK 가운데·EQUATION 인라인·TEXT
+    if box:
+        w._write_condition_box(box)
 
 
 def _put_qbody(ses, h, contents, score) -> None:
@@ -401,6 +380,19 @@ def _strip_leading_submarker(contents):
     return contents
 
 
+def _put_total_score(ses, h, num: int) -> None:
+    """소문항 부모 총점 "[총 N점]" 을 줄바꿈 후 우측정렬(N 은 수식 객체). 기본 경로와 동일."""
+    ses.break_para()
+    ses.align_right()
+    _set_plain(h)
+    ses.text("[총 ")
+    ses.equation(str(num))
+    ses.text("점]")
+    ses.break_para()
+    ses.align_left()
+    _set_plain(h)
+
+
 def _fill_essay_at(ses, h, pos, q: Question, label_idx: int, next_pos=None) -> None:
     """서술형 슬롯 채움: 번호줄 ``[라벨 M] 문제`` + 소문항((k) 수식 마커) + 배점.
 
@@ -431,8 +423,14 @@ def _fill_essay_at(ses, h, pos, q: Question, label_idx: int, next_pos=None) -> N
     _set_plain(h)
     ses.text(f" [{label} {label_idx}] ")
     # 발문 → 배점(발문 끝) → 조건/그림/블록수식. 소문항 있으면 본문 배점은 소문항에 위임.
-    _put_qbody(ses, h, q.contents, None if q.sub_questions else q.score)
     if q.sub_questions:
+        # 소문항 부모: 발문 끝 [총 N점] 을 본문에서 분리해 우측정렬로 따로(기본 경로와 동일).
+        body, total = _split_trailing_score(q.contents)
+        if total is None:
+            total = q.score
+        _put_qbody(ses, h, body, None)
+        if total:
+            _put_total_score(ses, h, total)
         for k, sub in enumerate(q.sub_questions):
             ses.break_para()
             h.Run("ParagraphShapeAlignLeft")  # 직전 배점이 우측정렬됐어도 새 줄은 좌측
@@ -444,6 +442,8 @@ def _fill_essay_at(ses, h, pos, q: Question, label_idx: int, next_pos=None) -> N
             for _ in range(ESSAY_SUB_BLANKS):  # 소문항 답안 공간(2~3줄)
                 ses.break_para()
                 h.Run("ParagraphShapeAlignLeft")
+    else:
+        _put_qbody(ses, h, q.contents, q.score)   # 소문항 없는 서술형
 
 
 def _choice_len(choice) -> int:
