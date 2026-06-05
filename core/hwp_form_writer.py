@@ -29,8 +29,10 @@ from collections import defaultdict
 from pathlib import Path
 
 from .hwp_com import HwpSession, _dispatch_hwp, _win32
+from .hwp_com_writer import (_BOX_BREAK_RE, _BULLET_RE, _COND_HEADER_RE,
+                             _has_box_markup)
 from .latex_to_hwpeq import latex_to_hwpeq
-from models.exam_document import ContentType, ExamDocument, Question
+from models.exam_document import ContentBlock, ContentType, ExamDocument, Question
 
 # ── 설정 ──────────────────────────────────────────────────
 PER_COL = 3          # 한 단에 들어갈 문항 수(최대) — 페이지당 2단 = 6문항
@@ -40,6 +42,35 @@ CHARS_PER_LINE = 18  # 줄 수 추정용(현재 미사용 — 측정값 우선)
 CIRCLES = ["①", "②", "③", "④", "⑤"]
 ESSAY_SUB_BLANKS = 3   # 서술형 소문항마다 답안 공간(빈 줄 수)
 _MINGAP = 1
+# 폼 그림 표시 최대 가로 픽셀. insert_picture 는 원본 픽셀 크기로 삽입하므로
+# (96dpi: 260px≈69mm) 단 너비(≈80mm)를 넘지 않게 축소해 단 넘침을 막는다.
+FORM_FIG_MAX_W = 260
+
+
+def _fit_image_width(path: str, max_w: int = FORM_FIG_MAX_W) -> str:
+    """그림을 흰 배경으로 평탄화하고, max_w(px)보다 넓으면 비율 유지 축소한 임시 PNG.
+
+    - 투명 배경(resvg SVG 출력 등) → RGB 변환 시 검정으로 합성되어 그림이 안 보이므로
+      반드시 **흰 배경으로 평탄화**(검정화 방지).
+    - insert_picture 는 원본 픽셀 크기로 삽입 → 단 너비를 넘는 큰 그림은 미리 축소(단 넘침 방지).
+    항상 흰배경 임시 PNG 를 새로 만들어 반환(원본 그대로 반환 안 함 = 투명 위험 제거).
+    """
+    try:
+        from PIL import Image as _Image
+        with _Image.open(path) as im0:
+            rgba = im0.convert("RGBA")
+            bg = _Image.new("RGBA", rgba.size, (255, 255, 255, 255))
+            im = _Image.alpha_composite(bg, rgba).convert("RGB")
+        w, h = im.size
+        if w > max_w:
+            im = im.resize((max_w, max(1, int(h * max_w / w))), _Image.LANCZOS)
+        out = os.path.join(tempfile.gettempdir(), f"formfig_{os.path.basename(path)}")
+        if not out.lower().endswith(".png"):
+            out += ".png"
+        im.save(out)
+        return out
+    except Exception:
+        return path
 
 
 # ── 저수준 COM 헬퍼 ───────────────────────────────────────
@@ -171,12 +202,154 @@ def _eq_script(block) -> str:
 
 
 def _put_block(ses, b) -> None:
-    """ContentBlock 하나를 현재 캐럿에 삽입(수식/텍스트)."""
+    """ContentBlock 하나를 현재 캐럿에 삽입(수식/텍스트/그림)."""
     if b.type in (ContentType.EQUATION, ContentType.EQUATION_BLOCK):
         ses.equation(_eq_script(b))  # 숫자도 수식 객체로 유지(정렬)
     elif b.type == ContentType.TEXT:
         if b.value:
             ses.text(b.value)
+    elif b.type == ContentType.IMAGE and b.value:
+        # 재생성/크롭 그림 — 단 너비에 맞게 축소 후 가운데·독립줄 삽입(폼 안전 inserter).
+        ses.break_para()
+        ses.align_center()
+        _insert_picture_inline(ses, ses.hwp, _fit_image_width(b.value))
+        ses.break_para()
+        ses.align_left()
+
+
+def _fig_token(idx: int) -> str:
+    """그림 위치 마킹 토큰 ``⟦F{idx}⟧``. 후처리(`_embed_figures`)가 이 토큰 다음 pic 의
+    binItem 참조를 교정하고 토큰을 제거한다. (드문 유니코드라 본문과 충돌 없음.)"""
+    return f"⟦F{idx}⟧"
+
+
+def _insert_picture_inline(ses, h, path: str) -> bool:
+    """폼 안전 그림 삽입: 고유 토큰을 그림 **바로 앞**에 찍고 InsertPicture 로 인라인 삽입.
+
+    ⚠️ COM `InsertPicture` 는 HWPX SaveAs 시 **새 binItem 을 만들지 않고** 폼에 이미 있는
+    binItem(머리말 배너 image1)을 재사용한다(HWP 버그, 진단 확인) → 삽입 자리에 배너가
+    표시됨. 따라서 그림 바이트 임베드·binItem 교정은 저장 후 `_embed_figures` 가 XML
+    후처리로 결정적으로 처리한다. 여기서는 (1) 위치 토큰을 찍고 (2) 그림 경로를
+    ``ses._fig_paths`` 에 등록(토큰 인덱스=리스트 인덱스)하고 (3) 인라인 삽입만 한다.
+
+    FindCtrl/ShapeObjTreatAsChar 는 폼 배너 gso 를 오선택해 본문으로 끌어오는 파괴 버그가
+    있어 금지. InsertPicture 는 캐럿 위치에 TreatAsChar=1(인라인)으로 삽입한다(진단 확인).
+    성공 True.
+    """
+    if not os.path.exists(path):
+        return False
+    paths = getattr(ses, "_fig_paths", None)
+    if paths is None:
+        paths = []
+        ses._fig_paths = paths
+    idx = len(paths)
+    paths.append(path)
+    try:                                  # 위치 토큰(그림 단락을 빈줄삭제에서 보호 + 후처리 앵커)
+        ses.text(_fig_token(idx))
+    except Exception:
+        pass
+    try:
+        h.InsertPicture(path, True, 2, 0, 0, 0, 0, 0)
+    except Exception:
+        try:
+            h.InsertPicture(path, True, 2)
+        except Exception:
+            paths.pop()                   # 삽입 실패 → 토큰만 남지 않게 등록 취소
+            return False
+    try:
+        h.Run("MoveRight")                # 캐럿을 그림 뒤로
+    except Exception:
+        pass
+    return True
+
+
+def _tail_start(blocks) -> int | None:
+    """발문이 끝나고 '뒤 영역'(조건/보기 박스·표·그림·블록수식)이 시작되는 인덱스.
+
+    배점은 발문 끝(이 경계 앞)에 둔다. 기본 경로 `_condition_start`(조건/표만)에
+    더해 **그림(IMAGE)·블록수식(EQUATION_BLOCK)** 도 경계로 본다(13·17번 배점 위치).
+    """
+    for i, b in enumerate(blocks):
+        if b.type in (ContentType.TABLE, ContentType.IMAGE, ContentType.EQUATION_BLOCK):
+            return i
+        if b.type == ContentType.TEXT and _COND_HEADER_RE.search(b.value or ""):
+            return i
+    return None
+
+
+def _emit_box_text(ses, text: str, st: dict) -> None:
+    """박스 텍스트를 줄 단위로 출력(불릿/마커/라벨 경계). st={'started','broke'} 상태 공유.
+
+    기본 경로 `_write_box_content.emit_text` 와 동일 규칙: 불릿(•)은 줄 경계로만(미출력),
+    마커(<조건>)/자모 라벨(ㄱ.)은 토큰 출력. 인접 빈 경계는 중복 줄바꿈 방지.
+    """
+    pos = 0
+    for m in _BOX_BREAK_RE.finditer(text):
+        pre = text[pos:m.start()]
+        if pre.strip():
+            ses.text(pre if st["started"] else pre.lstrip())
+            st["started"] = True
+            st["broke"] = False
+        is_bullet = _BULLET_RE.fullmatch(m.group(0)) is not None
+        if st["started"] and not st["broke"]:
+            ses.break_para()
+            st["broke"] = True
+        if not is_bullet:
+            tok = re.sub(r"\s+", "", m.group(0))
+            ses.text(tok + " ")
+            st["broke"] = False
+        st["started"] = True
+        pos = m.end()
+    tail = text[pos:]
+    if tail.strip():
+        ses.text(tail if st["started"] else tail.lstrip())
+        st["started"] = True
+        st["broke"] = False
+
+
+def _put_tail(ses, h, blocks) -> None:
+    """발문 뒤 영역(조건/보기 박스·그림·블록수식) 렌더. 발문↔조건 사이 빈 줄 없음(G)."""
+    ses.break_para()              # 새 줄 시작(빈 줄 아님)
+    h.Run("ParagraphShapeAlignLeft")
+    _set_plain(h)
+    st = {"started": False, "broke": True}   # 방금 줄바꿈 → broke=True
+    for b in blocks:
+        if b.type == ContentType.TEXT and b.value:
+            _emit_box_text(ses, b.value, st)
+        elif b.type == ContentType.EQUATION:
+            ses.equation(_eq_script(b)); st["started"] = True; st["broke"] = False
+        elif b.type == ContentType.EQUATION_BLOCK:
+            if st["started"] and not st["broke"]:
+                ses.break_para(); st["broke"] = True
+            ses.equation(_eq_script(b)); st["started"] = True; st["broke"] = False
+        elif b.type == ContentType.IMAGE and b.value:
+            if st["started"] and not st["broke"]:
+                ses.break_para()
+            ses.align_center()
+            _insert_picture_inline(ses, h, _fit_image_width(b.value))
+            ses.break_para()
+            h.Run("ParagraphShapeAlignLeft"); _set_plain(h)
+            st["started"] = True; st["broke"] = True
+        elif b.type == ContentType.TABLE and b.rows:
+            # 표 박스(후속에 테두리). 현재: 각 행을 줄로, 셀은 수식/텍스트.
+            for row in b.rows:
+                if st["started"] and not st["broke"]:
+                    ses.break_para(); st["broke"] = True
+                ses.text("  ".join(c for c in row if c))
+                st["started"] = True; st["broke"] = False
+
+
+def _put_qbody(ses, h, contents, score) -> None:
+    """문제(또는 소문항) 본문: 발문 → 배점(발문 끝) → 뒤 영역(조건/그림/블록수식)."""
+    ts = _tail_start(contents)
+    head = contents if ts is None else contents[:ts]
+    tail = [] if ts is None else contents[ts:]
+    for b in head:
+        _put_block(ses, b)
+    if score:
+        _put_score(ses, h, score)      # 발문 끝 배점(넘치면 우측정렬)
+    if tail:
+        _put_tail(ses, h, tail)
 
 
 def _put_score(ses, h, score: int) -> bool:
@@ -204,6 +377,28 @@ def _put_score(ses, h, score: int) -> bool:
         ses.text(f"[{score}점]")
         return True
     return False
+
+
+# 소문항 앞머리 번호 마커((1)/1)/1./①…) — 우리가 마커를 별도로 붙이므로 OCR 중복분 제거.
+_SUBMARK_RE = re.compile(r'^\s*(?:[\(（]\s*\d+\s*[\)）]|\d+\s*[.)]|[①-⑩])\s*')
+
+
+def _strip_leading_submarker(contents):
+    """소문항 첫 텍스트 블록의 앞머리 번호 마커를 제거(우리가 ``(k)`` 를 따로 렌더하므로
+    OCR 이 남긴 ``(1)``·``1)``·``1.``·``①`` 등의 중복을 결정적으로 차단). 길이/형태 무관.
+
+    첫 블록이 마커만이면 그 블록을 드롭, 마커+내용이면 마커만 제거한 새 블록으로 교체.
+    """
+    if not contents:
+        return contents
+    b0 = contents[0]
+    if getattr(b0, "type", None) == ContentType.TEXT and b0.value:
+        nv = _SUBMARK_RE.sub('', b0.value, count=1)
+        if nv != b0.value:
+            if nv.strip():
+                return [ContentBlock(type=ContentType.TEXT, value=nv), *contents[1:]]
+            return list(contents[1:])
+    return contents
 
 
 def _fill_essay_at(ses, h, pos, q: Question, label_idx: int, next_pos=None) -> None:
@@ -235,8 +430,8 @@ def _fill_essay_at(ses, h, pos, q: Question, label_idx: int, next_pos=None) -> N
     h.HAction.Run("Delete")
     _set_plain(h)
     ses.text(f" [{label} {label_idx}] ")
-    for b in q.contents:
-        _put_block(ses, b)
+    # 발문 → 배점(발문 끝) → 조건/그림/블록수식. 소문항 있으면 본문 배점은 소문항에 위임.
+    _put_qbody(ses, h, q.contents, None if q.sub_questions else q.score)
     if q.sub_questions:
         for k, sub in enumerate(q.sub_questions):
             ses.break_para()
@@ -244,15 +439,11 @@ def _fill_essay_at(ses, h, pos, q: Question, label_idx: int, next_pos=None) -> N
             _set_plain(h)
             ses.equation(f"({k + 1})")        # 소문항 마커 (1)(2)… 는 수식으로
             ses.text(" ")
-            for b in sub.contents:
-                _put_block(ses, b)
-            if sub.score:
-                _put_score(ses, h, sub.score)  # 배점 줄넘침 시 우측정렬
+            # OCR 이 남긴 앞머리 번호 마커 제거(우리 마커와 중복 방지) — 결정적·길이무관.
+            _put_qbody(ses, h, _strip_leading_submarker(sub.contents), sub.score)
             for _ in range(ESSAY_SUB_BLANKS):  # 소문항 답안 공간(2~3줄)
                 ses.break_para()
                 h.Run("ParagraphShapeAlignLeft")
-    elif q.score:
-        _put_score(ses, h, q.score)
 
 
 def _choice_len(choice) -> int:
@@ -266,13 +457,13 @@ def _is_long_choices(q: Question) -> bool:
 
 
 # ── 1단계: COM 채움 ───────────────────────────────────────
-def _fill_form(mc: list[Question], essays: list[Question], form_path, out_path) -> tuple[int, int]:
+def _fill_form(mc: list[Question], essays: list[Question], form_path, out_path) -> tuple[int, int, list]:
     """폼을 열어 슬롯 수 조절 + 객관식/서술형 채움 → out_path 저장.
 
     폼은 앞쪽 객관식 슬롯(①②③④⑤ 사전배치) + 뒤쪽 서술형 슬롯([서술형]). 잉여 객관식
     슬롯만 삭제하면 미주 자동번호로 **서술형 번호가 객관식 다음으로 이어진다**.
 
-    Returns: (채운 객관식 수, 채운 서술형 수).
+    Returns: (채운 객관식 수, 채운 서술형 수, 그림 경로 리스트(토큰 인덱스순)).
     """
     n_mc, n_es = len(mc), len(essays)
     with HwpSession(visible=False) as ses:
@@ -299,10 +490,8 @@ def _fill_form(mc: list[Question], essays: list[Question], form_path, out_path) 
             h.Run("MoveRight")            # 번호(미주) 다음
             _set_plain(h)
             ses.text(" ")
-            for b in q.contents:
-                _put_block(ses, b)
-            if q.score:
-                _put_score(ses, h, q.score)   # 배점 줄넘침 시 우측정렬
+            # 발문 → 배점(발문 끝) → 조건/그림/블록수식(뒤 영역)
+            _put_qbody(ses, h, q.contents, q.score)
 
         # (0) 폼 슬롯 구성 파악: 객관식 슬롯 수 = ① 개수, 서술형 = 나머지.
         anc = _en_anchors(h)
@@ -397,7 +586,8 @@ def _fill_form(mc: list[Question], essays: list[Question], form_path, out_path) 
             put_question_at(qpts[i], q)
 
         ses.save_hwpx(out_path)
-    return n_mc, n_es
+        fig_paths = list(getattr(ses, "_fig_paths", []))
+    return n_mc, n_es, fig_paths
 
 
 # ── 2단계: XML 행정렬 레이아웃 ────────────────────────────
@@ -768,6 +958,131 @@ def _fill_form_header(hwpx_path: str | Path, values: dict) -> int:
     return cnt
 
 
+def _embed_figures(hwpx_path: str | Path, fig_paths: list[str]) -> int:
+    """그림 binItem 결정적 임베드(저장 후 XML 후처리).
+
+    COM `InsertPicture` 가 만든 pic 요소는 ``binaryItemIDRef`` 가 폼 배너 binItem(image1)을
+    가리켜 **배너가 표시**된다(HWP 의 HWPX SaveAs 가 새 binItem 을 안 만드는 버그). 여기서
+    각 그림 PNG 바이트를 ``BinData/imageN.png`` 로 임베드하고, 본문 토큰 ``⟦F{idx}⟧`` **다음
+    pic** 의 binItem 참조를 그 새 binItem 으로 교정한 뒤 토큰 텍스트를 제거한다. binItem
+    등록은 ``Contents/content.hpf`` 의 ``<opf:item … isEmbeded="1">`` 로 한다(이 폼은
+    header.xml 에 binDataList 가 없고 content.hpf manifest 가 등록처).
+
+    Returns: 임베드한 그림 수.
+    """
+    if not fig_paths:
+        return 0
+    hwpx_path = Path(hwpx_path)
+    with zipfile.ZipFile(hwpx_path) as z:
+        infos = z.infolist()
+        data = {i.filename: z.read(i.filename) for i in infos}
+    hpf_name = next((n for n in data if n.endswith("content.hpf")), None)
+    if hpf_name is None:
+        return 0
+    hpf = data[hpf_name].decode("utf-8")
+    used = [int(m.group(1)) for m in re.finditer(r'id="image(\d+)"', hpf)]
+    next_idx = (max(used) + 1) if used else 1
+
+    section_names = [n for n in data if re.search(r"section\d+\.xml$", n)]
+    new_items: list[str] = []
+    new_bins: dict[str, bytes] = {}
+    embedded = 0
+
+    for idx, png in enumerate(fig_paths):
+        token = _fig_token(idx)
+        target = next((sn for sn in section_names if token in data[sn].decode("utf-8")), None)
+        if target is None:
+            continue
+        try:
+            with open(png, "rb") as f:
+                img_bytes = f.read()
+        except Exception:
+            # 그림 파일 분실 → 토큰만 제거(깨진 토큰 텍스트 잔존 방지)
+            sec = data[target].decode("utf-8").replace(token, "")
+            data[target] = sec.encode("utf-8")
+            continue
+        img_id = f"image{next_idx}"
+        next_idx += 1
+        bin_name = f"BinData/{img_id}.png"
+        new_bins[bin_name] = img_bytes
+        new_items.append(
+            f'<opf:item id="{img_id}" href="{bin_name}" media-type="image/png" isEmbeded="1"/>'
+        )
+        sec = data[target].decode("utf-8")
+        tpos = sec.find(token)
+        ppos = sec.find("<hp:pic", tpos)
+        if ppos >= 0:
+            pe = sec.find("</hp:pic>", ppos)
+            pe = pe + len("</hp:pic>") if pe >= 0 else len(sec)
+            pic = sec[ppos:pe]
+            # 그 pic 의 첫 binaryItemIDRef 만 새 binItem 으로 교체(배너 등 다른 pic 불변).
+            pic2 = re.sub(r'binaryItemIDRef="[^"]*"', f'binaryItemIDRef="{img_id}"', pic, count=1)
+            sec = sec[:ppos] + pic2 + sec[pe:]
+            embedded += 1
+        sec = sec.replace(token, "")          # 토큰 텍스트 제거
+        data[target] = sec.encode("utf-8")
+
+    if not new_bins:
+        # 토큰 제거만 반영(임베드 0)
+        _repackage_hwpx(hwpx_path, infos, data)
+        return 0
+    data[hpf_name] = hpf.replace("</opf:manifest>", "".join(new_items) + "</opf:manifest>", 1).encode("utf-8")
+    data.update(new_bins)
+    _repackage_hwpx(hwpx_path, infos, data)
+    return embedded
+
+
+def _repackage_hwpx(hwpx_path: Path, infos, data: dict) -> None:
+    """기존 엔트리는 원래 ZipInfo(압축·mimetype STORED 등) 보존, 새 엔트리는 추가 후 교체."""
+    fd, tmp = tempfile.mkstemp(suffix=".hwpx", dir=str(hwpx_path.parent))
+    os.close(fd)
+    seen = set()
+    with zipfile.ZipFile(tmp, "w", zipfile.ZIP_DEFLATED) as zo:
+        for info in infos:
+            zi = zipfile.ZipInfo(info.filename, date_time=info.date_time)
+            zi.compress_type = info.compress_type
+            zi.external_attr = info.external_attr
+            zi.internal_attr = info.internal_attr
+            zi.create_system = info.create_system
+            zi.flag_bits = info.flag_bits
+            zo.writestr(zi, data[info.filename])
+            seen.add(info.filename)
+        for name, b in data.items():
+            if name not in seen:
+                zo.writestr(name, b)
+    os.replace(tmp, hwpx_path)
+
+
+# 폼 grow 서술형 슬롯의 잔존 라벨([서답형 N]) 뒤에 우리 라벨([서술형 N])이 붙어 중복됨.
+# 뒤에 또 다른 '[' 라벨이 따라오는 [서…형 N] 만 제거 → 우리 라벨만 남긴다. (같은 <hp:t>
+# 안에서만 매칭되므로 태그 균형 안전. 문제 길이·개수와 무관한 결정적 후처리.)
+_DUP_LABEL_RE = re.compile(r'\[\s*서[답술]형\s*\d+\s*\]\s*(?=\[\s*서[답술]형)')
+
+
+def _dedupe_essay_labels(hwpx_path: str | Path) -> int:
+    """서술형 번호줄의 중복 라벨([서답형 N] [서술형 N] → [서술형 N]) 제거. 항상 실행(강제).
+
+    폼 grow 슬롯의 COM 라벨 삭제가 비결정적으로 실패해 폼 라벨이 남는 것을, 저장 후 XML 에서
+    **뒤에 또 라벨이 오는 앞 라벨만** 지워 결정적으로 보정한다. Returns: 제거 건수.
+    """
+    hwpx_path = Path(hwpx_path)
+    with zipfile.ZipFile(hwpx_path) as z:
+        infos = z.infolist()
+        data = {i.filename: z.read(i.filename) for i in infos}
+    total = 0
+    for name in list(data):
+        if not re.search(r"section\d+\.xml$", name):
+            continue
+        sec = data[name].decode("utf-8")
+        sec2, n = _DUP_LABEL_RE.subn("", sec)
+        if n:
+            data[name] = sec2.encode("utf-8")
+            total += n
+    if total:
+        _repackage_hwpx(hwpx_path, infos, data)
+    return total
+
+
 def write_exam_to_form(
     document: ExamDocument,
     form_path: str | Path,
@@ -800,7 +1115,7 @@ def write_exam_to_form(
     fd, filled = tempfile.mkstemp(suffix=".hwpx", dir=str(output_path.parent))
     os.close(fd)
     try:
-        n_mc, n_es = _fill_form(mc, essays, form_path, filled)
+        n_mc, n_es, fig_paths = _fill_form(mc, essays, form_path, filled)
         # 혼합 레이아웃(객관식 행정렬 + 서술형 1/단).
         _layout_form(filled, output_path, per_col, n_mc, n_es)
     finally:
@@ -808,6 +1123,17 @@ def write_exam_to_form(
             os.remove(filled)
         except Exception:
             pass
+    # 1.5단계: 그림 binItem 결정적 임베드(COM InsertPicture 의 HWPX binItem 누락 교정).
+    if fig_paths:
+        try:
+            _embed_figures(output_path, fig_paths)
+        except Exception:
+            pass
+    # 1.6단계: 서술형 중복 라벨([서답형 N] [서술형 N]) 결정적 제거(폼 grow 잔존 라벨 보정).
+    try:
+        _dedupe_essay_labels(output_path)
+    except Exception:
+        pass
     # 2단계: 머리말/꼬리말 학년·과목·시기 채움(결정적 XML 후처리).
     if header_values:
         try:

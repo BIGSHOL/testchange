@@ -35,8 +35,25 @@ SVG_RENDER_W = 420
 SVG_RULES = """You redraw a Korean math-exam figure as ONE clean inline SVG, faithfully \
 reproducing the math content of the image you are given (a cropped figure).
 
-Reproduce EXACTLY what is in the image: same axes, same labeled points, same values, \
-same open/closed points, same shapes and proportions. Do NOT invent or omit values.
+Reproduce the math content faithfully: same axes, same labeled points, same values, \
+same open/closed points, same labels. Do NOT invent or omit values.
+
+GEOMETRIC IDEALIZATION (critical): hand-drawn/scanned figures are often sloppy. Draw the
+figure as it is MATHEMATICALLY DEFINED, not pixel-faithful to a loose sketch. Use the
+figure type (from the description/labels) to draw the correct ideal shape:
+- 정육면체(cube) 전개도 / cube net → exactly SIX CONGRUENT SQUARES on a fixed grid.
+  Choose a cell size S (e.g. 70) and snap EVERY face to the grid: face at column i, row j
+  occupies the square (x0 + i*S, y0 + j*S, width S, height S). ALL six faces use the SAME
+  S for width AND height. ⚠️ Scanned cube nets almost always look like the vertical column
+  is NARROWER than the horizontal row — that is SCANNER DISTORTION, an artifact, NOT real.
+  IGNORE the apparent widths entirely; take ONLY the grid arrangement (which label sits in
+  which grid cell) from the image, and draw every cell as the identical square S×S. Center
+  each label in its cell.
+- 정사각형=square, 정삼각형/정n각형=regular polygon, 원=true circle, 직육면체 faces=rectangles.
+- Parallel lines parallel, right angles square, equal-length sides equal.
+BUT preserve differences the problem treats as MEANINGFUL: graph point positions and
+values exactly; and when the figure compares two objects by size (e.g. one solid taller
+than another), keep that difference. Idealize the SHAPE, preserve the DATA.
 
 SVG rules (critical):
 - viewBox like "0 0 400 300", transparent background. Strokes black #000:
@@ -215,6 +232,10 @@ def render_figure(
             png = _svg_to_png_bytes(res["svg"])
             if png:
                 try:
+                    # resvg 출력은 투명 배경 → 흰 배경으로 평탄화(소비처에서 검정화 방지)
+                    import io as _io
+                    _im = _flatten_white(Image.open(_io.BytesIO(png)))
+                    _buf = _io.BytesIO(); _im.save(_buf, format="PNG"); png = _buf.getvalue()
                     with open(png_path, "wb") as f:
                         f.write(png)
                     logger.info("그림 재생성 성공(conf=%.2f): %s", res["confidence"], basename)

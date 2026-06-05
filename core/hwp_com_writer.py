@@ -46,6 +46,11 @@ _COND_HEADER_RE = re.compile(
 # 안에서 마커는 자기 줄, 각 항목은 새 줄로 나누는 데 쓴다(A3/A5). (B3-2 라벨 뒤 공백은 token+공백.)
 _BOX_BOUNDARY_RE = re.compile(
     r"(<\s*조건\s*>|<\s*보기\s*>|\[\s*조건\s*\]|\[\s*보기\s*\]|(?:(?<=\s)|^)[ㄱ-ㅎ]\s*\.)")
+# 박스 줄 경계(확장): 불릿(•)도 경계로 — 불릿은 줄바꿈만(토큰 미출력, A4), 숫자 항목
+# (1. 2. 3.)은 라벨 정규식에 없으므로 불릿이 그 줄바꿈을 담당한다.
+_BOX_BREAK_RE = re.compile(
+    r"(\s*[•·▪◦]\s*|<\s*조건\s*>|<\s*보기\s*>|\[\s*조건\s*\]|\[\s*보기\s*\]"
+    r"|(?:(?<=\s)|^)[ㄱ-ㅎ]\s*\.)")
 
 
 def _has_box_markup(text: str) -> bool:
@@ -210,15 +215,22 @@ class HwpComWriter:
         def emit_text(text: str) -> None:
             nonlocal started
             pos = 0
-            for m in _BOX_BOUNDARY_RE.finditer(text):
+            broke = False   # 직전이 빈 경계 줄바꿈이면 중복 줄바꿈 방지(불릿+라벨 인접)
+            for m in _BOX_BREAK_RE.finditer(text):
                 pre = text[pos:m.start()]
                 if pre.strip():
                     self.s.text(pre if started else pre.lstrip())
                     started = True
-                if started:
-                    self.s.break_para()   # 마커/항목 라벨 앞에서 줄바꿈
-                tok = re.sub(r"\s+", "", m.group(0))   # "ㄱ ." → "ㄱ.", "< 보기 >" → "<보기>"
-                self.s.text(tok + " ")                  # 라벨/마커 뒤 공백(A6)
+                    broke = False
+                is_bullet = _BULLET_RE.fullmatch(m.group(0)) is not None
+                if started and not broke:
+                    self.s.break_para()   # 마커/항목 라벨/불릿 앞에서 줄바꿈
+                    broke = True
+                if not is_bullet:
+                    # 마커/라벨만 출력(불릿은 분리자라 미출력, A4)
+                    tok = re.sub(r"\s+", "", m.group(0))   # "ㄱ ." → "ㄱ.", "< 보기 >" → "<보기>"
+                    self.s.text(tok + " ")                 # 라벨/마커 뒤 공백(A6)
+                    broke = False
                 started = True
                 pos = m.end()
             tail = text[pos:]
