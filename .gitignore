@@ -24,6 +24,7 @@ config.json
 
 # 테스트 하네스 산출물·OCR 캐시(머신 로컬, scripts/testkit.py)
 .testkit/
+.testkit.zip
 
 # 잡파일
 =*
