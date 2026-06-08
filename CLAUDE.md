@@ -20,7 +20,7 @@
 **공유 코드**(`_tail_start`·`_write_tail`·`_write_condition_box`·`_write_block`·`_split_trailing_score`,
 모두 `hwp_com_writer.py`)를 쓴다. 폼은 그림만 토큰 임베드(`_insert_picture_inline`)를 따로 쓴다
 (폼 binItem 버그 회피, 메모리 `form-figure-embed`). 회귀 방지는 **자동 강제**된다:
-`.claude/settings.json` 의 PostToolUse 훅이 위 파일(+`latex_to_hwpeq.py`) 편집 시마다
+`.claude/settings.json` 의 PostToolUse 훅이 위 파일(+`latex_to_hwpeq.py`·`ocr_engine.py`) 편집 시마다
 `scripts/verify_output_format.py` 를 돌려 위반이면 차단(exit 2)한다. 수동 검증은
 `verify-output-format` 스킬 또는 `python scripts/verify_output_format.py --all`. 합의가
 바뀌면 코드·그 스크립트·`verify-output-format` SKILL.md 를 **함께** 갱신한다.
@@ -55,7 +55,7 @@
 ## OCR/파서 후보정 교훈 — 확통 등 어려운 시험지 대응 (2026-06-08, 긴 디버깅)
 
 확률과 통계처럼 표·지문·확률표기가 많은 시험지에서 드러난 함정과 해결. **전부 결정적
-후보정**(프롬프트 의존 최소화)으로 잡았다. 회귀 방지: `scripts/verify_output_format.py`(20개)
+후보정**(프롬프트 의존 최소화)으로 잡았다. 회귀 방지: `scripts/verify_output_format.py`(28개)
 + 아래 단위검증.
 
 ### ⭐ 비전 OCR "요약" 누락 — 단일 크롭의 본질적 한계

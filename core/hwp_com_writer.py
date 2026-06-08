@@ -9,6 +9,7 @@ HWP 미설치 환경에서는 ``hwpx_writer.write_exam_to_hwpx`` 로 폴백한�
 """
 from __future__ import annotations
 
+import logging
 from pathlib import Path
 from typing import Optional
 
@@ -22,6 +23,8 @@ from models.exam_document import (
     ExamPage,
     Question,
 )
+
+logger = logging.getLogger(__name__)
 
 # 객관식→서술형 전환 구분선 (기존 XML writer와 동일 문구)
 _ESSAY_SEPARATOR = "──────────── 서술형 ────────────"
@@ -759,29 +762,29 @@ def write_exam_to_hwp(
     # 본문이 안 보이는 문제 방지. COM 종료 뒤 XML 직접 패치(안전·결정적).
     try:
         _fix_invisible_charpr(output_path)
-    except Exception:
-        pass
+    except Exception as e:  # noqa: BLE001
+        logger.warning("HWPX 후처리 실패(_fix_invisible_charpr): %s", e)
     # 보기 2열 정렬: header.xml tabPr 에 고정 좌측 탭 주입(COM 미커밋 회피책).
     try:
         _inject_choice_tabstop(output_path)
-    except Exception:
-        pass
+    except Exception as e:  # noqa: BLE001
+        logger.warning("HWPX 후처리 실패(_inject_choice_tabstop): %s", e)
     # 미주(문항번호) 번호 형식 "1)" → "1." : 저장 후 section XML 의 autoNumFormat
     # suffixChar 패치(COM EndnoteShape 는 캐럿 부작용·인코딩 불확실 → XML 결정적).
     try:
         _set_endnote_suffix(output_path)
-    except Exception:
-        pass
+    except Exception as e:  # noqa: BLE001
+        logger.warning("HWPX 후처리 실패(_set_endnote_suffix): %s", e)
     # <보기>/<조건> 라벨 1×1 박스 → 5×5 병합표 폼(레퍼런스와 픽셀 동일). <상자>·일반표 제외.
     try:
         _inject_bogi_form(output_path)
-    except Exception:
-        pass
+    except Exception as e:  # noqa: BLE001
+        logger.warning("HWPX 후처리 실패(_inject_bogi_form): %s", e)
     # 확률분포표 1열·표준정규분포표 최상단 행에 #D9D9D9 음영(수기본 통일).
     try:
         _inject_table_shading(output_path)
-    except Exception:
-        pass
+    except Exception as e:  # noqa: BLE001
+        logger.warning("HWPX 후처리 실패(_inject_table_shading): %s", e)
     return output_path
 
 

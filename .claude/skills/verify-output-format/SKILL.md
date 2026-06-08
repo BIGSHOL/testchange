@@ -1,14 +1,14 @@
 ---
 name: verify-output-format
-description: 시험지 출력 포맷 합의사항(미주 번호·배점 정렬·표 셀·보기 박스·선택지 정렬 등)이 COM writer 에 강제 적용되어 있는지 검증. core/hwp_com_writer.py 또는 core/hwp_com.py 수정 후 사용.
+description: 시험지 출력 포맷 합의사항(미주 번호·배점 정렬·표 셀·보기 박스·선택지 정렬 등)이 COM writer/폼 writer 에 강제 적용되어 있는지 검증. core/hwp_com_writer.py, core/hwp_com.py, core/hwp_form_writer.py 수정 후 사용.
 ---
 
 # 시험지 출력 포맷 합의사항 검증
 
 ## Purpose
 
-HWP COM writer(`core/hwp_com_writer.py`, `core/hwp_com.py`)가 사용자와 **합의한 출력 포맷**을
-유지하는지 검증한다. 이 합의들은 렌더 실측으로 확정됐고, 회귀하면 시험지 모양이 틀어진다.
+HWP COM writer(`core/hwp_com_writer.py`, `core/hwp_com.py`)와 폼 writer(`core/hwp_form_writer.py`)가
+사용자와 **합의한 출력 포맷**을 유지하는지 검증한다. 이 합의들은 렌더 실측으로 확정됐고, 회귀하면 시험지 모양이 틀어진다.
 각 합의는 코드의 특정 마커로 강제되며, 이 스킬이 그 마커의 존재·정합을 확인한다.
 
 > **합의사항(스펙) 자체가 이 문서다.** 포맷 합의가 추가/변경되면 이 스킬의 검사 항목과
@@ -17,16 +17,16 @@ HWP COM writer(`core/hwp_com_writer.py`, `core/hwp_com.py`)가 사용자와 **�
 ## 자동 강제 (PostToolUse 훅)
 
 `.claude/settings.json` 의 PostToolUse 훅이 `core/hwp_com_writer.py`·`core/hwp_com.py`·
-`core/latex_to_hwpeq.py` 를 **편집할 때마다** `scripts/verify_output_format.py` 를 자동
+`core/hwp_form_writer.py`·`core/latex_to_hwpeq.py`·`core/ocr_engine.py` 를 **편집할 때마다** `scripts/verify_output_format.py` 를 자동
 실행한다. 합의 위반이 생기면 훅이 **exit 2 로 차단 피드백**을 주므로 회귀가 즉시 잡힌다.
-이 SKILL 의 검사 항목과 그 스크립트는 동일한 17개 합의를 검증한다(스크립트=실행 백엔드,
+이 SKILL 의 검사 항목과 그 스크립트는 동일한 28개 검사를 수행한다(스크립트=실행 백엔드,
 SKILL=사람이 읽는 스펙·수동 실행 절차). 수동 전체 검증: `python scripts/verify_output_format.py --all`.
 
 > 훅 설정 변경은 Claude Code 재시작(또는 `/hooks` 확인) 후 적용된다.
 
 ## When to Run
 
-- `core/hwp_com_writer.py` / `core/hwp_com.py` 의 렌더·레이아웃 로직 수정 후
+- `core/hwp_com_writer.py` / `core/hwp_com.py` / `core/hwp_form_writer.py` 의 렌더·레이아웃 로직 수정 후
 - 출력 시험지 모양이 합의와 달라 보일 때
 - PR 전 / `verify-implementation` 일괄 검증의 일부로
 
@@ -36,7 +36,9 @@ SKILL=사람이 읽는 스펙·수동 실행 절차). 수동 전체 검증: `pyt
 |------|---------|
 | `core/hwp_com_writer.py` | ExamDocument→HWP 렌더러 (주 검증 대상) |
 | `core/hwp_com.py` | 저수준 COM 세션(표·수식·미주·글자모양) |
+| `core/hwp_form_writer.py` | 폼 자동입력 렌더러(기본 경로와 동일 합의 적용) |
 | `core/latex_to_hwpeq.py` | 수식 변환(집합 기호 `\mid` 등) |
+| `core/ocr_engine.py` | OCR 프롬프트·후보정(표/지문 누락 방지) |
 
 ## 합의사항 ↔ 코드 마커
 
