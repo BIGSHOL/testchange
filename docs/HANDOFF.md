@@ -46,6 +46,24 @@ python scripts/testkit.py "D:\...\[학남고][2][확통][25-2-기말][미래엔]
 python scripts/render_to_png.py .testkit\testkit_out.hwpx
 ```
 
+## 3-b. ⭐ OCR 골든셋 플라이휠 (프롬프트 회귀를 측정으로 잡기)
+프롬프트/후보정을 바꿀 때 "좋아졌나 나빠졌나"를 **측정**한다. 크롭 PNG + 정답(ground-truth)
+OCR JSON 을 모아, 모델 출력 ↔ 정답을 자동 채점(`scripts/ocr_eval/`, 채점기·테스트는 **stdlib
+only** — anthropic 없이도 돈다). 정답 JSON 은 `tests/golden_ocr/` 에 **commit**(PC 간 재현).
+```
+1) python scripts/crop_dump.py "<PDF>"               # 크롭 PNG 덤프 + crops_manifest.json
+2) (크롭 PNG 보고 정답 JSON 작성) → golden_record.py 로 tests/golden_ocr/ 에 기록
+3) python scripts/ocr_eval/score_ocr.py "<PDF>"      # 현 프롬프트 vs 골든(캐시 있으면 0원)
+   python scripts/ocr_eval/score_ocr.py "<PDF>" --reocr   # 새 프롬프트로 1회 재생성 후 A/B
+4) python tests/test_ocr_golden.py                   # 회귀 게이트(_ocr_thresholds.json)
+5) (옵션) python scripts/ocr_eval/supabase_sync.py "<PDF>" [--dry-run]  # 누적 분석 push
+```
+- 후보 캐시는 prompt_signature 별(`.testkit/ocr_eval/<stem>/<sig>/`) — 한 번 OCR 한 프롬프트는
+  이후 채점이 0원. figure 채점 위해 **raw 출력**(resolve_figs 미적용) 저장.
+- Supabase 는 **개발/수동 전용**(키는 config.json `SUPABASE_URL`/`SUPABASE_SERVICE_ROLE_KEY`,
+  배포 exe 비포함). 스키마: `supabase/schema.sql`(RLS enable·정책 미생성=service_role 만).
+  `supabase` 패키지는 `requirements-dev.txt`(lazy import).
+
 ## 4. 빌드 / 배포 워크플로우 (CLAUDE.md '작업 마무리' 필수 준수)
 1. **검증** — 위 하네스로 렌더 PNG 육안 확인.
 2. **사용자 최종 체크** — 커밋·푸시·배포 전 **반드시 사용자 승인**.
