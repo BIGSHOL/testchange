@@ -9,7 +9,7 @@ import logging
 import sys
 import threading
 import traceback
-from concurrent.futures import ThreadPoolExecutor
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
 from PySide6.QtCore import Qt, Signal, QThread, QObject
@@ -55,6 +55,15 @@ logger = logging.getLogger(__name__)
 
 # 크롭 OCR 병렬 처리 동시 실행 수(①). 너무 크면 API 레이트리밋, 작으면 속도 이득 적음.
 _OCR_WORKERS = 6
+
+# 체크박스 스타일 + QToolTip 시인성 보정. 위젯 인라인 color 가 그 위젯 툴팁 글씨색으로
+# 새어(어두운 글씨) 어두운 배경과 겹쳐 안 보이는 Qt 특성을, QToolTip 규칙을 함께 명시해
+# 차단한다(흰 배경·진한 글씨·옅은 테두리). (사용자 보고 2026-06-08: 툴팁 글씨 안 보임.)
+_CHECK_QSS = (
+    "QCheckBox { font-size: 12px; color: #475467; } "
+    "QToolTip { color: #1d2939; background-color: #ffffff; "
+    "border: 1px solid #d0d5dd; padding: 6px 10px; }"
+)
 
 
 # ─── 백그라운드 변환 워커 ────────────────────────────────────
@@ -305,16 +314,38 @@ class ConversionWorker(QObject):
                 "크롭 검출: Gemini 사용" if _gem
                 else "크롭 검출: Gemini 키 없음 → Claude 폴백(크롭 정확도 낮음). "
                      "Gemini 키를 입력하면 개선됩니다.")
-            self.progress.emit(13, "문제 영역(크롭) 검출 중...")
+            # ── 크롭 검출을 **페이지 병렬**로 실행(페이지 간 독립 API 콜) — 직렬이던
+            #    Gemini 검출이 가장 큰 병목이라 N페이지를 동시에 던져 대폭 단축한다.
+            #    결과는 seq(페이지 순서)로 모아 **순서대로** 경고 emit·detected 구성(결정적).
+            self.progress.emit(13, f"문제 영역(크롭) 검출 중... (0/{len(valid_indices)})")
+            results: dict[int, tuple] = {}     # seq -> (boxes, error)
+            n_pages = len(valid_indices)
+            cworkers = min(_OCR_WORKERS, max(1, n_pages))
+            cex = ThreadPoolExecutor(max_workers=cworkers)
+            try:
+                futs = {cex.submit(detect_crops, images[idx], self.api_key): seq
+                        for seq, idx in enumerate(valid_indices)}
+                done = 0
+                for fut in as_completed(futs):
+                    seq = futs[fut]
+                    try:
+                        results[seq] = (fut.result(), None)
+                    except Exception as e:  # noqa: BLE001
+                        results[seq] = ([], e)
+                    done += 1
+                    self.progress.emit(13, f"문제 영역 검출 중... ({done}/{n_pages})")
+                    if self._cancelled:
+                        break
+            finally:
+                cex.shutdown(wait=False, cancel_futures=True)
+            if self._cancelled:
+                self.error.emit("사용자에 의해 취소되었습니다.")
+                return
+
             detected = []
             for seq, idx in enumerate(valid_indices):
-                if self._cancelled:
-                    self.error.emit("사용자에 의해 취소되었습니다.")
-                    return
-                self.progress.emit(13, f"문제 영역 검출 중... ({seq + 1}/{len(valid_indices)})")
-                try:
-                    boxes = detect_crops(images[idx], api_key=self.api_key)
-                except Exception as e:
+                boxes, e = results.get(seq, ([], None))
+                if e is not None:
                     logger.warning("크롭 검출 실패(p%d): %s", idx + 1, e)
                     # 실제 원인을 GUI 에 노출 — "검출 실패"만 뜨면 일시적 레이트리밋/크레딧
                     # 부족을 빌드 버그로 오해(2026-06-05). 알려진 원인은 친절히 안내.
@@ -329,7 +360,6 @@ class ConversionWorker(QObject):
                         idx + 1 + page_offset,
                         f"페이지 {idx + 1 + page_offset} 문제영역 검출 실패 — {reason[:180]} "
                         f"(편집기에서 직접 추가하거나 빈 채로 두면 건너뜁니다.)")
-                    boxes = []
                 if not boxes:
                     # 검출 0개 → 표지/빈 페이지 의심(인식률 낮음 경고). 편집기에서 확인 후
                     # 그대로 두면 자동 스킵된다.
@@ -741,7 +771,9 @@ class MainWindow(QMainWindow):
             "끔(기본): 그림을 넣지 않고 '직접 캡처해 붙여넣으세요' 안내 박스를 둔다 — "
             "문서가 보안 경고 없이 열린다.\n"
             "켬: 도형/그래프를 실제로 삽입한다 — 단 한글에서 열 때 '문서 보안 설정' 경고가 뜰 수 있다.")
-        self._render_fig_check.setStyleSheet("font-size: 12px; color: #475467;")
+        # QCheckBox 인라인 color 가 QToolTip 텍스트색으로 새어 어두운 글씨가 되는 Qt 특성
+        # 회피: 위젯 스타일시트에 QToolTip 규칙을 함께 명시(흰 배경·진한 글씨, 시인성 확보).
+        self._render_fig_check.setStyleSheet(_CHECK_QSS)
         layout.addWidget(self._render_fig_check)
 
         # 변환 미리보기(OCR 결과 확인) 건너뛰기 — 사용자 요구 2026-06-05(미리보기 단계가
@@ -752,7 +784,7 @@ class MainWindow(QMainWindow):
         self._skip_preview_check.setToolTip(
             "켬(기본): OCR 완료 후 미리보기 없이 곧장 한글 문서를 만든다(빠름).\n"
             "끔: OCR 결과를 미리보기 창에서 확인한 뒤 진행한다.")
-        self._skip_preview_check.setStyleSheet("font-size: 12px; color: #475467;")
+        self._skip_preview_check.setStyleSheet(_CHECK_QSS)
         layout.addWidget(self._skip_preview_check)
 
         # 구분선

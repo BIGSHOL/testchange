@@ -173,9 +173,9 @@ def main():
             border: none;
         }
         QToolTip {
-            background: #1d2939;
-            color: #ffffff;
-            border: none;
+            background-color: #ffffff;
+            color: #1d2939;
+            border: 1px solid #d0d5dd;
             border-radius: 4px;
             padding: 6px 10px;
             font-size: 12px;

@@ -4,13 +4,94 @@ from __future__ import annotations
 
 import json
 import logging
+import random
 import re
+import time
 from dataclasses import dataclass, field
 
 from PIL import Image
 import anthropic
 
 logger = logging.getLogger(__name__)
+
+# ── 레이트리밋(429)·과부하(529)·일시 5xx·연결오류 방어 ──────────────────────────
+# 페이지/크롭을 **병렬**로 던지면 분당 토큰/요청 한도(TPM·RPM)를 순간 초과해 SDK 가
+# RateLimitError(429) 를 던질 수 있다(사용자 우려 2026-06-08). 지수 백오프로 재시도해
+# 변환이 한 크롭 실패로 끊기지 않게 한다(서버 retry-after 헤더 우선, 지터로 동시 재시도 분산).
+_RL_RETRIES = 5
+_RL_BASE_DELAY = 2.0       # 초 — 시도마다 2,4,8,16,…(+지터), 상한 60s
+# 재시도할 일시적 HTTP 상태(429 레이트리밋, 529 과부하, 5xx, 408/409 경합).
+_RL_TRANSIENT_STATUS = (408, 409, 429, 500, 502, 503, 529)
+
+
+def _norm_match(s: str) -> str:
+    """매칭용 정규화: 공백·문장부호·기호 제거(전사↔구조화 텍스트 비교용)."""
+    return re.sub(r"[\s\W_]+", "", (s or "")).lower()
+
+
+def _merge_missing_passages(result: dict, transcription: str) -> None:
+    """전사(transcription)엔 있으나 구조화 결과에 **빠진 문단(지문 박스)**을 끼워넣는다(in-place).
+
+    단일 서술형 크롭 가정(questions[0]). 전사를 문단 단위로 순서대로 보며, 구조화 블록에 없는
+    충분히 긴 문단을 ``<조건>`` text 블록으로 **원래 위치**(앞 문단을 담은 블록 다음)에 삽입.
+    이미 있으면 건드리지 않는다(중복 삽입 방지). 비전 요약으로 통째 누락된 지문만 복구.
+    """
+    qs = result.get("questions") or []
+    if not qs or not transcription.strip():
+        return
+    paras = [p.strip() for p in re.split(r"\n\s*\n", transcription) if p.strip()]
+    if len(paras) <= 1:
+        paras = [p.strip() for p in transcription.splitlines() if p.strip()]
+    if not paras:
+        return
+    q = qs[0]
+    contents = q.get("contents")
+    if not isinstance(contents, list) or not contents:
+        return
+    struct_norm = _norm_match("".join(
+        str(c.get("value", "")) for c in contents if isinstance(c, dict)))
+    if not struct_norm:
+        return
+
+    # 문단의 **앞부분 접두(16자)** 로 존재 여부를 본다(끝의 [9점]·구두점 차이에 강건).
+    def _prefix(pn: str) -> str:
+        return pn[:16]
+
+    ci = 0           # 현재 구조화 블록 인덱스
+    insert_at = 0    # 누락 문단 삽입 위치
+    for p in paras:
+        pn = _norm_match(p)
+        if len(pn) < 8:
+            continue
+        if _prefix(pn) and _prefix(pn) in struct_norm:
+            # 이 문단을 담은 블록(들)을 소비해 포인터 전진(접두로 판정)
+            covered = ""
+            while ci < len(contents) and _prefix(pn) not in _norm_match(covered):
+                covered += str(contents[ci].get("value", "")) if isinstance(contents[ci], dict) else ""
+                ci += 1
+            insert_at = ci
+        elif len(pn) >= 20:
+            # 구조화가 빠뜨린 긴 문단 = 지문 박스 → 라벨 없는 박스(<상자>)로 원위치에 삽입.
+            # 이미 라벨/박스 마커로 시작하면 그대로, 아니면 <상자>(표시 안 되는 박스) 머리.
+            has_mark = re.match(r"^\s*(<\s*(조건|보기|상자)\s*>|\[\s*(조건|보기)\s*\])", p)
+            label = "" if has_mark else "<상자> "
+            contents.insert(insert_at, {"type": "text", "value": label + p})
+            ci = insert_at + 1
+            insert_at = ci
+            logger.info("서술형 지문 박스 복구: %d자 문단 삽입", len(p))
+
+
+def _retry_after_seconds(exc) -> float | None:
+    """예외에 담긴 HTTP ``Retry-After`` 헤더(초)를 읽는다(없으면 None)."""
+    try:
+        resp = getattr(exc, "response", None)
+        if resp is not None:
+            ra = resp.headers.get("retry-after")
+            if ra:
+                return float(ra)
+    except Exception:
+        pass
+    return None
 
 from core.pdf_handler import image_to_base64
 from utils.config import get_api_key, CLAUDE_MODEL, CLAUDE_MAX_TOKENS
@@ -38,13 +119,31 @@ EXAM_OCR_PROMPT = """당신은 한국 수학 시험지를 정밀하게 OCR하는
 시험지는 **출제자가 인쇄한 활자(고정 폰트)** 로만 이루어져 있습니다. 학생이 연필·볼펜으로
 쓴 **손글씨(풀이·낙서·동그라미·밑줄·체크·메모·정답 표시)는 문제의 일부가 아니므로 절대로
 읽거나 출력하지 마세요.** 인쇄 활자가 아닌 모든 흔적은 무시합니다.
+- 🎯 **판별 기준(가장 중요)**: 한 문제 안의 **인쇄 폰트는 한글·영문·숫자 모두 항상 똑같고
+  균일**합니다. **그 균일한 인쇄 폰트와 글씨체(모양·굵기·기울기)가 다른 것은 전부 손글씨**
+  입니다. 인쇄 활자와 손글씨는 **확연히 구분**되니(필기는 사람이 쓴 티가 남), 그 차이로
+  판단해 **인쇄 폰트가 아닌 글씨는 모두 무시**하세요.
 - 인쇄 활자 = 매끈하고 균일한 자모, 일정한 굵기·기울기, 정렬된 줄. → **읽는다.**
 - 손글씨 = 삐뚤빼뚤·불균일한 획, 흘림체, 인쇄 글자 위에 겹쳐 쓴 흔적, 여백의 계산/낙서,
   보기·숫자에 그은 동그라미/사선/밑줄/체크. → **완전히 무시(출력 금지).**
-- ⚠️ 손글씨를 수식으로 오인해 ``__xy__`` 같은 **비정상·의미불명 토큰을 만들지 마세요.**
-  읽어서 인쇄 활자로 말이 안 되면(깨진 변수 나열, 맥락 없는 기호 덩어리) 그건 손글씨이거나
-  오인식이므로 **버립니다.** 확신이 없으면 출력하지 않는 쪽을 택하세요.
+- ⚠️ 손글씨를 수식으로 오인해 ``__xy__`` 같은 **비정상·의미불명 토큰(깨진 변수 나열, 맥락
+  없는 짧은 기호 덩어리)을 만들지 마세요.** 그런 **짧은 조각**은 손글씨 오인이므로 버립니다.
+- 🟢 **단, 인쇄 활자는 단 한 글자도 빠짐없이 모두 출력합니다.** "확신이 없으면 버린다"는
+  규칙은 **짧은 기호 조각(손글씨 의심)에만** 적용하세요. **여러 줄짜리 인쇄 문장·지문·
+  테두리 박스 안 본문은 옆/아래에 학생 손글씨가 있어도 절대 통째로 누락하지 마세요**(인쇄
+  활자는 매끈·균일하므로 손글씨와 쉽게 구분됨 — 손글씨만 빼고 인쇄 본문은 전부 읽기).
 - 손글씨를 지웠다고 해서 인쇄된 빈칸(□)·괄호·밑줄 서식까지 지우면 안 됩니다(그건 인쇄 활자).
+
+## 📦 테두리 박스 안 본문(지문/이야기/조건) — 절대 누락 금지 (필수 점검!)
+문제 안에 **테두리(네모 박스)로 둘러싸인 문장·지문·이야기·상황설명**이 있으면, 그 박스
+안의 **모든 문장을 한 글자도 빠짐없이** ``text`` 로 옮기세요. **박스를 그림으로 취급해
+건너뛰지 마세요 — 박스 안이 글자면 무조건 text 입니다.**
+- 박스는 보통 **발문(도입 문장)과 질문 문장 "사이"** 에 있습니다. 예: "다음은 …
+  이야기이다." (도입) → [네모 박스: 긴 이야기 본문] → "…을 구하시오." (질문). 이때
+  **가운데 박스 본문을 빠뜨리고 도입+질문만 출력하는 실수**가 잦습니다. 절대 금지.
+- 박스 본문은 ``<조건>`` 머리를 붙인 **별도 text 블록** 하나로(따옴표 대화·문장 전부 포함).
+- 🔍 **출력 직전 자가 점검**: 발문 다음에 네모 박스가 보였다면, 내 출력 contents 에 그 박스
+  안 문장들이 실제로 들어갔는지 **한 번 더 확인**하고, 빠졌으면 추가하세요.
 
 ## 핵심 원칙 (가장 중요!)
 1. 이미지의 텍스트를 **한 글자씩 정확하게** 읽으세요. 추측·의역·요약 금지.
@@ -134,14 +233,20 @@ EXAM_OCR_PROMPT = """당신은 한국 수학 시험지를 정밀하게 OCR하는
 - 점은 **순환마디의 첫 숫자와 마지막 숫자 위에만** 찍습니다: 0.3\\dot{7}\\dot{5} (X) / 0.\\dot{3}7\\dot{5} (O, 375 순환)
 - "순환소수"라는 단어가 나오면 소수에 반드시 순환마디 점이 있습니다.
 
-## 조건/보기 박스 (줄 구분 매우 중요!)
-- 박스 안에 여러 항목이 나열되면 **각 항목을 불릿(•)으로 구분**하여 하나의 text 블록에 담으세요:
-  {"type":"text","value":"<조건> • a, b를 분수로 나타낼 것 • 기약분수로 나타낼 것 • 순환마디에 점을 찍을 것"}
-- 박스 제목은 "<조건>" 또는 "<보기>"로 표기하고, 항목 사이는 반드시 "•"로 구분하세요. 박스 테두리 대시(──)는 넣지 마세요.
-- **서술형 지문/제시문(이야기·상황 설명이 테두리 박스 안에 있는 경우)은 그 본문 전체를
-  절대 누락하지 말고**, 하나의 text 블록에 `<조건>` 머리를 붙여 담으세요(박스로 렌더됨).
-  예: {"type":"text","value":"<조건> 독수리들이 하늘 높이 날다가 ... (지문 전문) ... 같게 되지."}
-  지문 안의 따옴표 대화·문장도 빠짐없이. (지문은 발문/질문 문장과 **분리된 별도 text 블록**.)
+## 테두리 박스 — 라벨 표기 규칙 (매우 중요! 2026-06-08 개정)
+테두리(네모) 박스 안 내용은 **별도 text 블록**으로, 머리 마커로 박스임을 표시합니다. 마커는
+**원본 박스에 실제로 인쇄된 라벨에 따라** 정합니다 (없는 라벨을 지어내면 안 됨):
+- **원본에 "<조건>"/"<보기>"(또는 [조건]/[보기]) 라벨이 인쇄돼 있으면** → 그 머리(`<조건>`
+  또는 `<보기>`)를 그대로 붙입니다. (예: 보기 ㄱㄴㄷㄹ 박스)
+  {"type":"text","value":"<보기> ㄱ. … • ㄴ. … • ㄷ. …"}  (항목 사이 "•" 구분)
+- **라벨이 없는 그냥 테두리 박스**(수식·조건문·지문 등)면 → 머리에 **`<상자>`** 를 붙입니다.
+  `<상자>` 는 화면에 **표시되지 않고 테두리 박스만** 만듭니다(가짜 `<조건>` 금지).
+  예(라벨 없는 조건): {"type":"text","value":"<상자> x의 2배는 y의 5배보다 4만큼 크다."}
+- **서술형 지문/제시문(이야기·상황이 테두리 박스 안)** 도 본문 전체를 **절대 누락 말고**
+  하나의 text 블록에 담되, 라벨이 없으면 **`<상자>`** 머리로:
+  {"type":"text","value":"<상자> 독수리들이 하늘 높이 날다가 … (지문 전문) … 같게 되지."}
+  지문 안 따옴표 대화·문장도 빠짐없이. (지문은 발문/질문과 **분리된 별도 text 블록**.)
+- 박스 테두리 대시(──)는 넣지 마세요.
 
 ## 조건 박스·표 (매우 중요!)
 - 테두리/박스 안의 내용(조건, 정의 등)은 **절대 누락하지 마세요.**
@@ -202,7 +307,9 @@ class OCREngine:
 
     def __init__(self, api_key: str | None = None):
         self.api_key = api_key or get_api_key()
-        self.client = anthropic.Anthropic(api_key=self.api_key)
+        # max_retries: SDK 자체 백오프(429/5xx/연결오류)를 2→5 로 올려 1차 방어선으로.
+        # 그 위에 _stream_message 가 명시적 백오프(로깅 포함)로 2차 방어.
+        self.client = anthropic.Anthropic(api_key=self.api_key, max_retries=5)
 
     def _stream_message(self, content: list, max_tokens: int):
         """스트리밍으로 메시지를 생성하고 최종 Message 를 반환한다.
@@ -211,13 +318,37 @@ class OCREngine:
         "Streaming is required for operations that may take longer than 10 minutes"
         예외를 던진다**(밀집 문항 재시도에서 max_tokens 를 32768 로 올릴 때 발생 —
         2026-06-05). 스트리밍은 이 제한이 없다. `.content`/`.stop_reason` 동일.
+
+        **레이트리밋(429)·과부하(529)·일시 5xx·연결오류는 지수 백오프로 재시도**한다
+        (병렬 버스트 방어, 사용자 우려 2026-06-08). 영구 오류(인증·400 등)는 즉시 전파.
         """
-        with self.client.messages.stream(
-            model=CLAUDE_MODEL,
-            max_tokens=max_tokens,
-            messages=[{"role": "user", "content": content}],
-        ) as stream:
-            return stream.get_final_message()
+        last_exc: Exception | None = None
+        for attempt in range(_RL_RETRIES):
+            try:
+                with self.client.messages.stream(
+                    model=CLAUDE_MODEL,
+                    max_tokens=max_tokens,
+                    messages=[{"role": "user", "content": content}],
+                ) as stream:
+                    return stream.get_final_message()
+            except anthropic.RateLimitError as e:        # 429 — 분당 한도 초과
+                last_exc = e
+            except anthropic.APIStatusError as e:        # 5xx/529/408/409 만 재시도
+                last_exc = e
+                if getattr(e, "status_code", None) not in _RL_TRANSIENT_STATUS:
+                    raise
+            except (anthropic.APIConnectionError, anthropic.APITimeoutError) as e:
+                last_exc = e                              # 네트워크 일시 오류
+            if attempt == _RL_RETRIES - 1:
+                break
+            delay = _retry_after_seconds(last_exc) or (_RL_BASE_DELAY * (2 ** attempt))
+            delay = min(delay + random.uniform(0, delay * 0.5), 60.0)   # 지터 + 상한
+            logger.warning(
+                "[FALLBACK] API 레이트리밋/일시오류 — %.1fs 후 재시도(%d/%d): %s",
+                delay, attempt + 1, _RL_RETRIES, type(last_exc).__name__)
+            time.sleep(delay)
+        # 재시도 소진 → 마지막 예외 전파(워커가 해당 크롭만 건너뛰고 사용자에 원인 노출).
+        raise last_exc
 
     def recognize_page(self, image: Image.Image) -> dict:
         """한 페이지 이미지에서 텍스트+수식 추출.
@@ -229,12 +360,14 @@ class OCREngine:
             구조화된 OCR 결과 dict
         """
         base64_image = image_to_base64(image, format="PNG")
-        # 프롬프트 앞배치 + 캐싱(②). 페이지 OCR 도 동일 프롬프트라 캐시 적중.
+        # ⚠️ **이미지를 프롬프트보다 앞**에 둔다(2026-06-08 회귀 수정). 캐싱 위해 프롬프트를
+        # 앞으로 옮겼던 v0.1.4 변경이, 비전 모델이 긴 지문 박스를 "요약"하며 누락하게 만들었다
+        # (독수리 이야기 박스 통째 누락). 이미지 우선이면 모델이 이미지를 충실히 읽는다.
+        # (프롬프트 캐시는 포기 — 정확도 우선. 이미지가 매 크롭 달라 어차피 prefix 캐시 못 함.)
         content = [
-            {"type": "text", "text": EXAM_OCR_PROMPT,
-             "cache_control": {"type": "ephemeral"}},
             {"type": "image", "source": {"type": "base64",
                                          "media_type": "image/png", "data": base64_image}},
+            {"type": "text", "text": EXAM_OCR_PROMPT},
         ]
 
         message = self._stream_message(content, OCR_MAX_TOKENS)
@@ -256,16 +389,20 @@ class OCREngine:
         prompt = (
             "이 이미지는 시험지에서 잘라낸 **단일 문제 영역**입니다. "
             "보통 문제 1개(번호·본문·선택지·딸린 그림/표 포함)만 들어 있습니다. "
-            "잘린 옆 문제의 일부가 가장자리에 보여도 무시하고, 중심 문제 하나만 추출하세요.\n\n"
+            "잘린 옆 문제의 일부가 가장자리에 보여도 무시하고, 중심 문제 하나만 추출하세요.\n"
+            "⚠️ **이 문제 안의 인쇄 텍스트를 위에서 아래로 한 줄도 빠짐없이 그대로 옮기세요. "
+            "요약·생략 절대 금지.** 특히 **테두리(네모) 박스 안에 들어 있는 지문·이야기·조건 "
+            "본문**(보통 도입 문장과 질문 문장 사이)을 건너뛰지 말고 별도 text 블록으로 "
+            "**문장 전부** 옮기세요(이야기를 안다고 줄여 쓰지 말 것). 박스 머리말 규칙은 "
+            "아래 '조건/보기 박스' 절을 따르세요(원본에 라벨이 있을 때만 붙임).\n\n"
             + EXAM_OCR_PROMPT
         )
-        # 프롬프트를 **앞**(안정 prefix)에 두고 캐싱(②) — 모든 크롭이 동일 프롬프트라
-        # 캐시 적중. 이미지는 캐시 경계 뒤(크롭마다 다름). 입력토큰·지연 대폭 절감.
+        # ⚠️ **이미지를 프롬프트보다 앞**에 둔다(2026-06-08 회귀 수정 — 독수리 지문 박스
+        # 요약·누락의 원인이 v0.1.4 캐싱용 '프롬프트 앞배치'였음). 이미지 우선이 비전 충실도↑.
         content = [
-            {"type": "text", "text": prompt,
-             "cache_control": {"type": "ephemeral"}},
             {"type": "image", "source": {"type": "base64",
                                          "media_type": "image/png", "data": base64_image}},
+            {"type": "text", "text": prompt},
         ]
 
         def _call(max_toks: int):
@@ -281,14 +418,45 @@ class OCREngine:
                     f"OCR 응답이 max_tokens({OCR_MAX_TOKENS * 2})로 잘렸습니다 — "
                     f"수식이 매우 많은 문항(크롭을 더 작게 나눠 보세요)")
         try:
-            return self._extract_json(message.content[0].text)
+            result = self._extract_json(message.content[0].text)
         except json.JSONDecodeError as e:
             # 구조적 깨진 JSON(예: `"value", "value":` ←콜론 누락)은 복구 단계로 못 고친다.
             # 모델이 한 번 더 생성하면 정상 JSON 을 주는 경우가 많아 OCR 자체를 1회 재호출
             # (밀집 문항이 통째로 누락되던 문제 — 2026-06-05 Q8 사례).
             logger.warning("크롭 OCR JSON 파싱 실패 → OCR 재호출 1회: %s", e)
             message = _call(min(OCR_MAX_TOKENS * 2, 32768))
-            return self._extract_json(message.content[0].text)
+            result = self._extract_json(message.content[0].text)
+
+        # ── 서술형 지문/박스 누락 복구(2026-06-08, 검증) ──────────────────────────
+        # **단일 문제 크롭**을 구조화 OCR 하면 비전 모델이 긴 지문 박스를 "요약"하며 통째로
+        # 누락한다(독수리 이야기). 전체 페이지 OCR 이나 "그대로 옮겨적기(전사)" 작업은 충실히
+        # 읽는다. 그래서 **선택지 없는(서술형) 크롭**에 한해 전사 패스를 한 번 더 돌려, 구조화
+        # 결과가 빠뜨린 문단(지문 박스)을 찾아 끼워넣는다. (객관식은 누락 없어 패스 생략 — 비용↓)
+        if not any(q.get("choices") for q in result.get("questions", []) or []):
+            try:
+                transcription = self._transcribe(base64_image)
+                _merge_missing_passages(result, transcription)
+            except Exception as me:  # noqa: BLE001
+                logger.warning("서술형 지문 전사 보강 실패(무시): %s", me)
+        return result
+
+    def _transcribe(self, base64_image: str) -> str:
+        """크롭 이미지의 **인쇄 텍스트 전체를 그대로 전사**(요약·구조화 없이 순수 텍스트).
+
+        구조화 OCR 이 요약·누락하는 긴 지문 박스를 복구하는 보강용. 손글씨는 무시.
+        """
+        prompt = (
+            "이 이미지에 **인쇄된 모든 문장**을 위에서 아래로 **한 글자도 빠짐없이 그대로** "
+            "옮겨적으세요. 요약·생략·해석 절대 금지. 손글씨(연필·볼펜 필기)는 무시. "
+            "특히 **테두리(네모) 박스 안 본문**도 전부. 순수 텍스트로만 출력(설명·JSON 없이). "
+            "문단(빈 줄로 구분되는 덩어리)은 그대로 줄바꿈으로 유지하세요."
+        )
+        content = [
+            {"type": "image", "source": {"type": "base64",
+                                         "media_type": "image/png", "data": base64_image}},
+            {"type": "text", "text": prompt},
+        ]
+        return self._stream_message(content, 8192).content[0].text or ""
 
     def _extract_json(self, text: str) -> dict:
         """응답에서 JSON 추출 (LaTeX 수식이 포함된 경우도 처리).

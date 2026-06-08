@@ -161,7 +161,8 @@ def _vision_to_svg(image: Image.Image, hint: str, api_key: str | None) -> dict:
 
     out = {"vectorizable": False, "confidence": 0.0, "svg": ""}
     try:
-        client = anthropic.Anthropic(api_key=api_key or get_api_key())
+        # 병렬 그림 재생성(_resolve_figures) 버스트의 429/5xx 를 SDK 백오프로 흡수.
+        client = anthropic.Anthropic(api_key=api_key or get_api_key(), max_retries=5)
         b64 = image_to_base64(image, format="PNG")
         user_text = "이 크롭 그림을 위 규칙대로 재현하세요."
         if hint:

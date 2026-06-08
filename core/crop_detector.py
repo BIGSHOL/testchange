@@ -197,7 +197,8 @@ def detect_crops(image: Image.Image, api_key: str | None = None) -> list[CropBox
 
 def _detect_with_claude(image: Image.Image, api_key: str | None = None) -> list[CropBox]:
     """Claude Vision 으로 크롭 검출(폴백)."""
-    client = anthropic.Anthropic(api_key=api_key or get_api_key())
+    # 병렬 검출 버스트의 429/5xx 를 SDK 백오프로 흡수(max_retries 2→5).
+    client = anthropic.Anthropic(api_key=api_key or get_api_key(), max_retries=5)
     b64 = image_to_base64(image, format="PNG")
     msg = client.messages.create(
         model=CLAUDE_MODEL,

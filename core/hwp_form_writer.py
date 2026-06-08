@@ -31,7 +31,7 @@ from pathlib import Path
 
 logger = logging.getLogger(__name__)
 
-from .hwp_com import HwpSession, _dispatch_hwp, _win32
+from .hwp_com import CONVERSION_VISIBLE, HwpSession, _dispatch_hwp, _win32
 from .hwp_com_writer import (HwpComWriter, _BOX_BREAK_RE, _BULLET_RE,
                              _COND_HEADER_RE, _condition_start, _has_box_markup,
                              _split_trailing_score, _tail_start)
@@ -440,23 +440,62 @@ def _put_score(ses, h, score: int, essay: bool = False) -> bool:
 
 # 소문항 앞머리 번호 마커((1)/1)/1./①…) — 우리가 마커를 별도로 붙이므로 OCR 중복분 제거.
 _SUBMARK_RE = re.compile(r'^\s*(?:[\(（]\s*\d+\s*[\)）]|\d+\s*[.)]|[①-⑩])\s*')
+_EQ_TYPES = (ContentType.EQUATION, ContentType.EQUATION_BLOCK)
+_LEAD_CLOSE_RE = re.compile(r'^\s*[\)）.]\s*')   # 분리된 마커의 닫힘부 ") "/". "
+
+
+def _blk(t, v):
+    return ContentBlock(type=t, value=v)
 
 
 def _strip_leading_submarker(contents):
-    """소문항 첫 텍스트 블록의 앞머리 번호 마커를 제거(우리가 ``(k)`` 를 따로 렌더하므로
-    OCR 이 남긴 ``(1)``·``1)``·``1.``·``①`` 등의 중복을 결정적으로 차단). 길이/형태 무관.
+    """소문항 앞머리 번호 마커를 제거(우리가 ``(k)`` 를 따로 렌더하므로 OCR 이 남긴
+    ``(1)``·``1)``·``1.``·``①`` 등의 중복을 결정적으로 차단). 길이/형태 무관.
 
-    첫 블록이 마커만이면 그 블록을 드롭, 마커+내용이면 마커만 제거한 새 블록으로 교체.
+    ⚠️ 파서가 ``(1) 일차함수…`` 를 ``TEXT "(" + EQUATION "1" + TEXT ") 일차함수…"`` 로
+    **쪼개** 첫 블록만 봐서는 못 잡는다(사용자 2026-06-08: 소문항 (1)(2) 가 우리 마커와
+    중복 출력). 그래서 아래 형태를 모두 처리한다(좌표 ``(2, 3)`` 은 닫힘부가 ``,`` 라 안 걸림):
+      1) 단일 텍스트 ``"(1) rest"`` / ``"1) rest"`` / ``"① rest"``
+      2) 분리형 ``TEXT "(" + EQ 숫자 + TEXT ") rest"``
+      3) 분리형 ``EQ 숫자 + TEXT ") rest"`` (앞 괄호 없는 ``1)``/``1.``)
+      4) 마커 통째가 한 수식 ``EQ "(1)"``
     """
     if not contents:
         return contents
-    b0 = contents[0]
-    if getattr(b0, "type", None) == ContentType.TEXT and b0.value:
-        nv = _SUBMARK_RE.sub('', b0.value, count=1)
-        if nv != b0.value:
-            if nv.strip():
-                return [ContentBlock(type=ContentType.TEXT, value=nv), *contents[1:]]
-            return list(contents[1:])
+    c = list(contents)
+
+    def txt(b):
+        return (b.value or "") if getattr(b, "type", None) == ContentType.TEXT else None
+
+    def eqd(b):  # 수식 블록이고 값이 순수 숫자면 그 숫자, 아니면 None
+        if getattr(b, "type", None) in _EQ_TYPES and (b.value or "").strip().isdigit():
+            return (b.value or "").strip()
+        return None
+
+    # 형태 1: 단일 텍스트 마커
+    t0 = txt(c[0])
+    if t0:
+        nv = _SUBMARK_RE.sub('', t0, count=1)
+        if nv != t0:
+            return ([_blk(ContentType.TEXT, nv)] + c[1:]) if nv.strip() else c[1:]
+
+    # 형태 2: "(" + EQ숫자 + ")rest"
+    if (len(c) >= 3 and (t0 is not None and t0.strip() in ("(", "（"))
+            and eqd(c[1]) is not None
+            and txt(c[2]) is not None and _LEAD_CLOSE_RE.match(txt(c[2]))):
+        rest = _LEAD_CLOSE_RE.sub('', txt(c[2]), count=1)
+        return ([_blk(ContentType.TEXT, rest)] if rest.strip() else []) + c[3:]
+
+    # 형태 3: EQ숫자 + ")rest" 또는 ".rest"
+    if (len(c) >= 2 and eqd(c[0]) is not None
+            and txt(c[1]) is not None and _LEAD_CLOSE_RE.match(txt(c[1]))):
+        rest = _LEAD_CLOSE_RE.sub('', txt(c[1]), count=1)
+        return ([_blk(ContentType.TEXT, rest)] if rest.strip() else []) + c[2:]
+
+    # 형태 4: 마커 통째가 한 수식 객체 "(1)"
+    if getattr(c[0], "type", None) in _EQ_TYPES and _SUBMARK_RE.fullmatch((c[0].value or "").strip()):
+        return c[1:]
+
     return contents
 
 
@@ -550,7 +589,7 @@ def _fill_form(mc: list[Question], essays: list[Question], form_path, out_path,
     Returns: (채운 객관식 수, 채운 서술형 수, 그림 경로 리스트(토큰 인덱스순)).
     """
     n_mc, n_es = len(mc), len(essays)
-    with HwpSession(visible=False) as ses:
+    with HwpSession(visible=CONVERSION_VISIBLE) as ses:   # 실시간 작성 표시(스위치: CONVERSION_VISIBLE)
         h = ses.hwp
         ses._render_figures = render_figures   # 그림 처리 모드(_place_figure 가 분기)
         ses.open(form_path)
@@ -1240,7 +1279,7 @@ def _com_relaunder(hwpx_path: str | Path) -> bool:
     fd, tmp = tempfile.mkstemp(suffix=".hwpx", dir=str(hwpx_path.parent))
     os.close(fd)
     try:
-        with HwpSession(visible=False) as ses:
+        with HwpSession(visible=CONVERSION_VISIBLE) as ses:   # 재저장(launder)도 표시
             ses.open(hwpx_path)
             ses.save_hwpx(tmp)
         os.replace(tmp, hwpx_path)

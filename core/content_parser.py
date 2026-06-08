@@ -69,6 +69,12 @@ def _parse_question(q_data: dict) -> Question:
     # 쉼표로 구분된 독립 수식 분리 (안전 폴백)
     question.contents = _split_comma_equations(question.contents)
 
+    # eq·(연산자)·eq 로 쪼개진 수식(x = -2y+3)을 한 객체로 병합(가운데 = 평문화 방지)
+    question.contents = _merge_operator_split_equations(question.contents)
+
+    # 기하 점/선/면 이름(통째 대문자 수식)을 로만체로 강제
+    question.contents = _romanize_point_names(question.contents)
+
     # 잔여 [N점] 제거 (분리 후에도 온전히 남은 경우 대비)
     question.contents = _strip_score_text(question.contents)
 
@@ -102,6 +108,10 @@ def _parse_choice(choice_data: dict) -> Choice | None:
 
     # 쉼표로 구분된 독립 수식 분리
     choice.contents = _split_comma_equations(choice.contents)
+    # eq·(연산자)·eq 로 쪼개진 수식을 한 객체로 병합
+    choice.contents = _merge_operator_split_equations(choice.contents)
+    # 기하 점/선/면 이름 로만체 강제
+    choice.contents = _romanize_point_names(choice.contents)
 
     return choice
 
@@ -196,6 +206,72 @@ def _wrapped_in_parens(v: str) -> bool:
             if depth == 0 and i != len(v) - 1:
                 return False
     return depth == 0
+
+
+# 점·선·면 등 기하 이름(대문자 A·B·C·O·AB·OAB…)은 한국 교과서 표기상 **로만체**여야 한다.
+# OCR 이 \mathrm 을 안 붙이고 평문 대문자로 주면 수식에서 이탤릭으로 렌더된다(사용자 2026-06-08).
+# **블록 전체가 대문자 1~4글자(+선택 첨자)인 수식**만 기하 이름으로 보고 \mathrm 으로 감싼다
+# (소문자 변수 x,y,a,b 는 이탤릭 유지, 'A=2^6' 처럼 연산자·숫자 섞인 건 건드리지 않음 — 안전).
+_BARE_UPPER_EQ_RE = re.compile(r'^[A-Z]{1,4}(?:_\{?[A-Za-z0-9]+\}?)?$')
+
+
+def _romanize_point_names(blocks: list[ContentBlock]) -> list[ContentBlock]:
+    """기하 점/선/면 이름(통째 대문자 수식 블록)을 \\mathrm 으로 감싸 로만체로 강제."""
+    out: list[ContentBlock] = []
+    for b in blocks:
+        if b.type == ContentType.EQUATION:
+            v = (b.value or "").strip()
+            if v and "\\mathrm" not in v and _BARE_UPPER_EQ_RE.match(v):
+                out.append(ContentBlock(type=ContentType.EQUATION, value=f"\\mathrm{{{v}}}"))
+                continue
+        out.append(b)
+    return out
+
+
+# 두 수식 사이의 "연산자만" 텍스트(=, <, >, ≤, ≥, ≠, +, -, ×, ÷, ± …) — 이걸로 쪼개진
+# 수식을 한 객체로 다시 합친다. 쉼표(,)는 제외(나열 분리는 의도적). 한글/단어가 섞이면 제외.
+_EQ_OP_CHARS = set("=<>≤≥≠≈≡≅∼+-±×÷·∘*/^∓→↔⇒⇔")
+
+
+def _is_operator_only(text: str) -> bool:
+    """텍스트가 **연산자/관계기호만**(공백 무시)으로 이뤄졌는지 — 수식 병합 판정용.
+
+    내부 공백("= -")도 허용해야 ``x = -2y+3`` 처럼 ``= -`` 로 쪼개진 케이스가 합쳐진다.
+    """
+    s = re.sub(r"\s+", "", text or "")
+    return bool(s) and all(c in _EQ_OP_CHARS for c in s)
+
+
+def _merge_operator_split_equations(blocks: list[ContentBlock]) -> list[ContentBlock]:
+    """``eq · (연산자 text) · eq`` 로 쪼개진 수식을 **한 수식 객체**로 병합(사용자 2026-06-08).
+
+    OCR/분리가 ``x = -2y+3`` 을 ``eq("x") + text("=") + eq("-2y+3")`` 으로 쪼개면 가운데
+    ``=`` 만 평문이라 기준선·글꼴이 어긋나 ``x =-2y+3`` 처럼 이상하게 보인다. 연산자만 든
+    텍스트로 이어진 인접 수식들을 ``x = -2y+3`` 한 객체로 합쳐 한 번에 수식 렌더한다.
+    (쉼표 나열·한글 연결어(``이고``)는 연산자가 아니라 병합 안 함 → 의도된 분리 보존.)
+    """
+    out: list[ContentBlock] = []
+    i, n = 0, len(blocks)
+    while i < n:
+        b = blocks[i]
+        if b.type == ContentType.EQUATION:
+            parts = [(b.value or "").strip()]
+            j = i + 1
+            while (j + 1 < n
+                   and blocks[j].type == ContentType.TEXT
+                   and _is_operator_only(blocks[j].value)
+                   and blocks[j + 1].type == ContentType.EQUATION):
+                parts.append((blocks[j].value or "").strip())
+                parts.append((blocks[j + 1].value or "").strip())
+                j += 2
+            if len(parts) > 1:
+                out.append(ContentBlock(type=ContentType.EQUATION,
+                                        value=" ".join(p for p in parts if p)))
+                i = j
+                continue
+        out.append(b)
+        i += 1
+    return out
 
 
 def _split_comma_equations(blocks: list[ContentBlock]) -> list[ContentBlock]:
@@ -366,6 +442,8 @@ def _split_inline_latex(text: str) -> list[ContentBlock]:
 
 # __밑줄__ 마크업 감지 패턴
 _UNDERLINE_RE = re.compile(r"__(.+?)__")
+# 한글 포함 여부 — __강조__ 가 한글이면 밑줄(옳지 않은), 라틴/수식이면 OCR 오인 → 수식 복원.
+_HANGUL_RE = re.compile(r"[가-힣]")
 
 
 def _split_underline_markup(text: str) -> list[ContentBlock]:
@@ -373,6 +451,10 @@ def _split_underline_markup(text: str) -> list[ContentBlock]:
 
     예: "옳지 __않은__ 것은?"
     → text("옳지 ") + text("않은", underline=True) + text(" 것은?")
+
+    단 ``__xy__`` 처럼 **한글 없는 라틴/수식 토큰**을 감싼 이중 밑줄은 인쇄 시험지에 존재할
+    수 없는 OCR 오인(손글씨 변수 등)이므로 밑줄이 아니라 **수식 객체로 복원**한다 — 발문에
+    ``__xy__`` 같은 literal 이중밑줄이 찍히던 문제(사용자 2026-06-08). 한글 강조는 밑줄 유지.
     """
     blocks: list[ContentBlock] = []
     last_end = 0
@@ -383,9 +465,13 @@ def _split_underline_markup(text: str) -> list[ContentBlock]:
             blocks.append(ContentBlock(type=ContentType.TEXT, value=before))
         inner = m.group(1)
         if inner:
-            blocks.append(
-                ContentBlock(type=ContentType.TEXT, value=inner, underline=True)
-            )
+            is_math = (not _HANGUL_RE.search(inner)) and bool(re.search(r"[A-Za-z0-9]", inner))
+            if is_math:
+                blocks.append(ContentBlock(type=ContentType.EQUATION, value=inner.strip()))
+            else:
+                blocks.append(
+                    ContentBlock(type=ContentType.TEXT, value=inner, underline=True)
+                )
         last_end = m.end()
 
     after = text[last_end:]

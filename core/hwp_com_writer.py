@@ -12,7 +12,7 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Optional
 
-from core.hwp_com import HwpSession, CIRCLE_NUMBERS
+from core.hwp_com import CONVERSION_VISIBLE, HwpSession, CIRCLE_NUMBERS
 from core.latex_to_hwpeq import latex_to_hwpeq
 from models.exam_document import (
     ContentBlock,
@@ -37,19 +37,24 @@ _BULLET_RE = re.compile(r"\s*[•·▪◦]\s*")
 _DASH_RUN_RE = re.compile(r"\s*[-−—–―─━]{2,}\s*")  # 하이픈·각종 대시·박스선(U+2500/2501)
 # 보기 항목 라벨(ㄱ. ㄴ. …) 뒤에 공백이 없으면("ㅁ.0") 한 칸 띄운다("ㅁ. 0"). (A6)
 _LABEL_SPACE_RE = re.compile(r"^([ㄱ-ㅎ가-힣]\s*\.)\s*(\S)")
-# 보기/조건 박스 '머리'(블록 시작이 <보기>/<조건>) — 발문 끝 배점 위치 판정용(A2).
-# 발문이 "<보기>에서…"처럼 마커로 시작해도 그건 인라인 참조다(뒤에 조사=가-힣 음절).
-# 박스 머리는 뒤에 항목(ㄱ./숫자) 또는 줄끝이 온다 → 마커 뒤 가-힣이 오면 머리 아님(부정 전망).
+# 라벨 없는 '그냥 테두리 박스' 마커(표시 안 함, 박스만 생성) — #1처럼 보기/조건이 아닌
+# 박스(수식·조건문 등)나 서술형 지문 박스용. `<조건>`/`<보기>` 와 달리 **셀에 글자를 안 찍고**
+# 1×1 표만 만든다(사용자 결정 2026-06-08: 원본에 라벨이 있을 때만 라벨 표기).
+_PLAIN_BOX_MARK = "<상자>"
+_PLAIN_BOX_RE = re.compile(r"<\s*상자\s*>")
+# 보기/조건 박스 '머리'(블록 시작이 <보기>/<조건>/<상자>) — 발문 끝 배점 위치 판정용(A2).
+# 발문이 "<보기>에서…"처럼 마커로 시작해도 그건 인라인 참조다(뒤에 조사=가-힣 음절) → 부정 전망.
+# 단 `<상자>`(라벨 없는 박스)는 뒤에 한글 지문이 와도 항상 박스 머리다(부정 전망 없음).
 _COND_HEADER_RE = re.compile(
-    r"^\s*(<\s*조건\s*>|<\s*보기\s*>|\[\s*조건\s*\]|\[\s*보기\s*\])(?!\s*[가-힣])")
-# 박스 내부 줄 경계: 마커(<보기>/<조건>) 또는 항목 라벨(ㄱ. ㄴ. …, 앞이 공백/시작). 표 셀
+    r"^\s*(?:<\s*상자\s*>|(?:<\s*조건\s*>|<\s*보기\s*>|\[\s*조건\s*\]|\[\s*보기\s*\])(?!\s*[가-힣]))")
+# 박스 내부 줄 경계: 마커(<보기>/<조건>/<상자>) 또는 항목 라벨(ㄱ. ㄴ. …, 앞이 공백/시작). 표 셀
 # 안에서 마커는 자기 줄, 각 항목은 새 줄로 나누는 데 쓴다(A3/A5). (B3-2 라벨 뒤 공백은 token+공백.)
 _BOX_BOUNDARY_RE = re.compile(
-    r"(<\s*조건\s*>|<\s*보기\s*>|\[\s*조건\s*\]|\[\s*보기\s*\]|(?:(?<=\s)|^)[ㄱ-ㅎ]\s*\.)")
-# 박스 줄 경계(확장): 불릿(•)도 경계로 — 불릿은 줄바꿈만(토큰 미출력, A4), 숫자 항목
+    r"(<\s*상자\s*>|<\s*조건\s*>|<\s*보기\s*>|\[\s*조건\s*\]|\[\s*보기\s*\]|(?:(?<=\s)|^)[ㄱ-ㅎ]\s*\.)")
+# 박스 줄 경계(확장): 불릿(•)도 경계로 — 불릿·<상자>는 줄바꿈만(토큰 미출력, A4), 숫자 항목
 # (1. 2. 3.)은 라벨 정규식에 없으므로 불릿이 그 줄바꿈을 담당한다.
 _BOX_BREAK_RE = re.compile(
-    r"(\s*[•·▪◦]\s*|<\s*조건\s*>|<\s*보기\s*>|\[\s*조건\s*\]|\[\s*보기\s*\]"
+    r"(\s*[•·▪◦]\s*|<\s*상자\s*>|<\s*조건\s*>|<\s*보기\s*>|\[\s*조건\s*\]|\[\s*보기\s*\]"
     r"|(?:(?<=\s)|^)[ㄱ-ㅎ]\s*\.)")
 
 
@@ -305,16 +310,19 @@ class HwpComWriter:
                     started = True
                     broke = False
                     after_label = False
-                is_bullet = _BULLET_RE.fullmatch(m.group(0)) is not None
+                tok = re.sub(r"\s+", "", m.group(0))   # "ㄱ ." → "ㄱ.", "< 보기 >" → "<보기>"
+                # 불릿(•)·<상자>(라벨 없는 박스)는 줄 경계로만 쓰고 **출력 안 함**(A4).
+                is_hidden = (_BULLET_RE.fullmatch(m.group(0)) is not None) or tok == _PLAIN_BOX_MARK
                 if started and not broke:
                     self.s.break_para()   # 마커/항목 라벨/불릿 앞에서 줄바꿈
                     broke = True
-                if not is_bullet:
-                    # 마커/라벨만 출력(불릿은 분리자라 미출력, A4)
-                    tok = re.sub(r"\s+", "", m.group(0))   # "ㄱ ." → "ㄱ.", "< 보기 >" → "<보기>"
+                if not is_hidden:
+                    # 표시 마커/라벨 출력(<조건>/<보기>/ㄱ. 등)
                     self.s.text(tok + " ")                 # 라벨/마커 뒤 공백(A6)
                     broke = False
                     after_label = True
+                elif tok == _PLAIN_BOX_MARK:
+                    after_label = True   # <상자> 뒤 내용 선행 공백 제거(셀 내용 깔끔히)
                 started = True
                 pos = m.end()
             tail = text[pos:]
@@ -658,8 +666,8 @@ def write_exam_to_hwp(
         저장된 파일 경로
     """
     output_path = Path(output_path)
-    # 빌드는 숨김(빠름), 저장 직전 force_layout()에서 창을 띄워 레이아웃 일괄계산.
-    with HwpSession(visible=False) as s:
+    # 빌드는 숨김(빠름)이 기본이나, 실시간 작성 표시 옵션(CONVERSION_VISIBLE)이면 보이게 띄운다.
+    with HwpSession(visible=CONVERSION_VISIBLE) as s:
         if template_path:
             s.open(template_path)
             s.move_doc_begin()

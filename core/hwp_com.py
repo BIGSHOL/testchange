@@ -27,6 +27,12 @@ except Exception:  # pragma: no cover - 비-Windows
 
 HWP_PROGID = "HWPFrame.HwpObject"
 
+# 변환 중 한글 창 표시 여부(사용자 요구 2026-06-08: 문서가 실시간으로 써지는 "스트리밍"
+# 모습이 보기 좋다). True 면 채움/렌더 세션을 보이게 띄워 작성 과정이 실시간으로 보인다.
+# ⚠️ 단점: 수식 삽입마다 편집기 렌더가 일어나 **빌드가 느려질 수 있다**([[hwp-equation-finalize]]).
+# 느리면 이 값만 False 로 되돌리면 된다(채움 세션 visible 의 단일 스위치).
+CONVERSION_VISIBLE = True
+
 # 보기 동그라미 숫자 ①②③④⑤ … (U+2460~)
 CIRCLE_NUMBERS = {i: chr(0x245F + i) for i in range(1, 16)}
 
