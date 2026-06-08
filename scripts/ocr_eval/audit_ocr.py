@@ -95,6 +95,10 @@ def _print_report(flags: list[dict]) -> None:
 
 
 def main(argv):
+    try:
+        sys.stdout.reconfigure(encoding="utf-8")  # Windows cp949 콘솔에서 ⟨⟩ 등 유니코드 출력 보호
+    except Exception:
+        pass
     positional = [a for a in argv if not a.startswith("--")]
     if not positional:
         raise SystemExit(
