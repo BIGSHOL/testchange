@@ -50,6 +50,16 @@ _MINGAP = 1
 # (96dpi: 260px≈69mm) 단 너비(≈80mm)를 넘지 않게 축소해 단 넘침을 막는다.
 FORM_FIG_MAX_W = 260
 
+# 머리말/꼬리말 '과목' 자리 매칭 — 수학뿐 아니라 미적분·기하·확률과 통계 등 모든 과목(비캡처).
+# 폼마다 placeholder 과목이 달라(선택과목 폼은 "미적분") 수학만 매칭하면 치환 실패(사용자 2026-06-08).
+_SUBJ_PAT = r'(?:수학\s*[12]?|수\s*[12]|대수|미적분\s*[12]?|기하|확률과\s*통계|확통|통계)'
+# 파일명 약칭 → 머리말 표기 정식명.
+_SUBJ_DISPLAY = {
+    "확통": "확률과 통계", "확률과통계": "확률과 통계",
+    "미적분1": "미적분", "미적분2": "미적분",
+    "수1": "수학", "수2": "수학", "수학1": "수학1", "수학2": "수학2",
+}
+
 
 def _fit_image_width(path: str, max_w: int = FORM_FIG_MAX_W) -> str:
     """그림을 흰 배경으로 평탄화하고, max_w(px)보다 넓으면 비율 유지 축소한 임시 PNG.
@@ -1086,6 +1096,8 @@ def _fill_form_header(hwpx_path: str | Path, values: dict) -> int:
     g = (values.get("학년") or "").strip()
     gnum = g[-1] if g and g[-1].isdigit() else ""   # "중2" → "2"
     subj = (values.get("과목") or "").strip()
+    # 과목 표시명 정규화: 파일명 약칭(확통 등) → 머리말 표기 정식명(사용자 2026-06-08).
+    subj = _SUBJ_DISPLAY.get(subj.replace(" ", ""), subj)
     if not (g and subj):
         return 0
     yr = (values.get("년도") or "").strip()
@@ -1104,9 +1116,10 @@ def _fill_form_header(hwpx_path: str | Path, values: dict) -> int:
     footer = f"{prep} 대비 ({subj})"
     pats = [
         # 꼬리말 먼저(시험명 패턴이 "고사"를 먼저 먹지 않게). "(정답)" 보존.
-        (re.compile(r'(?:중|고)\s*\d{2,4}\s*년\s*학기\s*고사\s*대비\s*\(\s*수학[12]?\s*\)(\s*\(\s*정답\s*\))?'),
+        # 과목은 수학뿐 아니라 미적분·기하·확률과 통계 등 **모든 선택과목**을 매칭(_SUBJ_PAT).
+        (re.compile(r'(?:중|고)\s*\d{2,4}\s*년\s*학기\s*고사\s*대비\s*\(\s*' + _SUBJ_PAT + r'\s*\)(\s*\(\s*정답\s*\))?'),
          lambda mm: footer + (mm.group(1) or "")),
-        (re.compile(r'(?:중|고)\s*[1-3]\s*학년\s*수학[12]?'), lambda mm: center),
+        (re.compile(r'(?:중|고)\s*[1-3]\s*학년\s*' + _SUBJ_PAT), lambda mm: center),
         (re.compile(r'\d{2,4}\s*년\s*학기\s*고사(?!\s*대비)'), lambda mm: exam),
     ]
     hwpx_path = Path(hwpx_path)
@@ -1345,6 +1358,14 @@ def write_exam_to_form(
             _fill_form_header(output_path, header_values)
         except Exception:
             pass
+    # 1.7단계: <보기>/<조건> 라벨 1×1 박스 → 5×5 병합표 폼(기본 경로와 동일, 사용자
+    # '항상 동일' 요구). <상자>·일반표는 제외. _com_relaunder **전**에 주입해 재저장 때
+    # HWP 가 표 linesegs 를 재계산하고 보안경고도 없게 한다.
+    try:
+        from core.hwp_com_writer import _inject_bogi_form
+        _inject_bogi_form(output_path)
+    except Exception:
+        pass
     # 2단계: 그림 렌더 모드면 그림 binItem 임베드(경고 감수). 아니면(기본) COM 재저장(launder)
     # 으로 '변조' 보안경고 제거 — 그림 자리엔 안내 박스(표라서 재저장에 보존).
     if render_figures and fig_paths:

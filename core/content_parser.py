@@ -131,7 +131,9 @@ def _parse_content_block(block_data: dict) -> ContentBlock | None:
     if type_str == "figure":
         return None
 
-    if not value and type_str != "image":
+    # 표(table)는 value 가 비어 있고 rows 에만 내용이 있는 게 정상(OCR/표복구 스키마).
+    # value 빈값 드롭 규칙에서 제외해야 표가 통째 사라지지 않는다(2026-06-08).
+    if not value and type_str not in ("image", "table"):
         return None
 
     type_map = {
@@ -210,20 +212,50 @@ def _wrapped_in_parens(v: str) -> bool:
 
 # 점·선·면 등 기하 이름(대문자 A·B·C·O·AB·OAB…)은 한국 교과서 표기상 **로만체**여야 한다.
 # OCR 이 \mathrm 을 안 붙이고 평문 대문자로 주면 수식에서 이탤릭으로 렌더된다(사용자 2026-06-08).
-# **블록 전체가 대문자 1~4글자(+선택 첨자)인 수식**만 기하 이름으로 보고 \mathrm 으로 감싼다
+# **블록 전체가 대문자 1~4글자(+선택 첨자)인 수식**만 기하 이름 후보로 보고 \mathrm 으로 감싼다
 # (소문자 변수 x,y,a,b 는 이탤릭 유지, 'A=2^6' 처럼 연산자·숫자 섞인 건 건드리지 않음 — 안전).
 _BARE_UPPER_EQ_RE = re.compile(r'^[A-Z]{1,4}(?:_\{?[A-Za-z0-9]+\}?)?$')
+# 첨자 제거 후 순수 대문자 알파벳만 추출(글자 수 판정용).
+_UPPER_LETTERS_RE = re.compile(r'^[A-Z]+')
+
+# 기하 키워드(엄격) — **대문자 1글자** 수식을 로만으로 만들지 결정. 확통의 X·P·E·V·Z·N
+# (확률변수·연산자)을 로만으로 만들지 않도록, 점·선·면·다각형 등 **확실한 도형 단어만**
+# 포함한다(넓이·함수·그래프 같은 넓은 단어는 X 그래프 오인 방지를 위해 제외). (사용자 2026-06-08)
+_GEOMETRY_KEYWORDS = (
+    "점", "꼭짓점", "교점", "원점", "중점", "무게중심",
+    "삼각형", "사각형", "정사각형", "직사각형", "마름모", "평행사변형", "사다리꼴",
+    "선분", "직선", "반직선", "호", "부채꼴",
+    "△", "∠", "∆",
+)
+
+
+def _has_geometry_context(blocks: list[ContentBlock]) -> bool:
+    """blocks 안 어느 텍스트/수식에든 엄격 기하 키워드가 있으면 True."""
+    text = " ".join(str(b.value or "") for b in blocks)
+    return any(k in text for k in _GEOMETRY_KEYWORDS)
 
 
 def _romanize_point_names(blocks: list[ContentBlock]) -> list[ContentBlock]:
-    """기하 점/선/면 이름(통째 대문자 수식 블록)을 \\mathrm 으로 감싸 로만체로 강제."""
+    """기하 점/선/면 이름(통째 대문자 수식 블록)을 \\mathrm 으로 감싸 로만체로 강제.
+
+    **기하 도형 라벨에만** 적용한다(사용자 2026-06-08: "도형 아닌데 로만체 너무 많다").
+      - 대문자 2~4글자(AB, ABC, OAB …) = 꼭짓점 라벨 → 무조건 로만(통계엔 거의 없음).
+      - 대문자 1글자(A, X, P, E …) = **같은 contents 에 기하 키워드가 있을 때만** 로만.
+        없으면 이탤릭 유지(확률변수 X·연산자 P/E/V 등을 로만화하지 않기 위해).
+    """
+    has_geo = _has_geometry_context(blocks)
     out: list[ContentBlock] = []
     for b in blocks:
         if b.type == ContentType.EQUATION:
             v = (b.value or "").strip()
             if v and "\\mathrm" not in v and _BARE_UPPER_EQ_RE.match(v):
-                out.append(ContentBlock(type=ContentType.EQUATION, value=f"\\mathrm{{{v}}}"))
-                continue
+                m = _UPPER_LETTERS_RE.match(v)
+                n_letters = len(m.group(0)) if m else 0
+                # 2글자 이상은 라벨로 보고 항상 로만, 1글자는 기하 문맥에서만 로만.
+                if n_letters >= 2 or (n_letters == 1 and has_geo):
+                    out.append(ContentBlock(type=ContentType.EQUATION,
+                                            value=f"\\mathrm{{{v}}}"))
+                    continue
         out.append(b)
     return out
 

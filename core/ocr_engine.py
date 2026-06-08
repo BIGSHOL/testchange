@@ -53,9 +53,26 @@ def _merge_missing_passages(result: dict, transcription: str) -> None:
     if not struct_norm:
         return
 
-    # 문단의 **앞부분 접두(16자)** 로 존재 여부를 본다(끝의 [9점]·구두점 차이에 강건).
-    def _prefix(pn: str) -> str:
-        return pn[:16]
+    # **존재 판정(견고)**: 접두 16자 단일매칭은 라벨 차이([서답형]vs[서술형])·수식 분리로
+    # 접두가 어긋나면 "없음"으로 오판해, 정상 서답형까지 통째 <상자>로 재주입했다(사용자
+    # 2026-06-08: "모든 서답형이 네모박스 안"). → 문단을 12자 윈도우로 6자 간격으로 떼어
+    # **하나라도** struct_norm 에 있으면 "있음"(주입 안 함). 전부 없을 때만(진짜 통째 누락된
+    # 지문) 주입한다. 짧은(<20자) 문단은 노이즈라 주입하지 않는다.
+    _WIN, _STRIDE = 12, 6
+
+    def _windows(pn: str):
+        if len(pn) <= _WIN:
+            yield pn
+            return
+        for k in range(0, len(pn) - _WIN + 1, _STRIDE):
+            yield pn[k:k + _WIN]
+
+    def _present_in(pn: str, haystack: str) -> bool:
+        hn = _norm_match(haystack)
+        return bool(hn) and any(w and w in hn for w in _windows(pn))
+
+    def _present(pn: str) -> bool:
+        return any(w and w in struct_norm for w in _windows(pn))
 
     ci = 0           # 현재 구조화 블록 인덱스
     insert_at = 0    # 누락 문단 삽입 위치
@@ -63,10 +80,10 @@ def _merge_missing_passages(result: dict, transcription: str) -> None:
         pn = _norm_match(p)
         if len(pn) < 8:
             continue
-        if _prefix(pn) and _prefix(pn) in struct_norm:
-            # 이 문단을 담은 블록(들)을 소비해 포인터 전진(접두로 판정)
+        if _present(pn):
+            # 이 문단을 담은 블록(들)을 소비해 포인터 전진(윈도우 매칭으로 판정).
             covered = ""
-            while ci < len(contents) and _prefix(pn) not in _norm_match(covered):
+            while ci < len(contents) and not _present_in(pn, covered):
                 covered += str(contents[ci].get("value", "")) if isinstance(contents[ci], dict) else ""
                 ci += 1
             insert_at = ci
@@ -79,6 +96,92 @@ def _merge_missing_passages(result: dict, transcription: str) -> None:
             ci = insert_at + 1
             insert_at = ci
             logger.info("서술형 지문 박스 복구: %d자 문단 삽입", len(p))
+
+
+# ── 객관식 표(확률분포표·정규분포표 등) 누락 복구 ──────────────────────────────
+# **단일 문제 크롭을 구조화(JSON) OCR 하면 비전 모델이 표·긴 지문을 "요약"하며 통째
+# 누락**한다(검증됨). 서술형은 _merge_missing_passages(전사 2-pass)로 지문을 복구하나
+# 객관식 확률분포표/정규분포표는 미복구였다(학남고 #3·#4·#10 표 통째 누락). 같은 모델이
+# "그대로 전사" 작업에선 표를 충실히 읽으므로, 표 지시어가 보이는데 table 블록이 없으면
+# **표만 마크다운으로 전사**하는 별도 호출을 한 번 더 돌려 끼워넣는다(지시어 게이트로
+# 평소엔 추가 호출 안 함 — 비용 절약).
+_TABLE_HINT_RE = re.compile(
+    r"표로\s*나타내면|표로\s*나타낸|확률\s*분포를\s*표|확률분포표|정규\s*분포표|"
+    r"표준정규분포표|도수분포표|아래\s*표|다음\s*표|위\s*표|다음과\s*같은\s*표|"
+    r"P\s*\(\s*X\s*=\s*x\s*\)|P\s*\(\s*Z|z의\s*값|Z의\s*값|확률변수\s*X의\s*확률분포")
+
+
+def _question_text_blob(result: dict) -> str:
+    """questions[].contents 의 text + choices 텍스트를 한 덩어리로(표 지시어 탐지용)."""
+    parts: list[str] = []
+    for q in result.get("questions") or []:
+        if not isinstance(q, dict):
+            continue
+        for c in q.get("contents") or []:
+            if isinstance(c, dict):
+                parts.append(str(c.get("value", "")))
+        for ch in q.get("choices") or []:
+            if not isinstance(ch, dict):
+                continue
+            for c in ch.get("contents") or []:
+                if isinstance(c, dict):
+                    parts.append(str(c.get("value", "")))
+        # 소문항도
+        for sub in q.get("sub_questions") or []:
+            if isinstance(sub, dict):
+                for c in sub.get("contents") or []:
+                    if isinstance(c, dict):
+                        parts.append(str(c.get("value", "")))
+    return " ".join(parts)
+
+
+def _has_table_block(result: dict) -> bool:
+    """결과 어디든 type=='table' 블록이 하나라도 있으면 True."""
+    def _scan(blocks) -> bool:
+        for b in blocks or []:
+            if isinstance(b, dict) and b.get("type") == "table":
+                return True
+        return False
+
+    for q in result.get("questions") or []:
+        if not isinstance(q, dict):
+            continue
+        if _scan(q.get("contents")):
+            return True
+        for sub in q.get("sub_questions") or []:
+            if isinstance(sub, dict) and _scan(sub.get("contents")):
+                return True
+    return False
+
+
+def _parse_markdown_table(md: str) -> list[list[str]]:
+    """마크다운 표 텍스트 → 2D 문자열(rows). 구분선(---|---) 행은 버린다.
+
+    실패/표 아님이면 빈 리스트. 1행 이하나 데이터 없는 표도 버린다(노이즈).
+    """
+    if not md or not md.strip():
+        return []
+    rows: list[list[str]] = []
+    for raw in md.splitlines():
+        line = raw.strip()
+        if not line or "|" not in line:
+            continue
+        # 양끝 파이프 제거 후 셀 분리
+        if line.startswith("|"):
+            line = line[1:]
+        if line.endswith("|"):
+            line = line[:-1]
+        cells = [c.strip() for c in line.split("|")]
+        # 구분선 행(--- 또는 :---:) 제거
+        if cells and all(re.fullmatch(r":?-{2,}:?", c or "-") or c == "" for c in cells) \
+                and any("-" in c for c in cells):
+            continue
+        rows.append(cells)
+    # 빈 행 제거 + 모든 셀이 빈 행 제거
+    rows = [r for r in rows if any(c for c in r)]
+    if len(rows) < 2:
+        return []
+    return rows
 
 
 def _retry_after_seconds(exc) -> float | None:
@@ -251,6 +354,11 @@ EXAM_OCR_PROMPT = """당신은 한국 수학 시험지를 정밀하게 OCR하는
 ## 조건 박스·표 (매우 중요!)
 - 테두리/박스 안의 내용(조건, 정의 등)은 **절대 누락하지 마세요.**
 - 박스 안에 (가), (나) 등이 있으면 sub_questions로 처리.
+- ⛔ **확률분포표·정규분포표·표준정규분포표·도수분포표 등 모든 격자형 표는 반드시
+  type="table" 로, 모든 행·열·헤더(합계 포함)를 한 칸도 빠짐없이** 추출하세요. 표를
+  요약·생략하거나 일부 행/열만 적는 것은 **절대 금지**입니다. **표를 그림(figure)으로
+  처리하지 마세요** — 격자 안이 숫자/수식/글자면 무조건 type="table" 입니다.
+  (확률변수 X의 확률분포, P(X=x), P(Z≤z), z의 값 등이 보이면 그 표를 꼭 table 로.)
 - 표(격자/그리드)가 있으면 type="table"로 추출:
 ```json
 {"type": "table", "value": "", "rows": [
@@ -360,14 +468,14 @@ class OCREngine:
             구조화된 OCR 결과 dict
         """
         base64_image = image_to_base64(image, format="PNG")
-        # ⚠️ **이미지를 프롬프트보다 앞**에 둔다(2026-06-08 회귀 수정). 캐싱 위해 프롬프트를
-        # 앞으로 옮겼던 v0.1.4 변경이, 비전 모델이 긴 지문 박스를 "요약"하며 누락하게 만들었다
-        # (독수리 이야기 박스 통째 누락). 이미지 우선이면 모델이 이미지를 충실히 읽는다.
-        # (프롬프트 캐시는 포기 — 정확도 우선. 이미지가 매 크롭 달라 어차피 prefix 캐시 못 함.)
+        # **프롬프트를 앞(안정 prefix)에 두고 캐싱** — 모든 크롭/페이지가 동일 프롬프트라 캐시
+        # 적중, 입력비용·지연 대폭 절감(2026-06-08 복원). 지문 박스 "요약" 누락은 이미지 순서가
+        # 아니라 _merge_missing_passages(전사 2-pass)가 해결하므로 캐싱을 되살린다.
         content = [
+            {"type": "text", "text": EXAM_OCR_PROMPT,
+             "cache_control": {"type": "ephemeral"}},
             {"type": "image", "source": {"type": "base64",
                                          "media_type": "image/png", "data": base64_image}},
-            {"type": "text", "text": EXAM_OCR_PROMPT},
         ]
 
         message = self._stream_message(content, OCR_MAX_TOKENS)
@@ -397,12 +505,14 @@ class OCREngine:
             "아래 '조건/보기 박스' 절을 따르세요(원본에 라벨이 있을 때만 붙임).\n\n"
             + EXAM_OCR_PROMPT
         )
-        # ⚠️ **이미지를 프롬프트보다 앞**에 둔다(2026-06-08 회귀 수정 — 독수리 지문 박스
-        # 요약·누락의 원인이 v0.1.4 캐싱용 '프롬프트 앞배치'였음). 이미지 우선이 비전 충실도↑.
+        # **프롬프트를 앞(안정 prefix)에 두고 캐싱** — 모든 크롭이 동일 프롬프트라 캐시 적중,
+        # 입력비용·지연 대폭 절감(2026-06-08 복원). 박스 "요약" 누락은 _merge_missing_passages
+        # (전사 2-pass)가 잡으므로 이미지 순서 대신 캐싱을 택한다.
         content = [
+            {"type": "text", "text": prompt,
+             "cache_control": {"type": "ephemeral"}},
             {"type": "image", "source": {"type": "base64",
                                          "media_type": "image/png", "data": base64_image}},
-            {"type": "text", "text": prompt},
         ]
 
         def _call(max_toks: int):
@@ -438,7 +548,66 @@ class OCREngine:
                 _merge_missing_passages(result, transcription)
             except Exception as me:  # noqa: BLE001
                 logger.warning("서술형 지문 전사 보강 실패(무시): %s", me)
+
+        # ── 객관식 표(확률분포표·정규분포표 등) 누락 복구(2026-06-08, 검증) ─────────
+        # 구조화 결과에 table 블록이 **없는데** 본문/선택지 텍스트에 표 지시어가 보이면,
+        # 비전 모델이 표를 "요약"하며 통째 누락한 것이다(서술형 경로와 별개, 객관식 한정).
+        # 표만 마크다운으로 전사하는 별도 호출로 복구해 questions[0].contents 끝에 끼운다.
+        # 지시어 게이트(평소엔 추가 호출 없음) + 실패해도 변환 중단 금지(기존 결과 유지).
+        try:
+            self._recover_table(result, base64_image)
+        except Exception as te:  # noqa: BLE001
+            logger.warning("객관식 표 복구 실패(무시): %s", te)
         return result
+
+    def _recover_table(self, result: dict, base64_image: str) -> None:
+        """객관식 크롭에서 누락된 격자형 표를 전사로 복구해 끼워넣는다(in-place).
+
+        트리거: ①결과에 table 블록이 전혀 없고 ②본문/선택지 텍스트에 표 지시어가 있을 때만
+        추가 호출(비용 절약). 마크다운 표 전사 → rows 파싱 → questions[0].contents 끝(발문
+        뒤, 선택지 앞)에 ``{"type":"table","value":"","rows":[...]}`` append.
+        """
+        qs = result.get("questions") or []
+        if not qs or not isinstance(qs[0], dict):
+            return
+        if _has_table_block(result):
+            return  # 이미 표가 잡혔으면 추가 호출 안 함
+        blob = _question_text_blob(result)
+        if not _TABLE_HINT_RE.search(blob):
+            return  # 표 지시어 없음 → 패스 생략(비용)
+
+        md = self._transcribe_table(base64_image)
+        rows = _parse_markdown_table(md)
+        if not rows:
+            logger.info("표 복구: 전사에서 유효한 표를 찾지 못함(스킵)")
+            return
+
+        contents = qs[0].get("contents")
+        if not isinstance(contents, list):
+            contents = []
+            qs[0]["contents"] = contents
+        contents.append({"type": "table", "value": "", "rows": rows})
+        logger.info("객관식 표 복구: %d행×%d열 표 삽입",
+                    len(rows), max(len(r) for r in rows))
+
+    def _transcribe_table(self, base64_image: str) -> str:
+        """이미지 안의 **표(격자)만** 마크다운 표로 전사(요약·해석 금지).
+
+        구조화 OCR 이 "요약"하며 누락하는 확률분포표·정규분포표 복구용. 표가 없으면 빈 문자열.
+        이미지를 먼저 배치(전사 충실도↑).
+        """
+        prompt = (
+            "이 이미지 안의 **표(격자/그리드)**를 마크다운 표로 정확히 옮겨적으세요. "
+            "모든 행·열·헤더(합계 포함)를 한 칸도 빠짐없이. 표 안의 수식은 LaTeX 로. "
+            "표가 여러 개면 가장 큰 표 하나만. **표가 전혀 없으면 빈 문자열만 출력하세요.** "
+            "요약·해석·설명 절대 금지. 마크다운 표(| … | … |)만 출력."
+        )
+        content = [
+            {"type": "image", "source": {"type": "base64",
+                                         "media_type": "image/png", "data": base64_image}},
+            {"type": "text", "text": prompt},
+        ]
+        return self._stream_message(content, 4096).content[0].text or ""
 
     def _transcribe(self, base64_image: str) -> str:
         """크롭 이미지의 **인쇄 텍스트 전체를 그대로 전사**(요약·구조화 없이 순수 텍스트).

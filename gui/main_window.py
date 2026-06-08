@@ -56,6 +56,9 @@ logger = logging.getLogger(__name__)
 # 크롭 OCR 병렬 처리 동시 실행 수(①). 너무 크면 API 레이트리밋, 작으면 속도 이득 적음.
 _OCR_WORKERS = 6
 
+# 그림 렌더링 OFF 일 때 figure 자리에 넣는 안내 문구(SVG 생성 대신). 폼 경로 _FIGURE_NOTE 와 통일.
+_FIGURE_NOTE_TEXT = "※ 그림 자리 — 원본에서 이 영역을 캡처해 여기에 붙여넣으세요"
+
 # 체크박스 스타일 + QToolTip 시인성 보정. 위젯 인라인 color 가 그 위젯 툴팁 글씨색으로
 # 새어(어두운 글씨) 어두운 배경과 겹쳐 안 보이는 Qt 특성을, QToolTip 규칙을 함께 명시해
 # 차단한다(흰 배경·진한 글씨·옅은 테두리). (사용자 보고 2026-06-08: 툴팁 글씨 안 보임.)
@@ -168,6 +171,12 @@ class ConversionWorker(QObject):
             for blk in contents:
                 if not (isinstance(blk, dict) and blk.get("type") == "figure"):
                     out.append(blk)
+                    continue
+                # 그림 렌더링 OFF(체크박스 해제): **SVG 생성 자체를 하지 않고** 안내 텍스트로
+                # 대체한다(사용자 2026-06-08: 그림 체크 안 했는데 깨진 SVG 곡선이 보기 박스에
+                # 생성됨). 보기/조건 박스 안이든 본문이든 일관 적용 — 깨진 그림 원천 차단.
+                if not self.render_figures:
+                    out.append({"type": "text", "value": _FIGURE_NOTE_TEXT})
                     continue
                 bbox = blk.get("bbox")
                 try:

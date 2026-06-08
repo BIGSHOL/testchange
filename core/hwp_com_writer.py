@@ -294,9 +294,14 @@ class HwpComWriter:
         항목 줄 안에 인라인으로 유지(A8). 항목 라벨 뒤엔 공백 1칸(A6).
         """
         started = False
+        # `emitted` = 셀에 **실제 보이는 내용**(텍스트/마커/수식/그림)을 한 번이라도 찍었는가.
+        # 줄바꿈(break_para)은 emitted 일 때만 — 빈 셀 첫 단락에 아무것도 안 쓴 채 줄을 끊으면
+        # **선두 빈 단락**이 생긴다(<상자>•수식 처럼 숨은 마커 직후 불릿이 break 를 부르던 버그.
+        # 사용자 2026-06-08: 상자 내용이 둘째 줄부터 시작). started(공백 lstrip 판정)와 분리.
+        emitted = False
 
         def emit_text(text: str) -> None:
-            nonlocal started
+            nonlocal started, emitted
             pos = 0
             broke = False   # 직전이 빈 경계 줄바꿈이면 중복 줄바꿈 방지(불릿+라벨 인접)
             after_label = False  # 라벨 직후면 뒤 내용 선행공백 strip(이중공백 방지, 2026-06-05)
@@ -308,17 +313,19 @@ class HwpComWriter:
                         seg = seg.lstrip()   # "ㄱ. " + " 내용" → "ㄱ. 내용"(한 칸)
                     self.s.text(seg)
                     started = True
+                    emitted = True
                     broke = False
                     after_label = False
                 tok = re.sub(r"\s+", "", m.group(0))   # "ㄱ ." → "ㄱ.", "< 보기 >" → "<보기>"
                 # 불릿(•)·<상자>(라벨 없는 박스)는 줄 경계로만 쓰고 **출력 안 함**(A4).
                 is_hidden = (_BULLET_RE.fullmatch(m.group(0)) is not None) or tok == _PLAIN_BOX_MARK
-                if started and not broke:
-                    self.s.break_para()   # 마커/항목 라벨/불릿 앞에서 줄바꿈
+                if emitted and not broke:
+                    self.s.break_para()   # 마커/항목 라벨/불릿 앞에서 줄바꿈(보인 내용 있을 때만)
                     broke = True
                 if not is_hidden:
                     # 표시 마커/라벨 출력(<조건>/<보기>/ㄱ. 등)
                     self.s.text(tok + " ")                 # 라벨/마커 뒤 공백(A6)
+                    emitted = True
                     broke = False
                     after_label = True
                 elif tok == _PLAIN_BOX_MARK:
@@ -332,6 +339,7 @@ class HwpComWriter:
                     seg = seg.lstrip()
                 self.s.text(seg)
                 started = True
+                emitted = True
 
         for block in blocks:
             if block.type == ContentType.TEXT:
@@ -339,13 +347,16 @@ class HwpComWriter:
             elif block.type in (ContentType.EQUATION, ContentType.EQUATION_BLOCK):
                 self.s.equation(_eq_script(block))   # 항목 줄 안 인라인 수식
                 started = True
+                emitted = True
             elif block.type == ContentType.IMAGE and block.value:
-                self.s.break_para()
+                if emitted:
+                    self.s.break_para()   # 보인 내용 뒤에서만 줄바꿈(선두 빈 줄 방지)
                 self.s.align_center()
                 self.s.insert_picture(block.value)
                 self.s.break_para()
                 self.s.align_left()
                 started = True
+                emitted = True
 
     def _write_condition_box(self, blocks: list[ContentBlock]) -> None:
         """보기/조건 블록들을 1×1 테두리 표(박스) 안에 줄 단위로 렌더한다(A3)."""
@@ -691,6 +702,11 @@ def write_exam_to_hwp(
         _set_endnote_suffix(output_path)
     except Exception:
         pass
+    # <보기>/<조건> 라벨 1×1 박스 → 5×5 병합표 폼(레퍼런스와 픽셀 동일). <상자>·일반표 제외.
+    try:
+        _inject_bogi_form(output_path)
+    except Exception:
+        pass
     return output_path
 
 
@@ -736,6 +752,276 @@ def _set_endnote_suffix(hwpx_path: str | Path, suffix: str = ".") -> int:
             zout.writestr(zi, contents[info.filename])
     os.replace(tmp, hwpx_path)
     return count
+
+
+# ── 보기/조건 라벨 박스 → 5×5 병합표 폼 주입 ───────────────────────
+def _tbl_balanced(s: str, start: int, tag: str = "hp:tbl") -> tuple[str, int]:
+    """``start`` 의 여는 태그부터 **중첩을 고려해** 닫는 태그까지 균형 추출.
+
+    Returns: (segment, end_index). 못 찾으면 ("", -1).
+    """
+    close = "</%s>" % tag
+    tok = re.compile(re.escape("<" + tag) + r"\b|" + re.escape(close))
+    depth = 0
+    for m in tok.finditer(s, start):
+        if m.group().startswith("</"):
+            depth -= 1
+            if depth == 0:
+                return s[start:m.end()], m.end()
+        else:
+            depth += 1
+    return "", -1
+
+
+# 셀 subList(라벨/내용)용 — paraPrIDRef/charPrIDRef 는 호출측이 주입(라벨은 가운데 paraPr).
+_BOGI_SUBLIST_HEAD = (
+    '<hp:subList id="" textDirection="HORIZONTAL" lineWrap="BREAK" vertAlign="CENTER" '
+    'linkListIDRef="0" linkListNextIDRef="0" textWidth="0" textHeight="0" '
+    'hasTextRef="0" hasNumRef="0">'
+)
+
+
+def _bogi_center_parapr_id(header_xml: str) -> str:
+    """헤더에서 가운데 정렬 paraPr id 를 찾는다(없으면 "0")."""
+    for pm in re.finditer(r'<hh:paraPr\b[^>]*\bid="(\d+)".*?</hh:paraPr>', header_xml, re.S):
+        al = re.search(r'<hh:align\b[^>]*horizontal="(\w+)"', pm.group(0))
+        if al and al.group(1) == "CENTER":
+            return pm.group(1)
+    return "0"
+
+
+def _wrap_subList(paras: list[str]) -> str:
+    """``<hp:p>…</hp:p>`` 단락 리스트를 하나의 ``<hp:subList>`` 로 감싼다."""
+    if not paras:
+        paras = [
+            '<hp:p id="0" paraPrIDRef="0" styleIDRef="0" pageBreak="0" columnBreak="0" '
+            'merged="0"><hp:run charPrIDRef="0"/><hp:linesegarray><hp:lineseg textpos="0" '
+            'vertpos="0" vertsize="1000" textheight="1000" baseline="850" spacing="600" '
+            'horzpos="0" horzsize="100" flags="393216"/></hp:linesegarray></hp:p>'
+        ]
+    return _BOGI_SUBLIST_HEAD + "".join(paras) + "</hp:subList>"
+
+
+def _set_para_align(para_xml: str, parapr_id: str) -> str:
+    """단락의 paraPrIDRef 를 ``parapr_id`` 로 바꾼다(가운데정렬 적용)."""
+    return re.sub(r'(<hp:p\b[^>]*\bparaPrIDRef=")\d+(")',
+                  lambda m: m.group(1) + parapr_id + m.group(2), para_xml, count=1)
+
+
+def _extract_cell_paras(tbl_xml: str) -> list[str]:
+    """1×1 표 셀 subList 안의 ``<hp:p>…</hp:p>`` 단락들을 순서대로 반환."""
+    # 셀 subList 안만 대상(표 자체엔 subList 가 셀 하나뿐).
+    sub_start = tbl_xml.find("<hp:subList")
+    sub_seg, _ = _tbl_balanced(tbl_xml, sub_start, "hp:subList")
+    if not sub_seg:
+        return []
+    paras = []
+    p = 0
+    while True:
+        i = sub_seg.find("<hp:p ", p)
+        if i < 0:
+            break
+        seg, end = _tbl_balanced(sub_seg, i, "hp:p")
+        if end < 0:
+            break
+        paras.append(seg)
+        p = end
+    return paras
+
+
+def _para_plaintext(para_xml: str) -> str:
+    """단락의 보이는 텍스트(모든 태그 제거 + XML 엔티티 복원).
+
+    라벨 ``<보기>`` 는 XML 에 ``&lt;보기&gt;`` 로 인코딩되므로 엔티티를 풀어야
+    ``_BOGI_LABEL_TEXT_RE`` 가 매칭된다.
+    """
+    txt = re.sub(r"<[^>]+>", "", para_xml)
+    txt = (txt.replace("&lt;", "<").replace("&gt;", ">")
+              .replace("&quot;", '"').replace("&apos;", "'").replace("&amp;", "&"))
+    return txt.strip()
+
+
+# 1×1 박스 셀 첫 단락이 <보기>/<조건> 로 시작하는지 (라벨 박스 판정). <상자>·일반표 제외.
+_BOGI_LABEL_TEXT_RE = re.compile(r"^\s*<\s*(보기|조건)\s*>")
+
+
+def _inject_bogi_form(hwpx_path: str | Path) -> int:
+    """저장된 .hwpx 에서 ``<보기>``/``<조건>`` 라벨 1×1 박스를 5×5 병합표 폼으로 치환.
+
+    - section XML 의 모든 1×1 표 중 **셀 첫 단락 텍스트가 ``<보기>``/``<조건>`` 로 시작**
+      하는 표만 대상(``<상자>``·OCR 표·기타 1×1 박스는 건드리지 않음).
+    - 셀 subList 단락을 라벨(첫 단락)·내용(나머지)으로 분리해 ``bogi_box_template`` 의
+      5×5 표에 채운다. 라벨은 가운데정렬.
+    - 테두리 7+1종(BF4,8~15)을 header.xml 의 ``<hh:borderFills>`` 에 새 id 로 append,
+      itemCnt 갱신, 템플릿 플레이스홀더를 실제 id 로 치환.
+    - **위치기반 치환만**(findall+join 금지). 끝에 ``<hp:p`` 균형 검증.
+
+    Returns: 치환한 라벨 박스 개수.
+    """
+    import zipfile, os
+    from core.bogi_box_template import (
+        BOGI_TABLE_TEMPLATE, BORDERFILL_DEFS, BORDERFILL_KEYS,
+    )
+
+    hwpx_path = Path(hwpx_path)
+    with zipfile.ZipFile(hwpx_path) as z:
+        infos = z.infolist()
+        contents = {i.filename: z.read(i.filename) for i in infos}
+
+    header_fn = next((f for f in contents if f.endswith("header.xml")), None)
+    if header_fn is None:
+        return 0
+    header = contents[header_fn].decode("utf-8")
+    center_pid = _bogi_center_parapr_id(header)
+
+    total = 0
+    bf_id_map = None  # 첫 치환 때 한 번만 borderFill 을 헤더에 append
+    tiny_cp_id = None  # 첫 치환 때 한 번만 1pt charPr 를 헤더에 append(빈 셀 행높이 강제 해제)
+    tbl_id_seq = 0
+
+    for fn in list(contents):
+        if not (fn.endswith(".xml") and "section" in fn.lower()):
+            continue
+        s = contents[fn].decode("utf-8")
+        out = []
+        last = 0
+        changed = False
+        # 1×1 표를 위치 순회(중첩표 고려 균형 추출)
+        p = 0
+        while True:
+            m = re.search(r'<hp:tbl\b[^>]*rowCnt="1"[^>]*colCnt="1"', s[p:])
+            if not m:
+                break
+            tstart = p + m.start()
+            tbl_xml, tend = _tbl_balanced(s, tstart, "hp:tbl")
+            if tend < 0:
+                break
+            p = tend
+            paras = _extract_cell_paras(tbl_xml)
+            if not paras:
+                continue
+            first_txt = _para_plaintext(paras[0])
+            if not _BOGI_LABEL_TEXT_RE.match(first_txt):
+                continue  # <상자>·일반표 등은 그대로 둠
+
+            # borderFill·1pt charPr 는 처음 한 번만 헤더에 append
+            if bf_id_map is None:
+                bf_id_map, header = _append_borderfills(
+                    header, BORDERFILL_DEFS, BORDERFILL_KEYS)
+                tiny_cp_id, header = _append_tiny_charpr(header)
+
+            # 라벨 = 첫 단락(가운데정렬), 내용 = 나머지 단락
+            label_para = _set_para_align(paras[0], center_pid)
+            label_sub = _wrap_subList([label_para])
+            content_sub = _wrap_subList(paras[1:])
+
+            tbl_id_seq += 1
+            new_tbl = BOGI_TABLE_TEMPLATE
+            new_tbl = new_tbl.replace("{{TBL_ID}}", str(2000000000 + tbl_id_seq))
+            for k in BORDERFILL_KEYS:
+                new_tbl = new_tbl.replace("{{BF%d}}" % k, str(bf_id_map[k]))
+            new_tbl = new_tbl.replace("{{TINY_CP}}", str(tiny_cp_id))
+            new_tbl = new_tbl.replace("{{LABEL_SUBLIST}}", label_sub)
+            new_tbl = new_tbl.replace("{{CONTENT_SUBLIST}}", content_sub)
+
+            out.append(s[last:tstart])
+            out.append(new_tbl)
+            last = tend
+            changed = True
+            total += 1
+            # 치환으로 인덱스가 바뀌었지만 우리는 원본 s 의 tend 이후만 계속 스캔하므로 OK
+        if changed:
+            out.append(s[last:])
+            new_s = "".join(out)
+            # 태그 균형 검증(<hp:p 여는 == </hp:p> 닫는)
+            opens = len(re.findall(r"<hp:p\b", new_s))
+            closes = new_s.count("</hp:p>")
+            if opens != closes:
+                raise ValueError(
+                    "bogi 폼 주입 후 <hp:p> 불균형: open=%d close=%d (%s)" % (opens, closes, fn))
+            contents[fn] = new_s.encode("utf-8")
+
+    if total == 0:
+        return 0
+
+    # 헤더(테두리 append) 반영
+    contents[header_fn] = header.encode("utf-8")
+
+    tmp = str(hwpx_path) + ".tmp"
+    with zipfile.ZipFile(tmp, "w") as zout:
+        for info in infos:
+            zi = zipfile.ZipInfo(info.filename, date_time=info.date_time)
+            zi.compress_type = info.compress_type
+            zi.external_attr = info.external_attr
+            zi.internal_attr = info.internal_attr
+            zi.create_system = info.create_system
+            zi.flag_bits = info.flag_bits
+            zout.writestr(zi, contents[info.filename])
+    os.replace(tmp, hwpx_path)
+    return total
+
+
+def _append_borderfills(header: str, defs: dict, keys: list) -> tuple[dict, str]:
+    """``BORDERFILL_DEFS`` 를 header.xml ``<hh:borderFills>`` 에 새 id 로 append.
+
+    템플릿 키(4,8~15)는 새로 할당한 실제 id 로 매핑된다(기존 max id+1 부터 연속).
+    같은 정의 안 다른 BFx 참조는 없으므로 각 def 의 자기 id 만 치환하면 된다.
+
+    Returns: ({템플릿키: 실제id}, 갱신된 header).
+    """
+    bfs_open = re.search(r'<hh:borderFills\b[^>]*>', header)
+    if not bfs_open:
+        raise ValueError("header.xml 에 <hh:borderFills> 없음")
+    existing = [int(x) for x in re.findall(r'<hh:borderFill\b[^>]*\bid="(\d+)"', header)]
+    next_id = (max(existing) + 1) if existing else 1
+    id_map = {}
+    new_defs = []
+    for k in keys:
+        id_map[k] = next_id
+        body = defs[k].replace("{{BF%d}}" % k, str(next_id))
+        new_defs.append(body)
+        next_id += 1
+    # itemCnt += len(keys)
+    cnt_m = re.search(r'(<hh:borderFills\b[^>]*itemCnt=")(\d+)(")', header)
+    new_cnt = int(cnt_m.group(2)) + len(keys)
+    header = header[:cnt_m.start()] + cnt_m.group(1) + str(new_cnt) + cnt_m.group(3) + header[cnt_m.end():]
+    # append before </hh:borderFills>
+    close_idx = header.find("</hh:borderFills>")
+    header = header[:close_idx] + "".join(new_defs) + header[close_idx:]
+    return id_map, header
+
+
+def _append_tiny_charpr(header: str) -> tuple[int, str]:
+    """header.xml ``<hh:charProperties>`` 에 1pt 글자모양(charPr)을 1회 append.
+
+    5×5 폼표의 **빈 셀**(스페이서/테두리 행)이 기본 11pt(`height="1000"`)면 그 행 높이가
+    11pt 로 강제돼 템플릿 cellSz 의 얇은 높이(691·382 HWPUNIT)가 안 먹는다(사용자
+    2026-06-08). 빈 셀의 charPrIDRef 를 이 1pt(`height="100"`) charPr 로 가리키게 해
+    행높이 강제를 푼다. (`_append_borderfills` 패턴 미러: 기존 charPr 하나 복제 →
+    새 id(max+1) + height="100", itemCnt +1.)
+
+    Returns: (새 charPr id, 갱신된 header).
+    """
+    cp_open = re.search(r'<hh:charProperties\b[^>]*>', header)
+    if not cp_open:
+        raise ValueError("header.xml 에 <hh:charProperties> 없음")
+    existing = [int(x) for x in re.findall(r'<hh:charPr\b[^>]*\bid="(\d+)"', header)]
+    if not existing:
+        raise ValueError("header.xml 에 <hh:charPr> 없음")
+    new_id = max(existing) + 1
+    # 기존 charPr 하나(첫 번째) 복제 → id·height 만 바꿔 동일 폰트/메트릭 유지.
+    src_m = re.search(r'<hh:charPr\b.*?</hh:charPr>', header, re.S)
+    body = src_m.group(0)
+    body = re.sub(r'\bid="\d+"', 'id="%d"' % new_id, body, count=1)
+    body = re.sub(r'\bheight="\d+"', 'height="100"', body, count=1)  # 1pt = 100 HWPUNIT
+    # itemCnt += 1
+    cnt_m = re.search(r'(<hh:charProperties\b[^>]*itemCnt=")(\d+)(")', header)
+    new_cnt = int(cnt_m.group(2)) + 1
+    header = header[:cnt_m.start()] + cnt_m.group(1) + str(new_cnt) + cnt_m.group(3) + header[cnt_m.end():]
+    # append before </hh:charProperties>
+    close_idx = header.find("</hh:charProperties>")
+    header = header[:close_idx] + body + header[close_idx:]
+    return new_id, header
 
 
 # ── 스모크 테스트 ─────────────────────────────────────────

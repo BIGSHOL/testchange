@@ -77,20 +77,22 @@ def _normalize_circled(s: str) -> str:
 # 긴 단위 먼저(min 이 m 보다, cm 이 m 보다 우선). 한글 단위(원 등)는 수식에서 깨질 수 있어 제외.
 _UNITS = [
     "min", "km", "cm", "mm", "kg", "mg", "mL", "dL", "kL",
-    "m", "g", "t", "L", "s", "h", "%", "°", "℃", "℉", "ℓ",
+    "m", "g", "t", "L", "s", "h", "°", "℃", "℉", "ℓ",
 ]
+# 숫자와 단위 사이에 공백/`(=\,변환) 가 끼어도 단위로 인식한다(사용자 2026-06-08: "20 g"·
+# "20\,g" 처럼 띄어진 단위가 로만 처리 안 됨). 단위 뒤에 영문/숫자 없을 때만(변수 5x 제외).
 _UNIT_RE = re.compile(
-    r"(?<=\d)(" + "|".join(re.escape(u) for u in _UNITS) + r")(?![A-Za-z])"
+    r"(\d)[\s`]*(" + "|".join(re.escape(u) for u in _UNITS) + r")(?![A-Za-z0-9])"
 )
 
 
 def _romanize_units(s: str) -> str:
-    """수식 내 '숫자 바로 뒤 단위'를 ``rm`<단위>`` (정자 + 1/4칸)로 변환.
+    """수식 내 '숫자(+공백/`) 뒤 단위'를 ``rm`<단위>`` (정자 + 1/4칸)로 변환.
 
-    예: ``10kg`` → ``10 rm`kg``, ``5cm`` → ``5 rm`cm`` (cm 뒤 ``^2`` 는 그대로 → cm²).
-    숫자 뒤 + 뒤에 영문자가 이어지지 않을 때만(변수 ``5x`` 등은 건드리지 않음).
+    예: ``10kg`` → ``10 rm`kg``, ``5cm`` → ``5 rm`cm``, ``20 g``/``20`g`` → ``20 rm`g``.
+    숫자 뒤 + 뒤에 영문/숫자가 이어지지 않을 때만(변수 ``5x`` 등은 건드리지 않음).
     """
-    return _UNIT_RE.sub(lambda m: " rm`" + m.group(1), s)
+    return _UNIT_RE.sub(lambda m: m.group(1) + " rm`" + m.group(2), s)
 
 
 _REPEAT_DECIMAL_RE = re.compile(r"\.((?:\\dot\s*\{\s*\d\s*\}|\d)+)")
@@ -199,6 +201,8 @@ class LaTeXToHWPConverter:
 
     # 연산자/기호 매핑
     SYMBOL_MAP = {
+        # 이스케이프 리터럴
+        r"\%": "%",            # 백분율: 99\% → 99% (미매핑이면 백슬래시 잔존)
         # 산술 연산
         r"\times": "TIMES",
         r"\cdot": "CDOT",
@@ -662,10 +666,12 @@ class LaTeXToHWPConverter:
             braces = {_SENT_LB, _SENT_RB}
             if l_str in braces or r_str in braces:
                 return f"{l_str} {inner} {r_str}".strip()
+            # 앞에 공백을 둬 인접 글자(`P\left(` → `P LEFT (`)가 키워드에 붙지 않게 한다.
+            # 안 그러면 `PLEFT` 가 되어 로만화·렌더가 깨진다(사용자 2026-06-08).
             if l_str and r_str:
-                return f"LEFT {l_str} {inner} RIGHT {r_str}"
+                return f" LEFT {l_str} {inner} RIGHT {r_str}"
             elif l_str:
-                return f"LEFT {l_str} {inner}"
+                return f" LEFT {l_str} {inner}"
             elif r_str:
                 return f"{inner} RIGHT {r_str}"
             return inner
@@ -693,10 +699,19 @@ class LaTeXToHWPConverter:
             s = s.replace(latex_cmd, hwp_name)
 
         # 9. 기호/연산자
+        #   HWP 키워드(LEQ, GEQ, TIMES, CDOT …)는 **앞뒤에 공백을 보장**해 인접 영숫자에
+        #   붙지 않게 한다. 단순 `s.replace(\le, LEQ)` 는 `X\le 1` → `XLEQ 1` 처럼 앞 글자에
+        #   붙어, 그 "XLEQ" 가 연속대문자 로만화(`_apply_roman_labels`)에 걸려 깨진다
+        #   (사용자 보고 "PLEFT"/"XLEQ" 2026-06-08). HWP 수식은 여분 공백을 무시하므로 안전.
+        #   값이 알파벳으로 시작/끝나는 키워드형(LEQ, neq, in …)만 패딩하고, 연산자형
+        #   (->, <, |, %, \ 등)은 그대로 둔다(공백이 화살표 토큰을 깰 수 있음).
         for latex_cmd, hwp_sym in sorted(
             self.SYMBOL_MAP.items(), key=lambda x: -len(x[0])
         ):
-            s = s.replace(latex_cmd, hwp_sym)
+            repl = hwp_sym
+            if repl and (repl[0].isalpha() or repl[-1].isalpha()):
+                repl = " " + repl + " "
+            s = s.replace(latex_cmd, repl)
 
         # 10. 함수명
         for latex_cmd, hwp_func in sorted(

@@ -24,6 +24,7 @@ ROOT = Path(__file__).resolve().parent.parent
 W_PATH = ROOT / "core" / "hwp_com_writer.py"
 C_PATH = ROOT / "core" / "hwp_com.py"
 L_PATH = ROOT / "core" / "latex_to_hwpeq.py"
+O_PATH = ROOT / "core" / "ocr_engine.py"
 
 
 def _norm(p) -> str:
@@ -47,6 +48,7 @@ def run_checks():
     W = _read(W_PATH)
     C = _read(C_PATH)
     L = _read(L_PATH)
+    O = _read(O_PATH)
     out = []
 
     def chk(n, name, ok, detail=""):
@@ -88,6 +90,31 @@ def run_checks():
     chk(20, "발문뒤 영역 공통 렌더(_write_tail)",
         "def _write_tail" in W and "def _tail_start" in W
         and "_write_condition_box(box)" in W)
+
+    # ── 방어 하네스: 핵심 후보정 함수/패턴 생존 확인(버그류 재발 방지, 정적 검사) ────
+    # 과거 디버깅으로 확립한 후보정 로직이 리팩터링 중 사라지면 같은 버그가 재발한다.
+    # OCR 엔진/변환기의 핵심 함수·패턴이 살아있는지 grep 기반으로 검사한다.
+    chk(21, "서답형 지문 윈도우 포함검사(_merge 오주입 방지)",
+        "def _merge_missing_passages" in O
+        and "_WIN, _STRIDE" in O and "def _windows" in O,
+        "" if "def _merge_missing_passages" in O else "_merge_missing_passages 없음")
+    chk(22, "객관식 표 복구 트리거(_recover_table)",
+        "def _recover_table" in O and "def _transcribe_table" in O
+        and "_TABLE_HINT_RE" in O and "_has_table_block" in O
+        and "_parse_markdown_table" in O)
+    chk(23, "표 복구 후 table 블록 삽입",
+        bool(re.search(r'"type":\s*"table".*?"rows":\s*rows', O)))
+    chk(24, "OCR 프롬프트 표 강조(요약 금지)",
+        "type=\"table\"" in O and "확률분포표" in O
+        and ("요약·생략" in O or "요약·생략하거나" in O))
+    chk(25, r"latex \left 자동크기 경로",
+        r"\left" in L and "leftright" in L.lower())
+    chk(26, r"latex \% → %% 매핑",
+        r'r"\%": "%"' in L or r"\%" in L and '"%"' in L)
+    chk(27, "단위 로만체+공백(_romanize_units)",
+        "def _romanize_units" in L)
+    chk(28, "기하 라벨 로만체(mathrm/로만 라벨)",
+        "_mathrm_pattern" in L and "_apply_roman_labels" in L)
 
     mid_ok = ("mid" in L) and (r"\mid" in L)
     try:
