@@ -539,6 +539,33 @@ def _put_total_score(ses, h, num: int) -> None:
     _set_plain(h)
 
 
+_ESSAY_LABEL_LEAD = re.compile(r'^\s*\[\s*서[답술]형\s*\d+\s*\]\s*')
+
+
+def _essay_label_and_body(contents, fallback_label, label_idx):
+    """contents 선두의 ``[서술형/서답형 N]`` 라벨을 추출해 (라벨문자열, 라벨제거 contents) 반환.
+
+    OCR 은 발문 앞에 ``[서술형 N]`` 라벨을 contents 에 넣는다(프롬프트 규칙). _fill_essay_at
+    가 자기 라벨을 또 쓰면 ``[서답형 N] [서술형 N]`` 중복이 생기고, 이를 저장 후 regex 로
+    지우던 ``_dedupe_essay_labels`` 가 **lineseg 를 갱신하지 않아** HWP 재저장 시 그 단락
+    (미주 포함)을 통째 드롭했다(서술형 4·5 누락의 근본 원인, 2026-06-09). → contents 의
+    라벨을 그대로 쓰고 본문에서 떼어 **라벨을 한 번만** 출력 → 중복·후처리 자체를 제거.
+    라벨이 없으면 폴백 ``[{label_type} {label_idx}]``.
+    """
+    import copy
+    out = list(contents)
+    for i, b in enumerate(out):
+        if b.type == ContentType.TEXT and (b.value or "").strip():
+            m = _ESSAY_LABEL_LEAD.match(b.value)
+            if m:
+                nb = copy.copy(b)
+                nb.value = b.value[m.end():]
+                out[i] = nb
+                return m.group(0).strip(), out
+            break   # 첫 본문 텍스트에 라벨이 없으면 폴백 라벨 사용
+    return f"[{fallback_label} {label_idx}]", out
+
+
 def _fill_essay_at(ses, h, pos, q: Question, label_idx: int, next_pos=None) -> None:
     """서술형 슬롯 채움: 번호줄 ``[라벨 M] 문제`` + 소문항((k) 수식 마커) + 배점.
 
@@ -548,7 +575,8 @@ def _fill_essay_at(ses, h, pos, q: Question, label_idx: int, next_pos=None) -> N
     다음 슬롯 미주까지 먹지 않도록 클램프한다(서술형은 1/단이라 MoveSelDown 이 다음 단의
     슬롯으로 점프해 인접 미주를 삭제하는 버그가 있었음).
     """
-    label = q.label_type or "서답형"
+    # contents 선두 라벨을 한 번만 쓰고 본문에서 제거(중복 라벨 → dedupe lineseg 손상 차단).
+    disp_label, contents = _essay_label_and_body(q.contents, q.label_type or "서답형", label_idx)
     h.SetPos(pos[0], pos[1], pos[2])
     h.Run("MoveRight")                       # 번호(미주) 다음
     # 슬롯 템플릿: 번호줄 [서술형] + 빈줄 + 둘째 [서술형] 까지 선택 삭제([중단원] 전까지).
@@ -567,11 +595,11 @@ def _fill_essay_at(ses, h, pos, q: Question, label_idx: int, next_pos=None) -> N
         h.Run("MoveSelParaEnd")
     h.HAction.Run("Delete")
     _set_plain(h)
-    ses.text(f" [{label} {label_idx}] ")
+    ses.text(f" {disp_label} ")
     # 발문 → 배점(발문 끝) → 조건/그림/블록수식. 소문항 있으면 본문 배점은 소문항에 위임.
     if q.sub_questions:
         # 소문항 부모: 발문 끝 [총 N점] 을 본문에서 분리해 우측정렬로 따로(기본 경로와 동일).
-        body, total = _split_trailing_score(q.contents)
+        body, total = _split_trailing_score(contents)
         if total is None:
             total = q.score
         _put_qbody(ses, h, body, None)
@@ -591,7 +619,7 @@ def _fill_essay_at(ses, h, pos, q: Question, label_idx: int, next_pos=None) -> N
                 ses.break_para()
                 h.Run("ParagraphShapeAlignLeft")
     else:
-        _put_qbody(ses, h, q.contents, q.score, essay=True)   # 소문항 없는 서술형(우측정렬)
+        _put_qbody(ses, h, contents, q.score, essay=True)   # 소문항 없는 서술형(우측정렬)
 
 
 def _choice_len(choice) -> int:
