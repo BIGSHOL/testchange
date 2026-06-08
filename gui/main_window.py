@@ -618,6 +618,7 @@ class MainWindow(QMainWindow):
         super().__init__()
         self._worker: ConversionWorker | None = None
         self._thread: QThread | None = None
+        self._typing_warned = False   # 변환 중 타이핑 경고는 세션당 1회만
         self._setup_ui()
 
     # ── 통일된 크기 상수 ──
@@ -1145,6 +1146,19 @@ class MainWindow(QMainWindow):
 
         # 출력 디렉토리 생성
         Path(output_path).parent.mkdir(parents=True, exist_ok=True)
+
+        # 변환 중 타이핑 경고(세션당 1회) — 실시간 작성 표시가 켜져 있으면 한글 창이
+        # 떠 포커스를 받을 수 있어, 다른 데서 친 키가 본문에 섞인다(사용자 보고).
+        from core.hwp_com import CONVERSION_VISIBLE
+        if CONVERSION_VISIBLE and not self._typing_warned:
+            QMessageBox.warning(
+                self, "변환 중 타이핑 주의",
+                "변환이 진행되는 동안 한글(HWP) 창이 떠서 실시간으로 작성됩니다.\n\n"
+                "이때 다른 창에서 타이핑하면 그 글자가 한글 본문에 섞여 들어갈 수 있습니다.\n"
+                "변환이 끝날 때까지 키보드 입력을 멈춰 주세요.\n\n"
+                "(이 안내는 이번 실행에서 한 번만 표시됩니다.)",
+            )
+            self._typing_warned = True
 
         self._set_ui_converting(True)
         self._progress_bar.setValue(0)
