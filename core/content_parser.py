@@ -391,12 +391,39 @@ def _split_one_eq_commas(block: ContentBlock, result: list[ContentBlock]) -> boo
         result.append(ContentBlock(type=ContentType.EQUATION,
                                    value=re.sub(r",\s*", ",~", v)))
         return True
+    # **스푸리어스 쉼표 방어**(사용자 2026-06-08, 학남고 #12): OCR 이 곱셈에 쉼표를 끼우면
+    # ``P(…)=16/9, P(…)`` → "16/9 , P(…)" 로 깨진다. 진짜 나열은 항목이 **전부 단순 원자**
+    # (숫자·변수·⋯)이거나 **전부 최상위 관계식**(=,<,>,≤,≥…)일 때뿐 — 일부만 관계식이고
+    # 나머지가 함수식(P(…))이면 쉼표는 곱셈 자리의 OCR 오삽입이므로 **쉼표 제거 후 한 수식**.
+    if not (all(_is_atom_item(p) for p in parts) or all(_has_toplevel_relation(p) for p in parts)):
+        result.append(ContentBlock(type=ContentType.EQUATION, value=" ".join(parts)))
+        return True
     # 괄호 없는 수식 나열 → 개별 수식 + 텍스트 쉼표(종전 동작).
     for i, p in enumerate(parts):
         if i > 0:
             result.append(ContentBlock(type=ContentType.TEXT, value=", "))
         result.append(ContentBlock(type=ContentType.EQUATION, value=p))
     return True
+
+
+# 스푸리어스 쉼표 판정용 보조(괄호 없는 수식 나열 분리 가드).
+def _is_atom_item(p: str) -> bool:
+    """단순 원자 = 숫자·변수(_VAR_ITEM_RE)·줄임표(⋯/\\cdots) — 진짜 나열 후보."""
+    p = (p or "").strip()
+    return bool(_VAR_ITEM_RE.match(p)
+                or re.fullmatch(r"[-+]?\d+(?:\.\d+)?", p)
+                or re.fullmatch(r"\\c?dots|\\ldots|⋯|\.\.\.", p))
+
+
+def _has_toplevel_relation(p: str) -> bool:
+    """괄호·중괄호 **내용 제거 후** 최상위에 관계연산자가 있으면 True(함수 인자 속 ≤ 제외)."""
+    s = p or ""
+    for _ in range(6):                       # 중첩 괄호/중괄호 반복 제거
+        s2 = re.sub(r"\([^()]*\)|\{[^{}]*\}", "", s)
+        if s2 == s:
+            break
+        s = s2
+    return bool(re.search(r"=|<|>|\\le\b|\\leq\b|\\ge\b|\\geq\b|\\neq\b|\\ne\b|\\in\b|≤|≥|≠", s))
 
 
 def _split_at_top_level_commas(s: str) -> list[str]:
