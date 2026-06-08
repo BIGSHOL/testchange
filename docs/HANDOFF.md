@@ -2,7 +2,7 @@
 
 > 이 문서 하나로 **다른 컴퓨터에서 이어서 작업**할 수 있게 정리. 상세 설계·함정은
 > `CLAUDE.md`(루트)와 자동메모리(`C:\Users\<you>\.claude\projects\D---------\memory\MEMORY.md`)에 있다.
-> 최종 갱신: 2026-06-08 (커밋 `30eb84c`).
+> 최종 갱신: 2026-06-09 (커밋 `1e1aa8a`).
 
 ## 0. 프로젝트 한 줄
 PDF 수학 시험지 → HWPX 자동 변환 (PySide6 GUI + Gemini 크롭검출 + Claude OCR + HWP COM 렌더).
@@ -10,8 +10,9 @@ PDF 수학 시험지 → HWPX 자동 변환 (PySide6 GUI + Gemini 크롭검출 +
 
 ## 1. 저장소 / 원격
 - 원격 `testchange` = `https://github.com/BIGSHOL/testchange.git` (푸시는 여기로: `git push testchange master`).
-- 메인 브랜치: `master`. 현재 HEAD: `30eb84c`.
+- 메인 브랜치: `master`. 현재 HEAD: `1e1aa8a`.
 - 클론 후: `git remote -v` 로 `testchange` 확인(없으면 `git remote add testchange <URL>`).
+  - ⚠️ PC 마다 원격 이름이 다를 수 있다(어떤 PC는 `origin`). `git remote -v` 로 실제 이름 확인 후 그 이름으로 push.
 
 ## 2. 환경 세팅 (새 컴퓨터)
 1. **Python 의존성**: `pip install -r requirements.txt` (PySide6, anthropic, google-genai,
@@ -97,28 +98,36 @@ only** — anthropic 없이도 돈다). 정답 JSON 은 `tests/golden_ocr/` 에 
 
 ## 5. 회귀 방지 (자동 강제)
 - `python scripts/verify_output_format.py --all` → 출력포맷 합의 28개 검증(위반=exit 2).
+- `python tests/test_ocr_golden.py` → 골든 회귀 게이트, `python tests/test_ocr_failures.py` → 채굴/감사
+  단위(둘 다 stdlib·키 0). `python tests/test_equation_metrics.py` → 수식 크기 추정 회귀.
 - `.claude/settings.json` PostToolUse 훅: `hwp_com_writer`·`hwp_com`·`latex_to_hwpeq` 편집 시 자동 실행.
 - 검증 스킬: `verify-output-format`·`verify-latex-hwpeq`·`verify-ocr-parser-sync`·`verify-hwpx-structure`·
-  `verify-equation-metrics`(`.claude/skills/`).
+  `verify-equation-metrics`(`.claude/skills/`, Codex 는 `.agents/skills/` 미러).
 
-## 6. 현재 상태 — 이번 세션 완료분 (커밋 3ab371e→30eb84c, **빌드 아직 안 함**)
-마지막 빌드 버전: `_version.py = 0.1.13`. 아래는 그 **이후 커밋(빌드 전 체크포인트)**:
-- `3ab371e` 확통 연산자 이탤릭 · 함수괄호 수식포함 · 단위 m 오인해제
-- `2f61919` 표 셀 포함 확통 연산자 이탤릭(`latex_to_hwpeq._STAT_ITALIC_RE`)
-- `588c305` `<조건>`/`<보기>` 라벨은 박스 헤더에 인쇄됐을 때만(OCR 프롬프트)
-- `30eb84c` **박스 그룹화 #18·#20** — 셀 안엔 (가)(나)만, 발문 연속은 박스 밖 + CLAUDE.md 정리
-  - `ContentBlock.box_member` 태그를 raw OCR 경계에서 부착(`content_parser._raw_box_end`·
-    `_finalize_contents`·`_tag_box_run`) → 렌더러 `_split_tail_post` 가 박스 뒤 발문 연속을
-    박스 밖으로. 서술형 배점은 발문 연속 뒤로 미룸(`defer_essay_score`). 기본·폼 경로 동일.
-  - 양 경로 캐시 렌더 검증 완료(#18·#20 = (가)(나)만 박스, 발문 박스 밖, [7점] 우측정렬).
+## 6. 현재 상태 — 이번 세션(2026-06-09) 완료분 (master `1e1aa8a`, **빌드 대기**)
+마지막 **빌드** 버전: `_version.py = 0.1.14`(이 세션에서 PyInstaller 빌드했으나 **배포(dist→배포용 복사) 안 함**).
+그 **0.1.14 빌드 이후** 아래가 master 에 머지됨 → **다음 빌드는 `0.1.15` 로 올려 폼 수정을 반드시 반영**:
+- `6923e5f` **fix(form): 서답형 4·5 누락** — 서술형 4개↑ 시 마지막 문항이 출력에서 사라지던 버그.
+  근본원인: OCR 이 contents 에 넣은 `[서술형 N]` 라벨 + `_fill_essay_at` 자기 라벨 = 중복 →
+  `_dedupe_essay_labels` 가 regex 로 앞 라벨만 지우고 **`<hp:linesegarray>` 미갱신** → `_com_relaunder`
+  (HWP 재저장) 가 그 깨진 단락+미주를 드롭. 해결: `_essay_label_and_body` 로 contents 라벨을 한 번만
+  출력(중복 원천 차단). **교훈: HWPX 텍스트를 지우면 lineseg 도 갱신/제거해야 HWP 가 안 먹는다.**
+- `ad57f4d` 골든셋 학남고 확통 **7건**(`tests/golden_ocr/`) — Codex 가 원본 이미지와 1:1 대조해
+  교정(짝수·172.44·`f(12)>f(22)`·신뢰구간 등). 플라이휠 ground-truth.
+- `81c7100`(PR#2)·`f9d33f4`(PR#3) **OCR 플라이휠 ②감사+④보강 A·B단계** — §3-b/§3-c 참조.
+  `scripts/ocr_eval/{risk_tokens,failures,audit_ocr,suggest_reinforcement}.py`, `core/ocr_reinforcement.md`,
+  `active_prompt()`/`prompt_signature` 보강 반영, `score_ocr --baseline/--candidate` A/B 게이트.
+- `1e1aa8a` Codex 에이전트 설정 커밋(`AGENTS.md`·`.agents/`·`.codex/`) + `.testkit.zip` ignore.
+- 검증: `tests/test_ocr_failures.py`(20), `tests/test_ocr_golden.py`(19+1skip), `verify_output_format --all`(28) 전부 PASS.
 
 ## 7. 미해결 / 다음 작업
-1. **빌드·배포** — 위 6의 체크포인트들이 아직 exe 로 안 들어감. 사용자 승인 후
-   `0.1.14` 로 올려 빌드(`_version.py`)·배포.
-2. **#20 `<조건>` 라벨** — 캐시 OCR 잔재. 프롬프트는 이미 "박스 머리에 인쇄됐을 때만" 으로
-   수정됨(`588c305`) → **실변환(재OCR)하면 `<상자>`(무라벨)로 해소**. 확인하려면 `--reocr=20`.
-3. **폼 레이아웃 과여백** — 함수괄호 수식화로 수식 높이 ↑ → 페이지 수 증가(7→9 관측). #1-2-3 사이
-   여백 과다로 다음 단 넘침. `hwp_form_writer._build_layout`(줄용량 CAP) 스마트 단넘김 보정 필요.
+1. **빌드·배포(최우선)** — 서답형 4·5 누락 수정(`6923e5f`)은 실사용 영향 큼. `_version.py` 를 `0.1.15`
+   로 올려 빌드·배포(§4). 0.1.14 빌드 산출물은 이미 폐기 가능(그 이후 코드 변경됨).
+2. **실모델 OCR 검증(키 필요)** — 현재 `config.json` Anthropic 키 만료 가능(이 세션 PC 기준 401).
+   플라이휠 ④의 실측(보강이 실제 sonnet 출력 개선?)·실변환은 **유효 키 필요**. 키 없으면 §3-b/c 의
+   stdlib 코어(감사·채굴·단위테스트)까지만 0원으로 가능.
+3. **폼 레이아웃 과여백** — 함수괄호 수식화로 수식 높이 ↑ → 페이지 수 증가. `hwp_form_writer._build_layout`
+   (줄용량 CAP) 스마트 단넘김 보정 필요.
 4. **객관식 표 누락**(미해결) — 단일 크롭 구조화 OCR 이 확률분포표를 "요약"해 통째 누락. 서술형은
    `_merge_missing_passages`(전사 2-pass)로 복구하나 객관식 표는 아직(전사+표 구조 복원 필요).
 5. **#9 "시행을36번" 띄어쓰기** — OCR 뿌리. 후보정 여지.
@@ -134,6 +143,9 @@ only** — anthropic 없이도 돈다). 정답 JSON 은 `tests/golden_ocr/` 에 
 | `core/hwp_com.py` | HWP COM 세션(**`CONVERSION_VISIBLE=False` 필수**) |
 | `models/exam_document.py` | ContentBlock/Question/ExamPage 데이터 모델 |
 | `gui/main_window.py` | PySide6 GUI·ConversionWorker·토큰비용 로깅 |
+| `core/ocr_reinforcement.md` | 승인된 프롬프트 보강(런타임 `active_prompt()` 가 append, 빈 상태=no-op) |
+| `scripts/ocr_eval/` | 플라이휠: `metrics`·`normalize`·`failures`·`risk_tokens`·`audit_ocr`·`suggest_reinforcement`·`score_ocr`·`golden_record`·`prompt_version` |
+| `tests/golden_ocr/` | OCR 정답(ground-truth) JSON — commit 됨(PC 간 재현) |
 
 ## 9. 절대 금지 / 주의
 - **`hwp_com.CONVERSION_VISIBLE` 을 True 로 되돌리지 말 것** — 한글 2개 열렸을 때 COM 이
