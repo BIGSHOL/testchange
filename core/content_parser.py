@@ -58,31 +58,18 @@ def _parse_question(q_data: dict) -> Question:
         if bd.get("type") == "text" and bd.get("value"):
             bd["value"] = _SCORE_TEXT_RE.sub(' ', bd["value"])
 
-    # 문제 본문
-    for block_data in raw_contents:
-        result = _parse_content_block(block_data)
-        if isinstance(result, list):
-            question.contents.extend(result)
-        elif result:
-            question.contents.append(result)
-
-    # 수식 끝 정의역 (x=0, 1, ⋯, 50) 을 본수식에서 떼어 개별 수식+텍스트로(줄바꿈 자연화)
-    question.contents = _split_trailing_domain(question.contents)
-
-    # 쉼표로 구분된 독립 수식 분리 (안전 폴백)
-    question.contents = _split_comma_equations(question.contents)
-
-    # eq·(연산자)·eq 로 쪼개진 수식(x = -2y+3)을 한 객체로 병합(가운데 = 평문화 방지)
-    question.contents = _merge_operator_split_equations(question.contents)
-
-    # 확통 연산자·확률변수 P/E/V/N/Z/X/Y 의 \mathrm(로만)을 벗겨 이탤릭으로(순열 제외)
-    question.contents = _italicize_stat_operators(question.contents)
-
-    # 기하 점/선/면 이름(통째 대문자 수식)을 로만체로 강제
-    question.contents = _romanize_point_names(question.contents)
-
-    # 잔여 [N점] 제거 (분리 후에도 온전히 남은 경우 대비)
-    question.contents = _strip_score_text(question.contents)
+    # 문제 본문 — 박스(<조건>/<보기>/<상자>) raw 블록 뒤에 발문이 더 이어지면(#18·#20),
+    # **raw 경계**에서 [발문+박스]와 [박스 뒤 발문 연속]을 나눠 따로 파이프라인을 돌리고
+    # 박스 블록에 box_member 태그를 단다. 인라인 수식 분리 후엔 박스 경계가 사라지므로
+    # (박스 항목 수식이 발문 수식과 구별 불가) raw 단계에서 잡아야 한다.
+    box_end = _raw_box_end(raw_contents)
+    if box_end is not None:
+        head = _finalize_contents(_parse_raw_blocks(raw_contents[:box_end]))
+        post = _finalize_contents(_parse_raw_blocks(raw_contents[box_end:]))
+        _tag_box_run(head)                       # 박스 마커 블록부터 head 끝까지 box_member
+        question.contents = head + post
+    else:
+        question.contents = _finalize_contents(_parse_raw_blocks(raw_contents))
 
     # 선택지
     for choice_data in q_data.get("choices", []):
@@ -628,6 +615,63 @@ _LATEX_CMD_RE = re.compile(
 
 # 배점 텍스트 패턴 (예: [3점], [4점])
 _SCORE_TEXT_RE = re.compile(r'\s*\[\d+점\]\s*')
+
+# 보기/조건/상자 박스 머리 마커(원시 텍스트 시작). 자기완결 박스(마커+항목이 한 raw
+# 블록) 판정과 그 뒤 발문 연속 분리에 쓴다.
+_RAW_BOX_MARK_RE = re.compile(r"^\s*(?:<\s*(?:조건|보기|상자)\s*>|\[\s*(?:조건|보기)\s*\])")
+
+
+def _parse_raw_blocks(raws: list[dict]) -> list[ContentBlock]:
+    """raw OCR 블록 dict 리스트를 ContentBlock 리스트로(인라인 수식 분리 포함)."""
+    out: list[ContentBlock] = []
+    for bd in raws:
+        result = _parse_content_block(bd)
+        if isinstance(result, list):
+            out.extend(result)
+        elif result:
+            out.append(result)
+    return out
+
+
+def _finalize_contents(blocks: list[ContentBlock]) -> list[ContentBlock]:
+    """문제 본문 후처리 파이프라인(분리·병합·이탤릭·로만·배점제거)."""
+    blocks = _split_trailing_domain(blocks)        # 수식 끝 정의역 (x=0,1,⋯) 분리
+    blocks = _split_comma_equations(blocks)         # 쉼표 구분 독립 수식 분리
+    blocks = _merge_operator_split_equations(blocks)  # eq·연산자·eq 병합
+    blocks = _italicize_stat_operators(blocks)      # 확통 연산자 \mathrm 벗겨 이탤릭
+    blocks = _romanize_point_names(blocks)          # 기하 점/선/면 이름 로만체
+    blocks = _strip_score_text(blocks)              # 잔여 [N점] 제거
+    return blocks
+
+
+def _raw_box_end(raws: list[dict]) -> int | None:
+    """자기완결 박스(<조건>/<보기>/<상자> + 항목이 한 raw 텍스트 블록) **뒤에** 발문이
+    더 이어지면 그 발문 연속이 시작되는 raw 인덱스를 돌려준다(없으면 None).
+
+    박스 마커를 떼고도 같은 블록에 **내용이 남으면**(=항목이 그 블록 안=자기완결) 박스는
+    그 한 raw 블록까지. 그 뒤 raw 블록이 있으면 발문 연속(#18 "m이 자연수일 때 …",
+    #20 "P(Y≤29)의 값을 …"). 마커만 있는 라벨-단독 머리(뒤 raw 가 항목)는 분리 안 함.
+    """
+    for i, bd in enumerate(raws):
+        if bd.get("type") == "text":
+            v = (bd.get("value") or "")
+            m = _RAW_BOX_MARK_RE.search(v)
+            if m:
+                rest = v[m.end():].strip()
+                if rest and i + 1 < len(raws):
+                    return i + 1
+                return None
+    return None
+
+
+def _tag_box_run(blocks: list[ContentBlock]) -> None:
+    """head 안의 박스 마커 블록부터 끝까지 box_member=True (발문 연속은 이미 분리됨)."""
+    started = False
+    for b in blocks:
+        if not started and b.type == ContentType.TEXT and _RAW_BOX_MARK_RE.search(b.value or ""):
+            started = True
+        if started:
+            b.box_member = True
 
 
 def _split_latex_commands(text: str) -> list[ContentBlock]:

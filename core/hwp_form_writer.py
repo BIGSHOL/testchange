@@ -34,7 +34,7 @@ logger = logging.getLogger(__name__)
 from .hwp_com import CONVERSION_VISIBLE, HwpSession, _dispatch_hwp, _win32
 from .hwp_com_writer import (HwpComWriter, _BOX_BREAK_RE, _BULLET_RE,
                              _COND_HEADER_RE, _condition_start, _has_box_markup,
-                             _split_trailing_score, _tail_start)
+                             _split_tail_post, _split_trailing_score, _tail_start)
 from .latex_to_hwpeq import latex_to_hwpeq
 from models.exam_document import ContentBlock, ContentType, ExamDocument, Question
 
@@ -370,9 +370,10 @@ def _put_tail(ses, h, blocks) -> None:
     binItem 누락을 후처리 임베드로 교정)을 쓴다 — 나머지는 기본 경로 코드 그대로.
     """
     w = HwpComWriter(ses)
-    cs = _condition_start(blocks)                  # 표/조건 머리 시작(없으면 전부 pre)
-    pre = blocks if cs is None else blocks[:cs]
-    box = [] if cs is None else blocks[cs:]
+    core, post = _split_tail_post(blocks)          # 박스 뒤 발문 연속(#18·#20) 분리
+    cs = _condition_start(core)                    # 표/조건 머리 시작(없으면 전부 pre)
+    pre = core if cs is None else core[:cs]
+    box = [] if cs is None else core[cs:]
     for b in pre:
         if b.type == ContentType.IMAGE and b.value:
             ses.break_para()
@@ -383,6 +384,17 @@ def _put_tail(ses, h, blocks) -> None:
             w._write_block(b)                      # EQUATION_BLOCK 가운데·EQUATION 인라인·TEXT
     if box:
         w._write_condition_box(box)
+    for b in post:                                 # 박스 뒤 발문 연속 — 박스 밖, 새 줄에 이어서
+        if box:
+            ses.break_para()
+            ses.align_left()
+            box = []
+        if b.type == ContentType.IMAGE and b.value:
+            ses.break_para()
+            ses.align_center()
+            _place_figure(ses, h, b.value)
+        else:
+            w._write_block(b)
 
 
 def _put_qbody(ses, h, contents, score, essay: bool = False) -> None:
@@ -395,10 +407,15 @@ def _put_qbody(ses, h, contents, score, essay: bool = False) -> None:
     tail = [] if ts is None else contents[ts:]
     for b in head:
         _put_block(ses, b)
-    if score:
+    # 박스 뒤 발문 연속(#18·#20)이 있으면 서술형 배점은 그 뒤로 미룬다(기본 경로와 동일).
+    _, tail_post = _split_tail_post(tail)
+    defer_essay_score = essay and bool(score) and bool(tail_post)
+    if score and not defer_essay_score:
         _put_score(ses, h, score, essay=essay)   # 객관식=발문 끝 인라인 / 서술형=우측정렬
     if tail:
         _put_tail(ses, h, tail)
+        if defer_essay_score:
+            _put_score(ses, h, score, essay=essay)
 
 
 def _put_score(ses, h, score: int, essay: bool = False) -> bool:

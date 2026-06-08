@@ -128,6 +128,33 @@ def _tail_start(blocks: list[ContentBlock]) -> int | None:
     return i if i < len(blocks) else None
 
 
+def _split_tail_post(blocks: list[ContentBlock]):
+    """발문 뒤 영역(tail)을 '박스 코어'와 '박스 뒤 발문 연속(post)'으로 나눈다.
+
+    OCR 은 보기/조건/상자 박스를 **자기완결 한 텍스트 블록**(헤더 라벨 + 항목
+    (가)(나)/ㄱㄴㄷ 이 **한 블록 안**)으로 준다. 그 블록 **뒤**에 더 오는 블록은
+    박스 항목이 아니라 **발문 연속**이다 — 예) #20 ``P(Y≤29)`` + "의 값을 … 구하시오
+    [7점]", #18 "m이 자연수일 때 …". 과거엔 조건 헤더부터 **끝까지** 박스에 넣어 발문
+    연속이 셀 하나에 갇혔다(학남고 확통 #18·#20, 2026-06-08).
+
+    판정은 **box_member 태그**로 한다(content_parser 가 raw 박스 경계에서 단다 —
+    인라인 수식 분리 후엔 박스 항목 수식과 발문 수식이 구별 불가하므로). box_member
+    run(박스 블록들) 뒤에 태그 없는 블록이 있으면 그게 post(발문 연속).
+
+    Returns: (core, post). post 가 비면 분리 없음(기존 동작 보존).
+    """
+    start = next((i for i, b in enumerate(blocks)
+                  if getattr(b, "box_member", False)), None)
+    if start is None:
+        return blocks, []
+    end = start
+    while end < len(blocks) and getattr(blocks[end], "box_member", False):
+        end += 1
+    if end < len(blocks):                 # 박스 run 뒤에 발문 연속이 있음
+        return blocks[:end], blocks[end:]
+    return blocks, []
+
+
 # 발문 끝에 박힌 총점/배점 [총 N점]·[N점] (소문항 부모는 우측정렬로 따로 표기).
 _TRAIL_SCORE_RE = re.compile(r'\s*\[\s*(?:총\s*)?(\d+)\s*점\s*\]\s*$')
 _OPEN_SCORE_RE = re.compile(r'\[\s*(?:총\s*)?$')   # 텍스트 끝이 "[" 또는 "[총"
@@ -410,15 +437,23 @@ class HwpComWriter:
 
         Returns: 표 박스로 끝났는지(True면 트레일링 단락이 이미 새 줄이라 추가 줄바꿈 불필요).
         """
-        cs = _condition_start(tail)               # 표/조건 머리 시작(없으면 전부 pre)
-        pre = tail if cs is None else tail[:cs]
-        box = [] if cs is None else tail[cs:]
+        core, post = _split_tail_post(tail)       # 박스 뒤 발문 연속(#18·#20) 분리
+        cs = _condition_start(core)               # 표/조건 머리 시작(없으면 전부 pre)
+        pre = core if cs is None else core[:cs]
+        box = [] if cs is None else core[cs:]
         for b in pre:
             self._write_block(b)                  # IMAGE 가운데·EQUATION_BLOCK 가운데(인라인 아님)
+        ended_box = False
         if box:
             self._write_condition_box(box)
-            return True
-        return False
+            ended_box = True
+        for b in post:                            # 박스 뒤 발문 연속 — 박스 밖, 새 줄에 이어서
+            if ended_box:
+                self.s.break_para()
+                self.s.align_left()
+                ended_box = False
+            self._write_block(b)
+        return ended_box
 
     # ── 문제 ──────────────────────────────────────────────
     def _write_question(self, question: Question, top_level: bool = True) -> None:
@@ -450,11 +485,16 @@ class HwpComWriter:
             if total_num is None:
                 total_num = question.score
 
+        # 박스 뒤 발문 연속(#18·#20)이 있으면 서술형 배점은 그 발문 연속 **뒤**로 미룬다
+        # (박스 → "P(Y≤29)의 값을 … 구하시오" → [N점] 우측정렬 순서가 맞음).
+        _, tail_post = _split_tail_post(tail)
+        defer_essay_score = is_essay and show_score and bool(tail_post)
+
         # 발문 — 첫 블록은 인라인(번호와 같은 줄), 발문 선두 수식 줄바꿈 방지(A7).
         for i, block in enumerate(stem):
             self._write_block(block, inline=(i == 0))
         # 배점 — 객관식은 발문 끝 인라인. 서술형은 줄바꿈 후 우측정렬(사용자 합의 2026-06-04).
-        if show_score:
+        if show_score and not defer_essay_score:
             if is_essay:
                 self.s.break_para()
                 self.s.align_right()
@@ -475,6 +515,14 @@ class HwpComWriter:
         # 뒤 영역: 그림/블록수식은 개별(가운데), 보기/조건은 1×1 테두리 표 박스 (A3)
         if tail:
             ended_box = self._write_tail(tail)
+            # 박스 뒤 발문 연속이 있던 서술형: 미뤘던 배점을 여기서 우측정렬(발문 끝).
+            if defer_essay_score:
+                self.s.break_para()
+                self.s.align_right()
+                self._write_score(question.score, leading_space=False)
+                self.s.break_para()
+                self.s.align_left()
+                ended_box = False
             # 박스(표) 뒤 트레일링 단락이 이미 새 줄 → 선택지 사이 빈 줄 없음(사용자 2026-06-04).
             # 박스로 안 끝났으면(그림/블록수식) 선택지 전에 좌측 새 줄 확보.
             if question.choices and not ended_box:

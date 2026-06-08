@@ -22,6 +22,9 @@ class ContentBlock:
     hwp_equation: Optional[str] = None  # 변환된 HWP 수식 스크립트
     underline: bool = False  # 밑줄 강조 여부
     rows: Optional[list[list[str]]] = None  # TABLE: 2D 문자열 배열
+    # 보기/조건/상자 박스 내부 블록인가(자기완결 raw 박스 블록의 인라인 분리 산물).
+    # 렌더러가 박스 경계 뒤 '발문 연속'(#18·#20)을 박스 밖으로 빼는 데 쓴다(2026-06-08).
+    box_member: bool = False
 
     @property
     def is_equation(self) -> bool:
