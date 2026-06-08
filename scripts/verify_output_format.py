@@ -23,6 +23,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 W_PATH = ROOT / "core" / "hwp_com_writer.py"
 C_PATH = ROOT / "core" / "hwp_com.py"
+F_PATH = ROOT / "core" / "hwp_form_writer.py"
 L_PATH = ROOT / "core" / "latex_to_hwpeq.py"
 O_PATH = ROOT / "core" / "ocr_engine.py"
 
@@ -33,7 +34,7 @@ def _norm(p) -> str:
 
 
 # 훅을 트리거할 파일들(이 중 하나라도 편집되면 검증)
-WATCHED = {_norm(W_PATH), _norm(C_PATH), _norm(L_PATH)}
+WATCHED = {_norm(p) for p in (W_PATH, C_PATH, F_PATH, L_PATH, O_PATH)}
 
 
 def _read(p: Path) -> str:

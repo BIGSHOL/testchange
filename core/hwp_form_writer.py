@@ -1367,35 +1367,36 @@ def write_exam_to_form(
     # 1.5단계: 서술형 중복 라벨([서답형 N] [서술형 N]) 결정적 제거(폼 grow 잔존 라벨 보정).
     try:
         _dedupe_essay_labels(output_path)
-    except Exception:
-        pass
+    except Exception as e:  # noqa: BLE001
+        logger.warning("폼 후처리 실패(_dedupe_essay_labels): %s", e)
     # 1.6단계: 서술형 중복 라벨 제거는 위에서 완료. 머리말/꼬리말 채움(결정적 XML 후처리).
     if header_values:
         try:
             _fill_form_header(output_path, header_values)
-        except Exception:
-            pass
+        except Exception as e:  # noqa: BLE001
+            logger.warning("폼 후처리 실패(_fill_form_header): %s", e)
     # 1.7단계: <보기>/<조건> 라벨 1×1 박스 → 5×5 병합표 폼(기본 경로와 동일, 사용자
     # '항상 동일' 요구). <상자>·일반표는 제외. _com_relaunder **전**에 주입해 재저장 때
     # HWP 가 표 linesegs 를 재계산하고 보안경고도 없게 한다.
     try:
         from core.hwp_com_writer import _inject_bogi_form
         _inject_bogi_form(output_path)
-    except Exception:
-        pass
+    except Exception as e:  # noqa: BLE001
+        logger.warning("폼 후처리 실패(_inject_bogi_form): %s", e)
     # 1.8단계: 확률분포표 1열·표준정규분포표 최상단 행 #D9D9D9 음영(수기본 통일, 기본 경로와 동일).
     try:
         from core.hwp_com_writer import _inject_table_shading
         _inject_table_shading(output_path)
-    except Exception:
-        pass
+    except Exception as e:  # noqa: BLE001
+        logger.warning("폼 후처리 실패(_inject_table_shading): %s", e)
     # 2단계: 그림 렌더 모드면 그림 binItem 임베드(경고 감수). 아니면(기본) COM 재저장(launder)
     # 으로 '변조' 보안경고 제거 — 그림 자리엔 안내 박스(표라서 재저장에 보존).
     if render_figures and fig_paths:
         try:
             _embed_figures(output_path, fig_paths)
-        except Exception:
-            pass
+        except Exception as e:  # noqa: BLE001
+            logger.warning("폼 후처리 실패(_embed_figures): %s", e)
     else:
-        _com_relaunder(output_path)
+        if not _com_relaunder(output_path):
+            logger.warning("폼 후처리 실패(_com_relaunder): 보안경고 제거 재저장 실패")
     return output_path

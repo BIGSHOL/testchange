@@ -506,12 +506,16 @@ class ConversionWorker(QObject):
                             15 + int(crops_done / max(total_crops, 1) * 60),
                             f"OCR 처리 중... (p{seq + 1} 크롭 {bi + 1}/{len(boxes)})")
                         if box.kind == "figure":
-                            # standalone 도형 → 재생성(또는 크롭 폴백) 후 IMAGE 블록 생성
-                            crop = box.crop_image(img, pad=0.005)
-                            fig_path = self._render_figure_crop(
-                                crop, "", f"fig_p{page_num}_{bi}")
-                            if fig_path:
-                                block = {"type": "image", "value": fig_path}
+                            # standalone 도형도 체크박스 OFF면 SVG/API 호출 없이 안내문으로 대체.
+                            if self.render_figures:
+                                crop = box.crop_image(img, pad=0.005)
+                                fig_path = self._render_figure_crop(
+                                    crop, "", f"fig_p{page_num}_{bi}")
+                                block = ({"type": "image", "value": fig_path}
+                                         if fig_path else None)
+                            else:
+                                block = {"type": "text", "value": _FIGURE_NOTE_TEXT}
+                            if block:
                                 if last_q is not None:
                                     last_q.setdefault("contents", []).append(block)
                                 else:
@@ -650,7 +654,7 @@ class ConversionWorker(QObject):
             f"총 {perf_counter() - t_start:.1f}s")
         # 토큰 사용량·예상비용 기록(시험지별, 사용자 2026-06-08 비용계산용)
         try:
-            msg = _log_token_usage(self._selected_file, engine.usage)
+            msg = _log_token_usage(self.file_path, engine.usage)
             if msg:
                 self.log.emit("info", msg)
         except Exception as e:  # noqa: BLE001

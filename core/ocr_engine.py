@@ -245,7 +245,7 @@ class OCRQuality:
     equation_count: int = 0
 
 # 한국어 수학 시험지 전용 OCR 프롬프트
-EXAM_OCR_PROMPT = """당신은 한국 수학 시험지를 정밀하게 OCR하는 전문가입니다.
+EXAM_OCR_PROMPT = r"""당신은 한국 수학 시험지를 정밀하게 OCR하는 전문가입니다.
 이미지에서 모든 텍스트와 수식을 정확하게 추출하세요.
 
 ## ⛔ 인쇄 텍스트만 읽기 — 손글씨/필기 절대 배제 (최우선 규칙!)
