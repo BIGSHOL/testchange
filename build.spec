@@ -38,6 +38,9 @@ a = Analysis(
         (str(project_root / 'hwpx_조암'), 'hwpx_조암'),
         # 대수회 폼지(학년별 색상 7종) 번들 → _internal/forms/ (core/form_registry 가 _MEIPASS/forms 에서 읽음)
         (str(project_root / 'forms'), 'forms'),
+        # HWP 파일접근 보안 승인 모듈(FilePathCheckerModuleExample.dll) — core/hwp_com.py 가
+        # 레지스트리 등록 후 RegisterModule 로 바인딩해 '파일 접근 허용' 팝업을 없앤다.
+        (str(project_root / 'resources'), 'resources'),
         *collect_data_files('hwpx'),
         *_google_datas,
         *_resvg_datas,

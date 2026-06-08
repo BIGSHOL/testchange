@@ -14,6 +14,7 @@
 from __future__ import annotations
 
 import os
+import sys
 from pathlib import Path
 from typing import Optional
 
@@ -28,6 +29,58 @@ HWP_PROGID = "HWPFrame.HwpObject"
 
 # 보기 동그라미 숫자 ①②③④⑤ … (U+2460~)
 CIRCLE_NUMBERS = {i: chr(0x245F + i) for i in range(1, 16)}
+
+# HWP '파일 접근 허용' 보안 팝업 억제용 승인 모듈 DLL.
+_SECURITY_DLL = "FilePathCheckerModuleExample.dll"
+
+
+def _resolve_security_dll() -> Optional[str]:
+    """번들된 보안 승인 모듈 DLL 경로를 찾는다(frozen=_internal/resources, dev=resources)."""
+    cands = []
+    if getattr(sys, "frozen", False):
+        base = getattr(sys, "_MEIPASS", os.path.dirname(sys.executable))
+        exedir = os.path.dirname(sys.executable)
+        cands += [
+            os.path.join(base, "resources", _SECURITY_DLL),
+            os.path.join(base, _SECURITY_DLL),
+            os.path.join(exedir, "_internal", "resources", _SECURITY_DLL),
+            os.path.join(exedir, "resources", _SECURITY_DLL),
+        ]
+    here = os.path.dirname(os.path.abspath(__file__))
+    cands.append(os.path.join(here, "..", "resources", _SECURITY_DLL))
+    for c in cands:
+        c = os.path.abspath(c)
+        if os.path.exists(c):
+            return c
+    return None
+
+
+def _register_security_module() -> bool:
+    """HWP 파일접근 보안 승인 모듈을 레지스트리에 등록한다.
+
+    ``HKCU\\Software\\HNC\\HwpAutomation\\Modules\\FilePathCheckerModule = <DLL 경로>`` 로
+    등록돼 있어야 ``RegisterModule('FilePathCheckDLL', 'FilePathCheckerModule')`` 가
+    바인딩돼 '파일 접근 허용' 보안 팝업이 뜨지 않는다(2026-06-05, 사용자 보고).
+    번들 DLL 의 현재 경로로 매 실행 갱신(앱 이동 대비). 실패해도 변환은 계속(팝업만 남음).
+    """
+    dll = _resolve_security_dll()
+    if not dll:
+        return False
+    try:
+        import winreg
+        with winreg.CreateKeyEx(
+                winreg.HKEY_CURRENT_USER,
+                r"Software\HNC\HwpAutomation\Modules", 0,
+                winreg.KEY_READ | winreg.KEY_SET_VALUE) as k:
+            try:
+                cur, _ = winreg.QueryValueEx(k, "FilePathCheckerModule")
+            except FileNotFoundError:
+                cur = None
+            if cur != dll:
+                winreg.SetValueEx(k, "FilePathCheckerModule", 0, winreg.REG_SZ, dll)
+        return True
+    except Exception:
+        return False
 
 
 def _dispatch_hwp():
@@ -86,7 +139,9 @@ class HwpSession:
             self.hwp.SetMessageBoxMode(0xFFFFFF)
         except Exception:
             pass
-        # 파일 입출력 보안 모듈 등록 — Open/SaveAs 시 보안 팝업 방지.
+        # 파일 입출력 보안 모듈 등록 — Open/SaveAs 시 '파일 접근 허용' 보안 팝업 방지.
+        # 먼저 번들 DLL 을 레지스트리에 등록해야 RegisterModule 이 바인딩된다(미등록이면 팝업).
+        _register_security_module()
         try:
             self.hwp.RegisterModule("FilePathCheckDLL", "FilePathCheckerModule")
         except Exception:

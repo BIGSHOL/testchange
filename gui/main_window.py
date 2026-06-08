@@ -84,6 +84,7 @@ class ConversionWorker(QObject):
         skip_first_page: bool = False,
         use_crop: bool = False,
         render_figures: bool = False,
+        skip_preview: bool = False,
     ):
         super().__init__()
         self.file_path = file_path
@@ -95,6 +96,7 @@ class ConversionWorker(QObject):
         self.skip_first_page = skip_first_page
         self.use_crop = use_crop
         self.render_figures = render_figures   # True=그림 렌더(경고 감수), False=안내 박스(경고 없음)
+        self.skip_preview = skip_preview       # True=미리보기 생략(OCR 후 바로 변환)
         self._cancelled = False
         # 미리보기 응답 동기화용
         self._preview_event = threading.Event()
@@ -510,17 +512,19 @@ class ConversionWorker(QObject):
                 + f"문항 {ocr_quality.question_count} · 수식 {ocr_quality.equation_count} "
                 f"({perf_counter() - page_t0:.1f}s)")
 
-        self.progress.emit(78, "OCR 완료, 미리보기 준비 중...")
-
         # ── Gate 3: 미리보기 다이얼로그 (GUI 스레드에서 실행) ──
-        self._preview_event.clear()
-        self._preview_approved = False
-        self.preview_requested.emit(page_infos)
-
-        # 사용자 응답 대기
-        self._preview_event.wait()
-
-        if self._cancelled or not self._preview_approved:
+        # skip_preview 면 미리보기를 건너뛰고 곧장 문서 생성으로 진행(사용자 요구 2026-06-05:
+        # 미리보기는 확인만 가능해 불필요). 취소만 가능하던 단계라 생략해도 기능 손실 없음.
+        if not self.skip_preview:
+            self.progress.emit(78, "OCR 완료, 미리보기 준비 중...")
+            self._preview_event.clear()
+            self._preview_approved = False
+            self.preview_requested.emit(page_infos)
+            self._preview_event.wait()       # 사용자 응답 대기
+            if self._cancelled or not self._preview_approved:
+                self.error.emit("사용자에 의해 취소되었습니다.")
+                return
+        elif self._cancelled:
             self.error.emit("사용자에 의해 취소되었습니다.")
             return
 
@@ -739,6 +743,17 @@ class MainWindow(QMainWindow):
             "켬: 도형/그래프를 실제로 삽입한다 — 단 한글에서 열 때 '문서 보안 설정' 경고가 뜰 수 있다.")
         self._render_fig_check.setStyleSheet("font-size: 12px; color: #475467;")
         layout.addWidget(self._render_fig_check)
+
+        # 변환 미리보기(OCR 결과 확인) 건너뛰기 — 사용자 요구 2026-06-05(미리보기 단계가
+        # 편집 기능이 없어 불필요하다는 의견). 켜면 OCR 후 곧장 문서 생성으로 진행.
+        layout.addSpacing(4)
+        self._skip_preview_check = QCheckBox("변환 미리보기 건너뛰기 — OCR 후 바로 변환 진행")
+        self._skip_preview_check.setChecked(True)   # 기본=건너뜀(미리보기는 확인만 가능)
+        self._skip_preview_check.setToolTip(
+            "켬(기본): OCR 완료 후 미리보기 없이 곧장 한글 문서를 만든다(빠름).\n"
+            "끔: OCR 결과를 미리보기 창에서 확인한 뒤 진행한다.")
+        self._skip_preview_check.setStyleSheet("font-size: 12px; color: #475467;")
+        layout.addWidget(self._skip_preview_check)
 
         # 구분선
         layout.addSpacing(16)
@@ -1105,6 +1120,7 @@ class MainWindow(QMainWindow):
             skip_first_page=False,   # 수동 표지 스킵 폐지 — 무쓸모 페이지는 자동 스킵
             use_crop=True,           # 항상 크롭 검수 모드
             render_figures=self._render_fig_check.isChecked(),  # 그림 렌더(경고 감수) 여부
+            skip_preview=self._skip_preview_check.isChecked(),  # 미리보기 생략 여부
         )
         self._worker.moveToThread(self._thread)
 
@@ -1192,3 +1208,4 @@ class MainWindow(QMainWindow):
         self._gemini_key_input.setEnabled(not converting)
         self._form_combo.setEnabled(not converting)
         self._render_fig_check.setEnabled(not converting)
+        self._skip_preview_check.setEnabled(not converting)

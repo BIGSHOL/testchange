@@ -11,11 +11,27 @@ if str(PROJECT_ROOT) not in sys.path:
 
 
 def setup_logging():
-    """로깅 설정."""
+    """로깅 설정 — 콘솔 + **영구 로그파일**(폴백·오류 원인 추적용, 사용자 요구 2026-06-05).
+
+    windowed exe(console=False)는 콘솔이 없어 로그가 유실된다. exe 옆(frozen) 또는
+    프로젝트 루트(dev)에 회전 로그파일(``시험지한글화.log``)을 두어, 어떤 폴백이
+    작동했는지(측정 실패·크롭 폴백·OCR 재시도·폼 채움 실패 등) 사후 확인한다.
+    """
+    handlers: list = [logging.StreamHandler()]
+    try:
+        from logging.handlers import RotatingFileHandler
+        log_dir = Path(sys.executable).parent if getattr(sys, "frozen", False) else PROJECT_ROOT
+        fh = RotatingFileHandler(
+            str(log_dir / "시험지한글화.log"),
+            maxBytes=3_000_000, backupCount=3, encoding="utf-8")
+        handlers.append(fh)
+    except Exception:
+        pass
     logging.basicConfig(
         level=logging.INFO,
         format="%(asctime)s [%(levelname)s] %(name)s: %(message)s",
         datefmt="%H:%M:%S",
+        handlers=handlers,
     )
 
 

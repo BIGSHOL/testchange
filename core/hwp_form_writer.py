@@ -19,6 +19,7 @@
 """
 from __future__ import annotations
 
+import logging
 import math
 import os
 import re
@@ -27,6 +28,8 @@ import tempfile
 import zipfile
 from collections import defaultdict
 from pathlib import Path
+
+logger = logging.getLogger(__name__)
 
 from .hwp_com import HwpSession, _dispatch_hwp, _win32
 from .hwp_com_writer import (HwpComWriter, _BOX_BREAK_RE, _BULLET_RE,
@@ -167,14 +170,30 @@ def _find_all(hwp, s: str, count: int) -> list[tuple[int, int, int]]:
     return pts
 
 
-def _set_plain(hwp) -> None:
-    """캐럿 글자모양 볼드 해제(+장평/상대크기 100). 미주 볼드 상속 차단."""
+# 본문(발문·보기·배점·서술형) 글자 크기(pt). HwpSession.base_pt 기본(11)과 일치해야 한다.
+# 미주 번호만 12pt(폼 스타일), 본문은 11pt(사용자 요구 2026-06-05).
+_BODY_PT = 11
+
+
+def _set_plain(hwp, pt: int | None = _BODY_PT) -> None:
+    """캐럿 글자모양: 볼드 해제 + 장평/상대크기 100 + **본문 크기(pt)로 고정**.
+
+    폼 슬롯(미주·플레이스홀더)은 12pt 글자모양이라 ``SetPos`` 로 그 자리에 가서 입력하면
+    12pt 를 상속한다(사용자 보고 2026-06-05: "문항이 12pt, 미주만 12pt여야 하는데 문제도
+    12pt"). 입력 직전 ``pt`` 를 명시해 발문·보기·배점을 본문 크기(11pt)로 강제한다(미주 번호
+    자체는 우리가 건드리지 않으므로 12pt 유지). ``pt=None`` 이면 크기 미변경(볼드/장평만).
+    """
     cs = hwp.HParameterSet.HCharShape
     hwp.HAction.GetDefault("CharShape", cs.HSet)
     try:
         cs.Bold = 0
     except Exception:
         pass
+    if pt is not None:
+        try:
+            cs.Height = hwp.PointToHwpUnit(pt)
+        except Exception:
+            pass
     for sc in ("Hangul", "Latin", "Hanja", "Japanese", "Other", "Symbol", "User"):
         try:
             setattr(cs, f"Ratio{sc}", 100)
@@ -274,15 +293,22 @@ def _place_figure_embed(ses, h, path: str) -> bool:
 
 
 def _place_figure_note(ses, h, path: str) -> bool:
-    """기본 모드: 그림 자리에 안내 문구를 가운데 평문으로 넣는다. path 는 호환 위해 받되 미사용.
+    """기본 모드: 그림 자리에 안내 문구를 가운데 **볼드**로 넣어 눈에 띄게 한다(사용자 요구
+    2026-06-05). path 는 호환 위해 받되 미사용.
 
-    (표 박스는 에세이 슬롯에서 COM 표 생성이 hang 을 유발해 평문으로. "※ …" 문구라 그림
-    캡션 오인·재저장 드롭을 피한다 — 실측 2026-06-05.)
+    (1×1 테두리 표 박스로 감싸면 더 눈에 띄지만, 서술형 슬롯에서 COM 표 생성이 hang 을
+    유발하므로 표 대신 볼드로 강조한다. "※ …" 문구라 그림 캡션 오인·재저장 드롭을 피한다 —
+    실측 2026-06-05.)
     """
     try:
+        ses.set_char_shape(pt=_BODY_PT, bold=True)
         ses.text(_FIGURE_NOTE)
+        ses.set_char_shape(pt=_BODY_PT, bold=False)
     except Exception:
-        pass
+        try:
+            ses.text(_FIGURE_NOTE)
+        except Exception:
+            pass
     return True
 
 
@@ -349,24 +375,47 @@ def _put_tail(ses, h, blocks) -> None:
         w._write_condition_box(box)
 
 
-def _put_qbody(ses, h, contents, score) -> None:
-    """문제(또는 소문항) 본문: 발문 → 배점(발문 끝) → 뒤 영역(조건/그림/블록수식)."""
+def _put_qbody(ses, h, contents, score, essay: bool = False) -> None:
+    """문제(또는 소문항) 본문: 발문 → 배점(발문 끝) → 뒤 영역(조건/그림/블록수식).
+
+    essay=True 면 배점을 **줄바꿈 후 우측정렬**(서술형 합의). 객관식은 발문 끝 인라인.
+    """
     ts = _tail_start(contents)
     head = contents if ts is None else contents[:ts]
     tail = [] if ts is None else contents[ts:]
     for b in head:
         _put_block(ses, b)
     if score:
-        _put_score(ses, h, score)      # 발문 끝 배점(넘치면 우측정렬)
+        _put_score(ses, h, score, essay=essay)   # 객관식=발문 끝 인라인 / 서술형=우측정렬
     if tail:
         _put_tail(ses, h, tail)
 
 
-def _put_score(ses, h, score: int) -> bool:
-    """배점 ``[N점]`` 삽입. 단독으로 다음 줄로 넘어가면 줄바꿈 후 우측정렬.
+def _put_score(ses, h, score: int, essay: bool = False) -> bool:
+    """배점 삽입 — **기본 경로(hwp_com_writer)와 동일**(사용자 '항상 동일' 요구).
+
+    - 서술형(essay=True): **항상 줄바꿈 후 우측정렬** ``[N점]``(N 은 수식 객체).
+    - 객관식: 발문 끝 인라인 ``[N점]``(N 은 수식 객체). 좁은 단에서 단독으로 다음 줄로
+      넘치면 우측정렬 폴백.
+    배점 숫자는 합의 #6(순수숫자도 수식 객체화)에 따라 ``ses.equation`` 으로 넣는다.
 
     Returns: 우측정렬 단락으로 넘겼으면 True(현재 단락이 우측정렬 상태).
     """
+    def put_inline(leading_space: bool):
+        ses.text(" [" if leading_space else "[")
+        ses.equation(str(score))
+        ses.text("점]")
+
+    if essay:
+        ses.break_para()
+        ses.align_right()
+        _set_plain(h)
+        put_inline(leading_space=False)
+        ses.break_para()
+        ses.align_left()
+        _set_plain(h)
+        return True
+
     def line():
         try:
             return h.KeyIndicator()[5]
@@ -375,7 +424,7 @@ def _put_score(ses, h, score: int) -> bool:
 
     sp = h.GetPos()
     la = line()
-    ses.text(f" [{score}점]")
+    put_inline(leading_space=True)
     lb = line()
     if la >= 0 and lb > la:
         h.SetPos(sp[0], sp[1], sp[2])
@@ -384,7 +433,7 @@ def _put_score(ses, h, score: int) -> bool:
         h.Run("BreakPara")
         h.Run("ParagraphShapeAlignRight")
         _set_plain(h)
-        ses.text(f"[{score}점]")
+        put_inline(leading_space=False)
         return True
     return False
 
@@ -469,12 +518,14 @@ def _fill_essay_at(ses, h, pos, q: Question, label_idx: int, next_pos=None) -> N
             ses.equation(f"({k + 1})")        # 소문항 마커 (1)(2)… 는 수식으로
             ses.text(" ")
             # OCR 이 남긴 앞머리 번호 마커 제거(우리 마커와 중복 방지) — 결정적·길이무관.
-            _put_qbody(ses, h, _strip_leading_submarker(sub.contents), sub.score)
+            # 소문항 배점도 서술형이면 우측정렬(기본 경로 _write_question 재귀와 동일).
+            _put_qbody(ses, h, _strip_leading_submarker(sub.contents), sub.score,
+                       essay=not sub.choices)
             for _ in range(ESSAY_SUB_BLANKS):  # 소문항 답안 공간(2~3줄)
                 ses.break_para()
                 h.Run("ParagraphShapeAlignLeft")
     else:
-        _put_qbody(ses, h, q.contents, q.score)   # 소문항 없는 서술형
+        _put_qbody(ses, h, q.contents, q.score, essay=True)   # 소문항 없는 서술형(우측정렬)
 
 
 def _choice_len(choice) -> int:
@@ -842,46 +893,84 @@ def _measure_answer_page(hwpx) -> int:
         pythoncom.CoUninitialize()
 
 
-def _row_align_blanks(pos: list[tuple[int, int, int]], n: int, per_col: int) -> dict:
-    """측정한 ① 위치로 슬롯 높이·단 시작을 구해 행정렬 빈줄을 계산.
+def _extract_heights(pos: list[tuple[int, int, int]], n: int, per_col: int) -> dict:
+    """측정한 ① 위치(page,col,line)로 각 객관식 슬롯의 줄 높이를 추정.
 
-    같은 행(1단·2단의 같은 순번)의 문항이 같은 절대 줄에서 시작하도록:
-      - 행 높이 ROWH = CAP // per_col
-      - 첫 행: (최대단시작 + ROWH) - 자기단시작 - 높이  (열 시작 오프셋 보정)
-      - 이후 행: ROWH - 높이
-      - 단 마지막 슬롯: 0 (단나누기로 다음 단)
+    높이 = 같은 (page,col) 안에서 다음 ① 까지의 줄차이. 단 마지막 슬롯은 같은 단 평균.
     """
     rowh = CAP // per_col
     colmap = defaultdict(list)
     for i, (pg, col, ln) in enumerate(pos):
         colmap[(pg, col)].append((i, ln))
-    # 슬롯 높이 = 같은 (page,col) 내 ① 줄차이. 마지막 슬롯은 같은 단 평균으로 추정.
     heights = {}
     for _, lst in colmap.items():
         lst.sort(key=lambda x: x[1])
         for j, (i, ln) in enumerate(lst):
             if j + 1 < len(lst):
-                heights[i] = lst[j + 1][1] - ln
+                heights[i] = max(1, lst[j + 1][1] - ln)
             else:
                 diffs = [lst[k + 1][1] - lst[k][1] for k in range(len(lst) - 1)]
                 heights[i] = int(sum(diffs) / len(diffs)) if diffs else rowh
+    return heights
 
-    groups = [list(range(g * per_col, min(g * per_col + per_col, n)))
-              for g in range((n + per_col - 1) // per_col)]
-    starts = {gi: pos[g[0]][2] for gi, g in enumerate(groups) if g}
-    maxstart = max(starts.values()) if starts else 0
 
-    blanks = {}
-    for gi, g in enumerate(groups):
-        s = starts.get(gi, 0)
-        for r, i in enumerate(g):
-            if r == len(g) - 1:                       # 단 마지막 → 0(단나누기)
-                blanks[i] = 0
-            elif r == 0:                              # 첫 행: 단 시작 오프셋 보정
-                blanks[i] = max(_MINGAP, (maxstart + rowh) - s - heights.get(i, rowh))
-            else:                                      # 이후 행: ROWH 간격
-                blanks[i] = max(_MINGAP, rowh - heights.get(i, rowh))
-    return blanks
+# 문항 사이 기본 여유 간격(줄). 단 용량이 허락하면 이만큼 띄운다.
+_GAP = 2
+
+
+def _adaptive_columns(heights: dict, n: int, per_col_max: int):
+    """측정 높이로 **스마트 단배치**: 한 단(CAP 줄) 안에서 문항 수를 가변(최대 per_col_max).
+
+    - 긴 문항이 섞이면 단당 2개로 줄여 단을 넘기지 않게, 짧으면 3개까지 채운다(그리디).
+    - 각 단의 남는 여유(CAP-내용)는 문항 사이 빈줄로 균등 분배(여유로운 배치). 단 마지막
+      슬롯은 0(단나누기로 다음 단). 긴 단일수록 빈줄이 자동으로 줄어든다(사용자 요구
+      2026-06-05: 문제가 길면 여백을 더 줄이거나 단당 2개로).
+
+    Returns: (colbreak:set[새 단 시작 인덱스], blanks:dict[i→후행 빈줄], cols:list[list[i]]).
+    """
+    fb = CAP // per_col_max
+    cols: list[list[int]] = []
+    cur: list[int] = []
+    cur_h = 0
+    for i in range(n):
+        h = heights.get(i, fb)
+        prospective = cur_h + (_GAP if cur else 0) + h
+        if cur and (prospective > CAP or len(cur) >= per_col_max):
+            cols.append(cur)
+            cur, cur_h = [], 0
+        cur.append(i)
+        cur_h += (_GAP if len(cur) > 1 else 0) + h
+    if cur:
+        cols.append(cur)
+
+    colbreak = {c[0] for c in cols[1:]}     # 첫 단 제외, 각 단 첫 문항 앞에서 단나누기
+    blanks: dict = {}
+    for c in cols:
+        content = sum(heights.get(i, fb) for i in c)
+        nonlast = c[:-1]
+        budget = max(0, CAP - content)      # 빈줄로 쓸 수 있는 여유 줄 수
+        if nonlast:
+            # 행정렬 목표: 각 문항이 이 단의 행높이(rowh=CAP//단문항수)를 차지하도록
+            # rowh-height 만큼 띄운다(같은 순번이 비슷한 줄에서 시작). **단, 빈줄 총합이
+            # 단 여유(budget)를 넘으면 비례 축소**(긴 단일수록 자동으로 빽빽 — 사용자 요구).
+            rowh = CAP // len(c)
+            ideal = {i: max(_MINGAP, rowh - heights.get(i, fb)) for i in nonlast}
+            tot = sum(ideal.values())
+            if tot > budget and tot > 0:
+                lo = _MINGAP if budget >= _MINGAP * len(nonlast) else 0
+                scale = budget / tot
+                ideal = {i: max(lo, int(v * scale)) for i, v in ideal.items()}
+            for i in c:
+                blanks[i] = 0 if i == c[-1] else ideal[i]
+        else:
+            blanks[c[0]] = 0
+    if os.environ.get("FORM_LAYOUT_DEBUG"):
+        for ci, c in enumerate(cols):
+            tot = sum(heights.get(i, fb) + blanks.get(i, 0) for i in c)
+            print(f"[ADAPT] 단{ci}(문항{len(c)}): " + " ".join(
+                f"Q{i}(h={heights.get(i)},b={blanks.get(i)})" for i in c)
+                + f" 합계={tot}/{CAP}" + ("  ⚠초과" if tot > CAP else ""), flush=True)
+    return colbreak, blanks, cols
 
 
 def _layout_form(filled_hwpx, out_hwpx, per_col: int, n_mc: int, n_es: int) -> None:
@@ -891,11 +980,12 @@ def _layout_form(filled_hwpx, out_hwpx, per_col: int, n_mc: int, n_es: int) -> N
     columnBreak: 객관식은 per_col 마다, 서술형은 매 문항(첫 서술형 제외).
     """
     n = n_mc + n_es
-    colbreak = set(range(per_col, n_mc, per_col))     # 객관식 단나누기(per_col마다)
-    colbreak |= set(range(n_mc, n))                   # 서술형 1/단(매 문항이 새 단)
+    essay_colbreak = set(range(n_mc, n))              # 서술형 1/단(매 문항이 새 단)
+    # 측정용 tight 빌드는 고정 per_col 단나누기로(① 위치만 재면 됨).
+    measure_colbreak = set(range(per_col, n_mc, per_col)) | essay_colbreak
 
     tight = str(Path(out_hwpx).with_suffix("")) + "_tight.hwpx"
-    _build_layout(filled_hwpx, tight, {i: _MINGAP for i in range(n)}, colbreak, n_mc)
+    _build_layout(filled_hwpx, tight, {i: _MINGAP for i in range(n)}, measure_colbreak, n_mc)
     pos = _measure_first_choice_lines(tight, n_mc) if n_mc else []
     try:
         os.remove(tight)
@@ -903,10 +993,26 @@ def _layout_form(filled_hwpx, out_hwpx, per_col: int, n_mc: int, n_es: int) -> N
         pass
 
     blanks = {}
+    colbreak = measure_colbreak
     if n_mc:
         if len(pos) >= n_mc:
-            blanks.update(_row_align_blanks(pos, n_mc, per_col))
+            # 측정 성공 → **스마트 단배치**(높이 기반 단당 문항수 가변 + 여백 적응).
+            heights = _extract_heights(pos, n_mc, per_col)
+            obj_colbreak, mc_blanks, cols = _adaptive_columns(heights, n_mc, per_col)
+            colbreak = obj_colbreak | essay_colbreak
+            blanks.update(mc_blanks)
+            logger.info(
+                "폼 스마트 단배치(측정 %d/%d): %d개 단, 단당문항=%s, 높이=%s",
+                len(pos), n_mc, len(cols), [len(c) for c in cols],
+                {i: heights.get(i) for i in range(n_mc)})
         else:
+            # ① 위치 측정 실패(COM Open/Find 방해 — 보안팝업·gen_py 등) → 균일 빈줄(4)
+            # 더미 폴백. 행정렬이 안 돼 **과여백·다음단 넘침**이 발생한다.
+            logger.warning(
+                "[FALLBACK] 폼 스마트 단배치 측정 실패(측정 %d/%d 슬롯) → 고정 per_col + "
+                "균일 빈줄(4) 폴백. 레이아웃 과여백/단넘침 가능 — COM 측정(보안팝업·gen_py) "
+                "확인 필요.", len(pos), n_mc)
+            colbreak = set(range(per_col, n_mc, per_col)) | essay_colbreak
             blanks.update({i: 4 for i in range(n_mc)})  # 측정 실패 폴백
     for i in range(n_mc, n):
         blanks[i] = 0                                 # 서술형: 1/단, 후행 0(답안 공간)
