@@ -69,6 +69,48 @@ _CHECK_QSS = (
 )
 
 
+# Claude 모델별 토큰 단가(USD / 1M tok). 캐시읽기=입력의 0.1배, 캐시쓰기(5분)=입력의 1.25배.
+# (대략치 — 정확 단가는 Anthropic 콘솔 기준. 비용계산 참고용, 사용자 2026-06-08.)
+_PRICE = {"opus": (15.0, 75.0), "sonnet": (3.0, 15.0), "haiku": (1.0, 5.0)}
+
+
+def _log_token_usage(exam_path: str, usage: dict) -> str:
+    """시험지 1건의 토큰 사용량·예상비용을 로그 + ``토큰사용.csv`` 에 기록. 요약 문자열 반환."""
+    if not usage or not usage.get("calls"):
+        return ""
+    from utils.config import CLAUDE_MODEL
+    m = (CLAUDE_MODEL or "").lower()
+    tier = "opus" if "opus" in m else "haiku" if "haiku" in m else "sonnet"
+    in_rate, out_rate = _PRICE[tier]
+    inp, out = usage["input"], usage["output"]
+    cc, cr = usage["cache_create"], usage["cache_read"]
+    cost = (inp * in_rate + cc * in_rate * 1.25 + cr * in_rate * 0.1
+            + out * out_rate) / 1_000_000
+    krw = cost * 1500          # 환율 1500원/USD(사용자 2026-06-08)
+    name = Path(exam_path).name if exam_path else "?"
+    summary = (f"토큰 사용 — 입력 {inp:,} · 출력 {out:,} · 캐시(쓰기 {cc:,}/읽기 {cr:,}) · "
+               f"호출 {usage['calls']}회 · 예상 ${cost:.4f} (₩{krw:,.0f}) ({CLAUDE_MODEL})")
+    logger.info("[USAGE] %s | %s", name, summary)
+    # CSV 누적(로그파일과 같은 폴더). 헤더 1회.
+    try:
+        import csv
+        log_dir = (Path(sys.executable).parent if getattr(sys, "frozen", False)
+                   else Path(__file__).resolve().parent.parent)   # 프로젝트 루트(gui/..)
+        csv_fp = log_dir / "토큰사용.csv"
+        new = not csv_fp.exists()
+        with open(csv_fp, "a", newline="", encoding="utf-8-sig") as f:
+            w = csv.writer(f)
+            if new:
+                w.writerow(["시각", "시험지", "모델", "입력토큰", "출력토큰",
+                            "캐시쓰기", "캐시읽기", "호출수", "예상USD", "예상KRW"])
+            from datetime import datetime
+            w.writerow([datetime.now().strftime("%Y-%m-%d %H:%M:%S"), name, CLAUDE_MODEL,
+                        inp, out, cc, cr, usage["calls"], f"{cost:.4f}", f"{krw:.0f}"])
+    except Exception as e:  # noqa: BLE001
+        logger.warning("토큰 CSV 기록 실패(무시): %s", e)
+    return summary
+
+
 # ─── 백그라운드 변환 워커 ────────────────────────────────────
 
 class ConversionWorker(QObject):
@@ -606,6 +648,13 @@ class ConversionWorker(QObject):
             "success",
             f"변환 완료 — {len(pages)}페이지 · 문항 {total_q} · 수식 {total_eq} · "
             f"총 {perf_counter() - t_start:.1f}s")
+        # 토큰 사용량·예상비용 기록(시험지별, 사용자 2026-06-08 비용계산용)
+        try:
+            msg = _log_token_usage(self._selected_file, engine.usage)
+            if msg:
+                self.log.emit("info", msg)
+        except Exception as e:  # noqa: BLE001
+            logger.warning("토큰 사용량 기록 실패(무시): %s", e)
         self.finished.emit(str(result_path))
 
 

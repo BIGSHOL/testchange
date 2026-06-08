@@ -582,8 +582,9 @@ def _split_underline_markup(text: str) -> list[ContentBlock]:
 
 # ── LaTeX 명령어 감지 패턴 ──
 _LATEX_CMD_RE = re.compile(
-    r'\\(?:sqrt|d?frac|tfrac|sum|prod|int|oint|lim|'
-    r'times|div|pm|mp|cdot|cdots|ldots|'
+    r'\\[!,;: ]'                         # 간격 명령(\! \, \; \: \ ) — P\!\left 의 \! 가
+    r'|\\(?:sqrt|d?frac|tfrac|sum|prod|int|oint|lim|'   # text 로 새 "P₩!" 되는 것 방지(#12)
+    r'times|div|pm|mp|cdot|cdots|ldots|quad|qquad|'
     r'left|right|leq|geq|neq|infty|'
     r'alpha|beta|gamma|delta|epsilon|zeta|eta|theta|iota|kappa|'
     r'lambda|mu|nu|xi|pi|rho|sigma|tau|phi|chi|psi|omega|'
@@ -611,6 +612,12 @@ def _split_latex_commands(text: str) -> list[ContentBlock]:
         return [ContentBlock(type=ContentType.TEXT, value=text)]
 
     latex_start = first_match.start()
+    # 수식 직전에 **공백 없이 붙은 식별자**(P, f, X, 숫자 등)는 수식의 일부 → 수식 영역에
+    # 포함시킨다. 안 그러면 "P\!\left(…" 의 P 가 텍스트로 떨어지고 \! 가 literal "P₩!" 로
+    # 샌다(학남고 #12, 2026-06-08). 한글은 텍스트이므로 ASCII 영숫자만 끌어온다.
+    while latex_start > 0 and ("a" <= text[latex_start - 1].lower() <= "z"
+                               or text[latex_start - 1].isdigit()):
+        latex_start -= 1
     before = text[:latex_start]
 
     # LaTeX 영역 끝 찾기: 한글이 나오면 수식 종료

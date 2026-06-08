@@ -27,11 +27,14 @@ except Exception:  # pragma: no cover - 비-Windows
 
 HWP_PROGID = "HWPFrame.HwpObject"
 
-# 변환 중 한글 창 표시 여부(사용자 요구 2026-06-08: 문서가 실시간으로 써지는 "스트리밍"
-# 모습이 보기 좋다). True 면 채움/렌더 세션을 보이게 띄워 작성 과정이 실시간으로 보인다.
-# ⚠️ 단점: 수식 삽입마다 편집기 렌더가 일어나 **빌드가 느려질 수 있다**([[hwp-equation-finalize]]).
-# 느리면 이 값만 False 로 되돌리면 된다(채움 세션 visible 의 단일 스위치).
-CONVERSION_VISIBLE = True
+# 변환 중 한글 창 표시 여부.
+# ⚠️ **False 가 안전 기본값**(2026-06-08 사용자 데이터손상 버그로 되돌림): COM Dispatch 는
+# 이미 떠 있는 한글 프로세스에 **붙어** 변환 문서를 그 앱의 한 문서로 연다. 창을 보이게(True)
+# 두면 변환 중 사용자가 **다른 한글 문서로 포커스**를 옮길 때 COM 작성(HAction)이 그
+# **포커스된 사용자 문서에 타이핑**돼 원본을 훼손한다(2개 파일 열림 시 보고). 또 실시간
+# 렌더로 느려진다. → 숨김(False)으로 작성 과정을 사용자 포커스와 분리한다.
+# (실시간 작성 모습을 보고 싶으면 True 로 하되, 변환 중 다른 한글 파일을 열지 말 것.)
+CONVERSION_VISIBLE = False
 
 # 보기 동그라미 숫자 ①②③④⑤ … (U+2460~)
 CIRCLE_NUMBERS = {i: chr(0x245F + i) for i in range(1, 16)}

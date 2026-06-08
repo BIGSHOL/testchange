@@ -460,6 +460,19 @@ class OCREngine:
         # max_retries: SDK 자체 백오프(429/5xx/연결오류)를 2→5 로 올려 1차 방어선으로.
         # 그 위에 _stream_message 가 명시적 백오프(로깅 포함)로 2차 방어.
         self.client = anthropic.Anthropic(api_key=self.api_key, max_retries=5)
+        # 토큰 사용량 누적(비용 계산용, 사용자 2026-06-08). 캐시 read/create 분리 기록.
+        self.usage = {"calls": 0, "input": 0, "output": 0,
+                      "cache_create": 0, "cache_read": 0}
+
+    def _accrue_usage(self, u) -> None:
+        """Message.usage 를 엔진 누적 카운터에 더한다(없는 필드는 0)."""
+        if u is None:
+            return
+        self.usage["calls"] += 1
+        self.usage["input"] += getattr(u, "input_tokens", 0) or 0
+        self.usage["output"] += getattr(u, "output_tokens", 0) or 0
+        self.usage["cache_create"] += getattr(u, "cache_creation_input_tokens", 0) or 0
+        self.usage["cache_read"] += getattr(u, "cache_read_input_tokens", 0) or 0
 
     def _stream_message(self, content: list, max_tokens: int):
         """스트리밍으로 메시지를 생성하고 최종 Message 를 반환한다.
@@ -480,7 +493,9 @@ class OCREngine:
                     max_tokens=max_tokens,
                     messages=[{"role": "user", "content": content}],
                 ) as stream:
-                    return stream.get_final_message()
+                    msg = stream.get_final_message()
+                    self._accrue_usage(getattr(msg, "usage", None))
+                    return msg
             except anthropic.RateLimitError as e:        # 429 — 분당 한도 초과
                 last_exc = e
             except anthropic.APIStatusError as e:        # 5xx/529/408/409 만 재시도
