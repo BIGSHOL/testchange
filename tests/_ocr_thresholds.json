@@ -1,0 +1,18 @@
+{
+  "_comment": "OCR 골든셋 회귀 게이트. gate 키로 현재 단계 선택(gate0=착수, gate2=목표). 골든셋이 커지고 품질이 오르면 gate 를 gate2 로 올린다. n_regressions 는 회귀 크롭 비율(regression_rate) 상한.",
+  "gate": "gate0",
+  "gate0": {
+    "mean_text_ratio": 0.80,
+    "mean_equation_ratio": 0.75,
+    "struct_accuracy": 0.80,
+    "mean_table_cell_acc": 0.85,
+    "regression_rate": 0.15
+  },
+  "gate2": {
+    "mean_text_ratio": 0.93,
+    "mean_equation_ratio": 0.92,
+    "struct_accuracy": 0.95,
+    "mean_table_cell_acc": 0.97,
+    "regression_rate": 0.0
+  }
+}

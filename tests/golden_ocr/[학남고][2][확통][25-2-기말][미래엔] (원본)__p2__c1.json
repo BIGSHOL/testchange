@@ -1,0 +1,119 @@
+{
+  "schema_version": 1,
+  "sample_id": "[학남고][2][확통][25-2-기말][미래엔] (원본)__p2__c1",
+  "png_sha256": "c023a7f997f7bb73fc26aff8d6985c25ecf1cfdc65aac0adc49c11aca416d286",
+  "source": {
+    "pdf_stem": "[학남고][2][확통][25-2-기말][미래엔] (원본)",
+    "i": 2,
+    "ci": 1,
+    "bbox": [
+      0.043000000000000003,
+      0.49,
+      0.51,
+      0.642
+    ]
+  },
+  "golden": {
+    "header": "",
+    "questions": [
+      {
+        "number": 8,
+        "score": 4,
+        "contents": [
+          {
+            "type": "text",
+            "value": "확률변수 "
+          },
+          {
+            "type": "equation",
+            "value": "X"
+          },
+          {
+            "type": "text",
+            "value": "가 가질 수 있는 값이 "
+          },
+          {
+            "type": "equation",
+            "value": "0, 1, 2, \\cdots, 50"
+          },
+          {
+            "type": "text",
+            "value": "이고 확률질량함수가"
+          },
+          {
+            "type": "equation_block",
+            "value": "\\mathrm{P}(X=x)={}_{50}\\mathrm{C}_{x}\\left(\\frac{1}{5}\\right)^{x}\\left(\\frac{4}{5}\\right)^{50-x}"
+          },
+          {
+            "type": "text",
+            "value": " ("
+          },
+          {
+            "type": "equation",
+            "value": "x=0, 1, \\cdots, 50"
+          },
+          {
+            "type": "text",
+            "value": ")일 때, "
+          },
+          {
+            "type": "equation",
+            "value": "\\mathrm{E}(X^2)-\\mathrm{E}(X)"
+          },
+          {
+            "type": "text",
+            "value": "의 값은?"
+          }
+        ],
+        "choices": [
+          {
+            "number": 1,
+            "contents": [
+              {
+                "type": "equation",
+                "value": "94"
+              }
+            ]
+          },
+          {
+            "number": 2,
+            "contents": [
+              {
+                "type": "equation",
+                "value": "96"
+              }
+            ]
+          },
+          {
+            "number": 3,
+            "contents": [
+              {
+                "type": "equation",
+                "value": "98"
+              }
+            ]
+          },
+          {
+            "number": 4,
+            "contents": [
+              {
+                "type": "equation",
+                "value": "100"
+              }
+            ]
+          },
+          {
+            "number": 5,
+            "contents": [
+              {
+                "type": "equation",
+                "value": "102"
+              }
+            ]
+          }
+        ],
+        "sub_questions": []
+      }
+    ]
+  }
+}

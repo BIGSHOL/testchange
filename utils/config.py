@@ -27,6 +27,10 @@ _DEFAULTS = {
     "QC_BLANK_THRESHOLD": 1.0,
     "QC_CONTRAST_THRESHOLD": 30.0,   # 최소 전경/배경 분리도(Otsu, 0~255). 미만이면 대비부족 경고
     "QC_PASS_SCORE": 40.0,
+    # OCR 골든셋 플라이휠 — Supabase(개발/수동 업로드 전용). 비면 sync 스킵. service_role 키만.
+    # ⚠️ 배포 exe 엔 넣지 않는다(서비스키는 로컬 config.json 에만). 키 이름으로 민감도 표시.
+    "SUPABASE_URL": "",
+    "SUPABASE_SERVICE_ROLE_KEY": "",
 }
 
 _config: dict = {}
@@ -102,6 +106,18 @@ def set_gemini_key(key: str):
 
 # Gemini 모델(크롭 검출 — bbox 그라운딩 특화)
 GEMINI_MODEL = str(_DEFAULTS["GEMINI_MODEL"])
+
+
+def get_supabase() -> tuple[str, str] | None:
+    """Supabase (URL, service_role key) 반환. 둘 중 하나라도 없으면 None(=sync 스킵).
+
+    OCR 골든셋 플라이휠의 개발/수동 업로드 전용. 배포 exe 엔 키가 없어 항상 None → 무동작.
+    """
+    url = str(_get("SUPABASE_URL") or "").strip()
+    key = str(_get("SUPABASE_SERVICE_ROLE_KEY") or "").strip()
+    if url and key:
+        return url, key
+    return None
 
 
 def get_output_dir() -> Path:
