@@ -75,6 +75,9 @@ def _parse_question(q_data: dict) -> Question:
     # eq·(연산자)·eq 로 쪼개진 수식(x = -2y+3)을 한 객체로 병합(가운데 = 평문화 방지)
     question.contents = _merge_operator_split_equations(question.contents)
 
+    # 확통 연산자·확률변수 P/E/V/N/Z/X/Y 의 \mathrm(로만)을 벗겨 이탤릭으로(순열 제외)
+    question.contents = _italicize_stat_operators(question.contents)
+
     # 기하 점/선/면 이름(통째 대문자 수식)을 로만체로 강제
     question.contents = _romanize_point_names(question.contents)
 
@@ -115,6 +118,8 @@ def _parse_choice(choice_data: dict) -> Choice | None:
     choice.contents = _split_comma_equations(choice.contents)
     # eq·(연산자)·eq 로 쪼개진 수식을 한 객체로 병합
     choice.contents = _merge_operator_split_equations(choice.contents)
+    # 확통 연산자·확률변수 \mathrm 벗겨 이탤릭(순열 제외)
+    choice.contents = _italicize_stat_operators(choice.contents)
     # 기하 점/선/면 이름 로만체 강제
     choice.contents = _romanize_point_names(choice.contents)
 
@@ -238,6 +243,27 @@ def _has_geometry_context(blocks: list[ContentBlock]) -> bool:
     """blocks 안 어느 텍스트/수식에든 엄격 기하 키워드가 있으면 True."""
     text = " ".join(str(b.value or "") for b in blocks)
     return any(k in text for k in _GEOMETRY_KEYWORDS)
+
+
+# 확통 연산자·확률변수(P 확률·E 기댓값·V 분산·N 정규분포·Z 표준정규·X,Y 확률변수)는
+# **이탤릭**이어야 한다(사용자 2026-06-08: "이탤릭인데 로만 된 게 너무 많다"). 그런데 OCR 이
+# 이들을 관례적으로 \mathrm(로만)으로 감싼다 → 벗겨서 이탤릭으로. 단 **순열 nPr**(\mathrm{P}
+# 뒤에 _ 첨자)은 로만 유지, **조합 nCr** 의 C 는 애초에 대상 아님(아래 집합에 C 없음).
+_STAT_MATHRM_RE = re.compile(r'\\mathrm\{([XYPEVNZ])\}(?!\s*_)')
+
+
+def _italicize_stat_operators(blocks: list[ContentBlock]) -> list[ContentBlock]:
+    """수식 안 ``\\mathrm{P/E/V/N/Z/X/Y}`` 를 이탤릭(맨 글자)으로 되돌린다(순열 P_ 는 제외)."""
+    out: list[ContentBlock] = []
+    for b in blocks:
+        if (b.type in (ContentType.EQUATION, ContentType.EQUATION_BLOCK)
+                and b.value and "\\mathrm" in b.value):
+            nv = _STAT_MATHRM_RE.sub(r"\1", b.value)
+            if nv != b.value:
+                out.append(ContentBlock(type=b.type, value=nv))
+                continue
+        out.append(b)
+    return out
 
 
 def _romanize_point_names(blocks: list[ContentBlock]) -> list[ContentBlock]:
@@ -448,13 +474,16 @@ def _split_at_top_level_commas(s: str) -> list[str]:
 # 텍스트 안에서 수식 구간을 감지하는 패턴
 # 영문 변수/숫자 + 수학 연산자(=, >, <, +, -, ×, ÷, ≤, ≥, ≠) 조합
 # 예: "a > 0", "b", "x = 3", "2x + 1"
+# 원자 = 변수/숫자 + **함수꼴 괄호**(f(-x), P(0≤X≤2/5) 등 — 괄호를 수식 안에 포함, 사용자
+# 2026-06-08: "함수괄호는 수식 안에, (x=1,2,3) 값나열만 텍스트"). 괄호 안엔 한글 없음.
+_MATH_ATOM = r'[a-zA-Z0-9]+(?:\.[0-9]+)?(?:\s*\([^()가-힣]*\))?'
 _MATH_EXPR_RE = re.compile(
     r'(?<![a-zA-Z])'              # 앞에 영문자 없음 (단어 중간 방지)
     r'('
-    r'[a-zA-Z0-9]+(?:\.[0-9]+)?'  # 시작: 변수/숫자(소수점 포함, 예 1.1)
+    + _MATH_ATOM +               # 시작 원자(함수꼴 포함)
     r'(?:'
     r'\s*[=><+\-×÷≤≥≠^_]\s*'      # 수학 연산자
-    r'[a-zA-Z0-9]+(?:\.[0-9]+)?'  # 뒤따르는 변수/숫자(소수점 포함)
+    + _MATH_ATOM +               # 뒤따르는 원자(함수꼴 포함)
     r')*'
     r')'
     r'(?![a-zA-Z])'              # 뒤에 영문자 없음
@@ -633,7 +662,9 @@ def _split_latex_commands(text: str) -> list[ContentBlock]:
 
     blocks: list[ContentBlock] = []
     if before.strip():
-        blocks.append(ContentBlock(type=ContentType.TEXT, value=before))
+        # before 에 평문 함수꼴 수식(f(-x)=f(x) 등)이 있으면 살린다(#12 (가): OCR 이 일부
+        # 조건을 LaTeX 없이 평문으로 줘 텍스트로 흘러가던 것 — 2026-06-08).
+        blocks.extend(_split_mixed_text_equation(before))
     if eq_text:
         blocks.append(ContentBlock(type=ContentType.EQUATION, value=eq_text))
     if after_text.strip():
