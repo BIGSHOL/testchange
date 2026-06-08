@@ -64,6 +64,27 @@ only** — anthropic 없이도 돈다). 정답 JSON 은 `tests/golden_ocr/` 에 
   배포 exe 비포함). 스키마: `supabase/schema.sql`(RLS enable·정책 미생성=service_role 만).
   `supabase` 패키지는 `requirements-dev.txt`(lazy import).
 
+## 3-c. ⭐ OCR 프롬프트 보강 반자동 루프 (위험토큰 감사 ② + 보강 ④)
+교정만 쌓아선 다음 시험지 OCR 이 안 좋아진다(배포 모델·프롬프트가 정적). **누적 실패 → 패턴 →
+프롬프트 보강 → 재측정**의 사람-루프를 반자동화한다. base 프롬프트(`EXAM_OCR_PROMPT`)는 **불변**,
+승인된 일반 규칙만 `core/ocr_reinforcement.md` 에 모아 런타임에 `active_prompt()` 가 덧붙인다.
+```
+0. (키 필요) crop_dump.py "<PDF>" ; score_ocr.py "<PDF>" --reocr   # 실모델 후보 (sig A)
+1. python scripts/ocr_eval/audit_ocr.py tests/golden_ocr          # ② 위험토큰 감사(키 0)
+   #   — severity 별(기본 medium↑) 플래그. 단일 OCR 출력만으로 작동(골든 불필요).
+2. python scripts/ocr_eval/suggest_reinforcement.py "<stem>"      # ④ 실패 채굴 → suggestions/*.md
+3. [Claude Code 세션] 리포트 읽고 보강 정련 → 사람 승인 후 core/ocr_reinforcement.md 반영(제안만)
+4. python scripts/ocr_eval/score_ocr.py "<PDF>" --reocr           # 보강 반영 새 sig B 후보
+5. python scripts/ocr_eval/score_ocr.py "<PDF>" --baseline=<A> --candidate=<B>  # A/B 게이트
+```
+- **A/B 게이트**(5)는 두 sig 캐시 후보를 골든과 채점해 **집계 델타 + 문항별 회귀 목록**(평균에
+  묻히는 개별 악화 노출) + PASS/FAIL(회귀율 ≤ baseline & 신규 악화 0)을 낸다. PASS 일 때만 보강
+  채택. 재OCR 안 함(API 0).
+- 보강이 바뀌면 `prompt_version._payload()` 가 그 내용을 서명에 포함 → `prompt_signature` 변경 →
+  eval 캐시 자동 분리(A/B 성립). 자동적용 금지: 루틴은 **제안**만, 반영은 사람 승인 후.
+- 감사/채굴 코어(`risk_tokens.py`·`failures.py`)는 **stdlib only**(키 0). 메커니즘 검증은
+  `python tests/test_ocr_failures.py`(합성쌍). 실모델 후보 채굴은 키 필요(없으면 스켈레톤만).
+
 ## 4. 빌드 / 배포 워크플로우 (CLAUDE.md '작업 마무리' 필수 준수)
 1. **검증** — 위 하네스로 렌더 PNG 육안 확인.
 2. **사용자 최종 체크** — 커밋·푸시·배포 전 **반드시 사용자 승인**.

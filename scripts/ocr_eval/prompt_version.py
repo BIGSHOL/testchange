@@ -22,10 +22,13 @@ SCHEMA_VERSION = 1
 
 
 def _payload() -> dict:
-    from core.ocr_engine import EXAM_OCR_PROMPT
+    from core.ocr_engine import EXAM_OCR_PROMPT, read_reinforcement
     from utils.config import CLAUDE_MODEL
+    # 보강(reinforcement)도 서명에 포함 — base 프롬프트가 같아도 보강이 바뀌면 실제 OCR 입력이
+    # 달라지므로 sig 가 바뀌어야 eval 캐시가 분리되고 A/B(baseline↔candidate)가 성립한다.
     return {
         "prompt": EXAM_OCR_PROMPT,
+        "reinforcement": read_reinforcement(),
         "model": CLAUDE_MODEL,
         "schema_version": SCHEMA_VERSION,
         "runner": RUNNER,

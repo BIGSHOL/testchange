@@ -8,6 +8,7 @@ import random
 import re
 import time
 from dataclasses import dataclass, field
+from pathlib import Path
 
 from PIL import Image
 import anthropic
@@ -457,6 +458,39 @@ EXAM_OCR_PROMPT = r"""당신은 한국 수학 시험지를 정밀하게 OCR하�
 """
 
 
+# ── OCR 보강 블록(reinforcement) ────────────────────────────────────────────────
+# base 프롬프트(EXAM_OCR_PROMPT)는 **불변**으로 두고, 사람이 승인한 일반 규칙만 별도 파일
+# core/ocr_reinforcement.md 에 모아 런타임에 프롬프트 끝에 덧붙인다. 프롬프트 보강 루프
+# (scripts/ocr_eval/suggest_reinforcement.py → 사람 승인 → 이 파일)의 적용 지점.
+# scripts/ocr_eval/prompt_version 이 같은 read_reinforcement() 를 서명에 포함해, 보강이 바뀌면
+# prompt_signature 가 바뀌고 eval 캐시가 분리(A/B 성립)된다.
+REINFORCEMENT_PATH = Path(__file__).resolve().parent / "ocr_reinforcement.md"
+
+# HTML 주석(<!-- ... -->)은 설명용이므로 프롬프트에 넣지 않는다.
+_HTML_COMMENT_RE = re.compile(r"<!--.*?-->", re.DOTALL)
+
+
+def read_reinforcement() -> str:
+    """승인된 보강 텍스트(주석·여백 제거). 내용이 없으면 빈 문자열.
+
+    매번 새로 읽는다(캐시 안 함) — GUI 실행 중 파일을 갱신해도 즉시 반영되게. 파일 읽기는
+    OCR API 호출 대비 무시할 비용이다.
+    """
+    try:
+        raw = REINFORCEMENT_PATH.read_text(encoding="utf-8")
+    except (OSError, UnicodeDecodeError):
+        return ""
+    return _HTML_COMMENT_RE.sub("", raw).strip()
+
+
+def active_prompt() -> str:
+    """EXAM_OCR_PROMPT + (보강 내용 있으면 빈 줄 후 덧붙임). base 문자열은 절대 불변."""
+    reinforcement = read_reinforcement()
+    if not reinforcement:
+        return EXAM_OCR_PROMPT
+    return EXAM_OCR_PROMPT + "\n\n" + reinforcement
+
+
 class OCREngine:
     """Claude Vision API 기반 OCR 엔진."""
 
@@ -534,7 +568,7 @@ class OCREngine:
         # 적중, 입력비용·지연 대폭 절감(2026-06-08 복원). 지문 박스 "요약" 누락은 이미지 순서가
         # 아니라 _merge_missing_passages(전사 2-pass)가 해결하므로 캐싱을 되살린다.
         content = [
-            {"type": "text", "text": EXAM_OCR_PROMPT,
+            {"type": "text", "text": active_prompt(),
              "cache_control": {"type": "ephemeral"}},
             {"type": "image", "source": {"type": "base64",
                                          "media_type": "image/png", "data": base64_image}},
@@ -565,7 +599,7 @@ class OCREngine:
             "본문**(보통 도입 문장과 질문 문장 사이)을 건너뛰지 말고 별도 text 블록으로 "
             "**문장 전부** 옮기세요(이야기를 안다고 줄여 쓰지 말 것). 박스 머리말 규칙은 "
             "아래 '조건/보기 박스' 절을 따르세요(원본에 라벨이 있을 때만 붙임).\n\n"
-            + EXAM_OCR_PROMPT
+            + active_prompt()
         )
         # **프롬프트를 앞(안정 prefix)에 두고 캐싱** — 모든 크롭이 동일 프롬프트라 캐시 적중,
         # 입력비용·지연 대폭 절감(2026-06-08 복원). 박스 "요약" 누락은 _merge_missing_passages
