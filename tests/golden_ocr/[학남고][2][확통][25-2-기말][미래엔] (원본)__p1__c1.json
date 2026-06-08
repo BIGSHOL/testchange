@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "sample_id": "[학남고][2][확통][25-2-기말][미래엔] (원본)__p1__c1",
+  "png_sha256": "0ffdc958717e67cf08aea63d94e0250e39db850e1d5c8f0ed05629fa8d6b183a",
+  "source": {
+    "pdf_stem": "[학남고][2][확통][25-2-기말][미래엔] (원본)",
+    "i": 1,
+    "ci": 1,
+    "bbox": [
+      0.019999999999999997,
+      0.26,
+      0.495,
+      0.48
+    ]
+  },
+  "golden": {
+    "header": "",
+    "questions": [
+      {
+        "number": 2,
+        "score": 3.9,
+        "contents": [
+          {
+            "type": "text",
+            "value": "한 개의 주사위를 던져서 나온 눈의 수가 짝수인 사건을 $A$, $6$의 약수인 사건을 $B$, $3$의 배수인 사건을 $C$라 할 때, <보기>에서 옳은 것만을 있는 대로 고른 것은?"
+          },
+          {
+            "type": "text",
+            "value": "<보기> ㄱ. 두 사건 $A$와 $B$는 서로 종속이다. • ㄴ. 두 사건 $A$와 $C$는 서로 독립이다. • ㄷ. 두 사건 $B$와 $C$는 서로 독립이다."
+          }
+        ],
+        "choices": [
+          {
+            "number": 1,
+            "contents": [
+              {
+                "type": "text",
+                "value": "ㄴ"
+              }
+            ]
+          },
+          {
+            "number": 2,
+            "contents": [
+              {
+                "type": "text",
+                "value": "ㄷ"
+              }
+            ]
+          },
+          {
+            "number": 3,
+            "contents": [
+              {
+                "type": "text",
+                "value": "ㄱ, ㄴ"
+              }
+            ]
+          },
+          {
+            "number": 4,
+            "contents": [
+              {
+                "type": "text",
+                "value": "ㄱ, ㄷ"
+              }
+            ]
+          },
+          {
+            "number": 5,
+            "contents": [
+              {
+                "type": "text",
+                "value": "ㄱ, ㄴ, ㄷ"
+              }
+            ]
+          }
+        ],
+        "sub_questions": []
+      }
+    ]
+  }
+}

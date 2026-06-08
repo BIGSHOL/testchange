@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "sample_id": "[학남고][2][확통][25-2-기말][미래엔] (원본)__p3__c2",
+  "png_sha256": "e76e0943d29d3b02722ada00d276d08e539443e0b93ffe3288dfdd0d3c39f71a",
+  "source": {
+    "pdf_stem": "[학남고][2][확통][25-2-기말][미래엔] (원본)",
+    "i": 3,
+    "ci": 2,
+    "bbox": [
+      0.49,
+      0.075,
+      0.935,
+      0.285
+    ]
+  },
+  "golden": {
+    "header": "",
+    "questions": [
+      {
+        "number": 13,
+        "score": 4.1,
+        "contents": [
+          {
+            "type": "text",
+            "value": "어느 과자 공장에서 생산하는 과자 한 개의 무게는 평균 $20$g, 표준편차가 $3$g인 정규분포를 따른다고 한다. 이 과자 공장에서는 과자를 $9$개씩 한 상자에 담아 판매하는데, $9$개의 과자를 담은 상자의 무게가 $172.44$g 이하이면 불량품인 상자로 판정된다고 한다. 이 과자 공장에서 출하한 과자 상자 $50$개 중 불량품인 상자의 기댓값은? (단, 상자의 무게는 무시하고, $Z$가 표준정규분포를 따르는 확률변수일 때, $P(0 \\le Z \\le 0.84)=0.30$으로 계산한다.)"
+          }
+        ],
+        "choices": [
+          {
+            "number": 1,
+            "contents": [
+              {
+                "type": "equation",
+                "value": "10"
+              }
+            ]
+          },
+          {
+            "number": 2,
+            "contents": [
+              {
+                "type": "equation",
+                "value": "15"
+              }
+            ]
+          },
+          {
+            "number": 3,
+            "contents": [
+              {
+                "type": "equation",
+                "value": "20"
+              }
+            ]
+          },
+          {
+            "number": 4,
+            "contents": [
+              {
+                "type": "equation",
+                "value": "25"
+              }
+            ]
+          },
+          {
+            "number": 5,
+            "contents": [
+              {
+                "type": "equation",
+                "value": "30"
+              }
+            ]
+          }
+        ],
+        "sub_questions": []
+      }
+    ]
+  }
+}
