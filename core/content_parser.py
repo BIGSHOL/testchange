@@ -66,6 +66,9 @@ def _parse_question(q_data: dict) -> Question:
         elif result:
             question.contents.append(result)
 
+    # 수식 끝 정의역 (x=0, 1, ⋯, 50) 을 본수식에서 떼어 개별 수식+텍스트로(줄바꿈 자연화)
+    question.contents = _split_trailing_domain(question.contents)
+
     # 쉼표로 구분된 독립 수식 분리 (안전 폴백)
     question.contents = _split_comma_equations(question.contents)
 
@@ -106,6 +109,8 @@ def _parse_choice(choice_data: dict) -> Choice | None:
         elif result:
             choice.contents.append(result)
 
+    # 수식 끝 정의역 (x=0, 1, ⋯, 50) 을 본수식에서 떼어 개별 수식+텍스트로(줄바꿈 자연화)
+    choice.contents = _split_trailing_domain(choice.contents)
     # 쉼표로 구분된 독립 수식 분리
     choice.contents = _split_comma_equations(choice.contents)
     # eq·(연산자)·eq 로 쪼개진 수식을 한 객체로 병합
@@ -303,6 +308,41 @@ def _merge_operator_split_equations(blocks: list[ContentBlock]) -> list[ContentB
                 continue
         out.append(b)
         i += 1
+    return out
+
+
+# 수식 끝에 \quad 등으로 붙은 **정의역/조건 나열** ``(x=0, 1, ⋯, 50)`` 을 본수식에서 떼어
+# **개별 수식 + 텍스트 괄호·쉼표**로 분리한다(사용자 2026-06-08: #8 메인수식 뒤 정의역을
+# 따로 처리해야 줄바꿈이 자연스럽다). 떼는 조건(엄격): 끝 괄호 내용이 **쉼표 나열**이고
+# 줄임표(\cdots/\dots/...) 또는 ``=`` 를 포함할 때만 — 좌표쌍 ``(3, 2)``·함수 인자 ``f(x)``·
+# 관계식 ``f(12)>f(22)``(쉼표 없음)는 절대 건드리지 않는다(쪼개지면 안 되는 수식 보호).
+_TRAILING_DOMAIN_RE = re.compile(
+    r"(?:\\quad|\\qquad|\\,|\\;|\\:|\\!|\\ |~|\s)+"      # 본수식과의 구분(\quad 등)
+    r"\(\s*(?P<body>[^()]*(?:,[^()]*)+)\)\s*$")           # 끝의 (a, b, ⋯) 나열
+
+
+def _split_trailing_domain(blocks: list[ContentBlock]) -> list[ContentBlock]:
+    """수식 끝 ``\\quad (x=0, 1, ⋯, 50)`` 정의역을 떼어 개별 수식+텍스트로 분리."""
+    out: list[ContentBlock] = []
+    for b in blocks:
+        if b.type in (ContentType.EQUATION, ContentType.EQUATION_BLOCK) and b.value:
+            v = b.value.rstrip()
+            m = _TRAILING_DOMAIN_RE.search(v)
+            if m and re.search(r"\\c?dots|\\ldots|\.\.\.|⋯|=", m.group("body")):
+                main = v[:m.start()].rstrip()
+                items = [re.sub(r"^(?:\\[,;:!\s]|\\quad|~|\s)+", "", p).strip()
+                         for p in _split_at_top_level_commas(m.group("body"))]
+                items = [it for it in items if it]
+                if main and len(items) >= 2:
+                    out.append(ContentBlock(type=b.type, value=main))
+                    out.append(ContentBlock(type=ContentType.TEXT, value=" ("))
+                    for i, it in enumerate(items):
+                        if i > 0:
+                            out.append(ContentBlock(type=ContentType.TEXT, value=", "))
+                        out.append(ContentBlock(type=ContentType.EQUATION, value=it))
+                    out.append(ContentBlock(type=ContentType.TEXT, value=")"))
+                    continue
+        out.append(b)
     return out
 
 

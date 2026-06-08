@@ -328,6 +328,14 @@ class HwpComWriter:
                     emitted = True
                     broke = False
                     after_label = True
+                    # <보기>/<조건> 박스 라벨은 **자기 단락 단독**으로 끊는다 — 5×5 폼 주입
+                    # (`_inject_bogi_form`)이 para0=라벨, para1+=내용으로 분리하므로, 라벨과
+                    # 첫 내용(가)이 같은 단락이면 라벨셀에 내용이 끼어 좁은 셀에서 잘린다
+                    # (#12 f(x) 누락, 2026-06-08). 항목 라벨(ㄱ.)은 해당 안 됨.
+                    if _BOGI_LABEL_TEXT_RE.match(tok):
+                        self.s.break_para()
+                        broke = True
+                        after_label = False
                 elif tok == _PLAIN_BOX_MARK:
                     after_label = True   # <상자> 뒤 내용 선행 공백 제거(셀 내용 깔끔히)
                 started = True
@@ -360,10 +368,21 @@ class HwpComWriter:
 
     def _write_condition_box(self, blocks: list[ContentBlock]) -> None:
         """보기/조건 블록들을 1×1 테두리 표(박스) 안에 줄 단위로 렌더한다(A3)."""
-        # OCR이 이미 표(table)로 준 경우는 이중 표를 피해 그대로 렌더.
+        # 표(데이터 표: 확률분포표·정규분포표)와 조건/보기(<상자>/<조건>/<보기>) 박스가
+        # **섞여** 오면: 표는 표로, 조건 머리부터는 박스로 **분리** 렌더한다. 과거엔 표가
+        # 하나라도 있으면 전부 평문(_write_block)으로 흘려 <상자> 조건이 literal 텍스트로
+        # 새고 수식이 객체화 안 됐다(학남고 확통 #18 — z-표 뒤 (가)(나) 조건, 2026-06-08).
         if any(b.type == ContentType.TABLE for b in blocks):
-            for b in blocks:
+            ci = next((i for i, b in enumerate(blocks)
+                       if b.type == ContentType.TEXT
+                       and _COND_HEADER_RE.search(b.value or "")), None)
+            if ci is None:
+                for b in blocks:           # 조건 머리 없음 → 표/블록만 그대로
+                    self._write_block(b)
+                return
+            for b in blocks[:ci]:          # 조건 머리 앞(표 등)은 개별 렌더
                 self._write_block(b)
+            self._write_condition_box(blocks[ci:])   # 조건부터는 박스(재귀, 이제 표 없음)
             return
         # 단락 시작(pos==0, 예: 그림 뒤 빈 단락)이면 추가 줄바꿈 없이 그 단락을 재사용
         # → 그림↔조건 사이 빈 줄 방지(사용자 2026-06-05). 아니면 새 줄로.
@@ -707,6 +726,11 @@ def write_exam_to_hwp(
         _inject_bogi_form(output_path)
     except Exception:
         pass
+    # 확률분포표 1열·표준정규분포표 최상단 행에 #D9D9D9 음영(수기본 통일).
+    try:
+        _inject_table_shading(output_path)
+    except Exception:
+        pass
     return output_path
 
 
@@ -947,6 +971,140 @@ def _inject_bogi_form(hwpx_path: str | Path) -> int:
     # 헤더(테두리 append) 반영
     contents[header_fn] = header.encode("utf-8")
 
+    tmp = str(hwpx_path) + ".tmp"
+    with zipfile.ZipFile(tmp, "w") as zout:
+        for info in infos:
+            zi = zipfile.ZipInfo(info.filename, date_time=info.date_time)
+            zi.compress_type = info.compress_type
+            zi.external_attr = info.external_attr
+            zi.internal_attr = info.internal_attr
+            zi.create_system = info.create_system
+            zi.flag_bits = info.flag_bits
+            zout.writestr(zi, contents[info.filename])
+    os.replace(tmp, hwpx_path)
+    return total
+
+
+# 수기본(레퍼런스) 표 음영 borderFill — 전체 SOLID 0.12mm 테두리 + #D9D9D9 회색 채움.
+# 레퍼런스 [학남고]…(워드).hwpx 의 borderFill id=16 구조 그대로(faceColor 추출 확인).
+_SHADE_BORDERFILL_DEF = {
+    16: '<hh:borderFill id="{{BF16}}" threeD="0" shadow="0" centerLine="NONE" '
+        'breakCellSeparateLine="0"><hh:slash type="NONE" Crooked="0" isCounter="0"/>'
+        '<hh:backSlash type="NONE" Crooked="0" isCounter="0"/>'
+        '<hh:leftBorder type="SOLID" width="0.12 mm" color="#000000"/>'
+        '<hh:rightBorder type="SOLID" width="0.12 mm" color="#000000"/>'
+        '<hh:topBorder type="SOLID" width="0.12 mm" color="#000000"/>'
+        '<hh:bottomBorder type="SOLID" width="0.12 mm" color="#000000"/>'
+        '<hh:diagonal type="SOLID" width="0.1 mm" color="#000000"/>'
+        '<hc:fillBrush><hc:winBrush faceColor="#D9D9D9" hatchColor="#000000" alpha="0"/>'
+        '</hc:fillBrush></hh:borderFill>',
+}
+
+
+def _shade_target_mode(tbl_xml: str) -> str | None:
+    """데이터 표(확률분포표·표준정규분포표)의 라벨 셀 음영 대상을 판정.
+
+    수기본 통일(사용자 2026-06-08):
+      - 표준정규분포표(z|P 세로형, colCnt==2) → **최상단 행**(rowAddr=0) 음영.
+      - 확률분포표(X|값 가로형, rowCnt==2·colCnt>=3) → **첫 열**(colAddr=0) 음영.
+    그 외(보기 5×5·1×1 박스·1행 레이아웃·답안표 등)는 None(미적용). 수식 데이터 표만 대상.
+    """
+    rm = re.search(r'<hp:tbl\b[^>]*\browCnt="(\d+)"', tbl_xml)
+    cm = re.search(r'<hp:tbl\b[^>]*\bcolCnt="(\d+)"', tbl_xml)
+    if not (rm and cm):
+        return None
+    nrow, ncol = int(rm.group(1)), int(cm.group(1))
+    if "<hp:equation" not in tbl_xml:
+        return None                       # 수식 없는 표(답안·레이아웃)는 제외
+    if ncol == 2 and nrow >= 2:
+        return "row0"                     # z-표(표준정규분포표)
+    if nrow == 2 and ncol >= 3:
+        return "col0"                     # 확률분포표
+    return None
+
+
+def _shade_cells(tbl_xml: str, shade_id: int, mode: str) -> str:
+    """표 XML 안에서 음영 대상 셀(mode=row0/col0)의 borderFillIDRef 를 shade_id 로."""
+    out = []
+    p = 0
+    while True:
+        i = tbl_xml.find("<hp:tc", p)
+        if i < 0:
+            break
+        cell, end = _tbl_balanced(tbl_xml, i, "hp:tc")
+        if end < 0:
+            break
+        out.append(tbl_xml[p:i])
+        addr = re.search(r'<hp:cellAddr colAddr="(\d+)" rowAddr="(\d+)"', cell)
+        target = False
+        if addr:
+            col, row = int(addr.group(1)), int(addr.group(2))
+            target = (mode == "row0" and row == 0) or (mode == "col0" and col == 0)
+        if target:
+            cell = re.sub(r'(<hp:tc\b[^>]*\bborderFillIDRef=")\d+(")',
+                          lambda m: m.group(1) + str(shade_id) + m.group(2),
+                          cell, count=1)
+        out.append(cell)
+        p = end
+    out.append(tbl_xml[p:])
+    return "".join(out)
+
+
+def _inject_table_shading(hwpx_path: str | Path) -> int:
+    """저장된 .hwpx 의 확률분포표·표준정규분포표 라벨 셀에 #D9D9D9 음영을 입힌다.
+
+    수기본과 통일(사용자 2026-06-08). 음영 borderFill 1종을 header.xml 에 1회 append 한 뒤,
+    `_shade_target_mode` 가 가리키는 셀의 borderFillIDRef 만 교체(위치기반). 멱등(이미 음영 id면
+    재실행해도 동일). Returns: 음영 입힌 표 개수.
+    """
+    import zipfile, os
+    hwpx_path = Path(hwpx_path)
+    with zipfile.ZipFile(hwpx_path) as z:
+        infos = z.infolist()
+        contents = {i.filename: z.read(i.filename) for i in infos}
+
+    header_fn = next((f for f in contents if f.endswith("header.xml")), None)
+    if header_fn is None:
+        return 0
+    header = contents[header_fn].decode("utf-8")
+
+    shade_id = None
+    total = 0
+    for fn in list(contents):
+        if not (fn.endswith(".xml") and "section" in fn.lower()):
+            continue
+        s = contents[fn].decode("utf-8")
+        out, last, p, changed = [], 0, 0, False
+        while True:
+            m = re.search(r'<hp:tbl\b', s[p:])
+            if not m:
+                break
+            tstart = p + m.start()
+            tbl_xml, tend = _tbl_balanced(s, tstart, "hp:tbl")
+            if tend < 0:
+                break
+            p = tend
+            mode = _shade_target_mode(tbl_xml)
+            if mode is None:
+                continue
+            if shade_id is None:
+                id_map, header = _append_borderfills(
+                    header, _SHADE_BORDERFILL_DEF, [16])
+                shade_id = id_map[16]
+            new_tbl = _shade_cells(tbl_xml, shade_id, mode)
+            if new_tbl != tbl_xml:
+                out.append(s[last:tstart])
+                out.append(new_tbl)
+                last = tend
+                changed = True
+                total += 1
+        if changed:
+            out.append(s[last:])
+            contents[fn] = "".join(out).encode("utf-8")
+
+    if total == 0:
+        return 0
+    contents[header_fn] = header.encode("utf-8")
     tmp = str(hwpx_path) + ".tmp"
     with zipfile.ZipFile(tmp, "w") as zout:
         for info in infos:

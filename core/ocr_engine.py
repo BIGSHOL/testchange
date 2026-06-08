@@ -29,6 +29,35 @@ def _norm_match(s: str) -> str:
     return re.sub(r"[\s\W_]+", "", (s or "")).lower()
 
 
+# 누락 복구 대상 문단을 시작하는 조건/소문항 마커(이런 문단은 구조화·소문항·표가 이미
+# 처리하므로 전사로 재주입하면 중복·박스갇힘이 된다 — 확통 #17·#18·#20, 2026-06-08).
+_SUBMARKER_RE = re.compile(
+    r"^\s*(?:\(\s*[가나다라마바0-9]+\s*\)|[①-⑮㉠-㉭ⓐ-ⓩ]|[ㄱ-ㅎ]\s*[.)]|"
+    r"\[\s*(?:서술형|서답형|조건|보기)\b)")
+
+
+def _is_recoverable_prose(p: str) -> bool:
+    """전사 2-pass 복구 대상 = **'진짜 통째 누락된 긴 한글 지문'(독수리류)만**.
+
+    구조화가 표/수식/조건 객체로 이미 처리하는 내용까지 전사가 텍스트로 재주입하면
+    `<상자>` literal·마크다운 표 덤프·조건 중복이 된다(학남고 확통 #17~20, 2026-06-08).
+    그래서 ①마크다운 표(``|``/``---``) ②조건·소문항 마커로 시작 ③수식·기호 위주
+    (한글 비율<0.55) 문단은 **복구 금지**. 긴 한글 산문(지문 박스)만 통과시킨다.
+    """
+    s = (p or "").strip()
+    if not s:
+        return False
+    if "|" in s or "---" in s:                 # 마크다운 표 → 절대 텍스트로 주입 금지
+        return False
+    if _SUBMARKER_RE.match(s):                  # 조건/소문항 = 구조화·소문항 처리 대상
+        return False
+    compact = re.sub(r"\s+", "", s)
+    hangul = len(re.findall(r"[가-힣]", compact))
+    if not compact or hangul / len(compact) < 0.55:   # 수식·기호 위주면 지문 아님
+        return False
+    return True
+
+
 def _merge_missing_passages(result: dict, transcription: str) -> None:
     """전사(transcription)엔 있으나 구조화 결과에 **빠진 문단(지문 박스)**을 끼워넣는다(in-place).
 
@@ -87,9 +116,10 @@ def _merge_missing_passages(result: dict, transcription: str) -> None:
                 covered += str(contents[ci].get("value", "")) if isinstance(contents[ci], dict) else ""
                 ci += 1
             insert_at = ci
-        elif len(pn) >= 20:
-            # 구조화가 빠뜨린 긴 문단 = 지문 박스 → 라벨 없는 박스(<상자>)로 원위치에 삽입.
-            # 이미 라벨/박스 마커로 시작하면 그대로, 아니면 <상자>(표시 안 되는 박스) 머리.
+        elif len(pn) >= 20 and _is_recoverable_prose(p):
+            # 구조화가 빠뜨린 **긴 한글 지문**(독수리류)만 라벨 없는 박스(<상자>)로 원위치 삽입.
+            # 표(마크다운)·조건/소문항 마커·수식 위주 문단은 _is_recoverable_prose 가 걸러
+            # 중복·<상자> literal·마크다운 덤프를 방지한다(학남고 확통 #17~20, 2026-06-08).
             has_mark = re.match(r"^\s*(<\s*(조건|보기|상자)\s*>|\[\s*(조건|보기)\s*\])", p)
             label = "" if has_mark else "<상자> "
             contents.insert(insert_at, {"type": "text", "value": label + p})

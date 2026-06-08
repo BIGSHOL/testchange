@@ -1366,6 +1366,12 @@ def write_exam_to_form(
         _inject_bogi_form(output_path)
     except Exception:
         pass
+    # 1.8단계: 확률분포표 1열·표준정규분포표 최상단 행 #D9D9D9 음영(수기본 통일, 기본 경로와 동일).
+    try:
+        from core.hwp_com_writer import _inject_table_shading
+        _inject_table_shading(output_path)
+    except Exception:
+        pass
     # 2단계: 그림 렌더 모드면 그림 binItem 임베드(경고 감수). 아니면(기본) COM 재저장(launder)
     # 으로 '변조' 보안경고 제거 — 그림 자리엔 안내 박스(표라서 재저장에 보존).
     if render_figures and fig_paths:
