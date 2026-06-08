@@ -1,0 +1,111 @@
+{
+  "schema_version": 1,
+  "sample_id": "[학남고][2][확통][25-2-기말][미래엔] (원본)__p2__c2",
+  "png_sha256": "62eb9a15aecc245d76346dfe79967fff335b762c8ed69b4e02dbf5af982a650a",
+  "source": {
+    "pdf_stem": "[학남고][2][확통][25-2-기말][미래엔] (원본)",
+    "i": 2,
+    "ci": 2,
+    "bbox": [
+      0.505,
+      0.085,
+      0.9500000000000001,
+      0.225
+    ]
+  },
+  "golden": {
+    "header": "",
+    "questions": [
+      {
+        "number": 9,
+        "score": 4.1,
+        "contents": [
+          {
+            "type": "text",
+            "value": "서로 다른 두 개의 주사위를 동시에 던지는 시행을 "
+          },
+          {
+            "type": "equation",
+            "value": "36"
+          },
+          {
+            "type": "text",
+            "value": "번 반복한다. 던져서 나온 두 수의 곱이 소수인 횟수를 확률변수 "
+          },
+          {
+            "type": "equation",
+            "value": "X"
+          },
+          {
+            "type": "text",
+            "value": ", 소수가 되지 않는 횟수를 확률변수 "
+          },
+          {
+            "type": "equation",
+            "value": "Y"
+          },
+          {
+            "type": "text",
+            "value": "라 할 때, "
+          },
+          {
+            "type": "equation",
+            "value": "2X+3Y"
+          },
+          {
+            "type": "text",
+            "value": "의 분산은?"
+          }
+        ],
+        "choices": [
+          {
+            "number": 1,
+            "contents": [
+              {
+                "type": "equation",
+                "value": "5"
+              }
+            ]
+          },
+          {
+            "number": 2,
+            "contents": [
+              {
+                "type": "equation",
+                "value": "6"
+              }
+            ]
+          },
+          {
+            "number": 3,
+            "contents": [
+              {
+                "type": "equation",
+                "value": "7"
+              }
+            ]
+          },
+          {
+            "number": 4,
+            "contents": [
+              {
+                "type": "equation",
+                "value": "8"
+              }
+            ]
+          },
+          {
+            "number": 5,
+            "contents": [
+              {
+                "type": "equation",
+                "value": "9"
+              }
+            ]
+          }
+        ],
+        "sub_questions": []
+      }
+    ]
+  }
+}

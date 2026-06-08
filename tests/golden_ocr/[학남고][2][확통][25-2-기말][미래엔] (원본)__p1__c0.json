@@ -1,0 +1,115 @@
+{
+  "schema_version": 1,
+  "sample_id": "[학남고][2][확통][25-2-기말][미래엔] (원본)__p1__c0",
+  "png_sha256": "4ed5033061d2a602aabf20f0ca8e00e2767cac3ba198a27b6552631839b09e78",
+  "source": {
+    "pdf_stem": "[학남고][2][확통][25-2-기말][미래엔] (원본)",
+    "i": 1,
+    "ci": 0,
+    "bbox": [
+      0.019999999999999997,
+      0.08,
+      0.495,
+      0.185
+    ]
+  },
+  "golden": {
+    "header": "",
+    "questions": [
+      {
+        "number": 1,
+        "score": 3.9,
+        "contents": [
+          {
+            "type": "text",
+            "value": "다음 시행에서의 확률변수가 나머지 넷과 종류가 다른 것은?"
+          }
+        ],
+        "choices": [
+          {
+            "number": 1,
+            "contents": [
+              {
+                "type": "text",
+                "value": "어느 날 "
+              },
+              {
+                "type": "equation",
+                "value": "A"
+              },
+              {
+                "type": "text",
+                "value": "동물원의 입장객 수"
+              }
+            ]
+          },
+          {
+            "number": 2,
+            "contents": [
+              {
+                "type": "equation",
+                "value": "B"
+              },
+              {
+                "type": "text",
+                "value": "경기장에서 생산된 전구의 수명"
+              }
+            ]
+          },
+          {
+            "number": 3,
+            "contents": [
+              {
+                "type": "equation",
+                "value": "C"
+              },
+              {
+                "type": "text",
+                "value": "농장에서 며칠 동안 수확하는 사과의 수"
+              }
+            ]
+          },
+          {
+            "number": 4,
+            "contents": [
+              {
+                "type": "text",
+                "value": "한 개의 주사위를 "
+              },
+              {
+                "type": "equation",
+                "value": "10"
+              },
+              {
+                "type": "text",
+                "value": "번 던질 때, "
+              },
+              {
+                "type": "equation",
+                "value": "6"
+              },
+              {
+                "type": "text",
+                "value": "의 약수가 나온 횟수"
+              }
+            ]
+          },
+          {
+            "number": 5,
+            "contents": [
+              {
+                "type": "equation",
+                "value": "10"
+              },
+              {
+                "type": "text",
+                "value": "개의 동전을 동시에 던질 때, 앞면이 나온 동전의 개수"
+              }
+            ]
+          }
+        ],
+        "sub_questions": []
+      }
+    ]
+  }
+}
