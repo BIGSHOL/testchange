@@ -88,6 +88,11 @@ _UNIT_RE = re.compile(
     r"(\d)[\s`]*(" + "|".join(re.escape(u) for u in _UNITS) + r")(?![A-Za-z0-9])"
 )
 
+# 확통 연산자·확률변수 P/E/V/N/Z/X/Y 의 \mathrm(로만)을 벗겨 이탤릭으로(순열 \mathrm{P}_ 제외).
+# 본문 수식뿐 아니라 **표 셀**(latex_to_hwpeq 직접 호출)에도 적용되도록 변환기에서 처리
+# (사용자 2026-06-08: 정규분포표 셀 내부 P·Z 가 로만). 조합 C 는 집합에 없어 로만 유지.
+_STAT_ITALIC_RE = re.compile(r"\\mathrm\{([XYPEVNZ])\}(?!\s*_)")
+
 
 def _romanize_units(s: str) -> str:
     """수식 내 '숫자(+공백/`) 뒤 단위'를 ``rm`<단위>`` (정자 + 1/4칸)로 변환.
@@ -518,6 +523,9 @@ class LaTeXToHWPConverter:
         """
         # 전처리: 불필요한 공백, $기호 제거
         s = latex.strip().strip("$").strip()
+
+        # 확통 연산자/확률변수(P·E·V·N·Z·X·Y)의 \mathrm 을 벗겨 이탤릭으로(표 셀 포함, 순열 제외)
+        s = _STAT_ITALIC_RE.sub(r"\1", s)
 
         # 순환소수 정규화: 소수점 뒤 \dot{} 연쇄를 \overline{...}로 합침.
         # (HWP는 dot 키워드의 over-dot를 렌더하지 못함 — bar(overline)만 정상. 실측 확정.)
