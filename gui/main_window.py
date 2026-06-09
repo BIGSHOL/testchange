@@ -373,8 +373,19 @@ class ConversionWorker(QObject):
             n_pages = len(valid_indices)
             cworkers = min(_OCR_WORKERS, max(1, n_pages))
             cex = ThreadPoolExecutor(max_workers=cworkers)
+            # Gemini 크롭 실패 → Claude 폴백 시 GUI 에 **1회** 경고(조용한 폴백으로 크롭이
+            # 갑자기 이상해진 원인을 못 찾던 문제 방지, 사용자 2026-06-09). 상세는 로그파일.
+            self._crop_fallback_warned = False
+
+            def _on_crop_fallback(reason: str) -> None:
+                if self._crop_fallback_warned:
+                    return
+                self._crop_fallback_warned = True
+                self.log.emit("warning", f"⚠️ Gemini 크롭 실패 → Claude 폴백(크롭 정확도 저하). "
+                                         f"원인: {reason}")
             try:
-                futs = {cex.submit(detect_crops, images[idx], self.api_key): seq
+                futs = {cex.submit(detect_crops, images[idx], self.api_key,
+                                   on_fallback=_on_crop_fallback): seq
                         for seq, idx in enumerate(valid_indices)}
                 done = 0
                 for fut in as_completed(futs):

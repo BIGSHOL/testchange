@@ -160,33 +160,67 @@ Rules:
 """
 
 
-def detect_crops(image: Image.Image, api_key: str | None = None) -> list[CropBox]:
+def _fallback_reason(err: Exception) -> str:
+    """Gemini 실패 예외 → 사용자가 알아볼 한 줄 원인(크레딧/레이트리밋/키/기타)."""
+    low = str(err).lower()
+    if any(k in low for k in ("credit", "depleted", "billing", "prepay", "balance")):
+        return "Gemini 크레딧 소진(결제 필요) — AI Studio 에서 충전"
+    if any(k in low for k in ("api key", "api_key", "permission", "unauthor",
+                              "invalid", "401", "403")):
+        return "Gemini 키/권한 오류 — config.json 의 GEMINI_API 확인"
+    if any(k in low for k in ("429", "rate", "quota", "resource", "exhaust",
+                              "503", "500", "unavailable", "overload", "timeout", "deadline")):
+        return "Gemini 레이트리밋/일시 오류 — 잠시 후 재시도"
+    return f"Gemini 오류: {str(err)[:120]}"
+
+
+def _is_permanent(err: Exception) -> bool:
+    """재시도해도 소용없는 영구 오류(크레딧 소진·키/권한 오류)면 True."""
+    low = str(err).lower()
+    return any(k in low for k in ("credit", "depleted", "billing", "prepay", "balance",
+                                  "api key", "api_key", "permission", "unauthor",
+                                  "invalid", "401", "403"))
+
+
+def detect_crops(image: Image.Image, api_key: str | None = None,
+                 on_fallback=None) -> list[CropBox]:
     """페이지 이미지에서 문제 경계 박스 리스트를 검출.
 
     Gemini 키가 있으면 Gemini 3.5 Flash(bbox 정확)로, 없으면 Claude 로 검출한다.
+    Gemini 가 실패해 **Claude 로 폴백**하면 그 사실·원인을 로그(``시험지한글화.log``)에
+    남기고 ``on_fallback(reason)`` 콜백(있으면)으로 호출자(GUI)에 알린다 — 조용한 폴백으로
+    "크롭이 갑자기 이상해졌다"의 원인을 못 찾던 문제 방지(사용자 2026-06-09).
     """
     gem_key = get_gemini_key()
     gem_err: Exception | None = None
     if gem_key:
         # 일시적 실패(레이트리밋 429·5xx·타임아웃)는 재시도로 구제 — 연속 변환 시 Gemini
-        # 레이트리밋 버스트로 전 페이지가 0개 검출되던 문제(2026-06-05). 영구적 오류(키/권한)는
-        # 즉시 폴백.
+        # 레이트리밋 버스트로 전 페이지가 0개 검출되던 문제(2026-06-05). 영구 오류(크레딧
+        # 소진·키/권한)는 재시도해도 무의미하므로 즉시 폴백.
         for attempt in range(3):
             try:
                 return _detect_with_gemini(image, gem_key)
             except Exception as e:  # noqa: BLE001
                 gem_err = e
-                low = str(e).lower()
-                transient = any(k in low for k in (
-                    "429", "rate", "quota", "resource", "exhaust", "503", "500",
-                    "unavailable", "deadline", "timeout", "overload"))
-                logger.warning("Gemini 크롭 검출 실패(%d/3, transient=%s): %s",
-                               attempt + 1, transient, e)
-                if not transient or attempt == 2:
+                permanent = _is_permanent(e)
+                logger.warning("Gemini 크롭 검출 실패(%d/3, 영구=%s): %s",
+                               attempt + 1, permanent, e)
+                if permanent or attempt == 2:
                     break
                 time.sleep(1.5 * (attempt + 1))
     try:
-        return _detect_with_claude(image, api_key)
+        boxes = _detect_with_claude(image, api_key)
+        # Gemini 가 한 번이라도 시도됐다가 실패해 Claude 로 내려온 경우 = 폴백.
+        if gem_err is not None:
+            reason = _fallback_reason(gem_err)
+            logger.error("⚠️ Gemini 크롭 실패 → Claude 폴백(크롭 정확도 저하). 원인: %s "
+                         "[로그: 시험지한글화.log]", reason)
+            if on_fallback is not None:
+                try:
+                    on_fallback(reason)
+                except Exception:
+                    pass
+        return boxes
     except Exception as ce:  # noqa: BLE001
         # Gemini·Claude 둘 다 실패 → 원인을 합쳐 올린다(워커가 GUI 에 그대로 노출).
         if gem_err is not None:
