@@ -769,15 +769,26 @@ def _finalize_contents(blocks: list[ContentBlock]) -> list[ContentBlock]:
 # 한글과 수식이 붙는다(사용자 2026-06-09 #19). 수식은 **새 기호**이므로 앞에 공백을 넣는다.
 # (수식 뒤 한글은 조사 "p_5이라"가 정상이라 그쪽은 건드리지 않는다 — 비대칭.)
 _HANGUL_TAIL_RE = re.compile(r"[가-힣]$")
+# 서수 접두사 '제'(第)+숫자 = 붙여쓰는 구성(제4사분면·제3항). 위 공백 규칙의 예외.
+# 단 '문제3'·'과제3'(제가 단어의 끝 음절)은 띄어야 하므로, **앞이 한글이 아닌 독립 '제'**
+# 뒤에 순수 숫자 수식이 올 때만 공백을 막는다(사용자 2026-06-09 잔여 띄어쓰기 케이스).
+_ORDINAL_JE_RE = re.compile(r"(?:^|[^가-힣])제$")
+_PURE_NUM_RE = re.compile(r"^\d+$")
 
 
 def _space_hangul_before_eq(blocks: list[ContentBlock]) -> list[ContentBlock]:
-    """``TEXT(…한글) + EQ`` 경계에 공백 1칸 삽입(이미 공백/부호로 끝나면 안 함)."""
+    """``TEXT(…한글) + EQ`` 경계에 공백 1칸 삽입(이미 공백/부호로 끝나면 안 함).
+
+    예외: 독립 서수 접두사 '제' + 순수 숫자(제4사분면)는 붙여쓴다.
+    """
     eq_types = (ContentType.EQUATION, ContentType.EQUATION_BLOCK)
     for i in range(len(blocks) - 1):
         b, nxt = blocks[i], blocks[i + 1]
         if (b.type == ContentType.TEXT and nxt.type in eq_types
                 and b.value and _HANGUL_TAIL_RE.search(b.value)):
+            if (_ORDINAL_JE_RE.search(b.value)
+                    and _PURE_NUM_RE.match((nxt.value or "").strip())):
+                continue  # 제4사분면: 접두사 '제'+숫자는 붙여쓰기
             b.value = b.value + " "
     return blocks
 

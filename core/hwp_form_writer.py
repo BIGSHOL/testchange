@@ -1139,6 +1139,35 @@ def _estimate_essay_heights(essays) -> dict:
     return heights
 
 
+def _estimate_mc_heights(mc) -> dict:
+    """객관식 슬롯 높이(줄)를 **내용 기반 결정적 추정**(COM 측정 실패 시 폴백용).
+
+    평소엔 `_measure_first_choice_lines` 실측을 쓰지만, COM 측정이 실패(보안팝업·gen_py·
+    환경)하면 과거엔 균일 빈줄 4로 폴백해 **과여백**이 났다(사용자 보고, HANDOFF §7-2).
+    그 대신 서술형(`_estimate_essay_heights`)과 같은 방식으로 발문·수식·표·선택지에서 줄수를
+    추정해 `_adaptive_columns` 로 빽빽 배치한다 → 측정이 실패해도 과여백 없음. **보수적
+    과대추정**(단 넘침 방지). 측정이 되면 이 함수는 안 쓰인다.
+    """
+    CPL = 26                                    # 단 한 줄당 본문 글자수(서술형 추정기와 동일)
+    heights = {}
+    for idx, q in enumerate(mc):
+        text = sum(len(b.value or "") for b in q.contents if b.type == ContentType.TEXT)
+        eq = sum(len(b.value or "") for b in q.contents
+                 if b.type in (ContentType.EQUATION, ContentType.EQUATION_BLOCK))
+        rows = sum(len(b.rows or []) for b in q.contents if b.type == ContentType.TABLE)
+        tables = sum(1 for b in q.contents if b.type == ContentType.TABLE)
+        inline = text + int(eq * 0.4)
+        h = 1                                   # 번호줄
+        h += -(-inline // CPL)                  # ceil(발문/CPL)
+        h += (rows + 1) if tables else 0        # 표(행 + 헤더 테두리)
+        # 선택지: 짧으면 2열(①②/③④/⑤)=3줄, 길면 1열 5줄(가장 긴 보기로 판정)
+        ch_max = max((sum(len(b.value or "") for b in (c.contents or []))
+                      for c in (q.choices or [])), default=0)
+        h += 5 if ch_max > 12 else 3
+        heights[idx] = max(3, h)
+    return heights
+
+
 def _adaptive_columns(heights: dict, n: int, per_col_max: int, rebalance_tail: bool = True):
     """측정 높이로 **스마트 단배치**: 한 단(CAP 줄) 안에서 문항 수를 가변(최대 per_col_max).
 
@@ -1207,7 +1236,7 @@ def _adaptive_columns(heights: dict, n: int, per_col_max: int, rebalance_tail: b
 
 
 def _layout_form(filled_hwpx, out_hwpx, per_col: int, n_mc: int, n_es: int,
-                 essays=None) -> None:
+                 essays=None, mc=None) -> None:
     """채운 hwpx → 혼합 레이아웃. 객관식·서술형 **둘 다 측정 기반 빽빽배치**.
 
     학생 답란 공간은 보존하지 않는다(노트 풀이 전제 — 메모리 form-layout-no-answer-space).
@@ -1243,9 +1272,24 @@ def _layout_form(filled_hwpx, out_hwpx, per_col: int, n_mc: int, n_es: int,
             logger.info(
                 "폼 객관식 스마트 단배치(측정 %d/%d): %d개 단, 단당문항=%s",
                 len(pos), n_mc, len(cols), [len(c) for c in cols])
+        elif mc:
+            # 측정 실패 → **내용 기반 추정**으로 단배치(균일 빈줄 4의 과여백 회피).
+            # 단, 추정 높이는 실측과 달라 `_adaptive_columns` 의 fill-to-CAP 빈줄이 단을
+            # 넘칠 수 있다(짧은 문항이 모인 단의 과여백·오버플로우) → **최소 간격 빽빽 패킹**
+            # 으로 단 상단부터 채운다(행정렬 포기, 안전 우선).
+            mc_heights = _estimate_mc_heights(mc)
+            obj_colbreak, _ignore, cols = _adaptive_columns(mc_heights, n_mc, per_col)
+            colbreak = set(obj_colbreak)
+            for c in cols:
+                for i in c:
+                    blanks[i] = 0 if i == c[-1] else _GAP
+            logger.warning(
+                "[FALLBACK] 폼 객관식 COM 측정 실패(%d/%d) → 내용기반 추정 빽빽배치(%d개 단, "
+                "단당=%s). COM 측정(보안팝업·gen_py) 확인 권장.",
+                len(pos), n_mc, len(cols), [len(c) for c in cols])
         else:
             logger.warning(
-                "[FALLBACK] 폼 객관식 측정 실패(%d/%d) → 고정 per_col + 균일 빈줄(4). "
+                "[FALLBACK] 폼 객관식 측정 실패(%d/%d)·문항 미전달 → 고정 per_col + 균일 빈줄(4). "
                 "과여백/단넘침 가능 — COM 측정(보안팝업·gen_py) 확인 필요.", len(pos), n_mc)
             colbreak = set(range(per_col, n_mc, per_col))
             blanks.update({i: 4 for i in range(n_mc)})
@@ -1668,7 +1712,8 @@ def write_exam_to_form(
         n_mc, n_es, fig_paths = _fill_form(mc, essays, form_path, filled,
                                            render_figures=render_figures)
         # 혼합 레이아웃(객관식 행정렬 + 서술형 빽빽배치 2개/단, 답란 미보존).
-        _layout_form(filled, output_path, per_col, n_mc, n_es, essays=essays)
+        # mc 도 넘겨 COM 측정 실패 시 내용기반 추정으로 폴백(과여백 회피).
+        _layout_form(filled, output_path, per_col, n_mc, n_es, essays=essays, mc=mc)
     finally:
         try:
             os.remove(filled)

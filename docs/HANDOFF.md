@@ -108,6 +108,8 @@ only** — anthropic 없이도 돈다). 정답 JSON 은 `tests/golden_ocr/` 에 
 - `python scripts/verify_output_format.py --all` → 출력포맷 합의 28개 검증(위반=exit 2).
 - `python tests/test_ocr_golden.py` → 골든 회귀 게이트, `python tests/test_ocr_failures.py` → 채굴/감사
   단위(둘 다 stdlib·키 0). `python tests/test_equation_metrics.py` → 수식 크기 추정 회귀.
+- (2026-06-10 신규, 전부 stdlib·키 0) `test_content_parser.py` → 한글↔숫자 띄어쓰기·서수 '제',
+  `test_table_recovery.py` → 객관식 표 복구 게이트/파싱/삽입, `test_form_layout.py` → 폼 MC 높이 추정.
 - `.claude/settings.json` PostToolUse 훅: `hwp_com_writer`·`hwp_com`·`latex_to_hwpeq` 편집 시 자동 실행.
 - 검증 스킬: `verify-output-format`·`verify-latex-hwpeq`·`verify-ocr-parser-sync`·`verify-hwpx-structure`·
   `verify-equation-metrics`(`.claude/skills/`, Codex 는 `.agents/skills/` 미러).
@@ -138,15 +140,26 @@ only** — anthropic 없이도 돈다). 정답 JSON 은 `tests/golden_ocr/` 에 
 1. **실모델 OCR 검증(키 필요)** — `config.json` Anthropic 키 만료 가능(과거 PC 기준 401).
    플라이휠 ④의 실측(보강이 실제 sonnet 출력 개선?)·실변환은 **유효 키 필요**. 키 없으면 §3-b/c 의
    stdlib 코어(감사·채굴·단위테스트)까지만 0원으로 가능.
-2. **폼 레이아웃 과여백** — 함수괄호 수식화로 수식 높이 ↑ → 페이지 수 증가. `hwp_form_writer._build_layout`
-   (줄용량 CAP) 스마트 단넘김 보정 필요.
-3. **객관식 표 누락**(미해결) — 단일 크롭 구조화 OCR 이 확률분포표를 "요약"해 통째 누락. 서술형은
-   `_merge_missing_passages`(전사 2-pass)로 복구하나 객관식 표는 아직(전사+표 구조 복원 필요).
-4. **한글↔숫자 띄어쓰기** — 한글↔수식은 `_space_hangul_before_eq` 로 처리(`확률을 p_1`). "시행을36번"
-   처럼 숫자가 수식화되면 같이 띄나, OCR 이 숫자를 텍스트로 주는 잔여 케이스는 후보정 여지.
+2. **폼 레이아웃 행정렬 여백(설계상)** — 측정 경로(절대경로=프로덕션)는 정상 패킹(학남고 5쪽·경운중
+   5쪽 캐시 렌더 검증). 단 한 단에 짧은 문항 2~3개면 **행정렬**(같은 순번이 같은 절대 줄에서 시작 —
+   사용자 요구) 때문에 문항 사이 빈줄이 생긴다(버그 아님, N등분 정렬 의도). 줄이려면 행정렬 vs 빽빽
+   트레이드오프 재합의 필요.
+
+> ✅ **이번 세션(2026-06-10) 해결**:
+> - **폼 과여백(측정 폴백)** — COM ① 측정 실패(보안팝업·gen_py·환경) 시 과거엔 균일 빈줄 4 → 과여백/
+>   오버플로우. 이제 `_estimate_mc_heights`(내용기반 추정) + `_adaptive_columns` **빽빽 패킹** 폴백으로
+>   교체(측정 실패해도 학남고 5쪽, 측정판과 동일). `_layout_form(..., mc=mc)` 로 문항 전달.
+>   회귀: `tests/test_form_layout.py`. ⚠️ **HWP COM 저장은 절대경로 필수** — 상대경로면 HWP 작업
+>   디렉터리 기준 저장→빈 출력→측정 0/16→폴백(과거 "과여백" 오진의 원인이 이 하네스 함정).
+> - **객관식 표 누락** — `ocr_engine._recover_table`(v0.1.8)로 이미 복구됨. 학남고 #3·#4·#10 표 캐시
+>   온전(검증). 결정적 경로 회귀: `tests/test_table_recovery.py`. 실모델 전사 충실도만 키 필요.
+> - **한글↔숫자 띄어쓰기** — "시행을36번"→"시행을 36번"(숫자 수식화+`_space_hangul_before_eq`). 더해
+>   **서수 접두사 '제'+숫자는 붙여쓰기**(제4사분면 — 과거 "제 4사분면" 오공백 수정, `_ORDINAL_JE_RE`).
+>   회귀: `tests/test_content_parser.py`(경운중 #15 ② 렌더 검증).
 
 > ✅ 지난 핸드오프의 "빌드·배포 최우선"은 이번 세션에 **완료**(0.1.14 빌드·`배포용/` 배포). 버전은
 > 사용자 결정으로 0.1.15 안 올리고 0.1.14 유지(서답형 4·5 수정 등은 0.1.14 빌드에 이미 포함).
+> ⚠️ 단, 위 §7 ✅ 수정들(content_parser·hwp_form_writer)은 **0.1.14 빌드 이후** 커밋 → **재빌드 필요**.
 
 ## 8. 핵심 파일 지도
 | 파일 | 역할 |
