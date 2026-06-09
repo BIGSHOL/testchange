@@ -533,6 +533,7 @@ class OCREngine:
                 with self.client.messages.stream(
                     model=CLAUDE_MODEL,
                     max_tokens=max_tokens,
+                    temperature=0,        # OCR=추출 작업 → 결정적(같은 입력=같은 출력)·정확도↑
                     messages=[{"role": "user", "content": content}],
                 ) as stream:
                     msg = stream.get_final_message()

@@ -22,6 +22,10 @@ config.json
 *.log
 토큰사용.csv
 
+# 크롭/OCR 영구 기록(머신 로컬·OCR 텍스트·크롭 이미지 — 절대 커밋 금지)
+crop/
+ocr/
+
 # 테스트 하네스 산출물·OCR 캐시(머신 로컬, scripts/testkit.py)
 .testkit/
 .testkit.zip

@@ -184,6 +184,54 @@ class ConversionWorker(QObject):
             self._fig_dir = tempfile.mkdtemp(prefix="exam_fig_")
         return self._fig_dir
 
+    def _record_dir(self, kind: str) -> "Path | None":
+        """크롭/OCR 기록 **영구 저장** 폴더(``kind`` = 'crop' | 'ocr')/<시험지명>/. 실패 시 None.
+
+        배포 exe 는 크롭·OCR 을 메모리에서만 처리해 실행 후 전부 사라졌다(사용자 2026-06-09:
+        "기록으로 봐야겠어"). exe 옆(frozen) 또는 프로젝트 루트(dev)에 ``crop/<시험지>/`` ·
+        ``ocr/<시험지>/`` 로 시험지별 남긴다 — 사후 검토·OCR 개선(플라이휠)용.
+        """
+        try:
+            base = (Path(sys.executable).parent if getattr(sys, "frozen", False)
+                    else Path(__file__).resolve().parent.parent)
+            stem = Path(self.file_path).stem if self.file_path else "unknown"
+            d = base / kind / stem
+            d.mkdir(parents=True, exist_ok=True)
+            return d
+        except Exception:
+            return None
+
+    def _reset_record_dirs(self) -> None:
+        """이번 변환의 크롭/OCR 기록 폴더를 비운다(이전 실행 잔여 파일 혼동 방지). 1회."""
+        if getattr(self, "_records_reset", False):
+            return
+        self._records_reset = True
+        for kind in ("crop", "ocr"):
+            d = self._record_dir(kind)
+            if d is None:
+                continue
+            for f in d.glob("*"):
+                try:
+                    if f.is_file():
+                        f.unlink()
+                except Exception:
+                    pass
+
+    def _save_record(self, kind: str, name: str, data) -> None:
+        """기록 1건 저장 — kind='crop'(PIL 이미지=PNG) / 'ocr'(dict=JSON). 실패는 무시."""
+        d = self._record_dir(kind)
+        if d is None:
+            return
+        try:
+            if kind == "crop":
+                data.save(str(d / f"{name}.png"))
+            else:
+                import json as _json
+                (d / f"{name}.json").write_text(
+                    _json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+        except Exception:
+            pass
+
     def _render_figure_crop(self, crop, hint, basename):
         """그림 크롭을 재생성(또는 폴백)해 PNG 경로 반환(실패 시 None).
 
@@ -283,6 +331,7 @@ class ConversionWorker(QObject):
         total_eq = 0         # 누적 수식 수
         total_crops = 0      # 전체 크롭 수(진행바 분모)
         file_path = Path(self.file_path)
+        self._reset_record_dirs()   # 크롭/OCR 기록 폴더 초기화(이번 실행분으로 갱신)
 
         # Step 1: 이미지 로드
         self.progress.emit(5, "파일 로드 중...")
@@ -464,6 +513,37 @@ class ConversionWorker(QObject):
                 "step",
                 f"크롭 검출 완료 — {sum(len(b) for b in crop_boxes_per_page)}개 영역")
 
+            # 크롭 박스 좌표(crops.json) + 페이지 오버레이(빨간 박스) 영구 기록 — 크롭 위치
+            # 검토용(사용자 2026-06-09). 0~1 정규화 좌표·종류·검출번호 포함.
+            try:
+                import json as _json
+                from PIL import ImageDraw
+                cdir = self._record_dir("crop")
+                coords = []
+                for _seq, _idx in enumerate(valid_indices):
+                    _pn = _idx + 1 + page_offset
+                    _pb = crop_boxes_per_page[_seq]
+                    coords.append({"page": _pn, "boxes": [
+                        {"x0": b.x0, "y0": b.y0, "x1": b.x1, "y1": b.y1,
+                         "kind": getattr(b, "kind", ""), "number": getattr(b, "number", None)}
+                        for b in _pb]})
+                    if cdir is not None:
+                        try:
+                            _ov = images[_idx].convert("RGB").copy()
+                            _dr = ImageDraw.Draw(_ov)
+                            _W, _H = _ov.size
+                            for b in _pb:
+                                _dr.rectangle([b.x0 * _W, b.y0 * _H, b.x1 * _W, b.y1 * _H],
+                                              outline="red", width=4)
+                            _ov.save(str(cdir / f"page{_pn}_boxes.png"))
+                        except Exception:
+                            pass
+                if cdir is not None:
+                    (cdir / "crops.json").write_text(
+                        _json.dumps(coords, ensure_ascii=False, indent=2), encoding="utf-8")
+            except Exception as _e:  # noqa: BLE001
+                logger.warning("크롭 기록 저장 실패(무시): %s", _e)
+
         # OCR 인식 시작 — 진행바를 크롭 단위로 부드럽게 움직이기 위해 전체 크롭 수를 분모로.
         if crop_boxes_per_page is not None:
             total_crops = sum(len(b) for b in crop_boxes_per_page)
@@ -495,7 +575,9 @@ class ConversionWorker(QObject):
                 # last_q 보존). figure 박스 렌더는 순서 의존이라 병합 패스에서 순차 처리.
                 def _ocr_box(bi: int, box) -> dict:
                     sub = box.crop_image(img, pad=0.01)
+                    self._save_record("crop", f"p{page_num}_c{bi}", sub)   # 크롭 이미지 영구 기록
                     r = engine.recognize_crop(sub)
+                    self._save_record("ocr", f"p{page_num}_c{bi}", r)      # OCR 결과 영구 기록
                     self._resolve_figures(r, sub, page_num, bi)  # 문제 내 figure(bbox=sub)
                     return r
 
@@ -569,9 +651,12 @@ class ConversionWorker(QObject):
                         f"페이지 {page_num} 인식률 낮음 — 문제영역 {len(problem_boxes)}개에서 "
                         f"문항을 추출하지 못했습니다. 이미지 품질을 확인하세요.")
                 ocr_result = merged
+                self._save_record("ocr", f"p{page_num}_merged", merged)  # 페이지 병합 결과 기록
             else:
                 self.progress.emit(pct, f"OCR 처리 중... ({seq + 1}/{len(valid_indices)})")
+                self._save_record("crop", f"p{page_num}_page", img)    # 페이지 이미지 기록
                 ocr_result = engine.recognize_page(img)
+                self._save_record("ocr", f"p{page_num}_page", ocr_result)
                 # 페이지 내 figure 블록 해소(bbox 는 페이지 이미지 기준)
                 self._resolve_figures(ocr_result, img, page_num, 0)
 
