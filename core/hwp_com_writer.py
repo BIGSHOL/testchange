@@ -48,6 +48,9 @@ _PLAIN_BOX_RE = re.compile(r"<\s*상자\s*>")
 # 순한글(+공백) 표 셀 — 예 "합계". 수식 객체화하지 말고 평문으로(사용자 2026-06-09:
 # 표 '합계'가 수식처리됨). 수학 셀(X·z·1.0·P(X=x)…)은 라틴/숫자/기호라 매칭 안 됨.
 _HANGUL_CELL_RE = re.compile(r"^[가-힣\s]+$")
+# 한글이 한 글자라도 든 셀 — HWP 수식 객체는 한글을 이탤릭화하고 공백을 죽이므로(이상/미만/
+# 범위 "6이상 ~ 12미만", 헤더 "유통기한(개월)") 평문으로 렌더(사용자 2026-06-10).
+_HAS_HANGUL_RE = re.compile(r"[가-힣]")
 # 보기/조건 박스 '머리'(블록 시작이 <보기>/<조건>/<상자>) — 발문 끝 배점 위치 판정용(A2).
 # 발문이 "<보기>에서…"처럼 마커로 시작해도 그건 인라인 참조다(뒤에 조사=가-힣 음절) → 부정 전망.
 # 단 `<상자>`(라벨 없는 박스)는 뒤에 한글 지문이 와도 항상 박스 머리다(부정 전망 없음).
@@ -74,6 +77,28 @@ def _has_box_markup(text: str) -> bool:
     줄을 끊으면 안 되므로 제외.)
     """
     return bool(_BULLET_RE.search(text))
+
+
+def _is_value_box(blocks: list[ContentBlock]) -> bool:
+    """라벨 없는 **값 나열 상자**인지(``<상자>`` 마커 + 값들, 항목라벨/지문 없음).
+
+    #10 "<상자> 18 13 8 9 17 13 x 13" 처럼 값(수식/짧은 텍스트)만 나열된 박스 →
+    가운데정렬 + 값 사이 공백(사용자 2026-06-10). <보기>/<조건> 라벨 박스나 긴 지문
+    박스(독수리 이야기)·(가)(나)/ㄱㄴㄷ 항목 박스는 제외(좌측정렬 유지).
+    """
+    texts = [b for b in blocks if b.type == ContentType.TEXT]
+    eqs = [b for b in blocks
+           if b.type in (ContentType.EQUATION, ContentType.EQUATION_BLOCK)]
+    if not any(_PLAIN_BOX_RE.search(b.value or "") for b in texts):
+        return False
+    if any(_COND_MARKER_RE.search(b.value or "") for b in texts):
+        return False                       # <보기>/<조건> 라벨 박스
+    # 마커(<상자>)·불릿 제거 후 남는 평문이 거의 없어야(항목 라벨/지문 박스 배제).
+    leftover = "".join(_PLAIN_BOX_RE.sub("", b.value or "") for b in texts)
+    leftover = _BULLET_RE.sub("", leftover)
+    if _BOX_BOUNDARY_RE.search(leftover):  # ㄱ./(가) 등 항목 라벨이 있으면 값상자 아님
+        return False
+    return len(eqs) >= 2 and len(leftover.strip()) <= 6
 
 
 def _segment_box_text(text: str) -> list[str]:
@@ -118,6 +143,24 @@ def _is_figure_note(b: ContentBlock) -> bool:
             and (b.value or "").lstrip().startswith(_FIGURE_NOTE_PREFIX))
 
 
+# 표 제목(캡션) 종결형 — 발문 문장(종결어미/물음)은 캡션이 아니다(tail 로 넘기면 안 됨).
+_CAPTION_SENTENCE_RE = re.compile(
+    r"([.?!。]|시오|하라|구하라|쓰라|것은\??|값은\??|무엇|인가|니까|되는가|구하시오|하시오)\s*$")
+
+
+def _is_table_caption(text: str | None) -> bool:
+    """표 바로 앞 TEXT 가 **표 제목(캡션)**인지 — 짧고 문장 종결형이 아니어야 한다.
+
+    "헬스클럽 회원의 나이 (단위:세)"·"어느 마트에서 판매하는 통조림의 유통기한" = 캡션(True).
+    "…옳은 것은?"·"…나타내면 다음과 같다." = 발문 문장(False). 발문이 표 바로 앞에서
+    끝나는 정상 케이스(학남고 #3 등)를 캡션으로 오인하지 않도록 보수적으로 판정.
+    """
+    t = (text or "").strip()
+    if not t or len(t) > 35:
+        return False
+    return not bool(_CAPTION_SENTENCE_RE.search(t))
+
+
 def _tail_start(blocks: list[ContentBlock]) -> int | None:
     """발문이 끝나고 '뒤 영역'(조건/보기 박스·표·그림·블록수식)이 시작되는 인덱스.
 
@@ -136,6 +179,12 @@ def _tail_start(blocks: list[ContentBlock]) -> int | None:
     # 1순위: 조건/보기 머리 또는 표 — 진짜 발문뒤 영역 시작.
     for i, b in enumerate(blocks):
         if b.type == ContentType.TABLE:
+            # 표 바로 앞 **캡션(표 제목)**(예 "헬스클럽 회원의 나이 (단위:세)")은 표의 일부이므로
+            # tail 에 포함 → 배점이 캡션 **앞**(발문 끝)에 온다(원본 PDF: 발문 [N점] → 표제목 →
+            # 표). 발문 문장(종결형)은 캡션이 아니라 그대로 발문(사용자 2026-06-10).
+            if i > 0 and blocks[i - 1].type == ContentType.TEXT \
+                    and _is_table_caption(blocks[i - 1].value):
+                return i - 1
             return i
         if b.type == ContentType.TEXT and _COND_HEADER_RE.search(b.value or ""):
             return i
@@ -310,12 +359,33 @@ class HwpComWriter:
                 self.s.break_para()
                 self.s.align_left()
 
-    def _write_equation_table(self, rows: list[list[str]]) -> None:
-        """표를 만들고 각 셀을 **수식 객체**로 채운다.
+    def _write_cell(self, val: str) -> None:
+        """표 셀 1개 렌더(셀 정렬은 호출부에서 미리 지정).
 
-        OCR 표(rows)는 LaTeX 문자열(예: "x", "f(x)", "-1", "\\frac{1}{2}")이라,
-        수학 표는 셀도 수식으로 렌더해야 본문 수식과 글꼴·기울임이 일치한다(사용자
-        요구 2026-06-04: 표 안 값이 일반 텍스트로 들어가면 안 됨). 빈 셀은 비운다.
+        값 종류별 일관 규칙(사용자 2026-06-10):
+        - **한글 포함**(합계·"6이상 ~ 12미만"·"유통기한(개월)") → 평문. HWP 수식 객체는
+          한글을 이탤릭화하고 공백/물결(~)을 죽이므로 평문이라야 원본대로 보인다.
+        - **LaTeX 명령(``\\``) 또는 공백 없는 단일 토큰**(``\\dfrac``·``P(0 \\leq Z \\leq z)``·
+          ``A``·``0.16``·``P(X=x)``) → 수식 객체(본문 수식과 글꼴/기울임 일치).
+        - **공백으로 나뉜 평문 다중값**(줄기-잎 잎 "6 8"·범위 "12 ~ 18") → 평문(공백 보존).
+          수식으로 넣으면 HWP 가 공백을 죽여 "68"·"1218" 로 붙는다.
+        """
+        if not val:
+            return
+        if _HAS_HANGUL_RE.search(val) and "\\" not in val:
+            self.s.text(val)
+        elif "\\" in val or " " not in val:
+            self.s.equation(latex_to_hwpeq(val))
+        else:
+            self.s.text(val)
+
+    def _write_equation_table(self, rows: list[list[str]]) -> None:
+        """표를 만들고 각 셀을 종류별로 렌더(수식 객체 / 평문). 빈 셀은 비운다.
+
+        OCR 표(rows)의 수식 셀(``x``·``f(x)``·``\\frac{1}{2}``)은 수식 객체로(사용자
+        2026-06-04). 한글·공백구분 다중값 셀은 평문(``_write_cell``, 2026-06-10).
+        **줄기-잎 표**(헤더 ``[줄기, 잎]``)는 잎을 **좌측정렬**하고 열너비를 **줄기:잎=1:3**
+        으로 잡아 원본처럼 렌더한다(사용자 2026-06-10).
         """
         if not rows:
             return
@@ -323,16 +393,26 @@ class HwpComWriter:
         ncol = max((len(r) for r in rows), default=0)
         if ncol == 0:
             return
-        self.s.table_begin(nrow, ncol)
+        is_stemleaf = (nrow >= 2 and ncol == 2
+                       and str(rows[0][0]).strip() == "줄기"
+                       and str(rows[0][1]).strip() == "잎")
+        if is_stemleaf:
+            self.s.table_begin(nrow, ncol, col_widths=[1, 3])
+        else:
+            self.s.table_begin(nrow, ncol)
         for ri in range(nrow):
             row = rows[ri]
             for ci in range(ncol):
-                self.s.align_center()        # 셀 값 가운데 정렬(사용자 요구 2026-06-04)
+                # 줄기-잎 '잎' 칸(둘째 열·헤더 제외)은 좌측정렬, 그 외는 가운데정렬.
+                if is_stemleaf and ci == 1 and ri >= 1:
+                    self.s.align_left()
+                else:
+                    self.s.align_center()    # 셀 값 가운데 정렬(사용자 요구 2026-06-04)
                 val = str(row[ci]).strip() if ci < len(row) else ""
                 if val and _HANGUL_CELL_RE.match(val):
                     self.s.text(val)         # 순한글 셀("합계")은 평문(수식객체 금지, 2026-06-09)
                 elif val:
-                    self.s.equation(latex_to_hwpeq(val))
+                    self._write_cell(val)    # 단일토큰=수식객체(self.s.equation(latex_to_hwpeq(val)))
                 if not (ri == nrow - 1 and ci == ncol - 1):
                     self.s.table_next_cell()
         self.s.table_end()
@@ -349,11 +429,13 @@ class HwpComWriter:
             self.s.break_para()  # 박스 각 줄은 새 줄에서 시작(앞 문장과 분리)
             self.s.text(line)
 
-    def _write_box_content(self, blocks: list[ContentBlock]) -> None:
+    def _write_box_content(self, blocks: list[ContentBlock], space_values: bool = False) -> None:
         """보기/조건 박스 '내부'를 줄 단위로 출력(표 셀 안에서 호출).
 
         마커(<보기>)는 자기 줄, 각 항목 라벨(ㄱ. …)은 새 줄로 나눈다(A5). 수식 블록은
         항목 줄 안에 인라인으로 유지(A8). 항목 라벨 뒤엔 공백 1칸(A6).
+
+        space_values: 값 나열 상자(#10)면 연속 값 수식 사이에 공백을 넣어 붙지 않게 한다.
         """
         started = False
         # `emitted` = 셀에 **실제 보이는 내용**(텍스트/마커/수식/그림)을 한 번이라도 찍었는가.
@@ -418,6 +500,8 @@ class HwpComWriter:
             if block.type == ContentType.TEXT:
                 emit_text(block.value or "")
             elif block.type in (ContentType.EQUATION, ContentType.EQUATION_BLOCK):
+                if space_values and emitted:
+                    self.s.text("  ")                # 값 나열 상자: 값 사이 공백(붙음 방지)
                 self.s.equation(_eq_script(block))   # 항목 줄 안 인라인 수식
                 started = True
                 emitted = True
@@ -457,9 +541,14 @@ class HwpComWriter:
             at_para_start = False
         if not at_para_start:
             self.s.break_para()
+        # 라벨((가)(나)/ㄱㄴㄷ) 없는 **값 나열 상자**(<상자> + 값들, 예 #10 "18 13 8 …")는
+        # 가운데정렬을 기본으로(사용자 2026-06-10). 라벨/지문 박스는 좌측(원본대로).
+        value_box = _is_value_box(blocks)
         self.s.align_left()             # 직전 블록수식/그림 가운데정렬 해제(표는 좌측)
         self.s.table_begin(1, 1)        # 한 칸 테두리 박스
-        self._write_box_content(blocks)
+        if value_box:
+            self.s.align_center()       # **셀 안에서** 가운데정렬(table_begin 후=커서가 셀 안)
+        self._write_box_content(blocks, space_values=value_box)
         self.s.table_end()
         self.s.align_left()
 
@@ -1152,7 +1241,11 @@ def _shade_target_mode(tbl_xml: str) -> str | None:
     nrow, ncol = int(rm.group(1)), int(cm.group(1))
     if "<hp:equation" not in tbl_xml:
         return None                       # 수식 없는 표(답안·레이아웃)는 제외
-    if ncol == 2 and nrow >= 2:
+    # z-표(표준정규분포표)는 **헤더가 P(0≤Z≤z)** 인 2열 표만. 단순 2열(도수분포표 #16 등)을
+    # colCnt==2 만으로 z-표로 오판해 1행 음영하던 버그 수정(사용자 2026-06-10). HWP 수식
+    # 스크립트에서 ≤ 는 ``LEQ`` → "P(0 LEQ Z LEQ z)" 의 ``LEQ Z LEQ`` 시그니처로 한정.
+    is_ztable = bool(re.search(r"LEQ\s*Z\s*LEQ", tbl_xml))
+    if ncol == 2 and nrow >= 2 and is_ztable:
         return "row0"                     # z-표(표준정규분포표)
     if nrow == 2 and ncol >= 3:
         return "col0"                     # 확률분포표

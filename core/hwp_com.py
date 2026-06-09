@@ -439,11 +439,14 @@ class HwpSession:
                 pass
             return False
 
-    def table_begin(self, nrow: int = 1, ncol: int = 1, line_width: int = 42000) -> None:
+    def table_begin(self, nrow: int = 1, ncol: int = 1, line_width: int = 42000,
+                    col_widths: list[int] | None = None) -> None:
         """빈 표를 만들고 커서를 (0,0) 셀에 둔다.
 
         셀에 텍스트/수식 등 리치 콘텐츠를 직접 입력할 때 사용(보기/조건 테두리 박스).
         입력이 끝나면 반드시 ``table_end()`` 로 표 밖으로 탈출한다.
+
+        col_widths: 열별 **상대 비율**(예 ``[1, 3]`` = 줄기:잎 1:3). None 이면 균등 분할.
         """
         h = self.hwp
         # **반드시 CreateAction/CreateSet 으로 독립 파라미터셋**을 쓴다. 공유
@@ -460,10 +463,15 @@ class HwpSession:
         pset.SetItem("Cols", ncol)
         pset.SetItem("WidthType", 0)    # 0=절대너비(ColWidth 합). 원본 동작 유지.
         pset.SetItem("HeightType", 0)
-        col_w = max(int(line_width // ncol), 1)
         col_arr = pset.CreateItemArray("ColWidth", ncol)
-        for c in range(ncol):
-            col_arr.SetItem(c, col_w)
+        if col_widths and len(col_widths) == ncol and sum(col_widths) > 0:
+            tot = sum(col_widths)
+            for c in range(ncol):
+                col_arr.SetItem(c, max(int(line_width * col_widths[c] / tot), 1))
+        else:
+            col_w = max(int(line_width // ncol), 1)
+            for c in range(ncol):
+                col_arr.SetItem(c, col_w)
         row_arr = pset.CreateItemArray("RowHeight", nrow)
         for r in range(nrow):
             row_arr.SetItem(r, 1000)

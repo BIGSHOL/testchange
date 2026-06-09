@@ -618,6 +618,28 @@ def _essay_label_and_body(contents, fallback_label, label_idx):
             nb2.value = rest
             tail = ([nb2] if rest.strip() else []) + out[i + 3:]
             return f"[{head.group(1)} {num}]", out[:i] + tail
+        # 형태 3: **비괄호** "서술형 N. rest" — OCR 이 괄호 없이 줄 때(강동중 등). 파싱 후
+        #   TEXT"서술형 " + EQ"N" + TEXT". rest" 로 쪼개진다. 폼 라벨([서답형 N])과 중복되어
+        #   "[서답형 4] 서술형 4." 가 되던 문제(사용자 2026-06-10). 떼고 그 단어로 라벨 통일.
+        head3 = re.match(r'^\s*(서답형|서술형|단답형)\s*$', b0.value)
+        if (head3 and i + 2 < len(out)
+                and out[i + 1].type in _EQ_TYPES
+                and (out[i + 1].value or "").strip().isdigit()
+                and out[i + 2].type == ContentType.TEXT
+                and re.match(r'^\s*[.．]', out[i + 2].value or "")):
+            num = (out[i + 1].value or "").strip()
+            rest = re.sub(r'^\s*[.．]\s*', '', out[i + 2].value or "")
+            nb3 = copy.copy(out[i + 2])
+            nb3.value = rest
+            tail = ([nb3] if rest.strip() else []) + out[i + 3:]
+            return f"[{head3.group(1)} {num}]", out[:i] + tail
+        # 형태 4: 비괄호 한 블록 "서술형 N. rest"(숫자가 수식 분리 안 된 경우).
+        m4 = re.match(r'^\s*(서답형|서술형|단답형)\s*(\d+)\s*[.．]\s*', b0.value)
+        if m4:
+            nb = copy.copy(b0)
+            nb.value = b0.value[m4.end():]
+            out[i] = nb
+            return f"[{m4.group(1)} {m4.group(2)}]", out
     return f"[{fallback_label} {label_idx}]", out
 
 
@@ -674,13 +696,23 @@ def _fill_essay_at(ses, h, pos, q: Question, label_idx: int, next_pos=None) -> N
     _put_essay_label(ses, disp_label)
     # 발문 → 배점(발문 끝) → 조건/그림/블록수식. 소문항 있으면 본문 배점은 소문항에 위임.
     if q.sub_questions:
-        # 소문항 부모: 발문 끝 [총 N점] 을 본문에서 분리해 우측정렬로 따로(기본 경로와 동일).
+        # 소문항 부모: 발문 끝 [총 N점] 을 본문에서 분리. **배점은 발문 끝(표/그림 앞)에**
+        # 두어야 한다 — 원본 PDF 가 "발문 …[N점]" 다음에 값/표/줄기-잎을 둔다(사용자
+        # 2026-06-10). 과거엔 _put_qbody(발문+tail) 뒤에 총점을 찍어 표/잎 **다음**에
+        # [총 N점]이 와 순서가 뒤집혔다. 기본 경로(_write_question)와 동일하게 발문 head →
+        # 총점 → tail(표/그림) 순으로 직접 배치한다.
         body, total = _split_trailing_score(contents)
         if total is None:
             total = q.score
-        _put_qbody(ses, h, body, None)
+        ts = _tail_start(body)
+        head = body if ts is None else body[:ts]
+        tail = [] if ts is None else body[ts:]
+        for b in head:
+            _put_block(ses, b)
         if total:
             _put_total_score(ses, h, total)
+        if tail:
+            _put_tail(ses, h, tail)
         for k, sub in enumerate(q.sub_questions):
             ses.break_para()
             h.Run("ParagraphShapeAlignLeft")  # 직전 배점이 우측정렬됐어도 새 줄은 좌측
@@ -1625,8 +1657,12 @@ def _inject_essay_meta(hwpx_path: str | Path) -> int:
         # 템플릿 탐색에서 **토큰 단락 자신을 제외**한다 — 토큰("소단원자리표식QZX")도 "소단원"
         # 을 포함해, 폼에 진짜 [소단원] 템플릿이 없으면 토큰을 템플릿으로 오인해 자기 자신으로
         # 교체(no-op) → 평문 leak(경운중 폼은 [난이도]만 있고 [소단원] 없음, 2026-06-09).
+        # 폼마다 단원 메타란 라벨이 [소단원] 또는 [중단원] 으로 다르다(강동중 폼은 [중단원]).
+        # 어느 쪽이든 살아있는 MC 단원 메타란 run 을 찾아 서술형에 주입한다(사용자 2026-06-10:
+        # 객관식엔 [중단원] 있는데 서술형엔 누락 — "소단원"만 찾아 [중단원] 폼에서 못 찾던 버그).
         run_so = _first_run(next((p for p in paras
-                                  if "소단원" in _ptext(p) and _META_TOKEN_SO not in p), None))
+                                  if ("소단원" in _ptext(p) or "중단원" in _ptext(p))
+                                  and _META_TOKEN_SO not in p), None))
         run_na = _first_run(next((p for p in paras
                                   if "난이도" in _ptext(p) and _META_TOKEN_NA not in p), None))
         for tok, run in ((_META_TOKEN_SO, run_so), (_META_TOKEN_NA, run_na)):
