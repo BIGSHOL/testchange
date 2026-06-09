@@ -641,6 +641,52 @@ def _finalize_contents(blocks: list[ContentBlock]) -> list[ContentBlock]:
     blocks = _italicize_stat_operators(blocks)      # 확통 연산자 \mathrm 벗겨 이탤릭
     blocks = _romanize_point_names(blocks)          # 기하 점/선/면 이름 로만체
     blocks = _strip_score_text(blocks)              # 잔여 [N점] 제거
+    blocks = _romanize_context_units(blocks)        # '단위는 g' 등 문맥상 단위 수식 로만화
+    blocks = _rstrip_last_text(blocks)              # 끝 TEXT 의 꼬리 공백 제거(점수 앞 이중공백 방지)
+    return blocks
+
+
+# 문맥상 '단위' 로 명시된 직후의 단위 기호(수식). 모평균 m·변수 t 를 무조건 로만화하면 안 되므로
+# (사용자 2026-06-08) **앞 텍스트가 '단위…' 로 끝날 때만** 단위로 확정해 로만화한다(사용자
+# 2026-06-09: "단위는 g" 의 g 가 이탤릭 — 문맥 읽으면 단위 판별 가능, 단 모평균 m 은 제외).
+_CTX_UNIT_SET = {"g", "kg", "mg", "cm", "mm", "km", "m", "L", "mL", "dL", "kL", "min", "s", "h", "t", "℃"}
+_UNIT_CTX_RE = re.compile(r"단위[가는은를로이]*\s*$")
+
+
+def _romanize_context_units(blocks: list[ContentBlock]) -> list[ContentBlock]:
+    """'단위는 g' 처럼 앞 텍스트가 '단위…'로 끝나는 직후의 단위 수식을 로만체(``\\mathrm``)로.
+
+    HWP 수식의 라틴 1글자는 기본 이탤릭이라 단위 g·m 도 기운다. 모평균 m·변수 t 오로만화를
+    피하려 **문맥이 단위임을 명시할 때만** 처리한다(사용자 2026-06-09). 숫자+단위(20g)는
+    이미 ``_romanize_units`` 가 처리하므로 여기선 문맥 기반 단독 단위만 다룬다.
+    """
+    eq_types = (ContentType.EQUATION, ContentType.EQUATION_BLOCK)
+    for i, b in enumerate(blocks):
+        if b.type not in eq_types:
+            continue
+        u = (b.value or "").strip()
+        if u not in _CTX_UNIT_SET or u.startswith("\\mathrm"):
+            continue
+        prev_txt = next((blocks[j].value for j in range(i - 1, -1, -1)
+                         if blocks[j].type == ContentType.TEXT and (blocks[j].value or "").strip()), None)
+        if prev_txt and _UNIT_CTX_RE.search(prev_txt.rstrip()):
+            b.value = "\\mathrm{" + u + "}"
+    return blocks
+
+
+def _rstrip_last_text(blocks: list[ContentBlock]) -> list[ContentBlock]:
+    """마지막 TEXT 블록의 꼬리 공백을 제거한다.
+
+    OCR 이 발문 끝 텍스트에 꼬리 공백을 남기면("…작성하시오. "), 렌더러가 배점을 발문 끝
+    인라인(" [N점]")으로 붙일 때 공백이 둘이 된다(사용자 2026-06-09: 서답형 2·3 [7점] 앞 두
+    칸). 문제(또는 박스 뒤 발문 연속) **끝** 텍스트의 꼬리 공백은 의미가 없으므로 제거한다.
+    """
+    if blocks and blocks[-1].type == ContentType.TEXT and (blocks[-1].value or ""):
+        v = blocks[-1].value.rstrip()
+        if v:
+            blocks[-1].value = v
+        else:
+            blocks = blocks[:-1]
     return blocks
 
 
@@ -748,6 +794,37 @@ def _strip_score_text(blocks: list[ContentBlock]) -> list[ContentBlock]:
     return result
 
 
+_ESSAY_LABEL_WORD_RE = re.compile(r'\[\s*(서술형|서답형)(\s*\d*\s*)\]')
+
+
+def _normalize_essay_label_type(doc: "ExamDocument") -> None:
+    """문서의 서술형/서답형 라벨이 **혼재하면 '서답형'으로 통일**(결정적 후처리).
+
+    OCR 이 같은 시험지의 일부 문항 라벨을 ``서답형``↔``서술형`` 으로 다르게 읽는다(같은 시험지는
+    한 용어로 일관됨 — 사용자 2026-06-09: "전부 서답형인데 일부가 서술형으로 치환"). 혼재는
+    OCR 오인이므로 **교육과정 공식 구성형 용어인 '서답형'** 으로 통일한다(사용자 결정). 라벨이
+    한 종류로 일관되면(정상) 건드리지 않는다 — 진짜 '서술형' 시험지를 보존. 프롬프트 강화(라벨
+    원문 그대로 읽기)와 병행하나, 이 결정적 통일이 캐시·오인에도 견고하다.
+    """
+    found = set()
+    for pg in doc.pages:
+        for q in pg.questions:
+            for b in q.contents:
+                if b.type == ContentType.TEXT and b.value:
+                    found.update(m.group(1) for m in _ESSAY_LABEL_WORD_RE.finditer(b.value))
+    if len(found) < 2:
+        return                                   # 일관(또는 라벨 없음) → 유지
+    target = "서답형"
+    for pg in doc.pages:
+        for q in pg.questions:
+            for b in q.contents:
+                if b.type == ContentType.TEXT and b.value:
+                    b.value = _ESSAY_LABEL_WORD_RE.sub(
+                        lambda m: f"[{target}{m.group(2)}]", b.value)
+            if getattr(q, "label_type", None) in ("서술형", "서답형"):
+                q.label_type = target
+
+
 def build_document(
     pages: list[ExamPage],
     title: str = "",
@@ -757,6 +834,9 @@ def build_document(
     """ExamPage 리스트로 ExamDocument 생성."""
     doc = ExamDocument(title=title, subject=subject, grade=grade)
     doc.pages = pages
+
+    # 서술형/서답형 라벨 혼재(OCR 오인) → 서답형 통일(결정적).
+    _normalize_essay_label_type(doc)
 
     # 헤더에서 제목/과목 자동 추출 시도
     if pages and not title:

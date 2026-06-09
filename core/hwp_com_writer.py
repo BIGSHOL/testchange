@@ -455,11 +455,14 @@ class HwpComWriter:
         if box:
             self._write_condition_box(box)
             ended_box = True
-        for b in post:                            # 박스 뒤 발문 연속 — 박스 밖, 새 줄에 이어서
+        for bi, b in enumerate(post):             # 박스 뒤 발문 연속 — 박스 밖, 새 줄에 이어서
             if ended_box:
                 self.s.break_para()
                 self.s.align_left()
                 ended_box = False
+            if bi == 0:
+                # post 발문은 일반 본문 — 박스/폼 템플릿의 볼드 상속 차단(#20, 2026-06-09).
+                self.s.set_char_shape(pt=self.s.base_pt, bold=False)
             self._write_block(b)
         return ended_box
 
@@ -501,35 +504,23 @@ class HwpComWriter:
         # 발문 — 첫 블록은 인라인(번호와 같은 줄), 발문 선두 수식 줄바꿈 방지(A7).
         for i, block in enumerate(stem):
             self._write_block(block, inline=(i == 0))
-        # 배점 — 객관식은 발문 끝 인라인. 서술형은 줄바꿈 후 우측정렬(사용자 합의 2026-06-04).
+        # 배점 — 객관식은 발문 끝 인라인. 서술형은 발문 끝 인라인 시도 후 줄 넘치면 우측정렬
+        # (사용자 2026-06-09: 공간 충분하면 인라인, 없을 때만 줄바꿈 우측정렬).
         if show_score and not defer_essay_score:
             if is_essay:
-                self.s.break_para()
-                self.s.align_right()
-                self._write_score(question.score, leading_space=False)
-                self.s.break_para()
-                self.s.align_left()
+                self._write_score_inline_or_right(question.score)
             else:
                 self._write_score(question.score)
         elif has_subs and total_num:
-            # 소문항 부모 총점: 줄바꿈 후 우측정렬 "[총 N점]"(N 은 수식 객체).
-            self.s.break_para()
-            self.s.align_right()
-            self.s.text("[총 ")
-            self.s.equation(str(total_num))
-            self.s.text("점]")
-            self.s.break_para()
-            self.s.align_left()
+            # 소문항 부모 총점 "[총 N점]": 발문 끝 인라인 우선, 줄 넘치면 우측정렬(N 은 수식).
+            self._write_total_score_inline_or_right(total_num)
         # 뒤 영역: 그림/블록수식은 개별(가운데), 보기/조건은 1×1 테두리 표 박스 (A3)
         if tail:
             ended_box = self._write_tail(tail)
-            # 박스 뒤 발문 연속이 있던 서술형: 미뤘던 배점을 여기서 우측정렬(발문 끝).
+            # 박스 뒤 발문 연속이 있던 서술형: 미뤘던 배점을 여기서(발문 연속 끝 인라인
+            # 시도 후 넘치면 우측정렬).
             if defer_essay_score:
-                self.s.break_para()
-                self.s.align_right()
-                self._write_score(question.score, leading_space=False)
-                self.s.break_para()
-                self.s.align_left()
+                self._write_score_inline_or_right(question.score)
                 ended_box = False
             # 박스(표) 뒤 트레일링 단락이 이미 새 줄 → 선택지 사이 빈 줄 없음(사용자 2026-06-04).
             # 박스로 안 끝났으면(그림/블록수식) 선택지 전에 좌측 새 줄 확보.
@@ -578,6 +569,65 @@ class HwpComWriter:
         self.s.text(" [" if leading_space else "[")
         self.s.equation(str(score))
         self.s.text("점]")
+
+    def _write_score_inline_or_right(self, score: int) -> None:
+        """서술형 배점 — **발문 끝 인라인 우선, 줄 넘치면 줄바꿈 후 우측정렬**(폼 경로
+        `_put_score` 와 동일, 사용자 2026-06-09: 공간 충분하면 인라인, 없을 때만 우측정렬).
+
+        줄 넘침은 인라인 입력 전후 ``KeyIndicator()[5]``(줄) 비교로 결정적으로 판정한다.
+        """
+        h = self.s.hwp
+
+        def line():
+            try:
+                return h.KeyIndicator()[5]
+            except Exception:
+                return -1
+
+        sp = h.GetPos()
+        la = line()
+        self._write_score(score, leading_space=True)
+        lb = line()
+        if la >= 0 and lb > la:
+            # 인라인이 줄을 넘김 = 공간 부족 → 지우고 줄바꿈 후 우측정렬.
+            h.SetPos(sp[0], sp[1], sp[2])
+            h.Run("MoveSelParaEnd")
+            h.HAction.Run("Delete")
+            h.Run("BreakPara")
+            self.s.align_right()
+            self._write_score(score, leading_space=False)
+            self.s.break_para()
+            self.s.align_left()
+
+    def _write_total_score_inline_or_right(self, num: int) -> None:
+        """소문항 부모 총점 "[총 N점]" — 발문 끝 인라인 우선, 줄 넘치면 줄바꿈 후 우측정렬
+        (서술형 점수와 동일 로직, 사용자 2026-06-09). N 은 수식 객체."""
+        h = self.s.hwp
+
+        def line():
+            try:
+                return h.KeyIndicator()[5]
+            except Exception:
+                return -1
+
+        def put_inline(leading_space: bool):
+            self.s.text(" [총 " if leading_space else "[총 ")
+            self.s.equation(str(num))
+            self.s.text("점]")
+
+        sp = h.GetPos()
+        la = line()
+        put_inline(leading_space=True)
+        lb = line()
+        if la >= 0 and lb > la:
+            h.SetPos(sp[0], sp[1], sp[2])
+            h.Run("MoveSelParaEnd")
+            h.HAction.Run("Delete")
+            h.Run("BreakPara")
+            self.s.align_right()
+            put_inline(leading_space=False)
+            self.s.break_para()
+            self.s.align_left()
 
     def _write_essay_space(self) -> None:
         self.s.text("풀이)")

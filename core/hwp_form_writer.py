@@ -258,6 +258,14 @@ def _fig_token(idx: int) -> str:
 # form-figure-pending.
 _FIGURE_NOTE = "※ 그림 자리 — 원본에서 이 영역을 캡처해 여기에 붙여넣으세요"
 
+# 서술형 [소단원][난이도] 메타란 자리 토큰(소단원·난이도 각각 1개씩, 자기 단락). 채움 단계엔
+# 이 토큰 단락만 찍고, 저장 후 `_inject_essay_meta` 가 살아있는 폼 메타란 **run**(MC 슬롯,
+# 디자인·charPr ID 유효)을 그 토큰의 run 과 **1:1 교체**한다(단락 경계·중첩 무관, 태그 균형
+# 보장 — 박스로 끝난 서술형은 토큰이 중첩 단락에 들어가 단락단위 치환이 깨졌던 함정 회피).
+# (폼 서술형 슬롯의 원본 메타란은 라벨 플레이스홀더 삭제 때 함께 지워지므로 재주입한다.)
+_META_TOKEN_SO = "소단원자리표식QZX"
+_META_TOKEN_NA = "난이도자리표식QZX"
+
 
 def _place_figure(ses, h, path: str) -> bool:
     """그림(IMAGE) 자리 처리 — 모드 분기(`ses._render_figures`).
@@ -384,11 +392,15 @@ def _put_tail(ses, h, blocks) -> None:
             w._write_block(b)                      # EQUATION_BLOCK 가운데·EQUATION 인라인·TEXT
     if box:
         w._write_condition_box(box)
-    for b in post:                                 # 박스 뒤 발문 연속 — 박스 밖, 새 줄에 이어서
+    for bi, b in enumerate(post):                  # 박스 뒤 발문 연속 — 박스 밖, 새 줄에 이어서
         if box:
             ses.break_para()
             ses.align_left()
             box = []
+        if bi == 0:
+            # post 발문은 일반 본문이다. 폼 슬롯에선 박스(표) 탈출 후 캐럿이 폼 템플릿의
+            # 볼드 단락에 착지해 발문 연속이 볼드로 상속됐다(#20, 사용자 2026-06-09). 평문 강제.
+            _set_plain(ses.hwp)
         if b.type == ContentType.IMAGE and b.value:
             ses.break_para()
             ses.align_center()
@@ -421,10 +433,14 @@ def _put_qbody(ses, h, contents, score, essay: bool = False) -> None:
 def _put_score(ses, h, score: int, essay: bool = False) -> bool:
     """배점 삽입 — **기본 경로(hwp_com_writer)와 동일**(사용자 '항상 동일' 요구).
 
-    - 서술형(essay=True): **항상 줄바꿈 후 우측정렬** ``[N점]``(N 은 수식 객체).
-    - 객관식: 발문 끝 인라인 ``[N점]``(N 은 수식 객체). 좁은 단에서 단독으로 다음 줄로
-      넘치면 우측정렬 폴백.
-    배점 숫자는 합의 #6(순수숫자도 수식 객체화)에 따라 ``ses.equation`` 으로 넣는다.
+    서술형·객관식 **공통**: 배점을 **발문 끝 인라인** ``[N점]`` 으로 먼저 시도하고,
+    그게 줄을 넘치면(=현재 줄에 공간 부족) **줄바꿈 후 우측정렬**로 폴백한다(사용자
+    2026-06-09: "공간이 충분하면 인라인, 없을 때만 줄바꿈 우측정렬 — 공간 충분한데도
+    줄바꿈하면 공간낭비"). 줄 넘침 판정은 인라인 입력 전후 ``KeyIndicator()[5]``(줄)
+    비교로 결정적으로 한다. 배점 숫자는 합의 #6(순수숫자도 수식 객체화)에 따라
+    ``ses.equation`` 으로 넣는다.
+
+    서술형은 우측정렬 폴백 시 뒤 내용을 위해 **좌측 정렬로 복귀**(break+align_left).
 
     Returns: 우측정렬 단락으로 넘겼으면 True(현재 단락이 우측정렬 상태).
     """
@@ -432,16 +448,6 @@ def _put_score(ses, h, score: int, essay: bool = False) -> bool:
         ses.text(" [" if leading_space else "[")
         ses.equation(str(score))
         ses.text("점]")
-
-    if essay:
-        ses.break_para()
-        ses.align_right()
-        _set_plain(h)
-        put_inline(leading_space=False)
-        ses.break_para()
-        ses.align_left()
-        _set_plain(h)
-        return True
 
     def line():
         try:
@@ -451,9 +457,12 @@ def _put_score(ses, h, score: int, essay: bool = False) -> bool:
 
     sp = h.GetPos()
     la = line()
+    if essay:
+        _set_plain(h)           # 서술형 배점은 평문(라벨 볼드 상속 방지)
     put_inline(leading_space=True)
     lb = line()
     if la >= 0 and lb > la:
+        # 인라인이 줄을 넘김 = 공간 부족 → 지우고 줄바꿈 후 우측정렬.
         h.SetPos(sp[0], sp[1], sp[2])
         h.Run("MoveSelParaEnd")
         h.HAction.Run("Delete")
@@ -461,6 +470,10 @@ def _put_score(ses, h, score: int, essay: bool = False) -> bool:
         h.Run("ParagraphShapeAlignRight")
         _set_plain(h)
         put_inline(leading_space=False)
+        if essay:               # 서술형: 뒤 내용을 위해 좌측 복귀
+            ses.break_para()
+            ses.align_left()
+            _set_plain(h)
         return True
     return False
 
@@ -527,16 +540,36 @@ def _strip_leading_submarker(contents):
 
 
 def _put_total_score(ses, h, num: int) -> None:
-    """소문항 부모 총점 "[총 N점]" 을 줄바꿈 후 우측정렬(N 은 수식 객체). 기본 경로와 동일."""
-    ses.break_para()
-    ses.align_right()
+    """소문항 부모 총점 "[총 N점]" — **발문 끝 인라인 우선, 줄 넘치면 줄바꿈 후 우측정렬**
+    (N 은 수식 객체). 점수 ④와 동일 로직(사용자 2026-06-09: 공간 충분하면 인라인). 기본 경로 동일.
+    """
+    def put_inline(leading_space: bool):
+        ses.text(" [총 " if leading_space else "[총 ")
+        ses.equation(str(num))
+        ses.text("점]")
+
+    def line():
+        try:
+            return h.KeyIndicator()[5]
+        except Exception:
+            return -1
+
+    sp = h.GetPos()
+    la = line()
     _set_plain(h)
-    ses.text("[총 ")
-    ses.equation(str(num))
-    ses.text("점]")
-    ses.break_para()
-    ses.align_left()
-    _set_plain(h)
+    put_inline(leading_space=True)
+    lb = line()
+    if la >= 0 and lb > la:
+        h.SetPos(sp[0], sp[1], sp[2])
+        h.Run("MoveSelParaEnd")
+        h.HAction.Run("Delete")
+        h.Run("BreakPara")
+        h.Run("ParagraphShapeAlignRight")
+        _set_plain(h)
+        put_inline(leading_space=False)
+        ses.break_para()
+        ses.align_left()
+        _set_plain(h)
 
 
 _ESSAY_LABEL_LEAD = re.compile(r'^\s*\[\s*서[답술]형\s*\d+\s*\]\s*')
@@ -580,6 +613,9 @@ def _fill_essay_at(ses, h, pos, q: Question, label_idx: int, next_pos=None) -> N
     h.SetPos(pos[0], pos[1], pos[2])
     h.Run("MoveRight")                       # 번호(미주) 다음
     # 슬롯 템플릿: 번호줄 [서술형] + 빈줄 + 둘째 [서술형] 까지 선택 삭제([중단원] 전까지).
+    # (이 삭제는 폼 [소단원][난이도] 메타란을 함께 먹지만, 발문/박스/post발문 렌더는 이 구조에
+    #  의존한다 — 보수적 삭제 시 #18·#20 박스+post발문이 깨졌음. 메타란은 채움 **후** 토큰을
+    #  찍고 저장후 XML(`_inject_essay_meta`)이 살아있는 MC 메타란 단락을 복제해 재주입한다.)
     h.Run("MoveSelParaEnd")                   # 번호 단락 끝(첫 [서술형])
     for _ in range(2):
         h.Run("MoveSelDown")
@@ -620,6 +656,14 @@ def _fill_essay_at(ses, h, pos, q: Question, label_idx: int, next_pos=None) -> N
                 h.Run("ParagraphShapeAlignLeft")
     else:
         _put_qbody(ses, h, contents, q.score, essay=True)   # 소문항 없는 서술형(우측정렬)
+    # 메타란([소단원][난이도]) 자리 토큰 — 모든 서술형 끝에 각 1줄. 저장후 _inject_essay_meta 가
+    # 살아있는 MC 메타란 run 을 이 토큰 run 과 교체한다(폼 디자인·색상 동일, 사용자 2026-06-09:
+    # "객관식이든 서술형이든 모든 문제 아래에 [소단원][난이도]를").
+    for tok in (_META_TOKEN_SO, _META_TOKEN_NA):
+        ses.break_para()
+        h.Run("ParagraphShapeAlignLeft")
+        _set_plain(h)
+        ses.text(tok)
 
 
 def _choice_len(choice) -> int:
@@ -1045,6 +1089,7 @@ def _estimate_essay_heights(essays) -> dict:
         h += -(-inline // CPL)                  # ceil(inline/CPL)
         h += (rows + 1) if tables else 0        # 표(행 + 헤더 테두리)
         h += len(q.sub_questions or [])         # 소문항 마커/배점 1줄씩
+        h += 2                                  # [소단원][난이도] 메타란(저장후 주입, 2026-06-09)
         heights[idx] = max(3, h)
     return heights
 
@@ -1427,6 +1472,84 @@ def _dedupe_essay_labels(hwpx_path: str | Path) -> int:
     return total
 
 
+_ESSAY_LABEL_SYNC_RE = re.compile(r'\[\s*(?:서술형|서답형|단답형)(\s*\d+\s*)\]')
+
+
+def _sync_essay_label_word(hwpx_path: str | Path, target: str) -> int:
+    """모든 ``[서술형/서답형/단답형 N]`` 라벨의 **유형 단어**를 ``target`` 으로 통일(저장후 XML).
+
+    문제 라벨은 content_parser 가 통일하지만, **폼이 구워둔 정답 페이지 라벨**(``[서술형 N]``)은
+    OCR/파서를 안 거쳐 그대로 남는다(사용자 2026-06-09: 정답 페이지도 서답형으로). 라벨 패턴
+    (``[…형 N]``, 번호 포함)만 매칭하므로 본문의 일반 단어("서술형으로 답하라")는 안 건드린다.
+    Returns: 치환 수.
+    """
+    hwpx_path = Path(hwpx_path)
+    with zipfile.ZipFile(hwpx_path) as z:
+        infos = z.infolist()
+        data = {i.filename: z.read(i.filename) for i in infos}
+    total = 0
+    for name in list(data):
+        if not re.search(r"section\d+\.xml$", name):
+            continue
+        sec = data[name].decode("utf-8")
+        sec2, n = _ESSAY_LABEL_SYNC_RE.subn(rf"[{target}\1]", sec)
+        if n:
+            data[name] = sec2.encode("utf-8")
+            total += n
+    if total:
+        _repackage_hwpx(hwpx_path, infos, data)
+    return total
+
+
+def _inject_essay_meta(hwpx_path: str | Path) -> int:
+    """서술형 끝 메타란 토큰 run 을 **살아있는 폼 [소단원]/[난이도] run** 으로 1:1 교체.
+
+    폼 서술형 슬롯의 원본 메타란은 라벨 플레이스홀더 삭제 때 함께 지워지므로, 채움 단계에서
+    토큰 단락(소단원·난이도 각 1줄)만 찍어 두고 여기서 재주입한다(사용자 2026-06-09: 모든
+    문제 아래 [소단원][난이도]를 폼과 **동일한 디자인·색상**으로). 템플릿은 같은 문서에
+    **살아남은 객관식 슬롯 메타란 단락**의 첫 ``<hp:run>``(마크펜 색·charPr ID 유효)을 그대로
+    복제한다 — **run 단위 교체**라 단락 경계/중첩과 무관하게 태그 균형이 보장된다(과거 단락단위
+    치환은 박스로 끝난 서술형의 중첩 토큰에서 깨졌다). linesegs 는 직후 ``_com_relaunder``
+    재저장에서 HWP 가 재계산한다. Returns: 교체된 run 수.
+    """
+    hwpx_path = Path(hwpx_path)
+    with zipfile.ZipFile(hwpx_path) as z:
+        infos = z.infolist()
+        data = {i.filename: z.read(i.filename) for i in infos}
+
+    def _first_run(para):
+        m = re.search(r"<hp:run\b.*?</hp:run>", para or "", re.S) if para else None
+        return m.group(0) if m else None
+
+    total = 0
+    for name in list(data):
+        if not re.search(r"section\d+\.xml$", name):
+            continue
+        sec = data[name].decode("utf-8")
+        if _META_TOKEN_SO not in sec and _META_TOKEN_NA not in sec:
+            continue
+        paras = re.findall(r"<hp:p\b.*?</hp:p>", sec, re.S)
+
+        def _ptext(p):
+            return re.sub(r"<[^>]+>", "", p)
+        run_so = _first_run(next((p for p in paras if "소단원" in _ptext(p)), None))
+        run_na = _first_run(next((p for p in paras if "난이도" in _ptext(p)), None))
+        if not run_so or not run_na:
+            logger.warning("폼 후처리(_inject_essay_meta): 메타란 템플릿 run 없음 — 건너뜀")
+            continue
+        for tok, run in ((_META_TOKEN_SO, run_so), (_META_TOKEN_NA, run_na)):
+            # 토큰 텍스트를 품은 run 통째를 메타란 run 으로 교체(run 1개 ↔ run 1개, 균형 보장).
+            tok_run_re = re.compile(
+                r"<hp:run\b[^>]*>(?:(?!</hp:run>).)*?" + re.escape(tok) + r"(?:(?!</hp:run>).)*?</hp:run>",
+                re.S)
+            sec, n = tok_run_re.subn(lambda m: run, sec)
+            total += n
+        data[name] = sec.encode("utf-8")
+    if total:
+        _repackage_hwpx(hwpx_path, infos, data)
+    return total
+
+
 def _com_relaunder(hwpx_path: str | Path) -> bool:
     """후처리한 hwpx 를 HWP COM 으로 한 번 더 열어 다시 저장(launder)해 '변조' 보안경고 제거.
 
@@ -1504,6 +1627,24 @@ def write_exam_to_form(
         _dedupe_essay_labels(output_path)
     except Exception as e:  # noqa: BLE001
         logger.warning("폼 후처리 실패(_dedupe_essay_labels): %s", e)
+    # 1.55단계: 유형 라벨 통일 — 문제 라벨은 파서가 통일했으나 폼이 구워둔 정답 페이지 라벨이
+    # 남는다. 문서가 쓰는 유형(서답형/서술형/단답형)을 감지해 모든 [ …형 N] 라벨을 통일.
+    try:
+        _label_re = re.compile(r"\[\s*(서술형|서답형|단답형)\s*\d")
+        _target = None
+        for _q in essays:
+            for _b in _q.contents:
+                if getattr(_b, "type", None) == ContentType.TEXT and _b.value:
+                    _m = _label_re.search(_b.value)
+                    if _m:
+                        _target = _m.group(1)
+                        break
+            if _target:
+                break
+        if _target:
+            _sync_essay_label_word(output_path, _target)
+    except Exception as e:  # noqa: BLE001
+        logger.warning("폼 후처리 실패(_sync_essay_label_word): %s", e)
     # 1.6단계: 서술형 중복 라벨 제거는 위에서 완료. 머리말/꼬리말 채움(결정적 XML 후처리).
     if header_values:
         try:
@@ -1524,6 +1665,12 @@ def write_exam_to_form(
         _inject_table_shading(output_path)
     except Exception as e:  # noqa: BLE001
         logger.warning("폼 후처리 실패(_inject_table_shading): %s", e)
+    # 1.9단계: 서술형 끝 메타란 토큰 → [소단원][난이도] 주입(살아있는 MC 메타란 복제, 폼
+    # 디자인 동일). _com_relaunder **전**에 해 HWP 가 재저장 때 linesegs 재계산하게 한다.
+    try:
+        _inject_essay_meta(output_path)
+    except Exception as e:  # noqa: BLE001
+        logger.warning("폼 후처리 실패(_inject_essay_meta): %s", e)
     # 2단계: 그림 렌더 모드면 그림 binItem 임베드(경고 감수). 아니면(기본) COM 재저장(launder)
     # 으로 '변조' 보안경고 제거 — 그림 자리엔 안내 박스(표라서 재저장에 보존).
     if render_figures and fig_paths:

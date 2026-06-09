@@ -568,6 +568,11 @@ class LaTeXToHWPConverter:
         # 단위 정자화: 숫자 뒤 단위(kg, cm …)를 rm`<단위>로 (정자 + 살짝 띄움).
         result = _romanize_units(result)
 
+        # 쉼표 뒤 강제 띄어쓰기: OCR 이 준 ``, `` 공백을 HWP 수식이 시각적으로 무시해
+        # ``N(m,2²)``·``(2,3)`` 처럼 붙어버린다(사용자 2026-06-09). 쉼표+공백 → ``,~`` 강제
+        # 공백으로 살린다(아래첨자 ``a_{1,2}`` 등 공백 없는 쉼표는 안 건드림).
+        result = re.sub(r",[ \t]+", ",~", result)
+
         # 후처리: 다중 공백 정리
         result = re.sub(r"  +", " ", result).strip()
         return result

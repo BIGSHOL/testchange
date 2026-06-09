@@ -61,8 +61,12 @@ def run_checks():
     chk(3, "미주 12pt 볼드",
         "set_char_shape(self.note_pt, bold=True)" in C and "note_pt: int = 12" in C)
     chk(4, "객관식 배점 인라인", "self._write_score(question.score)" in W)
-    chk(5, "서술형 배점 우측정렬",
-        bool(re.search(r"if is_essay:.*?align_right\(\).*?leading_space=False", W, re.S)))
+    chk(5, "서술형 배점 인라인-우선·넘치면 우측정렬",
+        "def _write_score_inline_or_right" in W
+        and "self._write_score_inline_or_right(question.score)" in W
+        and bool(re.search(
+            r"def _write_score_inline_or_right.*?KeyIndicator\(\)\[5\].*?"
+            r"align_right\(\).*?leading_space=False", W, re.S)))
     chk(6, "보기 1×1 테두리 박스", "table_begin(1, 1)" in W)
     chk(7, "박스↔선택지 빈줄 없음(_write_tail)",
         "ended_box = self._write_tail(tail)" in W
@@ -85,9 +89,13 @@ def run_checks():
 
     chk(18, "블록수식 가운데정렬",
         bool(re.search(r"EQUATION_BLOCK:.*?if not inline:.*?align_center\(\)", W, re.S)))
-    chk(19, "소문항 총점 우측정렬",
+    chk(19, "소문항 총점 인라인-우선·넘치면 우측정렬",
         "def _split_trailing_score" in W
-        and bool(re.search(r"elif has_subs and total_num:.*?align_right\(\)", W, re.S)))
+        and "def _write_total_score_inline_or_right" in W
+        and "self._write_total_score_inline_or_right(total_num)" in W
+        and bool(re.search(
+            r"def _write_total_score_inline_or_right.*?KeyIndicator\(\)\[5\].*?align_right\(\)",
+            W, re.S)))
     chk(20, "발문뒤 영역 공통 렌더(_write_tail)",
         "def _write_tail" in W and "def _tail_start" in W
         and "_write_condition_box(box)" in W)
