@@ -265,3 +265,56 @@
   `_fit_image_width`(260px≈69mm)로 단 너비 안에 축소.
 - 토큰은 인라인 pic 단락(보이는 텍스트 없음)이 `_build_layout` 빈줄삭제(`is_empty`)에 지워지지
   않게 **보호**하는 역할도 한다. `Question.score` 는 **int**(=`_put_score` 가 `점` 1회만 부착).
+
+## 학남고 확통 — 워드본 1:1 리뷰 14건 (2026-06-09, 커밋 a33013e·e2f145e)
+
+`배포용/ocr`·`배포용/crop` 영구기록(`temperature=0` 결정적 OCR) 기반 **캐시 재렌더(API 0원)**로
+1:1 비교하며 잡은 결함들. 전부 **결정적 후보정**. 회귀 방지: `verify_output_format.py`(28).
+
+### 지수·단위 (latex_to_hwpeq)
+- **유니코드 위첨자 = 지수 객체화**: OCR 이 `N(m, 2²)` 처럼 유니코드 위첨자(`²³¹⁰⁴…`)를 주면
+  HWP 가 작은 ² 글자로 렌더(지수 아님). `_normalize_unicode_superscripts` 가 `2²`→`2^{2}`.
+- **단위 `\text{g}` 정자화**: `20\text{g}`→`20"g"`(따옴표 리터럴)는 간격이 안 붙는다.
+  `_unwrap_text_units` 가 `\text{<단위>}`→평문 단위로 풀어 뒤의 `_romanize_units` 가 `20 rm\`g`.
+- **유니코드 부등호**: `≤ ≥ ≠`→`\leq \geq \neq` (convert 전처리). OCR 이 `\leq` 대신 유니코드로
+  주면 리터럴 ≤ 로 새고 연산자 간격이 깨진다.
+- **쉼표 강제공백이 백틱도 매칭**: `N(m,\, 4σ²)` 의 `\,`(얇은공백)은 변환 후 `,`+백틱(1/4칸)이
+  돼 `,[ \t]+` 가 못 잡았다 → `,[ \t\`]+`→`,~` 로 백틱 포함(좌표형 정규분포 `N(m,~4σ²)`).
+
+### 로만 vs 이탤릭 — 문맥 기반 (content_parser + latex_to_hwpeq `italicize_stat`)
+- **본문 stat-이탤릭은 content_parser 가 전담**: `latex_to_hwpeq(…, italicize_stat=False)` 추가.
+  본문은 `_italicize_stat_operators` 가 이미 확통 `\mathrm{P/E/V/N/Z/X/Y}` 를 벗겼으므로, 남은
+  `\mathrm{P}` 는 **기하 점 P**(점 P·꼭짓점 A)다 → latex_to_hwpeq 가 다시 벗기면 안 됨. 표 셀은
+  content_parser 를 안 거치므로 기존대로 `italicize_stat=True`(이탤릭화). 본문 호출처(`_eq_script`
+  ×2)만 False.
+- **비기하 단일 대문자 이탤릭화**: `_italicize_nongeo_single_letters` — 기하 문맥이 **아닐 때만**
+  단일 대문자 `\mathrm{A}`(체스 선수 A·B, 사건 A) 를 이탤릭으로. **조합 C·순열 P_(아래첨자)는
+  로만 유지**, 기하 문맥(점·꼭짓점…)이면 `_romanize_point_names` 가 로만 유지.
+- ⚠️ **배점 "점"이 기하 키워드 "점"과 충돌**: `[4.3점]` 의 "점" 때문에 `_has_geometry_context`
+  가 비기하 문제를 기하로 오인 → A·B 로만 잔존. **`_strip_score_text` 를 기하 판정 앞으로** 옮겨
+  해결. (배점이 수식으로 쪼개진 `[`+EQ+`점]` 은 `_strip_split_score` 가 제거 — score 필드와 중복
+  방지, #15 `[4.3점]` 두 번.)
+
+### 수식 분리/병합 (content_parser)
+- **text(꼬리부등식)·eq·text(머리부등식) 병합**: OCR 이 `-1 ≤ x ≤ 1에서` 를 `text("-1 ≤ ") +
+  eq("x") + text(" ≤ 1에서")` 로 쪼개면 `-1` 만 평문(정자)·`x` 만 이탤릭. `_merge_text_eq_fragments`
+  가 꼬리/머리의 미완성 부등식을 인접 수식에 흡수해 `-1 ≤ x ≤ 1` 한 객체로(유니코드 부등호는
+  `\leq` 로 정규화).
+- **LaTeX 없는 ASCII 수식도 분리**: `_split_latex_commands` 가 백슬래시 없으면 평문 반환하던 것 →
+  `_split_mixed_text_equation` 위임. 박스 `(가) … \leq … • (나) f(20) = g(30)` 의 (나)처럼 앞
+  항목이 `\leq` 로 수식화돼 재귀로 넘어온 ASCII 수식이 평문화되던 것 해결.
+- ⚠️ **`len(expr) > 20` 필터가 긴 수식을 평문화**: `_split_mixed_text_equation` 의 긴-영문단어
+  방어 필터가 `P(X ≤ 15) ≤ P(Y ≥ 30)`(21자)를 단어로 오인 → 박스 (가) 평문. **연산자
+  `[=<>≤≥≠+\-×÷^_]`·괄호가 있으면 길이 무관 수식 유지**.
+- **한글↔수식 띄어쓰기**: `_space_hangul_before_eq` — 한글로 끝나는 TEXT 바로 뒤 EQ 사이 공백
+  (`확률을p_1`→`확률을 p_1`). 수식은 새 기호라 앞 공백; EQ 뒤 한글은 조사(`p_5이라`)라 안 건드림.
+
+### 박스 그룹화 (content_parser `_raw_box_end`)
+- ⚠️ **OCR 이 보기 박스를 여러 raw 블록으로 쪼개면**(`<보기> ㄱ.` + 별도 수식블록 + `• ㄴ. …`)
+  `_raw_box_end` 가 `<보기> ㄱ.`(라벨만)을 **완결 박스로 오인**해 ㄴㄷㄹ 를 "발문 연속"으로 떼어
+  박스 **밖**으로 보냈다(#14). **마커 뒤가 항목 라벨 단독(`_BARE_ITEM_LABEL_RE`)이면 자기완결
+  아님** → 분리 안 함(박스가 다음 블록으로 이어짐). 박스가 한 raw 블록에 다 든 경우(#16)는 정상.
+
+### 파일명 충돌 (gui/main_window)
+- 출력 파일이 이미 있으면 덮어쓰기 확인 대신 **윈도우식 `(1)(2)…` 자동 증가**(`_unique_output_path`).
+  기존 변환물 보존 + 재변환 비교 편의(사용자 요구).

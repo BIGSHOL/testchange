@@ -2,7 +2,7 @@
 
 > 이 문서 하나로 **다른 컴퓨터에서 이어서 작업**할 수 있게 정리. 상세 설계·함정은
 > `CLAUDE.md`(루트)와 자동메모리(`C:\Users\<you>\.claude\projects\D---------\memory\MEMORY.md`)에 있다.
-> 최종 갱신: 2026-06-09 (커밋 `1e1aa8a`).
+> 최종 갱신: 2026-06-09 (커밋 `e2f145e`, **0.1.14 빌드·배포 완료**).
 
 ## 0. 프로젝트 한 줄
 PDF 수학 시험지 → HWPX 자동 변환 (PySide6 GUI + Gemini 크롭검출 + Claude OCR + HWP COM 렌더).
@@ -10,7 +10,7 @@ PDF 수학 시험지 → HWPX 자동 변환 (PySide6 GUI + Gemini 크롭검출 +
 
 ## 1. 저장소 / 원격
 - 원격 `testchange` = `https://github.com/BIGSHOL/testchange.git` (푸시는 여기로: `git push testchange master`).
-- 메인 브랜치: `master`. 현재 HEAD: `1e1aa8a`.
+- 메인 브랜치: `master`. 현재 HEAD: `e2f145e`.
 - 클론 후: `git remote -v` 로 `testchange` 확인(없으면 `git remote add testchange <URL>`).
   - ⚠️ PC 마다 원격 이름이 다를 수 있다(어떤 PC는 `origin`). `git remote -v` 로 실제 이름 확인 후 그 이름으로 push.
 
@@ -104,33 +104,36 @@ only** — anthropic 없이도 돈다). 정답 JSON 은 `tests/golden_ocr/` 에 
 - 검증 스킬: `verify-output-format`·`verify-latex-hwpeq`·`verify-ocr-parser-sync`·`verify-hwpx-structure`·
   `verify-equation-metrics`(`.claude/skills/`, Codex 는 `.agents/skills/` 미러).
 
-## 6. 현재 상태 — 이번 세션(2026-06-09) 완료분 (master `1e1aa8a`, **빌드 대기**)
-마지막 **빌드** 버전: `_version.py = 0.1.14`(이 세션에서 PyInstaller 빌드했으나 **배포(dist→배포용 복사) 안 함**).
-그 **0.1.14 빌드 이후** 아래가 master 에 머지됨 → **다음 빌드는 `0.1.15` 로 올려 폼 수정을 반드시 반영**:
-- `6923e5f` **fix(form): 서답형 4·5 누락** — 서술형 4개↑ 시 마지막 문항이 출력에서 사라지던 버그.
-  근본원인: OCR 이 contents 에 넣은 `[서술형 N]` 라벨 + `_fill_essay_at` 자기 라벨 = 중복 →
-  `_dedupe_essay_labels` 가 regex 로 앞 라벨만 지우고 **`<hp:linesegarray>` 미갱신** → `_com_relaunder`
-  (HWP 재저장) 가 그 깨진 단락+미주를 드롭. 해결: `_essay_label_and_body` 로 contents 라벨을 한 번만
-  출력(중복 원천 차단). **교훈: HWPX 텍스트를 지우면 lineseg 도 갱신/제거해야 HWP 가 안 먹는다.**
-- `ad57f4d` 골든셋 학남고 확통 **7건**(`tests/golden_ocr/`) — Codex 가 원본 이미지와 1:1 대조해
-  교정(짝수·172.44·`f(12)>f(22)`·신뢰구간 등). 플라이휠 ground-truth.
-- `81c7100`(PR#2)·`f9d33f4`(PR#3) **OCR 플라이휠 ②감사+④보강 A·B단계** — §3-b/§3-c 참조.
-  `scripts/ocr_eval/{risk_tokens,failures,audit_ocr,suggest_reinforcement}.py`, `core/ocr_reinforcement.md`,
-  `active_prompt()`/`prompt_signature` 보강 반영, `score_ocr --baseline/--candidate` A/B 게이트.
-- `1e1aa8a` Codex 에이전트 설정 커밋(`AGENTS.md`·`.agents/`·`.codex/`) + `.testkit.zip` ignore.
-- 검증: `tests/test_ocr_failures.py`(20), `tests/test_ocr_golden.py`(19+1skip), `verify_output_format --all`(28) 전부 PASS.
+## 6. 현재 상태 — 이번 세션(2026-06-09) 완료분 (master `e2f145e`, **0.1.14 빌드·배포 완료**)
+빌드 버전: `_version.py = 0.1.14` (사용자 결정 "버전업 하지마 — 바뀐 게 없음", 그대로 유지).
+`배포용/` 에 exe + `_internal` 배포 완료(`config.json` 379B 보존), `--selftest` = `SELFTEST OK (v0.1.14)`.
+
+**이번 세션 핵심 = 학남고 확통 워드본 1:1 리뷰 후보정 14건** (캐시 재렌더 API 0원, `배포용/ocr`·`crop`
+영구기록 기반). 상세는 `CLAUDE.md` "학남고 확통 — 워드본 1:1 리뷰 14건" 섹션. 커밋:
+- `3a09217` — 박스 줄바꿈·그림자리·라벨번호수식·메타란분리·수식조각화(이전).
+- `a33013e` — 리뷰 11건: 지수(²→2^2)·단위(`\text{g}`→정자)·박스 spill(#14)·로만/이탤릭(#15 A·B 이탤릭/
+  #19 점 P 로만)·`[4.3점]` 중복·`-1≤x≤1` 병합·한글↔수식 띄어쓰기·(나) ASCII 수식화.
+- `e2f145e` — 박스 긴수식 평문화 방지(`len>20` 필터에 연산자/괄호 예외)·유니코드 부등호(`≤≥≠`→
+  `\leq\geq\neq`)·**파일명 충돌 시 윈도우식 `(1)(2)…` 자동 증가**.
+- 검증: `verify_output_format --all`(28) PASS, 캐시 재렌더 7페이지 육안 확인 전부 정상.
+
+**0.1.14 빌드(이번 세션 직전)에 이미 포함**(별도 빌드 불필요): `6923e5f` 서답형 4·5 누락 수정,
+`ad57f4d` 골든셋 7건, `81c7100`/`f9d33f4` OCR 플라이휠 ②+④, `de6a790` 크롭·OCR 영구저장+OCR
+`temperature=0`, `62a061b` Gemini→Claude 폴백 가시화.
 
 ## 7. 미해결 / 다음 작업
-1. **빌드·배포(최우선)** — 서답형 4·5 누락 수정(`6923e5f`)은 실사용 영향 큼. `_version.py` 를 `0.1.15`
-   로 올려 빌드·배포(§4). 0.1.14 빌드 산출물은 이미 폐기 가능(그 이후 코드 변경됨).
-2. **실모델 OCR 검증(키 필요)** — 현재 `config.json` Anthropic 키 만료 가능(이 세션 PC 기준 401).
+1. **실모델 OCR 검증(키 필요)** — `config.json` Anthropic 키 만료 가능(과거 PC 기준 401).
    플라이휠 ④의 실측(보강이 실제 sonnet 출력 개선?)·실변환은 **유효 키 필요**. 키 없으면 §3-b/c 의
    stdlib 코어(감사·채굴·단위테스트)까지만 0원으로 가능.
-3. **폼 레이아웃 과여백** — 함수괄호 수식화로 수식 높이 ↑ → 페이지 수 증가. `hwp_form_writer._build_layout`
+2. **폼 레이아웃 과여백** — 함수괄호 수식화로 수식 높이 ↑ → 페이지 수 증가. `hwp_form_writer._build_layout`
    (줄용량 CAP) 스마트 단넘김 보정 필요.
-4. **객관식 표 누락**(미해결) — 단일 크롭 구조화 OCR 이 확률분포표를 "요약"해 통째 누락. 서술형은
+3. **객관식 표 누락**(미해결) — 단일 크롭 구조화 OCR 이 확률분포표를 "요약"해 통째 누락. 서술형은
    `_merge_missing_passages`(전사 2-pass)로 복구하나 객관식 표는 아직(전사+표 구조 복원 필요).
-5. **#9 "시행을36번" 띄어쓰기** — OCR 뿌리. 후보정 여지.
+4. **한글↔숫자 띄어쓰기** — 한글↔수식은 `_space_hangul_before_eq` 로 처리(`확률을 p_1`). "시행을36번"
+   처럼 숫자가 수식화되면 같이 띄나, OCR 이 숫자를 텍스트로 주는 잔여 케이스는 후보정 여지.
+
+> ✅ 지난 핸드오프의 "빌드·배포 최우선"은 이번 세션에 **완료**(0.1.14 빌드·`배포용/` 배포). 버전은
+> 사용자 결정으로 0.1.15 안 올리고 0.1.14 유지(서답형 4·5 수정 등은 0.1.14 빌드에 이미 포함).
 
 ## 8. 핵심 파일 지도
 | 파일 | 역할 |
