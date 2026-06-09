@@ -1369,6 +1369,40 @@ def _repackage_hwpx(hwpx_path: Path, infos, data: dict) -> None:
 _DUP_LABEL_RE = re.compile(r'\[\s*서[답술]형\s*\d+\s*\]\s*(?=\[\s*서[답술]형)')
 
 
+# 폼 슬롯 라벨 ``[서술형 ]`` 의 번호가 **수식 객체**로 남는 경우(grow 슬롯 COM 라벨삭제 실패).
+# 예: ``<hp:t> [서술형 </hp:t><hp:equation>…script 5…</hp:equation><hp:t>] `` → 번호 5 가 수식.
+# 사용자(2026-06-09): "[서술형 5] 의 5 는 텍스트여야". 결정적 후처리로 eq 번호를 **텍스트**로
+# in-place 치환(단락 조작 없음 → lineseg 안전, 멱등).
+_ESSAY_NUM_EQ_RE = re.compile(
+    r'(\[\s*서[술답]형\s*)</hp:t>\s*<hp:equation\b[^>]*>'
+    r'(?:(?!</hp:equation>).)*?<hp:script\b[^>]*>\s*(\d+)\s*</hp:script>'
+    r'(?:(?!</hp:equation>).)*?</hp:equation>\s*<hp:t>(\s*\])',
+    re.S)
+
+
+def _textify_essay_label_numbers(hwpx_path: str | Path) -> int:
+    """서술형 라벨 ``[서술형/서답형 N]`` 의 번호가 수식 객체면 **평문 텍스트**로 치환(저장후 XML).
+
+    grow 슬롯의 폼 placeholder 라벨이 번호를 수식으로 남기는 걸 결정적으로 보정. Returns: 치환 수.
+    """
+    hwpx_path = Path(hwpx_path)
+    with zipfile.ZipFile(hwpx_path) as z:
+        infos = z.infolist()
+        data = {i.filename: z.read(i.filename) for i in infos}
+    total = 0
+    for name in list(data):
+        if not re.search(r"section\d+\.xml$", name):
+            continue
+        sec = data[name].decode("utf-8")
+        sec2, n = _ESSAY_NUM_EQ_RE.subn(r"\1\2\3", sec)
+        if n:
+            data[name] = sec2.encode("utf-8")
+            total += n
+    if total:
+        _repackage_hwpx(hwpx_path, infos, data)
+    return total
+
+
 def _dedupe_essay_labels(hwpx_path: str | Path) -> int:
     """서술형 번호줄의 중복 라벨([서답형 N] [서술형 N] → [서술형 N]) 제거. 항상 실행(강제).
 
@@ -1461,7 +1495,11 @@ def write_exam_to_form(
             os.remove(filled)
         except Exception:
             pass
-    # 1.5단계: 서술형 중복 라벨([서답형 N] [서술형 N]) 결정적 제거(폼 grow 잔존 라벨 보정).
+    # 1.5단계: 서술형 라벨 후처리 — ① 번호 수식→텍스트(grow 슬롯 placeholder) ② 중복 라벨 제거.
+    try:
+        _textify_essay_label_numbers(output_path)
+    except Exception as e:  # noqa: BLE001
+        logger.warning("폼 후처리 실패(_textify_essay_label_numbers): %s", e)
     try:
         _dedupe_essay_labels(output_path)
     except Exception as e:  # noqa: BLE001

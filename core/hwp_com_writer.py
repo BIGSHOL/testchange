@@ -45,6 +45,9 @@ _LABEL_SPACE_RE = re.compile(r"^([ㄱ-ㅎ가-힣]\s*\.)\s*(\S)")
 # 1×1 표만 만든다(사용자 결정 2026-06-08: 원본에 라벨이 있을 때만 라벨 표기).
 _PLAIN_BOX_MARK = "<상자>"
 _PLAIN_BOX_RE = re.compile(r"<\s*상자\s*>")
+# 순한글(+공백) 표 셀 — 예 "합계". 수식 객체화하지 말고 평문으로(사용자 2026-06-09:
+# 표 '합계'가 수식처리됨). 수학 셀(X·z·1.0·P(X=x)…)은 라틴/숫자/기호라 매칭 안 됨.
+_HANGUL_CELL_RE = re.compile(r"^[가-힣\s]+$")
 # 보기/조건 박스 '머리'(블록 시작이 <보기>/<조건>/<상자>) — 발문 끝 배점 위치 판정용(A2).
 # 발문이 "<보기>에서…"처럼 마커로 시작해도 그건 인라인 참조다(뒤에 조사=가-힣 음절) → 부정 전망.
 # 단 `<상자>`(라벨 없는 박스)는 뒤에 한글 지문이 와도 항상 박스 머리다(부정 전망 없음).
@@ -302,7 +305,9 @@ class HwpComWriter:
             for ci in range(ncol):
                 self.s.align_center()        # 셀 값 가운데 정렬(사용자 요구 2026-06-04)
                 val = str(row[ci]).strip() if ci < len(row) else ""
-                if val:
+                if val and _HANGUL_CELL_RE.match(val):
+                    self.s.text(val)         # 순한글 셀("합계")은 평문(수식객체 금지, 2026-06-09)
+                elif val:
                     self.s.equation(latex_to_hwpeq(val))
                 if not (ri == nrow - 1 and ci == ncol - 1):
                     self.s.table_next_cell()
