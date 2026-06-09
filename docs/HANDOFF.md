@@ -2,8 +2,9 @@
 
 > 이 문서 하나로 **다른 컴퓨터에서 이어서 작업**할 수 있게 정리. 상세 설계·함정은
 > `CLAUDE.md`(루트)와 자동메모리(`C:\Users\<you>\.claude\projects\D---------\memory\MEMORY.md`)에 있다.
-> 최종 갱신: 2026-06-09 (커밋 `9dfbb9c`). ⚠️ **소스 HEAD=`9dfbb9c`, 배포 exe=`e2f145e` 빌드**
-> — 경운중 폼 4건(`9dfbb9c`)·문서(`c77008d`)는 소스에만 있고 `배포용/` exe 엔 미반영 → **다음 빌드 필요**(§4).
+> 최종 갱신: 2026-06-10 (커밋 `389e974`). ⚠️ **소스 HEAD=`389e974`, 배포 exe=`e2f145e` 빌드**
+> — 그 뒤 커밋(경운중 폼 4건 `9dfbb9c`·표복구/폼측정/서수'제' `389e974` 등)은 소스에만 있고
+> `배포용/` exe 엔 미반영 → **다음 작업 = 재빌드·배포 필요**(§4).
 
 ## 0. 프로젝트 한 줄
 PDF 수학 시험지 → HWPX 자동 변환 (PySide6 GUI + Gemini 크롭검출 + Claude OCR + HWP COM 렌더).
@@ -11,7 +12,7 @@ PDF 수학 시험지 → HWPX 자동 변환 (PySide6 GUI + Gemini 크롭검출 +
 
 ## 1. 저장소 / 원격
 - 원격 `testchange` = `https://github.com/BIGSHOL/testchange.git` (푸시는 여기로: `git push testchange master`).
-- 메인 브랜치: `master`. 현재 HEAD: `9dfbb9c`.
+- 메인 브랜치: `master`. 현재 HEAD: `389e974`.
 - 클론 후: `git remote -v` 로 `testchange` 확인(없으면 `git remote add testchange <URL>`).
   - ⚠️ PC 마다 원격 이름이 다를 수 있다(어떤 PC는 `origin`). `git remote -v` 로 실제 이름 확인 후 그 이름으로 push.
 
@@ -114,10 +115,11 @@ only** — anthropic 없이도 돈다). 정답 JSON 은 `tests/golden_ocr/` 에 
 - 검증 스킬: `verify-output-format`·`verify-latex-hwpeq`·`verify-ocr-parser-sync`·`verify-hwpx-structure`·
   `verify-equation-metrics`(`.claude/skills/`, Codex 는 `.agents/skills/` 미러).
 
-## 6. 현재 상태 — 이번 세션(2026-06-09) 완료분 (master `9dfbb9c`)
+## 6. 현재 상태 — 최근 세션 완료분 (master `389e974`)
 빌드 버전: `_version.py = 0.1.14` (사용자 결정 "버전업 하지마 — 바뀐 게 없음", 그대로 유지).
 **배포 exe = `e2f145e` 빌드**(`배포용/`, `config.json` 379B 보존, `--selftest` = `SELFTEST OK (v0.1.14)`).
-⚠️ 그 뒤 `c77008d`(문서)·`9dfbb9c`(경운중 폼 4건)는 소스에만 있음 → **다음 작업 = 빌드·배포**(§4).
+⚠️ 그 뒤 `c77008d`(문서)·`9dfbb9c`(경운중 폼 4건)·`389e974`(표복구/폼측정/서수'제', 다른 PC
+2026-06-10)는 소스에만 있음 → **다음 작업 = 재빌드·배포**(§4). 상세 ✅ 목록은 §7.
 
 **이번 세션 핵심 = 학남고 확통 워드본 1:1 리뷰 후보정 14건** (캐시 재렌더 API 0원, `배포용/ocr`·`crop`
 영구기록 기반). 상세는 `CLAUDE.md` "학남고 확통 — 워드본 1:1 리뷰 14건" 섹션. 커밋:
