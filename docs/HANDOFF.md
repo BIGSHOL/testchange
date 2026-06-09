@@ -2,10 +2,10 @@
 
 > 이 문서 하나로 **다른 컴퓨터에서 이어서 작업**할 수 있게 정리. 상세 설계·함정은
 > `CLAUDE.md`(루트)와 자동메모리(`C:\Users\<you>\.claude\projects\D---------\memory\MEMORY.md`)에 있다.
-> 최종 갱신: 2026-06-10 (커밋 `f85eb7c`). ✅ **소스 HEAD=`f85eb7c`, 배포 exe=`f85eb7c` 빌드 완료**
+> 최종 갱신: 2026-06-10 (커밋 `ac396e2`). ✅ **소스 HEAD=`ac396e2`, 배포 exe=`ac396e2` 빌드 완료**
 > (2026-06-10 재빌드·`배포용/` 배포, `--selftest` = `SELFTEST OK (v0.1.14)` + `GEMINI LIVE OK`,
-> `config.json` 379B 보존). 강동중 렌더 8건(`f85eb7c`)·경운중 폼 4건·표복구/폼측정/서수'제' 전부
-> 배포 반영됨 → 추가 빌드 불필요.
+> `config.json` 379B 보존). 강동중 렌더 8건(`f85eb7c`)·**'캐시로 변환' 버튼(`ac396e2`)**·경운중 폼
+> 4건·표복구/폼측정/서수'제' 전부 배포 반영됨 → 추가 빌드 불필요.
 
 ## 0. 프로젝트 한 줄
 PDF 수학 시험지 → HWPX 자동 변환 (PySide6 GUI + Gemini 크롭검출 + Claude OCR + HWP COM 렌더).
@@ -116,10 +116,11 @@ only** — anthropic 없이도 돈다). 정답 JSON 은 `tests/golden_ocr/` 에 
 - 검증 스킬: `verify-output-format`·`verify-latex-hwpeq`·`verify-ocr-parser-sync`·`verify-hwpx-structure`·
   `verify-equation-metrics`(`.claude/skills/`, Codex 는 `.agents/skills/` 미러).
 
-## 6. 현재 상태 — 최근 세션 완료분 (master `389e974`)
+## 6. 현재 상태 — 최근 세션 완료분 (master `ac396e2`)
 빌드 버전: `_version.py = 0.1.14` (사용자 결정 "버전업 하지마 — 바뀐 게 없음", 그대로 유지).
-**배포 exe = `389e974` 빌드 완료**(2026-06-10 재빌드·`배포용/` 배포, `config.json` 379B 보존,
-`--selftest` = `SELFTEST OK (v0.1.14)` + `GEMINI LIVE OK`). `c77008d`(문서)·`9dfbb9c`(경운중 폼
+**배포 exe = `ac396e2` 빌드 완료**(2026-06-10 재빌드·`배포용/` 배포, `config.json` 379B 보존,
+`--selftest` = `SELFTEST OK (v0.1.14)` + `GEMINI LIVE OK`). 강동중 렌더 8건(`f85eb7c`)·'캐시로
+변환' 버튼(`ac396e2`)이 이번 세션 추가분. `c77008d`(문서)·`9dfbb9c`(경운중 폼
 4건)·`389e974`(표복구/폼측정/서수'제') **전부 배포 반영** → 추가 빌드 불필요. 상세 ✅ 목록은 §7.
 
 **이번 세션 핵심 = 학남고 확통 워드본 1:1 리뷰 후보정 14건** (캐시 재렌더 API 0원, `배포용/ocr`·`crop`
@@ -172,6 +173,24 @@ only** — anthropic 없이도 돈다). 정답 JSON 은 `tests/golden_ocr/` 에 
 > ✅ 위 §7 ✅ 수정들(content_parser·hwp_com_writer·hwp_form_writer)은 **2026-06-10 `f85eb7c` 빌드에
 > 반영·배포 완료**.
 
+> ✅ **GUI '캐시로 변환' 버튼**(`ac396e2`, 2026-06-10): 선택한 PDF **파일명(stem)** 기준
+> `ocr/<시험지명>/p{n}_merged.json`(영구 기록)으로 **크롭·OCR·Gemini·API 전부 생략**하고 폼 렌더만
+> 수행(₩0). `ConversionWorker(cache_only=True)`→`_do_cache_conversion`(merged.json→`build_document`
+> →`write_exam_to_form`, `_reset_record_dirs` 호출 안 함=캐시 보존). 워커 배선은 `_run_worker()`
+> 공통. **용도**: 폼 채움 실패(파일 잠김) 복구·코드 개선 후 무료 재렌더·반복 검토. 그림은 안내문구
+> (render_figures=False; 실제 임베드는 크롭 재해소 필요=추후). 캐시 없으면 안내. dev harness 등가물
+> = `F:\tmp\cache_render.py`.
+
+> ⚠️ **이번에 힘들었던 함정(기록)**:
+> - **WinError 5(액세스 거부) on `os.replace`** — 출력 `_변환.hwpx` 가 **열려 있으면**(사용자가 보고
+>   있거나 HWP 가 잠금) 임시→최종 교체가 막혀 변환이 **기본 서식으로 폴백**(경명여중 사례). 해결:
+>   출력이 이미 있으면 `_unique_output_path` 로 새 이름(`_변환(1).hwpx`). 일반·캐시 변환 둘 다 적용.
+> - **HWP COM 저장은 절대경로 필수** — 상대경로면 HWP가 **자기 작업디렉터리** 기준으로 저장→빈
+>   출력→폼 측정 0/16→폴백(과거 "폼 과여백" 오진의 진짜 원인이 이 하네스 함정이었음).
+> - **고아 Hwp.exe 핸들** — 연속 렌더(채움→relaunder→render_to_png)가 겹치면 이전 HWP가 `.testkit`
+>   파일 핸들을 놓지 않아 다음 `os.replace`가 WinError 5. COM 작업 전 항상 `Get-Process Hwp |
+>   Stop-Process -Force` + 새 파일명.
+
 ## 8. 핵심 파일 지도
 | 파일 | 역할 |
 |------|------|
@@ -182,7 +201,7 @@ only** — anthropic 없이도 돈다). 정답 JSON 은 `tests/golden_ocr/` 에 
 | `core/hwp_form_writer.py` | 폼(대수회) 채우기(공유 렌더 + 레이아웃·짝수쪽·정답보존) |
 | `core/hwp_com.py` | HWP COM 세션(**`CONVERSION_VISIBLE=False` 필수**) |
 | `models/exam_document.py` | ContentBlock/Question/ExamPage 데이터 모델 |
-| `gui/main_window.py` | PySide6 GUI·ConversionWorker·토큰비용 로깅 |
+| `gui/main_window.py` | PySide6 GUI·ConversionWorker(`cache_only`=캐시 재렌더)·'캐시로 변환' 버튼·토큰비용 로깅 |
 | `core/ocr_reinforcement.md` | 승인된 프롬프트 보강(런타임 `active_prompt()` 가 append, 빈 상태=no-op) |
 | `scripts/ocr_eval/` | 플라이휠: `metrics`·`normalize`·`failures`·`risk_tokens`·`audit_ocr`·`suggest_reinforcement`·`score_ocr`·`golden_record`·`prompt_version` |
 | `tests/golden_ocr/` | OCR 정답(ground-truth) JSON — commit 됨(PC 간 재현) |
