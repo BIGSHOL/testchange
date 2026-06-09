@@ -2,7 +2,8 @@
 
 > 이 문서 하나로 **다른 컴퓨터에서 이어서 작업**할 수 있게 정리. 상세 설계·함정은
 > `CLAUDE.md`(루트)와 자동메모리(`C:\Users\<you>\.claude\projects\D---------\memory\MEMORY.md`)에 있다.
-> 최종 갱신: 2026-06-09 (커밋 `e2f145e`, **0.1.14 빌드·배포 완료**).
+> 최종 갱신: 2026-06-09 (커밋 `9dfbb9c`). ⚠️ **소스 HEAD=`9dfbb9c`, 배포 exe=`e2f145e` 빌드**
+> — 경운중 폼 4건(`9dfbb9c`)·문서(`c77008d`)는 소스에만 있고 `배포용/` exe 엔 미반영 → **다음 빌드 필요**(§4).
 
 ## 0. 프로젝트 한 줄
 PDF 수학 시험지 → HWPX 자동 변환 (PySide6 GUI + Gemini 크롭검출 + Claude OCR + HWP COM 렌더).
@@ -10,7 +11,7 @@ PDF 수학 시험지 → HWPX 자동 변환 (PySide6 GUI + Gemini 크롭검출 +
 
 ## 1. 저장소 / 원격
 - 원격 `testchange` = `https://github.com/BIGSHOL/testchange.git` (푸시는 여기로: `git push testchange master`).
-- 메인 브랜치: `master`. 현재 HEAD: `e2f145e`.
+- 메인 브랜치: `master`. 현재 HEAD: `9dfbb9c`.
 - 클론 후: `git remote -v` 로 `testchange` 확인(없으면 `git remote add testchange <URL>`).
   - ⚠️ PC 마다 원격 이름이 다를 수 있다(어떤 PC는 `origin`). `git remote -v` 로 실제 이름 확인 후 그 이름으로 push.
 
@@ -39,6 +40,13 @@ PDF 수학 시험지 → HWPX 자동 변환 (PySide6 GUI + Gemini 크롭검출 +
   - 기존 캐시 현 위치: `D:\tmp\ocr_cache\<pdf_stem>\` (구버전 testkit 기본값).
   - 새 위치 지정: 환경변수 `TESTKIT_CACHE=<경로>` 로 덮어쓰기 가능.
 - (B) 캐시가 없으면 **첫 1회만** `--reocr` 로 재생성(API 비용 발생, 그 뒤로는 0원).
+
+**또다른 결정적 기록(2026-06-09)**: exe/GUI 변환 때마다 `<exe-or-root>/ocr/<stem>/p{n}_merged.json`·
+`crop/<stem>/*.png` 가 **영구 저장**된다(`temperature=0` → 같은 입력=같은 출력). 이 `p{n}_merged.json`
+은 testkit 캐시와 **포맷이 다르다**(워커 후처리 후 병합본). 이걸로 폼 경로를 직접 재렌더하려면
+`parse_ocr_response→build_document→write_exam_to_form→render PDF` 한 짧은 스크립트면 된다(이번 세션
+`D:\tmp\hn_cache_render.py`·`kw_cache_render.py` 가 그 예 — **D:\tmp 라 repo 밖, 새 PC엔 없음**;
+필요하면 그 패턴으로 재작성). `ocr/`·`crop/` 폴더는 gitignore(머신 로컬) → 이어 작업 시 함께 복사.
 
 예) 학남고 확통 회귀 테스트:
 ```
@@ -104,9 +112,10 @@ only** — anthropic 없이도 돈다). 정답 JSON 은 `tests/golden_ocr/` 에 
 - 검증 스킬: `verify-output-format`·`verify-latex-hwpeq`·`verify-ocr-parser-sync`·`verify-hwpx-structure`·
   `verify-equation-metrics`(`.claude/skills/`, Codex 는 `.agents/skills/` 미러).
 
-## 6. 현재 상태 — 이번 세션(2026-06-09) 완료분 (master `e2f145e`, **0.1.14 빌드·배포 완료**)
+## 6. 현재 상태 — 이번 세션(2026-06-09) 완료분 (master `9dfbb9c`)
 빌드 버전: `_version.py = 0.1.14` (사용자 결정 "버전업 하지마 — 바뀐 게 없음", 그대로 유지).
-`배포용/` 에 exe + `_internal` 배포 완료(`config.json` 379B 보존), `--selftest` = `SELFTEST OK (v0.1.14)`.
+**배포 exe = `e2f145e` 빌드**(`배포용/`, `config.json` 379B 보존, `--selftest` = `SELFTEST OK (v0.1.14)`).
+⚠️ 그 뒤 `c77008d`(문서)·`9dfbb9c`(경운중 폼 4건)는 소스에만 있음 → **다음 작업 = 빌드·배포**(§4).
 
 **이번 세션 핵심 = 학남고 확통 워드본 1:1 리뷰 후보정 14건** (캐시 재렌더 API 0원, `배포용/ocr`·`crop`
 영구기록 기반). 상세는 `CLAUDE.md` "학남고 확통 — 워드본 1:1 리뷰 14건" 섹션. 커밋:
