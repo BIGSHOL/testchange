@@ -789,7 +789,8 @@ def _slot_opens(sec: str, en_phs: list[str]) -> list[int]:
 
 
 def _build_layout(src_hwpx, out_hwpx, slot_blanks: dict, colbreak_slots, n_mc: int = -1,
-                  answer_pagebreak: bool = False, answer_blank_pages: int = 0) -> None:
+                  answer_pagebreak: bool = False, answer_blank_pages: int = 0,
+                  pack_essays: bool = False) -> None:
     """src 의 채운 내용을 바탕으로: 폼 빈줄 제거 + 슬롯별 빈줄 삽입 + columnBreak.
 
     colbreak_slots: 새 단을 시작할 슬롯 인덱스 집합(객관식 3/단·서술형 1/단을 따로 지정).
@@ -853,8 +854,10 @@ def _build_layout(src_hwpx, out_hwpx, slot_blanks: dict, colbreak_slots, n_mc: i
     # (1) 폼 과잉 빈줄 삭제 — **객관식 영역에만**(서술형 소문항 답안 여백 보존).
     ops0 = _slot_opens(sec, en_phs)
     first = ops0[0]
-    # 서술형 시작(첫 서술형 슬롯) 이후는 건드리지 않음.
-    es_start = ops0[n_mc] if (0 <= n_mc < len(ops0)) else len(sec)
+    # 서술형 시작(첫 서술형 슬롯) 이후는 건드리지 않음 — 단 ``pack_essays`` 면 서술형 답란
+    # 빈줄도 제거(학생 답란 불필요, 시험지 배정 깔끔함 우선; 메모리 form-layout-no-answer-space).
+    es_start = (len(sec) if pack_essays
+                else (ops0[n_mc] if (0 <= n_mc < len(ops0)) else len(sec)))
     empties = [
         (m.start(), m.end())
         for m in _PARA.finditer(sec)
@@ -1010,10 +1013,47 @@ def _extract_heights(pos: list[tuple[int, int, int]], n: int, per_col: int) -> d
 
 # 문항 사이 기본 여유 간격(줄). 단 용량이 허락하면 이만큼 띄운다.
 _GAP = 2
+# 서술형 단당 최대 문항 수. 사용자 요구(2026-06-09): 기본 2개/단, **여유 있으면 객관식처럼
+# 3개/단도 허용**. 답란 불필요(노트 풀이)라 높이가 허락하면 CAP 까지 빽빽(추정 기반).
+# 메모리 form-layout-no-answer-space.
+_ES_PER_COL = 3
 
 
-def _adaptive_columns(heights: dict, n: int, per_col_max: int):
+def _estimate_essay_heights(essays) -> dict:
+    """서술형 슬롯 높이(줄)를 **내용으로 결정적 추정**(COM 측정 불필요·견고).
+
+    COM 텍스트 검색은 폼에서 불안정(``[`` 특수문자·정답페이지 라벨 중복)해 못 쓴다. 대신
+    발문/소문항 글자수 + 표 행수 + 소문항 수로 추정한다. **보수적 과대추정**(단 넘침 방지) —
+    답란을 안 두므로 약간 빽빽해도 무방하고, 과소추정으로 한 단에 너무 많이 몰아 넘치는 게
+    더 나쁘다(메모리 form-layout-no-answer-space).
+    """
+    # 학남고 확통 5개 서술형 실측(렌더 줄수)에 맞춰 보정(2026-06-09): CPL 26, 수식폭 0.4,
+    # 표=행+테두리1, 소문항=마커 1줄. 실측 [6,12,10,13,16] ≈ 추정 [9,13,13,14,17](±1~3,
+    # 약간 과대 — 단 넘침 방지). 짧은 서술형 3개가 한 단(CAP 46)에 들어가도록 과대를 줄였다.
+    CPL = 26                                    # 단 한 줄당 본문 글자수(한글+수식 혼합 실측)
+    heights = {}
+    for idx, q in enumerate(essays):
+        text = sum(len(b.value or "") for b in q.contents if b.type == ContentType.TEXT)
+        eq = sum(len(b.value or "") for b in q.contents
+                 if b.type in (ContentType.EQUATION, ContentType.EQUATION_BLOCK))
+        tables = sum(1 for b in q.contents if b.type == ContentType.TABLE)
+        rows = sum(len(b.rows or []) for b in q.contents if b.type == ContentType.TABLE)
+        sub_text = sum(len(b.value or "") for s in (q.sub_questions or [])
+                       for b in (s.contents or []) if b.type == ContentType.TEXT)
+        inline = text + sub_text + int(eq * 0.4)
+        h = 2                                   # 번호줄 + 여유
+        h += -(-inline // CPL)                  # ceil(inline/CPL)
+        h += (rows + 1) if tables else 0        # 표(행 + 헤더 테두리)
+        h += len(q.sub_questions or [])         # 소문항 마커/배점 1줄씩
+        heights[idx] = max(3, h)
+    return heights
+
+
+def _adaptive_columns(heights: dict, n: int, per_col_max: int, rebalance_tail: bool = True):
     """측정 높이로 **스마트 단배치**: 한 단(CAP 줄) 안에서 문항 수를 가변(최대 per_col_max).
+
+    rebalance_tail: 마지막 단이 1문항이면 직전 단에서 끌어와 균형(객관식용). 서술형은 끄면
+    가운데 단이 외톨이가 되는 걸 피하고 마지막 단에 단독을 둔다(자연스러움, 사용자 2026-06-09).
 
     - 긴 문항이 섞이면 단당 2개로 줄여 단을 넘기지 않게, 짧으면 3개까지 채운다(그리디).
     - 각 단의 남는 여유(CAP-내용)는 문항 사이 빈줄로 균등 분배(여유로운 배치). 단 마지막
@@ -1036,6 +1076,15 @@ def _adaptive_columns(heights: dict, n: int, per_col_max: int):
         cur_h += (_GAP if len(cur) > 1 else 0) + h
     if cur:
         cols.append(cur)
+
+    # 트레일링 리밸런스: 마지막 단에 문항이 **1개만** 남으면(예: 16개를 3씩 → …,3,1)
+    # 직전 단의 끝 문항을 끌어와 (…,2,2) 로 균형(외로운 끝 단의 큰 과여백 완화). 직전 단이
+    # 2개 이상이고, 옮겨도 마지막 단이 CAP 안에 들 때만(행정렬·단넘침 안전).
+    def _col_h(col):
+        return sum(heights.get(i, fb) for i in col) + _GAP * max(0, len(col) - 1)
+    if (rebalance_tail and len(cols) >= 2 and len(cols[-1]) == 1 and len(cols[-2]) >= 2
+            and _col_h([cols[-2][-1]] + cols[-1]) <= CAP):
+        cols[-1].insert(0, cols[-2].pop())
 
     colbreak = {c[0] for c in cols[1:]}     # 첫 단 제외, 각 단 첫 문항 앞에서 단나누기
     blanks: dict = {}
@@ -1067,57 +1116,77 @@ def _adaptive_columns(heights: dict, n: int, per_col_max: int):
     return colbreak, blanks, cols
 
 
-def _layout_form(filled_hwpx, out_hwpx, per_col: int, n_mc: int, n_es: int) -> None:
-    """채운 hwpx → 혼합 레이아웃. 객관식: 측정 기반 행정렬(per_col/단). 서술형: 1/단.
+def _layout_form(filled_hwpx, out_hwpx, per_col: int, n_mc: int, n_es: int,
+                 essays=None) -> None:
+    """채운 hwpx → 혼합 레이아웃. 객관식·서술형 **둘 다 측정 기반 빽빽배치**.
 
-    객관식과 서술형은 폼의 별도 구역(섹션)이라 서술형은 새 페이지에서 시작한다.
-    columnBreak: 객관식은 per_col 마다, 서술형은 매 문항(첫 서술형 제외).
+    학생 답란 공간은 보존하지 않는다(노트 풀이 전제 — 메모리 form-layout-no-answer-space).
+    객관식은 행정렬(per_col/단), 서술형도 높이 측정 후 단당 여러 개를 채운다(`_adaptive_columns`).
+    측정 tight 빌드는 객관식 고정 per_col + **서술형 연속배치**(단나누기 없음, 높이 측정용).
     """
     n = n_mc + n_es
-    essay_colbreak = set(range(n_mc, n))              # 서술형 1/단(매 문항이 새 단)
-    # 측정용 tight 빌드는 고정 per_col 단나누기로(① 위치만 재면 됨).
-    measure_colbreak = set(range(per_col, n_mc, per_col)) | essay_colbreak
+    # 측정 tight: 객관식만 고정 per_col 단나누기. 서술형은 연속배치(높이 측정 위해 단나누기
+    # 없음) + pack_essays 로 폼 답란 빈줄 제거. 첫 서술형 경계는 측정엔 불필요.
+    measure_colbreak = set(range(per_col, n_mc, per_col))
 
     tight = str(Path(out_hwpx).with_suffix("")) + "_tight.hwpx"
-    _build_layout(filled_hwpx, tight, {i: _MINGAP for i in range(n)}, measure_colbreak, n_mc)
+    _build_layout(filled_hwpx, tight, {i: _MINGAP for i in range(n)}, measure_colbreak,
+                  n_mc, pack_essays=True)
     pos = _measure_first_choice_lines(tight, n_mc) if n_mc else []
     try:
         os.remove(tight)
     except Exception:
         pass
+    # 서술형 높이는 **내용 기반 결정적 추정**(COM 텍스트 검색은 라벨 번호가 수식 객체라
+    # 쪼개져 불안정 — 사용자 지적 2026-06-09). 추정 실패 없음(객체만 있으면 항상 계산).
+    es_heights = _estimate_essay_heights(essays) if (n_es and essays) else {}
 
-    blanks = {}
-    colbreak = measure_colbreak
+    blanks: dict = {}
+    colbreak: set = set(range(per_col, n_mc, per_col))     # 폴백 기본(객관식 고정 per_col)
+    # ── 객관식 적응배치 ──
     if n_mc:
         if len(pos) >= n_mc:
-            # 측정 성공 → **스마트 단배치**(높이 기반 단당 문항수 가변 + 여백 적응).
             heights = _extract_heights(pos, n_mc, per_col)
             obj_colbreak, mc_blanks, cols = _adaptive_columns(heights, n_mc, per_col)
-            colbreak = obj_colbreak | essay_colbreak
+            colbreak = set(obj_colbreak)
             blanks.update(mc_blanks)
             logger.info(
-                "폼 스마트 단배치(측정 %d/%d): %d개 단, 단당문항=%s, 높이=%s",
-                len(pos), n_mc, len(cols), [len(c) for c in cols],
-                {i: heights.get(i) for i in range(n_mc)})
+                "폼 객관식 스마트 단배치(측정 %d/%d): %d개 단, 단당문항=%s",
+                len(pos), n_mc, len(cols), [len(c) for c in cols])
         else:
-            # ① 위치 측정 실패(COM Open/Find 방해 — 보안팝업·gen_py 등) → 균일 빈줄(4)
-            # 더미 폴백. 행정렬이 안 돼 **과여백·다음단 넘침**이 발생한다.
             logger.warning(
-                "[FALLBACK] 폼 스마트 단배치 측정 실패(측정 %d/%d 슬롯) → 고정 per_col + "
-                "균일 빈줄(4) 폴백. 레이아웃 과여백/단넘침 가능 — COM 측정(보안팝업·gen_py) "
-                "확인 필요.", len(pos), n_mc)
-            colbreak = set(range(per_col, n_mc, per_col)) | essay_colbreak
-            blanks.update({i: 4 for i in range(n_mc)})  # 측정 실패 폴백
-    for i in range(n_mc, n):
-        blanks[i] = 0                                 # 서술형: 1/단, 후행 0(답안 공간)
+                "[FALLBACK] 폼 객관식 측정 실패(%d/%d) → 고정 per_col + 균일 빈줄(4). "
+                "과여백/단넘침 가능 — COM 측정(보안팝업·gen_py) 확인 필요.", len(pos), n_mc)
+            colbreak = set(range(per_col, n_mc, per_col))
+            blanks.update({i: 4 for i in range(n_mc)})
+
+    # ── 서술형 적응 빽빽배치(신규) ── 첫 서술형은 항상 새 단(객관식↔서술형 경계).
+    if n_es:
+        colbreak.add(n_mc)
+        if len(es_heights) >= n_es:
+            # 서술형 구역도 2단. 추정 높이로 단당 최대 _ES_PER_COL(2)개 채운다(답란 불필요).
+            # 여백은 객관식과 **동일한 스마트 분배**(`_adaptive_columns` 행정렬 여백) — 문항을
+            # 단 상단에 붙이지 않고 적절히 띄워 단을 고르게 채운다(사용자 2026-06-09).
+            es_cb, es_blanks, es_cols = _adaptive_columns(
+                es_heights, n_es, _ES_PER_COL, rebalance_tail=False)
+            colbreak |= {i + n_mc for i in es_cb}             # 0-기준 → 전체 슬롯 인덱스
+            blanks.update({i + n_mc: v for i, v in es_blanks.items()})
+            logger.info("폼 서술형 빽빽배치(추정 %d): 단당=%s",
+                        n_es, [len(c) for c in es_cols])
+        else:
+            # 추정 불가(essays 미전달) → 기존 1/단 폴백(안전).
+            logger.warning("[FALLBACK] 폼 서술형 추정 불가 → 1/단.")
+            colbreak |= set(range(n_mc, n))
+            blanks.update({i: 0 for i in range(n_mc, n)})
 
     # 정답(답지) 블록을 새 페이지로 보낸 뒤, 짝수쪽에 떨어지면 빈 페이지 1장으로 밀어
     # 홀수쪽에 오도록(문제는 짝수쪽 마무리). 정답 페이지를 측정해 패리티 보정.
-    _build_layout(filled_hwpx, out_hwpx, blanks, colbreak, n_mc, answer_pagebreak=True)
+    _build_layout(filled_hwpx, out_hwpx, blanks, colbreak, n_mc,
+                  answer_pagebreak=True, pack_essays=True)
     ans_page = _measure_answer_page(out_hwpx)
     if ans_page and ans_page % 2 == 0:
         _build_layout(filled_hwpx, out_hwpx, blanks, colbreak, n_mc,
-                      answer_pagebreak=True, answer_blank_pages=1)
+                      answer_pagebreak=True, answer_blank_pages=1, pack_essays=True)
 
 
 # ── 진입점 ────────────────────────────────────────────────
@@ -1385,8 +1454,8 @@ def write_exam_to_form(
     try:
         n_mc, n_es, fig_paths = _fill_form(mc, essays, form_path, filled,
                                            render_figures=render_figures)
-        # 혼합 레이아웃(객관식 행정렬 + 서술형 1/단).
-        _layout_form(filled, output_path, per_col, n_mc, n_es)
+        # 혼합 레이아웃(객관식 행정렬 + 서술형 빽빽배치 2개/단, 답란 미보존).
+        _layout_form(filled, output_path, per_col, n_mc, n_es, essays=essays)
     finally:
         try:
             os.remove(filled)
