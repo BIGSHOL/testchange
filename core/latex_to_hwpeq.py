@@ -565,6 +565,10 @@ class LaTeXToHWPConverter:
         # 유니코드 위첨자(2²·x³)를 LaTeX 지수(^{})로 — 지수 객체화(사용자 2026-06-09).
         s = _normalize_unicode_superscripts(s)
 
+        # 유니코드 부등호 ≤ ≥ ≠ → LaTeX \leq \geq \neq (LEQ/GEQ 키워드로 정상 변환+연산자
+        # 간격). OCR 이 \leq 대신 유니코드로 주면(temp=0 재실행 #20 (가)) 리터럴 ≤ 로 새던 것.
+        s = s.replace("≤", r" \leq ").replace("≥", r" \geq ").replace("≠", r" \neq ")
+
         # 단위 \text{g} → 평문 g (뒤 _romanize_units 가 rm`g 로 정자+간격, 2026-06-09).
         s = _unwrap_text_units(s)
 

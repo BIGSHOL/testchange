@@ -74,6 +74,21 @@ _CHECK_QSS = (
 _PRICE = {"opus": (15.0, 75.0), "sonnet": (3.0, 15.0), "haiku": (1.0, 5.0)}
 
 
+def _unique_output_path(path: str) -> str:
+    """출력 경로가 이미 있으면 윈도우식으로 ``stem (1).ext``·``stem (2).ext`` … 를 붙여
+    충돌 없는 새 경로를 돌려준다(덮어쓰기 방지, 사용자 2026-06-09)."""
+    p = Path(path)
+    if not p.exists():
+        return str(p)
+    stem, suffix, parent = p.stem, p.suffix, p.parent
+    i = 1
+    while True:
+        cand = parent / f"{stem} ({i}){suffix}"
+        if not cand.exists():
+            return str(cand)
+        i += 1
+
+
 def _log_token_usage(exam_path: str, usage: dict) -> str:
     """시험지 1건의 토큰 사용량·예상비용을 로그 + ``토큰사용.csv`` 에 기록. 요약 문자열 반환."""
     if not usage or not usage.get("calls"):
@@ -1278,20 +1293,13 @@ class MainWindow(QMainWindow):
             QMessageBox.warning(self, "알림", "출력 경로를 지정하세요.")
             return
 
-        # 출력 파일 이미 존재 시 경고
+        # 출력 파일이 이미 있으면 윈도우처럼 " (1)"·" (2)"… 를 붙여 새 파일로(덮어쓰기 안 함,
+        # 사용자 2026-06-09). 기존 변환물 보존 + 재변환 비교 편의.
         if Path(output_path).exists():
-            reply = QMessageBox.warning(
-                self,
-                "파일 덮어쓰기 확인",
-                f"이미 같은 이름의 파일이 존재합니다.\n\n"
-                f"{Path(output_path).name}\n\n"
-                f"덮어쓰시겠습니까?",
-                QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No,
-                QMessageBox.StandardButton.No,
-            )
-            if reply != QMessageBox.StandardButton.Yes:
-                self._log("변환 취소: 파일 덮어쓰기 거부")
-                return
+            new_path = _unique_output_path(output_path)
+            self._log(f"기존 파일 있음 → 새 이름으로 저장: {Path(new_path).name}")
+            output_path = new_path
+            self._output_input.setText(output_path)
 
         # 출력 디렉토리 생성
         Path(output_path).parent.mkdir(parents=True, exist_ok=True)

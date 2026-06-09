@@ -585,8 +585,11 @@ def _split_mixed_text_equation(text: str) -> list[ContentBlock]:
 
     for m in _MATH_EXPR_RE.finditer(text):
         expr = m.group(1).strip()
-        # 너무 긴 영문 단어는 수식이 아님 (예: "정수")
-        if len(expr) > 20:
+        # 긴 매치는 영문 단어일 수 있어 거른다(예: 우연히 이어진 변수열) — 단 **수학
+        # 연산자·괄호가 있으면** 명백한 수식이므로 길이와 무관하게 살린다(사용자 2026-06-09:
+        # OCR 이 유니코드 부등호로 준 ``P(X ≤ 15) ≤ P(Y ≥ 30)``(21자)가 길이필터에 걸려
+        # 평문 처리되던 #20 (가)). 연산자·괄호 없는 순수 토큰만 길이로 거른다.
+        if len(expr) > 20 and not re.search(r'[=<>≤≥≠+\-×÷^_()]', expr):
             continue
         # 한글이 포함된 매치는 건너뜀
         if re.search(r'[\uac00-\ud7a3]', expr):
