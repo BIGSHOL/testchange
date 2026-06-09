@@ -117,6 +117,20 @@ def _parse_choice(choice_data: dict) -> Choice | None:
     return choice
 
 
+# 조건/보기 박스 동그라미 불릿 표준 글자(사용자 2026-06-09: "가장 작은 걸로 통일·명시").
+# ㅇ(한글 이응)는 ○ 의 OCR 오인식이라 표준 흰 원 ○ 로 통일한다(더 작은 글자 원하면 이 상수만 변경).
+_BOX_BULLET = "○"
+# 단독 원형 불릿 변형들(앞뒤 공백으로 둘러싸인 것만 — 단어 속 글자 오치환 방지). ∘(U+2218
+# 합성연산자)·°·라틴 o/O·키릴 О 는 제외(수식 기호·기하 점 O·변수 오치환 방지).
+# ㅇ(U+3147)·●(U+25CF)·〇(U+3007)·◦(U+25E6)·∙(U+2219) 를 표준 ○ 로 통일.
+_BOX_CIRCLE_RE = re.compile(r"(?<=\s)[ㅇ●〇◦∙](?=\s)")
+
+
+def _normalize_box_circles(text: str) -> str:
+    """조건/보기 박스의 단독 원형 불릿(ㅇ ● 〇 ◦ …)을 표준 ``○`` 로 통일."""
+    return _BOX_CIRCLE_RE.sub(_BOX_BULLET, text)
+
+
 def _parse_content_block(block_data: dict) -> ContentBlock | None:
     """콘텐츠 블록 dict를 ContentBlock 객체로 변환.
 
@@ -131,6 +145,11 @@ def _parse_content_block(block_data: dict) -> ContentBlock | None:
     # 여기까지 남아 있으면 해소 실패분이므로 드롭(설명 텍스트 잔재 방지).
     if type_str == "figure":
         return None
+
+    # 조건/보기 박스의 동그라미 불릿 통일 — OCR 이 같은 시험지에서 ㅇ(한글)·○·●·〇 등을
+    # 혼용해 크기가 제각각(사용자 2026-06-09). 단독 원형 불릿을 하나로 정규화(∘=합성연산자 제외).
+    if type_str == "text" and value:
+        value = _normalize_box_circles(value)
 
     # 표(table)는 value 가 비어 있고 rows 에만 내용이 있는 게 정상(OCR/표복구 스키마).
     # value 빈값 드롭 규칙에서 제외해야 표가 통째 사라지지 않는다(2026-06-08).

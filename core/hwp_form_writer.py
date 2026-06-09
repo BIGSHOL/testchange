@@ -573,7 +573,9 @@ def _put_total_score(ses, h, num: int) -> None:
         _set_plain(h)
 
 
-_ESSAY_LABEL_LEAD = re.compile(r'^\s*\[\s*서[답술]형\s*\d+\s*\]\s*')
+# 라벨 괄호는 ``[ ]`` 와 ``【 】``(렌티큘러) 둘 다 — OCR 이 같은 시험지에서 혼용한다(경운중
+# #3·#5 가 ``【서답형 3】`` → 우리 ``[서답형 3]`` 와 겹쳐 중복, 2026-06-09). 캡처해 정규화.
+_ESSAY_LABEL_LEAD = re.compile(r'^\s*[\[【]\s*(서[답술]형)\s*(\d+)\s*[\]】]\s*')
 
 
 def _essay_label_and_body(contents, fallback_label, label_idx):
@@ -598,20 +600,20 @@ def _essay_label_and_body(contents, fallback_label, label_idx):
     if i < len(out) and out[i].type == ContentType.TEXT and (out[i].value or "").strip():
         b0 = out[i]
         m = _ESSAY_LABEL_LEAD.match(b0.value)
-        if m:                                   # 형태 1: 한 블록
+        if m:                                   # 형태 1: 한 블록(라벨을 [서답형 N]로 정규화)
             nb = copy.copy(b0)
             nb.value = b0.value[m.end():]
             out[i] = nb
-            return m.group(0).strip(), out
-        # 형태 2: 분리형 "[서답형 " + EQ숫자 + "] rest"
-        head = re.match(r'^\s*\[\s*(서[답술]형)\s*$', b0.value)
+            return f"[{m.group(1)} {m.group(2)}]", out
+        # 형태 2: 분리형 "[서답형 " + EQ숫자 + "] rest"(여는 [ 또는 【)
+        head = re.match(r'^\s*[\[【]\s*(서[답술]형)\s*$', b0.value)
         if (head and i + 2 < len(out)
                 and out[i + 1].type in _EQ_TYPES
                 and (out[i + 1].value or "").strip().isdigit()
                 and out[i + 2].type == ContentType.TEXT
-                and re.match(r'^\s*\]', out[i + 2].value or "")):
+                and re.match(r'^\s*[\]】]', out[i + 2].value or "")):
             num = (out[i + 1].value or "").strip()
-            rest = re.sub(r'^\s*\]\s*', '', out[i + 2].value or "")
+            rest = re.sub(r'^\s*[\]】]\s*', '', out[i + 2].value or "")
             nb2 = copy.copy(out[i + 2])
             nb2.value = rest
             tail = ([nb2] if rest.strip() else []) + out[i + 3:]
@@ -1454,7 +1456,8 @@ def _repackage_hwpx(hwpx_path: Path, infos, data: dict) -> None:
 # 폼 grow 서술형 슬롯의 잔존 라벨([서답형 N]) 뒤에 우리 라벨([서술형 N])이 붙어 중복됨.
 # 뒤에 또 다른 '[' 라벨이 따라오는 [서…형 N] 만 제거 → 우리 라벨만 남긴다. (같은 <hp:t>
 # 안에서만 매칭되므로 태그 균형 안전. 문제 길이·개수와 무관한 결정적 후처리.)
-_DUP_LABEL_RE = re.compile(r'\[\s*서[답술]형\s*\d+\s*\]\s*(?=\[\s*서[답술]형)')
+# 괄호는 [ ] 와 【 】 둘 다(OCR 혼용). 앞 라벨 뒤에 또 라벨이 오면 앞 것 제거.
+_DUP_LABEL_RE = re.compile(r'[\[【]\s*서[답술]형\s*\d+\s*[\]】]\s*(?=[\[【]\s*서[답술]형)')
 
 
 # 폼 슬롯 라벨 ``[서술형 ]`` 의 번호가 **수식 객체**로 남는 경우(grow 슬롯 COM 라벨삭제 실패).
@@ -1575,12 +1578,22 @@ def _inject_essay_meta(hwpx_path: str | Path) -> int:
 
         def _ptext(p):
             return re.sub(r"<[^>]+>", "", p)
-        run_so = _first_run(next((p for p in paras if "소단원" in _ptext(p)), None))
-        run_na = _first_run(next((p for p in paras if "난이도" in _ptext(p)), None))
-        if not run_so or not run_na:
-            logger.warning("폼 후처리(_inject_essay_meta): 메타란 템플릿 run 없음 — 건너뜀")
-            continue
+        # 템플릿 탐색에서 **토큰 단락 자신을 제외**한다 — 토큰("소단원자리표식QZX")도 "소단원"
+        # 을 포함해, 폼에 진짜 [소단원] 템플릿이 없으면 토큰을 템플릿으로 오인해 자기 자신으로
+        # 교체(no-op) → 평문 leak(경운중 폼은 [난이도]만 있고 [소단원] 없음, 2026-06-09).
+        run_so = _first_run(next((p for p in paras
+                                  if "소단원" in _ptext(p) and _META_TOKEN_SO not in p), None))
+        run_na = _first_run(next((p for p in paras
+                                  if "난이도" in _ptext(p) and _META_TOKEN_NA not in p), None))
         for tok, run in ((_META_TOKEN_SO, run_so), (_META_TOKEN_NA, run_na)):
+            if run is None:
+                # 폼에 이 메타 템플릿이 없음 → 토큰 단락을 통째 제거(평문 노출 방지). 단락 단위
+                # 제거라 태그 균형 유지(토큰은 중첩 없는 자기-단락). linesegs 는 _com_relaunder 가 재계산.
+                para_re = re.compile(
+                    r"<hp:p\b(?:(?!</hp:p>).)*?" + re.escape(tok) + r"(?:(?!</hp:p>).)*?</hp:p>", re.S)
+                sec, n = para_re.subn("", sec)
+                total += n
+                continue
             # 토큰 텍스트를 품은 run 통째를 메타란 run 으로 교체(run 1개 ↔ run 1개, 균형 보장).
             tok_run_re = re.compile(
                 r"<hp:run\b[^>]*>(?:(?!</hp:run>).)*?" + re.escape(tok) + r"(?:(?!</hp:run>).)*?</hp:run>",

@@ -397,7 +397,10 @@ class HwpComWriter:
                     if _BOGI_LABEL_TEXT_RE.match(tok):
                         self.s.break_para()
                         broke = True
-                        after_label = False
+                        # 라벨 뒤 첫 내용의 선행 공백 제거 — 안 그러면 첫 항목만 한 칸
+                        # 들여써진다(2번째부터는 `•` 불릿이 양옆 공백을 흡수해 flush, #조건박스
+                        # 첫줄 들여쓰기, 2026-06-09). after_label=True 로 첫 내용도 lstrip.
+                        after_label = True
                 elif tok == _PLAIN_BOX_MARK:
                     after_label = True   # <상자> 뒤 내용 선행 공백 제거(셀 내용 깔끔히)
                 started = True
