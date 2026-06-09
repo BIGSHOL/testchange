@@ -5,7 +5,9 @@
 
 from __future__ import annotations
 
+import json
 import logging
+import re
 import sys
 import threading
 import traceback
@@ -154,8 +156,10 @@ class ConversionWorker(QObject):
         use_crop: bool = False,
         render_figures: bool = False,
         skip_preview: bool = False,
+        cache_only: bool = False,
     ):
         super().__init__()
+        self.cache_only = cache_only   # True=저장된 OCR 캐시(merged.json)로 재렌더(크롭·OCR·API 생략)
         self.file_path = file_path
         self.output_path = output_path
         self.api_key = api_key
@@ -339,7 +343,69 @@ class ConversionWorker(QObject):
                 except Exception:
                     pass
 
+    def _do_cache_conversion(self):
+        """저장된 OCR 캐시(``ocr/<시험지명>/p{n}_merged.json``)로 **크롭·OCR·API 없이** 재렌더.
+
+        선택한 PDF 파일명(stem)을 기준으로 영구 OCR 기록을 읽어 폼 렌더만 수행한다(API 0원).
+        용도: 폼 채움 실패(파일 잠김) 복구, 코드 개선 후 무료 재렌더, 반복 검토. 그림은 안내문구
+        (render_figures=False) — 실제 그림 임베드는 크롭 재해소가 필요해 캐시 모드에선 생략.
+        """
+        self.progress.emit(5, "캐시(OCR 기록) 확인 중...")
+        ocr_dir = self._record_dir("ocr")   # ⚠️ _reset_record_dirs 호출 안 함(캐시 보존)
+        merged = []
+        if ocr_dir is not None:
+            merged = sorted(
+                ocr_dir.glob("p*_merged.json"),
+                key=lambda p: int(re.search(r"p(\d+)_", p.name).group(1)) if re.search(r"p(\d+)_", p.name) else 0)
+        if not merged:
+            stem = Path(self.file_path).stem if self.file_path else "?"
+            self.error.emit(
+                f"캐시 없음 — '{stem}' 의 OCR 기록(ocr/<시험지명>/p*_merged.json)이 없습니다.\n"
+                "먼저 '변환 시작'으로 한 번 변환하면 기록이 남고, 이후 캐시로 무료 재변환됩니다.")
+            return
+        self.log.emit("step", f"캐시로 변환 — OCR {len(merged)}페이지 재사용 (크롭·OCR·API 생략)")
+        pages = []
+        for i, fp in enumerate(merged, 1):
+            try:
+                data = json.loads(fp.read_text(encoding="utf-8"))
+            except Exception as e:   # noqa: BLE001
+                self.error.emit(f"캐시 읽기 실패({fp.name}): {e}")
+                return
+            pages.append(parse_ocr_response(data, page_number=i))
+            self.progress.emit(10 + int(i / len(merged) * 60),
+                               f"캐시 로드 ({i}/{len(merged)})")
+
+        self.progress.emit(80, "문서 구성 중...")
+        self.log.emit("step", "문서 구성 중...")
+        document = build_document(pages)
+        total_q = sum(len(p.questions) for p in pages)
+
+        self.progress.emit(90, "한글(HWP) 폼지에 채우는 중...")
+        if self.form_path and is_hwp_available():
+            self.log.emit("step", f"폼지 채움: {Path(self.form_path).name}")
+            try:
+                result_path = write_exam_to_form(
+                    document, self.form_path, self.output_path,
+                    header_values=self.header_values, render_figures=False)
+            except Exception as e:   # noqa: BLE001
+                self.log.emit("warning", f"폼 채움 실패 → 기본 서식으로: {e}")
+                result_path = write_exam_to_hwp(document, self.output_path)
+        elif is_hwp_available():
+            result_path = write_exam_to_hwp(document, self.output_path,
+                                            template_path=self.template_path)
+        else:
+            result_path = write_exam_to_hwpx(document, self.output_path,
+                                             template_path=self.template_path)
+
+        self.progress.emit(100, "변환 완료!")
+        self.log.emit("success",
+                      f"캐시 변환 완료 — {len(pages)}페이지 · 문항 {total_q} (API 0원)")
+        self.finished.emit(str(result_path))
+
     def _do_conversion(self):
+        if self.cache_only:
+            self._do_cache_conversion()
+            return
         from time import perf_counter
         t_start = perf_counter()
         total_q = 0          # 누적 문항 수
@@ -996,6 +1062,33 @@ class MainWindow(QMainWindow):
         self._convert_btn.clicked.connect(self._start_conversion)
         convert_layout.addWidget(self._convert_btn)
 
+        # 캐시로 변환 — 같은 파일명의 저장된 OCR 기록(ocr/<시험지명>/)으로 크롭·OCR·API 없이 재렌더.
+        # 폼 채움 실패(파일 잠김) 복구·코드 개선 후 무료 재렌더·반복 검토용(사용자 2026-06-10).
+        self._cache_btn = QPushButton("캐시로 변환")
+        self._cache_btn.setFixedHeight(self._PRIMARY_BTN_HEIGHT)
+        self._cache_btn.setFixedWidth(120)
+        self._cache_btn.setCursor(Qt.CursorShape.PointingHandCursor)
+        self._cache_btn.setToolTip(
+            "선택한 PDF와 같은 파일명의 저장된 OCR 기록으로 크롭·OCR·API 없이 다시 변환합니다.\n"
+            "(폼 채움 실패 복구·무료 재렌더용. 먼저 한 번 '변환 시작'으로 변환해야 기록이 생깁니다.)")
+        self._cache_btn.setStyleSheet(
+            "QPushButton {"
+            "  border: 1px solid #b2ddff;"
+            "  border-radius: 8px;"
+            "  color: #1570ef;"
+            "  background: #ffffff;"
+            "  font-weight: 600;"
+            "}"
+            "QPushButton:hover { background: #eff8ff; }"
+            "QPushButton:disabled {"
+            "  border: 1px solid #e4e7ec;"
+            "  color: #98a2b3;"
+            "  background: #f2f4f7;"
+            "}"
+        )
+        self._cache_btn.clicked.connect(self._start_cache_conversion)
+        convert_layout.addWidget(self._cache_btn)
+
         self._cancel_btn = QPushButton("취소")
         self._cancel_btn.setFixedHeight(self._PRIMARY_BTN_HEIGHT)
         self._cancel_btn.setFixedWidth(80)
@@ -1323,8 +1416,7 @@ class MainWindow(QMainWindow):
         self._log("변환 시작...")
 
         # 워커 스레드 생성
-        self._thread = QThread()
-        self._worker = ConversionWorker(
+        worker = ConversionWorker(
             self._selected_file, output_path, api_key,
             template_path=self._selected_template,
             form_path=self._resolve_form_path(),   # 폼 선택(자동/수동) → 경로 or None
@@ -1334,22 +1426,77 @@ class MainWindow(QMainWindow):
             render_figures=self._render_fig_check.isChecked(),  # 그림 렌더(경고 감수) 여부
             skip_preview=self._skip_preview_check.isChecked(),  # 미리보기 생략 여부
         )
-        self._worker.moveToThread(self._thread)
+        self._run_worker(worker)
 
-        self._thread.started.connect(self._worker.run)
-        self._worker.progress.connect(self._on_progress)
-        self._worker.log.connect(self._on_log)
-        self._worker.finished.connect(self._on_finished)
-        self._worker.error.connect(self._on_error)
-        self._worker.quality_warning.connect(self._on_quality_warning)
-        self._worker.ocr_warning.connect(self._on_ocr_warning)
-        self._worker.preview_requested.connect(self._on_preview_requested)
-        self._worker.crop_requested.connect(self._on_crop_requested)
-        self._worker.finished.connect(self._thread.quit)
-        self._worker.error.connect(self._thread.quit)
+    def _run_worker(self, worker: "ConversionWorker") -> None:
+        """워커를 스레드에 올리고 시그널을 연결해 시작(일반·캐시 변환 공통)."""
+        self._thread = QThread()
+        self._worker = worker
+        worker.moveToThread(self._thread)
+        self._thread.started.connect(worker.run)
+        worker.progress.connect(self._on_progress)
+        worker.log.connect(self._on_log)
+        worker.finished.connect(self._on_finished)
+        worker.error.connect(self._on_error)
+        worker.quality_warning.connect(self._on_quality_warning)
+        worker.ocr_warning.connect(self._on_ocr_warning)
+        worker.preview_requested.connect(self._on_preview_requested)
+        worker.crop_requested.connect(self._on_crop_requested)
+        worker.finished.connect(self._thread.quit)
+        worker.error.connect(self._thread.quit)
         self._thread.finished.connect(self._cleanup_thread)
-
         self._thread.start()
+
+    def _cache_dir_for_selected(self) -> "Path | None":
+        """선택한 PDF 파일명(stem) 기준 OCR 캐시 폴더(``ocr/<시험지명>/``). 없으면 None."""
+        if not self._selected_file:
+            return None
+        base = (Path(sys.executable).parent if getattr(sys, "frozen", False)
+                else Path(__file__).resolve().parent.parent)
+        d = base / "ocr" / Path(self._selected_file).stem
+        return d if d.exists() else None
+
+    def _start_cache_conversion(self):
+        """캐시로 변환 — 선택한 PDF와 **같은 파일명**의 OCR 기록으로 크롭·OCR·API 없이 재렌더."""
+        if not self._selected_file:
+            QMessageBox.warning(self, "알림", "변환할 파일을 선택하세요 (캐시는 파일명 기준).")
+            return
+        cache_dir = self._cache_dir_for_selected()
+        merged = sorted(cache_dir.glob("p*_merged.json")) if cache_dir else []
+        if not merged:
+            stem = Path(self._selected_file).stem
+            QMessageBox.warning(
+                self, "캐시 없음",
+                f"'{stem}' 의 OCR 캐시가 없습니다.\n\n"
+                "먼저 '변환 시작'으로 한 번 변환하면 ocr/<시험지명>/ 에 기록이 남고,\n"
+                "이후 이 버튼으로 OCR 비용 없이 다시 변환할 수 있습니다.")
+            return
+
+        info = parse_filename(self._selected_file)
+        output_path = self._output_input.text().strip()
+        if not output_path:
+            QMessageBox.warning(self, "알림", "출력 경로를 지정하세요.")
+            return
+        # 출력 파일이 이미 있으면(열려 있어 잠겼을 수 있음) 새 이름으로 → 잠김(WinError 5) 회피.
+        if Path(output_path).exists():
+            output_path = _unique_output_path(output_path)
+            self._log(f"기존 파일 있음 → 새 이름으로 저장: {Path(output_path).name}")
+            self._output_input.setText(output_path)
+        Path(output_path).parent.mkdir(parents=True, exist_ok=True)
+
+        self._set_ui_converting(True)
+        self._progress_bar.setValue(0)
+        self._log("=" * 40)
+        self._log(f"캐시로 변환 시작 — OCR {len(merged)}페이지 재사용 (API 0원)...")
+
+        worker = ConversionWorker(
+            self._selected_file, output_path, api_key="",
+            template_path=self._selected_template,
+            form_path=self._resolve_form_path(),
+            header_values=(info if info["valid"] else None),
+            cache_only=True,
+        )
+        self._run_worker(worker)
 
     def _cancel_conversion(self):
         if self._worker:
@@ -1413,6 +1560,7 @@ class MainWindow(QMainWindow):
 
     def _set_ui_converting(self, converting: bool):
         self._convert_btn.setEnabled(not converting)
+        self._cache_btn.setEnabled(not converting)
         self._cancel_btn.setEnabled(converting)
         self._browse_btn.setEnabled(not converting)
         self._output_browse_btn.setEnabled(not converting)
