@@ -106,6 +106,18 @@ def _condition_start(blocks: list[ContentBlock]) -> int | None:
     return None
 
 
+# 그림자리 안내(그림 렌더 OFF 시 figure → 이 평문). 그림(IMAGE)과 동일하게 발문뒤 영역에
+# 가운데·별도줄로 렌더해야 한다(사용자 2026-06-09: 평문이라 발문에 인라인되던 문제). 문구가
+# 바뀌어도 견고하도록 **접두**로 인식한다(gui `_FIGURE_NOTE_TEXT`·form `_FIGURE_NOTE` 와 일치).
+_FIGURE_NOTE_PREFIX = "※ 그림 자리"
+
+
+def _is_figure_note(b: ContentBlock) -> bool:
+    """그림자리 안내 TEXT 블록인지 — 그림(IMAGE)처럼 발문뒤 가운데 별도줄로 취급."""
+    return (b.type == ContentType.TEXT
+            and (b.value or "").lstrip().startswith(_FIGURE_NOTE_PREFIX))
+
+
 def _tail_start(blocks: list[ContentBlock]) -> int | None:
     """발문이 끝나고 '뒤 영역'(조건/보기 박스·표·그림·블록수식)이 시작되는 인덱스.
 
@@ -127,9 +139,10 @@ def _tail_start(blocks: list[ContentBlock]) -> int | None:
             return i
         if b.type == ContentType.TEXT and _COND_HEADER_RE.search(b.value or ""):
             return i
-    # 2순위: 끝에 매달린 그림/블록수식 연속 run 의 시작(문장 중간 블록은 제외).
+    # 2순위: 끝에 매달린 그림/블록수식/그림자리안내 연속 run 의 시작(문장 중간 블록은 제외).
     i = len(blocks)
-    while i > 0 and blocks[i - 1].type in (ContentType.IMAGE, ContentType.EQUATION_BLOCK):
+    while i > 0 and (blocks[i - 1].type in (ContentType.IMAGE, ContentType.EQUATION_BLOCK)
+                     or _is_figure_note(blocks[i - 1])):
         i -= 1
     return i if i < len(blocks) else None
 
@@ -271,7 +284,14 @@ class HwpComWriter:
         elif block.type == ContentType.EQUATION:
             self.s.equation(_eq_script(block))
         elif block.type == ContentType.TEXT:
-            if block.underline:
+            if _is_figure_note(block):
+                # 그림자리 안내 = 그림(IMAGE)과 동일하게 가운데·별도줄(발문 인라인 금지, 2026-06-09).
+                self.s.break_para()
+                self.s.align_center()
+                self.s.text(block.value)
+                self.s.break_para()
+                self.s.align_left()
+            elif block.underline:
                 self.s.underline_run(block.value)
             elif _has_box_markup(block.value):
                 self._write_segmented_text(block.value)

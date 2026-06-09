@@ -737,13 +737,38 @@ def _split_latex_commands(text: str) -> list[ContentBlock]:
     while latex_start > 0 and ("a" <= text[latex_start - 1].lower() <= "z"
                                or text[latex_start - 1].isdigit()):
         latex_start -= 1
+    # 함수꼴 괄호 안의 \leq(예 "P(X \leq 15)")는 **괄호 시작부터** 한 수식이어야 한다. \leq
+    # 앞에 **안 닫힌 "("**(함수호출 괄호)가 있으면 그 "(" 와 앞 식별자(P)까지 수식에 포함한다.
+    # (안 하면 "P(X" 가 P·(·X 로 쪼개진다 — #20 박스, 2026-06-09.)
+    _pre = text[:latex_start]
+    if _pre.count("(") > _pre.count(")"):
+        _depth = 0
+        for _j in range(len(_pre) - 1, -1, -1):
+            if _pre[_j] == ")":
+                _depth += 1
+            elif _pre[_j] == "(":
+                if _depth == 0:
+                    _k = _j
+                    while _k > 0 and _pre[_k - 1].isalnum():
+                        _k -= 1
+                    latex_start = _k
+                    break
+                _depth -= 1
     before = text[:latex_start]
 
     # LaTeX 영역 끝 찾기: 한글이 나오면 수식 종료
     rest = text[latex_start:]
-    korean_match = re.search(r'(?<=[^\\])\s+[\uac00-\ud7a3]', rest)
-    if korean_match:
-        eq_end = latex_start + korean_match.start()
+    # \ubd88\ub9bf(\u2022)\u00b7(\uac00)(\ub098) \ubc15\uc2a4 \ub77c\ubca8\ub3c4 \uacbd\uacc4\ub85c \u2014 OCR \uc774 \leq \ub97c \uc4f0\uba74 \ubc15\uc2a4 "(\uac00) \u2026 \u2022 (\ub098) \u2026" \uc758
+    # \ubd88\ub9bf\u00b7\ub77c\ubca8\uae4c\uc9c0 \ud55c \uc218\uc2dd\uc5d0 \ube68\ub824\ub4e4\uc5b4\uac00 \ubc15\uc2a4 \uc904\ubc14\uafc8\uc774 \uae68\uc84c\ub2e4(#20, 2026-06-09).
+    _ends = []
+    for _pat in (r'(?<=[^\\])\s+[\uac00-\ud7a3]',          # \uacf5\ubc31 \ub4a4 \ud55c\uae00(\uc870\uc0ac \ub4f1)
+                 r'\s*[\u2022\u00b7\u25aa\u25e6]',          # \ubd88\ub9bf(\u2022\u00b7\u25aa\u25e6) \ubc15\uc2a4 \ud56d\ubaa9 \uad6c\ubd84\uc790
+                 r'[\(\uff08]\s*[\uac00-\ud7a3]\s*[\)\uff09]'):  # (\uac00)(\ub098)\u2026 \ubc15\uc2a4 \ub77c\ubca8
+        _mm = re.search(_pat, rest)
+        if _mm:
+            _ends.append(_mm.start())
+    if _ends:
+        eq_end = latex_start + min(_ends)
         eq_text = text[latex_start:eq_end].strip()
         after_text = text[eq_end:]
     else:

@@ -587,16 +587,53 @@ def _essay_label_and_body(contents, fallback_label, label_idx):
     """
     import copy
     out = list(contents)
-    for i, b in enumerate(out):
-        if b.type == ContentType.TEXT and (b.value or "").strip():
-            m = _ESSAY_LABEL_LEAD.match(b.value)
-            if m:
-                nb = copy.copy(b)
-                nb.value = b.value[m.end():]
-                out[i] = nb
-                return m.group(0).strip(), out
-            break   # 첫 본문 텍스트에 라벨이 없으면 폴백 라벨 사용
+    # 선두 박스 블록(box_member)은 건너뛴다 — 발문 앞에 전체 안내박스("※ [서답형 1~5] …")가
+    # 끼면 진짜 라벨이 그 뒤에 온다(2026-06-09). 박스는 라벨이 아니므로 보존하고 스킵만.
+    i = 0
+    while i < len(out) and getattr(out[i], "box_member", False):
+        i += 1
+    # 비박스 첫 텍스트가 라벨이어야. 라벨은 (1) 한 블록 "[서답형 N] rest" 또는
+    # (2) 분리형 TEXT"[서답형 " + EQ"N" + TEXT"] rest" (번호가 수식 객체일 때 — #2, 2026-06-09).
+    if i < len(out) and out[i].type == ContentType.TEXT and (out[i].value or "").strip():
+        b0 = out[i]
+        m = _ESSAY_LABEL_LEAD.match(b0.value)
+        if m:                                   # 형태 1: 한 블록
+            nb = copy.copy(b0)
+            nb.value = b0.value[m.end():]
+            out[i] = nb
+            return m.group(0).strip(), out
+        # 형태 2: 분리형 "[서답형 " + EQ숫자 + "] rest"
+        head = re.match(r'^\s*\[\s*(서[답술]형)\s*$', b0.value)
+        if (head and i + 2 < len(out)
+                and out[i + 1].type in _EQ_TYPES
+                and (out[i + 1].value or "").strip().isdigit()
+                and out[i + 2].type == ContentType.TEXT
+                and re.match(r'^\s*\]', out[i + 2].value or "")):
+            num = (out[i + 1].value or "").strip()
+            rest = re.sub(r'^\s*\]\s*', '', out[i + 2].value or "")
+            nb2 = copy.copy(out[i + 2])
+            nb2.value = rest
+            tail = ([nb2] if rest.strip() else []) + out[i + 3:]
+            return f"[{head.group(1)} {num}]", out[:i] + tail
     return f"[{fallback_label} {label_idx}]", out
+
+
+_ESSAY_LABEL_SPLIT_RE = re.compile(r'^(\[\s*서[답술]형\s*)(\d+)(\s*\])$')
+
+
+def _put_essay_label(ses, label: str) -> None:
+    """서술형 라벨을 ``[서답형 `` 텍스트 + 번호 **수식** + ``]`` 텍스트로 쓴다.
+
+    번호는 합의 #6(모든 숫자=수식 객체)에 따라 수식으로(사용자 2026-06-09: "[서답형 5]의
+    5는 수식"). 형식이 안 맞으면 통째 텍스트 폴백.
+    """
+    m = _ESSAY_LABEL_SPLIT_RE.match((label or "").strip())
+    if m:
+        ses.text(" " + m.group(1))
+        ses.equation(m.group(2))
+        ses.text(m.group(3) + " ")
+    else:
+        ses.text(f" {label} ")
 
 
 def _fill_essay_at(ses, h, pos, q: Question, label_idx: int, next_pos=None) -> None:
@@ -631,7 +668,7 @@ def _fill_essay_at(ses, h, pos, q: Question, label_idx: int, next_pos=None) -> N
         h.Run("MoveSelParaEnd")
     h.HAction.Run("Delete")
     _set_plain(h)
-    ses.text(f" {disp_label} ")
+    _put_essay_label(ses, disp_label)
     # 발문 → 배점(발문 끝) → 조건/그림/블록수식. 소문항 있으면 본문 배점은 소문항에 위임.
     if q.sub_questions:
         # 소문항 부모: 발문 끝 [총 N점] 을 본문에서 분리해 우측정렬로 따로(기본 경로와 동일).
@@ -664,6 +701,11 @@ def _fill_essay_at(ses, h, pos, q: Question, label_idx: int, next_pos=None) -> N
         h.Run("ParagraphShapeAlignLeft")
         _set_plain(h)
         ses.text(tok)
+    # [난이도] 뒤 줄바꿈 — 안 하면 다음 슬롯(번호줄 [서술형 N]+미주)에 [난이도] 가 prepend 돼
+    # "[난이도] 21. [서답형 5] …" 처럼 한 줄에 붙는다(#3, 2026-06-09). 빈 단락은 layout 이 정리.
+    ses.break_para()
+    h.Run("ParagraphShapeAlignLeft")
+    _set_plain(h)
 
 
 def _choice_len(choice) -> int:
@@ -1618,11 +1660,9 @@ def write_exam_to_form(
             os.remove(filled)
         except Exception:
             pass
-    # 1.5단계: 서술형 라벨 후처리 — ① 번호 수식→텍스트(grow 슬롯 placeholder) ② 중복 라벨 제거.
-    try:
-        _textify_essay_label_numbers(output_path)
-    except Exception as e:  # noqa: BLE001
-        logger.warning("폼 후처리 실패(_textify_essay_label_numbers): %s", e)
+    # 1.5단계: 서술형 라벨 후처리 — 중복 라벨 제거.
+    # (라벨 번호는 이제 `_put_essay_label` 이 **수식**으로 쓴다 — 사용자 2026-06-09: "[서답형 5]
+    #  의 5는 수식". 과거 _textify_essay_label_numbers(번호 수식→텍스트)는 그 반대라 제거했다.)
     try:
         _dedupe_essay_labels(output_path)
     except Exception as e:  # noqa: BLE001
