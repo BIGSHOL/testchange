@@ -49,6 +49,26 @@ def _wrap_script(content: str) -> str:
     return "{" + content + "}"
 
 
+# 유니코드 위첨자 문자(²³¹⁰⁴…)를 LaTeX 지수 ``^{…}`` 로 정규화한다(사용자 2026-06-09:
+# "지수는 항상 2^2 처럼 수식처리, 윗첨자 문자가 아님"). OCR 이 ``N(m, 2²)`` 처럼 유니코드
+# 위첨자를 그대로 주면 HWP 가 작은 ² 글자로 렌더 → 지수 객체가 아님. 연속 위첨자(²³)는
+# 한 지수 ``^{23}`` 로 묶는다.
+_SUPERSCRIPT_MAP = {
+    "⁰": "0", "¹": "1", "²": "2", "³": "3", "⁴": "4", "⁵": "5",
+    "⁶": "6", "⁷": "7", "⁸": "8", "⁹": "9",
+    "⁺": "+", "⁻": "-", "⁼": "=", "⁽": "(", "⁾": ")", "ⁿ": "n", "ⁱ": "i",
+}
+_SUPERSCRIPT_RE = re.compile("[" + "".join(_SUPERSCRIPT_MAP) + "]+")
+
+
+def _normalize_unicode_superscripts(s: str) -> str:
+    """``2²``·``x³`` 등 유니코드 위첨자를 ``2^{2}``·``x^{3}`` LaTeX 지수로 변환."""
+    if not _SUPERSCRIPT_RE.search(s):
+        return s
+    return _SUPERSCRIPT_RE.sub(
+        lambda m: "^{" + "".join(_SUPERSCRIPT_MAP[c] for c in m.group(0)) + "}", s)
+
+
 # \textcircled{...} → 유니코드 동그라미 문자 (숫자 ①~⑳, 자음 ㉠~, 음절 ㉮~)
 _CIRCLED_RE = re.compile(r"\\textcircled\s*\{\s*([^}]+?)\s*\}")
 _CIRCLED_HANGUL_CONS = "ㄱㄴㄷㄹㅁㅂㅅㅇㅈㅊㅋㅌㅍㅎ"
@@ -101,6 +121,19 @@ def _romanize_units(s: str) -> str:
     숫자 뒤 + 뒤에 영문/숫자가 이어지지 않을 때만(변수 ``5x`` 등은 건드리지 않음).
     """
     return _UNIT_RE.sub(lambda m: m.group(1) + " rm`" + m.group(2), s)
+
+
+# OCR 이 단위를 ``20\text{g}`` 처럼 \text 로 감싸 주면 변환기는 ``20"g"``(따옴표 리터럴)로
+# 만든다 — 정자이긴 하나 단위 간격(``rm`g``)이 안 붙고 사용자에겐 여전히 어색(2026-06-09:
+# "g(그램)이 rm 으로 로만처리 안 됨"). 그래서 변환 **전** ``\text{<단위>}`` 를 평문 단위로
+# 풀어 ``20g`` 로 만들면 뒤의 ``_romanize_units`` 가 ``20 rm`g`` 로 정자+간격 처리한다.
+_TEXT_UNIT_RE = re.compile(
+    r"\\text\s*\{\s*(" + "|".join(re.escape(u) for u in _UNITS) + r")\s*\}")
+
+
+def _unwrap_text_units(s: str) -> str:
+    """``\\text{g}``·``\\text{kg}`` 등 **단위만** 감싼 \\text 를 평문 단위로 푼다."""
+    return _TEXT_UNIT_RE.sub(lambda m: m.group(1), s)
 
 
 _REPEAT_DECIMAL_RE = re.compile(r"\.((?:\\dot\s*\{\s*\d\s*\}|\d)+)")
@@ -509,11 +542,16 @@ class LaTeXToHWPConverter:
             val = match.group(name + "_c")
         return val or ""
 
-    def convert(self, latex: str) -> str:
+    def convert(self, latex: str, italicize_stat: bool = True) -> str:
         """LaTeX 수식을 HWP 수식 스크립트로 변환.
 
         Args:
             latex: LaTeX 수식 문자열
+            italicize_stat: ``\\mathrm{P/E/V/N/Z/X/Y}`` 를 이탤릭으로 벗길지. 표 셀 등
+                content_parser 를 안 거치는 경로는 True(기본). **본문**은 content_parser 가
+                이미 확통 이탤릭을 처리했고, 남은 ``\\mathrm{P}`` 는 기하 점(점 P·꼭짓점 A)을
+                위해 일부러 붙인 로만이므로 False 로 호출해 보존한다(사용자 2026-06-09:
+                "점·선·면인데 이탤릭 처리됨").
 
         Returns:
             HWP 수식 스크립트 문자열
@@ -524,8 +562,16 @@ class LaTeXToHWPConverter:
         # 전처리: 불필요한 공백, $기호 제거
         s = latex.strip().strip("$").strip()
 
-        # 확통 연산자/확률변수(P·E·V·N·Z·X·Y)의 \mathrm 을 벗겨 이탤릭으로(표 셀 포함, 순열 제외)
-        s = _STAT_ITALIC_RE.sub(r"\1", s)
+        # 유니코드 위첨자(2²·x³)를 LaTeX 지수(^{})로 — 지수 객체화(사용자 2026-06-09).
+        s = _normalize_unicode_superscripts(s)
+
+        # 단위 \text{g} → 평문 g (뒤 _romanize_units 가 rm`g 로 정자+간격, 2026-06-09).
+        s = _unwrap_text_units(s)
+
+        # 확통 연산자/확률변수(P·E·V·N·Z·X·Y)의 \mathrm 을 벗겨 이탤릭으로(표 셀 포함, 순열
+        # 제외). 본문(italicize_stat=False)은 기하 \mathrm{P} 보존을 위해 건너뛴다.
+        if italicize_stat:
+            s = _STAT_ITALIC_RE.sub(r"\1", s)
 
         # 순환소수 정규화: 소수점 뒤 \dot{} 연쇄를 \overline{...}로 합침.
         # (HWP는 dot 키워드의 over-dot를 렌더하지 못함 — bar(overline)만 정상. 실측 확정.)
@@ -571,7 +617,9 @@ class LaTeXToHWPConverter:
         # 쉼표 뒤 강제 띄어쓰기: OCR 이 준 ``, `` 공백을 HWP 수식이 시각적으로 무시해
         # ``N(m,2²)``·``(2,3)`` 처럼 붙어버린다(사용자 2026-06-09). 쉼표+공백 → ``,~`` 강제
         # 공백으로 살린다(아래첨자 ``a_{1,2}`` 등 공백 없는 쉼표는 안 건드림).
-        result = re.sub(r",[ \t]+", ",~", result)
+        # OCR 이 ``N(m,\, 4σ²)`` 처럼 쉼표 뒤 ``\,``(얇은공백)을 주면 변환 후 ``,`` + 백틱(1/4칸)이
+        # 되어 ``,[ \t]+`` 가 못 잡았다(#16 정규분포 좌표, 2026-06-09) → 백틱도 매칭에 포함.
+        result = re.sub(r",[ \t`]+", ",~", result)
 
         # 후처리: 다중 공백 정리
         result = re.sub(r"  +", " ", result).strip()
@@ -773,16 +821,19 @@ class LaTeXToHWPConverter:
 _converter = LaTeXToHWPConverter()
 
 
-def latex_to_hwpeq(latex: str) -> str:
+def latex_to_hwpeq(latex: str, italicize_stat: bool = True) -> str:
     """LaTeX 수식을 HWP 수식 스크립트로 변환.
 
     Args:
         latex: LaTeX 수식 문자열 (예: r"\\frac{1}{2}")
+        italicize_stat: ``\\mathrm{P/E/V/…}`` 이탤릭화 여부(표 셀=True, 본문=False).
+            본문은 content_parser 가 확통 이탤릭을 이미 처리했고 남은 ``\\mathrm`` 은 기하
+            점(점 P) 로만이므로 False 로 보존한다(사용자 2026-06-09).
 
     Returns:
         HWP 수식 스크립트 (예: "{1} over {2}")
     """
-    return _converter.convert(latex)
+    return _converter.convert(latex, italicize_stat=italicize_stat)
 
 
 def latex_to_image(latex: str, dpi: int = 150) -> bytes:

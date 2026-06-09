@@ -228,7 +228,8 @@ def _paste_at(hwp, pos) -> None:
 
 
 def _eq_script(block) -> str:
-    return block.hwp_equation or latex_to_hwpeq(block.value)
+    # 본문 수식 — italicize_stat=False 로 기하 \mathrm{P}(점 P) 보존(2026-06-09).
+    return block.hwp_equation or latex_to_hwpeq(block.value, italicize_stat=False)
 
 
 def _put_block(ses, b) -> None:

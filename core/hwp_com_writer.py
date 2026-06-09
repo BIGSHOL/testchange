@@ -248,10 +248,14 @@ def _choice_columns(choices: list[Choice]) -> int:
 
 
 def _eq_script(block: ContentBlock) -> str:
-    """ContentBlock에서 HWP 수식 스크립트를 얻는다(없으면 LaTeX에서 변환)."""
+    """ContentBlock에서 HWP 수식 스크립트를 얻는다(없으면 LaTeX에서 변환).
+
+    본문 수식은 ``italicize_stat=False`` — content_parser 가 확통 이탤릭을 이미 처리했고,
+    남은 ``\\mathrm{P}`` 는 기하 점(점 P·꼭짓점 A)을 위한 로만이라 보존해야 한다(2026-06-09).
+    """
     if block.hwp_equation:
         return block.hwp_equation
-    return latex_to_hwpeq(block.value)
+    return latex_to_hwpeq(block.value, italicize_stat=False)
 
 
 class HwpComWriter:
@@ -580,7 +584,7 @@ class HwpComWriter:
             # 2열 정렬(as_equation): TEXT 도 수식 객체로 삽입해 단락을 재계산시킨다
             # → \t 가 7cm 고정탭에 정렬돼 ②④ 가 같은 열에 선다. (이미 수식/표면 그대로)
             if as_equation and block.type == ContentType.TEXT and (block.value or "").strip():
-                self.s.equation(latex_to_hwpeq(block.value))
+                self.s.equation(latex_to_hwpeq(block.value, italicize_stat=False))
             else:
                 self._write_block(block)
 

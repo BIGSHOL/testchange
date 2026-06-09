@@ -105,10 +105,14 @@ def _parse_choice(choice_data: dict) -> Choice | None:
     choice.contents = _split_comma_equations(choice.contents)
     # eq·(연산자)·eq 로 쪼개진 수식을 한 객체로 병합
     choice.contents = _merge_operator_split_equations(choice.contents)
+    # text(꼬리부등식)·eq·text(머리부등식) 병합
+    choice.contents = _merge_text_eq_fragments(choice.contents)
     # 확통 연산자·확률변수 \mathrm 벗겨 이탤릭(순열 제외)
     choice.contents = _italicize_stat_operators(choice.contents)
     # 기하 점/선/면 이름 로만체 강제
     choice.contents = _romanize_point_names(choice.contents)
+    # 비기하 단일대문자 \mathrm 벗겨 이탤릭(조합 C·순열 P_ 제외)
+    choice.contents = _italicize_nongeo_single_letters(choice.contents)
 
     return choice
 
@@ -278,6 +282,29 @@ def _romanize_point_names(blocks: list[ContentBlock]) -> list[ContentBlock]:
     return out
 
 
+# 비기하 문맥에서 OCR 이 단일 대문자를 ``\mathrm{A}`` 로 감싸면(체스 선수 A·B, 사건 A 등)
+# 로만으로 굳어 어색하다(사용자 2026-06-09: "도형이 아닌데 로만체 처리"). 기하 문맥이 아니면
+# **단일 대문자** ``\mathrm`` 를 벗겨 이탤릭으로. 단 조합 ``\mathrm{C}``·순열 ``\mathrm{P}_``
+# (아래첨자)은 로만 유지. (확통 X·Y·P·E·V·N·Z 는 _italicize_stat_operators 가 이미 처리.)
+_NONGEO_SINGLE_MATHRM_RE = re.compile(r'\\mathrm\{([A-BD-Z])\}(?!\s*_)')
+
+
+def _italicize_nongeo_single_letters(blocks: list[ContentBlock]) -> list[ContentBlock]:
+    """기하 문맥이 **아닐 때만** 단일 대문자 ``\\mathrm{A}`` 를 이탤릭으로(조합 C·순열 P_ 제외)."""
+    if _has_geometry_context(blocks):
+        return blocks
+    out: list[ContentBlock] = []
+    for b in blocks:
+        if (b.type in (ContentType.EQUATION, ContentType.EQUATION_BLOCK)
+                and b.value and "\\mathrm" in b.value):
+            nv = _NONGEO_SINGLE_MATHRM_RE.sub(r"\1", b.value)
+            if nv != b.value:
+                out.append(ContentBlock(type=b.type, value=nv))
+                continue
+        out.append(b)
+    return out
+
+
 # 두 수식 사이의 "연산자만" 텍스트(=, <, >, ≤, ≥, ≠, +, -, ×, ÷, ± …) — 이걸로 쪼개진
 # 수식을 한 객체로 다시 합친다. 쉼표(,)는 제외(나열 분리는 의도적). 한글/단어가 섞이면 제외.
 _EQ_OP_CHARS = set("=<>≤≥≠≈≡≅∼+-±×÷·∘*/^∓→↔⇒⇔")
@@ -318,6 +345,68 @@ def _merge_operator_split_equations(blocks: list[ContentBlock]) -> list[ContentB
                 out.append(ContentBlock(type=ContentType.EQUATION,
                                         value=" ".join(p for p in parts if p)))
                 i = j
+                continue
+        out.append(b)
+        i += 1
+    return out
+
+
+# 관계연산자(부등호·등호) — 텍스트 꼬리/머리에 붙은 수식 조각을 인접 수식으로 빨아들일 때 쓴다.
+_FRAG_RELOP = r"(?:=|<|>|≤|≥|≠|\\le|\\leq|\\ge|\\geq|\\neq|\\ne)"
+# 수식 원자: 숫자/변수(+소수·첨자), 앞에 부호·여는 괄호 허용.
+_FRAG_ATOM = r"[-+]?[0-9A-Za-z][0-9A-Za-z._^{}]*"
+# 텍스트 **끝**이 "원자(선택) 관계연산자"로 끝나면(예 "-1 ≤ "·"≤ ") 미완성 식 → 다음 수식과 결합.
+_FRAG_TAIL_RE = re.compile(r"(?<![가-힣A-Za-z0-9])((?:" + _FRAG_ATOM + r"\s*)?" + _FRAG_RELOP + r"\s*)$")
+# 텍스트 **머리**가 "관계연산자 원자"로 시작하면(예 " ≤ 1") 앞 수식의 연속 → 앞 수식에 결합.
+_FRAG_HEAD_RE = re.compile(r"^(\s*" + _FRAG_RELOP + r"\s*" + _FRAG_ATOM + r")(?![0-9A-Za-z])")
+# 병합 수식 안 유니코드 부등호 → LaTeX 명령(latex_to_hwpeq 가 LEQ/GEQ 키워드로 정상 변환).
+_UNICODE_RELOP = {"≤": r" \leq ", "≥": r" \geq ", "≠": r" \neq "}
+
+
+def _normalize_frag_relops(s: str) -> str:
+    for u, l in _UNICODE_RELOP.items():
+        s = s.replace(u, l)
+    return re.sub(r"\s+", " ", s).strip()
+
+
+def _merge_text_eq_fragments(blocks: list[ContentBlock]) -> list[ContentBlock]:
+    """``TEXT(…원자 관계연산자) · EQ · TEXT(관계연산자 원자…한글)`` 을 한 수식으로 병합.
+
+    OCR 이 ``-1 ≤ x ≤ 1에서`` 를 ``text("-1 ≤ ") + eq("x") + text(" ≤ 1에서")`` 로 쪼개면
+    ``-1`` 이 평문(정자)·``x`` 만 이탤릭이라 어긋난다(사용자 2026-06-09 #12). 텍스트 꼬리의
+    미완성 부등식(원자+관계연산자)과 머리의 연속(관계연산자+원자)을 인접 수식에 빨아들여
+    ``-1 ≤ x ≤ 1`` 한 객체로 만든다(앞에 한글/영숫자가 붙은 진짜 단어 경계는 건드리지 않음).
+    """
+    out: list[ContentBlock] = []
+    i, n = 0, len(blocks)
+    while i < n:
+        b = blocks[i]
+        if (b.type == ContentType.EQUATION and i + 1 <= n):
+            prefix = ""
+            # 앞 텍스트 꼬리의 "원자 관계연산자" 흡수
+            if out and out[-1].type == ContentType.TEXT and (out[-1].value or ""):
+                m = _FRAG_TAIL_RE.search(out[-1].value)
+                if m:
+                    prefix = m.group(1)
+                    out[-1] = ContentBlock(type=ContentType.TEXT,
+                                           value=out[-1].value[:m.start(1)],
+                                           underline=out[-1].underline)
+            suffix = ""
+            # 뒤 텍스트 머리의 "관계연산자 원자" 흡수
+            if i + 1 < n and blocks[i + 1].type == ContentType.TEXT and (blocks[i + 1].value or ""):
+                m2 = _FRAG_HEAD_RE.search(blocks[i + 1].value)
+                if m2:
+                    suffix = m2.group(1)
+                    blocks[i + 1] = ContentBlock(type=ContentType.TEXT,
+                                                 value=blocks[i + 1].value[m2.end(1):],
+                                                 underline=blocks[i + 1].underline)
+            if prefix or suffix:
+                merged = _normalize_frag_relops(prefix + " " + (b.value or "") + " " + suffix)
+                out.append(ContentBlock(type=ContentType.EQUATION, value=merged))
+                # 앞 텍스트가 비었으면 제거(이중 공백 방지)
+                if out and len(out) >= 2 and out[-2].type == ContentType.TEXT and not (out[-2].value or "").strip():
+                    del out[-2]
+                i += 1
                 continue
         out.append(b)
         i += 1
@@ -614,11 +703,14 @@ _LATEX_CMD_RE = re.compile(
 )
 
 # 배점 텍스트 패턴 (예: [3점], [4점])
-_SCORE_TEXT_RE = re.compile(r'\s*\[\d+점\]\s*')
+_SCORE_TEXT_RE = re.compile(r'\s*\[\d+(?:\.\d+)?점\]\s*')
 
 # 보기/조건/상자 박스 머리 마커(원시 텍스트 시작). 자기완결 박스(마커+항목이 한 raw
 # 블록) 판정과 그 뒤 발문 연속 분리에 쓴다.
 _RAW_BOX_MARK_RE = re.compile(r"^\s*(?:<\s*(?:조건|보기|상자)\s*>|\[\s*(?:조건|보기)\s*\])")
+# 항목 라벨 단독(ㄱ./ㄴ./…, (가)/(나)/…, 1)/2)/…) — 박스 머리 뒤가 이것뿐이면 자기완결 아님.
+_BARE_ITEM_LABEL_RE = re.compile(
+    r"^(?:[ㄱ-ㅎ]\s*\.?|[（(]\s*[가-힣]\s*[)）]|\d+\s*[.)])\s*$")
 
 
 def _parse_raw_blocks(raws: list[dict]) -> list[ContentBlock]:
@@ -638,11 +730,33 @@ def _finalize_contents(blocks: list[ContentBlock]) -> list[ContentBlock]:
     blocks = _split_trailing_domain(blocks)        # 수식 끝 정의역 (x=0,1,⋯) 분리
     blocks = _split_comma_equations(blocks)         # 쉼표 구분 독립 수식 분리
     blocks = _merge_operator_split_equations(blocks)  # eq·연산자·eq 병합
+    blocks = _merge_text_eq_fragments(blocks)       # text(꼬리부등식)·eq·text(머리부등식) 병합
+    # 배점 [N점] 제거를 **기하 판정 앞에** 둔다 — 점수의 "점"이 기하 키워드 "점"(point)과
+    # 충돌해 비기하 문제를 기하로 오인(체스 #15 A·B 로만 잔존, 2026-06-09)하던 것 방지.
+    blocks = _strip_score_text(blocks)              # 잔여 [N점] 제거(기하판정 오염 방지)
     blocks = _italicize_stat_operators(blocks)      # 확통 연산자 \mathrm 벗겨 이탤릭
     blocks = _romanize_point_names(blocks)          # 기하 점/선/면 이름 로만체
-    blocks = _strip_score_text(blocks)              # 잔여 [N점] 제거
+    blocks = _italicize_nongeo_single_letters(blocks)  # 비기하 단일대문자 \mathrm 벗겨 이탤릭
     blocks = _romanize_context_units(blocks)        # '단위는 g' 등 문맥상 단위 수식 로만화
+    blocks = _space_hangul_before_eq(blocks)        # 한글 끝 TEXT + EQ 사이 공백(확률을p_1 → 확률을 p_1)
     blocks = _rstrip_last_text(blocks)              # 끝 TEXT 의 꼬리 공백 제거(점수 앞 이중공백 방지)
+    return blocks
+
+
+# 한글로 끝나는 텍스트 바로 뒤에 수식이 붙으면(OCR 이 꼬리 공백을 안 줌) "확률을p_1" 처럼
+# 한글과 수식이 붙는다(사용자 2026-06-09 #19). 수식은 **새 기호**이므로 앞에 공백을 넣는다.
+# (수식 뒤 한글은 조사 "p_5이라"가 정상이라 그쪽은 건드리지 않는다 — 비대칭.)
+_HANGUL_TAIL_RE = re.compile(r"[가-힣]$")
+
+
+def _space_hangul_before_eq(blocks: list[ContentBlock]) -> list[ContentBlock]:
+    """``TEXT(…한글) + EQ`` 경계에 공백 1칸 삽입(이미 공백/부호로 끝나면 안 함)."""
+    eq_types = (ContentType.EQUATION, ContentType.EQUATION_BLOCK)
+    for i in range(len(blocks) - 1):
+        b, nxt = blocks[i], blocks[i + 1]
+        if (b.type == ContentType.TEXT and nxt.type in eq_types
+                and b.value and _HANGUL_TAIL_RE.search(b.value)):
+            b.value = b.value + " "
     return blocks
 
 
@@ -697,6 +811,11 @@ def _raw_box_end(raws: list[dict]) -> int | None:
     박스 마커를 떼고도 같은 블록에 **내용이 남으면**(=항목이 그 블록 안=자기완결) 박스는
     그 한 raw 블록까지. 그 뒤 raw 블록이 있으면 발문 연속(#18 "m이 자연수일 때 …",
     #20 "P(Y≤29)의 값을 …"). 마커만 있는 라벨-단독 머리(뒤 raw 가 항목)는 분리 안 함.
+
+    단 마커 뒤가 **항목 라벨 하나뿐**(``ㄱ.``·``(가)``)이면 자기완결이 아니다 — OCR 이 보기
+    박스를 ``<보기> ㄱ.`` + (별도)수식 + ``• ㄴ. …`` 처럼 **여러 raw 블록으로 쪼개** 줄 때,
+    ``ㄱ.`` 만 박스로 보고 ㄴㄷㄹ 를 발문 연속으로 떼어 **박스 밖**으로 내보내던 버그
+    (학남고 #14, 2026-06-09). 라벨만 남으면 박스가 다음 블록으로 이어지는 것 → 분리 안 함.
     """
     for i, bd in enumerate(raws):
         if bd.get("type") == "text":
@@ -704,7 +823,7 @@ def _raw_box_end(raws: list[dict]) -> int | None:
             m = _RAW_BOX_MARK_RE.search(v)
             if m:
                 rest = v[m.end():].strip()
-                if rest and i + 1 < len(raws):
+                if rest and not _BARE_ITEM_LABEL_RE.match(rest) and i + 1 < len(raws):
                     return i + 1
                 return None
     return None
@@ -728,7 +847,12 @@ def _split_latex_commands(text: str) -> list[ContentBlock]:
     """
     first_match = _LATEX_CMD_RE.search(text)
     if not first_match:
-        return [ContentBlock(type=ContentType.TEXT, value=text)]
+        # LaTeX 명령은 없어도 ASCII 수식(f(20)=g(30) 등)이 섞여 있을 수 있다 — 박스
+        # "(가) … \leq … • (나) f(20) = g(30)" 의 (나)처럼 앞 항목이 \leq 로 수식화돼
+        # _split_latex_commands 재귀로 넘어온 뒤 백슬래시가 없어 평문 처리되던 것(#20,
+        # 2026-06-09). _split_mixed_text_equation 은 한글+ASCII수식 혼재일 때만 분리하고
+        # 아니면 그대로 평문 1블록을 돌려주므로 안전.
+        return _split_mixed_text_equation(text)
 
     latex_start = first_match.start()
     # 수식 직전에 **공백 없이 붙은 식별자**(P, f, X, 숫자 등)는 수식의 일부 → 수식 영역에
@@ -802,8 +926,42 @@ def _extract_score(blocks: list[ContentBlock]) -> int | None:
     return None
 
 
+# 쪼개진 배점 ``[`` + EQ(숫자) + ``점]`` 제거용(점수가 수식 객체화되면 _SCORE_TEXT_RE 가
+# 한 텍스트에서 못 잡아 score 필드와 중복 렌더 — #15 [4.3점] 두 번, 2026-06-09).
+_OPEN_SCORE_BRACKET_RE = re.compile(r'\[\s*(?:총\s*)?$')
+_CLOSE_SCORE_JEOM_RE = re.compile(r'^\s*점\s*\]')
+
+
+def _strip_split_score(blocks: list[ContentBlock]) -> list[ContentBlock]:
+    """``TEXT(…[) · EQ(숫자) · TEXT(점]…)`` 로 쪼개진 배점을 제거(score 필드와 중복 방지)."""
+    out: list[ContentBlock] = []
+    i, n = 0, len(blocks)
+    while i < n:
+        if i + 2 < n:
+            t1, eq, t2 = blocks[i], blocks[i + 1], blocks[i + 2]
+            if (t1.type == ContentType.TEXT and t2.type == ContentType.TEXT
+                    and eq.type in (ContentType.EQUATION, ContentType.EQUATION_BLOCK)
+                    and re.fullmatch(r'\d+(?:\.\d+)?', (eq.value or '').strip() or '')
+                    and _OPEN_SCORE_BRACKET_RE.search(t1.value or '')
+                    and _CLOSE_SCORE_JEOM_RE.match(t2.value or '')):
+                nv1 = _OPEN_SCORE_BRACKET_RE.sub('', t1.value or '').rstrip()
+                nv2 = _CLOSE_SCORE_JEOM_RE.sub('', t2.value or '').lstrip()
+                if nv1.strip():
+                    out.append(ContentBlock(type=ContentType.TEXT, value=nv1,
+                                            underline=t1.underline))
+                if nv2.strip():
+                    out.append(ContentBlock(type=ContentType.TEXT, value=nv2,
+                                            underline=t2.underline))
+                i += 3
+                continue
+        out.append(blocks[i])
+        i += 1
+    return out
+
+
 def _strip_score_text(blocks: list[ContentBlock]) -> list[ContentBlock]:
     """텍스트 블록에서 [N점] 배점 패턴을 제거 (score 필드와 중복 방지)."""
+    blocks = _strip_split_score(blocks)   # 쪼개진 [ + EQ + 점] 먼저 제거(#15, 2026-06-09)
     result: list[ContentBlock] = []
     for block in blocks:
         if block.type == ContentType.TEXT:
