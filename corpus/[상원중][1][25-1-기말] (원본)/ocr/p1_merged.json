@@ -1,0 +1,105 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 1,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "직사각형의 가로의 길이가 "},
+        {"type": "equation", "value": "a\\mathrm{cm}"},
+        {"type": "text", "value": ", 세로의 길이가 "},
+        {"type": "equation", "value": "b\\mathrm{cm}"},
+        {"type": "text", "value": "인 직사각형의 둘레의 길이를 식으로 나타내면?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "(a+b)\\mathrm{cm}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "(a\\times b)\\mathrm{cm}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "(2\\times a\\times b)\\mathrm{cm}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "(2\\times a+b)\\mathrm{cm}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "2\\times(a+b)\\mathrm{cm}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 2,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "<보기>에서 곱셈 기호 ×와 나눗셈 기호 ÷를 쓰지 않고 바르게 나타낸 것을 있는 대로 고른 것은?"},
+        {"type": "text", "value": "<보기> ㄱ. x \\div (-5) \\times y = -\\frac{xy}{5} • ㄴ. a \\times 5 - 4 \\div b = 5a - \\frac{4}{b} • ㄷ. (x+y) \\div a \\times 2 = \\frac{x+y}{2a} • ㄹ. (x+y) \\times 2 - x \\div 9 = 2(x+y) - \\frac{9}{x}"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ, ㄴ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄱ, ㄷ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄴ, ㄷ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄷ, ㄹ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄱ, ㄴ, ㄹ"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 3,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "다항식 "},
+        {"type": "equation", "value": "-2x^2+7x-6"},
+        {"type": "text", "value": "에 대한 설명으로 옳지 __않은__ 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "상수항은 "}, {"type": "equation", "value": "-6"}, {"type": "text", "value": "이다."}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "x"}, {"type": "text", "value": "의 계수는 7이다."}]},
+        {"number": 3, "contents": [{"type": "text", "value": "항은 "}, {"type": "equation", "value": "2x^2"}, {"type": "text", "value": ", "}, {"type": "equation", "value": "7x"}, {"type": "text", "value": ", "}, {"type": "equation", "value": "6"}, {"type": "text", "value": "이다."}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "x^2"}, {"type": "text", "value": "의 계수는 "}, {"type": "equation", "value": "-2"}, {"type": "text", "value": "이다."}]},
+        {"number": 5, "contents": [{"type": "text", "value": "이 다항식의 차수는 2이다."}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 4,
+      "score": 4,
+      "contents": [
+        {"type": "equation", "value": "a=-\\frac{1}{2}"},
+        {"type": "text", "value": "일 때, 다음 중 식의 값이 가장 작은 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{1}{a}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "a"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-a^2"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "a^3"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "-2(a+1)"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 5,
+      "score": 4,
+      "contents": [
+        {"type": "equation", "value": "a=2b"},
+        {"type": "text", "value": "일 때, 다음 중 옳은 것의 개수는?"},
+        {"type": "text", "value": "<상자> ○ 4a=8b • ○ \\frac{a}{8}=\\frac{b}{4} • ○ 1-\\frac{a}{2}=-b+1 • ○ a-2=2(b-1) • ○ -a+2=2-2b"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "1개"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "2개"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "3개"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "4개"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "5개"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 6,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "다음 일차방정식 중에서 해가 가장 큰 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "5x-2=18"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2(3x+5)=7x"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "0.7x-0.2=0.5x"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{x}{3}+\\frac{5}{2}=\\frac{10}{3}+\\frac{x}{6}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{x}{4}+1=-\\frac{x}{2}+1.5"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

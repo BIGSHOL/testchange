@@ -1,0 +1,118 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 18,
+      "score": 10,
+      "label_type": "서답형",
+      "contents": [
+        {"type": "text", "value": "[서답형 1] "},
+        {"type": "equation", "value": "x=-3"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "y=4"},
+        {"type": "text", "value": "일 때, ㄱ~ㄹ의 식의 값을 각각 구하고, 식의 값이 작은 것부터 차례대로 나열하시오."},
+        {"type": "text", "value": "<상자> ㄱ. x+y • ㄴ. 3x-4y • ㄷ. 2(x^2-y) • ㄹ. \\frac{xy}{x^2+y^2}"}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 19,
+      "score": 9,
+      "label_type": "서답형",
+      "contents": [
+        {"type": "text", "value": "[서답형 2] 상원이는 집에서 출발하여 도서관으로 갈 때는 시속 "},
+        {"type": "equation", "value": "2\\mathrm{km}"},
+        {"type": "text", "value": "로 걷고, 도서관에서 1시간 40분 동안 책을 읽은 다음 도서관에서 집으로 돌아올 때는 같은 길을 시속 "},
+        {"type": "equation", "value": "3\\mathrm{km}"},
+        {"type": "text", "value": "로 걸어서 총 5시간이 걸렸다. 물음에 답하시오."}
+      ],
+      "choices": [],
+      "sub_questions": [
+        {"number": 1, "score": 7, "contents": [
+          {"type": "text", "value": "집에서 도서관까지의 거리를 구하고 그 과정을 서술하시오."}
+        ], "choices": [], "sub_questions": []},
+        {"number": 2, "score": 2, "contents": [
+          {"type": "text", "value": "집에서 도서관까지 갈 때 걸린 시간을 구하시오."}
+        ], "choices": [], "sub_questions": []}
+      ]
+    },
+    {
+      "number": 20,
+      "score": 5,
+      "label_type": "서답형",
+      "contents": [
+        {"type": "text", "value": "[서답형 3] 사과 "},
+        {"type": "equation", "value": "100\\mathrm{g}"},
+        {"type": "text", "value": "에서 섭취하는 비타민 C의 양은 "},
+        {"type": "equation", "value": "4\\mathrm{mg}"},
+        {"type": "text", "value": "이고, 사과 1개의 무게는 "},
+        {"type": "equation", "value": "250\\mathrm{g}"},
+        {"type": "text", "value": "이다. 사과 "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "개에서 섭취하는 비타민 C의 양을 "},
+        {"type": "equation", "value": "y\\mathrm{mg}"},
+        {"type": "text", "value": "이라고 한다. 물음에 답하시오."}
+      ],
+      "choices": [],
+      "sub_questions": [
+        {"number": 1, "score": 3, "contents": [
+          {"type": "equation", "value": "x"},
+          {"type": "text", "value": "와 "},
+          {"type": "equation", "value": "y"},
+          {"type": "text", "value": "사이의 관계를 식으로 나타내시오."}
+        ], "choices": [], "sub_questions": []},
+        {"number": 2, "score": 2, "contents": [
+          {"type": "text", "value": "사과로 비타민 C의 양을 "},
+          {"type": "equation", "value": "120\\mathrm{mg}"},
+          {"type": "text", "value": "섭취하려면 몇 개의 사과를 먹어야 하는지 구하시오."}
+        ], "choices": [], "sub_questions": []}
+      ]
+    },
+    {
+      "number": 21,
+      "score": 11,
+      "label_type": "서답형",
+      "contents": [
+        {"type": "text", "value": "[서답형 4] 두 점 "},
+        {"type": "equation", "value": "A(a-5, b+3)"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "B(ab+6, 3a-b)"},
+        {"type": "text", "value": "가 각각 "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "축, "},
+        {"type": "equation", "value": "y"},
+        {"type": "text", "value": "축 위에 있고, 점 "},
+        {"type": "equation", "value": "C"},
+        {"type": "text", "value": "의 좌표가 "},
+        {"type": "equation", "value": "(1-2a, -3b)"},
+        {"type": "text", "value": "일 때, 삼각형 "},
+        {"type": "equation", "value": "ABC"},
+        {"type": "text", "value": "의 넓이를 구하고자 한다. 물음에 답하시오."}
+      ],
+      "choices": [],
+      "sub_questions": [
+        {"number": 1, "score": 4, "contents": [
+          {"type": "equation", "value": "a"},
+          {"type": "text", "value": ", "},
+          {"type": "equation", "value": "b"},
+          {"type": "text", "value": "의 값을 구하고 그 과정을 서술하시오."}
+        ], "choices": [], "sub_questions": []},
+        {"number": 2, "score": 3, "contents": [
+          {"type": "text", "value": "점 "},
+          {"type": "equation", "value": "A"},
+          {"type": "text", "value": ", "},
+          {"type": "equation", "value": "B"},
+          {"type": "text", "value": ", "},
+          {"type": "equation", "value": "C"},
+          {"type": "text", "value": "의 좌표를 구하시오."}
+        ], "choices": [], "sub_questions": []},
+        {"number": 3, "score": 4, "contents": [
+          {"type": "text", "value": "삼각형 "},
+          {"type": "equation", "value": "ABC"},
+          {"type": "text", "value": "의 넓이를 구하고 그 과정을 서술하시오."}
+        ], "choices": [], "sub_questions": []}
+      ]
+    }
+  ]
+}

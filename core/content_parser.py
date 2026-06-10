@@ -242,6 +242,11 @@ def _wrapped_in_parens(v: str) -> bool:
 _BARE_UPPER_EQ_RE = re.compile(r'^[A-Z]{1,4}(?:_\{?[A-Za-z0-9]+\}?)?$')
 # 첨자 제거 후 순수 대문자 알파벳만 추출(글자 수 판정용).
 _UPPER_LETTERS_RE = re.compile(r'^[A-Z]+')
+# 좌표를 단 점 이름: 선두 단일 대문자 + ``(`` (또는 ``\left(``) 로 시작하는 좌표쌍. 점 글자만
+# 로만, 괄호 안 좌표는 이탤릭으로 끊는다(\mathrm{P}\mathit{(a,b)}). HWP rm 이 뒤 전체로 번지므로
+# 통째 로만화하면 a,b 까지 로만으로 깨진다(2026-06-11 렌더 실증). 좌표쌍 판정 = 괄호 안 쉼표
+# 존재(함수호출 f(x)·확통 P(X=r) 제외 — 단일인자라 쉼표 없음). 기하 문맥에서만 적용.
+_POINT_COORD_RE = re.compile(r'^([A-Z])\s*((?:\\left)?\(.*)$', re.DOTALL)
 
 # 기하 키워드(엄격) — **대문자 1글자** 수식을 로만으로 만들지 결정. 확통의 X·P·E·V·Z·N
 # (확률변수·연산자)을 로만으로 만들지 않도록, 점·선·면·다각형 등 **확실한 도형 단어만**
@@ -320,13 +325,17 @@ def _romanize_point_names(blocks: list[ContentBlock]) -> list[ContentBlock]:
       - 대문자 2~4글자(AB, ABC, OAB …) = 꼭짓점 라벨 → 무조건 로만(통계엔 거의 없음).
       - 대문자 1글자(A, X, P, E …) = **같은 contents 에 기하 키워드가 있을 때만** 로만.
         없으면 이탤릭 유지(확률변수 X·연산자 P/E/V 등을 로만화하지 않기 위해).
+      - 좌표 단 점 이름(P(a,b)·A(-5,-3)) = 기하 문맥에서 **점 글자만** \\mathrm, 괄호 안
+        좌표는 \\mathit(이탤릭). HWP rm 이 명시적 it 전까지 뒤 전체로 번지므로 통째 로만화하면
+        a,b 까지 로만으로 깨진다(2026-06-11 렌더 실증). 좌표쌍 판정 = 괄호 안 쉼표(함수호출
+        f(x)·확통 P(X=r) 는 단일인자라 쉼표 없음·비기하라 제외).
     """
     has_geo = _has_geometry_context(blocks)
     out: list[ContentBlock] = []
     for b in blocks:
         if b.type == ContentType.EQUATION:
             v = (b.value or "").strip()
-            if v and "\\mathrm" not in v and _BARE_UPPER_EQ_RE.match(v):
+            if v and "\\math" not in v and _BARE_UPPER_EQ_RE.match(v):
                 m = _UPPER_LETTERS_RE.match(v)
                 n_letters = len(m.group(0)) if m else 0
                 # 2글자 이상은 라벨로 보고 항상 로만, 1글자는 기하 문맥에서만 로만.
@@ -334,6 +343,13 @@ def _romanize_point_names(blocks: list[ContentBlock]) -> list[ContentBlock]:
                     out.append(ContentBlock(type=ContentType.EQUATION,
                                             value=f"\\mathrm{{{v}}}"))
                     continue
+            # 좌표 단 점 이름 P(a,b)·A(-5,-3)·C(\frac{a}{b},-a): 점 글자만 로만, 좌표는 이탤릭.
+            mc = _POINT_COORD_RE.match(v) if (has_geo and v and "\\math" not in v) else None
+            if mc and "," in mc.group(2):
+                out.append(ContentBlock(
+                    type=ContentType.EQUATION,
+                    value=f"\\mathrm{{{mc.group(1)}}}\\mathit{{{mc.group(2)}}}"))
+                continue
         out.append(b)
     return out
 

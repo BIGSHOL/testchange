@@ -123,6 +123,20 @@ def _romanize_units(s: str) -> str:
     return _UNIT_RE.sub(lambda m: m.group(1) + " rm`" + m.group(2), s)
 
 
+# 변환 후 ``<글자/숫자> rm <단위>`` 의 일반 공백을 백틱(1/4칸)으로 — ``a\mathrm{cm}`` →
+# ``a rm cm``(렌더상 "a㎝" 붙음) → ``a rm`cm``(얇은 간격). bare ``5cm`` 은 _romanize_units 가
+# 이미 ``5 rm`cm`` 로 처리하나, ``\mathrm{}`` 로 감싸진 단위(변수 a\mathrm{cm}·숫자 5\mathrm{cm})는
+# _mathrm_pattern 경로로 빠져 백틱이 없었다(2026-06-11 렌더 실증). _UNITS 한정이라 오검출 없음.
+_RM_UNIT_RE = re.compile(
+    r"([A-Za-z0-9])\s+rm\s+(" + "|".join(re.escape(u) for u in _UNITS) + r")(?![A-Za-z0-9])"
+)
+
+
+def _backtick_rm_units(s: str) -> str:
+    """``<글자/숫자> rm <단위>`` → ``<글자/숫자> rm`<단위>`` (단위 앞 백틱 얇은공백)."""
+    return _RM_UNIT_RE.sub(lambda m: m.group(1) + " rm`" + m.group(2), s)
+
+
 # OCR 이 단위를 ``20\text{g}`` 처럼 \text 로 감싸 주면 변환기는 ``20"g"``(따옴표 리터럴)로
 # 만든다 — 정자이긴 하나 단위 간격(``rm`g``)이 안 붙고 사용자에겐 여전히 어색(2026-06-09:
 # "g(그램)이 rm 으로 로만처리 안 됨"). 그래서 변환 **전** ``\text{<단위>}`` 를 평문 단위로
@@ -508,6 +522,10 @@ class LaTeXToHWPConverter:
         self._mathrm_pattern = re.compile(r"\\mathrm\s*" + self._brace_group("txt"))
         # \mathbf{...}
         self._mathbf_pattern = re.compile(r"\\mathbf\s*" + self._brace_group("txt"))
+        # \mathit{...} → it {…} (이탤릭 명시). HWP rm 은 명시적 it 전까지 뒤 전체로 번지므로,
+        # 점이름 ``\mathrm{P}`` 뒤 좌표를 이탤릭 유지하려면 ``\mathit{(a,b)}`` 로 끊어야 한다
+        # (2026-06-11 렌더 실증: rm{P}(a,b) 는 a,b 까지 로만). 기존엔 \mathit 가 버려져 it 미출력.
+        self._mathit_pattern = re.compile(r"\\mathit\s*" + self._brace_group("txt"))
         # \boxed{...}/\fbox{...} → HWP ``BOX{ ~ … ~ }`` 테두리 박스(빈칸채우기 (가)/(나) 등).
         self._boxed_pattern = re.compile(r"\\(?:boxed|fbox)\s*" + self._brace_group("boxed"))
 
@@ -628,6 +646,8 @@ class LaTeXToHWPConverter:
 
         # 단위 정자화: 숫자 뒤 단위(kg, cm …)를 rm`<단위>로 (정자 + 살짝 띄움).
         result = _romanize_units(result)
+        # \mathrm 로 감싸진 단위(a\mathrm{cm}·5\mathrm{cm})의 ``rm <단위>`` 일반공백도 백틱으로.
+        result = _backtick_rm_units(result)
 
         # 쉼표 뒤 강제 띄어쓰기: OCR 이 준 ``, `` 공백을 HWP 수식이 시각적으로 무시해
         # ``N(m,2²)``·``(2,3)`` 처럼 붙어버린다(사용자 2026-06-09). 쉼표+공백 → ``,~`` 강제
@@ -691,6 +711,11 @@ class LaTeXToHWPConverter:
         s = self._text_pattern.sub(lambda m: '"' + m.group("txt") + '"', s)
         s = self._mathrm_pattern.sub(_kw_repl("rm"), s)
         s = self._mathbf_pattern.sub(_kw_repl("bold"), s)
+        # \mathit{(a,b)} → it {(a,b)} — 그룹 중괄호로 it 스코프를 명시(rm 번짐 차단). 앞이
+        # 영숫자면 공백 보장(``rm P\mathit`` → ``rm P it``, 키워드 분리).
+        s = self._mathit_pattern.sub(
+            lambda m: (" " if (m.start() > 0 and m.string[m.start() - 1].isalnum()) else "")
+            + "it {" + m.group("txt") + "}", s)
 
         # 2. \binom{n}{k}
         s = self._binom_pattern.sub(

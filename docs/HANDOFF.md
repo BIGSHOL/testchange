@@ -2,12 +2,17 @@
 
 > 이 문서 하나로 **다른 컴퓨터에서 이어서 작업**할 수 있게 정리. 상세 설계·함정은
 > `CLAUDE.md`(루트)와 자동메모리(`C:\Users\<you>\.claude\projects\F--------\memory\MEMORY.md`)에 있다.
-> 최종 갱신: 2026-06-11 (이 PC, `587bac1` 위 미커밋 — 도원중 중1 검수).
+> 최종 갱신: 2026-06-11 (이 PC, `56dac24` 위 미커밋 — 점이름·단위 구현 + 상원중 교차검증).
 > ✅ **HWP COM 블로커 해소**: 이 PC 의 `Dispatch("HWPFrame.HwpObject")` FontCache 크래시
 > (§6-c)는 **재부팅으로 정상화** — COM smoke test OK, corpus 폼 렌더·PDF/PNG 전 구간 통과.
 > 🔧 도원중 중1(남색 폼) 첫 corpus 검수 = `hwp_form_writer` 빈 단 회귀 2건 수정(발문 속 ①
-> 마커 오인 + `_repair_column_overflow` 자가치유) + 진단 2건(점이름 로만+좌표 이탤릭, 변수+
-> 단위 백틱 — **구현 대기**). 상세 = CLAUDE.md "도원중 중1 (폼) 자가발전 검수" 섹션.
+> 마커 오인 + `_repair_column_overflow` 자가치유, `56dac24`) + 진단 2건 **구현 완료**(2026-06-11):
+> ① 점이름 로만+좌표 이탤릭(`rm P it {(a,~b)}` — HWP `rm` 은 뒤 전체로 번져 `\mathit` 명시 필수,
+> `latex_to_hwpeq._mathit_pattern` + `content_parser._POINT_COORD_RE`) ② 변수/숫자+단위 백틱
+> 얇은공백(`a\mathrm{cm}`→`a rm`cm`, `_backtick_rm_units`). 회귀 `test_render_fixes` N·O.
+> 🔁 **상원중 중1(지학사) 타학교 교차검증** = 위 두 수정이 다른 학교에서 무회귀(서답형4 #21
+> `A(a-5,b+3)`·`B(ab+6,3a-b)`·삼각형 `ABC` 점이름 / #1·#16·서답형3 단위 백틱). 두 번째 중1 corpus.
+> 상세 = CLAUDE.md "도원중 중1 (폼) 자가발전 검수" + "상원중 중1 (폼) 타학교 교차검증" 섹션.
 > 최종 갱신(이전): 2026-06-10 늦은 세션 (메인 PC, HEAD `5d97335`).
 > ✅ **배포 exe = `11f5fc5` 빌드 완료, v0.1.15**(2026-06-10 일괄 빌드·`배포용/` 배포,
 > `--selftest` = `SELFTEST OK (v0.1.15)` + `GEMINI LIVE OK`, `config.json` 379B 보존).

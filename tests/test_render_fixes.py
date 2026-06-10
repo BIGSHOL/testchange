@@ -166,10 +166,35 @@ def run():
 
     # ── L: rm/bold 키워드 앞 공백 — 매천중 #7·#18 (PLEFT 계열) ──
     # ``x\mathrm{km}`` 이 ``xrm km`` 으로 붙어 HWP 가 xrm literal 렌더하던 회귀.
+    # km 은 단위라 ``x rm`km``(단위 백틱, 2026-06-11) — PLEFT(앞 'xrm' 안 붙음)는 유지.
     l1 = latex_to_hwpeq(r"x\mathrm{km}")
-    chk("xrm" not in l1 and "x rm km" in l1, f"L rm 앞공백: {l1!r}")
-    l2 = latex_to_hwpeq(r"400\mathrm{m}")
+    chk("xrm" not in l1 and "x rm`km" in l1, f"L rm 앞공백+단위백틱: {l1!r}")
+    l2 = latex_to_hwpeq(r"400\mathrm{m}")  # m 은 단위 아님(모평균 m 보호) → 백틱 없음
     chk("400 rm m" in l2 or "400rm" not in l2, f"L 숫자 뒤 rm: {l2!r}")
+
+    # ── N: 좌표 단 점 이름 = 점 글자 rm + 좌표 it (도원중 #10·12·23, 2026-06-11) ──
+    # HWP rm 은 명시적 it 전까지 뒤 전체로 번지므로, 통째 로만화하면 a,b 까지 로만으로 깨진다.
+    from core.content_parser import _romanize_point_names
+    geo = _romanize_point_names([_tb("점 "), _eq("P(a, b)"), _tb("가 제3사분면")])
+    pv = next(b.value for b in geo if b.type == CT.EQUATION)
+    n1 = latex_to_hwpeq(pv, italicize_stat=False)
+    chk(pv == r"\mathrm{P}\mathit{(a, b)}" and n1 == "rm P it {(a,~b)}",
+        f"N 점 P(a,b) = rm P it: {pv!r} -> {n1!r}")
+    # 안전경계: 확통 P(X=r)(비기하) 무변경, 함수 F(x)(쉼표 없음) 무변경.
+    stat = _romanize_point_names([_tb("확률변수 X"), _eq("P(X=r)")])
+    chk(next(b.value for b in stat if b.type == CT.EQUATION) == "P(X=r)",
+        "N 확통 P(X=r) 무변경(비기하)")
+    fx = _romanize_point_names([_tb("삼각형"), _eq("F(x)")])
+    chk(next(b.value for b in fx if b.type == CT.EQUATION) == "F(x)",
+        "N 함수 F(x) 무변경(쉼표 없음)")
+
+    # ── O: \mathit{…} → it {…} 지원 + 변수/숫자 단위 백틱 (2026-06-11) ──
+    o1 = latex_to_hwpeq(r"\mathit{(a, b)}", italicize_stat=False)
+    chk("it {" in o1, f"O mathit 지원: {o1!r}")
+    chk(latex_to_hwpeq(r"a\mathrm{cm}", italicize_stat=False) == "a rm`cm",
+        "O 변수+단위 백틱 a cm")
+    chk(latex_to_hwpeq(r"5\mathrm{cm}", italicize_stat=False) == "5 rm`cm",
+        "O mathrm 숫자+단위 백틱 5 cm")
 
     # ── M: <조건> 박스 머리 vs 인라인 참조 — 매천중 #19 소문항 조건박스 ──
     # ``<조건> 한 미지수…``(공백+한글=박스 내용)는 머리, ``<조건>을``(조사 직결)은 참조.

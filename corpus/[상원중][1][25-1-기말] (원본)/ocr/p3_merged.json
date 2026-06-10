@@ -1,0 +1,120 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 13,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "정민이가 드론을 조종한 시간에 따른 드론의 높이 변화를 나타낸 그래프이다. 다음 설명 중 옳지 __않은__ 것은?"},
+        {"type": "figure", "value": "x축 시간(초), y축 높이 y(m) 꺾은선 그래프. (0,0)→(4,6) 상승, (4~10) 6에서 수평, (10~14) 6→12 상승, (14~24) 12 수평, (24~30) 12→0 하강. 가로축 눈금 4,10,14,24,30", "bbox": [0.10, 0.18, 0.55, 0.40]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "드론이 올라간 가장 최고 높이는 "}, {"type": "equation", "value": "12\\mathrm{m}"}, {"type": "text", "value": "이다."}]},
+        {"number": 2, "contents": [{"type": "text", "value": "드론을 조종하기 시작하고 8초 후의 높이는 "}, {"type": "equation", "value": "6\\mathrm{m}"}, {"type": "text", "value": "이다."}]},
+        {"number": 3, "contents": [{"type": "text", "value": "드론이 최고 높이에 처음 도달할 때까지 걸린 시간은 10초이다."}]},
+        {"number": 4, "contents": [{"type": "text", "value": "드론이 공중에서 일정한 높이를 유지하며 떠 있었던 전체 시간은 총 16초이다."}]},
+        {"number": 5, "contents": [{"type": "text", "value": "드론이 최고 높이에서 하강을 시작한 후 바닥에 떨어질 때까지 걸린 시간은 6초이다."}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 14,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "선지가 자전거를 타고 일정한 속도로 이동하고 있다. 출발한 후 "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "시간 동안 간 거리를 "},
+        {"type": "equation", "value": "y\\mathrm{km}"},
+        {"type": "text", "value": "라고 할 때, 다음 설명 중에서 옳지 __않은__ 것은?"},
+        {"type": "table", "value": "", "rows": [["x(시간)", "1", "2", "3", "4", "5", "⋯"], ["y(km)", "25", "50", "75", "100", "125", "⋯"]]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "1시간 동안 자전거를 탄 거리는 "}, {"type": "equation", "value": "25\\mathrm{km}"}, {"type": "text", "value": "이다."}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "x"}, {"type": "text", "value": "와 "}, {"type": "equation", "value": "y"}, {"type": "text", "value": "사이의 관계는 정비례 관계이다."}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "x"}, {"type": "text", "value": "와 "}, {"type": "equation", "value": "y"}, {"type": "text", "value": "의 사이의 관계식은 "}, {"type": "equation", "value": "y=25x"}, {"type": "text", "value": "이다."}]},
+        {"number": 4, "contents": [{"type": "text", "value": "시간이 두 배가 되면 속도도 두 배가 된다."}]},
+        {"number": 5, "contents": [{"type": "text", "value": "4시간 타면 이동 거리가 "}, {"type": "equation", "value": "100\\mathrm{km}"}, {"type": "text", "value": "이므로, 8시간 타면 이동 거리는 "}, {"type": "equation", "value": "200\\mathrm{km}"}, {"type": "text", "value": "이다."}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 15,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "반비례 관계 "},
+        {"type": "equation", "value": "y=\\frac{a}{x}"},
+        {"type": "text", "value": "의 그래프가 "},
+        {"type": "equation", "value": "(2, -8)"},
+        {"type": "text", "value": "을 지날 때, 이 그래프 위의 점 중에서 "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "좌표와 "},
+        {"type": "equation", "value": "y"},
+        {"type": "text", "value": "좌표가 모두 정수인 점의 개수는? (단, "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "는 상수)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "4"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "5"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "8"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "10"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "16"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 16,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "다음 중 두 변수 "},
+        {"type": "equation", "value": "x, y"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "와 "},
+        {"type": "equation", "value": "y"},
+        {"type": "text", "value": "가 반비례하는 것만을 있는 대로 고른 것은?"},
+        {"type": "text", "value": "<보기> ㄱ. 한 변의 길이가 x\\mathrm{cm}인 정삼각형의 둘레 y\\mathrm{cm} • ㄴ. 정가 10000원인 아이스크림 한 개의 가격 y원 • ㄷ. 나이가 x살인 동생보다 3살 많은 형의 나이 y살 • ㄹ. 자동차가 시속 x\\mathrm{km}로 y시간동안 달린 거리 5\\mathrm{km} • ㅁ. 사탕 40개를 x명에게 4개씩 똑같이 나누어 주고 남은 사탕의 개수 y개 • ㅂ. 넓이가 20\\mathrm{cm}^2인 마름모의 한 대각선의 길이가 x\\mathrm{cm}일 때, 다른 대각선의 길이가 y\\mathrm{cm}"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ, ㅁ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄴ, ㄷ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄱ, ㄷ, ㅂ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄴ, ㄹ, ㅁ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄴ, ㄹ, ㅂ"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 17,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 정비례 관계 "},
+        {"type": "equation", "value": "y=ax"},
+        {"type": "text", "value": "의 그래프와 반비례 관계 "},
+        {"type": "equation", "value": "y=\\frac{b}{x}"},
+        {"type": "text", "value": "의 그래프가 점 "},
+        {"type": "equation", "value": "P"},
+        {"type": "text", "value": "에서 만나고, 정비례 관계 "},
+        {"type": "equation", "value": "y=ax"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "y=cx"},
+        {"type": "text", "value": "는 원점 "},
+        {"type": "equation", "value": "O"},
+        {"type": "text", "value": "에서 만난다. 이 때, 상수 "},
+        {"type": "equation", "value": "a, b, c"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "a+b+c"},
+        {"type": "text", "value": "의 값은?"},
+        {"type": "figure", "value": "좌표평면. 정비례 y=ax(완만 상승), y=cx(가파른 하강 직선), 반비례 y=b/x 곡선이 1사분면에서 점 P(1, ?)에서 만남. 원점 O. 눈금 -6, 1, -2, -3, 2 표시", "bbox": [0.55, 0.05, 0.95, 0.45]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-\\frac{3}{2}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-\\frac{1}{2}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{11}{6}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{9}{4}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{8}{3}"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}
