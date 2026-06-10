@@ -84,6 +84,21 @@ def list_forms() -> list[FormInfo]:
     return forms
 
 
+def _school_level(school: str) -> str:
+    """학교명 → 학교급("중"/"고"/""). **마지막** 등급 글자로 판정한다.
+
+    학교명은 "…중"/"…고"(여중·여고 포함)로 끝나므로, 이름 **안**에 다른 등급
+    글자가 섞여도(중앙고의 '중', 고성중의 '고') 마지막 글자가 학교급이다.
+    과거 `"중" in school` 선행 검사는 "중앙고"(고등)를 중학교로 오판해 중2 폼이
+    매칭됐다(corpus 자가발전 파일럿에서 발견, 2026-06-10).
+    """
+    pos_j = school.rfind("중")
+    pos_g = school.rfind("고")
+    if pos_j < 0 and pos_g < 0:
+        return ""
+    return "중" if pos_j > pos_g else "고"
+
+
 def detect_grade(text: str) -> str:
     """입력 파일명/제목에서 학년("중2"·"고1")을 추정. 못 찾으면 ""."""
     if not text:
@@ -93,10 +108,9 @@ def detect_grade(text: str) -> str:
     m = _INPUT_HEAD_RE.search(base)
     if m:
         school, num = m.group(1), m.group(2)
-        if "중" in school:
-            return "중" + num
-        if "고" in school:
-            return "고" + num
+        lv = _school_level(school)
+        if lv:
+            return lv + num
     # 2) 문자열에 직접 박힌 "중2"·"고1"
     m = _GRADE_LITERAL_RE.search(base)
     if m:
@@ -169,7 +183,7 @@ def parse_filename(input_path: str) -> dict:
     if len(toks) < 3:
         return out
     school = toks[0].strip()
-    level = "중" if "중" in school else ("고" if "고" in school else "")
+    level = _school_level(school)   # 마지막 등급 글자(중앙고='고', 고성중='중')
     gnum = toks[1].strip()
     if level not in ("중", "고") or gnum not in ("1", "2", "3"):
         return out

@@ -23,8 +23,14 @@ config.json
 토큰사용.csv
 
 # 크롭/OCR 영구 기록(머신 로컬·OCR 텍스트·크롭 이미지 — 절대 커밋 금지)
-crop/
-ocr/
+# 루트 앵커(/) — corpus/ 하위의 crop·ocr(JSON 추적 대상)까지 먹지 않게.
+/crop/
+/ocr/
+
+# 자가발전 corpus — OCR JSON·crops.json·meta.json 은 추적(재현 비용 큼),
+# 페이지/크롭 PNG 는 용량 때문에 제외(원본 PDF·bbox 에서 재생성 가능)
+corpus/**/pages/
+corpus/**/*.png
 
 # 테스트 하네스 산출물·OCR 캐시(머신 로컬, scripts/testkit.py)
 .testkit/

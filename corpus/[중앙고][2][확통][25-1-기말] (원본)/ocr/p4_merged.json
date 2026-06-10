@@ -1,0 +1,141 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 15,
+      "score": 3.9,
+      "contents": [
+        {"type": "text", "value": "표본공간 "},
+        {"type": "equation", "value": "S"},
+        {"type": "text", "value": "의 두 사건 "},
+        {"type": "equation", "value": "A, B"},
+        {"type": "text", "value": "에 대한 <보기>의 문장 중 옳은 것의 개수는? (단, "},
+        {"type": "equation", "value": "P(A) \\neq 0"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "P(B) \\neq 0"},
+        {"type": "text", "value": "이다.)"},
+        {"type": "text", "value": "<보기> ㄱ. A \\subset B이면 P(B|A) = 1이다. • ㄴ. 두 사건 A, B가 서로 배반이면, 독립사건이다. • ㄷ. 0 < P(A|B) < P(B|A)이면 P(A) < P(B)이다. • ㄹ. 두 사건 A, B가 서로 독립이면 P(A) = P(A|B)이다. • ㅁ. 두 사건 A, B가 서로 독립이면 P(A|B) + P(A^c|B) = 1이다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}, {"type": "text", "value": "개"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2"}, {"type": "text", "value": "개"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}, {"type": "text", "value": "개"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}, {"type": "text", "value": "개"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}, {"type": "text", "value": "개"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 16,
+      "score": 3.9,
+      "contents": [
+        {"type": "text", "value": "어느 야구 선수는 타석에 들어설 때마다 안타를 칠 확률이 0.2라고 한다. 이 선수가 세 번의 타석에 들어설 때, 안타를 치는 횟수를 확률변수 "},
+        {"type": "equation", "value": "X"},
+        {"type": "text", "value": "라 하자. "},
+        {"type": "equation", "value": "P(X=1)"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "0.3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "0.335"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "0.384"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "0.39"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "0.4"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 17,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "이산확률변수 "},
+        {"type": "equation", "value": "X"},
+        {"type": "text", "value": "의 확률질량함수가"},
+        {"type": "equation_block", "value": "P(X=x) = \\frac{x}{6}\\ (x=1,2,3)"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "X"},
+        {"type": "text", "value": "의 분산은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{1}{2}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{5}{9}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{5}{8}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{5}{7}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{5}{6}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 18,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "확률변수 "},
+        {"type": "equation", "value": "X"},
+        {"type": "text", "value": "가 이항분포 "},
+        {"type": "equation", "value": "\\mathrm{B}(n,\\ p)"},
+        {"type": "text", "value": "를 따르고, "},
+        {"type": "equation", "value": "\\mathrm{E}(2X) = 3\\mathrm{V}(X)"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "p"},
+        {"type": "text", "value": "의 값은? (단, "},
+        {"type": "equation", "value": "0 < p < 1"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "n"},
+        {"type": "text", "value": "은 자연수이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{1}{3}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{2}{5}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{7}{15}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{8}{15}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{2}{3}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 19,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "확률변수 "},
+        {"type": "equation", "value": "X"},
+        {"type": "text", "value": "의 확률분포가 다음과 같다."},
+        {"type": "equation_block", "value": "P(X=r) = {}_{72}\\mathrm{C}_r \\left(\\frac{2}{3}\\right)^{r} \\left(\\frac{1}{3}\\right)^{72-r}\\ (r=0,1,2,\\cdots,72)"},
+        {"type": "text", "value": "이때 "},
+        {"type": "equation", "value": "P(52 \\leq X \\leq 54)"},
+        {"type": "text", "value": "의 값은? (단, "},
+        {"type": "equation", "value": "P(0 \\leq Z \\leq 1) = 0.34"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "P(0 \\leq Z \\leq 1.5) = 0.43"},
+        {"type": "text", "value": ")"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "0.09"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "0.19"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "0.34"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "0.68"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "0.77"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 20,
+      "score": 4.1,
+      "contents": [
+        {"type": "text", "value": "한 모서리의 길이가 1인 정육면체에서 세 꼭짓점을 택하여 삼각형을 만들려고 한다. 만들어지는 삼각형의 넓이를 확률변수 "},
+        {"type": "equation", "value": "X"},
+        {"type": "text", "value": "라 할 때, "},
+        {"type": "equation", "value": "\\mathrm{E}(X^2)"},
+        {"type": "text", "value": "을 구하면?"},
+        {"type": "figure", "value": "한 모서리의 길이가 1인 정육면체 그림(대각선 표시)", "bbox": null}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{3}{14}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{2}{7}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{3}{7}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{1}{2}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{4}{7}"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

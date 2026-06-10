@@ -1,0 +1,63 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 25,
+      "score": 6,
+      "label_type": "서답형",
+      "contents": [
+        {"type": "text", "value": "[서답형 3] 감염 확률이 "},
+        {"type": "equation", "value": "5"},
+        {"type": "text", "value": "%인 어느 바이러스의 감염 여부를 판정하는 검사법의 정확도가 "},
+        {"type": "equation", "value": "90"},
+        {"type": "text", "value": "%라고 한다. 이 검사에서 양성 반응을 보인 사람이 실제로 바이러스에 감염된 사람일 확률을 구하시오. [6점, 부분점수 있음]"}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 26,
+      "score": 7,
+      "label_type": "서답형",
+      "contents": [
+        {"type": "text", "value": "[서답형 4] 1,3,5,7의 숫자가 각각 하나씩 적힌 공이 각각 50개, 100개, 150개, 200개가 들어 있는 주머니에서 100개의 공을 임의추출할 때, 공에 적힌 숫자의 평균을 "},
+        {"type": "equation", "value": "\\overline{X}"},
+        {"type": "text", "value": "라 하자. 이때 "},
+        {"type": "equation", "value": "P(\\overline{X} \\leq k) = 0.9772"},
+        {"type": "text", "value": "을 만족시키는 상수 "},
+        {"type": "equation", "value": "k"},
+        {"type": "text", "value": "의 값을 오른쪽 표준정규분포표를 이용하여 구하시오. [7점, 부분점수 있음]"},
+        {"type": "table", "value": "", "rows": [
+          ["z", "P(0 \\leq Z \\leq z)"],
+          ["0.5", "0.1915"],
+          ["1.0", "0.3413"],
+          ["1.5", "0.4332"],
+          ["2.0", "0.4772"]
+        ]}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 27,
+      "score": 8,
+      "label_type": "서답형",
+      "contents": [
+        {"type": "text", "value": "[서답형 5] 1부터 5까지 적혀 있는 5개의 공이 들어 있는 주머니에서 임의로 하나의 공을 꺼냈을 때, 홀수인 공이 나오면 초콜릿 1개, 짝수인 공이 나오면 초콜릿 2개를 받는다. "},
+        {"type": "equation", "value": "n"},
+        {"type": "text", "value": "회의 시행을 반복한 후 받은 초콜릿의 개수의 합의 기댓값이 210개일 때, "},
+        {"type": "equation", "value": "n"},
+        {"type": "text", "value": "회의 시행 후 받은 초콜릿의 개수의 합이 216개 이상일 확률을 오른쪽 정규분포표를 이용하여 구하시오. (단, 꺼낸 공은 숫자를 확인한 후, 다시 주머니에 넣는다.) [8점, 부분점수 있음]"},
+        {"type": "table", "value": "", "rows": [
+          ["z", "P(0 \\leq Z \\leq z)"],
+          ["0.5", "0.1915"],
+          ["1.0", "0.3413"],
+          ["1.5", "0.4332"],
+          ["2.0", "0.4772"]
+        ]}
+      ],
+      "choices": [],
+      "sub_questions": []
+    }
+  ]
+}
