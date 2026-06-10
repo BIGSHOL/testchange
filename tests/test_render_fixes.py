@@ -24,6 +24,36 @@ def _eq(val):
     return ContentBlock(type=CT.EQUATION, value=val)
 
 
+def _table():
+    return ContentBlock(type=CT.TABLE, value="", rows=[["a", "b"], ["1", "2"]])
+
+
+class _FakeHwp:
+    def GetPos(self):
+        return (0, 0, 0)
+
+
+class _FakeSession:
+    """COM 없이 _write_condition_box 분기만 도는 무동작 세션."""
+
+    def __init__(self):
+        self.hwp = _FakeHwp()
+
+    def __getattr__(self, name):          # align_*/table_*/break_para 등 전부 no-op
+        return lambda *a, **k: None
+
+
+def _box_calls(blocks):
+    """_write_condition_box 를 스텁 위에서 실행 — 무한재귀(C1)면 RecursionError."""
+    w = W.HwpComWriter.__new__(W.HwpComWriter)
+    w.s = _FakeSession()
+    written = []
+    w._write_block = lambda b: written.append(b.type)
+    w._write_box_content = lambda blocks, space_values=False: None
+    w._write_condition_box(blocks)
+    return written
+
+
 def _cell_kind(val):
     """_write_cell 의 분기를 순수 판정(text vs equation) — 렌더 호출 없이 규칙만 검증."""
     if not val:
@@ -79,6 +109,24 @@ def run():
     chk(_shade_target_mode(ztable) == "row0", "z-표(P(0≤Z≤z))→row0 음영")
     chk(_shade_target_mode(freq2col) is None, "단순 2열 도수분포표→음영 없음(#16 버그)")
     chk(_shade_target_mode(prob) == "col0", "확률분포표(2행≥3열)→col0 음영")
+
+    # ── G: 박스↔표 혼합 분기(C1 무한재귀 회귀) ──
+    hdr = _tb("<보기> ㄱ. ")
+    try:
+        # 패턴1: 머리 **뒤** 표(_recover_table append 모양) — 과거 무한재귀 크래시
+        w1 = _box_calls([hdr, _eq("a"), _table()])
+        chk(w1 == [CT.TABLE], f"머리뒤 표는 박스 밖 개별 렌더: {w1}")
+        # 패턴2: 표 뒤 머리(#18 z-표 경로, 기존 동작 유지)
+        w2 = _box_calls([_table(), hdr, _eq("a")])
+        chk(w2 == [CT.TABLE], f"표뒤 머리: 표만 개별 렌더: {w2}")
+        # 패턴3: 표가 앞뒤 양쪽
+        w3 = _box_calls([_table(), hdr, _eq("a"), _table()])
+        chk(w3 == [CT.TABLE, CT.TABLE], f"앞뒤 표 모두 개별 렌더: {w3}")
+        # 패턴4: 머리 없는 표만 — 전부 개별 렌더(기존 동작)
+        w4 = _box_calls([_table(), _eq("a")])
+        chk(w4 == [CT.TABLE, CT.EQUATION], f"머리 없음→전부 개별: {w4}")
+    except RecursionError:
+        chk(False, "C1 무한재귀 재발(_write_condition_box)")
 
     # ── F: 비괄호 서술형 라벨 제거 + 단어 통일 ──
     # 파싱 후 "서술형 4." = TEXT"서술형 " + EQ"4" + TEXT". 다음은…"

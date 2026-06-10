@@ -301,7 +301,9 @@ class LaTeXToHWPConverter:
         r"\mid": "|",          # 집합 표기 바: {x | x≤3}. 없으면 누락돼 "xx"로 붙음
         r"\vert": "|",
         r"\Vert": "PARALLEL",
-        r"\setminus": "\\",    # 차집합 A\B
+        # 차집합 — 백슬래시("\\") 매핑은 step 13 의 ``\␣``→백틱 치환·잔여명령 제거에 먹혀
+        # 연산자가 통째 증발했다(감사 2026-06-10). □(\square)와 같은 따옴표 리터럴로.
+        r"\setminus": '"∖"',
         r"\triangle": "TRIANGLE",
         r"\square": '"□"',
         r"\circ": "CIRC",
@@ -484,8 +486,11 @@ class LaTeXToHWPConverter:
         # \left( ... \right) — 구분자로 \{ \}(sentinel로 보호됨) \langle \rangle \| 도 허용
         _ldelim = r"(\\langle|\\rangle|\\\||[(\[{|." + _SENT_LB + _SENT_RB + r"])"
         _rdelim = r"(\\langle|\\rangle|\\\||[)\]}|." + _SENT_LB + _SENT_RB + r"])"
+        # body 는 \left/\right 를 품지 않는 **최내곽**만 매칭 — 비탐욕 (.*?) 은 중첩
+        # \left(\left(…\right)^2\right) 에서 첫 \left↔첫 \right 를 짝지어 쌍이 어긋난다
+        # (감사 2026-06-10). 치환은 고정점까지 반복(안쪽→바깥쪽).
         self._leftright_pattern = re.compile(
-            r"\\left\s*" + _ldelim + r"\s*(.*?)\s*\\right\s*" + _rdelim,
+            r"\\left\s*" + _ldelim + r"\s*((?:(?!\\left|\\right).)*?)\s*\\right\s*" + _rdelim,
             re.DOTALL,
         )
 
@@ -744,7 +749,12 @@ class LaTeXToHWPConverter:
                 return f"{inner} RIGHT {r_str}"
             return inner
 
-        s = self._leftright_pattern.sub(_leftright_repl, s)
+        # 최내곽부터 고정점까지 반복 — 중첩 \left…\right 쌍을 안쪽→바깥쪽 순서로 정확 매칭.
+        while True:
+            _new = self._leftright_pattern.sub(_leftright_repl, s)
+            if _new == s:
+                break
+            s = _new
 
         # 고아 \left/\right 제거: OCR이 짝(\right\})을 놓쳐 비대칭이면 위 패턴이 매칭
         # 실패해 \left 가 잔존한다. 그대로 두면 step 9 기호매핑에서 \le 가 \left 의
@@ -759,6 +769,11 @@ class LaTeXToHWPConverter:
             return hwp_accent + " {" + self._convert_expr(body) + "}"
 
         s = self._accent_pattern.sub(_accent_repl, s)
+
+        # 7.5 중괄호 없는 명령어 첨자 보호: ``45^\circ``/``x_\alpha`` → ``^{\circ}``/``_{\alpha}``.
+        #   기호 치환(8·9)이 첨자 파싱(11)보다 먼저 돌아 ``45^ CIRC`` 의 첫 글자만 첨자로
+        #   잡혀 "45^{C}IRC" 로 깨진다(감사 2026-06-10). 중괄호로 그룹을 보존.
+        s = re.sub(r"([_^])\s*\\([a-zA-Z]+)", r"\1{\\\2}", s)
 
         # 8. 그리스 문자
         for latex_cmd, hwp_name in sorted(

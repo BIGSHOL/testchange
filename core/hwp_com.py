@@ -13,10 +13,13 @@
 """
 from __future__ import annotations
 
+import logging
 import os
 import sys
 from pathlib import Path
 from typing import Optional
+
+logger = logging.getLogger(__name__)
 
 # COM 디스패치는 런타임에만 필요(테스트/비-Windows 환경에서 import 실패 방지).
 try:
@@ -168,8 +171,13 @@ class HwpSession:
 
     # ── 문서 단위 ──────────────────────────────────────────
     def open(self, path: str | Path) -> None:
-        """기존 문서(템플릿)를 연다."""
-        path = str(Path(path))
+        """기존 문서(템플릿)를 연다.
+
+        ⚠️ 절대경로 강제 — HWP COM 은 상대경로를 **Hwp.exe 프로세스 CWD** 기준으로
+        해석해 엉뚱한 파일을 열거나(저장은 엉뚱한 곳에 쓰고) 후처리는 파이썬 CWD 의
+        다른 파일을 만진다(메모리 `cache-rerender-and-winerror5-lock` 함정 2).
+        """
+        path = str(Path(path).resolve())
         ext = os.path.splitext(path)[1].lower().lstrip(".")
         fmt = "HWPX" if ext == "hwpx" else "HWP"
         self.hwp.Open(path, fmt, "")
@@ -221,19 +229,28 @@ class HwpSession:
                 pass
 
     def save_hwpx(self, path: str | Path) -> Path:
-        path = Path(path)
+        path = Path(path).resolve()   # 상대경로 → HWP CWD 저장(빈/엉뚱한 출력) 방지
         if path.exists():
             try:
                 path.unlink()
             except Exception:
                 pass
         self.force_layout()
+        import time as _time
+        t0 = _time.time()
         self.hwp.SaveAs(str(path), "HWPX", "")
+        # 침묵 실패 방어 — 출력이 잠겨 있으면(WinError 5 상황) SaveAs 가 메시지박스만
+        # 자동응답하고 조용히 실패해, 호출부가 **이전 회차의 낡은 파일**을 후처리해 성공
+        # 반환하던 버그(감사 2026-06-10). 파일 존재+mtime 갱신을 확인하고 아니면 raise.
+        if not path.exists() or path.stat().st_mtime < t0 - 2:
+            raise RuntimeError(
+                f"HWPX 저장 실패(파일 미갱신): {path} — 출력 파일이 열려 있거나(잠김) "
+                f"경로가 잘못됐을 수 있습니다.")
         return path
 
     def save_pdf(self, path: str | Path) -> Path:
         """렌더 검증용 PDF 내보내기."""
-        path = Path(path)
+        path = Path(path).resolve()
         if path.exists():
             try:
                 path.unlink()
@@ -247,8 +264,10 @@ class HwpSession:
             return
         try:
             self.hwp.Quit()
-        except Exception:
-            pass
+        except Exception as e:
+            # Quit 실패 = 고아 Hwp.exe 가능(비결정적 hang·파일잠금의 문서화된 주범) —
+            # 침묵하면 원인 추적이 불가능해 최소한 로그는 남긴다.
+            logger.warning("HWP Quit 실패(고아 프로세스 가능): %s", e)
         finally:
             self.hwp = None
 
@@ -448,6 +467,8 @@ class HwpSession:
 
         col_widths: 열별 **상대 비율**(예 ``[1, 3]`` = 줄기:잎 1:3). None 이면 균등 분할.
         """
+        if nrow < 1 or ncol < 1:
+            raise ValueError(f"table_begin: 행/열은 1 이상이어야 함 (nrow={nrow}, ncol={ncol})")
         h = self.hwp
         # **반드시 CreateAction/CreateSet 으로 독립 파라미터셋**을 쓴다. 공유
         # ``h.HParameterSet.HTableCreation`` 을 재사용하면, 문서에 수식(EquationCreate)이

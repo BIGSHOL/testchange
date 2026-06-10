@@ -38,17 +38,39 @@ _SPACING_CASES = [
 ]
 
 
+def _parse_q(text: str, score=None):
+    doc = {"header": "", "questions": [{"number": 1, "score": score,
+                                        "contents": [{"type": "text", "value": text}]}]}
+    return parse_ocr_response(doc, page_number=1).questions[0]
+
+
+# (입력 텍스트, OCR score 필드, 기대 score) — 배점 캡처(소수·총점) 검증. 본문에선 제거돼야 함.
+_SCORE_CASES = [
+    ("다음을 구하시오. [4.5점]", None, 4.5),    # 소수 배점: 캡처 없이 삭제되던 버그(M1)
+    ("다음을 구하시오. [총 7점]", None, 7),     # 부모 총점: split 후 소실되던 버그(M2)
+    ("다음을 구하시오. [3점]", None, 3),        # 기존 정수 경로 유지
+    ("다음을 구하시오. [4점]", 5, 5),           # score 필드 우선(본문 캡처 안 함)
+]
+
+
 def run():
     fails = []
     for text, must in _SPACING_CASES:
         got = _render(text)
         if must not in got:
             fails.append(f"  띄어쓰기: {text!r} → {got!r} (기대 포함: {must!r})")
+    for text, field, want in _SCORE_CASES:
+        q = _parse_q(text, score=field)
+        if q.score != want:
+            fails.append(f"  배점 캡처: {text!r}(score={field}) → {q.score!r} (기대 {want!r})")
+        body = "".join((b.value or "") for b in q.contents)
+        if "점]" in body:
+            fails.append(f"  배점 잔존: {text!r} → 본문에 남음: {body!r}")
     if fails:
         print("FAIL test_content_parser:")
         print("\n".join(fails))
         return 1
-    print(f"OK test_content_parser ({len(_SPACING_CASES)} cases)")
+    print(f"OK test_content_parser ({len(_SPACING_CASES) + len(_SCORE_CASES)} cases)")
     return 0
 
 

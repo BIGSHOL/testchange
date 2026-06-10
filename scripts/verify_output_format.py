@@ -44,6 +44,20 @@ def _read(p: Path) -> str:
         return ""
 
 
+def _func_body(src: str, name: str) -> str:
+    """``def <name>`` 부터 다음 같은(또는 더 얕은) 들여쓰기의 def/class 직전까지.
+
+    무경계 ``re.S`` 패턴이 파일 뒷부분의 **다른 함수** 코드와 매칭돼 검사가
+    동어반복(보호 대상을 지워도 PASS)이 되는 것을 막는다 — 검사 #5/#10/#18.
+    """
+    m = re.search(rf"^([ \t]*)def {re.escape(name)}\b", src, re.M)
+    if not m:
+        return ""
+    indent = m.group(1)
+    nxt = re.search(rf"^{indent}(?:def |class |@)", src[m.end():], re.M)
+    return src[m.start(): m.end() + nxt.start()] if nxt else src[m.start():]
+
+
 def run_checks():
     """(번호, 합의명, pass여부, 상세) 목록 반환."""
     W = _read(W_PATH)
@@ -61,12 +75,12 @@ def run_checks():
     chk(3, "미주 12pt 볼드",
         "set_char_shape(self.note_pt, bold=True)" in C and "note_pt: int = 12" in C)
     chk(4, "객관식 배점 인라인", "self._write_score(question.score)" in W)
+    body5 = _func_body(W, "_write_score_inline_or_right")
     chk(5, "서술형 배점 인라인-우선·넘치면 우측정렬",
-        "def _write_score_inline_or_right" in W
-        and "self._write_score_inline_or_right(question.score)" in W
+        "self._write_score_inline_or_right(question.score)" in W
         and bool(re.search(
-            r"def _write_score_inline_or_right.*?KeyIndicator\(\)\[5\].*?"
-            r"align_right\(\).*?leading_space=False", W, re.S)))
+            r"KeyIndicator\(\)\[5\].*?align_right\(\).*?leading_space=False",
+            body5, re.S)))
     chk(6, "보기 1×1 테두리 박스", "table_begin(1, 1)" in W)
     chk(7, "박스↔선택지 빈줄 없음(_write_tail)",
         "ended_box = self._write_tail(tail)" in W
@@ -76,7 +90,7 @@ def run_checks():
         "as_equation=(cols == 2)" in W and "as_equation: bool = False" in W)
     chk(9, "표 셀 수식 객체", "self.s.equation(latex_to_hwpeq(val))" in W)
     chk(10, "표 셀 가운데정렬",
-        bool(re.search(r"def _write_equation_table.*?align_center\(\)", W, re.S)))
+        "align_center()" in _func_body(W, "_write_equation_table"))
     chk(11, "번호-발문 같은 줄(A7)", "inline=(i == 0)" in W)
     chk(12, "숫자 수식화(강등 없음, A8)",
         "_is_plain_number" not in W and "_PLAIN_NUMBER_RE" not in W
@@ -88,14 +102,14 @@ def run_checks():
         'setattr(cs, f"Ratio{sc}", 100)' in C and 'setattr(cs, f"Size{sc}", 100)' in C)
 
     chk(18, "블록수식 가운데정렬",
-        bool(re.search(r"EQUATION_BLOCK:.*?if not inline:.*?align_center\(\)", W, re.S)))
+        bool(re.search(r"EQUATION_BLOCK:.*?if not inline:.*?align_center\(\)",
+                       _func_body(W, "_write_block"), re.S)))
     chk(19, "소문항 총점 인라인-우선·넘치면 우측정렬",
         "def _split_trailing_score" in W
-        and "def _write_total_score_inline_or_right" in W
         and "self._write_total_score_inline_or_right(total_num)" in W
         and bool(re.search(
-            r"def _write_total_score_inline_or_right.*?KeyIndicator\(\)\[5\].*?align_right\(\)",
-            W, re.S)))
+            r"KeyIndicator\(\)\[5\].*?align_right\(\)",
+            _func_body(W, "_write_total_score_inline_or_right"), re.S)))
     chk(20, "발문뒤 영역 공통 렌더(_write_tail)",
         "def _write_tail" in W and "def _tail_start" in W
         and "_write_condition_box(box)" in W)

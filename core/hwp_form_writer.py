@@ -816,7 +816,13 @@ def _fill_form(mc: list[Question], essays: list[Question], form_path, out_path,
                 a = _en_anchors(h)
                 _paste_at(h, a[cur])                # a[현재 MC수] = 첫 서술형 = MC 끝
                 guard += 1
-            mc_form = n_mc
+            # ⚠️ 목표값(n_mc) 무조건 대입 금지 — Paste 비결정 실패(guard 소진)/이중삽입이면
+            # 실제 슬롯 수와 어긋나 이후 앵커 산술 전체가 오염된다(감사 2026-06-10). 측정값으로.
+            mc_form = _mc_count()
+            if mc_form != n_mc:
+                logger.warning("객관식 슬롯 grow 불일치: 목표 %d, 실제 %d — 실제값으로 진행",
+                               n_mc, mc_form)
+                n_mc = min(n_mc, mc_form)
         else:
             n_mc = min(n_mc, mc_form)
         # 서술형: 템플릿(첫 서술형 슬롯) 복사 → 정답 블록 앞(서술형 끝)에 삽입.
@@ -830,7 +836,11 @@ def _fill_form(mc: list[Question], essays: list[Question], form_path, out_path,
                 h.Run("MoveDocBegin")
                 _paste_at(h, _answer_block_pos(h))  # 정답 블록 앞에 삽입
                 guard += 1
-            es_form = n_es
+            es_form = len(_en_anchors(h)) - _mc_count()   # 측정값(위 mc grow 와 동일 원칙)
+            if es_form != n_es:
+                logger.warning("서술형 슬롯 grow 불일치: 목표 %d, 실제 %d — 실제값으로 진행",
+                               n_es, es_form)
+                n_es = min(n_es, es_form)
         else:
             n_es = min(n_es, es_form)
 
@@ -846,10 +856,13 @@ def _fill_form(mc: list[Question], essays: list[Question], form_path, out_path,
         anc = _en_anchors(h)
         if n_mc < mc_form:
             s0 = anc[n_mc]
-            e0 = anc[mc_form]          # 첫 서술형 슬롯 시작(잉여 MC 제거 → 서술형 번호 연속)
-            h.SelectText(s0[1], s0[2], e0[1], e0[2])
-            h.HAction.Run("Delete")
-            h.Run("Cancel")
+            # 서술형 0개(n_es=0)면 위에서 서술형 슬롯이 전부 삭제돼 anc 가 MC 앵커뿐
+            # (len==mc_form) → anc[mc_form] 은 IndexError. 그땐 정답 블록 앞까지 삭제.
+            e0 = anc[mc_form] if mc_form < len(anc) else _answer_block_pos(h)
+            if e0 is not None:
+                h.SelectText(s0[1], s0[2], e0[1], e0[2])
+                h.HAction.Run("Delete")
+                h.Run("Cancel")
 
         # (2) 긴 보기 슬롯(객관식)은 ②④ 앞에 단락나눔 → 1열. (문서 위치 내림차순)
         long_slots = [_is_long_choices(q) for q in mc[:n_mc]]
@@ -1064,17 +1077,25 @@ def _measure_first_choice_lines(hwpx, n: int) -> list[tuple[int, int, int]]:
             hwp.XHwpWindows.Item(0).Visible = True  # 레이아웃 계산 위해
         except Exception:
             pass
-        hwp.Open(str(hwpx), "HWPX", "")
-        hwp.Run("MoveDocBegin")
-        pos = []
-        for _ in range(n):
-            if not _repeat_find(hwp, "①"):
-                break
-            hwp.Run("Cancel")
-            ki = hwp.KeyIndicator()
-            pos.append((ki[3], ki[4], ki[5]))
-        hwp.Quit()
-        return pos
+        # ⚠️ Quit 은 finally 로 — Open/Find 예외 시 **보이는 고아 Hwp.exe** 가 남아
+        # (문서화된 비결정 hang·RPC 주범) 방금 쓴 hwpx 핸들을 잡고 다음 os.replace 가
+        # WinError 5 로 연쇄 실패한다(감사 2026-06-10).
+        try:
+            hwp.Open(str(hwpx), "HWPX", "")
+            hwp.Run("MoveDocBegin")
+            pos = []
+            for _ in range(n):
+                if not _repeat_find(hwp, "①"):
+                    break
+                hwp.Run("Cancel")
+                ki = hwp.KeyIndicator()
+                pos.append((ki[3], ki[4], ki[5]))
+            return pos
+        finally:
+            try:
+                hwp.Quit()
+            except Exception:
+                logger.warning("측정용 HWP Quit 실패 — 고아 프로세스 가능")
     finally:
         pythoncom.CoUninitialize()
 
@@ -1099,14 +1120,19 @@ def _measure_answer_page(hwpx) -> int:
             hwp.XHwpWindows.Item(0).Visible = True
         except Exception:
             pass
-        hwp.Open(str(hwpx), "HWPX", "")
-        page = 0
-        pos = _answer_block_pos(hwp)
-        if pos is not None:
-            hwp.SetPos(pos[0], pos[1], pos[2])
-            page = hwp.KeyIndicator()[3]
-        hwp.Quit()
-        return page
+        try:    # Quit 은 finally 로(고아 Hwp.exe·파일핸들 잠금 방지 — 위 측정 함수와 동일)
+            hwp.Open(str(hwpx), "HWPX", "")
+            page = 0
+            pos = _answer_block_pos(hwp)
+            if pos is not None:
+                hwp.SetPos(pos[0], pos[1], pos[2])
+                page = hwp.KeyIndicator()[3]
+            return page
+        finally:
+            try:
+                hwp.Quit()
+            except Exception:
+                logger.warning("측정용 HWP Quit 실패 — 고아 프로세스 가능")
     finally:
         pythoncom.CoUninitialize()
 
@@ -1585,7 +1611,11 @@ def _dedupe_essay_labels(hwpx_path: str | Path) -> int:
         if not re.search(r"section\d+\.xml$", name):
             continue
         sec = data[name].decode("utf-8")
-        sec2, n = _DUP_LABEL_RE.subn("", sec)
+        # ⚠️ 삭제 대신 **동일 길이 공백 치환** — <hp:t> 텍스트를 줄이면 linesegarray 가
+        # 안 맞아 직후 _com_relaunder 가 단락+미주를 통째 드롭한다(메모리
+        # `hwpx-lineseg-relaunder-trap`, 서답형 4·5 증발의 근본원인과 같은 패턴).
+        # 한계: 잔존 라벨 번호가 수식 객체로 쪼개진 형태는 태그를 넘어 매칭 불가(미보정).
+        sec2, n = _DUP_LABEL_RE.subn(lambda m: " " * len(m.group(0)), sec)
         if n:
             data[name] = sec2.encode("utf-8")
             total += n

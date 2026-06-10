@@ -52,6 +52,63 @@
 ### 보안 (절대 준수)
 - **API 키(ANTHROPIC/GEMINI)는 gitignore된 `config.json` 에만** 둔다. 추적 파일·커밋에 키를 절대 넣지 않는다. (`config.json`, `build/`, `dist/`, `배포용/` 은 `.gitignore` 처리됨.)
 
+## Codex 인계 — Claude 사용량 소진 후 미커밋 변경 검증 (2026-06-10)
+
+Claude Code가 사용량 소진으로 중단된 뒤 Codex가 기존 dirty worktree를 이어받아 코드/테스트를
+검증하고 핸드오프 문서화했다. 이번 묶음은 **소스·테스트·문서 커밋까지만**이며, 이 PC의 HWP COM
+시작 오류 때문에 새 exe 빌드/배포는 아직 하지 않았다.
+
+주요 변경 범위:
+- `content_parser.py`: 소수/총점 배점 캡처, `[총 N점]` 제거/복원 동기화, raw 박스 spill 방지,
+  기하 문맥에서 stat-이탤릭 스킵, `\le/\ge/\ne` 명령어 경계, 단일 수식 블록 평문 강등 방지.
+- `latex_to_hwpeq.py`: 중첩 `\left...\right` 최내곽 고정점 치환, `45^\circ` 같은 brace-less 첨자
+  보호, `\setminus` 연산자 증발 방지.
+- `ocr_engine.py`: usage 집계 락, 빈 message content 방어, 닫는 코드펜스 없는 JSON 복구,
+  비-dict question 방어.
+- `hwp_com_writer.py`/`hwp_com.py`/`hwp_form_writer.py`: 조건박스 무한재귀 방지, HWPX zip 재작성
+  공통화와 tempfile 정리, 표 음영 멱등화, HWP Open/SaveAs/PDF 절대경로화, 저장 침묵 실패 감지,
+  폼 grow 실제 개수 기반 진행, 측정용 HWP finally Quit, essay label dedupe 시 lineseg 보존.
+- `gui/main_window.py`: 부분 캐시 완결 마커 경고, 기록 폴더 reset 시점 지연, 변환 중 창 닫기 취소.
+- 테스트: `tests/test_extract_json.py` 추가, `test_content_parser.py`/`test_render_fixes.py` 보강.
+
+검증 완료(키 0):
+```powershell
+.venv\Scripts\python.exe tests/test_content_parser.py
+.venv\Scripts\python.exe tests/test_render_fixes.py
+.venv\Scripts\python.exe tests/test_extract_json.py
+.venv\Scripts\python.exe tests/test_equation_metrics.py
+.venv\Scripts\python.exe scripts/verify_output_format.py --all
+.venv\Scripts\python.exe -m compileall core gui scripts tests
+```
+추가 수동 확인: `verify-latex-hwpeq` 핵심 regex/`\mid`, `verify-hwpx-structure` NS 동일성,
+`verify-ocr-parser-sync` 주요 parser regex 모두 PASS. `pytest` 는 `.venv` 미설치라 실행 못 함.
+
+실데이터 캐시 렌더 시도:
+```powershell
+.venv\Scripts\python.exe scripts/testkit.py `
+  "N:\개인\기출\기출작업\194차\[학남고][2][확통][25-2-기말][미래엔] (원본).pdf" `
+  ".testkit\codex_after_claude.hwpx" --render-only
+```
+`loaded 6 pages`, `crops: CACHE`, `OCR: 21 cache, 0 api-call` 까지 정상. 이후
+`win32com.client.Dispatch("HWPFrame.HwpObject")` 단계에서 로컬 HWP 2020이 크래시해 HWPX/PNG 렌더는
+미완료. 다른 PC/재부팅 후 아래 COM smoke test부터 재시도:
+```powershell
+Get-Process Hwp,WerFault -ErrorAction SilentlyContinue | Stop-Process -Force
+python -c "import win32com.client; h=win32com.client.Dispatch('HWPFrame.HwpObject'); h.Quit(); print('OK')"
+```
+성공하면 위 `testkit.py ... --render-only` → `scripts/render_to_png.py` → 사용자 육안 체크 →
+PyInstaller 빌드/배포 순서로 이어간다.
+
+현재 로컬 COM 블로커의 실제 관찰:
+- `Dispatch("HWPFrame.HwpObject")` = `CO_E_SERVER_EXEC_FAILURE(0x80080005)`.
+- Windows 이벤트 로그: `.NET Runtime` `System.UriFormatException`,
+  `MS.Internal.FontCache.Util..cctor()` → `CultureFontManager.GetPrivateFont()` → `Hwp.HwpAppMain.InitApp()`.
+- 직접 `hwp.exe -Automation`/`-Embedding` 단독은 뜨지만, `hwp.exe -Automation -Embedding` 조합은 같은
+  FontCache 크래시. COM이 등록된 `LocalServer32 = hwp.exe -Automation` 에 `-Embedding` 을 붙이는
+  경로로 보여 이 조합이 로컬 원인.
+- HKCU CLSID override 실험은 효과 없어 원복 완료. HNC 폰트 캐시 3개는 `.codexbak_20260610_115155`
+  로 백업해두었고 일부는 HWP가 재생성했다. 필요하면 새 파일을 치우고 백업명을 원래 이름으로 복원.
+
 ## OCR/파서 후보정 교훈 — 확통 등 어려운 시험지 대응 (2026-06-08, 긴 디버깅)
 
 확률과 통계처럼 표·지문·확률표기가 많은 시험지에서 드러난 함정과 해결. **전부 결정적
@@ -177,6 +234,11 @@
 
 ### COM / 프로세스
 - **고아 Hwp.exe가 비결정적 hang·RPC 오류의 주범.** COM 스크립트 실행 전 항상 `Get-Process Hwp | Stop-Process -Force`. 같은 증상이 한 번은 되고 한 번은 멈추면 십중팔구 고아 프로세스.
+- **2026-06-10 현재 이 PC 로컬 HWP COM 시작 블로커**: `Dispatch("HWPFrame.HwpObject")` 가
+  `0x80080005` 로 실패하고 이벤트 로그는 `MS.Internal.FontCache.Util`/`System.UriFormatException`.
+  직접 `hwp.exe -Automation -Embedding` 이 같은 크래시를 재현한다. 코드/캐시 렌더는 HWP 시작 전까지
+  통과했으므로 다른 PC/재부팅 후 COM smoke test를 먼저 실행하고, 성공하면 `testkit --render-only`
+  부터 이어간다. 자세한 인계는 `docs/HANDOFF.md` §6-b/6-c 와 메모리 `codex-handoff-hwp-com-20260610`.
 - **출력 .hwpx가 열려 있으면(사용자가 보고 있으면) `os.replace` 가 조용히 실패** → 변경이 "전혀 반영 안 됨". 매 빌드마다 **새 파일명**으로 출력하거나 사용자에게 닫게 한다.
 - **라이브 COM 레이아웃 조작(DeleteBack 반복, 다수 BreakColumn + force_layout)은 불안정**(hang/RPC 크래시). 레이아웃은 **저장 후 XML 후처리**로 (결정적·무크래시).
 - `KeyIndicator()` = (…, [3]=쪽, [4]=단, [5]=줄). 단 줄용량 실측 ~42이나 컨텍스트마다 다름.

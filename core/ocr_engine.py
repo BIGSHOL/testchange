@@ -6,6 +6,7 @@ import json
 import logging
 import random
 import re
+import threading
 import time
 from dataclasses import dataclass, field
 from pathlib import Path
@@ -505,16 +506,28 @@ class OCREngine:
         # 토큰 사용량 누적(비용 계산용, 사용자 2026-06-08). 캐시 read/create 분리 기록.
         self.usage = {"calls": 0, "input": 0, "output": 0,
                       "cache_create": 0, "cache_read": 0}
+        # 페이지 내 크롭 OCR 이 ThreadPoolExecutor 병렬이라 += 가 경합(읽-수정-쓰 비원자)
+        # → 집계 누락. 락으로 직렬화(비용 집계 정확성, 감사 2026-06-10).
+        self._usage_lock = threading.Lock()
 
     def _accrue_usage(self, u) -> None:
-        """Message.usage 를 엔진 누적 카운터에 더한다(없는 필드는 0)."""
+        """Message.usage 를 엔진 누적 카운터에 더한다(없는 필드는 0). 스레드 안전."""
         if u is None:
             return
-        self.usage["calls"] += 1
-        self.usage["input"] += getattr(u, "input_tokens", 0) or 0
-        self.usage["output"] += getattr(u, "output_tokens", 0) or 0
-        self.usage["cache_create"] += getattr(u, "cache_creation_input_tokens", 0) or 0
-        self.usage["cache_read"] += getattr(u, "cache_read_input_tokens", 0) or 0
+        with self._usage_lock:
+            self.usage["calls"] += 1
+            self.usage["input"] += getattr(u, "input_tokens", 0) or 0
+            self.usage["output"] += getattr(u, "output_tokens", 0) or 0
+            self.usage["cache_create"] += getattr(u, "cache_creation_input_tokens", 0) or 0
+            self.usage["cache_read"] += getattr(u, "cache_read_input_tokens", 0) or 0
+
+    @staticmethod
+    def _msg_text(message) -> str:
+        """응답 첫 텍스트 블록 — 빈 content 는 IndexError 대신 ValueError(재시도 경로 합류)."""
+        content = getattr(message, "content", None) or []
+        if not content:
+            raise ValueError("빈 응답(content 없음)")
+        return content[0].text
 
     def _stream_message(self, content: list, max_tokens: int):
         """스트리밍으로 메시지를 생성하고 최종 Message 를 반환한다.
@@ -580,12 +593,12 @@ class OCREngine:
 
         message = self._stream_message(content, OCR_MAX_TOKENS)
         try:
-            return self._extract_json(message.content[0].text)
-        except json.JSONDecodeError as e:
+            return self._extract_json(self._msg_text(message))
+        except ValueError as e:   # JSONDecodeError 포함(서브클래스) — 잘린 응답류도 재시도
             # JSON 파싱 완전 실패 시 1회 재시도
             logger.warning("JSON 파싱 실패 (1차), 재시도: %s", e)
             message2 = self._stream_message(content, OCR_MAX_TOKENS)
-            return self._extract_json(message2.content[0].text)
+            return self._extract_json(self._msg_text(message2))
 
     def recognize_crop(self, image: Image.Image) -> dict:
         """크롭(잘라낸 단일 문제 영역) 이미지를 OCR.
@@ -629,7 +642,7 @@ class OCREngine:
                     f"수식이 매우 많은 문항(크롭을 더 작게 나눠 보세요)")
         try:
             result = self._extract_json(message.content[0].text)
-        except json.JSONDecodeError as e:
+        except ValueError as e:   # JSONDecodeError 포함 — 복구 불가 응답은 OCR 재호출로
             # 구조적 깨진 JSON(예: `"value", "value":` ←콜론 누락)은 복구 단계로 못 고친다.
             # 모델이 한 번 더 생성하면 정상 JSON 을 주는 경우가 많아 OCR 자체를 1회 재호출
             # (밀집 문항이 통째로 누락되던 문제 — 2026-06-05 Q8 사례).
@@ -642,7 +655,8 @@ class OCREngine:
         # 누락한다(독수리 이야기). 전체 페이지 OCR 이나 "그대로 옮겨적기(전사)" 작업은 충실히
         # 읽는다. 그래서 **선택지 없는(서술형) 크롭**에 한해 전사 패스를 한 번 더 돌려, 구조화
         # 결과가 빠뜨린 문단(지문 박스)을 찾아 끼워넣는다. (객관식은 누락 없어 패스 생략 — 비용↓)
-        if not any(q.get("choices") for q in result.get("questions", []) or []):
+        if not any(isinstance(q, dict) and q.get("choices")
+                   for q in result.get("questions", []) or []):   # 비-dict 항목 방어
             try:
                 transcription = self._transcribe(base64_image)
                 _merge_missing_passages(result, transcription)
@@ -737,15 +751,17 @@ class OCREngine:
         # ── 1단계: JSON 블록 추출 ──
         text = text.strip()
 
-        # ```json ... ``` 블록 처리
+        # ```json ... ``` 블록 처리 — 닫는 펜스가 없으면(잘린 응답) 끝까지 사용.
+        # index() 는 ValueError(JSONDecodeError 아님)를 던져 호출부의 재시도/복구
+        # 경로를 전부 우회하고 페이지째 크래시했다(감사 2026-06-10).
         if "```json" in text:
             start = text.index("```json") + 7
-            end = text.index("```", start)
-            text = text[start:end].strip()
+            end = text.find("```", start)
+            text = text[start: end if end != -1 else len(text)].strip()
         elif "```" in text:
             start = text.index("```") + 3
-            end = text.index("```", start)
-            text = text[start:end].strip()
+            end = text.find("```", start)
+            text = text[start: end if end != -1 else len(text)].strip()
 
         # { 로 시작하는 JSON 찾기
         if not text.startswith("{"):

@@ -364,6 +364,26 @@ class ConversionWorker(QObject):
                 "먼저 '변환 시작'으로 한 번 변환하면 기록이 남고, 이후 캐시로 무료 재변환됩니다.")
             return
         self.log.emit("step", f"캐시로 변환 — OCR {len(merged)}페이지 재사용 (크롭·OCR·API 생략)")
+        # 완결 마커 검사 — 중간 취소로 남은 부분 캐시면 페이지가 빠진 문서가 나올 수 있다.
+        # (마커는 OCR 전 페이지 완료 시에만 기록됨. 구버전 기록엔 없음 → 경고만, 진행은 허용.)
+        try:
+            marker_fp = ocr_dir / "_complete.json"
+            found = {int(re.search(r"p(\d+)_", p.name).group(1)) for p in merged}
+            if marker_fp.exists():
+                done_pages = set(json.loads(marker_fp.read_text(encoding="utf-8"))
+                                 .get("pages", []))
+                missing = sorted(done_pages - found)
+                if missing:
+                    self.log.emit("warning",
+                                  f"⚠️ 캐시 페이지 누락 의심 — 기록상 {sorted(done_pages)} 중 "
+                                  f"{missing} 페이지의 merged.json 이 없습니다. 결과가 잘릴 수 "
+                                  f"있으니 필요하면 '변환 시작'으로 재생성하세요.")
+            else:
+                self.log.emit("warning",
+                              "⚠️ 캐시 완결 마커(_complete.json) 없음 — 중단된 변환의 부분 기록"
+                              "이거나 구버전 기록입니다. 페이지 누락 가능성에 유의하세요.")
+        except Exception:   # noqa: BLE001 — 마커 검사는 보조 진단, 실패해도 변환 진행
+            pass
         pages = []
         for i, fp in enumerate(merged, 1):
             try:
@@ -412,7 +432,9 @@ class ConversionWorker(QObject):
         total_eq = 0         # 누적 수식 수
         total_crops = 0      # 전체 크롭 수(진행바 분모)
         file_path = Path(self.file_path)
-        self._reset_record_dirs()   # 크롭/OCR 기록 폴더 초기화(이번 실행분으로 갱신)
+        # ⚠️ 기록 폴더 리셋은 여기서 하지 않는다 — 시작 즉시 지우면 크롭 편집 취소/검출 실패
+        #    만으로 멀쩡한 기존 캐시('캐시로 변환' 원천)가 사라진다. 새 기록이 실제로 쓰이기
+        #    직전(크롭 게이트 통과 후 / OCR 시작 전)에 _reset_record_dirs() 호출(멱등).
 
         # Step 1: 이미지 로드
         self.progress.emit(5, "파일 로드 중...")
@@ -571,6 +593,7 @@ class ConversionWorker(QObject):
                 self.error.emit("사용자에 의해 취소되었습니다.")
                 return
             crop_boxes_per_page = self._crop_result
+            self._reset_record_dirs()   # 게이트 통과 — 이제부터 새 기록으로 갱신(이전 캐시 폐기)
 
             # ── 무쓸모 페이지 자동 스킵: 편집 후에도 박스 0개인 페이지(표지·빈 페이지·
             #    답안지)는 처리 대상에서 제외 ──
@@ -626,6 +649,7 @@ class ConversionWorker(QObject):
                 logger.warning("크롭 기록 저장 실패(무시): %s", _e)
 
         # OCR 인식 시작 — 진행바를 크롭 단위로 부드럽게 움직이기 위해 전체 크롭 수를 분모로.
+        self._reset_record_dirs()   # 비크롭 경로 대비(크롭 경로는 게이트 직후 이미 리셋, 멱등)
         if crop_boxes_per_page is not None:
             total_crops = sum(len(b) for b in crop_boxes_per_page)
         crops_done = 0
@@ -773,6 +797,11 @@ class ConversionWorker(QObject):
                 + (f"크롭 {crop_n}개 · " if crop_n else "")
                 + f"문항 {ocr_quality.question_count} · 수식 {ocr_quality.equation_count} "
                 f"({perf_counter() - page_t0:.1f}s)")
+
+        # OCR 전 페이지 완료 — 캐시 완결 마커(중간 취소로 남은 **부분 캐시**를 '캐시로 변환'이
+        # 온전한 기록으로 오인해 잘린 문서를 만드는 것 방지). 페이지 목록 포함.
+        self._save_record("ocr", "_complete",
+                          {"pages": [p.page_number for p in pages]})
 
         # ── Gate 3: 미리보기 다이얼로그 (GUI 스레드에서 실행) ──
         # skip_preview 면 미리보기를 건너뛰고 곧장 문서 생성으로 진행(사용자 요구 2026-06-05:
@@ -1557,6 +1586,25 @@ class MainWindow(QMainWindow):
         boxes = dialog.result_boxes if result == CropEditorDialog.DialogCode.Accepted else None
         if self._worker:
             self._worker.set_crop_result(boxes)
+
+    def closeEvent(self, event):
+        """변환 중 창 닫기 방어 — 워커 미정리로 QThread 파괴 크래시/이벤트 영구대기 방지."""
+        if self._thread is not None and self._thread.isRunning():
+            ret = QMessageBox.question(
+                self, "종료 확인",
+                "변환이 진행 중입니다. 중단하고 종료할까요?",
+                QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No,
+                QMessageBox.StandardButton.No)
+            if ret != QMessageBox.StandardButton.Yes:
+                event.ignore()
+                return
+            if self._worker:
+                self._worker.cancel()          # _cancelled + 크롭/프리뷰 이벤트 set(대기 해제)
+            self._thread.quit()
+            if not self._thread.wait(5000):    # 정상 종료 대기(취소 체크포인트 도달까지)
+                self._thread.terminate()       # COM 행 등 최후수단 — 앱 종료 직전이라 허용
+                self._thread.wait(2000)
+        event.accept()
 
     def _set_ui_converting(self, converting: bool):
         self._convert_btn.setEnabled(not converting)

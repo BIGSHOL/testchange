@@ -32,7 +32,10 @@ _ESSAY_SEPARATOR = "──────────── 서술형 ────�
 _ESSAY_BLANK_LINES = 6
 
 
+import os
 import re
+import tempfile
+import zipfile
 
 # 조건/보기 박스 마커·불릿·경계대시
 _COND_MARKER_RE = re.compile(r"(<\s*조건\s*>|<\s*보기\s*>|\[\s*조건\s*\]|\[\s*보기\s*\])")
@@ -531,7 +534,17 @@ class HwpComWriter:
                 return
             for b in blocks[:ci]:          # 조건 머리 앞(표 등)은 개별 렌더
                 self._write_block(b)
-            self._write_condition_box(blocks[ci:])   # 조건부터는 박스(재귀, 이제 표 없음)
+            # 조건 머리 **뒤**에도 표가 있으면(예: _recover_table 이 끝에 append) 박스는
+            # 머리~표 직전까지만 — 그대로 재귀하면 동일 리스트 무한재귀(RecursionError).
+            rest = blocks[ci:]
+            ti = next((i for i, b in enumerate(rest)
+                       if b.type == ContentType.TABLE), None)
+            if ti is None:
+                self._write_condition_box(rest)      # 표 없음 보장 → 재귀 안전
+            else:
+                self._write_condition_box(rest[:ti])
+                for b in rest[ti:]:                  # 표(와 그 뒤)는 개별 렌더
+                    self._write_block(b)
             return
         # 단락 시작(pos==0, 예: 그림 뒤 빈 단락)이면 추가 줄바꿈 없이 그 단락을 재사용
         # → 그림↔조건 사이 빈 줄 방지(사용자 2026-06-05). 아니면 새 줄로.
@@ -784,6 +797,35 @@ class HwpComWriter:
             self._write_page(page)
 
 
+def _rewrite_zip(hwpx_path: "str | Path", infos, contents: dict) -> None:
+    """ZipInfo(이름·순서·압축방식·플래그)를 보존하며 hwpx 를 재작성 — 임시파일 + 원자 교체.
+
+    ⚠️ 실패(os.replace 잠김 등) 시 임시파일을 **반드시 정리** — 예외가 호출부에서 경고로만
+    먹히면 출력 폴더에 무작위 이름 `.hwpx` 가 진짜 변환물처럼 남았다(감사 2026-06-10).
+    """
+    hwpx_path = Path(hwpx_path)
+    fd, tmp = tempfile.mkstemp(suffix=".hwpx.tmp", dir=str(hwpx_path.parent))
+    os.close(fd)
+    try:
+        with zipfile.ZipFile(tmp, "w") as zout:
+            for info in infos:
+                # ZipInfo 복제(압축방식·외부속성·플래그 유지), 내용만 교체
+                zi = zipfile.ZipInfo(info.filename, date_time=info.date_time)
+                zi.compress_type = info.compress_type
+                zi.external_attr = info.external_attr
+                zi.internal_attr = info.internal_attr
+                zi.create_system = info.create_system
+                zi.flag_bits = info.flag_bits
+                zout.writestr(zi, contents[info.filename])
+        os.replace(tmp, str(hwpx_path))
+    finally:
+        if os.path.exists(tmp):
+            try:
+                os.remove(tmp)
+            except OSError:
+                pass
+
+
 def _fix_invisible_charpr(hwpx_path: str | Path) -> int:
     """저장된 .hwpx 의 글자모양에서 장평(ratio)·상대크기(relSz) 0 을 100 으로 보정.
 
@@ -827,20 +869,7 @@ def _fix_invisible_charpr(hwpx_path: str | Path) -> int:
         return 0
     contents[hdr_info.filename] = hdr.encode("utf-8")
 
-    # 원본 ZipInfo 를 그대로 재사용해 같은 순서·같은 압축방식으로 재작성.
-    fd, tmp = tempfile.mkstemp(suffix=".hwpx", dir=str(hwpx_path.parent))
-    os.close(fd)
-    with zipfile.ZipFile(tmp, "w") as zout:
-        for info in infos:
-            # ZipInfo 복제(압축방식·외부속성·플래그 유지), 내용만 교체
-            zi = zipfile.ZipInfo(info.filename, date_time=info.date_time)
-            zi.compress_type = info.compress_type
-            zi.external_attr = info.external_attr
-            zi.internal_attr = info.internal_attr
-            zi.create_system = info.create_system
-            zi.flag_bits = info.flag_bits
-            zout.writestr(zi, contents[info.filename])
-    os.replace(tmp, hwpx_path)
+    _rewrite_zip(hwpx_path, infos, contents)
     return count
 
 
@@ -889,19 +918,7 @@ def _inject_choice_tabstop(hwpx_path: str | Path, pos: int = _CHOICE_COL2_HWPUNI
         return 0
     contents[hdr_info.filename] = hdr.encode("utf-8")
 
-    # 원본 ZipInfo 를 그대로 재사용해 같은 순서·같은 압축방식으로 재작성.
-    fd, tmp = tempfile.mkstemp(suffix=".hwpx", dir=str(hwpx_path.parent))
-    os.close(fd)
-    with zipfile.ZipFile(tmp, "w") as zout:
-        for info in infos:
-            zi = zipfile.ZipInfo(info.filename, date_time=info.date_time)
-            zi.compress_type = info.compress_type
-            zi.external_attr = info.external_attr
-            zi.internal_attr = info.internal_attr
-            zi.create_system = info.create_system
-            zi.flag_bits = info.flag_bits
-            zout.writestr(zi, contents[info.filename])
-    os.replace(tmp, hwpx_path)
+    _rewrite_zip(hwpx_path, infos, contents)
     return count
 
 
@@ -989,17 +1006,7 @@ def _set_endnote_suffix(hwpx_path: str | Path, suffix: str = ".") -> int:
     if not count:
         return 0
 
-    tmp = str(hwpx_path) + ".tmp"
-    with zipfile.ZipFile(tmp, "w") as zout:
-        for info in infos:
-            zi = zipfile.ZipInfo(info.filename, date_time=info.date_time)
-            zi.compress_type = info.compress_type
-            zi.external_attr = info.external_attr
-            zi.internal_attr = info.internal_attr
-            zi.create_system = info.create_system
-            zi.flag_bits = info.flag_bits
-            zout.writestr(zi, contents[info.filename])
-    os.replace(tmp, hwpx_path)
+    _rewrite_zip(hwpx_path, infos, contents)
     return count
 
 
@@ -1196,17 +1203,7 @@ def _inject_bogi_form(hwpx_path: str | Path) -> int:
     # 헤더(테두리 append) 반영
     contents[header_fn] = header.encode("utf-8")
 
-    tmp = str(hwpx_path) + ".tmp"
-    with zipfile.ZipFile(tmp, "w") as zout:
-        for info in infos:
-            zi = zipfile.ZipInfo(info.filename, date_time=info.date_time)
-            zi.compress_type = info.compress_type
-            zi.external_attr = info.external_attr
-            zi.internal_attr = info.internal_attr
-            zi.create_system = info.create_system
-            zi.flag_bits = info.flag_bits
-            zout.writestr(zi, contents[info.filename])
-    os.replace(tmp, hwpx_path)
+    _rewrite_zip(hwpx_path, infos, contents)
     return total
 
 
@@ -1317,9 +1314,18 @@ def _inject_table_shading(hwpx_path: str | Path) -> int:
             if mode is None:
                 continue
             if shade_id is None:
-                id_map, header = _append_borderfills(
-                    header, _SHADE_BORDERFILL_DEF, [16])
-                shade_id = id_map[16]
+                # 멱등화: 이미 주입된 #D9D9D9 음영 borderFill 이 있으면 그 id 재사용 —
+                # 재실행마다 새 id 를 append 하면 중복 정의가 누적되고 셀 참조가 매번
+                # 바뀌어 "이미 음영이면 무변경" 보장이 깨졌다(감사 2026-06-10).
+                m_old = re.search(
+                    r'<hh:borderFill\b[^>]*\bid="(\d+)"(?:(?!</hh:borderFill>).)*?'
+                    r'faceColor="#D9D9D9"', header, re.S)
+                if m_old:
+                    shade_id = int(m_old.group(1))
+                else:
+                    id_map, header = _append_borderfills(
+                        header, _SHADE_BORDERFILL_DEF, [16])
+                    shade_id = id_map[16]
             new_tbl = _shade_cells(tbl_xml, shade_id, mode)
             if new_tbl != tbl_xml:
                 out.append(s[last:tstart])
@@ -1334,17 +1340,7 @@ def _inject_table_shading(hwpx_path: str | Path) -> int:
     if total == 0:
         return 0
     contents[header_fn] = header.encode("utf-8")
-    tmp = str(hwpx_path) + ".tmp"
-    with zipfile.ZipFile(tmp, "w") as zout:
-        for info in infos:
-            zi = zipfile.ZipInfo(info.filename, date_time=info.date_time)
-            zi.compress_type = info.compress_type
-            zi.external_attr = info.external_attr
-            zi.internal_attr = info.internal_attr
-            zi.create_system = info.create_system
-            zi.flag_bits = info.flag_bits
-            zout.writestr(zi, contents[info.filename])
-    os.replace(tmp, hwpx_path)
+    _rewrite_zip(hwpx_path, infos, contents)
     return total
 
 

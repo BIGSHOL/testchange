@@ -1,11 +1,12 @@
 # 이어작업 핸드오프 (타 컴퓨터 인수인계)
 
 > 이 문서 하나로 **다른 컴퓨터에서 이어서 작업**할 수 있게 정리. 상세 설계·함정은
-> `CLAUDE.md`(루트)와 자동메모리(`C:\Users\<you>\.claude\projects\D---------\memory\MEMORY.md`)에 있다.
-> 최종 갱신: 2026-06-10 (커밋 `ac396e2`). ✅ **소스 HEAD=`ac396e2`, 배포 exe=`ac396e2` 빌드 완료**
+> `CLAUDE.md`(루트)와 자동메모리(`C:\Users\<you>\.claude\projects\F--------\memory\MEMORY.md`)에 있다.
+> 최종 갱신: 2026-06-10 (Codex 인계 커밋). ✅ **직전 배포 exe=`ac396e2` 빌드 완료**
 > (2026-06-10 재빌드·`배포용/` 배포, `--selftest` = `SELFTEST OK (v0.1.14)` + `GEMINI LIVE OK`,
 > `config.json` 379B 보존). 강동중 렌더 8건(`f85eb7c`)·**'캐시로 변환' 버튼(`ac396e2`)**·경운중 폼
-> 4건·표복구/폼측정/서수'제' 전부 배포 반영됨 → 추가 빌드 불필요.
+> 4건·표복구/폼측정/서수'제' 전부 배포 반영됨. 이번 Codex 인계 커밋은 **소스/테스트/문서만**
+> 마무리했고, HWP COM 로컬 시작 문제 때문에 새 exe 빌드·배포는 아직 하지 않았다.
 
 ## 0. 프로젝트 한 줄
 PDF 수학 시험지 → HWPX 자동 변환 (PySide6 GUI + Gemini 크롭검출 + Claude OCR + HWP COM 렌더).
@@ -13,7 +14,7 @@ PDF 수학 시험지 → HWPX 자동 변환 (PySide6 GUI + Gemini 크롭검출 +
 
 ## 1. 저장소 / 원격
 - 원격 `testchange` = `https://github.com/BIGSHOL/testchange.git` (푸시는 여기로: `git push testchange master`).
-- 메인 브랜치: `master`. 현재 HEAD: `389e974`.
+- 메인 브랜치: `master`. 현재 HEAD는 이어받은 PC에서 `git rev-parse --short HEAD` 로 확인.
 - 클론 후: `git remote -v` 로 `testchange` 확인(없으면 `git remote add testchange <URL>`).
   - ⚠️ PC 마다 원격 이름이 다를 수 있다(어떤 PC는 `origin`). `git remote -v` 로 실제 이름 확인 후 그 이름으로 push.
 
@@ -139,6 +140,92 @@ only** — anthropic 없이도 돈다). 정답 JSON 은 `tests/golden_ocr/` 에 
 **0.1.14 빌드(이번 세션 직전)에 이미 포함**(별도 빌드 불필요): `6923e5f` 서답형 4·5 누락 수정,
 `ad57f4d` 골든셋 7건, `81c7100`/`f9d33f4` OCR 플라이휠 ②+④, `de6a790` 크롭·OCR 영구저장+OCR
 `temperature=0`, `62a061b` Gemini→Claude 폴백 가시화.
+
+### 6-b. Codex 인계 세션 — Claude 사용량 소진 후 이어받은 미커밋 변경 마무리 (2026-06-10)
+
+Claude Code가 사용량 소진으로 끊긴 뒤 Codex가 이어받아 **기존 dirty worktree의 코드/테스트를
+검증하고 문서화**했다. 주요 변경 범위:
+
+- `content_parser.py`: 소수/총점 배점 캡처 소실 방지, `[총 N점]` 제거/복원 동기화, 단독 불릿
+  시작 정규화, 기하 문맥에서 stat-이탤릭 스킵, 쉼표 나열/스푸리어스 쉼표 판정 완화,
+  `\le/\ge/\ne`·명령어+숫자 경계 인식, raw 박스가 다음 항목으로 이어질 때 box spill 방지,
+  단일 수식 블록 평문 강등 방지.
+- `latex_to_hwpeq.py`: 중첩 `\left...\right` 를 최내곽부터 고정점 치환, `45^\circ` 같은
+  중괄호 없는 명령어 첨자 보호, `\setminus` 연산자 증발 방지.
+- `ocr_engine.py`: usage 집계 락, 빈 message content 방어(`_msg_text`), 닫는 코드펜스 없는
+  JSON 응답 복구, 비-dict question 방어.
+- `hwp_com_writer.py`: `_write_condition_box` 의 표 혼합 무한재귀 방지, HWPX zip 재작성 공통화
+  및 실패 시 임시파일 정리, 표 음영 borderFill 멱등화.
+- `hwp_com.py`/`hwp_form_writer.py`: HWP `Open/SaveAs/PDF` 절대경로화, 저장 침묵 실패 감지,
+  HWP Quit 경고 로그, 0행/0열 표 방어, 폼 슬롯 grow 실제 개수 기반 진행, 측정용 HWP finally
+  Quit, `_dedupe_essay_labels` 동일 길이 공백 치환(lineseg 보존).
+- `gui/main_window.py`: 부분 캐시 완결 마커 경고, 기록 폴더 reset 시점 지연(크롭 게이트 통과 후),
+  변환 중 창 닫기 취소 처리.
+- 테스트 추가/보강: `tests/test_extract_json.py`, `test_content_parser.py`, `test_render_fixes.py`.
+
+검증 완료(키 0):
+
+```powershell
+.venv\Scripts\python.exe tests/test_content_parser.py
+.venv\Scripts\python.exe tests/test_render_fixes.py
+.venv\Scripts\python.exe tests/test_extract_json.py
+.venv\Scripts\python.exe tests/test_equation_metrics.py
+.venv\Scripts\python.exe scripts/verify_output_format.py --all
+.venv\Scripts\python.exe -m compileall core gui scripts tests
+```
+
+추가 수동 검증:
+- `verify-latex-hwpeq`: 13개 regex 패턴 컴파일 + `\mid` 공개 API 변환 확인 PASS.
+- `verify-hwpx-structure`: `hwpx_writer.py`/`template_loader.py` NS 동일 확인 PASS.
+- `verify-ocr-parser-sync`: `_INLINE_LATEX_RE`, `_MATH_EXPR_RE` 컴파일/기본 매칭 PASS.
+- `pytest` 는 현재 `.venv`에 미설치라 실행 못 함.
+
+실데이터 재렌더 시도:
+
+```powershell
+.venv\Scripts\python.exe scripts/testkit.py `
+  "N:\개인\기출\기출작업\194차\[학남고][2][확통][25-2-기말][미래엔] (원본).pdf" `
+  ".testkit\codex_after_claude.hwpx" --render-only
+```
+
+결과: `loaded 6 pages`, `crops: CACHE`, `OCR: 21 cache, 0 api-call` 까지 정상. 이후
+`HWPFrame.HwpObject` COM 시작에서 로컬 HWP 2020이 크래시해 HWPX/PNG 렌더는 미완료.
+
+### 6-c. 현재 로컬 HWP COM 블로커 — 다른 PC/재부팅 후 먼저 재시도
+
+이 PC의 현재 세션에서 `win32com.client.Dispatch("HWPFrame.HwpObject")` 가
+`CO_E_SERVER_EXEC_FAILURE(0x80080005)` 로 실패한다. Windows 이벤트 로그의 실제 원인:
+
+- 앱: `C:\Program Files (x86)\HNC\Office 2020\HOffice110\bin\hwp.exe` (`11.0.0.2129`)
+- 예외: `.NET Runtime` `System.UriFormatException`
+- 스택: `MS.Internal.FontCache.Util..cctor()` →
+  `Hnc.Office.Controls.Manager.CultureFontManager.GetPrivateFont()` →
+  `Hwp.HwpAppMain.InitApp()`
+
+재현/판별:
+- 직접 `hwp.exe -Automation` 은 뜬다.
+- 직접 `hwp.exe -Embedding` 도 뜬다.
+- **`hwp.exe -Automation -Embedding` 은 같은 FontCache/CultureFontManager 크래시**를 재현한다.
+- COM은 등록된 `LocalServer32 = hwp.exe -Automation` 에 `-Embedding` 을 붙이는 경로로 보여 현재
+  이 조합에서 죽는다.
+- 32비트 PowerShell `New-Object -ComObject HWPFrame.HwpObject` 도 같은 `0x80080005`.
+- HKCU CLSID override 실험은 효과 없어 **원복 완료**. 현재 레지스트리 변경 없음.
+
+Codex가 한 로컬 조치(되돌릴 수 있음):
+- HNC 폰트 캐시 의심 파일 3개를 삭제하지 않고 백업명으로 이동:
+  - `C:\Users\user\AppData\Roaming\Hnc\User\Common\110\Fonts\ShareFont.ini.codexbak_20260610_115155`
+  - `C:\Users\user\AppData\Roaming\Hnc\User\Fonts\ListFnt110.ini.codexbak_20260610_115155`
+  - `C:\Users\user\AppData\Roaming\Hnc\User\Fonts\PrivateFont110.dat.codexbak_20260610_115155`
+- HWP가 `ShareFont.ini`/`PrivateFont110.dat` 는 재생성했다. 필요하면 새 파일을 치우고 `.codexbak_*`
+  를 원래 이름으로 되돌리면 된다.
+
+다음 사람의 시작 순서:
+1. Windows/HWP 재시작 또는 다른 PC에서 `Get-Process Hwp,WerFault | Stop-Process -Force`.
+2. `python -c "import win32com.client; h=win32com.client.Dispatch('HWPFrame.HwpObject'); h.Quit(); print('OK')"`
+   로 COM 시작만 먼저 확인.
+3. 성공하면 위 학남고 `scripts/testkit.py ... --render-only` 재실행 → `scripts/render_to_png.py` 로
+   PNG 육안 확인.
+4. 렌더 OK 후 사용자 최종 체크를 받고 exe 빌드/배포(`PyInstaller`) 진행.
 
 ## 7. 미해결 / 다음 작업
 1. **실모델 OCR 검증(키 필요)** — `config.json` Anthropic 키 만료 가능(과거 PC 기준 401).

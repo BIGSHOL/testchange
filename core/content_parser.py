@@ -46,13 +46,17 @@ def _parse_question(q_data: dict) -> Question:
 
     # 배점 처리(원시 단계): 숫자 분리 전에 raw 텍스트에서 [N점]을 추출·제거한다.
     # (숫자 분리가 "[9점]"의 9를 수식으로 떼어내면 정규식이 못 맞추므로 반드시 먼저.)
+    # ⚠️ 캡처와 제거(_SCORE_TEXT_RE)는 같은 패턴을 봐야 한다 — 캡처가 정수만 보고 제거가
+    #    소수([4.5점])·총점([총 7점])까지 지우면 배점이 **캡처 없이 소실**된다(2026-06-10 감사).
+    #    [총 N점](소문항 부모 총점)도 score 로 캡처 — 렌더러가 우측정렬 "[총 N점]" 으로 복원.
     raw_contents = [dict(bd) for bd in q_data.get("contents", [])]
     if not question.score:
         for bd in raw_contents:
             if bd.get("type") == "text":
-                m = re.search(r'\[(\d+)점\]', bd.get("value", ""))
+                m = re.search(r'\[\s*(?:총\s*)?(\d+(?:\.\d+)?)\s*점\]', bd.get("value", ""))
                 if m:
-                    question.score = int(m.group(1))
+                    v = float(m.group(1))
+                    question.score = int(v) if v.is_integer() else v
                     break
     for bd in raw_contents:
         if bd.get("type") == "text" and bd.get("value"):
@@ -123,7 +127,7 @@ _BOX_BULLET = "○"
 # 단독 원형 불릿 변형들(앞뒤 공백으로 둘러싸인 것만 — 단어 속 글자 오치환 방지). ∘(U+2218
 # 합성연산자)·°·라틴 o/O·키릴 О 는 제외(수식 기호·기하 점 O·변수 오치환 방지).
 # ㅇ(U+3147)·●(U+25CF)·〇(U+3007)·◦(U+25E6)·∙(U+2219) 를 표준 ○ 로 통일.
-_BOX_CIRCLE_RE = re.compile(r"(?<=\s)[ㅇ●〇◦∙](?=\s)")
+_BOX_CIRCLE_RE = re.compile(r"(?:(?<=\s)|^)[ㅇ●〇◦∙](?=\s)")   # ^ = raw 블록이 불릿으로 시작
 
 
 def _normalize_box_circles(text: str) -> str:
@@ -263,7 +267,14 @@ _STAT_MATHRM_RE = re.compile(r'\\mathrm\{([XYPEVNZ])\}(?!\s*_)')
 
 
 def _italicize_stat_operators(blocks: list[ContentBlock]) -> list[ContentBlock]:
-    """수식 안 ``\\mathrm{P/E/V/N/Z/X/Y}`` 를 이탤릭(맨 글자)으로 되돌린다(순열 P_ 는 제외)."""
+    """수식 안 ``\\mathrm{P/E/V/N/Z/X/Y}`` 를 이탤릭(맨 글자)으로 되돌린다(순열 P_ 는 제외).
+
+    기하 문맥(점·꼭짓점…)이면 스킵 — ``\\mathrm{P}(1,~2)`` 같은 **복합 수식 속 점 라벨**은
+    여기서 벗기면 ``_romanize_point_names``(통째 라벨 수식만 재로만화)가 못 되돌려 점 P 가
+    이탤릭으로 새던 버그(감사 2026-06-10). 미러(_italicize_nongeo_single_letters)와 동일 게이트.
+    """
+    if _has_geometry_context(blocks):
+        return blocks
     out: list[ContentBlock] = []
     for b in blocks:
         if (b.type in (ContentType.EQUATION, ContentType.EQUATION_BLOCK)
@@ -513,10 +524,11 @@ def _split_one_eq_commas(block: ContentBlock, result: list[ContentBlock]) -> boo
                                    value=re.sub(r",\s*", ",~", v)))
         return True
     # **스푸리어스 쉼표 방어**(사용자 2026-06-08, 학남고 #12): OCR 이 곱셈에 쉼표를 끼우면
-    # ``P(…)=16/9, P(…)`` → "16/9 , P(…)" 로 깨진다. 진짜 나열은 항목이 **전부 단순 원자**
-    # (숫자·변수·⋯)이거나 **전부 최상위 관계식**(=,<,>,≤,≥…)일 때뿐 — 일부만 관계식이고
-    # 나머지가 함수식(P(…))이면 쉼표는 곱셈 자리의 OCR 오삽입이므로 **쉼표 제거 후 한 수식**.
-    if not (all(_is_atom_item(p) for p in parts) or all(_has_toplevel_relation(p) for p in parts)):
+    # ``P(…)=16/9, P(…)`` → "16/9 , P(…)" 로 깨진다. 스푸리어스 = **원자도 관계식도 아닌**
+    # 항목(함수식 P(…)·16/9 등)이 하나라도 있을 때만 — 관계식+원자 혼합(``x = 1, 2`` 해답
+    # 나열)은 진짜 나열이라 쉼표를 보존한다(감사 2026-06-10: "전부 원자 or 전부 관계식"
+    # 조건이 이 혼합의 쉼표를 지웠음).
+    if any(not _is_atom_item(p) and not _has_toplevel_relation(p) for p in parts):
         result.append(ContentBlock(type=ContentType.EQUATION, value=" ".join(parts)))
         return True
     # 괄호 없는 수식 나열 → 개별 수식 + 텍스트 쉼표(종전 동작).
@@ -720,12 +732,13 @@ _LATEX_CMD_RE = re.compile(
     r'log|ln|sin|cos|tan|sec|csc|cot|'
     r'square|circ|triangle|angle|perp|parallel|'
     r'cup|cap|subset|supset|in|notin|'
-    r'mathbb|mathrm|mathbf|mathit|text)'
-    r'(?:\b|(?=[{^_(\[]))'
+    r'mathbb|mathrm|mathbf|mathit|text|'
+    r'le|ge|ne|to|sim)'                  # 짧은꼴(\le \ge \ne …) — OCR 이 \leq 대신 자주 씀.
+    r'(?:\b|(?=[{^_(\[\d]))'             # \d: `2\times3` 처럼 명령어 바로 뒤 숫자도 경계로.
 )
 
-# 배점 텍스트 패턴 (예: [3점], [4점])
-_SCORE_TEXT_RE = re.compile(r'\s*\[\d+(?:\.\d+)?점\]\s*')
+# 배점 텍스트 패턴 (예: [3점], [4.5점], [총 7점]) — 캡처 정규식(_parse_question)과 동치 유지
+_SCORE_TEXT_RE = re.compile(r'\s*\[\s*(?:총\s*)?\d+(?:\.\d+)?\s*점\]\s*')
 
 # 보기/조건/상자 박스 머리 마커(원시 텍스트 시작). 자기완결 박스(마커+항목이 한 raw
 # 블록) 판정과 그 뒤 발문 연속 분리에 쓴다.
@@ -733,6 +746,9 @@ _RAW_BOX_MARK_RE = re.compile(r"^\s*(?:<\s*(?:조건|보기|상자)\s*>|\[\s*(?:
 # 항목 라벨 단독(ㄱ./ㄴ./…, (가)/(나)/…, 1)/2)/…) — 박스 머리 뒤가 이것뿐이면 자기완결 아님.
 _BARE_ITEM_LABEL_RE = re.compile(
     r"^(?:[ㄱ-ㅎ]\s*\.?|[（(]\s*[가-힣]\s*[)）]|\d+\s*[.)])\s*$")
+# 다음 raw 블록이 박스 항목으로 **시작**하는지(라벨/불릿) — 박스 연속 판정(#14 변종).
+_NEXT_ITEM_START_RE = re.compile(
+    r"^\s*(?:[•·▪◦○ㅇ]\s*)?(?:[ㄱ-ㅎ]\s*\.|[（(]\s*[가-힣]\s*[)）])")
 
 
 def _parse_raw_blocks(raws: list[dict]) -> list[ContentBlock]:
@@ -857,6 +873,13 @@ def _raw_box_end(raws: list[dict]) -> int | None:
             if m:
                 rest = v[m.end():].strip()
                 if rest and not _BARE_ITEM_LABEL_RE.match(rest) and i + 1 < len(raws):
+                    # #14 변종 방어: 마커 블록에 첫 항목이 통째로 있어도(``<보기> ㄱ. f(x)=x``)
+                    # **다음 raw 가 항목 라벨/불릿으로 시작**하면(``ㄴ. …``) 박스가 이어지는
+                    # 것 — 발문 연속으로 떼면 ㄴㄷㄹ 가 박스 밖으로 샌다(감사 2026-06-10).
+                    nxt = raws[i + 1]
+                    if (nxt.get("type") == "text"
+                            and _NEXT_ITEM_START_RE.match(nxt.get("value") or "")):
+                        return None
                     return i + 1
                 return None
     return None
@@ -944,19 +967,11 @@ def _split_latex_commands(text: str) -> list[ContentBlock]:
         remaining = _split_latex_commands(after_text)
         blocks.extend(remaining)
 
-    return blocks if len(blocks) > 1 else [
-        ContentBlock(type=ContentType.TEXT, value=text)
-    ]
-
-
-def _extract_score(blocks: list[ContentBlock]) -> int | None:
-    """텍스트 블록에서 첫 [N점] 배점 숫자를 추출 (score 필드 보강용)."""
-    for block in blocks:
-        if block.type == ContentType.TEXT:
-            m = re.search(r'\[(\d+)점\]', block.value)
-            if m:
-                return int(m.group(1))
-    return None
+    # 블록이 하나여도 **수식이면 유지** — 텍스트 블록 전체가 한 수식(\sqrt{24} \div \sqrt{3})
+    # 일 때 len>1 조건이 평문으로 강등시켜 백슬래시 LaTeX 가 그대로 인쇄됐다(감사 2026-06-10).
+    if len(blocks) > 1 or (blocks and blocks[0].type != ContentType.TEXT):
+        return blocks
+    return [ContentBlock(type=ContentType.TEXT, value=text)]
 
 
 # 쪼개진 배점 ``[`` + EQ(숫자) + ``점]`` 제거용(점수가 수식 객체화되면 _SCORE_TEXT_RE 가
