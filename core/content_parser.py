@@ -42,6 +42,7 @@ def _parse_question(q_data: dict) -> Question:
     question = Question(
         number=q_data.get("number", 0),
         score=q_data.get("score"),
+        label_type=q_data.get("label_type") or "",   # 서답형/서술형/단답형(폼 라벨·정답 동기화용)
     )
 
     # 배점 처리(원시 단계): 숫자 분리 전에 raw 텍스트에서 [N점]을 추출·제거한다.
@@ -53,7 +54,7 @@ def _parse_question(q_data: dict) -> Question:
     if not question.score:
         for bd in raw_contents:
             if bd.get("type") == "text":
-                m = re.search(r'\[\s*(?:총\s*)?(\d+(?:\.\d+)?)\s*점\]', bd.get("value", ""))
+                m = re.search(r'\[\s*(?:총\s*)?(\d+(?:\.\d+)?)\s*점\s*(?:,[^\]]*)?\]', bd.get("value", ""))
                 if m:
                     v = float(m.group(1))
                     question.score = int(v) if v.is_integer() else v
@@ -457,7 +458,10 @@ def _split_trailing_domain(blocks: list[ContentBlock]) -> list[ContentBlock]:
     """수식 끝 ``\\quad (x=0, 1, ⋯, 50)`` 정의역을 떼어 개별 수식+텍스트로 분리."""
     out: list[ContentBlock] = []
     for b in blocks:
-        if b.type in (ContentType.EQUATION, ContentType.EQUATION_BLOCK) and b.value:
+        # EQUATION_BLOCK(독립 디스플레이 수식)은 정의역까지 **통째 유지** — 가운데 한 줄로
+        # 렌더해야 자연스럽다. 인라인 EQUATION 만 긴 정의역 꼬리를 떼어 줄바꿈을 자연화한다
+        # (이항분포 P(X=r)=…(r=0,1,⋯,72) 가 인라인 텍스트로 쪼개지던 것, 중앙고 #19 2026-06-10).
+        if b.type == ContentType.EQUATION and b.value:
             v = b.value.rstrip()
             m = _TRAILING_DOMAIN_RE.search(v)
             if m and re.search(r"\\c?dots|\\ldots|\.\.\.|⋯|=", m.group("body")):
@@ -737,8 +741,10 @@ _LATEX_CMD_RE = re.compile(
     r'(?:\b|(?=[{^_(\[\d]))'             # \d: `2\times3` 처럼 명령어 바로 뒤 숫자도 경계로.
 )
 
-# 배점 텍스트 패턴 (예: [3점], [4.5점], [총 7점]) — 캡처 정규식(_parse_question)과 동치 유지
-_SCORE_TEXT_RE = re.compile(r'\s*\[\s*(?:총\s*)?\d+(?:\.\d+)?\s*점\]\s*')
+# 배점 텍스트 패턴 (예: [3점], [4.5점], [총 7점], [7점, 부분점수 있음]) — 캡처 정규식
+# (_parse_question)과 동치 유지. ``점`` 뒤 ``, 부분점수 있음`` 같은 부가 문구도 함께 제거
+# (서답형 배점, 2026-06-10 중앙고 — 본문 배점 텍스트 + score 중복 출력 방지).
+_SCORE_TEXT_RE = re.compile(r'\s*\[\s*(?:총\s*)?\d+(?:\.\d+)?\s*점\s*(?:,[^\]]*)?\]\s*')
 
 # 보기/조건/상자 박스 머리 마커(원시 텍스트 시작). 자기완결 박스(마커+항목이 한 raw
 # 블록) 판정과 그 뒤 발문 연속 분리에 쓴다.

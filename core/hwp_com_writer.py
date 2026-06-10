@@ -147,8 +147,13 @@ def _is_figure_note(b: ContentBlock) -> bool:
 
 
 # 표 제목(캡션) 종결형 — 발문 문장(종결어미/물음)은 캡션이 아니다(tail 로 넘기면 안 됨).
+# 종결 패턴 뒤에 **닫는 괄호**가 와도 종결로 본다 — "(단, a는 상수이다.)" 처럼 발문이 괄호
+# 조건절로 끝나면 마지막 TEXT 가 "는 상수이다.)" (이다.+닫는괄호). 닫는 괄호를 무시하지
+# 않으면 종결 판정이 실패해 캡션으로 오인 → 배점이 괄호 한가운데 침투한다(중앙고 #2, 2026-06-10).
+# 종결어미(이다/있다/한다/같다/된다)도 추가 — "유통기한"(명사 끝) 같은 캡션과 구별된다.
 _CAPTION_SENTENCE_RE = re.compile(
-    r"([.?!。]|시오|하라|구하라|쓰라|것은\??|값은\??|무엇|인가|니까|되는가|구하시오|하시오)\s*$")
+    r"([.?!。]|시오|하라|구하라|쓰라|것은\??|값은\??|무엇|인가|니까|되는가|구하시오|하시오"
+    r"|이다|있다|한다|같다|된다)\s*[)）.]*\s*$")
 
 
 def _is_table_caption(text: str | None) -> bool:
@@ -701,8 +706,18 @@ class HwpComWriter:
         defer_essay_score = is_essay and show_score and bool(tail_post)
 
         # 발문 — 첫 블록은 인라인(번호와 같은 줄), 발문 선두 수식 줄바꿈 방지(A7).
+        # 발문 중간 독립 블록수식(EQUATION_BLOCK) 뒤 발문 연속은 좌측 새 줄로 복귀(#19).
+        prev_t = None
         for i, block in enumerate(stem):
+            if (prev_t == ContentType.EQUATION_BLOCK
+                    and block.type not in (ContentType.EQUATION_BLOCK, ContentType.IMAGE)):
+                self.s.break_para()
+                self.s.align_left()
             self._write_block(block, inline=(i == 0))
+            prev_t = block.type
+        if prev_t == ContentType.EQUATION_BLOCK:   # 발문이 블록수식으로 끝남 → 배점 전 좌측복귀
+            self.s.break_para()
+            self.s.align_left()
         # 배점 — 객관식은 발문 끝 인라인. 서술형은 발문 끝 인라인 시도 후 줄 넘치면 우측정렬
         # (사용자 2026-06-09: 공간 충분하면 인라인, 없을 때만 줄바꿈 우측정렬).
         if show_score and not defer_essay_score:

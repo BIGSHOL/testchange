@@ -234,8 +234,17 @@ def _eq_script(block) -> str:
 
 
 def _put_block(ses, b) -> None:
-    """ContentBlock 하나를 현재 캐럿에 삽입(수식/텍스트/그림)."""
-    if b.type in (ContentType.EQUATION, ContentType.EQUATION_BLOCK):
+    """ContentBlock 하나를 현재 캐럿에 삽입(수식/텍스트/그림).
+
+    **발문 아래 독립 블록수식(EQUATION_BLOCK)은 가운데 별도줄**(기본 경로 `_write_block`
+    과 동일 — 사용자 '항상 동일' 요구). 인라인 EQUATION 은 줄 흐름 그대로. 블록수식 뒤
+    발문 연속의 좌측복귀는 호출부(`_put_qbody`)가 prev_type 추적으로 처리한다.
+    """
+    if b.type == ContentType.EQUATION_BLOCK:
+        ses.break_para()
+        ses.align_center()
+        ses.equation(_eq_script(b))         # 좌측복귀는 _put_qbody 가 다음 블록 전에
+    elif b.type == ContentType.EQUATION:
         ses.equation(_eq_script(b))  # 숫자도 수식 객체로 유지(정렬)
     elif b.type == ContentType.TEXT:
         if b.value:
@@ -426,8 +435,21 @@ def _put_qbody(ses, h, contents, score, essay: bool = False) -> None:
     ts = _tail_start(contents)
     head = contents if ts is None else contents[:ts]
     tail = [] if ts is None else contents[ts:]
+    # 발문 중간 독립 블록수식(EQUATION_BLOCK)은 가운데 별도줄, 그 **뒤 발문 연속은 좌측 새
+    # 줄**로 복귀해야 한다(중앙고 #19 "…다음과 같다. [블록수식] 이때 …"). _put_block 이
+    # 블록수식을 break+center 하므로, 직후 비-블록수식 블록 전에 좌측복귀를 끼운다(기본 경로
+    # _write_question stem 루프와 동일 — 사용자 '항상 동일').
+    prev_t = None
     for b in head:
+        if (prev_t == ContentType.EQUATION_BLOCK
+                and b.type not in (ContentType.EQUATION_BLOCK, ContentType.IMAGE)):
+            ses.break_para()
+            ses.align_left()
         _put_block(ses, b)
+        prev_t = b.type
+    if prev_t == ContentType.EQUATION_BLOCK:   # 발문이 블록수식으로 끝남 → 배점 전 좌측복귀
+        ses.break_para()
+        ses.align_left()
     # 박스 뒤 발문 연속(#18·#20)이 있으면 서술형 배점은 그 뒤로 미룬다(기본 경로와 동일).
     _, tail_post = _split_tail_post(tail)
     defer_essay_score = essay and bool(score) and bool(tail_post)
@@ -1641,7 +1663,12 @@ def _dedupe_essay_labels(hwpx_path: str | Path) -> int:
     return total
 
 
-_ESSAY_LABEL_SYNC_RE = re.compile(r'\[\s*(?:서술형|서답형|단답형)(\s*\d+\s*)\]')
+# 라벨 유형 단어만 치환(번호가 텍스트 ``[서술형 5]`` 든 수식 객체 ``[서술형 <hp:equation>5
+# </hp:equation>]`` 든 무관). 정답 페이지 라벨은 폼이 번호를 **수식 객체**로 구워둬 ``\d+`` 를
+# 요구하던 옛 패턴이 매치 실패했다(중앙고 27 "[서술형 5]" 잔존, 2026-06-10). 여는 ``[`` 직후
+# 유형단어 + (숫자] 또는 <hp:equation = 수식번호) 일 때만 라벨로 확정(본문 일반어 "서술형으로
+# 답하라" 는 여는 ``[`` 가 없어 제외). 유형 단어만 바꾸고 번호·닫는 ``]`` 는 보존.
+_ESSAY_LABEL_SYNC_RE = re.compile(r'(\[\s*)(?:서술형|서답형|단답형)')
 
 
 def _sync_essay_label_word(hwpx_path: str | Path, target: str) -> int:
@@ -1661,7 +1688,7 @@ def _sync_essay_label_word(hwpx_path: str | Path, target: str) -> int:
         if not re.search(r"section\d+\.xml$", name):
             continue
         sec = data[name].decode("utf-8")
-        sec2, n = _ESSAY_LABEL_SYNC_RE.subn(rf"[{target}\1]", sec)
+        sec2, n = _ESSAY_LABEL_SYNC_RE.subn(rf"\g<1>{target}", sec)
         if n:
             data[name] = sec2.encode("utf-8")
             total += n
@@ -1812,17 +1839,20 @@ def write_exam_to_form(
     # 1.55단계: 유형 라벨 통일 — 문제 라벨은 파서가 통일했으나 폼이 구워둔 정답 페이지 라벨이
     # 남는다. 문서가 쓰는 유형(서답형/서술형/단답형)을 감지해 모든 [ …형 N] 라벨을 통일.
     try:
-        _label_re = re.compile(r"\[\s*(서술형|서답형|단답형)\s*\d")
-        _target = None
-        for _q in essays:
-            for _b in _q.contents:
-                if getattr(_b, "type", None) == ContentType.TEXT and _b.value:
-                    _m = _label_re.search(_b.value)
-                    if _m:
-                        _target = _m.group(1)
-                        break
-            if _target:
-                break
+        # ① label_type 필드 우선(OCR 이 명시). ② 없으면 본문에서 탐지하되, 라벨이 ``[서답형 ``
+        # + EQ"N" + ``]`` 로 **쪼개져** 단일 TEXT 에 숫자가 없을 수 있다(중앙고 — `\d` 요구 정규식이
+        # 매치 실패해 target=None → 정답페이지 라벨 미동기화, 2026-06-10). 그래서 ②는 블록을
+        # **결합한 텍스트**에서 유형 단어만(숫자 없이) 찾는다.
+        _word_re = re.compile(r"(서술형|서답형|단답형)")
+        _target = next((q.label_type for q in essays if getattr(q, "label_type", "")), None)
+        if not _target:
+            for _q in essays:
+                _joined = "".join(b.value or "" for b in _q.contents[:6]
+                                  if getattr(b, "type", None) == ContentType.TEXT)
+                _m = _word_re.search(_joined)
+                if _m:
+                    _target = _m.group(1)
+                    break
         if _target:
             _sync_essay_label_word(output_path, _target)
     except Exception as e:  # noqa: BLE001
@@ -1863,4 +1893,14 @@ def write_exam_to_form(
     else:
         if not _com_relaunder(output_path):
             logger.warning("폼 후처리 실패(_com_relaunder): 보안경고 제거 재저장 실패")
+        # ⚠️ _inject_essay_meta 시점의 메타란 토큰 run 구조는 **비결정적**이다 — COM 저장이
+        # 토큰("소단원자리표식QZX")을 한 run 에 두기도, 여러 run/t 로 쪼개기도 한다(고2 선택과목
+        # 폼 중앙고에서 평문 노출, 2026-06-10). 쪼개지면 위 1.9단계 매치가 실패한다. relaunder
+        # (HWP 재저장)가 토큰을 한 run 으로 정규화하므로, 그 뒤 **잔여 토큰을 재주입**하고 한 번
+        # 더 relaunder 로 linesegs 를 재계산한다. 첫 시도에 성공했으면 토큰 0 → no-op(추가비용 없음).
+        try:
+            if _inject_essay_meta(output_path) > 0:
+                _com_relaunder(output_path)
+        except Exception as e:  # noqa: BLE001
+            logger.warning("폼 후처리 실패(메타 재주입): %s", e)
     return output_path
