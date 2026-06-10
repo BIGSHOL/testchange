@@ -746,10 +746,17 @@ def _fill_essay_at(ses, h, pos, q: Question, label_idx: int, next_pos=None) -> N
         ts = _tail_start(body)
         head = body if ts is None else body[:ts]
         tail = [] if ts is None else body[ts:]
+        # 소문항이 **개별 배점**을 가질 때만 부모 배점이 '총점'("[총 N점]"). 소문항이
+        # 배점 없는 단순 항목((1)(2)(3) 조건 나열, 상인고 #21)이면 부모 배점은 그 문제
+        # 전체 배점이므로 평문 "[N점]"(완료본 일치). 기본 경로(_write_question)와 동일.
+        subs_have_scores = any(getattr(s, "score", 0) for s in q.sub_questions)
         for b in head:
             _put_block(ses, b)
         if total:
-            _put_total_score(ses, h, total)
+            if subs_have_scores:
+                _put_total_score(ses, h, total)
+            else:
+                _put_score(ses, h, total, essay=True)
         if tail:
             _put_tail(ses, h, tail)
         for k, sub in enumerate(q.sub_questions):
@@ -1697,6 +1704,54 @@ def _sync_essay_label_word(hwpx_path: str | Path, target: str) -> int:
     return total
 
 
+# 서술형 라벨 번호 = ``[…형 ``(텍스트) + **수식 객체**(`<hp:script>N</hp:script>`) + ``]``.
+# 본문 라벨(우리 삽입)과 정답 페이지 라벨(폼 native grow)이 문서순으로 (본문,정답) 쌍 교차.
+# grow 슬롯 복사가 5번 슬롯을 베껴 마지막 라벨이 ``5``로 남고(6이어야), 어느 쪽이 틀리는지
+# 매 렌더 비결정적으로 뒤바뀐다(상인고 #25). 라벨 단어 통일 후 번호도 결정적으로 재부여한다.
+_ESSAY_LABEL_NUM_RE = re.compile(
+    r'(<hp:t>[^<]*\[\s*(?:서술형|서답형|단답형)\s*</hp:t>'
+    r'<hp:equation\b(?:(?!</hp:equation>).)*?<hp:script>)(\d+)(</hp:script>)', re.S)
+
+
+def _renumber_essay_labels(hwpx_path: str | Path, n_essays: int) -> int:
+    """모든 ``[…형 N]`` 라벨 번호를 **문서순 (본문,정답) 쌍**으로 1,1,2,2,…,n,n 재부여(저장후 XML).
+
+    폼 grow 가 마지막 서술형 답지 라벨을 ``[서술형 5]``(6이어야)로 굽고, COM 비결정성으로 본문/
+    정답 중 어느 쪽이 어긋나는지 렌더마다 뒤바뀌는 것을 결정적으로 고친다. 번호는 **수식 객체
+    `<hp:script>`** 안 숫자라 텍스트 길이·lineseg 불변(직후 `_com_relaunder` 가 재렌더). 라벨 수가
+    ``2×서술형수`` 가 아니면(비결정 paste 누락/이중) 건드리지 않는다(오손상 방지). Returns: 변경 수.
+    """
+    hwpx_path = Path(hwpx_path)
+    with zipfile.ZipFile(hwpx_path) as z:
+        infos = z.infolist()
+        data = {i.filename: z.read(i.filename) for i in infos}
+    total = 0
+    for name in list(data):
+        if not re.search(r"section\d+\.xml$", name):
+            continue
+        sec = data[name].decode("utf-8")
+        matches = list(_ESSAY_LABEL_NUM_RE.finditer(sec))
+        if not matches:
+            continue
+        if n_essays and len(matches) != 2 * n_essays:
+            logger.warning("서술형 라벨 수 불일치: 라벨 %d, 기대 %d(=2×%d) — 재부여 생략",
+                           len(matches), 2 * n_essays, n_essays)
+            continue
+        out, prev = [], 0
+        for i, m in enumerate(matches):
+            out.append(sec[prev:m.start()])
+            want = str(i // 2 + 1)
+            if m.group(2) != want:
+                total += 1
+            out.append(m.group(1) + want + m.group(3))
+            prev = m.end()
+        out.append(sec[prev:])
+        data[name] = "".join(out).encode("utf-8")
+    if total:
+        _repackage_hwpx(hwpx_path, infos, data)
+    return total
+
+
 def _inject_essay_meta(hwpx_path: str | Path) -> int:
     """서술형 끝 메타란 토큰 run 을 **살아있는 폼 [소단원]/[난이도] run** 으로 1:1 교체.
 
@@ -1857,6 +1912,13 @@ def write_exam_to_form(
             _sync_essay_label_word(output_path, _target)
     except Exception as e:  # noqa: BLE001
         logger.warning("폼 후처리 실패(_sync_essay_label_word): %s", e)
+    # 1.57단계: 서술형 라벨 **번호** 결정적 재부여 — 폼 grow 가 마지막 답지 라벨을 5(6이어야)로
+    # 굽고 COM 비결정성으로 본문/정답 중 한쪽이 어긋남(상인고 #25). 문서순 (본문,정답) 쌍을
+    # 1,1,…,n,n 으로. _com_relaunder **전**에 해 HWP 가 수식 라벨을 재렌더하게 한다.
+    try:
+        _renumber_essay_labels(output_path, len(essays))
+    except Exception as e:  # noqa: BLE001
+        logger.warning("폼 후처리 실패(_renumber_essay_labels): %s", e)
     # 1.6단계: 서술형 중복 라벨 제거는 위에서 완료. 머리말/꼬리말 채움(결정적 XML 후처리).
     if header_values:
         try:

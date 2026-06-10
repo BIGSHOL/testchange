@@ -5,6 +5,16 @@
   "ocr_engine": "claude-code-session (완료본 판독)",
   "deterministic": false,
   "created": "2026-06-10",
-  "progress": "ref/ 7쪽 저장 완료. 완료본 구조 파악 완료(객관식 19[1~19] + 서술형 6[20~25, 모두 부분점수], 12번 포물선 그림). 다음: 완료본 내용 → ocr/p{n}_merged.json (p1=1~6, p2=7~11, p3=12~16, p4=17~19+서술형20, p5=서술형21~24, p6=서술형25) → 고1 폼 렌더 → ref PNG 1:1 대조. 고1 폼 경로 첫 검증.",
-  "status": "ref_captured__ocr_json_pending"
+  "form": "[대수회][25년 폼지 최종(02.09)] (고1용) (파란).hwp",
+  "structure": "객관식 19(1~19) + 서술형 6(20~25, 모두 부분점수). #12 포물선 그림(y=-2x^2+10x + 직사각형 ABCD). #16 보기 아래 힌트 x^3=1.",
+  "review": "고1 폼 경로 첫 검증. 완료본 7쪽 1:1 대조(2회 렌더, 결정성 확인). 정답면 증발 없음.",
+  "defects_found": {
+    "B-1": "#14 근나열 '2-3i, α, β' 쉼표 증발→'2-3iαβ' — content_parser _is_atom_item 이 복소수상수·그리스변수 미인식 → 스푸리어스쉼표방어 오발. FIXED(원자 인정 확장).",
+    "B-2": "#21 배점없는 소문항((1)(2)(3)) 서술형이 '[총 5점]'(완료본 '[5점]') — has_subs 무조건 총점. FIXED(소문항 개별배점 있을 때만 총점, 기본·폼 경로).",
+    "B-3": "#24 '2i\\overline{z}'→'2ibarz' literal — accent 키워드 bar 앞 공백 없음(PLEFT 계열). FIXED(앞 영숫자면 공백 보장).",
+    "B-4": "정답면 #25 라벨 '[서술형 5]'(→6). grow 슬롯복사가 마지막 답지라벨을 5로 굽고 COM 비결정으로 본문/정답이 렌더마다 뒤바뀜. FIXED: 저장후 XML _renumber_essay_labels 가 (본문,정답) 쌍을 1,1,…,n,n 결정적 재부여(3회 렌더 [1,1,2,2,3,3,4,4,5,5,6,6] 고정).",
+    "fig-12": "포물선 그림→안내문구 대체 = 합의된 정상동작(그림 자동삽입 미구현). 하네스 _figs_to_notes 로 프로덕션 재현. 결함 아님."
+  },
+  "regression_tests": "tests/test_content_parser.py(B-1), tests/test_render_fixes.py(B-3 overline·B-4 relabel). verify_output_format 30 PASS. corpus_lint JSON/XML PASS.",
+  "status": "reviewed__4_code_bugs_fixed__clean"
 }

@@ -1,0 +1,147 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 1,
+      "score": 3.1,
+      "contents": [
+        {"type": "text", "value": "등식 "},
+        {"type": "equation", "value": "2a+13i=6+(a+2b)i"},
+        {"type": "text", "value": "를 만족시키는 실수 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "와 "},
+        {"type": "equation", "value": "b"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "a+b"},
+        {"type": "text", "value": "의 값은? (단, "},
+        {"type": "equation", "value": "i=\\sqrt{-1}"},
+        {"type": "text", "value": ")"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "10"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 2,
+      "score": 3.1,
+      "contents": [
+        {"type": "text", "value": "연립부등식 "},
+        {"type": "equation", "value": "2x-1<x+3\\leq 4x+9"},
+        {"type": "text", "value": "의 해가 "},
+        {"type": "equation", "value": "a\\leq x<b"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "a+b"},
+        {"type": "text", "value": "의 값은? (단, "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "b"},
+        {"type": "text", "value": "는 실수이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "2"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 3,
+      "score": 3.4,
+      "contents": [
+        {"type": "text", "value": "등식 "},
+        {"type": "equation", "value": "\\sqrt{-3}\\sqrt{-27}+(3-\\sqrt{-9})(2+\\sqrt{-4})=a+bi"},
+        {"type": "text", "value": "를 만족시키는 실수 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "와 "},
+        {"type": "equation", "value": "b"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "a+b"},
+        {"type": "text", "value": "의 값은? (단, "},
+        {"type": "equation", "value": "i=\\sqrt{-1}"},
+        {"type": "text", "value": ")"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "9"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 4,
+      "score": 3.4,
+      "contents": [
+        {"type": "text", "value": "x에 대한 이차방정식 "},
+        {"type": "equation", "value": "x^2-(2k+3)x+k^2+ak-b+\\frac{1}{4}=0"},
+        {"type": "text", "value": "이 실수 "},
+        {"type": "equation", "value": "k"},
+        {"type": "text", "value": "의 값에 관계없이 항상 중근을 가질 때, 실수 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "와 "},
+        {"type": "equation", "value": "b"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "a+b"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "9"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 5,
+      "score": 3.4,
+      "contents": [
+        {"type": "text", "value": "직선 "},
+        {"type": "equation", "value": "y=3x+2k"},
+        {"type": "text", "value": "가 이차함수 "},
+        {"type": "equation", "value": "y=x^2-kx+6k"},
+        {"type": "text", "value": "의 그래프와 한 점에서 만나고, 이차함수 "},
+        {"type": "equation", "value": "y=-3x^2+6x+5"},
+        {"type": "text", "value": "의 그래프와 만나지 않도록 하는 실수 "},
+        {"type": "equation", "value": "k"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "9"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 6,
+      "score": 3.4,
+      "contents": [
+        {"type": "text", "value": "밑면의 반지름의 길이와 높이가 같은 원기둥 모양의 수조에 "},
+        {"type": "equation", "value": "144\\pi\\mathrm{m}^3"},
+        {"type": "text", "value": "의 물을 부었더니 수조의 위에서부터 "},
+        {"type": "equation", "value": "2\\mathrm{m}"},
+        {"type": "text", "value": "를 남기고 물이 채워졌다. 이때 수조의 높이는? (단, 수조의 두께는 생각하지 않는다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "2\\mathrm{m}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "4\\mathrm{m}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "6\\mathrm{m}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "8\\mathrm{m}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "10\\mathrm{m}"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

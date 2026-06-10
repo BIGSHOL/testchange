@@ -1,0 +1,23 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 25,
+      "score": 6,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 6] 두 연립방정식 "},
+        {"type": "equation", "value": "\\begin{cases} 4x-y=a \\\\ x-y=6 \\end{cases}"},
+        {"type": "text", "value": "과 "},
+        {"type": "equation", "value": "\\begin{cases} x-by=9 \\\\ x^2+y^2=18 \\end{cases}"},
+        {"type": "text", "value": "의 공통인 해가 존재할 때, 실수 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "와 "},
+        {"type": "equation", "value": "b"},
+        {"type": "text", "value": "의 값을 각각 구하는 풀이 과정과 답을 서술하시오."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    }
+  ]
+}

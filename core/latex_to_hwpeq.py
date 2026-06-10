@@ -766,7 +766,11 @@ class LaTeXToHWPConverter:
             cmd = "\\" + m.group(1)
             body = m.group("body")
             hwp_accent = self.ACCENT_MAP.get(cmd, m.group(1).upper())
-            return hwp_accent + " {" + self._convert_expr(body) + "}"
+            # HWP accent 키워드(bar·hat·vec…)는 앞 글자에 붙으면 literal 이 된다
+            # (``2i\overline{z}`` → ``2ibar`` → 식별자 오인). PLEFT/XLEQ 공백 버그와 동종 —
+            # 바로 앞이 영숫자면 공백을 보장한다(상인고 #24).
+            lead = " " if (m.start() > 0 and s[m.start() - 1].isalnum()) else ""
+            return lead + hwp_accent + " {" + self._convert_expr(body) + "}"
 
         s = self._accent_pattern.sub(_accent_repl, s)
 

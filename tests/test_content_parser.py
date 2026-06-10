@@ -53,8 +53,28 @@ _SCORE_CASES = [
 ]
 
 
+def _parse_eq_blocks(value: str):
+    """equation 블록 하나를 파서에 통과시켜 (type,value) 리스트로."""
+    doc = {"header": "", "questions": [{"number": 1, "contents": [
+        {"type": "equation", "value": value}]}]}
+    q = parse_ocr_response(doc, page_number=1).questions[0]
+    return [(b.type, (b.value or "")) for b in q.contents]
+
+
+# B-1(상인고 #14): 복소수 상수 + 그리스 변수 근 나열 ``2-3i, \alpha, \beta`` 의 쉼표가
+# 스푸리어스-쉼표 방어에 뭉개져 ``2-3i \alpha \beta`` 로 합쳐지던 회귀. 쉼표(텍스트)가
+# 항목 사이에 보존돼야(개별 수식 + 텍스트 ", ").
+def _check_comma_roots(fails):
+    blocks = _parse_eq_blocks(r"2-3i, \alpha, \beta")
+    eqs = [v for t, v in blocks if t == ContentType.EQUATION]
+    texts = "".join(v for t, v in blocks if t == ContentType.TEXT)
+    if len(eqs) < 3 or "," not in texts:
+        fails.append(f"  B-1 근나열 쉼표: {blocks!r} (기대: 개별수식 3+ & 텍스트 쉼표)")
+
+
 def run():
     fails = []
+    _check_comma_roots(fails)
     for text, must in _SPACING_CASES:
         got = _render(text)
         if must not in got:
@@ -70,7 +90,7 @@ def run():
         print("FAIL test_content_parser:")
         print("\n".join(fails))
         return 1
-    print(f"OK test_content_parser ({len(_SPACING_CASES) + len(_SCORE_CASES)} cases)")
+    print(f"OK test_content_parser ({len(_SPACING_CASES) + len(_SCORE_CASES) + 1} cases)")
     return 0
 
 

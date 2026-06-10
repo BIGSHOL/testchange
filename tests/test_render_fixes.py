@@ -140,11 +140,50 @@ def run():
     chk(label2 == "[서술형 4]", f"비괄호 한블록 라벨: {label2}")
     chk(body2 and body2[0].value.startswith("다음은"), "한블록 본문 라벨 제거")
 
+    # ── G: overline(bar) 앞 공백 — 상인고 #24 ──
+    # ``2i\overline{z}`` 가 ``2ibar`` literal 로 새던 회귀(HWP accent 키워드가 앞 글자에 붙음).
+    # bar 앞이 영숫자면 공백을 보장해 ``2i bar {z}`` 로 분리돼야 한다(단독 \overline 은 정상).
+    from core.latex_to_hwpeq import latex_to_hwpeq
+    g1 = latex_to_hwpeq(r"2i\overline{z}")
+    chk("2ibar" not in g1 and "bar" in g1, f"G overline 앞공백: {g1!r}")
+    g2 = latex_to_hwpeq(r"(4+3i)z+2i\overline{z}=5+i")
+    chk("2ibar" not in g2, f"G overline 식중간: {g2!r}")
+
+    # ── H: 서술형 라벨 번호 결정적 재부여 — 상인고 #25(정답면 [서술형 5]→6) ──
+    # grow 가 마지막 답지 라벨을 5(6이어야)로 굽고 COM 비결정으로 본문/정답이 뒤바뀜.
+    # _renumber_essay_labels 가 문서순 (본문,정답) 쌍을 1,1,…,n,n 으로 결정적 고정.
+    import re as _re, zipfile, tempfile, os
+    from core.hwp_form_writer import _renumber_essay_labels, _ESSAY_LABEL_NUM_RE
+    def _lbl(n):  # [서술형 N] 라벨 한 개의 XML
+        return (f'<hp:t> [서술형 </hp:t><hp:equation id="1" version="Equation Version 60">'
+                f'<hp:script>{n}</hp:script></hp:equation><hp:t>]</hp:t>')
+    # 본문6,정답5,정답6 누락된 비결정 케이스: [1,1,2,2,3,3,4,4,5,5,5,6]
+    nums = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 5, 6]
+    sec = "<hp:sec>" + "".join(_lbl(n) for n in nums) + "</hp:sec>"
+    fd, tmp = tempfile.mkstemp(suffix=".hwpx")
+    os.close(fd)
+    try:
+        with zipfile.ZipFile(tmp, "w") as z:
+            z.writestr("Contents/section0.xml", sec)
+        changed = _renumber_essay_labels(tmp, 6)
+        with zipfile.ZipFile(tmp) as z:
+            got = z.read("Contents/section0.xml").decode("utf-8")
+        out = [m.group(2) for m in _ESSAY_LABEL_NUM_RE.finditer(got)]
+        chk(out == ["1", "1", "2", "2", "3", "3", "4", "4", "5", "5", "6", "6"],
+            f"H 라벨 재부여: {out} (changed={changed})")
+        # 라벨 수 불일치(7개)면 건드리지 않음(오손상 방지)
+        sec2 = "<hp:sec>" + "".join(_lbl(n) for n in [1, 1, 2, 2, 3, 3, 7]) + "</hp:sec>"
+        with zipfile.ZipFile(tmp, "w") as z:
+            z.writestr("Contents/section0.xml", sec2)
+        chk(_renumber_essay_labels(tmp, 6) == 0, "H 라벨수 불일치→재부여 생략")
+    finally:
+        os.remove(tmp)
+
     if fails:
         print("FAIL test_render_fixes:")
         print("\n".join(fails))
         return 1
-    print("OK test_render_fixes (cell/value-box/caption/shading/essay-label)")
+    print("OK test_render_fixes (cell/value-box/caption/shading/essay-label/overline/relabel)")
     return 0
 
 

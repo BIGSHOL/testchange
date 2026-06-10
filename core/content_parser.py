@@ -545,10 +545,19 @@ def _split_one_eq_commas(block: ContentBlock, result: list[ContentBlock]) -> boo
 
 # 스푸리어스 쉼표 판정용 보조(괄호 없는 수식 나열 분리 가드).
 def _is_atom_item(p: str) -> bool:
-    """단순 원자 = 숫자·변수(_VAR_ITEM_RE)·줄임표(⋯/\\cdots) — 진짜 나열 후보."""
+    """단순 원자 = 숫자·변수(_VAR_ITEM_RE)·그리스문자·복소수/숫자 리터럴·줄임표 — 진짜 나열 후보.
+
+    근 나열 ``2-3i, \\alpha, \\beta``(상인고 #14) 처럼 항목이 **복소수 상수**(``2-3i``)나
+    **그리스 변수**(``\\alpha``)면 진짜 나열이다. 이들을 원자로 인정하지 않으면
+    스푸리어스-쉼표 방어가 곱셈 잡음으로 오판해 쉼표를 공백으로 뭉갠다(``2-3iαβ``).
+    복소수/숫자 리터럴 = ``0-9 + - . i`` + 공백만으로 구성되고 숫자를 1개 이상 포함.
+    그리스/단순기호 = ``\\name`` (선택적 아래/위첨자) — ``\\frac{}{}`` 같은 구조명령은
+    뒤에 ``{`` 가 와서 매칭 안 됨(원자 아님 유지)."""
     p = (p or "").strip()
     return bool(_VAR_ITEM_RE.match(p)
                 or re.fullmatch(r"[-+]?\d+(?:\.\d+)?", p)
+                or (re.search(r"\d", p) and re.fullmatch(r"[0-9+\-.\si]+", p))
+                or re.fullmatch(r"\\[A-Za-z]+(?:[_^]\{?[A-Za-z0-9]+\}?)?", p)
                 or re.fullmatch(r"\\c?dots|\\ldots|⋯|\.\.\.", p))
 
 

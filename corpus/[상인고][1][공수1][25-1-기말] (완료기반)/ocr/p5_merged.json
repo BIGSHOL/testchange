@@ -1,0 +1,77 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 21,
+      "score": 5,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 2] 이차함수 "},
+        {"type": "equation", "value": "y=3x^2-5x+k"},
+        {"type": "text", "value": "의 그래프와 "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "축의 위치 관계가 다음과 같도록 하는 실수 "},
+        {"type": "equation", "value": "k"},
+        {"type": "text", "value": "의 값 또는 범위를 각각 구하는 풀이 과정과 답을 서술하시오."}
+      ],
+      "choices": [],
+      "sub_questions": [
+        {"number": 1, "contents": [{"type": "text", "value": "서로 다른 두 점에서 만난다."}], "choices": [], "sub_questions": []},
+        {"number": 2, "contents": [{"type": "text", "value": "접한다."}], "choices": [], "sub_questions": []},
+        {"number": 3, "contents": [{"type": "text", "value": "만나지 않는다."}], "choices": [], "sub_questions": []}
+      ]
+    },
+    {
+      "number": 22,
+      "score": 6,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 3] 이차함수 "},
+        {"type": "equation", "value": "y=x^2-x-6"},
+        {"type": "text", "value": "의 그래프와 직선 "},
+        {"type": "equation", "value": "y=x+k"},
+        {"type": "text", "value": "가 만나도록 하는 실수 "},
+        {"type": "equation", "value": "k"},
+        {"type": "text", "value": "의 범위를 구하는 풀이 과정과 답을 서술하시오."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 23,
+      "score": 6,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 4] 이차부등식 "},
+        {"type": "equation", "value": "-x^2+2(a-1)x+4(a-1)<0"},
+        {"type": "text", "value": "이 모든 실수 "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "에 대하여 성립하도록 하는 실수 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "의 값의 범위를 구하는 풀이 과정과 답을 서술하시오."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 24,
+      "score": 6,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 5] "},
+        {"type": "equation", "value": "(4+3i)z+2i\\overline{z}=5+i"},
+        {"type": "text", "value": "를 만족시키는 복소수 "},
+        {"type": "equation", "value": "z"},
+        {"type": "text", "value": "를 구하는 풀이 과정과 답을 서술하시오. (단, "},
+        {"type": "equation", "value": "\\overline{z}"},
+        {"type": "text", "value": "는 "},
+        {"type": "equation", "value": "z"},
+        {"type": "text", "value": "의 켤레복소수, "},
+        {"type": "equation", "value": "i=\\sqrt{-1}"},
+        {"type": "text", "value": ")"}
+      ],
+      "choices": [],
+      "sub_questions": []
+    }
+  ]
+}

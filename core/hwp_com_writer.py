@@ -674,9 +674,13 @@ class HwpComWriter:
     def _write_question(self, question: Question, top_level: bool = True) -> None:
         is_essay = not question.choices
         has_subs = bool(question.sub_questions)
-        # 소문항이 있는 부모는 배점이 '총점'이라 본문에 "[총 N점]"으로 이미 표기됨.
-        # 인라인 배점([N점])을 또 찍으면 중복 → 부모는 인라인 배점 생략, 소문항만 표기.
-        show_score = bool(question.score) and not has_subs
+        # 소문항이 **개별 배점**을 가질 때만 부모 배점이 '총점'("[총 N점]", 강동중). 배점 없는
+        # 소문항((1)(2)(3) 조건 나열, 상인고 #21)이면 부모 배점은 그 문제 전체 배점이므로
+        # 평문 "[N점]"(완료본 일치) → 부모가 직접 배점 표기.
+        subs_have_scores = has_subs and any(getattr(s, "score", 0)
+                                            for s in question.sub_questions)
+        # 총점 소문항 부모는 본문에 "[총 N점]"으로 이미 표기됨 → 인라인 배점 생략(중복 방지).
+        show_score = bool(question.score) and not subs_have_scores
 
         # 번호(A1): 주문항은 미주 자동번호("1." 스타일, 12pt 볼드). 미주 마크의 번호 형식
         # "1." 의 마침표는 suffix(저장 후 XML 후처리)에서 오므로, 성공 시 마크 뒤엔 공백만.
@@ -695,7 +699,7 @@ class HwpComWriter:
 
         # 소문항 부모: 발문 끝 [총 N점] 을 본문에서 분리해 우측정렬로 따로 표기(사용자 2026-06-05).
         total_num = None
-        if has_subs:
+        if subs_have_scores:
             stem, total_num = _split_trailing_score(stem)
             if total_num is None:
                 total_num = question.score
