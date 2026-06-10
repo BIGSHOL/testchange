@@ -2,9 +2,12 @@
 
 > 이 문서 하나로 **다른 컴퓨터에서 이어서 작업**할 수 있게 정리. 상세 설계·함정은
 > `CLAUDE.md`(루트)와 자동메모리(`C:\Users\<you>\.claude\projects\F--------\memory\MEMORY.md`)에 있다.
-> 최종 갱신: 2026-06-10 늦은 세션 (메인 PC, HEAD `11f5fc5`).
+> 최종 갱신: 2026-06-10 늦은 세션 (메인 PC, HEAD `5d97335`).
 > ✅ **배포 exe = `11f5fc5` 빌드 완료, v0.1.15**(2026-06-10 일괄 빌드·`배포용/` 배포,
 > `--selftest` = `SELFTEST OK (v0.1.15)` + `GEMINI LIVE OK`, `config.json` 379B 보존).
+> 그 후 정리 2커밋(코드 무변경 — 재빌드 불필요): `e94d119` 불용 삭제(`verify_all.py`·루트
+> `.env`(미사용 실키, 코드는 config.json 만 읽음)·빈 `templates/`), `5d97335` 골든셋 기준
+> XML 개명(`hwpx_조암` → `data/골든셋기준_조암중_hwpx해제본/`, 참조 6곳 동기 — §8 지도 참고).
 > 이 빌드 = corpus 검수 시리즈 누적분: `0ca05e4`·`b25cf4a`(중앙고 확통 파일럿+학교급 수정),
 > `3a75f3c`·`509baff`(corpus SOP·결정적 lint·후보선별), `22266a1`(상인고 공수1 4건 — 쉼표근·
 > 총점·overline·답지라벨), `f3ed2eb`(상인고 수1 — bigstar★·박스 brace 첨자), `f4225ec`
@@ -322,6 +325,10 @@ Codex가 한 로컬 조치(되돌릴 수 있음):
 | `core/ocr_reinforcement.md` | 승인된 프롬프트 보강(런타임 `active_prompt()` 가 append, 빈 상태=no-op) |
 | `scripts/ocr_eval/` | 플라이휠: `metrics`·`normalize`·`failures`·`risk_tokens`·`audit_ocr`·`suggest_reinforcement`·`score_ocr`·`golden_record`·`prompt_version` |
 | `tests/golden_ocr/` | OCR 정답(ground-truth) JSON — commit 됨(PC 간 재현) |
+| `corpus/` | 자가발전 검수 코퍼스 — `REVIEW_PROTOCOL.md`(SOP)·시험지별 OCR JSON+meta.json(추적)·pages PNG(ignore, 재생성) |
+| `scripts/corpus_lint.py`·`corpus_select.py` | 검수 게이트(JSON 규약·XML 결함)·후보 자동 선별 |
+| `data/골든셋기준_조암중_hwpx해제본/` | 수식 크기 골든셋 84개 **기준 XML**(조암중 완성본 해제, README 참고). `test_equation_metrics` 회귀 기준 — **삭제 금지**. (구명 `hwpx_조암` — 2026-06-10 개명) |
+| `data/` | 조암중 초기 레퍼런스(원본 PDF·워드 hwp·테스트 hwpx) — `crop_editor`·`tune_equation` 참조 |
 
 ## 9. 절대 금지 / 주의
 - **`hwp_com.CONVERSION_VISIBLE` 을 True 로 되돌리지 말 것** — 한글 2개 열렸을 때 COM 이

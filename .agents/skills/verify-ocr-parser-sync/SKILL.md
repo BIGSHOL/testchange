@@ -199,5 +199,5 @@ grep -n "from models\|import.*ContentBlock\|import.*Choice\|import.*Question\|im
 다음은 **위반이 아닙니다**:
 
 1. **EXAM_OCR_PROMPT 내의 예시 JSON** — OCR 프롬프트에 포함된 예시 JSON은 문서용이며, 파서 코드와 구조적으로 약간 다를 수 있음 (예시는 설명용)
-2. **config의 .env 오버라이드** — `.env` 파일로 임계값을 오버라이드하는 것은 정상 동작. config.py의 기본값만 검증 대상
+2. **환경변수 오버라이드** — `GEMINI_API_KEY` 등 환경변수 오버라이드는 정상 동작(config.py). config.py의 기본값만 검증 대상. (`.env` 파일은 2026-06-10 제거 — 코드는 config.json 만 읽음)
 3. **quality_checker의 추가 내부 상수** — `quality_checker.py`가 config 외에 내부적으로 사용하는 상수 (예: Laplacian 커널 값 `[0,1,0],[1,-4,1],[0,1,0]`)는 검증 대상이 아님
