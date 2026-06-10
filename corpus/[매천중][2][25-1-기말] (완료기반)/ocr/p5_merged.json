@@ -1,0 +1,61 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 18,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "맑은 날 열기구를 타고 지상으로부터 "},
+        {"type": "equation", "value": "x\\mathrm{m}"},
+        {"type": "text", "value": " 상승했을 때, 측정한 기온 "},
+        {"type": "equation", "value": "y^\\circ\\mathrm{C}"},
+        {"type": "text", "value": "의 관계를 나타낸 그래프이다. 기온이 "},
+        {"type": "equation", "value": "15^\\circ\\mathrm{C}"},
+        {"type": "text", "value": "인 곳의 지상으로부터의 높이는?"},
+        {"type": "figure", "value": "좌표평면 그래프. 세로축 y(°C), 가로축 x(m). 점 (200, 18)과 (1600, 4)를 지나는 우하향 직선. 18·4(세로축), 200·1600(가로축) 눈금 표시", "bbox": [0.10, 0.14, 0.46, 0.30]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "400\\mathrm{m}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "500\\mathrm{m}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "600\\mathrm{m}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "700\\mathrm{m}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "800\\mathrm{m}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 19,
+      "score": 8,
+      "label_type": "서답형",
+      "contents": [
+        {"type": "text", "value": "[서답형 1] 다음 연립방정식을 푸시오. (단, <조건>을 사용하여 풀이과정을 쓰시오.)"}
+      ],
+      "choices": [],
+      "sub_questions": [
+        {"number": 1, "score": 4, "contents": [
+          {"type": "equation", "value": "\\begin{cases} x-3y=-4 \\\\ 3x-4y=13 \\end{cases}"},
+          {"type": "text", "value": "<조건> 한 미지수에 대한 식을 대입하여 푸는 방법"}
+        ], "choices": [], "sub_questions": []},
+        {"number": 2, "score": 4, "contents": [
+          {"type": "equation", "value": "\\begin{cases} 2x-3y=-8 \\\\ 3x+4y=5 \\end{cases}"},
+          {"type": "text", "value": "<조건> 더하거나 빼는 방법으로 한 미지수를 없애서 푸는 방법"}
+        ], "choices": [], "sub_questions": []}
+      ]
+    },
+    {
+      "number": 20,
+      "score": 8,
+      "label_type": "서답형",
+      "contents": [
+        {"type": "text", "value": "[서답형 2] 다음 대화를 읽고 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "b"},
+        {"type": "text", "value": "의 값을 각각 구하는 풀이과정과 답을 쓰시오."},
+        {"type": "text", "value": "<상자> 현수: 케이크와 도넛 만들어보자. • 지연: 우유와 달걀이 얼마나 필요해? • 현수: 케이크 한 개에는 우유 a컵, 달걀 b개가 필요하고, 도넛 한 개에는 우유 \\frac{b}{2}컵, 달걀 3a개가 필요해. • 지연: 우유 13컵과 달걀 27개를 모두 사용하면 케이크와 도넛은 몇 개 만들 수 있어? • 현수: 케이크는 3개, 도넛은 5개."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    }
+  ]
+}

@@ -1,0 +1,113 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 5,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "연립방정식 "},
+        {"type": "equation", "value": "\\begin{cases} x:y=1:5 \\\\ -3x+y=k \\end{cases}"},
+        {"type": "text", "value": "을 만족시키는 "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "와 "},
+        {"type": "equation", "value": "y"},
+        {"type": "text", "value": "의 합이 "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "의 2배보다 12 크다고 할 때, "},
+        {"type": "equation", "value": "k"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "10"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 6,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "다음 연립방정식의 해는?"},
+        {"type": "text", "value": "<상자> \\begin{cases} \\frac{x}{5}-\\frac{y}{3}=\\frac{2}{15} \\\\ 3x-2y=-1 \\end{cases}"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [
+          {"type": "equation", "value": "x=-1"},
+          {"type": "text", "value": ", "},
+          {"type": "equation", "value": "y=1"}
+        ]},
+        {"number": 2, "contents": [
+          {"type": "equation", "value": "x=1"},
+          {"type": "text", "value": ", "},
+          {"type": "equation", "value": "y=-1"}
+        ]},
+        {"number": 3, "contents": [
+          {"type": "equation", "value": "x=-1"},
+          {"type": "text", "value": ", "},
+          {"type": "equation", "value": "y=-1"}
+        ]},
+        {"number": 4, "contents": [
+          {"type": "equation", "value": "x=1"},
+          {"type": "text", "value": ", "},
+          {"type": "equation", "value": "y=1"}
+        ]},
+        {"number": 5, "contents": [
+          {"type": "equation", "value": "x=0"},
+          {"type": "text", "value": ", "},
+          {"type": "equation", "value": "y=-\\frac{2}{5}"}
+        ]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 7,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "다음 상황을 "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "y"},
+        {"type": "text", "value": "에 대한 연립방정식으로 바르게 나타낸 것은?"},
+        {"type": "text", "value": "<상자> 재석이의 걷는 속력은 항상 시속 x\\mathrm{km}으로 일정하고, 자전거를 타는 속력은 시속 y\\mathrm{km}로 일정하다고 하자. 재석이는 집에서 28\\mathrm{km} 떨어진 할머니 댁까지 가는데 1시간 동안 걷고, 2시간 동안 자전거를 타서 도착하였다. 또, 돌아올 때는 1시간 40분 동안 자전거를 타고 2시간 동안 걸어서 집에 도착하였다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\begin{cases} x+2y=28 \\\\ 2x+\\frac{5}{3}y=28 \\end{cases}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\begin{cases} x+2y=28 \\\\ 2x+1.4y=28 \\end{cases}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\begin{cases} x+2y=28 \\\\ 2x+3y=28 \\end{cases}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\begin{cases} 2x+y=28 \\\\ \\frac{1}{2}x+\\frac{3}{5}y=28 \\end{cases}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\begin{cases} x+\\frac{1}{2}y=28 \\\\ \\frac{1}{2}x+\\frac{3}{5}y=28 \\end{cases}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 8,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "같은 물건을 만드는 두 종류의 기계 "},
+        {"type": "equation", "value": "A"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "B"},
+        {"type": "text", "value": "가 있다. 100개의 물건을 만드는데 기계"},
+        {"type": "equation", "value": "A"},
+        {"type": "text", "value": " 4대와 기계"},
+        {"type": "equation", "value": "B"},
+        {"type": "text", "value": " 6대를 동시에 사용하면 2분이 걸리고, 기계"},
+        {"type": "equation", "value": "A"},
+        {"type": "text", "value": " 1대와 기계"},
+        {"type": "equation", "value": "B"},
+        {"type": "text", "value": " 4대를 동시에 사용하면 5분이 걸린다고 한다. 각각의 기계 1대로만 100개의 물건을 만드는데 걸리는 시간의 차는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "20"}, {"type": "text", "value": "분"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{123}{5}"}, {"type": "text", "value": "분"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{125}{6}"}, {"type": "text", "value": "분"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{80}{3}"}, {"type": "text", "value": "분"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "30"}, {"type": "text", "value": "분"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

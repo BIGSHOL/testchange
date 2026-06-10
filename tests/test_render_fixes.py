@@ -164,6 +164,20 @@ def run():
     i1 = latex_to_hwpeq(r"\cdots\cdots (\bigstar)")
     chk("★" in i1, f"I bigstar 매핑: {i1!r}")
 
+    # ── L: rm/bold 키워드 앞 공백 — 매천중 #7·#18 (PLEFT 계열) ──
+    # ``x\mathrm{km}`` 이 ``xrm km`` 으로 붙어 HWP 가 xrm literal 렌더하던 회귀.
+    l1 = latex_to_hwpeq(r"x\mathrm{km}")
+    chk("xrm" not in l1 and "x rm km" in l1, f"L rm 앞공백: {l1!r}")
+    l2 = latex_to_hwpeq(r"400\mathrm{m}")
+    chk("400 rm m" in l2 or "400rm" not in l2, f"L 숫자 뒤 rm: {l2!r}")
+
+    # ── M: <조건> 박스 머리 vs 인라인 참조 — 매천중 #19 소문항 조건박스 ──
+    # ``<조건> 한 미지수…``(공백+한글=박스 내용)는 머리, ``<조건>을``(조사 직결)은 참조.
+    from core.hwp_com_writer import _COND_HEADER_RE
+    chk(bool(_COND_HEADER_RE.search("<조건> 한 미지수에 대한 식")), "M 조건+공백+한글=박스 머리")
+    chk(not _COND_HEADER_RE.search("<조건>을 사용하여"), "M 조건+조사=인라인 참조")
+    chk(not _COND_HEADER_RE.search("<보기>에서 고르시오"), "M 보기+조사=인라인 참조")
+
     # ── J: \boxed → BOX{} 테두리 박스 — 상인고 수1 #12 빈칸채우기 (가)/(나)/(다) ──
     # ``\boxed{가}`` → ``BOX{ ~ ㈎ ~ }``(작은 박스). BOX 가 rm 으로 감싸이면 "BOX" 글자로
     # 깨지므로 _roman_skip 에 BOX 가 있어야 한다(rm {BOX} 금지).
@@ -243,7 +257,7 @@ def run():
         print("FAIL test_render_fixes:")
         print("\n".join(fails))
         return 1
-    print("OK test_render_fixes (cell/value-box/caption/shading/essay-label/overline/relabel/bigstar/boxed/labelless/solo/mixed-label)")
+    print("OK test_render_fixes (cell/value-box/caption/shading/essay-label/overline/relabel/bigstar/boxed/labelless/solo/mixed-label/rm-space/cond-header)")
     return 0
 
 

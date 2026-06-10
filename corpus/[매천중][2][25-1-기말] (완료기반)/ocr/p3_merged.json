@@ -1,0 +1,174 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 9,
+      "score": 4,
+      "contents": [
+        {"type": "equation", "value": "y"},
+        {"type": "text", "value": "가 "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "의 일차함수인 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [
+          {"type": "text", "value": "정"},
+          {"type": "equation", "value": "x"},
+          {"type": "text", "value": "각형에서 한 외각의 크기 "},
+          {"type": "equation", "value": "y^\\circ"}
+        ]},
+        {"number": 2, "contents": [
+          {"type": "text", "value": "자연수 "},
+          {"type": "equation", "value": "x"},
+          {"type": "text", "value": "보다 작거나 같은 짝수 "},
+          {"type": "equation", "value": "y"}
+        ]},
+        {"number": 3, "contents": [
+          {"type": "text", "value": "반지름의 길이와 높이가 모두 "},
+          {"type": "equation", "value": "x\\mathrm{cm}"},
+          {"type": "text", "value": "인 원기둥의 겉넓이 "},
+          {"type": "equation", "value": "y\\mathrm{cm}^2"}
+        ]},
+        {"number": 4, "contents": [
+          {"type": "text", "value": "넓이가 "},
+          {"type": "equation", "value": "10\\mathrm{cm}^2"},
+          {"type": "text", "value": "인 직사각형의 가로의 길이 "},
+          {"type": "equation", "value": "x\\mathrm{cm}"},
+          {"type": "text", "value": "와 세로의 길이 "},
+          {"type": "equation", "value": "y\\mathrm{cm}"}
+        ]},
+        {"number": 5, "contents": [
+          {"type": "text", "value": "300L가 들어 있는 물통에서 1분에 5L씩 일정하게 물이 빠져나갈 때, "},
+          {"type": "equation", "value": "x"},
+          {"type": "text", "value": "분 후에 남아 있는 물의 양 "},
+          {"type": "equation", "value": "y"},
+          {"type": "text", "value": "L"}
+        ]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 10,
+      "score": 2,
+      "contents": [
+        {"type": "text", "value": "함수 "},
+        {"type": "equation", "value": "f(x)=5x+7"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "f(-1)"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "11"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 11,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "일차함수 "},
+        {"type": "equation", "value": "y=-3x-1"},
+        {"type": "text", "value": "의 그래프는 일차함수 "},
+        {"type": "equation", "value": "y=-3x+5"},
+        {"type": "text", "value": "의 그래프를 "},
+        {"type": "equation", "value": "y"},
+        {"type": "text", "value": "축의 방향으로 "},
+        {"type": "equation", "value": "p"},
+        {"type": "text", "value": "만큼 평행이동한 것이다. 이 때, "},
+        {"type": "equation", "value": "p"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-6"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-4"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "8"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 12,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "일차함수 "},
+        {"type": "equation", "value": "y=3x-6"},
+        {"type": "text", "value": "의 그래프의 기울기, "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "절편, "},
+        {"type": "equation", "value": "y"},
+        {"type": "text", "value": "절편을 차례대로 나타낸 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [
+          {"type": "equation", "value": "2"}, {"type": "text", "value": ", "},
+          {"type": "equation", "value": "-6"}, {"type": "text", "value": ", "},
+          {"type": "equation", "value": "3"}
+        ]},
+        {"number": 2, "contents": [
+          {"type": "equation", "value": "2"}, {"type": "text", "value": ", "},
+          {"type": "equation", "value": "6"}, {"type": "text", "value": ", "},
+          {"type": "equation", "value": "3"}
+        ]},
+        {"number": 3, "contents": [
+          {"type": "equation", "value": "3"}, {"type": "text", "value": ", "},
+          {"type": "equation", "value": "-2"}, {"type": "text", "value": ", "},
+          {"type": "equation", "value": "-6"}
+        ]},
+        {"number": 4, "contents": [
+          {"type": "equation", "value": "3"}, {"type": "text", "value": ", "},
+          {"type": "equation", "value": "2"}, {"type": "text", "value": ", "},
+          {"type": "equation", "value": "-6"}
+        ]},
+        {"number": 5, "contents": [
+          {"type": "equation", "value": "6"}, {"type": "text", "value": ", "},
+          {"type": "equation", "value": "-2"}, {"type": "text", "value": ", "},
+          {"type": "equation", "value": "3"}
+        ]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 13,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "일차함수 "},
+        {"type": "equation", "value": "y=\\frac{2}{3}x+1"},
+        {"type": "text", "value": "의 그래프에 대한 설명으로 옳은 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [
+          {"type": "text", "value": "제3사분면을 지나지 않는다."}
+        ]},
+        {"number": 2, "contents": [
+          {"type": "text", "value": "오른쪽 아래로 향하는 직선이다."}
+        ]},
+        {"number": 3, "contents": [
+          {"type": "equation", "value": "x"},
+          {"type": "text", "value": "의 값이 9만큼 증가할 때 "},
+          {"type": "equation", "value": "y"},
+          {"type": "text", "value": "의 값은 6만큼 증가한다."}
+        ]},
+        {"number": 4, "contents": [
+          {"type": "text", "value": "일차함수 "},
+          {"type": "equation", "value": "y=\\frac{3}{2}x+1"},
+          {"type": "text", "value": "의 그래프와 "},
+          {"type": "equation", "value": "y"},
+          {"type": "text", "value": "절편이 같고 서로 평행하다."}
+        ]},
+        {"number": 5, "contents": [
+          {"type": "text", "value": "두 점 "},
+          {"type": "equation", "value": "(-2, 1)"},
+          {"type": "text", "value": "과 "},
+          {"type": "equation", "value": "(1, -1)"},
+          {"type": "text", "value": "을 지나는 직선의 그래프와 기울기가 같다."}
+        ]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

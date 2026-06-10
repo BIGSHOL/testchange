@@ -1,0 +1,148 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 1,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "미지수가 2개인 일차방정식으로 나타낼 수 __없는__ 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [
+          {"type": "text", "value": "농구 경기에서 2점 슛 "},
+          {"type": "equation", "value": "x"},
+          {"type": "text", "value": "개, 3점 슛 "},
+          {"type": "equation", "value": "y"},
+          {"type": "text", "value": "개를 성공하여 18점을 득점하였다."}
+        ]},
+        {"number": 2, "contents": [
+          {"type": "text", "value": "가로의 길이가 "},
+          {"type": "equation", "value": "x\\mathrm{cm}"},
+          {"type": "text", "value": ", 세로의 길이가 "},
+          {"type": "equation", "value": "y\\mathrm{cm}"},
+          {"type": "text", "value": "인 직사각형의 둘레의 길이는 "},
+          {"type": "equation", "value": "20\\mathrm{cm}"},
+          {"type": "text", "value": "이다."}
+        ]},
+        {"number": 3, "contents": [
+          {"type": "text", "value": "한 개에 400원인 사탕 "},
+          {"type": "equation", "value": "x"},
+          {"type": "text", "value": "개의 가격이 한 개에 600원인 젤리 "},
+          {"type": "equation", "value": "y"},
+          {"type": "text", "value": "개의 가격보다 1000원 비싸다."}
+        ]},
+        {"number": 4, "contents": [
+          {"type": "text", "value": "두 자리 자연수에서 십의 자리의 숫자를 "},
+          {"type": "equation", "value": "x"},
+          {"type": "text", "value": ", 일의 자리의 숫자를 "},
+          {"type": "equation", "value": "y"},
+          {"type": "text", "value": "라고 할 때, 각 자리의 숫자의 합은 9이다."}
+        ]},
+        {"number": 5, "contents": [
+          {"type": "text", "value": "윗변의 길이가 아랫변의 길이보다 4cm 짧은 사다리꼴이 있다. 이 사다리꼴의 윗변의 길이가 "},
+          {"type": "equation", "value": "x\\mathrm{cm}"},
+          {"type": "text", "value": ", 높이가 "},
+          {"type": "equation", "value": "y\\mathrm{cm}"},
+          {"type": "text", "value": "인 사다리꼴의 넓이는 "},
+          {"type": "equation", "value": "32\\mathrm{cm}^2"},
+          {"type": "text", "value": "이다."}
+        ]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 2,
+      "score": 4,
+      "contents": [
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "y"},
+        {"type": "text", "value": "의 값이 10이하의 자연수일 때, 일차방정식 "},
+        {"type": "equation", "value": "2x+3y=30"},
+        {"type": "text", "value": "의 해 "},
+        {"type": "equation", "value": "(x, y)"},
+        {"type": "text", "value": "의 개수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "3"}, {"type": "text", "value": "개"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "4"}, {"type": "text", "value": "개"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "5"}, {"type": "text", "value": "개"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "6"}, {"type": "text", "value": "개"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "7"}, {"type": "text", "value": "개"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 3,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "연립방정식 "},
+        {"type": "equation", "value": "\\begin{cases} x-2y=3 & \\cdots\\cdots ㉠ \\\\ 3x-4y=11 & \\cdots\\cdots ㉡ \\end{cases}"},
+        {"type": "text", "value": "의 풀이에 대한 설명이다. 옳지 __않은__ 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [
+          {"type": "text", "value": "㉠의 양변에 3을 곱한 식에서 ㉡을 변끼리 빼면 "},
+          {"type": "equation", "value": "x"},
+          {"type": "text", "value": "를 없애서 풀 수 있다."}
+        ]},
+        {"number": 2, "contents": [
+          {"type": "text", "value": "㉠의 양변에 2를 곱한 식에서 ㉡을 변끼리 빼면 "},
+          {"type": "equation", "value": "y"},
+          {"type": "text", "value": "를 없애서 풀 수 있다."}
+        ]},
+        {"number": 3, "contents": [
+          {"type": "text", "value": "㉠을 "},
+          {"type": "equation", "value": "2y=x-3"},
+          {"type": "text", "value": "으로 변형한 다음 ㉡에 대입한 후 정리하면 "},
+          {"type": "equation", "value": "y"},
+          {"type": "text", "value": "의 값을 구할 수 있다."}
+        ]},
+        {"number": 4, "contents": [
+          {"type": "text", "value": "㉠을 "},
+          {"type": "equation", "value": "x=3+2y"},
+          {"type": "text", "value": "로 변형한 다음 ㉡에 대입한 후 정리하여 "},
+          {"type": "equation", "value": "x"},
+          {"type": "text", "value": "를 없애고 "},
+          {"type": "equation", "value": "ay=2"},
+          {"type": "text", "value": "로 나타내었을 때 "},
+          {"type": "equation", "value": "a=2"},
+          {"type": "text", "value": "이다."}
+        ]},
+        {"number": 5, "contents": [
+          {"type": "text", "value": "이 연립방정식의 해는 "},
+          {"type": "equation", "value": "x=5"},
+          {"type": "text", "value": ", "},
+          {"type": "equation", "value": "y=1"},
+          {"type": "text", "value": "이다."}
+        ]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 4,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "순서쌍 "},
+        {"type": "equation", "value": "(5, -3)"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "(-3, 7)"},
+        {"type": "text", "value": "이 일차방정식 "},
+        {"type": "equation", "value": "ax+by=13"},
+        {"type": "text", "value": "의 해일 때, 두 수 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "b"},
+        {"type": "text", "value": "의 합은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-9"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "9"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

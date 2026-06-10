@@ -680,10 +680,17 @@ class LaTeXToHWPConverter:
         # 단일문자(㈎㈏㈐ U+320E~)로 줄여 작은 박스(원본 빈칸 모양). 그 외엔 일반 변환.
         s = self._boxed_pattern.sub(lambda m: "BOX{ ~ " + self._boxed_inner(m.group("boxed")) + " ~ }", s)
 
-        # 1. \text, \mathrm, \mathbf
+        # 1. \text, \mathrm, \mathbf — rm/bold 키워드 앞이 영숫자면 공백 보장(PLEFT 계열).
+        # ``x\mathrm{km}`` 이 ``xrm km`` 으로 붙으면 HWP 가 xrm literal 렌더(매천중 #7·#18,
+        # 2026-06-10). accent(bar) 수정과 동일 패턴. \text 는 따옴표 리터럴이라 무관.
+        def _kw_repl(kw: str):
+            def _r(m: re.Match) -> str:
+                lead = " " if (m.start() > 0 and m.string[m.start() - 1].isalnum()) else ""
+                return lead + kw + " " + m.group("txt")
+            return _r
         s = self._text_pattern.sub(lambda m: '"' + m.group("txt") + '"', s)
-        s = self._mathrm_pattern.sub(lambda m: "rm " + m.group("txt"), s)
-        s = self._mathbf_pattern.sub(lambda m: "bold " + m.group("txt"), s)
+        s = self._mathrm_pattern.sub(_kw_repl("rm"), s)
+        s = self._mathbf_pattern.sub(_kw_repl("bold"), s)
 
         # 2. \binom{n}{k}
         s = self._binom_pattern.sub(

@@ -1,0 +1,110 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 14,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "그림의 ㉠~㉤은 일차함수 "},
+        {"type": "equation", "value": "y=ax+b"},
+        {"type": "text", "value": "의 그래프이다. 각 경우에 맞는 그래프로 옳지 __않은__ 것은? (단, "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "b"},
+        {"type": "text", "value": "는 수)"},
+        {"type": "figure", "value": "좌표평면 위 직선 5개(㉠~㉤). 원점 O, x축·y축. 기울기·절편이 서로 다른 직선들", "bbox": [0.10, 0.14, 0.46, 0.30]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [
+          {"type": "equation", "value": "a>0"},
+          {"type": "text", "value": " : ㉠, ㉡, ㉢"}
+        ]},
+        {"number": 2, "contents": [
+          {"type": "equation", "value": "a<0"},
+          {"type": "text", "value": " : ㉣, ㉤"}
+        ]},
+        {"number": 3, "contents": [
+          {"type": "equation", "value": "b>0"},
+          {"type": "text", "value": " : ㉡, ㉢"}
+        ]},
+        {"number": 4, "contents": [
+          {"type": "equation", "value": "b=0"},
+          {"type": "text", "value": " : ㉢, ㉤"}
+        ]},
+        {"number": 5, "contents": [
+          {"type": "equation", "value": "b<0"},
+          {"type": "text", "value": " : ㉠, ㉣"}
+        ]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 15,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "다음을 만족시키는 일차함수의 식은?"},
+        {"type": "text", "value": "<상자> 직선 y=\\frac{1}{4}x+2의 그래프에 평행하고, 점 (8, -3)을 지난다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "y=-\\frac{1}{2}x+1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "y=-\\frac{1}{4}x-1"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "y=\\frac{1}{4}x-9"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "y=\\frac{1}{4}x-5"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "y=\\frac{1}{2}x-7"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 16,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "일차함수 "},
+        {"type": "equation", "value": "y=ax+3"},
+        {"type": "text", "value": "의 그래프에서 "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "의 값이 3만큼 증가할 때, "},
+        {"type": "equation", "value": "y"},
+        {"type": "text", "value": "의 값이 6만큼 감소한다. 이 함수의 그래프가 점 "},
+        {"type": "equation", "value": "(b, 1)"},
+        {"type": "text", "value": "을 지날 때, "},
+        {"type": "equation", "value": "ab"},
+        {"type": "text", "value": "의 값은? (단, "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "는 수)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "3"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 17,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "일차함수 "},
+        {"type": "equation", "value": "y=5x-3"},
+        {"type": "text", "value": "의 그래프와 일차함수 "},
+        {"type": "equation", "value": "y=3x+b"},
+        {"type": "text", "value": "의 그래프가 "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "축 위에서 만날 때, 두 일차함수의 그래프와 "},
+        {"type": "equation", "value": "y"},
+        {"type": "text", "value": "축으로 둘러싸인 도형의 넓이는? (단, "},
+        {"type": "equation", "value": "b"},
+        {"type": "text", "value": "는 수)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{9}{2}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{18}{5}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{9}{10}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{18}{25}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{9}{25}"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}
