@@ -33,8 +33,9 @@ logger = logging.getLogger(__name__)
 
 from .hwp_com import CONVERSION_VISIBLE, HwpSession, _dispatch_hwp, _win32
 from .hwp_com_writer import (HwpComWriter, _BOX_BREAK_RE, _BULLET_RE,
-                             _COND_HEADER_RE, _condition_start, _has_box_markup,
-                             _split_tail_post, _split_trailing_score, _tail_start)
+                             _caption_spans, _COND_HEADER_RE, _condition_start,
+                             _has_box_markup, _split_tail_post,
+                             _split_trailing_score, _tail_start)
 from .latex_to_hwpeq import latex_to_hwpeq
 from models.exam_document import ContentBlock, ContentType, ExamDocument, Question
 
@@ -383,7 +384,12 @@ def _put_tail(ses, h, blocks) -> None:
     cs = _condition_start(core)                    # 표/조건 머리 시작(없으면 전부 pre)
     pre = core if cs is None else core[:cs]
     box = [] if cs is None else core[cs:]
-    for b in pre:
+    # 표 캡션이 pre 끝에 걸쳐 있으면(다음 블록=표) 줄바꿈+우측정렬로 분리(기본 경로와
+    # 동일 — 사용자 '항상 동일' 요구, 2026-06-10).
+    cap_j = None
+    if box and box[0].type == ContentType.TABLE and pre:
+        cap_j = next((j for j, t in _caption_spans(core).items() if t == cs), None)
+    for b in (pre if cap_j is None else pre[:cap_j]):
         if b.type == ContentType.IMAGE and b.value:
             ses.break_para()
             ses.align_center()
@@ -391,6 +397,8 @@ def _put_tail(ses, h, blocks) -> None:
             # 트레일링 break 없음 — 조건 박스가 단락시작(pos==0) 재사용으로 빈 줄 방지
         else:
             w._write_block(b)                      # EQUATION_BLOCK 가운데·EQUATION 인라인·TEXT
+    if cap_j is not None:
+        w._write_caption_run(pre[cap_j:])
     if box:
         w._write_condition_box(box)
     for bi, b in enumerate(post):                  # 박스 뒤 발문 연속 — 박스 밖, 새 줄에 이어서
@@ -461,11 +469,17 @@ def _put_score(ses, h, score: int, essay: bool = False) -> bool:
     if essay:
         _set_plain(h)           # 서술형 배점은 평문(라벨 볼드 상속 방지)
     put_inline(leading_space=True)
+    ep = h.GetPos()             # 삽입 끝(정확한 span 삭제용)
     lb = line()
     if la >= 0 and lb > la:
         # 인라인이 줄을 넘김 = 공간 부족 → 지우고 줄바꿈 후 우측정렬.
+        # ⚠️ 삭제는 **삽입분(sp→ep)만 정확히 선택** — MoveSelParaEnd 는 캐럿 뒤 같은
+        # 단락의 다른 내용까지 선택한다. 마지막 서술형에선 표 탈출(SetPos para+1)로
+        # 본문이 폼 **정답 단락 안**에 타이핑되는데, 그때 MoveSelParaEnd+Delete 가
+        # 정답 블록 앵커 문자(답안표 gso·container)까지 삼켜 정답 페이지가 통째
+        # 사라졌다(강동중 #20 sub(2) [4점], 2026-06-10).
         h.SetPos(sp[0], sp[1], sp[2])
-        h.Run("MoveSelParaEnd")
+        h.SelectText(sp[1], sp[2], ep[1], ep[2])
         h.HAction.Run("Delete")
         h.Run("BreakPara")
         h.Run("ParagraphShapeAlignRight")
@@ -559,10 +573,13 @@ def _put_total_score(ses, h, num: int) -> None:
     la = line()
     _set_plain(h)
     put_inline(leading_space=True)
+    ep = h.GetPos()             # 삽입 끝(정확한 span 삭제용)
     lb = line()
     if la >= 0 and lb > la:
+        # ⚠️ 삽입분(sp→ep)만 선택-삭제 — MoveSelParaEnd 는 정답 단락 침범 시 정답
+        # 앵커까지 삼킨다(_put_score 와 동일 함정, 2026-06-10).
         h.SetPos(sp[0], sp[1], sp[2])
-        h.Run("MoveSelParaEnd")
+        h.SelectText(sp[1], sp[2], ep[1], ep[2])
         h.HAction.Run("Delete")
         h.Run("BreakPara")
         h.Run("ParagraphShapeAlignRight")

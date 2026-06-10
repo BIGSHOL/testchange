@@ -139,6 +139,24 @@ def run_checks():
     chk(28, "기하 라벨 로만체(mathrm/로만 라벨)",
         "_mathrm_pattern" in L and "_apply_roman_labels" in L)
 
+    F = _read(F_PATH)
+    chk(29, "표 캡션 줄바꿈+우측정렬(_write_caption_run)",
+        "def _caption_spans" in W
+        and "align_right()" in _func_body(W, "_write_caption_run")
+        and "_write_tail_seq" in _func_body(W, "_write_condition_box")
+        and "_write_caption_run(pre[cap_j:])" in W
+        and "w._write_caption_run(pre[cap_j:])" in F)
+    _msp = 'h.Run("MoveSelParaEnd")'   # 실제 코드 패턴(경고 주석의 단어와 구별)
+    chk(30, "배점 폴백 정확 span 삭제(정답 블록 보호)",
+        _msp not in _func_body(W, "_write_score_inline_or_right")
+        and _msp not in _func_body(W, "_write_total_score_inline_or_right")
+        and _msp not in _func_body(F, "_put_score")
+        and _msp not in _func_body(F, "_put_total_score")
+        and "SelectText(sp[1], sp[2], ep[1], ep[2])" in F
+        and "SelectText(sp[1], sp[2], ep[1], ep[2])" in W,
+        "배점 우측정렬 폴백은 삽입분(sp→ep)만 SelectText 로 삭제 — MoveSelParaEnd 는 "
+        "마지막 서술형에서 폼 정답 블록 앵커까지 삼킴(강동중 #20, 2026-06-10)")
+
     mid_ok = ("mid" in L) and (r"\mid" in L)
     try:
         if str(ROOT) not in sys.path:

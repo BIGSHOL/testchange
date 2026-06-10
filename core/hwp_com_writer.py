@@ -164,6 +164,34 @@ def _is_table_caption(text: str | None) -> bool:
     return not bool(_CAPTION_SENTENCE_RE.search(t))
 
 
+def _caption_spans(blocks: list[ContentBlock]) -> dict[int, int]:
+    """표(TABLE) 바로 앞의 **캡션 run** {시작idx: 표idx} 맵.
+
+    캡션이 "나이(1|6은 16세)" 처럼 TEXT+EQUATION 여러 블록으로 쪼개져 올 수 있어
+    run(TEXT/EQUATION 연속)을 모아 **결합 텍스트**로 `_is_table_caption` 판정한다.
+    그림자리 안내·조건/보기 머리·box_member 블록은 run 에 넣지 않는다.
+    """
+    spans: dict[int, int] = {}
+    for ti, b in enumerate(blocks):
+        if b.type != ContentType.TABLE:
+            continue
+        j = ti
+        while j > 0:
+            p = blocks[j - 1]
+            if p.type not in (ContentType.TEXT, ContentType.EQUATION):
+                break
+            if p.type == ContentType.TEXT and (
+                    _is_figure_note(p) or _COND_HEADER_RE.search(p.value or "")):
+                break
+            if getattr(p, "box_member", False):
+                break
+            j -= 1
+        if j < ti and _is_table_caption(
+                "".join((blk.value or "") for blk in blocks[j:ti])):
+            spans[j] = ti
+    return spans
+
+
 def _tail_start(blocks: list[ContentBlock]) -> int | None:
     """발문이 끝나고 '뒤 영역'(조건/보기 박스·표·그림·블록수식)이 시작되는 인덱스.
 
@@ -328,8 +356,10 @@ class HwpComWriter:
         # 수식 객체가 든 단락은 고정 탭(7cm)에도 정상 재계산되어 보기 정렬에도 유리하다.
         # inline=True: EQUATION_BLOCK 도 줄바꿈 없이 인라인 — 번호-발문 같은 줄(A7)·보기 항목(A5).
         if block.type == ContentType.TABLE:
-            # 표는 자체 단락 필요 — 앞 단락과 분리
+            # 표는 자체 단락 필요 — 앞 단락과 분리. 직전 단락(우측정렬 캡션 등)의
+            # 정렬을 상속하지 않게 좌측으로 명시(사용자 2026-06-10 캡션 우측정렬).
             self.s.break_para()
+            self.s.align_left()
             self._write_equation_table(block.rows or [])
         elif block.type == ContentType.EQUATION_BLOCK:
             if not inline:
@@ -362,6 +392,36 @@ class HwpComWriter:
                 self.s.break_para()
                 self.s.align_left()
 
+    def _write_caption_run(self, run: list[ContentBlock]) -> None:
+        """표 캡션(표 제목) run — **줄바꿈 후 우측정렬**(사용자 2026-06-10).
+
+        과거엔 캡션이 발문/배점에 인라인으로 이어져 "[5점]어느 마트…" 처럼 붙었다.
+        run 은 TEXT/EQUATION 혼합(캡션 숫자가 수식으로 쪼개진 "나이(1|6은 16세)" 포함).
+        캡션 뒤 표는 `_write_block` 의 TABLE 분기가 새 단락+좌측정렬로 잇는다(빈 줄 없음).
+        """
+        try:
+            at_start = self.s.hwp.GetPos()[2] == 0
+        except Exception:
+            at_start = False
+        if not at_start:
+            self.s.break_para()
+        self.s.align_right()
+        for b in run:
+            self._write_block(b, inline=True)
+
+    def _write_tail_seq(self, blocks: list[ContentBlock]) -> None:
+        """tail 블록 나열 렌더 — 표 바로 앞 캡션 run 은 우측정렬 줄로 분리, 나머지는
+        `_write_block`. (`_write_condition_box` 의 표-혼합 경로·post 나열에서 사용.)"""
+        spans = _caption_spans(blocks)
+        i = 0
+        while i < len(blocks):
+            if i in spans:
+                self._write_caption_run(blocks[i:spans[i]])
+                i = spans[i]
+                continue
+            self._write_block(blocks[i])
+            i += 1
+
     def _write_cell(self, val: str) -> None:
         """표 셀 1개 렌더(셀 정렬은 호출부에서 미리 지정).
 
@@ -370,8 +430,9 @@ class HwpComWriter:
           한글을 이탤릭화하고 공백/물결(~)을 죽이므로 평문이라야 원본대로 보인다.
         - **LaTeX 명령(``\\``) 또는 공백 없는 단일 토큰**(``\\dfrac``·``P(0 \\leq Z \\leq z)``·
           ``A``·``0.16``·``P(X=x)``) → 수식 객체(본문 수식과 글꼴/기울임 일치).
-        - **공백으로 나뉜 평문 다중값**(줄기-잎 잎 "6 8"·범위 "12 ~ 18") → 평문(공백 보존).
-          수식으로 넣으면 HWP 가 공백을 죽여 "68"·"1218" 로 붙는다.
+        - **공백으로 나뉜 다중값**(줄기-잎 잎 "6 8"·범위 "12 ~ 18") → **토큰별 수식 객체**
+          + 사이 공백/물결은 평문(합의 #5 수식 객체화 — 사용자 2026-06-10 "잎도 수식").
+          통수식 하나로 넣으면 HWP 가 공백을 죽여 "68"·"1218" 로 붙으므로 토큰 단위로.
         """
         if not val:
             return
@@ -380,7 +441,13 @@ class HwpComWriter:
         elif "\\" in val or " " not in val:
             self.s.equation(latex_to_hwpeq(val))
         else:
-            self.s.text(val)
+            for i, tok in enumerate(val.split()):
+                if i:
+                    self.s.text(" ")
+                if re.fullmatch(r"[~\-—–:|]", tok):
+                    self.s.text(tok)        # 구분 기호는 평문(수식화하면 모양 변형)
+                else:
+                    self.s.equation(latex_to_hwpeq(tok))
 
     def _write_equation_table(self, rows: list[list[str]]) -> None:
         """표를 만들고 각 셀을 종류별로 렌더(수식 객체 / 평문). 빈 셀은 비운다.
@@ -529,11 +596,9 @@ class HwpComWriter:
                        if b.type == ContentType.TEXT
                        and _COND_HEADER_RE.search(b.value or "")), None)
             if ci is None:
-                for b in blocks:           # 조건 머리 없음 → 표/블록만 그대로
-                    self._write_block(b)
+                self._write_tail_seq(blocks)   # 조건 머리 없음 → 표/블록(캡션 분리) 그대로
                 return
-            for b in blocks[:ci]:          # 조건 머리 앞(표 등)은 개별 렌더
-                self._write_block(b)
+            self._write_tail_seq(blocks[:ci])  # 조건 머리 앞(표 등)은 개별 렌더(캡션 분리)
             # 조건 머리 **뒤**에도 표가 있으면(예: _recover_table 이 끝에 append) 박스는
             # 머리~표 직전까지만 — 그대로 재귀하면 동일 리스트 무한재귀(RecursionError).
             rest = blocks[ci:]
@@ -543,8 +608,7 @@ class HwpComWriter:
                 self._write_condition_box(rest)      # 표 없음 보장 → 재귀 안전
             else:
                 self._write_condition_box(rest[:ti])
-                for b in rest[ti:]:                  # 표(와 그 뒤)는 개별 렌더
-                    self._write_block(b)
+                self._write_tail_seq(rest[ti:])      # 표(와 그 뒤)는 개별 렌더(캡션 분리)
             return
         # 단락 시작(pos==0, 예: 그림 뒤 빈 단락)이면 추가 줄바꿈 없이 그 단락을 재사용
         # → 그림↔조건 사이 빈 줄 방지(사용자 2026-06-05). 아니면 새 줄로.
@@ -578,8 +642,14 @@ class HwpComWriter:
         cs = _condition_start(core)               # 표/조건 머리 시작(없으면 전부 pre)
         pre = core if cs is None else core[:cs]
         box = [] if cs is None else core[cs:]
-        for b in pre:
+        # 표 캡션이 pre 끝에 걸쳐 있으면(다음 블록=표) 줄바꿈+우측정렬로 분리(2026-06-10).
+        cap_j = None
+        if box and box[0].type == ContentType.TABLE and pre:
+            cap_j = next((j for j, t in _caption_spans(core).items() if t == cs), None)
+        for b in (pre if cap_j is None else pre[:cap_j]):
             self._write_block(b)                  # IMAGE 가운데·EQUATION_BLOCK 가운데(인라인 아님)
+        if cap_j is not None:
+            self._write_caption_run(pre[cap_j:])
         ended_box = False
         if box:
             self._write_condition_box(box)
@@ -716,11 +786,14 @@ class HwpComWriter:
         sp = h.GetPos()
         la = line()
         self._write_score(score, leading_space=True)
+        ep = h.GetPos()         # 삽입 끝(정확한 span 삭제용)
         lb = line()
         if la >= 0 and lb > la:
             # 인라인이 줄을 넘김 = 공간 부족 → 지우고 줄바꿈 후 우측정렬.
+            # ⚠️ 삽입분(sp→ep)만 선택-삭제 — MoveSelParaEnd 는 캐럿 뒤 같은 단락의
+            # 다른 내용까지 삼킨다(폼 정답 단락 침범 시 정답 페이지 증발, 2026-06-10).
             h.SetPos(sp[0], sp[1], sp[2])
-            h.Run("MoveSelParaEnd")
+            h.SelectText(sp[1], sp[2], ep[1], ep[2])
             h.HAction.Run("Delete")
             h.Run("BreakPara")
             self.s.align_right()
@@ -747,10 +820,12 @@ class HwpComWriter:
         sp = h.GetPos()
         la = line()
         put_inline(leading_space=True)
+        ep = h.GetPos()         # 삽입 끝(정확한 span 삭제용)
         lb = line()
         if la >= 0 and lb > la:
+            # ⚠️ 삽입분(sp→ep)만 선택-삭제(위 _write_score_inline_or_right 와 동일 함정).
             h.SetPos(sp[0], sp[1], sp[2])
-            h.Run("MoveSelParaEnd")
+            h.SelectText(sp[1], sp[2], ep[1], ep[2])
             h.HAction.Run("Delete")
             h.Run("BreakPara")
             self.s.align_right()

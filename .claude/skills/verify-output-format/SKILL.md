@@ -19,7 +19,7 @@ HWP COM writer(`core/hwp_com_writer.py`, `core/hwp_com.py`)와 폼 writer(`core/
 `.claude/settings.json` 의 PostToolUse 훅이 `core/hwp_com_writer.py`·`core/hwp_com.py`·
 `core/hwp_form_writer.py`·`core/latex_to_hwpeq.py`·`core/ocr_engine.py` 를 **편집할 때마다** `scripts/verify_output_format.py` 를 자동
 실행한다. 합의 위반이 생기면 훅이 **exit 2 로 차단 피드백**을 주므로 회귀가 즉시 잡힌다.
-이 SKILL 의 검사 항목과 그 스크립트는 동일한 28개 검사를 수행한다(스크립트=실행 백엔드,
+이 SKILL 의 검사 항목과 그 스크립트는 동일한 30개 검사를 수행한다(스크립트=실행 백엔드,
 SKILL=사람이 읽는 스펙·수동 실행 절차). 수동 전체 검증: `python scripts/verify_output_format.py --all`.
 
 > 훅 설정 변경은 Claude Code 재시작(또는 `/hooks` 확인) 후 적용된다.
@@ -64,6 +64,10 @@ SKILL=사람이 읽는 스펙·수동 실행 절차). 수동 전체 검증: `pyt
 | 18 | 발문 아래 블록수식 가운데정렬 | `_write_block` 의 `EQUATION_BLOCK` 분기 `if not inline:` 에 `align_center()` |
 | 19 | 소문항 부모 총점 우측정렬 | `_split_trailing_score` 정의 + `elif has_subs and total_num:` 에 `align_right()` |
 | 20 | 발문뒤 영역 공통 렌더 | `_write_tail`·`_tail_start` 정의 + `_write_condition_box(box)` 호출(폼·기본 공유) |
+| 29 | 표 캡션(표 제목) = 줄바꿈 후 **우측정렬** (배점과 같은 줄 금지, 2026-06-10) | `_caption_spans` 정의 + `_write_caption_run` 에 `align_right()` + `_write_condition_box` 표-혼합 경로가 `_write_tail_seq` 사용 + 폼 `_put_tail` 의 `w._write_caption_run(pre[cap_j:])` |
+| 30 | 배점 우측정렬 폴백 = **삽입분(sp→ep)만** 선택-삭제 | 4개 폴백(`_write_score_inline_or_right`·`_write_total_score_inline_or_right`·폼 `_put_score`·`_put_total_score`)에 `h.Run("MoveSelParaEnd")` **없음** + `SelectText(sp[1], sp[2], ep[1], ep[2])`. MoveSelParaEnd 는 마지막 서술형에서 표 탈출로 본문이 폼 **정답 단락 안**에 타이핑될 때 정답 블록 앵커까지 삼켜 정답 페이지가 증발했다(강동중 #20, 2026-06-10) |
+
+(#21~#28 은 OCR/변환기 방어 하네스 — `scripts/verify_output_format.py` 참조.)
 
 **참고(2026-06-05):** 위 합의는 **폼 경로(`core/hwp_form_writer.py`)에도 동일 적용**된다(사용자
 '항상 동일' 요구). 폼은 발문뒤 렌더를 `HwpComWriter(ses)._write_tail`/`_write_condition_box` 로
