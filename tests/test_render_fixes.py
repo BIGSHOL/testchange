@@ -213,11 +213,37 @@ def run():
     finally:
         os.remove(tmp)
 
+    # ── K: 서술형·단답형 혼합 라벨 — 능인고 수1(16~18 서술형, 19~20 단답형) ──
+    # ① _DUP_LABEL_RE 가 단답형 중복도 잡고 ② _renumber_essay_labels(words=) 가 정답 라벨을
+    # 문항별 유형으로 맞춘다(폼 정답라벨은 전부 [서술형]뿐).
+    from core.hwp_form_writer import _DUP_LABEL_RE, _renumber_essay_labels as _renum
+    chk(_DUP_LABEL_RE.search("[단답형 4][단답형 4]") is not None, "K _DUP 단답형 중복 매칭")
+    chk(_DUP_LABEL_RE.search("[서술형 4][단답형 4]") is not None, "K _DUP 혼합 중복 매칭")
+
+    def _lblw(word, n):
+        return (f'<hp:t> [{word} </hp:t><hp:equation id="1" version="x">'
+                f'<hp:script>{n}</hp:script></hp:equation><hp:t>]</hp:t>')
+    # 정답 라벨이 전부 서술형(폼 native)인 5쌍 — 본문유형 [서술,서술,서술,단답,단답] 로 맞춰야.
+    sec3 = "<hp:sec>" + "".join(_lblw("서술형", n) for n in [1, 1, 2, 2, 3, 3, 4, 4, 5, 5]) + "</hp:sec>"
+    fd2, tmp2 = tempfile.mkstemp(suffix=".hwpx"); os.close(fd2)
+    try:
+        with zipfile.ZipFile(tmp2, "w") as z:
+            z.writestr("Contents/section0.xml", sec3)
+        _renum(tmp2, 5, words=["서술형", "서술형", "서술형", "단답형", "단답형"])
+        with zipfile.ZipFile(tmp2) as z:
+            g = z.read("Contents/section0.xml").decode("utf-8")
+        words_out = _re.findall(r"\[(서술형|서답형|단답형)\s*</hp:t>", g)
+        chk(words_out == ["서술형", "서술형", "서술형", "서술형", "서술형", "서술형",
+                          "단답형", "단답형", "단답형", "단답형"],
+            f"K 혼합 라벨 단어 per-essay: {words_out}")
+    finally:
+        os.remove(tmp2)
+
     if fails:
         print("FAIL test_render_fixes:")
         print("\n".join(fails))
         return 1
-    print("OK test_render_fixes (cell/value-box/caption/shading/essay-label/overline/relabel/bigstar/boxed/labelless/solo)")
+    print("OK test_render_fixes (cell/value-box/caption/shading/essay-label/overline/relabel/bigstar/boxed/labelless/solo/mixed-label)")
     return 0
 
 

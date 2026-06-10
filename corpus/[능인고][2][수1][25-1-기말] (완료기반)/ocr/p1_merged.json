@@ -1,0 +1,139 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 1,
+      "score": 3.4,
+      "contents": [
+        {"type": "text", "value": "그림과 같은 삼각형 ABC의 넓이는?"},
+        {"type": "figure", "value": "삼각형 ABC. 변 AB=√2, 각 B=45°, 변 BC=3. 꼭짓점 A(위), B(좌하), C(우하)", "bbox": [0.10, 0.12, 0.45, 0.33]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{3}{2}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{3\\sqrt{2}}{2}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{3\\sqrt{3}}{2}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{3\\sqrt{5}}{2}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 2,
+      "score": 3.4,
+      "contents": [
+        {"type": "text", "value": "등차수열 "},
+        {"type": "equation", "value": "\\{a_n\\}"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "a_3=-5"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "a_1+a_7=-2"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "a_{10}"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "11"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "14"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "17"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "20"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "23"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 3,
+      "score": 3.4,
+      "contents": [
+        {"type": "text", "value": "수열 "},
+        {"type": "equation", "value": "\\{a_n\\}"},
+        {"type": "text", "value": "이 모든 자연수 "},
+        {"type": "equation", "value": "n"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "a_{n+1}=2a_n+n"},
+        {"type": "text", "value": "을 만족시킨다. "},
+        {"type": "equation", "value": "a_1=3"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "a_4"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "31"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "32"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "33"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "34"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "35"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 4,
+      "score": 3.4,
+      "contents": [
+        {"type": "equation", "value": "\\sum_{k=1}^{20} a_k = 20"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\sum_{k=1}^{20} a_k^2 = 45"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\sum_{k=1}^{20}(a_k-3)^2"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "105"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "125"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "145"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "165"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "185"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 5,
+      "score": 3.5,
+      "contents": [
+        {"type": "text", "value": "삼각형 ABC가 "},
+        {"type": "equation", "value": "\\sin B \\cos C = \\sin A"},
+        {"type": "text", "value": "를 만족시키고 "},
+        {"type": "equation", "value": "\\overline{AB}=5"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{BC}=3"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\overline{AC}^2"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "16"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "22"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "28"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "34"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "40"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 6,
+      "score": 3.5,
+      "contents": [
+        {"type": "text", "value": "등비수열 "},
+        {"type": "equation", "value": "\\{a_n\\}"},
+        {"type": "text", "value": "에 대하여 수열 "},
+        {"type": "equation", "value": "\\{a_n \\times a_{n+3}\\}"},
+        {"type": "text", "value": "은 첫째항이 "},
+        {"type": "equation", "value": "-72"},
+        {"type": "text", "value": ", 공비가 "},
+        {"type": "equation", "value": "4"},
+        {"type": "text", "value": "인 등비수열이다. 수열 "},
+        {"type": "equation", "value": "\\{a_n\\}"},
+        {"type": "text", "value": "의 첫째항부터 제9항까지의 합은? (단, "},
+        {"type": "equation", "value": "a_1"},
+        {"type": "text", "value": "은 양의 실수이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-513"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-255"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "255"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "513"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "1023"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

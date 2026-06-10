@@ -1,0 +1,18 @@
+{
+  "source": "완료본 기반 파이프라인 검수 (상인고 수정의 타학교 재검증)",
+  "ref_pdf": "N:\\개인\\기출\\2025 기출모음\\2025년 1학기 기말고사 모음\\pdf\\수1\\[능인고][2][수1][25-1-기말][신사고] (완료).PDF",
+  "ref_note": "3단계 사람검수 정답지. 신사고 교과서(상인고=미래엔과 다른 출판사) — 수정 견고성 재검증.",
+  "ocr_engine": "claude-code-session (완료본 판독)",
+  "deterministic": false,
+  "created": "2026-06-10",
+  "form": "[대수회][25년 폼지 최종(01.09)] (고2 수1용) (초록).hwp",
+  "structure": "객관식 15(1~15) + 서술형 3(16~18) + 단답형 2(19~20). 그림 4(#1·#7·#10 삼각형, #20 반원). 각 다수(#5·#7·#9·#16·#20 삼각함수). 조건박스 (가)(나)(다)(#9·#13). 분기수식 cases(#14). #18 수학적 귀납법 증명 빈칸채우기(서술형 essay 슬롯, 소문항 [3-1~3-3]+Bernoulli 둘째 박스).",
+  "review": "상인고 수정(빈칸 BOX·R1~R7·R4)을 신사고 타학교로 재검증. 완료본 6쪽 대조.",
+  "validated_ok": "R5/R6 각 로만(#5 sinBcosC·#9 박스 sinC·#7 ∠A — 다른 시험지·박스 내부에서 동작), 그림→안내문구(#1·#7·#10·#20), 조건박스 (가)(나)(다)(#9·#13 좌측정렬), cases 분기수식(#14), #18 귀납법 essay 박스(빈칸 BOX [가][나]·소문항·둘째 박스 가운데 — essay 슬롯 hang 없음).",
+  "defects_found": {
+    "mixed-label": "서술형(16~18)+단답형(19~20) 혼합 시험지를 파이프라인이 한 단어로 강제 통일 — 본문 [서술형 4][서술형 4] 중복 + 정답면 전부 [서술형] 오표기. 원인 ① _DUP_LABEL_RE 가 단답형 미포함 → 중복 미제거 ② _sync_essay_label_word 가 단일 target 강제. FIXED: _DUP_LABEL_RE 에 단답형 추가, _renumber_essay_labels(words=문항별유형) 가 정답 라벨을 쌍 essay 인덱스로 본문 유형에 맞춤, 균일 시험지만 단일 통일. lint(JSON·XML) 도 서술형·단답형 혼합 허용(서답형/서술형 철자혼용만 경고).",
+    "paren-exp-caret": "#18 둘째 박스 (1+h)^n 의 ^n 이 literal 캐럿 — content_parser _MATH_ATOM 이 괄호base (1+h) 를 원자로 미인식해 (·)^ 로 쪼개짐. FIXED: 원자에 괄호식 (…) 도 인정(첨자 흡수). (1+h)^n 한 수식 → (1+h)^{n}."
+  },
+  "regression_tests": "tests/test_content_parser.py(괄호base 거듭제곱), tests/test_render_fixes.py(혼합라벨 단어·_DUP_LABEL_RE 단답형). verify 30 PASS, lint JSON/XML PASS, 상인고 수1·공수1 회귀 무손상.",
+  "status": "validated__2_defects_fixed__clean"
+}

@@ -73,8 +73,10 @@ def lint_json(ocr_dir: str) -> list[tuple[str, str]]:
                     issues.append((WARN, f"[json] #{num}: figure bbox 없음(그림 미렌더 예고)"))
             if is_essay and _ESSAY_LABEL_IN_TEXT.search(texts) and not q.get("label_type"):
                 issues.append((WARN, f"[json] #{num}: 서답형 label_type 필드 없음(권장)"))
-    if len(label_types) >= 2:
-        issues.append((FAIL, f"[json] 서답형 라벨 유형 혼재: {label_types} (한 시험지=한 용어)"))
+    # 서술형·단답형 혼합은 **정상**(능인고 수1 등) — 파이프라인이 문항별 유형으로 본문·정답
+    # 라벨을 맞춘다. 단 서답형/서술형(같은 뜻 철자 변형) 혼용은 OCR 비일관 신호 → WARN.
+    if {"서답형", "서술형"} <= label_types:
+        issues.append((WARN, f"[json] 서답형/서술형 철자 혼용: {label_types} (한쪽으로 통일 권장)"))
     return issues
 
 
@@ -104,9 +106,10 @@ def lint_xml(hwpx_path: str) -> list[tuple[str, str]]:
     for t in re.findall(r"<hp:t[^>]*>([^<]*)</hp:t>", full):
         if _JAMO_RE.search(t):
             issues.append((FAIL, f"[xml] 자모 혼입 런: {t!r}"))
+    # 서술형·단답형 혼합은 정상(문항별 유형). 서답형/서술형 철자 혼용만 동기화 실패 신호(FAIL).
     labels = set(re.findall(r"\[\s*(서술형|서답형|단답형)", full))
-    if len(labels) >= 2:
-        issues.append((FAIL, f"[xml] 라벨 유형 혼재(정답페이지 동기화 실패): {labels}"))
+    if {"서답형", "서술형"} <= labels:
+        issues.append((FAIL, f"[xml] 서답형/서술형 철자 혼용(동기화 실패): {labels}"))
     if "정답" not in full:
         issues.append((FAIL, "[xml] '정답' 블록 없음(정답 페이지 증발 가능)"))
     for m in _DUP_SCORE_RE.finditer(re.sub(r"<[^>]+>", "", full)):

@@ -1,0 +1,151 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 7,
+      "score": 3.7,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 "},
+        {"type": "equation", "value": "\\overline{AB}=10"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{AC}=16"},
+        {"type": "text", "value": "이고, "},
+        {"type": "equation", "value": "\\angle A=120^\\circ"},
+        {"type": "text", "value": "인 삼각형 ABC가 있다. "},
+        {"type": "equation", "value": "\\angle A"},
+        {"type": "text", "value": "의 이등분선이 선분 BC와 만나는 점을 P라 할 때, 선분 AP의 길이는?"},
+        {"type": "figure", "value": "삼각형 ABC. AB=10, AC=16, 각 A=120°. 각 A의 이등분선이 변 BC와 만나는 점 P", "bbox": [0.55, 0.10, 0.95, 0.27]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{7}{3}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{15}{4}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{17}{4}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{9}{2}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 8,
+      "score": 3.8,
+      "contents": [
+        {"type": "text", "value": "수열 "},
+        {"type": "equation", "value": "\\{a_n\\}"},
+        {"type": "text", "value": "의 첫째항부터 제"},
+        {"type": "equation", "value": "n"},
+        {"type": "text", "value": "항까지의 합을 "},
+        {"type": "equation", "value": "S_n"},
+        {"type": "text", "value": "이라 하자. "},
+        {"type": "equation", "value": "a_1=7"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "a_2=-3"},
+        {"type": "text", "value": "이고 모든 자연수 "},
+        {"type": "equation", "value": "n"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "S_{n+2}=3S_n"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "a_9"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "54"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "63"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "459"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "531"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "567"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 9,
+      "score": 3.9,
+      "contents": [
+        {"type": "equation", "value": "\\overline{BC}=7"},
+        {"type": "text", "value": "인 삼각형 ABC가 다음 조건을 만족시킬 때, 삼각형 ABC의 넓이는?"},
+        {"type": "text", "value": "<상자> (가) 5\\sin C = 4\\sin B • (나) \\sin A + \\sin B = 3\\sin C"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\sqrt{6}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2\\sqrt{6}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3\\sqrt{6}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4\\sqrt{6}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5\\sqrt{6}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 10,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 "},
+        {"type": "equation", "value": "\\overline{AB}=7"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{BC}=8"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{CA}=5"},
+        {"type": "text", "value": "인 삼각형 ABC에 내접하는 원이 선분 AC와 만나는 점을 P라 할 때, 삼각형 ABP의 둘레의 길이는?"},
+        {"type": "figure", "value": "삼각형 ABC와 내접원. AB=7, BC=8, CA=5. 내접원이 변 AC와 만나는 점 P", "bbox": [0.55, 0.10, 0.95, 0.27]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "14"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "15"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "16"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "17"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "18"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 11,
+      "score": 4.2,
+      "contents": [
+        {"type": "text", "value": "수열 "},
+        {"type": "equation", "value": "\\{a_n\\}"},
+        {"type": "text", "value": "에 대하여"},
+        {"type": "equation_block", "value": "\\sum_{k=1}^{n}(2k-1)a_k = n(2n-1)(2n+1), \\quad \\sum_{k=1}^{n} 2k a_{k+1} = n(n+1)(4n+5)"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\frac{1}{10}\\sum_{k=1}^{10} a_k"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "160"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "320"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "480"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "640"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "800"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 12,
+      "score": 4.3,
+      "contents": [
+        {"type": "text", "value": "서로 다른 세 자연수 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "b"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "c"},
+        {"type": "text", "value": "가 공비가 "},
+        {"type": "equation", "value": "r"},
+        {"type": "text", "value": "인 등비수열을 이루고, "},
+        {"type": "equation", "value": "a+b+c=42"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "a^2+b^2+c^2=1092"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "r+c"},
+        {"type": "text", "value": "의 값은? (단, "},
+        {"type": "equation", "value": "a<b<c"},
+        {"type": "text", "value": "이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "20"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "24"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "28"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "32"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "36"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

@@ -1,0 +1,127 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 13,
+      "score": 4.4,
+      "contents": [
+        {"type": "text", "value": "공차가 3인 등차수열 "},
+        {"type": "equation", "value": "\\{a_n\\}"},
+        {"type": "text", "value": "에 대하여 다음 조건을 만족시키는 두 자연수 "},
+        {"type": "equation", "value": "k"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "m"},
+        {"type": "text", "value": "이 존재할 때, "},
+        {"type": "equation", "value": "a_m"},
+        {"type": "text", "value": "의 값은?"},
+        {"type": "text", "value": "<상자> (가) a_k=0 • (나) a_1+a_2+a_3+\\cdots+a_m=108 • (다) |a_1|+|a_2|+|a_3|+\\cdots+|a_m|=438"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "30"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "33"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "36"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "39"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "42"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 14,
+      "score": 4.5,
+      "contents": [
+        {"type": "text", "value": "수열 "},
+        {"type": "equation", "value": "\\{a_n\\}"},
+        {"type": "text", "value": "이 모든 자연수 "},
+        {"type": "equation", "value": "n"},
+        {"type": "text", "value": "에 대하여"},
+        {"type": "equation_block", "value": "a_{n+1} = \\begin{cases} \\sqrt{5}\\,a_n & (1 \\leq n \\leq 6) \\\\ a_n - n & (n \\geq 7) \\end{cases}"},
+        {"type": "text", "value": "을 만족시킨다. "},
+        {"type": "equation", "value": "110a_1=a_{12}"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "a_m<0"},
+        {"type": "text", "value": "을 만족시키는 자연수 "},
+        {"type": "equation", "value": "m"},
+        {"type": "text", "value": "의 최솟값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "28"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "29"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "30"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "31"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "32"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 15,
+      "score": 4.6,
+      "contents": [
+        {"type": "text", "value": "공차가 2이고 모든 항이 0이 아닌 등차수열 "},
+        {"type": "equation", "value": "\\{a_n\\}"},
+        {"type": "text", "value": "에 대하여 수열 "},
+        {"type": "equation", "value": "\\{b_n\\}"},
+        {"type": "text", "value": "이 모든 자연수 "},
+        {"type": "equation", "value": "n"},
+        {"type": "text", "value": "에 대하여"},
+        {"type": "equation_block", "value": "b_n = 2 - \\frac{a_{n+1}}{a_n}"},
+        {"type": "text", "value": "을 만족시킨다. "},
+        {"type": "equation", "value": "\\sum_{k=2}^{11} \\log|b_k b_{k+1}| = 0"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "a_8"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "11"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 16,
+      "score": 11,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 1] 넓이가 "},
+        {"type": "equation", "value": "8\\sqrt{14}"},
+        {"type": "text", "value": "이고 "},
+        {"type": "equation", "value": "\\frac{\\sin A}{3} = \\frac{\\sin B}{4} = \\frac{\\sin C}{6}"},
+        {"type": "text", "value": "인 삼각형 ABC의 둘레의 길이를 구하는 풀이 과정과 답을 쓰시오."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 17,
+      "score": 11,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 2] "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "에 대한 이차방정식 "},
+        {"type": "equation", "value": "x^2-(n+3)x+9n=54"},
+        {"type": "text", "value": "가 서로 다른 실근 "},
+        {"type": "equation", "value": "\\alpha"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\beta"},
+        {"type": "text", "value": " "},
+        {"type": "equation", "value": "(\\alpha<\\beta)"},
+        {"type": "text", "value": "를 갖는다. "},
+        {"type": "equation", "value": "\\{a_1, a_2, a_3\\}=\\{1, \\alpha, \\beta\\}"},
+        {"type": "text", "value": "를 만족시키는 서로 다른 세 수 "},
+        {"type": "equation", "value": "a_1"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "a_2"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "a_3"},
+        {"type": "text", "value": "이 순서대로 등비수열을 이루도록 하는 모든 자연수 "},
+        {"type": "equation", "value": "n"},
+        {"type": "text", "value": "의 값의 합을 구하시오."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    }
+  ]
+}

@@ -132,6 +132,13 @@ def _check_box_polish(fails):
                              ContentBlock(type=CT.EQUATION, value="(n=1, 2, 3 \\cdots)")])
     if not (len(mg) == 1 and "~" in (mg[0].value or "")):
         fails.append(f"  R7 범위 공백병합: {[(x.type.name, x.value) for x in mg]!r}")
+    # 괄호base 거듭제곱 (능인고 수1 #18): (1+h)^n 이 (·)^ 로 쪼개져 ^ 가 literal 캐럿으로
+    # 새던 것 — 한 수식에 (1+h)^n 통째 묶여야(_MATH_ATOM 이 괄호식도 원자로).
+    b4 = _split_mixed_text_equation("수 n에 대하여 (1+h)^n > 1+nh가 성립")
+    if not any(x.type == CT.EQUATION and "(1+h)^n" in (x.value or "") for x in b4):
+        fails.append(f"  괄호base 거듭제곱: {[(x.type.name, x.value) for x in b4]!r}")
+    if any(x.type == CT.TEXT and "^" in (x.value or "") for x in b4):
+        fails.append(f"  ^ 캐럿 평문 누수: {[(x.type.name, x.value) for x in b4]!r}")
 
 
 def run():
