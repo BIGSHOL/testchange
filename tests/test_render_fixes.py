@@ -11,8 +11,9 @@ if str(REPO) not in sys.path:
     sys.path.insert(0, str(REPO))
 
 import core.hwp_com_writer as W
-from core.hwp_com_writer import _is_table_caption, _is_value_box, _shade_target_mode
-from core.hwp_form_writer import _essay_label_and_body
+from core.hwp_com_writer import (_is_table_caption, _is_value_box, _shade_target_mode,
+                                 _is_labelless_box)
+from core.hwp_form_writer import _essay_label_and_body, _adaptive_columns
 from models.exam_document import ContentBlock, ContentType as CT
 
 
@@ -92,6 +93,14 @@ def run():
     chk(not _is_value_box(labeled_box), "(가)(나) 라벨박스는 value_box 아님")
     chk(not _is_value_box(bogi_box), "<보기>ㄱㄴ 박스는 value_box 아님")
 
+    # ── R3: 라벨 없는 셀 가운데정렬(#14) — _is_labelless_box ──
+    # 항목 라벨((가)(나)/ㄱ.)·불릿(•) 없는 <상자>(단일 진술)는 가운데, 라벨/불릿 박스는 좌측.
+    labelless = [_tb("<상자> 모든 자연수 "), _eq("n"), _tb("에 대하여 "), _eq("2a_n+S_n=k"), _tb("이다.")]
+    bullet_box = [_tb("<상자> (가) "), _eq("a_6=32"), _tb(" • (나) 모든 자연수 "), _eq("n")]
+    chk(_is_labelless_box(labelless), "라벨없는 진술상자(#14)=가운데")
+    chk(not _is_labelless_box(bullet_box), "(가)(나)불릿 박스는 라벨없음 아님(좌측)")
+    chk(not _is_labelless_box(bogi_box), "<보기>박스는 라벨없음 아님(좌측)")
+
     # ── E: 표제목 캡션 vs 발문 문장 ──
     chk(_is_table_caption("헬스클럽 회원의 나이 (단위:세)"), "표제목=캡션")
     chk(_is_table_caption("어느 마트에서 판매하는 통조림의 유통기한"), "표제목=캡션2")
@@ -155,6 +164,25 @@ def run():
     i1 = latex_to_hwpeq(r"\cdots\cdots (\bigstar)")
     chk("★" in i1, f"I bigstar 매핑: {i1!r}")
 
+    # ── J: \boxed → BOX{} 테두리 박스 — 상인고 수1 #12 빈칸채우기 (가)/(나)/(다) ──
+    # ``\boxed{가}`` → ``BOX{ ~ ㈎ ~ }``(작은 박스). BOX 가 rm 으로 감싸이면 "BOX" 글자로
+    # 깨지므로 _roman_skip 에 BOX 가 있어야 한다(rm {BOX} 금지).
+    j1 = latex_to_hwpeq(r"\boxed{가}")
+    chk("BOX{" in j1 and "㈎" in j1 and "rm {BOX}" not in j1, f"J boxed 가: {j1!r}")
+    j2 = latex_to_hwpeq(r"2 - \frac{1}{k} + \boxed{나} < \boxed{다}")
+    chk(j2.count("BOX{") == 2 and "㈏" in j2 and "㈐" in j2, f"J boxed 식중간: {j2!r}")
+
+    # ── R4: 거대 문항 단독 단 배치(_adaptive_columns solo) — 상인고 수1 #12 ──
+    # 거대 문항(solo 인덱스)은 앞 단을 닫고 자기 단에 혼자, 다음 문항은 새 단에서 시작.
+    # 일반 문항(짧음)은 3/단 그대로. (heights 작아도 solo 면 단독.)
+    hs = {i: 8 for i in range(6)}            # 6문항 모두 짧음(8줄)
+    _, _, cols0 = _adaptive_columns(hs, 6, 3)                 # solo 없음 → 3,3
+    chk([len(c) for c in cols0] == [3, 3], f"R4 solo없음 3/단: {[len(c) for c in cols0]}")
+    _, _, cols1 = _adaptive_columns(hs, 6, 3, solo={2})       # Q2 단독
+    chk([2 in c and len(c) == 1 for c in cols1].count(True) == 1
+        and any(c == [2] for c in cols1), f"R4 Q2 단독 단: {cols1}")
+    chk(all(2 not in c for c in cols1 if c != [2]), f"R4 Q2 다른단 미혼입: {cols1}")
+
     # ── H: 서술형 라벨 번호 결정적 재부여 — 상인고 #25(정답면 [서술형 5]→6) ──
     # grow 가 마지막 답지 라벨을 5(6이어야)로 굽고 COM 비결정으로 본문/정답이 뒤바뀜.
     # _renumber_essay_labels 가 문서순 (본문,정답) 쌍을 1,1,…,n,n 으로 결정적 고정.
@@ -189,7 +217,7 @@ def run():
         print("FAIL test_render_fixes:")
         print("\n".join(fails))
         return 1
-    print("OK test_render_fixes (cell/value-box/caption/shading/essay-label/overline/relabel/bigstar)")
+    print("OK test_render_fixes (cell/value-box/caption/shading/essay-label/overline/relabel/bigstar/boxed/labelless/solo)")
     return 0
 
 

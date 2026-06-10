@@ -426,6 +426,7 @@ class LaTeXToHWPConverter:
         "LEFT", "RIGHT", "SUM", "PROD", "COPROD", "INT", "DINT", "TINT",
         "OINT", "UNION", "INTER", "CASES", "MATRIX", "PMATRIX", "BMATRIX",
         "DMATRIX", "RM", "IT", "BOLD", "ROOT", "OF", "OVER", "ATOP", "SQRT",
+        "BOX",   # \boxed → BOX{…} 테두리 박스 키워드(rm 으로 감싸면 "BOX" 글자로 깨짐)
     }
 
     def __init__(self):
@@ -507,6 +508,8 @@ class LaTeXToHWPConverter:
         self._mathrm_pattern = re.compile(r"\\mathrm\s*" + self._brace_group("txt"))
         # \mathbf{...}
         self._mathbf_pattern = re.compile(r"\\mathbf\s*" + self._brace_group("txt"))
+        # \boxed{...}/\fbox{...} → HWP ``BOX{ ~ … ~ }`` 테두리 박스(빈칸채우기 (가)/(나) 등).
+        self._boxed_pattern = re.compile(r"\\(?:boxed|fbox)\s*" + self._brace_group("boxed"))
 
         # \binom{n}{k}
         self._binom_pattern = re.compile(
@@ -637,6 +640,18 @@ class LaTeXToHWPConverter:
         result = re.sub(r"  +", " ", result).strip()
         return result
 
+    # 빈칸 라벨용 괄호한글 단일문자(작은 박스): 가→㈎ … (U+320E 부터 가나다라마바사아자차…)
+    _PAREN_HANGUL = {ch: chr(0x320E + i) for i, ch in enumerate("가나다라마바사아자차카타파하")}
+
+    def _boxed_inner(self, body: str) -> str:
+        """``\\boxed{...}`` 내용 변환. 빈칸 라벨 (가)/가 → 괄호한글 단일문자(작은 박스),
+        그 외(식)는 일반 수식 변환."""
+        b = (body or "").strip()
+        m = re.fullmatch(r"\(?\s*([가-힣])\s*\)?", b)
+        if m and m.group(1) in self._PAREN_HANGUL:
+            return self._PAREN_HANGUL[m.group(1)]
+        return self._convert_expr(b)
+
     def _convert_expr(self, s: str) -> str:
         """재귀적으로 LaTeX 표현식을 변환."""
         if not s:
@@ -660,6 +675,10 @@ class LaTeXToHWPConverter:
             return hwp_env + " {" + content + "}"
 
         s = self._env_pattern.sub(_env_repl, s)
+
+        # 0.5 \boxed{...}/\fbox{...} → BOX{ ~ … ~ }. 빈칸 라벨 (가)/(나)/(다)…는 괄호한글
+        # 단일문자(㈎㈏㈐ U+320E~)로 줄여 작은 박스(원본 빈칸 모양). 그 외엔 일반 변환.
+        s = self._boxed_pattern.sub(lambda m: "BOX{ ~ " + self._boxed_inner(m.group("boxed")) + " ~ }", s)
 
         # 1. \text, \mathrm, \mathbf
         s = self._text_pattern.sub(lambda m: '"' + m.group("txt") + '"', s)

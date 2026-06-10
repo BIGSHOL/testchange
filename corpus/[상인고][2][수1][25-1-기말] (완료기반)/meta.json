@@ -9,11 +9,18 @@
   "structure": "객관식 17(1~17) + 서술형 5(18~22, 모두 부분점수). #12 수학적 귀납법 증명 빈칸채우기(긴 박스). #13 원뿔 그림. #16 조건상자(가)(나). #17 분기수식(cases). #20 원에 내접 사각형 그림. #22 조건상자(가)(나)(다).",
   "review": "고2 수1 폼 경로 첫 완료본 검증. 완료본 7쪽 1:1 대조(2회 렌더). 정답면 라벨 [서술형 1~5] 정상, 증발 없음.",
   "defects_found": {
-    "D1": "#12 ``(\\bigstar)`` 가 ``()`` 로 — \\bigstar 가 SYMBOL_MAP 에 없어 통째 증발(잔여명령 제거에 먹힘). FIXED: \\square→□ 처럼 따옴표 리터럴 ``\"★\"`` 매핑.",
-    "D2": "#12 수학적 귀납법 증명 박스가 폼 객관식 슬롯(고정 높이 3/단)보다 훨씬 커서 슬롯을 넘침 → 레이아웃 캐스케이드(문항 밀림+빈 페이지). 내용은 전부 렌더됨(완료본은 자유 컬럼, 폼은 고정 슬롯이라 거대 증명박스는 본질적으로 안 맞음). 알려진 한계(C) — 거대 박스 문항의 폼 슬롯 초과.",
-    "D3": "#22 조건상자 (가) ``2a_{n+1} = a_n + a_{n+2}`` 가 중괄호·밑줄 그대로 literal 렌더 — content_parser _MATH_ATOM 이 LaTeX 첨자 brace ``_{...}`` 를 미흡수해 ``2a``+``_{``(평문)+… 로 분해. FIXED: 원자 뒤 ``[_^](\\{…\\}|토큰)*`` 흡수(_SUBSUP). \\sum 류(백슬래시)는 원래 정상이라 (다)는 영향 없었음.",
-    "fig-13-20": "#13 원뿔·#20 내접사각형 그림→안내문구 대체 = 합의된 정상동작(그림 자동삽입 미구현). 결함 아님."
+    "D1": "#12 ``(\\bigstar)`` 가 ``()`` 로 — \\bigstar 가 SYMBOL_MAP 에 없어 증발. FIXED: \\square→□ 처럼 ``\"★\"`` 리터럴 매핑.",
+    "D3": "#22 조건상자 ``2a_{n+1}=a_n+a_{n+2}`` 가 중괄호·밑줄 literal — _MATH_ATOM 이 LaTeX 첨자 brace 미흡수. FIXED: 원자 뒤 _SUBSUP 흡수.",
+    "BOX": "#12 빈칸채우기 (가)(나)(다) — 평문 → \\boxed{가}→HWP ``BOX{ ~ ㈎ ~ }`` 작은 테두리 박스(괄호한글 ㈎ U+320E). latex_to_hwpeq _boxed_inner + BOX 를 _roman_skip 에(rm{BOX} 깨짐 방지).",
+    "R1": "#12 소문항 (i)(ii) 괄호 통째 한 수식(_SUBMARKER_RE). f(i) 함수호출은 보존(앞 영숫자 lookbehind).",
+    "R2": "#12 ``= - \\frac…`` 의 선행 ``= -`` 가 텍스트로 떨어져 음수부호 분리 — _split_latex_commands 가 명령어 앞 연산자(공백 포함)도 수식에 흡수.",
+    "이므로-leak": "#12 ``k \\geq 2이므로`` 의 한글이 수식에 흡수 — _split_latex_commands 가 중괄호 밖(depth 0) 한글에서 끊음(\\boxed{가} 중괄호 안 한글은 보호).",
+    "R3": "#14 (가)(나) 없는 셀 텍스트/수식 좌측정렬 → 가운데정렬. _is_labelless_box(라벨·불릿 없는 <상자>) 추가, _write_condition_box center_box 분기.",
+    "R5_R6": "#18 cosA/cosB·#4 A=45°/B=30° 의 A,B(각=도형)가 이탤릭 → 로만체. _romanize_angle_letters(삼각함수 인자·각도°·\\angle). 변 a,b 소문자는 이탤릭 유지.",
+    "R7": "#5 ``a_n+4(n=1,2,3⋯)`` 붙음 → ~공백. _merge_paren_range 가 점화식 뒤 범위 (n=…) 를 ~ 로 병합(n 이탤릭 유지).",
+    "R4": "#12 거대 귀납법 박스가 폼 슬롯(3/단)에 #10·#11과 묶여 넘침 → 단독 단 배치. _estimate_mc_heights 내용기반 추정 ≥18줄(_SOLO_MC_LINES)이면 _adaptive_columns 가 solo 단(앞뒤 단나누기). #12 단독 단(24/46)에 박스 완결. 일반 문항(추정 5~13)·공수1 무영향.",
+    "fig-13-20": "#13 원뿔·#20 내접사각형 그림→안내문구 = 합의된 정상동작. 결함 아님."
   },
-  "regression_tests": "tests/test_content_parser.py(D3 brace 첨자, 13 cases), tests/test_render_fixes.py(I bigstar). verify_output_format 30 PASS. corpus_lint JSON/XML PASS. 공수1 회귀 재렌더 무손상.",
-  "status": "reviewed__2_code_bugs_fixed__1_known_limit__clean"
+  "regression_tests": "tests/test_content_parser.py(D3·R1·R2·R5·R6·R7, 15 cases), tests/test_render_fixes.py(bigstar·boxed·labelless·solo). verify_output_format 30 PASS. corpus_lint JSON/XML PASS. 공수1 회귀 재렌더 무손상(solo 없음·레이아웃 불변·정답면 온전).",
+  "status": "reviewed__7_fixes__12box_faithful__clean"
 }

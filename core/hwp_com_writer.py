@@ -104,6 +104,27 @@ def _is_value_box(blocks: list[ContentBlock]) -> bool:
     return len(eqs) >= 2 and len(leftover.strip()) <= 6
 
 
+def _is_labelless_box(blocks: list[ContentBlock]) -> bool:
+    """항목 라벨((가)(나)/ㄱ.ㄴ.)·불릿(•) 없는 ``<상자>`` — 단일 진술/값 박스.
+
+    #14 "모든 자연수 n에 대하여 2a_n+S_n=k이다." 처럼 라벨 없는 셀 내용은 가운데정렬
+    (사용자 2026-06-10). <보기>/<조건> 라벨 박스나 (가)(나)/ㄱㄴㄷ 항목 박스는 좌측 유지.
+    값 나열 박스(_is_value_box)도 이 조건을 만족(부분집합).
+    """
+    texts = [b for b in blocks if b.type == ContentType.TEXT]
+    if not any(_PLAIN_BOX_RE.search(b.value or "") for b in texts):
+        return False
+    if any(_COND_MARKER_RE.search(b.value or "") for b in texts):
+        return False                       # <보기>/<조건> 라벨 박스
+    joined = "".join(b.value or "" for b in texts)
+    if _BULLET_RE.search(joined):
+        return False                       # 불릿 = 여러 항목 → 좌측
+    leftover = _PLAIN_BOX_RE.sub("", joined)
+    if _BOX_BOUNDARY_RE.search(leftover):  # (가)/ㄱ. 항목 라벨이 있으면 라벨 박스
+        return False
+    return True
+
+
 def _segment_box_text(text: str) -> list[str]:
     """박스 텍스트를 줄 단위 리스트로 분리.
 
@@ -626,9 +647,10 @@ class HwpComWriter:
         # 라벨((가)(나)/ㄱㄴㄷ) 없는 **값 나열 상자**(<상자> + 값들, 예 #10 "18 13 8 …")는
         # 가운데정렬을 기본으로(사용자 2026-06-10). 라벨/지문 박스는 좌측(원본대로).
         value_box = _is_value_box(blocks)
+        center_box = value_box or _is_labelless_box(blocks)   # 라벨 없는 셀=가운데(#14)
         self.s.align_left()             # 직전 블록수식/그림 가운데정렬 해제(표는 좌측)
         self.s.table_begin(1, 1)        # 한 칸 테두리 박스
-        if value_box:
+        if center_box:
             self.s.align_center()       # **셀 안에서** 가운데정렬(table_begin 후=커서가 셀 안)
         self._write_box_content(blocks, space_values=value_box)
         self.s.table_end()

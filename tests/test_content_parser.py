@@ -86,10 +86,60 @@ def _check_brace_subscript(fails):
         fails.append(f"  D3 brace leak: 평문에 중괄호 잔존: {texts!r}")
 
 
+# 이므로-누수(상인고 수1 #12): ``_split_latex_commands`` 가 ``k \geq 2이므로`` 에서 공백 없는
+# 한글 "이므로"를 수식에 흡수하던 회귀. 중괄호 밖(depth 0) 한글이면 끊고, ``\boxed{가}`` 처럼
+# 중괄호 안 한글은 보호해 한 수식으로 유지돼야 한다.
+def _check_korean_leak(fails):
+    from core.content_parser import _split_latex_commands
+    from models.exam_document import ContentType as CT
+    blocks = _split_latex_commands(r"이 때 k \geq 2이므로")
+    eq_txt = "".join(b.value or "" for b in blocks if b.type == CT.EQUATION)
+    txt = "".join(b.value or "" for b in blocks if b.type == CT.TEXT)
+    if "이므로" in eq_txt or "이므로" not in txt:
+        fails.append(f"  이므로 누수: {[(b.type.name, b.value) for b in blocks]!r}")
+    # \boxed{가} 는 중괄호 안 한글이라 수식에 유지(끊기지 않음)
+    bx = _split_latex_commands(r"\boxed{가} 는 점")
+    if not any(b.type == CT.EQUATION and "\\boxed{가}" in (b.value or "") for b in bx):
+        fails.append(f"  boxed 보호: {[(b.type.name, b.value) for b in bx]!r}")
+
+
+# R1~R7(상인고 수1 #4·#5·#12·#18, 2026-06-10): 소문항 마커·연산자 pull·각 로만·범위 공백.
+def _check_box_polish(fails):
+    from core.content_parser import (_split_mixed_text_equation, _split_latex_commands,
+                                     _romanize_angle_letters, _merge_paren_range)
+    from models.exam_document import ContentBlock, ContentType as CT
+    # R1: 소문항 (i)(ii) 통째 한 수식, f(i) 함수호출은 보존
+    b = _split_mixed_text_equation("(i), (ii)에 의하여")
+    eqs = [x.value for x in b if x.type == CT.EQUATION]
+    if "(i)" not in eqs or "(ii)" not in eqs:
+        fails.append(f"  R1 소문항마커: {[(x.type.name, x.value) for x in b]!r}")
+    b2 = _split_mixed_text_equation("함수 f(i)의 값")
+    if not any(x.type == CT.EQUATION and "f(i)" in (x.value or "") for x in b2):
+        fails.append(f"  R1 함수호출 보존: {[(x.type.name, x.value) for x in b2]!r}")
+    # R2: 선행 연산자 = - 를 수식에 포함
+    b3 = _split_latex_commands(r"= - \frac{1}{2} 에서")
+    if not any(x.type == CT.EQUATION and (x.value or "").startswith("= -") for x in b3):
+        fails.append(f"  R2 연산자 pull: {[(x.type.name, x.value) for x in b3]!r}")
+    # R5/R6: 각(angle) 단일 대문자 로만 — \cos A, A=45°
+    ang = _romanize_angle_letters([ContentBlock(type=CT.EQUATION, value=r"\frac{b}{\cos A}"),
+                                   ContentBlock(type=CT.EQUATION, value=r"A=45^\circ")])
+    av = "".join(x.value or "" for x in ang)
+    if r"\cos \mathrm{A}" not in av or r"\mathrm{A}=45" not in av:
+        fails.append(f"  R5/R6 각 로만: {av!r}")
+    # R7: 점화식 + (n=1,2,3⋯) ~ 공백 병합
+    mg = _merge_paren_range([ContentBlock(type=CT.EQUATION, value="a_{n+1}=a_n+4"),
+                             ContentBlock(type=CT.TEXT, value=" "),
+                             ContentBlock(type=CT.EQUATION, value="(n=1, 2, 3 \\cdots)")])
+    if not (len(mg) == 1 and "~" in (mg[0].value or "")):
+        fails.append(f"  R7 범위 공백병합: {[(x.type.name, x.value) for x in mg]!r}")
+
+
 def run():
     fails = []
     _check_comma_roots(fails)
     _check_brace_subscript(fails)
+    _check_korean_leak(fails)
+    _check_box_polish(fails)
     for text, must in _SPACING_CASES:
         got = _render(text)
         if must not in got:
@@ -105,7 +155,7 @@ def run():
         print("FAIL test_content_parser:")
         print("\n".join(fails))
         return 1
-    print(f"OK test_content_parser ({len(_SPACING_CASES) + len(_SCORE_CASES) + 2} cases)")
+    print(f"OK test_content_parser ({len(_SPACING_CASES) + len(_SCORE_CASES) + 4} cases)")
     return 0
 
 

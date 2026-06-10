@@ -1272,7 +1272,14 @@ def _estimate_mc_heights(mc) -> dict:
     return heights
 
 
-def _adaptive_columns(heights: dict, n: int, per_col_max: int, rebalance_tail: bool = True):
+# 거대 문항(예: 수학적 귀납법 증명 박스 #12)은 한 단에 **혼자** 둔다(사용자 2026-06-10).
+# 내용기반 추정 줄수가 이 값 이상이면 단독 단(앞뒤로 단나누기). CAP 의 ~40%(다른 2문항과
+# 같이 두면 단을 넘침). 일반 문항(추정 5~13줄)은 해당 없음.
+_SOLO_MC_LINES = 18
+
+
+def _adaptive_columns(heights: dict, n: int, per_col_max: int, rebalance_tail: bool = True,
+                      solo: set | None = None):
     """측정 높이로 **스마트 단배치**: 한 단(CAP 줄) 안에서 문항 수를 가변(최대 per_col_max).
 
     rebalance_tail: 마지막 단이 1문항이면 직전 단에서 끌어와 균형(객관식용). 서술형은 끄면
@@ -1285,12 +1292,20 @@ def _adaptive_columns(heights: dict, n: int, per_col_max: int, rebalance_tail: b
 
     Returns: (colbreak:set[새 단 시작 인덱스], blanks:dict[i→후행 빈줄], cols:list[list[i]]).
     """
+    solo = solo or set()
     fb = CAP // per_col_max
     cols: list[list[int]] = []
     cur: list[int] = []
     cur_h = 0
     for i in range(n):
         h = heights.get(i, fb)
+        # 거대 문항은 단독 단 — 현재 단을 닫고 자기만의 단에 두고, 다음 문항은 새 단에서.
+        if i in solo:
+            if cur:
+                cols.append(cur)
+                cur, cur_h = [], 0
+            cols.append([i])
+            continue
         prospective = cur_h + (_GAP if cur else 0) + h
         if cur and (prospective > CAP or len(cur) >= per_col_max):
             cols.append(cur)
@@ -1306,6 +1321,7 @@ def _adaptive_columns(heights: dict, n: int, per_col_max: int, rebalance_tail: b
     def _col_h(col):
         return sum(heights.get(i, fb) for i in col) + _GAP * max(0, len(col) - 1)
     if (rebalance_tail and len(cols) >= 2 and len(cols[-1]) == 1 and len(cols[-2]) >= 2
+            and cols[-1][0] not in solo and cols[-2][-1] not in solo
             and _col_h([cols[-2][-1]] + cols[-1]) <= CAP):
         cols[-1].insert(0, cols[-2].pop())
 
@@ -1364,13 +1380,22 @@ def _layout_form(filled_hwpx, out_hwpx, per_col: int, n_mc: int, n_es: int,
     # 쪼개져 불안정 — 사용자 지적 2026-06-09). 추정 실패 없음(객체만 있으면 항상 계산).
     es_heights = _estimate_essay_heights(essays) if (n_es and essays) else {}
 
+    # 거대 문항(수학적 귀납법 증명 박스 #12 등) = 내용기반 추정 줄수가 큰 객관식 → 단독 단.
+    # COM 실측은 박스 높이를 과소추정(#12 측정 15 vs 실제 ~24)하므로 **추정으로 solo 판정**.
+    mc_est = _estimate_mc_heights(mc) if (n_mc and mc) else {}
+    solo_mc = {i for i, h in mc_est.items() if h >= _SOLO_MC_LINES}
+    if solo_mc:
+        logger.info("폼 거대문항 단독 단: %s", sorted(i + 1 for i in solo_mc))
+
     blanks: dict = {}
     colbreak: set = set(range(per_col, n_mc, per_col))     # 폴백 기본(객관식 고정 per_col)
     # ── 객관식 적응배치 ──
     if n_mc:
         if len(pos) >= n_mc:
             heights = _extract_heights(pos, n_mc, per_col)
-            obj_colbreak, mc_blanks, cols = _adaptive_columns(heights, n_mc, per_col)
+            for i in solo_mc:                 # 거대문항은 실측 과소추정 → 추정으로 보정
+                heights[i] = max(heights.get(i, 0), mc_est.get(i, 0))
+            obj_colbreak, mc_blanks, cols = _adaptive_columns(heights, n_mc, per_col, solo=solo_mc)
             colbreak = set(obj_colbreak)
             blanks.update(mc_blanks)
             logger.info(
@@ -1382,7 +1407,7 @@ def _layout_form(filled_hwpx, out_hwpx, per_col: int, n_mc: int, n_es: int,
             # 넘칠 수 있다(짧은 문항이 모인 단의 과여백·오버플로우) → **최소 간격 빽빽 패킹**
             # 으로 단 상단부터 채운다(행정렬 포기, 안전 우선).
             mc_heights = _estimate_mc_heights(mc)
-            obj_colbreak, _ignore, cols = _adaptive_columns(mc_heights, n_mc, per_col)
+            obj_colbreak, _ignore, cols = _adaptive_columns(mc_heights, n_mc, per_col, solo=solo_mc)
             colbreak = set(obj_colbreak)
             for c in cols:
                 for i in c:

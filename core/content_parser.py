@@ -288,6 +288,31 @@ def _italicize_stat_operators(blocks: list[ContentBlock]) -> list[ContentBlock]:
     return out
 
 
+# 각(angle)은 도형 → 로만체(사용자 2026-06-10: "각도 도형이다"). 큰 수식 속 단일 대문자
+# 각도 ``_romanize_point_names``(통째 대문자 블록만)가 못 잡으므로, 각 신호가 명확한 위치의
+# 단일 대문자를 부분 로만화한다. 신호: ① 삼각함수 인자(\cos A) ② 각도(A=45°/A=45^\circ)
+# ③ \angle A. (소문자 변 a,b,c 는 이탤릭 유지 — 변은 도형 아닌 길이.)
+_TRIG_ANGLE_RE = re.compile(r"(\\(?:cos|sin|tan|cot|sec|csc)\s+)([A-Z])(?![A-Za-z])")
+_DEG_ANGLE_RE = re.compile(
+    r"(?<![A-Za-z\\{])([A-Z])(\s*=\s*\d+(?:\.\d+)?\s*(?:\^\s*\{?\s*\\circ|°))")
+_ANGLE_CMD_RE = re.compile(r"(\\angle\s+)([A-Z])(?![A-Za-z])")
+
+
+def _romanize_angle_letters(blocks: list[ContentBlock]) -> list[ContentBlock]:
+    """각(angle) 단일 대문자를 ``\\mathrm`` 로 로만체화 — 삼각함수 인자·각도(°)·``\\angle``."""
+    out: list[ContentBlock] = []
+    for b in blocks:
+        if b.type in (ContentType.EQUATION, ContentType.EQUATION_BLOCK) and b.value:
+            v = _TRIG_ANGLE_RE.sub(lambda m: m.group(1) + "\\mathrm{" + m.group(2) + "}", b.value)
+            v = _DEG_ANGLE_RE.sub(lambda m: "\\mathrm{" + m.group(1) + "}" + m.group(2), v)
+            v = _ANGLE_CMD_RE.sub(lambda m: m.group(1) + "\\mathrm{" + m.group(2) + "}", v)
+            if v != b.value:
+                out.append(ContentBlock(type=b.type, value=v))
+                continue
+        out.append(b)
+    return out
+
+
 def _romanize_point_names(blocks: list[ContentBlock]) -> list[ContentBlock]:
     """기하 점/선/면 이름(통째 대문자 수식 블록)을 \\mathrm 으로 감싸 로만체로 강제.
 
@@ -348,6 +373,34 @@ def _is_operator_only(text: str) -> bool:
     """
     s = re.sub(r"\s+", "", text or "")
     return bool(s) and all(c in _EQ_OP_CHARS for c in s)
+
+
+# 점화식·함수 뒤에 바로 붙는 **범위/정의역 나열** ``(n=1, 2, 3 ⋯)`` 은 앞 수식과 붙어
+# ``a_n+4(n=1,2,3⋯)`` 처럼 공백 없이 렌더된다(사용자 2026-06-10 #5). 앞 수식에 ``~``(HWP
+# 빈칸)로 병합해 한 수식+공백으로 — n 은 이탤릭 유지(평문화하면 정자됨).
+_PAREN_RANGE_RE = re.compile(r"^\(.*\)$")
+
+
+def _merge_paren_range(blocks: list[ContentBlock]) -> list[ContentBlock]:
+    """앞 수식 + 인접 괄호범위 수식 ``(n=1,2,3⋯)`` 을 ``~`` 공백으로 한 수식에 병합."""
+    eq_types = (ContentType.EQUATION, ContentType.EQUATION_BLOCK)
+    out: list[ContentBlock] = []
+    for b in blocks:
+        v = (b.value or "").strip()
+        if (b.type == ContentType.EQUATION
+                and _PAREN_RANGE_RE.match(v) and "=" in v
+                and ("," in v or "cdots" in v or "dots" in v or "⋯" in v)):
+            # 앞에 낀 공백-only 텍스트는 건너뛰고 직전 수식에 ~ 공백으로 병합.
+            j = len(out) - 1
+            if j >= 0 and out[j].type == ContentType.TEXT and not (out[j].value or "").strip():
+                j -= 1
+            if j >= 0 and out[j].type in eq_types:
+                out[j] = ContentBlock(type=out[j].type,
+                                      value=(out[j].value or "").rstrip() + " ~ " + v)
+                del out[j + 1:]
+                continue
+        out.append(b)
+    return out
 
 
 def _merge_operator_split_equations(blocks: list[ContentBlock]) -> list[ContentBlock]:
@@ -614,12 +667,29 @@ _MATH_EXPR_RE = re.compile(
 )
 
 
+# 소문항 괄호 로마숫자 마커 (i)(ii)(iii)(iv)(v) — 함수호출 f(i) 와 구별하려 앞에 영숫자 없을 때만.
+_SUBMARKER_RE = re.compile(r"(?<![A-Za-z0-9])\(\s*(?:i{1,3}|iv|v)\s*\)")
+
+
 def _split_mixed_text_equation(text: str) -> list[ContentBlock]:
     """텍스트 안에 섞인 수식 패턴(영문 변수, 부등호 등)을 분리.
 
     예: "(a > 0, b는 정수)에서"
     → text("(") + eq("a > 0") + text(", ") + eq("b") + text("는 정수)에서")
     """
+    # 소문항 괄호 마커 (i)(ii)(iii)(iv)(v) 는 **괄호 통째** 한 수식으로(사용자 2026-06-10:
+    # "소문항처럼 (i) 전체에 수식"). 함수호출 f(i) 오인 방지로 앞에 영숫자 없을 때만.
+    _sm = _SUBMARKER_RE.search(text)
+    if _sm:
+        out: list[ContentBlock] = []
+        if _sm.start() > 0:
+            out.extend(_split_mixed_text_equation(text[:_sm.start()]))
+        out.append(ContentBlock(type=ContentType.EQUATION,
+                                value=re.sub(r"\s+", "", _sm.group(0))))
+        if _sm.end() < len(text):
+            out.extend(_split_mixed_text_equation(text[_sm.end():]))
+        return out
+
     # 한글이 전혀 없으면 분리 불필요 (순수 텍스트거나 이미 수식)
     if not re.search(r'[\uac00-\ud7a3]', text):
         return [ContentBlock(type=ContentType.TEXT, value=text)]
@@ -749,7 +819,7 @@ _LATEX_CMD_RE = re.compile(
     r'log|ln|sin|cos|tan|sec|csc|cot|'
     r'square|circ|triangle|angle|perp|parallel|'
     r'cup|cap|subset|supset|in|notin|'
-    r'mathbb|mathrm|mathbf|mathit|text|'
+    r'mathbb|mathrm|mathbf|mathit|text|boxed|fbox|'
     r'le|ge|ne|to|sim)'                  # 짧은꼴(\le \ge \ne …) — OCR 이 \leq 대신 자주 씀.
     r'(?:\b|(?=[{^_(\[\d]))'             # \d: `2\times3` 처럼 명령어 바로 뒤 숫자도 경계로.
 )
@@ -788,12 +858,14 @@ def _finalize_contents(blocks: list[ContentBlock]) -> list[ContentBlock]:
     blocks = _split_comma_equations(blocks)         # 쉼표 구분 독립 수식 분리
     blocks = _merge_operator_split_equations(blocks)  # eq·연산자·eq 병합
     blocks = _merge_text_eq_fragments(blocks)       # text(꼬리부등식)·eq·text(머리부등식) 병합
+    blocks = _merge_paren_range(blocks)             # 점화식 뒤 범위 (n=1,2,3⋯) 를 ~공백으로 병합
     # 배점 [N점] 제거를 **기하 판정 앞에** 둔다 — 점수의 "점"이 기하 키워드 "점"(point)과
     # 충돌해 비기하 문제를 기하로 오인(체스 #15 A·B 로만 잔존, 2026-06-09)하던 것 방지.
     blocks = _strip_score_text(blocks)              # 잔여 [N점] 제거(기하판정 오염 방지)
     blocks = _italicize_stat_operators(blocks)      # 확통 연산자 \mathrm 벗겨 이탤릭
     blocks = _romanize_point_names(blocks)          # 기하 점/선/면 이름 로만체
     blocks = _italicize_nongeo_single_letters(blocks)  # 비기하 단일대문자 \mathrm 벗겨 이탤릭
+    blocks = _romanize_angle_letters(blocks)        # 각(angle) 단일대문자 로만체(삼각함수·°·∠)
     blocks = _romanize_context_units(blocks)        # '단위는 g' 등 문맥상 단위 수식 로만화
     blocks = _space_hangul_before_eq(blocks)        # 한글 끝 TEXT + EQ 사이 공백(확률을p_1 → 확률을 p_1)
     blocks = _rstrip_last_text(blocks)              # 끝 TEXT 의 꼬리 공백 제거(점수 앞 이중공백 방지)
@@ -936,6 +1008,24 @@ def _split_latex_commands(text: str) -> list[ContentBlock]:
     while latex_start > 0 and ("a" <= text[latex_start - 1].lower() <= "z"
                                or text[latex_start - 1].isdigit()):
         latex_start -= 1
+    # 수식 **앞에 붙은 선행 연산자**(= - + < > ≤ ≥ …)도 수식에 포함 — "= - \frac{…}" 의
+    # ``= -`` 가 텍스트로 떨어져 음수부호가 수식 밖에 따로(큰 간격) 렌더되던 것(#12 9째줄,
+    # 2026-06-10). 연산자와 그 사이 공백만 끌어오고, 한글/불릿을 만나면 멈춘다.
+    _op = latex_start
+    while _op > 0 and text[_op - 1] in " \t":   # 명령어 바로 앞 공백 먼저 건너뛰기
+        _op -= 1
+    _seen_op = False
+    while _op > 0:
+        _c = text[_op - 1]
+        if _c in _EQ_OP_CHARS:
+            _op -= 1
+            _seen_op = True
+        elif _c in " \t":
+            _op -= 1            # 연산자 사이 공백 흡수
+        else:
+            break
+    if _seen_op:
+        latex_start = _op
     # 함수꼴 괄호 안의 \leq(예 "P(X \leq 15)")는 **괄호 시작부터** 한 수식이어야 한다. \leq
     # 앞에 **안 닫힌 "("**(함수호출 괄호)가 있으면 그 "(" 와 앞 식별자(P)까지 수식에 포함한다.
     # (안 하면 "P(X" 가 P·(·X 로 쪼개진다 — #20 박스, 2026-06-09.)
@@ -966,6 +1056,26 @@ def _split_latex_commands(text: str) -> list[ContentBlock]:
         _mm = re.search(_pat, rest)
         if _mm:
             _ends.append(_mm.start())
+    # 한글이 **중괄호 밖(depth 0)** 에서 나오면 수식 종료(공백 없어도) — ``2이므로``·``{k}이다``
+    # 처럼 수·닫는중괄호 뒤 한글이 붙어도 끊는다. ``\boxed{가}``·``\text{가}``(중괄호 안 한글)
+    # 은 depth>0 이라 보호된다(상인고 수1 #12 ``k \geq 2이므로`` 누수, 2026-06-10).
+    _depth = 0
+    for _i, _ch in enumerate(rest):
+        if _ch == "{":
+            _depth += 1
+        elif _ch == "}":
+            _depth = _depth - 1 if _depth > 0 else 0
+        elif _depth == 0 and "가" <= _ch <= "힣":
+            _b = _i
+            # 한글 바로 앞의 여는 괄호(+공백)는 한글 쪽(텍스트)으로 — "(우변)" 이 수식에
+            # "(" 만 끼고 "우변)" 이 떨어져 나가지 않게.
+            _j = _i - 1
+            while _j >= 0 and rest[_j] in " \t":
+                _j -= 1
+            if _j >= 0 and rest[_j] in "(（":
+                _b = _j
+            _ends.append(_b)
+            break
     if _ends:
         eq_end = latex_start + min(_ends)
         eq_text = text[latex_start:eq_end].strip()
