@@ -2,16 +2,16 @@
 
 > 이 문서 하나로 **다른 컴퓨터에서 이어서 작업**할 수 있게 정리. 상세 설계·함정은
 > `CLAUDE.md`(루트)와 자동메모리(`C:\Users\<you>\.claude\projects\F--------\memory\MEMORY.md`)에 있다.
-> 최종 갱신: 2026-06-10 늦은 세션 (메인 PC, HEAD `a7d58c3`).
-> ⚠️ **배포 exe 는 `6eb7b99`(구버전) — 그 후 6커밋 미배포**(사용자 결정 "빌드는 아직",
-> 학년/과목 성과 누적 후 일괄 빌드): `0ca05e4`·`b25cf4a`(중앙고 확통 파일럿+학교급 수정),
+> 최종 갱신: 2026-06-10 늦은 세션 (메인 PC, HEAD `11f5fc5`).
+> ✅ **배포 exe = `11f5fc5` 빌드 완료, v0.1.15**(2026-06-10 일괄 빌드·`배포용/` 배포,
+> `--selftest` = `SELFTEST OK (v0.1.15)` + `GEMINI LIVE OK`, `config.json` 379B 보존).
+> 이 빌드 = corpus 검수 시리즈 누적분: `0ca05e4`·`b25cf4a`(중앙고 확통 파일럿+학교급 수정),
 > `3a75f3c`·`509baff`(corpus SOP·결정적 lint·후보선별), `22266a1`(상인고 공수1 4건 — 쉼표근·
 > 총점·overline·답지라벨), `f3ed2eb`(상인고 수1 — bigstar★·박스 brace 첨자), `f4225ec`
 > (**빈칸 `\boxed`→BOX{} 박스·소문항 (i)(ii) 수식·각 로만·R4 거대문항 단독 단**), `a7d58c3`
 > (**서술형·단답형 혼합 라벨·괄호base 거듭제곱 `(1+h)^n`** — 능인고 타학교 교차검증).
 > 상세 = CLAUDE.md "완료본 기반 corpus 검수 시리즈" 섹션 + `corpus/REVIEW_PROTOCOL.md`(SOP)
-> + `corpus/*/meta.json`(시험지별 결함·검증 기록). 현재 상태 = verify 30·전 테스트 PASS·키 0.
-> 다음 빌드는 §4 워크플로우 그대로 진행하면 됨.
+> + `corpus/*/meta.json`(시험지별 결함·검증 기록). 빌드 게이트 = pytest 51 + verify 30 + 키 0.
 > 배포본(`6eb7b99`) = 정답 페이지 증발 수정(배점 폴백 MoveSelParaEnd → 정확 span 삭제) +
 > 표 캡션 우측정렬(합의 #8) + 잎 셀 토큰별 수식(합의 #10), verify 28→30. 검증 = 강동중 캐시
 > 재렌더(API 0원) + pytest 51 + verify 30/30. (Codex PC 의 HWP COM 시작 블로커는 그 PC 로컬
