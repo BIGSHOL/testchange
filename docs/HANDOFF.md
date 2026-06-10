@@ -2,11 +2,14 @@
 
 > 이 문서 하나로 **다른 컴퓨터에서 이어서 작업**할 수 있게 정리. 상세 설계·함정은
 > `CLAUDE.md`(루트)와 자동메모리(`C:\Users\<you>\.claude\projects\F--------\memory\MEMORY.md`)에 있다.
-> 최종 갱신: 2026-06-10 (Codex 인계 커밋). ✅ **직전 배포 exe=`ac396e2` 빌드 완료**
+> 최종 갱신: 2026-06-10 (메인 PC, `6eb7b99`). ✅ **배포 exe=`6eb7b99` 빌드 완료**
 > (2026-06-10 재빌드·`배포용/` 배포, `--selftest` = `SELFTEST OK (v0.1.14)` + `GEMINI LIVE OK`,
-> `config.json` 379B 보존). 강동중 렌더 8건(`f85eb7c`)·**'캐시로 변환' 버튼(`ac396e2`)**·경운중 폼
-> 4건·표복구/폼측정/서수'제' 전부 배포 반영됨. 이번 Codex 인계 커밋은 **소스/테스트/문서만**
-> 마무리했고, HWP COM 로컬 시작 문제 때문에 새 exe 빌드·배포는 아직 하지 않았다.
+> `config.json` 보존). `6eb7b99` = **정답 페이지 증발 회귀 수정**(배점 폴백 MoveSelParaEnd →
+> 정확 span 삭제, CLAUDE.md "강동중 정답 페이지 증발" 섹션) + 표 캡션 우측정렬(합의 #8) +
+> 잎 셀 토큰별 수식(합의 #10), verify 28→30개. Codex 인계분(`a3b96fe`)·강동중 8건(`f85eb7c`)·
+> '캐시로 변환' 버튼(`ac396e2`)·경운중 폼 4건 **전부 이 빌드에 반영됨**. 검증 = 강동중 캐시
+> 재렌더(API 0원, 정답=1·pageBreak=1) + pytest 51 + verify 30/30. (Codex PC 의 HWP COM 시작
+> 블로커는 그 PC 로컬 문제 — 메인 PC 는 COM smoke test OK.)
 
 ## 0. 프로젝트 한 줄
 PDF 수학 시험지 → HWPX 자동 변환 (PySide6 GUI + Gemini 크롭검출 + Claude OCR + HWP COM 렌더).
