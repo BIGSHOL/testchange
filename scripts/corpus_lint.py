@@ -1,0 +1,143 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+"""자가발전 corpus 검수 — **결정적 lint**(API 0원, 비전 대조 전 1차 게이트).
+
+REVIEW_PROTOCOL.md 의 4단계(JSON lint)·6단계(렌더 XML lint)를 자동화한다. 이번 중앙고
+검수에서 사람 눈으로 놓쳤던 결함 클래스를 **기계로 강제 검출**해 회귀를 막는다.
+
+사용:
+  python scripts/corpus_lint.py --json "corpus/<시험지>/ocr"      # OCR JSON 규약
+  python scripts/corpus_lint.py --xml  out.hwpx                    # 렌더 결과 XML
+  python scripts/corpus_lint.py --all  "corpus/<시험지>" out.hwpx  # 둘 다
+
+위반이 있으면 stderr 로 보고 + exit 1. 깨끗하면 exit 0.
+"""
+from __future__ import annotations
+
+import json
+import os
+import re
+import sys
+import zipfile
+
+try:
+    sys.stderr.reconfigure(encoding="utf-8", errors="replace")
+except Exception:
+    pass
+
+# 검사 결과 레벨: FAIL = 출력 깨짐(차단), WARN = 알려진 한계/권장(보고만, 통과).
+FAIL, WARN = "FAIL", "WARN"
+
+
+# ── JSON 규약 검사 (self-OCR 출력이 파이프라인 규약을 지키는지) ──────────────
+_SCORE_IN_TEXT = re.compile(r'\[\s*(?:총\s*)?\d+(?:\.\d+)?\s*점')
+_ESSAY_LABEL_IN_TEXT = re.compile(r'\[\s*(서술형|서답형|단답형)')
+
+
+def lint_json(ocr_dir: str) -> list[tuple[str, str]]:
+    """OCR JSON(p{n}_merged.json) 규약 위반 목록 [(level, msg)]."""
+    issues: list[tuple[str, str]] = []
+    files = sorted(f for f in os.listdir(ocr_dir)
+                   if re.match(r"p\d+_merged\.json$", f))
+    if not files:
+        return [(FAIL, f"[json] {ocr_dir}: p*_merged.json 없음")]
+    label_types: set[str] = set()
+    for fn in files:
+        try:
+            data = json.load(open(os.path.join(ocr_dir, fn), encoding="utf-8"))
+        except Exception as e:
+            issues.append((FAIL, f"[json] {fn}: 파싱 실패 {e}"))
+            continue
+        for q in data.get("questions", []):
+            if not isinstance(q, dict):
+                issues.append((FAIL, f"[json] {fn}: 비-dict question"))
+                continue
+            num = q.get("number", "?")
+            is_essay = not q.get("choices")
+            texts = " ".join(b.get("value", "") for b in q.get("contents", [])
+                             if isinstance(b, dict) and b.get("type") == "text")
+            for m in _ESSAY_LABEL_IN_TEXT.finditer(texts):
+                label_types.add(m.group(1))
+            if not is_essay:
+                chs = q.get("choices", [])
+                # 그림 선택지(figure)면 선택지 텍스트가 적을 수 있어 2개 미만만 FAIL
+                if len(chs) < 2:
+                    issues.append((FAIL, f"[json] #{num}: 객관식 선택지 {len(chs)}개(<2)"))
+                for ch in chs:
+                    if not ch.get("contents"):
+                        issues.append((FAIL, f"[json] #{num} 보기{ch.get('number')}: 빈 선택지"))
+            if not q.get("score") and _SCORE_IN_TEXT.search(texts):
+                issues.append((FAIL, f"[json] #{num}: score 필드 없음(본문에 [N점] 만)"))
+            for b in q.get("contents", []):
+                if isinstance(b, dict) and b.get("type") == "figure" and not b.get("bbox"):
+                    issues.append((WARN, f"[json] #{num}: figure bbox 없음(그림 미렌더 예고)"))
+            if is_essay and _ESSAY_LABEL_IN_TEXT.search(texts) and not q.get("label_type"):
+                issues.append((WARN, f"[json] #{num}: 서답형 label_type 필드 없음(권장)"))
+    if len(label_types) >= 2:
+        issues.append((FAIL, f"[json] 서답형 라벨 유형 혼재: {label_types} (한 시험지=한 용어)"))
+    return issues
+
+
+# ── 렌더 XML 검사 (출력 hwpx 의 결정적 결함) ─────────────────────────────────
+_META_TOKENS = ("소단원자리표식QZX", "난이도자리표식QZX")
+# 자모 혼입 = **조합용 첫가끝 자모(U+1100-11FF)** — 정상 텍스트엔 안 나오고 깨진 입력의 표식.
+# 호환 자모(U+3130-318F: ㄱㄴㄷ…)는 보기 항목 라벨로 **정상** 사용되므로 제외(오탐 방지).
+_JAMO_RE = re.compile(r"[ᄀ-ᇿ]")
+_DUP_SCORE_RE = re.compile(r"\[\s*\d+\s*점\s*\][^<\[]{0,4}\[\s*\d+\s*점\s*\]")
+
+
+def lint_xml(hwpx_path: str) -> list[tuple[str, str]]:
+    """렌더된 hwpx 의 section XML 결함 목록 [(level, msg)]."""
+    issues: list[tuple[str, str]] = []
+    try:
+        z = zipfile.ZipFile(hwpx_path)
+    except Exception as e:
+        return [(FAIL, f"[xml] {hwpx_path}: 열기 실패 {e}")]
+    secs = [n for n in z.namelist() if re.search(r"section\d+\.xml$", n)]
+    if not secs:
+        return [(FAIL, f"[xml] {hwpx_path}: section XML 없음")]
+    full = "".join(z.read(n).decode("utf-8") for n in secs)
+    for tok in _META_TOKENS:
+        c = full.count(tok)
+        if c:
+            issues.append((FAIL, f"[xml] 메타란 토큰 평문 노출: {tok} ×{c}"))
+    for t in re.findall(r"<hp:t[^>]*>([^<]*)</hp:t>", full):
+        if _JAMO_RE.search(t):
+            issues.append((FAIL, f"[xml] 자모 혼입 런: {t!r}"))
+    labels = set(re.findall(r"\[\s*(서술형|서답형|단답형)", full))
+    if len(labels) >= 2:
+        issues.append((FAIL, f"[xml] 라벨 유형 혼재(정답페이지 동기화 실패): {labels}"))
+    if "정답" not in full:
+        issues.append((FAIL, "[xml] '정답' 블록 없음(정답 페이지 증발 가능)"))
+    for m in _DUP_SCORE_RE.finditer(re.sub(r"<[^>]+>", "", full)):
+        issues.append((FAIL, f"[xml] 배점 중복: {m.group(0)!r}"))
+    return issues
+
+
+def main(argv: list[str]) -> int:
+    mode = argv[0] if argv else ""
+    issues: list[tuple[str, str]] = []
+    if mode == "--json" and len(argv) >= 2:
+        issues = lint_json(argv[1])
+    elif mode == "--xml" and len(argv) >= 2:
+        issues = lint_xml(argv[1])
+    elif mode == "--all" and len(argv) >= 3:
+        issues = lint_json(os.path.join(argv[1], "ocr")) + lint_xml(argv[2])
+    else:
+        sys.stderr.write(__doc__)
+        return 2
+    fails = [m for lv, m in issues if lv == FAIL]
+    warns = [m for lv, m in issues if lv == WARN]
+    for m in fails:
+        sys.stderr.write(f"  FAIL {m}\n")
+    for m in warns:
+        sys.stderr.write(f"  WARN {m}\n")
+    if fails:
+        sys.stderr.write(f"corpus-lint: {len(fails)} FAIL, {len(warns)} WARN — 차단\n")
+        return 1
+    sys.stderr.write(f"corpus-lint: PASS ({len(warns)} WARN)\n")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main(sys.argv[1:]))
