@@ -2,14 +2,20 @@
 
 > 이 문서 하나로 **다른 컴퓨터에서 이어서 작업**할 수 있게 정리. 상세 설계·함정은
 > `CLAUDE.md`(루트)와 자동메모리(`C:\Users\<you>\.claude\projects\F--------\memory\MEMORY.md`)에 있다.
-> 최종 갱신: 2026-06-10 (메인 PC, `6eb7b99`). ✅ **배포 exe=`6eb7b99` 빌드 완료**
-> (2026-06-10 재빌드·`배포용/` 배포, `--selftest` = `SELFTEST OK (v0.1.14)` + `GEMINI LIVE OK`,
-> `config.json` 보존). `6eb7b99` = **정답 페이지 증발 회귀 수정**(배점 폴백 MoveSelParaEnd →
-> 정확 span 삭제, CLAUDE.md "강동중 정답 페이지 증발" 섹션) + 표 캡션 우측정렬(합의 #8) +
-> 잎 셀 토큰별 수식(합의 #10), verify 28→30개. Codex 인계분(`a3b96fe`)·강동중 8건(`f85eb7c`)·
-> '캐시로 변환' 버튼(`ac396e2`)·경운중 폼 4건 **전부 이 빌드에 반영됨**. 검증 = 강동중 캐시
-> 재렌더(API 0원, 정답=1·pageBreak=1) + pytest 51 + verify 30/30. (Codex PC 의 HWP COM 시작
-> 블로커는 그 PC 로컬 문제 — 메인 PC 는 COM smoke test OK.)
+> 최종 갱신: 2026-06-10 늦은 세션 (메인 PC, HEAD `a7d58c3`).
+> ⚠️ **배포 exe 는 `6eb7b99`(구버전) — 그 후 6커밋 미배포**(사용자 결정 "빌드는 아직",
+> 학년/과목 성과 누적 후 일괄 빌드): `0ca05e4`·`b25cf4a`(중앙고 확통 파일럿+학교급 수정),
+> `3a75f3c`·`509baff`(corpus SOP·결정적 lint·후보선별), `22266a1`(상인고 공수1 4건 — 쉼표근·
+> 총점·overline·답지라벨), `f3ed2eb`(상인고 수1 — bigstar★·박스 brace 첨자), `f4225ec`
+> (**빈칸 `\boxed`→BOX{} 박스·소문항 (i)(ii) 수식·각 로만·R4 거대문항 단독 단**), `a7d58c3`
+> (**서술형·단답형 혼합 라벨·괄호base 거듭제곱 `(1+h)^n`** — 능인고 타학교 교차검증).
+> 상세 = CLAUDE.md "완료본 기반 corpus 검수 시리즈" 섹션 + `corpus/REVIEW_PROTOCOL.md`(SOP)
+> + `corpus/*/meta.json`(시험지별 결함·검증 기록). 현재 상태 = verify 30·전 테스트 PASS·키 0.
+> 다음 빌드는 §4 워크플로우 그대로 진행하면 됨.
+> 배포본(`6eb7b99`) = 정답 페이지 증발 수정(배점 폴백 MoveSelParaEnd → 정확 span 삭제) +
+> 표 캡션 우측정렬(합의 #8) + 잎 셀 토큰별 수식(합의 #10), verify 28→30. 검증 = 강동중 캐시
+> 재렌더(API 0원) + pytest 51 + verify 30/30. (Codex PC 의 HWP COM 시작 블로커는 그 PC 로컬
+> 문제 — 메인 PC 는 COM smoke test OK, corpus 렌더도 메인 PC 에서 전부 수행.)
 
 ## 0. 프로젝트 한 줄
 PDF 수학 시험지 → HWPX 자동 변환 (PySide6 GUI + Gemini 크롭검출 + Claude OCR + HWP COM 렌더).
@@ -120,7 +126,28 @@ only** — anthropic 없이도 돈다). 정답 JSON 은 `tests/golden_ocr/` 에 
 - 검증 스킬: `verify-output-format`·`verify-latex-hwpeq`·`verify-ocr-parser-sync`·`verify-hwpx-structure`·
   `verify-equation-metrics`(`.claude/skills/`, Codex 는 `.agents/skills/` 미러).
 
-## 6. 현재 상태 — 최근 세션 완료분 (master `ac396e2`)
+## 6. 현재 상태 — 최근 세션 완료분 (master HEAD `a7d58c3`)
+
+**최신(2026-06-10 늦은 세션) = 완료본 기반 corpus 검수 시리즈** (API 0원, 완료본 직접 판독
+→ 우리 파이프라인 렌더 → 1:1 대조. 절차 = `corpus/REVIEW_PROTOCOL.md`):
+- `22266a1` 상인고 **공수1**(고1 폼 첫 완료본 검증): 복소근 나열 쉼표 증발(B-1)·배점없는
+  소문항 `[총 N점]`(B-2)·`2i\overline{z}`→`2ibarz`(B-3)·정답면 답지라벨 비결정(B-4,
+  `_renumber_essay_labels` 결정적 재부여).
+- `f3ed2eb` 상인고 **수1**: `\bigstar`→★ 증발·박스 ASCII brace 첨자(`2a_{n+1}`) literal.
+- `f4225ec` 상인고 수1 #12(귀납법 증명) 폴리시 7건: **빈칸 `\boxed{}`→`BOX{ ~ ㈎ ~ }` 테두리
+  박스**·소문항 (i)(ii) 통째 수식·선행연산자(`= -`) 수식 흡수·"이므로" 한글 누수 차단·라벨
+  없는 셀 가운데정렬·각(∠/cos A/45°) 로만체·점화식 뒤 `(n=1,2,⋯)` 공백·**R4 거대문항
+  단독 단**(`_SOLO_MC_LINES`=18, `_adaptive_columns(solo=)`).
+- `a7d58c3` **능인고 수1**(신사고 — 타학교 교차검증): 이전 수정 견고성 확인 + **서술형·단답형
+  혼합 라벨**(`_DUP_LABEL_RE` 단답형, `_renumber_essay_labels(words=)`, lint 혼합 허용) +
+  **괄호base 거듭제곱 `(1+h)^n`**(`_MATH_ATOM` 괄호식 원자).
+- 검수 코퍼스 누적: 중앙고 확통(원본) / 상인고 공수1·수1 / 능인고 수1(전부 `corpus/`,
+  JSON git 추적·PNG gitignore). 회귀: `test_content_parser` 15 cases·`test_render_fixes`
+  (bigstar/boxed/labelless/solo/mixed-label)·verify 30.
+
+---
+
+이하 = 직전 세션 기록 (master `ac396e2` 시점).
 빌드 버전: `_version.py = 0.1.14` (사용자 결정 "버전업 하지마 — 바뀐 게 없음", 그대로 유지).
 **배포 exe = `ac396e2` 빌드 완료**(2026-06-10 재빌드·`배포용/` 배포, `config.json` 379B 보존,
 `--selftest` = `SELFTEST OK (v0.1.14)` + `GEMINI LIVE OK`). 강동중 렌더 8건(`f85eb7c`)·'캐시로
