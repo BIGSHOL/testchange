@@ -1,4 +1,4 @@
-"""hwpx_조암/ 폴더를 유효한 HWPX 파일로 재압축한다.
+"""data/골든셋기준_조암중_hwpx해제본/ 폴더를 유효한 HWPX 파일로 재압축한다.
 
 HWPX 규약: mimetype은 ZIP 맨 앞에 비압축으로.
 """
@@ -7,7 +7,7 @@ import shutil
 import zipfile
 from pathlib import Path
 
-REF_DIR = Path(r"D:/시험지 한글화/hwpx_조암")
+REF_DIR = Path(r"D:/시험지 한글화/data/골든셋기준_조암중_hwpx해제본")
 OUT = Path(r"D:/시험지 한글화/data/_REFERENCE_repacked.hwpx")
 
 

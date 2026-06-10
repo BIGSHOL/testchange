@@ -89,7 +89,7 @@ grep -n '"outMargin"\|"baseLine"\|"TOP_AND_BOTTOM"' core/hwpx_writer.py | head -
 
 ### Step 4: 새 정답 HWPX가 추가됐는지 확인
 
-`hwpx_조암/` 외의 새 정답 폴더가 추가되면 골든셋 확장 고려:
+`data/골든셋기준_조암중_hwpx해제본/` 외의 새 정답 폴더가 추가되면 골든셋 확장 고려:
 
 ```bash
 ls "D:/시험지 한글화" | grep -i "hwpx_"
@@ -107,7 +107,7 @@ ls "D:/시험지 한글화" | grep -i "hwpx_"
 | 1 | 13개 회귀 테스트 | PASS/FAIL | MAPE=X.X%, median=X.X%, p95=X.X%, height=XX/84 |
 | 2 | 최악 케이스 분석 | (FAIL 시만) | ... |
 | 3 | XML 속성 고정값 | PASS/FAIL | outMargin=170, baseLine=85, textWrap=TOP_AND_BOTTOM, treatAsChar=1, sz ≠ 0 |
-| 4 | 골든셋 확장 여부 | INFO | 현재 hwpx_조암 84개 / 추가 레퍼런스: 없음 |
+| 4 | 골든셋 확장 여부 | INFO | 현재 data/골든셋기준_조암중_hwpx해제본 84개 / 추가 레퍼런스: 없음 |
 ```
 
 ## Exceptions

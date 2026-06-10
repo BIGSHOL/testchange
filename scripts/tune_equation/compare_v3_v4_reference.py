@@ -9,7 +9,7 @@ from collections import Counter
 from pathlib import Path
 
 DATA_DIR = Path(r"D:/시험지 한글화/data")
-REF_XML = Path(r"D:/시험지 한글화/hwpx_조암/Contents/section0.xml")
+REF_XML = Path(r"D:/시험지 한글화/data/골든셋기준_조암중_hwpx해제본/Contents/section0.xml")
 V3 = DATA_DIR / "[조암중][2][25-1-중간][동아강] (변환_v3).hwpx"
 V4 = DATA_DIR / "[조암중][2][25-1-중간][동아강] (변환_v4).hwpx"
 

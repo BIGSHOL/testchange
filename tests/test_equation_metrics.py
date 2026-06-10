@@ -1,6 +1,6 @@
 """수식 크기 추정기 회귀 테스트.
 
-정답 HWPX(hwpx_조암/Contents/section0.xml)에서 84개 수식의 실측 (script, width, height)를
+정답 HWPX(data/골든셋기준_조암중_hwpx해제본/Contents/section0.xml)에서 84개 수식의 실측 (script, width, height)를
 골든셋으로 삼아 `_estimate_equation_size`가 일정 수준 이상으로 정확한지 검증.
 
 실행:
