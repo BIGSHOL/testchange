@@ -1,0 +1,146 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 18,
+      "score": 6,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 1] "},
+        {"type": "equation", "value": "\\frac{3x-1}{2}-\\frac{2x-3}{5}"},
+        {"type": "text", "value": "을 계산했을 때, "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "의 계수를 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": ", 상수항을 "},
+        {"type": "equation", "value": "b"},
+        {"type": "text", "value": "라고 하자. 이때, "},
+        {"type": "equation", "value": "a-b"},
+        {"type": "text", "value": "의 값을 구하고 그 풀이 과정을 적으시오."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 19,
+      "score": 6,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 2] 가로의 길이가 "},
+        {"type": "equation", "value": "a\\mathrm{cm}"},
+        {"type": "text", "value": ", 세로의 길이가 "},
+        {"type": "equation", "value": "b\\mathrm{cm}"},
+        {"type": "text", "value": ", 높이가 "},
+        {"type": "equation", "value": "c\\mathrm{cm}"},
+        {"type": "text", "value": "인 직육면체가 있다. 이 직육면체의 겉넓이를 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "b"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "c"},
+        {"type": "text", "value": "를 사용한 식으로 나타낸 후, "},
+        {"type": "equation", "value": "a=2"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "b=3"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "c=1"},
+        {"type": "text", "value": "일 때, 겉넓이가 몇 "},
+        {"type": "equation", "value": "\\mathrm{cm}^2"},
+        {"type": "text", "value": "인지 구하고 그 풀이 과정을 적으시오."},
+        {"type": "figure", "value": "직육면체 그림 — 가로 a cm, 세로 b cm, 높이 c cm 라벨(점선 보조 곡선 포함)", "bbox": [0.25, 0.34, 0.82, 0.74]}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 20,
+      "score": 6,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 3] "},
+        {"type": "equation", "value": "A=3x-5"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "B=-2x-7"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "3(A-B)-2(A+B)"},
+        {"type": "text", "value": "를 "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "를 사용한 식으로 나타내면 "},
+        {"type": "equation", "value": "ax+b"},
+        {"type": "text", "value": "의 꼴이 된다. 이때, "},
+        {"type": "equation", "value": "a-b"},
+        {"type": "text", "value": "의 값을 구하고 그 풀이 과정을 적으시오. (단, "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "b"},
+        {"type": "text", "value": "는 상수)"}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 21,
+      "score": 4,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 4] "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "에 대한 두 일차방정식 "},
+        {"type": "equation", "value": "7-5x=x+13"},
+        {"type": "text", "value": "과 "},
+        {"type": "equation", "value": "2(x-a)=a+7"},
+        {"type": "text", "value": "의 해가 서로 같을 때, 상수 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "의 값을 구하고 그 풀이 과정을 적으시오."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 22,
+      "score": 6,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 5] "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "에 대한 일차방정식 "},
+        {"type": "equation", "value": "6\\left(\\frac{1}{3}x+a\\right)-7=-2\\left(x-\\frac{3}{2}a\\right)+3"},
+        {"type": "text", "value": "의 해가 자연수가 되도록 하는 자연수 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "에 대한 일차방정식 "},
+        {"type": "equation", "value": "0.3x-1.2=\\frac{1}{2}(x+a)"},
+        {"type": "text", "value": "의 해를 구하고 그 풀이 과정을 적으시오."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 23,
+      "score": 7,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 6] 좌표평면 위의 점 "},
+        {"type": "equation", "value": "A(2a-4, 3b+3)"},
+        {"type": "text", "value": "은 "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "축 위의 점이고, 점 "},
+        {"type": "equation", "value": "B(2a+6, b-1)"},
+        {"type": "text", "value": "은 "},
+        {"type": "equation", "value": "y"},
+        {"type": "text", "value": "축 위의 점일 때, 두 점 "},
+        {"type": "equation", "value": "A"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "B"},
+        {"type": "text", "value": "와 점 "},
+        {"type": "equation", "value": "C(a+7, 2b+2)"},
+        {"type": "text", "value": "를 꼭짓점으로 하는 삼각형 "},
+        {"type": "equation", "value": "ABC"},
+        {"type": "text", "value": "의 넓이를 구하고 그 풀이 과정을 적으시오."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    }
+  ]
+}

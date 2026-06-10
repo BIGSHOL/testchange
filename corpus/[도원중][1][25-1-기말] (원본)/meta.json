@@ -1,0 +1,9 @@
+{
+  "source_pdf": "N:\\개인\\기출\\2025 기출모음\\2025년 1학기 기말고사 모음\\원본\\중1\\[도원중][1][25-1-기말](원본)(수경선생).pdf.pdf",
+  "reference_pdf": "N:\\개인\\기출\\2025 기출모음\\2025년 1학기 기말고사 모음\\pdf\\중1\\[도원중][1][25-1-기말][동아강] (완료).PDF",
+  "ocr_engine": "claude-code-session (claude-fable-5)",
+  "crop_engine": "claude-code-session (claude-fable-5)",
+  "deterministic": false,
+  "created": "2026-06-11",
+  "note": "중1 폼(남색) 첫 corpus — 17객관식+6서술형(=23, 총점 100). 비전 직판독(API 0원), 완료본 ground truth 대조. 이 시험지로 잡은 B결함 2건: ①_measure_first_choice_lines가 발문 속 '①~⑤' 문자를 선택지 마커로 오인(측정 한 칸씩 밀림→빈 단)→단락 첫 글자만 마커 인정, ②_repair_column_overflow 단 넘침 자가치유 추가. C한계: #13 그래프 선택지 5개→그림 안내문구(그림 자동삽입 미구현)."
+}

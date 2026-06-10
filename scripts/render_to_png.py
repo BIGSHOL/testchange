@@ -17,7 +17,8 @@ def main(argv):
     if not argv:
         raise SystemExit("사용법: python scripts/render_to_png.py <IN.hwpx> [OUT_PREFIX]")
     src = os.path.abspath(argv[0])
-    prefix = argv[1] if len(argv) >= 2 else str(_TESTKIT_DIR / "render")
+    # HWP COM 저장은 절대경로 필수 — 상대 prefix 면 PDF 가 HWP 작업디렉터리로 샌다
+    prefix = os.path.abspath(argv[1] if len(argv) >= 2 else str(_TESTKIT_DIR / "render"))
     os.makedirs(os.path.dirname(prefix) or ".", exist_ok=True)
     pdf = prefix + ".pdf"
 

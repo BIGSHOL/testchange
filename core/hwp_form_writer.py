@@ -1130,10 +1130,23 @@ def _measure_first_choice_lines(hwpx, n: int) -> list[tuple[int, int, int]]:
             hwp.Open(str(hwpx), "HWPX", "")
             hwp.Run("MoveDocBegin")
             pos = []
-            for _ in range(n):
+            last = None
+            guard = n * 4 + 8
+            while len(pos) < n and guard > 0:
+                guard -= 1
                 if not _repeat_find(hwp, "①"):
                     break
-                hwp.Run("Cancel")
+                hwp.Run("Cancel")          # 선택 해제 → 캐럿이 매치 뒤
+                gp = hwp.GetPos()
+                cur = (gp[0], gp[1], gp[2])
+                if last is not None and cur <= last:
+                    break                  # RepeatFind 순환(wrap) — 새 매치 없음
+                last = cur
+                # 선택지 마커 ① 는 단락 첫 글자(캐럿 pos==1). 발문 문장 중간의
+                # ①(예: "①~⑤에 들어갈 식을…", 도원중 #2)을 마커로 오인하면 측정이
+                # 한 칸씩 밀려 높이 전체가 엉킨다(2026-06-11) → pos>1 은 건너뛴다.
+                if gp[2] > 1:
+                    continue
                 ki = hwp.KeyIndicator()
                 pos.append((ki[3], ki[4], ki[5]))
             return pos
@@ -1210,6 +1223,47 @@ _GAP = 2
 # 3개/단도 허용**. 답란 불필요(노트 풀이)라 높이가 허락하면 CAP 까지 빽빽(추정 기반).
 # 메모리 form-layout-no-answer-space.
 _ES_PER_COL = 3
+
+
+def _repair_column_overflow(filled_hwpx, out_hwpx, blanks: dict, colbreak: set,
+                            n_mc: int, cols: list) -> None:
+    """최종 빌드의 각 단 시작 문항 (쪽,단)을 실측해 계획과 대조 — 밀렸으면 직전 단의
+    빈줄을 줄여 재빌드(측정-검증-수리, 패리티 보정과 같은 패턴).
+
+    `_extract_heights` 는 단 마지막 슬롯 높이를 같은 단 **평균**으로 추정하는데, 분수
+    선택지(시각 높이 ~1.6줄)·메타란 줄이 몰린 문항이 단 끝에 오면 실제 단 높이가 CAP 을
+    넘어 보이지 않는 꼬리(메타란 등)가 다음 단으로 흘러넘친다 → 이후 단나누기가 전부 한
+    단씩 밀려 **중간에 빈 단**이 생긴다(도원중 중1 #13~15 단, 2026-06-11). 서술형 단은
+    ① 앵커가 없어 검증 대상에서 제외(객관식 단만 — 서술형은 객관식 뒤라 연쇄로 복구됨).
+    """
+    for floor in (_MINGAP, 0):
+        pos = _measure_first_choice_lines(out_hwpx, n_mc)
+        if len(pos) < n_mc:
+            logger.warning("[폼] 단 시작 검증 측정 실패(%d/%d) — 넘침 보정 생략",
+                           len(pos), n_mc)
+            return
+        bad = None
+        for k, c in enumerate(cols):
+            expect = (k // 2 + 1, k % 2 + 1)          # 단 k → (쪽, 쪽내 단)
+            got = (pos[c[0]][0], pos[c[0]][1])
+            if got > expect:
+                bad = k - 1                            # 늦게 시작 = 직전 단이 넘침
+                break
+            if got < expect:                           # 계획보다 이르면(비정상) 불개입
+                return
+        if bad is None or bad < 0:
+            return
+        shrunk = False
+        for i in cols[bad][:-1]:
+            if blanks.get(i, 0) > floor:
+                blanks[i] = floor
+                shrunk = True
+        if not shrunk:
+            logger.warning("[폼] 단%d 물리 넘침 감지 — 줄일 빈줄이 없어 보정 한계", bad)
+            return
+        logger.info("[폼] 단%d 물리 넘침 → 문항간 빈줄 %d로 축소 재빌드", bad, floor)
+        _build_layout(filled_hwpx, out_hwpx, blanks, colbreak, n_mc,
+                      answer_pagebreak=True, pack_essays=True)
 
 
 def _estimate_essay_heights(essays) -> dict:
@@ -1389,6 +1443,7 @@ def _layout_form(filled_hwpx, out_hwpx, per_col: int, n_mc: int, n_es: int,
 
     blanks: dict = {}
     colbreak: set = set(range(per_col, n_mc, per_col))     # 폴백 기본(객관식 고정 per_col)
+    mc_cols: list | None = None               # 측정 기반 단 구성(넘침 검증용)
     # ── 객관식 적응배치 ──
     if n_mc:
         if len(pos) >= n_mc:
@@ -1398,6 +1453,7 @@ def _layout_form(filled_hwpx, out_hwpx, per_col: int, n_mc: int, n_es: int,
             obj_colbreak, mc_blanks, cols = _adaptive_columns(heights, n_mc, per_col, solo=solo_mc)
             colbreak = set(obj_colbreak)
             blanks.update(mc_blanks)
+            mc_cols = cols
             logger.info(
                 "폼 객관식 스마트 단배치(측정 %d/%d): %d개 단, 단당문항=%s",
                 len(pos), n_mc, len(cols), [len(c) for c in cols])
@@ -1446,6 +1502,9 @@ def _layout_form(filled_hwpx, out_hwpx, per_col: int, n_mc: int, n_es: int,
     # 홀수쪽에 오도록(문제는 짝수쪽 마무리). 정답 페이지를 측정해 패리티 보정.
     _build_layout(filled_hwpx, out_hwpx, blanks, colbreak, n_mc,
                   answer_pagebreak=True, pack_essays=True)
+    # 단 물리 넘침 자가치유(빈 단 방지) — 패리티 측정 **전에**(재빌드가 쪽수를 바꿈).
+    if mc_cols and n_mc:
+        _repair_column_overflow(filled_hwpx, out_hwpx, blanks, colbreak, n_mc, mc_cols)
     ans_page = _measure_answer_page(out_hwpx)
     if ans_page and ans_page % 2 == 0:
         _build_layout(filled_hwpx, out_hwpx, blanks, colbreak, n_mc,

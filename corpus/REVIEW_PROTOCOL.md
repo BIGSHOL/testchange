@@ -91,6 +91,9 @@
 | 라벨 불일치(정답 서술형) | label_type 미read + `_ESSAY_LABEL_SYNC_RE` 가 수식번호 라벨 못잡음 | lint `라벨 혼재`(FAIL) |
 | 메타란 토큰 노출 | inject 시점 토큰 run 비결정적 쪼갬 → relaunder 후 재주입 | lint `메타란 토큰`(FAIL) |
 | 학교급 오판 | `"중" in "중앙고"` → 중2 폼 | `test_form_registry.py` |
+| 빈 단(폼) | `_measure_first_choice_lines` 가 발문 속 `①`(예: "①~⑤에 들어갈")을 마커로 오인 → 높이 측정 한 칸씩 밀림 → 단 넘침 | PNG 대조 (마커는 단락 첫글자 pos≤1 만) |
+| 점이름 통째 이탤릭 | 좌표 단 `A(-5,-3)`·`P(a,b)` 가 `_BARE_UPPER_EQ_RE` 통과 + **HWP `rm` 이 뒤 전체로 번짐** | PNG 대조 (`rm{P} it{(a,b)}` 필요) |
+| 변수+단위 붙음 | `a\mathrm{cm}` → `rm cm`(일반공백). 백틱 `` ` ``은 bare 숫자+단위에만 | PNG 대조 (`a rm`cm` 형식) |
 
 ## lint 사용
 

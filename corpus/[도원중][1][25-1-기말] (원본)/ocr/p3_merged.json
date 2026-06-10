@@ -1,0 +1,85 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 13,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "그림과 같은 빈 물통이 있다. 물통이 가득 찰 때까지 시간당 일정한 양의 물을 계속 넣는다고 할 때, 시간에 따른 물의 높이의 변화를 나타내는 그래프로 가장 알맞은 것은?"},
+        {"type": "figure", "value": "물통 그림 — 아래는 좁고 긴 원기둥, 위는 넓고 납작한 원기둥(원판)이 얹힌 버섯 모양", "bbox": [0.28, 0.20, 0.70, 0.47]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "figure", "value": "높이-시간 그래프(원점 O, 가로축 시간, 세로축 높이): 높이가 일정한 수평 직선", "bbox": [0.04, 0.46, 0.35, 0.70]}]},
+        {"number": 2, "contents": [{"type": "figure", "value": "높이-시간 그래프: 원점에서 일정한 기울기로 증가하는 직선", "bbox": [0.35, 0.46, 0.64, 0.70]}]},
+        {"number": 3, "contents": [{"type": "figure", "value": "높이-시간 그래프: 처음에는 완만하게 증가하다가 도중에 기울기가 커져 가파르게 증가하는 꺾은선", "bbox": [0.64, 0.46, 0.97, 0.70]}]},
+        {"number": 4, "contents": [{"type": "figure", "value": "높이-시간 그래프: 처음에는 가파르게 증가하다가 도중에 기울기가 작아져 완만하게 증가하는 꺾은선", "bbox": [0.04, 0.70, 0.35, 0.94]}]},
+        {"number": 5, "contents": [{"type": "figure", "value": "높이-시간 그래프: 세로축 위 한 점에서 완만하게 감소하다가 가파르게 감소하여 높이가 0이 되는 꺾은선", "bbox": [0.35, 0.70, 0.64, 0.94]}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 14,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "미영이와 하진이는 10km 자전거경주 대회에 참여하여 동시에 출발했다. 그래프는 미영이와 하진이가 각각 자전거를 타고 달린 시간에 따른 이동 거리를 나타낸 것이다. 이에 대한 설명으로 옳은 것은?"},
+        {"type": "figure", "value": "좌표 그래프 — 가로축 시간(분) 0~150(30 간격 눈금), 세로축 거리(km) 0~10(5·10 눈금), 모눈 격자. 하진: 원점에서 가파르게 올라 (30, 5)까지 간 뒤 (80, 5)까지 수평(정지), 다시 올라 (150, 10) 도착. 미영: 원점에서 일정한 기울기의 직선으로 약 (140, 10) 도착. 오른쪽 위에 '미영', '하진' 라벨", "bbox": [0.05, 0.16, 0.97, 0.62]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "하진이는 중간에 50분 동안 정지하였다."}]},
+        {"number": 2, "contents": [{"type": "text", "value": "10km 결승점에는 하진이가 먼저 도착하였다."}]},
+        {"number": 3, "contents": [{"type": "text", "value": "5km 지점을 먼저 통과한 사람은 미영이다."}]},
+        {"number": 4, "contents": [{"type": "text", "value": "출발한 지 40분 후의 두 사람의 거리 차이는 2km이다."}]},
+        {"number": 5, "contents": [{"type": "text", "value": "미영이와 하진이가 출발한 후 처음으로 다시 만나는 시간은 30분 후이다."}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 15,
+      "score": 5,
+      "contents": [
+        {"type": "equation", "value": "a=-\\frac{1}{2}"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "b=-1"},
+        {"type": "text", "value": "일 때, 식의 값이 가장 작은 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{1}{a}-b^2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-2a^2+b"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-4ab"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "2b+a"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "-\\frac{1}{a}+\\frac{1}{b}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 16,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "A마트에서는 가방의 정가를 원가에 30%의 이익을 붙여 정하였으나 가방이 팔리지 않아 다시 정가에서 1000원을 할인하여 판매하였더니, 원가의 10%에 해당하는 이익이 남았다. 이 가방의 원가는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "5000원"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "6000원"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "6500원"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "8000원"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "9500원"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 17,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "집에서 공원에 갈 때는 시속 3km로 걸어갔고, 공원에서 40분 동안 책을 읽은 다음 집으로 올 때는 다른 길로 시속 4km로 걸었더니, 총 1시간 30분이 걸렸다. 공원까지 간 길과 공원에서 온 길의 거리의 합이 3km일 때, 집에서 공원까지 갈 때 걸린 시간은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "15분"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "20분"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "25분"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "30분"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "35분"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

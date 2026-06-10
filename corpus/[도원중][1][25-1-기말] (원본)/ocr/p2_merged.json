@@ -1,0 +1,157 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 7,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "문장을 등식으로 나타낸 것으로 옳은 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [
+          {"type": "text", "value": "36개의 빵을 "},
+          {"type": "equation", "value": "x"},
+          {"type": "text", "value": "명에게 2개씩 나누어 주었더니 4개가 남았다. ⇨ "},
+          {"type": "equation", "value": "36=2x-4"}
+        ]},
+        {"number": 2, "contents": [
+          {"type": "text", "value": "밑변의 길이가 "},
+          {"type": "equation", "value": "x\\mathrm{cm}"},
+          {"type": "text", "value": ", 높이가 "},
+          {"type": "equation", "value": "8\\mathrm{cm}"},
+          {"type": "text", "value": "인 삼각형의 넓이는 "},
+          {"type": "equation", "value": "40\\mathrm{cm}^2"},
+          {"type": "text", "value": "이다. ⇨ "},
+          {"type": "equation", "value": "8x=40"}
+        ]},
+        {"number": 3, "contents": [
+          {"type": "text", "value": "판매가가 "},
+          {"type": "equation", "value": "x"},
+          {"type": "text", "value": "원인 물건을 30% 할인하여 팔 때의 가격은 9000원이다. ⇨ "},
+          {"type": "equation", "value": "0.7x=9000"}
+        ]},
+        {"number": 4, "contents": [
+          {"type": "text", "value": "가로의 길이가 "},
+          {"type": "equation", "value": "x\\mathrm{cm}"},
+          {"type": "text", "value": ", 세로의 길이가 "},
+          {"type": "equation", "value": "6\\mathrm{cm}"},
+          {"type": "text", "value": "인 직사각형의 둘레의 길이가 "},
+          {"type": "equation", "value": "50\\mathrm{cm}"},
+          {"type": "text", "value": "이다. ⇨ "},
+          {"type": "equation", "value": "x+6=50"}
+        ]},
+        {"number": 5, "contents": [
+          {"type": "text", "value": "700원짜리 사탕 "},
+          {"type": "equation", "value": "x"},
+          {"type": "text", "value": "개를 사고 6000원을 내었더니 거스름돈이 1100원이었다. ⇨ "},
+          {"type": "equation", "value": "6000+700x=1100"}
+        ]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 8,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "등식 "},
+        {"type": "equation", "value": "ax-1=3x-1"},
+        {"type": "text", "value": "이 "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "에 대한 항등식일 때, "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "에 대한 일차방정식 "},
+        {"type": "equation", "value": "x-\\frac{1}{a}(x+1)=\\frac{1}{6}a"},
+        {"type": "text", "value": "의 해는? (단, "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "는 상수)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "x=-\\frac{5}{6}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "x=0"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "x=\\frac{1}{4}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "x=\\frac{5}{4}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "x=3"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 9,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "계산 결과가 같은 것만을 <보기>에서 고른 것은?"},
+        {"type": "text", "value": "<보기> ㄱ. a\\div(b\\times c) • ㄴ. a\\times(b\\div c) • ㄷ. a\\div b\\times c • ㄹ. a\\div(b\\div c)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ, ㄴ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄱ, ㄷ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄴ, ㄷ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄴ, ㄹ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄷ, ㄹ"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 10,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "좌표평면 위의 네 점 "},
+        {"type": "equation", "value": "A(-5, -3)"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "B(4, -3)"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "C(2, 5)"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "D(-1, 5)"},
+        {"type": "text", "value": "를 꼭짓점으로 하는 사각형 "},
+        {"type": "equation", "value": "ABCD"},
+        {"type": "text", "value": "의 넓이는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "48"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "60"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "72"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "84"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "96"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 11,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 성냥개비를 사용하여 정사각형을 만들어 나간다. "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "개의 정사각형을 만드는 데 필요한 성냥개비의 개수가 97개일 때, "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "의 값은?"},
+        {"type": "figure", "value": "성냥개비로 만든 정사각형들이 가로로 이어진 그림 — 정사각형 4개, 말줄임표(…), 마지막 정사각형 1개. 위에 중괄호와 '정사각형 a개' 라벨", "bbox": [0.20, 0.26, 0.80, 0.52]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "31"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "32"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "33"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "34"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "35"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 12,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "점 "},
+        {"type": "equation", "value": "P(a, b)"},
+        {"type": "text", "value": "가 제3사분면 위의 점일 때, <보기>에서 옳은 것만을 있는 대로 고른 것은?"},
+        {"type": "text", "value": "<보기> ㄱ. 점 A(a+b, ab)는 제2사분면 위의 점이다. • ㄴ. 점 B(-b, a)는 제4사분면 위의 점이다. • ㄷ. 점 C\\left(\\frac{a}{b}, -a\\right)는 제1사분면 위의 점이다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄴ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄱ, ㄷ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄴ, ㄷ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄱ, ㄴ, ㄷ"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}
