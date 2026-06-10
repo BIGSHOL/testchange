@@ -1,0 +1,89 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 17,
+      "score": 4.2,
+      "contents": [
+        {"type": "text", "value": "첫째항이 1인 수열 "},
+        {"type": "equation", "value": "\\{a_n\\}"},
+        {"type": "text", "value": "이 모든 자연수 "},
+        {"type": "equation", "value": "n"},
+        {"type": "text", "value": "에 대하여"},
+        {"type": "equation_block", "value": "a_{n+1} = \\begin{cases} 3a_n - 1 & (a_n < 10) \\\\ \\frac{1}{2}a_n & (a_n \\geq 10) \\end{cases}"},
+        {"type": "text", "value": "을 만족시킨다. 수열 "},
+        {"type": "equation", "value": "\\{a_n\\}"},
+        {"type": "text", "value": "의 첫째항부터 제"},
+        {"type": "equation", "value": "n"},
+        {"type": "text", "value": "항까지의 합을 "},
+        {"type": "equation", "value": "S_n"},
+        {"type": "text", "value": "이라 할 때, "},
+        {"type": "equation", "value": "S_m = 176"},
+        {"type": "text", "value": "을 만족시키는 자연수 "},
+        {"type": "equation", "value": "m"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "17"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "18"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "19"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "20"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "21"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 18,
+      "score": 6,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 1] △ABC에서 "},
+        {"type": "equation", "value": "\\frac{b}{\\cos A} = \\frac{a}{\\cos B}"},
+        {"type": "text", "value": "를 만족시키는 삼각형은 어떤 삼각형인지 구하는 풀이 과정과 답을 작성하시오."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 19,
+      "score": 7,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 2] "},
+        {"type": "equation", "value": "0 \\leq x < 2\\pi"},
+        {"type": "text", "value": "일 때 두 부등식"},
+        {"type": "equation_block", "value": "\\tan x \\leq -1, \\quad \\cos x \\leq \\sin\\frac{\\pi}{8}"},
+        {"type": "text", "value": "을 동시에 만족시키는 "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "의 값의 범위를 구하는 풀이 과정과 답을 작성하시오."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 20,
+      "score": 7,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 3] 그림과 같이 "},
+        {"type": "equation", "value": "\\overline{AB}=4"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{BC}=2\\sqrt{7}"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{AD} \\times \\overline{CD} = 16"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\angle BAC = \\frac{\\pi}{3}"},
+        {"type": "text", "value": "인 사각형 ABCD가 있다. 삼각형 ABC의 넓이를 "},
+        {"type": "equation", "value": "S_1"},
+        {"type": "text", "value": ", 삼각형 ACD의 넓이를 "},
+        {"type": "equation", "value": "S_2"},
+        {"type": "text", "value": "라 하고 "},
+        {"type": "equation", "value": "S_2 = \\frac{2}{3} S_1"},
+        {"type": "text", "value": "일 때, 삼각형 ACD의 외접원의 넓이를 구하는 풀이 과정과 답을 작성하시오."},
+        {"type": "figure", "value": "원에 내접하는 사각형 ABCD. 꼭짓점 A에서 ∠BAC=π/3, AB=4, BC=2√7. 대각선 AC, 점 D는 원 위. 꼭짓점 순서 A(좌상), B(좌하), C(우하), D(우상)", "bbox": [0.55, 0.58, 0.96, 0.93]}
+      ],
+      "choices": [],
+      "sub_questions": []
+    }
+  ]
+}

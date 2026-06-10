@@ -1,0 +1,141 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 1,
+      "score": 3.4,
+      "contents": [
+        {"type": "text", "value": "세 수 "},
+        {"type": "equation", "value": "2"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "8"},
+        {"type": "text", "value": "이 등비수열을 이룰 때, 양수 "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "7"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 2,
+      "score": 3.4,
+      "contents": [
+        {"type": "text", "value": "두 수열 "},
+        {"type": "equation", "value": "\\{a_n\\}"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\{b_n\\}"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "\\sum_{k=1}^{10} a_k = 20"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\sum_{k=1}^{10} b_k = 10"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\sum_{k=1}^{10}(a_k + 3b_k + 1)"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "40"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "50"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "60"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "70"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "80"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 3,
+      "score": 3.6,
+      "contents": [
+        {"type": "text", "value": "△ABC에서 "},
+        {"type": "equation", "value": "\\overline{AB}=8"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{AC}=6"},
+        {"type": "text", "value": "이고 "},
+        {"type": "equation", "value": "\\sin A = \\frac{1}{2}"},
+        {"type": "text", "value": "일 때, △ABC의 넓이는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "18"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "24"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "30"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 4,
+      "score": 3.6,
+      "contents": [
+        {"type": "text", "value": "△ABC에서 "},
+        {"type": "equation", "value": "a=4\\sqrt{2}"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "A=45^\\circ"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "B=30^\\circ"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "b"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "2\\sqrt{2}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "2\\sqrt{3}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "2\\sqrt{6}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 5,
+      "score": 3.6,
+      "contents": [
+        {"type": "text", "value": "수열 "},
+        {"type": "equation", "value": "\\{a_n\\}"},
+        {"type": "text", "value": "이 "},
+        {"type": "equation", "value": "a_1=2"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "a_{n+1}=a_n+4"},
+        {"type": "text", "value": " "},
+        {"type": "equation", "value": "(n=1, 2, 3 \\cdots)"},
+        {"type": "text", "value": "으로 정의될 때, "},
+        {"type": "equation", "value": "a_4"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "14"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 6,
+      "score": 3.6,
+      "contents": [
+        {"type": "text", "value": "첫째항이 "},
+        {"type": "equation", "value": "5"},
+        {"type": "text", "value": ", 제10항이 "},
+        {"type": "equation", "value": "25"},
+        {"type": "text", "value": "인 등차수열의 첫째항부터 제10항까지의 합은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "150"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "160"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "170"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "180"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "190"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

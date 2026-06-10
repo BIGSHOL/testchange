@@ -72,9 +72,24 @@ def _check_comma_roots(fails):
         fails.append(f"  B-1 근나열 쉼표: {blocks!r} (기대: 개별수식 3+ & 텍스트 쉼표)")
 
 
+# D3(상인고 수1 #22): 박스 ASCII 수식 ``2a_{n+1} = a_n + a_{n+2}`` 가 ``_MATH_ATOM`` 의
+# 중괄호 미흡수로 ``2a``+``_{``(평문)+… 로 쪼개져 중괄호·밑줄이 literal 로 새던 회귀.
+# brace 첨자 원자가 통째 한 수식으로 묶이고, 평문에 ``_{``/``}`` 가 남지 않아야 한다.
+def _check_brace_subscript(fails):
+    from core.content_parser import _split_mixed_text_equation
+    blocks = _split_mixed_text_equation("(가) 모든 자연수 n에 대하여 2a_{n+1} = a_n + a_{n+2} 이다.")
+    eqs = [b.value or "" for b in blocks if b.type == ContentType.EQUATION]
+    texts = "".join(b.value or "" for b in blocks if b.type == ContentType.TEXT)
+    if not any("2a_{n+1}" in e and "a_{n+2}" in e for e in eqs):
+        fails.append(f"  D3 brace 첨자: {[(b.type.name, b.value) for b in blocks]!r}")
+    if "_{" in texts or "}" in texts:
+        fails.append(f"  D3 brace leak: 평문에 중괄호 잔존: {texts!r}")
+
+
 def run():
     fails = []
     _check_comma_roots(fails)
+    _check_brace_subscript(fails)
     for text, must in _SPACING_CASES:
         got = _render(text)
         if must not in got:
@@ -90,7 +105,7 @@ def run():
         print("FAIL test_content_parser:")
         print("\n".join(fails))
         return 1
-    print(f"OK test_content_parser ({len(_SPACING_CASES) + len(_SCORE_CASES) + 1} cases)")
+    print(f"OK test_content_parser ({len(_SPACING_CASES) + len(_SCORE_CASES) + 2} cases)")
     return 0
 
 

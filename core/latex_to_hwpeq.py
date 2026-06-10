@@ -308,6 +308,9 @@ class LaTeXToHWPConverter:
         r"\square": '"□"',
         r"\circ": "CIRC",
         r"\bullet": "BULLET",
+        # ★ 마커(귀납법 증명 ``(★)`` 등) — 키워드 미지원이라 □(\square)처럼 따옴표 리터럴.
+        # 없으면 ``\bigstar`` 가 통째 증발해 ``(★)`` 가 ``()`` 로 샌다(상인고 수1 #12).
+        r"\bigstar": '"★"',
         r"\star": "STAR",
         r"\diamond": "DIAMOND",
         r"\top": "TOP",

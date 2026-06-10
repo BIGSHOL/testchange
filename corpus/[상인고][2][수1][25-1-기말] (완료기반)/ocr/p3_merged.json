@@ -1,0 +1,60 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 11,
+      "score": 4,
+      "contents": [
+        {"type": "equation_block", "value": "\\frac{3}{1^2} + \\frac{5}{1^2+2^2} + \\frac{7}{1^2+2^2+3^2} + \\cdots + \\frac{21}{1^2+2^2+3^2+\\cdots+10^2}"},
+        {"type": "text", "value": "의 값이 "},
+        {"type": "equation", "value": "\\frac{q}{p}"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "p+q"},
+        {"type": "text", "value": "의 값은? (단, "},
+        {"type": "equation", "value": "p"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "q"},
+        {"type": "text", "value": "는 서로소인 자연수이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "71"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "72"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "73"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "74"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "75"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 12,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "다음은 "},
+        {"type": "equation", "value": "n \\geq 2"},
+        {"type": "text", "value": "인 모든 자연수 "},
+        {"type": "equation", "value": "n"},
+        {"type": "text", "value": "에 대하여"},
+        {"type": "equation_block", "value": "1 + \\frac{1}{2^2} + \\frac{1}{3^2} + \\cdots + \\frac{1}{n^2} < 2 - \\frac{1}{n} \\quad \\cdots\\cdots (\\bigstar)"},
+        {"type": "text", "value": "이 성립함을 수학적 귀납법으로 증명한 것이다."},
+        {"type": "text", "value": "<상자> (ⅰ) n=2일 때, (좌변)= (가) , (우변)= \\frac{3}{2} 이므로 (★)이 성립한다. • (ⅱ) n=k(k \\geq 2)일 때, (★)이 성립한다고 가정하면 1 + \\frac{1}{2^2} + \\frac{1}{3^2} + \\cdots + \\frac{1}{k^2} < 2 - \\frac{1}{k} 이다. • n=k+1일 때, 1 + \\frac{1}{2^2} + \\frac{1}{3^2} + \\cdots + \\frac{1}{k^2} + (나) < 2 - \\frac{1}{k} + (나) • 이 때 k \\geq 2이므로 \\left\\{ 2 - \\frac{1}{k} + (나) \\right\\} - ( (다) ) = \\frac{-(k+1)^2 + k + k(k+1)}{k(k+1)^2} = - \\frac{1}{k(k+1)^2} < 0 에서 • 2 - \\frac{1}{k} + (나) < (다) • 즉, 1 + \\frac{1}{2^2} + \\frac{1}{3^3} + \\cdots + \\frac{1}{k^2} + \\frac{1}{(k+1)^2} < (다) • 따라서 n=k+1일 때도 (★)이 성립한다. • (ⅰ), (ⅱ)에 의하여 n \\geq 2인 모든 자연수 n에 대하여 (★)이 성립한다."},
+        {"type": "text", "value": "위의 (가)에 알맞은 수를 "},
+        {"type": "equation", "value": "p"},
+        {"type": "text", "value": ", (나), (다)에 알맞은 식을 각각 "},
+        {"type": "equation", "value": "f(k)"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "g(k)"},
+        {"type": "text", "value": "라 할 때, "},
+        {"type": "equation", "value": "p + \\frac{g(3)}{f(4)}"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "25"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "30"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "35"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "40"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "45"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

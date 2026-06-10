@@ -149,6 +149,12 @@ def run():
     g2 = latex_to_hwpeq(r"(4+3i)z+2i\overline{z}=5+i")
     chk("2ibar" not in g2, f"G overline 식중간: {g2!r}")
 
+    # ── I: bigstar(★) 마커 — 상인고 수1 #12 ──
+    # ``\bigstar`` 가 SYMBOL_MAP 에 없어 통째 증발 → ``(★)`` 이 ``()`` 로 새던 회귀.
+    # □(\square)처럼 따옴표 리터럴 ★ 로 매핑돼야 한다.
+    i1 = latex_to_hwpeq(r"\cdots\cdots (\bigstar)")
+    chk("★" in i1, f"I bigstar 매핑: {i1!r}")
+
     # ── H: 서술형 라벨 번호 결정적 재부여 — 상인고 #25(정답면 [서술형 5]→6) ──
     # grow 가 마지막 답지 라벨을 5(6이어야)로 굽고 COM 비결정으로 본문/정답이 뒤바뀜.
     # _renumber_essay_labels 가 문서순 (본문,정답) 쌍을 1,1,…,n,n 으로 결정적 고정.
@@ -183,7 +189,7 @@ def run():
         print("FAIL test_render_fixes:")
         print("\n".join(fails))
         return 1
-    print("OK test_render_fixes (cell/value-box/caption/shading/essay-label/overline/relabel)")
+    print("OK test_render_fixes (cell/value-box/caption/shading/essay-label/overline/relabel/bigstar)")
     return 0
 
 

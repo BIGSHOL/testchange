@@ -1,0 +1,106 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 13,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 밑면의 반지름의 길이가 "},
+        {"type": "equation", "value": "2\\mathrm{cm}"},
+        {"type": "text", "value": "이고 모선의 길이가 "},
+        {"type": "equation", "value": "6\\mathrm{cm}"},
+        {"type": "text", "value": "인 원뿔이 있다. 원뿔의 밑면인 원의 둘레 위의 점 P에서 모선 OP의 중점 Q까지 원뿔의 표면을 따라 실을 감을 때, 감은 실의 길이의 최솟값은?"},
+        {"type": "figure", "value": "원뿔 그림. 꼭짓점 O, 모선 길이 6cm, 밑면 반지름 2cm. 밑면 둘레 위의 점 P에서 모선 OP의 중점 Q까지 원뿔 표면을 따라 실을 감은 모양", "bbox": [0.12, 0.13, 0.46, 0.33]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "6\\mathrm{cm}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "3\\sqrt{5}\\mathrm{cm}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3\\sqrt{6}\\mathrm{cm}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "3\\sqrt{7}\\mathrm{cm}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "6\\sqrt{2}\\mathrm{cm}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 14,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "수열 "},
+        {"type": "equation", "value": "\\{a_n\\}"},
+        {"type": "text", "value": "의 첫째항부터 제"},
+        {"type": "equation", "value": "n"},
+        {"type": "text", "value": "항까지의 합을 "},
+        {"type": "equation", "value": "S_n"},
+        {"type": "text", "value": "이라 할 때, 두 수열 "},
+        {"type": "equation", "value": "\\{a_n\\}"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\{S_n\\}"},
+        {"type": "text", "value": "과 상수 "},
+        {"type": "equation", "value": "k"},
+        {"type": "text", "value": "가 다음 조건을 만족시킨다."},
+        {"type": "text", "value": "<상자> 모든 자연수 n에 대하여 2a_n + S_n = k 이다."},
+        {"type": "equation", "value": "S_5 = 633"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "k"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "720"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "723"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "726"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "729"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "732"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 15,
+      "score": 4.2,
+      "contents": [
+        {"type": "text", "value": "자연수 "},
+        {"type": "equation", "value": "n"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "0 \\leq x \\leq 2^{n+1}"},
+        {"type": "text", "value": "에서 함수 "},
+        {"type": "equation", "value": "y = 2\\cos\\left(\\frac{\\pi}{2^n} x\\right)"},
+        {"type": "text", "value": "의 그래프가 직선 "},
+        {"type": "equation", "value": "y = \\frac{(-1)^{n+1}}{n}"},
+        {"type": "text", "value": "과 만나는 모든 점의 "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "좌표의 합을 "},
+        {"type": "equation", "value": "x_n"},
+        {"type": "text", "value": "이라 하자. "},
+        {"type": "equation", "value": "\\sum_{n=1}^{6} x_n"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "244"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "246"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "248"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "250"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "252"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 16,
+      "score": 4.2,
+      "contents": [
+        {"type": "text", "value": "공차가 정수인 등차수열 "},
+        {"type": "equation", "value": "\\{a_n\\}"},
+        {"type": "text", "value": "이 다음 조건을 만족시킨다."},
+        {"type": "text", "value": "<상자> (가) a_6 = 32 • (나) 모든 자연수 n에 대하여 \\sum_{k=1}^{n} a_k \\leq \\sum_{k=1}^{12} a_k 이다."},
+        {"type": "equation", "value": "\\sum_{k=3}^{10} |a_{2k}|"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "160"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "162"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "164"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "166"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "168"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}
