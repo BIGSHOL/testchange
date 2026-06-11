@@ -9,7 +9,7 @@
   "created": "2026-06-11",
   "reviewed": "2026-06-11",
   "review": {
-    "render_session": "claude-code-session (메인/HWP)",
+    "render_session": "claude-code-session (중1 크롭 세션 — 역할 외 1회성 렌더 검수; 메인 재렌더 불필요)",
     "a_type_json_defects": 0,
     "a_type_note": "JSON 작성 규약 위반 0건 — 15문항(객관식 10+서술형 5) 1:1 대조 일치. 정답 페이지(1~15, 서술형 1~5) 완전 보존(합의 #9), p4 빈 페이지=짝수 마무리 정상. q8 5×1 표·literal 중괄호 선택지·밑줄 강조·서술형 박스/분수 전부 정상.",
     "b_type_render_defects_fixed": [
