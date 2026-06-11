@@ -1,0 +1,69 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 1,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "계산 결과가 옳지 __않은__ 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "9a \\times \\left(-\\frac{7}{3}\\right) = -21a"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "(6b-2) \\div 2 = 3b-1"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "(-6c) \\div \\left(-\\frac{1}{5}\\right) = 30c"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "(2x-6) \\div \\frac{1}{3} = 6x-18"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "(-2) \\times (3y-1) \\div \\frac{1}{4} = -\\frac{3}{2}y+\\frac{1}{2}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 2,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "다음 직사각형의 일부를 잘라낸 도형의 넓이를 x를 사용한 식으로 나타내면 ax+b라고 한다. a+b의 값은?"},
+        {"type": "figure", "value": "직사각형(가로 4x-1, 세로 4)의 왼쪽 위 부분을 잘라낸 도형. 위쪽 오른쪽 변의 길이 2x-1, 잘린 단차의 세로 2·가로 1, 왼쪽 위 꼭짓점에서 단차 아래까지 빗변(대각선)으로 잘림. 원래 직사각형 윤곽과 치수(2x-1, 2, 1, 4, 4x-1)는 점선으로 표시.", "bbox": [0.10, 0.72, 0.54, 0.93]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "15"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 3,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "식 "},
+        {"type": "equation", "value": "3(2a-1)-\\left\\{5a-\\frac{3}{4}(-12a+8)\\right\\}"},
+        {"type": "text", "value": "을 바르게 계산한 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-8a+3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-3a-8"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "4a+9"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "12a-17"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "20a-9"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 4,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "표에서 가로, 세로, 대각선에 있는 세 일차식의 합이 모두 같을 때, A-B는?"},
+        {"type": "table", "value": "", "rows": [["A", "", ""], ["B", "x", "x+2"], ["3x-1", "", "-x+4"]]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-2x-2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-x+3"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "2x-2"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "3x+1"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "4x-1"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}
