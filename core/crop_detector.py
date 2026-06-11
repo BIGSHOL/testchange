@@ -142,6 +142,7 @@ For each problem, decide its TYPE and find its crop box:
 Rules:
 - Bias toward OVER-cropping *horizontally* (LEFT edge must include the printed number; RIGHT edge must include the rightmost content). Pad ~15 units on left/right.
 - Bias toward UNDER-cropping *vertically* on the bottom for essay problems — never extend past the last printed problem element (last sub-part text, last (N점), last printed figure) into the student's answer space.
+- 🚨 **ADJACENT BOXES MUST NOT OVERLAP VERTICALLY (within a column).** Each printed problem occupies a *disjoint* vertical band. Box N's BOTTOM (yMax) must sit ABOVE box N+1's TOP (yMin) — leave a small gap at the blank line between problems; never let consecutive boxes share a y-range. A box's TOP = its own problem-number line, its BOTTOM = its own last printed element — so a box must NEVER reach down into the next problem's number line, nor up into the previous problem's last line. If two problems are tightly stacked, place the boundary at the blank gap between them (prev problem's last printed line = prev yMax; next problem's number line = next yMin), with prev.yMax < next.yMin. (대륜중 중1 #2~4: 인접 박스가 ~1% 겹쳐 옆 문항 자투리가 크롭에 섞였음, 2026-06-11.)
 - Only emit boxes for actual printed problems — never for empty answer space, the page header, or page furniture.
 - 문항번호를 읽을 수 있으면 number 에 기록.
 
