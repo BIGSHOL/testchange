@@ -227,6 +227,73 @@ def run():
     chk(_us.calls == [("underline", "더하거나 빼어서"), ("text", " 푸시오.")],
         f"P 폼 밑줄 강조: {_us.calls!r}")
 
+    # ── V: 서술형 소문항 배점 줄바꿈 우측정렬(force_break) + 안전 게이트 (황금중 #22(2), 2026-06-11)
+    # force_break=True(서술형) → 항상 break+우측정렬(검증된 _put_total_score 시퀀스). 게이트:
+    # tail 없는 서술형 소문항만(allow_break and essay and not tail) — tail 있으면 fragile caret
+    # 이라 인라인 유지(force_right 가 박스 깬 케이스 회피). COM 없이 기록 fake 로 검증.
+    import core.hwp_form_writer as F
+    from core.hwp_form_writer import _put_score as _ps
+
+    class _Chain:                         # _set_plain 의 HCharShape 무동작 스텁
+        HSet = None
+        def __getattr__(self, k): return None
+        def __setattr__(self, k, v): pass
+
+    class _RecH:                          # _set_plain·Run·KeyIndicator·GetPos 받는 fake
+        def __init__(self, wrap=False):
+            self._wrap = wrap; self._n = 0; self.runs = []
+            self.HParameterSet = self; self.HAction = self; self.HCharShape = _Chain()
+        def GetPos(self): return (0, 0, 0)
+        def KeyIndicator(self):
+            self._n += 1
+            return (True, 0, 0, 1, 1, 1 + (1 if (self._wrap and self._n >= 2) else 0), 1, "")
+        def Run(self, s): self.runs.append(s)
+        def GetDefault(self, *a): pass
+        def Execute(self, *a): pass
+        def PointToHwpUnit(self, p): return p * 100
+        def SelectText(self, *a): pass
+        def SetPos(self, *a): pass
+
+    class _RecSes:
+        def __init__(self): self.calls = []
+        def break_para(self): self.calls.append("break")
+        def align_left(self): self.calls.append("left")
+        def align_center(self): self.calls.append("center")
+        def text(self, s): self.calls.append(("text", s))
+        def equation(self, s): self.calls.append(("eq", s))
+
+    s1 = _RecSes(); h1 = _RecH()
+    r1 = _ps(s1, h1, 2, essay=True, force_break=True)
+    chk(r1 is True, "V force_break 반환 True")
+    chk("ParagraphShapeAlignRight" in h1.runs, "V force_break 우측정렬 Run")
+    chk(("eq", "2") in s1.calls and ("text", "점]") in s1.calls, "V 배점=수식객체+점]")
+    chk("left" in s1.calls, "V force_break 뒤 좌측 복귀")
+    # 비강제 + 무wrap = 인라인 유지(폴백 안 걸림)
+    s2 = _RecSes(); h2 = _RecH(wrap=False)
+    r2 = _ps(s2, h2, 2, essay=True, force_break=False)
+    chk(r2 is False and "ParagraphShapeAlignRight" not in h2.runs, "V 비강제+무wrap=인라인")
+
+    # 게이트: _put_qbody 가 force_break 를 어떻게 넘기나(spy)
+    cap = {}
+    _orig_ps, _orig_pt = F._put_score, F._put_tail
+    F._put_score = lambda ses, h, score, essay=False, force_break=False: cap.update(fb=force_break) or False
+    F._put_tail = lambda *a, **k: None
+    try:
+        cap.clear(); F._put_qbody(_RecSes(), _RecH(), [_tb("a, b의 값을 구하시오.")], 4,
+                                  essay=True, allow_break=True)
+        chk(cap.get("fb") is True, "V 게이트: tail없는 서술형 소문항=force_break True")
+        cap.clear(); F._put_qbody(_RecSes(), _RecH(), [_tb("발문 "), _table()], 4,
+                                  essay=True, allow_break=True)
+        chk(cap.get("fb") is False, "V 게이트: tail(표) 있으면 force_break False(fragile caret)")
+        cap.clear(); F._put_qbody(_RecSes(), _RecH(), [_tb("객관식 소문항")], 4,
+                                  essay=False, allow_break=True)
+        chk(cap.get("fb") is False, "V 게이트: 객관식(essay=False)은 force_break 안 함")
+        cap.clear(); F._put_qbody(_RecSes(), _RecH(), [_tb("allow_break 미전달 서술형")], 4,
+                                  essay=True, allow_break=False)
+        chk(cap.get("fb") is False, "V 게이트: allow_break 기본 False(부모/객관식 경로 무변경)")
+    finally:
+        F._put_score, F._put_tail = _orig_ps, _orig_pt
+
     # ── J: \boxed → BOX{} 테두리 박스 — 상인고 수1 #12 빈칸채우기 (가)/(나)/(다) ──
     # ``\boxed{가}`` → ``BOX{ ~ ㈎ ~ }``(작은 박스). BOX 가 rm 으로 감싸이면 "BOX" 글자로
     # 깨지므로 _roman_skip 에 BOX 가 있어야 한다(rm {BOX} 금지).
