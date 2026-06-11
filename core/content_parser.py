@@ -37,6 +37,44 @@ def parse_ocr_response(ocr_result: dict, page_number: int) -> ExamPage:
     return page
 
 
+# 박스 머리 마커(들머리 ``<상자>``/``<조건>``/``<보기>``/``[조건]``/``[보기]``) 제거용.
+_BOX_MARK_LEAD_RE = re.compile(r"^\s*(?:<\s*(?:상자|조건|보기)\s*>|\[\s*(?:조건|보기)\s*\])\s*")
+_MIN_DUP_BOX_KO = 8   # 중복 박스 판정 최소 한글 글자수(짧은 우연 일치 방지)
+
+
+def _drop_duplicate_box_fragments(raw: list[dict]) -> list[dict]:
+    """발문 본문의 부분 문자열을 그대로 담은 **중복 박스 조각**(비전 OCR 환각)을 제거.
+
+    비전 모델이 발문 일부를 잘라 ``<상자>`` 텍스트 블록으로 한 번 더 방출하면, 없던
+    네모박스가 렌더된다(경명여중 중2 #20: ``<상자> 자연수)의 꼴로 나타낸 후, …몇 자리
+    자연`` = 발문 ``…은 자연수)의 꼴로 나타낸 후…`` 의 조각). 판정은 **한글만 정규화**한
+    뒤(수식·위첨자·기호는 LaTeX↔유니코드로 표기가 달라 비교 불가) 박스 내용 한글이 다른
+    블록들의 한글 연쇄에 **부분 문자열**로 들어 있으면 중복으로 본다. 진짜 박스(지문·조건)
+    내용은 발문에 그대로 반복되지 않으므로 안전하고, 최소 길이(_MIN_DUP_BOX_KO)로 우연
+    일치를 막는다. 박스 머리로 시작하는 text 블록만 검사한다.
+    """
+    def _ko(s: str) -> str:
+        return re.sub(r"[^가-힣]", "", s or "")
+
+    drop_idx: set[int] = set()
+    for i, bd in enumerate(raw):
+        if bd.get("type") != "text":
+            continue
+        val = bd.get("value", "") or ""
+        if not _BOX_MARK_LEAD_RE.match(val):
+            continue
+        box_ko = _ko(_BOX_MARK_LEAD_RE.sub("", val))
+        if len(box_ko) < _MIN_DUP_BOX_KO:
+            continue
+        others_ko = "".join(_ko(b.get("value", "")) for j, b in enumerate(raw)
+                            if j != i and b.get("type") == "text")
+        if box_ko in others_ko:
+            drop_idx.add(i)
+    if not drop_idx:
+        return raw
+    return [bd for i, bd in enumerate(raw) if i not in drop_idx]
+
+
 def _parse_question(q_data: dict) -> Question:
     """문제 dict를 Question 객체로 변환."""
     question = Question(
@@ -51,6 +89,11 @@ def _parse_question(q_data: dict) -> Question:
     #    소수([4.5점])·총점([총 7점])까지 지우면 배점이 **캡처 없이 소실**된다(2026-06-10 감사).
     #    [총 N점](소문항 부모 총점)도 score 로 캡처 — 렌더러가 우측정렬 "[총 N점]" 으로 복원.
     raw_contents = [dict(bd) for bd in q_data.get("contents", [])]
+    # 비전 OCR 환각으로 발문 일부가 ``<상자>`` 박스로 중복 방출된 조각을 먼저 제거한다
+    # (경명여중 중2 #20: 발문 ``…은 자연수)의 꼴로…`` 앞에 ``<상자> 자연수)의 꼴로…``
+    # 유령 박스, 2026-06-11). 안 지우면 ① 없던 네모박스가 렌더되고 ② box_head_i 가 그 박스를
+    # 가리켜 발문 배점 제거가 통째 스킵된다.
+    raw_contents = _drop_duplicate_box_fragments(raw_contents)
     # 박스(<상자>/<조건>/<보기>) 머리가 시작되는 raw 블록 — 그 **이후** [N점]은 채점기준 등
     # 박스 내용이므로 배점 캡처·제거 대상이 아니다(새론중 서답형2 채점기준 박스 안
     # [1점][3점][2점][4점] 이 발문 배점으로 오인돼 통째 소실, 2026-06-11). 발문 배점은 박스 앞.
@@ -60,7 +103,7 @@ def _parse_question(q_data: dict) -> Question:
     if not question.score:
         for bd in raw_contents[:box_head_i]:
             if bd.get("type") == "text":
-                m = re.search(r'\[\s*(?:총\s*)?(\d+(?:\.\d+)?)\s*점\s*(?:,[^\]]*)?\]', bd.get("value", ""))
+                m = re.search(r'[\[(]\s*(?:총\s*)?(\d+(?:\.\d+)?)\s*점\s*(?:,[^\])]*)?[\])]', bd.get("value", ""))
                 if m:
                     v = float(m.group(1))
                     question.score = int(v) if v.is_integer() else v
