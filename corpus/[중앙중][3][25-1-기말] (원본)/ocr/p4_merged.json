@@ -1,0 +1,75 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 17,
+      "score": 7,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형5] "},
+        {"type": "equation", "value": "4(x+2)(x+5)+k"},
+        {"type": "text", "value": "가 완전제곱식이 될 때, 수 "},
+        {"type": "equation", "value": "k"},
+        {"type": "text", "value": "의 값을 구하고 그 과정을 서술하시오."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 18,
+      "score": 7,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형6] 이차방정식 "},
+        {"type": "equation", "value": "2x^2+6x+k=0"},
+        {"type": "text", "value": "의 해가 "},
+        {"type": "equation", "value": "x=\\frac{-3\\pm\\sqrt{3}}{2}"},
+        {"type": "text", "value": "일 때, 수 "},
+        {"type": "equation", "value": "k"},
+        {"type": "text", "value": "의 값을 구하고 그 과정을 서술하시오."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 19,
+      "score": 8,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형7] 이차함수 "},
+        {"type": "equation", "value": "y=\\frac{1}{2}x^2"},
+        {"type": "text", "value": "의 그래프를 "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "축의 방향으로 "},
+        {"type": "equation", "value": "3"},
+        {"type": "text", "value": "만큼, "},
+        {"type": "equation", "value": "y"},
+        {"type": "text", "value": "축의 방향으로 "},
+        {"type": "equation", "value": "-3"},
+        {"type": "text", "value": "만큼 평행이동한 그래프가 점 "},
+        {"type": "equation", "value": "(a, 5)"},
+        {"type": "text", "value": "를 지날 때, 가능한 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "의 값을 모두 값을 구하고 그 과정을 서술하시오."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 20,
+      "score": 8,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형8] 이차함수 "},
+        {"type": "equation", "value": "y=-(x+3)^2"},
+        {"type": "text", "value": "의 그래프와 꼭짓점이 일치하고 점 "},
+        {"type": "equation", "value": "(-1, 2)"},
+        {"type": "text", "value": "를 지나는 이차함수의 그래프의 "},
+        {"type": "equation", "value": "y"},
+        {"type": "text", "value": "절편을 구하고 그 과정을 서술하시오."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    }
+  ]
+}

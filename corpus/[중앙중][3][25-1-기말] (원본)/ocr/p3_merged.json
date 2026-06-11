@@ -1,0 +1,107 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 12,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "다항식 "},
+        {"type": "equation", "value": "3x^2+10x+k"},
+        {"type": "text", "value": "가 "},
+        {"type": "equation", "value": "(3x+a)(x+b)"},
+        {"type": "text", "value": "로 인수분해가 될 때, 실수 "},
+        {"type": "equation", "value": "k"},
+        {"type": "text", "value": "의 최솟값은? (단, "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "b"},
+        {"type": "text", "value": "는 자연수)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "11"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 13,
+      "score": 6,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형1] "},
+        {"type": "equation", "value": "1<a<3"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\sqrt{(1-a)^2}-\\sqrt{(3-a)^2}"},
+        {"type": "text", "value": "을 간단히 하고 그 과정을 서술하시오."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 14,
+      "score": 6,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형2] 이차함수 "},
+        {"type": "equation", "value": "f(x)=2x^2+ax-2"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "f(3)=1"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "f(-2)"},
+        {"type": "text", "value": "의 값을 구하고 그 과정을 서술하시오."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 15,
+      "score": 7,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형3] 다음 그림과 같이 세 모서리의 길이가 각각 "},
+        {"type": "equation", "value": "\\sqrt{10}\\mathrm{cm}"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\sqrt{15}\\mathrm{cm}"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "(\\sqrt{10}+\\sqrt{15})\\mathrm{cm}"},
+        {"type": "text", "value": "인 직육면체의 겉넓이가 "},
+        {"type": "equation", "value": "(a+b\\sqrt{c})\\mathrm{cm}^2"},
+        {"type": "text", "value": "일 때, 자연수 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "b"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "c"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "a-b+c"},
+        {"type": "text", "value": "의 최솟값을 구하고 그 과정을 서술하시오."},
+        {"type": "figure", "value": "직육면체 그림 — 좌측 세로 모서리 √10 cm, 윗면 왼쪽 위 모서리 √15 cm, 아래 가로 모서리 (√10+√15) cm 라벨. 숨은 모서리 점선, 아래 가로 라벨을 두르는 점선 타원", "bbox": [0.04, 0.38, 0.72, 0.90]}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 16,
+      "score": 7,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형4] "},
+        {"type": "equation", "value": "(2x-1)(x-2)+(1-x)(1+x)-(-x+2)^2"},
+        {"type": "text", "value": "을 계산할 때, "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "의 계수를 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": ", 상수항을 "},
+        {"type": "equation", "value": "b"},
+        {"type": "text", "value": "라 하자. "},
+        {"type": "equation", "value": "a+b"},
+        {"type": "text", "value": "의 값을 구하고 그 과정을 서술하시오."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    }
+  ]
+}

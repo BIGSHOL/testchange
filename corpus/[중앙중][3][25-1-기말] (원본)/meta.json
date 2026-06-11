@@ -1,0 +1,23 @@
+{
+  "status": "reviewed",
+  "source_pdf": "N:\\개인\\기출\\2025 기출모음\\2025년 1학기 기말고사 모음\\원본\\중3\\[중앙중][3][25-1-기말] (원본)(플라이).pdf",
+  "reference_pdf": "N:\\개인\\기출\\2025 기출모음\\2025년 1학기 기말고사 모음\\pdf\\중3\\[중앙중][3][25-1-기말][미래엔] (완료).PDF",
+  "ocr_engine": "claude-code-session (claude-fable-5)",
+  "crop_engine": "claude-code-session (claude-fable-5)",
+  "deterministic": false,
+  "created": "2026-06-11",
+  "reviewed": "2026-06-11",
+  "form": "[대수회][25년 폼지 최종(02.09)] (중3용) (빨강).hwp",
+  "review": "중3 폼 첫 corpus + 세션 분리 운영 첫 핸드오프(OCR 세션→렌더 세션). 4회 렌더, 완료본(5쪽) 1:1 — 20문항 내용 결함 0, 레이아웃 완료본 일치. 커밋 571e342.",
+  "defects": {
+    "B-1": "글자 뒤 \\sqrt literal — a\\sqrt{2}→'asqrt {2}' 식별자 오인(#4 a√2+b√6, #15 (a+b√c)cm²). 숫자 앞(2\\sqrt{2})은 HWP 숫자→알파벳 경계 분리로 우연히 생존. FIXED: latex_to_hwpeq sqrt/root 영숫자 앞 공백(accent 동종). 회귀: test_render_fixes Q.",
+    "B-2": "정답 페이지 미분리 — 중3 폼은 정답구역 header/footer 재정의가 정답 container 와 같은 본문 단락 안. _build_layout 이 header/footer 를 마스킹하지 않아 rfind('<hp:p')가 꼬리말 내부 단락을 잡음 → pageBreak·짝수보정 빈페이지가 꼬리말 subList 안(무효) → 정답이 4쪽 서술형 뒤 인라인. FIXED: header/footer 우선 마스킹 + answer_ph container 한정(꼬리말 '(정답)' 오인 방지). 수정 후 5쪽(완료본 동일).",
+    "B-3": "선택지 2열 판정이 LaTeX 원문 길이 — 근호·분수 명령어 부풀림으로 #1·#2·#3(시각 11글리프 내외)이 1열 강등(완료본 2열). FIXED: _choice_complexity 시각 글리프 근사(명령어=1글리프) + 폼 _choice_len 공유화. 무회귀 8종 재렌더 lint PASS + 전환 7건 육안. 회귀: test_render_fixes R5.",
+    "C-1": "그림 자동삽입 미구현 — [서술형3] 직육면체 → 안내문구(알려진 한계).",
+    "C-2": "머리말 학년·범위·연도 미채움 + 정답쪽 머리말 '중 학년 수학' — corpus 하네스가 header_values 미전달(GUI 경로는 자동 채움). 정답구역 머리말은 폼 자체에 학년이 비어 있어 GUI 채움 검증 추후.",
+    "잔여-1": "보기 박스 내부 항목 2열 미지원 — #8 ㄱ~ㅂ을 완료본은 2열(ㄱㄴ/ㄷㄹ/ㅁㅂ), 우리는 1열(줄당 1항목). 박스 내부 다열 레이아웃은 신규 기능 — 다음 차수 숙제."
+  },
+  "agreed_behavior_diffs": "서술형 3/단 빽빽배치(완료본 2/단) = 사용자 합의 '답란 여백 불필요'(form-layout-no-answer-space). #19 원본 오타 '값을 모두 값을' 충실 전사(완료본은 수정했음 — corpus 규약은 원본 충실).",
+  "regression_tests": "test_render_fixes Q·R5 추가(17종). test_content_parser 16·test_form_layout·verify_output_format 30 PASS. corpus_lint --json/--xml PASS(0 WARN). 무회귀 재렌더 8종 lint 전부 PASS.",
+  "note": "중3 첫 corpus (세션 분리 운영 — OCR 세션 산출). 12객관식+8서술형(=20, 총점 100 합산 확인). 원본 거의 무결점 인쇄본(p2 #7 위 연필 낱글자 3·4·3 — 무시함). 표지 없음(p1부터 문항, 크롭 페이지 키=PDF 페이지 그대로). 특기: #1 발문·선택지에 빈칸 \\square 6회, #5 발문 '옳지 __않은__' 밑줄, #8 <보기> ㄱ~ㅂ 박스(발문 '<보기> 중' 인라인 참조 — 파서 가드 확인됨), #19 원본 인쇄 자체가 '값을 모두 값을 구하고'(오타 그대로 전사), [서술형3] 직육면체 figure(bbox 크롭 기준). 라벨 [서술형N](공백 없음, 원본 그대로). lint --json PASS(0 WARN)."
+}
