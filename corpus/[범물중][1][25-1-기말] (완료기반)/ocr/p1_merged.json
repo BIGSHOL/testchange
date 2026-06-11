@@ -1,0 +1,114 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 1,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "다항식 3x^2-4x-1에 대해, 다항식의 차수를 a, x의 계수를 b, 상수항을 c라고 할 때, a+b+c의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "7"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 2,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "식의 계산이 옳지 __않은__ 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "4x \\div (-4) = -x"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "(-20x) \\times \\frac{3}{4} = -15x"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{2}{3}(6x+1) = 4x+\\frac{2}{3}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{8x-5}{2} \\times 4 = 16x-5"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "(15x-10) \\div \\left(-\\frac{5}{2}\\right) = -6x+4"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 3,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "\\frac{3x-4}{2}-\\frac{5x-1}{3}=ax+b일 때, a-b의 값은? (단, a, b는 상수)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-\\frac{5}{2}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-\\frac{11}{6}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{3}{2}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{13}{6}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "9"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 4,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "등식 2(x-3)+1=-5+kx가 모든 x에 대하여 항상 참일 때, 상수 k의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "4"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 5,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "다음 중 옳은 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "2x=5y이면 \\frac{x}{2}=\\frac{y}{5}이다."}]},
+        {"number": 2, "contents": [{"type": "text", "value": "a=b이면 a-1=-b+1이다."}]},
+        {"number": 3, "contents": [{"type": "text", "value": "x+5=y+3이면 x=y-5이다."}]},
+        {"number": 4, "contents": [{"type": "text", "value": "2a=b이면 a-1=\\frac{1}{2}b-\\frac{1}{2}이다."}]},
+        {"number": 5, "contents": [{"type": "text", "value": "-5a+1=5b+1이면 a=-b이다."}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 6,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "일차방정식 중 해가 가장 큰 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-x=3x-4"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{2}{3}x+\\frac{5}{2}=\\frac{1}{6}x"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "0.5x-\\frac{1}{2}=1.2"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{x+7}{4}=\\frac{1-2x}{2}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "4x-5=-2(x-6)"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 7,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "비례식 "},
+        {"type": "equation", "value": "\\left(-\\frac{x}{5}+2\\right):6=\\frac{2x-1}{3}:5"},
+        {"type": "text", "value": "를 만족시키는 x의 값을 a, 일차방정식 "},
+        {"type": "equation", "value": "1-0.7x=-0.2x+1.7"},
+        {"type": "text", "value": "의 해를 b라 할 때, a+b의 값은? (단, a, b는 상수)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{6}{5}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{8}{5}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{11}{5}"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

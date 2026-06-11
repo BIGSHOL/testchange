@@ -1,0 +1,105 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 19,
+      "score": 7,
+      "label_type": "서답형",
+      "contents": [
+        {"type": "text", "value": "[서답형 2] 마을버스가 시청 정류장을 출발한 뒤 첫 번째 정류장에서는 타고 있던 승객의 \\frac{1}{4}이 내리고 6명이 탔고, 두 번째 정류장에서는 타고 있던 승객의 \\frac{1}{3}이 내리고 새로 4명이 탔더니 승객의 수는 시청 정류장에서 출발할 때의 승객의 수보다 10명이 적었다. 시청 정류장을 출발할 때의 승객의 수를 x명이라고 할 때, 다음 물음에 답하시오."}
+      ],
+      "choices": [],
+      "sub_questions": [
+        {
+          "number": 1,
+          "score": 2,
+          "contents": [
+            {"type": "text", "value": "첫 번째 정류장을 출발할 때, 버스에 타고 있던 승객의 수를 x를 사용한 식으로 간단히 나타내시오."}
+          ],
+          "choices": [],
+          "sub_questions": []
+        },
+        {
+          "number": 2,
+          "score": 5,
+          "contents": [
+            {"type": "text", "value": "시청 정류장을 출발할 때의 승객의 수를 구하고, 그 과정을 서술하시오."}
+          ],
+          "choices": [],
+          "sub_questions": []
+        }
+      ]
+    },
+    {
+      "number": 20,
+      "score": 7,
+      "label_type": "서답형",
+      "contents": [
+        {"type": "text", "value": "[서답형 3] x에 대한 두 일차방정식의 해가 같을 때, 상수 a의 값을 구하고, 그 과정을 서술하시오."},
+        {"type": "text", "value": "<상자>"},
+        {"type": "equation", "value": "\\frac{1}{4}x+\\frac{2}{3}=\\frac{5}{6}x-\\frac{1}{2}, 2(3x-a)=x"}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 21,
+      "score": 7,
+      "label_type": "서답형",
+      "contents": [
+        {"type": "text", "value": "[서답형 4] 두 점 A(2a-1, b-3), B(b, a+2)가 x축 위에 있고, 점 C의 좌표가 (b-a, -2a)일 때, 세 점 A, B, C를 꼭짓점으로 하는 삼각형 ABC를 나타내려고 한다. 다음 물음에 답하시오."}
+      ],
+      "choices": [],
+      "sub_questions": [
+        {
+          "number": 1,
+          "score": 4,
+          "contents": [
+            {"type": "text", "value": "점 C의 좌표를 구하고, 그 과정을 서술하시오."}
+          ],
+          "choices": [],
+          "sub_questions": []
+        },
+        {
+          "number": 2,
+          "score": 3,
+          "contents": [
+            {"type": "text", "value": "삼각형 ABC의 넓이를 구하고, 그 과정을 서술하시오."}
+          ],
+          "choices": [],
+          "sub_questions": []
+        }
+      ]
+    },
+    {
+      "number": 22,
+      "score": 7,
+      "label_type": "서답형",
+      "contents": [
+        {"type": "text", "value": "[서답형 5] 자동차의 연비는 연료 1L로 주행 가능한 거리를 나타낸다. 연비가 1L당 xkm인 자동차가 일정한 거리를 가는 데 필요한 연료의 양이 yL라고 할 때, 아래 그림은 x와 y 사이의 관계를 나타낸 그래프이다. 다음 물음에 답하시오."},
+        {"type": "figure", "value": "반비례 그래프. 세로축 y, 가로축 x. 곡선이 점 (10, 30), (20, 15), (30, 10)을 지나는 반비례 모양(xy=300). 세로축에 30·15·10, 가로축에 10·20·30 점선 표시.", "bbox": [0.55, 0.44, 0.92, 0.56]}
+      ],
+      "choices": [],
+      "sub_questions": [
+        {
+          "number": 1,
+          "score": 4,
+          "contents": [
+            {"type": "text", "value": "x와 y 사이의 관계를 식으로 나타내고, 그 과정을 서술하시오."}
+          ],
+          "choices": [],
+          "sub_questions": []
+        },
+        {
+          "number": 2,
+          "score": 3,
+          "contents": [
+            {"type": "text", "value": "연비가 1L당 25km인 자동차가 300km를 가는데 필요한 연료의 양을 구하고, 그 과정을 서술하시오."}
+          ],
+          "choices": [],
+          "sub_questions": []
+        }
+      ]
+    }
+  ]
+}

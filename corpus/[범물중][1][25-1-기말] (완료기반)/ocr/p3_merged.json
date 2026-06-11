@@ -1,0 +1,78 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 14,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "집에서 4km 떨어진 학교 운동장까지 대한이는 자전거를 타고 가고, 민국이는 걸어가기로 했다. 그래프는 두 사람이 동시에 출발하여 x분 동안 이동한 거리를 ym라 할 때, x와 y사이의 관계를 나타낸 것이다. 대한이 학교 운동장에 도착한 지 몇 분 후에 민국이가 도착하는가?"},
+        {"type": "figure", "value": "이동 거리 그래프. 세로축 y(m)(240·1200 표시), 가로축 x(분)(3 표시). 대한(자전거)의 그래프는 가파른 직선으로 점 (3, 1200)을 지남, 민국(걷기)의 그래프는 완만한 직선으로 점 (3, 240)을 지남. 위쪽에 대한, 아래쪽에 민국 라벨.", "bbox": [0.06, 0.14, 0.46, 0.31]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "35분 후"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "40분 후"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "45분 후"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "50분 후"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "55분 후"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 15,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "정비례 관계 y=ax의 그래프가 한 점 (3, -6)을 지날 때, 상수 a의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-\\frac{1}{2}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{1}{2}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "2"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 16,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "반비례 관계 y=\\frac{a}{x} (a \\neq 0)의 그래프에 대한 설명으로 옳은 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "원점을 지나는 직선이다."}]},
+        {"number": 2, "contents": [{"type": "text", "value": "점 (1, a)을 지나고 y축과 만난다."}]},
+        {"number": 3, "contents": [{"type": "text", "value": "a>0일 때, 제2사분면과 제4사분면을 지난다."}]},
+        {"number": 4, "contents": [{"type": "text", "value": "a<0, x>0일 때, x의 값이 증가하면 y의 값은 증가한다."}]},
+        {"number": 5, "contents": [{"type": "text", "value": "a의 절댓값이 커질수록 그래프는 원점에 가까워진다."}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 17,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "선분 BC가 x축 위에 있는 정사각형 ABCD에서 점 A는 정비례 관계 y=5x의 그래프 위에 있고, 점 D는 반비례 관계 y=\\frac{a}{x}의 그래프 위에 있다. 점 C의 x좌표가 6이고 점 A의 좌표를 (m, n)이라고 할 때, 상수 a+m+n의 값은?"},
+        {"type": "figure", "value": "좌표평면 그래프. 정비례 y=5x(가파른 직선)와 반비례 y=\\frac{a}{x}(쌍곡선). x축 위에 정사각형 ABCD: 점 B·C는 x축 위(C의 x좌표 6), 점 A는 y=5x 위(왼쪽 위 꼭짓점), 점 D는 y=a/x 위(오른쪽 위 꼭짓점). 정사각형 ABCD가 x축 위에 세워진 모양.", "bbox": [0.52, 0.25, 0.98, 0.48]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "30"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "36"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "38"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "42"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "43"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 18,
+      "score": 7,
+      "label_type": "서답형",
+      "contents": [
+        {"type": "text", "value": "[서답형 1] 주어진 세 조건을 만족시키는 두 다항식 A, B를 각각 구하시오."},
+        {"type": "text", "value": "<조건> ○ 다항식 A는 상수항이 -1인 x에 관한 일차식이다. ○ 다항식 B는 x의 계수가 \\frac{1}{2}인 x에 관한 일차식이다. ○ A-2B=4x-3"}
+      ],
+      "choices": [],
+      "sub_questions": []
+    }
+  ]
+}

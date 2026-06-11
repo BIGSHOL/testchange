@@ -1,0 +1,100 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 8,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "길이가 180m인 기차가 일정한 속력으로 달려서 길이가 1020m인 터널을 완전히 통과하는 데 20초가 걸렸다. 이 때, 이 열차가 터널을 통과하고 있어 보이지 않는 시간을 구하면?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "10초"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "12초"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "13초"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "14초"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "15초"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 9,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "그림은 직사각형 한 개를 정사각형 9개로 나눈 것이고, 정사각형 B의 한 변의 길이는 30, 정사각형 I의 한 변의 길이는 2이다. 정사각형 H의 한 변의 길이를 x라고 할 때, 정사각형 F의 한 변의 길이는?"},
+        {"type": "figure", "value": "직사각형 한 개를 정사각형 9개로 나눈 그림. 왼쪽 위에 큰 정사각형 A, 오른쪽 위에 정사각형 F, 가운데에 작은 정사각형 G·E와 그 사이 가장 작은 I, 그 아래 H, 왼쪽 아래에 큰 정사각형 B, 아래쪽에 C·D가 배치. 정사각형 B의 한 변의 길이는 30, 가장 작은 정사각형 I의 한 변의 길이는 2, 정사각형 H의 한 변의 길이는 x.", "bbox": [0.06, 0.30, 0.46, 0.46]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "27"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "27.5"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "28"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "28.5"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "29"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 10,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "그래프는 5km 단축 마라톤 경기에서 행복, 사랑, 평화 세 명의 시간에 따른 이동 거리를 나타낸 것이다. 마라톤을 완주한 사람을 모두 구하면?"},
+        {"type": "figure", "value": "이동 거리 그래프. 세로축 y(km)(5 표시), 가로축 x(분)(5, 12, 20, 32, 38, 46 눈금). '행복'과 '사랑'의 그래프는 5km까지 도달(완주), '평화'의 그래프는 약 3km에서 수평이 되어 5km에 도달하지 못함. 오른쪽 위에 행복·사랑, 오른쪽 중간에 평화 라벨.", "bbox": [0.08, 0.60, 0.46, 0.80]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "행복"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "평화"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "행복, 사랑"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "사랑, 평화"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "행복, 사랑, 평화"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 11,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "(가), (나), (다), (라)의 그래프는 4명의 학생이 자전거를 탈 때 시간에 따른 속력의 변화를 각각 나타낸 것이다. 각 그래프 (가), (나), (다), (라)에 대해 가장 알맞은 상황을 <보기>에서 찾아 차례대로 나열한 것은?"},
+        {"type": "figure", "value": "속력-시간 그래프 4개 (가)(나)(다)(라). 각 그래프 세로축 속력, 가로축 시간. (가) 속력이 올라 일정하게 유지되다 내려와 멈춤(사다리꼴). (나) 속력이 올랐다가 내려와 멈춘 뒤 다시 올라감. (다) 속력이 올랐다가 멈췄다가 다시 올라 일정하게 유지. (라) 속력을 천천히 올리다가 빠르게 올린 후 일정하게 유지.", "bbox": [0.52, 0.10, 0.98, 0.20]},
+        {"type": "text", "value": "<보기> ㄱ. 속력을 높이다가 낮추어 멈추고, 잠시 후 다시 속력을 높였다. • ㄴ. 속력을 높인 후 일정한 속력으로 달리다가 속력을 낮추어 멈추었다. • ㄷ. 속력을 천천히 높이다가 속력을 빨리 높인 후 일정한 속력을 유지하였다. • ㄹ. 일정한 속력으로 달리다가 물을 마시기 위하여 잠시 멈추었다가 출발하여 다시 일정한 속력으로 달렸다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ, ㄴ, ㄹ, ㄷ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄴ, ㄱ, ㄹ, ㄷ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄷ, ㄱ, ㄴ, ㄹ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄷ, ㄴ, ㄱ, ㄹ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄹ, ㄱ, ㄷ, ㄴ"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 12,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "<보기>에서 옳은 것만을 있는 대로 고른 것은?"},
+        {"type": "text", "value": "<보기> ㄱ. 점 (3, 0)은 x축 위에 있다. • ㄴ. y축 위의 점의 x좌표는 0이다. • ㄷ. 점 (-4, 0)은 제2사분면 위의 점이다. • ㄹ. 점 (-3, -1)은 제4사분면 위의 점이다. • ㅁ. 점 (2, 3)과 점 (3, 2)는 서로 같은 점이다. • ㅂ. 제1사분면과 제3사분면 위의 점의 x좌표와 y좌표의 곱은 양수이다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ, ㄷ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄴ, ㄹ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄱ, ㄴ, ㄹ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄱ, ㄴ, ㅂ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄷ, ㄹ, ㅁ, ㅂ"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 13,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "b-a < 0, ab < 0일 때, 점 (a, -b)는 몇 사분면 위의 점인가?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "제1사분면"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "제2사분면"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "제3사분면"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "제4사분면"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "어느 사분면에도 있지 않다."}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}
