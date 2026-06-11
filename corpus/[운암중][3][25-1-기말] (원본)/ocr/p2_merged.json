@@ -1,0 +1,168 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 7,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "이차함수 "},
+        {"type": "equation", "value": "y=ax^2"},
+        {"type": "text", "value": "의 그래프에 대한 설명으로 옳지 "},
+        {"type": "text", "value": "않은", "underline": true},
+        {"type": "text", "value": " 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "원점이 꼭짓점이다."}]},
+        {"number": 2, "contents": [{"type": "text", "value": "축의 방정식은 "}, {"type": "equation", "value": "x=0"}, {"type": "text", "value": "이다."}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "a"}, {"type": "text", "value": "의 절댓값이 클수록 그래프의 폭이 넓어진다."}]},
+        {"number": 4, "contents": [{"type": "text", "value": "이차함수 "}, {"type": "equation", "value": "y=-ax^2"}, {"type": "text", "value": "의 그래프와 "}, {"type": "equation", "value": "x"}, {"type": "text", "value": "축에 서로 대칭이다."}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "a>0"}, {"type": "text", "value": "일 때 아래로 볼록하고, "}, {"type": "equation", "value": "a<0"}, {"type": "text", "value": "일 때 위로 볼록하다."}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 8,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "이차함수 "},
+        {"type": "equation", "value": "f(x)=-x^2+3x+4"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "f(-1)+2f(1)"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "14"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "16"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "18"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 9,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "이차함수 "},
+        {"type": "equation", "value": "y=\\frac{1}{4}x^2"},
+        {"type": "text", "value": "의 그래프가 점 "},
+        {"type": "equation", "value": "(-2, a)"},
+        {"type": "text", "value": "를 지나고, 이차함수 "},
+        {"type": "equation", "value": "y=bx^2"},
+        {"type": "text", "value": "의 그래프와 "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "축에 서로 대칭일 때, "},
+        {"type": "equation", "value": "ab"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-\\frac{1}{4}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-\\frac{1}{6}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-\\frac{1}{8}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "-\\frac{1}{10}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "-\\frac{1}{12}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 10,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "이차함수 "},
+        {"type": "equation", "value": "y=-x^2"},
+        {"type": "text", "value": "의 그래프를 "},
+        {"type": "equation", "value": "y"},
+        {"type": "text", "value": "축의 방향으로 9만큼 평행이동한 그래프가 "},
+        {"type": "equation", "value": "(-2, k)"},
+        {"type": "text", "value": "를 지날 때, "},
+        {"type": "equation", "value": "k"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 11,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "그림은 두 이차함수 "},
+        {"type": "equation", "value": "y=x^2"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "y=x^2-8x"},
+        {"type": "text", "value": "의 그래프이다. 직선 "},
+        {"type": "equation", "value": "l"},
+        {"type": "text", "value": "이 이차함수 "},
+        {"type": "equation", "value": "y=x^2-8x"},
+        {"type": "text", "value": "의 그래프의 축일 때, 색칠한 부분의 넓이는?"},
+        {"type": "figure", "value": "좌표평면에 두 포물선 y=x^2(아래로 볼록, 원점 꼭짓점)와 y=x^2-8x. 수직선 l은 y=x^2-8x의 축(x=4). 두 그래프와 직선 l 사이의 영역이 색칠됨. O 원점, x축·y축", "bbox": [0.55, 0.10, 0.95, 0.30]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "64"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "68"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "72"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "76"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "80"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 12,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "그림은 이차함수 "},
+        {"type": "equation", "value": "y=-2(x-p)^2+p+1"},
+        {"type": "text", "value": "의 그래프이다. 이 그래프의 꼭짓점을 "},
+        {"type": "equation", "value": "A"},
+        {"type": "text", "value": "라 하고, 점 "},
+        {"type": "equation", "value": "A"},
+        {"type": "text", "value": "에서 "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "축에 내린 수선의 발을 "},
+        {"type": "equation", "value": "H"},
+        {"type": "text", "value": "라고 하자. "},
+        {"type": "equation", "value": "\\triangle AOH"},
+        {"type": "text", "value": "의 넓이가 6일 때, "},
+        {"type": "equation", "value": "p"},
+        {"type": "text", "value": "의 값은?"},
+        {"type": "figure", "value": "위로 볼록한 포물선 y=-2(x-p)^2+p+1, 꼭짓점 A(제1사분면). 원점 O, 점 A에서 x축에 내린 수선의 발 H. 삼각형 AOH", "bbox": [0.55, 0.42, 0.90, 0.58]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "6"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 13,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "이차함수 "},
+        {"type": "equation", "value": "f(x)=ax^2+bx+c"},
+        {"type": "text", "value": "의 그래프가 점 "},
+        {"type": "equation", "value": "(0,5)"},
+        {"type": "text", "value": "를 지나고 꼭짓점의 좌표가 "},
+        {"type": "equation", "value": "(1,3)"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "f(-1)"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "11"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

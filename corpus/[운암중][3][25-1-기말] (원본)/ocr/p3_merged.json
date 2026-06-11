@@ -1,0 +1,139 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 14,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "이차함수 "},
+        {"type": "equation", "value": "y=ax^2-2ax+b"},
+        {"type": "text", "value": "의 그래프가 점 "},
+        {"type": "equation", "value": "(-1,11)"},
+        {"type": "text", "value": "을 지나고, 이 그래프의 꼭짓점이 일차함수 "},
+        {"type": "equation", "value": "y=5x-2"},
+        {"type": "text", "value": "의 그래프 위의 점일 때, 두 수 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "b"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "ab"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "14"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 15,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "이차함수 "},
+        {"type": "equation", "value": "f(x)=ax^2+bx+c"},
+        {"type": "text", "value": "의 그래프가 "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "축과 만나는 두 점의 "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "좌표가 각각 "},
+        {"type": "equation", "value": "-3"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\frac{1}{3}"},
+        {"type": "text", "value": "이고 점 "},
+        {"type": "equation", "value": "(1,-8)"},
+        {"type": "text", "value": "을 지날 때, 이차함수 "},
+        {"type": "equation", "value": "y=ax^2-b"},
+        {"type": "text", "value": "의 그래프는 점 "},
+        {"type": "equation", "value": "(1,k)"},
+        {"type": "text", "value": "를 지난다고 한다. "},
+        {"type": "equation", "value": "k"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "6"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 16,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "그림은 이차함수 "},
+        {"type": "equation", "value": "y=x^2-3x-4"},
+        {"type": "text", "value": "의 그래프이다. 이 그래프가 "},
+        {"type": "equation", "value": "y"},
+        {"type": "text", "value": "축과 만나는 점을 "},
+        {"type": "equation", "value": "A"},
+        {"type": "text", "value": "라 하고, 꼭짓점을 "},
+        {"type": "equation", "value": "B"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "축의 양의 부분과 만나는 점을 "},
+        {"type": "equation", "value": "C"},
+        {"type": "text", "value": "라 할 때, "},
+        {"type": "equation", "value": "\\square OABC"},
+        {"type": "text", "value": "의 넓이는?"},
+        {"type": "figure", "value": "포물선 y=x^2-3x-4(아래로 볼록). y축과 만나는 점 A(0,-4), 꼭짓점 B(제4사분면), x축의 양의 부분과 만나는 점 C(4,0), 원점 O. 네 점으로 사각형 OABC", "bbox": [0.08, 0.72, 0.45, 0.90]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{25}{2}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{31}{2}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{37}{2}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{43}{2}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{49}{2}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 17,
+      "score": 5,
+      "label_type": "서답형",
+      "contents": [
+        {"type": "text", "value": "[서답형 1] 이차방정식 "},
+        {"type": "equation", "value": "x^2-8x-4=2x^2"},
+        {"type": "text", "value": "을 "},
+        {"type": "equation", "value": "(x+a)^2=b"},
+        {"type": "text", "value": "의 꼴로 변형할 때, 두 수 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "b"},
+        {"type": "text", "value": "의 값을 각각 구하시오."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 18,
+      "score": 6,
+      "label_type": "서답형",
+      "contents": [
+        {"type": "text", "value": "[서답형 2] 어떤 책을 펼쳤을 때 두 면의 쪽수의 곱이 132라고 한다. 두 면의 쪽수를 각각 구하시오."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 19,
+      "score": 6,
+      "label_type": "서답형",
+      "contents": [
+        {"type": "text", "value": "[서답형 3] 이차방정식 "},
+        {"type": "equation", "value": "x^2-4x-k=0"},
+        {"type": "text", "value": "의 해가 정수가 되도록 하는 자연수 "},
+        {"type": "equation", "value": "k"},
+        {"type": "text", "value": "의 값은 모두 몇 개인지 구하시오. (단, "},
+        {"type": "equation", "value": "10 \\leq k \\leq 50"},
+        {"type": "text", "value": ")"}
+      ],
+      "choices": [],
+      "sub_questions": []
+    }
+  ]
+}
