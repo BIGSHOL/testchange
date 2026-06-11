@@ -1,0 +1,137 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 10,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "대륜이가 학교에서 출발하여 직선 도로 위를 움직일 때, 출발한 지 "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "분 후의 학교로부터 떨어진 거리를 "},
+        {"type": "equation", "value": "y\\,\\mathrm{m}"},
+        {"type": "text", "value": "라 하자. "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "와 "},
+        {"type": "equation", "value": "y"},
+        {"type": "text", "value": " 사이의 관계를 그래프로 나타내면 아래 그림과 같을 때, 다음 중 옳지 __않은__ 것은?"},
+        {"type": "figure", "value": "거리-시간 꺾은선 그래프 — 가로축 x(분) 0~14(라벨 2 간격, 모눈 1), 세로축 y(m) 0~250(라벨 50 간격, 모눈 25). 꺾은선 꼭짓점: (0,0)→(2,50)→(4,150)→(6,100)→(8,250)→(12,100)→(14,0). 이 사본 스캔에서 일부 구간 선이 희미함(타 사본 대조로 판독)", "bbox": [0.05, 0.13, 0.97, 0.63]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "대륜이는 이동하는 동안 이동 방향을 3번 바꾸었다."}]},
+        {"number": 2, "contents": [{"type": "text", "value": "대륜이가 학교에서 가장 멀리 떨어진 거리는 250m이다."}]},
+        {"number": 3, "contents": [{"type": "text", "value": "대륜이는 학교로부터 120m 떨어진 지점을 4번 지나갔다."}]},
+        {"number": 4, "contents": [{"type": "text", "value": "대륜이가 학교를 출발하여 6분간 이동한 거리는 100m이다."}]},
+        {"number": 5, "contents": [{"type": "text", "value": "대륜이가 학교를 출발하여 처음으로 150m 떨어진 지점까지 가는 데 걸린 시간은 4분이다."}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 11,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "어떤 대장균은 한 마리가 두 마리로 증식하는데 "},
+        {"type": "equation", "value": "t"},
+        {"type": "text", "value": "분이 걸리고, 증식하면서 새로 만들어진 대장균도 "},
+        {"type": "equation", "value": "t"},
+        {"type": "text", "value": "분 후에는 각각 두 마리로 증식한다. 용량이 같은 두 유리병 A, B에 대장균을 배양하는데, A병에는 한 마리, B병에는 여덟 마리가 들어 있다. B병에 들어 있는 대장균이 증식하여 병을 가득 채우는데 "},
+        {"type": "equation", "value": "s"},
+        {"type": "text", "value": "시간 걸린다고 할 때, A병에 들어있는 대장균이 증식하여 병을 가득 채우는 데 걸리는 시간은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\left(s+\\frac{t}{60}\\right)"}, {"type": "text", "value": "시간"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\left(s+\\frac{t}{30}\\right)"}, {"type": "text", "value": "시간"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\left(s+\\frac{t}{20}\\right)"}, {"type": "text", "value": "시간"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "(s+2t)"}, {"type": "text", "value": "시간"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "(s+3t)"}, {"type": "text", "value": "시간"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 12,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "고대 중국의 수학책인 『구장산술』에는 일차방정식과 관련된 다양한 문제가 실려 있다. 다음은 그 일부를 응용한 문제이다. 여관 주인의 이동 속력은 하루 몇 리인가?"},
+        {"type": "text", "value": "<상자> 어떤 여행자가 아침 6시에 여관을 출발하여 하루 240리의 속력으로 일정한 방향을 따라 이동하였다. 여행자가 두고 간 물건을 발견한 여관 주인은, 그 물건을 가지고 그날 오전 9시에 여관을 출발하여 여행자의 뒤를 쫓아갔다. 여관 주인은 여행자를 만나 물건을 건네준 뒤 동일한 길을 이용하여 곧바로 여관으로 돌아왔고, 같은 날 오후 3시에 여관으로 도착하였다. (단, 여행자와 여관 주인의 이동 속력은 각각 일정하며, 물건을 건네주고 돌아서는 데에는 시간이 걸리지 않는다고 가정한다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "360리"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "480리"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "520리"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "600리"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "720리"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 13,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 반비례 관계 "},
+        {"type": "equation", "value": "y=\\frac{a}{x}"},
+        {"type": "text", "value": "의 그래프와 정비례 관계 "},
+        {"type": "equation", "value": "y=-3x"},
+        {"type": "text", "value": "의 그래프가 "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "좌표가 2인 점 P에서 만날 때, 상수 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "의 값은?"},
+        {"type": "figure", "value": "좌표평면 — 원점 O, 정비례 직선 y=-3x(제2·4사분면 방향), 반비례 곡선 y=a/x(제2·4사분면 두 가지), 두 그래프가 x좌표 2인 제4사분면 점 P에서 교차, x=2 위치에 점선 표시", "bbox": [0.18, 0.30, 0.95, 0.93]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-12"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-8"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-4"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "8"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 14,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "그림에서 제1사분면 위의 두 점 A, C는 각각 정비례 관계 "},
+        {"type": "equation", "value": "y=3x"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "y=\\frac{1}{3}x"},
+        {"type": "text", "value": "의 그래프 위의 점이다. 사각형 ABCD가 한 변의 길이가 6인 정사각형일 때, 점 A의 "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "좌표와 "},
+        {"type": "equation", "value": "y"},
+        {"type": "text", "value": "좌표의 합은?"},
+        {"type": "figure", "value": "좌표평면 제1사분면 — 원점 O, 가파른 직선 y=3x와 완만한 직선 y=(1/3)x. 변이 축에 평행한 정사각형 ABCD: A(좌상, y=3x 위), D(우상), B(좌하), C(우하, y=(1/3)x 위)", "bbox": [0.15, 0.18, 0.95, 0.88]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "15"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "18"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "21"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 15,
+      "score": 4,
+      "contents": [
+        {"type": "equation", "value": "y=\\frac{k}{x}"},
+        {"type": "text", "value": "의 그래프 위의 두 점 "},
+        {"type": "equation", "value": "P\\left(a, \\frac{k}{a}\\right)"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "Q\\left(b, \\frac{k}{b}\\right)"},
+        {"type": "text", "value": "에 대하여 다음 <조건>을 모두 만족시키는 가장 작은 자연수 "},
+        {"type": "equation", "value": "k"},
+        {"type": "text", "value": "의 값은?"},
+        {"type": "text", "value": "<조건> ○ 두 자연수 a, b에 대하여 a<b이고, a+b=10이다. ○ 두 점 P, Q의 y좌표는 모두 정수이다. ○ 두 점 P, Q의 y좌표의 차는 12다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "26"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "28"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "30"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "32"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "34"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}
