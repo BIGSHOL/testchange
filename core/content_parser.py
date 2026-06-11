@@ -828,6 +828,20 @@ def _split_mixed_text_equation(text: str) -> list[ContentBlock]:
         # 단독 숫자도 모두 수식화 (사용자 요구: 숫자는 전부 수식)
 
         before = text[last_end:m.start()]
+        # 선행 단항부호 흡수 — "ㄷ. -5x+6=6-5x" 의 '-' 가 평문(정자 하이픈)으로 수식 밖에
+        # 떨어지던 것(경구중 #5 ㄷ·ㅁ·#13 ㄹ, 2026-06-11). 능인고 R2·월암중 W4(LaTeX 경로
+        # _split_latex_commands)의 ASCII 경로판. 단항 판정: 부호 앞이 라벨점·불릿·한글·여는
+        # 괄호·시작이면 흡수. 직전 블록이 수식이고 사이가 부호뿐이면 **이항**(f(x) - 5x) —
+        # 흡수하지 않고 _merge_operator_split_equations 의 한 수식 병합에 맡긴다.
+        sign_m = re.search(r'([+\-])(\s*)$', before)
+        if sign_m:
+            sign_tail = before[:sign_m.start()].rstrip()
+            prev_is_eq = (not sign_tail and blocks
+                          and blocks[-1].type == ContentType.EQUATION)
+            if not prev_is_eq and (not sign_tail or re.search(
+                    r'[.•·:,;([{가-힣ㄱ-ㆎ]$', sign_tail)):
+                expr = sign_m.group(1) + expr
+                before = before[:sign_m.start()]
         if before:
             blocks.append(ContentBlock(type=ContentType.TEXT, value=before))
         blocks.append(ContentBlock(type=ContentType.EQUATION, value=expr))

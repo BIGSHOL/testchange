@@ -208,6 +208,33 @@ def _check_jangsan_fixes(fails):
         fails.append("  J3 채점기준 박스 배점 소실")
 
 
+# K1(경구중 #5 ㄷ·ㅁ·#13 ㄹ, 2026-06-11): ASCII 수식의 선행 단항부호(-5x+6=…)가 평문
+# 하이픈으로 수식 밖에 떨어지던 것 — 흡수. 이항(f(x) - 5x)·범위(3-5개)는 기존 동작 보존.
+def _check_ascii_leading_sign(fails):
+    from core.content_parser import _split_mixed_text_equation
+    from models.exam_document import ContentType as CT
+    for s, want_eq in [("ㄷ. -5x+6=6-5x", "-5x+6=6-5x"),
+                       ("값은 -5이다", "-5")]:
+        b = _split_mixed_text_equation(s)
+        eqs = [x.value for x in b if x.type == CT.EQUATION]
+        txts = "".join(x.value or "" for x in b if x.type == CT.TEXT)
+        if want_eq not in eqs or "-" in txts:
+            fails.append(f"  K1 단항부호 흡수: {s!r} → {[(x.type.name, x.value) for x in b]!r}")
+    # 이항: f(x) - 5x 는 한 수식(또는 병합 대상)으로 — '-' 평문 잔존만 아니면 OK
+    b2 = _split_mixed_text_equation("함수 f(x) - 5x의 값")
+    if not any(x.type == CT.EQUATION and "f(x)" in (x.value or "") and "5x" in (x.value or "")
+               for x in b2):
+        fails.append(f"  K1 이항 보존: {[(x.type.name, x.value) for x in b2]!r}")
+    # 전체 파이프라인: 보기 항목 ㅁ '=-' 분리가 한 수식으로 재병합 + 선행 '-' 포함
+    doc = {"header": "", "questions": [{"number": 1, "contents": [
+        {"type": "text", "value": "<보기> ㄱ. 2-3x=5 • ㅁ. -3(x+1)+2=-3x-1"}]}]}
+    q = parse_ocr_response(doc, page_number=1).questions[0]
+    eqs = [b.value or "" for b in q.contents if b.type == ContentType.EQUATION]
+    txts = "".join(b.value or "" for b in q.contents if b.type == ContentType.TEXT)
+    if not any(e.startswith("-3(x+1)+2") and "3x-1" in e for e in eqs) or "-3(" in txts:
+        fails.append(f"  K1 파이프라인 ㅁ: eqs={eqs!r} txts={txts!r}")
+
+
 def run():
     fails = []
     _check_comma_roots(fails)
@@ -216,6 +243,7 @@ def run():
     _check_box_polish(fails)
     _check_wolam_box_fixes(fails)
     _check_jangsan_fixes(fails)
+    _check_ascii_leading_sign(fails)
     for text, must in _SPACING_CASES:
         got = _render(text)
         if must not in got:
@@ -231,7 +259,7 @@ def run():
         print("FAIL test_content_parser:")
         print("\n".join(fails))
         return 1
-    print(f"OK test_content_parser ({len(_SPACING_CASES) + len(_SCORE_CASES) + 6} cases)")
+    print(f"OK test_content_parser ({len(_SPACING_CASES) + len(_SCORE_CASES) + 7} cases)")
     return 0
 
 
