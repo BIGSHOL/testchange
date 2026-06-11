@@ -1,0 +1,167 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 12,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "이차함수 "},
+        {"type": "equation", "value": "y=-3x^2"},
+        {"type": "text", "value": "의 그래프 위에 점 "},
+        {"type": "equation", "value": "A(-1, -3)"},
+        {"type": "text", "value": "이 있다. 점 "},
+        {"type": "equation", "value": "A"},
+        {"type": "text", "value": "를 지나고 x축과 평행한 직선이 이차함수 "},
+        {"type": "equation", "value": "y=-3x^2"},
+        {"type": "text", "value": "의 그래프와 만나는 점 중 "},
+        {"type": "equation", "value": "A"},
+        {"type": "text", "value": "가 아닌 점을 "},
+        {"type": "equation", "value": "B"},
+        {"type": "text", "value": "라 하자. 이차함수 "},
+        {"type": "equation", "value": "y=ax^2"},
+        {"type": "text", "value": "의 그래프와 직선 "},
+        {"type": "equation", "value": "y=3"},
+        {"type": "text", "value": "의 두 교점을 각각 "},
+        {"type": "equation", "value": "C"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "D"},
+        {"type": "text", "value": "라 할 때, 사각형 "},
+        {"type": "equation", "value": "ABCD"},
+        {"type": "text", "value": "의 넓이가 자연수가 되기 위한 자연수 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "의 최댓값을 "},
+        {"type": "equation", "value": "m"},
+        {"type": "text", "value": ", 그때의 사각형 "},
+        {"type": "equation", "value": "ABCD"},
+        {"type": "text", "value": "의 넓이를 "},
+        {"type": "equation", "value": "k"},
+        {"type": "text", "value": "라고 하자. "},
+        {"type": "equation", "value": "k+m"},
+        {"type": "text", "value": "의 값은? (단, "},
+        {"type": "equation", "value": "a>0"},
+        {"type": "text", "value": "이고, 점 "},
+        {"type": "equation", "value": "C"},
+        {"type": "text", "value": "는 제1사분면 위의 점이다.)"},
+        {"type": "figure", "value": "좌표평면에 두 이차함수 그래프 — y=ax^2(아래로 볼록, 위로 열림)와 y=-3x^2(위로 볼록, 아래로 열림). 직선 y=3 위의 두 교점 D(왼쪽)·C(오른쪽, 제1사분면)가 y=ax^2 그래프 위에 있고, 아래쪽 y=-3x^2 그래프 위에 A(왼쪽 아래)·B(오른쪽 아래). 네 점으로 사각형 ABCD(D 좌상, C 우상, B 우하, A 좌하)", "bbox": [0.18, 0.42, 0.78, 0.92]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "19"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "67"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "96"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "115"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "137"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 13,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "일차함수 "},
+        {"type": "equation", "value": "y=-ax+\\frac{b}{a}"},
+        {"type": "text", "value": "의 그래프가 그림과 같을 때, 이차함수 "},
+        {"type": "equation", "value": "y=ax^2-bx-b"},
+        {"type": "text", "value": "의 그래프가 지나지 "},
+        {"type": "text", "value": "않는", "underline": true},
+        {"type": "text", "value": " 사분면은? (단, "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "b"},
+        {"type": "text", "value": "는 수이다.)"},
+        {"type": "figure", "value": "좌표평면에 일차함수 직선 그래프 — 기울기 양수(오른쪽 위로 향함), x절편은 원점 왼쪽(음수), y절편은 원점 위(양수). 원점 O 표기", "bbox": [0.30, 0.38, 0.92, 0.96]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "제1사분면"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "제2사분면"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "제3사분면"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "제4사분면"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "없다."}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 14,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "이차함수 "},
+        {"type": "equation", "value": "y=ax^2"},
+        {"type": "text", "value": "의 그래프를 y축의 방향으로 "},
+        {"type": "equation", "value": "q"},
+        {"type": "text", "value": "만큼 평행이동한 그래프가 두 점 "},
+        {"type": "equation", "value": "(1, 3)"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "(2, -3)"},
+        {"type": "text", "value": "을 지날 때, 수 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "2"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 15,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "<보기> 중 이차함수 "},
+        {"type": "equation", "value": "y=-4x^2+8x-9"},
+        {"type": "text", "value": "의 그래프에 대한 설명으로 옳은 것만을 있는 대로 고르면 모두 몇 개인가?"},
+        {"type": "text", "value": "<보기> ○ 축의 방정식은 x=-1이다. • ○ 꼭짓점의 좌표는 (1, 5)이다. • ○ x축과 서로 다른 두 점에서 만난다. • ○ y축과의 교점의 좌표는 (0, -9)이다. • ○ x>1일 때 x의 값이 증가하면 y의 값은 감소한다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "1개"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "2개"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "3개"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "4개"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "5개"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 16,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "이차함수 "},
+        {"type": "equation", "value": "y=2x^2-16x+32"},
+        {"type": "text", "value": "의 그래프 위에 y좌표가 같고, "},
+        {"type": "equation", "value": "\\overline{AB}=2"},
+        {"type": "text", "value": "인 두 점 "},
+        {"type": "equation", "value": "A"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "B"},
+        {"type": "text", "value": "가 있다. 두 점 "},
+        {"type": "equation", "value": "A"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "B"},
+        {"type": "text", "value": "가 아닌 이차함수 "},
+        {"type": "equation", "value": "y=2x^2-16x+32"},
+        {"type": "text", "value": "의 그래프 위의 한 점을 "},
+        {"type": "equation", "value": "C"},
+        {"type": "text", "value": "라 할 때, 삼각형 "},
+        {"type": "equation", "value": "ABC"},
+        {"type": "text", "value": "의 넓이가 자연수 "},
+        {"type": "equation", "value": "n"},
+        {"type": "text", "value": "이 되도록 하는 점 "},
+        {"type": "equation", "value": "C"},
+        {"type": "text", "value": "의 개수를 "},
+        {"type": "equation", "value": "f(n)"},
+        {"type": "text", "value": "이라 하자. "},
+        {"type": "equation", "value": "f(1)+f(2)+f(3)+f(4)"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "11"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "13"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "14"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}
