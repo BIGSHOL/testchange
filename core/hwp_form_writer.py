@@ -256,7 +256,18 @@ def _put_block(ses, b) -> None:
         ses.equation(_eq_script(b))  # 숫자도 수식 객체로 유지(정렬)
     elif b.type == ContentType.TEXT:
         if b.value:
-            if getattr(b, "underline", False):
+            from core.hwp_com_writer import _is_figure_note
+            if _is_figure_note(b):
+                # 그림자리 안내(render_figures=False 시 figure→TEXT 치환)는 IMAGE 와 동일하게
+                # **가운데·별도줄**(발문 인라인 금지). 기본 경로 `_write_block`(hwp_com_writer)
+                # 과 동일. 폼 head 블록(text→figure→text 문장 중간 그림)이 _put_block 으로
+                # 직접 쓰여 안내문구가 앞뒤 발문과 인라인 병합되던 것 보정(황금중 #16, 2026-06-11).
+                ses.break_para()
+                ses.align_center()
+                ses.text(b.value)
+                ses.break_para()
+                ses.align_left()
+            elif getattr(b, "underline", False):
                 # __강조__ 밑줄 TEXT — 기본 경로(hwp_com_writer `_write` 의 underline_run)와
                 # 동일. 폼 경로만 평문 강등돼 "옳지 않은"·"더하거나 빼어서" 밑줄이 소실됐다
                 # (월암중 #9·#19, 2026-06-11 — 매천중·상원중에도 있었으나 대조에서 놓침).

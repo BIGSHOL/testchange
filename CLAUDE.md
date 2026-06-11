@@ -798,3 +798,31 @@ U·U2. corpus `corpus/[대륜중][1][25-1-기말] (원본)/`(meta `review`). B-2
 - 검수 중 #2~4 크롭이 인접 박스 ~1% 겹침(crops.json y0/y1 실측) 발견 — OCR JSON 은 이미 깨끗해
   출력 무해. `_CROP_PROMPT` 에 "ADJACENT BOXES MUST NOT OVERLAP VERTICALLY"(prev.yMax <
   next.yMin, 경계는 문항 사이 빈 줄) 규칙 명시. 향후 크롭 품질용(재크롭은 OCR 세션 몫).
+
+## 황금중 중1 (폼) 검수 — figure 한계 집중 시험지, B형 1·A형 1 + 잔여 3 (2026-06-11)
+
+중1 폼(남색) **6번째 corpus**(황금중, 동아강 — OCR 세션 핸드오프). 18객관식+서술형4(22문항).
+figure **7개**(그래프선택지 5·좌표점·꺾은선)로 우리 파이프라인 figure 미지원 한계가 집중된
+시험지. 다중에이전트 워크플로(8) + 직접 교차검증. corpus `corpus/[황금중]…`(meta `review`).
+
+### ⭐ 그림자리 안내문구가 발문 한가운데 인라인 병합 (B형, #16)
+- 증상: 발문→[그림]→발문(text→figure→text 문장 중간 그림)에서 그림자리 안내("※ 그림 자리…")
+  가 앞뒤 발문과 줄바꿈 없이 인라인 병합(가운데 별도줄 실패).
+- 원인: 기본 경로 `hwp_com_writer._write_block` 은 TEXT 분기에 `_is_figure_note` 가운데 별도줄
+  처리가 있으나, 폼 head 전용 `hwp_form_writer._put_block` TEXT 분기에는 없어 평문 인라인.
+  `_tail_start` 도 figure_note 바로 뒤가 발문2 TEXT 라 walk-back 이 멈춰 head 에 남음.
+- 수정: `_put_block` TEXT 분기에 `_is_figure_note` 가운데 별도줄 추가(기본 경로 동일화).
+
+### A형(OCR JSON) 1건 — 핸드오프 후 렌더 세션 직접 수정
+- #10 어미 오전사 '평행하며'→'평행하게'(원본 '게'). 규약대로 렌더 세션이 OCR JSON 직접 수정.
+
+### ⚠️ 잔여 3건 (다음 차수 숙제 — meta 상세)
+- **#22(2) 서술형 소문항 배점 좌측정렬**: `KeyIndicator()[5]`(줄)가 폼 단(column) 컨텍스트에서
+  **단락 내 자동 wrap 을 비일관 측정**(인라인 #22(1)·wrap #22(2)가 줄·칸 동일 — probe 확정)해
+  우측정렬 폴백이 미발동. `force_right`(항상 우측) 우회는 **BreakPara 가 단/열/박스 레이아웃을
+  파괴**(10쪽·#16박스 1단폭 깨짐)로 폐기 — 폼 미주/단 컨텍스트 캐럿 조작 위험(강동중 정답증발
+  계열). → 저장후 XML lineseg 기반 정렬 보정이 남은 길.
+- **#6 수식 객체 내부 base 글자 부호강조 밑줄**: `underline_run`(평문 `__강조__`만) 미지원(C).
+- **figure 레이아웃 비결정**: figure 안내문구 다수(#14 그래프선택지 5개)가 `_build_layout` 단
+  측정을 **COM 비결정**으로 불안정화(7~10쪽 변동·#13 단독페이지). figure 미구현(C)의 심화 —
+  안내문구 압축/높이추정 고정 필요.
