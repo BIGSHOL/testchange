@@ -1,0 +1,101 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 1,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "곱셈 기호 ×와 나눗셈 기호 ÷를 쓰지 않고 나타낸 식으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?"},
+        {"type": "text", "value": "<보기> ㄱ. a \\times b \\div c = \\frac{ab}{c} • ㄴ. a \\times \\frac{1}{100} = 0.0a • ㄷ. 5 \\div x \\times 2y = \\frac{5}{2xy} • ㄹ. -a \\div (7-b) = \\frac{a}{b-7} • ㅁ. a \\div b - 1 \\div a = \\frac{a}{b} - \\frac{1}{a}"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ, ㄹ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄴ, ㄷ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄷ, ㅁ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄱ, ㄹ, ㅁ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄴ, ㄹ, ㅁ"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 2,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "문자를 사용하여 나타낸 식으로 옳지 __않은__ 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "정가 "}, {"type": "equation", "value": "x"}, {"type": "text", "value": "원인 물건을 25% 할인한 가격은 "}, {"type": "equation", "value": "\\frac{3}{4}x"}, {"type": "text", "value": "원이다."}]},
+        {"number": 2, "contents": [{"type": "text", "value": "둘레의 길이가 "}, {"type": "equation", "value": "x\\mathrm{cm}"}, {"type": "text", "value": "인 정사각형의 한 변의 길이는 "}, {"type": "equation", "value": "\\frac{x}{4}\\mathrm{cm}"}, {"type": "text", "value": "이다."}]},
+        {"number": 3, "contents": [{"type": "text", "value": "한 명의 입장료가 3000원일 때, "}, {"type": "equation", "value": "x"}, {"type": "text", "value": "명의 입장료는 "}, {"type": "equation", "value": "3000x"}, {"type": "text", "value": "원이다."}]},
+        {"number": 4, "contents": [{"type": "text", "value": "십의 자리 숫자가 "}, {"type": "equation", "value": "x"}, {"type": "text", "value": ", 일의 자리 숫자가 "}, {"type": "equation", "value": "y"}, {"type": "text", "value": "인 두 자리의 자연수는 "}, {"type": "equation", "value": "xy"}, {"type": "text", "value": "이다."}]},
+        {"number": 5, "contents": [{"type": "text", "value": "가로의 길이가 "}, {"type": "equation", "value": "x\\mathrm{cm}"}, {"type": "text", "value": ", 세로의 길이가 "}, {"type": "equation", "value": "y\\mathrm{cm}"}, {"type": "text", "value": "인 직사각형의 둘레의 길이는 "}, {"type": "equation", "value": "2(x+y)\\mathrm{cm}"}, {"type": "text", "value": "이다."}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 3,
+      "score": 4,
+      "contents": [
+        {"type": "equation", "value": "a=-2"},
+        {"type": "text", "value": "일 때, 식의 값이 가장 작은 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\left|\\frac{1}{a}\\right|"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-a"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "1-a"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "a^2"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "-1 \\div a^3"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 4,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "다음 설명 중 옳은 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "3x"}, {"type": "text", "value": "는 다항식이다."}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2y"}, {"type": "text", "value": "와 "}, {"type": "equation", "value": "y^2"}, {"type": "text", "value": "은 동류항이다."}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "9-x"}, {"type": "text", "value": "는 일차방정식이다."}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "x-5y-1"}, {"type": "text", "value": "의 항은 "}, {"type": "equation", "value": "x"}, {"type": "text", "value": ", "}, {"type": "equation", "value": "5y"}, {"type": "text", "value": ", 1이다."}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "x=-2y"}, {"type": "text", "value": "이면 "}, {"type": "equation", "value": "\\frac{x}{2}-4=-4+y"}, {"type": "text", "value": "이다. (단, "}, {"type": "equation", "value": "x \\neq 0"}, {"type": "text", "value": ")"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 5,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "<보기>에서 옳은 설명만을 고른 것은?"},
+        {"type": "text", "value": "<보기> ㄱ. -4=10은 등식이다. • ㄴ. x-3x=2x는 항등식이다. • ㄷ. x^2-5x+5=-2x+x^2은 일차방정식이다. • ㄹ. -3x=5에서 -3을 이항하면 x=-\\frac{5}{3}이다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ, ㄷ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄱ, ㄹ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄴ, ㄷ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄴ, ㄹ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄷ, ㄹ"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 6,
+      "score": 4,
+      "contents": [
+        {"type": "equation", "value": "n"},
+        {"type": "text", "value": "이 짝수일 때, "},
+        {"type": "equation", "value": "(-1)^n \\left(-\\frac{x-1}{2}\\right) - (-1)^{n+1}(2x-1)"},
+        {"type": "text", "value": "을 계산하면?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "3x-1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "5x-3"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{3}{2}x-\\frac{1}{2}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{3}{2}x-\\frac{3}{2}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "-\\frac{5}{2}x+\\frac{3}{2}"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}
