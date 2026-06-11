@@ -1,5 +1,5 @@
 {
-  "status": "ocr_done",
+  "status": "reviewed",
   "source_pdf": "N:\\개인\\기출\\2025 기출모음\\2025년 1학기 기말고사 모음\\원본\\중1\\[청구중][1][25-1-기말] (원본) (하하).pdf",
   "reference_pdf": "N:\\개인\\기출\\2025 기출모음\\2025년 1학기 기말고사 모음\\pdf\\중1\\[청구중][1][25-1-기말][동아강] (완료).PDF",
   "form": "[대수회][25년 폼지 최종(02.09)] (중1용) (남색).hwp",
@@ -7,5 +7,17 @@
   "crop_engine": "claude-code-session (claude-fable-5)",
   "deterministic": false,
   "created": "2026-06-11",
+  "reviewed": "2026-06-11",
+  "review": {
+    "render_session": "claude-code-session (메인/HWP)",
+    "a_type_json_defects": 0,
+    "a_type_note": "JSON 작성 규약 위반 0건 — 15문항(객관식 10+서술형 5) 1:1 대조 일치. 정답 페이지(1~15, 서술형 1~5) 완전 보존(합의 #9), p4 빈 페이지=짝수 마무리 정상. q8 5×1 표·literal 중괄호 선택지·밑줄 강조·서술형 박스/분수 전부 정상.",
+    "b_type_render_defects_fixed": [
+      "B-1 (#3 풀이과정 상자): 한글 없는 박스(불릿 • 로 나뉜 일차방정식 풀이 단계)의 2~5번째 줄(3x-30=-2x-25 등 순수 ASCII)이 통째 평문으로 남아 수식 객체화 안 되던 것. _split_mixed_text_equation 가 불릿(•·▪◦) 있으면 한글 없어도 분리하도록 가드 완화 → 각 줄 수식 객체 + _merge_operator_split_equations 가 '=-' 분리 재병합. _is_eq_lead_char 헬퍼로 walk-back 에 소수점 포함(2.5\\frac 류)."
+    ],
+    "known_minor": "q3 박스 1번째 줄 '0.3x' 가 '0 . 3x' 로 미세 간격(walk-back 이 0.3x-3 의 '-' 연산자를 못 넘어 0. 가 분리). 완료본은 tight. 풀 표현식 walk-back 은 타 맥락 과포획 위험 커 보류 — 알려진 미세 한계(2~5줄은 정상 수식).",
+    "verify": "test_render_fixes Z(box-ascii-eq) 추가 + 전체 PASS, test_content_parser PASS, verify_output_format 30 PASS, corpus 92페이지 무크래시, 전 5페이지 재렌더 1:1 대조.",
+    "adapter": ".testkit/corpus_render.py 재작성(corpus p{n}_merged.json → write_exam_to_form, meta.form 자동, PDF→PNG)."
+  },
   "note": "중1 폼 5번째 corpus, 세션 분리 3호. 객관식 10(50점)+서술형 5(50점)=총점 100 검산 정합. 사본 선택: 선별 1순위 (제이윤)은 풀이가 본문 침범해 탈락 → (하하) 사본(표지+백지 포함 6쪽 정식 스캔, 체크 수준 필기)으로 교체. 크롭 키 p3~p6 = 하하 PDF 페이지 번호(p1 표지·p2 백지). 전 객관식 검산으로 정답 유일성 확인(③③④④②①⑤③②⑤). 그림(figure) 0개. 검수 포인트: ①q3 풀이박스 = 라벨 없는 <상자> 단일 박스에 5줄(• 구분), 1·2·4행 끝 ↓ 화살표(원본=한 박스 우측 여백에 ↓ 3개, 완료본도 동일 구조) — ↓ 렌더 위치 확인 ②q3 발문 중간 '<보기>의 내용에서' 인라인 참조(블록 선두 아님 — 박스 오인 없어야, 월암중 D3 계열) ③q8 = 5×1 표(원본은 쌓인 미니박스 5개+간격, 완료본은 박스+장식 ⇓ 화살표 — 우리는 표 형식 합의 #5로 통일, 시각차 허용 여부 렌더 판단) ④q8 선택지 literal 중괄호 \\{ \\} 2건(③⑤) — LEFT BRACE 렌더 확인 ⑤서술형1 <상자> 안 bare x 2회(이탤릭 승격 확인) ⑥q2 ④ 'x계수는'(원본에 '의' 없음 — 충실 전사) ⑦q4·q2 밑줄 강조(__다른__·__않은__) 폼 경로 렌더(월암중 D6 수정 회귀 체크) ⑧서술형 배점 8/10/10/10/12 — [12점] 포함."
 }
