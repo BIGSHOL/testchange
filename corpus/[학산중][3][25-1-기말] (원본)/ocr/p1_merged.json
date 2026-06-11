@@ -1,0 +1,182 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 1,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "이차방정식 "},
+        {"type": "equation", "value": "ax^2+bx-3=0"},
+        {"type": "text", "value": "의 해가 "},
+        {"type": "equation", "value": "x=-3"},
+        {"type": "text", "value": " 또는 "},
+        {"type": "equation", "value": "x=1"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "a-b"},
+        {"type": "text", "value": "의 값은? (단, "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "b"},
+        {"type": "text", "value": "는 상수)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "3"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 2,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "이차방정식 "},
+        {"type": "equation", "value": "x^2-x-5=0"},
+        {"type": "text", "value": "의 한 근이 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\frac{3a}{5-a^2}+\\frac{4a^2}{a+5}"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 3,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "직선 "},
+        {"type": "equation", "value": "y=\\frac{3}{4}x+2"},
+        {"type": "text", "value": " 위의 한 점 "},
+        {"type": "equation", "value": "P"},
+        {"type": "text", "value": "에서 "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "축에 내린 수선의 발을 "},
+        {"type": "equation", "value": "A"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "y=\\frac{3}{4}x+2"},
+        {"type": "text", "value": "의 그래프와 "},
+        {"type": "equation", "value": "y"},
+        {"type": "text", "value": "축과의 교점을 "},
+        {"type": "equation", "value": "B"},
+        {"type": "text", "value": "라고 하자. 점 "},
+        {"type": "equation", "value": "P(a,b)"},
+        {"type": "text", "value": "는 제1사분면 위의 점이고, "},
+        {"type": "equation", "value": "\\square PBOA"},
+        {"type": "text", "value": "의 넓이는 14일 때, "},
+        {"type": "equation", "value": "a+b"},
+        {"type": "text", "value": "의 값은? (단, 점 "},
+        {"type": "equation", "value": "O"},
+        {"type": "text", "value": "는 원점)"},
+        {"type": "figure", "value": "직선 y=(3/4)x+2와 좌표축. 제1사분면에서 직선 위의 점 P, P에서 x축에 내린 수선의 발 A(P와 x좌표 같음), 직선과 y축의 교점 B(0,2), 원점 O. 네 점 P, B, O, A로 둘러싸인 사다리꼴 PBOA가 색칠됨", "bbox": [0.10, 0.62, 0.46, 0.80]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "9"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 4,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "가로와 세로의 길이의 비가 "},
+        {"type": "equation", "value": "8:5"},
+        {"type": "text", "value": "이고, 넓이가 "},
+        {"type": "equation", "value": "160\\mathrm{cm}^2"},
+        {"type": "text", "value": "인 직사각형 모양의 꽃밭이 있다. 이 꽃밭의 둘레의 길이는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "26\\mathrm{cm}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "39\\mathrm{cm}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "48\\mathrm{cm}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "52\\mathrm{cm}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "65\\mathrm{cm}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 5,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "이차방정식 "},
+        {"type": "equation", "value": "x^2-5x+a-2=0"},
+        {"type": "text", "value": "의 해가 모두 유리수가 되도록 하는 자연수 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "의 개수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}, {"type": "text", "value": "개"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2"}, {"type": "text", "value": "개"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}, {"type": "text", "value": "개"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}, {"type": "text", "value": "개"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}, {"type": "text", "value": "개"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 6,
+      "score": 5,
+      "contents": [
+        {"type": "equation", "value": "\\overline{AD}=24\\mathrm{cm}"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{AB}=16\\mathrm{cm}"},
+        {"type": "text", "value": "인 직사각형 "},
+        {"type": "equation", "value": "ABCD"},
+        {"type": "text", "value": "에서 점 "},
+        {"type": "equation", "value": "P"},
+        {"type": "text", "value": "는 변 "},
+        {"type": "equation", "value": "AB"},
+        {"type": "text", "value": "를 따라 점 "},
+        {"type": "equation", "value": "A"},
+        {"type": "text", "value": "에서 점 "},
+        {"type": "equation", "value": "B"},
+        {"type": "text", "value": "까지 매초 "},
+        {"type": "equation", "value": "3\\mathrm{cm}"},
+        {"type": "text", "value": "의 속력으로 움직이고, 점 "},
+        {"type": "equation", "value": "Q"},
+        {"type": "text", "value": "는 변 "},
+        {"type": "equation", "value": "BC"},
+        {"type": "text", "value": "를 따라 점 "},
+        {"type": "equation", "value": "B"},
+        {"type": "text", "value": "에서 점 "},
+        {"type": "equation", "value": "C"},
+        {"type": "text", "value": "까지 매초 "},
+        {"type": "equation", "value": "4\\mathrm{cm}"},
+        {"type": "text", "value": "의 속력으로 움직인다. 두 점 "},
+        {"type": "equation", "value": "P"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "Q"},
+        {"type": "text", "value": "가 동시에 출발할 때, "},
+        {"type": "equation", "value": "\\triangle PBQ"},
+        {"type": "text", "value": "의 넓이가 처음으로 "},
+        {"type": "equation", "value": "30\\mathrm{cm}^2"},
+        {"type": "text", "value": "가 되는 것은 출발한 지 "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "초 후이다. 이때, "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "의 값은?"},
+        {"type": "figure", "value": "AD=24cm(위 변), AB=16cm(왼쪽 변)인 직사각형 ABCD(A 왼쪽 위, D 오른쪽 위, B 왼쪽 아래, C 오른쪽 아래). 점 P는 변 AB 위(A 근처), 점 Q는 변 BC 위(B 근처). 직각삼각형 PBQ가 색칠됨(직각은 점 B)", "bbox": [0.55, 0.62, 0.92, 0.81]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{4-\\sqrt{15}}{3}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{2-\\sqrt{3}}{3}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{6-\\sqrt{15}}{6}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{8-\\sqrt{19}}{3}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{16-\\sqrt{19}}{3}"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

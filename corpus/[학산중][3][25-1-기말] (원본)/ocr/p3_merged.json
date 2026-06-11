@@ -1,0 +1,169 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 13,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "<조건>을 모두 만족시키는 포물선을 그래프로 하는 이차함수의 식은?"},
+        {"type": "text", "value": "<조건> ○ x축과 한 점에서 만난다. ○ 축의 방정식은 x=1이다. ○ 점 (-2,9)를 지나는 포물선이다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "y=(x-1)^2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "y=(x+1)^2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "y=-(x-1)^2"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "y=-(x+1)^2"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "y=-3(x-1)^2"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 14,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "이차함수의 그래프가 모든 사분면을 지나는 것만을 <보기>에서 있는 대로 고른 것은?"},
+        {"type": "text", "value": "<보기> ㄱ. y=(x-2)^2 • ㄴ. y=-5x^2+2 • ㄷ. y=-(x+3)^2-1 • ㄹ. y=\\frac{1}{2}(x+1)^2-4 • ㅁ. y=\\frac{1}{2}(x-3)^2-4"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ, ㄷ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄴ, ㄹ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄷ, ㅁ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄱ, ㄴ, ㅁ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄴ, ㄹ, ㅁ"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 15,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "이차함수 "},
+        {"type": "equation", "value": "y=-\\frac{1}{3}x^2"},
+        {"type": "text", "value": "의 그래프를 "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "축의 방향으로 6만큼, "},
+        {"type": "equation", "value": "y"},
+        {"type": "text", "value": "축의 방향으로 4만큼 평행이동하면 그래프 위의 점 "},
+        {"type": "equation", "value": "O(0,0)"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "A(6,-12)"},
+        {"type": "text", "value": "는 각각 점 "},
+        {"type": "equation", "value": "B"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "C"},
+        {"type": "text", "value": "로 이동된다. 이때, 두 포물선과 선분 "},
+        {"type": "equation", "value": "OB"},
+        {"type": "text", "value": "와 선분 "},
+        {"type": "equation", "value": "AC"},
+        {"type": "text", "value": "로 둘러싸인 빗금 친 부분의 넓이는?"},
+        {"type": "figure", "value": "위로 볼록한 합동인 두 포물선. 하나는 y=-1/3 x^2(꼭짓점 원점 O), 다른 하나는 x축으로 6, y축으로 4 평행이동한 것(꼭짓점 B). 원래 그래프 위의 점 O(0,0)·A(6,-12)가 각각 B·C로 이동. 선분 OB와 선분 AC, 두 포물선 호로 둘러싸인 부분에 빗금", "bbox": [0.10, 0.68, 0.46, 0.90]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "24"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "48"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "72"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "96"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "120"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 16,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "양의 무리수 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "의 소수 부분을 "},
+        {"type": "equation", "value": "b"},
+        {"type": "text", "value": "라고 하면 "},
+        {"type": "equation", "value": "a^2+b^2=29"},
+        {"type": "text", "value": "를 만족한다. "},
+        {"type": "equation", "value": "a=\\frac{p+\\sqrt{q}}{2}"},
+        {"type": "text", "value": "일 때, 두 유리수 "},
+        {"type": "equation", "value": "p"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "q"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "p+q"},
+        {"type": "text", "value": "의 값은? (단, "},
+        {"type": "equation", "value": "0 \\leq b<1"},
+        {"type": "text", "value": ")"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "38"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "43"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "57"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "61"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "74"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 17,
+      "score": 8,
+      "label_type": "서답형",
+      "contents": [
+        {"type": "text", "value": "[서답형 1] 이차방정식 "},
+        {"type": "equation", "value": "\\frac{-17x+33}{6}=(x-2)(x-4)"},
+        {"type": "text", "value": "의 두 근을 각각 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "b"},
+        {"type": "text", "value": "라고 할 때, 이차방정식 "},
+        {"type": "equation", "value": "0.1x^2+0.6ax-0.6b=0"},
+        {"type": "text", "value": "의 해를 구하려고 한다. 물음에 답하시오. (단, "},
+        {"type": "equation", "value": "a>b"},
+        {"type": "text", "value": ")"}
+      ],
+      "choices": [],
+      "sub_questions": [
+        {
+          "number": 1,
+          "score": 4,
+          "contents": [
+            {"type": "equation", "value": "a"},
+            {"type": "text", "value": ", "},
+            {"type": "equation", "value": "b"},
+            {"type": "text", "value": "의 값을 각각 구하시오. (단, 풀이 과정을 서술한다.)"}
+          ],
+          "choices": [],
+          "sub_questions": []
+        },
+        {
+          "number": 2,
+          "score": 4,
+          "contents": [
+            {"type": "text", "value": "이차방정식 "},
+            {"type": "equation", "value": "0.1x^2+0.6ax-0.6b=0"},
+            {"type": "text", "value": "의 해를 구하시오. (단, 풀이 과정을 서술한다.)"}
+          ],
+          "choices": [],
+          "sub_questions": []
+        }
+      ]
+    },
+    {
+      "number": 18,
+      "score": 6,
+      "label_type": "서답형",
+      "contents": [
+        {"type": "text", "value": "[서답형 2] 어느 과자 공장에서는 한 상자에 "},
+        {"type": "equation", "value": "400\\mathrm{g}"},
+        {"type": "text", "value": "씩 포장하면 900개의 상자를 채울 수 있는 양의 과자를 생산한다. 한 상자에 과자를 "},
+        {"type": "equation", "value": "x\\mathrm{g}"},
+        {"type": "text", "value": "씩 더 넣으면 상자의 개수가 "},
+        {"type": "equation", "value": "2x"},
+        {"type": "text", "value": "만큼 줄어든다고 할 때, "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "의 값을 구하시오. (단, "},
+        {"type": "equation", "value": "x>0"},
+        {"type": "text", "value": ", 다음 <조건>에 맞게 풀이 과정을 서술한다.)"},
+        {"type": "text", "value": "<조건> ○ 생산한 과자는 남김없이 모두 포장하며, 각 상자마다 넣는 과자의 무게는 같을 것. ○ 상자의 무게는 생각하지 않을 것. ○ 미지수 x에 대한 이차방정식을 세울 것. ○ 이차방정식을 풀고 x의 값을 구할 것."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    }
+  ]
+}
