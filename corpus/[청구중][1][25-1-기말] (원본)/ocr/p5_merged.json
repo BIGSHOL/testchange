@@ -1,0 +1,62 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 9,
+      "score": 6,
+      "contents": [
+        {"type": "text", "value": "강당의 긴 의자에 학생들이 앉는데, 한 의자에 5명씩 앉으면 의자에 모두 앉고도 18명이 앉지 못하고, 한 의자에 6명씩 앉으면 빈 의자는 없고 마지막 의자에는 1명이 앉는다고 한다. 이때 학생 수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "118"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "133"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "148"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "153"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "161"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 10,
+      "score": 6,
+      "contents": [
+        {"type": "text", "value": "두 개의 자연수가 있다. 이 두 수의 합은 226이고, 큰 수를 작은 수로 나누면 몫은 19 나머지는 6이 된다. 이 두 수 중 큰 수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "29"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "68"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "163"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "197"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "215"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 11,
+      "score": 8,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 1] 다음 문장을 등식으로 나타내고, "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "를 구하는 풀이 과정과 답을 쓰시오."},
+        {"type": "text", "value": "<상자> 일의 자리, 십의 자리, 백의 자리의 숫자가 모두 x인 세 자리의 자연수에서 x의 11배를 더하고 2를 빼었더니 486이 되었다."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 12,
+      "score": 10,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 2] 두 분수 "},
+        {"type": "equation", "value": "\\frac{28}{15}"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\frac{35}{18}"},
+        {"type": "text", "value": " 의 어느 것에 곱해도 항상 자연수가 되게 하는 가장 작은 기약분수를 구하는 풀이 과정과 답을 쓰시오."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    }
+  ]
+}

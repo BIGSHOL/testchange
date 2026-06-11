@@ -1,0 +1,70 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 1,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "자연수에 관한 설명이다. 옳은 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "소수는 모두 홀수이다."}]},
+        {"number": 2, "contents": [{"type": "text", "value": "가장 작은 소수는 1이다."}]},
+        {"number": 3, "contents": [{"type": "text", "value": "7의 배수 중에서 소수는 1개 뿐이다."}]},
+        {"number": 4, "contents": [{"type": "text", "value": "서로소인 두 자연수의 공약수는 없다."}]},
+        {"number": 5, "contents": [{"type": "text", "value": "모든 자연수는 소수 또는 합성수이다."}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 2,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "다항식에 대한 설명이다. 옳지 __않은__ 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-2x"}, {"type": "text", "value": "는 다항식이다."}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-x^3+5"}, {"type": "text", "value": "는 삼차식이다."}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-x-1"}, {"type": "text", "value": "의 상수항은 1이다."}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "2x^2+3x-5"}, {"type": "text", "value": "에서 "}, {"type": "equation", "value": "x"}, {"type": "text", "value": "계수는 3이다."}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "x=3, y=-1"}, {"type": "text", "value": "일 때, "}, {"type": "equation", "value": "\\frac{-xy}{x^2+y}"}, {"type": "text", "value": "의 식의 값은 "}, {"type": "equation", "value": "\\frac{3}{8}"}, {"type": "text", "value": "이다."}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 3,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "다음은 일차방정식 "},
+        {"type": "equation", "value": "0.3x-3=-\\frac{x}{5}-2.5"},
+        {"type": "text", "value": "를 푸는 과정을 단계별로 나타낸 것이다. 세 개의 ↓ 과정에서 이용한 등식의 성질을 <보기>의 내용에서 찾아 순서대로 바르게 나열한 것은?"},
+        {"type": "text", "value": "<상자> 0.3x-3=-\\frac{x}{5}-2.5 ↓ • 3x-30=-2x-25 ↓ • 3x+2x=-25+30 • 5x=5 ↓ • x=1"},
+        {"type": "text", "value": "<보기> a=b이고 c는 자연수일 때, • ㄱ. a+c=b+c • ㄴ. a-c=b-c • ㄷ. ac=bc • ㄹ. \\frac{a}{c}=\\frac{b}{c}"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ, ㄴ, ㄷ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄴ, ㄱ, ㄹ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄴ, ㄹ, ㄷ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄷ, ㄱ, ㄹ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄹ, ㄴ, ㄷ"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 4,
+      "score": 5,
+      "contents": [
+        {"type": "equation", "value": "a=-3"},
+        {"type": "text", "value": " 일 때, 다음 중 식의 값이 나머지 넷과 __다른__ 하나는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-a^3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "(-a)^3"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-3^2a"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "-3a^2"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "-\\frac{a^5}{9}"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

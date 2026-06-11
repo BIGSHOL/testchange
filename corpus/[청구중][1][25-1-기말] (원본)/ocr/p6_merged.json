@@ -1,0 +1,55 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 13,
+      "score": 10,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 3] 6으로 나누면 5가 남고, 9로 나누면 8이 남고, 15로 나누면 14가 남는 세 자리 자연수 중 가장 큰 수를 구하는 풀이 과정과 답을 쓰시오."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 14,
+      "score": 10,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 4] 네 유리수 "},
+        {"type": "equation", "value": "-\\frac{5}{2}"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "-\\frac{7}{5}"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\frac{1}{2}"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "-5"},
+        {"type": "text", "value": " 중에서 서로 다른 세수를 골라서 곱한 수 중에서 가장 큰 수를 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": ", 가장 작은 수를 "},
+        {"type": "equation", "value": "b"},
+        {"type": "text", "value": " 라 할 때, "},
+        {"type": "equation", "value": "a+b"},
+        {"type": "text", "value": " 의 값을 구하는 풀이 과정과 답을 쓰시오."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 15,
+      "score": 12,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 5] "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "에 대한 일차방정식 "},
+        {"type": "equation", "value": "0.3x+\\frac{1}{5}(2x+a)=4.3"},
+        {"type": "text", "value": "의 해가 자연수가 되도록 하는 모든 자연수 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "의 합을 구하는 풀이 과정과 답을 쓰시오."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    }
+  ]
+}
