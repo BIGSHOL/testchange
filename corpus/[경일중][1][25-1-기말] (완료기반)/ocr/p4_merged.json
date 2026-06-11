@@ -1,0 +1,86 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 17,
+      "score": 8,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 2] 일차방정식의 해를 구하고, 그 풀이 과정을 쓰시오."}
+      ],
+      "choices": [],
+      "sub_questions": [
+        {
+          "number": 1,
+          "score": 4,
+          "contents": [
+            {"type": "equation", "value": "\\frac{4}{3}x - \\frac{1}{2} = \\frac{5}{6}x - 1"}
+          ],
+          "choices": [],
+          "sub_questions": []
+        },
+        {
+          "number": 2,
+          "score": 4,
+          "contents": [
+            {"type": "equation", "value": "0.3x - 0.1 = 0.1x + 0.5"}
+          ],
+          "choices": [],
+          "sub_questions": []
+        }
+      ]
+    },
+    {
+      "number": 18,
+      "score": 8,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 3] 그림과 같이 한 변의 길이가 13cm인 정사각형의 가로의 길이를 1cm만큼 늘이고, 세로의 길이를 x cm만큼 줄였더니 넓이가 126cm^2인 직사각형이 되었다. 이때 x의 값을 구하고, 그 풀이 과정을 쓰시오. (단, 일차방정식을 이용하여 풀 것.)"},
+        {"type": "figure", "value": "직사각형 그림 — 한 변의 길이가 13cm인 정사각형에서 가로를 1cm 늘이고 세로를 x cm 줄인 직사각형. 위쪽 변에 13cm와 1cm, 왼쪽 변에 13cm, 아래쪽 변에 x cm, 직사각형 내부에 넓이 126cm^2 표시(원래 정사각형은 점선)", "bbox": [0.25, 0.42, 0.78, 0.95]}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 19,
+      "score": 6,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 4] 보물 지도를 좌표평면 위에 나타낸 것이다. 주어진 <단서>를 이용하여 보물의 위치를 점 A~F중 찾고, 그 이유를 서술하시오."},
+        {"type": "text", "value": "<상자> ○ x좌표와 y좌표의 곱은 음수이다. ○ x좌표가 y좌표보다 4만큼 작다."},
+        {"type": "figure", "value": "좌표평면 격자(보물지도) — 6개의 점이 표시됨: A(1, 4), B(-3, 1), C(-4, -1), D(-1, -4), E(2, -2), F(3, -1). 가로축 x(-5~5), 세로축 y(-5~5)", "bbox": [0.18, 0.4, 0.82, 1.0]}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 20,
+      "score": 10,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 5] 두 변수 x, y에 대하여 x와 y사이의 관계식을 구하고, 그 풀이 과정을 쓰시오."}
+      ],
+      "choices": [],
+      "sub_questions": [
+        {
+          "number": 1,
+          "score": 5,
+          "contents": [
+            {"type": "text", "value": "y가 x에 정비례하고, x=-2일 때 y=8이다."}
+          ],
+          "choices": [],
+          "sub_questions": []
+        },
+        {
+          "number": 2,
+          "score": 5,
+          "contents": [
+            {"type": "text", "value": "y가 x에 반비례하고, x=5일 때 y=2이다."}
+          ],
+          "choices": [],
+          "sub_questions": []
+        }
+      ]
+    }
+  ]
+}

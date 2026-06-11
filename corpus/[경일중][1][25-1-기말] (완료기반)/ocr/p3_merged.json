@@ -1,0 +1,82 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 12,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "정비례 관계 y=6x의 그래프와 반비례 관계 y=\\frac{2a}{x}의 그래프가 점 (a, b)에서 만날 때, ab의 값은? (단, a, b는 수이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{1}{3}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{1}{2}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{2}{3}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{3}{2}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 13,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "반비례 관계 y=\\frac{a}{x}의 그래프가 두 점 A(3, 6), B(b, -2)를 지날 때, a+b의 값은? (단, a, b는 수이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-9"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-3"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "12"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 14,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "반비례 관계 y=\\frac{12}{x}의 그래프 위의 두 점 A(2, p), B(q, 3)에 대하여 정비례 관계 y=ax (a \\neq 0)의 그래프가 선분 AB와 만나도록 하는 자연수 a의 개수는? (단, p, q는 수이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "1개"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "2개"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "3개"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "4개"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "5개"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 15,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "표는 어느 전시관의 입장료를 나타낸 것이다. 지난달 이 전시관에 입장한 어른이 a명, 청소년은 어른의 2배보다 3명이 적었고, 어린이는 어른의 3배보다 5명이 많았다. 지난달 이 전시관의 입장료의 총액을 a를 사용하여 식으로 나타낼 때 바르게 된 것은? (단, 단위는 원이다.)"},
+        {"type": "text", "value": "전시관 입장료"},
+        {"type": "table", "value": "", "rows": [
+          ["어른", "1800원"],
+          ["청소년", "1500원"],
+          ["어린이", "1200원"]
+        ]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "7200a-10500"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "7200a+1500"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "8400a-10500"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "8400a+1500"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "8400a+2500"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 16,
+      "score": 8,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 1] 다음을 만족하는 다항식 A, B를 각각 구하고, 그 풀이 과정을 쓰시오."},
+        {"type": "text", "value": "<상자> ○ A에 3x-7을 더하였더니 5x-2이 되었다. ○ B에 -x+6을 뺐더니 -4x+8이 되었다."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    }
+  ]
+}

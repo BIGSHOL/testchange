@@ -1,0 +1,97 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 1,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "-5x와 동류항인 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{1}{x}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-5x^2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "xy"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4y"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{x}{2}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 2,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "3(x-2y)-(5x-4y)을 계산하면 ax+by일 때, a+b의 값은? (단, a, b는 수이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-12"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-8"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-4"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "15"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 3,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "밑줄 친 항을 이항한 것으로 옳지 __않은__ 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "2x-5=3 \\rightarrow 2x=3+5"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "7x-4=2x \\rightarrow 7x-2x=4"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "4x=5x-1 \\rightarrow 4x-5x=-1"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "10x=-3x+8 \\rightarrow 10x+3x=8"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "7x-3=6x+4 \\rightarrow 7x-6x=4-3"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 4,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "방정식 2x-3=7을 푸는 과정이다. (가), (나)에 사용된 등식의 성질을 <보기>에서 바르게 짝지은 것은?"},
+        {"type": "text", "value": "<상자> 2x-3=7 • 2x=10 (가) • \\therefore x=5 (나)"},
+        {"type": "text", "value": "<보기> a=b이고 c가 자연수일 때, ㄱ. a+c=b+c • ㄴ. a-c=b-c • ㄷ. ac=bc • ㄹ. \\frac{a}{c}=\\frac{b}{c}"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ, ㄴ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄱ, ㄹ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄴ, ㄷ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄴ, ㄹ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄷ, ㄹ"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 5,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "일차방정식 -2(x+3)=9+3x의 해는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "x=-4"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "x=-3"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "x=-2"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "x=-1"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "x=0"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 6,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "x에 대한 일차방정식 3x-5=2a의 해가 x=9일 때, 수 a의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "11"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "13"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}
