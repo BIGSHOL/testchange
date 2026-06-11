@@ -34,8 +34,9 @@ logger = logging.getLogger(__name__)
 from .hwp_com import CONVERSION_VISIBLE, HwpSession, _dispatch_hwp, _win32
 from .hwp_com_writer import (HwpComWriter, _BOX_BREAK_RE, _BULLET_RE,
                              _caption_spans, _choice_complexity, _COND_HEADER_RE,
-                             _condition_start, _has_box_markup, _post_is_box,
-                             _split_tail_post, _split_trailing_score, _tail_start)
+                             _condition_start, _has_box_markup, _post_has_stem,
+                             _post_is_box, _split_tail_post, _split_trailing_score,
+                             _tail_start)
 from .latex_to_hwpeq import latex_to_hwpeq
 from models.exam_document import ContentBlock, ContentType, ExamDocument, Question
 
@@ -485,9 +486,11 @@ def _put_qbody(ses, h, contents, score, essay: bool = False, allow_break: bool =
         ses.align_left()
     # 박스 뒤 발문 연속(#18·#20)이 있으면 배점은 그 뒤로 미룬다(기본 경로와 동일).
     # 객관식도 — 원본 인쇄는 의문문(post) 끝 "…것은? [4점]"(장산중 #5, 2026-06-11).
-    # 단 post 가 또 다른 박스(<조건> 등, #16)면 발문 연속이 아니므로 안 미룬다(배점=발문 끝).
+    # 단 post 가 또 다른 박스(<조건> 등, #16)거나 그림/그림노트뿐(경일중 #19)이면
+    # 발문 연속이 아니므로 안 미룬다(배점=발문 끝).
     _, tail_post = _split_tail_post(tail)
-    defer_score = bool(score) and bool(tail_post) and not _post_is_box(tail_post)
+    defer_score = (bool(score) and bool(tail_post)
+                   and not _post_is_box(tail_post) and _post_has_stem(tail_post))
     # tail 없는 서술형 소문항만 줄바꿈 우측정렬 강제(안전 caret). tail 있으면 fragile.
     fb = allow_break and essay and not tail
     if score and not defer_score:

@@ -85,6 +85,10 @@ _BOX_BREAK_RE = re.compile(
 # 정규화 식별자로 유지하고 출력만 작은 ``•`` 로 치환(•는 _BULLET_RE 숨김자라 텍스트엔 못 넣음).
 _BOX_BULLET_CHAR = "○"
 _COND_BULLET_DISPLAY = "•"
+# 단독(공백 경계) ○ 불릿 — content_parser._normalize_box_circles 표준화 결과. 본문 속
+# "○표" 류(비불릿)는 뒤 경계 조건으로 제외. _is_labelless_box 의 "여러 항목" 판정용
+# (경일중 #19 <상자> ○ 단서 2항목이 단일 진술로 오인돼 가운데정렬, 2026-06-11).
+_CIRCLE_BULLET_RE = re.compile(r"(?:(?<=\s)|^)○(?=\s|$)")
 
 
 def _has_box_markup(text: str) -> bool:
@@ -131,8 +135,8 @@ def _is_labelless_box(blocks: list[ContentBlock]) -> bool:
     if any(_COND_MARKER_RE.search(b.value or "") for b in texts):
         return False                       # <보기>/<조건> 라벨 박스
     joined = "".join(b.value or "" for b in texts)
-    if _BULLET_RE.search(joined):
-        return False                       # 불릿 = 여러 항목 → 좌측
+    if _BULLET_RE.search(joined) or _CIRCLE_BULLET_RE.search(joined):
+        return False                       # 불릿(•·○) = 여러 항목 → 좌측
     leftover = _PLAIN_BOX_RE.sub("", joined)
     if _BOX_BOUNDARY_RE.search(leftover):  # (가)/ㄱ. 항목 라벨이 있으면 라벨 박스
         return False
@@ -315,6 +319,17 @@ def _post_is_box(post: list[ContentBlock]) -> bool:
     b = next((b for b in post
               if b.type == ContentType.TEXT and (b.value or "").strip()), None)
     return b is not None and bool(_COND_HEADER_RE.search(b.value or ""))
+
+
+def _post_has_stem(post: list[ContentBlock]) -> bool:
+    """post(박스 뒤 블록들)에 진짜 '발문 연속' 콘텐츠가 있는지.
+
+    그림(IMAGE)·그림자리 안내문구 TEXT **뿐**이면 발문이 아니라 발문뒤 시각 콘텐츠다 —
+    배점을 그 뒤로 미루면(defer) 배점이 발문 끝을 떠나 그림/노트 아래 좌측에 찍힌다
+    (경일중 #19 박스→그림 [6점], 2026-06-11. 원본·완료본은 발문 끝 "…서술하시오. [6점]").
+    수식(EQ/EQUATION_BLOCK)·일반 TEXT 가 하나라도 있으면 기존대로 발문 연속(defer 유지).
+    """
+    return any(not (b.type == ContentType.IMAGE or _is_figure_note(b)) for b in post)
 
 
 # 발문 끝에 박힌 총점/배점 [총 N점]·[N점] (소문항 부모는 우측정렬로 따로 표기).
@@ -791,8 +806,10 @@ class HwpComWriter:
         # 과정상자+㈎㈏㈐, 2026-06-11. 과거엔 발문 머리 뒤에 찍혀 우측정렬 폴백까지 발화).
         # post 가 그 자체로 박스(<조건> 등, #16)면 발문 연속이 아니므로 배점을 안 미룬다
         # (배점은 발문 끝·박스 앞 = #18 와 동일). 진짜 발문 연속(장산중 #5)만 미룬다.
+        # post 가 그림/그림노트뿐(경일중 #19)이어도 발문 연속이 아님 → 배점=발문 끝.
         _, tail_post = _split_tail_post(tail)
-        defer_score = show_score and bool(tail_post) and not _post_is_box(tail_post)
+        defer_score = (show_score and bool(tail_post)
+                       and not _post_is_box(tail_post) and _post_has_stem(tail_post))
 
         # 발문 — 첫 블록은 인라인(번호와 같은 줄), 발문 선두 수식 줄바꿈 방지(A7).
         # 발문 중간 독립 블록수식(EQUATION_BLOCK) 뒤 발문 연속은 좌측 새 줄로 복귀(#19).

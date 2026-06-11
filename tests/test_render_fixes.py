@@ -100,6 +100,22 @@ def run():
     chk(_is_labelless_box(labelless), "라벨없는 진술상자(#14)=가운데")
     chk(not _is_labelless_box(bullet_box), "(가)(나)불릿 박스는 라벨없음 아님(좌측)")
     chk(not _is_labelless_box(bogi_box), "<보기>박스는 라벨없음 아님(좌측)")
+    # 경일중 #19: ○ 불릿(표준화 _BOX_BULLET) 다항목 <상자>도 좌측(가운데 오인 회귀).
+    circle_box = [_tb("<상자> ○ "), _eq("x"), _tb("좌표와 "), _eq("y"),
+                  _tb("좌표의 곱은 음수이다. ○ "), _eq("x"), _tb("좌표가 4만큼 작다.")]
+    chk(not _is_labelless_box(circle_box), "○ 불릿 다항목 상자는 라벨없음 아님(좌측)")
+    # "○표 하시오" 류 비불릿 ○(뒤가 한글 직결)는 오탐하지 않음 — 단일 진술 유지.
+    circle_word = [_tb("<상자> 알맞은 것에 ○표 하시오")]
+    chk(_is_labelless_box(circle_word), "비불릿 ○표(단일 진술)는 가운데 유지")
+
+    # ── G1: 박스 뒤 post 가 그림/그림노트뿐이면 defer 안 함(경일중 #19) — _post_has_stem ──
+    note = _tb("※ 그림 자리 — 원본에서 이 영역을 캡처해 여기에 붙여넣으세요")
+    img = ContentBlock(type=CT.IMAGE, value="x.png")
+    chk(not W._post_has_stem([note]), "그림노트뿐인 post=발문 아님(배점 발문끝)")
+    chk(not W._post_has_stem([img]), "IMAGE뿐인 post=발문 아님(배점 발문끝)")
+    chk(not W._post_has_stem([note, img]), "노트+IMAGE post=발문 아님")
+    chk(W._post_has_stem([note, _tb("이때 값을 구하시오.")]), "그림 낀 진짜 발문연속=defer 유지")
+    chk(W._post_has_stem([_eq("P(Y \\leq 29)"), _tb("의 값을 구하시오.")]), "수식+텍스트 post=defer 유지(학남고 #20)")
 
     # ── E: 표제목 캡션 vs 발문 문장 ──
     chk(_is_table_caption("헬스클럽 회원의 나이 (단위:세)"), "표제목=캡션")
