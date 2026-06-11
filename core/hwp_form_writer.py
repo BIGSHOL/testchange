@@ -1056,19 +1056,30 @@ def _build_layout(src_hwpx, out_hwpx, slot_blanks: dict, colbreak_slots, n_mc: i
     ]
     blank = min(cands, key=len) if cands else ""
 
-    # (1) 폼 과잉 빈줄 삭제 — **객관식 영역에만**(서술형 소문항 답안 여백 보존).
+    # (1) 폼 과잉 빈줄 삭제. **객관식 영역**은 전부 삭제(빽빽). **서술형 영역**은 ``pack_essays``
+    # 면 연속 빈줄을 **1개로 collapse**(전부 삭제하면 소문항 (1)(2)가 딱 붙어 답란 구분이 안 됨 —
+    # 사용자 2026-06-11 "소문항 사이 최소 한 줄"). pack_essays 아니면 서술형 빈줄 전부 보존.
+    # (과거엔 pack_essays 가 서술형 빈줄도 전부 삭제 = 0줄; 메모리 form-layout-no-answer-space 갱신.)
     ops0 = _slot_opens(sec, en_phs)
     first = ops0[0]
-    # 서술형 시작(첫 서술형 슬롯) 이후는 건드리지 않음 — 단 ``pack_essays`` 면 서술형 답란
-    # 빈줄도 제거(학생 답란 불필요, 시험지 배정 깔끔함 우선; 메모리 form-layout-no-answer-space).
-    es_start = (len(sec) if pack_essays
-                else (ops0[n_mc] if (0 <= n_mc < len(ops0)) else len(sec)))
-    empties = [
-        (m.start(), m.end())
-        for m in _PARA.finditer(sec)
-        if first <= m.start() < es_start and is_empty(m.group(0))
-    ]
-    for s, e in sorted(empties, reverse=True):
+    mc_end = ops0[n_mc] if (0 <= n_mc < len(ops0)) else len(sec)
+    to_remove = []
+    prev_empty_essay = False
+    for m in _PARA.finditer(sec):
+        if m.start() < first:
+            continue
+        emp = is_empty(m.group(0))
+        if m.start() < mc_end:                 # 객관식 영역: 빈줄 전부 삭제
+            if emp:
+                to_remove.append((m.start(), m.end()))
+        elif pack_essays:                      # 서술형 영역: 연속 빈줄 1개로 collapse
+            if emp:
+                if prev_empty_essay:
+                    to_remove.append((m.start(), m.end()))   # 런의 2번째+ 만 삭제(1개 유지)
+                prev_empty_essay = True
+            else:
+                prev_empty_essay = False
+    for s, e in sorted(to_remove, reverse=True):
         sec = sec[:s] + sec[e:]
 
     # (2) 슬롯 끝(마지막 단락 뒤)에 계산된 빈줄 삽입. 뒤→앞.

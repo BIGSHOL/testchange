@@ -82,9 +82,12 @@ def _parse_question(q_data: dict) -> Question:
     else:
         question.contents = _finalize_contents(_parse_raw_blocks(raw_contents))
 
-    # 선택지
+    # 선택지 — 발문의 기하 문맥을 선택지로 전파한다. 발문 "좌표평면 위의 점 A,B,C,D,E…"의
+    # 선택지 ``A(2,3)``·``B(-3,1)`` 은 선택지 자체엔 기하 키워드가 없어 점 이름이 이탤릭으로
+    # 새던 것(대륜중 #1) → 발문에 기하 문맥이 있으면 점 좌표 선택지를 로만+이탤릭으로 처리.
+    q_geo = _has_geometry_context(question.contents)
     for choice_data in q_data.get("choices", []):
-        choice = _parse_choice(choice_data)
+        choice = _parse_choice(choice_data, parent_geo=q_geo)
         if choice:
             question.choices.append(choice)
 
@@ -96,8 +99,12 @@ def _parse_question(q_data: dict) -> Question:
     return question
 
 
-def _parse_choice(choice_data: dict) -> Choice | None:
-    """선택지 dict를 Choice 객체로 변환."""
+def _parse_choice(choice_data: dict, parent_geo: bool = False) -> Choice | None:
+    """선택지 dict를 Choice 객체로 변환.
+
+    parent_geo: 부모(발문)에 기하 문맥(점·좌표평면…)이 있으면 선택지의 점 좌표 라벨도
+    로만(점 글자)+이탤릭(좌표)으로 처리한다(선택지 자체엔 키워드가 없어도). 대륜중 #1.
+    """
     number = choice_data.get("number", 0)
     if not number:
         return None
@@ -118,12 +125,15 @@ def _parse_choice(choice_data: dict) -> Choice | None:
     choice.contents = _merge_operator_split_equations(choice.contents)
     # text(꼬리부등식)·eq·text(머리부등식) 병합
     choice.contents = _merge_text_eq_fragments(choice.contents)
+    # 부모(발문) 기하 문맥 + 선택지 자체 문맥. 셋(stat/point/nongeo)에 같은 게이트를 줘야
+    # _romanize_point_names 가 만든 점 라벨을 _italicize_nongeo_single_letters 가 안 벗긴다.
+    geo = parent_geo or _has_geometry_context(choice.contents)
     # 확통 연산자·확률변수 \mathrm 벗겨 이탤릭(순열 제외)
-    choice.contents = _italicize_stat_operators(choice.contents)
+    choice.contents = _italicize_stat_operators(choice.contents, force_geo=geo)
     # 기하 점/선/면 이름 로만체 강제
-    choice.contents = _romanize_point_names(choice.contents)
+    choice.contents = _romanize_point_names(choice.contents, force_geo=geo)
     # 비기하 단일대문자 \mathrm 벗겨 이탤릭(조합 C·순열 P_ 제외)
-    choice.contents = _italicize_nongeo_single_letters(choice.contents)
+    choice.contents = _italicize_nongeo_single_letters(choice.contents, force_geo=geo)
 
     return choice
 
@@ -278,14 +288,16 @@ def _has_geometry_context(blocks: list[ContentBlock]) -> bool:
 _STAT_MATHRM_RE = re.compile(r'\\mathrm\{([XYPEVNZ])\}(?!\s*_)')
 
 
-def _italicize_stat_operators(blocks: list[ContentBlock]) -> list[ContentBlock]:
+def _italicize_stat_operators(blocks: list[ContentBlock],
+                              force_geo: bool = False) -> list[ContentBlock]:
     """수식 안 ``\\mathrm{P/E/V/N/Z/X/Y}`` 를 이탤릭(맨 글자)으로 되돌린다(순열 P_ 는 제외).
 
     기하 문맥(점·꼭짓점…)이면 스킵 — ``\\mathrm{P}(1,~2)`` 같은 **복합 수식 속 점 라벨**은
     여기서 벗기면 ``_romanize_point_names``(통째 라벨 수식만 재로만화)가 못 되돌려 점 P 가
     이탤릭으로 새던 버그(감사 2026-06-10). 미러(_italicize_nongeo_single_letters)와 동일 게이트.
+    force_geo: 부모(발문)에 기하 문맥이 있으면 선택지엔 키워드가 없어도 기하로 취급(점 좌표 선택지).
     """
-    if _has_geometry_context(blocks):
+    if force_geo or _has_geometry_context(blocks):
         return blocks
     out: list[ContentBlock] = []
     for b in blocks:
@@ -324,7 +336,8 @@ def _romanize_angle_letters(blocks: list[ContentBlock]) -> list[ContentBlock]:
     return out
 
 
-def _romanize_point_names(blocks: list[ContentBlock]) -> list[ContentBlock]:
+def _romanize_point_names(blocks: list[ContentBlock],
+                          force_geo: bool = False) -> list[ContentBlock]:
     """기하 점/선/면 이름(통째 대문자 수식 블록)을 \\mathrm 으로 감싸 로만체로 강제.
 
     **기하 도형 라벨에만** 적용한다(사용자 2026-06-08: "도형 아닌데 로만체 너무 많다").
@@ -335,8 +348,11 @@ def _romanize_point_names(blocks: list[ContentBlock]) -> list[ContentBlock]:
         좌표는 \\mathit(이탤릭). HWP rm 이 명시적 it 전까지 뒤 전체로 번지므로 통째 로만화하면
         a,b 까지 로만으로 깨진다(2026-06-11 렌더 실증). 좌표쌍 판정 = 괄호 안 쉼표(함수호출
         f(x)·확통 P(X=r) 는 단일인자라 쉼표 없음·비기하라 제외).
+    force_geo: 부모(발문)에 기하 문맥이 있으면 선택지엔 키워드가 없어도 기하로 취급. 발문
+        "좌표평면 위의 점 A,B,C,D,E…" 의 선택지 ``A(2,3)``·``B(-3,1)`` 처럼 좌표 단 점 이름이
+        선택지 문맥(키워드 없음)에서 이탤릭으로 새던 것 차단(대륜중 #1, 사용자 2026-06-11).
     """
-    has_geo = _has_geometry_context(blocks)
+    has_geo = force_geo or _has_geometry_context(blocks)
     out: list[ContentBlock] = []
     for b in blocks:
         if b.type == ContentType.EQUATION:
@@ -367,9 +383,14 @@ def _romanize_point_names(blocks: list[ContentBlock]) -> list[ContentBlock]:
 _NONGEO_SINGLE_MATHRM_RE = re.compile(r'\\mathrm\{([A-BD-Z])\}(?!\s*_)')
 
 
-def _italicize_nongeo_single_letters(blocks: list[ContentBlock]) -> list[ContentBlock]:
-    """기하 문맥이 **아닐 때만** 단일 대문자 ``\\mathrm{A}`` 를 이탤릭으로(조합 C·순열 P_ 제외)."""
-    if _has_geometry_context(blocks):
+def _italicize_nongeo_single_letters(blocks: list[ContentBlock],
+                                     force_geo: bool = False) -> list[ContentBlock]:
+    """기하 문맥이 **아닐 때만** 단일 대문자 ``\\mathrm{A}`` 를 이탤릭으로(조합 C·순열 P_ 제외).
+
+    force_geo: 부모(발문) 기하 문맥이면 선택지도 기하로 취급해 스킵 — 그래야 직전
+    ``_romanize_point_names`` 가 만든 점 라벨 ``\\mathrm{A}\\mathit{(…)}`` 를 다시 안 벗긴다.
+    """
+    if force_geo or _has_geometry_context(blocks):
         return blocks
     out: list[ContentBlock] = []
     for b in blocks:
@@ -577,12 +598,27 @@ def _split_comma_equations(blocks: list[ContentBlock]) -> list[ContentBlock]:
     return result
 
 
+_EDGE_MATH_SPACE_RE = re.compile(
+    r"^(?:\\(?:qquad|quad|[,;:! ])\s*)+|(?:\\(?:qquad|quad|[,;:! ])\s*)+$")
+
+
+def _strip_edge_math_space(p: str) -> str:
+    """수식 조각 양끝의 LaTeX 간격명령(``\\quad``·``\\,`` 등)을 제거.
+
+    쉼표로 분리한 각 항목에 적용한다 — 텍스트 쉼표 ``, `` 가 이미 간격을 주므로 ``\\quad``
+    (→ HWP ``~~`` 강제공백)이 남으면 틈이 과하게 겹쳐 보인다(경명여중 중2 #18 보기
+    ``3+ax \\geq bx, \\quad -0.3x …``, 2026-06-11). 항목 **사이**의 간격은 텍스트 공백으로.
+    """
+    return _EDGE_MATH_SPACE_RE.sub("", (p or "").strip()).strip()
+
+
 def _split_one_eq_commas(block: ContentBlock, result: list[ContentBlock]) -> bool:
     """쉼표 든 수식 한 블록을 규칙대로 분해해 ``result`` 에 추가. 처리했으면 True."""
     v = (block.value or "").strip()
     paren = _wrapped_in_parens(v)
     inner = v[1:-1] if paren else v
-    parts = [p.strip() for p in _split_at_top_level_commas(inner) if p.strip()]
+    parts = [s for s in (_strip_edge_math_space(p)
+                         for p in _split_at_top_level_commas(inner)) if s]
     if len(parts) < 2:
         return False
     all_vars = all(_VAR_ITEM_RE.match(p) for p in parts)
@@ -862,16 +898,19 @@ _LATEX_CMD_RE = re.compile(
 # 배점 텍스트 패턴 (예: [3점], [4.5점], [총 7점], [7점, 부분점수 있음]) — 캡처 정규식
 # (_parse_question)과 동치 유지. ``점`` 뒤 ``, 부분점수 있음`` 같은 부가 문구도 함께 제거
 # (서답형 배점, 2026-06-10 중앙고 — 본문 배점 텍스트 + score 중복 출력 방지).
-_SCORE_TEXT_RE = re.compile(r'\s*\[\s*(?:총\s*)?\d+(?:\.\d+)?\s*점\s*(?:,[^\]]*)?\]\s*')
+# 배점 ``[N점]`` — 대괄호가 표준이나 OCR/원본이 소괄호 ``(N점)`` 으로 줄 때도 제거해야
+# score 필드와 중복 렌더되지 않는다(경명여중 중2 #20·#21 ``서술하시오. (7점)`` + 우측정렬
+# ``[7점]`` 이중 출력, 2026-06-11). 여는 ``[/(`` · 닫는 ``]/)`` 를 각각 허용(혼용도 방어).
+_SCORE_TEXT_RE = re.compile(r'\s*[\[(]\s*(?:총\s*)?\d+(?:\.\d+)?\s*점\s*(?:,[^\])]*)?[\])]\s*')
 
 # 보기/조건/상자 박스 머리 마커(원시 텍스트 시작). 자기완결 박스(마커+항목이 한 raw
 # 블록) 판정과 그 뒤 발문 연속 분리에 쓴다.
-# ``<보기>에서``(조사 직결)·``<보기> 중/에서 ~``(참조어)는 발문의 **인라인 참조**라 박스
+# ``<보기>에서``(조사 직결)·``<보기> 중/중에서/에서 ~``(참조어)는 발문의 **인라인 참조**라 박스
 # 머리가 아니다 — 발문 선두 "<보기> 중 일차함수…"가 박스로 오인돼 발문이 박스에 갇히고
 # 진짜 보기 항목이 평문으로 풀렸다(월암중 #11·상원중 #16, 2026-06-11). ``<상자>`` 는 항상 박스.
 _RAW_BOX_MARK_RE = re.compile(
     r"^\s*(?:<\s*상자\s*>"
-    r"|(?:<\s*(?:조건|보기)\s*>|\[\s*(?:조건|보기)\s*\])(?![가-힣])(?!\s+(?:중|에서)(?=[\s,.?]|$)))")
+    r"|(?:<\s*(?:조건|보기)\s*>|\[\s*(?:조건|보기)\s*\])(?![가-힣])(?!\s+(?:중에서|에서|중)(?=[\s,.?]|$)))")
 # 항목 라벨 단독(ㄱ./ㄴ./…, (가)/(나)/…, 1)/2)/…) — 박스 머리 뒤가 이것뿐이면 자기완결 아님.
 _BARE_ITEM_LABEL_RE = re.compile(
     r"^(?:[ㄱ-ㅎ]\s*\.?|[（(]\s*[가-힣]\s*[)）]|\d+\s*[.)])\s*$")
@@ -1157,6 +1196,13 @@ def _split_latex_commands(text: str) -> list[ContentBlock]:
         # 한글 없는 순수 ASCII 수식 조각(거듭제곱 ``4^x`` 등)은 통째 수식으로 — 더블스페이스
         # 경계 분리 뒤 다음 수식의 머리가 평문으로 남던 것(월암중 #6 둘째 등식, 2026-06-11).
         if not re.search(r"[가-힣]", before) and re.search(r"[\^_=]", before):
+            # 선행 불릿(• 등)은 박스 줄 경계라 **별도 TEXT** 로 떼어낸다 — 수식에 흡수되면
+            # _write_box_content 의 _BOX_BREAK_RE 가 줄을 못 끊어 ``• B = …`` 가 앞 항목과
+            # 한 줄로 붙는다(경명여중 중2 #11 상자 A=…•B=…, 2026-06-11).
+            _bm = re.match(r"^\s*[•·▪◦]\s*", before)
+            if _bm:
+                blocks.append(ContentBlock(type=ContentType.TEXT, value=before[:_bm.end()]))
+                before = before[_bm.end():]
             blocks.append(ContentBlock(type=ContentType.EQUATION, value=before.strip()))
         else:
             # before 에 평문 함수꼴 수식(f(-x)=f(x) 등)이 있으면 살린다(#12 (가): OCR 이 일부
@@ -1178,8 +1224,8 @@ def _split_latex_commands(text: str) -> list[ContentBlock]:
 
 # 쪼개진 배점 ``[`` + EQ(숫자) + ``점]`` 제거용(점수가 수식 객체화되면 _SCORE_TEXT_RE 가
 # 한 텍스트에서 못 잡아 score 필드와 중복 렌더 — #15 [4.3점] 두 번, 2026-06-09).
-_OPEN_SCORE_BRACKET_RE = re.compile(r'\[\s*(?:총\s*)?$')
-_CLOSE_SCORE_JEOM_RE = re.compile(r'^\s*점\s*\]')
+_OPEN_SCORE_BRACKET_RE = re.compile(r'[\[(]\s*(?:총\s*)?$')
+_CLOSE_SCORE_JEOM_RE = re.compile(r'^\s*점\s*[\])]')
 
 
 def _strip_split_score(blocks: list[ContentBlock]) -> list[ContentBlock]:

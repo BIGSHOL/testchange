@@ -408,13 +408,48 @@ def run():
     finally:
         os.remove(tmp4)
 
+    # ── U: 발문 기하 문맥 → 선택지 점 좌표 로만+이탤릭 — 대륜중 중1 #1 (2026-06-11) ──
+    # "좌표평면 위의 점 A,B,C,D,E…" 선택지 A(2,3) 은 선택지 자체엔 기하 키워드가 없어 점 이름이
+    # 이탤릭으로 새던 것 → 발문 기하 문맥을 선택지로 전파해 \mathrm{A}\mathit{(2,3)} 로 로만+이탤릭.
+    from core.content_parser import parse_ocr_response as _por, build_document as _bd
+    from core.latex_to_hwpeq import latex_to_hwpeq as _lh
+    def _choice_eq(stem, cval):
+        ocr = {"questions": [{"number": 1, "score": 3,
+               "contents": [{"type": "text", "value": stem}],
+               "choices": [{"number": 1, "contents": [{"type": "equation", "value": cval}]}]}]}
+        q = _bd([_por(ocr, page_number=1)]).pages[0].questions[0]
+        return q.choices[0].contents[0].value
+    geo = _choice_eq("좌표평면 위의 점 A, B, C, D, E의 좌표를 나타낸 것은?", "B(-3, 1)")
+    chk(geo == r"\mathrm{B}\mathit{(-3, 1)}", f"U 점좌표 선택지 로만+이탤릭: {geo!r}")
+    chk(_lh(geo, italicize_stat=False) == "rm B it {(-3,~1)}", f"U hwp 변환: {_lh(geo, italicize_stat=False)!r}")
+    nongeo = _choice_eq("확률변수 X에 대하여 옳은 것은?", "P(X=2)")   # 비기하 발문 → 로만화 안 함
+    chk(nongeo == "P(X=2)", f"U 확통 무회귀(이탤릭 유지): {nongeo!r}")
+
+    # ── U2: <조건> 박스 ○ 항목 줄바꿈 — 대륜중 중1 #15 (2026-06-11) ──
+    # ○(U+25CB)를 _BOX_BREAK_RE 경계로 추가(but _BULLET_RE 제외=표시) → 각 ○ 가 자기 줄에서 시작.
+    class _Rec:
+        def __init__(s): s.log = []
+        def text(s, t): s.log.append(("T", t))
+        def break_para(s): s.log.append(("BR",))
+        def equation(s, e): s.log.append(("EQ",))
+        def __getattr__(s, n): return lambda *a, **k: None
+    wbox = W.HwpComWriter.__new__(W.HwpComWriter); wbox.s = _Rec()
+    wbox._write_box_content([_tb("<조건> ○ 첫째 조건이다. ○ 둘째 조건이다. ○ 셋째 조건이다.")])
+    log = wbox.s.log
+    # ○(논리 불릿)은 작은 •(표시 글리프)로 치환돼 출력된다(사용자 2026-06-11).
+    circles = [i for i, e in enumerate(log) if e == ("T", W._COND_BULLET_DISPLAY + " ")]
+    chk(len(circles) == 3, f"U2 조건 불릿 3항목 표시(•): {[e for e in log if e[0]=='T']}")
+    chk(not any(e == ("T", "○ ") for e in log), "U2 큰 ○ 글리프 미출력")
+    # 각 불릿 앞엔 break_para(라벨 직후 첫 불릿 포함 — <조건> 뒤 BR 후 불릿)
+    chk(all(("BR",) in log[max(0, i-1):i] for i in circles), f"U2 각 불릿 앞 줄바꿈: {log}")
+
     if fails:
         print("FAIL test_render_fixes:")
         print("\n".join(fails))
         return 1
     print("OK test_render_fixes (cell/value-box/caption/shading/essay-label/overline/relabel/"
           "bigstar/boxed/labelless/solo/mixed-label/rm-space/cond-header/form-underline/"
-          "sqrt-space/choice-glyph/tail-note/underline-solid/stemleaf-13)")
+          "sqrt-space/choice-glyph/tail-note/underline-solid/stemleaf-13/choice-geo/cond-circle)")
     return 0
 
 
