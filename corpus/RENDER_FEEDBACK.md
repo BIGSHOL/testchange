@@ -73,11 +73,12 @@
 1. **렌더 스크립트의 `taskkill /F /IM Hwp.exe` 금지** — 상대 세션의 COM 렌더를 죽인다.
    렌더 시작 전 다른 세션 렌더가 도는지 확인하고, 고아 프로세스 정리는 **둘 다 렌더를
    안 돌릴 때만**. (장산중 재렌더 이후 스크립트에서 제거 완료.)
-1-b. **⚠️ 두 세션이 동시에 HWP COM 을 띄우면 `SaveAs` 가 RPC_E_SERVERFAULT
-   (-2147417851)로 깨진다**(새론중 1차 렌더 실측). HWP COM 은 머신당 단일 자동화
-   인스턴스라 두 `Dispatch` 가 같은 서버를 공유 → SaveAs 충돌. **회피: 렌더는 한 번에
-   한 세션만**. 부딪히면 상대 렌더가 끝나길 기다렸다 재시도(죽이지 말 것). 빌드 PNG 변환
-   (`fitz`)은 COM 안 쓰니 동시 OK.
+1-b. ~~두 렌더 세션 동시 HWP COM SaveAs 충돌~~ **정정(사용자 2026-06-11): 세션은 총 3개
+   — 메인(HWP 렌더 전담)·중1 OCR·중3 OCR. HWP COM 은 메인 세션에서만 돈다. OCR 세션 2개는
+   크롭(Gemini)·OCR(Claude API)만 쓰고 COM 을 안 쓰므로 렌더 충돌은 구조적으로 없다.** 렌더 중
+   본 `Hwp.exe` PID churn 은 메인 자신의 이전 렌더 잔류이거나 사용자가 직접 연 한글. 렌더 전
+   `Get-Process Hwp` 확인은 유효하되 이유는 **출력 .hwpx 잠금(os.replace WinError 5) 방지** —
+   잠기면 죽이지 말고 **새 출력명**으로 회피. [[multi-session-hwp-ownership]].
 2. **커밋은 선택 add** — 상대 세션 미커밋 파일(코드·corpus)을 쓸어 담지 않는다(기존 정책).
    현재 장산중 세션 미커밋: `core/content_parser.py`·`core/hwp_com_writer.py`·`tests/` 2종
    (B형 3건 수정 — 재렌더 확인 후 커밋 예정).
