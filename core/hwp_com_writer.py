@@ -608,7 +608,8 @@ class HwpComWriter:
             pos = 0
             broke = False   # 직전이 빈 경계 줄바꿈이면 중복 줄바꿈 방지(불릿+라벨 인접)
             after_label = False  # 라벨 직후면 뒤 내용 선행공백 strip(이중공백 방지, 2026-06-05)
-            for m in _BOX_BREAK_RE.finditer(text):
+            matches = list(_BOX_BREAK_RE.finditer(text))
+            for mi, m in enumerate(matches):
                 pre = text[pos:m.start()]
                 if pre.strip():
                     seg = pre if started else pre.lstrip()
@@ -622,6 +623,12 @@ class HwpComWriter:
                 tok = re.sub(r"\s+", "", m.group(0))   # "ㄱ ." → "ㄱ.", "< 보기 >" → "<보기>"
                 # 불릿(•)·<상자>(라벨 없는 박스)는 줄 경계로만 쓰고 **출력 안 함**(A4).
                 is_hidden = (_BULLET_RE.fullmatch(m.group(0)) is not None) or tok == _PLAIN_BOX_MARK
+                # 고아 ○ 불릿: 같은 텍스트에서 다음 경계까지 내용이 없으면(뒤가 곧장 (나)/ㄱ.
+                # 라벨) 표시하지 않는다 — "(가)… ○ (나)…" 의 ○ 가 단독 줄로 떨어지던 것
+                # (월서중 #12, 2026-06-11). 텍스트 끝 ○(항목 내용이 다음 EQ 블록)은 유지.
+                if (tok == _BOX_BULLET_CHAR and mi + 1 < len(matches)
+                        and not text[m.end():matches[mi + 1].start()].strip()):
+                    is_hidden = True
                 if emitted and not broke:
                     self.s.break_para()   # 마커/항목 라벨/불릿 앞에서 줄바꿈(보인 내용 있을 때만)
                     broke = True
@@ -1576,7 +1583,11 @@ def _shade_target_mode(tbl_xml: str) -> str | None:
     is_ztable = bool(re.search(r"LEQ\s*Z\s*LEQ", tbl_xml))
     if ncol == 2 and nrow >= 2 and is_ztable:
         return "row0"                     # z-표(표준정규분포표)
-    if nrow == 2 and ncol >= 3:
+    # 확률분포표는 **확률 표기 P(X…) 가 있는** 표만. 2행×다열 모양만으로 음영하면 정비례
+    # x/y 표까지 1열 음영되는 오탐(월서중 #21 — 완료본 무음영, 2026-06-11. z-표 LEQ 시그니처
+    # 와 같은 결함 계열).
+    is_dist = bool(re.search(r"P\s*\(\s*[A-Z]", tbl_xml))
+    if nrow == 2 and ncol >= 3 and is_dist:
         return "col0"                     # 확률분포표
     return None
 

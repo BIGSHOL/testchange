@@ -16,5 +16,5 @@
   },
   "regression_tests": "tests/test_render_fixes.py(L rm-space, M cond-header). pytest 51 PASS, verify 30 PASS, lint JSON/XML PASS. 상인고 수1·공수1·능인고 회귀 재렌더 무손상(XML lint 3종 PASS).",
   "status": "reviewed__2_code_bugs_fixed__clean",
-  "note": " [2026-06-11] #9 선택지 단위 L(300L·5L·yL)이 이탤릭으로 렌더되던 숨은 결함을 범물중 #22 검수에서 발견·정정(숫자/단일변수 직결 꼬리 L = 단위 정자화). 재렌더 5쪽·lint PASS."
+  "note": " [2026-06-11] #9 선택지 단위 L(300L·5L·yL)이 이탤릭으로 렌더되던 숨은 결함을 범물중 #22 검수에서 발견·정정(숫자/단일변수 직결 꼬리 L = 단위 정자화). 재렌더 5쪽·lint PASS. [2026-06-12] 월서중 B-3(__밑줄__ 분기 수식추출 억제 해소) 효과: #1 '미지수가 2개인'의 2 수식 객체화(합의 #6). 재렌더 5쪽·lint PASS·시각 확인."
 }

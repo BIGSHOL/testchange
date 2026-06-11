@@ -5,16 +5,85 @@
       "number": 10,
       "score": 4,
       "contents": [
-        {"type": "text", "value": "점 "},
-        {"type": "equation", "value": "\\left(\\frac{b}{a}, -2a\\right)"},
-        {"type": "text", "value": "가 제2사분면 위의 점일 때, 주어진 점이 속하는 사분면으로 옳지 __않은__ 것은?"}
+        {
+          "type": "text",
+          "value": "점 "
+        },
+        {
+          "type": "equation",
+          "value": "\\left(\\frac{b}{a}, -2a\\right)"
+        },
+        {
+          "type": "text",
+          "value": "가 제2사분면 위의 점일 때, 주어진 점이 속하는 사분면으로 옳지 __않은__ 것은?"
+        }
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "A(a^2, b)"}, {"type": "text", "value": " → 제1사분면"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "B(b-a, a^2b)"}, {"type": "text", "value": " → 제2사분면"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "C(-b, a-b)"}, {"type": "text", "value": " → 제3사분면"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "D(a^2+b, ab)"}, {"type": "text", "value": " → 제4사분면"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "E(|a+b|, a)"}, {"type": "text", "value": " → 제4사분면"}]}
+        {
+          "number": 1,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "A(a^2, b)"
+            },
+            {
+              "type": "text",
+              "value": " → 제1사분면"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "B(b-a, a^2b)"
+            },
+            {
+              "type": "text",
+              "value": " → 제2사분면"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "C(-b, a-b)"
+            },
+            {
+              "type": "text",
+              "value": " → 제3사분면"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "D(a^2+b, ab)"
+            },
+            {
+              "type": "text",
+              "value": " → 제4사분면"
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "E(|a+b|, a)"
+            },
+            {
+              "type": "text",
+              "value": " → 제4사분면"
+            }
+          ]
+        }
       ],
       "sub_questions": []
     },
@@ -22,20 +91,81 @@
       "number": 11,
       "score": 4,
       "contents": [
-        {"type": "text", "value": "두 점 "},
-        {"type": "equation", "value": "A\\left(5-\\frac{a}{2}, 4-2b\\right)"},
-        {"type": "text", "value": "와 "},
-        {"type": "equation", "value": "B(3-a, b+6)"},
-        {"type": "text", "value": "의 x좌표는 같고, 점 A는 x축 위의 점이다. 점 C의 좌표를 "},
-        {"type": "equation", "value": "\\left(a+1, \\frac{b}{2}+4\\right)"},
-        {"type": "text", "value": "라고 할 때, 네 점 A, B, C, D를 꼭짓점으로 하는 사다리꼴 ABCD의 넓이가 60이다. 점 D의 좌표는?"}
+        {
+          "type": "text",
+          "value": "두 점 "
+        },
+        {
+          "type": "equation",
+          "value": "A\\left(5-\\frac{a}{2}, 4-2b\\right)"
+        },
+        {
+          "type": "text",
+          "value": "와 "
+        },
+        {
+          "type": "equation",
+          "value": "B(3-a, b+6)"
+        },
+        {
+          "type": "text",
+          "value": "의 x좌표는 같고, 점 A는 x축 위의 점이다. 점 C의 좌표를 "
+        },
+        {
+          "type": "equation",
+          "value": "\\left(a+1, \\frac{b}{2}+4\\right)"
+        },
+        {
+          "type": "text",
+          "value": "라고 할 때, 네 점 A, B, C, D를 꼭짓점으로 하는 사다리꼴 ABCD의 넓이가 60이다. 점 D의 좌표는?"
+        }
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "(-5, 1)"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "(-4, 2)"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "(-3, 1)"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "(-2, -2)"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "(-1, 2)"}]}
+        {
+          "number": 1,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "(-5, 1)"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "(-4, 2)"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "(-3, 1)"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "(-2, -2)"
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "(-1, 2)"
+            }
+          ]
+        }
       ],
       "sub_questions": []
     },
@@ -43,16 +173,71 @@
       "number": 12,
       "score": 3,
       "contents": [
-        {"type": "text", "value": "<보기>의 그래프는 호동이가 등하교길에 집에서 떨어진 거리를 시간에 따라 나타낸 것이다. 다음 (가), (나)의 상황과 <보기>의 그래프를 알맞게 짝지은 것은?"},
-        {"type": "text", "value": "<상자> (가) 집에서 학교까지 일정한 속력으로 걸어가다 등교 시간이 얼마 남지 않아 더 빠르게 걸었다. ○ (나) 학교에서 집으로 일정한 속력으로 걸어오다 편의점에 들러 컵라면을 사서 먹고 집으로 돌아왔다."},
-        {"type": "figure", "value": "<보기> 박스 안 거리-시간 그래프 4개. ㄱ. 거리가 완만하게 증가하다 더 가파르게 증가. ㄴ. 거리가 증가해 일정 유지 후 0으로 감소(사다리꼴). ㄷ. 거리가 감소하다 일정 구간 유지 후 다시 0까지 감소. ㄹ. 거리가 증가하다 일정 구간 유지 후 더 가파르게 증가. 각 그래프 세로축 거리·가로축 시간, 원점 O.", "bbox": [0.51, 0.225, 0.99, 0.335]}
+        {
+          "type": "text",
+          "value": "<보기>의 그래프는 호동이가 등하교길에 집에서 떨어진 거리를 시간에 따라 나타낸 것이다. 다음 (가), (나)의 상황과 <보기>의 그래프를 알맞게 짝지은 것은?"
+        },
+        {
+          "type": "text",
+          "value": "<상자> (가) 집에서 학교까지 일정한 속력으로 걸어가다 등교 시간이 얼마 남지 않아 더 빠르게 걸었다. • (나) 학교에서 집으로 일정한 속력으로 걸어오다 편의점에 들러 컵라면을 사서 먹고 집으로 돌아왔다."
+        },
+        {
+          "type": "figure",
+          "value": "<보기> 박스 안 거리-시간 그래프 4개. ㄱ. 거리가 완만하게 증가하다 더 가파르게 증가. ㄴ. 거리가 증가해 일정 유지 후 0으로 감소(사다리꼴). ㄷ. 거리가 감소하다 일정 구간 유지 후 다시 0까지 감소. ㄹ. 거리가 증가하다 일정 구간 유지 후 더 가파르게 증가. 각 그래프 세로축 거리·가로축 시간, 원점 O.",
+          "bbox": [
+            0.51,
+            0.225,
+            0.99,
+            0.335
+          ]
+        }
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "text", "value": "ㄱ, ㄷ"}]},
-        {"number": 2, "contents": [{"type": "text", "value": "ㄱ, ㄹ"}]},
-        {"number": 3, "contents": [{"type": "text", "value": "ㄴ, ㄱ"}]},
-        {"number": 4, "contents": [{"type": "text", "value": "ㄷ, ㄴ"}]},
-        {"number": 5, "contents": [{"type": "text", "value": "ㄹ, ㄷ"}]}
+        {
+          "number": 1,
+          "contents": [
+            {
+              "type": "text",
+              "value": "ㄱ, ㄷ"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "contents": [
+            {
+              "type": "text",
+              "value": "ㄱ, ㄹ"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "contents": [
+            {
+              "type": "text",
+              "value": "ㄴ, ㄱ"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "contents": [
+            {
+              "type": "text",
+              "value": "ㄷ, ㄴ"
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "contents": [
+            {
+              "type": "text",
+              "value": "ㄹ, ㄷ"
+            }
+          ]
+        }
       ],
       "sub_questions": []
     },
@@ -60,16 +245,71 @@
       "number": 13,
       "score": 4,
       "contents": [
-        {"type": "text", "value": "그래프는 12km 달리기 대회에서 호동이와 수근이가 동시에 출발하여 달린 시간에 따른 이동 거리의 변화를 나타낸 것이다. <보기>의 설명 중 옳은 것만을 있는 대로 고른 것은?"},
-        {"type": "figure", "value": "이동 거리 그래프(모눈). 세로축 거리(km) 4·8·12 눈금, 가로축 시간(분) 30·60·90 눈금. 호동: 곡선 — 처음 가파르게 증가하다 완만해지고 끝에서 다시 가파르게 증가해 약 100분에 12km 도달. 수근: 원점을 지나는 직선 — 90분에 12km 도달. 두 그래프는 60분(8km)에서 교차. 호동·수근 라벨과 화살표.", "bbox": [0.53, 0.535, 0.99, 0.69]},
-        {"type": "text", "value": "<보기> ㄱ. 두 명 모두 쉬지 않고 달려 완주하였다. • ㄴ. 수근이가 호동이 보다 10분 일찍 도착하였다. • ㄷ. 호동이와 수근이 두 명 모두 일정한 속력으로 달렸다. • ㄹ. 출발 후 30분 동안 수근이가 달린 속력은 시속 8km이다. • ㅁ. 출발 후 완주할 때까지 호동이와 수근이는 한 번도 만나지 않는다. • ㅂ. 처음에는 호동이가 앞서 나가다가 60분 이후부터 수근이가 앞서 나갔다."}
+        {
+          "type": "text",
+          "value": "그래프는 12km 달리기 대회에서 호동이와 수근이가 동시에 출발하여 달린 시간에 따른 이동 거리의 변화를 나타낸 것이다. <보기>의 설명 중 옳은 것만을 있는 대로 고른 것은?"
+        },
+        {
+          "type": "figure",
+          "value": "이동 거리 그래프(모눈). 세로축 거리(km) 4·8·12 눈금, 가로축 시간(분) 30·60·90 눈금. 호동: 곡선 — 처음 가파르게 증가하다 완만해지고 끝에서 다시 가파르게 증가해 약 100분에 12km 도달. 수근: 원점을 지나는 직선 — 90분에 12km 도달. 두 그래프는 60분(8km)에서 교차. 호동·수근 라벨과 화살표.",
+          "bbox": [
+            0.53,
+            0.535,
+            0.99,
+            0.69
+          ]
+        },
+        {
+          "type": "text",
+          "value": "<보기> ㄱ. 두 명 모두 쉬지 않고 달려 완주하였다. • ㄴ. 수근이가 호동이 보다 10분 일찍 도착하였다. • ㄷ. 호동이와 수근이 두 명 모두 일정한 속력으로 달렸다. • ㄹ. 출발 후 30분 동안 수근이가 달린 속력은 시속 8km이다. • ㅁ. 출발 후 완주할 때까지 호동이와 수근이는 한 번도 만나지 않는다. • ㅂ. 처음에는 호동이가 앞서 나가다가 60분 이후부터 수근이가 앞서 나갔다."
+        }
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "text", "value": "ㄱ, ㄴ"}]},
-        {"number": 2, "contents": [{"type": "text", "value": "ㄷ, ㄹ"}]},
-        {"number": 3, "contents": [{"type": "text", "value": "ㄱ, ㄴ, ㅂ"}]},
-        {"number": 4, "contents": [{"type": "text", "value": "ㄷ, ㅁ, ㅂ"}]},
-        {"number": 5, "contents": [{"type": "text", "value": "ㄱ, ㄴ, ㄹ, ㅂ"}]}
+        {
+          "number": 1,
+          "contents": [
+            {
+              "type": "text",
+              "value": "ㄱ, ㄴ"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "contents": [
+            {
+              "type": "text",
+              "value": "ㄷ, ㄹ"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "contents": [
+            {
+              "type": "text",
+              "value": "ㄱ, ㄴ, ㅂ"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "contents": [
+            {
+              "type": "text",
+              "value": "ㄷ, ㅁ, ㅂ"
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "contents": [
+            {
+              "type": "text",
+              "value": "ㄱ, ㄴ, ㄹ, ㅂ"
+            }
+          ]
+        }
       ],
       "sub_questions": []
     }

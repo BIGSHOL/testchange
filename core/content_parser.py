@@ -248,11 +248,24 @@ def _parse_content_block(block_data: dict) -> ContentBlock | None:
     if content_type == ContentType.TEXT:
         value = _normalize_math_delims(value)
 
-    # 텍스트 블록에 __밑줄__ 마크업이 있으면 분리
+    # 텍스트 블록에 __밑줄__ 마크업이 있으면 분리. **비밑줄 세그먼트는 나머지 파이프라인
+    # ($·LaTeX·혼합수식 분리)에 재투입** — 조기 반환이 같은 블록의 인라인 수식 추출을
+    # 억제해 "y가 x에 정비례하지 __않는__" 의 y·x 가 평문 잔존하던 것(월서중 #14, 경구중
+    # #12 에서 'B형 근본원인'으로 지목, 2026-06-11). 밑줄 세그먼트(한글 강조)는 그대로.
     if content_type == ContentType.TEXT and "__" in value:
         split = _split_underline_markup(value)
         if len(split) > 1:
-            return split  # type: ignore[return-value]
+            out: list[ContentBlock] = []
+            for sb in split:
+                if (sb.type == ContentType.TEXT and not sb.underline
+                        and "__" not in (sb.value or "")):
+                    sub = _parse_content_block({"type": "text", "value": sb.value})
+                    if sub is None:
+                        continue
+                    out.extend(sub if isinstance(sub, list) else [sub])
+                else:
+                    out.append(sb)
+            return out  # type: ignore[return-value]
 
     # 텍스트 블록에 $...$ 인라인 LaTeX가 있으면 분리
     if content_type == ContentType.TEXT and "$" in value:

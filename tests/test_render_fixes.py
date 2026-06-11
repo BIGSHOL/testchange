@@ -134,6 +134,10 @@ def run():
     chk(_shade_target_mode(ztable) == "row0", "z-표(P(0≤Z≤z))→row0 음영")
     chk(_shade_target_mode(freq2col) is None, "단순 2열 도수분포표→음영 없음(#16 버그)")
     chk(_shade_target_mode(prob) == "col0", "확률분포표(2행≥3열)→col0 음영")
+    # 월서중 #21(2026-06-11): 정비례 x/y 표(2행×다열, 확률표기 없음)는 음영 오탐 금지.
+    xy = ('<hp:tbl rowCnt="2" colCnt="8"><hp:equation>x</hp:equation>'
+          '<hp:equation>m</hp:equation><hp:equation>-2n</hp:equation></hp:tbl>')
+    chk(_shade_target_mode(xy) is None, "정비례 x/y표(P 없음)→음영 없음")
 
     # ── G: 박스↔표 혼합 분기(C1 무한재귀 회귀) ──
     hdr = _tb("<보기> ㄱ. ")
