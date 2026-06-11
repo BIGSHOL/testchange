@@ -15,5 +15,6 @@
     "header": "헤더 '고 1학년 수학' = 캐시 하네스가 header_values 미전달(알려진 한계, GUI 경로는 자동). 결함 아님."
   },
   "regression_tests": "tests/test_render_fixes.py(L rm-space, M cond-header). pytest 51 PASS, verify 30 PASS, lint JSON/XML PASS. 상인고 수1·공수1·능인고 회귀 재렌더 무손상(XML lint 3종 PASS).",
-  "status": "reviewed__2_code_bugs_fixed__clean"
+  "status": "reviewed__2_code_bugs_fixed__clean",
+  "note": " [2026-06-11] #9 선택지 단위 L(300L·5L·yL)이 이탤릭으로 렌더되던 숨은 결함을 범물중 #22 검수에서 발견·정정(숫자/단일변수 직결 꼬리 L = 단위 정자화). 재렌더 5쪽·lint PASS."
 }

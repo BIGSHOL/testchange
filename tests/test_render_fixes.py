@@ -211,6 +211,14 @@ def run():
         "O 변수+단위 백틱 a cm")
     chk(latex_to_hwpeq(r"5\mathrm{cm}", italicize_stat=False) == "5 rm`cm",
         "O mathrm 숫자+단위 백틱 5 cm")
+    # 범물중 #22(2026-06-11): 숫자/단일변수 직결 꼬리 L = 단위(1L·yL), 변수+다문자단위
+    # 무공백(xkm)도 정자+백틱. 단독/모평균 m·변수곱 ag·첨자 a_1L 은 이탤릭 보호.
+    chk(latex_to_hwpeq("1L") == "1 rm`L", "O2 숫자+L 단위")
+    chk(latex_to_hwpeq("yL") == "y rm`L", "O2 변수+L 단위")
+    chk(latex_to_hwpeq("xkm") == "x rm`km", "O2 변수+km 무공백")
+    chk(latex_to_hwpeq("2m") == "2m", "O2 모평균 2m 보호(이탤릭)")
+    chk(latex_to_hwpeq("ag") == "ag", "O2 변수곱 ag 보호(단일기호 g 제외)")
+    chk("rm`L" not in latex_to_hwpeq("a_1L"), "O2 첨자 a_1L 보호")
 
     # ── M: <조건> 박스 머리 vs 인라인 참조 — 매천중 #19 소문항 조건박스 ──
     # ``<조건> 한 미지수…``(공백+한글=박스 내용)는 머리, ``<조건>을``(조사 직결)은 참조.

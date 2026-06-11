@@ -104,8 +104,19 @@ _UNITS = [
 ]
 # 숫자와 단위 사이에 공백/`(=\,변환) 가 끼어도 단위로 인식한다(사용자 2026-06-08: "20 g"·
 # "20\,g" 처럼 띄어진 단위가 로만 처리 안 됨). 단위 뒤에 영문/숫자 없을 때만(변수 5x 제외).
+# L(리터)은 단독 변수와 충돌해 _UNITS 에서 뺐지만(2026-06-08), **숫자 직결 꼬리**(1L·25L)
+# 에선 단위가 확실하므로 그 위치 한정으로 정자화(범물중 #22 "연료 1L", 2026-06-11).
+_NUM_TAIL_UNITS = _UNITS + ["L"]
 _UNIT_RE = re.compile(
-    r"(\d)[\s`]*(" + "|".join(re.escape(u) for u in _UNITS) + r")(?![A-Za-z0-9])"
+    r"(\d)[\s`]*(" + "|".join(re.escape(u) for u in _NUM_TAIL_UNITS) + r")(?![A-Za-z0-9])"
+)
+# 단일 변수 글자 뒤 무공백 단위("xkm"·"yL") — 다문자 단위+L 한정(g·° 등 단일기호 제외:
+# 변수곱 "ag" 오인 방지). 앞이 다른 글자면(LCM 류 식별자) 제외. 완료본 인쇄는 변수 이탤릭
+# + 단위 정자 + 얇은 간격(범물중 #22 "xkm인"·"yL라고" 통째 이탤릭이던 것, 2026-06-11).
+_VAR_TAIL_UNITS = [u for u in _UNITS if len(u) >= 2 and u.isascii()] + ["L", "ℓ"]
+_VAR_UNIT_RE = re.compile(
+    r"(?<![A-Za-z])([A-Za-z])[\s`]*("
+    + "|".join(re.escape(u) for u in _VAR_TAIL_UNITS) + r")(?![A-Za-z0-9])"
 )
 
 # 확통 연산자·확률변수 P/E/V/N/Z/X/Y 의 \mathrm(로만)을 벗겨 이탤릭으로(순열 \mathrm{P}_ 제외).
@@ -119,8 +130,10 @@ def _romanize_units(s: str) -> str:
 
     예: ``10kg`` → ``10 rm`kg``, ``5cm`` → ``5 rm`cm``, ``20 g``/``20`g`` → ``20 rm`g``.
     숫자 뒤 + 뒤에 영문/숫자가 이어지지 않을 때만(변수 ``5x`` 등은 건드리지 않음).
+    단일 변수 뒤 다문자 단위/L(``xkm``·``yL``)도 정자+간격(``x rm`km``, 범물중 #22).
     """
-    return _UNIT_RE.sub(lambda m: m.group(1) + " rm`" + m.group(2), s)
+    s = _UNIT_RE.sub(lambda m: m.group(1) + " rm`" + m.group(2), s)
+    return _VAR_UNIT_RE.sub(lambda m: m.group(1) + " rm`" + m.group(2), s)
 
 
 # 변환 후 ``<글자/숫자> rm <단위>`` 의 일반 공백을 백틱(1/4칸)으로 — ``a\mathrm{cm}`` →
@@ -128,7 +141,8 @@ def _romanize_units(s: str) -> str:
 # 이미 ``5 rm`cm`` 로 처리하나, ``\mathrm{}`` 로 감싸진 단위(변수 a\mathrm{cm}·숫자 5\mathrm{cm})는
 # _mathrm_pattern 경로로 빠져 백틱이 없었다(2026-06-11 렌더 실증). _UNITS 한정이라 오검출 없음.
 _RM_UNIT_RE = re.compile(
-    r"([A-Za-z0-9])\s+rm\s+(" + "|".join(re.escape(u) for u in _UNITS) + r")(?![A-Za-z0-9])"
+    r"([A-Za-z0-9])\s+rm\s+("
+    + "|".join(re.escape(u) for u in _NUM_TAIL_UNITS) + r")(?![A-Za-z0-9])"
 )
 
 
