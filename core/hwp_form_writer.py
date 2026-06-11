@@ -248,7 +248,13 @@ def _put_block(ses, b) -> None:
         ses.equation(_eq_script(b))  # 숫자도 수식 객체로 유지(정렬)
     elif b.type == ContentType.TEXT:
         if b.value:
-            ses.text(b.value)
+            if getattr(b, "underline", False):
+                # __강조__ 밑줄 TEXT — 기본 경로(hwp_com_writer `_write` 의 underline_run)와
+                # 동일. 폼 경로만 평문 강등돼 "옳지 않은"·"더하거나 빼어서" 밑줄이 소실됐다
+                # (월암중 #9·#19, 2026-06-11 — 매천중·상원중에도 있었으나 대조에서 놓침).
+                ses.underline_run(b.value)
+            else:
+                ses.text(b.value)
     elif b.type == ContentType.IMAGE and b.value:
         # 그림 자동삽입 보류 — 가운데·독립줄에 '직접 캡처해 붙여넣으세요' 안내(사용자 2026-06-05).
         ses.break_para()

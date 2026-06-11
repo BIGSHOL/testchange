@@ -1,0 +1,123 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 14,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "일차함수 "},
+        {"type": "equation", "value": "y=7x+k"},
+        {"type": "text", "value": "의 그래프를 "},
+        {"type": "equation", "value": "y"},
+        {"type": "text", "value": "축의 방향으로 "},
+        {"type": "equation", "value": "-5"},
+        {"type": "text", "value": "만큼 평행이동한 그래프의 "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "절편을 "},
+        {"type": "equation", "value": "m"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "y"},
+        {"type": "text", "value": "절편을 "},
+        {"type": "equation", "value": "n"},
+        {"type": "text", "value": "이라고 할 때, "},
+        {"type": "equation", "value": "m+n=6"},
+        {"type": "text", "value": "이다. 이때 수 "},
+        {"type": "equation", "value": "k"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "11"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "12"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 15,
+      "score": 4,
+      "contents": [
+        {"type": "equation", "value": "a<0"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "ab>0"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "bc<0"},
+        {"type": "text", "value": " 일 때, 제2사분면을 지나지 않는 일차함수만을 <보기>에서 있는 대로 고른 것은? (단, "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "b"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "c"},
+        {"type": "text", "value": "는 수)"},
+        {"type": "text", "value": "<보기> ㄱ. y=-bcx • ㄴ. y=-bx+\\frac{1}{a} • ㄷ. y=-\\frac{c}{a}x-\\frac{b}{a}"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄴ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄱ, ㄴ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄴ, ㄷ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄱ, ㄴ, ㄷ"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 16,
+      "score": 5,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 1] 두 점 "},
+        {"type": "equation", "value": "(-1, 6)"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "(0, 2)"},
+        {"type": "text", "value": "를 지나는 직선을 그래프로 하는 일차함수의 식을 구하는 과정이다. 다음 물음에 답하시오."}
+      ],
+      "choices": [],
+      "sub_questions": [
+        {"number": 1, "score": 3, "contents": [
+          {"type": "text", "value": "이 일차함수의 그래프의 기울기를 구하시오. (단, 풀이 과정을 자세하게 쓰시오.)"}
+        ], "choices": [], "sub_questions": []},
+        {"number": 2, "score": 2, "contents": [
+          {"type": "text", "value": "이 일차함수의 식을 구하시오."}
+        ], "choices": [], "sub_questions": []}
+      ]
+    },
+    {
+      "number": 17,
+      "score": 7,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 2] 일차함수 "},
+        {"type": "equation", "value": "y=ax+b"},
+        {"type": "text", "value": "의 그래프는 일차함수 "},
+        {"type": "equation", "value": "y=-\\frac{1}{3}x+1"},
+        {"type": "text", "value": "의 그래프와 "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "축 위에서 만나고, 일차함수 "},
+        {"type": "equation", "value": "y=4x+3"},
+        {"type": "text", "value": "의 그래프와 "},
+        {"type": "equation", "value": "y"},
+        {"type": "text", "value": "축 위에서 만난다. 다음 물음에 답하시오. (단, "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "b"},
+        {"type": "text", "value": "는 수)"}
+      ],
+      "choices": [],
+      "sub_questions": [
+        {"number": 1, "score": 2, "contents": [
+          {"type": "equation", "value": "b"},
+          {"type": "text", "value": "의 값을 구하시오."}
+        ], "choices": [], "sub_questions": []},
+        {"number": 2, "score": 4, "contents": [
+          {"type": "equation", "value": "a"},
+          {"type": "text", "value": "의 값을 구하시오. (단, 풀이 과정을 자세하게 쓰시오.)"}
+        ], "choices": [], "sub_questions": []},
+        {"number": 3, "score": 1, "contents": [
+          {"type": "equation", "value": "a+b"},
+          {"type": "text", "value": "의 값을 구하시오."}
+        ], "choices": [], "sub_questions": []}
+      ]
+    }
+  ]
+}

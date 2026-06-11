@@ -1,0 +1,116 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 1,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "연립방정식 "},
+        {"type": "equation", "value": "\\begin{cases} x+3y=10 \\\\ 2x-y=-1 \\end{cases}"},
+        {"type": "text", "value": "의 해를 구하면?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "(1, -3)"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "(-1, -1)"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "(1, 3)"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "(3, 1)"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "(-2, -3)"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 2,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "연립방정식 "},
+        {"type": "equation", "value": "\\begin{cases} 2y=7-4x & \\cdots ㉠ \\\\ 3x-2y=10 & \\cdots ㉡ \\end{cases}"},
+        {"type": "text", "value": "을 풀기 위해 ㉠을 ㉡에 대입하여 "},
+        {"type": "equation", "value": "y"},
+        {"type": "text", "value": "를 없앴더니 "},
+        {"type": "equation", "value": "kx=17"},
+        {"type": "text", "value": "이 되었다. 이때 수 "},
+        {"type": "equation", "value": "k"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "7"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 3,
+      "score": 4,
+      "contents": [
+        {"type": "equation", "value": "(a-3, 2b)"},
+        {"type": "text", "value": "와 "},
+        {"type": "equation", "value": "(b-a, 3b)"},
+        {"type": "text", "value": "가 일차방정식 "},
+        {"type": "equation", "value": "7x-2y=3"},
+        {"type": "text", "value": "의 해가 될 때, "},
+        {"type": "equation", "value": "7ab"},
+        {"type": "text", "value": "의 값은? (단, "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "b"},
+        {"type": "text", "value": "는 수)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "27"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "36"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "54"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "108"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "216"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 4,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "연립방정식 "},
+        {"type": "equation", "value": "\\begin{cases} 3x+(a-1)y=5 \\\\ bx-8y=10 \\end{cases}"},
+        {"type": "text", "value": "의 해가 무수히 많을 때, "},
+        {"type": "equation", "value": "ab"},
+        {"type": "text", "value": "의 값은? (단, "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "b"},
+        {"type": "text", "value": "는 수)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-24"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-18"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-12"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "18"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "24"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 5,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "두 연립방정식의 해가 같을 때, 수 "},
+        {"type": "equation", "value": "m"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "n"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "m+n"},
+        {"type": "text", "value": "의 값은?"},
+        {"type": "text", "value": "<상자> \\begin{cases} 3x+4y=2 \\\\ 2x+my=9 \\end{cases}  \\begin{cases} mx+ny=-7 \\\\ 4x+2y=6 \\end{cases}"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-8"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "15"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

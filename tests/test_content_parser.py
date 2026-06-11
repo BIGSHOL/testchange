@@ -141,12 +141,48 @@ def _check_box_polish(fails):
         fails.append(f"  ^ 캐럿 평문 누수: {[(x.type.name, x.value) for x in b4]!r}")
 
 
+# W1~W5(월암중 중2 #5·#6·#11·#15·#19, 2026-06-11): 박스 cases 원자·나란히 수식·참조어 머리.
+def _check_wolam_box_fixes(fails):
+    from core.content_parser import _split_latex_commands, _RAW_BOX_MARK_RE
+    from models.exam_document import ContentType as CT
+    # W1: \begin{cases}…\end{cases} 통째 한 수식 원자 (begin·cases 산산조각 → literal 방지)
+    b = _split_latex_commands(r"<상자> \begin{cases} 4x+3y=4 \\ x+3y=10 \end{cases}")
+    eqs = [x.value for x in b if x.type == CT.EQUATION]
+    if len(eqs) != 1 or not eqs[0].startswith(r"\begin{cases}") or not eqs[0].endswith(r"\end{cases}"):
+        fails.append(f"  W1 cases 원자: {[(x.type.name, x.value) for x in b]!r}")
+    # W2: cases 2개 나란히 → 각각 원자
+    b2 = _split_latex_commands(
+        r"\begin{cases} 3x+4y=2 \\ 2x+my=9 \end{cases}  \begin{cases} mx+ny=-7 \\ 4x+2y=6 \end{cases}")
+    eqs2 = [x.value for x in b2 if x.type == CT.EQUATION]
+    if len(eqs2) != 2 or not all(v.startswith(r"\begin{cases}") for v in eqs2):
+        fails.append(f"  W2 cases x2: {[(x.type.name, x.value) for x in b2]!r}")
+    # W3: 깊이 0 더블스페이스 = 별개 수식 경계 + 둘째 머리(4^x) 수식 승격
+    b3 = _split_latex_commands(r"(3^x)^3 \times 9^y = 3^{11}  4^x \times 2^y = 128")
+    if any(x.type == CT.TEXT and "^" in (x.value or "") for x in b3):
+        fails.append(f"  W3 ^ 평문 누수: {[(x.type.name, x.value) for x in b3]!r}")
+    joined3 = " | ".join(x.value for x in b3 if x.type == CT.EQUATION)
+    if "128" not in joined3 or "3^{11}" not in joined3:
+        fails.append(f"  W3 등식 소실: {joined3!r}")
+    # W4: 명령 앞 연산자+식별자(y=-) 모두 수식으로 — y 평문(정자) 잔존 방지
+    b4 = _split_latex_commands(r"ㄷ. y=-\frac{c}{a}x-\frac{b}{a}")
+    if not any(x.type == CT.EQUATION and (x.value or "").startswith("y=-") for x in b4):
+        fails.append(f"  W4 y=- 흡수: {[(x.type.name, x.value) for x in b4]!r}")
+    # W5: 박스 머리 vs 발문 인라인 참조 (<보기> 중/에서·조사직결 = 참조, 그 외 = 박스)
+    for s, want in [("<보기> 중 일차함수", False), ("<보기>에서 고른", False),
+                    ("<보기> ㄱ. 항목", True), ("<조건> 한 미지수에 대한", True),
+                    ("<상자> 18 13", True), ("<보기> 중간값", True)]:
+        got = bool(_RAW_BOX_MARK_RE.match(s))
+        if got != want:
+            fails.append(f"  W5 박스머리 판정: {s!r} → {got} (기대 {want})")
+
+
 def run():
     fails = []
     _check_comma_roots(fails)
     _check_brace_subscript(fails)
     _check_korean_leak(fails)
     _check_box_polish(fails)
+    _check_wolam_box_fixes(fails)
     for text, must in _SPACING_CASES:
         got = _render(text)
         if must not in got:
@@ -162,7 +198,7 @@ def run():
         print("FAIL test_content_parser:")
         print("\n".join(fails))
         return 1
-    print(f"OK test_content_parser ({len(_SPACING_CASES) + len(_SCORE_CASES) + 4} cases)")
+    print(f"OK test_content_parser ({len(_SPACING_CASES) + len(_SCORE_CASES) + 5} cases)")
     return 0
 
 

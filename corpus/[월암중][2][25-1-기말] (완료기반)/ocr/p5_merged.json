@@ -1,0 +1,122 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 18,
+      "score": 8,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 3] 그림과 같은 직사각형 "},
+        {"type": "equation", "value": "ABCD"},
+        {"type": "text", "value": "에서 점 "},
+        {"type": "equation", "value": "P"},
+        {"type": "text", "value": "는 꼭짓점 "},
+        {"type": "equation", "value": "B"},
+        {"type": "text", "value": "에서 출발하여 "},
+        {"type": "equation", "value": "\\overline{BC}"},
+        {"type": "text", "value": "를 따라 꼭짓점 "},
+        {"type": "equation", "value": "C"},
+        {"type": "text", "value": "까지 매초 "},
+        {"type": "equation", "value": "3\\mathrm{cm}"},
+        {"type": "text", "value": "씩 움직인다. 다음 물음에 답하시오."},
+        {"type": "figure", "value": "직사각형 ABCD — A 좌상, D 우상, B 좌하, C 우하. 윗변 AD에 12cm(점선 곡선 표시), 오른변 DC에 8cm. 대각선 A-P 선분. 점 P는 변 BC 위(B에서 C 방향 화살표). ", "bbox": [0.14, 0.13, 0.55, 0.26]}
+      ],
+      "choices": [],
+      "sub_questions": [
+        {"number": 1, "score": 5, "contents": [
+          {"type": "equation", "value": "x"},
+          {"type": "text", "value": "초 후의 사각형 "},
+          {"type": "equation", "value": "APCD"},
+          {"type": "text", "value": "의 넓이를 "},
+          {"type": "equation", "value": "y\\mathrm{cm}^2"},
+          {"type": "text", "value": "라 할 때, "},
+          {"type": "equation", "value": "x"},
+          {"type": "text", "value": "와 "},
+          {"type": "equation", "value": "y"},
+          {"type": "text", "value": " 사이의 관계를 식으로 나타내시오. (단, 풀이 과정을 자세하게 쓰시오.)"}
+        ], "choices": [], "sub_questions": []},
+        {"number": 2, "score": 3, "contents": [
+          {"type": "text", "value": "사각형 "},
+          {"type": "equation", "value": "APCD"},
+          {"type": "text", "value": "의 넓이가 "},
+          {"type": "equation", "value": "60\\mathrm{cm}^2"},
+          {"type": "text", "value": "가 되는 것은 점 "},
+          {"type": "equation", "value": "P"},
+          {"type": "text", "value": "가 꼭짓점 "},
+          {"type": "equation", "value": "B"},
+          {"type": "text", "value": "를 출발한 지 몇 초 후인지 구하시오."}
+        ], "choices": [], "sub_questions": []}
+      ]
+    },
+    {
+      "number": 19,
+      "score": 4,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 4] 연립방정식을 __더하거나 빼어서__ 푸시오. (단, 풀이 과정을 자세하게 쓰시오.)"},
+        {"type": "text", "value": "<상자> \\begin{cases} 4x+3y=4 \\\\ x+3y=10 \\end{cases}"}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 20,
+      "score": 6,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 5] "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "y"},
+        {"type": "text", "value": "에 대한 연립방정식 "},
+        {"type": "equation", "value": "\\begin{cases} 3x+ay=1 \\\\ bx-2y=-3 \\end{cases}"},
+        {"type": "text", "value": "을 푸는데, 현서는 상수 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "를 잘못 보고 풀었더니 해가 "},
+        {"type": "equation", "value": "(-1, 3)"},
+        {"type": "text", "value": "이 되었고, 민혁은 상수 "},
+        {"type": "equation", "value": "b"},
+        {"type": "text", "value": "를 잘못 보고 풀어서 해가 "},
+        {"type": "equation", "value": "(2, 5)"},
+        {"type": "text", "value": "가 되었다. 다음 물음에 답하시오. (단, "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "b"},
+        {"type": "text", "value": "는 수)"}
+      ],
+      "choices": [],
+      "sub_questions": [
+        {"number": 1, "score": 2, "contents": [
+          {"type": "equation", "value": "a"},
+          {"type": "text", "value": ", "},
+          {"type": "equation", "value": "b"},
+          {"type": "text", "value": "의 값을 각각 구하시오."}
+        ], "choices": [], "sub_questions": []},
+        {"number": 2, "score": 4, "contents": [
+          {"type": "text", "value": "위 연립방정식의 올바른 해를 구하시오. (단, 풀이 과정을 자세하게 쓰시오.)"}
+        ], "choices": [], "sub_questions": []}
+      ]
+    },
+    {
+      "number": 21,
+      "score": 10,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 6] 월암중학교의 작년 학생 수는 730명이었다. 올해에는 남학생 수가 "},
+        {"type": "equation", "value": "4\\%"},
+        {"type": "text", "value": " 줄고, 여학생 수는 "},
+        {"type": "equation", "value": "10\\%"},
+        {"type": "text", "value": " 늘어서 전체적으로 24명이 늘었다고 한다. 다음 물음에 답하시오."}
+      ],
+      "choices": [],
+      "sub_questions": [
+        {"number": 1, "score": 8, "contents": [
+          {"type": "text", "value": "작년 남학생 수와 작년 여학생 수를 연립방정식을 활용하여 구하시오. (단, 풀이 과정을 자세하게 쓰시오.)"}
+        ], "choices": [], "sub_questions": []},
+        {"number": 2, "score": 2, "contents": [
+          {"type": "text", "value": "올해 남학생 수를 구하시오."}
+        ], "choices": [], "sub_questions": []}
+      ]
+    }
+  ]
+}

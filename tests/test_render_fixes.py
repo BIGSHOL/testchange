@@ -202,6 +202,30 @@ def run():
     chk(bool(_COND_HEADER_RE.search("<조건> 한 미지수에 대한 식")), "M 조건+공백+한글=박스 머리")
     chk(not _COND_HEADER_RE.search("<조건>을 사용하여"), "M 조건+조사=인라인 참조")
     chk(not _COND_HEADER_RE.search("<보기>에서 고르시오"), "M 보기+조사=인라인 참조")
+    # M2(월암중 #11·상원중 #16): ``<보기> 중 …``(공백+참조어)도 발문 인라인 참조 — 박스로
+    # 오인하면 발문이 박스에 갇히고 보기 항목이 평문으로 풀린다. "중간…" 일반 단어는 박스.
+    chk(not _COND_HEADER_RE.search("<보기> 중 일차함수"), "M2 보기+중=인라인 참조")
+    chk(not _COND_HEADER_RE.search("<보기> 에서 고른"), "M2 보기+에서(공백)=인라인 참조")
+    chk(bool(_COND_HEADER_RE.search("<보기> 중간값을 구하라")), "M2 보기+중간…=박스 머리")
+    # P(월암중 #9·#19): 폼 경로 밑줄 강조 — _put_block 이 underline TEXT 를 underline_run
+    # 으로 찍어야 한다("옳지 않은"·"더하거나 빼어서" 강조 소실 방지). COM 없이 무동작 세션로 검증.
+    from core.hwp_form_writer import _put_block as _fpb
+
+    class _USes:
+        def __init__(self):
+            self.calls = []
+
+        def text(self, s):
+            self.calls.append(("text", s))
+
+        def underline_run(self, s):
+            self.calls.append(("underline", s))
+
+    _us = _USes()
+    _fpb(_us, ContentBlock(type=CT.TEXT, value="더하거나 빼어서", underline=True))
+    _fpb(_us, ContentBlock(type=CT.TEXT, value=" 푸시오."))
+    chk(_us.calls == [("underline", "더하거나 빼어서"), ("text", " 푸시오.")],
+        f"P 폼 밑줄 강조: {_us.calls!r}")
 
     # ── J: \boxed → BOX{} 테두리 박스 — 상인고 수1 #12 빈칸채우기 (가)/(나)/(다) ──
     # ``\boxed{가}`` → ``BOX{ ~ ㈎ ~ }``(작은 박스). BOX 가 rm 으로 감싸이면 "BOX" 글자로
@@ -282,7 +306,7 @@ def run():
         print("FAIL test_render_fixes:")
         print("\n".join(fails))
         return 1
-    print("OK test_render_fixes (cell/value-box/caption/shading/essay-label/overline/relabel/bigstar/boxed/labelless/solo/mixed-label/rm-space/cond-header)")
+    print("OK test_render_fixes (cell/value-box/caption/shading/essay-label/overline/relabel/bigstar/boxed/labelless/solo/mixed-label/rm-space/cond-header/form-underline)")
     return 0
 
 

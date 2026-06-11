@@ -826,6 +826,12 @@ def _split_underline_markup(text: str) -> list[ContentBlock]:
     return blocks if blocks else [ContentBlock(type=ContentType.TEXT, value=text)]
 
 
+# \begin{env}…\end{env}(cases 등 LaTeX 환경)는 **통째 한 수식 원자**로 다룬다 — 인라인
+# 분리기(_LATEX_CMD_RE)가 \begin/\end 을 몰라 cases 안 개행 ``\\ ``(백슬래시+공백)을 간격
+# 명령으로 오인, begin·cases 가 영단어처럼 쪼개져 박스 안 연립이 "₩ begin{ { }" literal 로
+# 깨졌다(월암중 #5·#19 + 매천중 #6 동일 — 2026-06-11).
+_LATEX_ENV_RE = re.compile(r"\\begin\s*\{(\w+)\}.*?\\end\s*\{\1\}", re.DOTALL)
+
 # ── LaTeX 명령어 감지 패턴 ──
 _LATEX_CMD_RE = re.compile(
     r'\\[!,;: ]'                         # 간격 명령(\! \, \; \: \ ) — P\!\left 의 \! 가
@@ -851,7 +857,12 @@ _SCORE_TEXT_RE = re.compile(r'\s*\[\s*(?:총\s*)?\d+(?:\.\d+)?\s*점\s*(?:,[^\]]
 
 # 보기/조건/상자 박스 머리 마커(원시 텍스트 시작). 자기완결 박스(마커+항목이 한 raw
 # 블록) 판정과 그 뒤 발문 연속 분리에 쓴다.
-_RAW_BOX_MARK_RE = re.compile(r"^\s*(?:<\s*(?:조건|보기|상자)\s*>|\[\s*(?:조건|보기)\s*\])")
+# ``<보기>에서``(조사 직결)·``<보기> 중/에서 ~``(참조어)는 발문의 **인라인 참조**라 박스
+# 머리가 아니다 — 발문 선두 "<보기> 중 일차함수…"가 박스로 오인돼 발문이 박스에 갇히고
+# 진짜 보기 항목이 평문으로 풀렸다(월암중 #11·상원중 #16, 2026-06-11). ``<상자>`` 는 항상 박스.
+_RAW_BOX_MARK_RE = re.compile(
+    r"^\s*(?:<\s*상자\s*>"
+    r"|(?:<\s*(?:조건|보기)\s*>|\[\s*(?:조건|보기)\s*\])(?![가-힣])(?!\s+(?:중|에서)(?=[\s,.?]|$)))")
 # 항목 라벨 단독(ㄱ./ㄴ./…, (가)/(나)/…, 1)/2)/…) — 박스 머리 뒤가 이것뿐이면 자기완결 아님.
 _BARE_ITEM_LABEL_RE = re.compile(
     r"^(?:[ㄱ-ㅎ]\s*\.?|[（(]\s*[가-힣]\s*[)）]|\d+\s*[.)])\s*$")
@@ -1012,6 +1023,22 @@ def _split_latex_commands(text: str) -> list[ContentBlock]:
     예: "ㄱ. \\sqrt{2}+\\sqrt{2}" → text("ㄱ. ") + eq("\\sqrt{2}+\\sqrt{2}")
     예: "\\sqrt{24} \\div \\sqrt{3} 의 값은" → eq(...) + text(" 의 값은")
     """
+    # \begin{cases}…\end{cases} 같은 LaTeX 환경은 가장 먼저 통째 수식 원자로 떼어낸다
+    # (아래 명령어 분리가 \begin 을 몰라 cases 를 산산조각 냄 — _LATEX_ENV_RE 주석 참고).
+    env = _LATEX_ENV_RE.search(text)
+    if env:
+        blocks: list[ContentBlock] = []
+        before, after = text[:env.start()], text[env.end():]
+        if before.strip():
+            blocks.extend(_split_latex_commands(before))
+        elif before:
+            blocks.append(ContentBlock(type=ContentType.TEXT, value=before))
+        blocks.append(ContentBlock(type=ContentType.EQUATION, value=env.group(0)))
+        if after.strip():
+            blocks.extend(_split_latex_commands(after))   # 둘째 cases 도 여기서 원자 처리
+        elif after:
+            blocks.append(ContentBlock(type=ContentType.TEXT, value=after))
+        return blocks
     first_match = _LATEX_CMD_RE.search(text)
     if not first_match:
         # LaTeX 명령은 없어도 ASCII 수식(f(20)=g(30) 등)이 섞여 있을 수 있다 — 박스
@@ -1046,6 +1073,11 @@ def _split_latex_commands(text: str) -> list[ContentBlock]:
             break
     if _seen_op:
         latex_start = _op
+        # 연산자 앞에 공백 없이 붙은 식별자(``y=-\frac…`` 의 y)도 수식으로 — ``=-`` 만
+        # 흡수하면 변수가 평문으로 떨어져 정자 렌더된다(월암중 #15 ㄷ, 2026-06-11).
+        while latex_start > 0 and ("a" <= text[latex_start - 1].lower() <= "z"
+                                   or text[latex_start - 1].isdigit()):
+            latex_start -= 1
     # 함수꼴 괄호 안의 \leq(예 "P(X \leq 15)")는 **괄호 시작부터** 한 수식이어야 한다. \leq
     # 앞에 **안 닫힌 "("**(함수호출 괄호)가 있으면 그 "(" 와 앞 식별자(P)까지 수식에 포함한다.
     # (안 하면 "P(X" 가 P·(·X 로 쪼개진다 — #20 박스, 2026-06-09.)
@@ -1085,6 +1117,13 @@ def _split_latex_commands(text: str) -> list[ContentBlock]:
             _depth += 1
         elif _ch == "}":
             _depth = _depth - 1 if _depth > 0 else 0
+        elif (_depth == 0 and _ch == " " and rest[_i:_i + 2] == "  "
+              and rest[:_i].strip() and rest[_i:].strip()):
+            # 깊이 0 의 2칸+ 공백 = 나란히 놓인 **별개 수식의 경계** — 박스 안 등식 2개가
+            # 한 수식으로 합쳐져 "3^{11}4^x" 로 붙던 것(월암중 #6, 2026-06-11). LaTeX 에서
+            # 연속 2칸 공백은 의도적 나열 구분일 때뿐이라 안전하다.
+            _ends.append(_i)
+            break
         elif _depth == 0 and "가" <= _ch <= "힣":
             _b = _i
             # 한글 바로 앞의 여는 괄호(+공백)는 한글 쪽(텍스트)으로 — "(우변)" 이 수식에
@@ -1106,9 +1145,14 @@ def _split_latex_commands(text: str) -> list[ContentBlock]:
 
     blocks: list[ContentBlock] = []
     if before.strip():
-        # before 에 평문 함수꼴 수식(f(-x)=f(x) 등)이 있으면 살린다(#12 (가): OCR 이 일부
-        # 조건을 LaTeX 없이 평문으로 줘 텍스트로 흘러가던 것 — 2026-06-08).
-        blocks.extend(_split_mixed_text_equation(before))
+        # 한글 없는 순수 ASCII 수식 조각(거듭제곱 ``4^x`` 등)은 통째 수식으로 — 더블스페이스
+        # 경계 분리 뒤 다음 수식의 머리가 평문으로 남던 것(월암중 #6 둘째 등식, 2026-06-11).
+        if not re.search(r"[가-힣]", before) and re.search(r"[\^_=]", before):
+            blocks.append(ContentBlock(type=ContentType.EQUATION, value=before.strip()))
+        else:
+            # before 에 평문 함수꼴 수식(f(-x)=f(x) 등)이 있으면 살린다(#12 (가): OCR 이 일부
+            # 조건을 LaTeX 없이 평문으로 줘 텍스트로 흘러가던 것 — 2026-06-08).
+            blocks.extend(_split_mixed_text_equation(before))
     if eq_text:
         blocks.append(ContentBlock(type=ContentType.EQUATION, value=eq_text))
     if after_text.strip():
