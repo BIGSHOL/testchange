@@ -738,8 +738,12 @@ class LaTeXToHWPConverter:
         )
 
         # 4. \sqrt[n]{x} 또는 \sqrt{x}
+        #   sqrt/root 키워드도 앞 글자에 붙으면 literal 이 된다(``a\sqrt{2}`` → ``asqrt {2}``
+        #   → 식별자 "asqrt" 오인, 중앙중 #4·#15). 숫자 앞(``2\sqrt{2}``)은 HWP 가 숫자→알파벳
+        #   경계를 쪼개 우연히 살았을 뿐 — accent(PLEFT/XLEQ 동종)와 같이 영숫자 앞 공백 보장.
         s = self._sqrt_n_pattern.sub(
-            lambda m: "root {"
+            lambda m: (" " if (m.start() > 0 and s[m.start() - 1].isalnum()) else "")
+            + "root {"
             + self._convert_expr(m.group(1))
             + "} of {"
             + self._convert_expr(m.group("body"))
@@ -747,7 +751,8 @@ class LaTeXToHWPConverter:
             s,
         )
         s = self._sqrt_pattern.sub(
-            lambda m: "sqrt {" + self._convert_expr(m.group("body")) + "}", s
+            lambda m: (" " if (m.start() > 0 and s[m.start() - 1].isalnum()) else "")
+            + "sqrt {" + self._convert_expr(m.group("body")) + "}", s
         )
 
         # 5. 대형 연산자

@@ -33,8 +33,8 @@ logger = logging.getLogger(__name__)
 
 from .hwp_com import CONVERSION_VISIBLE, HwpSession, _dispatch_hwp, _win32
 from .hwp_com_writer import (HwpComWriter, _BOX_BREAK_RE, _BULLET_RE,
-                             _caption_spans, _COND_HEADER_RE, _condition_start,
-                             _has_box_markup, _split_tail_post,
+                             _caption_spans, _choice_complexity, _COND_HEADER_RE,
+                             _condition_start, _has_box_markup, _split_tail_post,
                              _split_trailing_score, _tail_start)
 from .latex_to_hwpeq import latex_to_hwpeq
 from models.exam_document import ContentBlock, ContentType, ExamDocument, Question
@@ -796,7 +796,9 @@ def _fill_essay_at(ses, h, pos, q: Question, label_idx: int, next_pos=None) -> N
 
 
 def _choice_len(choice) -> int:
-    return sum(len(b.value or "") for b in choice.contents)
+    # LaTeX 원문 길이가 아니라 시각 글리프 근사(공유 `_choice_complexity`) — 근호·분수
+    # 명령어 부풀림으로 짧은 보기가 1열 강등되던 것 수정(중앙중 #1·#2·#3, 2026-06-11).
+    return _choice_complexity(choice)
 
 
 def _is_long_choices(q: Question) -> bool:
@@ -1006,9 +1008,17 @@ def _build_layout(src_hwpx, out_hwpx, slot_blanks: dict, colbreak_slots, n_mc: i
 
         sec = re.sub(pat, _r, sec, flags=re.S)
 
-    # 정답(답지) 블록 = '정답' 텍스트를 품은 그리기객체 컨테이너 — 통째 마스킹(가장 먼저).
+    # 머리말/꼬리말 재정의 블록부터 마스킹 — 정답 구역용 header/footer 가 정답 container 와
+    # **같은 본문 단락 안**에 통째로 들어 있는 폼(중3 빨강)이 있다. 안 가리면 꼬리말 내부
+    # <hp:p> 가 '바깥 단락' 탐색(아래 (4) rfind)에 잡혀 정답 pageBreak·짝수보정 빈 페이지가
+    # 꼬리말 subList 안에 박혀 무효가 된다(중앙중 중3 — 정답이 새 쪽으로 안 밀림, 2026-06-11).
+    _mask(r"<hp:header\b.*?</hp:header>")
+    _mask(r"<hp:footer\b.*?</hp:footer>")
+    # 정답(답지) 블록 = '정답' 텍스트를 품은 그리기객체 컨테이너 — 통째 마스킹.
+    # (container 한정 필수: 꼬리말 마스크에도 "(정답)" 텍스트가 있어 store 순회가 잡는다.)
     _mask(r"<hp:container\b.*?</hp:container>")
-    answer_ph = next((f"@@X{i}@@" for i, s in enumerate(store) if "정답" in s), None)
+    answer_ph = next((f"@@X{i}@@" for i, s in enumerate(store)
+                      if s.startswith("<hp:container") and "정답" in s), None)
 
     # 폼 잔존 단/쪽 나누기 리셋(마스킹된 정답 블록 내부는 보존, 내가 의도한 것만 재설정).
     sec = sec.replace('columnBreak="1"', 'columnBreak="0"').replace('pageBreak="1"', 'pageBreak="0"')

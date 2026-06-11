@@ -302,11 +302,47 @@ def run():
     finally:
         os.remove(tmp2)
 
+    # ── Q: sqrt/root 키워드 영숫자 앞 공백 — 중앙중 중3 #4·#15 (2026-06-11) ──
+    # ``a\sqrt{2}`` 가 ``asqrt {2}`` 로 붙으면 HWP 가 "asqrt" 를 식별자로 오인해 literal.
+    # 숫자 앞(2\sqrt{2})은 HWP 가 숫자→알파벳 경계를 쪼개 우연히 살았을 뿐 — 글자 앞이 함정.
+    from core.latex_to_hwpeq import latex_to_hwpeq as _l2h
+    q1 = _l2h(r"a\sqrt{2}+b\sqrt{6}")
+    chk("asqrt" not in q1 and "bsqrt" not in q1, f"Q sqrt 글자 앞 공백: {q1}")
+    q2 = _l2h(r"(a+b\sqrt{c})\mathrm{cm}^2")
+    chk("bsqrt" not in q2, f"Q sqrt 괄호식 안 공백: {q2}")
+    q3 = _l2h(r"a\sqrt[3]{8}")
+    chk("aroot" not in q3, f"Q root 글자 앞 공백: {q3}")
+
+    # ── R5: 선택지 2열 판정 = 시각 글리프 근사 — 중앙중 #1·#2·#3 (2026-06-11) ──
+    # LaTeX 원문 길이는 근호·분수 명령어가 부풀어 짧은 보기(√30×√6=□√5)를 1열로 강등.
+    # 명령어=1글리프 정규화로 화면 폭을 근사 — 긴 전개식(#5)은 여전히 1열(임계 유지).
+    from types import SimpleNamespace as _NS
+    from core.hwp_com_writer import _choice_complexity as _ccx
+    from core.hwp_form_writer import _is_long_choices as _ilc, LONG_CHOICE_LEN as _LCL
+
+    def _ch(n, latex):
+        return _NS(number=n, contents=[ContentBlock(type=CT.EQUATION, value=latex)])
+
+    radical = [_ch(i + 1, v) for i, v in enumerate([
+        r"\sqrt{27}=\square\sqrt{3}", r"\frac{\sqrt{15}}{\sqrt{3}}=\sqrt{\square}",
+        r"\sqrt{30}\times\sqrt{6}=\square\sqrt{5}",
+        r"\frac{\sqrt{3}}{\sqrt{2}}=\frac{\sqrt{\square}}{2}",
+        r"\sqrt{\frac{8}{7}}\times\sqrt{63}=6\sqrt{\square}"])]
+    chk(all(_ccx(c) < _LCL for c in radical[:4]),
+        f"R5 근호 보기 글리프 < {_LCL}: {[_ccx(c) for c in radical[:4]]}")
+    chk(not _ilc(_NS(choices=radical)), "R5 근호 보기 → 2열(중앙중 #1)")
+    expansion = [_ch(i + 1, v) for i, v in enumerate([
+        r"(2x-5y)^2 = 4x^2-20xy+25y^2", r"(-4x-3y)^2 = 16x^2+24xy+9y^2",
+        r"(-2x+1)(-2x-1) = 4x^2-2x+1", r"(2x-y)(3x+2y) = 6x^2+xy-2y^2"])]
+    chk(_ilc(_NS(choices=expansion)), "R5 긴 전개식 보기 → 1열 유지(중앙중 #5)")
+
     if fails:
         print("FAIL test_render_fixes:")
         print("\n".join(fails))
         return 1
-    print("OK test_render_fixes (cell/value-box/caption/shading/essay-label/overline/relabel/bigstar/boxed/labelless/solo/mixed-label/rm-space/cond-header/form-underline)")
+    print("OK test_render_fixes (cell/value-box/caption/shading/essay-label/overline/relabel/"
+          "bigstar/boxed/labelless/solo/mixed-label/rm-space/cond-header/form-underline/"
+          "sqrt-space/choice-glyph)")
     return 0
 
 

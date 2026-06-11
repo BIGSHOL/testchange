@@ -333,13 +333,24 @@ def _split_trailing_score(blocks: list[ContentBlock]):
     return blocks, None
 
 
+_TEX_CMD_RE = re.compile(r"\\[a-zA-Z]+")
+
+
 def _choice_complexity(choice: Choice) -> int:
-    """보기 하나의 '길이' 추정. 블록수식/표가 있으면 매우 큼(→1단)."""
+    """보기 하나의 '길이' 추정(시각 글리프 근사). 블록수식/표가 있으면 매우 큼(→1단).
+
+    LaTeX 원문 길이를 그대로 재면 근호·분수 명령어(``\\sqrt{}``·``\\frac{}{}``)가 부풀어
+    시각적으로 짧은 보기(``√30×√6=□√5`` = 11글리프, 원문 33자)가 1열로 강등된다
+    (중앙중 #1·#2·#3 — 완료본은 2열). 명령어=1글리프, 구조문자({}^_·공백)=0글리프로
+    정규화해 화면 폭을 근사한다. 긴 전개식(#5, 22글리프)은 여전히 1열(임계 18 유지).
+    """
     score = 0
     for b in choice.contents:
         if b.type in (ContentType.TABLE, ContentType.EQUATION_BLOCK, ContentType.IMAGE):
             return 999
-        score += len(b.value or "")
+        v = _TEX_CMD_RE.sub("@", b.value or "")
+        v = re.sub(r"[{}^_\\ ]", "", v)
+        score += len(v)
     return score
 
 
