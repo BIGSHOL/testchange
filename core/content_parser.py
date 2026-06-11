@@ -799,7 +799,12 @@ def _split_mixed_text_equation(text: str) -> list[ContentBlock]:
     # ⚠️ 음절(가-힣)만 보면 안 된다 — 보기 항목 라벨 ㄱㄴㄷㄹ 은 **호환 자모**(U+3131~318E)라
     # 음절 검사에 안 걸려 'ㄷ. y=4x^2+1 • ㄹ. y=-(x+1)^2-3' 세그먼트가 통째 평문
     # 잔존했다(장산중 #13 보기 박스, 2026-06-11). 자모 라벨 = 한글 혼합 텍스트.
-    if not re.search(r'[\uac00-\ud7a3\u3131-\u318e]', text):
+    # \u26a0\ufe0f \ubd88\ub9bf(\u2022)\uc73c\ub85c \ub098\ub25c \ubc15\uc2a4 \ub0b4\uc6a9\uc740 \ud55c\uae00\uc774 \uc5c6\uc5b4\ub3c4(\uc21c\uc218 ASCII \ud480\uc774\uacfc\uc815 \uc0c1\uc790) \ubd84\ub9ac\ud55c\ub2e4 \u2014
+    # '<\uc0c1\uc790> 0.3x-3=\u2026 \u2193 \u2022 3x-30=-2x-25 \u2193 \u2022 \u2026' \ub458\uc9f8 \uc904\ubd80\ud130\uac00 \ud1b5\uc9f8 \ud3c9\ubb38\uc73c\ub85c \ub0a8\uc544 \uc218\uc2dd
+    # \uac1d\uccb4\ud654 \uc548 \ub418\ub358 \uac83(\uccad\uad6c\uc911 #3 \uc77c\ucc28\ubc29\uc815\uc2dd \ud480\uc774\uacfc\uc815 \uc0c1\uc790, 2026-06-11). \ubd88\ub9bf/\ud654\uc0b4\ud45c\ub294 \ud14d\uc2a4\ud2b8
+    # \uad6c\ubd84\uc790\ub85c \ub0a8\uace0 \uac01 \uc218\uc2dd\uc740 \uac1d\uccb4\ud654 + _merge_operator_split_equations \uac00 '=-' \ubd84\ub9ac\ub97c \uc7ac\ubcd1\ud569.
+    if (not re.search(r'[\u2022\u00b7\u25aa\u25e6]', text)
+            and not re.search(r'[\uac00-\ud7a3\u3131-\u318e]', text)):
         return [ContentBlock(type=ContentType.TEXT, value=text)]
 
     # 수식 후보가 없으면 분리 불필요
@@ -1108,6 +1113,20 @@ def _tag_box_run(blocks: list[ContentBlock]) -> None:
             b.box_member = True
 
 
+def _is_eq_lead_char(text: str, pos: int) -> bool:
+    """``pos`` 바로 앞 글자가 수식 선두로 끌어올 영숫자/소수점인지(수식 직전 식별자 흡수용).
+
+    영문·숫자는 항상 포함. ``.`` 은 **숫자 사이의 소수점**(앞·뒤가 모두 숫자)일 때만 — 안 그러면
+    ``0.3x`` 의 ``0.`` 가 수식에서 떨어져 ``0 . 3x`` 로 간격이 벌어진다(청구중 #3 풀이상자
+    ``0.3x-3=-\\frac…``, 2026-06-11). 문장 끝 마침표는 앞뒤 숫자 조건에 안 걸려 안전.
+    """
+    c = text[pos - 1]
+    if "a" <= c.lower() <= "z" or c.isdigit():
+        return True
+    return (c == "." and pos >= 2 and text[pos - 2].isdigit()
+            and pos < len(text) and text[pos].isdigit())
+
+
 def _split_latex_commands(text: str) -> list[ContentBlock]:
     """텍스트에서 LaTeX 명령어를 감지하여 text + equation 블록으로 분리.
 
@@ -1143,8 +1162,7 @@ def _split_latex_commands(text: str) -> list[ContentBlock]:
     # 수식 직전에 **공백 없이 붙은 식별자**(P, f, X, 숫자 등)는 수식의 일부 → 수식 영역에
     # 포함시킨다. 안 그러면 "P\!\left(…" 의 P 가 텍스트로 떨어지고 \! 가 literal "P₩!" 로
     # 샌다(학남고 #12, 2026-06-08). 한글은 텍스트이므로 ASCII 영숫자만 끌어온다.
-    while latex_start > 0 and ("a" <= text[latex_start - 1].lower() <= "z"
-                               or text[latex_start - 1].isdigit()):
+    while latex_start > 0 and _is_eq_lead_char(text, latex_start):
         latex_start -= 1
     # 수식 **앞에 붙은 선행 연산자**(= - + < > ≤ ≥ …)도 수식에 포함 — "= - \frac{…}" 의
     # ``= -`` 가 텍스트로 떨어져 음수부호가 수식 밖에 따로(큰 간격) 렌더되던 것(#12 9째줄,
@@ -1166,8 +1184,7 @@ def _split_latex_commands(text: str) -> list[ContentBlock]:
         latex_start = _op
         # 연산자 앞에 공백 없이 붙은 식별자(``y=-\frac…`` 의 y)도 수식으로 — ``=-`` 만
         # 흡수하면 변수가 평문으로 떨어져 정자 렌더된다(월암중 #15 ㄷ, 2026-06-11).
-        while latex_start > 0 and ("a" <= text[latex_start - 1].lower() <= "z"
-                                   or text[latex_start - 1].isdigit()):
+        while latex_start > 0 and _is_eq_lead_char(text, latex_start):
             latex_start -= 1
     # 함수꼴 괄호 안의 \leq(예 "P(X \leq 15)")는 **괄호 시작부터** 한 수식이어야 한다. \leq
     # 앞에 **안 닫힌 "("**(함수호출 괄호)가 있으면 그 "(" 와 앞 식별자(P)까지 수식에 포함한다.

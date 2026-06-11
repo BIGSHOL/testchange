@@ -490,6 +490,24 @@ def run():
     chk(not _post_is_box(real_post), "T2 발문연속(이때 …)은 박스 아님")
     chk(not _post_is_box([]), "T2 빈 post = 박스 아님")
 
+    # ── Z: 풀이과정 상자 순수 ASCII 수식 객체화 — 청구중 중1 #3 (2026-06-11) ──
+    # 한글 없는 박스(불릿 •로 나뉜 일차방정식 풀이 단계)의 2번째 줄부터가 통째 평문으로
+    # 남던 회귀. _split_mixed_text_equation 가 불릿 있으면 한글 없어도 분리 → 각 줄 수식 객체.
+    # 풀 파이프라인(parse_ocr_response)에서 _merge_operator_split_equations 가 '=-' 재병합.
+    from core.content_parser import parse_ocr_response as _por
+    zq = {"number": 1, "score": 4, "contents": [
+        {"type": "text", "value": "<상자> 3x-30=-2x-25 ↓ • 3x+2x=-25+30 • 5x=5 • x=1"}]}
+    zc = _por({"header": "", "questions": [zq]}, 1).questions[0].contents
+    z_eqs = [b.value for b in zc if b.type.name == "EQUATION"]
+    chk(any("3x-30" in v and "2x-25" in v for v in z_eqs), f"Z 박스 ASCII 수식 객체화: {z_eqs}")
+    chk(any(v.strip() == "5x=5" for v in z_eqs) and any(v.strip() == "x=1" for v in z_eqs),
+        f"Z 모든 단계 수식: {z_eqs}")
+    chk(not any(b.type.name == "TEXT" and "5x=5" in (b.value or "") for b in zc),
+        "Z 평문 잔존 없음")
+    # 무회귀: 불릿·한글 없는 순수 평문은 그대로 텍스트(분리 안 함).
+    plain = _split_latex_commands("hello world test")
+    chk(len(plain) == 1 and plain[0].type.name == "TEXT", "Z 평문 무회귀")
+
     if fails:
         print("FAIL test_render_fixes:")
         print("\n".join(fails))
@@ -497,7 +515,7 @@ def run():
     print("OK test_render_fixes (cell/value-box/caption/shading/essay-label/overline/relabel/"
           "bigstar/boxed/labelless/solo/mixed-label/rm-space/cond-header/form-underline/"
           "sqrt-space/choice-glyph/tail-note/underline-solid/stemleaf-13/choice-geo/cond-circle/"
-          "repeat-dot/paren-score/phantom-box/box-bullet/post-box)")
+          "repeat-dot/paren-score/phantom-box/box-bullet/post-box/box-ascii-eq)")
     return 0
 
 
