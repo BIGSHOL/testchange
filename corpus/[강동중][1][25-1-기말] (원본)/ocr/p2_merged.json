@@ -1,0 +1,102 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 1,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "곱셈 기호 "},
+        {"type": "equation", "value": "\\times"},
+        {"type": "text", "value": "와 나눗셈 기호 "},
+        {"type": "equation", "value": "\\div"},
+        {"type": "text", "value": "를 생략한 식으로 옳지 __않은__ 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "a \\div b \\times 3 = \\frac{3a}{b}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "x \\div y \\div z = \\frac{x}{yz}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "(a-b) \\div 5 = a - \\frac{b}{5}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "(-1) \\times y \\times x = -xy"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "a \\times b \\times (-0.1) \\times a = -0.1a^2 b"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 2,
+      "score": 4,
+      "contents": [
+        {"type": "equation", "value": "x = \\frac{1}{5}"},
+        {"type": "text", "value": "일 때, 식의 값이 가장 작은 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "5x^2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-14x"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "(-x)^2"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "5(x-1)"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "(-x)^2 - x"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 3,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "다항식 "},
+        {"type": "equation", "value": "7x^2 - 5x - 6"},
+        {"type": "text", "value": "에서 "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "의 계수를 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": ", 다항식의 차수를 "},
+        {"type": "equation", "value": "b"},
+        {"type": "text", "value": ", 상수항을 "},
+        {"type": "equation", "value": "c"},
+        {"type": "text", "value": "라고 할 때, "},
+        {"type": "equation", "value": "a+b-c"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-7"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-4"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "3"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 4,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "다음 중 계산 결과가 옳은 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "14x \\div \\frac{1}{2} = 7x"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "(-8a) \\times \\left(-\\frac{5}{2}\\right) = 20a"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "(10y+5) \\div \\frac{5}{2} = 25y+2"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{3x-1}{4} + \\frac{x+1}{2} = x + \\frac{1}{4}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "2(3a-1) + \\frac{1}{4}(8+16a) = 8a+2"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 5,
+      "score": 5,
+      "contents": [
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "에 대한 일차방정식 "},
+        {"type": "equation", "value": "3x - \\frac{3}{2}(x+a) = -6"},
+        {"type": "text", "value": "의 해가 음의 정수가 되도록 하는 자연수 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "의 값의 합은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "10"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

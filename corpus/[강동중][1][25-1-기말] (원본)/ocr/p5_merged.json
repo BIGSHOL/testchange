@@ -1,0 +1,68 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 15,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "다음은 어느 중학교 1학년 학생 200명의 중간고사 수학 성적에 대한 상대도수의 분포를 도수분포다각형 모양의 그래프로 나타낸 것이다. 중간고사 수학 성적이 80점 이상 100점 미만인 학생의 수는?"},
+        {"type": "figure", "value": "상대도수 분포 다각형 — 가로축: 수학 성적(점), 40~100(계급 폭 10). 세로축: 상대도수, 0~0.3(0.1 간격 라벨, 0.05 보조눈금). 꼭짓점(계급 중앙 기준): 45점 0.08, 55점 0.15, 65점 0.30(최대), 75점 0.23, 85점 0.20, 95점 0.04, 양 끝(40·100)에서 0", "bbox": [0.05, 0.30, 0.80, 0.93]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "8명"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "15명"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "24명"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "36명"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "48명"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 16,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "다음은 어느 도서관에서 일별 기증받은 도서의 수를 조사하여 도수분포표로 나타낸 것이다. 기증받은 도서의 수가 4권 미만인 날이 전체의 20%일 때, B-A의 값은?"},
+        {"type": "text", "value": "일별 기증받은 도서의 수"},
+        {"type": "table", "value": "", "rows": [
+          ["기증받은 도서 수(권)", "날수(일)"],
+          ["0이상 ~ 2미만", "3"],
+          ["2 ~ 4", "A"],
+          ["4 ~ 6", "5"],
+          ["6 ~ 8", "B"],
+          ["8 ~ 10", "6"],
+          ["10 ~ 12", "1"],
+          ["합계", "30"]
+        ]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "12"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 17,
+      "score": 8,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 1] 다음 그림에서 아래 칸의 식이 바로 위 두 칸의 식을 더한 것일 때, A-B-C를 구하시오. (단, 모든 풀이 과정을 자세히 쓰시오.)"},
+        {"type": "figure", "value": "칸 다이어그램(3단, 둥근 사각형 칸을 선으로 연결) — 윗줄 3칸: 2x+3, A, -3x+2. 가운데줄 2칸: 7x+4, B. 아랫줄 1칸: C. 바로 위 두 칸의 식을 더한 것이 아래 칸: (2x+3)+A=7x+4, A+(-3x+2)=B, (7x+4)+B=C", "bbox": [0.05, 0.38, 0.95, 0.97]}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 18,
+      "score": 7,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 2] 어떤 빈 수조에 물을 가득 채우는 데 수도꼭지 A만 틀면 30분, 수도꼭지 B만 틀면 1시간이 걸린다. 두 수도꼭지에서 각각 1분 동안 나오는 물의 양은 일정하다고 할 때, 두 수도꼭지 A, B를 동시에 틀면 빈 수조에 물을 가득 채우는 데 몇 분이 걸리는지 구하시오. (단, 모든 풀이 과정을 자세히 쓰시오.)"}
+      ],
+      "choices": [],
+      "sub_questions": []
+    }
+  ]
+}

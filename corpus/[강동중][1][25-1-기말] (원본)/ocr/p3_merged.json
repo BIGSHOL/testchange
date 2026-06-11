@@ -1,0 +1,109 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 6,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "다음 중 옳지 __않은__ 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [
+          {"type": "equation", "value": "4a = 12b"},
+          {"type": "text", "value": "이면 "},
+          {"type": "equation", "value": "a = 3b"},
+          {"type": "text", "value": "이다."}
+        ]},
+        {"number": 2, "contents": [
+          {"type": "equation", "value": "a = b"},
+          {"type": "text", "value": "이면 "},
+          {"type": "equation", "value": "2+a = 2+b"},
+          {"type": "text", "value": "이다."}
+        ]},
+        {"number": 3, "contents": [
+          {"type": "equation", "value": "\\frac{a}{3} = \\frac{b}{5}"},
+          {"type": "text", "value": "이면 "},
+          {"type": "equation", "value": "-5a = -3b"},
+          {"type": "text", "value": "이다."}
+        ]},
+        {"number": 4, "contents": [
+          {"type": "equation", "value": "a = -b"},
+          {"type": "text", "value": "이면 "},
+          {"type": "equation", "value": "-2b = b-a"},
+          {"type": "text", "value": "이다."}
+        ]},
+        {"number": 5, "contents": [
+          {"type": "equation", "value": "a = 7b"},
+          {"type": "text", "value": "이면 "},
+          {"type": "equation", "value": "1-a = 1-7b"},
+          {"type": "text", "value": "이다."}
+        ]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 7,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "다음 일차방정식 중 해가 가장 작은 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-2x = 4x+12"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "4(x+1) = 10+x"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{x}{6} - 2 = \\frac{x-9}{4} - 3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "x+5(x+1) = -4-3x"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "0.05x+0.42 = -0.01x-0.3"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 8,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "수지가 집에서 약국까지 가는데 시속 6km로 뛰어가면 시속 3km로 걸어가는 것보다 15분 더 빨리 도착한다고 한다. 수지네 집에서 약국까지의 거리는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{3}{2}\\,\\mathrm{km}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{4}{3}\\,\\mathrm{km}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{5}{4}\\,\\mathrm{km}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{3}{4}\\,\\mathrm{km}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{2}{3}\\,\\mathrm{km}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 9,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "다음은 정국이네 반 학생들의 하루 동안의 독서 시간을 조사하여 나타낸 히스토그램이다. 그래프를 해석한 내용으로 옳은 것은?"},
+        {"type": "figure", "value": "히스토그램 — 가로축: 독서 시간(분), 0~60(계급 폭 10). 세로축: (명), 1~8 눈금. 막대 도수: 10~20분 6명, 20~30분 3명, 30~40분 8명, 40~50분 8명, 50~60분 1명", "bbox": [0.08, 0.22, 0.92, 0.62]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "계급의 크기는 10분이다."}]},
+        {"number": 2, "contents": [{"type": "text", "value": "정국이네 반의 전체 학생 수는 20명이다."}]},
+        {"number": 3, "contents": [{"type": "text", "value": "30분 이상 40분 미만인 계급의 도수는 16이다."}]},
+        {"number": 4, "contents": [{"type": "text", "value": "도수가 가장 큰 계급은 50분 이상 60분 미만이다."}]},
+        {"number": 5, "contents": [{"type": "text", "value": "히스토그램은 가로축에 계급의 중간값을 써서 나타낸다."}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 10,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "다음은 어느 중학교 홈페이지 게시글 8개의 공감 수를 조사한 자료이다. 이 자료의 평균과 최빈값이 서로 같을 때, "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "의 값은?"},
+        {"type": "text", "value": "<상자> 18 13 8 9 17 13 x 13"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "13"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "14"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "15"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "16"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

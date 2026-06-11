@@ -354,13 +354,67 @@ def run():
     s4 = [_tb("발문이다."), note]
     chk(_ts(s4) == 1, f"S 끝 노트(2순위): {_ts(s4)} (기대 1)")
 
+    # ── T: 밑줄 실선검정·줄기잎 1:3 저장후 XML 후처리 — 강동중 중1 #1·#6·#20 (2026-06-11) ──
+    # underline_run 토글이 폼 기본 밑줄(회색 점선 DOT/#808080)을 상속 → 강조어가 흐린 점선.
+    # TableCreate 가 col_widths=[1,3] 을 균등 재배분 → 줄기:잎 1:1. 둘 다 저장후 XML 로 강제.
+    from core.hwp_com_writer import _solidify_underline, _fix_stemleaf_colwidth
+    # T-1: 밑줄 charPr 회색점선 → 실선검정(type 보존)
+    hdr_xml = ('<hh:head><hh:charProperties>'
+               '<hh:charPr id="28"><hh:underline type="BOTTOM" shape="DOT" color="#808080"/>'
+               '</hh:charPr></hh:charProperties></hh:head>')
+    fd3, tmp3 = tempfile.mkstemp(suffix=".hwpx"); os.close(fd3)
+    try:
+        with zipfile.ZipFile(tmp3, "w") as z:
+            z.writestr("Contents/header.xml", hdr_xml)
+        n = _solidify_underline(tmp3)
+        with zipfile.ZipFile(tmp3) as z:
+            g = z.read("Contents/header.xml").decode("utf-8")
+        ul = _re.search(r"<hh:underline\b[^>]*/>", g).group(0)
+        chk(n == 1 and 'shape="SOLID"' in ul and 'color="#000000"' in ul
+            and 'type="BOTTOM"' in ul, f"T-1 밑줄 실선검정: {ul!r} (n={n})")
+    finally:
+        os.remove(tmp3)
+
+    # T-2: 줄기-잎 표만 1:3(총폭 보존), 비-줄기잎 2열표(z-표)는 미변경
+    def _tc(col, w, txt):
+        return (f'<hp:tc><hp:cellAddr colAddr="{col}" rowAddr="0"/>'
+                f'<hp:cellSz width="{w}" height="282"/><hp:subList><hp:p><hp:run>'
+                f'<hp:t>{txt}</hp:t></hp:run></hp:p></hp:subList></hp:tc>')
+    stbl = ('<hp:tbl colCnt="2" rowCnt="6">'
+            '<hp:sz width="29056" widthRelTo="ABSOLUTE" height="8417" heightRelTo="ABSOLUTE" protect="0"/>'
+            + _tc("0", 14528, "줄기") + _tc("1", 14528, "잎")
+            + "".join(_tc("0", 14528, str(r)) + _tc("1", 14528, "6 8") for r in range(1, 6))
+            + '</hp:tbl>')
+    ztbl = ('<hp:tbl colCnt="2" rowCnt="2">'
+            '<hp:sz width="29056" widthRelTo="ABSOLUTE" height="2000" heightRelTo="ABSOLUTE" protect="0"/>'
+            + _tc("0", 14528, "z") + _tc("1", 14528, "P(0≤Z≤z)")
+            + _tc("0", 14528, "0.0") + _tc("1", 14528, "0.5000")
+            + '</hp:tbl>')
+    sec_t = "<hp:sec>" + stbl + ztbl + "</hp:sec>"
+    fd4, tmp4 = tempfile.mkstemp(suffix=".hwpx"); os.close(fd4)
+    try:
+        with zipfile.ZipFile(tmp4, "w") as z:
+            z.writestr("Contents/section0.xml", sec_t)
+        nt = _fix_stemleaf_colwidth(tmp4)
+        with zipfile.ZipFile(tmp4) as z:
+            g = z.read("Contents/section0.xml").decode("utf-8")
+        st = _re.search(r"<hp:tbl\b.*?줄기.*?</hp:tbl>", g, _re.S).group(0)
+        sw = [w for _, w in _re.findall(r'colAddr="(\d)"[^/]*/><hp:cellSz width="(\d+)"', st)]
+        zt = _re.search(r"<hp:tbl\b(?:(?!</hp:tbl>).)*?P\(0.*?</hp:tbl>", g, _re.S).group(0)
+        zw = [w for _, w in _re.findall(r'colAddr="(\d)"[^/]*/><hp:cellSz width="(\d+)"', zt)]
+        chk(nt == 1 and set(sw[0::2]) == {"7264"} and set(sw[1::2]) == {"21792"},
+            f"T-2 줄기잎 1:3: {sw[:2]} (nt={nt})")
+        chk(set(zw) == {"14528"}, f"T-2 z-표 미변경: {zw[:2]}")
+    finally:
+        os.remove(tmp4)
+
     if fails:
         print("FAIL test_render_fixes:")
         print("\n".join(fails))
         return 1
     print("OK test_render_fixes (cell/value-box/caption/shading/essay-label/overline/relabel/"
           "bigstar/boxed/labelless/solo/mixed-label/rm-space/cond-header/form-underline/"
-          "sqrt-space/choice-glyph/tail-note)")
+          "sqrt-space/choice-glyph/tail-note/underline-solid/stemleaf-13)")
     return 0
 
 

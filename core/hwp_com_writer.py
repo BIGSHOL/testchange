@@ -1019,6 +1019,129 @@ def _fix_invisible_charpr(hwpx_path: str | Path) -> int:
     return count
 
 
+def _solidify_underline(hwpx_path: str | Path) -> int:
+    """저장된 .hwpx 의 밑줄(underline) 글자모양을 **실선 검정**으로 강제한다.
+
+    본문 밑줄은 ``HwpCom.underline_run`` 의 ``CharShapeUnderline`` 토글로만 들어가는데,
+    토글은 **폼 템플릿의 기본 밑줄 스타일을 상속**한다. 대수회 폼들의 기본 밑줄은
+    회색 점선(``shape="DOT" color="#808080"``)이라, 강조어("않은" 등)가 원본의 실선
+    검정이 아니라 흐린 점선으로 렌더된다(강동중 중1 #1·#6 실측 2026-06-11). COM 으로
+    토글 시 shape/color 를 안정적으로 못 덮으므로(action 은 단순 토글), 저장 후
+    header.xml 의 ``<hh:underline …/>`` 를 직접 패치한다.
+
+    우리 출력의 밑줄 char-run 은 **전부 강조**(다른 용도 밑줄을 만들지 않음)이고,
+    레거시 ``hwpx_writer`` 도 항상 ``shape="SOLID" color="#000000"`` 으로 썼다. 그래서
+    모든 ``<hh:underline>`` 의 shape→SOLID·color→#000000 로 통일한다(type 보존).
+    머리말의 가로 줄 등은 charPr 밑줄이 아니라(테두리/그리기객체) 영향 없음.
+
+    Returns:
+        실선 검정으로 바꾼 underline 태그 수(0 이면 손댈 것 없음).
+    """
+    import zipfile
+
+    hwpx_path = Path(hwpx_path)
+    with zipfile.ZipFile(hwpx_path) as z:
+        infos = z.infolist()
+        hdr_info = next((i for i in infos if i.filename.endswith("header.xml")), None)
+        if hdr_info is None:
+            return 0
+        contents = {i.filename: z.read(i.filename) for i in infos}
+
+    hdr = contents[hdr_info.filename].decode("utf-8")
+    count = 0
+
+    def _solid(m: "re.Match") -> str:
+        nonlocal count
+        tag = m.group(0)
+        new = tag
+        if 'shape="' in new:
+            new = re.sub(r'shape="[^"]*"', 'shape="SOLID"', new)
+        if 'color="' in new:
+            new = re.sub(r'color="[^"]*"', 'color="#000000"', new)
+        if new != tag:
+            count += 1
+        return new
+
+    hdr = re.sub(r'<hh:underline\b[^>]*/>', _solid, hdr)
+    if count == 0:
+        return 0
+    contents[hdr_info.filename] = hdr.encode("utf-8")
+
+    _rewrite_zip(hwpx_path, infos, contents)
+    return count
+
+
+def _fix_stemleaf_colwidth(hwpx_path: str | Path, ratio: tuple[int, int] = (1, 3)) -> int:
+    """저장된 .hwpx 의 **줄기-잎 표** 열너비를 줄기:잎 = ``ratio`` 로 강제한다.
+
+    ``table_begin(col_widths=[1, 3])`` 으로 1:3 을 지정해도 HWP 의 ``TableCreate`` 가
+    열너비를 **균등 재배분**해 1:1 로 만든다(강동중 중1 #20 실측 2026-06-11: 셀 14528·14528).
+    라이브 COM 표 조작은 불안정([[hwp-com-layout-limits]])하므로, 저장 후 section XML 의
+    셀너비를 직접 패치한다. **표 총너비(``<hp:sz>``)는 보존**하고 colAddr 0·1 셀만
+    재분배한다(콘텐츠/레이아웃 영향 최소). 줄기-잎 표(첫 셀 "줄기", 2열)만 대상 —
+    표준정규분포표·확률분포표 등 다른 2열 표는 건드리지 않는다.
+
+    Returns:
+        열너비를 고친 표 개수(0 이면 손댈 것 없음).
+    """
+    import zipfile
+
+    hwpx_path = Path(hwpx_path)
+    with zipfile.ZipFile(hwpx_path) as z:
+        infos = z.infolist()
+        contents = {i.filename: z.read(i.filename) for i in infos}
+
+    fixed = 0
+
+    def _patch_section(xml: str) -> str:
+        nonlocal fixed
+
+        def _one_tbl(tm: "re.Match") -> str:
+            nonlocal fixed
+            tbl = tm.group(0)
+            cc = re.search(r'colCnt="(\d+)"', tbl)
+            if not cc or cc.group(1) != "2" or "줄기" not in tbl:
+                return tbl
+            szm = re.search(r'<hp:sz\s+width="(\d+)"\s+widthRelTo="ABSOLUTE"', tbl)
+            if not szm:
+                return tbl
+            total = int(szm.group(1))
+            r0, r1 = ratio
+            w0 = max(int(total * r0 / (r0 + r1)), 1)
+            w1 = total - w0
+            widths = {"0": w0, "1": w1}
+
+            def _one_tc(cm: "re.Match") -> str:
+                tc = cm.group(0)
+                am = re.search(r'<hp:cellAddr\s+colAddr="(\d+)"', tc)
+                if not am or am.group(1) not in widths:
+                    return tc
+                w = widths[am.group(1)]
+                return re.sub(
+                    r'(<hp:cellSz\s+width=")\d+(")',
+                    lambda s: s.group(1) + str(w) + s.group(2), tc, count=1)
+
+            tbl = re.sub(r'<hp:tc\b.*?</hp:tc>', _one_tc, tbl, flags=re.S)
+            fixed += 1
+            return tbl
+
+        return re.sub(r'<hp:tbl\b.*?</hp:tbl>', _one_tbl, xml, flags=re.S)
+
+    changed = False
+    for fn in list(contents):
+        if re.search(r'section\d+\.xml$', fn):
+            xml = contents[fn].decode("utf-8")
+            new = _patch_section(xml)
+            if new != xml:
+                contents[fn] = new.encode("utf-8")
+                changed = True
+    if not changed:
+        return 0
+
+    _rewrite_zip(hwpx_path, infos, contents)
+    return fixed
+
+
 # 보기 2열 배치의 두 번째 열 시작 위치(HWPUNIT). 7cm ≈ 19842 (1cm=2834.6).
 # 본문 탭(`\t`)은 보기 열 구분에만 쓰이므로, 모든 tabPr에 이 고정 좌측 탭을 주입하면
 # 보기 ②④가 첫 열 내용 폭(수식 객체 포함)과 무관하게 항상 같은 x에서 정렬된다.
@@ -1098,6 +1221,11 @@ def write_exam_to_hwp(
         _fix_invisible_charpr(output_path)
     except Exception as e:  # noqa: BLE001
         logger.warning("HWPX 후처리 실패(_fix_invisible_charpr): %s", e)
+    # 강조 밑줄을 실선 검정으로 강제(폼 기본 밑줄=회색 점선 상속 보정).
+    try:
+        _solidify_underline(output_path)
+    except Exception as e:  # noqa: BLE001
+        logger.warning("HWPX 후처리 실패(_solidify_underline): %s", e)
     # 보기 2열 정렬: header.xml tabPr 에 고정 좌측 탭 주입(COM 미커밋 회피책).
     try:
         _inject_choice_tabstop(output_path)
@@ -1119,6 +1247,11 @@ def write_exam_to_hwp(
         _inject_table_shading(output_path)
     except Exception as e:  # noqa: BLE001
         logger.warning("HWPX 후처리 실패(_inject_table_shading): %s", e)
+    # 줄기-잎 표 열너비 줄기:잎=1:3 강제(TableCreate 가 균등 재배분하는 것 보정).
+    try:
+        _fix_stemleaf_colwidth(output_path)
+    except Exception as e:  # noqa: BLE001
+        logger.warning("HWPX 후처리 실패(_fix_stemleaf_colwidth): %s", e)
     return output_path
 
 

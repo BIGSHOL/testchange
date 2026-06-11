@@ -2053,6 +2053,21 @@ def write_exam_to_form(
         _inject_table_shading(output_path)
     except Exception as e:  # noqa: BLE001
         logger.warning("폼 후처리 실패(_inject_table_shading): %s", e)
+    # 1.85단계: 강조 밑줄 실선 검정 강제(폼 기본 밑줄=회색 점선 상속 보정, 기본 경로와
+    # 동일). _com_relaunder **전**에 해 재저장 때 HWP 가 실선 검정으로 굳히게 한다.
+    try:
+        from core.hwp_com_writer import _solidify_underline
+        _solidify_underline(output_path)
+    except Exception as e:  # noqa: BLE001
+        logger.warning("폼 후처리 실패(_solidify_underline): %s", e)
+    # 1.86단계: 줄기-잎 표 열너비 줄기:잎=1:3 강제(TableCreate 균등 재배분 보정, 기본
+    # 경로와 동일). _com_relaunder **전**. relaunder(HWP 재저장)가 차등폭을 보존하는지는
+    # 렌더로 검증해야 한다(HWP 가 load 시 명시 셀너비를 유지하면 통과).
+    try:
+        from core.hwp_com_writer import _fix_stemleaf_colwidth
+        _fix_stemleaf_colwidth(output_path)
+    except Exception as e:  # noqa: BLE001
+        logger.warning("폼 후처리 실패(_fix_stemleaf_colwidth): %s", e)
     # 1.9단계: 서술형 끝 메타란 토큰 → [소단원][난이도] 주입(살아있는 MC 메타란 복제, 폼
     # 디자인 동일). _com_relaunder **전**에 해 HWP 가 재저장 때 linesegs 재계산하게 한다.
     try:

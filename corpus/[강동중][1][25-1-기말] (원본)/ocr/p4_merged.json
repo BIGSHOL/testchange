@@ -1,0 +1,85 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 11,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "두 학급 A, B의 전체 학생 수가 각각 40명, 25명이고, 중간고사 국어 성적이 80점 이상인 학생의 상대도수가 각각 "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "y"},
+        {"type": "text", "value": "라고 할 때, 두 학급 전체 학생 65명에 대하여 중간고사 국어 성적이 80점 이상인 학생의 상대도수를 "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "y"},
+        {"type": "text", "value": "를 사용하여 나타낸 것으로 옳은 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{5x+8y}{13}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{8x+5y}{13}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{5x+8y}{40}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{5x+8y}{65}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{8x+5y}{65}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 12,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "다음은 줄넘기 방과후수업에 참여하는 남학생과 여학생의 2분 동안의 줄넘기 횟수를 조사하여 나타낸 도수분포다각형이다. 그래프를 해석한 내용으로 옳은 것은?"},
+        {"type": "figure", "value": "도수분포다각형 2개(여학생·남학생) — 가로축: 줄넘기 횟수(회), 20~140(계급 폭 20). 세로축: (명), 0~9. 여학생 다각형이 왼쪽(봉우리 60~80회 부근 9명), 남학생 다각형이 오른쪽(봉우리 80~100회 부근 9명). 원본에 연필 풀이가 겹쳐 일부 꼭짓점 수치 불명 — 원본 크롭 참조", "bbox": [0.06, 0.10, 0.94, 0.55]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "남학생의 수가 여학생의 수보다 많다."}]},
+        {"number": 2, "contents": [{"type": "text", "value": "줄넘기 횟수가 가장 적은 학생은 남학생이다."}]},
+        {"number": 3, "contents": [{"type": "text", "value": "여학생 중 줄넘기 횟수가 5번째로 많은 학생이 속하는 계급의 도수는 8명이다."}]},
+        {"number": 4, "contents": [{"type": "text", "value": "줄넘기 횟수가 50회인 학생이 속하는 계급의 학생은 여학생이 남학생보다 4명 더 많다."}]},
+        {"number": 5, "contents": [{"type": "text", "value": "줄넘기 횟수가 120회 이상 140회 미만인 학생은 줄넘기 방과후수업에 참여하는 전체 학생의 7.25%이다."}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 13,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "다음은 어느 마트에서 판매하는 통조림의 유통기한을 조사하여 나타낸 표이다. A ~ E의 값으로 옳은 것은?"},
+        {"type": "text", "value": "어느 마트에서 판매하는 통조림의 유통기한"},
+        {"type": "table", "value": "", "rows": [
+          ["유통기한(개월)", "통조림 개수(개)", "상대도수"],
+          ["6이상 ~ 12미만", "6", ""],
+          ["12 ~ 18", "15", "A"],
+          ["18 ~ 24", "B", "0.16"],
+          ["24 ~ 30", "", "C"],
+          ["30 ~ 36", "30", "0.2"],
+          ["36 ~ 42", "", "0.26"],
+          ["합계", "D", "E"]
+        ]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "A = 0.3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "B = 42"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "C = 0.42"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "D = 150"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "E = 0.62"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 14,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "도수분포표에 대한 설명으로 옳은 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "도수의 총합은 모든 변량의 합과 같다."}]},
+        {"number": 2, "contents": [{"type": "text", "value": "변량을 나눈 구간의 너비를 상대도수라고 한다."}]},
+        {"number": 3, "contents": [{"type": "text", "value": "각 계급에 속하는 변량의 개수를 그 계급의 도수라고 한다."}]},
+        {"number": 4, "contents": [{"type": "text", "value": "일반적으로 계급의 크기는 자료의 양에 따라 모두 다르게 한다."}]},
+        {"number": 5, "contents": [{"type": "text", "value": "계급의 크기가 너무 크면 계급의 개수가 많아지므로 자료의 전체적인 분포 상태를 알기 쉽다."}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

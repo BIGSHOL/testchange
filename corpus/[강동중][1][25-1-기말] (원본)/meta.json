@@ -1,0 +1,28 @@
+{
+  "status": "reviewed",
+  "form": "[대수회][25년 폼지 최종(02.09)] (중1용) (남색).hwp",
+  "source_pdf": "N:\\개인\\기출\\2025 기출모음\\2025년 1학기 기말고사 모음\\원본\\중1\\[강동중][1][25-1-기말] (원본)(슈).pdf",
+  "reference_pdf": "N:\\개인\\기출\\2025 기출모음\\2025년 1학기 기말고사 모음\\pdf\\중1\\[강동중][1][25-1-기말][신사고] (완료).PDF",
+  "ocr_engine": "claude-code-session (claude-fable-5)",
+  "crop_engine": "claude-code-session (claude-fable-5)",
+  "deterministic": false,
+  "created": "2026-06-11",
+  "reviewed": "2026-06-11",
+  "review": {
+    "render_session": "claude-code-session (강동중 렌더)",
+    "a_type_json_defects": 0,
+    "a_type_note": "JSON 작성 규약 위반 0건 — 20문항 내용 1:1 대조 전부 일치. 밑줄 강조(__않은__)·줄기잎 표·통조림 표·<상자>×3·#20 sub(2) 배점 모두 충실. OCR 세션 작성 방식 유지 권장.",
+    "b_type_render_defects_fixed": [
+      "B-1 (#1·#6) 강조 밑줄이 회색 점선(DOT/#808080)으로 렌더 — 폼 기본 밑줄 스타일 상속(underline_run 토글). 저장후 header.xml charPr underline → SOLID/#000000 강제(_solidify_underline). 폼 경로 모든 밑줄 강조에 영향 → 양 경로 적용.",
+      "B-2 (#20) 줄기-잎 표 열너비 1:1 — table_begin(col_widths=[1,3])을 HWP TableCreate 가 균등 재배분. 저장후 section XML 셀너비 줄기:잎=1:3 강제(_fix_stemleaf_colwidth, 총폭 보존). _com_relaunder 재저장 생존 검증."
+    ],
+    "false_positives_killed": [
+      "#13 표 헤더/합계 행 음영 — 도수분포표는 음영 대상 아님(z-표/확률분포표만, 사용자 결정 2026-06-10).",
+      "#16 이상/미만 위첨자 스타일 — 글꼴 모양 차이(내용 동일), 결함 아님.",
+      "#19 [총 8점] 인라인 — 인라인-우선 합의(_write_total_score_inline_or_right, 안 맞으면 우측정렬 폴백)."
+    ],
+    "struct_ok": "정답 페이지 보존(합의 #9 회귀 없음, 1~20 답란+[서술형 1~4]), #20 sub(2) [4점] 우측정렬, 낱자모 혼입 0, 20문항 전부 존재. 전 5페이지(문제 4+정답 1) 재렌더 1:1 대조 — 수정이 인접 문항 미파손.",
+    "verify": "결정적 단위테스트(test_render_fixes T) + 폼 경로 end-to-end 재렌더(밑줄 SOLID·줄기잎 7264:21792 relaunder 생존) + verify_output_format 30종 PASS."
+  },
+  "note": "중1 폼 3번째 corpus, 세션 분리(OCR 세션 생산) 1호. 16객관식+서술형4(=20문항, 총점 100). 표지 p1 제외, 문제 p2~p6(크롭 키 = PDF 페이지 번호). 선별 1위 사본(쥬쥬)은 전해상도에서 빨간펜 채점원이 본문을 덮어 탈락 → 차순위 (슈) 사본으로 교체(저해상도 선별 한계 실증). 이 시험지는 과거 정답증발 디버깅(합의 #9 트리거: 마지막 서술형 #20 sub(2) [4점] 표 tail)에 쓰인 그 시험지 — API 캐시(배포용/ocr)와 교차검증함: q13 통조림 표 첫 행 상대도수 '0.04'는 연필 풀이(인쇄 빈칸, 캐시가 맞음)로 교정. 그래프 판독은 산술 검산으로 확정(q9 히스토그램 합 26, q15 상대도수 합 1.00). q12 도수분포다각형은 연필 풀이 겹침으로 일부 꼭짓점 불명(figure 설명에 명기). 검수 포인트: q13 표 캡션(합의 #8 원형), q20 줄기잎 캡션 '(1|6은 16세)'(_caption_spans run 결합 사례), 서술형3 소문항 자료 <상자>×3, #20 sub(2) 배점 우측정렬(합의 #9 회귀 확인)."
+}
