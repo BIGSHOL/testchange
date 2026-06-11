@@ -443,13 +443,61 @@ def run():
     # 각 불릿 앞엔 break_para(라벨 직후 첫 불릿 포함 — <조건> 뒤 BR 후 불릿)
     chk(all(("BR",) in log[max(0, i-1):i] for i in circles), f"U2 각 불릿 앞 줄바꿈: {log}")
 
+    # ── V: 순환소수 dot 표기 — 경명여중 중2 #1 (2026-06-11) ──
+    # \dot{} 순환마디는 HWP ``dot {d}`` over-dot 로(양끝 숫자 위 점). 과거 bar(overline)
+    # 통일은 잘못된 무공백 문법 오진 — .testkit/dot_test.py 로 dot 렌더 실측 확정.
+    v1 = latex_to_hwpeq(r"0.1\dot{5}\dot{7}")
+    chk("dot {5}" in v1 and "dot {7}" in v1 and "bar" not in v1, f"V 순환소수 dot: {v1!r}")
+    v2 = latex_to_hwpeq(r"0.\dot{3}7\dot{5}")   # 중간 일반숫자 7 보존
+    chk(v2 == "0. dot {3}7 dot {5}", f"V 순환마디 중간숫자 보존: {v2!r}")
+
+    # ── W: 괄호형 배점 (N점) 제거 — 경명여중 중2 #20·#21 (2026-06-11) ──
+    # score 필드가 있는데 본문 ``(7점)`` 이 안 지워져 우측정렬 ``[7점]`` 과 이중 출력되던 회귀.
+    from core.content_parser import _SCORE_TEXT_RE
+    chk(_SCORE_TEXT_RE.sub("", "서술하시오. (7점)").strip() == "서술하시오.", "W (7점) 소괄호 제거")
+    chk(_SCORE_TEXT_RE.sub("", "구하시오. [10점]").strip() == "구하시오.", "W [10점] 대괄호 무회귀")
+
+    # ── X: 유령 박스 조각 제거 — 경명여중 중2 #20 (2026-06-11) ──
+    # 발문 한글 부분문자열을 담은 <상자> 환각 블록을 raw 단계에서 드롭.
+    from core.content_parser import _drop_duplicate_box_fragments
+    raw = [{"type": "text", "value": "<상자> 자연수의 꼴로 나타낸 후 몇 자리 자연"},
+           {"type": "text", "value": "n은 자연수의 꼴로 나타낸 후 몇 자리 자연수인지 구하시오."}]
+    kept = _drop_duplicate_box_fragments(raw)
+    chk(len(kept) == 1 and "n은" in kept[0]["value"], f"X 유령 박스 드롭: {[b['value'][:12] for b in kept]}")
+    # 무회귀: 발문에 없는 진짜 박스는 보존.
+    raw2 = [{"type": "text", "value": "다음 보기에서 고르시오."},
+            {"type": "text", "value": "<상자> 독립적인 지문 내용 가나다라마바사."}]
+    chk(len(_drop_duplicate_box_fragments(raw2)) == 2, "X 진짜 박스 보존")
+
+    # ── Y: 박스 안 •B 줄바꿈 — 경명여중 중2 #11 (2026-06-11) ──
+    # ASCII 수식 조각 앞 선행 불릿이 수식에 흡수되지 않고 별도 TEXT 로 분리돼야 박스 줄바꿈.
+    from core.content_parser import _split_latex_commands
+    yb = _split_latex_commands(r"A = 6x^4 • B = (-x^2)^3")
+    has_bullet_text = any(b.type.name == "TEXT" and "•" in b.value for b in yb)
+    chk(has_bullet_text, f"Y 불릿 별도 TEXT: {[(b.type.name, b.value) for b in yb]}")
+
+    # ── T2: post 가 또 다른 박스(<조건>)면 박스로 — 새론중 #16 (2026-06-11) ──
+    # <보기> 박스 뒤 <조건> 박스가 박스 그룹화에서 발문 연속(post)으로 오분류돼 평문 렌더되던
+    # 회귀. _post_is_box 로 박스 머리를 감지해 ① 배점 안 미룸(발문 끝) ② post 를 박스로 렌더.
+    from core.hwp_com_writer import _post_is_box
+    cond_post = [_tb("<조건> ○ 단답형으로 답만 적을 것.")]
+    bogi_post = [_tb("<보기> ㄱ. "), _eq("a")]
+    sangja_post = [_tb("<상자> 모든 자연수 "), _eq("n")]
+    real_post = [_tb("이때 "), _eq("P(Y)"), _tb("의 값을 구하시오.")]  # 장산중 #5 류 진짜 발문연속
+    chk(_post_is_box(cond_post), "T2 <조건> post = 박스")
+    chk(_post_is_box(bogi_post), "T2 <보기> post = 박스")
+    chk(_post_is_box(sangja_post), "T2 <상자> post = 박스")
+    chk(not _post_is_box(real_post), "T2 발문연속(이때 …)은 박스 아님")
+    chk(not _post_is_box([]), "T2 빈 post = 박스 아님")
+
     if fails:
         print("FAIL test_render_fixes:")
         print("\n".join(fails))
         return 1
     print("OK test_render_fixes (cell/value-box/caption/shading/essay-label/overline/relabel/"
           "bigstar/boxed/labelless/solo/mixed-label/rm-space/cond-header/form-underline/"
-          "sqrt-space/choice-glyph/tail-note/underline-solid/stemleaf-13/choice-geo/cond-circle)")
+          "sqrt-space/choice-glyph/tail-note/underline-solid/stemleaf-13/choice-geo/cond-circle/"
+          "repeat-dot/paren-score/phantom-box/box-bullet/post-box)")
     return 0
 
 

@@ -303,6 +303,20 @@ def _split_tail_post(blocks: list[ContentBlock]):
     return blocks, []
 
 
+def _post_is_box(post: list[ContentBlock]) -> bool:
+    """post(박스 뒤 '발문 연속')가 사실은 **또 다른 박스**(<조건>/<보기>/<상자>)인지.
+
+    #16 처럼 ``<보기>`` 박스 **뒤에** ``<조건>`` 박스가 오면, 박스 그룹화가 ``<조건>`` 을
+    자기완결 박스 뒤 발문 연속으로 오분류(box_member=False)해 평문으로 흘린다. 이건 발문
+    연속이 아니라 **두 번째 박스** — 평문이 아니라 박스로 렌더하고, 서답형 배점도 미루지
+    않아야 한다(배점은 발문 끝·박스 앞 = #18 와 동일). 첫 가시 TEXT 가 박스 머리이면 박스.
+    (장산중 #5 같은 진짜 발문 연속 "이때 …것은?" 은 머리 매칭 안 돼 기존 동작 유지.)
+    """
+    b = next((b for b in post
+              if b.type == ContentType.TEXT and (b.value or "").strip()), None)
+    return b is not None and bool(_COND_HEADER_RE.search(b.value or ""))
+
+
 # 발문 끝에 박힌 총점/배점 [총 N점]·[N점] (소문항 부모는 우측정렬로 따로 표기).
 _TRAIL_SCORE_RE = re.compile(r'\s*\[\s*(?:총\s*)?(\d+)\s*점\s*\]\s*$')
 _OPEN_SCORE_RE = re.compile(r'\[\s*(?:총\s*)?$')   # 텍스트 끝이 "[" 또는 "[총"
@@ -719,15 +733,22 @@ class HwpComWriter:
         if box:
             self._write_condition_box(box)
             ended_box = True
-        for bi, b in enumerate(post):             # 박스 뒤 발문 연속 — 박스 밖, 새 줄에 이어서
-            if ended_box:
-                self.s.break_para()
-                self.s.align_left()
-                ended_box = False
-            if bi == 0:
-                # post 발문은 일반 본문 — 박스/폼 템플릿의 볼드 상속 차단(#20, 2026-06-09).
-                self.s.set_char_shape(pt=self.s.base_pt, bold=False)
-            self._write_block(b)
+        if post and _post_is_box(post):
+            # post 가 또 다른 박스(<조건> 등, #16): 평문이 아니라 **두 번째 박스**로 렌더.
+            # 핵심 박스 뒤 단락시작(table_end→pos0)이라 _write_condition_box 가 빈 줄 없이
+            # 이어 붙인다(#17·#18 의 <조건> 박스와 동일 모양).
+            self._write_condition_box(post)
+            ended_box = True
+        else:
+            for bi, b in enumerate(post):         # 박스 뒤 발문 연속 — 박스 밖, 새 줄에 이어서
+                if ended_box:
+                    self.s.break_para()
+                    self.s.align_left()
+                    ended_box = False
+                if bi == 0:
+                    # post 발문은 일반 본문 — 박스/폼 템플릿의 볼드 상속 차단(#20, 2026-06-09).
+                    self.s.set_char_shape(pt=self.s.base_pt, bold=False)
+                self._write_block(b)
         return ended_box
 
     # ── 문제 ──────────────────────────────────────────────
@@ -768,8 +789,10 @@ class HwpComWriter:
         # (박스 → "P(Y≤29)의 값을 … 구하시오" → [N점] 순서). 서술형만이 아니라 **객관식도**
         # — 원본·완료본 모두 배점은 의문문(post) 끝 "…것은? [4점]" 에 인쇄된다(장산중 #5
         # 과정상자+㈎㈏㈐, 2026-06-11. 과거엔 발문 머리 뒤에 찍혀 우측정렬 폴백까지 발화).
+        # post 가 그 자체로 박스(<조건> 등, #16)면 발문 연속이 아니므로 배점을 안 미룬다
+        # (배점은 발문 끝·박스 앞 = #18 와 동일). 진짜 발문 연속(장산중 #5)만 미룬다.
         _, tail_post = _split_tail_post(tail)
-        defer_score = show_score and bool(tail_post)
+        defer_score = show_score and bool(tail_post) and not _post_is_box(tail_post)
 
         # 발문 — 첫 블록은 인라인(번호와 같은 줄), 발문 선두 수식 줄바꿈 방지(A7).
         # 발문 중간 독립 블록수식(EQUATION_BLOCK) 뒤 발문 연속은 좌측 새 줄로 복귀(#19).

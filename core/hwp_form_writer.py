@@ -34,8 +34,8 @@ logger = logging.getLogger(__name__)
 from .hwp_com import CONVERSION_VISIBLE, HwpSession, _dispatch_hwp, _win32
 from .hwp_com_writer import (HwpComWriter, _BOX_BREAK_RE, _BULLET_RE,
                              _caption_spans, _choice_complexity, _COND_HEADER_RE,
-                             _condition_start, _has_box_markup, _split_tail_post,
-                             _split_trailing_score, _tail_start)
+                             _condition_start, _has_box_markup, _post_is_box,
+                             _split_tail_post, _split_trailing_score, _tail_start)
 from .latex_to_hwpeq import latex_to_hwpeq
 from models.exam_document import ContentBlock, ContentType, ExamDocument, Question
 
@@ -424,21 +424,26 @@ def _put_tail(ses, h, blocks) -> None:
         w._write_caption_run(pre[cap_j:])
     if box:
         w._write_condition_box(box)
-    for bi, b in enumerate(post):                  # 박스 뒤 발문 연속 — 박스 밖, 새 줄에 이어서
-        if box:
-            ses.break_para()
-            ses.align_left()
-            box = []
-        if bi == 0:
-            # post 발문은 일반 본문이다. 폼 슬롯에선 박스(표) 탈출 후 캐럿이 폼 템플릿의
-            # 볼드 단락에 착지해 발문 연속이 볼드로 상속됐다(#20, 사용자 2026-06-09). 평문 강제.
-            _set_plain(ses.hwp)
-        if b.type == ContentType.IMAGE and b.value:
-            ses.break_para()
-            ses.align_center()
-            _place_figure(ses, h, b.value)
-        else:
-            w._write_block(b)
+    if post and _post_is_box(post):
+        # post 가 또 다른 박스(<조건> 등, #16): 평문이 아니라 **두 번째 박스**로 렌더
+        # (기본 경로와 동일). 핵심 박스 뒤 단락시작이라 빈 줄 없이 이어 붙는다.
+        w._write_condition_box(post)
+    else:
+        for bi, b in enumerate(post):              # 박스 뒤 발문 연속 — 박스 밖, 새 줄에 이어서
+            if box:
+                ses.break_para()
+                ses.align_left()
+                box = []
+            if bi == 0:
+                # post 발문은 일반 본문이다. 폼 슬롯에선 박스(표) 탈출 후 캐럿이 폼 템플릿의
+                # 볼드 단락에 착지해 발문 연속이 볼드로 상속됐다(#20, 사용자 2026-06-09). 평문 강제.
+                _set_plain(ses.hwp)
+            if b.type == ContentType.IMAGE and b.value:
+                ses.break_para()
+                ses.align_center()
+                _place_figure(ses, h, b.value)
+            else:
+                w._write_block(b)
 
 
 def _put_qbody(ses, h, contents, score, essay: bool = False) -> None:
@@ -466,8 +471,9 @@ def _put_qbody(ses, h, contents, score, essay: bool = False) -> None:
         ses.align_left()
     # 박스 뒤 발문 연속(#18·#20)이 있으면 배점은 그 뒤로 미룬다(기본 경로와 동일).
     # 객관식도 — 원본 인쇄는 의문문(post) 끝 "…것은? [4점]"(장산중 #5, 2026-06-11).
+    # 단 post 가 또 다른 박스(<조건> 등, #16)면 발문 연속이 아니므로 안 미룬다(배점=발문 끝).
     _, tail_post = _split_tail_post(tail)
-    defer_score = bool(score) and bool(tail_post)
+    defer_score = bool(score) and bool(tail_post) and not _post_is_box(tail_post)
     if score and not defer_score:
         _put_score(ses, h, score, essay=essay)   # 객관식=발문 끝 인라인 / 서술형=우측정렬
     if tail:
