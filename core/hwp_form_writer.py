@@ -200,6 +200,14 @@ def _set_plain(hwp, pt: int | None = _BODY_PT) -> None:
         cs.Bold = 0
     except Exception:
         pass
+    # 글자색 검정 명시 — 폼 슬롯/박스 렌더 후 캐럿이 **흰색**(#FFFFFF) 상태로 남으면
+    # 이후 입력 본문이 흰 배경에 흰 글자로 찍혀 보이지 않는다(대륜중 중1 #21 서술형:
+    # <보기> 박스 뒤 소문항 전체가 흰색으로 투명. 실측 2026-06-11). _set_plain 은 본문
+    # 입력 직전 항상 호출되므로 여기서 검정으로 고정한다(메타 토큰은 저장후 XML 로 교체).
+    try:
+        cs.TextColor = 0          # RGB 0x000000 = 검정
+    except Exception:
+        pass
     if pt is not None:
         try:
             cs.Height = hwp.PointToHwpUnit(pt)
