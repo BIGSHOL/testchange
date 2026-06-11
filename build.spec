@@ -35,7 +35,8 @@ a = Analysis(
     pathex=[str(project_root)],
     binaries=[*_google_binaries, *_resvg_binaries],
     datas=[
-        (str(project_root / 'hwpx_조암'), 'hwpx_조암'),
+        # (구) hwpx_조암 골든셋 번들은 제거 — 개발용 회귀 기준(data/골든셋기준_조암중_hwpx해제본)일 뿐
+        # 런타임 코드가 읽지 않는다(2026-06-11, 5d97335 개명 때 spec 누락으로 빌드 깨짐).
         # 대수회 폼지(학년별 색상 7종) 번들 → _internal/forms/ (core/form_registry 가 _MEIPASS/forms 에서 읽음)
         (str(project_root / 'forms'), 'forms'),
         # HWP 파일접근 보안 승인 모듈(FilePathCheckerModuleExample.dll) — core/hwp_com.py 가
