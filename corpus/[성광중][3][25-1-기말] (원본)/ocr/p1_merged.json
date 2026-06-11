@@ -1,0 +1,137 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 1,
+      "score": 2,
+      "contents": [
+        {"type": "text", "value": "이차방정식 "},
+        {"type": "equation", "value": "5(x-4)^2=a"},
+        {"type": "text", "value": "의 두 근의 차가 1일 때, 양수 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{5}{4}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{3}{2}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{7}{4}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{9}{4}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 2,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "이차방정식 "},
+        {"type": "equation", "value": "ax^2-2x-3=0"},
+        {"type": "text", "value": "의 근이 "},
+        {"type": "equation", "value": "x=\\frac{1 \\pm \\sqrt{2b}}{5}"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "a+b"},
+        {"type": "text", "value": "의 값은? (단, "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "b"},
+        {"type": "text", "value": "는 수.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "11"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "13"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 3,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "이차방정식 "},
+        {"type": "equation", "value": "x^2+k+4=16x"},
+        {"type": "text", "value": "를 "},
+        {"type": "equation", "value": "(x+a)^2=0"},
+        {"type": "text", "value": "의 꼴로 나타낼 때, 수 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "k"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "a+k"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "48"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "50"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "52"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "54"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "56"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 4,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "길이가 "},
+        {"type": "equation", "value": "26\\mathrm{cm}"},
+        {"type": "text", "value": "인 철사로 넓이가 "},
+        {"type": "equation", "value": "40\\mathrm{cm}^2"},
+        {"type": "text", "value": "인 직사각형을 만들 때, 만들어진 직사각형의 가로의 길이는? (단, 가로의 길이가 세로의 길이보다 길다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "5\\mathrm{cm}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "6\\mathrm{cm}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "7\\mathrm{cm}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "8\\mathrm{cm}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "9\\mathrm{cm}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 5,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "이차방정식 "},
+        {"type": "equation", "value": "x^2-kx+1=0"},
+        {"type": "text", "value": "의 한 근을 "},
+        {"type": "equation", "value": "\\alpha"},
+        {"type": "text", "value": "라 할 때, "},
+        {"type": "equation", "value": "\\alpha+\\frac{1}{\\alpha}=k^2-12"},
+        {"type": "text", "value": "가 성립하도록 하는 양수 "},
+        {"type": "equation", "value": "k"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 6,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "이차방정식 "},
+        {"type": "equation", "value": "x^2+3kx-(2k+1)=0"},
+        {"type": "text", "value": "과 "},
+        {"type": "equation", "value": "x^2+kx+k-1=0"},
+        {"type": "text", "value": "을 동시에 만족시키는 근이 오직 한 개일 때, 수 "},
+        {"type": "equation", "value": "k"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-\\frac{5}{2}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-\\frac{3}{2}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "-\\frac{1}{2}"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

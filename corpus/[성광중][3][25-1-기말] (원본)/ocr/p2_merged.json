@@ -1,0 +1,156 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 7,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "오른쪽 그림과 같은 직사각형 "},
+        {"type": "equation", "value": "ABCD"},
+        {"type": "text", "value": "에서 점 "},
+        {"type": "equation", "value": "P"},
+        {"type": "text", "value": "는 "},
+        {"type": "equation", "value": "\\overline{AB}"},
+        {"type": "text", "value": " 위를 점 "},
+        {"type": "equation", "value": "A"},
+        {"type": "text", "value": "에서 점 "},
+        {"type": "equation", "value": "B"},
+        {"type": "text", "value": "까지 1초에 "},
+        {"type": "equation", "value": "2\\mathrm{cm}"},
+        {"type": "text", "value": "씩 움직이고, 점 "},
+        {"type": "equation", "value": "Q"},
+        {"type": "text", "value": "는 "},
+        {"type": "equation", "value": "\\overline{BC}"},
+        {"type": "text", "value": " 위를 점 "},
+        {"type": "equation", "value": "B"},
+        {"type": "text", "value": "에서 점 "},
+        {"type": "equation", "value": "C"},
+        {"type": "text", "value": "까지 1초에 "},
+        {"type": "equation", "value": "1\\mathrm{cm}"},
+        {"type": "text", "value": "씩 움직인다. 두 점 "},
+        {"type": "equation", "value": "P"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "Q"},
+        {"type": "text", "value": "가 동시에 출발할 때, "},
+        {"type": "equation", "value": "\\triangle PBQ"},
+        {"type": "text", "value": "의 넓이가 "},
+        {"type": "equation", "value": "16\\mathrm{cm}^2"},
+        {"type": "text", "value": "가 될 때까지 걸리는 시간은?"},
+        {"type": "figure", "value": "직사각형 ABCD(A 왼쪽 위, D 오른쪽 위, B 왼쪽 아래, C 오른쪽 아래). 위 변 AD=18cm, 오른쪽 변 16cm. 점 P는 왼쪽 변 AB 위(A에서 출발), 점 Q는 아래 변 BC 위(B에서 출발). 직각삼각형 PBQ(직각은 B)가 색칠됨", "bbox": [0.30, 0.04, 0.50, 0.17]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "4"}, {"type": "text", "value": "초"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "5"}, {"type": "text", "value": "초"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "6"}, {"type": "text", "value": "초"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "7"}, {"type": "text", "value": "초"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "8"}, {"type": "text", "value": "초"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 8,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "지면으로부터 "},
+        {"type": "equation", "value": "95\\mathrm{m}"},
+        {"type": "text", "value": "의 높이에서 초속 "},
+        {"type": "equation", "value": "50\\mathrm{m}"},
+        {"type": "text", "value": "로 똑바로 위로 던져 올린 공의 "},
+        {"type": "equation", "value": "t"},
+        {"type": "text", "value": "초 후의 높이는 "},
+        {"type": "equation", "value": "(-5t^2+50t+95)\\mathrm{m}"},
+        {"type": "text", "value": "이다. 이때 이 공이 "},
+        {"type": "equation", "value": "200\\mathrm{m}"},
+        {"type": "text", "value": "이상의 높이에서 머무르는 것은 몇 초 동안인가?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "3"}, {"type": "text", "value": "초"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "4"}, {"type": "text", "value": "초"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "5"}, {"type": "text", "value": "초"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "6"}, {"type": "text", "value": "초"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "7"}, {"type": "text", "value": "초"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 9,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "길이가 "},
+        {"type": "equation", "value": "21\\mathrm{cm}"},
+        {"type": "text", "value": "인 끈을 두 도막으로 잘라서 두 개의 정삼각형을 만들려고 한다. 두 정삼각형의 넓이의 비가 "},
+        {"type": "equation", "value": "1:2"},
+        {"type": "text", "value": "가 되도록 할 때, 작은 정삼각형의 한 변의 길이는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "5(\\sqrt{2}-1)\\mathrm{cm}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "6(\\sqrt{2}-1)\\mathrm{cm}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "7(\\sqrt{2}-1)\\mathrm{cm}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "8(\\sqrt{2}-1)\\mathrm{cm}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "9(\\sqrt{2}-1)\\mathrm{cm}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 10,
+      "score": 2,
+      "contents": [
+        {"type": "text", "value": "다음 중 주어진 이차함수의 그래프에 대한 설명으로 옳지 않은 것은?"},
+        {"type": "text", "value": "<상자> (가) y=-\\frac{1}{5}x^2 • (나) y=7x^2 • (다) y=-3x^2 • (라) y=3x^2"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "(다)와 (라)는 "}, {"type": "equation", "value": "x"}, {"type": "text", "value": "축에 대하여 대칭이다."}]},
+        {"number": 2, "contents": [{"type": "text", "value": "(가)와 (다)는 위로 볼록한 포물선이다."}]},
+        {"number": 3, "contents": [{"type": "text", "value": "그래프의 폭이 가장 넓은 것은 (가)이다."}]},
+        {"number": 4, "contents": [{"type": "text", "value": "그래프의 폭이 가장 좁은 것은 (다)이다."}]},
+        {"number": 5, "contents": [{"type": "text", "value": "(가)~(라) 모두 직선 "}, {"type": "equation", "value": "x=0"}, {"type": "text", "value": "을 축으로 한다."}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 11,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "다음 <보기>에서 이차함수 "},
+        {"type": "equation", "value": "y=-3x^2+12x-8"},
+        {"type": "text", "value": "의 그래프에 대한 설명으로 옳은 것만을 있는 대로 고른 것은?"},
+        {"type": "text", "value": "<보기> ㄱ. 제2사분면을 지나지 않는다. • ㄴ. 꼭짓점의 좌표는 (-2, 4)이다. • ㄷ. x축과 서로 다른 두 점에서 만난다. • ㄹ. x<2일 때 x의 값이 증가하면 y의 값은 감소한다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ, ㄴ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄱ, ㄷ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄴ, ㄹ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄱ, ㄷ, ㄹ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄴ, ㄷ, ㄹ"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 12,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "이차함수 "},
+        {"type": "equation", "value": "y=x^2-2ax+b"},
+        {"type": "text", "value": "의 그래프가 점 "},
+        {"type": "equation", "value": "(3,5)"},
+        {"type": "text", "value": "를 지나고 꼭짓점이 직선 "},
+        {"type": "equation", "value": "y=2x"},
+        {"type": "text", "value": " 위에 있을 때, 수 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "b"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "b-a"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "10"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}
