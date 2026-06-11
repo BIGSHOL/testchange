@@ -51,15 +51,21 @@ def _parse_question(q_data: dict) -> Question:
     #    소수([4.5점])·총점([총 7점])까지 지우면 배점이 **캡처 없이 소실**된다(2026-06-10 감사).
     #    [총 N점](소문항 부모 총점)도 score 로 캡처 — 렌더러가 우측정렬 "[총 N점]" 으로 복원.
     raw_contents = [dict(bd) for bd in q_data.get("contents", [])]
+    # 박스(<상자>/<조건>/<보기>) 머리가 시작되는 raw 블록 — 그 **이후** [N점]은 채점기준 등
+    # 박스 내용이므로 배점 캡처·제거 대상이 아니다(새론중 서답형2 채점기준 박스 안
+    # [1점][3점][2점][4점] 이 발문 배점으로 오인돼 통째 소실, 2026-06-11). 발문 배점은 박스 앞.
+    box_head_i = next((i for i, bd in enumerate(raw_contents)
+                       if bd.get("type") == "text"
+                       and _RAW_BOX_MARK_RE.search(bd.get("value", ""))), len(raw_contents))
     if not question.score:
-        for bd in raw_contents:
+        for bd in raw_contents[:box_head_i]:
             if bd.get("type") == "text":
                 m = re.search(r'\[\s*(?:총\s*)?(\d+(?:\.\d+)?)\s*점\s*(?:,[^\]]*)?\]', bd.get("value", ""))
                 if m:
                     v = float(m.group(1))
                     question.score = int(v) if v.is_integer() else v
                     break
-    for bd in raw_contents:
+    for bd in raw_contents[:box_head_i]:
         if bd.get("type") == "text" and bd.get("value"):
             bd["value"] = _SCORE_TEXT_RE.sub(' ', bd["value"])
 
@@ -1204,10 +1210,19 @@ def _strip_split_score(blocks: list[ContentBlock]) -> list[ContentBlock]:
 
 
 def _strip_score_text(blocks: list[ContentBlock]) -> list[ContentBlock]:
-    """텍스트 블록에서 [N점] 배점 패턴을 제거 (score 필드와 중복 방지)."""
-    blocks = _strip_split_score(blocks)   # 쪼개진 [ + EQ + 점] 먼저 제거(#15, 2026-06-09)
+    """텍스트 블록에서 [N점] 배점 패턴을 제거 (score 필드와 중복 방지).
+
+    ⚠️ 박스(<상자>/<조건>/<보기>) 머리 **이후** 블록은 건드리지 않는다 — 채점기준 박스의
+    항목별 배점([1점][3점]…)이 발문 배점으로 오인돼 소실되던 것 방지(새론중 서답형2,
+    2026-06-11). 발문 배점은 박스 앞에 있으므로 박스 전 블록만 처리하면 충분하다.
+    """
+    box_i = next((i for i, b in enumerate(blocks)
+                  if b.type == ContentType.TEXT and _RAW_BOX_MARK_RE.search(b.value or "")),
+                 len(blocks))
+    pre, box = blocks[:box_i], blocks[box_i:]
+    pre = _strip_split_score(pre)   # 쪼개진 [ + EQ + 점] 먼저 제거(#15, 2026-06-09)
     result: list[ContentBlock] = []
-    for block in blocks:
+    for block in pre:
         if block.type == ContentType.TEXT:
             cleaned = _SCORE_TEXT_RE.sub('', block.value)
             if cleaned.strip():
@@ -1218,7 +1233,7 @@ def _strip_score_text(blocks: list[ContentBlock]) -> list[ContentBlock]:
                 ))
         else:
             result.append(block)
-    return result
+    return result + box
 
 
 _ESSAY_LABEL_WORD_RE = re.compile(r'\[\s*(서술형|서답형)(\s*\d*\s*)\]')

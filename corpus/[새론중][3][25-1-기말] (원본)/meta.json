@@ -1,0 +1,18 @@
+{
+  "status": "reviewed",
+  "source_pdf": "N:\\개인\\기출\\2025 기출모음\\2025년 1학기 기말고사 모음\\원본\\중3\\[새론중][3][25-1-기말] (원본) (아자).pdf",
+  "reference_pdf": "N:\\개인\\기출\\2025 기출모음\\2025년 1학기 기말고사 모음\\pdf\\중3\\[새론중][3][25-1-기말][비상] (완료).PDF",
+  "ocr_engine": "claude-code-session (claude-fable-5)",
+  "crop_engine": "claude-code-session (claude-fable-5)",
+  "deterministic": false,
+  "created": "2026-06-11",
+  "reviewed": "2026-06-11",
+  "form": "[대수회][25년 폼지 최종(02.09)] (중3용) (빨강).hwp",
+  "review": "중3 세 번째 corpus(렌더 세션 검수). 13객관식+8서답형(소문항 2건, 총점 100). 복잡도 최상(채점기준박스·대화박스·말풍선·조건박스 4곳·boxed 원문자). 완료본(5쪽) 1:1 — 내용 결함 0. B형(렌더 코드) 1건 수정. A형(JSON) 0건.",
+  "defects": {
+    "SR-1": "#15 서답형2 채점기준 <상자> 안 항목별 배점 [1점][3점][2점][4점] 이 통째 소실 — content_parser 의 배점 제거 3경로(raw 단계 _SCORE_TEXT_RE 무차별 sub·_strip_score_text·_strip_split_score)가 박스 내용의 [N점]을 발문 배점으로 오인. FIXED: ① raw 제거/캡처를 박스 머리(_RAW_BOX_MARK_RE) 전 블록만, ② _strip_score_text 를 박스 머리 전(pre)만 _strip_split_score+_SCORE_TEXT_RE 적용하고 박스(box)는 그대로 반환. 발문 배점은 박스 앞이라 정상 제거됨. 무회귀: 박스 있는 문항 46개 박스앞 배점 잔존 0·박스없는 문항 잔존 0. 회귀: test_content_parser J3."
+  },
+  "verified_clean": "검수 포인트 3건 전부 정상 통과: ① #7 \\boxed{㉠}/\\boxed{㉡} → BOX{ ~ ㉠ ~ } 원문자 작은 박스 렌더 ✓, ② SR-1 수정 후 #15 채점기준 박스 [N점] 보존 ✓, ③ <조건> 박스 4곳(#16·#17(3)·#18·#19 '단답형으로 답만 적을 것') 전부 정상 ✓. 추가: #10 카드대화·#12 말풍선 <상자> 가운데정렬 정상, <보기> 박스(#1·#16·#17) 자모 라벨 ㄱ~ㅂ 수식 객체화(장산중 D2 수정 효과) 정상, 소문항 (1)(2)(3) 개별 배점 보존, △ABO·□AOQP·\\overline{AO}·\\overline{BC} 기하 로만 정상, 정답면 [서답형 1~8] 라벨 증발 없음.",
+  "regression_tests": "test_content_parser J3(채점기준 배점 보존, 18 cases). verify_output_format 30·test_render_fixes·test_form_layout PASS. corpus_lint --json/--xml PASS(0 WARN).",
+  "note": "인쇄 결손 3건 400dpi+완료본 교차 확정: #5 x²-(k+4)x+4=0(+4), 서답형5(#18) 'y좌표가 22', 서답형6(#19) 둘째 식 y=(x-a)²+2a-4(= 윗획 결손이 −처럼 보임). 완료본 결함 1건: 서답형8(#21) 배점 미표기 → 원본 [6점] 기준. #10 카드 대화·#12 말풍선 = <상자> 인코딩(사진 아이콘·손글씨체 생략, 완료본도 박스 재구성 = C 한계). 그림(#6·13·18·19) 안내문구(C 한계)."
+}

@@ -1,0 +1,135 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 1,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "이차방정식인 것만을 <보기>에서 있는 대로 고른 것은?"},
+        {"type": "text", "value": "<보기> ㄱ. x^2-3x=-1 • ㄴ. 2x^2+x-3 • ㄷ. x(x+1)=x^2 • ㄹ. (1+x)(1-x)=-x^2 • ㅁ. x^2+x=\\frac{3}{4}-x • ㅂ. (x+1)(2x-3)=-x"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ, ㄷ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄱ, ㅁ, ㅂ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄴ, ㄷ, ㅁ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄴ, ㄹ, ㅂ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄱ, ㄹ, ㅁ, ㅂ"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 2,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "[ ]안의 수가 주어진 이차방정식의 해인 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [
+          {"type": "equation", "value": "x^2-x-2=0"},
+          {"type": "text", "value": " ["},
+          {"type": "equation", "value": "1"},
+          {"type": "text", "value": "]"}
+        ]},
+        {"number": 2, "contents": [
+          {"type": "equation", "value": "x^2-2x-15=0"},
+          {"type": "text", "value": " ["},
+          {"type": "equation", "value": "3"},
+          {"type": "text", "value": "]"}
+        ]},
+        {"number": 3, "contents": [
+          {"type": "equation", "value": "2x^2+3x-2=0"},
+          {"type": "text", "value": " ["},
+          {"type": "equation", "value": "-2"},
+          {"type": "text", "value": "]"}
+        ]},
+        {"number": 4, "contents": [
+          {"type": "equation", "value": "2x^2-5x+2=0"},
+          {"type": "text", "value": " ["},
+          {"type": "equation", "value": "-1"},
+          {"type": "text", "value": "]"}
+        ]},
+        {"number": 5, "contents": [
+          {"type": "equation", "value": "3x^2-5x+2=0"},
+          {"type": "text", "value": " ["},
+          {"type": "equation", "value": "2"},
+          {"type": "text", "value": "]"}
+        ]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 3,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "이차방정식 "},
+        {"type": "equation", "value": "3x^2-5x+p=0"},
+        {"type": "text", "value": "의 해가 "},
+        {"type": "equation", "value": "x=\\frac{q\\pm\\sqrt{13}}{6}"},
+        {"type": "text", "value": "일 때, 유리수 "},
+        {"type": "equation", "value": "p"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "q"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "q-p"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-6"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-4"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "6"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 4,
+      "score": 4,
+      "contents": [
+        {"type": "equation", "value": "x=a"},
+        {"type": "text", "value": "가 이차방정식 "},
+        {"type": "equation", "value": "2x^2-x-5=0"},
+        {"type": "text", "value": "의 한 근일 때, "},
+        {"type": "equation", "value": "4a^7-2a^6-10a^5-2a^2+a-1"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-6"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-4"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "10"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 5,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "이차방정식 "},
+        {"type": "equation", "value": "x^2-(k+4)x+4=0"},
+        {"type": "text", "value": "이 중근을 가질 때의 "},
+        {"type": "equation", "value": "k"},
+        {"type": "text", "value": "의 값이 이차방정식 "},
+        {"type": "equation", "value": "x^2+ax+b=0"},
+        {"type": "text", "value": "의 두 근이 될 때, "},
+        {"type": "equation", "value": "a+b"},
+        {"type": "text", "value": "의 값은? (단, "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "b"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "k"},
+        {"type": "text", "value": "는 상수)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-8"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-4"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "8"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

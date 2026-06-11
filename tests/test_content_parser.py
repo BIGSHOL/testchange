@@ -192,6 +192,20 @@ def _check_jangsan_fixes(fails):
     txts2 = "".join(x.value or "" for x in b2 if x.type == CT.TEXT)
     if "^" in txts2 or not any("4x^2" in e for e in eqs2) or not any("(x+1)^2" in e for e in eqs2):
         fails.append(f"  J2 자모 가드: {[(x.type.name, x.value) for x in b2]!r}")
+    # J3(새론중 서답형2): 채점기준 <상자> 안 항목별 배점 [1점][3점]…이 발문 배점으로 오인돼
+    # 통째 소실되던 회귀. 박스 머리 이후 [N점]은 보존, 발문 배점은 여전히 제거돼야 한다.
+    # (실제 OCR 은 발문·박스를 별도 text 블록으로 준다 — _parse_q 단일블록 헬퍼로는 재현 불가.)
+    doc3 = {"header": "", "questions": [{"number": 1, "score": None, "contents": [
+        {"type": "text", "value": "넓이를 구하시오. [10점]"},
+        {"type": "text", "value": "<상자> [배점] / 미지수 정하기 [1점] / 풀기 [2점]"}]}]}
+    q3 = parse_ocr_response(doc3, page_number=1).questions[0]
+    body3 = "".join((b.value or "") for b in q3.contents)
+    if q3.score != 10:
+        fails.append(f"  J3 발문 배점 캡처: score={q3.score!r} (기대 10)")
+    if "10점" in body3:
+        fails.append("  J3 발문 배점 본문 잔존")
+    if "1점" not in body3 or "2점" not in body3:
+        fails.append("  J3 채점기준 박스 배점 소실")
 
 
 def run():
