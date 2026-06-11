@@ -1,0 +1,140 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 8,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "다음 이차방정식 관한 설명으로 옳은 것의 개수는?"},
+        {"type": "text", "value": "<상자> ○ x^2+4x+2는 이차방정식이다. ○ 3(x^2-4)=0는 x=2일 때 참이다. ○ x^2-x-2=0은 해를 1 또는 2를 가진다. ○ ax^2+bx+c=0는 이차방정식이다. (단, a, b, c는 상수) ○ ax^2+c=0과 같은 꼴은 항상 근을 가진다. (단, a, c는 상수)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}, {"type": "text", "value": "개"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2"}, {"type": "text", "value": "개"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}, {"type": "text", "value": "개"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}, {"type": "text", "value": "개"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}, {"type": "text", "value": "개"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 9,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "이차방정식 "},
+        {"type": "equation", "value": "x^2+6x+k-2=0"},
+        {"type": "text", "value": "의 해가 중근일 때, 이차방정식 "},
+        {"type": "equation", "value": "3x^2+3x+k-17=0"},
+        {"type": "text", "value": "을 만족하는 모든 실수 해의 합은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "2"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 10,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "이차함수 "},
+        {"type": "equation", "value": "y=ax^2"},
+        {"type": "text", "value": "의 그래프가 "},
+        {"type": "equation", "value": "y=\\frac{1}{4}x^2"},
+        {"type": "text", "value": "의 그래프와 "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "축에 대하여 대칭이고, 점 "},
+        {"type": "equation", "value": "(-4,b)"},
+        {"type": "text", "value": "를 지날 때, "},
+        {"type": "equation", "value": "2ab"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-4"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "4"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 11,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "이차함수 "},
+        {"type": "equation", "value": "y=ax^2+bx+c"},
+        {"type": "text", "value": "의 그래프가 그림과 같을 때, "},
+        {"type": "equation", "value": "3(a+b+c)"},
+        {"type": "text", "value": "의 값은?"},
+        {"type": "figure", "value": "아래로 볼록한 포물선. y축과 1에서 만나고(y축에 1 표시), 꼭짓점은 x축 아래 — x축에 3 표시 후 꼭짓점까지 세로 점선, y축에 -2 표시 후 꼭짓점까지 가로 점선(꼭짓점 (3,-2)). x축과 두 점에서 만남(원점과 3 사이, 3 오른쪽). 원점 O", "bbox": [0.62, 0.14, 0.82, 0.27]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "3"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 12,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "이차함수의 그래프가 제1, 2, 3, 4분면을 모두 지나는 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "y=\\frac{1}{2}x^2+1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "y=-\\frac{2}{3}(x-1)^2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "y=-4x^2-6x"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "y=3x^2-6x-1"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "y=-x^2-4x-3"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 13,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "이차함수 "},
+        {"type": "equation", "value": "y=-2(x-3)^2"},
+        {"type": "text", "value": "의 그래프에 관한 설명으로 옳지 __않은__ 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [
+          {"type": "equation", "value": "y=x^2"},
+          {"type": "text", "value": "의 그래프보다 폭이 좁다."}
+        ]},
+        {"number": 2, "contents": [
+          {"type": "text", "value": "축의 방정식은 "},
+          {"type": "equation", "value": "x=3"},
+          {"type": "text", "value": ", 꼭짓점은 "},
+          {"type": "equation", "value": "(3,0)"},
+          {"type": "text", "value": "이다."}
+        ]},
+        {"number": 3, "contents": [
+          {"type": "text", "value": "제 3, 4분면을 지나고 위로 볼록한 포물선이다."}
+        ]},
+        {"number": 4, "contents": [
+          {"type": "equation", "value": "x>3"},
+          {"type": "text", "value": "일 때, "},
+          {"type": "equation", "value": "x"},
+          {"type": "text", "value": "의 값이 증가하면 "},
+          {"type": "equation", "value": "y"},
+          {"type": "text", "value": "의 값은 감소한다."}
+        ]},
+        {"number": 5, "contents": [
+          {"type": "equation", "value": "y=2(x+3)^2"},
+          {"type": "text", "value": "의 그래프와 "},
+          {"type": "equation", "value": "x"},
+          {"type": "text", "value": "축에 대하여 서로 대칭이다."}
+        ]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

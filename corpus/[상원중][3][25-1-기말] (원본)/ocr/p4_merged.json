@@ -1,0 +1,89 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 19,
+      "score": 9,
+      "label_type": "서답형",
+      "contents": [
+        {"type": "text", "value": "[서답형 2] 어떤 원의 반지름의 길이를 3만큼 늘였더니 늘어난 부분의 넓이는 처음 원의 넓이의 "},
+        {"type": "equation", "value": "\\frac{5}{4}"},
+        {"type": "text", "value": "가 되었다. 이때 처음 원의 반지름의 길이를 구하시오. (단, 풀이 과정을 <조건>에 맞게 자세히 쓰시오.)"},
+        {"type": "text", "value": "<조건> ○ 처음 원의 반지름의 길이를 r로 할 것 ○ 처음 원의 넓이를 나타낼 것 ○ 늘어난 부분의 넓이를 나타낼 것"}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 20,
+      "score": 5,
+      "label_type": "서답형",
+      "contents": [
+        {"type": "text", "value": "[서답형 3] 이차함수 "},
+        {"type": "equation", "value": "f(x)=-2x^2-3x+a"},
+        {"type": "text", "value": "이고, "},
+        {"type": "equation", "value": "f(1)=-4"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "f(-2)=b"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "a+b"},
+        {"type": "text", "value": "의 값을 구하시오. (단, 풀이 과정을 자세히 쓰시오.)"}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 21,
+      "score": 7,
+      "label_type": "서답형",
+      "contents": [
+        {"type": "text", "value": "[서답형 4] 이차함수 "},
+        {"type": "equation", "value": "y=2x^2-4x+5"},
+        {"type": "text", "value": "의 그래프를 "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "축의 방향으로 "},
+        {"type": "equation", "value": "-2"},
+        {"type": "text", "value": "만큼, "},
+        {"type": "equation", "value": "y"},
+        {"type": "text", "value": "축의 방향으로 2만큼 평행이동한 이차함수의 그래프가 점 "},
+        {"type": "equation", "value": "(0,m)"},
+        {"type": "text", "value": "을 지나고, 꼭짓점의 좌표가 "},
+        {"type": "equation", "value": "(p,q)"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "m(p+q)"},
+        {"type": "text", "value": "의 값을 구하시오. (단, 풀이 과정을 자세히 쓰시오.)"}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 22,
+      "score": 8,
+      "label_type": "서답형",
+      "contents": [
+        {"type": "text", "value": "[서답형 5] 그림의 이차함수 "},
+        {"type": "equation", "value": "y=-x^2-4x+5"},
+        {"type": "text", "value": "의 그래프는 "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "축과 두 점 "},
+        {"type": "equation", "value": "C"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "D"},
+        {"type": "text", "value": "에서 만나고, "},
+        {"type": "equation", "value": "y"},
+        {"type": "text", "value": "축과 점 "},
+        {"type": "equation", "value": "B"},
+        {"type": "text", "value": "에서 만난다. 점 "},
+        {"type": "equation", "value": "O"},
+        {"type": "text", "value": "는 원점, 점 "},
+        {"type": "equation", "value": "A"},
+        {"type": "text", "value": "가 꼭짓점일 때, "},
+        {"type": "equation", "value": "\\square ACOB"},
+        {"type": "text", "value": "의 넓이를 구하시오. (단, 풀이 과정을 자세히 쓰시오.)"},
+        {"type": "figure", "value": "위로 볼록한(아래로 열린) 포물선. 꼭짓점 A는 y축 왼쪽 위(라벨 A), x축과 왼쪽 점 C, 오른쪽 점 D(원점 O의 오른쪽)에서 만나고, y축과 점 B(원점 위, A보다 낮음)에서 만남. 네 점 A, C, O, B를 꼭짓점으로 하는 사각형 ACOB 내부가 어둡게 색칠됨. 원점 O, x축·y축 표시", "bbox": [0.60, 0.19, 0.83, 0.35]}
+      ],
+      "choices": [],
+      "sub_questions": []
+    }
+  ]
+}

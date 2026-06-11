@@ -1,0 +1,158 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 1,
+      "score": 3,
+      "contents": [
+        {"type": "equation", "value": "x=-2"},
+        {"type": "text", "value": " 또는 "},
+        {"type": "equation", "value": "x=\\frac{5}{4}"},
+        {"type": "text", "value": "을 해로 가지는 이차방정식은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "(x-2)(4x+5)=0"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "(x-2)(5x+4)=0"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "(x+2)(4x-5)=0"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "(x+2)(5x-4)=0"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "(x+2)(4x+5)=0"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 2,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "이차방정식 "},
+        {"type": "equation", "value": "3x^2-x-4=0"},
+        {"type": "text", "value": "의 두 근이 "},
+        {"type": "equation", "value": "x=a"},
+        {"type": "text", "value": " 또는 "},
+        {"type": "equation", "value": "x=b"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "a+3b"},
+        {"type": "text", "value": "의 값은? (단, "},
+        {"type": "equation", "value": "a<b"},
+        {"type": "text", "value": ")"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "-2"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 3,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "이차방정식 "},
+        {"type": "equation", "value": "x^2+4x+k=0"},
+        {"type": "text", "value": "의 한 근이 "},
+        {"type": "equation", "value": "-2+\\sqrt{11}"},
+        {"type": "text", "value": "일 때, 유리수 "},
+        {"type": "equation", "value": "k"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-4"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-6"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-7"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "-8"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "-9"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 4,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "그래프가 직선 "},
+        {"type": "equation", "value": "x=2"},
+        {"type": "text", "value": "을 축으로 갖는 이차함수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "y=2x^2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "y=3x^2+2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "y=\\frac{1}{3}(x+2)^2"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "y=-2(x-2)^2"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "y=3(x-1)^2+2"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 5,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "이차함수 "},
+        {"type": "equation", "value": "y=ax^2"},
+        {"type": "text", "value": "의 그래프가 그림과 같을 때, 상수 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "의 값이 될 수 __없는__ 것은?"},
+        {"type": "figure", "value": "아래로 열린 포물선 2개가 원점 O에서 만남. 안쪽의 폭이 좁은 포물선에 y=-3x^2 라벨(왼쪽 꺾인 화살표), 바깥쪽의 폭이 넓은 포물선에 y=ax^2 라벨(오른쪽 꺾인 화살표). y=ax^2 그래프가 y=-3x^2 그래프보다 폭이 넓음. x축·y축 표시", "bbox": [0.60, 0.235, 0.83, 0.37]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-4"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-\\frac{5}{3}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "-\\frac{1}{2}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 6,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "이차함수 "},
+        {"type": "equation", "value": "y=ax^2+2"},
+        {"type": "text", "value": "의 그래프를 "},
+        {"type": "equation", "value": "y"},
+        {"type": "text", "value": "축의 방향으로 "},
+        {"type": "equation", "value": "b"},
+        {"type": "text", "value": "만큼 평행이동하여 이차함수 "},
+        {"type": "equation", "value": "y=3x^2-4"},
+        {"type": "text", "value": "의 그래프와 일치할 때, "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "b"},
+        {"type": "text", "value": "의 값을 각각 구하면?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "a=3"}, {"type": "text", "value": ", "}, {"type": "equation", "value": "b=2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "a=2"}, {"type": "text", "value": ", "}, {"type": "equation", "value": "b=-4"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "a=3"}, {"type": "text", "value": ", "}, {"type": "equation", "value": "b=-4"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "a=3"}, {"type": "text", "value": ", "}, {"type": "equation", "value": "b=-6"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "a=-3"}, {"type": "text", "value": ", "}, {"type": "equation", "value": "b=-6"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 7,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "이차방정식 "},
+        {"type": "equation", "value": "7x^2+5x-k-3=0"},
+        {"type": "text", "value": "의 해가 "},
+        {"type": "equation", "value": "x=\\frac{-m\\pm\\sqrt{53}}{14}"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "m+k"},
+        {"type": "text", "value": "의 값은? (단, "},
+        {"type": "equation", "value": "m"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "k"},
+        {"type": "text", "value": "는 유리수)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-7"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "3"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}
