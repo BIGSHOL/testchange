@@ -1,0 +1,131 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 17,
+      "score": 10,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 1] 철수와 순이는 각자의 집에서 도서관까지의 거리가 같다. 두 사람이 오전 10시에 동시에 각자의 집에서 출발하여 도서관까지 철수는 시속 6km로 뛰어가고 순이는 시속 4km로 걸어갔다. 두 사람이 20분 차이로 도서관에 도착했다고 할 때, 철수가 도서관에 도착한 시각을 구하시오."}
+      ],
+      "choices": [],
+      "sub_questions": [
+        {
+          "number": 1,
+          "score": 5,
+          "contents": [
+            {"type": "text", "value": "철수가 도서관까지 걸린 시간(시)을 x로 하는 일차방정식을 구하시오."}
+          ],
+          "choices": [],
+          "sub_questions": []
+        },
+        {
+          "number": 2,
+          "score": 5,
+          "contents": [
+            {"type": "text", "value": "철수가 도서관에 도착한 시각을 구하시오."}
+          ],
+          "choices": [],
+          "sub_questions": []
+        }
+      ]
+    },
+    {
+      "number": 18,
+      "score": 8,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 2] 두 순서쌍 (4+3a, 3b-4)과 (a-2, -b)가 서로 같을 때, 점 (a+b, b)는 제 몇 사분면 위의 점인지 구하시오."}
+      ],
+      "choices": [],
+      "sub_questions": [
+        {
+          "number": 1,
+          "score": 3,
+          "contents": [
+            {"type": "text", "value": "a의 값을 구하시오."}
+          ],
+          "choices": [],
+          "sub_questions": []
+        },
+        {
+          "number": 2,
+          "score": 3,
+          "contents": [
+            {"type": "text", "value": "b의 값을 구하시오."}
+          ],
+          "choices": [],
+          "sub_questions": []
+        },
+        {
+          "number": 3,
+          "score": 2,
+          "contents": [
+            {"type": "text", "value": "제 몇 사분면 위의 점인지 구하시오."}
+          ],
+          "choices": [],
+          "sub_questions": []
+        }
+      ]
+    },
+    {
+      "number": 19,
+      "score": 7,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 3] 반비례 관계 y=\\frac{a}{x}의 그래프가 두 점 (3, 15), (-9, b)를 지날 때, a, b의 값을 구하시오."}
+      ],
+      "choices": [],
+      "sub_questions": [
+        {
+          "number": 1,
+          "score": 3,
+          "contents": [
+            {"type": "text", "value": "a의 값을 구하시오."}
+          ],
+          "choices": [],
+          "sub_questions": []
+        },
+        {
+          "number": 2,
+          "score": 4,
+          "contents": [
+            {"type": "text", "value": "b의 값을 구하시오."}
+          ],
+          "choices": [],
+          "sub_questions": []
+        }
+      ]
+    },
+    {
+      "number": 20,
+      "score": 10,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 4] 그림과 같이 정비례 관계의 그래프와 반비례 관계 y=\\frac{24}{x} (x>0)의 그래프가 점 P에서 만난다. 점 P의 x좌표가 2일 때, 다음 물음에 답하시오."},
+        {"type": "figure", "value": "좌표평면 그래프. 원점 O를 지나는 정비례 직선(가파른 기울기)과 반비례 곡선 y=\\frac{24}{x}(x>0)가 제1사분면의 점 P에서 만난다. 점 P에서 x축으로 점선을 내려 x좌표 2를 표시. 곡선 오른쪽에 y=\\frac{24}{x} 라벨.", "bbox": [0.60, 0.54, 0.85, 0.70]}
+      ],
+      "choices": [],
+      "sub_questions": [
+        {
+          "number": 1,
+          "score": 5,
+          "contents": [
+            {"type": "text", "value": "점 P의 좌표를 구하시오."}
+          ],
+          "choices": [],
+          "sub_questions": []
+        },
+        {
+          "number": 2,
+          "score": 5,
+          "contents": [
+            {"type": "text", "value": "점 P를 지나는 정비례 관계의 그래프가 나타내는 식을 구하시오."}
+          ],
+          "choices": [],
+          "sub_questions": []
+        }
+      ]
+    }
+  ]
+}

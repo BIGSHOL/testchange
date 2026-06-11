@@ -1,0 +1,96 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 1,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "다음 중 곱셈 기호와 나눗셈 기호를 생략하여 나타낸 것으로 옳은 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "2 \\div b \\times a = \\frac{2a}{b}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "a \\div b \\times 4 = \\frac{a}{4b}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "4 \\div a + b = \\frac{4}{a+b}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "a \\times a \\times (-2) = a^2-2"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "(-1) \\times x \\times y \\times x = -2xy"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 2,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "다음 중 옳지 __않은__ 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "2x와 \\frac{x}{3}은 동류항이다."}]},
+        {"number": 2, "contents": [{"type": "text", "value": "0 \\times x+3은 일차식이다."}]},
+        {"number": 3, "contents": [{"type": "text", "value": "2x^2-x+4의 항은 3개이다."}]},
+        {"number": 4, "contents": [{"type": "text", "value": "4x-5에서 상수항은 -5이다."}]},
+        {"number": 5, "contents": [{"type": "text", "value": "3x-2y에서 y의 계수는 -2이다."}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 3,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "다음 중 [ ] 안의 수가 방정식의 해가 __아닌__ 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "2x-1=1 \\quad [1]"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-(x-3)=3 \\quad [0]"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-3x+1=-5 \\quad [2]"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4-2x=3x+5 \\quad [-2]"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "2(x-2)=x-1 \\quad [3]"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 4,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "다음 중 옳은 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "(8x-4) \\div (-4) = -2x-1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "3(2-3x)+4(2x-1) = x+2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "(11x+4)-(-2x+7) = 9x-3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{1}{2}(-6x+8)-(9x-4) = -12x+8"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "-\\frac{5}{3}(12x-9)-\\frac{1}{4}(8x+12) = -22x-3"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 5,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "<보기>에서 항등식인 것만을 고른 것은?"},
+        {"type": "text", "value": "<보기> ㄱ. 2-3x=5 • ㄴ. 4x-1=3x • ㄷ. -5x+6=6-5x • ㄹ. 3(2x+1)=6x+1 • ㅁ. -3(x+1)+2=-3x-1"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ, ㄴ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄱ, ㄷ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄴ, ㄹ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄷ, ㄹ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄷ, ㅁ"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 6,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "a=4, b=-9일 때, 2a-\\frac{1}{3}ab의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-8"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-4"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "20"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}
