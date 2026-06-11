@@ -1,0 +1,151 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 1,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "다음 이차방정식 중 "},
+        {"type": "equation", "value": "x=1"},
+        {"type": "text", "value": "을 근으로 갖는 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "x^2+x=0"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "(x+1)^2=1"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "x^2-x+2=0"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "(x-1)^2=0"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "x^2+2x+1=0"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 2,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "이차방정식 "},
+        {"type": "equation", "value": "2x^2-10=0"},
+        {"type": "text", "value": "을 풀면?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "x=\\pm\\sqrt{5}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "x=\\pm\\sqrt{10}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "x=\\pm 2\\sqrt{5}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "x=-2\\pm\\sqrt{10}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "x=2\\pm\\sqrt{10}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 3,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "다음 이차방정식 중 중근을 갖는 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "2x^2=8"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "x^2=6x-9"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "x(x+8)=16"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "2x^2+x-3=0"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "(x+3)^2=9-6x"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 4,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "이차방정식 "},
+        {"type": "equation", "value": "(x+3)(x-2)=-6"},
+        {"type": "text", "value": "의 두 근이 "},
+        {"type": "equation", "value": "x=a"},
+        {"type": "text", "value": " 또는 "},
+        {"type": "equation", "value": "x=b"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "a-b"},
+        {"type": "text", "value": "의 값은? (단, "},
+        {"type": "equation", "value": "a>b"},
+        {"type": "text", "value": ")"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "1"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 5,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "다음은 이차방정식 "},
+        {"type": "equation", "value": "4x^2-12x+7=0"},
+        {"type": "text", "value": "을 푸는 과정이다."},
+        {"type": "text", "value": "<상자> 이차방정식 4x^2-12x+7=0에서 x^2의 계수가 1이 되도록 양변을 4로 나누고 좌변의 상수항을 우변으로 이항하면 x^2-3x=-\\frac{7}{4} • 위 식의 좌변을 완전제곱식으로 고치기 위해 양변에 \\boxed{가}를 더하면 x^2-3x+\\boxed{가}=\\frac{1}{2}, \\left(x-\\boxed{나}\\right)^2=\\frac{1}{2} • \\therefore x=\\frac{3\\pm\\boxed{다}}{2}"},
+        {"type": "text", "value": "이때 "},
+        {"type": "equation", "value": "\\boxed{가}"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\boxed{나}"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\boxed{다}"},
+        {"type": "text", "value": "에 알맞은 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [
+          {"type": "equation", "value": "\\frac{3}{2}"},
+          {"type": "text", "value": ", "},
+          {"type": "equation", "value": "\\frac{9}{4}"},
+          {"type": "text", "value": ", "},
+          {"type": "equation", "value": "\\sqrt{2}"}
+        ]},
+        {"number": 2, "contents": [
+          {"type": "equation", "value": "\\frac{3}{2}"},
+          {"type": "text", "value": ", "},
+          {"type": "equation", "value": "\\frac{9}{4}"},
+          {"type": "text", "value": ", "},
+          {"type": "equation", "value": "2\\sqrt{2}"}
+        ]},
+        {"number": 3, "contents": [
+          {"type": "equation", "value": "\\frac{9}{4}"},
+          {"type": "text", "value": ", "},
+          {"type": "equation", "value": "\\frac{3}{2}"},
+          {"type": "text", "value": ", "},
+          {"type": "equation", "value": "\\sqrt{2}"}
+        ]},
+        {"number": 4, "contents": [
+          {"type": "equation", "value": "\\frac{9}{4}"},
+          {"type": "text", "value": ", "},
+          {"type": "equation", "value": "\\frac{3}{2}"},
+          {"type": "text", "value": ", "},
+          {"type": "equation", "value": "2\\sqrt{2}"}
+        ]},
+        {"number": 5, "contents": [
+          {"type": "equation", "value": "\\frac{9}{4}"},
+          {"type": "text", "value": ", "},
+          {"type": "equation", "value": "\\frac{9}{4}"},
+          {"type": "text", "value": ", "},
+          {"type": "equation", "value": "\\sqrt{2}"}
+        ]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 6,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "이차방정식 "},
+        {"type": "equation", "value": "x^2+x-1=0"},
+        {"type": "text", "value": "을 풀면?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "x=-1\\pm\\sqrt{5}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "x=\\frac{-2\\pm\\sqrt{5}}{2}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "x=\\frac{-1\\pm\\sqrt{5}}{2}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "x=\\frac{1\\pm\\sqrt{5}}{2}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "x=1\\pm\\sqrt{5}"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

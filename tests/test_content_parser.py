@@ -176,6 +176,24 @@ def _check_wolam_box_fixes(fails):
             fails.append(f"  W5 박스머리 판정: {s!r} → {got} (기대 {want})")
 
 
+# J1~J2(장산중 중3 #5·#13, 2026-06-11): \therefore 명령 수식 포함 + 자모 라벨 한글 가드.
+def _check_jangsan_fixes(fails):
+    from core.content_parser import _split_latex_commands, _split_mixed_text_equation
+    from models.exam_document import ContentType as CT
+    # J1: \therefore 가 _LATEX_CMD_RE 에 없어 TEXT 로 남아 literal ₩therefore 렌더되던 회귀.
+    b = _split_latex_commands(r"양변을 정리하면 \therefore x=\frac{3\pm\boxed{다}}{2}")
+    eqs = [x.value or "" for x in b if x.type == CT.EQUATION]
+    txts = "".join(x.value or "" for x in b if x.type == CT.TEXT)
+    if "\\therefore" in txts or not any("\\therefore" in e and "\\frac" in e for e in eqs):
+        fails.append(f"  J1 therefore: {[(x.type.name, x.value) for x in b]!r}")
+    # J2: 자모 라벨(ㄷ.ㄹ.) 세그먼트 — 음절만 보는 한글 가드에 걸려 ASCII 수식이 평문 잔존.
+    b2 = _split_mixed_text_equation(" • ㄷ. y=4x^2+1 • ㄹ. y=-(x+1)^2-3")
+    eqs2 = [x.value or "" for x in b2 if x.type == CT.EQUATION]
+    txts2 = "".join(x.value or "" for x in b2 if x.type == CT.TEXT)
+    if "^" in txts2 or not any("4x^2" in e for e in eqs2) or not any("(x+1)^2" in e for e in eqs2):
+        fails.append(f"  J2 자모 가드: {[(x.type.name, x.value) for x in b2]!r}")
+
+
 def run():
     fails = []
     _check_comma_roots(fails)
@@ -183,6 +201,7 @@ def run():
     _check_korean_leak(fails)
     _check_box_polish(fails)
     _check_wolam_box_fixes(fails)
+    _check_jangsan_fixes(fails)
     for text, must in _SPACING_CASES:
         got = _render(text)
         if must not in got:
@@ -198,7 +217,7 @@ def run():
         print("FAIL test_content_parser:")
         print("\n".join(fails))
         return 1
-    print(f"OK test_content_parser ({len(_SPACING_CASES) + len(_SCORE_CASES) + 5} cases)")
+    print(f"OK test_content_parser ({len(_SPACING_CASES) + len(_SCORE_CASES) + 6} cases)")
     return 0
 
 

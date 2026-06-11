@@ -1,0 +1,120 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 7,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "이차방정식 "},
+        {"type": "equation", "value": "0.2x^2-0.8x+0.5=0"},
+        {"type": "text", "value": "의 두 근 사이의 정수 중 가장 큰 수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "6"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 8,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "나이가 4살 차이가 나는 형제가 있다. 형의 나이의 5배가 동생의 나이의 제곱보다 4만큼 작을 때, 동생의 나이는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "8세"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "9세"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "10세"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "11세"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "12세"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 9,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "이차방정식 "},
+        {"type": "equation", "value": "x^2+kx-k=1"},
+        {"type": "text", "value": "의 일차항의 계수와 상수항을 바꾸어 풀었더니 두 근의 비가 1:3일 때, 이때 처음 이차방정식의 두 근의 합은? (단, "},
+        {"type": "equation", "value": "k<1"},
+        {"type": "text", "value": "인 수)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-\\frac{4}{3}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-\\frac{1}{3}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{1}{3}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{4}{3}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 10,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "다음 그림과 같이 직사각형 "},
+        {"type": "equation", "value": "ABCD"},
+        {"type": "text", "value": " 안에 넓이가 같은 3개의 직사각형을 만들었다. 그림에 있는 모든 선분의 길이의 합은 "},
+        {"type": "equation", "value": "36\\mathrm{cm}"},
+        {"type": "text", "value": "이고 직사각형 "},
+        {"type": "equation", "value": "ABCD"},
+        {"type": "text", "value": "의 넓이가 "},
+        {"type": "equation", "value": "36\\mathrm{cm}^2"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\overline{AB}"},
+        {"type": "text", "value": "의 길이는?(단, "},
+        {"type": "equation", "value": "\\overline{AB}<\\overline{AD}"},
+        {"type": "text", "value": ")"},
+        {"type": "figure", "value": "직사각형 ABCD 그림 — A 좌상, D 우상, B 좌하 라벨. 내부 세로선 1개로 좌/우 분할, 우측 영역을 가로선 1개로 상/하 분할(넓이 같은 직사각형 3개)", "bbox": [0.25, 0.40, 0.75, 0.70]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "3\\mathrm{cm}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{7}{2}\\mathrm{cm}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "4\\mathrm{cm}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{9}{2}\\mathrm{cm}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5\\mathrm{cm}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 11,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "다음 중 이차함수인 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "y=3x+1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "y=x^2-x(x+1)"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "x^2-3x+2=0"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "y=\\frac{1}{x^2}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "y=2x^2+x-1"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 12,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "이차함수 "},
+        {"type": "equation", "value": "f(x)=2x^2+x+k"},
+        {"type": "text", "value": "에서 "},
+        {"type": "equation", "value": "f(1)=3"},
+        {"type": "text", "value": "일 때, 수 "},
+        {"type": "equation", "value": "k"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "2"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

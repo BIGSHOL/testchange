@@ -456,14 +456,15 @@ def _put_qbody(ses, h, contents, score, essay: bool = False) -> None:
     if prev_t == ContentType.EQUATION_BLOCK:   # 발문이 블록수식으로 끝남 → 배점 전 좌측복귀
         ses.break_para()
         ses.align_left()
-    # 박스 뒤 발문 연속(#18·#20)이 있으면 서술형 배점은 그 뒤로 미룬다(기본 경로와 동일).
+    # 박스 뒤 발문 연속(#18·#20)이 있으면 배점은 그 뒤로 미룬다(기본 경로와 동일).
+    # 객관식도 — 원본 인쇄는 의문문(post) 끝 "…것은? [4점]"(장산중 #5, 2026-06-11).
     _, tail_post = _split_tail_post(tail)
-    defer_essay_score = essay and bool(score) and bool(tail_post)
-    if score and not defer_essay_score:
+    defer_score = bool(score) and bool(tail_post)
+    if score and not defer_score:
         _put_score(ses, h, score, essay=essay)   # 객관식=발문 끝 인라인 / 서술형=우측정렬
     if tail:
         _put_tail(ses, h, tail)
-        if defer_essay_score:
+        if defer_score:
             _put_score(ses, h, score, essay=essay)
 
 

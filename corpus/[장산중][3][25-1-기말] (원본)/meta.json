@@ -1,0 +1,23 @@
+{
+  "status": "reviewed",
+  "source_pdf": "N:\\개인\\기출\\2025 기출모음\\2025년 1학기 기말고사 모음\\원본\\중3\\[장산중][3][25-1-기말][원본][화난모기] (1).pdf",
+  "reference_pdf": "N:\\개인\\기출\\2025 기출모음\\2025년 1학기 기말고사 모음\\pdf\\중3\\[장산중][3][25-1-기말][비상] (완료).PDF",
+  "ocr_engine": "claude-code-session (claude-fable-5)",
+  "crop_engine": "claude-code-session (claude-fable-5)",
+  "deterministic": false,
+  "created": "2026-06-11",
+  "reviewed": "2026-06-11",
+  "form": "[대수회][25년 폼지 최종(02.09)] (중3용) (빨강).hwp",
+  "review": "중3 두 번째 corpus(렌더 세션 검수). 25문항 전부 객관식(총점 100 합산 확인). 4회 렌더, 완료본(7쪽) 1:1 — 내용 결함 0. B형(렌더 코드) 4건 수정. A형(JSON 작성) 0건.",
+  "defects": {
+    "B-1(D1)": "#5 과정상자 안 \\therefore 가 literal '₩therefore' — content_parser _LATEX_CMD_RE 에 therefore/because 누락(매핑 자체는 latex_to_hwpeq 에 있음). 명령이 인라인 분리기에 안 잡혀 TEXT 로 남아 latex 변환을 못 거침. FIXED: _LATEX_CMD_RE 에 therefore|because 추가. 회귀: test_content_parser J1.",
+    "B-2(D2)": "#13 보기 박스 ㄷ·ㄹ 항목(y=4x^2+1·y=-(x+1)^2-3)이 평문 잔존(^ 캐럿 노출) — _split_mixed_text_equation 한글 가드가 음절(가-힣)만 검사해, 항목 라벨 ㄱㄴㄷㄹ(호환 자모 U+3131~318E)을 '한글 없음=분리 불필요'로 오판. FIXED: 가드에 ㄱ-ㆎ 포함. 회귀: test_content_parser J2.",
+    "B-3(D3)": "#24 그림 안내문구가 발문에 인라인 + 배점 [5점]이 노트 뒤로 밀림 — _tail_start 가 <보기> 머리에서 경계를 끊어 그 앞 그림(노트)이 발문에 잔류(발문→그림→보기 순서는 첫 사례). FIXED: 박스 머리 바로 앞의 IMAGE/EQUATION_BLOCK/그림노트 연속 run 을 tail 에 포함(walk-back). 회귀: test_render_fixes S(4 cases).",
+    "B-4(D4)": "#5 배점 [4점]이 발문 머리(박스 앞) 뒤에 찍혀 우측정렬 폴백까지 발화 — 원본·완료본은 박스 뒤 발문연속 끝 '이때 ㈎,㈏,㈐에 알맞은 것은? [4점]'에 인쇄. 과거 박스뒤 발문연속(tail_post) 배점 미루기가 서술형 전용이었음. FIXED: defer_score 를 전 문항(객관식 포함)으로 확장(기본·폼 두 경로). 무회귀 검증: 상인고 수1 #14(박스→'값은? [4점]')·완료본 #12 일치·중앙고 확통 #22(조건상자→'구간은? [4.2점]' 우측정렬) 재렌더 대조 — 전부 원본 인쇄와 일치(과거 발문머리 배점은 숨은 결함). 같은 패턴 corpus: 상인고 수1 #12·14·16, 중앙고 #22, 청구중 #3.",
+    "C-1": "#10·17·20·23·24·25 그림 → 안내문구(그림 자동삽입 미구현, 알려진 한계). #24는 발문→그림노트→<보기> 박스 순서 정상 배치.",
+    "단순화": "#5 선택지 ㈎㈏㈐ 3값 묶음(원본=열 머리글 표)·#14 선택지(원본=축의방정식/꼭짓점 2열 표)는 표준 선택지로 인코딩 — 폼 ① 앵커 카운팅 안전 위한 의도된 단순화(레이아웃 차이는 알려진 차이)."
+  },
+  "agreed_behavior_diffs": "객관식 3/단 빽빽배치(완료본=문항별 단) = 사용자 합의 '답란 여백 불필요'. #17·20·23·25 원본은 그림이 발문 오른쪽이나 렌더는 발문 아래(완료본도 '아래'로 고침, 알려진 차이).",
+  "regression_tests": "test_content_parser J1·J2(18 cases), test_render_fixes S(tail-note). verify_output_format 30·test_form_layout PASS. corpus_lint --json/--xml PASS(0 WARN). D4 영향 corpus(상인고 수1·중앙고) 재렌더 lint PASS + #14·#22 육안 무회귀.",
+  "note": "인쇄 결손 3건 400dpi+완료본 교차 확정: #3③ x(x+8)=16, #4① -3, #15③ y=2(x+1)²+3(원본 + 세로획 소실로 -3처럼 보임 — 완료본 따름). ⚠️ 원본 PDF 스캔 면 순서 섞임(PDF p2=시험 3면) → pages/ 시험 면 순서 재배열(p1=1~6, p2=7~12, p3=13~18, p4=19~22, p5=23~25), 크롭 키도 재배열 기준. #5 과정상자+빈칸 \\boxed{가나다}+박스 뒤 발문연속(박스 그룹화 패턴)."
+}

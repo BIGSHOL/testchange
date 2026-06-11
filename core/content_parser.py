@@ -710,8 +710,11 @@ def _split_mixed_text_equation(text: str) -> list[ContentBlock]:
             out.extend(_split_mixed_text_equation(text[_sm.end():]))
         return out
 
-    # 한글이 전혀 없으면 분리 불필요 (순수 텍스트거나 이미 수식)
-    if not re.search(r'[\uac00-\ud7a3]', text):
+    # 한글이 전혀 없으면 분리 불필요 (순수 텍스트거나 이미 수식).
+    # ⚠️ 음절(가-힣)만 보면 안 된다 — 보기 항목 라벨 ㄱㄴㄷㄹ 은 **호환 자모**(U+3131~318E)라
+    # 음절 검사에 안 걸려 'ㄷ. y=4x^2+1 • ㄹ. y=-(x+1)^2-3' 세그먼트가 통째 평문
+    # 잔존했다(장산중 #13 보기 박스, 2026-06-11). 자모 라벨 = 한글 혼합 텍스트.
+    if not re.search(r'[\uac00-\ud7a3\u3131-\u318e]', text):
         return [ContentBlock(type=ContentType.TEXT, value=text)]
 
     # 수식 후보가 없으면 분리 불필요
@@ -840,7 +843,7 @@ _LATEX_CMD_RE = re.compile(
     r'left|right|leq|geq|neq|infty|'
     r'alpha|beta|gamma|delta|epsilon|zeta|eta|theta|iota|kappa|'
     r'lambda|mu|nu|xi|pi|rho|sigma|tau|phi|chi|psi|omega|'
-    r'partial|nabla|forall|exists|'
+    r'partial|nabla|forall|exists|therefore|because|'   # ∴/∵ — 빠지면 literal ₩therefore(장산중 #5)
     r'dot|ddot|hat|bar|vec|tilde|overline|underline|'
     r'log|ln|sin|cos|tan|sec|csc|cot|'
     r'square|circ|triangle|angle|perp|parallel|'

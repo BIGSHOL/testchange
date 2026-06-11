@@ -249,7 +249,16 @@ def _tail_start(blocks: list[ContentBlock]) -> int | None:
                 return i - 1
             return i
         if b.type == ContentType.TEXT and _COND_HEADER_RE.search(b.value or ""):
-            return i
+            # 박스 머리 **바로 앞**에 매달린 그림(IMAGE)/블록수식/그림자리안내 연속 run 은
+            # tail 에 포함(합의 #3: 발문뒤 = 조건/보기 + 표 + 그림 + 블록수식). 안 그러면
+            # 그림(노트)이 발문에 인라인되고 배점이 노트 **뒤**로 밀린다(장산중 #24 —
+            # 발문→그림→<보기> 순서, 2026-06-11). 사이에 TEXT 가 끼면(문장 중간 그림) 중단.
+            j = i
+            while j > 0 and (blocks[j - 1].type in (ContentType.IMAGE,
+                                                    ContentType.EQUATION_BLOCK)
+                             or _is_figure_note(blocks[j - 1])):
+                j -= 1
+            return j
     # 2순위: 끝에 매달린 그림/블록수식/그림자리안내 연속 run 의 시작(문장 중간 블록은 제외).
     i = len(blocks)
     while i > 0 and (blocks[i - 1].type in (ContentType.IMAGE, ContentType.EQUATION_BLOCK)
@@ -742,10 +751,12 @@ class HwpComWriter:
             if total_num is None:
                 total_num = question.score
 
-        # 박스 뒤 발문 연속(#18·#20)이 있으면 서술형 배점은 그 발문 연속 **뒤**로 미룬다
-        # (박스 → "P(Y≤29)의 값을 … 구하시오" → [N점] 우측정렬 순서가 맞음).
+        # 박스 뒤 발문 연속(#18·#20)이 있으면 배점은 그 발문 연속 **뒤**로 미룬다
+        # (박스 → "P(Y≤29)의 값을 … 구하시오" → [N점] 순서). 서술형만이 아니라 **객관식도**
+        # — 원본·완료본 모두 배점은 의문문(post) 끝 "…것은? [4점]" 에 인쇄된다(장산중 #5
+        # 과정상자+㈎㈏㈐, 2026-06-11. 과거엔 발문 머리 뒤에 찍혀 우측정렬 폴백까지 발화).
         _, tail_post = _split_tail_post(tail)
-        defer_essay_score = is_essay and show_score and bool(tail_post)
+        defer_score = show_score and bool(tail_post)
 
         # 발문 — 첫 블록은 인라인(번호와 같은 줄), 발문 선두 수식 줄바꿈 방지(A7).
         # 발문 중간 독립 블록수식(EQUATION_BLOCK) 뒤 발문 연속은 좌측 새 줄로 복귀(#19).
@@ -762,7 +773,7 @@ class HwpComWriter:
             self.s.align_left()
         # 배점 — 객관식은 발문 끝 인라인. 서술형은 발문 끝 인라인 시도 후 줄 넘치면 우측정렬
         # (사용자 2026-06-09: 공간 충분하면 인라인, 없을 때만 줄바꿈 우측정렬).
-        if show_score and not defer_essay_score:
+        if show_score and not defer_score:
             if is_essay:
                 self._write_score_inline_or_right(question.score)
             else:
@@ -773,10 +784,13 @@ class HwpComWriter:
         # 뒤 영역: 그림/블록수식은 개별(가운데), 보기/조건은 1×1 테두리 표 박스 (A3)
         if tail:
             ended_box = self._write_tail(tail)
-            # 박스 뒤 발문 연속이 있던 서술형: 미뤘던 배점을 여기서(발문 연속 끝 인라인
-            # 시도 후 넘치면 우측정렬).
-            if defer_essay_score:
-                self._write_score_inline_or_right(question.score)
+            # 박스 뒤 발문 연속이 있던 문항: 미뤘던 배점을 여기서 — 서술형은 인라인 시도 후
+            # 넘치면 우측정렬, 객관식은 발문(post) 끝 인라인(합의 #2).
+            if defer_score:
+                if is_essay:
+                    self._write_score_inline_or_right(question.score)
+                else:
+                    self._write_score(question.score)
                 ended_box = False
             # 박스(표) 뒤 트레일링 단락이 이미 새 줄 → 선택지 사이 빈 줄 없음(사용자 2026-06-04).
             # 박스로 안 끝났으면(그림/블록수식) 선택지 전에 좌측 새 줄 확보.

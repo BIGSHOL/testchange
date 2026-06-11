@@ -1,0 +1,206 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 13,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "다음 <보기>의 이차함수 그래프 중 위로 볼록한 것을 모두 고르면?"},
+        {"type": "text", "value": "<보기> ㄱ. y=3x^2 • ㄴ. y=-\\frac{1}{2}x^2 • ㄷ. y=4x^2+1 • ㄹ. y=-(x+1)^2-3"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ, ㄴ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄱ, ㄷ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄱ, ㄹ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄴ, ㄷ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄴ, ㄹ"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 14,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "이차함수 "},
+        {"type": "equation", "value": "y=x^2+3"},
+        {"type": "text", "value": " 그래프의 축의 방정식과 꼭짓점의 좌표를 바르게 나타낸 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [
+          {"type": "equation", "value": "x=0"},
+          {"type": "text", "value": ", "},
+          {"type": "equation", "value": "(0, 3)"}
+        ]},
+        {"number": 2, "contents": [
+          {"type": "equation", "value": "x=0"},
+          {"type": "text", "value": ", "},
+          {"type": "equation", "value": "(3, 0)"}
+        ]},
+        {"number": 3, "contents": [
+          {"type": "equation", "value": "x=0"},
+          {"type": "text", "value": ", "},
+          {"type": "equation", "value": "(3, 3)"}
+        ]},
+        {"number": 4, "contents": [
+          {"type": "equation", "value": "x=3"},
+          {"type": "text", "value": ", "},
+          {"type": "equation", "value": "(0, 3)"}
+        ]},
+        {"number": 5, "contents": [
+          {"type": "equation", "value": "x=3"},
+          {"type": "text", "value": ", "},
+          {"type": "equation", "value": "(3, 0)"}
+        ]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 15,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "이차함수 "},
+        {"type": "equation", "value": "y=2x^2"},
+        {"type": "text", "value": "의 그래프를 "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "축의 방향으로 "},
+        {"type": "equation", "value": "1"},
+        {"type": "text", "value": "만큼, "},
+        {"type": "equation", "value": "y"},
+        {"type": "text", "value": "축의 방향으로 "},
+        {"type": "equation", "value": "3"},
+        {"type": "text", "value": "만큼 평행이동한 이차함수의 식은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "y=-2(x+1)^2-3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "y=-2(x-1)^2-3"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "y=2(x+1)^2+3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "y=2(x-1)^2+3"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "y=2(x-1)^2-3"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 16,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "이차함수 "},
+        {"type": "equation", "value": "y=ax^2"},
+        {"type": "text", "value": "의 그래프는 점 "},
+        {"type": "equation", "value": "(-2, b)"},
+        {"type": "text", "value": "를 지나고, 이차함수 "},
+        {"type": "equation", "value": "y=3x^2"},
+        {"type": "text", "value": "의 그래프와 "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "축에 서로 대칭이다. 이때 두 수 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "b"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [
+          {"type": "equation", "value": "a=-\\frac{1}{3}"},
+          {"type": "text", "value": ", "},
+          {"type": "equation", "value": "b=8"}
+        ]},
+        {"number": 2, "contents": [
+          {"type": "equation", "value": "a=-3"},
+          {"type": "text", "value": ", "},
+          {"type": "equation", "value": "b=-12"}
+        ]},
+        {"number": 3, "contents": [
+          {"type": "equation", "value": "a=3"},
+          {"type": "text", "value": ", "},
+          {"type": "equation", "value": "b=-12"}
+        ]},
+        {"number": 4, "contents": [
+          {"type": "equation", "value": "a=3"},
+          {"type": "text", "value": ", "},
+          {"type": "equation", "value": "b=12"}
+        ]},
+        {"number": 5, "contents": [
+          {"type": "equation", "value": "a=6"},
+          {"type": "text", "value": ", "},
+          {"type": "equation", "value": "b=8"}
+        ]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 17,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "오른쪽 그림에서 이차함수 "},
+        {"type": "equation", "value": "y=ax^2"},
+        {"type": "text", "value": "과 "},
+        {"type": "equation", "value": "y=dx^2"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "y=bx^2"},
+        {"type": "text", "value": "과 "},
+        {"type": "equation", "value": "y=cx^2"},
+        {"type": "text", "value": "의 그래프가 각각 "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "축에 대하여 서로 대칭일 때, 다음 중 옳은 것은? (단, "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "b"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "c"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "d"},
+        {"type": "text", "value": "는 수)"},
+        {"type": "figure", "value": "좌표평면 위 포물선 4개 — 위로 볼록 2개·아래로 볼록 2개. 아래로 볼록 안쪽 y=ax²(좌측 라벨)·바깥 y=bx²(우측 라벨), 위로 볼록 안쪽 y=dx²(좌측 라벨)·바깥 y=cx²(우측 라벨), 각 라벨 화살표, 원점 O", "bbox": [0.53, 0.03, 1.0, 0.52]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "ad>0"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "abcd<0"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "|b|>|d|"}]},
+        {"number": 4, "contents": [
+          {"type": "text", "value": "네 그래프의 축은 모두 "},
+          {"type": "equation", "value": "x"},
+          {"type": "text", "value": "축이다."}
+        ]},
+        {"number": 5, "contents": [
+          {"type": "equation", "value": "a"},
+          {"type": "text", "value": ", "},
+          {"type": "equation", "value": "b"},
+          {"type": "text", "value": ", "},
+          {"type": "equation", "value": "c"},
+          {"type": "text", "value": ", "},
+          {"type": "equation", "value": "d"},
+          {"type": "text", "value": " 중 가장 작은 값은 "},
+          {"type": "equation", "value": "d"},
+          {"type": "text", "value": "이다."}
+        ]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 18,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "이차함수 "},
+        {"type": "equation", "value": "y=a(x+b)^2+1"},
+        {"type": "text", "value": "의 그래프는 직선 "},
+        {"type": "equation", "value": "x=2"},
+        {"type": "text", "value": "를 축으로 하고, 점 "},
+        {"type": "equation", "value": "(3, -1)"},
+        {"type": "text", "value": "을 지난다. 이때 두 수 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "b"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "ab"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-4"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "6"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

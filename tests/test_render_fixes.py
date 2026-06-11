@@ -336,13 +336,31 @@ def run():
         r"(-2x+1)(-2x-1) = 4x^2-2x+1", r"(2x-y)(3x+2y) = 6x^2+xy-2y^2"])]
     chk(_ilc(_NS(choices=expansion)), "R5 긴 전개식 보기 → 1열 유지(중앙중 #5)")
 
+    # ── S: tail 경계 — 박스 머리 앞 그림/노트 run 포함 — 장산중 #24 (2026-06-11) ──
+    # 발문→그림(노트)→<보기> 순서에서 그림이 발문에 인라인되고 배점이 노트 뒤로 밀리던 회귀.
+    # 박스 머리 바로 앞의 그림자리안내/IMAGE/블록수식 연속 run 은 tail 에 포함돼야 한다.
+    from core.hwp_com_writer import _tail_start as _ts
+    note = _tb("※ 그림 자리 — 원본에서 이 영역을 캡처해 여기에 붙여넣으세요")
+    bogi = _tb("<보기> ㄱ. ")
+    s1 = [_tb("발문이다 (단, "), _eq("0<k<9"), _tb("인 수)"), note, bogi, _eq("a")]
+    chk(_ts(s1) == 3, f"S 박스 앞 노트 tail 포함: {_ts(s1)} (기대 3)")
+    img = ContentBlock(type=CT.IMAGE, value="x.png")
+    s2 = [_tb("발문이다."), img, bogi, _eq("a")]
+    chk(_ts(s2) == 1, f"S 박스 앞 IMAGE tail 포함: {_ts(s2)} (기대 1)")
+    # 문장 중간 노트(뒤에 발문 TEXT 계속)는 발문에 남고 tail 은 박스부터(기존 동작 보존).
+    s3 = [_tb("발문 앞"), note, _tb("발문 계속이다."), bogi, _eq("a")]
+    chk(_ts(s3) == 3, f"S 문장중간 노트 비포함: {_ts(s3)} (기대 3)")
+    # 박스 없는 끝 노트(2순위 경로) 기존 동작 유지.
+    s4 = [_tb("발문이다."), note]
+    chk(_ts(s4) == 1, f"S 끝 노트(2순위): {_ts(s4)} (기대 1)")
+
     if fails:
         print("FAIL test_render_fixes:")
         print("\n".join(fails))
         return 1
     print("OK test_render_fixes (cell/value-box/caption/shading/essay-label/overline/relabel/"
           "bigstar/boxed/labelless/solo/mixed-label/rm-space/cond-header/form-underline/"
-          "sqrt-space/choice-glyph)")
+          "sqrt-space/choice-glyph/tail-note)")
     return 0
 
 

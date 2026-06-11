@@ -1,0 +1,102 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 23,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "오른쪽 그림과 같이 이차함수 "},
+        {"type": "equation", "value": "y=3x^2"},
+        {"type": "text", "value": "의 그래프 위에 선분 "},
+        {"type": "equation", "value": "AB"},
+        {"type": "text", "value": "가 "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "축과 평행하도록 두 점 "},
+        {"type": "equation", "value": "A"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "B"},
+        {"type": "text", "value": "를 잡고, 이차함수 "},
+        {"type": "equation", "value": "y=ax^2"},
+        {"type": "text", "value": "("},
+        {"type": "equation", "value": "a<0"},
+        {"type": "text", "value": ")의 그래프 위에 "},
+        {"type": "equation", "value": "\\square ABCD"},
+        {"type": "text", "value": "가 사다리꼴이 되도록 두 점 "},
+        {"type": "equation", "value": "C"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "D"},
+        {"type": "text", "value": "를 잡으면 점 "},
+        {"type": "equation", "value": "A"},
+        {"type": "text", "value": "의 좌표는 "},
+        {"type": "equation", "value": "(-1, 3)"},
+        {"type": "text", "value": "이고, "},
+        {"type": "equation", "value": "\\overline{CD}=3\\overline{AB}"},
+        {"type": "text", "value": "이다. "},
+        {"type": "equation", "value": "\\square ABCD"},
+        {"type": "text", "value": "의 넓이가 36일 때, 수 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "의 값은?"},
+        {"type": "figure", "value": "두 포물선 그림 — 아래로 볼록 y=3x²(라벨) 위에 점 A(좌)·B(우), 위로 볼록 y=ax² 위에 점 D(좌)·C(우), 사다리꼴 ABCD, 원점 O", "bbox": [0.50, 0.02, 1.0, 0.58]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-\\frac{2}{3}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-\\frac{4}{9}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-\\frac{1}{3}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{1}{3}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{2}{3}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 24,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "다음 그림과 같이 직선 "},
+        {"type": "equation", "value": "y=k"},
+        {"type": "text", "value": "는 이차함수 "},
+        {"type": "equation", "value": "y=(x+4)^2"},
+        {"type": "text", "value": "의 그래프와 두 점 "},
+        {"type": "equation", "value": "A"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "B"},
+        {"type": "text", "value": "에서 만나고, 이차함수 "},
+        {"type": "equation", "value": "y=(x-3)^2"},
+        {"type": "text", "value": "의 그래프와 두 점 "},
+        {"type": "equation", "value": "C"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "D"},
+        {"type": "text", "value": "에서 만난다. 다음 <보기>에서 옳은 것을 모두 고르면? (단, "},
+        {"type": "equation", "value": "0<k<\\frac{49}{4}"},
+        {"type": "text", "value": "인 수)"},
+        {"type": "figure", "value": "두 포물선과 수평선 그림 — 왼쪽 포물선 y=(x+4)²(라벨), 오른쪽 포물선 y=(x-3)²(라벨), 수평 직선 y=k(우측 라벨)가 왼쪽 포물선과 A·B, 오른쪽 포물선과 C·D에서 교차, B와 C 사이 영역 색칠, 원점 O", "bbox": [0.05, 0.13, 0.97, 0.42]},
+        {"type": "text", "value": "<보기> ㄱ. \\overline{AC}>\\overline{BD} • ㄴ. k=1일 때, \\overline{BC}=5이다. • ㄷ. \\overline{AC}의 길이는 항상 7이다. • ㄹ. 색칠한 부분의 넓이는 14k이다. • ㅁ. 두 이차함수의 그래프는 점 \\left(-\\frac{1}{2}, \\frac{49}{4}\\right)에서 만난다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ, ㄷ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄴ, ㄷ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄱ, ㄴ, ㄹ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄱ, ㄹ, ㅁ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄴ, ㄷ, ㅁ"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 25,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "다음 그림은 이차함수 "},
+        {"type": "equation", "value": "y=ax^2+bx+c"},
+        {"type": "text", "value": "의 그래프이다. 이 함수에 대한 설명으로 옳은 것은?"},
+        {"type": "figure", "value": "위로 볼록한 포물선 — 축 x=1(꼭짓점에서 점선), x축과 -1과 0 사이·2와 3 사이에서 교차, x축 눈금 -1과 1, 원점 O", "bbox": [0.22, 0.20, 0.78, 0.68]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "bc<0"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2a-b=0"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "a-b+c<0"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "a+b+c<0"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "9a+3b+c>0"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}
