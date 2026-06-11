@@ -1,0 +1,178 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 13,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "이차함수 "},
+        {"type": "equation", "value": "y=-x^2+5"},
+        {"type": "text", "value": "의 그래프에 대한 설명으로 옳지 "},
+        {"type": "text", "value": "않은", "underline": true},
+        {"type": "text", "value": " 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "모든 사분면을 지난다."}]},
+        {"number": 2, "contents": [{"type": "text", "value": "축의 방정식은 "}, {"type": "equation", "value": "x=0"}, {"type": "text", "value": "이다."}]},
+        {"number": 3, "contents": [{"type": "text", "value": "꼭짓점의 좌표는 "}, {"type": "equation", "value": "(0, 5)"}, {"type": "text", "value": "이다."}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "y=-x^2"}, {"type": "text", "value": "의 그래프와 폭이 같다."}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "y=-x^2"}, {"type": "text", "value": "의 그래프를 "}, {"type": "equation", "value": "x"}, {"type": "text", "value": "축의 방향으로 5만큼 평행이동한 그래프이다."}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 14,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "이차함수 "},
+        {"type": "equation", "value": "y=-\\frac{2}{3}x^2"},
+        {"type": "text", "value": "의 그래프를 "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "축의 방향으로 3만큼 평행이동한 그래프에 대한 설명으로 옳은 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "축의 방정식은 "}, {"type": "equation", "value": "x=3"}, {"type": "text", "value": "이다."}]},
+        {"number": 2, "contents": [{"type": "text", "value": "제 4사분면만을 지난다."}]},
+        {"number": 3, "contents": [{"type": "text", "value": "꼭짓점의 좌표는 "}, {"type": "equation", "value": "(0, 3)"}, {"type": "text", "value": "이다."}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "x=0"}, {"type": "text", "value": "일 때 "}, {"type": "equation", "value": "y"}, {"type": "text", "value": "의 값은 양수이다."}]},
+        {"number": 5, "contents": [{"type": "text", "value": "그래프가 나타내는 식은 "}, {"type": "equation", "value": "y=-\\frac{2}{3}x^2+3"}, {"type": "text", "value": "이다."}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 15,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "이차함수 "},
+        {"type": "equation", "value": "y=\\frac{1}{5}x^2"},
+        {"type": "text", "value": "의 그래프를 "},
+        {"type": "equation", "value": "y"},
+        {"type": "text", "value": "축의 방향으로 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "만큼 평행이동하면 점 "},
+        {"type": "equation", "value": "(-5, 2)"},
+        {"type": "text", "value": "를 지나고, 꼭짓점의 좌표는 "},
+        {"type": "equation", "value": "(b, c)"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "a-b+c"},
+        {"type": "text", "value": "의 값은? (단, "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "b"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "c"},
+        {"type": "text", "value": "는 상수)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-14"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "14"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 16,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "이차함수 "},
+        {"type": "equation", "value": "y=-\\frac{1}{4}x^2"},
+        {"type": "text", "value": "의 그래프를 "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "축의 방향으로 "},
+        {"type": "equation", "value": "-1"},
+        {"type": "text", "value": "만큼 평행이동하면 점 "},
+        {"type": "equation", "value": "(-k, -1)"},
+        {"type": "text", "value": "을 지난다. 이때 "},
+        {"type": "equation", "value": "k"},
+        {"type": "text", "value": "의 값들의 곱은? (단, "},
+        {"type": "equation", "value": "k"},
+        {"type": "text", "value": "는 상수)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-15"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-8"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{3}{4}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 17,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "<보기>의 이차함수의 그래프에 관한 설명으로 옳지 "},
+        {"type": "text", "value": "않은", "underline": true},
+        {"type": "text", "value": " 것은?"},
+        {"type": "text", "value": "<보기> ㄱ. y=\\frac{1}{2}x^2 • ㄴ. y=-3x^2-2 • ㄷ. y=3x^2 • ㄹ. y=-\\frac{1}{5}(x+1)^2"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄴ, ㄷ의 그래프의 폭은 같다."}]},
+        {"number": 2, "contents": [{"type": "text", "value": "폭이 가장 넓은 그래프는 ㄹ이다."}]},
+        {"number": 3, "contents": [{"type": "text", "value": "위로 볼록한 그래프는 ㄴ, ㄹ이다."}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄴ, ㄷ의 그래프는 "}, {"type": "equation", "value": "x"}, {"type": "text", "value": "축에 대하여 대칭이다."}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "x>0"}, {"type": "text", "value": "일 때, "}, {"type": "equation", "value": "x"}, {"type": "text", "value": "값이 증가하면 "}, {"type": "equation", "value": "y"}, {"type": "text", "value": "의 값이 증가하는 그래프는 ㄱ, ㄷ이다."}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 18,
+      "score": 8,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 1] 이차방정식을 "},
+        {"type": "equation", "value": "0.1x^2+0.4x=4.5"},
+        {"type": "text", "value": "의 두 근 중 큰 근을 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "4x^2+3x-3=0"},
+        {"type": "text", "value": "의 두 근 중 작은 근을 "},
+        {"type": "equation", "value": "b"},
+        {"type": "text", "value": "라고 할 때, 다음 물음에 답하시오. (단, "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "b"},
+        {"type": "text", "value": "는 상수)"}
+      ],
+      "choices": [],
+      "sub_questions": [
+        {
+          "number": 1,
+          "score": 3,
+          "contents": [
+            {"type": "equation", "value": "0.1x^2+0.4x=4.5"},
+            {"type": "text", "value": "를 풀고 "},
+            {"type": "equation", "value": "a"},
+            {"type": "text", "value": "를 구하시오."}
+          ],
+          "choices": [],
+          "sub_questions": []
+        },
+        {
+          "number": 2,
+          "score": 3,
+          "contents": [
+            {"type": "equation", "value": "4x^2+3x-3=0"},
+            {"type": "text", "value": "을 풀고, "},
+            {"type": "equation", "value": "b"},
+            {"type": "text", "value": "를 구하시오."}
+          ],
+          "choices": [],
+          "sub_questions": []
+        },
+        {
+          "number": 3,
+          "score": 2,
+          "contents": [
+            {"type": "equation", "value": "a+8b"},
+            {"type": "text", "value": "의 값을 구하시오."}
+          ],
+          "choices": [],
+          "sub_questions": []
+        }
+      ]
+    }
+  ]
+}
