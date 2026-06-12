@@ -403,6 +403,29 @@ def _check_sangwon_go1_fixes(fails):
         fails.append("  SW2 기하 AB 로만 회귀(이탤릭으로 풀림)")
 
 
+def _check_daejin_go1_fixes(fails):
+    """대진고 공수1 — (1) #1 ``<상자> 4x-7 \\le …`` 관계연산자 명령 좌변 ASCII 흡수,
+    (2) #16 박스 ○ 불릿이 ASCII 수식에 흡수돼 항목 줄바꿈이 깨지던 회귀."""
+    CT = ContentType
+    # (1) 좌변 흡수 — 4x-7 이 평문으로 떨어지면 정자 렌더
+    doc = {"header": "", "questions": [{"number": 1, "contents": [
+        {"type": "text", "value": r"<상자> 4x-7 \le 7x-1 \le 3x+15"}]}]}
+    q = parse_ocr_response(doc, page_number=1).questions[0]
+    eqs = [b.value or "" for b in q.contents if b.type == CT.EQUATION]
+    if not any(e.startswith("4x-7") and "3x+15" in e for e in eqs):
+        fails.append(f"  DJ1 \\le 좌변 흡수 실패: {[(b.type.name, b.value) for b in q.contents]!r}")
+    # (2) ○ 불릿 분리 — 수식에 흡수되면 _BOX_BREAK_RE 가 줄을 못 끊음
+    doc2 = {"header": "", "questions": [{"number": 16, "contents": [
+        {"type": "text", "value": r"<상자> ○ |x|+2|y|+3|z|=11 ○ xyz \ne 0"}]}]}
+    q2 = parse_ocr_response(doc2, page_number=1).questions[0]
+    eqs2 = [b.value or "" for b in q2.contents if b.type == CT.EQUATION]
+    if any("○" in e for e in eqs2):
+        fails.append(f"  DJ1 ○ 불릿 수식 흡수: eqs={eqs2!r}")
+    txts2 = [b.value or "" for b in q2.contents if b.type == CT.TEXT]
+    if sum(t.count("○") for t in txts2) != 2:
+        fails.append(f"  DJ1 ○ 불릿 TEXT 분리 실패: txts={txts2!r}")
+
+
 def run():
     fails = []
     _check_comma_roots(fails)
@@ -417,6 +440,7 @@ def run():
     _check_seonggwang_fixes(fails)
     _check_sinmyeong_fixes(fails)
     _check_sangwon_go1_fixes(fails)
+    _check_daejin_go1_fixes(fails)
     for text, must in _SPACING_CASES:
         got = _render(text)
         if must not in got:
@@ -432,7 +456,7 @@ def run():
         print("FAIL test_content_parser:")
         print("\n".join(fails))
         return 1
-    print(f"OK test_content_parser ({len(_SPACING_CASES) + len(_SCORE_CASES) + 12} cases)")
+    print(f"OK test_content_parser ({len(_SPACING_CASES) + len(_SCORE_CASES) + 13} cases)")
     return 0
 
 

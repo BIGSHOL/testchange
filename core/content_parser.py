@@ -1440,12 +1440,22 @@ def _split_latex_commands(text: str) -> list[ContentBlock]:
         if not re.search(r"[가-힣ㄱ-ㆎ]", before) and re.search(r"[\^_=]", before):
             # 선행 불릿(• 등)은 박스 줄 경계라 **별도 TEXT** 로 떼어낸다 — 수식에 흡수되면
             # _write_box_content 의 _BOX_BREAK_RE 가 줄을 못 끊어 ``• B = …`` 가 앞 항목과
-            # 한 줄로 붙는다(경명여중 중2 #11 상자 A=…•B=…, 2026-06-11).
-            _bm = re.match(r"^\s*[•·▪◦]\s*", before)
+            # 한 줄로 붙는다(경명여중 중2 #11 상자 A=…•B=…, 2026-06-11). ○(흰 원, 표준화
+            # 불릿)도 동일 — 빠지면 ``○ |x|+…=11 ○`` 처럼 수식이 불릿째 흡수돼 박스 항목
+            # 줄바꿈이 깨진다(대진고 공수1 #16, 2026-06-12).
+            _bm = re.match(r"^\s*[•·▪◦○〇]\s*", before)
             if _bm:
                 blocks.append(ContentBlock(type=ContentType.TEXT, value=before[:_bm.end()]))
                 before = before[_bm.end():]
+            # 꼬리 불릿 = **다음 항목의 줄 경계** — 수식 꼬리에 남기지 말고 별도 TEXT 로.
+            _tm = re.search(r"\s*[•·▪◦○〇]\s*$", before)
+            _tail_bullet = None
+            if _tm and _tm.start() > 0:
+                _tail_bullet = before[_tm.start():]
+                before = before[:_tm.start()]
             blocks.append(ContentBlock(type=ContentType.EQUATION, value=before.strip()))
+            if _tail_bullet:
+                blocks.append(ContentBlock(type=ContentType.TEXT, value=_tail_bullet))
         else:
             # before 에 평문 함수꼴 수식(f(-x)=f(x) 등)이 있으면 살린다(#12 (가): OCR 이 일부
             # 조건을 LaTeX 없이 평문으로 줘 텍스트로 흘러가던 것 — 2026-06-08).
