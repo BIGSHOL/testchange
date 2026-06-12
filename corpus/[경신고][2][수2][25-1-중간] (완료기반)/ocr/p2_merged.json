@@ -1,0 +1,126 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 7,
+      "score": 4.8,
+      "contents": [
+        {"type": "text", "value": "최고차항의 계수가 "},
+        {"type": "equation", "value": "1"},
+        {"type": "text", "value": "인 삼차함수 "},
+        {"type": "equation", "value": "f(x)"},
+        {"type": "text", "value": "가 다음 조건을 만족 할 때, "},
+        {"type": "equation", "value": "f(1)"},
+        {"type": "text", "value": "의 값은?"},
+        {"type": "text", "value": "<상자> (가) 함수 \\(y=\\frac{x-2}{f(x)}\\)가 \\(x=t\\)에서 불연속인 \\(t\\)의 값은 \\(-1\\)과 \\(3\\)이다. • (나) \\(\\lim_{x\\to 3}\\frac{f(x)}{x-3}=16\\)이다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-8"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-4"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "8"}]}
+      ]
+    },
+    {
+      "number": 8,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "함수 "},
+        {"type": "equation", "value": "f(x)=x^2+2x+5"},
+        {"type": "text", "value": "와 닫힌구간 "},
+        {"type": "equation", "value": "[2,\\ 7]"},
+        {"type": "text", "value": "에 속하는 임의의 두 실수 "},
+        {"type": "equation", "value": "a,\\ b\\ (a<b)"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "\\frac{f(b)-f(a)}{b-a}=k"},
+        {"type": "text", "value": "를 만족시키는 모든 정수 "},
+        {"type": "equation", "value": "k"},
+        {"type": "text", "value": "의 개수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "11"}]}
+      ]
+    },
+    {
+      "number": 9,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "다항함수 "},
+        {"type": "equation", "value": "f(x)"},
+        {"type": "text", "value": "가 다음 조건을 만족시킬 때, "},
+        {"type": "equation", "value": "f(2)+a"},
+        {"type": "text", "value": "의 값은? (단, "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "는 상수)"},
+        {"type": "text", "value": "<상자> (가) \\(\\lim_{x\\to\\infty}\\frac{f(x)-ax^4}{x}=-6\\) • (나) \\(\\lim_{x\\to 1}\\frac{f(x)}{x-1}=3\\)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "18"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "24"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "30"}]}
+      ]
+    },
+    {
+      "number": 10,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "함수 "},
+        {"type": "equation", "value": "y=f(x)"},
+        {"type": "text", "value": "의 그래프가 다음과 같다. 닫힌구간 "},
+        {"type": "equation", "value": "[-2,\\ 2]"},
+        {"type": "text", "value": "에서 함수 "},
+        {"type": "equation", "value": "g(x)"},
+        {"type": "text", "value": "를 "},
+        {"type": "equation", "value": "g(x)=f(x+1)+f(-x)"},
+        {"type": "text", "value": "라 할 때, <보기>에서 옳은 것만을 있는 대로 고른 것은?"},
+        {"type": "figure", "value": "y=f(x) 그래프 — 기울기 -1인 평행 선분들이 (n,2)에서 (n+1,1)로 반복(n=-3~3). y=2 위 점: 홀수 x(-3,-1,1,3)는 채운 점·짝수 x(-2,0,2)는 빈 원, y=1 위 점: 짝수 x(-2,0,2,4)는 채운 점·홀수 x(-1,1,3)는 빈 원. y=1·y=2 수평 점선, 각 정수 x 수직 점선, x축 눈금 -2~4", "bbox": [0.55, 0.135, 0.92, 0.235]},
+        {"type": "text", "value": "<보기> ㄱ. \\(\\lim_{x\\to 0}g(x)\\)가 존재한다. • ㄴ. \\(\\lim_{x\\to 0-}f(f(x))=1\\)이다. • ㄷ. 함수 \\(g(x)\\)는 \\(x=0\\)에서 연속이다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄴ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄱ, ㄷ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄴ, ㄷ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄱ, ㄴ, ㄷ"}]}
+      ]
+    },
+    {
+      "number": 11,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "닫힌구간 "},
+        {"type": "equation", "value": "[-2,\\ 2]"},
+        {"type": "text", "value": "에서 정의된 함수 "},
+        {"type": "equation", "value": "y=f(x)"},
+        {"type": "text", "value": "의 그래프가 다음과 같다."},
+        {"type": "figure", "value": "닫힌구간 [-2,2]의 y=f(x) 그래프 — (-2,2) 채운 점에서 (0,-2) 빈 원까지 기울기 -2 직선(x축을 x=-1에서 교차), (0,2)에 고립된 채운 점(f(0)=2, (-2,2)와 수평 점선 연결, 라벨 2), 원점 빈 원에서 (2,3) 채운 점까지 기울기 3/2 직선(y=f(x) 라벨), y=3 점선·x=2 점선, (0,-2) 라벨 -2", "bbox": [0.55, 0.52, 0.92, 0.645]},
+        {"type": "text", "value": "닫힌구간 "},
+        {"type": "equation", "value": "[-2,\\ 2]"},
+        {"type": "text", "value": "에서 두 함수 "},
+        {"type": "equation", "value": "g(x)"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "h(x)"},
+        {"type": "text", "value": "가 "},
+        {"type": "equation", "value": "g(x)=f(x)-f(-x)"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "h(x)=|f(x)|+|f(-x)|"},
+        {"type": "text", "value": "일 때, <보기>에서 옳은 것만을 있는 대로 고른 것은?"},
+        {"type": "text", "value": "<보기> ㄱ. \\(\\lim_{x\\to 0}h(x)=2\\)이다. • ㄴ. \\(\\lim_{x\\to 0}g(x)=2\\)이다. • ㄷ. \\(\\lim_{x\\to 0}g(h(x)-2)=0\\)이다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄴ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄱ, ㄷ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄴ, ㄷ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄱ, ㄴ, ㄷ"}]}
+      ]
+    }
+  ]
+}
