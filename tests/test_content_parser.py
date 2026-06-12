@@ -303,6 +303,42 @@ def _check_sangwon_fixes(fails):
         fails.append(f"  M1 단서 문장 소실: texts={texts!r}")
 
 
+def _check_seonggwang_fixes(fails):
+    """성광중 중2 B형 2건 — (1) text 블록 전체가 단일 LaTeX 수식일 때 평문 강등 금지
+    (#12 선택지 '482\\mathrm{cm}' raw 누수), (2) 온도 단위 °C/°F 병합(#17 C 단독 이탤릭)."""
+    from core.latex_to_hwpeq import latex_to_hwpeq
+    CT = ContentType
+    # (1) #12 선택지: text "482\mathrm{cm}" → EQUATION(평문 강등 금지) → "482 rm`cm"(정자 단위)
+    doc = {"header": "", "questions": [{"number": 1, "contents": [{"type": "text", "value": "X"}],
+            "choices": [{"number": 1, "contents": [{"type": "text", "value": "482\\mathrm{cm}"}]}]}]}
+    ch = parse_ocr_response(doc, page_number=1).questions[0].choices[0]
+    eq = [b for b in ch.contents if b.type == CT.EQUATION]
+    if not eq:
+        fails.append(f"  SG1 단일수식 선택지 평문 강등(EQ 없음): {[(b.type.name, b.value) for b in ch.contents]!r}")
+    else:
+        hw = latex_to_hwpeq(eq[0].value)
+        if "mathrm" in hw or "₩" in hw:
+            fails.append(f"  SG1 선택지 단위 raw 누수: {hw!r}")
+        if "rm" not in hw or "cm" not in hw:
+            fails.append(f"  SG1 선택지 cm 단위 정자화 실패: {hw!r}")
+    # (2) #17 본문: "6°C씩" → EQ "6°\mathrm{C}" → "6°rm C"(C 정자), 단독 EQ "C"(이탤릭) 없음
+    q = _parse_q("물의 온도가 6°C씩 올라가고 20°C까지 데운다")
+    eqs = [b.value or "" for b in q.contents if b.type == CT.EQUATION]
+    if any(v.strip() == "C" for v in eqs):
+        fails.append(f"  SG2 °C 분리(단독 이탤릭 C 잔존): eqs={eqs!r}")
+    deg = [v for v in eqs if "°" in v]
+    if not deg or not all("mathrm{C}" in v for v in deg):
+        fails.append(f"  SG2 온도 단위 병합 실패: eqs={eqs!r}")
+    else:
+        hw = latex_to_hwpeq(deg[0])
+        if "rm" not in hw:
+            fails.append(f"  SG2 °C 정자화 실패: {hw!r}")
+    # 무회귀: 각도 45°(뒤가 C/F 아님)는 병합 안 함
+    q2 = _parse_q("∠A=45°이고 나머지를 구하라")
+    if any("mathrm{C}" in (b.value or "") for b in q2.contents):
+        fails.append("  SG2 각도 45° 오병합(°C 아닌데 병합)")
+
+
 def run():
     fails = []
     _check_comma_roots(fails)
@@ -314,6 +350,7 @@ def run():
     _check_ascii_leading_sign(fails)
     _check_saebon_fixes(fails)
     _check_sangwon_fixes(fails)
+    _check_seonggwang_fixes(fails)
     for text, must in _SPACING_CASES:
         got = _render(text)
         if must not in got:
@@ -329,7 +366,7 @@ def run():
         print("FAIL test_content_parser:")
         print("\n".join(fails))
         return 1
-    print(f"OK test_content_parser ({len(_SPACING_CASES) + len(_SCORE_CASES) + 9} cases)")
+    print(f"OK test_content_parser ({len(_SPACING_CASES) + len(_SCORE_CASES) + 10} cases)")
     return 0
 
 

@@ -168,6 +168,8 @@ def _parse_choice(choice_data: dict, parent_geo: bool = False) -> Choice | None:
     choice.contents = _merge_operator_split_equations(choice.contents)
     # text(꼬리부등식)·eq·text(머리부등식) 병합
     choice.contents = _merge_text_eq_fragments(choice.contents)
+    # 온도 단위 °C/°F (EQ+TEXT"°"+EQ"C") 한 수식 병합
+    choice.contents = _merge_degree_temp_units(choice.contents)
     # 부모(발문) 기하 문맥 + 선택지 자체 문맥. 셋(stat/point/nongeo)에 같은 게이트를 줘야
     # _romanize_point_names 가 만든 점 라벨을 _italicize_nongeo_single_letters 가 안 벗긴다.
     geo = parent_geo or _has_geometry_context(choice.contents)
@@ -285,6 +287,13 @@ def _parse_content_block(block_data: dict) -> ContentBlock | None:
         split = _split_latex_commands(value)
         if len(split) > 1:
             return split  # type: ignore[return-value]
+        # 텍스트 전체가 **단일 수식 하나**로 식별되면(예 OCR 이 단위 선택지를 text 로 준
+        # "482\mathrm{cm}") 평문 TEXT 로 강등하지 말고 그 수식 블록을 반환한다. 강등하면
+        # raw LaTeX(\mathrm)이 평문으로 새 "482₩mathrm{cm}" literal 렌더(성광중 #12 cm
+        # 단위). 본문 "1\mathrm{cm}인"은 위 len>1 로 이미 EQ+TEXT 통과 — 이 경로는 선택지
+        # 처럼 텍스트가 수식뿐일 때만. (split[0].type!=TEXT = 분리기가 수식으로 승격 확신.)
+        if len(split) == 1 and split[0].type != ContentType.TEXT:
+            return split[0]
 
     # 텍스트 블록에 수식 패턴이 섞여 있으면 분리
     if content_type == ContentType.TEXT:
@@ -488,6 +497,32 @@ def _is_operator_only(text: str) -> bool:
 # ``a_n+4(n=1,2,3⋯)`` 처럼 공백 없이 렌더된다(사용자 2026-06-10 #5). 앞 수식에 ``~``(HWP
 # 빈칸)로 병합해 한 수식+공백으로 — n 은 이탤릭 유지(평문화하면 정자됨).
 _PAREN_RANGE_RE = re.compile(r"^\(.*\)$")
+
+
+def _merge_degree_temp_units(blocks: list[ContentBlock]) -> list[ContentBlock]:
+    """온도 단위 ``°C``/``°F`` 병합 — 인라인 수식 분리가 ``6°C`` 를 EQ"6"+TEXT"°"+EQ"C"
+    로 쪼개 C 를 단독 이탤릭 변수로 만들고 사이에 공백까지 생기던 것(성광중 #17). ``°`` 직후
+    단일 대문자 C/F 는 온도 단위이므로 한 수식 ``6°\\mathrm{C}``(→ ``6°rm C``, C 정자)로 병합.
+    각도 ``45°``(뒤가 C/F 아님)·점 이름 C 는 무영향(strict 게이트)."""
+    eq_types = (ContentType.EQUATION, ContentType.EQUATION_BLOCK)
+    out: list[ContentBlock] = []
+    i = 0
+    while i < len(blocks):
+        b = blocks[i]
+        nxt = blocks[i + 1] if i + 1 < len(blocks) else None
+        nn = blocks[i + 2] if i + 2 < len(blocks) else None
+        if (b.type in eq_types and nxt is not None and nn is not None
+                and nxt.type == ContentType.TEXT and (nxt.value or "").strip() == "°"
+                and nn.type in eq_types and (nn.value or "").strip() in ("C", "F")):
+            unit = (nn.value or "").strip()
+            out.append(ContentBlock(
+                type=ContentType.EQUATION,
+                value=(b.value or "").rstrip() + "°\\mathrm{" + unit + "}"))
+            i += 3
+            continue
+        out.append(b)
+        i += 1
+    return out
 
 
 def _merge_paren_range(blocks: list[ContentBlock]) -> list[ContentBlock]:
@@ -1022,6 +1057,7 @@ def _finalize_contents(blocks: list[ContentBlock]) -> list[ContentBlock]:
     blocks = _split_comma_equations(blocks)         # 쉼표 구분 독립 수식 분리
     blocks = _merge_operator_split_equations(blocks)  # eq·연산자·eq 병합
     blocks = _merge_text_eq_fragments(blocks)       # text(꼬리부등식)·eq·text(머리부등식) 병합
+    blocks = _merge_degree_temp_units(blocks)       # 온도 단위 °C/°F (EQ+TEXT"°"+EQ"C") 한 수식 병합
     blocks = _merge_paren_range(blocks)             # 점화식 뒤 범위 (n=1,2,3⋯) 를 ~공백으로 병합
     # 배점 [N점] 제거를 **기하 판정 앞에** 둔다 — 점수의 "점"이 기하 키워드 "점"(point)과
     # 충돌해 비기하 문제를 기하로 오인(체스 #15 A·B 로만 잔존, 2026-06-09)하던 것 방지.

@@ -1,5 +1,20 @@
 {
-  "status": "ocr_done",
+  "status": "reviewed",
+  "review": {
+    "reviewed_date": "2026-06-12",
+    "method": "직접 비전 1:1 대조(원본 pages p1-p4 ↔ 렌더 PNG, 컬럼 확대). 캐시 렌더 API 0원, lint PASS. 백그라운드 선행 렌더 파이프라인.",
+    "content_defects": 0,
+    "A_type": 0,
+    "B_type": 2,
+    "B_fixes": [
+      "B-1(#12 선택지 cm 단위): OCR 이 단위 선택지를 text 타입('482\\mathrm{cm}')으로 주면, _split_latex_commands 가 **단일 EQUATION 하나**로 올바르게 식별해도 _parse_content_block 의 `len(split) > 1` 가드가 그 단일 수식을 버리고 평문 TEXT 로 강등 → raw LaTeX '482₩mathrm{cm}' literal 렌더. 본문 '1\\mathrm{cm}인'(EQ+TEXT 2개)은 통과했으나 선택지처럼 텍스트가 수식뿐이면 강등. 수정: 단일 split 결과가 비-TEXT(수식 승격)면 그 블록 반환(평문 강등 금지). CLAUDE 의 '단일 수식 블록 평문 강등 방지'와 동일 방향. 회귀 test_content_parser SG1.",
+      "B-2(#17 온도 단위 °C): 인라인 수식 분리가 '6°C' 를 EQ'6'+TEXT'°'+EQ'C' 로 쪼개 C 를 단독 이탤릭 변수로 만들고 사이 공백까지 생김(원본 '6°C' 정자 단위). 수정: _merge_degree_temp_units — ° 직후 단일 대문자 C/F 는 온도 단위이므로 EQ+TEXT'°'+EQ'C' 를 한 수식 '6°\\mathrm{C}'(→'6°rm C', C 정자)로 병합. 각도 45°(뒤가 C/F 아님)·점 이름 C 무영향(strict 게이트). 본문·선택지 두 경로. 회귀 test_content_parser SG2."
+    ],
+    "no_regression": "트리거 스캔(.testkit/_scan_triggers.py)으로 전 corpus 확인 — 단일수식 강등 트리거는 성광중 #12 단독, °C 트리거는 성광중 #17 단독(매천중 °C 는 figure 설명 내라 드롭, 무영향). test_content_parser 21·test_render_fixes·verify_output_format 30 PASS.",
+    "C_limits": "figure 4종(#7·#11·#12·#16·#18 안내문구) — figure 미지원 한계.",
+    "verified_normal": "보기 박스(#1 ㄱ~ㅁ·#11 ㄱ~ㅅ 7항목)·cases 연립(#5·#20)·분수(#4·#6·#8·#15)·overline(#8·#18 AB/CD)·점 로만(#16 ABC/OAD/O·#18 ABCD)·소수배점 17문항([3.1]~[4.2] 인라인)·서술형 [N점] 인라인(독립 서술형, 인라인-우선 합의)·#21 빈 표 작성형·정답면 [서술형 1~3]·홀수 패리티(5쪽)."
+  },
+  "status_was": "ocr_done",
   "source_pdf": "N:\\개인\\기출\\2025 기출모음\\2025년 1학기 기말고사 모음\\원본\\중2\\[성광중][2][25-1-기말] (원본) (간짬뽕).pdf",
   "reference_pdf": "N:\\개인\\기출\\2025 기출모음\\2025년 1학기 기말고사 모음\\pdf\\중2\\[성광중][2][25-1-기말][천재류] (완료).PDF",
   "form": "[대수회][25년 폼지 최종(01.09)] (중2용) (연두).hwp",
