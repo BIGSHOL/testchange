@@ -5,14 +5,57 @@
       "number": 1,
       "score": 3,
       "contents": [
-        {"type": "text", "value": "이차방정식인 것은?"}
+        {
+          "type": "text",
+          "value": "이차방정식인 것은?"
+        }
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "x^2-2x"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "x+1=x^2-x+5"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "2x+3=1"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{1}{x+1}=\\frac{2}{3}"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "2x^2=(x+1)(2x-1)"}]}
+        {
+          "number": 1,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "x^2-2x"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "x+1=x^2-x+5"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "2x+3=1"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "\\frac{1}{x+1}=\\frac{2}{3}"
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "2x^2=(x+1)(2x-1)"
+            }
+          ]
+        }
       ],
       "sub_questions": []
     },
@@ -20,20 +63,81 @@
       "number": 2,
       "score": 4,
       "contents": [
-        {"type": "text", "value": "이차방정식 "},
-        {"type": "equation", "value": "x^2-(a+1)x+3=0"},
-        {"type": "text", "value": "의 한 근이 "},
-        {"type": "equation", "value": "x=3"},
-        {"type": "text", "value": "일 때, "},
-        {"type": "equation", "value": "a"},
-        {"type": "text", "value": "의 값은?"}
+        {
+          "type": "text",
+          "value": "이차방정식 "
+        },
+        {
+          "type": "equation",
+          "value": "x^2-(a+1)x+3=0"
+        },
+        {
+          "type": "text",
+          "value": "의 한 근이 "
+        },
+        {
+          "type": "equation",
+          "value": "x=3"
+        },
+        {
+          "type": "text",
+          "value": "일 때, "
+        },
+        {
+          "type": "equation",
+          "value": "a"
+        },
+        {
+          "type": "text",
+          "value": "의 값은?"
+        }
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+        {
+          "number": 1,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "1"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "2"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "3"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "4"
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "5"
+            }
+          ]
+        }
       ],
       "sub_questions": []
     },
@@ -41,20 +145,81 @@
       "number": 3,
       "score": 4,
       "contents": [
-        {"type": "text", "value": "이차방정식 "},
-        {"type": "equation", "value": "x^2-(3a+1)x+3a=0"},
-        {"type": "text", "value": "의 두 근의 비가 2:3일 때, "},
-        {"type": "equation", "value": "a"},
-        {"type": "text", "value": "의 값은? (단, "},
-        {"type": "equation", "value": "3a>1"},
-        {"type": "text", "value": ")"}
+        {
+          "type": "text",
+          "value": "이차방정식 "
+        },
+        {
+          "type": "equation",
+          "value": "x^2-(3a+1)x+3a=0"
+        },
+        {
+          "type": "text",
+          "value": "의 두 해의 비가 2:3일 때, "
+        },
+        {
+          "type": "equation",
+          "value": "a"
+        },
+        {
+          "type": "text",
+          "value": "의 값은? (단, "
+        },
+        {
+          "type": "equation",
+          "value": "3a>1"
+        },
+        {
+          "type": "text",
+          "value": ")"
+        }
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{1}{2}"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "1"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{3}{2}"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "2"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{5}{2}"}]}
+        {
+          "number": 1,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "\\frac{1}{2}"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "1"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "\\frac{3}{2}"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "2"
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "\\frac{5}{2}"
+            }
+          ]
+        }
       ],
       "sub_questions": []
     },
@@ -62,26 +227,105 @@
       "number": 4,
       "score": 4,
       "contents": [
-        {"type": "text", "value": "이차방정식 "},
-        {"type": "equation", "value": "(x+a)^2=b"},
-        {"type": "text", "value": "의 해가 "},
-        {"type": "equation", "value": "x=-3\\pm\\sqrt{7}"},
-        {"type": "text", "value": "일 때, 두 수 "},
-        {"type": "equation", "value": "a"},
-        {"type": "text", "value": ", "},
-        {"type": "equation", "value": "b"},
-        {"type": "text", "value": "에 대하여 "},
-        {"type": "equation", "value": "a+b"},
-        {"type": "text", "value": "의 값은? (단, "},
-        {"type": "equation", "value": "b>0"},
-        {"type": "text", "value": ")"}
+        {
+          "type": "text",
+          "value": "이차방정식 "
+        },
+        {
+          "type": "equation",
+          "value": "(x+a)^2=b"
+        },
+        {
+          "type": "text",
+          "value": "의 해가 "
+        },
+        {
+          "type": "equation",
+          "value": "x=-3\\pm\\sqrt{7}"
+        },
+        {
+          "type": "text",
+          "value": "일 때, 두 수 "
+        },
+        {
+          "type": "equation",
+          "value": "a"
+        },
+        {
+          "type": "text",
+          "value": ", "
+        },
+        {
+          "type": "equation",
+          "value": "b"
+        },
+        {
+          "type": "text",
+          "value": "에 대하여 "
+        },
+        {
+          "type": "equation",
+          "value": "a+b"
+        },
+        {
+          "type": "text",
+          "value": "의 값은? (단, "
+        },
+        {
+          "type": "equation",
+          "value": "b>0"
+        },
+        {
+          "type": "text",
+          "value": ")"
+        }
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "2"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "5"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "6"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "8"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "10"}]}
+        {
+          "number": 1,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "2"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "4"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "6"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "8"
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "10"
+            }
+          ]
+        }
       ],
       "sub_questions": []
     },
@@ -89,22 +333,89 @@
       "number": 5,
       "score": 4,
       "contents": [
-        {"type": "text", "value": "어느 감귤 농장에서는 한 상자에 "},
-        {"type": "equation", "value": "1000\\mathrm{g}"},
-        {"type": "text", "value": "씩 포장하면 2400개의 상자를 채울 수 있는 양을 생산하였다고 한다. 한 상자에 "},
-        {"type": "equation", "value": "x\\mathrm{g}"},
-        {"type": "text", "value": "씩 더 넣으면 상자는 "},
-        {"type": "equation", "value": "2x"},
-        {"type": "text", "value": "개만큼 줄어든다고 할 때, "},
-        {"type": "equation", "value": "x"},
-        {"type": "text", "value": "의 값은? (단, 상자의 무게는 생각하지 않는다.)"}
+        {
+          "type": "text",
+          "value": "어느 감귤 농장에서는 한 상자에 "
+        },
+        {
+          "type": "equation",
+          "value": "1000\\mathrm{g}"
+        },
+        {
+          "type": "text",
+          "value": "씩 포장하면 2400개의 상자를 채울 수 있는 양을 생산하였다고 한다. 한 상자에 "
+        },
+        {
+          "type": "equation",
+          "value": "x\\mathrm{g}"
+        },
+        {
+          "type": "text",
+          "value": "씩 더 넣으면 상자는 "
+        },
+        {
+          "type": "equation",
+          "value": "2x"
+        },
+        {
+          "type": "text",
+          "value": "개만큼 줄어든다고 할 때, "
+        },
+        {
+          "type": "equation",
+          "value": "x"
+        },
+        {
+          "type": "text",
+          "value": "의 값은? (단, 상자의 무게는 생각하지 않는다.)"
+        }
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "50"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "100"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "150"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "200"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "250"}]}
+        {
+          "number": 1,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "50"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "100"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "150"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "200"
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "250"
+            }
+          ]
+        }
       ],
       "sub_questions": []
     },
@@ -112,39 +423,163 @@
       "number": 6,
       "score": 5,
       "contents": [
-        {"type": "text", "value": "그림은 한 변의 길이가 "},
-        {"type": "equation", "value": "10\\mathrm{cm}"},
-        {"type": "text", "value": "인 정사각형 "},
-        {"type": "equation", "value": "ABCD"},
-        {"type": "text", "value": "에서 "},
-        {"type": "equation", "value": "\\overline{AE}=\\overline{BF}=\\overline{CG}=\\overline{DH}"},
-        {"type": "text", "value": "가 되도록 네 점 "},
-        {"type": "equation", "value": "E"},
-        {"type": "text", "value": ", "},
-        {"type": "equation", "value": "F"},
-        {"type": "text", "value": ", "},
-        {"type": "equation", "value": "G"},
-        {"type": "text", "value": ", "},
-        {"type": "equation", "value": "H"},
-        {"type": "text", "value": "를 잡아 "},
-        {"type": "equation", "value": "\\square EFGH"},
-        {"type": "text", "value": "를 그린 것이다. "},
-        {"type": "equation", "value": "\\square EFGH"},
-        {"type": "text", "value": "는 한 변의 길이가 "},
-        {"type": "equation", "value": "8\\mathrm{cm}"},
-        {"type": "text", "value": "인 정사각형일 때, "},
-        {"type": "equation", "value": "\\overline{DH}"},
-        {"type": "text", "value": "의 길이는? (단, "},
-        {"type": "equation", "value": "\\overline{AH}<\\overline{DH}"},
-        {"type": "text", "value": ")"},
-        {"type": "figure", "value": "한 변 10cm인 정사각형 ABCD(A 왼쪽 위, D 오른쪽 위, C 오른쪽 아래, B 왼쪽 아래, 위 변에 10cm 표시). 네 변 위에 AE=BF=CG=DH가 되도록 점 E·F·G·H를 잡아 안쪽에 기울어진 정사각형 EFGH(한 변 8cm). AH<DH", "bbox": [0.56, 0.78, 0.95, 0.93]}
+        {
+          "type": "text",
+          "value": "그림은 한 변의 길이가 "
+        },
+        {
+          "type": "equation",
+          "value": "10\\mathrm{cm}"
+        },
+        {
+          "type": "text",
+          "value": "인 정사각형 "
+        },
+        {
+          "type": "equation",
+          "value": "ABCD"
+        },
+        {
+          "type": "text",
+          "value": "에서 "
+        },
+        {
+          "type": "equation",
+          "value": "\\overline{AE}=\\overline{BF}=\\overline{CG}=\\overline{DH}"
+        },
+        {
+          "type": "text",
+          "value": "가 되도록 네 점 "
+        },
+        {
+          "type": "equation",
+          "value": "E"
+        },
+        {
+          "type": "text",
+          "value": ", "
+        },
+        {
+          "type": "equation",
+          "value": "F"
+        },
+        {
+          "type": "text",
+          "value": ", "
+        },
+        {
+          "type": "equation",
+          "value": "G"
+        },
+        {
+          "type": "text",
+          "value": ", "
+        },
+        {
+          "type": "equation",
+          "value": "H"
+        },
+        {
+          "type": "text",
+          "value": "를 잡아 "
+        },
+        {
+          "type": "equation",
+          "value": "\\square EFGH"
+        },
+        {
+          "type": "text",
+          "value": "를 그린 것이다. "
+        },
+        {
+          "type": "equation",
+          "value": "\\square EFGH"
+        },
+        {
+          "type": "text",
+          "value": "는 한 변의 길이가 "
+        },
+        {
+          "type": "equation",
+          "value": "8\\mathrm{cm}"
+        },
+        {
+          "type": "text",
+          "value": "인 정사각형일 때, "
+        },
+        {
+          "type": "equation",
+          "value": "\\overline{DH}"
+        },
+        {
+          "type": "text",
+          "value": "의 길이는? (단, "
+        },
+        {
+          "type": "equation",
+          "value": "\\overline{AH}<\\overline{DH}"
+        },
+        {
+          "type": "text",
+          "value": ")"
+        },
+        {
+          "type": "figure",
+          "value": "한 변 10cm인 정사각형 ABCD(A 왼쪽 위, D 오른쪽 위, C 오른쪽 아래, B 왼쪽 아래, 위 변에 10cm 표시). 네 변 위에 AE=BF=CG=DH가 되도록 점 E·F·G·H를 잡아 안쪽에 기울어진 정사각형 EFGH(한 변 8cm). AH<DH",
+          "bbox": [
+            0.56,
+            0.78,
+            0.95,
+            0.93
+          ]
+        }
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "(3-\\sqrt{5})\\mathrm{cm}"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "(3+\\sqrt{5})\\mathrm{cm}"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "(5-\\sqrt{7})\\mathrm{cm}"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "(5+\\sqrt{7})\\mathrm{cm}"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "(7+\\sqrt{7})\\mathrm{cm}"}]}
+        {
+          "number": 1,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "(3-\\sqrt{5})\\mathrm{cm}"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "(3+\\sqrt{5})\\mathrm{cm}"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "(5-\\sqrt{7})\\mathrm{cm}"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "(5+\\sqrt{7})\\mathrm{cm}"
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "(7+\\sqrt{7})\\mathrm{cm}"
+            }
+          ]
+        }
       ],
       "sub_questions": []
     }
