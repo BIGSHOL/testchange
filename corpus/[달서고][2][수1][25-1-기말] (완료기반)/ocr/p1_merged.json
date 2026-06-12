@@ -1,0 +1,165 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 1,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "수열 "},
+        {"type": "equation", "value": "\\{a_n\\}"},
+        {"type": "text", "value": "의 일반항이 "},
+        {"type": "equation", "value": "a_n=\\frac{n}{n+1}"},
+        {"type": "text", "value": "일 때, 제5항의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{1}{2}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{2}{3}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{3}{4}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{4}{5}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{5}{6}"}]}
+      ]
+    },
+    {
+      "number": 2,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "다음 수열이 등차수열일 때, "},
+        {"type": "equation", "value": "x+y"},
+        {"type": "text", "value": "의 값은?"},
+        {"type": "text", "value": "<상자> \\(3,\\ x,\\ 15,\\ y,\\ 27,\\ \\cdots\\)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "28"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "30"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "32"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "34"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "36"}]}
+      ]
+    },
+    {
+      "number": 3,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "첫째항이 "},
+        {"type": "equation", "value": "\\frac{1}{8}"},
+        {"type": "text", "value": ", 공비가 2인 등비수열의 제4항의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{1}{4}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{1}{2}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "4"}]}
+      ]
+    },
+    {
+      "number": 4,
+      "score": 3.5,
+      "contents": [
+        {"type": "text", "value": "공비가 양수이고 "},
+        {"type": "equation", "value": "a_3=18"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "a_5=162"},
+        {"type": "text", "value": "인 등비수열 "},
+        {"type": "equation", "value": "\\{a_n\\}"},
+        {"type": "text", "value": "에 대하여 첫째항부터 제6항까지의 합은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "242"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "243"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "486"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "728"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "729"}]}
+      ]
+    },
+    {
+      "number": 5,
+      "score": 3.5,
+      "contents": [
+        {"type": "text", "value": "두 수열 "},
+        {"type": "equation", "value": "\\{a_n\\}"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\{b_n\\}"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "\\sum_{k=1}^{10} a_k=12"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\sum_{k=1}^{10} b_k=7"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\sum_{k=1}^{10}(3a_k-2b_k)"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "22"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "24"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "26"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "28"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "30"}]}
+      ]
+    },
+    {
+      "number": 6,
+      "score": 3.5,
+      "contents": [
+        {"type": "equation", "value": "a_1=2"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "a_{n+1}=2a_n+1\\ (n=1,\\ 2,\\ 3,\\ \\cdots)"},
+        {"type": "text", "value": "으로 정의된 수열 "},
+        {"type": "equation", "value": "\\{a_n\\}"},
+        {"type": "text", "value": "의 제4항은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "11"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "23"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "47"}]}
+      ]
+    },
+    {
+      "number": 7,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "함수 "},
+        {"type": "equation", "value": "f(x)=\\cos x"},
+        {"type": "text", "value": "에 대한 설명으로 옳지 __않은__ 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "f(0)=1"}]},
+        {"number": 2, "contents": [
+          {"type": "equation", "value": "y"},
+          {"type": "text", "value": "축에 대하여 대칭이다."}
+        ]},
+        {"number": 3, "contents": [
+          {"type": "text", "value": "주기가 "},
+          {"type": "equation", "value": "2\\pi"},
+          {"type": "text", "value": "인 주기함수이다."}
+        ]},
+        {"number": 4, "contents": [
+          {"type": "text", "value": "최댓값은 "},
+          {"type": "equation", "value": "1"},
+          {"type": "text", "value": ", 최솟값은 "},
+          {"type": "equation", "value": "-1"},
+          {"type": "text", "value": "이다."}
+        ]},
+        {"number": 5, "contents": [
+          {"type": "text", "value": "정의역과 치역은 모두 실수 전체의 집합이다."}
+        ]}
+      ]
+    },
+    {
+      "number": 8,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "다음 식의 값을 바르게 구한 것은?"},
+        {"type": "text", "value": "<상자> \\(3^2+4^2+5^2+\\cdots+15^2\\)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1225"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "1226"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "1235"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "1239"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "1240"}]}
+      ]
+    }
+  ]
+}

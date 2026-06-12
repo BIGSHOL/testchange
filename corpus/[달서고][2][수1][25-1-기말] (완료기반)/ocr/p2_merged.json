@@ -1,0 +1,106 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 9,
+      "score": 4,
+      "contents": [
+        {"type": "equation", "value": "0\\leq x<2\\pi"},
+        {"type": "text", "value": "에서 방정식 "},
+        {"type": "equation", "value": "\\sin x=\\frac{\\sqrt{3}}{2}"},
+        {"type": "text", "value": "의 두 실근이 "},
+        {"type": "equation", "value": "\\alpha"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\beta"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\beta-\\alpha"},
+        {"type": "text", "value": "의 값은? (단, "},
+        {"type": "equation", "value": "\\alpha<\\beta"},
+        {"type": "text", "value": ")"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{\\pi}{6}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{\\pi}{3}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{\\pi}{2}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{2}{3}\\pi"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\pi"}]}
+      ]
+    },
+    {
+      "number": 10,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "다음 식을 간단히 하면?"},
+        {"type": "text", "value": "<상자> \\(\\cos(\\pi+\\theta)+\\cos\\left(\\dfrac{\\pi}{2}+\\theta\\right)-\\sin\\left(\\dfrac{3}{2}\\pi+\\theta\\right)\\)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-\\sin\\theta"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-\\cos\\theta"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\sin\\theta"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\cos\\theta"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "-2\\sin\\theta+\\cos\\theta"}]}
+      ]
+    },
+    {
+      "number": 11,
+      "score": 4.5,
+      "contents": [
+        {"type": "text", "value": "반지름의 길이가 5인 원에 내접하는 삼각형 ABC의 둘레의 길이가 24일 때, "},
+        {"type": "equation", "value": "\\sin A+\\sin B+\\sin C"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{6}{5}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{8}{5}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{12}{5}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{24}{5}"}]}
+      ]
+    },
+    {
+      "number": 12,
+      "score": 4.5,
+      "contents": [
+        {"type": "text", "value": "삼각형 ABC에서 다음 등식이 성립할 때, 삼각형 ABC에 대한 설명으로 옳은 것은?"},
+        {"type": "text", "value": "<상자> \\(2\\sin A\\cos B=\\cos\\left(\\dfrac{A+B-C}{2}\\right)\\)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [
+          {"type": "equation", "value": "a=b"},
+          {"type": "text", "value": "인 이등변삼각형"}
+        ]},
+        {"number": 2, "contents": [
+          {"type": "equation", "value": "b=c"},
+          {"type": "text", "value": "인 이등변삼각형"}
+        ]},
+        {"number": 3, "contents": [
+          {"type": "equation", "value": "A=90^\\circ"},
+          {"type": "text", "value": "인 직각삼각형"}
+        ]},
+        {"number": 4, "contents": [
+          {"type": "equation", "value": "B=90^\\circ"},
+          {"type": "text", "value": "인 직각삼각형"}
+        ]},
+        {"number": 5, "contents": [
+          {"type": "equation", "value": "C=90^\\circ"},
+          {"type": "text", "value": "인 직각삼각형"}
+        ]}
+      ]
+    },
+    {
+      "number": 13,
+      "score": 4.5,
+      "contents": [
+        {"type": "text", "value": "다음 그림과 같이 한 변의 길이가 9인 정사각형을 첫 번째 시행에서 9등분하여 그 중 4개의 사각형을 제거한다. 두 번째 시행에서는 첫 번째 시행의 결과로 남은 5개의 정사각형을 각각 9등분하여 같은 방법으로 각각의 정사각형을 제거한다. 이와 같은 시행을 반복할 때, 10번째 시행 후 남은 도형의 넓이는?"},
+        {"type": "figure", "value": "세 그림이 화살표로 연결: ① 한 변 9(좌측 치수 표기)인 회색 정사각형 → ② 3×3 구획에서 4칸 제거된 체커보드 무늬(라벨 [첫 번째 시행]) → ③ 남은 5칸이 다시 잘게 9등분되어 같은 무늬가 반복된 그림(라벨 [두 번째 시행]) → 우측에 ⋯ 표시.", "bbox": [0.05, 0.55, 0.95, 0.80]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\left(\\frac{5}{9}\\right)^{10}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{5^{10}}{9^9}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{5^{10}}{9^8}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{405}{4}\\left\\{1-\\left(\\frac{5}{9}\\right)^9\\right\\}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{405}{4}\\left\\{1-\\left(\\frac{5}{9}\\right)^{10}\\right\\}"}]}
+      ]
+    }
+  ]
+}

@@ -1,0 +1,118 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 14,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "첫째항부터 제"},
+        {"type": "equation", "value": "n"},
+        {"type": "text", "value": "항까지의 합 "},
+        {"type": "equation", "value": "S_n"},
+        {"type": "text", "value": "이 "},
+        {"type": "equation", "value": "S_n=n^2+2n-2"},
+        {"type": "text", "value": "인 수열 "},
+        {"type": "equation", "value": "\\{a_n\\}"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "\\sum_{k=1}^{15}\\frac{1}{a_k a_{k+1}}"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{5}{33}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{7}{33}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{41}{165}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{44}{165}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{47}{165}"}]}
+      ]
+    },
+    {
+      "number": 15,
+      "score": 5.5,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 네 상수 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "b"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "c"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "d"},
+        {"type": "text", "value": "에 대하여 함수 "},
+        {"type": "equation", "value": "y=a\\sin(bx-c)+d"},
+        {"type": "text", "value": "가 "},
+        {"type": "equation", "value": "x=0"},
+        {"type": "text", "value": "에서 최솟값 "},
+        {"type": "equation", "value": "-2"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "x=\\pi"},
+        {"type": "text", "value": "에서 최댓값 "},
+        {"type": "equation", "value": "4"},
+        {"type": "text", "value": "를 가질 때, 네 상수 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "b"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "c"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "d"},
+        {"type": "text", "value": "의 곱 "},
+        {"type": "equation", "value": "abcd"},
+        {"type": "text", "value": "의 값은? (단, "},
+        {"type": "equation", "value": "a>0"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "b>0"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "0<c<2\\pi"},
+        {"type": "text", "value": ")"},
+        {"type": "figure", "value": "사인 곡선 그래프: x=0에서 최솟값 -2(아래 점선 y=-2), 이후 올라가 최댓값 4(위 점선 y=4)에 닿는 진동이 반복되며, x=π(점선 수직선·축에 π 라벨)에서 두 번째 최댓값 4. 0~π 사이에 약 1.5주기. 축 라벨 x·y, 원점 O, y축 눈금 4·-2.", "bbox": [0.18, 0.50, 0.85, 0.92]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\pi"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{3}{2}\\pi"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3\\pi"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{9}{2}\\pi"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "9\\pi"}]}
+      ]
+    },
+    {
+      "number": 16,
+      "score": 5.5,
+      "contents": [
+        {"type": "equation", "value": "0\\leq x<20"},
+        {"type": "text", "value": "에서 정의된 함수 "},
+        {"type": "equation", "value": "y=|10\\sin\\pi x-6|"},
+        {"type": "text", "value": "의 그래프가 직선 "},
+        {"type": "equation", "value": "y=k"},
+        {"type": "text", "value": "와 만나는 교점의 개수를 "},
+        {"type": "equation", "value": "a_k"},
+        {"type": "text", "value": "이라 할 때, "},
+        {"type": "equation", "value": "\\sum_{k=1}^{20} a_k"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "360"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "370"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "380"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "390"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "400"}]}
+      ]
+    },
+    {
+      "number": 17,
+      "score": 6,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 1] 첫째항이 "},
+        {"type": "equation", "value": "-50"},
+        {"type": "text", "value": "이고, 공차가 3인 등차수열에서 마지막으로 음수가 되는 항은 몇 번째 항인지 구하고, 이 등차수열의 첫째항부터 제"},
+        {"type": "equation", "value": "n"},
+        {"type": "text", "value": "항까지의 합을 "},
+        {"type": "equation", "value": "S_n"},
+        {"type": "text", "value": "이라고 할 때, "},
+        {"type": "equation", "value": "S_n"},
+        {"type": "text", "value": "의 최솟값을 구하시오."}
+      ],
+      "choices": []
+    }
+  ]
+}

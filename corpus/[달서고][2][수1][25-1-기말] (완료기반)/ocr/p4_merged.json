@@ -1,0 +1,69 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 18,
+      "score": 5,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 2] 세 수 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "a+8"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "40-a"},
+        {"type": "text", "value": "가 이 순서대로 등비수열을 이룰 때, 모든 실수 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "의 값을 구하시오."}
+      ],
+      "choices": []
+    },
+    {
+      "number": 19,
+      "score": 5,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 3] 200이하의 자연수 중에서 4로 나눈 나머지가 3인 수의 합을 구하시오."}
+      ],
+      "choices": []
+    },
+    {
+      "number": 20,
+      "score": 6,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 4] "},
+        {"type": "equation", "value": "0\\leq x<\\pi"},
+        {"type": "text", "value": "일 때, 다음 부등식을 푸시오."},
+        {"type": "text", "value": "<상자> \\(\\tan 2x<\\sqrt{3}\\)"}
+      ],
+      "choices": []
+    },
+    {
+      "number": 21,
+      "score": 6,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 5] 아래 그림과 같이 "},
+        {"type": "equation", "value": "\\overline{AB}=3"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{AC}=3\\sqrt{3}"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\angle B=60^\\circ"},
+        {"type": "text", "value": "인 평행사변형 ABCD의 넓이를 구하시오."},
+        {"type": "figure", "value": "평행사변형 ABCD: A 좌상·D 우상·B 좌하·C 우하(오른쪽으로 기울어진 형태). 대각선 AC가 그어져 있고 그 위에 3√3 라벨. 변 AB에 3 라벨(점선), B의 내각에 60° 표시. 꼭짓점 라벨 A·B·C·D.", "bbox": [0.20, 0.30, 0.75, 0.95]}
+      ],
+      "choices": []
+    },
+    {
+      "number": 22,
+      "score": 7,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 6] 다음 식의 값을 구하시오."},
+        {"type": "text", "value": "<상자> \\(1+(1+2)+\\left(1+2+2^2\\right)+\\cdots+\\left(1+2+2^2+\\cdots+2^9\\right)\\)"}
+      ],
+      "choices": []
+    }
+  ]
+}
