@@ -1,0 +1,114 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 7,
+      "score": 3.3,
+      "contents": [
+        {"type": "text", "value": "등차수열 "},
+        {"type": "equation", "value": "\\{a_n\\}"},
+        {"type": "text", "value": "에서 수열 "},
+        {"type": "equation", "value": "\\{a_n+a_{n+2}\\}"},
+        {"type": "text", "value": "는 첫째항이 "},
+        {"type": "equation", "value": "-6"},
+        {"type": "text", "value": ", 공차 "},
+        {"type": "equation", "value": "4"},
+        {"type": "text", "value": "인 등차수열이다. 수열 "},
+        {"type": "equation", "value": "\\{a_n\\}"},
+        {"type": "text", "value": "의 첫째항부터 제20항까지의 합은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "280"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "290"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "300"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "310"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "320"}]}
+      ]
+    },
+    {
+      "number": 8,
+      "score": 3.4,
+      "contents": [
+        {"type": "text", "value": "세 실수 "},
+        {"type": "equation", "value": "3,\\ x,\\ y"},
+        {"type": "text", "value": "가 이 순서대로 등비수열을 이루고 "},
+        {"type": "equation", "value": "\\log_x 3y+\\log_3 y=5"},
+        {"type": "text", "value": "를 만족시킨다. 이 때, "},
+        {"type": "equation", "value": "y-x"},
+        {"type": "text", "value": "의 값은? (단, "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "y"},
+        {"type": "text", "value": "는 상수)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "18"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "27"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "36"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "45"}]}
+      ]
+    },
+    {
+      "number": 9,
+      "score": 3.2,
+      "contents": [
+        {"type": "text", "value": "등비수열 "},
+        {"type": "equation", "value": "\\{a_n\\}"},
+        {"type": "text", "value": "에서 "},
+        {"type": "equation", "value": "a_1+a_2+a_3+\\cdots+a_{10}=5"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "a_{11}+a_{12}+a_{13}+\\cdots+a_{20}=20"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "a_{21}+a_{22}+a_{23}+\\cdots+a_{30}"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "65"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "80"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "95"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "105"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "120"}]}
+      ]
+    },
+    {
+      "number": 10,
+      "score": 3.3,
+      "contents": [
+        {"type": "equation", "value": "0\\leq x<2\\pi"},
+        {"type": "text", "value": "일 때, [보기]에서 옳은 것만을 있는 대로 고른 것은?"},
+        {"type": "text", "value": "<보기> ㄱ. 방정식 \\(\\sin x=\\cos x\\)의 서로 다른 모든 근의 합은 \\(\\frac{3}{2}\\pi\\)이다. • ㄴ. 방정식 \\(2\\cos 2x=\\sqrt{2}\\)의 서로 다른 모든 근의 합은 \\(4\\pi\\)이다. • ㄷ. 방정식 \\(\\sqrt{3}\\tan\\left(x+\\frac{\\pi}{6}\\right)=3\\)의 서로 다른 모든 근의 합은 \\(\\frac{5}{3}\\pi\\)이다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄱ, ㄴ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄱ, ㄷ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄴ, ㄷ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄱ, ㄴ, ㄷ"}]}
+      ]
+    },
+    {
+      "number": 11,
+      "score": 3,
+      "contents": [
+        {"type": "equation", "value": "a_1=2"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "a_2=5"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\left(S_{n+1}-S_{n-1}\\right)^2=4a_na_{n+1}+9\\ (n=2,\\ 3,\\ 4,\\ \\cdots)"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "a_{20}"},
+        {"type": "text", "value": "의 값은? (단, "},
+        {"type": "equation", "value": "a_1<a_2<a_3<\\cdots<a_n<\\cdots"},
+        {"type": "text", "value": ")"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "50"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "53"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "56"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "59"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "62"}]}
+      ]
+    }
+  ]
+}

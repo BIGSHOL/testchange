@@ -1,0 +1,137 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 17,
+      "score": 3.1,
+      "contents": [
+        {"type": "text", "value": "이차함수 "},
+        {"type": "equation", "value": "f(x)=ax^2+bx+c"},
+        {"type": "text", "value": "가 다음 세 조건을 만족시킨다."},
+        {"type": "text", "value": "<상자> 가. \\(f(0)=3\\) • 나. \\(a\\), \\(c\\), \\(b\\)가 이 순서대로 등비수열을 이룬다. • 다. \\(\\frac{1}{a}\\), \\(\\frac{1}{b}\\), \\(\\frac{1}{c}\\)이 이 순서대로 등차수열을 이룬다."},
+        {"type": "text", "value": "이 때, "},
+        {"type": "equation", "value": "f(x)"},
+        {"type": "text", "value": "는 "},
+        {"type": "equation", "value": "x=d"},
+        {"type": "text", "value": "에서 최댓값 "},
+        {"type": "equation", "value": "e"},
+        {"type": "text", "value": "를 가진다. "},
+        {"type": "equation", "value": "e-d"},
+        {"type": "text", "value": "의 값은? (단, "},
+        {"type": "equation", "value": "a<0"},
+        {"type": "text", "value": "인 상수이고 "},
+        {"type": "equation", "value": "b"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "c"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "d"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "e"},
+        {"type": "text", "value": "는 상수이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "11"}]}
+      ]
+    },
+    {
+      "number": 18,
+      "score": 3.9,
+      "contents": [
+        {"type": "text", "value": "방정식 "},
+        {"type": "equation", "value": "\\sin\\frac{\\pi}{2}x=\\frac{1}{11}x"},
+        {"type": "text", "value": "의 서로 다른 실근의 개수를 "},
+        {"type": "equation", "value": "p"},
+        {"type": "text", "value": ", 방정식 "},
+        {"type": "equation", "value": "\\cos\\pi t=\\sqrt{\\frac{|t|}{9}}"},
+        {"type": "text", "value": "의 서로 다른 실근의 개수를 "},
+        {"type": "equation", "value": "q"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "0\\leq\\theta<2\\pi"},
+        {"type": "text", "value": "일 때, 방정식 "},
+        {"type": "equation", "value": "\\tan\\theta+\\frac{\\sqrt{3}}{\\tan\\theta}=1+\\sqrt{3}"},
+        {"type": "text", "value": "을 만족시키는 서로 다른 실근의 개수를 "},
+        {"type": "equation", "value": "r"},
+        {"type": "text", "value": "이라 할 때, "},
+        {"type": "equation", "value": "p+q+r"},
+        {"type": "text", "value": "의 값은? (단, "},
+        {"type": "equation", "value": "p"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "q"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "r"},
+        {"type": "text", "value": "은 상수)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "31"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "33"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "35"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "37"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "39"}]}
+      ]
+    },
+    {
+      "number": 19,
+      "score": 4.2,
+      "contents": [
+        {"type": "text", "value": "다음 그림과 같이 반지름의 길이가 "},
+        {"type": "equation", "value": "\\sqrt{3}"},
+        {"type": "text", "value": "인 원에 내접하는 정삼각형 ABC가 있다. "},
+        {"type": "equation", "value": "\\angle BAC"},
+        {"type": "text", "value": "를 삼등분하는 직선 중 하나가 점 A를 포함하지 않는 호 BC와 만나는 점을 P라 할 때, "},
+        {"type": "equation", "value": "\\overline{PA}^2+\\overline{PB}^2+\\overline{PC}^2+\\overline{AB}^2"},
+        {"type": "text", "value": "의 값은?"},
+        {"type": "figure", "value": "원에 내접하는 정삼각형 ABC — A 상단, B 좌하, C 우하. 점 A를 포함하지 않는 호 BC 위(B와 C 사이 아래쪽)에 점 P, A에서 P로 선분(∠BAC 삼등분선)과 P에서 B·C로 선분 연결", "bbox": [0.55, 0.16, 0.85, 0.30]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "21"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "23"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "25"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "27"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "29"}]}
+      ]
+    },
+    {
+      "number": 20,
+      "score": 4.4,
+      "contents": [
+        {"type": "text", "value": "한 변의 길이가 "},
+        {"type": "equation", "value": "4"},
+        {"type": "text", "value": "인 그림과 같은 정사각형 ABCD에서 "},
+        {"type": "equation", "value": "\\overline{AD}"},
+        {"type": "text", "value": "를 "},
+        {"type": "equation", "value": "3:1"},
+        {"type": "text", "value": "로 내분하는 점을 E, "},
+        {"type": "equation", "value": "\\overline{CD}"},
+        {"type": "text", "value": "를 "},
+        {"type": "equation", "value": "3:1"},
+        {"type": "text", "value": "로 내분하는 점을 F, 삼각형 EBF의 넓이를 "},
+        {"type": "equation", "value": "S"},
+        {"type": "text", "value": ", 삼각형 EBF의 내접원의 반지름을 "},
+        {"type": "equation", "value": "r"},
+        {"type": "text", "value": ", 삼각형 EBF의 외접원의 반지름을 "},
+        {"type": "equation", "value": "R"},
+        {"type": "text", "value": "이라 할 때, "},
+        {"type": "equation", "value": "\\frac{rR}{S}=\\frac{p}{q+35\\sqrt{2}}"},
+        {"type": "text", "value": "이다. 두 자연수 "},
+        {"type": "equation", "value": "p"},
+        {"type": "text", "value": "와 "},
+        {"type": "equation", "value": "q"},
+        {"type": "text", "value": "의 합 "},
+        {"type": "equation", "value": "p+q"},
+        {"type": "text", "value": "의 값은?"},
+        {"type": "figure", "value": "정사각형 ABCD — A 좌상, D 우상, B 좌하, C 우하. 변 AD 위 D 쪽에 점 E, 변 CD 위 D 쪽에 점 F. B·E·F를 지나는 큰 원(삼각형 EBF의 외접원)과 E·F 부근 작은 원(내접원), 선분 BE·BF·EF 연결", "bbox": [0.52, 0.59, 0.88, 0.78]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "32"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "34"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "36"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "38"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "40"}]}
+      ]
+    }
+  ]
+}

@@ -1,0 +1,106 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 21,
+      "score": 11,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 1] 등차수열 "},
+        {"type": "equation", "value": "\\{a_n\\}"},
+        {"type": "text", "value": "에서 "},
+        {"type": "equation", "value": "a_3=-14"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "a_{15}=34"},
+        {"type": "text", "value": " 일 때, 다음 물음에 대한 풀이 과정과 답을 함께 쓰시오. [총 11점]"}
+      ],
+      "choices": [],
+      "sub_questions": [
+        {
+          "number": 1,
+          "score": 4,
+          "contents": [
+            {"type": "text", "value": "(1) 첫째항 "},
+            {"type": "equation", "value": "a"},
+            {"type": "text", "value": ", 공차 "},
+            {"type": "equation", "value": "d"},
+            {"type": "text", "value": "를 구하시오."}
+          ]
+        },
+        {
+          "number": 2,
+          "score": 3,
+          "contents": [
+            {"type": "text", "value": "(2) 일반항 "},
+            {"type": "equation", "value": "a_n"},
+            {"type": "text", "value": "을 구하시오."}
+          ]
+        },
+        {
+          "number": 3,
+          "score": 4,
+          "contents": [
+            {"type": "text", "value": "(3) "},
+            {"type": "equation", "value": "|a_1|+|a_2|+|a_3|+\\cdots+|a_{20}|"},
+            {"type": "text", "value": "의 값을 구하시오."}
+          ]
+        }
+      ]
+    },
+    {
+      "number": 22,
+      "score": 12,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 2] 제2항이 "},
+        {"type": "equation", "value": "3"},
+        {"type": "text", "value": ", 제5항이 "},
+        {"type": "equation", "value": "19"},
+        {"type": "text", "value": "인 등차수열 "},
+        {"type": "equation", "value": "\\{a_n\\}"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "\\sum_{n=1}^{20}\\frac{1}{a_{n+1}a_{n+2}}"},
+        {"type": "text", "value": "의 값을 구하는 풀이과정과 답을 함께 쓰시오."}
+      ],
+      "choices": []
+    },
+    {
+      "number": 23,
+      "score": 12,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 3] 다음 그림과 같이 한 변의 길이가 "},
+        {"type": "equation", "value": "6"},
+        {"type": "text", "value": "인 정육각형 ABCDEF에서 변 BC를 "},
+        {"type": "equation", "value": "1:2"},
+        {"type": "text", "value": "로 내분하는 점을 N, "},
+        {"type": "equation", "value": "\\angle DNC=\\theta"},
+        {"type": "text", "value": "라고 할 때, 다음 물음에 대한 풀이 과정과 답을 함께 쓰시오. [총 12점]"},
+        {"type": "figure", "value": "정육각형 ABCDEF — A 좌상, F 우상, B 좌, E 우, C 좌하, D 우하. 변 BC 위(B 쪽)에 점 N, N에서 D로 선분과 각 θ(∠DNC) 화살표 표시, 변 CD 아래에 길이 6 표시", "bbox": [0.55, 0.155, 0.85, 0.31]}
+      ],
+      "choices": [],
+      "sub_questions": [
+        {
+          "number": 1,
+          "score": 6,
+          "contents": [
+            {"type": "text", "value": "(1) "},
+            {"type": "equation", "value": "\\cos\\theta=\\frac{p}{q}\\sqrt{19}"},
+            {"type": "text", "value": "일 때, 서로소인 두 자연수 "},
+            {"type": "equation", "value": "p"},
+            {"type": "text", "value": "와 "},
+            {"type": "equation", "value": "q"},
+            {"type": "text", "value": "의 합을 구하시오."}
+          ]
+        },
+        {
+          "number": 2,
+          "score": 6,
+          "contents": [
+            {"type": "text", "value": "(2) 육각형 ABCDEF의 넓이를 구하시오."}
+          ]
+        }
+      ]
+    }
+  ]
+}
