@@ -1,0 +1,77 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 13,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "현진이는 일차함수 y=ax+b의 그래프를 기울기를 잘못 보고 두 점 (1, 4), (5, 8)을 지나도록 그렸고, 지혜는 y절편을 잘못 보고 두 점 (-2, -1), (2, 5)을 지나도록 그렸다. 일차함수 y=ax+b의 그래프가 점 (-3, k)를 지날 때, k의 값은? (단, a, b, k는 상수)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-\\frac{3}{2}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{1}{3}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{1}{2}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{4}{3}"}]}
+      ]
+    },
+    {
+      "number": 14,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "다음 중 일차함수의 그래프 ㉠∼㉤에 대한 설명으로 옳지 않은 것은?"},
+        {"type": "figure", "value": "좌표평면 — 원점 부근에서 뻗어 나가는 다섯 일차함수 직선 ㉠㉡㉢㉣㉤. ㉡·㉢은 좌상단(가파른 양·음 기울기), ㉣은 우상향 완만, ㉠은 좌측 완만 우상향, ㉤은 우하단(음 기울기). 축 라벨 x·y, 원점 O. 각 직선 끝에 원문자 라벨.", "bbox": [0.10, 0.42, 0.50, 0.97]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "x절편이 가장 큰 그래프는 ㉠이다."}]},
+        {"number": 2, "contents": [{"type": "text", "value": "기울기가 가장 큰 그래프는 ㉢이다."}]},
+        {"number": 3, "contents": [{"type": "text", "value": "y절편이 가장 작은 그래프는 ㉤이다."}]},
+        {"number": 4, "contents": [{"type": "text", "value": "기울기가 가장 작은 그래프는 ㉡이다."}]},
+        {"number": 5, "contents": [{"type": "text", "value": "x값이 증가할 때, y값도 증가하는 그래프는 2개이다."}]}
+      ]
+    },
+    {
+      "number": 15,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "두 점 (-1, 6), (3, -2)을 지나는 일차함수의 그래프의 기울기를 a, x절편을 b, y절편을 c라 할 때, abc의 값은? (단, a, b, c는 상수)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-25"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-16"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "18"}]}
+      ]
+    },
+    {
+      "number": 16,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "일차함수 y=-3x+4의 그래프를 y축의 방향으로 k만큼 평행이동하면 점 (1, 3)을 지난다고 할 때, 상수 k의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "3"}]}
+      ]
+    },
+    {
+      "number": 17,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "밑면의 반지름의 길이가 12\\mathrm{cm}이고 높이가 10\\mathrm{cm}인 원기둥과 원뿔 모양의 물통에 각각 물이 가득 들어 있다. 원기둥 모양의 물통에서는 매초 15\\pi \\mathrm{cm}^3씩, 원뿔 모양의 물통에서는 매초 7\\pi \\mathrm{cm}^3씩 동시에 물을 내보낼 때, 물을 내보내기 시작한 지 x초 후에 두 물통에 들어있는 물의 양의 차를 y\\mathrm{cm}^3라고 하자. 물을 내보내기 시작한 지 몇 초 후에 두 물통에 남아 있는 물의 양이 같아지는가?"},
+        {"type": "figure", "value": "두 입체도형 — 왼쪽 원기둥(밑면 반지름 12cm, 높이 10cm), 오른쪽 원뿔(밑면 반지름 12cm, 높이 10cm). 각 도형에 반지름 12cm·높이 10cm 치수가 점선/실선으로 표기. 물이 가득 찬 상태.", "bbox": [0.10, 0.45, 0.55, 0.80]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "55초"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "60초"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "70초"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "95초"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "120초"}]}
+      ]
+    }
+  ]
+}
