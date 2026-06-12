@@ -1,0 +1,128 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 17,
+      "score": 5,
+      "label_type": "서답형",
+      "contents": [
+        {"type": "text", "value": "[서답형 1] 함수 "},
+        {"type": "equation", "value": "f(x)"},
+        {"type": "text", "value": "가 "},
+        {"type": "equation", "value": "\\lim_{x\\to a}\\frac{f(x-a)}{x-a}=1"},
+        {"type": "text", "value": "을 만족시킬 때, "},
+        {"type": "equation", "value": "\\lim_{x\\to 0}\\frac{x+3f(x)}{4x^2+2f(x)}"},
+        {"type": "text", "value": "의 값을 구하고 그 풀이 과정을 서술하시오."}
+      ],
+      "choices": []
+    },
+    {
+      "number": 18,
+      "score": 6,
+      "label_type": "서답형",
+      "contents": [
+        {"type": "text", "value": "[서답형 2] 다항함수 "},
+        {"type": "equation", "value": "f(x)"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "f(3)=2,\\ f'(3)=-1"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\lim_{x\\to 3}\\frac{x^2f(3)-9f(x)}{x-3}"},
+        {"type": "text", "value": "의 값을 구하고 그 풀이 과정을 서술하시오."}
+      ],
+      "choices": []
+    },
+    {
+      "number": 19,
+      "score": 6,
+      "label_type": "서답형",
+      "contents": [
+        {"type": "text", "value": "[서답형 3] 모든 실수 "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "에서 연속인 함수 "},
+        {"type": "equation", "value": "f(x)"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "(x+1)f(x)=ax^3+bx,\\ f(2)=4"},
+        {"type": "text", "value": "를 만족시킬 때, "},
+        {"type": "equation", "value": "f(-1)"},
+        {"type": "text", "value": "의 값을 구하고 그 풀이 과정을 서술하시오."}
+      ],
+      "choices": []
+    },
+    {
+      "number": 20,
+      "score": 6,
+      "label_type": "서답형",
+      "contents": [
+        {"type": "text", "value": "[서답형 4] 곡선 "},
+        {"type": "equation", "value": "y=-x^2+4"},
+        {"type": "text", "value": " 위의 두 점 "},
+        {"type": "equation", "value": "A(0,\\ 4),\\ B(2,\\ 0)"},
+        {"type": "text", "value": "에 대하여 곡선 위의 점 "},
+        {"type": "equation", "value": "P"},
+        {"type": "text", "value": "에서의 접선이 직선 "},
+        {"type": "equation", "value": "AB"},
+        {"type": "text", "value": "와 평행하다. 다음을 구하고 그 풀이 과정을 서술하시오. (단, "},
+        {"type": "equation", "value": "O"},
+        {"type": "text", "value": "는 원점이다.)"}
+      ],
+      "choices": [],
+      "sub_questions": [
+        {
+          "number": 1,
+          "score": 3,
+          "contents": [
+            {"type": "text", "value": "점 "},
+            {"type": "equation", "value": "P"},
+            {"type": "text", "value": "의 좌표를 구하시오."}
+          ]
+        },
+        {
+          "number": 2,
+          "score": 3,
+          "contents": [
+            {"type": "text", "value": "사각형 "},
+            {"type": "equation", "value": "OPAB"},
+            {"type": "text", "value": "의 넓이를 구하시오."}
+          ]
+        }
+      ]
+    },
+    {
+      "number": 21,
+      "score": 6,
+      "label_type": "서답형",
+      "contents": [
+        {"type": "text", "value": "[서답형 5] 두 직선 "},
+        {"type": "equation", "value": "y=kx-3"},
+        {"type": "text", "value": "과 "},
+        {"type": "equation", "value": "y=3"},
+        {"type": "text", "value": "이 구간 "},
+        {"type": "equation", "value": "(1,\\ 2)"},
+        {"type": "text", "value": "에서 교점을 갖도록 하는 실수 "},
+        {"type": "equation", "value": "k"},
+        {"type": "text", "value": "의 값의 범위가 "},
+        {"type": "equation", "value": "\\alpha<k<\\beta"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\alpha+\\beta"},
+        {"type": "text", "value": "의 값을 구하고 그 풀이 과정을 서술하시오."}
+      ],
+      "choices": []
+    },
+    {
+      "number": 22,
+      "score": 6,
+      "label_type": "서답형",
+      "contents": [
+        {"type": "text", "value": "[서답형 6] 최고차항의 계수가 "},
+        {"type": "equation", "value": "1"},
+        {"type": "text", "value": "인 이차함수 "},
+        {"type": "equation", "value": "f(x)"},
+        {"type": "text", "value": "가 다음 조건을 만족시킬 때, "},
+        {"type": "equation", "value": "f(-1)"},
+        {"type": "text", "value": "의 값을 구하고 그 풀이 과정을 서술하시오."},
+        {"type": "text", "value": "<상자> (가) 함수 \\(y=f(x)\\)는 \\(x\\)축에 접한다. • (나) 함수 \\(g(x)=(x-5)f'(x)\\)에 대하여 곡선 \\(y=g(x)\\)는 \\(y\\)축에 대하여 대칭이다."}
+      ],
+      "choices": []
+    }
+  ]
+}
