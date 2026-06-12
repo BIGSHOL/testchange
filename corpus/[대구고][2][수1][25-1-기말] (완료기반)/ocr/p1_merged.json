@@ -1,0 +1,88 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 1,
+      "score": 3.3,
+      "contents": [
+        {"type": "text", "value": "제4항이 11, 제8항이 23인 등차수열 "},
+        {"type": "equation", "value": "\\{a_n\\}"},
+        {"type": "text", "value": "의 제13항은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "36"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "37"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "38"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "39"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "40"}]}
+      ]
+    },
+    {
+      "number": 2,
+      "score": 3.4,
+      "contents": [
+        {"type": "text", "value": "서로 다른 세 실수 a, b, 8이 순서대로 등차수열이고, b, a, 8이 순서대로 등비수열일 때, a+b의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-4"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "8"}]}
+      ]
+    },
+    {
+      "number": 3,
+      "score": 3.4,
+      "contents": [
+        {"type": "text", "value": "모든 항이 양수인 등비수열 "},
+        {"type": "equation", "value": "\\{a_n\\}"},
+        {"type": "text", "value": "에서 "},
+        {"type": "equation", "value": "\\frac{a_1 a_2}{a_3}=2, \\quad \\frac{2a_2}{a_1}+\\frac{a_4}{a_2}=15"},
+        {"type": "text", "value": "일 때, 제5항은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "480"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "482"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "484"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "486"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "488"}]}
+      ]
+    },
+    {
+      "number": 4,
+      "score": 3.5,
+      "contents": [
+        {"type": "text", "value": "반지름의 길이가 4인 원에 내접하는 삼각형 ABC에서 "},
+        {"type": "equation", "value": "\\sin A+\\sin B+\\sin C=\\frac{7}{4}"},
+        {"type": "text", "value": "일 때, 삼각형 ABC의 둘레의 길이는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "11"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "13"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "14"}]}
+      ]
+    },
+    {
+      "number": 5,
+      "score": 3.5,
+      "contents": [
+        {"type": "text", "value": "함수 "},
+        {"type": "equation", "value": "y=a\\cos(bx+c)"},
+        {"type": "text", "value": "의 그래프가 그림과 같을 때, abc의 값은? (단, a, b, c는 상수이고, "},
+        {"type": "equation", "value": "a>0, b>0, 0<c<\\frac{\\pi}{2}"},
+        {"type": "text", "value": "이다.)"},
+        {"type": "figure", "value": "y=a cos(bx+c)의 그래프. 진폭 a=2(최댓값 2·최솟값 -2, 점선으로 ±2 표시). y절편 (0, √3)을 지난다(y축에 √3 표시). 극대점이 x=11/24 π, x=23/24 π에 위치. 원점 O, 축 라벨 x·y, 그래프 라벨 y=a cos(bx+c).", "bbox": [0.18, 0.50, 0.78, 0.68]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{\\pi}{3}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{\\pi}{2}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{4}{3}\\pi"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "2\\pi"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{8}{3}\\pi"}]}
+      ]
+    }
+  ]
+}
