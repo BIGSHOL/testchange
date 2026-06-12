@@ -1,5 +1,9 @@
 # 고2 수1(수학Ⅰ) corpus OCR 대기열 (세션 분리 운영 — 2026-06-12)
 
+> **⛔ 수1 OCR 마감(2026-06-12, 사용자 판단)** — 신규 9개교(reviewed 2+ocr_done 7)+기존 2
+> = 11개교로 충분. 신규 생산은 **`QUEUE_고2수2.md`(수2, 1학기 중간 완료본)** 로 전환.
+> 렌더 세션의 잔여 ocr_done 7건 검수는 계속 진행.
+
 > 운영 규약은 `corpus/QUEUE_중1.md`·`QUEUE_중2.md` 머리말과 동일 — OCR 세션이 0~4단계 후
 > `meta.json` `"status": "ocr_done"` 으로 핸드오프, 렌더 세션이 5~9단계 후 `"reviewed"`.
 > 절차·규약은 `corpus/REVIEW_PROTOCOL.md`.
