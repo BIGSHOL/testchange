@@ -1,0 +1,95 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 1,
+      "score": 3.3,
+      "contents": [
+        {"type": "text", "value": "남학생 3명, 여학생 5명이 있다. 이 8명의 학생 중에서 1명을 택하는 방법의 수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "9"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 2,
+      "score": 3.3,
+      "contents": [
+        {"type": "text", "value": "두 이차정사각행렬 A=\\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\end{pmatrix}, B=\\begin{pmatrix} 2 & 2 \\\\ 2 & 2 \\end{pmatrix}에 대하여 A-B=\\begin{pmatrix} a & 0 \\\\ 1 & 2 \\end{pmatrix} 를 만족한다. 상수 a의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "2"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 3,
+      "score": 3.3,
+      "contents": [
+        {"type": "text", "value": "한 개의 주사위를 두 번 던져서 나오는 눈의 수를 차례로 a, b라 하자. ab가 홀수가 되는 경우의 수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "11"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "13"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 4,
+      "score": 3.4,
+      "contents": [
+        {"type": "text", "value": "{}_{4}\\mathrm{P}_{2}+{}_{5}\\mathrm{C}_{3}의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "18"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "19"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "20"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "21"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "22"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 5,
+      "score": 3.4,
+      "contents": [
+        {"type": "text", "value": "부등식 |3x-5|<4 의 해가 a<x<b일 때, a+b의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{10}{3}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{11}{3}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{13}{3}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{14}{3}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 6,
+      "score": 3.5,
+      "contents": [
+        {"type": "text", "value": "행렬 A=\\begin{pmatrix} -1 & 1 \\\\ 3 & 0 \\\\ 0 & 1 \\end{pmatrix}에 대하여 행렬 A는 m \\times n 행렬이고, 행렬 A의 (2, 1) 성분은 a이다. m^n-a의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "9"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

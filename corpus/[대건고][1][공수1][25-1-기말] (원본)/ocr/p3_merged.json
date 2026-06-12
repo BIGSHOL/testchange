@@ -1,0 +1,70 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 11,
+      "score": 3.7,
+      "contents": [
+        {"type": "text", "value": "두 이차정사각행렬 A, B에 대하여"},
+        {"type": "equation_block", "value": "A+B=\\begin{pmatrix} 2 & 3 \\\\ 1 & 2 \\end{pmatrix}, A-B=\\begin{pmatrix} 0 & -1 \\\\ -3 & 4 \\end{pmatrix}"},
+        {"type": "text", "value": "라 할 때, A^2-B^2의 모든 성분의 합은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-5"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-4"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "-1"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 12,
+      "score": 3.8,
+      "contents": [
+        {"type": "text", "value": "이차정사각행렬 A에 대하여 A\\begin{pmatrix} 2 \\\\ 1 \\end{pmatrix}=\\begin{pmatrix} 4 \\\\ 1 \\end{pmatrix}, A\\begin{pmatrix} 1 \\\\ 2 \\end{pmatrix}=\\begin{pmatrix} 2 \\\\ -4 \\end{pmatrix} 라 하자. 행렬 A의 (1, 1) 성분을 a_{11}, (2, 2) 성분을 a_{22}라 할 때, a_{11}+a_{22}의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-5"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-4"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "-1"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 13,
+      "score": 3.8,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 두 주머니 A와 B에는 숫자 1, 2, 3, 4가 하나씩 적혀 있는 4개의 공이 각각 들어 있다. 두 주머니 A, B에서 각각 임의로 2개의 공을 동시에 꺼낼 때, 주머니 A에서 꺼낸 2개의 공에 적힌 수의 합과 주머니 B에서 꺼낸 2개의 공에 적힌 수의 합이 같은 경우의 수는?"},
+        {"type": "figure", "value": "주머니 두 개 그림. 왼쪽 주머니 A에는 흰 바탕 공 1, 2, 3, 4가, 오른쪽 주머니 B에는 검은 바탕 공 1, 2, 3, 4가 들어 있다.", "bbox": [0.12, 0.32, 0.88, 0.80]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "11"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "12"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 14,
+      "score": 3.9,
+      "contents": [
+        {"type": "text", "value": "연립부등식"},
+        {"type": "equation_block", "value": "\\begin{cases} 2x+1 \\le -x+4 \\\\ x^2-x-12 \\le 0 \\end{cases}"},
+        {"type": "text", "value": "의 해가 \\alpha \\le x \\le \\beta일 때, 부등식 2|x-\\alpha|-|x-\\beta|<10 을 만족시키는 정수 x의 개수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "17"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "18"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "19"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "20"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "21"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 15,
+      "score": 3.9,
+      "contents": [
+        {"type": "text", "value": "이차방정식 x^2-x-1=0의 서로 다른 두 근을 \\alpha, \\beta라 하자. 행렬 A=\\begin{pmatrix} \\frac{1}{\\alpha}+1 & \\frac{1}{\\beta}+1 \\\\ \\alpha & \\beta \\end{pmatrix} 에 대하여 A^5의 모든 성분의 합은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 16,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "검은 공 4개와 흰 공 6개가 있다. 이 10개의 공을 모두 일렬로 나열할 때, 흰 공은 적어도 2개 이상씩 서로 이웃하며 나열하는 경우의 수는? (단, 같은 색의 공은 서로 구별하지 않는다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "41"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "42"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "43"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "44"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "45"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 17,
+      "score": 4.1,
+      "contents": [
+        {"type": "text", "value": "연립부등식"},
+        {"type": "equation_block", "value": "\\begin{cases} x^2+x-6>0 \\\\ 2x^2+(a-1)x-(a-1)^2 \\le 0 \\end{cases}"},
+        {"type": "text", "value": "을 만족시키는 정수 x의 개수가 3 이상 5 이하가 되도록 하는 모든 정수 a의 합은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "2"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 18,
+      "score": 4.2,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 숫자 1부터 8까지 자연수가 하나씩 적혀 있는 8개의 공이 들어 있는 주머니가 있다. 이 주머니에서 임의로 한 개의 공을 꺼내어 공에 적혀 있는 수를 확인한 후 다시 넣는다. 이 시행을 3번 반복하여 확인한 수를 차례로 x, y, z라 할 때, x-2y+3z=12를 만족시키는 순서쌍 (x, y, z)의 개수는?"},
+        {"type": "figure", "value": "공 8개(1~8)가 들어 있는 주머니 그림.", "bbox": [0.18, 0.42, 0.78, 0.85]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "20"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "21"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "22"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "23"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "24"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}
