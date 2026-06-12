@@ -1,0 +1,95 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 1,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "x, y가 음이 아닌 정수일 때, 일차방정식 3x+2y=14의 해의 개수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "1개"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "2개"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "3개"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "4개"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "5개"}]}
+      ]
+    },
+    {
+      "number": 2,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "연립방정식 "},
+        {"type": "equation", "value": "\\begin{cases}2x-y=3 \\\\ 4x+3y=11\\end{cases}"},
+        {"type": "text", "value": " 의 해가 x=a, y=b일 때, a+b의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+      ]
+    },
+    {
+      "number": 3,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "연립방정식 "},
+        {"type": "equation", "value": "\\begin{cases}0.2x+ay=0.4 \\\\ \\frac{1}{2}x-\\frac{13}{4}y=\\frac{7}{4}\\end{cases}"},
+        {"type": "text", "value": " 을 만족시키는 y의 값이 x의 값의 \\frac{1}{3}배일 때, 상수 a의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "2"}]}
+      ]
+    },
+    {
+      "number": 4,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "연립방정식 "},
+        {"type": "equation", "value": "\\begin{cases}ax-3by=16 \\\\ 2bx+(a-3)y=6\\end{cases}"},
+        {"type": "text", "value": " 에서 잘못하여 a와 b를 바꾸어 놓고 풀었더니 해가 x=\\frac{1}{2}, y=-1이었다. 처음 주어진 연립방정식의 해가 x=c, y=d일 때, a+b+c+d의 값은? (단, a, b, c, d는 상수)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "10"}]}
+      ]
+    },
+    {
+      "number": 5,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "학산이네 중학교의 작년도 신입생 수는 남녀를 합하여 1,000명이었다. 올해 신입생은 작년도 신입생보다 남학생 수가 2% 감소하고, 여학생 수가 4% 증가하여 전체 학생 수는 7명이 증가하였다. 올해 신입생 중 남학생 수와 여학생 수의 차는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "71"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "73"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "75"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "77"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "79"}]}
+      ]
+    },
+    {
+      "number": 6,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "함수 f(x)=\\frac{1}{4}x+3에 대하여 f(4)+f(-8)의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-4"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+      ]
+    }
+  ]
+}
