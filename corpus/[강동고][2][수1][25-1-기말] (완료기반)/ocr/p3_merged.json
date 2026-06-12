@@ -1,0 +1,89 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 12,
+      "score": 4.1,
+      "contents": [
+        {"type": "text", "value": "모든 항이 양수인 등비수열 "},
+        {"type": "equation", "value": "\\{a_n\\}"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "a_3=18"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "a_4+a_5=216"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\sum_{k=1}^{10} a_k a_{k+1}"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{1}{2}(9^{10}-1)"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{3}{2}(9^{10}-1)"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{5}{2}(9^{10}-1)"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{7}{2}(9^{10}-1)"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{9}{2}(9^{10}-1)"}]}
+      ]
+    },
+    {
+      "number": 13,
+      "score": 4.2,
+      "contents": [
+        {"type": "text", "value": "수열 "},
+        {"type": "equation", "value": "\\{a_n\\}"},
+        {"type": "text", "value": "이 모든 자연수 n에 대하여 "},
+        {"type": "equation", "value": "a_n=\\sum_{k=1}^{n}(2k-1)"},
+        {"type": "text", "value": "을 만족한다. "},
+        {"type": "equation", "value": "a_{l+m}-a_l=208"},
+        {"type": "text", "value": "이라고 할 때, "},
+        {"type": "equation", "value": "l\\times m"},
+        {"type": "text", "value": "의 최솟값은? (단, l, m은 자연수이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "68"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "70"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "72"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "74"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "76"}]}
+      ]
+    },
+    {
+      "number": 14,
+      "score": 4.4,
+      "contents": [
+        {"type": "text", "value": "삼각형 ABC의 세 변의 길이 a, b, c 사이에 "},
+        {"type": "equation", "value": "a-2b+c=0"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "4a-2b-c=0"},
+        {"type": "text", "value": "인 관계가 성립한다. 삼각형 ABC의 가장 긴 변의 길이가 4일 때, 삼각형 ABC의 넓이는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{2\\sqrt{7}}{3}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\sqrt{7}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{4\\sqrt{7}}{3}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{5\\sqrt{7}}{3}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "2\\sqrt{7}"}]}
+      ]
+    },
+    {
+      "number": 15,
+      "score": 4.5,
+      "contents": [
+        {"type": "text", "value": "모든 항이 자연수인 수열 "},
+        {"type": "equation", "value": "\\{a_n\\}"},
+        {"type": "text", "value": "이 모든 자연수 n에 대하여 "},
+        {"type": "equation", "value": "a_{n+1}=\\begin{cases}2a_n-5 & (a_n\\text{이 홀수}) \\\\ \\frac{a_n}{2} & (a_n\\text{이 짝수})\\end{cases}"},
+        {"type": "text", "value": "을 만족시킨다. "},
+        {"type": "equation", "value": "a_5=5"},
+        {"type": "text", "value": "라고 할 때, 모든 "},
+        {"type": "equation", "value": "\\sum_{k=1}^{5} a_k"},
+        {"type": "text", "value": "의 값의 합은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "290"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "305"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "320"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "335"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "350"}]}
+      ]
+    }
+  ]
+}
