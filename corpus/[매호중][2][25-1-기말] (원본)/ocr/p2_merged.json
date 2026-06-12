@@ -1,0 +1,173 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 7,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "삼각형의 세 변의 길이가 "},
+        {"type": "equation", "value": "2a+b"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "3a-b+2"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "a+4b-4"},
+        {"type": "text", "value": "일 때, 이 삼각형이 정삼각형이 되도록 하는 수 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "b"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "ab"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "6"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 8,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "연립방정식 "},
+        {"type": "equation", "value": "\\begin{cases}0.\\dot{1}x+0.\\dot{2}y=1 \\\\ 0.0\\dot{2}x+0.0\\dot{1}y=0.1\\dot{3}\\end{cases}"},
+        {"type": "text", "value": "의 해가 "},
+        {"type": "equation", "value": "(a,b)"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "a+b"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "10"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 9,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "함수 "},
+        {"type": "equation", "value": "f(x)=5x-3"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "f(a)=2"},
+        {"type": "text", "value": "일 때, 수 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-\\frac{1}{5}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{1}{5}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "2"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 10,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "두 변수 "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "y"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "y"},
+        {"type": "text", "value": "가 "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "에 대한 일차함수가 __아닌__ 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [
+          {"type": "text", "value": "시속 "},
+          {"type": "equation", "value": "60\\mathrm{km}"},
+          {"type": "text", "value": "로 "},
+          {"type": "equation", "value": "x"},
+          {"type": "text", "value": "시간 동안 달린 거리 "},
+          {"type": "equation", "value": "y\\mathrm{km}"}
+        ]},
+        {"number": 2, "contents": [
+          {"type": "text", "value": "300쪽짜리 책에서 "},
+          {"type": "equation", "value": "x"},
+          {"type": "text", "value": "쪽을 읽고 남은 쪽수 "},
+          {"type": "equation", "value": "y"},
+          {"type": "text", "value": "쪽"}
+        ]},
+        {"number": 3, "contents": [
+          {"type": "text", "value": "반지름의 길이가 "},
+          {"type": "equation", "value": "x\\mathrm{cm}"},
+          {"type": "text", "value": "인 원의 둘레의 길이 "},
+          {"type": "equation", "value": "y\\mathrm{cm}"}
+        ]},
+        {"number": 4, "contents": [
+          {"type": "text", "value": "6000원으로 한 개에 500원인 아이스크림 "},
+          {"type": "equation", "value": "x"},
+          {"type": "text", "value": "개를 사고 남은 "},
+          {"type": "equation", "value": "y"},
+          {"type": "text", "value": "원"}
+        ]},
+        {"number": 5, "contents": [
+          {"type": "text", "value": "세로의 길이가 "},
+          {"type": "equation", "value": "x\\mathrm{cm}"},
+          {"type": "text", "value": "이고, 넓이가 "},
+          {"type": "equation", "value": "30\\mathrm{cm}^2"},
+          {"type": "text", "value": "인 직사각형의 가로의 길이 "},
+          {"type": "equation", "value": "y\\mathrm{cm}"}
+        ]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 11,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "일차함수 "},
+        {"type": "equation", "value": "y=-x+a"},
+        {"type": "text", "value": "의 그래프를 "},
+        {"type": "equation", "value": "y"},
+        {"type": "text", "value": "축의 방향으로 3만큼 평행이동 하였더니 "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "절편이 "},
+        {"type": "equation", "value": "2a"},
+        {"type": "text", "value": "가 되었다. 이때, 수 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "3"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 12,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "일차함수 "},
+        {"type": "equation", "value": "y=f(x)"},
+        {"type": "text", "value": "가 다음 <조건>을 만족시킬 때, "},
+        {"type": "equation", "value": "f(10)-f(1)"},
+        {"type": "text", "value": "의 값은?"},
+        {"type": "text", "value": "<조건> f(2)-f(1)+\\frac{f(4)-f(2)}{2}+\\frac{f(6)-f(3)}{3}+\\frac{f(8)-f(4)}{4} • +\\cdots+\\frac{f(30)-f(15)}{15}=60"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "18"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "27"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "36"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "45"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

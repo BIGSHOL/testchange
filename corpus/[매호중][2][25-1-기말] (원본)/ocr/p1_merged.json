@@ -1,0 +1,146 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 1,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "일차방정식 "},
+        {"type": "equation", "value": "x+y+a=0"},
+        {"type": "text", "value": "의 한 해가 "},
+        {"type": "equation", "value": "(2,-3)"},
+        {"type": "text", "value": "일 때, 수 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 2,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "'300원짜리 사탕 "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "개와 500원짜리 껌 "},
+        {"type": "equation", "value": "y"},
+        {"type": "text", "value": "개를 합하여 7개가 있고, 그 가격은 3200원이다.'를 "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "y"},
+        {"type": "text", "value": "에 대한 연립방정식으로 나타내려고 할 때, 필요한 식을 <보기>에서 고른 것은?"},
+        {"type": "text", "value": "<보기> ㄱ. x+y=7 • ㄴ. x-y=7 • ㄷ. x+y=3200 • ㄹ. 300x+500y=3200 • ㅁ. 500x+300y=3200"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ, ㄹ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄱ, ㅁ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄴ, ㄷ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄴ, ㅁ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄷ, ㄹ"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 3,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "연립방정식 "},
+        {"type": "equation", "value": "\\begin{cases}y=2x+9 \\\\ 3x+y=-1\\end{cases}"},
+        {"type": "text", "value": "의 해가 "},
+        {"type": "equation", "value": "(a,b)"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "a+b"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "7"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 4,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "연립방정식 "},
+        {"type": "equation", "value": "\\begin{cases}x-2y=7 \\\\ x-3y=4\\end{cases}"},
+        {"type": "text", "value": "의 해가 "},
+        {"type": "equation", "value": "(a,b)"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "a-b"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "16"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 5,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "연립방정식 "},
+        {"type": "equation", "value": "\\begin{cases}x-3(y-2)=20 \\\\ 0.3(x-1)+\\frac{1}{5}y=0.6\\end{cases}"},
+        {"type": "text", "value": "의 해가 일차방정식 "},
+        {"type": "equation", "value": "x-y=a"},
+        {"type": "text", "value": "를 만족시킬 때, 수 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-8"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "20"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 6,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "연립방정식 "},
+        {"type": "equation", "value": "\\begin{cases}ax+by=4 \\\\ bx-ay=3\\end{cases}"},
+        {"type": "text", "value": "에서 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "b"},
+        {"type": "text", "value": "를 서로 바꾸어 놓고 풀었더니 해가 "},
+        {"type": "equation", "value": "x=2"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "y=1"},
+        {"type": "text", "value": "이었다. 이때 처음 연립방정식의 해가 "},
+        {"type": "equation", "value": "(p,q)"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "p+q"},
+        {"type": "text", "value": "의 값은? (단, "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "b"},
+        {"type": "text", "value": "는 수이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{9}{5}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{11}{5}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{12}{5}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{13}{5}"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

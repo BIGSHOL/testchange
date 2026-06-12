@@ -1,0 +1,108 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 19,
+      "score": 8,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 1] A학생은 집에서 "},
+        {"type": "equation", "value": "1700\\mathrm{m}"},
+        {"type": "text", "value": " 떨어진 학교로 등교하는데, 처음에는 분속 "},
+        {"type": "equation", "value": "50\\mathrm{m}"},
+        {"type": "text", "value": "로 걷다가 늦을 것 같아서 분속 "},
+        {"type": "equation", "value": "80\\mathrm{m}"},
+        {"type": "text", "value": "로 뛰어 총 25분이 걸렸다. A학생이 걸어간 거리와 뛰어간 거리를 각각 구하시오. (단, 반드시 미지수가 2개인 연립일차방정식의 형태로 나타내어 푸시오.)"}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 20,
+      "score": 7,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 2] 어느 분식점의 주문표의 일부이다. C학생이 지불해야 할 금액을 구하시오."},
+        {"type": "table", "value": "", "rows": [["주문한 학생", "떡볶이(컵)", "튀김(개)", "합계(원)"], ["A학생", "1", "5", "3600"], ["B학생", "2", "3", "5800"], ["C학생", "4", "2", "?"]]}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 21,
+      "score": 7,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 3] 그림과 같이 두 일차함수 "},
+        {"type": "equation", "value": "y=ax+b"},
+        {"type": "text", "value": "와 "},
+        {"type": "equation", "value": "y=-\\frac{1}{3}x-2"},
+        {"type": "text", "value": "의 그래프는 "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "축 위의 점 A에서 만난다. "},
+        {"type": "equation", "value": "\\triangle ABC"},
+        {"type": "text", "value": "의 넓이가 "},
+        {"type": "equation", "value": "15"},
+        {"type": "text", "value": "일 때, 두 수 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "b"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "a+b"},
+        {"type": "text", "value": "의 값을 구하시오. (단, "},
+        {"type": "equation", "value": "b>0"},
+        {"type": "text", "value": "이다.)"},
+        {"type": "figure", "value": "좌표평면 — 두 직선이 x축 음의 부분 위의 점 A에서 만남. 한 직선(y=ax+b)은 우상향하며 y축 양의 부분의 점 B를 지나고, 다른 직선(y=-1/3x-2)은 우하향하며 y축 음의 부분의 점 C를 지남. 원점 O, x축·y축 표기. A는 왼쪽(x축 위), B는 y축 위쪽, C는 y축 아래쪽", "bbox": [0.58, 0.15, 0.88, 0.30]}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 22,
+      "score": 8,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 4] "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "의 값이 "},
+        {"type": "equation", "value": "-2"},
+        {"type": "text", "value": "에서 "},
+        {"type": "equation", "value": "-1"},
+        {"type": "text", "value": "까지 증가할 때, "},
+        {"type": "equation", "value": "y"},
+        {"type": "text", "value": "의 값은 "},
+        {"type": "equation", "value": "4"},
+        {"type": "text", "value": "만큼 증가하고, 일차함수 "},
+        {"type": "equation", "value": "y=-2x-10"},
+        {"type": "text", "value": "의 그래프와 "},
+        {"type": "equation", "value": "y"},
+        {"type": "text", "value": "축 위에서 만나는 직선을 그래프로 하는 일차함수가 있다. 다음 물음에 답하시오."}
+      ],
+      "choices": [],
+      "sub_questions": [
+        {
+          "number": 1,
+          "score": 6,
+          "contents": [
+            {"type": "text", "value": "일차함수의 식을 구하시오."}
+          ],
+          "choices": [],
+          "sub_questions": []
+        },
+        {
+          "number": 2,
+          "score": 2,
+          "contents": [
+            {"type": "text", "value": "(1)의 그래프와 "},
+            {"type": "equation", "value": "x"},
+            {"type": "text", "value": "축, "},
+            {"type": "equation", "value": "y"},
+            {"type": "text", "value": "축으로 둘러싸인 삼각형의 넓이를 구하시오."}
+          ],
+          "choices": [],
+          "sub_questions": []
+        }
+      ]
+    }
+  ]
+}

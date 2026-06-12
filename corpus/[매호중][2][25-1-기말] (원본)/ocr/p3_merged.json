@@ -1,0 +1,167 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 13,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "두 일차함수 "},
+        {"type": "equation", "value": "y=\\frac{a}{3}x-1"},
+        {"type": "text", "value": "과 "},
+        {"type": "equation", "value": "y=4x+3"},
+        {"type": "text", "value": "의 그래프가 서로 평행할 때, 수 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "15"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 14,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "연비가 "},
+        {"type": "equation", "value": "16\\mathrm{km/L}"},
+        {"type": "text", "value": "인 어떤 자동차의 연료 탱크에 연료를 가득 채운 후, 일정한 속력으로 주행하였더니 "},
+        {"type": "equation", "value": "800\\mathrm{km}"},
+        {"type": "text", "value": "를 주행한 후에 연료가 완전히 소모되었다. 이 자동차의 연료 탱크에 연료를 가득 채운 후 "},
+        {"type": "equation", "value": "x\\mathrm{km}"},
+        {"type": "text", "value": " 주행하였을 때 남은 연료의 양을 "},
+        {"type": "equation", "value": "y\\mathrm{L}"},
+        {"type": "text", "value": "라고 하자. 남은 연료가 "},
+        {"type": "equation", "value": "35\\mathrm{L}"},
+        {"type": "text", "value": "일 때 이 자동차가 주행한 거리는 "},
+        {"type": "equation", "value": "a\\mathrm{km}"},
+        {"type": "text", "value": "이다. 수 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "210"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "225"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "240"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "255"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "270"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 15,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "일차방정식 "},
+        {"type": "equation", "value": "6x-2y-3=0"},
+        {"type": "text", "value": "의 그래프에 대한 설명으로 옳은 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [
+          {"type": "equation", "value": "x"},
+          {"type": "text", "value": "절편은 "},
+          {"type": "equation", "value": "3"},
+          {"type": "text", "value": "이다."}
+        ]},
+        {"number": 2, "contents": [
+          {"type": "equation", "value": "y"},
+          {"type": "text", "value": "절편은 "},
+          {"type": "equation", "value": "\\frac{3}{2}"},
+          {"type": "text", "value": "이다."}
+        ]},
+        {"number": 3, "contents": [
+          {"type": "text", "value": "제1사분면을 지나지 않는다."}
+        ]},
+        {"number": 4, "contents": [
+          {"type": "text", "value": "일차함수 "},
+          {"type": "equation", "value": "y=3x"},
+          {"type": "text", "value": "의 그래프와 평행하다."}
+        ]},
+        {"number": 5, "contents": [
+          {"type": "equation", "value": "x"},
+          {"type": "text", "value": "의 값이 증가하면 "},
+          {"type": "equation", "value": "y"},
+          {"type": "text", "value": "의 값은 감소한다."}
+        ]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 16,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "두 점 "},
+        {"type": "equation", "value": "(a-1,3)"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "(-a+5,-2)"},
+        {"type": "text", "value": "를 지나는 직선이 "},
+        {"type": "equation", "value": "y"},
+        {"type": "text", "value": "축에 평행할 때, 수 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 17,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "두 일차방정식 "},
+        {"type": "equation", "value": "3x-4y+8=0"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "ax-8y+4b=0"},
+        {"type": "text", "value": "의 그래프의 교점이 무수히 많을 때, 두 수 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "b"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "a^2+b^2"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "45"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "52"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "61"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "72"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "85"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 18,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 일차방정식 "},
+        {"type": "equation", "value": "x-2y+6=0"},
+        {"type": "text", "value": "의 그래프가 "},
+        {"type": "equation", "value": "y"},
+        {"type": "text", "value": "축과 만나는 점을 A, 그래프 위의 한 점 B에서 "},
+        {"type": "equation", "value": "y"},
+        {"type": "text", "value": "축에 내린 수선의 발을 C라 할 때, 삼각형 ABC의 넓이는 "},
+        {"type": "equation", "value": "9"},
+        {"type": "text", "value": "이다. 이때 삼각형 ABC를 "},
+        {"type": "equation", "value": "y"},
+        {"type": "text", "value": "축을 회전축으로 하여 1회전시킨 회전체의 부피는? (단, 점 B는 제1사분면 위에 있다.)"},
+        {"type": "figure", "value": "좌표평면 — 우상향 직선 x-2y+6=0(라벨이 직선 오른쪽 위에 표기). 직선이 y축과 만나는 점 A, 직선 위 제1사분면의 점 B, 점 B에서 y축에 내린 수선의 발 C(A보다 위쪽). 원점 O, x축·y축 표기. 직선은 x축 음의 부분을 지나 제1사분면으로 올라감", "bbox": [0.55, 0.55, 0.92, 0.67]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "24\\pi"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "27\\pi"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "30\\pi"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "33\\pi"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "36\\pi"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}
