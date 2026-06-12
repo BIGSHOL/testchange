@@ -1,0 +1,105 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 1,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "일차방정식 3x-y=-1의 한 해가 (a, 4)이다. m, n이 자연수일 때, 일차방정식 3m+an=13의 해의 개수는? (단, a는 상수)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "1개"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "2개"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "3개"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "4개"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "5개"}]}
+      ]
+    },
+    {
+      "number": 2,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "연립방정식 "},
+        {"type": "equation", "value": "\\begin{cases}4x-3y=15 \\quad \\cdots ① \\\\ 3y=x-1 \\quad \\cdots ②\\end{cases}"},
+        {"type": "text", "value": " 을 풀기 위하여 ②를 ①에 대입하여 정리하였더니 3x=a가 되었다. 이때 상수 a의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "13"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "14"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "15"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "16"}]}
+      ]
+    },
+    {
+      "number": 3,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "연립방정식 "},
+        {"type": "equation", "value": "\\begin{cases}2x+y=3a \\\\ 3x-y=2a+10\\end{cases}"},
+        {"type": "text", "value": " 의 해가 x-y=b의 해일 때, b의 값은? (단, a, b는 상수)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "-3"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "-6"}]}
+      ]
+    },
+    {
+      "number": 4,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "연립방정식 "},
+        {"type": "equation", "value": "\\begin{cases}x-2y=-4 \\\\ x=y+1\\end{cases}"},
+        {"type": "text", "value": " 의 해는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "(4, 3)"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "(5, 4)"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "(6, 5)"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "(7, 6)"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "(8, 7)"}]}
+      ]
+    },
+    {
+      "number": 5,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "연립방정식 "},
+        {"type": "equation", "value": "\\frac{3x-y}{5}=\\frac{x+1}{3}=\\frac{3x+y}{4}"},
+        {"type": "text", "value": " 의 해에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?"},
+        {"type": "text", "value": "<보기> ㄱ. 2^{x-3y}=8이다. • ㄴ. \\frac{y}{x}는 순환소수로 나타내어진다. • ㄷ. 연립방정식 \\begin{cases}2x+3y=1 \\\\ 0.1x-0.6y=0.3\\end{cases}의 해와 같다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄴ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄱ, ㄴ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄱ, ㄷ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄴ, ㄷ"}]}
+      ]
+    },
+    {
+      "number": 6,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "다음 표는 영민이가 6월 중에 구입한 물건들과 지불한 금액을 날짜별로 메모지에 적어 놓은 것이다. 7월 4일 영민이가 초코빵 1개와 요플레 4개를 구입하려고 할 때, 지불해야 할 금액은? (단, 물건가격은 변화가 없음.)"},
+        {"type": "table", "value": "", "rows": [
+          ["구입날짜", "초코빵(개)", "우유(개)", "요플레(개)", "합계(원)"],
+          ["6월 23일", "3", "", "1", "12000"],
+          ["6월 27일", "", "3", "", "4500"],
+          ["6월 29일", "2", "", "3", "15000"],
+          ["7월 4일", "1", "", "4", ""]
+        ]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "12000원"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "13000원"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "15000원"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "17000원"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "18000원"}]}
+      ]
+    }
+  ]
+}
