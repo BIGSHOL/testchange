@@ -1,0 +1,39 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 19,
+      "score": 9,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 3] 연속함수 "},
+        {"type": "equation", "value": "y=f(x)"},
+        {"type": "text", "value": "의 그래프가 원점과 세 점 "},
+        {"type": "equation", "value": "A(1,\\ 4)"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "B(-1,\\ 1)"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "C(-2,\\ -2)"},
+        {"type": "text", "value": "을 지난다. 이때 이 함수의 그래프와 직선 "},
+        {"type": "equation", "value": "y=x+1"},
+        {"type": "text", "value": "의 교점의 개수의 최솟값을 구하시오."}
+      ],
+      "choices": []
+    },
+    {
+      "number": 20,
+      "score": 10,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 4] 점 "},
+        {"type": "equation", "value": "(a,\\ 0)"},
+        {"type": "text", "value": "에서 곡선 "},
+        {"type": "equation", "value": "y=x^3-2x^2"},
+        {"type": "text", "value": "에 그은 서로 다른 접선이 두 개만 존재하도록 하는 양수 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "의 값을 모두 구하시오."}
+      ],
+      "choices": []
+    }
+  ]
+}
