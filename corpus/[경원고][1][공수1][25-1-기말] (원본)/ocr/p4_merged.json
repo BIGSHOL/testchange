@@ -1,0 +1,48 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 19,
+      "score": 9,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 4] 1,000원짜리 지폐 2장, 5,000원짜리 지폐 4장, 10,000원짜리 지폐 2장이 있다. 다음 물음에 답하시오. (단, 0원을 지불하는 경우는 제외한다.) [총 9점, 부분 점수 있음]"}
+      ],
+      "choices": [],
+      "sub_questions": [
+        {"number": 1, "score": 4, "contents": [{"type": "text", "value": "1) 이 지폐의 전부 또는 일부를 사용하여 지불할 수 있는 방법의 수를 구하시오."}], "choices": [], "sub_questions": []},
+        {"number": 2, "score": 5, "contents": [{"type": "text", "value": "2) 이 지폐의 전부 또는 일부를 사용하여 지불할 수 있는 금액의 수를 구하시오."}], "choices": [], "sub_questions": []}
+      ]
+    },
+    {
+      "number": 20,
+      "score": 9,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 5] 사차방정식 x^4-ax^3+bx^2+cx+d=0이 다음 조건을 만족시킬 때, 다음 물음에 답하시오. (단, a, b, c, d는 실수이고, i=\\sqrt{-1}이다.) [총 9점, 부분 점수 있음]"},
+        {"type": "text", "value": "<상자> (가) 한 근이 1+\\sqrt{2}i 이다. • (나) 이차방정식 x^2+ax-15=0과 공통인 실근을 두 개 갖는다."}
+      ],
+      "choices": [],
+      "sub_questions": [
+        {"number": 1, "score": 2, "contents": [{"type": "text", "value": "1) 조건 (가)를 이용하여 사차방정식 x^4-ax^3+bx^2+cx+d=0의 다른 한 허근을 구하시오."}], "choices": [], "sub_questions": []},
+        {"number": 2, "score": 3, "contents": [{"type": "text", "value": "2) 1)과 조건 (나)를 이용하여 x^4-ax^3+bx^2+cx+d를 x에 대한 두 이차식의 곱의 형태로 나타내시오. (단, x 이외의 문자는 a만 사용할 것)"}], "choices": [], "sub_questions": []},
+        {"number": 3, "score": 4, "contents": [{"type": "text", "value": "3) 실수 a, b, c, d의 값을 구하시오."}], "choices": [], "sub_questions": []}
+      ]
+    },
+    {
+      "number": 21,
+      "score": 10,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 6] 부등식 \\left(x-a^2+4a-\\frac{1}{3}\\right)\\left(x+a+\\frac{7}{3}\\right) \\le 0의 해가 \\alpha \\le x \\le \\beta이다. 두 실수 \\alpha, \\beta가 다음 조건을 만족시킬 때, 모든 실수 a의 값의 합을 구하는 과정이다. 다음 물음에 답하시오. [총 10점, 부분 점수 있음]"},
+        {"type": "text", "value": "<상자> (가) \\frac{1}{2}(\\beta-\\alpha)+\\frac{1}{2}은 자연수이다. • (나) \\alpha \\le x \\le \\beta를 만족시키는 정수 x의 개수는 부등식 |x-5| \\le 1를 만족시키는 정수의 개수와 같다."}
+      ],
+      "choices": [],
+      "sub_questions": [
+        {"number": 1, "score": 2, "contents": [{"type": "text", "value": "1) a에 대한 부등식 a^2-4a+\\frac{1}{3}>-a-\\frac{7}{3}의 해를 구하시오."}], "choices": [], "sub_questions": []},
+        {"number": 2, "score": 2, "contents": [{"type": "text", "value": "2) 부등식 |x-5| \\le 1를 만족시키는 정수의 개수를 구하시오."}], "choices": [], "sub_questions": []},
+        {"number": 3, "score": 6, "contents": [{"type": "text", "value": "3) 모든 실수 a의 값의 합을 구하시오. (단, \\beta-\\alpha의 값을 기준으로 경우를 나눌 것)"}], "choices": [], "sub_questions": []}
+      ]
+    }
+  ]
+}
