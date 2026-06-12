@@ -1,0 +1,67 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 10,
+      "score": 4.4,
+      "contents": [
+        {"type": "text", "value": "x에 대한 삼차방정식 bx^3+3ax^2-9ax-27b=0이 서로 다른 세 자연수를 근으로 갖는다. 두 정수 a, b가 |a| \\le 65, |b| \\le 65일 때, 순서쌍 (a, b)의 개수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "14"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "21"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "28"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 11,
+      "score": 4.5,
+      "contents": [
+        {"type": "text", "value": "이차정사각행렬 A, B, C에 대하여 <보기>에서 옳은 것만을 있는 대로 모두 고른 것은? (단, E는 단위행렬이다.)"},
+        {"type": "text", "value": "<보기> ㄱ. AB=BA • ㄴ. A(B+C)=AB+AC • ㄷ. (A+E)(A-E)=E 이면 A^2B=BA^2"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄴ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄷ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄱ, ㄴ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄴ, ㄷ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄱ, ㄴ, ㄷ"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 12,
+      "score": 4.5,
+      "contents": [
+        {"type": "text", "value": "x에 대한 삼차방정식 (2x-1)(x^2+ax+b)=0의 서로 다른 세 근을 \\alpha, \\beta, \\gamma라 하자. (\\alpha+\\beta+3\\gamma)^2=-\\frac{9}{4}일 때, 128\\alpha\\beta\\gamma의 값은? (단, a, b는 실수이다)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "34"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "35"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "36"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "37"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "38"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 13,
+      "score": 4.6,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 합동인 정사각형 19개로 만든 도형이 있다. 이 도형의 선분으로 만들어지는 정사각형이 아닌 직사각형의 개수는?"},
+        {"type": "figure", "value": "합동인 정사각형 19개를 계단형으로 붙인 도형. 7열 격자 기준: 맨 아랫행 7칸(전체 폭), 둘째 행 5칸(오른쪽 끝 정렬, 왼쪽 2칸 비움), 셋째 행 4칸(왼쪽 3칸 비움), 맨 윗행 3칸(왼쪽 4칸 비움) — 왼쪽이 계단처럼 올라가는 모양(7+5+4+3=19).", "bbox": [0.24, 0.40, 0.72, 0.74]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "74"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "78"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "81"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "85"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "88"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

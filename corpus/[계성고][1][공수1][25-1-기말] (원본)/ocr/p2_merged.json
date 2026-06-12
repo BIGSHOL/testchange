@@ -1,0 +1,67 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 6,
+      "score": 4.2,
+      "contents": [
+        {"type": "text", "value": "x, y에 대한 연립방정식 \\begin{cases} 2x-y=1 \\\\ 5x^2-xy-y^2=k \\end{cases} 의 해를 \\begin{cases} x=\\alpha \\\\ y=2\\alpha-1 \\end{cases} 또는 \\begin{cases} x=\\beta \\\\ y=2\\beta-1 \\end{cases} 이라 하자. 연립방정식이 서로 다른 두 쌍의 해를 가지게 하는 자연수 k의 최댓값은? (단, \\alpha, \\beta는 실수)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "9"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 7,
+      "score": 4.2,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 5개의 영역 A, B, C, D, E에 서로 다른 5가지 색을 칠하려고 한다. 같은 색을 중복하여 사용해도 좋으나 인접한 영역은 서로 다른 색으로 칠할 때, 칠하는 방법의 수는?"},
+        {"type": "figure", "value": "5개 영역 분할 그림. 상단에 가로로 긴 직사각형 A. A 바로 아래 행에 왼쪽 B(넓음)·오른쪽 C(좁은 정사각, A의 오른쪽 끝 아래). 하단 행에 왼쪽 D·오른쪽 E. 인접 관계: A-B, A-C, B-C, B-D, C-E, D-E (C와 D는 비인접, B와 E는 비인접, A와 D·E는 비인접).", "bbox": [0.60, 0.06, 0.99, 0.62]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "720"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "750"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "780"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "810"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "840"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 8,
+      "score": 4.3,
+      "contents": [
+        {"type": "text", "value": "연립방정식 \\begin{cases} 4y^2+x-5y=-4k \\\\ 2y^2-5x+3y=9k \\end{cases} 가 오직 한 쌍의 해 x=\\alpha, y=\\beta를 가지기 위한 실수 k의 값은? (단, \\alpha, \\beta는 실수이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{1}{4}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{1}{2}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{3}{4}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{5}{4}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 9,
+      "score": 4.3,
+      "contents": [
+        {"type": "text", "value": "1부터 9까지의 자연수가 하나씩 적힌 9개의 공이 들어 있는 상자가 있다. 이 상자에서 공을 한 개 꺼내어 공에 적혀 있는 수를 확인한 후 다시 상자에 넣는다. 이러한 과정을 3번 반복할 때, i번째 꺼낸 공에 적혀 있는 수를 a_i (i=1, 2, 3)라 하자. 다음 조건을 만족시키는 모든 순서쌍 (a_1, a_2, a_3)의 개수는?"},
+        {"type": "text", "value": "<조건> (가) a_1, a_2, a_3로 세 자리 자연수 a_1a_2a_3을 만든다. • (나) a_2 < a_3 • (다) 450 < a_1a_2a_3 < 750"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "72"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "84"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "96"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "108"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "120"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

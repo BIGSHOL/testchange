@@ -1,0 +1,56 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 14,
+      "score": 4.7,
+      "contents": [
+        {"type": "text", "value": "양수 x, y에 대하여 두 연립방정식 \\begin{cases} x^2-4xy+3y^2=0 \\\\ x-ay=1 \\end{cases} 와 \\begin{cases} 3x^2+5y^2=32 \\\\ (x-b)^2+y^2=5 \\end{cases} 의 해가 같을 때, ab의 최댓값은? (단, a, b는 실수이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "12"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 15,
+      "score": 4.9,
+      "contents": [
+        {"type": "text", "value": "모든 실수 x에 대하여 부등식 -x^2+x+a \\le -\\frac{1}{2}x^2+b \\le x^2-3x+2+a 가 성립하고 2a+3b=9이다. 이때 ab의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-5"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-3"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "3"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 16,
+      "score": 8,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 1] 다음 연립이차방정식의 해를 복소수 범위 내에서 모두 구하는 단계적 풀이과정과 답을 구하시오."},
+        {"type": "equation", "value": "\\begin{cases} 3x^2-5xy+2y^2=0 \\\\ x^2+8xy-8y^2=20 \\end{cases}"}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 17,
+      "score": 9,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 2] 이차함수 y=x^2-ax+7의 그래프와 직선 y=2b가 서로 만나지 않도록 하는 자연수 a, b의 순서쌍 (a, b)의 개수를 구하는 단계적 풀이과정과 답을 구하시오."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    }
+  ]
+}
