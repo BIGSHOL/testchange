@@ -1,0 +1,84 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 16,
+      "score": 4.7,
+      "contents": [
+        {"type": "text", "value": "자연수 "},
+        {"type": "equation", "value": "n"},
+        {"type": "text", "value": "에 대하여 함수 "},
+        {"type": "equation", "value": "f(x)"},
+        {"type": "text", "value": "는 "},
+        {"type": "equation", "value": "f(x)=x^2+2n"},
+        {"type": "text", "value": "이다. 함수 "},
+        {"type": "equation", "value": "y=f(x)"},
+        {"type": "text", "value": "의 그래프와 직선 "},
+        {"type": "equation", "value": "y=mx"},
+        {"type": "text", "value": "가 만나도록 하는 자연수 "},
+        {"type": "equation", "value": "m"},
+        {"type": "text", "value": "의 최솟값을 "},
+        {"type": "equation", "value": "a_n"},
+        {"type": "text", "value": "이라 하자. "},
+        {"type": "equation", "value": "a_n<a_{n+1}"},
+        {"type": "text", "value": "을 만족시키는 15 이하의 모든 "},
+        {"type": "equation", "value": "n"},
+        {"type": "text", "value": "의 값의 합은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "49"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "61"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "73"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "85"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "97"}]}
+      ]
+    },
+    {
+      "number": 17,
+      "score": 4.7,
+      "contents": [
+        {"type": "text", "value": "자연수 "},
+        {"type": "equation", "value": "n"},
+        {"type": "text", "value": "에 대하여 좌표평면 위의 점 "},
+        {"type": "equation", "value": "P_n"},
+        {"type": "text", "value": "을 아래 <조건>을 만족시키도록 정한다."},
+        {"type": "text", "value": "<조건> (가) 점 \\(P_1\\)의 좌표는 \\((\\log 3,\\ 2)\\), 점 \\(P_2\\)의 좌표는 \\((\\log 21,\\ a)\\)이다. (단, \\(a\\)는 상수) • (나) 직선 \\(P_nP_{n+1}\\)의 기울기는 \\(\\log_7 10\\)이다. • (다) 점 \\(P_{n+2}\\)는 선분 \\(P_nP_{n+1}\\)을 \\(2:1\\)로 외분하는 점이다."},
+        {"type": "text", "value": "점 "},
+        {"type": "equation", "value": "P_n"},
+        {"type": "text", "value": "의 좌표를 "},
+        {"type": "equation", "value": "(x_n,\\ y_n)"},
+        {"type": "text", "value": "이라 할 때, "},
+        {"type": "equation", "value": "10^{x_n}"},
+        {"type": "text", "value": "이 "},
+        {"type": "equation", "value": "y_n"},
+        {"type": "text", "value": "의 배수가 되도록 하는 자연수 "},
+        {"type": "equation", "value": "n"},
+        {"type": "text", "value": "의 크기를 작은 순으로 "},
+        {"type": "equation", "value": "a_1,\\ a_2,\\ a_3,\\ \\cdots"},
+        {"type": "text", "value": "이라 하자. "},
+        {"type": "equation", "value": "a_6"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "334"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "336"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "338"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "340"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "342"}]}
+      ]
+    },
+    {
+      "number": 18,
+      "score": 10,
+      "label_type": "서답형",
+      "contents": [
+        {"type": "text", "value": "[서답형 1] 첫째항이 8인 등차수열 "},
+        {"type": "equation", "value": "\\{a_n\\}"},
+        {"type": "text", "value": "에서 제3항과 제7항은 절댓값이 같고 부호가 반대일 때, 수열 "},
+        {"type": "equation", "value": "\\{a_n\\}"},
+        {"type": "text", "value": "의 첫째항부터 제10항까지의 합을 풀이 과정과 함께 구하시오. [10점, 부분 점수 있음]"}
+      ],
+      "choices": []
+    }
+  ]
+}

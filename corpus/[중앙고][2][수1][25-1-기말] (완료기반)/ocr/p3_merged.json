@@ -1,0 +1,106 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 9,
+      "score": 4.1,
+      "contents": [
+        {"type": "text", "value": "다음 식의 값을 구한 것은?"},
+        {"type": "text", "value": "<상자> \\(-1+(-1+3)+(-1+3+7)+\\cdots+(-1+3+7+\\cdots+43)\\)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1036"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "1046"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "1056"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "1066"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "1076"}]}
+      ]
+    },
+    {
+      "number": 10,
+      "score": 4.3,
+      "contents": [
+        {"type": "text", "value": "첫째항부터 제"},
+        {"type": "equation", "value": "n"},
+        {"type": "text", "value": "항까지의 합 "},
+        {"type": "equation", "value": "S_n"},
+        {"type": "text", "value": "이 "},
+        {"type": "equation", "value": "S_n=kn^2-5n"},
+        {"type": "text", "value": "인 수열 "},
+        {"type": "equation", "value": "\\{a_n\\}"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "S_6=42"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "1\\leq a_n\\leq 30"},
+        {"type": "text", "value": "을 만족시키는 자연수 "},
+        {"type": "equation", "value": "n"},
+        {"type": "text", "value": "의 개수는? (단, "},
+        {"type": "equation", "value": "k"},
+        {"type": "text", "value": "는 상수이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "9"}]}
+      ]
+    },
+    {
+      "number": 11,
+      "score": 4.3,
+      "contents": [
+        {"type": "text", "value": "삼각형 ABC에서 "},
+        {"type": "equation", "value": "B=45^\\circ"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "a=8"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "c=7\\sqrt{2}"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\sin^2 A+\\cos^2 C=\\frac{q}{p}"},
+        {"type": "text", "value": "라 할 때, "},
+        {"type": "equation", "value": "p-q"},
+        {"type": "text", "value": "의 값은? (단, "},
+        {"type": "equation", "value": "p"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "q"},
+        {"type": "text", "value": "의 최대공약수는 1이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "17"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "18"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "19"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "20"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "21"}]}
+      ]
+    },
+    {
+      "number": 12,
+      "score": 4.3,
+      "contents": [
+        {"type": "text", "value": "두 대각선의 길이가 "},
+        {"type": "equation", "value": "p"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "q"},
+        {"type": "text", "value": "이고, 두 대각선이 이루는 각의 크기가 "},
+        {"type": "equation", "value": "135^\\circ"},
+        {"type": "text", "value": "인 "},
+        {"type": "equation", "value": "\\square ABCD"},
+        {"type": "text", "value": "가 있다. 이 사각형의 넓이가 "},
+        {"type": "equation", "value": "4\\sqrt{2}"},
+        {"type": "text", "value": "이고, "},
+        {"type": "equation", "value": "p+q=9"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "p^2+q^2"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "45"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "47"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "49"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "51"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "53"}]}
+      ]
+    }
+  ]
+}

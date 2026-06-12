@@ -1,0 +1,83 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 1,
+      "score": 3.5,
+      "contents": [
+        {"type": "text", "value": "세 수 "},
+        {"type": "equation", "value": "3,\\ x,\\ 27"},
+        {"type": "text", "value": "이 등비수열을 이룰 때, 양수 "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "15"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "18"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "21"}]}
+      ]
+    },
+    {
+      "number": 2,
+      "score": 3.5,
+      "contents": [
+        {"type": "equation", "value": "\\sum_{k=1}^{10} a_k=6"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\sum_{k=1}^{10} {a_k}^2=16"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\sum_{k=1}^{10}(3a_k-2)^2"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "96"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "100"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "104"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "108"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "112"}]}
+      ]
+    },
+    {
+      "number": 3,
+      "score": 3.7,
+      "contents": [
+        {"type": "text", "value": "삼각형 ABC에서 "},
+        {"type": "equation", "value": "a=4"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "b=6"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\cos C=\\frac{1}{3}"},
+        {"type": "text", "value": "인 "},
+        {"type": "equation", "value": "\\triangle ABC"},
+        {"type": "text", "value": "의 넓이는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "4\\sqrt{2}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "6\\sqrt{2}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "8\\sqrt{2}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "10\\sqrt{2}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "12\\sqrt{2}"}]}
+      ]
+    },
+    {
+      "number": 4,
+      "score": 3.8,
+      "contents": [
+        {"type": "equation", "value": "A=60^\\circ"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "b=5"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "c=4"},
+        {"type": "text", "value": "인 삼각형 ABC의 외접원의 반지름의 길이는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\sqrt{6}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\sqrt{7}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "2\\sqrt{2}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\sqrt{10}"}]}
+      ]
+    }
+  ]
+}

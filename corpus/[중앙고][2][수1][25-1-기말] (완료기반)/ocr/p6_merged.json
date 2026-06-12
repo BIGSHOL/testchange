@@ -1,0 +1,41 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 19,
+      "score": 10,
+      "label_type": "서답형",
+      "contents": [
+        {"type": "text", "value": "[서답형 2] 삼각형 ABC에서 "},
+        {"type": "equation", "value": "(a+b):(b+c):(c+a)=4:6:5"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\sin C"},
+        {"type": "text", "value": "의 값을 풀이 과정과 함께 구하시오. [10점, 부분 점수 있음]"}
+      ],
+      "choices": []
+    },
+    {
+      "number": 20,
+      "score": 10,
+      "label_type": "서답형",
+      "contents": [
+        {"type": "text", "value": "[서답형 3] 자연수 "},
+        {"type": "equation", "value": "n"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "에 대한 이차방정식 "},
+        {"type": "equation", "value": "x^2-2(4n+1)x+4n(n+2)=0"},
+        {"type": "text", "value": "의 두 근을 "},
+        {"type": "equation", "value": "\\alpha_n"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\beta_n"},
+        {"type": "text", "value": "이라 할 때, "},
+        {"type": "equation", "value": "\\sum_{k=1}^{n}\\frac{1}{(\\alpha_k-1)(\\beta_k-1)}>\\frac{12}{27}"},
+        {"type": "text", "value": "을 만족시키는 자연수 "},
+        {"type": "equation", "value": "n"},
+        {"type": "text", "value": "의 최솟값을 풀이 과정과 함께 구하시오. [10점, 부분 점수 있음]"}
+      ],
+      "choices": []
+    }
+  ]
+}
