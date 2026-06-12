@@ -1034,9 +1034,13 @@ _LATEX_CMD_RE = re.compile(
     r'log|ln|sin|cos|tan|sec|csc|cot|'
     r'square|circ|triangle|angle|perp|parallel|'
     r'cup|cap|subset|supset|in|notin|'
-    r'mathbb|mathrm|mathbf|mathit|text|boxed|fbox|'
+    r'mathbb|mathrm|mathbf|mathit|text|boxed|fbox|overarc|'
     r'le|ge|ne|to|sim)'                  # 짧은꼴(\le \ge \ne …) — OCR 이 \leq 대신 자주 씀.
-    r'(?:\b|(?=[{^_(\[\d]))'             # \d: `2\times3` 처럼 명령어 바로 뒤 숫자도 경계로.
+    # 경계 = **ASCII 영문자만 아니면 됨**. 기존 `(?:\b|(?=[{^_(\[\d]))` 는 한글이 \w 라
+    # ``\pi일``(명령 직후 한글)에서 \b 실패 → 명령 미인식 → ASCII 경로가 ``\`` 를 평문
+    # literal(₩)로 흘렸다(대구고 수1 #11 ``0<x<2\pi일 때``, 2026-06-12). 한글·공백·문장부호
+    # 전부 경계가 맞고, ``\pix`` 같은 더 긴 영문 명령의 접두 오인만 막으면 된다.
+    r'(?![a-zA-Z])'
 )
 
 # 배점 텍스트 패턴 (예: [3점], [4.5점], [총 7점], [7점, 부분점수 있음]) — 캡처 정규식

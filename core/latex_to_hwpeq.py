@@ -436,7 +436,8 @@ class LaTeXToHWPConverter:
         r"\grave": "grave",
         r"\check": "check",
         r"\breve": "arch",
-        r"\overline": "bar",
+        r"\overarc": "arch",   # 호(⌒) — \overarc{AB} 가 매핑 없어 장식이 증발하고 rm AB 만
+        r"\overline": "bar",   # 남던 것(대구고 수1 #10 호 AB:BC:CA, 2026-06-12). HWP=arch.
         r"\underline": "underline",
         r"\overrightarrow": "VEC",
         r"\widehat": "HAT",
