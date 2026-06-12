@@ -2135,6 +2135,48 @@ def _inject_essay_meta(hwpx_path: str | Path) -> int:
     return total
 
 
+def _count_meta_tokens(hwpx_path: str | Path) -> int:
+    """section XML 의 메타란 토큰(소단원/난이도 자리표식) 연속-문자열 개수. relaunder 후
+    (run=1 정규화) 호출해야 정확하다(쪼개진 토큰은 0 으로 세질 수 있음)."""
+    hwpx_path = Path(hwpx_path)
+    with zipfile.ZipFile(hwpx_path) as z:
+        n = 0
+        for info in z.infolist():
+            if re.search(r"section\d+\.xml$", info.filename):
+                sec = z.read(info.filename).decode("utf-8")
+                n += sec.count(_META_TOKEN_SO) + sec.count(_META_TOKEN_NA)
+    return n
+
+
+def _strip_residual_meta_tokens(hwpx_path: str | Path) -> int:
+    """최종 안전망 — relaunder 후에도 남은 메타란 토큰의 **텍스트만 비운다**(평문 노출 방지).
+
+    `_inject_essay_meta` 의 토큰 교체/제거가 COM 비결정(토큰 run 이 쪼개졌다 relaunder 가
+    run=1 로 정규화)으로 가끔 실패해 ``소단원자리표식QZX`` 가 평문 노출된다(효성중 4중 1회,
+    2026-06-12). 토큰 문자열을 ``""`` 로 치환 — run/단락 구조는 유지(빈 메타란 한 줄)되고
+    lineseg 영향은 빈 텍스트라 미미. 호출부는 변경 시 relaunder 로 재저장(보안경고 제거).
+    Returns: 비운 토큰 수.
+    """
+    hwpx_path = Path(hwpx_path)
+    with zipfile.ZipFile(hwpx_path) as z:
+        infos = z.infolist()
+        data = {i.filename: z.read(i.filename) for i in infos}
+    total = 0
+    for name in list(data):
+        if not re.search(r"section\d+\.xml$", name):
+            continue
+        sec = data[name].decode("utf-8")
+        n = sec.count(_META_TOKEN_SO) + sec.count(_META_TOKEN_NA)
+        if n:
+            sec = sec.replace(_META_TOKEN_SO, "").replace(_META_TOKEN_NA, "")
+            data[name] = sec.encode("utf-8")
+            total += n
+    if total:
+        _repackage_hwpx(hwpx_path, infos, data)
+        logger.warning("[폼] 메타란 토큰 비결정 잔존 %d개 — 텍스트 비움(최종 안전망)", total)
+    return total
+
+
 def _com_relaunder(hwpx_path: str | Path) -> bool:
     """후처리한 hwpx 를 HWP COM 으로 한 번 더 열어 다시 저장(launder)해 '변조' 보안경고 제거.
 
@@ -2316,9 +2358,18 @@ def write_exam_to_form(
         # 폼 중앙고에서 평문 노출, 2026-06-10). 쪼개지면 위 1.9단계 매치가 실패한다. relaunder
         # (HWP 재저장)가 토큰을 한 run 으로 정규화하므로, 그 뒤 **잔여 토큰을 재주입**하고 한 번
         # 더 relaunder 로 linesegs 를 재계산한다. 첫 시도에 성공했으면 토큰 0 → no-op(추가비용 없음).
+        # 메타란 토큰 비결정 잔존 해소 — **relaunder 후 검사·처리 반복**. _inject_essay_meta
+        # 시점의 토큰 run 은 비결정으로 쪼개져(여러 run/t) 매치 실패하고, relaunder 가 run=1 로
+        # 정규화하며 평문 노출된다(효성중 4중 1회, 2026-06-12 — 1회 폴백으론 relaunder 가 다시
+        # 쪼개면 놓침). 매 회: relaunder 후 토큰을 세고(이때 run=1 라 정확), 남으면 메타란
+        # 재주입(채움) 또는 최후 비우기 + relaunder. 토큰 0 이면 relaunder 직후 상태라 경고도 없다.
         try:
-            if _inject_essay_meta(output_path) > 0:
-                _com_relaunder(output_path)
+            for _ in range(3):
+                if _count_meta_tokens(output_path) == 0:
+                    break
+                if _inject_essay_meta(output_path) == 0:   # run=1 인데도 못 채우면(템플릿 없음)
+                    _strip_residual_meta_tokens(output_path)   # 텍스트 비움(빈 메타란, 평문 노출 0)
+                _com_relaunder(output_path)                # 정규화 + 재저장(경고 제거)
         except Exception as e:  # noqa: BLE001
-            logger.warning("폼 후처리 실패(메타 재주입): %s", e)
+            logger.warning("폼 후처리 실패(메타 토큰 잔존 해소): %s", e)
     return output_path
