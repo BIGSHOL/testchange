@@ -426,6 +426,42 @@ def _check_daejin_go1_fixes(fails):
         fails.append(f"  DJ1 ○ 불릿 TEXT 분리 실패: txts={txts2!r}")
 
 
+def _check_dasa_fixes(fails):
+    """다사중 #13(배포 GUI 보고) — 박스 첫 항목이 인라인 수식 분리로 text+eq 로 쪼개진
+    여러 raw 블록일 때 `<보기> ㄱ. 점` 을 자기완결로 오인해 ㄴㄷㄹ 가 박스 밖으로 새던
+    회귀. 후속 항목 라벨(• ㄴ.) 신호로 박스 연속 판정. 학남고형 post(eq+조사) 분리 유지."""
+    CT = ContentType
+    doc = {"header": "", "questions": [{"number": 13, "contents": [
+        {"type": "text", "value": "옳은 것만을 <보기>에서 있는 대로 고른 것은?"},
+        {"type": "text", "value": "<보기> ㄱ. 점 "},
+        {"type": "equation", "value": "(6, 3)"},
+        {"type": "text", "value": "을 지난다. • ㄴ. "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "축과 만나는 점의 좌표는 "},
+        {"type": "equation", "value": "(-4, 0)"},
+        {"type": "text", "value": "이다."},
+    ]}]}
+    q = parse_ocr_response(doc, page_number=1).questions[0]
+    # 박스 미분리(자기완결 오인 금지): 'ㄴ' 라벨 텍스트가 contents 에 남아 있어야 한다
+    # (post 로 떼였으면 head 에서 사라짐 — parse 결과 contents 는 head+post 합본이라
+    # 분리 자체보다 box 마커 뒤 어떤 블록도 손실되지 않았는지 + 마커가 온전한지 본다).
+    joined = "".join((b.value or "") for b in q.contents)
+    if "ㄴ" not in joined or "<보기>" not in joined:
+        fails.append(f"  DS1 박스 연속 오분리: {joined[:120]!r}")
+    # 학남고형 무회귀: 자기완결 박스 + eq·조사 post 는 분리 유지(box_member 태그 존재)
+    doc2 = {"header": "", "questions": [{"number": 20, "contents": [
+        {"type": "text", "value": "<조건> (가) E(Y)=20 이다. (나) V(Y)=16 이다."},
+        {"type": "equation", "value": "P(Y \\le 29)"},
+        {"type": "text", "value": "의 값을 구하시오."},
+    ]}]}
+    q2 = parse_ocr_response(doc2, page_number=1).questions[0]
+    tagged = [b for b in q2.contents if getattr(b, "box_member", False)]
+    untagged_tail = [b for b in q2.contents if not getattr(b, "box_member", False)
+                     and "구하시오" in (b.value or "")]
+    if not tagged or not untagged_tail:
+        fails.append("  DS1 학남고형 post 분리 회귀(box_member 태그/post 소실)")
+
+
 def run():
     fails = []
     _check_comma_roots(fails)
@@ -441,6 +477,7 @@ def run():
     _check_sinmyeong_fixes(fails)
     _check_sangwon_go1_fixes(fails)
     _check_daejin_go1_fixes(fails)
+    _check_dasa_fixes(fails)
     for text, must in _SPACING_CASES:
         got = _render(text)
         if must not in got:
@@ -456,7 +493,7 @@ def run():
         print("FAIL test_content_parser:")
         print("\n".join(fails))
         return 1
-    print(f"OK test_content_parser ({len(_SPACING_CASES) + len(_SCORE_CASES) + 13} cases)")
+    print(f"OK test_content_parser ({len(_SPACING_CASES) + len(_SCORE_CASES) + 14} cases)")
     return 0
 
 

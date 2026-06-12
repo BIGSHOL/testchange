@@ -1089,6 +1089,10 @@ _BARE_ITEM_LABEL_RE = re.compile(
 # 다음 raw 블록이 박스 항목으로 **시작**하는지(라벨/불릿) — 박스 연속 판정(#14 변종).
 _NEXT_ITEM_START_RE = re.compile(
     r"^\s*(?:[•·▪◦○ㅇ]\s*)?(?:[ㄱ-ㅎ]\s*\.|[（(]\s*[가-힣]\s*[)）])")
+# 마커 블록 rest 가 항목 라벨로 **시작**하는지(다사중 #13 ``ㄱ. 점``) — eq 연속 가드 게이트.
+_ITEM_LEAD_RE = re.compile(r"^(?:[ㄱ-ㅎ]\s*\.|[（(]\s*[가-힣]\s*[)）])")
+# 이후 text 블록 **안**의 후속 항목 라벨(``• ㄴ.``·``(나)``) — 박스가 여러 raw 로 쪼개진 신호.
+_INNER_ITEM_LABEL_RE = re.compile(r"[•·▪◦○〇ㅇ]\s*(?:[ㄱ-ㅎ]\s*\.|[（(]\s*[가-힣]\s*[)）])")
 
 
 def _parse_raw_blocks(raws: list[dict]) -> list[ContentBlock]:
@@ -1227,6 +1231,17 @@ def _raw_box_end(raws: list[dict]) -> int | None:
                     if (nxt.get("type") == "text"
                             and _NEXT_ITEM_START_RE.match(nxt.get("value") or "")):
                         return None
+                    # 다사중 #13 변종(2026-06-12): 첫 항목이 **인라인 수식 분리**로 쪼개져
+                    # 마커 블록이 ``<보기> ㄱ. 점 `` 처럼 미완으로 끝나고 다음 raw 가
+                    # equation((6,3))인 경우 — 이후 text 에 **후속 항목 라벨**(``• ㄴ.``)이
+                    # 보이면 박스 연속(분리 금지). post 가 eq+조사 발문 연속(학남고 #20
+                    # ``P(Y≤29)``+"의 값을…" — 라벨 없음)은 그대로 분리(무회귀).
+                    if (_ITEM_LEAD_RE.match(rest) and nxt.get("type") == "equation"):
+                        for j in range(i + 2, min(i + 8, len(raws))):
+                            if raws[j].get("type") != "text":
+                                continue
+                            if _INNER_ITEM_LABEL_RE.search(raws[j].get("value") or ""):
+                                return None
                     return i + 1
                 return None
     return None

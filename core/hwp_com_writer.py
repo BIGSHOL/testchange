@@ -1514,7 +1514,16 @@ def _inject_bogi_form(hwpx_path: str | Path) -> int:
             # 라벨 = 첫 단락(가운데정렬), 내용 = 나머지 단락
             label_para = _set_para_align(paras[0], center_pid)
             label_sub = _wrap_subList([label_para])
-            content_sub = _wrap_subList(paras[1:])
+            # 내용 선두의 **빈 단락 제거** — COM 1×1 박스 작성이 라벨 직후 빈 단락을
+            # 남겨 5×5 폼 내용 셀 첫 줄이 항상 한 줄 띄워졌다(다사중 #4 류, 사용자
+            # 2026-06-12 — 원본은 라벨 아래 바로 항목). 판정은 태그 제거 후 텍스트
+            # (탭 혼입 오판 방지 — 폼 is_empty 교훈).
+            content_paras = list(paras[1:])
+            while content_paras and not re.sub(r"<[^>]+>", "", content_paras[0]).strip():
+                content_paras.pop(0)
+            if not content_paras:        # 방어: 내용이 전부 빈 단락이면 기존 유지
+                content_paras = list(paras[1:])
+            content_sub = _wrap_subList(content_paras)
 
             tbl_id_seq += 1
             new_tbl = BOGI_TABLE_TEMPLATE

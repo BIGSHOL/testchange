@@ -1977,6 +1977,15 @@ def _dedupe_essay_labels(hwpx_path: str | Path) -> int:
 # 유형단어 + (숫자] 또는 <hp:equation = 수식번호) 일 때만 라벨로 확정(본문 일반어 "서술형으로
 # 답하라" 는 여는 ``[`` 가 없어 제외). 유형 단어만 바꾸고 번호·닫는 ``]`` 는 보존.
 _ESSAY_LABEL_SYNC_RE = re.compile(r'(\[\s*)(?:서술형|서답형|단답형)')
+_LABEL_WORD_XML_RE = re.compile(r'\[\s*(서술형|서답형|단답형)')
+
+
+def _label_words_in_xml(hwpx_path: str | Path) -> set:
+    """섹션 XML 에 남은 ``[…형`` 라벨 유형 단어 집합(혼용 잔존 검사용 — relaunder 후 호출)."""
+    with zipfile.ZipFile(Path(hwpx_path)) as z:
+        full = "".join(z.read(n).decode("utf-8") for n in z.namelist()
+                       if re.search(r"section\d+\.xml$", n))
+    return set(_LABEL_WORD_XML_RE.findall(full))
 
 
 def _sync_essay_label_word(hwpx_path: str | Path, target: str) -> int:
@@ -2365,11 +2374,22 @@ def write_exam_to_form(
         # 재주입(채움) 또는 최후 비우기 + relaunder. 토큰 0 이면 relaunder 직후 상태라 경고도 없다.
         try:
             for _ in range(3):
-                if _count_meta_tokens(output_path) == 0:
+                _need_meta = _count_meta_tokens(output_path) > 0
+                # 라벨 혼용 잔존 — COM 저장이 라벨 run 을 비결정 쪼개면 sync 가 연속 문자열을
+                # 못 잡고, relaunder 가 run 을 정규화해 온전한 ``[서술형`` 이 최종 XML 에
+                # 남는다(대진고 공수1 정답면 4중 2회 — 메타토큰과 동일 메커니즘, 검사는
+                # 반드시 relaunder **후**). 균일 시험지만(혼합은 renumber 가 문항별 처리).
+                _need_lbl = (_words and len(set(_words)) == 1
+                             and bool(_label_words_in_xml(output_path) - {_words[0]}))
+                if not _need_meta and not _need_lbl:
                     break
-                if _inject_essay_meta(output_path) == 0:   # run=1 인데도 못 채우면(템플릿 없음)
-                    _strip_residual_meta_tokens(output_path)   # 텍스트 비움(빈 메타란, 평문 노출 0)
+                if _need_meta:
+                    if _inject_essay_meta(output_path) == 0:   # run=1 인데도 못 채우면(템플릿 없음)
+                        _strip_residual_meta_tokens(output_path)   # 텍스트 비움(평문 노출 0)
+                if _need_lbl:
+                    _sync_essay_label_word(output_path, _words[0])
+                    _renumber_essay_labels(output_path, len(essays), words=_words, nums=_nums)
                 _com_relaunder(output_path)                # 정규화 + 재저장(경고 제거)
         except Exception as e:  # noqa: BLE001
-            logger.warning("폼 후처리 실패(메타 토큰 잔존 해소): %s", e)
+            logger.warning("폼 후처리 실패(메타 토큰/라벨 잔존 해소): %s", e)
     return output_path
