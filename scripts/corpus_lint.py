@@ -85,6 +85,10 @@ _META_TOKENS = ("소단원자리표식QZX", "난이도자리표식QZX")
 # 자모 혼입 = **조합용 첫가끝 자모(U+1100-11FF)** — 정상 텍스트엔 안 나오고 깨진 입력의 표식.
 # 호환 자모(U+3130-318F: ㄱㄴㄷ…)는 보기 항목 라벨로 **정상** 사용되므로 제외(오탐 방지).
 _JAMO_RE = re.compile(r"[ᄀ-ᇿ]")
+# 타이핑 혼입 = 렌더 중 사용자 키입력이 숨김 COM 문서로 새 단독 호환자모 런(학산중 #1 'ㄷ',
+# 강동중 낱자모 계열). 보기 라벨 'ㄷ. 가로…'는 한 런에 마침표+내용이 붙어 단독이 아니므로
+# (정상 렌더 검증) **호환자모 1글자가 통째 한 hp:t 런**일 때만 혼입으로 판정(비결정 — 재렌더로 해소).
+_LONE_JAMO_RE = re.compile(r"<hp:t[^>]*>([㄰-㆏ᄀ-ᇿ])</hp:t>")
 _DUP_SCORE_RE = re.compile(r"\[\s*\d+\s*점\s*\][^<\[]{0,4}\[\s*\d+\s*점\s*\]")
 
 
@@ -106,6 +110,10 @@ def lint_xml(hwpx_path: str) -> list[tuple[str, str]]:
     for t in re.findall(r"<hp:t[^>]*>([^<]*)</hp:t>", full):
         if _JAMO_RE.search(t):
             issues.append((FAIL, f"[xml] 자모 혼입 런: {t!r}"))
+    # 단독 호환자모 런 = 렌더 중 타이핑 혼입(학산중 #1 'ㄷ'). 보기 라벨 'ㄷ. …'는 마침표+내용이
+    # 같은 런에 붙어 안 걸린다. 비결정이므로 재렌더로 해소(jamo grep 0 확인).
+    for j in _LONE_JAMO_RE.findall(full):
+        issues.append((FAIL, f"[xml] 단독 자모 런(타이핑 혼입 의심 — 재렌더): {j!r}"))
     # 서술형·단답형 혼합은 정상(문항별 유형). 서답형/서술형 철자 혼용만 동기화 실패 신호(FAIL).
     labels = set(re.findall(r"\[\s*(서술형|서답형|단답형)", full))
     if {"서답형", "서술형"} <= labels:
