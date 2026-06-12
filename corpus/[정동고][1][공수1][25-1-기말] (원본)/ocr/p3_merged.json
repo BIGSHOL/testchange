@@ -1,0 +1,65 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 11,
+      "score": 4.9,
+      "contents": [
+        {"type": "text", "value": "부등식 |2x+2|-|x-3|<9을 만족시키는 정수 x의 개수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "13"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "14"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "15"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "16"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "17"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 12,
+      "score": 5.1,
+      "contents": [
+        {"type": "text", "value": "x에 대한 연립부등식 ax-2<4x-4 \\le -3x+17을 만족시키는 정수 x의 개수가 2가 되도록 하는 실수 a의 값의 범위는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1 \\le a<2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "1<a \\le 2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "2 \\le a<3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "2<a \\le 3"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "3<a \\le 4"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 13,
+      "score": 5.1,
+      "contents": [
+        {"type": "text", "value": "정동고등학교 1학년 학생장과 8명의 각반 실장은 3개의 팀으로 나누어 정동고등학교 축제를 준비하기로 하였다. 각 팀은 최대 4명 이내로 구성하며, 학생장은 단독으로 팀을 구성하지 않고 실장들과 함께 팀을 이루어 활동에 참여하게 한다. 이때 9명이 팀을 구성하는 서로 다른 방법의 수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1540"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "1820"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "2100"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "2380"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "2660"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 14,
+      "score": 5.1,
+      "contents": [
+        {"type": "text", "value": "이차정사각행렬 A, B가 A+B=2E, AB=O일 때, A^{2025}+B^{2025} 의 모든 성분의 합은? (단, E는 단위행렬이고 O는 영행렬이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "2^{2023}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2^{2024}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "2^{2025}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "2^{2026}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "2^{2027}"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

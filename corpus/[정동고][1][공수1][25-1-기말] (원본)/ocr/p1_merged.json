@@ -1,0 +1,95 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 1,
+      "score": 4.1,
+      "contents": [
+        {"type": "text", "value": "{}_{6}\\mathrm{P}_{3}+{}_{5}\\mathrm{C}_{2}의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "130"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "135"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "140"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "145"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "150"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 2,
+      "score": 4.1,
+      "contents": [
+        {"type": "text", "value": "행렬 A=\\begin{pmatrix} 1 & 2 & 6 \\\\ 6 & -2 & 0 \\\\ -2 & 8 & 5 \\end{pmatrix}에 대하여 행렬 A의 (i, j)성분을 a_{ij}라 할 때, a_{11}+a_{22}+a_{33}의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "10"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 3,
+      "score": 4.3,
+      "contents": [
+        {"type": "text", "value": "부등식 |x-1|<2의 해는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-3<x<1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-2<x<2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-1<x<3"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "x<-3 또는 x>1"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "x<-1 또는 x>3"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 4,
+      "score": 4.3,
+      "contents": [
+        {"type": "text", "value": "72의 양의 약수의 개수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "12"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 5,
+      "score": 4.5,
+      "contents": [
+        {"type": "text", "value": "다섯 개의 문자 a, b, c, d, e를 모두 한 번씩 사용하여 사전식으로 배열할 때, dcaeb는 몇 번째로 나타나는가?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "83"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "84"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "85"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "86"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "87"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 6,
+      "score": 4.5,
+      "contents": [
+        {"type": "text", "value": "이차방정식 x^2-4x-6=0의 두 근을 \\alpha, \\beta라 할 때, 두 행렬의 곱 \\begin{pmatrix} \\alpha & \\beta \\\\ 0 & \\alpha \\end{pmatrix}\\begin{pmatrix} \\beta & 0 \\\\ \\alpha & \\beta \\end{pmatrix}의 모든 성분의 합은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "16"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "22"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "28"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

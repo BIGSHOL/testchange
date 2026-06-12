@@ -1,0 +1,66 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 7,
+      "score": 4.7,
+      "contents": [
+        {"type": "text", "value": "연립부등식 \\begin{cases} x^2-3x-10>0 \\\\ x^2-ax \\le 5x-5a \\end{cases} 의 해가 존재하지 않도록 하는 모든 정수 a의 값의 합은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "14"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "16"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 8,
+      "score": 4.7,
+      "contents": [
+        {"type": "text", "value": "1부터 20까지의 자연수가 각각 하나씩 적힌 20개의 공이 들어있는 주머니가 있다. 이 주머니에서 하나씩 공을 두 번 꺼낼 때, 처음과 두 번째에 나올 공에 적힌 수를 각각 a, b라 하자. 이때, a+b가 3으로 나누어떨어지는 모든 경우의 수는? (단, 꺼낸 공은 다시 넣지 않는다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "102"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "114"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "120"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "128"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "134"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 9,
+      "score": 4.7,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 반원 위에 있는 9개의 점이 있는 도형에 대하여 점을 이어서 만들 수 있는 서로 다른 직선의 개수를 a, 세 점을 꼭짓점으로 하는 삼각형의 개수를 b라 할 때, a+b의 값은?"},
+        {"type": "figure", "value": "반원 도형. 지름(아래 가로선) 위에 점 5개(양 끝점 포함), 호 위에 내부 점 4개 — 총 9개의 점이 찍혀 있다.", "bbox": [0.43, 0.05, 0.96, 0.55]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "101"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "106"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "111"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "116"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "121"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 10,
+      "score": 4.9,
+      "contents": [
+        {"type": "text", "value": "두 연립방정식 \\begin{cases} x+y=2 \\\\ x^2+y^2=a \\end{cases}, \\begin{cases} ax+by=20 \\\\ xy=-8 \\end{cases} 가 공통인 해를 가지도록 하는 실수 a, b에 대하여 -x+y+a+b의 값은? (단, a>b)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "37"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "38"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "39"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "40"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "41"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}
