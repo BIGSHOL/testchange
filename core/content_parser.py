@@ -1497,7 +1497,9 @@ def _split_latex_commands(text: str) -> list[ContentBlock]:
 # 쪼개진 배점 ``[`` + EQ(숫자) + ``점]`` 제거용(점수가 수식 객체화되면 _SCORE_TEXT_RE 가
 # 한 텍스트에서 못 잡아 score 필드와 중복 렌더 — #15 [4.3점] 두 번, 2026-06-09).
 _OPEN_SCORE_BRACKET_RE = re.compile(r'[\[(]\s*(?:총\s*)?$')
-_CLOSE_SCORE_JEOM_RE = re.compile(r'^\s*점\s*[\])]')
+# ``점`` 뒤 ``, 부분점수 있음`` 같은 부가 문구도 함께 닫는 괄호까지 매칭(수성고 #21
+# ``[`` + EQ``8`` + ``점, 부분점수 있음]`` 쪼개진 배점, 2026-06-13). _SCORE_TEXT_RE 와 동치.
+_CLOSE_SCORE_JEOM_RE = re.compile(r'^\s*점\s*(?:,[^\])]*)?[\])]')
 
 
 def _strip_split_score(blocks: list[ContentBlock]) -> list[ContentBlock]:

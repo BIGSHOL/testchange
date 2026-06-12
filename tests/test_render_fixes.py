@@ -696,6 +696,18 @@ def run():
     chk(got.count("<hp:p") == got.count("</hp:p>"), "W2 단락 태그 균형")
     chk(got.count("<hp:ctrl>") == got.count("</hp:ctrl>"), "W2 ctrl 태그 균형")
 
+    # ── W3: 번호 라벨 뒤 유형 라벨 중복 제거(_essay_label_and_body, 도원고 수2) ──
+    # OCR 이 ``[서답형 7][서술형]`` 처럼 번호+유형 라벨을 둘 다 주면 폼 라벨과 ``[서술형 7] [서술형]``
+    # 이중 표기. 번호 라벨 추출 후 따라오는 유형 라벨(번호 없음)도 본문에서 제거.
+    lbl, body = _essay_label_and_body([_tb("[서답형 7][서술형] 그림과 같이")], "서술형", 7)
+    chk(lbl == "[서답형 7]" and (body[0].value or "").startswith("그림과"),
+        f"W3 유형 라벨 제거(형태1): {lbl!r} / {body[0].value!r}")
+    lbl2, body2 = _essay_label_and_body([_tb("[서답형 5][단답형] 함수")], "단답형", 5)
+    chk("[단답형]" not in (body2[0].value or ""), f"W3 단답형 유형 라벨 제거: {body2[0].value!r}")
+    lbl3, body3 = _essay_label_and_body([_tb("[서술형 3] 함수 f를")], "서술형", 3)  # 무회귀
+    chk(lbl3 == "[서술형 3]" and (body3[0].value or "").startswith("함수"),
+        f"W3 정상 라벨 무회귀: {lbl3!r} / {body3[0].value!r}")
+
     if fails:
         print("FAIL test_render_fixes:")
         print("\n".join(fails))
@@ -704,7 +716,7 @@ def run():
           "bigstar/boxed/labelless/solo/mixed-label/rm-space/cond-header/form-underline/"
           "sqrt-space/choice-glyph/tail-note/underline-solid/stemleaf-13/choice-geo/cond-circle/"
           "repeat-dot/paren-score/phantom-box/box-bullet/post-box/box-ascii-eq/submark-ref/"
-          "answer-header-strip)")
+          "answer-header-strip/essay-type-label)")
     return 0
 
 

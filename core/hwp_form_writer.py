@@ -697,6 +697,10 @@ def _put_total_score(ses, h, num: int) -> None:
 # 라벨 괄호는 ``[ ]`` 와 ``【 】``(렌티큘러) 둘 다 — OCR 이 같은 시험지에서 혼용한다(경운중
 # #3·#5 가 ``【서답형 3】`` → 우리 ``[서답형 3]`` 와 겹쳐 중복, 2026-06-09). 캡처해 정규화.
 _ESSAY_LABEL_LEAD = re.compile(r'^\s*[\[【]\s*(서[답술]형)\s*(\d+)\s*[\]】]\s*')
+# 번호 **없는** 유형 라벨(``[서술형]``·``[단답형]``·``[서답형]``) — OCR 이 번호 라벨 뒤에 유형
+# 라벨을 한 번 더 붙이는 경우(``[서답형 7][서술형]``, 도원고 수2 2026-06-13)를 본문에서 제거.
+# label_type 필드가 이미 유형을 담아 중복이라, 폼 라벨과 ``[서술형 7] [서술형]`` 이중 표기됨.
+_ESSAY_TYPE_LABEL = re.compile(r'^\s*[\[【]\s*(?:서[답술]형|단답형)\s*[\]】]\s*')
 
 
 def _essay_label_and_body(contents, fallback_label, label_idx):
@@ -723,7 +727,8 @@ def _essay_label_and_body(contents, fallback_label, label_idx):
         m = _ESSAY_LABEL_LEAD.match(b0.value)
         if m:                                   # 형태 1: 한 블록(라벨을 [서답형 N]로 정규화)
             nb = copy.copy(b0)
-            nb.value = b0.value[m.end():]
+            # 번호 라벨 뒤 유형 라벨(``[서답형 7][서술형]``, 도원고) 추가 제거 — label_type 중복.
+            nb.value = _ESSAY_TYPE_LABEL.sub("", b0.value[m.end():], count=1)
             out[i] = nb
             return f"[{m.group(1)} {m.group(2)}]", out
         # 형태 2: 분리형 "[서답형 " + EQ숫자 + "] rest"(여는 [ 또는 【)
@@ -735,6 +740,7 @@ def _essay_label_and_body(contents, fallback_label, label_idx):
                 and re.match(r'^\s*[\]】]', out[i + 2].value or "")):
             num = (out[i + 1].value or "").strip()
             rest = re.sub(r'^\s*[\]】]\s*', '', out[i + 2].value or "")
+            rest = _ESSAY_TYPE_LABEL.sub("", rest, count=1)   # 번호 뒤 유형 라벨 제거(도원고)
             nb2 = copy.copy(out[i + 2])
             nb2.value = rest
             tail = ([nb2] if rest.strip() else []) + out[i + 3:]
