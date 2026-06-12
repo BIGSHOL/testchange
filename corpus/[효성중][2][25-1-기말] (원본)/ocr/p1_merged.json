@@ -1,0 +1,359 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 1,
+      "score": 3,
+      "contents": [
+        {
+          "type": "text",
+          "value": "일차방정식 2x+5y+7=0의 한 해가 (a, -1)일 때, 상수 a의 값은?"
+        }
+      ],
+      "choices": [
+        {
+          "number": 1,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "-2"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "-1"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "1"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "2"
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "score": 3,
+      "contents": [
+        {
+          "type": "text",
+          "value": "연립방정식 "
+        },
+        {
+          "type": "equation",
+          "value": "\\begin{cases}3x-2y=1 \\cdots\\cdots ㉠ \\\\ 2x+5y=7 \\cdots\\cdots ㉡\\end{cases}"
+        },
+        {
+          "type": "text",
+          "value": " 에서 x를 소거할 때, 필요한 식은?"
+        }
+      ],
+      "choices": [
+        {
+          "number": 1,
+          "contents": [
+            {
+              "type": "text",
+              "value": "㉠-㉡"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "contents": [
+            {
+              "type": "text",
+              "value": "㉠-㉡×2"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "contents": [
+            {
+              "type": "text",
+              "value": "㉠×2-㉡×2"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "contents": [
+            {
+              "type": "text",
+              "value": "㉠×2+㉡×3"
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "contents": [
+            {
+              "type": "text",
+              "value": "㉠×2-㉡×3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "score": 3,
+      "contents": [
+        {
+          "type": "text",
+          "value": "y가 x의 함수로 옳은 것을 <보기>에서 고른 것은?"
+        },
+        {
+          "type": "text",
+          "value": "<보기> ㄱ. y는 자연수 x의 배수 • ㄴ. 자연수 x보다 작은 자연수 y • ㄷ. 자연수 x와 서로소인 수 y • ㄹ. 합이 9인 두 정수 x와 y • ㅁ. 자연수 x를 7로 나눈 나머지 y"
+        }
+      ],
+      "choices": [
+        {
+          "number": 1,
+          "contents": [
+            {
+              "type": "text",
+              "value": "ㄱ, ㄴ"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "contents": [
+            {
+              "type": "text",
+              "value": "ㄱ, ㄷ"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "contents": [
+            {
+              "type": "text",
+              "value": "ㄴ, ㅁ"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "contents": [
+            {
+              "type": "text",
+              "value": "ㄷ, ㄹ"
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "contents": [
+            {
+              "type": "text",
+              "value": "ㄹ, ㅁ"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "score": 3,
+      "contents": [
+        {
+          "type": "text",
+          "value": "함수 f(x)=-2x에 대하여 f(2)=a, f(b)=1일 때, a\\div b의 값은? (단, a, b는 상수이다.)"
+        }
+      ],
+      "choices": [
+        {
+          "number": 1,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "4"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "6"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "8"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "10"
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "12"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "score": 3,
+      "contents": [
+        {
+          "type": "text",
+          "value": "y가 x의 일차함수인 것은?"
+        }
+      ],
+      "choices": [
+        {
+          "number": 1,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "y=\\frac{4x-1}{3}"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "y=x^2+3"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "y=\\frac{1}{x}"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "y=(x-4)-x"
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "y=2x(x-2)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "score": 3,
+      "contents": [
+        {
+          "type": "text",
+          "value": "두 점 (2, a+6), (-5, -2a)을 지나는 그래프가 x축에 평행할 때, 상수 a의 값은?"
+        }
+      ],
+      "choices": [
+        {
+          "number": 1,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "-2"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "-1"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "1"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "2"
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "3"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

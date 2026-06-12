@@ -1,0 +1,42 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 19,
+      "score": 8,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 1] 두 연립방정식의 해가 같을 때, 상수 a, b의 값을 각각 구하고 그 과정을 상세하게 서술하시오."},
+        {"type": "text", "value": "<상자> \\begin{cases}y-ax=4 \\\\ 2x-y=-2\\end{cases}  \\begin{cases}3x-2y=-6 \\\\ -x+2y=-b\\end{cases}"}
+      ],
+      "choices": []
+    },
+    {
+      "number": 20,
+      "score": 8,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 2] 서로 평행한 두 일차함수 y=\\frac{1}{2}x+4, y=ax+b의 그래프가 x축과 만나는 점을 각각 A, B라 할 때, \\overline{AB}=10이다. 이때, 상수 a, b에 대하여 a-b의 값을 구하고, 그 과정을 서술하시오. (단, b<0)"}
+      ],
+      "choices": []
+    },
+    {
+      "number": 21,
+      "score": 9,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 3] 일차함수 y=ax+1의 그래프를 y축의 방향으로 -b만큼 평행이동한 그래프가 두 점 (-1, 1), (2, 4)를 지날 때, a+b의 값을 구하고, 그 과정을 서술하시오. (단, a는 상수)"}
+      ],
+      "choices": []
+    },
+    {
+      "number": 22,
+      "score": 9,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 4] 세 일차방정식 2x-y+1=0, x-3=0, 2y+6=0 의 그래프로 둘러싸인 도형의 넓이를 구하고, 그 과정을 서술하시오. (단, 풀이과정에 반드시 주어진 세 방정식의 그래프를 모두 그려서 풀이할 것)"}
+      ],
+      "choices": []
+    }
+  ]
+}
