@@ -1,0 +1,134 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 17,
+      "score": 5,
+      "label_type": "단답형",
+      "contents": [
+        {"type": "text", "value": "[서답형 5][단답형] 함수 "},
+        {"type": "equation", "value": "f(x)=\\begin{cases}|x|-2 & (|x|\\geq 1)\\\\ 2-|x| & (|x|<1)\\end{cases}"},
+        {"type": "text", "value": "와 실수 "},
+        {"type": "equation", "value": "k"},
+        {"type": "text", "value": "에 대하여 함수 "},
+        {"type": "equation", "value": "y=f(x)f(x-k)"},
+        {"type": "text", "value": "의 불연속인 "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "의 값의 개수가 "},
+        {"type": "equation", "value": "g(k)"},
+        {"type": "text", "value": "라 하자. "},
+        {"type": "equation", "value": "g(k)+g(k-6)=4"},
+        {"type": "text", "value": "가 되도록 하는 "},
+        {"type": "equation", "value": "k"},
+        {"type": "text", "value": "의 값을 __모두__ 구하시오. [5점, 부분점수 없음.]"}
+      ],
+      "choices": []
+    },
+    {
+      "number": 18,
+      "score": 5,
+      "label_type": "단답형",
+      "contents": [
+        {"type": "text", "value": "[서답형 6][단답형] 실수 "},
+        {"type": "equation", "value": "a\\ (a\\neq 0)"},
+        {"type": "text", "value": "과 "},
+        {"type": "equation", "value": "2"},
+        {"type": "text", "value": "보다 큰 자연수 "},
+        {"type": "equation", "value": "n"},
+        {"type": "text", "value": "에 대하여 집합 "},
+        {"type": "equation", "value": "A=\\{x|x\\neq 2\\text{인 실수}\\}"},
+        {"type": "text", "value": "에서 정의된 함수 "},
+        {"type": "equation", "value": "f(x)"},
+        {"type": "text", "value": "를 "},
+        {"type": "equation", "value": "f(x)=\\begin{cases}\\dfrac{ax-an}{x-2}-n & (x<2\\ \\text{또는}\\ 2<x<n)\\\\ -a\\sqrt{x-n}-n & (x\\geq n)\\end{cases}"},
+        {"type": "text", "value": "이라 하자. 실수 "},
+        {"type": "equation", "value": "t"},
+        {"type": "text", "value": "와 "},
+        {"type": "equation", "value": "x\\in A"},
+        {"type": "text", "value": "에 대하여 함수 "},
+        {"type": "equation", "value": "y=|f(x)-t|"},
+        {"type": "text", "value": "의 미분불가능한 "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "의 값의 개수를 "},
+        {"type": "equation", "value": "g(t)"},
+        {"type": "text", "value": "라 할 때, 함수 "},
+        {"type": "equation", "value": "g(t)"},
+        {"type": "text", "value": "가 다음 조건을 만족시키도록 하는 "},
+        {"type": "equation", "value": "n"},
+        {"type": "text", "value": "의 값을 __모두__ 구하시오. [5점, 부분점수 없음.]"},
+        {"type": "text", "value": "<상자> (가) \\(g(t)=1\\)을 만족시키는 실수 \\(t\\)의 최솟값은 \\(-n\\), 최댓값은 \\(\\frac{3}{2}n\\)이다. • (나) \\(g(|f(7)|)\\times g(n)=1\\)"},
+        {"type": "text", "value": "(힌트: 함수 \\(y=\\frac{ax-an}{x-2}-n\\)은 \\(x\\neq 2\\)인 실수에서 미분가능하며 함수 \\(y=-a\\sqrt{x-n}-n\\)은 \\(x>n\\)인 실수에서 미분가능하다. 함수 \\(y=|f(x)-t|\\)의 그래프의 개형에서 미분계수의 기하학적 의미를 이용하여 미분가능성을 판별하시오.)"}
+      ],
+      "choices": []
+    },
+    {
+      "number": 19,
+      "score": 5.5,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서답형 7][서술형] 그림과 같이 중심이 점 "},
+        {"type": "equation", "value": "C"},
+        {"type": "text", "value": "이고 반지름이 "},
+        {"type": "equation", "value": "r"},
+        {"type": "text", "value": "인 원이 "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "축과 점 "},
+        {"type": "equation", "value": "A"},
+        {"type": "text", "value": "에서 접하고 원 "},
+        {"type": "equation", "value": "(x-1)^2+y^2=1"},
+        {"type": "text", "value": "과 점 "},
+        {"type": "equation", "value": "B"},
+        {"type": "text", "value": "에서 접한다. 원 위의 점 "},
+        {"type": "equation", "value": "B"},
+        {"type": "text", "value": "에서의 접선의 기울기를 "},
+        {"type": "equation", "value": "k"},
+        {"type": "text", "value": "라고 할 때, "},
+        {"type": "equation", "value": "\\lim_{r\\to\\infty}k\\sqrt{r}"},
+        {"type": "text", "value": "을 구하는 풀이 과정과 답을 쓰시오."},
+        {"type": "figure", "value": "좌표평면. 큰 원: 중심 C(2사분면 위쪽, x축 위로 반지름 r만큼 떨어짐)이고 반지름 r인 원이 x축과 점 A(원점 왼쪽)에서 접한다. 작은 원: 중심 D(1,0), 반지름 1인 원 (x-1)²+y²=1이 x축 위에 놓임(원점 O와 (2,0)에서 x축과 만남). 두 원은 점 B(원점 위쪽 부근)에서 외접한다. 점 B에서의 공통접선(직선)이 우상향하며 표시됨. 점 A·O·D(1,0)가 x축 위에 라벨.", "bbox": [0.18, 0.21, 0.50, 0.44]}
+      ],
+      "choices": []
+    },
+    {
+      "number": 20,
+      "score": 11.5,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서답형 8][서술형] 함수 "},
+        {"type": "equation", "value": "f(x)=x^3+ax^2+bx+5"},
+        {"type": "text", "value": "가 다음 조건을 만족시킨다. 다음 물음에 답하시오."},
+        {"type": "text", "value": "<상자> 모든 실수 \\(\\alpha\\)에 대하여 \\(\\lim_{x\\to\\alpha}\\frac{f(2x+5)}{f(x)}\\)의 값이 존재한다."}
+      ],
+      "choices": [],
+      "sub_questions": [
+        {
+          "number": 1,
+          "score": 7.5,
+          "contents": [
+            {"type": "equation", "value": "x"},
+            {"type": "text", "value": "에 대한 방정식 "},
+            {"type": "equation", "value": "f(x)=0"},
+            {"type": "text", "value": "의 실근을 모두 구하는 풀이 과정과 답을 쓰시오. (힌트: "},
+            {"type": "equation", "value": "n"},
+            {"type": "text", "value": "차 방정식은 "},
+            {"type": "equation", "value": "n"},
+            {"type": "text", "value": "개의 근을 가지며, "},
+            {"type": "equation", "value": "3"},
+            {"type": "text", "value": "차 방정식은 반드시 실근을 갖는다.)"}
+          ]
+        },
+        {
+          "number": 2,
+          "score": 4,
+          "contents": [
+            {"type": "text", "value": "두 정수 "},
+            {"type": "equation", "value": "a,\\ b"},
+            {"type": "text", "value": "에 대하여 ⑴의 결과를 이용하여 "},
+            {"type": "equation", "value": "f(1)"},
+            {"type": "text", "value": "의 최댓값을 구하는 풀이 과정과 답을 쓰시오."}
+          ]
+        }
+      ]
+    }
+  ]
+}
