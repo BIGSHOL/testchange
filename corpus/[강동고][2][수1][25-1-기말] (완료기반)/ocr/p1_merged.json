@@ -1,0 +1,97 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 1,
+      "score": 3.0,
+      "contents": [
+        {"type": "text", "value": "첫째항이 5이며, 공차가 -3인 등차수열 "},
+        {"type": "equation", "value": "\\{a_n\\}"},
+        {"type": "text", "value": "의 일반항은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "a_n=-3n+5"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "a_n=3n+8"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "a_n=-3n+11"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "a_n=5n-3"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "a_n=5n+5"}]}
+      ]
+    },
+    {
+      "number": 2,
+      "score": 3.1,
+      "contents": [
+        {"type": "text", "value": "\\overline{AB}=\\sqrt{2}, \\overline{BC}=\\sqrt{2}, \\angle A=45°인 삼각형 ABC의 \\angle C의 크기는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "30°"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "45°"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "60°"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "75°"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "90°"}]}
+      ]
+    },
+    {
+      "number": 3,
+      "score": 3.2,
+      "contents": [
+        {"type": "text", "value": "첫째항이 6, 공비가 "},
+        {"type": "equation", "value": "\\frac{1}{3}"},
+        {"type": "text", "value": "인 등비수열의 첫째항부터 제5항까지의 합은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{227}{27}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{232}{27}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{79}{9}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{242}{27}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{247}{27}"}]}
+      ]
+    },
+    {
+      "number": 4,
+      "score": 3.3,
+      "contents": [
+        {"type": "text", "value": "\\(a_1=3\\), \\(a_{n+1}=3a_n-2\\)와 같이 정의된 수열 "},
+        {"type": "equation", "value": "\\{a_n\\}"},
+        {"type": "text", "value": "에서 "},
+        {"type": "equation", "value": "a_4"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "45"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "50"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "55"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "60"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "65"}]}
+      ]
+    },
+    {
+      "number": 5,
+      "score": 3.4,
+      "contents": [
+        {"type": "text", "value": "삼각형 ABC의 세 변의 길이가 \\overline{AB}=7, \\overline{BC}=5, \\overline{CA}=8일 때, \\cos B의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-\\frac{3}{7}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-\\frac{1}{7}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{1}{7}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{3}{7}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{5}{7}"}]}
+      ]
+    },
+    {
+      "number": 6,
+      "score": 3.5,
+      "contents": [
+        {"type": "text", "value": "\\sum_{k=1}^{10} k^2의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "325"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "340"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "355"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "370"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "385"}]}
+      ]
+    }
+  ]
+}

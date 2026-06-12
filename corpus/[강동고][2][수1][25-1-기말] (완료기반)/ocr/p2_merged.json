@@ -1,0 +1,96 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 7,
+      "score": 3.6,
+      "contents": [
+        {"type": "text", "value": "\\sum_{k=1}^{10} \\frac{3k^2}{k+2} + \\sum_{k=1}^{10} \\frac{5k-2}{k+2} 의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "155"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "165"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "175"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "185"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "195"}]}
+      ]
+    },
+    {
+      "number": 8,
+      "score": 3.7,
+      "contents": [
+        {"type": "text", "value": "첫째항부터 제5항까지의 합이 70, 첫째항부터 제8항까지의 합이 64인 등차수열 "},
+        {"type": "equation", "value": "\\{a_n\\}"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "a_6+a_8+a_{10}"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-6"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-10"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "-14"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "-18"}]}
+      ]
+    },
+    {
+      "number": 9,
+      "score": 3.8,
+      "contents": [
+        {"type": "text", "value": "삼각형 ABC의 세 변의 길이를 \\overline{AB}=c, \\overline{BC}=a, \\overline{CA}=b라 할 때, "},
+        {"type": "equation", "value": "\\frac{\\sin(A+C)}{a}=\\frac{\\sin(B+C)}{b}"},
+        {"type": "text", "value": "를 만족하는 삼각형 ABC는 어떤 삼각형인가?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "a=b인 이등변삼각형"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "b=c인 이등변삼각형"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "\\angle A=90°인 직각삼각형"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "\\angle B=90°인 이등변삼각형"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "\\angle C=90°인 이등변삼각형"}]}
+      ]
+    },
+    {
+      "number": 10,
+      "score": 3.9,
+      "contents": [
+        {"type": "text", "value": "공비가 양수인 등비수열 "},
+        {"type": "equation", "value": "\\{a_n\\}"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "\\sum_{k=1}^{12} a_k=100"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\sum_{k=5}^{16} a_k=400"},
+        {"type": "text", "value": "이라고 할 때, "},
+        {"type": "equation", "value": "a_1+a_5+a_9"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "30(\\sqrt{2}-1)"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{100}{3}(\\sqrt{2}-1)"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{110}{3}(\\sqrt{2}-1)"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{100}{3}(\\sqrt{3}-1)"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{110}{3}(\\sqrt{3}-1)"}]}
+      ]
+    },
+    {
+      "number": 11,
+      "score": 4.0,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 두 대각선의 길이가 p, q이고, 두 대각선이 이루는 각의 크기가 "},
+        {"type": "equation", "value": "\\frac{3}{4}\\pi"},
+        {"type": "text", "value": "이다. p+q=6이고, "},
+        {"type": "equation", "value": "p^2+q^2=20"},
+        {"type": "text", "value": "일 때, 사각형 ABCD의 넓이를 S라 하면 "},
+        {"type": "equation", "value": "\\sqrt{2}S"},
+        {"type": "text", "value": "의 값은?"},
+        {"type": "figure", "value": "사각형 ABCD (A 왼쪽·B 아래왼쪽·C 오른쪽·D 위). 두 대각선 AC(길이 p, 점선)와 BD(길이 q, 점선)가 내부에서 교차하며 이루는 각이 3/4 π(135°)로 표시. 꼭짓점 라벨 A·B·C·D, 대각선 라벨 p·q, 교각 3/4 π.", "bbox": [0.18, 0.50, 0.85, 0.70]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "3\\sqrt{2}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4\\sqrt{2}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "6"}]}
+      ]
+    }
+  ]
+}
