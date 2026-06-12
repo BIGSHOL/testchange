@@ -1,0 +1,96 @@
+{
+  "header": "2025학년도 제1학기 기말고사 제1학년 [공통수학1] 7월 3일 1교시 실시",
+  "questions": [
+    {
+      "number": 1,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "이차부등식 x^2-1<0을 만족시키는 정수 x의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "2"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 2,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "2x+y의 값이 7 이하가 되도록 하는 자연수 x, y의 순서쌍 (x, y)의 개수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "11"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 3,
+      "score": 3.5,
+      "contents": [
+        {"type": "text", "value": "삼차방정식 x^3-4x^2+(k+4)x-2k=0이 허근을 갖도록 하는 자연수 k의 최솟값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 4,
+      "score": 3.5,
+      "contents": [
+        {"type": "text", "value": "남학생 4명과 여학생 3명이 있는 동아리에서 3명을 뽑아 한 모둠을 구성할 때, 모둠에 적어도 한 명의 여학생이 포함되는 경우의 수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "30"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "31"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "32"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "33"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "34"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 5,
+      "score": 3.5,
+      "contents": [
+        {"type": "text", "value": "행렬 A=\\begin{pmatrix} -1 & 1 \\\\ -2 & 1 \\end{pmatrix}에 대하여 A^n=E를 만족시키는 자연수 n의 최솟값은? (단, E는 단위행렬이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "8"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 6,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "세 개의 모음 A, I, O를 포함한 6개의 문자 H, A, R, I, B, O가 하나씩 적혀 있는 6장의 카드 중에서 서로 다른 4개를 뽑아 일렬로 나열할 때, 다음 조건을 만족하는 경우의 수는?"},
+        {"type": "text", "value": "<상자> (가) 모음이 적힌 카드는 2장 뿐이다. • (나) 모음과 자음은 교대로 나열한다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "36"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "48"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "60"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "72"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "84"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

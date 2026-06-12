@@ -1,0 +1,30 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 19,
+      "score": 9,
+      "label_type": "서답형",
+      "contents": [
+        {"type": "text", "value": "[서답형 3] 다음 등식이 성립함을 보이시오."},
+        {"type": "equation_block", "value": "_{n-1}C_{r-1}+_{n-1}C_{r}=_{n}C_{r} \\ (단, 1 \\le r<n)"}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 20,
+      "score": 11,
+      "label_type": "서답형",
+      "contents": [
+        {"type": "text", "value": "[서답형 4] 두 이차함수 f(x)=x^2+2x-2a+1, g(x)=-ax^2+4ax-3a가 다음 조건을 만족시킨다."},
+        {"type": "text", "value": "<상자> (가) 임의의 두 실수 p, q에 대하여 f(p)+g(q) \\ge 0 • (나) 모든 실수 x에 대하여 부등식 -f(x)<m-mx \\le g(x)가 항상 성립한다."},
+        {"type": "text", "value": "m=h(a)라 할 때,"},
+        {"type": "equation_block", "value": "\\sqrt{-1} \\times \\frac{\\sqrt{h(a)}}{\\sqrt{-h(4a)}}"},
+        {"type": "text", "value": "의 값을 풀이 과정과 함께 서술하시오. (단, a는 상수이다.)"}
+      ],
+      "choices": [],
+      "sub_questions": []
+    }
+  ]
+}

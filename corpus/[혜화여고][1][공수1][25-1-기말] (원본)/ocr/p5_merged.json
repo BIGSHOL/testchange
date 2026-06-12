@@ -1,0 +1,27 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 17,
+      "score": 7,
+      "label_type": "서답형",
+      "contents": [
+        {"type": "text", "value": "[서답형 1] 연립방정식"},
+        {"type": "equation_block", "value": "\\begin{cases} x^2+3xy+2y^2=0 \\\\ x^2+xy-y=3 \\end{cases}"},
+        {"type": "text", "value": "의 해를 풀이 과정과 함께 서술하시오."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 18,
+      "score": 8,
+      "label_type": "서답형",
+      "contents": [
+        {"type": "text", "value": "[서답형 2] 두 행렬 A=\\begin{pmatrix} 4 & -1 \\\\ 2 & 4 \\end{pmatrix}, B=\\begin{pmatrix} 2 & -3 \\\\ a & 2 \\end{pmatrix}에 대하여 A+B=C, A-B=D이라고 할 때, CD=DC가 성립하도록 하는 상수 a의 값을 풀이 과정과 함께 서술하시오. (단, 풀이 과정에 행렬 C, D, CD, DC를 꼭 구할 것.)"}
+      ],
+      "choices": [],
+      "sub_questions": []
+    }
+  ]
+}

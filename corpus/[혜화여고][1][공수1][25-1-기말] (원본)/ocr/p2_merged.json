@@ -1,0 +1,67 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 7,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 한 행에 4개의 의자가 있고 모두 두 줄로 설치된 8개의 좌석에 A, B, C, D, E 5명이 앉으려고 한다. A와 B가 같은 행에 서로 이웃하여 앉는 방법의 수는?"},
+        {"type": "figure", "value": "두 줄로 설치된 8개 좌석 그림. 한 행에 4칸씩 두 행(제1행, 제2행). 각 행은 1×4 칸 표 모양이고 왼쪽에 '제1행 →', '제2행 →' 라벨. 한 행에 4개의 빈 좌석 칸.", "bbox": [0.10, 0.40, 0.78, 0.98]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "240"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "360"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "520"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "720"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "1440"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 8,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "양수 k에 대하여 이차함수 f(x)=-x^2+6x+k+1의 그래프와 직선 y=x+3이 서로 다른 두 점 (\\alpha, f(\\alpha)), (\\beta, f(\\beta))에서 만난다. \\alpha \\le x \\le \\beta에서 함수 f(x)의 최댓값이 18일 때, \\alpha \\le x \\le \\beta에서 함수 f(x)의 최솟값은? (단, \\alpha<\\beta)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "3"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 9,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 \\overline{AB}=3, \\angle BCA=90°인 직각삼각형 ABC에 대하여 \\angle BAC의 이등분선이 선분 BC와 만나는 점을 D라고 하자. \\overline{BD}=1일 때, \\overline{CD}의 길이는?"},
+        {"type": "figure", "value": "직각삼각형 ABC. A가 위 꼭짓점, B가 왼쪽 아래, C가 오른쪽 아래(∠C=90° 직각 표시). 빗변 AB=3. ∠BAC의 이등분선 AD가 밑변 BC 위의 점 D와 만남. BD=1, DC 표시. 변 AC를 3a, BD 부분을 3a 등으로 라벨(이등분선 비례).", "bbox": [0.20, 0.22, 0.80, 0.78]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{2\\sqrt{2}}{5}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{3}{5}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{\\sqrt{2}}{2}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{4}{5}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "1"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 10,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "이차함수 y=x^2-2(a-k)x+k+3a가 실수 k의 값에 관계 없이 항상 x축과 만나도록 하는 정수 a의 최댓값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-5"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-4"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "-1"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

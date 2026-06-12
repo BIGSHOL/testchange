@@ -1,0 +1,71 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 11,
+      "score": 4.5,
+      "contents": [
+        {"type": "text", "value": "x에 대한 사차방정식"},
+        {"type": "equation_block", "value": "x^4+(a+1)x^3+(2a+3)x^2+(a+3)x=0"},
+        {"type": "text", "value": "의 서로 다른 실근의 개수가 3이 되도록 하는 모든 실수 a의 값의 합은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 12,
+      "score": 4.5,
+      "contents": [
+        {"type": "text", "value": "방정식 x^3=-1의 한 허근을 \\omega라 할 때, \\omega에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고른 것은? (단, \\overline{\\omega}는 \\omega의 켤레복소수이다.)"},
+        {"type": "text", "value": "<보기> ㄱ. \\overline{\\omega}\\omega+\\omega+\\overline{\\omega}=0 • ㄴ. \\overline{\\omega}(\\omega^4+\\omega^3+\\omega^2-2\\omega+2)=-2 • ㄷ. 모든 자연수 n에 대하여 (\\omega^2+1)^{3n}-\\omega=-(\\overline{\\omega}-1)^2"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄴ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄷ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄴ, ㄷ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄱ, ㄴ, ㄷ"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 13,
+      "score": 4.5,
+      "contents": [
+        {"type": "text", "value": "두 이차 정사각행렬 A, B에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고른 것은? (단, E는 단위행렬, O는 영행렬이다.)"},
+        {"type": "text", "value": "<보기> ㄱ. AB=O, A \\ne O이면 B=O • ㄴ. (A-E)^2=O이면 A=E • ㄷ. AB=A, BA=B이면 A^2=A"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄴ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄷ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄴ, ㄷ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄱ, ㄴ, ㄷ"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 14,
+      "score": 4.5,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 의자 7개가 나란히 설치되어 있다. 1학년 학생 2명과 2학년 학생 4명이 모두 의자에 앉을 때, 다음 조건을 만족시키는 경우의 수는?"},
+        {"type": "text", "value": "<상자> (가) 1학년 학생끼리는 이웃하지 않는다. • (나) 빈 의자 양 옆에는 2학년 학생이 앉는다. • (다) 가장 왼쪽과 가장 오른쪽 의자에는 반드시 학생이 앉는다."},
+        {"type": "figure", "value": "나란히 설치된 의자 7개 그림. 가로로 이어진 7칸의 빈 의자(1×7 칸).", "bbox": [0.05, 0.62, 0.92, 0.80]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "192"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "288"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "384"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "672"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "864"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

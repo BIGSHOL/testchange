@@ -1,0 +1,38 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 15,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "최고차항의 계수가 정수인 이차다항식 P(x)가 다음 조건을 만족시킬 때, P(-2)의 최솟값은?"},
+        {"type": "text", "value": "<상자> (가) 부등식 P(x) \\le x+1의 해는 0 \\le x \\le 3이다. • (나) 방정식 P(x)=x+6의 두 근이 모두 -1보다 크다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "17"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "19"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "21"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "23"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "25"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 16,
+      "score": 5.5,
+      "contents": [
+        {"type": "text", "value": "x에 대한 연립부등식"},
+        {"type": "equation_block", "value": "\\begin{cases} |2x-1|+|x-4|<k \\\\ -x^2+5x+14 \\ge 0 \\end{cases}"},
+        {"type": "text", "value": "을 만족시키는 정수 x의 개수가 7이 되도록 하는 실수 k의 값의 범위가 a<k \\le b일 때, a \\times b의 값은? (단, a, b는 상수이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "90"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "96"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "110"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "120"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "132"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}
