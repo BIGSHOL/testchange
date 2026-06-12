@@ -1,0 +1,94 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 1,
+      "score": 3.2,
+      "contents": [
+        {"type": "text", "value": "y가 x의 함수인 것을 <보기>에서 있는 대로 고른 것은?"},
+        {"type": "text", "value": "<보기> ㄱ. x보다 큰 자연수 y • ㄴ. 자연수 x의 약수 y • ㄷ. 자연수 x보다 작은 소수의 개수 y개 • ㄹ. 한 개에 100원 하는 볼펜 x자루의 가격 y원 • ㅁ. 한 변의 길이가 x\\mathrm{cm}인 정사각형의 넓이는 y\\mathrm{cm}^2"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ, ㄴ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄱ, ㄷ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄹ, ㅁ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄴ, ㄹ, ㅁ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄷ, ㄹ, ㅁ"}]}
+      ]
+    },
+    {
+      "number": 2,
+      "score": 3.5,
+      "contents": [
+        {"type": "text", "value": "y=x(ax-5)+bx-a가 x에 대한 일차함수가 되도록 하는 수 a, b의 조건은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "a=0, b=0"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "a=0, b \\neq 0"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "a=0, b=5"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "a=0, b \\neq 5"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "a \\neq 0, b \\neq 5"}]}
+      ]
+    },
+    {
+      "number": 3,
+      "score": 3.6,
+      "contents": [
+        {"type": "text", "value": "함수 f(x)=(x 이하의 소수의 개수)에 대하여 f(20)+f(30)의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "17"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "18"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "19"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "20"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "21"}]}
+      ]
+    },
+    {
+      "number": 4,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "일차함수 y=2x-3의 그래프와 평행하고, 점 \\left(\\frac{5}{2}, \\frac{17}{2}\\right)을 지나는 직선을 그래프로 하는 일차함수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "y=x+\\frac{7}{2}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "y=x+\\frac{17}{2}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "y=2x-3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "y=2x+\\frac{7}{2}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "y=2x+\\frac{17}{2}"}]}
+      ]
+    },
+    {
+      "number": 5,
+      "score": 3.3,
+      "contents": [
+        {"type": "text", "value": "연립방정식 "},
+        {"type": "equation", "value": "\\begin{cases}x-ay=3 \\\\ bx-6y=9\\end{cases}"},
+        {"type": "text", "value": " 의 해가 무수히 많을 때, a+b의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "7"}]}
+      ]
+    },
+    {
+      "number": 6,
+      "score": 3.7,
+      "contents": [
+        {"type": "text", "value": "일차함수 f(x)=-37x+100에 대하여 "},
+        {"type": "equation", "value": "\\frac{f(2025)-f(25)}{2025-25}"},
+        {"type": "text", "value": " 의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-225"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-100"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-70"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "-37"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "-25"}]}
+      ]
+    }
+  ]
+}
