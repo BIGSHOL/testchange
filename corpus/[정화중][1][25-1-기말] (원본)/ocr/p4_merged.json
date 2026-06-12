@@ -1,0 +1,68 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 10,
+      "score": 4.1,
+      "contents": [
+        {"type": "text", "value": "다항식 "},
+        {"type": "equation", "value": "5x-\\frac{1}{2}\\left[2x-3\\{4-(3x+y)\\}-\\frac{5}{2}\\left(-6y+\\frac{6}{5}x\\right)\\right]"},
+        {"type": "text", "value": "을 간단히 계산하였을 때, x의 계수를 a, y의 계수를 b, 상수항을 c라고 하면 a-b+c의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-14"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "16"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "25"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 11,
+      "score": 4.3,
+      "contents": [
+        {"type": "text", "value": "A는 가지고 있던 사탕의 반을 B에게 주고, 나머지의 반을 C에게, 그 나머지의 반을 D에게, 또 그 나머지의 반을 E에게 주고, 그 나머지인 20개를 F에게 주었다. 이때 A가 C에게 준 사탕의 개수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "40개"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "80개"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "160개"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "320개"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "640개"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 12,
+      "score": 3.7,
+      "contents": [
+        {"type": "text", "value": "다음 중 옳지 않은 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "점 (0, -5)는 y축 위의 점이다."}]},
+        {"number": 2, "contents": [{"type": "text", "value": "원점의 좌표는 (0, 0)이다."}]},
+        {"number": 3, "contents": [{"type": "text", "value": "두 순서쌍 (18, 79)와 (79, 18)은 서로 다르다."}]},
+        {"number": 4, "contents": [{"type": "text", "value": "수직선 위의 점에 대응하는 수를 그 점의 좌표라고 한다."}]},
+        {"number": 5, "contents": [{"type": "text", "value": "원점은 x축과 y축 위에 있는 점이고, 제1사분면에 속한다."}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 13,
+      "score": 3.9,
+      "contents": [
+        {"type": "text", "value": "학교에서 1km 떨어진 도서관까지 영이는 자전거를 타고 가고, 같은 길을 란이는 걸어간다. 그래프는 란이가 출발한 지 x분 후 영이와 란이가 학교로부터 떨어진 거리를 y m라 할 때, x와 y 사이의 관계를 나타낸 것이다. 영이와 란이가 처음으로 만나는 시간은?"},
+        {"type": "figure", "value": "거리-시간 그래프. 세로축 y(m)에 1000 눈금(점선), 가로축 x(분)에 3·5·10·18 눈금. 란이: 원점에서 출발하는 완만한 직선 — 18분에 1000m 도달. 영이: x=3에서 출발하는 가파른 직선 — 10분에 1000m 도달. 두 직선은 x=5에서 교차(교점에 점선 표시). 그래프 위쪽에 영이·란이 라벨.", "bbox": [0.55, 0.58, 0.93, 0.84]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "3분"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "5분"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "10분"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "18분"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "만나지 않는다."}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

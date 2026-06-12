@@ -1,0 +1,57 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 20,
+      "score": 12,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 3] A, B, C 편의점에서 정가가 같은 초콜릿을 다음과 같이 판매하고 있다. 물음에 답하시오."},
+        {"type": "table", "value": "", "rows": [
+          ["A 편의점", "3개를 사면 1개를 더 드립니다."],
+          ["B 편의점", "3개를 사면 30% 할인합니다. (단, 3개 묶음이 아닌 낱개는 정가로 계산한다.)"],
+          ["C 편의점", "3개를 사면 20% 할인한 가격에서 추가로 10% 할인합니다. (단, 3개 묶음이 아닌 낱개는 20% 할인한다.)"]
+        ]}
+      ],
+      "choices": [],
+      "sub_questions": [
+        {
+          "number": 1,
+          "score": 5,
+          "contents": [
+            {"type": "text", "value": "초콜릿 1개의 정가를 x원이라고 할 때, A, B, C 편의점에서 초콜릿을 4개 살 때의 가격을 각각 x를 사용한 식으로 나타내시오."}
+          ],
+          "choices": [],
+          "sub_questions": []
+        },
+        {
+          "number": 2,
+          "score": 1,
+          "contents": [
+            {"type": "text", "value": "초콜릿을 4개 살 때 어느 편의점에서 사는 것이 저렴한지 구하시오."}
+          ],
+          "choices": [],
+          "sub_questions": []
+        },
+        {
+          "number": 3,
+          "score": 5,
+          "contents": [
+            {"type": "text", "value": "초콜릿 1개의 정가를 x원이라고 할 때, A, B, C 편의점에서 초콜릿을 32개 살 때의 가격을 각각 x를 사용한 식으로 나타내시오."}
+          ],
+          "choices": [],
+          "sub_questions": []
+        },
+        {
+          "number": 4,
+          "score": 1,
+          "contents": [
+            {"type": "text", "value": "초콜릿을 32개 살 때 어느 편의점에서 사는 것이 저렴한지 구하시오."}
+          ],
+          "choices": [],
+          "sub_questions": []
+        }
+      ]
+    }
+  ]
+}

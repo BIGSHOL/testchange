@@ -1,0 +1,54 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 14,
+      "score": 5,
+      "label_type": "단답형",
+      "contents": [
+        {"type": "text", "value": "[단답형 1] 다음 <조건>을 만족시키는 자연수를 구하시오."},
+        {"type": "text", "value": "<조건> • 20보다 크고 30보다 작은 자연수이다. • 2개의 소인수를 가지며, 이 두 소인수의 합은 9이다."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 15,
+      "score": 5,
+      "label_type": "단답형",
+      "contents": [
+        {"type": "text", "value": "[단답형 2] "},
+        {"type": "equation", "value": "\\frac{5}{3}\\times\\left\\{(0.5)^2+\\frac{5}{4}\\right\\}-2^3\\div(-0.2)"},
+        {"type": "text", "value": "를 계산하시오."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 16,
+      "score": 5,
+      "label_type": "단답형",
+      "contents": [
+        {"type": "text", "value": "[단답형 3] 등식 "},
+        {"type": "equation", "value": "(a-5)x-8=3x-4b"},
+        {"type": "text", "value": "는 미지수 x에 어떤 값을 대입해도 항상 참이 된다고 할 때, "},
+        {"type": "equation", "value": "0.3x-\\frac{8x+2}{a}=0.1bx"},
+        {"type": "text", "value": "의 해를 구하시오. (단, a, b는 수)"}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 17,
+      "score": 5,
+      "label_type": "단답형",
+      "contents": [
+        {"type": "text", "value": "[단답형 4] "},
+        {"type": "equation", "value": "(5a-2)x^2-3x+2=2x(x-b)+3c"},
+        {"type": "text", "value": "가 x에 대한 일차방정식이 되도록 하는 조건을 모두 구하시오."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    }
+  ]
+}

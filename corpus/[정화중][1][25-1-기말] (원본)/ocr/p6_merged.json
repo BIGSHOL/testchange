@@ -1,0 +1,50 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 18,
+      "score": 10,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 1] 네 수 "},
+        {"type": "equation", "value": "-\\frac{3}{4}"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\frac{2}{3}"},
+        {"type": "text", "value": ", 12, -6 중에서 서로 다른 세 수를 골라서 곱한 값 중 가장 큰 값과 가장 작은 값을 구하고자 한다. 다음 물음에 답하시오."}
+      ],
+      "choices": [],
+      "sub_questions": [
+        {
+          "number": 1,
+          "score": 5,
+          "contents": [
+            {"type": "text", "value": "가장 큰 값을 구하는 풀이 과정과 답을 쓰시오."}
+          ],
+          "choices": [],
+          "sub_questions": []
+        },
+        {
+          "number": 2,
+          "score": 5,
+          "contents": [
+            {"type": "text", "value": "가장 작은 값을 구하는 풀이 과정과 답을 쓰시오."}
+          ],
+          "choices": [],
+          "sub_questions": []
+        }
+      ]
+    },
+    {
+      "number": 19,
+      "score": 8,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 2] x에 대한 일차방정식 "},
+        {"type": "equation", "value": "3(20-5x)=3a"},
+        {"type": "text", "value": "의 해가 -2보다 큰 정수일 때, 가능한 자연수 a의 값을 모두 구하시오."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    }
+  ]
+}

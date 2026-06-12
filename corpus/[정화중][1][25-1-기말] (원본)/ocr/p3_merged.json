@@ -1,0 +1,85 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 5,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "다음 <보기>를 모두 만족시키는 서로 다른 세 정수 a, b, c의 대소관계를 부등호를 사용하여 바르게 나타낸 것은?"},
+        {"type": "text", "value": "<보기> ㄱ. a와 b는 각각 5보다 작다. • ㄴ. c는 -5보다 작다. • ㄷ. b+c는 2a보다 크다. • ㄹ. a의 절댓값은 5의 절댓값과 같다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "a>b>c"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "a>c>b"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "b>a>c"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "b>c>a"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "c>a>b"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 6,
+      "score": 3.5,
+      "contents": [
+        {"type": "equation", "value": "(-1)^5+(-1)^{10}-(-1)^{15}+(-1)^{20}"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-4"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "4"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 7,
+      "score": 3.6,
+      "contents": [
+        {"type": "text", "value": "다음 중에서 일차방정식인 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "3-x=x^2+1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "3(2x-1)=6x-3"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-x+5=5-x"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "2x^2-1=2(x-1)-5"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "x^2+3x-1=x^2-3x+1"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 8,
+      "score": 3.9,
+      "contents": [
+        {"type": "text", "value": "다음 일차방정식 중에서 해가 가장 큰 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "0.2(x+1)=-\\frac{1}{5}x+\\frac{1}{2}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-(4-3x)=5(x-1)"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{3x+5}{10}=x+\\frac{4}{15}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{x}{3}-\\frac{1}{6}=\\frac{1}{2}+\\frac{2}{3}x"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "0.8x+1.1=0.4x-1.7"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 9,
+      "score": 3.8,
+      "contents": [
+        {"type": "text", "value": "세 수 a, b, c에 대하여 "},
+        {"type": "equation", "value": "a=2b"},
+        {"type": "text", "value": "일 때, <보기>에서 항상 옳은 것을 모두 고른 것은?"},
+        {"type": "text", "value": "<보기> ㄱ. a+2=2b-2 • ㄴ. \\frac{1}{4}a=b • ㄷ. \\frac{1}{2}a+1=b+1 • ㄹ. 3-2a=3-4b • ㅁ. -a+c=2b+c • ㅂ. \\frac{a}{c}=\\frac{2b}{c} (c \\neq 0) • ㅅ. 1-ac=1-2bc"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ, ㄴ, ㄹ, ㅁ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄱ, ㄴ, ㅁ, ㅅ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄴ, ㄷ, ㄹ, ㅂ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄷ, ㄹ, ㅁ, ㅂ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄷ, ㄹ, ㅂ, ㅅ"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}
