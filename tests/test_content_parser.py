@@ -383,12 +383,19 @@ def _check_sangwon_go1_fixes(fails):
     if any("A" in t for t in txts):
         fails.append(f"  SW1 A 평문 잔존(정자 렌더): txts={txts!r}")
     # SW2: 행렬 문맥 가드 — 행렬곱 AB(2글자 대문자)가 '항상 로만' 규칙에 걸려 정자로
-    # 깨지면 안 된다(#22 AB=pmatrix·#12 명제 AB=AC — 원본 이탤릭). 기하 AB 는 로만 유지.
+    # 깨지면 안 된다(#22 AB=pmatrix·#12 명제 AB=AC — 원본 이탤릭). latex_to_hwpeq 의
+    # 변환 레벨 로만화(_apply_roman_labels)까지 차단하려 \mathit{} 명시 → `it {AB}`.
+    from core.latex_to_hwpeq import latex_to_hwpeq as _l2h
     v2 = r'행렬 A와 B에 대하여 AB=\begin{pmatrix} -3 & -5 \\ 2b-4 & -6 \end{pmatrix}일 때'
     doc2 = {"header": "", "questions": [{"number": 1, "contents": [{"type": "text", "value": v2}]}]}
     q2 = parse_ocr_response(doc2, page_number=1).questions[0]
     if any("\\mathrm" in (b.value or "") for b in q2.contents):
         fails.append(f"  SW2 행렬 AB 오로만화: {[(b.type.name, b.value) for b in q2.contents]!r}")
+    eqs2 = [b.value or "" for b in q2.contents if b.type == CT.EQUATION and "AB" in (b.value or "")]
+    if not eqs2 or "\\mathit{AB}" not in eqs2[0]:
+        fails.append(f"  SW2 행렬 AB \\mathit 보호 누락: {eqs2!r}")
+    elif "rm {AB}" in _l2h(eqs2[0]) or "it {AB}" not in _l2h(eqs2[0]):
+        fails.append(f"  SW2 변환기 레벨 AB 정자화 잔존: {_l2h(eqs2[0])!r}")
     doc3 = {"header": "", "questions": [{"number": 1, "contents": [
         {"type": "text", "value": "삼각형의 변 AB의 길이가 5일 때"}]}]}
     q3 = parse_ocr_response(doc3, page_number=1).questions[0]

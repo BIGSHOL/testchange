@@ -411,6 +411,11 @@ def _romanize_angle_letters(blocks: list[ContentBlock]) -> list[ContentBlock]:
     return out
 
 
+# 행렬 문맥의 대문자 연속런(행렬곱 AB·AC·BA) — \mathit{} 이탤릭 명시 보호용.
+# LaTeX 명령(소문자)·env 키워드는 앞 백슬래시/영문자 lookbehind 로 제외.
+_MATRIX_UPPER_RUN_RE = re.compile(r"(?<![A-Za-z\\])[A-Z]{2,4}(?![A-Za-z])")
+
+
 def _romanize_point_names(blocks: list[ContentBlock],
                           force_geo: bool = False) -> list[ContentBlock]:
     """기하 점/선/면 이름(통째 대문자 수식 블록)을 \\mathrm 으로 감싸 로만체로 강제.
@@ -427,13 +432,20 @@ def _romanize_point_names(blocks: list[ContentBlock],
         "좌표평면 위의 점 A,B,C,D,E…" 의 선택지 ``A(2,3)``·``B(-3,1)`` 처럼 좌표 단 점 이름이
         선택지 문맥(키워드 없음)에서 이탤릭으로 새던 것 차단(대륜중 #1, 사용자 2026-06-11).
 
-    ⚠️ **행렬 문맥이면 전부 스킵** — 2022 개정 공수1 행렬 단원에서 행렬곱 ``AB``·``AC`` 가
-    "2글자 이상 항상 로만" 규칙에 걸려 정자로 깨졌다(상원고 #22 ``AB=pmatrix``·#12 명제
-    보기 ``AB=AC`` — 원본은 이탤릭 행렬 변수). 같은 문항 contents 에 '행렬' 키워드가 있으면
-    대문자 라벨은 도형이 아니라 행렬이다(행렬+기하 혼합 문항은 사실상 없음).
+    ⚠️ **행렬 문맥이면 로만화 대신 이탤릭 명시** — 2022 개정 공수1 행렬 단원에서 행렬곱
+    ``AB``·``AC`` 가 "2글자 이상 항상 로만" 규칙에 걸려 정자로 깨졌다(상원고 #22
+    ``AB=pmatrix``·#12 명제 보기 ``AB=AC`` — 원본은 이탤릭 행렬 변수). 같은 문항 contents
+    에 '행렬' 키워드가 있으면 대문자 라벨은 도형이 아니라 행렬이다(행렬+기하 혼합 문항은
+    사실상 없음). 파서 스킵만으론 부족 — **latex_to_hwpeq `_apply_roman_labels` 가 변환
+    스크립트 레벨에서 대문자 연속런을 무조건 `rm{}` 로 감싸므로**, ``\\mathit{}`` 로 명시
+    감싸 변환기 로만화를 차단한다(`it {` 직전 런은 스킵됨 — 도원중 `rm` 번짐 실증 참고).
     """
     joined_txt = "".join((b.value or "") for b in blocks if b.type == ContentType.TEXT)
     if "행렬" in joined_txt:
+        for b in blocks:
+            if (b.type == ContentType.EQUATION and b.value and "\\math" not in b.value):
+                b.value = _MATRIX_UPPER_RUN_RE.sub(
+                    lambda m: "\\mathit{" + m.group(0) + "}", b.value)
         return blocks
     has_geo = force_geo or _has_geometry_context(blocks)
     out: list[ContentBlock] = []
@@ -840,6 +852,10 @@ _MATH_EXPR_RE = re.compile(
 
 # 소문항 괄호 로마숫자 마커 (i)(ii)(iii)(iv)(v) — 함수호출 f(i) 와 구별하려 앞에 영숫자 없을 때만.
 _SUBMARKER_RE = re.compile(r"(?<![A-Za-z0-9])\(\s*(?:i{1,3}|iv|v)\s*\)")
+
+# 관계/이항 연산자 LaTeX 명령 — 수식이 이걸로 **시작**하면 좌변 ASCII 조각도 수식에 흡수
+# (대진고 공수1 #1 ``4x-7 \le …`` 좌변 평문 정자, _split_latex_commands 참고).
+_EQ_LEAD_OPCMD_RE = re.compile(r"\\(?:leq|geq|neq|le|ge|ne|times|div|pm|mp|cdot)(?![a-zA-Z])")
 
 
 def _split_box_marker_prefix(text: str, splitter) -> "list[ContentBlock] | None":
@@ -1321,6 +1337,23 @@ def _split_latex_commands(text: str) -> list[ContentBlock]:
         # 흡수하면 변수가 평문으로 떨어져 정자 렌더된다(월암중 #15 ㄷ, 2026-06-11).
         while latex_start > 0 and _is_eq_lead_char(text, latex_start):
             latex_start -= 1
+    # 수식이 **관계/이항 연산자 명령**(\le \ge \times …)으로 시작하면 그 좌변(ASCII 식
+    # 조각 ``4x-7``)도 수식이다 — 사이 공백 때문에 식별자/연산자 흡수가 멈춰 좌변이
+    # 평문(정자)으로 떨어지던 것(대진고 공수1 #1 상자 ``4x-7 \le 7x-1 \le 3x+15``,
+    # 2026-06-12). 한글·문장부호(.만으로는 식 아님)는 경계로 보호.
+    if text[latex_start] == "\\" and _EQ_LEAD_OPCMD_RE.match(text, latex_start):
+        _p2 = latex_start
+        while _p2 > 0 and text[_p2 - 1] in " \t":
+            _p2 -= 1
+        _q2 = _p2
+        while _q2 > 0:
+            _c2 = text[_q2 - 1]
+            if _c2.isascii() and (_c2.isalnum() or _c2 in "+-*/^_()."):
+                _q2 -= 1
+            else:
+                break
+        if _q2 < _p2 and re.search(r"[0-9a-zA-Z]", text[_q2:_p2]):
+            latex_start = _q2
     # 함수꼴 괄호 안의 \leq(예 "P(X \leq 15)")는 **괄호 시작부터** 한 수식이어야 한다. \leq
     # 앞에 **안 닫힌 "("**(함수호출 괄호)가 있으면 그 "(" 와 앞 식별자(P)까지 수식에 포함한다.
     # (안 하면 "P(X" 가 P·(·X 로 쪼개진다 — #20 박스, 2026-06-09.)
