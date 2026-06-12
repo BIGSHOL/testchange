@@ -1,0 +1,51 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 17,
+      "score": 6,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형4] 곡선 "},
+        {"type": "equation", "value": "y=f(x)"},
+        {"type": "text", "value": " 위의 점 "},
+        {"type": "equation", "value": "(1,\\ 3)"},
+        {"type": "text", "value": "에서의 접선의 기울기가 "},
+        {"type": "equation", "value": "2"},
+        {"type": "text", "value": "일 때 "},
+        {"type": "equation", "value": "\\lim_{x\\to 1}\\frac{f(x)-x^2f(1)}{x-1}"},
+        {"type": "text", "value": "의 값을 구하고, 그 과정을 서술하시오."}
+      ],
+      "choices": []
+    },
+    {
+      "number": 18,
+      "score": 6,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 5] 함수 "},
+        {"type": "equation", "value": "f(x)=\\frac{1}{3}x^3-2x^2-5x+2"},
+        {"type": "text", "value": "이 열린구간 "},
+        {"type": "equation", "value": "(\\alpha,\\ \\beta)"},
+        {"type": "text", "value": "에서 감소할 때 "},
+        {"type": "equation", "value": "\\beta-\\alpha"},
+        {"type": "text", "value": "의 최댓값을 구하고, 그 과정을 서술하시오. (단, "},
+        {"type": "equation", "value": "\\alpha<\\beta"},
+        {"type": "text", "value": "이다.)"}
+      ],
+      "choices": []
+    },
+    {
+      "number": 19,
+      "score": 6,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 6] 반지름의 길이가 "},
+        {"type": "equation", "value": "10"},
+        {"type": "text", "value": "일 부채꼴 모양의 종이를 그림과 같은 원뿔 모양의 그릇을 만들려고 한다. 그릇의 부피가 최대일 때 그릇의 높이를 구하고, 그 과정을 서술하시오."},
+        {"type": "figure", "value": "거꾸로 선 원뿔(아이스크림콘 모양) 그릇. 위쪽이 열린 원(타원으로 그려진 그릇 입구)이고 아래로 꼭짓점이 모이는 형태. 입구 중심에서 꼭짓점까지 수직 중심축이 점선으로 표시. 입구 가장자리에서 꼭짓점까지의 모선에 10 라벨.", "bbox": [0.63, 0.15, 0.79, 0.25]}
+      ],
+      "choices": []
+    }
+  ]
+}

@@ -1,0 +1,107 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 11,
+      "score": 4,
+      "label_type": "단답형",
+      "contents": [
+        {"type": "text", "value": "[단답형1] 점 "},
+        {"type": "equation", "value": "(3,\\ k)"},
+        {"type": "text", "value": "에서 곡선 "},
+        {"type": "equation", "value": "y=x^2-9"},
+        {"type": "text", "value": "에 그은 접선의 개수에 대한 설명 중 옳은 것만을 <보기>에서 있는 대로 모두 고르시오. (단, "},
+        {"type": "equation", "value": "k"},
+        {"type": "text", "value": "는 실수이다.)"},
+        {"type": "text", "value": "<보기> ㄱ. \\(k<0\\)일 때, \\(2\\)개 • ㄴ. \\(k=0\\)일 때, \\(1\\)개 • ㄷ. \\(k>0\\)일 때, \\(2\\)개"}
+      ],
+      "choices": []
+    },
+    {
+      "number": 12,
+      "score": 5,
+      "label_type": "단답형",
+      "contents": [
+        {"type": "text", "value": "[단답형2] 곡선 "},
+        {"type": "equation", "value": "y=x^2"},
+        {"type": "text", "value": " 위의 점 "},
+        {"type": "equation", "value": "P(t,\\ t^2)\\ (t>0)"},
+        {"type": "text", "value": "와 점 "},
+        {"type": "equation", "value": "A(0,\\ -1)"},
+        {"type": "text", "value": "에 대하여 선분 "},
+        {"type": "equation", "value": "AP"},
+        {"type": "text", "value": "의 중점을 "},
+        {"type": "equation", "value": "M"},
+        {"type": "text", "value": "이라 하고, 점 "},
+        {"type": "equation", "value": "M"},
+        {"type": "text", "value": "을 지나면서 기울기가 "},
+        {"type": "equation", "value": "-1"},
+        {"type": "text", "value": "인 직선이 "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "축과 만나는 점을 "},
+        {"type": "equation", "value": "B"},
+        {"type": "text", "value": "라 하자. "},
+        {"type": "equation", "value": "\\lim_{t\\to 0+}\\frac{\\overline{AM}}{\\overline{BM}}"},
+        {"type": "text", "value": "의 값을 구하시오."}
+      ],
+      "choices": []
+    },
+    {
+      "number": 13,
+      "score": 6,
+      "label_type": "단답형",
+      "contents": [
+        {"type": "text", "value": "[단답형3] 삼차함수 "},
+        {"type": "equation", "value": "f(x)=2x^3-3(a-3)x^2-3(b^2-4)x+a"},
+        {"type": "text", "value": "가 극값을 갖지 않도록 하는 정수 "},
+        {"type": "equation", "value": "a,\\ b"},
+        {"type": "text", "value": "에 대하여 순서쌍 "},
+        {"type": "equation", "value": "(a,\\ b)"},
+        {"type": "text", "value": "의 개수를 구하시오."}
+      ],
+      "choices": []
+    },
+    {
+      "number": 14,
+      "score": 5,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형1] 함수 "},
+        {"type": "equation", "value": "f(x)=x^2-2x+3"},
+        {"type": "text", "value": "의 "},
+        {"type": "equation", "value": "x=3"},
+        {"type": "text", "value": "에서의 미분계수를 구하고, 그 과정을 서술하시오. (단, 미분계수의 정의를 이용하여 서술하시오.)"}
+      ],
+      "choices": []
+    },
+    {
+      "number": 15,
+      "score": 6,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형2] 다항함수 "},
+        {"type": "equation", "value": "f(x)"},
+        {"type": "text", "value": "가 "},
+        {"type": "equation", "value": "f(x)=2x^3+x^2-xf'(2)+4"},
+        {"type": "text", "value": "를 만족시킬 때 "},
+        {"type": "equation", "value": "f(1)"},
+        {"type": "text", "value": "의 값을 구하고, 그 과정을 서술하시오."}
+      ],
+      "choices": []
+    },
+    {
+      "number": 16,
+      "score": 6,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형3] 이차함수 "},
+        {"type": "equation", "value": "f(x)"},
+        {"type": "text", "value": "가 다음 조건을 만족시킨다."},
+        {"type": "text", "value": "<상자> (가) \\(\\lim_{x\\to -1}\\frac{x+1}{f(x)}=-\\frac{1}{4}\\) • (나) 함수 \\(\\frac{x^2+2x+2}{f(x)}\\)는 \\(x=-1,\\ x=1\\)에서 불연속이다."},
+        {"type": "equation", "value": "f(2)"},
+        {"type": "text", "value": "의 값을 구하고, 그 과정을 서술하시오."}
+      ],
+      "choices": []
+    }
+  ]
+}
