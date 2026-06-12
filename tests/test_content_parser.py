@@ -339,6 +339,30 @@ def _check_seonggwang_fixes(fails):
         fails.append("  SG2 각도 45° 오병합(°C 아닌데 병합)")
 
 
+def _check_sinmyeong_fixes(fails):
+    """신명여중 중1 #7 — 박스 마커 직후 LaTeX 명령(``<상자> \\frac…``)에서 선행 연산자
+    흡수가 마커의 닫는 ``>`` 를 끌어가 마커가 ``<상자 `` 로 깨지고 수식이 ``> \\frac…``
+    으로 새던 회귀. 마커는 자기 TEXT 블록으로 보호돼야 한다."""
+    from core.content_parser import _split_latex_commands
+    CT = ContentType
+    b = _split_latex_commands(r"<상자> \frac{1}{3}x+4=-1  \frac{1}{3}x=-5  \therefore x=-15")
+    txts = [x.value or "" for x in b if x.type == CT.TEXT]
+    eqs = [x.value or "" for x in b if x.type == CT.EQUATION]
+    if not any(t.strip() == "<상자>" for t in txts):
+        fails.append(f"  SM1 마커 깨짐(온전한 <상자> TEXT 없음): {[(x.type.name, x.value) for x in b]!r}")
+    if any(e.lstrip().startswith(">") for e in eqs):
+        fails.append(f"  SM1 마커 > 가 수식으로 흡수: eqs={eqs!r}")
+    # env 경로 무회귀: <상자> \begin{cases}… 는 원래 안전(_LATEX_ENV_RE 선행) — 유지 확인.
+    b2 = _split_latex_commands(r"<상자> \begin{cases}y-ax=4 \\ 2x-y=-2\end{cases}")
+    txts2 = [x.value or "" for x in b2 if x.type == CT.TEXT]
+    if not any(t.strip() == "<상자>" for t in txts2):
+        fails.append(f"  SM1 env 경로 마커 회귀: {[(x.type.name, x.value) for x in b2]!r}")
+    # 참조어 무회귀: '<보기> 중 고른 것은' 은 박스 머리가 아니다(부정전망) — 가드 미발동.
+    b3 = _split_latex_commands(r"<보기> 중 \frac{1}{2}보다 큰 것은")
+    if (b3[0].type == CT.TEXT and b3[0].value or "").strip() == "<보기>":
+        fails.append("  SM1 참조어 '<보기> 중' 오분리(박스 머리로 오인)")
+
+
 def run():
     fails = []
     _check_comma_roots(fails)
@@ -351,6 +375,7 @@ def run():
     _check_saebon_fixes(fails)
     _check_sangwon_fixes(fails)
     _check_seonggwang_fixes(fails)
+    _check_sinmyeong_fixes(fails)
     for text, must in _SPACING_CASES:
         got = _render(text)
         if must not in got:
@@ -366,7 +391,7 @@ def run():
         print("FAIL test_content_parser:")
         print("\n".join(fails))
         return 1
-    print(f"OK test_content_parser ({len(_SPACING_CASES) + len(_SCORE_CASES) + 10} cases)")
+    print(f"OK test_content_parser ({len(_SPACING_CASES) + len(_SCORE_CASES) + 11} cases)")
     return 0
 
 

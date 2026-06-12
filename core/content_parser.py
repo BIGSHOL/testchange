@@ -834,12 +834,36 @@ _MATH_EXPR_RE = re.compile(
 _SUBMARKER_RE = re.compile(r"(?<![A-Za-z0-9])\(\s*(?:i{1,3}|iv|v)\s*\)")
 
 
+def _split_box_marker_prefix(text: str, splitter) -> "list[ContentBlock] | None":
+    """텍스트 선두의 박스 마커(``<상자>``/``<보기>``/``<조건>``)를 자기 TEXT 블록으로 보호.
+
+    마커 바로 뒤가 LaTeX 명령이면(``<상자> \\frac…``) 선행 연산자 흡수가 마커의 닫는 ``>``
+    를 비교연산자로 끌어가 수식이 ``> \\frac…`` 이 되고 마커가 ``<상자 `` 로 깨진다 —
+    렌더러 ``_COND_HEADER_RE`` 가 박스를 인식 못 해 마커 평문 leak + 내용 박스 미적용
+    (신명여중 #7 풀이과정 상자, 2026-06-12). 마커를 떼고 나머지만 분리기로 재투입한다.
+    (``<보기> 중`` 참조어는 _RAW_BOX_MARK_RE 부정전망이 걸러 가드 미발동 — 기존 동작 유지.)
+    """
+    m = _RAW_BOX_MARK_RE.match(text)
+    if not m or m.end() == 0:
+        return None
+    rest = text[m.end():]
+    blocks: list[ContentBlock] = [ContentBlock(type=ContentType.TEXT, value=text[:m.end()])]
+    if rest.strip():
+        blocks.extend(splitter(rest))
+    return blocks
+
+
 def _split_mixed_text_equation(text: str) -> list[ContentBlock]:
     """텍스트 안에 섞인 수식 패턴(영문 변수, 부등호 등)을 분리.
 
     예: "(a > 0, b는 정수)에서"
     → text("(") + eq("a > 0") + text(", ") + eq("b") + text("는 정수)에서")
     """
+    # 선두 박스 마커 보호(신명여중 #7 — docstring 은 _split_box_marker_prefix 참고).
+    _boxed = _split_box_marker_prefix(text, _split_mixed_text_equation)
+    if _boxed is not None:
+        return _boxed
+
     # 소문항 괄호 마커 (i)(ii)(iii)(iv)(v) 는 **괄호 통째** 한 수식으로(사용자 2026-06-10:
     # "소문항처럼 (i) 전체에 수식"). 함수호출 f(i) 오인 방지로 앞에 영숫자 없을 때만.
     _sm = _SUBMARKER_RE.search(text)
@@ -1216,6 +1240,12 @@ def _split_latex_commands(text: str) -> list[ContentBlock]:
     예: "ㄱ. \\sqrt{2}+\\sqrt{2}" → text("ㄱ. ") + eq("\\sqrt{2}+\\sqrt{2}")
     예: "\\sqrt{24} \\div \\sqrt{3} 의 값은" → eq(...) + text(" 의 값은")
     """
+    # 선두 박스 마커 보호 — 마커의 닫는 > 가 선행 연산자 흡수에 끌려가 수식 ``> \frac…``
+    # 으로 새고 마커가 깨지던 것(신명여중 #7, _split_box_marker_prefix docstring 참고).
+    _boxed = _split_box_marker_prefix(text, _split_latex_commands)
+    if _boxed is not None:
+        return _boxed
+
     # \begin{cases}…\end{cases} 같은 LaTeX 환경은 가장 먼저 통째 수식 원자로 떼어낸다
     # (아래 명령어 분리가 \begin 을 몰라 cases 를 산산조각 냄 — _LATEX_ENV_RE 주석 참고).
     env = _LATEX_ENV_RE.search(text)
