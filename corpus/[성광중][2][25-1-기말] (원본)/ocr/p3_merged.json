@@ -1,0 +1,91 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 12,
+      "score": 4.1,
+      "contents": [
+        {"type": "text", "value": "다음 그림과 같이 한 변의 길이가 1\\mathrm{cm}인 정육각형을 한 번에 한 개씩 이어 붙여서 새로운 도형을 만들 때, 120개의 정육각형으로 만든 도형의 둘레의 길이는? (단, 1개일 때의 둘레의 길이는 6\\mathrm{cm}이고, 2개일 때의 둘레의 길이는 10\\mathrm{cm}이다.)"},
+        {"type": "figure", "value": "한 변 1cm 정육각형을 한 줄로 한 개씩 이어 붙인 도형의 연쇄 — [1개](정육각형 1개·둘레 6cm), [2개](2개 연결·둘레 10cm), [3개], [4개], [5개], [6개] 순으로 가로로 길어지며 ⋯ 로 이어짐.", "bbox": [0.10, 0.30, 0.55, 0.72]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "482\\mathrm{cm}"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "486\\mathrm{cm}"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "601\\mathrm{cm}"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "606\\mathrm{cm}"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "719\\mathrm{cm}"}]}
+      ]
+    },
+    {
+      "number": 13,
+      "score": 3.3,
+      "contents": [
+        {"type": "text", "value": "일차방정식 ax+y-b=0의 그래프는 일차방정식 -6x+3y+2=0의 그래프와 평행하고, 일차방정식 3x-4y+5=0의 그래프와 y축에서 만난다. 상수 a, b에 대하여 ab의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-\\frac{5}{2}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{3}{2}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{5}{2}"}]}
+      ]
+    },
+    {
+      "number": 14,
+      "score": 3.6,
+      "contents": [
+        {"type": "text", "value": "네 개의 직선 3x+12=0, x=3, y+2=0, 6y=18 로 둘러싸인 도형의 넓이를 y=ax의 그래프가 이등분 할 때, 수 a의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-\\frac{1}{2}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+      ]
+    },
+    {
+      "number": 15,
+      "score": 3.4,
+      "contents": [
+        {"type": "text", "value": "x절편이 30, y절편이 15인 직선과 일차방정식 3x+y+5=0의 그래프의 교점의 좌표를 (a, b)라 할 때, a+b의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{45}{7}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "11"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{115}{7}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{125}{7}"}]}
+      ]
+    },
+    {
+      "number": 16,
+      "score": 3.8,
+      "contents": [
+        {"type": "text", "value": "오른쪽 그림과 같이 세 직선 y=\\frac{3}{4}x, x=40, y-12=0으로 둘러싸인 삼각형 ABC의 넓이를 a라 하고, 세 직선 y=\\frac{3}{4}x, x=0, y-12=0으로 둘러싸인 삼각형 OAD의 넓이를 b라 하자. 이때 a-b의 값은? (단, O는 원점이다.)"},
+        {"type": "figure", "value": "좌표평면 — 직선 y=\\frac{3}{4}x(우상향, 우상단 라벨), 수직선 x=40, 수평선 y=12. 교점 A(16,12)(y=3/4x ∩ y=12), B(40,12)(x=40 ∩ y=12), C(40,30)(y=3/4x ∩ x=40), D(0,12)(y축 ∩ y=12). 삼각형 ABC(빗금)와 삼각형 OAD(빗금, O는 원점). 축 라벨 x·y.", "bbox": [0.10, 0.45, 0.55, 0.82]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "30"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "44"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "120"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "264"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "504"}]}
+      ]
+    },
+    {
+      "number": 17,
+      "score": 3.7,
+      "contents": [
+        {"type": "text", "value": "알코올 램프로 물을 데우면 4분마다 물의 온도가 6°C씩 올라가고, 알코올 램프에서 내려놓으면 2분마다 4°C씩 내려간다. 20°C의 물을 알코올 램프로 92°C까지 데웠다가 알코올 램프에서 내려놓아 36°C까지 식히는 데 걸리는 시간은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "20분"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "38분"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "57분"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "76분"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "94분"}]}
+      ]
+    }
+  ]
+}
