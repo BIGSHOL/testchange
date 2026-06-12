@@ -1,5 +1,20 @@
 {
-  "status": "ocr_done",
+  "status": "reviewed",
+  "review": {
+    "reviewed_date": "2026-06-12",
+    "method": "직접 비전 1:1 대조(원본 PDF 재생성 ↔ 렌더, 컬럼 확대). 결함 발견 → 코드 수정 → force 재렌더 시각 검증. (재렌더 전 버전은 머리말 '2024년 학기 고사' 잔존 — replace-retry 통일로 해소·계성고가 발각 corpus.)",
+    "content_defects": 0,
+    "A_type": 0,
+    "B_type": 2,
+    "B_fixes": [
+      "B-1(머리말 잔존 — 광역 신뢰성): _fill_form_header 의 os.replace 가 COM Quit 비동기 핸들 레이스에서 PermissionError 로 간헐 전실패(try/except warning 에 먹혀 조용히 무변경) — 머리말 '2024년 학기 고사' 0/2 잔존(경원고 동일 폼 2/2 성공 = all-or-nothing 비결정의 정체). _fill_form_header·_repackage_hwpx·_com_relaunder·_rewrite_zip 4곳 _replace_retry 통일. 대진고 라벨 비결정·수성고 메타토큰 ×10 의 공통 기저 원인 추정.",
+      "B-2(#4 조합 rm 번짐): {}_{n}rm C_{2}+{}_{n+1}rm C_{3} 에서 첫 rm 이 명시적 it 까지 뒤 전체 적용(도원중 실증)돼 둘째 선행첨자 n+1 이 정자. 연산자 뒤 빈그룹 선행첨자 앞에 it 복귀 삽입 — ₙC₂+ₙ₊₁C₃=ₙ₊₁P₂ 전 첨자 이탤릭(재렌더 확정). 큐 플래그('rm 번짐 확인 권장')가 적중."
+    ],
+    "typing_contamination": "재렌더 전 버전 #1 배점 뒤 '리는'(음절 2자) — 타이핑 혼입(비결정), 재렌더 해소.",
+    "verified_normal": "cases 7건 최다(#14 나란히 2개·#19 절댓값 cases [9점])·삼중 부등식(#15)·소수배점([4.0]~[4.9])·정답면 [서술형 1~4] 일관·홀수 패리티(5쪽)·머리말 2/2.",
+    "C_limits": "figure 2종(#7 색칠·#13 정사각형 19개) 안내문구."
+  },
+  "status_was": "ocr_done",
   "source_pdf": "N:\\개인\\기출\\2025 기출모음\\2025년 1학기 기말고사 모음\\원본\\고1\\[계성고][1][공수1][25-1-기말](원본) (또잉).pdf",
   "reference_pdf": "N:\\개인\\기출\\2025 기출모음\\2025년 1학기 기말고사 모음\\pdf\\공수1\\[계성고][1][공수1][25-1-기말][미래엔] (완료).PDF",
   "form": "[대수회][25년 폼지 최종(02.09)] (고1용) (파란).hwp",
