@@ -1,0 +1,62 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 18,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "x에 대한 부등식 |x-2p|+|x-3p| \\le 15를 만족시키는 정수 x의 개수가 p+7이 되도록 하는 모든 자연수 p의 값의 합은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "13"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "14"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "15"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "16"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "17"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 19,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "한 개의 주사위를 6번 던져서 나오는 눈의 수를 차례로 a_1, a_2, a_3, a_4, a_5, a_6라 할 때, a_1 \\le a_2 < a_3 \\le a_4 < a_5 \\le a_6 인 경우의 수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "72"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "78"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "84"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "90"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "96"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 20,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "최고차항의 계수가 3인 이차함수 f(x)와 최고차항의 계수가 -2인 이차함수 g(x)가 다음 조건을 만족시킨다."},
+        {"type": "text", "value": "<상자> (가) 함수 y=f(x)의 그래프가 직선 y=2x와 원점이 아닌 서로 다른 두 점 P, Q에서 만난다. • (나) 함수 y=g(x)의 그래프가 직선 y=2x와 한 점 P에서만 만난다. • (다) 점 P의 x좌표는 점 Q의 x좌표보다 작고, 2\\overline{OP}=\\overline{OQ} 이다."},
+        {"type": "text", "value": "부등식 f(x)+g(x) \\ge 0의 해가 모든 실수일 때, 점 P의 x좌표의 최댓값 M, 최솟값 m에 대하여 Mm의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{13}{9}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{14}{9}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{15}{9}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{16}{9}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{17}{9}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 21,
+      "score": 8,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 1] 행렬 A=\\begin{pmatrix} 2 & -4 \\\\ 1 & 3 \\end{pmatrix}에 대하여 A+B=E일 때, 행렬 AB의 모든 성분의 합을 구하는 풀이 과정과 답을 쓰시오. (단, E는 단위행렬이다.)"}
+      ],
+      "choices": [],
+      "sub_questions": []
+    }
+  ]
+}

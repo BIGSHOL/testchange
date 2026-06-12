@@ -1,0 +1,95 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 6,
+      "score": 2,
+      "contents": [
+        {"type": "text", "value": "두 행렬 A=\\begin{pmatrix} -1 & 3 \\\\ 0 & 2 \\end{pmatrix}, B=\\begin{pmatrix} 0 & -2 \\\\ 1 & 4 \\end{pmatrix}에 대하여 A+B의 모든 성분의 합은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "8"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 7,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "연립이차방정식 \\begin{cases} x-y=2 \\\\ x^2+y^2=a \\end{cases} 가 오직 한 쌍의 해를 갖도록 하는 실수 a의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{1}{2}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{3}{2}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{5}{2}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 8,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "x에 대한 연립부등식 \\begin{cases} x-2 \\ge -2x+4 \\\\ 3(x-3)<x+1 \\end{cases} 을 만족시키는 모든 정수 x의 값의 합은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "9"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 9,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "x에 대한 이차부등식 7x^2-2(k+2)x+k+2>0의 해가 모든 실수가 되도록 하는 정수 k의 최댓값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "6"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 10,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "180의 양의 약수의 개수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "18"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "27"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "36"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 11,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "두 행렬 A=\\begin{pmatrix} 2 & -1 \\\\ 1 & x \\end{pmatrix}, B=\\begin{pmatrix} 1 & y \\\\ 3 & 1 \\end{pmatrix}에 대하여 AB=BA일 때, x+y의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "2"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 12,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "두 행렬 A=\\begin{pmatrix} 2 & 0 \\\\ 1 & 0 \\end{pmatrix}, B=\\begin{pmatrix} -1 & 2 \\\\ 0 & -3 \\end{pmatrix}에 대하여 행렬 A^2-AB+BA-B^2의 모든 성분의 합은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-4"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "4"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 13,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "x에 대한 삼차방정식 2x^3+x^2+x-1=0의 한 허근을 \\omega라 할 때, 1+\\omega+\\omega^2+\\omega^3+\\cdots+\\omega^{51}의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-\\omega"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\omega"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 14,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "x에 대한 연립부등식 \\begin{cases} x^2-6x-72>0 \\\\ x^2+(a^2-a-12)x-12a^2+12a<0 \\end{cases} 의 해가 없도록 하는 정수 a의 개수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "10"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 15,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "남자 3명, 여자 6명을 앞줄에 5명, 뒷줄에 4명을 세우려고 한다. 남자 3명을 앞줄 또는 뒷줄에서 옆으로 나란히 서로 이웃하게 세우는 경우의 수가 a \\times 6!일 때, a의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "30"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "32"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "35"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "36"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "42"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 16,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "어느 회사에서 12명의 지원자 중에서 4명의 합격자를 뽑으려고 한다. 남자 지원자가 적어도 한 명 포함되도록 뽑는 경우의 수가 425일 때, 여자 지원자의 수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "10"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 17,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "행렬 A=\\begin{pmatrix} 2 & 1 \\\\ 1 & -2 \\end{pmatrix}에 대하여 A^7 \\begin{pmatrix} 1 \\\\ -1 \\end{pmatrix} = \\begin{pmatrix} p \\\\ q \\end{pmatrix}일 때, 두 상수 p, q에 대하여 p+q의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "300"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "350"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "400"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "450"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "500"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

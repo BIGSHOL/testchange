@@ -1,0 +1,80 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 1,
+      "score": 2,
+      "contents": [
+        {"type": "text", "value": "삼차방정식 x^3+x^2-2=0의 한 허근을 z라 할 때, z+\\overline{z}의 값은? (단, \\overline{z}는 z의 켤레복소수이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "2"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 2,
+      "score": 2,
+      "contents": [
+        {"type": "text", "value": "부등식 |x-1| \\le 2를 만족시키는 모든 정수 x의 개수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "9"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 3,
+      "score": 2,
+      "contents": [
+        {"type": "text", "value": "x에 대한 이차부등식 x^2+4x-5<0의 해가 \\alpha<x<\\beta일 때, \\beta-\\alpha의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "9"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 4,
+      "score": 2,
+      "contents": [
+        {"type": "text", "value": "10명의 학생 중에서 반장, 부반장을 각각 한 명씩 뽑는 경우의 수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "42"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "56"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "72"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "90"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "110"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 5,
+      "score": 2,
+      "contents": [
+        {"type": "text", "value": "3명의 남학생과 4명의 여학생으로 이루어진 동아리에서 남학생 1명, 여학생 2명의 대표를 뽑는 경우의 수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "18"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "19"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "20"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "21"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "22"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}
