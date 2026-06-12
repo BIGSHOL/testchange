@@ -1,0 +1,45 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 15,
+      "score": 9,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 3] 이차정사각행렬 A에 대하여 A\\begin{pmatrix} -1 \\\\ 0 \\end{pmatrix}=\\begin{pmatrix} -3 \\\\ 2 \\end{pmatrix}이고 A\\begin{pmatrix} 0 \\\\ 2 \\end{pmatrix}=\\begin{pmatrix} 2 \\\\ -10 \\end{pmatrix}일 때, A\\begin{pmatrix} 5 \\\\ -3 \\end{pmatrix}을 구하시오."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 16,
+      "score": 9,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 4] 7개의 숫자 0, 1, 2, 3, 4, 5, 6 중에서 서로 다른 숫자 4개를 택하여 만든 네 자리 자연수 중 3240보다 큰 수의 개수를 구하시오."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 17,
+      "score": 11,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 5] x에 대한 연립부등식 \\begin{cases} x^2-11x+24 \\le 0 \\\\ x^2-(a+2)x+2a>0 \\end{cases} 을 만족시키는 정수 x의 개수가 3이 되도록 하는 실수 a의 값의 범위를 구하시오."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 18,
+      "score": 11,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 6] 이차정사각행렬 A의 (i, j) 성분 a_{ij} (i=1, 2, j=1, 2)를 이차함수 y=x^2-ix+\\frac{9}{4}의 그래프와 직선 y=jx의 서로 다른 교점의 개수라 하자. 행렬 A^2-2A를 구하시오."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    }
+  ]
+}
