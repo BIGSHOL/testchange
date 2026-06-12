@@ -1,0 +1,90 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 13,
+      "score": 4.1,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 이차항의 계수가 1인 두 이차함수 "},
+        {"type": "equation", "value": "y=f(x)"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "y=g(x)"},
+        {"type": "text", "value": "의 그래프가 y축 위의 한 점에서 만난다. "},
+        {"type": "equation", "value": "x=1, 2, 3, \\cdots, n"},
+        {"type": "text", "value": "에서 y축에 평행한 직선을 그어 두 곡선과 만나는 점 사이의 거리를 "},
+        {"type": "equation", "value": "l_n"},
+        {"type": "text", "value": "이라 하자. "},
+        {"type": "equation", "value": "l_6=18"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "l_1+l_3+l_5+\\cdots+l_{15}"},
+        {"type": "text", "value": "의 값은?"},
+        {"type": "figure", "value": "위로 볼록하지 않은(아래로 볼록한) 두 포물선 y=f(x)(위쪽 곡선), y=g(x)(아래쪽 곡선)이 y축 위 한 점에서 만난다. x=1,2,3,⋯,n에서 y축에 평행한 세로 직선을 그어 두 곡선 사이를 잇는 선분의 길이가 l_n(x=n에서의 세로 선분에 l_n 표시). 원점 O, 축 라벨 x·y, x축에 1·2·3·⋯·n 눈금.", "bbox": [0.28, 0.18, 0.78, 0.34]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "168"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "180"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "192"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "204"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "216"}]}
+      ]
+    },
+    {
+      "number": 14,
+      "score": 4.2,
+      "contents": [
+        {"type": "text", "value": "\\angle A=\\frac{\\pi}{3}이고, \\overline{AB}:\\overline{AC}=3:2인 삼각형 ABC가 있다. 삼각형 ABC의 외접원의 반지름의 길이가 6일 때, 선분 AC의 길이는?"},
+        {"type": "figure", "value": "원에 내접하는 삼각형 ABC (A 위·B 왼쪽 아래·C 오른쪽 아래). 꼭짓점 A의 내각 \\angle A=\\frac{\\pi}{3} 표시. 삼각형 세 꼭짓점이 모두 원 위에 있음(외접원). 꼭짓점 라벨 A·B·C.", "bbox": [0.30, 0.55, 0.72, 0.74]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{8\\sqrt{21}}{7}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{10\\sqrt{21}}{7}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{12\\sqrt{21}}{7}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "2\\sqrt{21}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{16\\sqrt{21}}{7}"}]}
+      ]
+    },
+    {
+      "number": 15,
+      "score": 4.3,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 한 변의 길이가 4인 정삼각형 모양의 종이가 있다. 첫 번째 시행에서 각 변의 중점을 이어서 만든 정삼각형 "},
+        {"type": "equation", "value": "A_1 B_1 C_1"},
+        {"type": "text", "value": "을 오려 낸다. 두 번째 시행에서 첫 번째 시행 후 남은 3개의 정삼각형에서 같은 방법으로 정삼각형을 각각 오려 낸다. 이와 같은 시행을 n번 반복한 후 남은 종이의 넓이를 "},
+        {"type": "equation", "value": "S_n"},
+        {"type": "text", "value": "이라고 할 때, "},
+        {"type": "equation", "value": "S_{10}"},
+        {"type": "text", "value": "의 값은 "},
+        {"type": "equation", "value": "2^a\\times 3^b"},
+        {"type": "text", "value": "이다. 실수 a, b에 대하여 -ab의 값은?"},
+        {"type": "figure", "value": "한 변 4인 정삼각형(꼭짓점 A 위·B 왼쪽 아래·C 오른쪽 아래)에서 시에르핀스키 삼각형처럼 각 변 중점을 이어 만든 가운데 정삼각형 A₁B₁C₁(C₁ 왼쪽·B₁ 오른쪽·A₁ 아래 중점)을 오려 낸 모양. 남은 3개 정삼각형에서도 같은 방법으로 가운데 삼각형을 오려 낸 2차 시행까지 표시(작은 빈 삼각형들). 한 변 길이 4 표시(점선 호살표), 꼭짓점 라벨 A·B·C·A₁·B₁·C₁.", "bbox": [0.28, 0.27, 0.72, 0.42]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "189"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "194"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "200"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "207"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "215"}]}
+      ]
+    },
+    {
+      "number": 16,
+      "score": 4.4,
+      "contents": [
+        {"type": "text", "value": "수열 "},
+        {"type": "equation", "value": "\\{a_n\\}"},
+        {"type": "text", "value": "이 모든 자연수 n에 대하여 "},
+        {"type": "equation", "value": "\\sum_{k=1}^{n}\\frac{1}{(2k-1)a_k}=n^2+2n"},
+        {"type": "text", "value": "을 만족시킬 때, "},
+        {"type": "equation", "value": "\\sum_{n=1}^{15} a_n=\\frac{q}{p}"},
+        {"type": "text", "value": "이다. p+q의 값은? (단, p와 q는 서로소인 자연수이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "45"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "46"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "47"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "48"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "49"}]}
+      ]
+    }
+  ]
+}
