@@ -1,0 +1,126 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 7,
+      "score": 4.2,
+      "contents": [
+        {"type": "text", "value": "닫힌구간 "},
+        {"type": "equation", "value": "[-1,\\ 3]"},
+        {"type": "text", "value": "에서 정의된 함수 "},
+        {"type": "equation", "value": "f(x)"},
+        {"type": "text", "value": "가 "},
+        {"type": "equation", "value": "f(x)=\\lim_{t\\to\\infty}\\frac{(x-1)t^2+1}{t-t^2}(x-3)"},
+        {"type": "text", "value": "일 때, 함수 "},
+        {"type": "equation", "value": "f(x)"},
+        {"type": "text", "value": "의 최댓값과 최솟값의 곱은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-12"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-11"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-10"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "-9"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "-8"}]}
+      ]
+    },
+    {
+      "number": 8,
+      "score": 4.3,
+      "contents": [
+        {"type": "text", "value": "다항함수 "},
+        {"type": "equation", "value": "f(x),\\ g(x)"},
+        {"type": "text", "value": "가 모든 실수 "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "\\lim_{h\\to 0}\\frac{f(x+2h)g(x+2h)-f(x-3h)g(x-3h)}{h}=5x^2+3x+4"},
+        {"type": "text", "value": "를 만족시킨다. 함수 "},
+        {"type": "equation", "value": "h(x)=f(x)g(x)"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "h'(2)"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "14"}]}
+      ]
+    },
+    {
+      "number": 9,
+      "score": 4.5,
+      "contents": [
+        {"type": "text", "value": "다항식 "},
+        {"type": "equation", "value": "x^{49}+x^{48}+x^{47}+\\cdots+x^2+x+1"},
+        {"type": "text", "value": "을 "},
+        {"type": "equation", "value": "(x-1)^2"},
+        {"type": "text", "value": "으로 나눈 나머지를 "},
+        {"type": "equation", "value": "R(x)"},
+        {"type": "text", "value": "라 할 때, "},
+        {"type": "equation", "value": "R(3)"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "2200"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2300"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "2400"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "2500"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "2600"}]}
+      ]
+    },
+    {
+      "number": 10,
+      "score": 4.5,
+      "contents": [
+        {"type": "text", "value": "최고차항의 계수가 음수인 이차함수 "},
+        {"type": "equation", "value": "f(x)"},
+        {"type": "text", "value": "는 다음 조건을 만족한다."},
+        {"type": "text", "value": "<조건> (가) 모든 실수 \\(x\\)에 대하여 \\(-3x^2+6x-4\\leq f(x)\\leq 2x^2-4x+1\\)이다. • (나) \\(f(3)=f(-1)=-5\\)"},
+        {"type": "equation", "value": "f(2)"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-6"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-5"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-4"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "-3"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "-2"}]}
+      ]
+    },
+    {
+      "number": 11,
+      "score": 4.7,
+      "contents": [
+        {"type": "text", "value": "양수 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "f(x)=\\frac{2}{x-1}+a"},
+        {"type": "text", "value": "라 하자. 실수 "},
+        {"type": "equation", "value": "t"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "에 대한 방정식 "},
+        {"type": "equation", "value": "|f(x)|=t"},
+        {"type": "text", "value": "의 서로 다른 실근의 개수를 "},
+        {"type": "equation", "value": "g(t)"},
+        {"type": "text", "value": "라 하면, 함수 "},
+        {"type": "equation", "value": "g(t)"},
+        {"type": "text", "value": "는 "},
+        {"type": "equation", "value": "t=\\alpha,\\ t=\\beta\\ (\\alpha<\\beta)"},
+        {"type": "text", "value": "에서만 불연속이고 "},
+        {"type": "equation", "value": "\\alpha+\\beta=3"},
+        {"type": "text", "value": "이다. "},
+        {"type": "equation", "value": "f(2a)"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{11}{5}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{13}{5}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{17}{5}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{19}{5}"}]}
+      ]
+    }
+  ]
+}
