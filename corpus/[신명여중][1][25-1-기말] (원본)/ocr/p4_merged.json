@@ -1,0 +1,63 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 15,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "그림에서 두 점 A, B가 각각 두 식 y=-\\frac{5}{4}x, y=\\frac{5}{2}x의 그래프 위의 점일 때, 삼각형 OAB의 넓이를 구하면?"},
+        {"type": "figure", "value": "좌표평면에 원점 O를 지나는 두 직선 y=-(5/4)x(왼쪽 위로)와 y=(5/2)x(오른쪽 위로). 두 직선 위의 점 A(왼쪽)와 B(오른쪽)가 y=5 높이의 수평선 위에 있고(y축의 5에 직각 표시), 삼각형 OAB 내부가 회색 음영. 위쪽에 y=-(5/4)x, y=(5/2)x 라벨.", "bbox": [0.06, 0.28, 0.97, 0.88]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{25}{2}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "15"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{45}{2}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{55}{2}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "30"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 16,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "y=ax, y=bx, y=cx, y=dx의 그래프가 그림과 같을 때, 네 상수 a, b, c, d의 대소 관계를 바르게 나타낸 것은?"},
+        {"type": "figure", "value": "좌표평면에 원점 O를 지나는 직선 4개. 왼쪽 위 방향(음의 기울기) 두 직선에 왼쪽부터 y=ax, y=bx 라벨(y=ax가 더 바깥쪽=완만), 오른쪽 위 방향(양의 기울기) 두 직선에 y=cx, y=dx 라벨(y=cx가 y축에 가까움=가파름, y=dx가 바깥쪽=완만).", "bbox": [0.03, 0.13, 0.97, 0.76]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "a<b<c<d"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "a<b<d<c"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "b<a<c<d"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "b<a<d<c"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "c<d<b<a"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 17,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "집으로부터 280km 떨어진 곳에 차를 타고 가려고 한다. 시속 xkm로 가는 데 걸리는 시간을 y시간이라고 할 때, 다음 「보기」 중에서 옳은 것으로만 모두 바르게 짝지어진 것은?"},
+        {"type": "text", "value": "<보기> ㄱ. x와 y는 정비례한다. • ㄴ. 관계식은 y=\\frac{280}{x} 이다. • ㄷ. x의 값이 증가하면 y의 값도 증가한다. • ㄹ. 한 시간 당 70km로 가면 4시간이 걸린다. • ㅁ. 3시간 30분만에 도착하려면 시속 80km로 가야 한다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ, ㄴ, ㄹ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄱ, ㄷ, ㄹ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄱ, ㄷ, ㅁ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄴ, ㄷ, ㅁ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄴ, ㄹ, ㅁ"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 18,
+      "score": 4,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 1] x=2, y=3일 때, 식 2(5x-3y)-(4x+y-1)의 값을 구하시오."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    }
+  ]
+}

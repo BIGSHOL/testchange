@@ -1,0 +1,82 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 10,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "둘레의 길이가 1200m인 원 모양 호수의 둘레를 따라 우석이와 지용이가 한 지점에서 서로 반대 방향으로 걷기 시작했다. 우석이가 시속 1.8km, 지용이가 시속 1.2km로 걷는다면 두 사람이 처음으로 만나는 것은 출발한 지 몇 분 후인가?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "24분"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "26분"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "28분"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "29분"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "30분"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 11,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "점 (a+2, 3b-2)는 x축 위에 있고, 점 (a-3, 4b-3)이 y축 위에 있을 때, a+b의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-\\frac{5}{4}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{5}{12}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{11}{4}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{11}{3}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 12,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "점 P(a-b, -ab)가 제2사분면 위에 있는 점일 때, 다음 중 제3사분면 위에 있는 점은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "A(a, b)"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "B(ab, \\frac{b}{a})"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "C(a^2b, -\\frac{b}{a})"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "D(-a, |ab|)"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "E(b-a, -b)"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 13,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "다음 「보기」 중에서 x와 y가 모두 정비례하는 것으로만 바르게 짝지어진 것은?"},
+        {"type": "text", "value": "<보기> ㄱ. 한 개에 x원인 라면 y개의 금액 5000원 • ㄴ. 시속 60km로 x시간 동안 이동한 거리 ykm • ㄷ. 젤리 50개 중에서 x개를 먹고 남은 젤리 y개 • ㄹ. 두께가 5cm인 책을 x권 쌓았을 때의 높이 ycm • ㅁ. 가로의 길이가 xcm, 세로의 길이가 10cm인 직사각형의 넓이 ycm^2"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ, ㄴ, ㄹ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄱ, ㄷ, ㄹ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄱ, ㄷ, ㅁ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄴ, ㄷ, ㅁ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄴ, ㄹ, ㅁ"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 14,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 두 식 y=\\frac{3}{2}x, y=\\frac{a}{x}의 그래프가 제3사분면 위의 점 P에서 만날 때, y=\\frac{a}{x}의 그래프 위의 점 중에서 x좌표와 y좌표가 모두 정수인 점의 개수는?"},
+        {"type": "figure", "value": "좌표평면에 원점을 지나는 직선 y=(3/2)x와 반비례 곡선 y=a/x(제1·제3사분면 두 가지). 두 그래프가 제3사분면의 점 P에서 만나며, x축 위 -2에서 P까지 점선 표시. 오른쪽 위에 y=(3/2)x, 곡선 옆에 y=a/x 라벨.", "bbox": [0.08, 0.26, 0.92, 0.63]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "2개"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "4개"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "8개"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "12개"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "16개"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

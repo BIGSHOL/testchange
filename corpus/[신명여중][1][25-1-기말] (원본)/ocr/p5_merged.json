@@ -1,0 +1,61 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 19,
+      "score": 4,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 2] 다음 방정식의 해를 구하시오."},
+        {"type": "text", "value": "<상자> -\\frac{1}{2}\\left(x+\\frac{4}{5}\\right)=-x+\\frac{3}{5}"}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 20,
+      "score": 4,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 3] y=\\frac{a}{x}의 그래프가 두 점 (4, -2), (b, 2)를 지날 때, a-b의 값을 구하시오."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 21,
+      "score": 4,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 4] 다음 표에서 x와 y가 정비례할 때, a+b의 값을 구하시오."},
+        {"type": "table", "value": "", "rows": [
+          ["x", "a", "-3", "9"],
+          ["y", "-a+2", "4", "b"]
+        ]}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 22,
+      "score": 4,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 5] 학생들이 강당의 긴 의자에 앉으려고 한다. 한 의자에 5명씩 앉으면 9명이 앉지 못하고, 한 의자에 7명씩 앉으면 마지막 의자에 4명이 앉고 텅 빈 의자 2개가 남는다. 강당에 있는 긴 의자의 총 개수와 전체 학생 수를 각각 구하시오."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 23,
+      "score": 4,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 6] 자동차와 자전거가 같은 지점에서 동시에 출발하여 직선 도로 위를 달린다. 다음은 자동차와 자전거가 x시간 동안 ykm를 갈 때, x와 y 사이의 관계를 나타낸 그래프이다. 일정한 속력으로 150km를 달렸을 때, 자동차는 자전거보다 몇 시간 몇 분 빨리 도착했는지 구하시오."},
+        {"type": "figure", "value": "x축 1~5(시간), y축 30~150(km, 눈금 30 간격)의 격자 그래프. 원점에서 출발하는 직선 2개: '자동차' 직선은 (1, 60)을 지나는 가파른 직선(기울기 60, x=2.5에서 150 도달), '자전거' 직선은 (2, 30)과 (4, 60)을 지나는 완만한 직선(기울기 15). 각 직선 위에 자동차·자전거 라벨.", "bbox": [0.04, 0.40, 0.75, 0.98]}
+      ],
+      "choices": [],
+      "sub_questions": []
+    }
+  ]
+}
