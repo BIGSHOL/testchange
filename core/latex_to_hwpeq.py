@@ -707,7 +707,11 @@ class LaTeXToHWPConverter:
             # \\ → # (행 구분자 변환)
             content = re.sub(r"\\\\", " # ", content)
             content = self._convert_expr(content)
-            return hwp_env + " {" + content + "}"
+            # 키워드 앞이 영숫자면 공백 보장(PLEFT 계열) — ``A\begin{pmatrix}…`` 가
+            # "APMATRIX" 로 붙어 literal + 다글자 대문자 오로만화(rm {APMATRIX})로
+            # 깨졌다(상원고 공수1 서답형4, 2026-06-12).
+            lead = " " if m.start() > 0 and m.string[m.start() - 1].isalnum() else ""
+            return lead + hwp_env + " {" + content + "}"
 
         s = self._env_pattern.sub(_env_repl, s)
 

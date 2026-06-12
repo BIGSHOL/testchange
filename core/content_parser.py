@@ -1244,6 +1244,13 @@ def _split_latex_commands(text: str) -> list[ContentBlock]:
                 _depth += 1
             elif _pre[_j] == "(":
                 if _depth == 0:
+                    # ⚠️ "(" 바로 뒤가 한글이면 단서/설명 괄호("(단, \overline{α}와 …)")다 —
+                    # 함수호출 괄호가 아니므로 흡수하지 않는다. 흡수하면 아래 한글 경계의
+                    # "(우변)" 보호(_b←여는괄호)와 맞물려 eq_end==latex_start(소비 0)가 되어
+                    # _split_latex_commands 가 같은 문자열로 무한 재귀했다(상원고 공수1 #4
+                    # 켤레복소수, 2026-06-12 — 중1 은 단서 괄호 안에 LaTeX 가 없어 잠복).
+                    if _j + 1 < len(text) and "가" <= text[_j + 1] <= "힣":
+                        break
                     _k = _j
                     while _k > 0 and _pre[_k - 1].isalnum():
                         _k -= 1
@@ -1294,6 +1301,10 @@ def _split_latex_commands(text: str) -> list[ContentBlock]:
         eq_end = latex_start + min(_ends)
         eq_text = text[latex_start:eq_end].strip()
         after_text = text[eq_end:]
+        # 무한재귀 방어: 수식이 비고 잔여가 원문 그대로면(소비 0) 분리 불가 — 평문 유지.
+        # (위 단서 괄호 가드로 정상 경로에선 안 오지만, 미지의 경계 조합 크래시를 차단.)
+        if not eq_text and not before.strip() and after_text == text:
+            return [ContentBlock(type=ContentType.TEXT, value=text)]
     else:
         eq_text = rest.strip()
         after_text = ""

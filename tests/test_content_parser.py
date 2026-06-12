@@ -279,6 +279,30 @@ def _check_saebon_fixes(fails):
         fails.append(f"  L4 반원 기하 로만: eqs={eqs4!r}")
 
 
+def _check_sangwon_fixes(fails):
+    """상원고 공수1 B형 회귀(2026-06-12) — M1 단서 괄호 안 LaTeX 명령 무한재귀."""
+    from models.exam_document import ContentType as CT
+    # M1: "(단, \overline{α}와 …)" — 함수꼴 괄호 흡수("P(X" 보호)가 한글 경계의 여는괄호
+    # 보호("(우변)")와 맞물려 소비 0 → _split_latex_commands 무한 재귀(RecursionError).
+    # 중1 은 단서 괄호 안에 LaTeX 명령이 없어 잠복, 고1 켤레복소수 표기가 첫 발화.
+    doc = {"header": "", "questions": [{"number": 1, "contents": [
+        {"type": "text",
+         "value": "두 복소수 \\alpha=3-i와 \\beta=2+2i에 대하여 "
+                  "\\alpha\\overline{\\alpha}+\\beta\\overline{\\beta}의 값은? "
+                  "(단, \\overline{\\alpha}와 \\overline{\\beta}는 각각 \\alpha와 \\beta의 켤레복소수이다.)"}]}]}
+    try:
+        q = parse_ocr_response(doc, page_number=1).questions[0]
+    except RecursionError:
+        fails.append("  M1 단서괄호 LaTeX 무한재귀(RecursionError)")
+        return
+    eqs = [b.value or "" for b in q.contents if b.type == CT.EQUATION]
+    if not any("\\overline" in e for e in eqs):
+        fails.append(f"  M1 \\overline 수식 객체화 누락: eqs={eqs!r}")
+    texts = "".join(b.value or "" for b in q.contents if b.type == CT.TEXT)
+    if "켤레복소수" not in texts:
+        fails.append(f"  M1 단서 문장 소실: texts={texts!r}")
+
+
 def run():
     fails = []
     _check_comma_roots(fails)
@@ -289,6 +313,7 @@ def run():
     _check_jangsan_fixes(fails)
     _check_ascii_leading_sign(fails)
     _check_saebon_fixes(fails)
+    _check_sangwon_fixes(fails)
     for text, must in _SPACING_CASES:
         got = _render(text)
         if must not in got:
@@ -304,7 +329,7 @@ def run():
         print("FAIL test_content_parser:")
         print("\n".join(fails))
         return 1
-    print(f"OK test_content_parser ({len(_SPACING_CASES) + len(_SCORE_CASES) + 8} cases)")
+    print(f"OK test_content_parser ({len(_SPACING_CASES) + len(_SCORE_CASES) + 9} cases)")
     return 0
 
 

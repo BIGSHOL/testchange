@@ -442,6 +442,13 @@ def run():
     q3 = _l2h(r"a\sqrt[3]{8}")
     chk("aroot" not in q3, f"Q root 글자 앞 공백: {q3}")
 
+    # ── Q2: 행렬/케이스 환경 키워드 영숫자 앞 공백 — 상원고 공수1 서답형4 (2026-06-12) ──
+    # ``A\begin{pmatrix}1\\2\end{pmatrix}`` 가 "APMATRIX" 로 붙으면 literal + 다글자
+    # 대문자 오로만화(rm {APMATRIX}). sqrt(Q)·LEFT(PLEFT) 와 같은 키워드 공백 계열.
+    qm = _l2h(r"A\begin{pmatrix} 1 \\ 2 \end{pmatrix}=\begin{pmatrix} k \\ 1 \end{pmatrix}")
+    chk("APMATRIX" not in qm and "A PMATRIX" in qm, f"Q2 행렬 키워드 앞 공백: {qm}")
+    chk("=PMATRIX" in qm or "= PMATRIX" in qm, f"Q2 비영숫자 앞은 공백 불요: {qm}")
+
     # ── R5: 선택지 2열 판정 = 시각 글리프 근사 — 중앙중 #1·#2·#3 (2026-06-11) ──
     # LaTeX 원문 길이는 근호·분수 명령어가 부풀어 짧은 보기(√30×√6=□√5)를 1열로 강등.
     # 명령어=1글리프 정규화로 화면 폭을 근사 — 긴 전개식(#5)은 여전히 1열(임계 유지).
