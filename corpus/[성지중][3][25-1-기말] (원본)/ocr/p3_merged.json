@@ -1,0 +1,166 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 13,
+      "score": 4,
+      "contents": [
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "에 관한 이차방정식 "},
+        {"type": "equation", "value": "2x^2+12x+5m-7=0"},
+        {"type": "text", "value": "이 중근 "},
+        {"type": "equation", "value": "x=k"},
+        {"type": "text", "value": "를 가진다고 할 때, "},
+        {"type": "equation", "value": "m+k"},
+        {"type": "text", "value": "의 값은? (단, "},
+        {"type": "equation", "value": "m"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "k"},
+        {"type": "text", "value": "는 상수이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "13"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 14,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "두 이차함수 "},
+        {"type": "equation", "value": "y=2x^2-10"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "y=a(x-p)^2"},
+        {"type": "text", "value": "의 그래프가 서로의 꼭짓점을 지날 때, 상수 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "p"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "a+4p^2"},
+        {"type": "text", "value": "의 값은? (단, "},
+        {"type": "equation", "value": "p>0"},
+        {"type": "text", "value": ")"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "16"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "18"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "20"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 15,
+      "score": 5,
+      "contents": [
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "에 관한 이차방정식 "},
+        {"type": "equation", "value": "x^2+2x-7=0"},
+        {"type": "text", "value": "의 한 근을 "},
+        {"type": "equation", "value": "m"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "에 관한 이차방정식 "},
+        {"type": "equation", "value": "x^2+5x-8=0"},
+        {"type": "text", "value": "의 한 근을 "},
+        {"type": "equation", "value": "n"},
+        {"type": "text", "value": "이라 할 때, <보기>에서 옳은 것의 개수는? (단, "},
+        {"type": "equation", "value": "m"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "n"},
+        {"type": "text", "value": "은 상수이다.)"},
+        {"type": "text", "value": "<보기> ○ m^2+2m<n^2+5n ○ (m+1)^2=n^2+5n ○ n^2(m^2+2m-7)<0 ○ 2n^2+10n은 5의 배수이다. ○ (m^2+2m-5)(3n^2+15n-12)=24"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}, {"type": "text", "value": "개"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2"}, {"type": "text", "value": "개"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}, {"type": "text", "value": "개"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}, {"type": "text", "value": "개"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}, {"type": "text", "value": "개"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 16,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "아래 그림과 같이 이차함수 "},
+        {"type": "equation", "value": "y=5x^2"},
+        {"type": "text", "value": "의 그래프 위에 선분 "},
+        {"type": "equation", "value": "AB"},
+        {"type": "text", "value": "가 "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "축과 평행하도록 두 점 "},
+        {"type": "equation", "value": "A"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "B"},
+        {"type": "text", "value": "를 잡고, 이차함수 "},
+        {"type": "equation", "value": "y=ax^2-3"},
+        {"type": "text", "value": " "},
+        {"type": "equation", "value": "(a<0)"},
+        {"type": "text", "value": "의 그래프 위에 "},
+        {"type": "equation", "value": "\\square ABCD"},
+        {"type": "text", "value": "가 사다리꼴이 되도록 두 점 "},
+        {"type": "equation", "value": "C"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "D"},
+        {"type": "text", "value": "를 잡으면 점 "},
+        {"type": "equation", "value": "A"},
+        {"type": "text", "value": "의 좌표는 "},
+        {"type": "equation", "value": "(-1,5)"},
+        {"type": "text", "value": "이고, "},
+        {"type": "equation", "value": "\\overline{AB}:\\overline{CD}=1:4"},
+        {"type": "text", "value": "이다. "},
+        {"type": "equation", "value": "\\square ABCD"},
+        {"type": "text", "value": "의 넓이가 55일 때, 상수 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "의 값은?"},
+        {"type": "figure", "value": "위로 좁게 열린 포물선 y=5x^2(가운데, 라벨)과 위로 볼록한 포물선 y=ax^2-3(아래쪽, 라벨, 꼭짓점은 y축의 -3 부근). y=5x^2 위의 두 점 A(왼쪽)·B(오른쪽)를 잇는 x축 평행한 짧은 선분 AB(x축 위쪽), 아래 포물선 위의 두 점 D(왼쪽 아래)·C(오른쪽 아래)를 잇는 긴 선분 CD. 네 점 A, B, C, D가 사다리꼴을 이룸. 원점 O, x축·y축 표시", "bbox": [0.59, 0.16, 0.88, 0.36]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-\\frac{5}{8}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-\\frac{9}{10}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-\\frac{3}{8}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "-\\frac{5}{16}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "-\\frac{3}{16}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 17,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "일차함수 "},
+        {"type": "equation", "value": "y=ax+5"},
+        {"type": "text", "value": "의 그래프는 제1, 2, 3사분면만을 지나는 그래프이고, 점 "},
+        {"type": "equation", "value": "(a+2,2a^2-3)"},
+        {"type": "text", "value": "을 지난다. "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "에 관한 이차방정식 "},
+        {"type": "equation", "value": "ax^2+6x-6a=6-2x^2"},
+        {"type": "text", "value": "의 근 중 큰 근을 "},
+        {"type": "equation", "value": "k"},
+        {"type": "text", "value": "라 할 때, "},
+        {"type": "equation", "value": "(2k+1)^2"},
+        {"type": "text", "value": "의 값은? (단, "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "k"},
+        {"type": "text", "value": "는 상수이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "20"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "21"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "22"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "23"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "24"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}
