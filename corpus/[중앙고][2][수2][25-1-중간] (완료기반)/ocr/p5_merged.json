@@ -1,0 +1,91 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 17,
+      "score": 10,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 1] 두 곡선 "},
+        {"type": "equation", "value": "f(x)=x^3+ax,\\ g(x)=bx^2+c"},
+        {"type": "text", "value": "가 "},
+        {"type": "equation", "value": "(2,\\ 4)"},
+        {"type": "text", "value": "에서 접할 때, 다음 물음에 답하시오."}
+      ],
+      "choices": [],
+      "sub_questions": [
+        {
+          "number": 1,
+          "score": 2,
+          "contents": [
+            {"type": "text", "value": "상수 "},
+            {"type": "equation", "value": "a"},
+            {"type": "text", "value": "의 값을 풀이 과정과 함께 구하시오."}
+          ]
+        },
+        {
+          "number": 2,
+          "score": 2,
+          "contents": [
+            {"type": "equation", "value": "x=2"},
+            {"type": "text", "value": "에서 "},
+            {"type": "equation", "value": "f(x)"},
+            {"type": "text", "value": "의 접선의 기울기를 풀이 과정과 함께 구하시오."}
+          ]
+        },
+        {
+          "number": 3,
+          "score": 6,
+          "contents": [
+            {"type": "text", "value": "상수 "},
+            {"type": "equation", "value": "b,\\ c"},
+            {"type": "text", "value": "의 값을 풀이 과정과 함께 구하시오."}
+          ]
+        }
+      ]
+    },
+    {
+      "number": 18,
+      "score": 10,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 2] 다항함수 "},
+        {"type": "equation", "value": "f(x)"},
+        {"type": "text", "value": "가 "},
+        {"type": "equation", "value": "\\lim_{x\\to\\infty}\\frac{f(x)-3x^3}{x^2}=1"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\lim_{x\\to 1}\\frac{f(x)}{x-1}=12"},
+        {"type": "text", "value": "을 만족시킬 때, 다음 물음에 답하시오."}
+      ],
+      "choices": [],
+      "sub_questions": [
+        {
+          "number": 1,
+          "score": 3,
+          "contents": [
+            {"type": "equation", "value": "\\lim_{x\\to\\infty}\\frac{f(x)-3x^3}{x^2}=1"},
+            {"type": "text", "value": "을 통해 알 수 있는 "},
+            {"type": "equation", "value": "f(x)"},
+            {"type": "text", "value": "의 최고차항의 차수와 계수, 이차항의 계수를 풀이 과정과 함께 구하시오."}
+          ]
+        },
+        {
+          "number": 2,
+          "score": 2,
+          "contents": [
+            {"type": "equation", "value": "\\lim_{x\\to 1}f(x)"},
+            {"type": "text", "value": "의 값을 풀이 과정과 함께 구하시오."}
+          ]
+        },
+        {
+          "number": 3,
+          "score": 5,
+          "contents": [
+            {"type": "equation", "value": "f(1)"},
+            {"type": "text", "value": "의 값을 풀이 과정과 함께 구하시오."}
+          ]
+        }
+      ]
+    }
+  ]
+}

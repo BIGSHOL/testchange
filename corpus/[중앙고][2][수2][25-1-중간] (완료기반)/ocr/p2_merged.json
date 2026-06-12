@@ -1,0 +1,89 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 6,
+      "score": 3.5,
+      "contents": [
+        {"type": "text", "value": "함수 "},
+        {"type": "equation", "value": "f(x)"},
+        {"type": "text", "value": "가 모든 양의 실수 "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "\\frac{2x^2-x}{x^2+1}<f(x)<\\frac{2x^2+4x}{x^2+1}"},
+        {"type": "text", "value": "를 만족시킬 때, "},
+        {"type": "equation", "value": "\\lim_{x\\to\\infty}f(x)"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+      ]
+    },
+    {
+      "number": 7,
+      "score": 3.6,
+      "contents": [
+        {"type": "text", "value": "함수 "},
+        {"type": "equation", "value": "f(x)=2x^3-3x^2+ax+b"},
+        {"type": "text", "value": "가 "},
+        {"type": "equation", "value": "x=2"},
+        {"type": "text", "value": "에서 극솟값 "},
+        {"type": "equation", "value": "-17"},
+        {"type": "text", "value": "을 가질 때, "},
+        {"type": "equation", "value": "f(x)"},
+        {"type": "text", "value": "의 극댓값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "11"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "13"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "14"}]}
+      ]
+    },
+    {
+      "number": 8,
+      "score": 3.7,
+      "contents": [
+        {"type": "text", "value": "원점에서 곡선 "},
+        {"type": "equation", "value": "y=x^3+16"},
+        {"type": "text", "value": "에 그은 접선이 점 "},
+        {"type": "equation", "value": "(k,\\ 12)"},
+        {"type": "text", "value": "를 지날 때, "},
+        {"type": "equation", "value": "k"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+      ]
+    },
+    {
+      "number": 9,
+      "score": 3.8,
+      "contents": [
+        {"type": "text", "value": "다항함수 "},
+        {"type": "equation", "value": "f(x)"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "f'(9)=9"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\lim_{x\\to 3}\\frac{f(x^2)-f(9)}{x^3-27}"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+      ]
+    }
+  ]
+}
