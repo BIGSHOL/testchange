@@ -1,0 +1,65 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 10,
+      "score": 3.8,
+      "contents": [
+        {"type": "text", "value": "반지름의 길이가 6인 원 위의 세 점 A, B, C가 "},
+        {"type": "equation", "value": "\\overarc{AB}:\\overarc{BC}:\\overarc{CA}=3:4:5"},
+        {"type": "text", "value": "를 만족시킬 때, 삼각형 ABC의 넓이를 "},
+        {"type": "equation", "value": "\\alpha+\\beta\\sqrt{3}"},
+        {"type": "text", "value": "이라 하자. 이때, "},
+        {"type": "equation", "value": "\\frac{\\alpha}{\\beta}"},
+        {"type": "text", "value": "의 값은? (단, \\alpha, \\beta는 유리수이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{5}{2}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{7}{2}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{9}{2}"}]}
+      ]
+    },
+    {
+      "number": 11,
+      "score": 3.9,
+      "contents": [
+        {"type": "text", "value": "0<x<2\\pi일 때, 방정식 "},
+        {"type": "equation", "value": "2\\cos^2 x-1=0"},
+        {"type": "text", "value": "과 부등식 "},
+        {"type": "equation", "value": "\\sin x\\cos x>0"},
+        {"type": "text", "value": "을 동시에 만족시키는 모든 x의 값의 합은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\pi"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{3}{2}\\pi"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "2\\pi"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{5}{2}\\pi"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "3\\pi"}]}
+      ]
+    },
+    {
+      "number": 12,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "다음은 "},
+        {"type": "equation", "value": "n\\geq 2"},
+        {"type": "text", "value": "인 모든 자연수 n에 대하여 부등식"},
+        {"type": "equation", "value": "1+\\frac{1}{2^2}+\\frac{1}{3^2}+\\cdots+\\frac{1}{n^2}<2-\\frac{1}{n} \\quad \\cdots\\cdots \\ (*)"},
+        {"type": "text", "value": "이 성립함을 수학적 귀납법을 이용하여 증명한 것이다."},
+        {"type": "text", "value": "<상자> (ⅰ) n=2일 때, (좌변)= \\boxed{가} < \\frac{3}{2} = (우변). 따라서 n=2일 때 부등식 (*)이 성립한다. (ⅱ) n=k(k\\geq 2)일 때, 부등식 (*)이 성립한다고 가정하면 1+\\frac{1}{2^2}+\\frac{1}{3^2}+\\cdots+\\frac{1}{k^2}<2-\\frac{1}{k} 양변에 \\boxed{나} 를 더하면 1+\\frac{1}{2^2}+\\frac{1}{3^2}+\\cdots+\\frac{1}{k^2}+\\boxed{나} < 2-\\frac{1}{k}+\\boxed{나} 그런데 k\\geq 2이므로 2-\\frac{1}{k}+\\boxed{나}-\\left(2-\\boxed{다}\\right)=-\\frac{1}{k(k+1)^2}<0 즉, 1+\\frac{1}{2^2}+\\frac{1}{3^2}+\\cdots+\\frac{1}{k^2}+\\boxed{나}<2-\\boxed{다} 이므로 n=k+1일 때도 부등식 (*)이 성립한다. (ⅰ), (ⅱ)에 의하여 n\\geq 2인 모든 자연수 n에 대하여 부등식 (*)이 성립한다."},
+        {"type": "text", "value": "위의 (가)에 알맞은 수를 a, (나)와 (다)에 알맞은 식을 각각 f(k), g(k)라 할 때, "},
+        {"type": "equation", "value": "20\\times\\frac{g(a)}{f(a)}"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "25"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "30"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "35"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "40"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "45"}]}
+      ]
+    }
+  ]
+}
