@@ -1,0 +1,78 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 7,
+      "score": 3.8,
+      "contents": [
+        {"type": "text", "value": "다음 그림은 일차함수 y=-\\frac{1}{2}x+1의 그래프와 이 그래프를 y축의 방향으로 5만큼 평행이동한 그래프이다. 이때 색칠한 부분의 넓이는?"},
+        {"type": "figure", "value": "좌표평면 — 평행한 두 직선. 아래 직선 y=-\\frac{1}{2}x+1(y절편 1·x절편 2), 위 직선 y=-\\frac{1}{2}x+6(아래 직선을 y축 방향으로 5만큼 평행이동, y절편 6·x절편 12). 두 직선 사이의 띠 영역(왼쪽 y축·아래 x축 경계)이 빗금으로 색칠됨. 원점 O, 축 라벨 x·y.", "bbox": [0.12, 0.30, 0.50, 0.72]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "15"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "24"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "35"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "48"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "70"}]}
+      ]
+    },
+    {
+      "number": 8,
+      "score": 3.9,
+      "contents": [
+        {"type": "text", "value": "두 점 A(-1, 1), B(-1, -5)를 잇는 \\overline{AB} 위의 점과 두 점 C(3, 4), D(5, 2)를 잇는 \\overline{CD} 위의 점을 지나는 직선을 그래프로 하는 일차함수의 식이 y=ax+b일 때, b의 최댓값과 최솟값의 합은? (단, a, b는 수이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-\\frac{23}{6}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-\\frac{25}{12}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{7}{4}"}]}
+      ]
+    },
+    {
+      "number": 9,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "일차함수 f(x)=ax+b의 그래프를 그리는데 우성이는 기울기를 잘못 보고 그렸더니 두 점 (-3, -8), (2, 17)을 지났고, 승윤이는 y절편을 잘못 보고 그렸더니 두 점 (-1, 8), \\left(\\frac{1}{2}, \\frac{1}{2}\\right)을 지났다고 한다. 처음 일차함수의 식은? (단, a, b는 수이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "y=-5x+3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "y=-5x+5"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "y=-5x+7"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "y=5x+5"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "y=5x+7"}]}
+      ]
+    },
+    {
+      "number": 10,
+      "score": 3.1,
+      "contents": [
+        {"type": "text", "value": "일차함수 y=7x+4의 그래프와 평행하고, 점 (-1, 8)을 지나는 일차함수 그래프의 x절편은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-\\frac{15}{7}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-\\frac{11}{7}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-\\frac{1}{7}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{10}{7}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{13}{7}"}]}
+      ]
+    },
+    {
+      "number": 11,
+      "score": 3.8,
+      "contents": [
+        {"type": "text", "value": "두 일차함수 y=ax+b, y=cx+d의 그래프가 아래의 그림과 같을 때, <보기> 중 옳은 것의 개수는? (단, a, b, c, d는 수이다.)"},
+        {"type": "figure", "value": "좌표평면 — 두 직선이 제2사분면 부근에서 교차. 가파른 직선 y=ax+b(우상단 라벨, 음의 기울기, y절편 음수=원점 아래)와 완만한 직선 y=cx+d(좌하단 라벨, 음의 기울기, y절편 양수=원점 위). 원점 O, 축 라벨 x·y.", "bbox": [0.25, 0.55, 0.75, 0.80]},
+        {"type": "text", "value": "<보기> ㄱ. ac>0 • ㄴ. \\frac{b}{d}>0 • ㄷ. a<c • ㄹ. b<d • ㅁ. y=cx-a의 그래프는 원점을 지난다. • ㅂ. y=dx+b의 그래프는 4사분면을 지난다. • ㅅ. y=bx+c의 그래프는 2사분면을 지나지 않는다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "3개"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "4개"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "5개"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "6개"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "7개"}]}
+      ]
+    }
+  ]
+}
