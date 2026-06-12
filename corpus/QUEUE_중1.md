@@ -1,5 +1,8 @@
 # 중1 corpus OCR 대기열 (세션 분리 운영 — 2026-06-11)
 
+> **⏹️ 생산 종료(2026-06-12)**: 11개교(reviewed 8 + ocr_done 3) 확보로 중1 데이터 충분 판단,
+> 고1 공수1로 전환(사용자 지시, `corpus/QUEUE_고1.md`). 아래 잔여 pending 5건은 의무 아님.
+
 > **OCR 세션**(이 대기열 생산자)이 0~4단계(선별→페이지→크롭→OCR→JSON lint)를 끝내고
 > `meta.json` 에 `"status": "ocr_done"` 을 찍으면, **렌더 세션**(소비자)이 5~9단계
 > (캐시 렌더→XML lint→PNG 1:1 대조→수정→완료)를 진행하고 `"status": "reviewed"` 로 바꾼다.
