@@ -1,0 +1,95 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 16,
+      "score": 4.2,
+      "contents": [
+        {"type": "text", "value": "5개의 숫자 0, 1, 2, 3, 4 중에서 2를 반드시 포함하여 서로 다른 3개의 숫자를 택해 일렬로 나열하여 만들 수 있는 세 자리 자연수의 개수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "24"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "26"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "28"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "30"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "32"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 17,
+      "score": 4.2,
+      "contents": [
+        {"type": "text", "value": "원에 내접하는 정십이각형이 있다. 이 정십이각형의 꼭짓점 중 서로 다른 3개의 점을 택하여 만들 수 있는 예각삼각형의 개수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "30"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "35"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "40"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "45"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "50"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 18,
+      "score": 4.2,
+      "contents": [
+        {"type": "text", "value": "1층에서 7층까지 올라가는 엘리베이터에 1층에서 6명의 사람이 탔다. 1층에서는 내리지 않는다고 할 때, 2명씩 3개의 층에서 6명이 모두 내리는 경우의 수는? (단, 엘리베이터는 모든 층에서 멈추고, 엘리베이터에 새로 타는 사람은 없다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1800"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "1850"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "1900"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "1950"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "2000"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 19,
+      "score": 4.2,
+      "contents": [
+        {"type": "text", "value": "2 \\times 2 행렬 A와 B의 (i, j)성분 a_{ij}와 b_{ij}를 각각 a_{ij}=2i+j+k, b_{ij}=i-2j-k (i=1, 2, j=1, 2)라 할 때, 행렬 A+2B의 모든 성분의 합은 14이다. 실수 k의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-\\frac{5}{2}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-\\frac{3}{2}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "-\\frac{1}{2}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 20,
+      "score": 4.6,
+      "contents": [
+        {"type": "text", "value": "삼차방정식 x^3+(a+4)x^2+(a^2+a+3)x+a^2=0의 서로 다른 실근의 개수가 2가 되도록 하는 모든 정수 a의 값들의 합은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 21,
+      "score": 4.6,
+      "contents": [
+        {"type": "text", "value": "-10 \\le x \\le 10에서 x에 대한 이차부등식 x^2-x+k \\ge x+59를 만족하는 정수 x의 개수가 6이 되도록 하는 정수 k의 최솟값을 m, 최댓값을 M이라 할 때, m+M의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "8"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}
