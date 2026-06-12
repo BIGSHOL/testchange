@@ -1,0 +1,66 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 6,
+      "score": 4.2,
+      "contents": [
+        {"type": "text", "value": "300 \\times a와 360 \\times b의 양의 공약수의 개수가 홀수가 되도록 하는 자연수 a, b에 대하여 2a+b의 최솟값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "11"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "13"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "15"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "17"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "19"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 7,
+      "score": 4.2,
+      "contents": [
+        {"type": "text", "value": "남녀 학생 12명 중에서 3명의 대표를 뽑을 때, 남학생이 적어도 한 명 포함되도록 뽑는 경우의 수는 210이다. 이때 남학생의 수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "9"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 8,
+      "score": 4.2,
+      "contents": [
+        {"type": "text", "value": "대진고등학교 1학년 1반 학생 3명, 2반 학생 1명, 3반 학생 9명이 모두 일렬로 설 때, 양 끝에는 모두 3반 학생이 서는 경우의 수는 n \\times 12!이다. 자연수 n의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "8"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 9,
+      "score": 4.4,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 네 지점 A, B, C, D를 연결하는 도로가 있다. A 지점에서 출발하여 D 지점으로 가는 경우의 수가 100 이상이 되도록 B 지점과 C 지점을 연결하는 도로를 추가할 때, 추가해야 하는 도로의 개수의 최솟값은? (단, 한 번 지나간 지점은 다시 지나지 않고 도로끼리는 서로 교차하지 않는다.)"},
+        {"type": "figure", "value": "네 지점 A, B, C, D를 연결하는 도로망 그림. A(왼쪽), B(위쪽), C(아래쪽), D(오른쪽)에 원으로 표시된 지점. A-B, A-C, B-D, C-D는 각각 여러 개의 곡선 도로로 연결되어 있고, B-C도 연결되어 있는 평면 그래프 형태.", "bbox": [0.08, 0.45, 0.72, 0.80]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "6"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

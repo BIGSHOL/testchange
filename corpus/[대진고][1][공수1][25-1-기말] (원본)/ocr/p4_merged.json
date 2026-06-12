@@ -1,0 +1,65 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 10,
+      "score": 4.4,
+      "contents": [
+        {"type": "text", "value": "방정식 x^4+4x^3+2x^2-5x-2=0의 네 근을 a, b, c, d라고 할 때, a^3+b^3+c^3+d^3의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-22"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-23"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-24"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "-25"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "-26"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 11,
+      "score": 4.6,
+      "contents": [
+        {"type": "text", "value": "부등식 x^2-3|x+1|-7>0의 해가 x<\\alpha 또는 x>\\beta일 때 2\\beta-3\\alpha의 합은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "14"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "16"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "18"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "20"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "22"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 12,
+      "score": 4.6,
+      "contents": [
+        {"type": "text", "value": "부등식 |x+1|+\\sqrt{x^2-4x+4}<5를 만족시키는 모든 정수 x에 대하여 부등식 |x-a| \\le 3이 성립한다. 이를 만족시키는 모든 정수 a값의 합은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "2"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 13,
+      "score": 4.6,
+      "contents": [
+        {"type": "text", "value": "이차정사각행렬 A=\\begin{pmatrix} -1 & a \\\\ 0 & -1 \\end{pmatrix}에 대하여 행렬 A+A^2+A^3+\\cdots+A^{100}의 모든 성분의 합이 100일 때, 실수 a의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "2"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

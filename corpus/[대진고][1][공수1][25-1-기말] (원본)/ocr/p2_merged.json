@@ -1,0 +1,82 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 1,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "다음 부등식을 만족시키는 정수 x의 개수는?"},
+        {"type": "text", "value": "<상자> 4x-7 \\le 7x-1 \\le 3x+15"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "8"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 2,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 원 위에 5개의 점이 있을 때, 주어진 점을 이어서 만들 수 있는 서로 다른 삼각형의 개수는?"},
+        {"type": "figure", "value": "원 위에 5개의 점이 찍힌 그림. 원의 둘레를 따라 5개의 점이 표시되어 있음.", "bbox": [0.55, 0.10, 0.97, 0.88]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "20"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "30"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "42"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 3,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "등식 \\begin{pmatrix} a-1 & 4 \\\\ -4 & 3 \\end{pmatrix}+\\begin{pmatrix} 5 & -4 \\\\ 2 & b+2 \\end{pmatrix}=\\begin{pmatrix} 6 & 0 \\\\ -2 & 5 \\end{pmatrix}을 만족시키는 두 실수 a, b에 대하여 a+b의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "4"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 4,
+      "score": 4.2,
+      "contents": [
+        {"type": "text", "value": "정수 a와의 거리가 4보다 작은 정수 x의 값의 합이 35이다. 정수 x의 최댓값을 M이라고 할 때, M^2-a^2의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "36"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "37"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "38"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "39"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "40"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 5,
+      "score": 4.2,
+      "contents": [
+        {"type": "text", "value": "이차부등식 kx^2+2kx-5<0의 해가 x \\ne \\alpha인 모든 실수일 때, 실수 \\alpha, k에 대하여 2\\alpha-3k의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "11"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "13"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "15"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "17"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "19"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}
