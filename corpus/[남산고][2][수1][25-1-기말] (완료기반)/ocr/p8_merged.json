@@ -1,0 +1,66 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 27,
+      "score": 3,
+      "label_type": "단답형",
+      "contents": [
+        {"type": "text", "value": "[단답형 6] 다음 조건을 만족시키는 모든 수열 "},
+        {"type": "equation", "value": "\\{a_n\\}"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "\\sum_{n=1}^{10} a_n"},
+        {"type": "text", "value": "의 최댓값을 구하시오."},
+        {"type": "text", "value": "<상자> (가) 모든 자연수 \\(k\\)에 대하여 \\(a_k\\)는 \\(x\\)에 대한 방정식 \\(x^2+3x+(k-6)(9-k)=0\\)의 근이다. (나) \\(a_n\\times a_{n+1}<0\\)을 만족시키는 10 이하의 자연수 \\(n\\)의 개수는 2이다."}
+      ],
+      "choices": []
+    },
+    {
+      "number": 28,
+      "score": 9,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 1] 100 이하의 자연수 중 8로 나누었을 때 나머지가 3인 수의 합을 구하는 풀이 과정과 정답을 쓰시오."}
+      ],
+      "choices": []
+    },
+    {
+      "number": 29,
+      "score": 12,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 2] 실수 "},
+        {"type": "equation", "value": "k"},
+        {"type": "text", "value": "에 대하여 함수 "},
+        {"type": "equation", "value": "f(x)=2\\cos^2 x+\\sin x+k"},
+        {"type": "text", "value": "의 최댓값이 "},
+        {"type": "equation", "value": "\\frac{9}{8}"},
+        {"type": "text", "value": "일 때, 함수 "},
+        {"type": "equation", "value": "f(x)"},
+        {"type": "text", "value": "의 최솟값을 구하는 풀이 과정과 정답을 쓰시오."}
+      ],
+      "choices": []
+    },
+    {
+      "number": 30,
+      "score": 14,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 3] 모든 항이 자연수인 등차수열 "},
+        {"type": "equation", "value": "\\{a_n\\}"},
+        {"type": "text", "value": "의 첫째항부터 제"},
+        {"type": "equation", "value": "n"},
+        {"type": "text", "value": "항까지의 합을 "},
+        {"type": "equation", "value": "S_n"},
+        {"type": "text", "value": "이라 하자. "},
+        {"type": "equation", "value": "a_7"},
+        {"type": "text", "value": "이 13의 배수이고 "},
+        {"type": "equation", "value": "\\sum_{k=1}^{7} S_k=644"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "a_4"},
+        {"type": "text", "value": "의 값을 구하는 풀이 과정과 정답을 쓰시오."}
+      ],
+      "choices": []
+    }
+  ]
+}

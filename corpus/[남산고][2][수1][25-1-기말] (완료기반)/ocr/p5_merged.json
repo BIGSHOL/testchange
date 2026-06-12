@@ -1,0 +1,80 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 17,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "수열 "},
+        {"type": "equation", "value": "\\{a_n\\}"},
+        {"type": "text", "value": "의 첫째항이 4이고, "},
+        {"type": "equation", "value": "n"},
+        {"type": "text", "value": "이 자연수일 때, 부등식 "},
+        {"type": "equation", "value": "\\frac{1}{n+3}<\\frac{a_n}{k}<\\frac{1}{n}"},
+        {"type": "text", "value": "을 만족시키는 자연수 "},
+        {"type": "equation", "value": "k"},
+        {"type": "text", "value": "의 개수를 "},
+        {"type": "equation", "value": "a_{n+1}"},
+        {"type": "text", "value": "이라고 하자. 이때, "},
+        {"type": "equation", "value": "a_5"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "284"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "287"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "290"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "293"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "296"}]}
+      ]
+    },
+    {
+      "number": 18,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "함수 "},
+        {"type": "equation", "value": "f(x)=\\cos\\frac{\\pi}{4}x"},
+        {"type": "text", "value": "라 할 때, "},
+        {"type": "equation", "value": "0<x<16"},
+        {"type": "text", "value": "에서 부등식 "},
+        {"type": "equation", "value": "f(2+x)\\times f(2-x)>-\\frac{1}{4}"},
+        {"type": "text", "value": "을 만족시키는 모든 자연수 "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "의 값의 합은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "24"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "26"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "28"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "30"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "32"}]}
+      ]
+    },
+    {
+      "number": 19,
+      "score": 3.2,
+      "contents": [
+        {"type": "equation", "value": "0\\leq x\\leq 2\\pi"},
+        {"type": "text", "value": "에서 정의된 함수 "},
+        {"type": "equation", "value": "f(x)"},
+        {"type": "text", "value": "는"},
+        {"type": "equation", "value": "f(x)=\\begin{cases}\\sin x & \\left(0\\leq x\\leq\\dfrac{k}{4}\\pi\\right)\\\\ 2\\sin\\left(\\dfrac{k}{4}\\pi\\right)-\\sin x & \\left(\\dfrac{k}{4}\\pi<x\\leq 2\\pi\\right)\\end{cases}"},
+        {"type": "text", "value": "이다. 곡선 "},
+        {"type": "equation", "value": "y=f(x)"},
+        {"type": "text", "value": "와 직선 "},
+        {"type": "equation", "value": "y=\\sin\\left(\\frac{k}{4}\\pi\\right)"},
+        {"type": "text", "value": "의 교점의 개수를 "},
+        {"type": "equation", "value": "a_k"},
+        {"type": "text", "value": "라 할 때, "},
+        {"type": "equation", "value": "a_1+a_2+a_3"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "8"}]}
+      ]
+    }
+  ]
+}

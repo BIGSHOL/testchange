@@ -1,0 +1,82 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 1,
+      "score": 2.0,
+      "contents": [
+        {"type": "text", "value": "삼각형 ABC에서 "},
+        {"type": "equation", "value": "A=45^\\circ"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{BC}=10"},
+        {"type": "text", "value": "일 때, 삼각형 ABC의 외접원의 반지름의 길이는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "3\\sqrt{2}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "4\\sqrt{2}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "5\\sqrt{2}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "5\\sqrt{3}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "6\\sqrt{3}"}]}
+      ]
+    },
+    {
+      "number": 2,
+      "score": 2.0,
+      "contents": [
+        {"type": "text", "value": "등차수열 "},
+        {"type": "equation", "value": "\\{a_n\\}"},
+        {"type": "text", "value": "에서 "},
+        {"type": "equation", "value": "a_3=9"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "a_6-a_4=8"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "a_{10}"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "13"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "21"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "37"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "45"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "61"}]}
+      ]
+    },
+    {
+      "number": 3,
+      "score": 2.0,
+      "contents": [
+        {"type": "equation", "value": "\\sum_{k=1}^{10} k"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "52"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "53"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "54"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "55"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "56"}]}
+      ]
+    },
+    {
+      "number": 4,
+      "score": 2.0,
+      "contents": [
+        {"type": "text", "value": "모든 항이 양수인 등비수열 "},
+        {"type": "equation", "value": "\\{a_n\\}"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "a_2=30"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "a_8=\\frac{1}{6}a_6"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "a_4"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+      ]
+    }
+  ]
+}

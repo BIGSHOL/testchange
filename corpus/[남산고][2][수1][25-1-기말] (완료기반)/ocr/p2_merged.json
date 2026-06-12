@@ -1,0 +1,94 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 5,
+      "score": 2.0,
+      "contents": [
+        {"type": "text", "value": "삼각형 ABC에서 "},
+        {"type": "equation", "value": "\\overline{BC}=6"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{AC}=4"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "C=30^\\circ"},
+        {"type": "text", "value": "일 때, 삼각형 ABC의 넓이는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "9"}]}
+      ]
+    },
+    {
+      "number": 6,
+      "score": 2.1,
+      "contents": [
+        {"type": "text", "value": "수열 "},
+        {"type": "equation", "value": "\\{a_n\\}"},
+        {"type": "text", "value": "의 첫째항부터 제"},
+        {"type": "equation", "value": "n"},
+        {"type": "text", "value": "항까지의 합 "},
+        {"type": "equation", "value": "S_n"},
+        {"type": "text", "value": "이 "},
+        {"type": "equation", "value": "S_n=n^2"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\sum_{k=1}^{20}\\frac{1}{a_k a_{k+1}}"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{20}{41}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{21}{41}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{22}{41}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{23}{41}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{24}{41}"}]}
+      ]
+    },
+    {
+      "number": 7,
+      "score": 2.1,
+      "contents": [
+        {"type": "equation", "value": "0\\leq x<4\\pi"},
+        {"type": "text", "value": "일 때, 곡선 "},
+        {"type": "equation", "value": "y=|2+4\\sin 3x|"},
+        {"type": "text", "value": "와 직선 "},
+        {"type": "equation", "value": "y=2"},
+        {"type": "text", "value": "가 서로 만나는 서로 다른 점의 개수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "18"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "24"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "30"}]}
+      ]
+    },
+    {
+      "number": 8,
+      "score": 2.4,
+      "contents": [
+        {"type": "text", "value": "모든 항이 양수인 등비수열 "},
+        {"type": "equation", "value": "\\{a_n\\}"},
+        {"type": "text", "value": "의 첫째항부터 제"},
+        {"type": "equation", "value": "n"},
+        {"type": "text", "value": "항까지의 합을 "},
+        {"type": "equation", "value": "S_n"},
+        {"type": "text", "value": "이라 하자. "},
+        {"type": "equation", "value": "a_1=4"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\frac{S_8}{S_7-S_3}=\\frac{a_2}{3}"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "a_9"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "20"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "36"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "64"}]}
+      ]
+    }
+  ]
+}
