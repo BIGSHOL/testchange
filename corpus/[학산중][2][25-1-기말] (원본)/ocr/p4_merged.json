@@ -1,0 +1,94 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 13,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "옳은 설명만을 <보기>에서 있는 대로 고른 것은?"},
+        {"type": "text", "value": "<보기> ㄱ. x절편이 2, y절편이 -3인 직선이 나타내는 일차함수의 식은 y=-\\frac{3}{2}x-3이다. • ㄴ. 두 점 (-1, -4), (2, 5)를 지나는 직선이 나타내는 일차함수의 식은 y=3x-1이다. • ㄷ. 기울기가 3이고, 한 점 (1, -2)를 지나는 직선이 나타내는 일차함수의 식은 y=3x-5이다. • ㄹ. 일차함수 y=\\frac{3}{4}x-1의 그래프와 서로 평행하고, x절편이 2인 직선이 나타내는 일차함수의 식은 y=\\frac{3}{4}x-2이다. • ㅁ. x의 값이 2만큼 증가할 때 y의 값은 1만큼 감소하고, 점 (4, -2)를 지나는 직선이 나타내는 일차함수의 식은 y=-\\frac{1}{2}x-2이다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ, ㄴ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄴ, ㄷ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄱ, ㄷ, ㄹ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄴ, ㄹ, ㅁ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄷ, ㄹ, ㅁ"}]}
+      ]
+    },
+    {
+      "number": 14,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 좌표평면 위에 사각형 OABC가 있다. <조건>을 모두 만족하는 a의 값의 범위가 p \\leq a \\leq q일 때, 두 상수 p, q에 대하여 q-p의 값은? (단, 점 O는 원점)"},
+        {"type": "text", "value": "<조건> ○ 일차함수 y=ax+1의 그래프는 선분 AB와 만난다. ○ \\triangle OBC : \\triangle OAB = 2:5이다."},
+        {"type": "figure", "value": "좌표평면 — 사각형 OABC. O는 원점, A는 x축 위 (6,0), B는 (4,5)(점선으로 y=5에 사영), C는 좌상단 y축 부근. 선분 OA·AB·BC·CO 와 대각선 OB. 축 라벨 x·y, 눈금 6(x축)·5(y축).", "bbox": [0.20, 0.55, 0.55, 0.86]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{7}{6}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{5}{3}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{7}{4}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{9}{5}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{11}{6}"}]}
+      ]
+    },
+    {
+      "number": 15,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "일차방정식 x-ay+b=0의 그래프가 제2사분면을 지나지 않을 때, 옳은 것은? (단, a, b는 상수, a \\neq 0, b \\neq 0)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "a \\leq 0"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-ab < 0"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "ab+b > 0"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{a-b}{a} < 0"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "-\\frac{1}{a}+ab < 0"}]}
+      ]
+    },
+    {
+      "number": 16,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "점 \\left(4, -\\frac{2}{5}\\right)를 지나고, x축에 평행한 직선의 방정식은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "x-4=0"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "y+4=0"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "y-4=0"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "5x-2=0"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5y+2=0"}]}
+      ]
+    },
+    {
+      "number": 17,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "두 점 (3a-2, -1), (-a+7, 5)를 지나고 y축에 평행한 직선과 직선 2y+6=0, x축, y축의 네 직선으로 둘러싸인 도형의 넓이는? (단, a는 상수)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{27}{4}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{25}{3}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{21}{2}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{57}{4}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "20"}]}
+      ]
+    },
+    {
+      "number": 18,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "연립방정식 "},
+        {"type": "equation", "value": "\\begin{cases}3x+15y-6=0 \\\\ ax-by+2=0\\end{cases}"},
+        {"type": "text", "value": " 의 해가 무수히 많을 때, 일차방정식 2x+ay-4b=0의 그래프의 x절편은? (단, a, b는 상수)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "11"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "13"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "14"}]}
+      ]
+    }
+  ]
+}
