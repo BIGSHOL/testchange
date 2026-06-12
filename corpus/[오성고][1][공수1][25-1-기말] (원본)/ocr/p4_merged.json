@@ -1,0 +1,47 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 19,
+      "score": 7,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 4] -1 \\le x \\le 2에서 이차부등식 x^2-2mx+m+12>0 이 항상 성립 할 때, 만족하는 모든 정수 m을 구하는 풀이 과정과 답을 쓰시오."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 20,
+      "score": 7,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 5] 한 개의 주사위를 5번 던져서 나오는 눈의 수를 차례로 a_1, a_2, a_3, a_4, a_5라 할 때, a_1 < a_2 < a_3 < a_4 \\le a_5인 경우의 수를 구하는 풀이 과정과 답을 쓰시오."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 21,
+      "score": 7,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 6] 3 \\times 3 행렬 A의 (i, j) 성분 a_{ij}가"},
+        {"type": "equation_block", "value": "a_{ij}=\\begin{cases} i-j & (i>j) \\\\ i+j & (i=j) \\\\ i \\cdot j+2 & (i<j) \\end{cases}"},
+        {"type": "text", "value": "일 때, 행렬 A를 구하는 풀이 과정과 답을 쓰시오."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 22,
+      "score": 7,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 7] 한 개의 주사위를 두 번 던져서 나오는 눈의 수를 차례로 a, b라 할 때, a+b가 14의 약수가 되도록 하는 모든 순서쌍 (a, b)의 개수를 구하는 풀이 과정과 답을 쓰시오."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    }
+  ]
+}

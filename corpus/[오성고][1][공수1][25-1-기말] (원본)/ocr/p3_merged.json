@@ -1,0 +1,83 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 13,
+      "score": 3.8,
+      "contents": [
+        {"type": "text", "value": "아래 그림과 같이 5개의 돌로 만들어진 징검다리가 있다. 5개의 돌 중에서 3개 이상을 밟고 A에서 B까지 건널 수 있는 방법의 수는? (단, 중간에 되돌아가는 경우는 생각하지 않는다.)"},
+        {"type": "figure", "value": "개울 징검다리 그림. 오른쪽 위 물가(풀숲)에 B 지점, 왼쪽 아래 물가(풀숲)에 A 지점이 있고, 그 사이 개울에 돌 5개가 A에서 B 방향으로 대각선으로 한 줄로 놓여 있다.", "bbox": [0.10, 0.28, 0.95, 0.72]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "14"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "16"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "18"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "20"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "22"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 14,
+      "score": 4.1,
+      "contents": [
+        {"type": "text", "value": "4 \\times 5 행렬 A에 대하여 행렬 AC-BC가 정의되도록 두 행렬 B, C를 정의하려고 한다. 행렬 B는 p \\times q 행렬, 행렬 C는 r \\times s 행렬이라 할 때, p+q+r+s의 최솟값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "14"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "15"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "16"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "17"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "18"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 15,
+      "score": 4.1,
+      "contents": [
+        {"type": "text", "value": "두 행렬 A=\\begin{pmatrix} -1 & -1 \\\\ 1 & -1 \\end{pmatrix}, E=\\begin{pmatrix} 1 & 0 \\\\ 0 & 1 \\end{pmatrix}에 대하여"},
+        {"type": "text", "value": "A^n=kE (k는 자연수)"},
+        {"type": "text", "value": "를 만족시키는 100이하의 자연수 n의 개수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "11"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "13"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 16,
+      "score": 4.5,
+      "label_type": "단답형",
+      "contents": [
+        {"type": "text", "value": "[단답형 1] 어느 캠핑 배낭을 생산하는 회사에서 배낭 x만 개를 생산하는 데 드는 생산 비용 C(x)는 C(x)=k+25x이고, x만 개를 판매할 때의 판매 수익 R(x)는 R(x)=5x(40-x)라 한다. 판매 수익이 생산 비용보다 많게 되는 x의 값의 범위가 1<x<34일 때, 상수 k의 값을 구하시오. (단, 생산 비용과 판매 수익의 단위는 백만 원이다.)"}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 17,
+      "score": 4.5,
+      "label_type": "단답형",
+      "contents": [
+        {"type": "text", "value": "[단답형 2] 왼쪽으로 읽거나 오른쪽으로 읽어도 똑같은 자연수인 55, 393, 9119 등을 대칭수라 한다. 100보다 크고 10000보다 작은 대칭수의 개수를 구하시오."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 18,
+      "score": 7,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 3] 부등식 \\left| |x+1|-3 \\right| < 5을 만족시키는 정수 x의 개수를 구하는 풀이 과정과 답을 쓰시오."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    }
+  ]
+}

@@ -1,0 +1,99 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 7,
+      "score": 3.6,
+      "contents": [
+        {"type": "text", "value": "지름의 길이가 13\\mathrm{cm}인 원에 둘레의 길이가 34\\mathrm{cm}인 직사각형이 내접하고 있을 때, 이 직사각형의 긴 변의 길이는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "5\\mathrm{cm}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "6\\mathrm{cm}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "8\\mathrm{cm}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "11\\mathrm{cm}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "12\\mathrm{cm}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 8,
+      "score": 4.1,
+      "contents": [
+        {"type": "text", "value": "실수 k에 대하여 k \\le x < k+1에서 부등식 x^2+4x+4+a \\ge 0가 항상 성립하도록 하는 a의 최솟값을 f(k)라 하자. 이때, f(-4)+f\\left(-\\frac{5}{2}\\right)+f(1)의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-10"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-9"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-8"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "-7"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "-6"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 9,
+      "score": 3.6,
+      "contents": [
+        {"type": "text", "value": "아래 행렬의 행의 개수를 a, 열의 개수를 b, 모든 성분의 합을 c라 하자. c-(a-b)의 값은?"},
+        {"type": "equation_block", "value": "\\begin{pmatrix} 1 & -4 & 7 & 1 \\\\ 2 & -3 & 1 & 4 \\end{pmatrix}"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "11"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "13"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "15"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 10,
+      "score": 3.6,
+      "contents": [
+        {"type": "text", "value": "두 행렬 A, B에 대하여"},
+        {"type": "equation_block", "value": "A+B=\\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\end{pmatrix}, A^2+B^2=\\begin{pmatrix} 2 & 1 \\\\ 2 & 4 \\end{pmatrix}"},
+        {"type": "text", "value": "일 때, 행렬 AB+BA의 2행 1열의 성분은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "11"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "13"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 11,
+      "score": 3.6,
+      "contents": [
+        {"type": "text", "value": "아래 그림은 집, 학교, 도서관, 공원을 연결하는 길을 나타낸 것이다. 집에서 출발하여 도서관으로 가는 경우의 수는? (단, 같은 지점은 두 번 지나지 않는다.)"},
+        {"type": "figure", "value": "타원 둘레 위에 네 지점이 있다: 집(위), 학교(오른쪽), 도서관(아래), 공원(왼쪽). 지점 사이를 잇는 길(곡선·타원 호 포함): 집-공원 3개, 집-학교 4개, 공원-도서관 2개, 학교-도서관 4개, 공원-학교는 수평 직선 1개. 집-도서관 직접 길은 없다.", "bbox": [0.18, 0.25, 0.92, 0.70]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "33"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "36"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "39"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "42"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "45"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 12,
+      "score": 3.7,
+      "contents": [
+        {"type": "text", "value": "남자 2명, 여자 5명을 앞줄에 4명, 뒷줄에 3명을 세우려고 한다. 남자 2명을 앞줄 또는 뒷줄에서 옆으로 나란히 서로 이웃하게 세우는 경우의 수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1200"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "1210"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "1220"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "1230"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "1240"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}
