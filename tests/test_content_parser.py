@@ -478,6 +478,13 @@ def run():
     _check_sangwon_go1_fixes(fails)
     _check_daejin_go1_fixes(fails)
     _check_dasa_fixes(fails)
+    # HH1(혜화여고 #19): 베이스 없는 선행 첨자(조합 _{n-1}C)는 HWP 가 빈 렌더 — {} 베이스 삽입.
+    from core.latex_to_hwpeq import latex_to_hwpeq as _l2h_hh
+    _hh = _l2h_hh(r"_{n-1}C_{r-1}+_{n-1}C_{r}=_{n}C_{r}")
+    if not _hh.startswith("{}_{n-1}") or "+{}_{n-1}" not in _hh or "={}_{n}" not in _hh:
+        fails.append(f"  HH1 선행 첨자 빈 베이스 삽입 실패: {_hh!r}")
+    if "a_{n+1}" not in _l2h_hh(r"a_{n+1}=a_n+4"):   # 정상 첨자(베이스 있음)는 무변경
+        fails.append(f"  HH1 정상 첨자 오삽입: {_l2h_hh(chr(97)+'_{n+1}=a_n+4')!r}")
     for text, must in _SPACING_CASES:
         got = _render(text)
         if must not in got:
