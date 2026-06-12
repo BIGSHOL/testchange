@@ -1,0 +1,58 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 14,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "지상으로부터 100\\mathrm{m} 높이에서 출발하여 2초에 5\\mathrm{m}씩 내려오는 어떤 엘리베이터가 있다. 이 엘리베이터가 출발한 지 x초 후의 지상으로부터의 높이를 y\\mathrm{m}라 할 때, y를 x에 대한 식으로 나타낸 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "y=\\frac{5}{2}x-100"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "y=100-\\frac{5}{2}x"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "y=100-5x"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "y=100-10x"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "y=5x-100"}]}
+      ]
+    },
+    {
+      "number": 15,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "세 점 (-3, 2), (-a, 0), (a-1, -6)을 모두 지나는 직선과 x축, y축으로 둘러싸인 부분의 넓이는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "16"}]}
+      ]
+    },
+    {
+      "number": 16,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 똑같은 모양의 사다리꼴을 한 변이 완전히 겹치도록 계속해서 이어 붙여 새로운 도형을 만들려고 한다."},
+        {"type": "figure", "value": "사다리꼴 1개(윗변 4, 양 빗변 3·3, 아랫변 5 — 변마다 점선 호로 길이 표시)와, 그 아래 사다리꼴 2개를 빗변끼리 이어 붙인 도형, 3개를 이어 붙인 도형.", "bbox": [0.52, 0.11, 0.95, 0.27]},
+        {"type": "text", "value": "10개의 사다리꼴로 만든 도형의 둘레의 길이는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "60"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "76"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "96"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "123"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "150"}]}
+      ]
+    },
+    {
+      "number": 17,
+      "score": 7,
+      "label_type": "서답형",
+      "contents": [
+        {"type": "text", "value": "[서답형 1] 연속하는 세 짝수의 합이 60보다 작을 때, 가운데 수가 될 수 있는 수 중 가장 큰 수를 구하시오. (단, 문제를 해결하는 과정을 단계별로 자세히 쓰시오.)"}
+      ],
+      "choices": []
+    }
+  ]
+}

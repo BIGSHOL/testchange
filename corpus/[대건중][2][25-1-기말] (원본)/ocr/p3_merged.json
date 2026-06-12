@@ -1,0 +1,78 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 9,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "인형 뽑기 기계에서 함수 f(x)=-\\frac{6}{x}이 적힌 집게는 함숫값이 맞게 적힌 인형을 뽑을 수 있다. 집게를 이용하여 뽑을 수 없는 인형은?"},
+        {"type": "figure", "value": "인형 뽑기 기계 만화 그림 — 기계 위 집게에 f(x)=-6/x 팻말, 유리장 안 인형 5개에 함숫값 팻말: 시바견 f(1)=-6, 곰 f(-4)=3/2, 물개 f(2)=-3, 고양이 f(-3)=2, 토끼 f(-6)=-1. 아래에 조작 버튼 패널.", "bbox": [0.10, 0.13, 0.44, 0.40]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "f(1)=-6, 시바견"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "f(2)=-3, 물개"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "f(-3)=2, 고양이"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "f(-6)=-1, 토끼"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "f(-4)=\\frac{3}{2}, 곰"}]}
+      ]
+    },
+    {
+      "number": 10,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "일차함수 y=ax의 그래프를 y축 방향으로 5만큼 평행이동한 그래프가 (3, 8)을 지날 때, 수 a의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "2"}]}
+      ]
+    },
+    {
+      "number": 11,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "일차함수 y=\\frac{1}{2}x+1의 그래프와 평행하고, 점 (2, 4)를 지나는 직선에 대한 설명으로 옳은 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "x절편은 2이다."}]},
+        {"number": 2, "contents": [{"type": "text", "value": "y절편은 5이다."}]},
+        {"number": 3, "contents": [{"type": "text", "value": "제2사분면을 지나지 않는다."}]},
+        {"number": 4, "contents": [{"type": "text", "value": "오른쪽 아래로 향하는 직선이다."}]},
+        {"number": 5, "contents": [{"type": "text", "value": "x의 값이 4만큼 증가할 때, y의 값이 2만큼 증가한다."}]}
+      ]
+    },
+    {
+      "number": 12,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "점 (2, -4)를 지나면서 x축에 평행한 직선 l과, 점 (-3, 6)을 지나면서 y축에 평행한 직선 m에 대한 설명으로 옳은 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "직선 l의 방정식은 x=2이다."}]},
+        {"number": 2, "contents": [{"type": "text", "value": "직선 m의 방정식은 y=6이다."}]},
+        {"number": 3, "contents": [{"type": "text", "value": "직선 l의 방정식은 점 (2, 0)을 지난다."}]},
+        {"number": 4, "contents": [{"type": "text", "value": "두 직선 l과 m의 교점은 (-3, -4)이다."}]},
+        {"number": 5, "contents": [{"type": "text", "value": "직선 m은 2x+4=0의 그래프와 수직이다."}]}
+      ]
+    },
+    {
+      "number": 13,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "연립방정식 "},
+        {"type": "equation", "value": "\\begin{cases}ax+4y=3 \\\\ 3x+2y=2b\\end{cases}"},
+        {"type": "text", "value": " 의 해가 없을 때, 두 일차방정식 ax+4y=3, 3x+2y=2b의 그래프가 y축과 만나는 점을 각각 A, B라 하면, \\overline{AB}=1이다. 수 a, b에 대하여 ab의 값은? (단, b<0)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-\\frac{21}{2}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-\\frac{9}{2}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-\\frac{3}{2}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{9}{2}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{21}{2}"}]}
+      ]
+    }
+  ]
+}

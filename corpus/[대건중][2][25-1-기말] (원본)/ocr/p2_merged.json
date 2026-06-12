@@ -1,0 +1,66 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 5,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "연립방정식 "},
+        {"type": "equation", "value": "\\begin{cases}0.2x-y=0.4 \\\\ \\frac{1}{2}x-\\frac{13}{4}y=\\frac{7}{4}\\end{cases}"},
+        {"type": "text", "value": " 의 해가 일차방정식 3x+ay=11의 해일 때, 수 a의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-20"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-19"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-18"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "-17"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "-16"}]}
+      ]
+    },
+    {
+      "number": 6,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "연립방정식 "},
+        {"type": "equation", "value": "\\begin{cases}(3k-2)x-(k-5)y-3=15 \\\\ (k+4)x+(4k-3)y+1=15\\end{cases}"},
+        {"type": "text", "value": " 를 만족하는 y의 값이 x의 값의 2배일 때, 수 k의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-4"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-3"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "3"}]}
+      ]
+    },
+    {
+      "number": 7,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "대건 농장에 닭과 염소를 키우고 있다. 위를 보니 머리의 수가 36이고, 아래를 보니 다리의 수가 102이다. 닭이 몇 마리인지 구하면?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "17마리"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "18마리"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "19마리"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "20마리"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "21마리"}]}
+      ]
+    },
+    {
+      "number": 8,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "y가 x의 함수인 것을 <보기>에서 있는 대로 고른 것은?"},
+        {"type": "text", "value": "<보기> ㄱ. 자연수 x의 약수 y • ㄴ. 자연수 x를 5로 나눈 나머지 y • ㄷ. 자연수 x보다 1만큼 작은 자연수 y • ㄹ. 한 변의 길이가 x\\mathrm{cm}인 정사각형의 둘레 y\\mathrm{cm} • ㅁ. 3\\mathrm{km}의 거리를 시속 x\\mathrm{km}로 달릴 때 걸린 시간 y시간"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ, ㄷ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄴ, ㄹ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄱ, ㄷ, ㅁ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄴ, ㄷ, ㄹ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄴ, ㄹ, ㅁ"}]}
+      ]
+    }
+  ]
+}
