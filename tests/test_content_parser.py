@@ -462,6 +462,31 @@ def _check_dasa_fixes(fails):
         fails.append("  DS1 학남고형 post 분리 회귀(box_member 태그/post 소실)")
 
 
+def _check_daegeon_go1_fixes(fails):
+    """대건고 #19(고1 공수1) — 소문항 원문자 항목 ``㉢ A^2``(caret 표기, 별도 text 블록)가
+    한글·LaTeX 없어 평문화돼 ``^`` 가 노출되던 것. 첨자 패턴이면 ASCII 경로 통과 → 수식 객체."""
+    CT = ContentType
+    from core.content_parser import _split_mixed_text_equation
+    # ㉢ A^2 → TEXT '㉢ ' + EQUATION 'A^2'(위첨자). ㉠ AC(첨자 없음)는 평문 유지.
+    r = _split_mixed_text_equation("㉢ A^2")
+    if not (len(r) == 2 and r[0].type == CT.TEXT and r[1].type == CT.EQUATION
+            and r[1].value == "A^2"):
+        fails.append(f"  DG1 원문자 첨자 항목 분리 실패: {[(str(b.type).split('.')[-1], b.value) for b in r]!r}")
+    r2 = _split_mixed_text_equation("값 A^2 이다")      # 한글+caret 혼합도 caret 토큰 수식화
+    if not any(b.type == CT.EQUATION and b.value == "A^2" for b in r2):
+        fails.append(f"  DG1 혼합 caret 미추출: {[(str(b.type).split('.')[-1], b.value) for b in r2]!r}")
+    r3 = _split_mixed_text_equation("㉠ AC")           # 첨자 없는 항목은 평문(무회귀)
+    if any(b.type == CT.EQUATION for b in r3):
+        fails.append(f"  DG1 첨자 없는 항목 오추출: {[(str(b.type).split('.')[-1], b.value) for b in r3]!r}")
+    # 원문자 항목 줄바꿈 판정(_is_circled_item_start)
+    from core.hwp_com_writer import _is_circled_item_start
+    from models.exam_document import ContentBlock as _CB
+    if not _is_circled_item_start(_CB(type=CT.TEXT, value="㉢ A")):
+        fails.append("  DG1 원문자 항목 시작 미감지")
+    if _is_circled_item_start(_CB(type=CT.TEXT, value="보기 ㉢ 은")):  # 중간 참조는 미발동
+        fails.append("  DG1 인라인 원문자 오감지")
+
+
 def run():
     fails = []
     _check_comma_roots(fails)
@@ -478,6 +503,7 @@ def run():
     _check_sangwon_go1_fixes(fails)
     _check_daejin_go1_fixes(fails)
     _check_dasa_fixes(fails)
+    _check_daegeon_go1_fixes(fails)
     # HH1(혜화여고 #19): 베이스 없는 선행 첨자(조합 _{n-1}C)는 HWP 가 빈 렌더 — {} 베이스 삽입.
     from core.latex_to_hwpeq import latex_to_hwpeq as _l2h_hh
     _hh = _l2h_hh(r"_{n-1}C_{r-1}+_{n-1}C_{r}=_{n}C_{r}")
@@ -500,7 +526,7 @@ def run():
         print("FAIL test_content_parser:")
         print("\n".join(fails))
         return 1
-    print(f"OK test_content_parser ({len(_SPACING_CASES) + len(_SCORE_CASES) + 14} cases)")
+    print(f"OK test_content_parser ({len(_SPACING_CASES) + len(_SCORE_CASES) + 15} cases)")
     return 0
 
 

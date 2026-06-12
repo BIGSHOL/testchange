@@ -34,9 +34,9 @@ logger = logging.getLogger(__name__)
 from .hwp_com import CONVERSION_VISIBLE, HwpSession, _dispatch_hwp, _win32
 from .hwp_com_writer import (HwpComWriter, _BOX_BREAK_RE, _BULLET_RE,
                              _caption_spans, _choice_complexity, _COND_HEADER_RE,
-                             _condition_start, _has_box_markup, _post_has_stem,
-                             _post_is_box, _split_tail_post, _split_trailing_score,
-                             _tail_start)
+                             _condition_start, _has_box_markup, _is_circled_item_start,
+                             _post_has_stem, _post_is_box, _split_tail_post,
+                             _split_trailing_score, _tail_start)
 from .latex_to_hwpeq import latex_to_hwpeq
 from models.exam_document import ContentBlock, ContentType, ExamDocument, Question
 
@@ -476,9 +476,13 @@ def _put_qbody(ses, h, contents, score, essay: bool = False, allow_break: bool =
     # 블록수식을 break+center 하므로, 직후 비-블록수식 블록 전에 좌측복귀를 끼운다(기본 경로
     # _write_question stem 루프와 동일 — 사용자 '항상 동일').
     prev_t = None
-    for b in head:
+    for bi, b in enumerate(head):
         if (prev_t == ContentType.EQUATION_BLOCK
                 and b.type not in (ContentType.EQUATION_BLOCK, ContentType.IMAGE)):
+            ses.break_para()
+            ses.align_left()
+        # 원문자 열거 항목(㉠㉡…)은 각 자기 줄(완료본 일치, 대건고 #19). 첫 블록 제외.
+        elif bi > 0 and _is_circled_item_start(b):
             ses.break_para()
             ses.align_left()
         _put_block(ses, b)
@@ -1729,6 +1733,70 @@ def _layout_form(filled_hwpx, out_hwpx, per_col: int, n_mc: int, n_es: int,
                       answer_pagebreak=True, answer_blank_pages=1, pack_essays=True)
 
 
+def _first_para_end(sec: str) -> int:
+    """섹션 XML 의 **첫 최상위 본문 단락**(secPr 를 품은 단락) 끝 위치. 0 이면 못 찾음.
+
+    중첩 단락(머리말/표/미주 subList) 깊이를 추적해 바깥 ``</hp:p>`` 만 센다.
+    """
+    depth = 0
+    for m in re.finditer(r"<hp:p\b|</hp:p>", sec):
+        if m.group().startswith("<hp:p"):
+            depth += 1
+        else:
+            depth -= 1
+            if depth == 0:
+                return m.end()
+    return 0
+
+
+def _strip_answer_header_redefine(hwpx_path: str | Path) -> int:
+    """정답 구역용 머리말/꼬리말 **재정의** 컨트롤 제거 → 전 페이지가 메인 것을 쓰게 통일.
+
+    일부 폼(고2 수2 보라·중3 빨강)은 정답 구역에 머리말("고/중 학년 수학" — 학년 빈값)·꼬리말
+    ("… (정답)") 을 재정의하는 ``hp:header``/``hp:footer`` 컨트롤을 둔다. 이게 **마지막 서술형
+    문제와 같은 본문 단락**에 들어가면(단답형+서술형 혼합 수2에서 #19 가 정답구역 단락에 grow
+    삽입됨) 그 **문제 페이지까지** 정답 머리말("고 학년 수학")·꼬리말("(정답)")로 덮어쓴다
+    (덕원고 2026-06-13). 정상 corpus(대원고·경산고)는 이 재정의가 아예 없어 정답면도 메인
+    머리말을 쓴다 — 그 동작으로 **통일**한다(메인 머리말/꼬리말은 **첫 본문 단락(secPr)** 안에
+    있으므로, 그 단락 **뒤**의 header/footer ctrl 만 제거; 메인은 보존). 부수효과: 정답면 머리말
+    학년 빈값 C한계('중/고 학년 수학')도 함께 해소된다.
+
+    Returns: 제거한 재정의 컨트롤 수(0 이면 손댄 것 없음 — 재정의 없는 폼/정상).
+    """
+    hwpx_path = Path(hwpx_path)
+    with zipfile.ZipFile(hwpx_path) as z:
+        infos = z.infolist()
+        data = {i.filename: z.read(i.filename) for i in infos}
+    removed = 0
+    pats = (r"<hp:ctrl(?:\s[^>]*)?>\s*<hp:header\b.*?</hp:header>\s*</hp:ctrl>",
+            r"<hp:ctrl(?:\s[^>]*)?>\s*<hp:footer\b.*?</hp:footer>\s*</hp:ctrl>")
+    for fn in list(data):
+        if not (fn.endswith(".xml") and "section" in fn.lower()):
+            continue
+        sec = data[fn].decode("utf-8")
+        changed = False
+        for pat in pats:
+            cut = _first_para_end(sec)          # 첫 본문 단락(메인 머리말) 끝 — 그 뒤만 제거
+            if not cut:
+                break
+            out, last, n = [], 0, 0
+            for m in re.finditer(pat, sec, re.S):
+                if m.start() >= cut:
+                    out.append(sec[last:m.start()])
+                    last = m.end()
+                    n += 1
+            if n:
+                out.append(sec[last:])
+                sec = "".join(out)
+                removed += n
+                changed = True
+        if changed:
+            data[fn] = sec.encode("utf-8")
+    if removed:
+        _repackage_hwpx(hwpx_path, infos, data)
+    return removed
+
+
 # ── 진입점 ────────────────────────────────────────────────
 def _fill_form_header(hwpx_path: str | Path, values: dict) -> int:
     """출력 .hwpx 의 폼 머리말/꼬리말 텍스트를 학년·과목·시기 값으로 치환(결정적 XML).
@@ -2261,6 +2329,14 @@ def write_exam_to_form(
             os.remove(filled)
         except Exception:
             pass
+    # 1.45단계: 정답 구역 머리말/꼬리말 **재정의** 제거 — 정답 구역 재정의가 마지막 서술형
+    # 문제와 한 본문 단락에 들어가 그 문제 페이지까지 "고 학년 수학"·"(정답)"으로 덮어쓰는
+    # 결함(덕원고 단답형+서술형 혼합 수2, 2026-06-13) 차단. 메인 머리말로 통일(정답면 학년
+    # 빈값 C한계도 해소). _fill_form_header **전**(채움은 메인 머리말만 보게).
+    try:
+        _strip_answer_header_redefine(output_path)
+    except Exception as e:  # noqa: BLE001
+        logger.warning("폼 후처리 실패(_strip_answer_header_redefine): %s", e)
     # 1.5단계: 서술형 라벨 후처리 — 중복 라벨 제거.
     # (라벨 번호는 이제 `_put_essay_label` 이 **수식**으로 쓴다 — 사용자 2026-06-09: "[서답형 5]
     #  의 5는 수식". 과거 _textify_essay_label_numbers(번호 수식→텍스트)는 그 반대라 제거했다.)

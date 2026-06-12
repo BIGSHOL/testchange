@@ -92,6 +92,19 @@ _COND_BULLET_DISPLAY = "•"
 _CIRCLE_BULLET_RE = re.compile(r"(?:(?<=\s)|^)○(?=\s|$)")
 
 
+# 원문자 열거 항목(㉠㉡㉢… U+3260-326D / ㉮㉯… U+326E-327B)으로 **시작**하는 TEXT 블록은
+# **자기 줄**로 렌더한다 — 완료본은 항목을 각 한 줄로 둔다(대건고 #19 ㉠ AC / ㉡ CA / ㉢ A² …
+# 가 한 줄에 붙던 것, 2026-06-13). 발문 첫 블록(번호/라벨 줄) 뒤 항목들 사이에만 줄바꿈.
+# 블록 **선두**(공백 뒤)일 때만 — 인라인 참조('보기 ㉠은')는 블록 중간이라 미발동.
+_CIRCLED_ITEM_RE = re.compile(r"^\s*[㉠-㉻]")
+
+
+def _is_circled_item_start(block) -> bool:
+    """TEXT 블록이 원문자 열거 항목(㉠…/㉮…)으로 시작하는가 — 항목별 줄바꿈 판정."""
+    return (getattr(block, "type", None) == ContentType.TEXT
+            and bool(_CIRCLED_ITEM_RE.match(block.value or "")))
+
+
 def _has_box_markup(text: str) -> bool:
     """줄 분리가 필요한 박스 텍스트인지 — **불릿(•)이 있을 때만** 참.
 
@@ -831,6 +844,10 @@ class HwpComWriter:
         for i, block in enumerate(stem):
             if (prev_t == ContentType.EQUATION_BLOCK
                     and block.type not in (ContentType.EQUATION_BLOCK, ContentType.IMAGE)):
+                self.s.break_para()
+                self.s.align_left()
+            # 원문자 열거 항목(㉠㉡…)은 각 자기 줄(완료본 일치, 대건고 #19). 첫 블록 제외.
+            elif i > 0 and _is_circled_item_start(block):
                 self.s.break_para()
                 self.s.align_left()
             self._write_block(block, inline=(i == 0))
