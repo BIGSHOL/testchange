@@ -2017,8 +2017,8 @@ _ESSAY_LABEL_NUM_RE = re.compile(
 _ESSAY_WORD_IN_LABEL_RE = re.compile(r'(?:서술형|서답형|단답형)(?=\s*</hp:t>)')
 
 
-def _renumber_essay_labels(hwpx_path: str | Path, n_essays: int, words=None) -> int:
-    """모든 ``[…형 N]`` 라벨 번호를 **문서순 (본문,정답) 쌍**으로 1,1,2,2,…,n,n 재부여(저장후 XML).
+def _renumber_essay_labels(hwpx_path: str | Path, n_essays: int, words=None, nums=None) -> int:
+    """모든 ``[…형 N]`` 라벨 번호를 **문서순 (본문,정답) 쌍**으로 결정적 재부여(저장후 XML).
 
     폼 grow 가 마지막 서술형 답지 라벨을 ``[서술형 5]``(6이어야)로 굽고, COM 비결정성으로 본문/
     정답 중 어느 쪽이 어긋나는지 렌더마다 뒤바뀌는 것을 결정적으로 고친다. 번호는 **수식 객체
@@ -2028,6 +2028,11 @@ def _renumber_essay_labels(hwpx_path: str | Path, n_essays: int, words=None) -> 
     words: 서술형별 유형 단어 리스트([서술형/단답형/…], essay 순). 주면 정답 페이지 라벨까지
     문항별 유형으로 통일(서술형·단답형 **혼합 시험지** — 능인고 수1, 2026-06-10). 폼이 구워둔
     정답 라벨은 한 단어(서술형)뿐이라, 쌍의 essay 인덱스(i//2)로 본문 유형을 따라 맞춘다.
+
+    nums: essay 순 **원본 라벨 번호** 리스트(OCR 인쇄 그대로). 주면 통합 일련번호 1,2,…,n 대신
+    이 번호를 쓴다 — 유형별 독립 번호 시험지(정화중 단답형 1~4·서술형 1~3)와 통합 번호 시험지
+    (능인고 서술형 1~3·단답형 4~5)가 폼마다 달라, 통합 강제(i//2+1)가 정화중 서술형을 [서술형 5]
+    로 굽던 것(2026-06-12). 능인고는 nums=[1,2,3,4,5]=통합과 동일이라 무회귀.
     """
     hwpx_path = Path(hwpx_path)
     with zipfile.ZipFile(hwpx_path) as z:
@@ -2048,7 +2053,8 @@ def _renumber_essay_labels(hwpx_path: str | Path, n_essays: int, words=None) -> 
         out, prev = [], 0
         for i, m in enumerate(matches):
             out.append(sec[prev:m.start()])
-            want = str(i // 2 + 1)
+            ei = i // 2
+            want = str(nums[ei]) if (nums and ei < len(nums)) else str(ei + 1)
             g1 = m.group(1)
             if words and i // 2 < len(words) and words[i // 2]:
                 g1n, wn = _ESSAY_WORD_IN_LABEL_RE.subn(words[i // 2], g1)
@@ -2220,6 +2226,14 @@ def write_exam_to_form(
         m = _word_re.search(joined)
         return m.group(1) if m else "서답형"
     _words = [_essay_word(q) for q in essays]
+    # essay 순 **원본 라벨 번호**(OCR 인쇄 그대로) — 통합 일련번호 강제 대신 원본 보존.
+    # 유형별 독립(정화중 단답형 1~4·서술형 1~3) vs 통합(능인고 서술형 1~3·단답형 4~5)이
+    # 폼마다 달라, 통합 강제가 정화중 서술형을 [서술형 5]로 굽던 것(2026-06-12).
+    def _essay_num(q, idx):
+        lbl, _ = _essay_label_and_body(q.contents, q.label_type or "서답형", idx + 1)
+        m = re.match(r'^\[\s*\S+?\s*(\d+)\s*\]$', lbl)
+        return int(m.group(1)) if m else idx + 1
+    _nums = [_essay_num(q, i) for i, q in enumerate(essays)]
     try:
         if _words and len(set(_words)) == 1:        # 균일 시험지: 한 단어로 통일(기존 경로)
             _sync_essay_label_word(output_path, _words[0])
@@ -2227,9 +2241,9 @@ def write_exam_to_form(
         logger.warning("폼 후처리 실패(_sync_essay_label_word): %s", e)
     # 1.57단계: 서술형 라벨 **번호+유형** 결정적 재부여 — 폼 grow 가 마지막 답지 라벨을 5(6이어야)로
     # 굽고 COM 비결정성으로 본문/정답 중 한쪽이 어긋남(상인고 #25). 문서순 (본문,정답) 쌍을
-    # 1,1,…,n,n 으로. words 로 정답 라벨 유형도 문항별로 맞춤(혼합 시험지). _com_relaunder **전**.
+    # 원본 번호(_nums)로. words 로 정답 라벨 유형도 문항별로 맞춤(혼합 시험지). _com_relaunder **전**.
     try:
-        _renumber_essay_labels(output_path, len(essays), words=_words)
+        _renumber_essay_labels(output_path, len(essays), words=_words, nums=_nums)
     except Exception as e:  # noqa: BLE001
         logger.warning("폼 후처리 실패(_renumber_essay_labels): %s", e)
     # 1.6단계: 서술형 중복 라벨 제거는 위에서 완료. 머리말/꼬리말 채움(결정적 XML 후처리).

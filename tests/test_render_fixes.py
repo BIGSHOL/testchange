@@ -401,6 +401,36 @@ def run():
     finally:
         os.remove(tmp2)
 
+    # ── K2: 원본 라벨 번호 보존(nums) — 정화중 유형별 1~4·1~3 vs 능인고 통합 1~5 (2026-06-12) ──
+    # 통합 강제(i//2+1)가 정화중 단답형 4개 뒤 서술형을 [서술형 5]로 굽던 것. nums 로 원본 보존.
+    # 정화중: 단답형 1,2,3,4 + 서술형 1,2,3 (유형별 독립). 능인고: nums=[1,2,3,4,5]=통합(무회귀).
+    sec4 = "<hp:sec>" + "".join(_lblw("단답형", n) for n in [1, 1, 2, 2, 3, 3, 4, 4]) + \
+           "".join(_lblw("서술형", n) for n in [9, 9, 9, 9, 9, 9]) + "</hp:sec>"
+    fd3, tmp3 = tempfile.mkstemp(suffix=".hwpx"); os.close(fd3)
+    try:
+        with zipfile.ZipFile(tmp3, "w") as z:
+            z.writestr("Contents/section0.xml", sec4)
+        _renum(tmp3, 7, words=["단답형"] * 4 + ["서술형"] * 3,
+               nums=[1, 2, 3, 4, 1, 2, 3])
+        with zipfile.ZipFile(tmp3) as z:
+            g4 = z.read("Contents/section0.xml").decode("utf-8")
+        nums_out = [m.group(2) for m in _ESSAY_LABEL_NUM_RE.finditer(g4)]
+        chk(nums_out == ["1", "1", "2", "2", "3", "3", "4", "4", "1", "1", "2", "2", "3", "3"],
+            f"K2 유형별 원본 번호 보존: {nums_out}")
+        # 능인고 통합: nums=[1,2,3,4,5] → 통합과 동일(무회귀)
+        sec5 = "<hp:sec>" + "".join(_lblw("서술형", n) for n in [1, 1, 2, 2, 3, 3]) + \
+               "".join(_lblw("단답형", n) for n in [9, 9, 9, 9]) + "</hp:sec>"
+        with zipfile.ZipFile(tmp3, "w") as z:
+            z.writestr("Contents/section0.xml", sec5)
+        _renum(tmp3, 5, words=["서술형"] * 3 + ["단답형"] * 2, nums=[1, 2, 3, 4, 5])
+        with zipfile.ZipFile(tmp3) as z:
+            g5 = z.read("Contents/section0.xml").decode("utf-8")
+        nums5 = [m.group(2) for m in _ESSAY_LABEL_NUM_RE.finditer(g5)]
+        chk(nums5 == ["1", "1", "2", "2", "3", "3", "4", "4", "5", "5"],
+            f"K2 능인고 통합 무회귀: {nums5}")
+    finally:
+        os.remove(tmp3)
+
     # ── Q: sqrt/root 키워드 영숫자 앞 공백 — 중앙중 중3 #4·#15 (2026-06-11) ──
     # ``a\sqrt{2}`` 가 ``asqrt {2}`` 로 붙으면 HWP 가 "asqrt" 를 식별자로 오인해 literal.
     # 숫자 앞(2\sqrt{2})은 HWP 가 숫자→알파벳 경계를 쪼개 우연히 살았을 뿐 — 글자 앞이 함정.
