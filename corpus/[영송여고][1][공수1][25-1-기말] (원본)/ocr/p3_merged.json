@@ -1,0 +1,51 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 10,
+      "score": 5.2,
+      "contents": [
+        {"type": "text", "value": "2 \\times 2 행렬 A=\\begin{pmatrix} 0 & -1 \\\\ 1 & 2 \\end{pmatrix}, B=\\begin{pmatrix} 2 & 1 \\\\ -1 & 0 \\end{pmatrix}, C=AB+B 라고 하자. 이때, 2 \\times 2 행렬 C의 모든 성분의 합은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "10"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 11,
+      "score": 5.8,
+      "contents": [
+        {"type": "text", "value": "오른쪽 그림과 같이 부채꼴 위에 9개의 점이 있을 때, 두 점을 이어서 만들 수 있는 서로 다른 직선의 개수는?"},
+        {"type": "figure", "value": "사분원 부채꼴(중심 = 오른쪽 아래 꼭짓점). 오른쪽 세로 반지름 위에 점 4개(중심과 위쪽 호 끝점 포함), 아래 가로 반지름 위에 점 3개(중심과 왼쪽 호 끝점 포함, 중심은 세로 반지름과 공유), 호 위에 내부 점 3개. 총 9개의 점이 찍혀 있다.", "bbox": [0.55, 0.10, 0.96, 0.75]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "19"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "27"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "29"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "36"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 12,
+      "score": 5.9,
+      "contents": [
+        {"type": "text", "value": "x에 대한 이차부등식 x^2+ax+b<0의 해가 a<x<b일 때, -a-b의 값은? (단, a>0이고, a, b는 상수이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

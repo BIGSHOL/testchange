@@ -1,0 +1,42 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 13,
+      "score": 5.9,
+      "contents": [
+        {"type": "text", "value": "영송여고의 나래반 학생 7명 중 참가자 5명을 뽑아 퀴즈 대결을 하려고 한다. 승자 진출전 방식으로 진행할 때 다음 그림과 같이 대진표를 작성하는 경우의 수는?"},
+        {"type": "figure", "value": "5명 승자 진출전(토너먼트) 대진표. 참가 자리(리프) 5개: 왼쪽 두 자리가 1회전을 치르고 그 승자가 세 번째 자리와 2회전을 치른다. 오른쪽 두 자리는 따로 1회전을 치른다. 왼쪽 블록 승자와 오른쪽 블록 승자가 결승에서 만난다.", "bbox": [0.15, 0.40, 0.82, 0.85]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "21"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "210"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "420"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "630"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "1260"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 14,
+      "score": 5,
+      "label_type": "서답형",
+      "contents": [
+        {"type": "text", "value": "[서답형 1] x, y는 자연수일 때, 2 \\le x+y \\le 4을 만족시키는 순서쌍 (x, y)의 개수를 구하는 풀이 과정과 답을 상세하게 서술하시오."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 15,
+      "score": 5,
+      "label_type": "서답형",
+      "contents": [
+        {"type": "text", "value": "[서답형 2] a=3!, b={}_{5}\\mathrm{P}_{3}, c={}_{6}\\mathrm{C}_{2}, d=x+y+z+w 라고 하자. 상수 x, y, z, w에 대해 2 \\times 2행렬로 이루어진 아래 등식을 만족할 때, a+b+c+d의 값을 구하는 풀이 과정과 답을 상세하게 서술하시오."},
+        {"type": "equation_block", "value": "\\begin{pmatrix} x & y \\\\ z & w \\end{pmatrix}+\\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\end{pmatrix}=\\begin{pmatrix} 2 & 5 \\\\ -1 & 10 \\end{pmatrix}"}
+      ],
+      "choices": [],
+      "sub_questions": []
+    }
+  ]
+}

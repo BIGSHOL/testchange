@@ -1,0 +1,67 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 6,
+      "score": 4.3,
+      "contents": [
+        {"type": "text", "value": "A, B, C, D, E 다섯 개의 문자를 일렬로 배열하려고 한다. 이때, A, E가 양 끝에 오도록 배열하는 경우의 수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "24"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "36"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "48"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "60"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 7,
+      "score": 4.4,
+      "contents": [
+        {"type": "text", "value": "다음 등식을 만족시키는 두 상수 x, y에 대하여 xy의 값은? (단, 각 행렬은 2 \\times 2행렬이다.)"},
+        {"type": "equation_block", "value": "\\begin{pmatrix} x-2y & 7 \\\\ 3 & 8 \\end{pmatrix}=\\begin{pmatrix} 5 & 7 \\\\ 3 & x+4y \\end{pmatrix}"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 8,
+      "score": 4.9,
+      "contents": [
+        {"type": "text", "value": "연립방정식 \\begin{cases} 2x^2+4xy+2y^2=0 \\\\ x^2+3xy+y^2=-1 \\end{cases} 의 해를 x=a, y=b라고 할 때, 2ab의 값은? (단, a>0이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-4"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-3"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "0"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 9,
+      "score": 5.2,
+      "contents": [
+        {"type": "text", "value": "다음 그림은 A에서 D까지 갈 수 있는 경로를 나타낸 것이다. 이때 A에서 출발하여 D까지 가는 경우의 수는? (단, 한 번 지나간 지점은 다시 지나가지 않는다.)"},
+        {"type": "figure", "value": "타원 둘레 위에 네 지점 A(왼쪽), B(위), D(오른쪽), C(아래)가 있다. 지점 사이 길: A-B 3개, B-D 3개, A-C 2개, C-D 2개(각 쌍은 타원 호를 포함한 곡선들), A-D는 가운데를 지나는 수평 직선 1개. B-C 직접 길은 없다.", "bbox": [0.05, 0.30, 0.97, 0.87]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "14"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}
