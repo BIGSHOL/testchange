@@ -1,0 +1,63 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 17,
+      "score": 8,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 1] 삼각형 ABC에서 "},
+        {"type": "equation", "value": "\\sin A:\\sin B:\\sin C=3:5:7"},
+        {"type": "text", "value": "일 때, 다음 물음에 답하시오."}
+      ],
+      "choices": [],
+      "sub_questions": [
+        {"number": 1, "score": 4, "contents": [
+          {"type": "text", "value": "(1) C의 크기를 구하는 풀이 과정을 서술하고 답을 구하시오. [4점, 부분점수 있음]"}
+        ]},
+        {"number": 2, "score": 4, "contents": [
+          {"type": "text", "value": "(2) 삼각형 ABC의 넓이가 "},
+          {"type": "equation", "value": "15\\sqrt{3}"},
+          {"type": "text", "value": " 일 때, 삼각형 ABC의 내접원의 반지름의 길이를 구하는 풀이 과정을 서술하고 답을 구하시오. [4점, 부분점수 있음]"}
+        ]}
+      ]
+    },
+    {
+      "number": 18,
+      "score": 9,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 2] 삼각형 ABC가 다음 조건을 만족시킨다. 삼각형 ABC의 넓이를 구하는 풀이 과정을 서술하고 답을 구하시오. [9점, 부분점수 있음]"},
+        {"type": "text", "value": "<상자> (가) 외접원의 반지름의 길이는 4이다. (나) \\(B=\\dfrac{3}{4}\\pi\\) (다) \\(\\overline{AB}+\\overline{BC}=6\\)"}
+      ],
+      "choices": []
+    },
+    {
+      "number": 19,
+      "score": 8,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 3] 공차가 d인 등차수열 "},
+        {"type": "equation", "value": "\\{a_n\\}"},
+        {"type": "text", "value": "이 다음 조건을 만족시키도록 하는 자연수 d의 개수를 구하는 풀이 과정을 서술하고 답을 구하시오. [8점, 부분점수 있음]"},
+        {"type": "text", "value": "<상자> (가) \\(a_8=2a_5+40\\) (나) \\(a_m+a_{m+1}+a_{m+2}+\\cdots+a_{m+k}=0\\) 을 만족시키는 두 자연수 m, k가 존재한다."}
+      ],
+      "choices": []
+    },
+    {
+      "number": 20,
+      "score": 9,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 4] 수열 "},
+        {"type": "equation", "value": "\\{a_n\\}"},
+        {"type": "text", "value": "이 다음 조건을 만족시킨다."},
+        {"type": "text", "value": "<상자> (가) 모든 자연수 n에 대하여 \\(\\sum_{k=1}^{n}(a_k-a_{k+2})=-(a_n+a_{n+2})\\)이다. (나) \\(a_4+a_8=60\\)"},
+        {"type": "text", "value": "부등식 "},
+        {"type": "equation", "value": "a_m<300"},
+        {"type": "text", "value": "을 만족시키는 자연수 m의 최댓값을 구하는 풀이 과정을 서술하고 답을 구하시오. [9점, 부분점수 있음]"}
+      ],
+      "choices": []
+    }
+  ]
+}
