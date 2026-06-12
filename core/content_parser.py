@@ -426,7 +426,15 @@ def _romanize_point_names(blocks: list[ContentBlock],
     force_geo: 부모(발문)에 기하 문맥이 있으면 선택지엔 키워드가 없어도 기하로 취급. 발문
         "좌표평면 위의 점 A,B,C,D,E…" 의 선택지 ``A(2,3)``·``B(-3,1)`` 처럼 좌표 단 점 이름이
         선택지 문맥(키워드 없음)에서 이탤릭으로 새던 것 차단(대륜중 #1, 사용자 2026-06-11).
+
+    ⚠️ **행렬 문맥이면 전부 스킵** — 2022 개정 공수1 행렬 단원에서 행렬곱 ``AB``·``AC`` 가
+    "2글자 이상 항상 로만" 규칙에 걸려 정자로 깨졌다(상원고 #22 ``AB=pmatrix``·#12 명제
+    보기 ``AB=AC`` — 원본은 이탤릭 행렬 변수). 같은 문항 contents 에 '행렬' 키워드가 있으면
+    대문자 라벨은 도형이 아니라 행렬이다(행렬+기하 혼합 문항은 사실상 없음).
     """
+    joined_txt = "".join((b.value or "") for b in blocks if b.type == ContentType.TEXT)
+    if "행렬" in joined_txt:
+        return blocks
     has_geo = force_geo or _has_geometry_context(blocks)
     out: list[ContentBlock] = []
     for b in blocks:
