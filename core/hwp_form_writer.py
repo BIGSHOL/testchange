@@ -1802,7 +1802,9 @@ def _fill_form_header(hwpx_path: str | Path, values: dict) -> int:
             zi.create_system = info.create_system
             zi.flag_bits = info.flag_bits
             zout.writestr(zi, contents[info.filename])
-    os.replace(tmp, hwpx_path)
+    # HWP COM Quit 비동기 핸들 레이스 — os.replace 직행은 PermissionError 로 간헐 전실패
+    # (계성고 머리말 '2024년 학기 고사' 0/2 잔존, 2026-06-12). _replace_retry 통일.
+    _replace_retry(tmp, hwpx_path)
     return cnt
 
 
@@ -1898,7 +1900,7 @@ def _repackage_hwpx(hwpx_path: Path, infos, data: dict) -> None:
         for name, b in data.items():
             if name not in seen:
                 zo.writestr(name, b)
-    os.replace(tmp, hwpx_path)
+    _replace_retry(tmp, hwpx_path)   # COM Quit 핸들 레이스 — 라벨 sync 등 공용(계성고 계열)
 
 
 # 폼 grow 서술형 슬롯의 잔존 라벨([서답형 N]) 뒤에 우리 라벨([서술형 N])이 붙어 중복됨.
@@ -2202,7 +2204,7 @@ def _com_relaunder(hwpx_path: str | Path) -> bool:
         with HwpSession(visible=CONVERSION_VISIBLE) as ses:   # 재저장(launder)도 표시
             ses.open(hwpx_path)
             ses.save_hwpx(tmp)
-        os.replace(tmp, hwpx_path)
+        _replace_retry(tmp, hwpx_path)   # 방금 Quit 한 COM 의 핸들 레이스 — 직행 금지
         return True
     except Exception:
         try:

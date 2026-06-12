@@ -35,6 +35,7 @@ _ESSAY_BLANK_LINES = 6
 import os
 import re
 import tempfile
+import time
 import zipfile
 
 # 조건/보기 박스 마커·불릿·경계대시
@@ -1029,7 +1030,16 @@ def _rewrite_zip(hwpx_path: "str | Path", infos, contents: dict) -> None:
                 zi.create_system = info.create_system
                 zi.flag_bits = info.flag_bits
                 zout.writestr(zi, contents[info.filename])
-        os.replace(tmp, str(hwpx_path))
+        # HWP COM Quit 비동기 핸들 레이스 — 직행 os.replace 는 PermissionError 로 간헐
+        # 전실패해 후처리가 조용히 무변경(계성고 머리말 계열, 2026-06-12). 재시도.
+        for _i in range(20):
+            try:
+                os.replace(tmp, str(hwpx_path))
+                break
+            except PermissionError:
+                if _i == 19:
+                    raise
+                time.sleep(0.5)
     finally:
         if os.path.exists(tmp):
             try:
