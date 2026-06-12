@@ -1,0 +1,147 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 7,
+      "score": 3.8,
+      "contents": [
+        {"type": "text", "value": "함수 "},
+        {"type": "equation", "value": "f(x)=-x^2+3x+1"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "\\lim_{h\\to 0}\\frac{f(2h)-f(-2h)}{h}"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "12"}]}
+      ]
+    },
+    {
+      "number": 8,
+      "score": 3.8,
+      "contents": [
+        {"type": "text", "value": "삼차함수 "},
+        {"type": "equation", "value": "f(x)"},
+        {"type": "text", "value": "의 도함수 "},
+        {"type": "equation", "value": "y=f'(x)"},
+        {"type": "text", "value": "의 그래프가 그림과 같을 때, <보기>에서 옳은 것만을 있는 대로 고른 것은? (단, "},
+        {"type": "equation", "value": "f'(-1)=f'(3)=0"},
+        {"type": "text", "value": ")"},
+        {"type": "figure", "value": "좌표평면 위 y=f'(x)의 그래프. 아래로 볼록한 포물선으로 x축과 x=-1, x=3에서 만난다(두 근). 꼭짓점은 x=1 부근에서 x축 아래(음수). 즉 -1<x<3에서 f'(x)<0, 그 밖에서 f'(x)>0. 오른쪽 위에 y=f'(x) 라벨.", "bbox": [0.37, 0.42, 0.62, 0.55]},
+        {"type": "text", "value": "<보기> ㄱ. 함수 \\(f(x)\\)는 닫힌구간 \\([0,\\ 2]\\)에서 감소한다. • ㄴ. 함수 \\(f(x)\\)는 \\(x=1\\)에서 극소이다. • ㄷ. 함수 \\(f(x)\\)는 극댓값과 극솟값을 모두 갖는다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄴ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄱ, ㄷ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄴ, ㄷ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄱ, ㄴ, ㄷ"}]}
+      ]
+    },
+    {
+      "number": 9,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "두 함수 "},
+        {"type": "equation", "value": "f(x),\\ g(x)"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "f(x)=x\\{g(x)-1\\}"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\lim_{x\\to 0}g(x)=4"},
+        {"type": "text", "value": "일 때 "},
+        {"type": "equation", "value": "\\lim_{x\\to 0}\\frac{3x^2}{\\{f(x)\\}^2+x^2}"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{3}{10}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{1}{2}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{10}{13}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "3"}]}
+      ]
+    },
+    {
+      "number": 10,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "연속함수 "},
+        {"type": "equation", "value": "f(x)"},
+        {"type": "text", "value": "가 모든 실수 "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "f(-x)=-f(x)"},
+        {"type": "text", "value": "를 만족시키고 "},
+        {"type": "equation", "value": "f(1)f(2)<0,\\ f(2)f(3)<0"},
+        {"type": "text", "value": "일 때, 방정식 "},
+        {"type": "equation", "value": "f(x)=0"},
+        {"type": "text", "value": "은 닫힌구간 "},
+        {"type": "equation", "value": "[-3,\\ 3]"},
+        {"type": "text", "value": "에서 적어도 "},
+        {"type": "equation", "value": "n"},
+        {"type": "text", "value": "개의 실근을 갖는다. 자연수 "},
+        {"type": "equation", "value": "n"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+      ]
+    },
+    {
+      "number": 11,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "두 함수 "},
+        {"type": "equation", "value": "f(x)=x^2+kx-6,\\ g(x)=2x^2-4x+3"},
+        {"type": "text", "value": "에 대하여 함수 "},
+        {"type": "equation", "value": "h(x)=\\begin{cases}f(x) & (x<a)\\\\ g(x) & (x\\geq a)\\end{cases}"},
+        {"type": "text", "value": "이다. 이때 함수 "},
+        {"type": "equation", "value": "h(x)"},
+        {"type": "text", "value": "가 실수 전체의 집합에서 연속이 되게 하는 실수 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "의 값이 오직 하나일 때, 모든 실수 "},
+        {"type": "equation", "value": "k"},
+        {"type": "text", "value": "의 값의 곱은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-30"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-20"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-10"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "20"}]}
+      ]
+    },
+    {
+      "number": 12,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "함수 "},
+        {"type": "equation", "value": "f(x)=x^2(x+k)(x-k)"},
+        {"type": "text", "value": "이고 모든 실수 "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "(|x|-\\sqrt{2})g(x)=|f(x)-f(\\sqrt{2})|"},
+        {"type": "text", "value": "이다. 함수 "},
+        {"type": "equation", "value": "g(x)"},
+        {"type": "text", "value": "가 실수 전체의 집합에서 연속일 때, "},
+        {"type": "equation", "value": "k"},
+        {"type": "text", "value": "의 값은? (단, "},
+        {"type": "equation", "value": "k>0"},
+        {"type": "text", "value": "인 실수)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "1"}]}
+      ]
+    }
+  ]
+}

@@ -1,0 +1,87 @@
+{
+  "header": "",
+  "instruction": "[1~5] 반드시 풀이 과정을 적으시오. (풀이 과정에 부분 점수가 있으며, 풀이 과정이 없으면 감점입니다.)",
+  "questions": [
+    {
+      "number": 18,
+      "score": 6,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 1] 함수 "},
+        {"type": "equation", "value": "f(x)=-2x^3+9x^2+24x+7"},
+        {"type": "text", "value": "의 극댓값, 극솟값을 각각 구하시오. [6점, 부분점수 있음]"}
+      ],
+      "choices": []
+    },
+    {
+      "number": 19,
+      "score": 6,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 2] 함수 "},
+        {"type": "equation", "value": "f(x)=\\frac{1}{2}x^3-4x^2+ax"},
+        {"type": "text", "value": "가 임의의 두 실수 "},
+        {"type": "equation", "value": "x_1,\\ x_2"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "x_1\\neq x_2"},
+        {"type": "text", "value": "이면 "},
+        {"type": "equation", "value": "f(x_1)\\neq f(x_2)"},
+        {"type": "text", "value": "를 만족시키도록 하는 실수 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "의 최솟값을 구하시오. [6점, 부분점수 있음]"}
+      ],
+      "choices": []
+    },
+    {
+      "number": 20,
+      "score": 7,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 3] 다항함수 "},
+        {"type": "equation", "value": "f(x)"},
+        {"type": "text", "value": "가 모든 실수 "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "f(x)+xf'(x)=-9x^2+4x-1"},
+        {"type": "text", "value": "을 만족시킬 때, "},
+        {"type": "equation", "value": "f'(-1)"},
+        {"type": "text", "value": "의 값을 구하시오. [7점, 부분점수 있음]"}
+      ],
+      "choices": []
+    },
+    {
+      "number": 21,
+      "score": 8,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 4] 함수 "},
+        {"type": "equation", "value": "f(x)=-\\frac{1}{3}x^3+3x^2+ax+b"},
+        {"type": "text", "value": "가 다음 조건을 만족시킨다."},
+        {"type": "text", "value": "<상자> (가) 함수 \\(f(x)\\)가 닫힌구간 \\([\\alpha,\\ \\beta]\\)에서 증가할 때, \\(\\beta\\)의 최댓값은 \\(5\\)이다. • (나) 함수 \\(f(x)\\)의 극솟값은 \\(-2\\)이다."},
+        {"type": "text", "value": "이때, "},
+        {"type": "equation", "value": "\\frac{a}{b}"},
+        {"type": "text", "value": "의 값을 구하시오. (단, "},
+        {"type": "equation", "value": "a,\\ b"},
+        {"type": "text", "value": "는 상수) [8점, 부분점수 있음]"}
+      ],
+      "choices": []
+    },
+    {
+      "number": 22,
+      "score": 8,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 5] 최고차항의 계수가 "},
+        {"type": "equation", "value": "1"},
+        {"type": "text", "value": "인 이차함수 "},
+        {"type": "equation", "value": "f(x)"},
+        {"type": "text", "value": "가 "},
+        {"type": "equation_block", "value": "\\lim_{x\\to 1}\\frac{f(x)f'(x)}{x-1}=4"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "f(-1)"},
+        {"type": "text", "value": "의 값을 모두 구하시오. [8점, 부분점수 있음]"}
+      ],
+      "choices": []
+    }
+  ]
+}

@@ -1,0 +1,161 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 13,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "실수 "},
+        {"type": "equation", "value": "a,\\ b"},
+        {"type": "text", "value": "에 대하여 두 함수 "},
+        {"type": "equation", "value": "f(x),\\ g(x)"},
+        {"type": "text", "value": "가 "},
+        {"type": "equation", "value": "f(x)=x^2+(4-a)x-4a,\\ g(x)=x^2+(a-3)x-3a"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\lim_{x\\to a}\\frac{g(x)}{f(x)}=b"},
+        {"type": "text", "value": "이다. 이때, "},
+        {"type": "equation", "value": "b"},
+        {"type": "text", "value": "의 최댓값을 "},
+        {"type": "equation", "value": "M"},
+        {"type": "text", "value": ", 최솟값을 "},
+        {"type": "equation", "value": "m"},
+        {"type": "text", "value": "이라 하자. "},
+        {"type": "equation", "value": "7M+8m"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "2"}]}
+      ]
+    },
+    {
+      "number": 14,
+      "score": 4.2,
+      "contents": [
+        {"type": "text", "value": "다항함수 "},
+        {"type": "equation", "value": "f(x)"},
+        {"type": "text", "value": "가 다음 조건을 만족시킨다."},
+        {"type": "text", "value": "<상자> (가) \\(\\lim_{x\\to\\infty}\\frac{f(x)-x^3}{x^2}=3\\) • (나) \\(\\lim_{x\\to 0}\\frac{f(x)}{x}\\)의 값이 존재한다. • (다) 함수 \\(f(x)\\)는 극값을 갖지 않는다."},
+        {"type": "text", "value": "이때, "},
+        {"type": "equation", "value": "f(1)"},
+        {"type": "text", "value": "의 최솟값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "8"}]}
+      ]
+    },
+    {
+      "number": 15,
+      "score": 4.2,
+      "contents": [
+        {"type": "text", "value": "열린구간 "},
+        {"type": "equation", "value": "(-3,\\ 3)"},
+        {"type": "text", "value": "에서 정의된 함수 "},
+        {"type": "equation", "value": "y=g(x)"},
+        {"type": "text", "value": "의 그래프는 그림과 같다. 함수 "},
+        {"type": "equation", "value": "f(x)=x^3+ax^2+bx+1"},
+        {"type": "text", "value": "에 대하여 합성함수 "},
+        {"type": "equation", "value": "f(g(x))"},
+        {"type": "text", "value": "가 열린구간 "},
+        {"type": "equation", "value": "(-3,\\ 3)"},
+        {"type": "text", "value": "에서 연속일 때, "},
+        {"type": "equation", "value": "a+b"},
+        {"type": "text", "value": "의 값은? (단, "},
+        {"type": "equation", "value": "a,\\ b"},
+        {"type": "text", "value": "는 상수)"},
+        {"type": "figure", "value": "열린구간 (-3,3)에서 정의된 y=g(x)의 그래프. 세 부분: ① (-3,0)에서 빈 점(○)으로 시작해 기울기 1/2로 올라가 (-1,1)의 채운 점(●)까지(선분). ② (-1,-1)의 빈 점(○)에서 (1,-1)의 빈 점(○)까지 y=-1인 수평 선분. ③ (1,0)의 채운 점(●)에서 기울기 1/2로 올라가 (3,1)의 빈 점(○)까지(선분). 즉 x=-1, x=1에서 불연속. 보조 점선: x=-1, x=1, y=1, y=-1.", "bbox": [0.13, 0.685, 0.46, 0.795]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-5"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-4"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "-1"}]}
+      ]
+    },
+    {
+      "number": 16,
+      "score": 4.5,
+      "contents": [
+        {"type": "text", "value": "함수 "},
+        {"type": "equation", "value": "f(x)=\\begin{cases}-x & (x\\leq -1)\\\\ x^2-2 & (-1<x\\leq 1)\\\\ -2x+3 & (x>1)\\end{cases}"},
+        {"type": "text", "value": "에 대하여 함수 "},
+        {"type": "equation", "value": "y=f(x)"},
+        {"type": "text", "value": "의 그래프가 그림과 같을 때, <보기>에서 옳은 것만을 있는 대로 고른 것은?"},
+        {"type": "figure", "value": "좌표평면 위 y=f(x)의 그래프. x≤-1 구간은 직선 y=-x(좌상향)로 (-1,1)의 채운 점(●)에서 끝남. -1<x≤1 구간은 아래로 볼록 포물선 y=x²-2로 (-1,-1)의 빈 점(○)에서 시작해 꼭짓점 (0,-2)를 지나 (1,-1)의 채운 점(●)까지. x>1 구간은 직선 y=-2x+3(우하향)로 (1,1)의 빈 점(○)에서 시작. 보조 점선: x=-1, x=1, y=1, y=-1, y=-2.", "bbox": [0.62, 0.155, 0.86, 0.27]},
+        {"type": "text", "value": "<보기> ㄱ. 함수 \\((x-k)f(x)\\)가 \\(x=1\\)에서 연속이 되도록 하는 실수 \\(k\\)의 값은 \\(1\\)이다. • ㄴ. 함수 \\(\\{f(x)\\}^2\\)는 실수 전체의 집합에서 연속이다. • ㄷ. 함수 \\(|f(x)|\\)는 \\(x=1\\)에서 미분가능하다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄷ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄱ, ㄴ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄴ, ㄷ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄱ, ㄴ, ㄷ"}]}
+      ]
+    },
+    {
+      "number": 17,
+      "score": 4.5,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 곡선 "},
+        {"type": "equation", "value": "y=x^2"},
+        {"type": "text", "value": " 위에 있으며 제1사분면에 있는 점을 "},
+        {"type": "equation", "value": "P(t,\\ t^2)"},
+        {"type": "text", "value": "이라 하고 직선 "},
+        {"type": "equation", "value": "OP"},
+        {"type": "text", "value": "에 평행하고 곡선 "},
+        {"type": "equation", "value": "y=x^2"},
+        {"type": "text", "value": "에 접하는 직선을 "},
+        {"type": "equation", "value": "l"},
+        {"type": "text", "value": "이라 하자. 직선 "},
+        {"type": "equation", "value": "l"},
+        {"type": "text", "value": "이 곡선 "},
+        {"type": "equation", "value": "y=x^2"},
+        {"type": "text", "value": "과 만나는 점을 "},
+        {"type": "equation", "value": "Q"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "y"},
+        {"type": "text", "value": "축과 만나는 점을 "},
+        {"type": "equation", "value": "R"},
+        {"type": "text", "value": ", 점 "},
+        {"type": "equation", "value": "P"},
+        {"type": "text", "value": "에서 "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "축에 내린 수선과 만나는 점을 "},
+        {"type": "equation", "value": "S"},
+        {"type": "text", "value": "라 하자. 점 "},
+        {"type": "equation", "value": "Q"},
+        {"type": "text", "value": "에서 "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "축에 내린 수선의 발을 "},
+        {"type": "equation", "value": "T"},
+        {"type": "text", "value": "라 할 때, 평행사변형 "},
+        {"type": "equation", "value": "OPSR"},
+        {"type": "text", "value": "의 넓이를 "},
+        {"type": "equation", "value": "f(t)"},
+        {"type": "text", "value": ", 삼각형 "},
+        {"type": "equation", "value": "OQT"},
+        {"type": "text", "value": "의 넓이를 "},
+        {"type": "equation", "value": "g(t)"},
+        {"type": "text", "value": "라 하자. "},
+        {"type": "equation", "value": "\\lim_{t\\to\\infty}\\frac{t^3}{f(t)-g(t)}"},
+        {"type": "text", "value": "의 값은?"},
+        {"type": "figure", "value": "좌표평면 1사분면 위주. 곡선 y=x²(아래로 볼록 포물선)이 원점 O를 지난다. 원점에서 우상향하는 직선 OP가 곡선 위 제1사분면의 점 P(맨 위)로 향한다. 직선 l은 OP에 평행하며 곡선에 점 Q(중간)에서 접한다. l은 y축 아래쪽 점 R(원점 아래)을 지나 위로 올라가 점 S(P 바로 아래, P에서 x축에 내린 수선 위)를 지난다. 점 Q·S에서 x축에 내린 수선의 발 T(Q 아래)와 P의 수선의 발이 표시되고, 각 발에 직각 기호. 평행사변형 OPSR과 삼각형 OQT가 그려져 있다.", "bbox": [0.55, 0.71, 0.80, 0.86]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{1}{16}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{3}{16}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{16}{3}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "16"}]}
+      ]
+    }
+  ]
+}
