@@ -1,0 +1,90 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 1,
+      "score": 3.6,
+      "contents": [
+        {"type": "text", "value": "등차수열 "},
+        {"type": "equation", "value": "\\{a_n\\}"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "a_3=9, a_6=15"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "a_{10}"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "21"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "23"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "25"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "27"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "29"}]}
+      ]
+    },
+    {
+      "number": 2,
+      "score": 3.6,
+      "contents": [
+        {"type": "text", "value": "\\sin\\theta=\\frac{1}{2}일 때, "},
+        {"type": "equation", "value": "12\\cos\\left(\\frac{\\pi}{2}+\\theta\\right)"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-7"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-6"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-5"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "-4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "-3"}]}
+      ]
+    },
+    {
+      "number": 3,
+      "score": 3.6,
+      "contents": [
+        {"type": "text", "value": "두 수열 "},
+        {"type": "equation", "value": "\\{a_n\\}, \\{b_n\\}"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "\\sum_{k=1}^{10}(2a_k-b_k)=24, \\quad \\sum_{k=1}^{10} b_k=8"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\sum_{k=1}^{10} a_k"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "16"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "20"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "24"}]}
+      ]
+    },
+    {
+      "number": 4,
+      "score": 3.6,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 두 지점 B, C에서 비행기를 올려본 각의 크기가 각각 45°, 75°이었다. 두 지점 B, C 사이의 거리가 30m일 때, C지점에서 비행기까지 거리는?"},
+        {"type": "figure", "value": "삼각형 ABC 모양 — A는 오른쪽 위(비행기 위치, 비행기 그림), B는 왼쪽 아래, C는 오른쪽 아래. ∠B=45°(B에서 비행기 올려본 각), ∠C=75°(C에서 비행기 올려본 각, C의 외각/내각). 밑변 \\overline{BC}=30m(점선 표시). 구하는 거리는 \\overline{CA}(C에서 비행기 A까지).", "bbox": [0.20, 0.16, 0.78, 0.34]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "10\\sqrt{2}\\,\\mathrm{m}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "10\\sqrt{3}\\,\\mathrm{m}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "20\\,\\mathrm{m}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "10\\sqrt{5}\\,\\mathrm{m}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "10\\sqrt{6}\\,\\mathrm{m}"}]}
+      ]
+    },
+    {
+      "number": 5,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "\\sum_{k=1}^{10}(k^2-4k+1)의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "145"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "155"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "165"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "175"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "185"}]}
+      ]
+    }
+  ]
+}
