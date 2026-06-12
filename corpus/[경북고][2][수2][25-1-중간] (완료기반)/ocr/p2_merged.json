@@ -1,0 +1,91 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 7,
+      "score": 3.8,
+      "contents": [
+        {"type": "text", "value": "함수 "},
+        {"type": "equation", "value": "f(x)"},
+        {"type": "text", "value": "의 도함수 "},
+        {"type": "equation", "value": "y=f'(x)"},
+        {"type": "text", "value": "의 그래프가 다음 그림과 같을 때, 옳은 설명만을 <보기>에서 고른 것은?"},
+        {"type": "figure", "value": "y=f'(x) 그래프 — 좌하단에서 올라와 x=-2에서 x축을 상향 교차, x=-1에서 극대(값 1, 점선 표시), 원점(x=0)에서 하향 교차, 0과 2 사이 음의 골(x=1 부근 최저 -1, 점선), x=2에서 x축에 접촉(부호 불변), 2와 4 사이 다시 음의 골(x=3 부근 최저 -1, 점선), x=4 부근에서 상향 교차 후 가파르게 상승. x축 눈금 -2·-1·1·2·3·4, y축 눈금 1·-1·-2", "bbox": [0.12, 0.13, 0.46, 0.225]},
+        {"type": "text", "value": "<보기> ㄱ. \\(f(x)\\)는 \\(x=3\\)에서 극소이다. • ㄴ. \\(f(x)\\)는 열린구간 \\((0,\\ 4)\\)에서 감소한다. • ㄷ. \\(f(x)\\)는 \\(x=1\\)에서 접선의 기울기는 \\(0\\)이다. • ㄹ. \\(f(x)\\)는 \\((-\\infty,\\ \\infty)\\)에서 극값을 갖는 점은 \\(3\\)개다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ, ㄴ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄱ, ㄷ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄴ, ㄷ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄴ, ㄹ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄷ, ㄹ"}]}
+      ]
+    },
+    {
+      "number": 8,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "닫힌구간 "},
+        {"type": "equation", "value": "[3,\\ 5]"},
+        {"type": "text", "value": "에서 함수 "},
+        {"type": "equation", "value": "f(x)=\\frac{-1}{x^2-4x+5}"},
+        {"type": "text", "value": "의 최댓값과 최솟값을 각각 "},
+        {"type": "equation", "value": "M"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "m"},
+        {"type": "text", "value": "이라 할 때, "},
+        {"type": "equation", "value": "M-m"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{1}{10}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{1}{5}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{2}{7}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{1}{3}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{2}{5}"}]}
+      ]
+    },
+    {
+      "number": 9,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "함수 "},
+        {"type": "equation", "value": "f(x)=x^2+ax+b"},
+        {"type": "text", "value": "가 다음 조건을 만족시킨다."},
+        {"type": "text", "value": "<상자> (가) \\(x\\)의 값이 \\(0\\)에서 \\(4\\)까지 변할 때의 함수 \\(y=f(x)\\)의 평균변화율은 \\(0\\)이다. • (나) \\(\\lim_{x\\to 1}\\frac{f(x^3)-f(1)}{x-1}=f(1)\\)"},
+        {"type": "equation", "value": "a+b"},
+        {"type": "text", "value": "의 값은? (단, "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "b"},
+        {"type": "text", "value": "는 상수)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-5"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-7"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "-9"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "-11"}]}
+      ]
+    },
+    {
+      "number": 10,
+      "score": 4.2,
+      "contents": [
+        {"type": "text", "value": "다항함수 "},
+        {"type": "equation", "value": "y=f(x)"},
+        {"type": "text", "value": "의 그래프가 다음 조건을 모두 만족시킬 때, "},
+        {"type": "equation", "value": "f(3)"},
+        {"type": "text", "value": "의 최댓값은?"},
+        {"type": "text", "value": "<상자> (가) \\((0,\\ -1)\\)을 지난다. • (나) \\(x\\)좌표가 \\(0\\)보다 크고 \\(3\\)보다 작은 그래프 위의 임의의 점에서의 접선의 기울기가 \\(5\\)이하이다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "11"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "13"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "14"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "15"}]}
+      ]
+    }
+  ]
+}
