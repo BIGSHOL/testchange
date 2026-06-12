@@ -248,6 +248,13 @@ def _parse_content_block(block_data: dict) -> ContentBlock | None:
     if content_type == ContentType.TEXT:
         value = _normalize_math_delims(value)
 
+    # OCR JSON 이 ``{"type":"text","value":"않은","underline":true}`` 속성으로 밑줄을
+    # 줄 때 — 표준 규약은 ``__마크업__`` 이지만 속성 인코딩이 조용히 평문 강등되던 것
+    # (새본리중 #2·#13·#17, 2026-06-12). 명시적 underline 블록은 강조 run 그대로 반환
+    # (밑줄 세그먼트는 수식 추출 비대상 — __마크업__ 경로와 동일 취급).
+    if content_type == ContentType.TEXT and block_data.get("underline"):
+        return ContentBlock(type=ContentType.TEXT, value=value, underline=True)
+
     # 텍스트 블록에 __밑줄__ 마크업이 있으면 분리. **비밑줄 세그먼트는 나머지 파이프라인
     # ($·LaTeX·혼합수식 분리)에 재투입** — 조기 반환이 같은 블록의 인라인 수식 추출을
     # 억제해 "y가 x에 정비례하지 __않는__" 의 y·x 가 평문 잔존하던 것(월서중 #14, 경구중
@@ -327,6 +334,9 @@ _GEOMETRY_KEYWORDS = (
     "점", "꼭짓점", "교점", "원점", "중점", "무게중심",
     "삼각형", "사각형", "정사각형", "직사각형", "마름모", "평행사변형", "사다리꼴",
     "선분", "직선", "반직선", "호", "부채꼴",
+    # 원 관련 — "반원의 중심을 O" 의 O 가 이탤릭 잔존(새본리중 #20, 2026-06-12).
+    # 단독 "중심"·"원" 은 비기하 충돌(정규분포 '평균을 중심으로'·'원소') 위험으로 제외.
+    "반원", "지름", "반지름",
     "△", "∠", "∆",
 )
 
@@ -1154,6 +1164,12 @@ def _is_eq_lead_char(text: str, pos: int) -> bool:
     c = text[pos - 1]
     if "a" <= c.lower() <= "z" or c.isdigit():
         return True
+    # 첨자 캐럿/언더스코어: ``x^2-\frac…`` 의 ``^`` 도 끌어와야 베이스(x)까지 수식에
+    # 포함된다 — ``2`` 만 흡수하고 ``^`` 에서 멈추면 ``x^`` 가 고아 수식으로 잘려
+    # ``x  2-…``(베이스라인 풀사이즈 2) 로 렌더됐다(새본리중 #7 과정상자, 2026-06-12).
+    # 앞이 영숫자/닫는중괄호일 때만(텍스트 속 단독 ^ 보호).
+    if c in "^_" and pos >= 2 and (text[pos - 2].isalnum() or text[pos - 2] == "}"):
+        return True
     return (c == "." and pos >= 2 and text[pos - 2].isdigit()
             and pos < len(text) and text[pos].isdigit())
 
@@ -1286,7 +1302,10 @@ def _split_latex_commands(text: str) -> list[ContentBlock]:
     if before.strip():
         # 한글 없는 순수 ASCII 수식 조각(거듭제곱 ``4^x`` 등)은 통째 수식으로 — 더블스페이스
         # 경계 분리 뒤 다음 수식의 머리가 평문으로 남던 것(월암중 #6 둘째 등식, 2026-06-11).
-        if not re.search(r"[가-힣]", before) and re.search(r"[\^_=]", before):
+        # ⚠️ 자모(ㄱ-ㆎ) 항목 라벨도 한글로 취급 — 음절만 검사하면 ``ㄴ. y=-3x^2-2 • ㄷ. …``
+        # 조각이 통째 한 수식으로 병합돼 라벨·불릿이 수식 안에 literal 노출됐다(새본리중
+        # #17 보기 박스, 2026-06-12 — 장산중 D2 와 같은 자모 함정의 latex 경로판).
+        if not re.search(r"[가-힣ㄱ-ㆎ]", before) and re.search(r"[\^_=]", before):
             # 선행 불릿(• 등)은 박스 줄 경계라 **별도 TEXT** 로 떼어낸다 — 수식에 흡수되면
             # _write_box_content 의 _BOX_BREAK_RE 가 줄을 못 끊어 ``• B = …`` 가 앞 항목과
             # 한 줄로 붙는다(경명여중 중2 #11 상자 A=…•B=…, 2026-06-11).

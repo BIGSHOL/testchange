@@ -18,5 +18,5 @@
   "regression_tests": "test_content_parser 16 cases(W1~W5: cases 원자·cases x2·더블스페이스 경계·y=- 흡수·박스머리 판정) + test_render_fixes(M2 참조어·P 폼 밑줄). verify_output_format 30 PASS. 무회귀 재렌더: 매천중(#6 박스 cases 복구 + #19/#22 조건박스·#7 정상)·도원중·상원중(#16 복원 포함)·상인고 공수1·상인고 수1·능인고 수1 — XML lint 전부 PASS.",
   "known_limits": "C: #13 그래프·#18 직사각형 그림 = 안내문구(그림 자동삽입 미구현). 헤더 단원명(연립방정식~일차함수)은 corpus 하네스가 header_values 미전달(GUI 경로는 자동).",
   "status": "reviewed__6_code_bugs_fixed__clean",
-  "note": " [2026-06-12] 월서중 B-3(__밑줄__ 분기 수식추출 억제 해소) 영향 재렌더: #19 라벨이 분리형 '[서술형 '+EQ+']'로 변화 — dedupe·renumber 정상(본문 [서술형 4]·정답면 1~6 연속), 밑줄 실선·cases 박스 가운데 유지. 6쪽·lint PASS·시각 확인."
+  "note": " [2026-06-12] 월서중 B-3(__밑줄__ 분기 수식추출 억제 해소) 영향 재렌더: #19 라벨이 분리형 '[서술형 '+EQ+']'로 변화 — dedupe·renumber 정상(본문 [서술형 4]·정답면 1~6 연속), 밑줄 실선·cases 박스 가운데 유지. 6쪽·lint PASS·시각 확인. [2026-06-12] 새본리중 B-1(정답 패리티 측정시점) 숨은 결함 정정: 기존 출하본이 정답 p6(짝수, 빈장 없음)이었음 — _fix_answer_parity 도입 후 재렌더 7쪽(문제 1~5·빈 p6·정답 7쪽 홀수), lint PASS."
 }

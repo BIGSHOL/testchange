@@ -114,6 +114,12 @@ def _is_value_box(blocks: list[ContentBlock]) -> bool:
         return False
     if any(_COND_MARKER_RE.search(b.value or "") for b in texts):
         return False                       # <보기>/<조건> 라벨 박스
+    joined = "".join(b.value or "" for b in texts)
+    if _CIRCLE_BULLET_RE.search(joined):
+        # ○ 불릿 = 항목 나열 박스(값 나열 아님) → 좌측정렬. _BULLET_RE(•) 제거만으로는
+        # ○ 2항목 박스(leftover '○ ○' ≤6자)가 값상자로 오인돼 _is_labelless_box 의
+        # _CIRCLE_BULLET_RE 가드(경일중)를 단락 우회했다(새본리중 #5, 2026-06-12).
+        return False
     # 마커(<상자>)·불릿 제거 후 남는 평문이 거의 없어야(항목 라벨/지문 박스 배제).
     leftover = "".join(_PLAIN_BOX_RE.sub("", b.value or "") for b in texts)
     leftover = _BULLET_RE.sub("", leftover)

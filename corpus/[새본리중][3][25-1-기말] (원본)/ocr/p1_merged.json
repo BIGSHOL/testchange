@@ -5,15 +5,61 @@
       "number": 1,
       "score": 3,
       "contents": [
-        {"type": "text", "value": "다음 <보기> 중 이차방정식으로 옳은 것만을 있는 대로 고른 것은?"},
-        {"type": "text", "value": "<보기> ㄱ. x^2-2x-3 • ㄴ. 2x^2=(x-3)^2 • ㄷ. 2x(x-1)=1+2x^2 • ㄹ. (x+4)(x-4)=-16"}
+        {
+          "type": "text",
+          "value": "다음 <보기> 중 이차방정식으로 옳은 것만을 있는 대로 고른 것은?"
+        },
+        {
+          "type": "text",
+          "value": "<보기> ㄱ. x^2-2x-3 • ㄴ. 2x^2=(x-3)^2 • ㄷ. 2x(x-1)=1+2x^2 • ㄹ. (x+4)(x-4)=-16"
+        }
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "text", "value": "ㄱ, ㄷ"}]},
-        {"number": 2, "contents": [{"type": "text", "value": "ㄴ, ㄷ"}]},
-        {"number": 3, "contents": [{"type": "text", "value": "ㄴ, ㄹ"}]},
-        {"number": 4, "contents": [{"type": "text", "value": "ㄱ, ㄴ, ㄹ"}]},
-        {"number": 5, "contents": [{"type": "text", "value": "ㄱ, ㄷ, ㄹ"}]}
+        {
+          "number": 1,
+          "contents": [
+            {
+              "type": "text",
+              "value": "ㄱ, ㄷ"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "contents": [
+            {
+              "type": "text",
+              "value": "ㄴ, ㄷ"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "contents": [
+            {
+              "type": "text",
+              "value": "ㄴ, ㄹ"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "contents": [
+            {
+              "type": "text",
+              "value": "ㄱ, ㄴ, ㄹ"
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "contents": [
+            {
+              "type": "text",
+              "value": "ㄱ, ㄷ, ㄹ"
+            }
+          ]
+        }
       ],
       "sub_questions": []
     },
@@ -21,16 +67,117 @@
       "number": 2,
       "score": 3,
       "contents": [
-        {"type": "text", "value": "[ ] 안의 수가 주어진 이차방정식의 해가 되지 "},
-        {"type": "text", "value": "않는", "underline": true},
-        {"type": "text", "value": " 것은?"}
+        {
+          "type": "text",
+          "value": "[ ] 안의 수가 주어진 이차방정식의 해가 되지 __않는__ 것은?"
+        }
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "x^2+2x=0"}, {"type": "text", "value": " ["}, {"type": "equation", "value": "-2"}, {"type": "text", "value": "]"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "x^2-25=0"}, {"type": "text", "value": " ["}, {"type": "equation", "value": "-5"}, {"type": "text", "value": "]"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "2x^2+x-3=0"}, {"type": "text", "value": " ["}, {"type": "equation", "value": "1"}, {"type": "text", "value": "]"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "-x^2-x+2=0"}, {"type": "text", "value": " ["}, {"type": "equation", "value": "-1"}, {"type": "text", "value": "]"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "(x-1)(x-5)=0"}, {"type": "text", "value": " ["}, {"type": "equation", "value": "5"}, {"type": "text", "value": "]"}]}
+        {
+          "number": 1,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "x^2+2x=0"
+            },
+            {
+              "type": "text",
+              "value": " ["
+            },
+            {
+              "type": "equation",
+              "value": "-2"
+            },
+            {
+              "type": "text",
+              "value": "]"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "x^2-25=0"
+            },
+            {
+              "type": "text",
+              "value": " ["
+            },
+            {
+              "type": "equation",
+              "value": "-5"
+            },
+            {
+              "type": "text",
+              "value": "]"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "2x^2+x-3=0"
+            },
+            {
+              "type": "text",
+              "value": " ["
+            },
+            {
+              "type": "equation",
+              "value": "1"
+            },
+            {
+              "type": "text",
+              "value": "]"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "-x^2-x+2=0"
+            },
+            {
+              "type": "text",
+              "value": " ["
+            },
+            {
+              "type": "equation",
+              "value": "-1"
+            },
+            {
+              "type": "text",
+              "value": "]"
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "(x-1)(x-5)=0"
+            },
+            {
+              "type": "text",
+              "value": " ["
+            },
+            {
+              "type": "equation",
+              "value": "5"
+            },
+            {
+              "type": "text",
+              "value": "]"
+            }
+          ]
+        }
       ],
       "sub_questions": []
     },
@@ -38,32 +185,129 @@
       "number": 3,
       "score": 4,
       "contents": [
-        {"type": "text", "value": "이차방정식 "},
-        {"type": "equation", "value": "x^2+2ax-a+16=0"},
-        {"type": "text", "value": "의 한 근이 "},
-        {"type": "equation", "value": "x=-2"},
-        {"type": "text", "value": "일 때, "},
-        {"type": "equation", "value": "a"},
-        {"type": "text", "value": "의 값을 "},
-        {"type": "equation", "value": "p"},
-        {"type": "text", "value": ", 또 다른 한 근을 "},
-        {"type": "equation", "value": "q"},
-        {"type": "text", "value": "라고 하자. "},
-        {"type": "equation", "value": "p+q"},
-        {"type": "text", "value": "의 값은? (단, "},
-        {"type": "equation", "value": "a"},
-        {"type": "text", "value": ", "},
-        {"type": "equation", "value": "p"},
-        {"type": "text", "value": ", "},
-        {"type": "equation", "value": "q"},
-        {"type": "text", "value": "는 상수)"}
+        {
+          "type": "text",
+          "value": "이차방정식 "
+        },
+        {
+          "type": "equation",
+          "value": "x^2+2ax-a+16=0"
+        },
+        {
+          "type": "text",
+          "value": "의 한 근이 "
+        },
+        {
+          "type": "equation",
+          "value": "x=-2"
+        },
+        {
+          "type": "text",
+          "value": "일 때, "
+        },
+        {
+          "type": "equation",
+          "value": "a"
+        },
+        {
+          "type": "text",
+          "value": "의 값을 "
+        },
+        {
+          "type": "equation",
+          "value": "p"
+        },
+        {
+          "type": "text",
+          "value": ", 또 다른 한 근을 "
+        },
+        {
+          "type": "equation",
+          "value": "q"
+        },
+        {
+          "type": "text",
+          "value": "라고 하자. "
+        },
+        {
+          "type": "equation",
+          "value": "p+q"
+        },
+        {
+          "type": "text",
+          "value": "의 값은? (단, "
+        },
+        {
+          "type": "equation",
+          "value": "a"
+        },
+        {
+          "type": "text",
+          "value": ", "
+        },
+        {
+          "type": "equation",
+          "value": "p"
+        },
+        {
+          "type": "text",
+          "value": ", "
+        },
+        {
+          "type": "equation",
+          "value": "q"
+        },
+        {
+          "type": "text",
+          "value": "는 상수)"
+        }
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "-2"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "-1"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "0"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "1"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "2"}]}
+        {
+          "number": 1,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "-2"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "-1"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "0"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "1"
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "2"
+            }
+          ]
+        }
       ],
       "sub_questions": []
     },
@@ -71,16 +315,105 @@
       "number": 4,
       "score": 4,
       "contents": [
-        {"type": "text", "value": "이차방정식 "},
-        {"type": "equation", "value": "2x^2+6x+16=(x+1)(x-5)"},
-        {"type": "text", "value": "의 해는?"}
+        {
+          "type": "text",
+          "value": "이차방정식 "
+        },
+        {
+          "type": "equation",
+          "value": "2x^2+6x+16=(x+1)(x-5)"
+        },
+        {
+          "type": "text",
+          "value": "의 해는?"
+        }
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "x=7"}, {"type": "text", "value": " 또는 "}, {"type": "equation", "value": "x=3"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "x=7"}, {"type": "text", "value": " 또는 "}, {"type": "equation", "value": "x=-3"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "x=-3"}, {"type": "text", "value": " 또는 "}, {"type": "equation", "value": "x=6"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "x=-7"}, {"type": "text", "value": " 또는 "}, {"type": "equation", "value": "x=3"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "x=-7"}, {"type": "text", "value": " 또는 "}, {"type": "equation", "value": "x=-3"}]}
+        {
+          "number": 1,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "x=7"
+            },
+            {
+              "type": "text",
+              "value": " 또는 "
+            },
+            {
+              "type": "equation",
+              "value": "x=3"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "x=7"
+            },
+            {
+              "type": "text",
+              "value": " 또는 "
+            },
+            {
+              "type": "equation",
+              "value": "x=-3"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "x=-3"
+            },
+            {
+              "type": "text",
+              "value": " 또는 "
+            },
+            {
+              "type": "equation",
+              "value": "x=6"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "x=-7"
+            },
+            {
+              "type": "text",
+              "value": " 또는 "
+            },
+            {
+              "type": "equation",
+              "value": "x=3"
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "x=-7"
+            },
+            {
+              "type": "text",
+              "value": " 또는 "
+            },
+            {
+              "type": "equation",
+              "value": "x=-3"
+            }
+          ]
+        }
       ],
       "sub_questions": []
     },
@@ -88,15 +421,61 @@
       "number": 5,
       "score": 3,
       "contents": [
-        {"type": "text", "value": "두 이차방정식의 공통인 해는?"},
-        {"type": "text", "value": "<상자> ○ 2x^2-3x-5=0  ○ 3x^2-4x=7"}
+        {
+          "type": "text",
+          "value": "두 이차방정식의 공통인 해는?"
+        },
+        {
+          "type": "text",
+          "value": "<상자> ○ 2x^2-3x-5=0  ○ 3x^2-4x=7"
+        }
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "x=-\\frac{5}{2}"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "x=-1"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "x=1"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "x=\\frac{5}{2}"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "x=\\frac{7}{3}"}]}
+        {
+          "number": 1,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "x=-\\frac{5}{2}"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "x=-1"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "x=1"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "x=\\frac{5}{2}"
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "x=\\frac{7}{3}"
+            }
+          ]
+        }
       ],
       "sub_questions": []
     },
@@ -104,25 +483,101 @@
       "number": 6,
       "score": 4,
       "contents": [
-        {"type": "text", "value": "다음 이차방정식이 모두 중근을 가질 때, "},
-        {"type": "equation", "value": "ab-cd"},
-        {"type": "text", "value": "의 값은? (단, "},
-        {"type": "equation", "value": "a"},
-        {"type": "text", "value": ", "},
-        {"type": "equation", "value": "b"},
-        {"type": "text", "value": ", "},
-        {"type": "equation", "value": "c"},
-        {"type": "text", "value": ", "},
-        {"type": "equation", "value": "d"},
-        {"type": "text", "value": "는 양수)"},
-        {"type": "text", "value": "<상자> ○ x^2-6x+a=0  ○ x^2+2bx+36=0 • ○ 4x^2-8x+c=0  ○ x^2+10x+d+1=0"}
+        {
+          "type": "text",
+          "value": "다음 이차방정식이 모두 중근을 가질 때, "
+        },
+        {
+          "type": "equation",
+          "value": "ab-cd"
+        },
+        {
+          "type": "text",
+          "value": "의 값은? (단, "
+        },
+        {
+          "type": "equation",
+          "value": "a"
+        },
+        {
+          "type": "text",
+          "value": ", "
+        },
+        {
+          "type": "equation",
+          "value": "b"
+        },
+        {
+          "type": "text",
+          "value": ", "
+        },
+        {
+          "type": "equation",
+          "value": "c"
+        },
+        {
+          "type": "text",
+          "value": ", "
+        },
+        {
+          "type": "equation",
+          "value": "d"
+        },
+        {
+          "type": "text",
+          "value": "는 양수)"
+        },
+        {
+          "type": "text",
+          "value": "<상자> ○ x^2-6x+a=0  ○ x^2+2bx+36=0 • ○ 4x^2-8x+c=0  ○ x^2+10x+d+1=0"
+        }
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "-42"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "-28"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "6"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "12"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "18"}]}
+        {
+          "number": 1,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "-42"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "-28"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "6"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "12"
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "18"
+            }
+          ]
+        }
       ],
       "sub_questions": []
     }

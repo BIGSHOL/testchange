@@ -1192,7 +1192,26 @@ def _build_layout(src_hwpx, out_hwpx, slot_blanks: dict, colbreak_slots, n_mc: i
             zi.create_system = io.create_system
             zi.flag_bits = io.flag_bits
             zo.writestr(zi, data[io.filename])
-    os.replace(tmp, out_hwpx)
+    _replace_retry(tmp, out_hwpx)
+
+
+def _replace_retry(src, dst, attempts: int = 20, wait: float = 0.5) -> None:
+    """os.replace 를 핸들 해제까지 재시도 — COM 측정(_measure_*) 의 hwp.Quit() 이
+    비동기라 직후 os.replace 가 PermissionError 로 간헐 실패한다(2026-06-12 실측:
+    _fix_answer_parity·패리티 재빌드 모두). 실패 시 임시파일 정리 후 재던짐."""
+    import time
+    for att in range(attempts):
+        try:
+            os.replace(src, dst)
+            return
+        except PermissionError:
+            if att == attempts - 1:
+                try:
+                    os.remove(src)
+                except OSError:
+                    pass
+                raise
+            time.sleep(wait)
 
 
 def _measure_first_choice_lines(hwpx, n: int) -> list[tuple[int, int, int]]:
@@ -1282,6 +1301,96 @@ def _measure_answer_page(hwpx) -> int:
                 logger.warning("측정용 HWP Quit 실패 — 고아 프로세스 가능")
     finally:
         pythoncom.CoUninitialize()
+
+
+def _fix_answer_parity(hwpx_path: str | Path) -> int:
+    """정답(답지) 페이지 홀수쪽 **최종 검증·교정** — 모든 본문-높이 후처리 뒤 측정 기반.
+
+    `_layout_form` 의 짝수 보정은 레이아웃 직후 측정인데, 그 **뒤** 후처리(<보기> 5×5 폼
+    치환·서술형 메타란 주입 등)가 본문 높이를 키워 페이지 흐름이 한 쪽 밀리면 보정이
+    어긋난다 — 측정 4쪽(빈장 삽입) → 최종 5+1=6쪽(경구중·새본리중), 측정 5쪽(보정 없음)
+    → 최종 6쪽(월암중) 전부 **정답이 짝수쪽**으로 출하됐다(2026-06-12). 여기서 최종
+    문서를 다시 측정해 짝수면: 정답 직전이 패리티 빈 단락이면 **제거**(한 쪽 당김),
+    아니면 빈 단락(pageBreak)을 **삽입**(한 쪽 밀기). 반환 = 변경 여부(0/1).
+    호출부는 변경 시 `_com_relaunder` 재실행으로 보안경고를 제거한다.
+    """
+    hwpx_path = Path(hwpx_path).resolve()   # HWP Open 은 상대경로를 조용히 실패(절대경로화 교훈)
+    page = _measure_answer_page(hwpx_path)
+    if not page or page % 2 == 1:
+        return 0
+    with zipfile.ZipFile(hwpx_path) as z:
+        infos = z.infolist()
+        data = {i.filename: z.read(i.filename) for i in infos}
+    name = next(n for n in data if n.endswith("section0.xml"))
+    sec = data[name].decode("utf-8")
+
+    # 머리말/꼬리말을 **인덱스 보존** 공백 마스킹 — 중3 폼은 정답 구역 header/footer 가
+    # 정답 container 와 같은 단락에 있어, 안 가리면 꼬리말 내부 단락/"(정답)" 이 잡힌다
+    # (중앙중 교훈). 공백 치환이라 마스크 사본의 위치가 원본 sec 에 그대로 유효하다.
+    masked = re.sub(r"<hp:header\b.*?</hp:header>|<hp:footer\b.*?</hp:footer>",
+                    lambda m: " " * len(m.group(0)), sec, flags=re.S)
+    ans = None
+    for m in re.finditer(r"<hp:container\b.*?</hp:container>", masked, flags=re.S):
+        if "정답" in m.group(0):
+            ans = m.start()
+            break
+    if ans is None:
+        logger.warning("[폼] 정답 패리티 교정: 정답 container 못 찾음 — 생략")
+        return 0
+    ap = masked.rfind("<hp:p ", 0, ans)            # 정답 바깥 단락
+    if ap < 0:
+        return 0
+
+    def _is_simple_blank(span: str) -> bool:
+        return (span.count("<hp:p") == 1 and "<hp:secPr" not in span
+                and not re.sub(r"<[^>]+>", "", span).strip()
+                and "<hp:pic" not in span and "<hp:gso" not in span)
+
+    changed = False
+    # (a) 제거 경로: 정답 직전 형제 단락이 '빈 pageBreak 단락'(초기 보정 잔재)이면 삭제.
+    prev_end = len(sec[:ap].rstrip())
+    if sec[:prev_end].endswith("</hp:p>"):
+        ps = sec.rfind("<hp:p ", 0, prev_end)
+        span = sec[ps:prev_end]
+        if ps >= 0 and _is_simple_blank(span) and 'pageBreak="1"' in span[:span.find(">")]:
+            sec = sec[:ps] + sec[prev_end:]
+            changed = True
+            logger.info("[폼] 정답 패리티 교정: 잉여 빈 페이지 제거(정답 %d→%d쪽)", page, page - 1)
+    # (b) 삽입 경로: 잔재가 없으면 빈 pageBreak 단락 1장을 정답 앞에 끼워 홀수로 민다.
+    if not changed:
+        cands = [m.group(0) for m in re.finditer(r"<hp:p\b[^>]*>.*?</hp:p>", masked, flags=re.S)
+                 if _is_simple_blank(m.group(0))]
+        if not cands:
+            logger.warning("[폼] 정답 패리티 교정: 빈 단락 템플릿 없음 — 생략")
+            return 0
+        blank = min(cands, key=len)
+        bo = blank.find(">")
+        open_tag = blank[:bo + 1]
+        if "pageBreak=" in open_tag:
+            open_tag = re.sub(r'pageBreak="\d"', 'pageBreak="1"', open_tag)
+        else:
+            open_tag = open_tag[:-1] + ' pageBreak="1">'
+        sec = sec[:ap] + open_tag + blank[bo + 1:] + sec[ap:]
+        changed = True
+        logger.info("[폼] 정답 패리티 교정: 빈 페이지 삽입(정답 %d→%d쪽)", page, page + 1)
+
+    if sec.count("<hp:p ") + sec.count("<hp:p>") != sec.count("</hp:p>"):
+        raise RuntimeError("hp:p 태그 불균형 — 정답 패리티 교정 편집 오류")
+    data[name] = sec.encode("utf-8")
+    from core.hwp_com_writer import _rewrite_zip
+    # ⚠️ 직전 _measure_answer_page 의 hwp.Quit() 이 비동기라 파일 핸들이 즉시 안 풀려
+    # os.replace 가 PermissionError 로 실패한다(처음 통합 때 조용히 무변경 — 2026-06-12).
+    # 핸들 해제까지 재시도.
+    import time
+    for _att in range(20):
+        try:
+            _rewrite_zip(hwpx_path, infos, data)
+            break
+        except PermissionError:
+            if _att == 19:
+                raise
+            time.sleep(0.5)
+    return 1
 
 
 def _extract_heights(pos: list[tuple[int, int, int]], n: int, per_col: int) -> dict:
@@ -2147,14 +2256,28 @@ def write_exam_to_form(
         logger.warning("폼 후처리 실패(_inject_essay_meta): %s", e)
     # 2단계: 그림 렌더 모드면 그림 binItem 임베드(경고 감수). 아니면(기본) COM 재저장(launder)
     # 으로 '변조' 보안경고 제거 — 그림 자리엔 안내 박스(표라서 재저장에 보존).
+    # 2.5단계: 정답 페이지 패리티 **최종 검증·교정**(_fix_answer_parity) — _layout_form 의
+    # 짝수 보정은 그 뒤 후처리(보기 5×5 폼·메타란 주입)가 본문 높이를 키우면 어긋난다
+    # (경구중·새본리중·월암중 정답 짝수쪽, 2026-06-12). relaunder **후** 측정해야 최종
+    # 페이지네이션 기준이고, 교정(XML 수정) 시 relaunder 재실행으로 보안경고를 다시 없앤다.
     if render_figures and fig_paths:
         try:
             _embed_figures(output_path, fig_paths)
         except Exception as e:  # noqa: BLE001
             logger.warning("폼 후처리 실패(_embed_figures): %s", e)
+        try:
+            _fix_answer_parity(output_path)   # 그림 경로는 경고가 어차피 있어 재저장 불필요
+        except Exception as e:  # noqa: BLE001
+            logger.warning("폼 후처리 실패(_fix_answer_parity): %s", e)
     else:
         if not _com_relaunder(output_path):
             logger.warning("폼 후처리 실패(_com_relaunder): 보안경고 제거 재저장 실패")
+        try:
+            if _fix_answer_parity(output_path):
+                if not _com_relaunder(output_path):
+                    logger.warning("폼 후처리 실패(_com_relaunder): 패리티 교정 재저장 실패")
+        except Exception as e:  # noqa: BLE001
+            logger.warning("폼 후처리 실패(_fix_answer_parity): %s", e)
         # ⚠️ _inject_essay_meta 시점의 메타란 토큰 run 구조는 **비결정적**이다 — COM 저장이
         # 토큰("소단원자리표식QZX")을 한 run 에 두기도, 여러 run/t 로 쪼개기도 한다(고2 선택과목
         # 폼 중앙고에서 평문 노출, 2026-06-10). 쪼개지면 위 1.9단계 매치가 실패한다. relaunder

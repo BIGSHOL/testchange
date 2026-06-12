@@ -6,9 +6,18 @@
       "score": 6,
       "label_type": "서술형",
       "contents": [
-        {"type": "text", "value": "[서술형 2] 윤희와 연주의 생일은 모두 7월이고, 윤희 생일이 연주 생일보다 2주가 더 빠르다. 윤희의 생일을 7월 "},
-        {"type": "equation", "value": "x"},
-        {"type": "text", "value": "일이라 하고 두 사람의 생일의 날짜를 곱하면 207이 된다고 할 때, 다음 물음에 답하시오."}
+        {
+          "type": "text",
+          "value": "[서술형 2] 윤희와 연주의 생일은 모두 7월이고, 윤희 생일이 연주 생일보다 2주가 더 빠르다. 윤희의 생일을 7월 "
+        },
+        {
+          "type": "equation",
+          "value": "x"
+        },
+        {
+          "type": "text",
+          "value": "일이라 하고 두 사람의 생일의 날짜를 곱하면 207이 된다고 할 때, 다음 물음에 답하시오."
+        }
       ],
       "choices": [],
       "sub_questions": [
@@ -16,8 +25,14 @@
           "number": 1,
           "score": 2,
           "contents": [
-            {"type": "equation", "value": "x"},
-            {"type": "text", "value": "에 관한 이차방정식을 세우시오."}
+            {
+              "type": "equation",
+              "value": "x"
+            },
+            {
+              "type": "text",
+              "value": "에 관한 이차방정식을 세우시오."
+            }
           ],
           "choices": [],
           "sub_questions": []
@@ -26,8 +41,14 @@
           "number": 2,
           "score": 4,
           "contents": [
-            {"type": "equation", "value": "x"},
-            {"type": "text", "value": "에 관한 이차방정식을 풀고, 두 사람의 생일을 각각 구하시오."}
+            {
+              "type": "equation",
+              "value": "x"
+            },
+            {
+              "type": "text",
+              "value": "에 관한 이차방정식을 풀고, 두 사람의 생일을 각각 구하시오."
+            }
           ],
           "choices": [],
           "sub_questions": []
@@ -39,28 +60,100 @@
       "score": 8,
       "label_type": "서술형",
       "contents": [
-        {"type": "text", "value": "[서술형 3] 아래 그림과 같이 네 반원으로 이루어진 도형에서 "},
-        {"type": "equation", "value": "\\overline{AB}=12\\mathrm{cm}"},
-        {"type": "text", "value": "이고, 색칠한 부분의 넓이가 "},
-        {"type": "equation", "value": "9\\pi \\mathrm{cm}^2"},
-        {"type": "text", "value": "이다. "},
-        {"type": "equation", "value": "\\overline{AC}"},
-        {"type": "text", "value": "를 지름으로 하는 반원의 중심을 "},
-        {"type": "equation", "value": "O"},
-        {"type": "text", "value": "라고 하고 "},
-        {"type": "equation", "value": "\\overline{AO}"},
-        {"type": "text", "value": "의 길이를 "},
-        {"type": "equation", "value": "x\\mathrm{cm}"},
-        {"type": "text", "value": "라 할 때, "},
-        {"type": "equation", "value": "x"},
-        {"type": "text", "value": "에 관한 이차방정식을 세우고 "},
-        {"type": "equation", "value": "x"},
-        {"type": "text", "value": "의 값을 구하시오. (단, "},
-        {"type": "equation", "value": "\\overline{AC}=\\overline{BD}"},
-        {"type": "text", "value": ", "},
-        {"type": "equation", "value": "\\overline{AC}<\\overline{CD}"},
-        {"type": "text", "value": ")"},
-        {"type": "figure", "value": "지름 AB=12cm인 큰 반원(위로 볼록) 안에 지름 위의 작은 반원 3개 — 지름 AC·CD·DB. 지름선 위 점 순서 A, O(AC 반원 중심), C, D, B. 큰 반원과 작은 반원들 사이가 색칠됨(넓이 9π cm²). AC=BD, AC<CD", "bbox": [0.14, 0.22, 0.86, 0.58]}
+        {
+          "type": "text",
+          "value": "[서술형 3] 아래 그림과 같이 네 반원으로 이루어진 도형에서 "
+        },
+        {
+          "type": "equation",
+          "value": "\\overline{AB}=12\\mathrm{cm}"
+        },
+        {
+          "type": "text",
+          "value": "이고, 색칠한 부분의 넓이가 "
+        },
+        {
+          "type": "equation",
+          "value": "9\\pi \\mathrm{cm}^2"
+        },
+        {
+          "type": "text",
+          "value": "이다. "
+        },
+        {
+          "type": "equation",
+          "value": "\\overline{AC}"
+        },
+        {
+          "type": "text",
+          "value": "를 지름으로 하는 반원의 중심을 "
+        },
+        {
+          "type": "equation",
+          "value": "O"
+        },
+        {
+          "type": "text",
+          "value": "라고 하고 "
+        },
+        {
+          "type": "equation",
+          "value": "\\overline{AO}"
+        },
+        {
+          "type": "text",
+          "value": "의 길이를 "
+        },
+        {
+          "type": "equation",
+          "value": "x\\mathrm{cm}"
+        },
+        {
+          "type": "text",
+          "value": "라 할 때, "
+        },
+        {
+          "type": "equation",
+          "value": "x"
+        },
+        {
+          "type": "text",
+          "value": "에 관한 이차방정식을 세우고 "
+        },
+        {
+          "type": "equation",
+          "value": "x"
+        },
+        {
+          "type": "text",
+          "value": "의 값을 구하시오. (단, "
+        },
+        {
+          "type": "equation",
+          "value": "\\overline{AC}=\\overline{BD}"
+        },
+        {
+          "type": "text",
+          "value": ", "
+        },
+        {
+          "type": "equation",
+          "value": "\\overline{AC}<\\overline{CD}"
+        },
+        {
+          "type": "text",
+          "value": ")"
+        },
+        {
+          "type": "figure",
+          "value": "지름 AB=12cm인 큰 반원(위로 볼록) 안에 지름 위의 작은 반원 3개 — 지름 AC·CD·DB. 지름선 위 점 순서 A, O(AC 반원 중심), C, D, B. 큰 반원과 작은 반원들 사이가 색칠됨(넓이 9π cm²). AC=BD, AC<CD",
+          "bbox": [
+            0.14,
+            0.22,
+            0.86,
+            0.58
+          ]
+        }
       ],
       "choices": [],
       "sub_questions": []
@@ -70,19 +163,58 @@
       "score": 5,
       "label_type": "서술형",
       "contents": [
-        {"type": "text", "value": "[서술형 4] 이차함수 "},
-        {"type": "equation", "value": "y=ax^2"},
-        {"type": "text", "value": "의 그래프가 점 "},
-        {"type": "equation", "value": "(3, -3)"},
-        {"type": "text", "value": "을 지나고 "},
-        {"type": "equation", "value": "\\left(b, -\\frac{1}{27}\\right)"},
-        {"type": "text", "value": "을 지날 때, 다음 물음에 답하시오. (단, "},
-        {"type": "equation", "value": "a"},
-        {"type": "text", "value": ", "},
-        {"type": "equation", "value": "b"},
-        {"type": "text", "value": "는 상수, "},
-        {"type": "equation", "value": "b>0"},
-        {"type": "text", "value": ")"}
+        {
+          "type": "text",
+          "value": "[서술형 4] 이차함수 "
+        },
+        {
+          "type": "equation",
+          "value": "y=ax^2"
+        },
+        {
+          "type": "text",
+          "value": "의 그래프가 점 "
+        },
+        {
+          "type": "equation",
+          "value": "(3, -3)"
+        },
+        {
+          "type": "text",
+          "value": "을 지나고 "
+        },
+        {
+          "type": "equation",
+          "value": "\\left(b, -\\frac{1}{27}\\right)"
+        },
+        {
+          "type": "text",
+          "value": "을 지날 때, 다음 물음에 답하시오. (단, "
+        },
+        {
+          "type": "equation",
+          "value": "a"
+        },
+        {
+          "type": "text",
+          "value": ", "
+        },
+        {
+          "type": "equation",
+          "value": "b"
+        },
+        {
+          "type": "text",
+          "value": "는 상수, "
+        },
+        {
+          "type": "equation",
+          "value": "b>0"
+        },
+        {
+          "type": "text",
+          "value": ")"
+        }
       ],
       "choices": [],
       "sub_questions": [
@@ -90,8 +222,14 @@
           "number": 1,
           "score": 2,
           "contents": [
-            {"type": "equation", "value": "a"},
-            {"type": "text", "value": "의 값을 구하시오."}
+            {
+              "type": "equation",
+              "value": "a"
+            },
+            {
+              "type": "text",
+              "value": "의 값을 구하시오."
+            }
           ],
           "choices": [],
           "sub_questions": []
@@ -100,8 +238,14 @@
           "number": 2,
           "score": 3,
           "contents": [
-            {"type": "equation", "value": "b"},
-            {"type": "text", "value": "의 값을 구하시오."}
+            {
+              "type": "equation",
+              "value": "b"
+            },
+            {
+              "type": "text",
+              "value": "의 값을 구하시오."
+            }
           ],
           "choices": [],
           "sub_questions": []
@@ -113,38 +257,140 @@
       "score": 8,
       "label_type": "서술형",
       "contents": [
-        {"type": "text", "value": "[서술형 5] 이차함수 "},
-        {"type": "equation", "value": "y=-\\frac{1}{4}x^2"},
-        {"type": "text", "value": "의 그래프를 "},
-        {"type": "equation", "value": "x"},
-        {"type": "text", "value": "축의 방향으로 "},
-        {"type": "equation", "value": "-3"},
-        {"type": "text", "value": "만큼 평행 이동한 그래프이다. 이 그래프의 꼭짓점을 "},
-        {"type": "equation", "value": "P"},
-        {"type": "text", "value": ", 삼각형이 그래프와 만나는 두 점을 각각 "},
-        {"type": "equation", "value": "A"},
-        {"type": "text", "value": ", "},
-        {"type": "equation", "value": "B"},
-        {"type": "text", "value": "라고 하자. 삼각형 "},
-        {"type": "equation", "value": "PAB"},
-        {"type": "text", "value": "의 넓이가 "},
-        {"type": "equation", "value": "\\frac{27}{4}"},
-        {"type": "text", "value": "일 때, 점 "},
-        {"type": "equation", "value": "P"},
-        {"type": "text", "value": "와 점 "},
-        {"type": "equation", "value": "A"},
-        {"type": "text", "value": ", "},
-        {"type": "equation", "value": "B"},
-        {"type": "text", "value": "의 좌표를 구하려고 한다. 다음 물음에 답하시오. (단, 점 "},
-        {"type": "equation", "value": "B"},
-        {"type": "text", "value": "는 "},
-        {"type": "equation", "value": "y"},
-        {"type": "text", "value": "축 위의 점이고, "},
-        {"type": "equation", "value": "\\overline{AB}"},
-        {"type": "text", "value": "는 "},
-        {"type": "equation", "value": "x"},
-        {"type": "text", "value": "축과 평행하다.)"},
-        {"type": "figure", "value": "위로 볼록한 포물선 y=-1/4(x+3)^2 — 꼭짓점 P(위쪽). x축과 평행한 선분 AB가 포물선과 만나 삼각형 PAB를 이룸(A 왼쪽, B 오른쪽). 점 B는 y축 위. 원점 O는 P 오른쪽", "bbox": [0.18, 0.55, 0.85, 0.95]}
+        {
+          "type": "text",
+          "value": "[서술형 5] 이차함수 "
+        },
+        {
+          "type": "equation",
+          "value": "y=-\\frac{1}{4}x^2"
+        },
+        {
+          "type": "text",
+          "value": "의 그래프를 "
+        },
+        {
+          "type": "equation",
+          "value": "x"
+        },
+        {
+          "type": "text",
+          "value": "축의 방향으로 "
+        },
+        {
+          "type": "equation",
+          "value": "-3"
+        },
+        {
+          "type": "text",
+          "value": "만큼 평행 이동한 그래프이다. 이 그래프의 꼭짓점을 "
+        },
+        {
+          "type": "equation",
+          "value": "P"
+        },
+        {
+          "type": "text",
+          "value": ", 삼각형이 그래프와 만나는 두 점을 각각 "
+        },
+        {
+          "type": "equation",
+          "value": "A"
+        },
+        {
+          "type": "text",
+          "value": ", "
+        },
+        {
+          "type": "equation",
+          "value": "B"
+        },
+        {
+          "type": "text",
+          "value": "라고 하자. 삼각형 "
+        },
+        {
+          "type": "equation",
+          "value": "PAB"
+        },
+        {
+          "type": "text",
+          "value": "의 넓이가 "
+        },
+        {
+          "type": "equation",
+          "value": "\\frac{27}{4}"
+        },
+        {
+          "type": "text",
+          "value": "일 때, 점 "
+        },
+        {
+          "type": "equation",
+          "value": "P"
+        },
+        {
+          "type": "text",
+          "value": "와 점 "
+        },
+        {
+          "type": "equation",
+          "value": "A"
+        },
+        {
+          "type": "text",
+          "value": ", "
+        },
+        {
+          "type": "equation",
+          "value": "B"
+        },
+        {
+          "type": "text",
+          "value": "의 좌표를 구하려고 한다. 다음 물음에 답하시오. (단, 점 "
+        },
+        {
+          "type": "equation",
+          "value": "B"
+        },
+        {
+          "type": "text",
+          "value": "는 "
+        },
+        {
+          "type": "equation",
+          "value": "y"
+        },
+        {
+          "type": "text",
+          "value": "축 위의 점이고, "
+        },
+        {
+          "type": "equation",
+          "value": "\\overline{AB}"
+        },
+        {
+          "type": "text",
+          "value": "는 "
+        },
+        {
+          "type": "equation",
+          "value": "x"
+        },
+        {
+          "type": "text",
+          "value": "축과 평행하다.)"
+        },
+        {
+          "type": "figure",
+          "value": "위로 볼록한 포물선 y=-1/4(x+3)^2 — 꼭짓점 P(위쪽). x축과 평행한 선분 AB가 포물선과 만나 삼각형 PAB를 이룸(A 왼쪽, B 오른쪽). 점 B는 y축 위. 원점 O는 P 오른쪽",
+          "bbox": [
+            0.18,
+            0.55,
+            0.85,
+            0.95
+          ]
+        }
       ],
       "choices": [],
       "sub_questions": [
@@ -152,9 +398,18 @@
           "number": 1,
           "score": 2,
           "contents": [
-            {"type": "text", "value": "점 "},
-            {"type": "equation", "value": "P"},
-            {"type": "text", "value": "의 좌표를 구하시오."}
+            {
+              "type": "text",
+              "value": "점 "
+            },
+            {
+              "type": "equation",
+              "value": "P"
+            },
+            {
+              "type": "text",
+              "value": "의 좌표를 구하시오."
+            }
           ],
           "choices": [],
           "sub_questions": []
@@ -163,19 +418,54 @@
           "number": 2,
           "score": 6,
           "contents": [
-            {"type": "text", "value": "삼각형 "},
-            {"type": "equation", "value": "PAB"},
-            {"type": "text", "value": "의 높이를 "},
-            {"type": "equation", "value": "h"},
-            {"type": "text", "value": "라고 할 때, 삼각형 "},
-            {"type": "equation", "value": "PAB"},
-            {"type": "text", "value": "의 넓이를 이용하여 "},
-            {"type": "equation", "value": "h"},
-            {"type": "text", "value": "의 길이와 점 "},
-            {"type": "equation", "value": "A"},
-            {"type": "text", "value": ", "},
-            {"type": "equation", "value": "B"},
-            {"type": "text", "value": "의 좌표를 각각 구하시오."}
+            {
+              "type": "equation",
+              "value": "\\triangle PAB"
+            },
+            {
+              "type": "text",
+              "value": "의 높이를 "
+            },
+            {
+              "type": "equation",
+              "value": "h"
+            },
+            {
+              "type": "text",
+              "value": "라고 할 때, "
+            },
+            {
+              "type": "equation",
+              "value": "\\triangle PAB"
+            },
+            {
+              "type": "text",
+              "value": "의 넓이를 이용하여 "
+            },
+            {
+              "type": "equation",
+              "value": "h"
+            },
+            {
+              "type": "text",
+              "value": "의 길이와 점 "
+            },
+            {
+              "type": "equation",
+              "value": "A"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "equation",
+              "value": "B"
+            },
+            {
+              "type": "text",
+              "value": "의 좌표를 각각 구하시오."
+            }
           ],
           "choices": [],
           "sub_questions": []

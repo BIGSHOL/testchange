@@ -235,6 +235,50 @@ def _check_ascii_leading_sign(fails):
         fails.append(f"  K1 파이프라인 ㅁ: eqs={eqs!r} txts={txts!r}")
 
 
+def _check_saebon_fixes(fails):
+    """새본리중 중3 B형 회귀(2026-06-12) — L1 첨자 절단·L2 자모 수식 병합·L3 underline
+    JSON 키·L4 반원 기하 키워드."""
+    import re
+    from models.exam_document import ContentType as CT
+    # L1: x^2-\frac… 의 brace-less 첨자가 'x^' 고아 수식으로 절단되지 않아야(새본리중 #7).
+    doc = {"header": "", "questions": [{"number": 1, "contents": [
+        {"type": "text",
+         "value": "<상자> 2x^2-7x-3=0 • x^2-\\frac{7}{2}x+A=\\frac{3}{2}+A • (x+B)^2=C"}]}]}
+    q = parse_ocr_response(doc, page_number=1).questions[0]
+    eqs = [b.value or "" for b in q.contents if b.type == CT.EQUATION]
+    if any(e.rstrip().endswith(("^", "_")) for e in eqs):
+        fails.append(f"  L1 첨자 고아 수식: eqs={eqs!r}")
+    if not any(e.startswith("x^2-") and "+A=" in e for e in eqs):
+        fails.append(f"  L1 첨자 절단: eqs={eqs!r}")
+    # L2: 자모 라벨(ㄴ.ㄷ.)·불릿이 수식 안으로 병합되면 안 됨(새본리중 #17 보기 박스).
+    doc2 = {"header": "", "questions": [{"number": 1, "contents": [
+        {"type": "text",
+         "value": "<보기> ㄱ. y=\\frac{1}{2}x^2 • ㄴ. y=-3x^2-2 • ㄷ. y=3x^2"}]}]}
+    q2 = parse_ocr_response(doc2, page_number=1).questions[0]
+    eqs2 = [b.value or "" for b in q2.contents if b.type == CT.EQUATION]
+    if any(re.search(r"[ㄱ-ㆎ•]", e) for e in eqs2):
+        fails.append(f"  L2 자모/불릿 수식 병합: eqs={eqs2!r}")
+    if not any("3x^2-2" in e for e in eqs2) or not any("y=3x^2" in e.replace(" ", "") for e in eqs2):
+        fails.append(f"  L2 항목 수식 소실: eqs={eqs2!r}")
+    # L3: OCR JSON 의 {"underline": true} 속성 인코딩도 강조 run 으로(새본리중 #2·#13·#17).
+    doc3 = {"header": "", "questions": [{"number": 1, "contents": [
+        {"type": "text", "value": "해가 되지 "},
+        {"type": "text", "value": "않는", "underline": True},
+        {"type": "text", "value": " 것은?"}]}]}
+    q3 = parse_ocr_response(doc3, page_number=1).questions[0]
+    if not any(b.type == CT.TEXT and b.underline and b.value == "않는" for b in q3.contents):
+        fails.append(f"  L3 underline 속성: {[(b.type.name, b.value, b.underline) for b in q3.contents]!r}")
+    # L4: '반원의 중심/지름' 기하 문맥 — 점 이름 O 로만화(새본리중 #20).
+    doc4 = {"header": "", "questions": [{"number": 1, "contents": [
+        {"type": "text", "value": "반원의 중심을 "},
+        {"type": "equation", "value": "O"},
+        {"type": "text", "value": "라고 하자."}]}]}
+    q4 = parse_ocr_response(doc4, page_number=1).questions[0]
+    eqs4 = [b.value or "" for b in q4.contents if b.type == CT.EQUATION]
+    if not any("\\mathrm{O}" in e for e in eqs4):
+        fails.append(f"  L4 반원 기하 로만: eqs={eqs4!r}")
+
+
 def run():
     fails = []
     _check_comma_roots(fails)
@@ -244,6 +288,7 @@ def run():
     _check_wolam_box_fixes(fails)
     _check_jangsan_fixes(fails)
     _check_ascii_leading_sign(fails)
+    _check_saebon_fixes(fails)
     for text, must in _SPACING_CASES:
         got = _render(text)
         if must not in got:
@@ -259,7 +304,7 @@ def run():
         print("FAIL test_content_parser:")
         print("\n".join(fails))
         return 1
-    print(f"OK test_content_parser ({len(_SPACING_CASES) + len(_SCORE_CASES) + 7} cases)")
+    print(f"OK test_content_parser ({len(_SPACING_CASES) + len(_SCORE_CASES) + 8} cases)")
     return 0
 
 

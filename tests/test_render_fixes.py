@@ -92,6 +92,10 @@ def run():
     chk(_is_value_box(value_box), "값상자(18 13 …)는 value_box")
     chk(not _is_value_box(labeled_box), "(가)(나) 라벨박스는 value_box 아님")
     chk(not _is_value_box(bogi_box), "<보기>ㄱㄴ 박스는 value_box 아님")
+    # 새본리중 #5(2026-06-12): ○ 불릿 2항목 수식 박스가 leftover ≤6자로 값상자 오인 →
+    # 가운데정렬(경일중 _CIRCLE_BULLET_RE 가드 단락 우회). ○ 존재 = 항목 나열 = 좌측.
+    circle2_box = [_tb("<상자> ○ "), _eq("2x^2-3x-5=0"), _tb(" ○ "), _eq("3x^2-4x=7")]
+    chk(not _is_value_box(circle2_box), "○불릿 2항목 박스는 value_box 아님(좌측)")
 
     # ── R3: 라벨 없는 셀 가운데정렬(#14) — _is_labelless_box ──
     # 항목 라벨((가)(나)/ㄱ.)·불릿(•) 없는 <상자>(단일 진술)는 가운데, 라벨/불릿 박스는 좌측.
