@@ -1,0 +1,85 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 10,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "수열 "},
+        {"type": "equation", "value": "\\{a_n\\}"},
+        {"type": "text", "value": "이 모든 자연수 n에 대하여 "},
+        {"type": "equation", "value": "\\sum_{k=1}^{n} a_k=n(n+1)(n+2)"},
+        {"type": "text", "value": "를 만족시킨다. "},
+        {"type": "equation", "value": "\\sum_{k=1}^{40}\\frac{1}{a_k}=\\frac{q}{p}"},
+        {"type": "text", "value": "일 때, p+q의 값은? (단, p와 q는 서로소인 자연수이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "81"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "102"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "123"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "161"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "163"}]}
+      ]
+    },
+    {
+      "number": 11,
+      "score": 4.4,
+      "contents": [
+        {"type": "text", "value": "1보다 큰 세 자연수 a, b, c에 대하여 세 수 "},
+        {"type": "equation", "value": "\\log a, \\log b, \\log c"},
+        {"type": "text", "value": "가 이 순서대로 공차가 자연수인 등차수열을 이룬다. "},
+        {"type": "equation", "value": "\\log abc=30"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\log\\frac{a^2 c^3}{b}"},
+        {"type": "text", "value": "의 최댓값을 M, 최솟값을 m이라 하자. M+2m의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "100"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "119"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "125"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "131"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "148"}]}
+      ]
+    },
+    {
+      "number": 12,
+      "score": 4.4,
+      "contents": [
+        {"type": "text", "value": "자연수 n에 대하여 "},
+        {"type": "equation", "value": "0\\leq x\\leq 2\\times 3^n"},
+        {"type": "text", "value": "에서 함수 "},
+        {"type": "equation", "value": "y=2\\cos\\left(\\frac{\\pi}{3^n}x\\right)"},
+        {"type": "text", "value": "의 그래프가 직선 "},
+        {"type": "equation", "value": "y=\\frac{1}{n}"},
+        {"type": "text", "value": "과 만나는 모든 점의 x좌표의 합을 "},
+        {"type": "equation", "value": "x_n"},
+        {"type": "text", "value": "이라 할 때, "},
+        {"type": "equation", "value": "\\sum_{n=1}^{6} x_n"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "728"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "826"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "1456"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "2184"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "2478"}]}
+      ]
+    },
+    {
+      "number": 13,
+      "score": 4.4,
+      "contents": [
+        {"type": "text", "value": "-\\pi\\leq x\\leq\\pi에서 방정식 "},
+        {"type": "equation", "value": "\\cos^2\\left(x-\\frac{\\pi}{6}\\right)+\\cos\\left(x+\\frac{\\pi}{3}\\right)=\\frac{5}{4}"},
+        {"type": "text", "value": "를 만족시키는 모든 x의 합은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-\\pi"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-\\frac{5}{6}\\pi"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-\\frac{2}{3}\\pi"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\pi"}]}
+      ]
+    }
+  ]
+}
