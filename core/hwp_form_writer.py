@@ -582,6 +582,17 @@ def _blk(t, v):
     return ContentBlock(type=t, value=v)
 
 
+def _is_ref_not_submarker(seg: str, rest: str) -> bool:
+    """``seg``(소문항 마커 후보)가 **공백 없이 닫는 괄호로 끝나고** ``rest``(그 뒤 텍스트)가
+    한글로 시작하면 소문항 마커가 아니라 **본문 교차참조**(``(1)에서 구한 식…``)다 — strip
+    하지 않는다(학산중 #19, 2026-06-12). 진짜 소문항 마커는 ``(2) 일차함수…`` 처럼 마커 뒤
+    공백이 있어 ``seg`` 가 trailing 공백을 먹는다. 원숫자 ``①``·``1.`` 류는 닫는 괄호가
+    없어 항상 마커로 취급."""
+    return (seg == seg.rstrip()                       # 닫힘부가 trailing 공백을 안 먹음
+            and seg.rstrip().endswith((")", "）"))
+            and bool(rest) and "가" <= rest[0] <= "힣")
+
+
 def _strip_leading_submarker(contents):
     """소문항 앞머리 번호 마커를 제거(우리가 ``(k)`` 를 따로 렌더하므로 OCR 이 남긴
     ``(1)``·``1)``·``1.``·``①`` 등의 중복을 결정적으로 차단). 길이/형태 무관.
@@ -609,25 +620,33 @@ def _strip_leading_submarker(contents):
     # 형태 1: 단일 텍스트 마커
     t0 = txt(c[0])
     if t0:
-        nv = _SUBMARK_RE.sub('', t0, count=1)
-        if nv != t0:
+        m = _SUBMARK_RE.match(t0)
+        if m and not _is_ref_not_submarker(m.group(0), t0[m.end():]):
+            nv = t0[m.end():]
             return ([_blk(ContentType.TEXT, nv)] + c[1:]) if nv.strip() else c[1:]
 
     # 형태 2: "(" + EQ숫자 + ")rest"
     if (len(c) >= 3 and (t0 is not None and t0.strip() in ("(", "（"))
-            and eqd(c[1]) is not None
-            and txt(c[2]) is not None and _LEAD_CLOSE_RE.match(txt(c[2]))):
-        rest = _LEAD_CLOSE_RE.sub('', txt(c[2]), count=1)
-        return ([_blk(ContentType.TEXT, rest)] if rest.strip() else []) + c[3:]
+            and eqd(c[1]) is not None and txt(c[2]) is not None):
+        m2 = _LEAD_CLOSE_RE.match(txt(c[2]))
+        if m2 and not _is_ref_not_submarker(m2.group(0), txt(c[2])[m2.end():]):
+            rest = txt(c[2])[m2.end():]
+            return ([_blk(ContentType.TEXT, rest)] if rest.strip() else []) + c[3:]
 
     # 형태 3: EQ숫자 + ")rest" 또는 ".rest"
-    if (len(c) >= 2 and eqd(c[0]) is not None
-            and txt(c[1]) is not None and _LEAD_CLOSE_RE.match(txt(c[1]))):
-        rest = _LEAD_CLOSE_RE.sub('', txt(c[1]), count=1)
-        return ([_blk(ContentType.TEXT, rest)] if rest.strip() else []) + c[2:]
+    if (len(c) >= 2 and eqd(c[0]) is not None and txt(c[1]) is not None):
+        m3 = _LEAD_CLOSE_RE.match(txt(c[1]))
+        if m3 and not _is_ref_not_submarker(m3.group(0), txt(c[1])[m3.end():]):
+            rest = txt(c[1])[m3.end():]
+            return ([_blk(ContentType.TEXT, rest)] if rest.strip() else []) + c[2:]
 
     # 형태 4: 마커 통째가 한 수식 객체 "(1)"
-    if getattr(c[0], "type", None) in _EQ_TYPES and _SUBMARK_RE.fullmatch((c[0].value or "").strip()):
+    # (파서가 ``(1)에서 구한…`` 의 ``(1)`` 을 괄호원자로 수식화해 EQ"(1)"+TEXT"에서…" 로
+    #  쪼개기도 한다 — 다음 TEXT 가 공백 없이 한글이면 교차참조라 보존, 학산중 #19.)
+    if (getattr(c[0], "type", None) in _EQ_TYPES
+            and _SUBMARK_RE.fullmatch((c[0].value or "").strip())
+            and not _is_ref_not_submarker((c[0].value or "").strip(),
+                                          (txt(c[1]) if len(c) >= 2 else "") or "")):
         return c[1:]
 
     return contents

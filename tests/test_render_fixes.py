@@ -607,6 +607,29 @@ def run():
     plain = _split_latex_commands("hello world test")
     chk(len(plain) == 1 and plain[0].type.name == "TEXT", "Z 평문 무회귀")
 
+    # ── V: 소문항 교차참조 '(1)에서…' 보존(학산중 #19, 2026-06-12) ──
+    # 마커 뒤 공백 없이 한글이 직결된 선행 '(N)'은 참조이므로 strip 금지, 진짜 마커는 strip.
+    from core.hwp_form_writer import _strip_leading_submarker as _sls
+    def _firsttxt(blocks):
+        return "".join(b.value or "" for b in blocks)
+    ref = _sls([_tb("(1)에서 구한 식을 이용하여")])
+    chk("(1)에서" in _firsttxt(ref), f"V 교차참조 (1)에서 보존: {_firsttxt(ref)!r}")
+    mk = _sls([_tb("(2) 일차함수의 식을 구하시오.")])
+    chk(_firsttxt(mk).startswith("일차함수"), f"V 진짜 마커 (2) strip: {_firsttxt(mk)!r}")
+    circ = _sls([_tb("① 물음에 답하시오")])
+    chk(_firsttxt(circ).startswith("물음에"), f"V 원숫자 마커 strip: {_firsttxt(circ)!r}")
+    # 분리형 '(' EQ'1' ')에서' 참조 보존
+    sep = _sls([_tb("("), _eq("1"), _tb(")에서 구한")])
+    chk(any(b.type.name == "EQUATION" and b.value == "1" for b in sep)
+        and any(")에서" in (b.value or "") for b in sep), f"V 분리형 참조 보존: {[(b.type.name,b.value) for b in sep]!r}")
+    # 형태4: 파서가 '(1)' 통째 수식화한 교차참조 EQ'(1)' + TEXT'에서…' 보존(학산중 #19 실제)
+    eqref = _sls([_eq("(1)"), _tb("에서 구한 식을 이용하여")])
+    chk(any(b.type.name == "EQUATION" and b.value == "(1)" for b in eqref),
+        f"V 형태4 EQ참조 보존: {[(b.type.name,b.value) for b in eqref]!r}")
+    # 형태4 진짜 마커: EQ'(1)' 다음 공백 TEXT면 strip
+    eqmk = _sls([_eq("(1)"), _tb(" 일차함수의 식을")])
+    chk(not any(b.value == "(1)" for b in eqmk), f"V 형태4 진짜마커 strip: {[(b.type.name,b.value) for b in eqmk]!r}")
+
     if fails:
         print("FAIL test_render_fixes:")
         print("\n".join(fails))
@@ -614,7 +637,7 @@ def run():
     print("OK test_render_fixes (cell/value-box/caption/shading/essay-label/overline/relabel/"
           "bigstar/boxed/labelless/solo/mixed-label/rm-space/cond-header/form-underline/"
           "sqrt-space/choice-glyph/tail-note/underline-solid/stemleaf-13/choice-geo/cond-circle/"
-          "repeat-dot/paren-score/phantom-box/box-bullet/post-box/box-ascii-eq)")
+          "repeat-dot/paren-score/phantom-box/box-bullet/post-box/box-ascii-eq/submark-ref)")
     return 0
 
 
