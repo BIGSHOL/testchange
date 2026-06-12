@@ -1,0 +1,173 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 15,
+      "score": 4.5,
+      "contents": [
+        {"type": "text", "value": "수열 "},
+        {"type": "equation", "value": "\\{a_n\\}"},
+        {"type": "text", "value": "의 첫째항부터 제"},
+        {"type": "equation", "value": "n"},
+        {"type": "text", "value": "항까지의 합을 "},
+        {"type": "equation", "value": "S_n"},
+        {"type": "text", "value": "이라 하자. "},
+        {"type": "equation", "value": "b_n=4S_n+3"},
+        {"type": "text", "value": "이라 할 때, 수열 "},
+        {"type": "equation", "value": "\\{b_n\\}"},
+        {"type": "text", "value": "은 공비가 2인 등비수열이다. "},
+        {"type": "equation", "value": "a_3-2a_1"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{1}{2}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{3}{4}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{5}{4}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{3}{2}"}]}
+      ]
+    },
+    {
+      "number": 16,
+      "score": 4.5,
+      "contents": [
+        {"type": "text", "value": "수열 "},
+        {"type": "equation", "value": "\\{a_n\\}"},
+        {"type": "text", "value": "에서 "},
+        {"type": "equation", "value": "a_n"},
+        {"type": "text", "value": "은 "},
+        {"type": "equation", "value": "n"},
+        {"type": "text", "value": "자리의 자연수이고, "},
+        {"type": "equation", "value": "a_n"},
+        {"type": "text", "value": "의 각 자리의 숫자는 1 또는 0이며, 같은 숫자끼리는 두 번 이상 이웃하지 않는다. 이를 만족하는 최댓값을 "},
+        {"type": "equation", "value": "a_n"},
+        {"type": "text", "value": "이라 할 때, "},
+        {"type": "equation", "value": "a_1=1"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "a_2=11"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "a_3=110"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "a_4=1101"},
+        {"type": "text", "value": "이다. 이때 "},
+        {"type": "equation", "value": "a_{12}"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{11}{999}\\left(10^{11}-1\\right)"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{11}{999}\\left(10^{12}-10\\right)"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{11}{999}\\left(10^{12}-1\\right)"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{11}{999}\\left(10^{13}-10\\right)"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{11}{999}\\left(10^{13}-1\\right)"}]}
+      ]
+    },
+    {
+      "number": 17,
+      "score": 8,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 1] 용기에 어느 박테리아가 100마리 들어 있다. 이 박테리아는 한 시간이 지날 때마다 10%가 죽고, 살아남은 개체는 1.2배로 증식한다고 한다. "},
+        {"type": "equation", "value": "n"},
+        {"type": "text", "value": "시간 후의 살아 있는 박테리아의 수를 "},
+        {"type": "equation", "value": "a_n"},
+        {"type": "text", "value": "이라고 할 때, "},
+        {"type": "equation", "value": "a_{10}"},
+        {"type": "text", "value": "의 값을 구하시오. (단, "},
+        {"type": "equation", "value": "1.08^9"},
+        {"type": "text", "value": "은 2로 계산한다.) [8점/부분점수 있음]"}
+      ],
+      "choices": []
+    },
+    {
+      "number": 18,
+      "score": 8,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 2] 다음 식을 만족시키는 두 자연수 "},
+        {"type": "equation", "value": "m"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "n"},
+        {"type": "text", "value": "의 값을 각각 구하시오. [총 8점]"}
+      ],
+      "choices": [],
+      "sub_questions": [
+        {"number": 1, "score": 4, "contents": [
+          {"type": "text", "value": "(1) "},
+          {"type": "equation", "value": "\\frac{1}{3\\times 5}+\\frac{1}{5\\times 7}+\\frac{1}{7\\times 9}+\\cdots+\\frac{1}{(2m+1)\\times(2m+3)}=\\frac{1}{7}"},
+          {"type": "text", "value": " [4점/부분점수 있음]"}
+        ]},
+        {"number": 2, "score": 4, "contents": [
+          {"type": "text", "value": "(2) "},
+          {"type": "equation", "value": "\\frac{1}{1+\\sqrt{4}}+\\frac{1}{\\sqrt{4}+\\sqrt{7}}+\\frac{1}{\\sqrt{7}+\\sqrt{10}}+\\cdots+\\frac{1}{\\sqrt{3n-2}+\\sqrt{3n+1}}=\\frac{4}{3}"},
+          {"type": "text", "value": " [4점/부분점수 있음]"}
+        ]}
+      ]
+    },
+    {
+      "number": 19,
+      "score": 9,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 3] 첫째항이 50인 등차수열 "},
+        {"type": "equation", "value": "\\{a_n\\}"},
+        {"type": "text", "value": "에 대하여 첫째항부터 제"},
+        {"type": "equation", "value": "n"},
+        {"type": "text", "value": "항까지의 합을 "},
+        {"type": "equation", "value": "S_n"},
+        {"type": "text", "value": "이라 하자. "},
+        {"type": "equation", "value": "S_n"},
+        {"type": "text", "value": "의 최댓값이 "},
+        {"type": "equation", "value": "S_{13}"},
+        {"type": "text", "value": "일 때, 다음 물음에 답하시오. [총 9점]"}
+      ],
+      "choices": [],
+      "sub_questions": [
+        {"number": 1, "score": 5, "contents": [
+          {"type": "text", "value": "(1) 등차수열 "},
+          {"type": "equation", "value": "\\{a_n\\}"},
+          {"type": "text", "value": "의 공차를 "},
+          {"type": "equation", "value": "d"},
+          {"type": "text", "value": "라 할 때, "},
+          {"type": "equation", "value": "d"},
+          {"type": "text", "value": "의 범위를 구하시오. [5점/부분점수 있음]"}
+        ]},
+        {"number": 2, "score": 4, "contents": [
+          {"type": "text", "value": "(2) 등차수열 "},
+          {"type": "equation", "value": "\\{a_n\\}"},
+          {"type": "text", "value": "의 공차가 정수일 때, "},
+          {"type": "equation", "value": "S_{10}"},
+          {"type": "text", "value": "의 값을 구하시오. [4점/부분점수 있음]"}
+        ]}
+      ]
+    },
+    {
+      "number": 20,
+      "score": 9,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 4] 삼각형 ABC의 세 변의 길이 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "b"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "c"},
+        {"type": "text", "value": "가 "},
+        {"type": "equation", "value": "4c^2=3(a^2+b^2)"},
+        {"type": "text", "value": "을 만족시킬 때, "},
+        {"type": "equation", "value": "\\cos C"},
+        {"type": "text", "value": "의 최솟값을 구하시오. 또한, "},
+        {"type": "equation", "value": "\\cos C"},
+        {"type": "text", "value": "가 최소일 때, 삼각형 ABC의 넓이가 "},
+        {"type": "equation", "value": "\\frac{\\sqrt{15}}{2}"},
+        {"type": "text", "value": "가 되도록 하는 세 변 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "b"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "c"},
+        {"type": "text", "value": "의 길이를 각각 구하시오. [9점/부분점수 있음]"}
+      ],
+      "choices": []
+    }
+  ]
+}

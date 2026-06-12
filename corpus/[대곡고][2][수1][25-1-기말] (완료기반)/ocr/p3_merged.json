@@ -1,0 +1,107 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 11,
+      "score": 4.3,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 "},
+        {"type": "equation", "value": "\\overline{AB}=4"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{AC}=6"},
+        {"type": "text", "value": "인 삼각형 ABC에서 "},
+        {"type": "equation", "value": "\\angle A"},
+        {"type": "text", "value": "의 이등분선이 변 BC와 만나는 점을 D라 하자. "},
+        {"type": "equation", "value": "\\overline{AD}=3"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\overline{BC}^2"},
+        {"type": "text", "value": "의 값은?"},
+        {"type": "figure", "value": "삼각형 ABC: A 위·B 왼쪽 아래·C 오른쪽 아래. A에서 BC 위의 점 D로 이등분선 AD(3 라벨), A의 양쪽 각에 점 표시 2개(이등분 표시). 변 AB 왼쪽에 점선 호와 4, 변 AC 오른쪽에 점선 호와 6 라벨. 꼭짓점 라벨 A·B·C·D.", "bbox": [0.12, 0.32, 0.90, 0.88]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "60"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{123}{2}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "62"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{125}{2}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "64"}]}
+      ]
+    },
+    {
+      "number": 12,
+      "score": 4.3,
+      "contents": [
+        {"type": "text", "value": "직선 "},
+        {"type": "equation", "value": "x=\\frac{2}{3}n-5"},
+        {"type": "text", "value": "가 두 곡선 "},
+        {"type": "equation", "value": "y=\\frac{1}{2}x^2+3x+6"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "y=\\frac{1}{2}x^2"},
+        {"type": "text", "value": "과 만나는 점을 각각 "},
+        {"type": "equation", "value": "A_n"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "B_n"},
+        {"type": "text", "value": "이라 하자. 이때 "},
+        {"type": "equation", "value": "\\overline{A_1B_1}+\\overline{A_2B_2}+\\overline{A_3B_3}+\\cdots+\\overline{A_{20}B_{20}}"},
+        {"type": "text", "value": "의 값은? (단, "},
+        {"type": "equation", "value": "n"},
+        {"type": "text", "value": "은 자연수이고, "},
+        {"type": "equation", "value": "\\overline{A_nB_n}>0"},
+        {"type": "text", "value": "이다.)"},
+        {"type": "figure", "value": "좌표평면: 두 포물선 — 왼쪽 y=(1/2)x²+3x+6(라벨), 오른쪽 y=(1/2)x²(라벨, 원점 통과). 수직선 x=(2/3)n-5(라벨)이 두 포물선과 만나 위 교점 B_n·아래 교점 A_n. x=-2 위치 점선. 축 라벨 x·y, 원점 O.", "bbox": [0.15, 0.42, 0.88, 0.93]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "264"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "266"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "268"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "270"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "272"}]}
+      ]
+    },
+    {
+      "number": 13,
+      "score": 4.3,
+      "contents": [
+        {"type": "text", "value": "한 변의 길이가 1인 정삼각형을 "},
+        {"type": "equation", "value": "A_1"},
+        {"type": "text", "value": "이라고 하자. "},
+        {"type": "equation", "value": "A_1"},
+        {"type": "text", "value": "의 둘레에 한 변의 길이가 "},
+        {"type": "equation", "value": "\\frac{1}{2}"},
+        {"type": "text", "value": "인 정삼각형을 붙여 만든 정삼각형을 "},
+        {"type": "equation", "value": "A_2"},
+        {"type": "text", "value": "라 하고, "},
+        {"type": "equation", "value": "A_2"},
+        {"type": "text", "value": "의 둘레에 한 변의 길이가 "},
+        {"type": "equation", "value": "\\frac{1}{2^2}"},
+        {"type": "text", "value": "인 정삼각형을 붙여 만든 정삼각형을 "},
+        {"type": "equation", "value": "A_3"},
+        {"type": "text", "value": "이라고 하자. 이와 같은 과정을 반복할 때, 정삼각형 "},
+        {"type": "equation", "value": "A_6"},
+        {"type": "text", "value": "의 둘레의 길이는?"},
+        {"type": "figure", "value": "정삼각형 3개가 점차 커지며 나란히: 첫째 A₁(변 1 라벨, 단순 정삼각형), 둘째 A₂(내부가 작은 정삼각형들로 분할된 패턴), 셋째 A₃(더 조밀한 분할 패턴). 각 아래에 라벨 A₁·A₂·A₃.", "bbox": [0.05, 0.42, 0.92, 0.70]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{375}{32}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{189}{16}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{381}{32}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{192}{16}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{387}{32}"}]}
+      ]
+    },
+    {
+      "number": 14,
+      "score": 4.5,
+      "contents": [
+        {"type": "text", "value": "가로와 세로가 각각 3칸인 표에 세 자연수 6, 7, 20이 그림과 같이 채워져 있다. 각 가로줄에 있는 수는 등차수열을 이루고, 각 세로줄에 있는 수는 등비수열을 이루도록 표를 모두 자연수로 채우고자 할 때, 빈칸에 들어갈 수들의 합은?"},
+        {"type": "table", "value": "", "rows": [["", "", "7"], ["6", "", ""], ["", "20", ""]]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "70"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "72"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "74"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "76"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "78"}]}
+      ]
+    }
+  ]
+}

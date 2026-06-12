@@ -1,0 +1,117 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 1,
+      "score": 3.7,
+      "contents": [
+        {"type": "text", "value": "제3항이 11, 제8항이 31인 등차수열 "},
+        {"type": "equation", "value": "\\{a_n\\}"},
+        {"type": "text", "value": "의 제15항은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "55"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "57"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "59"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "61"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "63"}]}
+      ]
+    },
+    {
+      "number": 2,
+      "score": 3.7,
+      "contents": [
+        {"type": "equation", "value": "\\sum_{k=1}^{10}\\left(\\frac{1}{7}k^2+\\frac{1}{5}k+1\\right)"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "64"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "67"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "70"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "73"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "76"}]}
+      ]
+    },
+    {
+      "number": 3,
+      "score": 3.9,
+      "contents": [
+        {"type": "text", "value": "지름의 길이가 5인 원에 내접하는 삼각형 ABC가"},
+        {"type": "equation_block", "value": "\\sin A+\\sin B+\\sin C=\\frac{12}{5}"},
+        {"type": "text", "value": "를 만족시킬 때, 삼각형 ABC의 둘레의 길이는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "14"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "16"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "18"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "20"}]}
+      ]
+    },
+    {
+      "number": 4,
+      "score": 3.9,
+      "contents": [
+        {"type": "text", "value": "수열 "},
+        {"type": "equation", "value": "\\{a_n\\}"},
+        {"type": "text", "value": "의 일반항이 "},
+        {"type": "equation", "value": "a_n=2n"},
+        {"type": "text", "value": "일 때, 다음 중 옳은 것만을 <보기>에서 있는 대로 고른 것은?"},
+        {"type": "text", "value": "<보기> ㄱ. 첫째항부터 제 \\(n\\)항까지의 합을 \\(S_n\\)이라고 하면 \\(S_n-a_n=n^2\\)이다. • ㄴ. 수열 \\(\\{3^{a_n}\\}\\)은 등비수열이다. • ㄷ. 수열 \\(\\{a_{n+1}a_n\\}\\)은 등차수열이다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄴ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄱ, ㄴ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄴ, ㄷ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄱ, ㄴ, ㄷ"}]}
+      ]
+    },
+    {
+      "number": 5,
+      "score": 3.9,
+      "contents": [
+        {"type": "text", "value": "두 수 1536과 "},
+        {"type": "equation", "value": "\\frac{3}{64}"},
+        {"type": "text", "value": " 사이에 "},
+        {"type": "equation", "value": "n"},
+        {"type": "text", "value": "개의 수를 넣어 만든 수열"},
+        {"type": "equation_block", "value": "1536,\\ a_1,\\ a_2,\\ a_3,\\ \\cdots,\\ a_n,\\ \\frac{3}{64}"},
+        {"type": "text", "value": "이 공비가 "},
+        {"type": "equation", "value": "\\frac{1}{2}"},
+        {"type": "text", "value": "인 등비수열일 때, "},
+        {"type": "equation", "value": "n"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "11"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "13"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "14"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "15"}]}
+      ]
+    },
+    {
+      "number": 6,
+      "score": 3.9,
+      "contents": [
+        {"type": "text", "value": "수열 "},
+        {"type": "equation", "value": "\\{a_n\\}"},
+        {"type": "text", "value": "이 "},
+        {"type": "equation", "value": "a_{n+1}=a_n+kn\\ (n=1,\\ 2,\\ 3,\\ \\cdots)"},
+        {"type": "text", "value": "을 만족시킨다. "},
+        {"type": "equation", "value": "a_6-a_3=24"},
+        {"type": "text", "value": "일 때, 상수 "},
+        {"type": "equation", "value": "k"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+      ]
+    }
+  ]
+}
