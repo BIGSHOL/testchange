@@ -1,0 +1,82 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 17,
+      "score": 8,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 5] n \\ge 3일 때, 등식 {}_{n}\\mathrm{C}_{3}=5 \\times {}_{n+1}\\mathrm{C}_{2}-3 \\times {}_{n}\\mathrm{C}_{2}를 만족시키는 자연수 n의 값을 구하시오.(단, 계승을 이용하여 정리하는 방법을 사용한다.)"}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 18,
+      "score": 9,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 6] 실수 a, b에 대하여 이차부등식 x^2+(2a-1)x+b+3<0의 해가 -2<x<3일 때, 이차부등식 3x^2+ax+b \\le 0를 만족시키는 정수 x를 모두 구하시오."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 19,
+      "score": 11,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 7] 한 개에 2000원인 쿠키와 3000원인 쿠키를 합하여 10개를 사려고 한다. 2000원인 쿠키보다 3000원인 쿠키를 더 많이 사고, 전체 금액을 28000원 이하로 사려고 할 때, 다음 물음에 답하시오."}
+      ],
+      "choices": [],
+      "sub_questions": [
+        {
+          "number": 1,
+          "score": 6,
+          "contents": [
+            {"type": "text", "value": "위 조건을 연립부등식으로 나타내시오."}
+          ]
+        },
+        {
+          "number": 2,
+          "score": 5,
+          "contents": [
+            {"type": "text", "value": "3000원인 쿠키를 최대 몇 개까지 살 수 있는지 구하시오."}
+          ]
+        }
+      ]
+    },
+    {
+      "number": 20,
+      "score": 12,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 8] 두 행렬 A=\\begin{pmatrix} 0 & -1 \\\\ 1 & -1 \\end{pmatrix}, B=\\begin{pmatrix} 0 & -1 \\\\ 1 & 0 \\end{pmatrix}에 대하여 다음 물음에 답하시오."}
+      ],
+      "choices": [],
+      "sub_questions": [
+        {
+          "number": 1,
+          "score": 4,
+          "contents": [
+            {"type": "text", "value": "행렬 A의 거듭제곱의 규칙성을 구하시오."}
+          ]
+        },
+        {
+          "number": 2,
+          "score": 4,
+          "contents": [
+            {"type": "text", "value": "행렬 B의 거듭제곱의 규칙성을 구하시오."}
+          ]
+        },
+        {
+          "number": 3,
+          "score": 4,
+          "contents": [
+            {"type": "text", "value": "등식 A^n+B^n=O을 만족시키는 가장 작은 자연수 n의 값을 구하시오."}
+          ]
+        }
+      ]
+    }
+  ]
+}
