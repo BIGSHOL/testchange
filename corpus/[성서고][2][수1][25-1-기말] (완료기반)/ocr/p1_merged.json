@@ -1,0 +1,113 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 1,
+      "score": 3.5,
+      "contents": [
+        {"type": "text", "value": "세 수 "},
+        {"type": "equation", "value": "3,\\ x,\\ 27"},
+        {"type": "text", "value": "이 순서대로 등비수열을 이룰 때, 양수 "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "11"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "13"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "15"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "17"}]}
+      ]
+    },
+    {
+      "number": 2,
+      "score": 3.5,
+      "contents": [
+        {"type": "text", "value": "수열 "},
+        {"type": "equation", "value": "\\{a_n\\}"},
+        {"type": "text", "value": "이 "},
+        {"type": "equation", "value": "a_1=1,\\ a_{n+1}=a_n+4\\ (n=1,\\ 2,\\ 3,\\ \\cdots)"},
+        {"type": "text", "value": "로 정의될 때, "},
+        {"type": "equation", "value": "a_6"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "20"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "21"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "22"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "23"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "24"}]}
+      ]
+    },
+    {
+      "number": 3,
+      "score": 3.6,
+      "contents": [
+        {"type": "equation", "value": "\\sum_{k=1}^{n} a_k=-12"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\sum_{k=1}^{n} b_k=4"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\sum_{k=1}^{n}(2a_k+b_k+3)=40"},
+        {"type": "text", "value": "을 만족시키는 자연수 "},
+        {"type": "equation", "value": "n"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "17"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "18"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "19"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "20"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "21"}]}
+      ]
+    },
+    {
+      "number": 4,
+      "score": 3.6,
+      "contents": [
+        {"type": "text", "value": "삼각형 ABC에서 "},
+        {"type": "equation", "value": "\\angle ABC=30^\\circ"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\angle ACB=45^\\circ"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{AC}=2"},
+        {"type": "text", "value": "일 때, 선분 AB의 길이는?"},
+        {"type": "figure", "value": "삼각형 ABC: B 왼쪽 아래·C 오른쪽 아래·A 위(오른쪽 치우침). B의 내각에 30°, C의 내각에 45° 표시. 변 AC 바깥쪽에 점선 호와 2 라벨. 꼭짓점 라벨 A·B·C.", "bbox": [0.10, 0.30, 0.92, 0.85]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "2\\sqrt{2}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2\\sqrt{3}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3\\sqrt{2}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "2\\sqrt{6}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "3\\sqrt{3}"}]}
+      ]
+    },
+    {
+      "number": 5,
+      "score": 3.7,
+      "contents": [
+        {"type": "text", "value": "삼각형 ABC에서 "},
+        {"type": "equation", "value": "\\angle A"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\angle B"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\angle C"},
+        {"type": "text", "value": "의 크기를 각각 "},
+        {"type": "equation", "value": "A,\\ B,\\ C"},
+        {"type": "text", "value": ", 그 대변의 길이를 각각 "},
+        {"type": "equation", "value": "a,\\ b,\\ c"},
+        {"type": "text", "value": "라 하자. "},
+        {"type": "equation", "value": "(a-b)(a+b)-\\frac{1}{2}ac+c^2=0"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\cos B"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{1}{8}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{1}{6}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{1}{4}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{1}{2}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "1"}]}
+      ]
+    }
+  ]
+}

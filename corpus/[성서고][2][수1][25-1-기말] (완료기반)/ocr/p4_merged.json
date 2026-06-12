@@ -1,0 +1,95 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 13,
+      "score": 4.1,
+      "contents": [
+        {"type": "equation", "value": "\\sum_{k=1}^{n}\\frac{2}{k^2+4k+3}+\\sum_{k=1}^{n}\\frac{1}{n^2+2n}=\\frac{11}{14}"},
+        {"type": "text", "value": "을 만족시키는 자연수 "},
+        {"type": "equation", "value": "n"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "15"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "16"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "17"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "18"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "19"}]}
+      ]
+    },
+    {
+      "number": 14,
+      "score": 4.1,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 원에 내접하는 사각형 ABCD와 사각형 ABCD의 대각선 BD에 대해 "},
+        {"type": "equation", "value": "\\angle ABD=\\theta_1"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\angle ADB=\\theta_2"},
+        {"type": "text", "value": "라 하자. "},
+        {"type": "equation", "value": "\\theta_1+\\theta_2<\\frac{\\pi}{2}"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\sin^2\\theta_1+\\cos^2\\theta_2=1"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{AB}=\\overline{BC}=2"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{BD}=\\sqrt{10}"},
+        {"type": "text", "value": "일 때, 선분 CD의 길이는?"},
+        {"type": "figure", "value": "원에 내접하는 사각형 ABCD: A 위·D 오른쪽·B 왼쪽·C 아래. 점선 대각선 BD에 √10 라벨. B의 각에 θ₁(점선 호), D의 각에 θ₂(점선 호) 표시. 변 AB에 2, 변 BC 옆에 점선 호와 2 라벨. 꼭짓점 라벨 A·B·C·D.", "bbox": [0.12, 0.42, 0.90, 0.92]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{5}{2}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{7}{2}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "4"}]}
+      ]
+    },
+    {
+      "number": 15,
+      "score": 4.1,
+      "contents": [
+        {"type": "text", "value": "삼각형 ABC에서 세 변의 길이 "},
+        {"type": "equation", "value": "\\overline{BC}=a"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{AC}=b"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{AB}=c"},
+        {"type": "text", "value": "가 순서대로 등차수열을 이루고, "},
+        {"type": "equation", "value": "b=10"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\frac{\\pi}{3}<\\angle ACB<\\frac{2\\pi}{3}"},
+        {"type": "text", "value": "일 때, 모든 자연수 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "의 값의 합은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "15"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "20"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "24"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "30"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "34"}]}
+      ]
+    },
+    {
+      "number": 16,
+      "score": 4.1,
+      "contents": [
+        {"type": "text", "value": "서로 다른 세 실근을 갖는 "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "에 대한 삼차방정식 "},
+        {"type": "equation", "value": "x^3-(a+2)x^2+(2a-3)x+3a=0"},
+        {"type": "text", "value": "이 있다. 이 방정식의 세 실근이 공차가 양수인 등차수열을 이루도록 하는 모든 실수 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "의 값의 곱은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-42"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-35"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-30"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "-24"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "-12"}]}
+      ]
+    }
+  ]
+}

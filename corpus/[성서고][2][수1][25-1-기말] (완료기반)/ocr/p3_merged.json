@@ -1,0 +1,92 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 10,
+      "score": 3.9,
+      "contents": [
+        {"type": "text", "value": "두 수열 "},
+        {"type": "equation", "value": "\\{a_n\\}"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\{b_n\\}"},
+        {"type": "text", "value": "의 첫째항부터 제"},
+        {"type": "equation", "value": "n"},
+        {"type": "text", "value": "항까지의 합을 각각 "},
+        {"type": "equation", "value": "S_n"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "T_n"},
+        {"type": "text", "value": "이라 하면, 모든 자연수 "},
+        {"type": "equation", "value": "n"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "S_n+T_n=3n^2-4"},
+        {"type": "text", "value": "가 성립한다. "},
+        {"type": "equation", "value": "a_1=1"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "b_7=14"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "b_1+a_7"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "13"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "18"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "23"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "28"}]}
+      ]
+    },
+    {
+      "number": 11,
+      "score": 3.9,
+      "contents": [
+        {"type": "text", "value": "삼각형 ABC에서 "},
+        {"type": "equation", "value": "\\angle A"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\angle B"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\angle C"},
+        {"type": "text", "value": "의 크기를 각각 "},
+        {"type": "equation", "value": "A,\\ B,\\ C"},
+        {"type": "text", "value": ", 그 대변의 길이를 각각 "},
+        {"type": "equation", "value": "a,\\ b,\\ c"},
+        {"type": "text", "value": "라 하자. <보기>에서 직각삼각형만을 있는 대로 고른 것은?"},
+        {"type": "text", "value": "<보기> ㄱ. \\(a\\sin A=b\\sin B\\) 인 삼각형 ABC • ㄴ. \\(c\\cos A-a\\cos C=b\\) 인 삼각형 ABC • ㄷ. \\(\\sin A:\\sin B:\\sin C=2:1:\\sqrt{5}\\) 인 삼각형 ABC"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄴ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄷ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄱ, ㄴ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄴ, ㄷ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄱ, ㄴ, ㄷ"}]}
+      ]
+    },
+    {
+      "number": 12,
+      "score": 3.9,
+      "contents": [
+        {"type": "text", "value": "다음은 모든 자연수 "},
+        {"type": "equation", "value": "n"},
+        {"type": "text", "value": "에 대하여 등식"},
+        {"type": "equation", "value": "1^2-2^2+3^2-4^2+\\cdots+(-1)^{n-1}n^2=\\frac{(-1)^{n-1}n(n+1)}{2}\\ \\cdots(\\ast)"},
+        {"type": "text", "value": "이 성립함을 수학적 귀납법으로 증명한 것이다."},
+        {"type": "text", "value": "<상자> (ⅰ) \\(n=\\boxed{가}\\)일 때, • (좌변)\\(=(-1)^{1-1}\\times 1^2=1\\), • (우변)\\(=\\dfrac{(-1)^{1-1}\\times 1\\times(1+1)}{2}=1\\)이므로 \\((\\ast)\\)이 성립한다. • (ⅱ) \\(n=k\\)일 때, • \\((\\ast)\\)이 성립한다고 가정하면 • \\(1^2-2^2+3^2-4^2+\\cdots+(-1)^{k-1}k^2=\\boxed{나}\\)이다. • \\(n=k+1\\)일 때, • \\(1^2-2^2+3^2-4^2+\\cdots+(-1)^{k-1}k^2+(-1)^k(k+1)^2\\) • \\(=\\boxed{나}+(-1)^k(k+1)^2\\) • \\(=\\dfrac{k+1}{2}\\times\\boxed{다}\\) • \\(=\\dfrac{(-1)^k(k+1)(k+2)}{2}\\) • 이다. • 그러므로 \\(n=k+1\\)일 때도 \\((\\ast)\\)이 성립한다. • (ⅰ), (ⅱ)에 의하여 모든 자연수 \\(n\\)에 대하여 \\((\\ast)\\)이 성립한다."},
+        {"type": "text", "value": "위의 (가)에 알맞은 수를 "},
+        {"type": "equation", "value": "p"},
+        {"type": "text", "value": ", (나), (다)에 알맞은 식을 각각 "},
+        {"type": "equation", "value": "f(k)"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "g(k)"},
+        {"type": "text", "value": "라 할 때, "},
+        {"type": "equation", "value": "f(|g(p)|)"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-6"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-3"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "6"}]}
+      ]
+    }
+  ]
+}
