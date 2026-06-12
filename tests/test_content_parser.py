@@ -363,6 +363,27 @@ def _check_sinmyeong_fixes(fails):
         fails.append("  SM1 참조어 '<보기> 중' 오분리(박스 머리로 오인)")
 
 
+def _check_sangwon_go1_fixes(fails):
+    """상원고 공수1 #18 — env(pmatrix) 직전 식별자 미흡수로 행렬곱 ``, A`` 의 A 가 한글
+    없는 TEXT 조각으로 남아 평문(정자) 렌더되던 회귀. env 원자에 선행 식별자를 흡수하고,
+    finalize 의 eq·연산자·eq 병합이 ``A(…)=(…)`` 를 한 수식으로 만들어야 한다."""
+    CT = ContentType
+    v = (r'행렬 A에 대하여 A\begin{pmatrix} 1 \\ 2 \end{pmatrix}='
+         r'\begin{pmatrix} k \\ 1 \end{pmatrix}, A\begin{pmatrix} 2 \\ -1 \end{pmatrix}='
+         r'\begin{pmatrix} 0 \\ -8 \end{pmatrix}이고')
+    doc = {"header": "", "questions": [{"number": 1, "contents": [{"type": "text", "value": v}]}]}
+    q = parse_ocr_response(doc, page_number=1).questions[0]
+    eqs = [b.value or "" for b in q.contents if b.type == CT.EQUATION]
+    txts = [b.value or "" for b in q.contents if b.type == CT.TEXT]
+    # 행렬곱 식 2개가 각각 A 포함 한 수식으로(= 병합 포함)
+    mat_eqs = [e for e in eqs if "pmatrix" in e]
+    if len(mat_eqs) != 2 or not all(e.startswith("A\\begin") and "=" in e for e in mat_eqs):
+        fails.append(f"  SW1 행렬곱 식별자 흡수/병합 실패: {mat_eqs!r}")
+    # A 가 평문 TEXT 로 남으면 정자 렌더(결함)
+    if any("A" in t for t in txts):
+        fails.append(f"  SW1 A 평문 잔존(정자 렌더): txts={txts!r}")
+
+
 def run():
     fails = []
     _check_comma_roots(fails)
@@ -376,6 +397,7 @@ def run():
     _check_sangwon_fixes(fails)
     _check_seonggwang_fixes(fails)
     _check_sinmyeong_fixes(fails)
+    _check_sangwon_go1_fixes(fails)
     for text, must in _SPACING_CASES:
         got = _render(text)
         if must not in got:
@@ -391,7 +413,7 @@ def run():
         print("FAIL test_content_parser:")
         print("\n".join(fails))
         return 1
-    print(f"OK test_content_parser ({len(_SPACING_CASES) + len(_SCORE_CASES) + 11} cases)")
+    print(f"OK test_content_parser ({len(_SPACING_CASES) + len(_SCORE_CASES) + 12} cases)")
     return 0
 
 

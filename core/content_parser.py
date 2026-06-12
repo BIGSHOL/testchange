@@ -1256,11 +1256,21 @@ def _split_latex_commands(text: str) -> list[ContentBlock]:
     if env:
         blocks: list[ContentBlock] = []
         before, after = text[:env.start()], text[env.end():]
+        # env 직전에 공백 없이 붙은 식별자(행렬곱 ``A\begin{pmatrix}…`` 의 A)는 수식 원자에
+        # 포함 — 안 하면 ``, A`` 같은 한글 없는 TEXT 조각으로 남아 mixed 분리기의 한글 가드에
+        # 걸려 평문(정자) 렌더된다(상원고 공수1 #18 둘째 식 A 정자 — 첫째 A 는 앞 한글 덕에
+        # EQ 승격되는 비대칭). 명령 경로의 식별자 흡수와 동일 원칙.
+        _lead = len(before)
+        while _lead > 0 and _is_eq_lead_char(before, _lead):
+            _lead -= 1
+        _lead_id = before[_lead:]
+        if _lead_id:
+            before = before[:_lead]
         if before.strip():
             blocks.extend(_split_latex_commands(before))
         elif before:
             blocks.append(ContentBlock(type=ContentType.TEXT, value=before))
-        blocks.append(ContentBlock(type=ContentType.EQUATION, value=env.group(0)))
+        blocks.append(ContentBlock(type=ContentType.EQUATION, value=_lead_id + env.group(0)))
         if after.strip():
             blocks.extend(_split_latex_commands(after))   # 둘째 cases 도 여기서 원자 처리
         elif after:
