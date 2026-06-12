@@ -1,0 +1,58 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 18,
+      "score": 7,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 1] 연립방정식 "},
+        {"type": "equation", "value": "\\begin{cases}bx+ay=3 \\\\ ax-by=-1\\end{cases}"},
+        {"type": "text", "value": " 에서 잘못하여 a와 b를 서로 바꾸어 놓고 풀었더니 해가 x=2, y=-1이 되었다. 이때 a, b의 값을 구하시오. (단, a, b는 상수)"}
+      ],
+      "choices": []
+    },
+    {
+      "number": 19,
+      "score": 7,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 2] 다음 연립방정식을 푸시오."},
+        {"type": "equation", "value": "\\begin{cases}0.1x-1.2y=-0.4 \\quad \\cdots ① \\\\ \\frac{5}{4}x-2y=\\frac{1}{6} \\quad \\cdots ②\\end{cases}"}
+      ],
+      "choices": []
+    },
+    {
+      "number": 20,
+      "score": 7,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 3] 유람선을 타고 강을 따라 내려오는데 20분, 강을 거슬러 올라가는데 30분이 걸린다. 유람선은 분속 100\\mathrm{m}로 일정하게 움직이고 강물의 속력은 유람선의 속력보다 느리지만 일정하다고 할 때, 두 선착장 사이의 거리와 강물의 속력을 구하시오. (단, 연립방정식 활용 문제의 풀이 단계에 맞게 서술하고 마지막 확인 단계는 제외.)"}
+      ],
+      "choices": []
+    },
+    {
+      "number": 21,
+      "score": 7,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 4] 일차함수 y=-x+5, y=-\\frac{1}{3}x+1의 그래프와 x축 및 y축으로 둘러싸인 도형의 넓이를 구하시오."}
+      ],
+      "choices": []
+    },
+    {
+      "number": 22,
+      "score": 7,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 5] 그림과 같이 \\overline{AD}=24\\mathrm{cm}, \\overline{CD}=18\\mathrm{cm}인 직사각형 ABCD에서 점 P는 점 B를 출발하여 점 C까지 \\overline{BC}를 따라 3초에 2\\mathrm{cm}씩 움직인다. 점 P가 점 B를 출발한 지 x초 후의 삼각형 APC의 넓이를 y\\mathrm{cm}^2라고 할 때, 다음 물음에 답하시오. (단, 0<x<36)"},
+        {"type": "figure", "value": "직사각형 ABCD — A 좌상·D 우상·B 좌하·C 우하. 윗변 \\overline{AD}=24cm, 오른변 \\overline{CD}=18cm. 아랫변 \\overline{BC} 위에 점 P(B와 C 사이). 삼각형 APC가 빗금으로 칠해짐(꼭짓점 A·P·C).", "bbox": [0.10, 0.55, 0.50, 0.80]}
+      ],
+      "choices": [],
+      "sub_questions": [
+        {"number": 1, "score": 4, "contents": [{"type": "text", "value": "x와 y 사이의 관계를 식으로 나타내시오."}]},
+        {"number": 2, "score": 3, "contents": [{"type": "text", "value": "삼각형 APC의 넓이가 162\\mathrm{cm}^2가 되는 것은 점 P가 점 B를 출발한지 몇 초 후인지 구하시오."}]}
+      ]
+    }
+  ]
+}
