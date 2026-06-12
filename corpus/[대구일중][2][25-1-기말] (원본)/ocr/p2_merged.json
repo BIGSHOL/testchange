@@ -1,0 +1,106 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 1,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "연립방정식 "},
+        {"type": "equation", "value": "\\begin{cases}3x-2y=-8 \\cdots ㉠ \\\\ 4x+3y=5 \\cdots ㉡\\end{cases}"},
+        {"type": "text", "value": " 에서 두 식의 합 또는 차를 이용하여 y를 없애서 풀려고 할 때, 필요한 식으로 옳은 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "㉠\\times3+㉡\\times2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "㉠\\times3-㉡\\times2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "㉠\\times3+㉡\\times4"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "㉠\\times4+㉡\\times3"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "㉠\\times4-㉡\\times3"}]}
+      ]
+    },
+    {
+      "number": 2,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "연립방정식 "},
+        {"type": "equation", "value": "\\begin{cases}x=-2y \\\\ x+4y=6\\end{cases}"},
+        {"type": "text", "value": " 의 해가 (a, b)일 때, a+b의 값은? (단, a, b는 상수이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-6"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-5"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "1"}]}
+      ]
+    },
+    {
+      "number": 3,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "연립방정식 "},
+        {"type": "equation", "value": "\\begin{cases}3x-2y=6 \\\\ ax+y=-5\\end{cases}"},
+        {"type": "text", "value": " 의 해가 일차방정식 "},
+        {"type": "equation", "value": "x+2y=10"},
+        {"type": "text", "value": " 을 만족시킬 때, 상수 a의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "3"}]}
+      ]
+    },
+    {
+      "number": 4,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "연립방정식 "},
+        {"type": "equation", "value": "\\begin{cases}0.3x-0.2(y+1)=1 \\\\ \\frac{x+1}{3}-\\frac{y-3}{2}=\\frac{7}{3}\\end{cases}"},
+        {"type": "text", "value": " 의 해가 일차방정식 "},
+        {"type": "equation", "value": "x+ky=12"},
+        {"type": "text", "value": " 를 만족시킬 때, 상수 k의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-\\frac{10}{3}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-\\frac{22}{13}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-\\frac{8}{7}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "4"}]}
+      ]
+    },
+    {
+      "number": 5,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "일중이와 달성이가 가위바위보를 하여 이긴 사람은 3계단을 올라가고 진 사람은 1계단을 내려가기로 하였다. 얼마 후 일중이는 처음 위치보다 계단을 20칸 올라가 있었고 달성이는 처음 위치보다 계단을 4칸 올라가 있었다. 일중이가 이긴 횟수를 x회, 달성이가 이긴 횟수를 y회라고 할 때, 세울 수 있는 연립방정식으로 옳은 것은? (단, 비기는 경우는 없으며 처음 위치는 서로 같다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\begin{cases}3x+y=20 \\\\ x-3y=-4\\end{cases}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\begin{cases}3x+y=20 \\\\ x+3y=4\\end{cases}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\begin{cases}3x-y=20 \\\\ x+3y=4\\end{cases}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\begin{cases}3x-y=20 \\\\ -x+3y=-4\\end{cases}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\begin{cases}3x-y=20 \\\\ -x+3y=4\\end{cases}"}]}
+      ]
+    },
+    {
+      "number": 6,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "표는 두 식품 (가)와 (나) 각각 100g 속에 들어 있는 단백질과 지방의 양을 나타낸 것이다. 두 식품을 합하여 단백질 52g, 지방 46g을 얻으려고 할 때, 섭취해야 할 식품 (가)의 양은?"},
+        {"type": "table", "value": "", "rows": [
+          ["", "단백질(g)", "지방(g)"],
+          ["(가)", "10", "5"],
+          ["(나)", "6", "8"]
+        ]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "280g"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "284g"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "296g"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "320g"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "400g"}]}
+      ]
+    }
+  ]
+}
