@@ -1,0 +1,130 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 1,
+      "score": 3,
+      "contents": [
+        {"type": "equation", "value": "_{2}\\Pi_{3}"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "11"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "12"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 2,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "모양과 크기가 같은 흰 공, 노란 공, 빨간 공 중에서 중복을 허용하여 5개를 택하는 경우의 수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "15"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "18"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "21"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "24"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "27"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 3,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "서로 다른 세 개의 동전을 동시에 던질 때, 적어도 한 개는 앞면이 나올 확률은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{3}{8}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{1}{2}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{5}{8}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{3}{4}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{7}{8}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 4,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "A와 B를 포함한 학생 10명이 있는 동아리에서 동아리 홍보를 담당할 세 명의 학생을 임의로 뽑을 때, A 또는 B가 뽑힐 확률은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{1}{3}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{2}{5}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{7}{15}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{8}{15}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{3}{5}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 5,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "다음 표는 어느 학급의 학생 32명을 대상으로 체육대회용 반티 구입에 대한 찬성 여부를 조사하여 나타낸 것이다. 이 학급에서 임의로 택한 한 명이 찬성한 학생일 때, 그 학생이 여학생일 확률을 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "라 하고, 임의로 택한 한 명이 남학생일 때, 그 학생이 반대했을 확률을 "},
+        {"type": "equation", "value": "b"},
+        {"type": "text", "value": "라 하자. "},
+        {"type": "equation", "value": "\\frac{b}{a}"},
+        {"type": "text", "value": "의 값은?"},
+        {"type": "table", "value": "", "rows": [
+          ["", "찬성", "반대", "합계"],
+          ["남학생", "13", "4", "17"],
+          ["여학생", "8", "7", "15"],
+          ["합계", "21", "11", "32"]
+        ]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{6}{17}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{15}{34}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{9}{17}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{21}{34}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{12}{17}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 6,
+      "score": 4,
+      "contents": [
+        {"type": "equation", "value": "_{n}\\Pi_{3} + _{n+1}\\mathrm{P}_{3} = 426"},
+        {"type": "text", "value": "을 만족시키는 자연수 "},
+        {"type": "equation", "value": "n"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "_{3}\\mathrm{H}_{n}"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "21"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "28"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "36"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "45"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "55"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 7,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "여섯 개의 숫자 "},
+        {"type": "equation", "value": "1, 2, 2, 3, 5, 5"},
+        {"type": "text", "value": "를 일렬로 나열할 때, 짝수는 앞에서부터 짝수 번째 자리에 오도록 나열하는 경우의 수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "24"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "30"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "36"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "42"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "48"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

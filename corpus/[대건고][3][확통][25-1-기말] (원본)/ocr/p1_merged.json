@@ -1,0 +1,133 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 1,
+      "score": 4.3,
+      "contents": [
+        {"type": "text", "value": "두 사건 "},
+        {"type": "equation", "value": "A, B"},
+        {"type": "text", "value": "가 서로 독립이고, "},
+        {"type": "equation", "value": "P(A) = \\frac{3}{8}"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "P(A \\cap B) = \\frac{3}{10}"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "P(B)"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{1}{2}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{3}{5}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{7}{10}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{4}{5}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{9}{10}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 2,
+      "score": 4.3,
+      "contents": [
+        {"type": "text", "value": "확률변수 "},
+        {"type": "equation", "value": "X"},
+        {"type": "text", "value": "가 이항분포 "},
+        {"type": "equation", "value": "B\\left(100, \\frac{1}{5}\\right)"},
+        {"type": "text", "value": "를 따를 때, "},
+        {"type": "equation", "value": "E(X)"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "16"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "20"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "24"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "30"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "36"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 3,
+      "score": 4.3,
+      "contents": [
+        {"type": "text", "value": "다음 중 연속확률변수 "},
+        {"type": "equation", "value": "X"},
+        {"type": "text", "value": "의 확률밀도함수 "},
+        {"type": "equation", "value": "f(x)"},
+        {"type": "text", "value": "로 적절한 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "f(x) = \\frac{1}{2} \\ (0 \\leq x \\leq 2)"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "f(x) = \\frac{1}{2}x + \\frac{1}{2} \\ (0 \\leq x \\leq 2)"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "f(x) = \\frac{1}{4}x - \\frac{1}{2} \\ (0 \\leq x \\leq 4)"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "f(x) = \\frac{1}{3} \\ (x = 0, 1, 2)"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "f(x) = {}_{2}C_{x} \\left(\\frac{2}{3}\\right)^{x} \\left(\\frac{1}{3}\\right)^{2-x} \\ (x = 0, 1, 2)"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 4,
+      "score": 4.4,
+      "contents": [
+        {"type": "text", "value": "1부터 8까지의 자연수가 하나씩 적혀 있는 8개의 공이 들어 있는 주머니가 있다. 이 주머니에서 한 개의 공을 꺼낼 때, 꺼낸 공에 적힌 숫자가 짝수인 사건을 "},
+        {"type": "equation", "value": "A"},
+        {"type": "text", "value": ", 3의 배수인 사건을 "},
+        {"type": "equation", "value": "B"},
+        {"type": "text", "value": "라 하자. "},
+        {"type": "equation", "value": "P(B|A)"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{1}{8}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{1}{6}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{1}{4}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{1}{3}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{1}{2}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 5,
+      "score": 4.4,
+      "contents": [
+        {"type": "text", "value": "교내 수학체험전에 참가하여 당첨확률이 "},
+        {"type": "equation", "value": "\\frac{1}{4}"},
+        {"type": "text", "value": "인 행운권 4장을 받았다. 이 4장의 행운권 중 당첨인 행운권이 1장일 확률은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{9}{32}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{81}{256}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{27}{64}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{1}{2}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{81}{128}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 6,
+      "score": 4.6,
+      "contents": [
+        {"type": "text", "value": "이산확률변수 "},
+        {"type": "equation", "value": "X"},
+        {"type": "text", "value": "의 확률분포를 표로 나타내면 다음과 같다. "},
+        {"type": "equation", "value": "E(X) = \\frac{1}{6}"},
+        {"type": "text", "value": "일 때, 두 상수 "},
+        {"type": "equation", "value": "a, b"},
+        {"type": "text", "value": "의 곱 "},
+        {"type": "equation", "value": "ab"},
+        {"type": "text", "value": "의 값은?"},
+        {"type": "table", "value": "", "rows": [
+          ["X", "-1", "0", "1", "합계"],
+          ["P(X=x)", "a", "\\frac{1}{2}", "b", "1"]
+        ]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{1}{18}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{1}{15}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{1}{12}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{1}{9}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{1}{6}"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

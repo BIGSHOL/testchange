@@ -1,0 +1,123 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 16,
+      "score": 12,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형2] 어느 농장에서 수확하는 사과 1개의 무게는 평균이 "},
+        {"type": "equation", "value": "m"},
+        {"type": "text", "value": ", 표준편차가 "},
+        {"type": "equation", "value": "\\sigma"},
+        {"type": "text", "value": "인 정규분포를 따른다고 한다. 다음 조건을 만족할 때, 물음에 답하시오. (단, 무게의 단위는 g이고, "},
+        {"type": "equation", "value": "Z"},
+        {"type": "text", "value": "가 표준정규분포를 따르는 확률변수일 때, "},
+        {"type": "equation", "value": "P(|Z| \\leq 1.96) = 0.95"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "P(|Z| \\leq 2.58) = 0.99"},
+        {"type": "text", "value": "로 계산한다.)"},
+        {"type": "text", "value": "<상자> (가) 이 농장에서 수확하는 사과 중에서 20개를 임의추출하여 얻은 사과 1개의 무게의 표본평균은 "},
+        {"type": "equation", "value": "\\overline{x_1}"},
+        {"type": "text", "value": "이고, 이때, 모평균 "},
+        {"type": "equation", "value": "m"},
+        {"type": "text", "value": "에 대한 신뢰도 95%의 신뢰구간은 "},
+        {"type": "equation", "value": "190.2 \\leq m \\leq 209.8"},
+        {"type": "text", "value": "이다. • (나) 이 농장에서 수확하는 사과 중에서 "},
+        {"type": "equation", "value": "n"},
+        {"type": "text", "value": "개를 임의추출하여 얻은 사과 1개의 무게의 표본평균은 "},
+        {"type": "equation", "value": "\\overline{x_2}"},
+        {"type": "text", "value": "이고, 이때, 모평균 "},
+        {"type": "equation", "value": "m"},
+        {"type": "text", "value": "에 대한 신뢰도 95%의 신뢰구간은 "},
+        {"type": "equation", "value": "a \\leq m \\leq b"},
+        {"type": "text", "value": ", 모평균 "},
+        {"type": "equation", "value": "m"},
+        {"type": "text", "value": "에 대한 신뢰도 99%의 신뢰구간은 "},
+        {"type": "equation", "value": "c \\leq m \\leq d"},
+        {"type": "text", "value": "이다. • (다) "},
+        {"type": "equation", "value": "b-a = \\frac{1}{10}(209.8 - 190.2)"}
+      ],
+      "choices": [],
+      "sub_questions": [
+        {
+          "number": 1,
+          "score": 4,
+          "contents": [
+            {"type": "text", "value": "[서술형 2-(1)] 표본평균 "},
+            {"type": "equation", "value": "\\overline{x_1}"},
+            {"type": "text", "value": "과 모분산 "},
+            {"type": "equation", "value": "\\sigma^2"},
+            {"type": "text", "value": "의 값을 구하고, 그 과정을 서술하시오."}
+          ],
+          "choices": [],
+          "sub_questions": []
+        },
+        {
+          "number": 2,
+          "score": 4,
+          "contents": [
+            {"type": "text", "value": "[서술형 2-(2)] "},
+            {"type": "equation", "value": "n"},
+            {"type": "text", "value": "의 값을 구하고, 그 과정을 서술하시오."}
+          ],
+          "choices": [],
+          "sub_questions": []
+        },
+        {
+          "number": 3,
+          "score": 4,
+          "contents": [
+            {"type": "text", "value": "[서술형 2-(3)] "},
+            {"type": "equation", "value": "\\overline{x_2} = 210"},
+            {"type": "text", "value": "일 때, 모평균 "},
+            {"type": "equation", "value": "m"},
+            {"type": "text", "value": "에 대한 신뢰도 99%의 신뢰구간 "},
+            {"type": "equation", "value": "c \\leq m \\leq d"},
+            {"type": "text", "value": "를 구하고, 그 결과를 해석하시오."}
+          ],
+          "choices": [],
+          "sub_questions": []
+        }
+      ]
+    },
+    {
+      "number": 17,
+      "score": 12,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형3] 자연수 6, 12, 18, 24, 30, 36, 42, 48, 54가 하나씩 적힌 9장의 카드 중에서 임의로 4장을 동시에 뽑을 때, 뽑은 카드에 적힌 수 중 가장 작은 수를 확률변수 "},
+        {"type": "equation", "value": "X"},
+        {"type": "text", "value": "라 하자. 확률변수 "},
+        {"type": "equation", "value": "X"},
+        {"type": "text", "value": "에 대한 다음 물음에 답하시오."},
+        {"type": "figure", "value": "6, 12, 18, 24, 30, 36, 42, 48, 54가 하나씩 적힌 9장의 카드 그림.", "bbox": [0.53, 0.15, 0.97, 0.22]}
+      ],
+      "choices": [],
+      "sub_questions": [
+        {
+          "number": 1,
+          "score": 6,
+          "contents": [
+            {"type": "text", "value": "[서술형 3-(1)] 확률변수 "},
+            {"type": "equation", "value": "X"},
+            {"type": "text", "value": "의 확률분포를 표로 나타내시오."}
+          ],
+          "choices": [],
+          "sub_questions": []
+        },
+        {
+          "number": 2,
+          "score": 6,
+          "contents": [
+            {"type": "text", "value": "[서술형 3-(2)] 확률변수 "},
+            {"type": "equation", "value": "X"},
+            {"type": "text", "value": "의 분산을 구하고, 그 과정을 서술하시오."}
+          ],
+          "choices": [],
+          "sub_questions": []
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 13,
+      "score": 5.2,
+      "contents": [
+        {"type": "text", "value": "확률변수 "},
+        {"type": "equation", "value": "X"},
+        {"type": "text", "value": "가 정규분포 "},
+        {"type": "equation", "value": "N(0, 4)"},
+        {"type": "text", "value": "를 따르고, 확률변수 "},
+        {"type": "equation", "value": "Y"},
+        {"type": "text", "value": "가 정규분포 "},
+        {"type": "equation", "value": "N(4, 4)"},
+        {"type": "text", "value": "를 따른다. 확률변수 "},
+        {"type": "equation", "value": "X"},
+        {"type": "text", "value": "의 확률밀도함수를 "},
+        {"type": "equation", "value": "f(x)"},
+        {"type": "text", "value": ", 확률변수 "},
+        {"type": "equation", "value": "Y"},
+        {"type": "text", "value": "의 확률밀도함수를 "},
+        {"type": "equation", "value": "g(x)"},
+        {"type": "text", "value": "라 할 때, 오른쪽 표준정규분포표를 이용하여 두 곡선 "},
+        {"type": "equation", "value": "y = f(x)"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "y = g(x)"},
+        {"type": "text", "value": "와 "},
+        {"type": "equation", "value": "y"},
+        {"type": "text", "value": "축으로 둘러싸인 부분의 넓이를 구한 것은?"},
+        {"type": "table", "value": "", "rows": [
+          ["z", "P(0 \\leq Z \\leq z)"],
+          ["0.5", "0.1915"],
+          ["1.0", "0.3413"],
+          ["1.5", "0.4332"],
+          ["2.0", "0.4772"]
+        ]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "0.0417"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "0.0834"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "0.2054"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "0.2888"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "0.4108"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 14,
+      "score": 5.3,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 주머니 A, B에는 1부터 5까지의 자연수가 하나씩 적힌 5장의 카드가 각각 들어있다."},
+        {"type": "figure", "value": "두 주머니 A, B의 그림. 각 주머니에는 1, 2, 3, 4, 5가 적힌 5장의 카드가 들어 있다.", "bbox": [0.05, 0.40, 0.47, 0.62]},
+        {"type": "text", "value": "주머니 A, B에서 임의로 1장씩 카드를 꺼내어 각 카드에 적힌 2개의 수를 더한 것을 확률변수 "},
+        {"type": "equation", "value": "X"},
+        {"type": "text", "value": "라 할 때, "},
+        {"type": "equation", "value": "V(X)"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "16"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 15,
+      "score": 10,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형1] 1개의 주사위와 1부터 6까지의 자연수가 하나씩 적힌 6개의 공이 들어 있는 주머니를 사용하여 다음 시행을 한다."},
+        {"type": "text", "value": "<상자> 주사위 1개를 던져 나오는 눈의 수가 • 6의 약수이면 주머니에서 임의로 3개의 공을 동시에 꺼내고, • 6의 약수가 아니면 주머니에서 임의로 2개의 공을 동시에 꺼낸다."},
+        {"type": "text", "value": "이 시행을 한 번 할 때, 꺼낸 공에 적힌 모든 수의 곱이 짝수일 확률을 구하고, 그 과정을 서술하시오."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    }
+  ]
+}
