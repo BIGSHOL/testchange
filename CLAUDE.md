@@ -1387,3 +1387,20 @@ PMATRIX·열벡터 자체는 통과, 주변 텍스트 처리에서 B형 다발. 
 - 수정: `_CLOSE_SCORE_JEOM_RE` 에 ``,부가문구`` 허용 → ``^점\s*(?:,[^\])]*)?[\])]``
   (`_SCORE_TEXT_RE` 와 동치). 재렌더 단일 ``[8점]`` 확인. 표준 ``[N점]`` 만 렌더(부분점수
   문구 드롭, 범물중 인라인-우선 합의 연장).
+
+## corpus 생산자·소비자 멀티 worktree 운영 (2026-06-13) — 인계
+
+corpus 자가발전 검수가 **격리 git worktree 로 역할 분리·병행**된다(한 .git 공유, 통합지점=
+`testchange/master`=origin/master). 생산자: `master`(고1공수)·`hwakt-ocr`(확통,`F:\sihum-hwakt`)·
+`mij-ocr`(미적분,`F:\시험지변환기-mij`). 소비자(렌더/검수)=`render-review`(`F:\시험지변환기-render`).
+생산자가 `ocr_done` 핸드오프 커밋 → 소비자가 렌더+완료본 1:1 검수 → `reviewed`.
+
+- **상세 인계·셋업·남은일 = `docs/HANDOFF_CONSUMER.md`. 소비자 도구 = `scripts/corpus_consumer/`**
+  (`watch_handoff`·`corpus_render`·`mark_reviewed`·`match_refs`·`hwp2txt`·`hwp2pdf`, README 포함).
+- ⚠️ **반복 분기 주의**: 생산자가 **커밋 전 pull 안 해** master↔hwakt-ocr 가 2회 충돌(둘 다
+  `merge-tree` 0충돌→`commit-tree` 머지로 해소). 규약: 새 핸드오프 커밋 전 `fetch && merge
+  testchange/master`. 공유 트리라 **`git add -A` 금지**(검수 폴더만 literal pathspec).
+- ⚠️ **.hwp 레퍼런스 PDF 변환 깨짐**(12KB 빈 PDF) → 수하·확통은 `hwp2txt` 텍스트 추출로 1:1.
+- ⚠️ **확통 완료본은 N:\…\워드\확통\ 에 있으나 meta 에 `reference_pdf` 미기록**(생산자 갭) →
+  `match_refs.py`/`ref_match.tsv` 자동매칭. **3학년 확통 라벨 의심**(N:엔 2학년만) = 생산자 재확인.
+- 가짜결함: COM 재시도 혼입('리'류)=클린 재렌더로 소거, 보기 ㄱㄴㄷ·℃=정상(`corpus_lint --xml` 게이트).
