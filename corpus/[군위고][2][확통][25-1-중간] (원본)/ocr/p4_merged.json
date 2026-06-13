@@ -1,0 +1,104 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 15,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "두 집합 "},
+        {"type": "equation", "value": "X = \\{1, 2, 3, 4\\}"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "Y = \\{1, 2, 3, 4, 5\\}"},
+        {"type": "text", "value": "에 대하여 다음 조건을 만족하는 "},
+        {"type": "equation", "value": "X"},
+        {"type": "text", "value": "에서 "},
+        {"type": "equation", "value": "Y"},
+        {"type": "text", "value": "로의 함수의 개수는? [4점]"},
+        {"type": "text", "value": "<조건> I. 임의의 "},
+        {"type": "equation", "value": "x_1, x_2 \\in X"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "x_1 < x_2"},
+        {"type": "text", "value": "이면 "},
+        {"type": "equation", "value": "f(x_1) \\geq f(x_2)"},
+        {"type": "text", "value": " • II. "},
+        {"type": "equation", "value": "f(2) = f(3)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "{}_3H_4"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "{}_4H_3"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "{}_5H_3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "{}_3H_5"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "{}_5H_4"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 16,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "다음 상자 안에 0, 2, 5, 7이 하나씩 적혀 있는 4개의 공이 있다. 이 상자에서 임의로 한 개의 공을 꺼내어 숫자를 확인한 후 다시 넣는 시행을 10회 반복한다. 꺼낸 10개의 공에 적힌 수를 모두 곱한 값으로 가능한 서로 다른 정수의 개수는? [4점]"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "66"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "67"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "68"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "69"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "70"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 17,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "군위고에는 테니스 선수가 10명이 있다. 올림픽에 출전하기 위해서는 학교에서 실시하는 3번의 자격 테스트를 통과해야 하는데, 1차를 통과한 사람만이 2차 테스트에 도전할 수 있고, 2차 테스트를 통과한 사람만이 3차 테스트에 도전할 수 있다고 한다. 1, 2, 3차 테스트를 통과한 선수들의 집합을 각각 A, B, C라고 할 때, 세 집합 A, B, C가 구성될 수 있는 경우의 수는? (단, 각 테스트에 통과한 선수가 한명도 없을 수 있다.) [5점]"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "2^{10}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "3^{10}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "4^{10}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "3 \\times 2^{10}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "3 \\times 4^{10}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 18,
+      "score": 4,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 1] 5개의 문자 a, a, b, b, b를 모두 일렬로 배열하는 방법의 수를 구하고 그 과정을 서술하시오. [4점]"}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 19,
+      "score": 5,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 2] 5명의 학생들을 세 반 A, B, C에 배정하는 방법의 수를 구하고 그 과정을 서술하시오. (단, 빈 반이 있어도 되고, 5명의 학생들은 세반 중 어느반이라도 배정되어야 한다.) [5점]"}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 20,
+      "score": 5,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 3] 다음 조건을 만족시키는 음이 아닌 정수 "},
+        {"type": "equation", "value": "x, y, z"},
+        {"type": "text", "value": "의 모든 순서쌍 "},
+        {"type": "equation", "value": "(x, y, z)"},
+        {"type": "text", "value": "의 개수를 구하고 그 과정을 서술하시오. [5점]"},
+        {"type": "text", "value": "<조건> (가) "},
+        {"type": "equation", "value": "x + y + z = 10"},
+        {"type": "text", "value": " • (나) "},
+        {"type": "equation", "value": "0 < y + z < 10"}
+      ],
+      "choices": [],
+      "sub_questions": []
+    }
+  ]
+}

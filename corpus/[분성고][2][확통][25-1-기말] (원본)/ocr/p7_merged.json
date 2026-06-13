@@ -1,0 +1,37 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 17,
+      "score": 6.0,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형3] 주머니 속에 흰 공과 검은 공을 합쳐서 10개가 들어 있다. 이 중에서 동시에 2개를 꺼낼 때 적어도 1개가 흰 공일 확률이 "},
+        {"type": "equation", "value": "\\frac{8}{15}"},
+        {"type": "text", "value": "이다. 이때, 흰 공의 개수를 구하는 풀이 과정과 답을 쓰시오."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 18,
+      "score": 7.0,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형4] 서로 다른 주사위를 던져 나온 눈의 수를 각각 "},
+        {"type": "equation", "value": "a, b"},
+        {"type": "text", "value": "라 할 때, 순서쌍 "},
+        {"type": "equation", "value": "(a, b)"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "f(a, b)"},
+        {"type": "text", "value": "를 다음과 같이 정의하자."},
+        {"type": "equation_block", "value": "f(a, b)=\\begin{cases} {}_{a+b}\\mathrm{C}_{0} + {}_{a+b}\\mathrm{C}_{2} + \\cdots + {}_{a+b}\\mathrm{C}_{a+b} & (a+b\\text{가 짝수}) \\\\ {}_{a+b}\\mathrm{C}_{0} + {}_{a+b}\\mathrm{C}_{1} + \\cdots + {}_{a+b}\\mathrm{C}_{a+b} & (a+b\\text{가 홀수}) \\end{cases}"},
+        {"type": "text", "value": " "},
+        {"type": "equation", "value": "f(a, b) \\geq 2^{9}"},
+        {"type": "text", "value": "일 확률을 구하는 풀이 과정과 답을 쓰시오."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    }
+  ]
+}

@@ -1,0 +1,122 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 6,
+      "score": 4.3,
+      "contents": [
+        {"type": "text", "value": "다음 그림과 같은 도로망이 있다. A지점에서 P지점을 거쳐 B지점까지 최단거리로 가는 경우의 수는? [4.3점]"},
+        {"type": "figure", "value": "가로 4칸, 세로 2칸의 격자 모양 도로망. A는 왼쪽 아래 꼭짓점, B는 오른쪽 위 꼭짓점, P는 격자 안쪽(오른쪽에서 한 칸, 위쪽 줄의 한 칸 아래) 지점.", "bbox": [0.12, 0.085, 0.45, 0.16]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "8"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 7,
+      "score": 4.4,
+      "contents": [
+        {"type": "text", "value": "4명의 학생 "},
+        {"type": "equation", "value": "A, B, C, D"},
+        {"type": "text", "value": "가 각각 중국어, 일본어, 스페인어 수업 중에서 한 수업을 택할 때, 학생 "},
+        {"type": "equation", "value": "A"},
+        {"type": "text", "value": "는 중국어 또는 일본어 수업을 택하는 경우의 수는? [4.4점]"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "51"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "52"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "53"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "54"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "55"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 8,
+      "score": 4.5,
+      "contents": [
+        {"type": "text", "value": "SCHOOL의 6개 문자를 일렬로 나열할 때, 자음은 알파벳 순서대로 나열하는 경우의 수는? [4.5점]"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "15"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "16"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "17"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "18"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "19"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 9,
+      "score": 4.7,
+      "contents": [
+        {"type": "equation", "value": "21^{11}"},
+        {"type": "text", "value": "을 40으로 나누었을 때, 나머지는? [4.7점]"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "21"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "22"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "23"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "24"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "25"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 10,
+      "score": 4.7,
+      "contents": [
+        {"type": "text", "value": "두 집합 "},
+        {"type": "equation", "value": "X = \\{1, 2, 3, 4\\}"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "Y = \\{1, 2, 3, 4, 5, 6, 7, 8\\}"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "X"},
+        {"type": "text", "value": "에서 "},
+        {"type": "equation", "value": "Y"},
+        {"type": "text", "value": "로의 함수 "},
+        {"type": "equation", "value": "f"},
+        {"type": "text", "value": " 중에서 "},
+        {"type": "equation", "value": "x_{1} < x_{2}"},
+        {"type": "text", "value": "이면 "},
+        {"type": "equation", "value": "f(x_{1}) \\leq f(x_{2})"},
+        {"type": "text", "value": "이고, "},
+        {"type": "equation", "value": "f(3) = 6"},
+        {"type": "text", "value": "인 함수의 개수는? (단, "},
+        {"type": "equation", "value": "x_{1} \\in X, x_{2} \\in X"},
+        {"type": "text", "value": ") [4.7점]"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "61"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "62"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "63"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "64"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "65"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 11,
+      "score": 4.9,
+      "contents": [
+        {"type": "equation", "value": "(x^{2} - x)\\left(x - \\frac{1}{x}\\right)^{5}"},
+        {"type": "text", "value": "의 전개식에서 "},
+        {"type": "equation", "value": "x^{2}"},
+        {"type": "text", "value": "의 계수는? [4.9점]"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-16"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-14"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-12"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "-10"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "-8"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

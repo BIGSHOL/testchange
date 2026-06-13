@@ -1,0 +1,41 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 21,
+      "score": 5.9,
+      "label_type": "단답형",
+      "contents": [
+        {"type": "text", "value": "[단답형 6] 세 명의 학생에게 서로 다른 종류의 초콜릿 3개와 같은 종류의 사탕 7개를 다음 규칙에 따라 남김없이 나누어 주는 경우의 수를 구하시오. (단, 사탕을 받지 못하는 학생은 없다.)"},
+        {"type": "text", "value": "<조건> (가) 적어도 한 명의 학생은 초콜릿을 받지 못한다. • (나) 각 학생이 받는 초콜릿의 개수와 사탕의 개수의 합은 2 이상이다."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 22,
+      "score": 6.1,
+      "label_type": "단답형",
+      "contents": [
+        {"type": "text", "value": "[단답형 7] 집합 "},
+        {"type": "equation", "value": "X = \\{1, 2, 3, 4, 5\\}"},
+        {"type": "text", "value": "와 함수 "},
+        {"type": "equation", "value": "f: X \\rightarrow X"},
+        {"type": "text", "value": "에 대하여 함수 "},
+        {"type": "equation", "value": "f"},
+        {"type": "text", "value": "의 치역을 "},
+        {"type": "equation", "value": "A"},
+        {"type": "text", "value": ", 합성함수 "},
+        {"type": "equation", "value": "f \\circ f"},
+        {"type": "text", "value": "의 치역을 "},
+        {"type": "equation", "value": "B"},
+        {"type": "text", "value": "라 할 때, 다음 조건을 만족시키는 함수 "},
+        {"type": "equation", "value": "f"},
+        {"type": "text", "value": "의 개수를 구하시오."},
+        {"type": "text", "value": "<조건> (가) n(A) = 3 • (나) n(A) > n(B) • (다) 집합 X의 모든 원소 x에 대하여 f(x) \\neq x이다."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    }
+  ]
+}
