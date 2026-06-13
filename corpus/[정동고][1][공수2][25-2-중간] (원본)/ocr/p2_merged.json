@@ -1,0 +1,90 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 7,
+      "score": 4.7,
+      "contents": [
+        {"type": "text", "value": "원"},
+        {"type": "equation", "value": "(x-2)^2+(y+3)^2=9"},
+        {"type": "text", "value": "를 점 (-1,2)에 대하여 대칭이동한 원의 방정식은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "(x+3)^2+(y-7)^2=9"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "(x+3)^2+(y-6)^2=9"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "(x+3)^2+(y-5)^2=9"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "(x+4)^2+(y-7)^2=9"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "(x+4)^2+(y-6)^2=9"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 8,
+      "score": 4.7,
+      "contents": [
+        {"type": "text", "value": "두 집합"},
+        {"type": "equation", "value": "A=\\{a-b, 9\\}, B=\\{2a^2+1, -1\\}"},
+        {"type": "text", "value": "에 대하여 A \\subset B이고, B \\subset A일 때, ab의 최댓값은? (단, a, b는 상수)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "10"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 9,
+      "score": 4.7,
+      "contents": [
+        {"type": "text", "value": "원"},
+        {"type": "equation", "value": "(x-2)^2+(y+3)^2=4"},
+        {"type": "text", "value": "위의 점 P와 원"},
+        {"type": "equation", "value": "(x+1)^2+(y-3)^2=9"},
+        {"type": "text", "value": "위의 점 Q가 있다. 선분 PQ의 길이의 최댓값을 M, 최솟값을 m이라 할 때, Mm의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "20"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "22"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "24"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "26"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "28"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 10,
+      "score": 4.9,
+      "contents": [
+        {"type": "text", "value": "정수 a, b에 대하여 (0,0)에서 원"},
+        {"type": "equation", "value": "(x-a)^2+(y-b)^2=5"},
+        {"type": "text", "value": "에 그은 두 접선이 서로 수직일 때, 순서쌍 (a,b)의 개수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "8"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 11,
+      "score": 4.9,
+      "contents": [
+        {"type": "text", "value": "두 공원 A, B를 좌표평면 위에 나타내면 A(-1,-4), B(5,2)이라 하자. 두 공원 쪽의 도로변인 직선 y=x 위에 두 공원까지의 거리의 합이 최소가 되게 자전거 대여소를 설치하려고 한다. 자전거 대여소를 설치할 지점의 좌표는? (단, 공원의 크기와 도로의 너비는 무시한다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\left(-\\frac{1}{2}, -\\frac{1}{2}\\right)"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\left(\\frac{1}{2}, \\frac{1}{2}\\right)"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "(1, 1)"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\left(\\frac{3}{2}, \\frac{3}{2}\\right)"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "(2, 2)"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

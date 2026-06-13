@@ -1,0 +1,160 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 1,
+      "score": 3.6,
+      "contents": [
+        {"type": "text", "value": "점"},
+        {"type": "equation", "value": "(x, y)"},
+        {"type": "text", "value": "을 점"},
+        {"type": "equation", "value": "(x-3, y+a)"},
+        {"type": "text", "value": "로 옮기는 평행이동에 의해 점"},
+        {"type": "equation", "value": "(-2, 3)"},
+        {"type": "text", "value": "가 점"},
+        {"type": "equation", "value": "(b, 2)"},
+        {"type": "text", "value": "로 옮겨질 때,"},
+        {"type": "equation", "value": "b-a"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-4"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-3"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "1"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 2,
+      "score": 3.6,
+      "contents": [
+        {"type": "text", "value": "직선"},
+        {"type": "equation", "value": "y=kx+3k+2"},
+        {"type": "text", "value": "가 실수"},
+        {"type": "equation", "value": "k"},
+        {"type": "text", "value": "의 값에 관계없이 항상 점"},
+        {"type": "equation", "value": "(a, b)"},
+        {"type": "text", "value": "를 지날 때,"},
+        {"type": "equation", "value": "a+b"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "3"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 3,
+      "score": 3.6,
+      "contents": [
+        {"type": "text", "value": "직선"},
+        {"type": "equation", "value": "2x+y+a=0"},
+        {"type": "text", "value": "은 직선"},
+        {"type": "equation", "value": "2x+by+3=0"},
+        {"type": "text", "value": "을"},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "축의 방향으로"},
+        {"type": "equation", "value": "-3"},
+        {"type": "text", "value": "만큼,"},
+        {"type": "equation", "value": "y"},
+        {"type": "text", "value": "축의 방향으로"},
+        {"type": "equation", "value": "-2"},
+        {"type": "text", "value": "만큼 평행이동한 직선이다. 실수"},
+        {"type": "equation", "value": "a, b"},
+        {"type": "text", "value": "에 대하여"},
+        {"type": "equation", "value": "a+b"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "11"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "13"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "14"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 4,
+      "score": 3.8,
+      "contents": [
+        {"type": "text", "value": "점"},
+        {"type": "equation", "value": "(5, 1)"},
+        {"type": "text", "value": "에서 원"},
+        {"type": "equation", "value": "(x-4)^2+(y+4)^2=4"},
+        {"type": "text", "value": "에 그은 두 접선의 기울기의 곱은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-10"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-9"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-8"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "-7"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "-6"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 5,
+      "score": 3.8,
+      "contents": [
+        {"type": "text", "value": "원"},
+        {"type": "equation", "value": "x^2+y^2=20"},
+        {"type": "text", "value": "위의 점"},
+        {"type": "equation", "value": "(a, b)"},
+        {"type": "text", "value": "에서의 접선의 기울기가"},
+        {"type": "equation", "value": "-2"},
+        {"type": "text", "value": "일 때, 실수"},
+        {"type": "equation", "value": "a, b"},
+        {"type": "text", "value": "에 대하여"},
+        {"type": "equation", "value": "ab"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "4\\sqrt{2}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "8\\sqrt{2}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "16"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "16\\sqrt{2}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 6,
+      "score": 3.8,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 두 점"},
+        {"type": "equation", "value": "A(a, 0)"},
+        {"type": "text", "value": ","},
+        {"type": "equation", "value": "B(0, -2)"},
+        {"type": "text", "value": "를 잇는 선분 AB가 있다."},
+        {"type": "equation", "value": "\\angle B"},
+        {"type": "text", "value": "를 이등분하는 직선"},
+        {"type": "equation", "value": "l"},
+        {"type": "text", "value": "이"},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "축과 만나는 점의 좌표가"},
+        {"type": "equation", "value": "(1, 0)"},
+        {"type": "text", "value": "일 때,"},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "의 값은? (단,"},
+        {"type": "equation", "value": "a>1"},
+        {"type": "text", "value": "이다.)"},
+        {"type": "figure", "value": "좌표평면에 점 A(a,0)이 x축 양의 방향, 점 B(0,-2)가 y축 아래에 있고, 선분 AB와 ∠B를 이등분하여 점 (1,0)을 지나는 직선 l이 그려진 그래프.", "bbox": [0.55, 0.62, 0.92, 0.82]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{7}{3}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{8}{3}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{10}{3}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{11}{3}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{13}{3}"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

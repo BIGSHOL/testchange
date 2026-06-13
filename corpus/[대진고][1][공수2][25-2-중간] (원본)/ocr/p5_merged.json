@@ -1,0 +1,63 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 19,
+      "score": 10,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서답형 4] 점"},
+        {"type": "equation", "value": "A(8, 9)"},
+        {"type": "text", "value": "를 지나고 반지름의 길이가 5인"},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "축,"},
+        {"type": "equation", "value": "y"},
+        {"type": "text", "value": "축에 모두 접하는 원"},
+        {"type": "equation", "value": "C_1"},
+        {"type": "text", "value": "과 직선"},
+        {"type": "equation", "value": "l_1 : 2x+y=0"},
+        {"type": "text", "value": "에 평행하고"},
+        {"type": "equation", "value": "l_1"},
+        {"type": "text", "value": "과의 거리가"},
+        {"type": "equation", "value": "\\frac{5\\sqrt{5}}{2}"},
+        {"type": "text", "value": "만큼 떨어진 직선"},
+        {"type": "equation", "value": "l_2"},
+        {"type": "text", "value": "에 대하여 원"},
+        {"type": "equation", "value": "C_1"},
+        {"type": "text", "value": "은 직선"},
+        {"type": "equation", "value": "l_2"},
+        {"type": "text", "value": "와 서로 다른 두 점 P, Q에서 만난다. 직선"},
+        {"type": "equation", "value": "l_2"},
+        {"type": "text", "value": "를 접는 선으로 하여 원"},
+        {"type": "equation", "value": "C_1"},
+        {"type": "text", "value": "의 호 PAQ를 접어 생기는 호가 원점 O를 지나고, 호 POQ가"},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "축,"},
+        {"type": "equation", "value": "y"},
+        {"type": "text", "value": "축과 만나는 원점이 아닌 점을 각각 B, C라 할 때, 삼각형 OBC의 넓이를 구하고 그 과정을 서술하시오."},
+        {"type": "figure", "value": "좌표평면에 x축·y축에 접하고 점 A(8,9)를 지나는 원 C1, 직선 l1, l2, 접어 생긴 호 POQ와 점 B, C가 표시된 그림.", "bbox": [0.10, 0.30, 0.48, 0.55]}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 20,
+      "score": 10,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서답형 5] 반지름의 길이가 2이고 중심각의 크기가"},
+        {"type": "equation", "value": "90^\\circ"},
+        {"type": "text", "value": "인 부채꼴 OAB가 있다. 호 AB 위의 점 D에 대하여 선분 BD를 지름으로 하는 원을 그릴 때, 선분 BD의 중점 C를 지나고 직선 OB에 평행한 직선이 원과 만나는 점 중 B에 가까운 점을 P,"},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "축과 만나는 점을 H라 하자. 삼각형 OAP의 넓이가 최대가 될 때 원 C의 방정식을 구하고 그 과정을 서술하시오. (단,"},
+        {"type": "equation", "value": "\\overline{BD}=2r"},
+        {"type": "text", "value": "라 할 때,"},
+        {"type": "equation", "value": "0<r<\\sqrt{2}"},
+        {"type": "text", "value": "이다.)"},
+        {"type": "figure", "value": "좌표평면에 점 B(0,2), 반지름 2 중심각 90°인 부채꼴 OAB, 선분 BD를 지름으로 하는 원과 중점 C, 점 P, H가 표시된 그림.", "bbox": [0.55, 0.62, 0.92, 0.96]}
+      ],
+      "choices": [],
+      "sub_questions": []
+    }
+  ]
+}

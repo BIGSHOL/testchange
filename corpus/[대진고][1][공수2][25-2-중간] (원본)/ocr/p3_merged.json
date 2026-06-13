@@ -1,0 +1,105 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 11,
+      "score": 4.2,
+      "contents": [
+        {"type": "text", "value": "방정식"},
+        {"type": "equation", "value": "f(-x, y-1)=0"},
+        {"type": "text", "value": "이 나타내는 도형을"},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "축의 방향으로"},
+        {"type": "equation", "value": "-1"},
+        {"type": "text", "value": "만큼 평행이동한 후 직선"},
+        {"type": "equation", "value": "y=x"},
+        {"type": "text", "value": "에 대하여 대칭이동한 다음, 다시"},
+        {"type": "equation", "value": "y"},
+        {"type": "text", "value": "축 방향으로"},
+        {"type": "equation", "value": "-3"},
+        {"type": "text", "value": "만큼 평행이동한 도형의 방정식은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "f(y+2, -x-1)=0"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "f(-y-4, x-1)=0"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "f(-y-1, -x-1)=0"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "f(-y-4, x+2)=0"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "f(y+2, x+2)=0"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 12,
+      "score": 4.2,
+      "contents": [
+        {"type": "text", "value": "x, y에 대한 이차방정식"},
+        {"type": "equation_block", "value": "k^2 x^2+(4k-3)y^2+36x-18y-15k=0"},
+        {"type": "text", "value": "이 나타내는 도형이 서로 다른 두 점"},
+        {"type": "equation", "value": "(-5, 0)"},
+        {"type": "text", "value": ","},
+        {"type": "equation", "value": "(a, 0)"},
+        {"type": "text", "value": "을 지나는 원일 때,"},
+        {"type": "equation", "value": "a+k"},
+        {"type": "text", "value": "의 값은? (단,"},
+        {"type": "equation", "value": "k"},
+        {"type": "text", "value": "는 상수이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "6"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 13,
+      "score": 4.4,
+      "contents": [
+        {"type": "text", "value": "1보다 큰 자연수"},
+        {"type": "equation", "value": "n"},
+        {"type": "text", "value": "에 대하여 두 점"},
+        {"type": "equation", "value": "A(-4, -4)"},
+        {"type": "text", "value": ","},
+        {"type": "equation", "value": "B(2, 14)"},
+        {"type": "text", "value": "를 이은 선분 AB를"},
+        {"type": "equation", "value": "\\frac{1}{n} : \\left(1-\\frac{1}{n}\\right)"},
+        {"type": "text", "value": "로 내분하는 점을 P라 할 때, 점 P가 제 2사분면 위의 점이 되도록 하는 모든"},
+        {"type": "equation", "value": "n"},
+        {"type": "text", "value": "의 값의 합은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "14"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "20"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "27"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 14,
+      "score": 4.4,
+      "contents": [
+        {"type": "text", "value": "점"},
+        {"type": "equation", "value": "(-4, 2)"},
+        {"type": "text", "value": "를 지나는 두 직선"},
+        {"type": "equation", "value": "l_1"},
+        {"type": "text", "value": ","},
+        {"type": "equation", "value": "l_2"},
+        {"type": "text", "value": "는 서로 수직이고 원점에서의 거리가 같다. 직선"},
+        {"type": "equation", "value": "l_1"},
+        {"type": "text", "value": "과 원점 사이의 거리는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\sqrt{6}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2\\sqrt{2}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\sqrt{10}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "2\\sqrt{3}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\sqrt{14}"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

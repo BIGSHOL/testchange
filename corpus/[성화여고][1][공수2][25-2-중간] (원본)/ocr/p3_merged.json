@@ -1,0 +1,71 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 13,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "두 점 A(1,8), B(2,3)에 대하여 선분 AB와 직선 kx-y+k+2=0이 만나도록 하는 실수 k의 최댓값과 최솟값을 각각 M, m이라 할 때, Mm의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{1}{6}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{1}{4}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{1}{2}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "2"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 14,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "원"},
+        {"type": "equation", "value": "x^2+y^2=9"},
+        {"type": "text", "value": "위의 점 A와 직선 x-y+4\\sqrt{2}=0 사이의 거리가 자연수가 되도록 하는 서로 다른 점 A의 개수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "13"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "14"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "15"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "16"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 15,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "원"},
+        {"type": "equation", "value": "(x+a)^2+(y+b)^2=16"},
+        {"type": "text", "value": "을 y축에 대하여 대칭이동한 후, y축의 방향으로 2만큼 평행이동한 원이 x축과 y축에 동시에 접할 때, a+b의 값은? (단, a, b는 양수이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "11"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "12"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 16,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "자연수 k의 양의 배수를 원소로 하는 집합을 A_k라 하자."},
+        {"type": "equation_block", "value": "A_n \\subset (A_2 \\cap A_3), \\quad (A_{36} \\cup A_{54}) \\subset A_n"},
+        {"type": "text", "value": "을 만족시키는 모든 자연수 n의 값의 합은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "18"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "24"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "30"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "36"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "42"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

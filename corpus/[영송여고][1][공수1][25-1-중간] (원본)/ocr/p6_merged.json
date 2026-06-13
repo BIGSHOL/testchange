@@ -1,0 +1,25 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 19,
+      "score": 6,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서답형6] x^3의 계수가 1인 삼차 다항식 P(x)에 대하여 P(5)=P(-2)=P(3)=1일 때, P(x)를 x^2+4x+3로 나누었을 때의 나머지를 구하는 풀이 과정과 답을 상세하게 서술하시오."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 20,
+      "score": 7,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서답형7] 두 정수 a, b와 23 이하의 자연수 n에 대하여 x에 대한 다항식 x^3-(1+4ab)x-n이 (x+1)(x-b)(x+4a)로 인수분해 되도록 하는 모든 순서쌍 (a, b)를 구하는 풀이 과정과 답을 상세하게 서술하시오."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    }
+  ]
+}

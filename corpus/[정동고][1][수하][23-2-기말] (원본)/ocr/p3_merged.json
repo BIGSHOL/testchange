@@ -1,0 +1,115 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 13,
+      "score": 5.8,
+      "contents": [
+        {"type": "text", "value": "집합"},
+        {"type": "equation", "value": "X=\\{1, 2, 3, 4, 5, 6, 7\\}"},
+        {"type": "text", "value": "에서 X로의 함수 중에서 다음 조건을 만족시키는 함수 f의 개수는?"},
+        {"type": "text", "value": "<상자> (가) 함수 f는 역함수를 갖는다. (나) \\{f(1)\\}^2 - 3f(1) \\times f(5) + 2\\{f(5)\\}^2 = 0 (다) f(1) < f(6)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "216"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "192"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "38"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "40"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "42"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 14,
+      "score": 6,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형1] 두 함수"},
+        {"type": "equation", "value": "f(x)=kx-2"},
+        {"type": "text", "value": ","},
+        {"type": "equation", "value": "g(x)=-3x+1"},
+        {"type": "text", "value": "에 대하여"},
+        {"type": "equation", "value": "f \\circ g = g \\circ f"},
+        {"type": "text", "value": "가 성립할 때,"},
+        {"type": "equation", "value": "(f^{-1} \\circ g)(2)"},
+        {"type": "text", "value": "의 값을 구하여라. (단,"},
+        {"type": "equation", "value": "k"},
+        {"type": "text", "value": "는 상수)"}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 15,
+      "score": 5,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형2] 남녀 20명 중 대표 2명을 뽑을 때, 적어도 남자 한 명을 포함하여 뽑는 경우의 수가 112이다. 20명 중 여자는 몇 명인지 구하여라."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 16,
+      "score": 4,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형3] 집합"},
+        {"type": "equation", "value": "A=\\{-2, 0, 1, 2, 3\\}"},
+        {"type": "text", "value": "에 대하여 A에서 A로의 함수"},
+        {"type": "equation", "value": "f(x)=ax+b"},
+        {"type": "text", "value": "의 공역, 치역이 같을 때, 나올 수 있는 두 함수의 교점을 구하여라. (단,"},
+        {"type": "equation", "value": "a, b"},
+        {"type": "text", "value": "는 상수)"}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 17,
+      "score": 7,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형4] 함수"},
+        {"type": "equation", "value": "f(x)=\\frac{25}{x-2}+4 \\; (x>2)"},
+        {"type": "text", "value": "의 그래프 위의 점 P에서 두 점근선에 내린 수선의 발을 각각 Q, R라 하자"},
+        {"type": "equation", "value": "\\overline{PQ}+\\overline{PR}"},
+        {"type": "text", "value": "의 최솟값을 구하여라."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 18,
+      "score": 6,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형5] 여섯 명의 학생들이 서로 다른 보트 세 대에 나누어 타려고 한다. 보트에 나누어 타는 경우의 수를 구하여라. (단, 빈 보트는 없다.)"}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 19,
+      "score": 7,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형6] 함수 f에 대하여"},
+        {"type": "equation", "value": "f^2(x)=f(f(x))"},
+        {"type": "text", "value": ","},
+        {"type": "equation", "value": "f^3(x)=f(f^2(x))"},
+        {"type": "text", "value": ", \\cdots로 정의하자. 집합"},
+        {"type": "equation", "value": "X=\\{1, 2, 3, 4\\}"},
+        {"type": "text", "value": "에 대하여 함수"},
+        {"type": "equation", "value": "f:X \\to X"},
+        {"type": "text", "value": "가 다음 조건을 만족시킨다."},
+        {"type": "text", "value": "<상자> (가) f^n = I (I는 항등함수)이 되는 n의 최솟값은 4이다. (나) f(1)=3 (다) f(2)f(3)=4 (라) f는 일대일 대응이다."},
+        {"type": "text", "value": "함수 f의 역함수를 g라 할 때,"},
+        {"type": "equation", "value": "g^{13}(2)+g^{14}(3)+g^{15}(1)"},
+        {"type": "text", "value": "의 값을 구하여라."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    }
+  ]
+}

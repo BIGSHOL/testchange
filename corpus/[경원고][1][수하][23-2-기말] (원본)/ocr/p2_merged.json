@@ -1,0 +1,172 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 11,
+      "score": 3.5,
+      "contents": [
+        {"type": "text", "value": "함수"},
+        {"type": "equation", "value": "f(x)=|x+2|+\\frac{3}{2}x-2"},
+        {"type": "text", "value": "와 그 역함수"},
+        {"type": "equation", "value": "f^{-1}(x)"},
+        {"type": "text", "value": "에 대하여 두 함수"},
+        {"type": "equation", "value": "y=f(x), \\quad y=f^{-1}(x)"},
+        {"type": "text", "value": "의 그래프로 둘러싸인 부분의 넓이는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "20"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "24"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "28"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "32"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "36"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 12,
+      "score": 3.5,
+      "contents": [
+        {"type": "text", "value": "곡선"},
+        {"type": "equation", "value": "y=\\sqrt{2x+4}"},
+        {"type": "text", "value": "가 x축, y축과 만나는 점을 각각 A, B라 하고, 점 P가 제2사분면에서 곡선 위를 움직인다고 할 때, 사각형 OAPB의 넓이의 최댓값은? (단, O는 원점이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{11}{5}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{9}{4}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{7}{3}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{5}{2}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{11}{4}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 13,
+      "score": 3.6,
+      "contents": [
+        {"type": "text", "value": "집합"},
+        {"type": "equation", "value": "X=\\{1,2,3,4,5,6\\}"},
+        {"type": "text", "value": "에서 X로의 함수 f에 대하여"},
+        {"type": "equation", "value": "f(f(2))=2"},
+        {"type": "text", "value": "이고,"},
+        {"type": "equation", "value": "(f \\circ f \\circ f)(x)=x"},
+        {"type": "text", "value": "를 만족시키는 서로 다른 함수 f의 개수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "19"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "20"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "21"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "22"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "23"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 14,
+      "score": 3.6,
+      "contents": [
+        {"type": "text", "value": "집합"},
+        {"type": "equation", "value": "A=\\{1,2,3,4,5,6,7,8\\}"},
+        {"type": "text", "value": "일 때, 다음 조건을 만족시키는 함수"},
+        {"type": "equation", "value": "f:A \\rightarrow A"},
+        {"type": "text", "value": "의 개수는?"},
+        {"type": "text", "value": "<조건> (가) 함수 f의 역함수가 존재한다. • (나) f(1) \\geq 6 • (다) 1<k \\leq 6에 대하여 f(k) \\leq k이다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "128"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "144"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "160"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "176"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "192"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 15,
+      "score": 3.6,
+      "contents": [
+        {"type": "text", "value": "일차함수 f(x)의 역함수 g(x)에 대하여"},
+        {"type": "equation", "value": "2f(x)+3-4g(2f(x))=x"},
+        {"type": "text", "value": "가 성립할 때,"},
+        {"type": "equation", "value": "g(x)-\\frac{13}{5}=0"},
+        {"type": "text", "value": "을 만족하는 실근의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "11"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "13"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 16,
+      "score": 3.7,
+      "contents": [
+        {"type": "text", "value": "두 함수"},
+        {"type": "equation", "value": "f(x)=-\\frac{1}{x}+t, \\quad g(x)=\\frac{1}{x-1}-t"},
+        {"type": "text", "value": "에 대하여 두 곡선"},
+        {"type": "equation", "value": "y=f(x)"},
+        {"type": "text", "value": "와"},
+        {"type": "equation", "value": "y=g(x)"},
+        {"type": "text", "value": "의 그래프의 교점 중 x의 좌표가 양수인 점의 개수를 h(t)라 하자. 이때, 등식"},
+        {"type": "equation", "value": "h(t-1)+h(t)+h(t+1)=5"},
+        {"type": "text", "value": "를 만족시키는 정수 t의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "2"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 17,
+      "score": 3.7,
+      "contents": [
+        {"type": "text", "value": "함수 f에 대하여"},
+        {"type": "equation_block", "value": "f^2(x)=f(f(x)), \\quad f^3(x)=f(f^2(x)), \\quad \\cdots"},
+        {"type": "text", "value": "로 정의하자. 집합"},
+        {"type": "equation", "value": "X=\\{1,2,3,4\\}"},
+        {"type": "text", "value": "에 대하여 함수"},
+        {"type": "equation", "value": "f:X \\rightarrow X"},
+        {"type": "text", "value": "가 두 조건"},
+        {"type": "equation", "value": "f(1)=2, \\quad f^3=I"},
+        {"type": "text", "value": "(I는 항등함수)를 만족시키고, 함수 f의 역함수를 g라 하자."},
+        {"type": "equation", "value": "g^2(2)+g^3(3)"},
+        {"type": "text", "value": "을 k라 할 때, 가능한 모든 k의 값의 합은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "11"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 18,
+      "score": 3.8,
+      "contents": [
+        {"type": "text", "value": "두 함수"},
+        {"type": "equation", "value": "f(x)=|x-1|-1, \\quad g(x)=-x^2+2x"},
+        {"type": "text", "value": "에 대하여 함수 h(x)를"},
+        {"type": "equation_block", "value": "h(x)=\\begin{cases} (f \\circ g)(x) & (g(x) \\geq x) \\\\ (g \\circ f)(x) & (g(x)<x) \\end{cases}"},
+        {"type": "text", "value": "와 같이 정의할 때,"},
+        {"type": "equation", "value": "h(x)=k"},
+        {"type": "text", "value": "의 실근의 개수가 3이 되도록 하는 정수 k의 개수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

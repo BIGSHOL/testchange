@@ -1,0 +1,105 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 1,
+      "score": 3.8,
+      "contents": [
+        {"type": "text", "value": "전체집합 U=\\{1, 2, 3, 4, 5\\}에 대하여 조건 p가"},
+        {"type": "equation_block", "value": "p: x^3-6x^2+11x-6=0"},
+        {"type": "text", "value": "일 때, 조건 ~p의 진리집합의 모든 원소의 합은? [3.8점]"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "9"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 2,
+      "score": 3.8,
+      "contents": [
+        {"type": "text", "value": "전체집합 U의 공집합이 아닌 세 부분집합 P, Q, R을 각각 세 조건 p, q, r의 진리집합이라고 하자. 두 명제 ~p \\rightarrow q와 ~r \\rightarrow q가 모두 참일 때 옳은 것만을 <보기>에서 있는 대로 고른 것은? [3.8점]"},
+        {"type": "text", "value": "<보기> ㄱ. q \\rightarrow ~p • ㄴ. (P \\cap R)^C=Q • ㄷ. p는 r이기 위한 충분조건이다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄱ, ㄴ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄱ, ㄷ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄴ, ㄷ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄱ, ㄴ, ㄷ"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 3,
+      "score": 3.8,
+      "contents": [
+        {"type": "text", "value": "두 집합 X, Y가"},
+        {"type": "equation_block", "value": "X=\\{-2, 0, 2\\}, \\quad Y=\\{-4, -2, 0, 2, 4\\}"},
+        {"type": "text", "value": "일 때, X에서 Y로의 함수가 아닌 것은? [3.8점]"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "y=x+2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "y=\\frac{1}{4}x^2+1"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "y=|x|-2"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "y=0"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "y=2x"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 4,
+      "score": 3.8,
+      "contents": [
+        {"type": "text", "value": "등식"},
+        {"type": "equation", "value": "{}_{n}\\mathrm{P}_{3}+6\\times{}_{n}\\mathrm{C}_{n-3}=8\\times{}_{n-1}\\mathrm{C}_{4}"},
+        {"type": "text", "value": "를 만족시키는 자연수 n의 값은? (단, n \\geq 5이다.) [3.8점]"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "11"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "13"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 5,
+      "score": 3.8,
+      "contents": [
+        {"type": "text", "value": "1부터 9까지의 자연수 중에서 서로 다른 3개를 택하여 세 자리의 자연수를 만들 때, 각 자리의 수의 곱이 9의 배수인 자연수의 개수는? [3.8점]"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "132"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "168"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "204"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "240"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "276"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 6,
+      "score": 4.2,
+      "contents": [
+        {"type": "text", "value": "그림은 유리함수 y=f(x)의 그래프이다."},
+        {"type": "equation_block", "value": "f^{-1}(1)+f\\left(f\\left(\\frac{1}{2}\\right)\\right)"},
+        {"type": "text", "value": "의 값은? [4.2점]"},
+        {"type": "figure", "value": "유리함수 y=f(x)의 그래프. 점근선은 y=2(수평)와 x=-1 부근(수직). y축에서 y=3 부근을 지나며, 곡선이 좌상단에서 점근선 y=2로 접근하고, x=-1 우측에서 아래로 발산.", "bbox": [0.62, 0.62, 0.92, 0.82]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{5}{3}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{7}{3}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{11}{3}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{13}{3}"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

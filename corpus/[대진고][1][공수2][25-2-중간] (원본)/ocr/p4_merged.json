@@ -1,0 +1,97 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 15,
+      "score": 4.4,
+      "contents": [
+        {"type": "text", "value": "두 원"},
+        {"type": "equation", "value": "C_1 : x^2+y^2=5"},
+        {"type": "text", "value": ","},
+        {"type": "equation", "value": "C_2 : x^2+y^2+6x-8y+9=0"},
+        {"type": "text", "value": "과 직선"},
+        {"type": "equation", "value": "l : 3x-4y+k=0"},
+        {"type": "text", "value": "에 대하여 직선"},
+        {"type": "equation", "value": "l"},
+        {"type": "text", "value": "과 두 원"},
+        {"type": "equation", "value": "C_1, C_2"},
+        {"type": "text", "value": "와의 교점의 개수를 각각"},
+        {"type": "equation", "value": "a, b"},
+        {"type": "text", "value": "라고 하자."},
+        {"type": "equation", "value": "a+b=4"},
+        {"type": "text", "value": "가 되는 실수"},
+        {"type": "equation", "value": "k"},
+        {"type": "text", "value": "값의 범위를"},
+        {"type": "equation", "value": "\\alpha<k<\\beta"},
+        {"type": "text", "value": "또는"},
+        {"type": "equation", "value": "\\beta<k<\\gamma"},
+        {"type": "text", "value": "라고 할 때,"},
+        {"type": "equation", "value": "\\alpha^2+\\beta^2+\\gamma^2"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "196"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "197"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "198"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "199"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "200"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 16,
+      "score": 6,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서답형 1]"},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "축과"},
+        {"type": "equation", "value": "y"},
+        {"type": "text", "value": "축에 동시에 접하고 점"},
+        {"type": "equation", "value": "(-2, 1)"},
+        {"type": "text", "value": "을 지나는 원의 방정식을 모두 구하고 그 과정을 서술하시오."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 17,
+      "score": 6,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서답형 2] 직선"},
+        {"type": "equation", "value": "ax-2y+1=0"},
+        {"type": "text", "value": "이 직선"},
+        {"type": "equation", "value": "bx-3y+2=0"},
+        {"type": "text", "value": "에 수직이고 직선"},
+        {"type": "equation", "value": "(b+2)x+2y+4=0"},
+        {"type": "text", "value": "에 평행할 때, 상수"},
+        {"type": "equation", "value": "a, b"},
+        {"type": "text", "value": "에 대하여"},
+        {"type": "equation", "value": "a^2+b^2"},
+        {"type": "text", "value": "의 값을 구하고 그 과정을 서술하시오."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 18,
+      "score": 8,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서답형 3] 함수"},
+        {"type": "equation", "value": "y=2|x|"},
+        {"type": "text", "value": "의 그래프와 직선"},
+        {"type": "equation", "value": "l"},
+        {"type": "text", "value": "이 서로 다른 두 점 A, B에서 만난다. 선분 AB가"},
+        {"type": "equation", "value": "y"},
+        {"type": "text", "value": "축과 만나는 점을 P라 할 때, 점 P는 선분 AB를 1:2로 내분한다. 이때, 직선"},
+        {"type": "equation", "value": "l"},
+        {"type": "text", "value": "의 기울기를 구하고 그 과정을 서술하시오."},
+        {"type": "figure", "value": "함수 y=2|x|의 V자 그래프와 직선 l이 두 점 A, B에서 만나고, y축 위의 점 P가 선분 AB를 내분하는 그래프.", "bbox": [0.58, 0.78, 0.90, 0.96]}
+      ],
+      "choices": [],
+      "sub_questions": []
+    }
+  ]
+}

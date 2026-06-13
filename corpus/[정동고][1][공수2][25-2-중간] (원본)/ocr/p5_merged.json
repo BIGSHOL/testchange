@@ -1,0 +1,30 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 19,
+      "score": 6,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형5] 집합"},
+        {"type": "equation", "value": "A=\\{7,8,9,10,11,12,13,14\\}"},
+        {"type": "text", "value": "에 대하여 다음 조건을 만족시키는 집합 A의 모든 부분집합 B의 개수를 구하는 풀이과정과 답을 쓰시오."},
+        {"type": "text", "value": "<조건> (가) n(B) \\geq 3 • (나) 집합 B의 모든 원소의 곱은 7의 배수이다."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 20,
+      "score": 7,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형6] 원점 O와 점 A(3,1)에서 직선"},
+        {"type": "equation", "value": "3x-4y+12=0"},
+        {"type": "text", "value": "에 내린 수선의 발을 각각 P, Q라 할 때, 선분 PQ의 길이를 구하는 풀이과정과 답을 쓰시오."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 13,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "두 함수 f(x)=3-\\sqrt{x+2}, g(x)=mx-8m+2에 대하여 두 집합 A, B를"},
+        {"type": "equation_block", "value": "A=\\{(x, f(x)) \\mid 2 \\leq x \\leq 7\\}, \\quad B=\\{(x, g(x)) \\mid 2 \\leq x \\leq 7\\}"},
+        {"type": "text", "value": "이라 하자. 이때 A \\cap B \\neq \\varnothing이 되도록 하는 실수 m의 최댓값과 최솟값의 합은? [5점]"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{13}{6}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{7}{2}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{5}{2}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{8}{3}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{17}{6}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 14,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "두 집합"},
+        {"type": "equation_block", "value": "X=\\{1, 2, 3, 4, 5, 6\\}, \\quad Y=\\{1, 2, 3, 4, 5, 6, 7, 8\\}"},
+        {"type": "text", "value": "에 대하여 다음 두 조건을 모두 만족하는 함수 f:X \\rightarrow Y의 개수는? [5점]"},
+        {"type": "text", "value": "<상자> ○ f(1)과 f(3)의 합은 6의 약수이다. ○ 집합 X의 임의의 두 원소 x_1, x_2에 대하여 x_1<x_2이면 f(x_1)<f(x_2)이다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "11"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 15,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 8개의 똑같은 의자가 나란히 설치되어 있다. 1학년 학생 3명, 2학년 학생 2명, 3학년 학생 2명이 모두 의자에 일렬로 앉을 때, 1학년 학생끼리는 모두 이웃하도록, 3학년 학생끼리는 이웃하지 않도록 앉는 경우의 수는? (단, 두 학생 사이에 빈 의자가 있는 경우는 이웃하지 않는 것으로 한다.) [5점]"},
+        {"type": "figure", "value": "나란히 설치된 똑같은 의자 8개가 일렬로 그려진 그림.", "bbox": [0.55, 0.45, 0.95, 0.55]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "480"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "1080"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "1680"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "2280"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "2880"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 16,
+      "score": 5.4,
+      "contents": [
+        {"type": "text", "value": "실수 전체의 집합 R에서 집합 A=\\{x \\mid x<a\\}로 정의된 함수"},
+        {"type": "equation_block", "value": "f(x)=\\begin{cases} \\dfrac{kx+3}{x+2} & (x>-1) \\\\ 1-\\sqrt{-x-1} & (x \\leq -1) \\end{cases}"},
+        {"type": "text", "value": "에 대하여 함수 f의 역함수 f^{-1}:A \\rightarrow R이 존재한다. 이때 a+f(3)의 값은? (단, k는 실수이다.) [5.4점]"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{18}{5}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{19}{5}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{21}{5}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{22}{5}"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

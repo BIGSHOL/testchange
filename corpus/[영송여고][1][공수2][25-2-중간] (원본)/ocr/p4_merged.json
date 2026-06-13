@@ -1,0 +1,41 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 13,
+      "score": 6,
+      "contents": [
+        {"type": "text", "value": "세 점 A(1, 2), B(-2, -2), C(7, -6)를 꼭짓점으로 하는 삼각형 ABC에서 각 A의 이등분선이 변 BC와 만나는 점을 D라고 할 때, 직선 AB와 점 D 사이의 거리를 지름의 길이로 하는 원의 넓이는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{5}{4}\\pi"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{14}{9}\\pi"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{7}{4}\\pi"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{16}{9}\\pi"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{64}{25}\\pi"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 14,
+      "score": 5,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서답형1] 세 점 A(-3, 3), B(1, 6), C(-1, 0)에 대해 다음 보기에 주어진 (가), (나), (다), (라)의 값을 구하는 풀이 과정과 답을 상세하게 서술하시오."},
+        {"type": "text", "value": "<보기> (가) 두 점 A, B 사이의 거리  (나) 선분 AC를 2:1로 내분하는 점의 좌표  (다) 선분 BC의 중점  (라) 세 점 A, B, C의 무게중심"}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 15,
+      "score": 5,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서답형2] 전체 집합 U의 두 부분집합 A, B에 대하여 n(U)=30, n(A)=10, n(B)=15, n(A^c\\cap B^c)=11일 때, n(A-B)의 값을 구하는 풀이 과정과 답을 상세하게 서술하시오."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    }
+  ]
+}

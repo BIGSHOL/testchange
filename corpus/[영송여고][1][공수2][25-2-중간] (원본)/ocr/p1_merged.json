@@ -1,0 +1,88 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 1,
+      "score": 3.6,
+      "contents": [
+        {"type": "text", "value": "전체집합 U=\\{x|x는 12 이하의 자연수\\}의 두 부분집합 A=\\{x|x는 8의 약수\\}, B=\\{x|x는 4의 배수\\}에 대해 n(A)+n(B)의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "11"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 2,
+      "score": 3.6,
+      "contents": [
+        {"type": "text", "value": "원"},
+        {"type": "equation", "value": "(x-1)^2+(y-1)^2=4"},
+        {"type": "text", "value": "를 x축의 방향으로 3만큼 y축의 방향으로 -5만큼 평행이동한 원의 방정식이"},
+        {"type": "equation", "value": "(x-a)^2+(y-b)^2=4"},
+        {"type": "text", "value": "라 할 때, a+b의 값은? (단, a, b는 상수이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "4"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 3,
+      "score": 3.6,
+      "contents": [
+        {"type": "text", "value": "점 (1, 2)를 지나고 직선 2x+2y+3=0에 수직인 직선의 방정식이 y=ax+b라 할 때, a+b의 값은? (단, a, b는 상수이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 4,
+      "score": 3.8,
+      "contents": [
+        {"type": "text", "value": "원"},
+        {"type": "equation", "value": "(x-3)^2+(y-5)^2=4"},
+        {"type": "text", "value": "를 원점에 대하여 대칭이동한 원의 방정식을"},
+        {"type": "equation", "value": "(x-a)^2+(y-b)^2=4"},
+        {"type": "text", "value": "라 할 때, ab의 값은? (단, a, b는 상수이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "15"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "20"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 5,
+      "score": 3.8,
+      "contents": [
+        {"type": "text", "value": "직선 y=3x-1에 평행하고 점 (1, 1)에서의 거리가 \\sqrt{10}인 직선의 방정식을 y=ax+b라 할 때, b의 값은? (단, b>0이고, a, b는 상수이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "16"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "20"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

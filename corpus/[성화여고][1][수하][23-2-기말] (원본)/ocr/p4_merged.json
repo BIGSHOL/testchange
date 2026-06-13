@@ -1,0 +1,57 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 21,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "함수"},
+        {"type": "equation", "value": "f(x)=\\frac{ax+b}{cx+d}"},
+        {"type": "text", "value": "(ad-bc \\neq 0, c \\neq 0)의 그래프가 점 (2, -2)를 지나면서 직선 y=x-7에 대하여 대칭이고, 직선 y=-x+1에 대하여서도 대칭이다. f(3)의 값은? (단, a, b, c, d는 상수이다.) [4점]"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "2"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 22,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "함수"},
+        {"type": "equation", "value": "f(x)=\\sqrt{x-k}+2"},
+        {"type": "text", "value": "의 그래프와 그 역함수 y=f^{-1}(x)의 그래프가 서로 다른 두 점에서 만나도록 하는 실수 k의 범위가 a≤k<b일 때, 두 상수 a, b에 대하여 ab의 값은? [4점]"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{9}{2}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{11}{2}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "6"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 23,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 함수"},
+        {"type": "equation", "value": "f(x)=\\frac{k}{x-1}+k"},
+        {"type": "text", "value": "(k>1)의 그래프가 있다. 점 P(1, k)에 대하여 직선 OP와 함수 y=f(x)의 그래프가 만나는 점 중에서 원점이 아닌 점을 A라 하자. 점 P를 지나고 원점으로부터 거리가 1인 직선 l이 함수 y=f(x)의 그래프와 제1사분면에서 만나는 점을 B, x축과 만나는 점을 C라 하자. 삼각형 PBA의 넓이를 S₁, 삼각형 PCO의 넓이를 S₂라 할 때, 3S₁=2S₂이다. 상수 k에 대하여 f(k)의 값은? (단, O는 원점이고, 직선 l은 좌표축과 평행하지 않다.) [4점]"},
+        {"type": "figure", "value": "좌표평면. 함수 y=f(x)=k/(x-1)+k (k>1)의 직각쌍곡선 그래프(수직 점근선 x=1, 수평 점근선 y=k). 점 P(1, k)는 두 점근선의 교점. 원점 O를 지나는 직선 OP가 그래프와 만나는 점 중 원점이 아닌 점 A(제1사분면 위쪽). 점 P를 지나는 직선 l이 그래프와 제1사분면에서 만나는 점 B, x축과 만나는 점 C(x축 음의 방향, 원점 왼쪽). y=f(x) 곡선과 직선 OP, 직선 l, 점 A, B, C, P가 표시됨.", "bbox": [0.50, 0.215, 0.93, 0.40]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{7}{2}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{9}{2}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{11}{2}"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

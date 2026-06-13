@@ -1,0 +1,100 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 14,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "다항식 2x^3-11x^2+12x+9 을 인수분해 하면 (x-a)^2(bx+c) 일 때, 세 상수 a, b, c에 대하여 a+b+c의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "7"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 15,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "x에 대한 이차방정식 x^2-2(k+1)x+k^2+3k-2=0 이 실근을 갖도록 하는 모든 자연수 k의 값의 합은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "8"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 16,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "0이 아닌 서로 다른 세 실수 a, b, c에 대하여"},
+        {"type": "equation_block", "value": "\\sqrt{a}\\sqrt{-b}=-\\sqrt{-ab}, \\quad \\frac{\\sqrt{b}}{\\sqrt{b-c}}=-\\sqrt{\\frac{b}{b-c}}"},
+        {"type": "text", "value": "일 때, 다음 중 세 수 a, b, c의 대소 관계로 옳은 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "a<b<c"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "a<c<b"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "b<a<c"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "b<c<a"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "c<b<a"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 17,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "이차방정식 x^2+3x+11=0의 서로 다른 두 근을 \\alpha, \\beta라고 할 때,"},
+        {"type": "equation_block", "value": "\\frac{1}{\\alpha^2+4\\alpha+12}-\\frac{1}{\\beta^2+2\\beta+10}"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-\\frac{1}{9}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-\\frac{1}{8}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-\\frac{1}{7}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "-\\frac{1}{6}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "-\\frac{1}{5}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 18,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "1부터 12까지의 자연수가 하나씩 적힌 12장의 카드가 들어 있는 주머니에서 카드를 한 장씩 차례로 7번 꺼낸다. i 번째 꺼낸 카드에 적혀 있는 수를 a_i (i=1, 2, 3, 4, 5, 6, 7)이라 할 때, a_i가 다음 조건을 만족시키는 경우의 수는? (단, 꺼낸 카드는 다시 주머니에 넣지 않는다.)"},
+        {"type": "text", "value": "<상자> (가) a_4=7 • (나) a_1<a_2<a_3<a_4<a_5<a_6<a_7"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "120"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "140"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "160"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "180"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "200"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 19,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "이차방정식 x^2+5x-5=0의 서로 다른 두 근이 \\alpha, \\beta이다. x^2의 계수가 1인 이차식 f(x)에 대하여 f(\\alpha)=\\alpha, f(\\beta)=\\beta일 때, f(1)의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "3"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

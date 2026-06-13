@@ -1,0 +1,103 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 7,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 수직으로 만나는 두 직선 도로 위의 교차점 O에서 민호는 서쪽으로"},
+        {"type": "equation", "value": "5\\mathrm{km}"},
+        {"type": "text", "value": "떨어진 A지점에 있고, 태인이는 남쪽으로"},
+        {"type": "equation", "value": "10\\mathrm{km}"},
+        {"type": "text", "value": "떨어진 B지점에 있다. 민호는 시속"},
+        {"type": "equation", "value": "2\\mathrm{km}"},
+        {"type": "text", "value": "의 일정한 속력으로 동쪽을 향해 움직이고, 태인이는 시속"},
+        {"type": "equation", "value": "1\\mathrm{km}"},
+        {"type": "text", "value": "의 일정한 속력으로 북쪽을 향해 움직인다. 두 사람이 오후 1시에 동시에 출발한다고 할 때, 두 사람 사이의 거리가 최소가 되는 시간은? (단, 도로의 폭은 고려하지 않는다.)"},
+        {"type": "figure", "value": "동서남북 좌표축. 교차점 O에서 서쪽으로 5km 떨어진 A지점, 남쪽으로 10km 떨어진 B지점이 표시된 그림.", "bbox": [0.10, 0.30, 0.42, 0.47]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "오후 2시"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "오후 3시"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "오후 4시"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "오후 5시"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "오후 6시"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 8,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "세 점"},
+        {"type": "equation", "value": "A(6, 3)"},
+        {"type": "equation", "value": "B(0, -3)"},
+        {"type": "text", "value": ","},
+        {"type": "equation", "value": "C(-3, 9)"},
+        {"type": "text", "value": "를 꼭짓점으로 하는 삼각형 ABC에 대하여, 세 변 AB, BC, CA를 각각 2:1로 내분하는 점을 차례대로 D, E, F라 할 때, 삼각형 DEF의 무게중심을 G라 하자. 점 G를 중심으로 하고 점 A를 지나는 원의 방정식이"},
+        {"type": "equation", "value": "(x-a)^2+(y-b)^2=r^2"},
+        {"type": "text", "value": "라 할 때,"},
+        {"type": "equation", "value": "a+b+r"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "9"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 9,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "실수"},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "에 대하여"},
+        {"type": "equation", "value": "\\sqrt{(x-5)^2+16}+\\sqrt{(x-8)^2+4}"},
+        {"type": "text", "value": "는"},
+        {"type": "equation", "value": "x=a"},
+        {"type": "text", "value": "일 때, 최솟값"},
+        {"type": "equation", "value": "b"},
+        {"type": "text", "value": "를 갖는다."},
+        {"type": "equation", "value": "a^2-b^2"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "8"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 10,
+      "score": 4.2,
+      "contents": [
+        {"type": "text", "value": "두 직선"},
+        {"type": "equation", "value": "4x+y-5=0"},
+        {"type": "text", "value": "과"},
+        {"type": "equation", "value": "x-4y+3=0"},
+        {"type": "text", "value": "이 기울기가 음수인 직선"},
+        {"type": "equation", "value": "ax+by+c=0"},
+        {"type": "text", "value": "에 대하여 대칭일 때, 실수"},
+        {"type": "equation", "value": "a, b, c"},
+        {"type": "text", "value": "에 대하여"},
+        {"type": "equation", "value": "\\frac{a+c}{b}"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-5"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-4"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "-1"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}
