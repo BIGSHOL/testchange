@@ -2,7 +2,34 @@
 
 > 이 문서 하나로 **다른 컴퓨터에서 이어서 작업**할 수 있게 정리. 상세 설계·함정은
 > `CLAUDE.md`(루트)와 자동메모리(`C:\Users\<you>\.claude\projects\F--------\memory\MEMORY.md`)에 있다.
-> 최종 갱신: 2026-06-11 늦은 세션 (이 PC, HEAD `6bf1f1a` — 월암중 중2 검수 6건, 푸시 완료).
+
+## 🟢 현재 상태 (2026-06-14) — ⭐ 워크트리 통합 완료, 단일 master
+
+> **다른 컴퓨터에서 이어받는 사람은 이 절만 읽으면 된다. 아래 나머지 절은 환경/하네스 레퍼런스다.**
+
+- **워크트리·브랜치 전부 정리됨 → 이제 `master` 단일 트리 하나뿐.** 과거에는 한 PC에서
+  멀티 worktree(`hwakt-ocr`=확통, `mij-ocr`=미적분, `render-review`=렌더/검수, `go1-ocr`=고1
+  공수)로 역할 분리해 병행했으나(아래 §HANDOFF_CONSUMER 의 옛 모델), **2026-06-14 전부 master 로
+  머지하고 worktree·브랜치 삭제**. → **다른 컴퓨터는 그냥 `git clone` 후 `master` 에서 작업**한다.
+  worktree 셋업·브랜치 핸드오프 불필요(옛 `docs/HANDOFF_CONSUMER.md`·`scripts/corpus_consumer`
+  의 worktree 절차는 **폐지/역사 기록**).
+- **모든 corpus 캠페인 산출이 master 에 반영됨**: 확통 31교+ OCR, 미적분(성서고·매천고), 고1
+  공수1·공수2 27편/10교, 그리고 검수 `reviewed` 다수. (옛 worktree 4종의 모든 커밋이 master
+  조상으로 포함됨을 검증함.) 원격 `testchange/master`(=origin/master, `BIGSHOL/testchange`)에도
+  동기화 완료.
+- **진행 중 캠페인 = `corpus/QUEUE_*.md`** 의 상태표로 추적(이게 "다음에 뭘 OCR/검수하나"의
+  단일 출처): `QUEUE_확통.md`·`QUEUE_고1_확장.md`(고1 공수)·`QUEUE_고2미적분.md`·`QUEUE_고3미적분.md`
+  등. `ocr_done`/`reviewed`/`pending` 표시. corpus 폴더의 `meta.json` `status` 가 진실값.
+- **유일한 미완 1건**: `corpus/[수성고][1][공수2][25-1-중간] (원본)` = p1·p2 부분 OCR만 됨
+  (레이트리밋 중단). **미커밋(untracked)** — 다른 컴퓨터에서 재OCR 필요. (이 PC 백업:
+  `F:\tmp\preserve_20260614\수성고_공수2_ocr\`.)
+- **되돌리기 안전장치**: 통합 직전 master 스냅샷 = git 태그 `backup/pre-merge-master-20260614`
+  (= 옛 `265e1be`).
+- **이어작업 셋업 요지**(상세는 아래 §2): `git clone` → `pip install -r requirements.txt` →
+  `config.json`(API 키, gitignore) → 한글(HWP) 설치 → `python main.py`. corpus 검수는
+  `python scripts/corpus_consumer/watch_handoff.py` 로 ready 목록 확인 후 `corpus_render.py`.
+> 최종 갱신: 2026-06-14 (워크트리 통합·문서 정비). 이전: 2026-06-11 (이 PC, HEAD `6bf1f1a` —
+> 월암중 중2 검수 6건, 푸시 완료).
 > ⚠️ **배포 exe 는 `97b577d`(메인 PC 2026-06-11 13:31 빌드·배포·selftest OK) 시점** —
 > 점이름·단위(`0c514dd`)까지 포함, **월암중 6건(`6bf1f1a` 파서/렌더 수정)은 미반영**.
 > 다음 빌드 때 반영할 것(코드 = content_parser·hwp_com_writer·hwp_form_writer).

@@ -1,24 +1,22 @@
 # 확률과통계(확통) corpus OCR 대기열 (세션 분리 운영 — 2026-06-13)
 
-> **운영 모델**: 이 큐는 **OCR 세션(생산자, 이 컴퓨터)** 이 0~4단계(crop→OCR→lint)를 수행하고,
-> 학교마다 완료될 때마다 **렌더(메인) 세션** 으로 핸드오프한다. 절차·규약은 `corpus/REVIEW_PROTOCOL.md`.
+> ⚠️ **2026-06-14 운영모델 갱신 — 단일 master**: 과거 이 캠페인은 격리 worktree(`hwakt-ocr`)
+> 에서 돌았으나 모두 master 로 통합됨(`docs/HANDOFF.md` 현재상태 절 참고). 이제 worktree·브랜치
+> 분리 없이 **master 에서 OCR → `meta.json` `"status":"ocr_done"` → commit/push** 하면, 같은
+> master 를 pull 한 렌더/검수가 5~9단계 후 `"reviewed"` 로 마감한다.
 >
-> **핸드오프 대상 = 메인(렌더) 세션 `local_9340d1db` "Progress check and git pull"**
-> (사용자 지정 2026-06-13). 학교 crop/OCR 이 끝날 때마다 ① `meta.json` `"status":"ocr_done"`
-> → ② 이 큐 갱신 → ③ **git commit+push (testchange/BIGSHOL)** → 렌더 세션이 `git pull` 로 수령.
-> ⚠️ `send_message` 는 이 세션이 비감독 모드라 차단 → **git push 가 핸드오프 신호**(사용자 결정).
-> ⚠️ **동시성 경고**: 같은 PC 의 미적분/공수 OCR 세션이 같은 git worktree·index 를 공유해
-> `git reset --hard`/`stash`/`commit` 이 내 untracked·staged 파일을 지운다(batch-2 전멸 후
-> dangling blob 복구). **권장: 세션별 `git worktree` 또는 별도 clone 로 격리.** 임시 대응 = 커밋을
-> 워킹트리 거치지 않고 plumbing(commit-tree+update-ref CAS / push NEW:master)으로 만들어 즉시 push.
-> 렌더 세션이 5~9단계 후 `"reviewed"`.
+> **운영 모델**: OCR(생산) 0~4단계(crop→OCR→lint) → 렌더/검수(소비) 5~9단계. 절차·규약은
+> `corpus/REVIEW_PROTOCOL.md`. 핸드오프 신호 = corpus `<폴더>/meta.json` `"status"`. 여러
+> 컴퓨터가 협업하면 **커밋 전 `git pull`**(과거 worktree 공유 시절 reset/분기 레이스를 비싸게
+> 배움 — 이제 단일 master 라 단순하지만 pull-before-commit 원칙은 유지). `git add -A` 지양,
+> 작업한 폴더만 literal pathspec 으로 add.
 
 ## 소스
 - **원본**: `N:\개인\기출\2025 기출모음\2025년 1학기 기말고사 모음\원본\확통\` (학교당 사본 다수 — **가장 깨끗한 1본** 대표 선정)
 - **완료본(hwp, 교차검증)**: `…\워드\확통\1학기 기말고사\` — 일부 학교만 (`(완료).hwp`, 출판사 태그 포함). ⚠️ **확통은 완료본 PDF가 없음** → 중앙고처럼 **원본 기반** OCR + 완료본 hwp 는 출판사 식별·교차검증 보조(hwp 판독은 렌더 세션 몫).
 - **폼**: 확통 = 고2 선택과목 → `[대수회][25년 폼지 최종(02.09)] (고2 선택과목용) (남색).hwp` (렌더 세션에서 form_registry 자동매칭 검증).
 - 범위: **고2 [2] + 고3 [3] 25-1-기말 + 25-1-중간 전부**(사용자 지정 "중간/기말", 10교씩 배치). 기존 corpus `[중앙고][2][확통][25-1-기말]`(미래엔, 파일럿 1호) **제외**.
-- **진행 현황(2026-06-13)**: **31교 ocr_done**(전부 remote push 완료, 원격 395dee1). 배치1+2(11) + 배치3(10) + 배치4(10: 기말 분성고·신선여고·이서고·경원고·대진고·영송여고 / 중간고2 군위고·삼육고·숙명여고·협성고). **격리 worktree `F:\sihum-hwakt`(브랜치 hwakt-ocr)** 에서 병렬 서브에이전트 → graft push. 동시성 사고 후 격리(메모리 [[hwakt-campaign-ocr-session]]).
+- **진행 현황(2026-06-13)**: **31교 ocr_done**(전부 remote push 완료). 배치1+2(11) + 배치3(10) + 배치4(10: 기말 분성고·신선여고·이서고·경원고·대진고·영송여고 / 중간고2 군위고·삼육고·숙명여고·협성고). 병렬 서브에이전트 OCR. (2026-06-14: 옛 격리 worktree `hwakt-ocr` 의 모든 산출이 master 로 통합됨 — 이제 master 단일 트리.)
 
 ## 진행 — 고2 [2] (완료본 hwp 보유 우선, 출판사 다양성)
 중앙고가 미래엔 1종뿐 → 신사고·동아·천재 등 신규 출판사를 앞순위로.

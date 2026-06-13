@@ -1,8 +1,11 @@
-# corpus 렌더/검수 소비자 도구 (render-review 세션용)
+# corpus 렌더/검수 소비자 도구
 
-생산자(확통/미적분/고1공수 OCR 세션)가 `ocr_done` 핸드오프한 corpus 를 **격리 worktree 에서
-렌더 → 완료본 1:1 검수 → `reviewed` 마킹**하는 소비자 세션 도구 모음. 모든 스크립트는
-`_repo()` 로 repo 루트를 자동탐지하므로 어느 worktree·경로에서 실행해도 동작한다.
+> ⚠️ **2026-06-14: 멀티 worktree 폐지 → 단일 `master`.** 과거엔 격리 worktree(render-review 등)
+> 에서 소비자 세션을 돌렸으나, 이제 모두 master 로 통합됐다. 아래 도구는 그대로 쓰되 **master
+> 에서 실행**한다(worktree 셋업 불필요). 자세한 운영모델은 `docs/HANDOFF_CONSUMER.md`.
+
+`ocr_done` 핸드오프된 corpus 를 **렌더 → 완료본 1:1 검수 → `reviewed` 마킹**하는 도구 모음.
+모든 스크립트는 `_repo()` 로 repo 루트를 자동탐지하므로 어느 경로에서 실행해도 동작한다.
 
 ## 도구
 
@@ -30,6 +33,7 @@
 - COM 오류-재시도 중 혼입(잡 음절 '리'류) = 비결정 → **클린 재렌더로 소거**(데이터/코드 결함 아님).
 - 보기 라벨 ㄱㄴㄷ·온도 ℃ = 정상(단순 자모 grep 쓰지 말고 `corpus_lint --xml` 사용).
 
-## 격리 worktree 셋업 (다음 컴퓨터)
-`docs/HANDOFF_CONSUMER.md` §셋업 참고. 요지: `git worktree add <경로> -b render-review`,
-forms 는 junction, `.venv`·`scripts` 는 메인 트리 공유, push 는 **render-review 브랜치**로(분리).
+## 셋업 (다음 컴퓨터) — 단일 master
+`docs/HANDOFF_CONSUMER.md` §4 참고. 요지: `git clone` 후 **master 에서 작업**, `forms\` 에 폼
+파일 배치, 검수/생산 모두 master 에 직접 커밋·`git push testchange master`(worktree·브랜치 분리
+없음 — 2026-06-14 통합). 검수한 폴더만 literal pathspec 으로 add(`git add -A` 지양).

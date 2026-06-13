@@ -1,9 +1,12 @@
 # 고2 미적분Ⅰ(2022개정 = 내부 "미적분1") corpus OCR 대기열 (세션 분리 운영 — 2026-06-13)
 
+> ⚠️ **2026-06-14: worktree 통합 → 단일 master**(분리 worktree·브랜치 폐지). master 에서 작업.
+> 상세 `docs/HANDOFF.md` 현재상태 절.
+>
 > 운영 규약은 `QUEUE_고2수1.md`·`QUEUE_중2.md` 머리말과 동일 — OCR 세션이 0~4단계 후
-> `meta.json` `"status": "ocr_done"` 으로 핸드오프(= **git commit + push**, 렌더/검수
-> 세션이 `git pull` 로 수령), 렌더 세션이 5~9단계 후 `"reviewed"`. 절차·규약은
-> `corpus/REVIEW_PROTOCOL.md`. **이 PC = OCR 세션(생산자)**, HWP 불필요.
+> `meta.json` `"status": "ocr_done"` 으로 핸드오프(= **git commit + push**, 같은 master 를
+> pull 한 렌더/검수가 5~9단계 후 `"reviewed"`). 절차·규약은
+> `corpus/REVIEW_PROTOCOL.md`. OCR(생산)은 HWP 불필요.
 
 ## ⭐ 과목/폼 — 고2 [2][미적분] = 미적분Ⅰ → 수2폼
 - `form_registry`: **미적분Ⅰ("미적분1") → 수2 폼**(고3 미적분 = "미적분2" = 선택과목폼과 **다른 폼**).

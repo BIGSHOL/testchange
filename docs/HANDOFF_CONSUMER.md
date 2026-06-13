@@ -1,23 +1,22 @@
-# 핸드오프 — corpus 렌더/검수 소비자 세션 (2026-06-13)
+# 핸드오프 — corpus 렌더/검수 소비자 세션 (2026-06-13, 운영모델 갱신 2026-06-14)
 
 다음 컴퓨터/세션이 **corpus 자가발전 검수**를 바로 이어받기 위한 인계 문서.
 
-## 1. 운영 모델 — 생산자·소비자 (멀티 worktree)
+## 1. 운영 모델 — 단일 master (2026-06-14 워크트리 통합)
 
-corpus 작업은 **격리 git worktree** 로 역할 분리되어 병행 진행된다(한 .git 공유). 모든 worktree
-는 `F:\` 아래, 공유 .git 은 메인 트리 `F:\시험지변환기\.git`.
+> ⚠️ **2026-06-14 변경**: 과거의 멀티 worktree 분리 모델은 **폐지**됐다. 모든 worktree
+> (`hwakt-ocr`·`mij-ocr`·`render-review`·`go1-ocr`)와 브랜치를 **`master` 로 통합·삭제**했고,
+> 이제 트리는 `F:\시험지변환기`(master) **하나뿐**이다. 생산(OCR)과 소비(렌더/검수)는 더 이상
+> 별도 worktree·브랜치가 아니라 **같은 master 에서** 진행한다(여러 컴퓨터가 협업하면 각자
+> clone 해 master 를 pull/commit/push). 아래 옛 worktree 표는 **역사 기록**일 뿐 재현하지 말 것.
 
-| worktree | 브랜치 | 역할 |
-|---|---|---|
-| `F:\시험지변환기` | `master` | 메인/고1 공수 OCR 생산(go1-ocr 와 연동) |
-| `F:\sihum-hwakt` | `hwakt-ocr` | **확통** crop/OCR 생산 |
-| `F:\시험지변환기-mij` | `mij-ocr` | **미적분** crop/OCR 생산 |
-| `F:\시험지변환기-render` | `render-review` | **렌더/검수 소비자(이 역할)** |
-
-- **통합지점 = `testchange/master`**(= origin/master, 같은 remote `BIGSHOL/testchange`).
-  생산자들이 자기 브랜치를 여기로 머지/푸시, 소비자는 여기서 핸드오프를 받고 검수결과를 여기로 보낸다.
-- 생산자 핸드오프 신호 = corpus `<폴더>/meta.json` `"status": "ocr_done"` 커밋.
-- 소비자 완료 신호 = 같은 meta `"status": "reviewed"` + `review` 블록.
+- **단일 트리/브랜치**: `F:\시험지변환기` = `master`. 원격 `testchange`(= origin, 같은 remote
+  `BIGSHOL/testchange`)의 `master` 가 통합지점.
+- 핸드오프/완료 신호는 그대로 **corpus `<폴더>/meta.json` `status`**: 생산 끝 = `"ocr_done"`,
+  검수 끝 = `"reviewed"` + `review` 블록. 다른 세션/컴퓨터는 `git pull` 로 최신 master 를 받는다.
+- **옛 모델(역사, 재현 금지)**: `F:\sihum-hwakt`(hwakt-ocr=확통)·`F:\시험지변환기-mij`(mij-ocr=
+  미적분)·`F:\시험지변환기-render`(render-review=렌더/검수)·고1 공수(go1-ocr) 의 격리 worktree
+  를 한 .git 공유로 병행. 동시성 사고(reset 레이스)가 잦아 통합으로 정리함.
 
 ## 2. 현재 상태 (2026-06-13 기준)
 
@@ -45,28 +44,30 @@ corpus 작업은 **격리 git worktree** 로 역할 분리되어 병행 진행�
   확통은 통상 2학년 → **생산자가 학년 라벨을 3으로 오기**했을 가능성(또는 진짜 3학년이면 ref 부재).
   생산자(hwakt-ocr)가 원본 PDF 로 재확인 필요.
 
-## 4. 소비자 셋업 (다음 컴퓨터에서 재현)
+## 4. 셋업 (다음 컴퓨터에서 재현) — 단일 master clone
 
 ```powershell
-# 1) 격리 worktree (메인 트리에서)
-git -C F:\시험지변환기 worktree add F:\시험지변환기-render -b render-review testchange/master
-# 2) forms junction (gitignore 라 worktree 에 없음 — 메인 공유), .venv·scripts 는 메인 것 절대경로 사용
-New-Item -ItemType Junction -Path F:\시험지변환기-render\forms -Target F:\시험지변환기\forms
-# 3) 도구는 추적됨: F:\시험지변환기-render\scripts\corpus_consumer\ (이 인계의 산출)
+# 1) clone (worktree 셋업 불필요 — master 하나)
+git clone https://github.com/BIGSHOL/testchange.git 시험지변환기
+cd 시험지변환기
+# 2) 의존성 + 키 (상세는 docs/HANDOFF.md §2)
+pip install -r requirements.txt          # PySide6·anthropic·google-genai·pymupdf·pywin32 등
+# config.json (루트, gitignore) 에 anthropic/gemini 키 — 검수(캐시 렌더)만이면 키 불필요
 ```
-- python = `F:\시험지변환기\.venv\Scripts\python.exe`(메인 venv 절대경로).
+- python = clone 한 트리의 `.venv\Scripts\python.exe` (또는 시스템 python + requirements).
+- `forms/` 는 gitignore(머신 로컬) → 폼 렌더하려면 폼 파일을 이 트리 `forms\` 로 복사/배치.
 - HWP COM 시작 smoke test 먼저: `python -c "import win32com.client as w; h=w.Dispatch('HWPFrame.HwpObject'); h.Quit(); print('OK')"`.
 - 검수 사이클·가짜결함 주의는 `scripts/corpus_consumer/README.md`.
 
-## 5. 푸시/머지 규약 (충돌 예방 — 비싸게 배운 것)
+## 5. 커밋/푸시 규약 (단일 master)
 
-- 소비자는 **render-review 브랜치**에 커밋, `git push testchange render-review`(master 직접 X).
-- canonical 반영은 **`git merge-tree` 0충돌 검증 → `commit-tree`(작업트리 무접촉) → push** 로
-  render-review 를 master 에 머지(이번 1d70291 방식). 라이브 작업트리 머지 금지(생산자 경합).
-- **핵심: 생산자들이 "커밋 전 pull 안 함" 으로 반복 분기**(master↔hwakt-ocr 2회 충돌, 둘 다
-  0충돌 머지로 해소). 각 생산자는 **새 핸드오프 커밋 전 `git fetch && merge testchange/master`** 할 것.
-- 공유 트리이므로 **절대 `git add -A` 금지**(생산자 untracked 오염) — 검수한 폴더만 literal
-  pathspec `:(literal)corpus/...` 로 add.
+- 검수/생산 모두 **`master` 에 직접 커밋·푸시**: `git pull` → 작업 → `git push testchange master`
+  (worktree·render-review 브랜치 분리 없음 — 2026-06-14 통합으로 폐지).
+- **검수한/생산한 폴더만 literal pathspec 으로 add**: `git add ":(literal)corpus/[학교]...."`.
+  습관적 `git add -A` 는 다른 미커밋 작업(예: 수성고 공수2 부분 OCR) 오염 위험이라 지양.
+- 여러 컴퓨터가 협업하면 **커밋 전 `git pull`(또는 `git fetch && merge testchange/master`)** 로
+  분기를 막는다(과거 멀티 worktree 시절 reset/분기 레이스를 비싸게 배운 교훈 — 이제 단일
+  master 라 단순하지만 pull-before-commit 원칙은 동일).
 
 ## 6. 남은 일 (우선순위)
 

@@ -1,11 +1,13 @@
 # 고1 공수1·공수2 corpus OCR 대기열 — 2차 확장 (2026-06-13)
 
-> **이 컴퓨터 = OCR 세션(생산자)**. 0~4단계(선별→페이지→크롭→OCR→JSON lint)만 수행
-> (HWP COM·API 키 불필요, 키리스 세션 비전). 한 시험지 완료 → `meta.json`
-> `"status": "ocr_done"` + 이 표 갱신 → commit/push → **렌더/검수 세션**
-> (`"Progress check and git pull"`, `local_9340d1db`)으로 `send_message` 핸드오프.
-> 그 세션이 `git pull` + 5~9단계(렌더→XML lint→1:1 대조→수정→`reviewed`) 담당.
-> 핸드오프 후 OCR JSON 수정(A형)은 렌더 세션이 직접(경합 방지). 절차: `REVIEW_PROTOCOL.md`.
+> ⚠️ **2026-06-14: worktree 통합 → 단일 master**(옛 `go1-ocr` 브랜치/worktree 폐지, 27편 전부
+> master 반영). 이제 분리 worktree·브랜치 없이 master 에서 작업. 상세 `docs/HANDOFF.md` 현재상태 절.
+>
+> **OCR 세션(생산자)** = 0~4단계(선별→페이지→크롭→OCR→JSON lint). 한 시험지 완료 → `meta.json`
+> `"status": "ocr_done"` + 이 표 갱신 → commit/push. 같은 master 를 pull 한 **렌더/검수 세션**이
+> `git pull` + 5~9단계(렌더→XML lint→1:1 대조→수정→`reviewed`) 담당. 핸드오프 후 OCR JSON
+> 수정(A형)은 렌더 세션이 직접(경합 방지). 절차: `REVIEW_PROTOCOL.md`.
+> ⚠️ **미완 1건**: 7번 수성고 공수2중간 = p1·p2 부분만(레이트리밋) → 재OCR 필요(미커밋).
 
 ## 대상: 추천 10교 × 신규 3슬롯 = 30건
 
