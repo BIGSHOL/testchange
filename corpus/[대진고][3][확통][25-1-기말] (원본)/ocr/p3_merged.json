@@ -1,0 +1,136 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 6,
+      "score": 4.4,
+      "contents": [
+        {"type": "text", "value": "A, B 두 사람이 다음과 같은 게임을 한다."},
+        {"type": "text", "value": "<상자> 두 개의 동전을 동시에 던져 두 개의 동전이 모두 앞면이 나오면 A가 이기고, 그 외의 경우에는 B가 이긴다."},
+        {"type": "text", "value": "이 게임에서 2번 먼저 이기는 사람이 결정될 때까지 게임이 진행된 횟수를 확률변수 "},
+        {"type": "equation", "value": "X"},
+        {"type": "text", "value": "라 하자. "},
+        {"type": "equation", "value": "E(X) = \\frac{q}{p}"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "p+q"},
+        {"type": "text", "value": "의 값은? (단, "},
+        {"type": "equation", "value": "p"},
+        {"type": "text", "value": "와 "},
+        {"type": "equation", "value": "q"},
+        {"type": "text", "value": "는 서로소인 자연수이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "27"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "30"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "33"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "36"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "39"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 7,
+      "score": 3.6,
+      "contents": [
+        {"type": "text", "value": "연속확률변수 "},
+        {"type": "equation", "value": "X"},
+        {"type": "text", "value": "가 갖는 값의 범위는 "},
+        {"type": "equation", "value": "0 \\leq X \\leq 4"},
+        {"type": "text", "value": "이고, "},
+        {"type": "equation", "value": "X"},
+        {"type": "text", "value": "의 확률밀도함수가 "},
+        {"type": "equation", "value": "f(x) = ax + \\frac{1}{6}"},
+        {"type": "text", "value": "일 때, 양수 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{1}{8}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{1}{16}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{1}{24}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{1}{32}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{1}{40}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 8,
+      "score": 4.0,
+      "contents": [
+        {"type": "text", "value": "정규분포 "},
+        {"type": "equation", "value": "N(m, \\sigma^2)"},
+        {"type": "text", "value": "을 따르는 확률변수 "},
+        {"type": "equation", "value": "X"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "P(X \\leq 7) = P(X \\geq 21)"},
+        {"type": "text", "value": "이고, "},
+        {"type": "equation", "value": "V(3X) = 36"},
+        {"type": "text", "value": "이다. "},
+        {"type": "equation", "value": "m + \\sigma"},
+        {"type": "text", "value": "의 값은? (단, "},
+        {"type": "equation", "value": "\\sigma > 0"},
+        {"type": "text", "value": ")"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "14"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "16"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "18"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 9,
+      "score": 3.6,
+      "contents": [
+        {"type": "text", "value": "확률변수 "},
+        {"type": "equation", "value": "X"},
+        {"type": "text", "value": "가 평균이 46이고 분산이 36인 정규분포를 따를 때, "},
+        {"type": "equation", "value": "P(X \\leq 37)"},
+        {"type": "text", "value": "의 값을 아래 표준정규분포표를 이용하여 구한 것은?"},
+        {"type": "table", "value": "", "rows": [
+          ["z", "P(0 \\leq Z \\leq z)"],
+          ["0.5", "0.1915"],
+          ["1.0", "0.3413"],
+          ["1.5", "0.4332"],
+          ["2.0", "0.4772"]
+        ]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "0.0228"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "0.0668"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "0.1587"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "0.2586"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "0.3085"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 10,
+      "score": 3.6,
+      "contents": [
+        {"type": "text", "value": "어느 지역의 고등학교 학생 1명의 키는 평균이 "},
+        {"type": "equation", "value": "m \\, \\mathrm{cm}"},
+        {"type": "text", "value": ", 표준편차가 10cm인 정규분포를 따른다고 한다. 이 지역의 고등학교 학생 중에서 임의로 선택한 학생 1명의 키가 160cm 이하일 확률이 0.0228일 때, "},
+        {"type": "equation", "value": "m"},
+        {"type": "text", "value": "의 값을 아래 표준정규분포표를 이용하여 구한 것은?"},
+        {"type": "table", "value": "", "rows": [
+          ["z", "P(0 \\leq Z \\leq z)"],
+          ["0.5", "0.1915"],
+          ["1.0", "0.3413"],
+          ["1.5", "0.4332"],
+          ["2.0", "0.4772"]
+        ]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "176"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "178"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "180"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "182"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "184"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 16,
+      "score": 12.0,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 2] 네 개의 수 "},
+        {"type": "equation", "value": "-2, -1, 1, 2"},
+        {"type": "text", "value": "가 하나씩 적혀 있는 네 장의 카드 중에서 중복을 허락하여 두 장의 카드를 임의로 뽑았을 때, 뽑은 두 장의 카드에 적혀 있는 두 수의 곱을 확률변수 "},
+        {"type": "equation", "value": "X"},
+        {"type": "text", "value": "라 하자."}
+      ],
+      "choices": [],
+      "sub_questions": [
+        {
+          "number": 1,
+          "score": 3.0,
+          "contents": [
+            {"type": "equation", "value": "X"},
+            {"type": "text", "value": "의 확률분포표를 그리시오."}
+          ]
+        },
+        {
+          "number": 2,
+          "score": 5.0,
+          "contents": [
+            {"type": "equation", "value": "X"},
+            {"type": "text", "value": "의 기댓값 "},
+            {"type": "equation", "value": "E(X)"},
+            {"type": "text", "value": ", 분산 "},
+            {"type": "equation", "value": "V(X)"},
+            {"type": "text", "value": "를 구하시오."}
+          ]
+        },
+        {
+          "number": 3,
+          "score": 4.0,
+          "contents": [
+            {"type": "text", "value": "확률변수 "},
+            {"type": "equation", "value": "Y = -2X + 3"},
+            {"type": "text", "value": "의 기댓값 "},
+            {"type": "equation", "value": "E(Y)"},
+            {"type": "text", "value": ", 분산 "},
+            {"type": "equation", "value": "V(Y)"},
+            {"type": "text", "value": "를 구하시오."}
+          ]
+        }
+      ]
+    },
+    {
+      "number": 17,
+      "score": 8.0,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 3] 모집단의 확률변수 "},
+        {"type": "equation", "value": "X"},
+        {"type": "text", "value": "의 확률질량함수가 "},
+        {"type": "equation", "value": "P(X=k) = ak \\ (k=1, 2, 3, 4)"},
+        {"type": "text", "value": "이다. 이 모집단에서 크기가 25인 표본을 임의추출하여 구한 표본평균을 "},
+        {"type": "equation", "value": "\\overline{X}"},
+        {"type": "text", "value": "라 할 때, "},
+        {"type": "equation", "value": "\\sigma(-5\\overline{X} + 10)"},
+        {"type": "text", "value": "의 값을 구하시오. (단, "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "는 상수이다.)"}
+      ],
+      "choices": [],
+      "sub_questions": []
+    }
+  ]
+}

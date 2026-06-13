@@ -1,0 +1,115 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 1,
+      "score": 3.3,
+      "contents": [
+        {"type": "equation", "value": "{}_{2}\\Pi_{3}"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "9"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 2,
+      "score": 3.4,
+      "contents": [
+        {"type": "text", "value": "다항식 "},
+        {"type": "equation", "value": "(x+y)^{20}"},
+        {"type": "text", "value": "의 전개식에서 서로 다른 항의 개수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "19"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "20"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "21"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "22"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "23"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 3,
+      "score": 3.5,
+      "contents": [
+        {"type": "text", "value": "아버지와 어머니를 포함하여 5명의 가족이 원 모양의 탁자에 일정한 간격으로 둘러앉을 때, 아버지와 어머니가 이웃하여 앉는 방법의 수는? (단, 회전하여 일치하는 것은 같은 것으로 본다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "15"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 4,
+      "score": 3.6,
+      "contents": [
+        {"type": "text", "value": "‘SUCCESS’에 있는 7개의 문자를 모두 일렬로 배열할 때, 알파벳 U와 알파벳 E가 서로 이웃하도록 배열하는 경우의 수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "110"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "120"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "130"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "140"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "150"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 5,
+      "score": 3.7,
+      "contents": [
+        {"type": "text", "value": "1부터 6까지의 자연수가 하나씩 적혀 있는 6개의 의자가 있다. 6개의 의자를 일정한 간격을 두고 원형으로 배열할 때, 홀수가 적혀있는 의자와 짝수가 적혀있는 의자를 교대로 배열하는 경우의 수는? (단, 회전하여 일치하는 것은 같은 것으로 본다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "15"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "18"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "21"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "24"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 6,
+      "score": 3.8,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 직사각형 모양으로 연결된 도로망이 있다. 이 도로망을 따라 A 지점에서 출발하여 B 지점까지 최단 거리로 갈 때, P 지점을 지나면서 Q 지점을 지나지 않는 경우의 수는?"},
+        {"type": "figure", "value": "직사각형 격자 도로망. 왼쪽 아래에 가로 3칸×세로 2칸 격자(왼쪽 아래 꼭짓점이 A, 격자 내부 한 교점이 P). 그 격자의 오른쪽 위 꼭짓점에서 이어진 가로 3칸×세로 2칸 격자(오른쪽 위 꼭짓점이 B, 격자 내부 한 교점이 Q). 두 격자는 P격자의 오른쪽 위 꼭짓점 = Q격자의 왼쪽 아래 꼭짓점에서 연결됨.", "bbox": [0.52, 0.55, 0.85, 0.68]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "80"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "84"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "88"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "92"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "96"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 7,
+      "score": 3.9,
+      "contents": [
+        {"type": "equation", "value": "21^{50}"},
+        {"type": "text", "value": "을 400으로 나눈 나머지는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "21"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "51"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "101"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "201"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

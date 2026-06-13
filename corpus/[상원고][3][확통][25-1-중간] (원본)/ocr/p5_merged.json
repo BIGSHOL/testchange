@@ -1,0 +1,53 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 15,
+      "score": 4.9,
+      "contents": [
+        {"type": "equation", "value": "1, 2, 3, 4, 5"},
+        {"type": "text", "value": "의 숫자가 하나씩 적혀 있는 카드가 각각 2장씩 총 10장이 들어 있는 주머니가 있다. 이 주머니에서 임의로 3장의 카드를 동시에 꺼낼 때, 꺼낸 카드에 적힌 세 수의 합이 3의 배수일 확률은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{1}{5}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{4}{5}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{1}{3}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{2}{5}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{7}{15}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 16,
+      "score": 5,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서답형1] 어느 병원에 독감 의심 증상으로 찾아오는 환자 중에서 90%는 실제로 독감이 아니고, 10%는 실제로 독감이라고 한다. 이 병원에서 사용하는 독감 검사 키트는 실제 독감 환자를 양성으로 판정할 확률이 0.85이고, 독감에 걸리지 않은 환자를 양성으로 판정할 확률이 0.2라고 한다. 독감 의심 증상으로 이 병원에 찾아온 환자 중에서 검사 결과 양성으로 판정받은 환자가 실제로는 독감 환자일 확률을 "},
+        {"type": "equation", "value": "\\frac{q}{p}"},
+        {"type": "text", "value": "라 할 때, "},
+        {"type": "equation", "value": "p+q"},
+        {"type": "text", "value": "의 값을 구하는 풀이 과정과 답을 쓰시오. (단, "},
+        {"type": "equation", "value": "p"},
+        {"type": "text", "value": "와 "},
+        {"type": "equation", "value": "q"},
+        {"type": "text", "value": "는 서로소인 자연수이다.)"}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 17,
+      "score": 6,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서답형2] 1부터 8까지 자연수가 각각 적힌 8개의 공이 들어 있는 상자가 있다. 이 상자에서 임의로 3개의 공을 동시에 꺼낼 때, 공에 적힌 수를 작은 것부터 차례로 "},
+        {"type": "equation", "value": "a, b, c"},
+        {"type": "text", "value": "라 하자. "},
+        {"type": "equation", "value": "b \\leq 5"},
+        {"type": "text", "value": "일 확률을 구하는 풀이 과정과 답을 쓰시오."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    }
+  ]
+}

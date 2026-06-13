@@ -1,0 +1,80 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 10,
+      "score": 5.0,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 직사각형 모양으로 연결된 도로망이 있다. 이 도로망을 따라 A지점에서 출발하여 P지점을 지나 B지점까지 최단 거리로 가는 경우의 수는?"},
+        {"type": "figure", "value": "직사각형 격자 모양의 도로망. 왼쪽 아래에 A지점, 가운데에 P지점, 오른쪽 위에 B지점이 표시되어 있다. 격자 일부 구간의 도로가 끊겨 있다(직사각형 모양으로 연결된 도로망).", "bbox": [0.04, 0.13, 0.50, 0.285]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "51"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "54"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "58"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "63"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "69"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 11,
+      "score": 5.5,
+      "contents": [
+        {"type": "text", "value": "집합 "},
+        {"type": "equation", "value": "X = \\{1, 2, 3, 4, 5, 6\\}"},
+        {"type": "text", "value": "에 대하여 다음 조건을 만족시키는 함수 "},
+        {"type": "equation", "value": "f: X \\rightarrow X"},
+        {"type": "text", "value": "의 개수는?"},
+        {"type": "text", "value": "<상자> (가) "},
+        {"type": "equation", "value": "f(1) \\times f(6)"},
+        {"type": "text", "value": "의 값이 4의 약수이다. • (나) "},
+        {"type": "equation", "value": "f(1) \\leq f(2) \\leq f(3) \\leq f(4) \\leq f(5) \\leq 2f(6)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "154"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "161"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "168"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "175"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "182"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 12,
+      "score": 5.6,
+      "contents": [
+        {"type": "text", "value": "세 명의 학생에게 서로 다른 종류의 사탕 3개와 같은 종류의 초콜릿 6개를 남김없이 나누어 주려고 한다. 각 학생이 받은 사탕의 개수와 초콜릿의 개수의 합은 2 이상이고 적어도 한 명의 학생은 사탕을 받지 못하도록 나누어 주는 경우의 수는? (단, 초콜릿을 받지 못하는 학생이 있을 수 있다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "180"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "198"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "216"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "234"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "252"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 13,
+      "score": 5.4,
+      "contents": [
+        {"type": "text", "value": "1부터 10까지 자연수가 하나씩 적힌 10장의 카드가 담긴 주머니에서 한 장씩 두 번 카드를 뽑을 때, 첫 번째 뽑은 카드에 적힌 수를 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": ", 두 번째 뽑은 카드에 적힌 수를 "},
+        {"type": "equation", "value": "b"},
+        {"type": "text", "value": "라고 하자. 이차방정식 "},
+        {"type": "equation", "value": "x^{2} + ax + b = 0"},
+        {"type": "text", "value": "이 허근을 가질 확률은? (단, 첫 번째 뽑은 카드는 주머니에 다시 넣지 않는다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{1}{18}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{1}{6}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{5}{18}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{7}{18}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{1}{2}"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

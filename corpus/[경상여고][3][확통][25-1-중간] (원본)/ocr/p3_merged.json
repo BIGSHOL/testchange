@@ -1,0 +1,95 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 6,
+      "score": 4.1,
+      "contents": [
+        {"type": "text", "value": "세 문자 "},
+        {"type": "equation", "value": "A, B, C"},
+        {"type": "text", "value": " 중에서 중복을 허락하여 6개를 택해 일렬로 나열할 때, 나열된 6개의 문자 중 세 문자 "},
+        {"type": "equation", "value": "A, B, C"},
+        {"type": "text", "value": "의 개수를 각각 "},
+        {"type": "equation", "value": "a, b, c"},
+        {"type": "text", "value": "라 하자. "},
+        {"type": "equation", "value": "1 \\leq a \\leq b < c"},
+        {"type": "text", "value": "이 성립하도록 나열하는 경우의 수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "30"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "60"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "90"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "120"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "150"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 7,
+      "score": 4.5,
+      "contents": [
+        {"type": "text", "value": "다음 조건을 모두 만족시키는 자연수 "},
+        {"type": "equation", "value": "a, b, c, d"},
+        {"type": "text", "value": "의 모든 순서쌍 "},
+        {"type": "equation", "value": "(a, b, c, d)"},
+        {"type": "text", "value": "의 개수는?"},
+        {"type": "text", "value": "<상자> (가) "},
+        {"type": "equation", "value": "a+b+c+d=12"},
+        {"type": "text", "value": " • (나) "},
+        {"type": "equation", "value": "a, b, c, d"},
+        {"type": "text", "value": " 중 적어도 하나는 짝수다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "130"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "140"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "150"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "160"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "170"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 8,
+      "score": 4.4,
+      "contents": [
+        {"type": "text", "value": "다음 조건을 만족하는 집합 "},
+        {"type": "equation", "value": "U = \\{1, 2, 3, 4, 5, 6, 7, 8\\}"},
+        {"type": "text", "value": "의 두 부분집합 "},
+        {"type": "equation", "value": "A, B"},
+        {"type": "text", "value": "의 모든 순서쌍 "},
+        {"type": "equation", "value": "(A, B)"},
+        {"type": "text", "value": "의 개수는?"},
+        {"type": "text", "value": "<상자> (가) "},
+        {"type": "equation", "value": "\\{1, 3, 5\\} \\subset A"},
+        {"type": "text", "value": " • (나) "},
+        {"type": "equation", "value": "B \\neq \\varnothing, B \\subset A"},
+        {"type": "text", "value": " • (다) "},
+        {"type": "equation", "value": "n(A), n(B)"},
+        {"type": "text", "value": "는 모두 짝수이다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "352"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "392"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "432"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "472"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "512"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 9,
+      "score": 4.0,
+      "contents": [
+        {"type": "text", "value": "어느 성인 남녀 각각 50명씩 총 100명을 대상으로 영화관에 관한 선호도를 조사하였다. 이 조사에 참여한 성인은 C 영화관과 M 영화관 중 하나를 선택하였고 C 영화관을 좋아하는 남성은 30명, M 영화관을 좋아하는 여성은 40명이다. 이 조사에 참여한 성인 100명 중에서 임의로 선택한 한 명이 M 영화관을 좋아하는 사람일 때, 이 사람이 남성일 확률은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{1}{4}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{1}{3}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{1}{2}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{2}{3}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{3}{4}"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

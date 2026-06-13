@@ -1,0 +1,97 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 6,
+      "score": 4.0,
+      "contents": [
+        {"type": "text", "value": "1부터 10까지의 숫자가 각각 하나씩 적힌 10장의 카드에서 임의로 한 장의 카드를 뽑을 때, 짝수가 적힌 카드가 나오는 사건을 "},
+        {"type": "equation", "value": "A"},
+        {"type": "text", "value": "라 하자. 다음 중 사건 "},
+        {"type": "equation", "value": "A"},
+        {"type": "text", "value": "와 서로 독립인 사건만을 있는대로 고른 것은?"},
+        {"type": "text", "value": "<보기> B. 홀수가 적힌 카드가 나오는 사건 • C. 3또는 4가 적힌 카드가 나오는 사건 • D. 5의 배수가 적힌 카드가 나오는 사건"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "B"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "C"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "D"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "C, D"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "B, C, D"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 7,
+      "score": 4.1,
+      "contents": [
+        {"type": "text", "value": "오른쪽 그림과 같이 한 변의 길이가 1인 정육각형의 변을 따라 시계 반대 방향으로 움직이는 점 "},
+        {"type": "equation", "value": "P"},
+        {"type": "text", "value": "가 있다. 1개의 동전을 던져서 앞면이 나오면 2만큼, 뒷면이 나오면 1만큼 점 "},
+        {"type": "equation", "value": "P"},
+        {"type": "text", "value": "를 움직인다. 동전을 4번 던질 때, 점 "},
+        {"type": "equation", "value": "P"},
+        {"type": "text", "value": "가 처음 출발 위치로 돌아올 확률은?"},
+        {"type": "figure", "value": "한 변의 길이가 1인 정육각형. 한 꼭짓점에 점 P가 표시되어 있고, 변을 따라 시계 반대 방향으로 움직임을 나타내는 화살표.", "bbox": [0.55, 0.42, 0.99, 0.58]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{3}{4}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{5}{8}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{9}{16}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{1}{2}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{3}{8}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 8,
+      "score": 4.2,
+      "contents": [
+        {"type": "text", "value": "길이가 4인 선분 "},
+        {"type": "equation", "value": "\\overline{AB}"},
+        {"type": "text", "value": "위에 임의로 두 점 "},
+        {"type": "equation", "value": "P, Q"},
+        {"type": "text", "value": "를 잡을 때, "},
+        {"type": "equation", "value": "\\overline{PQ} \\leq 2"},
+        {"type": "text", "value": "일 확률은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{3}{4}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{5}{8}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{9}{16}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{1}{2}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{3}{8}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 9,
+      "score": 4.3,
+      "contents": [
+        {"type": "text", "value": "두 사건 "},
+        {"type": "equation", "value": "A, B"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "P(A) = \\frac{1}{4}"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "P(B) = \\frac{2}{3}"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "P(B|A) = \\frac{1}{3}"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "P(B^{C}|A^{C})"},
+        {"type": "text", "value": "의 값은? (단, "},
+        {"type": "equation", "value": "A^{C}"},
+        {"type": "text", "value": "는 "},
+        {"type": "equation", "value": "A"},
+        {"type": "text", "value": "의 여사건이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{1}{9}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{2}{9}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{1}{3}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{4}{9}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{5}{9}"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

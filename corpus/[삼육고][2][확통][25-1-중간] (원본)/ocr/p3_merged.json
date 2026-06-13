@@ -1,0 +1,118 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 12,
+      "score": 4.9,
+      "contents": [
+        {"type": "equation", "value": "x, y, z"},
+        {"type": "text", "value": "가 "},
+        {"type": "equation", "value": "x \\geq -1, y \\geq -1, z \\geq -1"},
+        {"type": "text", "value": "인 정수일 때, 방정식 "},
+        {"type": "equation", "value": "x + y + z = 9"},
+        {"type": "text", "value": "를 만족시키는 해의 개수는? [4.9점]"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "51"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "61"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "71"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "81"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "91"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 13,
+      "score": 5.0,
+      "contents": [
+        {"type": "equation", "value": "{}_{n}C_{1} + {}_{n}C_{2} + {}_{n}C_{3} + \\cdots + {}_{n}C_{n-1} = 510"},
+        {"type": "text", "value": "을 만족시키는 자연수 "},
+        {"type": "equation", "value": "n"},
+        {"type": "text", "value": "의 값은? [5점]"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "11"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 14,
+      "score": 5.2,
+      "contents": [
+        {"type": "text", "value": "7개의 문자 "},
+        {"type": "equation", "value": "a, a, a, b, b, c, c"},
+        {"type": "text", "value": "를 일렬로 나열할 때, 양 끝에 서로 다른 문자가 오도록 하는 경우의 수는? [5.2점]"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "80"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "100"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "120"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "140"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "160"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 15,
+      "score": 5.2,
+      "contents": [
+        {"type": "text", "value": "각 자리의 수가 0이 아닌 네 자리의 자연수 중 각 자리의 수의 합이 9인 모든 자연수의 개수는? [5.2점]"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "44"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "48"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "52"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "56"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "60"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 16,
+      "score": 5.3,
+      "contents": [
+        {"type": "equation", "value": "21^{21}"},
+        {"type": "text", "value": "의 백의 자리, 십의 자리, 일의 자리의 숫자를 각각 "},
+        {"type": "equation", "value": "a, b, c"},
+        {"type": "text", "value": "라 할 때 "},
+        {"type": "equation", "value": "a + b + c"},
+        {"type": "text", "value": "의 값은? [5.3점]"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "11"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "130"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 17,
+      "score": 5.3,
+      "contents": [
+        {"type": "text", "value": "두 집합 "},
+        {"type": "equation", "value": "X = \\{1, 2, 3, 4, 5\\}"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "Y = \\{a, b, c\\}"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "X"},
+        {"type": "text", "value": "에서 "},
+        {"type": "equation", "value": "Y"},
+        {"type": "text", "value": "로의 함수 중에서 치역과 공역이 같은 함수의 개수는? [5.3점]"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "90"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "120"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "150"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "180"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "210"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 5,
+      "score": 4.0,
+      "contents": [
+        {"type": "text", "value": "1부터 12까지 자연수가 각 면에 하나씩 적혀 있는 정십이면체 주사위가 있다. 주사위를 던져 나온 눈의 수가 12의 약수인 사건을 "},
+        {"type": "equation", "value": "A"},
+        {"type": "text", "value": ", 눈의 수가 "},
+        {"type": "equation", "value": "n"},
+        {"type": "text", "value": " 이하인 사건을 "},
+        {"type": "equation", "value": "B_{n}"},
+        {"type": "text", "value": "이라 할 때, 사건 "},
+        {"type": "equation", "value": "A^{C}"},
+        {"type": "text", "value": "과 사건 "},
+        {"type": "equation", "value": "B_{n}"},
+        {"type": "text", "value": "이 서로 배반사건이 되도록 하는 12 이하의 모든 자연수 "},
+        {"type": "equation", "value": "n"},
+        {"type": "text", "value": "의 값의 합은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "10"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 6,
+      "score": 4.2,
+      "contents": [
+        {"type": "text", "value": "단어 bunsung에 있는 7개의 문자를 일렬로 나열할 때, 사건 "},
+        {"type": "equation", "value": "A, B, C, D"},
+        {"type": "text", "value": "가 다음과 같다고 하자."},
+        {"type": "text", "value": "<상자> A : u가 항상 n보다 오른쪽에 놓일 사건 • B : 적어도 한 쪽 끝에는 모음이 있을 사건 • C : 왼쪽과 오른쪽 양 끝의 문자가 같을 사건 • D : n과 n, u와 u, n과 u가 모두 이웃하지 않을 사건"},
+        {"type": "text", "value": "서로 배반 사건인 것을 <보기>에서 있는 대로 고른 것은?"},
+        {"type": "text", "value": "<보기> ㄱ. A와 B • ㄴ. B와 C • ㄷ. A와 C • ㄹ. C와 D"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄷ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄹ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄱ, ㄷ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄴ, ㄹ"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

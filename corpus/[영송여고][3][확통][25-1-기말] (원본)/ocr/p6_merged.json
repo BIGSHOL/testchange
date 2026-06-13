@@ -1,0 +1,59 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 14,
+      "score": 5,
+      "label_type": "서답형",
+      "contents": [
+        {"type": "text", "value": "[서답형 1] 두 사건 "},
+        {"type": "equation", "value": "A"},
+        {"type": "text", "value": "와 "},
+        {"type": "equation", "value": "B"},
+        {"type": "text", "value": "는 서로 배반사건이고 "},
+        {"type": "equation", "value": "P(A \\cup B) = \\frac{9}{14}"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "P(A^C \\cap B) = \\frac{3}{7}"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "P(A^C)"},
+        {"type": "text", "value": "의 값을 구하시오."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 15,
+      "score": 5,
+      "label_type": "서답형",
+      "contents": [
+        {"type": "text", "value": "[서답형 2] 이항분포 "},
+        {"type": "equation", "value": "B(n, p)"},
+        {"type": "text", "value": "를 따르는 확률변수 "},
+        {"type": "equation", "value": "X"},
+        {"type": "text", "value": "가 다음 조건을 만족시킬 때, "},
+        {"type": "equation", "value": "V(11X)"},
+        {"type": "text", "value": "의 값을 구하시오."},
+        {"type": "text", "value": "<조건> (가) "},
+        {"type": "equation", "value": "E(X) = 16"},
+        {"type": "text", "value": " • (나) "},
+        {"type": "equation", "value": "\\frac{P(X=1)}{P(X=2)} = \\frac{4}{35}"}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 16,
+      "score": 5,
+      "label_type": "서답형",
+      "contents": [
+        {"type": "text", "value": "[서답형 3] 한 개의 주사위를 한 번 던져 나온 눈의 수가 5이상이면 3점을 얻고, 4이하이면 1점을 잃는 게임을 한다. 0점에서 시작하여 한 개의 주사위를 162번 던진 후에 이 게임에서 얻는 점수가 18점 이상일 확률을 구하시오. (단, "},
+        {"type": "equation", "value": "Z"},
+        {"type": "text", "value": "가 표준정규분포를 따르는 확률변수일 때, "},
+        {"type": "equation", "value": "P(0 \\leq Z \\leq 1.5) = 0.4332"},
+        {"type": "text", "value": "이다.)"}
+      ],
+      "choices": [],
+      "sub_questions": []
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 5,
+      "score": 5.0,
+      "contents": [
+        {"type": "text", "value": "숫자 2, 3, 3, 3, 4, 4, 5가 하나씩 적혀 있는 7장의 카드가 있다. 이 7장의 카드를 모두 한 번씩 사용하여 임의로 일렬로 나열할 때, 양 끝에 놓인 카드에 적힌 두 수 중 적어도 하나는 10의 약수일 확률은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{3}{7}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{10}{21}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{11}{21}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{4}{7}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{13}{21}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 6,
+      "score": 5.0,
+      "contents": [
+        {"type": "text", "value": "흰 공 6개와 검은 공 5개가 들어 있는 주머니에서 임의로 5개의 공을 동시에 꺼낼 때, 꺼낸 5개의 공 중에서 흰 공과 검은 공이 각각 1개 이상일 확률이 "},
+        {"type": "equation", "value": "\\frac{q}{p}"},
+        {"type": "text", "value": "이다. "},
+        {"type": "equation", "value": "p+q"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "127"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "129"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "131"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "133"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "135"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 7,
+      "score": 5.0,
+      "contents": [
+        {"type": "text", "value": "두 사건 "},
+        {"type": "equation", "value": "A, B"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "P(A^C) = \\frac{1}{3}"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "2P(B|A) = P(A|B) = \\frac{3}{5}"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "P(A \\cup B)"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{1}{5}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{2}{5}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{3}{5}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{4}{5}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "1"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 8,
+      "score": 5.3,
+      "contents": [
+        {"type": "text", "value": "어느 당뇨병 진단 시약이 당뇨병에 걸린 사람을 당뇨병에 걸렸다고 진단할 확률이 0.9이고, 당뇨병에 걸리지 않은 사람을 당뇨병에 걸리지 않았다고 진단할 확률이 0.8이라고 한다. 당뇨병에 걸린 사람 400명과 걸리지 않은 사람 600명 중에서 임의로 1명을 택하여 이 진단 시약을 사용했더니 당뇨병에 걸렸다고 진단했을 때, 그 사람이 실제로 당뇨병에 걸렸을 확률은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{7}{12}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{2}{3}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{3}{4}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{5}{6}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{11}{12}"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

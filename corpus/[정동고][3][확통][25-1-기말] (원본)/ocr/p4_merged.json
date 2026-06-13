@@ -1,0 +1,83 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 13,
+      "score": 4.8,
+      "contents": [
+        {"type": "text", "value": "1부터 7까지의 자연수가 하나씩 적혀 있는 7장의 카드 중에서 임의로 4장의 카드를 동시에 뽑아 4장의 카드에 적혀 있는 수를 확인하고 다시 넣는 시행을 20번 반복한다. "},
+        {"type": "equation", "value": "(n = 1, 2, 3, \\cdots, 20)"},
+        {"type": "text", "value": " "},
+        {"type": "equation", "value": "n"},
+        {"type": "text", "value": "번째 시행에서 뽑은 4장의 카드에 적혀 있는 수 중에서 두 번째로 작은 수를 "},
+        {"type": "equation", "value": "x_n"},
+        {"type": "text", "value": "이라 할 때, "},
+        {"type": "equation", "value": "x_1, x_2, \\cdots, x_{20}"},
+        {"type": "text", "value": "의 평균을 "},
+        {"type": "equation", "value": "\\overline{X}"},
+        {"type": "text", "value": "라 할 때, "},
+        {"type": "equation", "value": "E(\\overline{X})"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{13}{5}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{14}{5}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{16}{5}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{17}{5}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 14,
+      "score": 4.7,
+      "contents": [
+        {"type": "text", "value": "어느 고등학교 남학생들의 키는 정규분포 "},
+        {"type": "equation", "value": "N(m, 5^2)"},
+        {"type": "text", "value": "을 따른다고 한다. 이 학교 남학생 49명을 임의추출하여 구한 평균이 173일 때, 이를 이용하여 얻은 전체 학생들의 키의 평균 "},
+        {"type": "equation", "value": "m"},
+        {"type": "text", "value": "에 대한 신뢰도 95%의 신뢰구간이 "},
+        {"type": "equation", "value": "a \\leq m \\leq b"},
+        {"type": "text", "value": "이다. "},
+        {"type": "equation", "value": "b - a"},
+        {"type": "text", "value": "의 값은? (단, 단위는 cm이고, "},
+        {"type": "equation", "value": "Z"},
+        {"type": "text", "value": "가 표준정규분포를 따르는 확률변수일 때, "},
+        {"type": "equation", "value": "P(|Z| \\leq 1.96) = 0.95"},
+        {"type": "text", "value": "로 계산한다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1.9"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2.1"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "2.3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "2.5"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "2.8"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 15,
+      "score": 8.0,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 1] "},
+        {"type": "equation", "value": "A, B"},
+        {"type": "text", "value": " 두 팀이 축구 경기를 하여 한 팀이 먼저 세 경기를 이기거나 연속하여 두 경기를 이기면 승리하는 게임을 한다. 각 경기에서 "},
+        {"type": "equation", "value": "A"},
+        {"type": "text", "value": "팀이 이길 확률은 "},
+        {"type": "equation", "value": "\\frac{2}{5}"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "B"},
+        {"type": "text", "value": "팀이 이길 확률은 "},
+        {"type": "equation", "value": "\\frac{3}{5}"},
+        {"type": "text", "value": "이다. 첫 경기에서 "},
+        {"type": "equation", "value": "A"},
+        {"type": "text", "value": "팀이 이겼을 때, "},
+        {"type": "equation", "value": "A"},
+        {"type": "text", "value": "팀이 승리할 확률을 구하시오."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    }
+  ]
+}

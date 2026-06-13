@@ -1,0 +1,90 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 8,
+      "score": 4.0,
+      "contents": [
+        {"type": "equation", "value": "(1+x)^{20}"},
+        {"type": "text", "value": "의 전개식에서 "},
+        {"type": "equation", "value": "x^{15}"},
+        {"type": "text", "value": "의 계수를 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "라 하고, "},
+        {"type": "equation", "value": "(1+x)^{19}"},
+        {"type": "text", "value": "의 전개식에서 "},
+        {"type": "equation", "value": "x^{15}"},
+        {"type": "text", "value": "의 계수를 "},
+        {"type": "equation", "value": "b"},
+        {"type": "text", "value": "라 할 때, "},
+        {"type": "equation", "value": "a-b"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "{}_{19}\\mathrm{C}_{14}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "{}_{19}\\mathrm{C}_{15}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "{}_{20}\\mathrm{C}_{14}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "{}_{20}\\mathrm{C}_{15}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "{}_{20}\\mathrm{C}_{16}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 9,
+      "score": 4.1,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 합동인 9개의 정사각형으로 이루어진 색칠판이 있다."},
+        {"type": "figure", "value": "3×3 격자(합동인 정사각형 9개)로 이루어진 색칠판. 왼쪽 위부터 1, 2, 3 / 4, 5, 6 / 7, 8, 9 로 번호가 매겨져 있음.", "bbox": [0.16, 0.16, 0.40, 0.40]},
+        {"type": "text", "value": "빨간색, 노란색, 파란색을 포함하여 총 9가지의 서로 다른 색으로 이 색칠판을 다음 조건을 만족시키도록 칠하려고 한다."},
+        {"type": "text", "value": "<조건> (가) 주어진 9가지의 색을 모두 사용하여 칠한다. • (나) 한 정사각형에는 한 가지 색만을 칠한다. • (다) 빨간색, 노란색, 파란색이 칠해진 세 정사각형 중 어느 두 정사각형도 서로 꼭짓점을 공유하지 않는다."},
+        {"type": "text", "value": "색칠판을 칠하는 경우의 수는 "},
+        {"type": "equation", "value": "k \\times 6!"},
+        {"type": "text", "value": "이다. "},
+        {"type": "equation", "value": "k"},
+        {"type": "text", "value": "의 값은? (단, 회전하여 일치하는 것은 같은 것으로 본다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "11"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "13"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "14"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "15"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 10,
+      "score": 4.2,
+      "contents": [
+        {"type": "text", "value": "숫자 1, 2, 3 중에서 모든 숫자가 한 개 이상씩 포함되도록 중복을 허락하여 5개를 선택한 후, 일렬로 나열하여 만들 수 있는 다섯 자리의 자연수 중 일의 자리의 수가 백의 자리의 수보다 작은 자연수의 개수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "51"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "54"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "57"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "60"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "63"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 11,
+      "score": 4.3,
+      "contents": [
+        {"type": "text", "value": "부등식 "},
+        {"type": "equation", "value": "x+y+z+2w \\leq 12"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "x, y, z, w"},
+        {"type": "text", "value": "가 모두 양의 정수인 해의 개수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "180"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "190"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "200"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "210"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "220"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

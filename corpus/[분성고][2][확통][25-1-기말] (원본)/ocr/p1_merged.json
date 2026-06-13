@@ -1,0 +1,85 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 1,
+      "score": 2.8,
+      "contents": [
+        {"type": "text", "value": "정임, 미정, 민재가 카페에서 다섯 개의 음료 메뉴 중 1인당 하나씩 음료를 골라 주문하려고 한다. 주문하는 경우의 수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "{}_{3}\\mathrm{H}_{5}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "{}_{5}\\mathrm{H}_{3}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "{}_{3}\\Pi_{5}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "{}_{5}\\mathrm{C}_{3}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "{}_{5}\\Pi_{3}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 2,
+      "score": 3.2,
+      "contents": [
+        {"type": "text", "value": "방정식 "},
+        {"type": "equation", "value": "x+y+z+w=9"},
+        {"type": "text", "value": "의 음이 아닌 정수인 해 중에서 임의로 하나를 택할 때, "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "의 값이 3일 확률은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{1}{11}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{1}{10}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{5}{44}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{7}{55}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{3}{22}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 3,
+      "score": 3.4,
+      "contents": [
+        {"type": "text", "value": "여섯 명의 학생 "},
+        {"type": "equation", "value": "A, B, C, D, E, F"},
+        {"type": "text", "value": "가 임의로 세 명씩 두 팀으로 나누어 각각 산과 바다에 다녀오려고 한다. 이때 "},
+        {"type": "equation", "value": "A, B"},
+        {"type": "text", "value": " 중 적어도 한 명이 바다에 다녀올 확률은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{4}{5}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{3}{5}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{2}{5}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{1}{5}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 4,
+      "score": 3.6,
+      "contents": [
+        {"type": "text", "value": "5보다 큰 자연수 "},
+        {"type": "equation", "value": "n"},
+        {"type": "text", "value": "에 대하여 1부터 "},
+        {"type": "equation", "value": "n"},
+        {"type": "text", "value": "까지 자연수가 각각 적힌 카드 "},
+        {"type": "equation", "value": "n"},
+        {"type": "text", "value": "개를 원형으로 배열하려고 한다. "},
+        {"type": "equation", "value": "n-2, \\ n-1, \\ n"},
+        {"type": "text", "value": "이 적힌 세 개의 카드가 모두 이웃하게 배열될 확률이 "},
+        {"type": "equation", "value": "\\frac{3}{28}"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "n"},
+        {"type": "text", "value": "의 값은? (단, 회전하여 일치하는 것은 같은 것으로 본다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "10"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

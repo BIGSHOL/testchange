@@ -1,0 +1,134 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 14,
+      "score": 5.1,
+      "contents": [
+        {"type": "text", "value": "두 확률변수 "},
+        {"type": "equation", "value": "X, Y"},
+        {"type": "text", "value": "가 평균이 "},
+        {"type": "equation", "value": "m"},
+        {"type": "text", "value": "이고 표준편차가 각각 "},
+        {"type": "equation", "value": "\\sigma_1, \\sigma_2"},
+        {"type": "text", "value": "인 정규분포를 따를 때, <보기>에서 옳은 것만을 있는 대로 고른 것은? [5.1점]"},
+        {"type": "text", "value": "<보기> ㄱ. "},
+        {"type": "equation", "value": "P(m+1 \\leq X \\leq m+2) = P(m-2 \\leq X \\leq m-1)"},
+        {"type": "text", "value": " • ㄴ. "},
+        {"type": "equation", "value": "P(m-\\sigma_1 \\leq X \\leq m) = P(m \\leq Y \\leq m+\\sigma_2)"},
+        {"type": "text", "value": " • ㄷ. "},
+        {"type": "equation", "value": "P(m-2 \\leq X \\leq m+2) = P(m-1 \\leq Y \\leq m+1)"},
+        {"type": "text", "value": "이면 "},
+        {"type": "equation", "value": "\\sigma_1 > \\sigma_2"},
+        {"type": "text", "value": "이다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄱ, ㄴ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄴ, ㄷ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄱ, ㄷ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄱ, ㄴ, ㄷ"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 15,
+      "score": 5.5,
+      "contents": [
+        {"type": "text", "value": "확률변수 "},
+        {"type": "equation", "value": "X"},
+        {"type": "text", "value": "는 정규분포 "},
+        {"type": "equation", "value": "N(12, 9)"},
+        {"type": "text", "value": ", 확률변수 "},
+        {"type": "equation", "value": "Y"},
+        {"type": "text", "value": "는 정규분포 "},
+        {"type": "equation", "value": "N(m, 9)"},
+        {"type": "text", "value": "를 따르고, 확률변수 "},
+        {"type": "equation", "value": "X"},
+        {"type": "text", "value": "와 "},
+        {"type": "equation", "value": "Y"},
+        {"type": "text", "value": "의 확률밀도함수는 각각 "},
+        {"type": "equation", "value": "f(x)"},
+        {"type": "text", "value": "와 "},
+        {"type": "equation", "value": "g(x)"},
+        {"type": "text", "value": "이다. "},
+        {"type": "equation", "value": "f(10) \\geq g(23)"},
+        {"type": "text", "value": "을 만족시키는 "},
+        {"type": "equation", "value": "m"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "P(22 \\leq Y \\leq 28)"},
+        {"type": "text", "value": "의 최댓값을 다음 표준정규분포표를 이용하여 구한 것은? [5.5점]"},
+        {"type": "table", "value": "", "rows": [
+          ["z", "P(0 \\leq Z \\leq z)"],
+          ["0.5", "0.1915"],
+          ["1.0", "0.3413"],
+          ["1.5", "0.4332"],
+          ["2.0", "0.4772"]
+        ]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "0.3830"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "0.6826"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "0.8413"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "0.8664"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "0.9544"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 16,
+      "score": 4.5,
+      "contents": [
+        {"type": "text", "value": "정규분포 "},
+        {"type": "equation", "value": "N(30, 10^{2})"},
+        {"type": "text", "value": "을 따르는 모집단에서 크기가 25인 표본을 임의 추출하여 구한 표본평균을 "},
+        {"type": "equation", "value": "\\overline{X}"},
+        {"type": "text", "value": "라 할 때, "},
+        {"type": "equation", "value": "E(\\overline{X})V(\\overline{X})"},
+        {"type": "text", "value": "의 값은? [4.5점]"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "120"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "100"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "80"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "60"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "40"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 17,
+      "score": 4.9,
+      "contents": [
+        {"type": "text", "value": "모표준편차가 "},
+        {"type": "equation", "value": "\\sigma"},
+        {"type": "text", "value": "인 정규분포를 따르는 어느 모집단에서 표본을 임의추출하여 모평균 "},
+        {"type": "equation", "value": "m"},
+        {"type": "text", "value": "을 추정하였더니, 모평균 "},
+        {"type": "equation", "value": "m"},
+        {"type": "text", "value": "의 신뢰도 "},
+        {"type": "equation", "value": "\\alpha"},
+        {"type": "text", "value": "%의 신뢰구간이 "},
+        {"type": "equation", "value": "a \\leq m \\leq b"},
+        {"type": "text", "value": "이었다. <보기>에서 옳은 것만을 있는 대로 고른 것은? [4.9점]"},
+        {"type": "text", "value": "<보기> ㄱ. 신뢰도가 일정할 때, 표본의 크기를 크게 하면 "},
+        {"type": "equation", "value": "b-a"},
+        {"type": "text", "value": "의 값은 커진다. • ㄴ. 신뢰도가 일정할 때, 표본의 크기를 3배로 늘리면 "},
+        {"type": "equation", "value": "b-a"},
+        {"type": "text", "value": "의 값은 "},
+        {"type": "equation", "value": "\\frac{1}{\\sqrt{3}}"},
+        {"type": "text", "value": "배가 된다. • ㄷ. 표본의 크기가 일정할 때, 신뢰도를 높게 하면 "},
+        {"type": "equation", "value": "b-a"},
+        {"type": "text", "value": "의 값은 커진다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄱ, ㄴ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄱ, ㄷ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄴ, ㄷ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄱ, ㄴ, ㄷ"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

@@ -1,0 +1,99 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 7,
+      "score": 5.0,
+      "contents": [
+        {"type": "text", "value": "어느 고등학교 학생들이 점심시간에 급식을 받기까지 기다리는 시간은 평균이 10분이고 표준편차가 5분인 정규분포를 따른다고 한다. 이 학교 학생 중에서 25명을 임의추출할 때, 급식을 받기까지 기다리는 시간의 평균이 12분 이하일 확률을 오른쪽 표준정규분포표를 이용하여 구한 것은?"},
+        {"type": "table", "value": "", "rows": [
+          ["z", "P(0 \\leq Z \\leq z)"],
+          ["0.5", "0.1915"],
+          ["1.0", "0.3413"],
+          ["1.5", "0.4332"],
+          ["2.0", "0.4772"]
+        ]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "0.6915"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "0.7745"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "0.8413"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "0.9332"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "0.9772"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 8,
+      "score": 5.0,
+      "contents": [
+        {"type": "text", "value": "어떤 스마트워치의 하루 평균 배터리 지속시간은 표준편차가 2시간인 정규분포를 따른다고 한다. 이 중 임의로 "},
+        {"type": "equation", "value": "n"},
+        {"type": "text", "value": "개의 스마트워치를 선택해 얻은 표본평균을 이용하여 구한 모평균에 대한 신뢰도 99%의 신뢰구간이 "},
+        {"type": "equation", "value": "a \\leq m \\leq b"},
+        {"type": "text", "value": "이다. "},
+        {"type": "equation", "value": "b - a \\leq 2"},
+        {"type": "text", "value": "를 만족시키는 자연수 "},
+        {"type": "equation", "value": "n"},
+        {"type": "text", "value": "의 최솟값은? (단, "},
+        {"type": "equation", "value": "Z"},
+        {"type": "text", "value": "가 표준정규분포를 따르는 확률변수일 때, "},
+        {"type": "equation", "value": "P(|Z| \\leq 2.58) = 0.99"},
+        {"type": "text", "value": "로 계산한다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "21"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "23"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "25"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "27"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "29"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 9,
+      "score": 5.0,
+      "contents": [
+        {"type": "text", "value": "확률변수 "},
+        {"type": "equation", "value": "X"},
+        {"type": "text", "value": "의 확률분포가 다음 표와 같다."},
+        {"type": "table", "value": "", "rows": [
+          ["X", "0", "2", "3", "합계"],
+          ["P(X=x)", "a", "\\frac{1}{4}", "b", "1"]
+        ]},
+        {"type": "text", "value": "이때 "},
+        {"type": "equation", "value": "V(X)"},
+        {"type": "text", "value": "의 최댓값은? (단, "},
+        {"type": "equation", "value": "a, b"},
+        {"type": "text", "value": "는 상수이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{7}{4}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{3}{2}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{5}{4}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "1"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 10,
+      "score": 5.0,
+      "contents": [
+        {"type": "text", "value": "A 학교 학생 2명, B 학교 학생 2명, C 학교 학생 2명으로 모두 6명의 학생이 있다. 이 6명의 학생을 임의로 2명씩 3개의 팀으로 나눌 때, 같은 학교 학생으로 이루어진 팀의 수를 확률변수 "},
+        {"type": "equation", "value": "X"},
+        {"type": "text", "value": "라 하자. "},
+        {"type": "equation", "value": "V(X)"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{3}{5}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{16}{25}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{17}{25}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{18}{25}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{19}{25}"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

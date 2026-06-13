@@ -1,0 +1,132 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 1,
+      "score": 3.2,
+      "contents": [
+        {"type": "text", "value": "이산확률변수 "},
+        {"type": "equation", "value": "X"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "E(2X+2) = 20"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "V(3X-3) = 81"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "E(X^2)"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "82"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "84"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "86"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "88"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "90"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 2,
+      "score": 3.2,
+      "contents": [
+        {"type": "text", "value": "이산확률변수 "},
+        {"type": "equation", "value": "X"},
+        {"type": "text", "value": "가 갖는 값이 1, 2이고 "},
+        {"type": "equation", "value": "X"},
+        {"type": "text", "value": "의 확률질량함수가 "},
+        {"type": "equation", "value": "P(X=x) = \\frac{k \\times {}_2C_{3-x}}{{}_2C_x} \\ (x = 1, 2)"},
+        {"type": "text", "value": "일 때, 상수 "},
+        {"type": "equation", "value": "k"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{2}{7}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{1}{3}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{2}{5}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{1}{2}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{2}{3}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 3,
+      "score": 3.2,
+      "contents": [
+        {"type": "text", "value": "이항분포 "},
+        {"type": "equation", "value": "B(n, p)"},
+        {"type": "text", "value": "를 따르는 확률변수 "},
+        {"type": "equation", "value": "X"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "E(X) = 10"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\sigma(X) = 2\\sqrt{2}"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "5(n+p)"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "251"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "256"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "261"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "266"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "271"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 4,
+      "score": 3.6,
+      "contents": [
+        {"type": "text", "value": "서로 다른 두 개의 주사위를 "},
+        {"type": "equation", "value": "n"},
+        {"type": "text", "value": "번 던져서 나온 두 눈의 수가 서로 같은 횟수를 확률변수 "},
+        {"type": "equation", "value": "X"},
+        {"type": "text", "value": "라 하고, 서로 다른 두 개의 주사위를 "},
+        {"type": "equation", "value": "n"},
+        {"type": "text", "value": "번 던져서 나온 두 눈의 수가 서로 다른 횟수를 확률변수 "},
+        {"type": "equation", "value": "Y"},
+        {"type": "text", "value": "라 하자. 부등식 "},
+        {"type": "equation", "value": "E(X) > V(Y) + 3"},
+        {"type": "text", "value": "을 만족시키는 자연수 "},
+        {"type": "equation", "value": "n"},
+        {"type": "text", "value": "의 최솟값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "100"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "103"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "106"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "109"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "112"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 5,
+      "score": 4.0,
+      "contents": [
+        {"type": "text", "value": "세 집합 "},
+        {"type": "equation", "value": "A = \\{1, 2, 3\\}"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "B = \\{3, 4, 5\\}"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "C = \\{3, 6\\}"},
+        {"type": "text", "value": "에서 각각 1개의 원소를 임의로 선택한다. 선택한 세 원소 중에서 같은 원소의 개수를 확률변수 "},
+        {"type": "equation", "value": "X"},
+        {"type": "text", "value": "라 하자. 예를 들어 선택한 세 원소가 1, 3, 6이면 같은 원소가 없으므로 "},
+        {"type": "equation", "value": "X = 0"},
+        {"type": "text", "value": "이고, 1, 3, 3이면 같은 원소가 3, 3이므로 "},
+        {"type": "equation", "value": "X = 2"},
+        {"type": "text", "value": "이다. "},
+        {"type": "equation", "value": "E(18X+10)"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "21"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "23"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "25"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "27"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "29"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

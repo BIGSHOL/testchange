@@ -1,0 +1,131 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 1,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "샌드위치를 만드려고 하는데 같은 종류의 치즈 2장, 같은 종류의 햄 3장, 같은 종류의 토마토 슬라이스 2장을 모두 넣어 만들 때, 만들 수 있는 방법의 수는? [3점]"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "200"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "210"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "220"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "230"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "240"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 2,
+      "score": 3,
+      "contents": [
+        {"type": "equation", "value": "{}_5C_0 + 3 \\times {}_5C_1 + 3^2 \\times {}_5C_2 + \\cdots + 3^5 \\times {}_5C_5"},
+        {"type": "text", "value": "의 값은? [3점]"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "3^5"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "4^5"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "2 \\times 3^5"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "2 \\times 4^5"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "3 \\times 4^5"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 3,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "5가지 종류의 연필 중에서 중복을 허용하여 6개의 연필을 선택하는 방법의 수는? (단, 같은 종류의 연필은 10개 이상 있다.) [3점]"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "170"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "180"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "190"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "200"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "210"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 4,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "'GW2026'의 2개의 문자와 4개의 숫자를 임의로 일렬로 배열할 때, 문자들끼리 서로 이웃하지 않을 확률은? [3점]"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{1}{6}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{1}{4}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{1}{3}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{2}{3}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{3}{4}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 5,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "다섯 개의 수 1, 2, 3, 4, 5, 6에서 중복을 허락하여 4자리의 자연수를 만들 때, 1 또는 2를 반드시 포함하는 네자리의 자연수의 개수는? [3점]"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "4^4"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "6^4 - 4^4"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "6^4"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4^6"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "4^4 + 6^4"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 6,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "다항식 "},
+        {"type": "equation", "value": "(1 + 3x)^4"},
+        {"type": "text", "value": "의 전개식에서 "},
+        {"type": "equation", "value": "x^3"},
+        {"type": "text", "value": "의 계수는? [3점]"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "108"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "110"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "112"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "114"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "116"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 7,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "서로 같은 모양의 흰 구슬 7개와 검은 구슬 3개를 일렬로 나열할 때, 검은 구슬이 서로 이웃하지 않도록 나열하는 경우의 수는? [3점]"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "52"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "53"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "54"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "55"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "56"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 8,
+      "score": 3,
+      "contents": [
+        {"type": "equation", "value": "21^{21}"},
+        {"type": "text", "value": "을 400으로 나눈 나머지는? [3점]"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "18"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "19"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "20"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "21"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "22"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

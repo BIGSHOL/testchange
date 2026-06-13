@@ -1,0 +1,46 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 10,
+      "score": 5.0,
+      "contents": [
+        {"type": "text", "value": "두 집합 "},
+        {"type": "equation", "value": "X=\\{a, b, c\\}"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "Y=\\{1, 2, 3, 6, 9, 18\\}"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "X"},
+        {"type": "text", "value": "에서 "},
+        {"type": "equation", "value": "Y"},
+        {"type": "text", "value": "로의 함수 "},
+        {"type": "equation", "value": "f"},
+        {"type": "text", "value": " 중에서 임의로 함수 1개를 택할 때, 그 함수가 다음 조건을 만족시킬 확률은?"},
+        {"type": "text", "value": "<상자> (가) "},
+        {"type": "equation", "value": "f(b)"},
+        {"type": "text", "value": "는 3의 배수이다. • (나) "},
+        {"type": "equation", "value": "f(a) \\leq f(b) \\leq f(c)"},
+        {"type": "text", "value": " 이다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{5}{27}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{5}{36}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{7}{54}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{17}{108}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{1}{6}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 11,
+      "score": 4.0,
+      "label_type": "단답형",
+      "contents": [
+        {"type": "text", "value": "[단답형1] 아래 빈칸에 들어갈 적절한 수학 용어를 쓰시오."},
+        {"type": "text", "value": "<상자> 주사위나 동전을 던지는 것과 같이 동일한 조건에서 반복할 수 있고, 그 결과가 우연에 의하여 결정되는 실험이나 관찰을 ( ㉠ )이라고 한다. 어떤 ( ㉠ )에서 일어날 수 있는 모든 결과의 집합을 ( ㉡ )이라고 하고, ( ㉡ )의 부분집합을 ( ㉢ )이라고 한다. 또, 한 개의 원소로 이루어진 사건을 ( ㉣ )이라고 한다."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    }
+  ]
+}

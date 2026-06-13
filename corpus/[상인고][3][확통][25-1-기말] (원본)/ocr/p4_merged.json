@@ -1,0 +1,122 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 11,
+      "score": 3.8,
+      "contents": [
+        {"type": "text", "value": "확률변수 "},
+        {"type": "equation", "value": "X"},
+        {"type": "text", "value": "의 확률분포가 다음 표와 같다. 이 모집단에서 크기가 9인 표본을 임의로 복원추출할 때, 표본평균 "},
+        {"type": "equation", "value": "\\overline{X}"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "E(\\overline{X}) \\times V(\\overline{X})"},
+        {"type": "text", "value": "의 값은?"},
+        {"type": "table", "value": "", "rows": [
+          ["X", "1", "3", "5", "합계"],
+          ["P(X=x)", "\\frac{1}{4}", "\\frac{1}{2}", "\\frac{1}{4}", "1"]
+        ]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{1}{3}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{2}{3}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{4}{3}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{5}{3}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 12,
+      "score": 4.2,
+      "contents": [
+        {"type": "text", "value": "정규분포 "},
+        {"type": "equation", "value": "N(m, \\sigma^2)"},
+        {"type": "text", "value": "을 따르는 모집단에서 크기가 16인 표본을 임의추출하여 구한 표본평균을 "},
+        {"type": "equation", "value": "\\overline{X}"},
+        {"type": "text", "value": "라 하자. "},
+        {"type": "equation", "value": "P(\\overline{X} \\leq 128) = 0.5"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "P(\\overline{X} \\leq 124) = 0.0228"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "P(125 \\leq \\overline{X} \\leq 130)"},
+        {"type": "text", "value": "의 값을 다음 표준정규분포표를 이용하여 구한 것은? (단, "},
+        {"type": "equation", "value": "\\sigma > 0"},
+        {"type": "text", "value": ")"},
+        {"type": "table", "value": "", "rows": [
+          ["z", "P(0 \\leq Z \\leq z)"],
+          ["0.5", "0.1915"],
+          ["1.0", "0.3413"],
+          ["1.5", "0.4332"],
+          ["2.0", "0.4772"]
+        ]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "0.7745"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "0.8185"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "0.8315"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "0.9544"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "0.9876"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 13,
+      "score": 4.2,
+      "contents": [
+        {"type": "text", "value": "어느 모집단의 확률변수 "},
+        {"type": "equation", "value": "X"},
+        {"type": "text", "value": "의 확률분포를 표로 나타내면 다음과 같다. 이 모집단에서 크기가 3인 표본을 임의추출하여 구한 표본평균을 "},
+        {"type": "equation", "value": "\\overline{X}"},
+        {"type": "text", "value": "라 할 때, "},
+        {"type": "equation", "value": "P(\\overline{X} = -1)"},
+        {"type": "text", "value": "의 값은?"},
+        {"type": "table", "value": "", "rows": [
+          ["X", "-2", "-1", "0", "1", "합계"],
+          ["P(X=x)", "\\frac{1}{9}", "a", "\\frac{2}{9}", "\\frac{1}{3}", "1"]
+        ]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{2}{27}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{7}{81}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{8}{81}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{1}{9}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{10}{81}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 14,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "어느 공장에서 생산되는 A제품의 수명은 정규분포 "},
+        {"type": "equation", "value": "N(m, 50^2)"},
+        {"type": "text", "value": "을 따른다고 한다. A제품 "},
+        {"type": "equation", "value": "n"},
+        {"type": "text", "value": "개를 임의추출하여 구한 수명의 평균을 "},
+        {"type": "equation", "value": "\\overline{x}"},
+        {"type": "text", "value": "라 하자. 신뢰도 99%로 모평균 "},
+        {"type": "equation", "value": "m"},
+        {"type": "text", "value": "을 추정하였을 때, 표본평균 "},
+        {"type": "equation", "value": "\\overline{x}"},
+        {"type": "text", "value": "와 모평균 "},
+        {"type": "equation", "value": "m"},
+        {"type": "text", "value": "의 차가 10시간 이하가 되게 하는 "},
+        {"type": "equation", "value": "n"},
+        {"type": "text", "value": "의 최솟값은? (단, 수명의 단위는 시간이고, "},
+        {"type": "equation", "value": "Z"},
+        {"type": "text", "value": "가 표준정규분포를 따르는 확률변수일 때, "},
+        {"type": "equation", "value": "P(|Z| \\leq 2.58) = 0.99"},
+        {"type": "text", "value": "로 계산한다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "157"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "162"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "167"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "172"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "177"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

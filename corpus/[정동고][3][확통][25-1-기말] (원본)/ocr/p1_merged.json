@@ -1,0 +1,141 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 1,
+      "score": 4.4,
+      "contents": [
+        {"type": "text", "value": "두 주사위 "},
+        {"type": "equation", "value": "X, Y"},
+        {"type": "text", "value": "를 동시에 던질 때, 세 사건 "},
+        {"type": "equation", "value": "A, B, C"},
+        {"type": "text", "value": "를"},
+        {"type": "text", "value": "A : 주사위 "},
+        {"type": "equation", "value": "X"},
+        {"type": "text", "value": "가 6의 약수의 눈의 수가 나오는 사건"},
+        {"type": "text", "value": "B : 주사위 "},
+        {"type": "equation", "value": "Y"},
+        {"type": "text", "value": "가 3 이상의 눈의 수가 나오는 사건"},
+        {"type": "text", "value": "C : 두 주사위 "},
+        {"type": "equation", "value": "X, Y"},
+        {"type": "text", "value": "가 모두 홀수의 눈의 수가 나오는 사건"},
+        {"type": "text", "value": "이라 하자. <보기>에서 서로 독립인 사건끼리 짝지어진 것만을 있는 대로 고른 것은?"},
+        {"type": "text", "value": "<보기> ㄱ. "},
+        {"type": "equation", "value": "A"},
+        {"type": "text", "value": "와 "},
+        {"type": "equation", "value": "B"},
+        {"type": "text", "value": " • ㄴ. "},
+        {"type": "equation", "value": "B"},
+        {"type": "text", "value": "와 "},
+        {"type": "equation", "value": "C"},
+        {"type": "text", "value": " • ㄷ. "},
+        {"type": "equation", "value": "C"},
+        {"type": "text", "value": "와 "},
+        {"type": "equation", "value": "A"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄴ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄱ, ㄴ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄴ, ㄷ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄱ, ㄴ, ㄷ"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 2,
+      "score": 4.1,
+      "contents": [
+        {"type": "text", "value": "표본공간 "},
+        {"type": "equation", "value": "S"},
+        {"type": "text", "value": "의 두 사건 "},
+        {"type": "equation", "value": "A, B"},
+        {"type": "text", "value": "는 서로 독립사건이고, "},
+        {"type": "equation", "value": "P(A^{C} \\cap B) = \\frac{2}{5}"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "P(B^{C}) = \\frac{1}{4}"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "P(A)"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{1}{3}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{2}{5}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{7}{15}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{8}{15}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{9}{10}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 3,
+      "score": 4.2,
+      "contents": [
+        {"type": "text", "value": "수직선 위의 원점에 있는 점 "},
+        {"type": "equation", "value": "A"},
+        {"type": "text", "value": "를 다음의 규칙에 따라 이동시킨다."},
+        {"type": "text", "value": "<조건> (가) 주사위를 던져 5 이상의 눈이 나오면 "},
+        {"type": "equation", "value": "A"},
+        {"type": "text", "value": "를 양의 방향으로 2만큼 이동시킨다. • (나) 주사위를 던져 4 이하의 눈이 나오면 "},
+        {"type": "equation", "value": "A"},
+        {"type": "text", "value": "를 음의 방향으로 2만큼 이동시킨다."},
+        {"type": "text", "value": "주사위를 5번 던지고 난 후 점 "},
+        {"type": "equation", "value": "A"},
+        {"type": "text", "value": "의 위치가 2 또는 "},
+        {"type": "equation", "value": "-2"},
+        {"type": "text", "value": "가 될 확률은 "},
+        {"type": "equation", "value": "\\frac{p}{q}"},
+        {"type": "text", "value": "이다. "},
+        {"type": "equation", "value": "p+q"},
+        {"type": "text", "value": "의 값은? (단, "},
+        {"type": "equation", "value": "p, q"},
+        {"type": "text", "value": "는 서로소인 자연수이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "121"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "122"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "123"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "124"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "125"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 4,
+      "score": 5.0,
+      "contents": [
+        {"type": "text", "value": "좌표평면의 원점 위에 놓인 점 "},
+        {"type": "equation", "value": "P"},
+        {"type": "text", "value": "를 주사위 한 개를 던져 다음과 같은 규칙으로 이동시킨다."},
+        {"type": "text", "value": "<상자> 주사위를 던져 나온 눈의 수가 3 이상이면 점 "},
+        {"type": "equation", "value": "P"},
+        {"type": "text", "value": "를 "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "축의 양의 방향으로 1만큼 움직이고, 3 미만이면 점 "},
+        {"type": "equation", "value": "P"},
+        {"type": "text", "value": "를 "},
+        {"type": "equation", "value": "y"},
+        {"type": "text", "value": "축의 양의 방향으로 1만큼 움직인다."},
+        {"type": "text", "value": "주사위를 5번 던져 위의 규칙대로 점 "},
+        {"type": "equation", "value": "P"},
+        {"type": "text", "value": "를 이동시킬 때, 점 "},
+        {"type": "equation", "value": "P"},
+        {"type": "text", "value": "가 원 "},
+        {"type": "equation", "value": "(x-3)^2 + (y-3)^2 = r"},
+        {"type": "text", "value": "의 경계 및 내부에 있을 확률이 "},
+        {"type": "equation", "value": "\\frac{70}{81}"},
+        {"type": "text", "value": "이었다. 이를 만족하는 자연수 "},
+        {"type": "equation", "value": "r"},
+        {"type": "text", "value": "의 값이 될 수 없는 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "12"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

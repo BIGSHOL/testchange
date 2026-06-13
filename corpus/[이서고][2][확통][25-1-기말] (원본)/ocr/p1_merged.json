@@ -1,0 +1,141 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 1,
+      "score": 4.5,
+      "contents": [
+        {"type": "text", "value": "한 개의 주사위를 3번 던질 때, 6의 약수의 눈이 2번 나올 확률은? [4.5점]"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{1}{9}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{2}{9}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{1}{3}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{4}{9}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{5}{9}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 2,
+      "score": 4.9,
+      "contents": [
+        {"type": "text", "value": "상자 A에는 검은 공 1개와 흰 공 3개, 상자 B에는 검은 공 2개와 흰 공 1개가 들어있다. 두 상자 A, B 중에서 임의로 선택한 하나의 상자에서 공을 1개 꺼냈더니 흰 공이 나왔을 때, 그 상자에 남은 공이 모두 검은 공일 확률은? (단, 모든 공의 크기와 모양은 같다.) [4.9점]"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{2}{13}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{4}{13}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{6}{13}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{8}{13}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{10}{13}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 3,
+      "score": 4.9,
+      "contents": [
+        {"type": "text", "value": "표본공간 "},
+        {"type": "equation", "value": "S"},
+        {"type": "text", "value": "의 서로 다른 두 사건 "},
+        {"type": "equation", "value": "A, B"},
+        {"type": "text", "value": "에 대하여 항상 옳은 것만을 <보기>에서 있는 대로 고른 것은? (단, "},
+        {"type": "equation", "value": "P(A) > 0, P(B) > 0"},
+        {"type": "text", "value": ") [4.9점]"},
+        {"type": "text", "value": "<보기> ㄱ. "},
+        {"type": "equation", "value": "B \\subset A"},
+        {"type": "text", "value": "이면 "},
+        {"type": "equation", "value": "P(A|B) = 1"},
+        {"type": "text", "value": "이다. • ㄴ. "},
+        {"type": "equation", "value": "A, B"},
+        {"type": "text", "value": "가 서로 배반이면, "},
+        {"type": "equation", "value": "A, B"},
+        {"type": "text", "value": "는 서로 종속이다. • ㄷ. "},
+        {"type": "equation", "value": "A, B"},
+        {"type": "text", "value": "가 서로 독립이면, "},
+        {"type": "equation", "value": "P(A|B^{C}) = 1 - P(A^{C}|B)"},
+        {"type": "text", "value": "이다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄴ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄱ, ㄷ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄴ, ㄷ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄱ, ㄴ, ㄷ"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 4,
+      "score": 5.5,
+      "contents": [
+        {"type": "text", "value": "한 개의 주사위를 5번 던질 때, 6의 약수의 눈이 연속해서 나오는 경우가 존재한다. 이때, 6의 약수의 눈이 2번 이상 나올 확률을 "},
+        {"type": "equation", "value": "\\frac{q}{p}"},
+        {"type": "text", "value": "라 하자. 이때 "},
+        {"type": "equation", "value": "p - q"},
+        {"type": "text", "value": "의 값은? (단, "},
+        {"type": "equation", "value": "p"},
+        {"type": "text", "value": "와 "},
+        {"type": "equation", "value": "q"},
+        {"type": "text", "value": "는 서로소인 자연수이다.) [5.5점]"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "40"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "43"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "46"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "49"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "52"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 5,
+      "score": 4.5,
+      "contents": [
+        {"type": "text", "value": "0 ≤ X ≤ 6에서 정의된 연속확률변수 "},
+        {"type": "equation", "value": "X"},
+        {"type": "text", "value": "의 확률밀도함수 "},
+        {"type": "equation", "value": "f(x)"},
+        {"type": "text", "value": "의 그래프가 오른쪽 그림과 같을 때, "},
+        {"type": "equation", "value": "P(2 \\leq X \\leq 5)"},
+        {"type": "text", "value": "의 값은? [4.5점]"},
+        {"type": "figure", "value": "확률밀도함수 f(x)의 그래프. 가로축 x, 세로축 f(x). 원점 O(0,0)에서 시작하여 점 (4, a)까지 직선으로 증가한 뒤, 점 (6, 0)까지 직선으로 감소하는 삼각형 모양. 봉우리 x=4에서 높이는 a, x축 위 6에서 0.", "bbox": [0.74, 0.40, 0.99, 0.51]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{1}{4}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{1}{3}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{1}{2}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{2}{3}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{3}{4}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 6,
+      "score": 4.7,
+      "contents": [
+        {"type": "text", "value": "확률변수 "},
+        {"type": "equation", "value": "X"},
+        {"type": "text", "value": "가 갖는 값이 "},
+        {"type": "equation", "value": "1, 2, 3, 4"},
+        {"type": "text", "value": "이고 "},
+        {"type": "equation", "value": "P(2 \\leq X \\leq 4) = \\frac{a}{8}"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "P(1 \\leq X \\leq 3) = \\frac{1}{2}"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "P(X=1) + P(X=4) = \\frac{3}{4}"},
+        {"type": "text", "value": "이다. 이때, 상수 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "의 값은? [4.7점]"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "7"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

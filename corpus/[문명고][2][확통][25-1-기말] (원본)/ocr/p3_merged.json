@@ -1,0 +1,121 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 11,
+      "score": 5.0,
+      "contents": [
+        {"type": "text", "value": "두 이산확률변수 "},
+        {"type": "equation", "value": "X, Y"},
+        {"type": "text", "value": "의 확률분포를 표로 나타내면 각각 다음과 같다."},
+        {"type": "table", "value": "", "rows": [
+          ["X", "1", "2", "3", "4", "합계"],
+          ["P(X=x)", "a", "b", "c", "d", "1"]
+        ]},
+        {"type": "table", "value": "", "rows": [
+          ["Y", "5", "11", "17", "23", "합계"],
+          ["P(Y=y)", "a", "b", "c", "d", "1"]
+        ]},
+        {"type": "equation", "value": "E(X) = 6"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "E(X^2) = 40"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "E(Y) + \\sigma(Y)"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "45"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "46"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "47"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "48"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "49"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 12,
+      "score": 5.0,
+      "contents": [
+        {"type": "text", "value": "오른쪽 표준정규분포표를 이용하여 다음 식의 값을 구한 것은?"},
+        {"type": "table", "value": "", "rows": [
+          ["z", "P(0 \\leq Z \\leq z)"],
+          ["0.5", "0.1915"],
+          ["1.0", "0.3413"],
+          ["1.5", "0.4332"],
+          ["2.0", "0.4772"]
+        ]},
+        {"type": "equation_block", "value": "_{180}C_{25}\\left(\\frac{1}{6}\\right)^{25}\\left(\\frac{5}{6}\\right)^{155} + _{180}C_{26}\\left(\\frac{1}{6}\\right)^{26}\\left(\\frac{5}{6}\\right)^{154} + _{180}C_{27}\\left(\\frac{1}{6}\\right)^{27}\\left(\\frac{5}{6}\\right)^{153} + \\cdots + _{180}C_{39}\\left(\\frac{1}{6}\\right)^{39}\\left(\\frac{5}{6}\\right)^{141} + _{180}C_{40}\\left(\\frac{1}{6}\\right)^{40}\\left(\\frac{5}{6}\\right)^{140}"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "0.6687"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "0.7745"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "0.8185"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "0.8664"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "0.9104"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 13,
+      "score": 5.0,
+      "contents": [
+        {"type": "text", "value": "모집단의 확률변수 "},
+        {"type": "equation", "value": "X"},
+        {"type": "text", "value": "의 확률분포를 표로 나타내면 다음과 같다."},
+        {"type": "table", "value": "", "rows": [
+          ["X", "1", "3", "5", "7", "9", "합계"],
+          ["P(X=x)", "k", "\\frac{2}{15}", "\\frac{1}{5}", "\\frac{4}{15}", "\\frac{1}{3}", "1"]
+        ]},
+        {"type": "text", "value": "이 모집단에서 크기가 3인 표본을 임의추출하여 구한 표본평균을 "},
+        {"type": "equation", "value": "\\overline{X}"},
+        {"type": "text", "value": "라 할 때, "},
+        {"type": "equation", "value": "P(\\overline{X} = 3)"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{55}{15^3}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{56}{15^3}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{57}{15^3}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{58}{15^3}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{59}{15^3}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 14,
+      "score": 5.0,
+      "contents": [
+        {"type": "text", "value": "식물 A의 씨앗을 심었을 때 "},
+        {"type": "equation", "value": "\\frac{1}{4}"},
+        {"type": "text", "value": " 확률로 발아에 성공한다고 한다. 식물 A의 씨앗 "},
+        {"type": "equation", "value": "n"},
+        {"type": "text", "value": "개를 동시에 심었을 때 발아에 성공한 씨앗의 개수를 확률변수 "},
+        {"type": "equation", "value": "X_n"},
+        {"type": "text", "value": "이라 하면 "},
+        {"type": "equation", "value": "X_n"},
+        {"type": "text", "value": "은 이항분포를 따른다. 옳은 것을 <보기>에서 있는 대로 고른 것은?"},
+        {"type": "text", "value": "<보기> ㄱ. "},
+        {"type": "equation", "value": "n"},
+        {"type": "text", "value": "의 값이 커질수록 "},
+        {"type": "equation", "value": "P\\left(\\left|\\frac{X_n}{n} - \\frac{1}{4}\\right| < \\frac{1}{30}\\right)"},
+        {"type": "text", "value": "의 값은 커진다. • ㄴ. "},
+        {"type": "equation", "value": "n = 432"},
+        {"type": "text", "value": "일 때 "},
+        {"type": "equation", "value": "P(90 \\leq X_n \\leq 108) > \\frac{1}{2}"},
+        {"type": "text", "value": "이다. • ㄷ. "},
+        {"type": "equation", "value": "n"},
+        {"type": "text", "value": "의 값에 관계없이 "},
+        {"type": "equation", "value": "V(X_n) < E(X_n)"},
+        {"type": "text", "value": "이 성립한다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄴ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄱ, ㄷ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄴ, ㄷ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄱ, ㄴ, ㄷ"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

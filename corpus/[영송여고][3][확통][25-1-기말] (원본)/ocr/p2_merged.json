@@ -1,0 +1,93 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 1,
+      "score": 4.0,
+      "contents": [
+        {"type": "text", "value": "어느 양궁 선수가 화살을 1번 쏠 때, 10점 영역을 맞힐 확률은 "},
+        {"type": "equation", "value": "\\frac{3}{4}"},
+        {"type": "text", "value": "라고 한다. 이 선수가 화살을 3번 쏠 때, 10점 영역을 2번 맞힐 확률은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{25}{64}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{27}{64}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{29}{64}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{31}{64}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{33}{64}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 2,
+      "score": 4.0,
+      "contents": [
+        {"type": "text", "value": "한 개의 주사위를 두 번 던질 때 나오는 눈의 수를 차례로 "},
+        {"type": "equation", "value": "a, b"},
+        {"type": "text", "value": "라고 하자. "},
+        {"type": "equation", "value": "\\frac{{}_a\\Pi_3}{a} \\leq \\frac{{}_{b-1}H_3}{b}"},
+        {"type": "text", "value": "일 확률은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{1}{6}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{1}{3}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{1}{2}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{2}{3}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{5}{6}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 3,
+      "score": 4.3,
+      "contents": [
+        {"type": "text", "value": "이산확률변수 "},
+        {"type": "equation", "value": "X"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "E(2X+7) = 21"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "V(3X+1) = 18"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "E(X^2)"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "47"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "48"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "49"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "50"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "51"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 4,
+      "score": 4.5,
+      "contents": [
+        {"type": "text", "value": "확률변수 "},
+        {"type": "equation", "value": "X"},
+        {"type": "text", "value": "는 정규분포 "},
+        {"type": "equation", "value": "N(m, \\sigma^2)"},
+        {"type": "text", "value": "을 따르고, 확률변수 "},
+        {"type": "equation", "value": "Y"},
+        {"type": "text", "value": "는 정규분포 "},
+        {"type": "equation", "value": "N(3m, 9\\sigma^2)"},
+        {"type": "text", "value": "을 따른다. "},
+        {"type": "equation", "value": "P(|X-m| \\geq 1) + P(|Y-3m| \\leq k) = 1"},
+        {"type": "text", "value": "이 성립하도록 하는 양수 "},
+        {"type": "equation", "value": "k"},
+        {"type": "text", "value": "의 값은? (단, "},
+        {"type": "equation", "value": "\\sigma > 0"},
+        {"type": "text", "value": ")"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "6"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}
