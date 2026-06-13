@@ -1,0 +1,43 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 21,
+      "score": 7,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 2] 두 사건 "},
+        {"type": "equation", "value": "A, B"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "P(A|B) = \\frac{1}{2}"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "P(B|A) = \\frac{3}{4}"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "P(A \\cup B) = \\frac{7}{12}"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "P(A \\cap B)"},
+        {"type": "text", "value": "의 값을 구하시오."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 22,
+      "score": 7,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 3] 두 사건 "},
+        {"type": "equation", "value": "A, B"},
+        {"type": "text", "value": "가 서로 독립일 때, 두 사건 "},
+        {"type": "equation", "value": "A^{C}, B^{C}"},
+        {"type": "text", "value": "도 서로 독립임을 보이시오. (단, "},
+        {"type": "equation", "value": "0 < P(A) < 1"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "0 < P(B) < 1"},
+        {"type": "text", "value": ")"}
+      ],
+      "choices": [],
+      "sub_questions": []
+    }
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 18,
+      "score": 5.1,
+      "contents": [
+        {"type": "text", "value": "평균이 "},
+        {"type": "equation", "value": "m"},
+        {"type": "text", "value": ", 표준편차가 "},
+        {"type": "equation", "value": "\\sigma"},
+        {"type": "text", "value": "인 정규분포를 따르는 어느 모집단에서 크기가 7인 표본을 임의추출하였더니 다음과 같았다."},
+        {"type": "text", "value": "<상자> "},
+        {"type": "equation", "value": "-7, 9, 15, -3, 4, 4, 8"},
+        {"type": "text", "value": "위 표본과 모집단의 표준편차 "},
+        {"type": "equation", "value": "\\sigma"},
+        {"type": "text", "value": "를 이용하여 모평균 "},
+        {"type": "equation", "value": "m"},
+        {"type": "text", "value": "에 대한 신뢰도 95%의 신뢰구간이 "},
+        {"type": "equation", "value": "3.09 \\leq m \\leq 5.05"},
+        {"type": "text", "value": "이다. 이 모집단의 확률변수 "},
+        {"type": "equation", "value": "X"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "V(4X)"},
+        {"type": "text", "value": "의 값은? (단, "},
+        {"type": "equation", "value": "P(-1.96 \\leq Z \\leq 1.96) = 0.95"},
+        {"type": "text", "value": "로 계산한다.) [5.1점]"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "14"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "21"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "28"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "35"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "42"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 19,
+      "score": 5.3,
+      "contents": [
+        {"type": "text", "value": "주머니 "},
+        {"type": "equation", "value": "A"},
+        {"type": "text", "value": "에서 숫자 "},
+        {"type": "equation", "value": "1, 2, 3, 4"},
+        {"type": "text", "value": "가 하나씩 적힌 4개의 공이 들어 있고, 주머니 "},
+        {"type": "equation", "value": "B"},
+        {"type": "text", "value": "에는 숫자 "},
+        {"type": "equation", "value": "1, 2, 5, 6"},
+        {"type": "text", "value": "이 하나씩 적힌 4개의 공이 들어 있다. 두 주머니 "},
+        {"type": "equation", "value": "A, B"},
+        {"type": "text", "value": "와 한 개의 주사위를 사용하여 다음 시행을 한다."},
+        {"type": "text", "value": "<상자> 주사위를 한 번 던져 나온 눈의 수가 4의 배수이면 주머니 "},
+        {"type": "equation", "value": "A"},
+        {"type": "text", "value": "에서 임의로 2개의 공을 동시에 꺼내고, 나온 눈의 수가 4의 배수가 아니면 주머니 "},
+        {"type": "equation", "value": "B"},
+        {"type": "text", "value": "에서 임의로 2개의 공을 동시에 꺼낸다. 꺼낸 2개의 공에 적혀 있는 수의 차를 기록한 후, 공을 꺼낸 주머니에 이 2개의 공을 다시 넣는다."},
+        {"type": "text", "value": "이 시행을 2번 반복하여 기록한 두 개의 수의 평균을 "},
+        {"type": "equation", "value": "\\overline{X}"},
+        {"type": "text", "value": "라 할 때, "},
+        {"type": "equation", "value": "P(\\overline{X}=2) + P(\\overline{X}=4)"},
+        {"type": "text", "value": "의 값은? [5.3점]"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{25}{6^{2} \\times 3}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{155}{6^{3} \\times 3}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{20}{3^{4}}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{55}{6^{3}}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{175}{6^{3} \\times 3}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 20,
+      "score": 5.5,
+      "contents": [
+        {"type": "text", "value": "청도의 한 복숭아 과수원에서 복숭아 한 개의 무게는 평균 300g이고 표준편차가 "},
+        {"type": "equation", "value": "10\\sqrt{10}"},
+        {"type": "text", "value": "g인 정규분포를 따른다고 한다. 이 과수원에서는 복숭아를 10개씩 한 상자에 담아서 판매하는데, 10개의 복숭아를 담은 상자의 무게가 3095g 이상이면 특상품으로 판정된다고 한다. 다음 표준정규분포표를 이용하여 이 과수원에서 출하하는 복숭아 상자 900개 중에서 특상품인 상자가 192개 이상일 확률을 구하면? (단, 상자의 무게는 무시하고, "},
+        {"type": "equation", "value": "P(0 \\leq Z \\leq 0.95) = 0.3"},
+        {"type": "text", "value": "으로 계산한다.) [5.5점]"},
+        {"type": "table", "value": "", "rows": [
+          ["z", "P(0 \\leq Z \\leq z)"],
+          ["1.0", "0.3413"],
+          ["1.1", "0.3643"],
+          ["1.2", "0.3849"],
+          ["1.3", "0.4032"]
+        ]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "0.1357"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "0.1587"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "0.3413"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "0.3849"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "0.8413"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

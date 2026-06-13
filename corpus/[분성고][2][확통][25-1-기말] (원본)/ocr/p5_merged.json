@@ -1,0 +1,51 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 12,
+      "score": 5.1,
+      "label_type": "단답형",
+      "contents": [
+        {"type": "text", "value": "[단답형2] 숫자 1, 2, 3, 4, 5가 하나씩 적혀 있는 5개의 공이 주머니에 있다. 주머니에서 공을 뽑아 공의 번호를 확인하고 다시 주머니에 넣는 것을 반복하여 세 번 뽑을 때, 그때 나온 공에 적힌 수를 차례로 "},
+        {"type": "equation", "value": "a, b, c"},
+        {"type": "text", "value": " 라 하자. "},
+        {"type": "equation", "value": "a+b=7"},
+        {"type": "text", "value": " 또는 "},
+        {"type": "equation", "value": "a \\geq c"},
+        {"type": "text", "value": "일 확률을 구하시오."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 13,
+      "score": 5.3,
+      "label_type": "단답형",
+      "contents": [
+        {"type": "text", "value": "[단답형3] 집합 "},
+        {"type": "equation", "value": "A=\\{1, 2, 3, 4, 5, 6, 7\\}"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "A"},
+        {"type": "text", "value": "에서 "},
+        {"type": "equation", "value": "A"},
+        {"type": "text", "value": "로의 함수 "},
+        {"type": "equation", "value": "f"},
+        {"type": "text", "value": "를 만든다고 할 때, 함수 "},
+        {"type": "equation", "value": "f"},
+        {"type": "text", "value": "가 "},
+        {"type": "equation", "value": "(f \\circ f \\circ f)(x)=x"},
+        {"type": "text", "value": "를 만족할 확률은 "},
+        {"type": "equation", "value": "\\frac{k}{m^{n}}"},
+        {"type": "text", "value": "이다. "},
+        {"type": "equation", "value": "m+n+k"},
+        {"type": "text", "value": "의 값을 구하시오. (단, "},
+        {"type": "equation", "value": "k"},
+        {"type": "text", "value": "와 "},
+        {"type": "equation", "value": "m^{n}"},
+        {"type": "text", "value": "은 서로소이다.)"}
+      ],
+      "choices": [],
+      "sub_questions": []
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 14,
+      "score": 4.0,
+      "contents": [
+        {"type": "text", "value": "집합 "},
+        {"type": "equation", "value": "X = \\{1, 2, 3, 4\\}"},
+        {"type": "text", "value": "에 대하여 X에서 X로의 모든 함수 중에서 임의로 선택한 한 개의 함수를 "},
+        {"type": "equation", "value": "f"},
+        {"type": "text", "value": "라 하자. "},
+        {"type": "equation", "value": "f(1) \\leq f(2) \\leq f(3)"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "f(3)"},
+        {"type": "text", "value": "의 값이 짝수일 확률은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{9}{20}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{11}{20}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{13}{20}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{3}{4}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{17}{20}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 15,
+      "score": 4.3,
+      "contents": [
+        {"type": "text", "value": ""},
+        {"type": "equation", "value": "6^{123} - 4^{123}"},
+        {"type": "text", "value": "을 25로 나누었을 때의 나머지는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "11"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 16,
+      "score": 4.3,
+      "contents": [
+        {"type": "text", "value": "다항식 "},
+        {"type": "equation", "value": "(x^{3} - 8)^{7}"},
+        {"type": "text", "value": "을 "},
+        {"type": "equation", "value": "x - 2"},
+        {"type": "text", "value": "로 나눈 몫 "},
+        {"type": "equation", "value": "Q(x)"},
+        {"type": "text", "value": "의 전개식에 대하여 "},
+        {"type": "equation", "value": "x^{13}"},
+        {"type": "text", "value": "의 계수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-192"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "1920"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-7680"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "3840"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "10240"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 17,
+      "score": 4.3,
+      "contents": [
+        {"type": "text", "value": "네 개의 문자 "},
+        {"type": "equation", "value": "A, B, a, b"},
+        {"type": "text", "value": " 중 중복을 허락하여 5개를 선택하고 일렬로 나열할 때, 아래의 조건을 모두 만족시킬 확률은?"},
+        {"type": "text", "value": "<조건> (가) 소문자는 연속해서 나열할 수 없다. • (나) A는 두 번만 사용한다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{7}{128}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{33}{512}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{35}{256}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{75}{512}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{11}{64}"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

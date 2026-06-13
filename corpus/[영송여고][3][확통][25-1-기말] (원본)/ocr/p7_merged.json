@@ -1,0 +1,58 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 17,
+      "score": 10,
+      "label_type": "서답형",
+      "contents": [
+        {"type": "text", "value": "[서답형 4] 좌표평면의 원점에 점 A가 있다. 한 개의 동전을 사용하여 다음 시행을 한다."},
+        {"type": "text", "value": "<상자> 동전을 한 번 던져 앞면이 나오면 점 A를 "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "축의 양의 방향으로 1만큼, 뒷면이 나오면 점 A를 "},
+        {"type": "equation", "value": "y"},
+        {"type": "text", "value": "축의 양의 방향으로 1만큼 이동시킨다."},
+        {"type": "text", "value": "위의 시행을 반복하여 점 A의 "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "좌표 또는 "},
+        {"type": "equation", "value": "y"},
+        {"type": "text", "value": "좌표가 처음으로 4가 되면 이 시행을 멈춘다. 점 A의 "},
+        {"type": "equation", "value": "y"},
+        {"type": "text", "value": "좌표가 처음으로 4가 되었을 때, 점 A의 "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "좌표가 2일 확률을 구하시오."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 18,
+      "score": 10,
+      "label_type": "서답형",
+      "contents": [
+        {"type": "text", "value": "[서답형 5] 정규분포 "},
+        {"type": "equation", "value": "N(m, 10^2)"},
+        {"type": "text", "value": "을 따르는 모집단에서 크기가 5인 표본을 임의추출하여 구한 표본평균을 "},
+        {"type": "equation", "value": "\\overline{X}"},
+        {"type": "text", "value": ", 정규분포 "},
+        {"type": "equation", "value": "N(2m, 24^2)"},
+        {"type": "text", "value": "을 따르는 모집단에서 크기가 9인 표본을 임의추출하여 구한 표본평균을 "},
+        {"type": "equation", "value": "\\overline{Y}"},
+        {"type": "text", "value": "라 하자. "},
+        {"type": "equation", "value": "P(\\overline{X} \\geq 36) = \\frac{1}{2}"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "P(\\overline{Y} \\leq m + V(\\overline{X}))"},
+        {"type": "text", "value": "의 값을 오른쪽 표준정규분포표를 이용하여 구하시오."},
+        {"type": "table", "value": "", "rows": [
+          ["z", "P(0 \\leq Z \\leq z)"],
+          ["0.5", "0.1915"],
+          ["1.0", "0.3413"],
+          ["1.5", "0.4332"],
+          ["2.0", "0.4772"]
+        ]}
+      ],
+      "choices": [],
+      "sub_questions": []
+    }
+  ]
+}

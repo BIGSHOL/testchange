@@ -1,0 +1,48 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 19,
+      "score": 8.0,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형5]"},
+        {"type": "equation_block", "value": "\\left(\\frac{3}{4}\\right)^{10}\\left\\{ {}_{10}\\mathrm{C}_{1}\\left(\\frac{1}{3}\\right) + {}_{10}\\mathrm{C}_{3}\\left(\\frac{1}{3}\\right)^{3} + {}_{10}\\mathrm{C}_{5}\\left(\\frac{1}{3}\\right)^{5} + \\cdots + {}_{10}\\mathrm{C}_{9}\\left(\\frac{1}{3}\\right)^{9} \\right\\}"},
+        {"type": "text", "value": "의 값을 구하는 풀이 과정과 답을 쓰시오."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 20,
+      "score": 10.0,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형6] 집합 "},
+        {"type": "equation", "value": "X=\\{1, 2, 3, 4, 5, 6\\}"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "Y=\\{1, 2, 3, 4, 5\\}"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "X"},
+        {"type": "text", "value": "에서 "},
+        {"type": "equation", "value": "Y"},
+        {"type": "text", "value": "로의 함수 "},
+        {"type": "equation", "value": "f"},
+        {"type": "text", "value": " 중에서 임의로 함수 1개를 택할 때, 그 함수가 다음 조건을 만족시킬 확률을 구하는 풀이 과정과 답을 쓰시오."},
+        {"type": "text", "value": "<상자> (가) "},
+        {"type": "equation", "value": "f(1) \\leq f(2) \\leq f(3) \\leq f(4)"},
+        {"type": "text", "value": " • (나) "},
+        {"type": "equation", "value": "2f(5) + 2f(6) = f(1) - f(4) + 14"},
+        {"type": "text", "value": "(정답은 "},
+        {"type": "equation", "value": "\\frac{q}{p^{n}}"},
+        {"type": "text", "value": "꼴로 표현 가능함. 단, "},
+        {"type": "equation", "value": "p, q"},
+        {"type": "text", "value": " 서로소, "},
+        {"type": "equation", "value": "n"},
+        {"type": "text", "value": "은 자연수)"}
+      ],
+      "choices": [],
+      "sub_questions": []
+    }
+  ]
+}
