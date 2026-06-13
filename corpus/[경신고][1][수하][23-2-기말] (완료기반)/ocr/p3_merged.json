@@ -1,0 +1,93 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 10,
+   "score": 5,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림과 같이 함수 y=\\frac{1}{x} \\ (x>0)의 그래프 위의 점 A에서 x축, y축에 각각 평행한 직선을 그었을 때, 함수 y=\\frac{k}{x} \\ (k>1)의 그래프와 만나는 점을 각각 B, C라 하자. 삼각형 ABC의 넓이가 8일 때, 상수 k의 값은? [5점]"
+    },
+    {
+     "type": "figure",
+     "value": "제1사분면에서 곡선 y=\\frac{1}{x}와 그 위쪽의 곡선 y=\\frac{k}{x}. 점 A에서 수직·수평으로 그은 직선이 y=\\frac{k}{x}와 만나는 점 C(위), B(오른쪽)로 직각삼각형 ABC를 이루는 그림."
+    }
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 11,
+   "score": 5,
+   "contents": [
+    {
+     "type": "text",
+     "value": "함수 f(x)=\\frac{3x+b}{x-a}가 다음 조건을 모두 만족시킨다."
+    },
+    {
+     "type": "text",
+     "value": "<조건> (가) 3이 아닌 모든 실수 x에 대하여 f^{-1}(x)=f(x-6)-6이다. • (나) 함수 y=f(x)의 그래프를 평행이동하면 함수 y=\\frac{2}{x}의 그래프와 일치한다."
+    },
+    {
+     "type": "text",
+     "value": "a+b의 값은? (단, a, b는 상수이다.) [5점]"
+    }
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "6"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "7"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "8"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "9"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "10"}]}
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 12,
+   "score": 5,
+   "contents": [
+    {
+     "type": "text",
+     "value": "A팀과 B팀을 포함한 7개의 팀이 그림과 같은 대진표를 이용하여 시합을 할 때, A팀과 B팀이 결승에서 만나도록 대진표를 작성하는 경우의 수는? [5점]"
+    },
+    {
+     "type": "figure",
+     "value": "7개의 팀이 경기하는 토너먼트 대진표. 한쪽은 4개 팀(두 쌍), 다른 한쪽은 3개 팀으로 갈라져 결승으로 이어지는 그림."
+    }
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "90"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "120"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "150"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "180"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "240"}]}
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 13,
+   "score": 5.2,
+   "contents": [
+    {
+     "type": "text",
+     "value": "두 실수 a, b와 두 함수 f(x)=(x+2)^2-16, g(x)=-(x-2)^2+16에 대하여 함수 h(x)를 h(x)=\\begin{cases} f(x) & (x<a) \\\\ g(x+b) & (x \\geq a) \\end{cases}라 하자. 함수 h(x)가 실수 전체의 집합에서 실수 전체의 집합으로 일대일대응이 되도록 하는 모든 정수 a의 값의 합은? [5.2점]"
+    }
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "-27"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "-20"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "-14"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "-9"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "-5"}]}
+   ],
+   "sub_questions": []
+  }
+ ]
+}

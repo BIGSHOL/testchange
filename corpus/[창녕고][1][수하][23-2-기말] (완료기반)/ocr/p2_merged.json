@@ -1,0 +1,85 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 7,
+   "score": 5.5,
+   "contents": [
+    {
+     "type": "text",
+     "value": "두 집합 X=\\{1, 2, 3, 4, 5, 6\\}, Y=\\{1, 2, 3, 4, 5, 6, 7, 8, 9\\}에 대하여 X에서 Y로의 함수 f가 다음 조건을 만족시킬 때, 함수 f의 개수는? [5.5점]"
+    },
+    {
+     "type": "text",
+     "value": "<상자> (가) 임의의 a, b \\in X에 대하여 a < b이면 f(a) > f(b)이 • (나) f(4)=4"
+    }
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "30"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "33"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "36"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "39"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "42"}]}
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 8,
+   "score": 5.8,
+   "contents": [
+    {
+     "type": "text",
+     "value": "이차함수 y=f(x)의 그래프는 그림과 같고 f(-1)=0, f(3)=0이다. 방정식 (f \\circ f)(x)=0의 서로 다른 실근의 개수가 3이고 이 세 실근을 \\alpha, \\beta, \\gamma라 할 때, \\alpha+\\beta+\\gamma의 값은? [5.8점]"
+    },
+    {
+     "type": "figure",
+     "value": "아래로 볼록한 이차함수 y=f(x) 그래프. x축과 x=-1, x=3에서 만나는 포물선."
+    }
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 9,
+   "score": 5.7,
+   "contents": [
+    {
+     "type": "text",
+     "value": "함수 y=-\\frac{2}{x}+2의 그래프와 직선 y=2x+k가 한 점에서 만나도록 하는 모든 상수 k의 값의 곱은? [5.7점]"
+    }
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "-14"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "-12"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "-10"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "-8"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "-6"}]}
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 10,
+   "score": 5.7,
+   "contents": [
+    {
+     "type": "text",
+     "value": "흰 바둑돌 3개와 검은 바둑돌 6개를 일렬로 나열할 때, 흰 바둑돌끼리는 이웃하지 않도록 나열하는 경우의 수는? (단, 같은 색의 바둑돌끼리는 구별하지 않는다.) [5.7점]"
+    }
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "20"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "25"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "30"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "35"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "40"}]}
+   ],
+   "sub_questions": []
+  }
+ ]
+}

@@ -1,0 +1,117 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 1,
+   "score": 3.5,
+   "contents": [
+    {
+     "type": "text",
+     "value": "{}_{3}\\mathrm{P}_{2}+{}_{5}\\mathrm{C}_{4}의 값은? [3.5점]"
+    }
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "11"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "12"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "13"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "14"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "15"}]}
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 2,
+   "score": 3.5,
+   "contents": [
+    {
+     "type": "text",
+     "value": "두 집합 X=\\{0, 1, 2\\}, Y=\\{-1, 0, 1, 2\\}에 대하여 다음 중 X에서 Y로의 함수인 것은? [3.5점]"
+    }
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "f(x)=x+1"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "f(x)=x^{2}"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "f(x)=|x-2|+1"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "f(x)=\\begin{cases} 1 & (x \\leq 1) \\\\ x^{2}-1 & (x > 1) \\end{cases}"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "f(x)=\\begin{cases} x+1 & (x \\leq 1) \\\\ x-1 & (x > 1) \\end{cases}"}]}
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 3,
+   "score": 3.5,
+   "contents": [
+    {
+     "type": "text",
+     "value": "집합 X=\\{1, 2, 3\\}에 대하여 X에서 X로의 두 함수 f, g가 아래 그림과 같을 때, (g^{-1} \\circ f^{-1})(2)+(f \\circ g^{-1})(1)의 값은? [3.5점]"
+    },
+    {
+     "type": "figure",
+     "value": "X에서 X로의 두 함수 f, g의 대응 다이어그램(세 개의 타원). f: 1↦3, 2↦1, 3↦2. g: 1↦3, 2↦2, 3↦1."
+    }
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "2"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "3"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "4"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "5"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "6"}]}
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 4,
+   "score": 3.5,
+   "contents": [
+    {
+     "type": "text",
+     "value": "\\frac{1}{\\sqrt{x-2}}+\\sqrt{-x^{2}+7x+8}의 값이 실수가 되도록 하는 모든 자연수 x의 값의 합은? [3.5점]"
+    }
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "31"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "32"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "33"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "34"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "35"}]}
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 5,
+   "score": 3.7,
+   "contents": [
+    {
+     "type": "text",
+     "value": "5개의 숫자 0, 2, 4, 6, 8 중에서 서로 다른 4개를 택해 일렬로 나열하여 만들 수 있는 네 자리 자연수 중 6420보다 작은 자연수의 개수는? [3.7점]"
+    }
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "61"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "62"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "63"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "64"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "65"}]}
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 6,
+   "score": 3.7,
+   "contents": [
+    {
+     "type": "text",
+     "value": "실수 전체의 집합에서 정의된 함수 f(x)=\\begin{cases} (a+7)x+3 & (x \\leq -1) \\\\ (4-a)x-2a & (x > -1) \\end{cases}가 일대일대응이 되도록 하는 모든 정수 a의 값의 합은? [3.7점]"
+    }
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "-18"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "-17"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "-16"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "-15"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "-14"}]}
+   ],
+   "sub_questions": []
+  }
+ ]
+}

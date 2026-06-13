@@ -1,0 +1,82 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 18,
+   "score": 6,
+   "label_type": "서술형",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서술형 3] 다음 중 정의역이 실수 전체의 집합이 아닌 함수를 모두 고르고, 그 이유를 서술하시오."
+    },
+    {
+     "type": "text",
+     "value": "<상자> y=7, y=\\sqrt{x-1}, y=\\frac{x}{2}, y=\\frac{x-2}{x-2}"
+    }
+   ],
+   "choices": [],
+   "sub_questions": []
+  },
+  {
+   "number": 19,
+   "score": 6,
+   "label_type": "서술형",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서술형 4] 집합 X=\\{1, 2, 3\\}에 대하여 함수 f:X \\to X가 다음 조건을 만족시킨다."
+    },
+    {
+     "type": "text",
+     "value": "<상자> (가) 함수 f는 일대일대응이다. • (나) 집합 X의 모든 원소 x에 대하여 f(x) \\neq x이다."
+    },
+    {
+     "type": "text",
+     "value": "f^{2}(3)=1일 때, f^{100}(1)+f^{101}(2)의 값을 구하는 과정을 서술하고 그 답을 쓰시오. (단, f^{1}(x)=f(x), f^{n+1}(x)=f(f^{n}(x))(n=1, 2, 3, \\cdots)이다.)"
+    }
+   ],
+   "choices": [],
+   "sub_questions": []
+  },
+  {
+   "number": 20,
+   "score": 6,
+   "label_type": "서술형",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서술형 5] 집합 X=\\{x|0 \\leq x \\leq 2\\}에 대하여 집합 X에서 X로의 함수 f가 f(x)=\\begin{cases} \\sqrt{-x+1}+1 & (0 \\leq x < 1) \\\\ x^{2}-4x+4 & (1 \\leq x \\leq 2) \\end{cases}이다. 함수 f(x)의 그래프와 그 역함수의 그래프를 좌표평면에 나타낼 때, 두 함수의 교점의 좌표를 구하는 과정을 서술하고 그 답을 모두 쓰시오."
+    }
+   ],
+   "choices": [],
+   "sub_questions": []
+  },
+  {
+   "number": 21,
+   "score": 6,
+   "label_type": "서술형",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서술형 6] 6개의 숫자 0, 1, 2, 3, 4, 5를 한 번씩만 사용하여 만든 다섯자리의 자연수가 짝수일 때, 각 자리의 숫자의 합이 홀수인 경우의 수를 구하는 과정을 서술하고 그 답을 쓰시오."
+    }
+   ],
+   "choices": [],
+   "sub_questions": []
+  },
+  {
+   "number": 22,
+   "score": 7,
+   "label_type": "서술형",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서술형 7] 집합 S=\\{x|10 \\leq x \\leq 30, x는 짝수\\}의 공집합이 아닌 부분집합 X와 집합 Y=\\{4, 5, 6, 8\\}에 대하여 함수 f:X \\to Y를 f(x)는 'x의 양의 약수의 개수'로 정의하자. 함수 f(x)의 역함수가 존재하도록 하는 집합 X의 개수를 구하는 과정을 서술하고 그 답을 쓰시오."
+    }
+   ],
+   "choices": [],
+   "sub_questions": []
+  }
+ ]
+}

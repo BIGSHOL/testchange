@@ -1,0 +1,61 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 14,
+   "score": 5.2,
+   "contents": [
+    {
+     "type": "text",
+     "value": "함수 f(x)=\\frac{bx}{x-a} \\ (a>0, b \\neq 0)에 대하여 함수 g(x)를 g(x)=\\begin{cases} f(x) & (x<a) \\\\ f(x+2a)+a & (x \\geq a) \\end{cases}라 하자. 실수 t에 대하여 함수 y=g(x)의 그래프와 직선 y=t의 교점의 개수를 h(t)라 하면 \\{t|h(t)=2\\}=\\{t|-1 \\leq t<1\\}이다. 3a+b의 값은? (단, a, b는 상수이다.) [5.2점]"
+    }
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "11"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "12"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "13"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "14"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "15"}]}
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 15,
+   "score": 5.4,
+   "label_type": "단답형",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[단답형 1] 여학생 3명과 남학생 3명이 일렬로 연속된 7개의 좌석이 있는 놀이기구를 타려고 한다. 6명의 남녀가 다음의 규칙대로 좌석에 앉기로 하였을 때, 앉을 수 있는 모든 경우의 수를 구하시오."
+    },
+    {
+     "type": "text",
+     "value": "<상자> (가) 여학생 3명은 이웃하게 앉는다. • (나) 남학생 3명 중에서 2명만 이웃하게 앉는다."
+    }
+   ],
+   "choices": [],
+   "sub_questions": []
+  },
+  {
+   "number": 16,
+   "score": 5.4,
+   "label_type": "단답형",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[단답형 2] 집합 A=\\{1, 2, 3, 4, 5\\}, 집합 B=\\{1, 2, 3, 4, 5, 6, 7\\}에 대하여 함수 f가 A에서 B로의 일대일함수이고 다음 조건을 만족시킨다."
+    },
+    {
+     "type": "text",
+     "value": "<상자> (가) |f(1)-f(2)|=|f(2)-f(4)| • (나) f(5) \\geq 6"
+    },
+    {
+     "type": "text",
+     "value": "함수 f의 개수를 구하시오."
+    }
+   ],
+   "choices": [],
+   "sub_questions": []
+  }
+ ]
+}

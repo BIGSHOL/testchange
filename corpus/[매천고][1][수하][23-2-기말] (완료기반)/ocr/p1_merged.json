@@ -1,0 +1,99 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 1,
+   "score": 3,
+   "contents": [
+    {
+     "type": "text",
+     "value": "{}_{5}\\mathrm{P}_{3}+{}_{6}\\mathrm{C}_{2}의 값은? [3점]"
+    }
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "70"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "75"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "80"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "85"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "90"}]}
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 2,
+   "score": 3.2,
+   "contents": [
+    {
+     "type": "text",
+     "value": "두 함수 f(x)=3x-1, g(x)=x^{2}+4에 대하여 (g \\circ f)(1)의 값은? [3.2점]"
+    }
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "6"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "7"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "8"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "9"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "10"}]}
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 3,
+   "score": 3.4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "함수 f(x)=2x+k, g(x)=4x-2에 대하여 f \\circ g=g \\circ f가 항상 성립할 때, 9k^{2}의 값은? (단, k는 상수이다.) [3.4점]"
+    }
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 4,
+   "score": 3.6,
+   "contents": [
+    {
+     "type": "text",
+     "value": "함수 f:X \\to Y가 일대일대응이고, x \\in X, y \\in Y일 때, 역함수의 성질로 옳지 __않은__ 것은? (단, X \\neq Y이다.) [3.6점]"
+    }
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "text", "value": "(f^{-1})^{-1}=f"}]},
+    {"number": 2, "contents": [{"type": "text", "value": "(f \\circ f^{-1})(y)=y"}]},
+    {"number": 3, "contents": [{"type": "text", "value": "y=f(x) \\Leftrightarrow x=f^{-1}(y)"}]},
+    {"number": 4, "contents": [{"type": "text", "value": "역함수 f^{-1}:Y \\to X가 존재한다."}]},
+    {"number": 5, "contents": [{"type": "text", "value": "합성함수 f^{-1} \\circ f는 집합 Y에서 집합 Y로의 항등함수이다."}]}
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 5,
+   "score": 3.8,
+   "contents": [
+    {
+     "type": "text",
+     "value": "다음은 유리함수 y=\\frac{a}{x}, y=\\frac{b}{x}, y=\\frac{c}{x}의 그래프이다. 상수 a, b, c의 대소관계로 옳은 것은? [3.8점]"
+    },
+    {
+     "type": "figure",
+     "value": "원점을 중심으로 한 세 유리함수 y=a/x(제1·3사분면, 가장 바깥쪽), y=b/x(가운데), y=c/x(가장 안쪽)의 직각쌍곡선 그래프. 제1사분면 곡선에 위쪽부터 y=a/x, y=b/x, y=c/x로 라벨이 표시됨."
+    }
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "text", "value": "a<b<c"}]},
+    {"number": 2, "contents": [{"type": "text", "value": "a<c<b"}]},
+    {"number": 3, "contents": [{"type": "text", "value": "b<c<a"}]},
+    {"number": 4, "contents": [{"type": "text", "value": "c<a<b"}]},
+    {"number": 5, "contents": [{"type": "text", "value": "c<b<a"}]}
+   ],
+   "sub_questions": []
+  }
+ ]
+}

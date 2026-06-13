@@ -1,0 +1,103 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 1,
+   "score": 4.2,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림과 같이 정의된 함수 f : X \\to X가 있다. f^{-1}(2)의 값은? [4.2점]"
+    },
+    {
+     "type": "figure",
+     "value": "두 집합 X(왼쪽: 1,2,3,4,5)에서 X(오른쪽: 1,2,3,4,5)로의 대응 f. 화살표가 교차하여 일대일대응을 나타낸 그림."
+    }
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 2,
+   "score": 4.2,
+   "contents": [
+    {
+     "type": "text",
+     "value": "다음 중 무리함수 y=\\sqrt{6-x}의 정의역의 범위에 속하는 x의 값은? [4.2점]"
+    }
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "5"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "7"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "9"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "11"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "13"}]}
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 3,
+   "score": 4.4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "{}_{4}\\mathrm{P}_{3}+{}_{5}\\mathrm{C}_{3}의 값은? [4.4점]"
+    }
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "10"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "16"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "22"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "28"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "34"}]}
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 4,
+   "score": 4.4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "함수 y=\\frac{ax+b}{x+c}의 그래프가 다음 그림과 같을 때, a+b+c의 값은? (단, a, b, c는 상수이다.) [4.4점]"
+    },
+    {
+     "type": "figure",
+     "value": "유리함수 y=\\frac{ax+b}{x+c}의 그래프. 수직점근선 x=3, 수평점근선 y=1, x절편 -1을 지나는 직각쌍곡선."
+    }
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "-2"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "-1"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "0"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "1"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "2"}]}
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 5,
+   "score": 4.6,
+   "contents": [
+    {
+     "type": "text",
+     "value": "함수 y=\\sqrt{2x+5}의 그래프와 직선 y=x+k가 서로 다른 두 점에서 만날 때, 실수 k의 값의 범위는? [4.6점]"
+    }
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "k>\\frac{5}{2}"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "k<3"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "\\frac{5}{2} \\leq k<3"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "k \\leq \\frac{5}{2}"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "\\frac{5}{2}<k \\leq 3"}]}
+   ],
+   "sub_questions": []
+  }
+ ]
+}

@@ -1,0 +1,68 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 22,
+   "score": 6,
+   "label_type": "서술형",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서답형 4] 함수 f(x)=x^2-4x+3에 대하여 함수 g(x)가 모든 실수 x에 대하여"
+    },
+    {
+     "type": "equation_block",
+     "value": "g(2x+1)=3f(x-1)+3"
+    },
+    {
+     "type": "text",
+     "value": "을 만족시킨다. 함수 g(x)가 x=a에서 최솟값 b를 가질 때, a, b의 값을 각각 구하는 풀이과정과 답을 서술하시오."
+    }
+   ],
+   "choices": [],
+   "sub_questions": []
+  },
+  {
+   "number": 23,
+   "score": 6,
+   "label_type": "서술형",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서답형 5] 좌표평면에서 무리함수 f(x)=\\sqrt{3x}의 그래프와 원 (x-3)^2+(y-3)^2=1이 만나는 두 점을 각각 A, B라 하고, 함수 y=f(x)의 역함수 y=f^{-1}(x)의 그래프와 원 (x-3)^2+(y-3)^2=1이 만나는 두 점을 각각 C, D라 하자. 두 직선 AB, CD의 기울기를 각각 m_1, m_2라 할 때, m_1 \\times m_2의 값을 구하는 풀이과정과 답을 서술하시오."
+    }
+   ],
+   "choices": [],
+   "sub_questions": []
+  },
+  {
+   "number": 24,
+   "score": 7,
+   "label_type": "서술형",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서답형 6] 실수 r, a와 0이 아닌 실수 k에 대하여"
+    },
+    {
+     "type": "equation_block",
+     "value": "f(r)=n\\left(\\{(x, y)|x^2+y^2=r^2\\} \\cap \\left\\{(x, g(x))|g(x)=\\frac{k}{x-a}+a\\right\\}\\right)"
+    },
+    {
+     "type": "text",
+     "value": "라 했을 때, 두 실수 r_1, r_2에 대하여 y=f(r)의 그래프는 다음과 같다."
+    },
+    {
+     "type": "figure",
+     "value": "계단 모양의 y=f(r) 그래프. r_1<0<r_2 (대칭), f값이 1,2,3,4 단계로 나타나며 |r|=0에서 1, |r|<2\\sqrt{2}에서 2, |r|=2\\sqrt{2}에서 3, |r|>2\\sqrt{2}에서 4인 형태."
+    },
+    {
+     "type": "text",
+     "value": "f(t)f(t+4\\sqrt{2})의 값이 홀수가 되는 실수 t의 값이 단 1개 존재하고 g(-3)>0일 때, a, k의 값을 각각 구하는 풀이과정과 답을 서술하시오."
+    }
+   ],
+   "choices": [],
+   "sub_questions": []
+  }
+ ]
+}

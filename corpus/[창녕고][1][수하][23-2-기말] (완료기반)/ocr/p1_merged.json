@@ -1,0 +1,121 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 1,
+   "score": 5,
+   "contents": [
+    {
+     "type": "text",
+     "value": "두 함수 f(x)=\\begin{cases} 3 & (x < 3) \\\\ -2x+7 & (x \\geq 3) \\end{cases}, g(x)=x^2-1에 대하여 (f \\circ g)(2)의 값은? [5점]"
+    }
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "-2"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "-1"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "0"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "1"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "2"}]}
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 2,
+   "score": 5.3,
+   "contents": [
+    {
+     "type": "text",
+     "value": "실수 전체의 집합에서 정의된 함수"
+    },
+    {
+     "type": "equation_block",
+     "value": "f(x)=\\begin{cases} -x+1 & (x < 0) \\\\ (a^2-4)x+1 & (x \\geq 0) \\end{cases}"
+    },
+    {
+     "type": "text",
+     "value": "이 일대일대응이 되도록 하는 정수 a의 개수는? [5.3점]"
+    }
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 3,
+   "score": 5.3,
+   "contents": [
+    {
+     "type": "text",
+     "value": "유리함수 f(x)=\\frac{2x+2}{x+3}에 대하여 (f \\circ g)(x)=x+1을 만족시키는 함수 g(x)가 있다. g(3)의 값은? [5.3점]"
+    }
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "-5"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "-4"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "-3"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "-2"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "-1"}]}
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 4,
+   "score": 5.5,
+   "contents": [
+    {
+     "type": "text",
+     "value": "유리함수 y=\\frac{a}{x}+2의 그래프를 x축의 방향으로 2만큼, y축의 방향으로 3만큼 평행이동시키면 좌표평면 위의 모든 사분면을 지난다. 이때 자연수 a의 최솟값은? [5.5점]"
+    }
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "7"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "8"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "9"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "10"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "11"}]}
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 5,
+   "score": 5.5,
+   "contents": [
+    {
+     "type": "text",
+     "value": "A, B, C, D, E 5명의 학생이 6개의 동아리 가입하려고 한다. A와 B는 같은 동아리에 가입하고, C, D, E는 각각 A와 B가 가입한 동아리와 다른 동아리에 가입하는 경우의 수는? (단, C, D, E가 가입하는 동아리는 서로 다르다.) [5.5점]"
+    }
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "350"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "360"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "370"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "380"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "390"}]}
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 6,
+   "score": 5.7,
+   "contents": [
+    {
+     "type": "text",
+     "value": "함수 f(x)=\\frac{ax+b}{x+c}의 그래프는 점 (1, 1)을 지나고 두 점근선 중 하나가 직선 y=3이다. f(x)의 역함수 f^{-1}(x)에 대하여 f^{-1}(0)=2일 때, f(5)의 값은? [5.7점]"
+    }
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "6"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "7"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "8"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "9"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "10"}]}
+   ],
+   "sub_questions": []
+  }
+ ]
+}

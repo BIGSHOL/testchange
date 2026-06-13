@@ -1,0 +1,48 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 11,
+   "score": 9,
+   "label_type": "서술형",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서술형 1] 두 무리함수 y=\\sqrt{2x}, y=2\\sqrt{x}의 그래프가 다음 그림과 같다. 점 A(a, 0)에서 x축에 수직인 직선을 그어 함수 y=2\\sqrt{x}와 만나는 점을 D라 하고, \\overline{AD}를 한 변으로 하는 정사각형 ABCD를 만들면 점 C는 함수 y=\\sqrt{2x}의 그래프 위에 있다. 이때 양수 a의 값을 구하여라."
+    },
+    {
+     "type": "figure",
+     "value": "제1사분면에서 원점에서 출발해 증가하는 두 무리함수 곡선 y=2√x(위쪽)·y=√(2x)(아래쪽). x축의 점 A, B 위로 정사각형 ABCD가 그려지고 변 AD 길이 a, 점 D는 y=2√x 위, 점 C는 y=√(2x) 위에 있는 그림."
+    }
+   ],
+   "choices": [],
+   "sub_questions": []
+  },
+  {
+   "number": 12,
+   "score": 9,
+   "label_type": "서술형",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서술형 2] 두 함수 f, g가 실수 전체의 집합에서 실수 전체의 집합으로 일대일대응이고, g(2)=3, (f^{-1} \\circ g)(x)=4x+11을 만족시킬 때, (g^{-1} \\circ (f \\circ g))(2)의 값을 구하시오."
+    }
+   ],
+   "choices": [],
+   "sub_questions": []
+  },
+  {
+   "number": 13,
+   "score": 9,
+   "label_type": "서술형",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서술형 3] 집합 A=\\{x | ax+1=2\\sqrt{-x-2}\\}에 대하여 A \\neq \\varnothing이기 위한 실수 a의 값의 범위를 구하시오."
+    }
+   ],
+   "choices": [],
+   "sub_questions": []
+  }
+ ]
+}

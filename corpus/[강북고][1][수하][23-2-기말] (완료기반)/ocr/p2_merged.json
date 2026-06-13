@@ -1,0 +1,89 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 6,
+   "score": 5.1,
+   "contents": [
+    {
+     "type": "text",
+     "value": "두 함수 f(x)=-x+3, g(x)=2x+k가 f \\circ g=g \\circ f를 만족시킬 때, g(2)의 값은? (단, k는 상수) [5.1점]"
+    }
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "\\frac{1}{2}"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "1"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "\\frac{3}{2}"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "2"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "\\frac{5}{2}"}]}
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 7,
+   "score": 5.2,
+   "contents": [
+    {
+     "type": "text",
+     "value": "집합 A가 A=\\{1, 2, 3, 4, 5\\}일 때, 다음 조건을 모두 만족시키는 집합 B의 개수는? [5.2점]"
+    },
+    {
+     "type": "text",
+     "value": "<상자> (가) n(A \\cap B)=2 • (나) B \\subset \\{1, 2, 3, 4, 5, 6, 7, 8\\}"
+    }
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "20"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "24"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "40"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "48"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "80"}]}
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 8,
+   "score": 5.3,
+   "contents": [
+    {
+     "type": "text",
+     "value": "유리함수 y=\\frac{b}{x-a}+c의 그래프가 아래 그림과 같을 때, 다음 중 이차함수 y=ax^2+bx+c의 그래프가 될 수 있는 것은? (단, a, b, c는 상수) [5.3점]"
+    },
+    {
+     "type": "figure",
+     "value": "유리함수 y=b/(x-a)+c의 그래프. 점근선이 x=양수, y=양수이며 곡선이 제2·제4분면 형태로 그려진 직각쌍곡선."
+    },
+    {
+     "type": "figure",
+     "value": "선택지 ①~⑤는 이차함수 y=ax^2+bx+c의 그래프 후보 5개. ①·②·③은 위로 볼록한 포물선, ④·⑤는 아래로 볼록한 포물선이며 축의 위치와 절편이 각기 다름."
+    }
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "text", "value": "①"}]},
+    {"number": 2, "contents": [{"type": "text", "value": "②"}]},
+    {"number": 3, "contents": [{"type": "text", "value": "③"}]},
+    {"number": 4, "contents": [{"type": "text", "value": "④"}]},
+    {"number": 5, "contents": [{"type": "text", "value": "⑤"}]}
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 9,
+   "score": 5.4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "다음 중 함수의 그래프에 대한 설명으로 옳지 __않은__ 것은? [5.4점]"
+    }
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "text", "value": "무리함수 y=\\sqrt{x-2}-1의 그래프는 제1, 4사분면을 지난다."}]},
+    {"number": 2, "contents": [{"type": "text", "value": "무리함수 y=1-\\sqrt{-x+2}의 그래프는 \\{x|x \\leq 2\\}에서만 정의되고, 치역은 \\{y|y \\leq 1\\}이다."}]},
+    {"number": 3, "contents": [{"type": "text", "value": "무리함수 y=\\sqrt{x-2}-1인 그래프는 \\{x|x \\geq 2\\}에서만 정의되고, 치역은 \\{y|y \\geq -1\\}이다."}]},
+    {"number": 4, "contents": [{"type": "text", "value": "두 무리함수 y=\\sqrt{x-2}-1, y=1-\\sqrt{-x+2}의 그래프는 평행이동과 대칭이동으로 포갤 수 없다."}]},
+    {"number": 5, "contents": [{"type": "text", "value": "무리함수 y=1-\\sqrt{-x+2}의 그래프는 y=-\\sqrt{-x}의 그래프를 x축의 방향으로 2만큼, y축의 방향으로 1만큼 평행이동한 것이다."}]}
+   ],
+   "sub_questions": []
+  }
+ ]
+}

@@ -1,0 +1,57 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 10,
+   "score": 3,
+   "label_type": "단답형",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[단답형 1] 어느 연주회에 초대받은 남자 3명과 여자 2명이 연주회장으로 각자 가기로 하였다. 연주회장에 2명 이상이 동시에 도착하는 경우는 없다고 할 때, 처음 또는 마지막에 남자가 도착하는 모든 경우의 수를 구하시오."
+    }
+   ],
+   "choices": [],
+   "sub_questions": []
+  },
+  {
+   "number": 11,
+   "score": 4,
+   "label_type": "단답형",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[단답형 2] 두 집합 X=\\{1, 2, 3, 4, 5, 6\\}, Y=\\{1, 3, 5, 7, 9\\}에 대하여 a \\in X, b \\in Y일 때, 이차방정식 x^2-2ax+b=0이 실근을 가지고 x^2+ax+b=0이 실근을 가지지 않도록 하는 경우의 수를 구하시오."
+    }
+   ],
+   "choices": [],
+   "sub_questions": []
+  },
+  {
+   "number": 12,
+   "score": 4,
+   "label_type": "단답형",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[단답형 3] 무리함수 y=\\sqrt{ax+4}-b의 치역이 \\{y|y \\geq 2\\}이고 그래프가 점 (-6, 6)을 지날 때, 이 함수의 정의역을 구하시오."
+    }
+   ],
+   "choices": [],
+   "sub_questions": []
+  },
+  {
+   "number": 13,
+   "score": 4,
+   "label_type": "단답형",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[단답형 4] 함수 f(x)=x+2에서 f^1(x)=f(x), f^{n+1}(x)=(f \\circ f^n)(x) (n은 자연수)로 정의할 때 f^{40}(3)의 값을 구하시오."
+    }
+   ],
+   "choices": [],
+   "sub_questions": []
+  }
+ ]
+}

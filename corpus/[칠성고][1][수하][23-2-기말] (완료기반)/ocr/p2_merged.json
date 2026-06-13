@@ -1,0 +1,89 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 6,
+   "score": 3.3,
+   "contents": [
+    {
+     "type": "text",
+     "value": "두 함수 f : X \\to Y, g : Y \\to Z가 다음과 같을 때, (g \\circ f^{-1})(3)의 값은? [3.3점]"
+    },
+    {
+     "type": "figure",
+     "value": "세 집합 X, Y, Z의 대응 그림. X={1,2,3,4}, Y={1,2,3,4}, Z={1,2,3,4}. f:X→Y, g:Y→Z 의 화살표 대응이 그려져 있다."
+    }
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 7,
+   "score": 3.4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림과 같이 직선 a, b, c, p, q, r, s가 놓여있다. 이 중 4개의 직선을 선택하여 사다리꼴을 만드는 경우의 수는? (단, p \\parallel q \\parallel r \\parallel s 이다.) [3.4점]"
+    },
+    {
+     "type": "figure",
+     "value": "위쪽에 한 점에서 부채꼴처럼 퍼지는 세 직선 a, b, c와, 아래로 갈수록 수평으로 평행한 네 직선 p, q, r, s가 교차하는 그림."
+    }
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "10"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "14"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "18"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "22"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "26"}]}
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 8,
+   "score": 3.5,
+   "contents": [
+    {
+     "type": "text",
+     "value": "실수 전체에서 정의된 두 함수 f(x)=3x+1, g(x)=-x-2에 대하여 함수 h가 h \\circ g^{-1}=f를 만족할 때, h(0)의 값은? [3.5점]"
+    }
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "-5"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "-3"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "-1"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "1"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "3"}]}
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 9,
+   "score": 3.5,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림과 같은 6개의 영역에 각각 빨강, 파랑, 노랑, 검정, 보라 중 어느 한 색을 칠하려고 한다. 같은 색을 여러 번 사용할 수 있지만 이웃하는 영역에는 서로 다른 색을 칠한다고 할 때, 색을 칠하는 경우의 수는? (단, 5가지 색을 모두 사용하지 않아도 되고, 경계가 일부라도 닿은 두 영역은 서로 이웃한 영역으로 본다.) [3.5점]"
+    },
+    {
+     "type": "figure",
+     "value": "정사각형이 6개의 영역으로 분할된 그림(가운데에 작은 사각형들이 나뉘어 있는 형태)."
+    }
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "600"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "720"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "960"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "1080"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "1200"}]}
+   ],
+   "sub_questions": []
+  }
+ ]
+}

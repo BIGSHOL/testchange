@@ -1,0 +1,35 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 19,
+   "score": 5.8,
+   "label_type": "단답형",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[단답형 5] 두 실수 a \\ (a>-1), b에 대하여 함수 f(x)를 f(x)=\\begin{cases} \\frac{-a-1}{x+1}+3 & (x \\geq a) \\\\ bx(x-a)+2 & (x<a) \\end{cases}라 하자. 함수 f(x)가 다음 조건을 만족시키도록 하는 a, b의 모든 순서쌍이 (a_1, b_1), (a_2, b_2)일 때, 10 \\times (a_1+b_1+a_2+b_2)의 값을 구하시오."
+    },
+    {
+     "type": "text",
+     "value": "<상자> (가) x \\geq 0인 모든 실수 x에 대하여 f(x) \\geq f(1)이다. • (나) 방정식 |f(x)|=3의 서로 다른 실근의 개수는 2이다."
+    }
+   ],
+   "choices": [],
+   "sub_questions": []
+  },
+  {
+   "number": 20,
+   "score": 5.8,
+   "label_type": "단답형",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[단답형 6] 함수 f(x)=-\\sqrt{ax-4}-3 \\ \\left(a \\leq -\\frac{4}{3}\\right)에 대하여 집합 \\{x|x \\leq -3\\}에서 정의된 함수 g(x)=\\begin{cases} f(x) & (f(x) \\geq f^{-1}(x)인 경우) \\\\ f^{-1}(x) & (f(x)<f^{-1}(x)인 경우) \\end{cases}가 있다. 자연수 n에 대하여 함수 y=g(x)의 그래프와 직선 y=x+\\frac{n}{2}이 만나는 서로 다른 점의 개수를 h(n)이라고 하자. h(4)=h(9)<h(7)일 때, g(-6)=-\\frac{q}{p}이다. p+q의 값을 구하시오. (단, a는 상수이고, p와 q는 서로소인 자연수이다.)"
+    }
+   ],
+   "choices": [],
+   "sub_questions": []
+  }
+ ]
+}

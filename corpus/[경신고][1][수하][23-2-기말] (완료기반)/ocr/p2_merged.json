@@ -1,0 +1,89 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 6,
+   "score": 4.6,
+   "contents": [
+    {
+     "type": "text",
+     "value": "다음은 1 \\leq r \\leq n-1일 때, {}_{n}\\mathrm{P}_{r}={}_{n-1}\\mathrm{P}_{r}+r \\times {}_{n-1}\\mathrm{P}_{r-1}이 성립합을 보이는 과정이다.?"
+    },
+    {
+     "type": "text",
+     "value": "<상자> {}_{n}\\mathrm{P}_{r}={}_{n-1}\\mathrm{P}_{r}+r \\times {}_{n-1}\\mathrm{P}_{r-1}=\\frac{(n-1)!}{(n-r-1)!}+r \\times \\boxed{(가)}=\\frac{n \\times \\boxed{(나)}}{(n-r)!}=\\frac{n!}{(n-r)!}={}_{n}\\mathrm{P}_{r} 따라서 {}_{n}\\mathrm{P}_{r}={}_{n-1}\\mathrm{P}_{r}+r \\times {}_{n-1}\\mathrm{P}_{r-1}이 성립한다."
+    },
+    {
+     "type": "text",
+     "value": "\\frac{(가)}{(나)}를 식으로 올바르게 나타낸 것은? [4.6점]"
+    }
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "\\frac{1}{(n-r)!}"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "\\frac{n}{(n-r)!}"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "\\frac{1}{r! \\times (n-r)!}"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "\\frac{n!}{r! \\times (n-r)!}"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "\\frac{1}{(r-1)! \\times (n-r)!}"}]}
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 7,
+   "score": 4.8,
+   "contents": [
+    {
+     "type": "text",
+     "value": "조합과 관련된 성질을 식으로 나타낸 것이다. 옳은 것만을 <보기>에서 있는 대로 고른 것은? (단, n, r, k는 모두 자연수이다.) [4.8점]"
+    },
+    {
+     "type": "text",
+     "value": "<보기> ㄱ. r \\times {}_{n-1}\\mathrm{C}_{r-1}=n \\times {}_{n}\\mathrm{C}_{r} \\ (1 \\leq r \\leq n) • ㄴ. {}_{n}\\mathrm{C}_{r}={}_{n-1}\\mathrm{C}_{r}+r \\times {}_{n-1}\\mathrm{C}_{r-1} \\ (1 \\leq r \\leq n-1) • ㄷ. {}_{n}\\mathrm{C}_{k} \\times {}_{n-k}\\mathrm{C}_{r}={}_{n}\\mathrm{C}_{r} \\times {}_{n-r}\\mathrm{C}_{k} \\ (1 \\leq k+r \\leq n)"
+    }
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "text", "value": "ㄱ"}]},
+    {"number": 2, "contents": [{"type": "text", "value": "ㄷ"}]},
+    {"number": 3, "contents": [{"type": "text", "value": "ㄱ, ㄴ"}]},
+    {"number": 4, "contents": [{"type": "text", "value": "ㄴ, ㄷ"}]},
+    {"number": 5, "contents": [{"type": "text", "value": "ㄱ, ㄴ, ㄷ"}]}
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 8,
+   "score": 4.8,
+   "contents": [
+    {
+     "type": "text",
+     "value": "서로 다른 두 개의 주사위 A, B를 동시에 던져 나오는 눈의 수를 각각 a, b라 하자. x에 대한 이차방정식 x^2-2ax+5b=0이 허근을 갖도록 하는 경우의 수는? [4.8점]"
+    }
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "19"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "20"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "21"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "22"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "23"}]}
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 9,
+   "score": 5,
+   "contents": [
+    {
+     "type": "text",
+     "value": "d<c<b<a<10인 자연수 a, b, c, d에 대하여 천의 자리의 수, 백의 자리의 수, 십의 자리의 수, 일의 자리의 수가 각각 a, b, c, d인 네 자리의 자연수 중 5000보다 크고 8000보다 작은 모든 자연수의 개수는? [5점]"
+    }
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "31"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "32"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "33"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "34"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "35"}]}
+   ],
+   "sub_questions": []
+  }
+ ]
+}

@@ -1,0 +1,103 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 1,
+   "score": 3,
+   "contents": [
+    {
+     "type": "text",
+     "value": "다음 중 일대일함수의 그래프가 __아닌__ 것은? [3점]"
+    },
+    {
+     "type": "figure",
+     "value": "보기 ①~⑤의 다섯 개의 좌표평면 그래프. ① 증가하는 곡선, ② 직각쌍곡선 형태(원점 대칭), ③ 기울기 음의 직선, ④ 기울기 양의 직선, ⑤ 원점 부근에서 위로 볼록·아래로 볼록을 반복하는 곡선(일대일 아님)."
+    }
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "figure", "value": "증가하는 곡선 그래프"}]},
+    {"number": 2, "contents": [{"type": "figure", "value": "직각쌍곡선 형태의 그래프"}]},
+    {"number": 3, "contents": [{"type": "figure", "value": "기울기가 음인 직선 그래프"}]},
+    {"number": 4, "contents": [{"type": "figure", "value": "기울기가 양인 직선 그래프"}]},
+    {"number": 5, "contents": [{"type": "figure", "value": "원점 부근에서 굴곡지는 곡선 그래프"}]}
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 2,
+   "score": 3,
+   "contents": [
+    {
+     "type": "text",
+     "value": "{}_{4}\\mathrm{P}_{2}+{}_{5}\\mathrm{C}_{3}의 값은? [3점]"
+    }
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "20"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "22"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "24"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "26"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "28"}]}
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 3,
+   "score": 3.1,
+   "contents": [
+    {
+     "type": "text",
+     "value": "숫자 1, 2, 3, 4를 각각 한 번씩만 사용하여 만들 수 있는 네 자리 자연수의 개수는? [3.1점]"
+    }
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "12"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "16"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "20"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "24"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "28"}]}
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 4,
+   "score": 3.1,
+   "contents": [
+    {
+     "type": "text",
+     "value": "다음과 같은 메뉴판에서 음식, 토핑, 음료를 각각 1개씩 선택하는 경우의 수는? [3.1점]"
+    },
+    {
+     "type": "figure",
+     "value": "3열 표 — 음식: 제육덮밥/오징어덮밥/불고기덮밥(3종), 토핑: 마늘후레이크/다진 파/청양고추/계란후라이(4종), 음료: 콜라/아이스티/오렌지주스(3종)."
+    }
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "10"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "16"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "20"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "24"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "36"}]}
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 5,
+   "score": 3.2,
+   "contents": [
+    {
+     "type": "text",
+     "value": "집합 X=\\{-1, 0, 1\\}에 대하여 함수 f : X \\to X가 f(x)=x^2일 때, 옳지 __않은__ 것은? [3.2점]"
+    }
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "text", "value": "f(0)=0 이다."}]},
+    {"number": 2, "contents": [{"type": "text", "value": "함수 f는 일대일함수이다."}]},
+    {"number": 3, "contents": [{"type": "text", "value": "함수 f의 정의역과 공역이 같다."}]},
+    {"number": 4, "contents": [{"type": "text", "value": "함수 f의 치역은 공역의 부분집합이다."}]},
+    {"number": 5, "contents": [{"type": "text", "value": "f(a)=f(b)이고 a \\neq b인 X의 원소 a, b가 존재한다."}]}
+   ],
+   "sub_questions": []
+  }
+ ]
+}

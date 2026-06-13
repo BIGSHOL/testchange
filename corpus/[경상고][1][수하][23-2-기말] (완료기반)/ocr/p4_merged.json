@@ -1,0 +1,79 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 15,
+   "score": 10,
+   "label_type": "서술형",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서술형 2] 정의역이 \\{x | 2 \\leq x \\leq 5\\}인 유리함수 f(x)=\\frac{ax+3}{2x-2}의 치역이 집합 \\{y | 1 \\leq y \\leq 2\\}를 포함할 때, 실수 a의 값의 범위를 구하시오."
+    }
+   ],
+   "choices": [],
+   "sub_questions": []
+  },
+  {
+   "number": 16,
+   "score": 10,
+   "label_type": "서술형",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서술형 3] 무리함수 y=\\sqrt{-2x+3}의 그래프를 x축의 방향으로 -4만큼, y축의 방향으로 2만큼 평행이동한 후, y축에 대하여 대칭이동하였더니 y=\\sqrt{ax+b}+c의 그래프와 일치하였다. 직선 y=mx와 함수 y=\\sqrt{ax+b}+c의 그래프가 서로 다른 두 점에서 만나도록 하는 실수 m의 값의 범위를 구하시오."
+    }
+   ],
+   "choices": [],
+   "sub_questions": []
+  },
+  {
+   "number": 17,
+   "score": 10,
+   "label_type": "서술형",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서술형 4] 다음 예시와 같이 주어진 등식을 설명하는 실생활 상황을 하나씩 제시하시오."
+    },
+    {
+     "type": "text",
+     "value": "<예시> • 등식 : {}_{7}\\mathrm{C}_{4} = {}_{7}\\mathrm{C}_{3} • 실생활 상황 : 수학 동아리 학생 7명 중 공모전에 참가할 학생 4명을 뽑는 경우의 수는 공모전에 참가하지 않을 학생 3명을 뽑는 경우의 수와 같다."
+    }
+   ],
+   "choices": [],
+   "sub_questions": [
+    {
+     "number": 1,
+     "score": 3,
+     "contents": [
+      {
+       "type": "text",
+       "value": "(1) {}_{15}\\mathrm{P}_{7} = {}_{14}\\mathrm{P}_{7} + 7 \\times {}_{14}\\mathrm{P}_{6}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "score": 3,
+     "contents": [
+      {
+       "type": "text",
+       "value": "(2) {}_{5}\\mathrm{C}_{3} = {}_{4}\\mathrm{C}_{2} + {}_{4}\\mathrm{C}_{3}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "score": 4,
+     "contents": [
+      {
+       "type": "text",
+       "value": "(3) 6 \\times {}_{10}\\mathrm{C}_{6} = 10 \\times {}_{9}\\mathrm{C}_{5}"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}
