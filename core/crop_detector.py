@@ -302,8 +302,12 @@ def _parse_crops(text: str) -> list[CropBox]:
     try:
         data = json.loads(t)
     except json.JSONDecodeError as e:
-        logger.warning("크롭 JSON 파싱 실패: %s", e)
-        return []
+        # ⚠️ **예외로 올린다** — 빈 리스트 반환은 "문항 없음"(정상 빈 페이지)과 구별 불가라
+        # 잘린/깨진 응답이 재시도·폴백 없이 페이지 통째 소실로 둔갑하던 결함(적대리뷰 A-3).
+        # 호출부(_detect_with_gemini/_claude)가 detect_crops 의 재시도 루프·폴백·사용자 노출로
+        # 받아낸다. (진짜 빈 페이지는 valid JSON + 빈 items 라 이 경로를 안 탄다.)
+        logger.warning("크롭 JSON 파싱 실패(재시도/폴백 유도): %s", e)
+        raise ValueError(f"크롭 JSON 파싱 실패: {e}") from e
 
     # 신규 "items"(cropBox) 우선, 구버전 "crops"(bbox) 하위호환.
     raw_items = data.get("items")
