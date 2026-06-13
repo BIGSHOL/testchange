@@ -1,0 +1,307 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 9,
+   "score": 3.8,
+   "contents": [
+    {
+     "type": "text",
+     "value": "함수 f(x)=\\begin{cases} 2x+3 & (x \\leq 0) \\\\ -2x+6 & (x > 0) \\end{cases}에 대하여 f^{1}=f, f^{n+1}=f \\circ f^{n} (n은 자연수)이라 정의할 때, f^{100}(1)+f^{100}(2)의 값은? [3.8점]"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "0"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 10,
+   "score": 3.8,
+   "contents": [
+    {
+     "type": "text",
+     "value": "일차함수 f(x)의 역함수를 g(x)라 할 때, 함수 y=f(3x-4)의 역함수를 g(x)에 대한 식으로 나타내면 y=ag(x)+b이다. 두 상수 a, b에 대하여 a+b의 값은? [3.8점]"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{2}{3}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{4}{3}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{5}{3}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 11,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "역함수가 존재하는 함수 f(x)=\\begin{cases} \\sqrt{8-4x}+a & (x < 2) \\\\ -\\sqrt{4x-8}+3 & (x \\geq 2) \\end{cases}에 대하여 (f \\circ f)^{-1}(5)의 값은? (단, a는 상수) [4점]"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-1"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "0"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 12,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "다음 등식을 만족하는 자연수 r, k, n에 대하여 r+k+n의 값은? [4점]"
+    },
+    {
+     "type": "text",
+     "value": "<상자> (가) {}_{13}\\mathrm{C}_{r+2}={}_{13}\\mathrm{C}_{2r-1} • (나) {}_{13}\\mathrm{P}_{7}={}_{13}\\mathrm{P}_{r} \\times {}_{13-r}\\mathrm{P}_{k} • (다) {}_{n}\\mathrm{P}_{3}+4! \\times {}_{n}\\mathrm{C}_{n-3}=600"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "12"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "13"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "14"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "15"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "16"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 13,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "유리함수 y=\\frac{ax+b}{x+c}의 그래프가 그림과 같을 때, 무리함수 f(x)=\\sqrt{ax+b}+c에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고른 것은? (단, a \\neq 0, b < c^{2}인 상수) [4점]"
+    },
+    {
+     "type": "figure",
+     "value": "유리함수 y=(ax+b)/(x+c)의 직각쌍곡선 그래프 (점근선 기준 한 가지는 위, 다른 가지는 아래)."
+    },
+    {
+     "type": "text",
+     "value": "<보기> ㄱ. 그래프는 제 1사분면을 지나지 않는다. • ㄴ. 그래프는 제 3사분면을 지나지 않는다. • ㄷ. 정의역의 임의의 원소 x_{1}, x_{2}에 대하여 x_{1} < x_{2}이면 f(x_{1}) > f(x_{2})이다."
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄱ"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄴ"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄱ, ㄷ"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄴ, ㄷ"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄱ, ㄴ, ㄷ"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  }
+ ]
+}
