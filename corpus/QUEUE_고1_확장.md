@@ -33,7 +33,7 @@
 | 3 | 대진고 | pending (6) | pending (1) | pending (6) |
 | 4 | 경원고 | pending (1) | pending (1) | pending (2) |
 | 5 | 성화여고 | pending (1) | pending (3) | pending (3) |
-| 6 | 계성고 | pending (7) | pending (5) | pending (4) |
+| 6 | 계성고 | **ocr_done** 19문항100(체크섬15/15) | **ocr_done** 19문항100(검산7,Q8해석차) | **ocr_done** 수하 20문항100(검산12) |
 | 7 | 수성고 | pending (7) | pending (7) | pending* (완료본 .hwp) |
 | 8 | 영송여고 | pending (3) | pending (1) | pending* (완료본 .hwp) |
 | 9 | 정동고 | pending (11) | pending (4) | pending (1) |

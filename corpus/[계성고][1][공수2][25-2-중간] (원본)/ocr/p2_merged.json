@@ -1,0 +1,94 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 5,
+      "score": 4.2,
+      "contents": [
+        {"type": "text", "value": "전체집합 U의 두 부분집합 A와 B에 대하여"},
+        {"type": "equation", "value": "n(U)=50"},
+        {"type": "text", "value": ","},
+        {"type": "equation", "value": "n(A)=19"},
+        {"type": "text", "value": ","},
+        {"type": "equation", "value": "n(B)=17"},
+        {"type": "text", "value": ","},
+        {"type": "equation", "value": "n(A \\cup B)=27"},
+        {"type": "text", "value": "일 때,"},
+        {"type": "equation", "value": "n(A^c \\cup B^c)"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "37"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "39"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "41"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "43"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "45"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 6,
+      "score": 4.2,
+      "contents": [
+        {"type": "text", "value": "포물선"},
+        {"type": "equation", "value": "y=x^2+4x"},
+        {"type": "text", "value": "를 포물선"},
+        {"type": "equation", "value": "y=x^2-8x+20"},
+        {"type": "text", "value": "으로 옮기는 평행이동에 의하여 원"},
+        {"type": "equation", "value": "C:x^2+y^2=r^2"},
+        {"type": "text", "value": "이 원"},
+        {"type": "equation", "value": "C'"},
+        {"type": "text", "value": "으로 옮겨진다. 이때 두 원이 한 점에서 만나도록 하는 실수 r의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 7,
+      "score": 4.2,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 좌표평면 위에 점 A(4, a) (a>0)와 두 점 (8, 0), (0, 4)를 지나는 직선 l이 있다. 직선 l 위의 서로 다른 두 점 B, C와 제 1사분면 위의 점 D를 사각형 ABCD가"},
+        {"type": "equation", "value": "\\overline{BC}:\\overline{CD}=2:1"},
+        {"type": "text", "value": "인 직사각형이 되도록 잡는다. 직사각형 ABCD의 넓이가"},
+        {"type": "equation", "value": "\\frac{128}{5}"},
+        {"type": "text", "value": "일 때, a의 값은?"},
+        {"type": "figure", "value": "좌표평면. 두 점 (8,0),(0,4)를 지나는 직선 l 위에 점 B, C가 있고, 점 A(4,a), 점 D로 직사각형 ABCD를 이룬다. A는 위쪽, D는 오른쪽, B는 왼쪽 아래, C는 오른쪽 아래.", "bbox": [0.52, 0.16, 0.95, 0.42]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "14"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 8,
+      "score": 4.3,
+      "contents": [
+        {"type": "text", "value": "두 원"},
+        {"type": "equation", "value": "C_1:x^2+y^2-4x+6y+4=0"},
+        {"type": "text", "value": ","},
+        {"type": "equation", "value": "C_2:x^2+y^2-2y=3"},
+        {"type": "text", "value": "의 교점을 지나는 원 중에서 그 넓이가 최소인 원의 중심의 좌표를 (a, b)라 할 때,"},
+        {"type": "equation", "value": "\\frac{a}{b}"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-\\frac{9}{2}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-4"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-\\frac{7}{2}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "-3"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "-\\frac{5}{2}"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

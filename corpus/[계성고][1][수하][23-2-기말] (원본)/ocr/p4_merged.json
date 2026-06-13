@@ -1,0 +1,48 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 17,
+      "score": 7,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 2] 함수 y=\\sqrt{x-3}의 그래프와 직선 y=\\dfrac{1}{3}x+k가 서로 다른 두 점에서 만나도록 하는 k의 값의 범위를 구하시오."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 18,
+      "score": 7,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 3] 함수"},
+        {"type": "equation_block", "value": "f(x)=\\begin{cases} -2x+5 & (x > a) \\\\ 2x^2-4x-a & (x \\leq a) \\end{cases}"},
+        {"type": "text", "value": "가 일대일 함수가 되도록 하는 실수 a값의 범위를 구하시오."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 19,
+      "score": 7,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 4] 5단짜리 계단이 있다. 지수가 한 걸음에 한 단 또는 두 단을 올라갈 때, 5단을 오르는 모든 경우의 수를 구하시오."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 20,
+      "score": 8,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 5] 서로 다른 5개의 선물 상자에 서로 다른 4개의 빼빼로와 서로 다른 3개의 인형을 다음 <조건>을 만족시키도록 넣는 경우의 수를 구하시오."},
+        {"type": "text", "value": "<조건> (가) 4개의 빼빼로는 각각 다른 선물 상자에 넣는다. • (나) 3개의 인형은 각각 다른 선물 상자에 넣는다. • (다) 빈 선물상자는 없다."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 12,
+      "score": 4.5,
+      "contents": [
+        {"type": "text", "value": "최고차항의 계수가 1인 사차다항식 f(x)가 다음 조건을 만족시킬 때, f(1)의 값은?"},
+        {"type": "text", "value": "<조건> (가) f(x)를 x-3으로 나눈 나머지와 f(x)를 x^2+1로 나눈 나머지는 서로 같다. (나) f(-2x-2)를 x^2+2x로 나눈 나머지는 8이다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "11"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "14"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "17"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "20"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 13,
+      "score": 4.6,
+      "contents": [
+        {"type": "text", "value": "-7 \\leq x \\leq 2에서 정의된 이차함수 f(x)가 f(-7)=f(1), f(-4)+|f(0)|=0을 만족시킨다. 함수 f(x)의 최댓값이 60일 때, f(-5)의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "11"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 14,
+      "score": 4.7,
+      "contents": [
+        {"type": "text", "value": "x에 대한 삼차방정식 x^3=-1의 한 허근을 \\omega라고 하자. 자연수 n에 대하여"},
+        {"type": "equation_block", "value": "f(n)=\\left(\\frac{-2\\omega^3+3\\omega^2-2\\omega+1}{\\omega^5-\\omega^3+\\omega^2-2}\\right)^n"},
+        {"type": "text", "value": "이라 할 때, f(1)+f(2)+\\cdots+f(25)+f(26)의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-\\omega"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\omega"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 15,
+      "score": 4.9,
+      "contents": [
+        {"type": "text", "value": "이차함수 f(x)가 다음 조건을 만족시킨다."},
+        {"type": "text", "value": "<조건> (가) f(x)의 최고차항의 계수는 2이다. (나) f(x)는 직선 x=4에 대하여 대칭이다. (다) 이차방정식 x^2-8x+6=0의 두 실근 \\alpha, \\beta에 대하여 그림과 같이 \\overline{AB}=\\alpha, \\overline{BC}=\\beta인 직각삼각형 ABC에 내접하는 정사각형 둘레의 길이의 8배가 f(x)의 상수항이다."},
+        {"type": "figure", "value": "직각삼각형 ABC. A는 좌상단, B는 좌하단(직각), C는 우하단. 변 AB(세로)=\\alpha, 변 BC(가로)=\\beta. 삼각형 안에 변 BC 위에 내접하는 정사각형이 그려져 있음.", "bbox": [0.55, 0.62, 0.85, 0.72]},
+        {"type": "text", "value": "이차함수 y=f(x)의 그래프와 x축이 만나는 두 점의 x좌표의 차는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{5}{2}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{7}{2}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "4"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

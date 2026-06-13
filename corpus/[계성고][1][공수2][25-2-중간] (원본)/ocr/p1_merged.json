@@ -1,0 +1,78 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 1,
+      "score": 4.0,
+      "contents": [
+        {"type": "text", "value": "두 점 A(5, -4)와 B(-3, 6)에 대하여 선분 AB를 3:5로 내분하는 점이 직선"},
+        {"type": "equation", "value": "y=\\frac{1}{8}x+k"},
+        {"type": "text", "value": "위에 있을 때, 상수 k의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-\\frac{1}{2}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{1}{2}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "1"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 2,
+      "score": 4.0,
+      "contents": [
+        {"type": "text", "value": "다음 그림은 전체집합 U의 서로 다른 두 부분집합 A, B 사이의 관계를 벤 다이어그램으로 나타낸 것이다. 다음 중 색칠한 부분을 나타낸 집합과 같은 것은?"},
+        {"type": "figure", "value": "전체집합 U 안의 두 부분집합 A, B의 벤 다이어그램. 색칠된 부분은 B에서 A∩B를 포함한 영역(B 전체가 색칠).", "bbox": [0.10, 0.50, 0.42, 0.62]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "A^c \\cap B"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "A^c - B"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "(A \\cap B) \\cup A^c"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "(A \\cap B) \\cup B^c"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "(B - A) \\cup (A^c \\cap B^c)"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 3,
+      "score": 4.1,
+      "contents": [
+        {"type": "text", "value": "두 집합"},
+        {"type": "equation", "value": "A=\\{x^2-x, -3\\}"},
+        {"type": "text", "value": "와"},
+        {"type": "equation", "value": "B=\\{-x^2-2x, 0, 12\\}"},
+        {"type": "text", "value": "에 대하여"},
+        {"type": "equation", "value": "A \\cap B = A"},
+        {"type": "text", "value": "를 만족시키는 모든 정수 x의 값의 합은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-5"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-4"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "-1"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 4,
+      "score": 4.1,
+      "contents": [
+        {"type": "text", "value": "원"},
+        {"type": "equation", "value": "x^2+y^2=16"},
+        {"type": "text", "value": "와 직선"},
+        {"type": "equation", "value": "y=\\frac{1}{2}x+k"},
+        {"type": "text", "value": "가 서로 다른 두 점에서 만나도록 하는 실수 k의 값의 범위는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-2\\sqrt{5} < k < 2\\sqrt{5}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "k < -2\\sqrt{5} \\text{ 또는 } k > 2\\sqrt{5}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-2\\sqrt{10} < k < 2\\sqrt{10}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "k < -2\\sqrt{10} \\text{ 또는 } k > 2\\sqrt{10}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "-4\\sqrt{5} < k < 4\\sqrt{5}"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

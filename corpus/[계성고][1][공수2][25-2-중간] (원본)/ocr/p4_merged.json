@@ -1,0 +1,83 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 13,
+      "score": 4.6,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 좌표평면 위에 두 원"},
+        {"type": "equation", "value": "C_1:(x-10)^2+(y-4)^2=16"},
+        {"type": "text", "value": ","},
+        {"type": "equation", "value": "C_2:(x-2)^2+(y+1)^2=1"},
+        {"type": "text", "value": "와 직선"},
+        {"type": "equation", "value": "y=2x"},
+        {"type": "text", "value": "가 있다. 점 A는 원"},
+        {"type": "equation", "value": "C_1"},
+        {"type": "text", "value": "위에 있고, 점 B는 원"},
+        {"type": "equation", "value": "C_2"},
+        {"type": "text", "value": "위에 있다. 점 P는 x축 위에 있고, 점 Q는 직선"},
+        {"type": "equation", "value": "y=2x"},
+        {"type": "text", "value": "위에 있을 때,"},
+        {"type": "equation", "value": "\\overline{AP}+\\overline{PQ}+\\overline{QB}"},
+        {"type": "text", "value": "의 최솟값은? (단, 세 점 A, P, Q는 서로 다른 점이다.)"},
+        {"type": "figure", "value": "좌표평면. 원 C_1(중심 (10,4) 반지름 4)과 원 C_2(중심 (2,-1) 반지름 1), 직선 y=2x. 점 A는 C_1 위, 점 B는 C_2 위, 점 P는 x축 위, 점 Q는 직선 y=2x 위.", "bbox": [0.05, 0.30, 0.48, 0.52]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "10"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 14,
+      "score": 4.7,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 직선"},
+        {"type": "equation", "value": "y=x"},
+        {"type": "text", "value": "위의 점 A를 중심으로 하고 x축과 만나지 않는 원 C에 대하여 원점 O를 지나고 원 C에 접하는 두 직선 중 기울기가 큰 직선을"},
+        {"type": "equation", "value": "l_1:y=m_1 x"},
+        {"type": "text", "value": ", 기울기가 작은 직선을"},
+        {"type": "equation", "value": "l_2:y=m_2 x"},
+        {"type": "text", "value": "하자. 원 C와 직선"},
+        {"type": "equation", "value": "y=x"},
+        {"type": "text", "value": "의 교점 중 x좌표가 작은 점을"},
+        {"type": "equation", "value": "P_1"},
+        {"type": "text", "value": ", x좌표가 큰 점을"},
+        {"type": "equation", "value": "P_2"},
+        {"type": "text", "value": "라 하면"},
+        {"type": "equation", "value": "\\overline{OP_1}=1"},
+        {"type": "text", "value": "이다. 원 C 위의 점"},
+        {"type": "equation", "value": "P_1"},
+        {"type": "text", "value": "에서의 접선과 직선"},
+        {"type": "equation", "value": "l_1"},
+        {"type": "text", "value": "의 교점을"},
+        {"type": "equation", "value": "Q_1"},
+        {"type": "text", "value": ", 원 C 위의 점"},
+        {"type": "equation", "value": "P_2"},
+        {"type": "text", "value": "에서의 접선과 직선"},
+        {"type": "equation", "value": "l_1"},
+        {"type": "text", "value": "의 교점을"},
+        {"type": "equation", "value": "Q_2"},
+        {"type": "text", "value": "라 하면 삼각형"},
+        {"type": "equation", "value": "AQ_2 P_2"},
+        {"type": "text", "value": "의 넓이는 삼각형"},
+        {"type": "equation", "value": "AP_1 Q_1"},
+        {"type": "text", "value": "의 넓이의 3배이다. 이때"},
+        {"type": "equation", "value": "m_1+m_2"},
+        {"type": "text", "value": "의 값은? (단, 점 A는 제1사분면 위의 점이다.)"},
+        {"type": "figure", "value": "좌표평면. 직선 y=x 위의 점 A를 중심으로 하는 원 C, 원점 O를 지나는 두 접선 l_1(기울기 큼), l_2(기울기 작음). 원과 y=x의 교점 P_1, P_2. 접점/교점 Q_1, Q_2.", "bbox": [0.52, 0.36, 0.95, 0.55]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{5}{2}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{7}{2}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "4"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}
