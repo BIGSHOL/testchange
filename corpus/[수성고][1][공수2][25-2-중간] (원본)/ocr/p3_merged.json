@@ -1,0 +1,241 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 20,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "전체집합 U의 두 부분집합 A, B가 다음 조건을 만족시킨다. n(A∪B)의 최댓값을 M, 최솟값을 m이라 할 때, M+m의 값은? [4점]"
+    },
+    {
+     "type": "text",
+     "value": "<상자> (가) n(U)=20 • (나) n((A∩B^c)∪(A^c∩B))=12 • (다) A∩(B∪A^c)≠∅"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "27"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "30"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "33"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "36"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "39"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 21,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "직선 5x+12y+2=0과 x축 및 y축에 동시에 접하는 모든 원의 반지름의 길이의 합은? [4점]"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{1}{2}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{3}{2}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{5}{2}"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 22,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "두 점 A(-5, -\\frac{1}{3}), B(4, \\frac{8}{3})에 대하여 선분 AB를 1:m으로 내분하는 점 P의 x좌표와 y좌표가 모두 정수가 되도록 하는 양수 m의 최댓값을 a, 최솟값을 b라 할 때, \\frac{a}{b}의 값은? [4점]"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "20"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "24"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "28"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "32"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "36"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 23,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "원 x^2+y^2+6x-4y+12=0을 y축에 대하여 대칭이동한 원을 C라 하자. 원 C 위의 점 (a, b)에 대하여 \\frac{18-3b}{a+2}의 최댓값과 최솟값의 합은? [4점]"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "6"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  }
+ ]
+}

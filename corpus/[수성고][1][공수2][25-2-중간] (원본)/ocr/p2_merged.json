@@ -1,0 +1,84 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 16,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "그림에서 도형 A를 나타내는 방정식이 f(x, y)=0 일 때, <보기>에서 도형 B를 나타내는 방정식만을 있는 대로 고른 것은? [3점]"},
+        {"type": "figure", "value": "좌표평면. 도형 A는 1사분면(x=2~4, y=1~4 영역)의 ㄴ자형 도형, 도형 B는 3사분면(x=-3~-1, y=-2~0 영역)의 ㄴ자형 도형.", "bbox": [0.06, 0.13, 0.48, 0.30]},
+        {"type": "text", "value": "<보기> ㄱ. f(-x+1, -y+2)=0 • ㄴ. f(-y+2, -x+1)=0 • ㄷ. f(x+5, -y+2)=0 • ㄹ. f(y+4, -x+1)=0"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ, ㄴ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄱ, ㄷ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄷ, ㄹ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄱ, ㄴ, ㄹ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄴ, ㄷ, ㄹ"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 17,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "세 직선"},
+        {"type": "equation", "value": "x-y+2=0, \\quad ax-y+3=0, \\quad (1-a)x+y+4=0"},
+        {"type": "text", "value": "에 의하여 좌표평면이 여섯 부분으로 나누어지도록 하는 모든 실수 a의 합이"},
+        {"type": "equation", "value": "\\frac{q}{p}"},
+        {"type": "text", "value": "일 때, p+q의 값은? (단, p, q는 서로소인 자연수이다.) [3점]"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "33"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "36"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "39"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "42"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "45"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 18,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "원"},
+        {"type": "equation", "value": "x^2+y^2=40"},
+        {"type": "text", "value": "밖의 서로 다른 네 점 A, B, C, D 각각의 점에서 이 원에 그은 두 접선의 기울기가 각각 3,"},
+        {"type": "equation", "value": "\\frac{1}{3}"},
+        {"type": "text", "value": "일 때, 네 점 A, B, C, D를 꼭짓점으로 하는 사각형의 넓이는? [3점]"},
+        {"type": "figure", "value": "원 x^2+y^2=40 과 네 점에서 그은 두 접선(기울기 3, 1/3)으로 만들어지는 사각형.", "bbox": [0.52, 0.13, 0.95, 0.40]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "160"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "170"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "180"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "190"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "200"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 19,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "중심이 (-2, 3)이고 반지름의 길이가 1인 원을"},
+        {"type": "equation", "value": "C_1"},
+        {"type": "text", "value": ", 중심이 (4, -3)이고 반지름의 길이가 1인 원"},
+        {"type": "equation", "value": "C_2"},
+        {"type": "text", "value": "라 하자. 두 원"},
+        {"type": "equation", "value": "C_1, C_2"},
+        {"type": "text", "value": "에 동시에 접하는 직선의 기울기의 최댓값과 최솟값의 합이"},
+        {"type": "equation", "value": "-\\frac{q}{p}"},
+        {"type": "text", "value": "일 때, p+q의 값은? (단, p와 q는 서로소인 자연수이다.) [3점]"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "13"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "14"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "15"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "16"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "17"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

@@ -20,9 +20,10 @@
 - **진행 중 캠페인 = `corpus/QUEUE_*.md`** 의 상태표로 추적(이게 "다음에 뭘 OCR/검수하나"의
   단일 출처): `QUEUE_확통.md`·`QUEUE_고1_확장.md`(고1 공수)·`QUEUE_고2미적분.md`·`QUEUE_고3미적분.md`
   등. `ocr_done`/`reviewed`/`pending` 표시. corpus 폴더의 `meta.json` `status` 가 진실값.
-- **유일한 미완 1건**: `corpus/[수성고][1][공수2][25-1-중간] (원본)` = p1·p2 부분 OCR만 됨
-  (레이트리밋 중단). **미커밋(untracked)** — 다른 컴퓨터에서 재OCR 필요. (이 PC 백업:
-  `F:\tmp\preserve_20260614\수성고_공수2_ocr\`.)
+- ~~유일한 미완 1건: 수성고 공수2중간 부분 OCR~~ → **2026-06-14 마무리 완료**:
+  `corpus/[수성고][1][공수2][25-2-중간] (원본)` = 선택형 Q20~23 + 서답형 1~10 신규 OCR로
+  완성(33문항·100점 자력검산·lint PASS, `ocr_done`). 캠페인 잔여는 수성·영송 공수2기말(2023
+  수하 원본 부재로 보류)뿐 — 상세 `corpus/QUEUE_고1_확장.md`.
 - **되돌리기 안전장치**: 통합 직전 master 스냅샷 = git 태그 `backup/pre-merge-master-20260614`
   (= 옛 `265e1be`).
 - **이어작업 셋업 요지**(상세는 아래 §2): `git clone` → `pip install -r requirements.txt` →

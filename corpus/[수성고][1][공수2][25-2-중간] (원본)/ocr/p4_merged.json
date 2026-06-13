@@ -1,0 +1,95 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 24,
+   "score": 3,
+   "label_type": "서술형",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서답형1] [1~2] 자연수 전체의 집합을 N이라 할 때, 두 집합 A=\\{x|x^2-7x+10≤0\\}, B=\\{x|x^2-(a+1)x+a<0, a∈N\\}에 대하여 다음 물음에 답하시오. (단, a는 1보다 큰 자연수이다.)"
+    },
+    {
+     "type": "text",
+     "value": "x에 대한 두 부등식 x^2-7x+10≤0 와 x^2-(a+1)x+a<0 의 해를 각각 구하시오."
+    }
+   ],
+   "choices": [],
+   "sub_questions": []
+  },
+  {
+   "number": 25,
+   "score": 5,
+   "label_type": "서술형",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서답형2] 앞의 문제에서 구한 해를 이용하여 A-B=∅ 을 만족하는 a의 최솟값을 구하시오."
+    }
+   ],
+   "choices": [],
+   "sub_questions": []
+  },
+  {
+   "number": 26,
+   "score": 2,
+   "label_type": "서술형",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서답형3] [3~4] 전체집합 U=\\{x|x는 10 이하의 자연수\\}의 두 부분집합 A=\\{x|x는 8의 약수\\}, B=\\{x|x는 9의 약수\\}에 대하여 다음 물음에 답하시오."
+    },
+    {
+     "type": "text",
+     "value": "두 집합 A와 B를 원소나열법으로 나타내시오."
+    }
+   ],
+   "choices": [],
+   "sub_questions": []
+  },
+  {
+   "number": 27,
+   "score": 6,
+   "label_type": "서술형",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서답형4] A∪P=B∪P를 만족시키는 집합 U의 부분집합 P의 개수를 구하시오."
+    }
+   ],
+   "choices": [],
+   "sub_questions": []
+  },
+  {
+   "number": 28,
+   "score": 2,
+   "label_type": "서술형",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서답형5] [5~6] 원 C: (x-4)^2+(y-2)^2=9 와 직선 l: x+ky-4k-1=0 에 대하여 다음 물음에 답하시오. (단, k는 실수이다.)"
+    },
+    {
+     "type": "text",
+     "value": "직선 l이 k의 값에 관계없이 지나는 점을 찾으시오."
+    }
+   ],
+   "choices": [],
+   "sub_questions": []
+  },
+  {
+   "number": 29,
+   "score": 6,
+   "label_type": "서술형",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서답형6] 직선 l이 원 C와 만날 때, 실수 k의 값의 범위를 구하시오."
+    }
+   ],
+   "choices": [],
+   "sub_questions": []
+  }
+ ]
+}
