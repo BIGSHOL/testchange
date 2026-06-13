@@ -1,0 +1,61 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 16,
+      "score": 8,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형1] 다항식 (x+1)(x+2)(x+3)(x+4)-3을 인수분해하는 단계적 풀이과정과 답을 구하시오."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 17,
+      "score": 9,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형2] 다항식 f(x)를 x^2-3x+9로 나누었을 때의 나머지는 5x-9이다. f(x)를 x^3+27로 나누었을 때의 나머지를 ax^2+bx라 할 때, 다음에 답하시오."}
+      ],
+      "choices": [],
+      "sub_questions": [
+        {
+          "number": 1,
+          "score": 7,
+          "contents": [
+            {"type": "text", "value": "(1) 상수 a, b의 값을 구하는 단계적 풀이과정과 답을 구하시오."}
+          ]
+        },
+        {
+          "number": 2,
+          "score": 2,
+          "contents": [
+            {"type": "text", "value": "(2) f(x)를 x+3으로 나누었을 때의 나머지를 구하는 단계적 풀이과정과 답을 구하시오."}
+          ]
+        }
+      ]
+    },
+    {
+      "number": 18,
+      "score": 9,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형3] 삼차방정식 x^3-8x^2+5x+2k=0의 세 실근 \\alpha, \\beta, \\gamma에 대하여 \\beta=\\frac{\\alpha+\\gamma}{3}를 만족할 때, 상수 k의 값을 구하는 단계적 풀이과정과 답을 구하시오. (단, \\alpha<\\beta<\\gamma)"}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 19,
+      "score": 9,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형4] 실수 a, b에 대하여 복소수 z=(a-3i)^2+2bi가 다음 조건을 만족시킬 때, |a-b|의 값을 모두 구하는 단계적 풀이과정과 답을 구하시오. (단, i=\\sqrt{-1})"},
+        {"type": "text", "value": "<조건> (가) z^2<0 • (나) 복소수 (1-i)z의 허수부분은 4이다."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    }
+  ]
+}

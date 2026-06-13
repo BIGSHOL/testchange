@@ -1,0 +1,40 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 15,
+      "score": 5,
+      "contents": [
+        {"type": "equation", "value": "-1 \\leq x \\leq 2"},
+        {"type": "text", "value": "에서 이차함수"},
+        {"type": "equation", "value": "f(x)=(x-a)^2+b"},
+        {"type": "text", "value": "의 최솟값이 7일 때, 두 실수 a, b에 대하여 옳은 것만을 <보기>에서 있는 대로 고른 것은?"},
+        {"type": "text", "value": "<보기> ㄱ. a=\\frac{1}{2}일 때, b=7 • ㄴ. a>2일 때, b=-a^2+4a+1 • ㄷ. a+b의 최댓값은 \\frac{37}{4}이다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄴ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄱ, ㄷ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄴ, ㄷ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄱ, ㄴ, ㄷ"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 16,
+      "score": 5.5,
+      "contents": [
+        {"type": "text", "value": "다항식 f(x)가 다음 조건을 만족시킬 때, f(11)의 값은?"},
+        {"type": "text", "value": "<상자> (가) f(0)=0 • (나) f(x)는 x-1로 나누어 떨어진다. • (다) 모든 실수 x에 대하여 f(x+2)-2f(x+1)+f(x)=6x"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "900"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "930"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "960"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "990"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "1020"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

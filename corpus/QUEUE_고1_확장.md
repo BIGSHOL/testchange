@@ -29,15 +29,15 @@
 | # | 학교 | 공수1 중간 | 공수2 중간 | 공수2 기말(2023 수하) |
 |---|------|-----------|-----------|----------------------|
 | 1 | 상원고 | **ocr_done** 22문항100(체크섬14/14) | **ocr_done** 22문항100(검산8/13) | **ocr_done** 수하 20문항100(체크섬16/16) |
-| 2 | 혜화여고 | pending (8) | pending (6) | pending (7) |
+| 2 | 혜화여고 | **ocr_done** 20문항100(체크섬16/16) | **ocr_done** 20문항100(체크섬16/16) | **ocr_done** 수하 21문항100(검산다수) |
 | 3 | 대진고 | pending (6) | pending (1) | pending (6) |
 | 4 | 경원고 | pending (1) | pending (1) | pending (2) |
 | 5 | 성화여고 | pending (1) | pending (3) | pending (3) |
-| 6 | 계성고 | pending (7) | pending (5) | pending (4) |
+| 6 | 계성고 | **ocr_done** 19문항100(체크섬15/15) | **ocr_done** 19문항100(검산7,Q8해석차) | **ocr_done** 수하 20문항100(검산12) |
 | 7 | 수성고 | pending (7) | pending (7) | pending* (완료본 .hwp) |
 | 8 | 영송여고 | pending (3) | pending (1) | pending* (완료본 .hwp) |
 | 9 | 정동고 | pending (11) | pending (4) | pending (1) |
-| 10 | 대건고 | pending (5) | pending (8) | pending (4) |
+| 10 | 대건고 | **ocr_done** 18문항100(체크섬15/15) | **ocr_done** 18문항100(검산9) | **ocr_done** 수하 16문항100(검산7+형광) |
 
 `*` = 2023 수(하) 원본 PDF 없음 → 2024 `공수2\[학교]…[25-2-기말대비](완료).hwp` 완료본 기반
 (HWP→PDF 변환 필요, 변환 후 완료기반 OCR).

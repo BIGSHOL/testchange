@@ -1,0 +1,63 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 15,
+      "score": 4.9,
+      "contents": [
+        {"type": "text", "value": "실수 a에 대하여 이차함수"},
+        {"type": "equation", "value": "f(x)=x^2"},
+        {"type": "text", "value": "을 x축의 방향으로 a만큼, y축의 방향으로"},
+        {"type": "equation", "value": "2a^2-4a-12"},
+        {"type": "text", "value": "만큼 평행이동한 그래프를"},
+        {"type": "equation", "value": "y=g(x)"},
+        {"type": "text", "value": "라고 하자. x에 대한 이차방정식"},
+        {"type": "equation", "value": "f(x)=g(x)"},
+        {"type": "text", "value": "는 실근"},
+        {"type": "equation", "value": "x=\\alpha"},
+        {"type": "text", "value": "를 갖는다. 함수 h(x)가"},
+        {"type": "equation_block", "value": "h(x)=\\begin{cases} f(x) & (x<\\alpha) \\\\ g(x) & (x \\geq \\alpha) \\end{cases}"},
+        {"type": "text", "value": "일 때, 함수 h(x)가 다음 조건을 만족시키도록 하는 정수 a의 개수는? (단,"},
+        {"type": "equation", "value": "a \\neq 0"},
+        {"type": "text", "value": ")"},
+        {"type": "text", "value": "<조건> h(x)=k의 해가 4개가 되는 실수 k가 존재한다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "7"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 16,
+      "score": 8,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 1] 원"},
+        {"type": "equation", "value": "(x-1)^2+(y-6)^2=9"},
+        {"type": "text", "value": "를 x축의 방향으로 4만큼, y축의 방향으로 -2만큼 평행이동한 다음 직선"},
+        {"type": "equation", "value": "y=x"},
+        {"type": "text", "value": "에 대하여 대칭이동한 원의 방정식을 구하는 단계적 풀이과정과 답을 쓰시오."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 17,
+      "score": 9,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 2] 두 직선"},
+        {"type": "equation", "value": "2x+y-3=0"},
+        {"type": "text", "value": "과"},
+        {"type": "equation", "value": "x-2y+6=0"},
+        {"type": "text", "value": "이 이루는 각을 이등분하는 직선의 방정식을 구하는 단계적 풀이과정과 답을 쓰시오."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 1,
+      "score": 4.0,
+      "contents": [
+        {"type": "text", "value": "자연수 전체의 집합에서 정의된 함수 f를 f(x)=(x를 8로 나눈 나머지)라 할 때,"},
+        {"type": "equation", "value": "f(5)+f(10)+f(15)+f(20)"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "17"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "18"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "19"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "20"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "21"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 2,
+      "score": 4.1,
+      "contents": [
+        {"type": "text", "value": "집합 X=\\{a, b, c\\}를 정의역으로 하는 두 함수"},
+        {"type": "equation_block", "value": "f(x)=\\begin{cases} x^2+3x & (x \\leq 0) \\\\ x^2-3x & (x > 0) \\end{cases}, \\quad g(x)=\\begin{cases} 2x+6 & (x \\leq 6) \\\\ 3x+16 & (x > 6) \\end{cases}"},
+        {"type": "text", "value": "가 서로 같을 때, 집합 X의 모든 원소의 합은? (단, a, b, c는 서로 다른 상수이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "11"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "13"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "14"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "15"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 3,
+      "score": 4.3,
+      "contents": [
+        {"type": "text", "value": "두 집합 A=\\{1, 2, 3\\}와 B=\\{a, b, c, d, e\\}에 대하여 함수 f:A \\rightarrow B와 g:B \\rightarrow A의 합성함수 g \\circ f가 항등함수가 되는 순서쌍 (f, g)의 개수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "360"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "540"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "720"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "900"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "1080"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 4,
+      "score": 4.2,
+      "contents": [
+        {"type": "text", "value": "실수 전체의 집합에서 정의된 함수 f에 대하여"},
+        {"type": "equation_block", "value": "f(2x-1)=x+3"},
+        {"type": "text", "value": "이다. f^{-1}(x)=ax+b일 때, a-b의 값은? (단, a, b는 상수이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "9"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 5,
+      "score": 4.3,
+      "contents": [
+        {"type": "text", "value": "함수 f(x)=-x^2+4x+3일 때, y=f(|x|)의 그래프와 직선 y=k가 만나는 서로 다른 점의 개수를 g(k)라 하자."},
+        {"type": "equation", "value": "g(0)+g(1)+g(2)+\\cdots+g(10)"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "20"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "21"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "22"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "23"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "24"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

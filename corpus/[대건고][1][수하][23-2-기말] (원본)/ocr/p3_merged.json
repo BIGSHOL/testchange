@@ -1,0 +1,79 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 12,
+      "score": 5.4,
+      "contents": [
+        {"type": "text", "value": "함수"},
+        {"type": "equation", "value": "y=\\frac{2x-5}{x-6}"},
+        {"type": "text", "value": "의 그래프의 두 점근선의 교점을 A, 이 두 점근선과 직선 y=mx-3m+4의 교점을 각각 B, C라 할 때, 삼각형 ABC의 넓이 S의 최솟값은? (단, m은 양의 상수)"},
+        {"type": "figure", "value": "좌표평면에 함수 y=(2x-5)/(x-6)의 두 점근선의 교점 A, 두 점근선과 직선 y=mx-3m+4의 교점 B, C로 이루어진 삼각형 ABC", "bbox": [0.05, 0.55, 0.45, 0.78]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "6+3\\sqrt{2}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "9+3\\sqrt{2}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "12+6\\sqrt{2}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "24"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 13,
+      "score": 5.5,
+      "contents": [
+        {"type": "text", "value": "서로 다른 7개의 분야로 이루어진 봉사활동에 월요일부터 금요일까지 5일 동안 참여할 수 있는 프로그램이 있다. 두 동아리 A, B가 다음을 만족하도록 프로그램에 참여하는 경우의 수를 a라 할 때,"},
+        {"type": "equation", "value": "\\frac{a}{7!}"},
+        {"type": "text", "value": "의 값은? (단, a는 상수이고, 각 분야는 1개의 봉사활동으로만 구성되어 있다.)"},
+        {"type": "text", "value": "<상자> (가) 각 동아리는 5일 동안 매일 한 분야의 봉사활동에만 참여한다. (나) 각 동아리는 한 번 참여한 분야의 봉사활동에는 다시 참여하지 않는다. (다) 동아리 A, B는 5일 중 하루만 같은 분야의 봉사활동에 참여한다. (라) 동아리 A 또는 B가 참여한 모든 봉사활동 분야의 개수는 7이다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "190"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "195"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "200"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "205"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "210"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 14,
+      "score": 11,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 1] '양심', '정의', '사랑'이네 학교 매점에는 피자, 크림, 단팥, 민트초코 맛의 4가지 종류의 빵과 딸기, 바나나, 키위, 토마토, 포도 맛의 5가지 종류의 쿠키로 구성된 단품 메뉴가 있다. 또한 빵과 쿠키를 각각 1개씩 묶어 할인해서 살 수 있는 '우정세트'를 판매 중이다. 다음 물음에 답하시오."}
+      ],
+      "choices": [],
+      "sub_questions": [
+        {
+          "number": 1,
+          "score": 3,
+          "contents": [
+            {"type": "text", "value": "'양심'이가 학교 매점에서 하나의 단품 메뉴를 구매하는 방법의 수를 구하고, 그 과정을 서술하시오."}
+          ],
+          "choices": [],
+          "sub_questions": []
+        },
+        {
+          "number": 2,
+          "score": 4,
+          "contents": [
+            {"type": "text", "value": "'정의'가 학교 매점에서 구매가 가능한 '우정세트'의 종류의 수를 구하고, 그 과정을 서술하시오."}
+          ],
+          "choices": [],
+          "sub_questions": []
+        },
+        {
+          "number": 3,
+          "score": 4,
+          "contents": [
+            {"type": "text", "value": "'사랑'이가 학교 매점에서 본인이 먹을 '우정세트' 한 종류를 구매하면서 단품 메뉴 1개를 더 구매해 친구에게 선물로 주려고 할 때, 가능한 경우의 수를 구하고, 그 과정을 서술하시오."}
+          ],
+          "choices": [],
+          "sub_questions": []
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,105 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 9,
+      "score": 4.3,
+      "contents": [
+        {"type": "text", "value": "자연수 m, n에 대하여 m의 배수의 집합을"},
+        {"type": "equation", "value": "A_m"},
+        {"type": "text", "value": ", n의 약수의 집합을"},
+        {"type": "equation", "value": "B_n"},
+        {"type": "text", "value": "이라 하자."},
+        {"type": "equation", "value": "(A_{18} \\cup A_{24}) \\subset A_p"},
+        {"type": "text", "value": ","},
+        {"type": "equation", "value": "B_q \\subset (B_6 \\cap B_{12})"},
+        {"type": "text", "value": "를 만족시키는 자연수 p, q에 대하여 p+q의 최댓값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "11"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "13"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 10,
+      "score": 4.4,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 좌표평면 위에 직선"},
+        {"type": "equation", "value": "l_1:2x-5y-4=0"},
+        {"type": "text", "value": "과 평행하고 y절편이 양수인 직선"},
+        {"type": "equation", "value": "l_2"},
+        {"type": "text", "value": "가 있다. 직선"},
+        {"type": "equation", "value": "l_1"},
+        {"type": "text", "value": "이 x축, y축과 만나는 점을 각각 A, B라 하고 직선"},
+        {"type": "equation", "value": "l_2"},
+        {"type": "text", "value": "가 x축, y축과 만나는 점을 각각 C, D라 할 때, 사각형 ABCD의 넓이가"},
+        {"type": "equation", "value": "\\frac{144}{5}"},
+        {"type": "text", "value": "이다. 두 직선"},
+        {"type": "equation", "value": "l_1"},
+        {"type": "text", "value": ","},
+        {"type": "equation", "value": "l_2"},
+        {"type": "text", "value": "사이의 거리를 d라 할 때,"},
+        {"type": "equation", "value": "29d^2"},
+        {"type": "text", "value": "의 값은?"},
+        {"type": "figure", "value": "좌표평면. 평행한 두 직선 l_1, l_2. l_1은 x축과 A, y축과 B에서 만나고 l_2는 x축과 C, y축과 D에서 만난다. 사각형 ABCD(C 왼쪽, D 위쪽, A 오른쪽, B 아래쪽).", "bbox": [0.05, 0.46, 0.45, 0.70]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "400"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "441"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "484"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "529"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "576"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 11,
+      "score": 4.5,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 원"},
+        {"type": "equation", "value": "x^2+y^2=18"},
+        {"type": "text", "value": "위의 점 A와 직선"},
+        {"type": "equation", "value": "y=-x+12"},
+        {"type": "text", "value": "위의 서로 다른 두 점 B와 C를 꼭짓점으로 하는 정삼각형 ABC를 만들 때, 그 넓이의 최댓값은?"},
+        {"type": "figure", "value": "좌표평면. 원 x^2+y^2=18(중심 O)과 직선 y=-x+12. 원 위의 점 A, 직선 위의 두 점 B, C로 정삼각형 ABC.", "bbox": [0.52, 0.16, 0.95, 0.50]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "27\\sqrt{6}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "54\\sqrt{3}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "54\\sqrt{6}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "108\\sqrt{3}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "108\\sqrt{6}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 12,
+      "score": 4.5,
+      "contents": [
+        {"type": "text", "value": "1보다 큰 자연수 k에 대하여 전체집합"},
+        {"type": "equation", "value": "U=\\{x \\mid x \\text{는 } 2k \\text{ 이하의 자연수}\\}"},
+        {"type": "text", "value": "의 두 부분집합"},
+        {"type": "equation", "value": "A=\\{x \\mid x \\text{는 } 2k \\text{ 이하의 짝수}\\}"},
+        {"type": "text", "value": ","},
+        {"type": "equation", "value": "B=\\{x \\mid x \\text{는 } 2k \\text{ 의 약수}\\}"},
+        {"type": "text", "value": "가"},
+        {"type": "equation", "value": "n(A) \\times n((A \\cup B)^c)=12"},
+        {"type": "text", "value": "를 만족시킨다. 이때"},
+        {"type": "equation", "value": "n(A \\cap B)+k"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "11"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "13"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "15"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

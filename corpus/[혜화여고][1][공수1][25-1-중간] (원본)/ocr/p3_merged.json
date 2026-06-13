@@ -1,0 +1,81 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 11,
+      "score": 4.5,
+      "contents": [
+        {"type": "text", "value": "x, y에 대한 이차식"},
+        {"type": "equation_block", "value": "x^2-(k+2)xy+2y^2-y-1"},
+        {"type": "text", "value": "이 x, y에 대한 두 일차식의 곱으로 인수분해될 때, 모든 실수 k의 값의 합은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-3"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-4"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "-5"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "-6"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 12,
+      "score": 4.5,
+      "contents": [
+        {"type": "text", "value": "이차방정식"},
+        {"type": "equation", "value": "2x^2-x+1=0"},
+        {"type": "text", "value": "의 두 근 \\alpha, \\beta에 대하여 x에 대한 이차식"},
+        {"type": "equation", "value": "f(x)=2x^2+px+q"},
+        {"type": "text", "value": "가"},
+        {"type": "equation", "value": "f(2\\alpha^2)=\\alpha+1, \\quad f(2\\beta^2)=\\beta+1"},
+        {"type": "text", "value": "를 만족시킬 때, 두 상수 p, q에 대하여 p+q의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "12"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 13,
+      "score": 4.5,
+      "contents": [
+        {"type": "text", "value": "최고차항의 계수가 1인 사차다항식"},
+        {"type": "equation", "value": "f(x)+2x^2"},
+        {"type": "text", "value": "은"},
+        {"type": "equation", "value": "x^3-3x^2+2"},
+        {"type": "text", "value": "로 나누어 떨어지고, f(x)-4를"},
+        {"type": "equation", "value": "x^3-3x^2"},
+        {"type": "text", "value": "으로 나눈 나머지를 R(x)라 하자. R(x)가 x-1로 나누어 떨어질 때, f(3)의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-16"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-8"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "16"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 14,
+      "score": 4.5,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 점 A(a, b)를 지나고 꼭짓점이 점 B(0, -b)인 이차함수 y=f(x)의 그래프와 원점을 지나는 직선 y=g(x)가 점 A에서 만난다."},
+        {"type": "figure", "value": "좌표평면에 꼭짓점이 B(0, -b)인 아래로 볼록한 포물선 y=f(x)와 원점 O를 지나는 직선 y=g(x)가 제1사분면의 점 A에서 만나는 그래프", "bbox": [0.13, 0.55, 0.45, 0.70]},
+        {"type": "text", "value": "b=3이고 x에 대한 방정식 f(x)=g(x)의 두 근의 차가 9일 때, 방정식 f(x)=0의 두 근의 곱은? (단, 점 O는 원점이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-18"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-14"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-10"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "-6"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "-2"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 16,
+      "score": 3.9,
+      "contents": [
+        {"type": "text", "value": "함수"},
+        {"type": "equation", "value": "f(x)=\\sqrt{x-k}"},
+        {"type": "text", "value": "에 대하여 좌표평면에 곡선 y=f(x)와 세 점 A(1, n-1), B(n, 1), C(n+1, n+2)를 꼭짓점으로 하는 삼각형 ABC가 있다. 함수 y=f(x)와 함수 f(x)의 역함수의 그래프가 삼각형 ABC와 동시에 만나도록 하는 정수 k의 개수가 22개 일 때, 정수 k의 최댓값과 최솟값의 합은? (단, n>1인 자연수) [3.9점]"},
+        {"type": "figure", "value": "좌표평면에 곡선 y=f(x)=√(x-k)와 세 점 A(1, n-1), B(n, 1), C(n+1, n+2)를 꼭짓점으로 하는 삼각형 ABC. y축에 n+2, n-1, 1, x축에 1, k, n, n+1 표시.", "bbox": [0.05, 0.16, 0.48, 0.42]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-16"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-9"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "12"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 17,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "다음 <보기>의 그림은 공백없이 \"잘해왔고할수있어\" 라는 문장을 좌우 대칭이 되도록 써놓은 것이다. 아래의 <예시>는 연속하여 연결한 문장이 \"잘해왔고할수있어\"인 경우를 보여준다."},
+        {"type": "figure", "value": "<보기> '잘해왔고할수있어'를 좌우 대칭 피라미드로 배열한 그림. 1행: 잘 / 2행: 잘 해 잘 / 3행: 잘 해 왔 해 잘 / 4행: 잘 해 왔 고 왔 해 잘 / 5행: 잘 해 왔 고 할 고 왔 해 잘 / 6행: 잘 해 왔 고 할 수 할 고 왔 해 잘 / 7행: 잘 해 왔 고 할 수 있 수 할 고 왔 해 잘 / 8행: 잘 해 왔 고 할 수 있 어 있 수 할 고 왔 해 잘.", "bbox": [0.52, 0.13, 0.97, 0.29]},
+        {"type": "figure", "value": "<예시> 같은 피라미드 그림에서 ①(좌측 위, 5행 '잘' 위치)과 ②(우측, 6행 '잘' 위치)를 출발점으로 하여 '잘→해→왔→고→할→수→있→어'를 연속으로 연결한 경로를 두 가지 예로 표시(꺾은선 화살표가 아래쪽 '어'로 수렴).", "bbox": [0.52, 0.30, 0.97, 0.50]},
+        {"type": "text", "value": "위의 <보기>의 그림에서 <예시>의 ①, ② 와 같이 연속하여 연결한 문장이 \"잘해왔고할수있어\"가 되는 모든 경우의 수는? [4점]"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "252"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "253"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "254"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "255"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "256"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

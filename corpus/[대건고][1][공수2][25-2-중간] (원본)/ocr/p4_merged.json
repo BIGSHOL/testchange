@@ -1,0 +1,33 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 15,
+      "score": 8,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형1] 원 x^2+y^2=9에 대하여 원과 x축의 양의 부분의 교점을 A, 제2사분면 위에 있는 원 위의 한 점 P를 지나는 접선 l과 x축의 교점을 B라고 하자. 점 P에서 x축에 내린 수선의 발 H가 선분 AB의 중점일 때, 다음 물음에 답하시오."}
+      ],
+      "choices": [],
+      "sub_questions": [
+        {"number": 1, "score": 2, "contents": [{"type": "text", "value": "(1) 점 A의 좌표를 구하고, 그 과정을 서술하시오."}]},
+        {"number": 2, "score": 4, "contents": [{"type": "text", "value": "(2) 점 P의 좌표를 구하고, 그 과정을 서술하시오."}]},
+        {"number": 3, "score": 2, "contents": [{"type": "text", "value": "(3) 접선 l의 방정식이 y=mx+n일 때, 두 상수 m, n에 대하여 m+n의 값을 구하고, 그 과정을 서술하시오."}]}
+      ]
+    },
+    {
+      "number": 16,
+      "score": 8,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형2] 두 원 C_1:(x-1)^2+y^2=1, C_2:x^2+(y-2)^2=4 와 직선 l:y=\\frac{3}{4}x+k가 있다. 다음 물음에 답하시오."}
+      ],
+      "choices": [],
+      "sub_questions": [
+        {"number": 1, "score": 2, "contents": [{"type": "text", "value": "(1) 직선 l과 원 C_1이 접할 때, 모든 실수 k의 값을 구하고, 그 과정을 서술하시오."}]},
+        {"number": 2, "score": 2, "contents": [{"type": "text", "value": "(2) 직선 l과 원 C_2가 서로 다른 두 점에서 만날 때, 실수 k의 값의 범위를 구하고, 그 과정을 서술하시오."}]},
+        {"number": 3, "score": 4, "contents": [{"type": "text", "value": "(3) 직선 l과 두 원 C_1, C_2의 교점의 개수를 각각 a, b라 하자. ab=2를 만족시키는 모든 실수 k의 값을 구하고, 그 과정을 서술하시오."}]}
+      ]
+    }
+  ]
+}

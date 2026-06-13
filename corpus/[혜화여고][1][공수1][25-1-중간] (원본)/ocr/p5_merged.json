@@ -1,0 +1,31 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 17,
+      "score": 8,
+      "label_type": "서답형",
+      "contents": [
+        {"type": "text", "value": "[서답형 1] 이차방정식"},
+        {"type": "equation", "value": "x^2-4x-3=0"},
+        {"type": "text", "value": "의 두 근을 \\alpha, \\beta라 할 때,"},
+        {"type": "equation_block", "value": "\\left(\\sqrt{\\alpha^4-8\\alpha^3+16\\alpha^2+\\alpha}+\\sqrt{\\beta^4-8\\beta^3+16\\beta^2+\\beta}\\right)^2"},
+        {"type": "text", "value": "의 값을 풀이 과정과 함께 서술하시오."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 18,
+      "score": 8,
+      "label_type": "서답형",
+      "contents": [
+        {"type": "text", "value": "[서답형 2] 세 자연수 a, b, c가 등식"},
+        {"type": "equation_block", "value": "a^3-b^3+(a^2-b^2)c+ab(a-b)=204"},
+        {"type": "text", "value": "를 만족시킬 때, 모든 c의 값의 합을 풀이 과정과 함께 서술하시오."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 15,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "혜화여고 스포츠 동호회 회원 50명에게 풋살, 배드민턴, 탁구를 배우고 싶은 종목에 관한 설문조사를 하여 다음과 같은 결과를 얻었다."},
+        {"type": "text", "value": "<상자> (가) 풋살, 배드민턴, 탁구를 배우고자 하는 회원은 각각 14명, 22명, 19명이다. • (나) 풋살, 배드민턴, 탁구를 모두 배우고자 하는 회원은 4명이다. • (다) 배우고 싶은 종목을 하나도 적지 않은 회원은 8명이다."},
+        {"type": "text", "value": "풋살, 배드민턴, 탁구 중에서 2개만 배우고자 하는 회원의 수는? [5점]"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "6"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 16,
+      "score": 5.5,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 중심이 원점이고 반지름의 길이가"},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "인 원"},
+        {"type": "equation", "value": "O"},
+        {"type": "text", "value": "와 한 변의 길이가"},
+        {"type": "equation", "value": "b"},
+        {"type": "text", "value": "인 정육각형"},
+        {"type": "equation", "value": "ABCDEF"},
+        {"type": "text", "value": "가 있다. 변"},
+        {"type": "equation", "value": "AB"},
+        {"type": "text", "value": "가 원"},
+        {"type": "equation", "value": "O"},
+        {"type": "text", "value": "에 접하고"},
+        {"type": "equation", "value": "y"},
+        {"type": "text", "value": "축이 변"},
+        {"type": "equation", "value": "AB"},
+        {"type": "text", "value": "를 수직이등분할 때, 원"},
+        {"type": "equation", "value": "O"},
+        {"type": "text", "value": "위의 점"},
+        {"type": "equation", "value": "P"},
+        {"type": "text", "value": "와 정육각형"},
+        {"type": "equation", "value": "ABCDEF"},
+        {"type": "text", "value": "위의 점"},
+        {"type": "equation", "value": "Q"},
+        {"type": "text", "value": "사이의 거리가 최대가 되도록 하는 점"},
+        {"type": "equation", "value": "Q"},
+        {"type": "text", "value": "의"},
+        {"type": "equation", "value": "y"},
+        {"type": "text", "value": "좌표를"},
+        {"type": "equation", "value": "f(a, b)"},
+        {"type": "text", "value": "라 하자."},
+        {"type": "equation", "value": "a^2+b^2=4"},
+        {"type": "text", "value": "일 때,"},
+        {"type": "equation", "value": "f(a, b)"},
+        {"type": "text", "value": "의 최댓값은? [5.5점]"},
+        {"type": "figure", "value": "좌표평면 위에 중심이 원점인 원 O. 정육각형 ABCDEF가 원 위쪽에 놓이며, 아래변 AB가 원에 접하고 y축이 변 AB를 수직이등분. 꼭짓점 라벨: A(좌하), B(우하), C(우), D(우상), E(좌상), F(좌). 정육각형은 원 위에 얹힌 형태.", "bbox": [0.52, 0.18, 1.0, 0.42]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "4\\sqrt{2}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4\\sqrt{3}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "8"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

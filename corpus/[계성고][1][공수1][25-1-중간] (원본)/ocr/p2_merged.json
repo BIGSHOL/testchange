@@ -1,0 +1,104 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 6,
+      "score": 4.2,
+      "contents": [
+        {"type": "text", "value": "다음 식"},
+        {"type": "equation_block", "value": "(2025+1)(2025^2-2023-1)"},
+        {"type": "text", "value": "을 2022로 나눈 나머지는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "26"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "27"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "28"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "29"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "30"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 7,
+      "score": 4.2,
+      "contents": [
+        {"type": "text", "value": "이차식 x^2+2x+5를 인수분해하면 (x+a+bi)(x+c+di)이다. 이때, 실수 a, b, c, d에 대하여 abcd의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-4"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "8"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 8,
+      "score": 4.3,
+      "contents": [
+        {"type": "text", "value": "x에 대한 이차방정식"},
+        {"type": "equation_block", "value": "x^2-(2k+a)x+(k+1)^2+a-2b=0"},
+        {"type": "text", "value": "이 실수 k의 값에 관계없이 항상 중근을 가질 때, 실수 a, b에 대하여 ab의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 9,
+      "score": 4.3,
+      "contents": [
+        {"type": "equation_block", "value": "\\frac{1}{a}+\\frac{1}{b}+\\frac{1}{c}=0, \\quad a^2+b^2+c^2=4, \\quad abc=2"},
+        {"type": "text", "value": "일 때, a^3+b^3+c^3가 될 수 있는 모든 값의 합은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-8"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "12"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 10,
+      "score": 4.4,
+      "contents": [
+        {"type": "text", "value": "삼각형의 세 변의 길이 a, b, c에 대하여"},
+        {"type": "equation_block", "value": "a^3+b^3+a^2b+ab^2-ac^2-bc^2+a^2+b^2-c^2=0"},
+        {"type": "text", "value": "이 성립할 때, 이 삼각형은 어떤 삼각형인가?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "정삼각형"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "a=c"}, {"type": "text", "value": "인 이등변삼각형"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "b=c"}, {"type": "text", "value": "인 이등변삼각형"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\angle A=90^\\circ"}, {"type": "text", "value": "인 직각삼각형"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\angle C=90^\\circ"}, {"type": "text", "value": "인 직각삼각형"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 11,
+      "score": 4.5,
+      "contents": [
+        {"type": "text", "value": "두 양수 a, b에 대하여"},
+        {"type": "equation_block", "value": "\\sqrt{a^2}\\sqrt{a^2}-\\sqrt{b^2}\\sqrt{-b^2}+\\sqrt{-ab}\\sqrt{-ab}-\\frac{\\sqrt{a^5}}{\\sqrt{-a^3}}+\\frac{\\sqrt{-b^6}}{\\sqrt{b^2}}=12+4i"},
+        {"type": "text", "value": "일 때, a+b의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "8"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

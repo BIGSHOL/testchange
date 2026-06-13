@@ -1,0 +1,31 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 20,
+      "score": 12,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "유리함수"},
+        {"type": "equation", "value": "f(x)=\\frac{bx+c}{x-a} \\, (-ab-c \\neq 0)"},
+        {"type": "text", "value": "가 다음 <조건>을 만족시킨다."},
+        {"type": "text", "value": "<조건> ㄱ. 함수 y=f(x)의 그래프를 평행이동하면 함수 y=\\frac{2}{x}의 그래프와 일치한다. • ㄴ. a+1 \\leq x \\leq b에서 함수 f(x)의 최댓값은 7이다. • ㄷ. 함수 f(x)의 역함수를 g(x)라 할 때, f(x)와 g(x)의 그래프가 만나는 두 점 사이의 거리는 4\\sqrt{3} 이다."},
+        {"type": "text", "value": "a+1 \\leq x \\leq b에서 함수 f(x)의 최솟값을 m이라 할 때, a+b+c+m의 값을 풀이 과정과 함께 구하시오. (단, a, b, c는 상수, a<b) [12점]"}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 21,
+      "score": 12,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "좌표평면에서 두 곡선"},
+        {"type": "equation", "value": "y=4\\sqrt{x}, \\ y=-\\sqrt{x}+10"},
+        {"type": "text", "value": "과 직선 x=k로 둘러싸인 영역의 내부 또는 그 경계에 포함되고 x좌표와 y좌표가 모두 정수인 점의 개수가 17이 되도록 하는 자연수 k의 값을 풀이 과정과 함께 구하시오. (단, 풀이 과정에 17개인 점을 모두 적을 것.) [12점]"}
+      ],
+      "choices": [],
+      "sub_questions": []
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 12,
+      "score": 4.4,
+      "contents": [
+        {"type": "text", "value": "A, B를 포함한 5명의 학생을 일렬로 세울 때, A와 B사이에 적어도 한 명의 학생이 서는 경우의 수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "48"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "60"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "72"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "84"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "96"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 13,
+      "score": 4.3,
+      "contents": [
+        {"type": "text", "value": "등식 18 \\cdot {}_{n}\\mathrm{C}_{4}+{}_{n}\\mathrm{P}_{3}={}_{n}\\mathrm{P}_{4}를 만족시키는 자연수 n의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "9"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 14,
+      "score": 4.5,
+      "contents": [
+        {"type": "text", "value": "남자 6명과 여자 2명으로 구성된 댄스동아리 8명을 두 모둠으로 나누어 A, B 두 교실에서 나누어 연습하려고 한다. 각 모둠에는 적어도 3명을 배정하고, 여자는 같은 모둠에 포함되도록 하는 경우의 수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "35"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "41"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "56"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "70"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "82"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 15,
+      "score": 4.7,
+      "contents": [
+        {"type": "text", "value": "8명의 학생을 최대 4명으로 구성된 3개의 조로 나누는 경우의 수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "620"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "770"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "990"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "1240"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "1540"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 16,
+      "score": 6,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 1] 함수 y=\\dfrac{-5x-8}{x+2}에 대해서 다음을 구하시오."}
+      ],
+      "choices": [],
+      "sub_questions": [
+        {
+          "number": 1,
+          "score": 4,
+          "contents": [
+            {"type": "text", "value": "y=\\dfrac{-5x-8}{x+2}의 그래프를 그리시오. (x축, y축, O점, 점근선을 명확하게 표시하고, 그래프를 정확하게 그리시오.)"},
+            {"type": "figure", "value": "유리함수 y=(-5x-8)/(x+2)의 그래프를 그리는 빈 좌표평면 (x축·y축·원점 O·점근선 표시)", "bbox": [0.55, 0.40, 0.97, 0.62]}
+          ],
+          "choices": [],
+          "sub_questions": []
+        },
+        {
+          "number": 2,
+          "score": 2,
+          "contents": [
+            {"type": "text", "value": "점근선을 구하시오."}
+          ],
+          "choices": [],
+          "sub_questions": []
+        }
+      ]
+    }
+  ]
+}

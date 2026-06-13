@@ -1,0 +1,86 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 1,
+      "score": 4.0,
+      "contents": [
+        {"type": "text", "value": "두 다항식 A, B에 대하여"},
+        {"type": "equation_block", "value": "A-B=-x^2+3xy+6y^2, \\quad A+2B=5x^2-3xy"},
+        {"type": "text", "value": "일 때, A+B는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "3x^2-2xy+y^2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "3x^2-xy+2y^2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "2x^2-xy+4y^2"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "-3x^2-2xy-2y^2"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "-2x^2+xy+4y^2"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 2,
+      "score": 4.0,
+      "contents": [
+        {"type": "text", "value": "z=1+i일 때,"},
+        {"type": "equation_block", "value": "\\left(\\frac{\\bar{z}}{z}\\right)^2"},
+        {"type": "text", "value": "의 값은? (단, i=\\sqrt{-1}이고, \\bar{z}는 z의 켤레복소수)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-i"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "i"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 3,
+      "score": 4.1,
+      "contents": [
+        {"type": "text", "value": "다항식 f(x)를 x+2로 나누었을 때의 나머지는 9이고, x-3으로 나누었을 때의 나머지는 -11이다. f(x)를 x^2-x-6으로 나누었을 때의 나머지는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "x-4"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "x-3"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "x+4"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "-4x+1"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "-4x-3"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 4,
+      "score": 4.1,
+      "contents": [
+        {"type": "text", "value": "이차함수 y=3x^2+4x-3의 그래프와 직선 y=-2x+a가 만나도록 하는 실수 a의 최솟값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-6"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-5"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-4"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "-3"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "-2"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 5,
+      "score": 4.2,
+      "contents": [
+        {"type": "text", "value": "다항식"},
+        {"type": "equation_block", "value": "(ax^2-3x)^3+2x^4-9ax^3"},
+        {"type": "text", "value": "의 전개식에서 x^4의 계수가 11일 때, 상수 a의 값과 x^3의 계수의 곱은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-14"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-12"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-10"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "-8"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "-6"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}
