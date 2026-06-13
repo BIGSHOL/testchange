@@ -1,0 +1,71 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 18,
+      "score": 5.4,
+      "contents": [
+        {"type": "text", "value": "흰 공 4개와 검은 공 4개를 서로 다른 3개의 상자 A, B, C에 모두 담으려고 한다. 공이 한 개도 들어가지 않는 상자는 없도록 하고, 흰 공 4개가 모두 한 상자에 들어가지 않도록 할 때, 가능한 경우의 수는? (단, 같은색 공은 서로 구분되지 않는다.) [5.4점]"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "120"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "135"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "150"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "165"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "180"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 19,
+      "score": 5.5,
+      "contents": [
+        {"type": "text", "value": "똑같은 초콜릿 30개와 모두 서로 다른 종류의 사탕 30개가 있다. 이 60개의 초콜릿과 사탕 중에서 30개를 이용하여 선물 포장을 만들 때, 만들 수 있는 서로 다른 선물의 가짓수는? (단, 선물포장 안에서 포장의 배열은 서로 구분하지 않는다.) [5.5점]"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "2^{20}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2^{30}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "2^{40}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "2^{50}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "2^{60}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 20,
+      "score": 4.5,
+      "label_type": "단답형",
+      "contents": [
+        {"type": "text", "value": "[단답형 1] 그림과 같이 학생 6명이 정삼각형, 직사각형 모양의 탁자에 둘러앉으려고 할 때, 각각의 경우의 수의 합을 구하시오. (단, 회전하여 일치하는 것은 같은 것으로 본다.) [4.5점]"},
+        {"type": "figure", "value": "정삼각형 모양 탁자(둘레에 6개 좌석)와 직사각형 모양 탁자(둘레에 6개 좌석) 두 개의 그림.", "bbox": [0.55, 0.10, 0.95, 0.20]}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 21,
+      "score": 5.5,
+      "label_type": "단답형",
+      "contents": [
+        {"type": "text", "value": "[단답형 2] 집합 "},
+        {"type": "equation", "value": "X = \\{1, 2, 3, 4, 5\\}"},
+        {"type": "text", "value": "에 대하여 다음 조건을 만족시키는 함수 "},
+        {"type": "equation", "value": "f : X \\rightarrow X"},
+        {"type": "text", "value": "의 개수를 구하시오. [5.5점]"},
+        {"type": "text", "value": "<조건> (가) 함수 "},
+        {"type": "equation", "value": "f"},
+        {"type": "text", "value": "의 치역의 모든 원소는 홀수이다. • (나) 합성함수 "},
+        {"type": "equation", "value": "f \\circ f"},
+        {"type": "text", "value": "는 상수함수이다. • (다) 집합 "},
+        {"type": "equation", "value": "X"},
+        {"type": "text", "value": "의 적어도 한 원소 "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "f(x) = x"},
+        {"type": "text", "value": "이 성립한다."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    }
+  ]
+}

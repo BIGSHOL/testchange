@@ -1,0 +1,57 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 18,
+      "score": 7.0,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형1] 다음 등식이 성립함을 증명하시오."},
+        {"type": "equation_block", "value": "{}_n\\mathrm{C}_0 - {}_n\\mathrm{C}_1 + {}_n\\mathrm{C}_2 - \\cdots + (-1)^n {}_n\\mathrm{C}_n = 0"}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 19,
+      "score": 7.0,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형2] A, B 두 개의 주사위를 동시에 던져서 나온 눈의 수를 각각 a, b라 할 때, 모든 실수 x에 대하여 부등식 x^2 + 2ax + 3b > 0 이 항상 성립할 확률을 구하시오."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 20,
+      "score": 7.0,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형3] 세 주머니 A, B, C에 모양과 크기가 같은 5개의 공이 들어 있다. 주머니 A에는 흰 공 3개와 검은 공 2개, 주머니 B에는 흰 공 2개와 검은 공 3개, 주머니 C에는 흰 공 1개와 검은 공 4개가 들어 있다. 각 주머니에서 공을 한 개씩 꺼냈더니 검은 공이 2개 나왔을 때, 주머니 B에서 꺼낸 공이 검은 공일 확률을 구하시오."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 21,
+      "score": 7.0,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형4] 서로 다른 5개의 구슬을 4개의 상자 A, B, C, D에 남김없이 나누어 넣을 때, 두 상자 A, B에 들어가는 구슬의 개수의 합이 두 상자 C, D에 들어가는 구슬의 개수의 합보다 크도록 넣는 경우의 수를 구하시오. (단, 구슬이 없는 빈 상자가 있을 수 있다.)"}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 22,
+      "score": 7.0,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형5] 집합 X = \\{1, 2, 3, 4, 5, 6\\}, Y = \\{1, 2, 3, 4\\}에 대하여 다음 조건을 모두 만족시키는 함수 f: X \\to Y의 개수를 구하시오."},
+        {"type": "text", "value": "<조건> (가) f(1) \\leq f(2) 이고 f(1) + f(2) 는 짝수이다. • (나) 함수 f의 치역의 원소의 개수는 2이다."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    }
+  ]
+}

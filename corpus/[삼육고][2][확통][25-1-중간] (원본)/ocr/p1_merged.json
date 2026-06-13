@@ -1,0 +1,87 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 1,
+      "score": 4.1,
+      "contents": [
+        {"type": "equation", "value": "{}_{3}\\Pi_{4}"},
+        {"type": "text", "value": "의 값은? [4.1점]"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "27"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "64"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "81"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 2,
+      "score": 4.1,
+      "contents": [
+        {"type": "text", "value": "다항식 "},
+        {"type": "equation", "value": "(x+y+z)^{4}"},
+        {"type": "text", "value": "를 전개할 때 생기는 서로 다른 항의 개수는? [4.1점]"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "15"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "16"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "17"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "18"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "19"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 3,
+      "score": 4.1,
+      "contents": [
+        {"type": "equation", "value": "(a+b)^{6}"},
+        {"type": "text", "value": "의 전개식에서 "},
+        {"type": "equation", "value": "ab^{5}"},
+        {"type": "text", "value": "의 계수는? [4.1점]"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "10"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 4,
+      "score": 4.2,
+      "contents": [
+        {"type": "text", "value": "다음 그림과 같이 밑면이 정사각형인 사각뿔을 서로 다른 5가지 색을 모두 사용하여 칠하는 경우의 수는? (단, 각 면에는 한 가지 색만 칠하고 회전하여 일치하는 것은 같은 것으로 본다.) [4.2점]"},
+        {"type": "figure", "value": "밑면이 정사각형인 사각뿔(정사각뿔) 그림. 옆면 4개와 밑면 1개.", "bbox": [0.62, 0.46, 0.88, 0.56]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "20"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "30"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "40"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "50"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 5,
+      "score": 4.2,
+      "contents": [
+        {"type": "text", "value": "할머니와 할아버지를 포함한 7명의 가족이 원형 식탁에 둘러앉아 식사를 할 때, 할머니와 할아버지가 서로 이웃하게 앉는 경우의 수는? (단, 회전하여 일치하는 것은 같은 것으로 본다.) [4.2점]"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "120"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "240"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "360"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "480"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "600"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

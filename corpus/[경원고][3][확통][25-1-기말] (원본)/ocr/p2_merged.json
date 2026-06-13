@@ -1,0 +1,258 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 1,
+      "score": 2.4,
+      "contents": [
+        {"type": "text", "value": "두 사건 "},
+        {"type": "equation", "value": "A, B"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "P(A) = \\frac{1}{3}"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "P(B|A) = \\frac{1}{6}"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "P(A \\cap B)"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{1}{18}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{1}{9}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{1}{6}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{2}{9}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{5}{18}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 2,
+      "score": 2.5,
+      "contents": [
+        {"type": "text", "value": "정규분포 "},
+        {"type": "equation", "value": "N(20, 8^2)"},
+        {"type": "text", "value": "을 따르는 모집단에서 크기가 16인 표본을 임의추출하여 구한 표본평균을 "},
+        {"type": "equation", "value": "\\overline{X}"},
+        {"type": "text", "value": "라 할 때, "},
+        {"type": "equation", "value": "E(\\overline{X}) + \\sigma(\\overline{X})"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "18"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "19"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "20"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "21"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "22"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 3,
+      "score": 2.6,
+      "contents": [
+        {"type": "text", "value": "1부터 9까지의 자연수가 하나씩 적혀 있는 9개의 공이 들어 있는 주머니가 있다. 이 주머니에서 임의로 한 개의 공을 꺼내는 시행에서 꺼낸 공에 적힌 수가 홀수인 사건을 "},
+        {"type": "equation", "value": "A"},
+        {"type": "text", "value": ", 꺼낸 공에 적힌 숫자가 "},
+        {"type": "equation", "value": "n"},
+        {"type": "text", "value": "의 약수인 사건을 "},
+        {"type": "equation", "value": "B_n"},
+        {"type": "text", "value": "이라 할 때, 사건 "},
+        {"type": "equation", "value": "A"},
+        {"type": "text", "value": "와 사건 "},
+        {"type": "equation", "value": "B_n"},
+        {"type": "text", "value": "이 서로 배반사건이 되도록 하는 9 이하의 모든 자연수 "},
+        {"type": "equation", "value": "n"},
+        {"type": "text", "value": "의 값의 합은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "20"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "22"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "23"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "25"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "26"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 4,
+      "score": 2.8,
+      "contents": [
+        {"type": "text", "value": "이산확률변수 "},
+        {"type": "equation", "value": "X"},
+        {"type": "text", "value": "가 갖는 값이 "},
+        {"type": "equation", "value": "5, 5^3, 5^5, 5^7, 5^9"},
+        {"type": "text", "value": "이고 "},
+        {"type": "equation", "value": "X"},
+        {"type": "text", "value": "의 확률질량함수가 "},
+        {"type": "equation", "value": "P(X=x) = a \\log_5 x \\ (x = 5, 5^3, 5^5, 5^7, 5^9)"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "P(5^3 \\leq X \\leq 5^5)"},
+        {"type": "text", "value": "의 값은? (단, "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "는 상수이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{7}{25}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{8}{25}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{9}{25}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{2}{5}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{11}{25}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 5,
+      "score": 2.9,
+      "contents": [
+        {"type": "text", "value": "한 개의 주사위를 세 번 던질 때 나오는 눈의 수를 차례로 "},
+        {"type": "equation", "value": "a, b, c"},
+        {"type": "text", "value": "라 하자. "},
+        {"type": "equation", "value": "(a-b)^2 + (a-2c)^2 = 0"},
+        {"type": "text", "value": "일 확률은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{1}{108}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{1}{72}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{1}{54}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{5}{216}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{6}{36}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 6,
+      "score": 3.0,
+      "contents": [
+        {"type": "text", "value": "이산확률변수 "},
+        {"type": "equation", "value": "X"},
+        {"type": "text", "value": "의 확률분포를 표로 나타내면 아래와 같다. "},
+        {"type": "equation", "value": "E(X) = \\frac{11}{6}"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "V(6X+1)"},
+        {"type": "text", "value": "의 값은?"},
+        {"type": "table", "value": "", "rows": [
+          ["X", "1", "2", "3", "합계"],
+          ["P(X=x)", "\\frac{1}{2}", "a", "b", "1"]
+        ]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "29"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "30"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "31"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "32"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "33"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 7,
+      "score": 3.1,
+      "contents": [
+        {"type": "text", "value": "확률변수 "},
+        {"type": "equation", "value": "X"},
+        {"type": "text", "value": "가 평균이 30, 표준편차가 4인 정규분포를 따른다고 한다. 부등식 "},
+        {"type": "equation", "value": "P(X \\geq a) \\geq 0.9772"},
+        {"type": "text", "value": "을 만족시키는 실수 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "의 최댓값을 오른쪽 표준정규분포표를 이용하여 구한 것은?"},
+        {"type": "table", "value": "", "rows": [
+          ["z", "P(0 \\leq Z \\leq z)"],
+          ["0.5", "0.1915"],
+          ["1.0", "0.3413"],
+          ["1.5", "0.4332"],
+          ["2.0", "0.4772"]
+        ]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "19"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "20"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "21"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "22"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "23"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 8,
+      "score": 3.2,
+      "contents": [
+        {"type": "text", "value": "1부터 6까지의 자연수가 하나씩 적혀 있는 6장의 카드가 있다. 이 6장의 카드를 모두 한 번씩 사용하여 임의로 나열할 때, 홀수가 적힌 카드끼리는 이웃하지 않을 확률은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{1}{5}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{7}{30}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{4}{15}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{3}{10}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{1}{3}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 9,
+      "score": 3.3,
+      "contents": [
+        {"type": "text", "value": "세 학생 "},
+        {"type": "equation", "value": "A, B, C"},
+        {"type": "text", "value": "를 포함한 7명의 학생이 있다. 이 7명의 학생이 원 모양의 탁자에 일정한 간격을 두고 임의로 모두 둘러앉으려고 한다. 두 학생 "},
+        {"type": "equation", "value": "A, B"},
+        {"type": "text", "value": "가 서로 이웃할 때, 두 학생 "},
+        {"type": "equation", "value": "A, C"},
+        {"type": "text", "value": "는 서로 이웃하지 않을 확률은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{2}{5}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{1}{2}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{3}{5}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{7}{10}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{4}{5}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 10,
+      "score": 3.4,
+      "contents": [
+        {"type": "text", "value": "한 개의 주사위를 한 번 던져 나온 눈의 수가 소수이면 4점을 얻고, 소수가 아니면 1점을 얻는 게임을 한다. 기본 점수 6점에서 시작하여 한 개의 주사위를 144번 던진 후에 얻는 점수가 357점 이상이고 384점 이하일 확률을 오른쪽 표준정규분포표를 이용하여 구한 것은?"},
+        {"type": "table", "value": "", "rows": [
+          ["z", "P(0 \\leq Z \\leq z)"],
+          ["0.5", "0.1915"],
+          ["1.0", "0.3413"],
+          ["1.5", "0.4332"],
+          ["2.0", "0.4772"]
+        ]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "0.1498"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "0.3828"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "0.5328"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "0.6915"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "0.8413"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 11,
+      "score": 3.5,
+      "contents": [
+        {"type": "text", "value": "이항분포 "},
+        {"type": "equation", "value": "B(n, p)"},
+        {"type": "text", "value": "를 따르는 확률변수 "},
+        {"type": "equation", "value": "X"},
+        {"type": "text", "value": "가 다음 조건을 만족시킬 때, "},
+        {"type": "equation", "value": "\\sigma(2X)"},
+        {"type": "text", "value": "의 값은?"},
+        {"type": "text", "value": "<조건> (가) "},
+        {"type": "equation", "value": "E(X) = 20"},
+        {"type": "text", "value": " • (나) "},
+        {"type": "equation", "value": "\\frac{P(X=2)}{P(X=3)} = \\frac{3}{26}"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "2\\sqrt{6}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "4\\sqrt{3}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "2\\sqrt{15}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "6\\sqrt{2}"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}
