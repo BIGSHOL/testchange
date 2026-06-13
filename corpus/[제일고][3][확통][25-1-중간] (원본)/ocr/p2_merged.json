@@ -1,0 +1,140 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 1,
+      "score": 3,
+      "contents": [
+        {"type": "equation", "value": "{}_{2}H_{4}"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "15"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "20"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "25"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 2,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "6개의 문자 M, I, R, R, O, R을 일렬로 배열하는 경우의 수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "80"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "100"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "120"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "140"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "160"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 3,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "오른쪽 그림은 원을 5등분한 것이다. 서로 다른 6가지의 색 중 5가지 색을 사용하여 원의 각 영역을 구분하여 칠하는 경우의 수는? (단, 회전하여 일치하는 것은 같은 것으로 본다.)"},
+        {"type": "figure", "value": "원을 중심에서 5등분(부채꼴 5개)한 그림", "bbox": [0.80, 0.555, 0.99, 0.65]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "99"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "111"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "122"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "133"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "144"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 4,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "다섯 개의 숫자 0, 1, 2, 3, 4 중에서 중복을 허용하여 다섯 개를 택해 다섯 자리 자연수를 만들 때, 홀수의 개수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "50"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "100"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "500"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "1000"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "2000"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 5,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "두 사건 "},
+        {"type": "equation", "value": "A, B"},
+        {"type": "text", "value": "가 서로 배반사건이고 "},
+        {"type": "equation", "value": "\\mathrm{P}(A \\cup B) = \\frac{3}{4}"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\mathrm{P}(A) = \\frac{1}{6}"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\mathrm{P}(B)"},
+        {"type": "text", "value": "는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{1}{3}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{5}{12}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{1}{2}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{7}{12}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{2}{3}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 6,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "13명의 학생 중 봉사·활동에 참여할 학생을 7명 이상 뽑는 경우의 수는? (단, 학생을 뽑는 순서를 고려하지 않는다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "2^{11}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2^{12}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "2^{13}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "2^{14}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "2^{15}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 7,
+      "score": 4,
+      "contents": [
+        {"type": "equation", "value": "(x-1)^{2}(2x+1)^{3}"},
+        {"type": "text", "value": "의 전개식에서 "},
+        {"type": "equation", "value": "x^{4}"},
+        {"type": "text", "value": "의 계수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-16"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-4"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "28"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "40"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 8,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": ""},
+        {"type": "equation", "value": "{}_{4}C_{0} \\times 3^{4} - {}_{4}C_{1} \\times \\frac{3^{3}}{2} + {}_{4}C_{2} \\times \\frac{3^{2}}{2^{2}} - {}_{4}C_{3} \\times \\frac{3}{2^{3}} + {}_{4}C_{4} \\times \\frac{1}{2^{4}}"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{3^{3}}{2^{3}}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{3^{4}}{2^{4}}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{5^{4}}{3^{4}}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{5^{4}}{2^{4}}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{5^{5}}{2^{5}}"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

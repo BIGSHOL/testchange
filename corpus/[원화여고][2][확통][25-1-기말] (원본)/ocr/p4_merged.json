@@ -1,0 +1,124 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 15,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "정규분포 "},
+        {"type": "equation", "value": "N(m, \\sigma^2)"},
+        {"type": "text", "value": "을 따르는 모집단에서 크기가 각각 "},
+        {"type": "equation", "value": "n_1, n_2"},
+        {"type": "text", "value": "인 표본을 임의추출하여 신뢰도 99%로 추정한 모평균 "},
+        {"type": "equation", "value": "m"},
+        {"type": "text", "value": "의 신뢰구간의 길이가 각각 "},
+        {"type": "equation", "value": "2l, 3l"},
+        {"type": "text", "value": "이라고 할 때 "},
+        {"type": "equation", "value": "\\frac{n_1}{n_2}"},
+        {"type": "text", "value": "의 값은? (단, "},
+        {"type": "equation", "value": "P(0 \\leq Z \\leq 2.58) = 0.4950"},
+        {"type": "text", "value": "으로 계산한다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{2}{3}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{3}{2}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{9}{4}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "3"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 16,
+      "score": 4.3,
+      "contents": [
+        {"type": "text", "value": "어느 나라에서 작년에 운행된 버스의 연간 주행거리는 __모평균__이 "},
+        {"type": "equation", "value": "m"},
+        {"type": "text", "value": "인 정규분포를 따른다고 한다. 이 나라에서 작년에 운행된 버스 중에서 25대를 임의추출하여 구한 연간 주행거리의 표본평균이 "},
+        {"type": "equation", "value": "\\overline{x}"},
+        {"type": "text", "value": "이고, 이 결과를 이용하여 신뢰도 99%로 추정한 "},
+        {"type": "equation", "value": "m"},
+        {"type": "text", "value": "에 대한 신뢰구간이 "},
+        {"type": "equation", "value": "\\overline{x}-c \\leq m \\leq \\overline{x}+c"},
+        {"type": "text", "value": "였다. 이 나라에서 작년에 운행된 버스 중에서 임의로 1대를 선택하였을 때, 이 버스의 연간 주행거리가 "},
+        {"type": "equation", "value": "m + \\frac{5}{2}c"},
+        {"type": "text", "value": "이하일 확률을 오른쪽 표준정규분포표를 이용하여 구하면?"},
+        {"type": "table", "value": "", "rows": [
+          ["z", "P(0 \\leq Z \\leq z)"],
+          ["0.86", "0.3051"],
+          ["1.29", "0.4015"],
+          ["1.79", "0.4633"],
+          ["2.58", "0.4950"]
+        ]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "0.8051"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "0.9015"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "0.9583"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "0.9633"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "0.9950"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 17,
+      "score": 9,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 1] 흰색 공 6개, 검은색 공 8개가 들어 있는 주머니가 있다. 이 주머니에서 임의로 3개의 공을 동시에 꺼낼 때, 꺼낸 3개의 공 중에서 적어도 한 개가 흰색 공일 확률을 구하는 풀이 과정과 답을 서술하시오."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 18,
+      "score": 9,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 2] 원화가 인터넷으로 어느 맛집에 대한 후기를 검색하면 70%는 여자가 작성한 후기라고 한다. 이때 여자가 후기를 작성하였을 때 단어 '분위기'가 포함될 확률은 0.8이고, 남자가 후기를 작성하였을 때 '분위기'가 포함될 확률은 0.4라고 한다. 원화가 '분위기'가 포함된 후기를 찾았을 때, 이 후기가 남자가 작성한 후기일 확률을 구하는 풀이 과정과 답을 서술하시오."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 19,
+      "score": 9,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 3] 주사위 1개를 던져서 5의 약수가 나오면 5점을 얻고, 5의 약수가 안나오면 2점을 잃는 게임을 할 때, 주사위 1개를 450번 던진 후, 최종 점수가 290점 이상이 될 확률을 오른쪽 표준정규분포표를 이용하여 구하는 풀이 과정과 답을 서술하시오."},
+        {"type": "table", "value": "", "rows": [
+          ["z", "P(0 \\leq Z \\leq z)"],
+          ["1.0", "0.3413"],
+          ["1.5", "0.4332"],
+          ["2.0", "0.4772"]
+        ]}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 20,
+      "score": 9,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 4] 어느 고등학교 2학년 학생 중에서 64명을 임의 추출하여 수학 과목의 점수를 조사한 결과 평균이 55점이었다. 전체 학생의 수학 과목의 점수는 분산이 16점인 정규분포를 따를 때, 모평균 "},
+        {"type": "equation", "value": "m"},
+        {"type": "text", "value": "에 대한 신뢰도 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "%의 신뢰구간이 "},
+        {"type": "equation", "value": "54.5 \\leq m \\leq 55.5"},
+        {"type": "text", "value": " (단위: 점)일 때, 오른쪽 표준정규분포표를 이용하여 상수 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "의 값을 구하는 풀이 과정과 답을 서술하시오."},
+        {"type": "table", "value": "", "rows": [
+          ["z", "P(0 \\leq Z \\leq z)"],
+          ["1.0", "0.34"],
+          ["1.5", "0.43"],
+          ["2.0", "0.48"]
+        ]}
+      ],
+      "choices": [],
+      "sub_questions": []
+    }
+  ]
+}

@@ -1,0 +1,99 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 11,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "어느 치과에서 신경 치료를 받는데 걸리는 시간은 평균이 25분, 표준편차가 5분인 정규분포를 따를 때, 이 치과에서 신경 치료를 받는 데 걸리는 시간이 30분 이하일 확률은? (단, "},
+        {"type": "equation", "value": "P(0 \\leq Z \\leq 1) = 0.3413"},
+        {"type": "text", "value": "으로 계산한다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "0.1587"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "0.3413"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "0.6826"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "0.6587"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "0.8413"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 12,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "원화가 400명을 선발하는 A대학교의 B학과에 지원하여 56번째 예비 합격 후보가 되었다. 이 학과의 합격자가 등록을 하지 않을 확률이 0.2라고 할 때, 원화가 이 학과에 합격할 확률을 오른쪽 표준정규분포표를 이용하여 구하면? (단, 예비 합격 후보들은 추가 합격의 기회가 주어질 경우 모두 등록한다.)"},
+        {"type": "table", "value": "", "rows": [
+          ["z", "P(0 \\leq Z \\leq z)"],
+          ["1.0", "0.3413"],
+          ["2.0", "0.4772"],
+          ["3.0", "0.4987"]
+        ]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "0.0013"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "0.4987"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "0.5013"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "0.9974"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "0.9987"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 13,
+      "score": 3.7,
+      "contents": [
+        {"type": "text", "value": "다음 중 전수조사인 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "의약품의 임상 시험"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "전국에 등록된 초등학교의 개수"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "하천의 수질 검사"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "투표 후 유권자들에 대한 출구 조사"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "어느 지역의 대기 오염도 조사"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 14,
+      "score": 4.3,
+      "contents": [
+        {"type": "text", "value": "정규분포 "},
+        {"type": "equation", "value": "N(m_1, \\sigma_1^2)"},
+        {"type": "text", "value": "을 따르는 확률변수 "},
+        {"type": "equation", "value": "X"},
+        {"type": "text", "value": "와 정규분포 "},
+        {"type": "equation", "value": "N(m_2, \\sigma_2^2)"},
+        {"type": "text", "value": "을 따르는 확률변수 "},
+        {"type": "equation", "value": "Y"},
+        {"type": "text", "value": "가 다음 조건을 만족시킨다."},
+        {"type": "text", "value": "<상자> 모든 실수 "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "P(X \\leq x+20) = P(X \\geq 40-x)"},
+        {"type": "text", "value": "이고 "},
+        {"type": "equation", "value": "P(Y \\leq x) = P(X \\leq x+10)"},
+        {"type": "text", "value": "이다."},
+        {"type": "equation", "value": "P(20 \\leq X \\leq 30) + P(30 \\leq Y \\leq 55)"},
+        {"type": "text", "value": "의 값을 오른쪽 표준정규분포표를 이용하여 구한 것이 0.4938일 때, "},
+        {"type": "equation", "value": "m_1 \\times \\sigma_1"},
+        {"type": "text", "value": "의 값은?"},
+        {"type": "table", "value": "", "rows": [
+          ["z", "P(0 \\leq Z \\leq z)"],
+          ["1.0", "0.3413"],
+          ["1.5", "0.4332"],
+          ["2.0", "0.4772"],
+          ["2.5", "0.4938"]
+        ]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "360"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "390"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "420"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "450"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "480"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 21,
+      "score": 6,
+      "label_type": "서답형",
+      "contents": [
+        {
+          "type": "text",
+          "value": "[서답형 5] "
+        },
+        {
+          "type": "equation",
+          "value": "A"
+        },
+        {
+          "type": "text",
+          "value": " 상자에는 흰 공 3개, 검은 공 4개가 들어 있고, "
+        },
+        {
+          "type": "equation",
+          "value": "B"
+        },
+        {
+          "type": "text",
+          "value": " 상자에는 흰 공 4개, 검은 공 2개가 들어 있다. 두 상자 중에서 임의로 한 상자를 택하여 공 2개를 동시에 꺼냈더니 모두 흰 공이었을 때, 공 2개가 모두 "
+        },
+        {
+          "type": "equation",
+          "value": "A"
+        },
+        {
+          "type": "text",
+          "value": " 상자에서 나왔을 확률을 구하시오."
+        }
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 22,
+      "score": 6,
+      "label_type": "서답형",
+      "contents": [
+        {
+          "type": "text",
+          "value": "[서답형 6] 방정식 "
+        },
+        {
+          "type": "equation",
+          "value": "x_1 - x_2 + x_3 - x_4 = 7"
+        },
+        {
+          "type": "text",
+          "value": "을 만족시키는 "
+        },
+        {
+          "type": "equation",
+          "value": "x_1, x_2, x_3, x_4"
+        },
+        {
+          "type": "text",
+          "value": "에 대하여 "
+        },
+        {
+          "type": "equation",
+          "value": "x_1 \\geq 2, x_2 \\leq 1, x_3 \\geq 4, x_4 \\leq 3"
+        },
+        {
+          "type": "text",
+          "value": "인 정수해의 개수를 구하시오."
+        }
+      ],
+      "choices": [],
+      "sub_questions": []
+    }
+  ]
+}

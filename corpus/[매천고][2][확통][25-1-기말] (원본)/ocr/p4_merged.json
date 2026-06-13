@@ -1,0 +1,87 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 17,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "이산확률변수 "},
+        {"type": "equation", "value": "X"},
+        {"type": "text", "value": "의 확률분포를 표로 나타내면 다음과 같다."},
+        {"type": "table", "value": "", "rows": [
+          ["X", "-1", "0", "1", "합계"],
+          ["P(X=x)", "a", "\\frac{1}{5}", "b", "1"]
+        ]},
+        {"type": "text", "value": "두 양수 "},
+        {"type": "equation", "value": "a, b"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "\\sigma(X) = 2E(X)"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "10a - 5b"},
+        {"type": "text", "value": "의 값은? (단, "},
+        {"type": "equation", "value": "a > b"},
+        {"type": "text", "value": "이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "9"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 18,
+      "score": 4,
+      "label_type": "서답형",
+      "contents": [
+        {"type": "text", "value": "[서답형 1] 공을 한 번 던져 스트라이크가 될 확률이 0.7인 볼링 선수가 공을 3번 던졌을 때, 스트라이크가 되는 횟수를 확률변수 "},
+        {"type": "equation", "value": "X"},
+        {"type": "text", "value": "라 하자."}
+      ],
+      "choices": [],
+      "sub_questions": [
+        {
+          "number": 1,
+          "score": 2,
+          "contents": [
+            {"type": "text", "value": "확률변수 "},
+            {"type": "equation", "value": "X"},
+            {"type": "text", "value": "가 어떤 확률분포를 따르는지 구체적으로 서술하고, "},
+            {"type": "equation", "value": "X"},
+            {"type": "text", "value": "의 확률질량함수를 구하시오."}
+          ],
+          "choices": []
+        },
+        {
+          "number": 2,
+          "score": 2,
+          "contents": [
+            {"type": "equation", "value": "P(X < 2)"},
+            {"type": "text", "value": "를 구하는 과정을 서술하고 답을 쓰시오."}
+          ],
+          "choices": []
+        }
+      ]
+    },
+    {
+      "number": 19,
+      "score": 4,
+      "label_type": "서답형",
+      "contents": [
+        {"type": "text", "value": "[서답형 2] 표준편차가 4인 정규분포를 따르는 모집단에서 크기가 256인 표본을 임의추출하여 구한 표본 평균이 83일 때, 모평균 "},
+        {"type": "equation", "value": "m"},
+        {"type": "text", "value": "의 신뢰도 95%, 99%인 신뢰구간을 구하는 과정을 각각 서술하고 답을 쓰시오. (단, 오른쪽 표준정규분포표를 이용하시오.)"},
+        {"type": "table", "value": "", "rows": [
+          ["z", "P(0 \\leq Z \\leq z)"],
+          ["1.64", "0.450"],
+          ["1.96", "0.475"],
+          ["2.58", "0.495"]
+        ]}
+      ],
+      "choices": [],
+      "sub_questions": []
+    }
+  ]
+}

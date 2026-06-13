@@ -1,0 +1,89 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 7,
+      "score": 3.5,
+      "contents": [
+        {"type": "text", "value": "빨강, 파랑, 하양, 검정의 네 깃발이 있다. 이 깃발들을 다섯 번 이하로 들어 올려서 만들 수 있는 서로 다른 신호의 개수는? (단, 두 개 이상의 깃발을 동시에 올리지 않고, 깃발을 한 개도 들어 올리지 않는 경우는 생각하지 않는다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1360"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "1361"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "1362"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "1363"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "1364"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 8,
+      "score": 3.6,
+      "contents": [
+        {"type": "text", "value": "똑같은 10개의 펜과 똑같은 7개의 수정 테이프를 3명의 학생에게 남김없이 나누어 줄 때, 다음 조건을 만족시키도록 나누어 주는 방법의 수는?"},
+        {"type": "text", "value": "<조건> (가) 각 학생은 1개 이상의 펜을 받는다. • (나) 수정 테이프를 받지 못하는 학생이 있을 수 있다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "2^4 \\times 3^3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2^3 \\times 3^4"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "2^4 \\times 3^4"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "2^5 \\times 3^4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "2^4 \\times 3^5"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 9,
+      "score": 3.7,
+      "contents": [
+        {"type": "text", "value": "음이 아닌 네 정수 "},
+        {"type": "equation", "value": "a, b, c, d"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "a + b + c + d < 7"},
+        {"type": "text", "value": "을 만족시키는 순서쌍 "},
+        {"type": "equation", "value": "(a, b, c, d)"},
+        {"type": "text", "value": "의 개수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "84"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "120"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "150"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "210"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "252"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 10,
+      "score": 3.8,
+      "contents": [
+        {"type": "equation", "value": "2^{(-{}_{15}\\mathrm{C}_1 \\cdot 2 + {}_{15}\\mathrm{C}_2 \\cdot 2^2 - {}_{15}\\mathrm{C}_3 \\cdot 2^3 + \\cdots - {}_{15}\\mathrm{C}_{15} \\cdot 2^{15})}"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{1}{4}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{1}{2}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "4"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 11,
+      "score": 3.9,
+      "contents": [
+        {"type": "text", "value": "남자 5명과 여자 3명이 다음 조건에 따라 원탁에 둘러앉는 방법의 수는? (단, 회전하여 일치하는 것은 모두 같은 것으로 본다.)"},
+        {"type": "text", "value": "<조건> (가) 여자 3명은 이웃하여 앉는다. • (나) 특정한 남자 2명은 이웃하여 앉지 않는다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "288"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "432"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "576"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "720"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "1440"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

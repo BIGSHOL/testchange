@@ -1,0 +1,40 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 12,
+      "score": 4.8,
+      "contents": [
+        {"type": "text", "value": "어느 전염병에 대한 진단 키트로 검사한 결과 실제로 병에 걸린 사람을 병에 걸리지 않았다고 진단할 확률이 0.04이고, 병에 걸리지 않은 사람을 병에 걸렸다고 진단할 확률이 0.03이다. 실제 이 전염병에 걸린 사람 100명과 걸리지 않은 사람 900명 중에서 임의로 1명을 선택하여 이 진단 키트로 검사했더니 이 전염병에 걸렸다는 진단 결과가 나왔을 때 실제로 병에 걸렸을 확률은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{32}{41}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{97}{123}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{98}{123}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{33}{41}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{100}{123}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 13,
+      "score": 4.9,
+      "contents": [
+        {"type": "text", "value": "집합 "},
+        {"type": "equation", "value": "X = \\{1, 2, 3, 4, 5, 6\\}"},
+        {"type": "text", "value": "에 대하여 다음 조건을 만족시키는 함수 "},
+        {"type": "equation", "value": "f : X \\to X"},
+        {"type": "text", "value": "의 개수는?"},
+        {"type": "text", "value": "<상자> (가) \\(f(1) > f(2) = f(3)\\) • (나) \\(f(4) \\leq f(5)\\)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "315"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "480"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "540"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "620"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "1890"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

@@ -1,0 +1,99 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 1,
+      "score": 2.8,
+      "contents": [
+        {"type": "text", "value": "확률변수 "},
+        {"type": "equation", "value": "X"},
+        {"type": "text", "value": "가 이항분포 "},
+        {"type": "equation", "value": "B\\left(20, \\frac{1}{5}\\right)"},
+        {"type": "text", "value": "를 따를 때, "},
+        {"type": "equation", "value": "X"},
+        {"type": "text", "value": "의 평균의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "4"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 2,
+      "score": 2.9,
+      "contents": [
+        {"type": "text", "value": "이산확률변수 "},
+        {"type": "equation", "value": "X"},
+        {"type": "text", "value": "의 확률분포가 다음 표와 같을 때, 상수 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "의 값은?"},
+        {"type": "table", "value": "", "rows": [
+          ["X", "1", "2", "3", "4", "합계"],
+          ["P(X=x)", "\\frac{1}{8}", "\\frac{1}{8}", "a", "\\frac{1}{2}", "1"]
+        ]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{1}{4}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{1}{5}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{1}{6}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{1}{7}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{1}{8}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 3,
+      "score": 3.0,
+      "contents": [
+        {"type": "text", "value": "확률변수 "},
+        {"type": "equation", "value": "Z"},
+        {"type": "text", "value": "가 표준정규분포 "},
+        {"type": "equation", "value": "N(0, 1)"},
+        {"type": "text", "value": "을 따를 때, 표준정규분포표를 이용하여 확률 "},
+        {"type": "equation", "value": "P(1 \\leq Z \\leq 2)"},
+        {"type": "text", "value": "의 값은?"},
+        {"type": "table", "value": "", "rows": [
+          ["z", "P(0 \\leq Z \\leq z)"],
+          ["1.0", "0.3413"],
+          ["1.5", "0.4332"],
+          ["2.0", "0.4772"]
+        ]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "0.0919"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "0.1359"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "0.3413"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "0.4772"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "0.8185"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 4,
+      "score": 3.0,
+      "contents": [
+        {"type": "text", "value": "사건 "},
+        {"type": "equation", "value": "A, B"},
+        {"type": "text", "value": "가 서로 독립이고 "},
+        {"type": "equation", "value": "P(A) = \\frac{1}{4}"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "P(B) = \\frac{4}{5}"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "P(A \\cap B)"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{1}{6}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{1}{5}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{1}{4}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{1}{3}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{1}{2}"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

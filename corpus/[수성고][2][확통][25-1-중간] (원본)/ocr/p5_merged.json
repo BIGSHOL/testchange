@@ -1,0 +1,169 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 17,
+      "score": 5,
+      "label_type": "서답형",
+      "contents": [
+        {
+          "type": "text",
+          "value": "[서답형 1] 세 사건 "
+        },
+        {
+          "type": "equation",
+          "value": "A, B, C"
+        },
+        {
+          "type": "text",
+          "value": "에 대하여 두 사건 "
+        },
+        {
+          "type": "equation",
+          "value": "A"
+        },
+        {
+          "type": "text",
+          "value": "와 "
+        },
+        {
+          "type": "equation",
+          "value": "B"
+        },
+        {
+          "type": "text",
+          "value": "는 서로 배반사건이고, 두 사건 "
+        },
+        {
+          "type": "equation",
+          "value": "A"
+        },
+        {
+          "type": "text",
+          "value": "와 "
+        },
+        {
+          "type": "equation",
+          "value": "C"
+        },
+        {
+          "type": "text",
+          "value": "는 서로 독립이다. "
+        },
+        {
+          "type": "equation",
+          "value": "P(A \\cup B) = \\frac{4}{5}"
+        },
+        {
+          "type": "text",
+          "value": ", "
+        },
+        {
+          "type": "equation",
+          "value": "P(A \\cap C) = \\frac{1}{6}"
+        },
+        {
+          "type": "text",
+          "value": ", "
+        },
+        {
+          "type": "equation",
+          "value": "P(C) = \\frac{1}{2}"
+        },
+        {
+          "type": "text",
+          "value": "일 때, "
+        },
+        {
+          "type": "equation",
+          "value": "P(B)"
+        },
+        {
+          "type": "text",
+          "value": "의 값을 구하시오."
+        }
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 18,
+      "score": 6,
+      "label_type": "서답형",
+      "contents": [
+        {
+          "type": "text",
+          "value": "[서답형 2] 숫자 "
+        },
+        {
+          "type": "equation",
+          "value": "1, 2, 3, 4"
+        },
+        {
+          "type": "text",
+          "value": "가 각각 적힌 4개의 공을 서로 다른 3개의 상자에 넣으려고 한다. 어느 상자에도 공에 적힌 수의 합이 9 이상이 되는 경우가 __없도록__ 공을 넣는 모든 방법의 수를 구하시오. (단, 빈 상자가 있을 수 있다.)"
+        }
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 19,
+      "score": 6,
+      "label_type": "서답형",
+      "contents": [
+        {
+          "type": "text",
+          "value": "[서답형 3] "
+        },
+        {
+          "type": "equation",
+          "value": "(2x-a)^5"
+        },
+        {
+          "type": "text",
+          "value": "의 전개식에서 "
+        },
+        {
+          "type": "equation",
+          "value": "x^3"
+        },
+        {
+          "type": "text",
+          "value": "의 계수와 "
+        },
+        {
+          "type": "equation",
+          "value": "x^2"
+        },
+        {
+          "type": "text",
+          "value": "의 계수의 합이 0일 때, 양수 "
+        },
+        {
+          "type": "equation",
+          "value": "a"
+        },
+        {
+          "type": "text",
+          "value": "의 값을 구하시오."
+        }
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 20,
+      "score": 6,
+      "label_type": "서답형",
+      "contents": [
+        {
+          "type": "text",
+          "value": "[서답형 4] 100 이하의 자연수 중에서 임의로 하나의 수를 택할 때, 그 수가 45와 서로 소일 확률을 구하시오."
+        }
+      ],
+      "choices": [],
+      "sub_questions": []
+    }
+  ]
+}

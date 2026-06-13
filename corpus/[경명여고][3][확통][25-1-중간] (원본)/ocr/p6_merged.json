@@ -1,0 +1,39 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 14,
+      "score": 5.1,
+      "contents": [
+        {"type": "text", "value": "오른쪽 그림과 같이 한 변이 길이가 1인 정사각형 ABCD의 변 위를 움직이는 점 P가 있다. 점 P가 움직이는 규칙은 다음과 같다."},
+        {"type": "figure", "value": "한 변의 길이가 1인 정사각형 ABCD. 꼭짓점은 왼쪽 아래 A, 오른쪽 아래 B, 오른쪽 위 C, 왼쪽 위 D. 점 P는 꼭짓점 A에서 출발한다. 변 AB 방향(시계 방향)과 변 AD 방향이 화살표로 표시되어 있다.", "bbox": [0.55, 0.05, 0.95, 0.20]},
+        {"type": "text", "value": "<상자> (가) 나온 눈의 수가 소수 또는 홀수이면 시계 방향으로 1만큼 움직인다. • (나) 나온 눈의 수가 소수도 아니고 홀수도 아니면 반시계 방향으로 1만큼 움직인다."},
+        {"type": "text", "value": "주사위를 다섯 번 던져서 꼭짓점 A에서 출발한 점 P가 꼭짓점 B에 도착할 확률은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{119}{243}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{40}{81}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{121}{243}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{122}{243}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{41}{81}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 15,
+      "score": 5.4,
+      "contents": [
+        {"type": "text", "value": "A, B, C, D의 4개의 문자와 1, 2, 3, 4의 4개의 숫자가 있다. 이 8개의 문자와 숫자를 한 번씩 모두 사용하여 임의로 일렬로 나열할 때, 다음 조건을 만족시킬 확률은?"},
+        {"type": "text", "value": "<상자> (가) 문자 A의 양쪽 옆에 숫자를 나열한다. • (나) 숫자 1의 양쪽 옆에 문자를 나열한다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{3}{40}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{7}{80}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{1}{10}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{9}{80}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{1}{8}"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

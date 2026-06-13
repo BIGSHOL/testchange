@@ -1,0 +1,94 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 17,
+      "score": 2,
+      "label_type": "단답형",
+      "contents": [
+        {"type": "text", "value": "[단답형 1] 어떤 복권 300장의 각 순위에 해당하는 상금과 매수는 다음 표와 같다. 이 복권 한 장에 대한 기댓값을 구하시오."},
+        {"type": "table", "value": "", "rows": [
+          ["순위", "상금(원)", "매수(장)"],
+          ["1등", "30,000", "1"],
+          ["2등", "15,000", "10"],
+          ["3등", "6,000", "20"],
+          ["등 외", "0", "269"],
+          ["합계", "", "300"]
+        ]}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 18,
+      "score": 2,
+      "label_type": "단답형",
+      "contents": [
+        {"type": "text", "value": "[단답형 2] 확률변수 "},
+        {"type": "equation", "value": "X, Y"},
+        {"type": "text", "value": "가 각각 정규분포 "},
+        {"type": "equation", "value": "N(72, 5^2)"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "N(49, 6^2)"},
+        {"type": "text", "value": "을 따를 때, "},
+        {"type": "equation", "value": "a = P(X \\geq 62)"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "b = P(Y \\leq 40)"},
+        {"type": "text", "value": "이다. "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "와 "},
+        {"type": "equation", "value": "b"},
+        {"type": "text", "value": "의 대소관계를 구하시오."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 19,
+      "score": 2,
+      "label_type": "단답형",
+      "contents": [
+        {"type": "text", "value": "[단답형 3] 어느 생화학 연구소에서 지금까지 알려지지 않은 신종 바이러스를 발견하였다. 이 바이러스에 감염된 숙주들 중에서 625개를 임의추출하여 숙주 내 바이러스의 생존 기간을 조사하였더니 평균이 100시간, 표준편차가 50시간이었다. 바이러스의 생존 기간이 정규분포를 따른다고 할 때, 이 바이러스의 평균 생존 기간 "},
+        {"type": "equation", "value": "m"},
+        {"type": "text", "value": "에 대한 신뢰도 95%의 신뢰구간을 구하시오. (단, "},
+        {"type": "equation", "value": "Z"},
+        {"type": "text", "value": "가 표준정규분포를 따르는 확률변수일 때, "},
+        {"type": "equation", "value": "P(|Z| \\leq 1.96) = 0.95"},
+        {"type": "text", "value": "로 계산한다.)"}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 20,
+      "score": 2,
+      "label_type": "단답형",
+      "contents": [
+        {"type": "text", "value": "[단답형 4] 다음을 보고 "},
+        {"type": "equation", "value": "\\square"},
+        {"type": "text", "value": "에 들어가는 알맞은 수를 구하시오."},
+        {"type": "text", "value": "<상자> 큰수의 법칙: 어떤 시행에서 사건 "},
+        {"type": "equation", "value": "A"},
+        {"type": "text", "value": "가 일어날 수학적 확률이 "},
+        {"type": "equation", "value": "p"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "n"},
+        {"type": "text", "value": "회의 독립시행에서 사건 "},
+        {"type": "equation", "value": "A"},
+        {"type": "text", "value": "가 일어나는 횟수를 "},
+        {"type": "equation", "value": "X"},
+        {"type": "text", "value": "라고 하면, 아무리 작은 임의의 양수 "},
+        {"type": "equation", "value": "h"},
+        {"type": "text", "value": "를 택하여도 "},
+        {"type": "equation", "value": "n"},
+        {"type": "text", "value": "이 커짐에 따라 확률 "},
+        {"type": "equation", "value": "P\\left(\\left|\\frac{X}{n} - p\\right| < h\\right)"},
+        {"type": "text", "value": "는 "},
+        {"type": "equation", "value": "\\square"},
+        {"type": "text", "value": "에 가까워진다."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    }
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 6,
+      "score": 4.3,
+      "contents": [
+        {"type": "text", "value": "자유투 성공률이 75%인 농구 선수가 자유투를 5번 던질 때, 2번이상 성공할 확률은 "},
+        {"type": "equation", "value": "\\frac{q}{p}"},
+        {"type": "text", "value": "이다. "},
+        {"type": "equation", "value": "p+q"},
+        {"type": "text", "value": "의 값은? (단, 자유투를 던지는 시행은 독립시행이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "125"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "126"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "127"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "128"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "129"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 7,
+      "score": 4.4,
+      "contents": [
+        {"type": "text", "value": "남학생 4명과 여학생 3명을 임의로 한 줄로 세우고 앞에서부터 1, 2, 3, "},
+        {"type": "equation", "value": "\\cdots"},
+        {"type": "text", "value": ", 7의 번호를 부여한다고 한다. 남학생이 부여받은 번호의 최댓값을 확률변수 "},
+        {"type": "equation", "value": "X"},
+        {"type": "text", "value": "라 할 때, "},
+        {"type": "equation", "value": "\\frac{P(X=7)}{P(X=5)}"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 8,
+      "score": 4.4,
+      "contents": [
+        {"type": "text", "value": "1부터 6까지의 자연수가 하나씩 적혀 있는 공 6개가 들어있는 주머니에서 임의로 공을 1개 꺼낼 때, 6의 약수가 적혀있는 공이 나오는 사건을 "},
+        {"type": "equation", "value": "A"},
+        {"type": "text", "value": "라 하자. 이 시행의 표본 공간의 부분집합인 사건 "},
+        {"type": "equation", "value": "B"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "P(A \\cap B) = \\frac{1}{3}"},
+        {"type": "text", "value": "일 때, 사건 "},
+        {"type": "equation", "value": "A"},
+        {"type": "text", "value": "와 서로 독립인 사건 "},
+        {"type": "equation", "value": "B"},
+        {"type": "text", "value": "의 개수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "4"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 9,
+      "score": 4.5,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 한 변의 길이가 1인 정사각형 ABCD의 변 위를 움직이는 점 P가 있다. 한 개의 주사위를 던져서 나온 눈의 수가 1 또는 2이면 점 P를 시계바늘이 도는 반대방향으로 1만큼, 그 외에는 시계바늘이 도는 방향으로 1만큼 움직인다고 할 때, 주사위를 네 번 던져서 꼭짓점 A에서 출발한 점 P가 처음으로 꼭짓점 C에 있을 확률을 "},
+        {"type": "equation", "value": "\\frac{q}{p}"},
+        {"type": "text", "value": "라 하자. "},
+        {"type": "equation", "value": "p-q"},
+        {"type": "text", "value": "의 값은? (단, "},
+        {"type": "equation", "value": "p"},
+        {"type": "text", "value": "와 "},
+        {"type": "equation", "value": "q"},
+        {"type": "text", "value": "는 서로소인 자연수이다.)"},
+        {"type": "figure", "value": "한 변의 길이가 1인 정사각형 ABCD. D는 왼쪽 위, C는 오른쪽 위, A는 왼쪽 아래, B는 오른쪽 아래. 점 P는 꼭짓점 A에 위치(A 바로 위에 P 표시).", "bbox": [0.62, 0.62, 0.82, 0.76]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "40"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "41"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "42"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "43"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "44"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}
