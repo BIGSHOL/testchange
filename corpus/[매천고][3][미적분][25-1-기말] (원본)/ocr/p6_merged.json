@@ -1,0 +1,73 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 16,
+      "score": 6,
+      "label_type": "서답형",
+      "contents": [
+        {"type": "text", "value": "[서답형 3] 점 "},
+        {"type": "equation", "value": "(a,\\ 0)"},
+        {"type": "text", "value": "에서 곡선 "},
+        {"type": "equation", "value": "y=xe^{x}"},
+        {"type": "text", "value": "에 서로 다른 두 개의 접선을 그을 수 있을 때, "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "의 값이 될 수 없는 정수의 개수를 구하는 풀이 과정과 답을 쓰시오."}
+      ],
+      "choices": []
+    },
+    {
+      "number": 17,
+      "score": 6,
+      "label_type": "서답형",
+      "contents": [
+        {"type": "text", "value": "[서답형 4] 정적분 "},
+        {"type": "equation", "value": "\\int_{0}^{2\\pi}|\\sin x-\\cos x|\\,dx"},
+        {"type": "text", "value": "의 값을 구하는 풀이 과정과 답을 쓰시오."}
+      ],
+      "choices": []
+    },
+    {
+      "number": 18,
+      "score": 6,
+      "label_type": "서답형",
+      "contents": [
+        {"type": "text", "value": "[서답형 5] 방정식 "},
+        {"type": "equation", "value": "x-\\sqrt{2x+1}-k=0"},
+        {"type": "text", "value": "의 서로 다른 실근의 개수를 실수 "},
+        {"type": "equation", "value": "k"},
+        {"type": "text", "value": "의 값의 범위에 따라 구하는 풀이 과정과 답을 쓰시오."}
+      ],
+      "choices": []
+    },
+    {
+      "number": 19,
+      "score": 6,
+      "label_type": "서답형",
+      "contents": [
+        {"type": "text", "value": "[서답형 6] 다음 조건을 만족시키며 최고차항의 계수가 1인 사차함수 "},
+        {"type": "equation", "value": "f(x)"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "f(x)"},
+        {"type": "text", "value": "의 극솟값을 "},
+        {"type": "equation", "value": "k"},
+        {"type": "text", "value": "라 하자."},
+        {"type": "text", "value": "<상자> (가) 모든 실수 \\(x\\)에 대하여 \\(f(-1-x)=f(-1+x)\\) • (나) 함수 \\(f(x)\\)의 극댓값은 2이다. • (다) 점 \\((1,\\ f(1))\\)은 곡선 \\(y=f(x)\\)의 변곡점이다."},
+        {"type": "text", "value": "구간 "},
+        {"type": "equation", "value": "(a,\\ \\infty)"},
+        {"type": "text", "value": "에서 함수 "},
+        {"type": "equation", "value": "f(x)"},
+        {"type": "text", "value": "의 최솟값이 "},
+        {"type": "equation", "value": "k"},
+        {"type": "text", "value": "가 되도록 하는 정수 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "의 최댓값을 "},
+        {"type": "equation", "value": "M"},
+        {"type": "text", "value": "이라 하자. "},
+        {"type": "equation", "value": "k,\\ M"},
+        {"type": "text", "value": "의 값을 각각 구하는 풀이 과정과 답을 쓰시오."}
+      ],
+      "choices": []
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 11,
+      "score": 5.4,
+      "contents": [
+        {"type": "text", "value": "함수 "},
+        {"type": "equation", "value": "f(x)=\\left|\\frac{2x}{x^{2}+2}\\right|"},
+        {"type": "text", "value": "와 양수 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "에 대하여 함수"},
+        {"type": "equation_block", "value": "g(x)=\\begin{cases} f(x+a) & (x\\ge 0) \\\\ f(x-a) & (x<0) \\end{cases}"},
+        {"type": "text", "value": "는 실수 전체의 집합에서 미분가능하다. "},
+        {"type": "equation", "value": "g'(a)"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-\\frac{3}{25}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-\\frac{3}{50}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{3}{50}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{3}{25}"}]}
+      ]
+    },
+    {
+      "number": 12,
+      "score": 5.4,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 반지름의 길이가 1이고 중심각의 크기가 "},
+        {"type": "equation", "value": "\\frac{\\pi}{2}"},
+        {"type": "text", "value": "인 부채꼴 OAB의 호 AB 위에 점 P가 있다. 호 AP 위에 점 Q를 호 BP와 호 AQ의 길이가 같도록 잡는다. 점 P에서 선분 OB에 내린 수선의 발을 S, 점 Q에서 선분 OA에 내린 수선의 발을 R이라 하자. "},
+        {"type": "equation", "value": "\\angle BOP=\\theta"},
+        {"type": "text", "value": "라 할 때, 사각형 PQRS의 둘레의 길이가 최대가 되도록 하는 "},
+        {"type": "equation", "value": "\\theta"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "\\tan\\theta"},
+        {"type": "text", "value": "의 값은? (단, "},
+        {"type": "equation", "value": "0<\\theta<\\frac{\\pi}{4}"},
+        {"type": "text", "value": ")"},
+        {"type": "figure", "value": "반지름 1, 중심각 π/2인 부채꼴 OAB(O 원점, OA·OB가 두 반지름). 호 AB 위 점 P(∠BOP=θ), 호 AP 위 점 Q(호 BP=호 AQ). P에서 OB에 내린 수선의 발 S, Q에서 OA에 내린 수선의 발 R. 사각형 PQRS.", "bbox": [0.55, 0.14, 0.95, 0.34]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{\\sqrt{2}-1}{4}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{\\sqrt{2}-1}{2}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{\\sqrt{3}-1}{2}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{\\sqrt{2}+1}{4}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{\\sqrt{3}+1}{2}"}]}
+      ]
+    }
+  ]
+}

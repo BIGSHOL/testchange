@@ -1,0 +1,129 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 1,
+      "score": 4.6,
+      "contents": [
+        {"type": "text", "value": "매개변수 "},
+        {"type": "equation", "value": "t\\ (t>0)"},
+        {"type": "text", "value": "로 나타내어진 곡선"},
+        {"type": "equation_block", "value": "x=-\\sqrt{t}+at,\\quad y=at^{3}-\\frac{1}{t}"},
+        {"type": "text", "value": "에서 "},
+        {"type": "equation", "value": "t=1"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\frac{dy}{dx}=5"},
+        {"type": "text", "value": "이다. 상수 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{5}{4}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{11}{8}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{3}{2}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{13}{8}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{7}{4}"}]}
+      ]
+    },
+    {
+      "number": 2,
+      "score": 4.6,
+      "contents": [
+        {"type": "text", "value": "함수 "},
+        {"type": "equation", "value": "f(x)=x^{3}+2x+1"},
+        {"type": "text", "value": "의 역함수를 "},
+        {"type": "equation", "value": "g(x)"},
+        {"type": "text", "value": "라 할 때, "},
+        {"type": "equation", "value": "g'(4)"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{1}{10}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{3}{20}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{1}{5}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{1}{4}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{3}{10}"}]}
+      ]
+    },
+    {
+      "number": 3,
+      "score": 4.6,
+      "contents": [
+        {"type": "text", "value": "함수 "},
+        {"type": "equation", "value": "f(x)=(3x-1)\\ln x"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "f''(1)"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+      ]
+    },
+    {
+      "number": 4,
+      "score": 4.8,
+      "contents": [
+        {"type": "text", "value": "곡선 "},
+        {"type": "equation", "value": "x^{2}-\\frac{x}{y}-3=0"},
+        {"type": "text", "value": "위의 점 "},
+        {"type": "equation", "value": "\\left(1,\\ -\\frac{1}{2}\\right)"},
+        {"type": "text", "value": "에서의 "},
+        {"type": "equation", "value": "\\frac{dy}{dx}"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-\\frac{1}{2}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{1}{2}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "1"}]}
+      ]
+    },
+    {
+      "number": 5,
+      "score": 4.8,
+      "contents": [
+        {"type": "text", "value": "수직선 위를 움직이는 점 P의 시각 "},
+        {"type": "equation", "value": "t"},
+        {"type": "text", "value": "에서의 위치 "},
+        {"type": "equation", "value": "x=f(t)"},
+        {"type": "text", "value": "가 "},
+        {"type": "equation", "value": "f(t)=2t-\\sin(2t)"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "t=\\frac{\\pi}{4}"},
+        {"type": "text", "value": "에서의 점 P의 속도는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\sqrt{3}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "2\\sqrt{2}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "2\\sqrt{3}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "4"}]}
+      ]
+    },
+    {
+      "number": 6,
+      "score": 4.8,
+      "contents": [
+        {"type": "text", "value": "함수 "},
+        {"type": "equation", "value": "f(x)=\\int\\frac{(\\sqrt{x}-1)^{2}}{x}\\,dx"},
+        {"type": "text", "value": "에서 "},
+        {"type": "equation", "value": "f(1)=0"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "f(4)"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-2-\\ln 2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2+2\\ln 2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-1+2\\ln 2"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "1+3\\ln 2"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "3+3\\ln 2"}]}
+      ]
+    }
+  ]
+}
