@@ -300,6 +300,11 @@ def _parse_content_block(block_data: dict) -> ContentBlock | None:
         split = _split_mixed_text_equation(value)
         if len(split) > 1:
             return split  # type: ignore[return-value]
+        # 텍스트 전체가 단일 수식 하나로 승격되면(선택지 ``(f^{-1})^{-1}=f`` 같은 순수 ASCII
+        # 수식) 평문 강등하지 말고 그 수식 블록 반환 — \\ 경로(위 line)의 단일수식 유지와 동일.
+        # 강등하면 ``^{-1}`` 캐럿이 literal 노출(매천고 수하 #4 선택지, 2026-06-14).
+        if len(split) == 1 and split[0].type != ContentType.TEXT:
+            return split[0]
 
     return ContentBlock(type=content_type, value=value)
 
@@ -801,7 +806,12 @@ def _has_toplevel_relation(p: str) -> bool:
         if s2 == s:
             break
         s = s2
-    return bool(re.search(r"=|<|>|\\le\b|\\leq\b|\\ge\b|\\geq\b|\\neq\b|\\ne\b|\\in\b|≤|≥|≠", s))
+    # \to(사상 화살표)·:(함수 정의 콜론)도 관계로 — 함수 선언 ``f:X \to Y, g:Y \to Z`` 의
+    # 쉼표가 스푸리어스(곱셈 잡음)로 오판돼 공백으로 뭉개지며 ``X \to Y g`` 로 붙던 것
+    # (경상고 수하 #12, 2026-06-14). 화살표/콜론 든 항목은 명백히 곱셈 조각이 아니다.
+    return bool(re.search(
+        r"=|<|>|\\le\b|\\leq\b|\\ge\b|\\geq\b|\\neq\b|\\ne\b|\\in\b"
+        r"|\\to\b|\\mapsto\b|→|:|≤|≥|≠", s))
 
 
 def _split_at_top_level_commas(s: str) -> list[str]:
@@ -835,8 +845,11 @@ _SUBSUP = r'(?:[_^](?:\{[^{}]*\}|[a-zA-Z0-9]+))*'
 # 원자 = 영숫자(+소수) **또는 괄호식 (1+h)** — 둘 다 뒤 첨자(_SUBSUP)를 흡수. 괄호base
 # 거듭제곱 ``(1+h)^n`` 이 ``(`` + ``1+h`` + ``)^`` 로 쪼개져 ^n 이 literal 캐럿으로 새던 것
 # 방지(능인고 수1 #18). 괄호 안 한글은 제외(텍스트 괄호 "(즉…)" 오인 방지).
-_MATH_ATOM = (r'(?:[a-zA-Z0-9]+(?:\.[0-9]+)?|\([^()가-힣]*\))'
-              + _SUBSUP + r'(?:\s*\([^()가-힣]*\))?')
+# ⚠️ base+첨자를 **반복**(``(?:…)+``) — 첨자 뒤 곧바로 영숫자가 오는 암묵적 곱(``a^{2}bc``·
+# ``a_{1}b_{1}``)에서 _MATH_EXPR_RE 의 끝 ``(?![a-zA-Z])`` 가 ``a^{2}`` 뒤 ``b`` 때문에 실패해
+# bare ``a`` 로 후퇴 → ``^{``·``_{`` 가 평문 leak 되던 것 차단(시지고·대구외고 수하, 2026-06-14).
+_MATH_ATOM = (r'(?:(?:[a-zA-Z0-9]+(?:\.[0-9]+)?|\([^()가-힣]*\))'
+              + _SUBSUP + r')+(?:\s*\([^()가-힣]*\))?')
 _MATH_EXPR_RE = re.compile(
     r'(?<![a-zA-Z])'              # 앞에 영문자 없음 (단어 중간 방지)
     r'('
@@ -962,7 +975,12 @@ def _split_mixed_text_equation(text: str) -> list[ContentBlock]:
     if after:
         blocks.append(ContentBlock(type=ContentType.TEXT, value=after))
 
-    return blocks if len(blocks) > 1 else [ContentBlock(type=ContentType.TEXT, value=text)]
+    # 블록이 하나여도 **수식이면 유지** — 텍스트 전체가 한 수식(선택지 ``(f^{-1})^{-1}=f`` 등
+    # 순수 ASCII 수식)일 때 len>1 조건이 평문으로 강등시켜 ``^{-1}`` 캐럿이 literal 노출됐다
+    # (매천고 수하 #4 선택지, 2026-06-14). _split_latex_commands 의 동일 가드(2026-06-10 성광중)와 통일.
+    if len(blocks) > 1 or (blocks and blocks[0].type == ContentType.EQUATION):
+        return blocks
+    return [ContentBlock(type=ContentType.TEXT, value=text)]
 
 
 def _normalize_math_delims(text: str) -> str:
@@ -1050,9 +1068,18 @@ def _split_underline_markup(text: str) -> list[ContentBlock]:
 # 깨졌다(월암중 #5·#19 + 매천중 #6 동일 — 2026-06-11).
 _LATEX_ENV_RE = re.compile(r"\\begin\s*\{(\w+)\}.*?\\end\s*\{\1\}", re.DOTALL)
 
+# 좌측 첨자 prefix ``{}_{n}`` / ``{}^{n}`` — 조합·순열 ``{}_{n}\mathrm{C}_{r}``(ₙCᵣ·ₙPᵣ)의
+# 빈 그룹+첨자. 명령(\mathrm) 직전에 붙으면 수식 영역에 흡수해야 한다. 안 하면 ``{}_{`` 가
+# 평문 leak + 첨자 내용(``13``)만 EQ 로 떨어져 ``{}_{13}`` 가 literal 노출(강동고 수하 #12
+# 상자, 2026-06-14). 끝 ``$`` 로 latex_start 직전을 정확히 매칭.
+_LEFT_SCRIPT_PREFIX_RE = re.compile(r"\{\}\s*[_^]\s*\{[^{}]*\}\s*$")
+
 # ── LaTeX 명령어 감지 패턴 ──
 _LATEX_CMD_RE = re.compile(
     r'\\[!,;: ]'                         # 간격 명령(\! \, \; \: \ ) — P\!\left 의 \! 가
+    r'|\\[{}]'                           # 집합 기호 \{ \} (집합·명제 set-builder) — 빠지면 \{ 가
+                                         # 평문 ₩{ 로 새고 set 식이 ``Y`` ``=\{`` ``y`` 로 쪼개짐
+                                         # (강북고 수하 #14 ``Y=\{y|1\le y\le 8\}``, 2026-06-14)
     r'|\\(?:sqrt|d?frac|tfrac|sum|prod|int|oint|lim|'   # text 로 새 "P₩!" 되는 것 방지(#12)
     r'times|div|pm|mp|cdot|cdots|ldots|quad|qquad|'
     r'left|right|leq|geq|neq|infty|'
@@ -1063,6 +1090,12 @@ _LATEX_CMD_RE = re.compile(
     r'log|ln|sin|cos|tan|sec|csc|cot|'
     r'square|circ|triangle|angle|perp|parallel|'
     r'cup|cap|subset|supset|in|notin|'
+    # 화살표(명제 ⟺/⟹·사상): latex_to_hwpeq 엔 매핑(LRARROW 등) 있으나 여기 없어 ``\Leftrightarrow``
+    # 가 TEXT ``\``(₩ 누수) + bare EQ ``Leftrightarrow``(literal)로 쪼개졌다(매천고 수하 #4
+    # 선택지, 2026-06-14). 긴 것 먼저(leftmost 매칭). iff/implies 도 포함.
+    r'Leftrightarrow|Rightarrow|Leftarrow|'
+    r'longleftrightarrow|longrightarrow|longleftarrow|'
+    r'leftrightarrow|rightarrow|leftarrow|mapsto|iff|implies|'
     r'mathbb|mathrm|mathbf|mathit|text|boxed|fbox|overarc|'
     r'le|ge|ne|to|sim)'                  # 짧은꼴(\le \ge \ne …) — OCR 이 \leq 대신 자주 씀.
     # 경계 = **ASCII 영문자만 아니면 됨**. 기존 `(?:\b|(?=[{^_(\[\d]))` 는 한글이 \w 라
@@ -1398,6 +1431,13 @@ def _split_latex_commands(text: str) -> list[ContentBlock]:
                     latex_start = _k
                     break
                 _depth -= 1
+    # 좌측 첨자 ``{}_{n}\mathrm{C}`` (조합 ₙCᵣ·순열 ₙPᵣ) — 빈 그룹+첨자 prefix 가 명령
+    # 직전에 붙으면 수식에 흡수. 안 하면 ``{}_{`` 가 평문 leak + ``13`` 만 EQ 로 떨어져
+    # ``{}_{13}`` literal 노출(강동고 수하 #12 박스, 2026-06-14). 식 중간(``={}_{13}\mathrm…``)
+    # 의 같은 표기는 명령 run 내부라 이미 정상. ``$`` 앵커로 latex_start 직전만 매칭.
+    _lsp = _LEFT_SCRIPT_PREFIX_RE.search(text[:latex_start])
+    if _lsp:
+        latex_start = _lsp.start()
     before = text[:latex_start]
 
     # LaTeX 영역 끝 찾기: 한글이 나오면 수식 종료

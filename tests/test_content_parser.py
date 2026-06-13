@@ -488,6 +488,70 @@ def _check_daegeon_go1_fixes(fails):
         fails.append("  DG1 인라인 원문자 오감지")
 
 
+# SH1·SH2 (강동고·강북고 수하 23-2-기말 완료기반, 2026-06-14): 조합/순열 좌측첨자·집합 괄호.
+def _check_suha_fixes(fails):
+    from core.content_parser import _split_latex_commands
+    from models.exam_document import ContentType as CT
+    # SH1(강동고 #12 박스): 명령 직전 좌측첨자 prefix ``{}_{13}\mathrm{C}`` 가 수식에 흡수돼야.
+    # 안 하면 ``{}_{`` 가 평문 leak + ``13`` 만 EQ 로 떨어져 ``{}_{13}`` literal 렌더.
+    b1 = _split_latex_commands(r"(가) {}_{13}\mathrm{C}_{r+2}={}_{13}\mathrm{C}_{2r-1}")
+    eq1 = "".join(b.value or "" for b in b1 if b.type == CT.EQUATION)
+    tx1 = "".join(b.value or "" for b in b1 if b.type == CT.TEXT)
+    if r"{}_{13}\mathrm{C}_{r+2}" not in eq1:
+        fails.append(f"  SH1 좌측첨자 흡수 실패: {[(b.type.name, b.value) for b in b1]!r}")
+    if "{}_{" in tx1 or "{}" in tx1:
+        fails.append(f"  SH1 좌측첨자 평문 leak: {tx1!r}")
+    # SH2(강북고 #14): 집합 기호 ``\{ \}`` 가 수식에 유지돼야(평문 ₩{ 누수 방지). set 식이
+    # ``Y`` ``=\{`` ``y`` 로 쪼개지면 안 됨.
+    b2 = _split_latex_commands(r"공역이 Y=\{y|1 \leq y \leq 8\}일 때")
+    eq2 = "".join(b.value or "" for b in b2 if b.type == CT.EQUATION)
+    tx2 = "".join(b.value or "" for b in b2 if b.type == CT.TEXT)
+    if r"\{" not in eq2 or r"\}" not in eq2:
+        fails.append(f"  SH2 집합 괄호 수식 미포함: {[(b.type.name, b.value) for b in b2]!r}")
+    if "\\{" in tx2 or "\\}" in tx2:
+        fails.append(f"  SH2 집합 괄호 평문 leak: {tx2!r}")
+    # SH3(시지고·대구외고): ASCII 중괄호 첨자 ``a^{2}bc``·``a_{1}b_{1}`` 가 한 수식으로 — 끝
+    # ``(?![a-zA-Z])`` 가 첨자 뒤 영숫자에서 실패해 bare ``a`` 로 후퇴 + ``^{``/``_{`` 평문 leak.
+    from core.content_parser import _split_mixed_text_equation as _smte
+    for src, want_eq in ((r"상수 a, b에 대하여 a^{2}bc의 값은?", "a^{2}bc"),
+                         (r"일 때, a_{1}b_{1}+a_{2}b_{2}의 값은?", "a_{1}b_{1}+a_{2}b_{2}")):
+        bl = _smte(src)
+        eqs = [b.value for b in bl if b.type == CT.EQUATION]
+        txs = "".join(b.value or "" for b in bl if b.type == CT.TEXT)
+        if want_eq not in eqs:
+            fails.append(f"  SH3 중괄호 첨자 미흡수: {src!r} → {[(b.type.name, b.value) for b in bl]!r}")
+        if "^{" in txs or "_{" in txs:
+            fails.append(f"  SH3 첨자 평문 leak: {txs!r}")
+    # SH4(매천고 #4 선택지): 순수 ASCII 수식 ``(f^{-1})^{-1}=f`` 가 평문 강등되지 않고 EQ 유지.
+    from core.content_parser import _parse_content_block
+    r4 = _parse_content_block({"type": "text", "value": "(f^{-1})^{-1}=f"})
+    if not (r4 and getattr(r4, "type", None) == CT.EQUATION):
+        fails.append(f"  SH4 순수 수식 선택지 평문 강등: {r4!r}")
+    # SH5(경상고 #12): 함수 선언 나열 ``f:X \to Y, g:Y \to Z`` 의 쉼표가 스푸리어스로 오판돼
+    # 공백 병합(→ ``X \to Y g`` → HWP 가 ``Yg`` 로 붙임)되지 않고 텍스트 쉼표로 보존돼야.
+    from core.content_parser import _split_one_eq_commas as _soec
+    from models.exam_document import ContentBlock as _CB
+    _res5: list = []
+    _soec(_CB(type=CT.EQUATION, value=r"\to Y, g : Y \to Z"), _res5)
+    _joined5 = "".join(b.value or "" for b in _res5)
+    if "," not in _joined5:  # 쉼표가 텍스트로 남아야(공백 병합 = "Y g" 누락)
+        fails.append(f"  SH5 함수선언 쉼표 소실: {[(b.type.name, b.value) for b in _res5]!r}")
+    # 학남고 #12 스푸리어스 쉼표(곱셈)는 여전히 공백 병합(무회귀): P(…)=16/9, P(…)
+    _res5b: list = []
+    _soec(_CB(type=CT.EQUATION, value=r"P(A)=16/9, P(B)"), _res5b)
+    if any("," in (b.value or "") for b in _res5b):
+        fails.append(f"  SH5 스푸리어스 쉼표 무회귀 실패: {[(b.type.name, b.value) for b in _res5b]!r}")
+    # SH6(매천고 #4 ③): 화살표 명령 ``\Leftrightarrow`` 가 _LATEX_CMD_RE 에 있어 수식으로 흡수
+    # (TEXT ``\``(₩ 누수) + bare EQ ``Leftrightarrow`` literal 로 쪼개지지 않음).
+    b6 = _split_latex_commands(r"y=f(x) \Leftrightarrow x=f^{-1}(y)")
+    eq6 = "".join(b.value or "" for b in b6 if b.type == CT.EQUATION)
+    tx6 = "".join(b.value or "" for b in b6 if b.type == CT.TEXT)
+    if r"\Leftrightarrow" not in eq6:
+        fails.append(f"  SH6 화살표 미흡수: {[(b.type.name, b.value) for b in b6]!r}")
+    if "\\" in tx6:
+        fails.append(f"  SH6 백슬래시 평문 leak: {tx6!r}")
+
+
 def run():
     fails = []
     _check_comma_roots(fails)
@@ -505,6 +569,7 @@ def run():
     _check_daejin_go1_fixes(fails)
     _check_dasa_fixes(fails)
     _check_daegeon_go1_fixes(fails)
+    _check_suha_fixes(fails)
     # HH1(혜화여고 #19): 베이스 없는 선행 첨자(조합 _{n-1}C)는 HWP 가 빈 렌더 — {} 베이스 삽입.
     from core.latex_to_hwpeq import latex_to_hwpeq as _l2h_hh
     _hh = _l2h_hh(r"_{n-1}C_{r-1}+_{n-1}C_{r}=_{n}C_{r}")
@@ -527,7 +592,7 @@ def run():
         print("FAIL test_content_parser:")
         print("\n".join(fails))
         return 1
-    print(f"OK test_content_parser ({len(_SPACING_CASES) + len(_SCORE_CASES) + 15} cases)")
+    print(f"OK test_content_parser ({len(_SPACING_CASES) + len(_SCORE_CASES) + 16} cases)")
     return 0
 
 

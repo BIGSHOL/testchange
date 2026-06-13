@@ -684,6 +684,16 @@ class LaTeXToHWPConverter:
 
         # 후처리: 다중 공백 정리
         result = re.sub(r"  +", " ", result).strip()
+
+        # 한글 음절 사이 공백 → ``~``(HWP 전각 공백). 수식 안 bare 한글 구절(cases 조건
+        # ``(x가 정수인 경우)``·``그 외`` 등)의 일반 공백을 HWP 가 시각적으로 죽여
+        # ``x가정수인경우`` 로 붙던 것(강동고 수하 #15, 2026-06-14). ⚠️ ``\text{한글 구절}`` 은
+        # 이미 따옴표 리터럴(``"정수인 경우"``)이라 HWP 가 공백을 보존 → 따옴표 **밖**만 변환
+        # (따옴표 안 ~ 는 literal 틸드로 샘). 한글-한글 경계만 → 수식 연산자 간격 불변.
+        _parts = re.split(r'("[^"]*")', result)
+        for _i in range(0, len(_parts), 2):   # 짝수 인덱스 = 따옴표 밖
+            _parts[_i] = re.sub(r"(?<=[가-힣]) (?=[가-힣])", "~", _parts[_i])
+        result = "".join(_parts)
         return result
 
     # 빈칸 라벨용 괄호한글 단일문자(작은 박스): 가→㈎ … (U+320E 부터 가나다라마바사아자차…)
