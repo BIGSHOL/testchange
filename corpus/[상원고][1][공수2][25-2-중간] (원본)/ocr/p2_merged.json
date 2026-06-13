@@ -1,0 +1,86 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 6,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "두 직선"},
+        {"type": "equation", "value": "x-3y+1=0"},
+        {"type": "text", "value": ","},
+        {"type": "equation", "value": "3x-y-1=0"},
+        {"type": "text", "value": "에 동시에 접하고 원점을 지나는 두 원의 중심 사이의 거리는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{\\sqrt{5}}{4}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{\\sqrt{6}}{4}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{\\sqrt{10}}{4}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{\\sqrt{5}}{2}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{\\sqrt{6}}{2}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 7,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "점 (5, -4)를 x축의 방향으로 -3만큼, y축의 방향으로 5만큼 평행이동한 점이 직선"},
+        {"type": "equation", "value": "2x-ay-7=0"},
+        {"type": "text", "value": "위에 있을 때, 상수 a의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-5"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-4"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{7}{2}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 8,
+      "score": 3.8,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 방정식 f(x, y)=0이 나타내는 도형의 두 대각선의 교점의 좌표는 (3, 4)이다. 방정식 f(y-1, -x+2)=0이 나타내는 도형의 두 대각선의 교점의 좌표는?"},
+        {"type": "figure", "value": "좌표평면 위에 평행사변형(직사각형) 모양 도형이 그려져 있다. x축 눈금 2, 3, 4와 y축 눈금 2, 4, 6 점선 격자 위에 두 대각선이 교차하는 사각형이 있고, 두 대각선의 교점은 (3, 4)이다.", "bbox": [0.55, 0.13, 0.80, 0.28]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "(-6, 4)"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "(3, 5)"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "(-2, 2)"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "(-2, 4)"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "(3, -1)"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 9,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "자연수 m, n에 대하여 원"},
+        {"type": "equation", "value": "(x+m)^2+(y-2)^2=16"},
+        {"type": "text", "value": "을 y축으로 대칭시킨 원을"},
+        {"type": "equation", "value": "C_1"},
+        {"type": "text", "value": "이라 하고,"},
+        {"type": "equation", "value": "C_1"},
+        {"type": "text", "value": "을 x축의 방향으로 n만큼 평행이동한 원을"},
+        {"type": "equation", "value": "C_2"},
+        {"type": "text", "value": "라 하자. 직선"},
+        {"type": "equation", "value": "4x+3y-20=0"},
+        {"type": "text", "value": "이 두 원"},
+        {"type": "equation", "value": "C_1"},
+        {"type": "text", "value": ","},
+        {"type": "equation", "value": "C_2"},
+        {"type": "text", "value": "와 동시에 만나도록 하는 순서쌍 (m, n)의 개수는? (단, m \\leq 4)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "20"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "22"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "24"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "26"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "28"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

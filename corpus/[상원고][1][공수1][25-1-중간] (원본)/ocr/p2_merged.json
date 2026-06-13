@@ -1,0 +1,95 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 7,
+      "score": 3.5,
+      "contents": [
+        {"type": "text", "value": "(10x^{10}+9x^9+8x^8+\\cdots+x)^2을 전개한 식에서 x^6의 계수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "16"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "22"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "26"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "35"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "45"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 8,
+      "score": 3.5,
+      "contents": [
+        {"type": "text", "value": "이차식 x^2-4x+7을 복소수의 범위에서 인수분해 할 때, 다음 중 인수인 것은? (단, i=\\sqrt{-1}이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "x-1+\\sqrt{3}i"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "x+1-\\sqrt{3}i"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "x-2\\pm\\sqrt{3}i"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "x+2-\\sqrt{3}i"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "x+2+\\sqrt{3}i"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 9,
+      "score": 3.5,
+      "contents": [
+        {"type": "text", "value": "다항식 f(x)를 x^2-3x+2로 나누었을 때의 나머지가 2x+1, x^2-5x+6으로 나누었을 때의 나머지가 3x-1이다. 다항식 f(4-x)\\times f(x)를 x-3으로 나누었을 때의 나머지는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "15"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "18"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "21"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "24"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 10,
+      "score": 3.7,
+      "contents": [
+        {"type": "text", "value": "이차방정식 ax^2+bx+c=0에서 b를 잘못 보고 풀었더니 두 근이 -3과 1이 되었고, c를 잘못 보고 풀었더니 두 근이 1+2i와 1-2i가 되었다. 이때 처음 이차방정식의 두 근 중 양수인 근은? (단, i=\\sqrt{-1}이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 11,
+      "score": 3.7,
+      "contents": [
+        {"type": "text", "value": "다항식 f(x)를 x-3으로 나누었을 때의 몫이 x^2-1이고 나머지가 a일 때, 다항식 xf(x)+2x-1을 x+1로 나누었을 때의 나머지와 x-1로 나누었을 때의 나머지의 곱은 -15이다. f(x)를 x-a로 나누었을 때의 나머지는? (단, a는 자연수이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-4"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-3"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "0"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 12,
+      "score": 3.7,
+      "contents": [
+        {"type": "text", "value": "희주와 은비를 포함한 육상 선수 8명 중에서 4명을 선발하여 계주 순서를 정하려고 한다. 희주와 은비 중에서 한 사람만 선발하여 계주 순서를 정하는 경우의 수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "40"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "240"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "336"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "480"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "960"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

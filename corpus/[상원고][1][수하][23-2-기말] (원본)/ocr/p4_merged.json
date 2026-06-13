@@ -1,0 +1,82 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 18,
+      "score": 8,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서답형2] 집합"},
+        {"type": "equation", "value": "A=\\{1, 2, 3, 4, 5, 6\\}"},
+        {"type": "text", "value": "에 대하여 A에서 A로의 일대일대응을 f라 할 때,"},
+        {"type": "equation", "value": "|f(2)-f(4)|=1"},
+        {"type": "text", "value": "또는"},
+        {"type": "equation", "value": "f(4)-f(6)=1"},
+        {"type": "text", "value": "을 만족하는 모든 f의 개수를 구하는 풀이 과정과 답을 쓰시오."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 19,
+      "score": 11,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서답형3] 그림은 무리함수"},
+        {"type": "equation", "value": "f(x)=\\sqrt{ax+b}+c"},
+        {"type": "text", "value": "의 그래프이다. 다음 물음에 답하시오. (단, a, b, c는 상수이다.)"},
+        {"type": "figure", "value": "무리함수 f(x)=√(ax+b)+c 의 그래프. y축과 점 (0, √7)에서 만나고, x축과 점 (7/3, 0)에서 만나는 곡선.", "bbox": [0.18, 0.10, 0.42, 0.20]}
+      ],
+      "choices": [],
+      "sub_questions": [
+        {
+          "number": 1,
+          "score": 3,
+          "contents": [
+            {"type": "text", "value": "a, b, c의 값을 모두 구하는 풀이 과정과 답을 쓰시오."}
+          ],
+          "choices": [],
+          "sub_questions": []
+        },
+        {
+          "number": 2,
+          "score": 3,
+          "contents": [
+            {"type": "text", "value": "역함수"},
+            {"type": "equation", "value": "y=f^{-1}(x)"},
+            {"type": "text", "value": "를 구하는 풀이 과정과 답을 쓰시오."}
+          ],
+          "choices": [],
+          "sub_questions": []
+        },
+        {
+          "number": 3,
+          "score": 5,
+          "contents": [
+            {"type": "text", "value": "무리함수 y=f(x) 그래프와 그 역함수"},
+            {"type": "equation", "value": "y=f^{-1}(x)"},
+            {"type": "text", "value": "의 그래프의 교점의 x좌표를 모두 구하는 풀이 과정과 답을 쓰시오."}
+          ],
+          "choices": [],
+          "sub_questions": []
+        }
+      ]
+    },
+    {
+      "number": 20,
+      "score": 10,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서답형4] 유리함수"},
+        {"type": "equation", "value": "f(x)=\\frac{ax+b}{cx+d}"},
+        {"type": "text", "value": "의 그래프가 두 직선"},
+        {"type": "equation", "value": "y-1=\\left(x-\\frac{9}{2}\\right), \\quad y-1=-\\left(x-\\frac{9}{2}\\right)"},
+        {"type": "text", "value": "에 대하여 대칭일 때,"},
+        {"type": "equation", "value": "f(1)+f(2)+f(3)+\\cdots+f(8)"},
+        {"type": "text", "value": "의 값을 구하는 풀이과정과 답을 쓰시오. (단, a, b, c, d는 상수이고, ad-bc \\neq 0, c \\neq 0)"}
+      ],
+      "choices": [],
+      "sub_questions": []
+    }
+  ]
+}

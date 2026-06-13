@@ -1,0 +1,62 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 18,
+      "score": 7,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서답형5] 두 점 A(-3, 1), B(9, 7)에 대하여 점 C(a, b)가 다음 조건을 만족시킨다."},
+        {"type": "text", "value": "<상자> (가) 점 C는 선분 AB 위의 점이다. • (나) 3|\\overline{AC} - \\overline{BC}|=2\\overline{AB}"},
+        {"type": "text", "value": "a-b의 최댓값과 최솟값을 각각 M, m이라 할 때, M+m의 값을 구하는 풀이 과정과 답을 쓰시오. (단, a, b, M, m은 상수이다.)"}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 19,
+      "score": 6,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서답형6] 점 P(-4, -2)에서 원"},
+        {"type": "equation", "value": "x^2+y^2=10"},
+        {"type": "text", "value": "에 그은 두 접선이 x축과 만나는 두 점을 A와 B라 할 때, 삼각형 PAB의 넓이를 구하는 풀이 과정과 답을 쓰시오."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 20,
+      "score": 6,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서답형7] 포물선"},
+        {"type": "equation", "value": "y=x^2-4x+1"},
+        {"type": "text", "value": "을 포물선"},
+        {"type": "equation", "value": "y=x^2-8x+12"},
+        {"type": "text", "value": "로 옮기는 평행이동에 의하여 직선"},
+        {"type": "equation", "value": "l: 3x-4y+5=0"},
+        {"type": "text", "value": "이 직선 l'으로 옮겨진다. 이 때 두 직선 l과 l' 사이의 거리를 구하는 풀이 과정과 답을 쓰시오."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 21,
+      "score": 8,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서답형8] 그림과 같이"},
+        {"type": "equation", "value": "\\overline{AB}=3\\sqrt{2}"},
+        {"type": "text", "value": ","},
+        {"type": "equation", "value": "\\overline{BC}=4"},
+        {"type": "text", "value": ","},
+        {"type": "equation", "value": "\\overline{CA}=\\sqrt{10}"},
+        {"type": "text", "value": "인 삼각형 ABC에 대하여 세 선분 AB, BC, CA 위의 점을 각각 D, E, F라 하자. 삼각형 DEF의 둘레의 길이의 최솟값을 구하는 풀이 과정과 답을 쓰시오."},
+        {"type": "figure", "value": "삼각형 ABC(AB=3√2, BC=4, CA=√10). 변 AB 위의 점 D, 변 BC 위의 점 E, 변 CA 위의 점 F로 이루어진 내접 삼각형 DEF가 그려져 있다.", "bbox": [0.55, 0.62, 0.97, 0.86]}
+      ],
+      "choices": [],
+      "sub_questions": []
+    }
+  ]
+}

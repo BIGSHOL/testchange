@@ -1,0 +1,118 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 8,
+      "score": 4.0,
+      "contents": [
+        {"type": "text", "value": "다음 그림과 같이 함수"},
+        {"type": "equation", "value": "y=\\frac{4}{x-1}+2 \\quad (x>1)"},
+        {"type": "text", "value": "의 그래프 위의 점 P에서 두 점근선에 내린 수선의 발을 각각 Q와 R라 하자. 이때,"},
+        {"type": "equation", "value": "\\overline{PQ}+\\overline{PR}"},
+        {"type": "text", "value": "의 최솟값은?"},
+        {"type": "figure", "value": "함수 y=4/(x-1)+2 (x>1) 의 그래프(점근선 x=1, y=2). 그래프 위의 점 P에서 수직 점근선(x=1)에 내린 수선의 발 R, 수평 점근선(y=2)에 내린 수선의 발 Q. 직각 표시.", "bbox": [0.18, 0.13, 0.45, 0.26]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "2\\sqrt{2}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "4\\sqrt{2}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 9,
+      "score": 4.1,
+      "contents": [
+        {"type": "text", "value": "좌표평면 위의 무리함수"},
+        {"type": "equation", "value": "y=\\sqrt{6-2x}"},
+        {"type": "text", "value": "의 그래프와 직선"},
+        {"type": "equation", "value": "y=-x+k"},
+        {"type": "text", "value": "가 만나는 점의 개수를 f(k)라 할 때,"},
+        {"type": "equation", "value": "f\\left(\\frac{5}{2}\\right)+f(3)+f\\left(\\frac{10}{3}\\right)+f\\left(\\frac{7}{2}\\right)+f(4)"},
+        {"type": "text", "value": "의 값은? (단, k는 실수이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "7"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 10,
+      "score": 4.2,
+      "contents": [
+        {"type": "text", "value": "실수 전체의 집합에서 정의된 두 함수 f, g가 모든 실수 x에 대하여"},
+        {"type": "equation", "value": "f(2-x)=g(2x+4)"},
+        {"type": "text", "value": "이다. g(2)=1일 때,"},
+        {"type": "equation", "value": "f^{-1}(1)"},
+        {"type": "text", "value": "의 값은? (단, f는 일대일대응이고, f^{-1}는 f의 역함수이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 11,
+      "score": 4.4,
+      "contents": [
+        {"type": "text", "value": "유리함수"},
+        {"type": "equation", "value": "f(x)=\\frac{ax+b}{x+1}"},
+        {"type": "text", "value": "와 그 역함수 f^{-1}(x)에 대하여 f=f^{-1}이고, 곡선 y=f(x)가 점 (1, 5)을 지날 때, 두 상수 a, b에 대하여 b-a의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-12"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-6"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "12"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 12,
+      "score": 4.5,
+      "contents": [
+        {"type": "text", "value": "유리함수"},
+        {"type": "equation", "value": "y=\\frac{2x+1}{x-a}"},
+        {"type": "text", "value": "의 그래프가 모든 사분면을 지나도록 하는 정수 a의 최솟값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "3"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 13,
+      "score": 4.6,
+      "contents": [
+        {"type": "text", "value": "실수 전체의 집합에서 정의된 두 함수"},
+        {"type": "equation", "value": "f(x)=x^2-6x+a, \\quad g(x)=-x|x|+2"},
+        {"type": "text", "value": "에 대하여 g(f(k))=3을 만족하는 실수 k의 값이 1개일 때,"},
+        {"type": "equation", "value": "a+f(1)"},
+        {"type": "text", "value": "의 값은? (단, a는 상수이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "11"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "13"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "14"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "15"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

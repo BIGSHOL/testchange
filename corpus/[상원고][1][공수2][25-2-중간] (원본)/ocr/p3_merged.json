@@ -1,0 +1,84 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 10,
+      "score": 3.7,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 좌표평면 위에 제1사분면의 점 A와 y축 위의 점 B에 대하여"},
+        {"type": "equation", "value": "\\overline{AB}=\\overline{AO}=2\\sqrt{10}"},
+        {"type": "text", "value": "인 이등변삼각형 OAB가 있다. 점 A를 직선 y=x에 대하여 대칭이동한 점을 C라 하면 점 C는 직선 y=3x 위의 점이다. 선분 AB가 두 직선 y=x, y=3x와 만나는 점을 각각 D, E라 할 때, 선분 DE의 길이는"},
+        {"type": "equation", "value": "\\frac{q}{p}\\sqrt{10}"},
+        {"type": "text", "value": "이다. 이 때, p+q의 값은? (단, p, q는 서로소인 자연수이다.)"},
+        {"type": "figure", "value": "좌표평면 위에 원점 O, 두 직선 y=x와 y=3x가 그려져 있다. 제1사분면에 점 A, y축 위에 점 B가 있고 이등변삼각형 OAB가 있다. 선분 AB가 직선 y=x, y=3x와 만나는 점이 각각 D, E이며 점 C는 직선 y=3x 위에 있다.", "bbox": [0.13, 0.20, 0.42, 0.40]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "9"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 11,
+      "score": 3.8,
+      "contents": [
+        {"type": "text", "value": "전체집합 U의 세 부분집합 A, B, C에 대하여"},
+        {"type": "equation", "value": "n(B-A)=7"},
+        {"type": "text", "value": ","},
+        {"type": "equation", "value": "n(B^c \\cap C)=5"},
+        {"type": "text", "value": ","},
+        {"type": "equation", "value": "n(A \\cup B^c)=19"},
+        {"type": "text", "value": ","},
+        {"type": "equation", "value": "n(A \\cap B)=2"},
+        {"type": "text", "value": ","},
+        {"type": "equation", "value": "n(A^c \\cap B^c \\cap C^c)=6"},
+        {"type": "text", "value": "일 때,"},
+        {"type": "equation", "value": "n(A \\cap B^c \\cap C^c)"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "6"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 12,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "어느 자전거 동아리 회원 30명을 대상으로 두 코스 A와 B를 다녀온 경험이 있는 회원 수를 조사하였더니 A 코스는 15명이고 B 코스는 21명이었다. 두 코스 A와 B를 모두 다녀온 회원수의 최댓값과 최솟값의 합은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "21"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "27"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "30"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "32"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "36"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 13,
+      "score": 3.4,
+      "contents": [
+        {"type": "text", "value": "집합 X는 전체집합 U=\\{x|x는 8이하의 자연수\\}의 부분집합이다. 집합 A=\\{x|x는 8의 약수\\}에 대하여"},
+        {"type": "equation", "value": "A^c \\cap X=X"},
+        {"type": "text", "value": "를 만족시키는 집합 X의 개수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "16"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "32"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "64"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

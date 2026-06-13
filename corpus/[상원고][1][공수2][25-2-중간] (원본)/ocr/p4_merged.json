@@ -1,0 +1,57 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 14,
+      "score": 5,
+      "label_type": "단답형",
+      "contents": [
+        {"type": "text", "value": "[서답형1] 그림과 같이"},
+        {"type": "equation", "value": "\\overline{AB}=8"},
+        {"type": "text", "value": ","},
+        {"type": "equation", "value": "\\overline{AD}=10"},
+        {"type": "text", "value": "인 직사각형 ABCD가 있다. 두 변 BC, CD의 중점을 각각 M, N이라 하고 직선 MN을 접는 선으로 하여 삼각형 MCN을 접었을 때, 점 C가 접히는 점을 P라 하자. 두 직선 MP, CD의 교점을 Q라 할 때, 선분 NQ의 길이를 구하시오."},
+        {"type": "figure", "value": "직사각형 ABCD(AB=8, AD=10). 변 BC, CD의 중점 M, N. 직선 MN을 접는 선으로 삼각형 MCN을 접어 점 C가 P로 옮겨지고, 두 직선 MP와 CD의 교점이 Q이다.", "bbox": [0.13, 0.28, 0.48, 0.50]}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 15,
+      "score": 5,
+      "label_type": "단답형",
+      "contents": [
+        {"type": "text", "value": "[서답형2] 원"},
+        {"type": "equation", "value": "x^2+y^2=8"},
+        {"type": "text", "value": "위의 점 A와 직선 y=x+10 위의 서로 다른 두 점 B와 C를 꼭짓점으로 하는 정삼각형 ABC를 만들 때, 그 넓이의 최솟값을 구하시오."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 16,
+      "score": 5,
+      "label_type": "단답형",
+      "contents": [
+        {"type": "text", "value": "[서답형3] 이차함수 f(x)를 원점에 대하여 대칭이동한 후, x축 방향으로 3만큼 평행이동한 함수를 g(x)라 할 때, 함수 g(x)는 다음 조건을 만족한다."},
+        {"type": "text", "value": "<상자> (가) g(3)=0 • (나) 모든 실수 x에 대하여 g(x) \\geq g(0)이다. • (다) f(3)=63"},
+        {"type": "text", "value": "이 때, f(2)의 값을 구하시오."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 17,
+      "score": 5,
+      "label_type": "단답형",
+      "contents": [
+        {"type": "text", "value": "[서답형4] 전체집합 U의 두 부분집합 A, B가 다음 조건을 만족시킬 때, 집합"},
+        {"type": "equation", "value": "A^c \\cap B^c"},
+        {"type": "text", "value": "의 모든 원소의 곱을 구하시오."},
+        {"type": "text", "value": "<상자> (가) A=\\{1, 2, 4, 7, 8\\}, A^c \\cup B^c=\\{1, 2, 3, 6, 9\\} • (나) 집합 B의 모든 원소의 합은 25초과 34이하이다. • (다) X \\subset U이고, n(X)=5인 모든 집합 X에 대하여 (A \\cup X)-B^c의 원소의 개수는 4이하이다."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    }
+  ]
+}

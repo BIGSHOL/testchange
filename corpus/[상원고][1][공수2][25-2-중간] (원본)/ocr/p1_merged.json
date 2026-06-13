@@ -1,0 +1,88 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 1,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "세 점 A(3, 6), B(-3, 0), C(a, b)를 꼭짓점으로 하는 삼각형 ABC의 무게중심의 좌표가 (3, 1)일 때, a+b의 값은? (단, a, b는 상수이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "10"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 2,
+      "score": 3.7,
+      "contents": [
+        {"type": "text", "value": "세 점 A(0, -1), B(-4, 1), C(4, 7)을 지나는 원의 중심의 좌표는 (a, b)이고 반지름의 길이는 r이다. 이때 a+b+r의 값은? (단, a, b, r은 상수이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "10"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 3,
+      "score": 3.4,
+      "contents": [
+        {"type": "text", "value": "두 점 A(2, 4)와 B(-2, -2)를 이은 선분 AB의 수직이등분선의 방정식의 x절편은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{3}{2}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{5}{2}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "3"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 4,
+      "score": 3.8,
+      "contents": [
+        {"type": "text", "value": "두 직선"},
+        {"type": "equation", "value": "5x-3y-2=0"},
+        {"type": "text", "value": "과"},
+        {"type": "equation", "value": "3x+5y-8=0"},
+        {"type": "text", "value": "이 이루는 각을 이등분하는 직선 중에서 기울기가 음수인 직선의 방정식의 y절편은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{3}{4}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{5}{4}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 5,
+      "score": 3.4,
+      "contents": [
+        {"type": "text", "value": "원"},
+        {"type": "equation", "value": "x^2+y^2+8x-5y-1=0"},
+        {"type": "text", "value": "과 직선"},
+        {"type": "equation", "value": "2x-y+1=0"},
+        {"type": "text", "value": "의 두 교점을 지름의 양 끝 점으로 하는 원의 중심의 좌표를 (a, b)라 할 때, a+b의 값은? (단, a, b는 상수이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-\\frac{3}{5}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-\\frac{2}{5}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-\\frac{1}{5}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{1}{5}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{2}{5}"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}
