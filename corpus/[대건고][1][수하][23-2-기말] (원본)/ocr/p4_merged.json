@@ -1,0 +1,85 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 15,
+      "score": 12,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 2] 7개의 문자 c, h, e, e, n, u, p에 대하여, 다음 물음에 답하시오."}
+      ],
+      "choices": [],
+      "sub_questions": [
+        {
+          "number": 1,
+          "score": 4,
+          "contents": [
+            {"type": "text", "value": "7개의 문자 중 서로 다른 4개의 문자를 뽑아 일렬로 나열하는 경우의 수를 구하고, 그 과정을 서술하시오."}
+          ],
+          "choices": [],
+          "sub_questions": []
+        },
+        {
+          "number": 2,
+          "score": 4,
+          "contents": [
+            {"type": "text", "value": "모음끼리 서로 이웃하게 나열하는 경우의 수를 구하고, 그 과정을 서술하시오."}
+          ],
+          "choices": [],
+          "sub_questions": []
+        },
+        {
+          "number": 3,
+          "score": 4,
+          "contents": [
+            {"type": "text", "value": "문자 e의 사이에 2개의 문자만 오도록 나열하는 경우의 수를 구하고, 그 과정을 서술하시오."}
+          ],
+          "choices": [],
+          "sub_questions": []
+        }
+      ]
+    },
+    {
+      "number": 16,
+      "score": 12,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 3] 함수"},
+        {"type": "equation", "value": "f(x)=2\\sqrt{x+2}-2"},
+        {"type": "text", "value": "와"},
+        {"type": "equation", "value": "g(x)=\\frac{4}{x-1}\\,(x>1)"},
+        {"type": "text", "value": "에 대하여 y=f(x)의 그래프가 x축과 만나는 점을 A, 직선 y=6이 두 함수 y=f(x), y=g(x)의 그래프와 만나는 점을 각각 B, C라 할 때, 다음 물음에 답하시오."}
+      ],
+      "choices": [],
+      "sub_questions": [
+        {
+          "number": 1,
+          "score": 4,
+          "contents": [
+            {"type": "text", "value": "세 점 A, B, C의 좌표를 각각 구하고, 그 과정을 서술하시오."}
+          ],
+          "choices": [],
+          "sub_questions": []
+        },
+        {
+          "number": 2,
+          "score": 4,
+          "contents": [
+            {"type": "text", "value": "삼각형 ABC의 넓이를 구하고, 그 과정을 서술하시오."}
+          ],
+          "choices": [],
+          "sub_questions": []
+        },
+        {
+          "number": 3,
+          "score": 4,
+          "contents": [
+            {"type": "text", "value": "함수 y=f(x)와 직선 y=m(x+1)이 서로 다른 두 점에서 만나도록 하는 실수 m의 값의 범위를 구하고, 그 과정을 서술하시오."}
+          ],
+          "choices": [],
+          "sub_questions": []
+        }
+      ]
+    }
+  ]
+}

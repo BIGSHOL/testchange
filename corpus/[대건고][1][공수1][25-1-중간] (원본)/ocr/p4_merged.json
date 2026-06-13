@@ -1,0 +1,57 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 17,
+      "score": 11,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 2] 복소수"},
+        {"type": "equation_block", "value": "z=\\frac{\\sqrt{2}}{1+i}"},
+        {"type": "text", "value": "에 대한 다음 물음에 답하시오. (단, i=\\sqrt{-1}이다.) [11점]"}
+      ],
+      "choices": [],
+      "sub_questions": [
+        {
+          "number": 1,
+          "score": 3,
+          "contents": [
+            {"type": "text", "value": "[서술형 2-(1)] z=a+bi를 만족하는 두 실수 a, b의 값을 모두 구하고, 그 과정을 서술하시오. [3점]"}
+          ],
+          "choices": [],
+          "sub_questions": []
+        },
+        {
+          "number": 2,
+          "score": 4,
+          "contents": [
+            {"type": "text", "value": "[서술형 2-(2)] z^n=-z를 만족하는 최소의 자연수 n의 값을 구하고, 그 과정을 서술하시오. [4점]"}
+          ],
+          "choices": [],
+          "sub_questions": []
+        },
+        {
+          "number": 3,
+          "score": 4,
+          "contents": [
+            {"type": "text", "value": "[서술형 2-(3)]"},
+            {"type": "equation", "value": "z+z^2+z^3+z^4+z^5+z^6+z^7"},
+            {"type": "text", "value": "의 값을 구하고, 그 과정을 서술하시오. [4점]"}
+          ],
+          "choices": [],
+          "sub_questions": []
+        }
+      ]
+    },
+    {
+      "number": 18,
+      "score": 11,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 3] 실수 k에 대하여 k\\leq x\\leq k+3에서 이차함수 f(x)=x^2-6x-7의 최댓값과 최솟값의 차가 15가 되도록 하는 실수 k의 값을 모두 구하고, 그 과정을 서술하시오. [11점]"}
+      ],
+      "choices": [],
+      "sub_questions": []
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 3,
+      "score": 8,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서답형 3] 좌표평면 위에 세 점"},
+        {"type": "equation", "value": "O(0, 0)"},
+        {"type": "text", "value": ","},
+        {"type": "equation", "value": "A(a, b)"},
+        {"type": "text", "value": ","},
+        {"type": "equation", "value": "B(-3, 0)"},
+        {"type": "text", "value": "를 꼭짓점으로 하는 삼각형"},
+        {"type": "equation", "value": "OAB"},
+        {"type": "text", "value": "에 대하여"},
+        {"type": "equation", "value": "\\angle AOB"},
+        {"type": "text", "value": "의 이등분선이 변"},
+        {"type": "equation", "value": "AB"},
+        {"type": "text", "value": "와 만나는 점을"},
+        {"type": "equation", "value": "C"},
+        {"type": "text", "value": "라 하자."},
+        {"type": "equation", "value": "\\overline{OA}=\\overline{OC}=1"},
+        {"type": "text", "value": "일 때,"},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "와"},
+        {"type": "equation", "value": "b"},
+        {"type": "text", "value": "의 값을 풀이 과정과 함께 서술하시오. (단, 점"},
+        {"type": "equation", "value": "A"},
+        {"type": "text", "value": "는 제1사분면에 있다.) [8점]"},
+        {"type": "figure", "value": "좌표평면 위에 삼각형 OAB. O(0,0) 원점, B(-3,0) x축 위, A(a,b) 제1사분면. 각 AOB의 이등분선이 변 AB와 만나는 점 C.", "bbox": [0.04, 0.20, 0.53, 0.42]}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 4,
+      "score": 11,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서답형 4] 자연수"},
+        {"type": "equation", "value": "m"},
+        {"type": "text", "value": "에 대하여 집합"},
+        {"type": "equation", "value": "X_m"},
+        {"type": "text", "value": "을"},
+        {"type": "equation_block", "value": "X_m=\\{x | x\\text{는 } m\\text{의 약수}, x \\neq m\\}"},
+        {"type": "text", "value": "라 하자. 40 이하의 두 자연수"},
+        {"type": "equation", "value": "p"},
+        {"type": "text", "value": "와"},
+        {"type": "equation", "value": "q"},
+        {"type": "text", "value": "가 다음 조건을 만족시킬 때,"},
+        {"type": "equation", "value": "p+q"},
+        {"type": "text", "value": "의 값을 풀이 과정과 함께 서술하시오. [11점]"},
+        {"type": "text", "value": "<상자> (가)"},
+        {"type": "equation", "value": "p \\times q"},
+        {"type": "text", "value": "는 9의 배수이다. • (나)"},
+        {"type": "equation", "value": "q - p"},
+        {"type": "text", "value": "는 9의 배수가 아닌 자연수이다. • (다)"},
+        {"type": "equation", "value": "p"},
+        {"type": "text", "value": "와"},
+        {"type": "equation", "value": "q"},
+        {"type": "text", "value": "는 모두 소인수가 2개뿐인 자연수이다. • (라)"},
+        {"type": "equation", "value": "n(X_p) = 2 \\times n(X_q) + 1"}
+      ],
+      "choices": [],
+      "sub_questions": []
+    }
+  ]
+}

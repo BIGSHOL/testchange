@@ -1,0 +1,68 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 11,
+      "score": 5.2,
+      "contents": [
+        {"type": "text", "value": "0이 아닌 실수 t에 대하여 점 (2t, t)를 중심으로 하고 x축과 직선 y=x+2에 동시에 접하는 서로 다른 두 원 C_1, C_2가 있다. 두 원 C_1, C_2의 반지름을 각각 a, b라 할 때, a+b의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "2\\sqrt{2}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "3\\sqrt{2}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "4\\sqrt{2}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "5\\sqrt{2}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "6\\sqrt{2}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 12,
+      "score": 5.3,
+      "contents": [
+        {"type": "text", "value": "원 (x-4)^2+(y-1)^2=9 위의 점 P가 있다. 점 P를 x축의 방향으로 -1만큼, y축의 방향으로 2만큼 평행이동한 후 직선 y=x에 대하여 대칭이동한 점을 Q라 하자. 두 점 A(-3\\sqrt{3}, -1), B(-\\sqrt{3}, 5)에 대하여 삼각형 ABQ의 넓이가 최대일 때, 점 P의 x좌표는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{5}{2}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{7}{2}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{9}{2}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 13,
+      "score": 5.4,
+      "contents": [
+        {"type": "text", "value": "전체집합 U=\\{1, 2, 3, 4, 5\\}의 두 부분집합 A, B가 다음 조건을 만족시킬 때, 두 집합 A, B의 순서쌍 (A, B)의 개수는?"},
+        {"type": "text", "value": "<상자> (가) A\\cup B=U  (나) 0<n(A)<n(B)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "75"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "80"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "85"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "90"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "95"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 14,
+      "score": 5.5,
+      "contents": [
+        {"type": "text", "value": "ab<0인 두 상수 a, b에 대하여 원 C:(x-2)^2+(y+3)^2=25 를 x축의 방향으로 a만큼, y축의 방향으로 b만큼 평행이동한 원을 C'이라 할 때, 두 원 C, C'이 다음 조건을 만족시킨다."},
+        {"type": "text", "value": "<상자> (가) 두 원 C, C'의 중심 사이의 거리는 5\\sqrt{5} 이다.  (나) 직선 4x-3y+k=0은 두 원 C, C'에 모두 접한다."},
+        {"type": "text", "value": "ab+k의 최솟값은? (단, k는 양수이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-50"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-42"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-34"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "-26"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "-18"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 1,
+      "score": 4.1,
+      "contents": [
+        {"type": "text", "value": "두 점 A(1,2), B(5,5) 사이의 거리는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "6"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 2,
+      "score": 4.1,
+      "contents": [
+        {"type": "text", "value": "중심이 점(6,8)이고 y축에 접하는 원의 방정식은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "(x-6)^2+(y-8)^2=36"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "(x-6)^2+(y+8)^2=36"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "(x+6)^2+(y-8)^2=36"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "(x-6)^2+(y-8)^2=64"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "(x-8)^2+(y-6)^2=64"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 3,
+      "score": 4.2,
+      "contents": [
+        {"type": "text", "value": "좌표평면 위의 점 (1,2)를 x축의 방향으로 a만큼, y축의 방향으로 -5만큼 평행이동한 점의 좌표가 (3,b)일 때, a\\times b의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-6"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-3"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "6"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 4,
+      "score": 4.2,
+      "contents": [
+        {"type": "text", "value": "두 집합"},
+        {"type": "equation", "value": "A=\\{k+3, k^2-6\\}"},
+        {"type": "text", "value": ","},
+        {"type": "equation", "value": "B=\\{3, 9-k\\}"},
+        {"type": "text", "value": "에 대하여 A=B일 때, k의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "3"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 5,
+      "score": 4.3,
+      "contents": [
+        {"type": "text", "value": "두 직선"},
+        {"type": "equation", "value": "mx-y+2m+1=0"},
+        {"type": "text", "value": ","},
+        {"type": "equation", "value": "\\frac{x}{4}+\\frac{y}{6}=1"},
+        {"type": "text", "value": "의 교점이 제1사분면에 있도록 하는 모든 정수 m의 개수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 6,
+      "score": 4.3,
+      "contents": [
+        {"type": "text", "value": "직선 3x+ay+b=0 은 직선 6x+14y+5=0 과 평행하고 점 (-6,2)을 지날 때, a+b의 값은? (단, a, b는 상수이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "11"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "13"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "14"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "15"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

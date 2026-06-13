@@ -1,0 +1,107 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 7,
+      "score": 3.5,
+      "contents": [
+        {"type": "text", "value": "7개의 의자가 일렬로 놓여있다. 두 명의 학생이 서로 다른 의자에 앉을 때, 두 명 사이에 적어도 두 개의 빈 의자가 있도록 앉는 경우의 수는? [3.5점]"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "15"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "20"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "25"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "30"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 8,
+      "score": 3.5,
+      "contents": [
+        {"type": "text", "value": "함수"},
+        {"type": "equation", "value": "f(x)=\\sqrt{x-3}+k"},
+        {"type": "text", "value": "의 그래프와 그 역함수 y=f^{-1}(x)의 그래프가 서로 다른 두 점에서 만나도록 하는 실수 k의 최댓값은? [3.5점]"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "9"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 9,
+      "score": 3.5,
+      "contents": [
+        {"type": "text", "value": "두 집합"},
+        {"type": "equation", "value": "A=\\{(x, y) \\mid y=\\sqrt{4x+16}\\}"},
+        {"type": "text", "value": ","},
+        {"type": "equation", "value": "B=\\{(x, y) \\mid y=\\frac{a}{18}x+5\\}"},
+        {"type": "text", "value": "에 대하여 A∩B=∅이 되도록 하는 정수 a의 개수는? [3.5점]"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "11"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "13"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "14"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "15"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 10,
+      "score": 3.6,
+      "contents": [
+        {"type": "text", "value": "함수"},
+        {"type": "equation", "value": "f(x)=\\sqrt{x-2}+\\sqrt{5-x}"},
+        {"type": "text", "value": "의 최댓값을 M, 최솟값을 m이라 할 때, Mm의 값은? [3.6점]"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\sqrt{10}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3\\sqrt{2}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "18"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 11,
+      "score": 3.6,
+      "contents": [
+        {"type": "text", "value": "두 함수"},
+        {"type": "equation", "value": "f(x)=-|x-2|+3, \\ g(x)=||x-5|-5|"},
+        {"type": "text", "value": "에 대하여 함수"},
+        {"type": "equation_block", "value": "h(x)=\\begin{cases} f(x+a) & (x<3) \\\\ g(x+b) & (x \\geq 3) \\end{cases}"},
+        {"type": "text", "value": "가 실수 전체의 집합에서 정의된 역함수를 가지기 위한 a, b의 관계식으로 옳은 것은? [3.6점]"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "b=a+11"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "b=a+5"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "b=a"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "b=a-5"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "b=a-11"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 12,
+      "score": 3.6,
+      "contents": [
+        {"type": "text", "value": "집합 X={1, 2, 3, 4, 5, 6}과 함수 f:X→X에 대하여 합성함수 f∘f의 치역의 원소의 개수가 5인 함수 f의 개수는? [3.6점]"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "720"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "1200"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "2400"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "3600"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "4320"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

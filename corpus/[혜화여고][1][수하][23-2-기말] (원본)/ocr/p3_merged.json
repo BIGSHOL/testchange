@@ -1,0 +1,76 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 13,
+      "score": 3.7,
+      "contents": [
+        {"type": "text", "value": "함수"},
+        {"type": "equation", "value": "y=\\frac{8}{x-1}+3 \\, (x>1)"},
+        {"type": "text", "value": "의 그래프 위의 한 점 P(a, b)와 두 점 A(-3, 0), B(0, 1)에 대하여 \\overline{PA}^2+\\overline{PB}^2의 값이 최소일 때, a+b의 값은? (단, a, b는 상수) [3.7점]"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "3+2\\sqrt{2}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4+4\\sqrt{2}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "10"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 14,
+      "score": 3.8,
+      "contents": [
+        {"type": "text", "value": "어떤 학급의 청소당번을 정하기 위해 지원한 4명의 학생 A, B, C, D가 있다. 다음은 이 4명이 청소할 수 있는 요일을 각각 ○ 기호로 표시한 것이다. 학급의 청소활동을 수행하기 위하여 4명의 학생 중 3명을 선발하여 서로 다른 요일에 배치하는 경우의 수를 구하시오. (단, 선발된 학생은 일주일 중 하루만 청소한다.) [3.8점]"},
+        {"type": "table", "value": "", "rows": [
+          ["", "월", "화", "수", "목", "금"],
+          ["A", "", "○", "", "○", ""],
+          ["B", "○", "", "○", "", ""],
+          ["C", "○", "", "○", "", "○"],
+          ["D", "", "", "", "○", "○"]
+        ]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "18"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "27"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "36"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "45"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "54"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 15,
+      "score": 3.8,
+      "contents": [
+        {"type": "text", "value": "다음 <보기> 중 옳은 것의 개수는? [3.8점]"},
+        {"type": "text", "value": "<보기> (가) 함수"},
+        {"type": "equation", "value": "y=\\frac{k}{x+2}-3"},
+        {"type": "text", "value": "의 그래프가 모든 사분면을 지나고, 함수"},
+        {"type": "equation", "value": "y=\\frac{k}{x-3}+3"},
+        {"type": "text", "value": "의 그래프가 제 3사분면을 지나지 않도록 하는 양의 정수 k의 개수는 2개이다. (단, k≠0)"},
+        {"type": "text", "value": "(나) 무리함수"},
+        {"type": "equation", "value": "y=\\sqrt{ax+b}+c \\, (a>0)"},
+        {"type": "text", "value": "의 정의역이 {x|x≥3}, 치역이 {y|y≥3}일 때, 세 상수 a, b, c에 대하여"},
+        {"type": "equation", "value": "\\frac{3a^2-2b+c^3}{3a}"},
+        {"type": "text", "value": "의 최솟값은 8 이다."},
+        {"type": "text", "value": "(다) 함수"},
+        {"type": "equation", "value": "y=\\sqrt{2x+2|x|}"},
+        {"type": "text", "value": "와 y=x+k가 서로 다른 세 점에서 만날 때의 상수 k의 값의 범위는 0<k<1이다."},
+        {"type": "text", "value": "(라) 아래쪽 그림과 같이 좌표평면 위의 두 곡선 y=\\sqrt{x+1}과 y=\\sqrt{x-1}이 y축에 평행한 직선 x=k (k=1, 2, 3, ⋯)과 만나는 점을 각각 P_k, Q_k라 할 때,"},
+        {"type": "equation", "value": "\\overline{P_1Q_1}+\\overline{P_2Q_2}+\\cdots+\\overline{P_{99}Q_{99}}"},
+        {"type": "text", "value": "의 값은 9+3\\sqrt{11} 이다."},
+        {"type": "figure", "value": "좌표평면에 두 곡선 y=√(x+1)(위쪽 곡선)과 y=√(x-1)(아래쪽 곡선). x=1, 2, 3에서 세로 점선이 위쪽 곡선과 만나는 점 P_1, P_2, P_3, 아래쪽 곡선과 만나는 점 Q_1, Q_2, Q_3. x축에 -1, O, 1, 2, 3 표시.", "bbox": [0.55, 0.40, 0.95, 0.53]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "0개"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "1개"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "2개"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "3개"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "4개"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 19,
+      "score": 9,
+      "label_type": "서답형",
+      "contents": [
+        {"type": "text", "value": "[서답형 3] 100 이하의 자연수 n에 대하여 다항식"},
+        {"type": "equation", "value": "x^3+(3-b)x^2-bx+n"},
+        {"type": "text", "value": "이"},
+        {"type": "equation", "value": "(x+a)(x^2-b)"},
+        {"type": "text", "value": "로 인수분해될 때, n의 최솟값과 최댓값을 풀이 과정과 함께 서술하시오. (단, a, b는 정수이다.)"}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 20,
+      "score": 10,
+      "label_type": "서답형",
+      "contents": [
+        {"type": "text", "value": "[서답형 4] 이차함수"},
+        {"type": "equation", "value": "f(x)=x^2+2ax-4a-1"},
+        {"type": "text", "value": "과 직선"},
+        {"type": "equation", "value": "y=bx-b+4"},
+        {"type": "text", "value": "가 다음 조건을 만족시킨다."},
+        {"type": "text", "value": "<조건> (가) a, b는 정수이다. • (나) 이차함수 f(x)의 그래프와 직선 y=bx-b+4가 만나지 않도록 하는 a의 최댓값은 k이다."},
+        {"type": "text", "value": "a=k일 때, 이차함수 f(x)의 그래프와 직선 y=bx-b+4가 만나지 않도록 하는 모든 정수 b의 값의 개수를 풀이 과정과 함께 서술하시오."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    }
+  ]
+}

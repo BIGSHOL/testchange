@@ -1,0 +1,69 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 7,
+      "score": 4.6,
+      "contents": [
+        {"type": "text", "value": "두 집합"},
+        {"type": "equation_block", "value": "A=\\{4, 8, 12, 16, 20\\}, \\quad B=\\{6, 12, 18\\}"},
+        {"type": "text", "value": "가 있다. A\\cup X=A, B\\cap X=\\{12\\} 를 만족시키는 집합 X의 개수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "16"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "20"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 8,
+      "score": 4.8,
+      "contents": [
+        {"type": "text", "value": "삼각형 ABC에서 선분 BC를 2:3으로 내분하는 점을 D, 선분 BD를 2:1로 내분하는 점을 E라 하자. 직선 AD 위에 있고 \\overline{AF}=3\\overline{AD}를 만족시키는 점 F에 대하여 삼각형 ACF의 넓이는 삼각형 ACE의 넓이의 k배이다. 이때, 상수 k의 값은? (단, 선분 AF는 점 D를 지난다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{27}{8}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{27}{10}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{27}{11}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{9}{4}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 9,
+      "score": 4.9,
+      "contents": [
+        {"type": "text", "value": "전체집합 U=\\{x|x는 15 이하의 자연수\\}의 두 부분집합"},
+        {"type": "equation_block", "value": "A=\\{x|x는 홀수\\}, \\quad B=\\{x|x는 3의 배수\\}"},
+        {"type": "text", "value": "가 있다. A\\cup X=B\\cup X 를 만족시키는 전체집합 U의 부분집합 X의 개수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "2^6"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2^7"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "2^8"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "2^9"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "2^{10}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 10,
+      "score": 5.1,
+      "contents": [
+        {"type": "text", "value": "원 x^2+y^2-4kx-10y+16=0 의 중심을 C라 하고, 이 원과 직선 3x-4y-6k=0 의 두 교점을 A, B라고 하자. 삼각형 ABC의 넓이가 12가 되도록 하는 양수 k의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}
