@@ -1,0 +1,87 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 1,
+      "score": 3.0,
+      "contents": [
+        {"type": "equation", "value": "{}_{4}\\Pi_{2} + {}_{4}H_{2}"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "14"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "18"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "20"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "23"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "26"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 2,
+      "score": 3.0,
+      "contents": [
+        {"type": "text", "value": "4개의 문자 "},
+        {"type": "equation", "value": "a, a, b, c"},
+        {"type": "text", "value": "를 모두 일렬로 나열하는 경우의 수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "14"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 3,
+      "score": 3.7,
+      "contents": [
+        {"type": "text", "value": "다항식 "},
+        {"type": "equation", "value": "(2x+4)(x-1)^{4}"},
+        {"type": "text", "value": "의 전개식에서 "},
+        {"type": "equation", "value": "x^{3}"},
+        {"type": "text", "value": "의 계수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-8"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-4"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "4"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 4,
+      "score": 3.4,
+      "contents": [
+        {"type": "text", "value": "크기와 모양이 같은 15개의 사탕 중에서 6개는 사과 맛이고 7개는 딸기 맛, 2개는 포도 맛이다. 이 중에서 임의로 두 개의 사탕을 차례로 먹을 때, 처음에는 딸기 맛을 먹고 두 번째는 포도 맛 사탕을 먹게 될 확률은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{1}{25}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{1}{20}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{1}{15}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{1}{10}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{1}{5}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 5,
+      "score": 3.4,
+      "contents": [
+        {"type": "text", "value": "한 개의 주사위를 6번 던질 때, 4의 약수의 눈이 3번 나올 확률은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{1}{16}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{1}{8}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{3}{16}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{1}{4}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{5}{16}"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

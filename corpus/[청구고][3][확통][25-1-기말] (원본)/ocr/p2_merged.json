@@ -1,0 +1,125 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 7,
+      "score": 4.6,
+      "contents": [
+        {"type": "text", "value": "5번의 경기 중에서 3번을 먼저 이기는 사람이 최종 우승하는 체스 대회의 결승에 "},
+        {"type": "equation", "value": "A"},
+        {"type": "text", "value": "와 "},
+        {"type": "equation", "value": "B"},
+        {"type": "text", "value": " 두 사람이 진출했을 때, "},
+        {"type": "equation", "value": "A"},
+        {"type": "text", "value": "가 최종 우승할 확률은? (단, "},
+        {"type": "equation", "value": "A"},
+        {"type": "text", "value": "가 "},
+        {"type": "equation", "value": "B"},
+        {"type": "text", "value": "를 이길 확률은 "},
+        {"type": "equation", "value": "\\frac{2}{3}"},
+        {"type": "text", "value": "이고, 비기는 경우는 없다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{56}{81}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{62}{81}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{64}{81}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{68}{81}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{70}{81}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 8,
+      "score": 4.7,
+      "contents": [
+        {"type": "text", "value": "각 면에 1, 1, 2, 2, 2, 3의 숫자가 각각 하나씩 적힌 정육면체 모양의 주사위가 있다. 이 주사위를 던져서 나온 눈의 수를 확률변수 "},
+        {"type": "equation", "value": "X"},
+        {"type": "text", "value": "라 할 때, "},
+        {"type": "equation", "value": "V(6X+1)"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "15"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "17"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "19"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "21"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "23"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 9,
+      "score": 4.8,
+      "contents": [
+        {"type": "text", "value": "어느 자격증 시험에서 "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "점 이상을 받으면 합격이라고 한다. 10000명이 응시한 이 자격증 시험 점수가 평균이 60점이고 표준편차가 6점인 정규분포를 따를 때, 합격자 수가 228명이었다. "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "의 값을 아래 표준정규분포표를 이용하여 구하면?"},
+        {"type": "table", "value": "", "rows": [
+          ["z", "P(0 \\leq Z \\leq z)"],
+          ["1.0", "0.3413"],
+          ["1.5", "0.4332"],
+          ["2.0", "0.4772"],
+          ["2.5", "0.4938"]
+        ]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "60"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "63"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "66"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "69"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "72"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 10,
+      "score": 4.9,
+      "contents": [
+        {"type": "text", "value": "한 개의 주사위를 두 번 던질 때, 첫 번째에 나오는 눈의 수가 3의 배수인 사건을 "},
+        {"type": "equation", "value": "A"},
+        {"type": "text", "value": ", 두 번째에 나오는 눈의 수가 6의 약수인 사건을 "},
+        {"type": "equation", "value": "B"},
+        {"type": "text", "value": ", 나오는 눈의 수가 모두 소수인 사건을 "},
+        {"type": "equation", "value": "C"},
+        {"type": "text", "value": ", 나오는 눈의 수의 합이 7인 사건을 "},
+        {"type": "equation", "value": "D"},
+        {"type": "text", "value": "라 하자. 다음 "},
+        {"type": "text", "value": "<보기>에서 서로 독립인 두 사건의 개수는?"},
+        {"type": "text", "value": "<보기> (가) "},
+        {"type": "equation", "value": "A"},
+        {"type": "text", "value": "와 "},
+        {"type": "equation", "value": "B"},
+        {"type": "text", "value": " • (나) "},
+        {"type": "equation", "value": "A"},
+        {"type": "text", "value": "와 "},
+        {"type": "equation", "value": "C"},
+        {"type": "text", "value": " • (다) "},
+        {"type": "equation", "value": "A"},
+        {"type": "text", "value": "와 "},
+        {"type": "equation", "value": "D"},
+        {"type": "text", "value": " • (라) "},
+        {"type": "equation", "value": "B"},
+        {"type": "text", "value": "와 "},
+        {"type": "equation", "value": "C"},
+        {"type": "text", "value": " • (마) "},
+        {"type": "equation", "value": "B"},
+        {"type": "text", "value": "와 "},
+        {"type": "equation", "value": "D"},
+        {"type": "text", "value": " • (바) "},
+        {"type": "equation", "value": "C"},
+        {"type": "text", "value": "와 "},
+        {"type": "equation", "value": "D"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "2개"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "3개"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "4개"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "5개"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "6개"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

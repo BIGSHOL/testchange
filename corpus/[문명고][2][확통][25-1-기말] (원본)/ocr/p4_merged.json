@@ -1,0 +1,68 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 15,
+      "score": 6.0,
+      "contents": [
+        {"type": "text", "value": "양의 실수 "},
+        {"type": "equation", "value": "t"},
+        {"type": "text", "value": "에 대하여 표준편차가 "},
+        {"type": "equation", "value": "t"},
+        {"type": "text", "value": "인 정규분포를 따르는 확률변수 "},
+        {"type": "equation", "value": "X"},
+        {"type": "text", "value": "의 확률밀도함수를 "},
+        {"type": "equation", "value": "f(x)"},
+        {"type": "text", "value": "라 하자. 모든 실수 "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "f(x) = f(-x)"},
+        {"type": "text", "value": "가 성립할 때, "},
+        {"type": "equation", "value": "P(X \\leq t^2 + 1)"},
+        {"type": "text", "value": "의 최솟값을 오른쪽 표준정규분포표를 이용하여 구한 것은?"},
+        {"type": "table", "value": "", "rows": [
+          ["z", "P(0 \\leq Z \\leq z)"],
+          ["0.5", "0.1915"],
+          ["1.0", "0.3413"],
+          ["1.5", "0.4332"],
+          ["2.0", "0.4772"]
+        ]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "0.6915"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "0.7745"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "0.8413"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "0.9332"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "0.9772"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 16,
+      "score": 6.0,
+      "contents": [
+        {"type": "text", "value": "어느 지역 주민의 하루 태블릿 이용 시간의 평균 "},
+        {"type": "equation", "value": "m"},
+        {"type": "text", "value": "을 추정하기 위하여 90명의 주민을 임의추출하여 하루 태블릿 이용 시간을 조사하였더니 평균은 2시간, 표준편차는 1시간이었다. 모평균 "},
+        {"type": "equation", "value": "m"},
+        {"type": "text", "value": "과 표본평균 "},
+        {"type": "equation", "value": "\\overline{X}"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "P(|\\overline{X} - m| \\leq 0.172) \\geq 0.99"},
+        {"type": "text", "value": "를 만족시키기 위해 추출해야 하는 주민의 수의 최솟값은? (단, "},
+        {"type": "equation", "value": "Z"},
+        {"type": "text", "value": "가 표준정규분포를 따르는 확률변수일 때, "},
+        {"type": "equation", "value": "P(0 \\leq Z \\leq 2.58) = 0.495"},
+        {"type": "text", "value": "로 계산한다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "225"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "256"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "324"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "361"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "400"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

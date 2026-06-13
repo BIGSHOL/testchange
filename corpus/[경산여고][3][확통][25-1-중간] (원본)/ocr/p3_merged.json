@@ -1,0 +1,138 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 14,
+      "score": 4.8,
+      "contents": [
+        {"type": "text", "value": "방정식 "},
+        {"type": "equation", "value": "a + b - c = 8"},
+        {"type": "text", "value": "을 만족시키는 "},
+        {"type": "equation", "value": "a, b, c"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "a \\geq 2, \\ b \\geq 3, \\ c \\leq 4"},
+        {"type": "text", "value": "인 정수해의 개수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "27"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "32"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "36"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "40"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "45"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 15,
+      "score": 4.9,
+      "contents": [
+        {"type": "text", "value": "전체집합 "},
+        {"type": "equation", "value": "U = \\{1, 2, 3, 4, 5\\}"},
+        {"type": "text", "value": "의 두 부분집합 "},
+        {"type": "equation", "value": "A, B"},
+        {"type": "text", "value": "가 "},
+        {"type": "equation", "value": "A \\subset B, \\ A \\neq \\varnothing"},
+        {"type": "text", "value": "을 만족시키도록, 두 집합 "},
+        {"type": "equation", "value": "A, B"},
+        {"type": "text", "value": "를 정하는 모든 경우의 수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "211"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "212"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "213"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "214"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "215"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 16,
+      "score": 5.1,
+      "contents": [
+        {"type": "text", "value": "집합 "},
+        {"type": "equation", "value": "X = \\{1, 2, 3, \\cdots, 10\\}"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "X"},
+        {"type": "text", "value": "에서 "},
+        {"type": "equation", "value": "X"},
+        {"type": "text", "value": "로의 함수 중에서 임의로 하나를 택할 때, 그 함수가 다음 조건을 만족시킬 확률이 "},
+        {"type": "equation", "value": "\\frac{k}{10^{8}}"},
+        {"type": "text", "value": "이다. 상수 "},
+        {"type": "equation", "value": "k"},
+        {"type": "text", "value": "는?"},
+        {"type": "text", "value": "<조건> (가) "},
+        {"type": "equation", "value": "1 \\leq x \\leq 9"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "f(x) \\leq f(x+1)"},
+        {"type": "text", "value": " • (나) "},
+        {"type": "equation", "value": "f(1) = 5, \\ f(10) = 8"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "42"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "147"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "196"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "238"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "284"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 17,
+      "score": 5.1,
+      "contents": [
+        {"type": "text", "value": "테니스 시합에서 "},
+        {"type": "equation", "value": "A"},
+        {"type": "text", "value": "가 "},
+        {"type": "equation", "value": "B"},
+        {"type": "text", "value": "를 이길 확률은 "},
+        {"type": "equation", "value": "\\frac{1}{4}"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "B"},
+        {"type": "text", "value": "가 "},
+        {"type": "equation", "value": "C"},
+        {"type": "text", "value": "를 이길 확률은 "},
+        {"type": "equation", "value": "\\frac{2}{3}"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "C"},
+        {"type": "text", "value": "가 "},
+        {"type": "equation", "value": "A"},
+        {"type": "text", "value": "를 이길 확률은 "},
+        {"type": "equation", "value": "\\frac{1}{2}"},
+        {"type": "text", "value": "이다. 다음 대진표와 같이 승자 진출전 방식으로 시행한 시합에서 "},
+        {"type": "equation", "value": "B"},
+        {"type": "text", "value": "가 우승을 할 때, 시합에서 "},
+        {"type": "equation", "value": "B"},
+        {"type": "text", "value": "와 "},
+        {"type": "equation", "value": "C"},
+        {"type": "text", "value": "가 만나지 않을 확률은? (단, "},
+        {"type": "equation", "value": "A, B, C"},
+        {"type": "text", "value": "가 각각 대진표의 세 자리에 배정될 확률은 같고, 비기는 경우는 없다.)"},
+        {"type": "figure", "value": "승자 진출전(토너먼트) 대진표. 아래쪽에 세 자리(원 3개)가 있고, 오른쪽 두 자리가 먼저 시합한 뒤 그 승자가 왼쪽 한 자리와 결승을 치르는 3인 대진표.", "bbox": [0.52, 0.22, 0.80, 0.32]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{9}{41}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{12}{41}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{17}{41}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{8}{19}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{16}{19}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 18,
+      "score": 5.2,
+      "contents": [
+        {"type": "equation", "value": "{}_{9}C_{1} + 2 \\times {}_{9}C_{2} + 3 \\times {}_{9}C_{3} + \\cdots + 8 \\times {}_{9}C_{8}"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "9(2^{8} - 1)"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "9 \\cdot 2^{8} - 1"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "9 \\cdot 2^{8}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "9 \\cdot 2^{8} + 1"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "9(2^{8} + 1)"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 13,
+      "score": 4.7,
+      "contents": [
+        {"type": "text", "value": "상자 속에 1부터 6까지의 자연수가 각각 하나씩 적힌 구슬 6개가 있다. 이 상자와 주사위를 사용하여 다음 시행을 한다."},
+        {"type": "text", "value": "<상자> 상자에서 임의로 1개의 구슬을 꺼내어 6의 약수가 적힌 구슬이 나오면 서로 다른 두 개의 주사위를 동시에 던지고, 나온 두 수를 곱한다. 6의 약수가 아닌 수가 적힌 구슬이 나오면 서로 다른 세 개의 주사위를 동시에 던지고, 나온 세 수를 곱한다."},
+        {"type": "text", "value": "이 시행을 한 번 하여 나온 결과가 짝수일 확률은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{5}{8}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{17}{24}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{19}{24}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{7}{8}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{23}{24}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 14,
+      "score": 4.8,
+      "contents": [
+        {"type": "text", "value": "1부터 8까지의 자연수가 각각 하나씩 적혀 있는 8장의 카드가 있다. 이 카드를 모두 한 번씩 사용하여 일렬로 나열할 때, 다음 조건을 모두 만족시키는 모든 경우의 수는?"},
+        {"type": "text", "value": "<조건> (가) 맨 마지막에는 홀수가 적혀 있는 카드를 나열한다. • (나) 7이 적혀 있는 카드는 1이 적혀 있는 카드보다 왼쪽에 나열한다. • (다) 짝수가 적혀 있는 카드는 작은 수부터 크기 순서로 왼쪽부터 나열한다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "420"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "415"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "405"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "400"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "395"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

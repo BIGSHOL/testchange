@@ -1,0 +1,33 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 18,
+      "score": 8.0,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 4] 표준편차가 25인 정규분포를 따르는 모집단에서 크기가 49인 표본을 임의추출하여 구한 모평균 "},
+        {"type": "equation", "value": "m"},
+        {"type": "text", "value": "의 신뢰도 95%인 신뢰구간이 "},
+        {"type": "equation", "value": "a \\leq m \\leq b"},
+        {"type": "text", "value": "이다. 또, 이 모집단에서 크기가 "},
+        {"type": "equation", "value": "n^2"},
+        {"type": "text", "value": "인 표본을 임의추출하여 구한 모평균 "},
+        {"type": "equation", "value": "m"},
+        {"type": "text", "value": "의 신뢰도 99%인 신뢰구간이 "},
+        {"type": "equation", "value": "c \\leq m \\leq d"},
+        {"type": "text", "value": "이다. "},
+        {"type": "equation", "value": "b - d > a - c"},
+        {"type": "text", "value": "를 만족시키는 자연수 "},
+        {"type": "equation", "value": "n"},
+        {"type": "text", "value": "의 최솟값을 구하시오. (단, "},
+        {"type": "equation", "value": "P(|Z| \\leq 1.96) = 0.95"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "P(|Z| \\leq 2.58) = 0.99"},
+        {"type": "text", "value": ")"}
+      ],
+      "choices": [],
+      "sub_questions": []
+    }
+  ]
+}

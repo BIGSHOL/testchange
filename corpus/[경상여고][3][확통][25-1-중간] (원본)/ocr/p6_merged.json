@@ -1,0 +1,88 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 16,
+      "score": 7,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서답형 3] 주머니에 1부터 7까지의 자연수가 하나씩 적혀있는 7개의 공이 들어있다. 이 주머니에서 임의로 공을 한 개씩 3번 꺼낼 때, 나온 공에 적혀있는 수를 순서대로 "},
+        {"type": "equation", "value": "a, b, c"},
+        {"type": "text", "value": "라 하자. "},
+        {"type": "equation", "value": "a \\times b + c"},
+        {"type": "text", "value": "가 홀수가 되는 경우의 수를 구하시오. (단, 꺼낸 공은 숫자를 확인한 후 다시 주머니에 넣는다.)"}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 17,
+      "score": 6,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서답형 4] 각 면에 1부터 12까지의 자연수가 하나씩 적힌 정십이면체 모양의 주사위를 던지는 시행에서 나오는 눈의 수 이하인 소수의 개수가 "},
+        {"type": "equation", "value": "n"},
+        {"type": "text", "value": "인 사건을 "},
+        {"type": "equation", "value": "A_{n}"},
+        {"type": "text", "value": ", 12의 양의 약수의 눈이 나오는 사건을 "},
+        {"type": "equation", "value": "B"},
+        {"type": "text", "value": "라 하자. 사건 "},
+        {"type": "equation", "value": "A_{n}"},
+        {"type": "text", "value": "을 모두 구하고 이 중에서 사건 "},
+        {"type": "equation", "value": "B"},
+        {"type": "text", "value": "와 서로 배반사건이 되는 사건 "},
+        {"type": "equation", "value": "A_{n}"},
+        {"type": "text", "value": "을 있는 대로 구하시오. (단, "},
+        {"type": "equation", "value": "n"},
+        {"type": "text", "value": "은 정수이다.)"}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 18,
+      "score": 7,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서답형 5] 다음 물음에 순서대로 답하시오. 표본공간 "},
+        {"type": "equation", "value": "S"},
+        {"type": "text", "value": "의 두 사건 "},
+        {"type": "equation", "value": "A, B"},
+        {"type": "text", "value": "가 서로 독립일 때, 다음 두 사건이 독립임을 보이시오."}
+      ],
+      "choices": [],
+      "sub_questions": [
+        {
+          "number": 1,
+          "score": 3,
+          "contents": [
+            {"type": "text", "value": "(1) "},
+            {"type": "equation", "value": "A^{C}, B"}
+          ],
+          "choices": [],
+          "sub_questions": []
+        },
+        {
+          "number": 2,
+          "score": 4,
+          "contents": [
+            {"type": "text", "value": "(2) "},
+            {"type": "equation", "value": "A^{C}, B^{C}"}
+          ],
+          "choices": [],
+          "sub_questions": []
+        }
+      ]
+    },
+    {
+      "number": 19,
+      "score": 8,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서답형 6] 숫자 1, 2, 3, 4, 5, 6이 하나씩 적혀있는 회색 공 6개와 숫자 1, 2, 3, 4, 5가 하나씩 적혀있는 검은 공 5개와 숫자 1, 2, 3, 4가 하나씩 적혀있는 흰 공 4개가 들어있는 상자가 있다. 이 상자에서 임의로 2개의 공을 동시에 꺼낼 때, 꺼낸 2개의 공에 적힌 두 수의 합이 7이거나 꺼낸 2개의 공이 서로 다른 색일 확률을 구하시오."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    }
+  ]
+}

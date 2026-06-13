@@ -1,0 +1,140 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 1,
+      "score": 3.2,
+      "contents": [
+        {"type": "equation", "value": "{}_{5}P_{2} + {}_{5}C_{2} + {}_{5}\\Pi_{2} + {}_{5}H_{2}"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "60"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "70"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "80"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "90"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "100"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 2,
+      "score": 3.3,
+      "contents": [
+        {"type": "text", "value": "두 학생 A, B를 포함한 10명의 학생 중에서 3명을 뽑아 시그마실을 청소하려고 한다. A 또는 B가 뽑힐 확률은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{8}{15}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{3}{5}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{2}{3}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{11}{15}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{4}{5}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 3,
+      "score": 3.4,
+      "contents": [
+        {"type": "text", "value": "다음 부등식을 만족시키는 모든 자연수 "},
+        {"type": "equation", "value": "n"},
+        {"type": "text", "value": "의 값의 합은?"},
+        {"type": "equation_block", "value": "20 < {}_{n}C_{1} \\times 2 + {}_{n}C_{2} \\times 2^{2} + \\cdots + {}_{n}C_{n} \\times 2^{n} < 2000"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "15"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "18"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "21"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "24"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 4,
+      "score": 3.5,
+      "contents": [
+        {"type": "text", "value": "다음을 만족시키는 세 정수 "},
+        {"type": "equation", "value": "a, b, c"},
+        {"type": "text", "value": "의 순서쌍 "},
+        {"type": "equation", "value": "(a, b, c)"},
+        {"type": "text", "value": "의 개수는?"},
+        {"type": "equation_block", "value": "2 \\leq |a| \\leq |b| \\leq |c| \\leq 9"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "480"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "720"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "960"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "1200"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "1440"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 5,
+      "score": 3.6,
+      "contents": [
+        {"type": "text", "value": "두 사건 "},
+        {"type": "equation", "value": "A"},
+        {"type": "text", "value": "와 "},
+        {"type": "equation", "value": "B"},
+        {"type": "text", "value": "는 서로 배반사건이고 "},
+        {"type": "equation", "value": "P(A) = \\frac{1}{3}"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "P(A^{C} \\cap B^{C}) = \\frac{1}{2}"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "P(B^{C})"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{1}{6}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{1}{3}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{1}{2}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{2}{3}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{5}{6}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 6,
+      "score": 3.7,
+      "contents": [
+        {"type": "text", "value": "전체집합 "},
+        {"type": "equation", "value": "U = \\{x \\mid x"},
+        {"type": "text", "value": "는 2026 이하의 자연수"},
+        {"type": "equation", "value": "\\}"},
+        {"type": "text", "value": "에 대하여, 다음 조건을 만족시키는 "},
+        {"type": "equation", "value": "U"},
+        {"type": "text", "value": "의 부분집합의 개수는 "},
+        {"type": "equation", "value": "2^{p}"},
+        {"type": "text", "value": "이다. 상수 "},
+        {"type": "equation", "value": "p"},
+        {"type": "text", "value": "의 값은?"},
+        {"type": "text", "value": "<조건> (가) 원소의 개수가 홀수이다. • (나) 두 원소 2025, 2026을 모두 포함한다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "2022"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2023"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "2024"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "2025"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "2026"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 7,
+      "score": 3.8,
+      "contents": [
+        {"type": "text", "value": "숫자 3, 3, 4, 4, 5, 5가 하나씩 적혀 있는 6장의 카드가 있다. 이 6장의 카드를 모두 한 번씩 사용하여 임의로 일렬로 나열할 때, 양 끝에 놓인 카드에 적힌 두 수 중 적어도 하나는 짝수일 확률은? (단, 같은 숫자가 적혀 있는 카드끼리는 서로 구별하지 않는다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{1}{3}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{2}{5}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{7}{15}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{8}{15}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{3}{5}"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

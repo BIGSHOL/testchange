@@ -1,0 +1,116 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 11,
+      "score": 5.0,
+      "contents": [
+        {"type": "text", "value": "어느 농장에서 생산되는 한라봉 중 A품종 한 개의 무게는 정규분포 "},
+        {"type": "equation", "value": "N(150, 6^2)"},
+        {"type": "text", "value": "을 따르고 B품종 한 개의 무게는 정규분포 "},
+        {"type": "equation", "value": "N(100, 4^2)"},
+        {"type": "text", "value": "을 따른다. 이 농장에서 생산되는 두 품종의 한라봉을 임의로 각각 1개씩 선택할 때, 선택된 A품종 한라봉의 무게가 "},
+        {"type": "equation", "value": "k"},
+        {"type": "text", "value": "이하일 확률과 선택된 B품종 한라봉의 무게가 "},
+        {"type": "equation", "value": "k"},
+        {"type": "text", "value": "이상일 확률이 같다. 이 때, "},
+        {"type": "equation", "value": "k"},
+        {"type": "text", "value": "의 값은? (단, 무게의 단위는 "},
+        {"type": "equation", "value": "g"},
+        {"type": "text", "value": "이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "80"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "90"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "100"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "110"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "120"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 12,
+      "score": 5.1,
+      "contents": [
+        {"type": "text", "value": "공 15개와 비어 있는 세 상자 "},
+        {"type": "equation", "value": "A, B, C"},
+        {"type": "text", "value": "가 있다. 한 개의 주사위를 사용하여 다음 규칙에 따라 세 상자 "},
+        {"type": "equation", "value": "A, B, C"},
+        {"type": "text", "value": "에 공을 넣는 시행을 한다."},
+        {"type": "text", "value": "<상자> 주사위를 한 번 던져 나온 눈의 수가 3의 배수이면 세 상자 "},
+        {"type": "equation", "value": "A, B, C"},
+        {"type": "text", "value": "에 넣는 공의 개수가 각각 1, 2, 0이고, 나온 눈의 수가 3의 배수가 아니면 세 상자 "},
+        {"type": "equation", "value": "A, B, C"},
+        {"type": "text", "value": "에 넣는 공의 개수가 각각 1, 1, 1이다."},
+        {"type": "text", "value": "이 시행을 5번 반복한 후 상자 "},
+        {"type": "equation", "value": "B"},
+        {"type": "text", "value": "에 들어 있는 공의 개수가 3의 배수일 때, 상자 "},
+        {"type": "equation", "value": "A"},
+        {"type": "text", "value": "에 들어 있는 공의 개수와 상자 "},
+        {"type": "equation", "value": "C"},
+        {"type": "text", "value": "에 들어 있는 공의 개수의 합이 짝수일 확률은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{1}{9}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{2}{9}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{5}{18}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{7}{18}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{4}{9}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 13,
+      "score": 5.2,
+      "contents": [
+        {"type": "text", "value": "확률변수 "},
+        {"type": "equation", "value": "X"},
+        {"type": "text", "value": "의 확률질량함수가 "},
+        {"type": "equation", "value": "P(X=x) = \\frac{k}{x(x+1)(x+2)} \\ (x = 1, 2, 3, \\cdots, 8)"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\frac{E(X)}{k}"},
+        {"type": "text", "value": "의 값은? (단, "},
+        {"type": "equation", "value": "k"},
+        {"type": "text", "value": "는 상수이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{2}{3}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{2}{5}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{2}{7}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{2}{9}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{2}{11}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 14,
+      "score": 5.3,
+      "contents": [
+        {"type": "text", "value": "확률변수 "},
+        {"type": "equation", "value": "T"},
+        {"type": "text", "value": "가 정규분포 "},
+        {"type": "equation", "value": "N(2, 2^2)"},
+        {"type": "text", "value": "을 따를 때, 곡선 "},
+        {"type": "equation", "value": "y = 4x^2 + 2Tx + 1"},
+        {"type": "text", "value": "과 직선 "},
+        {"type": "equation", "value": "y = -2x - T"},
+        {"type": "text", "value": "가 만나지 않을 확률은?"},
+        {"type": "table", "value": "", "rows": [
+          ["z", "P(0 \\leq Z \\leq z)"],
+          ["0.5", "0.1915"],
+          ["1.0", "0.3413"],
+          ["1.5", "0.4332"],
+          ["2.0", "0.4772"]
+        ]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "0.4772"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "0.5328"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "0.6247"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "0.8085"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "0.8664"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}
