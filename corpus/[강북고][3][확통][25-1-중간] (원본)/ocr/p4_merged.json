@@ -1,0 +1,65 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 13,
+      "score": 4,
+      "label_type": "단답형",
+      "contents": [
+        {"type": "text", "value": "[단답형 1] 세 명의 학생 A, B, C가 분식집에서 우동, 김밥, 라면, 돈가스의 네 가지 메뉴 중에서 각자 1개씩 주문하려고 한다. 우동을 주문한 학생이 한 명 이상이 되는 경우의 수를 구하시오."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 14,
+      "score": 5,
+      "label_type": "단답형",
+      "contents": [
+        {"type": "text", "value": "[단답형 2] 집합 "},
+        {"type": "equation", "value": "X = \\{x \\mid x"},
+        {"type": "text", "value": "는 6 이하의 자연수"},
+        {"type": "equation", "value": "\\}"},
+        {"type": "text", "value": "에 대하여 다음 조건을 만족시키는 함수 "},
+        {"type": "equation", "value": "f : X \\to X"},
+        {"type": "text", "value": "의 개수를 구하시오."},
+        {"type": "text", "value": "<조건> (가) 집합 X의 원소 x에 대하여 • x가 4의 약수이면 f(x) \\leq x이다. • x가 3의 배수이면 f(x) \\geq x이다. • (나) f(5)는 f(6)의 약수이다."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 15,
+      "score": 5,
+      "label_type": "단답형",
+      "contents": [
+        {"type": "text", "value": "[단답형 3] 빨간 공과 파란 공을 합하여 9개의 공이 주머니에 들어 있다. 이 주머니에서 두 명의 학생 A, B가 차례대로 공을 1개씩 임의로 꺼낼 때, 학생 A가 빨간 공을 꺼내고 학생 B가 파란 공을 꺼낼 확률이 "},
+        {"type": "equation", "value": "\\frac{5}{18}"},
+        {"type": "text", "value": "라고 한다. 이때 파란공의 개수를 구하시오. (단, 꺼낸공은 다시 넣지 않고, 빨간 공이 파란 공보다 많다.)"}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 16,
+      "score": 6,
+      "label_type": "단답형",
+      "contents": [
+        {"type": "text", "value": "[단답형 4] 검은 공 5개와 흰 공 5개를 4명의 학생 A, B, C, D에게 다음 규칙에 따라 남김없이 나누어 주는 경우의 수를 구하시오. (단, 같은 색 공끼리는 서로 구별하지 않고, 공을 받지 못하는 학생이 있을 수 있다.)"},
+        {"type": "text", "value": "<조건> (가) A가 받는 공의 개수는 3의 약수이다. • (나) B가 받는 공의 개수는 A가 받는 공의 개수의 2배이다. • (다) C가 받는 공의 개수는 1 이상이다."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 17,
+      "score": 8,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 5] 볼링공 2개, 골프공 3개, 당구공 4개를 일렬로 나열할 때, 볼링공 사이에 2개의 다른 공이 들어가도록 나열하는 방법의 수를 구하는 풀이과정과 답을 쓰시오. (단, 같은 종류의 공끼리는 서로 구별하지 않는다.)"}
+      ],
+      "choices": [],
+      "sub_questions": []
+    }
+  ]
+}
