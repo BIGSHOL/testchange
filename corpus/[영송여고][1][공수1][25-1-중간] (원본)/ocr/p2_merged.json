@@ -1,0 +1,66 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 6,
+      "score": 4.3,
+      "contents": [
+        {"type": "text", "value": "x에 대한 다항식 P(x)를 x-7로 나눈 나머지가 1이고, x+1로 나눈 나머지가 9일 때, P(x)를 (x-7)(x+1)로 나눈 나머지를 R(x)라고 한다면, R(1)의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "9"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 7,
+      "score": 4.4,
+      "contents": [
+        {"type": "text", "value": "x에 대한 이차방정식 x^2+(2k+4)x+ak^2+bk+c=0이 실수 k값에 관계없이 항상 중근을 가질 때, a+b+c의 값을 구하면?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "11"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "13"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "15"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 8,
+      "score": 4.9,
+      "contents": [
+        {"type": "text", "value": "이차함수 f(x)=x^2+2ax+11에 대해 다음 <보기>의 조건을 모두 만족할 때, f(x)의 최댓값을 구하면?"},
+        {"type": "text", "value": "<보기> ㄱ. -1\\leq x\\leq 3 • ㄴ. f(x)의 꼭짓점의 y좌표는 10이다. • ㄷ. a>0"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "14"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "17"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "22"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "26"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 9,
+      "score": 5.2,
+      "contents": [
+        {"type": "text", "value": "이차함수 y=x^2+3x-5의 그래프와 직선 y=x+n이 만나는 점의 개수를 f(n)이라 할 때, f(-6)+f(-5)+f(-4)의 값을 구하면?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "6"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

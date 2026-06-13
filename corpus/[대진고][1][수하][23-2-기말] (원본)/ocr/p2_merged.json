@@ -1,0 +1,101 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 7,
+      "score": 4.2,
+      "contents": [
+        {"type": "text", "value": "무리함수 y=\\sqrt{2x}의 그래프를 x축에 대하여 대칭이동한 다음 x축의 방향으로 -2만큼, y축의 방향으로 k만큼 평행이동한 그래프가 제1사분면을 지나지 않도록 하는 정수 k의 최댓값은? [4.2점]"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 8,
+      "score": 4.2,
+      "contents": [
+        {"type": "text", "value": "다음 두 명제가 모두 참이 되도록 하는 정수 a의 개수는? [4.2점]"},
+        {"type": "text", "value": "<상자> ○ x \\leq 1인 어떤 실수 x에 대하여 |x-a+1| \\leq 4이다. ○ x \\geq 1인 모든 실수 x에 대하여 x^2+4x+a \\geq 0이다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "14"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "16"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "18"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 9,
+      "score": 4.2,
+      "contents": [
+        {"type": "text", "value": "a>0, b>0인 실수 a, b에 대하여 좌표평면 위의 직선"},
+        {"type": "equation_block", "value": "\\frac{x}{a}+\\frac{y}{b}=1"},
+        {"type": "text", "value": "이 점 (2, 7)을 지날 때, ab의 최솟값은? [4.2점]"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "56"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "58"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "60"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "62"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "64"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 10,
+      "score": 4.6,
+      "contents": [
+        {"type": "text", "value": "상수 a, b에 대하여 함수 f(x)=x^2-2ax+b (x \\geq a)의 그래프와 역함수 f^{-1}(x)의 그래프의 교점의 좌표가 (1, f(1)), (2, f(2))일 때, f^{-1}(5)+f(5)의 값은? [4.6점]"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "14"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "16"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "18"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "20"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "22"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 11,
+      "score": 4.6,
+      "contents": [
+        {"type": "text", "value": "[11~12] 두 함수 f(x), g(x)에 대하여 주어진 정의역에 따라 다음 물음에 답하시오."},
+        {"type": "text", "value": "<상자> f(x)=\\begin{cases} -x-2 & (x<0) \\\\ 2x-2 & (x \\geq 0) \\end{cases}  g(x)=-2x^2-x"},
+        {"type": "text", "value": "집합 A=\\{a, b\\}에 대하여 함수 f:A \\rightarrow A가 항등함수일 때, a+3b의 값은? (단, a, b는 a<b인 실수이다.) [4.6점]"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "7"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 12,
+      "score": 4.6,
+      "contents": [
+        {"type": "text", "value": "세 집합 B=\\left\\{-1, \\frac{1}{2}\\right\\}, C=\\{-2, -1, 0, 2\\}, R=\\{x|x는 실수\\}에 대하여 옳은 것만을 <보기>에서 있는 대로 고른 것은? [4.6점]"},
+        {"type": "text", "value": "<보기> ㄱ. 두 함수 f:B \\rightarrow R, g:B \\rightarrow R은 모두 상수함수이다. • ㄴ. 두 함수 f:B \\rightarrow R, g:B \\rightarrow R은 f=g 이다. • ㄷ. 두 함수 f:C \\rightarrow R, g:C \\rightarrow R은 모두 일대일함수이다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄴ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄱ, ㄴ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄴ, ㄷ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄱ, ㄴ, ㄷ"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 10,
+      "score": 5.2,
+      "contents": [
+        {"type": "text", "value": "x에 대한 다항식 x^4-2x^2-16x-15를 인수분해하면 (x-a)(x+b)(x^2+cx+d)가 나올 때, a+b+c+d의 값을 구하면? (단, a>0, b>0)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "11"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 11,
+      "score": 5.8,
+      "contents": [
+        {"type": "text", "value": "x에 대한 이차방정식 x^2-2\\sqrt{5}x+1=0 의 두 근을 \\alpha, \\beta라 할 때,"},
+        {"type": "equation_block", "value": "(\\alpha^{15}+\\alpha^4+2\\alpha^2-19)(\\beta^{15}+\\beta^4+2\\beta^2-19)"},
+        {"type": "text", "value": "의 값을 구하면?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 12,
+      "score": 5.9,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 이차함수 y=x^2+(1-2a)x+a^2-a-2의 그래프가 x축과 만나는 서로 다른 두 점을 A, B라 하고, y축과 만나는 점을 C라 하자. 이때 삼각형 ABC의 넓이의 최댓값을 구하면? (단, 3\\leq a\\leq 6)"},
+        {"type": "figure", "value": "이차함수 y=x^2+(1-2a)x+a^2-a-2의 그래프가 x축과 만나는 두 점 A, B와 y축과 만나는 점 C를 잇는 삼각형 ABC를 나타낸 좌표평면 그림", "bbox": [0.55, 0.18, 0.95, 0.40]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "15"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "27"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "42"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "60"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

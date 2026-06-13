@@ -1,0 +1,72 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 28,
+      "score": 4,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서답형5] [5~6] 세 학생 A, B, C를 포함하여 7명의 학생을 모두 일렬로 세우려고 한다. 다음 물음에 답하시오."},
+        {"type": "text", "value": "A, B가 이웃하는 경우의 수를 구하시오."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 29,
+      "score": 4,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서답형6] A, B는 이웃하고 C는 A, B와 이웃하지 않는 경우의 수를 구하시오."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 30,
+      "score": 4,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서답형7] [7~8]"},
+        {"type": "equation_block", "value": "z=\\frac{3-4i}{2-i}"},
+        {"type": "text", "value": "에 대하여 다음 물음에 답하시오. (단, i=\\sqrt{-1})"},
+        {"type": "text", "value": "z를 a+bi (a, b는 실수) 꼴로 표현하시오."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 31,
+      "score": 4,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서답형8] z^3-4z^2+4z+2의 값을 구하시오."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 32,
+      "score": 2,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서답형9] [9~10] 삼각형의 세 변의 길이 a, b, c가"},
+        {"type": "equation_block", "value": "a^2b-a^2c+b^3-b^2c-bc^2+c^3=0"},
+        {"type": "text", "value": "을 만족시킬 때, 다음 물음에 답하시오. (단, a, b, c는 5 이하의 자연수이다.)"},
+        {"type": "text", "value": "a^2b-a^2c+b^3-b^2c-bc^2+c^3 을 인수분해 하시오."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 33,
+      "score": 6,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서답형10] 가능한 a, b, c의 값의 순서쌍 (a, b, c)의 개수를 구하시오."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    }
+  ]
+}

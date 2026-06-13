@@ -1,0 +1,97 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 1,
+      "score": 4.1,
+      "contents": [
+        {"type": "text", "value": "두 다항식"},
+        {"type": "equation_block", "value": "A=2x^2-3xy+4y^2, \\quad B=x^2-xy+2y^2"},
+        {"type": "text", "value": "에 대하여 A+B는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "x^2-2xy+2y^2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "x^2-2xy+6y^2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3x^2-4xy+2y^2"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "3x^2-4xy+6y^2"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "3x^2-2xy+6y^2"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 2,
+      "score": 4.1,
+      "contents": [
+        {"type": "text", "value": "등식 (a-1)+3i=6+bi를 만족시키는 실수 a, b에 대하여 ab의 값은? (단, i=\\sqrt{-1}이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "15"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "18"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "21"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "24"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "27"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 3,
+      "score": 4.3,
+      "contents": [
+        {"type": "text", "value": "이차함수 y=x^2-2kx+(k+1)^2의 그래프가 x축과 접할 때, 상수 k의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-\\frac{1}{2}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-\\frac{1}{4}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{1}{4}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{1}{2}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 4,
+      "score": 4.3,
+      "contents": [
+        {"type": "text", "value": "0\\leq x\\leq 5에서 이차함수 y=x^2-8x+17의 최솟값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "2"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 5,
+      "score": 4.5,
+      "contents": [
+        {"type": "text", "value": "다항식 P(x)=x^3-2x^2-7x-4에 대하여 P(19)의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "2800"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "4400"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "6000"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "7600"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "9200"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 6,
+      "score": 4.5,
+      "contents": [
+        {"type": "text", "value": "x에 대한 이차방정식 x^2-8x+k-5=0은 서로 다른 두 실근을 갖고, x에 대한 이차방정식 kx^2-5x+2=0은 서로 다른 두 허근을 갖게 하는 정수 k의 개수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "17"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "18"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "19"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "20"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "21"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

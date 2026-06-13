@@ -1,0 +1,139 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 11,
+      "score": 4.3,
+      "contents": [
+        {"type": "text", "value": "점 (2, -1)과 직선"},
+        {"type": "equation", "value": "2x-y+3+k(x+2y)=0"},
+        {"type": "text", "value": "사이의 거리를 f(k)라 할 때, 원점과 직선"},
+        {"type": "equation", "value": "kx+(k-5)y+a=0"},
+        {"type": "text", "value": "사이의 거리가 f(k)의 최댓값과 같아지도록 실수 k의 값을 정한다고 하자. 양수 a의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "4\\sqrt{5}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "5\\sqrt{5}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "6\\sqrt{5}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "7\\sqrt{5}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "8\\sqrt{5}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 12,
+      "score": 4.4,
+      "contents": [
+        {"type": "text", "value": "좌표평면에서 두 직선"},
+        {"type": "equation", "value": "y=2x"},
+        {"type": "text", "value": ","},
+        {"type": "equation", "value": "y=\\frac{1}{2}x"},
+        {"type": "text", "value": "에 모두 접하고, 점 (3, 2)를 지나는 서로 다른 두 원의 중심을 각각"},
+        {"type": "equation", "value": "C_1(x_1, y_1)"},
+        {"type": "text", "value": ","},
+        {"type": "equation", "value": "C_2(x_2, y_2)"},
+        {"type": "text", "value": "라 할 때,"},
+        {"type": "equation", "value": "9(x_1+x_2)"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "20"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "30"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "40"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "50"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "60"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 13,
+      "score": 4.5,
+      "contents": [
+        {"type": "text", "value": "좌표평면 위에 사분원의 호"},
+        {"type": "equation", "value": "C : x^2+y^2=16 \\ (x \\geq 0, y \\geq 0)"},
+        {"type": "text", "value": "과 점 A(-2, 3)이 있다. 호 C 위를 움직이는 점 P에 대하여 점 Q를 삼각형 APQ의 무게중심이 원점과 일치하도록 잡는다. 점 Q가 그리는 도형 위의 점 (x, y)에 대하여"},
+        {"type": "equation", "value": "\\frac{y+8}{x-6}"},
+        {"type": "text", "value": "의 최댓값을 M, 최솟값을 m이라 할 때,"},
+        {"type": "equation", "value": "5(M-m)"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 14,
+      "score": 4.6,
+      "contents": [
+        {"type": "text", "value": "좌표평면 위의 세 점 A(-7, -3), B, C가 다음 조건을 만족시킨다. 삼각형 ABC의 넓이가"},
+        {"type": "equation", "value": "\\frac{q}{p}\\sqrt{65}"},
+        {"type": "text", "value": "일 때, p+q의 값은? (단, p, q는 서로소인 자연수이다.)"},
+        {"type": "text", "value": "<상자> (가) 삼각형 ABC의 무게중심의 좌표는 (-1, 1)이다. • (나) 세 점 A, B, C를 지나는 원의 중심은 원점이다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "115"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "117"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "119"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "121"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "123"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 15,
+      "score": 4.7,
+      "contents": [
+        {"type": "text", "value": "좌표평면 위에 두 원"},
+        {"type": "equation", "value": "C_1 : (x-a)^2+(y-b)^2=r_1^2"},
+        {"type": "text", "value": ","},
+        {"type": "equation", "value": "C_2 : (x-c)^2+(y-d)^2=r_2^2"},
+        {"type": "text", "value": "과 두 직선"},
+        {"type": "equation", "value": "l_1 : y=1"},
+        {"type": "text", "value": ","},
+        {"type": "equation", "value": "l_2 : y=-1"},
+        {"type": "text", "value": "가 있다. 원 C_1과 직선 l_1, l_2의 교점의 모든 x좌표로 이루어진 집합을 X, 원 C_2과 직선 l_1, l_2의 교점의 모든 x좌표로 이루어진 집합을 Y라 할 때, 두 집합 X, Y가 다음 조건을 만족시킨다."},
+        {"type": "text", "value": "r_1>2일 때, r_1^2의 값은? (단, a, b, c, r_2는 양수이고, d는 음수이다.)"},
+        {"type": "text", "value": "<상자> (가) n(X \\cap Y)=3, n(X \\cup Y)=4 • (나) 집합 X \\cap Y의 모든 원소의 합은 9이고, 집합 X \\cup Y의 모든 원소의 합은 8이다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "10"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 16,
+      "score": 4,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 1] 좌표평면 위에 세 직선"},
+        {"type": "equation", "value": "x-6=0"},
+        {"type": "text", "value": ","},
+        {"type": "equation", "value": "x-y=0"},
+        {"type": "text", "value": ","},
+        {"type": "equation", "value": "x+y+8=0"},
+        {"type": "text", "value": "으로 둘러싸인 삼각형의 외접원의 중심의 좌표를 구하시오."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 17,
+      "score": 4,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 2] 어느 학급 학생 24명을 대상으로 두 뮤지컬 A, B를 관람한 학생 수를 조사하였더니 A뮤지컬을 관람한 학생이 15명, B뮤지컬을 관람한 학생이 18명이었다. 두 뮤지컬을 모두 관람한 학생이 x명일 때, x의 최댓값과 최솟값을 구하시오."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    }
+  ]
+}

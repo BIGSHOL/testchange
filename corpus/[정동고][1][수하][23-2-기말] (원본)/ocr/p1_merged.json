@@ -1,0 +1,118 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 1,
+      "score": 4.2,
+      "contents": [
+        {"type": "text", "value": "다음 식을 전개할 때, 항의 개수는?"},
+        {"type": "equation_block", "value": "(a+b)(x+y+z)(p+q+r+s+w)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "20"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "30"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "40"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "50"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 2,
+      "score": 4.3,
+      "contents": [
+        {"type": "text", "value": "함수"},
+        {"type": "equation", "value": "f(x)=2x+a"},
+        {"type": "text", "value": "에 대하여"},
+        {"type": "equation", "value": "f^{-1}(5)=1"},
+        {"type": "text", "value": "일 때, 상수"},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "의 값은? (단,"},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "는 상수)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 3,
+      "score": 4.6,
+      "contents": [
+        {"type": "text", "value": "선수 A, B를 포함한 10명의 선수 중에서 경기에 출전할 5명의 선수를 뽑으려고 한다. 이 때, A 선수는 뽑지 않고 B 선수는 뽑을 경우의 수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "56"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "70"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "126"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "210"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "252"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 4,
+      "score": 4.3,
+      "contents": [
+        {"type": "text", "value": "28의 양의 약수의 개수를"},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": ", 48의 양의 약수의 개수를"},
+        {"type": "equation", "value": "b"},
+        {"type": "text", "value": "라고 할 때,"},
+        {"type": "equation", "value": "b-a"},
+        {"type": "text", "value": "의 값은? (단,"},
+        {"type": "equation", "value": "a, b"},
+        {"type": "text", "value": "는 상수)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-4"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "4"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 5,
+      "score": 4.4,
+      "contents": [
+        {"type": "text", "value": "두 함수"},
+        {"type": "equation", "value": "f(x)=x^2-1"},
+        {"type": "text", "value": ","},
+        {"type": "equation", "value": "g(x)=\\begin{cases} 7 & (x \\geq 4) \\\\ 2x-1 & (x < 4) \\end{cases}"},
+        {"type": "text", "value": "일 때,"},
+        {"type": "equation", "value": "(f \\circ g)(2)+(g \\circ f)(5)"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-5"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "15"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 6,
+      "score": 4.6,
+      "contents": [
+        {"type": "text", "value": "숫자 1, 2, 3, 4, 5, 6을 짝수, 홀수를 교대로 일렬로 나열하는 경우의 수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "144"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "72"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "36"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "18"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "9"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

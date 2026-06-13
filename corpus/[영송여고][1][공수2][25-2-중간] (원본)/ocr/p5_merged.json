@@ -1,0 +1,39 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 16,
+      "score": 5,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서답형3] 점 (-6, 2)에서 원"},
+        {"type": "equation", "value": "x^2+y^2=4"},
+        {"type": "text", "value": "에 그은 모든 접선의 방정식을 구하는 풀이 과정과 답을 상세하게 서술하시오."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 17,
+      "score": 6,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서답형4] 원"},
+        {"type": "equation", "value": "x^2+y^2=9"},
+        {"type": "text", "value": "위의 임의의 점과 직선 2x-3y+k=0 사이의 거리의 최댓값이 10일 때, 양수 k의 값을 구하는 풀이 과정과 답을 상세하게 서술하시오."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 18,
+      "score": 6,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서답형5] 두 직선 x+2y-4=0, x-2y=0의 교점을 지나는 직선과 점 (2, 0) 사이의 거리의 최댓값을 구하는 풀이 과정과 답을 상세하게 서술하시오."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    }
+  ]
+}

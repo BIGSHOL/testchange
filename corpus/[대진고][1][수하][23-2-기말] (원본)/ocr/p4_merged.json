@@ -1,0 +1,48 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 17,
+      "score": 5,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서답형 1] 두 함수 f(x)=x^2+x+1, g(x)=\\sqrt{x+2}-5에 대하여 (f \\circ g)(2)-(g \\circ f)(2)의 값을 구하고, 그 풀이과정을 서술하시오. [5점]"}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 18,
+      "score": 6,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서답형 2] 그림과 같이 사각형의 변 위에 12개의 점 A~L이 있다. 이 중에서 점 4개를 꼭짓점으로 하는 사각형의 개수를 구하고 그 풀이과정을 서술하시오. [6점]"},
+        {"type": "figure", "value": "사다리꼴 모양 사각형의 네 변 위에 12개의 점 A, B, C, D, E, F, G, H, I, J, K, L이 표시된 그림. 윗변에 A, B; 오른쪽 변에 C, D, E; 아랫변에 F, G, H, I; 왼쪽 변에 J, K, L.", "bbox": [0.18, 0.55, 0.45, 0.72]}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 19,
+      "score": 9,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서답형 3] n이 자연수일 때, 다음 명제가 참임을 증명하시오. [9점]"},
+        {"type": "text", "value": "<상자> n^2이 3의 배수이면 n도 3의 배수이다."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 20,
+      "score": 10,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서답형 4] 함수 f(x)의 그래프가 그림과 같을 때 방정식 (f \\circ f)(x)=\\frac{3}{2}의 실근을 모두 구하고 그 풀이과정을 서술하시오. [10점]"},
+        {"type": "figure", "value": "y=f(x)의 그래프(꺾은선). 원점 O에서 출발해 점 (1, 2)까지 직선으로 상승, 이후 (5, 0)을 지나며 직선으로 하강해 x축 아래로 계속 내려감.", "bbox": [0.55, 0.68, 0.92, 0.92]}
+      ],
+      "choices": [],
+      "sub_questions": []
+    }
+  ]
+}

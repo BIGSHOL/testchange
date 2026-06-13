@@ -1,0 +1,79 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 17,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "모든 계수와 상수항이 실수인 삼차식 f(x)가"},
+        {"type": "equation", "value": "2x-1"},
+        {"type": "text", "value": "로 나누어떨어지고, 방정식 f(x)=0의 한 근이"},
+        {"type": "equation", "value": "4-3i"},
+        {"type": "text", "value": "일 때, 방정식 f(3x+1)=0의 모든 근의 합은? (단, i=\\sqrt{-1}) [4점]"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{7}{6}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{4}{3}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{3}{2}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{5}{3}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{11}{6}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 18,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "다항식"},
+        {"type": "equation", "value": "x^4+(k^2-5)x^2-12"},
+        {"type": "text", "value": "가"},
+        {"type": "equation", "value": "(x+a)(x+b)(x^2+c)"},
+        {"type": "text", "value": "로 인수분해 되도록 하는 모든 실수 k의 값의 곱은? (단, a, b, c는 정수이다.) [5점]"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "25"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "36"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "64"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "72"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "81"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 19,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "최고차항의 계수가 1인 이차함수 f(x)가 다음 조건을 만족시킨다."},
+        {"type": "text", "value": "<조건> (가) f(p)=f(q)인 서로 다른 두 정수 p, q가 존재한다. • (나) n \\leq x \\leq n+4에서 함수 f(x)의 최댓값과 최솟값의 곱이 f(n) \\times f(n+4)의 값과 같지 않도록 하는 모든 자연수 n의 값은 2, 3, 4, 5이다."},
+        {"type": "text", "value": "함수 f(x)의 최솟값이"},
+        {"type": "equation", "value": "-\\frac{1}{4}"},
+        {"type": "text", "value": "일 때 f(3)의 값은? [5점]"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "10"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 20,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "다항식 P(x)가"},
+        {"type": "equation_block", "value": "P(x)=x^4+2(a-4)x^2+a^2-8a-9"},
+        {"type": "text", "value": "일 때, 모든 정수 k에 대하여 P(k) \\neq 0이 되도록 하는 모든 a의 값의 합은? (단, a는 9이하의 자연수이다.) [5점]"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "20"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "23"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "26"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "29"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "32"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

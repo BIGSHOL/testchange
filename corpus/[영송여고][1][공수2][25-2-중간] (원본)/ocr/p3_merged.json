@@ -1,0 +1,51 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 10,
+      "score": 5.2,
+      "contents": [
+        {"type": "text", "value": "두 점 A(4, 3), B(6, 4)와 x축 위를 움직이는 점 P, 직선 y=x 위를 움직이는 점 Q에 대하여 \\overline{AP}+\\overline{PQ}+\\overline{QB}의 최솟값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "11"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 11,
+      "score": 5.8,
+      "contents": [
+        {"type": "text", "value": "두 집합 A, B에 대하여 n(A)=10, n(B)=14이고 n(A\\cap B)\\geq 4이다. n(A\\cup B)의 최댓값을 a, 최솟값을 b라 할 때, a-b의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "7"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 12,
+      "score": 5.8,
+      "contents": [
+        {"type": "text", "value": "집합 A_k=\\{x|x는 k의 양의 약수\\}라고 할 때, 보기에서 옳은 것만을 있는 대로 고르면? (단, k는 자연수이다.)"},
+        {"type": "text", "value": "<보기> ㄱ. \\{1, n\\}\\subset A_n  ㄴ. A_4\\cup(A_6\\cap A_{12})=A_6  ㄷ. A_n\\cap A_m=A_m이면, m은 n의 약수이다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄴ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄱ, ㄴ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄴ, ㄷ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄱ, ㄷ"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

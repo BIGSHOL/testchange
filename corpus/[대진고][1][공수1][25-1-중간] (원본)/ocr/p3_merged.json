@@ -1,0 +1,73 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 14,
+      "score": 4.4,
+      "contents": [
+        {"type": "text", "value": "어느 카페에서 원가가 1120원인 커피 한 잔을 1600원에 판매할 때, 하루 100잔의 커피가 팔린다고 한다. 이 커피 한 잔의 판매가격을 x% 올리면 하루 판매량이 2x% 줄어든다고 하자. 이 커피를 팔아 얻은 하루 총 이익이 최대가 되기 위한 커피 한 잔의 판매가격을 a원, 그때의 하루 총 이익을 b원이라 할 때, a+b의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "52960"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "53360"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "53760"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "54160"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "54560"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 15,
+      "score": 4.4,
+      "contents": [
+        {"type": "text", "value": "등식"},
+        {"type": "equation", "value": "\\sqrt{a}\\sqrt{-2}+\\frac{\\sqrt{32}}{\\sqrt{a}}=-2+bi"},
+        {"type": "text", "value": "를 만족시키는 ab\\neq 0인 두 실수 a, b에 대하여"},
+        {"type": "equation_block", "value": "\\frac{\\sqrt{a+4}}{\\sqrt{a}}+\\frac{\\sqrt{a}}{\\sqrt{b+6}}+\\sqrt{a+4}\\sqrt{b+2}+\\sqrt{a-2}\\sqrt{b}=p+qi"},
+        {"type": "text", "value": "가 성립한다고 한다. 두 실수 p, q의 합 p+q의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "6"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 16,
+      "score": 4,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서답형 1] 세 다항식"},
+        {"type": "equation", "value": "A=a^2+a+5b^2, \\quad B=2a^2+3b+10b^2, \\quad C=2a^2-3b+6ab-b^2"},
+        {"type": "text", "value": "에 대하여"},
+        {"type": "equation", "value": "(2A-B)(B+C)"},
+        {"type": "text", "value": "를 계산하고 그 과정을 서술하시오."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 17,
+      "score": 7,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서답형 2] 최고차항의 계수가 1인 이차방정식 f(x)=0 가 복소수 z=2+i 를 근으로 가질 때, 이차함수 y=f(x)의 그래프와 직선 y=-2x+k 가 만나도록 하는 실수 k값의 범위를 구하고 그 과정을 서술하시오."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 18,
+      "score": 9,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서답형 3] 다항식 f(x)를 x+1로 나누었을 때의 나머지가 -8이고, (x-2)^2로 나누었을 때의 나머지가 x+2일 때, f(x)를 (x+1)(x-2)^2로 나누었을 때의 나머지를 구하고 그 과정을 서술하시오."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    }
+  ]
+}

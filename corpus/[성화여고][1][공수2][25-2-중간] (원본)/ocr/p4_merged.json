@@ -1,0 +1,71 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 17,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "두 집합 A=\\{x|x는 4의 약수\\}, B=\\{x|x는 12의 약수\\}에 대하여"},
+        {"type": "equation_block", "value": "A \\cap X=A, \\quad B \\cup X=B"},
+        {"type": "text", "value": "를 만족시키는 집합 X의 개수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "11"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "12"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 18,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "점 A(-3,4)를 지나는 직선 위의 두 점 B(a,b), C(c,d)가 \\overline{BC}=15를 만족시킨다. 원점 O와 두 점 B, C를 이은 삼각형 OBC의 넓이가 최대일 때, 점 A는 선분 BC를 1:2로 내분하는 점이다. a+b+c+d의 값은? (단, 점 B의 x좌표는 점 C의 x좌표보다 크다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-5"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-4"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "-1"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 19,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "두 점 A(0,2), B(4,0)에 대하여 삼각형 ABP가 직각삼각형이 되도록 하는 원"},
+        {"type": "equation_block", "value": "x^2+y^2-8x-10y+36=0"},
+        {"type": "text", "value": "위의 점 P의 개수가 3일 때, 이 3개의 점을 각각 P_1, P_2, P_3라 하자. 삼각형 P_1P_2P_3의 무게중심의 좌표를 (a,b)라 할 때, a+b의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "10"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 20,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "자연수 집합의 두 부분집합 A, B가 다음 조건을 만족시킨다."},
+        {"type": "text", "value": "<상자> (가) n(A)=n(B)=4 • (나) x \\in A이면 x+k \\in B이다. (단, k는 상수) • (다) A-B=\\{1\\}"},
+        {"type": "text", "value": "집합 A의 모든 원소의 합이 40일 때, 집합 B의 모든 원소의 합은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "60"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "64"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "68"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "72"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "76"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

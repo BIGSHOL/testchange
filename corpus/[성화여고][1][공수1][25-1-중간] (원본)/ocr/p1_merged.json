@@ -1,0 +1,111 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 1,
+      "score": 2,
+      "contents": [
+        {"type": "text", "value": "다항식"},
+        {"type": "equation", "value": "P(x)=2x^3-3x^2+3"},
+        {"type": "text", "value": "을"},
+        {"type": "equation", "value": "x-1"},
+        {"type": "text", "value": "로 나누었을 때의 나머지는? [2점]"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 2,
+      "score": 2,
+      "contents": [
+        {"type": "text", "value": "다음 등식을 만족시키는 실수 x, y의 값은? [2점]"},
+        {"type": "equation_block", "value": "(2x+y)+(x-y)i=3+3i"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "x=-2, y=-1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "x=-1, y=1"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "x=1, y=1"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "x=2, y=-1"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "x=2, y=1"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 3,
+      "score": 2,
+      "contents": [
+        {"type": "text", "value": "이차방정식"},
+        {"type": "equation", "value": "x^2+4x+k-1=0"},
+        {"type": "text", "value": "이 중근을 가질 때, 실수 k의 값은? [2점]"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "7"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 4,
+      "score": 2,
+      "contents": [
+        {"type": "text", "value": "이차함수"},
+        {"type": "equation", "value": "y=x^2+2x+a-5"},
+        {"type": "text", "value": "의 그래프가 x축과 접할 때, 실수 a의 값은? [2점]"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "7"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 5,
+      "score": 2,
+      "contents": [
+        {"type": "equation", "value": "1 \\leq x \\leq 4"},
+        {"type": "text", "value": "에서 이차함수"},
+        {"type": "equation", "value": "y=-(x-2)^2+6"},
+        {"type": "text", "value": "이"},
+        {"type": "equation", "value": "x=a"},
+        {"type": "text", "value": "에서 최댓값 b를 가질 때, 두 상수 a, b에 대하여 a+b의 값은? [2점]"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "10"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 6,
+      "score": 2,
+      "contents": [
+        {"type": "text", "value": "삼차방정식"},
+        {"type": "equation", "value": "2x^3-8x^2+ax-1=0"},
+        {"type": "text", "value": "의 한 근이 1일 때, 상수 a의 값은? [2점]"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "11"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

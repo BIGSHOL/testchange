@@ -1,0 +1,69 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 7,
+      "score": 4.7,
+      "contents": [
+        {"type": "text", "value": "부피가"},
+        {"type": "equation", "value": "2x^3-ax^2+4x+4"},
+        {"type": "text", "value": "인 직육면체가 있다. 이 직육면체 높이가 2x+1이고 밑면은 정사각형일 때, 이 직육면체의 겉넓이는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "5x(x-2)"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "10x(x-2)"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "(x-2)(3x-1)"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "(x-2)(4x-3)"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "(x-1)(9x+2)"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 8,
+      "score": 4.7,
+      "contents": [
+        {"type": "text", "value": "두 정수 a, b에 대하여 이차함수 y=2x^2+x+a의 그래프와 직선 y=bx-2가 서로 다른 두 점에서 만나고, 두 교점의 x좌표의 합은 4이다. a의 최댓값을 m이라 할 때, bm의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-54"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-45"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "36"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "45"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "54"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 9,
+      "score": 4.7,
+      "contents": [
+        {"type": "text", "value": "0\\leq x\\leq 3일 때, 함수"},
+        {"type": "equation_block", "value": "y=3(x^2-4x+3)^2-6(x^2-4x+3)-3"},
+        {"type": "text", "value": "의 최댓값을 M, 최솟값을 m이라 할 때, M-m의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "24"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "36"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 10,
+      "score": 4.9,
+      "contents": [
+        {"type": "text", "value": "다항식 f(x)를 (x-1)^2으로 나누었을 때의 나머지는 3x-1이고, x+1로 나누었을 때의 나머지는 4이다. 이 다항식 f(x)를 (x-1)^2(x+1)로 나누었을 때의 나머지를 g(x)라 할 때, g(3)의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "13"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "14"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "15"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "16"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

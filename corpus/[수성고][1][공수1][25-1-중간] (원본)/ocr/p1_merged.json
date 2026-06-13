@@ -1,0 +1,204 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 1,
+      "score": 2,
+      "contents": [
+        {"type": "text", "value": "두 다항식 A=-2x^2+x+1, B=x^2+2x+2에 대하여 A+B를 계산하면?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "3x^2+3x+3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2x^2+2x+1"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-x^2+x+3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "-x^2+3x+3"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "-2x^2+2x+2"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 2,
+      "score": 2,
+      "contents": [
+        {"type": "text", "value": "x^2+y^2+z^2=16, xy+yz+zx=10일 때, (x+y+z)^2의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "30"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "32"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "34"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "36"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "38"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 3,
+      "score": 2,
+      "contents": [
+        {"type": "text", "value": "다항식 x^3+2x^2-x+1을 x-1로 나누었을 때의 나머지는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "6"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 4,
+      "score": 2,
+      "contents": [
+        {"type": "text", "value": "(1+2i)+(3-2i)를 계산하면? (단, i=\\sqrt{-1})"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "2i"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4i"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "6i"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 5,
+      "score": 2,
+      "contents": [
+        {"type": "text", "value": "\\sqrt{-4}와 같은 값은? (단, i=\\sqrt{-1})"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-4"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "2i"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "4i"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 6,
+      "score": 2,
+      "contents": [
+        {"type": "text", "value": "i^5을 계산하면? (단, i=\\sqrt{-1})"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "i"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-i"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "0"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 7,
+      "score": 2,
+      "contents": [
+        {"type": "text", "value": "(1+2i)(1-2i)를 계산하면? (단, i=\\sqrt{-1})"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "11"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 8,
+      "score": 2,
+      "contents": [
+        {"type": "text", "value": "이차방정식 x^2-5x+11=0의 서로 다른 두 근을 \\alpha, \\beta라 할 때, \\alpha+\\beta+\\alpha\\beta의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "16"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "20"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "24"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 9,
+      "score": 2,
+      "contents": [
+        {"type": "text", "value": "피자 2종류, 파스타 3종류를 파는 식당에서 한가지 메뉴를 주문하는 경우의 수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "6"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 10,
+      "score": 2,
+      "contents": [
+        {"type": "text", "value": "수필 2권, 시집 2권, 소설 3권 중에서 이달의 추천 도서를 선정하려고 한다. 이달의 추천 도서를 수필, 시집, 소설에서 각 1권씩 선정하는 경우의 수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "12"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 11,
+      "score": 2,
+      "contents": [
+        {"type": "text", "value": "서로 다른 책 5권 중 2권을 선택하는 경우의 수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "14"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "16"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 12,
+      "score": 2,
+      "contents": [
+        {"type": "text", "value": ""},
+        {"type": "equation", "value": "{}_6\\mathrm{P}_3"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "120"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "100"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "80"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "60"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "40"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 13,
+      "score": 2,
+      "contents": [
+        {"type": "text", "value": ""},
+        {"type": "equation", "value": "{}_6\\mathrm{C}_3"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "60"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "50"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "40"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "30"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "20"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

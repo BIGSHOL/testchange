@@ -1,0 +1,110 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 8,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "다항식"},
+        {"type": "equation", "value": "p(x)=2x^3+3x^2-x-2"},
+        {"type": "text", "value": "에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?"},
+        {"type": "text", "value": "<보기> ㄱ. x+1은 p(x)의 인수이다. • ㄴ. p(x)를 x-1로 나눈 나머지는 2이다. • ㄷ. p(x)를 2x+1로 나눈 몫을 Q(x)라 하면 Q(1)=2이고 나머지는 -1이다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄴ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄱ, ㄴ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄴ, ㄷ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄱ, ㄴ, ㄷ"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 9,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "복소수 z와 그 켤레복소수"},
+        {"type": "equation", "value": "\\overline{z}"},
+        {"type": "text", "value": "에 대하여 옳은 것만을 <보기>에서 있는 대로 고른 것은?"},
+        {"type": "text", "value": "<보기> ㄱ. z^3+(\\overline{z})^3 은 실수이다. • ㄴ. z\\overline{z}=0이면 z=0이다. • ㄷ. z+\\overline{z}=0이면 z^2은 음의 실수이다. • ㄹ. \\frac{1}{z}+\\frac{1}{\\overline{z}} 은 실수이다. (단, z\\neq 0이다.) • ㅁ. 자연수 n에 대하여 (\\overline{z}-z)^{2n} 은 양의 실수이다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ, ㄴ, ㄷ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄱ, ㄴ, ㄹ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄱ, ㄷ, ㄹ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄴ, ㄹ, ㅁ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄷ, ㄹ, ㅁ"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 10,
+      "score": 4.2,
+      "contents": [
+        {"type": "text", "value": "다항식"},
+        {"type": "equation", "value": "(2x-1)(x+a)(2x+1)+b(x+a)"},
+        {"type": "text", "value": "는"},
+        {"type": "equation", "value": "x^2+3"},
+        {"type": "text", "value": "으로 나누어떨어지고, 그때의 몫을 Q(x)라 하자. Q(1)=8일 때, b-3a의 값은? (단, a, b는 실수이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "12"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 11,
+      "score": 4.2,
+      "contents": [
+        {"type": "text", "value": "다음을 계산한 값은?"},
+        {"type": "equation_block", "value": "\\sqrt{\\dfrac{2025^4+2025^2+1}{2025^2-2025+1}-\\dfrac{2025^4+2025^2+1}{2025^2+2025+1}}"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "25\\sqrt{2}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "30\\sqrt{2}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "35\\sqrt{2}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "40\\sqrt{2}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "45\\sqrt{2}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 12,
+      "score": 4.2,
+      "contents": [
+        {"type": "equation", "value": "\\sqrt{x-4}\\sqrt{1-x}=-\\sqrt{(x-4)(1-x)}"},
+        {"type": "text", "value": "를 만족시키는 모든 실수 x와 상수 k에 대하여 이차함수 y=-x^2+6x+k 는 x=a에서 최댓값 10, x=b에서 최솟값 m을 가진다고 할 때, a+b+m+k의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "21"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "20"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "16"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "11"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "7"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 13,
+      "score": 4.2,
+      "contents": [
+        {"type": "equation", "value": "z=\\frac{1-i}{\\sqrt{2}}"},
+        {"type": "text", "value": "일 때,"},
+        {"type": "equation", "value": "1+z+z^2+z^3+\\cdots+z^{16}"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "i"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "-i"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

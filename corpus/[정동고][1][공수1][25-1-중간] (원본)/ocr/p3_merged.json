@@ -1,0 +1,71 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 11,
+      "score": 4.9,
+      "contents": [
+        {"type": "text", "value": "이차방정식 x^2+x-4=0의 서로 다른 두 근 \\alpha, \\beta에 대하여 이차함수 f(x)=x^2+px+q가 f(\\alpha^2)=-2\\alpha, f(\\beta^2)=-2\\beta를 만족시킬 때 p+q의 값은? (단, p, q는 상수)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 12,
+      "score": 5.1,
+      "contents": [
+        {"type": "text", "value": "모든 계수가 정수인 다항식 f(x)에 대하여 다항식"},
+        {"type": "equation", "value": "x^5+ax^4+x^3+bx^2+x+2"},
+        {"type": "text", "value": "가 (x+k)\\times f(x)의 꼴로 인수분해 될 때, ab의 최댓값은? (단, a, b는 자연수이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "12"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 13,
+      "score": 5.1,
+      "contents": [
+        {"type": "text", "value": "방정식 x^3-1=0의 한 허근을 \\omega라 할 때,"},
+        {"type": "equation_block", "value": "\\omega+\\omega^3+\\omega^5+\\cdots+\\omega^{2025}=a+b\\omega"},
+        {"type": "text", "value": "이다. 이때, 실수 a, b에 대하여 a+b의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "2"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 14,
+      "score": 5.1,
+      "contents": [
+        {"type": "text", "value": "x에 대한 삼차방정식"},
+        {"type": "equation_block", "value": "x^3-(2k+2)x^2+(4k+8)x-16=0"},
+        {"type": "text", "value": "의 서로 다른 실근의 개수가 2가 되도록 하는 모든 실수 k값의 곱은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-36"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-24"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "24"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "36"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

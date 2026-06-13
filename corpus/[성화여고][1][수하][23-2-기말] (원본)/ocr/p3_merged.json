@@ -1,0 +1,109 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 15,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "함수"},
+        {"type": "equation", "value": "f(x)=\\sqrt{mx+4}-n"},
+        {"type": "text", "value": "이 다음 조건을 만족시킨다."},
+        {"type": "text", "value": "<상자> (가) 함수 y=f(x)의 그래프는 제4사분면을 지나지 않는다. • (나) 함수 y=f(x)의 그래프는 점 (1, 2)를 지난다."},
+        {"type": "text", "value": "m+n의 최솟값은? (단, m, n은 자연수이다.) [3점]"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "8"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 16,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "무리함수"},
+        {"type": "equation", "value": "y=\\sqrt{2x-4}-3"},
+        {"type": "text", "value": "의 그래프를 x축의 방향으로 a만큼, y축의 방향으로 b만큼 평행이동하였더니 무리함수"},
+        {"type": "equation", "value": "y=\\sqrt{2x+6}+1"},
+        {"type": "text", "value": "의 그래프와 일치하였다. 두 상수 a, b에 대하여 a+b의 값은? [3점]"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "2"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 17,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "여학생 3명과 남학생 2명이 일렬로 서서 사진을 찍으려고 할 때, 남학생 2명이 서로 이웃하지 않게 서는 경우의 수는? [3점]"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "24"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "36"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "48"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "60"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "72"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 18,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "대각선이 20개인 정다각형의 꼭짓점의 개수는? [3점]"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "11"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 19,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "정의역이 X={1, 2, 3}이고, 공역이 Y={4, 5, 6, 7}인 함수 f가 있다. 함수 f의 개수를 a라 하고, X의 두 원소 x₁, x₂에 대하여"},
+        {"type": "equation", "value": "x_1<x_2"},
+        {"type": "text", "value": "이면"},
+        {"type": "equation", "value": "f(x_1)>f(x_2)"},
+        {"type": "text", "value": "인 조건을 만족하는 함수 f의 개수를 b라 할 때, a+b의 값은? (단, a, b는 자연수이다.) [3점]"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "68"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "69"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "70"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "71"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "72"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 20,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "집합 X={-2, -1, 0, 1, 2}에 대하여 함수 f: X→X의 역함수가 존재하고 다음 조건을 모두 만족시킨다."},
+        {"type": "text", "value": "<상자> (가) (f \\circ f)(-2)+f^{-1}(-1)=4 • (나) k=-1, 0일 때, f(k-1) \\times f(k+1) \\leq 0이다."},
+        {"type": "text", "value": "f(0)+f(1)+f(2)의 최댓값은? [4점]"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "3"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}
