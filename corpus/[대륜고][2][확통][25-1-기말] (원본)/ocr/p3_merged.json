@@ -1,0 +1,128 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 6,
+      "score": 3.4,
+      "contents": [
+        {"type": "text", "value": "인형뽑기 성공률이 각각 70%, 50%인 영웅이와 지혁이가 차례로 인형뽑기를 한 번씩만 할 때, 적어도 한 명이 인형뽑기에 성공할 확률은? (단, 영웅이와 지혁이가 각각 인형뽑기에 성공하는 사건은 서로 독립이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "0.45"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "0.55"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "0.65"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "0.75"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "0.85"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 7,
+      "score": 3.5,
+      "contents": [
+        {"type": "text", "value": "다음은 한국시리즈 우승 팀 결정전 중계이다. B팀이 7차전에서 최종 우승할 확률은? (단, 매 경기에 무승부는 없고, 두 팀이 이길 확률은 서로 같다.)"},
+        {"type": "text", "value": "<상자> A팀과 B팀의 3차전 경기입니다. 지난 __2차전까지__ A팀이 __2승__을 했습니다. • 먼저 4승을 거둔 팀이 최종 우승을 하게 됩니다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{1}{16}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{1}{8}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{3}{16}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{1}{4}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{5}{16}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 8,
+      "score": 3.6,
+      "contents": [
+        {"type": "text", "value": "부산과 시모노세키 간 선박편을 이용하는 승객 1명의 수화물 무게는 평균이 20kg, 표준편차가 4kg인 정규분포를 따른다고 한다. 어느 날 부산과 시모노세키 간 선박편을 이용하는 승객 16명을 임의추출하였을 때, 승객의 수화물 무게의 평균이 21.5kg 이상일 확률을 오른쪽 표준정규분포표를 이용하여 구한 것은?"},
+        {"type": "table", "value": "", "rows": [
+          ["z", "P(0 \\leq Z \\leq z)"],
+          ["0.5", "0.20"],
+          ["1.0", "0.35"],
+          ["1.5", "0.43"],
+          ["2.0", "0.48"],
+          ["2.5", "0.49"]
+        ]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "0.01"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "0.02"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "0.07"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "0.15"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "0.3"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 9,
+      "score": 3.7,
+      "contents": [
+        {"type": "text", "value": "어느 중국집에서 오토바이를 이용하여 음식의 80%를 배달하고, 승용차를 이용하여 음식의 20%를 배달한다고 한다. 이때 오토바이를 이용하여 배달하는 음식의 60%, 승용차를 이용하여 배달하는 음식의 80%가 30분 이내에 배달된다. 승이가 30분 이내에 음식을 받았다면, 이 음식이 오토바이를 이용하여 배달되었을 확률은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{1}{4}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{3}{8}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{1}{2}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{5}{8}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{3}{4}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 10,
+      "score": 3.8,
+      "contents": [
+        {"type": "text", "value": "어느 빵집에서 생산된 단팥빵 1개의 열량은 모표준편차가 20인 정규분포를 따른다고 한다. 이 빵집에서 생산된 단팥빵 "},
+        {"type": "equation", "value": "n"},
+        {"type": "text", "value": "개를 임의추출하여 열량을 측정하였더니 평균이 100이었다. 이 빵집에서 생산된 단팥빵 1개의 평균 열량 "},
+        {"type": "equation", "value": "m"},
+        {"type": "text", "value": "에 대한 신뢰도 95%의 신뢰구간이 "},
+        {"type": "equation", "value": "98.04 \\leq m \\leq 101.96"},
+        {"type": "text", "value": "일 때, 이 때, 표본의 크기 "},
+        {"type": "equation", "value": "n"},
+        {"type": "text", "value": "의 값은? (단, 열량의 단위는 cal이고, "},
+        {"type": "equation", "value": "Z"},
+        {"type": "text", "value": "가 표준정규분포를 따르는 확률변수일 때, "},
+        {"type": "equation", "value": "P(|Z| \\leq 1.96) = 0.95"},
+        {"type": "text", "value": "로 계산한다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "100"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "200"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "300"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "400"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "500"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 11,
+      "score": 3.9,
+      "contents": [
+        {"type": "text", "value": "정규분포 "},
+        {"type": "equation", "value": "N(1, 4)"},
+        {"type": "text", "value": "를 따르는 확률변수 "},
+        {"type": "equation", "value": "X"},
+        {"type": "text", "value": "와 정규분포 "},
+        {"type": "equation", "value": "N(m, 9)"},
+        {"type": "text", "value": "를 따르는 확률변수 "},
+        {"type": "equation", "value": "Y"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "P(1 \\leq X \\leq 3) = \\frac{1}{2} \\times P(2-m \\leq Y \\leq 3m-2)"},
+        {"type": "text", "value": "가 성립할 때, 상수 "},
+        {"type": "equation", "value": "m"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{3}{2}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{5}{2}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "3"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

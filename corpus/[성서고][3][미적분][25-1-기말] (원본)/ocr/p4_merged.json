@@ -1,0 +1,69 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 14,
+      "score": 4.8,
+      "contents": [
+        {"type": "text", "value": "양의 실수 "},
+        {"type": "equation", "value": "t"},
+        {"type": "text", "value": "에 대하여 함수 "},
+        {"type": "equation", "value": "f(x)"},
+        {"type": "text", "value": "를"},
+        {"type": "equation_block", "value": "f(x)=\\begin{cases} xe^{-2x} & (x\\le t) \\\\ 0 & (x>t) \\end{cases}"},
+        {"type": "text", "value": "라 하자. 구간 "},
+        {"type": "equation", "value": "(0,\\ \\infty)"},
+        {"type": "text", "value": "에서 함수 "},
+        {"type": "equation", "value": "f(x)"},
+        {"type": "text", "value": "의 최댓값을 "},
+        {"type": "equation", "value": "g(t)"},
+        {"type": "text", "value": "라 할 때, "},
+        {"type": "equation", "value": "\\int_{0}^{2}g(t)\\,dt"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{1}{4}+\\frac{1}{4e}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{1}{4}+\\frac{1}{2e}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{1}{4}+\\frac{1}{e}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{1}{2}+\\frac{1}{4e}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{1}{2}+\\frac{1}{2e}"}]}
+      ]
+    },
+    {
+      "number": 15,
+      "score": 5,
+      "label_type": "서답형",
+      "contents": [
+        {"type": "text", "value": "[서답형 1] 함수 "},
+        {"type": "equation", "value": "f(x)"},
+        {"type": "text", "value": "가"},
+        {"type": "equation_block", "value": "f(x)=\\frac{4^{x}-x^{2}}{2^{x}-x},\\quad f(0)=0"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "f(2)"},
+        {"type": "text", "value": "의 값을 구하는 풀이 과정과 답을 쓰시오."}
+      ],
+      "choices": []
+    },
+    {
+      "number": 16,
+      "score": 8,
+      "label_type": "서답형",
+      "contents": [
+        {"type": "text", "value": "[서답형 2] "},
+        {"type": "equation", "value": "0\\le x\\le\\frac{\\pi}{2}"},
+        {"type": "text", "value": "에서 곡선 "},
+        {"type": "equation", "value": "y=\\cos x"},
+        {"type": "text", "value": "및 "},
+        {"type": "equation", "value": "y"},
+        {"type": "text", "value": "축과 "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "축으로 둘러싸인 도형의 넓이를 곡선 "},
+        {"type": "equation", "value": "y=a\\sin x"},
+        {"type": "text", "value": "가 이등분할 때, 양수 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "의 값을 구하는 풀이 과정과 답을 쓰시오."}
+      ],
+      "choices": []
+    }
+  ]
+}

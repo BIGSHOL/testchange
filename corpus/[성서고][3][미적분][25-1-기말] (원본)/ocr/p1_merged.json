@@ -1,0 +1,107 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 1,
+      "score": 3.9,
+      "contents": [
+        {"type": "equation", "value": "\\lim_{n\\to\\infty}\\frac{1}{n}\\sum_{k=1}^{n}\\left(1+\\frac{2k}{n}\\right)^{5}"},
+        {"type": "text", "value": "을 정적분으로 바르게 나타낸 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{1}{2}\\int_{0}^{2} x^{5}\\,dx"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{1}{2}\\int_{0}^{3} x^{5}\\,dx"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{1}{2}\\int_{1}^{3} x^{5}\\,dx"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "2\\int_{0}^{2} x^{5}\\,dx"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "2\\int_{1}^{3} x^{5}\\,dx"}]}
+      ]
+    },
+    {
+      "number": 2,
+      "score": 3.9,
+      "contents": [
+        {"type": "text", "value": "곡선 "},
+        {"type": "equation", "value": "xy^{2}+\\ln(x+y)=1+\\ln 2"},
+        {"type": "text", "value": "와 직선 "},
+        {"type": "equation", "value": "y=mx+n"},
+        {"type": "text", "value": "이 점 "},
+        {"type": "equation", "value": "(1,\\ 1)"},
+        {"type": "text", "value": "에서 접할 때, 0이 아닌 두 상수 "},
+        {"type": "equation", "value": "m,\\ n"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "25mn"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-12"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-15"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-18"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "-21"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "-24"}]}
+      ]
+    },
+    {
+      "number": 3,
+      "score": 3.9,
+      "contents": [
+        {"type": "text", "value": "좌표평면 위를 움직이는 점 "},
+        {"type": "equation", "value": "P(x,\\ y)"},
+        {"type": "text", "value": "의 시각 "},
+        {"type": "equation", "value": "t\\ (t\\ge 0)"},
+        {"type": "text", "value": "에서의 위치 "},
+        {"type": "equation", "value": "(x,\\ y)"},
+        {"type": "text", "value": "가"},
+        {"type": "equation_block", "value": "x=e^{t}\\sin t,\\quad y=e^{t}\\cos t"},
+        {"type": "text", "value": "이다. 점 P의 시각 "},
+        {"type": "equation", "value": "t=a"},
+        {"type": "text", "value": "에서의 가속도의 크기가 4일 때, 상수 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\ln 2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2\\ln 2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3\\ln 2"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4\\ln 2"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5\\ln 2"}]}
+      ]
+    },
+    {
+      "number": 4,
+      "score": 4.1,
+      "contents": [
+        {"type": "equation", "value": "\\int_{\\frac{\\pi}{4}}^{\\frac{\\pi}{3}}\\frac{1}{\\cos^{4}x}\\,dx"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "2\\sqrt{3}-\\frac{1}{3}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2\\sqrt{3}-\\frac{2}{3}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "2\\sqrt{3}-1"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "2\\sqrt{3}-\\frac{4}{3}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "2\\sqrt{3}-\\frac{5}{3}"}]}
+      ]
+    },
+    {
+      "number": 5,
+      "score": 4.1,
+      "contents": [
+        {"type": "text", "value": "곡선 "},
+        {"type": "equation", "value": "f(x)=2x\\sqrt{x}\\ (0\\le x\\le 1)"},
+        {"type": "text", "value": "의 길이가 "},
+        {"type": "equation", "value": "a\\sqrt{10}+b"},
+        {"type": "text", "value": "일 때, 두 상수 "},
+        {"type": "equation", "value": "a,\\ b"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "a+b"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{14}{27}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{16}{27}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{2}{3}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{20}{27}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{22}{27}"}]}
+      ]
+    }
+  ]
+}

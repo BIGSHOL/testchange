@@ -1,0 +1,91 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 12,
+      "score": 4.0,
+      "contents": [
+        {"type": "text", "value": "어느 고등학교 2학년 학생들의 확률과 통계 과목의 점수는 평균이 45점, 표준편차가 20점인 정규분포를 따른다고 한다. 확률과 통계 과목의 점수가 상위 4% 초과 11% 이하에 속하는 학생들이 확률과 통계 과목에서 2등급을 받는다고 한다. 동점자가 없다고 할 때, 2등급을 받기 위한 최저점수는? (단, "},
+        {"type": "equation", "value": "Z"},
+        {"type": "text", "value": "가 표준정규분포를 따르는 확률변수일 때, "},
+        {"type": "equation", "value": "P(0 \\leq Z \\leq 1.75) = 0.46"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "P(0 \\leq Z \\leq 1.23) = 0.39"},
+        {"type": "text", "value": "로 계산한다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "68.5"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "69.6"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "72.2"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "75.8"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "79.9"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 13,
+      "score": 4.1,
+      "contents": [
+        {"type": "text", "value": "이항분포 "},
+        {"type": "equation", "value": "B(n, p)"},
+        {"type": "text", "value": "를 따르는 확률변수 "},
+        {"type": "equation", "value": "X"},
+        {"type": "text", "value": "가 다음 조건을 모두 만족시킬 때, 상수 "},
+        {"type": "equation", "value": "n, p"},
+        {"type": "text", "value": "의 합 "},
+        {"type": "equation", "value": "n+p"},
+        {"type": "text", "value": "의 값은? (단, "},
+        {"type": "equation", "value": "0 < p < 1"},
+        {"type": "text", "value": ")"},
+        {"type": "text", "value": "<조건> (가) P(X=2)=2×P(X=1) • (나) V(X)=2"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{22}{3}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{25}{3}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{28}{3}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{31}{3}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{34}{3}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 14,
+      "score": 8,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 1] 주사위 1개를 360번 던질 때, 6의 약수의 눈이 나오는 횟수를 확률변수 "},
+        {"type": "equation", "value": "X"},
+        {"type": "text", "value": "라고 하자. 확률변수 "},
+        {"type": "equation", "value": "X"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "E(X)+V(X)"},
+        {"type": "text", "value": "를 구하고, 풀이 과정을 쓰시오."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 15,
+      "score": 10,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 2] 정규분포 "},
+        {"type": "equation", "value": "N(64, 49)"},
+        {"type": "text", "value": "를 따르는 모집단에서 크기가 196인 표본을 임의추출하였을 때, 표본평균을 "},
+        {"type": "equation", "value": "\\overline{X}"},
+        {"type": "text", "value": "라고 하자. "},
+        {"type": "equation", "value": "P(\\overline{X} \\geq 64.5)"},
+        {"type": "text", "value": "를 오른쪽 표준정규분포표를 이용하여 구하고, 풀이 과정을 쓰시오."},
+        {"type": "table", "value": "", "rows": [
+          ["z", "P(0 \\leq Z \\leq z)"],
+          ["0.5", "0.20"],
+          ["1.0", "0.35"],
+          ["1.5", "0.43"],
+          ["2.0", "0.48"]
+        ]}
+      ],
+      "choices": [],
+      "sub_questions": []
+    }
+  ]
+}

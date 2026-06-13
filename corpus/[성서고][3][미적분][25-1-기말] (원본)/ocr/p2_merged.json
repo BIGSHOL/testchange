@@ -1,0 +1,95 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 6,
+      "score": 4.1,
+      "contents": [
+        {"type": "text", "value": "함수 "},
+        {"type": "equation", "value": "f(x)=\\ln x"},
+        {"type": "text", "value": "에 대하여"},
+        {"type": "equation_block", "value": "\\lim_{n\\to\\infty}\\sum_{k=1}^{n}\\frac{f(n+k)-f(n)}{3n}"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{1}{3}(\\ln 2-1)"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{1}{3}(2\\ln 2-1)"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{1}{3}(3\\ln 2-1)"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "3(\\ln 2-1)"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "3(2\\ln 2-1)"}]}
+      ]
+    },
+    {
+      "number": 7,
+      "score": 4.3,
+      "contents": [
+        {"type": "text", "value": "양수 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "에 대하여 함수 "},
+        {"type": "equation", "value": "f(x)=\\int_{0}^{x}(a-t)e^{t}\\,dt"},
+        {"type": "text", "value": "의 최댓값이 "},
+        {"type": "equation", "value": "e-2"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+      ]
+    },
+    {
+      "number": 8,
+      "score": 4.3,
+      "contents": [
+        {"type": "text", "value": "함수 "},
+        {"type": "equation", "value": "f(x)=x^{4}-2x^{3}+2"},
+        {"type": "text", "value": "가 열린구간 "},
+        {"type": "equation", "value": "(a,\\ b)"},
+        {"type": "text", "value": "에서 다음 조건을 만족시킬 때, "},
+        {"type": "equation", "value": "|a-b|"},
+        {"type": "text", "value": "의 최댓값은? (단, "},
+        {"type": "equation", "value": "a,\\ b"},
+        {"type": "text", "value": "는 상수이다.)"},
+        {"type": "text", "value": "<상자> 함수 \\(f(x)\\)는 감소한다. • 곡선 \\(y=f(x)\\)는 위로 볼록하다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{3}{2}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{5}{2}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "3"}]}
+      ]
+    },
+    {
+      "number": 9,
+      "score": 4.3,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 두 꼭짓점은 "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "축 위에 있고, 다른 두 꼭짓점은 곡선 "},
+        {"type": "equation", "value": "y=\\frac{2}{x^{2}+3}"},
+        {"type": "text", "value": "위에 있는 직사각형의 넓이가 "},
+        {"type": "equation", "value": "x=a"},
+        {"type": "text", "value": "일 때 최댓값 "},
+        {"type": "equation", "value": "b"},
+        {"type": "text", "value": "를 가진다. 두 양수 "},
+        {"type": "equation", "value": "a,\\ b"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "ab"},
+        {"type": "text", "value": "의 값은?"},
+        {"type": "figure", "value": "종 모양 곡선 y=2/(x^2+3) 위에 내접한 직사각형. 두 아래 꼭짓점은 x축 위 (±x,0), 두 위 꼭짓점은 곡선 위. 원점 O 표시.", "bbox": [0.58, 0.50, 0.95, 0.66]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{2}{3}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{4}{3}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{5}{3}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "2"}]}
+      ]
+    }
+  ]
+}

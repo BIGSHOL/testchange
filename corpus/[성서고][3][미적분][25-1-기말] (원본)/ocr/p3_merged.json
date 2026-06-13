@@ -1,0 +1,100 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 10,
+      "score": 4.5,
+      "contents": [
+        {"type": "text", "value": "함수 "},
+        {"type": "equation", "value": "f(x)=6x\\ln x+x^{2}"},
+        {"type": "text", "value": "에 대하여 옳은 것만을 <보기>에서 있는 대로 고른 것은?"},
+        {"type": "text", "value": "<보기> ㄱ. 함수 \\(f(x)\\)의 변곡점은 존재하지 않는다. • ㄴ. 두 양수 \\(a,\\ b\\)에 대하여 \\(a<b\\)이면 \\(f'(a)<f'(b)\\)이다. • ㄷ. 함수 \\(f(x)\\)가 \\(x=c\\)에서 극솟값을 갖는 \\(c\\)가 열린구간 \\((e^{-2},\\ 1)\\)에 존재한다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄴ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄱ, ㄷ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄴ, ㄷ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄱ, ㄴ, ㄷ"}]}
+      ]
+    },
+    {
+      "number": 11,
+      "score": 4.5,
+      "contents": [
+        {"type": "text", "value": "닫힌구간 "},
+        {"type": "equation", "value": "[0,\\ 1]"},
+        {"type": "text", "value": "에서 "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "좌표가 "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "인 점을 지나고 "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "축에 수직인 평면으로 자른 단면의 넓이 "},
+        {"type": "equation", "value": "S(x)"},
+        {"type": "text", "value": "가"},
+        {"type": "equation_block", "value": "S(x)=\\frac{1}{e^{x}+1}"},
+        {"type": "text", "value": "일 때, 이 입체도형의 부피는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\ln\\frac{e}{e-2}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\ln\\frac{e}{e-1}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\ln\\frac{e}{e+1}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\ln\\frac{2e}{e-1}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\ln\\frac{2e}{e+1}"}]}
+      ]
+    },
+    {
+      "number": 12,
+      "score": 4.5,
+      "contents": [
+        {"type": "text", "value": "실수 "},
+        {"type": "equation", "value": "k"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "에 대한 방정식 "},
+        {"type": "equation", "value": "|e^{x}-4x|-k=0"},
+        {"type": "text", "value": "의 서로 다른 실근의 개수를 "},
+        {"type": "equation", "value": "f(k)"},
+        {"type": "text", "value": "라 하자. 다음 조건을 만족시키는 실수 "},
+        {"type": "equation", "value": "m"},
+        {"type": "text", "value": "이 존재할 때, "},
+        {"type": "equation", "value": "m+f(m)"},
+        {"type": "text", "value": "의 값은? (단, "},
+        {"type": "equation", "value": "\\lim_{x\\to-\\infty}(e^{x}-4x)=\\infty"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\lim_{x\\to\\infty}(e^{x}-4x)=\\infty"},
+        {"type": "text", "value": "이다.)"},
+        {"type": "text", "value": "<상자> 함수 \\(y=f(k)\\)는 \\(k=m\\)에서 불연속이고, \\(\\left|\\lim\\limits_{t\\to m+}f(t)-\\lim\\limits_{t\\to m-}f(t)\\right|=2\\)이다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "5-2\\ln 2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "6-4\\ln 2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "7-8\\ln 2"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "8\\ln 2-1"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "8\\ln 2+1"}]}
+      ]
+    },
+    {
+      "number": 13,
+      "score": 4.8,
+      "contents": [
+        {"type": "text", "value": "원점을 출발하여 수직선 위를 움직이는 점 P의 시각 "},
+        {"type": "equation", "value": "t"},
+        {"type": "text", "value": "에서의 속도가 "},
+        {"type": "equation", "value": "v(t)=\\sin 2t-\\sin t"},
+        {"type": "text", "value": "일 때, 옳은 것만을 <보기>에서 있는 대로 고른 것은? (단, "},
+        {"type": "equation", "value": "0\\le t\\le 2\\pi"},
+        {"type": "text", "value": ")"},
+        {"type": "text", "value": "<보기> ㄱ. 점 P는 운동 방향을 두 번 바꾼다. • ㄴ. 점 P는 \\(t=\\pi\\)일 때 원점으로부터 가장 멀리 떨어져 있다. • ㄷ. 점 P가 출발할 때의 운동 방향에 대하여 반대 방향으로 움직인 거리를 모두 구하면 \\(\\frac{9}{4}\\)이다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄴ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄱ, ㄷ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄴ, ㄷ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄱ, ㄴ, ㄷ"}]}
+      ]
+    }
+  ]
+}
