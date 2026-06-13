@@ -1,0 +1,67 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 16,
+      "score": 10,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 3] 두 사건 "},
+        {"type": "equation", "value": "A, B"},
+        {"type": "text", "value": "가 서로 독립일 때, 두 사건 "},
+        {"type": "equation", "value": "A^{C}, B^{C}"},
+        {"type": "text", "value": "도 서로 독립임을 보이는 과정을 "},
+        {"type": "equation", "value": "P(A \\cap B) = P(A)P(B)"},
+        {"type": "text", "value": "를 이용하여 서술하시오. (단, "},
+        {"type": "equation", "value": "A^{C}"},
+        {"type": "text", "value": "와 "},
+        {"type": "equation", "value": "B^{C}"},
+        {"type": "text", "value": "는 각각 "},
+        {"type": "equation", "value": "A"},
+        {"type": "text", "value": "와 "},
+        {"type": "equation", "value": "B"},
+        {"type": "text", "value": "의 여사건이고, "},
+        {"type": "equation", "value": "0 < P(A) < 1"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "0 < P(B) < 1"},
+        {"type": "text", "value": "이다.)"}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 17,
+      "score": 12,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 4] K 회사에서 생산되는 전기 자동차의 배터리는 100% 충전한 후 운행할 수 있는 거리가 평균 400km, 표준편차 10km인 정규분포를 따른다고 한다. 이 회사에서 생산된 전기 자동차 중에서 하나를 골랐을 때, 100% 충전한 후 운행할 수 있는 거리가 380km 이상 395km 이하일 확률을 오른쪽 표준정규분포표를 이용하여 구하고, 풀이 과정을 쓰시오."},
+        {"type": "table", "value": "", "rows": [
+          ["z", "P(0 \\leq Z \\leq z)"],
+          ["0.5", "0.20"],
+          ["1.0", "0.35"],
+          ["1.5", "0.43"],
+          ["2.0", "0.48"]
+        ]}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 18,
+      "score": 4.5,
+      "label_type": "단답형",
+      "contents": [
+        {"type": "text", "value": "[단답형 5] 어느 공장에서 생산된 물건 1개의 무게는 평균이 1.1kg, 표준편차가 200g인 정규분포를 따른다고 한다. 이 공장에서 물건 2400개를 생산하였을 때, 1kg 이상 1.2kg 이하인 물건이 936개 이상 1008개 이하일 확률을 오른쪽 표준정규분포표를 이용하여 구하시오."},
+        {"type": "table", "value": "", "rows": [
+          ["z", "P(0 \\leq Z \\leq z)"],
+          ["0.5", "0.20"],
+          ["1.0", "0.35"],
+          ["1.5", "0.43"],
+          ["2.0", "0.48"]
+        ]}
+      ],
+      "choices": [],
+      "sub_questions": []
+    }
+  ]
+}

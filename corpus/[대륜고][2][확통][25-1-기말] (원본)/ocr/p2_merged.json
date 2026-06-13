@@ -1,0 +1,130 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 1,
+      "score": 3.0,
+      "contents": [
+        {"type": "text", "value": "오른쪽 표는 두 동아리 A, B에 신청한 학생 75명에 대한 1, 2학년의 수를 조사한 것이다. 이 중에서 임의로 한 명을 뽑았더니 2학년이었을 때, 그 학생이 동아리 B를 신청한 학생일 확률은?"},
+        {"type": "table", "value": "", "rows": [
+          ["", "1학년", "2학년", "계"],
+          ["A", "10", "20", "30"],
+          ["B", "30", "15", "45"],
+          ["계", "40", "35", "75"]
+        ]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{1}{5}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{4}{15}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{1}{3}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{3}{7}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{4}{7}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 2,
+      "score": 3.1,
+      "contents": [
+        {"type": "text", "value": "연속확률변수 "},
+        {"type": "equation", "value": "X"},
+        {"type": "text", "value": "의 확률밀도함수 "},
+        {"type": "equation", "value": "f(x)"},
+        {"type": "text", "value": "가 "},
+        {"type": "equation", "value": "f(x) = 2k(x-2) \\ (2 \\leq x \\leq 5)"},
+        {"type": "text", "value": "일 때, 상수 "},
+        {"type": "equation", "value": "k"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{1}{11}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{1}{10}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{1}{9}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{1}{8}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{1}{7}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 3,
+      "score": 3.2,
+      "contents": [
+        {"type": "text", "value": "확률변수 "},
+        {"type": "equation", "value": "X"},
+        {"type": "text", "value": "의 확률분포가 아래와 같고, "},
+        {"type": "equation", "value": "E(X) = \\frac{11}{4}"},
+        {"type": "text", "value": "일 때, 상수 "},
+        {"type": "equation", "value": "a, b"},
+        {"type": "text", "value": "의 곱 "},
+        {"type": "equation", "value": "ab"},
+        {"type": "text", "value": "의 값은?"},
+        {"type": "table", "value": "", "rows": [
+          ["X", "1", "3", "5", "합계"],
+          ["P(X)", "\\frac{1}{4}", "a", "b", "1"]
+        ]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{5}{64}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{5}{32}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{15}{64}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{5}{16}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{25}{64}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 4,
+      "score": 3.3,
+      "contents": [
+        {"type": "text", "value": "확률변수 "},
+        {"type": "equation", "value": "X"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "E(X) = 45"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "V(X) = 20"},
+        {"type": "text", "value": "이고, 확률변수 "},
+        {"type": "equation", "value": "Y = aX + b"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "E(Y) = 130"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "V(Y) = 180"},
+        {"type": "text", "value": "일 때, 상수 "},
+        {"type": "equation", "value": "a, b"},
+        {"type": "text", "value": "의 합 "},
+        {"type": "equation", "value": "a+b"},
+        {"type": "text", "value": "의 값은? (단, "},
+        {"type": "equation", "value": "a > 0"},
+        {"type": "text", "value": ")"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-4"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "4"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 5,
+      "score": 3.4,
+      "contents": [
+        {"type": "text", "value": "모평균이 40, 모분산이 9인 모집단에서 크기가 "},
+        {"type": "equation", "value": "n"},
+        {"type": "text", "value": "인 표본을 임의추출할 때, 표본평균 "},
+        {"type": "equation", "value": "\\overline{X}"},
+        {"type": "text", "value": "의 표준편차가 0.3 이하가 되기 위한 "},
+        {"type": "equation", "value": "n"},
+        {"type": "text", "value": "의 최솟값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "100"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "400"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "900"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "1600"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "10000"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}
