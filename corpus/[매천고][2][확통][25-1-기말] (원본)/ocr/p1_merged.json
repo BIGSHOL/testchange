@@ -1,0 +1,167 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 1,
+      "score": 3.0,
+      "contents": [
+        {"type": "text", "value": "확률변수 "},
+        {"type": "equation", "value": "X"},
+        {"type": "text", "value": "의 확률분포가 다음 표와 같을 때, 상수 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "의 값은?"},
+        {"type": "table", "value": "", "rows": [
+          ["X", "1", "2", "3", "4", "5", "합계"],
+          ["P(X=x)", "\\frac{1}{12}", "\\frac{1}{6}", "\\frac{1}{3}", "a", "\\frac{1}{4}", "1"]
+        ]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{1}{3}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{1}{4}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{1}{6}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{1}{10}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{1}{12}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 2,
+      "score": 3.0,
+      "contents": [
+        {"type": "text", "value": "오른쪽 그림에서 곡선 A, B, C는 각각 정규분포를 따르는 세 확률변수 "},
+        {"type": "equation", "value": "X, Y, Z"},
+        {"type": "text", "value": "의 확률밀도함수의 그래프이다. "},
+        {"type": "equation", "value": "X, Y, Z"},
+        {"type": "text", "value": "의 평균을 각각 "},
+        {"type": "equation", "value": "m_1, m_2, m_3"},
+        {"type": "text", "value": "이라 하고, 표준편차를 각각 "},
+        {"type": "equation", "value": "\\sigma_1, \\sigma_2, \\sigma_3"},
+        {"type": "text", "value": "이라 할 때, <보기>에서 옳은 것을 있는 대로 고른 것은? (단, 곡선 C는 곡선 B를 평행이동한 것이다.)"},
+        {"type": "figure", "value": "정규분포 곡선 A, B, C 세 개의 확률밀도함수 그래프. 곡선 A는 왼쪽 낮고 넓게, 곡선 B와 C는 오른쪽에 봉우리. x축.", "bbox": [0.74, 0.18, 0.99, 0.30]},
+        {"type": "text", "value": "<보기> ㄱ. "},
+        {"type": "equation", "value": "m_1 < m_2"},
+        {"type": "text", "value": " • ㄴ. "},
+        {"type": "equation", "value": "m_2 < m_3"},
+        {"type": "text", "value": " • ㄷ. "},
+        {"type": "equation", "value": "\\sigma_1 > \\sigma_2"},
+        {"type": "text", "value": " • ㄹ. "},
+        {"type": "equation", "value": "\\sigma_2 > \\sigma_3"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄹ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄱ, ㄷ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄴ, ㄷ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄴ, ㄹ"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 3,
+      "score": 3.2,
+      "contents": [
+        {"type": "text", "value": "승부차기를 성공할 확률이 각각 0.7, 0.8인 두 축구 선수 "},
+        {"type": "equation", "value": "A, B"},
+        {"type": "text", "value": "가 한 번씩 승부차기를 할 때, 둘 중 한 명만 성공할 확률은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "0.38"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "0.4"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "0.42"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "0.46"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "0.54"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 4,
+      "score": 3.2,
+      "contents": [
+        {"type": "text", "value": "한 핸드볼 선수의 슛 성공률은 "},
+        {"type": "equation", "value": "60\\%"},
+        {"type": "text", "value": "라 한다. 이 선수가 슛을 40회 던질 때, 성공한 횟수를 확률변수 "},
+        {"type": "equation", "value": "X"},
+        {"type": "text", "value": "라 하자. "},
+        {"type": "equation", "value": "X"},
+        {"type": "text", "value": "의 평균과 분산의 합은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "33.4"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "33.6"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "33.8"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "34"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "34.2"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 5,
+      "score": 3.4,
+      "contents": [
+        {"type": "text", "value": "1에서 8까지의 자연수가 하나씩 적힌 8장의 카드 중에서 임의로 한 장의 카드를 뽑을 때, 카드에 적힌 수가 홀수인 사건을 "},
+        {"type": "equation", "value": "A"},
+        {"type": "text", "value": ", 소수인 사건을 "},
+        {"type": "equation", "value": "B"},
+        {"type": "text", "value": ", 5 이상의 수인 사건을 "},
+        {"type": "equation", "value": "C"},
+        {"type": "text", "value": "라 하자. 이 중 서로 독립인 사건을 올바르게 짝지은 것을 <보기>에서 있는 대로 고른 것은?"},
+        {"type": "text", "value": "<보기> ㄱ. "},
+        {"type": "equation", "value": "A, B"},
+        {"type": "text", "value": " • ㄴ. "},
+        {"type": "equation", "value": "A, C"},
+        {"type": "text", "value": " • ㄷ. "},
+        {"type": "equation", "value": "B, C"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄴ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄷ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄱ, ㄴ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄴ, ㄷ"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 6,
+      "score": 3.4,
+      "contents": [
+        {"type": "text", "value": "확률변수 "},
+        {"type": "equation", "value": "X"},
+        {"type": "text", "value": "의 평균이 6, 표준편차가 2일 때, "},
+        {"type": "equation", "value": "E(3X+4) - V(2X-10)"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "6"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 7,
+      "score": 3.6,
+      "contents": [
+        {"type": "text", "value": "어느 음료 회사에서 생산되는 음료수 한 개의 부피는 평균 180ml, 표준편차가 8ml인 정규분포를 따른다고 한다. 이 중에서 임의로 선택한 음료수 한 개의 부피가 168ml 이상일 확률을 오른쪽 표준정규분포표를 이용하여 구한 것은?"},
+        {"type": "table", "value": "", "rows": [
+          ["z", "P(0 \\leq Z \\leq z)"],
+          ["0.5", "0.1915"],
+          ["1", "0.3413"],
+          ["1.5", "0.4332"],
+          ["2", "0.4772"],
+          ["2.5", "0.4938"]
+        ]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "0.6915"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "0.8413"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "0.9332"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "0.9772"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "0.9938"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

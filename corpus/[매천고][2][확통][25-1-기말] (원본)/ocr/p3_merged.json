@@ -1,0 +1,140 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 13,
+      "score": 4.2,
+      "contents": [
+        {"type": "equation", "value": "A"},
+        {"type": "text", "value": " 고등학교 학생들의 수학 점수는 정규분포 "},
+        {"type": "equation", "value": "N(52, 1.2^2)"},
+        {"type": "text", "value": "을 따르고, "},
+        {"type": "equation", "value": "B"},
+        {"type": "text", "value": " 고등학교 학생들의 수학 점수는 정규분포 "},
+        {"type": "equation", "value": "N(50, 1.5^2)"},
+        {"type": "text", "value": "을 따른다고 한다. 임의로 "},
+        {"type": "equation", "value": "A"},
+        {"type": "text", "value": " 고등학교 학생 한 명과 "},
+        {"type": "equation", "value": "B"},
+        {"type": "text", "value": " 고등학교 학생 한 명을 선택할 때, "},
+        {"type": "equation", "value": "A"},
+        {"type": "text", "value": " 고등학교 학생의 수학 점수가 "},
+        {"type": "equation", "value": "t"},
+        {"type": "text", "value": "이상일 확률과 "},
+        {"type": "equation", "value": "B"},
+        {"type": "text", "value": " 고등학교 학생의 수학 점수가 "},
+        {"type": "equation", "value": "t"},
+        {"type": "text", "value": "이하일 확률이 같아지는 점수 "},
+        {"type": "equation", "value": "t"},
+        {"type": "text", "value": "의 값은? (단, "},
+        {"type": "equation", "value": "t"},
+        {"type": "text", "value": "는 상수이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{152}{3}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{457}{9}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{458}{9}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "51"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{460}{9}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 14,
+      "score": 4.4,
+      "contents": [
+        {"type": "text", "value": "어느 공장에서 생산되는 파일 통조림의 무게는 평균이 425, 표준편차가 15인 정규분포를 따른다고 한다. 이 공장에서는 하루에 생산된 파일 통조림 중에서 크기가 25인 표본을 임의추출하여 구한 평균 "},
+        {"type": "equation", "value": "\\overline{X}"},
+        {"type": "text", "value": "가 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "보다 작으면 생산 시스템에 이상이 있다고 판단한다. 이 공장에서 생산 시스템에 이상이 있다고 판단할 확률이 5%라 할 때, 상수 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "의 값을 오른쪽 표준정규분포표를 이용하여 구한 것은? (단, 파일 통조림 무게의 단위는 g이다.)"},
+        {"type": "table", "value": "", "rows": [
+          ["z", "P(0 \\leq Z \\leq z)"],
+          ["1.64", "0.450"],
+          ["1.96", "0.475"],
+          ["2.58", "0.495"]
+        ]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "417.26"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "419.12"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "420.08"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "421.72"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "422.42"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 15,
+      "score": 4.6,
+      "contents": [
+        {"type": "text", "value": "좌표평면 위의 원점 O에 점 P가 있다. 서로 다른 두 주사위를 동시에 던질 때마다 다음과 같은 규칙으로 움직인다."},
+        {"type": "text", "value": "<상자> ❶ 두 눈의 수의 합이 4의 배수이면 "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "축 방향으로 1만큼, "},
+        {"type": "equation", "value": "y"},
+        {"type": "text", "value": "축의 방향으로 1만큼 평행이동한다. • ❷ 두 눈의 수의 합이 4의 배수가 아니면 "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "축 방향으로 1만큼, "},
+        {"type": "equation", "value": "y"},
+        {"type": "text", "value": "축의 방향으로 −2만큼 평행이동한다."},
+        {"type": "text", "value": "두 주사위를 동시에 던지는 시행을 "},
+        {"type": "equation", "value": "n"},
+        {"type": "text", "value": "번 반복하여 이동된 점 P의 "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "좌표는 20이고, 점 P의 "},
+        {"type": "equation", "value": "y"},
+        {"type": "text", "value": "좌표를 확률변수 "},
+        {"type": "equation", "value": "Y"},
+        {"type": "text", "value": "라 할 때, "},
+        {"type": "equation", "value": "n + E(Y)"},
+        {"type": "text", "value": "의 값은? (단, "},
+        {"type": "equation", "value": "n"},
+        {"type": "text", "value": "은 자연수이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-25"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-5"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "25"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 16,
+      "score": 4.8,
+      "contents": [
+        {"type": "text", "value": "어느 고등학교 2학년 학생들의 신발 사이즈는 표준편차가 15인 정규분포를 따른다고 한다. 이 고등학교 2학년 학생 중에서 "},
+        {"type": "equation", "value": "n"},
+        {"type": "text", "value": "명을 임의추출하였을 때, 신발 사이즈의 평균을 "},
+        {"type": "equation", "value": "\\overline{x}"},
+        {"type": "text", "value": "라 하자. 신뢰도 99%로 모평균 "},
+        {"type": "equation", "value": "m"},
+        {"type": "text", "value": "을 추정하였을 때, 표본평균 "},
+        {"type": "equation", "value": "\\overline{x}"},
+        {"type": "text", "value": "와 모평균 "},
+        {"type": "equation", "value": "m"},
+        {"type": "text", "value": "의 차가 3 이하가 되게 하는 자연수 "},
+        {"type": "equation", "value": "n"},
+        {"type": "text", "value": "의 최솟값을 오른쪽 표준정규분포표를 이용하여 구한 것은? (단, 신발 사이즈의 단위는 mm이다.)"},
+        {"type": "table", "value": "", "rows": [
+          ["z", "P(0 \\leq Z \\leq z)"],
+          ["1.64", "0.450"],
+          ["1.96", "0.475"],
+          ["2.58", "0.495"]
+        ]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "158"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "161"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "164"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "167"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "170"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

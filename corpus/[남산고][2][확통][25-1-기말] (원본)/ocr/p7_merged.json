@@ -1,0 +1,65 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 21,
+      "score": 2,
+      "label_type": "단답형",
+      "contents": [
+        {"type": "text", "value": "[단답형 5] 사건 "},
+        {"type": "equation", "value": "A, B"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "P(A) = \\frac{2}{3}"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "P(B) = \\frac{3}{4}"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "P(A|B)P(B|A) = \\frac{1}{8}"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "A"},
+        {"type": "text", "value": "와 "},
+        {"type": "equation", "value": "B"},
+        {"type": "text", "value": "는 서로 독립인지 종속인지 판별하시오."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 22,
+      "score": 6,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 1] 확률변수 "},
+        {"type": "equation", "value": "X"},
+        {"type": "text", "value": "가 이항분포 "},
+        {"type": "equation", "value": "B\\left(25, \\frac{4}{5}\\right)"},
+        {"type": "text", "value": "를 따를 때, 확률 "},
+        {"type": "equation", "value": "P(18 \\leq X \\leq 24)"},
+        {"type": "text", "value": "을 구하는 풀이 과정과 정답을 쓰시오. (단, "},
+        {"type": "equation", "value": "Z"},
+        {"type": "text", "value": "가 표준정규분포를 따르는 확률변수이다.)"},
+        {"type": "table", "value": "", "rows": [
+          ["z", "P(0 \\leq Z \\leq z)"],
+          ["1.0", "0.3413"],
+          ["1.5", "0.4332"],
+          ["2.0", "0.4772"]
+        ]}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 23,
+      "score": 7,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 2] 확률변수 "},
+        {"type": "equation", "value": "X"},
+        {"type": "text", "value": "의 평균이 8, 표준편차가 3일 때, 확률변수 "},
+        {"type": "equation", "value": "Y = 2X^2 + 3X"},
+        {"type": "text", "value": "의 평균을 구하는 풀이 과정과 정답을 쓰시오."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    }
+  ]
+}

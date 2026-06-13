@@ -1,0 +1,137 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 1,
+      "score": 3.7,
+      "contents": [
+        {"type": "text", "value": "다음 중 이산확률변수인 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "A 반 학생들의 키"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "B 공장에서 생산한 전구의 수명"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "C 정류장에서 버스를 기다리는 시간"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "D 지역 주민들이 소유한 자동차의 주행거리"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "E 교과서 한 쪽에 나오는 '길이' 라는 글자의 개수"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 2,
+      "score": 3.8,
+      "contents": [
+        {"type": "text", "value": "확률변수 "},
+        {"type": "equation", "value": "X"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "E(3X+1) = 7"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "V(2X-1) = 16"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "E(X^2)"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "10"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 3,
+      "score": 3.9,
+      "contents": [
+        {"type": "text", "value": "확률변수 "},
+        {"type": "equation", "value": "X"},
+        {"type": "text", "value": "가 이항분포 "},
+        {"type": "equation", "value": "B(50, p)"},
+        {"type": "text", "value": "을 따르고, "},
+        {"type": "equation", "value": "E(4X-2) = 78"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "V(X)"},
+        {"type": "text", "value": "의 값은? (단, "},
+        {"type": "equation", "value": "p < \\frac{1}{2}"},
+        {"type": "text", "value": ")"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "36"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "108"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "216"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 4,
+      "score": 4.0,
+      "contents": [
+        {"type": "text", "value": "모평균 "},
+        {"type": "equation", "value": "m"},
+        {"type": "text", "value": "에 대해 신뢰구간이 "},
+        {"type": "equation", "value": "a \\leq m \\leq b"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "b-a"},
+        {"type": "text", "value": "를 신뢰구간의 길이라 하자. 표준편차가 12인 정규분포를 따르는 모집단에서 크기가 36인 표본을 임의추출하여 구한 모평균 "},
+        {"type": "equation", "value": "m"},
+        {"type": "text", "value": "에 대한 신뢰도 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "%의 신뢰구간의 길이가 6이다. 크기가 "},
+        {"type": "equation", "value": "n"},
+        {"type": "text", "value": "인 표본을 임의추출하여 구한 모평균 "},
+        {"type": "equation", "value": "m"},
+        {"type": "text", "value": "에 대한 신뢰도 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "%의 신뢰구간의 길이가 3이 되도록 하는 자연수 "},
+        {"type": "equation", "value": "n"},
+        {"type": "text", "value": "의 값은? (단, "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "는 상수)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "64"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "100"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "144"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "196"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "256"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 5,
+      "score": 4.3,
+      "contents": [
+        {"type": "text", "value": "정규분포를 따르는 두 확률변수 "},
+        {"type": "equation", "value": "X, Y"},
+        {"type": "text", "value": "의 확률밀도함수를 각각 "},
+        {"type": "equation", "value": "f(x)"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "g(x)"},
+        {"type": "text", "value": "라 하자. 두 함수 "},
+        {"type": "equation", "value": "y = f(x)"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "y = g(x)"},
+        {"type": "text", "value": "의 그래프가 그림과 같을 때, <보기>에서 옳은 것만을 있는대로 고르면? (단, "},
+        {"type": "equation", "value": "a < b"},
+        {"type": "text", "value": "이다.)"},
+        {"type": "figure", "value": "정규분포 확률밀도함수 두 개의 그래프. y=f(x)는 평균이 a로 폭이 넓고 낮은 종 모양, y=g(x)는 평균이 b로 폭이 좁고 높은 종 모양. x축에 a, b 표시(a<b), y축에 g(b), f(a) 점선 표시.", "bbox": [0.55, 0.45, 0.92, 0.62]},
+        {"type": "text", "value": "<보기> ㄱ. "},
+        {"type": "equation", "value": "E(X) < E(Y)"},
+        {"type": "text", "value": " • ㄴ. "},
+        {"type": "equation", "value": "\\sigma(X) > \\sigma(Y)"},
+        {"type": "text", "value": " • ㄷ. "},
+        {"type": "equation", "value": "P(X \\leq b) \\geq P(Y \\leq b)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄱ, ㄴ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄱ, ㄷ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄴ, ㄷ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄱ, ㄴ, ㄷ"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

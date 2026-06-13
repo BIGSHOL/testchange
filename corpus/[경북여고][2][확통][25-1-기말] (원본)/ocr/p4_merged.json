@@ -1,0 +1,100 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 13,
+      "score": 3.4,
+      "contents": [
+        {"type": "text", "value": "모평균이 70이고 모표준편차가 12인 모집단에서 임의추출한 크기가 100인 표본의 표본평균 "},
+        {"type": "equation", "value": "\\overline{X}"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "\\overline{X}"},
+        {"type": "text", "value": "의 평균과 표준편차는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "E(\\overline{X}) = 70, \\ \\sigma(\\overline{X}) = 1.2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "E(\\overline{X}) = 70, \\ \\sigma(\\overline{X}) = 2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "E(\\overline{X}) = 70, \\ \\sigma(\\overline{X}) = 12"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "E(\\overline{X}) = 90, \\ \\sigma(\\overline{X}) = 1.2"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "E(\\overline{X}) = 90, \\ \\sigma(\\overline{X}) = 12"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 14,
+      "score": 4.8,
+      "contents": [
+        {"type": "text", "value": "[14-15] 어떤 회사에서 하루에 10만 개의 비누를 생산한다. 비누 하나의 무게는 평균 100g이고 표준편차는 2g이며, 비누의 무게는 정규분포를 따른다. 다음 물음에 답하시오. (단, "},
+        {"type": "equation", "value": "P(|X-m| \\leq \\sigma) = 0.683"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "P(|X-m| \\leq 2\\sigma) = 0.954"},
+        {"type": "text", "value": ")"},
+        {"type": "text", "value": "제품 검사에서 무게가 98g 미만인 비누를 불량품으로 판정한다면, 하루에 평균 몇 개의 불량품이 생기는가?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "13600"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "15850"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "16380"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "17260"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "18000"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 15,
+      "score": 5.4,
+      "contents": [
+        {"type": "text", "value": "비누 4개를 한 상자로 포장하여 판매한다고 하자. 제품 검사에서 한 상자의 무게가 392g 미만인 것을 불량품으로 판정한다면, 하루에 평균 몇 상자의 불량품이 생기는가?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "415"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "490"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "535"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "560"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "575"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 16,
+      "score": 13,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 1] 물음에 답하시오. [총 13점, 부분점수 있음]"}
+      ],
+      "choices": [],
+      "sub_questions": [
+        {
+          "number": 1,
+          "score": 8,
+          "contents": [
+            {"type": "text", "value": "(1) 두 사건 "},
+            {"type": "equation", "value": "A"},
+            {"type": "text", "value": "와 "},
+            {"type": "equation", "value": "B"},
+            {"type": "text", "value": "가 서로 독립일 때, 두 사건 "},
+            {"type": "equation", "value": "A^{C}"},
+            {"type": "text", "value": "와 "},
+            {"type": "equation", "value": "B^{C}"},
+            {"type": "text", "value": "도 서로 독립임을 보이시오. (단, "},
+            {"type": "equation", "value": "0 < P(A) < 1"},
+            {"type": "text", "value": ", "},
+            {"type": "equation", "value": "0 < P(B) < 1"},
+            {"type": "text", "value": ")"}
+          ],
+          "choices": [],
+          "sub_questions": []
+        },
+        {
+          "number": 2,
+          "score": 5,
+          "contents": [
+            {"type": "text", "value": "(2) 두 양궁 선수 A, B가 활을 한 발 쏘아 표적지의 10점 영역을 맞힐 확률은 각각 0.8, 0.9이다. 이 두 선수가 각각 활을 한 발씩 쏠 때, 적어도 한 선수가 10점 영역을 맞힐 확률을 (여사건)을 이용하여 구하시오."}
+          ],
+          "choices": [],
+          "sub_questions": []
+        }
+      ]
+    }
+  ]
+}

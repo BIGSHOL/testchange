@@ -1,0 +1,73 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 18,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "집합 "},
+        {"type": "equation", "value": "X = \\{1, 2, 3, 4, 5\\}"},
+        {"type": "text", "value": "에 대하여 다음 조건을 만족시키는 함수 "},
+        {"type": "equation", "value": "f : X \\rightarrow X"},
+        {"type": "text", "value": "의 개수는?"},
+        {"type": "text", "value": "<상자> (가) "},
+        {"type": "equation", "value": "f(f(2)) = 4"},
+        {"type": "text", "value": " • (나) "},
+        {"type": "equation", "value": "f(2) \\leq f(4) \\leq f(5)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "145"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "150"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "155"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "160"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "165"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 19,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "집합 "},
+        {"type": "equation", "value": "X = \\{0, 1, 2, 3, 4\\}"},
+        {"type": "text", "value": "에 대하여 다음 조건을 만족시키는 함수 "},
+        {"type": "equation", "value": "f : X \\rightarrow X"},
+        {"type": "text", "value": "의 개수는?"},
+        {"type": "text", "value": "<상자> (가) 집합 "},
+        {"type": "equation", "value": "X"},
+        {"type": "text", "value": "의 임의의 두 원소 "},
+        {"type": "equation", "value": "x_1, x_2"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "x_1 < x_2"},
+        {"type": "text", "value": "이면 "},
+        {"type": "equation", "value": "f(x_1) \\leq f(x_2)"},
+        {"type": "text", "value": "이다. • (나) 함수 "},
+        {"type": "equation", "value": "f"},
+        {"type": "text", "value": "의 치역의 원소의 합은 6이다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "17"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "18"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "19"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "20"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "21"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 20,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "4명의 아이에게 같은 종류의 공책 2권과 같은 종류의 연필 10자루를 나누어 주려고 한다. 각 아이는 최소 하나 이상의 물건을 받아야 하며, 공책과 연필을 같은 수만큼 받은 아이는 정확히 한 명만 있도록 나누는 방법의 수는? (단, 공책과 연필은 각각 구별되지 않는다)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "428"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "432"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "436"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "440"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "444"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

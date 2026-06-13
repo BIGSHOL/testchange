@@ -1,0 +1,104 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 5,
+      "score": 3.1,
+      "contents": [
+        {"type": "text", "value": "정규분포 "},
+        {"type": "equation", "value": "N(m, \\sigma^2)"},
+        {"type": "text", "value": "을 따르는 확률변수 "},
+        {"type": "equation", "value": "X"},
+        {"type": "text", "value": "의 확률밀도함수의 그래프의 성질에 대하여 다음 <보기> 중 옳은 것의 개수는?"},
+        {"type": "text", "value": "<보기> ㄱ. 직선 "},
+        {"type": "equation", "value": "x = m"},
+        {"type": "text", "value": "에 대하여 대칭인 종 모양의 곡선이다. • ㄴ. "},
+        {"type": "equation", "value": "x = m"},
+        {"type": "text", "value": "일 때 최댓값은 "},
+        {"type": "equation", "value": "\\frac{1}{\\sqrt{2\\pi}\\sigma}"},
+        {"type": "text", "value": "이다. • ㄷ. "},
+        {"type": "equation", "value": "y"},
+        {"type": "text", "value": "축을 점근선으로 한다. • ㄹ. 곡선과 "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "축 사이의 넓이는 "},
+        {"type": "equation", "value": "\\frac{1}{2}"},
+        {"type": "text", "value": "이다. • ㅁ. "},
+        {"type": "equation", "value": "m"},
+        {"type": "text", "value": "의 값이 일정할 때, "},
+        {"type": "equation", "value": "\\sigma"},
+        {"type": "text", "value": "의 값이 커지면 곡선의 중앙 부분이 높아지고, "},
+        {"type": "equation", "value": "\\sigma"},
+        {"type": "text", "value": "의 값이 작아지면 곡선의 중앙 부분이 낮아지면서 옆으로 퍼진다. • ㅂ. "},
+        {"type": "equation", "value": "\\sigma"},
+        {"type": "text", "value": "의 값이 일정할 때, "},
+        {"type": "equation", "value": "m"},
+        {"type": "text", "value": "의 값이 변하면 대칭축의 위치는 변하지만 곡선의 모양은 변하지 않는다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 6,
+      "score": 3.1,
+      "contents": [
+        {"type": "text", "value": "어느 배구 선수가 공격을 성공할 확률은 "},
+        {"type": "equation", "value": "\\frac{3}{4}"},
+        {"type": "text", "value": "이다. 이 선수가 5번을 공격하여 적어도 2번은 공격에 성공할 확률은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{27}{1024}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{45}{512}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{54}{128}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{31}{32}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{63}{64}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 7,
+      "score": 3.3,
+      "contents": [
+        {"type": "text", "value": "모평균이 6, 모표준편차가 2인 모집단에서 크기가 16인 표본을 임의추출할 때, 표본평균 "},
+        {"type": "equation", "value": "\\overline{X}"},
+        {"type": "text", "value": "의 평균, 분산, 표준편차를 모두 곱한 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{3}{4}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{5}{4}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{3}{2}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{7}{4}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 8,
+      "score": 3.4,
+      "contents": [
+        {"type": "text", "value": "이항분포 "},
+        {"type": "equation", "value": "B\\left(n, \\frac{1}{2}\\right)"},
+        {"type": "text", "value": "을 따르는 확률변수 "},
+        {"type": "equation", "value": "X"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "V(4X + 2) = 64"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "E(X^2)"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "76"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "68"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "60"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "52"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "44"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

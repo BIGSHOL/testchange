@@ -1,0 +1,36 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 19,
+      "score": 4.7,
+      "label_type": "단답형",
+      "contents": [
+        {"type": "text", "value": "[단답형 6] 오른쪽 그림과 같은 도로망이 있다. 형은 "},
+        {"type": "equation", "value": "A"},
+        {"type": "text", "value": "에서 "},
+        {"type": "equation", "value": "B"},
+        {"type": "text", "value": "로, 동생은 "},
+        {"type": "equation", "value": "B"},
+        {"type": "text", "value": "에서 "},
+        {"type": "equation", "value": "A"},
+        {"type": "text", "value": "로 각각 최단거리를 택하여 간다고 할 때, 형과 동생이 서로 만나지 않고 각각 "},
+        {"type": "equation", "value": "B, A"},
+        {"type": "text", "value": "에 도착하는 경우의 수는? (단, 정사각형 모양의 간격이 1인 도로망이고 형과 동생은 동시에 출발하여 같은 속력으로 간다.)"},
+        {"type": "figure", "value": "계단 모양 도로망(격자). 왼쪽 아래 점 A, 오른쪽 위 점 B. 아래쪽 가로 4칸 직사각형 격자(2행) 위에 오른쪽 윗부분으로 3칸짜리 격자(1행)가 계단처럼 얹혀 있는 형태.", "bbox": [0.74, 0.045, 0.99, 0.16]}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 20,
+      "score": 4.8,
+      "label_type": "단답형",
+      "contents": [
+        {"type": "text", "value": "[단답형 7] 어느 예능 프로그램에 멤버 6명이 상금 봉투 뽑기 게임을 하려고 한다. 이 게임에서 각자 앞에 놓인 주머니에서 봉투를 한 장씩 선택 후, 멤버 6명이 선택한 후 봉투에 들어 있는 금액의 합만큼 각 멤버에게 상금을 준다고 한다. 각 주머니에는 0원, 4만원, 8만원, 12만원, 16만원, 20만원이 들어있는 6개의 봉투가 있다고 할 때, 멤버 6명이 각각 100만원을 받는 모든 경우의 수를 구하시오."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    }
+  ]
+}

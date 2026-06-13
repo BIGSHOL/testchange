@@ -1,0 +1,56 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 14,
+      "score": 4.7,
+      "contents": [
+        {"type": "text", "value": "흰 공 "},
+        {"type": "equation", "value": "n"},
+        {"type": "text", "value": "개, 검은 공 3개가 들어 있는 주머니에서 임의로 2개의 공을 동시에 꺼낼 때 나오는 검은 공의 개수를 확률변수 "},
+        {"type": "equation", "value": "X"},
+        {"type": "text", "value": "라 하자. "},
+        {"type": "equation", "value": "P(X=1) = \\frac{1}{2}"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "n \\times V(X)"},
+        {"type": "text", "value": "의 값은? (단, "},
+        {"type": "equation", "value": "n \\geq 3"},
+        {"type": "text", "value": ")"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{7}{18}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{7}{3}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "7"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 15,
+      "score": 4.8,
+      "contents": [
+        {"type": "text", "value": "모집단의 확률변수 "},
+        {"type": "equation", "value": "X"},
+        {"type": "text", "value": "의 확률분포를 표로 나타내면 다음과 같다."},
+        {"type": "table", "value": "", "rows": [
+          ["X", "2", "4", "6", "8", "합계"],
+          ["P(X=x)", "\\frac{1}{8}", "\\frac{1}{8}", "\\frac{1}{4}", "\\frac{1}{2}", "1"]
+        ]},
+        {"type": "text", "value": "이 모집단에서 크기가 2인 표본을 임의로 복원추출하여 구한 표본평균 "},
+        {"type": "equation", "value": "\\overline{X}"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "P(3 \\leq \\overline{X} \\leq 6)"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{31}{64}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{15}{32}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{29}{64}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{7}{16}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{27}{64}"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

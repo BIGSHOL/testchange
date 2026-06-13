@@ -1,0 +1,118 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 7,
+      "score": 3.4,
+      "contents": [
+        {"type": "text", "value": "확률변수 "},
+        {"type": "equation", "value": "X"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "E(X) = 90"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "V(X) = 16"},
+        {"type": "text", "value": "일 때, 확률변수 "},
+        {"type": "equation", "value": "Y = \\frac{X-20}{7}"},
+        {"type": "text", "value": "의 평균과 표준편차는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "E(Y) = 10, \\ \\sigma(Y) = \\frac{4}{7}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "E(Y) = 10, \\ \\sigma(Y) = \\frac{5}{7}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "E(Y) = 11, \\ \\sigma(Y) = \\frac{2}{3}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "E(Y) = 11, \\ \\sigma(Y) = \\frac{6}{7}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "E(Y) = 11, \\ \\sigma(Y) = 1"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 8,
+      "score": 4.6,
+      "contents": [
+        {"type": "text", "value": "어느 제약에서 완치율이 90%인 당뇨 치료제를 개발하였다. 당뇨 환자 27명에게 이 치료제를 투여했을 때, 완치되지 않은 당뇨 환자가 1명 이하일 확률은? (단, 각각의 환자 완치는 독립적이고, "},
+        {"type": "equation", "value": "(0.9)^{27} = 0.1668"},
+        {"type": "text", "value": "로 계산한다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "0.1668"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "0.5004"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "0.6672"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "0.7294"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "0.9"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 9,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "동전 3개를 동시에 던지는 시행을 320회 실시하였다. 3개 중 2개가 앞면, 1개가 뒷면이 나오는 횟수의 분산은? (단, 각 시행은 독립시행이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "30"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "48"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "60"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "64"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "75"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 10,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "[10-11] 확률변수 "},
+        {"type": "equation", "value": "Z"},
+        {"type": "text", "value": "가 표준정규분포 "},
+        {"type": "equation", "value": "N(0, 1)"},
+        {"type": "text", "value": "을 따를 때, 물음에 답하시오. (단, "},
+        {"type": "equation", "value": "P(0 \\leq Z \\leq 1) = 0.3413"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "P(0 \\leq Z \\leq 1.65) = 0.4505"},
+        {"type": "text", "value": ")"},
+        {"type": "equation", "value": "P(Z \\leq -1.65)"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "0.0254"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "0.0358"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "0.0495"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "0.0654"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "0.1058"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 11,
+      "score": 3.2,
+      "contents": [
+        {"type": "equation", "value": "P(|Z| > 1)"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "0.1587"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "0.2506"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "0.2864"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "0.3174"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "0.3413"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 12,
+      "score": 4.4,
+      "contents": [
+        {"type": "text", "value": "당첨률 25%인 복권이 있다. 이 복권을 300장 사서 30% 이상 당첨될 확률은? (단, "},
+        {"type": "equation", "value": "P(0 \\leq Z \\leq 2) = 0.4772"},
+        {"type": "text", "value": ")"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "0.0228"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "0.0416"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "0.0654"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "0.1587"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "0.3413"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

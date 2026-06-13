@@ -1,0 +1,55 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 21,
+      "score": 10,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 1] 방정식 "},
+        {"type": "equation", "value": "3x + y + z + w = 7"},
+        {"type": "text", "value": "을 만족시키는 음이 아닌 정수 "},
+        {"type": "equation", "value": "x, y, z, w"},
+        {"type": "text", "value": "의 모든 순서쌍 "},
+        {"type": "equation", "value": "(x, y, z, w)"},
+        {"type": "text", "value": "의 개수를 구하는 풀이 과정과 답을 서술하시오."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 22,
+      "score": 10,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 2] 10개의 제비 중에 당첨제비가 "},
+        {"type": "equation", "value": "k"},
+        {"type": "text", "value": "개 들어 있다. 이 중에서 임의로 2개의 제비를 동시에 뽑을 때, 적어도 한 개가 당첨 제비일 확률은 "},
+        {"type": "equation", "value": "\\frac{7}{9}"},
+        {"type": "text", "value": "이다. 이때, "},
+        {"type": "equation", "value": "k"},
+        {"type": "text", "value": "의 값을 구하는 풀이 과정과 답을 서술하시오."}
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 23,
+      "score": 15,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 3] 다음 두 조건을 만족시키는 홀수인 자연수 "},
+        {"type": "equation", "value": "x, y, z, w"},
+        {"type": "text", "value": "의 모든 순서쌍 "},
+        {"type": "equation", "value": "(x, y, z, w)"},
+        {"type": "text", "value": "의 개수를 구하는 풀이 과정과 답을 서술하시오."},
+        {"type": "text", "value": "<상자> (가) "},
+        {"type": "equation", "value": "x + y + z + w = 18"},
+        {"type": "text", "value": " • (나) "},
+        {"type": "equation", "value": "y = z"}
+      ],
+      "choices": [],
+      "sub_questions": []
+    }
+  ]
+}

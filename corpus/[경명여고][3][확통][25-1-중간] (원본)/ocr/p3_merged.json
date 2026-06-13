@@ -1,0 +1,82 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 5,
+      "score": 4.1,
+      "contents": [
+        {"type": "text", "value": "같은 종류의 주스 4병, 같은 종류의 생수 3병을 3명에게 남김없이 나누어 주는 경우의 수는? (단, 1병도 받지 못하는 사람이 있을 수 있다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "90"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "105"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "120"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "135"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "150"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 6,
+      "score": 4.2,
+      "contents": [
+        {"type": "text", "value": "어느 전화 설문 조사에 응할 확률은 남자가 0.2, 여자가 0.3이라고 한다. 남자 3명과 여자 4명이 근무하는 사무실에 이 전화 설문 조사를 할 때, 임의로 1명이 전화를 받은 후 설문 조사에 응하지 않을 확률은 "},
+        {"type": "equation", "value": "p"},
+        {"type": "text", "value": "이다. "},
+        {"type": "equation", "value": "35p"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "26"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "27"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "28"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "29"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "30"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 7,
+      "score": 4.3,
+      "contents": [
+        {"type": "equation", "value": "\\left(2x - \\frac{y}{4}\\right)^{8}"},
+        {"type": "text", "value": "의 전개식에서 "},
+        {"type": "equation", "value": "x^{6} y^{2}"},
+        {"type": "text", "value": "의 계수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "106"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "108"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "110"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "112"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "114"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 8,
+      "score": 4.4,
+      "contents": [
+        {"type": "text", "value": "두 사건 "},
+        {"type": "equation", "value": "A, B"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "P(B) = 0.4"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "P(A^{C} \\cap B^{C}) = 0.2"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "P(A | B) = 0.5"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "P(B^{C} | A)"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{1}{6}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{1}{3}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{1}{2}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{2}{3}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{5}{6}"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}

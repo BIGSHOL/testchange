@@ -1,0 +1,125 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 10,
+      "score": 4.5,
+      "contents": [
+        {"type": "text", "value": "어느 고등학교 2학년 학생들의 수학 성적은 평균이 68점, 표준편차가 10점인 정규분포를 따른다고 한다. 이 수학 시험에 응시한 학생 중 수학 성적이 58점 이상이고, "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "점 이하일 확률이 0.7445일 때, 양수 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "의 값을 오른쪽 표준정규분포표를 이용하여 구한 것은?"},
+        {"type": "table", "value": "", "rows": [
+          ["z", "P(0 \\leq Z \\leq z)"],
+          ["1.0", "0.3413"],
+          ["1.1", "0.3643"],
+          ["1.2", "0.3849"],
+          ["1.3", "0.4032"],
+          ["1.4", "0.4192"]
+        ]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "78"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "79"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "80"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "81"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "82"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 11,
+      "score": 4.5,
+      "contents": [
+        {"type": "text", "value": "어느 모집단의 확률변수 "},
+        {"type": "equation", "value": "X"},
+        {"type": "text", "value": "의 확률분포를 표로 나타내면 다음과 같다."},
+        {"type": "table", "value": "", "rows": [
+          ["X", "-3", "1", "3", "합계"],
+          ["P(X=x)", "2a", "3a", "a", "1"]
+        ]},
+        {"type": "text", "value": "이 모집단에서 크기가 36인 표본을 임의추출하여 구한 표본평균을 "},
+        {"type": "equation", "value": "\\overline{X}"},
+        {"type": "text", "value": "라 할 때, "},
+        {"type": "equation", "value": "\\sigma(\\overline{X})"},
+        {"type": "text", "value": "의 값은? (단, "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "는 상수)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{\\sqrt{5}}{3}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{\\sqrt{3}}{4}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{\\sqrt{5}}{6}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{\\sqrt{3}}{8}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{\\sqrt{5}}{12}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 12,
+      "score": 4.6,
+      "contents": [
+        {"type": "text", "value": "평균이 "},
+        {"type": "equation", "value": "m"},
+        {"type": "text", "value": ", 표준편차가 "},
+        {"type": "equation", "value": "\\sigma"},
+        {"type": "text", "value": "인 정규분포를 따르는 어느 모집단에서 크기가 8인 표본을 임의추출하였더니 다음과 같다."},
+        {"type": "text", "value": "<상자> "},
+        {"type": "equation", "value": "3, -1, 4, -5, -2, 6, 5, -2"},
+        {"type": "text", "value": "위 표본과 모집단의 표준편차 "},
+        {"type": "equation", "value": "\\sigma"},
+        {"type": "text", "value": "를 이용하여 모평균 "},
+        {"type": "equation", "value": "m"},
+        {"type": "text", "value": "에 대한 신뢰도 95%의 신뢰구간을 구하면 "},
+        {"type": "equation", "value": "0.02 \\leq m \\leq 1.98"},
+        {"type": "text", "value": "이다. 이 모집단의 확률변수 "},
+        {"type": "equation", "value": "X"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "V(3X)"},
+        {"type": "text", "value": "의 값은? (단, "},
+        {"type": "equation", "value": "Z"},
+        {"type": "text", "value": "가 표준정규분포를 따르는 확률변수일 때, "},
+        {"type": "equation", "value": "P(|Z| \\leq 1.96) = 0.95"},
+        {"type": "text", "value": "로 계산한다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{9}{2}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{27}{2}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "18"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{45}{2}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 13,
+      "score": 4.6,
+      "contents": [
+        {"type": "text", "value": "어느 과수원에서 수확한 포도 한 송이의 무게는 표준편차가 "},
+        {"type": "equation", "value": "25\\text{g}"},
+        {"type": "text", "value": "인 정규분포를 따른다고 한다. 이 과수원에서 수확한 포도 중에서 한 송이를 임의로 선택할 때, 그 무게가 "},
+        {"type": "equation", "value": "343\\text{g}"},
+        {"type": "text", "value": " 이상일 확률과 "},
+        {"type": "equation", "value": "327\\text{g}"},
+        {"type": "text", "value": " 이하일 확률이 서로 같다. 이 과수원에서 수확한 포도 중에서 포도 한 송이를 임의로 선택할 때, 무게가 "},
+        {"type": "equation", "value": "a\\text{g}"},
+        {"type": "text", "value": " 이하일 확률이 0.0668이 되도록 하는 상수 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "의 값은? (단, "},
+        {"type": "equation", "value": "Z"},
+        {"type": "text", "value": "가 표준정규분포를 따르는 확률변수일 때, "},
+        {"type": "equation", "value": "P(0 \\leq Z \\leq 1.5) = 0.4332"},
+        {"type": "text", "value": "로 계산한다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "297.5"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "310"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "360"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "372.5"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "385"}]}
+      ],
+      "sub_questions": []
+    }
+  ]
+}
