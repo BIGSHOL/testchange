@@ -1,4 +1,15 @@
 {
+  "status": "reviewed",
+  "review": {
+    "reviewed_date": "2026-06-14",
+    "reviewed_by": "렌더/검수 세션 (claude-opus-4-8[1m], 단일 master)",
+    "content_defects": 0,
+    "A_type": 0,
+    "B_type": 0,
+    "method": "status 필드 복구(파일럿 1호, REVIEW_PROTOCOL 정의 케이스) + 현 코드 재렌더 재검증",
+    "note": "자가발전 파일럿 1호 — status 필드가 컨벤션 도입 전 작성돼 누락됐던 것 복구. 현 코드(8 수하 수정+고3 폴백 등 반영) 재렌더: lint PASS·누수 0·패리티 홀수(7쪽)·확률분포표 1열 음영·이항분포 B(n,p)·σ·합집합 정상. 27문항(표 5건)."
+  },
+  "status_was": "(없음)",
   "source_pdf": "N:\\개인\\기출\\2025 기출모음\\2025년 1학기 기말고사 모음\\원본\\확통\\[중앙고][2][확통][25-1-기말](원본)(드쌤).pdf",
   "ocr_engine": "claude-code-session (claude-fable-5)",
   "crop_engine": "claude-code-session (claude-fable-5)",
