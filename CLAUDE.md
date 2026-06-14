@@ -1388,6 +1388,51 @@ PMATRIX·열벡터 자체는 통과, 주변 텍스트 처리에서 B형 다발. 
   (`_SCORE_TEXT_RE` 와 동치). 재렌더 단일 ``[8점]`` 확인. 표준 ``[N점]`` 만 렌더(부분점수
   문구 드롭, 범물중 인라인-우선 합의 연장).
 
+## 고1 수(하) 완료기반 9개교 검수 — 집합·경우의수·함수 렌더 버그 8건 (2026-06-14, 커밋 67c2e73)
+
+고1 **공수2기말 슬롯(2023 수하 대체)** 완료기반 9개교(강동·강북·경상·경신·대구외·시지·매천·
+창녕·칠성) 파란폼 재렌더 → 완료본 1:1 + **결정적 누수 스캔**(`.testkit/scan_leaks.py` — 전
+EQUATION 을 `latex_to_hwpeq` 돌려 출력 backslash[₩ 누수]·TEXT 잔여 LaTeX[\·^{·_{·{}_] 검출).
+전부 **결정적 후보정**, 회귀 박제(`test_content_parser` SH1~SH6 + 기존 30 verify). 누수 스캔
+**0/9**. 집합과 명제·경우의 수·함수(합성/역함수/유리/무리) 단원에서 잠복하던 함정 다발.
+
+### content_parser (수식 분리기 — 6 갈래)
+- **조합/순열 선두 좌측첨자 흡수**(강동고 #12 박스): `{}_{n}\mathrm{C}` 의 빈그룹+첨자 prefix 가
+  명령(\mathrm) 직전에 붙으면 `_split_latex_commands` 가 `{}_{` 평문 leak + 첨자내용(`13`)만
+  EQ 로 분리(식중간 `={}_{13}\mathrm…`은 명령 run 내부라 정상). `_LEFT_SCRIPT_PREFIX_RE`
+  (``\{\}\s*[_^]\s*\{[^{}]*\}\s*$``) 로 latex_start 직전 prefix 를 수식에 흡수.
+- **집합 기호 `\{ \}`**(강북고 #14 `Y=\{y|1\le y\le 8\}`): `_LATEX_CMD_RE` 에 ``\\[{}]`` 추가.
+  빠지면 `\{` 가 ₩{ 로 새고 set 식이 `Y`·`=\{`·`y` 로 쪼개짐(latex_to_hwpeq 는 `\{`→`"{"` 정상
+  매핑이라 분리만 고치면 됨).
+- **화살표족**(매천고 #4 ③ `\Leftrightarrow`): `_LATEX_CMD_RE` 에 Leftrightarrow·Rightarrow·
+  rightarrow·iff·implies… 추가(긴 것 먼저). latex_to_hwpeq 엔 매핑(LRARROW 등) 있으나 분리기에
+  없어 `\Leftrightarrow` 가 TEXT `\`(₩) + bare EQ `Leftrightarrow`(literal)로 쪼개졌다.
+  ⚠️ 누수 스캔이 처음 놓침(` \`=백슬래시+공백, `\letter` 아님) → TEXT_LEAK 를 **단독 `\`** 로 강화.
+- **중괄호 첨자 ASCII 원자**(시지고 #4 `a^{2}bc`·대구외고 #16 `a_{1}b_{1}`): `_MATH_EXPR_RE` 끝
+  `(?![a-zA-Z])` 가 첨자 뒤 영숫자(`a^{2}`+`b`)에서 실패해 bare `a` 로 후퇴 + `^{`/`_{` leak.
+  `_MATH_ATOM` 을 ``(?:base _SUBSUP)+`` 반복으로(암묵적 곱 흡수).
+- **순수 ASCII 수식 단일블록 평문강등 방지**(매천고 #4 선택지 `(f^{-1})^{-1}=f`): `_split_mixed_
+  text_equation`(line 965) + `_parse_content_block`(text 경로) 둘 다 len>1 조건이 단일 EQ 를
+  TEXT 로 강등 → `^{-1}` literal. `_split_latex_commands` 의 단일수식 유지(성광중 2026-06-10)와 통일.
+- **함수선언 나열 쉼표 보존**(경상고 #12·칠성고 #6 `f:X\to Y, g:Y\to Z`): `_split_one_eq_commas`
+  의 스푸리어스-쉼표 방어(학남고 #12 곱셈 잡음용)가 `\to Y` 를 atom·relation 둘 다 아니라 판정→
+  공백 병합(`Y g`→HWP `Yg`). `_has_toplevel_relation` 에 `\to`·`:`(사상/함수콜론) 추가. 학남고
+  스푸리어스(곱셈) 무회귀(`\to`·`:` 없는 `P(…)`는 여전히 병합).
+
+### latex_to_hwpeq
+- **수식 내 한글 음절 사이 공백 → `~`**(강동고 #15 cases 조건 `(x가 정수인 경우)`): HWP 가 bare
+  한글 일반공백을 시각적으로 죽여 `x가정수인경우` 로 붙음. `convert` 끝에서 한글-한글 경계 공백을
+  `~`(전각)로. ⚠️ `\text{한글}`→`"정수인 경우"`(따옴표 리터럴)는 HWP 가 공백 보존 → **따옴표 밖만**
+  변환(따옴표 안 ~ 는 literal 틸드로 샘). 순수 math 간격 불변.
+
+### 검수 운영 교훈
+- **누수 스캔이 비주얼 검수보다 빨리 잡는다**: `scan_leaks.py`(결정적) 가 #4·#7 을 전 9교에서
+  즉시 검출(비주얼은 페이지별). 단 표현 갭(` \`·`Yg` 공백병합·로만/이탤릭)은 못 잡아 **비전 대조
+  병행 필수**. 갭 발견 시 스캔 규칙 강화(단독 `\` 추가).
+- **수정마다 영향 entry 만 재렌더**(전수 재렌더 treadmill 회피): raw JSON 스캔으로 패턴 보유 학교
+  특정(`\to…,…` = 경상·칠성, arrow = 매천뿐) → 그 학교만 재렌더. 도구 `F:/tmp/suha_render/batch_render.py`.
+- 정답면 패리티 전 9교 홀수(렌더 5·5·5·5·7·5·5·5·7쪽) — 문제 짝수 마무리 + 정답 홀수쪽 정상.
+
 ## corpus 생산자·소비자 운영 — ⭐ 단일 master (2026-06-14 worktree 통합)
 
 > ⚠️ **2026-06-14**: 과거 멀티 worktree(`hwakt-ocr`·`mij-ocr`·`render-review`·`go1-ocr`) 분리
