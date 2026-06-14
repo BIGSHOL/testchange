@@ -126,6 +126,11 @@ def match_by_grade(grade: str, subtag: str = "") -> str | None:
     if not grade:
         return None
     cands = [f for f in list_forms() if f.grade == grade]
+    if not cands and grade == "고3" and subtag == "선택과목":
+        # 고3 선택과목(확통·미적분·기하)은 고2 선택과목 폼을 공유한다 — 폼 구조(객관식/서술형/
+        # 정답)는 학년 무관, 학년 라벨은 header_values 로 덮어쓴다. 고3 전용 폼이 없을 때 폴백
+        # (안 하면 고3 확통·미적분이 폼 매칭 실패로 변환 불가, 2026-06-14).
+        cands = [f for f in list_forms() if f.grade == "고2" and f.subtag == "선택과목"]
     if not cands:
         return None
     if subtag:
