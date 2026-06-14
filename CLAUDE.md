@@ -1323,7 +1323,7 @@ PMATRIX·열벡터 자체는 통과, 주변 텍스트 처리에서 B형 다발. 
 
 핸드오프 4종(경산고·대원고·덕원고 수2 + 대건고 공수1) 캐시 렌더(API 0원) → 완료본 1:1.
 경산고·대원고는 결함 0. 덕원고·대건고에서 B형 3건(머리말 strip·캐럿·원문자 줄바꿈) 수정.
-회귀 `test_content_parser` DG1·`test_render_fixes` W2(answer-header-strip).
+회귀 `test_content_parser` DG1·`test_render_fixes` W2(answer-header-neutralize, 2026-06-14 갱신).
 
 ### ⭐⭐ 정답 구역 머리말/꼬리말 재정의가 마지막 서술형 문제 페이지를 덮음 (덕원고 #19)
 - 증상: 단답형+서술형 **혼합** 수2(덕원고)에서 p4(서술형 #17·18·19 문제 페이지) 머리말이
@@ -1335,11 +1335,14 @@ PMATRIX·열벡터 자체는 통과, 주변 텍스트 처리에서 B형 다발. 
   ctrl 이 단락 시작에 있어 #19 가 있는 p4 전체가 정답 머리말을 받는다. **#19 가 재정의 뒤에
   위치 = 페이지네이션 무관 결정적 결함**(중앙중 중3 "header/footer 가 정답 container 와 한
   단락" 동족).
-- 수정 = `hwp_form_writer._strip_answer_header_redefine`: **첫 본문 단락(secPr=메인 머리말)
-  뒤**의 header/footer ctrl 을 제거(메인은 보존) → 전 페이지가 메인 머리말/꼬리말로 통일
-  (대원고·경산고 동작). `_layout_form` 후·`_fill_form_header` 전 호출. **부수효과: 정답면
-  머리말 학년 빈값 C한계('중/고 학년 수학')도 해소** — 중앙중·새본리중(중3 빨강) 재렌더에서
-  정답면이 "중앙중 3학년 수학"·"새본리중 3학년 수학"으로 개선 + 정답 분리·홀수 패리티 무회귀.
+- 수정(`hwp_form_writer`, **첫 본문 단락(secPr=메인 머리말) 뒤**의 재정의만 손대고 메인은 보존,
+  `_layout_form` 후·`_fill_form_header` 전 호출): ⚠️ **최초 구현 `_strip_answer_header_redefine`
+  (재정의 ctrl 제거)은 relaunder 가 정답 container 를 통째 드롭하는 결함이 있었다**(상원고
+  공수2 발견·덕원고도 잠복 — 2026-06-14 절 참조). **현재 = `_neutralize_answer_header_redefine`**:
+  재정의 ctrl 을 제거하지 않고 그 inner(subList)를 메인 것으로 **치환**(ctrl 보존 → 정답
+  container 살아남음). 표시는 메인=문제 페이지와 같아져 bleed 소거. **부수효과: 정답면 머리말
+  학년 빈값 C한계('중/고 학년 수학')도 해소** — 중앙중·새본리중(중3 빨강) 재렌더에서 정답면이
+  "중앙중 3학년 수학"·"새본리중 3학년 수학"으로 개선 + 정답 분리·홀수 패리티 무회귀.
 
 ### ⭐ 소문항 원문자 항목 ``㉢ A^2`` 캐럿 노출 (대건고 #19 ㉢㉣㉤)
 - 증상: 소문항 항목 ``㉢ A^2``(별도 text 블록, caret 표기)가 ``A^2`` literal(``^`` 노출). 같은
@@ -1433,12 +1436,12 @@ EQUATION 을 `latex_to_hwpeq` 돌려 출력 backslash[₩ 누수]·TEXT 잔여 L
   특정(`\to…,…` = 경상·칠성, arrow = 매천뿐) → 그 학교만 재렌더. 도구 `F:/tmp/suha_render/batch_render.py`.
 - 정답면 패리티 전 9교 홀수(렌더 5·5·5·5·7·5·5·5·7쪽) — 문제 짝수 마무리 + 정답 홀수쪽 정상.
 
-## ocr_done 57편 전수 렌더+검수 — 신규 버그 0 + 고3 폼 폴백 + 상원고 정답증발 발견 (2026-06-14)
+## ocr_done 57편 전수 렌더+검수 — 신규 버그 0 + 고3 폼 폴백 + 상원고 정답증발 해결 (2026-06-14)
 
 남은 `ocr_done` 57편(확통 31·공수2중간 10·수하원본 8·공수1중간 6·미적분 2)을 **백그라운드 배치
 렌더(`F:/tmp/all_render/batch_all.py`)와 병렬 검수**. 결정적 게이트(누수 스캔 0/57·corpus_lint
---xml·패리티) + 콘텐츠 유형 대표 1:1 비전 대조. **56편 reviewed**(신규 B형 0 — 8 수하 수정+기존이
-전 단원 커버), **상원고 공수2 정답증발 1건 발견**(아래).
+--xml·패리티) + 콘텐츠 유형 대표 1:1 비전 대조. **57편 reviewed**(신규 B형 1 — 정답 머리말 재정의
+제거가 정답증발 유발, 상원고 발견+덕원고 잠복 동반 수정; 8 수하 수정+기존이 전 단원 커버).
 
 ### ⭐ form_registry 고3 선택과목 폼 폴백 (확통·미적분 14+2편 렌더 가능화)
 - `match_by_grade("고3", "선택과목")` 가 None(고3 전용 폼 없음) → 고3 확통·미적분 변환 불가였다.
@@ -1449,16 +1452,30 @@ EQUATION 을 `latex_to_hwpeq` 돌려 출력 backslash[₩ 누수]·TEXT 잔여 L
   순열/조합/반복순열 Π/반복조합 H·여집합·set·조건박스), 공수1(복소수·켤레 overline·항등식·근호),
   공수2 도형(**점이름 로만+좌표 이탤릭**·원·집합·여집합), 미적분(∫·dy/dx·f′·f″·ln·sin·π·매개변수).
 
-### ⚠️ 상원고 공수2 정답 페이지 증발 (1편, 별도 bisect — 미해결)
+### ⭐⭐ 상원고 공수2 정답 페이지 증발 — 정답 머리말 재정의 제거가 relaunder 드롭 유발 (해결 2026-06-14)
 - 증상: 렌더 XML 의 `<hp:container>` 가 **1개(헤더 로고만)** — 정상 엔트리는 4개('정답' 타이틀
-  +빈 2). '정답' 텍스트 0회. 정답 슬롯·라벨([단답형 1~4][서술형 5~9])은 잔존하나 **pageBreak
-  앵커(정답 container) 소실로 정답이 새 페이지로 안 넘어가고 문제면 p4 하단에 인라인 병합**.
-- **결정적**(2회 렌더 모두 '정답' 0회 — 강동중 비결정 캐럿과 다름). 그러나 단일 트리거로 격리
-  안 됨: essay 수(9)·박스끝 단독 아님 — 수성고 공수2(10 서답형·33문항)·강북고 수하(8서답+박스끝)는
-  정상. 콘텐츠 특이(마지막 서답형 Q22 `<상자>` 집합 박스로 끝남)로 추정. 강동중 정답증발(합의
-  #9·#10) 계열이나 **다른 경로**(배점 폴백 아닌 essay grow/box tail 캐럿). 전용 bisect 필요.
-- 처리: meta `status=ocr_done` 유지 + `known_defects` 플래그. 56편만 reviewed. corpus_lint --xml
-  의 '정답 블록 없음' FAIL 게이트가 자동 검출(비전 누락 방지 실례 — lint 가 1건 잡음).
+  +빈 2). '정답' 0회. 정답 슬롯·라벨([단답형 1~4][서술형 5~9])은 잔존하나 pageBreak 앵커(정답
+  container) 소실로 정답이 문제면 p4 하단에 인라인 병합. **결정적**(2회 렌더 동일).
+- **bisect(단계별 container 카운트)**: COM 채움·`_build_layout`·전 XML 후처리까지 container=4
+  유지인데 **`_com_relaunder`(HWP 재저장)가 4→1 로 드롭**. 스냅샷을 단계별로 relaunder 해보니
+  **`_strip_answer_header_redefine`(덕원고 2026-06-13 도입) 직후 스냅샷만** relaunder 가 드롭.
+  → 그 strip 이 정답 구역 머리말/꼬리말 **재정의 ctrl 을 제거**한 게 원인. header/footer 텍스트만
+  든 run 을 비우든 run 째 지우든 **모두 드롭**(strip 변형 실험) — HWP 가 이 재정의를 **정답
+  페이지 영역 anchor 로 구조상 필수**로 쓴다. 제거 시 anchor 가 무너져 재저장이 정답 단락을 통째
+  버린다([[hwpx-lineseg-relaunder-trap]] 계열, 단 텍스트 삭제가 아니라 ctrl 삭제 경로).
+- ⚠️ **덕원고도 동일하게 잠복 깨짐**: strip 의 설계 케이스(덕원고 수2)도 같은 probe 로 container
+  5→2 드롭 확인 — bleed(마지막 서답형 문제면 정답 머리말 침범)만 고치고 **정답 페이지를 조용히
+  증발**시키고 있었다(당시 container-after-relaunder 미점검). 상원고는 `corpus_lint --xml` 의
+  '정답 블록 없음' FAIL 이 잡아 발견(비전 누락 방지 실례), 덕원고는 안 잡혀 reviewed 로 출하됐었음.
+- **수정 = `_strip_answer_header_redefine` → `_neutralize_answer_header_redefine`**: 재정의 ctrl 을
+  **제거하지 않고**, 그 header/footer **inner(subList)를 메인(첫 본문 단락) 것으로 치환**한다.
+  ctrl 은 살아 정답 container 보존(relaunder 후 container 유지 검증), 표시 텍스트는 메인=문제
+  페이지와 같아져 bleed 소거. 이후 `_fill_form_header` 가 메인·재정의 둘 다 "{학교} {N}학년
+  {과목}"·꼬리말로 정규화 → 정답면 학년 빈값 C한계("고 학년 수학")와 "(정답)" 오표기도 해소.
+  정상 엔트리(재정의 없는 폼: 대건고·계성고)는 no-op. 멱등.
+- 검증: 상원고 container 1→4·lint PASS, 덕원고 5(보존)·대건고·계성고 4(무회귀), 경산고·대원고
+  수2 무회귀. 회귀 `test_render_fixes` W2(재정의 치환·메인 보존·ctrl 존속·균형·멱등). meta
+  `status=reviewed`. **57편 전부 reviewed**.
 
 ## corpus 생산자·소비자 운영 — ⭐ 단일 master (2026-06-14 worktree 통합)
 

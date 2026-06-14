@@ -667,15 +667,19 @@ def run():
     eqmk = _sls([_eq("(1)"), _tb(" 일차함수의 식을")])
     chk(not any(b.value == "(1)" for b in eqmk), f"V 형태4 진짜마커 strip: {[(b.type.name,b.value) for b in eqmk]!r}")
 
-    # ── W2: 정답 구역 머리말/꼬리말 재정의 strip(_strip_answer_header_redefine, 덕원고 수2) ──
+    # ── W2: 정답 구역 머리말/꼬리말 재정의 **치환**(_neutralize_answer_header_redefine) ──
     # 정답 구역 재정의(첫 본문 단락 secPr **뒤**의 header/footer ctrl)가 마지막 서술형 문제와
-    # 한 단락에 들어가 그 문제 페이지까지 "고 학년 수학"·"(정답)" 으로 덮던 것. 첫 단락 머리말은
-    # 보존, 그 뒤 재정의만 제거. 합성 section XML 로 위치 판정·균형 검증.
-    from core.hwp_form_writer import _first_para_end, _strip_answer_header_redefine
+    # 한 단락에 들어가 그 문제 페이지까지 "고 학년 수학"·"(정답)" 으로 덮던 것. ⚠️ 재정의 ctrl 을
+    # **제거**하면 relaunder 가 정답 container 를 통째 드롭한다(상원고·덕원고 정답증발,
+    # 2026-06-14) → 제거 대신 재정의 inner 를 **메인 것으로 치환**(ctrl 보존). 메인 보존·재정의
+    # ctrl 존속·bleed 텍스트 소거·균형·멱등을 합성 section XML 로 검증.
+    from core.hwp_form_writer import (_first_para_end,
+                                      _neutralize_answer_header_redefine)
     import zipfile as _zip, tempfile as _tmp, os as _os
     sec = ('<hp:p id="0"><hp:secPr/><hp:run><hp:ctrl><hp:header id="7"><hp:subList>'
            '<hp:p><hp:run><hp:t>덕원고 2학년 수학2</hp:t></hp:run></hp:p></hp:subList></hp:header>'
-           '</hp:ctrl></hp:run></hp:p>'
+           '</hp:ctrl><hp:ctrl><hp:footer id="7"><hp:subList><hp:p><hp:run>'
+           '<hp:t>대비 (수학2)</hp:t></hp:run></hp:p></hp:subList></hp:footer></hp:ctrl></hp:run></hp:p>'
            '<hp:p id="1"><hp:run><hp:ctrl><hp:header id="8"><hp:subList><hp:p><hp:run>'
            '<hp:t>고 학년 수학</hp:t></hp:run></hp:p></hp:subList></hp:header></hp:ctrl>'
            '<hp:ctrl><hp:footer id="9"><hp:subList><hp:p><hp:run><hp:t>대비 (수학2) (정답)</hp:t>'
@@ -684,17 +688,22 @@ def run():
     fd, hp = _tmp.mkstemp(suffix=".hwpx"); _os.close(fd)
     with _zip.ZipFile(hp, "w") as z:
         z.writestr("Contents/section0.xml", sec.encode("utf-8"))
-    n = _strip_answer_header_redefine(hp)
+    n = _neutralize_answer_header_redefine(hp)
     with _zip.ZipFile(hp) as z:
         got = z.read("Contents/section0.xml").decode("utf-8")
-    _os.remove(hp)
-    chk(n == 2, f"W2 정답 재정의 2개 제거 (got {n})")
-    chk("고 학년 수학" not in got, "W2 정답 머리말('고 학년') 제거")
-    chk("(정답)" not in got, "W2 정답 꼬리말('(정답)') 제거")
-    chk("덕원고 2학년 수학2" in got, "W2 메인 머리말(첫 단락) 보존")
+    chk(n == 2, f"W2 정답 재정의 2개 치환 (got {n})")
+    chk("고 학년 수학" not in got, "W2 정답 머리말('고 학년') 소거")
+    chk("(정답)" not in got, "W2 정답 꼬리말('(정답)') 소거")
+    chk(got.count("덕원고 2학년 수학2") == 2, "W2 재정의 머리말이 메인으로 치환(메인+재정의 2개)")
+    chk(got.count('<hp:header') == 2 and got.count('<hp:footer') == 2,
+        "W2 재정의 ctrl 보존(제거 금지 — 정답 container 드롭 방지)")
     chk("[서술형 6]" in got, "W2 #19 본문 보존")
     chk(got.count("<hp:p") == got.count("</hp:p>"), "W2 단락 태그 균형")
     chk(got.count("<hp:ctrl>") == got.count("</hp:ctrl>"), "W2 ctrl 태그 균형")
+    # 멱등: 이미 치환된 파일에 재실행 → 0건(추가 변경 없음)
+    n2 = _neutralize_answer_header_redefine(hp)
+    chk(n2 == 0, f"W2 멱등(재실행 0건, got {n2})")
+    _os.remove(hp)
 
     # ── W3: 번호 라벨 뒤 유형 라벨 중복 제거(_essay_label_and_body, 도원고 수2) ──
     # OCR 이 ``[서답형 7][서술형]`` 처럼 번호+유형 라벨을 둘 다 주면 폼 라벨과 ``[서술형 7] [서술형]``
@@ -716,7 +725,7 @@ def run():
           "bigstar/boxed/labelless/solo/mixed-label/rm-space/cond-header/form-underline/"
           "sqrt-space/choice-glyph/tail-note/underline-solid/stemleaf-13/choice-geo/cond-circle/"
           "repeat-dot/paren-score/phantom-box/box-bullet/post-box/box-ascii-eq/submark-ref/"
-          "answer-header-strip/essay-type-label)")
+          "answer-header-neutralize/essay-type-label)")
     return 0
 
 

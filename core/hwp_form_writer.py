@@ -1755,52 +1755,90 @@ def _first_para_end(sec: str) -> int:
     return 0
 
 
-def _strip_answer_header_redefine(hwpx_path: str | Path) -> int:
-    """정답 구역용 머리말/꼬리말 **재정의** 컨트롤 제거 → 전 페이지가 메인 것을 쓰게 통일.
+def _band_inner(elem: str, tag: str) -> str | None:
+    """``<hp:TAG ...>INNER</hp:TAG>`` 단일 요소에서 INNER(subList) 반환."""
+    m = re.search(r"<hp:%s\b[^>]*>(.*)</hp:%s>" % (tag, tag), elem, re.S)
+    return m.group(1) if m else None
 
-    일부 폼(고2 수2 보라·중3 빨강)은 정답 구역에 머리말("고/중 학년 수학" — 학년 빈값)·꼬리말
-    ("… (정답)") 을 재정의하는 ``hp:header``/``hp:footer`` 컨트롤을 둔다. 이게 **마지막 서술형
-    문제와 같은 본문 단락**에 들어가면(단답형+서술형 혼합 수2에서 #19 가 정답구역 단락에 grow
-    삽입됨) 그 **문제 페이지까지** 정답 머리말("고 학년 수학")·꼬리말("(정답)")로 덮어쓴다
-    (덕원고 2026-06-13). 정상 corpus(대원고·경산고)는 이 재정의가 아예 없어 정답면도 메인
-    머리말을 쓴다 — 그 동작으로 **통일**한다(메인 머리말/꼬리말은 **첫 본문 단락(secPr)** 안에
-    있으므로, 그 단락 **뒤**의 header/footer ctrl 만 제거; 메인은 보존). 부수효과: 정답면 머리말
-    학년 빈값 C한계('중/고 학년 수학')도 함께 해소된다.
 
-    Returns: 제거한 재정의 컨트롤 수(0 이면 손댄 것 없음 — 재정의 없는 폼/정상).
+def _main_band_inner(sec: str, tag: str, cut: int) -> str | None:
+    """첫 본문 단락(cut 전)의 메인 머리말/꼬리말 inner — 텍스트가 가장 풍부한 밴드.
+
+    폼은 첫쪽/홀/짝 밴드를 따로 둘 수 있어(빈 밴드 포함) ``<hp:t>`` 글자수가 최대인 것을 고른다.
+    """
+    best, bestlen = None, -1
+    for m in re.finditer(r"<hp:%s\b[^>]*>.*?</hp:%s>" % (tag, tag), sec, re.S):
+        if m.start() >= cut:
+            continue
+        inner = _band_inner(m.group(), tag) or ""
+        tlen = sum(len(t) for t in re.findall(r"<hp:t>(.*?)</hp:t>", inner, re.S))
+        if tlen > bestlen:
+            best, bestlen = inner, tlen
+    return best
+
+
+def _neutralize_answer_header_redefine(hwpx_path: str | Path) -> int:
+    """정답 구역용 머리말/꼬리말 **재정의**의 내용을 메인 것으로 **치환**(ctrl 구조 보존).
+
+    일부 폼(고2 수2 보라·고1 파란·중3 빨강)은 정답 구역에 머리말("고/중 학년 수학" — 학년
+    빈값)·꼬리말("… (정답)") 을 재정의하는 ``hp:header``/``hp:footer`` 컨트롤을 둔다. grow 가
+    마지막 서술형 슬롯을 이 재정의가 든 **정답구역 단락**에 삽입하면, 재정의가 단락 시작에 있어
+    그 **문제 페이지까지** 정답 머리말("고 학년 수학")·꼬리말("(정답)")로 덮는다(덕원고 #19·
+    상원고 공수2 #22, 2026-06-13/14).
+
+    ⚠️ 재정의 ctrl 을 **제거**하면(과거 동작) HWP 가 정답 페이지 영역 anchor 로 쓰던 재정의가
+    사라져 ``_com_relaunder``(재저장)가 **정답 container 통째를 드롭**한다(상원고 정답증발 +
+    덕원고도 동일하게 잠복 — 둘 다 container 4→1·5→2, 격리 bisect 2026-06-14). header/footer
+    텍스트만 든 run 을 비우든 run 째 지우든 결과는 같다(드롭). HWP 가 이 재정의를 구조상
+    **필수**로 보므로, 제거 대신 재정의 header/footer 의 **inner(subList)를 메인(첫 본문 단락)
+    것으로 치환**한다: ctrl 은 살아 정답 container 가 보존되고(relaunder 후 container 유지 검증),
+    표시 텍스트는 메인=문제 페이지와 같아져 bleed 가 사라진다. 이후 ``_fill_form_header`` 가
+    메인·재정의 둘 다 "{학교} {N}학년 {과목}"·꼬리말로 정규화 → 정답면 학년 빈값 C한계와
+    "(정답)" 오표기가 함께 해소된다.
+
+    메인 머리말/꼬리말은 **첫 본문 단락(secPr)** 안에 있으므로, 그 단락 **뒤**의 재정의만
+    치환(메인 보존). 정상 corpus(재정의 없는 폼)는 손대는 게 없다(no-op).
+
+    Returns: 치환한 재정의 ctrl 수(0 이면 손댄 것 없음 — 재정의 없는 폼/정상/멱등).
     """
     hwpx_path = Path(hwpx_path)
     with zipfile.ZipFile(hwpx_path) as z:
         infos = z.infolist()
         data = {i.filename: z.read(i.filename) for i in infos}
-    removed = 0
-    pats = (r"<hp:ctrl(?:\s[^>]*)?>\s*<hp:header\b.*?</hp:header>\s*</hp:ctrl>",
-            r"<hp:ctrl(?:\s[^>]*)?>\s*<hp:footer\b.*?</hp:footer>\s*</hp:ctrl>")
+    changed_total = 0
     for fn in list(data):
         if not (fn.endswith(".xml") and "section" in fn.lower()):
             continue
         sec = data[fn].decode("utf-8")
+        cut = _first_para_end(sec)          # 첫 본문 단락(메인 머리말/꼬리말) 끝
+        if not cut:
+            continue
         changed = False
-        for pat in pats:
-            cut = _first_para_end(sec)          # 첫 본문 단락(메인 머리말) 끝 — 그 뒤만 제거
-            if not cut:
-                break
+        for tag in ("header", "footer"):
+            main_inner = _main_band_inner(sec, tag, cut)
+            if main_inner is None:
+                continue                    # 메인 밴드 없음 → 치환 기준 없음(보존)
             out, last, n = [], 0, 0
-            for m in re.finditer(pat, sec, re.S):
-                if m.start() >= cut:
-                    out.append(sec[last:m.start()])
-                    last = m.end()
-                    n += 1
+            for m in re.finditer(r"<hp:%s\b[^>]*>.*?</hp:%s>" % (tag, tag), sec, re.S):
+                if m.start() < cut:
+                    continue                # 메인은 보존
+                if _band_inner(m.group(), tag) == main_inner:
+                    continue                # 이미 메인과 동일 → 멱등(no-op)
+                open_tag = re.match(r"<hp:%s\b[^>]*>" % tag, m.group()).group()
+                out.append(sec[last:m.start()])
+                out.append(open_tag + main_inner + "</hp:%s>" % tag)
+                last = m.end()
+                n += 1
             if n:
                 out.append(sec[last:])
                 sec = "".join(out)
-                removed += n
+                changed_total += n
                 changed = True
         if changed:
             data[fn] = sec.encode("utf-8")
-    if removed:
+    if changed_total:
         _repackage_hwpx(hwpx_path, infos, data)
-    return removed
+    return changed_total
 
 
 # ── 진입점 ────────────────────────────────────────────────
@@ -2335,14 +2373,15 @@ def write_exam_to_form(
             os.remove(filled)
         except Exception:
             pass
-    # 1.45단계: 정답 구역 머리말/꼬리말 **재정의** 제거 — 정답 구역 재정의가 마지막 서술형
-    # 문제와 한 본문 단락에 들어가 그 문제 페이지까지 "고 학년 수학"·"(정답)"으로 덮어쓰는
-    # 결함(덕원고 단답형+서술형 혼합 수2, 2026-06-13) 차단. 메인 머리말로 통일(정답면 학년
-    # 빈값 C한계도 해소). _fill_form_header **전**(채움은 메인 머리말만 보게).
+    # 1.45단계: 정답 구역 머리말/꼬리말 **재정의** 내용을 메인 것으로 치환(ctrl 보존) — 정답
+    # 구역 재정의가 마지막 서술형 문제와 한 본문 단락에 들어가 그 문제 페이지까지 "고 학년
+    # 수학"·"(정답)"으로 덮는 결함(덕원고 수2 2026-06-13, 상원고 공수2 2026-06-14) 차단. ⚠️
+    # 재정의 ctrl 을 **제거**하면 relaunder 가 정답 container 를 통째 드롭한다(정답증발) → 제거
+    # 대신 **치환**해 container 보존 + bleed 해소. _fill_form_header **전**(둘 다 메인으로 정규화).
     try:
-        _strip_answer_header_redefine(output_path)
+        _neutralize_answer_header_redefine(output_path)
     except Exception as e:  # noqa: BLE001
-        logger.warning("폼 후처리 실패(_strip_answer_header_redefine): %s", e)
+        logger.warning("폼 후처리 실패(_neutralize_answer_header_redefine): %s", e)
     # 1.5단계: 서술형 라벨 후처리 — 중복 라벨 제거.
     # (라벨 번호는 이제 `_put_essay_label` 이 **수식**으로 쓴다 — 사용자 2026-06-09: "[서답형 5]
     #  의 5는 수식". 과거 _textify_essay_label_numbers(번호 수식→텍스트)는 그 반대라 제거했다.)
