@@ -488,6 +488,34 @@ def _check_daegeon_go1_fixes(fails):
         fails.append("  DG1 인라인 원문자 오감지")
 
 
+def _check_jung2_2sem_fixes(fails):
+    """강북중 중2 2학기 #5 — 닮음 도형 선택지의 각(∠R·∠P)이 로만화 안 되던 것.
+    _parse_choice 에 _romanize_angle_letters 누락 → 발문 기하문맥 미감지 시 ∠ 단일대문자 이탤릭.
+    선택지 경로에 각 로만화 추가(∠ 본질적 기하라 게이트 없이)."""
+    from core.content_parser import _parse_choice
+    from core.latex_to_hwpeq import latex_to_hwpeq as l2h
+    # 발문 기하문맥 없이도(parent_geo=False) ∠ 뒤 단일 대문자는 로만
+    c = _parse_choice({"number": 1, "contents": [
+        {"type": "equation", "value": r"\angle R=80°"}]}, parent_geo=False)
+    eqs = [b.value for b in c.contents if b.type.name == "EQUATION"]
+    if not any(r"\angle \mathrm{R}" in (e or "") for e in eqs):
+        fails.append(f"  J2S ∠R 로만화 실패: {eqs!r}")
+    # 확률 P 도 ∠ 뒤면 로만(렌더 italicize_stat=False 에서 rm P)
+    cP = _parse_choice({"number": 2, "contents": [
+        {"type": "equation", "value": r"\angle P=125°"}]}, parent_geo=False)
+    eqP = [b.value for b in cP.contents if b.type.name == "EQUATION"]
+    if not any(r"\angle \mathrm{P}" in (e or "") for e in eqP):
+        fails.append(f"  J2S ∠P 로만화 실패: {eqP!r}")
+    if "angle rm P" not in l2h(eqP[0], italicize_stat=False):
+        fails.append(f"  J2S ∠P 렌더 로만 실패: {l2h(eqP[0], italicize_stat=False)!r}")
+    # 무회귀: ∠ 없는 확통 선택지 P(X=2) 는 이탤릭 유지(로만화 안 함)
+    cx = _parse_choice({"number": 3, "contents": [
+        {"type": "equation", "value": r"P(X=2)"}]}, parent_geo=False)
+    eqx = [b.value for b in cx.contents if b.type.name == "EQUATION"]
+    if any(r"\mathrm{P}" in (e or "") for e in eqx):
+        fails.append(f"  J2S 확통 P 오로만화: {eqx!r}")
+
+
 # SH1·SH2 (강동고·강북고 수하 23-2-기말 완료기반, 2026-06-14): 조합/순열 좌측첨자·집합 괄호.
 def _check_suha_fixes(fails):
     from core.content_parser import _split_latex_commands
@@ -625,6 +653,7 @@ def run():
     _check_daejin_go1_fixes(fails)
     _check_dasa_fixes(fails)
     _check_daegeon_go1_fixes(fails)
+    _check_jung2_2sem_fixes(fails)
     _check_suha_fixes(fails)
     # HH1(혜화여고 #19): 베이스 없는 선행 첨자(조합 _{n-1}C)는 HWP 가 빈 렌더 — {} 베이스 삽입.
     from core.latex_to_hwpeq import latex_to_hwpeq as _l2h_hh

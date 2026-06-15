@@ -188,6 +188,11 @@ def _parse_choice(choice_data: dict, parent_geo: bool = False) -> Choice | None:
     choice.contents = _romanize_point_names(choice.contents, force_geo=geo)
     # 비기하 단일대문자 \mathrm 벗겨 이탤릭(조합 C·순열 P_ 제외)
     choice.contents = _italicize_nongeo_single_letters(choice.contents, force_geo=geo)
+    # 각(∠)·삼각함수·도(°) 뒤 단일 대문자 로만체 — ∠ 등은 본질적 기하라 게이트 없이 적용.
+    # **마지막**에(나 비기하 italicize 뒤) 적용해 ∠R·∠P 로만화가 되돌려지지 않게 한다
+    # (발문엔 _finalize_contents 가 적용하나 선택지 경로엔 빠져 ∠R 이 이탤릭으로 남던 것,
+    # 강북중 중2 2학기 #5 ∠R·∠P 닮음 도형, 2026-06-15).
+    choice.contents = _romanize_angle_letters(choice.contents)
 
     return choice
 
