@@ -363,7 +363,9 @@ def _wrapped_in_parens(v: str) -> bool:
 # OCR 이 \mathrm 을 안 붙이고 평문 대문자로 주면 수식에서 이탤릭으로 렌더된다(사용자 2026-06-08).
 # **블록 전체가 대문자 1~4글자(+선택 첨자)인 수식**만 기하 이름 후보로 보고 \mathrm 으로 감싼다
 # (소문자 변수 x,y,a,b 는 이탤릭 유지, 'A=2^6' 처럼 연산자·숫자 섞인 건 건드리지 않음 — 안전).
-_BARE_UPPER_EQ_RE = re.compile(r'^[A-Z]{1,4}(?:_\{?[A-Za-z0-9]+\}?)?$')
+# 트레일링 프라임 허용 — 무게중심 G'·접힌꼭짓점 C' 같은 프라임 기하 라벨이 로만화 안 돼
+# 이탤릭 잔존하던 것(경신중2 #10·#11·#17·#21, 2026-06-15). \mathrm{G'} 로 감싸 로만.
+_BARE_UPPER_EQ_RE = re.compile(r"^[A-Z]{1,4}'*(?:_\{?[A-Za-z0-9]+\}?)?'*$")
 # 첨자 제거 후 순수 대문자 알파벳만 추출(글자 수 판정용).
 _UPPER_LETTERS_RE = re.compile(r'^[A-Z]+')
 # 좌표를 단 점 이름: 선두 단일 대문자 + ``(`` (또는 ``\left(``) 로 시작하는 좌표쌍. 점 글자만
@@ -855,10 +857,17 @@ def _is_atom_item(p: str) -> bool:
     그리스/단순기호 = ``\\name`` (선택적 아래/위첨자) — ``\\frac{}{}`` 같은 구조명령은
     뒤에 ``{`` 가 와서 매칭 안 됨(원자 아님 유지)."""
     p = (p or "").strip()
+    p = re.sub(r"^(?:\\[\s,;:])+\s*", "", p).strip()  # 선행 \,·\ (얇은공백)만 제거(\overline 보존)
     return bool(_VAR_ITEM_RE.match(p)
                 or re.fullmatch(r"[-+]?\d+(?:\.\d+)?", p)
                 or (re.search(r"\d", p) and re.fullmatch(r"[0-9+\-.\si]+", p))
                 or re.fullmatch(r"\\[A-Za-z]+(?:[_^]\{?[A-Za-z0-9]+\}?)?", p)
+                # accent 라벨(선분 \overline{BC}·호 \overarc{AB}·벡터 \vec{a} 등) = 도형
+                # 라벨 나열 항목 → 원자. 안 그러면 ``\overline{BC}, \overline{CD}`` 의 쉼표가
+                # 스푸리어스로 드롭돼 ``\overline{BC} \overline{CD}`` 로 붙는다(경산여중2 #13·
+                # 사동중2 #8, 2026-06-15).
+                or re.fullmatch(r"\\(?:overline|overarc|vec|hat|bar|widehat|dot|ddot|tilde)"
+                                r"\{[A-Za-z0-9']+\}", p)
                 or re.fullmatch(r"\\c?dots|\\ldots|⋯|\.\.\.", p))
 
 

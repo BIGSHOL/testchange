@@ -588,6 +588,18 @@ def _check_2sem_round2(fails):
     ul = [b for b in page.questions[0].contents if getattr(b, "underline", False)]
     if not ul or ul[0].value != "않을":
         fails.append(f"  R2 단독 밑줄 블록 실패: {[(b.value, getattr(b,'underline',False)) for b in page.questions[0].contents]!r}")
+    # 8) overline 선분 나열 쉼표 보존(\overline{BC}, \overline{CD} → 쉼표 유지)
+    res3 = []
+    _split_one_eq_commas(ContentBlock(type=ContentType.EQUATION,
+                                      value=r"\overline{BC}, \ \overline{CD}"), res3)
+    if not any(b.type == ContentType.TEXT and "," in (b.value or "") for b in res3):
+        fails.append(f"  R2 overline 쉼표 드롭: {[(b.type.name, b.value) for b in res3]!r}")
+    # 9) 프라임 기하 라벨 G' → \mathrm{G'} (로만, 무게중심 문맥)
+    from core.content_parser import _romanize_point_names
+    pr = _romanize_point_names([ContentBlock(type=ContentType.TEXT, value="무게중심을 "),
+                                ContentBlock(type=ContentType.EQUATION, value="G'")])
+    if not any(b.type == ContentType.EQUATION and "\\mathrm" in (b.value or "") for b in pr):
+        fails.append(f"  R2 프라임 G' 로만 실패: {[(b.type.name, b.value) for b in pr]!r}")
 
 
 def _check_table_value_list(fails):
