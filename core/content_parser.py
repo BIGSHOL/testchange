@@ -143,8 +143,9 @@ def _parse_question(q_data: dict) -> Question:
         if choice:
             question.choices.append(choice)
 
-    # 소문항
-    for sub_data in q_data.get("sub_questions", []):
+    # 소문항 — OCR 이 ``subquestions``(언더스코어 누락 오타, 2026-06-15 대륜중2)로 줄 수도
+    # 있어 두 키 모두 수용한다(없으면 소문항 통째 드롭됨).
+    for sub_data in (q_data.get("sub_questions") or q_data.get("subquestions") or []):
         sub = _parse_question(sub_data)
         question.sub_questions.append(sub)
 
