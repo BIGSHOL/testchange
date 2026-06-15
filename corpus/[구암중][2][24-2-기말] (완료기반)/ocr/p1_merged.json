@@ -1,12 +1,14 @@
 {
-  "header": "2024년 2학기 기말고사 구암중 2학년 수학",
+  "header": "",
   "questions": [
     {
       "number": 1,
       "score": 3,
       "contents": [
-        {"type": "text", "value": "직사각형 ABCD의 각 변을 한 변으로 하는 정사각형을 그리면 그 넓이를 나타낸 것은?"},
-        {"type": "figure", "value": "직사각형 ABCD와 각 변을 한 변으로 하는 정사각형 4개가 그려진 그림."}
+        {"type": "text", "value": "직각삼각형 ABC의 각 변을 한 변으로 하는 정사각형을 그려 그 넓이를 나타낸 것이다. "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "의 값은?"},
+        {"type": "figure", "value": "직각삼각형 ABC(직각은 꼭짓점 C). 변 AC를 한 변으로 하는 정사각형의 넓이 144cm²(왼쪽 위), 변 CB를 한 변으로 하는 정사각형의 넓이 x cm²(오른쪽 위), 변 AB를 한 변으로 하는 정사각형의 넓이 169cm²(아래)."}
       ],
       "choices": [
         {"number": 1, "contents": [{"type": "equation", "value": "5"}]},
@@ -18,36 +20,18 @@
     },
     {
       "number": 2,
-      "score": 3,
-      "contents": [
-        {"type": "text", "value": "그림의 "},
-        {"type": "equation", "value": "\\triangle ABC"},
-        {"type": "text", "value": "에서 ∠A의 이등분선이 BC와 만나는 점을 D라 할 때, 보기에서 옳은 것을 모두 고른 것은?"},
-        {"type": "figure", "value": "삼각형 ABC에서 ∠A의 이등분선이 BC와 점 D에서 만나는 그림."},
-        {"type": "text", "value": "<보기>\nㄱ. \\overline{AB} = \\overline{AD}\nㄴ. \\angle BAO = \\angle DAO\nㄷ. \\angle ABD = 90°\nㄹ. \\overline{BD} = \\overline{DC}"}
-      ],
-      "choices": [
-        {"number": 1, "contents": [{"type": "text", "value": "ㄱ, ㄴ"}]},
-        {"number": 2, "contents": [{"type": "text", "value": "ㄴ, ㄷ"}]},
-        {"number": 3, "contents": [{"type": "text", "value": "ㄷ, ㄹ"}]},
-        {"number": 4, "contents": [{"type": "text", "value": "ㄱ, ㄴ, ㄷ"}]},
-        {"number": 5, "contents": [{"type": "text", "value": "ㄴ, ㄷ, ㄹ"}]}
-      ]
-    },
-    {
-      "number": 3,
       "score": 4,
       "contents": [
         {"type": "text", "value": "점 O가 "},
         {"type": "equation", "value": "\\triangle ABC"},
         {"type": "text", "value": "의 외심이고 "},
-        {"type": "equation", "value": "\\angle BAO = 25°"},
+        {"type": "equation", "value": "\\angle BAO=15°"},
         {"type": "text", "value": ", "},
-        {"type": "equation", "value": "\\angle BCO = 35°"},
+        {"type": "equation", "value": "\\angle BCO=40°"},
         {"type": "text", "value": "일 때, "},
         {"type": "equation", "value": "\\angle ACO"},
         {"type": "text", "value": "의 크기는?"},
-        {"type": "figure", "value": "삼각형 ABC에서 외심 O가 표시된 그림. ∠BAO, ∠BCO 각도 표시."}
+        {"type": "figure", "value": "삼각형 ABC와 외심 O. 꼭짓점 A는 위, B는 왼쪽 아래, C는 오른쪽 아래. ∠BAO=15°(A에서), ∠BCO=40°(C에서). O는 삼각형 내부에 표시."}
       ],
       "choices": [
         {"number": 1, "contents": [{"type": "equation", "value": "20°"}]},
@@ -58,24 +42,66 @@
       ]
     },
     {
-      "number": 4,
+      "number": 3,
       "score": 4,
       "contents": [
         {"type": "text", "value": "점 I가 "},
         {"type": "equation", "value": "\\triangle ABC"},
         {"type": "text", "value": "의 내심이고 "},
-        {"type": "equation", "value": "\\angle CAI > 30°"},
+        {"type": "equation", "value": "\\angle CAI=20°"},
         {"type": "text", "value": "일 때, "},
-        {"type": "equation", "value": "x"},
+        {"type": "equation", "value": "\\angle x"},
         {"type": "text", "value": "의 크기는?"},
-        {"type": "figure", "value": "삼각형 ABC에서 내심 I가 표시된 그림. ∠CAI와 x° 각도 표시."}
+        {"type": "figure", "value": "삼각형 ABC와 내심 I. 꼭짓점 A는 위, B는 왼쪽 아래, C는 오른쪽 아래. ∠CAI=20°(A에서 AI와 AC 사이), ∠x는 점 I에서 ∠BIC."}
       ],
       "choices": [
         {"number": 1, "contents": [{"type": "equation", "value": "110°"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "120°"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "125°"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "115°"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "120°"}]},
         {"number": 4, "contents": [{"type": "equation", "value": "130°"}]},
         {"number": 5, "contents": [{"type": "equation", "value": "135°"}]}
+      ]
+    },
+    {
+      "number": 4,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "점 D가 "},
+        {"type": "equation", "value": "\\triangle ABC"},
+        {"type": "text", "value": "의 외심인 것만을 <보기>에서 있는 대로 고른 것은?"},
+        {"type": "figure", "value": "<보기> 박스 안에 다섯 개의 삼각형 그림 ㄱ, ㄴ, ㄷ, ㄹ, ㅁ. 각 삼각형 ABC 내부에 점 D가 표시되고 변의 중점 빗금·수직 표시·각 표시 등으로 점 D가 외심·내심·무게중심 중 어느 점인지 판별하도록 함. ㄷ은 각 변의 수직이등분선이 D에서 만나는 모양, ㄹ은 두 변에 내린 수선과 변의 중점 표시로 D를 나타냄, ㅁ은 세 변의 중점에서 그은 선이 D에서 만나는 모양."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄷ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄱ, ㄴ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄷ, ㄹ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄹ, ㅁ"}]}
+      ]
+    },
+    {
+      "number": 5,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "원 I는 "},
+        {"type": "equation", "value": "\\triangle ABC"},
+        {"type": "text", "value": "의 내접원이고, 점 D, E, F는 접점이다. "},
+        {"type": "equation", "value": "\\overline{BC}=12cm"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{CA}=10cm"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{EC}=4cm"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\overline{AB}"},
+        {"type": "text", "value": "의 길이는?"},
+        {"type": "figure", "value": "삼각형 ABC와 내접원(중심 I). 접점은 D(변 AB 위), E(변 BC 위), F(변 CA 위). BC=12cm, CA=10cm, EC=4cm 표시."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "12cm"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "12.5cm"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "13cm"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "13.5cm"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "14cm"}]}
       ]
     }
   ]

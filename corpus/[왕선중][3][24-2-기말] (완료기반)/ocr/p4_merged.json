@@ -2,166 +2,115 @@
   "header": "",
   "questions": [
     {
-      "number": 14,
-      "score": 5,
-      "contents": [
-        {"type": "text", "value": "그림과 같이 원에 내접하는 사각형 ABCD에서 두 대각선의 교점을 P라 할 때, "},
-        {"type": "equation", "value": "\\angle APC"},
-        {"type": "text", "value": "의 크기는?"},
-        {"type": "figure", "value": "원에 내접하는 사각형 ABCD. 두 대각선 AC, BD가 점 P에서 교차. 각도 표시."}
-      ],
-      "choices": [
-        {
-          "number": 1,
-          "contents": [{"type": "equation", "value": "54°"}]
-        },
-        {
-          "number": 2,
-          "contents": [{"type": "equation", "value": "57°"}]
-        },
-        {
-          "number": 3,
-          "contents": [{"type": "equation", "value": "62°"}]
-        },
-        {
-          "number": 4,
-          "contents": [{"type": "equation", "value": "65°"}]
-        }
-      ]
-    },
-    {
       "number": 15,
-      "score": 5,
+      "score": 4,
       "contents": [
-        {"type": "text", "value": "그림과 같이 원에서 "},
-        {"type": "equation", "value": "\\angle ABT"},
-        {"type": "text", "value": "의 크기를 구하시오."},
-        {"type": "figure", "value": "원. 접선 위의 점 T. 현 AB와 접선이 이루는 각 ABT 표시. 관련 호의 각도 표시."}
+        {"type": "text", "value": "그림에서 점 P는 두 현 AB, CD의 교점이다. "},
+        {"type": "equation", "value": "\\overarc{BD} = \\overarc{CE}"},
+        {"type": "text", "value": "이고 "},
+        {"type": "equation", "value": "\\angle DPB = 27^{\\circ}"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\angle AOE"},
+        {"type": "text", "value": "의 크기는?"},
+        {"type": "figure", "value": "원 O. 왼쪽 위 A, 왼쪽 중간 C, 왼쪽 아래 E, 오른쪽 위 D, 오른쪽 B. 두 현 AB와 CD가 점 P에서 만남. ∠DPB=27°. 호 BD와 호 CE에 같음 표시(=). O는 중심."}
       ],
       "choices": [
-        {
-          "number": 1,
-          "contents": [{"type": "equation", "value": "41°"}]
-        },
-        {
-          "number": 2,
-          "contents": [{"type": "equation", "value": "49°"}]
-        },
-        {
-          "number": 3,
-          "contents": [{"type": "equation", "value": "82°"}]
-        },
-        {
-          "number": 4,
-          "contents": [{"type": "equation", "value": "90°"}]
-        }
+        {"number": 1, "contents": [{"type": "equation", "value": "54^{\\circ}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "57^{\\circ}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "59^{\\circ}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "60^{\\circ}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "63^{\\circ}"}]}
       ]
     },
     {
       "number": 16,
-      "score": 5,
+      "score": 4,
       "contents": [
-        {"type": "text", "value": "그림과 같이 원에서 "},
-        {"type": "equation", "value": "\\angle BAC"},
-        {"type": "text", "value": "의 크기를 구하시오."},
-        {"type": "figure", "value": "원에 내접하는 삼각형 ABC. 점 A, B, C가 원 위에 있음. 관련 각도 수치 표시."}
+        {"type": "text", "value": "그림과 같이 점 P는 지름 AB의 연장선과 원 위의 점 T에서의 접선의 교점이다. "},
+        {"type": "equation", "value": "\\angle BCT = 63^{\\circ}"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\angle BPT = \\angle x"},
+        {"type": "text", "value": "라 할 때, "},
+        {"type": "equation", "value": "\\angle x"},
+        {"type": "text", "value": "의 크기는?"},
+        {"type": "figure", "value": "원 O. 원 위 C(왼쪽 위), B(오른쪽 위), A(왼쪽 아래), T(아래). AB는 중심 O를 지나는 지름. 점 T에서의 접선이 지름 AB의 연장선과 P(왼쪽 아래 바깥)에서 만남. ∠BCT=63°, ∠x=∠BPT(P에서)."}
       ],
       "choices": [
-        {
-          "number": 1,
-          "contents": [{"type": "equation", "value": "32°"}]
-        },
-        {
-          "number": 2,
-          "contents": [{"type": "equation", "value": "36°"}]
-        },
-        {
-          "number": 3,
-          "contents": [{"type": "equation", "value": "40°"}]
-        },
-        {
-          "number": 4,
-          "contents": [{"type": "equation", "value": "44°"}]
-        }
+        {"number": 1, "contents": [{"type": "equation", "value": "32^{\\circ}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "36^{\\circ}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "38^{\\circ}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "40^{\\circ}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "42^{\\circ}"}]}
       ]
     },
     {
       "number": 17,
-      "score": 5,
+      "score": 4,
       "contents": [
-        {"type": "text", "value": "그림과 같이 산의 높이를 측정하려 한다. 다음 표를 이용하여 올바른 것을 고르시오."},
-        {"type": "table", "rows": [
-          ["각도", "sin", "cos", "tan"],
-          ["33°", "0.54", "0.84", "0.65"],
-          ["35°", "0.57", "0.82", "0.70"],
-          ["37°", "0.60", "0.80", "0.75"]
-        ], "value": ""},
-        {"type": "figure", "value": "산 또는 건물 높이 측정 그림. 측정 각도와 거리 표시."}
+        {"type": "text", "value": "그림에서 현 AC, BD의 교점이 점 P이다. "},
+        {"type": "equation", "value": "\\overarc{AB}"},
+        {"type": "text", "value": "의 길이는 원의 둘레의 길이의 "},
+        {"type": "equation", "value": "\\frac{1}{5}"},
+        {"type": "text", "value": "이고, "},
+        {"type": "equation", "value": "\\overarc{AB} : \\overarc{CD} = 4 : 5"},
+        {"type": "text", "value": "이다. "},
+        {"type": "equation", "value": "\\angle DPC = \\angle x"},
+        {"type": "text", "value": "라 할 때, "},
+        {"type": "equation", "value": "\\angle x"},
+        {"type": "text", "value": "의 크기는?"},
+        {"type": "figure", "value": "원. 원 위 A(왼쪽 위), D(오른쪽 위), B(왼쪽 아래), C(오른쪽 아래). 두 현 AC와 BD가 점 P에서 만남. ∠x=∠DPC(P에서)."}
       ],
       "choices": [
-        {
-          "number": 1,
-          "contents": [{"type": "equation", "value": "2\\frac{1}{2}"}]
-        },
-        {
-          "number": 2,
-          "contents": [{"type": "equation", "value": "2\\frac{3}{4}"}]
-        },
-        {
-          "number": 3,
-          "contents": [{"type": "equation", "value": "3\\frac{1}{2}"}]
-        },
-        {
-          "number": 4,
-          "contents": [{"type": "equation", "value": "3\\frac{3}{4}"}]
-        }
+        {"number": 1, "contents": [{"type": "equation", "value": "81^{\\circ}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "84^{\\circ}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "85^{\\circ}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "90^{\\circ}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "91^{\\circ}"}]}
       ]
     },
     {
       "number": 18,
       "score": 5,
       "contents": [
-        {"type": "text", "value": "그림과 같이 원에서 "},
-        {"type": "equation", "value": "\\angle APC"},
-        {"type": "text", "value": "의 크기를 구하시오."},
-        {"type": "figure", "value": "원. 현 AC와 BD의 교점 P. 원 위의 네 점 A, B, C, D. 관련 각도 수치 표시."}
+        {"type": "text", "value": "원 O 위의 네 점 A, B, C, D에 대하여 직선 AT는 원 O의 접선이고 "},
+        {"type": "equation", "value": "\\overline{ED} \\parallel \\overline{TA}"},
+        {"type": "text", "value": "이다. 또, "},
+        {"type": "equation", "value": "\\overline{CD}"},
+        {"type": "text", "value": "의 연장선과 "},
+        {"type": "equation", "value": "\\overline{BA}"},
+        {"type": "text", "value": "의 연장선의 교점이 E이다. "},
+        {"type": "equation", "value": "\\overline{AB} = \\overline{BE} = 5"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\overline{AD}"},
+        {"type": "text", "value": "의 길이는?"},
+        {"type": "figure", "value": "원 O. 원 위 네 점 A(아래), B(왼쪽 아래), C(위), D(오른쪽 위). 점 A에서의 접선 직선 AT(아래 수평선, 점 T는 A 왼쪽). E는 왼쪽 바깥 점으로 CD의 연장선과 BA의 연장선의 교점. ED ∥ TA. AB=BE=5(같음 표시). EA 위에 B, EC 위에 D."}
       ],
       "choices": [
-        {
-          "number": 1,
-          "contents": [{"type": "equation", "value": "45°"}]
-        },
-        {
-          "number": 2,
-          "contents": [{"type": "equation", "value": "54°"}]
-        },
-        {
-          "number": 3,
-          "contents": [{"type": "equation", "value": "81°"}]
-        },
-        {
-          "number": 4,
-          "contents": [{"type": "equation", "value": "90°"}]
-        }
+        {"number": 1, "contents": [{"type": "equation", "value": "4\\sqrt{3}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "5\\sqrt{2}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3\\sqrt{6}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "6\\sqrt{2}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "4\\sqrt{5}"}]}
       ]
     },
     {
       "number": 19,
-      "score": 14,
+      "score": 6,
       "label_type": "서답형",
       "contents": [
-        {"type": "text", "value": "[서답형 1] 그림과 같이 건물의 높이를 측정하려 한다. 지면 위의 두 점 A, C에서 건물 꼭대기 B를 올려볼 때, ∠BAC=35°이고, "},
-        {"type": "equation", "value": "\\overline{AC}=41m"},
-        {"type": "text", "value": "이다. 다음 표를 이용하여 물음에 답하시오."},
-        {"type": "table", "rows": [
-          ["각도", "sin", "cos", "tan"],
-          ["33°", "0.54", "0.84", "0.65"],
-          ["35°", "0.57", "0.82", "0.70"],
-          ["37°", "0.60", "0.80", "0.75"]
-        ], "value": ""},
-        {"type": "figure", "value": "직각삼각형 ABC. A는 왼쪽 지면, C는 직각(건물 밑), B는 건물 꼭대기. AC=41m, ∠BAC=35° 표시."},
-        {"type": "text", "value": "(1) 건물의 높이 BC를 구하시오. [7점]"},
-        {"type": "text", "value": "(2) AB의 길이를 구하시오. [7점]"}
+        {"type": "text", "value": "[서답형 1] 그림과 같이 지면 위의 한 지점 A에서 건물의 꼭대기 지점 C를 올려다본 각의 크기가 35°이었다고 한다. 지점 A와 건물의 아래 끝 지점 B사이의 거리가 41m일 때, 다음 물음에 답하시오."},
+        {"type": "figure", "value": "직각삼각형. A는 왼쪽 아래, B는 오른쪽 아래(직각 표시), C는 오른쪽 위(건물 꼭대기). ∠A=35°, AB=41m. 변 BC를 따라 건물(창문 격자) 그려짐."},
+        {"type": "table", "rows": [["각도", "사인(sin)", "코사인(cos)", "탄젠트(tan)"], ["35°", "0.57", "0.82", "0.70"], ["55°", "0.82", "0.57", "1.43"]], "value": ""}
+      ],
+      "sub_questions": [
+        {"number": 1, "score": 3, "contents": [
+          {"type": "text", "value": "건물의 높이 "},
+          {"type": "equation", "value": "\\overline{BC}"},
+          {"type": "text", "value": "를 삼각비의 표를 이용하여 구하시오."}
+        ]},
+        {"number": 2, "score": 3, "contents": [
+          {"type": "text", "value": "두 지점 A, C 사이의 거리를 삼각비의 표를 이용하여 구하시오."}
+        ]}
       ]
     }
   ]

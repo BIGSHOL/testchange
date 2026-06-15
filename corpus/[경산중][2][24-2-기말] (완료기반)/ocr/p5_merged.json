@@ -1,84 +1,102 @@
 {
+  "header": "",
   "questions": [
     {
       "number": 18,
-      "score": 4,
+      "score": 5,
       "contents": [
-        {"type": "text", "value": "그림과 같이 정사각형 ABCD에서 BC=10cm이고, E는 AB 위의 점이다. 두 대각선의 교점을 O, DE와 AC의 교점을 M이라 할 때, OM의 길이는?"},
-        {"type": "figure", "value": "정사각형 ABCD (A 왼쪽 위, D 오른쪽 위, B 왼쪽 아래, C 오른쪽 아래). BC=10cm. 대각선 AC, BD 교점 O. E는 AB 위의 점. DE와 AC의 교점 M."}
+        {"type": "text", "value": "한 변의 길이가 10cm인 정사각형 ABCD에서 두 대각선의 교점을 O라 하고, "},
+        {"type": "equation", "value": "\\overline{AO}"},
+        {"type": "text", "value": " 위에 "},
+        {"type": "equation", "value": "\\overline{AM}:\\overline{MO}=3:2"},
+        {"type": "text", "value": "인 점 M을 잡고 "},
+        {"type": "equation", "value": "\\overline{DM}"},
+        {"type": "text", "value": "의 연장선이 "},
+        {"type": "equation", "value": "\\overline{AB}"},
+        {"type": "text", "value": "와 만나는 점을 E라고 할 때, "},
+        {"type": "equation", "value": "\\overline{AE}"},
+        {"type": "text", "value": "의 길이는 몇 cm인가?"},
+        {"type": "figure", "value": "정사각형 ABCD. A 왼쪽 위, D 오른쪽 위, B 왼쪽 아래, C 오른쪽 아래, 아랫변 BC=10cm. 두 대각선 AC, BD의 교점 O. 대각선 AO 위에 AM:MO=3:2인 점 M. 변 AB 위의 점 E를 지나 D까지 가는 선분 DE(즉 DM의 연장선이 AB와 만나는 점 E)."}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "2\\text{cm}"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{5}{2}\\text{cm}"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "3\\text{cm}"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{7}{2}\\text{cm}"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "4\\text{cm}"}]}
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{24}{7}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{26}{7}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{30}{7}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{32}{7}"}]}
       ]
     },
     {
       "number": 19,
       "score": 4,
       "contents": [
-        {"type": "text", "value": "그림과 같이 □ABCD의 네 변의 중점을 각각 E, F, G, H라 할 때, 다음 <보기> 중 옳은 것을 모두 고른 것은?"},
-        {"type": "figure", "value": "사각형 ABCD (일반 사각형). E=AB의 중점, F=BC의 중점, G=CD의 중점, H=DA의 중점. □EFGH와 그 대각선, 교점 O."},
-        {"type": "text", "value": "<보기>"},
-        {
-          "type": "table",
-          "value": [
-            ["ㄱ. EH∥FG", "ㄴ. AE=AH"],
-            ["ㄷ. EF=EH", "ㄹ. □EFGH의 둘레의 길이 = AC+BD"]
-          ]
-        }
+        {"type": "text", "value": "□ABCD의 네 변의 중점을 각각 E, F, G, H라 할 때, <보기> 중 옳은 것만을 있는 대로 고른 것은?"},
+        {"type": "figure", "value": "일반 사각형 ABCD. A 왼쪽 위, D 오른쪽 위, B 왼쪽 아래, C 오른쪽 아래. 네 변의 중점 E(AB 위), F(BC 위, 아래쪽), G(CD 위, 오른쪽), H(DA 위, 위쪽)를 이어 만든 사각형 EFGH와 그 대각선들, 교점 O. 또 사각형 ABCD의 두 대각선도 그려져 있다."},
+        {"type": "text", "value": "<보기> ㄱ. "},
+        {"type": "equation", "value": "\\overline{EH} \\parallel \\overline{FG}"},
+        {"type": "text", "value": " ㄴ. "},
+        {"type": "equation", "value": "\\overline{AE}=\\overline{AH}"},
+        {"type": "text", "value": " ㄷ. "},
+        {"type": "equation", "value": "\\overline{EF}=\\overline{EH}"},
+        {"type": "text", "value": " ㄹ. □EFGH의 둘레의 길이는 "},
+        {"type": "equation", "value": "\\overline{AC}+\\overline{BD}"},
+        {"type": "text", "value": "의 길이와 같다."}
       ],
       "choices": [
         {"number": 1, "contents": [{"type": "text", "value": "ㄱ, ㄴ"}]},
-        {"number": 2, "contents": [{"type": "text", "value": "ㄱ, ㄹ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄱ, ㅁ"}]},
         {"number": 3, "contents": [{"type": "text", "value": "ㄴ, ㄹ"}]},
         {"number": 4, "contents": [{"type": "text", "value": "ㄷ, ㄹ"}]},
-        {"number": 5, "contents": [{"type": "text", "value": "ㄱ, ㄴ, ㄹ"}]}
+        {"number": 5, "contents": [{"type": "text", "value": "ㄹ, ㅁ"}]}
       ]
     },
     {
       "number": 20,
       "score": 4,
       "contents": [
-        {"type": "text", "value": "그림과 같이 △ABC에서 무게중심을 G, AC의 중점을 D, BC 위의 점을 E라 하자. GE∥AD이고 색칠한 △GDE의 넓이가 3cm²일 때, △ABC의 넓이는?"},
-        {"type": "figure", "value": "△ABC. G는 무게중심. D는 AC의 중점. E는 BC 위의 점. GE∥AD. 색칠한 부분은 △GDE."}
+        {"type": "text", "value": "점 G는 △ABC의 무게중심이고, 점 E는 "},
+        {"type": "equation", "value": "\\overline{GC}"},
+        {"type": "text", "value": "의 중점이다. △ABC의 넓이가 "},
+        {"type": "equation", "value": "60cm^{2}"},
+        {"type": "text", "value": "일 때, △DGE의 넓이는 몇 "},
+        {"type": "equation", "value": "cm^{2}"},
+        {"type": "text", "value": "인가?"},
+        {"type": "figure", "value": "△ABC, A 위 꼭짓점, B 왼쪽 아래, C 오른쪽 아래. G는 무게중심. 변 AC 위의 점 D(중선 BD가 G를 지나 AC의 중점 D에서 만남). 선분 GC 위의 중점 E(GE=EC, 같음 표시 이중선). 색칠한 작은 삼각형 △DGE(D, G, E를 꼭짓점으로 하는 영역, 음영)."}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "24\\text{cm}^2"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "30\\text{cm}^2"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "36\\text{cm}^2"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "42\\text{cm}^2"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "48\\text{cm}^2"}]}
+        {"number": 1, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{11}{2}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{13}{2}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "7"}]}
       ]
     },
     {
       "number": 21,
-      "score": 4,
+      "score": 3,
       "contents": [
-        {"type": "text", "value": "A, B 두 사람이 가위바위보를 한 번 할 때, 비기는 경우의 수는?"}
+        {"type": "text", "value": "A, B는 두 사람이 가위바위보를 할 때 비기는 경우의 수는?"}
       ],
       "choices": [
         {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
         {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
         {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
         {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "6"}]}
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
       ]
     },
     {
       "number": 22,
-      "score": 4,
+      "score": 5,
       "contents": [
-        {"type": "text", "value": "1부터 10까지의 자연수가 적힌 카드 10장 중에서 한 장을 뽑을 때, 3의 배수 또는 4의 배수가 나오는 경우의 수는?"}
+        {"type": "text", "value": "10원짜리 동전 3개와 100원짜리 동전 4개가 있다. 동전을 1개 이상 사용하여 지불할 수 있는 금액은 모두 몇 개인가?"}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "4"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "5"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "6"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "7"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "8"}]}
+        {"number": 1, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "15"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "17"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "19"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "20"}]}
       ]
     }
   ]

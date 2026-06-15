@@ -1,17 +1,19 @@
 {
-  "header": "2024년 2학기 기말고사 경산여중 2학년 수학",
+  "header": "",
   "questions": [
     {
       "number": 11,
       "score": 4,
       "contents": [
-        {"type": "text", "value": "그림에서 x의 값은?"},
-        {"type": "figure", "value": "삼각형 ABC에서 꼭짓점 B에서 대변 AC 위의 점 D를 지나는 선분이 그려진 도형. AB=12cm, BD=9cm(또는 관련 수치), 내부에 6cm, x cm 표시."}
+        {"type": "text", "value": "그림에서 "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "의 값은?"},
+        {"type": "figure", "value": "삼각형 ABC: 꼭짓점 A는 위, B는 왼쪽 아래, C는 오른쪽 아래. AB=12cm, AC=x cm. A에서 밑변 BC 위의 점 D로 선분 AD=6cm가 그어져 있다. BD=9cm, DC=7cm."}
       ],
       "choices": [
         {"number": 1, "contents": [{"type": "equation", "value": "7"}]},
-        {"number": 2, "contents": [{"type": "text", "value": "a"}]},
-        {"number": 3, "contents": [{"type": "text", "value": "b"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{15}{2}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "8"}]},
         {"number": 4, "contents": [{"type": "equation", "value": "\\frac{17}{2}"}]},
         {"number": 5, "contents": [{"type": "equation", "value": "9"}]}
       ]
@@ -20,48 +22,60 @@
       "number": 12,
       "score": 4,
       "contents": [
-        {"type": "text", "value": "사각형 ABCD에서 두 대각선의 교점을 G라 하고,"},
+        {"type": "text", "value": "정삼각형 모양의 색종이를 꼭짓점 A가 "},
         {"type": "equation", "value": "\\overline{BC}"},
-        {"type": "text", "value": ","},
-        {"type": "equation", "value": "\\overline{DC}"},
-        {"type": "text", "value": "의 중점을 각각 M, N이라고 할 때, 옳지 않은 것은?"},
-        {"type": "figure", "value": "사각형 ABCD에서 두 대각선이 교차하는 그림. 교점 G, 각 변의 중점 M, N 표시."}
+        {"type": "text", "value": " 위의 점 E에 오도록 접었을 때, "},
+        {"type": "equation", "value": "\\overline{CF}"},
+        {"type": "text", "value": "의 길이는?"},
+        {"type": "figure", "value": "정삼각형 ABC 모양의 색종이를 접어 꼭짓점 A가 밑변 BC 위의 점 E에 오도록 한다. 접는 선은 DF(D는 변 AB 위, F는 변 AC 위). 접힌 뒤 BD=5cm, 접는 선 위 DE=7cm, BE=8cm. CF의 길이를 구한다."}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "\\overline{PG} : \\overline{MN} = 1 : 2"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "\\overline{BP} = \\overline{PG} - \\overline{QD}"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "\\overline{XP} = \\frac{2}{3} \\overline{AS}"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "\\triangle PRM = \\frac{1}{2} \\cdot \\triangle ABCD"}]}
+        {"number": 1, "contents": [{"type": "equation", "value": "5cm"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{28}{5}cm"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "6cm"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{32}{5}cm"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "7cm"}]}
       ]
     },
     {
       "number": 13,
       "score": 4,
       "contents": [
-        {"type": "text", "value": "삼각형 모양의 공원에서 무게중심의 꼭짓점 G가 △ABC의 무게중심일 때,"},
-        {"type": "equation", "value": "\\overline{CI}"},
-        {"type": "text", "value": "의 길이는?"},
-        {"type": "figure", "value": "삼각형 ABC 내부에 무게중심 G가 표시. 각 변에 8cm, 7cm, 5cm, 3cm 등 수치 표시."}
+        {"type": "text", "value": "평행사변형 ABCD에서 두 대각선의 교점을 O라 하고, "},
+        {"type": "equation", "value": "\\overline{BC}, \\ \\overline{CD}"},
+        {"type": "text", "value": "의 중점을 각각 M, N이라고 할 때, 옳지 "},
+        {"type": "text", "value": "__않은__"},
+        {"type": "text", "value": " 것은?"},
+        {"type": "figure", "value": "평행사변형 ABCD: A는 왼쪽 위, D는 오른쪽 위, B는 왼쪽 아래, C는 오른쪽 아래. 두 대각선 AC와 BD의 교점 O. BC의 중점 M, CD의 중점 N. 선분 AM과 대각선 BD의 교점 P, 선분 AN과 대각선 BD의 교점 Q. BM=MC(같음 표시), CN=ND(같음 표시)."}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "5cm"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "6cm"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{29}{5}cm"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "7cm"}]}
+        {"number": 1, "contents": [{"type": "equation", "value": "\\overline{PQ} : \\overline{MN} = 1 : 2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\overline{BP} = \\overline{PQ} = \\overline{QD}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\overline{AP} = \\frac{2}{3}\\overline{AM}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\triangle APQ = \\frac{1}{6}\\square ABCD"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\triangle PBM = \\frac{1}{12}\\square ABCD"}]}
       ]
     },
     {
       "number": 14,
       "score": 4,
       "contents": [
-        {"type": "text", "value": "△ABC에서 두 점 D, E가 F의 삼등분점일 때, XC의 삼등분점일 때, 선분의 길이는?"},
-        {"type": "figure", "value": "삼각형 ABC에서 변 위의 삼등분점 D, E와 점 F가 표시된 도형. 각 변에 6cm, 4cm, p cm 등 수치 표시."}
+        {"type": "equation", "value": "\\triangle ABC"},
+        {"type": "text", "value": "에서 두 점 D, F와 두 점 E, G는 각각 "},
+        {"type": "equation", "value": "\\overline{AB}"},
+        {"type": "text", "value": "와 "},
+        {"type": "equation", "value": "\\overline{AC}"},
+        {"type": "text", "value": "의 삼등분점이다. 이때 "},
+        {"type": "equation", "value": "\\overline{PQ}"},
+        {"type": "text", "value": "의 길이는?"},
+        {"type": "figure", "value": "삼각형 ABC: A는 위, B는 왼쪽 아래, C는 오른쪽 아래. 변 AB의 삼등분점이 위에서부터 D, F이고, 변 AC의 삼등분점이 위에서부터 E, G이다. DE=6cm. 선분 DG와 선분 FE를 그으면 선분 FG 위에서 각각 점 P, Q에서 만난다."}
       ],
       "choices": [
         {"number": 1, "contents": [{"type": "equation", "value": "4cm"}]},
         {"number": 2, "contents": [{"type": "equation", "value": "5cm"}]},
         {"number": 3, "contents": [{"type": "equation", "value": "6cm"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "7cm"}]}
+        {"number": 4, "contents": [{"type": "equation", "value": "7cm"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "8cm"}]}
       ]
     }
   ]

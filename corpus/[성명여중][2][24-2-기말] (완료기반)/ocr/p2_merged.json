@@ -1,70 +1,100 @@
 {
-  "header": "2024년 2학기 기말고사 성명여중 2학년 수학",
+  "header": "",
   "questions": [
     {
       "number": 5,
-      "score": 3,
+      "score": 5,
       "contents": [
         {"type": "text", "value": "그림과 같은 "},
         {"type": "equation", "value": "\\triangle ABC"},
-        {"type": "text", "value": "에서 두 점 D는 AB의 삼등분점이고, 점 F는 AC의 중점, 점 G는 DF의 중점이다. PC=21cm, DF=y cm일 때, x의 값은?"},
-        {"type": "figure", "value": "삼각형 ABC에서 D, G, F가 표시되고 23cm 등의 수치가 나타난 그림."}
+        {"type": "text", "value": "에서 두 점 D, E는 "},
+        {"type": "equation", "value": "\\overline{AB}"},
+        {"type": "text", "value": "의 삼등분점이고, 점 F는 "},
+        {"type": "equation", "value": "\\overline{AC}"},
+        {"type": "text", "value": "의 중점, 점 P는 "},
+        {"type": "equation", "value": "\\overline{BF}"},
+        {"type": "text", "value": "와 "},
+        {"type": "equation", "value": "\\overline{CE}"},
+        {"type": "text", "value": "의 교점이다. "},
+        {"type": "equation", "value": "\\overline{PC}=21cm"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{DF}=x cm"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "의 값은?"},
+        {"type": "figure", "value": "△ABC. 변 AB 위에 삼등분점 D, E(A쪽부터 D, E). 변 AC의 중점 F. DF=x cm(상단). BF와 CE의 교점 P. PC=21cm."}
       ],
       "choices": [
         {"number": 1, "contents": [{"type": "equation", "value": "7"}]},
         {"number": 2, "contents": [{"type": "equation", "value": "\\frac{42}{5}"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "14"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{21}{2}"}]},
         {"number": 4, "contents": [{"type": "equation", "value": "12"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{22}{3}"}]}
+        {"number": 5, "contents": [{"type": "equation", "value": "14"}]}
       ]
     },
     {
       "number": 6,
-      "score": 3,
-      "contents": [
-        {"type": "text", "value": "그림과 같이 "},
-        {"type": "equation", "value": "\\angle B = 90^{\\circ}"},
-        {"type": "text", "value": "인 직각삼각형 ABC에서 중점 M은 AC의 중점이고, BD // EC // FM이다. AC=6cm, BC=16cm일 때, BM의 길이는?"},
-        {"type": "figure", "value": "직각삼각형 ABC에서 점 M은 AC의 중점, 평행선 BD, EC, FM이 표시된 그림."}
-      ],
-      "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{18}{10}cm"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "6cm"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{9}{2}cm"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "30cm"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{5}{2}cm"}]}
-      ]
-    },
-    {
-      "number": 7,
       "score": 4,
       "contents": [
         {"type": "text", "value": "그림에서 점 G가 "},
         {"type": "equation", "value": "\\triangle ABC"},
-        {"type": "text", "value": "의 무게중심일 때, x, y의 값의 곱은?"},
-        {"type": "figure", "value": "삼각형 ABC에서 무게중심 G와 중선이 표시되고 4cm, 16cm, y, 10cm, 30cm 등의 수치가 나타난 그림."}
+        {"type": "text", "value": "의 무게중심일 때, "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "y"},
+        {"type": "text", "value": "의 값의 곱은?"},
+        {"type": "figure", "value": "△ABC와 무게중심 G. 변 AB 위에 점 D(AD=x cm, DB=14cm). 중선 위에서 DG=y cm로 표시(점 D와 G 사이), GC=10cm. 점 E는 변 BC 위(중선 AE)."}
       ],
       "choices": [
         {"number": 1, "contents": [{"type": "equation", "value": "12"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "21"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "35"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "70"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "14"}]}
+        {"number": 2, "contents": [{"type": "equation", "value": "14"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "21"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "35"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "70"}]}
+      ]
+    },
+    {
+      "number": 7,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 "},
+        {"type": "equation", "value": "\\angle B=90"},
+        {"type": "text", "value": "인 직각삼각형 ABC에서 점 M은 "},
+        {"type": "equation", "value": "\\overline{AC}"},
+        {"type": "text", "value": "의 중점이고, "},
+        {"type": "equation", "value": "\\overline{BN} \\perp \\overline{AC}"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{NH} \\perp \\overline{BM}"},
+        {"type": "text", "value": "이다. "},
+        {"type": "equation", "value": "\\overline{AN}=4cm"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{NC}=16cm"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\overline{BH}"},
+        {"type": "text", "value": "의 길이는?"},
+        {"type": "figure", "value": "∠B=90°인 직각삼각형 ABC. 빗변 AC 위에 점 N(AN=4cm), 중점 M(NM쪽 표시 16cm은 NC 길이), BN⊥AC. BM 위에 NH⊥BM인 점 H."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{18}{5}cm"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "6cm"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{32}{5}cm"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{38}{5}cm"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "10cm"}]}
       ]
     },
     {
       "number": 8,
       "score": 3,
       "contents": [
-        {"type": "text", "value": "세 변의 길이가 각각 4보다 크거나 같은 삼각형 중에서 직각삼각형에만 해당하는 것을 <보기>에서 모두 고르면?"},
-        {"type": "text", "value": "<보기>\nㄱ. 1, 4, 6, 10, 14, 16\nㄴ. 8, 9, 12, 13, 14, 15, 17\nㄷ. 13, 14, 15\nㄹ. ㄴ, ㄷ"}
+        {"type": "text", "value": "세 변의 길이가 각각 <보기>와 같은 삼각형 중에서 직각삼각형인 것을 있는대로 고르면?"},
+        {"type": "text", "value": "<보기> ㄱ. 2, 3, 4  ㄴ. 6, 8, 10  ㄷ. 8, 15, 17  ㄹ. 9, 12, 18  ㅁ. 13, 14, 15"}
       ],
       "choices": [
         {"number": 1, "contents": [{"type": "text", "value": "ㄱ, ㄴ"}]},
         {"number": 2, "contents": [{"type": "text", "value": "ㄴ, ㄷ"}]},
         {"number": 3, "contents": [{"type": "text", "value": "ㄷ, ㄹ"}]},
-        {"number": 4, "contents": [{"type": "text", "value": "ㄱ, ㄷ"}]},
-        {"number": 5, "contents": [{"type": "text", "value": "ㄱ, ㄴ, ㄷ"}]}
+        {"number": 4, "contents": [{"type": "text", "value": "ㄹ, ㅁ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄱ, ㄴ, ㅁ"}]}
       ]
     }
   ]

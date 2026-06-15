@@ -5,13 +5,21 @@
       "number": 10,
       "score": 3,
       "contents": [
-        {"type": "text", "value": "그림과 같이 마름모 또는 사각형 ABCD에서 내부에 직사각형 OCDE가 있을 때, 직사각형 OCDE의 넓이는?"},
-        {"type": "figure", "value": "삼각형 또는 사각형 ABCD. 내부에 직사각형 OCDE. 꼭짓점 A가 위. 24cm, 30cm 치수 표시."}
+        {"type": "text", "value": "그림과 같이 반지름의 길이가 "},
+        {"type": "equation", "value": "26cm"},
+        {"type": "text", "value": "인 사분원 위의 점 D에서 "},
+        {"type": "equation", "value": "\\overline{OA}"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{OB}"},
+        {"type": "text", "value": "에 내린 수선의 발을 각각 C, E라고 하자. "},
+        {"type": "equation", "value": "\\overline{OC} = 24cm"},
+        {"type": "text", "value": "일 때, 직사각형 OCDE의 넓이는?"},
+        {"type": "figure", "value": "중심이 O인 사분원. O가 왼쪽 위, A가 아래쪽, B가 오른쪽에 있고 호가 A에서 B까지 그려져 있다(반지름 26cm). 호 위의 점 D에서 OA에 내린 수선의 발 C(OA 위), OB에 내린 수선의 발 E(OB 위). 네 점 O, C, D, E가 직사각형 OCDE를 이룬다(O·E·C에 직각 표시). 호에 26cm, 왼쪽 변 OC에 24cm 표시."}
       ],
       "choices": [
         {"number": 1, "contents": [{"type": "equation", "value": "216cm^{2}"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "264cm^{2}"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "240cm^{2}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "240cm^{2}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "264cm^{2}"}]},
         {"number": 4, "contents": [{"type": "equation", "value": "288cm^{2}"}]},
         {"number": 5, "contents": [{"type": "equation", "value": "312cm^{2}"}]}
       ]
@@ -20,53 +28,64 @@
       "number": 11,
       "score": 3,
       "contents": [
-        {"type": "text", "value": "그림과 같이 반원과 삼각형의 결합 도형에서 색칠한 부분의 넓이의 합은?"},
-        {"type": "figure", "value": "반원과 삼각형 또는 두 원의 합성 도형. 반지름 또는 지름 치수 표시. 닮음비를 이용해 구하는 색칠된 영역."}
+        {"type": "text", "value": "그림은 "},
+        {"type": "equation", "value": "\\overline{AB} = 20cm"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{BC} = 25cm"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\angle A = 90^{\\circ}"},
+        {"type": "text", "value": "인 직각삼각형 ABC의 각 변을 지름으로 하는 반원을 그린 것이다. 이때, 색칠한 부분의 둘레의 길이는?"},
+        {"type": "figure", "value": "∠A=90°인 직각삼각형 ABC. A가 위, B가 왼쪽 아래, C가 오른쪽 아래. 세 변 AB, BC, CA를 각각 지름으로 하는 반원을 그렸고, 빗변 BC=25cm, AB=20cm 표시. 두 작은 반원과 큰 반원 사이의 초승달 모양 부분이 색칠되어 있다."}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "30cm"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "40cm"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "35cm"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "45cm"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "25cm"}]}
+        {"number": 1, "contents": [{"type": "equation", "value": "30\\pi cm"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "35\\pi cm"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "40\\pi cm"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "45\\pi cm"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "50\\pi cm"}]}
       ]
     },
     {
       "number": 12,
       "score": 4,
       "contents": [
-        {"type": "text", "value": "그림에서 "},
-        {"type": "equation", "value": "\\overline{AB}\\parallel\\overline{DC}"},
+        {"type": "text", "value": "삼각형 ABC에서 "},
+        {"type": "equation", "value": "\\overline{BD} = \\overline{DC} = 12cm"},
         {"type": "text", "value": ", "},
-        {"type": "equation", "value": "\\overline{DC}=12cm"},
-        {"type": "text", "value": "이고 "},
-        {"type": "equation", "value": "\\overline{AE}=\\overline{EF}=\\overline{FC}"},
-        {"type": "text", "value": "일 때, "},
-        {"type": "equation", "value": "\\overline{AB}"},
-        {"type": "text", "value": "의 값은?"},
-        {"type": "figure", "value": "사다리꼴 ABCD. AB와 DC가 평행. DC=12cm. AE=EF=FC로 AC가 세 등분. 내부 교점 표시."}
+        {"type": "equation", "value": "\\overline{AE} = \\overline{EF} = \\overline{FC} = \\frac{17}{2}cm"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\triangle ABC = 270cm^{2}"},
+        {"type": "text", "value": "이고 점 P는 "},
+        {"type": "equation", "value": "\\overline{DE}"},
+        {"type": "text", "value": "와 "},
+        {"type": "equation", "value": "\\overline{BF}"},
+        {"type": "text", "value": "의 교점이다. 이때, "},
+        {"type": "equation", "value": "\\overline{PE}"},
+        {"type": "text", "value": "의 길이는? (단, "},
+        {"type": "equation", "value": "\\angle C"},
+        {"type": "text", "value": "은 둔각이다.)"},
+        {"type": "figure", "value": "삼각형 ABC. A가 오른쪽 위, B가 왼쪽 아래, C가 오른쪽 아래. 변 AC 위에 점 E, F가 있어 AE=EF=FC(각 빗금 표시). 변 BC의 중점 D(BD=DC, 이중 빗금 표시). 점 P는 DE와 BF의 교점."}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{7}{3}cm"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{11}{3}cm"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{13}{3}cm"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{5}{3}cm"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{9}{3}cm"}]}
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{44}{3}cm"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{47}{3}cm"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{50}{3}cm"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{53}{3}cm"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{56}{3}cm"}]}
       ]
     },
     {
       "number": 13,
       "score": 3,
       "contents": [
-        {"type": "text", "value": "주어진 수 카드 중에서 카드를 선택하여 만들 수 있는 경우의 수는?"},
-        {"type": "figure", "value": "수 카드 또는 조건이 있는 선택 상황 그림. 특정 조건에서 선택하는 경우의 수를 구하는 문제."}
+        {"type": "text", "value": "0부터 5까지의 숫자가 각각 하나씩 적힌 6장의 카드가 있다. 이 중에서 3장의 카드를 한 장씩 차례대로 뽑아 만들 수 있는 세 자리 자연수 중 짝수의 개수는?"}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "44"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "52"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "48"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "56"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "60"}]}
+        {"number": 1, "contents": [{"type": "text", "value": "44개"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "48개"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "52개"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "56개"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "60개"}]}
       ]
     }
   ]

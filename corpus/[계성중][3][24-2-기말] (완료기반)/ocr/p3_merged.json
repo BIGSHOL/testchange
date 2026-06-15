@@ -6,20 +6,18 @@
       "score": 4,
       "contents": [
         {"type": "text", "value": "자료 "},
-        {"type": "equation", "value": "\\sqrt{1}+\\sqrt{2}"},
-        {"type": "text", "value": ", "},
-        {"type": "equation", "value": "\\sqrt{2}+\\sqrt{3}"},
-        {"type": "text", "value": ", "},
-        {"type": "equation", "value": "\\sqrt{3}+\\sqrt{4}"},
-        {"type": "text", "value": ", "},
-        {"type": "equation", "value": "\\sqrt{4}+\\sqrt{5}"},
-        {"type": "text", "value": " 에서 값이 가장 큰 것은?"}
+        {"type": "equation", "value": "a+4, 2a+4, a, 4"},
+        {"type": "text", "value": "의 분산이 "},
+        {"type": "equation", "value": "5"},
+        {"type": "text", "value": "일 때, 양수 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "의 값은?"}
       ],
       "choices": [
         {"number": 1, "contents": [{"type": "equation", "value": "\\sqrt{2}"}]},
         {"number": 2, "contents": [{"type": "equation", "value": "\\sqrt{3}"}]},
         {"number": 3, "contents": [{"type": "equation", "value": "2"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "2\\sqrt{3}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "2\\sqrt{2}"}]},
         {"number": 5, "contents": [{"type": "equation", "value": "4"}]}
       ]
     },
@@ -27,44 +25,33 @@
       "number": 14,
       "score": 4,
       "contents": [
-        {"type": "text", "value": "어느 반 학생들의 봄철과 가을철 성적을 나타낸 산점도이다. 다음 학생 A, B, C, D, E 중 봄철에 비하여 가을철을 가장 잘 한 학생은?"},
-        {"type": "figure", "value": "봄철 성적(가로축)과 가을철 성적(세로축)의 산점도. 학생 A, B, C, D, E 5명의 점이 표시됨. A는 봄철 낮고 가을철 높은 위치(왼쪽 상단), B는 오른쪽 하단, C, D, E는 대각선 부근에 위치."}
+        {"type": "text", "value": "어느 반 학생들의 용돈과 저축액을 산점도로 나타낸 것이다. 다섯 명의 학생 "},
+        {"type": "equation", "value": "A, B, C, D, E"},
+        {"type": "text", "value": " 중 용돈에 비하여 저축을 가장 많이 하는 학생은?"},
+        {"type": "figure", "value": "용돈(원)을 가로축, 저축액(원)을 세로축으로 하는 산점도. 양의 상관관계를 나타내는 점들이 직선 주위에 분포하고, 그 직선을 따라 점 A, B, C, D, E가 표시되어 있다. A는 직선 위쪽 왼편, B는 직선 위 중간 위쪽, C는 직선 위 오른쪽 위, D는 직선 아래쪽, E는 오른쪽 아래에 위치한다."}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "text", "value": "A"}]},
-        {"number": 2, "contents": [{"type": "text", "value": "B"}]},
-        {"number": 3, "contents": [{"type": "text", "value": "C"}]},
-        {"number": 4, "contents": [{"type": "text", "value": "D"}]},
-        {"number": 5, "contents": [{"type": "text", "value": "E"}]}
+        {"number": 1, "contents": [{"type": "equation", "value": "A"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "B"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "C"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "D"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "E"}]}
       ]
     },
     {
       "number": 15,
       "score": 4,
       "contents": [
-        {"type": "text", "value": "다음 자료의 총합이 "},
-        {"type": "equation", "value": "a+b"},
-        {"type": "text", "value": "이고 최빈값을 "},
-        {"type": "equation", "value": "c"},
-        {"type": "text", "value": "라 할 때, "},
-        {"type": "equation", "value": "a+b+c"},
-        {"type": "text", "value": "의 값은?"},
-        {"type": "table", "rows": [["a", "11", "18", "11", "15", "11", "15", "11"]], "value": ""}
-      ],
-      "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "11"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "12"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "13"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "14"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "15"}]}
-      ]
-    },
-    {
-      "number": 16,
-      "score": 4,
-      "contents": [
-        {"type": "text", "value": "다음 산점도는 핸드폰 사용 시간에 관한 것이다. 핸드폰 사용 시간이 3시간 이상이면서 성적이 80점 이상인 학생의 수는?"},
-        {"type": "figure", "value": "핸드폰 사용 시간(가로축)과 성적(세로축)의 산점도. 학생들의 점이 여러 개 표시됨. x=3시간, y=80점 기준선이 있음."}
+        {"type": "text", "value": "양궁 동아리 학생 "},
+        {"type": "equation", "value": "30"},
+        {"type": "text", "value": "명이 시합에서 쏜 "},
+        {"type": "equation", "value": "1"},
+        {"type": "text", "value": "차, "},
+        {"type": "equation", "value": "2"},
+        {"type": "text", "value": "차 점수를 산점도로 나타낸 것이다. 얻은 점수의 평균이 "},
+        {"type": "equation", "value": "5"},
+        {"type": "text", "value": "점 이상인 학생의 수는?"},
+        {"type": "figure", "value": "1차(점)를 가로축(0~10), 2차(점)를 세로축(0~10)으로 하는 산점도. 30개의 점이 양의 상관관계로 분포. 점들의 좌표는 대략 (2,4), (2,3), (3,5), (3,4), (3,3), (4,6), (4,5), (4,4), (4,2), (5,6), (5,5), (5,3), (6,9), (6,8), (6,7), (6,5), (6,4), (7,7), (7,6), (7,5), (7,4), (8,10), (8,9), (8,8), (8,6), (9,10), (9,9), (9,8), (9,7), (10,10) 등이다."}
       ],
       "choices": [
         {"number": 1, "contents": [{"type": "equation", "value": "18"}]},
@@ -75,37 +62,68 @@
       ]
     },
     {
+      "number": 16,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "다음 자료의 중앙값은 "},
+        {"type": "equation", "value": "a+2"},
+        {"type": "text", "value": "이고, 최빈값은 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "일 때, 평균은? (단, "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "는 자연수)"},
+        {"type": "equation", "value": "a \\quad 11 \\quad 18 \\quad 11 \\quad 15 \\quad 21 \\quad 10 \\quad 15"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "11"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "13"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "14"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "15"}]}
+      ]
+    },
+    {
       "number": 17,
       "score": 4,
       "contents": [
-        {"type": "text", "value": "기울기, 직사각형에서 "},
-        {"type": "equation", "value": "z \\le x \\le y"},
-        {"type": "text", "value": "의 범위에서 직사각형의 넓이는?"}
+        {"type": "text", "value": "가로, 세로, 높이가 각각 "},
+        {"type": "equation", "value": "2, a, b"},
+        {"type": "text", "value": "인 직육면체에서 모든 모서리 길이의 평균이 "},
+        {"type": "equation", "value": "4"},
+        {"type": "text", "value": ", 분산이 "},
+        {"type": "equation", "value": "2"},
+        {"type": "text", "value": "일 때, 이 직육면체의 부피는?"}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "40"}]},
+        {"number": 1, "contents": [{"type": "equation", "value": "42"}]},
         {"number": 2, "contents": [{"type": "equation", "value": "44"}]},
         {"number": 3, "contents": [{"type": "equation", "value": "46"}]},
         {"number": 4, "contents": [{"type": "equation", "value": "48"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "56"}]}
+        {"number": 5, "contents": [{"type": "equation", "value": "50"}]}
       ]
     },
     {
       "number": 18,
       "score": 4,
       "contents": [
-        {"type": "text", "value": "두 자료 "},
-        {"type": "equation", "value": "a"},
-        {"type": "text", "value": ", "},
-        {"type": "equation", "value": "b"},
-        {"type": "text", "value": "의 분산 조건이 다음과 같을 때, 분산의 값은?"}
+        {"type": "text", "value": "4개의 변량 "},
+        {"type": "equation", "value": "3, 5, x, y"},
+        {"type": "text", "value": "에서 두 변량 "},
+        {"type": "equation", "value": "3, 5"},
+        {"type": "text", "value": "를 각각 "},
+        {"type": "equation", "value": "4, 8"},
+        {"type": "text", "value": "로 잘못 보고 평균과 분산을 구하였더니 평균이 "},
+        {"type": "equation", "value": "6"},
+        {"type": "text", "value": ", 분산이 "},
+        {"type": "equation", "value": "4"},
+        {"type": "text", "value": "이다. 분산을 바르게 구한 것은?"}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{1}{5}"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{2}{5}"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{3}{5}"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{4}{5}"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "1"}]}
+        {"number": 1, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "3.5"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4.5"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
       ]
     }
   ]

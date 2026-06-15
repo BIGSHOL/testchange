@@ -1,86 +1,98 @@
 {
-  "header": "영남삼육중 3학년 수학 2024년 2학기 기말고사",
+  "header": "",
   "questions": [
     {
       "number": 9,
       "score": 4,
       "contents": [
-        {"type": "text", "value": "다음 그림에서 원의 중심 O이고, 원 위의 한 점 A에서 그은 접선 AT가 있다. 직선 AT위에 점 P가 있고 "},
-        {"type": "equation", "value": "\\overline{AP} = \\overline{TP}"},
-        {"type": "text", "value": "이면, "},
-        {"type": "equation", "value": "\\overline{XP} - \\overline{TQ}"},
-        {"type": "text", "value": "의 값을 구하여라. (단, "},
-        {"type": "equation", "value": "\\overline{XP} = \\overline{TP}"},
-        {"type": "text", "value": ") [4점]"},
-        {"type": "figure", "value": "원의 중심 O, 원 위의 점 A와 외부 점 T, 접선 AT가 그려진 그림"}
+        {"type": "text", "value": "다음 그림과 같이 원 O의 지름의 한 끝 점 A에서 접선 AT를 그어 직선 AT와 원 O위에 "},
+        {"type": "equation", "value": "\\overline{AP}=\\overline{AQ}"},
+        {"type": "text", "value": "가 되도록 점 P, Q를 각각 잡고, 지름 AB와 선분 PQ의 연장선의 교점을 R라 하자. "},
+        {"type": "equation", "value": "\\overline{AP}=\\overline{AO}=7"},
+        {"type": "text", "value": "이고 "},
+        {"type": "equation", "value": "\\angle AQP = a\\degree"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\tan a\\degree"},
+        {"type": "text", "value": "의 값을 구하면?"},
+        {"type": "figure", "value": "원 O. 지름 AB(왼쪽 A, 오른쪽 위로 점 B가 원 위). 점 A에서 위쪽으로 접선 AT를 긋고, 직선 AT 위에 점 P(아래)와 T(위)가 있다. 원 위에 점 Q가 있어 AP=AQ. 선분 PQ의 연장선과 지름 AB의 연장선이 점 R(오른쪽)에서 만난다. AP=AO=7로 표시, 점 Q에서의 각 ∠AQP가 a°로 표시되어 있다."}
       ],
       "choices": [
         {"number": 1, "contents": [{"type": "equation", "value": "2-\\sqrt{3}"}]},
         {"number": 2, "contents": [{"type": "equation", "value": "2+\\sqrt{3}"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "3-\\sqrt{2}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3-\\sqrt{3}"}]},
         {"number": 4, "contents": [{"type": "equation", "value": "3+\\sqrt{3}"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "-2+\\sqrt{3}"}]}
+        {"number": 5, "contents": [{"type": "equation", "value": "4-\\sqrt{3}"}]}
       ]
     },
     {
       "number": 10,
       "score": 4,
       "contents": [
-        {"type": "text", "value": "다음 그림에서 원에 삼각형 ABC가 내접하고 "},
-        {"type": "equation", "value": "\\overline{AB} = 6\\text{cm}"},
-        {"type": "text", "value": ", "},
-        {"type": "equation", "value": "\\overline{CD} = 12\\text{cm}"},
+        {"type": "text", "value": "다음 그림과 같이 원에 내접하는 사각형 "},
+        {"type": "equation", "value": "\\square ABCD"},
+        {"type": "text", "value": "의 변 AB와 변 BC의 중점을 각각 P, Q라 하자. "},
+        {"type": "equation", "value": "\\overarc{AB}"},
+        {"type": "text", "value": "가 원주의 "},
+        {"type": "equation", "value": "\\frac{1}{5}"},
         {"type": "text", "value": "일 때, "},
-        {"type": "equation", "value": "\\overline{AD}"},
-        {"type": "text", "value": "의 길이를 구하여라. [4점]"},
-        {"type": "figure", "value": "원에서 삼각형 ABC가 내접하고 점 D가 원 위에 있는 그림. AB=6cm, CD=12cm 표시"}
+        {"type": "equation", "value": "\\angle BQP"},
+        {"type": "text", "value": "의 크기를 구하면?"},
+        {"type": "figure", "value": "원에 내접하는 사각형 ABCD. 점 A는 왼쪽, D는 오른쪽 위, C는 오른쪽 아래, B는 아래쪽. 변 AB의 중점 P, 변 BC의 중점 Q가 표시되고, PB와 QB에 같음 표시(빗금)가 되어 있다."}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "10\\text{cm}"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "10.5\\text{cm}"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "11\\text{cm}"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "11.5\\text{cm}"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "12\\text{cm}"}]}
+        {"number": 1, "contents": [{"type": "equation", "value": "32\\degree"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "34\\degree"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "36\\degree"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "38\\degree"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "40\\degree"}]}
       ]
     },
     {
       "number": 11,
       "score": 4,
       "contents": [
-        {"type": "text", "value": "다음 그림에서 원에 사각형 ABCD가 내접할 때, "},
-        {"type": "equation", "value": "\\angle A"},
-        {"type": "text", "value": "와 "},
-        {"type": "equation", "value": "\\angle B"},
-        {"type": "text", "value": "의 크기의 합을 구하여라. [4점]"},
-        {"type": "figure", "value": "원에 내접하는 사각형 ABCD 그림. 각도 값들이 표시됨"}
+        {"type": "text", "value": "다음 그림에서 점 I는 "},
+        {"type": "equation", "value": "\\triangle ABC"},
+        {"type": "text", "value": "의 내심이고, 점 D는 "},
+        {"type": "equation", "value": "\\overline{BI}"},
+        {"type": "text", "value": "의 연장선이 "},
+        {"type": "equation", "value": "\\triangle ABC"},
+        {"type": "text", "value": "의 외접원과 만나는 점이다. "},
+        {"type": "equation", "value": "\\overline{BI}=8cm"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{DI}=12cm"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\overline{CD}"},
+        {"type": "text", "value": "의 길이를 구하면?"},
+        {"type": "figure", "value": "원(외접원)에 내접하는 삼각형 ABC. 점 A는 왼쪽 위, D는 오른쪽 위, B는 왼쪽 아래, C는 오른쪽 아래. 사각형 ABCD의 두 대각선처럼 선분들이 그려져 있고, 점 I는 내부의 내심으로 BD 위에 있다. BI=8cm, DI=12cm로 표시되어 있다."}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "32"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "34"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "28"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "72"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "40"}]}
+        {"number": 1, "contents": [{"type": "equation", "value": "10cm"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "10.5cm"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "11cm"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "11.5cm"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "12cm"}]}
       ]
     },
     {
       "number": 12,
       "score": 4,
       "contents": [
-        {"type": "text", "value": "다음 그림에서 원에 내접하는 삼각형 ABC에 대하여 "},
-        {"type": "equation", "value": "\\overline{AB} = \\overline{CD}"},
-        {"type": "text", "value": "이고 "},
-        {"type": "equation", "value": "\\angle AFB = x"},
+        {"type": "text", "value": "다음 그림과 같이 반지름의 길이가 같은 두 원이 두 점 P, Q에서 만나고 점 Q를 지나는 직선이 두 원과 만나는 점을 각각 A, B, 한 원과 "},
+        {"type": "equation", "value": "\\overline{PB}"},
+        {"type": "text", "value": "가 만나는 점을 C라 하자. "},
+        {"type": "equation", "value": "\\angle APB = 75\\degree"},
         {"type": "text", "value": "일 때, "},
-        {"type": "equation", "value": "x"},
-        {"type": "text", "value": "를 구하여라. [4점]"},
-        {"type": "figure", "value": "원에 내접하는 사각형과 각도가 표시된 그림"}
+        {"type": "equation", "value": "\\angle PCQ"},
+        {"type": "text", "value": "의 크기를 구하면?"},
+        {"type": "figure", "value": "반지름이 같은 두 원이 두 점 P(위), Q(아래)에서 만난다. 점 Q를 지나는 직선이 왼쪽 원과 점 A, 오른쪽 원과 점 B에서 만난다. 선분 PB가 오른쪽 원과 점 C에서 만난다. 점 P에서의 각 ∠APB가 75°로 표시되어 있다."}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "126°"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "127°"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "127.5°"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "128°"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "128.5°"}]}
+        {"number": 1, "contents": [{"type": "equation", "value": "126\\degree"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "126.5\\degree"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "127\\degree"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "127.5\\degree"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "128\\degree"}]}
       ]
     }
   ]

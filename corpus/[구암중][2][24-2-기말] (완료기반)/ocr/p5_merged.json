@@ -1,38 +1,37 @@
 {
-  "header": "2024년 2학기 기말고사 구암중 2학년 수학",
+  "header": "",
   "questions": [
     {
       "number": 21,
       "score": 8,
       "label_type": "서술형",
       "contents": [
-        {"type": "text", "value": "그림에서 "},
+        {"type": "text", "value": "[서술형 3] "},
         {"type": "equation", "value": "\\overline{AB}"},
         {"type": "text", "value": "와 "},
         {"type": "equation", "value": "\\overline{CD}"},
-        {"type": "text", "value": "의 교점이 E일 때, 다음 물음에 답하시오."},
-        {"type": "figure", "value": "두 선분 AB와 CD가 교점 E에서 만나는 그림. AE=2cm, CE=6cm, DE=3cm, BE=9cm, xcm 등 수치 표시."},
-        {"type": "text", "value": "(1) "},
-        {"type": "equation", "value": "\\triangle AEC"},
-        {"type": "text", "value": "와 닮음인 삼각형을 찾고, 닮음 조건을 서술하시오. [5점]"},
-        {"type": "text", "value": "(2) "},
-        {"type": "equation", "value": "x"},
-        {"type": "text", "value": "의 값을 구하시오. [3점]"}
+        {"type": "text", "value": "의 교점이 E일 때, 물음에 답하시오. (풀이과정을 반드시 쓸 것) [총 8점]"},
+        {"type": "figure", "value": "두 선분 AB와 CD가 점 E에서 교차. 선분 AB는 A(위쪽 중앙)에서 E를 지나 B(아래쪽)로, 선분 CD는 C(왼쪽)에서 E를 지나 D(오른쪽 위)로. AE=2cm, EB=9cm, CE=3cm, AC=4cm, AD=6cm, BD=x cm 표시."}
       ],
       "sub_questions": [
         {
           "number": 1,
           "score": 5,
           "contents": [
-            {"type": "text", "value": ""},
             {"type": "equation", "value": "\\triangle AEC"},
-            {"type": "text", "value": "와 닮음인 삼각형을 찾고, 닮음 조건을 서술하시오."}
+            {"type": "text", "value": "와 닮은 삼각형을 찾아 기호 "},
+            {"type": "equation", "value": "\\sim"},
+            {"type": "text", "value": "을 써서 나타내고, 삼각형의 어떤 닮음 조건이 성립하는지 쓰고 이유를 설명하시오."}
           ]
         },
         {
           "number": 2,
           "score": 3,
           "contents": [
+            {"type": "equation", "value": "\\overline{BD}"},
+            {"type": "text", "value": "의 길이를 "},
+            {"type": "equation", "value": "x"},
+            {"type": "text", "value": " cm라 할 때, "},
             {"type": "equation", "value": "x"},
             {"type": "text", "value": "의 값을 구하시오."}
           ]
@@ -44,28 +43,28 @@
       "score": 8,
       "label_type": "서술형",
       "contents": [
-        {"type": "text", "value": "그림과 같이 사각형 ABCD에서 각 변의 중점을 E, F, G, H라 하고 "},
-        {"type": "equation", "value": "\\overline{AC} = 18"},
+        {"type": "text", "value": "[서술형 4] 사각형 ABCD에서 각 변의 중점을 E, F, G, H라 하고 "},
+        {"type": "equation", "value": "\\overline{AC}=18"},
         {"type": "text", "value": ", "},
-        {"type": "equation", "value": "\\overline{BD} = 20"},
-        {"type": "text", "value": "일 때, 다음 물음에 답하시오."},
-        {"type": "figure", "value": "사각형 ABCD에서 각 변의 중점 E, F, G, H를 이은 사각형 EFGH 그림. AC=18, BD=20 표시."},
-        {"type": "text", "value": "(1) 사각형 EFGH의 각 변의 길이를 구하시오. [4점]"},
-        {"type": "text", "value": "(2) 사각형 EFGH가 어떤 사각형인지 이름을 쓰고, 그 이유를 설명하시오. [4점]"}
+        {"type": "equation", "value": "\\overline{BD}=20"},
+        {"type": "text", "value": "일 때, 물음에 답하시오. (풀이과정을 반드시 쓸 것) [총 8점]"},
+        {"type": "figure", "value": "사각형 ABCD(A는 위, D는 오른쪽, C는 아래, B는 왼쪽). 변 AB의 중점 E, 변 BC의 중점 F, 변 CD의 중점 G, 변 DA의 중점 H. 네 중점을 이어 만든 사각형 EFGH가 내부에 그려짐. 대각선 AC=18, BD=20."}
       ],
       "sub_questions": [
         {
           "number": 1,
           "score": 4,
           "contents": [
-            {"type": "text", "value": "사각형 EFGH의 각 변의 길이를 구하시오."}
+            {"type": "equation", "value": "\\square EFGH"},
+            {"type": "text", "value": "의 각 변의 길이를 구하시오."}
           ]
         },
         {
           "number": 2,
           "score": 4,
           "contents": [
-            {"type": "text", "value": "사각형 EFGH가 어떤 사각형인지 이름을 쓰고, 그 이유를 설명하시오."}
+            {"type": "equation", "value": "\\square EFGH"},
+            {"type": "text", "value": "의 이름과 그 이유(조건)를 설명하시오."}
           ]
         }
       ]

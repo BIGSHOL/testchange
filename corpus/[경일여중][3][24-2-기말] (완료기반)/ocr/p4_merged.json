@@ -5,76 +5,92 @@
       "number": 13,
       "score": 4,
       "contents": [
-        {"type": "text", "value": "그림과 같이 원 O 밖의 점 S에서 원에 그은 두 접선의 접점을 각각 B, C라 하고, 원 위의 점을 D라 하자. "},
-        {"type": "equation", "value": "\\angle BSC=52°"},
+        {"type": "text", "value": "그림과 같이 원 "},
+        {"type": "equation", "value": "O"},
+        {"type": "text", "value": " 밖의 한 점 A에서 이 원에 그은 두 접선의 접점을 B, C라 하고 원 "},
+        {"type": "equation", "value": "O"},
+        {"type": "text", "value": " 위의 한 점을 D라 하자. "},
+        {"type": "equation", "value": "\\angle BAC=52^{\\circ}"},
         {"type": "text", "value": "일 때, "},
         {"type": "equation", "value": "\\angle BDC"},
         {"type": "text", "value": "의 크기는?"},
-        {"type": "figure", "value": "원 O 외부의 점 S에서 두 접선을 그어 접점 B, C를 만들고, 원 위의 점 D. ∠BSC=52° 표시"}
+        {"type": "figure", "value": "원 O 밖의 점 A에서 그은 두 접선이 점 B, C에서 원에 접한다. 점 D는 원 위(B와 C 사이의 위쪽 호)에 있다. 점 A에서 두 접선이 이루는 각이 52°로 표시되어 있고, 선분 BD와 CD를 그어 ∠BDC를 만든다."}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "36°"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "48°"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "60°"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "64°"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "66°"}]}
+        {"number": 1, "contents": [{"type": "equation", "value": "58^{\\circ}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "60^{\\circ}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "62^{\\circ}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "64^{\\circ}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "66^{\\circ}"}]}
       ]
     },
     {
       "number": 14,
       "score": 4,
       "contents": [
-        {"type": "text", "value": "그림과 같이 원에서 두 현 AC, BD가 점 P에서 만나고, 호 AB의 길이와 호 CD의 길이가 같을 때, "},
-        {"type": "equation", "value": "\\angle P"},
+        {"type": "text", "value": "그림에서 직선 TA는 원 "},
+        {"type": "equation", "value": "O"},
+        {"type": "text", "value": "의 접선이고 점 A는 접점이다. 선분 DB와 직선 TA가 평행하고 "},
+        {"type": "equation", "value": "\\angle DAT=34^{\\circ}"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\angle BCD"},
         {"type": "text", "value": "의 크기는?"},
-        {"type": "figure", "value": "원 안에서 두 현 AC, BD가 점 P에서 교차. 호 AB=호 CD 조건. 관련 각도 표시"}
+        {"type": "figure", "value": "중심 O인 원에서 직선 TA가 점 A(원의 아래쪽)에서 접한다. 원 위에 점 B(오른쪽), C(위쪽), D(왼쪽)가 있어 사각형 DBCA 모양으로 현이 그어져 있다. 선분 DB가 접선 TA와 평행하며, 접선 TA와 현 AD가 이루는 각 ∠DAT=34°로 표시되어 있다."}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "30°"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "32°"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "34°"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "36°"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "38°"}]}
+        {"number": 1, "contents": [{"type": "equation", "value": "66^{\\circ}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "68^{\\circ}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "70^{\\circ}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "72^{\\circ}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "74^{\\circ}"}]}
       ]
     },
     {
       "number": 15,
       "score": 4,
       "contents": [
-        {"type": "text", "value": "그림에서 직선 TA는 원 O의 접선이고 점 A는 접점이다. "},
-        {"type": "equation", "value": "\\angle DAT=34°"},
+        {"type": "text", "value": "그림과 같이 원 "},
+        {"type": "equation", "value": "O"},
+        {"type": "text", "value": "의 두 현 BA와 CD의 연장선의 교점을 E, 두 현 AD와 BC의 연장선의 교점을 F라 하자. "},
+        {"type": "equation", "value": "\\angle B=\\angle F"},
         {"type": "text", "value": "일 때, "},
-        {"type": "equation", "value": "\\angle BCD"},
+        {"type": "equation", "value": "\\angle E"},
         {"type": "text", "value": "의 크기는?"},
-        {"type": "figure", "value": "원 O 위에 점 A가 접점이고 직선 TA가 접선. 원 위의 점 B, C, D. ∠DAT=34° 표시"}
+        {"type": "figure", "value": "중심 O인 원 위에 네 점 A, B, C, D가 있다. 현 BA와 CD를 연장한 교점이 E(원의 오른쪽 위 바깥), 현 AD와 BC를 연장한 교점이 F(원의 오른쪽 바깥)이다. 점 C에서의 각이 96°로 표시되어 있다."}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "60°"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "66°"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "68°"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "70°"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "72°"}]}
+        {"number": 1, "contents": [{"type": "equation", "value": "30^{\\circ}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "32^{\\circ}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "34^{\\circ}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "36^{\\circ}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "38^{\\circ}"}]}
       ]
     },
     {
       "number": 16,
       "score": 5,
       "contents": [
-        {"type": "text", "value": "그림에서 원 O에 내접하는 "},
+        {"type": "text", "value": "그림에서 원 "},
+        {"type": "equation", "value": "O"},
+        {"type": "text", "value": "에 내접하는 "},
         {"type": "equation", "value": "\\triangle ABC"},
-        {"type": "text", "value": "에서 호 BC와 호 CD의 길이가 같고, "},
-        {"type": "equation", "value": "\\angle ADB=64°"},
+        {"type": "text", "value": "에서 "},
+        {"type": "equation", "value": "\\overline{AB}"},
+        {"type": "text", "value": "의 연장선과 점 C를 접점으로 하는 접선과의 교점을 D라 하고, "},
+        {"type": "equation", "value": "\\angle ADC"},
+        {"type": "text", "value": "의 이등분선과 두 선분 BC, AC의 교점을 각각 E, F라 하자. "},
+        {"type": "equation", "value": "\\angle ACB=64^{\\circ}"},
         {"type": "text", "value": "일 때, "},
         {"type": "equation", "value": "\\angle BED"},
         {"type": "text", "value": "의 크기는?"},
-        {"type": "figure", "value": "원 O에 내접하는 삼각형 ABC. 원 위에 추가 점 D, E가 있고 각도 조건 표시"}
+        {"type": "figure", "value": "중심 O인 원에 내접하는 삼각형 ABC(A는 위쪽, B는 왼쪽 아래, C는 아래쪽). 선분 AB의 연장선과 점 C에서의 접선이 점 D(왼쪽 아래 바깥)에서 만난다. ∠ADC의 이등분선이 선분 BC와 점 E에서, 선분 AC와 점 F에서 만난다. 점 C에서 접선과 현이 이루는 각이 64°로 표시되어 있고, ∠ADC를 이등분한 두 각이 점 D에 표시되어 있다."}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "54°"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "60°"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "62°"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "66°"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "68°"}]}
+        {"number": 1, "contents": [{"type": "equation", "value": "54^{\\circ}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "56^{\\circ}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "58^{\\circ}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "60^{\\circ}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "62^{\\circ}"}]}
       ]
     }
   ]

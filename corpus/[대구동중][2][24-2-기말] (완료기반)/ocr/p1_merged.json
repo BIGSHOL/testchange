@@ -6,37 +6,49 @@
       "score": 3,
       "contents": [
         {"type": "text", "value": "그림과 같이 "},
-        {"type": "equation", "value": "\\frac{1}{m} = \\frac{5}{8}"},
+        {"type": "equation", "value": "l \\parallel m \\parallel n"},
         {"type": "text", "value": "일 때, "},
-        {"type": "equation", "value": "4m"},
+        {"type": "equation", "value": "x"},
         {"type": "text", "value": "의 값은?"},
-        {"type": "figure", "value": "닮음인 두 삼각형 그림. 왼쪽 삼각형의 한 변의 길이가 4이고 오른쪽 삼각형의 대응변이 10으로 표시되어 있음."}
+        {"type": "figure", "value": "세 평행선 l, m, n과 두 직선이 만나는 그림. 위에서부터 직선 l, m, n. 왼쪽 직선은 점 A(l 위), B(m 위), C(n 위)를 지나고, 오른쪽 직선은 점 D(l 위), E(m 위), F(n 위)를 지난다. AD=3, DE=2, 가운데 영역에 4, 오른쪽 EF 부분에 x, 아래쪽 CF=7로 표시되어 있다."}
       ],
       "choices": [
         {"number": 1, "contents": [{"type": "equation", "value": "5.7"}]},
         {"number": 2, "contents": [{"type": "equation", "value": "6"}]},
         {"number": 3, "contents": [{"type": "equation", "value": "6.3"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "6.9"}]}
+        {"number": 4, "contents": [{"type": "equation", "value": "6.6"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "6.9"}]}
       ]
     },
     {
       "number": 2,
       "score": 4,
       "contents": [
-        {"type": "text", "value": "그림과 같이 △ABC에서 점 I를 지나고 두 변에 평행한 직선을 그어 두 변과 만나는 점을 각각 P, Q라 할 때, "},
-        {"type": "equation", "value": "\\overline{AB} = 5"},
+        {"type": "text", "value": "그림과 같이 "},
+        {"type": "equation", "value": "\\triangle ABC"},
+        {"type": "text", "value": "의 내심 I를 지나고 "},
+        {"type": "equation", "value": "\\overline{BC}"},
+        {"type": "text", "value": "에 평행한 직선을 그을 때, "},
+        {"type": "equation", "value": "\\overline{AB}"},
         {"type": "text", "value": ", "},
-        {"type": "equation", "value": "\\overline{AP} = 3"},
+        {"type": "equation", "value": "\\overline{AC}"},
+        {"type": "text", "value": "와 만나는 점을 각각 P, Q라고 한다. "},
+        {"type": "equation", "value": "\\overline{AP}=9"},
         {"type": "text", "value": ", "},
-        {"type": "equation", "value": "\\overline{AC} = 5"},
-        {"type": "text", "value": "이면 △APQ와 △ABC의 넓이의 비를 구한 것으로 알맞은 것은?"},
-        {"type": "figure", "value": "△ABC 내부에 점 I를 지나는 두 직선이 변에 평행하게 그어지고 점 P, Q가 표시된 그림."}
+        {"type": "equation", "value": "\\overline{PB}=3"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{BC}=9"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\overline{AQ}"},
+        {"type": "text", "value": "의 길이는?"},
+        {"type": "figure", "value": "삼각형 ABC. 위 꼭짓점 A, 왼쪽 아래 B, 오른쪽 아래 C. 내심 I를 지나며 BC에 평행한 직선이 AB와 만나는 점 P, AC와 만나는 점 Q. 직선 PQ 위에 점 I가 있다."}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "15:35"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "5:35"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "15:4"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "25:4"}]}
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{15}{4}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{25}{4}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{35}{4}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{45}{4}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{55}{4}"}]}
       ]
     },
     {
@@ -44,31 +56,40 @@
       "score": 4,
       "contents": [
         {"type": "text", "value": "그림과 같이 "},
-        {"type": "equation", "value": "\\overline{DE} \\parallel \\overline{BC}"},
+        {"type": "equation", "value": "\\overline{DE} \\parallel \\overline{FG} \\parallel \\overline{HC}"},
         {"type": "text", "value": ", "},
-        {"type": "equation", "value": "\\overline{FE} \\parallel \\overline{BC}"},
+        {"type": "equation", "value": "\\overline{FE} \\parallel \\overline{HG} \\parallel \\overline{BC}"},
         {"type": "text", "value": ", "},
-        {"type": "equation", "value": "\\overline{FG} \\parallel \\overline{AB}"},
+        {"type": "equation", "value": "\\overline{AD}=4"},
         {"type": "text", "value": ", "},
-        {"type": "equation", "value": "\\overline{BG} = 4"},
+        {"type": "equation", "value": "\\overline{DF}=3"},
         {"type": "text", "value": "일 때, "},
-        {"type": "equation", "value": "\\overline{DF}"},
-        {"type": "text", "value": "의 값은?"},
-        {"type": "figure", "value": "삼각형 ABC 내부에 점 D, E, F, G, H가 표시되고 여러 개의 평행선이 그어진 그림. 꼭짓점 A가 위, B가 아래 왼쪽, C가 아래 오른쪽에 있고, H, G, F, E, D 등이 삼각형 내부에 있음."}
+        {"type": "equation", "value": "\\overline{HB}"},
+        {"type": "text", "value": "의 길이는?"},
+        {"type": "figure", "value": "삼각형 ABC. 위 꼭짓점 A, 왼쪽 아래 B, 오른쪽 아래 C. 변 AB 위에 위에서부터 D, F, H 순으로 점이 있고, 변 AC 위에 위에서부터 E, G 순으로 점이 있다. DE는 FG, HC와 평행하고, FE는 HG, BC와 평행하다(화살표로 평행 표시)."}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{27}{7}"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{89}{7}"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{107}{7}"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{127}{7}"}]}
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{27}{4}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{49}{4}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{107}{16}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{147}{16}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{197}{16}"}]}
       ]
     },
     {
       "number": 4,
       "score": 3,
       "contents": [
-        {"type": "text", "value": "그림과 같이 점 G와 G'이 각각 △ABC와 △AGC의 무게중심일 때, △ABC의 넓이가 90이면 △ABG의 넓이는?"},
-        {"type": "figure", "value": "△ABC 내부에 무게중심 G, G'과 점 M이 표시된 그림. 꼭짓점 A가 위, B 아래 왼쪽, C 아래 오른쪽."}
+        {"type": "text", "value": "그림과 같이 점 G와 점 G'은 각각 "},
+        {"type": "equation", "value": "\\triangle ABC"},
+        {"type": "text", "value": "와 "},
+        {"type": "equation", "value": "\\triangle GBC"},
+        {"type": "text", "value": "의 무게중심이다. "},
+        {"type": "equation", "value": "\\triangle ABC"},
+        {"type": "text", "value": "의 넓이가 90일 때, "},
+        {"type": "equation", "value": "\\triangle BG'M"},
+        {"type": "text", "value": "의 넓이는?"},
+        {"type": "figure", "value": "삼각형 ABC. 위 꼭짓점 A, 왼쪽 아래 B, 오른쪽 아래 C. 삼각형 ABC의 무게중심 G, 삼각형 GBC의 무게중심 G'(G 아래쪽). BC의 중점 M(BC 위, G' 아래). 삼각형 BG'M 부분이 색칠되어 있다."}
       ],
       "choices": [
         {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
@@ -82,37 +103,48 @@
       "number": 5,
       "score": 5,
       "contents": [
-        {"type": "text", "value": "그림과 같이 G가 △ABC의 무게중심이고 D는 BC의 중점일 때, "},
-        {"type": "equation", "value": "\\overline{DF} \\parallel \\overline{AD}"},
-        {"type": "text", "value": "이고 "},
-        {"type": "equation", "value": "\\overline{AD} = 24"},
-        {"type": "text", "value": "이면 "},
-        {"type": "equation", "value": "\\overline{FD}"},
-        {"type": "text", "value": "의 값은?"},
-        {"type": "figure", "value": "△ABC 내부에 무게중심 G와 중점 D가 있고 F도 표시된 그림."}
+        {"type": "text", "value": "그림과 같이 점 G는 "},
+        {"type": "equation", "value": "\\triangle ABC"},
+        {"type": "text", "value": "의 무게중심이고 "},
+        {"type": "equation", "value": "\\overline{EF} \\parallel \\overline{BC}"},
+        {"type": "text", "value": "이다. "},
+        {"type": "equation", "value": "\\overline{AD}=24"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\overline{EG}"},
+        {"type": "text", "value": "의 길이는?"},
+        {"type": "figure", "value": "삼각형 ABC. 위 꼭짓점 A, 왼쪽 아래 B, 오른쪽 아래 C. 무게중심 G를 지나며 BC에 평행한 선분 EF(E는 왼쪽, F는 오른쪽). 중선 AD(D는 BC 위)가 G를 지나며, 선분 EF 위에 점 G가 있다."}
       ],
       "choices": [
         {"number": 1, "contents": [{"type": "equation", "value": "4"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "5"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{13}{2}"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "7"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "8"}]}
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{9}{2}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{11}{2}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "6"}]}
       ]
     },
     {
       "number": 6,
       "score": 4,
       "contents": [
-        {"type": "text", "value": "그림과 같이 △ABC에서 점 G와 G'이 각각 두 삼각형의 무게중심이고 "},
-        {"type": "equation", "value": "\\overline{GG'} = 80"},
-        {"type": "text", "value": "일 때, 어떤 선분의 값은?"},
-        {"type": "figure", "value": "△ABC와 여러 내부 점(G, G', H 등)이 표시된 그림. A가 위, B 아래 왼쪽, C 아래 오른쪽."}
+        {"type": "text", "value": "그림과 같이 "},
+        {"type": "equation", "value": "\\triangle ABC"},
+        {"type": "text", "value": "에서 두 점 G와 G'은 각각 "},
+        {"type": "equation", "value": "\\triangle ABD"},
+        {"type": "text", "value": "와 "},
+        {"type": "equation", "value": "\\triangle ADC"},
+        {"type": "text", "value": "의 무게중심이다. "},
+        {"type": "equation", "value": "\\overline{BC}=90"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\overline{GG'}"},
+        {"type": "text", "value": "의 길이는?"},
+        {"type": "figure", "value": "삼각형 ABC. 위 꼭짓점 A, 왼쪽 아래 B, 오른쪽 아래 C. BC 위의 점 D를 지나는 중선 AD. 삼각형 ABD의 무게중심 G(왼쪽), 삼각형 ADC의 무게중심 G'(오른쪽). G와 G'을 잇는 선분 GG'은 BC에 평행하다."}
       ],
       "choices": [
         {"number": 1, "contents": [{"type": "equation", "value": "20"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "50"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "60"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "56"}]}
+        {"number": 2, "contents": [{"type": "equation", "value": "30"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "40"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "50"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "60"}]}
       ]
     }
   ]

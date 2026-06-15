@@ -3,68 +3,104 @@
   "questions": [
     {
       "number": 13,
-      "score": 4,
+      "score": 5,
       "contents": [
-        {"type": "text", "value": "서로 다른 5개의 물건을 일렬로 나열하는 경우의 수는?"}
+        {"type": "text", "value": "성준이네 동아리 부원은 성준이를 포함하여 총 10명이 있다. 부원들 중 회장 1명과 부회장 2명을 뽑을 때, 성준이가 반드시 회장으로 뽑히는 경우의 수는?"}
       ],
       "choices": [
         {"number": 1, "contents": [{"type": "equation", "value": "24"}]},
         {"number": 2, "contents": [{"type": "equation", "value": "30"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "45"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "120"}]}
+        {"number": 3, "contents": [{"type": "equation", "value": "36"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "45"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "120"}]}
       ]
     },
     {
       "number": 14,
-      "score": 4,
+      "score": 3,
       "contents": [
-        {"type": "text", "value": "1부터 48까지의 자연수 중에서 3의 배수의 개수는?"}
+        {"type": "text", "value": "0부터 9까지의 정수가 각각 적힌 10장의 카드 중에서 2장을 동시에 뽑아 두 자리의 정수를 만들 때, 5의 배수의 개수는?"}
       ],
       "choices": [
         {"number": 1, "contents": [{"type": "equation", "value": "16"}]},
         {"number": 2, "contents": [{"type": "equation", "value": "17"}]},
         {"number": 3, "contents": [{"type": "equation", "value": "18"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "19"}]}
+        {"number": 4, "contents": [{"type": "equation", "value": "19"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "20"}]}
       ]
     },
     {
       "number": 15,
-      "score": 4,
+      "score": 5,
       "contents": [
-        {"type": "text", "value": "다음 중 확률에 관한 설명 중 __옳지 않은__ 것은?"}
+        {"type": "text", "value": "다음 중 확률이 가장 큰 것은?"}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "text", "value": "사건이 일어날 가능성이 같을 때 수학적 확률을 사용할 수 있다."}]},
-        {"number": 2, "contents": [{"type": "text", "value": "불가능한 사건의 확률은 0이다."}]},
-        {"number": 3, "contents": [{"type": "text", "value": "어떤 사건이 반드시 일어날 때 확률은 1보다 클 수 있다."}]},
-        {"number": 4, "contents": [{"type": "text", "value": "확률은 0 이상 1 이하의 값을 갖는다."}]}
+        {"number": 1, "contents": [
+          {"type": "text", "value": "수지와 태희가 가위바위보를 할 때, 비길 확률"}
+        ]},
+        {"number": 2, "contents": [
+          {"type": "text", "value": "수민이가 아침 운동을 할 확률이 "},
+          {"type": "equation", "value": "\\frac{3}{5}"},
+          {"type": "text", "value": "일 때, 이틀에 한 번만 아침 운동을 할 확률"}
+        ]},
+        {"number": 3, "contents": [
+          {"type": "text", "value": "어떤 시험에서 은수가 합격할 확률은 "},
+          {"type": "equation", "value": "\\frac{5}{6}"},
+          {"type": "text", "value": ", 다은이가 합격할 확률은 "},
+          {"type": "equation", "value": "\\frac{3}{5}"},
+          {"type": "text", "value": "일 때, 두 사람 중 적어도 한 사람이 합격할 확률"}
+        ]},
+        {"number": 4, "contents": [
+          {"type": "text", "value": "12까지의 수가 각각 적힌 모양과 크기가 같은 12장의 카드에서 한 장을 임의로 뽑을 때, 24의 약수가 적힌 카드가 나올 확률"}
+        ]},
+        {"number": 5, "contents": [
+          {"type": "text", "value": "이긴 사람만 한 판에 1점을 얻는 게임이 있다. 각 판에서 초롱이가 샛별이를 이길 확률은 "},
+          {"type": "equation", "value": "\\frac{1}{2}"},
+          {"type": "text", "value": "이고 먼저 2점을 얻는 사람이 승리한다고 할 때, 이 게임에서 초롱이가 승리할 확률 (단, 비기는 경우는 없다.)"}
+        ]}
       ]
     },
     {
       "number": 16,
       "score": 4,
       "contents": [
-        {"type": "text", "value": "그림과 같이 삼각형 ABC에서 변의 길이를 구하시오."},
-        {"type": "figure", "value": "△ABC에서 꼭짓점과 변의 길이가 표시되어 있는 그림. 직각 또는 특정 각도가 표시되어 있음."}
+        {"type": "text", "value": "그림과 같이 한 변의 길이가 1인 정육각형 ABCDEF가 있다. 점 P가 꼭짓점 A를 출발하여 한 개의 정육면체 모양의 주사위를 두 번 던져서 나온 눈의 수의 합만큼 변을 따라 화살표 방향으로 움직일 때, 점 P가 꼭짓점 C 또는 E에 위치할 확률은?"},
+        {"type": "figure", "value": "한 변의 길이가 1인 정육각형 ABCDEF. 위쪽 변에 A(왼쪽)와 F(오른쪽)가 있고 AF=1. 왼쪽 위 A에서 시계 방향(화살표 방향)으로 B(왼쪽 아래), C(아래 왼쪽), D(아래 오른쪽), E(오른쪽 아래), F(오른쪽 위) 순으로 배치. A에서 B로 향하는 화살표가 그려져 있고, 점 P는 변 AB 위 A 근처에 표시되어 있다."}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "11"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "17"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "21"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "25"}]}
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{1}{6}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{2}{9}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{5}{18}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{1}{3}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{4}{9}"}]}
       ]
     },
     {
       "number": 17,
-      "score": 10,
+      "score": 9,
       "label_type": "서술형",
       "contents": [
-        {"type": "text", "value": "[서술형 1] 그림과 같이 △ABC에서 G는 △ABC의 무게중심이고 "},
-        {"type": "equation", "value": "\\overline{FG} \\parallel \\overline{DH}"},
-        {"type": "text", "value": "이고 "},
-        {"type": "equation", "value": "\\overline{FG} = \\overline{GH}"},
-        {"type": "text", "value": "일 때, △AGF와 △GCH의 넓이의 비를 구하는 풀이 과정과 답을 쓰시오."},
-        {"type": "figure", "value": "△ABC에서 G가 무게중심이고, F, H 등이 변 위에 있거나 내부에 있는 그림. A가 위, B가 아래 왼쪽, C가 아래 오른쪽에 있고, F는 변 AB 위, G는 내부, H는 변 BC 위에 있음."}
+        {"type": "text", "value": "[서술형 1] 그림과 같이 "},
+        {"type": "equation", "value": "\\triangle ABC"},
+        {"type": "text", "value": "에서 두 점 E와 F는 각각 "},
+        {"type": "equation", "value": "\\overline{AB}"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{AC}"},
+        {"type": "text", "value": "의 중점이고, 점 G는 "},
+        {"type": "equation", "value": "\\overline{BF}"},
+        {"type": "text", "value": "와 "},
+        {"type": "equation", "value": "\\overline{CE}"},
+        {"type": "text", "value": "의 교점, 점 D는 "},
+        {"type": "equation", "value": "\\overline{EF}"},
+        {"type": "text", "value": "와 "},
+        {"type": "equation", "value": "\\overline{AG}"},
+        {"type": "text", "value": "의 교점이다. "},
+        {"type": "equation", "value": "\\overline{DG}=3"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\overline{AG}"},
+        {"type": "text", "value": "의 길이를 구하는 풀이과정과 답을 쓰시오."},
+        {"type": "figure", "value": "삼각형 ABC. 꼭짓점 A(왼쪽), C(오른쪽 위), B(아래 가운데). E는 AB의 중점, F는 AC의 중점. 중선 BF와 CE의 교점이 무게중심 G. 중점연결선 EF와 AG의 교점이 D. 선분 AG, BF, CE, EF가 그려져 있다."}
       ]
     }
   ]

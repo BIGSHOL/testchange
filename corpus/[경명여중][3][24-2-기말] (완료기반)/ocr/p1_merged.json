@@ -1,75 +1,98 @@
 {
-  "header": "",
+  "header": "2024년 2학기 기말고사 경명여중 3학년 수학 — 원과 직선 ~ 상관관계",
   "questions": [
     {
       "number": 1,
-      "score": 5,
+      "score": 3,
       "contents": [
-        {"type": "text", "value": "원이 △ABC에 내접하고, 세 점 D, E, F는 접점입니다. AB=12cm, BE=7cm, BC=11cm일 때, "},
+        {"type": "text", "value": "원 "},
+        {"type": "equation", "value": "O"},
+        {"type": "text", "value": "가 "},
+        {"type": "equation", "value": "\\triangle ABC"},
+        {"type": "text", "value": "의 내접원이고, 세 점 D, E, F는 접점이다. "},
+        {"type": "equation", "value": "\\overline{AB}=12cm"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{BE}=7cm"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{BC}=11cm"},
+        {"type": "text", "value": "일 때, "},
         {"type": "equation", "value": "\\overline{AC}"},
-        {"type": "text", "value": "의 길이를 구하시오. [5점]"},
-        {"type": "figure", "value": "삼각형 ABC에 내접하는 원. 세 접점 D, E, F가 각 변 위에 있음. 원 안에 숫자 표시."}
+        {"type": "text", "value": "의 길이는?"},
+        {"type": "figure", "value": "삼각형 ABC의 내접원 O. 위 꼭짓점 A, 왼쪽 아래 B, 오른쪽 아래 C. 변 AB에 12cm, 밑변 BC에 11cm 표시. 접점 D는 변 AB 위, E는 변 BC 위, F는 변 AC 위. 원 O가 삼각형에 내접."}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "text", "value": "9cm"}]},
-        {"number": 2, "contents": [{"type": "text", "value": "10cm"}]},
-        {"number": 3, "contents": [{"type": "text", "value": "11cm"}]},
-        {"number": 4, "contents": [{"type": "text", "value": "12cm"}]},
-        {"number": 5, "contents": [{"type": "text", "value": "13cm"}]}
+        {"number": 1, "contents": [{"type": "equation", "value": "9cm"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "10cm"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "11cm"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "12cm"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "13cm"}]}
       ]
     },
     {
       "number": 2,
       "score": 3,
       "contents": [
-        {"type": "text", "value": "점 O에서 "},
-        {"type": "equation", "value": "\\angle BAC = 24°"},
-        {"type": "text", "value": "이고 호 BC의 길이가 4cm일 때, 원의 둘레의 길이를 구하시오. [3점]"},
-        {"type": "figure", "value": "원 위의 점 A, B, C가 있고 원주각 ∠BAC=24°이며 호 BC의 길이가 4cm인 그림."}
+        {"type": "text", "value": "원 "},
+        {"type": "equation", "value": "O"},
+        {"type": "text", "value": "에서 "},
+        {"type": "equation", "value": "\\angle BAC=24\\degree"},
+        {"type": "text", "value": "이고 "},
+        {"type": "equation", "value": "\\overline{BC}=4cm"},
+        {"type": "text", "value": "일 때, 원 "},
+        {"type": "equation", "value": "O"},
+        {"type": "text", "value": "의 둘레의 길이는?"},
+        {"type": "figure", "value": "원 O 안에 삼각형 ABC. 위 꼭짓점 A에서 ∠BAC=24°, 아래 변 BC=4cm. B는 왼쪽 아래, C는 오른쪽 아래."}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{15}{2}cm"}]},
-        {"number": 2, "contents": [{"type": "text", "value": "15cm"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{45}{2}cm"}]},
-        {"number": 4, "contents": [{"type": "text", "value": "30cm"}]},
-        {"number": 5, "contents": [{"type": "text", "value": "60cm"}]}
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{15}{2}\\pi cm"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "15\\pi cm"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{45}{2}\\pi cm"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "30\\pi cm"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "60\\pi cm"}]}
       ]
     },
     {
       "number": 3,
       "score": 3,
       "contents": [
-        {"type": "text", "value": "지름 "},
-        {"type": "equation", "value": "\\overline{DC}"},
-        {"type": "text", "value": "이고 "},
-        {"type": "equation", "value": "\\angle ABC = 30°"},
+        {"type": "equation", "value": "\\overline{AB}"},
+        {"type": "text", "value": "는 원 "},
+        {"type": "equation", "value": "O"},
+        {"type": "text", "value": "의 지름이고 "},
+        {"type": "equation", "value": "\\angle ABC=38\\degree"},
         {"type": "text", "value": "일 때, "},
         {"type": "equation", "value": "\\angle x"},
-        {"type": "text", "value": "의 크기를 구하시오. [3점]"},
-        {"type": "figure", "value": "원 위의 점 A, B, C, D가 있고 DC는 지름, ∠ABC=30°, ∠x로 표시된 각이 있는 그림."}
+        {"type": "text", "value": "의 크기는?"},
+        {"type": "figure", "value": "원 O에서 지름 AB. 점 B는 오른쪽 위, A는 왼쪽 아래, C는 아래쪽. 중심 O 부근에 ∠x 표시, ∠ABC=38°."}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "36°"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "52°"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "62°"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "48°"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "64°"}]}
+        {"number": 1, "contents": [{"type": "equation", "value": "38\\degree"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "42\\degree"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "52\\degree"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "56\\degree"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "62\\degree"}]}
       ]
     },
     {
       "number": 4,
       "score": 3,
       "contents": [
-        {"type": "text", "value": "두 점 A에서 B까지 긋은 두 접선의 길이가 같을 때, OA=2cm, "},
-        {"type": "equation", "value": "\\angle AOB = 120°"},
-        {"type": "text", "value": "일 때, △PAB의 넓이를 구하시오. [3점]"},
-        {"type": "figure", "value": "원 밖의 점 P에서 원에 그은 두 접선이 점 A, B에서 접함. OA=2cm, ∠AOB=120° 표시."}
+        {"type": "text", "value": "두 점 A와 B는 점 P에서 원 "},
+        {"type": "equation", "value": "O"},
+        {"type": "text", "value": "에 그은 두 접선의 접점이다. "},
+        {"type": "equation", "value": "\\overline{OA}=2cm"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\angle AOB=120\\degree"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\triangle PAB"},
+        {"type": "text", "value": "의 넓이는?"},
+        {"type": "figure", "value": "점 P(왼쪽)에서 원 O에 그은 두 접선의 접점 A(위)와 B(아래). 위쪽에 2cm, 중심 O에서 ∠AOB=120° 표시. P, A, B가 삼각형을 이룸."}
       ],
       "choices": [
         {"number": 1, "contents": [{"type": "equation", "value": "2\\sqrt{3}"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "4\\sqrt{3}"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "2\\sqrt{5}"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "4\\sqrt{5}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "3\\sqrt{3}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "4\\sqrt{3}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "5\\sqrt{3}"}]},
         {"number": 5, "contents": [{"type": "equation", "value": "6\\sqrt{3}"}]}
       ]
     },
@@ -77,35 +100,41 @@
       "number": 5,
       "score": 3,
       "contents": [
-        {"type": "text", "value": "△ABCD의 점 O에서 내접하고 "},
-        {"type": "equation", "value": "\\overline{AB}=6cm"},
-        {"type": "text", "value": ", "},
-        {"type": "equation", "value": "\\overline{BC}=16cm"},
-        {"type": "text", "value": "일 때, 원 O의 반지름 길이를 구하시오. [3점]"},
-        {"type": "figure", "value": "사각형 ABCD에 내접하는 원 O. 두 변 AB=6cm, BC=16cm 표시. 꼭짓점 B에 45° 각도 표시."}
+        {"type": "equation", "value": "\\square ABCD"},
+        {"type": "text", "value": "가 원 "},
+        {"type": "equation", "value": "O"},
+        {"type": "text", "value": "에 내접하고, "},
+        {"type": "equation", "value": "\\overline{AT}"},
+        {"type": "text", "value": "는 원 "},
+        {"type": "equation", "value": "O"},
+        {"type": "text", "value": "와 점 A에서 만나는 접선일 때, "},
+        {"type": "equation", "value": "\\angle y-\\angle x"},
+        {"type": "text", "value": "의 크기를 구하면?"},
+        {"type": "figure", "value": "원 O에 내접하는 사각형 ABCD. C는 위쪽(∠C=105°), B는 왼쪽, D는 가운데, A는 오른쪽 아래. B 부근 각 45° 표시. 점 A를 지나는 접선이 오른쪽 아래로 향하며, 접선과 변 사이 각 x, y 표시."}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "10°"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "15°"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "20°"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "25°"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "30°"}]}
+        {"number": 1, "contents": [{"type": "equation", "value": "10\\degree"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "15\\degree"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "20\\degree"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "25\\degree"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "30\\degree"}]}
       ]
     },
     {
       "number": 6,
       "score": 3,
       "contents": [
-        {"type": "text", "value": "자료의 중앙값이 10이고 최빈값이 8일 때, 평균은? [3점]"},
-        {"type": "text", "value": "(단, a와 b는 자연수)"},
-        {"type": "table", "rows": [["3a-1", "8", "10", "12", "a+3", "80"]], "value": ""}
+        {"type": "text", "value": "자료의 중앙값은 10이고 최빈값은 8일 때, 평균은? (단, "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "는 수이다.)"},
+        {"type": "table", "rows": [["3a-1", "10", "8", "8", "12", "a+3", "10"]], "value": ""}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "text", "value": "5"}]},
-        {"number": 2, "contents": [{"type": "text", "value": "6"}]},
-        {"number": 3, "contents": [{"type": "text", "value": "8"}]},
-        {"number": 4, "contents": [{"type": "text", "value": "9"}]},
-        {"number": 5, "contents": [{"type": "text", "value": "10"}]}
+        {"number": 1, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "10"}]}
       ]
     }
   ]

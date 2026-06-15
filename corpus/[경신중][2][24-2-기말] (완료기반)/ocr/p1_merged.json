@@ -7,23 +7,27 @@
       "contents": [
         {"type": "text", "value": "다음 그림과 같은 두 평행사변형에서 "},
         {"type": "equation", "value": "\\square ABCD \\sim \\square EFGH"},
-        {"type": "text", "value": "이며, "},
-        {"type": "equation", "value": "\\overline{BC} = 4\\text{cm}"},
+        {"type": "text", "value": "이다. "},
+        {"type": "equation", "value": "\\overline{BC}=6cm"},
         {"type": "text", "value": "인 "},
         {"type": "equation", "value": "\\square ABCD"},
-        {"type": "text", "value": "의 둘레가 "},
-        {"type": "equation", "value": "12\\text{cm}"},
-        {"type": "text", "value": "일 때, 닮음비가 2:3인 "},
+        {"type": "text", "value": "와 "},
+        {"type": "equation", "value": "\\overline{GH}=12cm"},
+        {"type": "text", "value": "인 "},
         {"type": "equation", "value": "\\square EFGH"},
-        {"type": "text", "value": "의 둘레의 길이는? [3점]"},
-        {"type": "figure", "value": "두 평행사변형 □ABCD(왼쪽, 꼭짓점 D 위왼쪽, A 위오른쪽, B 아래왼쪽, G 아래오른쪽)와 □EFGH(오른쪽)가 나란히 있는 그림."}
+        {"type": "text", "value": "의 닮음비가 "},
+        {"type": "equation", "value": "2:3"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\square EFGH"},
+        {"type": "text", "value": "의 둘레의 길이는?"},
+        {"type": "figure", "value": "두 평행사변형 ABCD와 EFGH. 평행사변형 ABCD는 변 BC=6cm. 평행사변형 EFGH는 변 GH=12cm 표시."}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "29\\text{cm}"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "30\\text{cm}"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "36\\text{cm}"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "40\\text{cm}"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "42\\text{cm}"}]}
+        {"number": 1, "contents": [{"type": "equation", "value": "28cm"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "30cm"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "36cm"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "40cm"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "42cm"}]}
       ]
     },
     {
@@ -31,15 +35,24 @@
       "score": 3,
       "contents": [
         {"type": "text", "value": "다음 그림과 같이 "},
+        {"type": "equation", "value": "\\overline{BC}=16cm"},
+        {"type": "text", "value": "인 "},
         {"type": "equation", "value": "\\triangle ABC"},
-        {"type": "text", "value": "에서 변 AB, BC, CA 위에 각각 점 D, E, F가 있다. 다음 중 옳은 것은? [3점]"},
-        {"type": "figure", "value": "삼각형 ABC에서 D는 변 AB 위의 점, E는 변 BC 위의 점, F는 변 CA 위의 점. 4cm, 4.5cm 등 길이 표시."}
+        {"type": "text", "value": "에서 점 D는 변 BC의 중점이다. "},
+        {"type": "equation", "value": "\\overline{CE}=10cm"},
+        {"type": "text", "value": "가 되도록 하는 점 E를 변 AC 위에 잡으면, "},
+        {"type": "equation", "value": "\\angle B=\\angle DEC"},
+        {"type": "text", "value": "이다. 이때, "},
+        {"type": "equation", "value": "\\overline{AE}"},
+        {"type": "text", "value": "의 길이는?"},
+        {"type": "figure", "value": "삼각형 ABC. 점 D는 변 BC의 중점(BD=DC, BC=16cm). 점 E는 변 AC 위에 있고 EC=10cm. ∠B=∠DEC."}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "\\overline{DE} \\parallel \\overline{AC}"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "\\overline{AB} = \\overline{FE}"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "\\overline{DF} = \\frac{1}{2}\\overline{BC}"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "\\angle ABC = \\angle DEF"}]}
+        {"number": 1, "contents": [{"type": "equation", "value": "2cm"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{12}{5}cm"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{14}{5}cm"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{16}{5}cm"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{18}{5}cm"}]}
       ]
     },
     {
@@ -47,45 +60,43 @@
       "score": 3,
       "contents": [
         {"type": "text", "value": "다음 그림과 같이 "},
-        {"type": "equation", "value": "\\overline{BC} = 16\\text{cm}"},
-        {"type": "text", "value": "인 "},
         {"type": "equation", "value": "\\triangle ABC"},
-        {"type": "text", "value": "에서 점 D는 변 BD의 삼등분점이고, "},
-        {"type": "equation", "value": "\\overline{CE} = 10\\text{cm}"},
-        {"type": "text", "value": "인 점 E를 변 AC 위에 잡을 때, "},
-        {"type": "equation", "value": "\\overline{DE}"},
-        {"type": "text", "value": "의 길이는? [3점]"},
-        {"type": "figure", "value": "삼각형 ABC에서 D는 변 AB 위의 점, E는 변 AC 위의 점. BC=16cm, 기타 측정값 표시."}
+        {"type": "text", "value": "의 세 변 AB, BC, CA 위에 각각 점 D, E, F가 있다. 다음 중 옳은 것은?"},
+        {"type": "figure", "value": "삼각형 ABC. 변 AB 위 점 D(AD=4cm, DB=6cm), 변 CA 위 점 F(AF=3cm, FC=4.5cm), 변 BC 위 점 E(BE=4cm, EC=5cm). 점 D, E, F를 잇는 선분으로 작은 삼각형 형성."}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "2\\text{cm}"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{11}{3}\\text{cm}"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{17}{3}\\text{cm}"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{13}{3}\\text{cm}"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{16}{3}\\text{cm}"}]}
+        {"number": 1, "contents": [{"type": "equation", "value": "\\overline{DE} \\parallel \\overline{AC}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\overline{AB} \\parallel \\overline{FE}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\overline{DF}=\\frac{1}{2}\\overline{BC}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\angle ADF=\\angle ABC"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\angle ABC=\\angle FEC"}]}
       ]
     },
     {
       "number": 4,
       "score": 3,
       "contents": [
-        {"type": "text", "value": "다음 그림에서 G는 "},
+        {"type": "text", "value": "다음 그림에서 점 G는 "},
         {"type": "equation", "value": "\\triangle ABC"},
-        {"type": "text", "value": "의 무게중심이고, "},
-        {"type": "equation", "value": "\\triangle ABC"},
+        {"type": "text", "value": "의 무게중심이고, 점 "},
+        {"type": "equation", "value": "G'"},
+        {"type": "text", "value": "는 "},
+        {"type": "equation", "value": "\\triangle GBC"},
+        {"type": "text", "value": "의 무게중심이다. "},
+        {"type": "equation", "value": "\\triangle G'BD"},
         {"type": "text", "value": "의 넓이가 "},
-        {"type": "equation", "value": "\\frac{3}{4}\\text{cm}^{2}"},
+        {"type": "equation", "value": "\\frac{5}{2}cm^{2}"},
         {"type": "text", "value": "일 때, "},
-        {"type": "equation", "value": "\\triangle AGK"},
-        {"type": "text", "value": "의 넓이는? [3점]"},
-        {"type": "figure", "value": "삼각형 ABC와 무게중심 G, 점 K가 그려진 그림. 무게중심에서 각 꼭짓점으로 중선이 그려짐."}
+        {"type": "equation", "value": "\\triangle ABD"},
+        {"type": "text", "value": "의 넓이는?"},
+        {"type": "figure", "value": "삼각형 ABC. 점 G는 삼각형 ABC의 무게중심, 점 G'는 삼각형 GBC의 무게중심. D는 변 BC 위의 점이며 삼각형 G'BD가 음영으로 표시됨."}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "10\\text{cm}^{2}"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "15\\text{cm}^{2}"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{40}{3}\\text{cm}^{2}"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{32}{3}\\text{cm}^{2}"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "20\\text{cm}^{2}"}]}
+        {"number": 1, "contents": [{"type": "equation", "value": "10cm^{2}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "15cm^{2}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{45}{2}cm^{2}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{55}{2}cm^{2}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "30cm^{2}"}]}
       ]
     }
   ]

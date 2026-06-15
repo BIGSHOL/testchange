@@ -2,165 +2,116 @@
   "header": "",
   "questions": [
     {
-      "number": 9,
-      "score": 5,
-      "contents": [
-        {"type": "text", "value": "그림과 같이 원에서 나의 값을 구하시오."},
-        {"type": "figure", "value": "세 개의 원 그림. 각 원에 현과 중심이 그려지고 거리 표시됨. ①: 4cm, 2cm 표시. ②: 4cm, 7cm 표시. ③: 5cm, 2cm 표시."}
-      ],
-      "choices": [
-        {
-          "number": 1,
-          "contents": [{"type": "equation", "value": "\\frac{3\\sqrt{5}}{2}"}]
-        },
-        {
-          "number": 2,
-          "contents": [{"type": "equation", "value": "\\frac{3\\sqrt{5}}{4}"}]
-        },
-        {
-          "number": 3,
-          "contents": [{"type": "equation", "value": "\\frac{5\\sqrt{5}}{4}"}]
-        },
-        {
-          "number": 4,
-          "contents": [{"type": "equation", "value": "\\frac{5\\sqrt{5}}{2}"}]
-        }
-      ]
-    },
-    {
       "number": 10,
-      "score": 5,
+      "score": 3,
       "contents": [
-        {"type": "text", "value": "그림과 같이 두 개의 원에서 각도를 구하시오."},
-        {"type": "figure", "value": "삼각형이 원과 관련된 그림 두 개. 각도 표시됨."}
+        {"type": "text", "value": "그림과 같은 원 O에서 "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "의 값이 가장 큰 것은?"}
       ],
       "choices": [
-        {
-          "number": 1,
-          "contents": [{"type": "equation", "value": "45°"}]
-        },
-        {
-          "number": 2,
-          "contents": [{"type": "equation", "value": "90°"}]
-        },
-        {
-          "number": 3,
-          "contents": [{"type": "equation", "value": "135°"}]
-        },
-        {
-          "number": 4,
-          "contents": [{"type": "equation", "value": "180°"}]
-        },
-        {
-          "number": 5,
-          "contents": [{"type": "equation", "value": "270°"}]
-        }
+        {"number": 1, "contents": [{"type": "figure", "value": "원 O. 중심 O에서 아래쪽 현에 수선을 내림. 중심에서 현까지의 거리 x cm, 현의 한쪽 절반(현의 중점에서 끝점까지)이 6 cm."}]},
+        {"number": 2, "contents": [{"type": "figure", "value": "원 O. 왼쪽에 길이 12 cm인 현, 중심 O에서 그 현까지의 거리 x cm. 오른쪽 아래에 길이 12 cm인 또 다른 현, 중심 O에서 그 현까지의 거리 5 cm(수직 표시)."}]},
+        {"number": 3, "contents": [{"type": "figure", "value": "원 O. 별 모양으로 교차하는 두 현. 교차점에서 두 30° 각 표시. 왼쪽 호(또는 현)에 x cm, 아래쪽 현에 7 cm 표시."}]},
+        {"number": 4, "contents": [{"type": "figure", "value": "원 O. 두 현. 왼쪽 원주각 25°, 오른쪽 원주각 50°. 왼쪽 아래 호(현)에 2 cm, 오른쪽 아래 호(현)에 x cm 표시."}]},
+        {"number": 5, "contents": [{"type": "figure", "value": "원 O. 아래쪽에 길이 x cm인 현. 중심 O에서 현의 한 끝점까지 반지름 5 cm, 중심 O에서 현까지의 수직 거리 3 cm 표시."}]}
       ]
     },
     {
       "number": 11,
-      "score": 5,
+      "score": 4,
       "contents": [
-        {"type": "text", "value": "그림에서 두 점 A, B는 원에 접하고, "},
+        {"type": "text", "value": "그림에서 두 점 A, B는 점 P에서 원 O에 그은 두 접선의 접점이고, "},
         {"type": "equation", "value": "\\overline{PA}=3cm"},
-        {"type": "text", "value": ", △APB의 넓이가 b cm² 일 때, a+b의 값은?"},
-        {"type": "figure", "value": "원 외부의 점 P에서 원에 두 접선 PA와 PB를 그음. PA=3cm, 다른 수치 표시."}
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\angle APB = 60^{\\circ}"},
+        {"type": "text", "value": "이다. "},
+        {"type": "equation", "value": "\\square OAPB"},
+        {"type": "text", "value": "의 둘레의 길이를 "},
+        {"type": "equation", "value": "acm"},
+        {"type": "text", "value": ", 넓이를 "},
+        {"type": "equation", "value": "bcm^{2}"},
+        {"type": "text", "value": "라 할 때, "},
+        {"type": "equation", "value": "a+b"},
+        {"type": "text", "value": "의 값은?"},
+        {"type": "figure", "value": "점 P는 왼쪽 바깥, 원 O는 오른쪽. P에서 원 O에 그은 두 접선의 접점이 위쪽 A, 아래쪽 B. PA=3cm, ∠APB=60°. 사각형 OAPB(P, A, O, B를 잇는 연꼴)."}
       ],
       "choices": [
-        {
-          "number": 1,
-          "contents": [{"type": "equation", "value": "6+5\\sqrt{3}"}]
-        },
-        {
-          "number": 2,
-          "contents": [{"type": "equation", "value": "9"}]
-        },
-        {
-          "number": 3,
-          "contents": [{"type": "equation", "value": "6+3\\sqrt{2}"}]
-        },
-        {
-          "number": 4,
-          "contents": [{"type": "equation", "value": "9+3\\sqrt{2}"}]
-        },
-        {
-          "number": 5,
-          "contents": [{"type": "equation", "value": "11\\sqrt{2}"}]
-        }
+        {"number": 1, "contents": [{"type": "equation", "value": "6+5\\sqrt{3}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "5+6\\sqrt{3}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "18"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "9+3\\sqrt{3}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "11\\sqrt{3}"}]}
       ]
     },
     {
       "number": 12,
-      "score": 5,
+      "score": 3,
       "contents": [
-        {"type": "text", "value": "그림에서 "},
-        {"type": "equation", "value": "\\overline{FA}"},
-        {"type": "text", "value": ", "},
-        {"type": "equation", "value": "\\overline{FB}"},
-        {"type": "text", "value": ", "},
-        {"type": "equation", "value": "\\overline{OC}"},
-        {"type": "text", "value": "는 원의 접선이고, "},
-        {"type": "equation", "value": "\\overline{FA}=3cm"},
-        {"type": "text", "value": ", "},
-        {"type": "equation", "value": "\\overline{OC}=7cm"},
-        {"type": "text", "value": ", "},
-        {"type": "equation", "value": "\\overline{FC}=11cm"},
-        {"type": "text", "value": "일 때, "},
-        {"type": "equation", "value": "\\overline{FB}"},
-        {"type": "text", "value": "는?"},
-        {"type": "figure", "value": "원. 외부 점 F, O에서 접선 FA, FB, OC가 그려짐. FA=3cm, OC=7cm, FC=11cm 표시."}
+        {"type": "text", "value": "그림과 같은 두 원 O에서 "},
+        {"type": "equation", "value": "\\angle x + \\angle y"},
+        {"type": "text", "value": "의 값은?"},
+        {"type": "figure", "value": "두 원. 왼쪽 원: 중심 O, 중심각 x, 원주각 40°. 오른쪽 원: 중심 O, 한 원주각 25°(왼쪽), 각 y(O 근처)."}
       ],
       "choices": [
-        {
-          "number": 1,
-          "contents": [{"type": "equation", "value": "7cm"}]
-        },
-        {
-          "number": 2,
-          "contents": [{"type": "equation", "value": "8cm"}]
-        },
-        {
-          "number": 3,
-          "contents": [{"type": "equation", "value": "9cm"}]
-        },
-        {
-          "number": 4,
-          "contents": [{"type": "equation", "value": "10cm"}]
-        },
-        {
-          "number": 5,
-          "contents": [{"type": "equation", "value": "11cm"}]
-        }
+        {"number": 1, "contents": [{"type": "equation", "value": "45^{\\circ}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "65^{\\circ}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "90^{\\circ}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "100^{\\circ}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "130^{\\circ}"}]}
       ]
     },
     {
       "number": 13,
-      "score": 5,
+      "score": 4,
       "contents": [
-        {"type": "text", "value": "△ABC에서 내접하는 원과 내접하는 사각형에 대하여, 다음 중 옳은 것은 모두 몇 개인가?"},
-        {"type": "text", "value": "<보기> ㄱ. AD > DC  • ㄴ. ∠BAC = ∠BDC  • ㄷ. ∠A + ∠C = 180°  • ㄹ. AB + (∠B) + (∠A) = (∠B) + (∠C)"}
+        {"type": "text", "value": "그림에서 "},
+        {"type": "equation", "value": "\\overline{PA}"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{PB}"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{CD}"},
+        {"type": "text", "value": "는 원 O의 접선이고, 점 A, B, E는 접점이다. "},
+        {"type": "equation", "value": "\\overline{AC}=3cm"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{CD}=7cm"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{PC}=11cm"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\overline{PD}"},
+        {"type": "text", "value": "의 길이는?"},
+        {"type": "figure", "value": "원 O. 점 P는 오른쪽 바깥. P에서 그은 두 접선 PA(위, 접점 A), PB(아래, 접점 B). 또 다른 접선 CD가 접점 E에서 접함. C는 위쪽 접선 위, D는 아래쪽 접선 위. AC=3cm, CD=7cm, PC=11cm 표시."}
       ],
       "choices": [
-        {
-          "number": 1,
-          "contents": [{"type": "text", "value": "1개"}]
-        },
-        {
-          "number": 2,
-          "contents": [{"type": "text", "value": "2개"}]
-        },
-        {
-          "number": 3,
-          "contents": [{"type": "text", "value": "3개"}]
-        },
-        {
-          "number": 4,
-          "contents": [{"type": "text", "value": "4개"}]
-        },
-        {
-          "number": 5,
-          "contents": [{"type": "text", "value": "5개"}]
-        }
+        {"number": 1, "contents": [{"type": "equation", "value": "7cm"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "8cm"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "9cm"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "10cm"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "11cm"}]}
+      ]
+    },
+    {
+      "number": 14,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "□ABCD가 원에 내접할 때, 다음 중 옳은 것은 모두 몇 개인가? (단, "},
+        {"type": "equation", "value": "\\overline{AC}"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{BD}"},
+        {"type": "text", "value": "는 □ABCD의 대각선이다.)"},
+        {"type": "text", "value": "<상자>"},
+        {"type": "equation", "value": "\\overline{AD} \\parallel \\overline{BC}"},
+        {"type": "equation", "value": "\\angle BAC = \\angle BDC"},
+        {"type": "equation", "value": "\\angle A + \\angle C = 180^{\\circ}"},
+        {"type": "equation", "value": "\\angle C + \\angle D = 180^{\\circ}"},
+        {"type": "equation", "value": "\\overline{AB} + \\overline{CD} = \\overline{AD} + \\overline{BC}"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "1개"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "2개"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "3개"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "4개"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "5개"}]}
       ]
     }
   ]

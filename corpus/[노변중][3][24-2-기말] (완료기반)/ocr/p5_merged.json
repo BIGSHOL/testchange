@@ -7,7 +7,7 @@
       "label_type": "서술형",
       "contents": [
         {"type": "text", "value": "[서술형 2] 그림은 원 모양의 접시의 일부가 깨진 것이다. 이를 복원하기 위해 원의 중심을 찾고자 할 때, 원의 성질을 사용하여 그 방법을 설명하시오."},
-        {"type": "figure", "value": "원 모양 접시의 일부(호 모양 조각). 접시 가장자리 일부가 깨진 형태. 복원을 위해 원의 중심 찾는 방법 설명 요구."}
+        {"type": "figure", "value": "원 모양 접시의 일부만 남은 호 모양 조각(접시의 가장자리 일부가 깨진 형태)이 그려져 있다. 남은 호 부분으로부터 원래 원의 중심을 찾는 방법을 설명하는 문제이다."}
       ]
     },
     {
@@ -18,11 +18,11 @@
         {"type": "text", "value": "[서술형 3] 그림에서 "},
         {"type": "equation", "value": "\\overline{AB}"},
         {"type": "text", "value": "는 원 O의 지름이고 "},
-        {"type": "equation", "value": "\\angle COD = 54°"},
+        {"type": "equation", "value": "\\angle COD=54\\degree"},
         {"type": "text", "value": "일 때, "},
         {"type": "equation", "value": "\\angle CPD"},
         {"type": "text", "value": "의 크기를 구하고 그 과정을 서술하시오."},
-        {"type": "figure", "value": "원 O에 지름 AB가 있고, 원 위의 점 C, D, P 표시. ∠COD=54° 표시. P는 원 위의 점. C, D는 AB에 대하여 반대쪽."}
+        {"type": "figure", "value": "원 O에서 AB가 지름이다(A는 왼쪽 아래, B는 오른쪽 아래, O는 중심). 점 P는 원 위의 위쪽 점이고, 점 P에서 그은 두 선분이 원과 점 C(왼쪽), D(오른쪽)에서 만난다. 중심각 ∠COD=54°가 표시되어 있고, ∠CPD를 구한다."}
       ]
     },
     {
@@ -31,15 +31,27 @@
       "label_type": "서술형",
       "contents": [
         {"type": "text", "value": "[서술형 4] 그림과 같이 원 O는 "},
-        {"type": "equation", "value": "\\angle C = 90°"},
+        {"type": "equation", "value": "\\angle C=90\\degree"},
         {"type": "text", "value": "인 직각삼각형 ABC의 내접원이고, 세 점 D, E, F는 접점이다. "},
-        {"type": "equation", "value": "\\overline{BD} = 10cm"},
+        {"type": "equation", "value": "\\overline{BD}=10cm"},
         {"type": "text", "value": ", "},
-        {"type": "equation", "value": "\\overline{AF} = 3cm"},
+        {"type": "equation", "value": "\\overline{AF}=3cm"},
         {"type": "text", "value": "일 때, 다음 물음에 답하시오."},
-        {"type": "figure", "value": "직각삼각형 ABC(∠C=90°)에 내접원 O. 접점 D(BC 위), E(AC 위), F(AB 위). BD=10cm, AF=3cm 표시. A는 꼭대기, B는 왼쪽, C는 오른쪽."},
-        {"type": "text", "value": "(1) 원 O의 둘레의 길이를 구하고 그 과정을 서술하시오."},
-        {"type": "text", "value": "(2) (1)의 과정에서 사용된 원의 성질 1가지를 서술하시오."}
+        {"type": "figure", "value": "∠C=90°인 직각삼각형 ABC가 있다(A는 오른쪽 위, B는 왼쪽, C는 오른쪽 아래로 직각 표시). 원 O가 삼각형에 내접하여 빗변 AB에 점 D, 변 BC에 점 E, 변 CA에 점 F에서 접한다. 빗변 위에서 BD=10cm, 변 CA 위에서 AF=3cm로 표시되어 있다."}
+      ],
+      "sub_questions": [
+        {
+          "number": 1,
+          "contents": [
+            {"type": "text", "value": "원 O의 둘레의 길이를 구하고 그 과정을 서술하시오."}
+          ]
+        },
+        {
+          "number": 2,
+          "contents": [
+            {"type": "text", "value": "(1)의 과정에서 사용된 원의 성질 1가지를 서술하시오."}
+          ]
+        }
       ]
     }
   ]

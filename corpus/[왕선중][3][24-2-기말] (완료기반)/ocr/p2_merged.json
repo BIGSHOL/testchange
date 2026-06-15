@@ -3,118 +3,127 @@
   "questions": [
     {
       "number": 5,
-      "score": 5,
+      "score": 4,
       "contents": [
-        {"type": "text", "value": "그림과 같이 사각형 ABCD에서 삼각비의 값을 구하시오."},
-        {"type": "figure", "value": "사각형 ABCD. 꼭짓점 A는 왼쪽 위, B는 오른쪽 위, C는 오른쪽 아래, D는 왼쪽 아래. 대각선이 그려지고 각도 및 변의 길이 표시됨."}
+        {"type": "text", "value": "그림과 같은 평행사변형 (가)와 사각형 (나)의 넓이를 각각 "},
+        {"type": "equation", "value": "S_{1}"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "S_{2}"},
+        {"type": "text", "value": "라고 할 때, "},
+        {"type": "equation", "value": "\\frac{S_{2}}{S_{1}}"},
+        {"type": "text", "value": "의 값은?"},
+        {"type": "figure", "value": "(가) 평행사변형 ABCD: A는 왼쪽 위, D는 오른쪽 위, B는 왼쪽 아래, C는 오른쪽 아래. 변 AB=4, ∠B(∠ABC)=45°, 아래 변 BC=6. (나) 사각형: D는 오른쪽 위, A는 안쪽, B는 왼쪽 아래, C는 오른쪽 아래. 한 대각선=10, 대각선 교점의 각=60°, 변=6."}
       ],
       "choices": [
-        {
-          "number": 1,
-          "contents": [{"type": "equation", "value": "\\frac{7\\sqrt{5}}{5}"}]
-        },
-        {
-          "number": 2,
-          "contents": [{"type": "equation", "value": "\\frac{7\\sqrt{5}}{11}"}]
-        },
-        {
-          "number": 3,
-          "contents": [{"type": "equation", "value": "\\frac{5\\sqrt{5}}{11}"}]
-        },
-        {
-          "number": 4,
-          "contents": [{"type": "equation", "value": "\\frac{5\\sqrt{5}}{5}"}]
-        }
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{2\\sqrt{6}}{15}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{4\\sqrt{6}}{15}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{5\\sqrt{6}}{8}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{5\\sqrt{6}}{4}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{5\\sqrt{6}}{2}"}]}
       ]
     },
     {
       "number": 6,
-      "score": 5,
+      "score": 4,
       "contents": [
-        {"type": "text", "value": "그림과 같이 ∠C=90°인 직각삼각형 ABC에서 DC에 수직인 점 E가 있고, ∠DCE="},
-        {"type": "equation", "value": "x°"},
-        {"type": "text", "value": ", ∠DCA="},
-        {"type": "equation", "value": "y°"},
-        {"type": "text", "value": "이고, "},
-        {"type": "equation", "value": "\\sin x - \\cos y + \\sin y"},
-        {"type": "text", "value": "의 값은?"},
-        {"type": "figure", "value": "직각삼각형 ABC에서 ∠C=90°. DC에 수직인 점 E. ∠DCE=x°, ∠DCA=y° 표시."}
+        {"type": "text", "value": "폭이 6cm인 직사각형 모양의 종이테이프를 그림과 같이 "},
+        {"type": "equation", "value": "\\overline{AB}"},
+        {"type": "text", "value": "를 접는 선으로 하여 접었더니 "},
+        {"type": "equation", "value": "\\overline{AB}=12cm"},
+        {"type": "text", "value": "가 되었다. "},
+        {"type": "equation", "value": "\\triangle ABC"},
+        {"type": "text", "value": "의 둘레의 길이가 "},
+        {"type": "equation", "value": "(a+b\\sqrt{3})cm"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "a-b"},
+        {"type": "text", "value": "의 값은? (단, "},
+        {"type": "equation", "value": "a, b"},
+        {"type": "text", "value": "는 유리수이다.)"},
+        {"type": "figure", "value": "폭 6cm인 직사각형 종이테이프를 AB를 접는 선으로 접은 모양. 위쪽에 접힌 부분, C는 위쪽, B는 오른쪽, A는 아래쪽. 왼쪽 폭 6cm 표시, 접힌 후 AB=12cm 표시. △ABC가 음영으로 표시됨."}
       ],
       "choices": [
-        {
-          "number": 1,
-          "contents": [{"type": "equation", "value": "\\frac{7\\sqrt{5}}{10}"}]
-        },
-        {
-          "number": 2,
-          "contents": [{"type": "equation", "value": "\\frac{7\\sqrt{5}}{15}"}]
-        },
-        {
-          "number": 3,
-          "contents": [{"type": "equation", "value": "\\frac{5\\sqrt{5}}{15}"}]
-        },
-        {
-          "number": 4,
-          "contents": [{"type": "equation", "value": "\\frac{5\\sqrt{5}}{10}"}]
-        },
-        {
-          "number": 5,
-          "contents": [{"type": "equation", "value": "\\frac{5\\sqrt{5}}{5}"}]
-        }
+        {"number": 1, "contents": [{"type": "equation", "value": "-4"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "4"}]}
       ]
     },
     {
       "number": 7,
-      "score": 5,
+      "score": 4,
       "contents": [
-        {"type": "text", "value": "그림과 같이 삼각형 ABC에서 "},
-        {"type": "equation", "value": "\\overline{AB}=12"},
-        {"type": "text", "value": "cm, ∠ABC=45°일 때, △ABD의 넓이는?"},
-        {"type": "figure", "value": "삼각형 ABC에서 꼭짓점 B는 아래, A는 왼쪽 위, C는 오른쪽. 점 D가 AC 위에 있음. AB=12cm, ∠ABC=45°, 다른 각도 표시."}
+        {"type": "text", "value": "그림과 같은 평행사변형 ABCD에서 "},
+        {"type": "equation", "value": "\\overline{AB}=4"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{BC}=6"},
+        {"type": "text", "value": "이고, "},
+        {"type": "equation", "value": "\\angle ABC = 60^{\\circ}"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\overline{BD}"},
+        {"type": "text", "value": "의 길이는?"},
+        {"type": "figure", "value": "평행사변형 ABCD: A는 왼쪽 위, D는 오른쪽 위, B는 왼쪽 아래, C는 오른쪽 아래. 변 AB=4, ∠ABC=60°, 아래 변 BC=6. 대각선 BD가 그려져 있음."}
       ],
       "choices": [
-        {
-          "number": 1,
-          "contents": [{"type": "equation", "value": "4\\sqrt{3}"}]
-        },
-        {
-          "number": 2,
-          "contents": [{"type": "equation", "value": "2\\sqrt{19}"}]
-        },
-        {
-          "number": 3,
-          "contents": [{"type": "equation", "value": "4\\sqrt{3}+\\sqrt{5}"}]
-        },
-        {
-          "number": 4,
-          "contents": [{"type": "equation", "value": "4\\sqrt{6}"}]
-        }
+        {"number": 1, "contents": [{"type": "equation", "value": "6\\sqrt{2}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "5\\sqrt{3}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "2\\sqrt{19}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "2\\sqrt{21}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "4\\sqrt{6}"}]}
       ]
     },
     {
       "number": 8,
-      "score": 5,
+      "score": 4,
       "contents": [
-        {"type": "text", "value": "그림과 같이 지구의 반지름이 약 4000km일 때, 우주선에서 볼 수 있는 지구의 지름의 크기는?"},
-        {"type": "figure", "value": "원형 지구. 반지름 4000km 표시. 우주선이 지구 밖에 있고, 지구를 바라볼 때 각도 θ 표시. 우주선에서 지구 양쪽 끝에 접선이 그려짐."}
+        {"type": "text", "value": "그림과 같이 "},
+        {"type": "equation", "value": "\\angle C = 90^{\\circ}"},
+        {"type": "text", "value": "인 직각삼각형 ABC의 꼭짓점 C에서 변 AB에 내린 수선의 발을 D라 하고, 점 D에서 변 BC에 내린 수선의 발을 E라고 하자. "},
+        {"type": "equation", "value": "\\angle ACD = x^{\\circ}"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\angle DCE = y^{\\circ}"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{BE}=1"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{EC}=4"},
+        {"type": "text", "value": "이고, "},
+        {"type": "equation", "value": "\\overline{DE}=a"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\sin x^{\\circ} = b"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\tan y^{\\circ} = c"},
+        {"type": "text", "value": "라고 할 때, "},
+        {"type": "equation", "value": "abc"},
+        {"type": "text", "value": "의 값은?"},
+        {"type": "figure", "value": "∠C=90°인 직각삼각형 ABC. A는 위, B는 왼쪽 아래, C는 오른쪽 아래. C에서 빗변 AB에 내린 수선의 발 D, D에서 변 BC에 내린 수선의 발 E. ∠ACD=x°, ∠DCE=y°, BE=1, EC=4 표시. D 아래 E에서 BC에 직각."}
       ],
       "choices": [
-        {
-          "number": 1,
-          "contents": [{"type": "equation", "value": "4000\\sin^2\\theta"}]
-        },
-        {
-          "number": 2,
-          "contents": [{"type": "equation", "value": "4000\\cos^2\\theta"}]
-        },
-        {
-          "number": 3,
-          "contents": [{"type": "equation", "value": "8000\\cos^2\\theta"}]
-        },
-        {
-          "number": 4,
-          "contents": [{"type": "equation", "value": "8000\\sin^2\\theta"}]
-        }
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{\\sqrt{5}}{5}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{2\\sqrt{5}}{5}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{3\\sqrt{5}}{5}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{4\\sqrt{5}}{5}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{6\\sqrt{5}}{5}"}]}
+      ]
+    },
+    {
+      "number": 9,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 지구를 반지름의 길이가 "},
+        {"type": "equation", "value": "r(km)"},
+        {"type": "text", "value": "인 원 O라고 할 때, 지구 표면으로부터 4000km 높이에 떠있는 인공위성 P 지점에서 사진을 찍을 수 있는 지구의 가장 먼 지점을 A라고 한다. 지표면에서 수직 방향으로 상공에 있는 인공위성 P에서 지평선 위의 점 A를 내려다본 각의 크기가 "},
+        {"type": "equation", "value": "x^{\\circ}"},
+        {"type": "text", "value": "일 때, 삼각비를 이용하여 지구의 반지름 "},
+        {"type": "equation", "value": "r(km)"},
+        {"type": "text", "value": "을 나타낸 식은?"},
+        {"type": "figure", "value": "원 O(지구), 중심 O. 지표 위쪽 점 C, 그 위 4000km 높이에 인공위성 P. P에서 원에 접하는 직선이 접점 A(지평선 위 가장 먼 지점)에 닿음. P에서 A를 내려다본 각 x°, OA=r(반지름), A에서 직각 표시. PC=4000km."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{4000\\cos x^{\\circ}}{1-\\cos x^{\\circ}}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{4000\\sin x^{\\circ}}{1-\\sin x^{\\circ}}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{4000\\cos x^{\\circ}}{1+\\cos x^{\\circ}}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{4000(1+\\sin x^{\\circ})}{\\sin x^{\\circ}}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{4000(1-\\tan x^{\\circ})}{\\tan x^{\\circ}}"}]}
       ]
     }
   ]

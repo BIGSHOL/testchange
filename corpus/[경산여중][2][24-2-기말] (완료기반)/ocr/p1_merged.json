@@ -1,59 +1,73 @@
 {
-  "header": "2024년 2학기 기말고사 경산여중 2학년 수학",
+  "header": "",
   "questions": [
     {
       "number": 1,
       "score": 3,
       "contents": [
-        {"type": "text", "value": "△ABC≅△DEF의 최소 조건으로 알맞은 것은?"},
-        {"type": "figure", "value": "삼각형 ABC와 삼각형 DEF 그림. △ABC에서 ∠B=40°, BC=8cm 표시. △DEF에서 ∠E=40°, EF=4cm 표시."}
+        {"type": "equation", "value": "\\triangle ABC \\sim \\triangle DEF"},
+        {"type": "text", "value": "이 되기 위해 추가해야 하는 조건은?"},
+        {"type": "figure", "value": "삼각형 ABC: 꼭짓점 A는 위, B는 왼쪽 아래, C는 오른쪽 아래. ∠B=50°, 밑변 BC=8cm. 오른쪽에 삼각형 DEF: 꼭짓점 D는 위, E는 왼쪽 아래, F는 오른쪽 아래. ∠E=50°, 밑변 EF=4cm."}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "\\angle A = 40°,\\ \\angle D = 80°"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "\\angle C = 40°,\\ \\angle F = 70°"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "\\overline{AC} = 4cm,\\ \\overline{DF} = 3cm"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "\\overline{AB} = 12cm,\\ \\overline{DE} = 8cm"}]}
+        {"number": 1, "contents": [{"type": "equation", "value": "\\angle A = 60°, \\ \\angle D = 60°"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\angle C = 45°, \\ \\angle F = 60°"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\overline{AC} = 6cm, \\ \\overline{DF} = 3cm"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\overline{AB} = 10cm, \\ \\overline{DF} = 5cm"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\overline{AB} = 12cm, \\ \\overline{DE} = 8cm"}]}
       ]
     },
     {
       "number": 2,
       "score": 3,
       "contents": [
-        {"type": "text", "value": "그림에서 두 도형의 닮음비가 f : m일 때, x의 값은?"},
-        {"type": "figure", "value": "닮음인 두 사각형. 큰 사각형에 4cm, 7cm, z cm 수치 표시. 작은 사각형에 2cm, x cm 수치 표시."}
+        {"type": "equation", "value": "\\overline{AB} = \\frac{7}{2}cm, \\ \\overline{BC} = 3cm, \\ \\overline{AC} = 1cm, \\ \\overline{CD} = 2cm, \\ \\overline{CE} = 6cm"},
+        {"type": "text", "value": "이고 "},
+        {"type": "equation", "value": "\\overline{AD}"},
+        {"type": "text", "value": "와 "},
+        {"type": "equation", "value": "\\overline{BE}"},
+        {"type": "text", "value": "의 교점을 C라고 할 때, "},
+        {"type": "equation", "value": "\\overline{DE}"},
+        {"type": "text", "value": "의 길이는?"},
+        {"type": "figure", "value": "직선 위에 왼쪽부터 B, C(가운데 교점), E가 놓이고, 위쪽에 A, 아래쪽에 D가 있다. AB=7/2 cm, BC=3cm, AC=1cm, CD=2cm, CE=6cm. 선분 AD와 선분 BE가 점 C에서 교차한다."}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "text", "value": "a"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{35}{4}"}]},
-        {"number": 3, "contents": [{"type": "text", "value": "b"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{39}{4}"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "10"}]}
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{13}{2}cm"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "7cm"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{15}{2}cm"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "8cm"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{17}{2}cm"}]}
       ]
     },
     {
       "number": 3,
       "score": 3,
       "contents": [
-        {"type": "equation", "value": "\\overline{AB} = 7cm,\\ \\overline{BC} = 3cm,\\ \\overline{CD} = 1cm,\\ \\overline{DE} = 2cm,\\ \\overline{EF} = 6cm"},
-        {"type": "text", "value": "이라고 할 때, 두 삼각형의 교점을 이용하여 DE의 길이를 구하면?"},
-        {"type": "figure", "value": "두 삼각형이 교차하는 도형. 꼭짓점 A, B, C, D, E 표시. 각 변에 2cm, 3cm, 6cm 등 수치 표시."}
+        {"type": "text", "value": "그림에서 "},
+        {"type": "equation", "value": "l \\parallel m \\parallel n"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "의 값은?"},
+        {"type": "figure", "value": "세 평행선 l(위), m(가운데), n(아래)을 두 직선이 가로지른다. 왼쪽 직선 위: l과 m 사이 4cm, m과 n 사이 7cm. 오른쪽 직선 위: l과 m 사이 5cm, m과 n 사이 x cm."}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{13}{2}"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "7cm"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{15}{2}"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "8cm"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{17}{2}"}]}
+        {"number": 1, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{35}{4}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{38}{4}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "10"}]}
       ]
     },
     {
       "number": 4,
       "score": 3,
       "contents": [
-        {"type": "text", "value": "그림에서"},
+        {"type": "text", "value": "그림에서 "},
         {"type": "equation", "value": "\\overline{BC} \\parallel \\overline{DE}"},
-        {"type": "text", "value": "일 때, x+y의 값은?"},
-        {"type": "figure", "value": "삼각형 ABC 내부에 BC에 평행한 DE 선분. 각 변에 수치 표시."}
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "x + y"},
+        {"type": "text", "value": "의 값은?"},
+        {"type": "figure", "value": "선분 EC와 선분 BD가 점 A에서 교차한다. 위쪽에 E와 D가 있고 ED=6cm. EA=8cm, AD=4cm, AB=12cm, AC=x cm. 아래쪽 변 BC=y cm. BC∥DE."}
       ],
       "choices": [
         {"number": 1, "contents": [{"type": "equation", "value": "50"}]},

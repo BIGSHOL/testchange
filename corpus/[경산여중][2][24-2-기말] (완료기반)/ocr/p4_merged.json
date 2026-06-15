@@ -1,66 +1,84 @@
 {
-  "header": "2024년 2학기 기말고사 경산여중 2학년 수학",
+  "header": "",
   "questions": [
     {
       "number": 15,
       "score": 4,
       "contents": [
-        {"type": "text", "value": "삼각형 △ABC의 무게중심을 G라 하고, M, N이 각각 중점일 때 △AGM의 넓이가 4cm²일 때, △ABC의 넓이는?"},
-        {"type": "figure", "value": "삼각형 ABC에서 무게중심 G와 중점 M, N이 표시된 도형. 내부에 삼각형 AGM이 표시됨."}
+        {"type": "text", "value": "점 G는 "},
+        {"type": "equation", "value": "\\triangle ABC"},
+        {"type": "text", "value": "의 무게중심이다. "},
+        {"type": "equation", "value": "\\triangle GMN"},
+        {"type": "text", "value": "의 넓이가 "},
+        {"type": "equation", "value": "4cm^{2}"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\triangle ABC"},
+        {"type": "text", "value": "의 넓이는?"},
+        {"type": "figure", "value": "삼각형 ABC와 무게중심 G. A는 위, B는 왼쪽 아래, C는 오른쪽 아래. 세 중선 AL(L은 BC 위), BM(M은 AC 위), CN(N은 AB 위)이 G에서 만난다. 가운데 작은 삼각형 GMN(꼭짓점 G, M, N)이 색칠되어 있고 P는 N과 M을 잇는 선분 위 A쪽 부근의 점이다."}
       ],
       "choices": [
         {"number": 1, "contents": [{"type": "equation", "value": "36cm^{2}"}]},
         {"number": 2, "contents": [{"type": "equation", "value": "40cm^{2}"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "48cm^{2}"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "52cm^{2}"}]}
+        {"number": 3, "contents": [{"type": "equation", "value": "44cm^{2}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "48cm^{2}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "52cm^{2}"}]}
       ]
     },
     {
       "number": 16,
       "score": 4,
       "contents": [
-        {"type": "text", "value": "주사위를 한 번 던져 나온 눈의 수가 홀수이면 합 2점, 짝수이면 합 3점을 얻는 게임을 한다. 게임을 여러 번 할 때 확률을 구하면?"},
-        {"type": "figure", "value": "주사위 게임 관련 표 또는 그림."}
+        {"type": "equation", "value": "\\triangle ABC"},
+        {"type": "text", "value": "에서 점 D는 "},
+        {"type": "equation", "value": "\\overline{AD} : \\overline{DC} = 2 : 3"},
+        {"type": "text", "value": "인 "},
+        {"type": "equation", "value": "\\overline{AC}"},
+        {"type": "text", "value": " 위의 점이고, 점 M은 "},
+        {"type": "equation", "value": "\\overline{BD}"},
+        {"type": "text", "value": "의 중점이다. "},
+        {"type": "equation", "value": "\\overline{AM}"},
+        {"type": "text", "value": "의 연장선과 "},
+        {"type": "equation", "value": "\\overline{BC}"},
+        {"type": "text", "value": "의 교점을 E라 할 때, "},
+        {"type": "equation", "value": "\\overline{EC}"},
+        {"type": "text", "value": "의 길이는?"},
+        {"type": "figure", "value": "삼각형 ABC: A는 위, B는 왼쪽 아래, C는 오른쪽 아래. 변 AC 위의 점 D(AD:DC=2:3). 선분 BD 위의 중점 M(BM=MD 같음 표시). A에서 M을 지나 BC 위의 점 E로 연장. BE=2cm."}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{1}{4}"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{1}{3}"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{5}{12}"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "1"}]}
+        {"number": 1, "contents": [{"type": "equation", "value": "5cm"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "6cm"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "7cm"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "8cm"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "9cm"}]}
       ]
     },
     {
       "number": 17,
       "score": 4,
       "contents": [
-        {"type": "text", "value": "△ABC에서 점 D는"},
-        {"type": "equation", "value": "\\overline{AS} : \\overline{DC} = 2 : 3"},
-        {"type": "text", "value": "이고,"},
-        {"type": "equation", "value": "\\overline{AS} = 3\\overline{XC}"},
-        {"type": "text", "value": "일 때, 두 삼각형의 교점을 구하고"},
-        {"type": "equation", "value": "\\overline{DE}"},
-        {"type": "text", "value": "의 길이는?"},
-        {"type": "figure", "value": "삼각형 ABC 내부에 점 M, D, E가 표시된 도형. 각 변에 7cm, 2cm 등 수치 표시."}
+        {"type": "text", "value": "주머니 A에는 흰 공과 검은 공이 각각 4개씩 들어 있고, 주머니 B에는 흰 공 4개, 검은 공 5개가 들어 있다. A, B 두 주머니에서 각각 1개의 공을 임의로 꺼낼 때, 꺼낸 두 공의 색이 같을 확률을 구하면?"}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "5cm"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "7cm"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{4}{5}cm"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "8cm"}]}
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{1}{2}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{1}{3}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{2}{3}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{1}{4}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{3}{4}"}]}
       ]
     },
     {
       "number": 18,
       "score": 4,
       "contents": [
-        {"type": "text", "value": "벨, 노트, 파란, 초록의 4가지 색을 사용하여 그림과 같이 나뉘어진 A, B, C, D 4개의 영역을 색칠하려 한다. 서로 이웃하는 두 영역이 같은 색이 되지 않도록 하는 경우의 수는?"},
-        {"type": "figure", "value": "2×2 배열. 위쪽에 A와 B, 아래쪽에 C와 D 영역."}
+        {"type": "text", "value": "빨강, 노랑, 파랑, 초록의 4가지 색을 사용하여 다음 그림의 A, B, C, D 네 영역을 색칠하려고 한다. 이웃한 영역은 서로 다른 색을 칠할 때, 색칠할 수 있는 모든 경우의 수는? (단, 같은 색을 여러 번 사용할 수 있고, 모든 색을 사용하지 않아도 된다.)"},
+        {"type": "figure", "value": "사다리꼴이 네 영역으로 나뉘어 있다. 위쪽 큰 영역 A, 아래쪽에 왼쪽부터 B, C, D 세 영역이 나란히 있다. A는 B, C, D 모두와 이웃하고, B-C, C-D가 서로 이웃한다."}
       ],
       "choices": [
         {"number": 1, "contents": [{"type": "equation", "value": "12"}]},
         {"number": 2, "contents": [{"type": "equation", "value": "24"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "64"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "128"}]}
+        {"number": 3, "contents": [{"type": "equation", "value": "48"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "64"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "128"}]}
       ]
     }
   ]

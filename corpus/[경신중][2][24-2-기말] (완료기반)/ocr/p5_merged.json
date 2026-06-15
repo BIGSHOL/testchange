@@ -7,70 +7,88 @@
       "contents": [
         {"type": "text", "value": "다음 그림에서 점 G는 "},
         {"type": "equation", "value": "\\triangle ABC"},
-        {"type": "text", "value": "의 무게중심이고, D는 BC의 중점이다. "},
-        {"type": "equation", "value": "\\overline{BC} = 30\\text{cm}"},
-        {"type": "text", "value": "이면, "},
-        {"type": "equation", "value": "\\overline{AC}"},
-        {"type": "text", "value": "의 길이는? [5점]"},
-        {"type": "figure", "value": "삼각형 ABC에서 G는 무게중심, D는 BC의 중점. 중선 AD가 그려짐. BC=30cm 표시."}
+        {"type": "text", "value": "의 무게중심이고 점 "},
+        {"type": "equation", "value": "G'"},
+        {"type": "text", "value": "은 "},
+        {"type": "equation", "value": "\\triangle GBC"},
+        {"type": "text", "value": "의 무게중심이다. "},
+        {"type": "equation", "value": "\\angle BGC=90°"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{BC}=30cm"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\overline{AG'}"},
+        {"type": "text", "value": "의 길이는?"},
+        {"type": "figure", "value": "삼각형 ABC. 점 G는 삼각형 ABC의 무게중심, 점 G'는 삼각형 GBC의 무게중심. ∠BGC=90°, BC=30cm 표시."}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "32\\text{cm}"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "25\\text{cm}"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "36\\text{cm}"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "48\\text{cm}"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "40\\text{cm}"}]}
+        {"number": 1, "contents": [{"type": "equation", "value": "32cm"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "35cm"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "38cm"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "40cm"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "42cm"}]}
       ]
     },
     {
       "number": 18,
       "score": 5,
       "contents": [
-        {"type": "text", "value": "다음 그림과 같이 A, B, C, D, E 다섯 영역으로 나누어진 것을 색칠하려고 한다. 이웃한 영역에 서로 다른 색이 되도록 3가지 색을 사용하여 칠할 수 있는 방법의 수는? [5점]"},
-        {"type": "figure", "value": "A(왼쪽 큰 영역), B(가운데 작은 원형 영역), C(오른쪽 큰 영역), D(B 안 또는 인접 영역), E(아래 영역) 5개 구역으로 나뉜 그림."}
+        {"type": "text", "value": "다음 그림과 같은 "},
+        {"type": "equation", "value": "\\triangle ABC"},
+        {"type": "text", "value": "에서 점 D, E는 변 BC의 삼등분점이고, 점 F는 "},
+        {"type": "equation", "value": "\\overline{AE}"},
+        {"type": "text", "value": "의 중점이다. "},
+        {"type": "equation", "value": "\\overline{BF}"},
+        {"type": "text", "value": "와 "},
+        {"type": "equation", "value": "\\overline{AD}"},
+        {"type": "text", "value": "의 교점을 G, "},
+        {"type": "equation", "value": "\\overline{BF}"},
+        {"type": "text", "value": "의 연장선과 "},
+        {"type": "equation", "value": "\\overline{AC}"},
+        {"type": "text", "value": "의 교점을 H라 하자. "},
+        {"type": "equation", "value": "\\overline{GF}=13"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{FC}=15"},
+        {"type": "text", "value": "이고 "},
+        {"type": "equation", "value": "\\angle EFC=\\angle HFC"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\square GDEF"},
+        {"type": "text", "value": "의 넓이는?"},
+        {"type": "figure", "value": "삼각형 ABC. 점 D, E는 변 BC의 삼등분점. 점 F는 선분 AE의 중점. BF와 AD의 교점 G, BF의 연장선과 AC의 교점 H. GF=13, FC=15, ∠EFC=∠HFC."}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "3"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "6"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "4"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "18"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "24"}]}
+        {"number": 1, "contents": [{"type": "equation", "value": "110"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "120"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "130"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "140"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "150"}]}
       ]
     },
     {
       "number": 19,
       "score": 5,
       "contents": [
-        {"type": "text", "value": "다음 그림과 같이 "},
-        {"type": "equation", "value": "\\triangle ABC"},
-        {"type": "text", "value": "에서 점 G는 두 직선 BE와 CF의 교점이다. "},
-        {"type": "equation", "value": "\\overline{GF} = 13\\text{cm}"},
-        {"type": "text", "value": ", "},
-        {"type": "equation", "value": "\\overline{FC} = 10\\text{cm}"},
-        {"type": "text", "value": "이면, "},
-        {"type": "equation", "value": "\\triangle ABC"},
-        {"type": "text", "value": "의 넓이는? [5점]"},
-        {"type": "figure", "value": "삼각형 ABC에서 D는 BC의 중점, E는 AC의 중점, F는 AB의 중점. 두 중선 BE와 CF가 G에서 교차. GF=13cm, FC=10cm 표시."}
+        {"type": "text", "value": "다음 그림과 같이 A, B, C, D, E 다섯 영역으로 나누어진 도형을 빨강, 노랑, 파랑 3가지 색으로 칠하려고 한다. 이웃한 영역은 서로 다른 색으로 구분하여 칠할 수 있는 모든 경우의 수는? (단, 같은 색을 여러 번 사용하는 것도 가능하다.)"},
+        {"type": "figure", "value": "오각형 집 모양 도형. 맨 위 삼각형 지붕 영역 A. 그 아래 가운데 작은 원 영역 B와 그 오른쪽 영역 C. 맨 아래 왼쪽 영역 D와 오른쪽 영역 E. 총 5개 영역."}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "110"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "120"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "130"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "148"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "150"}]}
+        {"number": 1, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "18"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "24"}]}
       ]
     },
     {
       "number": 20,
       "score": 5,
       "contents": [
-        {"type": "text", "value": "서로 다른 두 개의 주사위 A를 동시에 던져서 나오는 눈의 수를 분모, 그 차(절댓값)를 분자로 하는 분수가 자연수가 되는 경우의 수를 구하시오. 이때 확률은? [5점]"}
+        {"type": "text", "value": "서로 다른 두 개의 주사위 A, B를 동시에 던질 때, 주사위 A의 눈의 수가 주사위 B의 눈의 수의 약수가 될 확률은?"}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{7}{36}"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{1}{12}"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{17}{36}"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{1}{4}"}]},
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{7}{18}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{5}{12}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{4}{9}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{17}{36}"}]},
         {"number": 5, "contents": [{"type": "equation", "value": "\\frac{1}{2}"}]}
       ]
     }

@@ -1,70 +1,73 @@
 {
-  "header": "2024년 2학기 기말고사 압량중 2학년 수학",
+  "header": "",
   "questions": [
     {
       "number": 5,
       "score": 4,
       "contents": [
-        {"type": "text", "value": "그림과 같은 마름모 ABCD에서 꼭짓점 B, C에서 대각선 AC, BD에 내린 수선의 발을 각각 P, Q라 하고 "},
-        {"type": "equation", "value": "\\angle D = 42°"},
+        {"type": "text", "value": "그림과 같은 마름모 ABCD의 한 꼭짓점 A에서 "},
+        {"type": "equation", "value": "\\overline{BC}"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{CD}"},
+        {"type": "text", "value": "에 내린 수선의 발을 각각 P, Q라 하자. "},
+        {"type": "equation", "value": "\\angle D=62°"},
         {"type": "text", "value": "일 때, "},
-        {"type": "equation", "value": "\\angle a"},
+        {"type": "equation", "value": "\\angle x"},
         {"type": "text", "value": "의 크기는?"},
-        {"type": "figure", "value": "마름모 ABCD. A(위), B(왼쪽), C(아래), D(오른쪽). 대각선 AC와 BD의 교점 O. 점 P는 B에서 AC에 내린 수선의 발, 점 Q는 C에서 BD에 내린 수선의 발. 각 a°가 표시됨. ∠D = 42°."}
+        {"type": "figure", "value": "마름모 ABCD. 꼭짓점 A(위), B(왼쪽), C(아래), D(오른쪽). A에서 변 BC에 내린 수선의 발 P(왼쪽 아래), A에서 변 CD에 내린 수선의 발 Q(오른쪽 아래). P 부근 내각이 ∠x로 표시. ∠D=62°."}
       ],
       "choices": [
         {"number": 1, "contents": [{"type": "equation", "value": "57°"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "54°"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "60°"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "61°"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "66°"}]}
+        {"number": 2, "contents": [{"type": "equation", "value": "58°"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "59°"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "60°"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "61°"}]}
       ]
     },
     {
       "number": 6,
       "score": 4,
       "contents": [
-        {"type": "text", "value": "다음 중 닮음에 대한 설명으로 옳은 것을 모두 고른 것은?"},
-        {"type": "text", "value": "<보기> ① 닮음인 두 도형의 넓이의 비는 닮음비와 같다. ② 닮음인 두 도형의 둘레의 비는 닮음비와 같다. ③ 닮음인 두 도형의 넓이의 비는 닮음비의 제곱과 같다. ④ 닮음인 두 도형의 부피의 비는 닮음비의 세제곱과 같다."}
+        {"type": "text", "value": "아래 그림과 같은 평행사변형 ABCD에서 다음과 같은 조건이 주어질 때, 옳지 __않은__ 것은?"},
+        {"type": "figure", "value": "평행사변형 ABCD. 꼭짓점 A(왼쪽 위), D(오른쪽 위), B(왼쪽 아래), C(오른쪽 아래)."}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "text", "value": "①, ②"}]},
-        {"number": 2, "contents": [{"type": "text", "value": "②, ③"}]},
-        {"number": 3, "contents": [{"type": "text", "value": "③, ④"}]},
-        {"number": 4, "contents": [{"type": "text", "value": "①, ③"}]},
-        {"number": 5, "contents": [{"type": "text", "value": "②, ④"}]}
+        {"number": 1, "contents": [{"type": "equation", "value": "\\overline{AB}=\\overline{AD}"},{"type": "text", "value": "이면 마름모"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\overline{AC}=\\overline{BD}"},{"type": "text", "value": "이면 직사각형"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\overline{AC}\\perp\\overline{BD}"},{"type": "text", "value": "이면 정사각형"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\angle B=\\angle C"},{"type": "text", "value": "이면 직사각형"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\angle ABD=\\angle DBC"},{"type": "text", "value": "이면 마름모"}]}
       ]
     },
     {
       "number": 7,
-      "score": 4,
+      "score": 3,
       "contents": [
-        {"type": "text", "value": "사각형 ABCD와 같은 평행사변형 ABCD에서 다음 조건들 중 올바른 설명을 고른 것은?"},
-        {"type": "figure", "value": "평행사변형 ABCD. A(왼쪽 위), B(왼쪽 아래), C(오른쪽 아래), D(오른쪽 위). 대각선 AC와 BD가 교차하는 점이 있음."}
+        {"type": "text", "value": "다음 중 닮은 도형에 대한 설명으로 옳지 __않은__ 것은?"}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "\\overline{AB} = \\overline{AD}"},{"type": "text", "value": "이면 평행사변형"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "\\overline{AC} = \\overline{BD}"},{"type": "text", "value": "이면 직사각형"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "\\overline{AC} \\perp \\overline{BD}"},{"type": "text", "value": "이면 정사각형"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "\\angle A = \\angle B = \\angle C = \\angle D"},{"type": "text", "value": "이면 마름모"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "\\overline{AB} = \\overline{BC}"},{"type": "text", "value": ", "},{"type": "equation", "value": "\\overline{CD} \\parallel \\overline{AB}"},{"type": "text", "value": "이면 "},{"type": "equation", "value": "\\triangle ABC"}]}
+        {"number": 1, "contents": [{"type": "text", "value": "합동인 두 평면도형의 닮음비는 1:1이다."}]},
+        {"number": 2, "contents": [{"type": "text", "value": "넓이가 같은 두 평면도형은 서로 닮음이다."}]},
+        {"number": 3, "contents": [{"type": "text", "value": "닮음인 두 평면도형에서 대응하는 각의 크기는 각각 같다."}]},
+        {"number": 4, "contents": [{"type": "text", "value": "닮음인 두 평면도형에서 닮음비는 대응변의 길이의 비와 같다."}]},
+        {"number": 5, "contents": [{"type": "text", "value": "닮음인 두 평면도형의 넓이의 비는 닮음비의 제곱의 비와 같다."}]}
       ]
     },
     {
       "number": 8,
-      "score": 4,
+      "score": 3,
       "contents": [
         {"type": "text", "value": "다음 그림에서 "},
-        {"type": "equation", "value": "\\square ABCD \\sim \\square CEFG"},
-        {"type": "text", "value": "일 때, 두 도형 P의 넓이의 비는?"},
-        {"type": "figure", "value": "평행사변형 ABCD와 평행사변형 CEFG. 두 도형이 꼭짓점 C에서 만남. A(왼쪽 위), B(왼쪽 아래), C(공통점), D(오른쪽 위), E(아래), F(오른쪽 아래), G(오른쪽 위). 점 P가 두 도형의 교점 내부에 표시됨."}
+        {"type": "equation", "value": "\\square ABCD\\sim\\square EFGH"},
+        {"type": "text", "value": "일 때, 두 도형 P, Q의 닮음비는?"},
+        {"type": "figure", "value": "두 직사각형. 왼쪽 도형 P는 직사각형 ABCD로 변 AB=4, 변 BC=6. 오른쪽 도형 Q는 직사각형 EFGH로 변 EF=6, 변 FG=9. 각각 도형 아래에 -P-, -Q- 라벨."}
       ],
       "choices": [
         {"number": 1, "contents": [{"type": "equation", "value": "2:3"}]},
         {"number": 2, "contents": [{"type": "equation", "value": "3:2"}]},
         {"number": 3, "contents": [{"type": "equation", "value": "4:6"}]},
         {"number": 4, "contents": [{"type": "equation", "value": "6:9"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "6:8"}]}
+        {"number": 5, "contents": [{"type": "equation", "value": "10:15"}]}
       ]
     }
   ]

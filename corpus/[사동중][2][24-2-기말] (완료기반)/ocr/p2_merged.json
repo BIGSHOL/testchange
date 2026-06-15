@@ -1,57 +1,109 @@
 {
-  "header": "2024년 2학기 기말고사 사동중 2학년 수학 학원 로고",
+  "header": "",
   "questions": [
     {
       "number": 5,
       "score": 4,
       "contents": [
-        {"type": "text", "value": "△ABD에서 SA∥DM∥NC이고, AB=4cm, BM=16cm, SA=4cm이면 SN의 길이는?"},
-        {"type": "figure", "value": "삼각형 ABD에서 내부에 SA∥DM∥NC인 평행선들이 그려져 있다. A는 꼭짓점, B는 아래, D는 오른쪽. AB=4cm, BM=16cm, SA=4cm 등의 측정값이 표시됨."}
+        {"type": "text", "value": "사다리꼴 "},
+        {"type": "equation", "value": "ABCD"},
+        {"type": "text", "value": "에서 "},
+        {"type": "equation", "value": "\\overline{AD} \\parallel \\overline{MN} \\parallel \\overline{BC}"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\overline{MN}"},
+        {"type": "text", "value": "의 길이는?"},
+        {"type": "figure", "value": "사다리꼴 ABCD. 위쪽 변 AD가 짧고(8cm), 아래쪽 변 BC가 긺(16cm). 왼쪽 변 위에 점 M, 오른쪽 변 위에 점 N이 있어 MN이 AD, BC에 평행. AM=10cm, MB=4cm 표시. AD∥MN∥BC."}
       ],
       "choices": [
         {"number": 1, "contents": [{"type": "equation", "value": "\\frac{40}{7}cm"}]},
         {"number": 2, "contents": [{"type": "equation", "value": "\\frac{54}{7}cm"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{62}{7}cm"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{76}{7}cm"}]}
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{68}{7}cm"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{82}{7}cm"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{96}{7}cm"}]}
       ]
     },
     {
       "number": 6,
-      "score": 4,
+      "score": 5,
       "contents": [
-        {"type": "text", "value": "아래 그림에서 점 G가 △ABC의 무게중심이고 DF∥BC일 때, DF의 길이는?"},
-        {"type": "figure", "value": "삼각형 ABC의 무게중심 G가 표시되어 있다. DF∥BC인 선분 DF가 그려져 있으며 B, G, N 등의 점이 표시됨. 일부 측정값이 주어짐."}
+        {"type": "text", "value": "점 G가 "},
+        {"type": "equation", "value": "\\triangle ABC"},
+        {"type": "text", "value": "의 무게중심일 때, 옳은 것을 <보기>에서 있는 대로 고른 것은?"},
+        {"type": "figure", "value": "삼각형 ABC. 꼭짓점 A가 위, B가 왼쪽 아래, C가 오른쪽 아래. 변 BC의 중점 D, 변 AC 위의 점 E, 무게중심 G. 중선 AD와 BE가 G에서 만남. AE=4cm, EC=y cm, BG=6cm, GD=x cm 표시."},
+        {"type": "text", "value": "<보기>"},
+        {"type": "text", "value": "ㄱ. "},
+        {"type": "equation", "value": "\\overline{GD} = \\overline{GE}"},
+        {"type": "text", "value": "  ㄴ. "},
+        {"type": "equation", "value": "x + y = 11"},
+        {"type": "text", "value": "  ㄷ. "},
+        {"type": "equation", "value": "\\triangle GBD \\equiv \\triangle GAE"},
+        {"type": "text", "value": "  ㄹ. "},
+        {"type": "equation", "value": "\\triangle ABG = \\square GDCE"},
+        {"type": "text", "value": "  ㅁ. "},
+        {"type": "equation", "value": "\\triangle BCE = 3\\triangle AGE"}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{38}{3}cm"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{17}{3}cm"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{22}{3}cm"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{43}{3}cm"}]}
+        {"number": 1, "contents": [{"type": "text", "value": "ㄴ, ㄷ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄹ, ㅁ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄱ, ㄴ, ㅁ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄷ, ㄹ, ㅁ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄱ, ㄷ, ㄹ, ㅁ"}]}
       ]
     },
     {
       "number": 7,
       "score": 4,
       "contents": [
-        {"type": "text", "value": "점 G가 △ABC의 무게중심일 때, 다음 <보기>에서 옳은 것을 모두 고른 것은?"},
-        {"type": "figure", "value": "삼각형 ABC에서 무게중심 G가 표시됨. 변 위의 중점들과 G를 연결하는 중선들이 그려져 있다. 일부 선분의 길이가 4cm, 2cm, 1cm 등으로 표시됨. x, y로 표시된 미지수가 있음."},
-        {"type": "text", "value": "<보기>  ㄱ. GD=GE  • ㄴ. x+y=11  • ㄷ. △ABG=△GAE  • ㄹ. △ABG=△AGDCE"}
+        {"type": "text", "value": "아래 그림에서 점 G가 "},
+        {"type": "equation", "value": "\\triangle ABC"},
+        {"type": "text", "value": "의 무게중심이고, "},
+        {"type": "equation", "value": "\\overline{EG} \\parallel \\overline{BC}"},
+        {"type": "text", "value": "이다. "},
+        {"type": "equation", "value": "\\triangle ABC"},
+        {"type": "text", "value": "의 넓이가 "},
+        {"type": "equation", "value": "30cm^{2}"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\triangle AEG"},
+        {"type": "text", "value": "의 넓이는?"},
+        {"type": "figure", "value": "삼각형 ABC. 꼭짓점 A가 위, B가 왼쪽 아래, C가 오른쪽 아래. 무게중심 G, 변 AB 위의 점 E. EG∥BC. 색칠된 △AEG가 위쪽에 표시. 중선 AD(D는 BC 위)와 G를 지남."}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "text", "value": "ㄱ, ㄷ"}]},
-        {"number": 2, "contents": [{"type": "text", "value": "ㄴ, ㄷ"}]},
-        {"number": 3, "contents": [{"type": "text", "value": "ㄷ, ㄹ"}]},
-        {"number": 4, "contents": [{"type": "text", "value": "ㄹ, ㄴ"}]},
-        {"number": 5, "contents": [{"type": "text", "value": "ㄴ, ㄷ, ㄹ"}]}
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{16}{3}cm^{2}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{17}{3}cm^{2}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{19}{3}cm^{2}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{20}{3}cm^{2}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{22}{3}cm^{2}"}]}
       ]
     },
     {
       "number": 8,
       "score": 5,
       "contents": [
-        {"type": "text", "value": "평행사변형 ABCE에서 M은 BC의 중점이고, AM과 BF의 교점을 N이라 할 때, 다음 <보기>에서 옳은 것의 개수는?"},
-        {"type": "figure", "value": "사각형 ABCE(또는 ABCD)에 내부에 여러 선분과 교점이 그려져 있다. 일부 변의 길이: 6cm, 8cm, 12cm 등이 표시됨."},
-        {"type": "text", "value": "<보기>  ㄱ. EF=5cm  • ㄴ. △ABF=\\frac{1}{3}\\square ABCD  • ㄷ. △ABM=\\frac{1}{2}\\square ABCD"}
+        {"type": "text", "value": "평행사변형 "},
+        {"type": "equation", "value": "ABCD"},
+        {"type": "text", "value": "에서 "},
+        {"type": "equation", "value": "\\overline{BC}, \\overline{CD}"},
+        {"type": "text", "value": "의 중점을 각각 "},
+        {"type": "equation", "value": "M, N"},
+        {"type": "text", "value": "이라 하고 대각선 "},
+        {"type": "equation", "value": "BD"},
+        {"type": "text", "value": "와 "},
+        {"type": "equation", "value": "\\overline{AM}, \\overline{AN}"},
+        {"type": "text", "value": "의 교점을 각각 "},
+        {"type": "equation", "value": "E, F"},
+        {"type": "text", "value": "라고 하자. <보기>에서 옳은 것을 있는 대로 고른 것의 개수는?"},
+        {"type": "figure", "value": "평행사변형 ABCD. A 왼쪽 위, D 오른쪽 위, B 왼쪽 아래, C 오른쪽 아래. BC의 중점 M, CD의 중점 N. 대각선 BD, 그리고 AM, AN이 BD와 만나는 점 E, F. BD=12cm 표시. BM=MC 표시(눈금), CN=ND 표시(눈금)."},
+        {"type": "text", "value": "<보기>"},
+        {"type": "text", "value": "ㄱ. "},
+        {"type": "equation", "value": "\\overline{EF} = 3cm"},
+        {"type": "text", "value": "  ㄴ. "},
+        {"type": "equation", "value": "\\triangle ABE = \\triangle AFD"},
+        {"type": "text", "value": "  ㄷ. "},
+        {"type": "equation", "value": "\\triangle ABE = \\frac{1}{4}\\square ABCD"},
+        {"type": "text", "value": "  ㄹ. "},
+        {"type": "equation", "value": "\\triangle EBM = \\frac{1}{8}\\square ABCD"},
+        {"type": "text", "value": "  ㅁ. "},
+        {"type": "equation", "value": "\\triangle AEF = \\frac{1}{6}\\square ABCD"}
       ],
       "choices": [
         {"number": 1, "contents": [{"type": "text", "value": "1개"}]},

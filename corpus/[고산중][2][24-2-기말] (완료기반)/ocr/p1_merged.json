@@ -5,62 +5,63 @@
       "number": 1,
       "score": 3,
       "contents": [
-        {"type": "text", "value": "△ABC∽△EFG이면, 그에 대한 설명으로 옳지 __않은__ 것은?"},
-        {"type": "figure", "value": "두 삼각형 △ABC와 △EFG가 각각 따로 그려진 그림. △ABC에서 꼭짓점 B에 100° 각도 표시, 변에 치수 표시. △EFG는 측면에 33cm, 35cm 등 치수 표시됨."}
+        {"type": "text", "value": "□ABCD∽□EFGH일 때, 그림에 대한 설명으로 옳지 __않은__ 것은?"},
+        {"type": "figure", "value": "두 사각형 □ABCD와 □EFGH가 따로 그려져 있다. □ABCD: 꼭짓점 A에 100°, 꼭짓점 B에 65°, 꼭짓점 D 옆에 105°, 변 BC=9cm. □EFGH: 변 EH=10cm, 꼭짓점 G에 직각 표시, 변 FG=15cm."}
       ],
       "choices": [
         {"number": 1, "contents": [{"type": "equation", "value": "\\angle F = 65°"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "\\overline{AG} = W"}]},
-        {"number": 3, "contents": [{"type": "text", "value": "닮음비는 3:3이다."}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "\\overline{AB} = \\overline{EG}"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "\\angle D = \\frac{1}{2} \\angle A"}]}
+        {"number": 2, "contents": [{"type": "equation", "value": "\\angle G = 90°"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\overline{AD} = 6cm"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\overline{AD} : \\overline{HG} = 3 : 5"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "닮음비는 3:5"}]}
       ]
     },
     {
       "number": 2,
       "score": 4,
       "contents": [
-        {"type": "text", "value": "△ABC∽△DCE일 때, "},
-        {"type": "equation", "value": "\\overline{CE}"},
-        {"type": "text", "value": "의 길이는?"},
-        {"type": "figure", "value": "삼각형 ABC와 DCE가 꼭짓점 C를 공유하는 형태의 도형. 변의 길이: 9cm, 8cm 등 표시됨."}
+        {"type": "text", "value": "두 삼각기둥은 서로 닮은 도형이다. △ABC∽△GHI일 때, 옳은 것은?"},
+        {"type": "figure", "value": "두 삼각기둥. 작은 삼각기둥은 윗면 △ABC, 아랫면 △DEF로 모서리 BA=4cm, 옆모서리(높이) 5cm. 큰 삼각기둥은 윗면 △GHI, 아랫면 △KL로 모서리 HG=9cm, 옆모서리(높이) 7cm, 꼭짓점 I에 60° 표시."}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "4cm"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "5cm"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "4.5cm"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "6cm"}]}
+        {"number": 1, "contents": [{"type": "text", "value": "∠DFE의 크기는 30°이다."}]},
+        {"number": 2, "contents": [{"type": "text", "value": "두 삼각기둥의 닮음비는 4:9이다."}]},
+        {"number": 3, "contents": [{"type": "text", "value": "모서리 CF의 길이는 "}, {"type": "equation", "value": "\\frac{35}{9}cm"}, {"type": "text", "value": "이다."}]},
+        {"number": 4, "contents": [{"type": "text", "value": "모서리 GH의 길이는 "}, {"type": "equation", "value": "\\frac{20}{9}cm"}, {"type": "text", "value": "이다."}]},
+        {"number": 5, "contents": [{"type": "text", "value": "면 ADFC에 대응하는 면은 면 HKLI이다."}]}
       ]
     },
     {
       "number": 3,
       "score": 4,
       "contents": [
-        {"type": "text", "value": "두 삼각형의 모양이 같은 것은? △ABC∽△CGH일 때, 옳은 것은?"},
-        {"type": "figure", "value": "삼각형 ABC 내부에 평행선 GH가 그어져 있는 도형. AG=4cm, GC=9cm 등의 치수가 표시되어 있음."}
+        {"type": "text", "value": "△ABC∽△DCE일 때, "},
+        {"type": "equation", "value": "\\overline{CF}"},
+        {"type": "text", "value": "의 길이는?"},
+        {"type": "figure", "value": "삼각형 ABC와 삼각형 DCE가 밑변 BE 위에 놓여 있다. 점 B, C, E가 한 직선 위에 있고 BC=6cm, CE=12cm. AB=9cm. 점 A에서 점 E로 선분을 그으면 선분 DC와 점 F에서 만난다."}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "\\angle IFE = 30°"}]},
-        {"number": 2, "contents": [{"type": "text", "value": "두 삼각형의 닮음비는 4:9이다."}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "\\overline{CH} = \\frac{9}{4} \\overline{GH}"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "\\overline{AC} \\cdot \\overline{AG} = \\overline{AB} \\cdot \\overline{AH}"}]},
-        {"number": 5, "contents": [{"type": "text", "value": "사각형 BGHC의 넓이는 삼각형 BGH의 넓이의 3배이다."}]}
+        {"number": 1, "contents": [{"type": "equation", "value": "4cm"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "4.5cm"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "5cm"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "5.5cm"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "6cm"}]}
       ]
     },
     {
       "number": 4,
       "score": 4,
       "contents": [
-        {"type": "text", "value": "두 삼각형 ABCD, DEF가 있다. △ABC∽△DEF가 되는 경우만을 <보기>에서 있는 대로 고른 것은?"},
-        {"type": "figure", "value": "왼쪽에 사각형 ABCD, 오른쪽에 삼각형 DEF가 그려진 도형."},
-        {"type": "text", "value": "<보기>\nㄱ. ∠C=60°, ∠E=50°\nㄴ. \\overline{AB}=16cm, \\overline{DF}=8cm\nㄷ. \\overline{AC}=5cm, \\overline{DE}=5cm, \\overline{DF}=3cm\nㄹ. \\angle B=30°, \\angle D=70°"}
+        {"type": "text", "value": "두 삼각형 ABC와 DEF가 있다. △ABC∽△DEF이 되는 경우만을 <보기>에서 있는 대로 고른 것은?"},
+        {"type": "figure", "value": "두 삼각형. △ABC: 꼭짓점 B에 50°, 밑변 BC=10cm. △DEF: 꼭짓점 F에 60°, 밑변 EF=6cm."},
+        {"type": "text", "value": "<보기>\nㄱ. \\angle C = 60°, \\angle E = 50°\nㄴ. \\angle A = 70°, \\angle D = 70°\nㄷ. \\overline{AB} = 10cm, \\overline{DF} = 6cm\nㄹ. \\overline{AC} = 5cm, \\overline{DF} = 3cm\nㅁ. \\overline{AB} = 15cm, \\overline{DE} = 9cm\nㅂ. \\angle E = 70°, \\overline{AB} = 6cm"}
       ],
       "choices": [
         {"number": 1, "contents": [{"type": "text", "value": "ㄱ, ㄴ"}]},
-        {"number": 2, "contents": [{"type": "text", "value": "ㄴ, ㄷ"}]},
-        {"number": 3, "contents": [{"type": "text", "value": "ㄷ, ㄹ"}]},
-        {"number": 4, "contents": [{"type": "text", "value": "ㄱ, ㄴ, ㄷ"}]},
-        {"number": 5, "contents": [{"type": "text", "value": "ㄴ, ㄷ, ㄹ"}]}
+        {"number": 2, "contents": [{"type": "text", "value": "ㄴ, ㅁ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄱ, ㄴ, ㅁ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄱ, ㄷ, ㄹ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄷ, ㅁ, ㅂ"}]}
       ]
     }
   ]

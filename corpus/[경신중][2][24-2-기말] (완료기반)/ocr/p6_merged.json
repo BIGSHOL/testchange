@@ -13,14 +13,13 @@
         {"type": "text", "value": "와 "},
         {"type": "equation", "value": "\\overline{EF}"},
         {"type": "text", "value": "는 서로를 수직이등분하고 그 교점을 O라 하자. "},
-        {"type": "equation", "value": "\\overline{AO} = 13\\text{cm}"},
+        {"type": "equation", "value": "\\overline{AO}=13cm"},
         {"type": "text", "value": ", "},
-        {"type": "equation", "value": "\\overline{BC} = 24\\text{cm}"},
+        {"type": "equation", "value": "\\overline{BC}=24cm"},
         {"type": "text", "value": "라 할 때, "},
         {"type": "equation", "value": "\\overline{OF}"},
         {"type": "text", "value": "의 길이를 구하는 과정을 풀이과정과 함께 서술하시오."},
-        {"type": "text", "value": " [7점, 부분점수 있음]"},
-        {"type": "figure", "value": "직사각형 ABCD에서 A는 왼쪽 위, D는 오른쪽 위, B는 왼쪽 아래, C는 오른쪽 아래. F는 변 AD 위의 점, E는 변 BC 위의 점. 대각선 AC와 선분 EF가 O에서 수직이등분. AO=13cm, BC=24cm 표시."}
+        {"type": "figure", "value": "직사각형 ABCD(A 왼쪽 위, D 오른쪽 위, B 왼쪽 아래, C 오른쪽 아래). F는 변 AD 위의 점, E는 변 BC 위의 점. 대각선 AC와 선분 EF가 O에서 서로를 수직이등분. AO=13cm, BC=24cm 표시."}
       ]
     },
     {
@@ -29,11 +28,11 @@
       "label_type": "서술형",
       "contents": [
         {"type": "text", "value": "[서술형 2] 다음 그림과 같이 좌표평면 위의 원점 O에서 일차방정식 "},
-        {"type": "equation", "value": "3x + 4y = 12"},
-        {"type": "text", "value": "의 그래프에 내린 수선의 발을 H라 하자. 이때, "},
+        {"type": "equation", "value": "3x+4y=12"},
+        {"type": "text", "value": "의 그래프에 내린 수선의 발을 H라고 하자. 이때, "},
         {"type": "equation", "value": "\\overline{OH}"},
-        {"type": "text", "value": "의 길이를 구하는 과정을 풀이과정과 함께 서술하시오. [7점, 부분점수 있음]"},
-        {"type": "figure", "value": "좌표평면에서 원점 O, x절편 A(4,0), y절편 B(0,3)으로 이루어진 직선 3x+4y=12. H는 O에서 이 직선에 내린 수선의 발. 그래프에 x축, y축, 직선, H, O 표시."}
+        {"type": "text", "value": "의 길이를 구하는 과정을 풀이과정과 함께 서술하시오."},
+        {"type": "figure", "value": "좌표평면. 직선 3x+4y=12 (y절편 B(0,3), x절편 A(4,0)). 원점 O에서 이 직선에 내린 수선의 발 H. O, A, B, H 표시."}
       ]
     },
     {
@@ -41,7 +40,7 @@
       "score": 6,
       "label_type": "서술형",
       "contents": [
-        {"type": "text", "value": "[서술형 3] 주머니에 1부터 100까지의 자연수가 각각 하나씩 적혀 있는 100개의 구슬이 들어 있다. 이 주머니에서 구슬 한 개를 꺼내어 구슬에 적혀 있는 수를 42 또는 55로 나눌 때, 유한소수가 되는 경우의 수를 구하는 과정을 풀이과정과 함께 서술하시오. [6점, 부분점수 있음]"}
+        {"type": "text", "value": "[서술형 3] 주머니에 1부터 100까지의 자연수가 각각 하나씩 적혀 있는 100개의 구슬이 들어 있다. 이 주머니에서 구슬 한 개를 꺼내어 구슬에 적혀 있는 수를 42 또는 55로 나눌 때, 유한소수가 되는 경우의 수를 구하는 과정을 풀이과정과 함께 서술하시오."}
       ]
     }
   ]

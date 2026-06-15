@@ -9,42 +9,42 @@
         {"type": "equation", "value": "\\triangle ABC"},
         {"type": "text", "value": "에서 "},
         {"type": "equation", "value": "\\angle A"},
-        {"type": "text", "value": "의 이등분선이 변 BC와 만나는 점을 D라 하자. "},
-        {"type": "equation", "value": "\\overline{AB} = 12\\text{cm}"},
+        {"type": "text", "value": "의 이등분선과 변 BC의 교점을 D라고 하자. "},
+        {"type": "equation", "value": "\\overline{AB}=12cm"},
         {"type": "text", "value": ", "},
-        {"type": "equation", "value": "\\overline{BD} = 7\\text{cm}"},
+        {"type": "equation", "value": "\\overline{BD}=7cm"},
         {"type": "text", "value": ", "},
-        {"type": "equation", "value": "\\overline{DC} = 6\\text{cm}"},
+        {"type": "equation", "value": "\\overline{CD}=6cm"},
         {"type": "text", "value": "일 때, "},
         {"type": "equation", "value": "\\overline{AC}"},
-        {"type": "text", "value": "의 길이는? [4점]"},
-        {"type": "figure", "value": "삼각형 ABC에서 꼭짓점 A에서 ∠A의 이등분선이 내려와 BC의 점 D에서 만남. AB=12cm, BD=7cm, DC=6cm 표시."}
+        {"type": "text", "value": "의 길이는?"},
+        {"type": "figure", "value": "삼각형 ABC. 꼭짓점 A에서 ∠A의 이등분선(두 각 같음 표시)이 내려와 변 BC 위의 점 D에서 만남. AB=12cm, BD=7cm, DC=6cm 표시."}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{72}{7}\\text{cm}"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{22}{3}\\text{cm}"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "11\\text{cm}"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{26}{3}\\text{cm}"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "14\\text{cm}"}]}
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{72}{7}cm"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "11cm"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{23}{2}cm"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{38}{3}cm"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "14cm"}]}
       ]
     },
     {
       "number": 10,
       "score": 4,
       "contents": [
-        {"type": "text", "value": "다음 그림과 같이 사각형 "},
-        {"type": "equation", "value": "\\square ABCD"},
-        {"type": "text", "value": "에서 삼각형 ABD의 무게중심을 G라 하자. "},
-        {"type": "equation", "value": "\\overline{AG} = 16"},
-        {"type": "text", "value": "일 때, "},
-        {"type": "equation", "value": "\\overline{GD}"},
-        {"type": "text", "value": "의 값은? [4점]"},
-        {"type": "figure", "value": "마름모 또는 사각형 ABCD에서 대각선이 그려짐. G는 삼각형 ABD의 무게중심. AG=16 표시."}
+        {"type": "text", "value": "다음 그림의 사각형 ABCD에서 삼각형 ABC의 무게중심을 G, 삼각형 DBC의 무게중심을 "},
+        {"type": "equation", "value": "G'"},
+        {"type": "text", "value": "이라 하자. "},
+        {"type": "equation", "value": "\\overline{AD}=54"},
+        {"type": "text", "value": "일 때, 선분 "},
+        {"type": "equation", "value": "\\overline{GG'}"},
+        {"type": "text", "value": "의 길이는?"},
+        {"type": "figure", "value": "사각형 ABCD(A 왼쪽 위, D 오른쪽 위, B 왼쪽 아래, C 오른쪽 아래)와 두 대각선이 그려짐. AD=54. G는 삼각형 ABC의 무게중심, G'는 삼각형 DBC의 무게중심."}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "8"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "18"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 1, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "18"}]},
         {"number": 4, "contents": [{"type": "equation", "value": "21"}]},
         {"number": 5, "contents": [{"type": "equation", "value": "24"}]}
       ]
@@ -53,33 +53,45 @@
       "number": 11,
       "score": 4,
       "contents": [
-        {"type": "text", "value": "다음 그림과 같이 직사각형 ABCD에서 "},
-        {"type": "equation", "value": "\\overline{AB} = 8\\text{cm}"},
+        {"type": "text", "value": "다음 그림과 같이 "},
+        {"type": "equation", "value": "\\overline{AB}=8cm"},
         {"type": "text", "value": ", "},
-        {"type": "equation", "value": "\\overline{BC} = 10\\text{cm}"},
-        {"type": "text", "value": "이고 변 BC의 중점을 E라 할 때, 점 C에서 변 AD 위의 교점까지의 길이는? [4점]"},
-        {"type": "figure", "value": "직사각형 ABCD에서 E는 BC의 중점. 대각선과 선분이 그려진 그림. BC=10cm, AB=8cm 표시."}
+        {"type": "equation", "value": "\\overline{BC}=10cm"},
+        {"type": "text", "value": "인 직사각형 ABCD에서 "},
+        {"type": "equation", "value": "\\overline{BE}"},
+        {"type": "text", "value": "를 접는 선으로 하여 꼭짓점 C가 "},
+        {"type": "equation", "value": "\\overline{AD}"},
+        {"type": "text", "value": " 위의 점 "},
+        {"type": "equation", "value": "C'"},
+        {"type": "text", "value": "에 오도록 접었더니 "},
+        {"type": "equation", "value": "\\overline{DE}=3cm"},
+        {"type": "text", "value": "가 되었다. 점 D에서 "},
+        {"type": "equation", "value": "\\overline{EC'}"},
+        {"type": "text", "value": "에 내린 수선의 발을 G라 할 때, "},
+        {"type": "equation", "value": "\\overline{EG}"},
+        {"type": "text", "value": "의 길이는? (단, 점 E는 변 CD 위의 점이다.)"},
+        {"type": "figure", "value": "직사각형 ABCD(A 왼쪽 위, D 오른쪽 위, B 왼쪽 아래, C 오른쪽 아래). AB=8cm, BC=10cm. BE를 접는 선으로 꼭짓점 C를 AD 위의 점 C'으로 접음. E는 변 CD 위의 점이며 DE=3cm. 점 D에서 EC'에 내린 수선의 발 G."}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{5}{4}\\text{cm}"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{9}{4}\\text{cm}"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{22}{3}\\text{cm}"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{26}{3}\\text{cm}"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{17}{4}\\text{cm}"}]}
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{5}{4}cm"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{9}{5}cm"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{32}{15}cm"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{9}{4}cm"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{12}{5}cm"}]}
       ]
     },
     {
       "number": 12,
       "score": 4,
       "contents": [
-        {"type": "text", "value": "날씨가 비일 확률이 50%이고 맑음일 확률이 50%이다. 이 지역에서 3일 동안 날씨를 예측할 때, 다음 중 비가 2번 이상 올 경우의 수는? [4점]"}
+        {"type": "text", "value": "10원짜리, 50원짜리, 100원짜리, 500원짜리 동전이 각각 5개씩 있을 때, 이 돈으로 550원짜리 물건의 값을 거스름돈 없이 지불하는 모든 방법의 수는?"}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "7"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "18"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "12"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "21"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "24"}]}
+        {"number": 1, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "9"}]}
       ]
     }
   ]

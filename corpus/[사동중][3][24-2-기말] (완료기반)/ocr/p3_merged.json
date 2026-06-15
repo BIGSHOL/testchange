@@ -1,87 +1,101 @@
 {
-  "header": "",
+  "header": "사동중 3학년 수학 / 2024년 2학기 기말고사",
   "questions": [
     {
       "number": 9,
       "score": 4,
       "contents": [
-        {"type": "text", "value": "그림에서 PT가 원의 접선이다. "},
-        {"type": "equation", "value": "\\angle PAT = 40°"},
+        {"type": "text", "value": "그림에서 "},
+        {"type": "equation", "value": "\\overrightarrow{PT}"},
+        {"type": "text", "value": "가 원의 접선이고, "},
+        {"type": "equation", "value": "\\angle PAT = 45°"},
         {"type": "text", "value": ", "},
         {"type": "equation", "value": "\\angle ACT = 72°"},
         {"type": "text", "value": "일 때, "},
         {"type": "equation", "value": "\\angle x"},
         {"type": "text", "value": "의 크기는?"},
-        {"type": "figure", "value": "원과 접선 PT. 점 T에서 접선. 원 위의 점 A, C, T. 각 PAT=40°, 각 ACT=72°, 각 x 표시."}
+        {"type": "figure", "value": "원 위의 점 A(위), B(왼쪽), C(오른쪽), T(아래 접점). 점 P는 왼쪽 아래에 있고 직선 PT가 점 T에서 원에 접한다(PT를 오른쪽으로 연장). 점 A에서의 각 ∠PAT = 45° 표시, 점 C에서의 각 ∠ACT = 72° 표시, 점 P에서의 각 ∠x 표시. 현 AT, AC, CT 등이 그어져 있다."}
       ],
       "choices": [
         {"number": 1, "contents": [{"type": "equation", "value": "63°"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "44°"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "60°"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "64°"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "65°"}]},
         {"number": 4, "contents": [{"type": "equation", "value": "66°"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "47°"}]}
+        {"number": 5, "contents": [{"type": "equation", "value": "67°"}]}
       ]
     },
     {
       "number": 10,
-      "score": 5,
+      "score": 4,
       "contents": [
-        {"type": "text", "value": "그림과 같이 원의 이름 접선이다. "},
-        {"type": "equation", "value": "\\overline{AB} \\perp \\overline{CT}"},
-        {"type": "text", "value": "이고 "},
-        {"type": "equation", "value": "\\angle HCT = 28°"},
+        {"type": "text", "value": "그림에서 원 O는 직사각형 ABCD의 세 변과 접하고 "},
+        {"type": "equation", "value": "\\overline{DE}"},
+        {"type": "text", "value": "는 원 O의 접선이다. "},
+        {"type": "equation", "value": "\\overline{CD} = 8cm"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{DE} = 10cm"},
         {"type": "text", "value": "일 때, "},
-        {"type": "equation", "value": "\\angle ACD"},
-        {"type": "text", "value": "의 크기는?"},
-        {"type": "figure", "value": "원에서 접선과 할선. 점 A, B, C, D, O, T가 표시됨. AB⊥CT. 각 HCT=28°. 각 ACD."}
+        {"type": "equation", "value": "\\overline{BE}"},
+        {"type": "text", "value": "의 길이는?"},
+        {"type": "figure", "value": "직사각형 ABCD. A(왼쪽 위), B(왼쪽 아래), C(오른쪽 아래), D(오른쪽 위). 원 O가 직사각형의 세 변(왼쪽 변 AB, 위쪽 변 AD, 아래쪽 변 BC)에 접한다. 점 D에서 점 E(아래 변 BC 위)로 그은 접선 DE=10cm가 원에 접한다. 오른쪽 변 CD=8cm 표시. 원의 중심 O는 직사각형 내부."}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "83°"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "90°"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "87°"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "85°"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "88°"}]}
+        {"number": 1, "contents": [{"type": "equation", "value": "6cm"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "7cm"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "8cm"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "9cm"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "10cm"}]}
       ]
     },
     {
       "number": 11,
-      "score": 4,
+      "score": 5,
       "contents": [
-        {"type": "text", "value": "그림에 원 이 있는 직사각형 ABCD의 세 변에 접하고 "},
-        {"type": "equation", "value": "\\overline{CE} = 8cm"},
+        {"type": "text", "value": "그림에서 "},
+        {"type": "equation", "value": "\\overleftrightarrow{CT}"},
+        {"type": "text", "value": "는 원 O의 접선이고 점 C는 접점이다. "},
+        {"type": "equation", "value": "\\overline{AB}"},
+        {"type": "text", "value": "는 원 O의 지름이고 "},
+        {"type": "equation", "value": "\\overline{AD} \\parallel \\overleftrightarrow{CT}"},
         {"type": "text", "value": ", "},
-        {"type": "equation", "value": "\\overline{DE} = 10cm"},
-        {"type": "text", "value": "일 때, 원의 반지름의 길이는?"},
-        {"type": "figure", "value": "직사각형 ABCD에 원이 세 변에 접함. 점 E는 원의 접점. CE=8cm, DE=10cm. 원의 중심 O."}
+        {"type": "equation", "value": "\\angle BCT = 28°"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\angle AED"},
+        {"type": "text", "value": "의 크기는?"},
+        {"type": "figure", "value": "원 O 안에 점 A(왼쪽 위), D(오른쪽 위), O(중심), E(내부 교점), B(오른쪽 아래), C(아래 접점). 직선 CT가 점 C에서 원에 접하고 오른쪽으로 T까지 그어져 있다. 현 AD는 접선 CT와 평행(둘 다 화살표 표시, AD∥CT). 지름 AB(=A에서 B로). 현 CD, CA 등이 그어져 E에서 교차. 점 C에서의 각 ∠BCT = 28° 표시. ∠AED는 점 E에서의 각."}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "text", "value": "6cm"}]},
-        {"number": 2, "contents": [{"type": "text", "value": "7cm"}]},
-        {"number": 3, "contents": [{"type": "text", "value": "8cm"}]},
-        {"number": 4, "contents": [{"type": "text", "value": "9cm"}]},
-        {"number": 5, "contents": [{"type": "text", "value": "10cm"}]}
+        {"number": 1, "contents": [{"type": "equation", "value": "83°"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "84°"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "85°"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "86°"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "87°"}]}
       ]
     },
     {
       "number": 12,
-      "score": 4,
+      "score": 5,
       "contents": [
-        {"type": "text", "value": "그림에서 "},
+        {"type": "text", "value": "그림에서 원 O는 "},
         {"type": "equation", "value": "\\angle A = 90°"},
-        {"type": "text", "value": "인 직각삼각형 ABC에 내접원이다. "},
-        {"type": "equation", "value": "BE = 4cm"},
+        {"type": "text", "value": "인 직각삼각형 ABC의 내접원이고, "},
+        {"type": "equation", "value": "\\overline{BE} = 4cm"},
         {"type": "text", "value": ", "},
-        {"type": "equation", "value": "CE = 6cm"},
-        {"type": "text", "value": "일 때, "},
-        {"type": "equation", "value": "\\overline{OB} \\cdot \\overline{OC}"},
+        {"type": "equation", "value": "\\overline{CE} = 6cm"},
+        {"type": "text", "value": "이다. "},
+        {"type": "equation", "value": "\\overline{OB} = a cm"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{OC} = b cm"},
+        {"type": "text", "value": "라 할 때, "},
+        {"type": "equation", "value": "ab"},
         {"type": "text", "value": "의 값은? (단, 세 점 D, E, F는 접점이다.)"},
-        {"type": "figure", "value": "직각삼각형 ABC, 각 A=90°. 내접원 중심 O. 접점 D(AB 위), E(BC 위), F(AC 위). BE=4cm, CE=6cm."}
+        {"type": "figure", "value": "직각삼각형 ABC. A(위, ∠A=90° 직각 표시), B(왼쪽 아래), C(오른쪽 아래). 원 O가 삼각형에 내접하여 변 AB를 점 D, 변 BC를 점 E, 변 AC를 점 F에서 접한다. BE=4cm, CE=6cm 표시(아래 변 위). 원의 중심 O 표시."}
       ],
       "choices": [
         {"number": 1, "contents": [{"type": "equation", "value": "10\\sqrt{3}"}]},
         {"number": 2, "contents": [{"type": "equation", "value": "20"}]},
         {"number": 3, "contents": [{"type": "equation", "value": "20\\sqrt{2}"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "30\\sqrt{3}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "20\\sqrt{3}"}]},
         {"number": 5, "contents": [{"type": "equation", "value": "40\\sqrt{2}"}]}
       ]
     }

@@ -1,12 +1,12 @@
 {
-  "header": "",
+  "header": "사동중 3학년 수학 / 2024년 2학기 기말고사",
   "questions": [
     {
       "number": 19,
-      "score": 4,
+      "score": 3,
       "contents": [
-        {"type": "text", "value": "어느 학생 4명의 수학 점수의 편차를 나타낸 것이다. 수학 점수의 평균이 77점일 때, 지호의 수학 점수를 구하면?"},
-        {"type": "table", "rows": [["학생", "지호", "대호", "민호", "재호"], ["편차", "-3", "", "", ""]], "value": ""}
+        {"type": "text", "value": "학생 4명의 수학 점수의 편차를 나타낸 것이다. 수학 점수의 평균이 82점일 때, 지호의 수학 점수를 구하면?"},
+        {"type": "table", "rows": [["학생", "지훈", "태일", "지호", "재효"], ["편차(점)", "-3", "1", "x", "10"]], "value": ""}
       ],
       "choices": [
         {"number": 1, "contents": [{"type": "equation", "value": "72"}]},
@@ -18,9 +18,15 @@
     },
     {
       "number": 20,
-      "score": 4,
+      "score": 5,
       "contents": [
-        {"type": "text", "value": "세 수 a, b, c에 대하여 a+b+c=0이고, a, b, c의 합계가 일정할 때, b+c의 값은?"}
+        {"type": "text", "value": "세 수 "},
+        {"type": "equation", "value": "a, b, c"},
+        {"type": "text", "value": "의 중앙값은 10, 평균은 9, 분산은 14일 때, "},
+        {"type": "equation", "value": "a+b-c"},
+        {"type": "text", "value": "의 값은? (단, "},
+        {"type": "equation", "value": "a < b < c"},
+        {"type": "text", "value": "이다.)"}
       ],
       "choices": [
         {"number": 1, "contents": [{"type": "equation", "value": "-1"}]},
@@ -34,44 +40,48 @@
       "number": 21,
       "score": 4,
       "contents": [
-        {"type": "text", "value": "두 이차식 a, b, c의 표준편차인 경우를 1개만 표준편차로 구한 이름은?"}
+        {"type": "text", "value": "4개의 자료 "},
+        {"type": "equation", "value": "x, y, 1, 7"},
+        {"type": "text", "value": "의 평균이 4이고, 분산이 12일 때, 4개의 자료 "},
+        {"type": "equation", "value": "x, y, 3, 5"},
+        {"type": "text", "value": "의 표준편차를 구하면?"}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "2\\sqrt{3}"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "3\\sqrt{3}"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "4\\sqrt{3}"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "5\\sqrt{3}"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "6\\sqrt{3}"}]}
+        {"number": 1, "contents": [{"type": "equation", "value": "2\\sqrt{2}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "3\\sqrt{2}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "4\\sqrt{2}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "5\\sqrt{2}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "6\\sqrt{2}"}]}
       ]
     },
     {
       "number": 22,
       "score": 4,
       "contents": [
-        {"type": "text", "value": "다음은 국어 성적에 대한 평균과 표준편차이다. 다음 중 옳은 것을 고른 것은?"},
-        {"type": "table", "rows": [["", "1", "2", "3", "4", "5"], ["평균", "", "", "", "", ""], ["표준편차", "", "", "", "", ""], ["합계", "", "", "", "", ""]], "value": ""}
+        {"type": "text", "value": "다섯 반의 국어 성적에 대한 평균과 표준편차를 나타낸 것이다. 다음 중 이 자료에 대한 설명으로 옳은 것은?"},
+        {"type": "table", "rows": [["반", "1", "2", "3", "4", "5"], ["평균(점)", "74", "72", "72", "75", "70"], ["표준편차", "6", "\\sqrt{3}", "7", "2", "\\sqrt{7}"]], "value": ""}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "text", "value": "성적이 가장 높은 학생은 2반에 있다."}]},
-        {"number": 2, "contents": [{"type": "text", "value": "성적이 가장 고른 반은 1반이다."}]},
-        {"number": 3, "contents": [{"type": "text", "value": "3반의 점수분포가 가장 고르다."}]},
-        {"number": 4, "contents": [{"type": "text", "value": "5반의 평균이 가장 높다."}]},
-        {"number": 5, "contents": [{"type": "text", "value": "평균이 높을수록 표준편차도 크다."}]}
+        {"number": 1, "contents": [{"type": "text", "value": "2반과 3반의 학생 수는 같다."}]},
+        {"number": 2, "contents": [{"type": "text", "value": "국어 성적이 가장 고른 반은 2반이다."}]},
+        {"number": 3, "contents": [{"type": "text", "value": "2반보다 4반에 90점 이상인 학생이 더 많다."}]},
+        {"number": 4, "contents": [{"type": "text", "value": "다섯 반의 국어 성적의 분포 상태를 비교할 수 없다."}]},
+        {"number": 5, "contents": [{"type": "text", "value": "국어 성적에 대한 편차의 제곱의 총합이 가장 큰 반은 3반이다."}]}
       ]
     },
     {
       "number": 23,
-      "score": 4,
+      "score": 3,
       "contents": [
-        {"type": "text", "value": "다음 그림과 같은 산점도로 나타낼 수 있는 두 변량은?"},
-        {"type": "figure", "value": "산점도(scatter plot). x축과 y축. 점들이 타원형(렌즈 모양)으로 배치됨. 왼쪽 아래에서 오른쪽 위 방향(양의 상관관계 또는 무상관)으로 분포."}
+        {"type": "text", "value": "다음 중 그림과 같은 모양의 산점도로 나타낼 수 있는 두 변량은?"},
+        {"type": "figure", "value": "좌표평면(가로 x축, 세로 y축, 원점 O)에 점들이 왼쪽 위에서 오른쪽 아래로 모여 있는 산점도. 음의 상관관계(x가 커질수록 y가 작아지는 경향)를 나타낸다."}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "text", "value": "키, 몸무게"}]},
-        {"number": 2, "contents": [{"type": "text", "value": "나이, 시력"}]},
-        {"number": 3, "contents": [{"type": "text", "value": "독서량, 성적"}]},
-        {"number": 4, "contents": [{"type": "text", "value": "나이, 연봉"}]},
-        {"number": 5, "contents": [{"type": "text", "value": "기온, 아이스크림 판매량"}]}
+        {"number": 1, "contents": [{"type": "equation", "value": "x"}, {"type": "text", "value": " : 키, "}, {"type": "equation", "value": "y"}, {"type": "text", "value": " : 몸무게"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "x"}, {"type": "text", "value": " : 강수량, "}, {"type": "equation", "value": "y"}, {"type": "text", "value": " : 자동차 수출량"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "x"}, {"type": "text", "value": " : 도시의 인구, "}, {"type": "equation", "value": "y"}, {"type": "text", "value": " : 교통량"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "x"}, {"type": "text", "value": " : 물건의 공급량, "}, {"type": "equation", "value": "y"}, {"type": "text", "value": " : 가격"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "x"}, {"type": "text", "value": " : 습도, "}, {"type": "equation", "value": "y"}, {"type": "text", "value": " : 불쾌지수"}]}
       ]
     }
   ]

@@ -1,34 +1,34 @@
 {
-  "header": "",
+  "header": "사동중 3학년 수학 / 2024년 2학기 기말고사",
   "questions": [
     {
       "number": 24,
       "score": 4,
       "contents": [
-        {"type": "text", "value": "아래 그림은 두 양 사이의 산점도이다. 다음 중 옳은 것은?"},
-        {"type": "figure", "value": "두 개의 산점도 그림(왼쪽·오른쪽). 왼쪽은 점들이 비교적 좁게 분포(양의 상관), 오른쪽은 더 넓게 분포(약한 상관). x축과 y축 있음."}
+        {"type": "text", "value": "아래 그림은 A, B 두 식물의 일조량과 성장량에 대한 산점도이다. 다음 중 옳은 것은?"},
+        {"type": "figure", "value": "두 개의 산점도. 왼쪽 [A 식물]: 가로축 일조량, 세로축 성장량. 점들이 원점 부근에서 오른쪽 위로 일직선에 가깝게 촘촘히 분포(강한 양의 상관관계). 오른쪽 [B 식물]: 가로축 일조량, 세로축 성장량. 점들이 오른쪽 위로 향하되 폭넓게 흩어져 분포(약한 양의 상관관계)."}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "text", "value": "산점도에서 두 변량이 다 잘 어울린다."}]},
-        {"number": 2, "contents": [{"type": "text", "value": "산점도에서 점들이 오른쪽 아래 방향에는 상관관계가 있다."}]},
-        {"number": 3, "contents": [{"type": "text", "value": "값들의 중앙값을 상관관계 값이 대표로 나타낸다."}]},
-        {"number": 4, "contents": [{"type": "text", "value": "상관관계에서 두 변량이 두 가지에 강한 상관관계가 보인다."}]},
-        {"number": 5, "contents": [{"type": "text", "value": "상관관계에서 산점도의 중앙값은 두 변량이 대표로 나타낸다."}]}
+        {"number": 1, "contents": [{"type": "text", "value": "A식물이 B식물보다 더 잘 자란다."}]},
+        {"number": 2, "contents": [{"type": "text", "value": "일조량과 식물의 성장량 사이에는 상관관계가 없다."}]},
+        {"number": 3, "contents": [{"type": "text", "value": "A식물은 일조량과 성장량 사이에 음의 상관관계가 나타난다."}]},
+        {"number": 4, "contents": [{"type": "text", "value": "일조량이 증가할수록 식물의 성장량은 대체로 감소하는 경향이 있다."}]},
+        {"number": 5, "contents": [{"type": "text", "value": "B식물이 A식물보다 일조량과 성장량 사이에 더 약한 상관관계를 보인다."}]}
       ]
     },
     {
       "number": 25,
       "score": 5,
       "contents": [
-        {"type": "text", "value": "다음 그림은 이날의 국어 성적에 대한 평균과 달성도에 관한 산점도이다. 다음 중 틀린 것은?"},
-        {"type": "figure", "value": "산점도(scatter plot). x축: 몸무게(kg) 또는 독서량, 66~74 범위. y축: 키(cm) 또는 성적(점). 다수의 점이 분포됨. 대체로 오른쪽 위로 향하는 양의 상관 경향."}
+        {"type": "text", "value": "다음 그림은 미도네 반 학생 20명의 음악 필기 점수와 실기 점수에 대한 산점도이다. 다음 중 옳은 것은?"},
+        {"type": "figure", "value": "산점도. 세로축 실기(점) 60·70·80·90·100, 가로축 필기(점) 60·70·80·90·100. 격자 위에 20명의 학생 점이 표시되어 있으며 대체로 오른쪽 위로 향하는 양의 상관관계를 보인다."}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "text", "value": "밀기 점수가 학교성취를 반드시 높이는 것은 아니다."}]},
-        {"number": 2, "contents": [{"type": "text", "value": "밀기 점수가 75 이상인 학생 중에서 밀기 점수가 70 이상인 학생보다 키가 더 크다."}]},
-        {"number": 3, "contents": [{"type": "text", "value": "밀기 점수가 이상인 학생들 중에서 대부분은 키가 더 높다."}]},
-        {"number": 4, "contents": [{"type": "text", "value": "밀기 점수와 키 사이에는 강한 양의 상관관계가 있다."}]},
-        {"number": 5, "contents": [{"type": "text", "value": "밀기 점수가 이상인 학생 중 두 번째로 긴 학생의 키는 평균보다 크다."}]}
+        {"number": 1, "contents": [{"type": "text", "value": "필기 점수의 최빈값은 80점이다."}]},
+        {"number": 2, "contents": [{"type": "text", "value": "필기 점수가 70점 이상인 학생 중에서 실기 점수가 75점 미만인 학생은 전체의 30%이다."}]},
+        {"number": 3, "contents": [{"type": "text", "value": "필기 점수와 실기 점수 중 적어도 하나가 85점 이상인 학생은 7명이다."}]},
+        {"number": 4, "contents": [{"type": "text", "value": "필기 점수와 실기 점수 모두 70점 미만인 학생은 재시험을 본다고 할 때, 재시험률은 25%이다."}]},
+        {"number": 5, "contents": [{"type": "text", "value": "실기 점수가 90점 이상인 학생들의 필기 점수 평균은 92.5점이다."}]}
       ]
     }
   ]

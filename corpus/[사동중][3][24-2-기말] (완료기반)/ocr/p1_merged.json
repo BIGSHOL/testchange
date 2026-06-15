@@ -1,5 +1,5 @@
 {
-  "header": "",
+  "header": "사동중 3학년 수학 / 원과 직선 ~ 상관관계",
   "questions": [
     {
       "number": 1,
@@ -36,11 +36,11 @@
         {"type": "figure", "value": "사각형 ABCD가 원 O에 외접하는 그림. AB=8cm, BC=14cm, AD=7cm 표시. A(왼쪽 위), D(오른쪽 위), B(왼쪽 아래), C(오른쪽 아래)."}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "text", "value": "11cm"}]},
-        {"number": 2, "contents": [{"type": "text", "value": "12cm"}]},
-        {"number": 3, "contents": [{"type": "text", "value": "13cm"}]},
-        {"number": 4, "contents": [{"type": "text", "value": "14cm"}]},
-        {"number": 5, "contents": [{"type": "text", "value": "15cm"}]}
+        {"number": 1, "contents": [{"type": "equation", "value": "11cm"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "12cm"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "13cm"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "14cm"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "15cm"}]}
       ]
     },
     {
@@ -55,11 +55,11 @@
         {"type": "figure", "value": "동심원 두 개. 작은 원이 안쪽, 큰 원이 바깥쪽. 어두운 부분(도넛 모양). 작은 원의 접선이 큰 원과 만나는 두 점 A(왼쪽), B(오른쪽). 원의 중심 O."}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "text", "value": "11cm"}]},
-        {"number": 2, "contents": [{"type": "text", "value": "12cm"}]},
-        {"number": 3, "contents": [{"type": "text", "value": "13cm"}]},
-        {"number": 4, "contents": [{"type": "text", "value": "14cm"}]},
-        {"number": 5, "contents": [{"type": "text", "value": "15cm"}]}
+        {"number": 1, "contents": [{"type": "equation", "value": "11cm"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "12cm"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "13cm"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "14cm"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "15cm"}]}
       ]
     },
     {

@@ -5,60 +5,96 @@
       "number": 5,
       "score": 4,
       "contents": [
-        {"type": "text", "value": "△ABC에서 FG∥HC이고, BD=3, DF=3일 때, FH의 길이는?"},
-        {"type": "figure", "value": "삼각형 ABC에서 꼭짓점 B가 위에 있고, A와 C가 아래에 있음. 내부에 평행선 FG, HC가 그어져 D, E, F, G, H 등의 점이 표시된 도형."}
+        {"type": "text", "value": "△ABC에서 "},
+        {"type": "equation", "value": "\\overline{DE} \\parallel \\overline{FG} \\parallel \\overline{HC}"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{FE} \\parallel \\overline{HG} \\parallel \\overline{BC}"},
+        {"type": "text", "value": "이고 "},
+        {"type": "equation", "value": "\\overline{AD} = 5"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{DF} = 3"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\overline{HB}"},
+        {"type": "text", "value": "의 값은?"},
+        {"type": "figure", "value": "삼각형 ABC. 변 AB 위에 위에서부터 D, F, H 순으로, 변 AC 위에 위에서부터 E, G 순으로 점이 있다. AD=5, DF=3 표시. DE∥FG∥HC(꼭짓점 C로 가는 선들), FE∥HG∥BC(밑변에 평행한 선들)로 평행 표시가 되어 있다."}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{77}{25}"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{77}{35}"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{134}{25}"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{152}{25}"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{224}{25}"}]}
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{64}{25}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{72}{25}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{184}{25}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{192}{25}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{238}{25}"}]}
       ]
     },
     {
       "number": 6,
-      "score": 3,
+      "score": 4,
       "contents": [
-        {"type": "text", "value": "삼각형 ABC에서 점 D는 꼭짓점 A, B, C에서 각각 내린 수선의 발이 있고, 점 D를 지나고 DC에 평행한 직선이 AF와 만나는 점을 G, CD의 교점을 E라 할 때, 길이를 구하시오."},
-        {"type": "figure", "value": "삼각형 ABC 내부에 D, E, F, G, H 등의 점이 있고 평행선으로 구성된 도형."}
+        {"type": "text", "value": "△ABC에서 "},
+        {"type": "equation", "value": "\\overline{AQ} \\perp \\overline{BC}"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\square DBCE = 48cm^{2}"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\overline{DE} + \\overline{BC}"},
+        {"type": "text", "value": "는?"},
+        {"type": "figure", "value": "삼각형 ABC. 변 AB 위에 점 D, 변 AC 위에 점 E가 있고 DE∥BC. AD=7.5cm, 변 AD 안쪽에 9cm 표시, AP=6cm, BD=6cm, EC=4cm 표시. A에서 BC에 내린 수선의 발이 Q이며 AQ⊥BC. DE와 BC 사이의 사각형 DBCE에 음영. 오른쪽에 점 P, E 표시."}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{32}{5}"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "13"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "14"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "15"}]}
+        {"number": 1, "contents": [{"type": "equation", "value": "16cm"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "28cm"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "32cm"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "34cm"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "36cm"}]}
       ]
     },
     {
       "number": 7,
-      "score": 4,
+      "score": 5,
       "contents": [
-        {"type": "text", "value": "△ABC에서 XG∥IC이고, □IBCE의 넓이가 49cm²일 때, "},
+        {"type": "text", "value": "삼각형 ABC에서 점 D, E, F는 각각 "},
+        {"type": "equation", "value": "\\overline{AB}"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{DB}"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{CD}"},
+        {"type": "text", "value": "의 중점이고, 점 D를 지나고 "},
         {"type": "equation", "value": "\\overline{BC}"},
-        {"type": "text", "value": "의 길이는?"},
-        {"type": "figure", "value": "삼각형 ABC에서 변의 중점 P, Q, R 등과 내부 평행선이 표시된 도형. 치수: 7.5cm, 9cm, 4cm, 6cm, 4cm 등 표시."}
+        {"type": "text", "value": "에 평행한 직선이 "},
+        {"type": "equation", "value": "\\overline{AF}"},
+        {"type": "text", "value": "와 만나는 점을 G, "},
+        {"type": "equation", "value": "\\overline{EG}"},
+        {"type": "text", "value": "와 "},
+        {"type": "equation", "value": "\\overline{CD}"},
+        {"type": "text", "value": "의 교점을 H라 한다. "},
+        {"type": "equation", "value": "\\frac{\\triangle DBC}{\\triangle DHG}"},
+        {"type": "text", "value": "의 값은?"},
+        {"type": "figure", "value": "삼각형 ABC. 변 AB 위에 D(AB 중점), E(DB 중점)가 있고, 변 CD 위에 F(CD 중점)가 있다. 점 D를 지나 BC에 평행한 직선이 AF와 만나는 점이 G(D, G가 같은 높이), EG와 CD의 교점이 H. 선분 DG, EG, AF, CD 등이 그려져 있다."}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "16cm"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "32cm"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "36cm"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "29cm"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "34cm"}]}
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{25}{2}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "13"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{27}{2}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "14"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "15"}]}
       ]
     },
     {
       "number": 8,
       "score": 4,
       "contents": [
-        {"type": "text", "value": "점 G는 △ABC의 무게중심이고 △AEF=3일 때, △ABC의 넓이는?"},
-        {"type": "figure", "value": "삼각형 ABC 내부에 무게중심 G와 점 D, E, F가 표시된 도형. E는 AB의 중점, F는 AC의 중점."}
+        {"type": "text", "value": "점 G는 △ABC의 무게중심이고 점 E는 "},
+        {"type": "equation", "value": "\\overline{AD}"},
+        {"type": "text", "value": "의 중점이다. "},
+        {"type": "equation", "value": "\\triangle AEF = 3"},
+        {"type": "text", "value": "일 때, △GBC의 넓이는?"},
+        {"type": "figure", "value": "삼각형 ABC. 변 AB의 중점 D, 변 AC의 중점 F를 잇는 중점연결선 DF가 있고 DF는 BC에 평행. 점 G는 무게중심으로 DF 아래쪽 중앙. E는 AD의 중점(AE=ED 표시). 선분 BF, CD가 G에서 만난다. △AEF에 해당하는 작은 삼각형 영역이 표시됨."}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "8"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "9"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "10"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "11"}]}
+        {"number": 1, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "11"}]}
       ]
     }
   ]

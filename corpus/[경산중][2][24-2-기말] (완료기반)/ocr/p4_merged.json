@@ -1,78 +1,93 @@
 {
+  "header": "",
   "questions": [
     {
       "number": 13,
-      "score": 4,
+      "score": 3,
       "contents": [
-        {"type": "text", "value": "그림과 같이 정사각형 모양의 격자판에서 점을 이어 만든 도형들의 넓이의 합을 구하시오."},
-        {"type": "figure", "value": "정사각형 격자판. 격자 안에 대각선으로 만들어진 삼각형 도형들이 원 안에 배치됨. 각 칸에 ㄱ~ㅇ 등 기호가 표시됨."}
+        {"type": "text", "value": "모눈종이에 그려진 정사각형을 ㉠~㉩의 9개의 도형으로 나눈 것이다. ㉡과 서로 닮음인 관계에 있는 도형은 모두 몇 개인가?"},
+        {"type": "figure", "value": "모눈종이(격자) 위에 그려진 큰 정사각형을 대각선과 선분들로 ㉠부터 ㉩까지 9개의 크고 작은 도형(직각삼각형·정사각형 등)으로 나눈 그림. 각 조각에 ㉠, ㉡, ㉢, … ㉩의 기호가 표시되어 있다."}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "10"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "11"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "12"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "13"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "14"}]}
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
       ]
     },
     {
       "number": 14,
       "score": 4,
       "contents": [
-        {"type": "text", "value": "그림과 같이 반지름이 6cm인 원뿔 안에 반지름이 3cm인 작은 원뿔이 꼭짓점을 공유하며 들어 있다. 두 원뿔 사이의 공간의 부피는?"},
-        {"type": "figure", "value": "큰 원뿔 (밑면 반지름 6cm). 그 안에 작은 원뿔 (밑면 반지름 3cm, 같은 꼭짓점 공유). 반지름 r 표시."}
+        {"type": "text", "value": "원뿔을 밑면에 평행한 면으로 자른 것이다. 작은 원뿔의 옆넓이가 "},
+        {"type": "equation", "value": "20\\pi cm^{2}"},
+        {"type": "text", "value": "일 때, 원뿔대의 옆넓이는 몇 "},
+        {"type": "equation", "value": "cm^{2}"},
+        {"type": "text", "value": "인가?"},
+        {"type": "figure", "value": "원뿔을 밑면에 평행한 면으로 자른 그림. 위쪽 작은 원뿔의 밑면 반지름 3cm, 아래쪽 원래 큰 원뿔의 밑면 반지름 6cm. 꼭짓점에서 두 밑면 중심까지 수직 높이 표시(직각 표시 두 개)."}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{7}{8}\\pi r^3"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{5}{4}\\pi r^3"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{7}{4}\\pi r^3"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "126\\pi"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{63}{2}\\pi"}]}
+        {"number": 1, "contents": [{"type": "equation", "value": "60\\pi"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "62\\pi"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "64\\pi"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "66\\pi"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "68\\pi"}]}
       ]
     },
     {
       "number": 15,
       "score": 4,
       "contents": [
-        {"type": "text", "value": "그림과 같이 △ABC에서 ∠B=55°, BC=15cm이고 △DEF에서 ∠E=65°, EF=12cm일 때, 두 삼각형이 합동이 되기 위해 추가로 필요한 조건은?"},
-        {"type": "figure", "value": "△ABC: ∠B=55°, BC=15cm. △DEF: ∠E=65°, EF=12cm. 두 삼각형."}
+        {"type": "text", "value": "아래의 △ABC와 △FDE가 닮은 도형이 될 수 있는 조건은?"},
+        {"type": "figure", "value": "△ABC: A 위 꼭짓점, B 왼쪽 아래(∠B=55°), C 오른쪽 아래, 아랫변 BC=15cm. △FDE: D 위 꼭짓점, E 왼쪽 아래(∠E=65°), F 오른쪽 아래, 아랫변 EF=12cm."}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "\\angle A = \\angle D,\\, \\overline{AB}=\\overline{DE}"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "\\angle C = \\angle F,\\, \\overline{AC}=\\overline{DF}"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "\\overline{AB}=\\overline{DE},\\, \\overline{AC}=\\overline{DF}"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "\\angle A = \\angle D,\\, \\overline{AC}=\\overline{DF}"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "\\angle C = \\angle F,\\, \\overline{AB}=\\overline{DE}"}]}
+        {"number": 1, "contents": [{"type": "equation", "value": "\\overline{AB}=9cm"}, {"type": "text", "value": ", "}, {"type": "equation", "value": "\\overline{DE}=8cm"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\angle C=65°"}, {"type": "text", "value": ", "}, {"type": "equation", "value": "\\angle F=50°"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\angle A=60°"}, {"type": "text", "value": ", "}, {"type": "equation", "value": "\\angle D=55°"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\overline{AB}=16cm"}, {"type": "text", "value": ", "}, {"type": "equation", "value": "\\overline{DF}=14cm"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\overline{AC}=12cm"}, {"type": "text", "value": ", "}, {"type": "equation", "value": "\\overline{DF}=14cm"}]}
       ]
     },
     {
       "number": 16,
-      "score": 4,
+      "score": 3,
       "contents": [
-        {"type": "text", "value": "그림과 같이 △ABC에서 DE∥BC이고 AD=5cm, DB=2cm, AE=7cm, DP=3cm일 때, x+y의 값은?"},
-        {"type": "figure", "value": "△ABC. D는 AB 위의 점 (AD=5cm, DB=2cm). E는 AC 위의 점 (AE=7cm). DE∥BC. P는 DE 위의 점 (DP=3cm). Q는 BC 위의 점. BQ=x cm, EC=y cm."}
+        {"type": "equation", "value": "\\overline{BC} \\parallel \\overline{DE}"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "x+y"},
+        {"type": "text", "value": "의 값은?"},
+        {"type": "figure", "value": "△ABC, A 위 꼭짓점, B 왼쪽 아래, C 오른쪽 아래. 변 AB 위의 점 D(AD=5cm, DB=2cm), 변 AC 위의 점 E(AE=7cm, EC=y cm). DE를 그어 BC와 평행(DE∥BC). 꼭짓점 A에서 아랫변의 점 Q로 가는 선분 AQ가 DE를 점 P에서 지난다. DP=3cm, 아랫변에서 BQ=x cm."}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{41}{5}"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{43}{5}"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "9"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{47}{5}"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{49}{5}"}]}
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{28}{5}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "11"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{63}{5}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "14"}]}
       ]
     },
     {
       "number": 17,
-      "score": 4,
+      "score": 5,
       "contents": [
-        {"type": "text", "value": "그림과 같이 △ABC에서 BC 위의 점 P, AB 위의 점 Q, AC 위의 점 R에 대하여 BP⊥AC, AQ⊥BC, AR⊥BP이고, BP와 AQ의 교점을 S라 할 때, 다음 중 옳지 않은 것은?"},
-        {"type": "figure", "value": "△ABC. P는 BC 위, Q는 AB 위, R는 AC 위. BP⊥AC (∠D=90°), AQ⊥BC, AR⊥BP. S는 BP와 AQ의 교점."}
+        {"type": "equation", "value": "\\overline{AB}=\\overline{AC}"},
+        {"type": "text", "value": "인 △ABC에서 "},
+        {"type": "equation", "value": "\\overline{PQ}=3cm"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{PR}=5cm"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\overline{BD}"},
+        {"type": "text", "value": "의 길이는 몇 cm인가?"},
+        {"type": "figure", "value": "AB=AC인 이등변삼각형 ABC. A 위 꼭짓점, B 왼쪽 아래, C 오른쪽 아래. 아랫변 BC 위에 점 P. 점 P에서 변 AB에 내린 수선의 발 Q(PQ⊥AB, 직각 표시), 변 AC에 내린 수선의 발 R(PR⊥AC, 직각 표시). 점 B에서 변 AC에 내린 수선의 발 D(BD⊥AC, 직각 표시). 점 S는 BD와 PQ가 만나는 부근(직각 표시). PQ=3cm, PR=5cm."}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "\\triangle ABP \\sim \\triangle QBP"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "\\triangle AQB \\sim \\triangle BPC"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "\\triangle ARS \\sim \\triangle BPS"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "\\triangle ABP \\sim \\triangle ARS"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "\\triangle ABQ \\sim \\triangle CBP"}]}
+        {"number": 1, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "11"}]}
       ]
     }
   ]

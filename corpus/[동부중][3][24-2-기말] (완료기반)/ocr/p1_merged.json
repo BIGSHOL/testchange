@@ -1,50 +1,51 @@
 {
-  "header": "2024년 2학기 기말고사 — 동부중 3학년 수학 (p.1)",
+  "header": "",
   "questions": [
     {
       "number": 1,
       "score": 3,
       "contents": [
-        {"type": "text", "value": "원의 성질에 대한 다음 설명 중 __옳지 않은__ 것은?"}
+        {"type": "text", "value": "원의 성질에 대한 다음 설명 중 옳지 __않은__ 것은? [3점]"}
       ],
       "choices": [
         {"number": 1, "contents": [{"type": "text", "value": "한 호에 대한 원주각의 크기는 모두 같다."}]},
-        {"number": 2, "contents": [{"type": "text", "value": "원의 수직이등분선은 그 원의 중심을 지난다."}]},
-        {"number": 3, "contents": [{"type": "text", "value": "원의 중심에서 현에 내린 수선의 발은 그 현을 이등분한다."}]},
+        {"number": 2, "contents": [{"type": "text", "value": "현의 수직이등분선은 그 원의 중심을 지난다."}]},
+        {"number": 3, "contents": [{"type": "text", "value": "원의 중심에서 현에 내린 수선은 그 현을 이등분한다."}]},
         {"number": 4, "contents": [{"type": "text", "value": "원 밖의 한 점에서 그 원에 그은 두 접선의 길이는 서로 같다."}]},
-        {"number": 5, "contents": [{"type": "text", "value": "원에 대한 원주각의 크기는 그 호에 대한 중심각의 크기의 2배이다."}]}
+        {"number": 5, "contents": [{"type": "text", "value": "한 호에 대한 원주각의 크기는 그 호에 대한 중심각의 크기의 2배이다."}]}
       ]
     },
     {
       "number": 2,
-      "score": 4,
+      "score": 3,
       "contents": [
-        {"type": "text", "value": "다음 자료 중 최빈값이 없는 것은?"}
+        {"type": "text", "value": "다음 자료 중 평균을 대푯값으로 사용하기에 적합하지 __않은__ 것은? [3점]"}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "1,\\ 1,\\ 2,\\ 3"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "7,\\ 7,\\ 7,\\ 7,\\ 7,\\ 7"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "5,\\ 7,\\ 1,\\ 30,\\ 300"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "20,\\ 30,\\ 60,\\ 50,\\ 50"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "400,\\ 500,\\ 400,\\ 500,\\ 300"}]}
+        {"number": 1, "contents": [{"type": "equation", "value": "1, 1, 2, 2, 3, 3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "7, 7, 7, 7, 7, 7"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3, 7, 4, 10, 300"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "20, 30, 40, 50, 60"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "400, 500, 400, 500, 500"}]}
       ]
     },
     {
       "number": 3,
       "score": 4,
       "contents": [
-        {"type": "text", "value": "그림과 같은 원 O에서 "},
-        {"type": "equation", "value": "\\angle ACE = \\angle AOB = 32°"},
-        {"type": "text", "value": "일 때, "},
-        {"type": "equation", "value": "\\angle x"},
-        {"type": "text", "value": "의 크기는?"},
-        {"type": "figure", "value": "원 O에서 원주각 ∠ACE와 중심각 ∠AOB가 표시된 그림. ∠AOB = 32°."}
+        {"type": "text", "value": "그림과 같이 점 O를 중심으로 하는 두 원이 있다. 큰 원의 현 "},
+        {"type": "equation", "value": "\\overline{AB}"},
+        {"type": "text", "value": "가 작은 원에 접할 때, 현 "},
+        {"type": "equation", "value": "\\overline{AB}"},
+        {"type": "text", "value": "의 길이는? [4점]"},
+        {"type": "figure", "value": "점 O를 중심으로 하는 두 동심원. 작은 원의 반지름 √7, 큰 원의 반지름 √10이 중심 O에서 표시되어 있다. 큰 원의 현 AB(오른쪽, A는 위, B는 아래)가 작은 원에 접한다."}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "32°"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "34°"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "36°"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "38°"}]}
+        {"number": 1, "contents": [{"type": "equation", "value": "2\\sqrt{3}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3\\sqrt{3}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5\\sqrt{3}"}]}
       ]
     },
     {
@@ -52,32 +53,37 @@
       "score": 4,
       "contents": [
         {"type": "text", "value": "그림과 같은 원 O에서 "},
-        {"type": "equation", "value": "\\angle ACE = \\angle AOB = 32°"},
+        {"type": "equation", "value": "\\angle AEC=62°"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\angle AOB=52°"},
         {"type": "text", "value": "일 때, "},
         {"type": "equation", "value": "\\angle x"},
-        {"type": "text", "value": "의 크기는?"},
-        {"type": "figure", "value": "원 O 위의 점 A, B, C, E와 중심 O가 표시된 원 그림. ∠ACE, ∠AOB = 32°, ∠x 표시."}
+        {"type": "text", "value": "의 크기는? [4점]"},
+        {"type": "figure", "value": "원 O 위에 점 E(위), D(오른쪽 위), C(오른쪽), B(아래), A(왼쪽 아래)가 있다. E에서 현이 A, C로 그어져 ∠AEC=62°, 중심 O에서 A, B로 반지름이 그어져 ∠AOB=52°, 점 D에서의 원주각 ∠x가 표시되어 있다."}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "32°"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "54°"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "36°"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "38°"}]}
+        {"number": 1, "contents": [{"type": "equation", "value": "33°"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "34°"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "35°"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "36°"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "37°"}]}
       ]
     },
     {
       "number": 5,
       "score": 4,
       "contents": [
-        {"type": "text", "value": "그림과 같이 원의 중심이 O이고 반지름의 길이가 4일 때, 현 AB에서 중심 O까지의 거리 OM의 길이는?"},
-        {"type": "figure", "value": "중심 O, 반지름 4인 원에서 현 AB와 수직이등분선 OM이 표시된 그림. AB = 4\\sqrt{3}."}
+        {"type": "text", "value": "그림과 같이 호가 원의 중심 O와 만나도록 접었을 때, 접은 선의 양끝을 각각 A, B라 하자. "},
+        {"type": "equation", "value": "\\overline{AB}=9"},
+        {"type": "text", "value": "일 때, 원 O의 반지름의 길이는? [4점]"},
+        {"type": "figure", "value": "원 O의 호를 중심 O와 만나도록 접은 그림. 접은 선의 양끝이 A(왼쪽), B(오른쪽)이고 AB=9이다. 접힌 호가 중심 O를 지난다."}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{1}{4}\\sqrt{3}"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "4\\sqrt{3}"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{1}{2}\\sqrt{3}"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "2\\sqrt{3}"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{3}{4}\\sqrt{3}"}]}
+        {"number": 1, "contents": [{"type": "equation", "value": "3\\sqrt{3}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{7}{2}\\sqrt{3}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "4\\sqrt{3}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{9}{2}\\sqrt{3}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5\\sqrt{3}"}]}
       ]
     }
   ]

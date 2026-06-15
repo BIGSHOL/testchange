@@ -1,30 +1,35 @@
 {
-  "header": "도형의 닮음 ~ 확률",
+  "header": "능인중 2학년 수학 — 2024년 2학기 기말고사 — 도형의 닮음 ~ 확률",
   "questions": [
     {
       "number": 1,
-      "score": 5,
+      "score": 3,
       "contents": [
-        {"type": "text", "value": "그림에서 △ABC∽△DEF일 때, "},
+        {"type": "text", "value": "그림에서 "},
+        {"type": "equation", "value": "\\triangle ABC \\sim \\triangle DEF"},
+        {"type": "text", "value": "일 때, "},
         {"type": "equation", "value": "x+y"},
         {"type": "text", "value": "의 값은?"},
-        {"type": "figure", "value": "두 닮음 삼각형 △ABC와 △DEF. △ABC: B(왼쪽 아래), C(오른쪽 아래), A(위). BC=6cm, 한 변에 5cm 표시. △DEF: 오른쪽에 위치. 두 삼각형의 대응변에 x, y 표시. △ABC∽△DEF 닮음 관계."}
+        {"type": "figure", "value": "두 닮은 삼각형. 왼쪽 삼각형 ABC: 꼭짓점 A가 위, B가 왼쪽 아래, C가 오른쪽 아래. 변 AB=4cm, 변 BC=6cm, 꼭짓점 C의 각이 y°로 표시. 오른쪽 삼각형 DEF: 꼭짓점 D가 위, E가 왼쪽 아래, F가 오른쪽 아래. 변 DE=5cm, 꼭짓점 F의 각이 25°, 변 EF=x cm로 표시."}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "22.5"}]},
+        {"number": 1, "contents": [{"type": "equation", "value": "32.5"}]},
         {"number": 2, "contents": [{"type": "equation", "value": "33"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "32.5"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "34"}]}
+        {"number": 3, "contents": [{"type": "equation", "value": "33.5"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "34"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "34.5"}]}
       ]
     },
     {
       "number": 2,
       "score": 3,
       "contents": [
-        {"type": "text", "value": "그림에서 BC∥DE일 때, "},
+        {"type": "text", "value": "그림에서 "},
+        {"type": "equation", "value": "\\overline{BC} \\parallel \\overline{DE}"},
+        {"type": "text", "value": "일 때, "},
         {"type": "equation", "value": "x"},
         {"type": "text", "value": "의 값은?"},
-        {"type": "figure", "value": "삼각형 또는 두 직선이 평행선에 잘리는 그림. B, A, D 등 점이 있고 BC∥DE. BD=3cm, 다른 선분=9cm 표시. x는 구하는 길이."}
+        {"type": "figure", "value": "두 삼각형이 점 A에서 교차하는 모래시계 형태. B가 왼쪽 위, E가 오른쪽 위, D가 오른쪽, C가 아래, A가 가운데 교점. BC와 DE가 평행. B에서 E로 가는 위쪽 변(점선)에 x cm, E와 D 사이에 3cm, A와 D 사이에 4cm, A와 C 사이(왼쪽)에 9cm가 표시되어 있다."}
       ],
       "choices": [
         {"number": 1, "contents": [{"type": "equation", "value": "8"}]},
@@ -39,63 +44,80 @@
       "score": 3,
       "contents": [
         {"type": "text", "value": "그림과 같이 "},
-        {"type": "equation", "value": "\\angle A=90°"},
-        {"type": "text", "value": "인 직각삼각형 ABC의 꼭짓점 A에서 변 BC에 내린 수선의 발을 D라 하자. "},
-        {"type": "equation", "value": "\\overline{AD}=3cm"},
+        {"type": "equation", "value": "\\angle A = 90^{\\circ}"},
+        {"type": "text", "value": "인 직각삼각형 ABC의 꼭짓점 A에서 빗변 BC에 내린 수선의 발을 D라 하자. "},
+        {"type": "equation", "value": "\\overline{AD} = 5cm"},
         {"type": "text", "value": ", "},
-        {"type": "equation", "value": "\\overline{DE}=3cm"},
+        {"type": "equation", "value": "\\overline{DE} = 3cm"},
         {"type": "text", "value": "일 때, "},
         {"type": "equation", "value": "x"},
         {"type": "text", "value": "의 값은?"},
-        {"type": "figure", "value": "직각삼각형 ABC. ∠A=90°. A에서 BC에 내린 수선의 발 D. BC 위에 점 E. 5cm 길이 표시. AD=3cm, DE=3cm. x는 구하는 길이."}
+        {"type": "figure", "value": "직각삼각형 ABC. 꼭짓점 A가 위쪽(∠A=90° 직각 표시), B가 왼쪽 아래, C가 오른쪽 아래. A에서 빗변 BC에 내린 수선의 발 D(D에 직각 표시). AD=5cm 표시. 밑변에서 B와 D 사이(점선 호)에 x cm, D와 C 사이에 3cm 표시."}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "7"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{27}{5}"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "9"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{29}{3}"}]}
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{25}{9}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{26}{3}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{28}{3}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{29}{3}"}]}
       ]
     },
     {
       "number": 4,
       "score": 4,
       "contents": [
-        {"type": "text", "value": "△ABC에서 세 중선 AD, BF, CE의 교점을 G라 하자. "},
-        {"type": "equation", "value": "\\overline{GD}=9cm"},
+        {"type": "text", "value": "그림의 "},
+        {"type": "equation", "value": "\\triangle ABC"},
+        {"type": "text", "value": "에서 세 중선 AD, BF, CE의 교점을 G라 하고 "},
+        {"type": "equation", "value": "\\overline{AD}"},
+        {"type": "text", "value": "와 "},
+        {"type": "equation", "value": "\\overline{EF}"},
+        {"type": "text", "value": "의 교점을 H라 하자. "},
+        {"type": "equation", "value": "\\overline{GD} = 8cm"},
         {"type": "text", "value": "일 때, "},
-        {"type": "equation", "value": "\\overline{AG}"},
-        {"type": "text", "value": "의 값은?"},
-        {"type": "figure", "value": "삼각형 ABC에서 세 중선이 무게중심 G에서 교차. 오른쪽 변에 8cm 표시. D는 BC의 중점."}
+        {"type": "equation", "value": "\\overline{AH}"},
+        {"type": "text", "value": "의 길이는?"},
+        {"type": "figure", "value": "삼각형 ABC. A가 위, B가 왼쪽 아래, C가 오른쪽 아래. 세 중선 AD(A→BC의 중점 D), BF(B→AC의 중점 F), CE(C→AB의 중점 E)가 무게중심 G에서 만난다. AD와 EF의 교점 H. 오른쪽 변 부근에 8cm 표시."}
       ],
       "choices": [
         {"number": 1, "contents": [{"type": "equation", "value": "9cm"}]},
         {"number": 2, "contents": [{"type": "equation", "value": "10cm"}]},
         {"number": 3, "contents": [{"type": "equation", "value": "11cm"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "12cm"}]}
+        {"number": 4, "contents": [{"type": "equation", "value": "12cm"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "13cm"}]}
       ]
     },
     {
       "number": 5,
       "score": 4,
       "contents": [
-        {"type": "text", "value": "그림과 같이 직사각형 ABCD에서 점 F, H는 대각선 BD 위의 점이고 "},
-        {"type": "equation", "value": "\\overline{AE}\\perp\\overline{BD}"},
+        {"type": "text", "value": "그림의 "},
+        {"type": "equation", "value": "\\overline{AD} = 20cm"},
         {"type": "text", "value": ", "},
-        {"type": "equation", "value": "\\overline{FH}\\perp\\overline{BD}"},
+        {"type": "equation", "value": "\\overline{CD} = 15cm"},
+        {"type": "text", "value": "인 직사각형 ABCD에서 점 F는 "},
+        {"type": "equation", "value": "\\overline{CD}"},
+        {"type": "text", "value": " 위의 점이고, "},
+        {"type": "equation", "value": "\\angle BEF = 90^{\\circ}"},
+        {"type": "text", "value": "이다. 점 E는 "},
+        {"type": "equation", "value": "\\overline{AD}"},
+        {"type": "text", "value": " 위의 점이고, "},
+        {"type": "equation", "value": "\\overline{AE} : \\overline{DE} = 3 : 5"},
         {"type": "text", "value": "이다. "},
-        {"type": "equation", "value": "\\overline{AD}=20cm"},
-        {"type": "text", "value": ", "},
-        {"type": "equation", "value": "\\overline{AB}=15cm"},
-        {"type": "text", "value": "일 때, "},
-        {"type": "equation", "value": "\\overline{FH}"},
-        {"type": "text", "value": "의 값은?"},
-        {"type": "figure", "value": "직사각형 ABCD(A=왼쪽 위 또는 유사 위치). 대각선 BD. BD 위의 점 E, F, G, H. AE⊥BD, FH⊥BD. AD=20cm, AB=15cm 치수 표시."}
+        {"type": "equation", "value": "\\overline{BC}"},
+        {"type": "text", "value": "의 연장선과 "},
+        {"type": "equation", "value": "\\overline{EF}"},
+        {"type": "text", "value": "의 연장선의 교점을 H라 할 때, "},
+        {"type": "equation", "value": "\\overline{CH}"},
+        {"type": "text", "value": "의 길이는?"},
+        {"type": "figure", "value": "옆으로 누운 직사각형 ABCD. A가 왼쪽 위, D가 오른쪽 위, B가 왼쪽 아래, C가 오른쪽 아래. 윗변 AD=20cm, 오른쪽 변 부근 15cm 표시. 윗변 AD 위에 점 E, 오른쪽 변 CD 위에 점 F, 그 부근에 점 G. BC의 연장선과 EF의 연장선이 오른쪽 아래 점 H에서 만난다."}
       ],
       "choices": [
         {"number": 1, "contents": [{"type": "equation", "value": "16.5cm"}]},
         {"number": 2, "contents": [{"type": "equation", "value": "17cm"}]},
         {"number": 3, "contents": [{"type": "equation", "value": "17.5cm"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "18cm"}]}
+        {"number": 4, "contents": [{"type": "equation", "value": "18cm"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "18.5cm"}]}
       ]
     }
   ]

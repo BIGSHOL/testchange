@@ -3,92 +3,105 @@
   "questions": [
     {
       "number": 1,
-      "score": 3,
+      "score": 2,
       "contents": [
-        {"type": "text", "value": "다음 그림에서 "},
-        {"type": "equation", "value": "\\triangle ABC"},
+        {"type": "text", "value": "다음 그림의 "},
+        {"type": "equation", "value": "\\square OABC"},
         {"type": "text", "value": "에서 "},
-        {"type": "equation", "value": "\\angle ACB = \\angle CBD"},
-        {"type": "text", "value": "이다. 대각선 "},
+        {"type": "equation", "value": "\\angle AOB = 2\\angle ACB"},
+        {"type": "text", "value": "이다. 두 대각선 "},
         {"type": "equation", "value": "\\overline{AC}"},
-        {"type": "text", "value": "의 연장선과 변 "},
-        {"type": "equation", "value": "\\overline{BC}"},
-        {"type": "text", "value": "의 연장선이 만나는 점을 D라 하고, "},
-        {"type": "equation", "value": "\\overline{OX} = \\overline{OD} = 2"},
+        {"type": "text", "value": "와 "},
+        {"type": "equation", "value": "\\overline{OB}"},
+        {"type": "text", "value": "의 교점을 D라 하면 "},
+        {"type": "equation", "value": "\\overline{OA}=6"},
         {"type": "text", "value": ", "},
-        {"type": "equation", "value": "\\overline{BD} = 4"},
+        {"type": "equation", "value": "\\overline{OD}=2"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{DB}=4"},
         {"type": "text", "value": "일 때, "},
-        {"type": "equation", "value": "\\overline{AC}"},
-        {"type": "text", "value": "의 길이를 구하여라. [3점]"},
-        {"type": "figure", "value": "삼각형 ABC에서 꼭짓점 A가 위쪽, B와 C가 아래 좌우에 있고, OX=OD=2, BD=4가 표시된 그림"}
+        {"type": "equation", "value": "\\overline{OC}"},
+        {"type": "text", "value": "의 길이를 구하면?"},
+        {"type": "figure", "value": "사각형 OABC. 위쪽에 점 C, 오른쪽 위에 점 O, 아래쪽 왼쪽에 점 B, 아래쪽 오른쪽에 점 A. 두 대각선 AC와 OB가 점 D에서 만난다. 선분 OD에 2, 선분 BD에 4, 선분 OA에 6이 표시되어 있다."}
       ],
       "choices": [
         {"number": 1, "contents": [{"type": "equation", "value": "5"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "4"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "8"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "6"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "3"}]}
+        {"number": 2, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "9"}]}
       ]
     },
     {
       "number": 2,
       "score": 3,
       "contents": [
-        {"type": "text", "value": "다음 그림처럼 원 위의 두 점 P, Q에서 호의 길이가 같을 때, "},
-        {"type": "equation", "value": "\\angle EDC = 90°"},
-        {"type": "text", "value": "이면 "},
-        {"type": "equation", "value": "\\angle BAC"},
-        {"type": "text", "value": "의 크기를 구하여라. [3점]"},
-        {"type": "figure", "value": "원에 여러 점 A, B, C, D, E, P, Q가 있고 각 EDC=90°가 표시된 그림"}
+        {"type": "text", "value": "다음 그림에서 직선 BT는 원 O의 접선이고 "},
+        {"type": "equation", "value": "\\overline{AC}"},
+        {"type": "text", "value": "는 원 O의 지름이다. "},
+        {"type": "equation", "value": "\\overline{AC}"},
+        {"type": "text", "value": "와 "},
+        {"type": "equation", "value": "\\overline{BD}"},
+        {"type": "text", "value": "의 교점을 P라 하고 "},
+        {"type": "equation", "value": "\\overline{AD} \\parallel \\overline{BT}"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\angle CBT = 41\\degree"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\angle x"},
+        {"type": "text", "value": "의 크기를 구하면?"},
+        {"type": "figure", "value": "원 O. 지름 AC(왼쪽 A, 오른쪽 C). 위쪽에 점 D가 있어 점 A와 D가 원 위에 있다. 아래쪽에 접점이 있고 그 점에서 직선 BT가 원에 접한다. 선분 AD, 선분 BD가 그려져 있고 AC와 BD의 교점이 P. 점 D 부근의 각이 ∠x로 표시되고, 아래쪽 접점 부근의 각이 41°로 표시되어 있다."}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "150°"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "171°"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "174°"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "177°"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "180°"}]}
+        {"number": 1, "contents": [{"type": "equation", "value": "120\\degree"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "121\\degree"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "122\\degree"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "123\\degree"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "124\\degree"}]}
       ]
     },
     {
       "number": 3,
       "score": 3,
       "contents": [
-        {"type": "text", "value": "다음 그림에서 원 위의 세 점 A, B, C가 있고 원 밖의 점 T에서 그은 접선이 점 A를 지날 때, "},
-        {"type": "equation", "value": "\\angle CAT = 41°"},
-        {"type": "text", "value": "이면 "},
-        {"type": "equation", "value": "\\angle ABT"},
-        {"type": "text", "value": "의 크기를 구하여라. [3점]"},
-        {"type": "figure", "value": "원에서 점 A, B, C가 원 위에 있고 원 밖의 점 T에서 접선 TA가 그어진 그림. 각 CAT=41° 표시"}
+        {"type": "text", "value": "다음 그림과 같이 두 원 P, Q의 교점을 각각 E, F라 하고 점 E를 지나는 직선이 두 원 P, Q와 만나는 점을 각각 A, D, 점 F를 지나는 직선이 두 원 P, Q와 만나는 점을 각각 B, C라 하자. "},
+        {"type": "equation", "value": "\\angle EDC = 95\\degree"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\angle BPE"},
+        {"type": "text", "value": "의 크기를 구하면?"},
+        {"type": "figure", "value": "두 원 P(오른쪽 원), Q(왼쪽 원)가 두 점 E(위), F(아래)에서 만난다. 점 E를 지나는 직선이 왼쪽 원과 점 D, 오른쪽 원과 점 A에서 만나고, 점 F를 지나는 직선이 왼쪽 원과 점 C, 오른쪽 원과 점 B에서 만난다. 점 D 부근의 각 ∠EDC가 95°로 표시되어 있다. P는 오른쪽 원의 중심, Q는 왼쪽 원의 중심으로 표시."}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "120°"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "121°"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "122°"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "123°"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "124°"}]}
+        {"number": 1, "contents": [{"type": "equation", "value": "170\\degree"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "171\\degree"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "172\\degree"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "173\\degree"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "174\\degree"}]}
       ]
     },
     {
       "number": 4,
       "score": 3,
       "contents": [
-        {"type": "text", "value": "다음 줄기와 잎 그림에서 "},
-        {"type": "equation", "value": "a + b + c"},
-        {"type": "text", "value": "의 값을 구하여라. [3점]"},
-        {"type": "table", "rows": [
-          ["줄기", "잎"],
-          ["2", "2 3 4 5 6"],
-          ["3", "6"],
-          ["4", "a"],
-          ["5", "6 b c"]
-        ], "value": ""}
+        {"type": "text", "value": "다음 줄기와 잎 그림은 어느 제과점에서 생산하는 15종류의 빵의 하루 동안의 판매량을 조사하여 나타낸 것이다. 이 자료의 중앙값을 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "개, 최빈값을 "},
+        {"type": "equation", "value": "b"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "c"},
+        {"type": "text", "value": "개라 할 때, "},
+        {"type": "equation", "value": "a+b-c"},
+        {"type": "text", "value": "의 값은? (단, "},
+        {"type": "equation", "value": "b<c"},
+        {"type": "text", "value": ")"},
+        {"type": "text", "value": "빵의 판매량 (1|0은 10개)"},
+        {"type": "table", "rows": [["줄기", "잎"], ["1", "0 2 7"], ["2", "2 3 4 4 5 6 8"], ["3", "1 4 4 8 9"]], "value": ""}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "6"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "9"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "12"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "15"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "18"}]}
+        {"number": 1, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "15"}]}
       ]
     }
   ]

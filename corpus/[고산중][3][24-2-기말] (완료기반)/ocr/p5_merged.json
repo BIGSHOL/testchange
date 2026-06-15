@@ -30,7 +30,9 @@
       "score": 8,
       "label_type": "서술형",
       "contents": [
-        {"type": "text", "value": "[서술형 1] \\triangle ABC에서 "},
+        {"type": "text", "value": "[서술형 1] "},
+        {"type": "equation", "value": "\\triangle ABC"},
+        {"type": "text", "value": "에서 "},
         {"type": "equation", "value": "\\overline{AB}=8"},
         {"type": "text", "value": ", "},
         {"type": "equation", "value": "\\overline{AC}=6"},

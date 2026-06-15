@@ -3,82 +3,120 @@
   "questions": [
     {
       "number": 6,
-      "score": 3,
+      "score": 5,
       "contents": [
-        {"type": "text", "value": "그림과 같이 △ABC에서 DE∥BC이고, "},
-        {"type": "equation", "value": "\\overline{AP}:\\overline{PD}=3:1"},
+        {"type": "text", "value": "그림과 같은 "},
+        {"type": "equation", "value": "\\triangle ABC"},
+        {"type": "text", "value": "에서 "},
+        {"type": "equation", "value": "\\overline{DE} \\parallel \\overline{BC}"},
         {"type": "text", "value": ", "},
-        {"type": "equation", "value": "\\overline{FC}=6cm"},
+        {"type": "equation", "value": "\\overline{BE} \\parallel \\overline{FG}"},
+        {"type": "text", "value": "이고 점 P는 "},
+        {"type": "equation", "value": "\\overline{AF}"},
+        {"type": "text", "value": "와 "},
+        {"type": "equation", "value": "\\overline{BE}"},
+        {"type": "text", "value": "의 교점이다. "},
+        {"type": "equation", "value": "\\overline{AP} : \\overline{PF} = 3 : 1"},
+        {"type": "text", "value": "이고 "},
+        {"type": "equation", "value": "\\overline{AE} = 9cm"},
         {"type": "text", "value": ", "},
-        {"type": "equation", "value": "\\overline{GC}=2cm"},
+        {"type": "equation", "value": "\\overline{FC} = 6cm"},
         {"type": "text", "value": ", "},
-        {"type": "equation", "value": "\\overline{BC}=6cm"},
-        {"type": "text", "value": "일 때, △ABC의 넓이는?"},
-        {"type": "figure", "value": "삼각형 ABC. A(위), B(왼쪽 아래), C(오른쪽 아래). DE∥BC이고 D, E는 각각 AB, AC 위의 점. 내부에 점 P와 G 표시. 높이 9cm 및 각 변의 치수 2cm, 6cm 표시."}
+        {"type": "equation", "value": "\\overline{GC} = 2cm"},
+        {"type": "text", "value": "이다. "},
+        {"type": "equation", "value": "\\overline{DE}"},
+        {"type": "text", "value": "의 길이를 "},
+        {"type": "equation", "value": "k"},
+        {"type": "text", "value": "cm라 할 때, "},
+        {"type": "equation", "value": "14k"},
+        {"type": "text", "value": "의 값은?"},
+        {"type": "figure", "value": "삼각형 ABC. A가 위 꼭짓점, B가 왼쪽 아래, C가 오른쪽 아래. 변 AB 위에 D, 변 AC 위에 E가 있어 DE는 BC에 평행. 밑변 BC 위에 점 F, 그 오른쪽에 점 G(C 가까이). P는 AF와 BE의 교점. AE에 9cm, G 부근에 2cm, FC에 6cm 표시. BE와 FG가 평행."}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "129cm^{2}"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "131cm^{2}"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "133cm^{2}"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "135cm^{2}"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "137cm^{2}"}]}
+        {"number": 1, "contents": [{"type": "equation", "value": "129"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "131"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "133"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "135"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "137"}]}
       ]
     },
     {
       "number": 7,
-      "score": 3,
+      "score": 5,
       "contents": [
-        {"type": "text", "value": "그림에서 닮음 삼각형을 이용하여 "},
-        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "그림과 같이 평행사변형 ABCD에서 두 대각선의 교점 O를 지나는 직선이 "},
+        {"type": "equation", "value": "\\overline{CD}"},
+        {"type": "text", "value": "와 만나는 점을 P, "},
+        {"type": "equation", "value": "\\overline{BC}"},
+        {"type": "text", "value": "의 연장선과 "},
+        {"type": "equation", "value": "\\overline{OP}"},
+        {"type": "text", "value": "의 연장선이 만나는 점을 Q라 하자. "},
+        {"type": "equation", "value": "\\overline{AB} = 50cm"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{BC} = 70cm"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{CQ} = 25cm"},
+        {"type": "text", "value": "이고, "},
+        {"type": "equation", "value": "\\overline{DP}"},
+        {"type": "text", "value": "는 "},
+        {"type": "equation", "value": "\\overline{PC}"},
+        {"type": "text", "value": "의 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "배일 때, "},
+        {"type": "equation", "value": "a"},
         {"type": "text", "value": "의 값은?"},
-        {"type": "figure", "value": "사각형(마름모 또는 직사각형) 내부에 대각선과 닮음 삼각형이 나타나는 그림. 16cm 또는 12cm 등의 치수 표시. x는 구하는 길이."}
+        {"type": "figure", "value": "평행사변형 ABCD. A가 왼쪽 위, D가 오른쪽 위, B가 왼쪽 아래, C가 오른쪽 아래. 두 대각선이 교점 O에서 만난다. O를 지나는 직선이 변 CD와 점 P에서 만나고, BC의 연장선과 OP의 연장선이 C의 오른쪽 점 Q에서 만난다. AB에 50cm, BC에 70cm, CQ에 25cm 표시."}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "7cm"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "7.5cm"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "4cm"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "9cm"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "6.5cm"}]}
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{18}{5}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{19}{5}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{21}{5}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{22}{5}"}]}
       ]
     },
     {
       "number": 8,
       "score": 3,
       "contents": [
-        {"type": "text", "value": "그림과 같이 넓이가 같은 두 닮음삼각형 △ABD에서 두 대각선의 교점을 F라 하고, "},
-        {"type": "equation", "value": "\\overline{AF}=70cm"},
-        {"type": "text", "value": ", "},
-        {"type": "equation", "value": "\\overline{BC}=70cm"},
-        {"type": "text", "value": ", "},
-        {"type": "equation", "value": "\\overline{FD}=25cm"},
-        {"type": "text", "value": "일 때, 사각형의 넓이 또는 선분의 길이를 구하면?"},
-        {"type": "figure", "value": "사각형 ABCD와 내부 교점 F. 두 삼각형이 교차. 변과 대각선 치수: 50cm, 70cm, 25cm 등 표시."}
+        {"type": "text", "value": "그림은 직사각형 ABCD를 대각선 AC를 접는 선으로 하여 접은 것이다. "},
+        {"type": "equation", "value": "\\overline{AD}"},
+        {"type": "text", "value": "와 "},
+        {"type": "equation", "value": "\\overline{EC}"},
+        {"type": "text", "value": "의 교점 Q에서 "},
+        {"type": "equation", "value": "\\overline{AC}"},
+        {"type": "text", "value": "에 내린 수선의 발을 P라 할 때, "},
+        {"type": "equation", "value": "\\overline{PQ}"},
+        {"type": "text", "value": "의 길이는?"},
+        {"type": "figure", "value": "직사각형 ABCD를 대각선 AC를 접는 선으로 접은 그림. A가 왼쪽, B가 왼쪽 아래, C가 오른쪽 아래, 접힌 꼭짓점 E가 위쪽. AD와 EC의 교점 Q가 오른쪽 위 D 부근. Q에서 AC에 내린 수선의 발 P(직각 표시). 오른쪽 변 QC 부근에 12cm, 밑변 BC에 16cm 표시."}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{19}{5}"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "4"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{22}{5}"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "5"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{24}{5}"}]}
+        {"number": 1, "contents": [{"type": "equation", "value": "7cm"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "7.5cm"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "8cm"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "8.5cm"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "9cm"}]}
       ]
     },
     {
       "number": 9,
       "score": 3,
       "contents": [
-        {"type": "text", "value": "그림과 같이 밑면이 직사각형 ABCD에서 대각선 BD의 교점을 G라 하고, "},
-        {"type": "equation", "value": "\\overline{AF}\\perp\\overline{BD}"},
-        {"type": "text", "value": ", "},
-        {"type": "equation", "value": "\\overline{EH}\\perp\\overline{BD}"},
-        {"type": "text", "value": "이다. 주어진 조건에서 구하는 길이는?"},
-        {"type": "figure", "value": "직사각형(또는 사각형) ABCD. 대각선 BD. 내부에 점 E, F, G, H 표시. 치수 20cm, 25cm, 70cm 등 표시. 닮음 삼각형 이용 문제."}
+        {"type": "text", "value": "그림과 같이 넓이가 "},
+        {"type": "equation", "value": "324cm^{2}"},
+        {"type": "text", "value": "인 정사각형 ABCD와 넓이가 "},
+        {"type": "equation", "value": "36cm^{2}"},
+        {"type": "text", "value": "인 정사각형 GCEF를 세 점 B, C, E가 한 직선 위에 있도록 이어 붙였을 때, "},
+        {"type": "equation", "value": "\\overline{AE}"},
+        {"type": "text", "value": "의 길이는?"},
+        {"type": "figure", "value": "큰 정사각형 ABCD(A 왼쪽 위, D 오른쪽 위, B 왼쪽 아래, C 오른쪽 아래)와 작은 정사각형 GCEF(G·F 위, C·E 아래)를 세 점 B, C, E가 한 직선 위에 오도록 큰 정사각형의 오른쪽에 이어 붙였다. 대각선이 A에서 E까지 그어져 있다."}
       ],
       "choices": [
         {"number": 1, "contents": [{"type": "equation", "value": "27cm"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "29cm"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "31cm"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "28cm"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "29cm"}]},
         {"number": 4, "contents": [{"type": "equation", "value": "30cm"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "33cm"}]}
+        {"number": 5, "contents": [{"type": "equation", "value": "31cm"}]}
       ]
     }
   ]

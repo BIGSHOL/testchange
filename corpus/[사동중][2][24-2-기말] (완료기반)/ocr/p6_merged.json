@@ -1,26 +1,40 @@
 {
-  "header": "2024년 2학기 기말고사 사동중 2학년 수학 학원 로고",
+  "header": "",
   "questions": [
     {
       "number": 22,
       "score": 5,
       "contents": [
-        {"type": "text", "value": "원 위에 5개의 점 A, B, C, D, E가 있다. 이 중 점을 이어서 만들 수 있는 선분의 개수를 a, 삼각형의 개수를 b라 할 때 a+b의 값은? [5점]"},
-        {"type": "figure", "value": "원 위에 5개의 점 A(위), B(왼쪽), C(아래왼쪽), D(아래오른쪽), E(오른쪽)이 있는 그림."}
+        {"type": "text", "value": "원 위에 5개의 점 "},
+        {"type": "equation", "value": "A, B, C, D, E"},
+        {"type": "text", "value": "가 있다. 이 중 점을 이어서 만들 수 있는 선분의 개수를 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": ", 삼각형의 개수를 "},
+        {"type": "equation", "value": "b"},
+        {"type": "text", "value": "라 할 때 "},
+        {"type": "equation", "value": "a + b"},
+        {"type": "text", "value": "의 값은?"},
+        {"type": "figure", "value": "원 위에 5개의 점 A(위), B(왼쪽 위), E(오른쪽 위), C(왼쪽 아래), D(오른쪽 아래)가 표시된 그림."}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "text", "value": "20"}]},
-        {"number": 2, "contents": [{"type": "text", "value": "22"}]},
-        {"number": 3, "contents": [{"type": "text", "value": "24"}]},
-        {"number": 4, "contents": [{"type": "text", "value": "26"}]},
-        {"number": 5, "contents": [{"type": "text", "value": "28"}]}
+        {"number": 1, "contents": [{"type": "equation", "value": "20"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "22"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "24"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "26"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "28"}]}
       ]
     },
     {
       "number": 23,
       "score": 3,
       "contents": [
-        {"type": "text", "value": "10개의 제비 중 3개의 당첨 제비가 들어 있는 주머니가 있다. 이 주머니에서 A가 1개의 제비를 뽑아 확인하고 주머니에 다시 넣은 후 B가 제비 1개를 뽑을 때, A, B 모두 당첨될 확률은? [3점]"}
+        {"type": "text", "value": "10개의 제비 중 3개의 당첨 제비가 들어 있는 주머니가 있다. 이 주머니에서 "},
+        {"type": "equation", "value": "A"},
+        {"type": "text", "value": "가 1개의 제비를 뽑아 확인하고 주머니에 다시 넣은 후 "},
+        {"type": "equation", "value": "B"},
+        {"type": "text", "value": "가 제비 1개를 뽑을 때, "},
+        {"type": "equation", "value": "A, B"},
+        {"type": "text", "value": " 모두 당첨될 확률은?"}
       ],
       "choices": [
         {"number": 1, "contents": [{"type": "equation", "value": "\\frac{1}{10}"}]},
@@ -34,21 +48,31 @@
       "number": 24,
       "score": 3,
       "contents": [
-        {"type": "text", "value": "영어 단어 HAPPINESS의 알파벳이 각각 적힌 9장의 카드가 있다. 이 카드 중에서 임의로 한 장을 뽑을 때, 알파벳 P 또는 알파벳 S를 뽑을 확률은? [3점]"}
+        {"type": "text", "value": "영어 단어 "},
+        {"type": "equation", "value": "HAPPINESS"},
+        {"type": "text", "value": "의 알파벳이 각각 적힌 9장의 카드가 있다. 이 카드 중에서 임의로 한 장을 뽑을 때, 알파벳 "},
+        {"type": "equation", "value": "P"},
+        {"type": "text", "value": " 또는 알파벳 "},
+        {"type": "equation", "value": "S"},
+        {"type": "text", "value": "를 뽑을 확률은?"}
       ],
       "choices": [
         {"number": 1, "contents": [{"type": "equation", "value": "\\frac{2}{9}"}]},
         {"number": 2, "contents": [{"type": "equation", "value": "\\frac{4}{9}"}]},
         {"number": 3, "contents": [{"type": "equation", "value": "\\frac{7}{9}"}]},
         {"number": 4, "contents": [{"type": "equation", "value": "\\frac{8}{9}"}]},
-        {"number": 5, "contents": [{"type": "text", "value": "1"}]}
+        {"number": 5, "contents": [{"type": "equation", "value": "1"}]}
       ]
     },
     {
       "number": 25,
       "score": 4,
       "contents": [
-        {"type": "text", "value": "성현이는 채송화 꽃씨와 봉선화 꽃씨를 화분에 심었다. 채송화 꽃씨의 발아율이 60%, 봉선화 꽃씨의 발아율이 70%일 때, 두 꽃씨 중 하나만 싹이 날 확률은? [4점]"}
+        {"type": "text", "value": "성현이는 채송화 꽃씨와 봉선화 꽃씨를 화분에 심었다. 채송화 꽃씨의 발아율이 "},
+        {"type": "equation", "value": "60\\%"},
+        {"type": "text", "value": ", 봉선화 꽃씨의 발아율이 "},
+        {"type": "equation", "value": "70\\%"},
+        {"type": "text", "value": "일 때, 두 꽃씨 중 하나만 싹이 날 확률은?"}
       ],
       "choices": [
         {"number": 1, "contents": [{"type": "equation", "value": "\\frac{7}{50}"}]},

@@ -5,54 +5,50 @@
       "number": 13,
       "score": 4,
       "contents": [
-        {"type": "text", "value": "다음 산점도는 어느 반 학생의 수학 점수와 국어 점수를 조사하여 나타낸 것이다. 이 자료에서 수학 점수가 60점 이상인 학생 수에 대한 수학 점수와 국어 점수가 모두 60점 이상인 학생 수의 비율은? [4점]"},
-        {"type": "figure", "value": "두 과목의 점수를 나타낸 산점도. x축: 수학 점수(0~100점), y축: 국어 점수(0~100점). 점 10개가 분포되어 있음"}
+        {"type": "text", "value": "산점도는 어느 반 학생 10명의 국어 점수와 영어 점수를 조사하여 나타낸 것이다. 영어 점수가 60점 이상인 학생 중에서 국어 점수가 80점 이상인 학생의 비율은?"},
+        {"type": "figure", "value": "어느 반 학생 10명의 국어 점수(x축, 단위 점)와 영어 점수(y축, 단위 점)를 나타낸 산점도. 두 축 모두 0부터 100까지 20 간격. 표시된 10개의 점은 (20,30), (40,40), (40,60), (50,80), (60,50), (60,60), (60,70), (70,90), (80,80), (100,90)이다."}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{1}{7}"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{2}{7}"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{3}{7}"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{4}{7}"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{7}{10}"}]}
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{1}{10}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{1}{5}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{1}{7}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{2}{7}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{3}{10}"}]}
       ]
     },
     {
       "number": 14,
-      "score": 10,
+      "score": 7,
       "label_type": "서술형",
       "contents": [
-        {"type": "text", "value": "[서술형 1] 그림에서 원 "},
-        {"type": "equation", "value": "O"},
-        {"type": "text", "value": "의 외부에 있는 점 "},
-        {"type": "equation", "value": "P"},
-        {"type": "text", "value": "에서 원에 접선을 그었을 때 접점을 "},
-        {"type": "equation", "value": "T"},
-        {"type": "text", "value": "라 하고, 점 "},
-        {"type": "equation", "value": "P"},
-        {"type": "text", "value": "를 지나는 직선이 원과 두 점 "},
-        {"type": "equation", "value": "A"},
+        {"type": "text", "value": "[서술형 1] 그림과 같이 원 밖의 한 점 P를 지나는 서로 다른 두 직선 "},
+        {"type": "equation", "value": "l"},
         {"type": "text", "value": ", "},
-        {"type": "equation", "value": "B"},
-        {"type": "text", "value": "에서 만날 때, "},
-        {"type": "equation", "value": "\\overline{PT}^2 = \\overline{PA} \\times \\overline{PB}"},
-        {"type": "text", "value": "임을 논리적으로 서술하시오. [10점]"},
-        {"type": "figure", "value": "원 O, 외부점 P에서 접선 PT(접점 T), 직선 PAB가 원과 만나는 점 A, B가 표시된 그림"}
+        {"type": "equation", "value": "m"},
+        {"type": "text", "value": "에 대하여 직선 "},
+        {"type": "equation", "value": "l"},
+        {"type": "text", "value": "이 원 O와 만나는 접점을 T, 직선 "},
+        {"type": "equation", "value": "m"},
+        {"type": "text", "value": "이 원 O와 만나는 서로 다른 두 점을 A, B라 하자. "},
+        {"type": "equation", "value": "\\overline{PT}^{2}=\\overline{PA} \\times \\overline{PB}"},
+        {"type": "text", "value": "가 성립함을 논리적으로 서술하시오. (단, 반드시 삼각형의 닮음을 이용하여 서술하시오.) [7점]"},
+        {"type": "figure", "value": "원 O 밖의 왼쪽 아래 점 P에서 두 직선을 그었다. 직선 l은 점 P에서 오른쪽으로 뻗어 원의 아래쪽 점 T에 접한다(접선). 직선 m은 점 P에서 원과 두 점 A(왼쪽 위), B(오른쪽 위)에서 만나며 오른쪽 위로 뻗는다. 점 T에서 A와 B로 현을 그어 삼각형이 만들어진다."}
       ]
     },
     {
       "number": 15,
-      "score": 10,
+      "score": 8,
       "label_type": "서술형",
       "contents": [
-        {"type": "text", "value": "[서술형 2] 5개의 자료 "},
+        {"type": "text", "value": "[서술형 2] 오각형의 내각의 크기가 각각 "},
+        {"type": "equation", "value": "a°, b°, c°, d°, e°"},
+        {"type": "text", "value": "일 때, 자료 '"},
         {"type": "equation", "value": "a, b, c, d, e"},
-        {"type": "text", "value": "의 합이 540이고, 중앙값과 평균이 같으며, 최빈값은 102, 가장 큰 값과 가장 작은 값의 차이가 14일 때, "},
-        {"type": "equation", "value": "x"},
-        {"type": "text", "value": "의 값을 구하시오. (단, "},
-        {"type": "equation", "value": "a \\le b \\le c \\le d \\le e"},
-        {"type": "text", "value": "이고 "},
-        {"type": "equation", "value": "x"},
-        {"type": "text", "value": "는 두 번째로 큰 값) [10점]"}
+        {"type": "text", "value": "'의 평균과 중앙값은 같고 최빈값이 102이다. 또, "},
+        {"type": "equation", "value": "a, b, c, d, e"},
+        {"type": "text", "value": "중 가장 큰 값과 가장 작은 값의 차는 14이다. "},
+        {"type": "equation", "value": "a, b, c, d, e"},
+        {"type": "text", "value": "를 작은 값부터 차례대로 나열할 때, 네 번째 수를 구하는 과정을 논리적으로 서술하시오. [8점]"}
       ]
     }
   ]

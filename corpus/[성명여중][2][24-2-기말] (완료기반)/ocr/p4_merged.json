@@ -1,11 +1,15 @@
 {
-  "header": "2024년 2학기 기말고사 성명여중 2학년 수학",
+  "header": "",
   "questions": [
     {
       "number": 13,
       "score": 4,
       "contents": [
-        {"type": "text", "value": "각 면에 1부터 8까지의 자연수가 각각 적힌 정팔면체 모양의 주사위 A, B를 동시에 던질 때, 나오는 두 눈의 수의 합이 5이하일 확률은?"}
+        {"type": "text", "value": "각 면에 1부터 8까지의 자연수가 각각 적힌 정팔면체 모양의 주사위 "},
+        {"type": "equation", "value": "A"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "B"},
+        {"type": "text", "value": "를 동시에 던질 때, 나오는 두 눈의 수의 합이 5이하일 확률은?"}
       ],
       "choices": [
         {"number": 1, "contents": [{"type": "equation", "value": "\\frac{5}{8}"}]},
@@ -24,9 +28,11 @@
       "choices": [
         {"number": 1, "contents": [{"type": "text", "value": "0이 적힌 카드가 나올 확률은 0이다."}]},
         {"number": 2, "contents": [{"type": "text", "value": "1이 적힌 카드가 나올 확률은 1이다."}]},
-        {"number": 3, "contents": [{"type": "text", "value": "7이 적힌 카드가 나올 확률은 "},
+        {"number": 3, "contents": [
+          {"type": "text", "value": "7이 적힌 카드가 나올 확률은 "},
           {"type": "equation", "value": "\\frac{7}{10}"},
-          {"type": "text", "value": "이다."}]},
+          {"type": "text", "value": "이다."}
+        ]},
         {"number": 4, "contents": [{"type": "text", "value": "10이상의 수가 적힌 카드가 나올 확률은 0이다."}]},
         {"number": 5, "contents": [{"type": "text", "value": "10미만의 수가 적힌 카드가 나올 확률은 1이다."}]}
       ]

@@ -1,33 +1,47 @@
 {
-  "header": "2024년 2학기 기말고사 구암중 2학년 수학",
+  "header": "",
   "questions": [
     {
       "number": 17,
       "score": 4,
       "contents": [
-        {"type": "text", "value": "원뿔 A와 원뿔 B는 닮음이다. 원뿔 A의 부피가 주어졌을 때, 원뿔 B의 부피는?"},
-        {"type": "figure", "value": "닮음인 두 원뿔 A, B 그림. 닮음비 수치 표시."}
+        {"type": "text", "value": "그림과 같이 원뿔의 모선이 이등분이 되도록 밑면에 평행한 평면으로 자를 때 생기는 두 입체도형 중 원뿔을 P, 원뿔대를 Q라 하고 Q의 부피가 "},
+        {"type": "equation", "value": "84\\pi cm^{3}"},
+        {"type": "text", "value": "일 때, 처음 원뿔의 부피는?"},
+        {"type": "figure", "value": "원뿔을 밑면에 평행한 평면으로 모선이 이등분되도록 자른 그림. 위쪽 작은 원뿔이 P, 아래쪽 원뿔대가 Q. 위쪽 모선 5cm, 아래쪽 모선 5cm로 표시(모선이 이등분됨)."}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{1}{27}"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{1}{9}"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{1}{3}"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "3"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "9"}]}
+        {"number": 1, "contents": [{"type": "equation", "value": "92\\pi cm^{3}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "96\\pi cm^{3}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "100\\pi cm^{3}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "108\\pi cm^{3}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "104\\pi cm^{3}"}]}
       ]
     },
     {
       "number": 18,
       "score": 4,
       "contents": [
-        {"type": "text", "value": "다음 중 두 삼각형이 닮음이 되는 조건이 아닌 것은?"}
+        {"type": "text", "value": "다음 중 "},
+        {"type": "equation", "value": "\\overline{BC} \\parallel \\overline{DE}"},
+        {"type": "text", "value": "인 것은?"}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "text", "value": "세 쌍의 변의 길이의 비가 모두 같다."}]},
-        {"number": 2, "contents": [{"type": "text", "value": "두 쌍의 변의 길이의 비가 같고 그 끼인각의 크기가 같다."}]},
-        {"number": 3, "contents": [{"type": "text", "value": "두 쌍의 각의 크기가 각각 같다."}]},
-        {"number": 4, "contents": [{"type": "text", "value": "세 쌍의 변의 길이의 비가 같고 한 각의 크기가 같다."}]},
-        {"number": 5, "contents": [{"type": "text", "value": "한 쌍의 변의 길이의 비가 같고 그 양 끝각의 크기가 각각 같다."}]}
+        {"number": 1, "contents": [
+          {"type": "figure", "value": "삼각형 ABC(A는 위쪽 꼭짓점), 변 AB 위의 점 D, 변 AC 위의 점 E, 선분 DE. AD=10cm, DB=25cm, AE=8cm, EC=21cm. B는 왼쪽 아래, C는 오른쪽 아래."}
+        ]},
+        {"number": 2, "contents": [
+          {"type": "figure", "value": "두 선분 ED(위)와 BC(아래)가 점 A에서 X자로 교차. E는 왼쪽 위, D는 오른쪽 위, B는 왼쪽 아래, C는 오른쪽 아래, A는 중앙. EA=6cm, AB=8cm, AD=18cm, BC=12cm."}
+        ]},
+        {"number": 3, "contents": [
+          {"type": "figure", "value": "삼각형 ADE(A는 위쪽 꼭짓점), 변 AD 위의 점 B, 변 AE 위의 점 C, 선분 BC. AB=6cm, BD=2cm, AC=10cm, CE=4cm. D는 왼쪽 아래, E는 오른쪽 아래."}
+        ]},
+        {"number": 4, "contents": [
+          {"type": "figure", "value": "두 선분 ED(위)와 BC(아래)가 점 A에서 X자로 교차. E는 왼쪽 위, D는 오른쪽 위, B는 왼쪽 아래, C는 오른쪽 아래, A는 중앙. EA=6cm, AB=6cm, AD=3cm, AC=9cm."}
+        ]},
+        {"number": 5, "contents": [
+          {"type": "figure", "value": "삼각형 ADE(A는 위쪽 꼭짓점), 변 AD 위의 점 B, 변 AE 위의 점 C, 선분 BC. AB=8cm, BD=2cm, AC=9cm, CE=3cm. D는 왼쪽 아래, E는 오른쪽 아래."}
+        ]}
       ]
     },
     {
@@ -35,18 +49,50 @@
       "score": 8,
       "label_type": "서술형",
       "contents": [
-        {"type": "text", "value": "그림에서 "},
-        {"type": "equation", "value": "\\triangle ABC \\sim \\triangle AED"},
-        {"type": "text", "value": "임을 증명하시오."},
-        {"type": "figure", "value": "삼각형 ABC와 삼각형 AED가 AA 닮음 관계에 있는 그림. 꼭짓점 A, B, C, D, E 표시."}
+        {"type": "text", "value": "[서술형 1] 원 O와 I는 각각 직각삼각형 ABC의 외접원과 내접원이다. "},
+        {"type": "equation", "value": "\\overline{AB}=3cm"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{BC}=4cm"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{CA}=5cm"},
+        {"type": "text", "value": "일 때, 물음에 답하시오. (풀이과정을 반드시 쓸 것) [총 8점]"},
+        {"type": "figure", "value": "직각삼각형 ABC(직각은 꼭짓점 B). 외접원(중심 O)과 내접원(중심 I)이 그려짐. AB=3cm(왼쪽 변), BC=4cm(아랫변), CA=5cm(빗변). A는 위쪽, B는 왼쪽 아래, C는 오른쪽 아래."}
+      ],
+      "sub_questions": [
+        {
+          "number": 1,
+          "score": 2,
+          "contents": [
+            {"type": "text", "value": "직각삼각형에서의 외심의 위치와 외접원의 반지름의 길이를 구하시오."}
+          ]
+        },
+        {
+          "number": 2,
+          "score": 2,
+          "contents": [
+            {"type": "text", "value": "내접원의 반지름의 길이를 "},
+            {"type": "equation", "value": "r"},
+            {"type": "text", "value": "이라 할 때, "},
+            {"type": "equation", "value": "r"},
+            {"type": "text", "value": "을 구하시오."}
+          ]
+        },
+        {
+          "number": 3,
+          "score": 4,
+          "contents": [
+            {"type": "text", "value": "외접원과 내접원의 넓이의 비를 구하시오."}
+          ]
+        }
       ]
     },
     {
       "number": 20,
-      "score": 8,
+      "score": 6,
       "label_type": "서술형",
       "contents": [
-        {"type": "text", "value": "3, 4, 5, 9, 12, 13의 6개의 수 중에서 3개를 골라 닮음인 두 삼각형의 대응하는 세 변의 길이가 되도록 하려고 한다. 가능한 모든 경우를 구하시오."}
+        {"type": "text", "value": "[서술형 2] 다음 중에서 직각삼각형의 세 변의 길이가 될 수 있는 것을 모두 고르고, 그 이유를 설명하시오."},
+        {"type": "figure", "value": "테두리 상자 안에 수가 나열됨: 3, 4, 5, 8, 12, 13"}
       ]
     }
   ]

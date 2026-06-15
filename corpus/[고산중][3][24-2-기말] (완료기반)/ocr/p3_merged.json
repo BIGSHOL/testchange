@@ -69,7 +69,7 @@
         {"type": "text", "value": "일 때, "},
         {"type": "equation", "value": "x"},
         {"type": "text", "value": "의 값은?"},
-        {"type": "figure", "value": "원 O에 내접하는 오각형 ABCDE. A가 왼쪽, E가 위, D가 오른쪽, C가 오른쪽 아래, B가 아래. ∠A=95°, ∠D=130°. O에서 B로 선분 그음. ∠BOC=x° 표시."}
+        {"type": "figure", "value": "원 O에 내접하는 오각형 ABCDE. A가 왼쪽 위, E가 위, D가 오른쪽, C가 오른쪽 아래, B가 아래. ∠A=95°, ∠D=130°. 중심 O에서 B와 C로 선분을 그음. 점 B에서 선분 BO와 BC가 이루는 각이 x°(∠OBC)."}
       ],
       "choices": [
         {"number": 1, "contents": [{"type": "equation", "value": "30"}]},

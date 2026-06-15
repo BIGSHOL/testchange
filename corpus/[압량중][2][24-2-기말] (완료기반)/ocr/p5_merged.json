@@ -1,5 +1,5 @@
 {
-  "header": "2024년 2학기 기말고사 압량중 2학년 수학",
+  "header": "",
   "questions": [
     {
       "number": 17,
@@ -21,15 +21,15 @@
       "score": 4,
       "contents": [
         {"type": "text", "value": "아래 그림과 같은 직각삼각형 ABC에서 "},
-        {"type": "equation", "value": "\\overline{AD} = 13"},
+        {"type": "equation", "value": "\\overline{AD}=13"},
         {"type": "text", "value": ", "},
-        {"type": "equation", "value": "\\overline{BD} = 11"},
+        {"type": "equation", "value": "\\overline{BD}=11"},
         {"type": "text", "value": ", "},
-        {"type": "equation", "value": "\\overline{DC} = 5"},
+        {"type": "equation", "value": "\\overline{DC}=5"},
         {"type": "text", "value": "일 때, "},
-        {"type": "equation", "value": "\\overline{AC} + \\overline{AB}"},
+        {"type": "equation", "value": "\\overline{AC}+\\overline{AB}"},
         {"type": "text", "value": "의 길이는?"},
-        {"type": "figure", "value": "직각삼각형 ABC. A(위), B(왼쪽 아래), C(오른쪽 아래). 점 D는 BC 위에 있음. ∠ADC = 90°. AD = 13, BD = 11, DC = 5."}
+        {"type": "figure", "value": "직각삼각형 ABC(∠C가 직각, 90° 표시). 꼭짓점 A(오른쪽 위), B(왼쪽 아래), C(오른쪽 아래). 변 BC 위에 점 D. AD=13, BD=11, DC=5."}
       ],
       "choices": [
         {"number": 1, "contents": [{"type": "equation", "value": "24"}]},

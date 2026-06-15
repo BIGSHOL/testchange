@@ -1,5 +1,5 @@
 {
-  "header": "2024년 2학기 기말고사 노변중 3학년 수학 / 원과 직선 ~ 원주각",
+  "header": "",
   "questions": [
     {
       "number": 1,
@@ -10,13 +10,13 @@
         {"type": "text", "value": ", "},
         {"type": "equation", "value": "\\overline{CD} \\perp \\overline{ON}"},
         {"type": "text", "value": "이다. "},
-        {"type": "equation", "value": "\\overline{OA} = 4cm"},
+        {"type": "equation", "value": "\\overline{OA}=4cm"},
         {"type": "text", "value": ", "},
-        {"type": "equation", "value": "\\overline{OM} = \\overline{ON} = 2cm"},
+        {"type": "equation", "value": "\\overline{OM}=\\overline{ON}=2cm"},
         {"type": "text", "value": "일 때, "},
-        {"type": "equation", "value": "\\overline{AM} + \\overline{CD}"},
+        {"type": "equation", "value": "\\overline{AM}+\\overline{CD}"},
         {"type": "text", "value": "의 길이는?"},
-        {"type": "figure", "value": "원 O 안에 지름 위의 두 점 M, N이 있고 현 AB는 OM에 수직, 현 CD는 ON에 수직. OA=4cm, OM=ON=2cm. A, B는 원 위의 점이고 C, D는 원 위의 점."}
+        {"type": "figure", "value": "원 O 안에 두 현 AB, CD가 그려져 있다. 중심 O에서 현 AB에 내린 수선의 발이 M, 현 CD에 내린 수선의 발이 N이다. OM=2cm, ON=2cm, OA=4cm로 표시되어 있다. A는 왼쪽, B는 오른쪽 위, C는 왼쪽 아래, D는 오른쪽 아래에 위치한다."}
       ],
       "choices": [
         {"number": 1, "contents": [{"type": "equation", "value": "4\\sqrt{3}cm"}]},
@@ -31,18 +31,18 @@
       "score": 5,
       "contents": [
         {"type": "text", "value": "그림에서 "},
-        {"type": "equation", "value": "\\angle AOB = 160°"},
+        {"type": "equation", "value": "\\angle AOB=160\\degree"},
         {"type": "text", "value": "일 때, "},
         {"type": "equation", "value": "\\angle APB"},
         {"type": "text", "value": "의 크기는?"},
-        {"type": "figure", "value": "원 O에서 두 점 A, B가 원 위에 있고, 점 P는 원 위의 점(A, B 아래쪽). 중심각 ∠AOB=160°."}
+        {"type": "figure", "value": "원 O에서 중심각 ∠AOB=160°이고, 원 위의 점 P에 대하여 원주각 ∠APB를 이룬다. A는 왼쪽, B는 오른쪽, P는 아래쪽에 위치한다."}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "100°"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "105°"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "110°"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "115°"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "120°"}]}
+        {"number": 1, "contents": [{"type": "equation", "value": "100\\degree"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "105\\degree"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "110\\degree"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "115\\degree"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "120\\degree"}]}
       ]
     },
     {
@@ -50,22 +50,22 @@
       "score": 5,
       "contents": [
         {"type": "text", "value": "그림에서 "},
-        {"type": "equation", "value": "\\angle ABD = 60°"},
+        {"type": "equation", "value": "\\angle ABD=60\\degree"},
         {"type": "text", "value": ", "},
-        {"type": "equation", "value": "\\angle BAD = 70°"},
+        {"type": "equation", "value": "\\angle BAD=70\\degree"},
         {"type": "text", "value": ", "},
-        {"type": "equation", "value": "\\angle BDC = 45°"},
+        {"type": "equation", "value": "\\angle BDC=45\\degree"},
         {"type": "text", "value": "이고, 네 점 A, B, C, D가 한 원 위에 있을 때, "},
-        {"type": "equation", "value": "\\angle y - \\angle x"},
+        {"type": "equation", "value": "\\angle y-\\angle x"},
         {"type": "text", "value": "의 크기는?"},
-        {"type": "figure", "value": "원 위의 네 점 A, B, C, D가 있고, 각도 표시: ∠ABD=60°, ∠BAD=70°, ∠BDC=45°. 그림에 각도 x, y 표시됨. y는 꼭짓점 D 근처, x는 꼭짓점 C 근처."}
+        {"type": "figure", "value": "네 점 A, B, C, D가 한 원 위에 있고 사각형 ABCD의 두 대각선 AC와 BD가 안에서 만난다. A는 왼쪽 위(∠A=70°), B는 왼쪽 아래(∠ABD=60°), C는 오른쪽 아래(∠x 표시), D는 오른쪽(45° 표시). 두 대각선이 만나는 점에서 ∠y가 표시되어 있다."}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "40°"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "45°"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "50°"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "55°"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "60°"}]}
+        {"number": 1, "contents": [{"type": "equation", "value": "40\\degree"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "45\\degree"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "50\\degree"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "55\\degree"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "60\\degree"}]}
       ]
     },
     {
@@ -73,22 +73,22 @@
       "score": 5,
       "contents": [
         {"type": "text", "value": "그림에서 "},
-        {"type": "equation", "value": "\\overline{AC} = \\overline{CD}"},
+        {"type": "equation", "value": "\\overarc{AC}=\\overarc{CD}"},
         {"type": "text", "value": "이고 "},
-        {"type": "equation", "value": "\\angle BAD = 52°"},
+        {"type": "equation", "value": "\\angle BAD=52\\degree"},
         {"type": "text", "value": ", "},
-        {"type": "equation", "value": "\\angle ABC = 22°"},
+        {"type": "equation", "value": "\\angle ABC=22\\degree"},
         {"type": "text", "value": "일 때, "},
         {"type": "equation", "value": "\\angle ACB"},
         {"type": "text", "value": "의 크기는?"},
-        {"type": "figure", "value": "원 위의 네 점 A, B, C, D. AC=CD(호 또는 현이 같음). ∠BAD=52°, ∠ABC=22° 표시됨."}
+        {"type": "figure", "value": "원 위에 네 점 A(위), B(오른쪽 아래), C(왼쪽), D(오른쪽)가 있다. ∠BAD=52°, ∠ABC=22°가 표시되어 있고, 호 AC와 호 CD의 길이가 같다."}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "80°"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "81°"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "82°"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "83°"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "84°"}]}
+        {"number": 1, "contents": [{"type": "equation", "value": "80\\degree"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "81\\degree"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "82\\degree"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "83\\degree"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "84\\degree"}]}
       ]
     }
   ]

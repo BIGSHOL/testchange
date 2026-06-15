@@ -3,126 +3,120 @@
   "questions": [
     {
       "number": 7,
-      "score": 3,
+      "score": 5,
       "contents": [
-        {"type": "text", "value": "그림과 같이 원 "},
-        {"type": "equation", "value": "O"},
-        {"type": "text", "value": "의 외부의 점 "},
-        {"type": "equation", "value": "D"},
-        {"type": "text", "value": "에서 이 원에 그은 두 접선의 접점이 각각 "},
-        {"type": "equation", "value": "A"},
-        {"type": "text", "value": ", "},
-        {"type": "equation", "value": "B"},
-        {"type": "text", "value": "이다. "},
-        {"type": "equation", "value": "\\angle BDC = 126°"},
-        {"type": "text", "value": "일 때, "},
-        {"type": "equation", "value": "\\angle DAB"},
-        {"type": "text", "value": "의 크기는?"},
-        {"type": "figure", "value": "원 O, 외부점 D에서 그은 두 접선의 접점 A, B, 원 위의 점 C. ∠BDC=126° 표시된 그림"}
+        {"type": "text", "value": "그림과 같이 원 O 밖의 한 점 A에서 이 원에 그은 두 접선의 접점을 B와 C라고 하자. 원 O 위의 한 점 D에 대하여 "},
+        {"type": "equation", "value": "\\angle BDC=126°"},
+        {"type": "text", "value": "일 때, 점 A에서 원 O에 그은 두 접선이 이루는 각의 크기는?"},
+        {"type": "figure", "value": "원 O 밖의 왼쪽 아래 점 A에서 원에 두 접선을 그었다. 위쪽 접점은 C, 원 아래쪽 접점은 B이다. 원 위의 점 D는 현 CB의 안쪽(원 내부 가까이)에 있고 ∠BDC=126°로 표시되어 있다. 점 A에서의 두 접선 사이 각도 표시가 있다."}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "47°"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "42°"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "54°"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "63°"}]},
+        {"number": 1, "contents": [{"type": "equation", "value": "42°"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "58°"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "63°"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "72°"}]},
         {"number": 5, "contents": [{"type": "equation", "value": "80°"}]}
       ]
     },
     {
       "number": 8,
-      "score": 3,
+      "score": 6,
       "contents": [
-        {"type": "text", "value": "원 "},
-        {"type": "equation", "value": "O"},
-        {"type": "text", "value": "에서 외부 점 "},
-        {"type": "equation", "value": "T"},
-        {"type": "text", "value": "에서 그은 접선의 접점 "},
-        {"type": "equation", "value": "A"},
-        {"type": "text", "value": "와 원 위의 점 "},
-        {"type": "equation", "value": "B"},
-        {"type": "text", "value": "에 대하여 "},
-        {"type": "equation", "value": "\\angle BAT = \\angle CAB = 40°"},
-        {"type": "text", "value": "일 때, 내접원의 반지름 "},
-        {"type": "equation", "value": "\\overline{OA}"},
-        {"type": "text", "value": "의 길이는? (단 "},
+        {"type": "text", "value": "원 O 위의 두 점 A, B에 대하여 점 A를 접점으로 하는 접선 AT가 있다. 원 O 위의 또 다른 한 점 C가 존재하여 "},
+        {"type": "equation", "value": "\\angle BAT=\\angle CAB=60°"},
+        {"type": "text", "value": "이고 "},
         {"type": "equation", "value": "\\triangle ABC"},
-        {"type": "text", "value": "가 내접하는 원의 반지름)"}
+        {"type": "text", "value": "의 넓이가 2024일 때, "},
+        {"type": "equation", "value": "\\triangle ABC"},
+        {"type": "text", "value": "의 세 변의 길이의 표준편차는?"}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "\\sqrt{2}"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "\\sqrt{3}"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "\\sqrt{5}"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "\\sqrt{6}"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "2\\sqrt{2}"}]}
+        {"number": 1, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\sqrt{2}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\sqrt{3}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "2"}]}
       ]
     },
     {
       "number": 9,
-      "score": 3,
+      "score": 5,
       "contents": [
-        {"type": "text", "value": "다음은 어느 도시의 월별 강수량을 조사하여 나타낸 표이다. 이 자료에서 대표적인 대푯값으로 가장 적절한 것은?"},
-        {"type": "table", "rows": [
-          ["월", "14", "19", "22", "25", "28", "31", "38", "합계"],
-          ["강수량(mm)", "14", "19", "22", "25", "28", "27", "38", "24"]
-        ], "value": ""}
+        {"type": "text", "value": "다음은 한글 단어 퀴즈 대회에 참여한 외국인 15명이 맞힌 단어의 개수를 조사하여 나타낸 것이다. 맞힌 단어의 중앙값을 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": ", 최빈값을 "},
+        {"type": "equation", "value": "b"},
+        {"type": "text", "value": "라 할 때, "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "와 "},
+        {"type": "equation", "value": "b"},
+        {"type": "text", "value": "의 차는?"},
+        {"type": "text", "value": "맞힌 단어의 개수 (단위: 개)"},
+        {"type": "text", "value": "<상자> 25  18  34  45  31  25  27  25  20  27  21  30  19  25  24"}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "8"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "10"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "12"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "14"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "16"}]}
+        {"number": 1, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "7"}]}
       ]
     },
     {
       "number": 10,
-      "score": 3,
+      "score": 5,
       "contents": [
-        {"type": "text", "value": "다음 중 대푯값에 대한 설명으로 옳은 것을 __모두__ 고른 것은?"},
-        {"type": "text", "value": "<보기> ㄱ. 평균은 자료에서 극단적인 값이 있으면 대푯값으로 적당하지 않다.  ㄴ. 자료 전체의 합은 (평균)×(자료 개수)이다.  ㄷ. 중앙값은 자료를 크기 순으로 나열했을 때 중간에 오는 값이다.  ㄹ. 최빈값은 항상 1개이다."}
+        {"type": "text", "value": "다음은 어느 병원의 환자 6명의 접수 후 대기시간에 대한 편차를 조사하여 나타낸 표 중 일부이다."},
+        {"type": "table", "rows": [["환자", "A", "B", "C", "D", "E", "F"], ["편차", "", "-3", "5", "-4", "3", "-1"]], "value": ""},
+        {"type": "text", "value": "대기시간의 평균이 12분일 때, 이에 대한 설명으로 항상 옳은 것은? (정답 2개)"}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "text", "value": "ㄱ, ㄷ"}]},
-        {"number": 2, "contents": [{"type": "text", "value": "ㄴ, ㄷ"}]},
-        {"number": 3, "contents": [{"type": "text", "value": "ㄱ, ㄷ, ㄹ"}]},
-        {"number": 4, "contents": [{"type": "text", "value": "ㄴ, ㄷ, ㄹ"}]},
-        {"number": 5, "contents": [{"type": "text", "value": "ㄱ, ㄴ, ㄷ, ㄹ"}]}
+        {"number": 1, "contents": [{"type": "text", "value": "대기 시간의 분산은 10이다."}]},
+        {"number": 2, "contents": [{"type": "text", "value": "환자 A는 대기 하지 않았다."}]},
+        {"number": 3, "contents": [{"type": "text", "value": "대기시간이 가장 짧은 환자는 D이다."}]},
+        {"number": 4, "contents": [{"type": "text", "value": "가장 오래 대기한 환자는 5분을 기다렸다."}]},
+        {"number": 5, "contents": [{"type": "text", "value": "6명 중 가장 먼저 진료를 본 환자는 D이다."}]}
       ]
     },
     {
       "number": 11,
-      "score": 2,
+      "score": 6,
       "contents": [
-        {"type": "text", "value": "다음 중 분산과 표준편차에 대한 설명으로 옳은 것은?"}
+        {"type": "text", "value": "자료 '"},
+        {"type": "equation", "value": "2, 2a, a-1, a+4, a"},
+        {"type": "text", "value": "'의 최빈값은 0이고 분산이 3.2일 때, 이 자료에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?"},
+        {"type": "text", "value": "<보기> ㄱ. "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "의 값은 0 또는 2이다.  ㄴ. 이 자료의 평균과 중앙값은 같다.  ㄷ. 평균, 중앙값, 최빈값을 모두 더하면 1이다.  ㄹ. 이 자료의 변량 중 음수는 존재하지 않는다."}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "text", "value": "분산이 클수록 자료가 평균 근처에 모여 있다."}]},
-        {"number": 2, "contents": [{"type": "text", "value": "분산이 작을수록 자료가 평균에 가까이 모여 있다."}]},
-        {"number": 3, "contents": [{"type": "text", "value": "분산은 편차의 합을 자료의 개수로 나눈 것이다."}]},
-        {"number": 4, "contents": [{"type": "text", "value": "표준편차는 분산보다 항상 크다."}]},
-        {"number": 5, "contents": [{"type": "text", "value": "표준편차의 단위는 분산의 단위와 같다."}]}
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄷ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄴ, ㄷ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄱ, ㄴ, ㄹ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄴ, ㄷ, ㄹ"}]}
       ]
     },
     {
       "number": 12,
-      "score": 3,
+      "score": 5,
       "contents": [
-        {"type": "text", "value": "다음은 5개의 수의 자료이다. 중앙값을 구하면?"},
-        {"type": "table", "rows": [
-          ["자료", "131", "x", "136", "134", "133"],
-          [""],
-          [""]
-        ], "value": ""},
-        {"type": "text", "value": "이 자료의 평균이 134일 때, "},
-        {"type": "equation", "value": "x"},
-        {"type": "text", "value": "의 중앙값은?"}
+        {"type": "text", "value": "다음 자료의 중앙값은 9이고 최빈값은 7이다. 이 자료의 분산이 "},
+        {"type": "equation", "value": "\\frac{p}{q}"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "p+q"},
+        {"type": "text", "value": "의 값은? (단, "},
+        {"type": "equation", "value": "p, q"},
+        {"type": "text", "value": "는 서로소이다.)"},
+        {"type": "text", "value": "<상자> "},
+        {"type": "equation", "value": "a+4 \\quad 9 \\quad 7 \\quad 7 \\quad 10 \\quad 9 \\quad 6a+3"}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "131"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "132"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "133"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "134"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "136"}]}
+        {"number": 1, "contents": [{"type": "equation", "value": "153"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "154"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "155"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "156"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "157"}]}
       ]
     }
   ]

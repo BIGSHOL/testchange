@@ -1,23 +1,25 @@
 {
-  "header": "2024년 2학기 기말고사 — 동부중 3학년 수학 (p.2)",
+  "header": "",
   "questions": [
     {
       "number": 6,
       "score": 4,
       "contents": [
         {"type": "text", "value": "그림에서 "},
-        {"type": "equation", "value": "\\overarc{AB}=\\overarc{BC}=\\overarc{CD}=\\overarc{DE}"},
+        {"type": "equation", "value": "\\overline{AF}"},
+        {"type": "text", "value": "는 원 O의 지름이고 "},
+        {"type": "equation", "value": "\\overarc{AB}=\\overarc{BC}=\\overarc{CD}=\\overarc{DE}=\\overarc{EF}"},
         {"type": "text", "value": "일 때, "},
-        {"type": "equation", "value": "\\angle BCF"},
-        {"type": "text", "value": "의 크기는?"},
-        {"type": "figure", "value": "원 위에 점 A, B, C, D, E가 있고, 네 호의 길이가 같으며 직선 CF가 그려진 그림."}
+        {"type": "equation", "value": "\\angle BGC"},
+        {"type": "text", "value": "의 크기는? [4점]"},
+        {"type": "figure", "value": "원 O 위에 점 A(왼쪽), B, C(위), D(오른쪽 위), E(오른쪽), F(오른쪽)가 있고 AF가 지름(중심 O를 지남). 호 AB=BC=CD=DE=EF로 5등분되어 있다. 원 아래쪽에 점 G가 있고, G에서 B, C로 현이 그어져 ∠BGC가 표시되어 있다."}
       ],
       "choices": [
         {"number": 1, "contents": [{"type": "equation", "value": "14°"}]},
         {"number": 2, "contents": [{"type": "equation", "value": "16°"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "20°"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "26°"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "30°"}]}
+        {"number": 3, "contents": [{"type": "equation", "value": "18°"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "28°"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "36°"}]}
       ]
     },
     {
@@ -25,21 +27,21 @@
       "score": 4,
       "contents": [
         {"type": "text", "value": "그림과 같이 "},
-        {"type": "equation", "value": "\\triangle ABC"},
-        {"type": "text", "value": "의 외접원에서 직선 EF가 원에 내접하고, "},
-        {"type": "equation", "value": "\\angle BAD = 180°"},
+        {"type": "equation", "value": "\\square ABCD"},
+        {"type": "text", "value": "는 원 O에 내접하고 직선 EF는 원 O의 접선이다. "},
+        {"type": "equation", "value": "\\angle BAD=101°"},
         {"type": "text", "value": ", "},
-        {"type": "equation", "value": "\\angle BDC = 47°"},
+        {"type": "equation", "value": "\\angle BDC=41°"},
         {"type": "text", "value": "일 때, "},
         {"type": "equation", "value": "\\angle DCF"},
-        {"type": "text", "value": "의 크기는?"},
-        {"type": "figure", "value": "원에 내접하는 사각형 ABCD와 직선 EF(C점에서 접하는 접선)가 표시된 그림. 점 D와 B, C, A 등이 원 위에 있음."}
+        {"type": "text", "value": "의 크기는? [4점]"},
+        {"type": "figure", "value": "원 O에 내접하는 사각형 ABCD. A(위), D(오른쪽), B(왼쪽), C(아래). 직선 EF가 점 C에서 원에 접하고 E(왼쪽), F(오른쪽). ∠BAD=101°, ∠BDC=41°가 표시되어 있고 ∠DCF를 구한다."}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "32°"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "34°"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "54°"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "56°"}]},
+        {"number": 1, "contents": [{"type": "equation", "value": "52°"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "54°"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "56°"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "58°"}]},
         {"number": 5, "contents": [{"type": "equation", "value": "60°"}]}
       ]
     },
@@ -49,45 +51,46 @@
       "contents": [
         {"type": "text", "value": "그림에서 "},
         {"type": "equation", "value": "x"},
-        {"type": "text", "value": "의 값은?"},
-        {"type": "figure", "value": "원 O에서 두 현의 수직이등분선이 중심을 지나는 성질 관련 그림. 현과 중심 사이의 거리 및 현의 길이 일부(예: 6, 8)가 표시되고, x가 구하는 값."}
+        {"type": "text", "value": "의 값은? [4점]"},
+        {"type": "figure", "value": "원 O. 한 호의 길이가 18이고, 그 호의 양 끝점을 이은 현과 다른 현이 이루는 원주각이 60°일 때, 그 원주각에 대응하는 호의 길이가 x이다."}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 1, "contents": [{"type": "equation", "value": "8"}]},
         {"number": 2, "contents": [{"type": "equation", "value": "9"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "11"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "12"}]}
+        {"number": 3, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "11"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "12"}]}
       ]
     },
     {
       "number": 9,
       "score": 4,
       "contents": [
-        {"type": "text", "value": "다음 자료의 중앙값은?"},
-        {"type": "equation", "value": "1,\\ 2,\\ 3,\\ 4,\\ 5,\\ 6"}
+        {"type": "text", "value": "다음 자료의 중앙값은? [4점]"},
+        {"type": "text", "value": "<상자>"},
+        {"type": "equation", "value": "1, 2, 2, 4, 3, 3, 6"}
       ],
       "choices": [
         {"number": 1, "contents": [{"type": "equation", "value": "2.5"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "3.5"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "4"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "6"}]}
+        {"number": 2, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3.5"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "4.5"}]}
       ]
     },
     {
       "number": 10,
       "score": 4,
       "contents": [
-        {"type": "text", "value": "5명의 학생 A, B, C, D, E의 수학 점수를 조사하여 각 학생의 직전 점수와 현재 점수의 차를 구하니 다음 표와 같다. C의 점수가 72점일 때, 5명의 점수 중 중앙값은?"},
-        {"type": "table", "rows": [
-          ["학생", "A", "B", "C", "D", "E"],
-          ["직전 점수 - 현재 점수", "-8", "13", "0", "-9", "-3"]
-        ], "value": ""}
+        {"type": "text", "value": "표는 5명의 학생 A, B, C, D, E의 수학 점수를 조사하여 각 학생의 점수에서 학생 C의 점수를 각각 뺀 값을 나타낸 것이다. 5명의 학생의 수학 점수의 평균이 73점일 때, 학생 E의 수학 점수는? [4점]"},
+        {"type": "table", "rows": [["학생", "A", "B", "C", "D", "E"], ["각 점수 −C의 점수", "−6", "13", "0", "−9", "−3"]], "value": ""}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "70점"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "71점"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "72점"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "74점"}]}
+        {"number": 1, "contents": [{"type": "text", "value": "70점"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "71점"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "72점"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "73점"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "74점"}]}
       ]
     }
   ]

@@ -1,67 +1,72 @@
 {
-  "header": "영남삼육중 3학년 수학 2024년 2학기 기말고사",
+  "header": "",
   "questions": [
     {
       "number": 19,
       "score": 4,
       "contents": [
-        {"type": "text", "value": "다음 그림은 어느 학교 3학년 학생들의 1학기 중간고사와 기말고사 성적을 산점도로 나타낸 것이다. 기말고사 성적이 중간고사 성적보다 향상된 학생 수는? [4점]"},
-        {"type": "figure", "value": "가로축이 2022년(점), 세로축이 기말(점)인 산점도. 60~100 범위의 점들이 분포된 그림"}
+        {"type": "text", "value": "다음 그림은 어느 반 20명의 1학기 중간고사와 기말고사 사회점수에 대한 산점도이다. 사회 중간고사와 기말고사 성적 중 적어도 하나는 80점 이상인 학생 수는?"},
+        {"type": "figure", "value": "산점도. 가로축은 중간고사(점)으로 0, 40, 60, 80, 100 눈금, 세로축은 기말고사(점)으로 40, 60, 80, 100 눈금. 어느 반 20명의 중간고사·기말고사 사회 점수를 점으로 나타낸 그래프."}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "6"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "7"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "8"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "9"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "10"}]}
+        {"number": 1, "contents": [{"type": "text", "value": "6명"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "7명"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "8명"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "9명"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "10명"}]}
       ]
     },
     {
       "number": 20,
       "score": 4,
       "contents": [
-        {"type": "text", "value": "다음 그림은 학생들의 키(cm)와 기록(m)의 산점도이다. 이 산점도에서 알 수 있는 내용으로 옳은 것은? [4점]"},
-        {"type": "figure", "value": "가로축이 키(cm), 세로축이 기록(m)인 산점도. 점 A, B, C, D, E가 표시된 그림"}
+        {"type": "text", "value": "다음 그림은 성규네 반 학생 25명이 작년과 올해에 읽은 책의 수에 대한 산점도이다. 작년과 올해에 읽은 책의 수가 상위 20%이내에 드는 학생들과 하위 20%이내에 드는 학생들의 올해 읽은 책의 수의 평균의 차는?"},
+        {"type": "figure", "value": "산점도. 가로축은 작년(권)으로 0, 2, 4, 6, 8, 10 눈금, 세로축은 올해(권)으로 2, 4, 6, 8, 10 눈금. 성규네 반 학생 25명이 작년과 올해 읽은 책의 수를 점으로 나타낸 그래프."}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "text", "value": "양의 상관관계이다."}]},
-        {"number": 2, "contents": [{"type": "text", "value": "음의 상관관계이다."}]},
-        {"number": 3, "contents": [{"type": "text", "value": "상관관계가 없다."}]},
-        {"number": 4, "contents": [{"type": "text", "value": "점 A가 키에 비해 기록이 가장 좋다."}]},
-        {"number": 5, "contents": [{"type": "text", "value": "점 C가 키에 비해 기록이 가장 좋다."}]}
+        {"number": 1, "contents": [{"type": "text", "value": "4.8권"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "4.9권"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "5권"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "5.1권"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "5.2권"}]}
       ]
     },
     {
       "number": 21,
-      "score": 5,
+      "score": 4,
       "contents": [
-        {"type": "text", "value": "다음 그림은 학생들의 봉사 활동 시간을 나타낸 꺾은선 그래프이다. 이 자료의 중앙값을 구하여라. [5점]"},
-        {"type": "figure", "value": "가로축이 학생(명), 세로축이 봉사 활동 시간인 꺾은선 그래프"}
+        {"type": "text", "value": "다음 그림은 어느 중학교 3학년 학생들의 키와 던지기 기록에 대한 산점도이다. 다음 보기 중 옳은 것을 모두 고른 것은?"},
+        {"type": "text", "value": "<보기> ㉠ 던지기 기록이 좋은 사람은 대체로 키도 크다.  ㉡ 학생 A는 학생 B보다 키도 크고 던지기 기록도 더 좋다.  ㉢ 학생 A,B,C,D중에서 던지기 기록에 비해 키가 작은 학생은 B와 C이다.  ㉣ 학생 A,B,C,D중에서 (던지기기록)/(키)의 값이 가장 큰 학생은 A이다."},
+        {"type": "figure", "value": "산점도. 가로축은 키(cm), 세로축은 던지기(m), 원점 O. 점들이 왼쪽 아래에서 오른쪽 위로 비스듬히 모여 있는 양의 상관관계. 점들 중 A(오른쪽 위), B(가운데 위쪽), C(왼쪽 위쪽), D(오른쪽 아래)가 특별히 표시되어 있다."}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "4.3"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "3.7"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "5.2"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "5"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "5.1"}]}
+        {"number": 1, "contents": [{"type": "text", "value": "㉠"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "㉠, ㉡"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "㉡, ㉢"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "㉠, ㉡, ㉢"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "㉠, ㉡, ㉢, ㉣"}]}
       ]
     },
     {
       "number": 22,
       "score": 5,
       "contents": [
-        {"type": "text", "value": "다음 그림에서 원에 삼각형 ABC가 내접하고 "},
-        {"type": "equation", "value": "\\overline{AB} = 9\\text{cm}"},
-        {"type": "text", "value": "이고 "},
-        {"type": "equation", "value": "\\angle ABC = 30°"},
-        {"type": "text", "value": "일 때, "},
-        {"type": "equation", "value": "\\triangle ABC"},
-        {"type": "text", "value": "의 외접원의 반지름의 길이를 구하여라. [5점]"},
-        {"type": "figure", "value": "원에 내접하는 삼각형 ABC 그림. AB=9cm, 각 ABC=30° 표시"}
+        {"type": "text", "value": "다음 그림에서 원 O의 지름의 길이는 18cm, 원 O'의 지름의 길이는 9cm이고 "},
+        {"type": "equation", "value": "\\angle ACB = 30\\degree"},
+        {"type": "text", "value": "이다. "},
+        {"type": "equation", "value": "\\overline{AC}"},
+        {"type": "text", "value": "가 원 O'과 만나는 점을 D, "},
+        {"type": "equation", "value": "\\overline{AO}"},
+        {"type": "text", "value": "와 "},
+        {"type": "equation", "value": "\\overline{BD}"},
+        {"type": "text", "value": "의 교점을 E라고 할 때, "},
+        {"type": "equation", "value": "\\overline{BE}"},
+        {"type": "text", "value": "의 길이를 구하면?"},
+        {"type": "figure", "value": "큰 원 O(지름 18cm)에 삼각형 ABC가 내접한다. 점 A는 위쪽, B는 왼쪽, C는 오른쪽. 지름 BC 위에 중심 O가 있다. 작은 원 O'(지름 9cm)이 큰 원 안에 있으며 BC 위에 중심 O'을 두고 점 O와 C 사이에 그려져 있다. AC가 작은 원 O'과 만나는 점이 D, AO와 BD의 교점이 E. 점 C 부근의 각 ∠ACB가 30°로 표시되어 있다."}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "2\\sqrt{3}"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "3\\sqrt{3}"}]},
+        {"number": 1, "contents": [{"type": "equation", "value": "2\\sqrt{7}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2\\sqrt{10}"}]},
         {"number": 3, "contents": [{"type": "equation", "value": "3\\sqrt{5}"}]},
         {"number": 4, "contents": [{"type": "equation", "value": "3\\sqrt{7}"}]},
         {"number": 5, "contents": [{"type": "equation", "value": "3\\sqrt{10}"}]}

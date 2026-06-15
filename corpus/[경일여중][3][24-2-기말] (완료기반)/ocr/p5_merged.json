@@ -5,62 +5,95 @@
       "number": 17,
       "score": 5,
       "contents": [
-        {"type": "text", "value": "크기가 서로 다른 n개의 정삼각형이 있다. 가장 작은 정삼각형의 한 변의 길이가 "},
-        {"type": "equation", "value": "\\frac{1}{3}"},
-        {"type": "text", "value": " cm이고, 각 정삼각형의 한 변의 길이가 바로 전 정삼각형의 3배일 때, n개의 정삼각형의 넓이의 합이 3 cm²이다. n의 값은?"},
-        {"type": "text", "value": "<조건>  (가) 가장 작은 정삼각형의 한 변의 길이: "},
-        {"type": "equation", "value": "\\frac{1}{3}"},
-        {"type": "text", "value": " cm  (나) 각 정삼각형의 한 변의 길이는 바로 전 정삼각형의 3배이다."}
+        {"type": "text", "value": "길이가 서로 다른 철사 4개로 정삼각형 4개를 만들어 한 변의 길이를 나열하였더니 평균이 3cm, 분산이 "},
+        {"type": "equation", "value": "\\frac{5}{2}"},
+        {"type": "text", "value": "cm이었다. 이때 정삼각형 4개의 넓이의 평균은 "},
+        {"type": "equation", "value": "\\frac{a}{b}\\sqrt{3}"},
+        {"type": "text", "value": "cm"},
+        {"type": "equation", "value": "^{2}"},
+        {"type": "text", "value": "이다. "},
+        {"type": "equation", "value": "a-b"},
+        {"type": "text", "value": "의 값은? (단, "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "와 "},
+        {"type": "equation", "value": "b"},
+        {"type": "text", "value": "는 서로소인 자연수)"}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "15"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "16"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "17"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "19"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "21"}]}
+        {"number": 1, "contents": [{"type": "text", "value": "13"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "15"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "17"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "19"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "21"}]}
       ]
     },
     {
       "number": 18,
       "score": 5,
       "contents": [
-        {"type": "text", "value": "다음 <보기>의 내용 중 옳은 것만을 모두 고른 것은?"},
-        {"type": "text", "value": "<보기>  ㄱ. 상관관계가 없으면 산점도의 점들이 일정한 방향으로 분포하지 않는다.  ㄴ. 산점도에서 점들이 오른쪽 아래 방향으로 분포할수록 강한 음의 상관관계이다.  ㄷ. 음의 상관관계에서는 한 변량이 커질수록 다른 변량이 작아지는 경향이 있다."}
+        {"type": "text", "value": "그림과 같이 원 "},
+        {"type": "equation", "value": "O"},
+        {"type": "text", "value": "의 원주 위의 한 점이 원의 중심 O에 겹쳐지도록 접으면 접은 현의 길이가 12cm이다. 이때 접어올린 호 AB 위의 임의의 한 점을 P라 하고, 두 점 A, B에서 점 P까지 각각 반직선을 그었다. 또 중심 O에서 반직선 BP로 내린 수선의 발을 H라 하자. "},
+        {"type": "equation", "value": "\\overline{PH}=3cm"},
+        {"type": "text", "value": "라 할 때, "},
+        {"type": "equation", "value": "\\overline{BH}"},
+        {"type": "text", "value": "의 길이는?"},
+        {"type": "figure", "value": "중심 O인 원에서 원주 위의 한 점이 중심 O에 겹쳐지도록 접어, 접은 현 AB의 길이가 12cm이다(A는 왼쪽 아래, B는 오른쪽 아래). 접어올린 호 AB 위의 점 P에서 점 A, B로 반직선을 그었다. 중심 O에서 반직선 BP에 내린 수선의 발이 H이고, PH=3cm로 표시되어 있다."}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "text", "value": "ㄱ"}]},
-        {"number": 2, "contents": [{"type": "text", "value": "ㄴ"}]},
-        {"number": 3, "contents": [{"type": "text", "value": "ㄷ"}]},
-        {"number": 4, "contents": [{"type": "text", "value": "ㄱ, ㄴ"}]},
-        {"number": 5, "contents": [{"type": "text", "value": "ㄴ, ㄷ"}]}
+        {"number": 1, "contents": [{"type": "equation", "value": "3\\sqrt{5}cm"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "4\\sqrt{3}cm"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\sqrt{51}cm"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "3\\sqrt{6}cm"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\sqrt{57}cm"}]}
       ]
     },
     {
       "number": 19,
-      "score": 10,
+      "score": 7,
       "label_type": "서술형",
       "contents": [
-        {"type": "text", "value": "[서술형 1] 그림은 경일이네 학교 학생들의 수학 점수와 과학 점수를 조사하여 나타낸 산점도이다. 다음을 구하고, 그 과정을 서술하시오."},
-        {"type": "figure", "value": "수학 점수(x축)와 과학 점수(y축)를 나타낸 산점도. 여러 학생의 점수가 점으로 표시되어 있으며, 대각선(y=x) 기준으로 학생 분포"},
-        {"type": "text", "value": "(1) 과학 점수가 수학 점수보다 높은 학생의 비율을 구하고, 그 과정을 서술하시오. [3점]"},
-        {"type": "text", "value": "(2) 수학 점수와 과학 점수의 평균을 각각 구하고, 어느 점수의 평균이 더 큰지 비교하고 그 과정을 서술하시오. [3점]"},
-        {"type": "text", "value": "(3) 과학 점수의 최빈값보다 수학 점수가 큰 학생 수를 구하고, 그 과정을 서술하시오. [4점]"}
+        {"type": "text", "value": "[서술형 1] 다음 자료의 분산이 "},
+        {"type": "equation", "value": "\\frac{16}{5}"},
+        {"type": "text", "value": "일 때, 양수 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "의 값을 구하고, 그 과정을 <조건>에 맞게 서술하시오. [7점, 부분점수 있음]"},
+        {"type": "table", "rows": [["a", "4", "a+3", "2a+2", "a+1"]], "value": ""},
+        {"type": "text", "value": "<조건> · 자료의 평균을 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "에 관한 식으로 나타내고, 그 과정을 서술할 것  · 자료의 분산을 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "에 관한 식으로 나타내고, 그 과정을 서술할 것"}
       ]
     },
     {
       "number": 20,
-      "score": 6,
+      "score": 7,
       "label_type": "서술형",
       "contents": [
-        {"type": "text", "value": "[서술형 2] 그림과 같이 원 O에 내접하는 "},
-        {"type": "equation", "value": "\\triangle ABC"},
-        {"type": "text", "value": "에서 점 D는 원 위에 있다. "},
-        {"type": "equation", "value": "\\angle ADC=64°"},
-        {"type": "text", "value": "이고 "},
-        {"type": "equation", "value": "\\angle AOB=118°"},
-        {"type": "text", "value": "일 때, 다음을 구하고 그 과정을 서술하시오."},
-        {"type": "figure", "value": "원 O에 내접하는 △ABC. 원 위에 점 D. ∠ADC=64°, ∠AOB=118° 표시"},
-        {"type": "text", "value": "<조건>  ∠EDF의 크기를 구하시오. [2점]  ∠ABD의 크기를 구하시오. [2점]  ∠ACB의 크기를 구하시오. [2점]"}
+        {"type": "text", "value": "[서술형 2] 그림과 같이 원 "},
+        {"type": "equation", "value": "O"},
+        {"type": "text", "value": "에 내접하는 오각형 ABCDE에서 "},
+        {"type": "equation", "value": "\\angle E=94^{\\circ}"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\angle C=118^{\\circ}"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\angle x"},
+        {"type": "text", "value": "의 크기를 구하고, 그 과정을 <조건>에 맞게 서술하시오. [7점, 부분점수 있음]"},
+        {"type": "text", "value": "<조건> · "},
+        {"type": "equation", "value": "\\angle DEB"},
+        {"type": "text", "value": "의 크기를 구할 것  · "},
+        {"type": "equation", "value": "\\angle AEB"},
+        {"type": "text", "value": "의 크기를 구할 것  · "},
+        {"type": "equation", "value": "\\angle AEB"},
+        {"type": "text", "value": "와 "},
+        {"type": "equation", "value": "\\angle x"},
+        {"type": "text", "value": " 사이의 관계를 식으로 나타낼 것 (예로 들어, "},
+        {"type": "equation", "value": "\\angle x=a\\times\\angle AEB"},
+        {"type": "text", "value": " (단, "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "는 유리수))"},
+        {"type": "figure", "value": "중심 O인 원에 내접하는 오각형 ABCDE(E는 위쪽, D는 오른쪽 위, C는 오른쪽 아래, B는 아래쪽, A는 왼쪽). ∠E=94°가 꼭짓점 E에, ∠C=118°가 꼭짓점 C에 표시되어 있다. 중심 O에서 점 A와 점 B로 반지름을 그어 만든 중심각 ∠AOB가 ∠x로 표시되어 있다."}
       ]
     }
   ]

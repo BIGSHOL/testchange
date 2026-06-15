@@ -3,30 +3,60 @@
   "questions": [
     {
       "number": 21,
-      "score": 10,
+      "score": 8,
       "label_type": "서술형",
       "contents": [
-        {"type": "text", "value": "[서술형 3] 다음은 어떤 학교 학생들의 수학 점수와 과학 점수를 조사하여 나타낸 산점도이다. 다음 물음에 답하고, 그 과정을 서술하시오."},
-        {"type": "figure", "value": "수학 점수(x축)와 과학 점수(y축)를 나타낸 산점도. 학생들의 점수가 점으로 표시되어 있으며 분포 형태 관찰 가능"},
-        {"type": "text", "value": "(1) 과학 점수가 수학 점수보다 높은 학생의 비율을 구하고, 그 과정을 서술하시오. [3점]"},
-        {"type": "text", "value": "(2) 수학 점수와 과학 점수의 평균을 각각 구하고, 어느 점수의 평균이 더 큰지 비교하고 그 과정을 서술하시오. [3점]"},
-        {"type": "text", "value": "(3) 수학 점수가 과학 점수의 최빈값보다 큰 학생 수를 구하고, 그 과정을 서술하시오. [4점]"}
+        {"type": "text", "value": "[서술형 3] 산점도는 경일이네 반 학생 16명의 수학 점수와 과학 점수를 조사하여 나타낸 것이다. 다음 물음에 답하고 그 과정을 <조건>에 맞게 서술하시오. [8점, 부분점수 있음]"},
+        {"type": "figure", "value": "가로축은 수학 점수(점), 세로축은 과학 점수(점)인 산점도로 16명의 학생 점수가 점으로 표시되어 있다. 두 축 모두 20, 40, 60, 80, 100 눈금으로 나타나 있다. 점들의 좌표(수학, 과학)는 대략 (20,20), (20,? 아래), (30,30), (30,? 아래), (40,40), (40,? 아래), (50,50), (60,60), (70,70), (70,? ), (80,80), (80,60), (90,90), (90,80), (100,70), (100,? ) 등으로 오른쪽 위로 올라가는 양의 상관관계를 보인다."}
+      ],
+      "sub_questions": [
+        {"number": 1, "score": 2, "contents": [
+          {"type": "text", "value": "과학 점수가 수학 점수보다 높은 학생의 비율을 구하고, 그 과정을 서술하시오."},
+          {"type": "text", "value": "<조건> · 과학 점수가 수학 점수보다 높은 학생 수를 적을 것"}
+        ]},
+        {"number": 2, "score": 2, "contents": [
+          {"type": "text", "value": "수학 점수의 중앙값을 구하고, 그 과정을 서술하시오."}
+        ]},
+        {"number": 3, "score": 4, "contents": [
+          {"type": "text", "value": "과학 점수와 수학 점수의 최빈값을 각각 모두 구한 후, 그 합을 구하고, 그 과정을 서술하시오."},
+          {"type": "text", "value": "<조건> · 과학 점수와 수학 점수의 최빈값을 각각 모두 적을 것"}
+        ]}
       ]
     },
     {
       "number": 22,
-      "score": 4,
+      "score": 8,
       "label_type": "서술형",
       "contents": [
-        {"type": "text", "value": "[서술형 4] 그림에서 원 O에 내접하는 "},
+        {"type": "text", "value": "[서술형 4] 그림에서 원 "},
+        {"type": "equation", "value": "O"},
+        {"type": "text", "value": "는 "},
         {"type": "equation", "value": "\\triangle ABC"},
-        {"type": "text", "value": "에서 원 위의 점 D, E, F가 있다. "},
-        {"type": "equation", "value": "\\angle ADB=64°"},
-        {"type": "text", "value": "이고 "},
-        {"type": "equation", "value": "\\angle DFE=118°"},
-        {"type": "text", "value": "일 때, 다음을 구하고 그 과정을 서술하시오. [4점, 부분점수 있음]"},
-        {"type": "figure", "value": "원 O에 내접하는 삼각형 △ABC. 원 위에 점 D, E, F가 있고, ∠ADB=64°, ∠DFE=118° 표시"},
-        {"type": "text", "value": "<조건>  ∠ADF의 크기를 구하시오.  ∠AFD의 크기를 구하시오.  ∠ABC와 ∠DEF의 크기를 각각 구하시오."}
+        {"type": "text", "value": "의 내접원인 동시에 "},
+        {"type": "equation", "value": "\\triangle DEF"},
+        {"type": "text", "value": "의 외접원이다. 세 점 D, E, F는 접점이고, "},
+        {"type": "equation", "value": "\\angle A=54^{\\circ}"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\angle DFE=52^{\\circ}"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\angle ABC"},
+        {"type": "text", "value": "의 크기와 "},
+        {"type": "equation", "value": "\\angle DEF"},
+        {"type": "text", "value": "의 크기의 차를 구하고, 그 과정을 <조건>에 맞게 서술하시오. [8점, 부분점수 있음]"},
+        {"type": "figure", "value": "삼각형 ABC(A는 위쪽 꼭짓점, B는 왼쪽 아래, C는 오른쪽 아래)의 내접원이 중심 O인 원이다. 이 원은 변 AB와 점 D, 변 BC와 점 E, 변 AC와 점 F에서 접한다. 세 접점 D, E, F를 이어 삼각형 DEF가 원에 내접한다. 꼭짓점 A의 각이 54°, 점 F에서의 각 ∠DFE가 52°로 표시되어 있다."},
+        {"type": "text", "value": "<조건> · "},
+        {"type": "equation", "value": "\\angle ADF"},
+        {"type": "text", "value": "와 "},
+        {"type": "equation", "value": "\\angle AFD"},
+        {"type": "text", "value": "의 크기를 각각 적을 것  · "},
+        {"type": "equation", "value": "\\angle BDE"},
+        {"type": "text", "value": "와 "},
+        {"type": "equation", "value": "\\angle BED"},
+        {"type": "text", "value": "의 크기를 각각 적을 것  · "},
+        {"type": "equation", "value": "\\angle ABC"},
+        {"type": "text", "value": "와 "},
+        {"type": "equation", "value": "\\angle DEF"},
+        {"type": "text", "value": "의 크기를 각각 적을 것"}
       ]
     }
   ]

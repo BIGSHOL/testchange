@@ -1,16 +1,16 @@
 {
-  "header": "2024년 2학기 기말고사 압량중 2학년 수학",
+  "header": "평행사변형 ~ 확률",
   "questions": [
     {
       "number": 1,
       "score": 3,
       "contents": [
         {"type": "text", "value": "아래 그림과 같은 평행사변형 ABCD에서 "},
-        {"type": "equation", "value": "\\overline{AB} = 7\\text{cm}"},
+        {"type": "equation", "value": "\\overline{AB}=7cm"},
         {"type": "text", "value": "일 때, "},
-        {"type": "equation", "value": "a + y"},
+        {"type": "equation", "value": "x+y"},
         {"type": "text", "value": "의 값은?"},
-        {"type": "figure", "value": "평행사변형 ABCD. A(왼쪽 위), D(오른쪽 위), C(오른쪽 아래), B(왼쪽 아래). AB = 7cm, 내각 중 하나가 x°, 인접 변이 (x-3)cm로 표시됨."}
+        {"type": "figure", "value": "평행사변형 ABCD. 꼭짓점 A(왼쪽 위), D(오른쪽 위), B(왼쪽 아래), C(오른쪽 아래). 위쪽 변 AD에 y cm, 왼쪽 변 AB에 7 cm, 오른쪽 변 DC에 x cm, 아래쪽 변 BC에 (x+5) cm 표시."}
       ],
       "choices": [
         {"number": 1, "contents": [{"type": "equation", "value": "18"}]},
@@ -24,54 +24,65 @@
       "number": 2,
       "score": 4,
       "contents": [
-        {"type": "text", "value": "다음 사각형 중에서 평행사변형인 것을 모두 고른 것은?"},
-        {"type": "figure", "value": "사각형 세 가지. ㈎: 두 내각이 각각 115°인 사각형 ABCD, BC = 5cm. ㈏: AB∥DC이고 AB = DC(화살표 표시)인 사각형. ㈐: 대각선이 그어진 사각형 ABCD, 한 변이 7cm."}
+        {"type": "text", "value": "다음 사각형 중에서 평행사변형이 __아닌__ 것은?"}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "text", "value": "㈎"}]},
-        {"number": 2, "contents": [{"type": "text", "value": "㈏"}]},
-        {"number": 3, "contents": [{"type": "text", "value": "㈐"}]},
-        {"number": 4, "contents": [{"type": "text", "value": "㈎, ㈏"}]},
-        {"number": 5, "contents": [{"type": "text", "value": "㈏, ㈐"}]}
+        {"number": 1, "contents": [{"type": "figure", "value": "사각형 ABCD에 두 대각선을 그음. 대각선이 이루는 엇각을 위쪽 35°, 아래쪽 35°로, 다른 엇각을 위쪽 50°, 아래쪽 50°로 표시(엇각이 각각 같음)."}]},
+        {"number": 2, "contents": [{"type": "figure", "value": "사각형 ABCD. 위쪽 변과 아래쪽 변이 각각 8 cm, 왼쪽 위 변과 오른쪽 아래 변이 각각 6 cm로 표시(두 쌍의 대변 길이가 각각 같음)."}]},
+        {"number": 3, "contents": [{"type": "figure", "value": "사각형 ABCD. 위쪽 두 내각이 각각 110°, 70°, 왼쪽 아래 내각이 70°로 표시."}]},
+        {"number": 4, "contents": [{"type": "figure", "value": "사각형 ABCD. 위쪽 변과 아래쪽 변이 각각 7 cm, 왼쪽 변과 오른쪽 변이 각각 6 cm로 표시(두 쌍의 대변 길이가 각각 같음)."}]},
+        {"number": 5, "contents": [{"type": "figure", "value": "사각형 ABCD. 위쪽 변 AD가 5 cm, 아래쪽 변 BC가 6 cm, 위쪽 두 내각이 각각 110°, 70°로 표시."}]}
       ]
     },
     {
       "number": 3,
-      "score": 3,
+      "score": 5,
       "contents": [
         {"type": "text", "value": "아래 그림과 같이 "},
-        {"type": "equation", "value": "\\triangle ABC"},
-        {"type": "text", "value": "에서 점 A를 지나고 "},
-        {"type": "equation", "value": "\\overline{BC}"},
-        {"type": "text", "value": "에 평행한 직선이 "},
+        {"type": "equation", "value": "\\square ABCD"},
+        {"type": "text", "value": "의 꼭짓점 D를 지나고 "},
         {"type": "equation", "value": "\\overline{AC}"},
-        {"type": "text", "value": "의 연장선과 만나는 점을 E라 하고 "},
-        {"type": "equation", "value": "\\triangle EBC"},
+        {"type": "text", "value": "에 평행한 직선과 "},
+        {"type": "equation", "value": "\\overline{BC}"},
+        {"type": "text", "value": "의 연장선의 교점을 E, "},
+        {"type": "equation", "value": "\\overline{AE}"},
+        {"type": "text", "value": "와 "},
+        {"type": "equation", "value": "\\overline{DC}"},
+        {"type": "text", "value": "의 교점을 O라 하자. △ABE의 넓이가 "},
+        {"type": "equation", "value": "30cm^{2}"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\square ABCO"},
         {"type": "text", "value": "의 넓이가 "},
-        {"type": "equation", "value": "2\\text{cm}^{2}"},
-        {"type": "text", "value": "일 때, "},
-        {"type": "equation", "value": "\\triangle ABC"},
-        {"type": "text", "value": "의 넓이는?"},
-        {"type": "figure", "value": "삼각형 ABC. A(위), B(왼쪽 아래), C(오른쪽 아래). C 오른쪽 위에 D와 E가 있음. 직선이 A를 지나 E까지 연장됨. 삼각형 내부에 점 O가 있음."}
+        {"type": "equation", "value": "24cm^{2}"},
+        {"type": "text", "value": "일 때, △AOD의 넓이는?"},
+        {"type": "figure", "value": "삼각형 모양 도형. 위쪽에 꼭짓점 D, 그 아래 왼쪽에 A, 내부 교점 O(A·D·O로 이루어진 작은 삼각형 AOD가 빗금으로 칠해짐). 아래 변에 왼쪽부터 B, C, E. AC에 평행한 직선 DE, BC의 연장선 위에 점 E. 평행 표시 화살표."}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "6\\text{cm}^{2}"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "7\\text{cm}^{2}"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "8\\text{cm}^{2}"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "9\\text{cm}^{2}"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "10\\text{cm}^{2}"}]}
+        {"number": 1, "contents": [{"type": "equation", "value": "6cm^{2}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "7cm^{2}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "8cm^{2}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "9cm^{2}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "10cm^{2}"}]}
       ]
     },
     {
       "number": 4,
       "score": 4,
       "contents": [
-        {"type": "text", "value": "아래 그림과 같은 직사각형 "},
-        {"type": "equation", "value": "\\square ABCD"},
-        {"type": "text", "value": "에서 "},
-        {"type": "equation", "value": "x"},
-        {"type": "text", "value": "의 값은?"},
-        {"type": "figure", "value": "직사각형 ABCD. A(왼쪽 위), B(오른쪽 위), C(오른쪽 아래), D(왼쪽 아래). 내부에 사각형 EFGH가 있고(E, F, G, H가 각 변 위에 있음), x°로 표시된 각도가 있음."}
+        {"type": "text", "value": "아래 그림과 같은 직사각형 ABCD에서 "},
+        {"type": "equation", "value": "\\angle ABD"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\angle BDC"},
+        {"type": "text", "value": "의 이등분선이 "},
+        {"type": "equation", "value": "\\overline{AD}"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{BC}"},
+        {"type": "text", "value": "와 만나는 점을 각각 E, F라고 하자. "},
+        {"type": "equation", "value": "\\square EBFD"},
+        {"type": "text", "value": "가 마름모일 때, "},
+        {"type": "equation", "value": "\\angle x"},
+        {"type": "text", "value": "의 크기는?"},
+        {"type": "figure", "value": "직사각형 ABCD. 꼭짓점 A(왼쪽 위), D(오른쪽 위), B(왼쪽 아래), C(오른쪽 아래). 위쪽 변 AD 위에 점 E, 아래쪽 변 BC 위에 점 F. ∠ABD의 이등분선(B에서 점 두 개로 표시)과 ∠BDC의 이등분선(D에서 × 두 개로 표시)을 그어 사각형 EBFD를 만듦. F 부근 내각이 ∠x로 표시."}
       ],
       "choices": [
         {"number": 1, "contents": [{"type": "equation", "value": "60°"}]},

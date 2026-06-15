@@ -5,36 +5,44 @@
       "number": 13,
       "score": 5,
       "contents": [
-        {"type": "text", "value": "그림에서 직선 PQ는 원에 그어진 공통 접선이다. "},
-        {"type": "equation", "value": "\\angle BAT = 60°"},
+        {"type": "text", "value": "그림에서 직선 PQ는 점 T에서 접하는 두 원의 공통인 접선이다. "},
+        {"type": "equation", "value": "\\angle BAT=68\\degree"},
         {"type": "text", "value": ", "},
-        {"type": "equation", "value": "\\angle BCD = 117°"},
+        {"type": "equation", "value": "\\angle BCD=117\\degree"},
         {"type": "text", "value": "일 때, "},
         {"type": "equation", "value": "\\angle DTC"},
         {"type": "text", "value": "의 크기는?"},
-        {"type": "figure", "value": "원에 접선 PQ가 그어지고, 원 위의 점 B, C, D, T 표시. ∠BAT=60°, ∠BCD=117° 표시된 그림."}
+        {"type": "figure", "value": "두 원이 점 T에서 서로 접하고, 두 원의 공통접선인 직선 PQ가 점 T를 지나 세로로 그려져 있다(P는 위, Q는 아래). 위쪽(왼쪽) 원 위에 점 A(왼쪽 위), B, T가 있고 ∠BAT=68°가 표시되어 있다. 아래쪽 원 위에 점 C, D가 있고 ∠BCD=117°가 표시되어 있다. 점 T는 두 원의 접점이다."}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "46°"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "47°"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "48°"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "49°"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "50°"}]}
+        {"number": 1, "contents": [{"type": "equation", "value": "46\\degree"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "47\\degree"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "48\\degree"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "49\\degree"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "50\\degree"}]}
       ]
     },
     {
       "number": 14,
       "score": 5,
       "contents": [
-        {"type": "text", "value": "그림과 같이 직선 EN이 원의 두 현에 접하고 있다. 원 위의 점들의 관계에서 "},
-        {"type": "equation", "value": "\\overline{EU} = \\overline{NM}"},
+        {"type": "text", "value": "그림과 같이 반지름의 길이가 6인 원 O에서 "},
+        {"type": "equation", "value": "\\overline{OM}=\\overline{ON}=3"},
         {"type": "text", "value": ", "},
-        {"type": "equation", "value": "\\angle NOM = 90°"},
-        {"type": "text", "value": "일 때, 원의 넓이는? (단, a, b는 자연수)"},
-        {"type": "figure", "value": "원 O에 여러 점이 있고 직선 EN, ∠NOM=90° 표시된 그림."}
+        {"type": "equation", "value": "\\angle NOM=150\\degree"},
+        {"type": "text", "value": "일 때, 어두운 부분의 넓이는 "},
+        {"type": "equation", "value": "a+b\\pi"},
+        {"type": "text", "value": "이다. "},
+        {"type": "equation", "value": "a^{2}-b"},
+        {"type": "text", "value": "의 값은? (단, "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "는 실수, "},
+        {"type": "equation", "value": "b"},
+        {"type": "text", "value": "는 유리수)"},
+        {"type": "figure", "value": "반지름이 6인 원 O 안에 두 현 CD(위쪽, C는 왼쪽·D는 오른쪽)와 AB(아래쪽, A는 왼쪽 아래·B는 오른쪽)가 그려져 있다. 중심 O에서 현 CD에 내린 수선의 발이 N, 현 AB에 내린 수선의 발이 M이며 ON=3, OM=3이다. ∠NOM=150°가 표시되어 있고, 두 현과 호로 둘러싸인 부분(N·D·B·M 쪽)이 어두운(회색)으로 칠해져 있다."}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "216"}]},
+        {"number": 1, "contents": [{"type": "equation", "value": "210"}]},
         {"number": 2, "contents": [{"type": "equation", "value": "220"}]},
         {"number": 3, "contents": [{"type": "equation", "value": "230"}]},
         {"number": 4, "contents": [{"type": "equation", "value": "240"}]},
@@ -45,18 +53,25 @@
       "number": 15,
       "score": 5,
       "contents": [
-        {"type": "text", "value": "그림에서 삼각형이 반원에 내접하고 있다. 삼각형 모양으로 구성된 각도들이 있고, "},
-        {"type": "equation", "value": "\\angle DBA = 60°"},
-        {"type": "text", "value": ", "},
-        {"type": "equation", "value": "\\angle b = 66°"},
-        {"type": "text", "value": "일 때, 구하는 각도의 크기는?"},
-        {"type": "figure", "value": "반원에 내접하는 삼각형. ∠DBA=60°, b=66° 등 각도 표시된 반원 그림. A, B, C, D 점 표시."}
+        {"type": "text", "value": "그림과 같이 "},
+        {"type": "equation", "value": "\\overline{AB}"},
+        {"type": "text", "value": "를 지름으로 하는 반원 안에 "},
+        {"type": "equation", "value": "\\overline{AC}"},
+        {"type": "text", "value": "를 지름으로 하는 반원을 그렸다. 현 BD는 점 P에서 작은 원에 접하고, 점 P에서 "},
+        {"type": "equation", "value": "\\overline{AB}"},
+        {"type": "text", "value": "에 내린 수선의 발을 H라 하자. "},
+        {"type": "equation", "value": "\\angle DBA=34\\degree"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\angle DHA"},
+        {"type": "text", "value": "의 크기는?"},
+        {"type": "figure", "value": "지름 AB(A는 왼쪽 아래, B는 오른쪽 아래)를 밑변으로 하는 큰 반원 안에, 지름 AC(C는 H와 B 사이의 AB 위의 점)를 밑변으로 하는 작은 반원이 그려져 있다. 현 BD(D는 위쪽 호 위의 점)가 점 P에서 작은 원에 접한다. 점 P에서 AB에 내린 수선의 발이 H이고, ∠DBA=34°가 B에서 표시되어 있다."}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "60°"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "66°"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "68°"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "70°"}]}
+        {"number": 1, "contents": [{"type": "equation", "value": "60\\degree"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "62\\degree"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "64\\degree"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "66\\degree"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "68\\degree"}]}
       ]
     },
     {
@@ -65,13 +80,15 @@
       "label_type": "서술형",
       "contents": [
         {"type": "text", "value": "[서술형 1] 그림의 원에서 "},
-        {"type": "equation", "value": "\\angle BAC = 30°"},
+        {"type": "equation", "value": "\\angle BAC=40\\degree"},
         {"type": "text", "value": ", "},
-        {"type": "equation", "value": "\\angle CAD = 30°"},
+        {"type": "equation", "value": "\\angle CAD=60\\degree"},
         {"type": "text", "value": ", "},
-        {"type": "equation", "value": "\\overline{BC} = 9cm"},
-        {"type": "text", "value": "일 때, 원의 둘레의 길이를 구하고, 그 과정과 이에 사용한 원의 성질을 서술하시오."},
-        {"type": "figure", "value": "원 위의 점 A, B, C, D 표시. ∠BAC=30°, ∠CAD=30°, BC=9cm 표시된 큰 원 그림."}
+        {"type": "equation", "value": "\\overarc{BC}=8cm"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\overarc{CD}"},
+        {"type": "text", "value": "의 길이를 구하고 그 과정과 이때 사용된 원의 성질을 서술하시오."},
+        {"type": "figure", "value": "원 위에 네 점 A(위), B(왼쪽 아래), C(아래), D(오른쪽)가 있다. 점 A에서 B, C, D로 선분을 그어 ∠BAC=40°, ∠CAD=60°가 표시되어 있다. 호 BC=8cm이고 호 CD의 길이를 구한다(호 CD에 화살표 표시)."}
       ]
     }
   ]

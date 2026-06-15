@@ -1,64 +1,87 @@
 {
-  "header": "삼각형의 성질 ~ 확률",
+  "header": "2024년 2학기 기말고사 / 경산중 2학년 수학 / 삼각형의 성질 ~ 확률",
   "questions": [
     {
       "number": 1,
       "score": 4,
       "contents": [
-        {"type": "text", "value": "그림과 같이 AB=AC인 이등변삼각형 ABC에서 BD는 ∠ABC의 이등분선이고, CD는 ∠ACB의 이등분선일 때, 옳은 것을 모두 고르면?"},
-        {"type": "figure", "value": "이등변삼각형 ABC (AB=AC). BD는 ∠ABC의 이등분선, CD는 ∠ACB의 이등분선. E는 AB 위의 점, P는 BD와 CD의 교점."}
+        {"type": "text", "value": "△ABC는 "},
+        {"type": "equation", "value": "\\overline{AB}=\\overline{AC}"},
+        {"type": "text", "value": "인 이등변삼각형, "},
+        {"type": "equation", "value": "\\overline{BD}"},
+        {"type": "text", "value": "는 ∠B의 이등분선, "},
+        {"type": "equation", "value": "\\overline{CE}"},
+        {"type": "text", "value": "는 ∠C의 이등분선이다. 점 P가 "},
+        {"type": "equation", "value": "\\overline{BD}"},
+        {"type": "text", "value": "와 "},
+        {"type": "equation", "value": "\\overline{CE}"},
+        {"type": "text", "value": "의 교점일 때, 옳지 __않은__ 것은?"},
+        {"type": "figure", "value": "이등변삼각형 ABC. 꼭짓점 A가 위, B는 왼쪽 아래, C는 오른쪽 아래. AB 위에 점 E, AC 위에 점 D. BD와 CE가 교차하는 점 P가 내부에 있다. ∠B를 이등분하는 표시(점 두 개)가 B에, ∠C를 이등분하는 표시(× 두 개)가 C에 있다."}
       ],
       "choices": [
         {"number": 1, "contents": [{"type": "equation", "value": "\\overline{PB}=\\overline{PC}"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "\\triangle APB \\equiv \\triangle APC"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "\\angle ABD = \\angle ADB"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "\\triangle ABD \\equiv \\triangle ACD"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "\\angle DBC = \\angle DCB"}]}
+        {"number": 2, "contents": [{"type": "equation", "value": "\\triangle BCE \\equiv \\triangle CBD"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\triangle PEB \\equiv \\triangle PDC"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\triangle ADB \\equiv \\triangle CDB"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\angle ABD = \\frac{1}{2}\\triangle ACB"}]}
       ]
     },
     {
       "number": 2,
       "score": 4,
       "contents": [
-        {"type": "text", "value": "그림과 같이 △ABC에서 M은 BC의 중점이고, BD⊥AM, CE⊥AM일 때, BD=CE임을 증명하려고 한다. 다음 중 두 삼각형이 합동인 경우는?"},
-        {"type": "figure", "value": "삼각형 ABC. M은 BC의 중점(BM=MC=3). AM=9, ME=5. B에서 AM에 수선 BD, C에서 AM에 수선 CE."}
+        {"type": "text", "value": "△ABC에서 점 M은 "},
+        {"type": "equation", "value": "\\overline{BC}"},
+        {"type": "text", "value": "의 중점이고, 두 점 B, C에서 직선 AM에 내린 수선의 발을 각각 점 D, E라 하자. "},
+        {"type": "equation", "value": "\\overline{AM}=9"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{EC}=5"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{ME}=3"},
+        {"type": "text", "value": "일 때, △ABD의 넓이는?"},
+        {"type": "figure", "value": "삼각형 ABC. A가 오른쪽 위, B가 왼쪽, C가 오른쪽. BC의 중점 M. 직선 AM 위에서 C에서 내린 수선의 발 E(직각 표시), B에서 내린 수선의 발 D(직각 표시, 아래쪽). AM=9, EC=5, ME=3. BM과 MC에 같음 표시(이중선). △ABD 영역 음영."}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "\\triangle ABM \\equiv \\triangle ACM"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "\\triangle BDM \\equiv \\triangle CEM"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "\\triangle ABD \\equiv \\triangle ACE"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "\\triangle BDA \\equiv \\triangle CEA"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "\\triangle ABM \\equiv \\triangle CEM"}]}
+        {"number": 1, "contents": [{"type": "equation", "value": "24"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "27"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "30"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "45"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "60"}]}
       ]
     },
     {
       "number": 3,
       "score": 4,
       "contents": [
-        {"type": "text", "value": "그림과 같이 △ABC에 외접원과 내접원이 그려져 있다. 다음 중 옳지 않은 것은?"},
-        {"type": "figure", "value": "삼각형 ABC. 외접원 중심 O, 내접원 중심 I. 두 원 모두 그려진 그림."}
+        {"type": "text", "value": "원 O는 △ABC에 외접하고, 원 I는 △ABC에 내접할 때, 다음 중 옳은 것은? (단, 외심 O, 내심 I)"},
+        {"type": "figure", "value": "삼각형 ABC(A 위, B 왼쪽 아래, C 오른쪽 아래)에 외접하는 큰 원 O와 내접하는 작은 원 I. 내부에 점 I(위), 점 O(아래)가 표시됨."}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "text", "value": "외접원의 중심 O는 세 변의 수직이등분선의 교점이다."}]},
-        {"number": 2, "contents": [{"type": "text", "value": "내접원의 중심 I는 세 내각의 이등분선의 교점이다."}]},
-        {"number": 3, "contents": [{"type": "text", "value": "점 O에서 세 꼭짓점까지의 거리는 모두 같다."}]},
-        {"number": 4, "contents": [{"type": "text", "value": "점 I에서 세 꼭짓점까지의 거리는 모두 같다."}]},
-        {"number": 5, "contents": [{"type": "text", "value": "점 I에서 세 변까지의 거리는 모두 같다."}]}
+        {"number": 1, "contents": [{"type": "text", "value": "점 I는 △ABC의 세 변의 수직이등분선의 교점이다."}]},
+        {"number": 2, "contents": [{"type": "text", "value": "점 O에서 △ABC의 세 변에 이르는 거리는 같다."}]},
+        {"number": 3, "contents": [{"type": "text", "value": "점 O는 △ABC의 세 내각의 이등분선의 교점이다."}]},
+        {"number": 4, "contents": [{"type": "text", "value": "점 O에서 △ABC의 세 꼭짓점에 이르는 거리는 같다."}]},
+        {"number": 5, "contents": [{"type": "text", "value": "점 I는 △ABC의 세 꼭짓점에서 대변에 내린 수선의 교점이다."}]}
       ]
     },
     {
       "number": 4,
       "score": 4,
       "contents": [
-        {"type": "text", "value": "그림과 같이 ∠C=90°인 직각삼각형 ABC에서 외접원의 중심을 O, 내접원의 중심을 I라 하자. 색칠한 부분의 넓이는?"},
-        {"type": "figure", "value": "직각삼각형 ABC (∠C=90°). 외접원 중심 O는 빗변 AB의 중점. 내접원 중심 I. 색칠한 부분은 외접원과 내접원 사이의 영역."}
+        {"type": "equation", "value": "\\overline{AB}=6"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{AC}=10"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{BC}=8"},
+        {"type": "text", "value": "인 직각삼각형 ABC의 외접원과 내접원을 그렸을 때, 색칠한 부분의 넓이는? (단, 외심 O, 내심 I)"},
+        {"type": "figure", "value": "직각삼각형 ABC(A 왼쪽 위, B 왼쪽 아래 직각, C 오른쪽 아래). 빗변 AC를 지름으로 하는 외접원 O(중심 O는 AC 위)와, 삼각형에 내접하는 작은 원 I. 외접원에서 내접원과 삼각형을 제외한 부분이 색칠(음영)되어 있다."}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "text", "value": "(외접원의 넓이) - (△ABC의 넓이) - (내접원의 넓이)"}]},
-        {"number": 2, "contents": [{"type": "text", "value": "(외접원의 넓이) - (△ABC의 넓이) + (내접원의 넓이)"}]},
-        {"number": 3, "contents": [{"type": "text", "value": "(△ABC의 넓이) - (내접원의 넓이)"}]},
-        {"number": 4, "contents": [{"type": "text", "value": "(외접원의 넓이) + (내접원의 넓이) - (△ABC의 넓이)"}]},
-        {"number": 5, "contents": [{"type": "text", "value": "(외접원의 넓이) - (△ABC의 넓이)"}]}
+        {"number": 1, "contents": [{"type": "equation", "value": "21\\pi"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "25\\pi"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "29\\pi"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "42\\pi"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "84\\pi"}]}
       ]
     }
   ]

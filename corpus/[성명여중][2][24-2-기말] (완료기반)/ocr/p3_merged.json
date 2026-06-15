@@ -1,20 +1,20 @@
 {
-  "header": "2024년 2학기 기말고사 성명여중 2학년 수학",
+  "header": "",
   "questions": [
     {
       "number": 9,
       "score": 4,
       "contents": [
         {"type": "text", "value": "그림과 같이 "},
-        {"type": "equation", "value": "\\angle A = 90^{\\circ}"},
+        {"type": "equation", "value": "\\angle A=90"},
         {"type": "text", "value": "인 직각삼각형 ABC의 세 변을 각각 지름으로 하는 반원을 그렸을 때, 색칠한 부분의 넓이가 "},
         {"type": "equation", "value": "96cm^{2}"},
         {"type": "text", "value": "이고, "},
-        {"type": "equation", "value": "\\overline{AB} = 12cm"},
+        {"type": "equation", "value": "\\overline{AB}=12cm"},
         {"type": "text", "value": "이다. 이 때 "},
         {"type": "equation", "value": "\\overline{BC}"},
         {"type": "text", "value": "의 길이는?"},
-        {"type": "figure", "value": "직각삼각형 ABC(∠A=90°)에서 세 변을 각각 지름으로 하는 반원 3개가 그려지고 색칠된 부분이 표시된 그림. AB=12cm가 표시됨."}
+        {"type": "figure", "value": "∠A=90°인 직각삼각형 ABC. 세 변 AB, BC, CA를 각각 지름으로 하는 반원 세 개를 그림. AB=12cm 표시. 색칠한 부분(초승달 모양 등)의 넓이가 96cm²."}
       ],
       "choices": [
         {"number": 1, "contents": [{"type": "equation", "value": "8cm"}]},
@@ -42,7 +42,16 @@
       "number": 11,
       "score": 3,
       "contents": [
-        {"type": "text", "value": "A, B, C, D, E 다섯 학생이 이어달리기를 하려고 한다. 달리는 순서를 정하는 경우의 수는?"}
+        {"type": "equation", "value": "A"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "B"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "C"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "D"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "E"},
+        {"type": "text", "value": " 다섯 학생이 이어달리기를 하려고 한다. 달리는 순서를 정하는 경우의 수는?"}
       ],
       "choices": [
         {"number": 1, "contents": [{"type": "equation", "value": "5"}]},
@@ -64,7 +73,7 @@
         {"type": "equation", "value": "1 \\times 2 \\times 25"},
         {"type": "text", "value": ", "},
         {"type": "equation", "value": "1 \\times 5 \\times 10"},
-        {"type": "text", "value": "과 같이 곱이 같은 순서만 다른 것은 같은 것으로 생각한다.)"}
+        {"type": "text", "value": "와 같이 곱하는 순서만 다른 것은 같은 것으로 생각한다.)"}
       ],
       "choices": [
         {"number": 1, "contents": [{"type": "equation", "value": "6"}]},

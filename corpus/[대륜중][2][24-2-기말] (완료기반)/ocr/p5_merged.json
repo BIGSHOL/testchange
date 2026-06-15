@@ -6,54 +6,58 @@
       "score": 8,
       "label_type": "서술형",
       "contents": [
-        {"type": "text", "value": "그림 (가)와 (나)는 서로 닮음인 두 원뿔이다."},
-        {"type": "figure", "value": "두 원뿔 (가)와 (나)가 나란히 놓여 있음. (가)는 작은 원뿔, (나)는 큰 원뿔."}
+        {"type": "text", "value": "[서술형 1] 물음에 답하시오. (풀이 과정을 구체적으로 서술하시오.) [총 8점]"}
       ],
-      "subquestions": [
+      "sub_questions": [
         {
           "number": 1,
           "score": 4,
           "contents": [
-            {"type": "text", "value": "(가)와 (나)의 닮음비가 3:5이고, (가)의 부피가 "},
-            {"type": "equation", "value": "27\\pi \\text{cm}^{3}"},
-            {"type": "text", "value": "일 때, (나)의 부피를 구하시오. [4점]"}
+            {"type": "text", "value": "두 원뿔 (가), (나)는 서로 닮은 도형이고 밑면의 반지름의 길이의 비가 3:5이다. 원뿔 (나)의 겉넓이가 "},
+            {"type": "equation", "value": "75\\pi cm^{2}"},
+            {"type": "text", "value": "이고 원뿔 (가)의 부피가 "},
+            {"type": "equation", "value": "54\\pi cm^{3}"},
+            {"type": "text", "value": "이다. 닮은 도형의 넓이의 비와 부피의 비를 이용하여 원뿔 (가)의 겉넓이와 원뿔 (나)의 부피를 구하시오. [4점]"},
+            {"type": "figure", "value": "서로 닮은 두 원뿔(원뿔 모양 삼각형으로 그려짐). 왼쪽이 작은 원뿔 (가), 오른쪽이 큰 원뿔 (나). 밑면 반지름의 비가 3:5."}
           ]
         },
         {
           "number": 2,
           "score": 4,
           "contents": [
-            {"type": "text", "value": "△ABC∽△ADE일 때, "},
-            {"type": "equation", "value": "p"},
+            {"type": "text", "value": "△ABC∽△ADB일 때, "},
+            {"type": "equation", "value": "x"},
             {"type": "text", "value": ", "},
-            {"type": "equation", "value": "q"},
-            {"type": "text", "value": "의 값을 각각 구하시오. [4점]"},
-            {"type": "figure", "value": "두 닮음삼각형 ABC와 ADE. 꼭짓점 A가 공통, D는 AB 위의 점, E는 AC 위의 점. AD=4cm, AE=qcm, DE=pcm, AB=12cm, AC=20cm, BC=관련 값 표시."}
+            {"type": "equation", "value": "y"},
+            {"type": "text", "value": "의 값을 구하시오. [4점]"},
+            {"type": "figure", "value": "삼각형 ABC. A가 위, B가 왼쪽 아래, C가 오른쪽 아래. 변 AC 위에 점 D가 있고 선분 BD를 그어 △ADB가 만들어짐. AD=ycm, AB=xcm, BD=10cm, DC=18cm, BC=20cm. △ABC∽△ADB."}
           ]
         }
       ]
     },
     {
       "number": 18,
-      "score": 25,
+      "score": 12,
       "label_type": "서술형",
       "contents": [
-        {"type": "text", "value": "그림과 같이 정육각형 모양의 도형에서 각 꼭짓점에 수가 적혀 있다."},
-        {"type": "figure", "value": "정육각형. 꼭짓점이 P(위), Q(오른쪽 위), R(오른쪽 아래), 아래, 왼쪽 아래, 왼쪽 위 순으로 있음. 각 꼭짓점 또는 변에 숫자 표시. 내부에 대각선 또는 경로 표시."}
+        {"type": "text", "value": "[서술형 2] 한 변의 길이가 1인 정육각형 "},
+        {"type": "equation", "value": "ABCDEF"},
+        {"type": "text", "value": "의 꼭짓점 A에서 출발하여 변을 따라 다른 꼭짓점으로 이동하는 점 P와 꼭짓점 A에서 출발하여 변을 따라 다른 꼭짓점으로 이동하는 점 Q가 있다. 1에서 8까지의 자연수가 적힌 정팔면체 모양의 주사위 한 개를 두 번 던져서 나온 눈의 수의 합만큼 점 P를 시계 반대 방향으로 이동시키고 나온 눈의 수의 곱만큼 점 Q를 시계 방향으로 이동시킨다고 할 때, 다음 물음에 답하시오. (예를 들어 첫 번째 나온 눈의 수와 두 번째 나온 눈의 수가 모두 1이면 두 눈의 수의 합이 2이고 곱이 1이므로 점 P는 꼭짓점 C까지 이동하고 점 Q는 꼭짓점 E까지 이동한다.) (풀이 과정을 구체적으로 서술하시오.) [총 12점]"},
+        {"type": "figure", "value": "한 변의 길이가 1인 정육각형 ABCDEF. A가 왼쪽 위, F가 오른쪽 위(변 AF=1), B가 왼쪽, E가 오른쪽, C가 왼쪽 아래, D가 오른쪽 아래. 꼭짓점 A에서 출발한 점 P는 변 AB를 따라 B쪽(시계 반대 방향)으로, 점 Q는 변 AF를 따라 F·E쪽(시계 방향)으로 이동하는 화살표가 표시되어 있다."}
       ],
-      "subquestions": [
+      "sub_questions": [
         {
           "number": 1,
-          "score": 12,
+          "score": 5,
           "contents": [
-            {"type": "text", "value": "점 P에서 점 Q까지 이동하는 방법이 모두 41가지일 때, 두 수의 합이 짝수가 나오는 경우의 확률을 구하시오. [12점]"}
+            {"type": "text", "value": "점 P가 꼭짓점 E까지 이동하게 될 확률을 구하시오. [5점]"}
           ]
         },
         {
           "number": 2,
-          "score": 13,
+          "score": 7,
           "contents": [
-            {"type": "text", "value": "두 점 P와 Q 사이를 이동하는 방법 중에서 임의로 한 가지를 선택할 때, 이 경로의 확률을 구하시오. [13점]"}
+            {"type": "text", "value": "두 점 P와 Q가 모두 꼭짓점 D까지 이동하게 될 확률을 구하시오. [7점]"}
           ]
         }
       ]

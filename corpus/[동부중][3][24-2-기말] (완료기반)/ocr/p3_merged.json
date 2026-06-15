@@ -1,17 +1,16 @@
 {
-  "header": "2024년 2학기 기말고사 — 동부중 3학년 수학 (p.3)",
+  "header": "",
   "questions": [
     {
       "number": 11,
       "score": 4,
       "contents": [
-        {"type": "text", "value": "어느 중학교 3학년 학생 50명의 수학 시험 점수를 조사한 결과이다. 이 자료의 최빈값은 한 개이고, 분산이 최빈값과 같을 때, "},
+        {"type": "text", "value": "어느 중학교 3학년 학생 10명의 주말 유튜브 시청 시간을 조사한 것이다. 이 자료의 최빈값은 한 개이고, 평균과 최빈값이 같을 때, "},
         {"type": "equation", "value": "x"},
-        {"type": "text", "value": "의 값은?"},
-        {"type": "table", "rows": [
-          ["자료", "1", "2", "3", "4", "5"],
-          ["도수", "4", "7", "x", "8", "3"]
-        ], "value": ""}
+        {"type": "text", "value": "의 값은? [4점]"},
+        {"type": "text", "value": "주말 유튜브 시청 시간 (단위: 시간)"},
+        {"type": "text", "value": "<상자>"},
+        {"type": "equation", "value": "1, 2, 0, 3, 4, 5, 3, x, 5, 4"}
       ],
       "choices": [
         {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
@@ -25,54 +24,59 @@
       "number": 12,
       "score": 4,
       "contents": [
-        {"type": "text", "value": "다음 선택형 문항 중 올바른 것을 모두 고른 것은?"},
-        {"type": "text", "value": "<보기> ㄱ. 분산은 편차의 평균이다.  ㄴ. 편차의 합은 항상 0이다.  ㄷ. 평균과 중앙값은 항상 같다.  ㄹ. 표준편차가 작을수록 자료가 더 고르다."}
+        {"type": "text", "value": "산포도에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고른 것은? [4점]"},
+        {"type": "text", "value": "<보기> ㄱ. 분산은 편차의 평균이다.  ㄴ. 편차의 합은 항상 0이다.  ㄷ. 평균이 클수록 표준편차가 크다.  ㄹ. 평균보다 작은 변량의 편차는 음수이다.  ㅁ. 분산이 클수록 자료의 분포상태는 평균 가까이에 모여 있다."}
       ],
       "choices": [
         {"number": 1, "contents": [{"type": "text", "value": "ㄱ"}]},
-        {"number": 2, "contents": [{"type": "text", "value": "ㄴ, ㄷ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄱ, ㄷ"}]},
         {"number": 3, "contents": [{"type": "text", "value": "ㄴ, ㄹ"}]},
-        {"number": 4, "contents": [{"type": "text", "value": "ㄱ, ㄷ"}]},
-        {"number": 5, "contents": [{"type": "text", "value": "ㄴ, ㄷ, ㄹ"}]}
+        {"number": 4, "contents": [{"type": "text", "value": "ㄱ, ㄷ, ㅁ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄴ, ㄹ, ㅁ"}]}
       ]
     },
     {
       "number": 13,
       "score": 4,
       "contents": [
-        {"type": "text", "value": "다음 자료 5개에 수를 더 추가하여 총 10개의 자료에서 중앙값과 최빈값이 같아지도록 할 때, 추가할 수 있는 자료는?"},
-        {"type": "table", "rows": [
-          ["자료 A", "10", "16", "13", "12", "16"],
-          ["자료 B", "10", "16", "13", "12", "16"]
-        ], "value": ""}
+        {"type": "text", "value": "다음의 두 자료 A, B에서 자료 B는 자료 A의 변량에 각각 5를 더하여 만든 것이다."},
+        {"type": "table", "rows": [["자료 A", "자료 B"], ["11, 9, 5, 8, 7", "16, 14, 10, 13, 12"]], "value": ""},
+        {"type": "text", "value": "두 자료 A, B에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고른 것은? [4점]"},
+        {"type": "text", "value": "<보기> ㄱ. 두 자료 A, B의 평균은 같다.  ㄴ. 두 자료 A, B의 편차는 같다.  ㄷ. 두 자료 A, B의 표준편차는 같다."}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "10,\\ 16,\\ 13,\\ 12"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "10,\\ 13,\\ 14,\\ 12"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "16,\\ 16,\\ 13,\\ 12"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "10,\\ 16,\\ 13,\\ 16,\\ 12"}]}
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄴ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄱ, ㄷ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄴ, ㄷ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄱ, ㄴ, ㄷ"}]}
       ]
     },
     {
       "number": 14,
-      "score": 4,
+      "score": 5,
       "contents": [
-        {"type": "text", "value": "그림과 같이 중심이 O인 원에서 "},
-        {"type": "equation", "value": "\\overline{AB} = 2"},
+        {"type": "text", "value": "그림과 같이 중심이 O인 원이 "},
+        {"type": "equation", "value": "\\overline{AB}=2"},
         {"type": "text", "value": ", "},
-        {"type": "equation", "value": "\\angle OBC = 90°"},
+        {"type": "equation", "value": "\\angle BAC=90°"},
         {"type": "text", "value": ", "},
-        {"type": "equation", "value": "\\angle OAB = 30°"},
-        {"type": "text", "value": "일 때, "},
-        {"type": "equation", "value": "\\overline{OD}"},
-        {"type": "text", "value": "의 길이는?"},
-        {"type": "figure", "value": "중심 O인 원에서 현 AB와 관련 각도 및 점 D가 표시된 그림."}
+        {"type": "equation", "value": "\\angle ABC=60°"},
+        {"type": "text", "value": "인 직각삼각형 ABC의 두 변 "},
+        {"type": "equation", "value": "\\overline{AB}"},
+        {"type": "text", "value": "와 "},
+        {"type": "equation", "value": "\\overline{AC}"},
+        {"type": "text", "value": "의 연장선과 변 "},
+        {"type": "equation", "value": "\\overline{BC}"},
+        {"type": "text", "value": "에 모두 접한다. 이 원의 반지름의 길이는? [5점]"},
+        {"type": "figure", "value": "직각삼각형 ABC. A는 원점, B는 x축 위(A의 오른쪽), C는 y축 위(A의 위쪽), ∠BAC=90°, ∠ABC=60°, AB=2. 중심 O인 원이 변 AB의 연장선(x축 양의 방향)과 변 AC의 연장선(y축 양의 방향), 그리고 변 BC에 모두 접한다(방접원 형태)."}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "3-\\sqrt{5}"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "2\\sqrt{3}"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "\\sqrt{5}+\\sqrt{3}"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "3+\\sqrt{5}"}]}
+        {"number": 1, "contents": [{"type": "equation", "value": "3-\\sqrt{3}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "3+\\sqrt{3}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3+2\\sqrt{3}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "6+\\sqrt{3}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "6+2\\sqrt{3}"}]}
       ]
     }
   ]

@@ -5,72 +5,88 @@
       "number": 9,
       "score": 4,
       "contents": [
-        {"type": "text", "value": "다음 두 조건을 모두 만족시키는 n에 대하여 a의 값은?"},
-        {"type": "text", "value": "<조건>  (가) {7, 5, 7, 11, 15, n}의 중앙값은 11이다.  (나) {2, 5, 11, 17, n}의 분산은 a이다."}
+        {"type": "text", "value": "다음 두 조건을 모두 만족시키는 "},
+        {"type": "equation", "value": "a, b"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "a+b"},
+        {"type": "text", "value": "의 값은?"},
+        {"type": "text", "value": "<상자> (가) 3, 7, 11, 15, "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "의 중앙값은 11이다.  (나) 2, 5, 11, 17, "},
+        {"type": "equation", "value": "a, b"},
+        {"type": "text", "value": "의 중앙값은 10이고, 평균은 "},
+        {"type": "equation", "value": "b+1"},
+        {"type": "text", "value": "이다."}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "22"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "23"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "24"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "25"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "26"}]}
+        {"number": 1, "contents": [{"type": "text", "value": "22"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "23"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "24"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "25"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "26"}]}
       ]
     },
     {
       "number": 10,
       "score": 4,
       "contents": [
-        {"type": "text", "value": "다음은 중학생의 몸무게를 조사하여 나타낸 표이다. 65 kg 이상인 학생의 비율이 a %일 때, a의 값은?"},
-        {"type": "figure", "value": "학생 몸무게 도수분포표 또는 줄기-잎 그림. 65kg 이상 구간 포함"}
+        {"type": "text", "value": "그림에서 "},
+        {"type": "equation", "value": "3\\overarc{AB}=4\\overarc{BC}"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overarc{AC}=2\\overarc{AB}"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\angle A=a^{\\circ}"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\angle B=b^{\\circ}"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\angle C=c^{\\circ}"},
+        {"type": "text", "value": "라고 하자. "},
+        {"type": "equation", "value": "a+b-c"},
+        {"type": "text", "value": "의 값은? (단, "},
+        {"type": "equation", "value": "a, b, c"},
+        {"type": "text", "value": "는 자연수)"},
+        {"type": "figure", "value": "중심 O인 원에 내접하는 삼각형 ABC. 꼭짓점 A는 위쪽, B는 왼쪽 아래, C는 오른쪽 아래에 있다. 세 호 AB, BC, CA에 대해 3·(호 AB)=4·(호 BC), 호 AC=2·(호 AB)의 관계가 주어져 있다."}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "2"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "3"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "4"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "5"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "6"}]}
+        {"number": 1, "contents": [{"type": "text", "value": "76"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "78"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "80"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "82"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "84"}]}
       ]
     },
     {
       "number": 11,
       "score": 4,
       "contents": [
-        {"type": "text", "value": "그림에서 원 O에 내접하는 "},
-        {"type": "equation", "value": "\\triangle ABC"},
-        {"type": "text", "value": "에서 "},
-        {"type": "equation", "value": "3\\overline{AB}=4\\overline{BC}"},
-        {"type": "text", "value": ", "},
-        {"type": "equation", "value": "\\overline{AC}=3\\overline{AB}"},
-        {"type": "text", "value": "일 때, "},
-        {"type": "equation", "value": "\\angle A=a°"},
-        {"type": "text", "value": ", "},
-        {"type": "equation", "value": "\\angle B=b°"},
-        {"type": "text", "value": ", "},
-        {"type": "equation", "value": "\\angle C=c°"},
-        {"type": "text", "value": "라 하자. a+b+c의 값은?"},
-        {"type": "figure", "value": "원에 내접하는 삼각형 ABC. 각 꼭짓점에서 호의 길이 비율이 3:4:3으로 주어짐"}
+        {"type": "text", "value": "졸업사진을 함께 촬영하는 모둠 5명의 몸무게의 평균은 55kg, 중앙값은 54kg이었다. 그 중 몸무게가 63kg으로 가장 많이 나가는 경일이가 촬영을 위해 다이어트를 하여 촬영 당일 모둠 5명의 평균이 1kg 작아졌다. 그러나 여전히 경일이가 가장 몸무게가 많이 나간다고 할 때, 촬영 당일 경일이의 몸무게를 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "kg, 5명의 중앙값을 "},
+        {"type": "equation", "value": "b"},
+        {"type": "text", "value": "kg이라 하자. "},
+        {"type": "equation", "value": "a-b"},
+        {"type": "text", "value": "의 값은? (단, 경일이를 제외한 다른 학생들의 몸무게 변화는 없음.)"}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "76"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "78"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "80"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "82"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "84"}]}
+        {"number": 1, "contents": [{"type": "text", "value": "2"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "3"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "4"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "5"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "6"}]}
       ]
     },
     {
       "number": 12,
       "score": 4,
       "contents": [
-        {"type": "text", "value": "두 변량 A, B에 대한 다음 표를 보고 물음에 답하시오."},
-        {"type": "table", "rows": [["", "A", "B"], ["평균", "34", "40"], ["분산", "19", "45"]], "value": ""},
-        {"type": "text", "value": "A의 표준편차는?"}
+        {"type": "text", "value": "A, B 두 반의 성적이 다음과 같을 때, 두 반 학생 30명 모두에 대한 성적의 표준편차는?"},
+        {"type": "table", "rows": [["반", "학생수(명)", "평균", "표준편차"], ["A", "18", "85", "\\sqrt{10}"], ["B", "12", "85", "\\sqrt{15}"]], "value": ""}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "\\sqrt{3}"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "\\sqrt{2}"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "3\\sqrt{2}"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "\\sqrt{19}"}]},
+        {"number": 1, "contents": [{"type": "equation", "value": "2\\sqrt{3}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\sqrt{14}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "3\\sqrt{2}"}]},
         {"number": 5, "contents": [{"type": "equation", "value": "2\\sqrt{5}"}]}
       ]
     }

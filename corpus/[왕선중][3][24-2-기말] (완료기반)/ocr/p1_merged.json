@@ -1,127 +1,98 @@
 {
-  "header": "",
+  "header": "삼각비 ~ 원의 성질",
   "questions": [
     {
       "number": 1,
       "score": 3,
       "contents": [
-        {"type": "text", "value": "그림과 같이 ∠C=90°인 직각삼각형 ABC에서 "},
-        {"type": "equation", "value": "\\overline{BC}=1"},
+        {"type": "text", "value": "그림과 같이 "},
+        {"type": "equation", "value": "\\angle C = 90^{\\circ}"},
+        {"type": "text", "value": "인 직각삼각형 ABC에서 "},
+        {"type": "equation", "value": "\\overline{AC}=1"},
         {"type": "text", "value": ", "},
-        {"type": "equation", "value": "\\overline{AC}=2"},
-        {"type": "text", "value": "일 때, 삼각비의 값으로 옳은 것은?"},
-        {"type": "figure", "value": "직각삼각형 ABC. ∠C=90°. B는 위쪽 꼭짓점, A는 오른쪽, C는 직각 꼭짓점. BC=1, AC=2 표시."}
+        {"type": "equation", "value": "\\overline{BC}=2"},
+        {"type": "text", "value": "일 때, 삼각비의 값으로 옳지 __않은__ 것은?"},
+        {"type": "figure", "value": "직각삼각형 ABC. 꼭짓점 A는 위, B는 왼쪽 아래, C는 오른쪽 아래(직각 표시). 변 AC=1(오른쪽 짧은 변), 변 BC=2(아래 빗변 표시)."}
       ],
       "choices": [
-        {
-          "number": 1,
-          "contents": [{"type": "equation", "value": "\\sin B = \\frac{2\\sqrt{5}}{5}"}]
-        },
-        {
-          "number": 2,
-          "contents": [{"type": "equation", "value": "\\cos B = \\frac{\\sqrt{5}}{5}"}]
-        },
-        {
-          "number": 3,
-          "contents": [{"type": "equation", "value": "\\cos B = \\frac{2\\sqrt{5}}{5}"}]
-        },
-        {
-          "number": 4,
-          "contents": [{"type": "equation", "value": "\\tan A = \\frac{1}{2}"}]
-        },
-        {
-          "number": 5,
-          "contents": [{"type": "equation", "value": "\\sin C = 1"}]
-        }
+        {"number": 1, "contents": [{"type": "equation", "value": "\\sin A = \\frac{2\\sqrt{5}}{5}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\cos A = \\frac{\\sqrt{5}}{5}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\cos B = \\frac{2\\sqrt{5}}{5}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\tan A = \\frac{1}{2}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\sin C = 1"}]}
       ]
     },
     {
       "number": 2,
-      "score": 5,
+      "score": 3,
       "contents": [
-        {"type": "text", "value": "그림과 같이 이등변삼각형 ABC에서 삼각비의 값을 구하시오."},
-        {"type": "figure", "value": "이등변삼각형 ABC. 꼭짓점 B는 위쪽, A와 C는 아래 좌우. 두 등변에 수치 표시됨."}
+        {"type": "text", "value": "그림과 같이 "},
+        {"type": "equation", "value": "\\angle C = 90^{\\circ}"},
+        {"type": "text", "value": "인 "},
+        {"type": "equation", "value": "\\triangle ABC"},
+        {"type": "text", "value": "에서 "},
+        {"type": "equation", "value": "\\overline{AB}=2\\sqrt{3}"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\angle ABC = 30^{\\circ}"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\angle ADC = 45^{\\circ}"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\overline{BD}"},
+        {"type": "text", "value": "의 길이는?"},
+        {"type": "figure", "value": "삼각형. 꼭짓점 A는 오른쪽 위, B는 왼쪽 아래, 아래 변 위에 D와 C가 차례로 있고 C는 직각. 빗변 AB=2√3, ∠ABC=30°, ∠ADC=45°, AC는 C에서 수직."}
       ],
       "choices": [
-        {
-          "number": 1,
-          "contents": [{"type": "equation", "value": "\\frac{7\\sqrt{5}}{5}"}]
-        },
-        {
-          "number": 2,
-          "contents": [{"type": "equation", "value": "\\frac{7\\sqrt{5}}{11}"}]
-        },
-        {
-          "number": 3,
-          "contents": [{"type": "equation", "value": "\\frac{5\\sqrt{5}}{11}"}]
-        },
-        {
-          "number": 4,
-          "contents": [{"type": "equation", "value": "\\frac{5\\sqrt{5}}{5}"}]
-        }
+        {"number": 1, "contents": [{"type": "equation", "value": "2-\\sqrt{3}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\sqrt{6}-2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3-\\sqrt{6}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "3-\\sqrt{3}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "2\\sqrt{3}-2"}]}
       ]
     },
     {
       "number": 3,
-      "score": 3,
+      "score": 4,
       "contents": [
-        {"type": "text", "value": "그림과 같이 ∠C=90°인 직각삼각형에서 △ABC∽△CBD이고, "},
-        {"type": "equation", "value": "\\overline{AB}=2\\sqrt{6}"},
-        {"type": "text", "value": ", ∠ABC=45°일 때, △CBD의 넓이는?"},
-        {"type": "figure", "value": "직각삼각형 ABC에서 ∠ACB=90°. 점 D가 BC 위에 있고 △CBD∽△ABC. AB=2√6, ∠ABC=45° 표시."}
+        {"type": "text", "value": "그림과 같이 반지름의 길이가 1인 사분원에서 "},
+        {"type": "equation", "value": "\\overline{AB}=a"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{OB}=b"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{CD}=c"},
+        {"type": "text", "value": "라고 할 때, "},
+        {"type": "equation", "value": "(\\sin x - \\cos x)(\\cos y + \\sin y) - \\frac{\\tan x}{\\tan z}"},
+        {"type": "text", "value": "를 간단히 하면?"},
+        {"type": "figure", "value": "반지름 1인 사분원. 중심 O, 점 B는 아래쪽 반지름 위, 점 A는 호 위(현 위), 점 C와 D는 오른쪽. 각 x, y, z 표시. AB=a, OB=b, CD=c. 점선 호가 그려진 사분원."}
       ],
       "choices": [
-        {
-          "number": 1,
-          "contents": [{"type": "equation", "value": "2-\\sqrt{6}"}]
-        },
-        {
-          "number": 2,
-          "contents": [{"type": "equation", "value": "\\sqrt{6}-2"}]
-        },
-        {
-          "number": 3,
-          "contents": [{"type": "equation", "value": "4\\sqrt{6}-2"}]
-        },
-        {
-          "number": 4,
-          "contents": [{"type": "equation", "value": "3-\\sqrt{6}"}]
-        },
-        {
-          "number": 5,
-          "contents": [{"type": "equation", "value": "2\\sqrt{6}-2"}]
-        }
+        {"number": 1, "contents": [{"type": "equation", "value": "a^{2}-b^{2}-1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-a^{2}+b^{2}-c^{2}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "a^{2}-b^{2}-c^{2}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "a^{2}-b^{2}-\\frac{1}{c^{2}}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "-a^{2}+b^{2}-\\frac{1}{c^{2}}"}]}
       ]
     },
     {
       "number": 4,
-      "score": 5,
+      "score": 4,
       "contents": [
-        {"type": "text", "value": "다음 식 가, 나를 이용하여 "},
-        {"type": "equation", "value": "abc"},
-        {"type": "text", "value": "의 값은?"},
-        {"type": "text", "value": "<상자> 가  "},
-        {"type": "equation", "value": "\\sin^2 30° + \\cos^2 45° = a"},
-        {"type": "text", "value": "  나  "},
-        {"type": "equation", "value": "(\\sin 90° + \\cos 60°) \\times (1 - \\tan^2 45°) = bc"}
+        {"type": "text", "value": "두 식 (가), (나)를 간단히 하였을 때, "},
+        {"type": "equation", "value": "abcd"},
+        {"type": "text", "value": "의 값은? (단, "},
+        {"type": "equation", "value": "a, b, c, d"},
+        {"type": "text", "value": "는 유리수이다.)"},
+        {"type": "text", "value": "<상자>"},
+        {"type": "text", "value": "(가) "},
+        {"type": "equation", "value": "\\sin 0^{\\circ} - \\tan 30^{\\circ} \\times \\sin 60^{\\circ} + \\cos 45^{\\circ} = a + \\frac{\\sqrt{2}}{b}"},
+        {"type": "text", "value": "(나) "},
+        {"type": "equation", "value": "(\\cos 90^{\\circ} + \\sin 30^{\\circ}) \\div (1 - \\tan 60^{\\circ}) = c + \\frac{\\sqrt{3}}{d}"}
       ],
       "choices": [
-        {
-          "number": 1,
-          "contents": [{"type": "equation", "value": "-4"}]
-        },
-        {
-          "number": 2,
-          "contents": [{"type": "equation", "value": "-1"}]
-        },
-        {
-          "number": 3,
-          "contents": [{"type": "equation", "value": "1"}]
-        },
-        {
-          "number": 4,
-          "contents": [{"type": "equation", "value": "2"}]
-        }
+        {"number": 1, "contents": [{"type": "equation", "value": "-4"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "2"}]}
       ]
     }
   ]

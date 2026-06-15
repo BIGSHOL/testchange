@@ -5,15 +5,19 @@
       "number": 5,
       "score": 3,
       "contents": [
-        {"type": "text", "value": "그림에서 직선 AT가 원 O의 접선이고 점 A가 접점일 때, x의 값은?"},
-        {"type": "figure", "value": "원 O에서 직선 AT가 점 A에서 접선. 원 위에 점 B, C가 있고, ∠CAT=27°, 접선과 현이 이루는 각 x° 표시"}
+        {"type": "text", "value": "그림에서 직선 AT가 원 "},
+        {"type": "equation", "value": "O"},
+        {"type": "text", "value": "의 접선이고 점 A가 접점일 때, "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "의 값은?"},
+        {"type": "figure", "value": "중심 O인 원에서 직선 AT가 점 A에서 원에 접한다. 원 위에 점 B, C가 있고 B, O, C를 잇는 지름이 그어져 있다. 점 C에서 현 CA와 지름 사이의 각이 27°로 표시되어 있고, 접선 AT와 현 AC가 이루는 각이 x°로 표시되어 있다."}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "63"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "64"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "65"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "66"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "67"}]}
+        {"number": 1, "contents": [{"type": "text", "value": "63"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "64"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "65"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "66"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "67"}]}
       ]
     },
     {
@@ -35,8 +39,8 @@
       "number": 7,
       "score": 4,
       "contents": [
-        {"type": "text", "value": "그림은 경일이네 학교 학생들의 몸무게와 키를 조사하여 나타낸 산점도이다. 다음 중 옳지 않은 것은?"},
-        {"type": "figure", "value": "키(cm)를 y축, 몸무게(kg)를 x축으로 하는 산점도. 점 A, B, C, D가 표시되어 있고 양의 상관관계를 나타냄. A는 왼쪽 위, C는 오른쪽 위, B는 중간, D는 오른쪽 아래 방향에 위치"}
+        {"type": "text", "value": "그림은 경일이네 학교 학생들의 몸무게와 키를 조사하여 나타낸 산점도이다. 다음 중 옳지 __않은__ 것은?"},
+        {"type": "figure", "value": "가로축은 몸무게(kg), 세로축은 키(cm)인 산점도. 점들이 오른쪽 위로 올라가는 양의 상관관계를 보이며 추세선이 그려져 있다. 점 A는 왼쪽 위(추세선 위쪽), 점 C는 오른쪽 위, 점 B는 가운데, 점 D는 오른쪽 아래(추세선 아래쪽)에 위치한다."}
       ],
       "choices": [
         {"number": 1, "contents": [{"type": "text", "value": "A는 D보다 키가 크다."}]},
@@ -50,7 +54,11 @@
       "number": 8,
       "score": 4,
       "contents": [
-        {"type": "text", "value": "자료 'a, b, c'의 평균이 8이고 분산은 4일 때, '6, a, b, c, 10'의 분산은?"}
+        {"type": "text", "value": "자료 ‘"},
+        {"type": "equation", "value": "a, b, c"},
+        {"type": "text", "value": "’의 평균이 8이고 분산이 4일 때, ‘"},
+        {"type": "equation", "value": "6, a, b, c, 10"},
+        {"type": "text", "value": "’의 분산은?"}
       ],
       "choices": [
         {"number": 1, "contents": [{"type": "equation", "value": "2"}]},

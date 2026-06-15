@@ -20,17 +20,11 @@
       "score": 4,
       "contents": [
         {"type": "text", "value": "세 수 "},
-        {"type": "equation", "value": "A"},
-        {"type": "text", "value": ", "},
-        {"type": "equation", "value": "B"},
-        {"type": "text", "value": ", "},
-        {"type": "equation", "value": "C"},
-        {"type": "text", "value": "의 평균이 6일 때, 세 수 "},
-        {"type": "equation", "value": "3A"},
-        {"type": "text", "value": ", "},
-        {"type": "equation", "value": "3B"},
-        {"type": "text", "value": ", "},
-        {"type": "equation", "value": "3C"},
+        {"type": "equation", "value": "A, B, C"},
+        {"type": "text", "value": "의 평균이 "},
+        {"type": "equation", "value": "6"},
+        {"type": "text", "value": "일 때, 세 수 "},
+        {"type": "equation", "value": "3A, 3B, 3C"},
         {"type": "text", "value": "의 평균은?"}
       ],
       "choices": [
@@ -46,17 +40,19 @@
       "score": 4,
       "contents": [
         {"type": "text", "value": "두 자연수 "},
-        {"type": "equation", "value": "a"},
-        {"type": "text", "value": ", "},
-        {"type": "equation", "value": "b"},
+        {"type": "equation", "value": "a, b"},
         {"type": "text", "value": "에 대하여 자료 "},
         {"type": "equation", "value": "1, 3, a, b, 7"},
-        {"type": "text", "value": "의 중앙값이 5이고, 자료 "},
+        {"type": "text", "value": "의 중앙값이 "},
+        {"type": "equation", "value": "5"},
+        {"type": "text", "value": "이고, 자료 "},
         {"type": "equation", "value": "6, a, b, 12"},
-        {"type": "text", "value": "의 중앙값이 8일 때, "},
+        {"type": "text", "value": "의 중앙값이 "},
+        {"type": "equation", "value": "8"},
+        {"type": "text", "value": "일 때, "},
         {"type": "equation", "value": "a+b"},
         {"type": "text", "value": "의 값은? (단, "},
-        {"type": "equation", "value": "a < b"},
+        {"type": "equation", "value": "a<b"},
         {"type": "text", "value": ")"}
       ],
       "choices": [
@@ -71,7 +67,9 @@
       "number": 10,
       "score": 4,
       "contents": [
-        {"type": "text", "value": "다음 학생 8명의 한 달 동안 독서량을 나타낸 것이다. 이 자료의 평균을 "},
+        {"type": "text", "value": "다음은 학생 "},
+        {"type": "equation", "value": "8"},
+        {"type": "text", "value": "명의 한 달 동안 독서량을 나타낸 것이다. 이 자료의 평균을 "},
         {"type": "equation", "value": "a"},
         {"type": "text", "value": "권, 중앙값을 "},
         {"type": "equation", "value": "b"},
@@ -80,10 +78,8 @@
         {"type": "text", "value": "권이라 할 때, "},
         {"type": "equation", "value": "a+b+c"},
         {"type": "text", "value": "의 값은?"},
-        {"type": "table", "rows": [
-          ["독서량", "", "", "", "", "", "", "", "(단위: 권)"],
-          ["7", "3", "11", "2", "4", "6", "1", "6", ""]
-        ], "value": ""}
+        {"type": "text", "value": "독서량                              (단위: 권)"},
+        {"type": "equation", "value": "7 \\quad 3 \\quad 11 \\quad 2 \\quad 4 \\quad 6 \\quad 1 \\quad 6"}
       ],
       "choices": [
         {"number": 1, "contents": [{"type": "equation", "value": "11"}]},
@@ -97,10 +93,14 @@
       "number": 11,
       "score": 4,
       "contents": [
-        {"type": "text", "value": "주어진 5개 자료의 평균이 9일 때, 분산은? (단, "},
+        {"type": "text", "value": "주어진 "},
+        {"type": "equation", "value": "5"},
+        {"type": "text", "value": "개 자료의 평균이 "},
+        {"type": "equation", "value": "9"},
+        {"type": "text", "value": "일 때, 분산은? (단, "},
         {"type": "equation", "value": "x"},
         {"type": "text", "value": "는 자연수)"},
-        {"type": "table", "rows": [["11", "16", "5", "7", "x"]], "value": ""}
+        {"type": "equation", "value": "11 \\quad 16 \\quad 5 \\quad 7 \\quad x"}
       ],
       "choices": [
         {"number": 1, "contents": [{"type": "equation", "value": "16.2"}]},

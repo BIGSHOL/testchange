@@ -1,126 +1,122 @@
 {
-  "header": "2024년 2학기 기말고사 성명여중 2학년 수학",
+  "header": "",
   "questions": [
     {
       "number": 20,
-      "score": 4,
+      "score": 7,
       "label_type": "서술형",
       "contents": [
-        {"type": "text", "value": "[서술형 2] 그림과 같이 평행사변형 ABCD에서 두 꼭짓점 M, N은 각각 변 AB, 변 CD의 중점이고, DC의 연장선 위의 점 P와 MN의 연장선의 교점이 Q이다. [총 4점]"},
-        {"type": "figure", "value": "평행사변형 ABCD에서 M은 변 AB의 중점, N은 변 CD의 중점, DC의 연장선과 MN의 연장선의 교점 Q가 표시된 그림."}
+        {"type": "text", "value": "[서술형 2] 그림과 같이 평행사변형 ABCD에서 두 변 "},
+        {"type": "equation", "value": "BC"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "DC"},
+        {"type": "text", "value": "의 중점을 각각 M, N이라 하고, 대각선 "},
+        {"type": "equation", "value": "\\overline{AM}"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{AN}"},
+        {"type": "text", "value": "의 교점을 각각 P, Q라고 할 때, 물음에 답하시오."},
+        {"type": "figure", "value": "평행사변형 ABCD. 변 BC의 중점 M, 변 DC의 중점 N. 대각선 BD가 선분 AM과 만나는 점 P, 선분 AN과 만나는 점 Q. (그림에서 A 좌상, D 우상, B 좌하, C 우하, M은 BC 위, N은 DC 위, P는 AM과 BD 교점, Q는 AN과 BD 교점)"}
       ],
       "sub_questions": [
-        {
-          "number": 1,
-          "score": 2,
-          "contents": [
-            {"type": "text", "value": "(1) BD=10cm일 때, PQ의 길이를 구하시오. [2점]"}
-          ]
-        },
-        {
-          "number": 2,
-          "score": 2,
-          "contents": [
-            {"type": "text", "value": "(2) "},
-            {"type": "equation", "value": "\\square AMNC"},
-            {"type": "text", "value": "의 넓이가 "},
-            {"type": "equation", "value": "8cm^{2}"},
-            {"type": "text", "value": "일 때, "},
-            {"type": "equation", "value": "\\triangle AMS"},
-            {"type": "text", "value": "의 넓이를 구하시오. [2점]"}
-          ]
-        }
+        {"number": 1, "score": 3, "contents": [
+          {"type": "equation", "value": "\\overline{BD}=18cm"},
+          {"type": "text", "value": "일 때, "},
+          {"type": "equation", "value": "\\overline{PQ}"},
+          {"type": "text", "value": "의 길이를 구하시오."}
+        ]},
+        {"number": 2, "score": 4, "contents": [
+          {"type": "equation", "value": "\\triangle NMC"},
+          {"type": "text", "value": "의 넓이가 "},
+          {"type": "equation", "value": "8cm^{2}"},
+          {"type": "text", "value": "일 때, "},
+          {"type": "equation", "value": "\\triangle AMN"},
+          {"type": "text", "value": "의 넓이를 구하시오."}
+        ]}
       ]
     },
     {
       "number": 21,
-      "score": 4,
+      "score": 6,
       "label_type": "서술형",
       "contents": [
-        {"type": "text", "value": "[서술형 3] 그림과 같이 직각삼각형에서 각 꼭짓점으로부터의 거리를 구하시오. [총 4점]"},
-        {"type": "figure", "value": "삼각형 또는 직육면체 모양의 도형에서 꼭짓점 A, B, C, D, G, Q 등이 표시되고 12cm, 16cm 등의 수치가 나타난 그림."}
+        {"type": "text", "value": "[서술형 3] 그림은 가로, 세로의 길이가 각각 16, 12인 직사각형 모양의 종이 ABCD를 대각선 "},
+        {"type": "equation", "value": "BD"},
+        {"type": "text", "value": "를 접는 선으로 하여 접은 것이다. 물음에 답하시오."},
+        {"type": "figure", "value": "직사각형 ABCD(가로 AB=16, 세로 BC=12). 대각선 BD를 접는 선으로 하여 접음. 접힌 결과 꼭짓점 C가 점 E 위치로 이동. 변 AD와 접힌 변(BE)의 교점 P, BC와 만나는 점 Q. (A 좌상, D 우상, B 좌하, C 우하, P는 위쪽 교점, Q는 BC 위, E는 아래)"}
       ],
       "sub_questions": [
-        {
-          "number": 1,
-          "score": 2,
-          "contents": [
-            {"type": "text", "value": "(1) "},
-            {"type": "equation", "value": "\\overline{BD}"},
-            {"type": "text", "value": "의 길이를 구하시오. [2점]"}
-          ]
-        },
-        {
-          "number": 2,
-          "score": 2,
-          "contents": [
-            {"type": "text", "value": "(2) "},
-            {"type": "equation", "value": "\\overline{QC}"},
-            {"type": "text", "value": "의 길이를 구하시오. [2점]"}
-          ]
-        }
+        {"number": 1, "score": 2, "contents": [
+          {"type": "equation", "value": "\\overline{BD}"},
+          {"type": "text", "value": "의 길이를 구하시오."}
+        ]},
+        {"number": 2, "score": 4, "contents": [
+          {"type": "equation", "value": "\\overline{QC}"},
+          {"type": "text", "value": "의 길이를 구하시오."}
+        ]}
       ]
     },
     {
       "number": 22,
-      "score": 12,
+      "score": 6,
       "label_type": "서술형",
       "contents": [
-        {"type": "text", "value": "[서술형 4] 1부터 4까지의 자연수가 적힌 카드 4장과 1부터 6까지의 자연수가 적힌 카드 6장이 있을 때, 각 종류에서 한 장씩 뽑는 경우에 대하여 답하시오. [총 12점]"}
+        {"type": "text", "value": "[서술형 4] 두 개의 주사위 "},
+        {"type": "equation", "value": "A"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "B"},
+        {"type": "text", "value": "를 동시에 던질 때, "},
+        {"type": "equation", "value": "A"},
+        {"type": "text", "value": " 주사위에서 나오는 눈의 수를 "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "B"},
+        {"type": "text", "value": " 주사위에서 나오는 눈의 수를 "},
+        {"type": "equation", "value": "y"},
+        {"type": "text", "value": "라고 하자. 이 때 물음에 답하시오."}
       ],
       "sub_questions": [
-        {
-          "number": 1,
-          "score": 4,
-          "contents": [
-            {"type": "text", "value": "(1) 모든 경우의 수를 구하시오. [4점]"}
-          ]
-        },
-        {
-          "number": 2,
-          "score": 4,
-          "contents": [
-            {"type": "text", "value": "(2) 두 수의 합이 특정 조건을 만족하는 경우의 수를 구하시오. [4점]"}
-          ]
-        },
-        {
-          "number": 3,
-          "score": 4,
-          "contents": [
-            {"type": "text", "value": "(3) 두 수의 합이 주어진 조건을 만족하는 확률을 구하시오. [4점]"}
-          ]
-        }
+        {"number": 1, "score": 1, "contents": [
+          {"type": "text", "value": "두 개의 주사위 "},
+          {"type": "equation", "value": "A"},
+          {"type": "text", "value": ", "},
+          {"type": "equation", "value": "B"},
+          {"type": "text", "value": "를 동시에 던질 때, 일어날 수 있는 모든 경우의 수를 구하시오."}
+        ]},
+        {"number": 2, "score": 3, "contents": [
+          {"type": "equation", "value": "x+4y<10"},
+          {"type": "text", "value": "이 되는 경우를 순서쌍으로 나타내고, 경우의 수를 구하시오."}
+        ]},
+        {"number": 3, "score": 2, "contents": [
+          {"type": "equation", "value": "x+4y<10"},
+          {"type": "text", "value": "이 될 확률을 구하시오."}
+        ]}
       ]
     },
     {
       "number": 23,
-      "score": 11,
+      "score": 8,
       "label_type": "서술형",
       "contents": [
-        {"type": "text", "value": "[서술형 5] A, B 두 사람이 번갈아 가며 게임을 할 때, 각 사람이 이기는 확률에 대해 답하시오. [총 11점]"}
+        {"type": "text", "value": "[서술형 5] 두 학생 "},
+        {"type": "equation", "value": "A"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "B"},
+        {"type": "text", "value": "가 주사위 던지기 놀이를 한다고 할 때, 주사위 한 개를 "},
+        {"type": "equation", "value": "A"},
+        {"type": "text", "value": "가 먼저 던지고, 서로 교대로 한 번씩 던지기로 하였다. 4보다 큰 수의 눈이 먼저 나오는 사람이 이기는 것으로 한다. 물음에 답하시오."}
       ],
       "sub_questions": [
-        {
-          "number": 1,
-          "score": 3,
-          "contents": [
-            {"type": "text", "value": "(1) 이 사건에 대하여 각각의 확률을 구하시오. [3점]"}
-          ]
-        },
-        {
-          "number": 2,
-          "score": 4,
-          "contents": [
-            {"type": "text", "value": "(2) A가 첫 번째에서 이길 확률을 구하시오. [4점]"}
-          ]
-        },
-        {
-          "number": 3,
-          "score": 4,
-          "contents": [
-            {"type": "text", "value": "(3) A가 두 번째에 이길 확률을 구하시오. [4점]"}
-          ]
-        }
+        {"number": 1, "score": 2, "contents": [
+          {"type": "equation", "value": "A"},
+          {"type": "text", "value": "가 네 번째 이내에 이길 수 있는 모든 사건을 말하시오."}
+        ]},
+        {"number": 2, "score": 4, "contents": [
+          {"type": "text", "value": "(1)에서 구한 사건에 대하여 각각의 확률을 구하시오."}
+        ]},
+        {"number": 3, "score": 2, "contents": [
+          {"type": "equation", "value": "A"},
+          {"type": "text", "value": "가 네 번재 이내에 이길 확률을 구하시오."}
+        ]}
       ]
     }
   ]

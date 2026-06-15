@@ -1,17 +1,24 @@
 {
+  "header": "",
   "questions": [
     {
       "number": 5,
-      "score": 4,
+      "score": 3,
       "contents": [
-        {"type": "text", "value": "그림과 같은 평행사변형 ABCD에서 x+y의 값은?"},
-        {"type": "figure", "value": "평행사변형 ABCD. AB=3x-2, CD=10, ∠D=80°, ∠C=y°."}
+        {"type": "text", "value": "평행사변형 ABCD에서 "},
+        {"type": "equation", "value": "\\overline{CD}=10"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\angle D=80°"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "x+y"},
+        {"type": "text", "value": "의 값은?"},
+        {"type": "figure", "value": "평행사변형 ABCD. A 왼쪽 위, D 오른쪽 위, B 왼쪽 아래, C 오른쪽 아래. ∠D=80°, 오른쪽 변 CD=10. 왼쪽 변 AB에 (3x-2) 표기. 점 C의 내각이 y°로 표시(음영)."}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "96"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "98"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "100"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "102"}]},
+        {"number": 1, "contents": [{"type": "equation", "value": "76"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "84"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "96"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "100"}]},
         {"number": 5, "contents": [{"type": "equation", "value": "104"}]}
       ]
     },
@@ -19,45 +26,69 @@
       "number": 6,
       "score": 4,
       "contents": [
-        {"type": "text", "value": "그림과 같은 평행사변형 ABCD에서 두 대각선의 교점을 O라 할 때, 다음 중 옳지 않은 것은?"},
-        {"type": "figure", "value": "평행사변형 ABCD. 두 대각선 AC, BD의 교점 O. AO=CO, BO=DO (눈금 표시)."}
+        {"type": "text", "value": "□ABCD의 두 대각선의 교점을 O라 할 때, ‘"},
+        {"type": "equation", "value": "\\overline{AO}=\\overline{CO}"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{BO}=\\overline{DO}"},
+        {"type": "text", "value": "이면 □ABCD는 평행사변형이다.’를 설명하는 과정이다. □ 안에 들어갈 것으로 옳지 __않은__ 것은?"},
+        {"type": "figure", "value": "평행사변형 ABCD와 두 대각선 AC, BD. A 왼쪽 위, D 오른쪽 위, B 왼쪽 아래, C 오른쪽 아래. 대각선 교점 O를 중심으로 AO=CO(같음 표시), BO=DO(같음 표시)."},
+        {"type": "text", "value": "△AOD와 △COB에서 "},
+        {"type": "equation", "value": "\\overline{AO}="},
+        {"type": "text", "value": "①, "},
+        {"type": "equation", "value": "\\overline{BO}="},
+        {"type": "text", "value": "②, ∠AOD = ③ 이므로 △AOD ≡ △COB (SAS합동) 따라서 ∠CAD = ④ 이므로 ⑤ …… ㉠ 위와 같은 방법으로 △AOB와 △COD에서 "},
+        {"type": "equation", "value": "\\overline{AB} \\parallel \\overline{DC}"},
+        {"type": "text", "value": " …… ㉡ ㉠, ㉡에 의해 □ABCD는 평행사변형이다."}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "\\overline{AO}=\\overline{CO}"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "\\overline{BO}=\\overline{DO}"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "\\triangle AOB \\equiv \\triangle COD"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "\\overline{AC}=\\overline{BD}"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "\\triangle ABO \\equiv \\triangle ADO"}]}
+        {"number": 1, "contents": [{"type": "equation", "value": "\\overline{CO}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\overline{DO}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\angle COB"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\angle ACD"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\overline{AD} \\parallel \\overline{BC}"}]}
       ]
     },
     {
       "number": 7,
-      "score": 4,
+      "score": 3,
       "contents": [
-        {"type": "text", "value": "그림과 같이 마름모 ABCD에서 ∠A=x°이고, 직사각형 ABCD에서 대각선의 교점에서 ∠y°가 이루어질 때, x+y의 값은?"},
-        {"type": "figure", "value": "마름모 ABCD (∠A=x°, ∠C=30°). 직사각형 ABCD (대각선 교점에서 한 각=y°, ∠C=40°)."}
+        {"type": "equation", "value": "x-y+z"},
+        {"type": "text", "value": "의 값은?"},
+        {"type": "text", "value": "(가) 마름모 ABCD"},
+        {"type": "figure", "value": "마름모 ABCD. A 위, B 왼쪽, C 오른쪽, D 아래. 꼭짓점 A의 내각이 x°(음영), 점 C에서 대각선 CA와 변 CD 사이의 각이 30°(음영)으로 표시."},
+        {"type": "text", "value": "(나) 직사각형 ABCD (단, 점 O는 "},
+        {"type": "equation", "value": "\\overline{AC}"},
+        {"type": "text", "value": "와 "},
+        {"type": "equation", "value": "\\overline{BD}"},
+        {"type": "text", "value": "의 교점)"},
+        {"type": "figure", "value": "직사각형 ABCD. A 왼쪽 위, D 오른쪽 위, B 왼쪽 아래, C 오른쪽 아래. 두 대각선 AC, BD가 교점 O에서 만남. 교점에서 왼쪽 각이 y°(음영), 점 C에서 대각선 CA와 변 BC 사이의 각이 40°(음영)으로 표시."},
+        {"type": "text", "value": "(다) "},
+        {"type": "equation", "value": "\\overline{AD} \\parallel \\overline{BC}"},
+        {"type": "text", "value": "인 등변사다리꼴 ABCD (단, 점 H는 점 A에서 "},
+        {"type": "equation", "value": "\\overline{BC}"},
+        {"type": "text", "value": "에 내린 수선의 발)"},
+        {"type": "figure", "value": "등변사다리꼴 ABCD (AD∥BC). A 왼쪽 위, D 오른쪽 위, 윗변 AD=6cm. B 왼쪽 아래, C 오른쪽 아래, 아랫변 BC=16cm. 점 A에서 BC에 내린 수선의 발 H(직각 표시). 왼쪽 빗변 AB = z cm."}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "170"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "180"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "190"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "200"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "210"}]}
+        {"number": 1, "contents": [{"type": "equation", "value": "35"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "45"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "50"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "85"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "120"}]}
       ]
     },
     {
       "number": 8,
       "score": 4,
       "contents": [
-        {"type": "text", "value": "그림과 같은 등변사다리꼴 ABCD에서 AD=6cm, BC=16cm일 때, 빗변의 길이 z의 값은?"},
-        {"type": "figure", "value": "등변사다리꼴 ABCD. AD=6cm, BC=16cm. AH⊥BC. 빗변 AB=z cm."}
+        {"type": "text", "value": "사각형의 성질 중 옳지 __않은__ 것은?"}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "7"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "8"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "9"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "10"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "13"}]}
+        {"number": 1, "contents": [{"type": "text", "value": "두 대각선의 길이가 같은 마름모는 정사각형이다."}]},
+        {"number": 2, "contents": [{"type": "text", "value": "두 대각선이 서로 수직인 평행사변형은 마름모이다."}]},
+        {"number": 3, "contents": [{"type": "text", "value": "두 대각선이 서로 수직인 직사각형은 정사각형이다."}]},
+        {"number": 4, "contents": [{"type": "text", "value": "한 내각의 크기가 90°인 평행사변형은 직사각형이다."}]},
+        {"number": 5, "contents": [{"type": "text", "value": "이웃하는 두 변의 길이가 같은 평행사변형은 정사각형이다."}]}
       ]
     }
   ]

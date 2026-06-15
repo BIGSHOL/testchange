@@ -5,34 +5,48 @@
       "number": 7,
       "score": 5,
       "contents": [
-        {"type": "text", "value": "그림과 같은 원뿔 모양의 용기에 일정한 속도로 물을 채우고 있다. 21초가 되었을 때, 기존의 두께의 몇 배가 될지 구하시오."},
-        {"type": "figure", "value": "역삼각형(원뿔) 모양의 용기 그림. 위가 넓고 아래가 좁은 원뿔 모양 용기에 물이 채워지는 상황을 나타냄."}
+        {"type": "text", "value": "그림과 같은 원뿔 모양의 그릇에 일정한 속도로 물을 채우고 있다. 물을 전체 높이의 "},
+        {"type": "equation", "value": "\\frac{2}{5}"},
+        {"type": "text", "value": "만큼 채우는데 24초가 걸렸다면, 가득 채울 때까지 걸리는 시간은? (단, 그릇의 두께는 고려하지 않는다.)"},
+        {"type": "figure", "value": "꼭짓점이 아래를 향한 원뿔 모양의 그릇. 아래쪽 일부에 물이 채워져 색칠되어 있다."}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "text", "value": "1분 12초"}]},
+        {"number": 1, "contents": [{"type": "text", "value": "5분 12초"}]},
         {"number": 2, "contents": [{"type": "text", "value": "5분 24초"}]},
-        {"number": 3, "contents": [{"type": "text", "value": "4분 26초"}]},
-        {"number": 4, "contents": [{"type": "text", "value": "4분 28초"}]}
+        {"number": 3, "contents": [{"type": "text", "value": "5분 51초"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "6분 20초"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "6분 24초"}]}
       ]
     },
     {
       "number": 8,
-      "score": 4,
+      "score": 5,
       "contents": [
-        {"type": "text", "value": "그림과 같이 △ABC에서 "},
-        {"type": "equation", "value": "\\overline{AB} = 5"},
-        {"type": "text", "value": "cm, "},
-        {"type": "equation", "value": "\\overline{BE} = 4"},
-        {"type": "text", "value": "cm, "},
-        {"type": "equation", "value": "\\overline{AE} = 3"},
-        {"type": "text", "value": "cm, △AEF와 △ABC의 넓이의 비는?"},
-        {"type": "figure", "value": "△ABC에 점 E, F가 표시되어 있고 삼각형이 겹치는 구조의 그림."}
+        {"type": "text", "value": "그림과 같은 "},
+        {"type": "equation", "value": "\\triangle ABC"},
+        {"type": "text", "value": "에서 "},
+        {"type": "equation", "value": "\\overline{DB}=3\\overline{AD}"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{AE}=4\\overline{EC}"},
+        {"type": "text", "value": "이다. "},
+        {"type": "equation", "value": "\\overline{BE}"},
+        {"type": "text", "value": "와 "},
+        {"type": "equation", "value": "\\overline{CD}"},
+        {"type": "text", "value": "의 교점을 F라 하고 "},
+        {"type": "equation", "value": "\\triangle EFC"},
+        {"type": "text", "value": "의 넓이가 "},
+        {"type": "equation", "value": "2cm^{2}"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\triangle FBC"},
+        {"type": "text", "value": "의 넓이는?"},
+        {"type": "figure", "value": "삼각형 ABC. 위 꼭짓점 A, 왼쪽 아래 B, 오른쪽 아래 C. 변 AB 위에 점 D(A에 가까운 쪽), 변 AC 위에 점 E(C에 가까운 쪽). BE와 CD의 교점 F는 BC 근처에 있다. 삼각형 FBC 부분이 색칠되어 있다."}
       ],
       "choices": [
         {"number": 1, "contents": [{"type": "equation", "value": "20cm^{2}"}]},
         {"number": 2, "contents": [{"type": "equation", "value": "30cm^{2}"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "45cm^{2}"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "60cm^{2}"}]}
+        {"number": 3, "contents": [{"type": "equation", "value": "35cm^{2}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "40cm^{2}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "45cm^{2}"}]}
       ]
     },
     {
@@ -40,66 +54,76 @@
       "score": 4,
       "contents": [
         {"type": "text", "value": "그림에서 "},
-        {"type": "equation", "value": "\\overline{OA} = \\overline{OB} = \\overline{OC} = \\overline{OD} = \\overline{OE} = \\overline{OK}"},
+        {"type": "equation", "value": "\\overline{OA}=\\overline{AB}=\\overline{BC}=\\overline{CD}=\\overline{DE}"},
+        {"type": "text", "value": "이고 "},
+        {"type": "equation", "value": "\\overline{OE}^{2}=80cm^{2}"},
         {"type": "text", "value": "일 때, "},
-        {"type": "equation", "value": "\\overline{OK}"},
-        {"type": "text", "value": "의 값은?"},
-        {"type": "figure", "value": "중심 O에서 꼭짓점 A, B, C, D, E, F까지의 거리가 같은 별 모양(오각형 또는 육각형) 그림. 여러 선분이 중심에서 각 꼭짓점으로 연결되어 있음."}
+        {"type": "equation", "value": "\\overline{OA}"},
+        {"type": "text", "value": "의 길이는?"},
+        {"type": "figure", "value": "점 O에서 시작하는 직각삼각형들이 부채꼴 모양으로 이어진 그림. O에서 A로, OA에 수직으로 AB(=OA), 다시 직각으로 BC, CD, DE가 차례로 이어진다. OA=AB=BC=CD=DE이고 각 직각에 직각표시가 있다. OA 부분(A에서 O)에 x로 표시. 점 순서는 A(왼쪽 아래), B, C, D(위쪽), E(오른쪽), O(아래 중앙)."}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "3cm"}]},
+        {"number": 1, "contents": [{"type": "equation", "value": "2cm"}]},
         {"number": 2, "contents": [{"type": "equation", "value": "4cm"}]},
         {"number": 3, "contents": [{"type": "equation", "value": "8cm"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "16cm"}]}
+        {"number": 4, "contents": [{"type": "equation", "value": "16cm"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "32cm"}]}
       ]
     },
     {
       "number": 10,
       "score": 4,
       "contents": [
-        {"type": "text", "value": "그림과 같이 반지름이 12인 원과 관련된 길이를 구하시오."},
-        {"type": "figure", "value": "원(구)의 단면에 수평선이 그어져 있는 그림. 원의 반지름이 12로 표시되어 있고, 원을 가로지르는 직선이 있음."}
+        {"type": "text", "value": "그림과 같이 가로의 길이가 12, 세로의 길이가 5인 직사각형 ABCD의 각 변을 지름으로 하는 네 반원과 직사각형 ABCD의 대각선을 지름으로 하는 원을 그렸다. 색칠한 부분의 넓이는?"},
+        {"type": "figure", "value": "직사각형 ABCD(꼭짓점 A 위, B 왼쪽, D 오른쪽, C 아래). 가로 12, 세로 5. 대각선 BD를 지름으로 하는 원과, 각 변을 지름으로 하는 네 개의 반원이 그려져 있다. 반원과 원이 겹치지 않는 초승달 모양 네 부분이 색칠되어 있다."}
       ],
       "choices": [
         {"number": 1, "contents": [{"type": "equation", "value": "30"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{x}{30}"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "60"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{60}{x}"}]}
+        {"number": 2, "contents": [{"type": "equation", "value": "30\\pi"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{169}{4}\\pi"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "60"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "60\\pi"}]}
       ]
     },
     {
       "number": 11,
-      "score": 4,
+      "score": 3,
       "contents": [
         {"type": "text", "value": "그림과 같이 "},
-        {"type": "equation", "value": "\\angle A = 90^\\circ"},
-        {"type": "text", "value": "인 △ABC에서 변의 길이가 주어진 경우 나머지 변의 길이는?"},
-        {"type": "figure", "value": "직각삼각형 ABC에서 ∠A=90°이고 각 변에 값이 표시되어 있음."}
+        {"type": "equation", "value": "\\angle A=90^{\\circ}"},
+        {"type": "text", "value": "인 직각삼각형 ABC에서 "},
+        {"type": "equation", "value": "\\overline{BC}^{2}"},
+        {"type": "text", "value": "의 값은?"},
+        {"type": "figure", "value": "∠A=90°인 직각삼각형 ABC(위 꼭짓점 A에 직각표시, 왼쪽 아래 B, 오른쪽 아래 C). 변 AB 위에 점 D, 변 AC 위에 점 E가 있고 DE=2. D에서 C로, B에서 E로 선분을 그어 만나며, DC=4, BE=3으로 표시되어 있다."}
       ],
       "choices": [
         {"number": 1, "contents": [{"type": "equation", "value": "11"}]},
         {"number": 2, "contents": [{"type": "equation", "value": "17"}]},
         {"number": 3, "contents": [{"type": "equation", "value": "21"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "25"}]}
+        {"number": 4, "contents": [{"type": "equation", "value": "25"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "27"}]}
       ]
     },
     {
       "number": 12,
       "score": 4,
       "contents": [
-        {"type": "text", "value": "그림과 같이 두 정삼각형의 꼭짓점을 포함하는 구조에서 "},
-        {"type": "equation", "value": "\\overline{OA} = \\overline{OB} = \\overline{OC} = \\overline{OD} = \\overline{OE}"},
-        {"type": "text", "value": "일 때, "},
-        {"type": "equation", "value": "\\overline{BF}"},
-        {"type": "text", "value": "의 값은?"},
-        {"type": "figure", "value": "꼭짓점 A, B, C, D, E가 원 위에 있고 중심 O에서 각 점으로 선분이 그어진 그림. 내부에 F 등이 있음."}
+        {"type": "text", "value": "두 개의 정육면체 모양의 주사위 A, B를 동시에 던져서 나오는 눈의 수를 각각 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "b"},
+        {"type": "text", "value": "라고 할 때, "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "에 대한 방정식 "},
+        {"type": "equation", "value": "ax-b=0"},
+        {"type": "text", "value": "의 해가 2 또는 3이 되는 경우의 수는?"}
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "3cm"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "4cm"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "8cm"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "16cm"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "32cm"}]}
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
       ]
     }
   ]
