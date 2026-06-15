@@ -529,6 +529,14 @@ def _check_jung2_2sem_fixes(fails):
     # 평행기호 ⫽ 리터럴(세로 ││ 금지)
     if "⫽" not in l2h(r"\overline{DE} \parallel \overline{BC}", italicize_stat=False):
         fails.append(f"  J2S 평행 ⫽ 미적용: {l2h(chr(92)+'overline{DE} '+chr(92)+'parallel '+chr(92)+'overline{BC}', italicize_stat=False)!r}")
+    # #1 ① 평행관계 + 등식 쉼표 나열 — 쉼표가 스푸리어스로 드롭되며 BC·AD 붙던 것
+    # (_has_toplevel_relation 에 \parallel 누락). 관계+관계는 쉼표 보존(개별 수식).
+    from core.content_parser import _parse_content_block
+    r1 = _parse_content_block({"type": "equation",
+        "value": r"\overline{AD} \parallel \overline{BC},\ \overline{AD}=\overline{BC}=6cm"})
+    r1 = r1 if isinstance(r1, list) else [r1]
+    if not any(b.type.name == "TEXT" and "," in (b.value or "") for b in r1):
+        fails.append(f"  J2S 평행+등식 쉼표 드롭: {[(b.type.name, b.value) for b in r1]!r}")
 
 
 # SH1·SH2 (강동고·강북고 수하 23-2-기말 완료기반, 2026-06-14): 조합/순열 좌측첨자·집합 괄호.

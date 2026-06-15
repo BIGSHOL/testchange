@@ -840,9 +840,14 @@ def _has_toplevel_relation(p: str) -> bool:
     # \to(사상 화살표)·:(함수 정의 콜론)도 관계로 — 함수 선언 ``f:X \to Y, g:Y \to Z`` 의
     # 쉼표가 스푸리어스(곱셈 잡음)로 오판돼 공백으로 뭉개지며 ``X \to Y g`` 로 붙던 것
     # (경상고 수하 #12, 2026-06-14). 화살표/콜론 든 항목은 명백히 곱셈 조각이 아니다.
+    # 기하 관계(\parallel·\perp·합동 \equiv·닮음 \sim·∽)도 관계로 — ``\overline{AD} \parallel
+    # \overline{BC}, \overline{AD}=…`` 처럼 평행 관계 + 등식 나열의 쉼표가 스푸리어스로 오판돼
+    # 드롭되며 ``BC AD`` 가 붙던 것(강북중 중2 #1 ①, 2026-06-15). 평행/수직/합동 든 항목은
+    # 곱셈 조각이 아니라 완결된 관계식이다.
     return bool(re.search(
         r"=|<|>|\\le\b|\\leq\b|\\ge\b|\\geq\b|\\neq\b|\\ne\b|\\in\b"
-        r"|\\to\b|\\mapsto\b|→|:|≤|≥|≠", s))
+        r"|\\to\b|\\mapsto\b|\\parallel\b|\\perp\b|\\equiv\b|\\sim\b|\\cong\b"
+        r"|→|:|≤|≥|≠|∥|⊥|∽|≡|⫽", s))
 
 
 def _split_at_top_level_commas(s: str) -> list[str]:
