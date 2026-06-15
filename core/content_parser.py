@@ -258,7 +258,13 @@ def _parse_content_block(block_data: dict) -> ContentBlock | None:
     # 표(table) 블록 처리
     if content_type == ContentType.TABLE:
         rows = block_data.get("rows", [])
-        return ContentBlock(type=ContentType.TABLE, value=value, rows=rows)
+        # 방어: OCR 이 행 데이터를 rows 대신 value 에 넣은 경우(2026-06-15 경산중 Q19
+        # 보기 박스 — value=[[...],[...]]) value(list)→rows 로 강등하고 value 비운다.
+        # 안 그러면 후속 _merge_paren_range 등이 (b.value or "").strip() 에서 크래시.
+        if not rows and isinstance(value, list):
+            rows = value
+            value = ""
+        return ContentBlock(type=ContentType.TABLE, value=value if isinstance(value, str) else "", rows=rows)
 
     # LaTeX \(...\)·\[...\] 구분자를 $...$로 정규화(OCR이 $ 대신 \( \)로 줄 때 대비).
     if content_type == ContentType.TEXT:
@@ -586,6 +592,9 @@ def _merge_paren_range(blocks: list[ContentBlock]) -> list[ContentBlock]:
     eq_types = (ContentType.EQUATION, ContentType.EQUATION_BLOCK)
     out: list[ContentBlock] = []
     for b in blocks:
+        if not isinstance(b.value, str):   # table 등 비-문자 value 방어(2026-06-15)
+            out.append(b)
+            continue
         v = (b.value or "").strip()
         if (b.type == ContentType.EQUATION
                 and _PAREN_RANGE_RE.match(v) and "=" in v

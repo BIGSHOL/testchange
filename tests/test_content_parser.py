@@ -539,6 +539,35 @@ def _check_jung2_2sem_fixes(fails):
         fails.append(f"  J2S 평행+등식 쉼표 드롭: {[(b.type.name, b.value) for b in r1]!r}")
 
 
+def _check_table_value_list(fails):
+    """T2S(경산중 중2 #19): OCR 이 표 행을 rows 가 아니라 value 에 list 로 넣은 경우
+    (value=[[...],[...]]) — 파서가 (b.value or "").strip() 에서 크래시하던 것.
+    table value=list → rows 강등 + value 비움. _merge_paren_range 도 비-문자 value 방어."""
+    from core.content_parser import parse_ocr_response
+    q = {"number": 19, "score": 4, "contents": [
+        {"type": "text", "value": "옳은 것을 모두 고르면?"},
+        {"type": "table", "value": [["ㄱ. AE=AH", "ㄴ. EF=EH"],
+                                    ["ㄷ. EH∥FG", "ㄹ. 둘레 = AC+BD"]]},
+    ], "choices": [{"number": 1, "contents": [{"type": "text", "value": "ㄱ"}]}]}
+    try:
+        page = parse_ocr_response({"header": "", "questions": [q]}, 1)
+    except Exception as e:   # noqa: BLE001
+        fails.append(f"  T2S table value=list 파싱 크래시: {e!r}")
+        return
+    tbl = [b for b in page.questions[0].contents if b.type.name == "TABLE"]
+    if not tbl:
+        fails.append("  T2S table 블록 소실")
+    elif not tbl[0].rows or tbl[0].value not in ("", None):
+        fails.append(f"  T2S table value→rows 강등 실패: value={tbl[0].value!r} rows={tbl[0].rows!r}")
+    # 정상 table(rows 에 데이터)은 무변경
+    q2 = {"number": 1, "score": 5, "contents": [
+        {"type": "table", "value": "", "rows": [["x", "1"], ["y", "2"]]}], "choices": []}
+    page2 = parse_ocr_response({"header": "", "questions": [q2]}, 1)
+    t2 = [b for b in page2.questions[0].contents if b.type.name == "TABLE"]
+    if not t2 or t2[0].rows != [["x", "1"], ["y", "2"]]:
+        fails.append(f"  T2S 정상 table 무회귀 실패: {t2[0].rows if t2 else None!r}")
+
+
 # SH1·SH2 (강동고·강북고 수하 23-2-기말 완료기반, 2026-06-14): 조합/순열 좌측첨자·집합 괄호.
 def _check_suha_fixes(fails):
     from core.content_parser import _split_latex_commands
@@ -677,6 +706,7 @@ def run():
     _check_dasa_fixes(fails)
     _check_daegeon_go1_fixes(fails)
     _check_jung2_2sem_fixes(fails)
+    _check_table_value_list(fails)
     _check_suha_fixes(fails)
     # HH1(혜화여고 #19): 베이스 없는 선행 첨자(조합 _{n-1}C)는 HWP 가 빈 렌더 — {} 베이스 삽입.
     from core.latex_to_hwpeq import latex_to_hwpeq as _l2h_hh
