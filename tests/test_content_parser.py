@@ -531,10 +531,10 @@ def _check_jung2_2sem_fixes(fails):
         fails.append(f"  J2S 평행 ⫽ 미적용: {l2h(chr(92)+'overline{DE} '+chr(92)+'parallel '+chr(92)+'overline{BC}', italicize_stat=False)!r}")
     # #1 ① 평행관계 + 등식 쉼표 나열 — 쉼표가 스푸리어스로 드롭되며 BC·AD 붙던 것
     # (_has_toplevel_relation 에 \parallel 누락). 관계+관계는 쉼표 보존(개별 수식).
-    from core.content_parser import _parse_content_block
-    r1 = _parse_content_block({"type": "equation",
-        "value": r"\overline{AD} \parallel \overline{BC},\ \overline{AD}=\overline{BC}=6cm"})
-    r1 = r1 if isinstance(r1, list) else [r1]
+    from core.content_parser import _split_comma_equations
+    from models.exam_document import ContentBlock as _CB3, ContentType as _CT3
+    r1 = _split_comma_equations([_CB3(type=_CT3.EQUATION,
+        value=r"\overline{AD} \parallel \overline{BC},\ \overline{AD}=\overline{BC}=6cm")])
     if not any(b.type.name == "TEXT" and "," in (b.value or "") for b in r1):
         fails.append(f"  J2S 평행+등식 쉼표 드롭: {[(b.type.name, b.value) for b in r1]!r}")
 
