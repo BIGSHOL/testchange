@@ -103,8 +103,12 @@ def lint_xml(hwpx_path: str) -> list[tuple[str, str]]:
     if not secs:
         return [(FAIL, f"[xml] {hwpx_path}: section XML 없음")]
     full = "".join(z.read(n).decode("utf-8") for n in secs)
+    # ⚠️ 메타토큰·라벨 검사는 **태그 제거 후**(연속 문자열) 한다 — COM 저장이 토큰/라벨을
+    # 여러 <hp:t> run 으로 비결정 쪼개면(효성중 B-1·대진고 문서화) raw 연속 count 가 0 이 돼
+    # **오염 렌더가 PASS** 하던 게이트 우회(적대리뷰 A-4). 배점중복 검사와 동일 방식.
+    stripped = re.sub(r"<[^>]+>", "", full)
     for tok in _META_TOKENS:
-        c = full.count(tok)
+        c = stripped.count(tok)
         if c:
             issues.append((FAIL, f"[xml] 메타란 토큰 평문 노출: {tok} ×{c}"))
     for t in re.findall(r"<hp:t[^>]*>([^<]*)</hp:t>", full):
@@ -115,11 +119,15 @@ def lint_xml(hwpx_path: str) -> list[tuple[str, str]]:
     for j in _LONE_JAMO_RE.findall(full):
         issues.append((FAIL, f"[xml] 단독 자모 런(타이핑 혼입 의심 — 재렌더): {j!r}"))
     # 서술형·단답형 혼합은 정상(문항별 유형). 서답형/서술형 철자 혼용만 동기화 실패 신호(FAIL).
-    labels = set(re.findall(r"\[\s*(서술형|서답형|단답형)", full))
+    labels = set(re.findall(r"\[\s*(서술형|서답형|단답형)", stripped))
     if {"서답형", "서술형"} <= labels:
         issues.append((FAIL, f"[xml] 서답형/서술형 철자 혼용(동기화 실패): {labels}"))
-    if "정답" not in full:
-        issues.append((FAIL, "[xml] '정답' 블록 없음(정답 페이지 증발 가능)"))
+    # '정답' 페이지 증발 검사 — 꼬리말 "(정답)" 은 정답 페이지가 증발해도 **항상 남아** 단어
+    # 존재만 보면 무력하다(적대리뷰 A-4). 꼬리말 패턴을 먼저 지우고, 정답 **container**(텍스트
+    # '정답' 이 그 안에 있음, CLAUDE.md) 의 본문 '정답' 이 남아야 통과로 본다.
+    answer_probe = stripped.replace("(정답)", "")
+    if "정답" not in answer_probe:
+        issues.append((FAIL, "[xml] '정답' 블록 없음(정답 페이지 증발 가능 — 꼬리말 제외)"))
     for m in _DUP_SCORE_RE.finditer(re.sub(r"<[^>]+>", "", full)):
         issues.append((FAIL, f"[xml] 배점 중복: {m.group(0)!r}"))
     return issues

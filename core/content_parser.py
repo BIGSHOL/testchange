@@ -100,15 +100,25 @@ def _parse_question(q_data: dict) -> Question:
     box_head_i = next((i for i, bd in enumerate(raw_contents)
                        if bd.get("type") == "text"
                        and _RAW_BOX_MARK_RE.search(bd.get("value", ""))), len(raw_contents))
+    box_end = _raw_box_end(raw_contents)
+    # 배점 캡처·제거 대상 = 박스 **밖** raw 블록 = 박스 머리 전(pre) + 박스 뒤 발문연속(post).
+    # 박스 내용(머리~끝)은 채점기준 [1점][3점] 등 보호(새론중). **post 끝 [N점] 도 반드시
+    # 캡처** — 안 하면 _finalize→_strip_score_text 가 지워 배점이 캡처 없이 완전 소실되던
+    # 결함(적대리뷰 A-5, 장산중 D4 "박스→발문연속 끝 [N점]" 표준 위치). "캡처 없이 소실 금지".
+    _score_idxs = list(range(box_head_i))
+    if box_end is not None:
+        _score_idxs += list(range(box_end, len(raw_contents)))
     if not question.score:
-        for bd in raw_contents[:box_head_i]:
+        for i in _score_idxs:
+            bd = raw_contents[i]
             if bd.get("type") == "text":
                 m = re.search(r'[\[(]\s*(?:총\s*)?(\d+(?:\.\d+)?)\s*점\s*(?:,[^\])]*)?[\])]', bd.get("value", ""))
                 if m:
                     v = float(m.group(1))
                     question.score = int(v) if v.is_integer() else v
                     break
-    for bd in raw_contents[:box_head_i]:
+    for i in _score_idxs:
+        bd = raw_contents[i]
         if bd.get("type") == "text" and bd.get("value"):
             bd["value"] = _SCORE_TEXT_RE.sub(' ', bd["value"])
 
@@ -116,7 +126,6 @@ def _parse_question(q_data: dict) -> Question:
     # **raw 경계**에서 [발문+박스]와 [박스 뒤 발문 연속]을 나눠 따로 파이프라인을 돌리고
     # 박스 블록에 box_member 태그를 단다. 인라인 수식 분리 후엔 박스 경계가 사라지므로
     # (박스 항목 수식이 발문 수식과 구별 불가) raw 단계에서 잡아야 한다.
-    box_end = _raw_box_end(raw_contents)
     if box_end is not None:
         head = _finalize_contents(_parse_raw_blocks(raw_contents[:box_end]))
         post = _finalize_contents(_parse_raw_blocks(raw_contents[box_end:]))
@@ -355,9 +364,25 @@ _GEOMETRY_KEYWORDS = (
 )
 
 
+# 단일음절 키워드 "점"·"호" 가 **부분문자열**로 비기하 단어에 박혀 오판되던 것 차단(적대리뷰
+# A-6): "점수·관점·장점·단점·배점·채점·만점" 의 점, "기호·괄호·번호·신호·부호·보호" 의 호 등.
+# 키워드 검사 **전** 이 디코이들을 지워 잔여로만 판정한다. (초점·교점 등 진짜 기하어는 미등재
+# → 그대로 "점" 으로 매칭됨. 확통·대수 X·E 가 로만으로 잔존하던 광역 스타일 오염의 근원.)
+_NONGEO_DECOY = (
+    "점수", "관점", "장점", "단점", "요점", "배점", "채점", "만점", "평점", "득점", "감점",
+    "기호", "괄호", "번호", "신호", "부호", "보호", "호선", "호출", "구호", "칭호", "호수",
+)
+
+
 def _has_geometry_context(blocks: list[ContentBlock]) -> bool:
-    """blocks 안 어느 텍스트/수식에든 엄격 기하 키워드가 있으면 True."""
+    """blocks 안 어느 텍스트/수식에든 엄격 기하 키워드가 있으면 True.
+
+    "점수"·"기호"·"번호" 같은 비기하 단어가 "점"·"호" 부분문자열로 오판되지 않게, 디코이를
+    먼저 제거하고 잔여 텍스트로 판정한다(적대리뷰 A-6).
+    """
     text = " ".join(str(b.value or "") for b in blocks)
+    for decoy in _NONGEO_DECOY:
+        text = text.replace(decoy, "")
     return any(k in text for k in _GEOMETRY_KEYWORDS)
 
 

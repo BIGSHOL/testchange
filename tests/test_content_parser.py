@@ -552,6 +552,62 @@ def _check_suha_fixes(fails):
         fails.append(f"  SH6 백슬래시 평문 leak: {tx6!r}")
 
 
+def _check_adversarial_high(fails, _l2h):
+    """적대적 리뷰(2026-06-13) HIGH 수정 회귀.
+
+    A-1 대형연산자 하한이 빈그룹 첨자로 깨지던 회귀 / A-2 그리스·함수 명령 공백 미보장 /
+    \\not 의미 반전 / A-5 박스 뒤 post 배점 캡처 / A-6 기하 문맥 부분문자열 오판.
+    """
+    from core.content_parser import _has_geometry_context, parse_ocr_response
+    from models.exam_document import ContentBlock as _CB
+
+    # A-1: SUM/INT 하한은 빈그룹 삽입 금지(``SUM _{`` ≠ ``SUM {}_{``), 진짜 선행첨자는 유지.
+    _sum = _l2h(r"\sum_{k=1}^{n}")
+    _int = _l2h(r"\int_{0}^{1}")
+    if "SUM {}_" in _sum or "SUM _{k=1}" not in _sum:
+        fails.append(f"  A1 Σ 하한 빈그룹 회귀: {_sum!r}")
+    if "INT {}_" in _int:
+        fails.append(f"  A1 ∫ 하한 빈그룹 회귀: {_int!r}")
+
+    # A-2: 그리스·함수 명령은 앞뒤 공백 보장(붙어서 식별자 오인 금지 — raw 출력에 글자 직결 X).
+    _sint = _l2h(r"\sin\theta")
+    _absin = _l2h(r"ab\sin C")
+    if "sintheta" in _sint:
+        fails.append(f"  A2 sin theta 공백 미보장: {_sint!r}")
+    if "absin" in _absin:
+        fails.append(f"  A2 ab sin C 식별자 붙음: {_absin!r}")
+
+    # \not: ∉·≠ 보존(의미 반전 금지).
+    _notin = _l2h(r"x \not\in A")
+    _note = _l2h(r"x \not= y")
+    if "notin" not in _notin:
+        fails.append(f"  not-in 반전(∉→∈): {_notin!r}")
+    if "neq" not in _note:
+        fails.append(f"  not-eq 반전(≠→=): {_note!r}")
+
+    # A-6: 비기하 디코이는 False, 진짜 기하 키워드는 True.
+    def _g(t):
+        return _has_geometry_context([_CB(type=ContentType.TEXT, value=t)])
+    for t in ("주사위를 던져 얻은 점수를 X라 할 때", "집합을 기호로 나타낼 때",
+              "전화번호를 정하는 경우의 수"):
+        if _g(t):
+            fails.append(f"  A6 비기하 오판: {t!r}")
+    for t in ("점 P 를 지나는 직선", "삼각형 ABC", "호 AB 의 길이"):
+        if not _g(t):
+            fails.append(f"  A6 기하 미감지: {t!r}")
+
+    # A-5: 박스 뒤 발문연속(post) 끝 배점을 score 필드 없이도 캡처 + 본문서 제거.
+    data = {"questions": [{"number": 1, "contents": [
+        {"type": "text", "value": "<상자> (가) 조건1 (나) 조건2"},
+        {"type": "text", "value": "이때 알맞은 것은? [4점]"}],
+        "choices": [{"marker": "①", "contents": [{"type": "text", "value": "1"}]}]}]}
+    q = parse_ocr_response(data, 1).questions[0]
+    if q.score != 4:
+        fails.append(f"  A5 post 배점 미캡처: score={q.score!r} (기대 4)")
+    if "4점" in "".join((b.value or "") for b in q.contents):
+        fails.append("  A5 post 배점 본문 잔존")
+
+
 def run():
     fails = []
     _check_comma_roots(fails)
@@ -577,7 +633,8 @@ def run():
         fails.append(f"  HH1 선행 첨자 빈 베이스 삽입 실패: {_hh!r}")
     if "a_{n+1}" not in _l2h_hh(r"a_{n+1}=a_n+4"):   # 정상 첨자(베이스 있음)는 무변경
         fails.append(f"  HH1 정상 첨자 오삽입: {_l2h_hh(chr(97)+'_{n+1}=a_n+4')!r}")
-    for text, must in _SPACING_CASES:
+    _check_adversarial_high(fails, _l2h_hh)
+    for text, must in _SPACING_CASES:  # noqa: E305
         got = _render(text)
         if must not in got:
             fails.append(f"  띄어쓰기: {text!r} → {got!r} (기대 포함: {must!r})")

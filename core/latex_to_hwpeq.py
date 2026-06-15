@@ -151,6 +151,23 @@ def _backtick_rm_units(s: str) -> str:
     return _RM_UNIT_RE.sub(lambda m: m.group(1) + " rm`" + m.group(2), s)
 
 
+# 베이스 없는 선행 첨자(``_{n-1}C``)에 빈그룹 베이스 ``{}`` 삽입(혜화여고 #19). 단 대형
+# 연산자 하한(``SUM _{k=1}``·``INT _{0}``·``UNION _{i}`` …)은 그 op 의 정상 첨자라 삽입하면
+# 안 된다 — 공백 분기가 ``SUM _{`` 를 ``SUM {}_{`` 로 깨던 회귀(적대리뷰 A-1, 2026-06-13).
+_LEAD_SUBSCRIPT_RE = re.compile(r"(^|[+\-=<>(\s])_\{")
+# endswith 는 부분일치라 ``INT`` 가 ``DINT``/``TINT``/``OINT`` 를, ``PROD`` 가 ``COPROD`` 를
+# 포괄한다(대형연산자 출력 키워드 전체).
+_BIG_OP_KEYWORDS = ("SUM", "PROD", "INT", "UNION", "INTER")
+
+
+def _lead_subscript_repl(m: "re.Match") -> str:
+    sep = m.group(1)
+    # 공백 분기일 때만 — 앞 토큰이 대형연산자 키워드면 그 op 의 하한이므로 빈그룹 삽입 금지.
+    if sep and sep.isspace() and m.string[:m.start()].rstrip().endswith(_BIG_OP_KEYWORDS):
+        return m.group(0)
+    return sep + "{}_{"
+
+
 # OCR 이 단위를 ``20\text{g}`` 처럼 \text 로 감싸 주면 변환기는 ``20"g"``(따옴표 리터럴)로
 # 만든다 — 정자이긴 하나 단위 간격(``rm`g``)이 안 붙고 사용자에겐 여전히 어색(2026-06-09:
 # "g(그램)이 rm 으로 로만처리 안 됨"). 그래서 변환 **전** ``\text{<단위>}`` 를 평문 단위로
@@ -614,6 +631,16 @@ class LaTeXToHWPConverter:
         # 간격). OCR 이 \leq 대신 유니코드로 주면(temp=0 재실행 #20 (가)) 리터럴 ≤ 로 새던 것.
         s = s.replace("≤", r" \leq ").replace("≥", r" \geq ").replace("≠", r" \neq ")
 
+        # ``\not`` 부정 — SYMBOL_MAP 에 ``\not`` 단독이 없어, 뒤 ``\in``/``=`` 만 치환되고
+        # ``\not`` 은 step 13 의 ``\\[a-zA-Z]+`` 에서 **조용히 삭제**돼 ∉→∈·≠→= 로 **의미가
+        # 뒤집히던** 무증상 오답(적대리뷰 B-1). 부정형을 매핑된 명령으로 정규화(없으면 NOT
+        # 리터럴로 보존 — 침묵 반전 금지).
+        s = re.sub(r"\\not\s*\\in\b", r"\\notin", s)
+        s = re.sub(r"\\not\s*=", r"\\neq", s)
+        s = re.sub(r"\\not\s*\\equiv\b", r' NOT EQUIV ', s)
+        s = re.sub(r"\\not\s*\\subset\b", r' NOT SUBSET ', s)
+        s = re.sub(r"\\not\s*(\\[a-zA-Z]+|[<>])", r' NOT \1', s)
+
         # 단위 \text{g} → 평문 g (뒤 _romanize_units 가 rm`g 로 정자+간격, 2026-06-09).
         s = _unwrap_text_units(s)
 
@@ -668,7 +695,9 @@ class LaTeXToHWPConverter:
         # 베이스 없는 선행 첨자(조합 ``_{n-1}C_{r-1}`` — 수식 시작/연산자 뒤 ``_{``)는 HWP 가
         # **빈 렌더**(객체는 생기나 안 보임)한다(혜화여고 #19 파스칼 항등식 통째 미표시,
         # 2026-06-12 — 계성고 ``{}_{n}C`` 플래그 동족). 빈 그룹 ``{}`` 베이스를 삽입.
-        result = re.sub(r"(^|[+\-=<>(\s])_\{", r"\1{}_{", result)
+        # ⚠️ 단 **대형연산자 하한**(``SUM _{k=1}``·``INT _{0}``)은 빈그룹 삽입 금지 — 공백
+        # 분기가 ``SUM _{`` 를 ``SUM {}_{`` 로 깨뜨리던 회귀(적대리뷰 A-1, 2026-06-13).
+        result = _LEAD_SUBSCRIPT_RE.sub(_lead_subscript_repl, result)
         # 조합/순열 ``rm C``/``rm P`` 의 로만이 **다음 선행첨자**(``+{}_{n+1}``)까지 번지는
         # 것 차단 — HWP rm 은 명시적 it 까지 뒤 전체 적용(도원중 실증). 연산자 뒤 빈그룹
         # 선행첨자 앞에 ``it`` 복귀(계성고 #4 ``ₙC₂+ₙ₊₁C₃=ₙ₊₁P₂`` 의 n+1 정자, 2026-06-12).
@@ -879,10 +908,16 @@ class LaTeXToHWPConverter:
         s = re.sub(r"([_^])\s*\\([a-zA-Z]+)", r"\1{\\\2}", s)
 
         # 8. 그리스 문자
+        #   SYMBOL_MAP(9)과 동일하게 알파벳 키워드는 **앞뒤 공백 보장** — 안 그러면 명령
+        #   직결 시 ``\sin\theta``→``sintheta``, ``ab\sin C``→``absin C`` 처럼 붙어 식별자
+        #   오인·연속대문자 로만화로 깨진다(적대리뷰 A-2, 2026-06-13). HWP 는 여분 공백 무시.
         for latex_cmd, hwp_name in sorted(
             self.GREEK_MAP.items(), key=lambda x: -len(x[0])
         ):
-            s = s.replace(latex_cmd, hwp_name)
+            repl = hwp_name
+            if repl and (repl[0].isalpha() or repl[-1].isalpha()):
+                repl = " " + repl + " "
+            s = s.replace(latex_cmd, repl)
 
         # 9. 기호/연산자
         #   HWP 키워드(LEQ, GEQ, TIMES, CDOT …)는 **앞뒤에 공백을 보장**해 인접 영숫자에
@@ -899,11 +934,15 @@ class LaTeXToHWPConverter:
                 repl = " " + repl + " "
             s = s.replace(latex_cmd, repl)
 
-        # 10. 함수명
+        # 10. 함수명 — 그리스(8)·기호(9)와 동일하게 앞뒤 공백 보장(``\sin``→`` sin ``).
+        #   ``S=\frac{1}{2}ab\sin C``→``…absin C`` 식별자 오인 방지(적대리뷰 A-2).
         for latex_cmd, hwp_func in sorted(
             self.FUNC_MAP.items(), key=lambda x: -len(x[0])
         ):
-            s = s.replace(latex_cmd, hwp_func)
+            repl = hwp_func
+            if repl and (repl[0].isalpha() or repl[-1].isalpha()):
+                repl = " " + repl + " "
+            s = s.replace(latex_cmd, repl)
 
         # 11. 상첨자/하첨자.
         #   HWP는 첨자 내용에 중괄호를 쓰면 본문과 간격이 벌어진다(3^{2}→"3 ²").
