@@ -539,6 +539,57 @@ def _check_jung2_2sem_fixes(fails):
         fails.append(f"  J2S 평행+등식 쉼표 드롭: {[(b.type.name, b.value) for b in r1]!r}")
 
 
+def _check_2sem_round2(fails):
+    """중2/중3 2학기 Opus 재검수 라운드2 결함(2026-06-15):
+    ° 매핑·박스 \\n 분리·HWP키워드 라벨 따옴표·닮음 ∽·단독 밑줄·쉼표 자료·단독 cm."""
+    import re
+    from core.latex_to_hwpeq import latex_to_hwpeq as l2h
+    from core.content_parser import (parse_ocr_response, _split_latex_commands,
+                                     _split_one_eq_commas)
+    from models.exam_document import ContentBlock, ContentType
+    # 1) \degree / \circ → ° (CIRC·드롭 금지)
+    if "°" not in l2h(r"\angle BAC=24\degree", italicize_stat=False):
+        fails.append("  R2 \\degree → ° 실패")
+    if "CIRC" in l2h(r"45^\circ", italicize_stat=False):
+        fails.append("  R2 \\circ CIRC 잔존")
+    # 2) HWP 키워드 라벨(GE·LE) 따옴표 보호(rm {"GE"}), 비키워드(BC)는 그대로
+    if 'rm {"GE"}' not in l2h(r"\overline{GE}", italicize_stat=False):
+        fails.append(f"  R2 GE 키워드 따옴표 실패: {l2h(chr(92)+'overline{GE}', italicize_stat=False)!r}")
+    if '"' in l2h(r"\overline{BC}", italicize_stat=False):
+        fails.append("  R2 BC 오따옴표(비키워드)")
+    # 3) 닮음 ∽ (SIM 키워드 금지)
+    if "∽" not in l2h(r"\triangle ABC \sim \triangle DEF", italicize_stat=False):
+        fails.append("  R2 \\sim → ∽ 실패")
+    # 4) 단독 cm/cm² 로만(이탤릭 금지) + 무이중
+    if "rm`cm" not in l2h(r"cm^{2}", italicize_stat=False):
+        fails.append(f"  R2 단독 cm 로만 실패: {l2h('cm^{2}', italicize_stat=False)!r}")
+    if "rm rm" in l2h(r"a\mathrm{cm}", italicize_stat=False):
+        fails.append(f"  R2 단독 cm 이중적용: {l2h(chr(92)+'overline', italicize_stat=False)!r}")
+    # 5) 박스 \n 항목 분리 — 한 수식으로 병합 금지(각 라벨 TEXT 보존)
+    box = "<보기>\nㄱ. \\triangle EAC = \\triangle DCB\nㄴ. \\overline{GH} : \\overline{DE} = 1 : 3"
+    blocks = _split_latex_commands(box)
+    labels = [b.value for b in blocks if b.type == ContentType.TEXT and re.match(r"^[ㄱ-ㅎ]\.", (b.value or "").strip())]
+    if "ㄴ." not in " ".join(labels):
+        fails.append(f"  R2 박스 \\n 항목 미분리(ㄴ 병합): {[(b.type.name, b.value[:20]) for b in blocks]!r}")
+    # 6) 쉼표 자료 나열(산술 term) 보존
+    res = []
+    _split_one_eq_commas(ContentBlock(type=ContentType.EQUATION, value="x_{1}-a, x_{2}-2a, x_{3}-3a"), res)
+    if not any(b.type == ContentType.TEXT and "," in (b.value or "") for b in res):
+        fails.append(f"  R2 쉼표 자료 드롭: {[(b.type.name, b.value) for b in res]!r}")
+    # 함수콜 P(…) 곱셈 잡음은 여전히 병합(스푸리어스 방어 유지)
+    res2 = []
+    _split_one_eq_commas(ContentBlock(type=ContentType.EQUATION, value="P(A)=16/9, P(B)"), res2)
+    if any(b.type == ContentType.TEXT and "," in (b.value or "") for b in res2):
+        fails.append("  R2 스푸리어스 쉼표 방어 회귀(P(…) 분리됨)")
+    # 7) 단독 밑줄 블록 __않을__ → 밑줄 run
+    page = parse_ocr_response({"header": "", "questions": [{"number": 1, "contents": [
+        {"type": "text", "value": "나타나지 "}, {"type": "text", "value": "__않을__"},
+        {"type": "text", "value": " 확률은?"}]}]}, 1)
+    ul = [b for b in page.questions[0].contents if getattr(b, "underline", False)]
+    if not ul or ul[0].value != "않을":
+        fails.append(f"  R2 단독 밑줄 블록 실패: {[(b.value, getattr(b,'underline',False)) for b in page.questions[0].contents]!r}")
+
+
 def _check_table_value_list(fails):
     """T2S(경산중 중2 #19): OCR 이 표 행을 rows 가 아니라 value 에 list 로 넣은 경우
     (value=[[...],[...]]) — 파서가 (b.value or "").strip() 에서 크래시하던 것.
@@ -707,6 +758,7 @@ def run():
     _check_daegeon_go1_fixes(fails)
     _check_jung2_2sem_fixes(fails)
     _check_table_value_list(fails)
+    _check_2sem_round2(fails)
     _check_suha_fixes(fails)
     # HH1(혜화여고 #19): 베이스 없는 선행 첨자(조합 _{n-1}C)는 HWP 가 빈 렌더 — {} 베이스 삽입.
     from core.latex_to_hwpeq import latex_to_hwpeq as _l2h_hh

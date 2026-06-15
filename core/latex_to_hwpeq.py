@@ -125,6 +125,13 @@ _VAR_UNIT_RE = re.compile(
     r"(?<![A-Za-z])([A-Za-z])[\s`]*("
     + "|".join(re.escape(u) for u in _VAR_TAIL_UNITS) + r")(?![A-Za-z0-9])"
 )
+# 접두(숫자·}·변수글자) 없는 **단독 다문자 단위** — ``cm^{2}``(단독 "몇 cm²인가")·
+# ``20\pi cm``(π 뒤 공백) 의 cm 이 로만화 안 돼 이탤릭이던 것(경산중2 #14·사동중3 #3·
+# 고산중3 #11, 2026-06-15). 다문자 단위(cm/mm/km/kg…)는 변수 충돌이 거의 없어 안전.
+# 이미 로만화된 ``rm`cm`` 의 백틱 뒤·식별자 글자 뒤·} 뒤는 제외(중복/오검출 방지).
+_STANDALONE_UNIT_RE = re.compile(
+    r"(?<![A-Za-z0-9`}])(?<!rm )(" + "|".join(re.escape(u) for u in _MULTI_UNITS) + r")(?![A-Za-z0-9])"
+)
 
 # 확통 연산자·확률변수 P/E/V/N/Z/X/Y 의 \mathrm(로만)을 벗겨 이탤릭으로(순열 \mathrm{P}_ 제외).
 # 본문 수식뿐 아니라 **표 셀**(latex_to_hwpeq 직접 호출)에도 적용되도록 변환기에서 처리
@@ -141,7 +148,8 @@ def _romanize_units(s: str) -> str:
     """
     s = _UNIT_RE.sub(lambda m: m.group(1) + " rm`" + m.group(2), s)
     s = _BRACE_UNIT_RE.sub(lambda m: m.group(1) + " rm`" + m.group(2), s)
-    return _VAR_UNIT_RE.sub(lambda m: m.group(1) + " rm`" + m.group(2), s)
+    s = _VAR_UNIT_RE.sub(lambda m: m.group(1) + " rm`" + m.group(2), s)
+    return _STANDALONE_UNIT_RE.sub(lambda m: "rm`" + m.group(1), s)
 
 
 # 변환 후 ``<글자/숫자> rm <단위>`` 의 일반 공백을 백틱(1/4칸)으로 — ``a\mathrm{cm}`` →
@@ -166,6 +174,11 @@ _LEAD_SUBSCRIPT_RE = re.compile(r"(^|[+\-=<>(\s])_\{")
 # endswith 는 부분일치라 ``INT`` 가 ``DINT``/``TINT``/``OINT`` 를, ``PROD`` 가 ``COPROD`` 를
 # 포괄한다(대형연산자 출력 키워드 전체).
 _BIG_OP_KEYWORDS = ("SUM", "PROD", "INT", "UNION", "INTER")
+
+# HWP 연산자 키워드와 글자가 같은 점/선분 라벨 — rm {} 안에서도 HWP 가 관계연산자로
+# 토큰화해 글자가 증발한다(GE→≥, LE→≤, NE→≠, GG→≫, LL→≪; 대륜중2 #16 GE→≥ 실증).
+# 이 라벨은 따옴표 리터럴(□·★ 방식)로 감싸 토큰화를 차단한다.
+_KEYWORD_LABEL_QUOTE = {"GE", "LE", "NE", "GG", "LL"}
 
 
 def _lead_subscript_repl(m: "re.Match") -> str:
@@ -313,7 +326,10 @@ class LaTeXToHWPConverter:
         r"\ne": "neq",
         r"\approx": "APPROX",
         r"\equiv": "EQUIV",
-        r"\sim": "SIM",
+        # 닮음 기호: 한국 교과서는 ∽(U+223D). HWP 키워드 SIM 은 ∼(U+223C, similar)로
+        # 렌더돼 닮음 글리프가 어긋난다(경산여중2·능인중2·구암중2, 2026-06-15). 리터럴 ∽로.
+        r"\backsim": "∽",
+        r"\sim": "∽",
         r"\simeq": "SIMEQ",
         r"\cong": "CONG",
         r"\propto": "PROPTO",
@@ -363,7 +379,10 @@ class LaTeXToHWPConverter:
         r"\setminus": '"∖"',
         r"\triangle": "TRIANGLE",
         r"\square": '"□"',
-        r"\circ": "CIRC",
+        # 각도: \circ·\degree → ° (리터럴 도, 정상 렌더). CIRC 키워드는 ° 가 아니라
+        # 통째 깨져 각도 ° 가 증발했다(경명여중3·노변중3·영남삼육중3 각도 문항 다수, 2026-06-15).
+        r"\degree": "°",
+        r"\circ": "°",
         r"\bullet": "BULLET",
         # ★ 마커(귀납법 증명 ``(★)`` 등) — 키워드 미지원이라 □(\square)처럼 따옴표 리터럴.
         # 없으면 ``\bigstar`` 가 통째 증발해 ``(★)`` 가 ``()`` 로 샌다(상인고 수1 #12).
@@ -514,6 +533,11 @@ class LaTeXToHWPConverter:
             if prev.endswith("rm {") or prev.endswith("rm ") \
                     or prev.endswith("it {") or prev.endswith("bold"):
                 return run
+            # HWP 연산자 키워드와 충돌하는 점/선분 라벨(GE=≥·LE=≤·NE=≠·GG=≫·LL=≪)은
+            # rm {} 안에서도 HWP 가 ≥ 등으로 토큰화해 글자가 사라진다(대륜중2 #16 GE→≥,
+            # 2026-06-15 렌더 실증). 따옴표 리터럴(□·★ 방식)로 감싸 토큰화 차단.
+            if run in _KEYWORD_LABEL_QUOTE:
+                return 'rm {"' + run + '"}'
             return "rm {" + run + "}"
 
         return self._ROMAN_LABEL_RE.sub(_repl, script)

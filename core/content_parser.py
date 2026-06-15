@@ -265,6 +265,11 @@ def _parse_content_block(block_data: dict) -> ContentBlock | None:
         if not rows and isinstance(value, list):
             rows = value
             value = ""
+        # 빈 표(행도 값도 없음) = OCR 잡음 → 드롭. 안 그러면 **허위 빈 박스**로 렌더돼
+        # 뒤따르는 <조건>/<보기> 내용이 박스 밖으로 밀리거나(경일여중3 #19·#20·#22 조건박스
+        # 탈출) 배점·캡션 배치를 교란한다(경명여중3 #7·#16, 2026-06-15).
+        if not rows and not (isinstance(value, str) and value.strip()):
+            return None
         return ContentBlock(type=ContentType.TABLE, value=value if isinstance(value, str) else "", rows=rows)
 
     # LaTeX \(...\)·\[...\] 구분자를 $...$로 정규화(OCR이 $ 대신 \( \)로 줄 때 대비).
@@ -296,6 +301,11 @@ def _parse_content_block(block_data: dict) -> ContentBlock | None:
                 else:
                     out.append(sb)
             return out  # type: ignore[return-value]
+        # 블록 전체가 밑줄 강조 하나(standalone ``__않을__`` 단독 text 블록) — len==1 이라
+        # 위 분기를 못 타고 폴스루해 리터럴 ``__않을__`` 로 새던 것(경산여중2 #26·경명여중3
+        # #18, 2026-06-15). 단일 밑줄 run 이면 그대로 반환.
+        if len(split) == 1 and split[0].underline:
+            return split[0]
 
     # 텍스트 블록에 $...$ 인라인 LaTeX가 있으면 분리
     if content_type == ContentType.TEXT and "$" in value:
@@ -810,7 +820,8 @@ def _split_one_eq_commas(block: ContentBlock, result: list[ContentBlock]) -> boo
     # 항목(함수식 P(…)·16/9 등)이 하나라도 있을 때만 — 관계식+원자 혼합(``x = 1, 2`` 해답
     # 나열)은 진짜 나열이라 쉼표를 보존한다(감사 2026-06-10: "전부 원자 or 전부 관계식"
     # 조건이 이 혼합의 쉼표를 지웠음).
-    if any(not _is_atom_item(p) and not _has_toplevel_relation(p) for p in parts):
+    if any(not _is_atom_item(p) and not _has_toplevel_relation(p)
+           and not _is_list_term(p) for p in parts):
         result.append(ContentBlock(type=ContentType.EQUATION, value=" ".join(parts)))
         return True
     # 괄호 없는 수식 나열 → 개별 수식 + 텍스트 쉼표(종전 동작).
@@ -819,6 +830,18 @@ def _split_one_eq_commas(block: ContentBlock, result: list[ContentBlock]) -> boo
             result.append(ContentBlock(type=ContentType.TEXT, value=", "))
         result.append(ContentBlock(type=ContentType.EQUATION, value=p))
     return True
+
+
+# 산술 term(변수·숫자·첨자 + 사칙연산, 괄호·함수콜·관계연산자 없음) = 진짜 나열 항목.
+# ``x_{1}-a``·``2a+4``·``a+4`` 같은 자료 나열의 쉼표가 스푸리어스(함수콜 P(…) 곱셈 잡음)로
+# 오판돼 드롭되며 ``x_1-ax_2-2a`` 로 붙던 것(사동중3 #16·계성중3 #13, 2026-06-15).
+# 함수콜 P(…)·근호 \\sqrt 등 구조명령은 괄호/백슬래시가 있어 제외(기존 스푸리어스 방어 유지).
+_LIST_TERM_RE = re.compile(r"[A-Za-z0-9_^{}+\-*/.\s]+")
+
+
+def _is_list_term(p: str) -> bool:
+    p = (p or "").strip()
+    return bool(p and _LIST_TERM_RE.fullmatch(p) and re.search(r"[A-Za-z0-9]", p))
 
 
 # 스푸리어스 쉼표 판정용 보조(괄호 없는 수식 나열 분리 가드).
@@ -936,12 +959,33 @@ def _split_box_marker_prefix(text: str, splitter) -> "list[ContentBlock] | None"
     return blocks
 
 
+def _split_on_newlines(text: str, fn):
+    """텍스트에 줄바꿈(\\n)이 있으면 줄 단위로 분리해 각 줄을 fn 으로 처리한다.
+
+    \\n 은 항목 경계(보기/조건 박스 항목 ㄱㄴㄷ·불릿)다. 수식 분리기가 \\n 을 건너
+    여러 항목을 **한 수식으로 병합**하면 박스 항목이 한 줄로 흘러 박스 폭을 넘쳐 잘리고
+    뒤 항목이 통째 소실된다(고산중2 #9·경일여중3·동부중3 등, 2026-06-15). 줄별 분리로
+    각 항목 라벨이 TEXT 로 남아 `_write_box_content` 의 줄경계(`_BOX_BREAK_RE`)가 끊는다.
+    \\n 자체는 드롭(라벨이 줄경계 — 비박스 본문은 HWP 가 reflow). 줄바꿈 없으면 None.
+    """
+    if "\n" not in text:
+        return None
+    out: list[ContentBlock] = []
+    for part in text.split("\n"):
+        if part.strip():
+            out.extend(fn(part))
+    return out
+
+
 def _split_mixed_text_equation(text: str) -> list[ContentBlock]:
     """텍스트 안에 섞인 수식 패턴(영문 변수, 부등호 등)을 분리.
 
     예: "(a > 0, b는 정수)에서"
     → text("(") + eq("a > 0") + text(", ") + eq("b") + text("는 정수)에서")
     """
+    _nl = _split_on_newlines(text, _split_mixed_text_equation)
+    if _nl is not None:
+        return _nl
     # 선두 박스 마커 보호(신명여중 #7 — docstring 은 _split_box_marker_prefix 참고).
     _boxed = _split_box_marker_prefix(text, _split_mixed_text_equation)
     if _boxed is not None:
@@ -1134,7 +1178,7 @@ _LATEX_CMD_RE = re.compile(
     r'partial|nabla|forall|exists|therefore|because|'   # ∴/∵ — 빠지면 literal ₩therefore(장산중 #5)
     r'dot|ddot|hat|bar|vec|tilde|overline|underline|'
     r'log|ln|sin|cos|tan|sec|csc|cot|'
-    r'square|circ|triangle|angle|perp|parallel|'
+    r'square|circ|degree|triangle|angle|perp|parallel|'
     r'cup|cap|subset|supset|in|notin|'
     # 화살표(명제 ⟺/⟹·사상): latex_to_hwpeq 엔 매핑(LRARROW 등) 있으나 여기 없어 ``\Leftrightarrow``
     # 가 TEXT ``\``(₩ 누수) + bare EQ ``Leftrightarrow``(literal)로 쪼개졌다(매천고 수하 #4
@@ -1367,6 +1411,10 @@ def _split_latex_commands(text: str) -> list[ContentBlock]:
     예: "ㄱ. \\sqrt{2}+\\sqrt{2}" → text("ㄱ. ") + eq("\\sqrt{2}+\\sqrt{2}")
     예: "\\sqrt{24} \\div \\sqrt{3} 의 값은" → eq(...) + text(" 의 값은")
     """
+    # 줄바꿈(\n)은 항목 경계 — 수식이 줄을 건너 병합되지 않게 줄별 분리(_split_on_newlines).
+    _nl = _split_on_newlines(text, _split_latex_commands)
+    if _nl is not None:
+        return _nl
     # 선두 박스 마커 보호 — 마커의 닫는 > 가 선행 연산자 흡수에 끌려가 수식 ``> \frac…``
     # 으로 새고 마커가 깨지던 것(신명여중 #7, _split_box_marker_prefix docstring 참고).
     _boxed = _split_box_marker_prefix(text, _split_latex_commands)
