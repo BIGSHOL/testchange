@@ -1,0 +1,65 @@
+{
+  "header": "삼각형의 성질 ~ 확률",
+  "questions": [
+    {
+      "number": 1,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 AB=AC인 이등변삼각형 ABC에서 BD는 ∠ABC의 이등분선이고, CD는 ∠ACB의 이등분선일 때, 옳은 것을 모두 고르면?"},
+        {"type": "figure", "value": "이등변삼각형 ABC (AB=AC). BD는 ∠ABC의 이등분선, CD는 ∠ACB의 이등분선. E는 AB 위의 점, P는 BD와 CD의 교점."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\overline{PB}=\\overline{PC}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\triangle APB \\equiv \\triangle APC"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\angle ABD = \\angle ADB"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\triangle ABD \\equiv \\triangle ACD"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\angle DBC = \\angle DCB"}]}
+      ]
+    },
+    {
+      "number": 2,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 △ABC에서 M은 BC의 중점이고, BD⊥AM, CE⊥AM일 때, BD=CE임을 증명하려고 한다. 다음 중 두 삼각형이 합동인 경우는?"},
+        {"type": "figure", "value": "삼각형 ABC. M은 BC의 중점(BM=MC=3). AM=9, ME=5. B에서 AM에 수선 BD, C에서 AM에 수선 CE."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\triangle ABM \\equiv \\triangle ACM"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\triangle BDM \\equiv \\triangle CEM"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\triangle ABD \\equiv \\triangle ACE"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\triangle BDA \\equiv \\triangle CEA"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\triangle ABM \\equiv \\triangle CEM"}]}
+      ]
+    },
+    {
+      "number": 3,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 △ABC에 외접원과 내접원이 그려져 있다. 다음 중 옳지 않은 것은?"},
+        {"type": "figure", "value": "삼각형 ABC. 외접원 중심 O, 내접원 중심 I. 두 원 모두 그려진 그림."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "외접원의 중심 O는 세 변의 수직이등분선의 교점이다."}]},
+        {"number": 2, "contents": [{"type": "text", "value": "내접원의 중심 I는 세 내각의 이등분선의 교점이다."}]},
+        {"number": 3, "contents": [{"type": "text", "value": "점 O에서 세 꼭짓점까지의 거리는 모두 같다."}]},
+        {"number": 4, "contents": [{"type": "text", "value": "점 I에서 세 꼭짓점까지의 거리는 모두 같다."}]},
+        {"number": 5, "contents": [{"type": "text", "value": "점 I에서 세 변까지의 거리는 모두 같다."}]}
+      ]
+    },
+    {
+      "number": 4,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 ∠C=90°인 직각삼각형 ABC에서 외접원의 중심을 O, 내접원의 중심을 I라 하자. 색칠한 부분의 넓이는?"},
+        {"type": "figure", "value": "직각삼각형 ABC (∠C=90°). 외접원 중심 O는 빗변 AB의 중점. 내접원 중심 I. 색칠한 부분은 외접원과 내접원 사이의 영역."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "(외접원의 넓이) - (△ABC의 넓이) - (내접원의 넓이)"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "(외접원의 넓이) - (△ABC의 넓이) + (내접원의 넓이)"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "(△ABC의 넓이) - (내접원의 넓이)"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "(외접원의 넓이) + (내접원의 넓이) - (△ABC의 넓이)"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "(외접원의 넓이) - (△ABC의 넓이)"}]}
+      ]
+    }
+  ]
+}

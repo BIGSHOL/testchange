@@ -1,0 +1,103 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 13,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 사분원으로 이루어진 이야기에서 "},
+        {"type": "equation", "value": "\\angle PDO = 45°"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\angle FAD"},
+        {"type": "text", "value": "의 크기는?"},
+        {"type": "figure", "value": "사분원(부채꼴). 중심 O. 반지름 OA(수평)와 OD(수직). 호 위의 점 F. 외부 점 P. 각 PDO=45°가 표시됨."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "12°"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "18°"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "24°"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "21°"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "15°"}]}
+      ]
+    },
+    {
+      "number": 14,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "다음의 변수 "},
+        {"type": "equation", "value": "x_1, x_2, x_3, x_4, x_5"},
+        {"type": "text", "value": "에 대한 편차를 나타낸 것이다. 평균을 M이라 하고 각 변수에서 a를 뺀 새 변수의 평균은?"},
+        {"type": "table", "rows": [["편차", "-3", "0", "a", "2a", "5a"]], "value": ""}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "M + 2a"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "M"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "M - 2a"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "M - 5a"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "M + 5a"}]}
+      ]
+    },
+    {
+      "number": 15,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "6개의 값 4, 6, 7, 7, 12, 16의 중앙값이 11이고 평균이 11일 때, a+b+c의 값은?"},
+        {"type": "table", "rows": [["줄기", "잎"], ["0", "2  3  4  5"], ["1", ""], ["2", "0"]], "value": ""}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "41"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "42"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "44"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "46"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "48"}]}
+      ]
+    },
+    {
+      "number": 16,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "<보기>에서 상관관계에 대한 설명이다. 옳은 것을 모두 고른 것은?"},
+        {"type": "text", "value": "<보기> ㄱ. 사회현상에서 두 변량 사이에는 반드시 상관관계가 있는 것은 아니다. • ㄴ. 산점도에서 점들이 오른쪽 위로 향하는 경향이 있으면 양의 상관관계이다. • ㄷ. 두 변량의 산점도에서 점들이 오른쪽 아래로 향하는 경향이 있으면 음의 상관관계이다. • ㄹ. 한 원에서 식의 두 변량 사이의 관계를 강한 상관관계라 한다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄴ, ㄷ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄱ, ㄴ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄱ, ㄴ, ㄷ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄴ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄱ, ㄴ, ㄷ, ㄹ"}]}
+      ]
+    },
+    {
+      "number": 17,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "어느 경주 편차에서 반칙 점수의 편차를 나타낸 것이다. 반칙 점수의 평균이 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "점일 때, 편차 합은? [4점]"},
+        {"type": "table", "rows": [["반칙(점수)", "지호", "대호", "민호", "지호", "평균"], ["-3", "", "", "", "", ""]], "value": ""}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "6\\%"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "7\\%"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "8\\%"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "9\\%"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "10\\%"}]}
+      ]
+    },
+    {
+      "number": 18,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "<보기>에서 상관관계에 대한 설명이다. 옳은 것을 모두 고른 것은?"},
+        {"type": "text", "value": "<보기> ㄱ. 사회현상에서 두 변량 사이에는 반드시 상관관계가 있다. • ㄴ. 산점도에서 점들이 오른쪽 아래 방향 사이에는 상관관계가 있다. • ㄷ. 두 변량의 상관관계의 강도를 수치로 나타낼 수 있다. • ㄹ. 한 원에서 식의 두 변량은 3가지 이상의 상관관계가 같은 중심으로 보인다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄴ, ㄷ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄴ, ㄷ, ㄹ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄱ, ㄴ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄴ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄱ, ㄴ, ㄷ"}]}
+      ]
+    }
+  ]
+}

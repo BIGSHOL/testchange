@@ -1,0 +1,65 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 5,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "△ABC에서 FG∥HC이고, BD=3, DF=3일 때, FH의 길이는?"},
+        {"type": "figure", "value": "삼각형 ABC에서 꼭짓점 B가 위에 있고, A와 C가 아래에 있음. 내부에 평행선 FG, HC가 그어져 D, E, F, G, H 등의 점이 표시된 도형."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{77}{25}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{77}{35}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{134}{25}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{152}{25}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{224}{25}"}]}
+      ]
+    },
+    {
+      "number": 6,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "삼각형 ABC에서 점 D는 꼭짓점 A, B, C에서 각각 내린 수선의 발이 있고, 점 D를 지나고 DC에 평행한 직선이 AF와 만나는 점을 G, CD의 교점을 E라 할 때, 길이를 구하시오."},
+        {"type": "figure", "value": "삼각형 ABC 내부에 D, E, F, G, H 등의 점이 있고 평행선으로 구성된 도형."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{32}{5}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "13"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "14"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "15"}]}
+      ]
+    },
+    {
+      "number": 7,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "△ABC에서 XG∥IC이고, □IBCE의 넓이가 49cm²일 때, "},
+        {"type": "equation", "value": "\\overline{BC}"},
+        {"type": "text", "value": "의 길이는?"},
+        {"type": "figure", "value": "삼각형 ABC에서 변의 중점 P, Q, R 등과 내부 평행선이 표시된 도형. 치수: 7.5cm, 9cm, 4cm, 6cm, 4cm 등 표시."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "16cm"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "32cm"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "36cm"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "29cm"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "34cm"}]}
+      ]
+    },
+    {
+      "number": 8,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "점 G는 △ABC의 무게중심이고 △AEF=3일 때, △ABC의 넓이는?"},
+        {"type": "figure", "value": "삼각형 ABC 내부에 무게중심 G와 점 D, E, F가 표시된 도형. E는 AB의 중점, F는 AC의 중점."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "11"}]}
+      ]
+    }
+  ]
+}

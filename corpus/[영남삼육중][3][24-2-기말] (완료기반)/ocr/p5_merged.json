@@ -1,0 +1,71 @@
+{
+  "header": "영남삼육중 3학년 수학 2024년 2학기 기말고사",
+  "questions": [
+    {
+      "number": 19,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "다음 그림은 어느 학교 3학년 학생들의 1학기 중간고사와 기말고사 성적을 산점도로 나타낸 것이다. 기말고사 성적이 중간고사 성적보다 향상된 학생 수는? [4점]"},
+        {"type": "figure", "value": "가로축이 2022년(점), 세로축이 기말(점)인 산점도. 60~100 범위의 점들이 분포된 그림"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "10"}]}
+      ]
+    },
+    {
+      "number": 20,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "다음 그림은 학생들의 키(cm)와 기록(m)의 산점도이다. 이 산점도에서 알 수 있는 내용으로 옳은 것은? [4점]"},
+        {"type": "figure", "value": "가로축이 키(cm), 세로축이 기록(m)인 산점도. 점 A, B, C, D, E가 표시된 그림"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "양의 상관관계이다."}]},
+        {"number": 2, "contents": [{"type": "text", "value": "음의 상관관계이다."}]},
+        {"number": 3, "contents": [{"type": "text", "value": "상관관계가 없다."}]},
+        {"number": 4, "contents": [{"type": "text", "value": "점 A가 키에 비해 기록이 가장 좋다."}]},
+        {"number": 5, "contents": [{"type": "text", "value": "점 C가 키에 비해 기록이 가장 좋다."}]}
+      ]
+    },
+    {
+      "number": 21,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "다음 그림은 학생들의 봉사 활동 시간을 나타낸 꺾은선 그래프이다. 이 자료의 중앙값을 구하여라. [5점]"},
+        {"type": "figure", "value": "가로축이 학생(명), 세로축이 봉사 활동 시간인 꺾은선 그래프"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "4.3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "3.7"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "5.2"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5.1"}]}
+      ]
+    },
+    {
+      "number": 22,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "다음 그림에서 원에 삼각형 ABC가 내접하고 "},
+        {"type": "equation", "value": "\\overline{AB} = 9\\text{cm}"},
+        {"type": "text", "value": "이고 "},
+        {"type": "equation", "value": "\\angle ABC = 30°"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\triangle ABC"},
+        {"type": "text", "value": "의 외접원의 반지름의 길이를 구하여라. [5점]"},
+        {"type": "figure", "value": "원에 내접하는 삼각형 ABC 그림. AB=9cm, 각 ABC=30° 표시"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "2\\sqrt{3}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "3\\sqrt{3}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3\\sqrt{5}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "3\\sqrt{7}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "3\\sqrt{10}"}]}
+      ]
+    }
+  ]
+}

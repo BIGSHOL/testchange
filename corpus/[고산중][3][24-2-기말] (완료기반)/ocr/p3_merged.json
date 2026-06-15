@@ -1,0 +1,83 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 10,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "원 모양의 접시 파편을 측정하였더니 그림과 같을 때, 원래 이 접시의 반지름의 길이는?"},
+        {"type": "figure", "value": "반원 모양 파편. 현의 길이가 좌우 각각 12(합계 24). 현의 중점에서 호까지 수직 거리 8. 직각 표시 있음."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "13"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "13\\sqrt{3}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "14"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "14\\sqrt{3}"}]}
+      ]
+    },
+    {
+      "number": 11,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "중심이 같은 두 원에서 작은 원에 접하는 직선이 큰 원과 만나는 두 점을 A, B라고 하자. "},
+        {"type": "equation", "value": "\\overline{AB}=6\\sqrt{3}cm"},
+        {"type": "text", "value": "이고 큰 원의 넓이가 "},
+        {"type": "equation", "value": "49\\pi cm^{2}"},
+        {"type": "text", "value": "라고 할 때, 작은 원의 넓이는?"},
+        {"type": "figure", "value": "동심원 두 개. 큰 원과 작은 원이 중심 O를 공유. 작은 원에 접하는 직선(현)이 큰 원과 A, B에서 만남."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "18\\pi cm^{2}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "20\\pi cm^{2}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "21\\pi cm^{2}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "22\\pi cm^{2}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "23\\pi cm^{2}"}]}
+      ]
+    },
+    {
+      "number": 12,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "그림에서 "},
+        {"type": "equation", "value": "\\overline{AB}"},
+        {"type": "text", "value": "는 반원 O의 지름이고, 점 C는 "},
+        {"type": "equation", "value": "\\overline{AB}"},
+        {"type": "text", "value": "의 연장선 위의 한 점 D에서 반원 O에 그은 접선의 접점이다. "},
+        {"type": "equation", "value": "\\angle B = 35°"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\angle D"},
+        {"type": "text", "value": "의 크기는?"},
+        {"type": "figure", "value": "반원 O. AB는 지름. C는 반원 호 위의 점. D는 AB 연장선 위의 점(A 방향 반대 B 방향 연장). DC는 반원 O의 접선(C가 접점). ∠B=35°. B가 오른쪽, A가 중간, D가 왼쪽."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "10°"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "15°"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "20°"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "25°"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "30°"}]}
+      ]
+    },
+    {
+      "number": 13,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "원 O에 내접하는 오각형 ABCDE에서 "},
+        {"type": "equation", "value": "\\angle A = 95°"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\angle D = 130°"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "의 값은?"},
+        {"type": "figure", "value": "원 O에 내접하는 오각형 ABCDE. A가 왼쪽, E가 위, D가 오른쪽, C가 오른쪽 아래, B가 아래. ∠A=95°, ∠D=130°. O에서 B로 선분 그음. ∠BOC=x° 표시."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "30"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "35"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "40"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "45"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "50"}]}
+      ]
+    }
+  ]
+}

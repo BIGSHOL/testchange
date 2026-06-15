@@ -1,0 +1,102 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 12,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "두 다그의 통계와 관련된 내용으로 __옳지 않은__ 것을 고르시오. [3점]"},
+        {"type": "table", "rows": [
+          ["", "평균", "표준편차"],
+          ["표준편차(집단)", "90", "80"],
+          ["학생 수", "10", "20"]
+        ], "value": ""}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "사안의 평균이 틀리다."}]},
+        {"number": 2, "contents": [{"type": "text", "value": "사안의 범위가 좁다."}]},
+        {"number": 3, "contents": [{"type": "text", "value": "사안의 비교가 틀리다."}]},
+        {"number": 4, "contents": [{"type": "text", "value": "가나다의 의견이 표틀리다."}]}
+      ]
+    },
+    {
+      "number": 13,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "점 O에서 원 위의 외부 점 P에서 "},
+        {"type": "equation", "value": "\\angle APO = 52°"},
+        {"type": "text", "value": "이고 PA가 접선일 때, "},
+        {"type": "equation", "value": "\\angle x"},
+        {"type": "text", "value": "의 크기를 구하시오. [4점]"},
+        {"type": "figure", "value": "원 O와 외부 점 P. 점 P에서 원에 그은 접선 PA, PB. ∠APO=52° 표시. 구하는 각 ∠x 표시."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "60°"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "64°"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "72°"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "76°"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "78°"}]}
+      ]
+    },
+    {
+      "number": 14,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "계급값이 같은 자료에서 편차와 도수가 주어질 때 분산을 구하시오. [4점]"},
+        {"type": "table", "rows": [
+          ["편차", "-2", "-1", "0", "1", "2"],
+          ["도수", "", "", "", "", ""]
+        ], "value": ""}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "18"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "19"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "a\\sqrt{2}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "a\\sqrt{3}"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "22"}]}
+      ]
+    },
+    {
+      "number": 15,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "두 변량의 상관관계를 나타낸 그래프를 보고 물음에 답하시오. [5점]"},
+        {"type": "text", "value": "전체 학생 중 수학 성적이 5점 이상이고 국어 성적이 5점 이상인 학생 수는?"},
+        {"type": "figure", "value": "산점도(scatter plot). x축: 수학 성적(0~10점), y축: 국어 성적(50~100점 또는 0~10점). 학생들의 성적이 점으로 표시됨. 격자 위에 다수의 점 분포."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "5명"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "6명"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "7명"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "8명"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "9명"}]}
+      ]
+    },
+    {
+      "number": 16,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "위 산점도에 대한 설명으로 __옳지 않은__ 것을 고르시오. [3점]"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "성취도의 평균은 틀리다."}]},
+        {"number": 2, "contents": [{"type": "text", "value": "성취도의 범위가 좁다."}]},
+        {"number": 3, "contents": [{"type": "text", "value": "성취도의 비교가 틀리다."}]},
+        {"number": 4, "contents": [{"type": "text", "value": "가나다의 의견이 틀리다."}]}
+      ]
+    },
+    {
+      "number": 17,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "위 산점도에서 두 변량 간의 상관관계로 올바른 것을 고르시오. [3점]"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "양의 상관관계이다."}]},
+        {"number": 2, "contents": [{"type": "text", "value": "음의 상관관계이다."}]},
+        {"number": 3, "contents": [{"type": "text", "value": "상관관계가 없다."}]},
+        {"number": 4, "contents": [{"type": "text", "value": "강한 양의 상관관계이다."}]}
+      ]
+    }
+  ]
+}

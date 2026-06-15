@@ -1,0 +1,67 @@
+{
+  "header": "2024년 2학기 기말고사 경산여중 2학년 수학",
+  "questions": [
+    {
+      "number": 24,
+      "score": 5,
+      "contents": [
+        {"type": "equation", "value": "\\overline{AD} \\parallel \\overline{BC}"},
+        {"type": "text", "value": "인 사다리꼴 ABCD에서"},
+        {"type": "equation", "value": "\\overline{BC}"},
+        {"type": "text", "value": "의 중점을 M이라 하고,"},
+        {"type": "equation", "value": "\\overline{AM}"},
+        {"type": "text", "value": "과"},
+        {"type": "equation", "value": "\\overline{BD}"},
+        {"type": "text", "value": ","},
+        {"type": "equation", "value": "\\overline{DM}"},
+        {"type": "text", "value": "과"},
+        {"type": "equation", "value": "\\overline{AC}"},
+        {"type": "text", "value": "의 교점을 각각 P, Q라고 하자. 이때"},
+        {"type": "equation", "value": "\\overline{PQ}"},
+        {"type": "text", "value": "의 길이는?"},
+        {"type": "figure", "value": "사다리꼴 ABCD에서 AD=15cm, BC=18cm. AM과 BD의 교점 P, DM과 AC의 교점 Q가 표시된 도형."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "5cm"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{45}{8}cm"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "6cm"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{47}{8}cm"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "7cm"}]}
+      ]
+    },
+    {
+      "number": 25,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "한 개의 주사위를 두 번 던져 처음에 나오는 눈의 수를 a, 나중에 나오는 눈의 수를 b라고 할 때, 연립방정식"},
+        {"type": "equation", "value": "\\begin{cases} 2x + ay = 6 \\\\ x + y = b \\end{cases}"},
+        {"type": "text", "value": "의 해가 없을 확률은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{1}{36}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{1}{18}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{1}{12}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{1}{9}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{5}{36}"}]}
+      ]
+    },
+    {
+      "number": 26,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "도깨비와 천사가 만나기로 약속했다. 도깨비가 약속 장소에 나오지 못할 확률은"},
+        {"type": "equation", "value": "\\frac{1}{4}"},
+        {"type": "text", "value": "이고, 천사가 약속 장소에 나오지 못할 확률은"},
+        {"type": "equation", "value": "\\frac{3}{5}"},
+        {"type": "text", "value": "일 때, 적어도 한 명이 약속 장소에 나타나지 __않을__ 확률은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{1}{10}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{1}{5}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{1}{2}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{7}{10}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{9}{10}"}]}
+      ]
+    }
+  ]
+}

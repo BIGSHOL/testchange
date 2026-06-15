@@ -1,0 +1,84 @@
+{
+  "header": "2024년 2학기 기말고사 — 동부중 3학년 수학 (p.1)",
+  "questions": [
+    {
+      "number": 1,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "원의 성질에 대한 다음 설명 중 __옳지 않은__ 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "한 호에 대한 원주각의 크기는 모두 같다."}]},
+        {"number": 2, "contents": [{"type": "text", "value": "원의 수직이등분선은 그 원의 중심을 지난다."}]},
+        {"number": 3, "contents": [{"type": "text", "value": "원의 중심에서 현에 내린 수선의 발은 그 현을 이등분한다."}]},
+        {"number": 4, "contents": [{"type": "text", "value": "원 밖의 한 점에서 그 원에 그은 두 접선의 길이는 서로 같다."}]},
+        {"number": 5, "contents": [{"type": "text", "value": "원에 대한 원주각의 크기는 그 호에 대한 중심각의 크기의 2배이다."}]}
+      ]
+    },
+    {
+      "number": 2,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "다음 자료 중 최빈값이 없는 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1,\\ 1,\\ 2,\\ 3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "7,\\ 7,\\ 7,\\ 7,\\ 7,\\ 7"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "5,\\ 7,\\ 1,\\ 30,\\ 300"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "20,\\ 30,\\ 60,\\ 50,\\ 50"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "400,\\ 500,\\ 400,\\ 500,\\ 300"}]}
+      ]
+    },
+    {
+      "number": 3,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "그림과 같은 원 O에서 "},
+        {"type": "equation", "value": "\\angle ACE = \\angle AOB = 32°"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\angle x"},
+        {"type": "text", "value": "의 크기는?"},
+        {"type": "figure", "value": "원 O에서 원주각 ∠ACE와 중심각 ∠AOB가 표시된 그림. ∠AOB = 32°."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "32°"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "34°"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "36°"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "38°"}]}
+      ]
+    },
+    {
+      "number": 4,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "그림과 같은 원 O에서 "},
+        {"type": "equation", "value": "\\angle ACE = \\angle AOB = 32°"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\angle x"},
+        {"type": "text", "value": "의 크기는?"},
+        {"type": "figure", "value": "원 O 위의 점 A, B, C, E와 중심 O가 표시된 원 그림. ∠ACE, ∠AOB = 32°, ∠x 표시."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "32°"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "54°"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "36°"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "38°"}]}
+      ]
+    },
+    {
+      "number": 5,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 원의 중심이 O이고 반지름의 길이가 4일 때, 현 AB에서 중심 O까지의 거리 OM의 길이는?"},
+        {"type": "figure", "value": "중심 O, 반지름 4인 원에서 현 AB와 수직이등분선 OM이 표시된 그림. AB = 4\\sqrt{3}."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{1}{4}\\sqrt{3}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "4\\sqrt{3}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{1}{2}\\sqrt{3}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "2\\sqrt{3}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{3}{4}\\sqrt{3}"}]}
+      ]
+    }
+  ]
+}

@@ -1,0 +1,112 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 13,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "자료 "},
+        {"type": "equation", "value": "\\sqrt{1}+\\sqrt{2}"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\sqrt{2}+\\sqrt{3}"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\sqrt{3}+\\sqrt{4}"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\sqrt{4}+\\sqrt{5}"},
+        {"type": "text", "value": " 에서 값이 가장 큰 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\sqrt{2}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\sqrt{3}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "2\\sqrt{3}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "4"}]}
+      ]
+    },
+    {
+      "number": 14,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "어느 반 학생들의 봄철과 가을철 성적을 나타낸 산점도이다. 다음 학생 A, B, C, D, E 중 봄철에 비하여 가을철을 가장 잘 한 학생은?"},
+        {"type": "figure", "value": "봄철 성적(가로축)과 가을철 성적(세로축)의 산점도. 학생 A, B, C, D, E 5명의 점이 표시됨. A는 봄철 낮고 가을철 높은 위치(왼쪽 상단), B는 오른쪽 하단, C, D, E는 대각선 부근에 위치."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "A"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "B"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "C"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "D"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "E"}]}
+      ]
+    },
+    {
+      "number": 15,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "다음 자료의 총합이 "},
+        {"type": "equation", "value": "a+b"},
+        {"type": "text", "value": "이고 최빈값을 "},
+        {"type": "equation", "value": "c"},
+        {"type": "text", "value": "라 할 때, "},
+        {"type": "equation", "value": "a+b+c"},
+        {"type": "text", "value": "의 값은?"},
+        {"type": "table", "rows": [["a", "11", "18", "11", "15", "11", "15", "11"]], "value": ""}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "11"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "13"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "14"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "15"}]}
+      ]
+    },
+    {
+      "number": 16,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "다음 산점도는 핸드폰 사용 시간에 관한 것이다. 핸드폰 사용 시간이 3시간 이상이면서 성적이 80점 이상인 학생의 수는?"},
+        {"type": "figure", "value": "핸드폰 사용 시간(가로축)과 성적(세로축)의 산점도. 학생들의 점이 여러 개 표시됨. x=3시간, y=80점 기준선이 있음."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "18"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "19"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "20"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "21"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "22"}]}
+      ]
+    },
+    {
+      "number": 17,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "기울기, 직사각형에서 "},
+        {"type": "equation", "value": "z \\le x \\le y"},
+        {"type": "text", "value": "의 범위에서 직사각형의 넓이는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "40"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "44"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "46"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "48"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "56"}]}
+      ]
+    },
+    {
+      "number": 18,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "두 자료 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "b"},
+        {"type": "text", "value": "의 분산 조건이 다음과 같을 때, 분산의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{1}{5}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{2}{5}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{3}{5}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{4}{5}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "1"}]}
+      ]
+    }
+  ]
+}

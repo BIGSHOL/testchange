@@ -1,0 +1,81 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 13,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 원 O 밖의 점 S에서 원에 그은 두 접선의 접점을 각각 B, C라 하고, 원 위의 점을 D라 하자. "},
+        {"type": "equation", "value": "\\angle BSC=52°"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\angle BDC"},
+        {"type": "text", "value": "의 크기는?"},
+        {"type": "figure", "value": "원 O 외부의 점 S에서 두 접선을 그어 접점 B, C를 만들고, 원 위의 점 D. ∠BSC=52° 표시"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "36°"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "48°"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "60°"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "64°"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "66°"}]}
+      ]
+    },
+    {
+      "number": 14,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 원에서 두 현 AC, BD가 점 P에서 만나고, 호 AB의 길이와 호 CD의 길이가 같을 때, "},
+        {"type": "equation", "value": "\\angle P"},
+        {"type": "text", "value": "의 크기는?"},
+        {"type": "figure", "value": "원 안에서 두 현 AC, BD가 점 P에서 교차. 호 AB=호 CD 조건. 관련 각도 표시"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "30°"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "32°"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "34°"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "36°"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "38°"}]}
+      ]
+    },
+    {
+      "number": 15,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "그림에서 직선 TA는 원 O의 접선이고 점 A는 접점이다. "},
+        {"type": "equation", "value": "\\angle DAT=34°"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\angle BCD"},
+        {"type": "text", "value": "의 크기는?"},
+        {"type": "figure", "value": "원 O 위에 점 A가 접점이고 직선 TA가 접선. 원 위의 점 B, C, D. ∠DAT=34° 표시"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "60°"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "66°"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "68°"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "70°"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "72°"}]}
+      ]
+    },
+    {
+      "number": 16,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "그림에서 원 O에 내접하는 "},
+        {"type": "equation", "value": "\\triangle ABC"},
+        {"type": "text", "value": "에서 호 BC와 호 CD의 길이가 같고, "},
+        {"type": "equation", "value": "\\angle ADB=64°"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\angle BED"},
+        {"type": "text", "value": "의 크기는?"},
+        {"type": "figure", "value": "원 O에 내접하는 삼각형 ABC. 원 위에 추가 점 D, E가 있고 각도 조건 표시"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "54°"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "60°"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "62°"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "66°"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "68°"}]}
+      ]
+    }
+  ]
+}

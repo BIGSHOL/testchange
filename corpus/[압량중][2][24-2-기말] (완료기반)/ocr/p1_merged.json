@@ -1,0 +1,85 @@
+{
+  "header": "2024년 2학기 기말고사 압량중 2학년 수학",
+  "questions": [
+    {
+      "number": 1,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "아래 그림과 같은 평행사변형 ABCD에서 "},
+        {"type": "equation", "value": "\\overline{AB} = 7\\text{cm}"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "a + y"},
+        {"type": "text", "value": "의 값은?"},
+        {"type": "figure", "value": "평행사변형 ABCD. A(왼쪽 위), D(오른쪽 위), C(오른쪽 아래), B(왼쪽 아래). AB = 7cm, 내각 중 하나가 x°, 인접 변이 (x-3)cm로 표시됨."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "18"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "19"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "20"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "21"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "22"}]}
+      ]
+    },
+    {
+      "number": 2,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "다음 사각형 중에서 평행사변형인 것을 모두 고른 것은?"},
+        {"type": "figure", "value": "사각형 세 가지. ㈎: 두 내각이 각각 115°인 사각형 ABCD, BC = 5cm. ㈏: AB∥DC이고 AB = DC(화살표 표시)인 사각형. ㈐: 대각선이 그어진 사각형 ABCD, 한 변이 7cm."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "㈎"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "㈏"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "㈐"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "㈎, ㈏"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "㈏, ㈐"}]}
+      ]
+    },
+    {
+      "number": 3,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "아래 그림과 같이 "},
+        {"type": "equation", "value": "\\triangle ABC"},
+        {"type": "text", "value": "에서 점 A를 지나고 "},
+        {"type": "equation", "value": "\\overline{BC}"},
+        {"type": "text", "value": "에 평행한 직선이 "},
+        {"type": "equation", "value": "\\overline{AC}"},
+        {"type": "text", "value": "의 연장선과 만나는 점을 E라 하고 "},
+        {"type": "equation", "value": "\\triangle EBC"},
+        {"type": "text", "value": "의 넓이가 "},
+        {"type": "equation", "value": "2\\text{cm}^{2}"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\triangle ABC"},
+        {"type": "text", "value": "의 넓이는?"},
+        {"type": "figure", "value": "삼각형 ABC. A(위), B(왼쪽 아래), C(오른쪽 아래). C 오른쪽 위에 D와 E가 있음. 직선이 A를 지나 E까지 연장됨. 삼각형 내부에 점 O가 있음."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "6\\text{cm}^{2}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "7\\text{cm}^{2}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "8\\text{cm}^{2}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "9\\text{cm}^{2}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "10\\text{cm}^{2}"}]}
+      ]
+    },
+    {
+      "number": 4,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "아래 그림과 같은 직사각형 "},
+        {"type": "equation", "value": "\\square ABCD"},
+        {"type": "text", "value": "에서 "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "의 값은?"},
+        {"type": "figure", "value": "직사각형 ABCD. A(왼쪽 위), B(오른쪽 위), C(오른쪽 아래), D(왼쪽 아래). 내부에 사각형 EFGH가 있고(E, F, G, H가 각 변 위에 있음), x°로 표시된 각도가 있음."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "60°"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "65°"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "70°"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "75°"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "80°"}]}
+      ]
+    }
+  ]
+}

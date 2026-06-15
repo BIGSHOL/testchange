@@ -1,0 +1,83 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 1,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "그림에서 두 점 A와 점B는 점 P에서 원 O에 그은 두 접선의 접점이다. "},
+        {"type": "equation", "value": "\\angle APB = 58°"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\angle PAB"},
+        {"type": "text", "value": "의 크기는?"},
+        {"type": "figure", "value": "점 P에서 원 O에 두 접선을 그은 그림. 접점 A(위)와 B(아래). 각 APB = 58°가 표시됨. 원의 중심 O."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "60°"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "61°"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "62°"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "63°"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "64°"}]}
+      ]
+    },
+    {
+      "number": 2,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "그림에서 □ABCD가 원 O에 외접하고 "},
+        {"type": "equation", "value": "\\overline{AB} = 8cm"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{BC} = 14cm"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{AD} = 7cm"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\overline{CD}"},
+        {"type": "text", "value": "의 길이는?"},
+        {"type": "figure", "value": "사각형 ABCD가 원 O에 외접하는 그림. AB=8cm, BC=14cm, AD=7cm 표시. A(왼쪽 위), D(오른쪽 위), B(왼쪽 아래), C(오른쪽 아래)."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "11cm"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "12cm"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "13cm"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "14cm"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "15cm"}]}
+      ]
+    },
+    {
+      "number": 3,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 중심이 같은 두 원에서 작은 원의 접선이 큰 원과 만나는 두 점을 각각 A와 B라고 하자. 어두운 부분의 넓이가 "},
+        {"type": "equation", "value": "36\\pi cm^{2}"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\overline{AB}"},
+        {"type": "text", "value": "의 길이는?"},
+        {"type": "figure", "value": "동심원 두 개. 작은 원이 안쪽, 큰 원이 바깥쪽. 어두운 부분(도넛 모양). 작은 원의 접선이 큰 원과 만나는 두 점 A(왼쪽), B(오른쪽). 원의 중심 O."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "11cm"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "12cm"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "13cm"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "14cm"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "15cm"}]}
+      ]
+    },
+    {
+      "number": 4,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "다음 그림에서 "},
+        {"type": "equation", "value": "\\angle x"},
+        {"type": "text", "value": "의 크기는?"},
+        {"type": "figure", "value": "원 위의 점 A, B, P. 원의 중심 O. 각 AOB = 120°. 각 x = 각 APB. P는 호 AB 위의 점(열린 호 쪽)."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "100°"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "105°"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "110°"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "115°"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "120°"}]}
+      ]
+    }
+  ]
+}

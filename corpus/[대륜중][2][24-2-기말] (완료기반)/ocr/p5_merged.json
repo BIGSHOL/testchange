@@ -1,0 +1,62 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 17,
+      "score": 8,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "그림 (가)와 (나)는 서로 닮음인 두 원뿔이다."},
+        {"type": "figure", "value": "두 원뿔 (가)와 (나)가 나란히 놓여 있음. (가)는 작은 원뿔, (나)는 큰 원뿔."}
+      ],
+      "subquestions": [
+        {
+          "number": 1,
+          "score": 4,
+          "contents": [
+            {"type": "text", "value": "(가)와 (나)의 닮음비가 3:5이고, (가)의 부피가 "},
+            {"type": "equation", "value": "27\\pi \\text{cm}^{3}"},
+            {"type": "text", "value": "일 때, (나)의 부피를 구하시오. [4점]"}
+          ]
+        },
+        {
+          "number": 2,
+          "score": 4,
+          "contents": [
+            {"type": "text", "value": "△ABC∽△ADE일 때, "},
+            {"type": "equation", "value": "p"},
+            {"type": "text", "value": ", "},
+            {"type": "equation", "value": "q"},
+            {"type": "text", "value": "의 값을 각각 구하시오. [4점]"},
+            {"type": "figure", "value": "두 닮음삼각형 ABC와 ADE. 꼭짓점 A가 공통, D는 AB 위의 점, E는 AC 위의 점. AD=4cm, AE=qcm, DE=pcm, AB=12cm, AC=20cm, BC=관련 값 표시."}
+          ]
+        }
+      ]
+    },
+    {
+      "number": 18,
+      "score": 25,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "그림과 같이 정육각형 모양의 도형에서 각 꼭짓점에 수가 적혀 있다."},
+        {"type": "figure", "value": "정육각형. 꼭짓점이 P(위), Q(오른쪽 위), R(오른쪽 아래), 아래, 왼쪽 아래, 왼쪽 위 순으로 있음. 각 꼭짓점 또는 변에 숫자 표시. 내부에 대각선 또는 경로 표시."}
+      ],
+      "subquestions": [
+        {
+          "number": 1,
+          "score": 12,
+          "contents": [
+            {"type": "text", "value": "점 P에서 점 Q까지 이동하는 방법이 모두 41가지일 때, 두 수의 합이 짝수가 나오는 경우의 확률을 구하시오. [12점]"}
+          ]
+        },
+        {
+          "number": 2,
+          "score": 13,
+          "contents": [
+            {"type": "text", "value": "두 점 P와 Q 사이를 이동하는 방법 중에서 임의로 한 가지를 선택할 때, 이 경로의 확률을 구하시오. [13점]"}
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "header": "2024년 2학기 기말고사 성명여중 2학년 수학",
+  "questions": [
+    {
+      "number": 1,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "<보기>의 삼각형 중에서 서로 닮음인 삼각형을 찾아 기호로 바르게 나타낸 것은?"},
+        {"type": "figure", "value": "보기 박스: 여러 삼각형 그림이 제시됨. 삼각형 ABC(4cm, 6cm 변 표시), 삼각형 DEF(8cm, 12cm), 삼각형 GHI(각도 표시 포함, 4cm), 삼각형 MNO(6cm, 8cm), 삼각형 PQR(3cm 포함) 등 여러 삼각형."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\triangle ABC \\sim \\triangle PQR"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\triangle ADF \\sim \\triangle MNB"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\triangle AGH \\sim \\triangle KJL"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\triangle APQ \\sim \\triangle ANB"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\triangle AAC \\sim \\triangle APD"}]}
+      ]
+    },
+    {
+      "number": 2,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "그림과 같은 "},
+        {"type": "equation", "value": "\\triangle ABC"},
+        {"type": "text", "value": "에서 변 AB, BC, CA의 중점을 각각 D, E, F라 하고, "},
+        {"type": "equation", "value": "\\triangle ABC"},
+        {"type": "text", "value": "의 넓이가 "},
+        {"type": "equation", "value": "32cm^{2}"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\triangle EFD"},
+        {"type": "text", "value": "의 넓이는?"},
+        {"type": "figure", "value": "삼각형 ABC에서 변 AB, BC, CA의 중점을 각각 D, E, F로 표시한 그림. 내부에 삼각형 DEF가 그려져 있음."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "11cm^{2}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "13cm^{2}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "15cm^{2}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "18cm^{2}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "20cm^{2}"}]}
+      ]
+    },
+    {
+      "number": 3,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "그림과 같은 "},
+        {"type": "equation", "value": "\\triangle ABC"},
+        {"type": "text", "value": "에서 BC의 길이는?"},
+        {"type": "figure", "value": "삼각형 ABC: 점 B에서 AC에 내린 수선의 발 H가 있고, BH=9cm, AH=12cm이 표시된 그림."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "9cm"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "10cm"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "11cm"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "12cm"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "13cm"}]}
+      ]
+    },
+    {
+      "number": 4,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 "},
+        {"type": "equation", "value": "l \\parallel m"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "의 값은?"},
+        {"type": "figure", "value": "두 평행선 l, m과 두 직선이 교차하는 그림. 수치 4cm, 6cm, 9cm, 14cm 등과 변수 x가 표시됨."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "11"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "22"}]}
+      ]
+    }
+  ]
+}

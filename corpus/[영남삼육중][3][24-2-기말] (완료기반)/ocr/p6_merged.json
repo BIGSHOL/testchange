@@ -1,0 +1,70 @@
+{
+  "header": "영남삼육중 3학년 수학 2024년 2학기 기말고사",
+  "questions": [
+    {
+      "number": 23,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "다음 그림과 같이 가로 44m, 세로 100cm의 직육면체 모양의 물탱크가 있다. 이 물탱크의 부피를 구하여라. (단, 물탱크의 높이를 "},
+        {"type": "equation", "value": "n"},
+        {"type": "text", "value": "이라 하자.) [5점]"},
+        {"type": "figure", "value": "직육면체 물탱크 그림. 가로 44m, 세로 100cm 표시"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "220 \\times 144 m^3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "220 + 144 m^3"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "220 \\times 144^2 m^3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "220 + 144^2 m^3"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "(220 + 144)^2 m^3"}]}
+      ]
+    },
+    {
+      "number": 24,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "다음 그림에서 원에 삼각형 ABC가 내접하고 "},
+        {"type": "equation", "value": "\\angle ABC = 30°"},
+        {"type": "text", "value": "이면 이 원의 넓이를 구하여라. [4점]"},
+        {"type": "figure", "value": "원에 내접하는 삼각형 ABC 그림. 각도와 변의 길이 표시"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "2\\pi"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "3\\pi"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "4\\pi"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "9\\pi"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "16\\pi"}]}
+      ]
+    },
+    {
+      "number": 25,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "다음 보기에서 상관관계에 대한 설명 중 옳은 것을 모두 고른 것은? [4점]"},
+        {"type": "text", "value": "<보기>"},
+        {"type": "text", "value": "ㄱ. 두 변수 사이의 상관관계가 있으면 반드시 인과관계가 있다.\nㄴ. 양의 상관관계에서는 한 변수가 증가할 때 다른 변수도 증가하는 경향이 있다.\nㄷ. 상관관계가 없으면 두 변수는 서로 독립이다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄴ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄷ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄱ, ㄴ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄴ, ㄷ"}]}
+      ]
+    },
+    {
+      "number": 26,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "다음 그림은 학생들의 내신 성적과 모의고사 성적의 산점도이다. 이 산점도에서 내신 성적이 14등급 이상인 학생 수는? [4점]"},
+        {"type": "figure", "value": "가로축이 0~60~100, 세로축이 0~60~100인 산점도 그림. 내신 성적과 모의고사 성적을 나타냄"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "14"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "15"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "16"}]}
+      ]
+    }
+  ]
+}

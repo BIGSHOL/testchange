@@ -1,0 +1,59 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 13,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "다음 산점도는 어느 반 학생의 수학 점수와 국어 점수를 조사하여 나타낸 것이다. 이 자료에서 수학 점수가 60점 이상인 학생 수에 대한 수학 점수와 국어 점수가 모두 60점 이상인 학생 수의 비율은? [4점]"},
+        {"type": "figure", "value": "두 과목의 점수를 나타낸 산점도. x축: 수학 점수(0~100점), y축: 국어 점수(0~100점). 점 10개가 분포되어 있음"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{1}{7}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{2}{7}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{3}{7}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{4}{7}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{7}{10}"}]}
+      ]
+    },
+    {
+      "number": 14,
+      "score": 10,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 1] 그림에서 원 "},
+        {"type": "equation", "value": "O"},
+        {"type": "text", "value": "의 외부에 있는 점 "},
+        {"type": "equation", "value": "P"},
+        {"type": "text", "value": "에서 원에 접선을 그었을 때 접점을 "},
+        {"type": "equation", "value": "T"},
+        {"type": "text", "value": "라 하고, 점 "},
+        {"type": "equation", "value": "P"},
+        {"type": "text", "value": "를 지나는 직선이 원과 두 점 "},
+        {"type": "equation", "value": "A"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "B"},
+        {"type": "text", "value": "에서 만날 때, "},
+        {"type": "equation", "value": "\\overline{PT}^2 = \\overline{PA} \\times \\overline{PB}"},
+        {"type": "text", "value": "임을 논리적으로 서술하시오. [10점]"},
+        {"type": "figure", "value": "원 O, 외부점 P에서 접선 PT(접점 T), 직선 PAB가 원과 만나는 점 A, B가 표시된 그림"}
+      ]
+    },
+    {
+      "number": 15,
+      "score": 10,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 2] 5개의 자료 "},
+        {"type": "equation", "value": "a, b, c, d, e"},
+        {"type": "text", "value": "의 합이 540이고, 중앙값과 평균이 같으며, 최빈값은 102, 가장 큰 값과 가장 작은 값의 차이가 14일 때, "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "의 값을 구하시오. (단, "},
+        {"type": "equation", "value": "a \\le b \\le c \\le d \\le e"},
+        {"type": "text", "value": "이고 "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "는 두 번째로 큰 값) [10점]"}
+      ]
+    }
+  ]
+}

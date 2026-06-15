@@ -1,0 +1,72 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 18,
+      "score": 7,
+      "label_type": "단답형",
+      "contents": [
+        {"type": "text", "value": "원 O에서 두 현 "},
+        {"type": "equation", "value": "\\overline{AB}"},
+        {"type": "text", "value": "와 "},
+        {"type": "equation", "value": "\\overline{CD}"},
+        {"type": "text", "value": "가 점 P에서 교차하고 PA=2, PB=6, PC=3일 때, 색칠한 부분의 넓이를 구하시오. [7점]"},
+        {"type": "figure", "value": "원 O 안에서 두 현 AB와 CD가 내부 점 P에서 교차함. PA=2, PB=6, PC=3이 표시됨. 색칠된 부분(부채꼴 또는 활꼴 영역) 표시."}
+      ]
+    },
+    {
+      "number": 19,
+      "score": 7,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "equation", "value": "\\triangle ABC"},
+        {"type": "text", "value": "에서 "},
+        {"type": "equation", "value": "\\angle A = 60°"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\angle B = 30°"},
+        {"type": "text", "value": "이고 "},
+        {"type": "equation", "value": "b = 8"},
+        {"type": "text", "value": "cm일 때, "},
+        {"type": "equation", "value": "\\triangle ABC"},
+        {"type": "text", "value": "의 넓이를 구하시오. (풀이 과정을 서술하시오.) [7점]"},
+        {"type": "figure", "value": "삼각형 ABC. ∠A=60°, ∠B=30°이고 변 b=AC=8cm 표시."}
+      ]
+    },
+    {
+      "number": 20,
+      "score": 9,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "그림과 같이 "},
+        {"type": "equation", "value": "\\triangle ABC"},
+        {"type": "text", "value": "에서 "},
+        {"type": "equation", "value": "\\angle B = 30°"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "AB = 2\\sqrt{3}"},
+        {"type": "text", "value": "cm, "},
+        {"type": "equation", "value": "AC = 2"},
+        {"type": "text", "value": "cm일 때, "},
+        {"type": "equation", "value": "\\overline{BC}"},
+        {"type": "text", "value": "의 길이를 구하시오. (풀이 과정을 서술하시오.) [9점]"},
+        {"type": "figure", "value": "삼각형 ABC. ∠B=30°, AB=2√3cm, AC=2cm 표시."}
+      ]
+    },
+    {
+      "number": 21,
+      "score": 9,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "다음은 어느 반 학생 10명의 수학 성적과 국어 성적을 나타낸 산점도이다. 수학 성적의 평균과 국어 성적의 평균을 구하고, 두 평균의 합을 서술하시오. (풀이 과정을 서술하시오.) [9점]"},
+        {"type": "figure", "value": "학생 10명의 수학 성적(x축, 2~10점)과 국어 성적(y축, 40~100점)을 나타낸 산점도. 10개의 점이 분포되어 있음."}
+      ]
+    },
+    {
+      "number": 22,
+      "score": 9,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "위 산점도에서 수학 성적이 국어 성적보다 높은 학생의 비율(%)을 구하시오. (풀이 과정을 서술하시오.) [9점]"}
+      ]
+    }
+  ]
+}

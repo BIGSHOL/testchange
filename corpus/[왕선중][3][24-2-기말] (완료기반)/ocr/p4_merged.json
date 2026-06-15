@@ -1,0 +1,168 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 14,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 원에 내접하는 사각형 ABCD에서 두 대각선의 교점을 P라 할 때, "},
+        {"type": "equation", "value": "\\angle APC"},
+        {"type": "text", "value": "의 크기는?"},
+        {"type": "figure", "value": "원에 내접하는 사각형 ABCD. 두 대각선 AC, BD가 점 P에서 교차. 각도 표시."}
+      ],
+      "choices": [
+        {
+          "number": 1,
+          "contents": [{"type": "equation", "value": "54°"}]
+        },
+        {
+          "number": 2,
+          "contents": [{"type": "equation", "value": "57°"}]
+        },
+        {
+          "number": 3,
+          "contents": [{"type": "equation", "value": "62°"}]
+        },
+        {
+          "number": 4,
+          "contents": [{"type": "equation", "value": "65°"}]
+        }
+      ]
+    },
+    {
+      "number": 15,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 원에서 "},
+        {"type": "equation", "value": "\\angle ABT"},
+        {"type": "text", "value": "의 크기를 구하시오."},
+        {"type": "figure", "value": "원. 접선 위의 점 T. 현 AB와 접선이 이루는 각 ABT 표시. 관련 호의 각도 표시."}
+      ],
+      "choices": [
+        {
+          "number": 1,
+          "contents": [{"type": "equation", "value": "41°"}]
+        },
+        {
+          "number": 2,
+          "contents": [{"type": "equation", "value": "49°"}]
+        },
+        {
+          "number": 3,
+          "contents": [{"type": "equation", "value": "82°"}]
+        },
+        {
+          "number": 4,
+          "contents": [{"type": "equation", "value": "90°"}]
+        }
+      ]
+    },
+    {
+      "number": 16,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 원에서 "},
+        {"type": "equation", "value": "\\angle BAC"},
+        {"type": "text", "value": "의 크기를 구하시오."},
+        {"type": "figure", "value": "원에 내접하는 삼각형 ABC. 점 A, B, C가 원 위에 있음. 관련 각도 수치 표시."}
+      ],
+      "choices": [
+        {
+          "number": 1,
+          "contents": [{"type": "equation", "value": "32°"}]
+        },
+        {
+          "number": 2,
+          "contents": [{"type": "equation", "value": "36°"}]
+        },
+        {
+          "number": 3,
+          "contents": [{"type": "equation", "value": "40°"}]
+        },
+        {
+          "number": 4,
+          "contents": [{"type": "equation", "value": "44°"}]
+        }
+      ]
+    },
+    {
+      "number": 17,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 산의 높이를 측정하려 한다. 다음 표를 이용하여 올바른 것을 고르시오."},
+        {"type": "table", "rows": [
+          ["각도", "sin", "cos", "tan"],
+          ["33°", "0.54", "0.84", "0.65"],
+          ["35°", "0.57", "0.82", "0.70"],
+          ["37°", "0.60", "0.80", "0.75"]
+        ], "value": ""},
+        {"type": "figure", "value": "산 또는 건물 높이 측정 그림. 측정 각도와 거리 표시."}
+      ],
+      "choices": [
+        {
+          "number": 1,
+          "contents": [{"type": "equation", "value": "2\\frac{1}{2}"}]
+        },
+        {
+          "number": 2,
+          "contents": [{"type": "equation", "value": "2\\frac{3}{4}"}]
+        },
+        {
+          "number": 3,
+          "contents": [{"type": "equation", "value": "3\\frac{1}{2}"}]
+        },
+        {
+          "number": 4,
+          "contents": [{"type": "equation", "value": "3\\frac{3}{4}"}]
+        }
+      ]
+    },
+    {
+      "number": 18,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 원에서 "},
+        {"type": "equation", "value": "\\angle APC"},
+        {"type": "text", "value": "의 크기를 구하시오."},
+        {"type": "figure", "value": "원. 현 AC와 BD의 교점 P. 원 위의 네 점 A, B, C, D. 관련 각도 수치 표시."}
+      ],
+      "choices": [
+        {
+          "number": 1,
+          "contents": [{"type": "equation", "value": "45°"}]
+        },
+        {
+          "number": 2,
+          "contents": [{"type": "equation", "value": "54°"}]
+        },
+        {
+          "number": 3,
+          "contents": [{"type": "equation", "value": "81°"}]
+        },
+        {
+          "number": 4,
+          "contents": [{"type": "equation", "value": "90°"}]
+        }
+      ]
+    },
+    {
+      "number": 19,
+      "score": 14,
+      "label_type": "서답형",
+      "contents": [
+        {"type": "text", "value": "[서답형 1] 그림과 같이 건물의 높이를 측정하려 한다. 지면 위의 두 점 A, C에서 건물 꼭대기 B를 올려볼 때, ∠BAC=35°이고, "},
+        {"type": "equation", "value": "\\overline{AC}=41m"},
+        {"type": "text", "value": "이다. 다음 표를 이용하여 물음에 답하시오."},
+        {"type": "table", "rows": [
+          ["각도", "sin", "cos", "tan"],
+          ["33°", "0.54", "0.84", "0.65"],
+          ["35°", "0.57", "0.82", "0.70"],
+          ["37°", "0.60", "0.80", "0.75"]
+        ], "value": ""},
+        {"type": "figure", "value": "직각삼각형 ABC. A는 왼쪽 지면, C는 직각(건물 밑), B는 건물 꼭대기. AC=41m, ∠BAC=35° 표시."},
+        {"type": "text", "value": "(1) 건물의 높이 BC를 구하시오. [7점]"},
+        {"type": "text", "value": "(2) AB의 길이를 구하시오. [7점]"}
+      ]
+    }
+  ]
+}

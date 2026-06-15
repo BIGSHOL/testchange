@@ -1,0 +1,102 @@
+{
+  "header": "도형의 닮음 ~ 확률",
+  "questions": [
+    {
+      "number": 1,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "그림에서 △ABC∽△DEF일 때, "},
+        {"type": "equation", "value": "x+y"},
+        {"type": "text", "value": "의 값은?"},
+        {"type": "figure", "value": "두 닮음 삼각형 △ABC와 △DEF. △ABC: B(왼쪽 아래), C(오른쪽 아래), A(위). BC=6cm, 한 변에 5cm 표시. △DEF: 오른쪽에 위치. 두 삼각형의 대응변에 x, y 표시. △ABC∽△DEF 닮음 관계."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "22.5"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "33"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "32.5"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "34"}]}
+      ]
+    },
+    {
+      "number": 2,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "그림에서 BC∥DE일 때, "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "의 값은?"},
+        {"type": "figure", "value": "삼각형 또는 두 직선이 평행선에 잘리는 그림. B, A, D 등 점이 있고 BC∥DE. BD=3cm, 다른 선분=9cm 표시. x는 구하는 길이."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "11"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "12"}]}
+      ]
+    },
+    {
+      "number": 3,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 "},
+        {"type": "equation", "value": "\\angle A=90°"},
+        {"type": "text", "value": "인 직각삼각형 ABC의 꼭짓점 A에서 변 BC에 내린 수선의 발을 D라 하자. "},
+        {"type": "equation", "value": "\\overline{AD}=3cm"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{DE}=3cm"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "의 값은?"},
+        {"type": "figure", "value": "직각삼각형 ABC. ∠A=90°. A에서 BC에 내린 수선의 발 D. BC 위에 점 E. 5cm 길이 표시. AD=3cm, DE=3cm. x는 구하는 길이."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{27}{5}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{29}{3}"}]}
+      ]
+    },
+    {
+      "number": 4,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "△ABC에서 세 중선 AD, BF, CE의 교점을 G라 하자. "},
+        {"type": "equation", "value": "\\overline{GD}=9cm"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\overline{AG}"},
+        {"type": "text", "value": "의 값은?"},
+        {"type": "figure", "value": "삼각형 ABC에서 세 중선이 무게중심 G에서 교차. 오른쪽 변에 8cm 표시. D는 BC의 중점."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "9cm"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "10cm"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "11cm"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "12cm"}]}
+      ]
+    },
+    {
+      "number": 5,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 직사각형 ABCD에서 점 F, H는 대각선 BD 위의 점이고 "},
+        {"type": "equation", "value": "\\overline{AE}\\perp\\overline{BD}"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{FH}\\perp\\overline{BD}"},
+        {"type": "text", "value": "이다. "},
+        {"type": "equation", "value": "\\overline{AD}=20cm"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{AB}=15cm"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\overline{FH}"},
+        {"type": "text", "value": "의 값은?"},
+        {"type": "figure", "value": "직사각형 ABCD(A=왼쪽 위 또는 유사 위치). 대각선 BD. BD 위의 점 E, F, G, H. AE⊥BD, FH⊥BD. AD=20cm, AB=15cm 치수 표시."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "16.5cm"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "17cm"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "17.5cm"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "18cm"}]}
+      ]
+    }
+  ]
+}

@@ -1,0 +1,111 @@
+{
+  "header": "2024년 2학기 기말고사 구암중 2학년 수학",
+  "questions": [
+    {
+      "number": 11,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "그림에서 "},
+        {"type": "equation", "value": "\\triangle ABC \\sim \\triangle AED"},
+        {"type": "text", "value": "일 때, 옳은 것은?"},
+        {"type": "figure", "value": "삼각형에서 꼭짓점 A, B, C, D, E가 표시된 그림. 변의 길이 수치 표시."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\overline{CE} = 2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\overline{DE} : \\overline{EC} = 1 : 2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\overline{BC} : \\overline{EC} = 1 : 2"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\triangle ABC = \\triangle ARD"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\overline{DE} = \\overline{EC} = 1 : 2"}]}
+      ]
+    },
+    {
+      "number": 12,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "그림에서 직각삼각형 CD에서 "},
+        {"type": "equation", "value": "\\angle AOB = 130°"},
+        {"type": "text", "value": "일 때, 색칠한 부분의 넓이는?"},
+        {"type": "figure", "value": "원에서 ∠AOB=130°를 이용한 색칠 부분의 넓이 계산 그림."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "12cm^{2}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "15cm^{2}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "16cm^{2}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "80cm^{2}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "100cm^{2}"}]}
+      ]
+    },
+    {
+      "number": 13,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "△a = △b 에서 닮음 삼각형의 변의 길이를 구하시오."},
+        {"type": "figure", "value": "닮음 삼각형 그림. 변의 길이 수치 표시."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "40"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "54"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "60"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "64"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "68"}]}
+      ]
+    },
+    {
+      "number": 14,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "닮음삼각형에서 변의 길이를 구하시오."},
+        {"type": "figure", "value": "닮음 삼각형 그림. 3cm, 4cm, 8cm 등 변의 길이 수치 표시."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "3cm"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "4cm"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "5cm"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "6cm"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "7cm"}]}
+      ]
+    },
+    {
+      "number": 15,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "정삼각형 모양의 철망을 닮음 비를 이용하여 넓이를 구하시오."},
+        {"type": "figure", "value": "정삼각형 모양의 그림. 변의 길이 3cm, 4cm 등 표시."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{5}{7}cm"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "1cm"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{7}{5}cm"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{7}{4}cm"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{5}{4}cm"}]}
+      ]
+    },
+    {
+      "number": 16,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "닮음인 "},
+        {"type": "equation", "value": "\\triangle ABC"},
+        {"type": "text", "value": "에서 "},
+        {"type": "equation", "value": "\\overline{DE} \\parallel \\overline{BC}"},
+        {"type": "text", "value": "이고 "},
+        {"type": "equation", "value": "\\overline{AD} = 3cm"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{DB} = 4cm"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{EC} = 8cm"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "의 값은?"},
+        {"type": "figure", "value": "삼각형 ABC에서 DE∥BC이고 AD, DB, EC 길이가 표시된 그림."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{5}{7}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{7}{5}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{7}{4}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{5}{4}"}]}
+      ]
+    }
+  ]
+}

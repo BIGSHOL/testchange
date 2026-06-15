@@ -1,0 +1,77 @@
+{
+  "header": "2024년 2학기 기말고사 압량중 2학년 수학",
+  "questions": [
+    {
+      "number": 13,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "아래 그림에서 "},
+        {"type": "equation", "value": "\\overline{AD} \\perp \\overline{EF} \\perp \\overline{BC}"},
+        {"type": "text", "value": "이고 "},
+        {"type": "equation", "value": "\\overline{AE} = \\overline{FB}"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\overline{FD}"},
+        {"type": "text", "value": "의 길이를 구하여라."},
+        {"type": "figure", "value": "사다리꼴 도형. A(왼쪽 위), D(오른쪽 위), B(왼쪽 아래), C(오른쪽 아래). 점 E는 AB 위, 점 F는 BC 위. AD = 15cm(위의 변), BC = 21cm(아래의 변). EF⊥AD이고 EF⊥BC. AE = FB."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "10.5"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "11"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "11.5"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "12"}]}
+      ]
+    },
+    {
+      "number": 14,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "다음 그림에서 닮음인 삼각형의 쌍을 모두 고른 것은?"},
+        {"type": "figure", "value": "세 가지 삼각형 쌍. ①: 두 삼각형, 각도가 표시됨. ②: 두 삼각형, 변의 길이와 각도가 표시됨(4cm 포함). ③: 두 삼각형, 변의 비가 표시됨."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "①"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "②"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "③"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "①, ②"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "②, ③"}]}
+      ]
+    },
+    {
+      "number": 15,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "아래 그림에서 닮음 조건과 "},
+        {"type": "equation", "value": "\\overline{AC}"},
+        {"type": "text", "value": "의 길이를 바르게 구한 것은?"},
+        {"type": "figure", "value": "삼각형 ABC. A(위), B(왼쪽 아래), C(오른쪽 아래). 삼각형 내부에 점 D와 P가 있음. 4cm와 2cm, 2cm 등이 표시됨."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "AA닮음, "},{"type": "equation", "value": "\\overline{AC} = 4\\text{cm}"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "SAS닮음, "},{"type": "equation", "value": "\\overline{AC} = 4\\text{cm}"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "SSS닮음, "},{"type": "equation", "value": "\\overline{AC} = 4\\text{cm}"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "SAS닮음, "},{"type": "equation", "value": "\\overline{AC} = 5\\text{cm}"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "AA닮음, "},{"type": "equation", "value": "\\overline{AC} = 5\\text{cm}"}]}
+      ]
+    },
+    {
+      "number": 16,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "다음 그림에서 점 G가 "},
+        {"type": "equation", "value": "\\triangle ABC"},
+        {"type": "text", "value": "의 무게중심일 때, "},
+        {"type": "equation", "value": "y - x"},
+        {"type": "text", "value": "의 값은?"},
+        {"type": "figure", "value": "삼각형 ABC. A(위), B(왼쪽 아래), C(오른쪽 아래). G는 무게중심. 중선 세 개가 G에서 만남. x와 y로 표시된 값들이 있음."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "9"}]}
+      ]
+    }
+  ]
+}

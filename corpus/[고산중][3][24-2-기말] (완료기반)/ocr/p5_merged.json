@@ -1,0 +1,114 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 18,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "선분 AB를 지름으로 하는 원 O에 내접하는 사각형 APBQ를 나타낸 것이다. "},
+        {"type": "equation", "value": "\\overline{AP}=8"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{BP}=4"},
+        {"type": "text", "value": "이고, "},
+        {"type": "equation", "value": "\\overline{QA}=\\overline{QB}"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\overline{PQ}"},
+        {"type": "text", "value": "의 길이는?"},
+        {"type": "figure", "value": "원 O. AB는 지름. P는 위쪽 원 위의 점, Q는 아래쪽 원 위의 점. 사각형 APBQ. AP=8, BP=4(내부 수치 표시: 8, 4). QA=QB(등변 표시). 중심 O 표시."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "6\\sqrt{3}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "5\\sqrt{3}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "6\\sqrt{2}"}]}
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 19,
+      "score": 8,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 1] \\triangle ABC에서 "},
+        {"type": "equation", "value": "\\overline{AB}=8"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{AC}=6"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\angle A = 60°"},
+        {"type": "text", "value": "이다. "},
+        {"type": "equation", "value": "\\overline{AD}"},
+        {"type": "text", "value": "가 "},
+        {"type": "equation", "value": "\\angle A"},
+        {"type": "text", "value": "의 이등분선일 때, 다음 물음에 답하시오."},
+        {"type": "figure", "value": "삼각형 ABC. A가 위, B가 왼쪽 아래, C가 오른쪽 아래. D는 BC 위의 점. AD가 ∠A의 이등분선. AB=8, AC=6(점선 표시). ∠A=60°(묵시적)."}
+      ],
+      "choices": [],
+      "sub_questions": [
+        {
+          "number": 1,
+          "score": 2,
+          "contents": [
+            {"type": "text", "value": "(1) △ABC의 넓이를 구하시오."}
+          ]
+        },
+        {
+          "number": 2,
+          "score": 3,
+          "contents": [
+            {"type": "text", "value": "(2) "},
+            {"type": "equation", "value": "\\overline{AD}"},
+            {"type": "text", "value": "의 길이를 구하시오."}
+          ]
+        },
+        {
+          "number": 3,
+          "score": 3,
+          "contents": [
+            {"type": "text", "value": "(3) "},
+            {"type": "equation", "value": "\\overline{BC}"},
+            {"type": "text", "value": "의 길이를 구하시오."}
+          ]
+        }
+      ]
+    },
+    {
+      "number": 20,
+      "score": 7,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 2] 직각삼각형 ABC에서 "},
+        {"type": "equation", "value": "\\overline{AB} \\perp \\overline{CD}"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{AC} \\perp \\overline{DE}"},
+        {"type": "text", "value": "이고 "},
+        {"type": "equation", "value": "\\overline{BC}=4"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\angle B = 60°"},
+        {"type": "text", "value": "일 때, 다음 물음에 답하시오."},
+        {"type": "figure", "value": "직각삼각형 ABC. A가 위, B가 왼쪽 아래, C가 오른쪽 아래. D는 AB 위의 점(CD⊥AB, 직각 표시). E는 AC 위의 점(DE⊥AC, 직각 표시). BC=4cm, ∠B=60°."}
+      ],
+      "choices": [],
+      "sub_questions": [
+        {
+          "number": 1,
+          "score": 4,
+          "contents": [
+            {"type": "text", "value": "(1) "},
+            {"type": "equation", "value": "\\overline{AD}"},
+            {"type": "text", "value": "와 "},
+            {"type": "equation", "value": "\\overline{AE}"},
+            {"type": "text", "value": "의 길이를 구하시오. (단, 삼각형의 세 변의 길이의 비로 구해도 됨.)"}
+          ]
+        },
+        {
+          "number": 2,
+          "score": 3,
+          "contents": [
+            {"type": "text", "value": "(2) △ABE의 넓이를 구하시오."}
+          ]
+        }
+      ]
+    }
+  ]
+}

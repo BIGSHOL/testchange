@@ -1,0 +1,78 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 19,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "어느 학생 4명의 수학 점수의 편차를 나타낸 것이다. 수학 점수의 평균이 77점일 때, 지호의 수학 점수를 구하면?"},
+        {"type": "table", "rows": [["학생", "지호", "대호", "민호", "재호"], ["편차", "-3", "", "", ""]], "value": ""}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "72"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "74"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "76"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "78"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "80"}]}
+      ]
+    },
+    {
+      "number": 20,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "세 수 a, b, c에 대하여 a+b+c=0이고, a, b, c의 합계가 일정할 때, b+c의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "3"}]}
+      ]
+    },
+    {
+      "number": 21,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "두 이차식 a, b, c의 표준편차인 경우를 1개만 표준편차로 구한 이름은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "2\\sqrt{3}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "3\\sqrt{3}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "4\\sqrt{3}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "5\\sqrt{3}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "6\\sqrt{3}"}]}
+      ]
+    },
+    {
+      "number": 22,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "다음은 국어 성적에 대한 평균과 표준편차이다. 다음 중 옳은 것을 고른 것은?"},
+        {"type": "table", "rows": [["", "1", "2", "3", "4", "5"], ["평균", "", "", "", "", ""], ["표준편차", "", "", "", "", ""], ["합계", "", "", "", "", ""]], "value": ""}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "성적이 가장 높은 학생은 2반에 있다."}]},
+        {"number": 2, "contents": [{"type": "text", "value": "성적이 가장 고른 반은 1반이다."}]},
+        {"number": 3, "contents": [{"type": "text", "value": "3반의 점수분포가 가장 고르다."}]},
+        {"number": 4, "contents": [{"type": "text", "value": "5반의 평균이 가장 높다."}]},
+        {"number": 5, "contents": [{"type": "text", "value": "평균이 높을수록 표준편차도 크다."}]}
+      ]
+    },
+    {
+      "number": 23,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "다음 그림과 같은 산점도로 나타낼 수 있는 두 변량은?"},
+        {"type": "figure", "value": "산점도(scatter plot). x축과 y축. 점들이 타원형(렌즈 모양)으로 배치됨. 왼쪽 아래에서 오른쪽 위 방향(양의 상관관계 또는 무상관)으로 분포."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "키, 몸무게"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "나이, 시력"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "독서량, 성적"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "나이, 연봉"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "기온, 아이스크림 판매량"}]}
+      ]
+    }
+  ]
+}

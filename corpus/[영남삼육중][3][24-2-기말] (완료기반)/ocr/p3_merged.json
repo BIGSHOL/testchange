@@ -1,0 +1,87 @@
+{
+  "header": "영남삼육중 3학년 수학 2024년 2학기 기말고사",
+  "questions": [
+    {
+      "number": 9,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "다음 그림에서 원의 중심 O이고, 원 위의 한 점 A에서 그은 접선 AT가 있다. 직선 AT위에 점 P가 있고 "},
+        {"type": "equation", "value": "\\overline{AP} = \\overline{TP}"},
+        {"type": "text", "value": "이면, "},
+        {"type": "equation", "value": "\\overline{XP} - \\overline{TQ}"},
+        {"type": "text", "value": "의 값을 구하여라. (단, "},
+        {"type": "equation", "value": "\\overline{XP} = \\overline{TP}"},
+        {"type": "text", "value": ") [4점]"},
+        {"type": "figure", "value": "원의 중심 O, 원 위의 점 A와 외부 점 T, 접선 AT가 그려진 그림"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "2-\\sqrt{3}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2+\\sqrt{3}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3-\\sqrt{2}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "3+\\sqrt{3}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "-2+\\sqrt{3}"}]}
+      ]
+    },
+    {
+      "number": 10,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "다음 그림에서 원에 삼각형 ABC가 내접하고 "},
+        {"type": "equation", "value": "\\overline{AB} = 6\\text{cm}"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{CD} = 12\\text{cm}"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\overline{AD}"},
+        {"type": "text", "value": "의 길이를 구하여라. [4점]"},
+        {"type": "figure", "value": "원에서 삼각형 ABC가 내접하고 점 D가 원 위에 있는 그림. AB=6cm, CD=12cm 표시"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "10\\text{cm}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "10.5\\text{cm}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "11\\text{cm}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "11.5\\text{cm}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "12\\text{cm}"}]}
+      ]
+    },
+    {
+      "number": 11,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "다음 그림에서 원에 사각형 ABCD가 내접할 때, "},
+        {"type": "equation", "value": "\\angle A"},
+        {"type": "text", "value": "와 "},
+        {"type": "equation", "value": "\\angle B"},
+        {"type": "text", "value": "의 크기의 합을 구하여라. [4점]"},
+        {"type": "figure", "value": "원에 내접하는 사각형 ABCD 그림. 각도 값들이 표시됨"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "32"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "34"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "28"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "72"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "40"}]}
+      ]
+    },
+    {
+      "number": 12,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "다음 그림에서 원에 내접하는 삼각형 ABC에 대하여 "},
+        {"type": "equation", "value": "\\overline{AB} = \\overline{CD}"},
+        {"type": "text", "value": "이고 "},
+        {"type": "equation", "value": "\\angle AFB = x"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "를 구하여라. [4점]"},
+        {"type": "figure", "value": "원에 내접하는 사각형과 각도가 표시된 그림"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "126°"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "127°"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "127.5°"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "128°"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "128.5°"}]}
+      ]
+    }
+  ]
+}

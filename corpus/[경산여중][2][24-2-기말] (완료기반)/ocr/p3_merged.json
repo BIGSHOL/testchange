@@ -1,0 +1,68 @@
+{
+  "header": "2024년 2학기 기말고사 경산여중 2학년 수학",
+  "questions": [
+    {
+      "number": 11,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "그림에서 x의 값은?"},
+        {"type": "figure", "value": "삼각형 ABC에서 꼭짓점 B에서 대변 AC 위의 점 D를 지나는 선분이 그려진 도형. AB=12cm, BD=9cm(또는 관련 수치), 내부에 6cm, x cm 표시."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "a"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "b"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{17}{2}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "9"}]}
+      ]
+    },
+    {
+      "number": 12,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "사각형 ABCD에서 두 대각선의 교점을 G라 하고,"},
+        {"type": "equation", "value": "\\overline{BC}"},
+        {"type": "text", "value": ","},
+        {"type": "equation", "value": "\\overline{DC}"},
+        {"type": "text", "value": "의 중점을 각각 M, N이라고 할 때, 옳지 않은 것은?"},
+        {"type": "figure", "value": "사각형 ABCD에서 두 대각선이 교차하는 그림. 교점 G, 각 변의 중점 M, N 표시."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\overline{PG} : \\overline{MN} = 1 : 2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\overline{BP} = \\overline{PG} - \\overline{QD}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\overline{XP} = \\frac{2}{3} \\overline{AS}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\triangle PRM = \\frac{1}{2} \\cdot \\triangle ABCD"}]}
+      ]
+    },
+    {
+      "number": 13,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "삼각형 모양의 공원에서 무게중심의 꼭짓점 G가 △ABC의 무게중심일 때,"},
+        {"type": "equation", "value": "\\overline{CI}"},
+        {"type": "text", "value": "의 길이는?"},
+        {"type": "figure", "value": "삼각형 ABC 내부에 무게중심 G가 표시. 각 변에 8cm, 7cm, 5cm, 3cm 등 수치 표시."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "5cm"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "6cm"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{29}{5}cm"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "7cm"}]}
+      ]
+    },
+    {
+      "number": 14,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "△ABC에서 두 점 D, E가 F의 삼등분점일 때, XC의 삼등분점일 때, 선분의 길이는?"},
+        {"type": "figure", "value": "삼각형 ABC에서 변 위의 삼등분점 D, E와 점 F가 표시된 도형. 각 변에 6cm, 4cm, p cm 등 수치 표시."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "4cm"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "5cm"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "6cm"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "7cm"}]}
+      ]
+    }
+  ]
+}

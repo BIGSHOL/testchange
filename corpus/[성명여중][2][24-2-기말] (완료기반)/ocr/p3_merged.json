@@ -1,0 +1,78 @@
+{
+  "header": "2024년 2학기 기말고사 성명여중 2학년 수학",
+  "questions": [
+    {
+      "number": 9,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 "},
+        {"type": "equation", "value": "\\angle A = 90^{\\circ}"},
+        {"type": "text", "value": "인 직각삼각형 ABC의 세 변을 각각 지름으로 하는 반원을 그렸을 때, 색칠한 부분의 넓이가 "},
+        {"type": "equation", "value": "96cm^{2}"},
+        {"type": "text", "value": "이고, "},
+        {"type": "equation", "value": "\\overline{AB} = 12cm"},
+        {"type": "text", "value": "이다. 이 때 "},
+        {"type": "equation", "value": "\\overline{BC}"},
+        {"type": "text", "value": "의 길이는?"},
+        {"type": "figure", "value": "직각삼각형 ABC(∠A=90°)에서 세 변을 각각 지름으로 하는 반원 3개가 그려지고 색칠된 부분이 표시된 그림. AB=12cm가 표시됨."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "8cm"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "13cm"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "16cm"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "20cm"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "24cm"}]}
+      ]
+    },
+    {
+      "number": 10,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "한 개의 주사위를 던질 때, 나오는 눈의 수가 짝수 또는 소수가 되는 경우의 수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "6"}]}
+      ]
+    },
+    {
+      "number": 11,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "A, B, C, D, E 다섯 학생이 이어달리기를 하려고 한다. 달리는 순서를 정하는 경우의 수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "15"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "25"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "60"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "120"}]}
+      ]
+    },
+    {
+      "number": 12,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "50을 서로 다른 세 자연수의 곱으로 나타내는 방법은 "},
+        {"type": "equation", "value": "1 \\times 2 \\times 25"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "1 \\times 5 \\times 10"},
+        {"type": "text", "value": "의 2가지가 있다. 이와 같은 방법으로 320을 서로 다른 세 자연수의 곱으로 나타내는 방법의 수는? (단, "},
+        {"type": "equation", "value": "1 \\times 2 \\times 25"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "1 \\times 5 \\times 10"},
+        {"type": "text", "value": "과 같이 곱이 같은 순서만 다른 것은 같은 것으로 생각한다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "14"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "21"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "24"}]}
+      ]
+    }
+  ]
+}

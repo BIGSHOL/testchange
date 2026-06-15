@@ -1,0 +1,67 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 17,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "크기가 서로 다른 n개의 정삼각형이 있다. 가장 작은 정삼각형의 한 변의 길이가 "},
+        {"type": "equation", "value": "\\frac{1}{3}"},
+        {"type": "text", "value": " cm이고, 각 정삼각형의 한 변의 길이가 바로 전 정삼각형의 3배일 때, n개의 정삼각형의 넓이의 합이 3 cm²이다. n의 값은?"},
+        {"type": "text", "value": "<조건>  (가) 가장 작은 정삼각형의 한 변의 길이: "},
+        {"type": "equation", "value": "\\frac{1}{3}"},
+        {"type": "text", "value": " cm  (나) 각 정삼각형의 한 변의 길이는 바로 전 정삼각형의 3배이다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "15"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "16"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "17"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "19"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "21"}]}
+      ]
+    },
+    {
+      "number": 18,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "다음 <보기>의 내용 중 옳은 것만을 모두 고른 것은?"},
+        {"type": "text", "value": "<보기>  ㄱ. 상관관계가 없으면 산점도의 점들이 일정한 방향으로 분포하지 않는다.  ㄴ. 산점도에서 점들이 오른쪽 아래 방향으로 분포할수록 강한 음의 상관관계이다.  ㄷ. 음의 상관관계에서는 한 변량이 커질수록 다른 변량이 작아지는 경향이 있다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄴ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄷ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄱ, ㄴ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄴ, ㄷ"}]}
+      ]
+    },
+    {
+      "number": 19,
+      "score": 10,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 1] 그림은 경일이네 학교 학생들의 수학 점수와 과학 점수를 조사하여 나타낸 산점도이다. 다음을 구하고, 그 과정을 서술하시오."},
+        {"type": "figure", "value": "수학 점수(x축)와 과학 점수(y축)를 나타낸 산점도. 여러 학생의 점수가 점으로 표시되어 있으며, 대각선(y=x) 기준으로 학생 분포"},
+        {"type": "text", "value": "(1) 과학 점수가 수학 점수보다 높은 학생의 비율을 구하고, 그 과정을 서술하시오. [3점]"},
+        {"type": "text", "value": "(2) 수학 점수와 과학 점수의 평균을 각각 구하고, 어느 점수의 평균이 더 큰지 비교하고 그 과정을 서술하시오. [3점]"},
+        {"type": "text", "value": "(3) 과학 점수의 최빈값보다 수학 점수가 큰 학생 수를 구하고, 그 과정을 서술하시오. [4점]"}
+      ]
+    },
+    {
+      "number": 20,
+      "score": 6,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 2] 그림과 같이 원 O에 내접하는 "},
+        {"type": "equation", "value": "\\triangle ABC"},
+        {"type": "text", "value": "에서 점 D는 원 위에 있다. "},
+        {"type": "equation", "value": "\\angle ADC=64°"},
+        {"type": "text", "value": "이고 "},
+        {"type": "equation", "value": "\\angle AOB=118°"},
+        {"type": "text", "value": "일 때, 다음을 구하고 그 과정을 서술하시오."},
+        {"type": "figure", "value": "원 O에 내접하는 △ABC. 원 위에 점 D. ∠ADC=64°, ∠AOB=118° 표시"},
+        {"type": "text", "value": "<조건>  ∠EDF의 크기를 구하시오. [2점]  ∠ABD의 크기를 구하시오. [2점]  ∠ACB의 크기를 구하시오. [2점]"}
+      ]
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "header": "2024년 2학기 기말고사 성명여중 2학년 수학",
+  "questions": [
+    {
+      "number": 13,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "각 면에 1부터 8까지의 자연수가 각각 적힌 정팔면체 모양의 주사위 A, B를 동시에 던질 때, 나오는 두 눈의 수의 합이 5이하일 확률은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{5}{8}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{5}{18}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{5}{32}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{5}{36}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{5}{64}"}]}
+      ]
+    },
+    {
+      "number": 14,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "1부터 10까지의 자연수가 각각 적힌 10장의 카드가 들어 있는 상자에서 한 장의 카드를 꺼낼 때, 옳은 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "0이 적힌 카드가 나올 확률은 0이다."}]},
+        {"number": 2, "contents": [{"type": "text", "value": "1이 적힌 카드가 나올 확률은 1이다."}]},
+        {"number": 3, "contents": [{"type": "text", "value": "7이 적힌 카드가 나올 확률은 "},
+          {"type": "equation", "value": "\\frac{7}{10}"},
+          {"type": "text", "value": "이다."}]},
+        {"number": 4, "contents": [{"type": "text", "value": "10이상의 수가 적힌 카드가 나올 확률은 0이다."}]},
+        {"number": 5, "contents": [{"type": "text", "value": "10미만의 수가 적힌 카드가 나올 확률은 1이다."}]}
+      ]
+    },
+    {
+      "number": 15,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "어느 콘서트에서 선착순 100명에게 포토카드를 나누어 주었다. 포토카드를 받은 사람 중에서 추첨을 통해 1등 1명, 2등 8명, 3등 11명에게 상품을 준다고 할 때, 상품을 받을 확률은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{1}{4}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{1}{5}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{22}{25}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{1}{100}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{11}{100}"}]}
+      ]
+    },
+    {
+      "number": 16,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "행복이와 웃음이는 매점에서 라면, 빵, 과자, 아이스크림 네 가지의 간식 중 한 가지씩을 사려고 한다. 이 때 두 사람이 서로 다른 간식을 살 확률은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{1}{2}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{1}{4}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{3}{4}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{5}{8}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{5}{6}"}]}
+      ]
+    }
+  ]
+}

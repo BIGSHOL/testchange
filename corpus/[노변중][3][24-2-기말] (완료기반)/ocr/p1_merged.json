@@ -1,0 +1,95 @@
+{
+  "header": "2024년 2학기 기말고사 노변중 3학년 수학 / 원과 직선 ~ 원주각",
+  "questions": [
+    {
+      "number": 1,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "그림의 원 O에서 "},
+        {"type": "equation", "value": "\\overline{AB} \\perp \\overline{OM}"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{CD} \\perp \\overline{ON}"},
+        {"type": "text", "value": "이다. "},
+        {"type": "equation", "value": "\\overline{OA} = 4cm"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{OM} = \\overline{ON} = 2cm"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\overline{AM} + \\overline{CD}"},
+        {"type": "text", "value": "의 길이는?"},
+        {"type": "figure", "value": "원 O 안에 지름 위의 두 점 M, N이 있고 현 AB는 OM에 수직, 현 CD는 ON에 수직. OA=4cm, OM=ON=2cm. A, B는 원 위의 점이고 C, D는 원 위의 점."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "4\\sqrt{3}cm"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "6\\sqrt{2}cm"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "6\\sqrt{3}cm"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "8\\sqrt{2}cm"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "8\\sqrt{3}cm"}]}
+      ]
+    },
+    {
+      "number": 2,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "그림에서 "},
+        {"type": "equation", "value": "\\angle AOB = 160°"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\angle APB"},
+        {"type": "text", "value": "의 크기는?"},
+        {"type": "figure", "value": "원 O에서 두 점 A, B가 원 위에 있고, 점 P는 원 위의 점(A, B 아래쪽). 중심각 ∠AOB=160°."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "100°"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "105°"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "110°"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "115°"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "120°"}]}
+      ]
+    },
+    {
+      "number": 3,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "그림에서 "},
+        {"type": "equation", "value": "\\angle ABD = 60°"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\angle BAD = 70°"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\angle BDC = 45°"},
+        {"type": "text", "value": "이고, 네 점 A, B, C, D가 한 원 위에 있을 때, "},
+        {"type": "equation", "value": "\\angle y - \\angle x"},
+        {"type": "text", "value": "의 크기는?"},
+        {"type": "figure", "value": "원 위의 네 점 A, B, C, D가 있고, 각도 표시: ∠ABD=60°, ∠BAD=70°, ∠BDC=45°. 그림에 각도 x, y 표시됨. y는 꼭짓점 D 근처, x는 꼭짓점 C 근처."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "40°"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "45°"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "50°"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "55°"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "60°"}]}
+      ]
+    },
+    {
+      "number": 4,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "그림에서 "},
+        {"type": "equation", "value": "\\overline{AC} = \\overline{CD}"},
+        {"type": "text", "value": "이고 "},
+        {"type": "equation", "value": "\\angle BAD = 52°"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\angle ABC = 22°"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\angle ACB"},
+        {"type": "text", "value": "의 크기는?"},
+        {"type": "figure", "value": "원 위의 네 점 A, B, C, D. AC=CD(호 또는 현이 같음). ∠BAD=52°, ∠ABC=22° 표시됨."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "80°"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "81°"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "82°"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "83°"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "84°"}]}
+      ]
+    }
+  ]
+}

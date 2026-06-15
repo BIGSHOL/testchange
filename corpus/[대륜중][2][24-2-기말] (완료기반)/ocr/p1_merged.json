@@ -1,0 +1,73 @@
+{
+  "header": "삼각형의 성질 ~ 사각형의 성질",
+  "questions": [
+    {
+      "number": 1,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "∠C=90°인 직각삼각형 "},
+        {"type": "equation", "value": "ABC"},
+        {"type": "text", "value": "에서 "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "의 값은? [4점]"},
+        {"type": "figure", "value": "직각삼각형 ABC. 꼭짓점 A가 위, B가 왼쪽 아래, C가 오른쪽 아래. AB=5cm, AC=4cm, BC=xcm. C에서 직각 표시."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "7"}]}
+      ]
+    },
+    {
+      "number": 2,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "어느 중학교 야구팀에는 투수가 5명, 포수가 3명 있다고 한다. 투수와 포수를 각각 한 명씩 선택하는 경우의 수는? [4점]"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "15"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "18"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "21"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "24"}]}
+      ]
+    },
+    {
+      "number": 3,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "△ABC에서 "},
+        {"type": "equation", "value": "\\overline{AB}"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{AC}"},
+        {"type": "text", "value": "의 중점을 각각 M, N이라 할 때, "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "의 값은? [4점]"},
+        {"type": "figure", "value": "삼각형 ABC. 꼭짓점 A가 위, B가 왼쪽 아래, C가 오른쪽 아래. AB의 중점 M, AC의 중점 N 표시. MN=xcm, BC=12cm."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "7"}]}
+      ]
+    },
+    {
+      "number": 4,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "영수와 지은이가 가위바위보를 할 때, 두 사람 모두 바위를 낼 확률은? [5점]"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{1}{9}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{2}{9}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{1}{3}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{4}{9}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{5}{9}"}]}
+      ]
+    }
+  ]
+}

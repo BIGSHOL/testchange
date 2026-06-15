@@ -1,0 +1,127 @@
+{
+  "header": "2024년 2학기 기말고사 성명여중 2학년 수학",
+  "questions": [
+    {
+      "number": 20,
+      "score": 4,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 2] 그림과 같이 평행사변형 ABCD에서 두 꼭짓점 M, N은 각각 변 AB, 변 CD의 중점이고, DC의 연장선 위의 점 P와 MN의 연장선의 교점이 Q이다. [총 4점]"},
+        {"type": "figure", "value": "평행사변형 ABCD에서 M은 변 AB의 중점, N은 변 CD의 중점, DC의 연장선과 MN의 연장선의 교점 Q가 표시된 그림."}
+      ],
+      "sub_questions": [
+        {
+          "number": 1,
+          "score": 2,
+          "contents": [
+            {"type": "text", "value": "(1) BD=10cm일 때, PQ의 길이를 구하시오. [2점]"}
+          ]
+        },
+        {
+          "number": 2,
+          "score": 2,
+          "contents": [
+            {"type": "text", "value": "(2) "},
+            {"type": "equation", "value": "\\square AMNC"},
+            {"type": "text", "value": "의 넓이가 "},
+            {"type": "equation", "value": "8cm^{2}"},
+            {"type": "text", "value": "일 때, "},
+            {"type": "equation", "value": "\\triangle AMS"},
+            {"type": "text", "value": "의 넓이를 구하시오. [2점]"}
+          ]
+        }
+      ]
+    },
+    {
+      "number": 21,
+      "score": 4,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 3] 그림과 같이 직각삼각형에서 각 꼭짓점으로부터의 거리를 구하시오. [총 4점]"},
+        {"type": "figure", "value": "삼각형 또는 직육면체 모양의 도형에서 꼭짓점 A, B, C, D, G, Q 등이 표시되고 12cm, 16cm 등의 수치가 나타난 그림."}
+      ],
+      "sub_questions": [
+        {
+          "number": 1,
+          "score": 2,
+          "contents": [
+            {"type": "text", "value": "(1) "},
+            {"type": "equation", "value": "\\overline{BD}"},
+            {"type": "text", "value": "의 길이를 구하시오. [2점]"}
+          ]
+        },
+        {
+          "number": 2,
+          "score": 2,
+          "contents": [
+            {"type": "text", "value": "(2) "},
+            {"type": "equation", "value": "\\overline{QC}"},
+            {"type": "text", "value": "의 길이를 구하시오. [2점]"}
+          ]
+        }
+      ]
+    },
+    {
+      "number": 22,
+      "score": 12,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 4] 1부터 4까지의 자연수가 적힌 카드 4장과 1부터 6까지의 자연수가 적힌 카드 6장이 있을 때, 각 종류에서 한 장씩 뽑는 경우에 대하여 답하시오. [총 12점]"}
+      ],
+      "sub_questions": [
+        {
+          "number": 1,
+          "score": 4,
+          "contents": [
+            {"type": "text", "value": "(1) 모든 경우의 수를 구하시오. [4점]"}
+          ]
+        },
+        {
+          "number": 2,
+          "score": 4,
+          "contents": [
+            {"type": "text", "value": "(2) 두 수의 합이 특정 조건을 만족하는 경우의 수를 구하시오. [4점]"}
+          ]
+        },
+        {
+          "number": 3,
+          "score": 4,
+          "contents": [
+            {"type": "text", "value": "(3) 두 수의 합이 주어진 조건을 만족하는 확률을 구하시오. [4점]"}
+          ]
+        }
+      ]
+    },
+    {
+      "number": 23,
+      "score": 11,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 5] A, B 두 사람이 번갈아 가며 게임을 할 때, 각 사람이 이기는 확률에 대해 답하시오. [총 11점]"}
+      ],
+      "sub_questions": [
+        {
+          "number": 1,
+          "score": 3,
+          "contents": [
+            {"type": "text", "value": "(1) 이 사건에 대하여 각각의 확률을 구하시오. [3점]"}
+          ]
+        },
+        {
+          "number": 2,
+          "score": 4,
+          "contents": [
+            {"type": "text", "value": "(2) A가 첫 번째에서 이길 확률을 구하시오. [4점]"}
+          ]
+        },
+        {
+          "number": 3,
+          "score": 4,
+          "contents": [
+            {"type": "text", "value": "(3) A가 두 번째에 이길 확률을 구하시오. [4점]"}
+          ]
+        }
+      ]
+    }
+  ]
+}

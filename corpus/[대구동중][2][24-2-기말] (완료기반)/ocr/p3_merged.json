@@ -1,0 +1,71 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 13,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "서로 다른 5개의 물건을 일렬로 나열하는 경우의 수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "24"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "30"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "45"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "120"}]}
+      ]
+    },
+    {
+      "number": 14,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "1부터 48까지의 자연수 중에서 3의 배수의 개수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "16"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "17"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "18"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "19"}]}
+      ]
+    },
+    {
+      "number": 15,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "다음 중 확률에 관한 설명 중 __옳지 않은__ 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "사건이 일어날 가능성이 같을 때 수학적 확률을 사용할 수 있다."}]},
+        {"number": 2, "contents": [{"type": "text", "value": "불가능한 사건의 확률은 0이다."}]},
+        {"number": 3, "contents": [{"type": "text", "value": "어떤 사건이 반드시 일어날 때 확률은 1보다 클 수 있다."}]},
+        {"number": 4, "contents": [{"type": "text", "value": "확률은 0 이상 1 이하의 값을 갖는다."}]}
+      ]
+    },
+    {
+      "number": 16,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 삼각형 ABC에서 변의 길이를 구하시오."},
+        {"type": "figure", "value": "△ABC에서 꼭짓점과 변의 길이가 표시되어 있는 그림. 직각 또는 특정 각도가 표시되어 있음."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "11"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "17"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "21"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "25"}]}
+      ]
+    },
+    {
+      "number": 17,
+      "score": 10,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 1] 그림과 같이 △ABC에서 G는 △ABC의 무게중심이고 "},
+        {"type": "equation", "value": "\\overline{FG} \\parallel \\overline{DH}"},
+        {"type": "text", "value": "이고 "},
+        {"type": "equation", "value": "\\overline{FG} = \\overline{GH}"},
+        {"type": "text", "value": "일 때, △AGF와 △GCH의 넓이의 비를 구하는 풀이 과정과 답을 쓰시오."},
+        {"type": "figure", "value": "△ABC에서 G가 무게중심이고, F, H 등이 변 위에 있거나 내부에 있는 그림. A가 위, B가 아래 왼쪽, C가 아래 오른쪽에 있고, F는 변 AB 위, G는 내부, H는 변 BC 위에 있음."}
+      ]
+    }
+  ]
+}

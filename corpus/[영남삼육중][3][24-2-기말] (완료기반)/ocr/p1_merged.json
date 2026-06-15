@@ -1,0 +1,95 @@
+{
+  "header": "영남삼육중 3학년 수학 2024년 2학기 기말고사",
+  "questions": [
+    {
+      "number": 1,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "다음 그림에서 "},
+        {"type": "equation", "value": "\\triangle ABC"},
+        {"type": "text", "value": "에서 "},
+        {"type": "equation", "value": "\\angle ACB = \\angle CBD"},
+        {"type": "text", "value": "이다. 대각선 "},
+        {"type": "equation", "value": "\\overline{AC}"},
+        {"type": "text", "value": "의 연장선과 변 "},
+        {"type": "equation", "value": "\\overline{BC}"},
+        {"type": "text", "value": "의 연장선이 만나는 점을 D라 하고, "},
+        {"type": "equation", "value": "\\overline{OX} = \\overline{OD} = 2"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{BD} = 4"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\overline{AC}"},
+        {"type": "text", "value": "의 길이를 구하여라. [3점]"},
+        {"type": "figure", "value": "삼각형 ABC에서 꼭짓점 A가 위쪽, B와 C가 아래 좌우에 있고, OX=OD=2, BD=4가 표시된 그림"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "3"}]}
+      ]
+    },
+    {
+      "number": 2,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "다음 그림처럼 원 위의 두 점 P, Q에서 호의 길이가 같을 때, "},
+        {"type": "equation", "value": "\\angle EDC = 90°"},
+        {"type": "text", "value": "이면 "},
+        {"type": "equation", "value": "\\angle BAC"},
+        {"type": "text", "value": "의 크기를 구하여라. [3점]"},
+        {"type": "figure", "value": "원에 여러 점 A, B, C, D, E, P, Q가 있고 각 EDC=90°가 표시된 그림"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "150°"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "171°"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "174°"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "177°"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "180°"}]}
+      ]
+    },
+    {
+      "number": 3,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "다음 그림에서 원 위의 세 점 A, B, C가 있고 원 밖의 점 T에서 그은 접선이 점 A를 지날 때, "},
+        {"type": "equation", "value": "\\angle CAT = 41°"},
+        {"type": "text", "value": "이면 "},
+        {"type": "equation", "value": "\\angle ABT"},
+        {"type": "text", "value": "의 크기를 구하여라. [3점]"},
+        {"type": "figure", "value": "원에서 점 A, B, C가 원 위에 있고 원 밖의 점 T에서 접선 TA가 그어진 그림. 각 CAT=41° 표시"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "120°"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "121°"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "122°"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "123°"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "124°"}]}
+      ]
+    },
+    {
+      "number": 4,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "다음 줄기와 잎 그림에서 "},
+        {"type": "equation", "value": "a + b + c"},
+        {"type": "text", "value": "의 값을 구하여라. [3점]"},
+        {"type": "table", "rows": [
+          ["줄기", "잎"],
+          ["2", "2 3 4 5 6"],
+          ["3", "6"],
+          ["4", "a"],
+          ["5", "6 b c"]
+        ], "value": ""}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "15"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "18"}]}
+      ]
+    }
+  ]
+}

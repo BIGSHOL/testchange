@@ -1,0 +1,94 @@
+{
+  "header": "2024년 2학기 기말고사 — 동부중 3학년 수학 (p.2)",
+  "questions": [
+    {
+      "number": 6,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "그림에서 "},
+        {"type": "equation", "value": "\\overarc{AB}=\\overarc{BC}=\\overarc{CD}=\\overarc{DE}"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\angle BCF"},
+        {"type": "text", "value": "의 크기는?"},
+        {"type": "figure", "value": "원 위에 점 A, B, C, D, E가 있고, 네 호의 길이가 같으며 직선 CF가 그려진 그림."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "14°"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "16°"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "20°"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "26°"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "30°"}]}
+      ]
+    },
+    {
+      "number": 7,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 "},
+        {"type": "equation", "value": "\\triangle ABC"},
+        {"type": "text", "value": "의 외접원에서 직선 EF가 원에 내접하고, "},
+        {"type": "equation", "value": "\\angle BAD = 180°"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\angle BDC = 47°"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\angle DCF"},
+        {"type": "text", "value": "의 크기는?"},
+        {"type": "figure", "value": "원에 내접하는 사각형 ABCD와 직선 EF(C점에서 접하는 접선)가 표시된 그림. 점 D와 B, C, A 등이 원 위에 있음."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "32°"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "34°"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "54°"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "56°"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "60°"}]}
+      ]
+    },
+    {
+      "number": 8,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "그림에서 "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "의 값은?"},
+        {"type": "figure", "value": "원 O에서 두 현의 수직이등분선이 중심을 지나는 성질 관련 그림. 현과 중심 사이의 거리 및 현의 길이 일부(예: 6, 8)가 표시되고, x가 구하는 값."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "11"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "12"}]}
+      ]
+    },
+    {
+      "number": 9,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "다음 자료의 중앙값은?"},
+        {"type": "equation", "value": "1,\\ 2,\\ 3,\\ 4,\\ 5,\\ 6"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "2.5"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "3.5"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "6"}]}
+      ]
+    },
+    {
+      "number": 10,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "5명의 학생 A, B, C, D, E의 수학 점수를 조사하여 각 학생의 직전 점수와 현재 점수의 차를 구하니 다음 표와 같다. C의 점수가 72점일 때, 5명의 점수 중 중앙값은?"},
+        {"type": "table", "rows": [
+          ["학생", "A", "B", "C", "D", "E"],
+          ["직전 점수 - 현재 점수", "-8", "13", "0", "-9", "-3"]
+        ], "value": ""}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "70점"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "71점"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "72점"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "74점"}]}
+      ]
+    }
+  ]
+}

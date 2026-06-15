@@ -1,0 +1,84 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 5,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "그림에서 원 위의 두 점 A, B에 대하여 원 밖의 점 P에서 원에 그은 두 접선이 점 A, B에서 접하고, 점 Q는 원 위의 점이다. "},
+        {"type": "equation", "value": "\\angle APB = 68°"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\angle AQB"},
+        {"type": "text", "value": "의 크기는?"},
+        {"type": "figure", "value": "원 위의 점 Q, A, B와 원 밖의 점 P. 점 P에서 두 접선이 각각 A, B에서 원에 접함. ∠APB=68° 표시."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "56°"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "57°"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "58°"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "59°"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "60°"}]}
+      ]
+    },
+    {
+      "number": 6,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "그림에서 삼각형 ABC의 내접원의 중심이 O이고, 세 점 D, E, F는 접점이다. "},
+        {"type": "equation", "value": "\\overline{OD} = \\overline{OE} = \\overline{OF}"},
+        {"type": "text", "value": "이고 "},
+        {"type": "equation", "value": "\\overline{AB} = 4cm"},
+        {"type": "text", "value": "일 때, 원의 넓이는?"},
+        {"type": "figure", "value": "삼각형 ABC에 내접원 O. 세 접점 D, E, F. AB=4cm."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "6\\pi cm^{2}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "9\\pi cm^{2}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "12\\pi cm^{2}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "18\\pi cm^{2}"}]}
+      ]
+    },
+    {
+      "number": 7,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 "},
+        {"type": "equation", "value": "\\triangle ABC"},
+        {"type": "text", "value": "는 원 O에 내접하고 점 D는 선분 BC의 연장선 위의 점이다. "},
+        {"type": "equation", "value": "\\angle AEB = 90°"},
+        {"type": "text", "value": "이고 점 E는 선분 BC의 중점이다. "},
+        {"type": "equation", "value": "\\angle ACD"},
+        {"type": "text", "value": "의 크기는?"},
+        {"type": "figure", "value": "원 O에 삼각형 ABC 내접. 점 D는 BC 연장선 위, 점 E는 BC의 중점. ∠AEB=90° 표시."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "40°"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "47°"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "60°"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "70°"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "75°"}]}
+      ]
+    },
+    {
+      "number": 8,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "그림에서 같은 호에 대한 원주각의 크기는 같음을 이용하여, 직각삼각형과 원의 관계에서 "},
+        {"type": "equation", "value": "\\overline{OC} = 12cm"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{OA} = 8cm"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\sin(\\angle DAB)"},
+        {"type": "text", "value": "를 구하면?"},
+        {"type": "figure", "value": "원 위의 점들과 직각삼각형. OC=12cm, OA=8cm. sin(∠DAB) 구하는 상황."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{\\sqrt{5}}{4}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{\\sqrt{5}}{3}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{2\\sqrt{5}}{5}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{\\sqrt{5}}{2}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{3\\sqrt{5}}{5}"}]}
+      ]
+    }
+  ]
+}

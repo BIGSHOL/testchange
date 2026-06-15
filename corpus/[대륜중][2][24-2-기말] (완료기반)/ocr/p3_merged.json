@@ -1,0 +1,63 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 9,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "AC = 9cm인 이등변삼각형 ABC에서 AD = 10cm이다. G는 △ABC의 무게중심이고 BD는 △ABC의 중선이다. △GBD의 넓이를 구하면? [5점]"},
+        {"type": "figure", "value": "이등변삼각형 ABC. 꼭짓점 A가 위, B가 왼쪽 아래, C가 오른쪽 아래. AB=AC=9cm. 꼭짓점 A에서 BC에 내린 수선 또는 중선 AD 표시. G는 삼각형 내부의 무게중심."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{42}{17}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{81}{17}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{40}{17}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{81}{11}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{23}{17}"}]}
+      ]
+    },
+    {
+      "number": 10,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "1부터 자연수가 하나씩 적힌 카드에서 한 장을 뽑을 때, 뽑은 카드의 수가 홀수이거나 3의 배수일 확률을 구하시오. [3점]"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{3}{5}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{2}{5}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{7}{15}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{2}{3}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{7}{9}"}]}
+      ]
+    },
+    {
+      "number": 11,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "평행사변형 ABCD에서 넓이가 90cm²이다. 점 E는 BC 위에 있고, AG는 ABCD의 대각선이다. △AGE의 넓이는? [5점]"},
+        {"type": "figure", "value": "평행사변형 ABCD. A는 왼쪽 위, B는 오른쪽 위(또는 왼쪽 아래), C는 오른쪽 아래, D는 왼쪽 아래. 대각선 AG(또는 AC)와 점 E(BC 위) 표시. 대각선 교점 G 표시."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "10cm^{2}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "15cm^{2}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "20cm^{2}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "25cm^{2}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "30cm^{2}"}]}
+      ]
+    },
+    {
+      "number": 12,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "100부터 280이하의 세 자리 자연수가 하나씩 적힌 카드를 하나 선택할 때, 십의 자리의 숫자가 일의 자리 숫자 이하인 수를 선택할 확률을 구하시오. [3점]"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{17}{180}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{43}{180}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{41}{180}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{19}{180}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{23}{180}"}]}
+      ]
+    }
+  ]
+}

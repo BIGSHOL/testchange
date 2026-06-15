@@ -1,0 +1,64 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 5,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "그림에서 직선 AT가 원 O의 접선이고 점 A가 접점일 때, x의 값은?"},
+        {"type": "figure", "value": "원 O에서 직선 AT가 점 A에서 접선. 원 위에 점 B, C가 있고, ∠CAT=27°, 접선과 현이 이루는 각 x° 표시"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "63"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "64"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "65"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "66"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "67"}]}
+      ]
+    },
+    {
+      "number": 6,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "다음 자료의 분산은?"},
+        {"type": "table", "rows": [["x-3", "x-1", "x+2", "x+3", "x+4"]], "value": ""}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{33}{5}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{34}{5}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{36}{5}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{37}{5}"}]}
+      ]
+    },
+    {
+      "number": 7,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "그림은 경일이네 학교 학생들의 몸무게와 키를 조사하여 나타낸 산점도이다. 다음 중 옳지 않은 것은?"},
+        {"type": "figure", "value": "키(cm)를 y축, 몸무게(kg)를 x축으로 하는 산점도. 점 A, B, C, D가 표시되어 있고 양의 상관관계를 나타냄. A는 왼쪽 위, C는 오른쪽 위, B는 중간, D는 오른쪽 아래 방향에 위치"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "A는 D보다 키가 크다."}]},
+        {"number": 2, "contents": [{"type": "text", "value": "D는 B보다 몸무게가 많이 나간다."}]},
+        {"number": 3, "contents": [{"type": "text", "value": "몸무게와 키 사이에 양의 상관관계가 있다."}]},
+        {"number": 4, "contents": [{"type": "text", "value": "A, B, C, D 네 학생 중 몸무게에 비해 키가 가장 큰 학생은 D이다."}]},
+        {"number": 5, "contents": [{"type": "text", "value": "A, B, C, D 네 학생 중 키도 크고 몸무게도 많이 나가는 학생은 C이다."}]}
+      ]
+    },
+    {
+      "number": 8,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "자료 'a, b, c'의 평균이 8이고 분산은 4일 때, '6, a, b, c, 10'의 분산은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{12}{5}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{18}{5}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "4"}]}
+      ]
+    }
+  ]
+}

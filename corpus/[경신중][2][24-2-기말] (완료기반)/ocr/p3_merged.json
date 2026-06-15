@@ -1,0 +1,86 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 9,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "다음 그림과 같이 "},
+        {"type": "equation", "value": "\\triangle ABC"},
+        {"type": "text", "value": "에서 "},
+        {"type": "equation", "value": "\\angle A"},
+        {"type": "text", "value": "의 이등분선이 변 BC와 만나는 점을 D라 하자. "},
+        {"type": "equation", "value": "\\overline{AB} = 12\\text{cm}"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{BD} = 7\\text{cm}"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{DC} = 6\\text{cm}"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\overline{AC}"},
+        {"type": "text", "value": "의 길이는? [4점]"},
+        {"type": "figure", "value": "삼각형 ABC에서 꼭짓점 A에서 ∠A의 이등분선이 내려와 BC의 점 D에서 만남. AB=12cm, BD=7cm, DC=6cm 표시."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{72}{7}\\text{cm}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{22}{3}\\text{cm}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "11\\text{cm}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{26}{3}\\text{cm}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "14\\text{cm}"}]}
+      ]
+    },
+    {
+      "number": 10,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "다음 그림과 같이 사각형 "},
+        {"type": "equation", "value": "\\square ABCD"},
+        {"type": "text", "value": "에서 삼각형 ABD의 무게중심을 G라 하자. "},
+        {"type": "equation", "value": "\\overline{AG} = 16"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\overline{GD}"},
+        {"type": "text", "value": "의 값은? [4점]"},
+        {"type": "figure", "value": "마름모 또는 사각형 ABCD에서 대각선이 그려짐. G는 삼각형 ABD의 무게중심. AG=16 표시."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "18"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "21"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "24"}]}
+      ]
+    },
+    {
+      "number": 11,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "다음 그림과 같이 직사각형 ABCD에서 "},
+        {"type": "equation", "value": "\\overline{AB} = 8\\text{cm}"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{BC} = 10\\text{cm}"},
+        {"type": "text", "value": "이고 변 BC의 중점을 E라 할 때, 점 C에서 변 AD 위의 교점까지의 길이는? [4점]"},
+        {"type": "figure", "value": "직사각형 ABCD에서 E는 BC의 중점. 대각선과 선분이 그려진 그림. BC=10cm, AB=8cm 표시."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{5}{4}\\text{cm}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{9}{4}\\text{cm}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{22}{3}\\text{cm}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{26}{3}\\text{cm}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{17}{4}\\text{cm}"}]}
+      ]
+    },
+    {
+      "number": 12,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "날씨가 비일 확률이 50%이고 맑음일 확률이 50%이다. 이 지역에서 3일 동안 날씨를 예측할 때, 다음 중 비가 2번 이상 올 경우의 수는? [4점]"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "18"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "21"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "24"}]}
+      ]
+    }
+  ]
+}

@@ -1,0 +1,91 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 5,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "다음 그림과 같이 "},
+        {"type": "equation", "value": "\\triangle ABC"},
+        {"type": "text", "value": "에서 "},
+        {"type": "equation", "value": "\\overline{AB} = \\overline{AE}"},
+        {"type": "text", "value": "이고 직사각형 EDCK가 있다. "},
+        {"type": "equation", "value": "\\overline{CE}"},
+        {"type": "text", "value": "의 길이는? [3점]"},
+        {"type": "figure", "value": "삼각형 ABC에서 A가 꼭대기, B와 C가 밑변 꼭짓점. D는 AB 위의 점, E와 K는 BC 위의 점. 직사각형 EDCK가 △ABC 내부에 있음."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "16"}]}
+      ]
+    },
+    {
+      "number": 6,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "주사위 한 개를 두 번 던져서 처음에 나오는 눈의 수를 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": ", 나중에 나오는 눈의 수를 "},
+        {"type": "equation", "value": "b"},
+        {"type": "text", "value": "라 할 때, "},
+        {"type": "equation", "value": "a > b"},
+        {"type": "text", "value": "가 될 확률은? [3점]"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{1}{3}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{1}{4}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{5}{6}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{6}{7}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{7}{8}"}]}
+      ]
+    },
+    {
+      "number": 7,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "다음 그림과 같이 "},
+        {"type": "equation", "value": "\\triangle ABC"},
+        {"type": "text", "value": "에서 변 AC 위에 점 O를 잡고, "},
+        {"type": "equation", "value": "\\angle BDC = 40°"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{AB} = x"},
+        {"type": "text", "value": "cm라 할 때, "},
+        {"type": "equation", "value": "\\overline{AC}"},
+        {"type": "text", "value": "의 길이는? [4점]"},
+        {"type": "figure", "value": "삼각형 ABC에서 D가 변 AC 위에 있으며 ∠BDC=40°, AB=2cm, AC=K 등 각도와 길이 표시."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{1}{4}\\text{cm}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{2}{3}\\text{cm}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{11}{4}\\text{cm}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{23}{4}\\text{cm}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "8\\text{cm}"}]}
+      ]
+    },
+    {
+      "number": 8,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "다음 그림과 같이 "},
+        {"type": "equation", "value": "\\triangle ABC"},
+        {"type": "text", "value": "에서 세 변 AB, BC, CA의 중점을 각각 D, E, F라 하자. "},
+        {"type": "equation", "value": "\\triangle ABC"},
+        {"type": "text", "value": "의 넓이가 "},
+        {"type": "equation", "value": "44\\text{cm}^{2}"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\triangle DEF"},
+        {"type": "text", "value": "의 넓이는? [4점]"},
+        {"type": "figure", "value": "삼각형 ABC에서 D는 AB의 중점, E는 BC의 중점, F는 CA의 중점. 중점연결정리 관련 그림."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{33}{2}\\text{cm}^{2}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "11\\text{cm}^{2}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{27}{2}\\text{cm}^{2}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{32}{3}\\text{cm}^{2}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "13\\text{cm}^{2}"}]}
+      ]
+    }
+  ]
+}

@@ -1,0 +1,129 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 7,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 원 "},
+        {"type": "equation", "value": "O"},
+        {"type": "text", "value": "의 외부의 점 "},
+        {"type": "equation", "value": "D"},
+        {"type": "text", "value": "에서 이 원에 그은 두 접선의 접점이 각각 "},
+        {"type": "equation", "value": "A"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "B"},
+        {"type": "text", "value": "이다. "},
+        {"type": "equation", "value": "\\angle BDC = 126°"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\angle DAB"},
+        {"type": "text", "value": "의 크기는?"},
+        {"type": "figure", "value": "원 O, 외부점 D에서 그은 두 접선의 접점 A, B, 원 위의 점 C. ∠BDC=126° 표시된 그림"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "47°"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "42°"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "54°"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "63°"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "80°"}]}
+      ]
+    },
+    {
+      "number": 8,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "원 "},
+        {"type": "equation", "value": "O"},
+        {"type": "text", "value": "에서 외부 점 "},
+        {"type": "equation", "value": "T"},
+        {"type": "text", "value": "에서 그은 접선의 접점 "},
+        {"type": "equation", "value": "A"},
+        {"type": "text", "value": "와 원 위의 점 "},
+        {"type": "equation", "value": "B"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "\\angle BAT = \\angle CAB = 40°"},
+        {"type": "text", "value": "일 때, 내접원의 반지름 "},
+        {"type": "equation", "value": "\\overline{OA}"},
+        {"type": "text", "value": "의 길이는? (단 "},
+        {"type": "equation", "value": "\\triangle ABC"},
+        {"type": "text", "value": "가 내접하는 원의 반지름)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\sqrt{2}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\sqrt{3}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\sqrt{5}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\sqrt{6}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "2\\sqrt{2}"}]}
+      ]
+    },
+    {
+      "number": 9,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "다음은 어느 도시의 월별 강수량을 조사하여 나타낸 표이다. 이 자료에서 대표적인 대푯값으로 가장 적절한 것은?"},
+        {"type": "table", "rows": [
+          ["월", "14", "19", "22", "25", "28", "31", "38", "합계"],
+          ["강수량(mm)", "14", "19", "22", "25", "28", "27", "38", "24"]
+        ], "value": ""}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "14"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "16"}]}
+      ]
+    },
+    {
+      "number": 10,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "다음 중 대푯값에 대한 설명으로 옳은 것을 __모두__ 고른 것은?"},
+        {"type": "text", "value": "<보기> ㄱ. 평균은 자료에서 극단적인 값이 있으면 대푯값으로 적당하지 않다.  ㄴ. 자료 전체의 합은 (평균)×(자료 개수)이다.  ㄷ. 중앙값은 자료를 크기 순으로 나열했을 때 중간에 오는 값이다.  ㄹ. 최빈값은 항상 1개이다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ, ㄷ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄴ, ㄷ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄱ, ㄷ, ㄹ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄴ, ㄷ, ㄹ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄱ, ㄴ, ㄷ, ㄹ"}]}
+      ]
+    },
+    {
+      "number": 11,
+      "score": 2,
+      "contents": [
+        {"type": "text", "value": "다음 중 분산과 표준편차에 대한 설명으로 옳은 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "분산이 클수록 자료가 평균 근처에 모여 있다."}]},
+        {"number": 2, "contents": [{"type": "text", "value": "분산이 작을수록 자료가 평균에 가까이 모여 있다."}]},
+        {"number": 3, "contents": [{"type": "text", "value": "분산은 편차의 합을 자료의 개수로 나눈 것이다."}]},
+        {"number": 4, "contents": [{"type": "text", "value": "표준편차는 분산보다 항상 크다."}]},
+        {"number": 5, "contents": [{"type": "text", "value": "표준편차의 단위는 분산의 단위와 같다."}]}
+      ]
+    },
+    {
+      "number": 12,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "다음은 5개의 수의 자료이다. 중앙값을 구하면?"},
+        {"type": "table", "rows": [
+          ["자료", "131", "x", "136", "134", "133"],
+          [""],
+          [""]
+        ], "value": ""},
+        {"type": "text", "value": "이 자료의 평균이 134일 때, "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "의 중앙값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "131"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "132"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "133"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "134"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "136"}]}
+      ]
+    }
+  ]
+}

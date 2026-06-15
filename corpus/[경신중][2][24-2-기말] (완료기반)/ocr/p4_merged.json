@@ -1,0 +1,93 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 13,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "날아오르는 목표물을 맞힐 확률이 "},
+        {"type": "equation", "value": "\\frac{4}{7}"},
+        {"type": "text", "value": "인 어느 사격 선수가 두 번 사격할 때, 적어도 한번은 목표물을 맞힐 확률은? [4점]"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{9}{49}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{16}{49}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{24}{49}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{40}{49}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{43}{49}"}]}
+      ]
+    },
+    {
+      "number": 14,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "숫자 0, 1, 2, 3, 4가 각각 적힌 5장의 카드가 있다. 이 중에서 두 장을 동시에 뽑아 두 자리 자연수를 만들 때, 그 수가 홀수일 확률은? [4점]"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{1}{4}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{3}{8}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{2}{5}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{1}{2}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{11}{20}"}]}
+      ]
+    },
+    {
+      "number": 15,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "다음 그림과 같이 "},
+        {"type": "equation", "value": "\\overline{AB} = 15\\text{cm}"},
+        {"type": "text", "value": "인 정삼각형 ABC와 "},
+        {"type": "equation", "value": "\\overline{AE} = 8\\text{cm}"},
+        {"type": "text", "value": "인 정삼각형 ADE가 있다. "},
+        {"type": "equation", "value": "\\overline{BD} = 13\\text{cm}"},
+        {"type": "text", "value": "이고 "},
+        {"type": "equation", "value": "\\overline{BD}"},
+        {"type": "text", "value": "의 연장선이 "},
+        {"type": "equation", "value": "\\overline{CE}"},
+        {"type": "text", "value": "와 만나는 점을 F라 할 때, "},
+        {"type": "equation", "value": "\\overline{CF}"},
+        {"type": "text", "value": "의 길이는? (단, 점 D는 변 AC 위의 한 점이다.) [5점]"},
+        {"type": "figure", "value": "정삼각형 ABC(AB=BC=CA=15cm)와 정삼각형 ADE(AE=8cm)가 겹쳐 있는 그림. D는 AC 위의 점, F는 BD 연장선과 CE의 교점. 8cm, 15cm, 13cm 표시."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{75}{13}\\text{cm}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{88}{13}\\text{cm}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{105}{13}\\text{cm}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{115}{13}\\text{cm}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{121}{13}\\text{cm}"}]}
+      ]
+    },
+    {
+      "number": 16,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "다음 그림과 같이 "},
+        {"type": "equation", "value": "\\triangle ABC"},
+        {"type": "text", "value": "에서 점 D와 점 E는 각각 변 AB와 변 AC 위의 점이고, "},
+        {"type": "equation", "value": "\\overline{BE}"},
+        {"type": "text", "value": "와 "},
+        {"type": "equation", "value": "\\overline{CD}"},
+        {"type": "text", "value": "의 교점을 P라 하자. "},
+        {"type": "equation", "value": "\\overline{AD} = 3"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{BD} = 4"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{AE} = 5"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{CE} = 4"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\frac{\\overline{BE}}{\\overline{PE}}"},
+        {"type": "text", "value": "의 값은? [5점]"},
+        {"type": "figure", "value": "삼각형 ABC에서 D는 변 AB 위의 점(AD=3, BD=4), E는 변 AC 위의 점(AE=5, CE=4). BE와 CD의 교점 P. 각 길이 3, 4, 5, 4 표시."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{43}{12}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{11}{3}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{26}{7}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "4"}]}
+      ]
+    }
+  ]
+}

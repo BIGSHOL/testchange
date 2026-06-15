@@ -1,0 +1,61 @@
+{
+  "header": "2024년 2학기 기말고사 압량중 2학년 수학",
+  "questions": [
+    {
+      "number": 22,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "할아버지, 할머니, 아버지, 어머니, 아들을 한 줄로 세울 때, 여자끼리 이웃하지 __않게__ 앉을 확률은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{1}{5}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{3}{10}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{2}{5}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{1}{2}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{3}{5}"}]}
+      ]
+    },
+    {
+      "number": 23,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "수학 용어 말하기대회에서 두 참가자 A, B가 본선에 진출할 확률이 각각 "},
+        {"type": "equation", "value": "\\frac{2}{9}"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\frac{3}{7}"},
+        {"type": "text", "value": "일 때, A와 B 중 적어도 한 명이 본선에 진출할 확률은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{2}{5}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{5}{9}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{4}{7}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{5}{7}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{7}{9}"}]}
+      ]
+    },
+    {
+      "number": 24,
+      "score": 5,
+      "label_type": "서답형",
+      "contents": [
+        {"type": "text", "value": "[서답형 1] 아래 그림에서 점 G는 "},
+        {"type": "equation", "value": "\\triangle ABC"},
+        {"type": "text", "value": "의 무게중심이다. "},
+        {"type": "equation", "value": "\\triangle ABC"},
+        {"type": "text", "value": "의 넓이가 "},
+        {"type": "equation", "value": "57\\text{cm}^{2}"},
+        {"type": "text", "value": "일 때, 어두운 부분의 넓이는? (단, 단위는 생략 가능)"},
+        {"type": "figure", "value": "삼각형 ABC. A(위), B(왼쪽 아래), C(오른쪽 아래). G는 무게중심, E는 AC 위의 점(중점), D는 BC 위의 점(중점). 어두운 부분은 삼각형 ABG와 사각형 DCEG 등으로 구성됨."}
+      ]
+    },
+    {
+      "number": 25,
+      "score": 5,
+      "label_type": "서답형",
+      "contents": [
+        {"type": "text", "value": "[서답형 2] 다음 그림에서 어두운 부분의 넓이는? (단, 단위는 생략 가능)"},
+        {"type": "figure", "value": "직각삼각형 ABC 위에 반원이 그려진 그림. B(왼쪽), C(오른쪽), A(위). BC 위에 반원이 놓임. BC = 8cm + 6cm = 두 부분으로 나뉨. 8cm와 6cm 표시됨. 어두운 부분은 삼각형과 반원의 겹치거나 차이 부분."}
+      ]
+    }
+  ]
+}

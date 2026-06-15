@@ -1,0 +1,112 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 1,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "원이 △ABC에 내접하고, 세 점 D, E, F는 접점입니다. AB=12cm, BE=7cm, BC=11cm일 때, "},
+        {"type": "equation", "value": "\\overline{AC}"},
+        {"type": "text", "value": "의 길이를 구하시오. [5점]"},
+        {"type": "figure", "value": "삼각형 ABC에 내접하는 원. 세 접점 D, E, F가 각 변 위에 있음. 원 안에 숫자 표시."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "9cm"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "10cm"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "11cm"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "12cm"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "13cm"}]}
+      ]
+    },
+    {
+      "number": 2,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "점 O에서 "},
+        {"type": "equation", "value": "\\angle BAC = 24°"},
+        {"type": "text", "value": "이고 호 BC의 길이가 4cm일 때, 원의 둘레의 길이를 구하시오. [3점]"},
+        {"type": "figure", "value": "원 위의 점 A, B, C가 있고 원주각 ∠BAC=24°이며 호 BC의 길이가 4cm인 그림."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{15}{2}cm"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "15cm"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{45}{2}cm"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "30cm"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "60cm"}]}
+      ]
+    },
+    {
+      "number": 3,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "지름 "},
+        {"type": "equation", "value": "\\overline{DC}"},
+        {"type": "text", "value": "이고 "},
+        {"type": "equation", "value": "\\angle ABC = 30°"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\angle x"},
+        {"type": "text", "value": "의 크기를 구하시오. [3점]"},
+        {"type": "figure", "value": "원 위의 점 A, B, C, D가 있고 DC는 지름, ∠ABC=30°, ∠x로 표시된 각이 있는 그림."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "36°"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "52°"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "62°"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "48°"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "64°"}]}
+      ]
+    },
+    {
+      "number": 4,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "두 점 A에서 B까지 긋은 두 접선의 길이가 같을 때, OA=2cm, "},
+        {"type": "equation", "value": "\\angle AOB = 120°"},
+        {"type": "text", "value": "일 때, △PAB의 넓이를 구하시오. [3점]"},
+        {"type": "figure", "value": "원 밖의 점 P에서 원에 그은 두 접선이 점 A, B에서 접함. OA=2cm, ∠AOB=120° 표시."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "2\\sqrt{3}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "4\\sqrt{3}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "2\\sqrt{5}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4\\sqrt{5}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "6\\sqrt{3}"}]}
+      ]
+    },
+    {
+      "number": 5,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "△ABCD의 점 O에서 내접하고 "},
+        {"type": "equation", "value": "\\overline{AB}=6cm"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{BC}=16cm"},
+        {"type": "text", "value": "일 때, 원 O의 반지름 길이를 구하시오. [3점]"},
+        {"type": "figure", "value": "사각형 ABCD에 내접하는 원 O. 두 변 AB=6cm, BC=16cm 표시. 꼭짓점 B에 45° 각도 표시."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "10°"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "15°"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "20°"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "25°"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "30°"}]}
+      ]
+    },
+    {
+      "number": 6,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "자료의 중앙값이 10이고 최빈값이 8일 때, 평균은? [3점]"},
+        {"type": "text", "value": "(단, a와 b는 자연수)"},
+        {"type": "table", "rows": [["3a-1", "8", "10", "12", "a+3", "80"]], "value": ""}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "5"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "6"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "8"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "9"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "10"}]}
+      ]
+    }
+  ]
+}

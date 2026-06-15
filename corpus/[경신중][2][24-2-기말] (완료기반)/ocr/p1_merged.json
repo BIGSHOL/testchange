@@ -1,0 +1,92 @@
+{
+  "header": "도형의 닮음 ~ 확률",
+  "questions": [
+    {
+      "number": 1,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "다음 그림과 같은 두 평행사변형에서 "},
+        {"type": "equation", "value": "\\square ABCD \\sim \\square EFGH"},
+        {"type": "text", "value": "이며, "},
+        {"type": "equation", "value": "\\overline{BC} = 4\\text{cm}"},
+        {"type": "text", "value": "인 "},
+        {"type": "equation", "value": "\\square ABCD"},
+        {"type": "text", "value": "의 둘레가 "},
+        {"type": "equation", "value": "12\\text{cm}"},
+        {"type": "text", "value": "일 때, 닮음비가 2:3인 "},
+        {"type": "equation", "value": "\\square EFGH"},
+        {"type": "text", "value": "의 둘레의 길이는? [3점]"},
+        {"type": "figure", "value": "두 평행사변형 □ABCD(왼쪽, 꼭짓점 D 위왼쪽, A 위오른쪽, B 아래왼쪽, G 아래오른쪽)와 □EFGH(오른쪽)가 나란히 있는 그림."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "29\\text{cm}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "30\\text{cm}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "36\\text{cm}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "40\\text{cm}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "42\\text{cm}"}]}
+      ]
+    },
+    {
+      "number": 2,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "다음 그림과 같이 "},
+        {"type": "equation", "value": "\\triangle ABC"},
+        {"type": "text", "value": "에서 변 AB, BC, CA 위에 각각 점 D, E, F가 있다. 다음 중 옳은 것은? [3점]"},
+        {"type": "figure", "value": "삼각형 ABC에서 D는 변 AB 위의 점, E는 변 BC 위의 점, F는 변 CA 위의 점. 4cm, 4.5cm 등 길이 표시."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\overline{DE} \\parallel \\overline{AC}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\overline{AB} = \\overline{FE}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\overline{DF} = \\frac{1}{2}\\overline{BC}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\angle ABC = \\angle DEF"}]}
+      ]
+    },
+    {
+      "number": 3,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "다음 그림과 같이 "},
+        {"type": "equation", "value": "\\overline{BC} = 16\\text{cm}"},
+        {"type": "text", "value": "인 "},
+        {"type": "equation", "value": "\\triangle ABC"},
+        {"type": "text", "value": "에서 점 D는 변 BD의 삼등분점이고, "},
+        {"type": "equation", "value": "\\overline{CE} = 10\\text{cm}"},
+        {"type": "text", "value": "인 점 E를 변 AC 위에 잡을 때, "},
+        {"type": "equation", "value": "\\overline{DE}"},
+        {"type": "text", "value": "의 길이는? [3점]"},
+        {"type": "figure", "value": "삼각형 ABC에서 D는 변 AB 위의 점, E는 변 AC 위의 점. BC=16cm, 기타 측정값 표시."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "2\\text{cm}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{11}{3}\\text{cm}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{17}{3}\\text{cm}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{13}{3}\\text{cm}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{16}{3}\\text{cm}"}]}
+      ]
+    },
+    {
+      "number": 4,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "다음 그림에서 G는 "},
+        {"type": "equation", "value": "\\triangle ABC"},
+        {"type": "text", "value": "의 무게중심이고, "},
+        {"type": "equation", "value": "\\triangle ABC"},
+        {"type": "text", "value": "의 넓이가 "},
+        {"type": "equation", "value": "\\frac{3}{4}\\text{cm}^{2}"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\triangle AGK"},
+        {"type": "text", "value": "의 넓이는? [3점]"},
+        {"type": "figure", "value": "삼각형 ABC와 무게중심 G, 점 K가 그려진 그림. 무게중심에서 각 꼭짓점으로 중선이 그려짐."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "10\\text{cm}^{2}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "15\\text{cm}^{2}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{40}{3}\\text{cm}^{2}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{32}{3}\\text{cm}^{2}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "20\\text{cm}^{2}"}]}
+      ]
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 6,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "정삼각형 ABC에서 "},
+        {"type": "equation", "value": "\\angle ADB = 105°"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{CD}=8"},
+        {"type": "text", "value": "일 때, 삼각형 ABD의 넓이는?"},
+        {"type": "figure", "value": "정삼각형 ABC. A가 위, B가 왼쪽 아래, C가 오른쪽 아래. D는 BC 위의 점. ∠ADB=105°, CD=8. D 위치에 105° 표시."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "8\\sqrt{3}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "10\\sqrt{3}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "12\\sqrt{3}"}]}
+      ]
+    },
+    {
+      "number": 7,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "직각삼각형 ABC에서 "},
+        {"type": "equation", "value": "\\angle A = 90°"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{AB}=\\overline{AC}=3\\sqrt{3}"},
+        {"type": "text", "value": "이고 변 AB 위의 두 점 D, E와 변 BC위의 점 F에 대하여 삼각형 DEF는 높이가 "},
+        {"type": "equation", "value": "\\sqrt{3}"},
+        {"type": "text", "value": "인 정삼각형이다. "},
+        {"type": "equation", "value": "\\angle ACD = x"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\tan x"},
+        {"type": "text", "value": "의 값은? (단, "},
+        {"type": "equation", "value": "\\overline{AD} < \\overline{AE}"},
+        {"type": "text", "value": ")"},
+        {"type": "figure", "value": "직각삼각형 ABC. A가 위(직각), B가 왼쪽 아래, C가 오른쪽 아래. 변 AB 위에 D(위), E(아래). 변 BC 위에 F. 삼각형 DEF(정삼각형). AC=3√3(점선). ∠ACD=x."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{5-\\sqrt{3}}{9}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{6-\\sqrt{3}}{9}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{7-\\sqrt{3}}{9}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{6-\\sqrt{3}}{6}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{7-\\sqrt{3}}{6}"}]}
+      ]
+    },
+    {
+      "number": 8,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "PT가 원 O의 접선이고 "},
+        {"type": "equation", "value": "\\overline{AP}=\\overline{AT}"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\angle x"},
+        {"type": "text", "value": "의 크기는?"},
+        {"type": "figure", "value": "원 O. P는 원 밖의 점. T는 접점. A, B는 원 위의 점. PT는 접선. ∠TPB=35°(P에서). AP=AT(등변 표시). ∠x는 원 위의 각(∠ATB 또는 ∠AOB 관련)."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "60°"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "65°"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "70°"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "75°"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "80°"}]}
+      ]
+    },
+    {
+      "number": 9,
+      "score": 3,
+      "contents": [
+        {"type": "equation", "value": "\\angle A = 120°"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{CD}=5"},
+        {"type": "text", "value": "인 사각형 ABCD가 있다. 이 사각형이 원에 내접하고 "},
+        {"type": "equation", "value": "\\angle BDC = 90°"},
+        {"type": "text", "value": "일 때, 외접원의 지름의 길이는?"},
+        {"type": "figure", "value": "사각형 ABCD. A가 왼쪽 위, D가 오른쪽 위, B가 왼쪽 아래, C가 오른쪽 아래. ∠A=120°. CD=5cm(점선)."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "11"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "12"}]}
+      ]
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 9,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "다음 그림과 같이 삼각형 DAB에서 관련된 조건들이 있을 때, 항상 성립하는 것만을 <보기>에서 있는 대로 고른 것은?"},
+        {"type": "figure", "value": "오각형(또는 사다리꼴) 형태의 도형. 꼭짓점 E가 위에, A, B, C, D가 아래에 있고, 내부에 F, G, H 등의 점이 표시됨."},
+        {"type": "text", "value": "<보기>\nㄱ. ∠EAC = ∠ECB\nㄴ. EB : FD = 2 : 1\nㄷ. AT : FT = PQ : QG\nㄹ. △EAC = △EGH"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ, ㄴ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄴ, ㄷ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄴ, ㄹ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄱ, ㄷ, ㄹ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄱ, ㄴ, ㄷ, ㄹ"}]}
+      ]
+    },
+    {
+      "number": 10,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "1, 2, 3, 4, 5의 숫자가 각각 적힌 5개의 카드 중에서 4개를 골라 네 자리 수를 만들 때, 만들 수 있는 경우의 수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "90"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "96"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "120"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "138"}]}
+      ]
+    },
+    {
+      "number": 11,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "∠A=90°인 직사각형 ABCD에서 각 꼭짓점을 기준으로 정사각형을 그릴 때, AB=8, BC=10이면 △BGH의 넓이는?"},
+        {"type": "figure", "value": "직사각형 ABCD와 그 꼭짓점에서 외부로 그려진 정사각형들로 구성된 도형. B, G, H는 각각 해당 꼭짓점과 인접 정사각형의 꼭짓점."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "24"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "32"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "50"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "25"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "48"}]}
+      ]
+    },
+    {
+      "number": 12,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "다음 중 경우의 수가 가장 큰 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "두 주사위를 동시에 던질 때, 나오는 눈의 수가 서로 다른 경우"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "가위바위보를 3번 할 때, 승부가 나는 경우"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "A, B, C, D 4명을 한 줄로 세울 때, A가 맨 앞에 서지 않는 경우"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "1부터 10까지의 자연수에서 임의로 두 개를 골라 더할 때, 합이 짝수인 경우"}]}
+      ]
+    }
+  ]
+}

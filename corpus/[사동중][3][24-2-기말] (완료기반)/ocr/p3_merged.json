@@ -1,0 +1,89 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 9,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "그림에서 PT가 원의 접선이다. "},
+        {"type": "equation", "value": "\\angle PAT = 40°"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\angle ACT = 72°"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\angle x"},
+        {"type": "text", "value": "의 크기는?"},
+        {"type": "figure", "value": "원과 접선 PT. 점 T에서 접선. 원 위의 점 A, C, T. 각 PAT=40°, 각 ACT=72°, 각 x 표시."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "63°"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "44°"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "60°"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "66°"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "47°"}]}
+      ]
+    },
+    {
+      "number": 10,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 원의 이름 접선이다. "},
+        {"type": "equation", "value": "\\overline{AB} \\perp \\overline{CT}"},
+        {"type": "text", "value": "이고 "},
+        {"type": "equation", "value": "\\angle HCT = 28°"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\angle ACD"},
+        {"type": "text", "value": "의 크기는?"},
+        {"type": "figure", "value": "원에서 접선과 할선. 점 A, B, C, D, O, T가 표시됨. AB⊥CT. 각 HCT=28°. 각 ACD."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "83°"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "90°"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "87°"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "85°"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "88°"}]}
+      ]
+    },
+    {
+      "number": 11,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "그림에 원 이 있는 직사각형 ABCD의 세 변에 접하고 "},
+        {"type": "equation", "value": "\\overline{CE} = 8cm"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{DE} = 10cm"},
+        {"type": "text", "value": "일 때, 원의 반지름의 길이는?"},
+        {"type": "figure", "value": "직사각형 ABCD에 원이 세 변에 접함. 점 E는 원의 접점. CE=8cm, DE=10cm. 원의 중심 O."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "6cm"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "7cm"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "8cm"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "9cm"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "10cm"}]}
+      ]
+    },
+    {
+      "number": 12,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "그림에서 "},
+        {"type": "equation", "value": "\\angle A = 90°"},
+        {"type": "text", "value": "인 직각삼각형 ABC에 내접원이다. "},
+        {"type": "equation", "value": "BE = 4cm"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "CE = 6cm"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\overline{OB} \\cdot \\overline{OC}"},
+        {"type": "text", "value": "의 값은? (단, 세 점 D, E, F는 접점이다.)"},
+        {"type": "figure", "value": "직각삼각형 ABC, 각 A=90°. 내접원 중심 O. 접점 D(AB 위), E(BC 위), F(AC 위). BE=4cm, CE=6cm."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "10\\sqrt{3}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "20"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "20\\sqrt{2}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "30\\sqrt{3}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "40\\sqrt{2}"}]}
+      ]
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 13,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "그림에서 직선 PQ는 원에 그어진 공통 접선이다. "},
+        {"type": "equation", "value": "\\angle BAT = 60°"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\angle BCD = 117°"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\angle DTC"},
+        {"type": "text", "value": "의 크기는?"},
+        {"type": "figure", "value": "원에 접선 PQ가 그어지고, 원 위의 점 B, C, D, T 표시. ∠BAT=60°, ∠BCD=117° 표시된 그림."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "46°"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "47°"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "48°"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "49°"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "50°"}]}
+      ]
+    },
+    {
+      "number": 14,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 직선 EN이 원의 두 현에 접하고 있다. 원 위의 점들의 관계에서 "},
+        {"type": "equation", "value": "\\overline{EU} = \\overline{NM}"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\angle NOM = 90°"},
+        {"type": "text", "value": "일 때, 원의 넓이는? (단, a, b는 자연수)"},
+        {"type": "figure", "value": "원 O에 여러 점이 있고 직선 EN, ∠NOM=90° 표시된 그림."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "216"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "220"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "230"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "240"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "250"}]}
+      ]
+    },
+    {
+      "number": 15,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "그림에서 삼각형이 반원에 내접하고 있다. 삼각형 모양으로 구성된 각도들이 있고, "},
+        {"type": "equation", "value": "\\angle DBA = 60°"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\angle b = 66°"},
+        {"type": "text", "value": "일 때, 구하는 각도의 크기는?"},
+        {"type": "figure", "value": "반원에 내접하는 삼각형. ∠DBA=60°, b=66° 등 각도 표시된 반원 그림. A, B, C, D 점 표시."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "60°"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "66°"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "68°"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "70°"}]}
+      ]
+    },
+    {
+      "number": 16,
+      "score": 5,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 1] 그림의 원에서 "},
+        {"type": "equation", "value": "\\angle BAC = 30°"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\angle CAD = 30°"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{BC} = 9cm"},
+        {"type": "text", "value": "일 때, 원의 둘레의 길이를 구하고, 그 과정과 이에 사용한 원의 성질을 서술하시오."},
+        {"type": "figure", "value": "원 위의 점 A, B, C, D 표시. ∠BAC=30°, ∠CAD=30°, BC=9cm 표시된 큰 원 그림."}
+      ]
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "header": "2024년 2학기 기말고사 사동중 2학년 수학 학원 로고",
+  "questions": [
+    {
+      "number": 9,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "다음 그림에서 x+y의 값은?"},
+        {"type": "figure", "value": "삼각형 ABC에서 A는 꼭짓점(위), B는 왼쪽 아래, C는 오른쪽 아래. 꼭짓점 A에서 BC에 평행한 선분을 포함한 구성이 있다. A 근처에 3cm 표시됨. 전체 밑변 BC=13cm. 내부에 x cm, y cm가 표시됨. AB 위에 12cm 표시됨."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "8cm"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "9cm"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "10cm"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "11cm"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "12cm"}]}
+      ]
+    },
+    {
+      "number": 10,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "직각삼각형 ABC의 각 변을 한 변으로 하는 사각형을 각각 그렸다. □BFGC=25cm²이고, □ADEB=45cm²일 때, □ACHI의 넓이는?"},
+        {"type": "figure", "value": "직각삼각형 ABC의 세 변 AB, BC, CA를 각각 한 변으로 하는 정사각형이 그려져 있다. 꼭짓점 A, B, C와 추가 꼭짓점 D, E, F, G, H, I가 표시됨. □BFGC=25cm², □ADEB=45cm² 표시됨."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "20cm^{2}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "21cm^{2}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "22cm^{2}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "23cm^{2}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "24cm^{2}"}]}
+      ]
+    },
+    {
+      "number": 11,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "직각삼각형 ABC의 세 변을 각각 지름으로 하는 반원을 그렸을 때, 색칠한 부분의 넓이는?"},
+        {"type": "figure", "value": "직각삼각형 ABC의 세 변을 각각 지름으로 하는 반원이 그려져 있다. 색칠한 반달(초승달 모양) 부분이 있다. BC=5cm, 변 AB 또는 AC=4cm로 표시됨. 꼭짓점 A(위), B(왼쪽 아래), C(오른쪽 아래)."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "6cm^{2}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "7cm^{2}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "8cm^{2}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "9cm^{2}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "10cm^{2}"}]}
+      ]
+    },
+    {
+      "number": 12,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "사각형 ABCD에서 두 대각선이 직교할 때, y²-x²의 값은?"},
+        {"type": "figure", "value": "사각형 ABCD(마름모 또는 연꼴 형태)에서 두 대각선 AC, BD가 직교한다. 꼭짓점 A(위), B(왼쪽), C(아래), D(오른쪽)이고 교점 O. 변의 길이: AB=6cm, AD=8cm(또는 유사 측정값), x cm, y cm가 표시됨."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "28"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "46"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "64"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "82"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "100"}]}
+      ]
+    }
+  ]
+}

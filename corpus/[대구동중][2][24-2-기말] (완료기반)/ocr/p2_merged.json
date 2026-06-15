@@ -1,0 +1,106 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 7,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "그림과 같은 원뿔 모양의 용기에 일정한 속도로 물을 채우고 있다. 21초가 되었을 때, 기존의 두께의 몇 배가 될지 구하시오."},
+        {"type": "figure", "value": "역삼각형(원뿔) 모양의 용기 그림. 위가 넓고 아래가 좁은 원뿔 모양 용기에 물이 채워지는 상황을 나타냄."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "1분 12초"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "5분 24초"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "4분 26초"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "4분 28초"}]}
+      ]
+    },
+    {
+      "number": 8,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 △ABC에서 "},
+        {"type": "equation", "value": "\\overline{AB} = 5"},
+        {"type": "text", "value": "cm, "},
+        {"type": "equation", "value": "\\overline{BE} = 4"},
+        {"type": "text", "value": "cm, "},
+        {"type": "equation", "value": "\\overline{AE} = 3"},
+        {"type": "text", "value": "cm, △AEF와 △ABC의 넓이의 비는?"},
+        {"type": "figure", "value": "△ABC에 점 E, F가 표시되어 있고 삼각형이 겹치는 구조의 그림."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "20cm^{2}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "30cm^{2}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "45cm^{2}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "60cm^{2}"}]}
+      ]
+    },
+    {
+      "number": 9,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "그림에서 "},
+        {"type": "equation", "value": "\\overline{OA} = \\overline{OB} = \\overline{OC} = \\overline{OD} = \\overline{OE} = \\overline{OK}"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\overline{OK}"},
+        {"type": "text", "value": "의 값은?"},
+        {"type": "figure", "value": "중심 O에서 꼭짓점 A, B, C, D, E, F까지의 거리가 같은 별 모양(오각형 또는 육각형) 그림. 여러 선분이 중심에서 각 꼭짓점으로 연결되어 있음."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "3cm"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "4cm"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "8cm"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "16cm"}]}
+      ]
+    },
+    {
+      "number": 10,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 반지름이 12인 원과 관련된 길이를 구하시오."},
+        {"type": "figure", "value": "원(구)의 단면에 수평선이 그어져 있는 그림. 원의 반지름이 12로 표시되어 있고, 원을 가로지르는 직선이 있음."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "30"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{x}{30}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "60"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{60}{x}"}]}
+      ]
+    },
+    {
+      "number": 11,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 "},
+        {"type": "equation", "value": "\\angle A = 90^\\circ"},
+        {"type": "text", "value": "인 △ABC에서 변의 길이가 주어진 경우 나머지 변의 길이는?"},
+        {"type": "figure", "value": "직각삼각형 ABC에서 ∠A=90°이고 각 변에 값이 표시되어 있음."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "11"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "17"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "21"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "25"}]}
+      ]
+    },
+    {
+      "number": 12,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 두 정삼각형의 꼭짓점을 포함하는 구조에서 "},
+        {"type": "equation", "value": "\\overline{OA} = \\overline{OB} = \\overline{OC} = \\overline{OD} = \\overline{OE}"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\overline{BF}"},
+        {"type": "text", "value": "의 값은?"},
+        {"type": "figure", "value": "꼭짓점 A, B, C, D, E가 원 위에 있고 중심 O에서 각 점으로 선분이 그어진 그림. 내부에 F 등이 있음."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "3cm"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "4cm"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "8cm"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "16cm"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "32cm"}]}
+      ]
+    }
+  ]
+}

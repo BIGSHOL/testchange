@@ -1,0 +1,86 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 21,
+      "score": 8,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 3] 원 O의 지름 AB의 양 끝 점에서 그은 접선과 원 O위의 한 점 P에서 그은 접선이 만나는 점을 각각 C, D라고 하고 "},
+        {"type": "equation", "value": "\\overline{AD}=2"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{BC}=5"},
+        {"type": "text", "value": "일 때, 다음 물음에 답하시오."},
+        {"type": "figure", "value": "원 O. AB는 지름(A가 왼쪽 위, B가 아래). P는 원 위의 점(오른쪽). A에서 접선, B에서 접선, P에서 접선. 이 세 접선이 D(AD=2)와 C(BC=5)에서 만남. O가 원 중심."}
+      ],
+      "choices": [],
+      "sub_questions": [
+        {
+          "number": 1,
+          "score": 4,
+          "contents": [
+            {"type": "text", "value": "(1) "},
+            {"type": "equation", "value": "\\overline{AB}"},
+            {"type": "text", "value": "의 길이를 구하시오."}
+          ]
+        },
+        {
+          "number": 2,
+          "score": 2,
+          "contents": [
+            {"type": "text", "value": "(2) "},
+            {"type": "equation", "value": "\\overline{BD}"},
+            {"type": "text", "value": "의 길이를 구하시오."}
+          ]
+        },
+        {
+          "number": 3,
+          "score": 2,
+          "contents": [
+            {"type": "text", "value": "(3) "},
+            {"type": "equation", "value": "\\cos(\\angle ABD)"},
+            {"type": "text", "value": "의 값을 구하시오."}
+          ]
+        }
+      ]
+    },
+    {
+      "number": 22,
+      "score": 7,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 4] "},
+        {"type": "equation", "value": "\\angle C = 90°"},
+        {"type": "text", "value": "이고 "},
+        {"type": "equation", "value": "\\overline{AD}=6"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{BC}=10"},
+        {"type": "text", "value": "인 사다리꼴 ABCD에 원 O가 내접할 때, 다음 물음에 답하시오."},
+        {"type": "figure", "value": "사다리꼴 ABCD. A가 왼쪽 위, D가 오른쪽 위, B가 왼쪽 아래, C가 오른쪽 아래(∠C=90° 직각 표시). AD=6, BC=10. 원 O가 사다리꼴 안에 내접."}
+      ],
+      "choices": [],
+      "sub_questions": [
+        {
+          "number": 1,
+          "score": 2,
+          "contents": [
+            {"type": "text", "value": "(1) 원 O의 반지름을 "},
+            {"type": "equation", "value": "x"},
+            {"type": "text", "value": "라고 할 때, "},
+            {"type": "equation", "value": "\\overline{AB}"},
+            {"type": "text", "value": "의 길이를 "},
+            {"type": "equation", "value": "x"},
+            {"type": "text", "value": "를 사용한 식으로 나타내시오."}
+          ]
+        },
+        {
+          "number": 2,
+          "score": 5,
+          "contents": [
+            {"type": "text", "value": "(2) 원 O의 넓이를 구하시오."}
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "header": "2024년 2학기 기말고사 — 동부중 3학년 수학 (p.3)",
+  "questions": [
+    {
+      "number": 11,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "어느 중학교 3학년 학생 50명의 수학 시험 점수를 조사한 결과이다. 이 자료의 최빈값은 한 개이고, 분산이 최빈값과 같을 때, "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "의 값은?"},
+        {"type": "table", "rows": [
+          ["자료", "1", "2", "3", "4", "5"],
+          ["도수", "4", "7", "x", "8", "3"]
+        ], "value": ""}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+      ]
+    },
+    {
+      "number": 12,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "다음 선택형 문항 중 올바른 것을 모두 고른 것은?"},
+        {"type": "text", "value": "<보기> ㄱ. 분산은 편차의 평균이다.  ㄴ. 편차의 합은 항상 0이다.  ㄷ. 평균과 중앙값은 항상 같다.  ㄹ. 표준편차가 작을수록 자료가 더 고르다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄴ, ㄷ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄴ, ㄹ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄱ, ㄷ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄴ, ㄷ, ㄹ"}]}
+      ]
+    },
+    {
+      "number": 13,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "다음 자료 5개에 수를 더 추가하여 총 10개의 자료에서 중앙값과 최빈값이 같아지도록 할 때, 추가할 수 있는 자료는?"},
+        {"type": "table", "rows": [
+          ["자료 A", "10", "16", "13", "12", "16"],
+          ["자료 B", "10", "16", "13", "12", "16"]
+        ], "value": ""}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "10,\\ 16,\\ 13,\\ 12"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "10,\\ 13,\\ 14,\\ 12"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "16,\\ 16,\\ 13,\\ 12"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "10,\\ 16,\\ 13,\\ 16,\\ 12"}]}
+      ]
+    },
+    {
+      "number": 14,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 중심이 O인 원에서 "},
+        {"type": "equation", "value": "\\overline{AB} = 2"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\angle OBC = 90°"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\angle OAB = 30°"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\overline{OD}"},
+        {"type": "text", "value": "의 길이는?"},
+        {"type": "figure", "value": "중심 O인 원에서 현 AB와 관련 각도 및 점 D가 표시된 그림."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "3-\\sqrt{5}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2\\sqrt{3}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\sqrt{5}+\\sqrt{3}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "3+\\sqrt{5}"}]}
+      ]
+    }
+  ]
+}

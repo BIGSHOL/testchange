@@ -1,0 +1,63 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 19,
+      "score": 8,
+      "label_type": "서답형",
+      "contents": [
+        {"type": "text", "value": "[서답형 1] 어느 반 학생 15명의 독서 시간과 국어 성적의 산점도이다. 다음 물음에 답하시오."},
+        {"type": "figure", "value": "독서 시간(가로축, 단위: 시간)과 국어 성적(세로축, 단위: 점)의 산점도. 학생 15명의 점이 표시됨. 가로축 범위 0~10시간, 세로축 범위 40~100점. 대체로 오른쪽 위 방향으로 점이 분포하여 양의 상관관계를 나타냄. 독서 시간 8시간 이상이고 국어 성적 80점 이상인 학생이 6명 있음."},
+        {"type": "text", "value": "(1) 독서 시간이 국어 성적과 어떤 상관관계가 있는지 구하시오. [3점]"},
+        {"type": "text", "value": "(2) 독서 시간이 8시간 이상이고 국어 성적이 80점 이상인 학생의 비율을 구하시오. [5점]"}
+      ]
+    },
+    {
+      "number": 20,
+      "score": 8,
+      "label_type": "서답형",
+      "contents": [
+        {"type": "text", "value": "[서답형 2] 다음은 학생 9명의 한 달 동안 독서량을 조사한 자료이다. 다음 물음에 답하시오."},
+        {"type": "table", "rows": [
+          ["9", "8", "10", "1", "4", "46", "5", "6", "10"]
+        ], "value": "(단위: 권)"},
+        {"type": "text", "value": "(1) 이 자료의 평균과 중앙값을 구하시오. [4점]"},
+        {"type": "text", "value": "(2) (1)에서 구한 값 중 이 자료의 대푯값으로 더 알맞은 것은 무엇인지 이유를 쓰시오. [4점]"}
+      ]
+    },
+    {
+      "number": 21,
+      "score": 9,
+      "label_type": "서답형",
+      "contents": [
+        {"type": "text", "value": "[서답형 3] 자료 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "b"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "c"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "d"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "a+b+c+d=20"},
+        {"type": "text", "value": "이고 "},
+        {"type": "equation", "value": "a^{2}+b^{2}+c^{2}+d^{2}=164"},
+        {"type": "text", "value": "일 때, 이 자료의 표준편차를 구하시오."}
+      ]
+    },
+    {
+      "number": 22,
+      "score": 9,
+      "label_type": "서답형",
+      "contents": [
+        {"type": "text", "value": "[서답형 4] 다음은 학생 A~E 5명의 한 달 동안 운동 횟수를 나타낸 것이다. 다음 물음에 답하시오."},
+        {"type": "table", "rows": [
+          ["학생", "A", "B", "C", "D", "E"],
+          ["운동 횟수(회)", "x", "x+3", "x-1", "x+5", "x-2"]
+        ], "value": ""},
+        {"type": "text", "value": "(1) 학생 5명의 운동 횟수의 평균은 A의 운동 횟수보다 몇 회 더 많은지 구하시오. [4점]"},
+        {"type": "text", "value": "(2) 분산과 표준편차를 구하시오. [5점]"}
+      ]
+    }
+  ]
+}

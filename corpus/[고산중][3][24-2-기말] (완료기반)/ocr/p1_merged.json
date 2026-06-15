@@ -1,0 +1,106 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 1,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "\\overline{AB}=\\overline{AC}=5, \\overline{BC}=8인 삼각형 ABC에서 "},
+        {"type": "equation", "value": "\\sin B + \\cos C"},
+        {"type": "text", "value": "의 값은?"},
+        {"type": "figure", "value": "이등변삼각형 ABC. 꼭짓점 A가 위, B가 왼쪽 아래, C가 오른쪽 아래. AB=AC=5, BC=8. B와 C를 지나는 반원(점선) 표시."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{3}{5}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{4}{5}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{6}{5}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{7}{5}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{8}{5}"}]}
+      ]
+    },
+    {
+      "number": 2,
+      "score": 3,
+      "contents": [
+        {"type": "equation", "value": "\\sin x = \\frac{\\sqrt{3}}{2}"},
+        {"type": "text", "value": ",  "},
+        {"type": "equation", "value": "\\tan y = \\frac{\\sqrt{3}}{3}"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\cos(x+y)"},
+        {"type": "text", "value": "의 값은? (단, "},
+        {"type": "equation", "value": "0° < x < 90°"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "0° < y < 90°"},
+        {"type": "text", "value": "이다)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{1}{2}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{\\sqrt{2}}{2}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{\\sqrt{3}}{2}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "1"}]}
+      ]
+    },
+    {
+      "number": 3,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "직각삼각형 ABC에서 변 BC의 연장선 위에 "},
+        {"type": "equation", "value": "\\overline{AB}=\\overline{BD}"},
+        {"type": "text", "value": "인 점 D를 정하고, "},
+        {"type": "equation", "value": "\\angle DAC = x°"},
+        {"type": "text", "value": "라고 할 때, "},
+        {"type": "equation", "value": "\\tan x°"},
+        {"type": "text", "value": "의 값은?"},
+        {"type": "figure", "value": "직각삼각형 ABC. A가 오른쪽 위, C가 오른쪽 아래(직각), B가 왼쪽 아래. AC=1. D는 BC 연장선 위의 점으로 DB=AB(등변 표시). DB=√2. ∠DAC=x°."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "1+\\sqrt{2}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\sqrt{2}+\\sqrt{3}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "2+\\sqrt{2}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "2+\\sqrt{3}"}]}
+      ]
+    },
+    {
+      "number": 4,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "삼각형 ABC에서 변 BC의 중점을 M이라 할 때, "},
+        {"type": "equation", "value": "\\angle BMA = 60°"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\angle MAB = 90°"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{BC}=8"},
+        {"type": "text", "value": "이다. "},
+        {"type": "equation", "value": "\\sin C"},
+        {"type": "text", "value": "의 값은?"},
+        {"type": "figure", "value": "삼각형 ABC. A가 위(∠MAB=90° 표시), B가 왼쪽 아래, C가 오른쪽 아래. M은 BC의 중점(등분 표시). ∠BMA=60°."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{\\sqrt{7}}{14}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{\\sqrt{3}}{5}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{\\sqrt{21}}{14}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{2\\sqrt{7}}{5}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{5\\sqrt{7}}{14}"}]}
+      ]
+    },
+    {
+      "number": 5,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "원 O에서 "},
+        {"type": "equation", "value": "\\overarc{AB} : \\overarc{BC} : \\overarc{CA} = 2:3:4"},
+        {"type": "text", "value": "이고, 반지름의 길이가 2cm일 때, 삼각형 OBC의 넓이는?"},
+        {"type": "figure", "value": "원 O 안에 삼각형 ABC와 삼각형 OBC. A가 위, B가 왼쪽, C가 아래. 원의 중심 O에서 B, C를 이음. 반지름 2cm 표시."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "3\\sqrt{3}cm^{2}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2\\sqrt{3}cm^{2}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "2\\sqrt{2}cm^{2}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "2cm^{2}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\sqrt{3}cm^{2}"}]}
+      ]
+    }
+  ]
+}

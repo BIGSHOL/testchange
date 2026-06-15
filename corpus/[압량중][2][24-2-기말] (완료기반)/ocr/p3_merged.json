@@ -1,0 +1,85 @@
+{
+  "header": "2024년 2학기 기말고사 압량중 2학년 수학",
+  "questions": [
+    {
+      "number": 9,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "다음 그림에서 두 원뿔을 서로 붙인 도형의 겉넓이를 구하면?"},
+        {"type": "figure", "value": "두 원뿔을 밑면끼리 붙인 도형. 전체 높이 15cm, 옆면의 모선 길이 관련 수치, 밑면 반지름 6cm, 밑의 원뿔 높이 4cm로 표시됨."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "100\\pi\\text{cm}^{2}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "108\\pi\\text{cm}^{2}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "115\\pi\\text{cm}^{2}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "120\\pi\\text{cm}^{2}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "125\\pi\\text{cm}^{2}"}]}
+      ]
+    },
+    {
+      "number": 10,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "다음 그림과 같이 직각삼각형 △ABC에서 "},
+        {"type": "equation", "value": "\\angle B = 90°"},
+        {"type": "text", "value": "이고 "},
+        {"type": "equation", "value": "\\overline{AB} = 3\\text{cm}"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{BC} = 4\\text{cm}"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "x - y"},
+        {"type": "text", "value": "의 값은?"},
+        {"type": "figure", "value": "직각삼각형 ABC. A(위), B(오른쪽 아래 직각), C(왼쪽 아래). AB = 3cm, BC = 4cm. 삼각형 내부에 점 H가 있으며 r cm와 x, y로 표시된 값들이 있음."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{3}{4}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{7}{4}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{5}{3}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "2"}]}
+      ]
+    },
+    {
+      "number": 11,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "아래 그림과 같이 "},
+        {"type": "equation", "value": "\\angle A = 90°"},
+        {"type": "text", "value": "인 직각이등변삼각형 ABC에서 "},
+        {"type": "equation", "value": "\\overline{AD} \\perp \\overline{BC}"},
+        {"type": "text", "value": "일 때, 다음 중 옳지 않은 것을 고르면?"},
+        {"type": "figure", "value": "직각삼각형 ABC. A(위), B(왼쪽 아래), C(오른쪽 아래). 점 D는 BC 위의 수선의 발(A에서 BC에 내린 수선의 발). BC = 4cm, BD = 2cm가 표시됨."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\triangle ABC \\sim \\triangle DAB"},{"type": "text", "value": "이다."}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\triangle ABC \\sim \\triangle ABD"},{"type": "text", "value": "이므로 SAS 닮음이다."}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\triangle ABC"},{"type": "text", "value": "와 "},{"type": "equation", "value": "\\triangle ABD"},{"type": "text", "value": "의 닮음비는 "},{"type": "equation", "value": "2:1"},{"type": "text", "value": "이다."}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\overline{AD}^{2} = \\overline{BD} \\cdot \\overline{DC}"},{"type": "text", "value": "이다."}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\overline{AB}^{2} = \\overline{BC} \\cdot \\overline{BD}"},{"type": "text", "value": "이다."}]}
+      ]
+    },
+    {
+      "number": 12,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "아래 그림과 같은 "},
+        {"type": "equation", "value": "\\triangle ABC"},
+        {"type": "text", "value": "에서 "},
+        {"type": "equation", "value": "\\overline{BD} : \\overline{DC} = 1 : 9"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\triangle ADC"},
+        {"type": "text", "value": "와 "},
+        {"type": "equation", "value": "\\triangle ABD"},
+        {"type": "text", "value": "의 넓이의 비는?"},
+        {"type": "figure", "value": "삼각형 ABC. A(위), B(왼쪽 아래), C(오른쪽 아래). 점 D가 BC 위에 있어 BD:DC = 1:9 구분."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1:10"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "1:9"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "9:1"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "9:10"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "10:9"}]}
+      ]
+    }
+  ]
+}

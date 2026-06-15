@@ -1,0 +1,78 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 9,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "다음 두 조건을 모두 만족시키는 n에 대하여 a의 값은?"},
+        {"type": "text", "value": "<조건>  (가) {7, 5, 7, 11, 15, n}의 중앙값은 11이다.  (나) {2, 5, 11, 17, n}의 분산은 a이다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "22"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "23"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "24"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "25"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "26"}]}
+      ]
+    },
+    {
+      "number": 10,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "다음은 중학생의 몸무게를 조사하여 나타낸 표이다. 65 kg 이상인 학생의 비율이 a %일 때, a의 값은?"},
+        {"type": "figure", "value": "학생 몸무게 도수분포표 또는 줄기-잎 그림. 65kg 이상 구간 포함"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "6"}]}
+      ]
+    },
+    {
+      "number": 11,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "그림에서 원 O에 내접하는 "},
+        {"type": "equation", "value": "\\triangle ABC"},
+        {"type": "text", "value": "에서 "},
+        {"type": "equation", "value": "3\\overline{AB}=4\\overline{BC}"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{AC}=3\\overline{AB}"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\angle A=a°"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\angle B=b°"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\angle C=c°"},
+        {"type": "text", "value": "라 하자. a+b+c의 값은?"},
+        {"type": "figure", "value": "원에 내접하는 삼각형 ABC. 각 꼭짓점에서 호의 길이 비율이 3:4:3으로 주어짐"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "76"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "78"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "80"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "82"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "84"}]}
+      ]
+    },
+    {
+      "number": 12,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "두 변량 A, B에 대한 다음 표를 보고 물음에 답하시오."},
+        {"type": "table", "rows": [["", "A", "B"], ["평균", "34", "40"], ["분산", "19", "45"]], "value": ""},
+        {"type": "text", "value": "A의 표준편차는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\sqrt{3}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\sqrt{2}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3\\sqrt{2}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\sqrt{19}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "2\\sqrt{5}"}]}
+      ]
+    }
+  ]
+}

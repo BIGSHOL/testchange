@@ -1,0 +1,121 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 5,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 사각형 ABCD에서 삼각비의 값을 구하시오."},
+        {"type": "figure", "value": "사각형 ABCD. 꼭짓점 A는 왼쪽 위, B는 오른쪽 위, C는 오른쪽 아래, D는 왼쪽 아래. 대각선이 그려지고 각도 및 변의 길이 표시됨."}
+      ],
+      "choices": [
+        {
+          "number": 1,
+          "contents": [{"type": "equation", "value": "\\frac{7\\sqrt{5}}{5}"}]
+        },
+        {
+          "number": 2,
+          "contents": [{"type": "equation", "value": "\\frac{7\\sqrt{5}}{11}"}]
+        },
+        {
+          "number": 3,
+          "contents": [{"type": "equation", "value": "\\frac{5\\sqrt{5}}{11}"}]
+        },
+        {
+          "number": 4,
+          "contents": [{"type": "equation", "value": "\\frac{5\\sqrt{5}}{5}"}]
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 ∠C=90°인 직각삼각형 ABC에서 DC에 수직인 점 E가 있고, ∠DCE="},
+        {"type": "equation", "value": "x°"},
+        {"type": "text", "value": ", ∠DCA="},
+        {"type": "equation", "value": "y°"},
+        {"type": "text", "value": "이고, "},
+        {"type": "equation", "value": "\\sin x - \\cos y + \\sin y"},
+        {"type": "text", "value": "의 값은?"},
+        {"type": "figure", "value": "직각삼각형 ABC에서 ∠C=90°. DC에 수직인 점 E. ∠DCE=x°, ∠DCA=y° 표시."}
+      ],
+      "choices": [
+        {
+          "number": 1,
+          "contents": [{"type": "equation", "value": "\\frac{7\\sqrt{5}}{10}"}]
+        },
+        {
+          "number": 2,
+          "contents": [{"type": "equation", "value": "\\frac{7\\sqrt{5}}{15}"}]
+        },
+        {
+          "number": 3,
+          "contents": [{"type": "equation", "value": "\\frac{5\\sqrt{5}}{15}"}]
+        },
+        {
+          "number": 4,
+          "contents": [{"type": "equation", "value": "\\frac{5\\sqrt{5}}{10}"}]
+        },
+        {
+          "number": 5,
+          "contents": [{"type": "equation", "value": "\\frac{5\\sqrt{5}}{5}"}]
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 삼각형 ABC에서 "},
+        {"type": "equation", "value": "\\overline{AB}=12"},
+        {"type": "text", "value": "cm, ∠ABC=45°일 때, △ABD의 넓이는?"},
+        {"type": "figure", "value": "삼각형 ABC에서 꼭짓점 B는 아래, A는 왼쪽 위, C는 오른쪽. 점 D가 AC 위에 있음. AB=12cm, ∠ABC=45°, 다른 각도 표시."}
+      ],
+      "choices": [
+        {
+          "number": 1,
+          "contents": [{"type": "equation", "value": "4\\sqrt{3}"}]
+        },
+        {
+          "number": 2,
+          "contents": [{"type": "equation", "value": "2\\sqrt{19}"}]
+        },
+        {
+          "number": 3,
+          "contents": [{"type": "equation", "value": "4\\sqrt{3}+\\sqrt{5}"}]
+        },
+        {
+          "number": 4,
+          "contents": [{"type": "equation", "value": "4\\sqrt{6}"}]
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 지구의 반지름이 약 4000km일 때, 우주선에서 볼 수 있는 지구의 지름의 크기는?"},
+        {"type": "figure", "value": "원형 지구. 반지름 4000km 표시. 우주선이 지구 밖에 있고, 지구를 바라볼 때 각도 θ 표시. 우주선에서 지구 양쪽 끝에 접선이 그려짐."}
+      ],
+      "choices": [
+        {
+          "number": 1,
+          "contents": [{"type": "equation", "value": "4000\\sin^2\\theta"}]
+        },
+        {
+          "number": 2,
+          "contents": [{"type": "equation", "value": "4000\\cos^2\\theta"}]
+        },
+        {
+          "number": 3,
+          "contents": [{"type": "equation", "value": "8000\\cos^2\\theta"}]
+        },
+        {
+          "number": 4,
+          "contents": [{"type": "equation", "value": "8000\\sin^2\\theta"}]
+        }
+      ]
+    }
+  ]
+}

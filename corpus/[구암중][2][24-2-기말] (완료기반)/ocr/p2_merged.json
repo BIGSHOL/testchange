@@ -1,0 +1,110 @@
+{
+  "header": "2024년 2학기 기말고사 구암중 2학년 수학",
+  "questions": [
+    {
+      "number": 5,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "삼각형 ABCD에서 "},
+        {"type": "equation", "value": "\\angle DC = 40°"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\angle CDA = a°"},
+        {"type": "text", "value": "이고 "},
+        {"type": "equation", "value": "\\angle CAB = b°"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "2a + b"},
+        {"type": "text", "value": "의 값은?"},
+        {"type": "figure", "value": "사다리꼴 또는 삼각형 ABCD 관련 그림. ∠DC=40° 표시."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "200"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "215"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "220"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "225"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "228"}]}
+      ]
+    },
+    {
+      "number": 6,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "삼각형 ABCD가 마름모일 때, 보기에서 옳은 것을 모두 고른 것은?"},
+        {"type": "figure", "value": "마름모 ABCD 그림."},
+        {"type": "text", "value": "<보기>\nㄱ. \\overline{AB} = \\overline{AD}\nㄴ. \\angle BAO = \\angle DAO\nㄷ. \\angle ABD = 90°\nㄹ. \\angle ABD = \\angle CBD"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ, ㄴ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄴ, ㄷ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄷ, ㄹ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄴ, ㄷ, ㄹ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄱ, ㄴ, ㄷ"}]}
+      ]
+    },
+    {
+      "number": 7,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "사다리꼴 ABCD가 닮음인 삼각형을 가지기 위한 조건으로 옳지 않은 것은?"},
+        {"type": "figure", "value": "사다리꼴 ABCD 그림."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\overline{AD} \\parallel \\overline{BC}"},  {"type": "text", "value": ", "},  {"type": "equation", "value": "\\angle CAB = \\angle ACD"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\overline{AB} = 3"},  {"type": "text", "value": ", "},  {"type": "equation", "value": "\\overline{OB} = 3"},  {"type": "text", "value": ", "},  {"type": "equation", "value": "\\overline{OD} = 4"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\overline{OA} = 3"},  {"type": "text", "value": ", "},  {"type": "equation", "value": "\\overline{OB} = 3"},  {"type": "text", "value": ", "},  {"type": "equation", "value": "\\overline{OD} = 4"},  {"type": "text", "value": ", "},  {"type": "equation", "value": "\\overline{ODA} = 4"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\angle DAB = 180°"},  {"type": "text", "value": ", "},  {"type": "equation", "value": "\\angle ABC = 90°"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\angle DAB = 90°"}]}
+      ]
+    },
+    {
+      "number": 8,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "직사각형 ABCD에서 "},
+        {"type": "equation", "value": "\\overline{AC} = 3x + 2"},
+        {"type": "text", "value": "이고 "},
+        {"type": "equation", "value": "\\overline{BD} = 7x - 2"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "의 값은?"},
+        {"type": "figure", "value": "직사각형 ABCD에서 대각선 AC, BD가 표시된 그림."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{7}{2}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{9}{2}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+      ]
+    },
+    {
+      "number": 9,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "닮음인 두 삼각형에서 변의 길이를 구하시오."},
+        {"type": "figure", "value": "닮음인 두 삼각형 그림. 구체적 변의 길이 수치 표시."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "34cm"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "36cm"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "42cm"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "45cm"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "48cm"}]}
+      ]
+    },
+    {
+      "number": 10,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "그림에서 닮음 관계를 이용하여 변의 길이를 구하시오."},
+        {"type": "figure", "value": "닮음 삼각형 또는 사다리꼴에서 변의 길이가 표시된 그림. 6cm 등 수치 표시."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "34cm"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "36cm"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "42cm"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "45cm"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "48cm"}]}
+      ]
+    }
+  ]
+}

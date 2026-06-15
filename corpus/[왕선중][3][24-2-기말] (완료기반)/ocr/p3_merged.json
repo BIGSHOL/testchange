@@ -1,0 +1,167 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 9,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 원에서 나의 값을 구하시오."},
+        {"type": "figure", "value": "세 개의 원 그림. 각 원에 현과 중심이 그려지고 거리 표시됨. ①: 4cm, 2cm 표시. ②: 4cm, 7cm 표시. ③: 5cm, 2cm 표시."}
+      ],
+      "choices": [
+        {
+          "number": 1,
+          "contents": [{"type": "equation", "value": "\\frac{3\\sqrt{5}}{2}"}]
+        },
+        {
+          "number": 2,
+          "contents": [{"type": "equation", "value": "\\frac{3\\sqrt{5}}{4}"}]
+        },
+        {
+          "number": 3,
+          "contents": [{"type": "equation", "value": "\\frac{5\\sqrt{5}}{4}"}]
+        },
+        {
+          "number": 4,
+          "contents": [{"type": "equation", "value": "\\frac{5\\sqrt{5}}{2}"}]
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 두 개의 원에서 각도를 구하시오."},
+        {"type": "figure", "value": "삼각형이 원과 관련된 그림 두 개. 각도 표시됨."}
+      ],
+      "choices": [
+        {
+          "number": 1,
+          "contents": [{"type": "equation", "value": "45°"}]
+        },
+        {
+          "number": 2,
+          "contents": [{"type": "equation", "value": "90°"}]
+        },
+        {
+          "number": 3,
+          "contents": [{"type": "equation", "value": "135°"}]
+        },
+        {
+          "number": 4,
+          "contents": [{"type": "equation", "value": "180°"}]
+        },
+        {
+          "number": 5,
+          "contents": [{"type": "equation", "value": "270°"}]
+        }
+      ]
+    },
+    {
+      "number": 11,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "그림에서 두 점 A, B는 원에 접하고, "},
+        {"type": "equation", "value": "\\overline{PA}=3cm"},
+        {"type": "text", "value": ", △APB의 넓이가 b cm² 일 때, a+b의 값은?"},
+        {"type": "figure", "value": "원 외부의 점 P에서 원에 두 접선 PA와 PB를 그음. PA=3cm, 다른 수치 표시."}
+      ],
+      "choices": [
+        {
+          "number": 1,
+          "contents": [{"type": "equation", "value": "6+5\\sqrt{3}"}]
+        },
+        {
+          "number": 2,
+          "contents": [{"type": "equation", "value": "9"}]
+        },
+        {
+          "number": 3,
+          "contents": [{"type": "equation", "value": "6+3\\sqrt{2}"}]
+        },
+        {
+          "number": 4,
+          "contents": [{"type": "equation", "value": "9+3\\sqrt{2}"}]
+        },
+        {
+          "number": 5,
+          "contents": [{"type": "equation", "value": "11\\sqrt{2}"}]
+        }
+      ]
+    },
+    {
+      "number": 12,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "그림에서 "},
+        {"type": "equation", "value": "\\overline{FA}"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{FB}"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{OC}"},
+        {"type": "text", "value": "는 원의 접선이고, "},
+        {"type": "equation", "value": "\\overline{FA}=3cm"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{OC}=7cm"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{FC}=11cm"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\overline{FB}"},
+        {"type": "text", "value": "는?"},
+        {"type": "figure", "value": "원. 외부 점 F, O에서 접선 FA, FB, OC가 그려짐. FA=3cm, OC=7cm, FC=11cm 표시."}
+      ],
+      "choices": [
+        {
+          "number": 1,
+          "contents": [{"type": "equation", "value": "7cm"}]
+        },
+        {
+          "number": 2,
+          "contents": [{"type": "equation", "value": "8cm"}]
+        },
+        {
+          "number": 3,
+          "contents": [{"type": "equation", "value": "9cm"}]
+        },
+        {
+          "number": 4,
+          "contents": [{"type": "equation", "value": "10cm"}]
+        },
+        {
+          "number": 5,
+          "contents": [{"type": "equation", "value": "11cm"}]
+        }
+      ]
+    },
+    {
+      "number": 13,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "△ABC에서 내접하는 원과 내접하는 사각형에 대하여, 다음 중 옳은 것은 모두 몇 개인가?"},
+        {"type": "text", "value": "<보기> ㄱ. AD > DC  • ㄴ. ∠BAC = ∠BDC  • ㄷ. ∠A + ∠C = 180°  • ㄹ. AB + (∠B) + (∠A) = (∠B) + (∠C)"}
+      ],
+      "choices": [
+        {
+          "number": 1,
+          "contents": [{"type": "text", "value": "1개"}]
+        },
+        {
+          "number": 2,
+          "contents": [{"type": "text", "value": "2개"}]
+        },
+        {
+          "number": 3,
+          "contents": [{"type": "text", "value": "3개"}]
+        },
+        {
+          "number": 4,
+          "contents": [{"type": "text", "value": "4개"}]
+        },
+        {
+          "number": 5,
+          "contents": [{"type": "text", "value": "5개"}]
+        }
+      ]
+    }
+  ]
+}

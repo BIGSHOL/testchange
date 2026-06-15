@@ -1,0 +1,83 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 5,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "그림에서 AC, BD는 원의 지름이다. "},
+        {"type": "equation", "value": "\\angle BAC = 30°"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\angle ABD"},
+        {"type": "text", "value": "의 크기는?"},
+        {"type": "figure", "value": "원 위에 네 점 A, B, C, D가 있고, AC와 BD는 원의 지름. A는 왼쪽 위, D는 오른쪽 위, B는 왼쪽 아래, C는 오른쪽. 각 BAC=30°가 표시됨."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "55°"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "48°"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "60°"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "70°"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "75°"}]}
+      ]
+    },
+    {
+      "number": 6,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 원에 내접하는 "},
+        {"type": "equation", "value": "\\triangle ABC"},
+        {"type": "text", "value": "에서 AB=AC이고 "},
+        {"type": "equation", "value": "\\angle BAC = 30°"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\angle x"},
+        {"type": "text", "value": "의 크기는?"},
+        {"type": "figure", "value": "원에 내접하는 이등변삼각형 ABC. AB=AC, 각 BAC=30°. 각 x는 원호에 대한 관련 각(외부 또는 호와 관련된 각)."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "100°"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "105°"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "110°"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "115°"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "120°"}]}
+      ]
+    },
+    {
+      "number": 7,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "그림에서 "},
+        {"type": "equation", "value": "\\overline{AB} = \\overline{BC}"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\angle ABD = 40°"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\angle BDC = 30°"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\angle x"},
+        {"type": "text", "value": "의 크기는?"},
+        {"type": "figure", "value": "원 위의 점 A, B, C, D. AB=BC (등호). 각 ABD=40°, 각 BDC=30°. 각 x가 표시됨."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "55°"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "60°"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "65°"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "70°"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "75°"}]}
+      ]
+    },
+    {
+      "number": 8,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "<보기>에서 한 원주각에 대한 설명이다. 옳은 것을 모두 고른 것은?"},
+        {"type": "text", "value": "<보기> ㄱ. 한 호에 대한 원주각의 크기는 하나이다. • ㄴ. 반원에 대한 원주각의 크기는 90°이다. • ㄷ. 한 호에 대한 중심각의 크기는 원주각의 크기의 2배이다. • ㄹ. 한 원에서 같은 크기의 원주각에 대한 현의 길이는 같다. • ㅁ. 한 원에서 한 호의 길이는 그 호에 대한 원주각의 크기에 정비례한다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄴ, ㄷ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄴ, ㄷ, ㄹ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄱ, ㄴ, ㄷ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄴ, ㄷ, ㄹ, ㅁ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄱ, ㄴ, ㄷ, ㅁ"}]}
+      ]
+    }
+  ]
+}

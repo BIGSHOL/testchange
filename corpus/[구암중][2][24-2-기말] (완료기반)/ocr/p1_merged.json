@@ -1,0 +1,82 @@
+{
+  "header": "2024년 2학기 기말고사 구암중 2학년 수학",
+  "questions": [
+    {
+      "number": 1,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "직사각형 ABCD의 각 변을 한 변으로 하는 정사각형을 그리면 그 넓이를 나타낸 것은?"},
+        {"type": "figure", "value": "직사각형 ABCD와 각 변을 한 변으로 하는 정사각형 4개가 그려진 그림."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "15"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "20"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "25"}]}
+      ]
+    },
+    {
+      "number": 2,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "그림의 "},
+        {"type": "equation", "value": "\\triangle ABC"},
+        {"type": "text", "value": "에서 ∠A의 이등분선이 BC와 만나는 점을 D라 할 때, 보기에서 옳은 것을 모두 고른 것은?"},
+        {"type": "figure", "value": "삼각형 ABC에서 ∠A의 이등분선이 BC와 점 D에서 만나는 그림."},
+        {"type": "text", "value": "<보기>\nㄱ. \\overline{AB} = \\overline{AD}\nㄴ. \\angle BAO = \\angle DAO\nㄷ. \\angle ABD = 90°\nㄹ. \\overline{BD} = \\overline{DC}"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ, ㄴ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄴ, ㄷ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄷ, ㄹ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄱ, ㄴ, ㄷ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄴ, ㄷ, ㄹ"}]}
+      ]
+    },
+    {
+      "number": 3,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "점 O가 "},
+        {"type": "equation", "value": "\\triangle ABC"},
+        {"type": "text", "value": "의 외심이고 "},
+        {"type": "equation", "value": "\\angle BAO = 25°"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\angle BCO = 35°"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\angle ACO"},
+        {"type": "text", "value": "의 크기는?"},
+        {"type": "figure", "value": "삼각형 ABC에서 외심 O가 표시된 그림. ∠BAO, ∠BCO 각도 표시."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "20°"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "25°"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "30°"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "35°"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "40°"}]}
+      ]
+    },
+    {
+      "number": 4,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "점 I가 "},
+        {"type": "equation", "value": "\\triangle ABC"},
+        {"type": "text", "value": "의 내심이고 "},
+        {"type": "equation", "value": "\\angle CAI > 30°"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "의 크기는?"},
+        {"type": "figure", "value": "삼각형 ABC에서 내심 I가 표시된 그림. ∠CAI와 x° 각도 표시."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "110°"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "120°"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "125°"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "130°"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "135°"}]}
+      ]
+    }
+  ]
+}

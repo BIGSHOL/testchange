@@ -1,0 +1,63 @@
+{
+  "header": "2024년 2학기 기말고사 사동중 2학년 수학 / 평행사변형의 성질 ~ 확률",
+  "questions": [
+    {
+      "number": 1,
+      "score": 3,
+      "contents": [
+        {"type": "text", "value": "△ABC와 △ADEF가 다음 조건을 만족시킬 때, △ABC와 △ADEF가 서로 닮은 도형이 되는 조건은 것은?"},
+        {"type": "figure", "value": "왼쪽에 삼각형 ABC(꼭짓점 B, C, A)와 오른쪽에 삼각형 ADEF(꼭짓점 D, E, F)가 나란히 그려져 있다."},
+        {"type": "text", "value": "<보기>  ㄱ. \\angle A=\\angle D, \\angle B=\\angle E  • ㄴ. \\angle B=\\angle E, \\angle C=\\angle F  • ㄷ. \\overline{AB}:\\overline{DE}=\\overline{EF}:\\overline{CA}  • ㄹ. \\overline{DE}:\\overline{BC}=\\overline{EF}:\\overline{CA}  • ㅁ. \\overline{AB}:\\overline{DE}=\\overline{BC}:\\overline{EF}, \\angle D=\\angle A"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ, ㄴ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄴ, ㄷ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄷ, ㄹ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄹ, ㅁ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄱ, ㄴ, ㅁ"}]}
+      ]
+    },
+    {
+      "number": 2,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "∠A=90°인 직각삼각형 ABC에서 AH⊥BC이고 BH=9cm, CH=4cm일 때, AH의 길이는?"},
+        {"type": "figure", "value": "직각삼각형 ABC에서 꼭짓점 A에서 변 BC에 수선을 내려 수선의 발 H가 있다. BH=9cm, CH=4cm 표시됨."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "5cm"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "6cm"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "7cm"}]}
+      ]
+    },
+    {
+      "number": 3,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "오른 그림에 대한 설명 중 옳은 것은?"},
+        {"type": "figure", "value": "삼각형 ABC에서 BC=7cm이고, 변 위에 점 D, E, F가 있다. AE=2cm, EF=1cm 등이 표시됨. DE∥BC 또는 EF∥BC 관계가 있음."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\angle ABC = \\angle ADE"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\angle ACB = \\angle AED"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\overline{BE} = \\overline{DF}"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "△ABC~△AEB이다"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "△ABC와 △ADE의 닮음비는 10:5이다"}]}
+      ]
+    },
+    {
+      "number": 4,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "l∥m일 때, z의 값은?"},
+        {"type": "figure", "value": "두 평행선 l, m이 있고, 세 선분이 이 두 직선과 교차한다. 선분의 길이 20cm, 12cm, x cm, y cm 등이 표시됨."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{13}{4}"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "4"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{15}{4}"}]}
+      ]
+    }
+  ]
+}

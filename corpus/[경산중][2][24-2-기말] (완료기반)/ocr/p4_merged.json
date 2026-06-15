@@ -1,0 +1,79 @@
+{
+  "questions": [
+    {
+      "number": 13,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 정사각형 모양의 격자판에서 점을 이어 만든 도형들의 넓이의 합을 구하시오."},
+        {"type": "figure", "value": "정사각형 격자판. 격자 안에 대각선으로 만들어진 삼각형 도형들이 원 안에 배치됨. 각 칸에 ㄱ~ㅇ 등 기호가 표시됨."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "11"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "13"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "14"}]}
+      ]
+    },
+    {
+      "number": 14,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 반지름이 6cm인 원뿔 안에 반지름이 3cm인 작은 원뿔이 꼭짓점을 공유하며 들어 있다. 두 원뿔 사이의 공간의 부피는?"},
+        {"type": "figure", "value": "큰 원뿔 (밑면 반지름 6cm). 그 안에 작은 원뿔 (밑면 반지름 3cm, 같은 꼭짓점 공유). 반지름 r 표시."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{7}{8}\\pi r^3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{5}{4}\\pi r^3"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{7}{4}\\pi r^3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "126\\pi"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{63}{2}\\pi"}]}
+      ]
+    },
+    {
+      "number": 15,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 △ABC에서 ∠B=55°, BC=15cm이고 △DEF에서 ∠E=65°, EF=12cm일 때, 두 삼각형이 합동이 되기 위해 추가로 필요한 조건은?"},
+        {"type": "figure", "value": "△ABC: ∠B=55°, BC=15cm. △DEF: ∠E=65°, EF=12cm. 두 삼각형."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\angle A = \\angle D,\\, \\overline{AB}=\\overline{DE}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\angle C = \\angle F,\\, \\overline{AC}=\\overline{DF}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\overline{AB}=\\overline{DE},\\, \\overline{AC}=\\overline{DF}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\angle A = \\angle D,\\, \\overline{AC}=\\overline{DF}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\angle C = \\angle F,\\, \\overline{AB}=\\overline{DE}"}]}
+      ]
+    },
+    {
+      "number": 16,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 △ABC에서 DE∥BC이고 AD=5cm, DB=2cm, AE=7cm, DP=3cm일 때, x+y의 값은?"},
+        {"type": "figure", "value": "△ABC. D는 AB 위의 점 (AD=5cm, DB=2cm). E는 AC 위의 점 (AE=7cm). DE∥BC. P는 DE 위의 점 (DP=3cm). Q는 BC 위의 점. BQ=x cm, EC=y cm."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{41}{5}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{43}{5}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{47}{5}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{49}{5}"}]}
+      ]
+    },
+    {
+      "number": 17,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 △ABC에서 BC 위의 점 P, AB 위의 점 Q, AC 위의 점 R에 대하여 BP⊥AC, AQ⊥BC, AR⊥BP이고, BP와 AQ의 교점을 S라 할 때, 다음 중 옳지 않은 것은?"},
+        {"type": "figure", "value": "△ABC. P는 BC 위, Q는 AB 위, R는 AC 위. BP⊥AC (∠D=90°), AQ⊥BC, AR⊥BP. S는 BP와 AQ의 교점."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\triangle ABP \\sim \\triangle QBP"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\triangle AQB \\sim \\triangle BPC"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\triangle ARS \\sim \\triangle BPS"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\triangle ABP \\sim \\triangle ARS"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\triangle ABQ \\sim \\triangle CBP"}]}
+      ]
+    }
+  ]
+}

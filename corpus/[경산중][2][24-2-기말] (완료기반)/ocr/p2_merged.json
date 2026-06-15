@@ -1,0 +1,64 @@
+{
+  "questions": [
+    {
+      "number": 5,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "그림과 같은 평행사변형 ABCD에서 x+y의 값은?"},
+        {"type": "figure", "value": "평행사변형 ABCD. AB=3x-2, CD=10, ∠D=80°, ∠C=y°."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "96"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "98"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "100"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "102"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "104"}]}
+      ]
+    },
+    {
+      "number": 6,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "그림과 같은 평행사변형 ABCD에서 두 대각선의 교점을 O라 할 때, 다음 중 옳지 않은 것은?"},
+        {"type": "figure", "value": "평행사변형 ABCD. 두 대각선 AC, BD의 교점 O. AO=CO, BO=DO (눈금 표시)."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\overline{AO}=\\overline{CO}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\overline{BO}=\\overline{DO}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\triangle AOB \\equiv \\triangle COD"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\overline{AC}=\\overline{BD}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\triangle ABO \\equiv \\triangle ADO"}]}
+      ]
+    },
+    {
+      "number": 7,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 마름모 ABCD에서 ∠A=x°이고, 직사각형 ABCD에서 대각선의 교점에서 ∠y°가 이루어질 때, x+y의 값은?"},
+        {"type": "figure", "value": "마름모 ABCD (∠A=x°, ∠C=30°). 직사각형 ABCD (대각선 교점에서 한 각=y°, ∠C=40°)."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "170"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "180"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "190"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "200"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "210"}]}
+      ]
+    },
+    {
+      "number": 8,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "그림과 같은 등변사다리꼴 ABCD에서 AD=6cm, BC=16cm일 때, 빗변의 길이 z의 값은?"},
+        {"type": "figure", "value": "등변사다리꼴 ABCD. AD=6cm, BC=16cm. AH⊥BC. 빗변 AB=z cm."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "13"}]}
+      ]
+    }
+  ]
+}

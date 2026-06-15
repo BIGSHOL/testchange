@@ -1,0 +1,65 @@
+{
+  "header": "2024년 2학기 기말고사 사동중 2학년 수학 학원 로고",
+  "questions": [
+    {
+      "number": 5,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "△ABD에서 SA∥DM∥NC이고, AB=4cm, BM=16cm, SA=4cm이면 SN의 길이는?"},
+        {"type": "figure", "value": "삼각형 ABD에서 내부에 SA∥DM∥NC인 평행선들이 그려져 있다. A는 꼭짓점, B는 아래, D는 오른쪽. AB=4cm, BM=16cm, SA=4cm 등의 측정값이 표시됨."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{40}{7}cm"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{54}{7}cm"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{62}{7}cm"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{76}{7}cm"}]}
+      ]
+    },
+    {
+      "number": 6,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "아래 그림에서 점 G가 △ABC의 무게중심이고 DF∥BC일 때, DF의 길이는?"},
+        {"type": "figure", "value": "삼각형 ABC의 무게중심 G가 표시되어 있다. DF∥BC인 선분 DF가 그려져 있으며 B, G, N 등의 점이 표시됨. 일부 측정값이 주어짐."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{38}{3}cm"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{17}{3}cm"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{22}{3}cm"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{43}{3}cm"}]}
+      ]
+    },
+    {
+      "number": 7,
+      "score": 4,
+      "contents": [
+        {"type": "text", "value": "점 G가 △ABC의 무게중심일 때, 다음 <보기>에서 옳은 것을 모두 고른 것은?"},
+        {"type": "figure", "value": "삼각형 ABC에서 무게중심 G가 표시됨. 변 위의 중점들과 G를 연결하는 중선들이 그려져 있다. 일부 선분의 길이가 4cm, 2cm, 1cm 등으로 표시됨. x, y로 표시된 미지수가 있음."},
+        {"type": "text", "value": "<보기>  ㄱ. GD=GE  • ㄴ. x+y=11  • ㄷ. △ABG=△GAE  • ㄹ. △ABG=△AGDCE"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ, ㄷ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄴ, ㄷ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄷ, ㄹ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄹ, ㄴ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄴ, ㄷ, ㄹ"}]}
+      ]
+    },
+    {
+      "number": 8,
+      "score": 5,
+      "contents": [
+        {"type": "text", "value": "평행사변형 ABCE에서 M은 BC의 중점이고, AM과 BF의 교점을 N이라 할 때, 다음 <보기>에서 옳은 것의 개수는?"},
+        {"type": "figure", "value": "사각형 ABCE(또는 ABCD)에 내부에 여러 선분과 교점이 그려져 있다. 일부 변의 길이: 6cm, 8cm, 12cm 등이 표시됨."},
+        {"type": "text", "value": "<보기>  ㄱ. EF=5cm  • ㄴ. △ABF=\\frac{1}{3}\\square ABCD  • ㄷ. △ABM=\\frac{1}{2}\\square ABCD"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "1개"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "2개"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "3개"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "4개"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "5개"}]}
+      ]
+    }
+  ]
+}
