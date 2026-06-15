@@ -110,6 +110,13 @@ _NUM_TAIL_UNITS = _UNITS + ["L"]
 _UNIT_RE = re.compile(
     r"(\d)[\s`]*(" + "|".join(re.escape(u) for u in _NUM_TAIL_UNITS) + r")(?![A-Za-z0-9])"
 )
+# 분수/근호 닫는 ``}`` 뒤 단위(``\frac{8}{3}cm`` → ``{8} over {3}cm`` 의 ``}cm``, ``\sqrt{2}cm``)도
+# 로만화 — 분수+cm 이 이탤릭으로 남던 것(강북중 중2 #6 ①③④, 2026-06-15). 단, **다문자 단위만**
+# (cm·mm·kg·km…). 단일문자 L·g·° 는 첨자 뒤 변수일 수 있어(``a_{1}L`` 의 ``}L``) 제외(O2 회귀).
+_MULTI_UNITS = [u for u in _NUM_TAIL_UNITS if len(u) >= 2]
+_BRACE_UNIT_RE = re.compile(
+    r"(\})[\s`]*(" + "|".join(re.escape(u) for u in _MULTI_UNITS) + r")(?![A-Za-z0-9])"
+)
 # 단일 변수 글자 뒤 무공백 단위("xkm"·"yL") — 다문자 단위+L 한정(g·° 등 단일기호 제외:
 # 변수곱 "ag" 오인 방지). 앞이 다른 글자면(LCM 류 식별자) 제외. 완료본 인쇄는 변수 이탤릭
 # + 단위 정자 + 얇은 간격(범물중 #22 "xkm인"·"yL라고" 통째 이탤릭이던 것, 2026-06-11).
@@ -133,6 +140,7 @@ def _romanize_units(s: str) -> str:
     단일 변수 뒤 다문자 단위/L(``xkm``·``yL``)도 정자+간격(``x rm`km``, 범물중 #22).
     """
     s = _UNIT_RE.sub(lambda m: m.group(1) + " rm`" + m.group(2), s)
+    s = _BRACE_UNIT_RE.sub(lambda m: m.group(1) + " rm`" + m.group(2), s)
     return _VAR_UNIT_RE.sub(lambda m: m.group(1) + " rm`" + m.group(2), s)
 
 
@@ -343,7 +351,10 @@ class LaTeXToHWPConverter:
         r"\because": "because",
         r"\angle": "angle",
         r"\perp": "BOT",
-        r"\parallel": "parallel",
+        # 평행기호: HWP ``parallel`` 키워드는 **세로 두 줄**(││)로 렌더돼 평행처럼 안 보인다
+        # (사용자 2026-06-15). ⫽(U+2AFD, 빗금 두 줄) 리터럴로 고정 — □(\square) 방식. norm
+        # ‖(\Vert·\|)는 세로가 맞으므로 그대로 둔다.
+        r"\parallel": '"⫽"',
         r"\mid": "|",          # 집합 표기 바: {x | x≤3}. 없으면 누락돼 "xx"로 붙음
         r"\vert": "|",
         r"\Vert": "PARALLEL",

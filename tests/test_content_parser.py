@@ -514,6 +514,21 @@ def _check_jung2_2sem_fixes(fails):
     eqx = [b.value for b in cx.contents if b.type.name == "EQUATION"]
     if any(r"\mathrm{P}" in (e or "") for e in eqx):
         fails.append(f"  J2S 확통 P 오로만화: {eqx!r}")
+    # #12 "A 지점에서 C 지점까지"(경우의 수·비기하)는 기하 오판 금지(지점=위치, 디코이)
+    from core.content_parser import _has_geometry_context
+    from models.exam_document import ContentBlock as _CB2, ContentType as _CT2
+    if _has_geometry_context([_CB2(type=_CT2.TEXT, value="A 지점에서 C 지점까지 가는 경우의 수")]):
+        fails.append("  J2S '지점'(비기하) 기하 오판")
+    if not _has_geometry_context([_CB2(type=_CT2.TEXT, value="점 P 를 지나는 직선")]):
+        fails.append("  J2S 진짜 기하(점) 미감지")
+    # #6 분수+단위 cm 로만화(분수 닫는 } 뒤), a_1L(첨자 뒤 변수 L)은 보호
+    if "rm`cm" not in l2h(r"\frac{8}{3}cm", italicize_stat=False):
+        fails.append(f"  J2S 분수+cm 미로만: {l2h(chr(92)+'frac{8}{3}cm', italicize_stat=False)!r}")
+    if "rm`L" in l2h("a_1L", italicize_stat=False):
+        fails.append(f"  J2S a_1L 변수 L 오로만(O2 회귀): {l2h('a_1L', italicize_stat=False)!r}")
+    # 평행기호 ⫽ 리터럴(세로 ││ 금지)
+    if "⫽" not in l2h(r"\overline{DE} \parallel \overline{BC}", italicize_stat=False):
+        fails.append(f"  J2S 평행 ⫽ 미적용: {l2h(chr(92)+'overline{DE} '+chr(92)+'parallel '+chr(92)+'overline{BC}', italicize_stat=False)!r}")
 
 
 # SH1·SH2 (강동고·강북고 수하 23-2-기말 완료기반, 2026-06-14): 조합/순열 좌측첨자·집합 괄호.
