@@ -372,7 +372,15 @@ _UPPER_LETTERS_RE = re.compile(r'^[A-Z]+')
 # 로만, 괄호 안 좌표는 이탤릭으로 끊는다(\mathrm{P}\mathit{(a,b)}). HWP rm 이 뒤 전체로 번지므로
 # 통째 로만화하면 a,b 까지 로만으로 깨진다(2026-06-11 렌더 실증). 좌표쌍 판정 = 괄호 안 쉼표
 # 존재(함수호출 f(x)·확통 P(X=r) 제외 — 단일인자라 쉼표 없음). 기하 문맥에서만 적용.
-_POINT_COORD_RE = re.compile(r'^([A-Z])\s*((?:\\left)?\(.*)$', re.DOTALL)
+_POINT_COORD_RE = re.compile(
+    r'^([A-Z](?:_\{?[A-Za-z0-9+\-]+\}?)?)\s*((?:\\left)?\(.*)$', re.DOTALL)
+# 첨자·프라임 단 점 이름 토큰(A·A_1·A_{n+1}·C'·P_n). 여러 토큰이 공백/연접으로 이어진
+# 선분·다각형·호 이름(A_1 C_1·A_1A_2·C_1D_1·P_nQ_n·O_1O_2)도 한 점이름열 → 기하 문맥에서
+# 통째 \mathrm 로만. `_BARE_UPPER_EQ_RE` 는 단일 토큰(또는 BA_1 처럼 첨자 하나)만 잡아,
+# 첨자가 글자마다 붙은 선분명(A_1C_1·A_1A_2)이 이탤릭으로 새던 것(강동고 미적분 #8·#14 등
+# 수열 도형 점 문제, 2026-06-16). 모두 점 글자+첨자라 \mathrm 안전(이탤릭 조각 없음).
+_POINT_TOKEN = r"[A-Z]'*(?:_\{?[A-Za-z0-9+\-]+\}?)?'*"
+_POINT_NAME_SEQ_RE = re.compile(r"^(?:%s\s*){2,}$" % _POINT_TOKEN)
 
 # 기하 키워드(엄격) — **대문자 1글자** 수식을 로만으로 만들지 결정. 확통의 X·P·E·V·Z·N
 # (확률변수·연산자)을 로만으로 만들지 않도록, 점·선·면·다각형 등 **확실한 도형 단어만**
@@ -515,7 +523,13 @@ def _romanize_point_names(blocks: list[ContentBlock],
                     out.append(ContentBlock(type=ContentType.EQUATION,
                                             value=f"\\mathrm{{{v}}}"))
                     continue
-            # 좌표 단 점 이름 P(a,b)·A(-5,-3)·C(\frac{a}{b},-a): 점 글자만 로만, 좌표는 이탤릭.
+            # 점이름열(선분·다각형·호) A_1 C_1·A_1A_2·C_1D_1·P_nQ_n — 기하 문맥에서 통째 로만.
+            if (v and "\\math" not in v and has_geo
+                    and _POINT_NAME_SEQ_RE.match(v)):
+                out.append(ContentBlock(type=ContentType.EQUATION,
+                                        value=f"\\mathrm{{{v}}}"))
+                continue
+            # 좌표 단 점 이름 P(a,b)·A(-5,-3)·P_n(n,f(n)): 점 글자(+첨자)만 로만, 좌표는 이탤릭.
             mc = _POINT_COORD_RE.match(v) if (has_geo and v and "\\math" not in v) else None
             if mc and "," in mc.group(2):
                 out.append(ContentBlock(

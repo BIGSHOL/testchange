@@ -679,6 +679,41 @@ def _check_table_value_list(fails):
 
 
 # SH1·SH2 (강동고·강북고 수하 23-2-기말 완료기반, 2026-06-14): 조합/순열 좌측첨자·집합 괄호.
+def _check_point_name_seq(fails):
+    """MJ1(강동고 미적분 #8·#14, 2026-06-16): 수열 도형 점 이름 로만화 확장.
+    - 선분/다각형명 다토큰 첨자(A_1C_1·A_1A_2·C_1D_1)는 기하 문맥에서 통째 \\mathrm.
+    - 첨자 단 점+좌표(P_n(n,f(n)))는 점글자(+첨자) 로만 + 좌표 이탤릭.
+    - 확통 확률변수(X_1·X_2, 비기하)는 이탤릭 유지(무회귀)."""
+    from core.content_parser import _romanize_point_names
+    from models.exam_document import ContentType as CT, ContentBlock as CB
+
+    def rm(blocks):
+        return _romanize_point_names([CB(type=ty, value=v) for ty, v in blocks])
+
+    # 다토큰 선분명 → \mathrm (기하: '선분'·'점' 키워드)
+    out = rm([(CT.TEXT, "선분 "), (CT.EQUATION, "A_1C_1"), (CT.TEXT, ", 두 선분 "),
+              (CT.EQUATION, "A_1A_2"), (CT.TEXT, ", "), (CT.EQUATION, "C_1D_1")])
+    eqs = [b.value for b in out if b.type == CT.EQUATION]
+    if not all(v.startswith("\\mathrm{") for v in eqs):
+        fails.append(f"  MJ1 다토큰 선분명 로만 실패: {eqs!r}")
+    # 첨자 점+좌표 → \mathrm{P_n}\mathit{(...)}
+    out2 = rm([(CT.TEXT, "그래프 위의 두 점 "), (CT.EQUATION, "P_n(n, f(n))")])
+    pn = [b.value for b in out2 if b.type == CT.EQUATION][0]
+    if "\\mathrm{P_n}" not in pn or "\\mathit{(n, f(n))}" not in pn:
+        fails.append(f"  MJ1 첨자점+좌표 로만/이탤릭 실패: {pn!r}")
+    # 확통(비기하): 확률변수 첨자 다토큰은 이탤릭 유지
+    out3 = rm([(CT.TEXT, "확률변수 "), (CT.EQUATION, "X_1"), (CT.TEXT, ", "),
+               (CT.EQUATION, "X_2"), (CT.TEXT, "에 대하여 "), (CT.EQUATION, "P(X=r)")])
+    if any("\\mathrm" in (b.value or "") for b in out3 if b.type == CT.EQUATION):
+        fails.append(f"  MJ1 확통 무회귀 실패(로만 오염): "
+                     f"{[(b.type.name, b.value) for b in out3]!r}")
+    # 좌표 단일 점(첨자 없음) 무회귀: A(2,3) → \mathrm{A}\mathit{(2,3)}
+    out4 = rm([(CT.TEXT, "점 "), (CT.EQUATION, "A(2, 3)")])
+    a = [b.value for b in out4 if b.type == CT.EQUATION][0]
+    if "\\mathrm{A}" not in a or "\\mathit{(2, 3)}" not in a:
+        fails.append(f"  MJ1 단일점 좌표 무회귀 실패: {a!r}")
+
+
 def _check_suha_fixes(fails):
     from core.content_parser import _split_latex_commands
     from models.exam_document import ContentType as CT
@@ -819,6 +854,7 @@ def run():
     _check_jung2_2sem_fixes(fails)
     _check_table_value_list(fails)
     _check_2sem_round2(fails)
+    _check_point_name_seq(fails)
     _check_suha_fixes(fails)
     # HH1(혜화여고 #19): 베이스 없는 선행 첨자(조합 _{n-1}C)는 HWP 가 빈 렌더 — {} 베이스 삽입.
     from core.latex_to_hwpeq import latex_to_hwpeq as _l2h_hh
