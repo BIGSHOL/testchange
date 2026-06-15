@@ -1,0 +1,342 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 1,
+      "score": 5,
+      "contents": [
+        {
+          "type": "text",
+          "value": "□ABCD가 평행사변형이 되는 조건이 __아닌__ 것은? (단, 점 O는 두 대각선의 교점이다.)"
+        },
+        {
+          "type": "figure",
+          "value": "평행사변형 ABCD. 두 대각선 AC, BD가 점 O에서 만난다. 꼭짓점은 위에서 시계방향으로 A(좌상)·D(우상)·C(우하)·B(좌하)."
+        }
+      ],
+      "choices": [
+        {
+          "number": 1,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "\\overline{AD} \\parallel \\overline{BC},\\ \\overline{AD}=\\overline{BC}=6cm"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "\\angle A=120°,\\ \\angle B=60°,\\ \\angle C=120°"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "\\overline{AB}=4cm,\\ \\overline{DC}=4cm,\\ \\overline{AD}=7cm,\\ \\overline{BC}=7cm"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "\\overline{OA}=5cm,\\ \\overline{OB}=5cm,\\ \\overline{OC}=7cm,\\ \\overline{OD}=7cm"
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "\\overline{AB}=8cm,\\ \\overline{DC}=8cm,\\ \\angle ABD=50°,\\ \\angle CDB=50°"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "score": 5,
+      "contents": [
+        {
+          "type": "text",
+          "value": "마름모 ABCD에서 "
+        },
+        {
+          "type": "equation",
+          "value": "x-y+z"
+        },
+        {
+          "type": "text",
+          "value": "의 값은?"
+        },
+        {
+          "type": "figure",
+          "value": "마름모 ABCD와 두 대각선. 한 각이 x°, 다른 각이 y°, 한 변에 5z-3, 아래 변에 22, 한 각에 65°가 표시됨."
+        }
+      ],
+      "choices": [
+        {
+          "number": 1,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "45"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "48"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "50"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "53"
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "55"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "score": 4,
+      "contents": [
+        {
+          "type": "text",
+          "value": "그림은 여러 가지 사각형 사이의 관계를 나타낸 것이다. ㉠~㉢에 들어갈 조건으로 알맞은 것은?"
+        },
+        {
+          "type": "figure",
+          "value": "사각형 관계도: 사다리꼴 →㉠ 평행사변형 →㉡ 직사각형 →㉢ 정사각형, 평행사변형 →㉣ 마름모 등의 흐름도."
+        }
+      ],
+      "choices": [
+        {
+          "number": 1,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "㉠: \\overline{AB}=\\overline{DC}"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "㉡: \\angle A=90°"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "㉢: \\overline{AC}=\\overline{BD}"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "㉣: \\angle A=\\angle B"
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "㉢: \\overline{AC} \\perp \\overline{BD}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "score": 5,
+      "contents": [
+        {
+          "type": "text",
+          "value": "그림은 두 직각삼각형 ABC와 DEF의 각 변을 한 변으로 하는 정사각형을 그린 것이다. □AGHB와 □BIJC의 넓이가 각각 "
+        },
+        {
+          "type": "equation",
+          "value": "289cm^2"
+        },
+        {
+          "type": "text",
+          "value": ", "
+        },
+        {
+          "type": "equation",
+          "value": "64cm^2"
+        },
+        {
+          "type": "text",
+          "value": "이고, "
+        },
+        {
+          "type": "equation",
+          "value": "\\overline{DF}=12cm"
+        },
+        {
+          "type": "text",
+          "value": "일 때, □EKLF의 넓이는?"
+        },
+        {
+          "type": "figure",
+          "value": "두 직각삼각형 ABC, DEF의 각 변에 정사각형을 붙인 그림. □AGHB=289cm², □BIJC=64cm², DF=12cm, □EKLF 표시."
+        }
+      ],
+      "choices": [
+        {
+          "number": 1,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "76cm^2"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "80cm^2"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "81cm^2"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "84cm^2"
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "86cm^2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "score": 4,
+      "contents": [
+        {
+          "type": "text",
+          "value": "그림에서 □ABCD∽□PQRS일 때, __옳지 않은__ 것은?"
+        },
+        {
+          "type": "figure",
+          "value": "닮은 두 사각형. □ABCD: 한 각 85°, 변 8, 각 70°, 각 80°, 아래 변 12. □PQRS: 변 6, 변 8."
+        }
+      ],
+      "choices": [
+        {
+          "number": 1,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "\\angle R=80°"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "\\angle P=125°"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "\\overline{PQ}=4.5"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "\\overline{PS}:\\overline{AD}=2:3"
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "contents": [
+            {
+              "type": "text",
+              "value": "□ABCD와 □PQRS의 넓이의 비는 9 : 4이다."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

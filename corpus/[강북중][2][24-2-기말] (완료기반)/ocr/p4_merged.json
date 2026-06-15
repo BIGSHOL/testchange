@@ -1,0 +1,173 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 16,
+      "score": 8,
+      "label_type": "서술형",
+      "contents": [
+        {
+          "type": "text",
+          "value": "[서술형 1] 정사각형 ABCD에서 점 B를 지나는 선분과 "
+        },
+        {
+          "type": "equation",
+          "value": "\\overline{CD}"
+        },
+        {
+          "type": "text",
+          "value": "의 교점을 E, 두 점 A, C에서 "
+        },
+        {
+          "type": "equation",
+          "value": "\\overline{BE}"
+        },
+        {
+          "type": "text",
+          "value": "에 내린 수선의 발을 각각 F, G라고 한다. "
+        },
+        {
+          "type": "equation",
+          "value": "\\overline{AF}=5cm"
+        },
+        {
+          "type": "text",
+          "value": ", "
+        },
+        {
+          "type": "equation",
+          "value": "\\overline{CG}=3cm"
+        },
+        {
+          "type": "text",
+          "value": "일 때, "
+        },
+        {
+          "type": "equation",
+          "value": "\\overline{FG}"
+        },
+        {
+          "type": "text",
+          "value": "의 길이와 □ABCD의 넓이를 각각 구하시오. (단, 합동인 삼각형을 찾아 기호 ≡를 사용하여 나타내시오.)"
+        },
+        {
+          "type": "figure",
+          "value": "정사각형 ABCD, BE와 CD 교점 E, A·C에서 BE에 내린 수선의 발 F·G. AF=5cm, FG 위 3cm 표시."
+        }
+      ]
+    },
+    {
+      "number": 17,
+      "score": 7,
+      "label_type": "서술형",
+      "contents": [
+        {
+          "type": "text",
+          "value": "[서술형 2] 평행사변형 ABCD에서 "
+        },
+        {
+          "type": "equation",
+          "value": "\\overline{BC}"
+        },
+        {
+          "type": "text",
+          "value": "의 연장선 위에 점 E를 잡고, "
+        },
+        {
+          "type": "equation",
+          "value": "\\overline{AE}"
+        },
+        {
+          "type": "text",
+          "value": "와 "
+        },
+        {
+          "type": "equation",
+          "value": "\\overline{CD}"
+        },
+        {
+          "type": "text",
+          "value": "의 교점을 F, "
+        },
+        {
+          "type": "equation",
+          "value": "\\overline{AC}"
+        },
+        {
+          "type": "text",
+          "value": "와 "
+        },
+        {
+          "type": "equation",
+          "value": "\\overline{BF}"
+        },
+        {
+          "type": "text",
+          "value": "의 교점을 G라고 한다. △GBC의 넓이가 "
+        },
+        {
+          "type": "equation",
+          "value": "18cm^2"
+        },
+        {
+          "type": "text",
+          "value": ", △FGC의 넓이가 "
+        },
+        {
+          "type": "equation",
+          "value": "4cm^2"
+        },
+        {
+          "type": "text",
+          "value": "일 때, △DFE의 넓이를 구하시오. (단, 넓이가 같은 삼각형을 나타내시오.)"
+        },
+        {
+          "type": "figure",
+          "value": "평행사변형 ABCD, BC 연장선 위 점 E, AE·CD 교점 F, AC·BF 교점 G."
+        }
+      ]
+    },
+    {
+      "number": 18,
+      "score": 8,
+      "label_type": "서술형",
+      "contents": [
+        {
+          "type": "text",
+          "value": "[서술형 3] 그림과 같이 "
+        },
+        {
+          "type": "equation",
+          "value": "\\overline{AD} \\parallel \\overline{BC}"
+        },
+        {
+          "type": "text",
+          "value": "인 등변사다리꼴 ABCD에서 네 변 AB, BC, CD, DA의 중점은 각각 P, Q, R, S이고, "
+        },
+        {
+          "type": "equation",
+          "value": "\\overline{BD}=16cm"
+        },
+        {
+          "type": "text",
+          "value": "일 때, □PQRS의 둘레의 길이를 구하시오."
+        },
+        {
+          "type": "figure",
+          "value": "등변사다리꼴 ABCD(AD∥BC), 네 변의 중점 P(AB)·Q(BC)·R(CD)·S(DA), 대각선 BD=16cm."
+        }
+      ]
+    },
+    {
+      "number": 19,
+      "score": 7,
+      "label_type": "서술형",
+      "contents": [
+        {
+          "type": "text",
+          "value": "[서술형 4] 12월 중 어느 날에 눈이 올 확률이 10%로 일정하다고 할 때, 크리스마스 이브와 크리스마스 날 중에서 하루만 눈이 올 확률을 구하시오."
+        }
+      ]
+    }
+  ]
+}

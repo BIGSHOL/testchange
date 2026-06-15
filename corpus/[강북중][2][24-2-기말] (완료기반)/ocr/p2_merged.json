@@ -1,0 +1,414 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 6,
+      "score": 5,
+      "contents": [
+        {
+          "type": "text",
+          "value": "그림의 △ABC에서 "
+        },
+        {
+          "type": "equation",
+          "value": "\\overline{CD}"
+        },
+        {
+          "type": "text",
+          "value": "의 길이는?"
+        },
+        {
+          "type": "figure",
+          "value": "△ABC와 내부 점 D. 변에 4cm, 5cm, 6cm, 4.5cm가 표시됨."
+        }
+      ],
+      "choices": [
+        {
+          "number": 1,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "\\frac{8}{3}cm"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "3cm"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "\\frac{10}{3}cm"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "\\frac{11}{3}cm"
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "4cm"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "score": 5,
+      "contents": [
+        {
+          "type": "text",
+          "value": "그림과 같이 "
+        },
+        {
+          "type": "equation",
+          "value": "\\angle A=90°"
+        },
+        {
+          "type": "text",
+          "value": "인 직각삼각형 ABC에서 점 M은 "
+        },
+        {
+          "type": "equation",
+          "value": "\\overline{BC}"
+        },
+        {
+          "type": "text",
+          "value": "의 중점이다. "
+        },
+        {
+          "type": "equation",
+          "value": "\\overline{AD} \\perp \\overline{BC}"
+        },
+        {
+          "type": "text",
+          "value": ", "
+        },
+        {
+          "type": "equation",
+          "value": "\\overline{DE} \\perp \\overline{AM}"
+        },
+        {
+          "type": "text",
+          "value": "일 때, "
+        },
+        {
+          "type": "equation",
+          "value": "\\overline{DE}"
+        },
+        {
+          "type": "text",
+          "value": "의 길이는?"
+        },
+        {
+          "type": "figure",
+          "value": "직각삼각형 ABC(∠A=90°), BC 중점 M, AD⊥BC, DE⊥AM. BD=2cm, DC쪽 8cm 표시."
+        }
+      ],
+      "choices": [
+        {
+          "number": 1,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "\\frac{11}{5}cm"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "\\frac{12}{5}cm"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "\\frac{13}{5}cm"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "\\frac{14}{5}cm"
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "3cm"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "score": 4,
+      "contents": [
+        {
+          "type": "text",
+          "value": "그림에서 "
+        },
+        {
+          "type": "equation",
+          "value": "\\overline{AB} \\parallel \\overline{DE}"
+        },
+        {
+          "type": "text",
+          "value": ", "
+        },
+        {
+          "type": "equation",
+          "value": "\\overline{GF} \\parallel \\overline{CD}"
+        },
+        {
+          "type": "text",
+          "value": "일 때, "
+        },
+        {
+          "type": "equation",
+          "value": "x+y"
+        },
+        {
+          "type": "text",
+          "value": "의 값은?"
+        },
+        {
+          "type": "figure",
+          "value": "AB∥DE, GF∥CD인 복잡한 도형(A,B,C,D,E,F,G). x, 6, 6, y, 16 표시."
+        }
+      ],
+      "choices": [
+        {
+          "number": 1,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "\\frac{39}{2}"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "20"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "\\frac{41}{2}"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "21"
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "\\frac{43}{2}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "score": 5,
+      "contents": [
+        {
+          "type": "text",
+          "value": "그림에서 "
+        },
+        {
+          "type": "equation",
+          "value": "l \\parallel m \\parallel n"
+        },
+        {
+          "type": "text",
+          "value": "일 때, "
+        },
+        {
+          "type": "equation",
+          "value": "x+y"
+        },
+        {
+          "type": "text",
+          "value": "의 값은?"
+        },
+        {
+          "type": "figure",
+          "value": "세 평행선 l∥m∥n과 두 횡단선. 8, 4, x, 16, y, 12 표시."
+        }
+      ],
+      "choices": [
+        {
+          "number": 1,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "14"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "18"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "22"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "26"
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "30"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "score": 5,
+      "contents": [
+        {
+          "type": "text",
+          "value": "그림에서 점 G는 △ABC의 무게중심이고 "
+        },
+        {
+          "type": "equation",
+          "value": "\\overline{DE} \\parallel \\overline{BC}"
+        },
+        {
+          "type": "text",
+          "value": "이다. △ABC의 넓이가 "
+        },
+        {
+          "type": "equation",
+          "value": "42cm^2"
+        },
+        {
+          "type": "text",
+          "value": "일 때, △AFE의 넓이는?"
+        },
+        {
+          "type": "figure",
+          "value": "△ABC, 무게중심 G, DE∥BC, 점 D·E·F. AF는 중선."
+        }
+      ],
+      "choices": [
+        {
+          "number": 1,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "7cm^2"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "11cm^2"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "14cm^2"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "18cm^2"
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "21cm^2"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
