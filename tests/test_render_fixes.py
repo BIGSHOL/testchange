@@ -127,6 +127,20 @@ def run():
     chk(not _is_table_caption("확률변수 X의 확률분포를 표로 나타내면 다음과 같다."), "발문(.)은 캡션 아님")
     chk(not _is_table_caption("다음 중 옳은 것은?"), "발문(?)은 캡션 아님")
     chk(not _is_table_caption("위 자료의 평균과 최빈값을 각각 구하시오"), "발문(구하시오)은 캡션 아님")
+    # E2(2026-06-16): 질문 뒤 괄호 단서로 끝나는 발문(?/값은 이 끝이 아님)도 캡션 아님
+    # — 종결 정규식($앵커)만으론 못 잡아 발문이 우측정렬·배점 침투(대진고 확통 #14·사동중3 #14).
+    chk(not _is_table_caption("a-b의 값은? (단, a>0, b>0)"), "발문(값은?+단서)은 캡션 아님")
+    chk(not _is_table_caption("옳은 것은? (단위: 점)"), "발문(것은?+단위)은 캡션 아님")
+    chk(_is_table_caption("[표 1]"), "[표 N]=캡션")
+    chk(_is_table_caption("시청률(0|2은 2%)"), "줄기잎 범례=캡션")
+    # E3: 다블록 캡션(시청률 + (0|2은 2%))을 _tail_start 가 run 전체로 tail 에 보냄
+    from core.hwp_com_writer import _tail_start as _ts2
+    multi_cap = [_tb("아래 줄기와 잎 그림은 시청률의 중앙값을 구하면?"),
+                 _tb("시청률"), _tb("(0|2은 2%)"), _table()]
+    chk(_ts2(multi_cap) == 1, "다블록 캡션 run 전체가 tail(발문은 stem)")
+    # 발문 단서로 끝나고 표가 와도 발문은 stem(table 만 tail)
+    stem_only = [_tb("a-b의 값은? (단, a>0, b>0)"), _table()]
+    chk(_ts2(stem_only) == 1, "발문+단서는 stem, 표만 tail")
 
     # ── D: z-표 음영 시그니처 (헤더에 LEQ Z LEQ 있을 때만 row0) ──
     ztable = ('<hp:tbl rowCnt="4" colCnt="2"><hp:equation>P(0 LEQ Z LEQ z)</hp:equation>'

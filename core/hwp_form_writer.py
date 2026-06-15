@@ -33,10 +33,10 @@ logger = logging.getLogger(__name__)
 
 from .hwp_com import CONVERSION_VISIBLE, HwpSession, _dispatch_hwp, _win32
 from .hwp_com_writer import (HwpComWriter, _BOX_BREAK_RE, _BULLET_RE,
-                             _caption_spans, _choice_complexity, _COND_HEADER_RE,
-                             _condition_start, _has_box_markup, _is_circled_item_start,
-                             _post_has_stem, _post_is_box, _split_tail_post,
-                             _split_trailing_score, _tail_start)
+                             _caption_run_back, _caption_spans, _choice_complexity,
+                             _COND_HEADER_RE, _condition_start, _has_box_markup,
+                             _is_circled_item_start, _post_has_stem, _post_is_box,
+                             _split_tail_post, _split_trailing_score, _tail_start)
 from .latex_to_hwpeq import latex_to_hwpeq
 from models.exam_document import ContentBlock, ContentType, ExamDocument, Question
 
@@ -421,11 +421,17 @@ def _put_tail(ses, h, blocks) -> None:
     cs = _condition_start(core)                    # 표/조건 머리 시작(없으면 전부 pre)
     pre = core if cs is None else core[:cs]
     box = [] if cs is None else core[cs:]
-    # 표 캡션이 pre 끝에 걸쳐 있으면(다음 블록=표) 줄바꿈+우측정렬로 분리(기본 경로와
-    # 동일 — 사용자 '항상 동일' 요구, 2026-06-10).
+    # 캡션이 pre 끝에 걸쳐 있으면 줄바꿈+우측정렬로 분리(기본 경로 `_write_tail` 과 동일 —
+    # 사용자 '항상 동일' 요구). 표(_caption_spans)든 박스 머리(<상자> 등)든 동일하게 박스 앞
+    # 캡션 "독서량 (단위: 권)"·"맞힌 단어의 개수 (단위: 개)"도 우측정렬(계성중3 #10·덕원중3 #9,
+    # 2026-06-16). 안 그러면 캡션이 발문 단락에 인라인된다(폼 경로 `_put_tail` 누락이었음).
     cap_j = None
-    if box and box[0].type == ContentType.TABLE and pre:
-        cap_j = next((j for j, t in _caption_spans(core).items() if t == cs), None)
+    if box and pre:
+        if box[0].type == ContentType.TABLE:
+            cap_j = next((j for j, t in _caption_spans(core).items() if t == cs), None)
+        else:
+            cj = _caption_run_back(pre, len(pre))
+            cap_j = cj if cj < len(pre) else None
     for b in (pre if cap_j is None else pre[:cap_j]):
         if b.type == ContentType.IMAGE and b.value:
             ses.break_para()

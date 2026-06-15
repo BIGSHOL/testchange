@@ -5,128 +5,523 @@
       "number": 7,
       "score": 3,
       "contents": [
-        {"type": "text", "value": "두 변량 사이에 대체로 음의 상관관계가 있는 것은?"}
+        {
+          "type": "text",
+          "value": "두 변량 사이에 대체로 음의 상관관계가 있는 것은?"
+        }
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "text", "value": "기온과 난방비"}]},
-        {"number": 2, "contents": [{"type": "text", "value": "영어 성적과 수학 성적"}]},
-        {"number": 3, "contents": [{"type": "text", "value": "운동량과 심장 박동 수"}]},
-        {"number": 4, "contents": [{"type": "text", "value": "자전거를 탄 시간과 이동한 거리"}]},
-        {"number": 5, "contents": [{"type": "text", "value": "학급의 수학 평균 점수와 학생 수"}]}
+        {
+          "number": 1,
+          "contents": [
+            {
+              "type": "text",
+              "value": "기온과 난방비"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "contents": [
+            {
+              "type": "text",
+              "value": "영어 성적과 수학 성적"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "contents": [
+            {
+              "type": "text",
+              "value": "운동량과 심장 박동 수"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "contents": [
+            {
+              "type": "text",
+              "value": "자전거를 탄 시간과 이동한 거리"
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "contents": [
+            {
+              "type": "text",
+              "value": "학급의 수학 평균 점수와 학생 수"
+            }
+          ]
+        }
       ]
     },
     {
       "number": 8,
       "score": 4,
       "contents": [
-        {"type": "text", "value": "세 수 "},
-        {"type": "equation", "value": "A, B, C"},
-        {"type": "text", "value": "의 평균이 "},
-        {"type": "equation", "value": "6"},
-        {"type": "text", "value": "일 때, 세 수 "},
-        {"type": "equation", "value": "3A, 3B, 3C"},
-        {"type": "text", "value": "의 평균은?"}
+        {
+          "type": "text",
+          "value": "세 수 "
+        },
+        {
+          "type": "equation",
+          "value": "A, B, C"
+        },
+        {
+          "type": "text",
+          "value": "의 평균이 "
+        },
+        {
+          "type": "equation",
+          "value": "6"
+        },
+        {
+          "type": "text",
+          "value": "일 때, 세 수 "
+        },
+        {
+          "type": "equation",
+          "value": "3A, 3B, 3C"
+        },
+        {
+          "type": "text",
+          "value": "의 평균은?"
+        }
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "9"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "12"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "15"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "18"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "21"}]}
+        {
+          "number": 1,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "9"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "12"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "15"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "18"
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "21"
+            }
+          ]
+        }
       ]
     },
     {
       "number": 9,
       "score": 4,
       "contents": [
-        {"type": "text", "value": "두 자연수 "},
-        {"type": "equation", "value": "a, b"},
-        {"type": "text", "value": "에 대하여 자료 "},
-        {"type": "equation", "value": "1, 3, a, b, 7"},
-        {"type": "text", "value": "의 중앙값이 "},
-        {"type": "equation", "value": "5"},
-        {"type": "text", "value": "이고, 자료 "},
-        {"type": "equation", "value": "6, a, b, 12"},
-        {"type": "text", "value": "의 중앙값이 "},
-        {"type": "equation", "value": "8"},
-        {"type": "text", "value": "일 때, "},
-        {"type": "equation", "value": "a+b"},
-        {"type": "text", "value": "의 값은? (단, "},
-        {"type": "equation", "value": "a<b"},
-        {"type": "text", "value": ")"}
+        {
+          "type": "text",
+          "value": "두 자연수 "
+        },
+        {
+          "type": "equation",
+          "value": "a, b"
+        },
+        {
+          "type": "text",
+          "value": "에 대하여 자료 "
+        },
+        {
+          "type": "equation",
+          "value": "1, 3, a, b, 7"
+        },
+        {
+          "type": "text",
+          "value": "의 중앙값이 "
+        },
+        {
+          "type": "equation",
+          "value": "5"
+        },
+        {
+          "type": "text",
+          "value": "이고, 자료 "
+        },
+        {
+          "type": "equation",
+          "value": "6, a, b, 12"
+        },
+        {
+          "type": "text",
+          "value": "의 중앙값이 "
+        },
+        {
+          "type": "equation",
+          "value": "8"
+        },
+        {
+          "type": "text",
+          "value": "일 때, "
+        },
+        {
+          "type": "equation",
+          "value": "a+b"
+        },
+        {
+          "type": "text",
+          "value": "의 값은? (단, "
+        },
+        {
+          "type": "equation",
+          "value": "a<b"
+        },
+        {
+          "type": "text",
+          "value": ")"
+        }
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "13"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "14"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "15"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "16"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "17"}]}
+        {
+          "number": 1,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "13"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "14"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "15"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "16"
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "17"
+            }
+          ]
+        }
       ]
     },
     {
       "number": 10,
       "score": 4,
       "contents": [
-        {"type": "text", "value": "다음은 학생 "},
-        {"type": "equation", "value": "8"},
-        {"type": "text", "value": "명의 한 달 동안 독서량을 나타낸 것이다. 이 자료의 평균을 "},
-        {"type": "equation", "value": "a"},
-        {"type": "text", "value": "권, 중앙값을 "},
-        {"type": "equation", "value": "b"},
-        {"type": "text", "value": "권, 최빈값을 "},
-        {"type": "equation", "value": "c"},
-        {"type": "text", "value": "권이라 할 때, "},
-        {"type": "equation", "value": "a+b+c"},
-        {"type": "text", "value": "의 값은?"},
-        {"type": "text", "value": "독서량                              (단위: 권)"},
-        {"type": "equation", "value": "7 \\quad 3 \\quad 11 \\quad 2 \\quad 4 \\quad 6 \\quad 1 \\quad 6"}
+        {
+          "type": "text",
+          "value": "다음은 학생 "
+        },
+        {
+          "type": "equation",
+          "value": "8"
+        },
+        {
+          "type": "text",
+          "value": "명의 한 달 동안 독서량을 나타낸 것이다. 이 자료의 평균을 "
+        },
+        {
+          "type": "equation",
+          "value": "a"
+        },
+        {
+          "type": "text",
+          "value": "권, 중앙값을 "
+        },
+        {
+          "type": "equation",
+          "value": "b"
+        },
+        {
+          "type": "text",
+          "value": "권, 최빈값을 "
+        },
+        {
+          "type": "equation",
+          "value": "c"
+        },
+        {
+          "type": "text",
+          "value": "권이라 할 때, "
+        },
+        {
+          "type": "equation",
+          "value": "a+b+c"
+        },
+        {
+          "type": "text",
+          "value": "의 값은?"
+        },
+        {
+          "type": "text",
+          "value": "독서량                              (단위: 권)"
+        },
+        {
+          "type": "text",
+          "value": "<상자> "
+        },
+        {
+          "type": "equation",
+          "value": "7 \\quad 3 \\quad 11 \\quad 2 \\quad 4 \\quad 6 \\quad 1 \\quad 6"
+        }
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "11"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "12"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "14"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "16"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "17"}]}
+        {
+          "number": 1,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "11"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "12"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "14"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "16"
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "17"
+            }
+          ]
+        }
       ]
     },
     {
       "number": 11,
       "score": 4,
       "contents": [
-        {"type": "text", "value": "주어진 "},
-        {"type": "equation", "value": "5"},
-        {"type": "text", "value": "개 자료의 평균이 "},
-        {"type": "equation", "value": "9"},
-        {"type": "text", "value": "일 때, 분산은? (단, "},
-        {"type": "equation", "value": "x"},
-        {"type": "text", "value": "는 자연수)"},
-        {"type": "equation", "value": "11 \\quad 16 \\quad 5 \\quad 7 \\quad x"}
+        {
+          "type": "text",
+          "value": "주어진 "
+        },
+        {
+          "type": "equation",
+          "value": "5"
+        },
+        {
+          "type": "text",
+          "value": "개 자료의 평균이 "
+        },
+        {
+          "type": "equation",
+          "value": "9"
+        },
+        {
+          "type": "text",
+          "value": "일 때, 분산은? (단, "
+        },
+        {
+          "type": "equation",
+          "value": "x"
+        },
+        {
+          "type": "text",
+          "value": "는 자연수)"
+        },
+        {
+          "type": "equation",
+          "value": "11 \\quad 16 \\quad 5 \\quad 7 \\quad x"
+        }
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "16.2"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "16.4"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "16.6"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "16.8"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "17"}]}
+        {
+          "number": 1,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "16.2"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "16.4"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "16.6"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "16.8"
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "17"
+            }
+          ]
+        }
       ]
     },
     {
       "number": 12,
       "score": 4,
       "contents": [
-        {"type": "text", "value": "A, B반의 중간고사 성적이 다음과 같을 때, 자료에 대한 설명 중 옳은 것은?"},
-        {"type": "table", "rows": [
-          ["반", "A", "B"],
-          ["평균(점)", "73", "73"],
-          ["표준편차(점)", "2\\sqrt{2}", "3"]
-        ], "value": ""}
+        {
+          "type": "text",
+          "value": "A, B반의 중간고사 성적이 다음과 같을 때, 자료에 대한 설명 중 옳은 것은?"
+        },
+        {
+          "type": "table",
+          "rows": [
+            [
+              "반",
+              "A",
+              "B"
+            ],
+            [
+              "평균(점)",
+              "73",
+              "73"
+            ],
+            [
+              "표준편차(점)",
+              "2\\sqrt{2}",
+              "3"
+            ]
+          ],
+          "value": ""
+        }
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "text", "value": "A 반의 분산이 더 크다."}]},
-        {"number": 2, "contents": [{"type": "text", "value": "A 반의 성적이 더 우수하다."}]},
-        {"number": 3, "contents": [{"type": "text", "value": "A 반의 성적이 평균에 더 가까이 모여 있다."}]},
-        {"number": 4, "contents": [{"type": "text", "value": "B 반의 성적이 더 우수하다."}]},
-        {"number": 5, "contents": [{"type": "text", "value": "B 반의 성적이 A 반보다 고르다."}]}
+        {
+          "number": 1,
+          "contents": [
+            {
+              "type": "text",
+              "value": "A 반의 분산이 더 크다."
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "contents": [
+            {
+              "type": "text",
+              "value": "A 반의 성적이 더 우수하다."
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "contents": [
+            {
+              "type": "text",
+              "value": "A 반의 성적이 평균에 더 가까이 모여 있다."
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "contents": [
+            {
+              "type": "text",
+              "value": "B 반의 성적이 더 우수하다."
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "contents": [
+            {
+              "type": "text",
+              "value": "B 반의 성적이 A 반보다 고르다."
+            }
+          ]
+        }
       ]
     }
   ]

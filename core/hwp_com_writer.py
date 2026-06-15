@@ -213,17 +213,26 @@ def _is_figure_note(b: ContentBlock) -> bool:
 _CAPTION_SENTENCE_RE = re.compile(
     r"([.?!。]|시오|하라|구하라|쓰라|것은\??|값은\??|무엇|인가|니까|되는가|구하시오|하시오"
     r"|이다|있다|한다|같다|된다)\s*[)）.]*\s*$")
+# 질문/명령 마커 — 캡션(명사구)엔 절대 안 나오므로 **문자열 어디에 있어도** 발문으로 본다.
+# 발문이 "…a-b의 값은? (단, a>0, b>0)" 처럼 질문 뒤에 괄호 단서로 끝나면 종결 정규식($앵커)이
+# 못 잡아 발문을 캡션으로 오인 → 발문이 우측정렬되고 배점이 침투(대진고 확통 #14, 2026-06-16).
+_CAPTION_QUESTION_RE = re.compile(r"것은|값은|무엇|인가|되는가|구하시오|하시오|구하라|쓰라|[?？]")
 
 
 def _is_table_caption(text: str | None) -> bool:
-    """표 바로 앞 TEXT 가 **표 제목(캡션)**인지 — 짧고 문장 종결형이 아니어야 한다.
+    """표 바로 앞 TEXT 가 **표 제목(캡션)**인지 — 짧고 문장 종결형/질문형이 아니어야 한다.
 
-    "헬스클럽 회원의 나이 (단위:세)"·"어느 마트에서 판매하는 통조림의 유통기한" = 캡션(True).
-    "…옳은 것은?"·"…나타내면 다음과 같다." = 발문 문장(False). 발문이 표 바로 앞에서
-    끝나는 정상 케이스(학남고 #3 등)를 캡션으로 오인하지 않도록 보수적으로 판정.
+    "헬스클럽 회원의 나이 (단위:세)"·"어느 마트에서 판매하는 통조림의 유통기한"·"[표 1]" = 캡션.
+    "…옳은 것은?"·"…나타내면 다음과 같다."·"…값은? (단, a>0)" = 발문(False). 발문이 표 바로
+    앞에서 끝나거나 질문 뒤 괄호 단서로 끝나는 경우를 캡션으로 오인하지 않도록 보수적으로 판정.
     """
-    t = (text or "").strip()
+    # 캡션이 "독서량                  (단위: 권)" 처럼 제목↔범례 사이 큰 공백을 가질 수
+    # 있어(원본 정렬용), 길이 판정 전 연속 공백을 1칸으로 접는다(안 그러면 35자 초과로
+    # 캡션 미인식 → 발문에 인라인, 계성중3 #10, 2026-06-16).
+    t = re.sub(r"\s+", " ", (text or "").strip())
     if not t or len(t) > 35:
+        return False
+    if _CAPTION_QUESTION_RE.search(t):
         return False
     return not bool(_CAPTION_SENTENCE_RE.search(t))
 
@@ -256,6 +265,32 @@ def _caption_spans(blocks: list[ContentBlock]) -> dict[int, int]:
     return spans
 
 
+def _caption_run_back(blocks: list[ContentBlock], i: int) -> int:
+    """blocks[i] 바로 앞의 **캡션 run**(짧은 제목, 예 "시청률(0|2은 2%)"·"[표 1]"·
+    "맞힌 단어의 개수 (단위: 개)") 시작 인덱스를 돌려준다(캡션이 없으면 i 그대로).
+
+    캡션이 TEXT+EQUATION 여러 블록으로 쪼개질 수 있어 run 으로 역탐색하되, **발문 종결형
+    (?/시오/이다…)·질문형·그림노트·박스머리·box_member** 에서 멈춰 발문은 run 에 넣지
+    않는다. 발문까지 합치면 길어져/질문마커로 `_is_table_caption` 이 False → 발문이 캡션으로
+    오인되는 회귀를 막는다(사동중3 #14·덕원중3 #9, 2026-06-16).
+    """
+    j = i
+    while j > 0:
+        p = blocks[j - 1]
+        if p.type not in (ContentType.TEXT, ContentType.EQUATION):
+            break
+        if p.type == ContentType.TEXT and (
+                _is_figure_note(p) or _COND_HEADER_RE.search(p.value or "")
+                or _CAPTION_SENTENCE_RE.search(p.value or "")):
+            break
+        if getattr(p, "box_member", False):
+            break
+        j -= 1
+    if j < i and _is_table_caption("".join((b.value or "") for b in blocks[j:i])):
+        return j
+    return i
+
+
 def _tail_start(blocks: list[ContentBlock]) -> int | None:
     """발문이 끝나고 '뒤 영역'(조건/보기 박스·표·그림·블록수식)이 시작되는 인덱스.
 
@@ -277,16 +312,19 @@ def _tail_start(blocks: list[ContentBlock]) -> int | None:
             # 표 바로 앞 **캡션(표 제목)**(예 "헬스클럽 회원의 나이 (단위:세)")은 표의 일부이므로
             # tail 에 포함 → 배점이 캡션 **앞**(발문 끝)에 온다(원본 PDF: 발문 [N점] → 표제목 →
             # 표). 발문 문장(종결형)은 캡션이 아니라 그대로 발문(사용자 2026-06-10).
-            if i > 0 and blocks[i - 1].type == ContentType.TEXT \
-                    and _is_table_caption(blocks[i - 1].value):
-                return i - 1
-            return i
+            # 캡션이 "시청률" + "(0|2은 2%)" 처럼 **여러 TEXT/EQ 블록**으로 쪼개져 올 수
+            # 있어 run 전체를 tail 에 보낸다(단일 blocks[i-1] 만 보면 "시청률" 이 stem 에
+            # 남아 발문에 인라인 + 배점이 캡션 한가운데 침투, 사동중3 #14, 2026-06-16).
+            return _caption_run_back(blocks, i)
         if b.type == ContentType.TEXT and _COND_HEADER_RE.search(b.value or ""):
-            # 박스 머리 **바로 앞**에 매달린 그림(IMAGE)/블록수식/그림자리안내 연속 run 은
-            # tail 에 포함(합의 #3: 발문뒤 = 조건/보기 + 표 + 그림 + 블록수식). 안 그러면
-            # 그림(노트)이 발문에 인라인되고 배점이 노트 **뒤**로 밀린다(장산중 #24 —
-            # 발문→그림→<보기> 순서, 2026-06-11). 사이에 TEXT 가 끼면(문장 중간 그림) 중단.
-            j = i
+            # 박스 머리 **바로 앞 캡션 run**(예 "맞힌 단어의 개수 (단위: 개)")을 먼저 흡수
+            # (덕원중3 #9, 2026-06-16) — 안 그러면 캡션이 stem 에 남아 배점이 캡션 뒤로 밀린다.
+            # 박스 직전이 노트/그림이면 `_caption_run_back` 이 거기서 멈춰 발문 오흡수 안 함.
+            j = _caption_run_back(blocks, i)
+            # 그 앞에 매달린 그림(IMAGE)/블록수식/그림자리안내 연속 run 도 tail 에 포함(합의 #3:
+            # 발문뒤 = 조건/보기 + 표 + 그림 + 블록수식). 안 그러면 그림(노트)이 발문에 인라인되고
+            # 배점이 노트 **뒤**로 밀린다(장산중 #24 — 발문→그림→<보기>, 2026-06-11). 사이에
+            # 발문 TEXT 가 끼면(문장 중간 그림) 중단.
             while j > 0 and (blocks[j - 1].type in (ContentType.IMAGE,
                                                     ContentType.EQUATION_BLOCK)
                              or _is_figure_note(blocks[j - 1])):
@@ -516,6 +554,13 @@ class HwpComWriter:
             self.s.break_para()
         self.s.align_right()
         for b in run:
+            # 캡션 TEXT 의 제목↔범례 사이 큰 공백(원본 정렬용 "독서량      (단위:권)")은
+            # 우측정렬 시 줄을 넘쳐 캡션이 발문 줄로 새거나 어긋난다 → 연속 공백 1칸으로
+            # 접어 깔끔히 우측정렬(계성중3 #10, 2026-06-16).
+            if b.type == ContentType.TEXT and b.value and "  " in b.value:
+                b = ContentBlock(type=ContentType.TEXT,
+                                 value=re.sub(r"\s{2,}", " ", b.value).strip(),
+                                 underline=getattr(b, "underline", False))
             self._write_block(b, inline=True)
 
     def _write_tail_seq(self, blocks: list[ContentBlock]) -> None:
@@ -763,10 +808,16 @@ class HwpComWriter:
         cs = _condition_start(core)               # 표/조건 머리 시작(없으면 전부 pre)
         pre = core if cs is None else core[:cs]
         box = [] if cs is None else core[cs:]
-        # 표 캡션이 pre 끝에 걸쳐 있으면(다음 블록=표) 줄바꿈+우측정렬로 분리(2026-06-10).
+        # 캡션이 pre 끝에 걸쳐 있으면 줄바꿈+우측정렬로 분리(2026-06-10). 표(_caption_spans)
+        # 든 박스 머리(<상자> 등)든 동일 — 박스 앞 캡션 "맞힌 단어의 개수 (단위: 개)"도
+        # 우측정렬(덕원중3 #9, 2026-06-16).
         cap_j = None
-        if box and box[0].type == ContentType.TABLE and pre:
-            cap_j = next((j for j, t in _caption_spans(core).items() if t == cs), None)
+        if box and pre:
+            if box[0].type == ContentType.TABLE:
+                cap_j = next((j for j, t in _caption_spans(core).items() if t == cs), None)
+            else:
+                cj = _caption_run_back(pre, len(pre))
+                cap_j = cj if cj < len(pre) else None
         for b in (pre if cap_j is None else pre[:cap_j]):
             self._write_block(b)                  # IMAGE 가운데·EQUATION_BLOCK 가운데(인라인 아님)
         if cap_j is not None:

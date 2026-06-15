@@ -1230,6 +1230,11 @@ _NEXT_ITEM_START_RE = re.compile(
 _ITEM_LEAD_RE = re.compile(r"^(?:[ㄱ-ㅎ]\s*\.|[（(]\s*[가-힣]\s*[)）])")
 # 이후 text 블록 **안**의 후속 항목 라벨(``• ㄴ.``·``(나)``) — 박스가 여러 raw 로 쪼개진 신호.
 _INNER_ITEM_LABEL_RE = re.compile(r"[•·▪◦○〇ㅇ]\s*(?:[ㄱ-ㅎ]\s*\.|[（(]\s*[가-힣]\s*[)）])")
+# 마커 블록 rest 가 **불릿**(·•○…)으로 시작하는지 — ㄱ./（가） 라벨 없는 불릿 항목 박스
+# (``<조건> · 자료의 평균을``·``<조건> ·``)가 인라인 수식 분리로 쪼개진 신호(경일여중3 #19·#20·#22).
+_BULLET_LEAD_RE = re.compile(r"^[•·▪◦○〇]")
+# 이후 text 블록 안의 **불릿 항목 구분자**(``· 자료의 분산을``·``…것  · ``) — 다항목 불릿 박스 신호.
+_INNER_BULLET_RE = re.compile(r"[•·▪◦○〇]\s")
 
 
 def _parse_raw_blocks(raws: list[dict]) -> list[ContentBlock]:
@@ -1379,6 +1384,25 @@ def _raw_box_end(raws: list[dict]) -> int | None:
                                 continue
                             if _INNER_ITEM_LABEL_RE.search(raws[j].get("value") or ""):
                                 return None
+                    # 불릿(·•○) 항목 박스 변종(경일여중3 #19·#20·#22, 2026-06-16): ㄱ./（가）
+                    # 라벨이 아니라 **불릿**으로 항목을 나누는 조건/보기 박스가 인라인 수식
+                    # 분리로 ``<조건> · 자료의 평균을`` + eq``a`` + ``…것 · 자료의 분산을`` … 처럼
+                    # 쪼개진 경우. 마커 블록 rest 가 불릿으로 시작하고 다음 raw 가 equation(첫
+                    # 항목 내용 연속)이며, 이후 text 블록에 **또 다른 불릿 항목**이 있으면 →
+                    # 다항목 불릿 박스가 여러 raw 로 쪼개진 것(박스 연속, 분리 금지). 자기완결
+                    # 다항목(한 블록 ·item1 ·item2)+발문 연속은 후속 블록(발문)에 불릿이 없어
+                    # 분리 유지(학남고 #20 (가)(나) 라벨형은 rest 가 ``(`` 시작이라 무관).
+                    if _BULLET_LEAD_RE.match(rest) and nxt.get("type") == "equation":
+                        for j in range(i + 2, len(raws)):
+                            if (raws[j].get("type") == "text"
+                                    and _INNER_BULLET_RE.search(raws[j].get("value") or "")):
+                                return None
+                    # 쉼표 나열 박스 변종(대구동중2 #19 ``<상자> 5cm, 7cm, `` + eq``x`` +
+                    # ``cm``, 2026-06-16): 마커 rest 가 **쉼표로 끝나**(나열 미완) 다음 raw 가
+                    # equation 이면, 나열값이 인라인 수식으로 이어지는 것 → 박스 연속(분리 금지).
+                    # 자기완결 나열은 쉼표로 끝나지 않으므로(마지막 값 뒤 닫힘) 무회귀.
+                    if rest.rstrip().endswith((",", "，")) and nxt.get("type") == "equation":
+                        return None
                     return i + 1
                 return None
     return None

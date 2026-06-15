@@ -463,6 +463,53 @@ def _check_dasa_fixes(fails):
         fails.append("  DS1 학남고형 post 분리 회귀(box_member 태그/post 소실)")
 
 
+def _check_box_split_inline_eq(fails):
+    """경일여중3 #19·#20·#22 + 대구동중2 #19(2학기, 2026-06-16) — 불릿(·)/쉼표 나열 조건·
+    보기 박스가 인라인 수식으로 여러 raw 블록으로 쪼개졌을 때 `_raw_box_end` 가 첫 블록을
+    자기완결로 오인해 나머지 항목을 박스 밖(post)으로 흘리던 회귀. 불릿 머리(_BULLET_LEAD_RE)·
+    쉼표 끝(나열 미완) 가드로 박스 연속 판정. 학남고형 (가)(나)+발문 post 는 분리 유지."""
+    from core.content_parser import _raw_box_end
+    # 불릿 항목 박스(`<조건> · 자료의 평균을 ` + eq`a` + `…것  · 자료의 분산을 `…) — 분리 금지
+    bullet_raw = [
+        {"type": "text", "value": "양수 a의 값을 구하고, 그 과정을 <조건>에 맞게 서술하시오."},
+        {"type": "table", "value": ""},
+        {"type": "text", "value": "<조건> · 자료의 평균을 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "에 관한 식으로 나타낼 것  · 자료의 분산을 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "에 관한 식으로 나타낼 것"},
+    ]
+    if _raw_box_end(bullet_raw) is not None:
+        fails.append(f"  BX1 불릿 박스 오분리: box_end={_raw_box_end(bullet_raw)} (None 기대)")
+    # 마커가 불릿만(`<조건> ·`)으로 끝나고 다음이 eq 인 경우(경일여중3 #20·#22)
+    bare_bullet = [
+        {"type": "text", "value": "<조건> · "},
+        {"type": "equation", "value": "\\angle DEB"},
+        {"type": "text", "value": "의 크기를 구할 것  · "},
+        {"type": "equation", "value": "\\angle AEB"},
+        {"type": "text", "value": "의 크기를 구할 것"},
+    ]
+    if _raw_box_end(bare_bullet) is not None:
+        fails.append(f"  BX2 단독불릿 박스 오분리: box_end={_raw_box_end(bare_bullet)} (None 기대)")
+    # 쉼표 나열 박스(`<상자> 5cm, 7cm, ` + eq`x` + `cm`, 대구동중2 #19) — 분리 금지
+    comma_raw = [
+        {"type": "text", "value": "직각삼각형이 되는 x^2 의 값을 모두 구하시오."},
+        {"type": "text", "value": "<상자> 5cm, 7cm, "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "cm"},
+    ]
+    if _raw_box_end(comma_raw) is not None:
+        fails.append(f"  BX3 쉼표나열 박스 오분리: box_end={_raw_box_end(comma_raw)} (None 기대)")
+    # 무회귀: 학남고형 자기완결 (가)(나) + eq 발문 연속은 여전히 분리(box_end 가 가리키는 곳)
+    hannam = [
+        {"type": "text", "value": "<조건> (가) E(Y)=20 이다. (나) V(Y)=16 이다."},
+        {"type": "equation", "value": "P(Y \\le 29)"},
+        {"type": "text", "value": "의 값을 구하시오."},
+    ]
+    if _raw_box_end(hannam) != 1:
+        fails.append(f"  BX4 학남고형 분리 회귀: box_end={_raw_box_end(hannam)} (1 기대)")
+
+
 def _check_daegeon_go1_fixes(fails):
     """대건고 #19(고1 공수1) — 소문항 원문자 항목 ``㉢ A^2``(caret 표기, 별도 text 블록)가
     한글·LaTeX 없어 평문화돼 ``^`` 가 노출되던 것. 첨자 패턴이면 ASCII 경로 통과 → 수식 객체."""
@@ -767,6 +814,7 @@ def run():
     _check_sangwon_go1_fixes(fails)
     _check_daejin_go1_fixes(fails)
     _check_dasa_fixes(fails)
+    _check_box_split_inline_eq(fails)
     _check_daegeon_go1_fixes(fails)
     _check_jung2_2sem_fixes(fails)
     _check_table_value_list(fails)
