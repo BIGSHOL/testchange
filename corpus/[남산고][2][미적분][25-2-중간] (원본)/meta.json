@@ -1,5 +1,14 @@
 {
-  "status": "ocr_done",
+  "status": "reviewed",
+  "review": {
+    "reviewed_date": "2026-06-16",
+    "reviewed_by": "렌더/검수 소비자 세션 (claude-opus-4-8[1m], master)",
+    "content_defects": 0,
+    "A_type": 0,
+    "B_type": 1,
+    "note": "27문항(선택형17+단답형6+서술형4) 캐시 폼 렌더 → 원본 PDF([열정남] 사본, source [파티] N: 미존재→동일 시험지 교차) 1:1 대조. corpus_lint PASS. B형 1건 수정(NS1, content_parser.py _MATH_ATOM): 단답형4 박스 (f(x))^5+(f(x))^3 의 괄호base 가 중첩 괄호(함수호출)라 무중첩 패턴이 못 잡아 (+f(x)+)^+5 로 쪼개져 ^지수가 literal 캐럿 노출 → _PAREN_GROUP(한 단계 중첩 허용)로 확장(능인고 #18 무중첩 (1+h)^n 의 중첩판). corpus 전수 스캔: 트리거(괄호base 지수 누수) 보유 entry 는 남산고 #21 단독 2건→수정후 0(무회귀). 회귀 test_content_parser NS1. 재렌더로 (f(x))⁵·³ 위첨자 정상 확인. ⭐점이름 로만(MJ1): #14 A_n·B_n·P_n·삼각형 A_nB_nP_n(첨자점·다토큰 선분명) 전부 로만+S_n(넓이) 이탤릭, #12 overline BC·∠ABC·∠ACB·△ABC 로만. ⭐유형별 독립 라벨번호 [단답형 1~6][서술형 1~4] 본문·정답면 일치(정화중 K2 규약, 신명고 연속번호와 반대 스킴). 미적분 표기: 매개변수 dy/dx·sinπt·cases 분기·f∘f 합성·등비수열 중괄호·역함수·음함수·삼각합성·도함수 정의·e^{x/a}·∑(a_n³). residual 확인: #14 곡선 x²+2n²-1·넓이 최소·검산 4√2, #15 f(x)=(4/n³)x³+1, 단답형1 2^{2n+1}, #17 3x+4a³-3a 전부 렌더 일치. figure 안내문구 #12·#15·단답형6 코흐 눈송이(C한계). 답안표 미수록 원본이라 정답 자체검산(배점합 100.0) 체크섬. 정답면 홀수 패리티(7쪽)."
+  },
+  "status_was": "ocr_done",
   "school": "남산고",
   "grade": 2,
   "subject": "미적분",

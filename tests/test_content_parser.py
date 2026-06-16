@@ -760,6 +760,30 @@ def _check_box_jamo_eq_absorb(fails):
         fails.append(f"  DGY1 정상수식 무회귀: {[(x.type.name, x.value) for x in b2]!r}")
 
 
+def _check_paren_base_nested(fails):
+    """NS1(남산고 미적분 단답형4, 2026-06-16): 괄호base 안에 함수호출 괄호가 또 있는
+    ``(f(x))^5`` 가 ``(`` + ``f(x)`` + ``)^`` + ``5`` 로 쪼개져 ^지수가 literal 캐럿으로
+    새던 회귀. _MATH_ATOM 의 괄호base 패턴이 무중첩(``\\([^()]*\\)``)이라 ``(f(x))`` 미매칭 —
+    한 단계 중첩 허용(_PAREN_GROUP). 능인고 #18 무중첩 ``(1+h)^n`` 의 중첩 확장판."""
+    from core.content_parser import _split_mixed_text_equation
+    from models.exam_document import ContentType as CT
+    b = _split_mixed_text_equation("모든 실수 x에 대하여 (f(x))^5 + (f(x))^3 + ax + b = 0")
+    txts = "".join(x.value or "" for x in b if x.type == CT.TEXT)
+    eqs = [x.value or "" for x in b if x.type == CT.EQUATION]
+    if ")^" in txts or "^" in txts:   # ^ 캐럿이 평문에 남으면 실패
+        fails.append(f"  NS1 괄호base 지수 누수: {[(x.type.name, x.value) for x in b]!r}")
+    if not any("(f(x))^5" in e for e in eqs):
+        fails.append(f"  NS1 (f(x))^5 한 수식 실패: {[(x.type.name, x.value) for x in b]!r}")
+    # 무회귀: 무중첩 괄호base (1+h)^n 도 여전히 한 수식
+    b2 = _split_mixed_text_equation("값은 (1+h)^n 이다")
+    if not any("(1+h)^n" in (x.value or "") for x in b2 if x.type == CT.EQUATION):
+        fails.append(f"  NS1 무중첩 괄호base 무회귀: {[(x.type.name, x.value) for x in b2]!r}")
+    # 무회귀: 한글 든 텍스트 괄호는 수식화 안 함 ((즉 그러면))
+    b3 = _split_mixed_text_equation("이때 (즉 다음) 성립한다")
+    if any(x.type == CT.EQUATION for x in b3):
+        fails.append(f"  NS1 텍스트 괄호 오수식화: {[(x.type.name, x.value) for x in b3]!r}")
+
+
 def _check_suha_fixes(fails):
     from core.content_parser import _split_latex_commands
     from models.exam_document import ContentType as CT
@@ -933,6 +957,7 @@ def run():
     _check_point_name_seq(fails)
     _check_seq_list_comma(fails)
     _check_box_jamo_eq_absorb(fails)
+    _check_paren_base_nested(fails)
     _check_suha_fixes(fails)
     _check_negation_emphasis(fails)
     # HH1(혜화여고 #19): 베이스 없는 선행 첨자(조합 _{n-1}C)는 HWP 가 빈 렌더 — {} 베이스 삽입.
