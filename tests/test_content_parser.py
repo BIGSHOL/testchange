@@ -739,6 +739,27 @@ def _check_seq_list_comma(fails):
         fails.append(f"  KD2 다항나열 무회귀 실패: {[(b.type.name, b.value) for b in r3]!r}")
 
 
+def _check_box_jamo_eq_absorb(fails):
+    """DGY1(대구여고 미적분 #8 보기, 2026-06-16): LaTeX 수식 흡수가 보기 항목 자모 라벨을
+    넘어 ``\\lim…=\\lim… ㄷ. x<-1`` 까지 한 수식에 빨아들이던 회귀. _split_latex_commands
+    의 수식 종료 경계가 음절(가-힣)만 보고 호환 자모(ㄷ)를 못 잡던 것 — ㄱ-ㆎ 추가."""
+    from core.content_parser import _split_latex_commands
+    from models.exam_document import ContentType as CT
+    b = _split_latex_commands(
+        r" \lim_{x \to 1+} f(x) = \lim_{x \to 1-} f(x) ㄷ. x < -1 일 때, 함수 ")
+    eqs = [x.value or "" for x in b if x.type == CT.EQUATION]
+    # 첫 수식은 \lim…=\lim… 까지만(자모 라벨 ㄷ 흡수 금지)
+    if any("ㄷ" in e for e in eqs):
+        fails.append(f"  DGY1 자모 라벨 수식 흡수: {[(x.type.name, x.value) for x in b]!r}")
+    # 'ㄷ.' 라벨이 별도 TEXT 로 떨어져야(박스 줄바꿈 _BOX_BREAK_RE 가 끊게)
+    if not any(x.type == CT.TEXT and "ㄷ" in (x.value or "") for x in b):
+        fails.append(f"  DGY1 자모 라벨 TEXT 분리 실패: {[(x.type.name, x.value) for x in b]!r}")
+    # 무회귀: 자모 없는 정상 수식+한글 종료는 그대로(``x^2 이다``)
+    b2 = _split_latex_commands(r"f(x)=\frac{1}{2}x^2 이다")
+    if not any(x.type == CT.EQUATION and "\\frac" in (x.value or "") for x in b2):
+        fails.append(f"  DGY1 정상수식 무회귀: {[(x.type.name, x.value) for x in b2]!r}")
+
+
 def _check_suha_fixes(fails):
     from core.content_parser import _split_latex_commands
     from models.exam_document import ContentType as CT
@@ -911,6 +932,7 @@ def run():
     _check_2sem_round2(fails)
     _check_point_name_seq(fails)
     _check_seq_list_comma(fails)
+    _check_box_jamo_eq_absorb(fails)
     _check_suha_fixes(fails)
     _check_negation_emphasis(fails)
     # HH1(혜화여고 #19): 베이스 없는 선행 첨자(조합 _{n-1}C)는 HWP 가 빈 렌더 — {} 베이스 삽입.

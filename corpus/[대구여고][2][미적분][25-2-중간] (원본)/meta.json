@@ -1,5 +1,14 @@
 {
-  "status": "ocr_done",
+  "status": "reviewed",
+  "review": {
+    "reviewed_date": "2026-06-16",
+    "reviewed_by": "렌더/검수 소비자 세션 (claude-opus-4-8[1m], master)",
+    "content_defects": 0,
+    "A_type": 0,
+    "B_type": 1,
+    "note": "22문항(선택형16+서답형6) 캐시 폼 렌더 → 원본+답안 PDF(플라이) p2~p7 1:1 대조. corpus_lint PASS. B형 1건 수정(DGY1, content_parser.py:1656): 보기 박스 항목 자모 라벨 ㄷ 을 LaTeX 수식 흡수가 넘어 \\lim…=\\lim… ㄷ. x<-1 까지 한 수식에 빨아들여 #8 보기 ㄴ·ㄷ 이 한 줄로 붙던 것 — 수식 종료 경계가 음절(가-힣)만 보고 호환 자모(ㄱ-ㆎ)를 못 잡던 것 수정(line 1686 [가-힣ㄱ-ㆎ] 원칙 동일, 장산중 D2·새본리중 #17 동족). 재렌더로 ㄱ/ㄴ/ㄷ/ㄹ 각 줄 정상 확인. corpus 전수 스캔: 이 트리거 보유 entry 는 대구여고 #8 단독(무회귀). 회귀 test_content_parser DGY1. 점이름 로만 검증(MJ1): #10 OAB·#15 OA1B1·OA2B2·#16 IRQ·IHP·POB 전부 로만+첨자점 정상. figure 안내문구 #10·#15·#16(C한계). 서답형 배점 5/6/6/6/6/6 인라인(부분점수 문구 드롭=인라인-우선 합의). 정답면 [서답형 1~6] 라벨 동기화·홀수 패리티(7쪽)."
+  },
+  "status_was": "ocr_done",
   "school": "대구여고",
   "grade": 2,
   "subject": "미적분",
