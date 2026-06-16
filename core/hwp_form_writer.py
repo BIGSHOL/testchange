@@ -685,7 +685,9 @@ def _put_total_score(ses, h, num: int) -> None:
 
 # 라벨 괄호는 ``[ ]`` 와 ``【 】``(렌티큘러) 둘 다 — OCR 이 같은 시험지에서 혼용한다(경운중
 # #3·#5 가 ``【서답형 3】`` → 우리 ``[서답형 3]`` 와 겹쳐 중복, 2026-06-09). 캡처해 정규화.
-_ESSAY_LABEL_LEAD = re.compile(r'^\s*[\[【]\s*(서[답술]형)\s*(\d+)\s*[\]】]\s*')
+# 번호 뒤·닫는 괄호 앞에 유형 주석 ``(단답형)`` 이 올 수 있다(동문고 미적분 #17 =
+# "[서답형 1 (단답형)]" — 안내문대로 서답형1만 단답형, 원본 인쇄 충실). group(3)=주석.
+_ESSAY_LABEL_LEAD = re.compile(r'^\s*[\[【]\s*(서[답술]형)\s*(\d+)\s*(\([^)]*\))?\s*[\]】]\s*')
 # 번호 **없는** 유형 라벨(``[서술형]``·``[단답형]``·``[서답형]``) — OCR 이 번호 라벨 뒤에 유형
 # 라벨을 한 번 더 붙이는 경우(``[서답형 7][서술형]``, 도원고 수2 2026-06-13)를 본문에서 제거.
 # label_type 필드가 이미 유형을 담아 중복이라, 폼 라벨과 ``[서술형 7] [서술형]`` 이중 표기됨.
@@ -717,19 +719,26 @@ def _essay_label_and_body(contents, fallback_label, label_idx):
         if m:                                   # 형태 1: 한 블록(라벨을 [서답형 N]로 정규화)
             nb = copy.copy(b0)
             # 번호 라벨 뒤 유형 라벨(``[서답형 7][서술형]``, 도원고) 추가 제거 — label_type 중복.
-            nb.value = _ESSAY_TYPE_LABEL.sub("", b0.value[m.end():], count=1)
+            rest = _ESSAY_TYPE_LABEL.sub("", b0.value[m.end():], count=1)
+            anno = m.group(3) or ""             # 닫는 괄호 안 주석 ``(단답형)`` 은 본문으로 보존(동문고 #17)
+            nb.value = (anno + " " + rest.lstrip()) if anno else rest
             out[i] = nb
             return f"[{m.group(1)} {m.group(2)}]", out
-        # 형태 2: 분리형 "[서답형 " + EQ숫자 + "] rest"(여는 [ 또는 【)
+        # 형태 2: 분리형 "[서답형 " + EQ숫자 + "] rest"(여는 [ 또는 【). 닫는 ] 앞에
+        #   유형 주석 ``(단답형)`` 이 올 수 있다(동문고 #17 = "[서답형 1 (단답형)]" 분리 파싱).
         head = re.match(r'^\s*[\[【]\s*(서[답술]형)\s*$', b0.value)
         if (head and i + 2 < len(out)
                 and out[i + 1].type in _EQ_TYPES
                 and (out[i + 1].value or "").strip().isdigit()
                 and out[i + 2].type == ContentType.TEXT
-                and re.match(r'^\s*[\]】]', out[i + 2].value or "")):
+                and re.match(r'^\s*(?:\([^)]*\)\s*)?[\]】]', out[i + 2].value or "")):
             num = (out[i + 1].value or "").strip()
-            rest = re.sub(r'^\s*[\]】]\s*', '', out[i + 2].value or "")
+            cm = re.match(r'^\s*(\([^)]*\))?\s*[\]】]\s*', out[i + 2].value or "")
+            anno = cm.group(1) or ""             # 닫는 괄호 앞 주석 ``(단답형)`` 보존(동문고 #17)
+            rest = (out[i + 2].value or "")[cm.end():]
             rest = _ESSAY_TYPE_LABEL.sub("", rest, count=1)   # 번호 뒤 유형 라벨 제거(도원고)
+            if anno:
+                rest = anno + " " + rest.lstrip()
             nb2 = copy.copy(out[i + 2])
             nb2.value = rest
             tail = ([nb2] if rest.strip() else []) + out[i + 3:]

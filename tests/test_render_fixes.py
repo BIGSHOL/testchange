@@ -734,6 +734,24 @@ def run():
     chk(lbl3 == "[서술형 3]" and (body3[0].value or "").startswith("함수"),
         f"W3 정상 라벨 무회귀: {lbl3!r} / {body3[0].value!r}")
 
+    # ── W4: 라벨 괄호 안 유형 주석 ``(단답형)`` 보존(_essay_label_and_body, 동문고 미적분 #17) ──
+    # OCR 이 ``[서답형 1 (단답형)]`` 처럼 닫는 괄호 앞에 유형 주석을 넣으면, 폼 라벨 ``[서답형 1]``
+    # 과 본문 ``[서답형 1 (단답형)]`` 이 ``[서답형 1] [서답형 1 (단답형)]`` 이중 표기되던 결함.
+    # 라벨은 ``[서답형 1]`` 로 추출하고 주석은 본문 선두 ``(단답형)`` 로 보존(중복 제거, 원본 충실).
+    lblA, bodyA = _essay_label_and_body([_tb("[서답형 1 (단답형)] 매개변수")], "서답형", 1)  # 형태1
+    _fullA = "".join((b.value or "") for b in bodyA)
+    chk(lblA == "[서답형 1]" and _fullA.startswith("(단답형) 매개변수") and "[서답형" not in _fullA,
+        f"W4 주석 보존+중복 제거(형태1): {lblA!r} / {_fullA[:24]!r}")
+    splitA = [_tb("[서답형 "), _eq("1"), _tb(" (단답형)] 매개변수")]                         # 형태2(분리형)
+    lblB, bodyB = _essay_label_and_body(splitA, "서답형", 1)
+    _fullB = "".join((b.value or "") for b in bodyB)
+    chk(lblB == "[서답형 1]" and _fullB.startswith("(단답형) 매개변수") and "[서답형" not in _fullB,
+        f"W4 주석 보존+중복 제거(형태2): {lblB!r} / {_fullB[:24]!r}")
+    spC = [_tb("[서답형 "), _eq("2"), _tb("] 자연수")]                                       # 무회귀(주석 없음)
+    lblC, bodyC = _essay_label_and_body(spC, "서답형", 2)
+    chk(lblC == "[서답형 2]" and (bodyC[0].value or "").startswith("자연수"),
+        f"W4 주석 없는 분리형 무회귀: {lblC!r} / {bodyC[0].value!r}")
+
     if fails:
         print("FAIL test_render_fixes:")
         print("\n".join(fails))
@@ -742,7 +760,7 @@ def run():
           "bigstar/boxed/labelless/solo/mixed-label/rm-space/cond-header/form-underline/"
           "sqrt-space/choice-glyph/tail-note/underline-solid/stemleaf-13/choice-geo/cond-circle/"
           "repeat-dot/paren-score/phantom-box/box-bullet/post-box/box-ascii-eq/submark-ref/"
-          "answer-header-neutralize/essay-type-label)")
+          "answer-header-neutralize/essay-type-label/annot-label)")
     return 0
 
 
