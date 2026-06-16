@@ -1,0 +1,135 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 21,
+   "score": 6,
+   "label_type": "서답형",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서답형 5] "
+    },
+    {
+     "type": "text",
+     "value": "함수 "
+    },
+    {
+     "type": "equation",
+     "value": "f(x) = |x^2 - 1|"
+    },
+    {
+     "type": "text",
+     "value": "의 "
+    },
+    {
+     "type": "equation",
+     "value": "x = -1"
+    },
+    {
+     "type": "text",
+     "value": "에서의 미분가능성을 조사하는 풀이과정과 답을 쓰시오."
+    }
+   ],
+   "choices": [],
+   "sub_questions": []
+  },
+  {
+   "number": 22,
+   "score": 7,
+   "label_type": "서답형",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서답형 6] "
+    },
+    {
+     "type": "text",
+     "value": "함수 "
+    },
+    {
+     "type": "equation",
+     "value": "f(x) = x^3 - 2x - 1"
+    },
+    {
+     "type": "text",
+     "value": "에 대하여 점 "
+    },
+    {
+     "type": "equation",
+     "value": "(0, 1)"
+    },
+    {
+     "type": "text",
+     "value": "에서 곡선 "
+    },
+    {
+     "type": "equation",
+     "value": "y = f(x)"
+    },
+    {
+     "type": "text",
+     "value": "에 그은 직선이 점 "
+    },
+    {
+     "type": "equation",
+     "value": "A(a, f(a))"
+    },
+    {
+     "type": "text",
+     "value": "에서 접하고 점 "
+    },
+    {
+     "type": "equation",
+     "value": "B(b, f(b))"
+    },
+    {
+     "type": "text",
+     "value": "에서 만난다. 점 "
+    },
+    {
+     "type": "equation",
+     "value": "B"
+    },
+    {
+     "type": "text",
+     "value": "에서 "
+    },
+    {
+     "type": "equation",
+     "value": "x"
+    },
+    {
+     "type": "text",
+     "value": "축에 수직으로 내린 수선의 발을 "
+    },
+    {
+     "type": "equation",
+     "value": "C"
+    },
+    {
+     "type": "text",
+     "value": "라 할 때, 삼각형 "
+    },
+    {
+     "type": "equation",
+     "value": "ABC"
+    },
+    {
+     "type": "text",
+     "value": "의 넓이를 구하는 풀이과정과 답을 쓰시오. (단, "
+    },
+    {
+     "type": "equation",
+     "value": "a \\ne b"
+    },
+    {
+     "type": "text",
+     "value": ")"
+    }
+   ],
+   "choices": [],
+   "sub_questions": []
+  }
+ ]
+}

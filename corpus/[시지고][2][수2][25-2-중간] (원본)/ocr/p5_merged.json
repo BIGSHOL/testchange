@@ -1,0 +1,181 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 17,
+   "score": 5,
+   "label_type": "서답형",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서답형 1] "
+    },
+    {
+     "type": "text",
+     "value": "함수 "
+    },
+    {
+     "type": "equation",
+     "value": "f(x) = 3x^2 - 4x + 1"
+    },
+    {
+     "type": "text",
+     "value": "에 대하여 "
+    },
+    {
+     "type": "equation",
+     "value": "x"
+    },
+    {
+     "type": "text",
+     "value": "의 값이 1에서 3까지 변할 때의 평균변화율을 구하는 풀이과정과 답을 쓰시오."
+    }
+   ],
+   "choices": [],
+   "sub_questions": []
+  },
+  {
+   "number": 18,
+   "score": 6,
+   "label_type": "서답형",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서답형 2] "
+    },
+    {
+     "type": "equation",
+     "value": "\\lim_{x \\to 2} \\frac{a\\sqrt{x+2} + b}{x - 2} = \\frac{1}{4}"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "a"
+    },
+    {
+     "type": "text",
+     "value": "와 "
+    },
+    {
+     "type": "equation",
+     "value": "b"
+    },
+    {
+     "type": "text",
+     "value": "의 값을 구하는 풀이과정과 답을 쓰시오. (단, "
+    },
+    {
+     "type": "equation",
+     "value": "a, b"
+    },
+    {
+     "type": "text",
+     "value": "는 상수이다.)"
+    }
+   ],
+   "choices": [],
+   "sub_questions": []
+  },
+  {
+   "number": 19,
+   "score": 5,
+   "label_type": "서답형",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서답형 3] "
+    },
+    {
+     "type": "text",
+     "value": "임의의 양의 실수 "
+    },
+    {
+     "type": "equation",
+     "value": "x"
+    },
+    {
+     "type": "text",
+     "value": "에 대하여 함수 "
+    },
+    {
+     "type": "equation",
+     "value": "f(x"
+    },
+    {
+     "type": "text",
+     "value": "가"
+    },
+    {
+     "type": "equation_block",
+     "value": "3x + 2 < f(x) < \\frac{6x^2 + 5x + 2}{2x}"
+    },
+    {
+     "type": "text",
+     "value": "를 만족시킨다. 이때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\lim_{x \\to \\infty} \\frac{f(x)}{x}"
+    },
+    {
+     "type": "text",
+     "value": "의 값을 구하는 풀이과정과 답을 쓰시오."
+    }
+   ],
+   "choices": [],
+   "sub_questions": []
+  },
+  {
+   "number": 20,
+   "score": 6,
+   "label_type": "서답형",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서답형 4] "
+    },
+    {
+     "type": "text",
+     "value": "실수 전체 집합에서 연속인 함수 "
+    },
+    {
+     "type": "equation",
+     "value": "f(x)"
+    },
+    {
+     "type": "text",
+     "value": "가 "
+    },
+    {
+     "type": "equation",
+     "value": "(x^3 + 1) f(x) = x^2 - x + a"
+    },
+    {
+     "type": "text",
+     "value": "를 만족시킬 때, 상수 "
+    },
+    {
+     "type": "equation",
+     "value": "a"
+    },
+    {
+     "type": "text",
+     "value": "와 "
+    },
+    {
+     "type": "equation",
+     "value": "f(-1)"
+    },
+    {
+     "type": "text",
+     "value": "의 값을 구하는 풀이과정과 답을 쓰시오."
+    }
+   ],
+   "choices": [],
+   "sub_questions": []
+  }
+ ]
+}
