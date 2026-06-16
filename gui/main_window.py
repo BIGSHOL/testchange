@@ -38,6 +38,7 @@ from core.pdf_handler import (
     get_supported_extensions,
     is_pdf,
     load_image,
+    page_source_kinds,
     pdf_to_images,
 )
 from core.ocr_engine import OCREngine, validate_ocr_response
@@ -71,9 +72,23 @@ _CHECK_QSS = (
 )
 
 
-# Claude 모델별 토큰 단가(USD / 1M tok). 캐시읽기=입력의 0.1배, 캐시쓰기(5분)=입력의 1.25배.
-# (대략치 — 정확 단가는 Anthropic 콘솔 기준. 비용계산 참고용, 사용자 2026-06-08.)
-_PRICE = {"opus": (15.0, 75.0), "sonnet": (3.0, 15.0), "haiku": (1.0, 5.0)}
+# 모델별 토큰 단가(USD / 1M tok) = (입력, 출력). 캐시읽기=입력의 0.1배, 캐시쓰기(5분)=입력의
+# 1.25배. (대략치 — 정확 단가는 각 콘솔 기준. 비용계산 참고용, 사용자 2026-06-08.)
+# Gemini 는 Sonnet 대비 5~7배 저렴(2026-06-16 라우팅 도입). flash < pro.
+_PRICE = {"opus": (15.0, 75.0), "sonnet": (3.0, 15.0), "haiku": (1.0, 5.0),
+          "gemini-pro": (1.25, 5.0), "gemini-flash": (0.30, 2.50)}
+
+
+def _price_for(model: str) -> tuple[float, float]:
+    """모델명 → (입력단가, 출력단가). Gemini/Claude 자동 판별."""
+    m = (model or "").lower()
+    if "gemini" in m:
+        return _PRICE["gemini-flash"] if "flash" in m else _PRICE["gemini-pro"]
+    if "opus" in m:
+        return _PRICE["opus"]
+    if "haiku" in m:
+        return _PRICE["haiku"]
+    return _PRICE["sonnet"]
 
 
 def _unique_output_path(path: str) -> str:
@@ -91,14 +106,18 @@ def _unique_output_path(path: str) -> str:
         i += 1
 
 
-def _log_token_usage(exam_path: str, usage: dict) -> str:
-    """시험지 1건의 토큰 사용량·예상비용을 로그 + ``토큰사용.csv`` 에 기록. 요약 문자열 반환."""
+def _log_token_usage(exam_path: str, usage: dict, model: str | None = None) -> str:
+    """시험지 1건의 토큰 사용량·예상비용을 로그 + ``토큰사용.csv`` 에 기록. 요약 문자열 반환.
+
+    `model` 로 단가를 결정한다(없으면 CLAUDE_MODEL). 다중 백엔드(2026-06-16)면 엔진별로
+    호출해 모델별 비용을 따로 집계·기록한다.
+    """
     if not usage or not usage.get("calls"):
         return ""
-    from utils.config import CLAUDE_MODEL
-    m = (CLAUDE_MODEL or "").lower()
-    tier = "opus" if "opus" in m else "haiku" if "haiku" in m else "sonnet"
-    in_rate, out_rate = _PRICE[tier]
+    if not model:
+        from utils.config import CLAUDE_MODEL
+        model = CLAUDE_MODEL
+    in_rate, out_rate = _price_for(model)
     inp, out = usage["input"], usage["output"]
     cc, cr = usage["cache_create"], usage["cache_read"]
     cost = (inp * in_rate + cc * in_rate * 1.25 + cr * in_rate * 0.1
@@ -106,7 +125,7 @@ def _log_token_usage(exam_path: str, usage: dict) -> str:
     krw = cost * 1500          # 환율 1500원/USD(사용자 2026-06-08)
     name = Path(exam_path).name if exam_path else "?"
     summary = (f"토큰 사용 — 입력 {inp:,} · 출력 {out:,} · 캐시(쓰기 {cc:,}/읽기 {cr:,}) · "
-               f"호출 {usage['calls']}회 · 예상 ${cost:.4f} (₩{krw:,.0f}) ({CLAUDE_MODEL})")
+               f"호출 {usage['calls']}회 · 예상 ${cost:.4f} (₩{krw:,.0f}) ({model})")
     logger.info("[USAGE] %s | %s", name, summary)
     # CSV 누적(로그파일과 같은 폴더). 헤더 1회.
     try:
@@ -121,7 +140,7 @@ def _log_token_usage(exam_path: str, usage: dict) -> str:
                 w.writerow(["시각", "시험지", "모델", "입력토큰", "출력토큰",
                             "캐시쓰기", "캐시읽기", "호출수", "예상USD", "예상KRW"])
             from datetime import datetime
-            w.writerow([datetime.now().strftime("%Y-%m-%d %H:%M:%S"), name, CLAUDE_MODEL,
+            w.writerow([datetime.now().strftime("%Y-%m-%d %H:%M:%S"), name, model,
                         inp, out, cc, cr, usage["calls"], f"{cost:.4f}", f"{krw:.0f}"])
     except Exception as e:  # noqa: BLE001
         logger.warning("토큰 CSV 기록 실패(무시): %s", e)
@@ -157,12 +176,17 @@ class ConversionWorker(QObject):
         render_figures: bool = False,
         skip_preview: bool = False,
         cache_only: bool = False,
+        ocr_backend: str = "auto",
     ):
         super().__init__()
         self.cache_only = cache_only   # True=저장된 OCR 캐시(merged.json)로 재렌더(크롭·OCR·API 생략)
         self.file_path = file_path
         self.output_path = output_path
         self.api_key = api_key
+        # OCR 백엔드(2026-06-16): "auto"(품질기반)·"claude"·"gemini-pro"·"gemini-flash".
+        self.ocr_backend = (ocr_backend or "auto").lower()
+        self._ocr_engines: dict[str, OCREngine] = {}   # 백엔드별 엔진 lazy 캐시
+        self._backend_fallback_warned = False
         self.template_path = template_path
         self.form_path = form_path   # 선택된 대수회 폼(.hwp). 있으면 폼 채움 경로 사용.
         self.header_values = header_values   # 머리말/꼬리말 채움 값(파일명에서 추출).
@@ -202,6 +226,63 @@ class ConversionWorker(QObject):
         if not getattr(self, "_fig_dir", None):
             self._fig_dir = tempfile.mkdtemp(prefix="exam_fig_")
         return self._fig_dir
+
+    # ── OCR 백엔드 라우팅(2026-06-16) ──────────────────────────────────────────
+    def _resolve_backend_mode(self) -> str:
+        """워커가 받은 OCR 백엔드 모드 정규화("auto"|"claude"|"gemini-pro"|"gemini-flash")."""
+        b = (self.ocr_backend or "auto").lower()
+        return b if b in ("auto", "claude", "gemini-pro", "gemini-flash") else "auto"
+
+    def _get_ocr_engine(self, backend: str) -> OCREngine:
+        """백엔드별 엔진을 lazy 생성·캐시. Gemini 생성 실패(키 없음 등) → Claude 폴백(1회 경고).
+
+        같은 폴백 객체를 요청 백엔드 키로도 캐시해 페이지마다 재생성/재경고하지 않는다.
+        """
+        eng = self._ocr_engines.get(backend)
+        if eng is not None:
+            return eng
+        try:
+            if backend == "claude":
+                eng = OCREngine(api_key=self.api_key, backend="claude")
+            else:
+                eng = OCREngine(backend=backend)   # Gemini 키는 config.json 에서
+        except Exception as e:  # noqa: BLE001
+            if backend == "claude":
+                raise   # 폴백 대상이 없음 — 진짜 에러(키 없음 등) → 호출부가 페이지별 격리
+            if not self._backend_fallback_warned:
+                self._backend_fallback_warned = True
+                self.log.emit(
+                    "warning",
+                    f"⚠️ {backend} 사용 불가({type(e).__name__}) → Claude 폴백. "
+                    f"Gemini 키를 config.json(GEMINI_API_KEY)에 넣으면 Gemini 로 OCR 합니다.")
+            eng = self._get_ocr_engine("claude")
+            self._ocr_engines[backend] = eng   # 폴백 객체를 요청 키에도 캐시(반복 방지)
+            return eng
+        self._ocr_engines[backend] = eng
+        return eng
+
+    def _page_backend(self, idx: int, page_offset: int,
+                      source_kinds, quality_by_index) -> str:
+        """문제 페이지 한 장의 OCR 백엔드 결정(자동 모드). 고정 모드면 그 값 그대로.
+
+        자동: born-digital(텍스트레이어/벡터) **또는** 고QC(>=QC_CLEAN_SCORE)면 clean → flash,
+        아니면(스캔/저품질=손글씨 가능) pro(충실도 우선·보수적).
+        ⚠️ 이 판정은 **크롭 검출로 문제 유무가 확정된 페이지에만** 적용한다(제약 A — 표지·
+        답지·빈페이지는 크롭 0개로 이미 제외되어 여기 안 들어옴).
+        """
+        from utils.config import QC_CLEAN_SCORE
+        mode = self._resolve_backend_mode()
+        if mode != "auto":
+            return mode
+        born = False
+        if source_kinds:
+            si = idx + page_offset
+            if 0 <= si < len(source_kinds):
+                born = bool(source_kinds[si].get("is_born_digital"))
+        q = quality_by_index.get(idx)
+        score = float(getattr(q, "score", 0.0)) if q is not None else 0.0
+        clean = born or score >= QC_CLEAN_SCORE
+        return "gemini-flash" if clean else "gemini-pro"
 
     def _record_dir(self, kind: str) -> "Path | None":
         """크롭/OCR 기록 **영구 저장** 폴더(``kind`` = 'crop' | 'ocr')/<시험지명>/. 실패 시 None.
@@ -438,6 +519,8 @@ class ConversionWorker(QObject):
 
         # Step 1: 이미지 로드
         self.progress.emit(5, "파일 로드 중...")
+        # born-digital 신호(OCR 백엔드 라우팅용) — PDF 만. 비-PDF(직접 이미지)는 None(스캔 간주).
+        source_kinds = page_source_kinds(file_path) if is_pdf(file_path) else None
         if is_pdf(file_path):
             images = pdf_to_images(file_path)
         else:
@@ -458,8 +541,12 @@ class ConversionWorker(QObject):
             self.progress.emit(10, "첫 페이지(표지) 건너뜀")
 
         # ── Gate 1: 이미지 품질 검사 ──
+        # ⚠️ 페이지 차단 ≠ PDF 차단(제약 B): QC 하드플로어 미달(흐림·저해상도)인 **그 페이지만**
+        #    OCR 불가로 건너뛰고 나머지는 계속. 전 페이지 불가일 때만 PDF 거부.
+        #    여기 점수(quality)는 뒤 OCR 백엔드 라우팅에서도 재사용(중복 계산 회피).
         self.progress.emit(10, "이미지 품질 검사 중...")
         valid_indices: list[int] = []
+        quality_by_index: dict = {}     # images 인덱스 → ImageQuality (라우팅용)
 
         for i, img in enumerate(images):
             if self._cancelled:
@@ -467,9 +554,11 @@ class ConversionWorker(QObject):
                 return
 
             quality = check_image_quality(img)
+            quality_by_index[i] = quality
             if not quality.passed:
                 warn_msg = (
-                    f"페이지 {i + 1} 품질 불합격 (점수 {quality.score:.0f}): "
+                    f"페이지 {i + 1} OCR 불가 — 이 페이지만 건너뜁니다(변환은 계속). "
+                    f"품질 점수 {quality.score:.0f}: "
                     + "; ".join(quality.warnings)
                 )
                 self.quality_warning.emit(i + 1, warn_msg)
@@ -484,7 +573,9 @@ class ConversionWorker(QObject):
                 valid_indices.append(i)
 
         if not valid_indices:
-            self.error.emit("모든 페이지가 품질 검사에 불합격했습니다.")
+            self.error.emit(
+                "변환할 수 있는 페이지가 없습니다 — 모든 페이지가 OCR 불가 품질입니다. "
+                "스캔 해상도를 높이거나 더 선명한 원본을 사용하세요.")
             return
 
         skipped = total_pages - len(valid_indices)
@@ -499,7 +590,11 @@ class ConversionWorker(QObject):
         )
 
         # Step 2: OCR 처리
-        engine = OCREngine(api_key=self.api_key)
+        # 엔진은 페이지별로 _get_ocr_engine(backend) 로 lazy 생성·캐시(라우팅). 단일 고정
+        # 엔진을 미리 만들지 않는다 — auto 모드에서 페이지마다 flash/pro 가 갈릴 수 있다.
+        mode_label = {"auto": "자동(품질 기반)", "claude": "Claude",
+                      "gemini-pro": "Gemini Pro", "gemini-flash": "Gemini Flash"}
+        self.log.emit("info", f"OCR 엔진: {mode_label.get(self._resolve_backend_mode(), '자동')}")
         pages = []
         page_infos: list[PageInfo] = []
 
@@ -668,6 +763,16 @@ class ConversionWorker(QObject):
             page_t0 = perf_counter()
             pct = 15 + int((seq / len(valid_indices)) * 60)
 
+            # ── OCR 백엔드 라우팅(2026-06-16) — 문제 유무가 확정된 이 페이지에만 적용(제약 A).
+            page_backend = self._page_backend(idx, page_offset, source_kinds, quality_by_index)
+            eng = self._get_ocr_engine(page_backend)
+            if self._resolve_backend_mode() == "auto":
+                _born = bool(source_kinds[idx + page_offset].get("is_born_digital")) \
+                    if source_kinds and 0 <= idx + page_offset < len(source_kinds) else False
+                _why = "born-digital/고품질" if eng.backend == "gemini-flash" or _born \
+                    else "스캔/저품질(손글씨 가능)"
+                self.log.emit("info", f"페이지 {page_num}: {_why} → {eng.model}")
+
             if crop_boxes_per_page is not None:
                 # 크롭별 개별 OCR → 한 페이지로 병합. figure 크롭은 이미지로 임베딩.
                 boxes = crop_boxes_per_page[seq]
@@ -681,7 +786,7 @@ class ConversionWorker(QObject):
                 def _ocr_box(bi: int, box) -> dict:
                     sub = box.crop_image(img, pad=0.01)
                     self._save_record("crop", f"p{page_num}_c{bi}", sub)   # 크롭 이미지 영구 기록
-                    r = engine.recognize_crop(sub)
+                    r = eng.recognize_crop(sub)
                     self._save_record("ocr", f"p{page_num}_c{bi}", r)      # OCR 결과 영구 기록
                     self._resolve_figures(r, sub, page_num, bi)  # 문제 내 figure(bbox=sub)
                     return r
@@ -760,7 +865,7 @@ class ConversionWorker(QObject):
             else:
                 self.progress.emit(pct, f"OCR 처리 중... ({seq + 1}/{len(valid_indices)})")
                 self._save_record("crop", f"p{page_num}_page", img)    # 페이지 이미지 기록
-                ocr_result = engine.recognize_page(img)
+                ocr_result = eng.recognize_page(img)
                 self._save_record("ocr", f"p{page_num}_page", ocr_result)
                 # 페이지 내 figure 블록 해소(bbox 는 페이지 이미지 기준)
                 self._resolve_figures(ocr_result, img, page_num, 0)
@@ -858,11 +963,13 @@ class ConversionWorker(QObject):
             "success",
             f"변환 완료 — {len(pages)}페이지 · 문항 {total_q} · 수식 {total_eq} · "
             f"총 {perf_counter() - t_start:.1f}s")
-        # 토큰 사용량·예상비용 기록(시험지별, 사용자 2026-06-08 비용계산용)
+        # 토큰 사용량·예상비용 기록(시험지별, 사용자 2026-06-08 비용계산용). 다중 백엔드면
+        # 엔진별(모델별)로 따로 집계 — 폴백으로 같은 객체가 여러 키에 캐시될 수 있어 id 로 dedup.
         try:
-            msg = _log_token_usage(self.file_path, engine.usage)
-            if msg:
-                self.log.emit("info", msg)
+            for e in {id(x): x for x in self._ocr_engines.values()}.values():
+                msg = _log_token_usage(self.file_path, e.usage, e.model)
+                if msg:
+                    self.log.emit("info", msg)
         except Exception as e:  # noqa: BLE001
             logger.warning("토큰 사용량 기록 실패(무시): %s", e)
         self.finished.emit(str(result_path))
@@ -1031,6 +1138,40 @@ class MainWindow(QMainWindow):
         self._form_combo.currentIndexChanged.connect(self._on_form_changed)
         form_layout.addWidget(self._form_combo, 1)
         layout.addLayout(form_layout)
+
+        # ── OCR 엔진 선택(2026-06-16) ──────────────────────────────────────────
+        # 자동(기본): 시험지 품질로 페이지마다 Gemini Flash(클린·저렴)/Pro(스캔·충실) 분기.
+        # 수동: 특정 모델로 고정. (크롭 검출은 별개로 항상 Gemini Flash.)
+        ocr_layout = QHBoxLayout()
+        ocr_layout.setSpacing(10)
+        ocr_lbl = QLabel("OCR 엔진")
+        ocr_lbl.setFixedWidth(120)
+        ocr_layout.addWidget(ocr_lbl)
+
+        self._ocr_combo = QComboBox()
+        self._ocr_combo.setFixedHeight(self._BTN_HEIGHT)
+        self._ocr_combo.setToolTip(
+            "시험지를 텍스트·수식 JSON 으로 읽는 OCR 모델입니다.\n"
+            "· 자동(품질 기반): born-digital/선명한 페이지는 Gemini Flash(저렴·빠름), "
+            "스캔/저품질(손글씨 가능) 페이지는 Gemini Pro(충실도) — 권장\n"
+            "· Gemini Flash: 항상 저비용 모델\n"
+            "· Gemini Pro: 항상 고충실 모델\n"
+            "· Claude(Sonnet): Anthropic 모델로 고정")
+        self._ocr_combo.addItem("자동 (품질 기반) — 권장", "auto")
+        self._ocr_combo.addItem("Gemini Flash (저비용)", "gemini-flash")
+        self._ocr_combo.addItem("Gemini Pro (고충실)", "gemini-pro")
+        self._ocr_combo.addItem("Claude (Sonnet)", "claude")
+        # 초기값 = config 의 OCR_BACKEND
+        try:
+            from utils.config import get_ocr_backend
+            _idx = self._ocr_combo.findData(get_ocr_backend())
+            if _idx >= 0:
+                self._ocr_combo.setCurrentIndex(_idx)
+        except Exception:
+            pass
+        self._ocr_combo.currentIndexChanged.connect(self._on_ocr_backend_changed)
+        ocr_layout.addWidget(self._ocr_combo, 1)
+        layout.addLayout(ocr_layout)
 
         # 그림(문제 내 도형/그래프) 처리 모드 선택
         layout.addSpacing(8)
@@ -1366,6 +1507,19 @@ class MainWindow(QMainWindow):
         label = self._form_combo.currentText()
         self._log(f"폼지 선택: {label}")
 
+    def _on_ocr_backend_changed(self, idx: int):
+        """OCR 엔진 드롭다운 변경 → config(OCR_BACKEND) 저장(다음 실행·헤드리스도 반영)."""
+        data = self._ocr_combo.currentData() or "auto"
+        try:
+            from utils.config import _load_config, save_config, _init_module_vars
+            cfg = _load_config()
+            cfg["OCR_BACKEND"] = data
+            save_config(cfg)
+            _init_module_vars()
+        except Exception as e:  # noqa: BLE001
+            logger.warning("OCR 백엔드 저장 실패(무시): %s", e)
+        self._log(f"OCR 엔진 선택: {self._ocr_combo.currentText()}")
+
     def _resolve_form_path(self) -> str | None:
         """현재 드롭다운 선택 → 실제 폼 경로(없으면 None=기본 서식).
 
@@ -1386,15 +1540,29 @@ class MainWindow(QMainWindow):
             return
 
         api_key = self._api_key_input.text().strip()
-        if not api_key or api_key == "your-api-key-here":
-            QMessageBox.warning(self, "알림", "Anthropic API 키를 입력하세요.")
+        gemini_key = self._gemini_key_input.text().strip()
+        if api_key == "your-api-key-here":
+            api_key = ""
+        ocr_backend = self._ocr_combo.currentData() or "auto"
+        # Anthropic 키는 더 이상 필수가 아니다(2026-06-16) — 기본 OCR 은 Gemini. 선택한
+        # 백엔드에 필요한 키만 확인한다. (크롭 검출도 Gemini 우선·Claude 폴백.)
+        if ocr_backend == "claude" and not api_key:
+            QMessageBox.warning(self, "알림",
+                                "Claude(OCR) 백엔드에는 Anthropic API 키가 필요합니다.")
+            return
+        if not api_key and not gemini_key:
+            QMessageBox.warning(
+                self, "알림",
+                "API 키를 입력하세요 — 자동/Gemini OCR 은 Gemini 키를, "
+                "Claude OCR 은 Anthropic 키를 사용합니다(둘 중 하나 이상 필요).")
             return
 
-        # API 키를 config.json에 저장(Anthropic + Gemini). Gemini 키는 크롭 검출 정확도에
-        # 쓰이며 비면 Claude 폴백(크롭 품질 저하)이라, 입력돼 있으면 함께 저장한다.
+        # API 키를 config.json에 저장(빈 값이면 기존 키 보존). Gemini 키는 OCR(자동/Gemini)·
+        # 크롭 검출 정확도에 쓰이고, 비면 Claude 폴백이라, 입력돼 있으면 함께 저장한다.
         from utils.config import set_api_key, set_gemini_key
-        set_api_key(api_key)
-        set_gemini_key(self._gemini_key_input.text().strip())
+        if api_key:
+            set_api_key(api_key)
+        set_gemini_key(gemini_key)
 
         # 폼 '자동' 모드는 파일명 규칙이 맞아야 분석(미일치 차단). 폼 직접선택/기본서식은 통과.
         info = parse_filename(self._selected_file)
@@ -1454,6 +1622,7 @@ class MainWindow(QMainWindow):
             use_crop=True,           # 항상 크롭 검수 모드
             render_figures=self._render_fig_check.isChecked(),  # 그림 렌더(경고 감수) 여부
             skip_preview=self._skip_preview_check.isChecked(),  # 미리보기 생략 여부
+            ocr_backend=self._ocr_combo.currentData() or "auto",   # OCR 엔진(자동/고정)
         )
         self._run_worker(worker)
 
@@ -1615,5 +1784,6 @@ class MainWindow(QMainWindow):
         self._api_key_input.setEnabled(not converting)
         self._gemini_key_input.setEnabled(not converting)
         self._form_combo.setEnabled(not converting)
+        self._ocr_combo.setEnabled(not converting)
         self._render_fig_check.setEnabled(not converting)
         self._skip_preview_check.setEnabled(not converting)

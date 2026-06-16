@@ -19,6 +19,13 @@ _DEFAULTS = {
     "OUTPUT_DIR": "",
     "CLAUDE_MODEL": "claude-sonnet-4-6",
     "CLAUDE_MAX_TOKENS": 8192,
+    # ── OCR 백엔드 라우팅(2026-06-16) ─────────────────────────────────────────
+    # OCR_BACKEND: "auto"(품질기반 자동) | "claude" | "gemini-pro" | "gemini-flash".
+    #   auto = born-digital/고QC → flash(저렴·빠름), 스캔/손글씨 가능 → pro(충실도).
+    #   Gemini 가 Sonnet 보다 5~7배 저렴해 기본을 auto(=Gemini) 로 둔다. Claude 는 폴백.
+    "OCR_BACKEND": "auto",
+    "GEMINI_PRO_MODEL": "gemini-3.1-pro-preview",   # messy/스캔 — 충실도 우선
+    "GEMINI_FLASH_MODEL": "gemini-3.5-flash",        # clean/born-digital — 비용·속도
     "PDF_DPI": 300,
     "MAX_IMAGE_SIZE": 4096,
     "QC_MIN_WIDTH": 500,
@@ -27,6 +34,8 @@ _DEFAULTS = {
     "QC_BLANK_THRESHOLD": 1.0,
     "QC_CONTRAST_THRESHOLD": 30.0,   # 최소 전경/배경 분리도(Otsu, 0~255). 미만이면 대비부족 경고
     "QC_PASS_SCORE": 40.0,
+    # clean/messy 경계 — born-digital 이 아니어도 QC 점수가 이 값 이상이면 clean(flash).
+    "QC_CLEAN_SCORE": 70.0,
     # OCR 골든셋 플라이휠 — Supabase(개발/수동 업로드 전용). 비면 sync 스킵. service_role 키만.
     # ⚠️ 배포 exe 엔 넣지 않는다(서비스키는 로컬 config.json 에만). 키 이름으로 민감도 표시.
     "SUPABASE_URL": "",
@@ -132,6 +141,17 @@ def get_output_dir() -> Path:
 CLAUDE_MODEL = str(_DEFAULTS["CLAUDE_MODEL"])
 CLAUDE_MAX_TOKENS = int(_DEFAULTS["CLAUDE_MAX_TOKENS"])
 
+# OCR 백엔드 라우팅 설정(2026-06-16)
+OCR_BACKEND = str(_DEFAULTS["OCR_BACKEND"])
+GEMINI_PRO_MODEL = str(_DEFAULTS["GEMINI_PRO_MODEL"])
+GEMINI_FLASH_MODEL = str(_DEFAULTS["GEMINI_FLASH_MODEL"])
+
+
+def get_ocr_backend() -> str:
+    """OCR 백엔드 모드 반환("auto"|"claude"|"gemini-pro"|"gemini-flash")."""
+    val = str(_get("OCR_BACKEND") or "auto").strip().lower()
+    return val if val in ("auto", "claude", "gemini-pro", "gemini-flash") else "auto"
+
 # PDF 변환 DPI
 PDF_DPI = int(_DEFAULTS["PDF_DPI"])
 
@@ -145,18 +165,23 @@ QC_BLUR_THRESHOLD = float(_DEFAULTS["QC_BLUR_THRESHOLD"])
 QC_BLANK_THRESHOLD = float(_DEFAULTS["QC_BLANK_THRESHOLD"])
 QC_CONTRAST_THRESHOLD = float(_DEFAULTS["QC_CONTRAST_THRESHOLD"])
 QC_PASS_SCORE = float(_DEFAULTS["QC_PASS_SCORE"])
+QC_CLEAN_SCORE = float(_DEFAULTS["QC_CLEAN_SCORE"])
 
 
 def _init_module_vars():
     """config.json 값으로 모듈 변수 갱신."""
     global GEMINI_MODEL, CLAUDE_MODEL, CLAUDE_MAX_TOKENS, PDF_DPI, MAX_IMAGE_SIZE
     global QC_MIN_WIDTH, QC_MIN_HEIGHT, QC_BLUR_THRESHOLD
-    global QC_BLANK_THRESHOLD, QC_CONTRAST_THRESHOLD, QC_PASS_SCORE
+    global QC_BLANK_THRESHOLD, QC_CONTRAST_THRESHOLD, QC_PASS_SCORE, QC_CLEAN_SCORE
+    global OCR_BACKEND, GEMINI_PRO_MODEL, GEMINI_FLASH_MODEL
 
     cfg = _load_config()
     GEMINI_MODEL = str(cfg.get("GEMINI_MODEL", _DEFAULTS["GEMINI_MODEL"]))
     CLAUDE_MODEL = str(cfg.get("CLAUDE_MODEL", _DEFAULTS["CLAUDE_MODEL"]))
     CLAUDE_MAX_TOKENS = int(cfg.get("CLAUDE_MAX_TOKENS", _DEFAULTS["CLAUDE_MAX_TOKENS"]))
+    OCR_BACKEND = str(cfg.get("OCR_BACKEND", _DEFAULTS["OCR_BACKEND"]))
+    GEMINI_PRO_MODEL = str(cfg.get("GEMINI_PRO_MODEL", _DEFAULTS["GEMINI_PRO_MODEL"]))
+    GEMINI_FLASH_MODEL = str(cfg.get("GEMINI_FLASH_MODEL", _DEFAULTS["GEMINI_FLASH_MODEL"]))
     PDF_DPI = int(cfg.get("PDF_DPI", _DEFAULTS["PDF_DPI"]))
     MAX_IMAGE_SIZE = int(cfg.get("MAX_IMAGE_SIZE", _DEFAULTS["MAX_IMAGE_SIZE"]))
     QC_MIN_WIDTH = int(cfg.get("QC_MIN_WIDTH", _DEFAULTS["QC_MIN_WIDTH"]))
@@ -165,6 +190,7 @@ def _init_module_vars():
     QC_BLANK_THRESHOLD = float(cfg.get("QC_BLANK_THRESHOLD", _DEFAULTS["QC_BLANK_THRESHOLD"]))
     QC_CONTRAST_THRESHOLD = float(cfg.get("QC_CONTRAST_THRESHOLD", _DEFAULTS["QC_CONTRAST_THRESHOLD"]))
     QC_PASS_SCORE = float(cfg.get("QC_PASS_SCORE", _DEFAULTS["QC_PASS_SCORE"]))
+    QC_CLEAN_SCORE = float(cfg.get("QC_CLEAN_SCORE", _DEFAULTS["QC_CLEAN_SCORE"]))
 
 
 _init_module_vars()

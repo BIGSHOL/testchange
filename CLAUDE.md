@@ -66,6 +66,33 @@ PNG 는 gitignore(재생성 가능).
 (메타토큰·자모혼입·라벨혼재·정답증발·배점중복). FAIL=차단, WARN=알려진 한계. **단 lint PASS
 가 정상은 아님** — 위치·레이아웃 결함은 비전 대조로만 잡힌다(lint 는 1차 게이트).
 
+## OCR 백엔드 다중화 + 품질 자동 라우팅 (2026-06-16, 구현·검증 완료)
+
+배포 exe 의 OCR 을 **Claude 단일 → 품질 기반 3단계 자동 분기**로 다중화(비용 5~7배↓). 분기점은
+`core/ocr_engine.OCREngine._stream_message` **단 하나** — 그 아래(`recognize_page/crop`·`_transcribe`·
+`_recover_table`·`_extract_json`·`_accrue_usage`)는 전부 모델 무관 재사용. Gemini 응답은
+`_GeminiMessage`/`_GeminiUsage` 가 Anthropic Message 형태(`.content[0].text`·`.stop_reason`·
+`.usage`)로 감싼다. `_stream_message(..., json_mode=)` 로 JSON 모드(`response_mime_type`) 분기 —
+전사(`_transcribe`/`_transcribe_table`)만 평문(False).
+
+- **라우팅(GUI 워커, 크롭검출=문제 유무 확정 *후* 페이지별)**: born-digital(텍스트레이어/벡터)
+  **또는** 고QC(`QC_CLEAN_SCORE`≥70) → `gemini-3.5-flash`(클린·저렴), 아니면(스캔/저품질=손글씨
+  가능) → `gemini-3.1-pro-preview`(충실도·보수적). ⚠️ **스캔 원본은 born=False**(만덕고도 img=1)
+  → **QC 점수 폴백이 클린 스캔을 flash 로 보내는 핵심 라우터**(검증: 클린 QC100→flash, 흐림
+  QC60→pro). config `OCR_BACKEND`("auto"|"claude"|"gemini-pro"|"gemini-flash") + GUI 드롭다운으로
+  override. Gemini 키 없으면 Claude 폴백(1회 경고).
+- **제약(사용자 강조)**: ① 품질-차단은 **문제 페이지에만**(표지·답지=크롭0 자동 스킵=별개 축).
+  ② **페이지 차단 ≠ PDF 차단**(한 장 불가→그 장만 스킵, 전 페이지 불가→PDF 거부). Gate1 문구
+  "OCR 불가 — 이 페이지만 건너뜀(변환은 계속)"로 명확화.
+- **⭐ 자가발전(corpus)·ocr_eval 은 Sonnet 고정(사용자 2026-06-16)** — 전 reviewed corpus 가
+  Sonnet 베이스라인 + 결정적 후보정으로 구축됐다. 같은 모델로 계속 돌려야 후보정 회귀가 비교
+  가능("비슷한 효과"). 그래서 **`OCREngine` 기본 backend="claude" 는 config `OCR_BACKEND` 를
+  honor하지 않는다(의도)** — 직접 인스턴스화하는 `scripts/testkit.py`·`scripts/ocr_eval/score_ocr.py`
+  는 `backend="claude"` 명시. **Gemini 자동 라우팅은 배포 GUI(`gui/main_window`) 한 곳만.**
+  corpus_render(소비자)는 캐시 렌더라 OCR 자체가 없어 무관. (메모리 `ocr-engine-quality-routing`.)
+- Anthropic 키 **선택사항화**: auto/Gemini OCR 은 Gemini 키만 있으면 됨(둘 중 하나 이상 필요).
+  크롭 검출은 종전대로 항상 Gemini Flash(별개, `crop_detector._detect_with_gemini`).
+
 ## 작업 마무리 워크플로우 (필수)
 
 코드를 변경한 뒤에는 **항상 아래 순서로 마무리**한다:

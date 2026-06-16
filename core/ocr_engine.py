@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import base64
 import json
 import logging
 import random
@@ -13,6 +14,7 @@ from pathlib import Path
 
 from PIL import Image
 import anthropic
+import httpx   # anthropic 의 하드 의존 — 스트리밍 중 전송오류(RemoteProtocolError 등) 재시도용
 
 logger = logging.getLogger(__name__)
 
@@ -229,12 +231,96 @@ def _retry_after_seconds(exc) -> float | None:
     return None
 
 from core.pdf_handler import image_to_base64
-from utils.config import get_api_key, CLAUDE_MODEL, CLAUDE_MAX_TOKENS
+from utils.config import (get_api_key, get_gemini_key, CLAUDE_MODEL,
+                          CLAUDE_MAX_TOKENS, GEMINI_PRO_MODEL, GEMINI_FLASH_MODEL)
 
 # OCR 응답 토큰 예산: 수식이 많은 문항은 JSON 이 길어 8192 면 **잘려서**(max_tokens)
 # JSON 이 깨지고 그 문항이 통째로 건너뛰어진다(실데이터 다사중 p2 박스2). 크롭 1개라도
 # 넉넉히 준다. config 가 더 크면 그 값을 쓴다. (Claude Sonnet 4.x 출력 한계 내.)
 OCR_MAX_TOKENS = max(int(CLAUDE_MAX_TOKENS), 16384)
+
+
+# ── Gemini 백엔드 어댑터(2026-06-16) ───────────────────────────────────────────
+# `_stream_message` 가 백엔드별로 분기하되, 그 아래 모든 downstream(_msg_text·
+# _accrue_usage·recognize_crop 의 .stop_reason 검사 등)은 **Anthropic Message 형태**를
+# 가정한다. Gemini generate_content 응답을 그 형태로 감싸 downstream 을 그대로 재사용한다.
+def _is_transient_api_error(exc) -> bool:
+    """레이트리밋/일시오류(재시도 대상)인지 — Claude·Gemini 공통 판정(예외 타입 무관)."""
+    code = getattr(exc, "code", None)
+    if not isinstance(code, int):
+        code = getattr(exc, "status_code", None)
+    if isinstance(code, int) and code in _RL_TRANSIENT_STATUS:
+        return True
+    blob = (type(exc).__name__ + " " + str(exc)).lower()
+    keys = ("servererror", "resourceexhausted", "serviceunavailable",
+            "deadlineexceeded", "unavailable", "overloaded", "timeout",
+            "connection", "rate limit", "ratelimit", " 429", " 503", " 500",
+            " 502", " 529")
+    return any(k in blob for k in keys)
+
+
+def _gemini_text(resp) -> str:
+    """Gemini 응답에서 텍스트 추출(.text 우선, 막히면 candidates→parts 수동 결합)."""
+    try:
+        t = resp.text
+        if t:
+            return t
+    except Exception:  # noqa: BLE001  (.text 는 parts 0개/blocked 시 예외 가능)
+        pass
+    out: list[str] = []
+    try:
+        for cand in (getattr(resp, "candidates", None) or []):
+            content = getattr(cand, "content", None)
+            for part in (getattr(content, "parts", None) or []):
+                tx = getattr(part, "text", None)
+                if tx:
+                    out.append(tx)
+    except Exception:  # noqa: BLE001
+        pass
+    return "".join(out)
+
+
+def _gemini_stop_reason(resp) -> str:
+    """Gemini finish_reason → Anthropic stop_reason. MAX_TOKENS 만 별도 처리(잘림 재시도)."""
+    try:
+        cand = (getattr(resp, "candidates", None) or [None])[0]
+        fr = getattr(cand, "finish_reason", None)
+        name = (getattr(fr, "name", None) or str(fr or "")).upper()
+        if "MAX_TOKEN" in name:
+            return "max_tokens"
+    except Exception:  # noqa: BLE001
+        pass
+    return "end_turn"
+
+
+class _GeminiTextBlock:
+    """Anthropic content 블록 호환(`.text`)."""
+
+    __slots__ = ("text",)
+
+    def __init__(self, text: str):
+        self.text = text or ""
+
+
+class _GeminiUsage:
+    """Anthropic Message.usage 호환 — `_accrue_usage` 가 읽는 속성명을 그대로 노출."""
+
+    def __init__(self, um):
+        self.input_tokens = int(getattr(um, "prompt_token_count", 0) or 0) if um else 0
+        self.output_tokens = int(getattr(um, "candidates_token_count", 0) or 0) if um else 0
+        # Gemini 암묵 캐시(있으면). 캐시 '쓰기' 개념은 없어 0.
+        self.cache_read_input_tokens = int(
+            getattr(um, "cached_content_token_count", 0) or 0) if um else 0
+        self.cache_creation_input_tokens = 0
+
+
+class _GeminiMessage:
+    """Gemini generate_content 응답 → Anthropic Message 어댑터(.content/.stop_reason/.usage)."""
+
+    def __init__(self, resp):
+        self.content = [_GeminiTextBlock(_gemini_text(resp))]
+        self.stop_reason = _gemini_stop_reason(resp)
+        self.usage = _GeminiUsage(getattr(resp, "usage_metadata", None))
 
 
 @dataclass
@@ -496,19 +582,49 @@ def active_prompt() -> str:
 
 
 class OCREngine:
-    """Claude Vision API 기반 OCR 엔진."""
+    """Vision API 기반 OCR 엔진(Claude / Gemini 다중 백엔드, 2026-06-16).
 
-    def __init__(self, api_key: str | None = None):
-        self.api_key = api_key or get_api_key()
-        # max_retries: SDK 자체 백오프(429/5xx/연결오류)를 2→5 로 올려 1차 방어선으로.
-        # 그 위에 _stream_message 가 명시적 백오프(로깅 포함)로 2차 방어.
-        self.client = anthropic.Anthropic(api_key=self.api_key, max_retries=5)
+    `backend`:
+      - "claude"       → Anthropic(`CLAUDE_MODEL`)
+      - "gemini-pro"   → google.genai(`GEMINI_PRO_MODEL`, messy/스캔 — 충실도 우선)
+      - "gemini-flash" → google.genai(`GEMINI_FLASH_MODEL`, clean — 비용·속도)
+    `backend` 는 **인스턴스 고정**(병렬 크롭 스레드 안전). 모델별 분기는 오직
+    `_stream_message` 한 곳뿐 — recognize_page/crop·전사·표복구·`_extract_json`·
+    `_accrue_usage` 등 downstream 은 전부 그대로 재사용한다.
+    """
+
+    def __init__(self, api_key: str | None = None, backend: str = "claude",
+                 model: str | None = None):
+        # ⚠️ 기본 backend="claude"(Sonnet) 는 **의도적**이며 config OCR_BACKEND 를 honor하지
+        #    않는다. 직접 OCREngine() 을 쓰는 스크립트(testkit·ocr_eval = 자가발전 corpus)는
+        #    항상 Sonnet 으로 돌아야 한다(사용자 2026-06-16: 전 corpus 가 Sonnet 베이스라인이라
+        #    후보정 회귀 비교 일관성). Gemini 자동 라우팅은 배포 GUI(gui/main_window) 가
+        #    OCR_BACKEND 를 읽어 backend 를 명시 지정하는 경로에서만 일어난다.
+        self.backend = (backend or "claude").lower()
         # 토큰 사용량 누적(비용 계산용, 사용자 2026-06-08). 캐시 read/create 분리 기록.
         self.usage = {"calls": 0, "input": 0, "output": 0,
                       "cache_create": 0, "cache_read": 0}
         # 페이지 내 크롭 OCR 이 ThreadPoolExecutor 병렬이라 += 가 경합(읽-수정-쓰 비원자)
         # → 집계 누락. 락으로 직렬화(비용 집계 정확성, 감사 2026-06-10).
         self._usage_lock = threading.Lock()
+
+        if self.backend == "claude":
+            self.api_key = api_key or get_api_key()
+            # max_retries: SDK 자체 백오프(429/5xx/연결오류)를 2→5 로 올려 1차 방어선으로.
+            # 그 위에 _stream_message 가 명시적 백오프(로깅 포함)로 2차 방어.
+            self.client = anthropic.Anthropic(api_key=self.api_key, max_retries=5)
+            self.model = model or CLAUDE_MODEL
+        elif self.backend in ("gemini-pro", "gemini-flash"):
+            self.api_key = (api_key or get_gemini_key() or "").strip()
+            if not self.api_key:
+                raise ValueError(
+                    "GEMINI_API_KEY 가 설정되지 않았습니다 — config.json 에 입력하세요.")
+            from google import genai
+            self.client = genai.Client(api_key=self.api_key)
+            self.model = model or (GEMINI_PRO_MODEL if self.backend == "gemini-pro"
+                                   else GEMINI_FLASH_MODEL)
+        else:
+            raise ValueError(f"알 수 없는 OCR 백엔드: {backend!r}")
 
     def _accrue_usage(self, u) -> None:
         """Message.usage 를 엔진 누적 카운터에 더한다(없는 필드는 0). 스레드 안전."""
@@ -529,8 +645,24 @@ class OCREngine:
             raise ValueError("빈 응답(content 없음)")
         return content[0].text
 
-    def _stream_message(self, content: list, max_tokens: int):
-        """스트리밍으로 메시지를 생성하고 최종 Message 를 반환한다.
+    def _stream_message(self, content: list, max_tokens: int, json_mode: bool = True):
+        """메시지를 생성하고 Anthropic Message(호환) 객체를 반환한다 — **백엔드 분기 지점**.
+
+        이 메서드가 모델별로 갈리는 **유일한 seam**이다. content 는 Anthropic 형식
+        (``[{"type":"text",...}, {"type":"image","source":{...}}]``)을 그대로 받고,
+        Gemini 백엔드는 그것을 내부에서 변환한다. 반환값은 `.content[0].text`·
+        `.stop_reason`·`.usage` 를 갖는 Message(호환) 객체.
+
+        `json_mode` 는 Gemini 전용 — JSON 응답 강제(`response_mime_type`). 순수 텍스트
+        전사(`_transcribe`/`_transcribe_table`)는 False(평문 출력). Claude 는 무시
+        (프롬프트로 JSON 유도, 응답 형식 강제 없음).
+        """
+        if self.backend == "claude":
+            return self._stream_claude(content, max_tokens)
+        return self._gemini_generate(content, max_tokens, json_mode)
+
+    def _stream_claude(self, content: list, max_tokens: int):
+        """Claude 스트리밍 — 최종 Message 반환.
 
         **논스트리밍(create) 은 max_tokens 가 커서 10분 초과 가능성이 있으면 SDK 가
         "Streaming is required for operations that may take longer than 10 minutes"
@@ -544,7 +676,7 @@ class OCREngine:
         for attempt in range(_RL_RETRIES):
             try:
                 with self.client.messages.stream(
-                    model=CLAUDE_MODEL,
+                    model=self.model,
                     max_tokens=max_tokens,
                     temperature=0,        # OCR=추출 작업 → 결정적(같은 입력=같은 출력)·정확도↑
                     messages=[{"role": "user", "content": content}],
@@ -560,6 +692,11 @@ class OCREngine:
                     raise
             except (anthropic.APIConnectionError, anthropic.APITimeoutError) as e:
                 last_exc = e                              # 네트워크 일시 오류
+            except httpx.TransportError as e:
+                # 스트리밍 중 연결 끊김(RemoteProtocolError·읽기/연결 오류 등)은 SDK 가
+                # anthropic 예외로 못 감싸고 raw httpx 로 새어 나온다(실측 2026-06-16).
+                # HTTPStatusError 는 TransportError 가 아니라 위 APIStatusError 가 잡는다.
+                last_exc = e
             if attempt == _RL_RETRIES - 1:
                 break
             delay = _retry_after_seconds(last_exc) or (_RL_BASE_DELAY * (2 ** attempt))
@@ -569,6 +706,52 @@ class OCREngine:
                 delay, attempt + 1, _RL_RETRIES, type(last_exc).__name__)
             time.sleep(delay)
         # 재시도 소진 → 마지막 예외 전파(워커가 해당 크롭만 건너뛰고 사용자에 원인 노출).
+        raise last_exc
+
+    def _gemini_generate(self, content: list, max_tokens: int, json_mode: bool):
+        """Gemini generate_content — Anthropic content → Gemini contents 변환 후 호출.
+
+        반환은 `_GeminiMessage`(Anthropic Message 호환). 레이트리밋/일시오류는 Claude 와
+        동일하게 지수 백오프 재시도(예외 타입 무관 `_is_transient_api_error` 로 판정).
+        영구 오류(인증·400 등)는 즉시 전파. `cache_control` 은 제거(Gemini 는 암묵 캐시).
+        """
+        from google.genai import types
+        parts = []
+        for block in content:
+            bt = block.get("type")
+            if bt == "text":
+                parts.append(types.Part.from_text(text=block.get("text", "")))
+            elif bt == "image":
+                src = block.get("source", {}) or {}
+                data = src.get("data", "")
+                raw = base64.b64decode(data) if data else b""
+                parts.append(types.Part.from_bytes(
+                    data=raw, mime_type=src.get("media_type", "image/png")))
+        cfg_kwargs = dict(temperature=0, max_output_tokens=max(int(max_tokens), 4096))
+        if json_mode:
+            cfg_kwargs["response_mime_type"] = "application/json"
+        config = types.GenerateContentConfig(**cfg_kwargs)
+
+        last_exc: Exception | None = None
+        for attempt in range(_RL_RETRIES):
+            try:
+                resp = self.client.models.generate_content(
+                    model=self.model, contents=parts, config=config)
+                msg = _GeminiMessage(resp)
+                self._accrue_usage(msg.usage)
+                return msg
+            except Exception as e:  # noqa: BLE001
+                if not _is_transient_api_error(e):
+                    raise
+                last_exc = e
+            if attempt == _RL_RETRIES - 1:
+                break
+            delay = _retry_after_seconds(last_exc) or (_RL_BASE_DELAY * (2 ** attempt))
+            delay = min(delay + random.uniform(0, delay * 0.5), 60.0)   # 지터 + 상한
+            logger.warning(
+                "[FALLBACK] Gemini 레이트리밋/일시오류 — %.1fs 후 재시도(%d/%d): %s",
+                delay, attempt + 1, _RL_RETRIES, type(last_exc).__name__)
+            time.sleep(delay)
         raise last_exc
 
     def recognize_page(self, image: Image.Image) -> dict:
@@ -721,7 +904,7 @@ class OCREngine:
                                          "media_type": "image/png", "data": base64_image}},
             {"type": "text", "text": prompt},
         ]
-        return self._stream_message(content, 4096).content[0].text or ""
+        return self._stream_message(content, 4096, json_mode=False).content[0].text or ""
 
     def _transcribe(self, base64_image: str) -> str:
         """크롭 이미지의 **인쇄 텍스트 전체를 그대로 전사**(요약·구조화 없이 순수 텍스트).
@@ -739,7 +922,7 @@ class OCREngine:
                                          "media_type": "image/png", "data": base64_image}},
             {"type": "text", "text": prompt},
         ]
-        return self._stream_message(content, 8192).content[0].text or ""
+        return self._stream_message(content, 8192, json_mode=False).content[0].text or ""
 
     def _extract_json(self, text: str) -> dict:
         """응답에서 JSON 추출 (LaTeX 수식이 포함된 경우도 처리).
@@ -913,10 +1096,12 @@ class OCREngine:
         return ''.join(result)
 
     def validate_api_key(self) -> bool:
-        """API 키 유효성 검사."""
+        """API 키 유효성 검사(Claude 백엔드 한정 — Gemini 는 키 존재 여부만)."""
+        if self.backend != "claude":
+            return bool(self.api_key)
         try:
             self.client.messages.create(
-                model=CLAUDE_MODEL,
+                model=self.model,
                 max_tokens=10,
                 messages=[{"role": "user", "content": "test"}],
             )

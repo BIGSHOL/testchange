@@ -48,6 +48,55 @@ def pdf_to_images(pdf_path: str | Path) -> list[Image.Image]:
     return images
 
 
+def page_source_kinds(pdf_path: str | Path) -> list[dict]:
+    """페이지별 'born-digital(전자문서) 여부' 신호를 fitz 로 가볍게 수집한다(2026-06-16).
+
+    OCR 백엔드 라우팅용 — **born-digital PDF = 손글씨 물리적 불가 = 항상 클린**이라
+    저렴한 flash 로 안전하게 보낼 수 있고, 스캔/사진 사본(손글씨 가능)은 충실도 우선 pro 로
+    보낸다. 손글씨 전용 탐지 없이 **공짜·결정적 라우터**가 된다.
+
+    반환: 페이지(0-based)별 dict 리스트(인덱스 = 원본 PDF 페이지 번호):
+      ``{has_text, n_images, n_vectors, is_born_digital}``
+    - ``has_text``      : 페이지에 추출 가능한 텍스트 레이어가 있는가
+    - ``n_images``      : 임베드 래스터 이미지 개수(스캔본은 보통 페이지당 큰 이미지 1장)
+    - ``n_vectors``     : 벡터 드로잉(선/곡선/도형) 개수
+    - ``is_born_digital``: 텍스트 레이어가 있거나 벡터가 있으면 True(전자조판 추정)
+
+    ⚠️ **불완전한 신호**다 — 텍스트 레이어가 빈 born-digital(이미지로만 짠 전자문서)도 있다.
+    그래서 라우팅은 이 신호 **OR 고QC** 조합으로 판정하고, 애매하면 보수적으로 pro 로 둔다.
+    실패(손상 PDF 등)하면 빈 리스트를 돌려준다(호출부가 스캔으로 간주).
+    """
+    pdf_path = Path(pdf_path)
+    kinds: list[dict] = []
+    try:
+        doc = fitz.open(str(pdf_path))
+    except Exception:  # noqa: BLE001  (손상/암호화 PDF 등 — 신호 없이 진행)
+        return kinds
+    try:
+        for page in doc:
+            try:
+                has_text = bool((page.get_text() or "").strip())
+            except Exception:  # noqa: BLE001
+                has_text = False
+            try:
+                n_images = len(page.get_images(full=True))
+            except Exception:  # noqa: BLE001
+                n_images = 0
+            try:
+                n_vectors = len(page.get_drawings())
+            except Exception:  # noqa: BLE001
+                n_vectors = 0
+            kinds.append({
+                "has_text": has_text,
+                "n_images": n_images,
+                "n_vectors": n_vectors,
+                "is_born_digital": has_text or n_vectors > 0,
+            })
+    finally:
+        doc.close()
+    return kinds
+
+
 def load_image(image_path: str | Path) -> Image.Image:
     """이미지 파일을 PIL Image로 로드.
 

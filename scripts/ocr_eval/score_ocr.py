@@ -62,7 +62,8 @@ def _reocr(stem: str, i, ci, eval_dir: Path):
     png = Path(OCR_CACHE_ROOT) / stem / "crops_png" / f"crop_p{i}_c{ci}.png"
     if not png.exists():
         raise SystemExit(f"크롭 PNG 없음: {png} — 먼저 scripts/crop_dump.py 를 돌리세요.")
-    engine = _reocr.engine or OCREngine(api_key=get_api_key())  # type: ignore[attr-defined]
+    # OCR eval 골든셋도 Sonnet 고정(자가발전 일관성 — 사용자 2026-06-16). 배포 GUI 만 Gemini.
+    engine = _reocr.engine or OCREngine(api_key=get_api_key(), backend="claude")  # type: ignore[attr-defined]
     _reocr.engine = engine
     result = engine.recognize_crop(Image.open(png))  # raw(resolve_figs 미적용)
     eval_dir.mkdir(parents=True, exist_ok=True)

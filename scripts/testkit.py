@@ -114,7 +114,10 @@ def main(argv):
                   open(crops_fp, "w", encoding="utf-8"), ensure_ascii=False)
         print("crops: OCR(Gemini) → cached")
 
-    engine = OCREngine(api_key=api)
+    # 자가발전/corpus 는 **Sonnet 고정**(사용자 2026-06-16): 전 reviewed corpus 가 Sonnet
+    # 베이스라인 + 결정적 후보정으로 구축됐다. 같은 모델로 계속 돌려야 후보정 회귀가 비교 가능
+    # ("비슷한 효과"). 배포 exe(GUI)만 Gemini 자동 라우팅(OCR_BACKEND=auto). config 무관하게 명시.
+    engine = OCREngine(api_key=api, backend="claude")
     pages = []
     pnum = 0
     n_api = n_cache = 0
