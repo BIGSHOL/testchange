@@ -1,0 +1,301 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 14,
+   "score": 5,
+   "contents": [
+    {
+     "type": "text",
+     "value": "집합 "
+    },
+    {
+     "type": "equation",
+     "value": "X = \\{1, 2, 3, 4\\}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "Y = \\{3, 4, 5, 6, 7\\}"
+    },
+    {
+     "type": "text",
+     "value": "에 대하여 "
+    },
+    {
+     "type": "equation",
+     "value": "X"
+    },
+    {
+     "type": "text",
+     "value": "에서 "
+    },
+    {
+     "type": "equation",
+     "value": "Y"
+    },
+    {
+     "type": "text",
+     "value": "로의 모든 함수 "
+    },
+    {
+     "type": "equation",
+     "value": "f"
+    },
+    {
+     "type": "text",
+     "value": " 중에서 임의로 하나를 선택하는 시행을 한다. 이 시행에서 선택한 함수 "
+    },
+    {
+     "type": "equation",
+     "value": "f"
+    },
+    {
+     "type": "text",
+     "value": "가 다음 조건을 만족시킬 때, "
+    },
+    {
+     "type": "equation",
+     "value": "f(1) = f(2)"
+    },
+    {
+     "type": "text",
+     "value": "일 확률은 "
+    },
+    {
+     "type": "equation",
+     "value": "\\frac{a}{b}"
+    },
+    {
+     "type": "text",
+     "value": "이다. "
+    },
+    {
+     "type": "equation",
+     "value": "a + b"
+    },
+    {
+     "type": "text",
+     "value": "의 값은? (단, "
+    },
+    {
+     "type": "equation",
+     "value": "a"
+    },
+    {
+     "type": "text",
+     "value": "와 "
+    },
+    {
+     "type": "equation",
+     "value": "b"
+    },
+    {
+     "type": "text",
+     "value": "는 서로소인 자연수이다.)"
+    },
+    {
+     "type": "text",
+     "value": "<조건> (가) f(1)와 f(2)의 값은 모두 짝수이다. (나) f(1) \\geq f(2) \\geq f(3) \\geq f(4)"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "17"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "20"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "23"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "26"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "29"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 15,
+   "score": 5.1,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림과 같은 바둑판 모양의 도로망이 있다. "
+    },
+    {
+     "type": "equation",
+     "value": "P"
+    },
+    {
+     "type": "text",
+     "value": "지점에서 출발하여 "
+    },
+    {
+     "type": "equation",
+     "value": "Q"
+    },
+    {
+     "type": "text",
+     "value": "지점까지 도로를 따라 최단 거리로 갈 때, 도중에 방향을 바꾸는 횟수가 "
+    },
+    {
+     "type": "equation",
+     "value": "x"
+    },
+    {
+     "type": "text",
+     "value": "번인 경로의 수를 "
+    },
+    {
+     "type": "equation",
+     "value": "f(x)"
+    },
+    {
+     "type": "text",
+     "value": "라 하자. "
+    },
+    {
+     "type": "equation",
+     "value": "f(x)"
+    },
+    {
+     "type": "text",
+     "value": "가 최대가 될 때, "
+    },
+    {
+     "type": "equation",
+     "value": "x"
+    },
+    {
+     "type": "text",
+     "value": "의 값은?"
+    },
+    {
+     "type": "figure",
+     "value": "바둑판 모양 도로망(직사각형 격자). 왼쪽 아래 P지점, 오른쪽 위 Q지점.",
+     "bbox": [
+      0.05,
+      0.3,
+      0.48,
+      0.55
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "6"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "7"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "8"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "9"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 16,
+   "score": 6,
+   "label_type": "서답형",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서답형 1] 다음 조건을 만족시키는 모든 자연수의 개수를 구하는 과정과 그 답을 구하시오. [6점]"
+    },
+    {
+     "type": "text",
+     "value": "<조건> (가) 네 자리의 짝수이다. (나) 각 자리수의 합이 7보다 작다."
+    }
+   ],
+   "choices": [],
+   "sub_questions": []
+  },
+  {
+   "number": 17,
+   "score": 7,
+   "label_type": "서답형",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서답형 2] 서로 다른 공 4개를 남김없이 서로 다른 상자 4개에 나누어 넣으려고 할 때, 넣은 공의 개수가 2인 상자가 있도록 넣는 경우의 수를 구하는 과정과 그 답을 구하시오. (단, 공을 하나도 넣지 않은 상자가 있을 수 있다.) [7점]"
+    }
+   ],
+   "choices": [],
+   "sub_questions": []
+  }
+ ]
+}

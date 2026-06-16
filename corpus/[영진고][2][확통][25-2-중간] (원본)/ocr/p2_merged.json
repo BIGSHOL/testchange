@@ -1,0 +1,677 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 7,
+   "score": 4.3,
+   "contents": [
+    {
+     "type": "text",
+     "value": "A반 학생 5명과 B반 학생 4명 중에서 임의로 청소당번 5명을 뽑을 때, A반 학생이 B반 학생보다 많이 뽑힐 확률은? (단, B반 학생이 한 명도 뽑히지 않을 수도 있다.)"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{39}{63}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{79}{126}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{40}{63}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{9}{14}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{41}{63}"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 8,
+   "score": 4.4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "반드시 일어나는 사건을 "
+    },
+    {
+     "type": "equation",
+     "value": "S"
+    },
+    {
+     "type": "text",
+     "value": ", 절대로 일어나지 않을 사건을 "
+    },
+    {
+     "type": "equation",
+     "value": "\\varnothing"
+    },
+    {
+     "type": "text",
+     "value": "이라 할 때, 임의의 두 사건 "
+    },
+    {
+     "type": "equation",
+     "value": "A"
+    },
+    {
+     "type": "text",
+     "value": "와 "
+    },
+    {
+     "type": "equation",
+     "value": "B"
+    },
+    {
+     "type": "text",
+     "value": "에 대하여 옳은 것만을 <보기>에서 있는 대로 고른 것은?"
+    },
+    {
+     "type": "text",
+     "value": "<보기> ㄱ. P(A)P(B) = P(A \\cap B) ㄴ. 0 \\leq P(A) + P(\\varnothing) \\leq 1 ㄷ. P(A) + P(B) < P(A \\cup B) ㄹ. 1 < P(A) + P(S) + P(A^c) + P(B^c) \\leq 3"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄱ, ㄴ"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄱ, ㄷ"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄴ, ㄷ"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄴ, ㄹ"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄷ, ㄹ"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 9,
+   "score": 4.5,
+   "contents": [
+    {
+     "type": "text",
+     "value": "두 사건 "
+    },
+    {
+     "type": "equation",
+     "value": "A"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "B"
+    },
+    {
+     "type": "text",
+     "value": "가 일어날 확률은 각각 "
+    },
+    {
+     "type": "equation",
+     "value": "\\frac{1}{4}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\frac{2}{3}"
+    },
+    {
+     "type": "text",
+     "value": "이고, "
+    },
+    {
+     "type": "equation",
+     "value": "A"
+    },
+    {
+     "type": "text",
+     "value": "가 일어났을 때 "
+    },
+    {
+     "type": "equation",
+     "value": "B"
+    },
+    {
+     "type": "text",
+     "value": "가 일어날 조건부확률과 "
+    },
+    {
+     "type": "equation",
+     "value": "B"
+    },
+    {
+     "type": "text",
+     "value": "가 일어났을 때 "
+    },
+    {
+     "type": "equation",
+     "value": "A"
+    },
+    {
+     "type": "text",
+     "value": "가 일어날 조건부확률의 합은 "
+    },
+    {
+     "type": "equation",
+     "value": "\\frac{1}{2}"
+    },
+    {
+     "type": "text",
+     "value": "이다. "
+    },
+    {
+     "type": "equation",
+     "value": "P(B \\mid A)"
+    },
+    {
+     "type": "text",
+     "value": "의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{7}{22}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{4}{11}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{9}{22}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{5}{11}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{1}{2}"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 10,
+   "score": 4.6,
+   "contents": [
+    {
+     "type": "text",
+     "value": "서로 독립인 두 사건 "
+    },
+    {
+     "type": "equation",
+     "value": "A"
+    },
+    {
+     "type": "text",
+     "value": "와 "
+    },
+    {
+     "type": "equation",
+     "value": "B"
+    },
+    {
+     "type": "text",
+     "value": "에 대하여 "
+    },
+    {
+     "type": "equation",
+     "value": "P(A) = 0.3"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "P(A^c \\cap B^c) = 0.42"
+    },
+    {
+     "type": "text",
+     "value": "일 때, 사건 "
+    },
+    {
+     "type": "equation",
+     "value": "B"
+    },
+    {
+     "type": "text",
+     "value": "가 일어나지 않을 확률은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "0.4"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "0.5"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "0.6"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "0.7"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "0.8"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 11,
+   "score": 4.7,
+   "contents": [
+    {
+     "type": "text",
+     "value": "어느 지역에서 장마철 날씨를 조사한 결과 비가 온 날의 다음날에 비가 올 확률은 0.7이고, 비가 오지 않은 날의 다음날에 비가 올 확률은 0.2이었다. 장마철의 어느 월요일에 비가 오지 않았을 때, 그 주 목요일에는 비가 올 확률은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "0.238"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "0.25"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "0.338"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "0.35"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "0.366"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 12,
+   "score": 4.8,
+   "contents": [
+    {
+     "type": "text",
+     "value": "점 "
+    },
+    {
+     "type": "equation",
+     "value": "P"
+    },
+    {
+     "type": "text",
+     "value": "가 한 변의 길이가 1인 정육각형 "
+    },
+    {
+     "type": "equation",
+     "value": "ABCDEF"
+    },
+    {
+     "type": "text",
+     "value": "의 변 위를 주사위를 한 번 던질 때마다 다음과 같은 조건에 따라 움직인다. 주사위 6번을 던질 때, 점 "
+    },
+    {
+     "type": "equation",
+     "value": "A"
+    },
+    {
+     "type": "text",
+     "value": "를 출발한 점 "
+    },
+    {
+     "type": "equation",
+     "value": "P"
+    },
+    {
+     "type": "text",
+     "value": "가 다시 점 "
+    },
+    {
+     "type": "equation",
+     "value": "A"
+    },
+    {
+     "type": "text",
+     "value": "로 되돌아올 확률은?"
+    },
+    {
+     "type": "text",
+     "value": "<조건> (가) 나오는 수가 홀수인 소수이면 시곗바늘이 도는 방향으로 1만큼 움직인다. (나) 나오는 눈의 수가 홀수인 소수가 아니면 시곗바늘이 도는 방향과 반대인 방향으로 1만큼 움직인다."
+    },
+    {
+     "type": "figure",
+     "value": "한 변의 길이 1인 정육각형 ABCDEF. 꼭짓점 A에서 출발하는 점 P 표시.",
+     "bbox": [
+      0.05,
+      0.83,
+      0.4,
+      0.97
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{73}{729}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{101}{729}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{43}{243}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{157}{729}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{25}{81}"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 13,
+   "score": 4.9,
+   "contents": [
+    {
+     "type": "text",
+     "value": "다항식 "
+    },
+    {
+     "type": "equation",
+     "value": "2(x + a)^n"
+    },
+    {
+     "type": "text",
+     "value": "의 전개식에서 "
+    },
+    {
+     "type": "equation",
+     "value": "x^{n-1}"
+    },
+    {
+     "type": "text",
+     "value": "의 계수와 다항식 "
+    },
+    {
+     "type": "equation",
+     "value": "(x - 1)(x + a)^n"
+    },
+    {
+     "type": "text",
+     "value": "의 전개식에서 "
+    },
+    {
+     "type": "equation",
+     "value": "x^{n-1}"
+    },
+    {
+     "type": "text",
+     "value": "의 계수가 같게 되는 모든 순서쌍 "
+    },
+    {
+     "type": "equation",
+     "value": "(a, n)"
+    },
+    {
+     "type": "text",
+     "value": "의 개수를 구하면? (단, "
+    },
+    {
+     "type": "equation",
+     "value": "a"
+    },
+    {
+     "type": "text",
+     "value": "는 자연수이고, "
+    },
+    {
+     "type": "equation",
+     "value": "n \\geq 2"
+    },
+    {
+     "type": "text",
+     "value": "인 자연수이다.)"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "6"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "7"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "8"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  }
+ ]
+}

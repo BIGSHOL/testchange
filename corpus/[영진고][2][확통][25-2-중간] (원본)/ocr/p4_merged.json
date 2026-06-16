@@ -1,0 +1,208 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 18,
+   "score": 7,
+   "label_type": "서답형",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서답형 3] 7번의 경기 중에서 4번을 먼저 이기는 사람이 최종 우승하는 게임 대회의 결승에 "
+    },
+    {
+     "type": "equation",
+     "value": "A"
+    },
+    {
+     "type": "text",
+     "value": "와 "
+    },
+    {
+     "type": "equation",
+     "value": "B"
+    },
+    {
+     "type": "text",
+     "value": " 두 사람이 진출하였다. "
+    },
+    {
+     "type": "equation",
+     "value": "B"
+    },
+    {
+     "type": "text",
+     "value": "가 첫 번째 경기를 이겼을 때, "
+    },
+    {
+     "type": "equation",
+     "value": "A"
+    },
+    {
+     "type": "text",
+     "value": "가 최종 우승할 확률을 구하는 과정과 그 답을 구하시오. (단, "
+    },
+    {
+     "type": "equation",
+     "value": "A"
+    },
+    {
+     "type": "text",
+     "value": "가 "
+    },
+    {
+     "type": "equation",
+     "value": "B"
+    },
+    {
+     "type": "text",
+     "value": "를 이길 확률은 "
+    },
+    {
+     "type": "equation",
+     "value": "\\frac{1}{4}"
+    },
+    {
+     "type": "text",
+     "value": "이고, 비기는 경우는 없다.) [7점]"
+    }
+   ],
+   "choices": [],
+   "sub_questions": []
+  },
+  {
+   "number": 19,
+   "score": 7,
+   "label_type": "서답형",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서답형 4] 집합 "
+    },
+    {
+     "type": "equation",
+     "value": "X = \\{1, 2, 3, 4\\}"
+    },
+    {
+     "type": "text",
+     "value": "의 부분집합 중에서 중복을 허락하여 임의로 택한 두 집합을 "
+    },
+    {
+     "type": "equation",
+     "value": "A"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "B"
+    },
+    {
+     "type": "text",
+     "value": "라 할 때, "
+    },
+    {
+     "type": "equation",
+     "value": "n(A \\cap B) = 1"
+    },
+    {
+     "type": "text",
+     "value": " 또는 "
+    },
+    {
+     "type": "equation",
+     "value": "n(A \\cup B) = 3"
+    },
+    {
+     "type": "text",
+     "value": "일 확률을 구하는 과정과 그 답을 구하시오. [7점]"
+    }
+   ],
+   "choices": [],
+   "sub_questions": []
+  },
+  {
+   "number": 20,
+   "score": 7,
+   "label_type": "서답형",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서답형 5] 학생 A는 숫자 0, 9, 10이 각각 하나씩 적혀있는 카드 3장 중에서 임의로 한 장의 카드를 선택하여 선택한 카드에 적힌 수가 9일 때만 선택한 카드를 바닥에 내려놓고, 학생 B는 숫자 1, 2, 3, 4, 5, 6, 7, 8이 각각 하나씩 적혀있는 카드 8장 중에서 임의로 한 장의 카드를 선택하여 선택한 카드에 적힌 수가 자연수 "
+    },
+    {
+     "type": "equation",
+     "value": "n"
+    },
+    {
+     "type": "text",
+     "value": "보다 작거나 같을 때만 선택한 카드를 바닥에 내려놓는다. 다음 조건에 따라 학생 A가 상금을 받을 확률을 "
+    },
+    {
+     "type": "equation",
+     "value": "p"
+    },
+    {
+     "type": "text",
+     "value": ", 학생 B가 상금을 받을 확률을 "
+    },
+    {
+     "type": "equation",
+     "value": "q"
+    },
+    {
+     "type": "text",
+     "value": "라 하자. "
+    },
+    {
+     "type": "equation",
+     "value": "4p = 3q"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "n"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "p"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "q"
+    },
+    {
+     "type": "text",
+     "value": "의 값을 구하는 과정과 그 답을 구하시오. (단, "
+    },
+    {
+     "type": "equation",
+     "value": "n"
+    },
+    {
+     "type": "text",
+     "value": "은 8이하의 자연수이다.) [7점]"
+    },
+    {
+     "type": "text",
+     "value": "<조건> (가) 카드를 내려놓은 학생이 2명이면 더 작은 수가 적힌 카드를 내려놓은 학생만 상금을 받는다. (나) 카드를 내려놓은 학생이 1명이면 카드를 내려놓지 않은 학생만 상금을 받는다. (다) 카드를 내려놓은 학생이 없으면 어느 학생도 상금을 받지 못한다."
+    }
+   ],
+   "choices": [],
+   "sub_questions": []
+  }
+ ]
+}

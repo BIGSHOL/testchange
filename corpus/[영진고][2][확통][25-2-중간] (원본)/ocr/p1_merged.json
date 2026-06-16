@@ -1,0 +1,411 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 1,
+   "score": 3.7,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림과 같은 정사각형 모양의 식탁에 할아버지를 포함한 8명이 둘러 앉아 식사를 하려고 한다. 할아버지가 먼저 ★에 앉았을 때, 나머지 7명이 식탁에 둘러 앉는 경우의 수는? (단, 회전하여 일치하는 것은 같은 것으로 본다.)"
+    },
+    {
+     "type": "figure",
+     "value": "정사각형 식탁 둘레에 8개의 좌석이 배치된 그림. 한 좌석에 ★ 표시(할아버지 자리).",
+     "bbox": [
+      0.3,
+      0.4,
+      0.66,
+      0.55
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4! \\times 2"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "7!"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "7! \\times 2"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "8!"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{8!}{2}"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 2,
+   "score": 3.8,
+   "contents": [
+    {
+     "type": "text",
+     "value": "<보기>의 수식을 계산한 값과 같은 것을 고르면?"
+    },
+    {
+     "type": "text",
+     "value": "<보기> {}_2\\mathrm{C}_0 + {}_3\\mathrm{C}_1 + {}_4\\mathrm{C}_2 + {}_5\\mathrm{C}_3 + {}_6\\mathrm{C}_4 + {}_7\\mathrm{C}_5 + {}_8\\mathrm{C}_6 + {}_9\\mathrm{C}_7 + {}_{10}\\mathrm{C}_8"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "{}_{10}\\mathrm{C}_2"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "{}_{10}\\mathrm{C}_3"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "{}_{11}\\mathrm{C}_2"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "{}_{11}\\mathrm{C}_3"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "{}_{12}\\mathrm{C}_2"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 3,
+   "score": 3.9,
+   "contents": [
+    {
+     "type": "text",
+     "value": "회원이 13명인 어느 동아리에서 "
+    },
+    {
+     "type": "equation",
+     "value": "A"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "B"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "C"
+    },
+    {
+     "type": "text",
+     "value": " 세 곳 중 한 곳으로 수련회를 가기로 하고, 아래 그림과 같은 투표용지에 각자 가고 싶은 곳을 무기명으로 기표하기로 했다. 각 회원이 한 곳에 기표할 때, 나올 수 있는 경우의 수는? (단, 기권 또는 무효표는 없다.)"
+    },
+    {
+     "type": "figure",
+     "value": "투표용지 표: '수련회 장소' 머리글 아래 A, B, C 세 칸이 세로로 배열됨.",
+     "bbox": [
+      0.3,
+      0.7,
+      0.7,
+      0.82
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "55"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "66"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "78"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "91"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "105"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 4,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "다섯 개의 숫자 0, 1, 2, 3, 4 중에서 중복을 허용하여 만든 자연수를 크기가 작은 것부터 차례대로 나열할 때, 2020은 몇 번째 수인지 구하면?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "250"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "260"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "270"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "280"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "290"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 5,
+   "score": 4.1,
+   "contents": [
+    {
+     "type": "text",
+     "value": "어떤 인공지능 모델은 이메일이 스팸인지 아닌지를 분류한다. 100개 중의 3번 꼴로 스팸 메일을 받을 때, 스팸 이메일 중 85%가 '할인'이라는 단어를 포함하고, 스팸이 아닌 이메일 중 20%만 '할인'이라는 단어를 포함한다. 어떤 이메일에 '할인'이라는 단어가 포함되어 있을 때, 그 메일이 스팸 이메일일 확률은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{51}{103}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{258}{2195}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{52}{439}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{263}{2195}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{53}{439}"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 6,
+   "score": 4.2,
+   "contents": [
+    {
+     "type": "text",
+     "value": "할머니, 할아버지, 어머니, 아버지, 영희, 철수 모두 6명인 가족이 자동차를 타고 여행을 가려고 한다. 이 자동차에는 앉을 수 있는 좌석이 그림과 같이 앞줄에 2개, 가운데 줄에 3개, 뒷줄에 3개가 있다. 운전석에는 아버지나 어머니만 앉을 수 있고, 영희와 철수는 가운데 줄에만 앉을 수 있을 때, 가족 6명이 모두 자동차의 좌석에 앉는 경우의 수는?"
+    },
+    {
+     "type": "figure",
+     "value": "자동차 좌석 배치도: 앞줄 2개(왼쪽이 운전석), 가운데 줄 3개, 뒷줄 3개.",
+     "bbox": [
+      0.1,
+      0.55,
+      0.45,
+      0.78
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "12"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "72"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "144"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "360"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "720"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  }
+ ]
+}
