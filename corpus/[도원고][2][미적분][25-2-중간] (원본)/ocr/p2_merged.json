@@ -1,0 +1,470 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 9,
+   "score": 3.2,
+   "contents": [
+    {
+     "type": "text",
+     "value": "x에 대한 이차방정식 "
+    },
+    {
+     "type": "equation",
+     "value": "4^n x^2 + 2^n x - 1 = 0"
+    },
+    {
+     "type": "text",
+     "value": "의 두 근이 "
+    },
+    {
+     "type": "equation",
+     "value": "\\alpha_n"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\beta_n"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\sum_{n=1}^{\\infty} (\\alpha_n - \\beta_n)^2"
+    },
+    {
+     "type": "text",
+     "value": "의 값은? (단, "
+    },
+    {
+     "type": "equation",
+     "value": "n"
+    },
+    {
+     "type": "text",
+     "value": "은 자연수)"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{1}{3}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{2}{3}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{4}{3}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{5}{3}"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 10,
+   "score": 3.2,
+   "contents": [
+    {
+     "type": "text",
+     "value": "등비수열 "
+    },
+    {
+     "type": "equation",
+     "value": "\\{a_n\\}"
+    },
+    {
+     "type": "text",
+     "value": "이 "
+    },
+    {
+     "type": "equation",
+     "value": "a_1 = 1"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\sum_{n=1}^{\\infty} a_n a_{n+1} = \\frac{2}{3}"
+    },
+    {
+     "type": "text",
+     "value": "를 만족시킬 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\sum_{n=1}^{\\infty} 9a_n^2"
+    },
+    {
+     "type": "text",
+     "value": "의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "6"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "9"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "12"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "15"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 11,
+   "score": 3.4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "수열 "
+    },
+    {
+     "type": "equation",
+     "value": "\\{a_n\\}"
+    },
+    {
+     "type": "text",
+     "value": "에 대하여 "
+    },
+    {
+     "type": "equation",
+     "value": "a_n = \\sum_{k=n}^{2n} \\ln\\frac{k+1}{k}"
+    },
+    {
+     "type": "text",
+     "value": "일 때, 극한값 "
+    },
+    {
+     "type": "equation",
+     "value": "\\lim_{n \\to \\infty} (2n a_n - \\ln 4^n)"
+    },
+    {
+     "type": "text",
+     "value": "은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\sqrt{e}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "e"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "e\\sqrt{e}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "e^2"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 12,
+   "score": 3.4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "함수 "
+    },
+    {
+     "type": "equation",
+     "value": "f(x) = 2^x \\log_2 x"
+    },
+    {
+     "type": "text",
+     "value": " 에 대하여 "
+    },
+    {
+     "type": "equation",
+     "value": "\\lim_{h \\to 0} \\frac{f(1 + \\ln 2^h) - f(1)}{h}"
+    },
+    {
+     "type": "text",
+     "value": " 의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\ln 2"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2\\ln 2"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{2}{\\ln 2}"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 13,
+   "score": 5,
+   "label_type": "서답형",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서답형 1] 자연수 "
+    },
+    {
+     "type": "equation",
+     "value": "n"
+    },
+    {
+     "type": "text",
+     "value": "과 함수 "
+    },
+    {
+     "type": "equation",
+     "value": "f(x) = \\lim_{n \\to \\infty} \\frac{x^{2n+1} - x|x| + 1}{x^{2n} + 1}"
+    },
+    {
+     "type": "text",
+     "value": " 에 대하여 "
+    },
+    {
+     "type": "equation",
+     "value": "3f\\left(\\frac{1}{4}\\right)f(-1)"
+    },
+    {
+     "type": "text",
+     "value": "의 값을 구하시오."
+    }
+   ],
+   "choices": [],
+   "sub_questions": []
+  },
+  {
+   "number": 14,
+   "score": 5,
+   "label_type": "서답형",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서답형 2] 길이가 1 m인 어떤 진자가 천장에 수직으로 매달려 있다. 그림과 같이 진자를 각 "
+    },
+    {
+     "type": "equation",
+     "value": "\\theta"
+    },
+    {
+     "type": "text",
+     "value": "(라디안)만큼 당겼다가 놓으면 추가 처음 매달려 있던 위치를 기준으로 이전에 올라간 각의 "
+    },
+    {
+     "type": "equation",
+     "value": "\\frac{3}{5}"
+    },
+    {
+     "type": "text",
+     "value": "배 만큼 반대쪽으로 올라갔다가 내려오는 과정을 멈출 때까지 계속 반복한다고 한다. 이 진자의 추가 정지할 때까지 움직인 거리의 합을 구하시오. (단, 처음에 잡아당긴 거리는 포함되지 않는다.)"
+    },
+    {
+     "type": "figure",
+     "value": "길이 1 m인 진자가 천장에 매달려 있고, 처음 각 θ만큼 당겼다 놓으면 반대쪽으로 (3/5)θ, 다시 (9/25)θ 만큼 점점 작은 각으로 좌우로 흔들리는 모습을 단계별(→ → → ⋯)로 나타낸 그림.",
+     "bbox": [
+      0.52,
+      0.42,
+      0.99,
+      0.62
+     ]
+    }
+   ],
+   "choices": [],
+   "sub_questions": []
+  },
+  {
+   "number": 15,
+   "score": 5,
+   "label_type": "서답형",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서답형 3] 함수 "
+    },
+    {
+     "type": "equation",
+     "value": "f(x) = \\begin{cases} \\cos\\left(x + \\frac{\\pi}{2}\\right) + a\\sin\\left(x + \\frac{\\pi}{2}\\right) & (x \\geq 0) \\\\ be^{2x+1} & (x < 0) \\end{cases}"
+    },
+    {
+     "type": "text",
+     "value": " 이 "
+    },
+    {
+     "type": "equation",
+     "value": "x = 0"
+    },
+    {
+     "type": "text",
+     "value": "에서 미분가능할 때, 실수 "
+    },
+    {
+     "type": "equation",
+     "value": "a"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "b"
+    },
+    {
+     "type": "text",
+     "value": "의 값을 구하시오."
+    }
+   ],
+   "choices": [],
+   "sub_questions": []
+  }
+ ]
+}

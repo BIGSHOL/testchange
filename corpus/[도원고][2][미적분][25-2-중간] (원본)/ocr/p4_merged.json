@@ -1,0 +1,163 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 20,
+   "score": 11,
+   "label_type": "서답형",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서답형 8] 그림은 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AB}"
+    },
+    {
+     "type": "text",
+     "value": "를 지름으로 하는 지름이 2인 반원과 이 반원을 점 A를 중심으로 반시계방향으로 "
+    },
+    {
+     "type": "equation",
+     "value": "\\theta"
+    },
+    {
+     "type": "text",
+     "value": "만큼 회전하여 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AC}"
+    },
+    {
+     "type": "text",
+     "value": "를 지름으로 하는 반원을 나타낸 것이다. 회전한 반원에서 빗금친 부분 ADC의 넓이를 "
+    },
+    {
+     "type": "equation",
+     "value": "S_1"
+    },
+    {
+     "type": "text",
+     "value": ", 부채꼴 ABC에서 색칠한 부분 BCD의 넓이를 "
+    },
+    {
+     "type": "equation",
+     "value": "S_2"
+    },
+    {
+     "type": "text",
+     "value": "라고 하자. "
+    },
+    {
+     "type": "equation",
+     "value": "f(\\theta) = S_1 - S_2"
+    },
+    {
+     "type": "text",
+     "value": "라 할 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\lim_{\\theta \\to 0+} \\frac{f(\\theta)}{\\sqrt{1 - \\cos\\theta}}"
+    },
+    {
+     "type": "text",
+     "value": "의 값을 구하는 풀이과정과 답을 쓰시오. (단, "
+    },
+    {
+     "type": "equation",
+     "value": "0 < \\theta < \\frac{\\pi}{2}"
+    },
+    {
+     "type": "text",
+     "value": "이다.)"
+    },
+    {
+     "type": "figure",
+     "value": "지름 AB=2인 반원과, 이를 점 A를 중심으로 반시계방향으로 θ만큼 회전하여 지름 AC로 만든 반원이 겹쳐진 그림. 회전한 반원의 활꼴 ADC(빗금, S₁)와 부채꼴 ABC의 색칠 부분 BCD(S₂)를 표시.",
+     "bbox": [
+      0.05,
+      0.26,
+      0.5,
+      0.48
+     ]
+    }
+   ],
+   "choices": [],
+   "sub_questions": []
+  },
+  {
+   "number": 21,
+   "score": 15,
+   "label_type": "서답형",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서답형 9] 그림은 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AB} = \\overline{AC} = \\overline{DE}"
+    },
+    {
+     "type": "text",
+     "value": "이고, 점 C는 선분 BD의 중점이며 삼각형 ABC와 삼각형 CDE의 넓이비가 "
+    },
+    {
+     "type": "equation",
+     "value": "n:1"
+    },
+    {
+     "type": "text",
+     "value": "일 때 "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle A = \\theta_n"
+    },
+    {
+     "type": "text",
+     "value": "을 나타낸 것이다. "
+    },
+    {
+     "type": "equation",
+     "value": "\\sum_{n=2}^{\\infty} \\frac{\\cos\\theta_n}{(n+1)^2}"
+    },
+    {
+     "type": "text",
+     "value": "의 값을 구하는 풀이과정과 답을 쓰시오. (단, "
+    },
+    {
+     "type": "equation",
+     "value": "0 < \\theta_n < \\frac{\\pi}{3}"
+    },
+    {
+     "type": "text",
+     "value": "이고 "
+    },
+    {
+     "type": "equation",
+     "value": "n \\geq 2"
+    },
+    {
+     "type": "text",
+     "value": "이다.)"
+    },
+    {
+     "type": "figure",
+     "value": "꼭짓점 A가 위에 있는 이등변삼각형 ABC(AB=AC)와, 밑변 BD 위에서 C가 BD의 중점이고 점 D 쪽에 작은 삼각형 CDE(DE=AB)가 놓인 그림. ∠A=θ_n, 두 삼각형 ABC와 CDE의 넓이비 n:1.",
+     "bbox": [
+      0.52,
+      0.2,
+      0.98,
+      0.46
+     ]
+    }
+   ],
+   "choices": [],
+   "sub_questions": []
+  }
+ ]
+}
