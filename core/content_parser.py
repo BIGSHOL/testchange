@@ -1443,11 +1443,27 @@ def _raw_box_end(raws: list[dict]) -> int | None:
                     # 보이면 박스 연속(분리 금지). post 가 eq+조사 발문 연속(학남고 #20
                     # ``P(Y≤29)``+"의 값을…" — 라벨 없음)은 그대로 분리(무회귀).
                     if (_ITEM_LEAD_RE.match(rest) and nxt.get("type") == "equation"):
-                        for j in range(i + 2, min(i + 8, len(raws))):
-                            if raws[j].get("type") != "text":
-                                continue
-                            if _INNER_ITEM_LABEL_RE.search(raws[j].get("value") or ""):
-                                return None
+                        # 후속 항목 라벨(``• (나)``·``• ㄴ.``)을 **전체 범위**에서 찾는다 —
+                        # (가)(나)·ㄱㄴㄷ 항목이 인라인 수식으로 여러 raw 로 쪼개진 다항목 라벨
+                        # 박스. 마지막 항목이 **자기완결**(라벨 뒤 내용이 그 블록 안에서 문장으로
+                        # 끝=마침표)이고 그 뒤에 블록이 더 있으면 그 다음이 발문 연속(상인고 수2 #15
+                        # ``<상자> (가) 함수 …대칭이다. • (나) …8이다.`` + "세 상수 …값은?" →
+                        # box_end=마지막 라벨+1=17). 마지막 항목 내용이 다음 블록(수식)으로 이어지거나
+                        # (경원고·대건고 확통 (나)(다) spill) 박스가 끝(남산고 확통 ㄱ~ㅂ 보기)이면
+                        # 분리 안 함(return None — 박스 유지). 과거 8블록 고정 윈도는 (가)가 길면
+                        # (수식 다수) (나)를 못 찾아 ``(가) 함수``만 박스에 남기고 유출시켰다.
+                        labels = [j for j in range(i + 2, len(raws))
+                                  if raws[j].get("type") == "text"
+                                  and _INNER_ITEM_LABEL_RE.search(raws[j].get("value") or "")]
+                        if labels:
+                            last_j = labels[-1]
+                            lm = list(_INNER_ITEM_LABEL_RE.finditer(
+                                raws[last_j].get("value") or ""))[-1]
+                            after = (raws[last_j].get("value") or "")[lm.end():].strip()
+                            if (after and after.endswith((".", "．"))
+                                    and last_j + 1 < len(raws)):
+                                return last_j + 1
+                            return None
                     # 불릿(·•○) 항목 박스 변종(경일여중3 #19·#20·#22, 2026-06-16): ㄱ./（가）
                     # 라벨이 아니라 **불릿**으로 항목을 나누는 조건/보기 박스가 인라인 수식
                     # 분리로 ``<조건> · 자료의 평균을`` + eq``a`` + ``…것 · 자료의 분산을`` … 처럼

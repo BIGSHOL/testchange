@@ -508,6 +508,49 @@ def _check_box_split_inline_eq(fails):
     ]
     if _raw_box_end(hannam) != 1:
         fails.append(f"  BX4 학남고형 분리 회귀: box_end={_raw_box_end(hannam)} (1 기대)")
+    # BX5: 다블록 (가)(나) 라벨 박스 — (가)가 인라인 수식으로 길게(>8블록) 쪼개져 (나)가 8블록
+    # 너머에 있고, 마지막 (나) 항목이 자기완결(마침표)이며 그 뒤 발문 연속이 있는 경우(상인고
+    # 수2 #15). box_end=마지막 라벨+1(박스=(가)(나), post=발문연속). 과거 8블록 고정 윈도가 (나)를
+    # 못 찾아 "(가) 함수"만 박스에 남기고 유출(box_end=마커+1)했다.
+    sa2_15 = [
+        {"type": "text", "value": "삼차함수 "},
+        {"type": "equation", "value": "f(x) = -2x^3 + ax^2 + bx + c"},
+        {"type": "text", "value": "가 다음 조건을 만족시킨다."},
+        {"type": "text", "value": "<상자> (가) 함수 "},
+        {"type": "equation", "value": "f(x)"},
+        {"type": "text", "value": "가 "},
+        {"type": "equation", "value": "x = \\alpha"},
+        {"type": "text", "value": "에서 극솟값, "},
+        {"type": "equation", "value": "x = \\beta"},
+        {"type": "text", "value": "에서 극댓값을 가지고, 두 점 "},
+        {"type": "equation", "value": "(\\alpha, f(\\alpha))"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "(\\beta, f(\\beta))"},
+        {"type": "text", "value": "는 점 "},
+        {"type": "equation", "value": "(0, -2)"},
+        {"type": "text", "value": "에 대하여 대칭이다."},
+        {"type": "text", "value": " • (나) 극댓값과 극솟값의 차는 8이다."},
+        {"type": "text", "value": "세 상수 "},
+        {"type": "equation", "value": "a, b, c"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "a^2 + b^2 + c^2"},
+        {"type": "text", "value": "의 값은?"},
+    ]
+    be = _raw_box_end(sa2_15)
+    if be != 17:
+        fails.append(f"  BX5 다블록(가)(나) 발문연속 분리: box_end={be} (17 기대)")
+    # 무회귀: 마지막 항목이 수식으로 spill(마침표 아님)하면 분리 안 함(None) — 경원고 확통 #22 형.
+    spill = [
+        {"type": "text", "value": "<조건> (가) 확률변수 "},
+        {"type": "equation", "value": "X"},
+        {"type": "text", "value": "는 정규분포를 따른다. • (나) 확률변수 "},
+        {"type": "equation", "value": "Y"},
+        {"type": "text", "value": "의 표준편차는 "},
+        {"type": "equation", "value": "X"},
+        {"type": "text", "value": "의 3배이다."},
+    ]
+    if _raw_box_end(spill) is not None:
+        fails.append(f"  BX5 spill 박스 오분리: box_end={_raw_box_end(spill)} (None 기대)")
 
 
 def _check_daegeon_go1_fixes(fails):
