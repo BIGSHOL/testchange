@@ -873,6 +873,19 @@ def _check_suha_fixes(fails):
         fails.append(f"  SH1 좌측첨자 흡수 실패: {[(b.type.name, b.value) for b in b1]!r}")
     if "{}_{" in tx1 or "{}" in tx1:
         fails.append(f"  SH1 좌측첨자 평문 leak: {tx1!r}")
+    # SH-EG(영진고 확통 #2): TEXT ``{}`` + EQ ``_2\mathrm{C}_0…``(bare 좌측첨자 — _LEFT_SCRIPT_PREFIX_RE
+    # 의 ``{}_{n}`` 중괄호 패턴이 못 잡아 인라인 분리로 ``{}``(평문)+``_2…``(EQ)로 쪼개져 literal ``{}``
+    # 노출). _merge_empty_group_subscript 가 ``{}`` 를 수식 앞으로 옮겨 ``{}_2…``(빈 base 좌측첨자) 복원.
+    from core.content_parser import _merge_empty_group_subscript
+    from models.exam_document import ContentBlock
+    eg = _merge_empty_group_subscript([
+        ContentBlock(type=CT.TEXT, value=" {}"),
+        ContentBlock(type=CT.EQUATION, value=r"_2\mathrm{C}_0 + {}_3\mathrm{C}_1"),
+    ])
+    eg_eq = "".join(b.value or "" for b in eg if b.type == CT.EQUATION)
+    eg_tx = "".join(b.value or "" for b in eg if b.type == CT.TEXT)
+    if not eg_eq.startswith("{}_2") or "{}" in eg_tx:
+        fails.append(f"  SH-EG 빈그룹 좌측첨자 병합 실패: eq={eg_eq!r} tx={eg_tx!r}")
     # SH2(강북고 #14): 집합 기호 ``\{ \}`` 가 수식에 유지돼야(평문 ₩{ 누수 방지). set 식이
     # ``Y`` ``=\{`` ``y`` 로 쪼개지면 안 됨.
     b2 = _split_latex_commands(r"공역이 Y=\{y|1 \leq y \leq 8\}일 때")

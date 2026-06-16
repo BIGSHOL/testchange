@@ -1312,12 +1312,40 @@ def _parse_raw_blocks(raws: list[dict]) -> list[ContentBlock]:
     return out
 
 
+def _merge_empty_group_subscript(blocks: list[ContentBlock]) -> list[ContentBlock]:
+    """TEXT 가 ``{}`` 로 끝나고 다음이 ``_``/``^`` 로 시작하는 EQUATION 이면 ``{}`` 를 수식 앞으로
+    옮긴다 — 좌측첨자 빈그룹(``{}_2\\mathrm{C}_0``)이 인라인 분리로 ``{}``(TEXT)+``_2…``(EQ)로
+    쪼개져 literal ``{}`` 가 노출되던 것(영진고 확통 #2 보기 ``{}_2C_0+…`` 조합 합 — bare 첨자라
+    _LEFT_SCRIPT_PREFIX_RE 의 ``{}_{n}`` 패턴이 못 잡음). ``{}`` 가 수식 앞에 붙으면 빈 base 좌측
+    첨자(``{}_{2} rm C_{0}`` → ``₂C₀``)로 정상 렌더."""
+    eq_types = (ContentType.EQUATION, ContentType.EQUATION_BLOCK)
+    out: list[ContentBlock] = []
+    i = 0
+    while i < len(blocks):
+        b = blocks[i]
+        nxt = blocks[i + 1] if i + 1 < len(blocks) else None
+        if (b.type == ContentType.TEXT and (b.value or "").rstrip().endswith("{}")
+                and nxt is not None and nxt.type in eq_types
+                and (nxt.value or "").lstrip().startswith(("_", "^"))):
+            nxt.value = "{}" + (nxt.value or "")
+            b.value = (b.value or "").rstrip()[:-2]   # 끝 ``{}`` 제거
+            if (b.value or "").strip():
+                out.append(b)
+            out.append(nxt)
+            i += 2
+            continue
+        out.append(b)
+        i += 1
+    return out
+
+
 def _finalize_contents(blocks: list[ContentBlock]) -> list[ContentBlock]:
     """문제 본문 후처리 파이프라인(분리·병합·이탤릭·로만·배점제거)."""
     blocks = _split_trailing_domain(blocks)        # 수식 끝 정의역 (x=0,1,⋯) 분리
     blocks = _split_comma_equations(blocks)         # 쉼표 구분 독립 수식 분리
     blocks = _merge_operator_split_equations(blocks)  # eq·연산자·eq 병합
     blocks = _merge_text_eq_fragments(blocks)       # text(꼬리부등식)·eq·text(머리부등식) 병합
+    blocks = _merge_empty_group_subscript(blocks)   # {}(TEXT)+_2…(EQ) → 좌측첨자 빈그룹 복원
     blocks = _merge_degree_temp_units(blocks)       # 온도 단위 °C/°F (EQ+TEXT"°"+EQ"C") 한 수식 병합
     blocks = _merge_paren_range(blocks)             # 점화식 뒤 범위 (n=1,2,3⋯) 를 ~공백으로 병합
     # 배점 [N점] 제거를 **기하 판정 앞에** 둔다 — 점수의 "점"이 기하 키워드 "점"(point)과

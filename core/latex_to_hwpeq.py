@@ -354,7 +354,11 @@ class LaTeXToHWPConverter:
         r"\supseteq": "supseteq",
         r"\cup": "SMALLUNION",
         r"\cap": "SMALLINTER",
-        r"\emptyset": "emptyset",
+        # 공집합/공사건 ∅ — HWP eq 에 ``emptyset`` 키워드가 없어 literal "emptyset" 로 렌더되던
+        # 것(영진고 확통 #8 ``P(\varnothing)`` 이 ``P()``로 증발). □(\square)·∖(\setminus) 처럼
+        # 유니코드 따옴표 리터럴로 고정. ``\varnothing``(∅, 자주 쓰임)도 같은 기호로.
+        r"\emptyset": '"∅"',
+        r"\varnothing": '"∅"',
         r"\vee": "VEE",
         r"\lor": "VEE",
         r"\wedge": "WEDGE",
