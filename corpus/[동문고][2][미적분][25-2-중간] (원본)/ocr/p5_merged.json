@@ -1,0 +1,156 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 19,
+   "score": 8,
+   "label_type": "서답형",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서답형 3] 이차방정식 "
+    },
+    {
+     "type": "equation",
+     "value": "2x^2 - ax + 1 = 0"
+    },
+    {
+     "type": "text",
+     "value": "의 서로 다른 두 실근이 "
+    },
+    {
+     "type": "equation",
+     "value": "\\tan\\theta"
+    },
+    {
+     "type": "text",
+     "value": ", 1일 때, 탄젠트함수의 덧셈정리를 이용하여 "
+    },
+    {
+     "type": "equation",
+     "value": "\\sec^2\\left(\\frac{a\\pi}{4} + \\theta\\right)"
+    },
+    {
+     "type": "text",
+     "value": "의 값을 구하는 풀이 과정과 답을 쓰시오. (단, "
+    },
+    {
+     "type": "equation",
+     "value": "a"
+    },
+    {
+     "type": "text",
+     "value": "는 상수이다.) [8점]"
+    }
+   ],
+   "choices": [],
+   "sub_questions": []
+  },
+  {
+   "number": 20,
+   "score": 9,
+   "label_type": "서답형",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서답형 4] 함수 "
+    },
+    {
+     "type": "equation",
+     "value": "f(x) = x^3 + 6x + 1"
+    },
+    {
+     "type": "text",
+     "value": "의 역함수를 "
+    },
+    {
+     "type": "equation",
+     "value": "g(x)"
+    },
+    {
+     "type": "text",
+     "value": "라고 할 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\lim_{h \\to 0} \\frac{g(8 + 2h) - g(8 - 4h)}{h}"
+    },
+    {
+     "type": "text",
+     "value": "의 값을 구하는 풀이 과정과 답을 쓰시오. (단, 미분계수의 정의를 이용한 과정을 반드시 기술하시오.) [9점]"
+    }
+   ],
+   "choices": [],
+   "sub_questions": []
+  },
+  {
+   "number": 21,
+   "score": 10,
+   "label_type": "서답형",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서답형 5] 첫째항이 "
+    },
+    {
+     "type": "equation",
+     "value": "a"
+    },
+    {
+     "type": "text",
+     "value": " ("
+    },
+    {
+     "type": "equation",
+     "value": "a \\neq 0"
+    },
+    {
+     "type": "text",
+     "value": ")이고 공비가 "
+    },
+    {
+     "type": "equation",
+     "value": "r"
+    },
+    {
+     "type": "text",
+     "value": "인 등비수열 "
+    },
+    {
+     "type": "equation",
+     "value": "\\{a_n\\}"
+    },
+    {
+     "type": "text",
+     "value": "에 대하여 "
+    },
+    {
+     "type": "equation",
+     "value": "\\sum_{n=1}^{\\infty} a_n = 2"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\sum_{n=1}^{\\infty} |a_{2n}| = 6"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\frac{8}{27} \\times a_3"
+    },
+    {
+     "type": "text",
+     "value": "의 값을 구하는 풀이 과정과 답을 쓰시오. [10점]"
+    }
+   ],
+   "choices": [],
+   "sub_questions": []
+  }
+ ]
+}
