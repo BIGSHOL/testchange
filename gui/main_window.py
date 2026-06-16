@@ -1173,18 +1173,8 @@ class MainWindow(QMainWindow):
         ocr_layout.addWidget(self._ocr_combo, 1)
         layout.addLayout(ocr_layout)
 
-        # 그림(문제 내 도형/그래프) 처리 모드 선택
-        layout.addSpacing(8)
-        self._render_fig_check = QCheckBox("그림 렌더링(도형/그래프 삽입) — 끄면 그림 자리에 안내 박스")
-        self._render_fig_check.setChecked(False)   # 기본=끔(보안 경고 없음). 켜면 그림 보이나 경고.
-        self._render_fig_check.setToolTip(
-            "끔(기본): 그림을 넣지 않고 '직접 캡처해 붙여넣으세요' 안내 박스를 둔다 — "
-            "문서가 보안 경고 없이 열린다.\n"
-            "켬: 도형/그래프를 실제로 삽입한다 — 단 한글에서 열 때 '문서 보안 설정' 경고가 뜰 수 있다.")
-        # QCheckBox 인라인 color 가 QToolTip 텍스트색으로 새어 어두운 글씨가 되는 Qt 특성
-        # 회피: 위젯 스타일시트에 QToolTip 규칙을 함께 명시(흰 배경·진한 글씨, 시인성 확보).
-        self._render_fig_check.setStyleSheet(_CHECK_QSS)
-        layout.addWidget(self._render_fig_check)
+        # 그림 렌더링 옵션은 폐지(2026-06-16, 사용자) — 그림은 **항상** 안내 박스로 대체한다
+        # (render_figures=False 고정). 보안 경고 없이 열리고, 그림은 원본에서 직접 캡처·붙여넣기.
 
         # 변환 미리보기(OCR 결과 확인) 건너뛰기 — 사용자 요구 2026-06-05(미리보기 단계가
         # 편집 기능이 없어 불필요하다는 의견). 켜면 OCR 후 곧장 문서 생성으로 진행.
@@ -1564,19 +1554,12 @@ class MainWindow(QMainWindow):
             set_api_key(api_key)
         set_gemini_key(gemini_key)
 
-        # 폼 '자동' 모드는 파일명 규칙이 맞아야 분석(미일치 차단). 폼 직접선택/기본서식은 통과.
+        # 폼 '자동' 모드에서 파일명이 규칙과 안 맞으면 **차단하지 않고** 기본 서식(폼 없음)으로
+        # HWP 에 그대로 렌더한다(스타일 동일, 사용자 2026-06-16). 폼이 필요하면 파일명을 규칙에
+        # 맞추거나 폼 목록에서 직접 고르면 된다(_resolve_form_path 가 자동 미일치 시 None=기본서식).
         info = parse_filename(self._selected_file)
         if self._form_combo.currentData() == "__AUTO__" and not info["valid"]:
-            QMessageBox.warning(
-                self, "파일명 규칙 확인",
-                "폼 자동 채움은 파일명이 규칙과 맞아야 합니다.\n\n"
-                "형식: [학교][학년][년-학기-중간/기말]([과목])\n"
-                "  · 고등은 [과목] 필요(중등은 자동 수학) · 끝의 [출판사]는 있어도/없어도 됨\n"
-                "예) [조암중][2][25-1-중간]   또는   [조암중][2][25-1-중간][동아강]\n"
-                "예) [○○고][2][25-1-중간][대수][동아강]\n\n"
-                "파일명을 맞춰 다시 올리거나, 폼 목록에서 직접 선택/‘기본 서식’을 고르세요.",
-            )
-            return
+            self._log("폼 자동: 파일명 규칙 미일치 → 기본 서식(폼 없음)으로 변환합니다.")
 
         output_path = self._output_input.text().strip()
         if not output_path:
@@ -1620,7 +1603,7 @@ class MainWindow(QMainWindow):
             header_values=(info if info["valid"] else None),  # 머리말 채움 값(파일명)
             skip_first_page=False,   # 수동 표지 스킵 폐지 — 무쓸모 페이지는 자동 스킵
             use_crop=True,           # 항상 크롭 검수 모드
-            render_figures=self._render_fig_check.isChecked(),  # 그림 렌더(경고 감수) 여부
+            render_figures=False,    # 그림 렌더 폐지(항상 안내 박스, 2026-06-16)
             skip_preview=self._skip_preview_check.isChecked(),  # 미리보기 생략 여부
             ocr_backend=self._ocr_combo.currentData() or "auto",   # OCR 엔진(자동/고정)
         )
@@ -1785,5 +1768,4 @@ class MainWindow(QMainWindow):
         self._gemini_key_input.setEnabled(not converting)
         self._form_combo.setEnabled(not converting)
         self._ocr_combo.setEnabled(not converting)
-        self._render_fig_check.setEnabled(not converting)
         self._skip_preview_check.setEnabled(not converting)
