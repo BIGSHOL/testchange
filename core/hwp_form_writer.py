@@ -270,11 +270,12 @@ def _put_block(ses, b) -> None:
                 ses.text(b.value)
                 ses.break_para()
                 ses.align_left()
-            elif getattr(b, "underline", False):
-                # __강조__ 밑줄 TEXT — 기본 경로(hwp_com_writer `_write` 의 underline_run)와
-                # 동일. 폼 경로만 평문 강등돼 "옳지 않은"·"더하거나 빼어서" 밑줄이 소실됐다
-                # (월암중 #9·#19, 2026-06-11 — 매천중·상원중에도 있었으나 대조에서 놓침).
-                ses.underline_run(b.value)
+            elif getattr(b, "underline", False) or getattr(b, "bold", False):
+                # __강조__ 밑줄 + 부정어 볼드+밑줄 — 기본 경로(hwp_com_writer `_write` 의
+                # emphasis_run)와 동일. 폼 경로만 평문 강등돼 "옳지 않은"·"더하거나 빼어서"
+                # 밑줄이 소실됐던 것(월암중 #9·#19, 2026-06-11) + 부정어 볼드(2026-06-16).
+                ses.emphasis_run(b.value, bold=getattr(b, "bold", False),
+                                 underline=getattr(b, "underline", False))
             else:
                 ses.text(b.value)
     elif b.type == ContentType.IMAGE and b.value:

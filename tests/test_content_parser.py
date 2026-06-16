@@ -802,6 +802,36 @@ def _check_suha_fixes(fails):
         fails.append(f"  SH6 백슬래시 평문 leak: {tx6!r}")
 
 
+def _check_negation_emphasis(fails):
+    """NE(부정 선택문 부정어 볼드+밑줄, 사용자 2026-06-16) — _emphasize_negation 회귀."""
+    from core.content_parser import _emphasize_negation as _en
+    from models.exam_document import ContentBlock as _CB, ContentType as CT
+
+    def emph(text, **kw):
+        out = _en([_CB(type=CT.TEXT, value=text, **kw)])
+        return [(b.value, b.bold, b.underline) for b in out]
+
+    # 부정어가 볼드+밑줄 run 으로 분리되고, 앞/뒤는 평문 유지
+    for text, neg in (("다음 설명으로 옳지 않은 것은?", "않은"),
+                      ("x가 정수가 아닌 것을 고르시오.", "아닌"),
+                      ("틀린 것은?", "틀린"),
+                      ("옳지 않는 것을 모두 고르면?", "않는")):
+        segs = emph(text)
+        hit = [s for s in segs if s[0] == neg and s[1] and s[2]]
+        if not hit:
+            fails.append(f"  NE 부정어 강조 실패: {text!r} → {segs!r}")
+        if any(s[1] or s[2] for s in segs if s[0] != neg):  # 부정어 외엔 강조 없음
+            fails.append(f"  NE 비부정어 오강조: {text!r} → {segs!r}")
+    # 긍정/비선택은 무강조
+    for text in ("옳은 것은?", "변하지 않은 점을 찾으시오", "괜찮은 것은?"):
+        if any(b or u for _, b, u in emph(text)):
+            fails.append(f"  NE 오강조(무강조여야): {text!r} → {emph(text)!r}")
+    # 이미 밑줄(__옳지 않은__)이면 볼드만 추가(원본 강조 보존)
+    segs = emph("옳지 않은", underline=True)
+    if not (len(segs) == 1 and segs[0][1] and segs[0][2]):
+        fails.append(f"  NE 기존 밑줄 볼드추가 실패: {segs!r}")
+
+
 def _check_adversarial_high(fails, _l2h):
     """적대적 리뷰(2026-06-13) HIGH 수정 회귀.
 
@@ -882,6 +912,7 @@ def run():
     _check_point_name_seq(fails)
     _check_seq_list_comma(fails)
     _check_suha_fixes(fails)
+    _check_negation_emphasis(fails)
     # HH1(혜화여고 #19): 베이스 없는 선행 첨자(조합 _{n-1}C)는 HWP 가 빈 렌더 — {} 베이스 삽입.
     from core.latex_to_hwpeq import latex_to_hwpeq as _l2h_hh
     _hh = _l2h_hh(r"_{n-1}C_{r-1}+_{n-1}C_{r}=_{n}C_{r}")
@@ -905,7 +936,7 @@ def run():
         print("FAIL test_content_parser:")
         print("\n".join(fails))
         return 1
-    print(f"OK test_content_parser ({len(_SPACING_CASES) + len(_SCORE_CASES) + 16} cases)")
+    print(f"OK test_content_parser ({len(_SPACING_CASES) + len(_SCORE_CASES) + 17} cases)")
     return 0
 
 

@@ -873,7 +873,9 @@ class HWPXWriter:
     ):
         """콘텐츠 블록을 삽입."""
         if block.type == ContentType.TEXT:
-            char_pr = _UNDERLINE_CHAR_PR_ID if block.underline else "0"
+            # 강조(밑줄 또는 부정어 볼드+밑줄) = 밑줄 charPr. no-HWP 폴백은 밑줄로만 표시
+            # (볼드는 COM 경로에서만 — 부정어는 항상 밑줄+볼드라 밑줄 단서는 유지됨).
+            char_pr = _UNDERLINE_CHAR_PR_ID if (block.underline or block.bold) else "0"
             run = self._create_run(current_para, char_pr_id=char_pr)
             self._set_run_text(run, block.value)
 

@@ -1143,6 +1143,46 @@ _UNDERLINE_RE = re.compile(r"__(.+?)__")
 # 한글 포함 여부 — __강조__ 가 한글이면 밑줄(옳지 않은), 라틴/수식이면 OCR 오인 → 수식 복원.
 _HANGUL_RE = re.compile(r"[가-힣]")
 
+# 부정 선택문("옳지 않은 것은?"·"아닌 것"·"틀린 것"…)의 **부정어** — 학생이 부정조건을
+# 놓치지 않게 볼드+밑줄로 강조한다(사용자 2026-06-16). 부정어 뒤에 선택 대상 '것'이 와야
+# 매칭(선택문 한정 — "변하지 않은 점" 같은 일반 서술은 제외). 원본이 이미 __밑줄__로 강조한
+# 경우엔 그 밑줄 run 에 볼드만 더한다(_NEG_WORD_RE).
+_NEG_SELECT_RE = re.compile(r'(않은|않는|아닌|틀린)(?=\s*것)')
+_NEG_WORD_RE = re.compile(r'않은|않는|아닌|틀린')
+
+
+def _emphasize_negation(blocks: list[ContentBlock]) -> list[ContentBlock]:
+    """부정 선택문의 부정어(않은/않는/아닌/틀린)를 **볼드+밑줄** run 으로 강조.
+
+    - 평문 TEXT: 부정어+'것' 이 같은 블록에 있으면 부정어를 분리해 bold+underline run 으로.
+    - 이미 밑줄(underline) TEXT: 부정어를 포함하면 그 블록에 볼드만 추가(원본 강조 보존).
+    선택지·박스 라벨엔 적용 안 됨(_finalize_contents = 발문/소문항 본문 전용).
+    """
+    out: list[ContentBlock] = []
+    for b in blocks:
+        if b.type != ContentType.TEXT or not b.value:
+            out.append(b)
+            continue
+        if b.underline:
+            if _NEG_WORD_RE.search(b.value):
+                b.bold = True
+            out.append(b)
+            continue
+        if not _NEG_SELECT_RE.search(b.value):
+            out.append(b)
+            continue
+        pos = 0
+        for m in _NEG_SELECT_RE.finditer(b.value):
+            s, e = m.span(1)
+            if s > pos:
+                out.append(ContentBlock(type=ContentType.TEXT, value=b.value[pos:s]))
+            out.append(ContentBlock(type=ContentType.TEXT, value=b.value[s:e],
+                                    underline=True, bold=True))
+            pos = e
+        if pos < len(b.value):
+            out.append(ContentBlock(type=ContentType.TEXT, value=b.value[pos:]))
+    return out
+
 
 def _split_underline_markup(text: str) -> list[ContentBlock]:
     """텍스트에서 __밑줄__ 마크업을 분리하여 ContentBlock 리스트로 반환.
@@ -1284,6 +1324,7 @@ def _finalize_contents(blocks: list[ContentBlock]) -> list[ContentBlock]:
     blocks = _romanize_angle_letters(blocks)        # 각(angle) 단일대문자 로만체(삼각함수·°·∠)
     blocks = _romanize_context_units(blocks)        # '단위는 g' 등 문맥상 단위 수식 로만화
     blocks = _space_hangul_before_eq(blocks)        # 한글 끝 TEXT + EQ 사이 공백(확률을p_1 → 확률을 p_1)
+    blocks = _emphasize_negation(blocks)            # 부정 선택문 "옳지 않은 것"의 부정어 볼드+밑줄
     blocks = _rstrip_last_text(blocks)              # 끝 TEXT 의 꼬리 공백 제거(점수 앞 이중공백 방지)
     return blocks
 

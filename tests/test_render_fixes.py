@@ -253,8 +253,9 @@ def run():
     chk(not _COND_HEADER_RE.search("<보기> 중 일차함수"), "M2 보기+중=인라인 참조")
     chk(not _COND_HEADER_RE.search("<보기> 에서 고른"), "M2 보기+에서(공백)=인라인 참조")
     chk(bool(_COND_HEADER_RE.search("<보기> 중간값을 구하라")), "M2 보기+중간…=박스 머리")
-    # P(월암중 #9·#19): 폼 경로 밑줄 강조 — _put_block 이 underline TEXT 를 underline_run
+    # P(월암중 #9·#19): 폼 경로 밑줄 강조 — _put_block 이 underline/bold TEXT 를 emphasis_run
     # 으로 찍어야 한다("옳지 않은"·"더하거나 빼어서" 강조 소실 방지). COM 없이 무동작 세션로 검증.
+    # + 부정어 볼드+밑줄(2026-06-16): bold=True 가 emphasis_run 으로 전달돼야.
     from core.hwp_form_writer import _put_block as _fpb
 
     class _USes:
@@ -264,14 +265,21 @@ def run():
         def text(self, s):
             self.calls.append(("text", s))
 
-        def underline_run(self, s):
-            self.calls.append(("underline", s))
+        def underline_run(self, s):           # 하위호환(emphasis_run 으로 위임)
+            self.emphasis_run(s, underline=True)
+
+        def emphasis_run(self, s, bold=False, underline=False):
+            self.calls.append(("emph", s, bold, underline))
 
     _us = _USes()
     _fpb(_us, ContentBlock(type=CT.TEXT, value="더하거나 빼어서", underline=True))
     _fpb(_us, ContentBlock(type=CT.TEXT, value=" 푸시오."))
-    chk(_us.calls == [("underline", "더하거나 빼어서"), ("text", " 푸시오.")],
+    chk(_us.calls == [("emph", "더하거나 빼어서", False, True), ("text", " 푸시오.")],
         f"P 폼 밑줄 강조: {_us.calls!r}")
+    # 부정어 볼드+밑줄 — bold=True·underline=True 로 emphasis_run 호출
+    _us2 = _USes()
+    _fpb(_us2, ContentBlock(type=CT.TEXT, value="않은", bold=True, underline=True))
+    chk(_us2.calls == [("emph", "않은", True, True)], f"P 폼 부정어 볼드+밑줄: {_us2.calls!r}")
 
     # ── V: 서술형 소문항 배점 줄바꿈 우측정렬(force_break) + 안전 게이트 (황금중 #22(2), 2026-06-11)
     # force_break=True(서술형) → 항상 break+우측정렬(검증된 _put_total_score 시퀀스). 게이트:

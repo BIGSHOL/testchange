@@ -283,12 +283,28 @@ class HwpSession:
 
     def underline_run(self, s: str) -> None:
         """밑줄이 적용된 텍스트 run 삽입(앞뒤로 밑줄 토글)."""
+        self.emphasis_run(s, underline=True)
+
+    def emphasis_run(self, s: str, bold: bool = False, underline: bool = False) -> None:
+        """볼드/밑줄 강조 텍스트 run 삽입(앞뒤로 해당 글자모양 토글).
+
+        부정 선택문("옳지 않은 것")의 부정어를 볼드+밑줄로 강조하는 데 쓴다(사용자 2026-06-16).
+        토글은 본문 기본 상태(볼드·밑줄 OFF — `_set_plain`/번호 뒤 set_char_shape 가 보장)에서
+        켜고 끄므로 앞뒤 상태를 오염하지 않는다. 밑줄 색/선형은 저장 후 `_solidify_underline`
+        가 검정 실선으로 통일.
+        """
         if not s:
             return
         h = self.hwp
-        h.HAction.Run("CharShapeUnderline")
+        if underline:
+            h.HAction.Run("CharShapeUnderline")
+        if bold:
+            h.HAction.Run("CharShapeBold")
         self.text(s)
-        h.HAction.Run("CharShapeUnderline")
+        if bold:
+            h.HAction.Run("CharShapeBold")
+        if underline:
+            h.HAction.Run("CharShapeUnderline")
 
     def superscript_run(self, s: str) -> None:
         """위첨자(글자모양) 텍스트 run 삽입. 수식 객체보다 본문에 밀착돼

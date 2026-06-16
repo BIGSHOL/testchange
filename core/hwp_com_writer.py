@@ -524,8 +524,8 @@ class HwpComWriter:
                 self.s.text(block.value)
                 self.s.break_para()
                 self.s.align_left()
-            elif block.underline:
-                self.s.underline_run(block.value)
+            elif block.underline or block.bold:
+                self.s.emphasis_run(block.value, bold=block.bold, underline=block.underline)
             elif _has_box_markup(block.value):
                 self._write_segmented_text(block.value)
             else:
