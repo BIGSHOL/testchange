@@ -308,35 +308,30 @@ def run():
         def text(self, s): self.calls.append(("text", s))
         def equation(self, s): self.calls.append(("eq", s))
 
-    s1 = _RecSes(); h1 = _RecH()
-    r1 = _ps(s1, h1, 2, essay=True, force_break=True)
-    chk(r1 is True, "V force_break 반환 True")
-    chk("ParagraphShapeAlignRight" in h1.runs, "V force_break 우측정렬 Run")
+    # 무wrap(공간 충분) = 인라인 유지(우측정렬 폴백 안 걸림) — 사용자 2026-06-16
+    s1 = _RecSes(); h1 = _RecH(wrap=False)
+    r1 = _ps(s1, h1, 2, essay=True)
+    chk(r1 is False and "ParagraphShapeAlignRight" not in h1.runs, "V 무wrap=인라인 유지")
     chk(("eq", "2") in s1.calls and ("text", "점]") in s1.calls, "V 배점=수식객체+점]")
-    chk("left" in s1.calls, "V force_break 뒤 좌측 복귀")
-    # 비강제 + 무wrap = 인라인 유지(폴백 안 걸림)
-    s2 = _RecSes(); h2 = _RecH(wrap=False)
-    r2 = _ps(s2, h2, 2, essay=True, force_break=False)
-    chk(r2 is False and "ParagraphShapeAlignRight" not in h2.runs, "V 비강제+무wrap=인라인")
+    # wrap(공간 부족) = 줄바꿈 후 우측정렬 폴백
+    s2 = _RecSes(); h2 = _RecH(wrap=True)
+    r2 = _ps(s2, h2, 2, essay=True)
+    chk(r2 is True, "V wrap 반환 True")
+    chk("ParagraphShapeAlignRight" in h2.runs, "V wrap=우측정렬 Run")
+    chk("left" in s2.calls, "V wrap 뒤 좌측 복귀")
 
-    # 게이트: _put_qbody 가 force_break 를 어떻게 넘기나(spy)
+    # 게이트: _put_qbody 는 force_break 없이 항상 _put_score(essay=) 호출(인라인 우선, spy)
     cap = {}
     _orig_ps, _orig_pt = F._put_score, F._put_tail
-    F._put_score = lambda ses, h, score, essay=False, force_break=False: cap.update(fb=force_break) or False
+    F._put_score = lambda ses, h, score, essay=False: cap.update(called=True, essay=essay) or False
     F._put_tail = lambda *a, **k: None
     try:
-        cap.clear(); F._put_qbody(_RecSes(), _RecH(), [_tb("a, b의 값을 구하시오.")], 4,
-                                  essay=True, allow_break=True)
-        chk(cap.get("fb") is True, "V 게이트: tail없는 서술형 소문항=force_break True")
-        cap.clear(); F._put_qbody(_RecSes(), _RecH(), [_tb("발문 "), _table()], 4,
-                                  essay=True, allow_break=True)
-        chk(cap.get("fb") is False, "V 게이트: tail(표) 있으면 force_break False(fragile caret)")
-        cap.clear(); F._put_qbody(_RecSes(), _RecH(), [_tb("객관식 소문항")], 4,
-                                  essay=False, allow_break=True)
-        chk(cap.get("fb") is False, "V 게이트: 객관식(essay=False)은 force_break 안 함")
-        cap.clear(); F._put_qbody(_RecSes(), _RecH(), [_tb("allow_break 미전달 서술형")], 4,
-                                  essay=True, allow_break=False)
-        chk(cap.get("fb") is False, "V 게이트: allow_break 기본 False(부모/객관식 경로 무변경)")
+        cap.clear(); F._put_qbody(_RecSes(), _RecH(), [_tb("a, b의 값을 구하시오.")], 4, essay=True)
+        chk(cap.get("called") is True and cap.get("essay") is True,
+            "V 게이트: 서술형 소문항=_put_score(essay=True)")
+        cap.clear(); F._put_qbody(_RecSes(), _RecH(), [_tb("객관식 소문항")], 4, essay=False)
+        chk(cap.get("called") is True and cap.get("essay") is False,
+            "V 게이트: 객관식=_put_score(essay=False)")
     finally:
         F._put_score, F._put_tail = _orig_ps, _orig_pt
 

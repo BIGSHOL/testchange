@@ -253,8 +253,7 @@ class ConversionWorker(QObject):
                 self._backend_fallback_warned = True
                 self.log.emit(
                     "warning",
-                    f"⚠️ {backend} 사용 불가({type(e).__name__}) → Claude 폴백. "
-                    f"Gemini 키를 config.json(GEMINI_API_KEY)에 넣으면 Gemini 로 OCR 합니다.")
+                    "⚠️ Gemini 준비가 안 돼 Claude 로 대체합니다 — 설정에서 Gemini 키를 확인하세요.")
             eng = self._get_ocr_engine("claude")
             self._ocr_engines[backend] = eng   # 폴백 객체를 요청 키에도 캐시(반복 방지)
             return eng
@@ -592,7 +591,7 @@ class ConversionWorker(QObject):
         # Step 2: OCR 처리
         # 엔진은 페이지별로 _get_ocr_engine(backend) 로 lazy 생성·캐시(라우팅). 단일 고정
         # 엔진을 미리 만들지 않는다 — auto 모드에서 페이지마다 flash/pro 가 갈릴 수 있다.
-        mode_label = {"auto": "자동(품질 기반)", "claude": "Claude",
+        mode_label = {"auto": "자동", "claude": "Claude",
                       "gemini-pro": "Gemini Pro", "gemini-flash": "Gemini Flash"}
         self.log.emit("info", f"OCR 엔진: {mode_label.get(self._resolve_backend_mode(), '자동')}")
         pages = []
@@ -767,11 +766,10 @@ class ConversionWorker(QObject):
             page_backend = self._page_backend(idx, page_offset, source_kinds, quality_by_index)
             eng = self._get_ocr_engine(page_backend)
             if self._resolve_backend_mode() == "auto":
-                _born = bool(source_kinds[idx + page_offset].get("is_born_digital")) \
-                    if source_kinds and 0 <= idx + page_offset < len(source_kinds) else False
-                _why = "born-digital/고품질" if eng.backend == "gemini-flash" or _born \
-                    else "스캔/저품질(손글씨 가능)"
-                self.log.emit("info", f"페이지 {page_num}: {_why} → {eng.model}")
+                # 일반 사용자용 안내(모델명·내부용어 대신 쉬운 말).
+                self.log.emit(
+                    "info",
+                    f"페이지 {page_num}: {'빠른 인식' if eng.backend == 'gemini-flash' else '정밀 인식'}")
 
             if crop_boxes_per_page is not None:
                 # 크롭별 개별 OCR → 한 페이지로 병합. figure 크롭은 이미지로 임베딩.
@@ -1151,13 +1149,10 @@ class MainWindow(QMainWindow):
         self._ocr_combo = QComboBox()
         self._ocr_combo.setFixedHeight(self._BTN_HEIGHT)
         self._ocr_combo.setToolTip(
-            "시험지를 텍스트·수식 JSON 으로 읽는 OCR 모델입니다.\n"
-            "· 자동(품질 기반): born-digital/선명한 페이지는 Gemini Flash(저렴·빠름), "
-            "스캔/저품질(손글씨 가능) 페이지는 Gemini Pro(충실도) — 권장\n"
-            "· Gemini Flash: 항상 저비용 모델\n"
-            "· Gemini Pro: 항상 고충실 모델\n"
-            "· Claude(Sonnet): Anthropic 모델로 고정")
-        self._ocr_combo.addItem("자동 (품질 기반) — 권장", "auto")
+            "시험지에서 글자와 수식을 읽어들이는 방식입니다.\n"
+            "· 자동 (권장): 시험지 상태에 맞춰 가장 적합한 방식을 자동으로 고릅니다.\n"
+            "· 나머지: 특정 방식으로 고정합니다.")
+        self._ocr_combo.addItem("자동 (권장)", "auto")
         self._ocr_combo.addItem("Gemini Flash (저비용)", "gemini-flash")
         self._ocr_combo.addItem("Gemini Pro (고충실)", "gemini-pro")
         self._ocr_combo.addItem("Claude (Sonnet)", "claude")

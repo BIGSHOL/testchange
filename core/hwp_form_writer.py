@@ -466,13 +466,13 @@ def _put_tail(ses, h, blocks) -> None:
                 w._write_block(b)
 
 
-def _put_qbody(ses, h, contents, score, essay: bool = False, allow_break: bool = False) -> None:
+def _put_qbody(ses, h, contents, score, essay: bool = False) -> None:
     """문제(또는 소문항) 본문: 발문 → 배점(발문 끝) → 뒤 영역(조건/그림/블록수식).
 
-    essay=True 면 배점을 **줄바꿈 후 우측정렬**(서술형 합의). 객관식은 발문 끝 인라인.
-    allow_break=True 면 **tail 없는 서술형 소문항 배점을 항상 줄바꿈 우측정렬**(합의 #2,
-    황금중 #22(2) — wrap 미감지 좌측잔존 해결). tail 이 있으면(박스/그림/표) caret 이
-    fragile 해 강제 안 함(force_right 가 박스 깬 교훈). 호출처는 소문항 루프뿐.
+    배점은 **인라인 우선, 줄 넘칠 때만 줄바꿈 후 우측정렬**(`_put_score`) — 기본 경로
+    (`_write_score_inline_or_right`)와 완전 동일. 사용자 2026-06-16: "충분히 문제와 같은
+    줄에 둘 수 있으면 인라인, 공간 부족할 때만 줄바꿈 우측정렬". (과거 황금중 #22(2) 의
+    force_break[항상 줄바꿈]은 짧은 소문항 배점까지 줄바꿈해 공간을 낭비 — 폐기.)
     """
     ts = _tail_start(contents)
     head = contents if ts is None else contents[:ts]
@@ -503,33 +503,26 @@ def _put_qbody(ses, h, contents, score, essay: bool = False, allow_break: bool =
     _, tail_post = _split_tail_post(tail)
     defer_score = (bool(score) and bool(tail_post)
                    and not _post_is_box(tail_post) and _post_has_stem(tail_post))
-    # tail 없는 서술형 소문항만 줄바꿈 우측정렬 강제(안전 caret). tail 있으면 fragile.
-    fb = allow_break and essay and not tail
     if score and not defer_score:
-        _put_score(ses, h, score, essay=essay, force_break=fb)   # 객관식=인라인 / 서술형=우측정렬
+        _put_score(ses, h, score, essay=essay)   # 인라인 우선, 줄넘침 시 줄바꿈 우측정렬
     if tail:
         _put_tail(ses, h, tail)
         if defer_score:
             _put_score(ses, h, score, essay=essay)
 
 
-def _put_score(ses, h, score: int, essay: bool = False, force_break: bool = False) -> bool:
+def _put_score(ses, h, score: int, essay: bool = False) -> bool:
     """배점 삽입 — **기본 경로(hwp_com_writer)와 동일**(사용자 '항상 동일' 요구).
 
     서술형·객관식 **공통**: 배점을 **발문 끝 인라인** ``[N점]`` 으로 먼저 시도하고,
     그게 줄을 넘치면(=현재 줄에 공간 부족) **줄바꿈 후 우측정렬**로 폴백한다(사용자
-    2026-06-09: "공간이 충분하면 인라인, 없을 때만 줄바꿈 우측정렬 — 공간 충분한데도
-    줄바꿈하면 공간낭비"). 줄 넘침 판정은 인라인 입력 전후 ``KeyIndicator()[5]``(줄)
-    비교로 결정적으로 한다. 배점 숫자는 합의 #6(순수숫자도 수식 객체화)에 따라
-    ``ses.equation`` 으로 넣는다.
+    2026-06-09·2026-06-16: "공간이 충분하면 인라인, 없을 때만 줄바꿈 우측정렬 — 공간
+    충분한데도 줄바꿈하면 공간낭비"). 줄 넘침 판정은 인라인 입력 전후 ``KeyIndicator()[5]``
+    (줄) 비교로 결정적으로 한다. 배점 숫자는 합의 #6(순수숫자도 수식 객체화)에 따라
+    ``ses.equation`` 으로 넣는다. 서술형 소문항도 동일(과거 force_break 강제 폐기 —
+    2026-06-16, 짧은 소문항 배점까지 줄바꿈하던 공간낭비 해소).
 
     서술형은 우측정렬 폴백 시 뒤 내용을 위해 **좌측 정렬로 복귀**(break+align_left).
-
-    force_break=True: 인라인 wrap 감지를 건너뛰고 **항상 줄바꿈 후 우측정렬**(합의 #2).
-    폼 단(column) 컨텍스트에서 ``KeyIndicator()[5]`` 가 단락 내 자동 wrap 을 비일관 측정해
-    (황금중 #22(2) — 인라인이 줄넘침해도 미감지 → 좌측 잔존) 폴백이 안 걸리는 문제 해결.
-    **반드시 안전 caret(소문항 본문 끝 평문, tail 없음)에서만** 호출 — BreakPara 가 박스/단
-    레이아웃을 침범하지 않는다(force_right 전역적용이 박스 깬 교훈, 2026-06-11).
 
     Returns: 우측정렬 단락으로 넘겼으면 True(현재 단락이 우측정렬 상태).
     """
@@ -543,17 +536,6 @@ def _put_score(ses, h, score: int, essay: bool = False, force_break: bool = Fals
             return h.KeyIndicator()[5]
         except Exception:
             return -1
-
-    if force_break and essay:
-        # 줄바꿈 후 우측정렬 강제 — _put_total_score 의 wrap 분기와 동일한 검증된 시퀀스.
-        ses.break_para()
-        h.Run("ParagraphShapeAlignRight")
-        _set_plain(h)
-        put_inline(leading_space=False)
-        ses.break_para()
-        ses.align_left()
-        _set_plain(h)
-        return True
 
     sp = h.GetPos()
     la = line()
@@ -860,10 +842,9 @@ def _fill_essay_at(ses, h, pos, q: Question, label_idx: int, next_pos=None) -> N
             ses.equation(f"({k + 1})")        # 소문항 마커 (1)(2)… 는 수식으로
             ses.text(" ")
             # OCR 이 남긴 앞머리 번호 마커 제거(우리 마커와 중복 방지) — 결정적·길이무관.
-            # 소문항 배점도 서술형이면 우측정렬(기본 경로 _write_question 재귀와 동일).
-            # allow_break=True: tail 없는 서술형 소문항 배점은 항상 줄바꿈 우측정렬(#22(2)).
+            # 소문항 배점: 인라인 우선, 줄 넘칠 때만 줄바꿈 우측정렬(_put_score, 기본 경로 동일).
             _put_qbody(ses, h, _strip_leading_submarker(sub.contents), sub.score,
-                       essay=not sub.choices, allow_break=True)
+                       essay=not sub.choices)
             for _ in range(ESSAY_SUB_BLANKS):  # 소문항 답안 공간(2~3줄)
                 ses.break_para()
                 h.Run("ParagraphShapeAlignLeft")
