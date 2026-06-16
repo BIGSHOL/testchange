@@ -1,5 +1,14 @@
 {
-  "status": "ocr_done",
+  "status": "reviewed",
+  "review": {
+    "reviewed_date": "2026-06-16",
+    "reviewed_by": "렌더/검수 소비자 세션 (claude-opus-4-8[1m], master)",
+    "content_defects": 0,
+    "A_type": 0,
+    "B_type": 0,
+    "note": "21문항(선택형12+서답형9) 캐시 폼 렌더 → 원본+답안 PDF(몽실) p1~p4 1:1 대조. corpus_lint PASS. 결함 0. 선택형 12 전부 OCR 충실(극한·ln·∑·tan(α-β)·수렴 정수개수·2^x log_2 x). α_n·β_n 이탤릭 유지(비기하 점이름 아님, MJ1 정상 제외). 서답형 9개: 서1 절댓값 x|x|·서2 진자 figure 안내·서3·서5 cases 분기·서4 x^{lnx}·서6 음함수 e^x+e^{2y} dy/dx. 서답형 7 = <조건>박스 (가)(나)(다) + 박스뒤 발문연속(매개변수 t 곡선) + [8점] 발문끝(defer_score 정상, 레퍼런스 일치). 서답형 8(반원 overline AB·AC·ADC·BCD·figure 안내)·9(overline AB·AC·DE·삼각형 ABC·CDE·∠A·θ_n 이탤릭·∑) — 점이름 로만+overline 정상(MJ1). figure 안내문구 서2·8·9(C한계). 정답면 [서답형 1~9] 라벨 동기화·홀수 패리티(5쪽)."
+  },
+  "status_was": "ocr_done",
   "school": "도원고",
   "grade": 2,
   "subject": "미적분",
