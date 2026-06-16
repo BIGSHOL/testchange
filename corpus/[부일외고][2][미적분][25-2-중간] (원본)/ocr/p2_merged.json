@@ -1,0 +1,361 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 5,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "등비급수 "
+    },
+    {
+     "type": "equation",
+     "value": "\\sum_{n=1}^{\\infty} (x+2)\\left(\\frac{2x-3}{7}\\right)^{n-1}"
+    },
+    {
+     "type": "text",
+     "value": "이 수렴하도록 하는 모든 정수 "
+    },
+    {
+     "type": "equation",
+     "value": "x"
+    },
+    {
+     "type": "text",
+     "value": "의 합은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "6"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "7"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "8"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "9"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "10"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 6,
+   "score": 4,
+   "contents": [
+    {
+     "type": "equation",
+     "value": "0 < \\alpha < \\frac{\\pi}{2}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "0 < \\beta < \\frac{\\pi}{2}"
+    },
+    {
+     "type": "text",
+     "value": "이고 "
+    },
+    {
+     "type": "equation",
+     "value": "\\tan\\alpha = \\frac{1}{2}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\cos\\beta = \\frac{3\\sqrt{10}}{10}"
+    },
+    {
+     "type": "text",
+     "value": " 일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\alpha + \\beta"
+    },
+    {
+     "type": "text",
+     "value": "의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{\\pi}{6}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{\\pi}{4}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{\\pi}{3}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{\\pi}{2}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\pi"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 7,
+   "score": 4.3,
+   "contents": [
+    {
+     "type": "text",
+     "value": "수열 "
+    },
+    {
+     "type": "equation",
+     "value": "\\{a_n\\}"
+    },
+    {
+     "type": "text",
+     "value": "의 첫째항부터 제 "
+    },
+    {
+     "type": "equation",
+     "value": "n"
+    },
+    {
+     "type": "text",
+     "value": "항까지의 합을 "
+    },
+    {
+     "type": "equation",
+     "value": "S_n"
+    },
+    {
+     "type": "text",
+     "value": "이라 하자. "
+    },
+    {
+     "type": "equation",
+     "value": "S_n = 2^{2n} - 3"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\sum_{n=1}^{\\infty} \\frac{3^n}{a_n}"
+    },
+    {
+     "type": "text",
+     "value": "의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "6"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "7"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 8,
+   "score": 4.3,
+   "contents": [
+    {
+     "type": "text",
+     "value": "방정식 "
+    },
+    {
+     "type": "equation",
+     "value": "3\\sin^2 x - 4\\sin^2 \\frac{x}{2} = 8 - k"
+    },
+    {
+     "type": "text",
+     "value": "가 실근을 갖도록 하는 상수 "
+    },
+    {
+     "type": "equation",
+     "value": "k"
+    },
+    {
+     "type": "text",
+     "value": "값의 범위는 "
+    },
+    {
+     "type": "equation",
+     "value": "\\alpha \\le k \\le \\beta"
+    },
+    {
+     "type": "text",
+     "value": "이다. "
+    },
+    {
+     "type": "equation",
+     "value": "\\alpha\\beta"
+    },
+    {
+     "type": "text",
+     "value": "의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "60"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "70"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "80"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "90"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "100"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  }
+ ]
+}

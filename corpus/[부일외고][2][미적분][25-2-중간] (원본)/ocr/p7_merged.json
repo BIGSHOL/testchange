@@ -1,0 +1,127 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 17,
+   "score": 6,
+   "label_type": "서답형",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서답형 5] 0이 아닌 실수 "
+    },
+    {
+     "type": "equation",
+     "value": "a"
+    },
+    {
+     "type": "text",
+     "value": "에 대하여 매개변수 "
+    },
+    {
+     "type": "equation",
+     "value": "t"
+    },
+    {
+     "type": "text",
+     "value": " "
+    },
+    {
+     "type": "equation",
+     "value": "(t > a)"
+    },
+    {
+     "type": "text",
+     "value": "로 나타낸 함수 "
+    },
+    {
+     "type": "equation",
+     "value": "x = t + \\ln t"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "y = -t^2 + 3t"
+    },
+    {
+     "type": "text",
+     "value": "에 대하여 "
+    },
+    {
+     "type": "equation",
+     "value": "\\frac{dy}{dx}"
+    },
+    {
+     "type": "text",
+     "value": "의 최댓값이 존재하지 않도록 하는 "
+    },
+    {
+     "type": "equation",
+     "value": "a"
+    },
+    {
+     "type": "text",
+     "value": "의 최솟값을 구하는 과정을 서술하시오. [6점]"
+    }
+   ],
+   "choices": [],
+   "sub_questions": []
+  },
+  {
+   "number": 18,
+   "score": 7,
+   "label_type": "서답형",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서답형 6] "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle ABC"
+    },
+    {
+     "type": "text",
+     "value": "에서 "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle A = \\frac{\\pi}{4}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle B = \\frac{\\pi}{6}"
+    },
+    {
+     "type": "text",
+     "value": "이고 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AB} = 2"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AC}"
+    },
+    {
+     "type": "text",
+     "value": "의 길이를 구하는 과정을 서술하시오. [7점]"
+    }
+   ],
+   "choices": [],
+   "sub_questions": []
+  }
+ ]
+}

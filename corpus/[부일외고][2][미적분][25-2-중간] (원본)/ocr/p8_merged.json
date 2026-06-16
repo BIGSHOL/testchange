@@ -1,0 +1,183 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 19,
+   "score": 8,
+   "label_type": "서답형",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서답형 7] 함수 "
+    },
+    {
+     "type": "equation",
+     "value": "f(x) = (x^2 - ax + a)e^x"
+    },
+    {
+     "type": "text",
+     "value": "에 대하여 실수 전체의 집합의 부분집합 "
+    },
+    {
+     "type": "equation",
+     "value": "A"
+    },
+    {
+     "type": "text",
+     "value": "를 "
+    },
+    {
+     "type": "equation",
+     "value": "A = \\{x \\mid f(x)f'(x) \\le 0\\}"
+    },
+    {
+     "type": "text",
+     "value": "이라 하자. "
+    },
+    {
+     "type": "equation",
+     "value": "n(A) = 1"
+    },
+    {
+     "type": "text",
+     "value": "이 되도록 하는 실수 "
+    },
+    {
+     "type": "equation",
+     "value": "a"
+    },
+    {
+     "type": "text",
+     "value": "에 대해서 "
+    },
+    {
+     "type": "equation",
+     "value": "f'(a)"
+    },
+    {
+     "type": "text",
+     "value": "의 값을 구하는 과정을 서술하시오. [8점]"
+    }
+   ],
+   "choices": [],
+   "sub_questions": []
+  },
+  {
+   "number": 20,
+   "score": 9,
+   "label_type": "서답형",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서답형 8] 자연수 "
+    },
+    {
+     "type": "equation",
+     "value": "n"
+    },
+    {
+     "type": "text",
+     "value": "에 대하여 곡선 "
+    },
+    {
+     "type": "equation",
+     "value": "y = x^2"
+    },
+    {
+     "type": "text",
+     "value": " 위의 점 "
+    },
+    {
+     "type": "equation",
+     "value": "A(n, n^2)"
+    },
+    {
+     "type": "text",
+     "value": "에서 그은 접선이 "
+    },
+    {
+     "type": "equation",
+     "value": "x"
+    },
+    {
+     "type": "text",
+     "value": "축과 만나는 점을 "
+    },
+    {
+     "type": "equation",
+     "value": "B"
+    },
+    {
+     "type": "text",
+     "value": "이라 하고, 점 "
+    },
+    {
+     "type": "equation",
+     "value": "A"
+    },
+    {
+     "type": "text",
+     "value": "를 지나고 점 "
+    },
+    {
+     "type": "equation",
+     "value": "A"
+    },
+    {
+     "type": "text",
+     "value": "에서 그은 접선에 수직인 직선이 "
+    },
+    {
+     "type": "equation",
+     "value": "x"
+    },
+    {
+     "type": "text",
+     "value": "축과 만나는 점을 "
+    },
+    {
+     "type": "equation",
+     "value": "C"
+    },
+    {
+     "type": "text",
+     "value": "라 할 때, 삼각형 "
+    },
+    {
+     "type": "equation",
+     "value": "ABC"
+    },
+    {
+     "type": "text",
+     "value": "의 넓이를 "
+    },
+    {
+     "type": "equation",
+     "value": "S_n"
+    },
+    {
+     "type": "text",
+     "value": "이라 하자. "
+    },
+    {
+     "type": "equation",
+     "value": "S_n"
+    },
+    {
+     "type": "text",
+     "value": "을 구하는 과정과 "
+    },
+    {
+     "type": "equation",
+     "value": "\\lim_{n \\to \\infty} \\frac{S_n}{n^3}"
+    },
+    {
+     "type": "text",
+     "value": "의 값을 구하는 과정을 서술하시오. [9점]"
+    }
+   ],
+   "choices": [],
+   "sub_questions": []
+  }
+ ]
+}
