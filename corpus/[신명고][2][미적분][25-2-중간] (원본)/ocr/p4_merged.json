@@ -1,0 +1,259 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 13,
+   "score": 5,
+   "contents": [
+    {
+     "type": "text",
+     "value": "아래 그림과 같이 두 곡선 "
+    },
+    {
+     "type": "equation",
+     "value": "y = 2^x"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "y = a^{x-1}"
+    },
+    {
+     "type": "text",
+     "value": " "
+    },
+    {
+     "type": "equation",
+     "value": "(a > 2)"
+    },
+    {
+     "type": "text",
+     "value": "이 점 P에서 만난다. 점 P의 "
+    },
+    {
+     "type": "equation",
+     "value": "x"
+    },
+    {
+     "type": "text",
+     "value": "좌표를 "
+    },
+    {
+     "type": "equation",
+     "value": "k"
+    },
+    {
+     "type": "text",
+     "value": "라 할 때, 점 P에서 곡선 "
+    },
+    {
+     "type": "equation",
+     "value": "y = 2^x"
+    },
+    {
+     "type": "text",
+     "value": "에 접하는 직선이 "
+    },
+    {
+     "type": "equation",
+     "value": "x"
+    },
+    {
+     "type": "text",
+     "value": "축과 만나는 점을 A, 점 P에서 곡선 "
+    },
+    {
+     "type": "equation",
+     "value": "y = a^{x-1}"
+    },
+    {
+     "type": "text",
+     "value": "에 접하는 직선이 "
+    },
+    {
+     "type": "equation",
+     "value": "x"
+    },
+    {
+     "type": "text",
+     "value": "축과 만나는 점을 B라 하자. 점 "
+    },
+    {
+     "type": "equation",
+     "value": "H(k, 0)"
+    },
+    {
+     "type": "text",
+     "value": "에 대하여 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AH} = 3\\overline{BH}"
+    },
+    {
+     "type": "text",
+     "value": "일 때, 상수 "
+    },
+    {
+     "type": "equation",
+     "value": "a"
+    },
+    {
+     "type": "text",
+     "value": "의 값은?"
+    },
+    {
+     "type": "figure",
+     "value": "좌표평면에 두 곡선 y=2^x 와 y=a^{x-1} (a>2)이 점 P(k, 2^k)에서 만나고, 점 P에서 각 곡선에 그은 접선이 x축과 만나는 점 A, B 와 점 H(k,0)가 x축 위에 A, B, H 순서로 표시된 그림.",
+     "bbox": [
+      0.08,
+      0.27,
+      0.48,
+      0.46
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{15}{2}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "8"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{17}{2}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "9"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{19}{2}"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 14,
+   "score": 5.2,
+   "contents": [
+    {
+     "type": "text",
+     "value": "등비수열 "
+    },
+    {
+     "type": "equation",
+     "value": "\\{a_n\\}"
+    },
+    {
+     "type": "text",
+     "value": "이"
+    },
+    {
+     "type": "equation_block",
+     "value": "\\sum_{n=1}^{\\infty} (|a_n| + a_n) = \\frac{63}{4}, \\quad \\sum_{n=1}^{\\infty} (|a_n| - a_n) = \\frac{21}{4}"
+    },
+    {
+     "type": "text",
+     "value": "을 만족시킨다. 부등식"
+    },
+    {
+     "type": "equation_block",
+     "value": "\\lim_{n \\to \\infty} \\sum_{k=1}^{2n} \\left( (-1)^{\\frac{k(k+1)(2k+1)}{6}} \\times a_{m+k} \\right) < -\\frac{21}{4000}"
+    },
+    {
+     "type": "text",
+     "value": "을 만족시키는 모든 자연수 "
+    },
+    {
+     "type": "equation",
+     "value": "m"
+    },
+    {
+     "type": "text",
+     "value": "의 값의 합은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "8"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "10"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "12"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "14"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "16"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  }
+ ]
+}
