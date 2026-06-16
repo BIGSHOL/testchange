@@ -1,0 +1,469 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 1,
+   "score": 3,
+   "contents": [
+    {
+     "type": "equation",
+     "value": "\\lim_{n \\to \\infty} \\frac{4 \\times 6^{n+1}}{2^n + 6^n}"
+    },
+    {
+     "type": "text",
+     "value": " 의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "6"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "12"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "18"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "24"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "30"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 2,
+   "score": 3,
+   "contents": [
+    {
+     "type": "text",
+     "value": "급수 "
+    },
+    {
+     "type": "equation",
+     "value": "\\sum_{n=1}^{\\infty} \\frac{2}{n(n+1)}"
+    },
+    {
+     "type": "text",
+     "value": " 의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 3,
+   "score": 3,
+   "contents": [
+    {
+     "type": "text",
+     "value": "급수 "
+    },
+    {
+     "type": "equation",
+     "value": "\\sum_{n=1}^{\\infty} \\left(\\frac{x}{3}\\right)^n"
+    },
+    {
+     "type": "text",
+     "value": " 이 수렴하도록 하는 모든 정수 "
+    },
+    {
+     "type": "equation",
+     "value": "x"
+    },
+    {
+     "type": "text",
+     "value": "의 개수는?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "6"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "7"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 4,
+   "score": 3,
+   "contents": [
+    {
+     "type": "text",
+     "value": "함수 "
+    },
+    {
+     "type": "equation",
+     "value": "f(x) = e^x \\log_3 x"
+    },
+    {
+     "type": "text",
+     "value": " 에 대하여 "
+    },
+    {
+     "type": "equation",
+     "value": "\\lim_{h \\to 0} \\frac{f(1+h)-f(1)}{h}"
+    },
+    {
+     "type": "text",
+     "value": " 의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{e}{\\ln 3}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{2e}{\\ln 3}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{3e}{\\ln 3}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{4e}{\\ln 3}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{5e}{\\ln 3}"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 5,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "모든 항이 0이 아닌 두 수열 "
+    },
+    {
+     "type": "equation",
+     "value": "\\{a_n\\}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\{b_n\\}"
+    },
+    {
+     "type": "text",
+     "value": "에 대하여 "
+    },
+    {
+     "type": "equation",
+     "value": "\\lim_{n \\to \\infty} a_n = \\infty"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\lim_{n \\to \\infty} (3a_n + 5b_n) = 1"
+    },
+    {
+     "type": "text",
+     "value": " 일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\lim_{n \\to \\infty} \\frac{2a_n + 5b_n}{a_n + 3b_n}"
+    },
+    {
+     "type": "text",
+     "value": " 의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{1}{2}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{3}{4}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{5}{4}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{3}{2}"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 6,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "수열 "
+    },
+    {
+     "type": "equation",
+     "value": "\\{a_n\\}"
+    },
+    {
+     "type": "text",
+     "value": "의 모든 자연수 "
+    },
+    {
+     "type": "equation",
+     "value": "n"
+    },
+    {
+     "type": "text",
+     "value": "에 대하여 "
+    },
+    {
+     "type": "equation",
+     "value": "\\frac{4}{\\sqrt{n+3}+\\sqrt{n+1}} \\le a_n \\le \\frac{4}{\\sqrt{n+2}+\\sqrt{n}}"
+    },
+    {
+     "type": "text",
+     "value": " 를 만족시킬 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\lim_{n \\to \\infty} \\frac{\\sum_{k=1}^{n} a_k}{\\sqrt{n}}"
+    },
+    {
+     "type": "text",
+     "value": " 의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "6"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "8"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "10"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  }
+ ]
+}

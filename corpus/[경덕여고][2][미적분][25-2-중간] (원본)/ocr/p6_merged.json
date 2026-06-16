@@ -1,0 +1,59 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 18,
+   "score": 10,
+   "label_type": "서답형",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서답형 3] 다음 (가)~(마)에 제시된 명제의 참, 거짓을 판정하고, 참인 명제의 경우 증명을 하고, 거짓인 명제의 경우 반례를 제시하시오. [10점, 부분점수 있음]"
+    },
+    {
+     "type": "text",
+     "value": "<상자> (가) 두 수열 \\{a_n\\}, \\{b_n\\}이 수렴하고 \\lim_{n \\to \\infty} a_n = \\alpha, \\lim_{n \\to \\infty} b_n = \\beta (\\alpha, \\beta는 실수)일 때, 항상 \\lim_{n \\to \\infty} \\frac{a_n}{b_n} = \\frac{\\lim_{n \\to \\infty} a_n}{\\lim_{n \\to \\infty} b_n} = \\frac{\\alpha}{\\beta} 가 성립한다. (나) 두 수열 \\{a_n\\}, \\{b_n\\}이 수렴하고 \\lim_{n \\to \\infty} a_n = \\alpha, \\lim_{n \\to \\infty} b_n = \\beta (\\alpha, \\beta는 실수)일 때, 모든 자연수 n에 대하여 a_n < b_n 일 때, \\alpha < \\beta이다. (다) 등차수열 \\{a_n\\}에 대하여 \\lim_{n \\to \\infty} a_n 은 항상 발산한다. (라) 수열 \\{a_n\\}에 대하여 \\lim_{n \\to \\infty} a_n = 0 이면 급수 \\sum_{n=1}^{\\infty} a_n 은 수렴한다. (마) 첫째항이 1이고 공비가 r인 등비수열 \\{a_n\\}에 대하여 -1 < r \\le 1 이면 급수 \\sum_{n=1}^{\\infty} a_n 은 수렴한다."
+    }
+   ],
+   "choices": [],
+   "sub_questions": []
+  },
+  {
+   "number": 19,
+   "score": 15,
+   "label_type": "서답형",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서답형 4] 모든 항이 양수인 두 등비수열 "
+    },
+    {
+     "type": "equation",
+     "value": "\\{a_n\\}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\{b_n\\}"
+    },
+    {
+     "type": "text",
+     "value": "이 다음 조건을 만족시킨다."
+    },
+    {
+     "type": "text",
+     "value": "<상자> (가) 모든 자연수 n에 대하여 a_n = b_{n+2}이다. (나) \\sum_{n=1}^{\\infty} (3b_{3n} + 4b_{3n-1} - 4b_{3n-2}) = 0"
+    },
+    {
+     "type": "text",
+     "value": "a_1 + a_2 = \\frac{100}{27} 일 때, 급수 \\sum_{n=1}^{\\infty} a_n b_n 의 값을 구하는 풀이 과정을 서술하고 답을 구하시오. [15점, 부분점수 있음]"
+    }
+   ],
+   "choices": [],
+   "sub_questions": []
+  }
+ ]
+}

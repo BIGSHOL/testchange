@@ -882,6 +882,10 @@ def _is_atom_item(p: str) -> bool:
                 # 사동중2 #8, 2026-06-15).
                 or re.fullmatch(r"\\(?:overline|overarc|vec|hat|bar|widehat|dot|ddot|tilde)"
                                 r"\{[A-Za-z0-9']+\}", p)
+                # 수열/집합 표기 ``\{a_n\}`` = 나열 항목("두 수열 \{a_n\}, \{b_n\}"의 쉼표가
+                # 스푸리어스로 오판돼 ``\{a_n\} \{b_n\}`` 로 붙던 것 — 경덕여고 미적분 #18·#19
+                # 조건상자, 2026-06-16). 통째 ``\{…\}`` 인 항목은 명백한 수열/집합 이름.
+                or re.fullmatch(r"\\\{.+\\\}", p)
                 or re.fullmatch(r"\\c?dots|\\ldots|⋯|\.\.\.", p))
 
 

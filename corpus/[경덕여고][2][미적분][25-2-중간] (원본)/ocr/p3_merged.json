@@ -1,0 +1,353 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 7,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "이차방정식 "
+    },
+    {
+     "type": "equation",
+     "value": "x^2 - 6x - 1 = 0"
+    },
+    {
+     "type": "text",
+     "value": "의 두 실근을 "
+    },
+    {
+     "type": "equation",
+     "value": "\\tan\\alpha"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\tan\\beta"
+    },
+    {
+     "type": "text",
+     "value": "라 할 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\frac{\\csc(\\alpha+\\beta) \\times \\cot(\\alpha+\\beta)}{\\sec(\\alpha+\\beta)}"
+    },
+    {
+     "type": "text",
+     "value": " 의 값은? (단, "
+    },
+    {
+     "type": "equation",
+     "value": "0 < \\alpha < \\frac{\\pi}{2}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\frac{\\pi}{2} < \\beta < \\pi"
+    },
+    {
+     "type": "text",
+     "value": ")"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{1}{5}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{1}{6}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{1}{7}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{1}{8}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{1}{9}"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 8,
+   "score": 4,
+   "contents": [
+    {
+     "type": "equation",
+     "value": "\\sin^2 \\frac{7}{12}\\pi + \\cos^2 \\frac{\\pi}{12}"
+    },
+    {
+     "type": "text",
+     "value": " 의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{5+4\\sqrt{3}}{8}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{3+2\\sqrt{3}}{4}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{7+4\\sqrt{3}}{8}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{2+\\sqrt{3}}{2}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{9+4\\sqrt{3}}{8}"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 9,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "함수 "
+    },
+    {
+     "type": "equation",
+     "value": "f(x) = \\begin{cases} \\cos(x-\\pi)-1 + \\dfrac{\\sin^2(x+\\pi)}{x-\\pi} & (x \\ne \\pi) \\\\ 0 & (x = \\pi) \\end{cases}"
+    },
+    {
+     "type": "text",
+     "value": " 에 대하여 "
+    },
+    {
+     "type": "equation",
+     "value": "f'(\\pi)"
+    },
+    {
+     "type": "text",
+     "value": "의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 10,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "함수 "
+    },
+    {
+     "type": "equation",
+     "value": "f(x) = \\frac{ax+b}{x^2}"
+    },
+    {
+     "type": "text",
+     "value": " 에 대하여 "
+    },
+    {
+     "type": "equation",
+     "value": "f(2) = \\frac{5}{4}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "f'(2) = -\\frac{3}{4}"
+    },
+    {
+     "type": "text",
+     "value": " 일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "f\\left(\\frac{1}{2}\\right)"
+    },
+    {
+     "type": "text",
+     "value": "의 값은? (단, "
+    },
+    {
+     "type": "equation",
+     "value": "a"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "b"
+    },
+    {
+     "type": "text",
+     "value": "는 실수이다.)"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "8"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "16"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "32"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  }
+ ]
+}

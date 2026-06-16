@@ -714,6 +714,31 @@ def _check_point_name_seq(fails):
         fails.append(f"  MJ1 단일점 좌표 무회귀 실패: {a!r}")
 
 
+def _check_seq_list_comma(fails):
+    """KD2(경덕여고 미적분 #18·#19 조건상자, 2026-06-16): 수열/집합 나열 쉼표 보존.
+    '두 수열 \\{a_n\\}, \\{b_n\\}' 의 쉼표가 스푸리어스로 오판돼 ``\\{a_n\\} \\{b_n\\}`` 로
+    붙던 것 — _is_atom_item 에 ``\\{…\\}`` 추가. 곱셈 잡음·다항식 나열은 무회귀."""
+    from core.content_parser import _split_one_eq_commas
+    from models.exam_document import ContentType as CT, ContentBlock as CB
+
+    def run(v):
+        r = []
+        _split_one_eq_commas(CB(type=CT.EQUATION, value=v), r)
+        return r
+    # 수열 나열 쉼표 보존
+    r = run(r"\{a_n\}, \{b_n\}")
+    if not (len(r) == 3 and r[1].type == CT.TEXT and "," in (r[1].value or "")):
+        fails.append(f"  KD2 수열나열 쉼표 보존 실패: {[(b.type.name, b.value) for b in r]!r}")
+    # 무회귀: 스푸리어스 곱셈 쉼표(학남고 #12)는 여전히 공백 병합(쉼표 드롭)
+    r2 = run("P(A)=16/9, P(B)")
+    if not (len(r2) == 1 and "," not in (r2[0].value or "")):
+        fails.append(f"  KD2 스푸리어스 무회귀 실패: {[(b.type.name, b.value) for b in r2]!r}")
+    # 무회귀: 다항식 항 나열은 쉼표 보존(개별 수식)
+    r3 = run("2x^2, 7x, 6")
+    if not any(b.type == CT.TEXT and "," in (b.value or "") for b in r3):
+        fails.append(f"  KD2 다항나열 무회귀 실패: {[(b.type.name, b.value) for b in r3]!r}")
+
+
 def _check_suha_fixes(fails):
     from core.content_parser import _split_latex_commands
     from models.exam_document import ContentType as CT
@@ -855,6 +880,7 @@ def run():
     _check_table_value_list(fails)
     _check_2sem_round2(fails)
     _check_point_name_seq(fails)
+    _check_seq_list_comma(fails)
     _check_suha_fixes(fails)
     # HH1(혜화여고 #19): 베이스 없는 선행 첨자(조합 _{n-1}C)는 HWP 가 빈 렌더 — {} 베이스 삽입.
     from core.latex_to_hwpeq import latex_to_hwpeq as _l2h_hh
