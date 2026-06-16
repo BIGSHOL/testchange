@@ -1,0 +1,175 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 26,
+   "score": 10,
+   "label_type": "서술형",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서술형 3] 다음은 함수 "
+    },
+    {
+     "type": "equation",
+     "value": "f(x)"
+    },
+    {
+     "type": "text",
+     "value": "와 도함수 "
+    },
+    {
+     "type": "equation",
+     "value": "f'(x)"
+    },
+    {
+     "type": "text",
+     "value": "의 정의에 대한 설명이다."
+    },
+    {
+     "type": "text",
+     "value": "<상자> (가) f(x) = \\sin x (나) f'(x) = \\lim_{h \\to 0} \\frac{f(x + h) - f(x)}{h}"
+    },
+    {
+     "type": "text",
+     "value": "함수 "
+    },
+    {
+     "type": "equation",
+     "value": "f(x) = \\sin x"
+    },
+    {
+     "type": "text",
+     "value": "의 도함수를 구하는 풀이 과정과 정답을 쓰시오. (단, 도함수의 정의를 반드시 이용하시오.) [10점]"
+    }
+   ],
+   "choices": [],
+   "sub_questions": []
+  },
+  {
+   "number": 27,
+   "score": 11,
+   "label_type": "서술형",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서술형 4] 점 "
+    },
+    {
+     "type": "equation",
+     "value": "(0, 2)"
+    },
+    {
+     "type": "text",
+     "value": "를 지나고 기울기가 양수인 직선 "
+    },
+    {
+     "type": "equation",
+     "value": "l"
+    },
+    {
+     "type": "text",
+     "value": "과 곡선 "
+    },
+    {
+     "type": "equation",
+     "value": "y = e^{\\frac{x}{a}}"
+    },
+    {
+     "type": "text",
+     "value": " ("
+    },
+    {
+     "type": "equation",
+     "value": "a > 0"
+    },
+    {
+     "type": "text",
+     "value": ")이 있다. 직선 "
+    },
+    {
+     "type": "equation",
+     "value": "l"
+    },
+    {
+     "type": "text",
+     "value": "이 "
+    },
+    {
+     "type": "equation",
+     "value": "x"
+    },
+    {
+     "type": "text",
+     "value": "축의 양의 방향과 이루는 각의 크기가 "
+    },
+    {
+     "type": "equation",
+     "value": "\\theta"
+    },
+    {
+     "type": "text",
+     "value": "일 때, 직선 "
+    },
+    {
+     "type": "equation",
+     "value": "l"
+    },
+    {
+     "type": "text",
+     "value": "이 곡선 "
+    },
+    {
+     "type": "equation",
+     "value": "y = e^{\\frac{x}{a}}"
+    },
+    {
+     "type": "text",
+     "value": " ("
+    },
+    {
+     "type": "equation",
+     "value": "a > 0"
+    },
+    {
+     "type": "text",
+     "value": ")과 제1사분면에서 만나는 점의 "
+    },
+    {
+     "type": "equation",
+     "value": "x"
+    },
+    {
+     "type": "text",
+     "value": "좌표를 "
+    },
+    {
+     "type": "equation",
+     "value": "f(\\theta)"
+    },
+    {
+     "type": "text",
+     "value": "라 하자. "
+    },
+    {
+     "type": "equation",
+     "value": "f\\left(\\frac{\\pi}{3}\\right) = a"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "f'\\left(\\frac{\\pi}{3}\\right) \\times \\frac{1}{a^2}"
+    },
+    {
+     "type": "text",
+     "value": "의 값을 구하는 풀이 과정과 정답을 쓰시오. [11점]"
+    }
+   ],
+   "choices": [],
+   "sub_questions": []
+  }
+ ]
+}

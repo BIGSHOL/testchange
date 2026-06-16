@@ -1,0 +1,271 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 15,
+   "score": 3.5,
+   "contents": [
+    {
+     "type": "text",
+     "value": "자연수 "
+    },
+    {
+     "type": "equation",
+     "value": "n"
+    },
+    {
+     "type": "text",
+     "value": "에 대하여 함수 "
+    },
+    {
+     "type": "equation",
+     "value": "f(x) = \\frac{4}{n^3}x^3 + 1"
+    },
+    {
+     "type": "text",
+     "value": "이라 하자. 원점에서 곡선 "
+    },
+    {
+     "type": "equation",
+     "value": "y = f(x)"
+    },
+    {
+     "type": "text",
+     "value": "에 그은 접선을 "
+    },
+    {
+     "type": "equation",
+     "value": "l_n"
+    },
+    {
+     "type": "text",
+     "value": ", 접선 "
+    },
+    {
+     "type": "equation",
+     "value": "l_n"
+    },
+    {
+     "type": "text",
+     "value": "의 접점을 "
+    },
+    {
+     "type": "equation",
+     "value": "P_n"
+    },
+    {
+     "type": "text",
+     "value": "이라 하자. "
+    },
+    {
+     "type": "equation",
+     "value": "x"
+    },
+    {
+     "type": "text",
+     "value": "축과 직선 "
+    },
+    {
+     "type": "equation",
+     "value": "l_n"
+    },
+    {
+     "type": "text",
+     "value": "에 동시에 접하고 점 "
+    },
+    {
+     "type": "equation",
+     "value": "P_n"
+    },
+    {
+     "type": "text",
+     "value": "을 지나는 원 중 중심의 "
+    },
+    {
+     "type": "equation",
+     "value": "x"
+    },
+    {
+     "type": "text",
+     "value": "좌표가 양수인 것을 "
+    },
+    {
+     "type": "equation",
+     "value": "C_n"
+    },
+    {
+     "type": "text",
+     "value": "이라 하자. 원 "
+    },
+    {
+     "type": "equation",
+     "value": "C_n"
+    },
+    {
+     "type": "text",
+     "value": "의 반지름의 길이를 "
+    },
+    {
+     "type": "equation",
+     "value": "r_n"
+    },
+    {
+     "type": "text",
+     "value": "이라 할 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\lim_{n \\to \\infty} r_n"
+    },
+    {
+     "type": "text",
+     "value": "의 값은?"
+    },
+    {
+     "type": "figure",
+     "value": "좌표평면: 위로 볼록하게 증가하는 곡선 y=f(x), 원점에서 그은 접선 l_n과 접점 P_n, x축과 직선 l_n에 동시에 접하고 P_n을 지나는 원 C_n(중심 x좌표 양수).",
+     "bbox": [
+      0.18,
+      0.2,
+      0.86,
+      0.4
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{3}{8}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{1}{2}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{5}{8}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{3}{4}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{7}{8}"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 16,
+   "score": 3.5,
+   "contents": [
+    {
+     "type": "text",
+     "value": "모든 항이 양수인 수열 "
+    },
+    {
+     "type": "equation",
+     "value": "\\{a_n\\}"
+    },
+    {
+     "type": "text",
+     "value": "이 모든 자연수 "
+    },
+    {
+     "type": "equation",
+     "value": "n"
+    },
+    {
+     "type": "text",
+     "value": "에 대하여 다음 조건을 만족시킨다."
+    },
+    {
+     "type": "text",
+     "value": "<상자> 0 < x < 5일 때, x에 대한 방정식 \\sin\\left(\\frac{\\pi}{a_n}x\\right) = 1의 서로 다른 실근의 개수는 2n이다."
+    },
+    {
+     "type": "equation",
+     "value": "\\lim_{n \\to \\infty} na_n"
+    },
+    {
+     "type": "text",
+     "value": "의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{5}{6}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{5}{4}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{5}{3}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{5}{2}"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  }
+ ]
+}
