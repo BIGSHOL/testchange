@@ -1,0 +1,201 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 17,
+   "score": 8,
+   "label_type": "서답형",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서답형 1] 다섯 개의 숫자 0, 1, 2, 3, 4 중에서 중복을 허용하여 만든 자연수의 크기를 작은 것부터 차례대로 나열할 때, 2300은 몇 번째 수인지 구하시오. [8점]"
+    }
+   ],
+   "choices": [],
+   "sub_questions": []
+  },
+  {
+   "number": 18,
+   "score": 9,
+   "label_type": "서답형",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서답형 2] 한 개의 주사위를 두 번 던질 때, 첫 번째 주사위의 눈을 "
+    },
+    {
+     "type": "equation",
+     "value": "a"
+    },
+    {
+     "type": "text",
+     "value": ", 두 번째 주사위의 눈을 "
+    },
+    {
+     "type": "equation",
+     "value": "b"
+    },
+    {
+     "type": "text",
+     "value": "라 하자. 이차방정식 "
+    },
+    {
+     "type": "equation",
+     "value": "x^2 + 2a + b = 0"
+    },
+    {
+     "type": "text",
+     "value": "이 허근을 가지거나, "
+    },
+    {
+     "type": "equation",
+     "value": "a"
+    },
+    {
+     "type": "text",
+     "value": "가 홀수일 확률을 구하시오. [9점]"
+    }
+   ],
+   "choices": [],
+   "sub_questions": []
+  },
+  {
+   "number": 19,
+   "score": 9,
+   "label_type": "서답형",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서답형 3] "
+    },
+    {
+     "type": "equation",
+     "value": "(x + a)^n"
+    },
+    {
+     "type": "text",
+     "value": "의 전개식에서 "
+    },
+    {
+     "type": "equation",
+     "value": "x"
+    },
+    {
+     "type": "text",
+     "value": "의 계수와 "
+    },
+    {
+     "type": "equation",
+     "value": "(7x - 3)(x + a)^n"
+    },
+    {
+     "type": "text",
+     "value": "의 전개식에서 "
+    },
+    {
+     "type": "equation",
+     "value": "x"
+    },
+    {
+     "type": "text",
+     "value": "의 계수가 같게 되는 두 자연수 "
+    },
+    {
+     "type": "equation",
+     "value": "a"
+    },
+    {
+     "type": "text",
+     "value": "와 "
+    },
+    {
+     "type": "equation",
+     "value": "n"
+    },
+    {
+     "type": "text",
+     "value": "의 값을 각각 구하시오. (단, "
+    },
+    {
+     "type": "equation",
+     "value": "n"
+    },
+    {
+     "type": "text",
+     "value": "은 10 이하이다.) [9점]"
+    }
+   ],
+   "choices": [],
+   "sub_questions": []
+  },
+  {
+   "number": 20,
+   "score": 8,
+   "label_type": "서답형",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서답형 4] 세 자연수 "
+    },
+    {
+     "type": "equation",
+     "value": "x"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "y"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "z"
+    },
+    {
+     "type": "text",
+     "value": "가 "
+    },
+    {
+     "type": "equation",
+     "value": "x + y + z \\leq 19"
+    },
+    {
+     "type": "text",
+     "value": "를 만족시킬 때, "
+    },
+    {
+     "type": "equation",
+     "value": "x"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "y"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "z"
+    },
+    {
+     "type": "text",
+     "value": " 중 홀수인 것이 하나뿐인 경우의 수를 구하시오. [8점]"
+    }
+   ],
+   "choices": [],
+   "sub_questions": []
+  }
+ ]
+}

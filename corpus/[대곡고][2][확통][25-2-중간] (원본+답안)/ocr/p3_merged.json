@@ -1,0 +1,269 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 11,
+   "score": 4.2,
+   "contents": [
+    {
+     "type": "equation",
+     "value": "{}_{11}\\mathrm{C}_0 + 7 \\cdot {}_{11}\\mathrm{C}_1 + 7^2 \\cdot {}_{11}\\mathrm{C}_2 + \\cdots + 7^{11} \\cdot {}_{11}\\mathrm{C}_{11}"
+    },
+    {
+     "type": "text",
+     "value": "을 100으로 나눈 나머지는?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "89"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "90"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "91"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "92"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "93"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 12,
+   "score": 4.2,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림과 같이 한 변의 길이가 1인 정사각형 모양으로 연결된 도로망이 있다. 이 도로망을 따라 갑은 "
+    },
+    {
+     "type": "equation",
+     "value": "A"
+    },
+    {
+     "type": "text",
+     "value": "지점에서 "
+    },
+    {
+     "type": "equation",
+     "value": "C"
+    },
+    {
+     "type": "text",
+     "value": "지점을 향하여 1초에 3씩, 을은 "
+    },
+    {
+     "type": "equation",
+     "value": "C"
+    },
+    {
+     "type": "text",
+     "value": "지점에서 "
+    },
+    {
+     "type": "equation",
+     "value": "A"
+    },
+    {
+     "type": "text",
+     "value": "지점을 향하여 1초에 2씩 최단거리로 이동한다. 두 사람이 동시에 출발하여 도로망의 한 지점에서 만난 후 "
+    },
+    {
+     "type": "equation",
+     "value": "B"
+    },
+    {
+     "type": "text",
+     "value": "지점을 향하여 최단거리로 이동하는 경우의 수는?"
+    },
+    {
+     "type": "figure",
+     "value": "한 변의 길이 1인 정사각형들로 연결된 계단 모양 도로망. A(좌상단), B(상단 중앙), C(우하단). 세로변에 1,2,3,4 거리 표시.",
+     "bbox": [
+      0.34,
+      0.55,
+      0.78,
+      0.72
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "85"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "86"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "87"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "88"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "89"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 13,
+   "score": 4.4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "같은 종류의 연필 11개, 같은 종류의 노트 10권을 4명의 학생 "
+    },
+    {
+     "type": "equation",
+     "value": "A"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "B"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "C"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "D"
+    },
+    {
+     "type": "text",
+     "value": "에게 남김없이 나누어 줄 때 다음 조건을 만족시키도록 나누어주는 경우의 수는?"
+    },
+    {
+     "type": "text",
+     "value": "<상자> (가) 각 학생에게 적어도 1개의 연필을 나누어준다. (나) 학생 A에게 나누어주는 연필의 개수는 3의 배수이다. (다) 각 학생에게 노트는 3권 이하로 나누어준다."
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "54"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "108"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "162"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "216"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "270"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  }
+ ]
+}

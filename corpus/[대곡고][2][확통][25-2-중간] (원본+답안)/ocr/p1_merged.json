@@ -1,0 +1,397 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 1,
+   "score": 3.8,
+   "contents": [
+    {
+     "type": "equation",
+     "value": "{}_3\\Pi_2 + {}_5\\mathrm{H}_2"
+    },
+    {
+     "type": "text",
+     "value": "의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "24"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "48"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "72"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "96"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "120"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 2,
+   "score": 3.8,
+   "contents": [
+    {
+     "type": "text",
+     "value": "3명의 회원이 각각 비행기, 기차, 고속버스, 자가용 중에서 한 가지 교통수단을 선택하여 회의 장소에 모일 때, 교통수단을 택하는 경우의 수는?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "{}_4\\mathrm{H}_3"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "{}_3\\mathrm{H}_4"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "{}_4\\Pi_3"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "{}_3\\Pi_4"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "{}_4\\mathrm{P}_3"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 3,
+   "score": 3.8,
+   "contents": [
+    {
+     "type": "text",
+     "value": "주사위를 한 번 던지는 시행에서 나오는 눈의 수가 3의 배수인 사건을 "
+    },
+    {
+     "type": "equation",
+     "value": "A"
+    },
+    {
+     "type": "text",
+     "value": "라 할 때, 다음 중 "
+    },
+    {
+     "type": "equation",
+     "value": "A"
+    },
+    {
+     "type": "text",
+     "value": "와 서로 배반인 사건은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "text",
+       "value": "나오는 눈의 수가 소수인 사건"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "text",
+       "value": "나오는 눈의 수가 짝수인 사건"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "text",
+       "value": "나오는 눈의 수가 홀수인 사건"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "text",
+       "value": "나오는 눈의 수가 4의 약수인 사건"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "text",
+       "value": "나오는 눈의 수가 6의 약수인 사건"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 4,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "야구에서 "
+    },
+    {
+     "type": "equation",
+     "value": "n"
+    },
+    {
+     "type": "text",
+     "value": "타수 중 "
+    },
+    {
+     "type": "equation",
+     "value": "r"
+    },
+    {
+     "type": "text",
+     "value": "개의 안타를 친 선수의 타율은 "
+    },
+    {
+     "type": "equation",
+     "value": "\\frac{r}{n}"
+    },
+    {
+     "type": "text",
+     "value": "라고 한다. 현재까지 36타수에 나와 타율이 0.25인 선수가 앞으로 24타수에 더 나와서 타율을 0.3으로 만들기 위해 더 쳐야하는 안타의 개수는?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "6"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "7"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "8"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "9"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 5,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "여섯 개의 숫자 0, 0, 1, 1, 2, 2를 모두 사용하여 만들 수 있는 여섯 자리 자연수의 개수는?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "50"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "60"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "70"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "80"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "90"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 6,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "할머니와 할아버지를 포함한 6명의 가족이 원형 식탁에 둘러앉아 식사를 할 때, 할머니와 할아버지가 서로 이웃하지 __않을__ 확률은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{17}{30}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{3}{5}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{19}{30}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{2}{3}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{7}{10}"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  }
+ ]
+}

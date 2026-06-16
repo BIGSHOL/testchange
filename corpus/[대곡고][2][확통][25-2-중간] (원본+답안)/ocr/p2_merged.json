@@ -1,0 +1,291 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 7,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "두 사건 "
+    },
+    {
+     "type": "equation",
+     "value": "A"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "B"
+    },
+    {
+     "type": "text",
+     "value": "에 대하여 "
+    },
+    {
+     "type": "equation",
+     "value": "P(A) = \\frac{3}{4}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "P(B) = \\frac{2}{3}"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "P(A \\cap B)"
+    },
+    {
+     "type": "text",
+     "value": "의 최솟값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{1}{4}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{1}{3}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{5}{12}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{1}{2}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{7}{12}"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 8,
+   "score": 4.2,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림과 같이 합동인 정육각형 4개와 합동인 등변사다리꼴 3개를 변끼리 맞닿게 이어 붙여 만든 도형이 있다. 이 도형의 각 면에 다른 색이 오도록 7가지 색으로 구분하여 칠하는 경우의 수는? (단, 회전하여 일치하는 것은 같은 것으로 본다.)"
+    },
+    {
+     "type": "figure",
+     "value": "합동인 정육각형 4개와 등변사다리꼴 3개를 변끼리 이어 붙여 만든 삼각형 모양 도형(총 7개 면).",
+     "bbox": [
+      0.3,
+      0.74,
+      0.7,
+      0.9
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1680"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1750"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1820"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1890"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1960"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 9,
+   "score": 4.2,
+   "contents": [
+    {
+     "type": "text",
+     "value": "다음 식의 값은?"
+    },
+    {
+     "type": "equation_block",
+     "value": "{}_6\\mathrm{C}_4 + {}_7\\mathrm{C}_5 + {}_8\\mathrm{C}_6 + \\cdots + {}_{19}\\mathrm{C}_{17}"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1040"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1060"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1080"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1100"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1120"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 10,
+   "score": 4.2,
+   "contents": [
+    {
+     "type": "text",
+     "value": "영어 단어 'toilet'에 있는 6개의 문자를 일렬로 나열할 때, 양 끝에는 모두 자음이 오고, o는 i와 e보다 앞에 오도록 나열될 확률은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{1}{45}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{2}{45}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{1}{15}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{4}{45}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{1}{9}"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  }
+ ]
+}
