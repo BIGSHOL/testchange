@@ -1,0 +1,445 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 6,
+   "score": 4.1,
+   "contents": [
+    {
+     "type": "text",
+     "value": "함수 "
+    },
+    {
+     "type": "equation",
+     "value": "f(x) = \\begin{cases} x^2 - ax + 2 & (x \\le -1) \\\\ ax - 3 & (x > -1) \\end{cases}"
+    },
+    {
+     "type": "text",
+     "value": "에 대하여 "
+    },
+    {
+     "type": "equation",
+     "value": "\\lim_{x \\to -1-} 2f(x) = \\{\\lim_{x \\to -1+} f(x)\\}^2"
+    },
+    {
+     "type": "text",
+     "value": "을 만족시키는 모든 "
+    },
+    {
+     "type": "equation",
+     "value": "a"
+    },
+    {
+     "type": "text",
+     "value": "의 값의 합은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-4"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-2"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "0"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "6"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 7,
+   "score": 4.1,
+   "contents": [
+    {
+     "type": "text",
+     "value": "함수 "
+    },
+    {
+     "type": "equation",
+     "value": "f(x)"
+    },
+    {
+     "type": "text",
+     "value": "에 대하여 "
+    },
+    {
+     "type": "equation",
+     "value": "\\lim_{x \\to 25} f(x) = 3"
+    },
+    {
+     "type": "text",
+     "value": "일 때 "
+    },
+    {
+     "type": "equation",
+     "value": "\\lim_{x \\to 25} \\frac{(50 - 2x)f(x)}{\\sqrt{x} - 5}"
+    },
+    {
+     "type": "text",
+     "value": "의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-70"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-60"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-50"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-40"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-30"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 8,
+   "score": 4.1,
+   "contents": [
+    {
+     "type": "text",
+     "value": "함수 "
+    },
+    {
+     "type": "equation",
+     "value": "f(x) = \\begin{cases} \\frac{x^3 + ax^2 + b}{(x - 2)^2} & (x \\ne 2) \\\\ c & (x = 2) \\end{cases}"
+    },
+    {
+     "type": "text",
+     "value": "가 모든 실수 "
+    },
+    {
+     "type": "equation",
+     "value": "x"
+    },
+    {
+     "type": "text",
+     "value": "에서 연속일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "abc"
+    },
+    {
+     "type": "text",
+     "value": "의 값은? (단, "
+    },
+    {
+     "type": "equation",
+     "value": "a, b, c"
+    },
+    {
+     "type": "text",
+     "value": "는 상수)"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-40"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-36"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-32"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-28"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-24"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 9,
+   "score": 4.1,
+   "contents": [
+    {
+     "type": "text",
+     "value": "함수 "
+    },
+    {
+     "type": "equation",
+     "value": "f(x), g(x)"
+    },
+    {
+     "type": "text",
+     "value": "에 대한 설명으로 옳은 것만을 <보기>에서 고른 것은?"
+    },
+    {
+     "type": "text",
+     "value": "<보기> ㄱ. "
+    },
+    {
+     "type": "equation",
+     "value": "\\lim_{x \\to \\infty} f(x)"
+    },
+    {
+     "type": "text",
+     "value": "와 "
+    },
+    {
+     "type": "equation",
+     "value": "\\lim_{x \\to \\infty} f(x)g(x)"
+    },
+    {
+     "type": "text",
+     "value": "의 값이 각각 존재하면 "
+    },
+    {
+     "type": "equation",
+     "value": "\\lim_{x \\to \\infty} g(x)"
+    },
+    {
+     "type": "text",
+     "value": "의 값도 존재한다."
+    },
+    {
+     "type": "text",
+     "value": " • ㄴ. "
+    },
+    {
+     "type": "equation",
+     "value": "\\lim_{x \\to a} \\{f(x) + g(x)\\}"
+    },
+    {
+     "type": "text",
+     "value": "와 "
+    },
+    {
+     "type": "equation",
+     "value": "\\lim_{x \\to a} \\{f(x) - g(x)\\}"
+    },
+    {
+     "type": "text",
+     "value": "의 값이 각각 존재하면 "
+    },
+    {
+     "type": "equation",
+     "value": "\\lim_{x \\to a} g(x)"
+    },
+    {
+     "type": "text",
+     "value": "의 값도 존재한다."
+    },
+    {
+     "type": "text",
+     "value": " • ㄷ. "
+    },
+    {
+     "type": "equation",
+     "value": "\\lim_{x \\to \\infty} f(x)"
+    },
+    {
+     "type": "text",
+     "value": "와 "
+    },
+    {
+     "type": "equation",
+     "value": "\\lim_{x \\to \\infty} g(x)"
+    },
+    {
+     "type": "text",
+     "value": "의 값이 모두 존재하지 않으면 "
+    },
+    {
+     "type": "equation",
+     "value": "\\lim_{x \\to \\infty} \\{f(x) + g(x)\\}"
+    },
+    {
+     "type": "text",
+     "value": "의 값도 존재하지 않는다."
+    },
+    {
+     "type": "text",
+     "value": " • ㄹ. "
+    },
+    {
+     "type": "equation",
+     "value": "\\lim_{x \\to \\infty} g(x)"
+    },
+    {
+     "type": "text",
+     "value": "와 "
+    },
+    {
+     "type": "equation",
+     "value": "\\lim_{x \\to \\infty} \\frac{f(x)}{g(x)}"
+    },
+    {
+     "type": "text",
+     "value": "의 값이 각각 존재하면 "
+    },
+    {
+     "type": "equation",
+     "value": "\\lim_{x \\to \\infty} f(x)"
+    },
+    {
+     "type": "text",
+     "value": "의 값도 존재한다. (단, "
+    },
+    {
+     "type": "equation",
+     "value": "g(x) \\ne 0"
+    },
+    {
+     "type": "text",
+     "value": ")"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄱ, ㄴ"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄱ, ㄷ"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄴ, ㄷ"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄴ, ㄹ"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄷ, ㄹ"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  }
+ ]
+}

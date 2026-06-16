@@ -1,0 +1,397 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 10,
+   "score": 4.3,
+   "contents": [
+    {
+     "type": "text",
+     "value": "함수 "
+    },
+    {
+     "type": "equation",
+     "value": "f(x)"
+    },
+    {
+     "type": "text",
+     "value": "는 실수 전체의 집합에서 미분가능하고 다음 조건을 만족시킨다."
+    },
+    {
+     "type": "text",
+     "value": "<상자> (가) "
+    },
+    {
+     "type": "equation",
+     "value": "2 < x < 7"
+    },
+    {
+     "type": "text",
+     "value": "인 모든 실수 "
+    },
+    {
+     "type": "equation",
+     "value": "x"
+    },
+    {
+     "type": "text",
+     "value": "에 대하여 "
+    },
+    {
+     "type": "equation",
+     "value": "f'(x) \\ge 8"
+    },
+    {
+     "type": "text",
+     "value": "이다. • (나) "
+    },
+    {
+     "type": "equation",
+     "value": "f(2) = 6"
+    },
+    {
+     "type": "equation",
+     "value": "f(7)"
+    },
+    {
+     "type": "text",
+     "value": "의 최솟값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "46"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "48"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "50"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "52"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "54"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 11,
+   "score": 4.3,
+   "contents": [
+    {
+     "type": "text",
+     "value": "두 함수 "
+    },
+    {
+     "type": "equation",
+     "value": "f(x) = \\begin{cases} 3x + a & (x < 2) \\\\ bx - 2a & (x \\ge 2) \\end{cases}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "g(x) = \\begin{cases} ax + 2 & (x \\le -1) \\\\ x - b & (x \\ge -1) \\end{cases}"
+    },
+    {
+     "type": "text",
+     "value": "에 대하여 함수 "
+    },
+    {
+     "type": "equation",
+     "value": "f(x) - g(x)"
+    },
+    {
+     "type": "text",
+     "value": "가 실수 전체의 집합에서 연속일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\frac{a}{b}"
+    },
+    {
+     "type": "text",
+     "value": "의 값은? (단, "
+    },
+    {
+     "type": "equation",
+     "value": "a, b"
+    },
+    {
+     "type": "text",
+     "value": "는 상수)"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{2}{3}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{11}{15}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{4}{5}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{13}{15}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{14}{15}"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 12,
+   "score": 4.3,
+   "contents": [
+    {
+     "type": "text",
+     "value": "두 곡선 "
+    },
+    {
+     "type": "equation",
+     "value": "y = x^3 + 6x - 10"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "y = 2x^2 + 3x + 10"
+    },
+    {
+     "type": "text",
+     "value": "은 오직 하나의 점에서 만나며 만나는 점의 "
+    },
+    {
+     "type": "equation",
+     "value": "x"
+    },
+    {
+     "type": "text",
+     "value": "좌표가 "
+    },
+    {
+     "type": "equation",
+     "value": "k"
+    },
+    {
+     "type": "text",
+     "value": "일 때, 다음 열린구간 중 "
+    },
+    {
+     "type": "equation",
+     "value": "k"
+    },
+    {
+     "type": "text",
+     "value": "가 속하는 구간은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "(0, 1)"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "(1, 2)"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "(2, 3)"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "(3, 4)"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "(4, 5)"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 13,
+   "score": 4.3,
+   "contents": [
+    {
+     "type": "text",
+     "value": "함수 "
+    },
+    {
+     "type": "equation",
+     "value": "f(x) = \\begin{cases} -x^2 + 3 & (x < b) \\\\ x^3 + 2x^2 + ax + 4 & (b \\le x < 0) \\\\ 3x + 4 & (x \\ge 0) \\end{cases}"
+    },
+    {
+     "type": "text",
+     "value": "가 실수 전체의 집합에서 미분가능할 때, "
+    },
+    {
+     "type": "equation",
+     "value": "a + b"
+    },
+    {
+     "type": "text",
+     "value": "의 값은? (단, "
+    },
+    {
+     "type": "equation",
+     "value": "a, b"
+    },
+    {
+     "type": "text",
+     "value": "는 상수이고, "
+    },
+    {
+     "type": "equation",
+     "value": "b < 0"
+    },
+    {
+     "type": "text",
+     "value": "이다.)"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-1"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "0"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  }
+ ]
+}
