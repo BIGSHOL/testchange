@@ -551,6 +551,40 @@ def _check_box_split_inline_eq(fails):
     ]
     if _raw_box_end(spill) is not None:
         fails.append(f"  BX5 spill 박스 오분리: box_end={_raw_box_end(spill)} (None 기대)")
+    # BX6: bare 라벨 조건박스(``<상자> (가)``) 뒤 질문 발문 분리(_trailing_question_split, 대곡고
+    # 수2 #10). (나)=``f(2)=6``(관계연산자=조건) 은 박스, 질문 주어 ``f(7)``(관계 없음)+``의 최솟값은?``
+    # 은 박스 밖. bare 라벨이라 _ITEM_LEAD 자기완결 분기를 안 타 질문이 박스에 흡수되던 것.
+    dg10 = [
+        {"type": "text", "value": "함수 "}, {"type": "equation", "value": "f(x)"},
+        {"type": "text", "value": "는 미분가능하고 다음 조건을 만족시킨다."},
+        {"type": "text", "value": "<상자> (가) "}, {"type": "equation", "value": "2 < x < 7"},
+        {"type": "text", "value": "인 모든 실수 "}, {"type": "equation", "value": "x"},
+        {"type": "text", "value": "에 대하여 "}, {"type": "equation", "value": "f'(x) \\ge 8"},
+        {"type": "text", "value": "이다. • (나) "}, {"type": "equation", "value": "f(2) = 6"},
+        {"type": "equation", "value": "f(7)"}, {"type": "text", "value": "의 최솟값은?"},
+    ]
+    if _raw_box_end(dg10) != 11:
+        fails.append(f"  BX6 bare 조건박스 질문분리: box_end={_raw_box_end(dg10)} (11 기대)")
+    # P(…) 안 부등호는 최상위 관계 아님 → 질문 주어로 흡수(대건고 확통 #12 숨은결함 정정).
+    dg12 = [
+        {"type": "text", "value": "두 확률변수가 다음 조건을 만족시킨다."},
+        {"type": "text", "value": "<상자> (가) "}, {"type": "equation", "value": "Y = 2X + 1"},
+        {"type": "text", "value": " • (나) "}, {"type": "equation", "value": "P(x \\leq X \\leq x+8)"},
+        {"type": "text", "value": "는 "}, {"type": "equation", "value": "x = a"},
+        {"type": "text", "value": "에서 최댓값 0.3을 갖는다."},
+        {"type": "equation", "value": "P(a \\leq X \\leq a+2) + P(Y \\leq 2a)"},
+        {"type": "text", "value": "의 값은?"},
+    ]
+    if _raw_box_end(dg12) != 8:
+        fails.append(f"  BX6 P() 부등호 가드: box_end={_raw_box_end(dg12)} (8 기대)")
+    # 무회귀: 질문 텍스트 없는 보기 박스(ㄱㄴ + 선택지)는 분리 안 함(None).
+    bogi6 = [
+        {"type": "text", "value": "<보기> ㄱ. "}, {"type": "equation", "value": "f(x)"},
+        {"type": "text", "value": "는 연속이다. • ㄴ. "}, {"type": "equation", "value": "g(x)"},
+        {"type": "text", "value": "는 미분가능하다."},
+    ]
+    if _raw_box_end(bogi6) is not None:
+        fails.append(f"  BX6 보기 박스(질문 없음) 오분리: {_raw_box_end(bogi6)} (None 기대)")
 
 
 def _check_daegeon_go1_fixes(fails):

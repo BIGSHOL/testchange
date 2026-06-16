@@ -1406,6 +1406,75 @@ def _rstrip_last_text(blocks: list[ContentBlock]) -> list[ContentBlock]:
     return blocks
 
 
+# 조건박스 뒤 질문 발문 식별 — 박스가 ``(가)…(나)…`` 조건 뒤에 ``…의 값은?``·``…구하시오``
+# 같은 질문으로 끝나는데, (나) 내용이 수식(마침표 없음)이라 _raw_box_end 의 자기완결 판정이
+# 안 먹어 질문이 박스에 흡수되던 것(대곡고 수2 #10 ``<상자> (가)… • (나) f(2)=6 f(7)의 최솟값은?``).
+_QUESTION_END_RE = re.compile(
+    r'(?:값은|개수는|합은|최[솟댓]값은|것은|무엇)\s*[?？]|[?？]\s*$'
+    r'|구하(?:시오|여라|라)|쓰시오|서술하(?:시오|여라)|기술하(?:시오|여라)')
+# 관계연산자(=·부등호) 명령
+_REL_CMD_RE = re.compile(r'\\(?:le|ge|leq|geq|ne|neq|fallingdotseq)\b')
+
+
+def _has_top_level_relation(eq: str) -> bool:
+    """수식에 **괄호 밖(최상위)** 관계연산자(=·<·>·≤·≥·≠)가 있으면 True.
+    ``f(2)=6``·``x=a`` 는 조건(True=박스 유지), ``P(a≤X≤a+2)+P(Y≤2a+13)`` 는 ≤ 가 P(…) **안**
+    이라 최상위엔 관계 없음(False=질문 주어). 확률·함수 표기 안 부등호 오판 방지(대건고 확통 #12)."""
+    depth = 0
+    i = 0
+    while i < len(eq):
+        c = eq[i]
+        if c in "([{":
+            depth += 1
+        elif c in ")]}":
+            depth = max(0, depth - 1)
+        elif depth == 0:
+            if c in "=<>≤≥≠":
+                return True
+            if c == "\\" and _REL_CMD_RE.match(eq, i):
+                return True
+        i += 1
+    return False
+
+
+def _trailing_question_split(raws: list[dict], i: int) -> int | None:
+    """라벨 조건박스(``<상자>/<조건> (가)…(나)…``) **뒤에 질문 발문**(``…값은?``·``구하시오``)이
+    이어지면 그 질문 시작 raw 인덱스를 반환(박스=조건, post=질문). 없으면 None.
+
+    질문 = 마지막 '질문 텍스트 블록'(_QUESTION_END_RE) + 그 앞의 **관계연산자 없는 수식**
+    (질문 주어 ``f(7)`` 등; ``f(2)=6`` 같은 조건 수식은 관계연산자가 있어 박스에 남는다).
+    라벨(_ITEM_LEAD/_INNER_ITEM_LABEL) 없는 단순·보기 박스(질문 텍스트 없음)는 None(자기완결 보존).
+    """
+    mk = _RAW_BOX_MARK_RE.search(raws[i].get("value") or "")
+    mrest = (raws[i].get("value") or "")[mk.end():].strip() if mk else ""
+    last_label = i if _ITEM_LEAD_RE.match(mrest) else None
+    for j in range(i + 1, len(raws)):
+        if (raws[j].get("type") == "text"
+                and _INNER_ITEM_LABEL_RE.search(raws[j].get("value") or "")):
+            last_label = j
+    if last_label is None:
+        return None
+    q = None
+    for j in range(len(raws) - 1, last_label, -1):
+        if (raws[j].get("type") == "text"
+                and _QUESTION_END_RE.search(raws[j].get("value") or "")):
+            q = j
+            break
+    if q is None:
+        return None
+    start = q
+    while start - 1 > last_label:
+        prev = raws[start - 1]
+        if (prev.get("type") in ("equation", "equation_block")
+                and not _has_top_level_relation(prev.get("value") or "")):
+            start -= 1
+        else:
+            break
+    if start <= last_label + 1:      # 라벨↔질문 사이에 조건 내용이 있어야(없으면 무효)
+        return None
+    return start
+
+
 def _raw_box_end(raws: list[dict]) -> int | None:
     """자기완결 박스(<조건>/<보기>/<상자> + 항목이 한 raw 텍스트 블록) **뒤에** 발문이
     더 이어지면 그 발문 연속이 시작되는 raw 인덱스를 돌려준다(없으면 None).
@@ -1463,6 +1532,13 @@ def _raw_box_end(raws: list[dict]) -> int | None:
                             if (after and after.endswith((".", "．"))
                                     and last_j + 1 < len(raws)):
                                 return last_j + 1
+                            # non-bare ITEM_LEAD 에선 질문분리를 **하지 않는다**(return None). (나)
+                            # 조건과 질문 사이에 설정 텍스트가 끼는 경우(남산고·덕원고·정동고 확통 —
+                            # ``…2배이다.`` 뒤 ``2025년 중 임의추출한 n일…P(…)=…일 때,`` 설정문)가
+                            # 흔해, 수식만 역행하는 walk-back 이 박스 경계(설정문 시작)를 못 찾고
+                            # 설정문을 박스에 남기는 과분리가 났다. 질문분리는 (나)↔질문 사이가
+                            # 깔끔한 bare 라벨 박스(대곡고 #10·경상고 #8·대건고확통 #12, 아래 라인)에
+                            # 한정. 대곡고 수2 #16 ``…q/p일 때, p+q의 값은?`` 은 잔여 한계(박스 내 질문).
                             return None
                     # 불릿(·•○) 항목 박스 변종(경일여중3 #19·#20·#22, 2026-06-16): ㄱ./（가）
                     # 라벨이 아니라 **불릿**으로 항목을 나누는 조건/보기 박스가 인라인 수식
@@ -1484,7 +1560,10 @@ def _raw_box_end(raws: list[dict]) -> int | None:
                     if rest.rstrip().endswith((",", "，")) and nxt.get("type") == "equation":
                         return None
                     return i + 1
-                return None
+                # rest 가 항목 라벨 하나뿐(``<상자> (가)``)이거나 비어도, 박스 뒤에 질문 발문이
+                # 이어지면 분리한다(대곡고 수2 #10 — bare ``(가)`` 라 위 분기를 안 타고 박스가
+                # 질문까지 흡수하던 것). 질문 없으면 None(보기 박스 등 자기완결 보존).
+                return _trailing_question_split(raws, i)
     return None
 
 
