@@ -1,0 +1,429 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 9,
+   "score": 3.8,
+   "contents": [
+    {
+     "type": "text",
+     "value": "함수 "
+    },
+    {
+     "type": "equation",
+     "value": "f(x) = \\begin{cases} -x+2 & (x < -1) \\\\ 0 & (x = -1) \\\\ 1 & (-1 < x < 0) \\\\ -x+1 & (0 \\le x) \\end{cases}"
+    },
+    {
+     "type": "text",
+     "value": "일 때, 함수 "
+    },
+    {
+     "type": "equation",
+     "value": "f(x)g(x)"
+    },
+    {
+     "type": "text",
+     "value": "가 닫힌구간 "
+    },
+    {
+     "type": "equation",
+     "value": "[-2, 2]"
+    },
+    {
+     "type": "text",
+     "value": "에서 연속이 되도록 하는 함수 "
+    },
+    {
+     "type": "equation",
+     "value": "g(x)"
+    },
+    {
+     "type": "text",
+     "value": "로 옳은 것은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "x^2 + 1"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "x - 1"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\sin\\pi x"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\cos\\pi x"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "|x| + 1"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 10,
+   "score": 3.9,
+   "contents": [
+    {
+     "type": "text",
+     "value": "함수 "
+    },
+    {
+     "type": "equation",
+     "value": "f(x) = \\begin{cases} 0 & (|x| > 1) \\\\ 1 & (x = 1) \\\\ 1 - |x| & (|x| < 1) \\\\ -1 & (x = -1) \\end{cases}"
+    },
+    {
+     "type": "text",
+     "value": "에 대하여 두 함수 "
+    },
+    {
+     "type": "equation",
+     "value": "f(-x) + f(x)"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "f(x) - f(-x)"
+    },
+    {
+     "type": "text",
+     "value": "가 불연속인 "
+    },
+    {
+     "type": "equation",
+     "value": "x"
+    },
+    {
+     "type": "text",
+     "value": "의 값의 개수를 각각 "
+    },
+    {
+     "type": "equation",
+     "value": "m, n"
+    },
+    {
+     "type": "text",
+     "value": "이라 하고 극한값이 존재하지 않는 "
+    },
+    {
+     "type": "equation",
+     "value": "x"
+    },
+    {
+     "type": "text",
+     "value": "의 값의 개수를 각각 "
+    },
+    {
+     "type": "equation",
+     "value": "a, b"
+    },
+    {
+     "type": "text",
+     "value": "라고 할 때, "
+    },
+    {
+     "type": "equation",
+     "value": "m - n + a - b"
+    },
+    {
+     "type": "text",
+     "value": "의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-4"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-2"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "0"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 11,
+   "score": 4.0,
+   "contents": [
+    {
+     "type": "text",
+     "value": "두 함수 "
+    },
+    {
+     "type": "equation",
+     "value": "f(x) = x^3 + 2x + 3"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "g(x) = x^2 + 3ax + 5"
+    },
+    {
+     "type": "text",
+     "value": "에 대하여 함수 "
+    },
+    {
+     "type": "equation",
+     "value": "\\frac{f(x)}{g(x)}"
+    },
+    {
+     "type": "text",
+     "value": "가 모든 실수 "
+    },
+    {
+     "type": "equation",
+     "value": "x"
+    },
+    {
+     "type": "text",
+     "value": "에서 연속이 되도록 하는 정수 "
+    },
+    {
+     "type": "equation",
+     "value": "a"
+    },
+    {
+     "type": "text",
+     "value": "의 개수는?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "0"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "7"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 12,
+   "score": 4.1,
+   "contents": [
+    {
+     "type": "text",
+     "value": "미분가능한 함수 "
+    },
+    {
+     "type": "equation",
+     "value": "f(x)"
+    },
+    {
+     "type": "text",
+     "value": "가 모든 실수 "
+    },
+    {
+     "type": "equation",
+     "value": "x, y"
+    },
+    {
+     "type": "text",
+     "value": "에 대하여 다음 조건을 모두 만족시킬 때, 함수 "
+    },
+    {
+     "type": "equation",
+     "value": "f(x)"
+    },
+    {
+     "type": "text",
+     "value": "의 도함수를 "
+    },
+    {
+     "type": "equation",
+     "value": "f'(x)"
+    },
+    {
+     "type": "text",
+     "value": "라 하자. "
+    },
+    {
+     "type": "equation",
+     "value": "f'(6)"
+    },
+    {
+     "type": "text",
+     "value": "의 값은?"
+    },
+    {
+     "type": "text",
+     "value": "<상자> (가) "
+    },
+    {
+     "type": "equation",
+     "value": "f(x+y) = f(x) + f(y) - xy"
+    },
+    {
+     "type": "text",
+     "value": " • (나) "
+    },
+    {
+     "type": "equation",
+     "value": "f'(0) = 2"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-8"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-7"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-6"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-5"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-4"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  }
+ ]
+}
