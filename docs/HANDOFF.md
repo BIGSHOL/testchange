@@ -7,6 +7,24 @@
 
 > **다른 컴퓨터에서 이어받는 사람은 이 절만 읽으면 된다. 아래 나머지 절은 환경/하네스 레퍼런스다.**
 
+### 🆕 2026-06-16 업데이트 — OCR 다중 백엔드 + 배포 GUI 정리 (exe v0.1.17 배포·selftest OK)
+- **OCR 백엔드 다중화 + 품질 자동 라우팅 구현·배포**: Claude 단일 → 품질 3단계 자동 분기
+  (born-digital/고QC → `gemini-3.5-flash`, 스캔/저품질 → `gemini-3.1-pro-preview`). seam =
+  `OCREngine._stream_message` 한 곳. 비용 5~7배↓. **Anthropic 키 선택사항화**(Gemini 키만 있어도
+  변환). config `OCR_BACKEND`(auto 기본)·`GEMINI_PRO_MODEL`·`GEMINI_FLASH_MODEL`·`QC_CLEAN_SCORE`
+  + GUI OCR 엔진 드롭다운. **⭐ 자가발전 corpus·ocr_eval 은 Sonnet 고정**(OCREngine 기본
+  backend=claude 가 config 를 honor 안 함=의도, testkit/score_ocr 명시). 상세 = CLAUDE.md
+  "OCR 백엔드 다중화" 절 + 메모리 `ocr-engine-quality-routing`.
+- **렌더/배포 GUI 수정**(전부 배포): ① 서술형 소문항 배점 **인라인 우선**(공간 부족 시에만 줄바꿈
+  우측정렬 — 합의 #2, force_break 폐기) ② **부정 선택문 부정어 볼드+밑줄**("옳지 않은 것" —
+  합의 #11, `ContentBlock.bold`) ③ 폼 자동 미일치 시 **기본 서식 폴백**(차단 안 함) ④ 그림 렌더
+  옵션 폐지(항상 안내 박스) ⑤ 툴팁·로그 일반 사용자용 간소화.
+- ⚠️ **이 PC config 의 ANTHROPIC_API_KEY 가 401(invalid)** — Gemini 정상이라 기본 무영향,
+  Claude 백엔드 쓰려면 키 갱신 필요.
+- 커밋: `082737c`(OCR 라우팅)·`df4609b`(폼폴백·그림제거)·`b28164c`(배점인라인·로그)·
+  `9e32abe`(부정어 강조) → `testchange/master` 푸시. 회귀: verify 30/30·단위테스트 전부 PASS.
+
+
 - **워크트리·브랜치 전부 정리됨 → 이제 `master` 단일 트리 하나뿐.** 과거에는 한 PC에서
   멀티 worktree(`hwakt-ocr`=확통, `mij-ocr`=미적분, `render-review`=렌더/검수, `go1-ocr`=고1
   공수)로 역할 분리해 병행했으나(아래 §HANDOFF_CONSUMER 의 옛 모델), **2026-06-14 전부 master 로
@@ -29,11 +47,10 @@
 - **이어작업 셋업 요지**(상세는 아래 §2): `git clone` → `pip install -r requirements.txt` →
   `config.json`(API 키, gitignore) → 한글(HWP) 설치 → `python main.py`. corpus 검수는
   `python scripts/corpus_consumer/watch_handoff.py` 로 ready 목록 확인 후 `corpus_render.py`.
-> 최종 갱신: 2026-06-14 (워크트리 통합·문서 정비). 이전: 2026-06-11 (이 PC, HEAD `6bf1f1a` —
-> 월암중 중2 검수 6건, 푸시 완료).
-> ⚠️ **배포 exe 는 `97b577d`(메인 PC 2026-06-11 13:31 빌드·배포·selftest OK) 시점** —
-> 점이름·단위(`0c514dd`)까지 포함, **월암중 6건(`6bf1f1a` 파서/렌더 수정)은 미반영**.
-> 다음 빌드 때 반영할 것(코드 = content_parser·hwp_com_writer·hwp_form_writer).
+> 최종 갱신: 2026-06-16 (OCR 다중 백엔드·배포 GUI 정리, 위 🆕 절). 이전: 2026-06-14(워크트리 통합).
+> ✅ **배포 exe = v0.1.17 (2026-06-16, 이 PC 빌드·배포·selftest OK + GEMINI LIVE OK)** —
+> OCR 라우팅·배점 인라인·부정어 강조·폼 폴백·그림옵션 폐지·로그 간소화까지 **전부 반영**.
+> (이전 stale 노트: ~~배포 exe 97b577d 시점, 월암중 6건 미반영~~ — v0.1.17 로 해소됨.)
 > 🔁 **월암중 중2(천재이) 타학교 교차검증** = 중2 폼 2번째 corpus(완료기반). B형 6건 수정:
 > ① `\begin{cases}` 박스 literal(`_LATEX_ENV_RE` 통째 원자 — **매천중 #6도 같은 숨은 결함**이
 > 었음) ② 박스 나란히 수식 병합(깊이 0 더블스페이스 경계) ③ 발문 `<보기> 중` 박스 오인
