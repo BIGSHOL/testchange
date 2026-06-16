@@ -1,0 +1,481 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 1,
+   "score": 3.4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "두 학생 "
+    },
+    {
+     "type": "equation",
+     "value": "A"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "B"
+    },
+    {
+     "type": "text",
+     "value": "를 포함한 7명의 학생 중에서 "
+    },
+    {
+     "type": "equation",
+     "value": "A"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "B"
+    },
+    {
+     "type": "text",
+     "value": "를 포함하여 선택한 5명을 원탁에 둘러앉히는 경우의 수는?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "24"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "120"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "240"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "252"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "504"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 2,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림과 같은 도로망이 있다. "
+    },
+    {
+     "type": "equation",
+     "value": "A"
+    },
+    {
+     "type": "text",
+     "value": " 지점에서 출발하여 "
+    },
+    {
+     "type": "equation",
+     "value": "P"
+    },
+    {
+     "type": "text",
+     "value": " 지점을 반드시 거쳐 "
+    },
+    {
+     "type": "equation",
+     "value": "B"
+    },
+    {
+     "type": "text",
+     "value": " 지점까지 최단 거리로 가는 방법의 수는?"
+    },
+    {
+     "type": "figure",
+     "value": "도로망: A(좌하단)에서 B(우상단)까지 가로·세로 격자형 도로, 중앙에 P 지점. A→P→B 최단경로",
+     "bbox": [
+      0.1,
+      0.4,
+      0.5,
+      0.62
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "160"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "170"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "180"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "190"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "200"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 3,
+   "score": 3.7,
+   "contents": [
+    {
+     "type": "equation",
+     "value": "{}_{3}\\mathrm{C}_{3} + {}_{4}\\mathrm{C}_{3} + {}_{5}\\mathrm{C}_{3} + \\cdots + {}_{15}\\mathrm{C}_{3}"
+    },
+    {
+     "type": "text",
+     "value": " 의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "560"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "680"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1080"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1365"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1820"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 4,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "집합 "
+    },
+    {
+     "type": "equation",
+     "value": "A = \\{a_1, a_2, a_3, \\cdots, a_{10}\\}"
+    },
+    {
+     "type": "text",
+     "value": " 의 부분집합 "
+    },
+    {
+     "type": "equation",
+     "value": "X"
+    },
+    {
+     "type": "text",
+     "value": " 중에서 "
+    },
+    {
+     "type": "equation",
+     "value": "n(X) \\neq 0"
+    },
+    {
+     "type": "text",
+     "value": " 이고 원소의 개수가 짝수인 부분집합의 개수는?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "256"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "511"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "512"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1023"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1024"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 5,
+   "score": 4.3,
+   "contents": [
+    {
+     "type": "text",
+     "value": "반장 1명을 선출하는 선거에 2명의 후보가 출마하였다. 10명의 학생들이 기명으로 투표하는 경우의 수를 "
+    },
+    {
+     "type": "equation",
+     "value": "\\alpha"
+    },
+    {
+     "type": "text",
+     "value": ", 10명의 학생들이 무기명으로 투표하는 경우의 수를 "
+    },
+    {
+     "type": "equation",
+     "value": "\\beta"
+    },
+    {
+     "type": "text",
+     "value": "라 할 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\alpha - \\beta"
+    },
+    {
+     "type": "text",
+     "value": "의 값은? (단, 각 학생이 1명에게 투표하고, 기권과 무효는 없는 것으로 한다.)"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-1013"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-979"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-934"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "979"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1013"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 6,
+   "score": 4.3,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림과 같이 서로 접하고 크기가 같은 원 3개와 이 세 원의 중심을 꼭짓점으로 하는 정삼각형이 있다. 원의 내부 또는 정삼각형의 내부에 만들어지는 7개의 영역에 서로 다른 색을 허용하여 칠하려고 한다. 서로 다른 8가지 색을 이용하고, 한 영역에 한 가지 색만을 칠할 때, 색칠한 결과로 나올 수 있는 경우의 수는? (단, 회전하여 일치하는 것은 같은 것으로 본다.)"
+    },
+    {
+     "type": "figure",
+     "value": "서로 접하는 합동인 원 3개와 세 원의 중심을 꼭짓점으로 하는 정삼각형. 원 내부와 정삼각형 내부에 7개 영역이 형성됨",
+     "bbox": [
+      0.3,
+      0.62,
+      0.7,
+      0.82
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1680"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2240"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3360"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "6720"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "13440"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  }
+ ]
+}
