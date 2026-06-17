@@ -1,0 +1,401 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 7,
+   "score": 4.2,
+   "contents": [
+    {
+     "type": "text",
+     "value": "함수 "
+    },
+    {
+     "type": "equation",
+     "value": "f(x)=|x-2|"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\displaystyle\\lim_{h \\to 0}\\frac{f(2+h)-f(2-h)}{3h}"
+    },
+    {
+     "type": "text",
+     "value": "의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-1"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "0"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 8,
+   "score": 4.3,
+   "contents": [
+    {
+     "type": "text",
+     "value": "두 함수\nf(x)=\\begin{cases} x+3 & (x<2) \\\\ -x+a & (x \\ge 2) \\end{cases}, \\qquad g(x)=\\begin{cases} -x+b & (x<3) \\\\ 3x-2 & (x \\ge 3) \\end{cases}\n에 대하여 두 함수 "
+    },
+    {
+     "type": "equation",
+     "value": "f(x)-3x"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "f(x)+g(x)"
+    },
+    {
+     "type": "text",
+     "value": "가 모두 실수 전체의 집합에서 연속일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "a+b"
+    },
+    {
+     "type": "text",
+     "value": "의 값은? (단, "
+    },
+    {
+     "type": "equation",
+     "value": "a"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "b"
+    },
+    {
+     "type": "text",
+     "value": "는 상수이다.)"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "17"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "18"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "19"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "20"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "21"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 9,
+   "score": 4.4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "다항함수 "
+    },
+    {
+     "type": "equation",
+     "value": "f(x)"
+    },
+    {
+     "type": "text",
+     "value": "는 모든 실수 "
+    },
+    {
+     "type": "equation",
+     "value": "x"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "y"
+    },
+    {
+     "type": "text",
+     "value": "에 대하여\nf(x+y)=f(x)+f(y)+xy+1\n을 만족시킨다.\n\\lim_{x \\to 2}\\frac{f(x)-f(2)}{x^2-4}=4\n일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "f'(0)"
+    },
+    {
+     "type": "text",
+     "value": "의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "14"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "15"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "16"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "17"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "18"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 10,
+   "score": 4.5,
+   "contents": [
+    {
+     "type": "equation",
+     "value": "-6<a<6"
+    },
+    {
+     "type": "text",
+     "value": "인 실수 "
+    },
+    {
+     "type": "equation",
+     "value": "a"
+    },
+    {
+     "type": "text",
+     "value": "와 함수 "
+    },
+    {
+     "type": "equation",
+     "value": "f(x)=\\begin{cases} x^2+12x & (x<0) \\\\ -x^2+12x & (x \\ge 0) \\end{cases}"
+    },
+    {
+     "type": "text",
+     "value": "\n에 대하여 두 점 "
+    },
+    {
+     "type": "equation",
+     "value": "(-6,\\ f(-6))"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "(a,\\ f(a))"
+    },
+    {
+     "type": "text",
+     "value": "를 지나는 직선에 평행하고 함수 "
+    },
+    {
+     "type": "equation",
+     "value": "y=f(x)"
+    },
+    {
+     "type": "text",
+     "value": "의 그래프에 접하는 직선 중 접점의 "
+    },
+    {
+     "type": "equation",
+     "value": "x"
+    },
+    {
+     "type": "text",
+     "value": "좌표가 열린구간 "
+    },
+    {
+     "type": "equation",
+     "value": "(-6,\\ a)"
+    },
+    {
+     "type": "text",
+     "value": "에 존재하는 서로 다른 직선의 개수를 "
+    },
+    {
+     "type": "equation",
+     "value": "g(a)"
+    },
+    {
+     "type": "text",
+     "value": "라 하자. 이때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\displaystyle\\sum_{k=1}^{5}g(k)"
+    },
+    {
+     "type": "text",
+     "value": "의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "6"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "7"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "8"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  }
+ ]
+}

@@ -1,0 +1,265 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 16,
+   "score": 5.2,
+   "contents": [
+    {
+     "type": "text",
+     "value": "양수 "
+    },
+    {
+     "type": "equation",
+     "value": "k"
+    },
+    {
+     "type": "text",
+     "value": "에 대하여 함수 "
+    },
+    {
+     "type": "equation",
+     "value": "f(x)=\\begin{cases} |x+k-1| & (x \\le 0) \\\\ |2x-3| & (x > 0) \\end{cases}"
+    },
+    {
+     "type": "text",
+     "value": " 라 하자. 최고차항의 계수가 1인 삼차함수 "
+    },
+    {
+     "type": "equation",
+     "value": "g(x)"
+    },
+    {
+     "type": "text",
+     "value": "에 대하여 함수 "
+    },
+    {
+     "type": "equation",
+     "value": "f(x)g(x)"
+    },
+    {
+     "type": "text",
+     "value": "가 실수 전체의 집합에서 미분가능할 때, <보기>에서 항상 옳은 것만을 모두 고른 것은?"
+    },
+    {
+     "type": "text",
+     "value": " <보기> "
+    },
+    {
+     "type": "text",
+     "value": "ㄱ. 함수 "
+    },
+    {
+     "type": "equation",
+     "value": "f(x)g(x)"
+    },
+    {
+     "type": "text",
+     "value": "는 "
+    },
+    {
+     "type": "equation",
+     "value": "x=0"
+    },
+    {
+     "type": "text",
+     "value": "에서 연속이다."
+    },
+    {
+     "type": "text",
+     "value": " • "
+    },
+    {
+     "type": "text",
+     "value": "ㄴ. "
+    },
+    {
+     "type": "equation",
+     "value": "k=4"
+    },
+    {
+     "type": "text",
+     "value": "이면, "
+    },
+    {
+     "type": "equation",
+     "value": "g(4)=70"
+    },
+    {
+     "type": "text",
+     "value": "이다."
+    },
+    {
+     "type": "text",
+     "value": " • "
+    },
+    {
+     "type": "text",
+     "value": "ㄷ. 함수 "
+    },
+    {
+     "type": "equation",
+     "value": "f(x)"
+    },
+    {
+     "type": "text",
+     "value": "가 "
+    },
+    {
+     "type": "equation",
+     "value": "x=0"
+    },
+    {
+     "type": "text",
+     "value": "에서 불연속이면, "
+    },
+    {
+     "type": "equation",
+     "value": "g'\\left(\\dfrac{3}{2}\\right)=0"
+    },
+    {
+     "type": "text",
+     "value": "이다."
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "text",
+       "value": "① ㄱ"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "text",
+       "value": "② ㄴ"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "text",
+       "value": "③ ㄱ, ㄴ"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "text",
+       "value": "④ ㄱ, ㄷ"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "text",
+       "value": "⑤ ㄱ, ㄴ, ㄷ"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 17,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서답형 1] "
+    },
+    {
+     "type": "text",
+     "value": "함수 "
+    },
+    {
+     "type": "equation",
+     "value": "f(x)=\\begin{cases} x^2-2x+2 & (x<1) \\\\ x-3 & (1 \\le x<3) \\\\ -x^2+2x & (x \\ge 3) \\end{cases}"
+    },
+    {
+     "type": "text",
+     "value": " 에 대하여 "
+    },
+    {
+     "type": "equation",
+     "value": "\\lim\\limits_{x \\to 1-} f(x)+f(2)+\\lim\\limits_{x \\to 3+} f(x)"
+    },
+    {
+     "type": "text",
+     "value": "의 값을 구하시오."
+    }
+   ],
+   "label_type": "서답형",
+   "choices": [],
+   "sub_questions": []
+  },
+  {
+   "number": 18,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서답형 2] "
+    },
+    {
+     "type": "text",
+     "value": "두 함수 "
+    },
+    {
+     "type": "equation",
+     "value": "f(x)=x^3-2x^2+1"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "g(x)=x^2+2ax+36"
+    },
+    {
+     "type": "text",
+     "value": " 에 대하여 함수 "
+    },
+    {
+     "type": "equation",
+     "value": "\\dfrac{f(x)}{g(x)}"
+    },
+    {
+     "type": "text",
+     "value": " 가 모든 실수 "
+    },
+    {
+     "type": "equation",
+     "value": "x"
+    },
+    {
+     "type": "text",
+     "value": "에서 연속이 되도록 하는 정수 "
+    },
+    {
+     "type": "equation",
+     "value": "a"
+    },
+    {
+     "type": "text",
+     "value": "의 개수를 구하시오."
+    }
+   ],
+   "label_type": "서답형",
+   "choices": [],
+   "sub_questions": []
+  }
+ ]
+}

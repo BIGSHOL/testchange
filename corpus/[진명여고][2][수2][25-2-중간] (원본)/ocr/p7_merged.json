@@ -1,0 +1,313 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 21,
+   "score": 6,
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서답형 5] "
+    },
+    {
+     "type": "text",
+     "value": "실수 "
+    },
+    {
+     "type": "equation",
+     "value": "k"
+    },
+    {
+     "type": "text",
+     "value": "와 함수 "
+    },
+    {
+     "type": "equation",
+     "value": "f(x) = \\begin{cases} x^2-2x+k & (x \\ge 0) \\\\ -x^2-2x+k & (x < 0) \\end{cases}"
+    },
+    {
+     "type": "text",
+     "value": " 에 대하여 함수 "
+    },
+    {
+     "type": "equation",
+     "value": "g(x)"
+    },
+    {
+     "type": "text",
+     "value": "는\ng(x) = \\begin{cases} f(x)+2x & (f(x) \\ge 0) \\\\ 3f(x) & (f(x) < 0) \\end{cases}\n이다. 함수 "
+    },
+    {
+     "type": "equation",
+     "value": "g(x)"
+    },
+    {
+     "type": "text",
+     "value": "가 "
+    },
+    {
+     "type": "equation",
+     "value": "x=t"
+    },
+    {
+     "type": "text",
+     "value": "에서 불연속인 실수 "
+    },
+    {
+     "type": "equation",
+     "value": "t"
+    },
+    {
+     "type": "text",
+     "value": "의 개수를 "
+    },
+    {
+     "type": "equation",
+     "value": "m_k"
+    },
+    {
+     "type": "text",
+     "value": ", 미분가능하지 않은 실수 "
+    },
+    {
+     "type": "equation",
+     "value": "t"
+    },
+    {
+     "type": "text",
+     "value": "의 개수를 "
+    },
+    {
+     "type": "equation",
+     "value": "n_k"
+    },
+    {
+     "type": "text",
+     "value": "이라고 할 때, 다음 물음에 답하시오."
+    }
+   ],
+   "label_type": "서답형",
+   "choices": [],
+   "sub_questions": [
+    {
+     "number": 1,
+     "score": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "m_{\\frac{1}{2}} + n_{\\frac{1}{2}}"
+      },
+      {
+       "type": "text",
+       "value": " 의 값을 구하시오."
+      }
+     ],
+     "choices": [],
+     "sub_questions": []
+    },
+    {
+     "number": 2,
+     "score": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3 \\le m_k + n_k \\le 5"
+      },
+      {
+       "type": "text",
+       "value": " 일 때, "
+      },
+      {
+       "type": "equation",
+       "value": "g(5)"
+      },
+      {
+       "type": "text",
+       "value": "의 최댓값을 구하시오."
+      }
+     ],
+     "choices": [],
+     "sub_questions": []
+    }
+   ]
+  },
+  {
+   "number": 22,
+   "score": 6,
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서답형 6] "
+    },
+    {
+     "type": "text",
+     "value": "최고차항의 계수가 1인 사차함수 "
+    },
+    {
+     "type": "equation",
+     "value": "f(x)"
+    },
+    {
+     "type": "text",
+     "value": "에 대하여 다음 조건을 만족시킨다.\n"
+    },
+    {
+     "type": "equation",
+     "value": "f(4a) = 33"
+    },
+    {
+     "type": "text",
+     "value": " 일 때, 다음 물음에 답하시오. (단, "
+    },
+    {
+     "type": "equation",
+     "value": "a"
+    },
+    {
+     "type": "text",
+     "value": "는 상수이다.)"
+    },
+    {
+     "type": "text",
+     "value": " <조건> "
+    },
+    {
+     "type": "text",
+     "value": "(가) 네 개의 수 "
+    },
+    {
+     "type": "equation",
+     "value": "f(1)"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "f(2)"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "f(3)"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "f(4)"
+    },
+    {
+     "type": "text",
+     "value": "가 이 순서대로 등차수열을 이룬다."
+    },
+    {
+     "type": "text",
+     "value": " • "
+    },
+    {
+     "type": "text",
+     "value": "(나) 곡선 "
+    },
+    {
+     "type": "equation",
+     "value": "y=f(x)"
+    },
+    {
+     "type": "text",
+     "value": " 위의 점 "
+    },
+    {
+     "type": "equation",
+     "value": "(1, f(1))"
+    },
+    {
+     "type": "text",
+     "value": "에서의 접선과 점 "
+    },
+    {
+     "type": "equation",
+     "value": "(2, f(2))"
+    },
+    {
+     "type": "text",
+     "value": "에서의 접선이 점 "
+    },
+    {
+     "type": "equation",
+     "value": "(a, 0)"
+    },
+    {
+     "type": "text",
+     "value": "에서 만난다."
+    }
+   ],
+   "label_type": "서답형",
+   "choices": [],
+   "sub_questions": [
+    {
+     "number": 1,
+     "score": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "16a"
+      },
+      {
+       "type": "text",
+       "value": "의 값을 구하시오."
+      }
+     ],
+     "choices": [],
+     "sub_questions": []
+    },
+    {
+     "number": 2,
+     "score": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "f(2a) = \\dfrac{q}{p}"
+      },
+      {
+       "type": "text",
+       "value": " 라 할 때, "
+      },
+      {
+       "type": "equation",
+       "value": "p+q"
+      },
+      {
+       "type": "text",
+       "value": "의 값을 구하시오. (단, "
+      },
+      {
+       "type": "equation",
+       "value": "p"
+      },
+      {
+       "type": "text",
+       "value": ", "
+      },
+      {
+       "type": "equation",
+       "value": "q"
+      },
+      {
+       "type": "text",
+       "value": "는 서로소인 자연수이다.)"
+      }
+     ],
+     "choices": [],
+     "sub_questions": []
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,265 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 14,
+   "score": 5,
+   "contents": [
+    {
+     "type": "text",
+     "value": "실수 "
+    },
+    {
+     "type": "equation",
+     "value": "t"
+    },
+    {
+     "type": "text",
+     "value": "에 대하여 직선 "
+    },
+    {
+     "type": "equation",
+     "value": "y=t"
+    },
+    {
+     "type": "text",
+     "value": "와 함수 "
+    },
+    {
+     "type": "equation",
+     "value": "f(x)=|x^2-4|"
+    },
+    {
+     "type": "text",
+     "value": "의 그래프가 만나는 서로 다른 점의 개수를 "
+    },
+    {
+     "type": "equation",
+     "value": "g(t)"
+    },
+    {
+     "type": "text",
+     "value": "라 하자. 함수 "
+    },
+    {
+     "type": "equation",
+     "value": "g(t)"
+    },
+    {
+     "type": "text",
+     "value": "와 최고차항의 계수가 1인 삼차함수 "
+    },
+    {
+     "type": "equation",
+     "value": "h(t)"
+    },
+    {
+     "type": "text",
+     "value": "가 다음 조건을 만족시킨다.\n\n이때, "
+    },
+    {
+     "type": "equation",
+     "value": "h(k-2)"
+    },
+    {
+     "type": "text",
+     "value": "의 값은?"
+    },
+    {
+     "type": "text",
+     "value": " <상자> "
+    },
+    {
+     "type": "text",
+     "value": "(가) 함수 "
+    },
+    {
+     "type": "equation",
+     "value": "g(t)h(t)"
+    },
+    {
+     "type": "text",
+     "value": "는 실수 전체의 집합에서 연속이다."
+    },
+    {
+     "type": "text",
+     "value": " • "
+    },
+    {
+     "type": "text",
+     "value": "(나) 함수 "
+    },
+    {
+     "type": "equation",
+     "value": "g(t)h(t+k)"
+    },
+    {
+     "type": "text",
+     "value": "가 실수 전체의 집합에서 연속이 되도록 하는 양수 "
+    },
+    {
+     "type": "equation",
+     "value": "k"
+    },
+    {
+     "type": "text",
+     "value": "가 존재한다."
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "text",
+       "value": "12"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "text",
+       "value": "18"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "text",
+       "value": "24"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "text",
+       "value": "30"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "text",
+       "value": "36"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 15,
+   "score": 5.1,
+   "contents": [
+    {
+     "type": "text",
+     "value": "자연수 "
+    },
+    {
+     "type": "equation",
+     "value": "a"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "b"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "c"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "d"
+    },
+    {
+     "type": "text",
+     "value": "에 대하여 "
+    },
+    {
+     "type": "equation",
+     "value": "\\lim\\limits_{x \\to 1}\\dfrac{-ax^2-cx+5}{(x-a)(x-b)}=d"
+    },
+    {
+     "type": "text",
+     "value": "가 성립할 때, 자연수 "
+    },
+    {
+     "type": "equation",
+     "value": "d"
+    },
+    {
+     "type": "text",
+     "value": "의 최댓값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "text",
+       "value": "5"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "text",
+       "value": "7"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "text",
+       "value": "9"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "text",
+       "value": "11"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "text",
+       "value": "13"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  }
+ ]
+}

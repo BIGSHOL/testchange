@@ -1,0 +1,407 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 11,
+   "score": 4.6,
+   "contents": [
+    {
+     "type": "text",
+     "value": "실수 전체의 집합에서 연속인 함수 "
+    },
+    {
+     "type": "equation",
+     "value": "f(x)"
+    },
+    {
+     "type": "text",
+     "value": "가 다음 조건을 만족시킨다.\n\n"
+    },
+    {
+     "type": "equation",
+     "value": "f(1)=-3"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "f(2)=-2"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "f(3)=1"
+    },
+    {
+     "type": "text",
+     "value": "일 때, 다음 열린구간 중 방정식 "
+    },
+    {
+     "type": "equation",
+     "value": "f(x)+f(x-3)=2-x"
+    },
+    {
+     "type": "text",
+     "value": "의 해가 존재하는 구간은?"
+    },
+    {
+     "type": "text",
+     "value": " <조건> "
+    },
+    {
+     "type": "text",
+     "value": "(가) 함수 "
+    },
+    {
+     "type": "equation",
+     "value": "f(x)"
+    },
+    {
+     "type": "text",
+     "value": "는 "
+    },
+    {
+     "type": "equation",
+     "value": "0 \\le x_1 < x_2"
+    },
+    {
+     "type": "text",
+     "value": "인 모든 실수 "
+    },
+    {
+     "type": "equation",
+     "value": "x_1"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "x_2"
+    },
+    {
+     "type": "text",
+     "value": "에 대하여 "
+    },
+    {
+     "type": "equation",
+     "value": "f(x_1) < f(x_2)"
+    },
+    {
+     "type": "text",
+     "value": "이다."
+    },
+    {
+     "type": "text",
+     "value": " • "
+    },
+    {
+     "type": "text",
+     "value": "(나) 모든 실수 "
+    },
+    {
+     "type": "equation",
+     "value": "x"
+    },
+    {
+     "type": "text",
+     "value": "에 대하여 "
+    },
+    {
+     "type": "equation",
+     "value": "f(x)-f(-x)=0"
+    },
+    {
+     "type": "text",
+     "value": "이다."
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "(0,\\ 1)"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "(1,\\ 2)"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "(2,\\ 3)"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "(3,\\ 4)"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "(4,\\ 5)"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 12,
+   "score": 4.7,
+   "contents": [
+    {
+     "type": "text",
+     "value": "두 다항함수 "
+    },
+    {
+     "type": "equation",
+     "value": "f(x)"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "g(x)"
+    },
+    {
+     "type": "text",
+     "value": "가 다음 조건을 만족시킨다.\n\n"
+    },
+    {
+     "type": "equation",
+     "value": "f(0)=6"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "f(1)=1"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\lim\\limits_{x \\to \\infty} \\dfrac{2x^2+1}{g(x)+x^2}"
+    },
+    {
+     "type": "text",
+     "value": "의 값은?"
+    },
+    {
+     "type": "text",
+     "value": " <상자> "
+    },
+    {
+     "type": "text",
+     "value": "(가) "
+    },
+    {
+     "type": "equation",
+     "value": "\\lim\\limits_{x \\to 0+} x^2 f\\!\\left(\\dfrac{1}{x}\\right)=2"
+    },
+    {
+     "type": "text",
+     "value": " • "
+    },
+    {
+     "type": "text",
+     "value": "(나) 모든 실수 "
+    },
+    {
+     "type": "equation",
+     "value": "x"
+    },
+    {
+     "type": "text",
+     "value": "에 대하여 "
+    },
+    {
+     "type": "equation",
+     "value": "f(1+x)+3x < g(x) < f(1-x)-3x+1"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-1"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "0"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\dfrac{2}{3}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\dfrac{4}{3}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 13,
+   "score": 4.9,
+   "contents": [
+    {
+     "type": "text",
+     "value": "다음 조건을 만족시키는 모든 다항함수 "
+    },
+    {
+     "type": "equation",
+     "value": "f(x)"
+    },
+    {
+     "type": "text",
+     "value": "에 대하여 "
+    },
+    {
+     "type": "equation",
+     "value": "f(-1)"
+    },
+    {
+     "type": "text",
+     "value": "의 최솟값은?"
+    },
+    {
+     "type": "text",
+     "value": " <상자> "
+    },
+    {
+     "type": "equation",
+     "value": "\\lim\\limits_{x \\to \\infty} \\dfrac{f(x)+3x^3-4x^2}{x^{n+1}+x^2}=6"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\lim\\limits_{x \\to 0} \\dfrac{f(x)}{x^n}=2"
+    },
+    {
+     "type": "text",
+     "value": "인 자연수 "
+    },
+    {
+     "type": "equation",
+     "value": "n"
+    },
+    {
+     "type": "text",
+     "value": "이 존재한다."
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-17"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-12"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-7"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-4"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-1"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  }
+ ]
+}

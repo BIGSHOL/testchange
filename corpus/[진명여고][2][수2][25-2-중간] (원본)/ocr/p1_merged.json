@@ -1,0 +1,493 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 1,
+   "score": 3.6,
+   "contents": [
+    {
+     "type": "equation",
+     "value": "\\lim\\limits_{x \\to \\infty} \\dfrac{x^2-(x-1)^2}{2x-3}"
+    },
+    {
+     "type": "text",
+     "value": " 의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-\\dfrac{2}{3}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "0"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\dfrac{1}{2}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\dfrac{2}{3}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 2,
+   "score": 3.7,
+   "contents": [
+    {
+     "type": "text",
+     "value": "닫힌구간 "
+    },
+    {
+     "type": "equation",
+     "value": "[0,\\ 4]"
+    },
+    {
+     "type": "text",
+     "value": " 에서 함수 "
+    },
+    {
+     "type": "equation",
+     "value": "f(x)=\\begin{cases} -x^2+4x-2 & (0 \\le x < 2) \\\\ -x+4 & (2 \\le x \\le 4) \\end{cases}"
+    },
+    {
+     "type": "text",
+     "value": " 의 최댓값과 최솟값의 곱은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-8"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-4"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "6"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "10"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "12"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 3,
+   "score": 3.8,
+   "contents": [
+    {
+     "type": "text",
+     "value": "함수 "
+    },
+    {
+     "type": "equation",
+     "value": "f(x)=-x^2+x+3"
+    },
+    {
+     "type": "text",
+     "value": " 에 대하여 곡선 "
+    },
+    {
+     "type": "equation",
+     "value": "y=f(x)"
+    },
+    {
+     "type": "text",
+     "value": " 위의 점 "
+    },
+    {
+     "type": "equation",
+     "value": "(2,\\ 1)"
+    },
+    {
+     "type": "text",
+     "value": " 에서의 접선이 점 "
+    },
+    {
+     "type": "equation",
+     "value": "(a,\\ 4)"
+    },
+    {
+     "type": "text",
+     "value": " 를 지날 때, 상수 "
+    },
+    {
+     "type": "equation",
+     "value": "a"
+    },
+    {
+     "type": "text",
+     "value": " 의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 4,
+   "score": 3.9,
+   "contents": [
+    {
+     "type": "text",
+     "value": "함수 "
+    },
+    {
+     "type": "equation",
+     "value": "f(x)=x^3-x"
+    },
+    {
+     "type": "text",
+     "value": " 에 대하여 닫힌구간 "
+    },
+    {
+     "type": "equation",
+     "value": "[-1,\\ 2]"
+    },
+    {
+     "type": "text",
+     "value": " 에서 평균값 정리를 만족시키는 상수 "
+    },
+    {
+     "type": "equation",
+     "value": "c"
+    },
+    {
+     "type": "text",
+     "value": " 의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-1"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-\\dfrac{1}{2}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "0"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\dfrac{1}{2}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 5,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "함수 "
+    },
+    {
+     "type": "equation",
+     "value": "f(x)"
+    },
+    {
+     "type": "text",
+     "value": " 가 "
+    },
+    {
+     "type": "equation",
+     "value": "x=2"
+    },
+    {
+     "type": "text",
+     "value": " 에서 연속이 되도록 하는 상수 "
+    },
+    {
+     "type": "equation",
+     "value": "a,\\ b"
+    },
+    {
+     "type": "text",
+     "value": " 에 대하여 "
+    },
+    {
+     "type": "equation",
+     "value": "\\dfrac{a}{b}"
+    },
+    {
+     "type": "text",
+     "value": " 의 값은? \nf(x)=\\begin{cases} \\dfrac{\\sqrt{x+a}-3}{x-2} & (x \\ne 2) \\\\ b & (x=2) \\end{cases}"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "14"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "28"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "35"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "42"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "49"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 6,
+   "score": 4.1,
+   "contents": [
+    {
+     "type": "text",
+     "value": "다항함수 "
+    },
+    {
+     "type": "equation",
+     "value": "f(x)"
+    },
+    {
+     "type": "text",
+     "value": " 가 "
+    },
+    {
+     "type": "equation",
+     "value": "\\lim\\limits_{x \\to 2} \\dfrac{x-2}{f(x)+5}=3"
+    },
+    {
+     "type": "text",
+     "value": " 을 만족시킬 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\lim\\limits_{x \\to 2} \\dfrac{\\{f(x)\\}^2+5f(x)}{x^3-8}"
+    },
+    {
+     "type": "text",
+     "value": " 의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-\\dfrac{5}{4}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-\\dfrac{5}{36}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "0"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\dfrac{5}{36}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\dfrac{5}{4}"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  }
+ ]
+}
