@@ -1,0 +1,338 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 15,
+   "score": 5,
+   "contents": [
+    {
+     "type": "text",
+     "value": "다항함수 "
+    },
+    {
+     "type": "equation",
+     "value": "f(x)"
+    },
+    {
+     "type": "text",
+     "value": "에 대하여 함수 "
+    },
+    {
+     "type": "equation",
+     "value": "g(x)"
+    },
+    {
+     "type": "text",
+     "value": "를 "
+    },
+    {
+     "type": "equation",
+     "value": "g(x) = \\begin{cases} \\dfrac{f(x) - 5x}{x^3 - x} & (x \\ne -1, 0, 1) \\\\ p & (x = -1, 0, 1) \\end{cases}"
+    },
+    {
+     "type": "text",
+     "value": "로 정의하자. 함수 "
+    },
+    {
+     "type": "equation",
+     "value": "g(x)"
+    },
+    {
+     "type": "text",
+     "value": "가 모든 실수에서 연속이고, "
+    },
+    {
+     "type": "equation",
+     "value": "\\lim_{x \\to \\infty} g(x) = 2"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "f(p)"
+    },
+    {
+     "type": "text",
+     "value": "의 값은? (단, "
+    },
+    {
+     "type": "equation",
+     "value": "p"
+    },
+    {
+     "type": "text",
+     "value": "는 실수이다.)"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "11"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "22"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "33"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "44"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "55"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 16,
+   "score": 6,
+   "label_type": "서답형",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서답형 1] "
+    },
+    {
+     "type": "text",
+     "value": "최고차항의 계수가 2인 삼차함수 "
+    },
+    {
+     "type": "equation",
+     "value": "f(x)"
+    },
+    {
+     "type": "text",
+     "value": "에 대하여 함수 "
+    },
+    {
+     "type": "equation",
+     "value": "g(x) = \\begin{cases} \\dfrac{f(x)}{x-2} & (x \\ne 2) \\\\ 4 & (x = 2) \\end{cases}"
+    },
+    {
+     "type": "text",
+     "value": "이 "
+    },
+    {
+     "type": "equation",
+     "value": "x = 2"
+    },
+    {
+     "type": "text",
+     "value": "에서 미분가능하다. "
+    },
+    {
+     "type": "equation",
+     "value": "f(1) = 8"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "g'(2)"
+    },
+    {
+     "type": "text",
+     "value": "의 값을 구하시오."
+    }
+   ],
+   "choices": [],
+   "sub_questions": []
+  },
+  {
+   "number": 17,
+   "score": 6,
+   "label_type": "서답형",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서답형 2] "
+    },
+    {
+     "type": "text",
+     "value": "두 다항함수 "
+    },
+    {
+     "type": "equation",
+     "value": "f(x), g(x)"
+    },
+    {
+     "type": "text",
+     "value": "에 대하여 "
+    },
+    {
+     "type": "equation",
+     "value": "f(x)g(x) = x^4 + 2x^3 - 7x^2 - 10x + 1"
+    },
+    {
+     "type": "text",
+     "value": "이고 "
+    },
+    {
+     "type": "equation",
+     "value": "\\lim_{x \\to 2} \\frac{f(x) - 5}{x - 2} = \\frac{g(2)}{3}"
+    },
+    {
+     "type": "text",
+     "value": "일 때, 곡선 "
+    },
+    {
+     "type": "equation",
+     "value": "y = g(x)"
+    },
+    {
+     "type": "text",
+     "value": "위의 점 "
+    },
+    {
+     "type": "equation",
+     "value": "(2, g(2))"
+    },
+    {
+     "type": "text",
+     "value": "에서의 접선의 방정식은 "
+    },
+    {
+     "type": "equation",
+     "value": "y = ax + b"
+    },
+    {
+     "type": "text",
+     "value": "이다. "
+    },
+    {
+     "type": "equation",
+     "value": "a - b"
+    },
+    {
+     "type": "text",
+     "value": "의 값을 구하시오. (단, "
+    },
+    {
+     "type": "equation",
+     "value": "a"
+    },
+    {
+     "type": "text",
+     "value": "와 "
+    },
+    {
+     "type": "equation",
+     "value": "b"
+    },
+    {
+     "type": "text",
+     "value": "는 상수이다.)"
+    }
+   ],
+   "choices": [],
+   "sub_questions": []
+  },
+  {
+   "number": 18,
+   "score": 6,
+   "label_type": "서답형",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서답형 3] "
+    },
+    {
+     "type": "text",
+     "value": "미분가능한 함수 "
+    },
+    {
+     "type": "equation",
+     "value": "f(x)"
+    },
+    {
+     "type": "text",
+     "value": "가 모든 실수 "
+    },
+    {
+     "type": "equation",
+     "value": "x, y"
+    },
+    {
+     "type": "text",
+     "value": "에 대하여 다음 두 조건을 만족시킨다. <상자> (가) "
+    },
+    {
+     "type": "equation",
+     "value": "f(x+y) = f(x) + f(y) - 2xy(x+y)"
+    },
+    {
+     "type": "text",
+     "value": " • (나) "
+    },
+    {
+     "type": "equation",
+     "value": "f'(0) = -8"
+    },
+    {
+     "type": "text",
+     "value": " 점 "
+    },
+    {
+     "type": "equation",
+     "value": "(1, 4)"
+    },
+    {
+     "type": "text",
+     "value": "에서 곡선 "
+    },
+    {
+     "type": "equation",
+     "value": "y = f'(x)"
+    },
+    {
+     "type": "text",
+     "value": "에 접선을 그었을 때, 모든 접선의 "
+    },
+    {
+     "type": "equation",
+     "value": "x"
+    },
+    {
+     "type": "text",
+     "value": "좌표의 곱을 구하시오."
+    }
+   ],
+   "choices": [],
+   "sub_questions": []
+  }
+ ]
+}
