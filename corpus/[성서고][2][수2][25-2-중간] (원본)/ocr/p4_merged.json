@@ -1,0 +1,477 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 14,
+   "score": 4.6,
+   "contents": [
+    {
+     "type": "text",
+     "value": "최고차항의 계수가 양수인 이차함수 "
+    },
+    {
+     "type": "equation",
+     "value": "f(x)"
+    },
+    {
+     "type": "text",
+     "value": "에 대하여 닫힌구간 "
+    },
+    {
+     "type": "equation",
+     "value": "[3, 6]"
+    },
+    {
+     "type": "text",
+     "value": "에서 평균값 정리를 만족시키는 상수를 "
+    },
+    {
+     "type": "equation",
+     "value": "c"
+    },
+    {
+     "type": "text",
+     "value": "라 할 때, 함수 "
+    },
+    {
+     "type": "equation",
+     "value": "f(x)"
+    },
+    {
+     "type": "text",
+     "value": "와 상수 "
+    },
+    {
+     "type": "equation",
+     "value": "c"
+    },
+    {
+     "type": "text",
+     "value": "가 다음 조건을 만족한다. <상자> (가) "
+    },
+    {
+     "type": "equation",
+     "value": "f'(c) = 6"
+    },
+    {
+     "type": "text",
+     "value": " • (나) 함수 "
+    },
+    {
+     "type": "equation",
+     "value": "f(x)"
+    },
+    {
+     "type": "text",
+     "value": "의 최솟값은 1이다. • (다) "
+    },
+    {
+     "type": "equation",
+     "value": "\\lim_{x \\to 5} \\frac{f(x) - f(1)}{x - 5} = k"
+    },
+    {
+     "type": "text",
+     "value": " "
+    },
+    {
+     "type": "equation",
+     "value": "(k"
+    },
+    {
+     "type": "text",
+     "value": "는 상수"
+    },
+    {
+     "type": "equation",
+     "value": ")"
+    },
+    {
+     "type": "text",
+     "value": " "
+    },
+    {
+     "type": "equation",
+     "value": "k \\times c"
+    },
+    {
+     "type": "text",
+     "value": "의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "12"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "20"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "28"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "36"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "44"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 15,
+   "score": 4.6,
+   "contents": [
+    {
+     "type": "text",
+     "value": "실수 "
+    },
+    {
+     "type": "equation",
+     "value": "a"
+    },
+    {
+     "type": "text",
+     "value": "에 대하여 방정식 "
+    },
+    {
+     "type": "equation",
+     "value": "ax^2 + 2(a-3)x - a + 3 = 0"
+    },
+    {
+     "type": "text",
+     "value": "의 서로 다른 실근의 개수를 "
+    },
+    {
+     "type": "equation",
+     "value": "f(a)"
+    },
+    {
+     "type": "text",
+     "value": "라 하자. 함수 "
+    },
+    {
+     "type": "equation",
+     "value": "f(a)"
+    },
+    {
+     "type": "text",
+     "value": "에 대하여 <보기>에서 옳은 것만을 있는 대로 고른 것은? <보기> ㄱ. "
+    },
+    {
+     "type": "equation",
+     "value": "\\lim_{a \\to 0} f(a) = 1"
+    },
+    {
+     "type": "text",
+     "value": " • ㄴ. "
+    },
+    {
+     "type": "equation",
+     "value": "\\lim_{a \\to c} f(a)"
+    },
+    {
+     "type": "text",
+     "value": "가 존재하지 않는 실수 "
+    },
+    {
+     "type": "equation",
+     "value": "c"
+    },
+    {
+     "type": "text",
+     "value": "의 값은 2개이다. • ㄷ. 이차함수 "
+    },
+    {
+     "type": "equation",
+     "value": "g(x) = 2x^2 - 9x + 9"
+    },
+    {
+     "type": "text",
+     "value": "에 대하여 함수 "
+    },
+    {
+     "type": "equation",
+     "value": "f(x)g(x)"
+    },
+    {
+     "type": "text",
+     "value": "는 실수 전체의 집합에서 연속이다."
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄴ"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄷ"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄱ, ㄴ"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄱ, ㄷ"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄴ, ㄷ"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 16,
+   "score": 5,
+   "label_type": "서답형",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서답형 1] "
+    },
+    {
+     "type": "text",
+     "value": "함수 "
+    },
+    {
+     "type": "equation",
+     "value": "f(x) = \\begin{cases} x^2 - 3x + a & (x \\le 1) \\\\ x - 2a & (x > 1) \\end{cases}"
+    },
+    {
+     "type": "text",
+     "value": "에 대하여 함수 "
+    },
+    {
+     "type": "equation",
+     "value": "|f(x) - 1|"
+    },
+    {
+     "type": "text",
+     "value": "이 실수 전체의 집합에서 연속이 되도록 하는 모든 실수 "
+    },
+    {
+     "type": "equation",
+     "value": "a"
+    },
+    {
+     "type": "text",
+     "value": "의 값의 합을 구하는 풀이 과정과 답을 쓰시오."
+    }
+   ],
+   "choices": [],
+   "sub_questions": []
+  },
+  {
+   "number": 17,
+   "score": 6,
+   "label_type": "서답형",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서답형 2] "
+    },
+    {
+     "type": "text",
+     "value": "두 상수 "
+    },
+    {
+     "type": "equation",
+     "value": "a, b"
+    },
+    {
+     "type": "text",
+     "value": "에 대하여 "
+    },
+    {
+     "type": "equation",
+     "value": "\\lim_{x \\to -1} \\frac{\\sqrt{3x + a} + b}{x + 1} = \\frac{3}{4}"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "a"
+    },
+    {
+     "type": "text",
+     "value": "와 "
+    },
+    {
+     "type": "equation",
+     "value": "b"
+    },
+    {
+     "type": "text",
+     "value": "의 값을 각각 구하는 풀이 과정과 답을 쓰시오."
+    }
+   ],
+   "choices": [],
+   "sub_questions": []
+  },
+  {
+   "number": 18,
+   "score": 8,
+   "label_type": "서답형",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서답형 3] "
+    },
+    {
+     "type": "text",
+     "value": "최고차항의 계수가 1인 다항함수 "
+    },
+    {
+     "type": "equation",
+     "value": "f(x)"
+    },
+    {
+     "type": "text",
+     "value": "가 모든 실수 "
+    },
+    {
+     "type": "equation",
+     "value": "x"
+    },
+    {
+     "type": "text",
+     "value": "에 대해 "
+    },
+    {
+     "type": "equation",
+     "value": "f(x) = k\\{f'(x)\\}^2"
+    },
+    {
+     "type": "text",
+     "value": "을 만족시키고, "
+    },
+    {
+     "type": "equation",
+     "value": "f'(0) = 3"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "f(k)"
+    },
+    {
+     "type": "text",
+     "value": "의 값을 구하려 한다. 다음 물음에 답하시오."
+    }
+   ],
+   "choices": [],
+   "sub_questions": [
+    {
+     "number": 1,
+     "score": 2,
+     "contents": [
+      {
+       "type": "text",
+       "value": "(1) 다항함수 "
+      },
+      {
+       "type": "equation",
+       "value": "f(x)"
+      },
+      {
+       "type": "text",
+       "value": "의 차수 "
+      },
+      {
+       "type": "equation",
+       "value": "n"
+      },
+      {
+       "type": "text",
+       "value": "의 값을 구하는 풀이 과정과 답을 쓰시오."
+      }
+     ],
+     "choices": [],
+     "sub_questions": []
+    },
+    {
+     "number": 2,
+     "score": 6,
+     "contents": [
+      {
+       "type": "text",
+       "value": "(2) "
+      },
+      {
+       "type": "equation",
+       "value": "f(k)"
+      },
+      {
+       "type": "text",
+       "value": "의 값을 구하는 풀이 과정과 답을 쓰시오."
+      }
+     ],
+     "choices": [],
+     "sub_questions": []
+    }
+   ]
+  }
+ ]
+}
