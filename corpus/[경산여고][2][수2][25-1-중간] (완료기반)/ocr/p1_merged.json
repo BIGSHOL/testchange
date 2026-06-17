@@ -1,0 +1,82 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 1,
+      "score": 3.5,
+      "contents": [
+        {"type": "text", "value": "함수 "},
+        {"type": "equation", "value": "y=f(x)"},
+        {"type": "text", "value": "의 그래프가 다음과 같다."},
+        {"type": "figure", "value": "좌표평면 위 y=f(x)의 그래프. 좌측에서 우하향하는 직선이 (-1,-2)의 채운 점(●)으로 내려옴. x=-1에 빈 점(○) (-1,1)이 있고, 거기서 위로 볼록한 호(아치)가 (0,2)를 지나 (1,1)의 채운 점(●)까지 이어짐. x=1에 빈 점(○) (1,-1)이 있고, 거기서 (2,0)의 채운 점(●)까지 우상향 직선. x=2에 빈 점(○) (2,2)가 있고 거기서 오른쪽으로 y=2 수평 반직선(라벨 y=f(x)). 점선 보조선: x=-1, x=1, x=2, y=±1, y=2. 따라서 lim_{x→-1+}f=1, lim_{x→1+}f=-1, lim_{x→2+}f=2.", "bbox": [0.20, 0.13, 0.46, 0.26]},
+        {"type": "equation", "value": "\\lim_{x\\to -1+}f(x)+\\lim_{x\\to 1+}f(x)-\\lim_{x\\to 2+}f(x)"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-6"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-4"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "2"}]}
+      ]
+    },
+    {
+      "number": 2,
+      "score": 3.5,
+      "contents": [
+        {"type": "text", "value": "실수 전체의 집합에서 연속인 함수 "},
+        {"type": "equation", "value": "f(x)"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "\\lim_{x\\to 3+}f(x)=4+5\\times\\lim_{x\\to 3-}f(x)"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "f(3)"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "18"}]}
+      ]
+    },
+    {
+      "number": 3,
+      "score": 3.5,
+      "contents": [
+        {"type": "text", "value": "미분 가능한 함수 "},
+        {"type": "equation", "value": "f(x)"},
+        {"type": "text", "value": "가 "},
+        {"type": "equation", "value": "\\lim_{x\\to 8}\\dfrac{f(x)-7}{x-8}=3"},
+        {"type": "text", "value": "를 만족시킬 때, "},
+        {"type": "equation", "value": "3f'(8)"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "9"}]}
+      ]
+    },
+    {
+      "number": 4,
+      "score": 3.8,
+      "contents": [
+        {"type": "text", "value": "함수 "},
+        {"type": "equation", "value": "f(x)=3x^2-3x+19"},
+        {"type": "text", "value": "에 대하여 "},
+        {"type": "equation", "value": "\\lim_{h\\to 0}\\dfrac{f(1+3h)-f(1-h)}{3h}"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "9"}]}
+      ]
+    }
+  ]
+}
