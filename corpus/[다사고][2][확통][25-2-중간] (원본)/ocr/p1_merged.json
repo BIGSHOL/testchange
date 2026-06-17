@@ -1,0 +1,535 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 1,
+      "score": 3.3,
+      "contents": [
+        {
+          "type": "text",
+          "value": "네 문자 "
+        },
+        {
+          "type": "equation",
+          "value": "a"
+        },
+        {
+          "type": "text",
+          "value": ", "
+        },
+        {
+          "type": "equation",
+          "value": "b"
+        },
+        {
+          "type": "text",
+          "value": ", "
+        },
+        {
+          "type": "equation",
+          "value": "c"
+        },
+        {
+          "type": "text",
+          "value": ", "
+        },
+        {
+          "type": "equation",
+          "value": "d"
+        },
+        {
+          "type": "text",
+          "value": " 중에서 중복을 허락하여 3개를 택해 일렬로 나열하는 경우의 수는?"
+        }
+      ],
+      "choices": [
+        {
+          "number": 1,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "4"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "20"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "64"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "72"
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "81"
+            }
+          ]
+        }
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 2,
+      "score": 3.3,
+      "contents": [
+        {
+          "type": "text",
+          "value": "남학생 4명과 여학생 3명이 원형인 탁자에 둘러앉을 때, 여학생 모두가 이웃하여 앉는 경우의 수는?"
+        }
+      ],
+      "choices": [
+        {
+          "number": 1,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "64"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "84"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "104"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "124"
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "144"
+            }
+          ]
+        }
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 3,
+      "score": 3.5,
+      "contents": [
+        {
+          "type": "equation",
+          "value": "1, 2, 3, 4, 5"
+        },
+        {
+          "type": "text",
+          "value": " 중에서 중복을 허락하여 3개를 택해 일렬로 나열하여 만들 수 있는 짝수의 개수는?"
+        }
+      ],
+      "choices": [
+        {
+          "number": 1,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "50"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "60"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "70"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "80"
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "90"
+            }
+          ]
+        }
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 4,
+      "score": 3.5,
+      "contents": [
+        {
+          "type": "text",
+          "value": "표본공간 "
+        },
+        {
+          "type": "equation",
+          "value": "S"
+        },
+        {
+          "type": "text",
+          "value": "에서의 두 사건 "
+        },
+        {
+          "type": "equation",
+          "value": "A"
+        },
+        {
+          "type": "text",
+          "value": "와 "
+        },
+        {
+          "type": "equation",
+          "value": "B"
+        },
+        {
+          "type": "text",
+          "value": "는 서로 배반사건이고, "
+        },
+        {
+          "type": "equation",
+          "value": "A \\cup B = S"
+        },
+        {
+          "type": "text",
+          "value": ", "
+        },
+        {
+          "type": "equation",
+          "value": "\\mathrm{P}(A) = 2\\mathrm{P}(B)"
+        },
+        {
+          "type": "text",
+          "value": "일 때, "
+        },
+        {
+          "type": "equation",
+          "value": "\\mathrm{P}(A)"
+        },
+        {
+          "type": "text",
+          "value": "의 값은?"
+        }
+      ],
+      "choices": [
+        {
+          "number": 1,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "\\frac{1}{3}"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "\\frac{1}{2}"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "\\frac{2}{3}"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "\\frac{5}{6}"
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "1"
+            }
+          ]
+        }
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 5,
+      "score": 3.7,
+      "contents": [
+        {
+          "type": "text",
+          "value": "두 사건 "
+        },
+        {
+          "type": "equation",
+          "value": "A"
+        },
+        {
+          "type": "text",
+          "value": "와 "
+        },
+        {
+          "type": "equation",
+          "value": "B"
+        },
+        {
+          "type": "text",
+          "value": "는 서로 독립이고 "
+        },
+        {
+          "type": "equation",
+          "value": "\\mathrm{P}(A) = \\frac{1}{4}"
+        },
+        {
+          "type": "text",
+          "value": ", "
+        },
+        {
+          "type": "equation",
+          "value": "\\mathrm{P}(A \\cup B) = \\frac{3}{5}"
+        },
+        {
+          "type": "text",
+          "value": "일 때, "
+        },
+        {
+          "type": "equation",
+          "value": "\\mathrm{P}(A \\cap B)"
+        },
+        {
+          "type": "text",
+          "value": "의 값은?"
+        }
+      ],
+      "choices": [
+        {
+          "number": 1,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "\\frac{1}{10}"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "\\frac{7}{60}"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "\\frac{2}{15}"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "\\frac{3}{20}"
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "\\frac{1}{6}"
+            }
+          ]
+        }
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 6,
+      "score": 3.7,
+      "contents": [
+        {
+          "type": "text",
+          "value": "어느 고등학교의 2학년 학생은 남학생이 76명, 여학생이 64명이다. 남학생 중 안경을 착용한 학생은 42명이었으며 여학생 중 안경을 착용하지 않은 학생은 44명이었다. 이 학교의 2학년 전체 학생 중에서 임의로 선택한 한 명이 안경을 착용한 학생일 때, 이 학생이 여학생일 확률은?"
+        }
+      ],
+      "choices": [
+        {
+          "number": 1,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "\\frac{7}{31}"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "\\frac{8}{31}"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "\\frac{9}{31}"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "\\frac{10}{31}"
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "\\frac{11}{31}"
+            }
+          ]
+        }
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 7,
+      "score": 4,
+      "contents": [
+        {
+          "type": "text",
+          "value": "1부터 10까지의 자연수가 하나씩 적혀 있는 10장의 카드가 들어 있는 주머니가 있다. 이 주머니에서 임의로 3장의 카드를 동시에 꺼낼 때, 꺼낸 3장의 카드에 적힌 숫자 중 적어도 한 개가 소수일 확률은?"
+        }
+      ],
+      "choices": [
+        {
+          "number": 1,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "\\frac{1}{2}"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "\\frac{7}{12}"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "\\frac{2}{3}"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "\\frac{3}{4}"
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "\\frac{5}{6}"
+            }
+          ]
+        }
+      ],
+      "sub_questions": []
+    }
+  ]
+}

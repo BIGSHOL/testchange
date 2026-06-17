@@ -1,0 +1,233 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 18,
+      "score": 7,
+      "label_type": "서술형",
+      "contents": [
+        {
+          "type": "text",
+          "value": "[서술형 3] 주사위를 두 번 던져서 첫 번째 나온 눈의 수를 "
+        },
+        {
+          "type": "equation",
+          "value": "a"
+        },
+        {
+          "type": "text",
+          "value": ", 두 번째 나온 눈의 수를 "
+        },
+        {
+          "type": "equation",
+          "value": "b"
+        },
+        {
+          "type": "text",
+          "value": "라 할 때, 이차방정식 "
+        },
+        {
+          "type": "equation",
+          "value": "x^{2}+2ax+b=0"
+        },
+        {
+          "type": "text",
+          "value": "이 서로 다른 두 실근을 가질 확률을 구하시오. [7점]"
+        }
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 19,
+      "score": 7,
+      "label_type": "서술형",
+      "contents": [
+        {
+          "type": "text",
+          "value": "[서술형 4] 부등식 "
+        },
+        {
+          "type": "equation",
+          "value": "a+b+c+d \\le 7"
+        },
+        {
+          "type": "text",
+          "value": "을 만족시키는 자연수 "
+        },
+        {
+          "type": "equation",
+          "value": "a"
+        },
+        {
+          "type": "text",
+          "value": ", "
+        },
+        {
+          "type": "equation",
+          "value": "b"
+        },
+        {
+          "type": "text",
+          "value": ", "
+        },
+        {
+          "type": "equation",
+          "value": "c"
+        },
+        {
+          "type": "text",
+          "value": ", "
+        },
+        {
+          "type": "equation",
+          "value": "d"
+        },
+        {
+          "type": "text",
+          "value": "를 택하는 경우의 수를 구하시오. [7점]"
+        }
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 20,
+      "score": 7,
+      "label_type": "서술형",
+      "contents": [
+        {
+          "type": "text",
+          "value": "[서술형 5] 서로 다른 10개의 동전을 던져 앞면이 나온 동전의 개수를 "
+        },
+        {
+          "type": "equation",
+          "value": "a"
+        },
+        {
+          "type": "text",
+          "value": ", 뒷면이 나온 동전의 개수를 "
+        },
+        {
+          "type": "equation",
+          "value": "b"
+        },
+        {
+          "type": "text",
+          "value": "라고 할 때, "
+        },
+        {
+          "type": "equation",
+          "value": "\\frac{|a-b|}{2}"
+        },
+        {
+          "type": "text",
+          "value": "가 3 이상일 확률을 "
+        },
+        {
+          "type": "equation",
+          "value": "\\frac{q}{p}"
+        },
+        {
+          "type": "text",
+          "value": "라 할 때, "
+        },
+        {
+          "type": "equation",
+          "value": "p+q"
+        },
+        {
+          "type": "text",
+          "value": "의 값을 구하시오. (단, "
+        },
+        {
+          "type": "equation",
+          "value": "p"
+        },
+        {
+          "type": "text",
+          "value": ", "
+        },
+        {
+          "type": "equation",
+          "value": "q"
+        },
+        {
+          "type": "text",
+          "value": "는 서로소인 자연수이다.) [7점]"
+        }
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 21,
+      "score": 7,
+      "label_type": "서술형",
+      "contents": [
+        {
+          "type": "text",
+          "value": "[서술형 6] 집합 "
+        },
+        {
+          "type": "equation",
+          "value": "X = \\{1, 2, 3, 4, 5\\}"
+        },
+        {
+          "type": "text",
+          "value": ", "
+        },
+        {
+          "type": "equation",
+          "value": "Y = \\{3, 6, 9, 12, 15\\}"
+        },
+        {
+          "type": "text",
+          "value": "에 대하여 "
+        },
+        {
+          "type": "equation",
+          "value": "X"
+        },
+        {
+          "type": "text",
+          "value": "에서 "
+        },
+        {
+          "type": "equation",
+          "value": "Y"
+        },
+        {
+          "type": "text",
+          "value": "로의 함수 "
+        },
+        {
+          "type": "equation",
+          "value": "f(x)"
+        },
+        {
+          "type": "text",
+          "value": "는 "
+        },
+        {
+          "type": "equation",
+          "value": "f(1) < f(2) < f(3) \\le f(4) \\le f(5)"
+        },
+        {
+          "type": "text",
+          "value": "를 만족한다. 함수 "
+        },
+        {
+          "type": "equation",
+          "value": "f(x)"
+        },
+        {
+          "type": "text",
+          "value": "의 개수를 구하시오. [7점]"
+        }
+      ],
+      "choices": [],
+      "sub_questions": []
+    }
+  ]
+}
