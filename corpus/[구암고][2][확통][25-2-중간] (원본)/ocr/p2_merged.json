@@ -1,0 +1,493 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 9,
+      "score": 2.9,
+      "contents": [
+        {
+          "type": "text",
+          "value": "보기에서 옳은 것만을 있는 대로 고른 것은?"
+        },
+        {
+          "type": "text",
+          "value": "<보기> ㄱ. {}_{11}\\mathrm{C}_{1} + {}_{11}\\mathrm{C}_{2} + {}_{11}\\mathrm{C}_{3} + {}_{11}\\mathrm{C}_{4} + {}_{11}\\mathrm{C}_{5} = 1023 ㄴ. {}_{12}\\mathrm{C}_{2} + {}_{12}\\mathrm{C}_{4} + {}_{12}\\mathrm{C}_{6} + {}_{12}\\mathrm{C}_{8} + {}_{12}\\mathrm{C}_{10} + {}_{12}\\mathrm{C}_{12} = 2048 ㄷ. {}_{3}\\mathrm{C}_{1} + {}_{4}\\mathrm{C}_{2} + {}_{5}\\mathrm{C}_{3} + {}_{6}\\mathrm{C}_{4} + {}_{7}\\mathrm{C}_{5} + \\cdots + {}_{13}\\mathrm{C}_{11} = 364"
+        }
+      ],
+      "choices": [
+        {
+          "number": 1,
+          "contents": [
+            {
+              "type": "text",
+              "value": "ㄱ"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "contents": [
+            {
+              "type": "text",
+              "value": "ㄴ"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "contents": [
+            {
+              "type": "text",
+              "value": "ㄱ, ㄴ"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "contents": [
+            {
+              "type": "text",
+              "value": "ㄱ, ㄷ"
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "contents": [
+            {
+              "type": "text",
+              "value": "ㄴ, ㄷ"
+            }
+          ]
+        }
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 10,
+      "score": 3,
+      "contents": [
+        {
+          "type": "text",
+          "value": "다음 식의 전개식에서 "
+        },
+        {
+          "type": "equation",
+          "value": "x^{4}"
+        },
+        {
+          "type": "text",
+          "value": "의 계수는?"
+        },
+        {
+          "type": "equation_block",
+          "value": "(1+x^{2}) + (1+x^{2})^{2} + (1+x^{2})^{3} + (1+x^{2})^{4} + \\cdots + (1+x^{2})^{20}"
+        }
+      ],
+      "choices": [
+        {
+          "number": 1,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "1140"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "1180"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "1230"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "1280"
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "1330"
+            }
+          ]
+        }
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 11,
+      "score": 3,
+      "contents": [
+        {
+          "type": "text",
+          "value": "학생 "
+        },
+        {
+          "type": "equation",
+          "value": "A"
+        },
+        {
+          "type": "text",
+          "value": ", "
+        },
+        {
+          "type": "equation",
+          "value": "B"
+        },
+        {
+          "type": "text",
+          "value": ", "
+        },
+        {
+          "type": "equation",
+          "value": "C"
+        },
+        {
+          "type": "text",
+          "value": "를 포함한 6명의 학생이 원 모양의 탁자에 일정한 간격을 두고 임의로 모두 둘러앉을 때, "
+        },
+        {
+          "type": "equation",
+          "value": "A"
+        },
+        {
+          "type": "text",
+          "value": "가 "
+        },
+        {
+          "type": "equation",
+          "value": "B"
+        },
+        {
+          "type": "text",
+          "value": " 또는 "
+        },
+        {
+          "type": "equation",
+          "value": "C"
+        },
+        {
+          "type": "text",
+          "value": "와 이웃하게 앉는 경우의 수는? (단, 회전하여 일치하는 것은 같은 것으로 본다.)"
+        }
+      ],
+      "choices": [
+        {
+          "number": 1,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "48"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "84"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "96"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "108"
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "132"
+            }
+          ]
+        }
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 12,
+      "score": 3,
+      "contents": [
+        {
+          "type": "text",
+          "value": "20개의 제비 중에 당첨 제비가 "
+        },
+        {
+          "type": "equation",
+          "value": "k"
+        },
+        {
+          "type": "text",
+          "value": "개 들어 있다. 이 중에서 임의로 2개의 제비를 동시에 뽑을 때, 적어도 한 개가 당첨 제비일 확률이 "
+        },
+        {
+          "type": "equation",
+          "value": "\\frac{7}{19}"
+        },
+        {
+          "type": "text",
+          "value": "이다. "
+        },
+        {
+          "type": "equation",
+          "value": "k"
+        },
+        {
+          "type": "text",
+          "value": "의 값은?"
+        }
+      ],
+      "choices": [
+        {
+          "number": 1,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "2"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "3"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "4"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "5"
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "6"
+            }
+          ]
+        }
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 13,
+      "score": 3.2,
+      "contents": [
+        {
+          "type": "text",
+          "value": "원의 둘레를 12등분하는 12개의 점 중에서 임의로 세 점을 택하여 그 세 점을 꼭짓점으로 하는 삼각형을 만들 때, 이등변삼각형이 만들어질 확률은 "
+        },
+        {
+          "type": "equation",
+          "value": "\\frac{q}{p}"
+        },
+        {
+          "type": "text",
+          "value": "이다. "
+        },
+        {
+          "type": "equation",
+          "value": "p+q"
+        },
+        {
+          "type": "text",
+          "value": "의 값은? (단, "
+        },
+        {
+          "type": "equation",
+          "value": "p"
+        },
+        {
+          "type": "text",
+          "value": "와 "
+        },
+        {
+          "type": "equation",
+          "value": "q"
+        },
+        {
+          "type": "text",
+          "value": "는 서로소인 자연수이다.)"
+        }
+      ],
+      "choices": [
+        {
+          "number": 1,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "64"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "65"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "66"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "67"
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "68"
+            }
+          ]
+        }
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 14,
+      "score": 3.2,
+      "contents": [
+        {
+          "type": "equation",
+          "value": "(x^{3}+2x^{2}+3x-5)\\left(x+\\frac{a}{x}\\right)^{6}"
+        },
+        {
+          "type": "text",
+          "value": " 의 전개식에서 "
+        },
+        {
+          "type": "equation",
+          "value": "x^{4}"
+        },
+        {
+          "type": "text",
+          "value": "의 계수가 60일 때, 양수 "
+        },
+        {
+          "type": "equation",
+          "value": "a"
+        },
+        {
+          "type": "text",
+          "value": "의 값은?"
+        }
+      ],
+      "choices": [
+        {
+          "number": 1,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "1"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "2"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "3"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "4"
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "5"
+            }
+          ]
+        }
+      ],
+      "sub_questions": []
+    }
+  ]
+}

@@ -1,0 +1,99 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 23,
+      "score": 8,
+      "label_type": "서술형",
+      "contents": [
+        {
+          "type": "text",
+          "value": "[서술형 6] 주머니 "
+        },
+        {
+          "type": "equation",
+          "value": "A"
+        },
+        {
+          "type": "text",
+          "value": "에는 흰 공 2개, 검은 공 3개가 들어 있고, 주머니 "
+        },
+        {
+          "type": "equation",
+          "value": "B"
+        },
+        {
+          "type": "text",
+          "value": "에는 흰 공 2개, 검은 공 2개가 들어 있다. 주머니 "
+        },
+        {
+          "type": "equation",
+          "value": "A"
+        },
+        {
+          "type": "text",
+          "value": "에서 임의로 1개의 공을 꺼내어 주머니 "
+        },
+        {
+          "type": "equation",
+          "value": "B"
+        },
+        {
+          "type": "text",
+          "value": "에 넣은 후, 주머니 "
+        },
+        {
+          "type": "equation",
+          "value": "B"
+        },
+        {
+          "type": "text",
+          "value": "에서 임의로 2개의 공을 동시에 꺼낼 때, 주머니 "
+        },
+        {
+          "type": "equation",
+          "value": "B"
+        },
+        {
+          "type": "text",
+          "value": "에서 꺼낸 2개의 공 중에서 적어도 한 개가 흰 공일 확률을 구하는 풀이 과정과 답을 쓰시오. [8점]"
+        }
+      ],
+      "choices": [],
+      "sub_questions": []
+    },
+    {
+      "number": 24,
+      "score": 8,
+      "label_type": "서술형",
+      "contents": [
+        {
+          "type": "text",
+          "value": "[서술형 7] 집합 "
+        },
+        {
+          "type": "equation",
+          "value": "X = \\{1, 2, 3, 4, 5, 6\\}"
+        },
+        {
+          "type": "text",
+          "value": "에 대하여 다음 조건을 만족시키는 함수 "
+        },
+        {
+          "type": "equation",
+          "value": "f : X \\to X"
+        },
+        {
+          "type": "text",
+          "value": "의 개수를 구하는 풀이 과정과 답을 쓰시오. [8점]"
+        },
+        {
+          "type": "text",
+          "value": "<상자> (가) f(3)은 소수이다. (나) f(1) < f(2) \\le f(3) \\le f(4) \\le f(5)"
+        }
+      ],
+      "choices": [],
+      "sub_questions": []
+    }
+  ]
+}

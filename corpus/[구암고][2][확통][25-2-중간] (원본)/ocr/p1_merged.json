@@ -1,0 +1,627 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 1,
+      "score": 2.6,
+      "contents": [
+        {
+          "type": "text",
+          "value": "7개의 숫자 "
+        },
+        {
+          "type": "equation",
+          "value": "1, 1, 1, 2, 2, 3, 3"
+        },
+        {
+          "type": "text",
+          "value": "을 모두 사용하여 만들 수 있는 일곱 자리 자연수의 개수는?"
+        }
+      ],
+      "choices": [
+        {
+          "number": 1,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "180"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "210"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "300"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "360"
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "420"
+            }
+          ]
+        }
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 2,
+      "score": 2.6,
+      "contents": [
+        {
+          "type": "text",
+          "value": "방정식 "
+        },
+        {
+          "type": "equation",
+          "value": "x+y+z+w=7"
+        },
+        {
+          "type": "text",
+          "value": "을 만족시키는 음이 아닌 정수해의 순서쌍 "
+        },
+        {
+          "type": "equation",
+          "value": "(x,\\ y,\\ z,\\ w)"
+        },
+        {
+          "type": "text",
+          "value": "의 개수는?"
+        }
+      ],
+      "choices": [
+        {
+          "number": 1,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "120"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "160"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "210"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "270"
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "330"
+            }
+          ]
+        }
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 3,
+      "score": 2.7,
+      "contents": [
+        {
+          "type": "text",
+          "value": "한 개의 주사위를 던져서 6의 약수의 눈이 나왔을 때, 그 눈의 수가 홀수일 확률은?"
+        }
+      ],
+      "choices": [
+        {
+          "number": 1,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "\\frac{1}{4}"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "\\frac{1}{3}"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "\\frac{1}{2}"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "\\frac{2}{3}"
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "\\frac{3}{4}"
+            }
+          ]
+        }
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 4,
+      "score": 2.7,
+      "contents": [
+        {
+          "type": "text",
+          "value": "크기와 모양이 같은 10개의 호빵 중에서 3개는 팥이 들어 있고, 나머지 7개는 야채가 들어 있다. 준현이가 호빵 3개를 차례로 먹을 때, 첫 번째와 두 번째에는 야채가 들어 있는 호빵을 먹고 세 번째에는 팥이 들어 있는 호빵을 먹을 확률은?"
+        }
+      ],
+      "choices": [
+        {
+          "number": 1,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "\\frac{7}{40}"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "\\frac{1}{5}"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "\\frac{9}{40}"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "\\frac{1}{4}"
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "\\frac{11}{40}"
+            }
+          ]
+        }
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 5,
+      "score": 2.7,
+      "contents": [
+        {
+          "type": "equation",
+          "value": "A"
+        },
+        {
+          "type": "text",
+          "value": "학교 학생 3명, "
+        },
+        {
+          "type": "equation",
+          "value": "B"
+        },
+        {
+          "type": "text",
+          "value": "학교 학생 2명, "
+        },
+        {
+          "type": "equation",
+          "value": "C"
+        },
+        {
+          "type": "text",
+          "value": "학교 학생 3명이 원탁에 둘러앉을 때, 같은 학교 학생끼리 이웃하게 앉는 경우의 수는? (단, 회전하여 일치하는 것은 같은 것으로 본다.)"
+        }
+      ],
+      "choices": [
+        {
+          "number": 1,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "72"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "96"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "120"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "144"
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "288"
+            }
+          ]
+        }
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 6,
+      "score": 2.8,
+      "contents": [
+        {
+          "type": "text",
+          "value": "서로 다른 두 개의 주사위를 동시에 던질 때, 나오는 두 눈의 수의 합이 소수가 될 확률은?"
+        }
+      ],
+      "choices": [
+        {
+          "number": 1,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "\\frac{1}{3}"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "\\frac{13}{36}"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "\\frac{7}{18}"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "\\frac{5}{12}"
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "\\frac{4}{9}"
+            }
+          ]
+        }
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 7,
+      "score": 2.9,
+      "contents": [
+        {
+          "type": "text",
+          "value": "그림과 같은 도로망이 있다. 이 도로망을 따라 "
+        },
+        {
+          "type": "equation",
+          "value": "A"
+        },
+        {
+          "type": "text",
+          "value": "지점에서 출발하여 "
+        },
+        {
+          "type": "equation",
+          "value": "B"
+        },
+        {
+          "type": "text",
+          "value": "지점까지 최단 거리로 가는 경우의 수는?"
+        },
+        {
+          "type": "figure",
+          "value": "격자형 도로망. 왼쪽 아래 A지점에서 오른쪽 위 B지점까지, 가로로 긴 직사각형 격자 모양의 길을 따라가는 최단 경로의 수를 구하는 문제(그림 의존).",
+          "bbox": [
+            0.55,
+            0.32,
+            0.93,
+            0.49
+          ]
+        }
+      ],
+      "choices": [
+        {
+          "number": 1,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "40"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "41"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "42"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "43"
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "44"
+            }
+          ]
+        }
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 8,
+      "score": 2.9,
+      "contents": [
+        {
+          "type": "text",
+          "value": "두 사건 "
+        },
+        {
+          "type": "equation",
+          "value": "A"
+        },
+        {
+          "type": "text",
+          "value": ", "
+        },
+        {
+          "type": "equation",
+          "value": "B"
+        },
+        {
+          "type": "text",
+          "value": "에 대하여 "
+        },
+        {
+          "type": "equation",
+          "value": "A"
+        },
+        {
+          "type": "text",
+          "value": "와 "
+        },
+        {
+          "type": "equation",
+          "value": "B^{c}"
+        },
+        {
+          "type": "text",
+          "value": "은 서로 배반사건이고 "
+        },
+        {
+          "type": "equation",
+          "value": "\\mathrm{P}(A \\cup B) = \\frac{3}{5}"
+        },
+        {
+          "type": "text",
+          "value": ", "
+        },
+        {
+          "type": "equation",
+          "value": "\\mathrm{P}(A) + \\mathrm{P}(B) = \\frac{7}{10}"
+        },
+        {
+          "type": "text",
+          "value": "일 때, "
+        },
+        {
+          "type": "equation",
+          "value": "\\mathrm{P}(A^{c} \\cap B)"
+        },
+        {
+          "type": "text",
+          "value": "의 값은? (단, "
+        },
+        {
+          "type": "equation",
+          "value": "A^{c}"
+        },
+        {
+          "type": "text",
+          "value": "은 "
+        },
+        {
+          "type": "equation",
+          "value": "A"
+        },
+        {
+          "type": "text",
+          "value": "의 여사건, "
+        },
+        {
+          "type": "equation",
+          "value": "B^{c}"
+        },
+        {
+          "type": "text",
+          "value": "는 "
+        },
+        {
+          "type": "equation",
+          "value": "B"
+        },
+        {
+          "type": "text",
+          "value": "의 여사건이다.)"
+        }
+      ],
+      "choices": [
+        {
+          "number": 1,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "\\frac{3}{10}"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "\\frac{2}{5}"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "\\frac{1}{2}"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "\\frac{11}{20}"
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "\\frac{3}{5}"
+            }
+          ]
+        }
+      ],
+      "sub_questions": []
+    }
+  ]
+}

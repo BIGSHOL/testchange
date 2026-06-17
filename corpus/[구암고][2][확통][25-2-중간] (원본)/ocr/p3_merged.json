@@ -1,0 +1,347 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 15,
+      "score": 3.2,
+      "contents": [
+        {
+          "type": "text",
+          "value": "다음 조건을 만족시키는 자연수 "
+        },
+        {
+          "type": "equation",
+          "value": "a"
+        },
+        {
+          "type": "text",
+          "value": ", "
+        },
+        {
+          "type": "equation",
+          "value": "b"
+        },
+        {
+          "type": "text",
+          "value": ", "
+        },
+        {
+          "type": "equation",
+          "value": "c"
+        },
+        {
+          "type": "text",
+          "value": ", "
+        },
+        {
+          "type": "equation",
+          "value": "d"
+        },
+        {
+          "type": "text",
+          "value": ", "
+        },
+        {
+          "type": "equation",
+          "value": "e"
+        },
+        {
+          "type": "text",
+          "value": "의 모든 순서쌍 "
+        },
+        {
+          "type": "equation",
+          "value": "(a,\\ b,\\ c,\\ d,\\ e)"
+        },
+        {
+          "type": "text",
+          "value": "의 개수는?"
+        },
+        {
+          "type": "text",
+          "value": "<상자> (가) a+b+c+d+e = 29 (나) a, b, c, d, e 중에서 2개는 4의 배수이고, 1개는 4로 나눈 나머지가 1이고, 2개는 4로 나눈 나머지가 2이다."
+        }
+      ],
+      "choices": [
+        {
+          "number": 1,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "2037"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "2058"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "2079"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "2100"
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "2121"
+            }
+          ]
+        }
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 16,
+      "score": 3.3,
+      "contents": [
+        {
+          "type": "text",
+          "value": "두 집합 "
+        },
+        {
+          "type": "equation",
+          "value": "X = \\{1, 2, 3, 4\\}"
+        },
+        {
+          "type": "text",
+          "value": ", "
+        },
+        {
+          "type": "equation",
+          "value": "Y = \\{3, 4, 5, 6, 8, 9\\}"
+        },
+        {
+          "type": "text",
+          "value": "에 대하여 "
+        },
+        {
+          "type": "equation",
+          "value": "X"
+        },
+        {
+          "type": "text",
+          "value": "에서 "
+        },
+        {
+          "type": "equation",
+          "value": "Y"
+        },
+        {
+          "type": "text",
+          "value": "로의 모든 일대일함수 "
+        },
+        {
+          "type": "equation",
+          "value": "f"
+        },
+        {
+          "type": "text",
+          "value": " 중에서 임의로 하나를 선택할 때, 이 함수가 다음 조건을 만족시킬 확률은 "
+        },
+        {
+          "type": "equation",
+          "value": "\\frac{q}{p}"
+        },
+        {
+          "type": "text",
+          "value": "이다. "
+        },
+        {
+          "type": "equation",
+          "value": "p+q"
+        },
+        {
+          "type": "text",
+          "value": "의 값은? (단, "
+        },
+        {
+          "type": "equation",
+          "value": "p"
+        },
+        {
+          "type": "text",
+          "value": "와 "
+        },
+        {
+          "type": "equation",
+          "value": "q"
+        },
+        {
+          "type": "text",
+          "value": "는 서로소인 자연수이다.)"
+        },
+        {
+          "type": "text",
+          "value": "<상자> (가) f(1) = 6 (나) f(1) \\times f(2) \\times f(3) \\times f(4)는 9의 배수이다."
+        }
+      ],
+      "choices": [
+        {
+          "number": 1,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "19"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "20"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "21"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "22"
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "23"
+            }
+          ]
+        }
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 17,
+      "score": 3.3,
+      "contents": [
+        {
+          "type": "text",
+          "value": "흰 공 3개, 검은 공 3개가 들어 있는 주머니와 각 면에 "
+        },
+        {
+          "type": "equation",
+          "value": "1, 2, 3, 4"
+        },
+        {
+          "type": "text",
+          "value": "의 숫자가 하나씩 적혀 있는 정사면체가 있다. 이 정사면체를 한 번 던져서 바닥에 닿은 면에 적혀 있는 수에 해당하는 개수만큼 주머니에서 임의로 공을 동시에 꺼낸다. 꺼낸 공 중 검은 공이 2개 나왔을 때, 정사면체 바닥에 닿은 면에 적혀 있는 수가 3이었을 확률은 "
+        },
+        {
+          "type": "equation",
+          "value": "\\frac{q}{p}"
+        },
+        {
+          "type": "text",
+          "value": "이다. "
+        },
+        {
+          "type": "equation",
+          "value": "p+q"
+        },
+        {
+          "type": "text",
+          "value": "의 값은? (단, "
+        },
+        {
+          "type": "equation",
+          "value": "p"
+        },
+        {
+          "type": "text",
+          "value": "와 "
+        },
+        {
+          "type": "equation",
+          "value": "q"
+        },
+        {
+          "type": "text",
+          "value": "는 서로소인 자연수이다.)"
+        }
+      ],
+      "choices": [
+        {
+          "number": 1,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "34"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "35"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "36"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "37"
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "38"
+            }
+          ]
+        }
+      ],
+      "sub_questions": []
+    }
+  ]
+}
