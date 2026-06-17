@@ -175,6 +175,14 @@ _LEAD_SUBSCRIPT_RE = re.compile(r"(^|[+\-=<>(\s])_\{")
 # 포괄한다(대형연산자 출력 키워드 전체).
 _BIG_OP_KEYWORDS = ("SUM", "PROD", "INT", "UNION", "INTER")
 
+# 소문자 극한형 연산자(lim·max·min·sup·inf·gcd·det) — 첨자가 연산자 **아래**로 가야 한다.
+# HWP 실측: ``lim _{x->0}`` = 아래첨자(정상), ``lim {}_{x->0}`` = 우측첨자(깨짐). 그래서 빈그룹
+# ``{}`` 삽입을 금지해 ``lim _{`` 를 보존한다(int/sum 은 _BIG_OP_KEYWORDS 가드로 이미 정상).
+# 사용자 2026-06-17: ``\lim_{x\to0}`` 가 ``lim {}_{x->0}`` 로 변환돼 x→0 가 lim **우측**에
+# 붙던 회귀(_{n-1}C 빈그룹 삽입의 부작용, ~2026-06-12 도입). 실증 .testkit/_eq_limtest.py
+# (A=우측 broken / B=아래 fix / F=lim inf 아래). 단어경계 lookbehind 로 ``xlim`` 등 오매칭 차단.
+_BELOW_OP_LOWER_RE = re.compile(r"(?<![A-Za-z])(?:lim|max|min|sup|inf|gcd|det)$")
+
 # HWP 연산자 키워드와 글자가 같은 점/선분 라벨 — rm {} 안에서도 HWP 가 관계연산자로
 # 토큰화해 글자가 증발한다(GE→≥, LE→≤, NE→≠, GG→≫, LL→≪; 대륜중2 #16 GE→≥ 실증).
 # 이 라벨은 따옴표 리터럴(□·★ 방식)로 감싸 토큰화를 차단한다.
@@ -183,9 +191,11 @@ _KEYWORD_LABEL_QUOTE = {"GE", "LE", "NE", "GG", "LL"}
 
 def _lead_subscript_repl(m: "re.Match") -> str:
     sep = m.group(1)
-    # 공백 분기일 때만 — 앞 토큰이 대형연산자 키워드면 그 op 의 하한이므로 빈그룹 삽입 금지.
-    if sep and sep.isspace() and m.string[:m.start()].rstrip().endswith(_BIG_OP_KEYWORDS):
-        return m.group(0)
+    # 공백 분기일 때만 — 앞 토큰이 대형연산자/극한형 연산자면 그 op 의 하한이므로 빈그룹 삽입 금지.
+    if sep and sep.isspace():
+        prefix = m.string[:m.start()].rstrip()
+        if prefix.endswith(_BIG_OP_KEYWORDS) or _BELOW_OP_LOWER_RE.search(prefix):
+            return m.group(0)
     return sep + "{}_{"
 
 

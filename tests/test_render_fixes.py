@@ -242,6 +242,20 @@ def run():
     chk(latex_to_hwpeq("ag") == "ag", "O2 변수곱 ag 보호(단일기호 g 제외)")
     chk("rm`L" not in latex_to_hwpeq("a_1L"), "O2 첨자 a_1L 보호")
 
+    # ── O3: 극한형 연산자 첨자 = 연산자 아래 (lim·max·min·sup) — 사용자 2026-06-17 ──
+    # ``\lim_{x\to0}`` 가 ``lim {}_{x->0}``(빈그룹 좌측첨자=우측 렌더)로 깨지던 회귀.
+    # ``lim _{x->0}``(빈그룹 없음=아래 렌더)여야. 실증 .testkit/_eq_limtest.py B/F.
+    o3a = latex_to_hwpeq(r"\lim_{x \to 0} \frac{2x-8}{x^4+x+2}")
+    chk("{}_{" not in o3a and "lim _{x -> 0}" in o3a, f"O3 lim 아래첨자: {o3a!r}")
+    chk("{}_{" not in latex_to_hwpeq(r"\max_{x} f(x)"), "O3 max 아래첨자")
+    chk("{}_{" not in latex_to_hwpeq(r"\min_{n} a_n"), "O3 min 아래첨자")
+    chk("{}_{" not in latex_to_hwpeq(r"\sup_{x} f"), "O3 sup 아래첨자")
+    chk("{}_{" not in latex_to_hwpeq(r"\lim_{x \to \infty} \frac{f(x)}{x}"), "O3 lim inf 아래첨자")
+    # 무회귀: 조합 좌측첨자(bare _{n-1}C)는 여전히 빈그룹 {} 삽입(혜화여고 #19) — 좌측 렌더.
+    chk("{}_{n-1}" in latex_to_hwpeq(r"_{n-1}\mathrm{C}_{r-1}"), "O3 조합 좌측첨자 빈그룹 보존")
+    # 무회귀: 대형연산자 sum/int 하한도 빈그룹 없이 정상.
+    chk("{}_{" not in latex_to_hwpeq(r"\sum_{k=1}^{n} k"), "O3 sum 무회귀")
+
     # ── M: <조건> 박스 머리 vs 인라인 참조 — 매천중 #19 소문항 조건박스 ──
     # ``<조건> 한 미지수…``(공백+한글=박스 내용)는 머리, ``<조건>을``(조사 직결)은 참조.
     from core.hwp_com_writer import _COND_HEADER_RE
@@ -760,7 +774,7 @@ def run():
           "bigstar/boxed/labelless/solo/mixed-label/rm-space/cond-header/form-underline/"
           "sqrt-space/choice-glyph/tail-note/underline-solid/stemleaf-13/choice-geo/cond-circle/"
           "repeat-dot/paren-score/phantom-box/box-bullet/post-box/box-ascii-eq/submark-ref/"
-          "answer-header-neutralize/essay-type-label/annot-label)")
+          "answer-header-neutralize/essay-type-label/annot-label/lim-below-subscript)")
     return 0
 
 
