@@ -1,0 +1,282 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 19,
+   "score": 7,
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서답형 3] "
+    },
+    {
+     "type": "text",
+     "value": "다항함수 "
+    },
+    {
+     "type": "equation",
+     "value": "f(x)"
+    },
+    {
+     "type": "text",
+     "value": "가 모든 실수 "
+    },
+    {
+     "type": "equation",
+     "value": "x"
+    },
+    {
+     "type": "text",
+     "value": "에 대하여 "
+    },
+    {
+     "type": "equation",
+     "value": "f(x)-3f(-x)=2x^2+3x"
+    },
+    {
+     "type": "text",
+     "value": "를 만족시킬 때, "
+    },
+    {
+     "type": "equation",
+     "value": "f'(2)"
+    },
+    {
+     "type": "text",
+     "value": "의 값을 구하고 그 풀이과정을 서술하시오."
+    }
+   ],
+   "label_type": "서답형",
+   "choices": [],
+   "sub_questions": []
+  },
+  {
+   "number": 20,
+   "score": 8,
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서답형 4] "
+    },
+    {
+     "type": "text",
+     "value": "곡선 "
+    },
+    {
+     "type": "equation",
+     "value": "y=\\frac{1}{2}x^2-2"
+    },
+    {
+     "type": "text",
+     "value": " 위의 두 점 "
+    },
+    {
+     "type": "equation",
+     "value": "\\mathrm{A}(0,-2)"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\mathrm{B}(4,6)"
+    },
+    {
+     "type": "text",
+     "value": "에 대하여 곡선 위의 점 "
+    },
+    {
+     "type": "equation",
+     "value": "\\mathrm{P}"
+    },
+    {
+     "type": "text",
+     "value": "에서의 접선이 직선 "
+    },
+    {
+     "type": "equation",
+     "value": "\\mathrm{AB}"
+    },
+    {
+     "type": "text",
+     "value": "와 평행하다고 한다. 점 "
+    },
+    {
+     "type": "equation",
+     "value": "\\mathrm{P}"
+    },
+    {
+     "type": "text",
+     "value": "를 이용하여 삼각형 "
+    },
+    {
+     "type": "equation",
+     "value": "\\mathrm{PAB}"
+    },
+    {
+     "type": "text",
+     "value": "의 넓이를 구하고 그 풀이과정을 서술하시오."
+    }
+   ],
+   "label_type": "서답형",
+   "choices": [],
+   "sub_questions": []
+  },
+  {
+   "number": 21,
+   "score": 8,
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서답형 5] "
+    },
+    {
+     "type": "text",
+     "value": "그림과 같이 곡선 "
+    },
+    {
+     "type": "equation",
+     "value": "y=x^2"
+    },
+    {
+     "type": "text",
+     "value": " 위의 점 "
+    },
+    {
+     "type": "equation",
+     "value": "\\mathrm{A}(a,a^2)"
+    },
+    {
+     "type": "text",
+     "value": " "
+    },
+    {
+     "type": "equation",
+     "value": "(a>0)"
+    },
+    {
+     "type": "text",
+     "value": "에 대하여 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{\\mathrm{OA}}:\\overline{\\mathrm{OB}}=2:1"
+    },
+    {
+     "type": "text",
+     "value": "을 만족시키는 "
+    },
+    {
+     "type": "equation",
+     "value": "y"
+    },
+    {
+     "type": "text",
+     "value": "축 위의 점을 "
+    },
+    {
+     "type": "equation",
+     "value": "\\mathrm{B}"
+    },
+    {
+     "type": "text",
+     "value": "라 하고, 두 점 "
+    },
+    {
+     "type": "equation",
+     "value": "\\mathrm{A}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\mathrm{B}"
+    },
+    {
+     "type": "text",
+     "value": "를 지나는 직선이 "
+    },
+    {
+     "type": "equation",
+     "value": "x"
+    },
+    {
+     "type": "text",
+     "value": "축과 만나는 점을 "
+    },
+    {
+     "type": "equation",
+     "value": "\\mathrm{C}"
+    },
+    {
+     "type": "text",
+     "value": "라 한다. 삼각형 "
+    },
+    {
+     "type": "equation",
+     "value": "\\mathrm{OBC}"
+    },
+    {
+     "type": "text",
+     "value": "의 넓이를 "
+    },
+    {
+     "type": "equation",
+     "value": "f(a)"
+    },
+    {
+     "type": "text",
+     "value": "라 할 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\lim\\limits_{a \\to 0+} \\dfrac{f(a)}{a^3+a^2}"
+    },
+    {
+     "type": "text",
+     "value": "의 값을 구하고 그 풀이과정을 서술하시오. (단, "
+    },
+    {
+     "type": "equation",
+     "value": "\\mathrm{O}"
+    },
+    {
+     "type": "text",
+     "value": "는 원점이고, 점 "
+    },
+    {
+     "type": "equation",
+     "value": "\\mathrm{B}"
+    },
+    {
+     "type": "text",
+     "value": "의 "
+    },
+    {
+     "type": "equation",
+     "value": "y"
+    },
+    {
+     "type": "text",
+     "value": "좌표는 음수이다.)"
+    },
+    {
+     "type": "figure",
+     "value": "좌표평면. 위로 볼록한 포물선 $y=x^2$가 그려져 있고 1사분면 쪽 곡선 위에 점 A가 있다. 원점 O 근처에서 직선이 점 A를 지나 $y$축 음의 부분의 점 B와 $x$축 양의 부분의 점 C를 지난다. 원점 O, 점 C, 점 B를 꼭짓점으로 하는 작은 삼각형 OBC 영역에 빗금이 쳐져 있다.",
+     "bbox": [
+      0.1,
+      0.2,
+      0.5,
+      0.4
+     ]
+    }
+   ],
+   "label_type": "서답형",
+   "choices": [],
+   "sub_questions": []
+  }
+ ]
+}
