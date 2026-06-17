@@ -89,6 +89,11 @@ _JAMO_RE = re.compile(r"[ᄀ-ᇿ]")
 # 강동중 낱자모 계열). 보기 라벨 'ㄷ. 가로…'는 한 런에 마침표+내용이 붙어 단독이 아니므로
 # (정상 렌더 검증) **호환자모 1글자가 통째 한 hp:t 런**일 때만 혼입으로 판정(비결정 — 재렌더로 해소).
 _LONE_JAMO_RE = re.compile(r"<hp:t[^>]*>([㄰-㆏ᄀ-ᇿ])</hp:t>")
+# ⚠️ 위 단독 검사는 **호환자모+음절** 혼입(혜화여고 수2 'ㅔ서')은 못 잡는다 — 'ㅔ서'는 2글자라
+# 단독 아니고, ㅔ(U+3154)는 호환자모라 _JAMO_RE(조합자모만) 도 통과 → 오염 렌더가 PASS 했다.
+# 핵심: 정상 한글은 hp:t 를 **호환 모음 자모**(ㅏ-ㅣ U+314F-3163)로 **시작하지 않는다**(보기 라벨은
+# ㄱㄴㄷ 자음이라 별개). 그래서 hp:t 가 호환 모음 자모로 시작하면(뒤에 뭐가 오든) 타이핑 혼입.
+_LEAD_VOWEL_JAMO_RE = re.compile(r"<hp:t[^>]*>([ㅏ-ㅣ])")
 _DUP_SCORE_RE = re.compile(r"\[\s*\d+\s*점\s*\][^<\[]{0,4}\[\s*\d+\s*점\s*\]")
 
 
@@ -118,6 +123,9 @@ def lint_xml(hwpx_path: str) -> list[tuple[str, str]]:
     # 같은 런에 붙어 안 걸린다. 비결정이므로 재렌더로 해소(jamo grep 0 확인).
     for j in _LONE_JAMO_RE.findall(full):
         issues.append((FAIL, f"[xml] 단독 자모 런(타이핑 혼입 의심 — 재렌더): {j!r}"))
+    # 호환 모음 자모로 시작하는 런 = 타이핑 혼입(혜화여고 수2 'ㅔ서' — 자모+음절이라 단독검사 회피).
+    for j in _LEAD_VOWEL_JAMO_RE.findall(full):
+        issues.append((FAIL, f"[xml] 모음자모 선두 런(타이핑 혼입 의심 — 재렌더): {j!r}"))
     # 서술형·단답형 혼합은 정상(문항별 유형). 서답형/서술형 철자 혼용만 동기화 실패 신호(FAIL).
     labels = set(re.findall(r"\[\s*(서술형|서답형|단답형)", stripped))
     if {"서답형", "서술형"} <= labels:
