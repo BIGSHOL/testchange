@@ -38,7 +38,8 @@ from .hwp_com_writer import (HwpComWriter, _BOX_BREAK_RE, _BULLET_RE,
                              _is_circled_item_start, _post_has_stem, _post_is_box,
                              _split_tail_post, _split_trailing_score, _tail_start)
 from .latex_to_hwpeq import latex_to_hwpeq
-from models.exam_document import ContentBlock, ContentType, ExamDocument, Question
+from models.exam_document import (ContentBlock, ContentType, ExamDocument,
+                                   Question, reorder_questions_by_number)
 
 # ── 설정 ──────────────────────────────────────────────────
 PER_COL = 3          # 한 단에 들어갈 문항 수(최대) — 페이지당 2단 = 6문항
@@ -2351,6 +2352,9 @@ def write_exam_to_form(
         raise RuntimeError("win32com을 사용할 수 없습니다 (HWP COM 미지원 환경).")
     output_path = Path(output_path)
     qs = [q for page in document.pages for q in page.questions]
+    # PDF 페이지가 뒤섞여 들어와도 검출된 인쇄 문항번호 순으로 채운다(미주 자동번호가
+    # 페이지 순서대로 매겨져 번호가 어긋나던 것 — 경상여고 대수 26-1, 2026-06-18).
+    qs = reorder_questions_by_number(qs)
     mc = [q for q in qs if q.choices]            # 객관식
     essays = [q for q in qs if not q.choices]    # 서술형(보기 없음)
     if not mc and not essays:

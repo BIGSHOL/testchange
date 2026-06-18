@@ -167,6 +167,57 @@ def _backtick_rm_units(s: str) -> str:
     return _RM_UNIT_RE.sub(lambda m: m.group(1) + " rm`" + m.group(2), s)
 
 
+def _space_value_commas(s: str) -> str:
+    """쉼표 뒤 강제 띄어쓰기(``,~``) — 좌표/나열 쉼표를 HWP 가 시각적으로 죽이는 것 방지.
+
+    HWP 수식은 ``(2,3)``·``P(25,3)`` 의 쉼표 뒤 공백을 시각적으로 무시해 ``(2,3)`` 로 붙인다
+    (사용자 2026-06-09·2026-06-18: "좌표형태는 항상 ``P(25, ~3)``"). 종전엔 쉼표 **뒤에 공백이
+    이미 있을 때만**(``re.sub(r",[ \t`]+", ",~")``) ``,~`` 로 살려서, OCR 이 ``\mathrm{P}(25,3)``
+    처럼 공백 없는 좌표를 주면(경상여고 대수 #11) ``,3`` 이 그대로 붙었다. 이제 **괄호 안(좌표/
+    함수 인자) 쉼표는 공백 유무와 무관하게** ``,~`` 로, 괄호 밖은 종전대로 **공백이 있을 때만**
+    ``,~`` 로 처리한다(아래첨자 ``a_{1,2}`` 의 공백 없는 쉼표는 괄호 밖 ``{}`` 안이라 보존).
+    """
+    out: list[str] = []
+    paren = 0
+    i, n = 0, len(s)
+    while i < n:
+        c = s[i]
+        if c == "(":
+            paren += 1
+            out.append(c)
+            i += 1
+        elif c == ")":
+            if paren > 0:
+                paren -= 1
+            out.append(c)
+            i += 1
+        elif c == ",":
+            j = i + 1
+            while j < n and s[j] in " \t`":
+                j += 1
+            had_space = j > i + 1
+            if had_space:
+                # 종전 동작 유지(``,[ \t`]+`` → ``,~``): 공백을 ~ 로, 뒤따르는 ~/`\quad` 의 ~~ 는
+                # 그대로 흘려보낸다(``, \quad`` → ``,~~~`` 등 기존 reviewed 출력 보존).
+                out.append(",~")
+                i = j
+            elif j < n and s[j] == "~":
+                # 공백 없이 이미 ``,~`` 면 중복 삽입 금지(LaTeX 값 ``(b,~-2)`` → ``,~~`` 회귀 방지).
+                out.append(",")
+                i = j
+            elif paren > 0:
+                # **신규**: 괄호 안(좌표·인자) 공백 없는 쉼표 → ``,~`` (``\mathrm{P}(25,3)`` 경상여고 #11).
+                out.append(",~")
+                i = j
+            else:
+                out.append(",")
+                i = j
+        else:
+            out.append(c)
+            i += 1
+    return "".join(out)
+
+
 # 베이스 없는 선행 첨자(``_{n-1}C``)에 빈그룹 베이스 ``{}`` 삽입(혜화여고 #19). 단 대형
 # 연산자 하한(``SUM _{k=1}``·``INT _{0}``·``UNION _{i}`` …)은 그 op 의 정상 첨자라 삽입하면
 # 안 된다 — 공백 분기가 ``SUM _{`` 를 ``SUM {}_{`` 로 깨던 회귀(적대리뷰 A-1, 2026-06-13).
@@ -680,6 +731,14 @@ class LaTeXToHWPConverter:
         # 간격). OCR 이 \leq 대신 유니코드로 주면(temp=0 재실행 #20 (가)) 리터럴 ≤ 로 새던 것.
         s = s.replace("≤", r" \leq ").replace("≥", r" \geq ").replace("≠", r" \neq ")
 
+        # ``\lt`` ``\gt`` (less-than/greater-than) — SYMBOL_MAP 에 ``\le``/``\ge`` 만 있고
+        # ``\lt``/``\gt`` 가 없어, OCR 이 부등호를 ``\lt``/``\gt`` 로 주면(경상여고 대수 #9
+        # ``\cos\theta\tan\theta \lt 0``) step 13 의 ``\\[a-zA-Z]+`` 에서 **조용히 삭제**돼
+        # 부등호가 통째 증발했다(``cosθtanθ 0``). 리터럴 ``<``/``>`` 로 정규화하면 아래 line의
+        # ``<``→`` < `` 간격 처리까지 함께 받는다. ``\ltimes``/``\gtrsim`` 오매칭은 경계로 차단.
+        s = re.sub(r"\\lt(?![a-zA-Z])", "<", s)
+        s = re.sub(r"\\gt(?![a-zA-Z])", ">", s)
+
         # ``\not`` 부정 — SYMBOL_MAP 에 ``\not`` 단독이 없어, 뒤 ``\in``/``=`` 만 치환되고
         # ``\not`` 은 step 13 의 ``\\[a-zA-Z]+`` 에서 **조용히 삭제**돼 ∉→∈·≠→= 로 **의미가
         # 뒤집히던** 무증상 오답(적대리뷰 B-1). 부정형을 매핑된 명령으로 정규화(없으면 NOT
@@ -758,7 +817,8 @@ class LaTeXToHWPConverter:
         # 공백으로 살린다(아래첨자 ``a_{1,2}`` 등 공백 없는 쉼표는 안 건드림).
         # OCR 이 ``N(m,\, 4σ²)`` 처럼 쉼표 뒤 ``\,``(얇은공백)을 주면 변환 후 ``,`` + 백틱(1/4칸)이
         # 되어 ``,[ \t]+`` 가 못 잡았다(#16 정규분포 좌표, 2026-06-09) → 백틱도 매칭에 포함.
-        result = re.sub(r",[ \t`]+", ",~", result)
+        # 괄호 안(좌표·인자) 쉼표는 공백 없이 붙은 ``(25,3)`` 도 ``,~`` 로(경상여고 대수 #11).
+        result = _space_value_commas(result)
 
         # 후처리: 다중 공백 정리
         result = re.sub(r"  +", " ", result).strip()
@@ -827,7 +887,31 @@ class LaTeXToHWPConverter:
                 return lead + kw + " " + m.group("txt")
             return _r
         s = self._text_pattern.sub(lambda m: '"' + m.group("txt") + '"', s)
-        s = self._mathrm_pattern.sub(_kw_repl("rm"), s)
+        # \mathrm{X} → rm X. HWP rm 은 명시적 it 전까지 **뒤 전체로 번지므로**, ``\mathrm`` 뒤에
+        # 수식 내용이 더 이어지면(예 ``\mathrm{pH} = -\log x``) 뒤따르는 변수(x)까지 정자(로만)로
+        # 굳는다(경상여고 대수 #5 pH, 사용자 2026-06-18: ``rm {pH}= it {-logx}`` 처럼 돼야 x 이탤릭).
+        # 그래서 뒤에 **이탤릭 대상이 될 내용**이 이어지면 ``it`` 를 끼워 로만 스코프를 닫는다.
+        # 제외: ① 첨자/프라임(``_``·``^``·``'``)은 로만 베이스에 붙으므로 it 가 끊으면 안 됨,
+        # ② 다음이 또 다른 스타일 명령(\mathit/\mathrm/\mathbf/\text/\boxed)이면 그쪽이 스코프 관리,
+        # ③ 뒤에 **소문자 변수**(이탤릭 대상)가 없으면 불필요 — 명령어(\log·\angle 등) 제거 후
+        #    소문자가 남아야 삽입한다. 그래야 ``\angle\mathrm{A}=\angle\mathrm{B}``(뒤가 전부
+        #    로만/연산자/대문자 라벨, 번짐 무해)에는 ``it`` 를 안 넣어 기존 reviewed 출력을 보존하고,
+        #    ``\mathrm{pH}=-\log x``(소문자 x 변수)에만 넣는다. 숫자 좌표 ``\mathrm{P}(25,3)`` 도
+        #    소문자 없어 미삽입(쉼표만 보정 → ``rm P(25,~3)``), 글자 좌표 ``\mathrm{P}(a,b)`` 는
+        #    삽입 → ``rm P it (a,~b)``(좌표 이탤릭, 점이름 로만 — 설계 형태와 일치).
+        _MATHRM_NEXT_STYLE = re.compile(r"\\(?:math(?:rm|it|bf|bb)|text|boxed|fbox)\b")
+        def _mathrm_repl(m: "re.Match") -> str:
+            lead = " " if (m.start() > 0 and m.string[m.start() - 1].isalnum()) else ""
+            base = lead + "rm " + m.group("txt")
+            tail = m.string[m.end():]
+            tstrip = tail.lstrip(" \t")
+            no_cmd = re.sub(r"\\[a-zA-Z]+", "", tstrip)   # 함수·기호 명령(키워드) 제거
+            if (tstrip and tstrip[0] not in "_^'}"
+                    and not _MATHRM_NEXT_STYLE.match(tstrip)
+                    and re.search(r"[a-z]", no_cmd)):
+                return base + " it "
+            return base
+        s = self._mathrm_pattern.sub(_mathrm_repl, s)
         s = self._mathbf_pattern.sub(_kw_repl("bold"), s)
         # \mathit{(a,b)} → it {(a,b)} — 그룹 중괄호로 it 스코프를 명시(rm 번짐 차단). 앞이
         # 영숫자면 공백 보장(``rm P\mathit`` → ``rm P it``, 키워드 분리).

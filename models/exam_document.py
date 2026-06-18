@@ -75,3 +75,30 @@ class ExamDocument:
         for page in self.pages:
             questions.extend(page.questions)
         return questions
+
+
+def reorder_questions_by_number(questions: list[Question]) -> list[Question]:
+    """검출된 인쇄 문항번호(`.number`)로 재정렬 — PDF 페이지가 뒤섞인 시험지 보정.
+
+    크롭/OCR 은 인쇄된 문항번호를 정확히 읽지만(crops.json·merged.json 의 ``number``),
+    렌더는 **페이지(파일) 순서대로** 미주 자동번호를 매기므로, PDF 페이지가 물리적으로
+    뒤섞여 들어오면 최종 문항번호가 어긋난다(경상여고 대수 26-1-중간: p2=7~10·p3=11~13·
+    p4=1~6·p5/p6=서답형, 사용자 보고 2026-06-18 — 최종본이 7,8,…,1,2,… 순으로 번호 부여).
+
+    객관식(choices 있음)·서술형(choices 없음)을 **각 그룹 안에서** ``number`` 오름차순으로
+    정렬한다(둘은 독립 번호계 — 객관식 1..N 먼저, 서술형 1..M 뒤; 폼 구조도 객관식 구역→
+    서술형 구역). 안전장치: 그룹 내 번호가 **모두 양수이고 서로 다를 때만** 정렬한다 —
+    번호 누락(0)·중복이면 신뢰할 수 없으므로 원순서를 유지해 정상 시험지를 오정렬하지
+    않는다. 이미 정렬된(정상) 시험지는 결과가 동일하다(idempotent).
+    """
+    mc = [q for q in questions if q.choices]
+    essays = [q for q in questions if not q.choices]
+
+    def _sorted(group: list[Question]) -> list[Question]:
+        nums = [q.number for q in group]
+        if (group and all(isinstance(n, int) and n > 0 for n in nums)
+                and len(set(nums)) == len(nums)):
+            return sorted(group, key=lambda q: q.number)
+        return group
+
+    return _sorted(mc) + _sorted(essays)

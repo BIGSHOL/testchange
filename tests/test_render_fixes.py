@@ -256,6 +256,28 @@ def run():
     # 무회귀: 대형연산자 sum/int 하한도 빈그룹 없이 정상.
     chk("{}_{" not in latex_to_hwpeq(r"\sum_{k=1}^{n} k"), "O3 sum 무회귀")
 
+    # ── KSY(경상여고 대수 26-1, 사용자 2026-06-18): 부등호·좌표쉼표·rm 번짐 ──
+    # 이슈2: \lt \gt — SYMBOL_MAP 에 없어 부등호가 통째 증발하던 것(#9 cosθtanθ<0).
+    ksy_lt = latex_to_hwpeq(r"\cos\theta\tan\theta \lt 0")
+    chk(ksy_lt == "cos theta tan theta < 0", f"KSY 이슈2 lt: {ksy_lt!r}")
+    chk(latex_to_hwpeq(r"\sin\theta\cos\theta \gt 0") == "sin theta cos theta > 0", "KSY 이슈2 gt")
+    # 이슈3: 좌표 쉼표 강제공백 — \mathrm{P}(25,3)(공백 없는 좌표) → 쉼표 뒤 ~ (#11).
+    ksy_coord = latex_to_hwpeq(r"\mathrm{P}(25,3)", italicize_stat=False)
+    chk(ksy_coord == "rm P(25,~3)", f"KSY 이슈3 좌표쉼표: {ksy_coord!r}")
+    # 무회귀: 이미 ,~ 있는 좌표는 이중틸드 금지, \quad 구분자(,~~~)도 보존, 첨자 쉼표 보존.
+    chk(latex_to_hwpeq(r"(b,~-2)", italicize_stat=False) == "(b,~-2)", "KSY 이슈3 무회귀: 기존 ,~ 보존")
+    ksy_quad = latex_to_hwpeq(r"A=1, \quad B=2", italicize_stat=False)
+    chk(",~~~" in ksy_quad, f"KSY 이슈3 무회귀: quad: {ksy_quad!r}")
+    chk(latex_to_hwpeq(r"a_{1,2}", italicize_stat=False) == "a_{1,2}", "KSY 이슈3 무회귀: 첨자 쉼표 보존")
+    # 이슈4: \mathrm{} 뒤 소문자 변수 로만 번짐 — it 삽입(rm pH it = - log x, x 이탤릭).
+    ksy_ph = latex_to_hwpeq(r"\mathrm{pH} = -\log x", italicize_stat=False)
+    chk(ksy_ph == "rm pH it = - log x", f"KSY 이슈4 pH rm 번짐: {ksy_ph!r}")
+    # 무회귀: 뒤가 전부 로만/대문자(소문자 변수 없음)면 it 미삽입(기하 \angle\mathrm 류).
+    ksy_angle = latex_to_hwpeq(r"\angle\mathrm{A}=\angle\mathrm{B}", italicize_stat=False)
+    chk(ksy_angle == "angle rm A= angle rm B", f"KSY 이슈4 무회귀: 기하식 it 미삽입: {ksy_angle!r}")
+    # 무회귀: 단독 \mathrm{pH}(뒤 내용 없음)는 it 미삽입.
+    chk(latex_to_hwpeq(r"\mathrm{pH}", italicize_stat=False) == "rm pH", "KSY 이슈4 무회귀: 단독 mathrm")
+
     # ── M: <조건> 박스 머리 vs 인라인 참조 — 매천중 #19 소문항 조건박스 ──
     # ``<조건> 한 미지수…``(공백+한글=박스 내용)는 머리, ``<조건>을``(조사 직결)은 참조.
     from core.hwp_com_writer import _COND_HEADER_RE
@@ -774,7 +796,8 @@ def run():
           "bigstar/boxed/labelless/solo/mixed-label/rm-space/cond-header/form-underline/"
           "sqrt-space/choice-glyph/tail-note/underline-solid/stemleaf-13/choice-geo/cond-circle/"
           "repeat-dot/paren-score/phantom-box/box-bullet/post-box/box-ascii-eq/submark-ref/"
-          "answer-header-neutralize/essay-type-label/annot-label/lim-below-subscript)")
+          "answer-header-neutralize/essay-type-label/annot-label/lim-below-subscript/"
+          "ksy-ineq-coord-rmbleed)")
     return 0
 
 

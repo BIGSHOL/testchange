@@ -22,6 +22,7 @@ from models.exam_document import (
     ExamDocument,
     ExamPage,
     Question,
+    reorder_questions_by_number,
 )
 
 logger = logging.getLogger(__name__)
@@ -1074,8 +1075,22 @@ class HwpComWriter:
             self.s.break_para()
             self.s.align_left()
             self.s.break_para()
-        for page in document.pages:
-            self._write_page(page)
+        # PDF 페이지가 뒤섞여 들어와도 검출된 인쇄 문항번호 순으로 출력한다(폼 경로와 동일 —
+        # 미주 자동번호가 페이지 순서대로 매겨져 번호가 어긋나던 것, 경상여고 대수 26-1).
+        # 정상(이미 정렬된) 시험지는 순서 불변(idempotent). 페이지별 머리말은 제목과 같으면
+        # 본래도 생략되므로, 재정렬 시 연속 흐름으로 출력한다.
+        all_q = reorder_questions_by_number(
+            [q for page in document.pages for q in page.questions])
+        prev_was_mc = False
+        for question in all_q:
+            is_essay = not question.choices
+            if is_essay and prev_was_mc:
+                self.s.align_center()
+                self.s.text(_ESSAY_SEPARATOR)
+                self.s.break_para()
+                self.s.align_left()
+            self._write_question(question)
+            prev_was_mc = bool(question.choices)
 
 
 def _rewrite_zip(hwpx_path: "str | Path", infos, contents: dict) -> None:

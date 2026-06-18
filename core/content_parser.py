@@ -1259,7 +1259,7 @@ _LATEX_CMD_RE = re.compile(
     r'longleftrightarrow|longrightarrow|longleftarrow|'
     r'leftrightarrow|rightarrow|leftarrow|mapsto|iff|implies|'
     r'mathbb|mathrm|mathbf|mathit|text|boxed|fbox|overarc|'
-    r'le|ge|ne|to|sim)'                  # 짧은꼴(\le \ge \ne …) — OCR 이 \leq 대신 자주 씀.
+    r'le|ge|ne|lt|gt|to|sim)'            # 짧은꼴(\le \ge \ne \lt \gt …) — OCR 이 \leq 대신 자주 씀.
     # 경계 = **ASCII 영문자만 아니면 됨**. 기존 `(?:\b|(?=[{^_(\[\d]))` 는 한글이 \w 라
     # ``\pi일``(명령 직후 한글)에서 \b 실패 → 명령 미인식 → ASCII 경로가 ``\`` 를 평문
     # literal(₩)로 흘렸다(대구고 수1 #11 ``0<x<2\pi일 때``, 2026-06-12). 한글·공백·문장부호
@@ -1620,6 +1620,13 @@ def _is_eq_lead_char(text: str, pos: int) -> bool:
     # ``x  2-…``(베이스라인 풀사이즈 2) 로 렌더됐다(새본리중 #7 과정상자, 2026-06-12).
     # 앞이 영숫자/닫는중괄호일 때만(텍스트 속 단독 ^ 보호).
     if c in "^_" and pos >= 2 and (text[pos - 2].isalnum() or text[pos - 2] == "}"):
+        return True
+    # 지수/첨자 여는 중괄호 ``{`` (앞이 ``^``/``_``): 명령이 첨자 **안** 첫 토큰일 때
+    # (``4^{\sin x}`` 의 \sin) 베이스(``4^{``)까지 수식에 끌어온다. 안 하면 ``4`` 만 EQ 로
+    # 떨어지고 ``^{`` 가 평문 leak + ``\sin x}…`` 가 별도 수식이 돼 박스 보기 ㄴ.항목이
+    # ``4^{sin x > 2^{cos x}`` 로 깨졌다(경상여고 대수 #6 보기, 2026-06-18). ``{``→``^``→베이스
+    # 순으로 위 ``^_`` 규칙에 연쇄 흡수된다.
+    if c == "{" and pos >= 2 and text[pos - 2] in "^_":
         return True
     return (c == "." and pos >= 2 and text[pos - 2].isdigit()
             and pos < len(text) and text[pos].isdigit())

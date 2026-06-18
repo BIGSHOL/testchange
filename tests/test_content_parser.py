@@ -861,6 +861,26 @@ def _check_paren_base_nested(fails):
         fails.append(f"  NS1 텍스트 괄호 오수식화: {[(x.type.name, x.value) for x in b3]!r}")
 
 
+def _check_ksy_superscript_base(fails):
+    """KSY(경상여고 대수 26-1 #6 보기, 사용자 2026-06-18): 박스 텍스트 ``4^{\\sin x} > 2^{\\cos x}``
+    가 ``4``(eq) + ``^{``(text leak) + ``\\sin x}…``(eq)로 쪼개져 지수 중괄호가 깨지던 회귀.
+    ``_is_eq_lead_char`` 가 명령(\\sin) 앞의 지수 여는 ``{``(앞이 ``^``/``_``)를 흡수해야 베이스
+    (``4^{``)까지 한 수식이 된다."""
+    from core.content_parser import _split_latex_commands
+    from models.exam_document import ContentType as CT
+    b = _split_latex_commands(r"ㄴ. 4^{\sin x} > 2^{\cos x}")
+    txts = "".join(x.value or "" for x in b if x.type == CT.TEXT)
+    eqs = [x.value or "" for x in b if x.type == CT.EQUATION]
+    if "^{" in txts or "^" in txts.replace("ㄴ", ""):   # ^{ 가 평문 leak 이면 실패
+        fails.append(f"  KSY5 지수 ^{{ leak: {[(x.type.name, x.value) for x in b]!r}")
+    if not any(e.strip().startswith("4^{") and "2^{" in e for e in eqs):
+        fails.append(f"  KSY5 4^{{sinx}} 한 수식 실패: {[(x.type.name, x.value) for x in b]!r}")
+    # 무회귀: 단순 베이스+ASCII지수(4^2)는 기존대로 한 수식
+    b2 = _split_latex_commands(r"값 4^2 \times 3")
+    if not any("4^2" in (x.value or "") for x in b2 if x.type == CT.EQUATION):
+        fails.append(f"  KSY5 무회귀 4^2: {[(x.type.name, x.value) for x in b2]!r}")
+
+
 def _check_suha_fixes(fails):
     from core.content_parser import _split_latex_commands
     from models.exam_document import ContentType as CT
@@ -1048,8 +1068,27 @@ def run():
     _check_seq_list_comma(fails)
     _check_box_jamo_eq_absorb(fails)
     _check_paren_base_nested(fails)
+    _check_ksy_superscript_base(fails)
     _check_suha_fixes(fails)
     _check_negation_emphasis(fails)
+    # KSY 이슈1(경상여고 대수 26-1): 페이지 뒤섞임 → 검출 번호로 재정렬(객관식·서술형 각 그룹).
+    from models.exam_document import (Question, Choice, ContentBlock, ContentType,
+                                      reorder_questions_by_number)
+    _ch = [Choice(number=1)]
+    scrambled = ([Question(number=n, choices=[Choice(number=1)]) for n in (7, 8, 1, 2)]
+                 + [Question(number=n) for n in (2, 1)])   # 객관식 7,8,1,2 + 서답형 2,1
+    ro = reorder_questions_by_number(scrambled)
+    if [q.number for q in ro if q.choices] != [1, 2, 7, 8]:
+        fails.append(f"  KSY1 객관식 재정렬 실패: {[q.number for q in ro if q.choices]!r}")
+    if [q.number for q in ro if not q.choices] != [1, 2]:
+        fails.append(f"  KSY1 서답형 재정렬 실패: {[q.number for q in ro if not q.choices]!r}")
+    # 무회귀: 번호 누락(0)·중복이면 원순서 유지(정상 시험지 오정렬 방지).
+    miss = [Question(number=0, choices=[Choice(number=1)]), Question(number=3, choices=[Choice(number=1)])]
+    if [q.number for q in reorder_questions_by_number(miss)] != [0, 3]:
+        fails.append("  KSY1 번호 누락 시 원순서 유지 실패")
+    dup = [Question(number=2, choices=[Choice(number=1)]), Question(number=2, choices=[Choice(number=1)])]
+    if len(reorder_questions_by_number(dup)) != 2:
+        fails.append("  KSY1 중복 번호 처리 실패")
     # HH1(혜화여고 #19): 베이스 없는 선행 첨자(조합 _{n-1}C)는 HWP 가 빈 렌더 — {} 베이스 삽입.
     from core.latex_to_hwpeq import latex_to_hwpeq as _l2h_hh
     _hh = _l2h_hh(r"_{n-1}C_{r-1}+_{n-1}C_{r}=_{n}C_{r}")
@@ -1073,7 +1112,7 @@ def run():
         print("FAIL test_content_parser:")
         print("\n".join(fails))
         return 1
-    print(f"OK test_content_parser ({len(_SPACING_CASES) + len(_SCORE_CASES) + 17} cases)")
+    print(f"OK test_content_parser ({len(_SPACING_CASES) + len(_SCORE_CASES) + 18} cases)")
     return 0
 
 
