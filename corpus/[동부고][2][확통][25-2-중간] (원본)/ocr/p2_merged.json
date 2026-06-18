@@ -1,0 +1,479 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 8,
+      "score": 3.4,
+      "contents": [
+        {
+          "type": "text",
+          "value": "아래 그림과 같은 직사각형 모양의 탁자에 8명이 둘러앉는 경우의 수는? (단, 회전하여 일치하는 것은 같은 것으로 본다.)"
+        },
+        {
+          "type": "figure",
+          "value": "8명이 둘러앉는 직사각형 모양의 탁자 그림. 직사각형 긴 변에 각각 3명, 짧은 변(양 끝)에 각각 1명씩 총 8개의 자리가 배치됨(그림 별도).",
+          "bbox": [
+            0.06,
+            0.1,
+            0.3,
+            0.22
+          ]
+        }
+      ],
+      "choices": [
+        {
+          "number": 1,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "\\frac{7!}{4}"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "\\frac{7!}{2}"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "7!"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "\\frac{8!}{4}"
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "\\frac{8!}{2}"
+            }
+          ]
+        }
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 9,
+      "score": 3.4,
+      "contents": [
+        {
+          "type": "text",
+          "value": "다음 중 "
+        },
+        {
+          "type": "equation",
+          "value": "{}_{3}\\mathrm{C}_{0}+{}_{4}\\mathrm{C}_{1}+{}_{5}\\mathrm{C}_{2}+{}_{6}\\mathrm{C}_{3}+{}_{7}\\mathrm{C}_{4}+{}_{8}\\mathrm{C}_{5}"
+        },
+        {
+          "type": "text",
+          "value": " 의 값을 올바르게 구한 것은?"
+        }
+      ],
+      "choices": [
+        {
+          "number": 1,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "{}_{8}\\mathrm{C}_{4}"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "{}_{8}\\mathrm{C}_{6}"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "{}_{9}\\mathrm{C}_{2}"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "{}_{9}\\mathrm{C}_{3}"
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "{}_{9}\\mathrm{C}_{5}"
+            }
+          ]
+        }
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 10,
+      "score": 3.4,
+      "contents": [
+        {
+          "type": "text",
+          "value": "서로 다른 두 개의 주사위를 동시에 던지는 시행에서 나오는 두 눈의 수가 같은 사건을 "
+        },
+        {
+          "type": "equation",
+          "value": "A"
+        },
+        {
+          "type": "text",
+          "value": ", 두 눈의 수의 합이 4 이하인 사건을 "
+        },
+        {
+          "type": "equation",
+          "value": "B"
+        },
+        {
+          "type": "text",
+          "value": ", 두 눈의 수의 합이 12의 배수인 사건을 "
+        },
+        {
+          "type": "equation",
+          "value": "C"
+        },
+        {
+          "type": "text",
+          "value": "라 할 때, 다음 <보기> 중 옳은 것만을 있는 대로 고른 것은?"
+        },
+        {
+          "type": "text",
+          "value": "<보기> ㄱ. 표본공간 "
+        },
+        {
+          "type": "equation",
+          "value": "S"
+        },
+        {
+          "type": "text",
+          "value": "의 원소 개수는 36개다. ㄴ. "
+        },
+        {
+          "type": "equation",
+          "value": "A \\cap B = \\varnothing"
+        },
+        {
+          "type": "text",
+          "value": " ㄷ. "
+        },
+        {
+          "type": "equation",
+          "value": "A"
+        },
+        {
+          "type": "text",
+          "value": "와 "
+        },
+        {
+          "type": "equation",
+          "value": "C"
+        },
+        {
+          "type": "text",
+          "value": "는 서로 배반사건이다."
+        }
+      ],
+      "choices": [
+        {
+          "number": 1,
+          "contents": [
+            {
+              "type": "text",
+              "value": "ㄱ"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "contents": [
+            {
+              "type": "text",
+              "value": "ㄴ"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "contents": [
+            {
+              "type": "text",
+              "value": "ㄷ"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "contents": [
+            {
+              "type": "text",
+              "value": "ㄱ, ㄴ"
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "contents": [
+            {
+              "type": "text",
+              "value": "ㄱ, ㄷ"
+            }
+          ]
+        }
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 11,
+      "score": 4.0,
+      "contents": [
+        {
+          "type": "equation",
+          "value": "11^{10}"
+        },
+        {
+          "type": "text",
+          "value": "을 100으로 나누었을 때의 나머지는?"
+        }
+      ],
+      "choices": [
+        {
+          "number": 1,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "1"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "3"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "7"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "9"
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "11"
+            }
+          ]
+        }
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 12,
+      "score": 4.1,
+      "contents": [
+        {
+          "type": "equation",
+          "value": "1, 2, 3, 4, 5"
+        },
+        {
+          "type": "text",
+          "value": "의 숫자가 하나씩 적힌 5장의 카드가 들어 있는 상자에서 임의로 2장의 카드를 동시에 꺼낼 때, 카드에 적힌 숫자의 합이 홀수가 될 확률을 "
+        },
+        {
+          "type": "equation",
+          "value": "a"
+        },
+        {
+          "type": "text",
+          "value": ", 곱이 홀수가 될 확률을 "
+        },
+        {
+          "type": "equation",
+          "value": "b"
+        },
+        {
+          "type": "text",
+          "value": "라고 할 때, "
+        },
+        {
+          "type": "equation",
+          "value": "a+b"
+        },
+        {
+          "type": "text",
+          "value": "의 값은?"
+        }
+      ],
+      "choices": [
+        {
+          "number": 1,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "\\frac{4}{5}"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "\\frac{9}{10}"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "1"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "\\frac{11}{10}"
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "\\frac{6}{5}"
+            }
+          ]
+        }
+      ],
+      "sub_questions": []
+    },
+    {
+      "number": 13,
+      "score": 4.2,
+      "contents": [
+        {
+          "type": "text",
+          "value": "다항식 "
+        },
+        {
+          "type": "equation",
+          "value": "(3+x)^{3}(1-2x)^{5}"
+        },
+        {
+          "type": "text",
+          "value": " 의 전개식에서 "
+        },
+        {
+          "type": "equation",
+          "value": "x"
+        },
+        {
+          "type": "text",
+          "value": " 의 계수는?"
+        }
+      ],
+      "choices": [
+        {
+          "number": 1,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "-486"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "-243"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "0"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "243"
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "486"
+            }
+          ]
+        }
+      ],
+      "sub_questions": []
+    }
+  ]
+}
