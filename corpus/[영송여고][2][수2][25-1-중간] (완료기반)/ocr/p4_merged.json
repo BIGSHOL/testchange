@@ -1,0 +1,83 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 16,
+      "score": 5,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 2] 함수 "},
+        {"type": "equation", "value": "f(x)=\\begin{cases}x^3+ax & (x<1)\\\\ bx^2+2x+3 & (x\\ge 1)\\end{cases}"},
+        {"type": "text", "value": "가 "},
+        {"type": "equation", "value": "x=1"},
+        {"type": "text", "value": "에서 미분가능할 때, 상수 "},
+        {"type": "equation", "value": "a,\\ b"},
+        {"type": "text", "value": "의 값을 구하는 풀이 과정과 답을 상세하게 서술하시오."}
+      ],
+      "choices": []
+    },
+    {
+      "number": 17,
+      "score": 6,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 3] 이차방정식 "},
+        {"type": "equation", "value": "x^2-2ax-a-1=0"},
+        {"type": "text", "value": "의 두 실근 중 작은 근을 "},
+        {"type": "equation", "value": "f(a)"},
+        {"type": "text", "value": "라 할 때, "},
+        {"type": "equation", "value": "\\lim_{a\\to\\infty}f(a)"},
+        {"type": "text", "value": "의 값을 구하는 풀이 과정과 답을 상세하게 서술하시오. (단, "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "는 양수)"}
+      ],
+      "choices": []
+    },
+    {
+      "number": 18,
+      "score": 6,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 4] 실수 전체의 집합에서 정의된 함수 "},
+        {"type": "equation", "value": "f(x)"},
+        {"type": "text", "value": "의 그래프가 다음 그림과 같다. 함수 "},
+        {"type": "equation", "value": "g(x)=x^3-ax^2+bx-5"},
+        {"type": "text", "value": "에 대하여 합성함수 "},
+        {"type": "equation", "value": "g(f(x))"},
+        {"type": "text", "value": "가 모든 실수 "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "에서 연속일 때, 상수 "},
+        {"type": "equation", "value": "a,\\ b"},
+        {"type": "text", "value": "의 값을 구하는 풀이 과정과 답을 상세하게 서술하시오."},
+        {"type": "figure", "value": "y=f(x)의 그래프. 기울기가 양인 직선이 제3사분면 아래쪽에서 올라와 x축을 x=1에서 만나며 그 점에 열린 점 (1,0)[좌극한 f(1-)=0]. x=1에 채운 점 (1,1)[f(1)=1]. x=1에서 열린 점 (1,2)를 시작으로 오른쪽 위로 올라가는 직선[우극한 f(1+)=2], 라벨 y=f(x). y축 눈금 1·2, x축 눈금 1. 따라서 x=1에서 불연속(좌극한0·함숫값1·우극한2 모두 다름).", "bbox": [0.16, 0.68, 0.40, 0.83]}
+      ],
+      "choices": []
+    },
+    {
+      "number": 19,
+      "score": 6,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 5] 원점을 지나고 곡선 "},
+        {"type": "equation", "value": "y=x^3+x^2-x"},
+        {"type": "text", "value": "에 접하는 모든 직선의 기울기의 곱을 구하는 풀이 과정과 답을 상세하게 서술하시오."}
+      ],
+      "choices": []
+    },
+    {
+      "number": 20,
+      "score": 7,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서술형 6] 함수 "},
+        {"type": "equation", "value": "f(x)=x^3+ax+b"},
+        {"type": "text", "value": "가 "},
+        {"type": "equation", "value": "\\lim_{x\\to 1}\\dfrac{f(x+1)-3}{x^2-1}=5"},
+        {"type": "text", "value": "를 만족시킬 때, 상수 "},
+        {"type": "equation", "value": "a,\\ b"},
+        {"type": "text", "value": "의 값을 구하는 풀이 과정과 답을 상세하게 서술하시오."}
+      ],
+      "choices": []
+    }
+  ]
+}
