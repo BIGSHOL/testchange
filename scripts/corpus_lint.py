@@ -94,6 +94,9 @@ _LONE_JAMO_RE = re.compile(r"<hp:t[^>]*>([㄰-㆏ᄀ-ᇿ])</hp:t>")
 # 핵심: 정상 한글은 hp:t 를 **호환 모음 자모**(ㅏ-ㅣ U+314F-3163)로 **시작하지 않는다**(보기 라벨은
 # ㄱㄴㄷ 자음이라 별개). 그래서 hp:t 가 호환 모음 자모로 시작하면(뒤에 뭐가 오든) 타이핑 혼입.
 _LEAD_VOWEL_JAMO_RE = re.compile(r"<hp:t[^>]*>([ㅏ-ㅣ])")
+# 태그 제거 후 연속문자열(comment 포함)용 — 호환 모음 자모 + 뒤따르는 한글 음절(혼입 = 'ㅔ서'·
+# 'ㅣ전이'). 앞이 한글 음절이 아닐 때만(조사처럼 음절 뒤 자모는 정상일 수 있어 보수적으로 제외).
+_STRIPPED_VOWEL_JAMO_RE = re.compile(r"(?<![가-힣])[ㅏ-ㅣ][가-힣]")
 _DUP_SCORE_RE = re.compile(r"\[\s*\d+\s*점\s*\][^<\[]{0,4}\[\s*\d+\s*점\s*\]")
 
 
@@ -123,9 +126,13 @@ def lint_xml(hwpx_path: str) -> list[tuple[str, str]]:
     # 같은 런에 붙어 안 걸린다. 비결정이므로 재렌더로 해소(jamo grep 0 확인).
     for j in _LONE_JAMO_RE.findall(full):
         issues.append((FAIL, f"[xml] 단독 자모 런(타이핑 혼입 의심 — 재렌더): {j!r}"))
-    # 호환 모음 자모로 시작하는 런 = 타이핑 혼입(혜화여고 수2 'ㅔ서' — 자모+음절이라 단독검사 회피).
-    for j in _LEAD_VOWEL_JAMO_RE.findall(full):
-        issues.append((FAIL, f"[xml] 모음자모 선두 런(타이핑 혼입 의심 — 재렌더): {j!r}"))
+    # ⚠️ 타이핑 혼입은 본문 <hp:t> 뿐 아니라 **<hp:comment>**(수식 설명 등) 에도 샌다 —
+    # 구암고 확통 #1 '수식입니다.ㅣ전이'(comment 영역)가 hp:t 검사를 우회해 오염 렌더가
+    # PASS 했다(2026-06-17). 그래서 **태그 제거 후 연속문자열**(stripped, comment 포함)에서
+    # ① 호환 모음 자모로 시작하는 음절열(혜화여고 'ㅔ서') ② 고립 호환자모(앞뒤 비-한글)을 검출.
+    # 음절열 가드(뒤에 음절)·앞뒤경계로 정상 보기라벨 'ㄱ. …'(자음+마침표)·조사 오탐 방지.
+    for m in _STRIPPED_VOWEL_JAMO_RE.finditer(stripped):
+        issues.append((FAIL, f"[xml] 모음자모 선두 혼입(comment 포함 — 재렌더): {m.group(0)!r}"))
     # 서술형·단답형 혼합은 정상(문항별 유형). 서답형/서술형 철자 혼용만 동기화 실패 신호(FAIL).
     labels = set(re.findall(r"\[\s*(서술형|서답형|단답형)", stripped))
     if {"서답형", "서술형"} <= labels:
