@@ -1293,6 +1293,12 @@ _NEXT_ITEM_START_RE = re.compile(
 _ITEM_LEAD_RE = re.compile(r"^(?:[ㄱ-ㅎ]\s*\.|[（(]\s*[가-힣]\s*[)）])")
 # 이후 text 블록 **안**의 후속 항목 라벨(``• ㄴ.``·``(나)``) — 박스가 여러 raw 로 쪼개진 신호.
 _INNER_ITEM_LABEL_RE = re.compile(r"[•·▪◦○〇ㅇ]\s*(?:[ㄱ-ㅎ]\s*\.|[（(]\s*[가-힣]\s*[)）])")
+# 위와 같되 **불릿 없이** 문장 끝(``…다.``) 뒤에 바로 오는 ㄱㄴㄷ/（가） 라벨도 잡는다 —
+# 보기 항목을 불릿 대신 ``ㄱ. … 이다. ㄴ. … 이다. ㄷ. …`` 로 나열하는 박스(경상여고 미적1
+# #12 미분가능 보기)에서, 첫 항목이 인라인 수식으로 쪼개지면 ㄴ·ㄷ 가 박스 밖으로 유출되던
+# 것 차단(2026-06-18). 마침표 lookbehind + 공백으로 문장 경계의 라벨만 매칭(오검출 최소화).
+_INNER_LABEL_ANY_RE = re.compile(
+    r"(?:[•·▪◦○〇ㅇ]\s*|(?<=[.．])\s+)(?:[ㄱ-ㅎ]\s*\.|[（(]\s*[가-힣]\s*[)）])")
 # 마커 블록 rest 가 **불릿**(·•○…)으로 시작하는지 — ㄱ./（가） 라벨 없는 불릿 항목 박스
 # (``<조건> · 자료의 평균을``·``<조건> ·``)가 인라인 수식 분리로 쪼개진 신호(경일여중3 #19·#20·#22).
 _BULLET_LEAD_RE = re.compile(r"^[•·▪◦○〇]")
@@ -1551,10 +1557,10 @@ def _raw_box_end(raws: list[dict]) -> int | None:
                         # (수식 다수) (나)를 못 찾아 ``(가) 함수``만 박스에 남기고 유출시켰다.
                         labels = [j for j in range(i + 2, len(raws))
                                   if raws[j].get("type") == "text"
-                                  and _INNER_ITEM_LABEL_RE.search(raws[j].get("value") or "")]
+                                  and _INNER_LABEL_ANY_RE.search(raws[j].get("value") or "")]
                         if labels:
                             last_j = labels[-1]
-                            lm = list(_INNER_ITEM_LABEL_RE.finditer(
+                            lm = list(_INNER_LABEL_ANY_RE.finditer(
                                 raws[last_j].get("value") or ""))[-1]
                             after = (raws[last_j].get("value") or "")[lm.end():].strip()
                             if (after and after.endswith((".", "．"))

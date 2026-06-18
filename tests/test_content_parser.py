@@ -881,6 +881,35 @@ def _check_ksy_superscript_base(fails):
         fails.append(f"  KSY5 무회귀 4^2: {[(x.type.name, x.value) for x in b2]!r}")
 
 
+def _check_ksy_box_nobullet(fails):
+    """KSY(경상여고 미적1 #12, 2026-06-18): 보기 박스 항목이 **불릿 없이** ``ㄱ. … 이다.
+    ㄴ. … 이다. ㄷ. …`` 로 나열되고 첫 항목이 인라인 수식(``ㄱ. 함수 f(x)``)으로 쪼개지면,
+    _raw_box_end 가 ``<보기> ㄱ. 함수`` 를 자기완결로 오인해 ㄴ·ㄷ 를 박스 밖으로 유출했다.
+    문장끝 뒤 ㄴ./ㄷ. 라벨(_INNER_LABEL_ANY_RE)을 인식해 박스 연속(box_end=None) 판정."""
+    from core.content_parser import _raw_box_end
+    raws = [
+        {"type": "text", "value": "함수 "},
+        {"type": "equation", "value": "f(x)=(x-2)|x^2-4|"},
+        {"type": "text", "value": "에 대하여 <보기>에서 옳은 것만을 있는 대로 고른 것은?"},
+        {"type": "text", "value": "<보기> ㄱ. 함수 "},
+        {"type": "equation", "value": "f(x)"},
+        {"type": "text", "value": "는 x=2에서 미분가능하다. ㄴ. 함수 "},
+        {"type": "equation", "value": "f(x)"},
+        {"type": "text", "value": "는 극값을 갖는다. ㄷ. 닫힌구간에서의 평균변화율은 오직 하나이다."},
+    ]
+    be = _raw_box_end(raws)
+    if be is not None:
+        fails.append(f"  KSY-box 보기 박스 유출(box_end={be}, None 기대 — ㄴㄷ 가 박스 밖)")
+    # 무회귀: 학남고형 (가)(나)+발문연속(P(Y≤29)의 값을…)은 여전히 분리(box_end=1)
+    hannam = [
+        {"type": "text", "value": "<조건> (가) E(Y)=20 이다. (나) V(Y)=16 이다."},
+        {"type": "equation", "value": "P(Y \\le 29)"},
+        {"type": "text", "value": "의 값을 구하시오."},
+    ]
+    if _raw_box_end(hannam) != 1:
+        fails.append(f"  KSY-box 학남고형 분리 회귀: {_raw_box_end(hannam)} (1 기대)")
+
+
 def _check_suha_fixes(fails):
     from core.content_parser import _split_latex_commands
     from models.exam_document import ContentType as CT
@@ -1069,6 +1098,7 @@ def run():
     _check_box_jamo_eq_absorb(fails)
     _check_paren_base_nested(fails)
     _check_ksy_superscript_base(fails)
+    _check_ksy_box_nobullet(fails)
     _check_suha_fixes(fails)
     _check_negation_emphasis(fails)
     # KSY 이슈1(경상여고 대수 26-1): 페이지 뒤섞임 → 검출 번호로 재정렬(객관식·서술형 각 그룹).
@@ -1112,7 +1142,7 @@ def run():
         print("FAIL test_content_parser:")
         print("\n".join(fails))
         return 1
-    print(f"OK test_content_parser ({len(_SPACING_CASES) + len(_SCORE_CASES) + 18} cases)")
+    print(f"OK test_content_parser ({len(_SPACING_CASES) + len(_SCORE_CASES) + 19} cases)")
     return 0
 
 

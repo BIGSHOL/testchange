@@ -36,6 +36,13 @@ def run():
     chk(e._extract_json('```\n{"a": 1}\n```') == {"a": 1}, "무명 펜스 정상")
     chk(e._extract_json('앞말 {"a": [1, 2,]} ') == {"a": [1, 2]}, "비펜스+트레일링 콤마")
 
+    # Extra data(경상여고 미적1, 2026-06-18): 유효 객체 뒤에 데이터가 더 붙으면 json.loads 가
+    # "Extra data" 로 실패해 크롭째 건너뛰던 것 — raw_decode 로 첫 객체만 취하고 후행은 버린다.
+    chk(e._extract_json('{"questions": [{"number": 7}]}\n{"junk": 1}')
+        .get("questions", [{}])[0].get("number") == 7, "Extra data: 후행 객체 무시")
+    chk(e._extract_json('{"a": 1}  설명 텍스트') == {"a": 1}, "Extra data: 후행 텍스트 무시")
+    chk(e._extract_json('```json\n{"a": 1}\n```\n추가 설명') == {"a": 1}, "펜스+후행 텍스트")
+
     if fails:
         print("FAIL test_extract_json:")
         print("\n".join(fails))

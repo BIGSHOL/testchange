@@ -41,6 +41,15 @@ def run():
     chk(info["학년"] == "고2", "parse_filename [중앙고][2] → 고2")
     chk(info["valid"], "parse_filename [중앙고] valid")
 
+    # 미적분 줄임말 과목 인식(경상여고 미적1, 2026-06-18): '미적1'→미적분1(수2폼),
+    # '미적2'→미적분2(선택과목). 별칭 누락으로 valid=False→폼 자동선택 포기됐던 회귀.
+    mj1 = parse_filename("[경상여고][2][미적1][26-1-중간][미래엔황] (원본).pdf")
+    chk(mj1["valid"] and mj1["학년"] == "고2" and mj1["form_subtag"] == "수2",
+        f"parse_filename [미적1] → 고2/수2: valid={mj1['valid']} subtag={mj1['form_subtag']!r}")
+    mj2 = parse_filename("[OO고][2][미적2][25-2-기말].pdf")
+    chk(mj2["valid"] and mj2["form_subtag"] == "선택과목",
+        f"parse_filename [미적2] → 선택과목: subtag={mj2['form_subtag']!r}")
+
     if fails:
         print("FAIL:")
         for f in fails:

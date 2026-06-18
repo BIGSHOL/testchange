@@ -963,14 +963,14 @@ class OCREngine:
 
         # ── 2단계: 직접 파싱 ──
         try:
-            return json.loads(text)
+            return self._loads_first(text)
         except json.JSONDecodeError:
             pass
 
         # ── 3단계: 문자열 내부 역슬래시 이스케이프 복구 ──
         fixed = self._fix_json_backslashes(text)
         try:
-            return json.loads(fixed)
+            return self._loads_first(fixed)
         except json.JSONDecodeError:
             pass
 
@@ -978,7 +978,7 @@ class OCREngine:
         logger.warning("JSON 파싱 실패, 문자열 보호 복구 시도")
         repaired = self._repair_json_strings(text)
         try:
-            return json.loads(repaired)
+            return self._loads_first(repaired)
         except json.JSONDecodeError:
             pass
 
@@ -1000,13 +1000,29 @@ class OCREngine:
         text = "\n".join(lines)
         text = re.sub(r",\s*([}\]])", r"\1", text)
         try:
-            return json.loads(text)
+            return self._loads_first(text)
         except json.JSONDecodeError as e:
             # 모든 복구 실패 — 호출부(recognize_crop 등)에서 격리해 변환을
             # 중단하지 않도록 명확한 예외로 올린다. 원문 일부를 로그로 남김.
             logger.error("JSON 복구 최종 실패: %s\n원문 앞부분:\n%s",
                          e, text[:800])
             raise
+
+    @staticmethod
+    def _loads_first(s: str) -> dict:
+        """첫 JSON 객체만 파싱하고 **뒤에 붙은 'Extra data'**(중복 객체·후행 텍스트)는 버린다.
+
+        ``json.loads`` 는 문자열 **전체**가 하나의 JSON 이어야 해, 모델이 유효한 객체를 다
+        보낸 뒤 객체를 하나 더 붙이거나 설명을 덧붙이면 ``Extra data: line N column 1`` 으로
+        실패한다(경상여고 미적1 — 저화질 스캔에서 Gemini Pro 가 크롭마다 후행 데이터를 붙여
+        18개 중 7개가 통째 건너뛰어짐, 2026-06-18). ``raw_decode`` 는 첫 JSON 값을 파싱하고
+        끝 위치를 돌려줘 **후행을 무시**한다. 잘못된 JSON(역슬래시·따옴표 깨짐)은 여전히
+        ``JSONDecodeError`` 라 위 복구 단계가 그대로 동작한다(동작 차이=후행 허용뿐)."""
+        obj, _end = json.JSONDecoder().raw_decode(s.lstrip())
+        if not isinstance(obj, dict):
+            # 첫 값이 객체가 아니면(리스트·문자열) 기존 동작과 동일하게 형식 오류로 취급.
+            raise json.JSONDecodeError("최상위 JSON 이 객체가 아님", s, 0)
+        return obj
 
     @staticmethod
     def _fix_json_backslashes(text: str) -> str:

@@ -596,6 +596,7 @@ class ConversionWorker(QObject):
         self.log.emit("info", f"OCR 엔진: {mode_label.get(self._resolve_backend_mode(), '자동')}")
         pages = []
         page_infos: list[PageInfo] = []
+        self._n_skipped_crops = 0   # OCR 인식 실패로 건너뛴 문제영역 수(완료 시 요약·경고)
 
         # ── Step 1.5: 크롭 검출 + 사용자 검수 (use_crop 시) ──
         crop_boxes_per_page = None  # valid_indices 와 정렬된 list[list[CropBox]]
@@ -834,6 +835,7 @@ class ConversionWorker(QObject):
                             reason = str(exc).strip() or type(exc).__name__
                             if "max_tokens" in reason or "잘렸" in reason or "truncat" in reason.lower():
                                 reason = "응답이 max_tokens 로 잘림(수식이 많은 문항). 자동 재시도했으나 실패"
+                            self._n_skipped_crops += 1
                             self.quality_warning.emit(
                                 page_num,
                                 f"페이지 {page_num} {bi + 1}번째 문제영역 인식 실패 — 건너뜀. "
@@ -961,6 +963,13 @@ class ConversionWorker(QObject):
             "success",
             f"변환 완료 — {len(pages)}페이지 · 문항 {total_q} · 수식 {total_eq} · "
             f"총 {perf_counter() - t_start:.1f}s")
+        # 인식 실패로 건너뛴 문제영역이 있으면 **눈에 띄게** 알린다 — 일부 문항이 결과에서
+        # 빠졌으니 사용자가 원본 화질을 확인·재시도하도록(저화질 스캔 누락 가시화, 2026-06-18).
+        if getattr(self, "_n_skipped_crops", 0) > 0:
+            self.log.emit(
+                "warning",
+                f"⚠ 문제영역 {self._n_skipped_crops}개가 인식 실패로 누락됐습니다 — "
+                f"원본 화질이 낮으면 더 선명한 스캔으로 다시 시도해 보세요.")
         # 토큰 사용량·예상비용 기록(시험지별, 사용자 2026-06-08 비용계산용). 다중 백엔드면
         # 엔진별(모델별)로 따로 집계 — 폴백으로 같은 객체가 여러 키에 캐시될 수 있어 id 로 dedup.
         try:
@@ -1437,9 +1446,22 @@ class MainWindow(QMainWindow):
                     f"{info['년도']}년 {info['학기']}학기 {info['구분']}")
                 self._log(f"  자동 폼: {Path(fp).name if fp else '미매칭(드롭다운에서 선택)'}")
             else:
+                # valid=False 라도 학교/학년/시기는 보통 인식된다(과목 미인식이 대부분 원인) —
+                # 무엇이 읽혔고 무엇이 빠졌는지 구체적으로 알려 준다(2026-06-18).
+                got = []
+                if info["학년"]:
+                    got.append(info["학년"])
+                if info["년도"]:
+                    got.append(f"{info['년도']}년 {info['학기']}학기 {info['구분']}")
+                if got:
+                    self._log(f"  파일명 인식: {' · '.join(got)} (과목 미인식)")
+                    self._log(
+                        "  ⚠ 과목을 못 읽어 폼 자동 채움 불가 → 기본 서식으로 변환합니다.")
+                else:
+                    self._log("  ⚠ 파일명에서 학교/학년을 못 읽어 폼 자동 채움 불가.")
                 self._log(
-                    "  ⚠ 파일명이 규칙과 다릅니다 → 폼 자동 채움 불가. "
-                    "형식: [학교][학년][년-학기-중간/기말]([과목]) — 끝의 [출판사]는 선택")
+                    "  형식: [학교][학년][과목][년-학기-중간/기말]([출판사]) · "
+                    "과목 예: 대수 · 미적1(수2) · 확통 · 미적분 · 기하 · 공수1 · 공수2")
 
     # ── 파일 선택 ──
 
