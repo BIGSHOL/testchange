@@ -1,0 +1,93 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 11,
+      "score": 4.3,
+      "contents": [
+        {"type": "equation", "value": "f(2)=4"},
+        {"type": "text", "value": "인 다항함수 "},
+        {"type": "equation", "value": "f(x)"},
+        {"type": "text", "value": "에 대하여 일차함수 "},
+        {"type": "equation", "value": "g(x)"},
+        {"type": "text", "value": "가 다음 조건을 만족시킨다."},
+        {"type": "text", "value": "<조건> (가) \\(\\lim_{x\\to 2}\\dfrac{f(x)g(x)+8}{x^2-4}=4\\) • (나) \\(3g'(1)=g(1)\\)"},
+        {"type": "equation", "value": "f'(2)"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-10"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-9"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-8"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "-7"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "-6"}]}
+      ]
+    },
+    {
+      "number": 12,
+      "score": 4.3,
+      "contents": [
+        {"type": "text", "value": "함수 "},
+        {"type": "equation", "value": "f(x)=\\begin{cases}x^2+2x & (x<a\\ \\text{또는}\\ x\\ge b)\\\\ 4x+3 & (a\\le x<b)\\end{cases}"},
+        {"type": "text", "value": "가 실수 전체의 집합에서 연속이 되도록 하는 실수 "},
+        {"type": "equation", "value": "a,\\ b"},
+        {"type": "text", "value": "의 값에 대하여 "},
+        {"type": "equation", "value": "f(a)+f(b)"},
+        {"type": "text", "value": "의 값은? (단, "},
+        {"type": "equation", "value": "a<b"},
+        {"type": "text", "value": "이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "14"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "16"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "18"}]}
+      ]
+    },
+    {
+      "number": 13,
+      "score": 4.4,
+      "contents": [
+        {"type": "text", "value": "그림은 함수 "},
+        {"type": "equation", "value": "y=f(x),\\ y=g(x)"},
+        {"type": "text", "value": "의 그래프이다. 옳은 것만을 <보기>에서 있는 대로 고른 것은?"},
+        {"type": "figure", "value": "두 개의 그래프가 나란히 있다. 왼쪽은 y=f(x): x<0 구간은 위로 볼록한 곡선이 y=1 부근으로 내려오고 (-1,1) 부근에 빈 점, (0,1) 근처 빈 점, (-1,-1)·(1,-1) 부근 채운 점, x>0 구간은 우상향 곡선(원점 부근 통과). x축 눈금 -1·1, y축 눈금 1·-1. 오른쪽은 y=g(x): 삼차함수 형태로 x=-2 부근 통과, (-1,1) 부근 극대, x=0~1에서 감소, (1,-1) 부근 극소, x>1 우상향. x축 눈금 -2·-1·1·2, y축 눈금 1·-1. (정확한 모양은 렌더 세션 크롭 판독 — 정답키 기준 ㄱ·ㄴ·ㄷ 모두 참)", "bbox": [0.53, 0.15, 0.97, 0.26]},
+        {"type": "text", "value": "<보기> ㄱ. 함수 \\(y=|f(x)|\\)는 \\(x=1,\\ x=-1\\)에서 연속이다. • ㄴ. 함수 \\(y=|f(x)-g(x)|\\)는 \\(x=1\\)에서 연속이다. • ㄷ. 함수 \\(y=f(x)g(x-k)\\)가 모든 실수에서 연속이 되도록 하는 상수 \\(k\\)의 값의 개수는 2개이다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄴ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄱ, ㄷ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄴ, ㄷ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄱ, ㄴ, ㄷ"}]}
+      ]
+    },
+    {
+      "number": 14,
+      "score": 4.4,
+      "contents": [
+        {"type": "text", "value": "실수 "},
+        {"type": "equation", "value": "t"},
+        {"type": "text", "value": "에 대하여 곡선 "},
+        {"type": "equation", "value": "y=\\left|\\dfrac{6x+5}{2x+1}\\right|"},
+        {"type": "text", "value": "와 직선 "},
+        {"type": "equation", "value": "y=t"},
+        {"type": "text", "value": "가 만나는 점의 개수를 "},
+        {"type": "equation", "value": "f(t)"},
+        {"type": "text", "value": "라 하자. "},
+        {"type": "equation", "value": "\\lim_{t\\to 1+}f(t)\\lim_{t\\to 2+}f(t)+\\lim_{t\\to 0-}f(t)-2f(a)=2"},
+        {"type": "text", "value": "가 성립할 때, 양수 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\dfrac{3}{2}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\dfrac{5}{2}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "3"}]}
+      ]
+    }
+  ]
+}

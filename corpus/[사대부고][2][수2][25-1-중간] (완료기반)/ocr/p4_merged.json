@@ -1,0 +1,97 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 15,
+      "score": 4.6,
+      "contents": [
+        {"type": "text", "value": "곡선 "},
+        {"type": "equation", "value": "y=\\dfrac{4}{x}"},
+        {"type": "text", "value": "위의 점 "},
+        {"type": "equation", "value": "P\\left(t,\\ \\dfrac{4}{t}\\right)"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "Q(2,\\ 2)"},
+        {"type": "text", "value": "에 대하여 선분 "},
+        {"type": "equation", "value": "PQ"},
+        {"type": "text", "value": "의 길이를 "},
+        {"type": "equation", "value": "f(t)"},
+        {"type": "text", "value": ", 선분 "},
+        {"type": "equation", "value": "OP"},
+        {"type": "text", "value": "의 길이를 "},
+        {"type": "equation", "value": "g(t)"},
+        {"type": "text", "value": "라고 할 때, "},
+        {"type": "equation", "value": "\\lim_{t\\to 2+}\\dfrac{(t-2)f(t)}{g(t)-2\\sqrt{2}}"},
+        {"type": "text", "value": "의 값은? (단, "},
+        {"type": "equation", "value": "t>2"},
+        {"type": "text", "value": "이다.)"},
+        {"type": "figure", "value": "곡선 y=4/x(제1사분면, 우하향 쌍곡선)와 점들. y축 눈금 2에 점 Q(2,2)가 곡선 위, 그 오른쪽 아래 곡선 위에 점 P(t,4/t). 원점 O에서 P까지 선분(OP), Q에서 P까지 선분(PQ)이 그려져 있다. x축에 2와 t 눈금, P·Q에서 x축으로 점선. 라벨 y=4/x.", "bbox": [0.10, 0.18, 0.46, 0.38]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\dfrac{1}{2}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\dfrac{1}{4}"}]}
+      ]
+    },
+    {
+      "number": 16,
+      "score": 4.6,
+      "contents": [
+        {"type": "text", "value": "양수 "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "에 대하여 함수 "},
+        {"type": "equation", "value": "f(x)"},
+        {"type": "text", "value": "는 "},
+        {"type": "equation", "value": "f(x)=\\begin{cases}-2(x+1)^2+3 & (x\\le 0)\\\\ ax-1 & (x>0)\\end{cases}"},
+        {"type": "text", "value": "이며 최고차항의 계수가 "},
+        {"type": "equation", "value": "1"},
+        {"type": "text", "value": "인 이차함수 "},
+        {"type": "equation", "value": "g(x)"},
+        {"type": "text", "value": "는 꼭짓점의 좌표가 곡선 "},
+        {"type": "equation", "value": "y=x^2"},
+        {"type": "text", "value": "위에 있다. "},
+        {"type": "equation", "value": "f(k)=g(k)"},
+        {"type": "text", "value": "를 만족시키는 서로 다른 모든 실수 "},
+        {"type": "equation", "value": "k"},
+        {"type": "text", "value": "의 값이 "},
+        {"type": "equation", "value": "b,\\ 0,\\ \\sqrt{2}"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "g(a)"},
+        {"type": "text", "value": "의 값은? (단, "},
+        {"type": "equation", "value": "b<-1"},
+        {"type": "text", "value": "이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "16"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "25"}]}
+      ]
+    },
+    {
+      "number": 17,
+      "score": 6,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서답형 1] 함수 "},
+        {"type": "equation", "value": "f(x)=2x^2-x+4"},
+        {"type": "text", "value": "에서 "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "의 값이 "},
+        {"type": "equation", "value": "1"},
+        {"type": "text", "value": "에서 "},
+        {"type": "equation", "value": "3"},
+        {"type": "text", "value": "까지 변할 때의 평균변화율과 "},
+        {"type": "equation", "value": "f'(a)"},
+        {"type": "text", "value": "가 같을 때, "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "의 값을 구하고, 풀이과정을 서술하시오. (단, "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "는 상수이다.)"}
+      ],
+      "choices": []
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 18,
+      "score": 6,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서답형 2] 실수 전체의 집합에서 연속인 함수 "},
+        {"type": "equation", "value": "f(x)"},
+        {"type": "text", "value": "가 "},
+        {"type": "equation", "value": "(x-2)f(x)=x^2-ax+10"},
+        {"type": "text", "value": "를 만족시킬 때, "},
+        {"type": "equation", "value": "a+f(2)"},
+        {"type": "text", "value": "의 값을 구하고, 풀이과정을 서술하시오. (단, "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "는 상수이다.)"}
+      ],
+      "choices": []
+    },
+    {
+      "number": 19,
+      "score": 7,
+      "label_type": "서술형",
+      "contents": [
+        {"type": "text", "value": "[서답형 3] 함수 "},
+        {"type": "equation", "value": "y=\\dfrac{1}{2}x^3"},
+        {"type": "text", "value": "와 "},
+        {"type": "equation", "value": "y=-\\dfrac{1}{2}x+k"},
+        {"type": "text", "value": "의 그래프의 교점이 "},
+        {"type": "equation", "value": "k"},
+        {"type": "text", "value": "의 값에 상관없이 1개뿐일 때, 그 교점의 "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "좌표의 절댓값이 2보다 작도록 하는 모든 정수 "},
+        {"type": "equation", "value": "k"},
+        {"type": "text", "value": "의 개수를 구하고, 풀이과정을 서술하시오. (단, 사잇값의 정리를 이용하시오.)"}
+      ],
+      "choices": []
+    }
+  ]
+}
