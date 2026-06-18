@@ -1,0 +1,281 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 17,
+   "score": 5,
+   "label_type": "서답형",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서답형 1] "
+    },
+    {
+     "type": "text",
+     "value": "그림과 같이 "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle ABC"
+    },
+    {
+     "type": "text",
+     "value": "의 세 변 AB, BC, CA 위에 각각 점 D, E, F를 잡았다. "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AB} \\parallel \\overline{EF}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{BD} = \\overline{BE}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{CE} = \\overline{CF}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle C = 40^\\circ"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle DBE + \\angle DEF"
+    },
+    {
+     "type": "text",
+     "value": "의 값을 구하시오."
+    },
+    {
+     "type": "figure",
+     "value": "삼각형 ABC, 세 변 AB, BC, CA 위에 각각 점 D, E, F. 선분 DE, EF. C에 $40^\\circ$.",
+     "bbox": [
+      0.15,
+      0.45,
+      0.85,
+      0.78
+     ]
+    }
+   ],
+   "choices": [],
+   "sub_questions": []
+  },
+  {
+   "number": 18,
+   "score": 7,
+   "label_type": "서답형",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서답형 2] "
+    },
+    {
+     "type": "text",
+     "value": "그림과 같이 "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle ABC"
+    },
+    {
+     "type": "text",
+     "value": "가 원 O와 점 D, C에서 접한다. 점 D가 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AB}"
+    },
+    {
+     "type": "text",
+     "value": "의 중점일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle A"
+    },
+    {
+     "type": "text",
+     "value": "의 크기를 구하시오."
+    },
+    {
+     "type": "figure",
+     "value": "삼각형 ABC와 원 O. 원이 $\\overline{AB}$의 중점 D와 꼭짓점 C에서 삼각형에 접함.",
+     "bbox": [
+      0.15,
+      0.45,
+      0.85,
+      0.78
+     ]
+    }
+   ],
+   "choices": [],
+   "sub_questions": []
+  },
+  {
+   "number": 19,
+   "score": 7,
+   "label_type": "서답형",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서답형 3] "
+    },
+    {
+     "type": "text",
+     "value": "그림과 같이 "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle ABC"
+    },
+    {
+     "type": "text",
+     "value": "의 내심 I에 대하여 점 E는 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AI}"
+    },
+    {
+     "type": "text",
+     "value": "의 연장선과 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{BC}"
+    },
+    {
+     "type": "text",
+     "value": "의 교점이고, "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AI}"
+    },
+    {
+     "type": "text",
+     "value": "의 연장선 위의 점 D에서 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{BC}"
+    },
+    {
+     "type": "text",
+     "value": "에 내린 수선의 발이 F이다. "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle C - \\angle B = 40^\\circ"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle ADF"
+    },
+    {
+     "type": "text",
+     "value": "의 크기를 구하시오."
+    },
+    {
+     "type": "figure",
+     "value": "삼각형 ABC, 내심 I. $\\overline{AI}$의 연장선과 $\\overline{BC}$의 교점 E, 연장선 위 점 D에서 $\\overline{BC}$에 내린 수선의 발 F.",
+     "bbox": [
+      0.15,
+      0.45,
+      0.85,
+      0.78
+     ]
+    }
+   ],
+   "choices": [],
+   "sub_questions": []
+  },
+  {
+   "number": 20,
+   "score": 8,
+   "label_type": "서답형",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서답형 4] "
+    },
+    {
+     "type": "text",
+     "value": "그림과 같은 직사각형 ABCD에서 "
+    },
+    {
+     "type": "equation",
+     "value": "2\\overline{AB} = \\overline{BD}"
+    },
+    {
+     "type": "text",
+     "value": "이다. "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{BD}"
+    },
+    {
+     "type": "text",
+     "value": " 위의 점 O는 "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle ABD"
+    },
+    {
+     "type": "text",
+     "value": "의 외심이고, 점 I는 "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle DBC"
+    },
+    {
+     "type": "text",
+     "value": "의 내심이다. 이때 "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle AOI"
+    },
+    {
+     "type": "text",
+     "value": "의 크기를 구하시오."
+    },
+    {
+     "type": "figure",
+     "value": "직사각형 ABCD(A 좌상, D 우상, B 좌하, C 우하), 대각선 BD·AC. $\\overline{BD}$ 위 점 O($\\triangle ABD$의 외심), $\\triangle DBC$의 내심 I.",
+     "bbox": [
+      0.15,
+      0.45,
+      0.85,
+      0.78
+     ]
+    }
+   ],
+   "choices": [],
+   "sub_questions": []
+  }
+ ]
+}

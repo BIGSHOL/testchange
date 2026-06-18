@@ -1,0 +1,745 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 11,
+   "score": 5,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림과 같이 평행사변형 ABCD에서 점 E는 "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle B"
+    },
+    {
+     "type": "text",
+     "value": "의 이등분선과 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AD}"
+    },
+    {
+     "type": "text",
+     "value": "의 교점이고, F는 점 C에서 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{BE}"
+    },
+    {
+     "type": "text",
+     "value": "에 내린 수선의 발이다. "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle DCF = 62^\\circ"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle ADC"
+    },
+    {
+     "type": "text",
+     "value": "의 크기는?"
+    },
+    {
+     "type": "figure",
+     "value": "평행사변형 ABCD. $\\angle B$의 이등분선이 $\\overline{AD}$와 점 E에서 만나고, 점 C에서 $\\overline{BE}$에 내린 수선의 발 F.",
+     "bbox": [
+      0.15,
+      0.45,
+      0.85,
+      0.78
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "45^\\circ"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "52^\\circ"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "56^\\circ"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "59^\\circ"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "62^\\circ"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 12,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림에서 평행사변형 ABCD의 점 A, C에서 대각선 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{BD}"
+    },
+    {
+     "type": "text",
+     "value": "에 내린 수선의 발을 각각 E, F라고 하자. "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle ABO"
+    },
+    {
+     "type": "text",
+     "value": "의 둘레의 길이가 16일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\square AECF"
+    },
+    {
+     "type": "text",
+     "value": "의 두 대각선의 길이의 합은? (단, 점 O는 두 대각선의 교점이고, "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{FD} = 4"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{DC} = 5"
+    },
+    {
+     "type": "text",
+     "value": ")"
+    },
+    {
+     "type": "figure",
+     "value": "평행사변형 ABCD, 대각선 $\\overline{BD}$. 점 A, C에서 $\\overline{BD}$에 내린 수선의 발 E, F. 두 대각선의 교점 O.",
+     "bbox": [
+      0.15,
+      0.45,
+      0.85,
+      0.78
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "text",
+       "value": "14"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "text",
+       "value": "15"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "text",
+       "value": "16"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "text",
+       "value": "17"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "text",
+       "value": "18"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 13,
+   "score": 3,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림과 같이 정사각형 ABCD의 내부에 "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle PBC"
+    },
+    {
+     "type": "text",
+     "value": "가 정삼각형이 되도록 점 P를 잡았다. 점 F는 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{PD}"
+    },
+    {
+     "type": "text",
+     "value": "의 연장선 위의 점이고, "
+    },
+    {
+     "type": "equation",
+     "value": "\\square DCEF"
+    },
+    {
+     "type": "text",
+     "value": "는 평행사변형이다. 이때 "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle CEF"
+    },
+    {
+     "type": "text",
+     "value": "의 크기는?"
+    },
+    {
+     "type": "figure",
+     "value": "정사각형 ABCD(A 좌상, D 우상, B 좌하, C 우하) 내부에 정삼각형 PBC. $\\overline{PD}$의 연장선 위 점 F, 평행사변형 DCEF.",
+     "bbox": [
+      0.15,
+      0.45,
+      0.85,
+      0.78
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "75^\\circ"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "85^\\circ"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "95^\\circ"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "100^\\circ"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "105^\\circ"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 14,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림의 사다리꼴 ABCD에서 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AD} \\parallel \\overline{BC}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AC} = \\overline{BD} = \\overline{BC}"
+    },
+    {
+     "type": "text",
+     "value": "이다. "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle ABC = 76^\\circ"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle ADB"
+    },
+    {
+     "type": "text",
+     "value": "의 크기는?"
+    },
+    {
+     "type": "figure",
+     "value": "사다리꼴 ABCD($\\overline{AD} \\parallel \\overline{BC}$, A 좌상, D 우상, B 좌하, C 우하), 두 대각선 AC, BD. B에 $76^\\circ$.",
+     "bbox": [
+      0.15,
+      0.45,
+      0.85,
+      0.78
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "14^\\circ"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "24^\\circ"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "28^\\circ"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "32^\\circ"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "38^\\circ"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 15,
+   "score": 5,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림의 사다리꼴 ABCD에서 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AD} \\parallel \\overline{BC}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle ABG = \\angle DCG"
+    },
+    {
+     "type": "text",
+     "value": "이고, G는 점 A에서 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{BC}"
+    },
+    {
+     "type": "text",
+     "value": "에 내린 수선의 발이다. "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{BD}"
+    },
+    {
+     "type": "text",
+     "value": "와 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AC}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AG}"
+    },
+    {
+     "type": "text",
+     "value": "의 교점이 각각 E, F이다. "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AD} = 6"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{BG} = 2"
+    },
+    {
+     "type": "text",
+     "value": "이고, "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle ABF"
+    },
+    {
+     "type": "text",
+     "value": "의 넓이가 6일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle EFC"
+    },
+    {
+     "type": "text",
+     "value": "의 넓이는?"
+    },
+    {
+     "type": "figure",
+     "value": "사다리꼴 ABCD($\\overline{AD} \\parallel \\overline{BC}$). 점 A에서 $\\overline{BC}$에 내린 수선의 발 G. $\\overline{BD}$가 $\\overline{AC}$, $\\overline{AG}$와 만나는 점 E, F. $\\overline{AD}=6$, $\\overline{BG}=2$.",
+     "bbox": [
+      0.15,
+      0.45,
+      0.85,
+      0.78
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "text",
+       "value": "12"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "text",
+       "value": "15"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "text",
+       "value": "18"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "text",
+       "value": "24"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "text",
+       "value": "30"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 16,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림과 같이 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AD} \\parallel \\overline{BC}"
+    },
+    {
+     "type": "text",
+     "value": "인 사각형 ABCD가 두 대각선 AC, BD의 교점을 O라고 할 때, <보기> 중에서 옳은 것만을 있는 대로 고른 것은?"
+    },
+    {
+     "type": "figure",
+     "value": "$\\overline{AD} \\parallel \\overline{BC}$인 사각형(등변사다리꼴 모양) ABCD와 두 대각선의 교점 O.",
+     "bbox": [
+      0.15,
+      0.45,
+      0.85,
+      0.78
+     ]
+    },
+    {
+     "type": "text",
+     "value": "<보기> ㄱ. "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AD} = \\overline{BC}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AC} = \\overline{BD}"
+    },
+    {
+     "type": "text",
+     "value": "이면 "
+    },
+    {
+     "type": "equation",
+     "value": "\\square ABCD"
+    },
+    {
+     "type": "text",
+     "value": "는 직사각형이다. • ㄴ. "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AB} = \\overline{DC}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle A = 90^\\circ"
+    },
+    {
+     "type": "text",
+     "value": "이면 "
+    },
+    {
+     "type": "equation",
+     "value": "\\square ABCD"
+    },
+    {
+     "type": "text",
+     "value": "는 직사각형이다. • ㄷ. "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{OA} = \\overline{OD}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{OB} = \\overline{OC}"
+    },
+    {
+     "type": "text",
+     "value": "이면 "
+    },
+    {
+     "type": "equation",
+     "value": "\\square ABCD"
+    },
+    {
+     "type": "text",
+     "value": "는 평행사변형이다. • ㄹ. "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle BAC = \\angle ACD"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AC} \\perp \\overline{BD}"
+    },
+    {
+     "type": "text",
+     "value": "이면 "
+    },
+    {
+     "type": "equation",
+     "value": "\\square ABCD"
+    },
+    {
+     "type": "text",
+     "value": "는 마름모이다."
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄱ, ㄴ"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄱ, ㄷ"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄷ, ㄹ"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄱ, ㄴ, ㄹ"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄴ, ㄷ, ㄹ"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  }
+ ]
+}

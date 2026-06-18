@@ -1,0 +1,653 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 5,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림에서 점 O는 "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle ABC"
+    },
+    {
+     "type": "text",
+     "value": "의 외심이다. "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle BAC = 60^\\circ"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle AOB = 110^\\circ"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle ADC"
+    },
+    {
+     "type": "text",
+     "value": "의 크기는?"
+    },
+    {
+     "type": "figure",
+     "value": "삼각형 ABC, 내부에 외심 O. 선분 AD가 O를 지나 $\\overline{BC}$ 위의 점 D에 닿음. A에 $60^\\circ$, O에 $110^\\circ$ 표시.",
+     "bbox": [
+      0.15,
+      0.45,
+      0.85,
+      0.78
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "100^\\circ"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "105^\\circ"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "110^\\circ"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "115^\\circ"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "120^\\circ"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 6,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림에서 점 I는 "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle ABC"
+    },
+    {
+     "type": "text",
+     "value": "의 내심이고, "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AI}"
+    },
+    {
+     "type": "text",
+     "value": "와 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{BI}"
+    },
+    {
+     "type": "text",
+     "value": "의 연장선이 두 변 BC, AC와 만나는 점을 D, E라고 하자. "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle AEB = 72^\\circ"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle ADB = 93^\\circ"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle C"
+    },
+    {
+     "type": "text",
+     "value": "의 크기는?"
+    },
+    {
+     "type": "figure",
+     "value": "삼각형 ABC, 내심 I. $\\overline{AI}$ 연장선과 $\\overline{BC}$의 교점 D, $\\overline{BI}$ 연장선과 $\\overline{AC}$의 교점 E.",
+     "bbox": [
+      0.15,
+      0.45,
+      0.85,
+      0.78
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "50^\\circ"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "56^\\circ"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "60^\\circ"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "62^\\circ"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "65^\\circ"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 7,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림과 같이 점 I는 직각삼각형 ABC의 내심이고, 점 "
+    },
+    {
+     "type": "equation",
+     "value": "I'"
+    },
+    {
+     "type": "text",
+     "value": "은 이등변삼각형 ACD의 내심이다. 변 AC와 내접원 "
+    },
+    {
+     "type": "equation",
+     "value": "I"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "I'"
+    },
+    {
+     "type": "text",
+     "value": "의 접점이 각각 E, F일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{EF}"
+    },
+    {
+     "type": "text",
+     "value": "의 길이는?"
+    },
+    {
+     "type": "figure",
+     "value": "직각삼각형 ABC($\\angle B = 90^\\circ$, $\\overline{AB}=6$, $\\overline{BC}=8$)와 이등변삼각형 ACD($\\overline{AD}=10$, $\\overline{DC}=5$)가 빗변 $\\overline{AC}=10$을 공유. 각 삼각형의 내접원 $I$, $I'$. $\\overline{AC}$ 위 접점 E, F.",
+     "bbox": [
+      0.15,
+      0.45,
+      0.85,
+      0.78
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "text",
+       "value": "2"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "text",
+       "value": "2.5"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "text",
+       "value": "3"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "text",
+       "value": "3.5"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "text",
+       "value": "4"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 8,
+   "score": 5,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림의 점 O는 "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle ABC"
+    },
+    {
+     "type": "text",
+     "value": "와 "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle ACD"
+    },
+    {
+     "type": "text",
+     "value": "의 외심이고, 점 I는 "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle ACD"
+    },
+    {
+     "type": "text",
+     "value": "의 내심이다. "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle CAD = 27^\\circ"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle B = 70^\\circ"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle ODI"
+    },
+    {
+     "type": "text",
+     "value": "의 크기는?"
+    },
+    {
+     "type": "figure",
+     "value": "사각형 ABCD(A 상, B 좌하, C 하, D 우)의 네 꼭짓점이 한 원 위. 공통 외심 O, $\\triangle ACD$의 내심 I. A에 $27^\\circ$, B에 $70^\\circ$ 표시.",
+     "bbox": [
+      0.15,
+      0.45,
+      0.85,
+      0.78
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3^\\circ"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4^\\circ"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "6^\\circ"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "7^\\circ"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "9^\\circ"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 9,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림과 같이 "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle C = 90^\\circ"
+    },
+    {
+     "type": "text",
+     "value": "인 직각삼각형 ABC의 내접원과 외접원의 넓이가 각각 "
+    },
+    {
+     "type": "equation",
+     "value": "100\\pi"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "625\\pi"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle ABC"
+    },
+    {
+     "type": "text",
+     "value": "의 넓이는?"
+    },
+    {
+     "type": "figure",
+     "value": "$\\angle C = 90^\\circ$인 직각삼각형 ABC와 그 내접원·외접원.",
+     "bbox": [
+      0.15,
+      0.45,
+      0.85,
+      0.78
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "text",
+       "value": "525"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "text",
+       "value": "600"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "text",
+       "value": "625"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "text",
+       "value": "700"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "text",
+       "value": "1200"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 10,
+   "score": 3,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림과 같은 평행사변형 ABCD에서 "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle A"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle D"
+    },
+    {
+     "type": "text",
+     "value": "의 이등분선이 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{BC}"
+    },
+    {
+     "type": "text",
+     "value": "와 만나는 점을 각각 E, F라고 하자. "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AB} = 4"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AD} = 6"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{BE} - \\overline{CF} + \\overline{EF}"
+    },
+    {
+     "type": "text",
+     "value": "의 값은?"
+    },
+    {
+     "type": "figure",
+     "value": "평행사변형 ABCD(A 좌상, D 우상, B 좌하, C 우하). $\\angle A$의 이등분선과 $\\angle D$의 이등분선이 $\\overline{BC}$와 각각 점 E, F에서 만남. $\\overline{AB}=4$, $\\overline{AD}=6$.",
+     "bbox": [
+      0.15,
+      0.45,
+      0.85,
+      0.78
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "text",
+       "value": "1"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "text",
+       "value": "2"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "text",
+       "value": "3"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "text",
+       "value": "4"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "text",
+       "value": "5"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  }
+ ]
+}

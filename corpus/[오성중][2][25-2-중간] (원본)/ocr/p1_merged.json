@@ -1,0 +1,601 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 1,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림과 같은 "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle ABC"
+    },
+    {
+     "type": "text",
+     "value": "에서 "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle BAC = 105^\\circ"
+    },
+    {
+     "type": "text",
+     "value": "이고, "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{BC}"
+    },
+    {
+     "type": "text",
+     "value": " 위의 점 D에 대하여 "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle ABD = \\angle BAD"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle ADC = \\angle ACD"
+    },
+    {
+     "type": "text",
+     "value": "를 만족한다. 이때 "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle DAC"
+    },
+    {
+     "type": "text",
+     "value": "의 크기는?"
+    },
+    {
+     "type": "figure",
+     "value": "삼각형 ABC. $\\overline{BC}$ 위에 점 D. 꼭짓점 A에 $105^\\circ$ 표시. A에서 D로 선분.",
+     "bbox": [
+      0.15,
+      0.45,
+      0.85,
+      0.78
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "65^\\circ"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "70^\\circ"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "80^\\circ"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "84^\\circ"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "90^\\circ"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 2,
+   "score": 3,
+   "contents": [
+    {
+     "type": "text",
+     "value": "다음은 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AB} = \\overline{AC}"
+    },
+    {
+     "type": "text",
+     "value": "인 이등변삼각형 ABC에서 "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle A = 56^\\circ"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{BF} = \\overline{CD}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{BE} = \\overline{CF}"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle DEF"
+    },
+    {
+     "type": "text",
+     "value": "의 크기를 구하는 과정이다. ①~⑤에 들어갈 것으로 옳지 않은 것은?"
+    },
+    {
+     "type": "figure",
+     "value": "이등변삼각형 ABC(A 위, B 좌하, C 우하), 꼭짓점 A에 $56^\\circ$. 변 위에 점 D, E, F가 있어 삼각형 DEF가 내부에 그려짐.",
+     "bbox": [
+      0.15,
+      0.45,
+      0.85,
+      0.78
+     ]
+    },
+    {
+     "type": "text",
+     "value": "<상자> "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle BFE"
+    },
+    {
+     "type": "text",
+     "value": "와 "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle CDF"
+    },
+    {
+     "type": "text",
+     "value": "에서 • "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{BF} = \\overline{CD}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{BE} = \\overline{CF}"
+    },
+    {
+     "type": "text",
+     "value": "이고 • "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle ABC"
+    },
+    {
+     "type": "text",
+     "value": "는 이등변삼각형이므로 • "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle B = \\angle C ="
+    },
+    {
+     "type": "text",
+     "value": " ① • "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle BFE \\equiv \\triangle CDF"
+    },
+    {
+     "type": "text",
+     "value": "(SAS합동)이므로 • "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle BFE = \\angle CDF"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle BEF = \\angle CFD"
+    },
+    {
+     "type": "text",
+     "value": ", • "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{DF} ="
+    },
+    {
+     "type": "text",
+     "value": " ② • "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle BFE = \\angle a"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle BEF = \\angle b"
+    },
+    {
+     "type": "text",
+     "value": "라고 하면 • "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle a + \\angle b ="
+    },
+    {
+     "type": "text",
+     "value": " ③ 이므로 • "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle EFD ="
+    },
+    {
+     "type": "text",
+     "value": " ④ 이다. • 따라서 "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle DEF"
+    },
+    {
+     "type": "text",
+     "value": "에서 "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle DEF"
+    },
+    {
+     "type": "text",
+     "value": "의 크기는 ⑤ 이다."
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "62^\\circ"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\overline{EF}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "118^\\circ"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "64^\\circ"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "59^\\circ"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 3,
+   "score": 5,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림에서 "
+    },
+    {
+     "type": "equation",
+     "value": "\\square ABCD"
+    },
+    {
+     "type": "text",
+     "value": "는 한 변의 길이가 8인 정사각형이고, "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{BF} : \\overline{FC} = 1 : 3"
+    },
+    {
+     "type": "text",
+     "value": "을 만족하는 점 F를 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{BC}"
+    },
+    {
+     "type": "text",
+     "value": " 위에 잡았다. "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AF} = \\overline{FE}"
+    },
+    {
+     "type": "text",
+     "value": "이고, "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle AFE = 90^\\circ"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle DFE"
+    },
+    {
+     "type": "text",
+     "value": "의 넓이는?"
+    },
+    {
+     "type": "figure",
+     "value": "한 변 8인 정사각형 ABCD(A 좌상, D 우상, B 좌하, C 우하). $\\overline{BC}$ 위 점 F, 정사각형 밖 우측에 점 E. 선분 AF, FE, DE.",
+     "bbox": [
+      0.15,
+      0.45,
+      0.85,
+      0.78
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "text",
+       "value": "18"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "text",
+       "value": "20"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "text",
+       "value": "22"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "text",
+       "value": "24"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "text",
+       "value": "26"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 4,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림의 "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle ABC"
+    },
+    {
+     "type": "text",
+     "value": "에서 점 D는 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AB}"
+    },
+    {
+     "type": "text",
+     "value": " 위의 점이고, "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{BC}"
+    },
+    {
+     "type": "text",
+     "value": " 위의 점 O는 "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle ADC"
+    },
+    {
+     "type": "text",
+     "value": "의 외심이다. "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle B = 25^\\circ"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle ADC = 45^\\circ"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle A"
+    },
+    {
+     "type": "text",
+     "value": "의 크기는?"
+    },
+    {
+     "type": "figure",
+     "value": "삼각형 ABC. $\\overline{AB}$ 위 점 D, $\\overline{BC}$ 위 점 O($\\triangle ADC$의 외심). B에 $25^\\circ$, D에 $45^\\circ$ 표시.",
+     "bbox": [
+      0.15,
+      0.45,
+      0.85,
+      0.78
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "100^\\circ"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "105^\\circ"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "110^\\circ"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "115^\\circ"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "120^\\circ"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  }
+ ]
+}

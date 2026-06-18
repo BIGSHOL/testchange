@@ -1,0 +1,80 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 21,
+   "score": 8,
+   "label_type": "서답형",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서답형 5] "
+    },
+    {
+     "type": "text",
+     "value": "그림의 평행사변형 ABCD에서 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{CD}"
+    },
+    {
+     "type": "text",
+     "value": "의 중점을 F, "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AD}"
+    },
+    {
+     "type": "text",
+     "value": "와 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{BF}"
+    },
+    {
+     "type": "text",
+     "value": "의 연장선의 교점을 G, 점 A에서 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{BF}"
+    },
+    {
+     "type": "text",
+     "value": "에 내린 수선의 발을 E라고 하자. "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle EBC"
+    },
+    {
+     "type": "text",
+     "value": "의 넓이가 3일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle ABE"
+    },
+    {
+     "type": "text",
+     "value": "의 넓이를 구하시오."
+    },
+    {
+     "type": "figure",
+     "value": "평행사변형 ABCD(A 좌상, D 우상, B 좌하, C 우하). $\\overline{CD}$의 중점 F, $\\overline{AD}$와 $\\overline{BF}$ 연장선의 교점 G(우측 멀리), 점 A에서 $\\overline{BF}$에 내린 수선의 발 E.",
+     "bbox": [
+      0.15,
+      0.45,
+      0.85,
+      0.78
+     ]
+    }
+   ],
+   "choices": [],
+   "sub_questions": []
+  }
+ ]
+}
