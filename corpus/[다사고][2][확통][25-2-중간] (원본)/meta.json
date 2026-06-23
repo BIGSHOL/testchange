@@ -1,5 +1,14 @@
 {
-  "status": "ocr_done",
+  "status": "reviewed",
+  "review": {
+    "reviewed_date": "2026-06-23",
+    "reviewed_by": "비전 1:1 검수 소비자 세션 (claude-opus-4-8, 단일 master)",
+    "content_defects": 0,
+    "A_type": 0,
+    "B_type": 0,
+    "note": "확통 25-2-중간 원본 1:1 비전검수(다중에이전트+적대검증). A형 1건(#9 선택지 ③7/15→41/75·④5/9→14/25 OCR전사오류, 원본 고배율 확정, OCR JSON 수정 commit 8126286). 이상문자열 0건. 재렌더 시각 확인 정상."
+  },
+  "status_was": "ocr_done",
   "school": "다사고",
   "grade": 2,
   "subject": "확통",

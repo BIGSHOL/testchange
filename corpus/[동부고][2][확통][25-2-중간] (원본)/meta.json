@@ -1,5 +1,14 @@
 {
-  "status": "ocr_done",
+  "status": "reviewed",
+  "review": {
+    "reviewed_date": "2026-06-23",
+    "reviewed_by": "비전 1:1 검수 소비자 세션 (claude-opus-4-8, 단일 master)",
+    "content_defects": 0,
+    "A_type": 0,
+    "B_type": 1,
+    "note": "확통 25-2-중간 원본 1:1 비전검수. A형 1건(#17 지수 (1+x)^{10}→^{19} OCR전사, commit 8126286)+B형 1건(#17 라벨없는 풀이박스 뒤 질문 box overflow→_trailing_question_split 확장, commit dbe8143). 이상문자열 0. 재렌더 확인 정상."
+  },
+  "status_was": "ocr_done",
   "school": "동부고",
   "grade": 2,
   "subject": "확통",
