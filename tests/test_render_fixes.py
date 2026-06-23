@@ -251,6 +251,14 @@ def run():
     chk(latex_to_hwpeq("2g") == "2 rm`g", "O4 진짜 단위 2g 무회귀(로만)")
     chk(latex_to_hwpeq("5cm") == "5 rm`cm", "O4 진짜 단위 5cm 무회귀")
 
+    # ── O5: \limits/\nolimits 위치 수식자 제거 (진명여고·학남고 수2, 2026-06-23) ──
+    # ``\lim\limits`` → "lim lim its"(중복 lim + 잔여 'its') 깨짐. \limits 는 HWP 가 ``_{}`` 로
+    # 아래첨자 처리하는 no-op 이라 제거. ``\lim\limits`` 결과 = ``\lim`` 단독 결과와 동일.
+    chk("its" not in latex_to_hwpeq(r"\lim\limits_{x \to 0} f(x)"), "O5 lim\\limits 'its' 잔여 없음")
+    chk(latex_to_hwpeq(r"\lim\limits_{x \to 0} f") == latex_to_hwpeq(r"\lim_{x \to 0} f"),
+        "O5 \\limits no-op(= \\lim 단독)")
+    chk("its" not in latex_to_hwpeq(r"\sum\limits_{k=1}^{n} k"), "O5 sum\\limits 'its' 없음")
+
     # ── O3: 극한형 연산자 첨자 = 연산자 아래 (lim·max·min·sup) — 사용자 2026-06-17 ──
     # ``\lim_{x\to0}`` 가 ``lim {}_{x->0}``(빈그룹 좌측첨자=우측 렌더)로 깨지던 회귀.
     # ``lim _{x->0}``(빈그룹 없음=아래 렌더)여야. 실증 .testkit/_eq_limtest.py B/F.

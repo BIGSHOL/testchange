@@ -75,6 +75,38 @@ def _drop_duplicate_box_fragments(raw: list[dict]) -> list[dict]:
     return [bd for i, bd in enumerate(raw) if i not in drop_idx]
 
 
+# 발문 종결 뒤 **같은 text 블록 중간**에 오는 박스 머리(``…고른 것은? <보기> ㄱ.``·
+# ``…답하시오. <상자> (가)``). _RAW_BOX_MARK_RE 는 블록 **시작**(^\s*) 앵커라 mid-block 마커를
+# 박스로 인식 못 해 박스 미형성·마커 literal 노출됐다(성서고 수2 #6·12·14·15·20, 2026-06-23).
+# 마커 + **항목라벨/불릿**(ㄱ./（가）/•) 직결일 때만 — 조사 ``<보기>의``·참조어 ``<보기> 중``은 제외.
+_EMBED_ITEM_LOOKAHEAD = r"(?=\s*(?:[•·▪◦○〇ㅇ]|[ㄱ-ㅎ]\s*\.|[（(]\s*[가-힣]\s*[)）]))"
+_EMBED_BOX_MARK_RE = re.compile(
+    r"<\s*상자\s*>" + _EMBED_ITEM_LOOKAHEAD
+    + r"|(?:<\s*(?:조건|보기)\s*>|\[\s*(?:조건|보기)\s*\])(?![가-힣])" + _EMBED_ITEM_LOOKAHEAD)
+
+
+def _split_embedded_box_markers(raw: list[dict]) -> list[dict]:
+    """발문 종결 뒤 같은 text 블록 중간에 오는 박스 머리(<보기>/<조건>/<상자> + 항목라벨)를
+    마커 앞에서 쪼개 마커가 새 raw 블록 **시작**이 되게 한다(성서고 수2 #6·12·14·15·20).
+    그러면 _RAW_BOX_MARK_RE(블록시작 앵커) 박스 인식·_raw_box_end·렌더러 _COND_HEADER_RE 가
+    정상 동작한다. 마커 + 항목라벨/불릿 직결일 때만(_EMBED_BOX_MARK_RE 가 조사/참조어 제외)."""
+    out: list[dict] = []
+    for bd in raw:
+        if bd.get("type") != "text":
+            out.append(bd)
+            continue
+        v = bd.get("value") or ""
+        m = _EMBED_BOX_MARK_RE.search(v)
+        if m and m.start() > 0:
+            before = v[:m.start()].rstrip()
+            if before:
+                out.append({**bd, "value": before})
+                out.append({**bd, "value": v[m.start():]})
+                continue
+        out.append(bd)
+    return out
+
+
 def _parse_question(q_data: dict) -> Question:
     """문제 dict를 Question 객체로 변환."""
     question = Question(
@@ -94,6 +126,9 @@ def _parse_question(q_data: dict) -> Question:
     # 유령 박스, 2026-06-11). 안 지우면 ① 없던 네모박스가 렌더되고 ② box_head_i 가 그 박스를
     # 가리켜 발문 배점 제거가 통째 스킵된다.
     raw_contents = _drop_duplicate_box_fragments(raw_contents)
+    # 발문 종결 뒤 같은 블록 중간 박스 머리(``…고른 것은? <보기> ㄱ.``)를 마커 앞에서 쪼개
+    # 마커가 블록 시작이 되게 한다(성서고 수2 #6·12·14·15·20 — mid-block 마커 박스 미형성).
+    raw_contents = _split_embedded_box_markers(raw_contents)
     # 박스(<상자>/<조건>/<보기>) 머리가 시작되는 raw 블록 — 그 **이후** [N점]은 채점기준 등
     # 박스 내용이므로 배점 캡처·제거 대상이 아니다(새론중 서답형2 채점기준 박스 안
     # [1점][3점][2점][4점] 이 발문 배점으로 오인돼 통째 소실, 2026-06-11). 발문 배점은 박스 앞.

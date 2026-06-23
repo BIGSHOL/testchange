@@ -752,6 +752,12 @@ class LaTeXToHWPConverter:
         s = re.sub(r"\\not\s*\\subset\b", r' NOT SUBSET ', s)
         s = re.sub(r"\\not\s*(\\[a-zA-Z]+|[<>])", r' NOT \1', s)
 
+        # ``\limits``/``\nolimits`` 위치 수식자 제거 — HWP eq 는 ``lim _{…}``·``SUM _{…}^{…}`` 가
+        # 이미 연산자 아래/위로 렌더하므로 no-op. 안 지우면 step 13 의 ``\lim`` 부분매칭이
+        # ``\lim\limits`` → "lim lim its"(중복 lim + 잔여 'its'), ``\sum\limits`` → "SUM lim its"
+        # 로 깨졌다(진명여고·학남고 수2 #1·6·12·13·15·17·21, 2026-06-23).
+        s = re.sub(r"\\(?:no)?limits(?![a-zA-Z])", "", s)
+
         # 단위 \text{g} → 평문 g (뒤 _romanize_units 가 rm`g 로 정자+간격, 2026-06-09).
         s = _unwrap_text_units(s)
 

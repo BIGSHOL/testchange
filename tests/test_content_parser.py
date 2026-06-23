@@ -856,6 +856,34 @@ def _check_value_list_comma_fixes(fails):
             fails.append(f"  VL \\, 오split: {v} -> {[(b.type.name, b.value) for b in r3]!r}")
 
 
+def _check_embedded_box_marker(fails):
+    """발문 종결 뒤 mid-block 박스 마커 분리 (성서고·문명고 수2 #6 등, 2026-06-23).
+    ``…고른 것은? <보기> ㄱ.`` 의 마커가 _RAW_BOX_MARK_RE(블록 시작 앵커)에 안 잡혀 박스
+    미형성·마커 literal 노출되던 것 — _split_embedded_box_markers 가 마커(+항목라벨) 앞에서
+    쪼개 마커가 새 블록 시작이 되게 한다. 참조어 ``<보기> 중``·조사 ``<보기>의`` 는 무회귀."""
+    from core.content_parser import _split_embedded_box_markers
+
+    def split(v):
+        return [b["value"] for b in _split_embedded_box_markers([{"type": "text", "value": v}])]
+
+    r = split("고른 것은? <보기> ㄱ. f(x)")
+    if not (len(r) == 2 and r[1].startswith("<보기>")):
+        fails.append(f"  EBM 보기 mid-block 분리 실패: {r!r}")
+    r2 = split("답하시오. <상자> (가) 함수")
+    if not (len(r2) == 2 and r2[1].startswith("<상자>")):
+        fails.append(f"  EBM 상자 mid-block 분리 실패: {r2!r}")
+    # 무회귀: 참조어/조사/블록시작 마커는 분리 안 함
+    if len(split("다음 <보기> 중 옳은 것은?")) != 1:
+        fails.append("  EBM 참조어 <보기> 중 오분리")
+    if len(split("<보기>의 함수들 중")) != 1:
+        fails.append("  EBM 조사 <보기>의 오분리")
+    if len(split("<보기> ㄱ. f(x)")) != 1:
+        fails.append("  EBM 블록시작 마커 오분리")
+    # 무회귀: 마커 뒤가 항목라벨 아닌 일반 텍스트면 분리 안 함(잡음 방지)
+    if len(split("값을 구하면 <상자> 안에 답을 쓰시오")) != 1:
+        fails.append("  EBM 항목없는 상자 오분리")
+
+
 def _check_box_jamo_eq_absorb(fails):
     """DGY1(대구여고 미적분 #8 보기, 2026-06-16): LaTeX 수식 흡수가 보기 항목 자모 라벨을
     넘어 ``\\lim…=\\lim… ㄷ. x<-1`` 까지 한 수식에 빨아들이던 회귀. _split_latex_commands
@@ -1136,6 +1164,7 @@ def run():
     _check_point_name_seq(fails)
     _check_seq_list_comma(fails)
     _check_value_list_comma_fixes(fails)
+    _check_embedded_box_marker(fails)
     _check_box_jamo_eq_absorb(fails)
     _check_paren_base_nested(fails)
     _check_ksy_superscript_base(fails)
