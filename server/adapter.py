@@ -83,11 +83,20 @@ def _adapt_problem(p: dict) -> dict:
     return q
 
 
-def adapt_payload(payload: dict) -> tuple[dict, dict]:
-    """HwpPayload dict → (envelope dict, meta dict).
+def _opt_str(m: dict, key: str) -> str:
+    v = m.get(key)
+    return v if isinstance(v, str) else ""
+
+
+def adapt_payload(payload: dict) -> tuple[dict, dict, dict]:
+    """HwpPayload dict → (envelope dict, meta dict, style dict).
 
     envelope 는 parse_ocr_response 가 받는 한 페이지 봉투.
-    meta 는 build_document(title/subject/grade) 인자.
+    meta 는 build_document(title/subject/grade) 인자 + 헤더 렌더용 확장 필드.
+    style 은 고른 폼(template/accentColor/columns) — 엔진 헤더 분기용.
+
+    구버전 웹(meta 3필드만, style 없음)도 안전: 확장 필드 빈 문자열, style 누락 시
+    template="jeongtong" 기본 → 단순 제목 헤더로 폴백(회귀 0).
     """
     problems = payload.get("problems") if isinstance(payload, dict) else None
     envelope = {
@@ -98,8 +107,40 @@ def adapt_payload(payload: dict) -> tuple[dict, dict]:
     }
     m = (payload.get("meta") if isinstance(payload, dict) else None) or {}
     meta = {
+        # build_document 인자 (필수 3).
         "title": m.get("title") or "",
         "subject": m.get("subject") or "",
         "grade": m.get("grade") or "",
+        # 헤더 렌더용 확장 — 고른 템플릿이 쓰는 필드만 채워짐(없으면 빈 문자열).
+        "schoolName": _opt_str(m, "schoolName"),
+        "semester": _opt_str(m, "semester"),
+        "examDate": _opt_str(m, "examDate"),
+        "examDuration": _opt_str(m, "examDuration"),
+        "examiner": _opt_str(m, "examiner"),
+        "totalScore": m.get("totalScore") if isinstance(m.get("totalScore"), (int, float)) else None,
+        "academyName": _opt_str(m, "academyName"),
+        "instructorName": _opt_str(m, "instructorName"),
+        "conceptNote": _opt_str(m, "conceptNote"),
+        "todayGoal": _opt_str(m, "todayGoal"),
+        "patternName": _opt_str(m, "patternName"),
+        "patternStrategy": _opt_str(m, "patternStrategy"),
     }
-    return envelope, meta
+    st = (payload.get("style") if isinstance(payload, dict) else None) or {}
+    columns = st.get("columns")
+    # 여백(mm) — 웹에서 설정. 유효한 숫자 필드만 추림. 없으면 None(폼/기본 여백 유지).
+    mg = st.get("margins")
+    margins = None
+    if isinstance(mg, dict):
+        picked = {
+            k: mg[k]
+            for k in ("top", "bottom", "left", "right")
+            if isinstance(mg.get(k), (int, float))
+        }
+        margins = picked or None
+    style = {
+        "template": st.get("template") or "jeongtong",
+        "accentColor": _opt_str(st, "accentColor"),
+        "columns": columns if columns in (1, 2) else 1,
+        "margins": margins,
+    }
+    return envelope, meta, style

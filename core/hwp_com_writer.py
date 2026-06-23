@@ -14,6 +14,12 @@ from pathlib import Path
 from typing import Optional
 
 from core.hwp_com import CONVERSION_VISIBLE, HwpSession, CIRCLE_NUMBERS
+from core.template_headers import (
+    DEFAULT_TEMPLATE,
+    render_template_header,
+    resolve_accent_rgb,
+    token_values,
+)
 from core.latex_to_hwpeq import latex_to_hwpeq
 from models.exam_document import (
     ContentBlock,
@@ -495,6 +501,14 @@ class HwpComWriter:
         # 문항번호를 미주 자동번호로(A1). 미주 삽입이 한 번이라도 실패하면 False 로 떨궈
         # 이후 문항은 텍스트 번호로(반복 실패·문서 깨짐 방지).
         self._use_endnote = True
+        # 고른 폼(웹) — write_exam_to_hwp 가 주입. 기본값은 기존 동작(제목만 헤더).
+        self._template = DEFAULT_TEMPLATE
+        self._header_meta: dict = {}
+        self._accent_rgb: tuple[int, int, int] = (0x0E, 0x0E, 0x10)
+        self._columns = 1
+        # 폼 모드 — 폼 파일(template_path)이 헤더를 제공하므로 COM 헤더를 그리지 않고
+        # 본문만 append. write_exam_to_hwp 가 form_mode 일 때 True 주입.
+        self._form_mode = False
 
     # ── 콘텐츠 블록 ────────────────────────────────────────
     def _write_block(self, block: ContentBlock, inline: bool = False) -> None:
@@ -865,7 +879,13 @@ class HwpComWriter:
         else:
             if top_level and self._use_endnote:
                 self._use_endnote = False
-            self.s.text(f"{question.number}. ")
+            # 평문 번호: 주문항은 미주와 같은 강조(note_pt 볼드) 후 본문 복귀, 소문항은 본문 크기.
+            if top_level:
+                self.s.set_char_shape(self.s.note_pt, bold=True)
+                self.s.text(f"{question.number}. ")
+                self.s.set_char_shape(self.s.base_pt, bold=False)
+            else:
+                self.s.text(f"{question.number}. ")
 
         # 발문 / 뒤 영역(조건·표·그림·블록수식) 경계(A2/A3). 배점은 '발문 끝'(경계 앞)에 둔다.
         tail_start = _tail_start(question.contents)
@@ -1069,12 +1089,18 @@ class HwpComWriter:
         # 본문 텍스트(한글 등) 글자 크기 고정. 수식은 equation()에서 eq_pt로 고정.
         self.s.set_char_size(self.s.base_pt)
         self._title = document.title or ""
-        if document.title:
-            self.s.align_center()
-            self.s.text(document.title)
-            self.s.break_para()
+        # 폼 모드면 헤더는 폼 파일(머릿말/꼬릿말·헤더 블록)이 제공 → COM 헤더 그리지 않고
+        # 본문만 이어 쓴다(write_exam_to_hwp 가 MoveDocEnd 로 폼 헤더 뒤에 커서를 둠).
+        if not self._form_mode:
+            # 고른 폼의 COM 헤더를 렌더(폼 파일 없을 때의 폴백). header_meta 에 title 없으면
+            # document.title 로 보강 — 헤더 함수가 제목을 그릴 수 있게.
+            header_meta = dict(self._header_meta or {})
+            if not header_meta.get("title"):
+                header_meta["title"] = document.title or ""
+            render_template_header(self.s, self._template, header_meta, self._accent_rgb)
+            # 헤더 후 본문 글자 크기 복귀(헤더가 set_char_shape 로 바꿨을 수 있음).
+            self.s.set_char_size(self.s.base_pt)
             self.s.align_left()
-            self.s.break_para()
         # PDF 페이지가 뒤섞여 들어와도 검출된 인쇄 문항번호 순으로 출력한다(폼 경로와 동일 —
         # 미주 자동번호가 페이지 순서대로 매겨져 번호가 어긋나던 것, 경상여고 대수 26-1).
         # 정상(이미 정렬된) 시험지는 순서 불변(idempotent). 페이지별 머리말은 제목과 같으면
@@ -1301,6 +1327,507 @@ def _fix_stemleaf_colwidth(hwpx_path: str | Path, ratio: tuple[int, int] = (1, 3
     return fixed
 
 
+# 정통 헤더 표 열너비 비율(저장 후 XML 패치 — TableCreate 의 균등 재배분 우회, _fix_stemleaf
+# 와 동일 이유). (colCnt, 라벨 키워드(공백 제거 후 매칭), 비율). 웹 JeongtongTemplate 와 정합:
+#   시험정보 2×6 — 시험일 칸을 넓게(긴 날짜 뭉개짐 방지).
+#   학생/점수 1×10 — 이름·점수 칸을 넓게(점수 "/ 100" 줄바꿈 방지).
+_HEADER_COLW_SPECS = (
+    (6, ("학교", "학년", "과목", "일시", "시간", "출제"), (7, 27, 7, 11, 8, 16)),
+    # 학생행: 이름 칸을 넓게(웹의 flex 이름) → 점수 칸이 우측으로 밀림(웹 점수 박스 위치).
+    (10, ("점수", "이름", "번호"), (7, 8, 6, 8, 7, 8, 7, 28, 8, 13)),
+)
+
+
+def _set_header_col_widths(hwpx_path: str | Path) -> int:
+    """정통 헤더 표(시험정보 2×6·학생 1×10)의 셀 너비를 비율대로 강제(저장 후 XML).
+
+    HWP TableCreate 가 col_widths 를 무시하고 균등 재배분하므로([[hwp-com-layout-limits]],
+    _fix_stemleaf_colwidth 와 동일), 표 총너비는 보존하고 colAddr 별 cellSz width 만
+    재분배한다. colCnt + 라벨 키워드로 헤더 표만 대상(본문 표 불간섭). Returns: 고친 표 수.
+    """
+    hwpx_path = Path(hwpx_path)
+    with zipfile.ZipFile(hwpx_path) as z:
+        infos = z.infolist()
+        contents = {i.filename: z.read(i.filename) for i in infos}
+
+    fixed = 0
+
+    def _one_tbl(tm: "re.Match") -> str:
+        nonlocal fixed
+        tbl = tm.group(0)
+        cc = re.search(r'colCnt="(\d+)"', tbl)
+        if not cc:
+            return tbl
+        ncol = int(cc.group(1))
+        spec = next((s for s in _HEADER_COLW_SPECS if s[0] == ncol), None)
+        if spec is None:
+            return tbl
+        flat = tbl.replace(" ", "")
+        if not any(k in flat for k in spec[1]):
+            return tbl
+        ratios = spec[2]
+        # 0행 셀 너비 합 = 표 총너비(보존). colAddr→width.
+        row0: dict[int, int] = {}
+        for cm in re.finditer(r'<hp:tc\b.*?</hp:tc>', tbl, flags=re.S):
+            tc = cm.group(0)
+            a = re.search(r'<hp:cellAddr\s+colAddr="(\d+)"\s+rowAddr="(\d+)"', tc)
+            w = re.search(r'<hp:cellSz\s+width="(\d+)"', tc)
+            if a and w and a.group(2) == "0":
+                row0[int(a.group(1))] = int(w.group(1))
+        if len(row0) != ncol:
+            return tbl
+        total = sum(row0.values())
+        tot_r = sum(ratios)
+        neww: dict[int, int] = {}
+        acc = 0
+        for c in range(ncol):
+            if c == ncol - 1:
+                neww[c] = total - acc
+            else:
+                neww[c] = max(int(total * ratios[c] / tot_r), 1)
+                acc += neww[c]
+
+        def _one_tc(cm2: "re.Match") -> str:
+            tc = cm2.group(0)
+            a = re.search(r'<hp:cellAddr\s+colAddr="(\d+)"', tc)
+            if not a or int(a.group(1)) not in neww:
+                return tc
+            w = neww[int(a.group(1))]
+            return re.sub(r'(<hp:cellSz\s+width=")\d+(")',
+                          lambda s: s.group(1) + str(w) + s.group(2), tc, count=1)
+
+        tbl = re.sub(r'<hp:tc\b.*?</hp:tc>', _one_tc, tbl, flags=re.S)
+        fixed += 1
+        return tbl
+
+    changed = False
+    for fn in list(contents):
+        if re.search(r'section\d+\.xml$', fn):
+            xml = contents[fn].decode("utf-8")
+            new = re.sub(r'<hp:tbl\b.*?</hp:tbl>', _one_tbl, xml, flags=re.S)
+            if new != xml:
+                contents[fn] = new.encode("utf-8")
+                changed = True
+    if changed:
+        _rewrite_zip(hwpx_path, infos, contents)
+    return fixed
+
+
+_A4_WIDTH_HWPUNIT = 59528          # A4 가로(HWP 단위)
+_MM_TO_HWPUNIT = 283.465
+
+
+def _scale_table_total_width(tbl: str, target: int) -> str:
+    """표 XML 의 셀 너비를 비율 보존하며 총너비 ``target`` 으로 스케일(+ 표 <hp:sz> 갱신)."""
+    row0: dict[int, int] = {}
+    for cm in re.finditer(r'<hp:tc\b.*?</hp:tc>', tbl, flags=re.S):
+        tc = cm.group(0)
+        a = re.search(r'<hp:cellAddr\s+colAddr="(\d+)"\s+rowAddr="(\d+)"', tc)
+        w = re.search(r'<hp:cellSz\s+width="(\d+)"', tc)
+        if a and w and a.group(2) == "0":
+            row0[int(a.group(1))] = int(w.group(1))
+    if not row0:
+        return tbl
+    ncol = max(row0) + 1
+    total = sum(row0.values())
+    if total <= 0 or total == target:
+        return tbl
+    neww: dict[int, int] = {}
+    acc = 0
+    for c in range(ncol):
+        if c == ncol - 1:
+            neww[c] = target - acc
+        else:
+            neww[c] = max(int(row0.get(c, 0) * target / total), 1)
+            acc += neww[c]
+
+    def _one_tc(cm2: "re.Match") -> str:
+        tc = cm2.group(0)
+        a = re.search(r'<hp:cellAddr\s+colAddr="(\d+)"', tc)
+        if not a or int(a.group(1)) not in neww:
+            return tc
+        w = neww[int(a.group(1))]
+        return re.sub(r'(<hp:cellSz\s+width=")\d+(")',
+                      lambda s: s.group(1) + str(w) + s.group(2), tc, count=1)
+
+    tbl = re.sub(r'<hp:tc\b.*?</hp:tc>', _one_tc, tbl, flags=re.S)
+    # 표 총너비(<hp:sz>) 도 갱신 — 셀 합과 일치시켜야 HWP 가 정상 배치.
+    tbl = re.sub(r'(<hp:sz\s+width=")\d+(")',
+                 lambda s: s.group(1) + str(target) + s.group(2), tbl, count=1)
+    return tbl
+
+
+def _fit_header_tables(hwpx_path: str | Path, margins: dict | None = None) -> int:
+    """정통 헤더 표(제목배너·정보·학생·OMR)를 **본문 텍스트 폭**에 맞춘다(저장 후 XML).
+
+    문항 본문은 텍스트 폭(=A4-좌우여백) 전체를 쓰는데 헤더 표는 고정폭이라, 여백이
+    기본(15/15)과 다르면 헤더·문항 우측 끝이 어긋난다. 적용된 여백으로 텍스트 폭을 계산해
+    헤더 표만 스케일(본문 표 불간섭). 기본 여백이면 폭이 같아 no-op. Returns: 맞춘 표 수.
+    """
+    m = margins or {}
+    left = m.get("left", 15)
+    right = m.get("right", 15)
+    target = int(round(_A4_WIDTH_HWPUNIT - (left + right) * _MM_TO_HWPUNIT))
+
+    hwpx_path = Path(hwpx_path)
+    with zipfile.ZipFile(hwpx_path) as z:
+        infos = z.infolist()
+        contents = {i.filename: z.read(i.filename) for i in infos}
+
+    info_lbls = ("학교", "학년", "과목", "일시", "시간", "출제")
+    stu_lbls = ("점수", "이름", "번호")
+    total_fixed = 0
+    changed_any = False
+    for fn in list(contents):
+        if not re.search(r'section\d+\.xml$', fn):
+            continue
+        xml = contents[fn].decode("utf-8")
+        # 헤더 존재 판정 — 정보표(6열+라벨)가 있어야 헤더 영역으로 간주(본문만인 폴백 보호).
+        tbls = re.findall(r'<hp:tbl\b.*?</hp:tbl>', xml, flags=re.S)
+        has_header = any(
+            (re.search(r'colCnt="6"', t) and any(k in t.replace(" ", "") for k in info_lbls))
+            for t in tbls)
+        if not has_header:
+            continue
+        idx = {"n": 0}
+
+        def _one_tbl(tm: "re.Match") -> str:
+            nonlocal total_fixed
+            tbl = tm.group(0)
+            i = idx["n"]
+            idx["n"] += 1
+            cc = re.search(r'colCnt="(\d+)"', tbl)
+            rc = re.search(r'rowCnt="(\d+)"', tbl)
+            ncol = int(cc.group(1)) if cc else 0
+            nrow = int(rc.group(1)) if rc else 0
+            flat = tbl.replace(" ", "")
+            is_info = ncol == 6 and any(k in flat for k in info_lbls)
+            is_stu = ncol == 10 and any(k in flat for k in stu_lbls)
+            is_omr = ncol == 1 and ("답안" in flat or "OMR" in flat)
+            is_banner = ncol == 1 and nrow == 1 and i == 0 and not is_omr
+            if not (is_info or is_stu or is_omr or is_banner):
+                return tbl
+            new = _scale_table_total_width(tbl, target)
+            if new != tbl:
+                total_fixed += 1
+            return new
+
+        new_xml = re.sub(r'<hp:tbl\b.*?</hp:tbl>', _one_tbl, xml, flags=re.S)
+        if new_xml != xml:
+            contents[fn] = new_xml.encode("utf-8")
+            changed_any = True
+
+    if changed_any:
+        _rewrite_zip(hwpx_path, infos, contents)
+    return total_fixed
+
+
+# 정통 헤더 라벨 셀 음영 borderFill — 전체 SOLID 0.12mm 테두리 + #F4F4F6(웹 ink04) 옅은 회색.
+# _SHADE_BORDERFILL_DEF(확률분포표 #D9D9D9) 구조 그대로, faceColor 만 교체.
+_HEADER_LABEL_BORDERFILL_DEF = {
+    30: '<hh:borderFill id="{{BF30}}" threeD="0" shadow="0" centerLine="NONE" '
+        'breakCellSeparateLine="0"><hh:slash type="NONE" Crooked="0" isCounter="0"/>'
+        '<hh:backSlash type="NONE" Crooked="0" isCounter="0"/>'
+        '<hh:leftBorder type="SOLID" width="0.12 mm" color="#000000"/>'
+        '<hh:rightBorder type="SOLID" width="0.12 mm" color="#000000"/>'
+        '<hh:topBorder type="SOLID" width="0.12 mm" color="#000000"/>'
+        '<hh:bottomBorder type="SOLID" width="0.12 mm" color="#000000"/>'
+        '<hh:diagonal type="SOLID" width="0.1 mm" color="#000000"/>'
+        '<hc:fillBrush><hc:winBrush faceColor="#F4F4F6" hatchColor="#000000" alpha="0"/>'
+        '</hc:fillBrush></hh:borderFill>',
+}
+
+# 음영 대상 라벨 셀 텍스트(공백 제거 후 완전일치). 값 셀("2학년" 등)·제목·OMR 은 제외.
+_HEADER_LABEL_TEXTS = frozenset((
+    "학교", "학년", "과목", "일시", "시간", "출제", "반", "번호", "이름", "점수",
+))
+
+
+def _shade_header_labels(hwpx_path: str | Path) -> int:
+    """정통 헤더 라벨 셀(학교/학년/…/점수)에 #F4F4F6 음영(웹 tdLabel ink04 배경 대응).
+
+    셀 텍스트가 라벨과 완전일치(공백 제거)할 때만 borderFillIDRef 를 음영 id 로 교체.
+    값 셀·본문 표는 불간섭. borderFill 1종을 header.xml 에 1회 append(멱등). Returns: 음영 셀 수.
+    """
+    hwpx_path = Path(hwpx_path)
+    with zipfile.ZipFile(hwpx_path) as z:
+        infos = z.infolist()
+        contents = {i.filename: z.read(i.filename) for i in infos}
+
+    header_fn = next((f for f in contents if f.endswith("header.xml")), None)
+    if header_fn is None:
+        return 0
+    header = contents[header_fn].decode("utf-8")
+
+    shade_id = None
+    total = 0
+    for fn in list(contents):
+        if not (fn.endswith(".xml") and "section" in fn.lower()):
+            continue
+        s = contents[fn].decode("utf-8")
+        out, p, changed = [], 0, False
+        while True:
+            i = s.find("<hp:tc", p)
+            if i < 0:
+                out.append(s[p:])
+                break
+            cell, end = _tbl_balanced(s, i, "hp:tc")
+            if end < 0:
+                out.append(s[p:])
+                break
+            out.append(s[p:i])
+            txt = "".join(re.findall(r'<hp:t>(.*?)</hp:t>', cell, flags=re.S)).replace(" ", "")
+            if txt in _HEADER_LABEL_TEXTS:
+                if shade_id is None:
+                    m_old = re.search(
+                        r'<hh:borderFill\b[^>]*\bid="(\d+)"(?:(?!</hh:borderFill>).)*?'
+                        r'faceColor="#F4F4F6"', header, re.S)
+                    if m_old:
+                        shade_id = int(m_old.group(1))
+                    else:
+                        id_map, header = _append_borderfills(
+                            header, _HEADER_LABEL_BORDERFILL_DEF, [30])
+                        shade_id = id_map[30]
+                new_cell = re.sub(r'(<hp:tc\b[^>]*\bborderFillIDRef=")\d+(")',
+                                  lambda m: m.group(1) + str(shade_id) + m.group(2),
+                                  cell, count=1)
+                if new_cell != cell:
+                    changed = True
+                    total += 1
+                out.append(new_cell)
+            else:
+                out.append(cell)
+            p = end
+        if changed:
+            contents[fn] = "".join(out).encode("utf-8")
+
+    if total == 0:
+        return 0
+    contents[header_fn] = header.encode("utf-8")
+    _rewrite_zip(hwpx_path, infos, contents)
+    return total
+
+
+def _clone_charpr(header: str, src_id: int, mutate) -> tuple[int | None, str]:
+    """header.xml 의 charPr(src_id)를 복제 → 새 id 부여 + mutate(body) 적용 후 append.
+
+    원본의 크기·폰트·볼드를 보존하고 일부 속성만 바꿀 때(글자색·자간). itemCnt +1.
+    Returns: (새 id 또는 None, 갱신 header).
+    """
+    existing = [int(x) for x in re.findall(r'<hh:charPr\b[^>]*\bid="(\d+)"', header)]
+    if not existing:
+        return None, header
+    new_id = max(existing) + 1
+    m = re.search(r'<hh:charPr\b[^>]*\bid="%d"[^>]*>.*?</hh:charPr>' % src_id, header, re.S)
+    if not m:
+        return None, header
+    body = re.sub(r'\bid="\d+"', 'id="%d"' % new_id, m.group(0), count=1)
+    body = mutate(body)
+    cnt = re.search(r'(<hh:charProperties\b[^>]*itemCnt=")(\d+)(")', header)
+    if cnt:
+        header = (header[:cnt.start()] + cnt.group(1) + str(int(cnt.group(2)) + 1)
+                  + cnt.group(3) + header[cnt.end():])
+    close = header.find("</hh:charProperties>")
+    if close < 0:
+        return None, header
+    header = header[:close] + body + header[close:]
+    return new_id, header
+
+
+def _style_header_runs(hwpx_path: str | Path) -> int:
+    """정통 헤더 특정 런의 글자 스타일을 웹과 일치(저장 후 XML). 런의 charPr 를 복제·치환.
+
+    - 점수 "/ 100"(폼 토큰 {{점수표기}}) → 회색 ink30(#A0A0A8)
+    - 유의사항 "※ …" → 회색 ink70(#3A3A40)
+    - 제목 {{제목}} → 자간(letter-spacing) 넓힘 (웹 0.12em)
+    원본 크기·볼드는 유지(_clone_charpr) — 색/자간만 바꾼다. Returns: 스타일 적용 런 수.
+    """
+    hwpx_path = Path(hwpx_path)
+    with zipfile.ZipFile(hwpx_path) as z:
+        infos = z.infolist()
+        contents = {i.filename: z.read(i.filename) for i in infos}
+    header_fn = next((f for f in contents if f.endswith("header.xml")), None)
+    if header_fn is None:
+        return 0
+    header = contents[header_fn].decode("utf-8")
+
+    def set_color(c: str):
+        return lambda b: re.sub(r'textColor="[^"]*"', 'textColor="%s"' % c, b, count=1)
+
+    def set_spacing(v: int):
+        repl = ('<hh:spacing hangul="%d" latin="%d" hanja="%d" japanese="%d" '
+                'other="%d" symbol="%d" user="%d"/>') % ((v,) * 7)
+        return lambda b: re.sub(r'<hh:spacing\b[^/]*/>', repl, b, count=1)
+
+    specs = [
+        (lambda t: t.strip() == "{{점수표기}}", set_color("#A0A0A8")),
+        (lambda t: t.strip().startswith("※"), set_color("#3A3A40")),
+        (lambda t: t.strip() == "{{제목}}", set_spacing(12)),
+    ]
+
+    total = 0
+    state = {"header": header}
+    for fn in list(contents):
+        if not re.search(r'section\d+\.xml$', fn):
+            continue
+        s = contents[fn].decode("utf-8")
+        changed = {"v": False}
+
+        def _one_run(m: "re.Match") -> str:
+            nonlocal total
+            run = m.group(0)
+            cpref = re.search(r'charPrIDRef="(\d+)"', run)
+            tm = re.search(r'<hp:t>(.*?)</hp:t>', run, re.S)
+            if not cpref or not tm:
+                return run
+            txt = tm.group(1)
+            for pred, mut in specs:
+                if pred(txt):
+                    new_id, state["header"] = _clone_charpr(
+                        state["header"], int(cpref.group(1)), mut)
+                    if new_id is None:
+                        return run
+                    total += 1
+                    changed["v"] = True
+                    return re.sub(r'charPrIDRef="\d+"',
+                                  'charPrIDRef="%d"' % new_id, run, count=1)
+            return run
+
+        new_s = re.sub(r'<hp:run\b[^>]*>.*?</hp:run>', _one_run, s, flags=re.S)
+        if changed["v"]:
+            contents[fn] = new_s.encode("utf-8")
+
+    if total == 0:
+        return 0
+    contents[header_fn] = state["header"].encode("utf-8")
+    _rewrite_zip(hwpx_path, infos, contents)
+    return total
+
+
+def _thicken_header_outer_borders(
+    hwpx_path: str | Path, thick: str = "0.5 mm", thin: str = "0.12 mm",
+) -> int:
+    """정통 헤더 표의 **바깥 테두리만 굵게**(웹 2.5px 프레임 + 얇은 내부선). 저장 후 XML.
+
+    각 셀 위치(가장자리)로 굵을 변을 정해 borderFill 변형을 만들어 배정한다. 셀의 기존
+    음영(faceColor)은 보존. 음영(_shade_header_labels) **이후** 실행해야 음영색을 읽는다.
+    헤더 표(제목배너/정보/학생/OMR)만 대상 — 본문 표 불간섭. Returns: 처리한 셀 수.
+    """
+    hwpx_path = Path(hwpx_path)
+    with zipfile.ZipFile(hwpx_path) as z:
+        infos = z.infolist()
+        contents = {i.filename: z.read(i.filename) for i in infos}
+    header_fn = next((f for f in contents if f.endswith("header.xml")), None)
+    if header_fn is None:
+        return 0
+    state = {"header": contents[header_fn].decode("utf-8")}
+    info_lbls = ("학교", "학년", "과목", "일시", "시간", "출제")
+    stu_lbls = ("점수", "이름", "번호")
+
+    def face_of(bfid: int) -> str:
+        m = re.search(
+            r'<hh:borderFill\b[^>]*\bid="%d"[^>]*>.*?</hh:borderFill>' % bfid,
+            state["header"], re.S)
+        if not m:
+            return ""
+        fm = re.search(r'faceColor="([^"]+)"', m.group(0))
+        return fm.group(1) if (fm and fm.group(1).lower() != "none") else ""
+
+    existing = [int(x) for x in re.findall(r'<hh:borderFill\b[^>]*\bid="(\d+)"', state["header"])]
+    nid = [max(existing) if existing else 0]
+    cache: dict = {}
+    appended: list = []
+
+    def get_bf(sides: set, face: str) -> int:
+        key = (tuple(sorted(sides)), face)
+        if key in cache:
+            return cache[key]
+        nid[0] += 1
+        bid = nid[0]
+
+        def w(side: str) -> str:
+            return thick if side in sides else thin
+        fill = ('<hc:fillBrush><hc:winBrush faceColor="%s" hatchColor="#000000" '
+                'alpha="0"/></hc:fillBrush>' % face) if face else ""
+        bf = ('<hh:borderFill id="%d" threeD="0" shadow="0" centerLine="NONE" '
+              'breakCellSeparateLine="0"><hh:slash type="NONE" Crooked="0" isCounter="0"/>'
+              '<hh:backSlash type="NONE" Crooked="0" isCounter="0"/>'
+              '<hh:leftBorder type="SOLID" width="%s" color="#000000"/>'
+              '<hh:rightBorder type="SOLID" width="%s" color="#000000"/>'
+              '<hh:topBorder type="SOLID" width="%s" color="#000000"/>'
+              '<hh:bottomBorder type="SOLID" width="%s" color="#000000"/>'
+              '<hh:diagonal type="SOLID" width="0.1 mm" color="#000000"/>%s</hh:borderFill>'
+              ) % (bid, w("L"), w("R"), w("T"), w("B"), fill)
+        appended.append(bf)
+        cache[key] = bid
+        return bid
+
+    total = 0
+    for fn in list(contents):
+        if not re.search(r'section\d+\.xml$', fn):
+            continue
+        s = contents[fn].decode("utf-8")
+        idx = {"n": 0}
+
+        def _one_tbl(tm: "re.Match") -> str:
+            nonlocal total
+            tbl = tm.group(0)
+            i = idx["n"]
+            idx["n"] += 1
+            cc = re.search(r'colCnt="(\d+)"', tbl)
+            rc = re.search(r'rowCnt="(\d+)"', tbl)
+            ncol = int(cc.group(1)) if cc else 0
+            nrow = int(rc.group(1)) if rc else 0
+            flat = tbl.replace(" ", "")
+            is_info = ncol == 6 and any(k in flat for k in info_lbls)
+            is_stu = ncol == 10 and any(k in flat for k in stu_lbls)
+            is_omr = ncol == 1 and ("답안" in flat or "OMR" in flat)
+            is_banner = ncol == 1 and nrow == 1 and i == 0 and not is_omr
+            if not (is_info or is_stu or is_omr or is_banner):
+                return tbl
+
+            def _one_tc(cm: "re.Match") -> str:
+                nonlocal total
+                tc = cm.group(0)
+                a = re.search(r'<hp:cellAddr\s+colAddr="(\d+)"\s+rowAddr="(\d+)"', tc)
+                bf = re.search(r'borderFillIDRef="(\d+)"', tc)
+                if not a or not bf:
+                    return tc
+                col, row = int(a.group(1)), int(a.group(2))
+                sides = set()
+                if row == 0:
+                    sides.add("T")
+                if row == nrow - 1:
+                    sides.add("B")
+                if col == 0:
+                    sides.add("L")
+                if col == ncol - 1:
+                    sides.add("R")
+                bid = get_bf(sides, face_of(int(bf.group(1))))
+                total += 1
+                return re.sub(r'(borderFillIDRef=")\d+(")',
+                              lambda mm: mm.group(1) + str(bid) + mm.group(2), tc, count=1)
+
+            return re.sub(r'<hp:tc\b.*?</hp:tc>', _one_tc, tbl, flags=re.S)
+
+        new_s = re.sub(r'<hp:tbl\b.*?</hp:tbl>', _one_tbl, s, flags=re.S)
+        if new_s != s:
+            contents[fn] = new_s.encode("utf-8")
+
+    if not appended:
+        return 0
+    hdr = state["header"]
+    cntm = re.search(r'(<hh:borderFills\b[^>]*itemCnt=")(\d+)(")', hdr)
+    if cntm:
+        hdr = (hdr[:cntm.start()] + cntm.group(1) + str(int(cntm.group(2)) + len(appended))
+               + cntm.group(3) + hdr[cntm.end():])
+    close = hdr.find("</hh:borderFills>")
+    hdr = hdr[:close] + "".join(appended) + hdr[close:]
+    contents[header_fn] = hdr.encode("utf-8")
+    _rewrite_zip(hwpx_path, infos, contents)
+    return total
+
+
 # 보기 2열 배치의 두 번째 열 시작 위치(HWPUNIT). 7cm ≈ 19842 (1cm=2834.6).
 # 본문 탭(`\t`)은 보기 열 구분에만 쓰이므로, 모든 tabPr에 이 고정 좌측 탭을 주입하면
 # 보기 ②④가 첫 열 내용 폭(수식 객체 포함)과 무관하게 항상 같은 x에서 정렬된다.
@@ -1354,6 +1881,13 @@ def write_exam_to_hwp(
     document: ExamDocument,
     output_path: str | Path,
     template_path: str | Path | None = None,
+    template: str = DEFAULT_TEMPLATE,
+    header_meta: dict | None = None,
+    accent_color: str = "",
+    columns: int = 1,
+    form_mode: bool = False,
+    margins: dict | None = None,
+    use_endnote: bool = True,
 ) -> Path:
     """편의 함수: ExamDocument를 HWP COM으로 .hwpx 파일로 저장.
 
@@ -1361,19 +1895,66 @@ def write_exam_to_hwp(
         document: 변환할 시험 문서
         output_path: 출력 .hwpx 경로
         template_path: 양식 파일(.hwp/.hwpx). 주어지면 해당 서식 위에 작성.
+            form_mode=True 면 *고른 폼 파일* — 머릿말/꼬릿말·헤더 블록은 폼이 제공하고
+            본문은 그 뒤(MoveDocEnd)에 흘려 쓴다. COM 헤더는 그리지 않음.
+        template: 인쇄 폼 id (pyeongga|jeongtong|modern|workbook|jaseup|yuhyung).
+            폼 파일이 없을 때 COM 헤더(근사) 분기에만 사용. 미지정 → jeongtong.
+        header_meta: 시험지 정보 dict(학교명·시험일·배점 등). adapt_payload 산출.
+            form_mode 면 저장 후 {{토큰}} 치환에도 사용.
+        accent_color: 강조색 #RRGGBB. 빈 값이면 템플릿 기본 accent.
+        columns: 본문 단 수(1|2). 현재 헤더 범위 밖 — 저장만(후속 본문 단 분할용).
+        form_mode: 폼 파일 사용 여부. True 면 헤더=폼 / 본문=append / {{토큰}} 치환.
 
     Returns:
         저장된 파일 경로
     """
     output_path = Path(output_path)
+    use_form = bool(form_mode and template_path)
     # 빌드는 숨김(빠름)이 기본이나, 실시간 작성 표시 옵션(CONVERSION_VISIBLE)이면 보이게 띄운다.
     with HwpSession(visible=CONVERSION_VISIBLE) as s:
         if template_path:
             s.open(template_path)
-            s.move_doc_begin()
+            if use_form:
+                s.move_doc_end()      # 폼 헤더(블록/머릿말) 뒤에 본문 append
+            else:
+                s.move_doc_begin()
         writer = HwpComWriter(s)
+        # 고른 폼 주입 — write() 가 render_template_header 로 헤더 분기(폼 모드면 헤더 스킵).
+        writer._template = template or DEFAULT_TEMPLATE
+        writer._header_meta = header_meta or {}
+        writer._accent_rgb = resolve_accent_rgb(writer._template, accent_color)
+        writer._columns = columns if columns in (1, 2) else 1
+        writer._form_mode = use_form
+        # 문항번호 방식: 기본 미주(자동번호) 유지. 웹 내보내기(convert_cli)는 use_endnote=False
+        # 로 평문 번호 — 미주 마크(첨자) + 문서끝 미주 목록("1.2.3…") 잔여 제거(완성도, 2026-06-23).
+        # 웹 payload 는 문항번호가 명시·정렬되어 평문이 정확. GUI 등 다른 경로는 기본 True(불변).
+        writer._use_endnote = use_endnote
         writer.write(document)
         s.save_hwpx(output_path)
+    # 폼 모드 — 폼의 {{토큰}} 을 시험지 정보로 치환(머릿말/꼬릿말·헤더 블록 모두).
+    if use_form and header_meta:
+        try:
+            n = _fill_tokens(output_path, token_values(header_meta))
+            logger.info("폼 토큰 치환 %d건", n)
+        except Exception as e:  # noqa: BLE001
+            logger.warning("HWPX 후처리 실패(_fill_tokens): %s", e)
+    # 웹에서 설정한 쪽 여백(mm)을 출력에 적용 — 폼/기본 여백을 덮어쓴다(웹이 source).
+    if margins:
+        try:
+            tag = _margin_tag(
+                top_mm=margins.get("top", 12),
+                bottom_mm=margins.get("bottom", 12),
+                left_mm=margins.get("left", 15),
+                right_mm=margins.get("right", 15),
+            )
+            _set_page_margins(output_path, tag)
+        except Exception as e:  # noqa: BLE001
+            logger.warning("HWPX 후처리 실패(_set_page_margins): %s", e)
+    # 헤더 표 폭을 실제 텍스트 폭(=A4-여백)에 맞춤 — 헤더·문항 우측 끝 정렬(여백 변경 대응).
+    try:
+        _fit_header_tables(output_path, margins)
+    except Exception as e:  # noqa: BLE001
+        logger.warning("HWPX 후처리 실패(_fit_header_tables): %s", e)
     # 저장 후 본문 글자모양의 장평/상대크기 0(투명) 보정 — 템플릿 상속으로
     # 본문이 안 보이는 문제 방지. COM 종료 뒤 XML 직접 패치(안전·결정적).
     try:
@@ -1412,6 +1993,102 @@ def write_exam_to_hwp(
     except Exception as e:  # noqa: BLE001
         logger.warning("HWPX 후처리 실패(_fix_stemleaf_colwidth): %s", e)
     return output_path
+
+
+def _fill_tokens(hwpx_path: str | Path, values: dict) -> int:
+    """폼 .hwpx 의 ``{{토큰}}`` 을 시험지 정보 값으로 치환(머릿말/꼬릿말·헤더 블록 모두).
+
+    스타터 폼은 각 칸에 ``{{학교}}`` 등 토큰을 써 두고, 변환 때 이 함수가 meta 값으로
+    바꾼다. 값은 XML escape(&,<,> → 엔티티). 토큰이 한 run 에 온전할 때 동작 — 스타터
+    생성물 + 사용자가 토큰 글자를 그대로 둔 경우. (한글에서 토큰 중간을 재서식하면 run 이
+    쪼개져 매치 실패 → 토큰이 그대로 보일 수 있으니 '토큰 글자는 그대로 두기'를 안내.)
+
+    Returns: 치환한 토큰 개수.
+    """
+    import html
+
+    hwpx_path = Path(hwpx_path)
+    with zipfile.ZipFile(hwpx_path) as zin:
+        infos = zin.infolist()
+        contents = {i.filename: zin.read(i.filename) for i in infos}
+
+    def esc(v: object) -> str:
+        return html.escape(str(v), quote=False)
+
+    total = 0
+    for name in list(contents.keys()):
+        if not name.endswith(".xml"):
+            continue
+        try:
+            text = contents[name].decode("utf-8")
+        except UnicodeDecodeError:
+            continue
+        if "{{" not in text:
+            continue
+        changed = False
+        for token, val in values.items():
+            for pat in ("{{%s}}" % token, "{{ %s }}" % token):
+                if pat in text:
+                    total += text.count(pat)
+                    text = text.replace(pat, esc(val))
+                    changed = True
+        if changed:
+            contents[name] = text.encode("utf-8")
+    if total:
+        _rewrite_zip(hwpx_path, infos, contents)
+    return total
+
+
+# HWP 길이 단위: 1mm ≈ 283.465 (1/7200 inch). 웹에서 mm 로 설정한 여백을 변환.
+_MM_TO_HWP = 283.465
+
+
+def _margin_tag(
+    top_mm: float = 12.0,
+    bottom_mm: float = 12.0,
+    left_mm: float = 15.0,
+    right_mm: float = 15.0,
+    header_mm: float = 8.0,
+    footer_mm: float = 10.0,
+) -> str:
+    """mm 여백 → ``<hp:margin .../>`` 태그. 머리말 8mm·꼬리말 10mm(페이지번호 자리) 기본."""
+    def u(mm: float) -> int:
+        return max(0, round(mm * _MM_TO_HWP))
+    return (
+        f'<hp:margin header="{u(header_mm)}" footer="{u(footer_mm)}" gutter="0" '
+        f'left="{u(left_mm)}" right="{u(right_mm)}" top="{u(top_mm)}" bottom="{u(bottom_mm)}"/>'
+    )
+
+
+# 폼 스타터 기본 여백(좌우 15mm·상하 12mm). 웹에서 여백을 보내면 변환 때 이를 덮어쓴다.
+_TIGHT_MARGIN_TAG = _margin_tag()
+
+
+def _set_page_margins(hwpx_path: str | Path, margin_tag: str = _TIGHT_MARGIN_TAG) -> int:
+    """section XML 의 쪽 여백 ``<hp:margin .../>`` 을 좁은 값으로 교체.
+
+    `<hp:cellMargin>`/`<hp:outMargin>` 등 다른 margin 태그는 이름이 달라 매치 안 됨
+    (`<hp:margin\\b`). section 마다 1개(pagePr 안). Returns 교체 개수.
+    """
+    hwpx_path = Path(hwpx_path)
+    with zipfile.ZipFile(hwpx_path) as zin:
+        infos = zin.infolist()
+        contents = {i.filename: zin.read(i.filename) for i in infos}
+    total = 0
+    for name in list(contents.keys()):
+        if not (name.endswith(".xml") and "section" in name.lower()):
+            continue
+        try:
+            text = contents[name].decode("utf-8")
+        except UnicodeDecodeError:
+            continue
+        new_text, n = re.subn(r"<hp:margin\b[^>]*/>", margin_tag, text)
+        if n:
+            contents[name] = new_text.encode("utf-8")
+            total += n
+    if total:
+        _rewrite_zip(hwpx_path, infos, contents)
+    return total
 
 
 def _set_endnote_suffix(hwpx_path: str | Path, suffix: str = ".") -> int:

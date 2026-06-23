@@ -12,6 +12,7 @@ COM-only(write_exam_to_hwp). 동기 응답(웹이 blob을 직접 await).
 Python 3.11(pywin32) 필수.
 """
 import sys
+import re
 import csv
 import json
 import argparse
@@ -36,6 +37,15 @@ ALLOWED_ORIGINS = {
     "http://127.0.0.1:3000",
     "https://mathgen.para-x.co.kr",  # 프로덕션 — 공개 HTTPS origin (PNA preflight 동반)
 }
+
+# dev 의 vite 는 빈 포트를 동적으로 잡으므로(3000 점유 시 3001/3002…) 포트 하드코딩이
+# 깨진다. 커넥터는 127.0.0.1 에만 listen 하므로 *모든 로컬 origin*(localhost/127.0.0.1
+# 임의 포트)은 안전하게 허용한다. 공개 origin 은 위 ALLOWED_ORIGINS 로만.
+_LOCAL_ORIGIN_RE = re.compile(r"^http://(?:localhost|127\.0\.0\.1)(?::\d+)?$")
+
+
+def _is_allowed_origin(origin) -> bool:
+    return bool(origin) and (origin in ALLOWED_ORIGINS or bool(_LOCAL_ORIGIN_RE.match(origin)))
 
 # 후속 토큰 시스템 seam — True로 바꾸고 EXPECTED_TOKEN을 token.txt에서 로드.
 REQUIRE_TOKEN = False
@@ -149,7 +159,7 @@ class Handler(BaseHTTPRequestHandler):
         return self.headers.get("Origin")
 
     def _cors(self, origin) -> None:
-        if origin and origin in ALLOWED_ORIGINS:
+        if _is_allowed_origin(origin):
             self.send_header("Access-Control-Allow-Origin", origin)
             self.send_header("Vary", "Origin")
 
@@ -174,7 +184,7 @@ class Handler(BaseHTTPRequestHandler):
                          "Content-Type, X-Pairing-Token")
         # Private Network Access — 공개 HTTPS origin(프로덕션)이 로컬 127.0.0.1 을
         # 호출할 때 Chrome 이 preflight 에 PNA 허용을 요구. 허용 origin 에만 응답.
-        if (origin in ALLOWED_ORIGINS
+        if (_is_allowed_origin(origin)
                 and self.headers.get("Access-Control-Request-Private-Network") == "true"):
             self.send_header("Access-Control-Allow-Private-Network", "true")
         self.send_header("Access-Control-Max-Age", "86400")
@@ -197,7 +207,7 @@ class Handler(BaseHTTPRequestHandler):
         if self.path.split("?")[0] != "/convert-json":
             self._send_json(404, {"error": "not found"}, origin)
             return
-        if origin is not None and origin not in ALLOWED_ORIGINS:
+        if origin is not None and not _is_allowed_origin(origin):
             self._send_json(403, {"error": f"origin not allowed: {origin}"}, origin)
             return
         if REQUIRE_TOKEN:

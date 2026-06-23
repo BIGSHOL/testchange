@@ -44,8 +44,9 @@ def main() -> int:
     from server.adapter import adapt_payload
     from core.content_parser import parse_ocr_response, build_document
     from core.hwp_com_writer import write_exam_to_hwp
+    from core.template_headers import resolve_form_path
 
-    envelope, meta = adapt_payload(payload)
+    envelope, meta, style = adapt_payload(payload)
     page = parse_ocr_response(envelope, page_number=1)
     document = build_document(
         [page],
@@ -56,7 +57,21 @@ def main() -> int:
 
     out_path = Path(args.out).resolve()
     out_path.parent.mkdir(parents=True, exist_ok=True)
-    write_exam_to_hwp(document, out_path)  # COM → save_hwpx → .hwpx
+    # 고른 폼이 forms/<template>.hwpx 로 있으면 그 폼(머릿말/꼬릿말 픽셀완벽)을 쓰고
+    # {{토큰}}을 시험지 정보로 치환. 없으면 COM 헤더(근사) 폴백 — 둘 다 회귀 0.
+    form_path = resolve_form_path(style["template"])
+    write_exam_to_hwp(
+        document,
+        out_path,
+        template_path=form_path,           # 폼 있으면 그 위에, 없으면 None
+        form_mode=bool(form_path),
+        template=style["template"],
+        header_meta=meta,
+        accent_color=style["accentColor"],
+        columns=style["columns"],
+        margins=style.get("margins"),
+        use_endnote=False,  # 웹 내보내기: 평문 문항번호(미주 첨자·문서끝 미주목록 제거 — 완성도)
+    )  # COM → save_hwpx → .hwpx
 
     if not out_path.exists():
         sys.stderr.write("write_exam_to_hwp 완료했으나 출력 파일이 없습니다.\n")

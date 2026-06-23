@@ -186,6 +186,44 @@ class HwpSession:
         """커서를 문서 맨 앞으로 이동."""
         self.hwp.HAction.Run("MoveDocBegin")
 
+    def move_doc_end(self) -> None:
+        """커서를 문서 본문 맨 끝으로 이동(폼 헤더 블록 뒤에 본문 append 용)."""
+        self.hwp.HAction.Run("MoveDocEnd")
+
+    def header_begin(self, apply_type: int = 0) -> None:
+        """머릿말 편집 영역으로 진입(이후 입력은 머릿말에 들어감). region_end() 로 빠져나온다.
+
+        apply_type: 0=양쪽 / 1=짝수쪽 / 2=홀수쪽 (HWP 'HeaderFooter' 액션의 Type — 실측
+        확정 2026-06-23). 비모달이라 헤드리스 동작. ⚠️ 이 액션은 *머릿말만* 만든다(꼬릿말 X);
+        페이지 번호는 insert_page_number() 사용.
+        """
+        h = self.hwp
+        h.HAction.GetDefault("HeaderFooter", h.HParameterSet.HHeaderFooter.HSet)
+        h.HParameterSet.HHeaderFooter.Type = apply_type
+        h.HAction.Execute("HeaderFooter", h.HParameterSet.HHeaderFooter.HSet)
+
+    def region_end(self) -> None:
+        """머릿말/표 등 편집 영역에서 본문으로 빠져나온다."""
+        self.hwp.HAction.Run("CloseEx")
+
+    def insert_page_number(self, draw_pos: str = "OutsideBottom") -> None:
+        """자동 페이지 번호(쪽 번호)를 넣는다(꼬릿말 위치 — PageNumPos, <hp:pageNum> 생성).
+
+        꼬릿말 커스텀 텍스트 영역은 COM 으로 못 만들지만, 페이지 번호는 이 전용 API 로
+        넣는다(실측 확정 2026-06-23).
+
+        draw_pos: HWP PageNumPosition 이름. 기본 "OutsideBottom"(바깥쪽 아래 = 홀수쪽
+        오른쪽 / 짝수쪽 왼쪽 자동 미러 — 양면 인쇄 정석). 다른 값: BottomCenter,
+        BottomLeft, BottomRight, OutsideBottom 등. 헬퍼 미지원 시 기본 위치(아래 가운데).
+        """
+        h = self.hwp
+        h.HAction.GetDefault("PageNumPos", h.HParameterSet.HPageNumPos.HSet)
+        try:
+            h.HParameterSet.HPageNumPos.DrawPos = h.PageNumPosition(draw_pos)
+        except Exception:
+            pass  # PageNumPosition 헬퍼 없거나 잘못된 이름 → 기본(아래 가운데)
+        h.HAction.Execute("PageNumPos", h.HParameterSet.HPageNumPos.HSet)
+
     def set_char_size(self, pt: int) -> None:
         """이후 입력될 텍스트의 글자 크기(pt)를 고정한다.
 
