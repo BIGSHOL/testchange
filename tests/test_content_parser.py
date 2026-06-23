@@ -816,6 +816,46 @@ def _check_seq_list_comma(fails):
         fails.append(f"  KD2 다항나열 무회귀 실패: {[(b.type.name, b.value) for b in r3]!r}")
 
 
+def _check_value_list_comma_fixes(fails):
+    """값/좌표/함수 나열 쉼표 보존 + ``\\,``(LaTeX 얇은공백) 오split 차단 (2026-06-23,
+    수2 25-1-중간 완료기반 검수). 사대부고 #16 ``b, 0, √2`` 가 ``b0√2`` 로 뭉개지고,
+    영송여고 #9 좌표쌍·#14 ``f(x), g(x)`` 의 쉼표가 드롭되던 것 — 스푸리어스 병합을
+    **관계식(=) 낀 나열에만** 적용(has_rel 게이트) + 근호 atom 인정. ``\\,`` 의 백슬래시-쉼표는
+    분리자가 아니다(``20\\,m``·``\\int…\\,dx`` 가 "20, m"·"…, dx" 로 깨지던 잠복 노출 차단)."""
+    from core.content_parser import _split_one_eq_commas
+    from models.exam_document import ContentType as CT, ContentBlock as CB
+
+    def run(v):
+        r = []
+        handled = _split_one_eq_commas(CB(type=CT.EQUATION, value=v), r)
+        return handled, r
+
+    def preserved(v, n_eq):
+        h, r = run(v)
+        eqs = [b for b in r if b.type == CT.EQUATION]
+        txt = "".join(b.value or "" for b in r if b.type == CT.TEXT)
+        return h and len(eqs) >= n_eq and "," in txt
+
+    # 사대부고 #16: 근호 섞인 값 나열 → 쉼표 보존(b0√2 로 뭉개지던 것)
+    if not preserved(r"b,\ 0,\ \sqrt{2}", 3):
+        fails.append(f"  VL 근호값나열(사대부고#16): {run(r'b,\ 0,\ \sqrt{2}')[1]!r}")
+    # 영송여고 #9: 좌표쌍 나열 → 쉼표 보존(좌표쌍이 붙던 것)
+    if not preserved(r"(-3,\ -3),\ (-2,\ 1),\ (0,\ 4)", 3):
+        fails.append(f"  VL 좌표쌍나열(영송여고#9): {run(r'(-3,\ -3),\ (-2,\ 1),\ (0,\ 4)')[1]!r}")
+    # 영송여고 #14: 함수 나열 → 쉼표 보존(f(x)g(x) 곱 오독되던 것)
+    if not preserved(r"f(x),\ g(x)", 2):
+        fails.append(f"  VL 함수나열(영송여고#14): {run(r'f(x),\ g(x)')[1]!r}")
+    # 무회귀: 관계식 낀 곱셈 잡음(학남고 #12)은 여전히 병합(쉼표 드롭)
+    h2, r2 = run("P(A)=16/9, P(B)")
+    if not (h2 and len(r2) == 1 and "," not in (r2[0].value or "")):
+        fails.append(f"  VL 스푸리어스 무회귀(학남고#12): {[(b.type.name, b.value) for b in r2]!r}")
+    # ``\,`` 의 쉼표는 분리자 아님 → 미처리(False), 가짜 쉼표 삽입 금지
+    for v in (r"20\,\mathrm{m}", r"\int_{0}^{2}g(t)\,dt", r"k\,(k \ge 2)"):
+        h3, r3 = run(v)
+        if h3:
+            fails.append(f"  VL \\, 오split: {v} -> {[(b.type.name, b.value) for b in r3]!r}")
+
+
 def _check_box_jamo_eq_absorb(fails):
     """DGY1(대구여고 미적분 #8 보기, 2026-06-16): LaTeX 수식 흡수가 보기 항목 자모 라벨을
     넘어 ``\\lim…=\\lim… ㄷ. x<-1`` 까지 한 수식에 빨아들이던 회귀. _split_latex_commands
@@ -1095,6 +1135,7 @@ def run():
     _check_2sem_round2(fails)
     _check_point_name_seq(fails)
     _check_seq_list_comma(fails)
+    _check_value_list_comma_fixes(fails)
     _check_box_jamo_eq_absorb(fails)
     _check_paren_base_nested(fails)
     _check_ksy_superscript_base(fails)

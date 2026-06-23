@@ -107,8 +107,11 @@ _UNITS = [
 # L(리터)은 단독 변수와 충돌해 _UNITS 에서 뺐지만(2026-06-08), **숫자 직결 꼬리**(1L·25L)
 # 에선 단위가 확실하므로 그 위치 한정으로 정자화(범물중 #22 "연료 1L", 2026-06-11).
 _NUM_TAIL_UNITS = _UNITS + ["L"]
+# 단위 뒤에 ``(`` 가 오면 **함수 호출**(``2g(x)``=계수2×함수g, ``aL(t)``)이지 단위가 아니다 —
+# 단위 g·L 은 함수명 g(x)·L(t) 과 충돌한다. ``(`` 를 부정전망에 넣어 함수호출은 로만화 제외
+# (경산여고 수2 #9 ``2g(x)`` 의 g(x) 가 ``2 rm`g(x)`` 로 로만화돼 italic 비대칭이던 것, 2026-06-23).
 _UNIT_RE = re.compile(
-    r"(\d)[\s`]*(" + "|".join(re.escape(u) for u in _NUM_TAIL_UNITS) + r")(?![A-Za-z0-9])"
+    r"(\d)[\s`]*(" + "|".join(re.escape(u) for u in _NUM_TAIL_UNITS) + r")(?![A-Za-z0-9(])"
 )
 # 분수/근호 닫는 ``}`` 뒤 단위(``\frac{8}{3}cm`` → ``{8} over {3}cm`` 의 ``}cm``, ``\sqrt{2}cm``)도
 # 로만화 — 분수+cm 이 이탤릭으로 남던 것(강북중 중2 #6 ①③④, 2026-06-15). 단, **다문자 단위만**
@@ -123,7 +126,7 @@ _BRACE_UNIT_RE = re.compile(
 _VAR_TAIL_UNITS = [u for u in _UNITS if len(u) >= 2 and u.isascii()] + ["L", "ℓ"]
 _VAR_UNIT_RE = re.compile(
     r"(?<![A-Za-z])([A-Za-z])[\s`]*("
-    + "|".join(re.escape(u) for u in _VAR_TAIL_UNITS) + r")(?![A-Za-z0-9])"
+    + "|".join(re.escape(u) for u in _VAR_TAIL_UNITS) + r")(?![A-Za-z0-9(])"
 )
 # 접두(숫자·}·변수글자) 없는 **단독 다문자 단위** — ``cm^{2}``(단독 "몇 cm²인가")·
 # ``20\pi cm``(π 뒤 공백) 의 cm 이 로만화 안 돼 이탤릭이던 것(경산중2 #14·사동중3 #3·

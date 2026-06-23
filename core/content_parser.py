@@ -836,8 +836,15 @@ def _split_one_eq_commas(block: ContentBlock, result: list[ContentBlock]) -> boo
     # 항목(함수식 P(…)·16/9 등)이 하나라도 있을 때만 — 관계식+원자 혼합(``x = 1, 2`` 해답
     # 나열)은 진짜 나열이라 쉼표를 보존한다(감사 2026-06-10: "전부 원자 or 전부 관계식"
     # 조건이 이 혼합의 쉼표를 지웠음).
-    if any(not _is_atom_item(p) and not _has_toplevel_relation(p)
-           and not _is_list_term(p) for p in parts):
+    # 스푸리어스 병합은 **관계식(=·≤…)이 낀** 나열에만 적용 — OCR 의 곱셈 오split 은 늘
+    # ``…=값, …`` 처럼 관계식을 동반한다(학남고 #12 ``P(…)=16/9, P(…)``). 관계식 없는 순수
+    # 값/좌표/함수 나열(``b, 0, √2``·``(-3,-3), (-2,1)``·``f(x), g(x)``)은 진짜 나열이므로
+    # 쉼표를 보존한다(사대부고 수2 #16·영송여고 수2 #9·#14, 2026-06-23). has_rel 게이트가
+    # 없으면 함수콜·좌표쌍·근호가 atom·list_term 어디에도 안 걸려 곱셈잡음으로 오판돼 쉼표가
+    # 공백으로 뭉개졌다(HWP 가 공백을 죽여 ``b0√2``·``f(x)g(x)`` 로 붙음).
+    has_rel = any(_has_toplevel_relation(p) for p in parts)
+    if has_rel and any(not _is_atom_item(p) and not _has_toplevel_relation(p)
+                       and not _is_list_term(p) for p in parts):
         result.append(ContentBlock(type=ContentType.EQUATION, value=" ".join(parts)))
         return True
     # 괄호 없는 수식 나열 → 개별 수식 + 텍스트 쉼표(종전 동작).
@@ -886,6 +893,10 @@ def _is_atom_item(p: str) -> bool:
                 # 스푸리어스로 오판돼 ``\{a_n\} \{b_n\}`` 로 붙던 것 — 경덕여고 미적분 #18·#19
                 # 조건상자, 2026-06-16). 통째 ``\{…\}`` 인 항목은 명백한 수열/집합 이름.
                 or re.fullmatch(r"\\\{.+\\\}", p)
+                # 근호 값 리터럴(``\sqrt{2}``·``-\sqrt{3}``·``\sqrt[3]{5}``) = 해집합/값 나열
+                # 항목(``b, 0, \sqrt{2}`` 사대부고 수2 #16; ``x=\sqrt2, \sqrt3`` 해답나열).
+                # 안 그러면 스푸리어스-쉼표 방어가 곱셈잡음으로 오판해 ``b 0 √2`` 로 뭉갠다.
+                or re.fullmatch(r"[-+]?\\sqrt(?:\[[^\]]*\])?\{[^{}]*\}", p)
                 or re.fullmatch(r"\\c?dots|\\ldots|⋯|\.\.\.", p))
 
 
@@ -911,20 +922,28 @@ def _has_toplevel_relation(p: str) -> bool:
 
 
 def _split_at_top_level_commas(s: str) -> list[str]:
-    """최상위 레벨의 쉼표에서 분리 (괄호·중괄호 안 쉼표 무시)."""
+    """최상위 레벨의 쉼표에서 분리 (괄호·중괄호 안 쉼표 무시).
+
+    ⚠️ ``\\,``(LaTeX 얇은공백)의 백슬래시-쉼표는 분리자가 **아니다** — ``20\\,\\mathrm{m}``·
+    ``\\int…\\,dx``·``k\\,(k\\ge 2)`` 의 ``,`` 에서 쪼개면 "20, m"·"…, dx" 처럼 가짜 쉼표가
+    삽입된다(2026-06-23: has_rel 게이트가 스푸리어스 병합을 풀자 이 잠복 오split 이 드러남 —
+    과거엔 병합이 가렸다). 백슬래시 직후 쉼표는 건너뛴다."""
     parts: list[str] = []
     depth = 0
     current: list[str] = []
+    prev = ""
     for ch in s:
         if ch in "({[":
             depth += 1
         elif ch in ")}]":
             depth = max(0, depth - 1)
-        elif ch == "," and depth == 0:
+        elif ch == "," and depth == 0 and prev != "\\":
             parts.append("".join(current))
             current = []
+            prev = ch
             continue
         current.append(ch)
+        prev = ch
     parts.append("".join(current))
     return parts
 

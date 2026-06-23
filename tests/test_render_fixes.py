@@ -242,6 +242,15 @@ def run():
     chk(latex_to_hwpeq("ag") == "ag", "O2 변수곱 ag 보호(단일기호 g 제외)")
     chk("rm`L" not in latex_to_hwpeq("a_1L"), "O2 첨자 a_1L 보호")
 
+    # ── O4: 단위가 ``(`` 함수호출 앞이면 로만화 제외 (경산여고 수2 #9, 2026-06-23) ──
+    # ``2g(x)`` 의 g 는 함수 g(x)(계수 2)지 그램 단위가 아니다 — ``2 rm`g(x)`` 로 로만화돼
+    # g(x) 가 italic 비대칭이던 것. 진짜 단위(숫자 직결, ( 없음)는 여전히 로만.
+    chk(latex_to_hwpeq("2g(x)") == "2g(x)", "O4 함수콜 2g(x) 단위 제외(italic 유지)")
+    chk("rm`g" not in latex_to_hwpeq(r"y=g(x)\{3f(x)-2g(x)\}"), "O4 g(x) 함수 로만화 안 함")
+    chk(latex_to_hwpeq("aL(t)") == "aL(t)", "O4 함수콜 aL(t) 단위 제외")
+    chk(latex_to_hwpeq("2g") == "2 rm`g", "O4 진짜 단위 2g 무회귀(로만)")
+    chk(latex_to_hwpeq("5cm") == "5 rm`cm", "O4 진짜 단위 5cm 무회귀")
+
     # ── O3: 극한형 연산자 첨자 = 연산자 아래 (lim·max·min·sup) — 사용자 2026-06-17 ──
     # ``\lim_{x\to0}`` 가 ``lim {}_{x->0}``(빈그룹 좌측첨자=우측 렌더)로 깨지던 회귀.
     # ``lim _{x->0}``(빈그룹 없음=아래 렌더)여야. 실증 .testkit/_eq_limtest.py B/F.
