@@ -129,27 +129,34 @@ def _run_convert_subprocess(payload_bytes: bytes) -> bytes:
             cmd = [PY311, "-m", "server.convert_cli",
                    "--in", str(inp), "--out", str(out)]
             cwd = str(ENGINE_ROOT)
-        before = _hwp_pids()
-        timed_out = False
-        proc = None
-        try:
-            proc = subprocess.run(
-                cmd,
-                cwd=cwd,
-                capture_output=True,
-                timeout=CONVERT_TIMEOUT_S,
-            )
-        except subprocess.TimeoutExpired:
-            timed_out = True
-        finally:
-            _reap(_hwp_pids() - before)  # 이번 변환 고아만 정리
-        if timed_out:
-            raise ConvertError(f"변환 타임아웃({CONVERT_TIMEOUT_S}s)")
-        if proc is None or proc.returncode != 0 or not out.exists():
-            tail = proc.stderr.decode("utf-8", "replace")[-1500:] if proc else ""
-            rc = proc.returncode if proc else "none"
-            raise ConvertError(f"변환 실패(exit {rc})\n{tail}")
-        return out.read_bytes()
+        target = out
+        # 한글 COM 은 SaveAs/Quit 가 간헐적으로 실패한다(hwp_com.py:268 문서화 —
+        # AttributeError HwpObject.SaveAs 등). 거의 항상 재시도로 회복하므로 1회 재시도.
+        import time as _t
+        last = "변환 실패"
+        for _attempt in range(2):
+            before = _hwp_pids()
+            timed_out = False
+            proc = None
+            try:
+                proc = subprocess.run(
+                    cmd, cwd=cwd, capture_output=True, timeout=CONVERT_TIMEOUT_S,
+                )
+            except subprocess.TimeoutExpired:
+                timed_out = True
+            finally:
+                _reap(_hwp_pids() - before)  # 이번 시도 고아만 정리
+            if (not timed_out and proc is not None
+                    and proc.returncode == 0 and target.exists()):
+                return target.read_bytes()
+            if timed_out:
+                last = f"변환 타임아웃({CONVERT_TIMEOUT_S}s)"
+            else:
+                tail = proc.stderr.decode("utf-8", "replace")[-1200:] if proc else ""
+                rc = proc.returncode if proc else "none"
+                last = f"변환 실패(exit {rc})\n{tail}"
+            _t.sleep(1.0)  # 잠깐 쉬고 1회 재시도(COM 안정화)
+        raise ConvertError(last)
 
 
 class Handler(BaseHTTPRequestHandler):
@@ -236,7 +243,7 @@ class Handler(BaseHTTPRequestHandler):
 
         try:
             with _convert_lock:  # 한글 COM 직렬화
-                hwpx = _run_convert_subprocess(body)
+                data = _run_convert_subprocess(body)
         except ConvertError as e:
             self._send_json(500, {"error": str(e)}, origin)
             return
@@ -247,12 +254,11 @@ class Handler(BaseHTTPRequestHandler):
         self.send_response(200)
         self._cors(origin)
         self.send_header("Content-Type", "application/octet-stream")
-        self.send_header("Content-Disposition",
-                         'attachment; filename="export.hwpx"')
-        self.send_header("Content-Length", str(len(hwpx)))
+        self.send_header("Content-Disposition", 'attachment; filename="export.hwpx"')
+        self.send_header("Content-Length", str(len(data)))
         self.end_headers()
         try:
-            self.wfile.write(hwpx)
+            self.wfile.write(data)
         except Exception:
             pass
 
