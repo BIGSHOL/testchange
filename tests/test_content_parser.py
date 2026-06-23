@@ -884,6 +884,55 @@ def _check_embedded_box_marker(fails):
         fails.append("  EBM 항목없는 상자 오분리")
 
 
+def _check_choice_marker_dedup(fails):
+    """학남고 수2 #15·16: text 선택지에 내장된 **자기 동그라미 마커**(``① 14``) 제거 — 폼이
+    number 로 ①②③ 자동 부여하므로 ``① ① 14`` 이중. 마커 뒤 내용 있을 때만(마커 단독 ``①``
+    figure-choice 는 빈선택지 방지 위해 보존)."""
+    from core.content_parser import _parse_choice
+
+    def cval(d):
+        c = _parse_choice(d)
+        return "".join((b.value or "") for b in c.contents) if c else None
+
+    if "①" in (cval({"number": 1, "contents": [{"type": "text", "value": "① 14"}]}) or ""):
+        fails.append("  CM 선택지 자기마커 strip 실패")
+    # 마커 단독 figure-choice → 보존(빈 선택지 방지)
+    c = _parse_choice({"number": 2, "contents": [{"type": "text", "value": "②"}]})
+    if not c or not c.contents:
+        fails.append("  CM 마커단독 figure-choice 빈선택지化(회귀)")
+    # 번호 불일치 마커는 안 건드림(③ for #1)
+    if "③" not in (cval({"number": 1, "contents": [{"type": "text", "value": "③ x"}]}) or ""):
+        fails.append("  CM 번호불일치 마커 오strip")
+
+
+def _check_box_overflow_and_figure(fails):
+    """동부고 확통 #17(라벨없는 풀이박스 뒤 질문분리)·학남고 수2 #5(trailing figure 박스앞 이동)."""
+    from core.content_parser import _trailing_question_split, _move_trailing_figure_before_box
+    FIG = "※ 그림 자리 — 원본에서 캡처"
+    # labelless 박스(<상자> rest 빈) + 풀이 + 질문 → 질문 인덱스(3) 반환
+    raws = [{"type": "text", "value": "<상자> "}, {"type": "equation", "value": "x+1"},
+            {"type": "text", "value": " 이다."},
+            {"type": "text", "value": "위의 과정에서 (가),(나)에 알맞은 것은?"}]
+    if _trailing_question_split(raws, 0) != 3:
+        fails.append(f"  BO labelless 질문분리 실패: {_trailing_question_split(raws, 0)}")
+    # 질문 없는 labelless 박스 → None(자기완결 보존)
+    raws2 = [{"type": "text", "value": "<상자> "}, {"type": "equation", "value": "x+1"},
+             {"type": "text", "value": " 이다."}]
+    if _trailing_question_split(raws2, 0) is not None:
+        fails.append("  BO 질문없는 labelless 박스 오분리")
+    # figure-move: 발문(그림참조)+box+trailing figure → figure 박스앞(인덱스1)
+    raws3 = [{"type": "text", "value": "그래프가 그림과 같다. 고른 것은?"},
+             {"type": "text", "value": "<보기> ㄱ."}, {"type": "text", "value": FIG}]
+    moved = _move_trailing_figure_before_box(raws3)
+    if not (moved[1].get("value", "").startswith("※ 그림")):
+        fails.append(f"  FM figure 박스앞 이동 실패: {[b['value'][:12] for b in moved]}")
+    # 발문이 그림 참조 안 하면 미이동(figure 마지막 유지)
+    raws4 = [{"type": "text", "value": "값을 구하시오."},
+             {"type": "text", "value": "<보기> ㄱ."}, {"type": "text", "value": FIG}]
+    if not _move_trailing_figure_before_box(raws4)[-1].get("value", "").startswith("※ 그림"):
+        fails.append("  FM 그림참조 없으면 미이동 실패")
+
+
 def _check_box_jamo_eq_absorb(fails):
     """DGY1(대구여고 미적분 #8 보기, 2026-06-16): LaTeX 수식 흡수가 보기 항목 자모 라벨을
     넘어 ``\\lim…=\\lim… ㄷ. x<-1`` 까지 한 수식에 빨아들이던 회귀. _split_latex_commands
@@ -1165,6 +1214,8 @@ def run():
     _check_seq_list_comma(fails)
     _check_value_list_comma_fixes(fails)
     _check_embedded_box_marker(fails)
+    _check_choice_marker_dedup(fails)
+    _check_box_overflow_and_figure(fails)
     _check_box_jamo_eq_absorb(fails)
     _check_paren_base_nested(fails)
     _check_ksy_superscript_base(fails)

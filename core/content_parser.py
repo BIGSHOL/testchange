@@ -107,6 +107,33 @@ def _split_embedded_box_markers(raw: list[dict]) -> list[dict]:
     return out
 
 
+_FIGURE_NOTE_PREFIX = "※ 그림 자리"
+
+
+def _move_trailing_figure_before_box(raws: list[dict]) -> list[dict]:
+    """발문이 그림을 참조(``그래프가 그림과 같다``)하는데 OCR 이 figure 를 contents **마지막**
+    (보기 박스 항목 뒤)에 두면 박스 그룹화가 그림노트를 박스 마지막 항목으로 흡수해 ㄷ 항목에
+    인라인 병합한다(학남고 수2 #5, 2026-06-23). 마지막 블록이 그림노트(※ 그림 자리)/이미지이고
+    그 앞에 박스 마커가 있으며 박스 앞 발문이 그림/그래프를 참조하면, 그림을 박스 마커 **바로
+    앞**(발문↔박스 사이 = 원본 위치)으로 옮긴다. figure 가 이미 박스 앞이거나 박스 없으면 그대로."""
+    if not raws:
+        return raws
+    last = raws[-1]
+    is_fig = (last.get("type") == "image"
+              or (last.get("type") == "text"
+                  and (last.get("value") or "").lstrip().startswith(_FIGURE_NOTE_PREFIX)))
+    if not is_fig:
+        return raws
+    box_i = next((i for i, bd in enumerate(raws) if bd.get("type") == "text"
+                  and _RAW_BOX_MARK_RE.search(bd.get("value") or "")), None)
+    if box_i is None or box_i >= len(raws) - 1:
+        return raws
+    pre = "".join(bd.get("value", "") for bd in raws[:box_i] if bd.get("type") == "text")
+    if "그림" not in pre and "그래프" not in pre:   # 발문이 그림 참조해야(오버리치 방지)
+        return raws
+    return raws[:box_i] + [last] + raws[box_i:-1]
+
+
 def _parse_question(q_data: dict) -> Question:
     """문제 dict를 Question 객체로 변환."""
     question = Question(
@@ -129,6 +156,9 @@ def _parse_question(q_data: dict) -> Question:
     # 발문 종결 뒤 같은 블록 중간 박스 머리(``…고른 것은? <보기> ㄱ.``)를 마커 앞에서 쪼개
     # 마커가 블록 시작이 되게 한다(성서고 수2 #6·12·14·15·20 — mid-block 마커 박스 미형성).
     raw_contents = _split_embedded_box_markers(raw_contents)
+    # OCR 이 figure 를 contents 마지막(보기 박스 뒤)에 둬 박스가 흡수하던 것 — 발문이 그림
+    # 참조 시 그림을 박스 앞(발문↔박스 사이)으로 옮긴다(학남고 수2 #5 그림노트 박스 내 병합).
+    raw_contents = _move_trailing_figure_before_box(raw_contents)
     # 박스(<상자>/<조건>/<보기>) 머리가 시작되는 raw 블록 — 그 **이후** [N점]은 채점기준 등
     # 박스 내용이므로 배점 캡처·제거 대상이 아니다(새론중 서답형2 채점기준 박스 안
     # [1점][3점][2점][4점] 이 발문 배점으로 오인돼 통째 소실, 2026-06-11). 발문 배점은 박스 앞.
@@ -198,7 +228,18 @@ def _parse_choice(choice_data: dict, parent_geo: bool = False) -> Choice | None:
         return None
 
     choice = Choice(number=number)
-    for block_data in choice_data.get("contents", []):
+    contents = choice_data.get("contents", [])
+    # 선택지 text 선두에 내장된 **자기 동그라미 마커**(#1 의 ``①``) 제거 — 폼이 choice.number 로
+    # ①②③ 를 자동 부여하므로 중복 렌더(``① ① 14``)된다(학남고 수2 #15·16 'text' 타입 선택지
+    # ``① 14``, 2026-06-23). 자기 번호와 일치하는 선두 1개만 — 다른 마커·내용은 보존.
+    if 1 <= number <= 20 and contents and contents[0].get("type") == "text":
+        _mk = chr(0x2460 + number - 1)
+        _ls = (contents[0].get("value", "") or "").lstrip()
+        # 마커 **뒤에 내용이 있을 때만** strip(``① 14``→``14``). 마커 단독(``①``)+단일 블록은
+        # figure-choice(그래프가 내용)라 비우면 빈 선택지가 되므로 보존(강북고 수하 #2 등).
+        if _ls.startswith(_mk) and not (len(contents) == 1 and not _ls[1:].strip()):
+            contents = [{**contents[0], "value": _ls[1:].lstrip()}, *contents[1:]]
+    for block_data in contents:
         result = _parse_content_block(block_data)
         if isinstance(result, list):
             choice.contents.extend(result)
@@ -1541,6 +1582,14 @@ def _trailing_question_split(raws: list[dict], i: int) -> int | None:
                 and _INNER_ITEM_LABEL_RE.search(raws[j].get("value") or "")):
             last_label = j
     if last_label is None:
+        # 라벨 없는 박스(풀이과정 ``<상자> … \boxed{가}…\boxed{다} 이다.``)도 **마지막 블록이
+        # 질문**(``위의 과정에서 …나열한 것은?``)이면 그 질문을 박스 밖으로 분리한다 — 박스가
+        # 질문까지 흡수하던 것(동부고 확통 #17, 2026-06-23). 박스 내용(마커 다음~질문 전)이
+        # 있어야(last>i+1). 질문 없는 라벨없는 박스(단순 진술)는 None(자기완결 보존).
+        last = len(raws) - 1
+        if (last > i + 1 and raws[last].get("type") == "text"
+                and _QUESTION_END_RE.search(raws[last].get("value") or "")):
+            return last
         return None
     q = None
     for j in range(len(raws) - 1, last_label, -1):
