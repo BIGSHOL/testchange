@@ -1,5 +1,14 @@
 {
-  "status": "ocr_done",
+  "status": "reviewed",
+  "review": {
+    "reviewed_date": "2026-06-23",
+    "reviewed_by": "비전 1:1 검수 소비자 세션 (claude-opus-4-8, 단일 master)",
+    "content_defects": 0,
+    "A_type": 0,
+    "B_type": 1,
+    "note": "수2 25-1-중간 완료기반 1:1 비전검수. B형 1건 수정(#16 해집합 b,0,√2 가 b0√2 로 쉼표증발→content_parser 스푸리어스병합 has_rel 게이트+근호 atom, commit 99d2ff1). figure 5종 안내문구 C한계. lint PASS·재렌더 고배율 확인."
+  },
+  "status_was": "ocr_done",
   "source_pdf": "N:\\개인\\기출\\2025 기출모음\\2025년 1학기 중간고사 모음\\PDF\\수2\\[사대부고][2][수2][25-1-중간][천채류] (완료).PDF",
   "reference_pdf": "N:\\개인\\기출\\2025 기출모음\\2025년 1학기 중간고사 모음\\PDF\\수2\\[사대부고][2][수2][25-1-중간][천채류] (완료).PDF",
   "source_pdf_local_mirror": "D:\\기출\\2025 기출모음\\2025년 1학기 중간고사 모음\\PDF\\수2\\[사대부고][2][수2][25-1-중간][천채류] (완료).PDF",
