@@ -1,5 +1,10 @@
 # 확률과통계(확통) corpus OCR 대기열 (세션 분리 운영 — 2026-06-13)
 
+> ⚠️ **2026-06-23 검수 진척**: 캠페인 ②(25-2-중간) **다사고·동부고 2교 reviewed**(원본 1:1 비전검수).
+> A형 2건(다사고 #9 선택지·동부고 #17 지수 OCR전사오류)·B형(동부고 #17 box overflow) 수정, 커밋
+> `8126286`·`dbe8143`·`cf26b26`. 캠페인 ② 남은 pending 4교(사동고·영남고·함지고·효성여고)는 OCR 미착수.
+> ⚠️ 아래 표 status 는 meta.json 보다 뒤처질 수 있음 — **meta.json 이 정답**.
+
 > ⚠️ **2026-06-14 운영모델 갱신 — 단일 master**: 과거 이 캠페인은 격리 worktree(`hwakt-ocr`)
 > 에서 돌았으나 모두 master 로 통합됨(`docs/HANDOFF.md` 현재상태 절 참고). 이제 worktree·브랜치
 > 분리 없이 **master 에서 OCR → `meta.json` `"status":"ocr_done"` → commit/push** 하면, 같은
