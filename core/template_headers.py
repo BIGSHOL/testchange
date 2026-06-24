@@ -282,15 +282,150 @@ def _header_pyeongga(s, meta: dict, accent: tuple[int, int, int]) -> None:
 
 
 def _header_modern(s, meta: dict, accent: tuple[int, int, int]) -> None:
-    _header_default(s, meta)
+    """모던 내신형 — semester(accent) + 학교명(큰) + 일시 라인 + 학생정보표(accent 라벨).
+
+    웹 ModernTemplate 헤더와 일치(accent=navy). accent 글자색은 _apply_accent_header 후처리.
+    웹의 accent 테두리(3px 하단선·박스)는 COM 테두리 한계로 검정 근사(글자 accent 가 식별).
+    """
+    semester = _g(meta, "semester") or "MIDTERM"
+    school = _g(meta, "schoolName") or "○○고등학교"
+    grade = _g(meta, "grade")
+    subject = _g(meta, "subject") or "수학"
+    date = _g(meta, "examDate")
+    dur = _g(meta, "examDuration")
+    total = meta.get("totalScore")
+    # semester (accent, 작게)
+    s.align_left()
+    s.set_char_shape(10, bold=True)
+    s.text(ACCENT_TEXT_MARK + semester)
+    s.set_char_shape(s.base_pt, bold=False)
+    s.break_para()
+    # 학교명(큰) + 학년 과목
+    s.align_left()
+    s.set_char_shape(18, bold=True)
+    s.text(school)
+    s.set_char_shape(11, bold=False)
+    s.text(f"    · {grade} {subject}".rstrip())
+    s.set_char_shape(s.base_pt, bold=False)
+    s.break_para()
+    # 일시·시간·배점
+    parts = [p for p in (date, dur) if p]
+    if isinstance(total, (int, float)):
+        parts.append(f"{int(total)}점")
+    if parts:
+        s.align_left()
+        s.set_char_shape(9)
+        s.text(" · ".join(parts))
+        s.set_char_shape(s.base_pt)
+        s.break_para()
+    # 학생 정보 표 (라벨/값 12칸, 라벨 accent)
+    pairs = [("학년", grade), ("반", ""), ("번호", ""), ("성명", ""), ("감독", ""),
+             ("점수", f"/ {int(total)}" if isinstance(total, (int, float)) else "")]
+    s.align_left()
+    s.table_begin(1, len(pairs) * 2, line_width=_HEADER_WIDTH, col_widths=[7, 9] * len(pairs))
+    for idx, (lab, val) in enumerate(pairs):
+        s.align_center()
+        s.set_char_shape(9, bold=True)
+        s.text(ACCENT_TEXT_MARK + lab)
+        s.set_char_shape(s.base_pt, bold=False)
+        s.table_next_cell()
+        s.align_center()
+        if val:
+            s.text(val)
+        if idx < len(pairs) - 1:
+            s.table_next_cell()
+    s.table_end()
+    s.align_left()
+    s.break_para()
+    s.align_left()
+    s.break_para()
 
 
 def _header_workbook(s, meta: dict, accent: tuple[int, int, int]) -> None:
-    _header_default(s, meta)
+    """학원 워크북 — accent 로고 + 학원명 라인 + 검정(ink) 단원 배너(흰 글자).
+
+    웹 WorkbookTemplate 헤더와 일치. 색은 _apply_accent_header(센티넬) 후처리.
+    """
+    academy = _g(meta, "academyName") or "수학 학원"
+    instructor = _g(meta, "instructorName")
+    date = _g(meta, "examDate")
+    title = _g(meta, "title")
+    # 학원 헤더 라인 — accent 로고(■) + 학원명(볼드) + subtitle(accent).
+    s.align_left()
+    s.set_char_shape(16, bold=True)
+    s.text(ACCENT_TEXT_MARK + "■  ")
+    s.text(academy)
+    s.set_char_shape(9, bold=False)
+    s.text("    " + ACCENT_TEXT_MARK + "MATH ACADEMY WORKBOOK")
+    s.set_char_shape(s.base_pt, bold=False)
+    info = []
+    if instructor:
+        info.append(f"강의 · {instructor} T")
+    if date:
+        info.append(f"일자 · {date}")
+    if info:
+        s.break_para()
+        s.align_left()
+        s.set_char_shape(9)
+        s.text("      ".join(info))
+        s.set_char_shape(s.base_pt)
+    s.break_para()
+    # 단원 배너 — 검정(ink) 흰글자, title.
+    s.align_left()
+    s.table_begin(1, 1, line_width=_HEADER_WIDTH)
+    s.align_left()
+    s.set_char_shape(13, bold=True)
+    s.text(ACCENT_WHITE_INK + (title or "단원"))
+    s.set_char_shape(s.base_pt, bold=False)
+    s.table_end()
+    s.align_left()
+    s.break_para()
+    s.align_left()
+    s.break_para()
 
 
 def _header_jaseup(s, meta: dict, accent: tuple[int, int, int]) -> None:
-    _header_default(s, meta)
+    """자습 학습지 — SELF-STUDY(accent) + 제목 + 오늘의 목표 + 개념 정리 박스.
+
+    웹 JaseupTemplate 헤더와 일치(accent=gold). accent 글자색은 _apply_accent_header 후처리.
+    """
+    title = _g(meta, "title")
+    goal = _g(meta, "todayGoal")
+    concept = _g(meta, "conceptNote")
+    # SELF-STUDY 라벨 (accent)
+    s.align_left()
+    s.set_char_shape(9, bold=True)
+    s.text(ACCENT_TEXT_MARK + "SELF-STUDY")
+    s.set_char_shape(s.base_pt, bold=False)
+    s.break_para()
+    # 제목 (큰)
+    s.align_left()
+    s.set_char_shape(18, bold=True)
+    s.text(title or "자습 학습지")
+    s.set_char_shape(s.base_pt, bold=False)
+    s.break_para()
+    # 오늘의 목표 (accent 라벨 + 텍스트)
+    if goal:
+        s.align_left()
+        s.set_char_shape(10, bold=True)
+        s.text(ACCENT_TEXT_MARK + "오늘의 목표    ")
+        s.set_char_shape(s.base_pt, bold=False)
+        s.text(goal)
+        s.break_para()
+    # 개념 정리 박스 (1×1 테두리, accent 라벨 + conceptNote)
+    if concept:
+        s.align_left()
+        s.table_begin(1, 1, line_width=_HEADER_WIDTH)
+        s.align_left()
+        s.set_char_shape(9, bold=True)
+        s.text(ACCENT_TEXT_MARK + "개념 정리    ")
+        s.set_char_shape(s.base_pt, bold=False)
+        s.text(concept)
+        s.table_end()
+        s.align_left()
+    s.break_para()
+    s.align_left()
+    s.break_para()
 
 
 def _header_yuhyung(s, meta: dict, accent: tuple[int, int, int]) -> None:
