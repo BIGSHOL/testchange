@@ -19,6 +19,7 @@ from core.template_headers import (
     ACCENT_WHITE_FILL,
     ACCENT_WHITE_INK,
     DEFAULT_TEMPLATE,
+    compact_header,
     render_template_header,
     resolve_accent_rgb,
     token_values,
@@ -1100,7 +1101,16 @@ class HwpComWriter:
             header_meta = dict(self._header_meta or {})
             if not header_meta.get("title"):
                 header_meta["title"] = document.title or ""
-            render_template_header(self.s, self._template, header_meta, self._accent_rgb)
+            if self._columns == 2:
+                # 2단: 리치 헤더는 우측 단과 겹치므로(§42-5) *간단 헤더*만 머릿말에.
+                # 본문은 _apply_body_columns 후처리로 colPr=2. 1단은 아래 리치 헤더 유지.
+                self.s.header_begin(0)
+                self.s.set_char_size(self.s.base_pt)
+                self.s.align_center()
+                compact_header(self.s, header_meta)
+                self.s.region_end()
+            else:
+                render_template_header(self.s, self._template, header_meta, self._accent_rgb)
             # 헤더 후 본문 글자 크기 복귀(헤더가 set_char_shape 로 바꿨을 수 있음).
             self.s.set_char_size(self.s.base_pt)
             self.s.align_left()
@@ -1826,6 +1836,38 @@ def _apply_accent_header(hwpx_path: str | Path, accent_rgb: tuple[int, int, int]
     return total
 
 
+def _apply_body_columns(hwpx_path: str | Path, gap_mm: float = 8.0, top_mm: float = 30.0) -> int:
+    """본문 섹션을 2단(colPr colCount=1→2)으로 + 위 여백 top_mm 확보(저장 후 XML).
+
+    *간단 헤더를 머릿말에 그린 뒤에만* 호출(write 가 columns==2 면 compact_header 를 머릿말에).
+    머릿말 헤더가 짧아야 우측 단과 안 겹친다(§42-5 — 리치 헤더는 겹침). top_mm 으로 단 시작
+    위치를 헤더 아래로. COM MultiColumn 작동 안 함(§42)이라 colPr XML 직접 패치가 유일.
+    Returns: 패치한 colPr 수.
+    """
+    hwpx_path = Path(hwpx_path)
+    with zipfile.ZipFile(hwpx_path) as z:
+        infos = z.infolist()
+        contents = {i.filename: z.read(i.filename) for i in infos}
+    gap = int(round(gap_mm * 283.465))
+    top = int(round(top_mm * 283.465))
+    n = 0
+    for fn in list(contents):
+        if not re.search(r'section\d+\.xml$', fn):
+            continue
+        s = contents[fn].decode("utf-8")
+        new = re.sub(
+            r'(<hp:colPr\b[^>]*\bcolCount=")1("[^>]*\bsameGap=")\d+(")',
+            lambda m: f"{m.group(1)}2{m.group(2)}{gap}{m.group(3)}", s)
+        new = re.sub(r'(<hp:margin\b[^>]*\btop=")\d+(")',
+                     lambda m: m.group(1) + str(top) + m.group(2), new)
+        if new != s:
+            n += 1
+            contents[fn] = new.encode("utf-8")
+    if n:
+        _rewrite_zip(hwpx_path, infos, contents)
+    return n
+
+
 def _thicken_header_outer_borders(
     hwpx_path: str | Path, thick: str = "0.5 mm", thin: str = "0.12 mm",
 ) -> int:
@@ -2084,6 +2126,13 @@ def write_exam_to_hwp(
         _apply_accent_header(output_path, accent_rgb)
     except Exception as e:  # noqa: BLE001
         logger.warning("HWPX 후처리 실패(_apply_accent_header): %s", e)
+    # 2단 본문 — 간단 헤더를 머릿말에 그린 COM 경로(폼 모드 X)에서만. 섹션 colPr=2 + 위 여백.
+    # write() 가 columns==2 면 compact_header 를 머릿말에 두므로 본문만 2단이 된다(§42-5).
+    if columns == 2 and not use_form:
+        try:
+            _apply_body_columns(output_path)
+        except Exception as e:  # noqa: BLE001
+            logger.warning("HWPX 후처리 실패(_apply_body_columns): %s", e)
     # 저장 후 본문 글자모양의 장평/상대크기 0(투명) 보정 — 템플릿 상속으로
     # 본문이 안 보이는 문제 방지. COM 종료 뒤 XML 직접 패치(안전·결정적).
     try:

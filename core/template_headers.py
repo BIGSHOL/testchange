@@ -84,6 +84,34 @@ def _g(meta: dict, key: str) -> str:
     return v.strip() if isinstance(v, str) and v.strip() else ""
 
 
+def compact_header(s, meta: dict) -> None:
+    """2단 모드용 *간단* 머릿말 헤더 — 제목 + (학교·학년·과목·시험일) 1~2줄.
+
+    리치 헤더(표·배너)는 머릿말에 넣으면 2단 본문 우측 단과 겹친다(§42-5 실측). 2단은
+    이 짧은 헤더만 머릿말에 둬 단 시작점 위에 들어가게 한다. 1단은 리치 헤더 유지(무관).
+    가운데 정렬 1줄 제목(볼드) + 작은 정보줄. 짧게 — 단 위로 안 침범.
+    """
+    title = _g(meta, "title")
+    school = _g(meta, "schoolName")
+    grade = _g(meta, "grade")
+    subj = _g(meta, "subject") or "수학"
+    date = _g(meta, "examDate")
+    s.align_center()
+    if title:
+        s.set_char_shape(13, bold=True)
+        s.text(title)
+        s.set_char_shape(s.base_pt, bold=False)
+        s.break_para()
+        s.align_center()
+    # 정보줄: 학교 · 학년 과목 · 시험일 (있는 것만).
+    bits = [b for b in (school, f"{grade} {subj}".strip(), date) if b]
+    if bits:
+        s.set_char_shape(9)
+        s.text(" · ".join(bits))
+        s.set_char_shape(s.base_pt)
+    s.align_left()
+
+
 def _header_default(s, meta: dict) -> None:
     """제목만 가운데 정렬 — 기존 write() 동작과 byte 동일(회귀 0).
 

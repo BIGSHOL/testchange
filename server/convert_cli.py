@@ -59,7 +59,9 @@ def main() -> int:
     out_path.parent.mkdir(parents=True, exist_ok=True)
     # 고른 폼이 forms/<template>.hwpx 로 있으면 그 폼(머릿말/꼬릿말 픽셀완벽)을 쓰고
     # {{토큰}}을 시험지 정보로 치환. 없으면 COM 헤더(근사) 폴백 — 둘 다 회귀 0.
-    form_path = resolve_form_path(style["template"])
+    # 2단 본문은 폼(본문에 헤더 박힘)과 양립 불가(§42-5) → 2단이면 폼 건너뛰고 COM 경로
+    # (간단 머릿말 헤더 + 본문 2단). jeongtong 도 2단에선 이 경로로 2단 적용됨.
+    form_path = None if style["columns"] == 2 else resolve_form_path(style["template"])
     write_exam_to_hwp(
         document,
         out_path,
