@@ -73,6 +73,7 @@ def main() -> int:
         columns=style["columns"],
         margins=style.get("margins"),
         divider=bool(style.get("divider")),  # 2단 컬럼 구분선(웹 columnDivider 토글)
+        font=style.get("font"),  # 폰트팩 글꼴면 {serif, sans} (None 이면 함초롬 유지)
         use_endnote=False,  # 웹 내보내기: 평문 문항번호(미주 첨자·문서끝 미주목록 제거 — 완성도)
     )  # COM → save_hwpx → .hwpx
 

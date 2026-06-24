@@ -1923,6 +1923,57 @@ def _apply_body_columns(hwpx_path: str | Path, gap_mm: float = 8.0, top_mm: floa
     return n
 
 
+# 돋움/고딕 계열 face 판별(sans). 나머지(바탕/명조 등)는 serif 로 분류.
+_SANS_FACE_RE = re.compile(r"돋움|고딕|굴림|맑은|Gothic|Dodum|Gulim|Sans", re.IGNORECASE)
+
+
+def _apply_body_font(hwpx_path: str | Path, font: dict) -> int:
+    """header.xml fontfaces 의 face 이름을 폰트팩 글꼴로 치환(저장 후 XML).
+
+    charPr 의 fontRef(글꼴 id)는 그대로 두고 *글꼴 정의 자체의 face 이름만* 바꾼다 → 그 id 를
+    참조하는 모든 본문/헤더가 자동으로 새 글꼴로 렌더. 바탕/명조 계열 face → serif, 돋움/고딕
+    계열 → sans(기존 의도 보존). serif/sans 중 빈 값이면 그쪽 계열은 유지. COM 글꼴면 설정 불가
+    (§40 색과 동일 한계)라 XML 후처리가 유일. fontfaces 블록 안에서만 치환(타 face 속성 오염 방지).
+    Returns: 치환한 font 정의 수.
+    """
+    serif = (font.get("serif") or "").strip()
+    sans = (font.get("sans") or "").strip()
+    if not (serif or sans):
+        return 0
+    hwpx_path = Path(hwpx_path)
+    with zipfile.ZipFile(hwpx_path) as z:
+        infos = z.infolist()
+        contents = {i.filename: z.read(i.filename) for i in infos}
+    header_fn = next((f for f in contents if f.endswith("header.xml")), None)
+    if header_fn is None:
+        return 0
+    s = contents[header_fn].decode("utf-8")
+    fm = re.search(r"<hh:fontfaces\b.*?</hh:fontfaces>", s, re.S)
+    if not fm:
+        return 0
+    block = fm.group(0)
+    count = [0]
+
+    def _repl_font(tm: "re.Match") -> str:
+        tag = tm.group(0)
+        face_m = re.search(r'\bface="([^"]*)"', tag)
+        if not face_m:
+            return tag
+        face = face_m.group(1)
+        new_face = sans if _SANS_FACE_RE.search(face) else serif
+        if not new_face:          # 그쪽 계열 글꼴 미지정 → 유지
+            return tag
+        count[0] += 1
+        return tag[: face_m.start(1)] + new_face + tag[face_m.end(1):]
+
+    new_block = re.sub(r"<hh:font\b[^>]*>", _repl_font, block)
+    if new_block != block:
+        s = s[: fm.start()] + new_block + s[fm.end():]
+        contents[header_fn] = s.encode("utf-8")
+        _rewrite_zip(hwpx_path, infos, contents)
+    return count[0]
+
+
 def _thicken_header_outer_borders(
     hwpx_path: str | Path, thick: str = "0.5 mm", thin: str = "0.12 mm",
 ) -> int:
@@ -2108,6 +2159,7 @@ def write_exam_to_hwp(
     margins: dict | None = None,
     use_endnote: bool = True,
     divider: bool = False,
+    font: dict | None = None,
 ) -> Path:
     """편의 함수: ExamDocument를 HWP COM으로 .hwpx 파일로 저장.
 
@@ -2198,6 +2250,14 @@ def write_exam_to_hwp(
             _apply_body_columns(output_path, top_mm=top_mm, divider=divider)
         except Exception as e:  # noqa: BLE001
             logger.warning("HWPX 후처리 실패(_apply_body_columns): %s", e)
+    # 폰트팩 — header.xml fontfaces 의 바탕/돋움 계열 face 를 웹이 정한 글꼴로 치환(저장 후 XML).
+    # font None(system 팩 또는 구버전 payload)이면 no-op(함초롬 유지). COM 글꼴면 설정 불가(§40
+    # 색과 동일 한계)라 XML 후처리가 유일. form_mode 무관(폼 .hwpx 도 header.xml 에 fontfaces).
+    if font:
+        try:
+            _apply_body_font(output_path, font)
+        except Exception as e:  # noqa: BLE001
+            logger.warning("HWPX 후처리 실패(_apply_body_font): %s", e)
     # 저장 후 본문 글자모양의 장평/상대크기 0(투명) 보정 — 템플릿 상속으로
     # 본문이 안 보이는 문제 방지. COM 종료 뒤 XML 직접 패치(안전·결정적).
     try:

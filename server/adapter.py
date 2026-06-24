@@ -88,6 +88,20 @@ def _opt_str(m: dict, key: str) -> str:
     return v if isinstance(v, str) else ""
 
 
+def _font_pair(v) -> dict | None:
+    """style.font {serif, sans} 검증 — 둘 중 하나라도 비지 않은 문자열이면 통과, 아니면 None.
+
+    None 이면 엔진이 글꼴 후처리를 건너뛴다(함초롬 유지, 회귀 0).
+    """
+    if not isinstance(v, dict):
+        return None
+    serif = v.get("serif") if isinstance(v.get("serif"), str) else ""
+    sans = v.get("sans") if isinstance(v.get("sans"), str) else ""
+    if not (serif.strip() or sans.strip()):
+        return None
+    return {"serif": serif, "sans": sans}
+
+
 def adapt_payload(payload: dict) -> tuple[dict, dict, dict]:
     """HwpPayload dict → (envelope dict, meta dict, style dict).
 
@@ -144,5 +158,7 @@ def adapt_payload(payload: dict) -> tuple[dict, dict, dict]:
         "margins": margins,
         # 컬럼 구분선(2단 전용). 웹 columnDivider 토글. 누락 시 False(회귀 0).
         "divider": bool(st.get("divider")),
+        # 폰트팩 글꼴면 {serif, sans}. 웹이 HWP face 이름을 정함. 누락/빈값이면 None(엔진 무변경).
+        "font": _font_pair(st.get("font")),
     }
     return envelope, meta, style
