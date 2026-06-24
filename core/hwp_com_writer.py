@@ -884,6 +884,18 @@ class HwpComWriter:
         # 총점 소문항 부모는 본문에 "[총 N점]"으로 이미 표기됨 → 인라인 배점 생략(중복 방지).
         show_score = bool(question.score) and not subs_have_scores
 
+        # 본문 첫 텍스트 블록이 *자기 문항번호*("4. " 등)로 시작하면 제거 — OCR 이 인쇄된 번호를
+        # 본문에 포함한 일부 문항(다사중 #4)에서 아래 writer 가 번호를 또 붙여 "4. 4." 중복
+        # (§38-1 의 메인 번호판). 자기 번호 + 마침표/괄호 + 공백일 때만(보수적 — "4.5" 같은
+        # 소수는 뒤 \s+ 로 제외, 다른 번호로 시작하는 정상 본문도 미발동).
+        if top_level and question.contents:
+            _b0 = question.contents[0]
+            if _b0.type == ContentType.TEXT and isinstance(_b0.value, str):
+                _stripped = re.sub(r'^\s*%d\s*[.)]\s+' % question.number,
+                                   '', _b0.value, count=1)
+                if _stripped != _b0.value:
+                    _b0.value = _stripped
+
         # 번호(A1): 주문항은 미주 자동번호("1." 스타일, 12pt 볼드). 미주 마크의 번호 형식
         # "1." 의 마침표는 suffix(저장 후 XML 후처리)에서 오므로, 성공 시 마크 뒤엔 공백만.
         # 실패하면 텍스트 번호로 폴백 + 이후 문항도 텍스트(self._use_endnote=False).
