@@ -511,6 +511,8 @@ class HwpComWriter:
         self._header_meta: dict = {}
         self._accent_rgb: tuple[int, int, int] = (0x0E, 0x0E, 0x10)
         self._columns = 1
+        # 2단 칼럼 폭 산정용 여백(mm dict). write_exam_to_hwp 가 주입. None 이면 대수회 기본.
+        self._margins: dict | None = None
         # 폼 모드 — 폼 파일(template_path)이 헤더를 제공하므로 COM 헤더를 그리지 않고
         # 본문만 append. write_exam_to_hwp 가 form_mode 일 때 True 주입.
         self._form_mode = False
@@ -627,9 +629,13 @@ class HwpComWriter:
         """본문 박스/표(보기·조건·OCR표)의 폭(HWP 단위). 2단이면 칼럼 폭, 1단이면 148mm.
 
         2단(colPr=2)에서 표를 1단 기본폭(148mm)으로 만들면 ~81mm 칼럼을 넘어 다음 단/거터를
-        침범한다(사용자 2026-06-24). self._columns 로 분기해 칼럼 폭에 맞춘다.
+        침범한다(사용자 2026-06-24). self._columns 로 분기해 칼럼 폭에 맞춘다. 2단 칼럼 폭은
+        좌우 여백(self._margins)에 따라 동적 — 여백 프리셋(좁게/넓게)이 칼럼 폭에 반영된다.
         """
-        return _COL_WIDTH_2COL if self._columns == 2 else _BOX_WIDTH_1COL
+        if self._columns == 2:
+            left, right, _ = _margins_2col_units(self._margins)
+            return _col_width_2col(left, right)
+        return _BOX_WIDTH_1COL
 
     def _write_equation_table(self, rows: list[list[str]]) -> None:
         """표를 만들고 각 셀을 종류별로 렌더(수식 객체 / 평문). 빈 셀은 비운다.
@@ -1464,6 +1470,26 @@ _COL_WIDTH_2COL = (_A4_WIDTH_HWPUNIT - _DAERYUN_MARGIN["left"]
 _BOX_WIDTH_1COL = 42000            # 1단 본문 박스/표 폭(148mm, 기존 table_begin 기본값)
 
 
+def _col_width_2col(left_u: int, right_u: int) -> int:
+    """좌우 여백(units)으로 2단 칼럼 폭 산출 — _COL_WIDTH_2COL 의 동적판(여백 프리셋 반영)."""
+    return (_A4_WIDTH_HWPUNIT - left_u - right_u - _COL_GAP_2COL) // 2 - 500
+
+
+def _margins_2col_units(margins: dict | None) -> tuple[int, int, int]:
+    """2단 (좌, 우, 하) 여백(units). 웹 프리셋(mm) 있으면 반영, 없으면 대수회 기본.
+
+    상단/머릿말(top/header)은 컴팩트 헤더 높이 정렬을 유지(§42-7 겹침 방지)하므로 여기서 안 다룸 —
+    _apply_body_columns 가 top 을 헤더 높이 max 로 잡는다. 좌우는 칼럼 폭을, 하단은 본문 바닥 여백을
+    결정. margins 없으면(구버전 payload·system) 대수회값 = 현행 동작(회귀 0).
+    """
+    if isinstance(margins, dict):
+        left = int(round(margins.get("left", 20) * _MM_TO_HWPUNIT))
+        right = int(round(margins.get("right", 20) * _MM_TO_HWPUNIT))
+        bottom = int(round(margins.get("bottom", 20) * _MM_TO_HWPUNIT))
+        return left, right, bottom
+    return _DAERYUN_MARGIN["left"], _DAERYUN_MARGIN["right"], _DAERYUN_MARGIN["bottom"]
+
+
 def _scale_table_total_width(tbl: str, target: int) -> str:
     """표 XML 의 셀 너비를 비율 보존하며 총너비 ``target`` 으로 스케일(+ 표 <hp:sz> 갱신)."""
     row0: dict[int, int] = {}
@@ -1871,7 +1897,7 @@ def _apply_accent_header(hwpx_path: str | Path, accent_rgb: tuple[int, int, int]
 
 
 def _apply_body_columns(hwpx_path: str | Path, gap_mm: float = 8.0, top_mm: float = 15.0,
-                        divider: bool = False) -> int:
+                        divider: bool = False, margins: dict | None = None) -> int:
     """본문 섹션을 2단(colPr colCount=1→2)으로 + 위 여백을 머릿말 헤더 높이에 맞춤(저장 후 XML).
 
     divider=True 면 단 사이 세로 구분선(<hp:colLine>)을 colPr 안에 추가. type/width 는 OWPML
@@ -1879,10 +1905,10 @@ def _apply_body_columns(hwpx_path: str | Path, gap_mm: float = 8.0, top_mm: floa
     중앙 세로선 확인. (구분선은 폼/COM 선례 없어 colPr XML 직접 주입이 유일.)
 
     *간단 헤더를 머릿말에 그린 뒤에만* 호출(write 가 columns==2 면 compact_header 를 머릿말에).
-    여백 = 대수회 검증 폼(좌우20·하20·꼬릿10, 사용자 2026-06-24). 상단/머릿말 밴드 높이는
-    폼의 `header == top == textHeight` 정렬을 모방 — 컴팩트 헤더 실제 높이(top_mm)로 받되
-    대수회 top(15mm)을 바닥값으로(헤더 길어지면 grow, 겹침 0). 과거 top 42mm·좌우 30mm 고정은
-    과대였다(§42-6/7). COM MultiColumn 작동 안 함(§42)이라 colPr·margin XML 직접 패치가 유일.
+    좌우·하단 여백 = 웹 프리셋(margins, 좁게/보통/넓게) 반영 — 없으면 대수회 기본(좌우20·하20).
+    상단/머릿말 밴드 높이는 폼의 `header == top == textHeight` 정렬을 모방 — 컴팩트 헤더 실제
+    높이(top_mm)로 받되 대수회 top(15mm)을 바닥값으로(헤더 길어지면 grow, 겹침 0). 꼬릿말은
+    대수회 고정(10mm). COM MultiColumn 작동 안 함(§42)이라 colPr·margin XML 직접 패치가 유일.
     Returns: 패치한 섹션 수.
     """
     hwpx_path = Path(hwpx_path)
@@ -1892,11 +1918,12 @@ def _apply_body_columns(hwpx_path: str | Path, gap_mm: float = 8.0, top_mm: floa
     gap = int(round(gap_mm * 283.465))
     # top/header = max(대수회 15mm, 컴팩트 헤더 실제 높이) — 보통은 대수회값, 헤더 길면 grow.
     top = max(_DAERYUN_MARGIN["top"], int(round(top_mm * 283.465)))
-    # 대수회 여백 한 벌(좌우/하/꼬릿 고정 + top/header 정렬). HWPX 속성 순서 유지.
+    # 좌우·하단 = 웹 프리셋 반영(§42-10). 상단/머릿말은 헤더 정렬(top) 유지, 꼬릿말은 대수회 고정.
+    left, right, bottom = _margins_2col_units(margins)
     margin_xml = (
         f'<hp:margin header="{top}" footer="{_DAERYUN_MARGIN["footer"]}" gutter="0" '
-        f'left="{_DAERYUN_MARGIN["left"]}" right="{_DAERYUN_MARGIN["right"]}" '
-        f'top="{top}" bottom="{_DAERYUN_MARGIN["bottom"]}"/>'
+        f'left="{left}" right="{right}" '
+        f'top="{top}" bottom="{bottom}"/>'
     )
     n = 0
     for fn in list(contents):
@@ -2196,6 +2223,7 @@ def write_exam_to_hwp(
         writer._header_meta = header_meta or {}
         writer._accent_rgb = resolve_accent_rgb(writer._template, accent_color)
         writer._columns = columns if columns in (1, 2) else 1
+        writer._margins = margins   # 2단 칼럼 폭(_box_width) 산정용
         writer._form_mode = use_form
         # 문항번호 방식: 기본 미주(자동번호) 유지. 웹 내보내기(convert_cli)는 use_endnote=False
         # 로 평문 번호 — 미주 마크(첨자) + 문서끝 미주 목록("1.2.3…") 잔여 제거(완성도, 2026-06-23).
@@ -2247,7 +2275,7 @@ def write_exam_to_hwp(
             # 헤더 실제 높이 — _apply_body_columns 가 대수회 top(15mm)을 바닥값으로 max().
             # 보통 헤더(제목+정보 ~12mm) < 15mm 라 정확히 대수회값, 길면 grow(겹침 0).
             top_mm = compact_header_height_mm(hdr_meta)
-            _apply_body_columns(output_path, top_mm=top_mm, divider=divider)
+            _apply_body_columns(output_path, top_mm=top_mm, divider=divider, margins=margins)
         except Exception as e:  # noqa: BLE001
             logger.warning("HWPX 후처리 실패(_apply_body_columns): %s", e)
     # 폰트팩 — header.xml fontfaces 의 바탕/돋움 계열 face 를 웹이 정한 글꼴로 치환(저장 후 XML).
@@ -2282,7 +2310,7 @@ def write_exam_to_hwp(
         logger.warning("HWPX 후처리 실패(_set_endnote_suffix): %s", e)
     # <보기>/<조건> 라벨 1×1 박스 → 5×5 병합표 폼(레퍼런스와 픽셀 동일). <상자>·일반표 제외.
     try:
-        _inject_bogi_form(output_path, columns=columns)
+        _inject_bogi_form(output_path, columns=columns, margins=margins)
     except Exception as e:  # noqa: BLE001
         logger.warning("HWPX 후처리 실패(_inject_bogi_form): %s", e)
     # 확률분포표 1열·표준정규분포표 최상단 행에 #D9D9D9 음영(수기본 통일).
@@ -2541,7 +2569,8 @@ def _scale_bogi_box_width(tbl: str, target: int) -> str:
         tbl)
 
 
-def _inject_bogi_form(hwpx_path: str | Path, columns: int = 1) -> int:
+def _inject_bogi_form(hwpx_path: str | Path, columns: int = 1,
+                      margins: dict | None = None) -> int:
     """저장된 .hwpx 에서 ``<보기>``/``<조건>`` 라벨 1×1 박스를 5×5 병합표 폼으로 치환.
 
     - section XML 의 모든 1×1 표 중 **셀 첫 단락 텍스트가 ``<보기>``/``<조건>`` 로 시작**
@@ -2630,8 +2659,11 @@ def _inject_bogi_form(hwpx_path: str | Path, columns: int = 1) -> int:
             new_tbl = new_tbl.replace("{{CONTENT_SUBLIST}}", content_sub)
             # 2단: 5×5 박스(기본 29307=103mm)를 칼럼 폭에 맞춰 비례 축소(단 overflow 방지).
             # target = 칼럼폭 − outMargin → 박스 footprint(표폭+outMargin) 가 칼럼 안에 들어감.
+            # 칼럼 폭은 좌우 여백 프리셋 반영(§42-10) — margins 없으면 대수회 기본.
             if columns == 2:
-                new_tbl = _scale_bogi_box_width(new_tbl, _COL_WIDTH_2COL - _BOGI_OUT_MARGIN)
+                _l, _r, _ = _margins_2col_units(margins)
+                new_tbl = _scale_bogi_box_width(
+                    new_tbl, _col_width_2col(_l, _r) - _BOGI_OUT_MARGIN)
 
             out.append(s[last:tstart])
             out.append(new_tbl)
