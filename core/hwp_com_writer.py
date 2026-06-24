@@ -2197,7 +2197,7 @@ def write_exam_to_hwp(
         logger.warning("HWPX 후처리 실패(_set_endnote_suffix): %s", e)
     # <보기>/<조건> 라벨 1×1 박스 → 5×5 병합표 폼(레퍼런스와 픽셀 동일). <상자>·일반표 제외.
     try:
-        _inject_bogi_form(output_path)
+        _inject_bogi_form(output_path, columns=columns)
     except Exception as e:  # noqa: BLE001
         logger.warning("HWPX 후처리 실패(_inject_bogi_form): %s", e)
     # 확률분포표 1열·표준정규분포표 최상단 행에 #D9D9D9 음영(수기본 통일).
@@ -2433,8 +2433,30 @@ def _para_plaintext(para_xml: str) -> str:
 # 1×1 박스 셀 첫 단락이 <보기>/<조건> 로 시작하는지 (라벨 박스 판정). <상자>·일반표 제외.
 _BOGI_LABEL_TEXT_RE = re.compile(r"^\s*<\s*(보기|조건)\s*>")
 
+# bogi 5×5 폼 템플릿의 레퍼런스 총폭(bogi_box_template.py <hp:sz width>). 2단 스케일 기준.
+_BOGI_BASE_WIDTH = 29307
+# bogi 박스의 outMargin(좌+우 = 283×2). 2단 칼럼 fit 계산 시 차감(박스 footprint = 표폭+이것).
+_BOGI_OUT_MARGIN = 566
 
-def _inject_bogi_form(hwpx_path: str | Path) -> int:
+
+def _scale_bogi_box_width(tbl: str, target: int) -> str:
+    """bogi 5×5 병합표를 칼럼 폭(target)에 맞춰 비례 스케일(저장 후 XML).
+
+    템플릿의 수치 ``width="N"`` 은 표크기(<hp:sz>)+셀폭(<hp:cellSz>) 뿐이고 모두 29307 기준
+    비례값이라, 일괄 ratio 곱으로 행별 합·병합(colSpan) 구조가 그대로 보존된다. cellMargin/
+    outMargin/inMargin 은 left/right(=width 아님), lineseg 는 horzsize → 불변. widthRelTo=
+    "ABSOLUTE" 는 토큰이 ``width=`` 와 달라 매칭 안 됨. target<=0/base 면 그대로(1단).
+    """
+    if target <= 0 or target == _BOGI_BASE_WIDTH:
+        return tbl
+    ratio = target / _BOGI_BASE_WIDTH
+    return re.sub(
+        r'width="(\d+)"',
+        lambda m: 'width="%d"' % max(int(round(int(m.group(1)) * ratio)), 1),
+        tbl)
+
+
+def _inject_bogi_form(hwpx_path: str | Path, columns: int = 1) -> int:
     """저장된 .hwpx 에서 ``<보기>``/``<조건>`` 라벨 1×1 박스를 5×5 병합표 폼으로 치환.
 
     - section XML 의 모든 1×1 표 중 **셀 첫 단락 텍스트가 ``<보기>``/``<조건>`` 로 시작**
@@ -2521,6 +2543,10 @@ def _inject_bogi_form(hwpx_path: str | Path) -> int:
             new_tbl = new_tbl.replace("{{TINY_CP}}", str(tiny_cp_id))
             new_tbl = new_tbl.replace("{{LABEL_SUBLIST}}", label_sub)
             new_tbl = new_tbl.replace("{{CONTENT_SUBLIST}}", content_sub)
+            # 2단: 5×5 박스(기본 29307=103mm)를 칼럼 폭에 맞춰 비례 축소(단 overflow 방지).
+            # target = 칼럼폭 − outMargin → 박스 footprint(표폭+outMargin) 가 칼럼 안에 들어감.
+            if columns == 2:
+                new_tbl = _scale_bogi_box_width(new_tbl, _COL_WIDTH_2COL - _BOGI_OUT_MARGIN)
 
             out.append(s[last:tstart])
             out.append(new_tbl)
