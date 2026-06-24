@@ -177,7 +177,8 @@ def _parse_markdown_lines(text: str) -> list[list[ContentBlock]]:
             continue
         blocks = _parse_inline_run(line)
         if blocks:
-            out.append(blocks)
+            # 본문과 동일 타이포그래피 컨벤션(점 라벨 로만체·한글↔수식 공백 등) 적용(§44).
+            out.append(_finalize_solution_blocks(blocks))
     return out
 
 
@@ -1511,6 +1512,23 @@ def _finalize_contents(blocks: list[ContentBlock]) -> list[ContentBlock]:
     blocks = _space_hangul_before_eq(blocks)        # 한글 끝 TEXT + EQ 사이 공백(확률을p_1 → 확률을 p_1)
     blocks = _emphasize_negation(blocks)            # 부정 선택문 "옳지 않은 것"의 부정어 볼드+밑줄
     blocks = _rstrip_last_text(blocks)              # 끝 TEXT 의 꼬리 공백 제거(점수 앞 이중공백 방지)
+    return blocks
+
+
+def _finalize_solution_blocks(blocks: list[ContentBlock]) -> list[ContentBlock]:
+    """정답/해설 줄 블록 *타이포그래피만* 정규화 — 본문 `_finalize_contents` 후반부(⑨~⑭,⑯).
+
+    본문이 따르는 컨벤션(점 라벨 로만체·비기하 단일대문자 이탤릭·한글↔수식 공백 등)을 해설에도
+    적용해 수식 표기를 본문과 일치시킨다. OCR 아티팩트 병합(①~④)·빈그룹·온도·범위·배점strip
+    (⑤~⑧)은 미적용 — 깨끗한 마크다운 해설엔 불필요/오염 위험(§44). 부정강조(⑮ `_emphasize_negation`)
+    는 선택지/발문 전용이라 해설에선 제외."""
+    blocks = _italicize_stat_operators(blocks)       # 확통 연산자 \mathrm 벗겨 이탤릭
+    blocks = _romanize_point_names(blocks)           # 기하 점/선/면 이름 로만체
+    blocks = _italicize_nongeo_single_letters(blocks)  # 비기하 단일대문자 이탤릭
+    blocks = _romanize_angle_letters(blocks)         # 각 단일대문자 로만체
+    blocks = _romanize_context_units(blocks)         # 문맥상 단위 수식 로만화
+    blocks = _space_hangul_before_eq(blocks)         # 한글 끝 + 수식 사이 공백
+    blocks = _rstrip_last_text(blocks)               # 끝 TEXT 꼬리 공백 제거
     return blocks
 
 

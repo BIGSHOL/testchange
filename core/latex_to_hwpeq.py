@@ -591,11 +591,29 @@ class LaTeXToHWPConverter:
         사각형 라벨(AB, ABC, ABCD)만 정자로 만든다. HWP 키워드(SUM, LEFT, LEQ …)와
         이미 `rm {` 로 감싼 구간은 건드리지 않는다.
         """
+        # ``"..."`` HWP 리터럴 구간(=\text{} 출력) 안의 대문자는 이미 정자라 rm {} 로 감싸면 안
+        # 된다 — ``\text{ABCD}`` → ``"ABCD"`` 가 ``"rm {ABCD}"`` 로 깨져 HWP 가 'rm {ABCD}' 를
+        # **리터럴 렌더**(다사중 #7 직사각형 ABCD, 사용자 2026-06-24). 따옴표 구간을 미리 구한다.
+        _quoted_spans: list[tuple[int, int]] = []
+        _qs = -1
+        for _i, _ch in enumerate(script):
+            if _ch == '"':
+                if _qs < 0:
+                    _qs = _i
+                else:
+                    _quoted_spans.append((_qs, _i))
+                    _qs = -1
+
+        def _in_quote(pos: int) -> bool:
+            return any(a < pos < b for a, b in _quoted_spans)
+
         def _repl(m: "re.Match") -> str:
             run = m.group(1)
             if run in self._roman_skip:
                 return run
             start = m.start(1)
+            if _in_quote(start):
+                return run   # 따옴표 리터럴 안 = 이미 정자(중복/깨짐 방지)
             prev = m.string[max(0, start - 4):start]
             # 이미 rm/it/bold 로 감싸진 라벨(예: \mathrm 출력)은 중복 적용 방지.
             if prev.endswith("rm {") or prev.endswith("rm ") \
@@ -895,7 +913,18 @@ class LaTeXToHWPConverter:
                 lead = " " if (m.start() > 0 and m.string[m.start() - 1].isalnum()) else ""
                 return lead + kw + " " + m.group("txt")
             return _r
-        s = self._text_pattern.sub(lambda m: '"' + m.group("txt") + '"', s)
+        def _text_repl(m: "re.Match") -> str:
+            txt = m.group("txt")
+            # 도형 라벨(순수 대문자 라틴 1+자) → 정자 로만 ``rm {…}``. 따옴표 리터럴 ``"ABCD"`` 은
+            # HWP 가 **이탤릭**으로 렌더해 도형 이름(직사각형 ABCD)이 기운다(§2-10 위반, 다사중 #7
+            # ``\text{ABCD}``, 사용자 2026-06-24). 단어·혼합·기호 ``\text{}`` 는 종전대로 따옴표
+            # 리터럴. HWP 연산자 충돌 라벨(GE/LE/NE/GG/LL)은 토큰화 차단 위해 인용 보호.
+            if txt and re.fullmatch(r"[A-Za-z]+", txt) and txt.isupper():
+                lead = " " if (m.start() > 0 and m.string[m.start() - 1].isalnum()) else ""
+                inner = '"' + txt + '"' if txt in _KEYWORD_LABEL_QUOTE else txt
+                return lead + "rm {" + inner + "}"
+            return '"' + txt + '"'
+        s = self._text_pattern.sub(_text_repl, s)
         # \mathrm{X} → rm X. HWP rm 은 명시적 it 전까지 **뒤 전체로 번지므로**, ``\mathrm`` 뒤에
         # 수식 내용이 더 이어지면(예 ``\mathrm{pH} = -\log x``) 뒤따르는 변수(x)까지 정자(로만)로
         # 굳는다(경상여고 대수 #5 pH, 사용자 2026-06-18: ``rm {pH}= it {-logx}`` 처럼 돼야 x 이탤릭).

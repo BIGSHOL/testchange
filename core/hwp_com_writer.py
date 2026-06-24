@@ -1173,12 +1173,85 @@ class HwpComWriter:
             for blk in line:
                 self._write_block(blk, inline=True)
 
-    def _write_answer_page(self, questions: list[Question]) -> None:
-        """문제 뒤 새 쪽에 '정답 및 해설' 페이지 — 빠른 정답 + (옵션) 문항별 해설(§44).
+    @staticmethod
+    def _answer_glyph_width(lines: list[list[ContentBlock]]) -> int:
+        """정답의 대략 글자폭(빠른정답 격자 vs 전폭행 분류용). 다줄이면 큰 값.
 
-        웹 PrintAnswerKeyPage 미러: 제목 → 빠른 정답(번호·정답 흐름) → 문항별 정답+해설.
-        본문과 같은 섹션이라 문서 단 설정 상속(2단이면 2단 흐름 = 웹 2-col 해설과 일치).
-        _write_block 등 기존 프리미티브만 조합 — 신규 렌더 로직 없음.
+        수식 블록은 LaTeX 명령·중괄호·첨자 기호를 뺀 가시 글자수 + 1 로 추정(``\frac{4}{3}`` ≈ 3).
+        """
+        if not lines:
+            return 0
+        if len(lines) > 1:
+            return 999
+        w = 0
+        for blk in lines[0]:
+            v = blk.value or ""
+            if blk.type == ContentType.TEXT:
+                w += len(v.strip())
+            else:
+                w += len(re.sub(r"\\[a-zA-Z]+|[{}\\^_~]", "", v)) + 1
+        return w
+
+    def _write_quick_answer_table(self, questions: list[Question]) -> None:
+        """빠른 정답 — 짧은 객관식 정답은 격자 표(번호·정답 셀), 서술형/긴 정답은 전폭 행.
+
+        사용자 보고(2026-06-24): 흐름 배치는 번호·정답이 줄바꿈에서 갈라져 어설픔 → 표로 정렬.
+        본문 `_write_equation_table` 와 동일 COM 프리미티브(table_begin/next_cell/end) 사용.
+        """
+        answered = [q for q in questions if q.answer]
+        if not answered:
+            return
+        # 분류: narrow(짧은 객관식) vs wide(서술형이거나 긴/다줄 정답 → 한 행 전폭)
+        narrow: list[tuple[Question, int]] = []
+        wide: list[Question] = []
+        for q in answered:
+            w = self._answer_glyph_width(q.answer)
+            if (not q.choices) or w > 8:
+                wide.append(q)
+            else:
+                narrow.append((q, w))
+
+        def _cell_label(q: Question) -> None:
+            self.s.set_char_shape(self.s.base_pt, bold=True)
+            self.s.text(f"{q.number}. ")
+            self.s.set_char_shape(self.s.base_pt, bold=False)
+            self._write_answer_inline(q.answer)
+
+        # ── 격자 표(narrow) — 정답 폭에 따라 5/4/3 열 ──
+        if narrow:
+            maxw = max(w for _, w in narrow)
+            cols = 5 if maxw <= 3 else 4 if maxw <= 5 else 3
+            if self._columns == 2:
+                cols = min(cols, 3)   # 2단은 칼럼 폭이 절반이라 격자 열 수 축소(셀 cramped 방지)
+            n = len(narrow)
+            rows = (n + cols - 1) // cols
+            total = rows * cols
+            self.s.table_begin(rows, cols, line_width=self._box_width())
+            for idx in range(total):
+                self.s.align_center()
+                if idx < n:
+                    _cell_label(narrow[idx][0])
+                if idx != total - 1:
+                    self.s.table_next_cell()
+            self.s.table_end()
+            self.s.align_left()
+
+        # ── 전폭 행(wide) — 서술형/긴 정답: 1열 표, 각 정답이 한 행 ──
+        if wide:
+            self.s.table_begin(len(wide), 1, line_width=self._box_width())
+            for i, q in enumerate(wide):
+                self.s.align_left()
+                _cell_label(q)
+                if i != len(wide) - 1:
+                    self.s.table_next_cell()
+            self.s.table_end()
+            self.s.align_left()
+
+    def _write_answer_page(self, questions: list[Question]) -> None:
+        """문제 뒤 새 쪽에 '정답 및 해설' 페이지 — 빠른 정답 표 + (옵션) 문항별 해설(§44).
+
+        웹 PrintAnswerKeyPage 미러: 제목 → 빠른 정답(표) → 문항별 정답+해설. 본문과 같은
+        섹션이라 문서 단 설정 상속(2단이면 2단 흐름). _write_block·table_* 등 기존 프리미티브만.
         """
         self.s.break_page()
         # 제목 — 가운데·볼드·살짝 큰 글자(note_pt+2).
@@ -1190,22 +1263,21 @@ class HwpComWriter:
         self.s.break_para()
         self.s.align_left()
 
-        # 빠른 정답 — 번호 볼드 + 정답 인라인, 항목 사이 간격(자연 줄바꿈, 웹 flex-wrap 미러).
-        for q in questions:
-            self.s.set_char_shape(self.s.base_pt, bold=True)
-            self.s.text(f"{q.number}. ")
-            self.s.set_char_shape(self.s.base_pt, bold=False)
-            if q.answer:
-                self._write_answer_inline(q.answer)
-            else:
-                self.s.text("-")
-            self.s.text("   ")   # 항목 간격
-        self.s.break_para()
+        # 빠른 정답 — 격자 표 + 전폭 행.
+        self._write_quick_answer_table(questions)
 
         # 문항별 해설 — quick_answer_only 면 빠른 정답에서 끝.
         if self._quick_answer_only:
             return
+        # 해설 구분 헤더(가운데·볼드).
         self.s.break_para()
+        self.s.align_center()
+        self.s.set_char_shape(self.s.note_pt, bold=True)
+        self.s.text("해 설")
+        self.s.set_char_shape(self.s.base_pt, bold=False)
+        self.s.break_para()
+        self.s.break_para()
+        self.s.align_left()
         for q in questions:
             if not q.solution:
                 continue
