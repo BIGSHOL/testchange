@@ -38,8 +38,11 @@ from models.exam_document import (
 
 logger = logging.getLogger(__name__)
 
-# 객관식→서술형 전환 구분선 (기존 XML writer와 동일 문구)
+# 객관식→서술형 전환 구분선 (기존 XML writer와 동일 문구). 1단(본문 폭 148mm)용.
 _ESSAY_SEPARATOR = "──────────── 서술형 ────────────"
+# 2단(칼럼 폭 ~84mm)에선 위 구분선이 너무 길어 줄바꿈에서 갈라진다(서술형이 우측 끝, 트레일링
+# 대시가 다음 줄로 — 사용자 2026-06-24). 대시 수를 줄여 칼럼 한 줄에 맞춘다.
+_ESSAY_SEPARATOR_2COL = "────── 서술형 ──────"
 # 서술형 답안 작성 공간 줄 수
 _ESSAY_BLANK_LINES = 6
 
@@ -1113,7 +1116,7 @@ class HwpComWriter:
             is_essay = not question.choices
             if is_essay and prev_was_mc:
                 self.s.align_center()
-                self.s.text(_ESSAY_SEPARATOR)
+                self.s.text(_ESSAY_SEPARATOR_2COL if self._columns == 2 else _ESSAY_SEPARATOR)
                 self.s.break_para()
                 self.s.align_left()
             self._write_question(question)
@@ -1155,7 +1158,7 @@ class HwpComWriter:
             is_essay = not question.choices
             if is_essay and prev_was_mc:
                 self.s.align_center()
-                self.s.text(_ESSAY_SEPARATOR)
+                self.s.text(_ESSAY_SEPARATOR_2COL if self._columns == 2 else _ESSAY_SEPARATOR)
                 self.s.break_para()
                 self.s.align_left()
             self._write_question(question)
@@ -2310,6 +2313,59 @@ def _inject_choice_tabstop(hwpx_path: str | Path, pos: int = _CHOICE_COL2_HWPUNI
     return count
 
 
+def _fit_wide_tables_2col(hwpx_path: "str | Path", margins: dict | None = None) -> int:
+    """2단에서 칼럼 폭을 넘는 표를 칼럼 폭으로 축소(저장 후 XML).
+
+    COM ``table_begin`` 은 표를 **본문 텍스트 폭(148mm)** 으로 만든다(line_width 는 열 *비율*만
+    결정 — WidthType=0 이 절대폭이 아니라 텍스트 폭 채움). 1단은 그게 정답이지만, 2단 정답 페이지
+    빠른정답 격자/전폭행 표가 칼럼(~84mm)을 넘어 **우측 단을 침범**하던 것(사용자 2026-06-24
+    "표 크기 조절 안 해? 단 넘어가잖아"). bogi(``_inject_bogi_form`` — 이미 칼럼폭)·수식 객체 폭은
+    안 건드리고 **표 sz + cellSz 만 비례 축소**(`_scale_bogi_box_width` 와 동일 패턴)."""
+    left, right, _ = _margins_2col_units(margins)
+    col_w = _col_width_2col(left, right)
+    target = col_w - _BOGI_OUT_MARGIN
+    if target <= 0:
+        return 0
+    z = zipfile.ZipFile(hwpx_path)
+    infos = z.infolist()
+    contents = {i.filename: z.read(i.filename) for i in infos}
+    z.close()
+    tbl_re = re.compile(r"<hp:tbl\b.*?</hp:tbl>", re.DOTALL)
+    changed = 0
+
+    def _scale_one(m: "re.Match") -> str:
+        nonlocal changed
+        block = m.group(0)
+        tr = block.find("<hp:tr")
+        head = block[:tr] if tr > 0 else block
+        body = block[tr:] if tr > 0 else ""
+        tw_m = re.search(r'<hp:sz\b[^>]*\bwidth="(\d+)"', head)
+        if not tw_m:
+            return block
+        tw = int(tw_m.group(1))
+        if tw <= col_w:
+            return block   # 이미 칼럼폭 이하(bogi 등) — 건드리지 않음
+
+        def _sc(x: "re.Match") -> str:
+            return x.group(1) + str(max(int(round(int(x.group(2)) * target / tw)), 1)) + x.group(3)
+
+        # 표 sz(head 의 첫 width) + 모든 cellSz width 만 비례 축소(셀 안 수식 sz 는 제외).
+        new_head = re.sub(r'(<hp:sz\b[^>]*\bwidth=")(\d+)(")', _sc, head, count=1)
+        new_body = re.sub(r'(<hp:cellSz\b[^>]*\bwidth=")(\d+)(")', _sc, body)
+        changed += 1
+        return new_head + new_body
+
+    for fn in list(contents):
+        if re.search(r"section\d+\.xml$", fn):
+            s = contents[fn].decode("utf-8")
+            s2 = tbl_re.sub(_scale_one, s)
+            if s2 != s:
+                contents[fn] = s2.encode("utf-8")
+    if changed:
+        _rewrite_zip(hwpx_path, infos, contents)
+    return changed
+
+
 def write_exam_to_hwp(
     document: ExamDocument,
     output_path: str | Path,
@@ -2464,6 +2520,15 @@ def write_exam_to_hwp(
         _fix_stemleaf_colwidth(output_path)
     except Exception as e:  # noqa: BLE001
         logger.warning("HWPX 후처리 실패(_fix_stemleaf_colwidth): %s", e)
+    # 2단: COM 표가 본문 폭(148mm)으로 생성돼 칼럼(~84mm)을 넘는 것(정답 페이지 빠른정답 격자/
+    # 전폭행)을 칼럼 폭으로 축소. 칼럼폭 이하 표(bogi 등)는 무시. 1단은 호출 안 함(표=본문폭 정상).
+    if columns == 2:
+        try:
+            n = _fit_wide_tables_2col(output_path, margins)
+            if n:
+                logger.info("2단 와이드 표 축소 %d건", n)
+        except Exception as e:  # noqa: BLE001
+            logger.warning("HWPX 후처리 실패(_fit_wide_tables_2col): %s", e)
     return output_path
 
 
