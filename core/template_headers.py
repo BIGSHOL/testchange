@@ -84,7 +84,27 @@ def _g(meta: dict, key: str) -> str:
     return v.strip() if isinstance(v, str) and v.strip() else ""
 
 
-def compact_header(s, meta: dict) -> None:
+# 컴팩트 머릿말 헤더(2단)의 대략 높이 추정 — 본문 top 여백 동적 산정용(§42-6).
+# 1pt ≈ 0.3528mm, HWP 기본 줄간격 160%. 폼(대수회)의 top=header=헤더높이 정렬을 모방하려면
+# 헤더 실제 높이가 필요한데, compact_header 는 제목(13pt 1줄)+정보줄(9pt 1줄, subj 기본 "수학"
+# 이라 항상)로 줄 수가 예측 가능하다 → DOM 측정 없이 줄 수×폰트로 추정.
+_PT_TO_MM = 0.3528
+_LINE_SPACING = 1.6
+
+
+def compact_header_height_mm(meta: dict) -> float:
+    """compact_header 가 그릴 헤더의 대략 높이(mm). 제목 유무로 1~2줄.
+
+    write_exam_to_hwp 가 _apply_body_columns 의 top 여백을 이 값 기반으로 잡아, 단 시작점이
+    머릿말 헤더 바로 아래로 정렬되게 한다(폼의 top=header=textHeight 패턴, §42-6).
+    """
+    h = 9 * _PT_TO_MM * _LINE_SPACING  # 정보줄은 항상(subj 기본값 "수학"이라 bits 비지 않음)
+    if _g(meta, "title"):
+        h += 13 * _PT_TO_MM * _LINE_SPACING  # 제목줄(13pt 볼드)
+    return h
+
+
+def compact_header(s, meta: dict) -> float:
     """2단 모드용 *간단* 머릿말 헤더 — 제목 + (학교·학년·과목·시험일) 1~2줄.
 
     리치 헤더(표·배너)는 머릿말에 넣으면 2단 본문 우측 단과 겹친다(§42-5 실측). 2단은
@@ -110,6 +130,7 @@ def compact_header(s, meta: dict) -> None:
         s.text(" · ".join(bits))
         s.set_char_shape(s.base_pt)
     s.align_left()
+    return compact_header_height_mm(meta)
 
 
 def _header_default(s, meta: dict) -> None:

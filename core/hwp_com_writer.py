@@ -20,6 +20,7 @@ from core.template_headers import (
     ACCENT_WHITE_INK,
     DEFAULT_TEMPLATE,
     compact_header,
+    compact_header_height_mm,
     render_template_header,
     resolve_accent_rgb,
     token_values,
@@ -1836,13 +1837,16 @@ def _apply_accent_header(hwpx_path: str | Path, accent_rgb: tuple[int, int, int]
     return total
 
 
-def _apply_body_columns(hwpx_path: str | Path, gap_mm: float = 8.0, top_mm: float = 42.0) -> int:
-    """본문 섹션을 2단(colPr colCount=1→2)으로 + 위 여백 top_mm 확보(저장 후 XML).
+def _apply_body_columns(hwpx_path: str | Path, gap_mm: float = 8.0, top_mm: float = 15.0) -> int:
+    """본문 섹션을 2단(colPr colCount=1→2)으로 + 위 여백을 머릿말 헤더 높이에 맞춤(저장 후 XML).
 
     *간단 헤더를 머릿말에 그린 뒤에만* 호출(write 가 columns==2 면 compact_header 를 머릿말에).
-    머릿말 헤더가 짧아야 우측 단과 안 겹친다(§42-5 — 리치 헤더는 겹침). top_mm 으로 단 시작
-    위치를 헤더 아래로. COM MultiColumn 작동 안 함(§42)이라 colPr XML 직접 패치가 유일.
-    Returns: 패치한 colPr 수.
+    머릿말 헤더가 짧아야 우측 단과 안 겹친다(§42-5 — 리치 헤더는 겹침). 폼(대수회)은
+    `margin header == top == 머릿말 textHeight` 로 정렬해 단 시작점=머릿말 밴드 끝(겹침 0,
+    빈 공간 0). 그 패턴을 그대로 모방 — `top_mm` 을 컴팩트 헤더 실제 높이로 받아 *top 과 header
+    (머릿말 밴드 높이) 둘 다* 그 값으로 패치한다. 과거 top 42mm 고정은 헤더(~15mm)보다 과대해
+    매 페이지 ~27mm 낭비 → 페이지 수 증가였다(§42-6). COM MultiColumn 작동 안 함(§42)이라
+    colPr XML 직접 패치가 유일. Returns: 패치한 섹션 수.
     """
     hwpx_path = Path(hwpx_path)
     with zipfile.ZipFile(hwpx_path) as z:
@@ -1859,6 +1863,9 @@ def _apply_body_columns(hwpx_path: str | Path, gap_mm: float = 8.0, top_mm: floa
             r'(<hp:colPr\b[^>]*\bcolCount=")1("[^>]*\bsameGap=")\d+(")',
             lambda m: f"{m.group(1)}2{m.group(2)}{gap}{m.group(3)}", s)
         new = re.sub(r'(<hp:margin\b[^>]*\btop=")\d+(")',
+                     lambda m: m.group(1) + str(top) + m.group(2), new)
+        # 머릿말 밴드 높이(header)도 top 과 같게 — 폼처럼 밴드 끝 = 본문 시작(빈 공간 0).
+        new = re.sub(r'(<hp:margin\b[^>]*\bheader=")\d+(")',
                      lambda m: m.group(1) + str(top) + m.group(2), new)
         if new != s:
             n += 1
@@ -2131,7 +2138,13 @@ def write_exam_to_hwp(
     # write() 가 columns==2 면 compact_header 를 머릿말에 두므로 본문만 2단이 된다(§42-5).
     if columns == 2 and not use_form:
         try:
-            _apply_body_columns(output_path)
+            # top 여백을 컴팩트 헤더 실제 높이에 맞춤(폼의 top=header 정렬, §42-6 동적화).
+            # write() 와 동일하게 title 없으면 document.title 폴백 — 그려질 줄 수와 일치시킴.
+            hdr_meta = dict(header_meta or {})
+            if not hdr_meta.get("title"):
+                hdr_meta["title"] = document.title or ""
+            top_mm = compact_header_height_mm(hdr_meta) + 3.0  # +안전 여유
+            _apply_body_columns(output_path, top_mm=top_mm)
         except Exception as e:  # noqa: BLE001
             logger.warning("HWPX 후처리 실패(_apply_body_columns): %s", e)
     # 저장 후 본문 글자모양의 장평/상대크기 0(투명) 보정 — 템플릿 상속으로
