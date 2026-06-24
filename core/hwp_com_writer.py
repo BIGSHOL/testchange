@@ -1836,7 +1836,7 @@ def _apply_accent_header(hwpx_path: str | Path, accent_rgb: tuple[int, int, int]
     return total
 
 
-def _apply_body_columns(hwpx_path: str | Path, gap_mm: float = 8.0, top_mm: float = 30.0) -> int:
+def _apply_body_columns(hwpx_path: str | Path, gap_mm: float = 8.0, top_mm: float = 42.0) -> int:
     """본문 섹션을 2단(colPr colCount=1→2)으로 + 위 여백 top_mm 확보(저장 후 XML).
 
     *간단 헤더를 머릿말에 그린 뒤에만* 호출(write 가 columns==2 면 compact_header 를 머릿말에).
@@ -2103,7 +2103,8 @@ def write_exam_to_hwp(
         except Exception as e:  # noqa: BLE001
             logger.warning("HWPX 후처리 실패(_fill_tokens): %s", e)
     # 웹에서 설정한 쪽 여백(mm)을 출력에 적용 — 폼/기본 여백을 덮어쓴다(웹이 source).
-    if margins:
+    # 단 2단은 _apply_body_columns 가 위 여백을 머릿말 헤더 높이만큼 따로 잡으므로 제외(겹침 방지).
+    if margins and columns != 2:
         try:
             tag = _margin_tag(
                 top_mm=margins.get("top", 12),
