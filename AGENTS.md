@@ -46,6 +46,30 @@
    `bold+underline` run 분리, 긍정 "옳은 것"·"변하지 않은 점" 제외). 렌더 = `HwpCom.emphasis_run`
    (볼드·밑줄 토글), 기본·폼 공유. `ContentBlock.bold` 필드.
 
+## 정답·해설 페이지 + 빠른정답 표 + 도형이름 정자화 (2026-06-24, 웹 §44)
+
+웹 내보내기(convert_cli 경로)에 **정답 및 해설 페이지** 추가. 상세 함정·근거는 *웹 repo
+(mathg-gen) CLAUDE.md §44* 참고. 엔진측 변경 요약:
+
+- **models/exam_document.py**: `Question.answer/solution: list[list[ContentBlock]]`(줄별 런).
+- **content_parser.py**: `_parse_markdown_lines`/`_parse_inline_run`/`_finalize_solution_blocks`
+  — 정답/해설 마크다운 문자열을 줄별 블록 파싱(`$...$` forward-split + 본문 타이포 컨벤션 후반부
+  ⑨~⑭,⑯ 만; OCR 병합 ①~⑧·부정강조 제외). 줄 전체가 단일 `$\cmd$` 면 통째 equation 가드.
+- **hwp_com.py**: `break_page()`. **hwp_com_writer.py**: `_write_answer_page`(빠른정답 표+해설),
+  `_write_quick_answer_table`(짧은 답=격자 표 5/4/3열·2단 min3, 서술형/긴 답=1열 전폭행),
+  `_fit_wide_tables_2col`(2단에서 칼럼폭 넘는 COM 표를 저장 후 XML 로 칼럼폭 축소 — `table_begin`
+  이 표를 본문폭 148mm 로 만드는 한계 보정), `_ESSAY_SEPARATOR_2COL`(2단 구분선 줄바꿈 방지).
+- **latex_to_hwpeq.py**: `\text{<순수 대문자>}` → `rm {ABCD}`(정자 — 따옴표 리터럴은 HWP 에서
+  이탤릭이라 도형 이름 ABCD 가 기울던 것) + `_apply_roman_labels` 가 `"..."` 리터럴 안 대문자는
+  skip(`"rm {…}"` 리터럴 깨짐 방지).
+- **server/adapter.py·convert_cli.py**: `answer`/`solution` passthrough + `show_answers`/
+  `quick_answer_only` style. `write_exam_to_hwp(show_answers, quick_answer_only)`.
+
+커밋: `1c5fce5`(페이지) · `79e2d88`(표·타이포·\text) · `ead251d`(2단 표 칼럼폭·구분선).
+검증: 1단/2단/quickOnly 렌더 + 골든 25/25(웹).
+
+**남은 폴리시**: 격자 마지막 행 트레일링 빈 셀(colSpan 병합 미구현), 2단 긴 해설 수식 칼럼 overflow.
+
 ## 작업 마무리 워크플로우 (필수)
 
 코드를 변경한 뒤에는 **항상 아래 순서로 마무리**한다:
