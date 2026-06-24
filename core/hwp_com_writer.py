@@ -623,6 +623,14 @@ class HwpComWriter:
                 else:
                     self.s.equation(latex_to_hwpeq(tok))
 
+    def _box_width(self) -> int:
+        """본문 박스/표(보기·조건·OCR표)의 폭(HWP 단위). 2단이면 칼럼 폭, 1단이면 148mm.
+
+        2단(colPr=2)에서 표를 1단 기본폭(148mm)으로 만들면 ~81mm 칼럼을 넘어 다음 단/거터를
+        침범한다(사용자 2026-06-24). self._columns 로 분기해 칼럼 폭에 맞춘다.
+        """
+        return _COL_WIDTH_2COL if self._columns == 2 else _BOX_WIDTH_1COL
+
     def _write_equation_table(self, rows: list[list[str]]) -> None:
         """표를 만들고 각 셀을 종류별로 렌더(수식 객체 / 평문). 빈 셀은 비운다.
 
@@ -641,9 +649,9 @@ class HwpComWriter:
                        and str(rows[0][0]).strip() == "줄기"
                        and str(rows[0][1]).strip() == "잎")
         if is_stemleaf:
-            self.s.table_begin(nrow, ncol, col_widths=[1, 3])
+            self.s.table_begin(nrow, ncol, line_width=self._box_width(), col_widths=[1, 3])
         else:
-            self.s.table_begin(nrow, ncol)
+            self.s.table_begin(nrow, ncol, line_width=self._box_width())
         for ri in range(nrow):
             row = rows[ri]
             for ci in range(ncol):
@@ -808,7 +816,7 @@ class HwpComWriter:
         value_box = _is_value_box(blocks)
         center_box = value_box or _is_labelless_box(blocks)   # 라벨 없는 셀=가운데(#14)
         self.s.align_left()             # 직전 블록수식/그림 가운데정렬 해제(표는 좌측)
-        self.s.table_begin(1, 1)        # 한 칸 테두리 박스
+        self.s.table_begin(1, 1, line_width=self._box_width())   # 한 칸 테두리 박스(2단=칼럼폭)
         if center_box:
             self.s.align_center()       # **셀 안에서** 가운데정렬(table_begin 후=커서가 셀 안)
         self._write_box_content(blocks, space_values=value_box)
@@ -1430,6 +1438,19 @@ def _set_header_col_widths(hwpx_path: str | Path) -> int:
 _A4_WIDTH_HWPUNIT = 59528          # A4 가로(HWP 단위)
 _MM_TO_HWPUNIT = 283.465
 
+# 2단 기본 여백 = 대수회 검증 폼 그대로(사용자 2026-06-24 "상하좌우여백을 대수회폼으로").
+# HWP 단위(283.465/mm). 좌우 20mm(기존 30mm은 너무 넓음) · 상15 · 하20 · 머릿말15 · 꼬릿말10.
+# top/header(머릿말 밴드 높이)는 컴팩트 헤더 실제 높이에 맞춰 grow 가능(바닥값=아래 top, §42-7).
+_DAERYUN_MARGIN = {"left": 5669, "right": 5669, "top": 4251, "bottom": 5669,
+                   "header": 4251, "footer": 2834}
+_COL_GAP_2COL = 2268               # 단 사이 간격 8mm(대수회 sameGap 과 동일)
+# 2단 칼럼 폭 = (A4폭 - 좌우여백 - 단간격) / 2. 본문 박스/표(보기·조건·OCR표)를 이 폭에 맞춰
+# 단 overflow 방지(사용자 2026-06-24 "단 크기에 따라 표 크기 조절, 단이 넘어감"). 약간의
+# 우측 여유(−500)로 거터에 안 닿게. = (59528-5669-5669-2268)/2 - 500 ≈ 22461.
+_COL_WIDTH_2COL = (_A4_WIDTH_HWPUNIT - _DAERYUN_MARGIN["left"]
+                   - _DAERYUN_MARGIN["right"] - _COL_GAP_2COL) // 2 - 500
+_BOX_WIDTH_1COL = 42000            # 1단 본문 박스/표 폭(148mm, 기존 table_begin 기본값)
+
 
 def _scale_table_total_width(tbl: str, target: int) -> str:
     """표 XML 의 셀 너비를 비율 보존하며 총너비 ``target`` 으로 스케일(+ 표 <hp:sz> 갱신)."""
@@ -1841,19 +1862,25 @@ def _apply_body_columns(hwpx_path: str | Path, gap_mm: float = 8.0, top_mm: floa
     """본문 섹션을 2단(colPr colCount=1→2)으로 + 위 여백을 머릿말 헤더 높이에 맞춤(저장 후 XML).
 
     *간단 헤더를 머릿말에 그린 뒤에만* 호출(write 가 columns==2 면 compact_header 를 머릿말에).
-    머릿말 헤더가 짧아야 우측 단과 안 겹친다(§42-5 — 리치 헤더는 겹침). 폼(대수회)은
-    `margin header == top == 머릿말 textHeight` 로 정렬해 단 시작점=머릿말 밴드 끝(겹침 0,
-    빈 공간 0). 그 패턴을 그대로 모방 — `top_mm` 을 컴팩트 헤더 실제 높이로 받아 *top 과 header
-    (머릿말 밴드 높이) 둘 다* 그 값으로 패치한다. 과거 top 42mm 고정은 헤더(~15mm)보다 과대해
-    매 페이지 ~27mm 낭비 → 페이지 수 증가였다(§42-6). COM MultiColumn 작동 안 함(§42)이라
-    colPr XML 직접 패치가 유일. Returns: 패치한 섹션 수.
+    여백 = 대수회 검증 폼(좌우20·하20·꼬릿10, 사용자 2026-06-24). 상단/머릿말 밴드 높이는
+    폼의 `header == top == textHeight` 정렬을 모방 — 컴팩트 헤더 실제 높이(top_mm)로 받되
+    대수회 top(15mm)을 바닥값으로(헤더 길어지면 grow, 겹침 0). 과거 top 42mm·좌우 30mm 고정은
+    과대였다(§42-6/7). COM MultiColumn 작동 안 함(§42)이라 colPr·margin XML 직접 패치가 유일.
+    Returns: 패치한 섹션 수.
     """
     hwpx_path = Path(hwpx_path)
     with zipfile.ZipFile(hwpx_path) as z:
         infos = z.infolist()
         contents = {i.filename: z.read(i.filename) for i in infos}
     gap = int(round(gap_mm * 283.465))
-    top = int(round(top_mm * 283.465))
+    # top/header = max(대수회 15mm, 컴팩트 헤더 실제 높이) — 보통은 대수회값, 헤더 길면 grow.
+    top = max(_DAERYUN_MARGIN["top"], int(round(top_mm * 283.465)))
+    # 대수회 여백 한 벌(좌우/하/꼬릿 고정 + top/header 정렬). HWPX 속성 순서 유지.
+    margin_xml = (
+        f'<hp:margin header="{top}" footer="{_DAERYUN_MARGIN["footer"]}" gutter="0" '
+        f'left="{_DAERYUN_MARGIN["left"]}" right="{_DAERYUN_MARGIN["right"]}" '
+        f'top="{top}" bottom="{_DAERYUN_MARGIN["bottom"]}"/>'
+    )
     n = 0
     for fn in list(contents):
         if not re.search(r'section\d+\.xml$', fn):
@@ -1862,11 +1889,8 @@ def _apply_body_columns(hwpx_path: str | Path, gap_mm: float = 8.0, top_mm: floa
         new = re.sub(
             r'(<hp:colPr\b[^>]*\bcolCount=")1("[^>]*\bsameGap=")\d+(")',
             lambda m: f"{m.group(1)}2{m.group(2)}{gap}{m.group(3)}", s)
-        new = re.sub(r'(<hp:margin\b[^>]*\btop=")\d+(")',
-                     lambda m: m.group(1) + str(top) + m.group(2), new)
-        # 머릿말 밴드 높이(header)도 top 과 같게 — 폼처럼 밴드 끝 = 본문 시작(빈 공간 0).
-        new = re.sub(r'(<hp:margin\b[^>]*\bheader=")\d+(")',
-                     lambda m: m.group(1) + str(top) + m.group(2), new)
+        # 페이지 여백(secPr 의 <hp:margin>) 전체를 대수회 한 벌로 교체. 섹션당 1개라 전치환 안전.
+        new = re.sub(r'<hp:margin\b[^>]*/>', margin_xml, new)
         if new != s:
             n += 1
             contents[fn] = new.encode("utf-8")
@@ -2143,7 +2167,9 @@ def write_exam_to_hwp(
             hdr_meta = dict(header_meta or {})
             if not hdr_meta.get("title"):
                 hdr_meta["title"] = document.title or ""
-            top_mm = compact_header_height_mm(hdr_meta) + 3.0  # +안전 여유
+            # 헤더 실제 높이 — _apply_body_columns 가 대수회 top(15mm)을 바닥값으로 max().
+            # 보통 헤더(제목+정보 ~12mm) < 15mm 라 정확히 대수회값, 길면 grow(겹침 0).
+            top_mm = compact_header_height_mm(hdr_meta)
             _apply_body_columns(output_path, top_mm=top_mm)
         except Exception as e:  # noqa: BLE001
             logger.warning("HWPX 후처리 실패(_apply_body_columns): %s", e)
