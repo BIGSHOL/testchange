@@ -15,6 +15,9 @@ from typing import Optional
 
 from core.hwp_com import CONVERSION_VISIBLE, HwpSession, CIRCLE_NUMBERS
 from core.template_headers import (
+    ACCENT_TEXT_MARK,
+    ACCENT_WHITE_FILL,
+    ACCENT_WHITE_INK,
     DEFAULT_TEMPLATE,
     render_template_header,
     resolve_accent_rgb,
@@ -1704,6 +1707,125 @@ def _style_header_runs(hwpx_path: str | Path) -> int:
     return total
 
 
+# ── accent 헤더 색 주입 (PUA 센티넬 기반) ────────────────────────────────
+# 헤더 함수(_header_modern/workbook/yuhyung/jaseup)가 셀/런 텍스트 앞에 마커를 박고,
+# _apply_accent_header 가 변환 후 그 마커를 찾아 faceColor(채운 배너)/textColor(흰·accent
+# 글자)를 적용한 뒤 마커를 제거한다. set_char_shape 에 색 인자가 없어(COM 한계) XML 후처리.
+# 마커는 PUA(U+E010~, template_headers 에 정의) — 본문 미사용 코드포인트라 충돌 0,
+# 처리 후 전량 strip(tofu 방지).
+_ACCENT_MARKS = (ACCENT_WHITE_INK, ACCENT_TEXT_MARK, ACCENT_WHITE_FILL)
+_ACCENT_INK_HEX = "#0E0E10"
+
+
+def _accent_bf_def(key: int, face_hex: str) -> dict:
+    """faceColor=face_hex 채운 borderFill 정의(테두리도 같은 색=배너 솔리드, 선 안 보임)."""
+    return {key: (
+        '<hh:borderFill id="{{BF%d}}" threeD="0" shadow="0" centerLine="NONE" '
+        'breakCellSeparateLine="0"><hh:slash type="NONE" Crooked="0" isCounter="0"/>'
+        '<hh:backSlash type="NONE" Crooked="0" isCounter="0"/>'
+        '<hh:leftBorder type="SOLID" width="0.12 mm" color="%s"/>'
+        '<hh:rightBorder type="SOLID" width="0.12 mm" color="%s"/>'
+        '<hh:topBorder type="SOLID" width="0.12 mm" color="%s"/>'
+        '<hh:bottomBorder type="SOLID" width="0.12 mm" color="%s"/>'
+        '<hh:diagonal type="SOLID" width="0.1 mm" color="#000000"/>'
+        '<hc:fillBrush><hc:winBrush faceColor="%s" hatchColor="#000000" alpha="0"/>'
+        '</hc:fillBrush></hh:borderFill>'
+    ) % (key, face_hex, face_hex, face_hex, face_hex, face_hex)}
+
+
+def _apply_accent_header(hwpx_path: str | Path, accent_rgb: tuple[int, int, int]) -> int:
+    """accent 템플릿 헤더의 PUA 센티넬 → 색(저장 후 XML). 마커 없으면 no-op(jeongtong/pyeongga).
+
+    U+E010 흰글자+검정(ink)배너 / U+E011 accent 글자 / U+E012 흰글자+accent 배너.
+    셀 배경(채운 배너)은 borderFillIDRef 교체, 글자색은 charPr 복제(textColor). 끝에 마커 제거.
+    Returns: 색 적용한 런 수.
+    """
+    hwpx_path = Path(hwpx_path)
+    with zipfile.ZipFile(hwpx_path) as z:
+        infos = z.infolist()
+        contents = {i.filename: z.read(i.filename) for i in infos}
+    header_fn = next((f for f in contents if f.endswith("header.xml")), None)
+    if header_fn is None:
+        return 0
+    r, g, b = accent_rgb
+    accent_hex = "#%02X%02X%02X" % (r, g, b)
+    state = {"header": contents[header_fn].decode("utf-8")}
+
+    secs = [fn for fn in contents if re.search(r'section\d+\.xml$', fn)]
+    if not any(m in contents[fn].decode("utf-8", "replace") for fn in secs for m in _ACCENT_MARKS):
+        return 0
+
+    fill_cache: dict = {}
+
+    def fill_id(face_hex: str) -> int:
+        if face_hex not in fill_cache:
+            key = 80 + len(fill_cache)
+            id_map, state["header"] = _append_borderfills(
+                state["header"], _accent_bf_def(key, face_hex), [key])
+            fill_cache[face_hex] = id_map[key]
+        return fill_cache[face_hex]
+
+    total = 0
+    for fn in secs:
+        s = contents[fn].decode("utf-8")
+        if not any(m in s for m in _ACCENT_MARKS):
+            continue
+        # 1) 셀 배경 — 마커 든 셀의 borderFillIDRef 교체.
+        out, p = [], 0
+        while True:
+            i = s.find("<hp:tc", p)
+            if i < 0:
+                out.append(s[p:]); break
+            cell, end = _tbl_balanced(s, i, "hp:tc")
+            if end < 0:
+                out.append(s[p:]); break
+            out.append(s[p:i])
+            ctxt = "".join(re.findall(r'<hp:t>(.*?)</hp:t>', cell, flags=re.S))
+            face = (_ACCENT_INK_HEX if ACCENT_WHITE_INK in ctxt
+                    else accent_hex if ACCENT_WHITE_FILL in ctxt else None)
+            if face is not None:
+                bid = fill_id(face)
+                cell = re.sub(r'(<hp:tc\b[^>]*\bborderFillIDRef=")\d+(")',
+                              lambda m: m.group(1) + str(bid) + m.group(2), cell, count=1)
+            out.append(cell)
+            p = end
+        s = "".join(out)
+
+        # 2) 런 글자색 — 마커별 textColor.
+        def _one_run(m: "re.Match") -> str:
+            nonlocal total
+            run = m.group(0)
+            cpref = re.search(r'charPrIDRef="(\d+)"', run)
+            tm = re.search(r'<hp:t>(.*?)</hp:t>', run, re.S)
+            if not cpref or not tm:
+                return run
+            txt = tm.group(1)
+            if ACCENT_WHITE_INK in txt or ACCENT_WHITE_FILL in txt:
+                color = "#FFFFFF"
+            elif ACCENT_TEXT_MARK in txt:
+                color = accent_hex
+            else:
+                return run
+            new_id, state["header"] = _clone_charpr(
+                state["header"], int(cpref.group(1)),
+                lambda bdy: re.sub(r'textColor="[^"]*"', 'textColor="%s"' % color, bdy, count=1))
+            if new_id is None:
+                return run
+            total += 1
+            return re.sub(r'charPrIDRef="\d+"', 'charPrIDRef="%d"' % new_id, run, count=1)
+
+        s = re.sub(r'<hp:run\b[^>]*>.*?</hp:run>', _one_run, s, flags=re.S)
+
+        # 3) 모든 마커 제거(tofu 방지).
+        for mk in _ACCENT_MARKS:
+            s = s.replace(mk, "")
+        contents[fn] = s.encode("utf-8")
+
+    contents[header_fn] = state["header"].encode("utf-8")
+    _rewrite_zip(hwpx_path, infos, contents)
+    return total
+
+
 def _thicken_header_outer_borders(
     hwpx_path: str | Path, thick: str = "0.5 mm", thin: str = "0.12 mm",
 ) -> int:
@@ -1955,6 +2077,13 @@ def write_exam_to_hwp(
         _fit_header_tables(output_path, margins)
     except Exception as e:  # noqa: BLE001
         logger.warning("HWPX 후처리 실패(_fit_header_tables): %s", e)
+    # accent 템플릿 헤더의 PUA 센티넬 → 색(채운 배너 faceColor + 흰/accent 글자). 마커
+    # 없으면 no-op(jeongtong/pyeongga). COM 헤더 경로에서 색을 입히는 유일한 수단.
+    try:
+        accent_rgb = resolve_accent_rgb(template or DEFAULT_TEMPLATE, accent_color)
+        _apply_accent_header(output_path, accent_rgb)
+    except Exception as e:  # noqa: BLE001
+        logger.warning("HWPX 후처리 실패(_apply_accent_header): %s", e)
     # 저장 후 본문 글자모양의 장평/상대크기 0(투명) 보정 — 템플릿 상속으로
     # 본문이 안 보이는 문제 방지. COM 종료 뒤 XML 직접 패치(안전·결정적).
     try:

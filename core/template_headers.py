@@ -47,6 +47,14 @@ TEMPLATE_DEFAULT_ACCENT: dict[str, tuple[int, int, int]] = {
 
 _INK = (0x0E, 0x0E, 0x10)
 
+# accent 헤더 색 마커(PUA) — set_char_shape 에 색 인자가 없어(COM 한계) 색은 저장 후
+# XML 후처리(hwp_com_writer._apply_accent_header)로 입힌다. 헤더 함수가 셀/런 텍스트
+# 앞에 이 마커를 박으면 후처리가 faceColor(채운 배너)/textColor(흰·accent 글자)를 적용 후
+# 마커를 제거한다. 두 모듈이 같은 코드포인트를 써야 하므로 *여기(producer)*에 정의.
+ACCENT_WHITE_INK = chr(0xE010)    # 흰 글자 + ink(#0E0E10) 셀 배경 (검정 배너)
+ACCENT_TEXT_MARK = chr(0xE011)    # accent 색 글자 (배경 없음)
+ACCENT_WHITE_FILL = chr(0xE012)   # 흰 글자 + accent 셀 배경 (accent 로고/배너)
+
 
 def _hex_to_rgb(value: str) -> tuple[int, int, int] | None:
     """'#1B2A4E' / '1B2A4E' → (27, 42, 78). 형식 불량이면 None."""
@@ -286,7 +294,34 @@ def _header_jaseup(s, meta: dict, accent: tuple[int, int, int]) -> None:
 
 
 def _header_yuhyung(s, meta: dict, accent: tuple[int, int, int]) -> None:
-    _header_default(s, meta)
+    """유형 훈련지 — 검정(ink) 유형 배너(흰 글자) + accent 핵심전략 라인.
+
+    웹 YuhyungTemplate 헤더와 일치. 배너 배경/글자색은 _apply_accent_header(센티넬) 후처리.
+    """
+    name = _g(meta, "patternName") or _g(meta, "title")
+    # 유형 배너 — 1×1 검정 셀(흰 글자). ACCENT_WHITE_INK 센티넬 → ink 배경 + 흰 글자.
+    s.align_left()
+    s.table_begin(1, 1, line_width=_HEADER_WIDTH)
+    s.align_left()
+    s.set_char_shape(10, bold=True)
+    s.text(ACCENT_WHITE_INK + "PATTERN    ")
+    s.set_char_shape(15, bold=True)
+    s.text(ACCENT_WHITE_INK + (name or "유형 훈련"))
+    s.set_char_shape(s.base_pt, bold=False)
+    s.table_end()
+    s.align_left()
+    # 핵심 전략 라인 (accent 라벨 + 전략 텍스트). patternStrategy 있을 때만.
+    strat = _g(meta, "patternStrategy")
+    if strat:
+        s.break_para()
+        s.align_left()
+        s.set_char_shape(10, bold=True)
+        s.text(ACCENT_TEXT_MARK + "핵심 전략    ")
+        s.set_char_shape(s.base_pt, bold=False)
+        s.text(strat)
+    s.break_para()
+    s.align_left()
+    s.break_para()
 
 
 _DISPATCH = {
