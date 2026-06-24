@@ -228,8 +228,49 @@ def _header_jeongtong(s, meta: dict, accent: tuple[int, int, int]) -> None:
     s.set_char_shape(s.base_pt, bold=False)
 
 
+def _pyeongga_subject(meta: dict) -> str:
+    """제목 박스 좌측 큰 글씨 — "수학 영역"(과목 + 영역). 웹 PyeonggaTemplate 고정 문구."""
+    subj = _g(meta, "subject") or "수학"
+    return f"{subj} 영역"
+
+
+def _pyeongga_header_body(s, meta: dict) -> None:
+    """평가원 정밀형(수능 클론) 헤더 — 제목 박스(과목 영역 | 제 1 교시) + 안내 라인.
+
+    웹 PyeonggaTemplate 헤더와 일치(무채색 ink). 시험정보표 없음 — 수능식 고정 양식.
+    제목 박스는 1×2 표(좌 큰 글씨, 우 교시), 그 아래 5지 선다형 · 다음 물음에 답하시오.
+    """
+    # 제목 박스 (1×2): 좌 큰 "수학 영역", 우 "제 1 교시". 좌:우 ≈ 78:22(웹 flex:1 vs 124px).
+    s.align_left()
+    s.table_begin(1, 2, line_width=_HEADER_WIDTH, col_widths=[22, 6])
+    s.align_center()
+    s.set_char_shape(20, bold=True)
+    s.text(_pyeongga_subject(meta))
+    s.set_char_shape(s.base_pt, bold=False)
+    s.table_next_cell()
+    s.align_center()
+    s.set_char_shape(11, bold=True)
+    s.text("제 1 교시")
+    s.set_char_shape(s.base_pt, bold=False)
+    s.table_end()
+    s.align_left()
+    # 안내 라인 — 5지 선다형 · 다음 물음에 답하시오 (무박스, 작게). 웹은 좌/우 분리지만
+    # COM 한 줄 좌우정렬이 까다로워 한 줄로 결합(렌더 검증 후 필요시 1×2 무테 표로 분리).
+    s.break_para()
+    s.align_left()
+    s.set_char_shape(10, bold=True)
+    s.text("5지 선다형      ● 다음 물음에 답하시오.")
+    s.set_char_shape(s.base_pt, bold=False)
+    s.break_para()
+    s.align_left()
+    s.break_para()
+
+
 def _header_pyeongga(s, meta: dict, accent: tuple[int, int, int]) -> None:
-    _header_default(s, meta)
+    """평가원 정밀형 (COM 폴백 — 폼 파일 없을 때). 수능식 제목 박스 + 안내."""
+    _pyeongga_header_body(s, meta)
+    s.align_left()
+    s.set_char_shape(s.base_pt, bold=False)
 
 
 def _header_modern(s, meta: dict, accent: tuple[int, int, int]) -> None:
