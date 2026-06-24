@@ -96,17 +96,21 @@ def _register_security_module() -> bool:
 
 
 def _dispatch_hwp():
-    """HWP COM 객체를 생성한다.
+    """HWP COM 객체를 생성한다 — **late-binding(dynamic.Dispatch) 우선**.
 
-    PyInstaller로 동결(frozen)된 exe에서는 ``gencache.EnsureDispatch`` 의
-    gen_py 캐시 생성이 실패할 수 있으므로, 실패 시 late-binding
-    ``Dispatch`` 로 폴백한다. HWP API(HAction/HParameterSet 등)는 모두
-    IDispatch 속성이라 late-binding 으로도 정상 동작한다.
+    HWP API(HAction/HParameterSet/HSet/SetItem 등)는 전부 IDispatch 라 late-binding 으로
+    완전 동작하고, 이 모듈은 win32com constants 를 안 쓴다(grep 검증 2026-06-24). 배포 .exe
+    (frozen)도 이미 late-binding 으로 가동 중.
+
+    과거 early-binding(``gencache.EnsureDispatch``)은 일부 HWP 버전에서 gen_py 재생성 시
+    ``HParameterSet.HHeaderFooter`` 의 ``Type`` 등 동적 멤버가 빠진 *불완전 래퍼*를 반환해
+    ``header_begin`` 이 "object has no attribute 'Type'" 로 깨지는 간헐 실패의 근본 원인이었다
+    (§39-0/§40-4 COM flakiness — 2026-06-24 실측 확정: 캐시 정리 후 makepy 재생성해도
+    HHeaderFooter 에 Type/Item/SetItem 모두 없음). late-binding 은 DISPID 런타임 해석이라
+    캐시 손상과 무관하고 강건하다. ``win32com.client.Dispatch`` 는 gen_py 존재 시 early-binding
+    을 돌려줄 수 있어, *강제 late* 인 ``dynamic.Dispatch`` 를 쓴다.
     """
-    try:
-        return _win32.gencache.EnsureDispatch(HWP_PROGID)
-    except Exception:
-        return _win32.Dispatch(HWP_PROGID)
+    return _win32.dynamic.Dispatch(HWP_PROGID)
 
 
 def is_hwp_available() -> bool:
