@@ -1870,8 +1870,13 @@ def _apply_accent_header(hwpx_path: str | Path, accent_rgb: tuple[int, int, int]
     return total
 
 
-def _apply_body_columns(hwpx_path: str | Path, gap_mm: float = 8.0, top_mm: float = 15.0) -> int:
+def _apply_body_columns(hwpx_path: str | Path, gap_mm: float = 8.0, top_mm: float = 15.0,
+                        divider: bool = False) -> int:
     """본문 섹션을 2단(colPr colCount=1→2)으로 + 위 여백을 머릿말 헤더 높이에 맞춤(저장 후 XML).
+
+    divider=True 면 단 사이 세로 구분선(<hp:colLine>)을 colPr 안에 추가. type/width 는 OWPML
+    enum(LineType2.SOLID, LineWidth."0.12 mm" — hwpxlib 모델로 확정 2026-06-24). 실측 렌더로
+    중앙 세로선 확인. (구분선은 폼/COM 선례 없어 colPr XML 직접 주입이 유일.)
 
     *간단 헤더를 머릿말에 그린 뒤에만* 호출(write 가 columns==2 면 compact_header 를 머릿말에).
     여백 = 대수회 검증 폼(좌우20·하20·꼬릿10, 사용자 2026-06-24). 상단/머릿말 밴드 높이는
@@ -1901,6 +1906,13 @@ def _apply_body_columns(hwpx_path: str | Path, gap_mm: float = 8.0, top_mm: floa
         new = re.sub(
             r'(<hp:colPr\b[^>]*\bcolCount=")1("[^>]*\bsameGap=")\d+(")',
             lambda m: f"{m.group(1)}2{m.group(2)}{gap}{m.group(3)}", s)
+        # 컬럼 구분선: 2단 colPr(self-closing)에 <hp:colLine> 자식 주입(ColPrWriter 순서: colSz
+        # 들 다음 colLine — 여기선 colSz 없어 colLine 만). enum 값 정확해야 Hancom 이 그림.
+        if divider:
+            new = re.sub(
+                r'(<hp:colPr\b[^>]*\bcolCount="2"[^>]*?)/>',
+                r'\1><hp:colLine type="SOLID" width="0.12 mm" color="#000000"/></hp:colPr>',
+                new)
         # 페이지 여백(secPr 의 <hp:margin>) 전체를 대수회 한 벌로 교체. 섹션당 1개라 전치환 안전.
         new = re.sub(r'<hp:margin\b[^>]*/>', margin_xml, new)
         if new != s:
@@ -2095,6 +2107,7 @@ def write_exam_to_hwp(
     form_mode: bool = False,
     margins: dict | None = None,
     use_endnote: bool = True,
+    divider: bool = False,
 ) -> Path:
     """편의 함수: ExamDocument를 HWP COM으로 .hwpx 파일로 저장.
 
@@ -2182,7 +2195,7 @@ def write_exam_to_hwp(
             # 헤더 실제 높이 — _apply_body_columns 가 대수회 top(15mm)을 바닥값으로 max().
             # 보통 헤더(제목+정보 ~12mm) < 15mm 라 정확히 대수회값, 길면 grow(겹침 0).
             top_mm = compact_header_height_mm(hdr_meta)
-            _apply_body_columns(output_path, top_mm=top_mm)
+            _apply_body_columns(output_path, top_mm=top_mm, divider=divider)
         except Exception as e:  # noqa: BLE001
             logger.warning("HWPX 후처리 실패(_apply_body_columns): %s", e)
     # 저장 후 본문 글자모양의 장평/상대크기 0(투명) 보정 — 템플릿 상속으로

@@ -72,6 +72,7 @@ def main() -> int:
         accent_color=style["accentColor"],
         columns=style["columns"],
         margins=style.get("margins"),
+        divider=bool(style.get("divider")),  # 2단 컬럼 구분선(웹 columnDivider 토글)
         use_endnote=False,  # 웹 내보내기: 평문 문항번호(미주 첨자·문서끝 미주목록 제거 — 완성도)
     )  # COM → save_hwpx → .hwpx
 

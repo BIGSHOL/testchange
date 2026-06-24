@@ -142,5 +142,7 @@ def adapt_payload(payload: dict) -> tuple[dict, dict, dict]:
         "accentColor": _opt_str(st, "accentColor"),
         "columns": columns if columns in (1, 2) else 1,
         "margins": margins,
+        # 컬럼 구분선(2단 전용). 웹 columnDivider 토글. 누락 시 False(회귀 0).
+        "divider": bool(st.get("divider")),
     }
     return envelope, meta, style
