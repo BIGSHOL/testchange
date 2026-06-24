@@ -516,6 +516,9 @@ class HwpComWriter:
         # 폼 모드 — 폼 파일(template_path)이 헤더를 제공하므로 COM 헤더를 그리지 않고
         # 본문만 append. write_exam_to_hwp 가 form_mode 일 때 True 주입.
         self._form_mode = False
+        # 정답·해설 페이지(웹 showAnswers/quickAnswerOnly, §44). write_exam_to_hwp 주입.
+        self._show_answers = False
+        self._quick_answer_only = False
 
     # ── 콘텐츠 블록 ────────────────────────────────────────
     def _write_block(self, block: ContentBlock, inline: bool = False) -> None:
@@ -1157,6 +1160,67 @@ class HwpComWriter:
                 self.s.align_left()
             self._write_question(question)
             prev_was_mc = bool(question.choices)
+
+        # 정답·해설 페이지(§44) — 정답/해설이 하나라도 있으면 문제 뒤 새 쪽에 추가.
+        if self._show_answers and any(q.answer or q.solution for q in all_q):
+            self._write_answer_page(all_q)
+
+    def _write_answer_inline(self, lines: list[list[ContentBlock]]) -> None:
+        """정답/해설 한 줄들을 인라인으로 — 줄 사이는 공백(정답은 보통 1줄)."""
+        for li, line in enumerate(lines):
+            if li > 0:
+                self.s.text(" ")
+            for blk in line:
+                self._write_block(blk, inline=True)
+
+    def _write_answer_page(self, questions: list[Question]) -> None:
+        """문제 뒤 새 쪽에 '정답 및 해설' 페이지 — 빠른 정답 + (옵션) 문항별 해설(§44).
+
+        웹 PrintAnswerKeyPage 미러: 제목 → 빠른 정답(번호·정답 흐름) → 문항별 정답+해설.
+        본문과 같은 섹션이라 문서 단 설정 상속(2단이면 2단 흐름 = 웹 2-col 해설과 일치).
+        _write_block 등 기존 프리미티브만 조합 — 신규 렌더 로직 없음.
+        """
+        self.s.break_page()
+        # 제목 — 가운데·볼드·살짝 큰 글자(note_pt+2).
+        self.s.align_center()
+        self.s.set_char_shape(self.s.note_pt + 2, bold=True)
+        self.s.text("정답 및 해설")
+        self.s.set_char_shape(self.s.base_pt, bold=False)
+        self.s.break_para()
+        self.s.break_para()
+        self.s.align_left()
+
+        # 빠른 정답 — 번호 볼드 + 정답 인라인, 항목 사이 간격(자연 줄바꿈, 웹 flex-wrap 미러).
+        for q in questions:
+            self.s.set_char_shape(self.s.base_pt, bold=True)
+            self.s.text(f"{q.number}. ")
+            self.s.set_char_shape(self.s.base_pt, bold=False)
+            if q.answer:
+                self._write_answer_inline(q.answer)
+            else:
+                self.s.text("-")
+            self.s.text("   ")   # 항목 간격
+        self.s.break_para()
+
+        # 문항별 해설 — quick_answer_only 면 빠른 정답에서 끝.
+        if self._quick_answer_only:
+            return
+        self.s.break_para()
+        for q in questions:
+            if not q.solution:
+                continue
+            self.s.set_char_shape(self.s.base_pt, bold=True)
+            self.s.text(f"{q.number}. ")
+            self.s.set_char_shape(self.s.base_pt, bold=False)
+            self.s.text("정답: ")
+            if q.answer:
+                self._write_answer_inline(q.answer)
+            self.s.break_para()
+            for line in q.solution:
+                for blk in line:
+                    self._write_block(blk, inline=True)
+                self.s.break_para()
+            self.s.break_para()   # 문항 간 간격
 
 
 def _rewrite_zip(hwpx_path: "str | Path", infos, contents: dict) -> None:
@@ -2187,6 +2251,8 @@ def write_exam_to_hwp(
     use_endnote: bool = True,
     divider: bool = False,
     font: dict | None = None,
+    show_answers: bool = False,
+    quick_answer_only: bool = False,
 ) -> Path:
     """편의 함수: ExamDocument를 HWP COM으로 .hwpx 파일로 저장.
 
@@ -2229,6 +2295,9 @@ def write_exam_to_hwp(
         # 로 평문 번호 — 미주 마크(첨자) + 문서끝 미주 목록("1.2.3…") 잔여 제거(완성도, 2026-06-23).
         # 웹 payload 는 문항번호가 명시·정렬되어 평문이 정확. GUI 등 다른 경로는 기본 True(불변).
         writer._use_endnote = use_endnote
+        # 정답·해설 페이지(§44) — write() 가 문제 뒤 새 쪽에 '정답 및 해설' 추가.
+        writer._show_answers = show_answers
+        writer._quick_answer_only = quick_answer_only
         writer.write(document)
         s.save_hwpx(output_path)
     # 폼 모드 — 폼의 {{토큰}} 을 시험지 정보로 치환(머릿말/꼬릿말·헤더 블록 모두).

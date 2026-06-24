@@ -74,6 +74,8 @@ def main() -> int:
         margins=style.get("margins"),
         divider=bool(style.get("divider")),  # 2단 컬럼 구분선(웹 columnDivider 토글)
         font=style.get("font"),  # 폰트팩 글꼴면 {serif, sans} (None 이면 함초롬 유지)
+        show_answers=bool(style.get("show_answers")),  # 정답·해설 페이지 포함(웹 showAnswers, §44)
+        quick_answer_only=bool(style.get("quick_answer_only")),  # 빠른 정답만(해설 생략)
         use_endnote=False,  # 웹 내보내기: 평문 문항번호(미주 첨자·문서끝 미주목록 제거 — 완성도)
     )  # COM → save_hwpx → .hwpx
 

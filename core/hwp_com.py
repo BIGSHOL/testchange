@@ -441,6 +441,13 @@ class HwpSession:
         """단락 나누기(새 줄)."""
         self.hwp.HAction.Run("BreakPara")
 
+    def break_page(self) -> None:
+        """쪽 나누기(강제 새 페이지). 정답·해설 페이지를 문제 뒤 새 쪽에 시작할 때(§44).
+
+        late-binding(dynamic.Dispatch)이라 BreakPage 액션 정상 동작. 실패해도 예외 전파만
+        (호출부 _write_answer_page 는 페이지 안 나뉘어도 정답 내용은 이어 출력)."""
+        self.hwp.HAction.Run("BreakPage")
+
     def align_center(self) -> None:
         """현재 단락 가운데 정렬."""
         self.hwp.HAction.Run("ParagraphShapeAlignCenter")

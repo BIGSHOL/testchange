@@ -134,6 +134,53 @@ def _move_trailing_figure_before_box(raws: list[dict]) -> list[dict]:
     return raws[:box_i] + [last] + raws[box_i:-1]
 
 
+# ── 정답·해설 파싱(§44) ─────────────────────────────────────
+# 정답/해설 문자열(마크다운+LaTeX) → 줄별 ContentBlock 런. 문제 본문 _finalize_contents 는
+# 적용하지 않는다(박스/배점/선택지 정규화는 본문 전용 — 해설 오염 방지). $...$·\cmd·혼합수식은
+# _parse_content_block(=_parse_raw_blocks) 의 forward-split 으로 equation 블록 분리(§35 linchpin).
+_MD_HEADING_RE = re.compile(r'(?m)^\s{0,3}#{1,6}\s*')
+_MD_BLOCKQUOTE_RE = re.compile(r'(?m)^\s{0,3}>\s?')
+# 줄 전체가 단일 $...$ 수식(안에 $ 없음). 정답 "$\frac{4}{3}$" 처럼 줄 전체가 한 수식일 때
+# _parse_content_block 의 $ 경로가 len==1 이면 return 안 하고 _split_latex_commands 로 떨어져
+# 리터럴 $ 가 새는 fall-through 버그 회피(step4/5 엔 단일수식 가드 있으나 $ 경로엔 없음).
+_FULL_EQ_RE = re.compile(r'^\$(?!\$)([^$]+)\$$')
+
+
+def _parse_inline_run(text: str) -> list[ContentBlock]:
+    """정답/해설 한 줄 → ContentBlock 런. 줄 전체가 단일 $...$ 수식이면 통째 equation,
+    아니면 _parse_raw_blocks(인라인 분리 — 본문 text 와 동일 경로)."""
+    m = _FULL_EQ_RE.match(text.strip())
+    if m:
+        inner = m.group(1).strip()
+        if inner:
+            return [ContentBlock(type=ContentType.EQUATION, value=inner)]
+    return _parse_raw_blocks([{"type": "text", "value": text}])
+
+
+def _strip_md_decoration(text: str) -> str:
+    """해설/정답 마크다운 장식 제거 — bold(``**``)·헤딩(``#``)·인용(``>``) 마커를 평문화.
+    ``$$display$$`` 는 인라인 ``$...$`` 로 강등(정답페이지는 인라인 렌더라 display 불필요)."""
+    text = text.replace("$$", "$").replace("**", "")
+    text = _MD_HEADING_RE.sub("", text)
+    text = _MD_BLOCKQUOTE_RE.sub("", text)
+    return text
+
+
+def _parse_markdown_lines(text: str) -> list[list[ContentBlock]]:
+    """정답/해설 문자열 → 줄별 ContentBlock 런 리스트(빈 줄 제외, 수식 forward-split)."""
+    if not isinstance(text, str) or not text.strip():
+        return []
+    out: list[list[ContentBlock]] = []
+    for raw_line in _strip_md_decoration(text).split("\n"):
+        line = raw_line.strip()
+        if not line:
+            continue
+        blocks = _parse_inline_run(line)
+        if blocks:
+            out.append(blocks)
+    return out
+
+
 def _parse_question(q_data: dict) -> Question:
     """문제 dict를 Question 객체로 변환."""
     question = Question(
@@ -213,6 +260,10 @@ def _parse_question(q_data: dict) -> Question:
     for sub_data in (q_data.get("sub_questions") or q_data.get("subquestions") or []):
         sub = _parse_question(sub_data)
         question.sub_questions.append(sub)
+
+    # 정답·해설(웹 정답페이지용, §44) — 마크다운/LaTeX 문자열을 줄별 블록으로 파싱. 없으면 [].
+    question.answer = _parse_markdown_lines(q_data.get("answer") or "")
+    question.solution = _parse_markdown_lines(q_data.get("solution") or "")
 
     return question
 

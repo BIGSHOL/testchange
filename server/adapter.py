@@ -80,6 +80,13 @@ def _adapt_problem(p: dict) -> dict:
     if subs:
         q["sub_questions"] = [_adapt_problem(s) for s in subs if isinstance(s, dict)]
 
+    # 정답·해설(웹 정답페이지용, §44) — 마크다운+LaTeX 문자열 그대로 전달(엔진 content_parser
+    # 가 줄별 블록으로 파싱). 누락이면 미전달 → Question.answer/solution 빈 리스트.
+    if isinstance(p.get("answer"), str):
+        q["answer"] = p["answer"]
+    if isinstance(p.get("solution"), str):
+        q["solution"] = p["solution"]
+
     return q
 
 
@@ -160,5 +167,8 @@ def adapt_payload(payload: dict) -> tuple[dict, dict, dict]:
         "divider": bool(st.get("divider")),
         # 폰트팩 글꼴면 {serif, sans}. 웹이 HWP face 이름을 정함. 누락/빈값이면 None(엔진 무변경).
         "font": _font_pair(st.get("font")),
+        # 정답·해설 페이지(웹 showAnswers/quickAnswerOnly 토글, §44). 누락 시 False(회귀 0).
+        "show_answers": bool(st.get("showAnswers")),
+        "quick_answer_only": bool(st.get("quickAnswerOnly")),
     }
     return envelope, meta, style
