@@ -205,6 +205,7 @@ def _parse_question(q_data: dict) -> Question:
         number=q_data.get("number", 0),
         score=q_data.get("score"),
         label_type=q_data.get("label_type") or "",   # 서답형/서술형/단답형(폼 라벨·정답 동기화용)
+        topic=(q_data.get("topic") or "").strip(),    # 단원명(웹 showChapter, §45). 본문 위 라벨.
     )
 
     # 배점 처리(원시 단계): 숫자 분리 전에 raw 텍스트에서 [N점]을 추출·제거한다.

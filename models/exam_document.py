@@ -50,6 +50,8 @@ class Question:
     # 서술형 라벨 유형(서답형/서술형/단답형 등). 원본에 따라 다르며 크롭/OCR 단계에서
     # 판별한다. 빈 값이면 폼 채움 시 기본값("서답형") 사용. choices 가 없으면 서술형 문항.
     label_type: str = ""
+    # 단원명(웹 showChapter 토글, §45). 있으면 본문 문항 위에 작은 라벨로 출력. 빈 값이면 생략.
+    topic: str = ""
     # 정답·해설(웹 내보내기 정답페이지용, §44). 각각 *줄별 ContentBlock 런* 리스트(한 줄 =
     # 인라인 블록들). content_parser 가 마크다운/LaTeX 문자열을 파싱해 채운다($...$ 는
     # forward-split 으로 equation 블록 분리). 빈 리스트면 그 문항은 정답페이지에서 생략.

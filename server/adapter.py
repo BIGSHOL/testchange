@@ -65,6 +65,10 @@ def _adapt_problem(p: dict) -> dict:
     if p.get("labelType"):
         q["label_type"] = p["labelType"]
 
+    # 단원명(웹 showChapter, §45) — 항상 통과(엔진 writer 가 show_chapter 플래그로 렌더 결정).
+    if isinstance(p.get("topic"), str) and p["topic"].strip():
+        q["topic"] = p["topic"].strip()
+
     contents = _clean_contents(p.get("contents"))
     if not contents:
         text = (p.get("text") or "").strip()
@@ -170,5 +174,11 @@ def adapt_payload(payload: dict) -> tuple[dict, dict, dict]:
         # 정답·해설 페이지(웹 showAnswers/quickAnswerOnly 토글, §44). 누락 시 False(회귀 0).
         "show_answers": bool(st.get("showAnswers")),
         "quick_answer_only": bool(st.get("quickAnswerOnly")),
+        # 문항 간 세로 간격(웹 spacing px, §45). 유효 양수일 때만. 누락 시 None(기존 빈 줄).
+        "spacing": (st.get("spacing")
+                    if isinstance(st.get("spacing"), (int, float)) and st.get("spacing") > 0
+                    else None),
+        # 단원명 표시(웹 showChapter 토글, §45). 누락 시 False(회귀 0).
+        "show_chapter": bool(st.get("showChapter")),
     }
     return envelope, meta, style

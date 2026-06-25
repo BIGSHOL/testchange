@@ -45,6 +45,10 @@ _ESSAY_SEPARATOR = "──────────── 서술형 ────�
 # 2단(칼럼 폭 ~84mm)에선 위 구분선이 너무 길어 줄바꿈에서 갈라진다(서술형이 우측 끝, 트레일링
 # 대시가 다음 줄로 — 사용자 2026-06-24). 대시 수를 줄여 칼럼 한 줄에 맞춘다.
 _ESSAY_SEPARATOR_2COL = "────── 서술형 ──────"
+# 웹 spacing(BodyContainer flex gap, px) → 문항 간 빈 줄의 글자 크기(pt) 환산 계수(§45).
+# HWP 빈 단락 높이 ≈ 글자크기 × 줄간격(~1.6). px→pt(~0.75) / 1.6 ≈ 0.47 → 렌더 보정값 0.5.
+# 웹 기본 spacing 18px ≈ 9pt 빈 줄(기존 기본 빈 줄과 비슷), normal 32px ≈ 16pt, max 88px ≈ 44pt.
+_SPACING_PX_TO_PT = 0.5
 # 서술형 답안 작성 공간 줄 수
 _ESSAY_BLANK_LINES = 6
 
@@ -524,6 +528,10 @@ class HwpComWriter:
         # 정답·해설 페이지(웹 showAnswers/quickAnswerOnly, §44). write_exam_to_hwp 주입.
         self._show_answers = False
         self._quick_answer_only = False
+        # 문항 간 세로 간격(웹 spacing px, §45). None 이면 기존 동작(빈 줄 1개). write_exam_to_hwp 주입.
+        self._spacing: float | None = None
+        # 단원명 라벨 표시(웹 showChapter, §45). True 면 _write_question 이 문항 위에 topic 라벨.
+        self._show_chapter = False
 
     # ── 콘텐츠 블록 ────────────────────────────────────────
     def _write_block(self, block: ContentBlock, inline: bool = False) -> None:
@@ -898,6 +906,13 @@ class HwpComWriter:
         # 총점 소문항 부모는 본문에 "[총 N점]"으로 이미 표기됨 → 인라인 배점 생략(중복 방지).
         show_score = bool(question.score) and not subs_have_scores
 
+        # 단원명 라벨(웹 showChapter 토글, §45) — top-level 문항 번호 위에 작은 글씨. 빈 값이면 생략.
+        if top_level and self._show_chapter and question.topic:
+            self.s.set_char_shape(9)
+            self.s.text(question.topic)
+            self.s.set_char_shape(self.s.base_pt)
+            self.s.break_para()
+
         # 본문 첫 텍스트 블록이 *자기 문항번호*("4. " 등)로 시작하면 제거 — OCR 이 인쇄된 번호를
         # 본문에 포함한 일부 문항(다사중 #4)에서 아래 writer 가 번호를 또 붙여 "4. 4." 중복
         # (§38-1 의 메인 번호판). 자기 번호 + 마침표/괄호 + 공백일 때만(보수적 — "4.5" 같은
@@ -1014,8 +1029,11 @@ class HwpComWriter:
 
         # 서술형 '풀이)' 답안 공간은 넣지 않는다(사용자 요구 2026-06-02): 배점에서 끝낸다.
 
-        # 문제 간 빈 줄
-        self.s.break_para()
+        # 문제 간 빈 줄 — top-level 문항 사이만 웹 spacing(px) 반영, 소문항은 기본 빈 줄.
+        if top_level:
+            self._inter_question_gap()
+        else:
+            self.s.break_para()
 
     def _write_choice(self, choice: Choice, as_equation: bool = False) -> None:
         # 선택지는 들여쓰기 없이 좌측에 붙인다(사용자 요구 2026-06-02).
@@ -1103,6 +1121,22 @@ class HwpComWriter:
         self.s.text("풀이)")
         for _ in range(_ESSAY_BLANK_LINES):
             self.s.break_para()
+
+    def _inter_question_gap(self) -> None:
+        """문제 사이 빈 줄. 캐럿은 현재 빈 단락. spacing(px) 있으면 그 높이의 빈 줄, 없으면 기본 break.
+
+        웹 spacing(BodyContainer flex gap, px)을 빈 단락의 글자 크기(pt)로 환산해 빈 줄 높이를 제어.
+        set_char_size 에 줄높이 인자가 없어 '빈 칸 1개를 그 크기로' 두는 방식(빈 단락 높이 제어).
+        """
+        sp = self._spacing
+        if sp is None or sp <= 0:
+            self.s.break_para()
+            return
+        gap_pt = max(1, round(sp * _SPACING_PX_TO_PT))
+        self.s.set_char_size(gap_pt)
+        self.s.text(" ")
+        self.s.break_para()
+        self.s.set_char_size(self.s.base_pt)
 
     # ── 페이지 / 문서 ──────────────────────────────────────
     def _write_page(self, page: ExamPage) -> None:
@@ -2410,6 +2444,8 @@ def write_exam_to_hwp(
     font: dict | None = None,
     show_answers: bool = False,
     quick_answer_only: bool = False,
+    spacing: float | None = None,
+    show_chapter: bool = False,
 ) -> Path:
     """편의 함수: ExamDocument를 HWP COM으로 .hwpx 파일로 저장.
 
@@ -2455,6 +2491,10 @@ def write_exam_to_hwp(
         # 정답·해설 페이지(§44) — write() 가 문제 뒤 새 쪽에 '정답 및 해설' 추가.
         writer._show_answers = show_answers
         writer._quick_answer_only = quick_answer_only
+        # 문항 간 세로 간격(웹 spacing px, §45). None 이면 기존 빈 줄 1개(회귀 0).
+        writer._spacing = spacing
+        # 단원명 라벨(웹 showChapter, §45). True 면 각 문항 위에 topic 라벨(빈 topic 은 생략).
+        writer._show_chapter = show_chapter
         writer.write(document)
         s.save_hwpx(output_path)
     # 폼 모드 — 폼의 {{토큰}} 을 시험지 정보로 치환(머릿말/꼬릿말·헤더 블록 모두).

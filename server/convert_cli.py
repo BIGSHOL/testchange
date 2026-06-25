@@ -76,6 +76,8 @@ def main() -> int:
         font=style.get("font"),  # 폰트팩 글꼴면 {serif, sans} (None 이면 함초롬 유지)
         show_answers=bool(style.get("show_answers")),  # 정답·해설 페이지 포함(웹 showAnswers, §44)
         quick_answer_only=bool(style.get("quick_answer_only")),  # 빠른 정답만(해설 생략)
+        spacing=style.get("spacing"),  # 문항 간 세로 간격(웹 spacing px, §45). None 이면 기본 빈 줄
+        show_chapter=bool(style.get("show_chapter")),  # 단원명 라벨(웹 showChapter, §45)
         use_endnote=False,  # 웹 내보내기: 평문 문항번호(미주 첨자·문서끝 미주목록 제거 — 완성도)
     )  # COM → save_hwpx → .hwpx
 
