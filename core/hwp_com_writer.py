@@ -15,6 +15,8 @@ from typing import Optional
 
 from core.hwp_com import CONVERSION_VISIBLE, HwpSession, CIRCLE_NUMBERS
 from core.template_headers import (
+    ACCENT_BORDER,
+    ACCENT_RULE,
     ACCENT_TEXT_MARK,
     ACCENT_WHITE_FILL,
     ACCENT_WHITE_INK,
@@ -1931,24 +1933,32 @@ def _style_header_runs(hwpx_path: str | Path) -> int:
 # 글자)를 적용한 뒤 마커를 제거한다. set_char_shape 에 색 인자가 없어(COM 한계) XML 후처리.
 # 마커는 PUA(U+E010~, template_headers 에 정의) — 본문 미사용 코드포인트라 충돌 0,
 # 처리 후 전량 strip(tofu 방지).
-_ACCENT_MARKS = (ACCENT_WHITE_INK, ACCENT_TEXT_MARK, ACCENT_WHITE_FILL)
+_ACCENT_MARKS = (ACCENT_WHITE_INK, ACCENT_TEXT_MARK, ACCENT_WHITE_FILL,
+                 ACCENT_BORDER, ACCENT_RULE)
 _ACCENT_INK_HEX = "#0E0E10"
 
 
-def _accent_bf_def(key: int, face_hex: str) -> dict:
-    """faceColor=face_hex 채운 borderFill 정의(테두리도 같은 색=배너 솔리드, 선 안 보임)."""
+def _accent_bf_def(key: int, border_hex: str, face_hex: str, *,
+                   sides: str = "LRTB", border_mm: str = "0.12 mm") -> dict:
+    """테두리(border_hex, sides 면만 SOLID)·배경(face_hex) borderFill 정의.
+
+    sides: 'L'/'R'/'T'/'B' 조합 — 그 면만 SOLID border_hex, 나머지는 NONE.
+      배너(채운 셀)=border==face 4면, accent 박스=4면 accent+흰 배경, rule='B'만 accent.
+    """
+    def _b(tag: str, side_key: str) -> str:
+        if side_key in sides:
+            return '<hh:%s type="SOLID" width="%s" color="%s"/>' % (tag, border_mm, border_hex)
+        return '<hh:%s type="NONE" width="0.1 mm" color="#000000"/>' % tag
     return {key: (
         '<hh:borderFill id="{{BF%d}}" threeD="0" shadow="0" centerLine="NONE" '
         'breakCellSeparateLine="0"><hh:slash type="NONE" Crooked="0" isCounter="0"/>'
         '<hh:backSlash type="NONE" Crooked="0" isCounter="0"/>'
-        '<hh:leftBorder type="SOLID" width="0.12 mm" color="%s"/>'
-        '<hh:rightBorder type="SOLID" width="0.12 mm" color="%s"/>'
-        '<hh:topBorder type="SOLID" width="0.12 mm" color="%s"/>'
-        '<hh:bottomBorder type="SOLID" width="0.12 mm" color="%s"/>'
+        '%s%s%s%s'
         '<hh:diagonal type="SOLID" width="0.1 mm" color="#000000"/>'
         '<hc:fillBrush><hc:winBrush faceColor="%s" hatchColor="#000000" alpha="0"/>'
         '</hc:fillBrush></hh:borderFill>'
-    ) % (key, face_hex, face_hex, face_hex, face_hex, face_hex)}
+    ) % (key, _b("leftBorder", "L"), _b("rightBorder", "R"),
+         _b("topBorder", "T"), _b("bottomBorder", "B"), face_hex)}
 
 
 def _apply_accent_header(hwpx_path: str | Path, accent_rgb: tuple[int, int, int]) -> int:
@@ -1975,13 +1985,17 @@ def _apply_accent_header(hwpx_path: str | Path, accent_rgb: tuple[int, int, int]
 
     fill_cache: dict = {}
 
-    def fill_id(face_hex: str) -> int:
-        if face_hex not in fill_cache:
+    def fill_id(border_hex: str, face_hex: str, sides: str = "LRTB",
+                border_mm: str = "0.12 mm") -> int:
+        ck = (border_hex, face_hex, sides, border_mm)
+        if ck not in fill_cache:
             key = 80 + len(fill_cache)
             id_map, state["header"] = _append_borderfills(
-                state["header"], _accent_bf_def(key, face_hex), [key])
-            fill_cache[face_hex] = id_map[key]
-        return fill_cache[face_hex]
+                state["header"],
+                _accent_bf_def(key, border_hex, face_hex, sides=sides, border_mm=border_mm),
+                [key])
+            fill_cache[ck] = id_map[key]
+        return fill_cache[ck]
 
     total = 0
     for fn in secs:
@@ -1999,10 +2013,16 @@ def _apply_accent_header(hwpx_path: str | Path, accent_rgb: tuple[int, int, int]
                 out.append(s[p:]); break
             out.append(s[p:i])
             ctxt = "".join(re.findall(r'<hp:t>(.*?)</hp:t>', cell, flags=re.S))
-            face = (_ACCENT_INK_HEX if ACCENT_WHITE_INK in ctxt
-                    else accent_hex if ACCENT_WHITE_FILL in ctxt else None)
-            if face is not None:
-                bid = fill_id(face)
+            bid = None
+            if ACCENT_WHITE_INK in ctxt:
+                bid = fill_id(_ACCENT_INK_HEX, _ACCENT_INK_HEX)        # 검정 배너(테두리=배경)
+            elif ACCENT_WHITE_FILL in ctxt:
+                bid = fill_id(accent_hex, accent_hex)                  # accent 배너
+            elif ACCENT_BORDER in ctxt:
+                bid = fill_id(accent_hex, "#FFFFFF", "LRTB", "0.4 mm")  # accent 박스 + 흰 배경
+            elif ACCENT_RULE in ctxt:
+                bid = fill_id(accent_hex, "#FFFFFF", "B", "0.6 mm")     # accent 하단선만
+            if bid is not None:
                 cell = re.sub(r'(<hp:tc\b[^>]*\bborderFillIDRef=")\d+(")',
                               lambda m: m.group(1) + str(bid) + m.group(2), cell, count=1)
             out.append(cell)

@@ -54,6 +54,8 @@ _INK = (0x0E, 0x0E, 0x10)
 ACCENT_WHITE_INK = chr(0xE010)    # 흰 글자 + ink(#0E0E10) 셀 배경 (검정 배너)
 ACCENT_TEXT_MARK = chr(0xE011)    # accent 색 글자 (배경 없음)
 ACCENT_WHITE_FILL = chr(0xE012)   # 흰 글자 + accent 셀 배경 (accent 로고/배너)
+ACCENT_BORDER = chr(0xE013)       # accent 색 테두리(4면) + 흰 배경 (글자색은 별도 마커로)
+ACCENT_RULE = chr(0xE014)         # accent 색 하단선만(밑줄 rule) + 흰 배경 — 헤더 구분선용
 
 
 def _hex_to_rgb(value: str) -> tuple[int, int, int] | None:
@@ -367,6 +369,17 @@ def _header_modern(s, meta: dict, accent: tuple[int, int, int]) -> None:
         s.text(" · ".join(parts))
         s.set_char_shape(s.base_pt)
         s.break_para()
+    # accent 하단 rule — 웹 ModernTemplate 의 borderBottom:3px solid accent(헤더 구분선) 대응.
+    # 1×1 표의 하단 테두리만 accent(ACCENT_RULE) — 얇은 줄로 그린다.
+    s.align_left()
+    s.table_begin(1, 1, line_width=_HEADER_WIDTH)
+    s.align_left()
+    s.set_char_shape(3)
+    s.text(ACCENT_RULE + " ")
+    s.set_char_shape(s.base_pt)
+    s.table_end()
+    s.align_left()
+    s.break_para()
     # 학생 정보 표 (라벨/값 12칸, 라벨 accent)
     pairs = [("학년", grade), ("반", ""), ("번호", ""), ("성명", ""), ("감독", ""),
              ("점수", f"/ {int(total)}" if isinstance(total, (int, float)) else "")]
@@ -462,12 +475,13 @@ def _header_jaseup(s, meta: dict, accent: tuple[int, int, int]) -> None:
         s.text(goal)
         s.break_para()
     # 개념 정리 박스 (1×1 테두리, accent 라벨 + conceptNote)
+    # ACCENT_BORDER: 박스 테두리를 accent(gold)로 — 웹 JaseupTemplate 의 border:1px solid accent 대응.
     if concept:
         s.align_left()
         s.table_begin(1, 1, line_width=_HEADER_WIDTH)
         s.align_left()
         s.set_char_shape(9, bold=True)
-        s.text(ACCENT_TEXT_MARK + "개념 정리    ")
+        s.text(ACCENT_BORDER + ACCENT_TEXT_MARK + "개념 정리    ")
         s.set_char_shape(s.base_pt, bold=False)
         s.text(concept)
         s.table_end()
