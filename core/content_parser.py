@@ -147,8 +147,24 @@ _FULL_EQ_RE = re.compile(r'^\$(?!\$)([^$]+)\$$')
 
 
 def _parse_inline_run(text: str) -> list[ContentBlock]:
-    """정답/해설 한 줄 → ContentBlock 런. 줄 전체가 단일 $...$ 수식이면 통째 equation,
-    아니면 _parse_raw_blocks(인라인 분리 — 본문 text 와 동일 경로)."""
+    """정답/해설 한 줄 → ContentBlock 런. ``**굵게**`` 구간은 bold TEXT 블록(단계 헤더 강조),
+    줄 전체가 단일 $...$ 수식이면 통째 equation, 아니면 _parse_raw_blocks(인라인 분리)."""
+    # **굵게** 분리 — bold run + 나머지는 일반 파싱(잔여 ** 제거 후 재귀, 무한재귀 없음).
+    if "**" in text:
+        parts = re.split(r"\*\*(.+?)\*\*", text)
+        if len(parts) > 1:
+            out: list[ContentBlock] = []
+            for i, seg in enumerate(parts):
+                if i % 2 == 1:                       # 굵게 구간
+                    seg = seg.strip()
+                    if seg:
+                        out.append(ContentBlock(type=ContentType.TEXT, value=seg, bold=True))
+                else:                                 # 일반 구간 — ** 제거 후 재귀
+                    seg = seg.replace("**", "")
+                    if seg.strip():
+                        out.extend(_parse_inline_run(seg))
+            return out
+        text = text.replace("**", "")                # 짝 없는 ** 는 제거
     m = _FULL_EQ_RE.match(text.strip())
     if m:
         inner = m.group(1).strip()
@@ -158,9 +174,10 @@ def _parse_inline_run(text: str) -> list[ContentBlock]:
 
 
 def _strip_md_decoration(text: str) -> str:
-    """해설/정답 마크다운 장식 제거 — bold(``**``)·헤딩(``#``)·인용(``>``) 마커를 평문화.
+    """해설/정답 마크다운 장식 정규화 — 헤딩(``#``)·인용(``>``) 마커 제거. ``**굵게**`` 는
+    제거하지 않고 `_parse_inline_run` 이 bold run 으로 렌더(단계 헤더 [1단계: …] 강조).
     ``$$display$$`` 는 인라인 ``$...$`` 로 강등(정답페이지는 인라인 렌더라 display 불필요)."""
-    text = text.replace("$$", "$").replace("**", "")
+    text = text.replace("$$", "$")
     text = _MD_HEADING_RE.sub("", text)
     text = _MD_BLOCKQUOTE_RE.sub("", text)
     return text

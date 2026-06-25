@@ -65,10 +65,14 @@
 - **server/adapter.py·convert_cli.py**: `answer`/`solution` passthrough + `show_answers`/
   `quick_answer_only` style. `write_exam_to_hwp(show_answers, quick_answer_only)`.
 
-커밋: `1c5fce5`(페이지) · `79e2d88`(표·타이포·\text) · `ead251d`(2단 표 칼럼폭·구분선).
-검증: 1단/2단/quickOnly 렌더 + 골든 25/25(웹).
+커밋: `1c5fce5`(페이지) · `79e2d88`(표·타이포·\text) · `ead251d`(2단 표 칼럼폭·구분선) ·
+`(이 커밋)`(폴리시: 트레일링 셀·bold 헤더).
+검증: 1단/2단/quickOnly + stress test(긴 해설·도형·bold) 렌더 + 골든 25/25(웹).
 
-**남은 폴리시**: 격자 마지막 행 트레일링 빈 셀(colSpan 병합 미구현), 2단 긴 해설 수식 칼럼 overflow.
+**폴리시 완료**: ①격자 트레일링 빈 셀 → 열 수를 *약수로 선택*해 빈 셀 최소화(16→1단 4×4·2단 2×8,
+0개; 소수만 1개). ③bold 단계 헤더 → `_parse_inline_run` 이 `**…**` 를 bold TEXT 블록으로(strip
+안 함). ②2단 긴 해설 수식 overflow → stress test 로 문제 없음 확인(자연 wrap). 잔여: 정답페이지
+"항상 1단" 옵션(현재 불필요). 상세 웹 §44-14.
 
 ## 작업 마무리 워크플로우 (필수)
 

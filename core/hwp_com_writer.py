@@ -1223,10 +1223,19 @@ class HwpComWriter:
         # ── 격자 표(narrow) — 정답 폭에 따라 5/4/3 열 ──
         if narrow:
             maxw = max(w for _, w in narrow)
-            cols = 5 if maxw <= 3 else 4 if maxw <= 5 else 3
-            if self._columns == 2:
-                cols = min(cols, 3)   # 2단은 칼럼 폭이 절반이라 격자 열 수 축소(셀 cramped 방지)
             n = len(narrow)
+            maxcols = 5 if maxw <= 3 else 4 if maxw <= 5 else 3
+            if self._columns == 2:
+                maxcols = min(maxcols, 3)   # 2단은 칼럼 폭이 절반이라 격자 열 수 축소(cramped 방지)
+            maxcols = min(maxcols, max(n, 1))
+            # 트레일링 빈 셀 최소화: [2..maxcols] 중 빈 셀 가장 적은 열(동률이면 열 많은 쪽). n 이
+            # 그 범위 약수를 가지면 빈 셀 0(16→1단 4열·2단 2열). 소수(17 등)만 1개 잔여.
+            cols = maxcols
+            best_empty = (maxcols - n % maxcols) % maxcols
+            for c in range(maxcols - 1, 1, -1):
+                e = (c - n % c) % c
+                if e < best_empty:
+                    best_empty, cols = e, c
             rows = (n + cols - 1) // cols
             total = rows * cols
             self.s.table_begin(rows, cols, line_width=self._box_width())
