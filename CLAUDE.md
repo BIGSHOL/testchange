@@ -140,6 +140,30 @@ PNG 는 gitignore(재생성 가능).
 안 함). ②2단 긴 해설 수식 overflow → stress test 로 문제 없음 확인(자연 wrap). 잔여: 정답페이지
 "항상 1단" 옵션(현재 불필요). 상세 웹 §44-14.
 
+## 내보내기 옵션 cascade — 강조색 테두리·세로 간격·단원명 (2026-06-25, 웹 §45)
+
+§41 매트릭스 미반영 3종을 HWP 출력에 반영. 상세 함정·근거는 *웹 repo (mathg-gen) CLAUDE.md §45*.
+엔진측 변경 요약:
+
+- **강조색 테두리**(엔진 전용): `template_headers.py` 에 `ACCENT_BORDER`(4면)·`ACCENT_RULE`(하단만)
+  센티넬 추가. `hwp_com_writer._accent_bf_def` 를 border color/sides/fill 분리 가능하게 일반화(배너
+  border==face 는 동작 동일=회귀 0), `_apply_accent_header` 셀 루프에 두 분기 + `fill_id` 캐시 키
+  확장. 자습 개념정리 박스 테두리(gold)·모던 헤더 하단 rule(navy). COM 으로 테두리 색 직접 불가라
+  저장 후 borderFill XML 후처리(§40 색 패턴 — 새 accent 박스는 센티넬만 박으면 됨).
+- **세로 간격(spacing)**: `_inter_question_gap()` — 웹 spacing(px)을 빈 단락 글자 크기로 환산
+  (`_SPACING_PX_TO_PT=0.5`; COM 문단 간격 API 없음). `_write_question` 트레일링 break 를 top_level
+  이면 이 helper 로(소문항은 기본). `write_exam_to_hwp(spacing)` + adapter/convert_cli cascade.
+  None 이면 기존 빈 줄(회귀 0).
+- **단원명(showChapter)**: `Question.topic` 필드 + `_parse_question` 파싱 + `_write_question`
+  top_level 라벨(9pt, `show_chapter` 플래그 게이트). adapter topic passthrough + `show_chapter` style.
+
+커밋: `8303327`(강조색 테두리) · `a51867e`(세로 간격+단원명).
+검증: 렌더(jaseup gold box·modern navy rule·spacing 0/32/88·chapter on/off) + 회귀
+(jeongtong/workbook/yuhyung 무변경) + 골든 25/25(웹).
+
+보류(사용자 결정): 난이도(showDifficulty)·시험일(showDate) — 웹 미리보기에서도 죽은 코드라
+미리보기 렌더부터 살려야 함. 상세 웹 §45-4.
+
 ## 작업 마무리 워크플로우 (필수)
 
 코드를 변경한 뒤에는 **항상 아래 순서로 마무리**한다:
