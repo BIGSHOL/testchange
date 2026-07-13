@@ -336,7 +336,16 @@ def _tail_start(blocks: list[ContentBlock]) -> int | None:
             # 캡션이 "시청률" + "(0|2은 2%)" 처럼 **여러 TEXT/EQ 블록**으로 쪼개져 올 수
             # 있어 run 전체를 tail 에 보낸다(단일 blocks[i-1] 만 보면 "시청률" 이 stem 에
             # 남아 발문에 인라인 + 배점이 캡션 한가운데 침투, 사동중3 #14, 2026-06-16).
-            return _caption_run_back(blocks, i)
+            j = _caption_run_back(blocks, i)
+            # 표 앞에 매달린 그림(IMAGE)/블록수식/그림자리안내 연속 run 도 tail 에 포함(합의 #3:
+            # 발문뒤 = 조건/보기 + 표 + 그림 + 블록수식). 안 그러면 발문→그림노트→표(상인중 #22
+            # 삼각비)에서 그림노트가 발문(head)에 남아 배점이 노트 뒤 자기 줄로 밀린다(#21 은
+            # 표가 없어 배점이 발문 끝 인라인 → 두 문항 구조가 갈렸음). 박스머리 분기와 동일 처리.
+            while j > 0 and (blocks[j - 1].type in (ContentType.IMAGE,
+                                                    ContentType.EQUATION_BLOCK)
+                             or _is_figure_note(blocks[j - 1])):
+                j -= 1
+            return j
         if b.type == ContentType.TEXT and _COND_HEADER_RE.search(b.value or ""):
             # 박스 머리 **바로 앞 캡션 run**(예 "맞힌 단어의 개수 (단위: 개)")을 먼저 흡수
             # (덕원중3 #9, 2026-06-16) — 안 그러면 캡션이 stem 에 남아 배점이 캡션 뒤로 밀린다.
