@@ -12,6 +12,26 @@
 | `verify-ocr-parser-sync` | OCR 엔진↔콘텐츠 파서 동기화 검증 |
 | `verify-output-format` | 시험지 출력 포맷 합의사항(미주 번호·배점 정렬·표 셀·보기 박스·선택지 정렬) 강제 적용 검증 |
 
+## ⭐ 세션 내 변환 요청 = 구독 요금제(세션 비전) 우선, 외부 OCR API 금지 (2026-07-13, 사용자 지시)
+
+**Claude Code 세션(대화) 안에서 사용자가 "이 PDF 를 HWP 로 변환해줘" 라고 하면, OCR 은
+반드시 내 세션 비전(구독 요금제, API 0원)으로 판독한다 — Anthropic/Gemini OCR API 를 호출하지
+말 것.** 배포 exe(GUI)만 API 를 쓴다(사용자가 직접 실행하는 프로덕션 경로). 세션 내 변환은
+`corpus/REVIEW_PROTOCOL.md` 2·3단계와 같은 방식:
+
+1. **크롭**: 이미 `crops.json` 캐시가 있으면 재사용(추가 API 0). 없으면 **페이지를 내 비전으로
+   보고 bbox 판독**(프로토콜 2단계) — Gemini `detect_crops` 호출 금지.
+2. **OCR**: 각 크롭 PNG(`scripts/crop_dump.py` 로 덤프)를 **내 비전으로 1:1 판독**해 OCR JSON
+   (`{"header":"", "questions":[…]}`, 프로토콜 "self-OCR JSON 작성 규약" 준수)을 만든다.
+3. **렌더**: `write_exam_to_form`(폼 매칭 시)/`write_exam_to_hwp` 로 HWP COM 렌더(로컬·무료).
+   `scripts/render_to_png.py` 로 육안 검증 + `corpus_lint.py --xml` 게이트.
+
+⚠️ **`scripts/testkit.py` 는 OCR 을 API(backend="claude"/Gemini)로 호출하므로 세션 내 변환에
+그대로 쓰면 과금된다** — 2026-07-13 상인중 변환에서 testkit 경로로 Gemini API 를 태워 사용자가
+지적(크롭검출+OCR 과금). 세션 변환용 하네스는 크롭 재사용 + **엔진 호출 없이** 내가 판독한
+JSON 을 `parse_ocr_response`/`build_document` 에 직접 넣어 렌더까지 가는 형태여야 한다(엔진
+인스턴스화 자체를 하지 말 것). 배포 exe 개선(라우팅·프롬프트 등) 목적의 API 호출은 예외.
+
 ## 시험지 출력 포맷 합의사항 (COM writer — 강제 준수)
 
 `core/hwp_com_writer.py`·`core/hwp_com.py` 의 렌더 출력은 아래 합의를 **반드시** 지킨다.
