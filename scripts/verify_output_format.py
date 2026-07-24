@@ -81,7 +81,9 @@ def run_checks():
         and bool(re.search(
             r"KeyIndicator\(\)\[5\].*?align_right\(\).*?leading_space=False",
             body5, re.S)))
-    chk(6, "보기 1×1 테두리 박스", "table_begin(1, 1)" in W)
+    # 2단 본문(웹 내보내기)에서 박스를 칼럼 폭에 맞추느라 ``line_width=self._box_width()``
+    # 인자가 붙었다(2026-06-24 머지). 합의(1×1 테두리 표 박스)는 그대로라 호출 형태만 완화.
+    chk(6, "보기 1×1 테두리 박스", "table_begin(1, 1" in W)
     chk(7, "박스↔선택지 빈줄 없음(_write_tail)",
         "ended_box = self._write_tail(tail)" in W
         and "if question.choices and not ended_box:" in W

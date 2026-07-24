@@ -1413,6 +1413,11 @@ _LATEX_CMD_RE = re.compile(
     r'alpha|beta|gamma|delta|epsilon|zeta|eta|theta|iota|kappa|'
     r'lambda|mu|nu|xi|pi|rho|sigma|tau|phi|chi|psi|omega|'
     r'partial|nabla|forall|exists|therefore|because|'   # ∴/∵ — 빠지면 literal ₩therefore(장산중 #5)
+    # 벡터 화살표: ``\overrightarrow`` 는 ACCENT_MAP 엔 있는데(VEC) 여기 없어 인라인 분리가
+    # 명령을 못 잡고 ``\``(₩ 누수)+literal ``overrightarrow``+중괄호로 산산조각 났다(기하 벡터
+    # 단원 전체가 영향 — 경원고 기하 #15~20, 2026-07-24). ``\widehat``·``\widetilde`` 도 같은 갭.
+    # ``overarc``(대구고 수1 #10)·``\Leftrightarrow``(매천고 수하 #4)와 동종 함정. 긴 것 먼저.
+    r'overrightarrow|overleftarrow|widehat|widetilde|'
     r'dot|ddot|hat|bar|vec|tilde|overline|underline|'
     r'log|ln|sin|cos|tan|sec|csc|cot|'
     r'square|circ|degree|triangle|angle|perp|parallel|'

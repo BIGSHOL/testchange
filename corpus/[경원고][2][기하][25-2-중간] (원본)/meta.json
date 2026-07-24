@@ -1,0 +1,33 @@
+{
+  "status": "reviewed",
+  "review": {
+    "reviewed_date": "2026-07-24",
+    "reviewed_by": "세션 내 변환 요청 (claude-opus-4-8, 단일 master)",
+    "content_defects": 0,
+    "A_type": 0,
+    "B_type": 1,
+    "method": "원본 크롭 1:1 비전 대조(전 20문항) + 결정적 게이트(배점합 100.0·corpus_lint json/xml PASS·누수 0·이상문자열 0·정답 패리티 홀수)",
+    "note": "B형 1건 = content_parser._LATEX_CMD_RE 에 \\overrightarrow(+overleftarrow·widehat·widetilde) 누락 — 인라인 분리가 명령을 못 잡아 ₩ 누수 + literal 'overrightarrow' + 중괄호로 산산조각(기하 벡터 단원 전역 영향). 회귀 test_content_parser KW1. corpus 전수 스캔: 영향 문항 = 경원고 기하 #15·16·17·19·20 5건뿐(기존 corpus 무영향)."
+  },
+  "source_pdf": "N:\\개인\\기출\\기출작업\\197차\\[경원고][2][기하][25-2-중간][신사고] (원본).pdf",
+  "reference_pdf": "",
+  "reference_hwp": "N:\\개인\\기출\\기출작업\\197차\\[경원고][2][기하][25-2-중간][신사고] (워드).hwp (빈 폼 — 내용 없음, 대조 불가)",
+  "form": "[대수회][25년 폼지 최종(02.09)] (고2 선택과목용) (남색).hwp",
+  "ocr_engine": "claude-code-session (claude-opus-4-8) — 구독 요금제 세션 비전, API 0원",
+  "crop_engine": "claude-code-session (claude-opus-4-8) — 페이지 400dpi 2단 컬럼 청크 크롭 비전 정독(외부 크롭검출 API 미사용)",
+  "deterministic": false,
+  "created": "2026-07-24",
+  "basis": "원본",
+  "slot": "고2 기하 25-2-중간",
+  "note": "사용자 세션 내 변환 요청(CLAUDE.md '세션 내 변환 = 구독 요금제 세션 비전 OCR' 규칙 준수 — testkit/Gemini/Anthropic OCR API 미호출). PDF 4면 = p1 목차(스캔앱 생성)·p2 표지·p3 문제(#1~9)·p4 문제(#10~20). 표지 안내 '표지 포함 총 3면, 선택형 20문항'과 정합. corpus ocr/p1_merged.json=#1~9(PDF p3), p2_merged.json=#10~20(PDF p4). 20문항 전부 선택형(서답형 0), 차등배점 4.3~5.7 합 100.0 정합(스크립트 검증). 단원: 이차곡선(포물선·타원·쌍곡선의 정의/접선·이차곡선 판별) #1~14 + 평면벡터(벡터의 연산·평행조건·일차결합·세 점 일직선) #15~20. 원본은 학생 연필 풀이가 있는 사본이나 인쇄 활자는 전부 판독 가능(400dpi 컬럼 크롭). 보일러플레이트(표지 안내·확인사항) 미전사. 체크섬: 배점합 100.0 + 자력 검산 표본(#16 2·32=m²→m=8=⑤ / #17 정육각형 AE=a+2b→mn=2 / #20 4=1-t→m=t=-3=①) 일치.",
+  "review_points": [
+    "⭐ B형 1건(파서): \\overrightarrow 인라인 분리 누락 — 기하 벡터 단원(#15~20)이 전부 ₩ 누수로 깨지던 것. ACCENT_MAP(VEC)엔 있는데 _LATEX_CMD_RE 에 없던 갭(\\overarc 대구고 수1 #10·\\Leftrightarrow 매천고 수하 #4와 동종). 수정 후 VEC {rm {AB}}=VEC {a}(화살표+점라벨 정자+벡터 이탤릭) 정상.",
+    "⭐ 점 이름 로만 vs 변수 이탤릭: F·F'·P·Q·H·H'·A·B·O 로만, 좌표/변수 이탤릭. 프라임 점은 \\mathrm{F}' 로 명시(파서 _POINT_COORD_RE 가 프라임 뒤 좌표를 못 잡음 — 데이터 단계에서 회피). \\overline{\\mathrm{QH}'} 로 써야 prime 이 bar 안에 들어감(bar {rm QH'}).",
+    "#3 <보기> ㄱ~ㄹ 5×5 폼 박스 정상(각 항목 자기 줄). 발문 '<보기>에서'(조사 직결)는 참조어라 박스 머리 미오인(월암중 D3 경로 정상).",
+    "#5 |a×p×q| 는 \\left|…\\right| 로 감싸야 여는 막대가 TEXT 로 떨어지지 않음(인라인 분리 특성). #4 |PF'²-PF²| 동일.",
+    "배점 표기: 원본이 정수 '5점'인 문항(#6·8·11·16)은 score 를 int 5 로(5.0 이면 '[5.0점]' 렌더). 소수 배점(4.3~5.7)은 그대로.",
+    "#16 배점 [5점]이 줄넘침으로 다음 줄 우측정렬 — 합의 #2(인라인 우선·넘치면 우측) 정상 동작.",
+    "figure 7종(#2·4·7·9·15·17·19) → 그림 자리 안내문구(figure 미지원 C한계). 이차곡선 그래프·정육각형·삼각형 중점 그림은 원본 캡처 붙여넣기 필요.",
+    "폼 = 고2 선택과목(남색) 자동 매칭. 헤더 '경원고 2학년 기하' 정상. 렌더 5쪽(문제 4쪽 짝수 마무리 + 정답 5쪽 홀수 패리티) · 정답면 답안칸 20개."
+  ]
+}

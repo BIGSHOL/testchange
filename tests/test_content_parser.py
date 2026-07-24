@@ -954,6 +954,31 @@ def _check_box_jamo_eq_absorb(fails):
         fails.append(f"  DGY1 정상수식 무회귀: {[(x.type.name, x.value) for x in b2]!r}")
 
 
+def _check_vector_arrow_cmd(fails):
+    """KW1(경원고 기하 #15~20, 2026-07-24): ``\\overrightarrow`` 가 ACCENT_MAP 엔 있는데
+    _LATEX_CMD_RE 에 없어 인라인 분리가 명령을 못 잡고 ``\\``(₩ 누수) + literal
+    ``overrightarrow`` + 중괄호로 산산조각 나던 회귀(기하 벡터 단원 전역).
+    ``\\overarc``(대구고 수1 #10)·``\\Leftrightarrow``(매천고 수하 #4)와 동종."""
+    from core.content_parser import _split_latex_commands
+    from core.latex_to_hwpeq import latex_to_hwpeq
+    from models.exam_document import ContentType as CT
+    b = _split_latex_commands(r"정육각형 ABCDEF에서 \overrightarrow{AE}=m\vec{a}+n\vec{b}를 만족시키는")
+    texts = "".join(x.value or "" for x in b if x.type == CT.TEXT)
+    if "\\" in texts or "overrightarrow" in texts:
+        fails.append(f"  KW1 overrightarrow 평문 누수: {[(x.type.name, x.value) for x in b]!r}")
+    eqs = [x.value or "" for x in b if x.type == CT.EQUATION]
+    if not any(e.startswith(r"\overrightarrow{AE}") for e in eqs):
+        fails.append(f"  KW1 벡터 수식 분리 실패: {[(x.type.name, x.value) for x in b]!r}")
+    # 변환: 화살표(VEC) + 점 라벨 정자(rm) — 벡터 a·b 는 이탤릭 유지
+    conv = latex_to_hwpeq(r"\overrightarrow{AB}=\vec{a}", italicize_stat=False)
+    if conv != "VEC {rm {AB}}=VEC {a}":
+        fails.append(f"  KW1 벡터 변환: {conv!r}")
+    # \widehat·\widetilde 도 같은 갭이었다(ACCENT_MAP 에만 존재)
+    b2 = _split_latex_commands(r"각 \widehat{ABC}의 크기가")
+    if any("\\" in (x.value or "") for x in b2 if x.type == CT.TEXT):
+        fails.append(f"  KW1 widehat 평문 누수: {[(x.type.name, x.value) for x in b2]!r}")
+
+
 def _check_paren_base_nested(fails):
     """NS1(남산고 미적분 단답형4, 2026-06-16): 괄호base 안에 함수호출 괄호가 또 있는
     ``(f(x))^5`` 가 ``(`` + ``f(x)`` + ``)^`` + ``5`` 로 쪼개져 ^지수가 literal 캐럿으로
@@ -1217,6 +1242,7 @@ def run():
     _check_choice_marker_dedup(fails)
     _check_box_overflow_and_figure(fails)
     _check_box_jamo_eq_absorb(fails)
+    _check_vector_arrow_cmd(fails)
     _check_paren_base_nested(fails)
     _check_ksy_superscript_base(fails)
     _check_ksy_box_nobullet(fails)

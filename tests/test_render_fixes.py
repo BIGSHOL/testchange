@@ -48,6 +48,8 @@ def _box_calls(blocks):
     """_write_condition_box 를 스텁 위에서 실행 — 무한재귀(C1)면 RecursionError."""
     w = W.HwpComWriter.__new__(W.HwpComWriter)
     w.s = _FakeSession()
+    w._columns = 1                        # __init__ 우회 스텁 — _box_width(1단=148mm) 분기용
+    w._margins = None
     written = []
     w._write_block = lambda b: written.append(b.type)
     w._write_box_content = lambda blocks, space_values=False: None
