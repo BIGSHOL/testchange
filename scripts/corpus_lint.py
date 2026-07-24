@@ -28,6 +28,11 @@ except Exception:
 # 검사 결과 레벨: FAIL = 출력 깨짐(차단), WARN = 알려진 한계/권장(보고만, 통과).
 FAIL, WARN = "FAIL", "WARN"
 
+# 정답 표기 검사(2026-07-24 사용자 규약) — 객관식 정답은 원문자 ①~⑤, 정답이 선택지에 없거나
+# 발문이 모순이면 ``[보기 오류]``/``[문제 오류]`` + **맞는 답**을 함께 적는다(빈칸 금지).
+_CIRCLED_ANS = re.compile(r"[①-⑮]")
+_ERR_TAG = re.compile(r"^\[(보기|문제)\s*오류\]")
+
 
 # ── JSON 규약 검사 (self-OCR 출력이 파이프라인 규약을 지키는지) ──────────────
 _SCORE_IN_TEXT = re.compile(r'\[\s*(?:총\s*)?\d+(?:\.\d+)?\s*점')
@@ -42,6 +47,7 @@ def lint_json(ocr_dir: str) -> list[tuple[str, str]]:
     if not files:
         return [(FAIL, f"[json] {ocr_dir}: p*_merged.json 없음")]
     label_types: set[str] = set()
+    answered: list[bool] = []          # 객관식 정답 기입 여부(규약: 오류 문항도 표기)
     for fn in files:
         try:
             data = json.load(open(os.path.join(ocr_dir, fn), encoding="utf-8"))
@@ -73,8 +79,21 @@ def lint_json(ocr_dir: str) -> list[tuple[str, str]]:
                     issues.append((WARN, f"[json] #{num}: figure bbox 없음(그림 미렌더 예고)"))
             if is_essay and _ESSAY_LABEL_IN_TEXT.search(texts) and not q.get("label_type"):
                 issues.append((WARN, f"[json] #{num}: 서답형 label_type 필드 없음(권장)"))
+            # ⭐ 정답 오류 표기 규약(사용자 2026-07-24): 검산 결과가 선택지와 안 맞으면 **비우지
+            # 말고** ``[보기 오류] <정답>``(선택지에 정답 없음)·``[문제 오류] …``(발문 모순)로
+            # 오류 종류 + 맞는 답을 함께 적는다. 객관식 정답이 ①~⑤ 도, 오류 표기도 아니면 위반.
+            ans = (q.get("answer") or "").strip() if isinstance(q.get("answer"), str) else ""
+            if not is_essay and ans:
+                if not _CIRCLED_ANS.search(ans) and not _ERR_TAG.match(ans):
+                    issues.append((FAIL, f"[json] #{num}: 객관식 정답 표기 이상 {ans!r} — "
+                                         f"①~⑤ 또는 '[보기 오류]/[문제 오류] + 정답'"))
+            answered.append(bool(ans))
     # 서술형·단답형 혼합은 **정상**(능인고 수1 등) — 파이프라인이 문항별 유형으로 본문·정답
     # 라벨을 맞춘다. 단 서답형/서술형(같은 뜻 철자 변형) 혼용은 OCR 비일관 신호 → WARN.
+    # 일부만 정답이 채워졌으면(오류 문항을 비워 둔 정황) 경고 — 규약상 오류도 표기 대상.
+    if answered and 0 < sum(answered) < len(answered):
+        issues.append((WARN, f"[json] 객관식 정답 {sum(answered)}/{len(answered)}만 채워짐 — "
+                             f"오류 문항은 '[보기 오류]/[문제 오류] + 정답'으로 표기(빈칸 금지)"))
     if {"서답형", "서술형"} <= label_types:
         issues.append((WARN, f"[json] 서답형/서술형 철자 혼용: {label_types} (한쪽으로 통일 권장)"))
     return issues

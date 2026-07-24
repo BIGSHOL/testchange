@@ -2197,6 +2197,190 @@ def _renumber_essay_labels(hwpx_path: str | Path, n_essays: int, words=None, num
     return total
 
 
+_XML_ESC = {"&": "&amp;", "<": "&lt;", ">": "&gt;"}
+
+
+def _xml_text(s: str) -> str:
+    return "".join(_XML_ESC.get(ch, ch) for ch in s)
+
+
+def _inject_answer_runs(hwpx_path: str | Path,
+                        answers: list[list[ContentBlock]]) -> int:
+    """정답 페이지(미주 목록)의 번호 뒤에 **정답**을 run 으로 기입한다.
+
+    객관식은 원문자 한 글자(``④``), 서술형은 최종답(수식 포함 — ``a=5/3``·``x=-5±√34``)이라
+    평문이 아니라 **런(텍스트+수식 객체)** 으로 넣는다(합의 #6: 수식은 수식 객체).
+    미주 내용 단락의 ``<hp:linesegarray>`` 바로 앞에 run 을 삽입 — 객관식(빈 칸)·서술형
+    (폼 라벨 ``[서술형 N]`` 이 이미 있음) 양쪽에 같은 규칙이 통한다(완료본 ``17. [서술형 1] 2``).
+
+    라이브 COM 캐럿으로 정답면에 진입하면 정답 블록 앵커가 깨져 페이지가 통째 증발한 전례가
+    있어(강동중 #20) **저장후 XML 주입**으로 한다. linesegs 는 직후 relaunder/최종 .hwp
+    저장에서 HWP 가 재계산. 미주 수 ≠ 문항 수면 생략. Returns: 기입한 미주 수."""
+    hwpx_path = Path(hwpx_path)
+    if not any(answers):
+        return 0
+    with zipfile.ZipFile(hwpx_path) as z:
+        infos = z.infolist()
+        data = {i.filename: z.read(i.filename) for i in infos}
+    total = 0
+    for fn in list(data):
+        if not re.search(r"section\d+\.xml$", fn):
+            continue
+        s = data[fn].decode("utf-8")
+        spans = [m.span() for m in re.finditer(r"<hp:endNote\b.*?</hp:endNote>", s, re.S)]
+        if len(spans) != len(answers):
+            logger.warning("정답 기입 생략 — 미주 %d개 ≠ 문항 %d개", len(spans), len(answers))
+            continue
+        out, prev = [], 0
+        for (a, b), ans in zip(spans, answers):
+            frag = s[a:b]
+            runs = _line_runs(ans[0]) if ans else ""
+            if runs:
+                lm = re.search(r"<hp:linesegarray>", frag)
+                if lm:
+                    frag = frag[:lm.start()] + runs + frag[lm.start():]
+                    total += 1
+            out.append(s[prev:a]); out.append(frag); prev = b
+        out.append(s[prev:])
+        data[fn] = "".join(out).encode("utf-8")
+    if total:
+        _repackage_hwpx(hwpx_path, infos, data)
+    return total
+
+
+def _eq_xml(script: str) -> str:
+    """인라인 수식 run XML(정답면 정답·해설용). hwpx_writer 의 검증된 속성 세트와 동일
+    (골든 84개 기준: baseLine=85·treatAsChar=1·outMargin 170·font HYhwpEQ)."""
+    try:
+        from core.hwpx_writer import _estimate_equation_size
+        w, h = _estimate_equation_size(script)
+    except Exception:  # noqa: BLE001
+        w, h = max(1000, len(script) * 250), 1000
+    return (
+        '<hp:run charPrIDRef="21"><hp:equation id="0" zOrder="0" numberingType="EQUATION"'
+        ' textWrap="TOP_AND_BOTTOM" textFlow="BOTH_SIDES" lock="0" dropcapstyle="None"'
+        ' version="Equation Version 60" baseLine="85" textColor="#000000" baseUnit="1000"'
+        ' lineMode="CHAR" font="HYhwpEQ">'
+        f'<hp:sz width="{w}" height="{h}" widthRelTo="ABSOLUTE" heightRelTo="ABSOLUTE" protect="0"/>'
+        '<hp:pos treatAsChar="1" affectLSpacing="1" flowWithText="1" allowOverlap="0"'
+        ' holdAnchorAndSO="0" vertRelTo="PARA" horzRelTo="PARA" vertAlign="TOP"'
+        ' horzAlign="LEFT" vertOffset="0" horzOffset="0"/>'
+        '<hp:outMargin left="170" right="170" top="0" bottom="0"/>'
+        '<hp:shapeComment>수식입니다.</hp:shapeComment>'
+        f'<hp:script>{_xml_text(script)}</hp:script></hp:equation></hp:run>')
+
+
+def _line_runs(line: list[ContentBlock]) -> str:
+    """정답/해설 한 줄(블록 런) → run XML 문자열. TEXT=글자, EQUATION=수식 객체(합의 #6)."""
+    out = []
+    for b in line:
+        val = (b.value or "")
+        if not val.strip():
+            continue
+        if b.type == ContentType.EQUATION:
+            out.append(_eq_xml(latex_to_hwpeq(val, italicize_stat=False)))
+        else:
+            out.append(f'<hp:run charPrIDRef="21"><hp:t>{_xml_text(val)}</hp:t></hp:run>')
+    return "".join(out)
+
+
+def _inject_solutions(hwpx_path: str | Path,
+                      solutions: list[list[list[ContentBlock]]]) -> int:
+    """정답 페이지 미주 내용에 **서술형 해설**(줄별)을 문항 밑에 덧붙인다.
+
+    완료본 규약(194차 달서고): ``17. [서술형 1] 2`` 아래로 ``step1)`` … 풀이 줄이 이어진다.
+    미주 내용 단락(P0)을 **그대로 복제**해 run 만 교체하는 방식이라 paraPr·linesegarray 가
+    실제 문서의 것 → 새 단락을 날조하지 않는다([[hwpx-lineseg-relaunder-trap]] 회피).
+    linesegs 는 직후 relaunder/최종 .hwp 저장에서 HWP 가 재계산한다.
+
+    solutions[i] = i번째 문항의 해설(줄 리스트). 빈 리스트면 건너뛴다. 미주 수 ≠ 문항 수면
+    생략. Returns: 추가한 줄(단락) 수."""
+    hwpx_path = Path(hwpx_path)
+    if not any(solutions):
+        return 0
+    with zipfile.ZipFile(hwpx_path) as z:
+        infos = z.infolist()
+        data = {i.filename: z.read(i.filename) for i in infos}
+    total = 0
+    for fn in list(data):
+        if not re.search(r"section\d+\.xml$", fn):
+            continue
+        s = data[fn].decode("utf-8")
+        spans = [m.span() for m in re.finditer(r"<hp:endNote\b.*?</hp:endNote>", s, re.S)]
+        if len(spans) != len(solutions):
+            logger.warning("해설 기입 생략 — 미주 %d개 ≠ 문항 %d개", len(spans), len(solutions))
+            continue
+        out, prev = [], 0
+        for (a, b), sol in zip(spans, solutions):
+            frag = s[a:b]
+            if sol:
+                pm = re.search(r"<hp:p\b(?:(?!<hp:p\b).)*?</hp:p>", frag, re.S)
+                if pm:
+                    base = pm.group(0)
+                    open_tag = re.match(r"<hp:p\b[^>]*>", base).group(0)
+                    lm = re.search(r"<hp:linesegarray>.*?</hp:linesegarray>", base, re.S)
+                    lineseg = lm.group(0) if lm else ""
+                    added = [open_tag + runs + lineseg + "</hp:p>"
+                             for runs in (_line_runs(line) for line in sol) if runs]
+                    if added:
+                        total += len(added)
+                        frag = frag[:pm.end()] + "".join(added) + frag[pm.end():]
+            out.append(s[prev:a]); out.append(frag); prev = b
+        out.append(s[prev:])
+        data[fn] = "".join(out).encode("utf-8")
+    if total:
+        _repackage_hwpx(hwpx_path, infos, data)
+    return total
+
+
+_META_LABEL_RE = re.compile(
+    r"(<hp:t>(?:<hp:markpenBegin[^>]*/>)?\s*\[(소단원|중단원|난이도)\]\s*)(<hp:markpenEnd/>)?</hp:t>")
+
+
+def _inject_question_meta(hwpx_path: str | Path,
+                          pairs: list[tuple[str, str]]) -> int:
+    """문항별 ``[소단원]``/``[중단원]``·``[난이도]`` 메타란에 **값**을 기입한다.
+
+    메타란은 폼이 문항마다 두 줄(단원·난이도)로 깔아 둔 흰 글자(charPr textColor=#FFFFFF)
+    단락이라 **인쇄에 안 보이는 메타데이터**다(대수회 완료본 관례 — 2026-07-24 조사: 완료본
+    93편 1944문항이 이 칸을 채워 씀, 예 `` [소단원] 복소수와 켤레복소수 ``·`` [난이도] 하 ``).
+    라벨 문자열 뒤(markpenEnd 앞)에 값을 덧붙인다 — run/charPr 그대로라 디자인 불변.
+
+    단락은 문서 순서 = 문항 순서(문항마다 단원→난이도 2줄)라 pairs[i] ↔ i번째 문항.
+    라벨 수 ≠ 2×문항 수면 오손상 방지로 생략. 멱등(이미 값이 있으면 건너뜀).
+    Returns: 기입한 칸 수."""
+    hwpx_path = Path(hwpx_path)
+    if not any(u or d for u, d in pairs):
+        return 0
+    with zipfile.ZipFile(hwpx_path) as z:
+        infos = z.infolist()
+        data = {i.filename: z.read(i.filename) for i in infos}
+    total = 0
+    for fn in list(data):
+        if not re.search(r"section\d+\.xml$", fn):
+            continue
+        s = data[fn].decode("utf-8")
+        ms = list(_META_LABEL_RE.finditer(s))
+        if len(ms) != 2 * len(pairs):
+            logger.warning("메타란 기입 생략 — 라벨 %d개 ≠ 문항 %d×2", len(ms), len(pairs))
+            continue
+        vals = [v for u, d in pairs for v in (u, d)]        # 단원, 난이도 … 순
+        out, prev = [], 0
+        for m, val in zip(ms, vals):
+            out.append(s[prev:m.start()])
+            head, _kind, pen = m.group(1), m.group(2), m.group(3) or ""
+            if val.strip():
+                head = head.rstrip() + " " + _xml_text(val.strip()) + " "
+                total += 1
+            out.append(head + pen + "</hp:t>")
+            prev = m.end()
+        out.append(s[prev:])
+        data[fn] = "".join(out).encode("utf-8")
+    if total:
+        _repackage_hwpx(hwpx_path, infos, data)
+    return total
+
+
 def _inject_essay_meta(hwpx_path: str | Path) -> int:
     """서술형 끝 메타란 토큰 run 을 **살아있는 폼 [소단원]/[난이도] run** 으로 1:1 교체.
 
@@ -2431,6 +2615,23 @@ def write_exam_to_form(
         _renumber_essay_labels(output_path, len(essays), words=_words, nums=_nums)
     except Exception as e:  # noqa: BLE001
         logger.warning("폼 후처리 실패(_renumber_essay_labels): %s", e)
+    # 1.55단계: 정답 페이지(미주 목록) 기입 — 완료본 규약 ``1. ④``(194차 달서고). 본문 미주
+    # 순서 = 채움 순서(객관식 → 서술형)라 그대로 1:1 매핑. 값이 없으면 no-op(기존 동작).
+    try:
+        _answers = [list(q.answer or []) for q in (mc + essays)]
+        n_ans = _inject_answer_runs(output_path, _answers)
+        if n_ans:
+            logger.info("정답 기입 %d개", n_ans)
+    except Exception as e:  # noqa: BLE001
+        logger.warning("폼 후처리 실패(_inject_answer_runs): %s", e)
+    # 1.56단계: 서술형 해설(step 구조) — 정답 뒤 줄별로 덧붙임(완료본 194차 달서고 규약).
+    try:
+        _sols = [list(q.solution or []) for q in (mc + essays)]
+        n_sol = _inject_solutions(output_path, _sols)
+        if n_sol:
+            logger.info("해설 기입 %d줄", n_sol)
+    except Exception as e:  # noqa: BLE001
+        logger.warning("폼 후처리 실패(_inject_solutions): %s", e)
     # 1.6단계: 서술형 중복 라벨 제거는 위에서 완료. 머리말/꼬리말 채움(결정적 XML 후처리).
     if header_values:
         try:
@@ -2472,6 +2673,15 @@ def write_exam_to_form(
         _inject_essay_meta(output_path)
     except Exception as e:  # noqa: BLE001
         logger.warning("폼 후처리 실패(_inject_essay_meta): %s", e)
+    # 1.92단계: 메타란 **값**(단원명·난이도) 기입 — 라벨 칸이 다 깔린 뒤(_inject_essay_meta
+    # 후)여야 문항 수와 1:1 로 맞는다. 값이 없으면 no-op(기존 동작).
+    try:
+        _pairs = [(q.topic or "", q.difficulty or "") for q in (mc + essays)]
+        n_meta = _inject_question_meta(output_path, _pairs)
+        if n_meta:
+            logger.info("메타란 값 기입 %d칸", n_meta)
+    except Exception as e:  # noqa: BLE001
+        logger.warning("폼 후처리 실패(_inject_question_meta): %s", e)
     # (2026-07-24 폐기) 본문 colPr 에 <hp:colLine>(다단 구분선) 주입 단계. 폼의 가운데선은
     # **바탕쪽(masterpage0.xml) 구분선**이지 다단 설정 선이 아니다(사용자 지적) — 다단 선은
     # 내용 높이까지만 그려져 레퍼런스(전체 높이)와 다르다. 최종 .hwp 저장으로 해결(save_as_hwp).

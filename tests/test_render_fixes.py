@@ -807,6 +807,52 @@ def run():
     chk(lblC == "[서답형 2]" and (bodyC[0].value or "").startswith("자연수"),
         f"W4 주석 없는 분리형 무회귀: {lblC!r} / {bodyC[0].value!r}")
 
+    # ── X(정답면 기입, 2026-07-24): 정답 run·메타란 값·서술형 해설 XML 주입 ──
+    # 완료본 규약(194차 달서고): ``1. ④`` / ``17. [서술형 1] 2`` + step 풀이,
+    # 메타란 ``[소단원] 포물선``·``[난이도] 중``(흰 글자 = 인쇄 비표시 메타데이터).
+    import zipfile as _zip, tempfile as _tf, os as _os
+    from core.hwp_form_writer import (_inject_answer_runs, _inject_question_meta,
+                                      _inject_solutions)
+    _EN = ('<hp:endNote number="{n}"><hp:subList><hp:p id="0" paraPrIDRef="11">'
+           '<hp:run charPrIDRef="22"><hp:ctrl><hp:autoNum num="{n}"/></hp:ctrl></hp:run>'
+           '<hp:run charPrIDRef="21"><hp:t> </hp:t></hp:run>'
+           '<hp:linesegarray><hp:lineseg textpos="0"/></hp:linesegarray></hp:p>'
+           '</hp:subList></hp:endNote>')
+    _META = ('<hp:p id="0" paraPrIDRef="11"><hp:run charPrIDRef="23"><hp:t>'
+             '<hp:markpenBegin color="#FF843A"/> [소단원] <hp:markpenEnd/></hp:t></hp:run>'
+             '<hp:linesegarray><hp:lineseg textpos="0"/></hp:linesegarray></hp:p>'
+             '<hp:p id="0" paraPrIDRef="11"><hp:run charPrIDRef="23"><hp:t>'
+             '<hp:markpenBegin color="#42C7F1"/> [난이도]  <hp:markpenEnd/></hp:t></hp:run>'
+             '<hp:linesegarray><hp:lineseg textpos="0"/></hp:linesegarray></hp:p>')
+    _sec = ("<hs:sec>" + _EN.format(n=1) + _META + _EN.format(n=2) + _META + "</hs:sec>")
+    _fd, _fp = _tf.mkstemp(suffix=".hwpx")
+    _os.close(_fd)
+    with _zip.ZipFile(_fp, "w") as _z:
+        _z.writestr("Contents/section0.xml", _sec)
+    _ans = [[[_tb("④")]], [[_tb("x="), _eq("50")]]]                    # 객관식 / 서술형(수식)
+    n_a = _inject_answer_runs(_fp, _ans)
+    n_m = _inject_question_meta(_fp, [("포물선", "중"), ("벡터의 실수배", "하")])
+    n_s = _inject_solutions(_fp, [[], [[_tb("step1) 세운다.")], [_eq("2x=100")]]])
+    _got = _zip.ZipFile(_fp).read("Contents/section0.xml").decode("utf-8")
+    _os.remove(_fp)
+    chk(n_a == 2 and "<hp:t>④</hp:t>" in _got and "<hp:script>x=50</hp:script>" not in _got
+        and "50" in _got, f"X 정답 run 주입: n={n_a}")
+    chk("<hp:equation" in _got, "X 정답 수식 객체(합의 #6)")
+    chk(n_m == 4 and "[소단원] 포물선 " in _got and "[난이도] 중 " in _got
+        and "[난이도] 하 " in _got, f"X 메타란 값 기입: n={n_m}")
+    chk(n_s == 2 and "step1) 세운다." in _got, f"X 해설 줄 주입: n={n_s}")
+    chk(_got.count("<hp:p ") == 8 and _got.count("</hp:p>") == _got.count("<hp:p "),
+        f"X 단락 태그 균형: open={_got.count(chr(60)+'hp:p ')} close={_got.count('</hp:p>')}")
+    # 값 없으면 no-op(기존 동작 무회귀)
+    _fd2, _fp2 = _tf.mkstemp(suffix=".hwpx")
+    _os.close(_fd2)
+    with _zip.ZipFile(_fp2, "w") as _z:
+        _z.writestr("Contents/section0.xml", _sec)
+    chk(_inject_answer_runs(_fp2, [[], []]) == 0
+        and _inject_question_meta(_fp2, [("", ""), ("", "")]) == 0
+        and _inject_solutions(_fp2, [[], []]) == 0, "X 값 없으면 no-op")
+    _os.remove(_fp2)
+
     if fails:
         print("FAIL test_render_fixes:")
         print("\n".join(fails))
@@ -816,7 +862,7 @@ def run():
           "sqrt-space/choice-glyph/tail-note/underline-solid/stemleaf-13/choice-geo/cond-circle/"
           "repeat-dot/paren-score/phantom-box/box-bullet/post-box/box-ascii-eq/submark-ref/"
           "answer-header-neutralize/essay-type-label/annot-label/lim-below-subscript/"
-          "ksy-ineq-coord-rmbleed)")
+          "ksy-ineq-coord-rmbleed/answer-meta-solution)")
     return 0
 
 

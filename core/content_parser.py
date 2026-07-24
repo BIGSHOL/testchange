@@ -195,8 +195,23 @@ def _parse_markdown_lines(text: str) -> list[list[ContentBlock]]:
         blocks = _parse_inline_run(line)
         if blocks:
             # 본문과 동일 타이포그래피 컨벤션(점 라벨 로만체·한글↔수식 공백 등) 적용(§44).
-            out.append(_finalize_solution_blocks(blocks))
+            out.append(_demote_step_labels(_finalize_solution_blocks(blocks)))
     return out
+
+
+# 해설 단계 머리 ``step1)`` — 완료본(194차 달서고 등)은 **정자 텍스트**다. 인라인 분리기가
+# 뒤 내용에 따라 ``step1`` 을 수식으로 승격해(같은 시험지 안에서도 줄마다 들쭉날쭉) 이탤릭
+# ``step1`` 이 되던 것을 되돌린다(2026-07-24).
+_STEP_LABEL_RE = re.compile(r"^(?:step|Step|STEP)\s*\d+$")
+
+
+def _demote_step_labels(blocks: list[ContentBlock]) -> list[ContentBlock]:
+    """해설 줄 선두의 ``stepN`` 수식 블록을 평문으로 되돌린다(정자 통일)."""
+    for b in blocks[:1]:                       # 줄 선두만(본문 중간 'step' 은 손대지 않음)
+        if b.type == ContentType.EQUATION and _STEP_LABEL_RE.match((b.value or "").strip()):
+            b.type = ContentType.TEXT
+            b.value = (b.value or "").strip()
+    return blocks
 
 
 def _parse_question(q_data: dict) -> Question:
@@ -206,6 +221,8 @@ def _parse_question(q_data: dict) -> Question:
         score=q_data.get("score"),
         label_type=q_data.get("label_type") or "",   # 서답형/서술형/단답형(폼 라벨·정답 동기화용)
         topic=(q_data.get("topic") or "").strip(),    # 단원명(웹 showChapter, §45). 본문 위 라벨.
+        # 난이도(상/중/하) — 폼 [난이도] 메타란 값(2026-07-24). 빈 값이면 라벨만.
+        difficulty=(q_data.get("difficulty") or "").strip(),
     )
 
     # 배점 처리(원시 단계): 숫자 분리 전에 raw 텍스트에서 [N점]을 추출·제거한다.

@@ -168,6 +168,14 @@ def run_checks():
         "주입하면 내용 높이까지만 그려져 레퍼런스(전체 높이)와 다르다(사용자 2026-07-24). "
         "HWP 는 .hwpx 의 바탕쪽을 안 그리므로 최종 산출물을 .hwp 로 굽는다(save_as_hwp)")
 
+    chk(32, "정답·메타란·해설 기입(완료본 규약)",
+        "_inject_answer_runs(output_path" in F and "_inject_question_meta(output_path" in F
+        and "_inject_solutions(output_path" in F
+        and "difficulty" in _read(ROOT / "models" / "exam_document.py"),
+        "정답 페이지(미주 내용)에 정답 run·서술형 해설(step), 문항별 [소단원]/[난이도] 메타란 "
+        "값을 저장후 XML 로 기입 — 완료본(194차 달서고) 규약. 라이브 COM 캐럿 진입은 정답 "
+        "블록 앵커 파손 전례(강동중 #20)라 금지")
+
     mid_ok = ("mid" in L) and (r"\mid" in L)
     try:
         if str(ROOT) not in sys.path:
