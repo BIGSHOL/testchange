@@ -91,6 +91,17 @@ def _price_for(model: str) -> tuple[float, float]:
     return _PRICE["sonnet"]
 
 
+def _as_hwpx_path(path: str) -> str:
+    """HWP 미설치 폴백용 — 출력 경로를 .hwpx 로 바꾼다.
+
+    기본 출력은 .hwp(폼 바탕쪽=2단 가운데 구분선 보존, 2026-07-24)지만 XML 생성기
+    (`write_exam_to_hwpx`)는 .hwpx 만 만들 수 있다. 확장자를 안 바꾸면 hwpx 내용이
+    .hwp 이름으로 저장돼 한글이 못 연다.
+    """
+    p = Path(path)
+    return str(p.with_suffix(".hwpx")) if p.suffix.lower() != ".hwpx" else path
+
+
 def _unique_output_path(path: str) -> str:
     """출력 경로가 이미 있으면 윈도우식으로 ``stem (1).ext``·``stem (2).ext`` … 를 붙여
     충돌 없는 새 경로를 돌려준다(덮어쓰기 방지, 사용자 2026-06-09)."""
@@ -494,7 +505,9 @@ class ConversionWorker(QObject):
             result_path = write_exam_to_hwp(document, self.output_path,
                                             template_path=self.template_path)
         else:
-            result_path = write_exam_to_hwpx(document, self.output_path,
+            # HWP 미설치 폴백 — XML 생성기는 .hwpx 만 만든다(.hwp 로 저장하려면 HWP 필요).
+            result_path = write_exam_to_hwpx(document,
+                                             _as_hwpx_path(self.output_path),
                                              template_path=self.template_path)
 
         self.progress.emit(100, "변환 완료!")
@@ -955,7 +968,8 @@ class ConversionWorker(QObject):
             self.progress.emit(90, "HWP 미설치 — XML 생성기로 생성 중...")
             self.log.emit("step", "XML 생성기로 문서 생성 중...")
             result_path = write_exam_to_hwpx(
-                document, self.output_path, template_path=self.template_path
+                document, _as_hwpx_path(self.output_path),
+                template_path=self.template_path
             )
 
         self.progress.emit(100, "변환 완료!")
@@ -1432,7 +1446,9 @@ class MainWindow(QMainWindow):
         )
 
         # 출력 경로 자동 설정
-        out_name = Path(path).stem + "_변환.hwpx"
+        # 출력은 .hwp — .hwpx 로는 폼 바탕쪽(2단 가운데 구분선)이 적용되지 않는다
+        # (core.hwp_com.save_as_hwp 주석, 2026-07-24). 중간 후처리만 .hwpx.
+        out_name = Path(path).stem + "_변환.hwp"
         out_path = get_output_dir() / out_name
         self._output_input.setText(str(out_path))
         self._log(f"파일 선택: {path}")
@@ -1484,7 +1500,7 @@ class MainWindow(QMainWindow):
             self,
             "출력 파일 경로 지정",
             current or start_dir,
-            "HWPX 파일 (*.hwpx);;모든 파일 (*.*)",
+            "한글 파일 (*.hwp);;HWPX 파일 (*.hwpx);;모든 파일 (*.*)",
         )
         if path:
             self._output_input.setText(path)

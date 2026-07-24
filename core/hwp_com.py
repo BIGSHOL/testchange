@@ -128,6 +128,31 @@ def is_hwp_available() -> bool:
     return True
 
 
+def save_as_hwp(hwpx_path: str | Path, hwp_path: str | Path) -> bool:
+    """후처리 끝난 .hwpx 를 HWP COM 으로 열어 **최종 .hwp 로 굽는다**.
+
+    ⭐ 대수회 폼의 2단 가운데 세로 구분선은 **바탕쪽(masterpage0.xml)의 단 구분선**이다
+    (폼 7종·레퍼런스 워드본 전부 `colPr colCount=2` + `colLine SOLID 0.12mm`). 그런데
+    **HWP 는 .hwpx 를 열 때 바탕쪽을 그리지 않는다** — 레퍼런스 `[다사중](워드).hwp` 를
+    .hwpx 로 변환해 렌더하면 선이 사라지는 것으로 확정(2026-07-24). 과거(2026-07-13)엔 본문
+    구역 colPr 에 `<hp:colLine>` 을 주입해 메웠는데 그건 **다단 설정의 구분선**이라 내용
+    높이까지만 그려져 레퍼런스(바닥까지)와 다르다(사용자 지적) → 주입 폐기, 최종을 .hwp 로
+    저장해 폼 바탕쪽 선을 그대로 살린다. XML 후처리는 압축포맷인 .hwpx 에서만 가능하므로
+    **중간은 .hwpx, 최종만 .hwp**.
+
+    HWP 가 직접 저장하므로 `_com_relaunder` 와 같은 효과(변조 보안경고 없음).
+    실패해도 .hwpx 는 유효하니 변환을 중단하지 않는다. Returns: 성공 여부.
+    """
+    hwpx_path, hwp_path = Path(hwpx_path).resolve(), Path(hwp_path).resolve()
+    try:
+        with HwpSession(visible=CONVERSION_VISIBLE) as ses:
+            ses.open(hwpx_path)
+            ses.save_hwp(hwp_path)
+        return hwp_path.exists()
+    except Exception:  # noqa: BLE001
+        return False
+
+
 class HwpSession:
     """HWP COM 세션 컨텍스트 매니저.
 
@@ -287,6 +312,31 @@ class HwpSession:
         if not path.exists() or path.stat().st_mtime < t0 - 2:
             raise RuntimeError(
                 f"HWPX 저장 실패(파일 미갱신): {path} — 출력 파일이 열려 있거나(잠김) "
+                f"경로가 잘못됐을 수 있습니다.")
+        return path
+
+    def save_hwp(self, path: str | Path) -> Path:
+        """최종 산출물 .hwp 저장.
+
+        **.hwpx 로는 폼의 바탕쪽(master page)이 적용되지 않는다** — 대수회 폼의 2단 가운데
+        구분선은 `masterpage0.xml` 의 단 구분선(colLine)인데, HWP 가 .hwpx 를 열면 이 바탕쪽을
+        그리지 않는다(레퍼런스 `[다사중] (워드).hwp` 도 .hwpx 로 변환하면 똑같이 선이 사라짐 —
+        실측 2026-07-24). .hwp 로 저장하면 살아나 레퍼런스와 동일한 **전체 높이** 세로선이
+        나온다. 그래서 중간 후처리는 .hwpx 로 하되 **최종만 .hwp** 로 굽는다.
+        """
+        path = Path(path).resolve()   # 상대경로 → HWP CWD 저장 방지(save_hwpx 와 동일)
+        if path.exists():
+            try:
+                path.unlink()
+            except Exception:
+                pass
+        self.force_layout()
+        import time as _time
+        t0 = _time.time()
+        self.hwp.SaveAs(str(path), "HWP", "")
+        if not path.exists() or path.stat().st_mtime < t0 - 2:
+            raise RuntimeError(
+                f"HWP 저장 실패(파일 미갱신): {path} — 출력 파일이 열려 있거나(잠김) "
                 f"경로가 잘못됐을 수 있습니다.")
         return path
 

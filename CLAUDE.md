@@ -79,6 +79,18 @@ JSON 을 `parse_ocr_response`/`build_document` 에 직접 넣어 렌더까지 �
    "변하지 않은 점"·"괜찮은 것"은 미적용). 원본이 이미 `__밑줄__` 강조면 그 run 에 볼드만 더함.
    렌더 = `HwpCom.emphasis_run`(볼드·밑줄 토글), 기본·폼 두 경로 공유(`_write_block`·`_put_block`).
    `ContentBlock.bold` 필드 추가. 회귀: `test_content_parser` NE·`test_render_fixes` P.
+12. **⭐ 2단 가운데 세로 구분선 = 폼 바탕쪽(master page), 최종 산출물은 `.hwp`**(2026-07-24,
+   사용자 지적) — 대수회 폼의 가운데선은 `masterpage0.xml` 의 **바탕쪽 단 구분선**
+   (`colPr colCount=2` + `colLine SOLID 0.12mm`, 폼 7종·레퍼런스 워드본 전부 동일)이고
+   **본문 구역의 다단 설정 선이 아니다**. ⚠️ **HWP 는 `.hwpx` 를 열 때 바탕쪽을 그리지 않는다**
+   (레퍼런스 `[다사중](워드).hwp` 도 `.hwpx` 변환 후 렌더하면 선이 사라짐 — 실측 확정). 과거
+   (2026-07-13) 본문 colPr 에 `<hp:colLine>` 을 주입해 메웠으나 그건 다단 설정 선이라 **내용
+   높이까지만** 그려져 레퍼런스(바닥까지 전체 높이)와 다르다 → 주입 폐기. **XML 후처리는
+   작업용 `.hwpx` 로 하고 마지막에만 `.hwp` 로 굽는다**(`hwp_com.save_as_hwp`, 폼·기본 두 경로
+   공통. 출력 경로 suffix 가 `.hwp` 면 자동으로 `<stem>.__work.hwpx` 작업 후 변환·정리).
+   HWP 가 직접 저장하므로 `_com_relaunder` 와 같은 효과(변조 보안경고 없음). GUI 기본 출력
+   파일명 `..._변환.hwp`(HWP 미설치 폴백 `write_exam_to_hwpx` 만 `.hwpx`). corpus 렌더 등
+   내부 도구는 `.hwpx` 경로를 그대로 넘기면 종전 동작(무회귀). 회귀: `verify_output_format` #31.
 
 ## 자가발전 corpus 검수 프로토콜 (구독 요금제, API 0원)
 

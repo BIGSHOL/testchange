@@ -13,7 +13,7 @@ import logging
 from pathlib import Path
 from typing import Optional
 
-from core.hwp_com import CONVERSION_VISIBLE, HwpSession, CIRCLE_NUMBERS
+from core.hwp_com import CONVERSION_VISIBLE, HwpSession, CIRCLE_NUMBERS, save_as_hwp
 from core.template_headers import (
     ACCENT_BORDER,
     ACCENT_RULE,
@@ -2476,6 +2476,11 @@ def write_exam_to_hwp(
         저장된 파일 경로
     """
     output_path = Path(output_path)
+    # 최종 .hwp 요청이면 후처리(XML)는 작업용 .hwpx 로 하고 마지막에만 .hwp 로 굽는다
+    # (폼 경로와 동일 규칙 — 바탕쪽 보존. core.hwp_com.save_as_hwp 주석 참고, 2026-07-24).
+    final_hwp = output_path if output_path.suffix.lower() == ".hwp" else None
+    if final_hwp is not None:
+        output_path = final_hwp.with_name(final_hwp.stem + ".__work.hwpx")
     use_form = bool(form_mode and template_path)
     # 빌드는 숨김(빠름)이 기본이나, 실시간 작성 표시 옵션(CONVERSION_VISIBLE)이면 보이게 띄운다.
     with HwpSession(visible=CONVERSION_VISIBLE) as s:
@@ -2607,6 +2612,21 @@ def write_exam_to_hwp(
                 logger.info("2단 와이드 표 축소 %d건", n)
         except Exception as e:  # noqa: BLE001
             logger.warning("HWPX 후처리 실패(_fit_wide_tables_2col): %s", e)
+    # 최종 .hwp 굽기(요청 시) — 실패하면 작업용 .hwpx 를 최종 이름(.hwpx)으로 되돌린다.
+    if final_hwp is not None:
+        if save_as_hwp(output_path, final_hwp):
+            try:
+                output_path.unlink()
+            except Exception:  # noqa: BLE001
+                pass
+            return final_hwp
+        logger.warning("최종 .hwp 저장 실패 — .hwpx 로 반환: %s", output_path)
+        fallback = final_hwp.with_suffix(".hwpx")
+        try:
+            os.replace(output_path, fallback)
+            return fallback
+        except Exception:  # noqa: BLE001
+            return output_path
     return output_path
 
 

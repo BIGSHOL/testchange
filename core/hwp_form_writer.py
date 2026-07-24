@@ -31,7 +31,7 @@ from pathlib import Path
 
 logger = logging.getLogger(__name__)
 
-from .hwp_com import CONVERSION_VISIBLE, HwpSession, _dispatch_hwp, _win32
+from .hwp_com import CONVERSION_VISIBLE, HwpSession, save_as_hwp, _dispatch_hwp, _win32
 from .hwp_com_writer import (HwpComWriter, _BOX_BREAK_RE, _BULLET_RE,
                              _caption_run_back, _caption_spans, _choice_complexity,
                              _COND_HEADER_RE, _condition_start, _has_box_markup,
@@ -2260,38 +2260,6 @@ def _inject_essay_meta(hwpx_path: str | Path) -> int:
     return total
 
 
-def _inject_column_divider(hwpx_path: str | Path) -> int:
-    """2단 본문 colPr(self-closing)에 단 사이 세로 구분선(<hp:colLine>)을 주입한다.
-
-    대수회 폼(.hwp)의 colPr 에 colLine 이 빠져 있어 출력에 **가운데 구분선이 없다**
-    (사용자 2026-07-13: N드라이브 레퍼런스 폼엔 가운데줄이 있는데 우리 폼엔 없음). colLine
-    enum/width 는 검증된 값(hwp_com_writer._apply_body_columns 의 COM 경로, hwpxlib 모델로
-    확정 2026-06-24, 실측 중앙 세로선 렌더). `_com_relaunder`(HWP 재저장)가 colLine 을
-    보존함을 실측 확인(2026-07-13). relaunder **전**에 호출해 HWP 가 재저장 때 반영하게 한다.
-    멱등(이미 colLine 있으면 no-op) — 폼 7종 공통(colCount=2 self-closing colPr)."""
-    hwpx_path = Path(hwpx_path)
-    with zipfile.ZipFile(hwpx_path) as z:
-        infos = z.infolist()
-        data = {i.filename: z.read(i.filename) for i in infos}
-    n = 0
-    for fn in list(data):
-        if not re.search(r"section\d+\.xml$", fn):
-            continue
-        s = data[fn].decode("utf-8")
-        if "<hp:colLine" in s:                      # 멱등
-            continue
-        new = re.sub(
-            r'(<hp:colPr\b[^>]*\bcolCount="2"[^>]*?)/>',
-            r'\1><hp:colLine type="SOLID" width="0.12 mm" color="#000000"/></hp:colPr>',
-            s)
-        if new != s:
-            n += 1
-            data[fn] = new.encode("utf-8")
-    if n:
-        _repackage_hwpx(hwpx_path, infos, data)
-    return n
-
-
 def _count_meta_tokens(hwpx_path: str | Path) -> int:
     """section XML 의 메타란 토큰(소단원/난이도 자리표식) 연속-문자열 개수. relaunder 후
     (run=1 정규화) 호출해야 정확하다(쪼개진 토큰은 0 으로 세질 수 있음)."""
@@ -2383,6 +2351,12 @@ def write_exam_to_form(
     if _win32 is None:
         raise RuntimeError("win32com을 사용할 수 없습니다 (HWP COM 미지원 환경).")
     output_path = Path(output_path)
+    # ⭐ 최종 .hwp 요청이면 후처리는 **작업용 .hwpx** 로 하고 마지막에만 .hwp 로 굽는다
+    # (XML 후처리는 hwpx 압축포맷에서만 가능). .hwp 로 저장해야 폼 바탕쪽 2단 가운데
+    # 구분선이 살아난다(core.hwp_com.save_as_hwp 주석 참고, 2026-07-24).
+    final_hwp = output_path if output_path.suffix.lower() == ".hwp" else None
+    if final_hwp is not None:
+        output_path = final_hwp.with_name(final_hwp.stem + ".__work.hwpx")
     qs = [q for page in document.pages for q in page.questions]
     # PDF 페이지가 뒤섞여 들어와도 검출된 인쇄 문항번호 순으로 채운다(미주 자동번호가
     # 페이지 순서대로 매겨져 번호가 어긋나던 것 — 경상여고 대수 26-1, 2026-06-18).
@@ -2498,13 +2472,9 @@ def write_exam_to_form(
         _inject_essay_meta(output_path)
     except Exception as e:  # noqa: BLE001
         logger.warning("폼 후처리 실패(_inject_essay_meta): %s", e)
-    # 1.95단계: 2단 본문 가운데 세로 구분선(<hp:colLine>) 주입 — 대수회 폼 colPr 에 colLine 이
-    # 빠져 출력에 가운데줄이 없다(사용자 2026-07-13, N드라이브 레퍼런스 대비). relaunder **전**
-    # 에 해 HWP 재저장이 반영·보존하게 한다(보존 실측 확인). 멱등.
-    try:
-        _inject_column_divider(output_path)
-    except Exception as e:  # noqa: BLE001
-        logger.warning("폼 후처리 실패(_inject_column_divider): %s", e)
+    # (2026-07-24 폐기) 본문 colPr 에 <hp:colLine>(다단 구분선) 주입 단계. 폼의 가운데선은
+    # **바탕쪽(masterpage0.xml) 구분선**이지 다단 설정 선이 아니다(사용자 지적) — 다단 선은
+    # 내용 높이까지만 그려져 레퍼런스(전체 높이)와 다르다. 최종 .hwp 저장으로 해결(save_as_hwp).
     # 2단계: 그림 렌더 모드면 그림 binItem 임베드(경고 감수). 아니면(기본) COM 재저장(launder)
     # 으로 '변조' 보안경고 제거 — 그림 자리엔 안내 박스(표라서 재저장에 보존).
     # 2.5단계: 정답 페이지 패리티 **최종 검증·교정**(_fix_answer_parity) — _layout_form 의
@@ -2559,4 +2529,19 @@ def write_exam_to_form(
                 _com_relaunder(output_path)                # 정규화 + 재저장(경고 제거)
         except Exception as e:  # noqa: BLE001
             logger.warning("폼 후처리 실패(메타 토큰/라벨 잔존 해소): %s", e)
+    # 3단계: 최종 .hwp 굽기 — 폼 바탕쪽(2단 가운데 구분선)이 .hwpx 에선 적용되지 않는다.
+    if final_hwp is not None:
+        if save_as_hwp(output_path, final_hwp):
+            try:
+                output_path.unlink()          # 작업용 hwpx 정리
+            except Exception:                 # noqa: BLE001
+                pass
+            return final_hwp
+        logger.warning("최종 .hwp 저장 실패 — 작업용 .hwpx 를 그대로 사용합니다: %s", output_path)
+        fallback = final_hwp.with_suffix(".hwpx")
+        try:
+            _replace_retry(output_path, fallback)
+            return fallback
+        except Exception:                     # noqa: BLE001
+            return output_path
     return output_path

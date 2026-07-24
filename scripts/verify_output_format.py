@@ -159,6 +159,15 @@ def run_checks():
         "배점 우측정렬 폴백은 삽입분(sp→ep)만 SelectText 로 삭제 — MoveSelParaEnd 는 "
         "마지막 서술형에서 폼 정답 블록 앵커까지 삼킴(강동중 #20, 2026-06-10)")
 
+    chk(31, "2단 가운데 구분선 = 폼 바탕쪽(최종 .hwp 저장), 본문 colLine 주입 금지",
+        "_inject_column_divider" not in F
+        and "def save_as_hwp" in C
+        and "save_as_hwp(output_path, final_hwp)" in F
+        and "save_as_hwp(output_path, final_hwp)" in W,
+        "폼 가운데선은 masterpage0.xml 의 바탕쪽 단 구분선 — 본문 colPr 에 <hp:colLine> 을 "
+        "주입하면 내용 높이까지만 그려져 레퍼런스(전체 높이)와 다르다(사용자 2026-07-24). "
+        "HWP 는 .hwpx 의 바탕쪽을 안 그리므로 최종 산출물을 .hwp 로 굽는다(save_as_hwp)")
+
     mid_ok = ("mid" in L) and (r"\mid" in L)
     try:
         if str(ROOT) not in sys.path:
