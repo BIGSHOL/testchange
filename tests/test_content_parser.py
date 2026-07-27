@@ -838,13 +838,16 @@ def _check_value_list_comma_fixes(fails):
 
     # 사대부고 #16: 근호 섞인 값 나열 → 쉼표 보존(b0√2 로 뭉개지던 것)
     if not preserved(r"b,\ 0,\ \sqrt{2}", 3):
-        fails.append(f"  VL 근호값나열(사대부고#16): {run(r'b,\ 0,\ \sqrt{2}')[1]!r}")
+        _dbg = run(r'b,\ 0,\ \sqrt{2}')[1]
+        fails.append(f"  VL 근호값나열(사대부고#16): {_dbg!r}")
     # 영송여고 #9: 좌표쌍 나열 → 쉼표 보존(좌표쌍이 붙던 것)
     if not preserved(r"(-3,\ -3),\ (-2,\ 1),\ (0,\ 4)", 3):
-        fails.append(f"  VL 좌표쌍나열(영송여고#9): {run(r'(-3,\ -3),\ (-2,\ 1),\ (0,\ 4)')[1]!r}")
+        _dbg = run(r'(-3,\ -3),\ (-2,\ 1),\ (0,\ 4)')[1]
+        fails.append(f"  VL 좌표쌍나열(영송여고#9): {_dbg!r}")
     # 영송여고 #14: 함수 나열 → 쉼표 보존(f(x)g(x) 곱 오독되던 것)
     if not preserved(r"f(x),\ g(x)", 2):
-        fails.append(f"  VL 함수나열(영송여고#14): {run(r'f(x),\ g(x)')[1]!r}")
+        _dbg = run(r'f(x),\ g(x)')[1]
+        fails.append(f"  VL 함수나열(영송여고#14): {_dbg!r}")
     # 무회귀: 관계식 낀 곱셈 잡음(학남고 #12)은 여전히 병합(쉼표 드롭)
     h2, r2 = run("P(A)=16/9, P(B)")
     if not (h2 and len(r2) == 1 and "," not in (r2[0].value or "")):
@@ -1285,6 +1288,28 @@ def run():
         body = "".join((b.value or "") for b in q.contents)
         if "점]" in body:
             fails.append(f"  배점 잔존: {text!r} → 본문에 남음: {body!r}")
+    # HG1 수직선 위의 점 A(-1)·B(7) — 좌표 1개(쉼표 없음)도 기하 문맥이면 로만
+    #     (현풍고 공수2 #1, 사용자 2026-07-27 "점이면 도형이니 로만"). 확통 P(2) 는 비기하 유지.
+    _hg = _parse_q("두 점 $A(-1)$, $B(7)$을 이은 선분 AB를 3:1로 내분하는 점의 좌표는?")
+    _hgv = "".join((b.value or "") for b in _hg.contents)
+    if "\mathrm{A}\mathit{(-1)}" not in _hgv or "\mathrm{B}\mathit{(7)}" not in _hgv:
+        fails.append(f"  HG1 수직선 점 로만 실패: {_hgv!r}")
+    _hg2 = _parse_q("확률변수 $X$에 대하여 $P(2)$의 값은?")
+    _hg2v = "".join((b.value or "") for b in _hg2.contents)
+    if "\mathrm{P}" in _hg2v:
+        fails.append(f"  HG1 확통 P(2) 오로만화: {_hg2v!r}")
+
+    # HG2 원 이름 ``원 O`` — 단독 "원"은 기하 키워드가 아니지만 뒤에 대문자 라벨이 오면 도형
+    #     (왕선중 #1 렌더에서 같은 시험지 #2 와 정자/이탤릭 혼재, 사용자 "도형이면 로만").
+    _cg = _parse_q("그림과 같은 원 $O$에서 $x$의 값은?")
+    _cgv = "".join((b.value or "") for b in _cg.contents)
+    if "\mathrm{O}" not in _cgv:
+        fails.append(f"  HG2 원 이름 로만 실패: {_cgv!r}")
+    _cg2 = _parse_q("집합의 원소 $X$에 대하여 $E(X)$의 값은?")
+    _cg2v = "".join((b.value or "") for b in _cg2.contents)
+    if "\mathrm" in _cg2v:
+        fails.append(f"  HG2 확통/원소 오로만화: {_cg2v!r}")
+
     if fails:
         print("FAIL test_content_parser:")
         print("\n".join(fails))

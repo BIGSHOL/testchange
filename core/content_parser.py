@@ -543,6 +543,11 @@ _POINT_COORD_RE = re.compile(
 # 첨자가 글자마다 붙은 선분명(A_1C_1·A_1A_2)이 이탤릭으로 새던 것(강동고 미적분 #8·#14 등
 # 수열 도형 점 문제, 2026-06-16). 모두 점 글자+첨자라 \mathrm 안전(이탤릭 조각 없음).
 _POINT_TOKEN = r"[A-Z]'*(?:_\{?[A-Za-z0-9+\-]+\}?)?'*"
+# 수직선 위의 점 ``A(-1)``·``B(7)`` — 좌표가 하나뿐이라 쉼표가 없어 좌표쌍 규칙(`,` 필수)이
+# 놓치고 점 글자가 이탤릭으로 남았다(현풍고 공수2 #1, 사용자 2026-07-27 지적). 괄호 안이
+# **순수 수 리터럴**일 때만 좌표로 인정 — 함수호출 ``F(x)``·확률 ``P(A)`` 는 변수라 미매치,
+# 기하 문맥(`_has_geometry_context`) 게이트도 그대로라 확통 표기는 영향 없다.
+_NUM_PAREN_RE = re.compile(r'^(?:\\left)?\(\s*[+\-]?\d+(?:\.\d+)?\s*(?:\\right)?\)$')
 _POINT_NAME_SEQ_RE = re.compile(r"^(?:%s\s*){2,}$" % _POINT_TOKEN)
 
 # 기하 키워드(엄격) — **대문자 1글자** 수식을 로만으로 만들지 결정. 확통의 X·P·E·V·Z·N
@@ -570,6 +575,11 @@ _NONGEO_DECOY = (
 )
 
 
+# 원 이름 패턴(``원 O``·``원 O'``·``원 O에서``) — 기하 문맥 판정 보조. "원소"·"원점" 등은
+# 뒤가 한글이라 미매치, "원 O" 처럼 **대문자 라벨**이 붙을 때만 도형으로 본다.
+_CIRCLE_NAME_RE = re.compile(r"원\s*(?:\\math(?:rm|it)\{)?[A-Z]'?(?![a-zA-Z])")
+
+
 def _has_geometry_context(blocks: list[ContentBlock]) -> bool:
     """blocks 안 어느 텍스트/수식에든 엄격 기하 키워드가 있으면 True.
 
@@ -579,7 +589,12 @@ def _has_geometry_context(blocks: list[ContentBlock]) -> bool:
     text = " ".join(str(b.value or "") for b in blocks)
     for decoy in _NONGEO_DECOY:
         text = text.replace(decoy, "")
-    return any(k in text for k in _GEOMETRY_KEYWORDS)
+    if any(k in text for k in _GEOMETRY_KEYWORDS):
+        return True
+    # 원 이름 ``원 O``·``원 O'`` — 단독 "원"은 '원소'·'평균을 중심으로' 충돌 때문에 키워드에서
+    # 뺐지만, **원 뒤에 바로 대문자 이름**이 오면 도형(원)이 확실하다(왕선중 #1 `원 O에서` 의
+    # O 만 이탤릭, 같은 시험지 #2 `세 점 A,B,C` 는 로만이라 혼재. 사용자 규칙 "도형이면 로만").
+    return bool(_CIRCLE_NAME_RE.search(text))
 
 
 # 확통 연산자·확률변수(P 확률·E 기댓값·V 분산·N 정규분포·Z 표준정규·X,Y 확률변수)는
@@ -694,7 +709,7 @@ def _romanize_point_names(blocks: list[ContentBlock],
                 continue
             # 좌표 단 점 이름 P(a,b)·A(-5,-3)·P_n(n,f(n)): 점 글자(+첨자)만 로만, 좌표는 이탤릭.
             mc = _POINT_COORD_RE.match(v) if (has_geo and v and "\\math" not in v) else None
-            if mc and "," in mc.group(2):
+            if mc and ("," in mc.group(2) or _NUM_PAREN_RE.match(mc.group(2).strip())):
                 out.append(ContentBlock(
                     type=ContentType.EQUATION,
                     value=f"\\mathrm{{{mc.group(1)}}}\\mathit{{{mc.group(2)}}}"))
