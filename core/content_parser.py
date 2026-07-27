@@ -16,6 +16,29 @@ from models.exam_document import (
 # 텍스트 내 인라인 LaTeX $...$ 감지 패턴
 _INLINE_LATEX_RE = re.compile(r"(?<!\$)\$(?!\$)(.+?)(?<!\$)\$(?!\$)")
 
+# OCR 백엔드(특히 Gemini)·`ocr_engine._extract_json` 복구 단계가 LaTeX 명령 앞 역슬래시를
+# **과잉 이스케이프**(``\\frac``·``\\div``·``\\left``)하면 변환기가 첫 ``\`` 를 리터럴로 흘려
+# ``₩``·``\{`` 가 화면에 노출된다(제일중 26-1-기말 #4·#5·#14, 2026-06-26). corpus 193편은
+# 전부 Claude/Sonnet(깨끗한 단일 ``\frac``)으로 만들어 한 번도 안 드러났고, 배포 exe 의 Gemini
+# 자동 라우팅(v0.1.17)에서 비로소 발화 — 같은 시험지에서 단일/이중이 **뒤섞여**(71 단일 / 17 이중)
+# 나온다. 명령어(letter) 앞 **2개 이상** 역슬래시를 1개로 정규화한다. 줄바꿈 ``\\``(cases — 뒤가
+# 공백)·``\{``·``\}``·``\,`` 는 letter 앞이 아니라 보존된다(런 길이 1·비-letter 후행). corpus(전부
+# 런 길이 1)엔 무영향 = 회귀 0.
+_OVERESCAPED_BS_RE = re.compile(r"\\{2,}(?=[A-Za-z])")
+
+
+def _collapse_overescaped_backslashes(obj):
+    """OCR 값의 과잉 이스케이프(``\\\\frac`` → ``\\frac``)를 재귀적으로 정규화."""
+    if isinstance(obj, str):
+        if "\\\\" in obj:
+            return _OVERESCAPED_BS_RE.sub("\\\\", obj)
+        return obj
+    if isinstance(obj, dict):
+        return {k: _collapse_overescaped_backslashes(v) for k, v in obj.items()}
+    if isinstance(obj, list):
+        return [_collapse_overescaped_backslashes(x) for x in obj]
+    return obj
+
 
 def parse_ocr_response(ocr_result: dict, page_number: int) -> ExamPage:
     """OCR 결과 dict를 ExamPage 객체로 변환.
@@ -31,6 +54,7 @@ def parse_ocr_response(ocr_result: dict, page_number: int) -> ExamPage:
     page.header_text = ocr_result.get("header", "")
 
     for q_data in ocr_result.get("questions", []):
+        q_data = _collapse_overescaped_backslashes(q_data)
         question = _parse_question(q_data)
         page.questions.append(question)
 
@@ -470,11 +494,27 @@ def _parse_content_block(block_data: dict) -> ContentBlock | None:
         if len(split) == 1 and split[0].underline:
             return split[0]
 
-    # 텍스트 블록에 $...$ 인라인 LaTeX가 있으면 분리
+    # 텍스트 블록에 $...$ 인라인 LaTeX가 있으면 분리. ⚠️ OCR(특히 Gemini)이 한 박스 안 여러
+    # 수식 중 **일부만 ``$...$`` 로 감싸고 일부는 raw LaTeX 로** 줄 수 있다(제일중 #14 박스 셋째
+    # 줄 ``• \left(-\frac…\right)^5`` 가 ``$`` 없이 → ``$``-분리가 그 줄을 TEXT 로 남겨 ``₩left``
+    # literal 누수, 2026-06-26). ``$``-분리 후 **남은 TEXT 세그먼트에 LaTeX 명령(``\``)이 있으면
+    # 재투입**해 나머지 파이프라인(``\``·혼합수식 분리)을 마저 태운다(``__`` 밑줄 경로와 동일).
+    # 재투입 TEXT 는 ``$`` 가 소비돼 이 분기로 되돌지 않으므로 무한재귀 없음.
     if content_type == ContentType.TEXT and "$" in value:
         split = _split_inline_latex(value)
         if len(split) > 1:
-            return split  # type: ignore[return-value]
+            out: list[ContentBlock] = []
+            for sb in split:
+                if (sb.type == ContentType.TEXT
+                        and "\\" in (sb.value or "")
+                        and "$" not in (sb.value or "")):
+                    sub = _parse_content_block({"type": "text", "value": sb.value})
+                    if sub is None:
+                        continue
+                    out.extend(sub if isinstance(sub, list) else [sub])
+                else:
+                    out.append(sb)
+            return out  # type: ignore[return-value]
 
     # 텍스트 블록에 LaTeX 명령어(\sqrt, \frac 등)가 있으면 수식 분리
     if content_type == ContentType.TEXT and '\\' in value:
@@ -1547,8 +1587,52 @@ def _merge_empty_group_subscript(blocks: list[ContentBlock]) -> list[ContentBloc
     return out
 
 
+def _link_cross_block_underline(blocks: list[ContentBlock]) -> list[ContentBlock]:
+    """OCR(특히 Gemini)이 ``__…__`` 밑줄 강조 구절을 **수식 경계로 쪼개** 여는 ``__`` 와 닫는
+    ``__`` 가 서로 다른 TEXT 블록에 흩어지면, 단일 블록 단위 ``_split_underline_markup`` 이
+    짝을 못 찾아 리터럴 ``__`` 가 노출되고 밑줄이 사라진다(제일중 #12 "__그림과 같이 점 A 와 점
+    B 를 지나는…그래프의__ 식으로", 2026-06-26). 블록 리스트에서 여는 ``__`` 부터 닫는 ``__`` 까지
+    를 한 밑줄 span 으로 묶어, 그 사이 TEXT 블록에 underline 을 적용하고 ``__`` 를 제거한다. 수식
+    블록은 밑줄 객체화가 불가하므로 그대로 둔다(한글 밑줄만 복원). corpus(전부 단일 블록
+    ``__x__`` 또는 underline 속성)엔 교차블록 ``__`` 0건 = 무영향. 이 단계 도달 시 TEXT 의 ``__``
+    는 항상 **짝 없는** 것(짝 ``__x__`` 는 `_parse_content_block` 이 이미 처리)."""
+    oi = next((k for k, b in enumerate(blocks)
+               if b.type == ContentType.TEXT and "__" in (b.value or "")), None)
+    if oi is None:
+        return blocks
+    ci = next((k for k in range(oi + 1, len(blocks))
+               if blocks[k].type == ContentType.TEXT and "__" in (blocks[k].value or "")), None)
+    if ci is None:
+        return blocks   # 닫는 ``__`` 없음(불완전 OCR) — 건드리지 않음
+
+    out: list[ContentBlock] = list(blocks[:oi])
+    ov = blocks[oi].value or ""
+    p = ov.find("__")
+    pre, post = ov[:p], ov[p + 2:]
+    if pre:
+        out.append(ContentBlock(type=ContentType.TEXT, value=pre))
+    if post:
+        out.append(ContentBlock(type=ContentType.TEXT, value=post, underline=True))
+    for k in range(oi + 1, ci):
+        b = blocks[k]
+        if b.type == ContentType.TEXT:
+            out.append(ContentBlock(type=ContentType.TEXT, value=b.value or "", underline=True))
+        else:
+            out.append(b)
+    cv = blocks[ci].value or ""
+    q = cv.find("__")
+    cpre, cpost = cv[:q], cv[q + 2:]
+    if cpre:
+        out.append(ContentBlock(type=ContentType.TEXT, value=cpre, underline=True))
+    if cpost:
+        out.append(ContentBlock(type=ContentType.TEXT, value=cpost))
+    out.extend(blocks[ci + 1:])
+    return out
+
+
 def _finalize_contents(blocks: list[ContentBlock]) -> list[ContentBlock]:
     """문제 본문 후처리 파이프라인(분리·병합·이탤릭·로만·배점제거)."""
+    blocks = _link_cross_block_underline(blocks)   # 교차블록 __밑줄__ 연결(Gemini 분리 복원)
     blocks = _split_trailing_domain(blocks)        # 수식 끝 정의역 (x=0,1,⋯) 분리
     blocks = _split_comma_equations(blocks)         # 쉼표 구분 독립 수식 분리
     blocks = _merge_operator_split_equations(blocks)  # eq·연산자·eq 병합
@@ -1736,6 +1820,14 @@ def _trailing_question_split(raws: list[dict], i: int) -> int | None:
     return start
 
 
+_SENT_END_RE = re.compile(r"[.?!。．？！]\s*$")
+
+
+def _ends_sentence(s: str) -> bool:
+    """문자열이 **문장 종결 부호**(. ? ! 。 ． ？ ！)로 끝나는가(박스 경계 판정용)."""
+    return bool(_SENT_END_RE.search((s or "").rstrip()))
+
+
 def _raw_box_end(raws: list[dict]) -> int | None:
     """자기완결 박스(<조건>/<보기>/<상자> + 항목이 한 raw 텍스트 블록) **뒤에** 발문이
     더 이어지면 그 발문 연속이 시작되는 raw 인덱스를 돌려준다(없으면 None).
@@ -1819,6 +1911,20 @@ def _raw_box_end(raws: list[dict]) -> int | None:
                     # equation 이면, 나열값이 인라인 수식으로 이어지는 것 → 박스 연속(분리 금지).
                     # 자기완결 나열은 쉼표로 끝나지 않으므로(마지막 값 뒤 닫힘) 무회귀.
                     if rest.rstrip().endswith((",", "，")) and nxt.get("type") == "equation":
+                        return None
+                    # 산문 박스 문장이 인라인 수식으로 쪼개진 경우(제일중 서술형2 "일의 자리 수가 "
+                    # + eq"2" + "인 어느 세 자리…9이다.", 2026-06-26): 마커 rest 가 종결부호 없이
+                    # 끝나고 다음이 equation 이며 박스가 **끝까지 한 문장**(마지막 블록 외엔 종결부호로
+                    # 끝나는 TEXT 가 없음 = 뒤에 별도 발문 질문이 없음)이면 분리 안 함(박스 전체 유지).
+                    # ⚠️ 확통 시나리오 박스(청구고 #12 "주사위를…1,1,1이다." + 별도 "…확률은?")는
+                    # 중간에 "…이다." 종결 TEXT 가 있어 이 규칙을 안 타고 기존 동작(i+1) 유지 →
+                    # 질문이 박스로 끌려가지 않음(13개 확통 reviewed 박스 무회귀). 대화 박스(서술형1)는
+                    # 내부 종결부호가 많아 OLD(i+1) 로 떨어지고, 화자 라벨 줄바꿈으로 따로 보정.
+                    if (nxt.get("type") == "equation" and not _ends_sentence(rest)
+                            and not any(
+                                raws[j].get("type") == "text"
+                                and _ends_sentence((raws[j].get("value") or "").strip())
+                                for j in range(i, len(raws) - 1))):
                         return None
                     return i + 1
                 # rest 가 항목 라벨 하나뿐(``<상자> (가)``)이거나 비어도, 박스 뒤에 질문 발문이
