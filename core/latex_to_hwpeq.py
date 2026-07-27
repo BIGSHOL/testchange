@@ -628,6 +628,30 @@ class LaTeXToHWPConverter:
 
         return self._ROMAN_LABEL_RE.sub(_repl, script)
 
+
+    # HWP 의 ``rm`` 은 **명시적 ``it`` 이 나올 때까지 뒤 전체**에 적용된다(도원중 렌더 실증).
+    # 그래서 ``TRIANGLE rm {ANC} = p TIMES …`` 의 변수 ``p`` 가 정자로 나갔다(왕선중 #9,
+    # 사용자 2026-07-27 "it{p} 같은 느낌으로"). 라벨 뒤의 **단일 소문자 변수**만 ``it {p}`` 로
+    # 감싸 이탤릭을 되살린다 — HWP 키워드(bar·angle·sqrt·lim …)는 모두 2자 이상이라 무영향.
+    _ROMAN_BLEED_SCAN = re.compile(
+        r"(?P<style>(?<![A-Za-z])(?:rm|it)(?![A-Za-z]))"
+        r"|(?P<var>(?<![A-Za-z0-9_`{])[a-z](?![A-Za-z0-9_]))")
+
+    def _stop_roman_bleed(self, script: str) -> str:
+        """``rm`` 이후 단일 소문자 변수를 ``it {x}`` 로 감싸 정자 번짐을 끊는다."""
+        out, last, roman = [], 0, False
+        for m in self._ROMAN_BLEED_SCAN.finditer(script):
+            if m.lastgroup == "style":
+                roman = (m.group("style") == "rm")
+                continue
+            if not roman:
+                continue
+            out.append(script[last:m.start()])
+            out.append("it {" + m.group("var") + "}")
+            last = m.end()
+        out.append(script[last:])
+        return "".join(out)
+
     def _build_patterns(self):
         """정규식 패턴 사전 컴파일."""
         # \frac{a}{b}, \dfrac{a}{b}, \tfrac{a}{b}
@@ -822,6 +846,7 @@ class LaTeXToHWPConverter:
         # 사각형 라벨(AB, ABC, ABCD)이 기울어 보이는 것을 rm {…} 로 바로세운다.
         result = self._apply_roman_labels(result)
 
+        result = self._stop_roman_bleed(result)   # rm 번짐 차단(단일 소문자 변수)
         # 단위 정자화: 숫자 뒤 단위(kg, cm …)를 rm`<단위>로 (정자 + 살짝 띄움).
         result = _romanize_units(result)
         # \mathrm 로 감싸진 단위(a\mathrm{cm}·5\mathrm{cm})의 ``rm <단위>`` 일반공백도 백틱으로.

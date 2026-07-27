@@ -140,6 +140,12 @@ def _has_box_markup(text: str) -> bool:
     return bool(_BULLET_RE.search(text))
 
 
+# 값 나열 박스 본문(``4  5  5  6  x``·``10, 13, 9, a``·``7, 2a-5, a+1``) — 한글 없이
+# 숫자·짧은 변수·연산기호·쉼표·물결만. 지문/항목 박스(한글 포함)는 매칭되지 않는다.
+_VALUE_LIST_RE = re.compile(r"[0-9A-Za-z+\-.,~()\s^_]+")
+_VALUE_TOKEN_RE = re.compile(r"[0-9A-Za-z][0-9A-Za-z+\-.^_()]*")
+
+
 def _is_value_box(blocks: list[ContentBlock]) -> bool:
     """라벨 없는 **값 나열 상자**인지(``<상자>`` 마커 + 값들, 항목라벨/지문 없음).
 
@@ -165,7 +171,15 @@ def _is_value_box(blocks: list[ContentBlock]) -> bool:
     leftover = _BULLET_RE.sub("", leftover)
     if _BOX_BOUNDARY_RE.search(leftover):  # ㄱ./(가) 등 항목 라벨이 있으면 값상자 아님
         return False
-    return len(eqs) >= 2 and len(leftover.strip()) <= 6
+    if len(eqs) >= 2 and len(leftover.strip()) <= 6:
+        return True
+    # OCR 이 값들을 **평문 한 덩어리**로 주는 경우(``<상자> 4  5  5  …  x``)도 값상자다.
+    # 수식 블록이 0개라 위 조건(eq>=2)에 안 걸려 통째 평문으로 렌더됐다 — 발문의 이탤릭
+    # ``x`` 와 달리 박스 안 ``x`` 만 정자로 나가 합의 #6(숫자·문자 수식 객체화) 위반
+    # (오성중 #10·#20, 왕선중 #13·#23, 운암중 #12·#14, 사용자 2026-07-27 지적).
+    body = leftover.strip()
+    return bool(body) and len(_VALUE_TOKEN_RE.findall(body)) >= 2 and bool(
+        _VALUE_LIST_RE.fullmatch(body))
 
 
 def _is_labelless_box(blocks: list[ContentBlock]) -> bool:
@@ -732,6 +746,23 @@ class HwpComWriter:
         # 사용자 2026-06-08: 상자 내용이 둘째 줄부터 시작). started(공백 lstrip 판정)와 분리.
         emitted = False
 
+        def put_seg(seg: str) -> None:
+            """세그먼트 출력 — 값 나열 상자면 **토큰별 수식 객체**(합의 #6·#10), 아니면 평문.
+
+            통수식 하나로 넣으면 HWP 가 공백을 죽여 붙고, 평문으로 두면 변수 ``x``·``a`` 가
+            정자로 나가 발문(이탤릭)과 어긋난다 → 토큰만 수식, 구분자(공백·쉼표)는 평문.
+            """
+            if not space_values or _HAS_HANGUL_RE.search(seg):
+                self.s.text(seg)
+                return
+            for tok in re.split(r"(\s+|,)", seg):
+                if not tok:
+                    continue
+                if tok.isspace() or tok == ",":
+                    self.s.text(tok)
+                else:
+                    self.s.equation(latex_to_hwpeq(tok))
+
         def emit_text(text: str) -> None:
             nonlocal started, emitted
             pos = 0
@@ -744,7 +775,7 @@ class HwpComWriter:
                     seg = pre if started else pre.lstrip()
                     if after_label:
                         seg = seg.lstrip()   # "ㄱ. " + " 내용" → "ㄱ. 내용"(한 칸)
-                    self.s.text(seg)
+                    put_seg(seg)
                     started = True
                     emitted = True
                     broke = False
@@ -791,7 +822,7 @@ class HwpComWriter:
                 seg = tail if started else tail.lstrip()
                 if after_label:
                     seg = seg.lstrip()
-                self.s.text(seg)
+                put_seg(seg)
                 started = True
                 emitted = True
 
@@ -1563,6 +1594,140 @@ def _fix_stemleaf_colwidth(hwpx_path: str | Path, ratio: tuple[int, int] = (1, 3
 
     _rewrite_zip(hwpx_path, infos, contents)
     return fixed
+
+
+def _fix_label_colwidth(hwpx_path: str | Path, max_factor: float = 2.2) -> int:
+    """저장된 .hwpx 의 표에서 **라벨 열(0열)이 값 열보다 길면** 그 열만 넓힌다.
+
+    ``TableCreate`` 가 열너비를 균등 배분하므로 ``편차(점)``·``학생수(명)`` 같은 라벨이
+    좁은 셀에서 2줄로 접힌다(오성중 #11·왕선중 #12, 사용자 2026-07-27 지적). 값 열은
+    숫자 1~2자라 좁아도 되므로 **총폭을 보존한 채** 0열을 늘리고 나머지를 균등 축소한다.
+
+    적용 조건(오적용 방지): 0열 최장 텍스트가 나머지 열 최장 텍스트보다 **2자 이상** 길 때만.
+    ``구분|중간고사|기말고사`` 처럼 값 열이 더 긴 표는 건드리지 않는다.
+
+    Returns: 폭을 고친 표 개수.
+    """
+    import zipfile
+
+    hwpx_path = Path(hwpx_path)
+    with zipfile.ZipFile(hwpx_path) as z:
+        infos = z.infolist()
+        contents = {i.filename: z.read(i.filename) for i in infos}
+
+    fixed = 0
+
+    def _cell_text(tc: str) -> str:
+        return re.sub(r"\s+", "", "".join(re.findall(r"<hp:t>([^<]*)</hp:t>", tc)))
+
+    def _one_tbl(tm: "re.Match") -> str:
+        nonlocal fixed
+        tbl = tm.group(0)
+        cc = re.search(r'colCnt="(\d+)"', tbl)
+        if not cc:
+            return tbl
+        ncol = int(cc.group(1))
+        if ncol < 3 or "줄기" in tbl:          # 2열·줄기잎은 _fix_stemleaf_colwidth 담당
+            return tbl
+        szm = re.search(r'<hp:sz\s+width="(\d+)"\s+widthRelTo="ABSOLUTE"', tbl)
+        if not szm:
+            return tbl
+        total = int(szm.group(1))
+        col0, rest = [], []
+        for cm in re.finditer(r"<hp:tc\b.*?</hp:tc>", tbl, flags=re.S):
+            tc = cm.group(0)
+            am = re.search(r'<hp:cellAddr\s+colAddr="(\d+)"', tc)
+            if not am:
+                continue
+            (col0 if am.group(1) == "0" else rest).append(len(_cell_text(tc)))
+        if not col0 or not rest:
+            return tbl
+        w_label, w_val = max(col0), max(rest)
+        if w_label < w_val + 2:                # 라벨이 값보다 짧으면 손대지 않음
+            return tbl
+        factor = min(max(w_label / max(w_val, 1), 1.3), max_factor)
+        w0 = max(int(total * factor / (factor + ncol - 1)), 1)
+        wr = max((total - w0) // (ncol - 1), 1)
+        last = total - w0 - wr * (ncol - 2)     # 반올림 오차는 마지막 열이 흡수(총폭 보존)
+
+        def _one_tc(cm: "re.Match") -> str:
+            tc = cm.group(0)
+            am = re.search(r'<hp:cellAddr\s+colAddr="(\d+)"', tc)
+            if not am:
+                return tc
+            c = int(am.group(1))
+            w = w0 if c == 0 else (last if c == ncol - 1 else wr)
+            return re.sub(r'(<hp:cellSz\s+width=")\d+(")',
+                          lambda m2: m2.group(1) + str(w) + m2.group(2), tc, count=1)
+
+        tbl = re.sub(r"<hp:tc\b.*?</hp:tc>", _one_tc, tbl, flags=re.S)
+        fixed += 1
+        return tbl
+
+    changed = False
+    for fn in list(contents):
+        if re.search(r"section\d+\.xml$", fn):
+            xml = contents[fn].decode("utf-8")
+            new = re.sub(r"<hp:tbl\b.*?</hp:tbl>", _one_tbl, xml, flags=re.S)
+            if new != xml:
+                contents[fn] = new.encode("utf-8")
+                changed = True
+    if not changed:
+        return 0
+    _rewrite_zip(hwpx_path, infos, contents)
+    return fixed
+
+
+
+def _strip_trailing_choice_tab(hwpx_path: str | Path) -> int:
+    """선택지 단락(①②③④⑤ 로 시작) **끝의 탭 런**을 제거한다.
+
+    폼 선택지는 2열 정렬용 탭(``_inject_choice_tabstop`` 고정탭)을 품고 있는데, 선택지가
+    길어 1열로 배치되면 이 탭이 단락 꼬리에 남아 **다음 줄로 넘어가며 빈 줄**을 만든다
+    (오성중 #15 ③↔④ 사이, 사용자 2026-07-27). 마지막 보이는 내용 뒤의 탭만 지우므로
+    2열 배치의 ①↔② **중간 탭**은 그대로 유지된다.
+
+    Returns: 탭을 지운 단락 수.
+    """
+    import zipfile
+
+    hwpx_path = Path(hwpx_path)
+    with zipfile.ZipFile(hwpx_path) as z:
+        infos = z.infolist()
+        contents = {i.filename: z.read(i.filename) for i in infos}
+
+    n = 0
+
+    def _one_para(pm: "re.Match") -> str:
+        nonlocal n
+        p = pm.group(0)
+        txt = "".join(re.findall(r"<hp:t>([^<]*)</hp:t>", p)).strip()
+        if not txt or txt[0] not in "①②③④⑤":
+            return p
+        # 마지막 내용(텍스트/수식) 이후에 오는 탭 런만 제거
+        last_content = max((m.end() for m in re.finditer(
+            r"<hp:t>[^<]*</hp:t>|<hp:equation\b.*?</hp:equation>", p, flags=re.S)), default=-1)
+        if last_content < 0:
+            return p
+        head, tail = p[:last_content], p[last_content:]
+        new_tail, k = re.subn(r"<hp:tab\b[^/>]*/>", "", tail)
+        if not k:
+            return p
+        n += 1
+        return head + new_tail
+
+    changed = False
+    for fn in list(contents):
+        if re.search(r"section\d+\.xml$", fn):
+            xml = contents[fn].decode("utf-8")
+            new = re.sub(r"<hp:p\b[^>]*>.*?</hp:p>", _one_para, xml, flags=re.S)
+            if new != xml:
+                contents[fn] = new.encode("utf-8")
+                changed = True
+    if not changed:
+        return 0
+    _rewrite_zip(hwpx_path, infos, contents)
+    return n
 
 
 # 정통 헤더 표 열너비 비율(저장 후 XML 패치 — TableCreate 의 균등 재배분 우회, _fix_stemleaf
@@ -2606,6 +2771,7 @@ def write_exam_to_hwp(
     # 줄기-잎 표 열너비 줄기:잎=1:3 강제(TableCreate 가 균등 재배분하는 것 보정).
     try:
         _fix_stemleaf_colwidth(output_path)
+        _fix_label_colwidth(output_path)   # 라벨 열 폭(2줄 접힘 방지)
     except Exception as e:  # noqa: BLE001
         logger.warning("HWPX 후처리 실패(_fix_stemleaf_colwidth): %s", e)
     # 2단: COM 표가 본문 폭(148mm)으로 생성돼 칼럼(~84mm)을 넘는 것(정답 페이지 빠른정답 격자/

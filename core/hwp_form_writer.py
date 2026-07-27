@@ -2672,8 +2672,14 @@ def write_exam_to_form(
     # 경로와 동일). _com_relaunder **전**. relaunder(HWP 재저장)가 차등폭을 보존하는지는
     # 렌더로 검증해야 한다(HWP 가 load 시 명시 셀너비를 유지하면 통과).
     try:
-        from core.hwp_com_writer import _fix_stemleaf_colwidth
+        from core.hwp_com_writer import _fix_stemleaf_colwidth, _fix_label_colwidth
         _fix_stemleaf_colwidth(output_path)
+        # 라벨 열(편차(점)·학생수(명))이 값 열과 같은 폭이라 2줄로 접히던 것(오성중 #11·
+        # 왕선중 #12, 사용자 2026-07-27). 값 열은 숫자 1~2자라 좁혀도 무방.
+        _fix_label_colwidth(output_path)
+        from core.hwp_com_writer import _strip_trailing_choice_tab
+        # 1열 선택지 꼬리 탭 → 빈 줄(오성중 #15). 2열 중간 탭은 보존.
+        _strip_trailing_choice_tab(output_path)
     except Exception as e:  # noqa: BLE001
         logger.warning("폼 후처리 실패(_fix_stemleaf_colwidth): %s", e)
     # 1.9단계: 서술형 끝 메타란 토큰 → [소단원][난이도] 주입(살아있는 MC 메타란 복제, 폼
