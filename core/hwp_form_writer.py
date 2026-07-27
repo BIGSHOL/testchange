@@ -1888,6 +1888,15 @@ def _fill_form_header(hwpx_path: str | Path, values: dict) -> int:
         (re.compile(r'(?:중|고)\s*[1-3]\s*학년\s*' + _SUBJ_PAT), lambda mm: center),
         (re.compile(r'\d{2,4}\s*년\s*학기\s*고사(?!\s*대비)'), lambda mm: exam),
     ]
+    # 시험 범위(제목 아래 텍스트상자 " ~ " 자리, 사용자 2026-07-27): "시작단원 ~ 끝단원".
+    # 폼 머리말 drawText 안에 **틸드만 든 런**(`<hp:t> ~ </hp:t>`)이 자리표시자로 박혀 있다.
+    # 값이 없으면 건드리지 않는다(폼 원본 유지). 본문의 물결(범위표기 "1~5")은 런 전체가
+    # 틸드뿐인 경우가 아니므로 미매치 — 자리표시자만 정확히 교체된다.
+    scope = (values.get("범위") or "").strip()
+    if scope:
+        _esc = (scope.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;"))
+        pats.append((re.compile(r'<hp:t>\s*~\s*</hp:t>'),
+                     lambda mm, _s=_esc: f'<hp:t>{_s}</hp:t>'))
     hwpx_path = Path(hwpx_path)
     with zipfile.ZipFile(hwpx_path) as z:
         infos = z.infolist()

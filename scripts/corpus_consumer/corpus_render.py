@@ -62,6 +62,11 @@ def main(argv):
 
     doc = build_document(pages)
     info = parse_filename(corpus_dir.name)
+    # 시험 범위(제목 아래 " ~ " 자리): corpus 폴더의 scope.txt 한 줄("시작단원 ~ 끝단원").
+    scope_fp = corpus_dir / "scope.txt"
+    if info["valid"] and scope_fp.exists():
+        info = dict(info, 범위=scope_fp.read_text(encoding="utf-8").strip())
+        print("scope:", info["범위"])
     form = resolve_form(corpus_dir.name)
     if not form:
         raise SystemExit(f"폼 매칭 실패: {corpus_dir.name}")
