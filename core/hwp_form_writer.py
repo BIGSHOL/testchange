@@ -2232,6 +2232,7 @@ def _inject_answer_runs(hwpx_path: str | Path,
         infos = z.infolist()
         data = {i.filename: z.read(i.filename) for i in infos}
     total = 0
+    base_unit = _eq_base_unit(data)
     for fn in list(data):
         if not re.search(r"section\d+\.xml$", fn):
             continue
@@ -2243,7 +2244,7 @@ def _inject_answer_runs(hwpx_path: str | Path,
         out, prev = [], 0
         for (a, b), ans in zip(spans, answers):
             frag = s[a:b]
-            runs = _line_runs(ans[0]) if ans else ""
+            runs = _line_runs(ans[0], base_unit) if ans else ""
             if runs:
                 lm = re.search(r"<hp:linesegarray>", frag)
                 if lm:
@@ -2257,18 +2258,46 @@ def _inject_answer_runs(hwpx_path: str | Path,
     return total
 
 
-def _eq_xml(script: str) -> str:
+_ANSWER_CHARPR = "21"      # 정답면 미주 내용의 글자모양 ID(정답·해설 run 이 쓰는 것)
+_EQ_BASE_UNIT_DEFAULT = 1100   # 폼 본문 글자 11pt = 수식 baseUnit 1100
+
+
+def _eq_base_unit(data: dict[str, bytes]) -> int:
+    """정답·해설 수식의 ``baseUnit``(=수식 글자 크기, HWPUNIT).
+
+    수식 객체는 charPr 이 아니라 **자신의 baseUnit** 으로 글자 크기가 정해진다. 과거엔
+    1000(10pt)으로 박아 둬 정답면 해설 수식만 본문(COM 이 만드는 수식은 baseUnit=1100)보다
+    작게 나갔다(사용자 보고 2026-07-31 "해설에서 수식 폰트가 10"). 같은 단락의 텍스트 런이
+    쓰는 charPr(=_ANSWER_CHARPR) 높이를 읽어 맞춘다."""
+    try:
+        hdr = data.get("Contents/header.xml", b"").decode("utf-8")
+        m = re.search(r'<hh:charPr id="' + _ANSWER_CHARPR + r'"[^>]*height="(\d+)"', hdr)
+        if m:
+            return int(m.group(1))
+    except Exception:  # noqa: BLE001
+        pass
+    return _EQ_BASE_UNIT_DEFAULT
+
+
+def _eq_xml(script: str, base_unit: int = _EQ_BASE_UNIT_DEFAULT) -> str:
     """인라인 수식 run XML(정답면 정답·해설용). hwpx_writer 의 검증된 속성 세트와 동일
-    (골든 84개 기준: baseLine=85·treatAsChar=1·outMargin 170·font HYhwpEQ)."""
+    (골든 84개 기준: baseLine=85·treatAsChar=1·outMargin 170·font HYhwpEQ).
+
+    ``base_unit`` = 수식 글자 크기(HWPUNIT). 본문 COM 수식과 같아야 한다(_eq_base_unit)."""
     try:
         from core.hwpx_writer import _estimate_equation_size
         w, h = _estimate_equation_size(script)
+        # 추정치는 baseUnit 1000 기준 — 실제 크기에 비례 보정(최종 크기는 HWP 가 재계산).
+        w = int(w * base_unit / 1000)
+        h = int(h * base_unit / 1000)
     except Exception:  # noqa: BLE001
-        w, h = max(1000, len(script) * 250), 1000
+        w, h = max(1000, len(script) * 250), base_unit
     return (
-        '<hp:run charPrIDRef="21"><hp:equation id="0" zOrder="0" numberingType="EQUATION"'
+        f'<hp:run charPrIDRef="{_ANSWER_CHARPR}"><hp:equation id="0" zOrder="0"'
+        ' numberingType="EQUATION"'
         ' textWrap="TOP_AND_BOTTOM" textFlow="BOTH_SIDES" lock="0" dropcapstyle="None"'
-        ' version="Equation Version 60" baseLine="85" textColor="#000000" baseUnit="1000"'
+        ' version="Equation Version 60" baseLine="85" textColor="#000000"'
+        f' baseUnit="{base_unit}"'
         ' lineMode="CHAR" font="HYhwpEQ">'
         f'<hp:sz width="{w}" height="{h}" widthRelTo="ABSOLUTE" heightRelTo="ABSOLUTE" protect="0"/>'
         '<hp:pos treatAsChar="1" affectLSpacing="1" flowWithText="1" allowOverlap="0"'
@@ -2279,7 +2308,8 @@ def _eq_xml(script: str) -> str:
         f'<hp:script>{_xml_text(script)}</hp:script></hp:equation></hp:run>')
 
 
-def _line_runs(line: list[ContentBlock]) -> str:
+def _line_runs(line: list[ContentBlock],
+               base_unit: int = _EQ_BASE_UNIT_DEFAULT) -> str:
     """정답/해설 한 줄(블록 런) → run XML 문자열. TEXT=글자, EQUATION=수식 객체(합의 #6)."""
     out = []
     for b in line:
@@ -2287,9 +2317,10 @@ def _line_runs(line: list[ContentBlock]) -> str:
         if not val.strip():
             continue
         if b.type == ContentType.EQUATION:
-            out.append(_eq_xml(latex_to_hwpeq(val, italicize_stat=False)))
+            out.append(_eq_xml(latex_to_hwpeq(val, italicize_stat=False), base_unit))
         else:
-            out.append(f'<hp:run charPrIDRef="21"><hp:t>{_xml_text(val)}</hp:t></hp:run>')
+            out.append(f'<hp:run charPrIDRef="{_ANSWER_CHARPR}">'
+                       f'<hp:t>{_xml_text(val)}</hp:t></hp:run>')
     return "".join(out)
 
 
@@ -2311,6 +2342,7 @@ def _inject_solutions(hwpx_path: str | Path,
         infos = z.infolist()
         data = {i.filename: z.read(i.filename) for i in infos}
     total = 0
+    base_unit = _eq_base_unit(data)
     for fn in list(data):
         if not re.search(r"section\d+\.xml$", fn):
             continue
@@ -2330,7 +2362,8 @@ def _inject_solutions(hwpx_path: str | Path,
                     lm = re.search(r"<hp:linesegarray>.*?</hp:linesegarray>", base, re.S)
                     lineseg = lm.group(0) if lm else ""
                     added = [open_tag + runs + lineseg + "</hp:p>"
-                             for runs in (_line_runs(line) for line in sol) if runs]
+                             for runs in (_line_runs(line, base_unit) for line in sol)
+                             if runs]
                     if added:
                         total += len(added)
                         frag = frag[:pm.end()] + "".join(added) + frag[pm.end():]

@@ -2103,3 +2103,40 @@ SA2(질문분리). 회귀 `test_content_parser` BX6.
   으로 분리)은 단락 분리 XML 수술이라 [[hwpx-lineseg-relaunder-trap]]·강동중 정답증발 계열 위험 →
   안전 패턴(실 단락 복사·relaunder 재계산)으로 신중히. 폼 경로는 `_put_tail`/`_put_score`, 기본은
   `_write_tail`/`_write_score_inline_or_right` 양쪽 반영(`form-puttail-duplication-trap`).
+
+## 해설 수식 크기 + 집합 조건제시법 중괄호 (2026-07-31, 사용자 렌더 검수 — 현풍고 198차)
+
+배포 아닌 세션 변환물(198차 현풍고 공수2)에서 사용자가 지적한 2건. 둘 다 HWP 실측으로 표기를
+확정한 뒤 결정적 수정. 회귀 `test_render_fixes`(answer-eq-baseunit·setbuilder-braces).
+
+### ⭐ 정답·해설 수식만 10pt — 크기는 charPr 이 아니라 수식 `baseUnit`
+- 증상: 정답면 해설의 수식이 본문·해설 글자(11pt)보다 작게(10pt) 렌더.
+- 원인: `hwp_form_writer._eq_xml` 이 ``baseUnit="1000"``(10pt) **하드코딩**. 수식 객체의 글자
+  크기는 감싸는 run 의 charPr 이 아니라 **자신의 baseUnit** 이 정한다(charPr 21 = height 1100
+  인데도 수식만 10pt). COM 이 만드는 본문 수식은 baseUnit=1100 이라 한 문서에 10/11pt 혼재
+  (현풍고 실측: 1100×218 + **1000×61**).
+- 수정: `_eq_base_unit(data)` 가 header.xml 의 `_ANSWER_CHARPR`(=21) 높이를 읽어
+  `_eq_xml(script, base_unit)`·`_line_runs(line, base_unit)` 로 전달(폴백 1100). 크기 추정치
+  (`_estimate_equation_size`, 1000 기준)도 비례 보정 — 최종값은 어차피 HWP 가 재계산.
+  재렌더 후 279개 **전부 1100**.
+
+### ⭐⭐ `\left\{ … \middle| … \right\}` — 중괄호 자동크기 + `\mid` 접두매칭
+- 증상(#18 집합 조건제시법): ``B="{" {x+a} over {3} |dle| x in A "}"`` — ① 세로바가 ``|dle|``
+  로 새고 ② 중괄호가 분수 높이만큼 안 늘어남. 정상 = ``B = LEFT { {x+a} over {3} RIGHT | x in
+  A RIGHT }``(사용자가 HWP 수식편집기로 정답 스크립트 제시).
+- 원인 ①: SYMBOL_MAP 의 ``\mid``→``|`` 이 **``\middle`` 을 접두 매칭**(``\mid``+``dle|``).
+  ``\overarc``·``\Leftrightarrow``·``\overrightarrow`` 계열과 같은 "매핑/분리기 구멍" 동족.
+- 원인 ②: `_leftright_repl` 이 **중괄호면 LEFT/RIGHT 를 빼고** 리터럴 ``"{"``/``"}"`` 로
+  내보냈다(주석: "중괄호는 자동크기 구분자로 못 씀"). **실측 결과 절반만 맞다** —
+  ``LEFT "{"``(따옴표 리터럴)는 파싱이 깨져 ``" … ÿ)`` 로 렌더되지만, **맨 중괄호**
+  ``LEFT { … RIGHT }`` 는 정상 자동크기다(후보 A~M 렌더, 2026-07-31).
+- 수정(`latex_to_hwpeq`): ① `_MIDDLE_RE` 가 ``\middle<구분자>`` 를 `_SENT_MID` 로 선치환
+  (`_convert_expr` 선두) → 감싸는 쌍에서 `` RIGHT `` 로 승격, 짝 없으면 convert() 끝에서 제거
+  (``x \middle| y``→``x | y``). ② 구분자 중괄호 전용 sentinel `_SENT_DLB`/`_SENT_DRB`
+  (그룹핑 재귀 step 12 회피) → 끝에서 **맨 ``{``/``}``** 로 복원. 리터럴 ``\{7,13\}``(left/right
+  없음)은 종전대로 ``"{"…"}"``(고정 크기) — 무회귀.
+- 영향: 전 corpus 27,184 수식 OLD/NEW 비교 **변경 27건, 전부 자동크기 개선 방향**
+  (수열 ``{a_n}``·``{…}^2``·중첩 ``[ { } ]``·∑ 안·리터럴 혼합 9종 실렌더 확인). 그중
+  **경원고 공수2**가 현풍고와 같은 ``\middle|`` 깨짐(이미 reviewed = 숨은결함 정정).
+- ⚠️ 잔여(사용자 판단 대기): OCR 이 ``\mid`` 로 준 조건제시법(혜화여고 수2 등)은 **짧은 세로바**
+  유지 — ``\left\{…\right\}`` 안 최상위 ``\mid`` 를 긴 바로 승격할지 미결.

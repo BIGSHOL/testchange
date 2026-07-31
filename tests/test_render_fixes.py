@@ -275,6 +275,26 @@ def run():
     # 무회귀: 대형연산자 sum/int 하한도 빈그룹 없이 정상.
     chk("{}_{" not in latex_to_hwpeq(r"\sum_{k=1}^{n} k"), "O3 sum 무회귀")
 
+    # ── O6: 집합 조건제시법 — \left\{…\right\} 자동크기 + \middle| (사용자 2026-07-31) ──
+    # ① ``\mid``→``|`` 매핑이 ``\middle`` 을 접두 매칭해 ``|dle|`` 로 새던 것(현풍고 서답형4).
+    # ② 중괄호 구분자는 **맨 ``{``**(``LEFT {``)여야 분수 높이만큼 늘어난다. 따옴표 리터럴
+    #    ``LEFT "{"`` 는 파싱이 깨져 ``" … ÿ)`` 로 렌더된다(실측 2026-07-31 후보 H·I·L).
+    o6 = latex_to_hwpeq(r"B = \left\{\frac{x+a}{3} \middle| x \in A\right\}")
+    chk(o6 == "B = LEFT { {x+a} over {3} RIGHT | x in A RIGHT }", f"O6 조건제시법: {o6!r}")
+    chk("dle" not in latex_to_hwpeq(r"\left\{x \middle| x>0\right\}"), "O6 \\middle 접두매칭 없음")
+    chk('"{"' not in latex_to_hwpeq(r"\left\{\frac{n}{n+2}\right\}"), "O6 수열 괄호 자동크기")
+    # 얇은 공백(\,)이 끼어도 동일. 중첩·지수도 정상.
+    chk("dle" not in latex_to_hwpeq(r"\left\{\frac{x+a}{5} \,\middle|\, x \in A\right\}"),
+        "O6 \\,\\middle\\, 정상")
+    chk(latex_to_hwpeq(r"3\left[x+4\left\{x-1\right\}\right]")
+        == "3 LEFT [ x+4 LEFT { x-1 RIGHT } RIGHT ]", "O6 중첩 대괄호-중괄호")
+    # 무회귀: \left/\right 없는 리터럴 중괄호는 종전대로 따옴표 리터럴(고정 크기).
+    chk(latex_to_hwpeq(r"\{7, 13\}") == '"{"7,~13"}"', "O6 무회귀: bare \\{ \\} 리터럴")
+    # 무회귀: 절댓값·괄호 구분자는 그대로. 짝 없는 \middle 은 구분자만 남김.
+    chk(latex_to_hwpeq(r"\left| \frac{a}{b} \right|") == "LEFT | {a} over {b} RIGHT |",
+        "O6 무회귀: 절댓값")
+    chk(latex_to_hwpeq(r"x \middle| y") == "x | y", "O6 고아 \\middle = 구분자만")
+
     # ── KSY(경상여고 대수 26-1, 사용자 2026-06-18): 부등호·좌표쉼표·rm 번짐 ──
     # 이슈2: \lt \gt — SYMBOL_MAP 에 없어 부등호가 통째 증발하던 것(#9 cosθtanθ<0).
     ksy_lt = latex_to_hwpeq(r"\cos\theta\tan\theta \lt 0")
@@ -853,6 +873,18 @@ def run():
         and _inject_solutions(_fp2, [[], []]) == 0, "X 값 없으면 no-op")
     _os.remove(_fp2)
 
+    # ── Y: 정답·해설 수식 글자 크기 = 본문과 동일 (사용자 2026-07-31) ──
+    # 수식 객체 크기는 charPr 이 아니라 자신의 baseUnit 이 정한다. 1000(10pt) 고정이라
+    # 해설 수식만 본문(COM 수식 baseUnit=1100)보다 작게 나갔다.
+    from core.hwp_form_writer import _eq_xml as _eqx, _eq_base_unit as _ebu
+    chk('baseUnit="1100"' in _eqx("x=50"), "Y 기본 baseUnit=1100(본문 11pt)")
+    chk('baseUnit="1200"' in _eqx("x=50", 1200), "Y baseUnit 파라미터 반영")
+    _hdr = b'<hh:charPr id="21" height="1100" textColor="#000000"/>'
+    chk(_ebu({"Contents/header.xml": _hdr}) == 1100, "Y header charPr 높이 읽기")
+    chk(_ebu({"Contents/header.xml": _hdr.replace(b'height="1100"', b'height="1000"')}) == 1000,
+        "Y header 높이가 다르면 그 값")
+    chk(_ebu({}) == 1100, "Y header 없으면 기본 1100")
+
     if fails:
         print("FAIL test_render_fixes:")
         print("\n".join(fails))
@@ -862,7 +894,7 @@ def run():
           "sqrt-space/choice-glyph/tail-note/underline-solid/stemleaf-13/choice-geo/cond-circle/"
           "repeat-dot/paren-score/phantom-box/box-bullet/post-box/box-ascii-eq/submark-ref/"
           "answer-header-neutralize/essay-type-label/annot-label/lim-below-subscript/"
-          "ksy-ineq-coord-rmbleed/answer-meta-solution)")
+          "ksy-ineq-coord-rmbleed/answer-meta-solution/setbuilder-braces/answer-eq-baseunit)")
     return 0
 
 

@@ -25,6 +25,21 @@ import re
 _SENT_LB = "\x01"  # \{
 _SENT_RB = "\x02"  # \}
 
+# ``\left\{ … \right\}`` 의 **구분자 중괄호** 전용 sentinel(마지막에 맨 ``{``/``}`` 로 복원).
+# HWP 는 ``LEFT { … RIGHT }``(맨 중괄호)만 자동크기 중괄호로 그린다 — 따옴표 리터럴
+# ``LEFT "{"`` 는 파싱이 깨져 ``" … ÿ)`` 로 렌더된다(실측 2026-07-31, 후보 H·I·L).
+# 그렇다고 변환 도중 맨 중괄호로 두면 step 12 그룹핑 재귀(\{…\})가 다시 먹으므로 sentinel.
+_SENT_DLB = "\x03"  # LEFT 구분자 {
+_SENT_DRB = "\x04"  # RIGHT 구분자 }
+# ``\middle|`` — 짝 없는 중간 구분자. HWP 는 ``LEFT { … RIGHT | … RIGHT }`` 로 표기한다
+# (실측 후보 B·C). ``\mid``(→``|``)가 ``\middle`` 을 접두 매칭해 ``|dle|`` 로 새던 버그
+# (사용자 보고 2026-07-31, 현풍고 서답형4)도 이 선치환으로 함께 막는다.
+_SENT_MID = "\x05"
+# ``\middle`` 뒤에 올 수 있는 구분자(리터럴 중괄호는 이미 sentinel 로 보호된 상태).
+_MIDDLE_RE = re.compile(
+    r"\\middle\s*(\\\||\\lVert|\\rVert|\\langle|\\rangle|[|()\[\]./"
+    + _SENT_LB + _SENT_RB + r"])")
+
 # 순환소수: 소수점 뒤 \dot{d} 점 표기를 HWP ``dot {d}`` over-dot 으로 변환(양끝 숫자 위 점).
 # 예: 0.1\dot{5}\dot{7} → 0.1 dot {5} dot {7}. HWP 가 ``dot {d}`` 를 정상 렌더한다(실측
 # .testkit/dot_test.py, 2026-06-11). 과거 bar(overline) 로 통일했던 건 ``dot{3}`` 무공백
@@ -841,6 +856,9 @@ class LaTeXToHWPConverter:
         # sentinel 복원: 보호했던 리터럴 중괄호 → HWP 따옴표 리터럴 "{" "}".
         # (escaped \{ \}는 뒤 문자와 인접 시 파싱이 깨지는 반면, 따옴표형은 항상 안정적 — 실측 확정.)
         result = result.replace(_SENT_LB, '"{"').replace(_SENT_RB, '"}"')
+        # LEFT/RIGHT 구분자 중괄호는 **맨 중괄호**로(자동크기), 짝 없는 \middle 은 제거.
+        result = result.replace(_SENT_DLB, "{").replace(_SENT_DRB, "}")
+        result = result.replace(_SENT_MID, "")
 
         # 도형 라벨(연속 대문자 2자+) 정자화: HWP 기본 이탤릭이라 선분/삼각형/
         # 사각형 라벨(AB, ABC, ABCD)이 기울어 보이는 것을 rm {…} 로 바로세운다.
@@ -902,6 +920,12 @@ class LaTeXToHWPConverter:
         """재귀적으로 LaTeX 표현식을 변환."""
         if not s:
             return ""
+
+        # 0-. ``\middle<구분자>`` 선치환 — 기호매핑(9)의 ``\mid``→``|`` 이 ``\middle`` 을
+        #     접두 매칭해 ``|dle|`` 로 새는 것을 막는다. sentinel 은 감싸는 \left…\right
+        #     쌍에서 ``RIGHT`` 로 승격되고(=자동크기 세로바), 짝이 없으면 convert() 끝에서
+        #     그냥 지워져 평범한 구분자만 남는다.
+        s = _MIDDLE_RE.sub(lambda m: _SENT_MID + m.group(1), s)
 
         # 0. 행렬/조건식 환경: \begin{env}...\end{env}
         def _env_repl(m: re.Match) -> str:
@@ -1048,9 +1072,11 @@ class LaTeXToHWPConverter:
             # 구분 문자 매핑
             delim_map = {
                 "(": "(", ")": ")", "[": "[", "]": "]",
-                # 중괄호는 sentinel 유지(step 12 그룹핑 처리 회피) → convert()에서 \{ \} 로 복원
-                _SENT_LB: _SENT_LB, _SENT_RB: _SENT_RB,
-                "{": _SENT_LB, "}": _SENT_RB,
+                # 중괄호 구분자는 **맨 ``{``/``}``** 여야 자동크기로 그려진다(따옴표 리터럴
+                # ``LEFT "{"`` 는 렌더 깨짐 — 실측 2026-07-31). 변환 도중 그룹핑 재귀에
+                # 먹히지 않게 전용 sentinel 로 두고 convert() 끝에서 맨 중괄호로 복원한다.
+                _SENT_LB: _SENT_DLB, _SENT_RB: _SENT_DRB,
+                "{": _SENT_DLB, "}": _SENT_DRB,
                 r"\langle": "langle", r"\rangle": "rangle",
                 r"\|": "parallel",
                 "|": "|", ".": "",
@@ -1058,11 +1084,9 @@ class LaTeXToHWPConverter:
             l_str = delim_map.get(left, left)
             r_str = delim_map.get(right, right)
             inner = self._convert_expr(body)
-            # 중괄호 리터럴은 HWP의 LEFT/RIGHT 자동크기 구분자로 못 쓴다(렌더 깨짐).
-            # 어느 한쪽이라도 중괄호면 LEFT/RIGHT 없이 인라인으로 출력한다.
-            braces = {_SENT_LB, _SENT_RB}
-            if l_str in braces or r_str in braces:
-                return f"{l_str} {inner} {r_str}".strip()
+            # ``\middle|`` → ``RIGHT |``(자동크기 중간 구분자). 여는 LEFT 가 있을 때만
+            # 승격하고, 없으면(``\left. … \right.``) 구분자만 남긴다.
+            inner = inner.replace(_SENT_MID, " RIGHT " if l_str else "")
             # 앞에 공백을 둬 인접 글자(`P\left(` → `P LEFT (`)가 키워드에 붙지 않게 한다.
             # 안 그러면 `PLEFT` 가 되어 로만화·렌더가 깨진다(사용자 2026-06-08).
             if l_str and r_str:
