@@ -238,7 +238,7 @@ PNG 는 gitignore(재생성 가능).
 1. **검증** — 변경을 실데이터/렌더로 확인(가능하면 HWP COM 렌더 PNG로 육안 확인).
 2. **사용자 최종 체크** — 커밋·푸시·배포 전에 **반드시 사용자에게 결과를 보여주고 확인(체크)을 받는다.** 사용자 승인 없이 커밋/푸시/배포하지 않는다.
 3. **커밋 + 푸시** — 승인되면 커밋하고 **`testchange` 원격(BIGSHOL)** 으로 푸시한다 (`git push testchange master`).
-4. **exe 빌드 + 배포** — `python -m PyInstaller build.spec --noconfirm` 로 재빌드하고, `dist/시험지한글화/` 의 exe와 `_internal` 을 `배포용/` 으로 복사한다. **`배포용/config.json` 은 보존**(robocopy `/MIR` 는 `_internal` 에만 적용). 배포 후 `--selftest` 로 임포트 확인.
+4. **exe 빌드 + 배포** — ⭐ **반드시 `python scripts/build_release.py`** (빌드→**산출물 검증**→배포→selftest 자동). PyInstaller 를 손으로 돌리지 말 것: ① datas 경로가 없어도 **경고만 내고 빌드 성공**해 기능이 조용히 빠진 exe 가 나가고, ② spec 안 `SystemExit` 로 중단해도 **exit code 가 0** 이라(실측 2026-08-07) 이전 `dist/` 잔재를 배포하게 되며, ③ spec 의 비ASCII `print` 가 cp949 콘솔에서 UnicodeEncodeError 를 내 **PC 마다 빌드 결과가 달라진다**. 스크립트는 dist 를 지우고 시작해 잔재를 배제하고, 번들 안 `topic_vocab.json` 개수까지 소스와 대조한 뒤 selftest 의 `TOPIC VOCAB OK` 를 확인한다. **`배포용/config.json` 은 보존**된다.
 
 ### 보안 (절대 준수)
 - **API 키(ANTHROPIC/GEMINI)는 gitignore된 `config.json` 에만** 둔다. 추적 파일·커밋에 키를 절대 넣지 않는다. (`config.json`, `build/`, `dist/`, `배포용/` 은 `.gitignore` 처리됨.)
@@ -2290,3 +2290,33 @@ SA2(질문분리). 회귀 `test_content_parser` BX6.
   (`filled`/`failed` 는 lock 불필요). ② XML 이스케이프 — `_inject_question_meta`·`_line_runs`
   가 이미 `_xml_text` 를 거쳐 ``&``·``<`` 안전.
 - 무영향 검증(`_sol_offpath.py`): 워커 기본값 OFF, OFF 면 로그조차 없음, 문항 0·취소 시 무동작.
+
+## ⭐ 단원 분류 어휘를 exe 에 번들 — "완벽히 똑같은 동작" (2026-08-07, 사용자 지시)
+
+DeepSeek 이 낸 소단원이 레퍼런스와 달랐던 것은 **모델 능력 차이가 아니라 입력 누락**이었다.
+세션은 분류표 PDF(어휘 250종)를 읽고 그 안에서 골랐는데, exe 는 그 목록을 못 받아 자유
+생성했다. 사용자 지적("같은 방식 동작인데 ai 모델이 다르다고 그런 오류가 나올 수 있나?")이
+정확했고, 해결은 **모델 교체가 아니라 어휘 공급**이다.
+
+- **`scripts/build_topic_vocab.py`**: 분류표 PDF → `data/topic_vocab.json`
+  (고등 **소단원 215개/7과목**, 중등 **중단원 51개/3학년**). PDF 는 로컬 미러
+  `D:/기출/기출작업/…` 에만 있으므로 **산출 JSON 을 git 에 커밋**한다(다른 PC 재현성).
+- **`core/topic_vocab.py`**: 학년→레벨 자동 분기(**고등=소단원 `ⅰ)` / 중등=중단원 `①`**,
+  CLAUDE 2026-07-24 규약과 동일), 과목 별칭 매핑(공수1·수상·대수·확통…), `_MEIPASS/data`
+  에서 로드. `prompt_block()` 이 시스템 프롬프트에 어휘 목록을 싣는다.
+- ⚠️ **레퍼런스가 곧 정답은 아니다**: 분류표 정식 명칭은 ``포물선의 방정식`` 인데 경원고
+  완료본은 ``포물선`` 으로 축약해 썼다(CLAUDE 2026-07-24 경고 그대로). 어휘 주입 후
+  **분류표 일치 20/20(생성) vs 6/20(레퍼런스)** — 즉 표기 차이를 "오류"로 본 초기 측정이
+  잘못이었다. 그래서 어휘는 **후보로 제시**하고 강제하지는 않는다.
+- 실측: 고2 기하 20/20 어휘 준수 + 정답 20/20 유지, 중2 4/4 중단원 준수(₩17).
+
+### 재현 가능한 빌드 게이트 (다른 PC 에서 빌드해도 같은 exe)
+- **`build.spec` 선두에서 필수 파일 검증 후 없으면 `SystemExit`** — PyInstaller 는 datas
+  경로가 없어도 **경고만 내고 빌드가 성공**해서, 겉보기 정상인데 기능만 조용히 빠진 exe 가
+  나간다. `data/topic_vocab.json`·`forms`·`resources`·`_version.py` 를 검사하고, 어휘는
+  **개수까지**(고등≥100·중등≥30) 확인한다. 실측: 파일을 치우면 빌드가 실제로 중단된다.
+- **`main.py --selftest` 가 런타임에서 재확인**: 번들에 어휘가 실렸는지
+  (`vocabulary("고2","기하")`·`("중2","수학")` 각 10개 이상) 검사해 배포 사고를 잡는다.
+  결과 파일에 ``TOPIC VOCAB OK: 고2 기하 27개 / 중2 20개`` 로 남는다.
+- 교훈: **런타임이 읽는 데이터를 추가하면 ① git 추적 ② build.spec datas ③ 빌드 게이트
+  ④ selftest 확인** 네 곳을 함께 건드린다. 하나라도 빠지면 PC 마다 다른 exe 가 나온다.

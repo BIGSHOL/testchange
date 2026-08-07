@@ -28,6 +28,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 
 import requests
 
+from core.topic_vocab import prompt_block as topic_prompt_block
 from utils.config import (
     DEEPSEEK_BASE_URL,
     DEEPSEEK_MAX_WORKERS,
@@ -85,13 +86,9 @@ LaTeX 백슬래시를 있는 그대로 쓸 수 있도록 일부러 JSON 을 쓰�
 - 표가 필요하면 마크다운 표 대신 문장으로 풀어 씁니다.
 
 [topic 규약]
-- 그 문항이 속한 **소단원(고등)/중단원(중등)** 이름 하나.
-- **교과서 목차에 나오는 짧은 표준 단원명**을 씁니다. 설명을 덧붙여 늘이지 마세요.
-  · 좋음: "포물선", "타원", "쌍곡선", "이차곡선의 접선", "벡터의 실수배", "삼각비",
-    "확률의 덧셈정리", "수열의 극한", "원의 방정식", "이차함수의 최대·최소"
-  · 나쁨: "포물선의 방정식"(→ "포물선"), "평면벡터의 연산"(→ "벡터의 연산"),
-    "위치벡터와 공선점"(→ "벡터의 실수배"), "타원과 쌍곡선의 정의"(→ 둘 중 주된 것 하나)
-- 되도록 10자 이내. 추측이 어려우면 가장 가까운 표준 단원명을 씁니다.
+- 그 문항이 속한 단원 이름 하나. **아래에 표준 어휘 목록이 주어지면 반드시 그 안에서
+  그대로 고르세요**(임의로 줄이거나 늘이지 말 것).
+- 목록이 없을 때만 교과서 목차의 짧은 표준 단원명을 직접 씁니다.
 
 [difficulty 규약]
 - "상" / "중" / "하" 중 하나. 배점과 풀이 단계 수를 함께 고려합니다.
@@ -391,7 +388,10 @@ def generate_for_question(q: dict, *, api_key: str, model: str, grade: str = "",
         score_note=f" (배점 {score}점)" if score else "",
         body=body,
     )
-    msgs = [{"role": "system", "content": _SYSTEM_PROMPT},
+    # 분류표 표준 어휘를 프롬프트에 실어 준다 — 세션이 분류표 PDF 를 보고 고르던 것과 같은
+    # 입력을 모델에 주는 것(사용자 2026-08-07: "완벽하게 똑같은 동작"). 어휘가 없으면 빈 문자열.
+    sys_prompt = _SYSTEM_PROMPT + topic_prompt_block(grade, subject)
+    msgs = [{"role": "system", "content": sys_prompt},
             {"role": "user", "content": user}]
     # ⚠️ 빈 정답은 **재시도**한다 — 배치 실행에서 문항 하나가 비결정적으로 비는 일이 관찰됐고
     # (경원고 #2, 단독 재호출은 정상), 그때 사용자는 정답만 빈 채 출하받는다(적대리뷰 2026-08-07).

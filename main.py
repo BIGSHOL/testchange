@@ -91,8 +91,21 @@ def _selftest_imports() -> int:
         except Exception as de:  # noqa: BLE001
             ds_line = "DEEPSEEK CONFIG FAIL: " + repr(de)
 
+        # ⭐ 단원 분류 어휘가 **번들에 실제로 실렸는지** — 빠지면 메타(소단원/중단원)가
+        # 분류표 밖 자유 생성으로 조용히 퇴화한다. 빌드/배포 사고를 여기서 잡는다
+        # (사용자 2026-08-07 "다른 PC 에서 빌드해도 같은 변환기").
+        from core.topic_vocab import vocabulary
+        _hi = vocabulary("고2", "기하")
+        _mi = vocabulary("중2", "수학")
+        if len(_hi) < 10 or len(_mi) < 10:
+            raise RuntimeError(
+                f"단원 분류 어휘 누락 — 고등 {len(_hi)}개 / 중등 {len(_mi)}개. "
+                "data/topic_vocab.json 이 번들에 실리지 않았습니다(build.spec datas 확인).")
+        vocab_line = f"TOPIC VOCAB OK: 고2 기하 {len(_hi)}개 / 중2 {len(_mi)}개"
+
         out.write_text(
-            f"SELFTEST OK (v{_ver}): {google.genai.__file__}\n{gem_line}\n{ds_line}\n",
+            f"SELFTEST OK (v{_ver}): {google.genai.__file__}\n"
+            f"{gem_line}\n{ds_line}\n{vocab_line}\n",
             encoding="utf-8")
         return 0
     except Exception as e:

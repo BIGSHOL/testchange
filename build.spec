@@ -9,6 +9,51 @@ from PyInstaller.utils.hooks import collect_data_files, collect_submodules, coll
 block_cipher = None
 project_root = Path(SPECPATH)
 
+# ─────────────────────────────────────────────────────────────────────────────
+# ⭐ 재현 가능한 빌드 게이트 (사용자 2026-08-07: "다른 PC 에서 빌드해도 같은 변환기")
+#
+# 런타임이 반드시 읽는 데이터가 **없어도 PyInstaller 는 경고만 내고 빌드가 성공**한다.
+# 그러면 겉보기 정상인데 기능만 조용히 퇴화한 exe 가 나간다(단원 어휘가 없으면 메타가
+# 분류표 밖 자유 생성으로 떨어짐). 그래서 여기서 **명시적으로 빌드를 실패**시킨다.
+#
+# ⚠️ 분류표 PDF 는 로컬 미러(D:/기출)에만 있어 다른 PC 엔 없다 —
+#    그래서 **파싱 산출물 data/topic_vocab.json 을 git 에 커밋**해 둔다.
+#    (재생성이 필요하면 PDF 가 있는 PC 에서 `python scripts/build_topic_vocab.py`.)
+_required = [
+    project_root / 'data' / 'topic_vocab.json',   # 단원 분류 어휘(정답·해설 메타)
+    project_root / 'forms',                       # 대수회 폼지 7종
+    project_root / 'resources',                   # HWP 보안모듈 DLL
+    project_root / '_version.py',                 # 배포 버전
+]
+_missing = [str(p) for p in _required if not p.exists()]
+if _missing:
+    raise SystemExit(
+        "빌드 중단 — 필수 파일 누락(이 상태로 빌드하면 기능이 조용히 빠진 exe 가 나옵니다):\n  "
+        + "\n  ".join(_missing)
+        + "\n\ntopic_vocab.json 이 없다면: python scripts/build_topic_vocab.py "
+          "(분류표 PDF 필요) 또는 git 에서 복원하세요."
+    )
+
+# 어휘 파일이 비었거나 깨졌으면 그것도 빌드 실패로 — 존재만으론 부족하다.
+# ⚠️ try 범위는 **파싱까지만**. 안에 print 를 두면 콘솔 인코딩(cp949)이 비ASCII 문자를
+#    못 찍어 UnicodeEncodeError → "파일 무효" 로 둔갑해 **정상 파일인데 빌드가 중단**된다
+#    (실측 2026-08-07: em-dash 하나로 빌드 중단, 게다가 exit code 는 0 이라 성공처럼 보임).
+#    PC 마다 콘솔 인코딩이 달라 이런 코드가 "PC 마다 다른 빌드 결과"를 만든다.
+try:
+    import json as _json
+    _v = _json.loads((project_root / 'data' / 'topic_vocab.json').read_text(encoding='utf-8'))
+    _n_high = sum(len(x) for x in _v.get('고등', {}).values())
+    _n_mid = sum(len(x) for x in _v.get('중등', {}).values())
+except Exception as _e:
+    raise SystemExit(f"빌드 중단 - data/topic_vocab.json 을 읽을 수 없습니다: {_e}")
+if _n_high < 100 or _n_mid < 30:
+    raise SystemExit(
+        f"빌드 중단 - 단원 어휘 수 부족(고등 {_n_high}, 중등 {_n_mid}). "
+        "python scripts/build_topic_vocab.py 로 다시 생성하세요.")
+# 진단 출력은 **ASCII 로만**(어떤 콘솔 인코딩에서도 안전).
+print(f"[build.spec] topic vocab OK: high={_n_high} mid={_n_mid}")
+# ─────────────────────────────────────────────────────────────────────────────
+
 # google.genai(+전이 의존 google.auth/oauth2)는 'google' 네임스페이스 패키지라
 # collect_submodules 만으론 .py 파일이 안 담긴다(google/auth 에 py.typed 만 남음).
 # collect_all 로 datas/binaries/hiddenimports 를 전부 수집한다.
@@ -42,6 +87,10 @@ a = Analysis(
         # HWP 파일접근 보안 승인 모듈(FilePathCheckerModuleExample.dll) — core/hwp_com.py 가
         # 레지스트리 등록 후 RegisterModule 로 바인딩해 '파일 접근 허용' 팝업을 없앤다.
         (str(project_root / 'resources'), 'resources'),
+        # 단원 분류표 어휘(고등 소단원 215·중등 중단원 51) — core/topic_vocab.py 가
+        # _MEIPASS/data 에서 읽어 정답·해설 메타 생성 프롬프트에 싣는다. 세션이 분류표
+        # PDF 를 보고 고르던 것과 **같은 어휘**를 exe 도 보게 하는 것(사용자 2026-08-07).
+        (str(project_root / 'data' / 'topic_vocab.json'), 'data'),
         *collect_data_files('hwpx'),
         *_google_datas,
         *_resvg_datas,
