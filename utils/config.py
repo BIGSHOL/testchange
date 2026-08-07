@@ -36,6 +36,18 @@ _DEFAULTS = {
     "QC_PASS_SCORE": 40.0,
     # clean/messy 경계 — born-digital 이 아니어도 QC 점수가 이 값 이상이면 clean(flash).
     "QC_CLEAN_SCORE": 70.0,
+    # ── 정답·해설·메타 자동 생성(2026-08-07) ──────────────────────────────────
+    # 세션(Claude Code)이 사람 대신 문항을 풀어 OCR JSON 의 answer/solution/topic/difficulty
+    # 를 채우던 구조를 배포 exe 에 그대로 옮긴 것 — **규약·스키마·소비 경로 동일**, 푸는
+    # 주체만 외부 API(DeepSeek)로. GENERATE_SOLUTIONS 가 True 여야 동작(GUI 체크박스 연동).
+    "DEEPSEEK_API_KEY": "",
+    "DEEPSEEK_MODEL": "deepseek-v4-pro",              # 정답 정확도 우선(flash 대비 3배가)
+    "DEEPSEEK_BASE_URL": "https://api.deepseek.com",  # OpenAI 호환 엔드포인트
+    "DEEPSEEK_MAX_WORKERS": 4,     # 문항 병렬(레이트리밋 여유). 0/1 이면 직렬
+    # 초 — thinking 모드라 문항당 수 초~수십 초(실측 4~13초). 재시도(HTTP 3 × 빈정답 2)와
+    # 곱해지므로 너무 크면 장애 시 사용자가 오래 갇힌다(180 이면 최악 24분/문항 — 적대리뷰).
+    "DEEPSEEK_TIMEOUT": 120,
+    "GENERATE_SOLUTIONS": False,   # 기본 OFF(과금) — GUI 체크박스로 켠다
     # OCR 골든셋 플라이휠 — Supabase(개발/수동 업로드 전용). 비면 sync 스킵. service_role 키만.
     # ⚠️ 배포 exe 엔 넣지 않는다(서비스키는 로컬 config.json 에만). 키 이름으로 민감도 표시.
     "SUPABASE_URL": "",
@@ -152,6 +164,36 @@ def get_ocr_backend() -> str:
     val = str(_get("OCR_BACKEND") or "auto").strip().lower()
     return val if val in ("auto", "claude", "gemini-pro", "gemini-flash") else "auto"
 
+
+# 정답·해설·메타 자동 생성(DeepSeek, 2026-08-07)
+DEEPSEEK_MODEL = str(_DEFAULTS["DEEPSEEK_MODEL"])
+DEEPSEEK_BASE_URL = str(_DEFAULTS["DEEPSEEK_BASE_URL"])
+DEEPSEEK_MAX_WORKERS = int(_DEFAULTS["DEEPSEEK_MAX_WORKERS"])
+DEEPSEEK_TIMEOUT = int(_DEFAULTS["DEEPSEEK_TIMEOUT"])
+
+
+def get_deepseek_key() -> str:
+    """DeepSeek API 키 반환(없으면 빈 문자열). 정답·해설 생성에만 사용."""
+    key = str(_get("DEEPSEEK_API_KEY") or "").strip()
+    if not key:
+        key = os.environ.get("DEEPSEEK_API_KEY", "").strip()
+    return key
+
+
+def set_deepseek_key(key: str):
+    """DeepSeek API 키를 config 에 저장. 빈 값이면 기존 키 유지."""
+    key = (key or "").strip()
+    if not key:
+        return
+    cfg = _load_config()
+    cfg["DEEPSEEK_API_KEY"] = key
+    save_config(cfg)
+
+
+def get_generate_solutions() -> bool:
+    """정답·해설·메타 자동 생성 여부(기본 False — 과금이라 명시적으로 켠다)."""
+    return bool(_get("GENERATE_SOLUTIONS"))
+
 # PDF 변환 DPI
 PDF_DPI = int(_DEFAULTS["PDF_DPI"])
 
@@ -174,6 +216,7 @@ def _init_module_vars():
     global QC_MIN_WIDTH, QC_MIN_HEIGHT, QC_BLUR_THRESHOLD
     global QC_BLANK_THRESHOLD, QC_CONTRAST_THRESHOLD, QC_PASS_SCORE, QC_CLEAN_SCORE
     global OCR_BACKEND, GEMINI_PRO_MODEL, GEMINI_FLASH_MODEL
+    global DEEPSEEK_MODEL, DEEPSEEK_BASE_URL, DEEPSEEK_MAX_WORKERS, DEEPSEEK_TIMEOUT
 
     cfg = _load_config()
     GEMINI_MODEL = str(cfg.get("GEMINI_MODEL", _DEFAULTS["GEMINI_MODEL"]))
@@ -191,6 +234,10 @@ def _init_module_vars():
     QC_CONTRAST_THRESHOLD = float(cfg.get("QC_CONTRAST_THRESHOLD", _DEFAULTS["QC_CONTRAST_THRESHOLD"]))
     QC_PASS_SCORE = float(cfg.get("QC_PASS_SCORE", _DEFAULTS["QC_PASS_SCORE"]))
     QC_CLEAN_SCORE = float(cfg.get("QC_CLEAN_SCORE", _DEFAULTS["QC_CLEAN_SCORE"]))
+    DEEPSEEK_MODEL = str(cfg.get("DEEPSEEK_MODEL", _DEFAULTS["DEEPSEEK_MODEL"]))
+    DEEPSEEK_BASE_URL = str(cfg.get("DEEPSEEK_BASE_URL", _DEFAULTS["DEEPSEEK_BASE_URL"]))
+    DEEPSEEK_MAX_WORKERS = int(cfg.get("DEEPSEEK_MAX_WORKERS", _DEFAULTS["DEEPSEEK_MAX_WORKERS"]))
+    DEEPSEEK_TIMEOUT = int(cfg.get("DEEPSEEK_TIMEOUT", _DEFAULTS["DEEPSEEK_TIMEOUT"]))
 
 
 _init_module_vars()

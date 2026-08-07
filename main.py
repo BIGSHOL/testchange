@@ -57,6 +57,9 @@ def _selftest_imports() -> int:
         import resvg_py  # noqa: F401  (그림 재생성 SVG→PNG — Rust 확장 번들 확인)
         from core.crop_detector import detect_crops, _detect_with_gemini  # noqa: F401
         from core.figure_generator import render_figure  # noqa: F401
+        # 정답·해설 자동 생성(DeepSeek REST) — requests 번들 확인 포함
+        import requests  # noqa: F401
+        from core.solution_generator import generate_solutions  # noqa: F401
         try:
             from _version import __version__ as _ver
         except Exception:
@@ -80,8 +83,16 @@ def _selftest_imports() -> int:
             import traceback as _tb
             gem_line = "GEMINI LIVE FAIL: " + repr(ge) + "\n" + _tb.format_exc()
 
+        # 정답·해설 생성 키 유무(라이브 호출은 과금이라 하지 않고 설정만 확인)
+        try:
+            from utils.config import DEEPSEEK_MODEL, get_deepseek_key
+            ds_line = ("DEEPSEEK: 키 있음, model=" + DEEPSEEK_MODEL) if get_deepseek_key() \
+                else "DEEPSEEK: 키 없음(정답·해설 자동 작성 비활성)"
+        except Exception as de:  # noqa: BLE001
+            ds_line = "DEEPSEEK CONFIG FAIL: " + repr(de)
+
         out.write_text(
-            f"SELFTEST OK (v{_ver}): {google.genai.__file__}\n{gem_line}\n",
+            f"SELFTEST OK (v{_ver}): {google.genai.__file__}\n{gem_line}\n{ds_line}\n",
             encoding="utf-8")
         return 0
     except Exception as e:

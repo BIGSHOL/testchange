@@ -64,6 +64,10 @@ a = Analysis(
         # Gemini 크롭 검출(core/crop_detector.py) — google.genai + 전이 의존
         # (collect_all 로 _google_hidden 에 하위모듈 전부 수집됨)
         *_google_hidden,
+        # 정답·해설 자동 생성(core/solution_generator.py) — DeepSeek REST 직접 호출.
+        # anthropic/google.genai 가 이미 requests 계열을 끌어오지만 명시해 둔다.
+        'requests',
+        'core.solution_generator',
         # HWP COM 자동화(core/hwp_com.py) — pywin32 런타임 의존성
         'win32com',
         'win32com.client',

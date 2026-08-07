@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import json
 import logging
+import os
 import re
 import sys
 import threading
@@ -188,8 +189,12 @@ class ConversionWorker(QObject):
         skip_preview: bool = False,
         cache_only: bool = False,
         ocr_backend: str = "auto",
+        generate_solutions: bool = False,
     ):
         super().__init__()
+        # 정답·해설·메타 자동 생성(2026-08-07) — 세션이 사람 대신 문항을 풀어 OCR JSON 의
+        # answer/solution/topic/difficulty 를 채우던 구조를 DeepSeek API 로 옮긴 것.
+        self.generate_solutions = bool(generate_solutions)
         self.cache_only = cache_only   # True=저장된 OCR 캐시(merged.json)로 재렌더(크롭·OCR·API 생략)
         self.file_path = file_path
         self.output_path = output_path
@@ -230,6 +235,76 @@ class ConversionWorker(QObject):
         self._crop_result = boxes_per_page
         self._crop_approved = boxes_per_page is not None
         self._crop_event.set()
+
+    # ── 정답·해설·메타 자동 생성(2026-08-07) ──────────────────────────────────
+    def _fill_solutions(self, ocr_result: dict, page_num: int) -> None:
+        """OCR 결과(dict)의 문항에 정답·해설·소단원·난이도를 채운다(제자리).
+
+        세션(Claude Code)이 사람 대신 문항을 풀어 채우던 것과 **같은 스키마·같은 소비
+        경로**(content_parser → hwp_form_writer._inject_*)이고, 푸는 주체만 DeepSeek API.
+        실패해도 변환은 계속한다(정답·해설이 비는 것 = 종전 동작).
+        """
+        if not self.generate_solutions or self._cancelled:
+            return
+        qs = [q for q in (ocr_result or {}).get("questions") or [] if isinstance(q, dict)]
+        if not qs:
+            return
+        try:
+            from core.solution_generator import generate_solutions as _gen
+        except Exception as e:  # noqa: BLE001
+            self.log.emit("warning", f"정답·해설 생성 모듈 로드 실패: {e}")
+            return
+        # ⚠️ header_values 는 form_registry.parse_filename 산출물이라 키가 **한글**이다
+        # (학년·과목). 영문 키로 읽으면 항상 빈 문자열이 되어 학년·과목 문맥이 프롬프트에
+        # 안 들어간다(적대리뷰 2026-08-07). 영문 키는 폴백으로만 둔다.
+        hv = self.header_values or {}
+        grade = str(hv.get("학년") or hv.get("grade") or "").strip()
+        subject = str(hv.get("과목") or hv.get("subject") or "").strip()
+        # 과금이라 시작 시 문항 수와 **예상 비용**을 알린다(실측 문항당 대략 3~6원).
+        todo = [q for q in qs if not (q.get("answer") or "").strip()]
+        self.log.emit(
+            "step",
+            f"정답·해설 생성 중 — {page_num}쪽 {len(todo)}문항 (AI 풀이, 예상 "
+            f"{len(todo) * 3}~{len(todo) * 6}원)")
+
+        def _prog(done, total, number):
+            self.log.emit("info", f"  정답·해설 {done}/{total} (#{number})")
+
+        try:
+            st = _gen(qs, grade=grade, subject=subject,
+                      progress=_prog, cancel=lambda: self._cancelled)
+        except Exception as e:  # noqa: BLE001
+            # 키 없음·네트워크 등 — 변환 자체는 계속(정답·해설만 빔).
+            self.log.emit("warning", f"정답·해설 생성 실패({page_num}쪽): {e}")
+            return
+        self.log.emit(
+            "info",
+            f"  정답·해설 {page_num}쪽: 생성 {st['filled']} / 실패 {st['failed']}"
+            + (f" / 건너뜀 {st['skipped']}" if st.get("skipped") else ""))
+        # 실패는 **문항 번호까지** 알린다 — 정답만 조용히 빈 채 출하되면 사용자가 알 길이 없다.
+        if st.get("failed_numbers"):
+            self.log.emit(
+                "warning",
+                f"  ⚠️ 정답·해설을 만들지 못한 문항: "
+                f"{', '.join(str(n) for n in st['failed_numbers'])}번 "
+                f"— 해당 문항의 정답·해설란은 비어 있습니다(직접 채워 주세요).")
+        u = st.get("usage") or {}
+        if u.get("calls"):
+            self._log_solution_usage(u)
+
+    def _log_solution_usage(self, u: dict) -> None:
+        """DeepSeek 토큰 사용량·비용 로깅(OCR 토큰 로깅과 같은 형식)."""
+        try:
+            model = str(u.get("model") or "")
+            # DeepSeek 공식 단가(USD/1M): v4-pro 0.435/0.87, v4-flash 0.14/0.28.
+            inp, outp = (0.14, 0.28) if "flash" in model else (0.435, 0.87)
+            usd = (u.get("input_tokens", 0) / 1e6) * inp + (u.get("output_tokens", 0) / 1e6) * outp
+            self.log.emit(
+                "info",
+                f"  [USAGE] 해설 {model} 입력 {u.get('input_tokens', 0):,} / "
+                f"출력 {u.get('output_tokens', 0):,} 토큰 ≈ ${usd:.4f} (₩{usd * 1500:,.0f})")
+        except Exception:  # noqa: BLE001
+            pass
 
     def _ensure_fig_dir(self) -> str:
         """세션 임시 그림 디렉터리를 보장하고 경로 반환."""
@@ -482,6 +557,18 @@ class ConversionWorker(QObject):
             except Exception as e:   # noqa: BLE001
                 self.error.emit(f"캐시 읽기 실패({fp.name}): {e}")
                 return
+            # 캐시 재렌더에도 정답·해설 생성 적용 — 이미 값이 있는 문항은 generate_solutions
+            # 가 건너뛰므로(재시도 보호) 같은 캐시를 다시 돌려도 중복 과금이 없다.
+            if self.generate_solutions:
+                self._fill_solutions(data, i)
+                # 원자적 쓰기 — 도중에 죽어도 사용자의 OCR 기록이 반쪽으로 깨지지 않게.
+                try:
+                    tmp = fp.with_suffix(fp.suffix + ".tmp")
+                    tmp.write_text(json.dumps(data, ensure_ascii=False, indent=2),
+                                   encoding="utf-8")
+                    os.replace(tmp, fp)
+                except Exception as e:  # noqa: BLE001
+                    self.log.emit("warning", f"캐시 갱신 실패({fp.name}): {e}")
             pages.append(parse_ocr_response(data, page_number=i))
             self.progress.emit(10 + int(i / len(merged) * 60),
                                f"캐시 로드 ({i}/{len(merged)})")
@@ -892,6 +979,14 @@ class ConversionWorker(QObject):
                 )
                 self.ocr_warning.emit(page_num, warn_msg)
 
+            # ── 정답·해설·소단원·난이도 자동 생성(옵션) ──
+            # parse **전**에 채워야 content_parser 가 answer/solution 을 블록으로 파싱한다.
+            # 채운 뒤 merged 기록을 갱신해 캐시 재렌더에도 정답·해설이 남게 한다.
+            if self.generate_solutions:
+                self._fill_solutions(ocr_result, page_num)
+                if isinstance(ocr_result, dict):
+                    self._save_record("ocr", f"p{page_num}_merged", ocr_result)
+
             page = parse_ocr_response(ocr_result, page_number=page_num)
             pages.append(page)
 
@@ -1204,6 +1299,27 @@ class MainWindow(QMainWindow):
             "끔: OCR 결과를 미리보기 창에서 확인한 뒤 진행한다.")
         self._skip_preview_check.setStyleSheet(_CHECK_QSS)
         layout.addWidget(self._skip_preview_check)
+
+        # ── 정답·해설 자동 작성(2026-08-07) ────────────────────────────────────
+        # AI 가 문항을 직접 풀어 정답면(정답·풀이)과 문항별 [소단원]/[난이도] 메타란을 채운다.
+        # 과금이라 기본 OFF. 체크 상태는 config(GENERATE_SOLUTIONS)에 저장해 다음 실행에도 유지.
+        layout.addSpacing(4)
+        self._gen_sol_check = QCheckBox("정답·해설 자동 작성 — AI가 문제를 풀어 정답면과 단원·난이도를 채웁니다")
+        self._gen_sol_check.setToolTip(
+            "켬: 문항마다 AI가 직접 풀어서\n"
+            "  · 정답면의 정답(①~⑤ 또는 최종답)\n"
+            "  · 서술형 풀이(step1, step2 …)\n"
+            "  · 문항별 [소단원]·[난이도] 메타란\n"
+            "을 채웁니다. 문항 수만큼 시간이 더 걸리고 별도 요금이 발생합니다.\n"
+            "끔(기본): 정답·해설란을 비운 채로 변환합니다.")
+        self._gen_sol_check.setStyleSheet(_CHECK_QSS)
+        try:
+            from utils.config import get_generate_solutions
+            self._gen_sol_check.setChecked(get_generate_solutions())
+        except Exception:
+            pass
+        self._gen_sol_check.stateChanged.connect(self._on_gen_solutions_changed)
+        layout.addWidget(self._gen_sol_check)
 
         # 구분선
         layout.addSpacing(16)
@@ -1543,6 +1659,30 @@ class MainWindow(QMainWindow):
             logger.warning("OCR 백엔드 저장 실패(무시): %s", e)
         self._log(f"OCR 엔진 선택: {self._ocr_combo.currentText()}")
 
+    def _on_gen_solutions_changed(self, _state: int):
+        """정답·해설 자동 작성 체크 → config(GENERATE_SOLUTIONS) 저장 + 키 확인 안내."""
+        on = self._gen_sol_check.isChecked()
+        try:
+            from utils.config import _load_config, save_config, _init_module_vars
+            cfg = _load_config()
+            cfg["GENERATE_SOLUTIONS"] = on
+            save_config(cfg)
+            _init_module_vars()
+        except Exception as e:  # noqa: BLE001
+            logger.warning("정답·해설 설정 저장 실패(무시): %s", e)
+        if on:
+            try:
+                from utils.config import get_deepseek_key
+                if not get_deepseek_key():
+                    QMessageBox.warning(
+                        self, "API 키 필요",
+                        "정답·해설 자동 작성에는 DeepSeek API 키가 필요합니다.\n"
+                        "config.json 의 \"DEEPSEEK_API_KEY\" 에 키를 넣어 주세요.\n\n"
+                        "키가 없으면 정답·해설란은 비어 있는 상태로 변환됩니다.")
+            except Exception:  # noqa: BLE001
+                pass
+        self._log("정답·해설 자동 작성: " + ("켬" if on else "끔"))
+
     def _resolve_form_path(self) -> str | None:
         """현재 드롭다운 선택 → 실제 폼 경로(없으면 None=기본 서식).
 
@@ -1639,6 +1779,7 @@ class MainWindow(QMainWindow):
             render_figures=False,    # 그림 렌더 폐지(항상 안내 박스, 2026-06-16)
             skip_preview=self._skip_preview_check.isChecked(),  # 미리보기 생략 여부
             ocr_backend=self._ocr_combo.currentData() or "auto",   # OCR 엔진(자동/고정)
+            generate_solutions=self._gen_sol_check.isChecked(),    # 정답·해설 자동 작성
         )
         self._run_worker(worker)
 
@@ -1709,6 +1850,7 @@ class MainWindow(QMainWindow):
             form_path=self._resolve_form_path(),
             header_values=(info if info["valid"] else None),
             cache_only=True,
+            generate_solutions=self._gen_sol_check.isChecked(),    # 정답·해설 자동 작성
         )
         self._run_worker(worker)
 
