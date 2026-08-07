@@ -275,6 +275,49 @@ def run():
     # 무회귀: 대형연산자 sum/int 하한도 빈그룹 없이 정상.
     chk("{}_{" not in latex_to_hwpeq(r"\sum_{k=1}^{n} k"), "O3 sum 무회귀")
 
+    # ── O6: 각(ANGLE) 표기 + 도(°) 위첨자 제거 (사용자 2026-08-07 렌더 지적) ──
+    # 사용자 지정형: ``ANGLE  rm APB= ANGLE  rm AQB=90°``. ① \angle 은 대문자 ANGLE
+    # (HWP 렌더는 대소문자 동일 — 실측 .testkit/_ang_probe.py A/D·E/F 픽셀 동일).
+    # ② ``90^\circ`` 의 ° 는 **위첨자로 올리지 않는다** — ° 글리프 자체가 이미 위첨자
+    # 높이라 한 번 더 올리면 ``90˚`` 처럼 과하게 작고 높이 뜬다(실측 A vs B).
+    o6 = latex_to_hwpeq(r"\angle \mathrm{APB} = \angle \mathrm{AQB} = 90^\circ",
+                        italicize_stat=False)
+    chk(o6 == "ANGLE rm APB = ANGLE rm AQB = 90°", f"O6 각·도 목표형: {o6!r}")
+    chk(latex_to_hwpeq(r"90^\circ") == "90°", "O6 ^\\circ 위첨자 제거")
+    chk(latex_to_hwpeq(r"45^{\circ}") == "45°", "O6 ^{\\circ} 위첨자 제거")
+    chk(latex_to_hwpeq(r"\sin 30^\circ") == "sin 30°", "O6 삼각함수 각도")
+    # 유니코드 ° 입력도 rm` 로만화 없이 그대로(° 는 이미 정자 — _UNITS 에서 제외).
+    chk(latex_to_hwpeq("90°") == "90°", "O6 유니코드 ° rm 미적용")
+    # 무회귀: 합성함수 ``f \circ g``(위첨자 아님)는 건드리지 않음.
+    chk("^" not in latex_to_hwpeq(r"f \circ g"), "O6 무회귀: 합성 \\circ 위첨자 아님")
+    # 무회귀: 일반 위첨자는 보존.
+    chk(latex_to_hwpeq("x^{2}") == "x^{2}", "O6 무회귀: 일반 지수 보존")
+
+    # ── O7: 프라임(') 도형 라벨 로만화 (사용자 2026-08-07 렌더 지적) ──
+    # 대칭이동 상(像) 라벨 ``A'P``·``QB'``·``A'B'`` 이 ``[A-Z]{2,}`` 에 안 걸려 이탤릭으로
+    # 남고, 같은 줄 ``AP``·``PQ``·``QB`` 만 정자라 혼재하던 것.
+    o7 = latex_to_hwpeq(
+        r"\overline{AP}+\overline{PQ}+\overline{QB}=\overline{A'P}+\overline{PQ}"
+        r"+\overline{QB'}\geq\overline{A'B'}", italicize_stat=False)
+    chk(o7 == ("bar {rm {AP}}+bar {rm {PQ}}+bar {rm {QB}}=bar {rm {A'P}}+bar {rm {PQ}}"
+               "+bar {rm {QB'}} GEQ bar {rm {A'B'}}"), f"O7 프라임 라벨 로만: {o7!r}")
+    chk(latex_to_hwpeq(r"\triangle A'B'C'", italicize_stat=False) == "TRIANGLE rm {A'B'C'}",
+        "O7 프라임 삼각형 로만")
+    # 무회귀: **단일** 대문자+프라임은 그대로(도함수 F'(x) 와 구분 불가 — 점 좌표는
+    # content_parser _POINT_COORD_RE 가 좌표쌍+기하 게이트로 처리).
+    chk(latex_to_hwpeq("F'(x)+f'(x)") == "F'(x)+f'(x)", "O7 무회귀: 도함수 이탤릭 보존")
+    # HWP 키워드 충돌 라벨은 프라임이 붙어도 따옴표로 감싼다 — ``rm {GE'}`` 는 ≥′ 로
+    # 글자가 사라진다(실측 .testkit/_ang_probe3/4). 연속 대문자 세그먼트 단위 판정이라
+    # ``G'E``(프라임이 끼어 GE 연속 아님)는 인용 없이 안전.
+    chk(latex_to_hwpeq(r"\overline{GE'}", italicize_stat=False) == 'bar {rm {"GE"\'}}',
+        "O7 키워드 충돌 GE' 인용")
+    chk(latex_to_hwpeq(r"\overline{G'E}", italicize_stat=False) == "bar {rm {G'E}}",
+        "O7 G'E 비연속=인용 불필요")
+    chk(latex_to_hwpeq(r"\overline{GE}", italicize_stat=False) == 'bar {rm {"GE"}}',
+        "O7 무회귀: 무프라임 GE 인용 유지")
+    chk(latex_to_hwpeq(r"\overline{AB}", italicize_stat=False) == "bar {rm {AB}}",
+        "O7 무회귀: 일반 라벨")
+
     # ── O6: 집합 조건제시법 — \left\{…\right\} 자동크기 + \middle| (사용자 2026-07-31) ──
     # ① ``\mid``→``|`` 매핑이 ``\middle`` 을 접두 매칭해 ``|dle|`` 로 새던 것(현풍고 서답형4).
     # ② 중괄호 구분자는 **맨 ``{``**(``LEFT {``)여야 분수 높이만큼 늘어난다. 따옴표 리터럴
@@ -313,7 +356,7 @@ def run():
     chk(ksy_ph == "rm pH it = - log x", f"KSY 이슈4 pH rm 번짐: {ksy_ph!r}")
     # 무회귀: 뒤가 전부 로만/대문자(소문자 변수 없음)면 it 미삽입(기하 \angle\mathrm 류).
     ksy_angle = latex_to_hwpeq(r"\angle\mathrm{A}=\angle\mathrm{B}", italicize_stat=False)
-    chk(ksy_angle == "angle rm A= angle rm B", f"KSY 이슈4 무회귀: 기하식 it 미삽입: {ksy_angle!r}")
+    chk(ksy_angle == "ANGLE rm A= ANGLE rm B", f"KSY 이슈4 무회귀: 기하식 it 미삽입: {ksy_angle!r}")
     # 무회귀: 단독 \mathrm{pH}(뒤 내용 없음)는 it 미삽입.
     chk(latex_to_hwpeq(r"\mathrm{pH}", italicize_stat=False) == "rm pH", "KSY 이슈4 무회귀: 단독 mathrm")
 

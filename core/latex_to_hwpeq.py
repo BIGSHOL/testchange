@@ -115,8 +115,17 @@ def _normalize_circled(s: str) -> str:
 # g(그램; 숫자 뒤에서만 매칭이라 변수 충돌 적음)·기호만 자동 로만화한다.
 _UNITS = [
     "kcal", "min", "km", "cm", "mm", "kg", "mg", "mL", "dL", "kL",
-    "g", "°", "℃", "℉", "ℓ",
+    "g", "℃", "℉", "ℓ",
 ]
+# 각도 위첨자 ``^\circ``/``^{\circ}``/``^{°}`` → ``°`` (위첨자 표시자 제거). ° 글리프 자체가
+# 이미 위첨자 높이라 한 번 더 올리면 과하게 작고 높이 뜬다(실측 2026-08-07). 첨자 그룹의
+# **유일한 내용**일 때만 매칭 — 합성함수 ``f \circ g``(위첨자 아님)는 무영향.
+_DEG_SUPERSCRIPT_RE = re.compile(
+    r"\^\s*(?:\{\s*(?:\\circ|\\degree|°)\s*\}|(?:\\circ|\\degree)(?![a-zA-Z])|°)"
+)
+# ⚠️ ``°`` 는 _UNITS 에서 **제외** — 이미 정자 글리프라 ``rm`` 이 불필요하고, 백틱(1/4칸)이
+# 붙으면 ``90 °`` 처럼 벌어져 원본 인쇄(90°)와 어긋난다(``%`` 를 뺀 것과 같은 이유).
+# ℃/℉ 는 단위 조합(온도)이라 종전대로 유지.
 # 숫자와 단위 사이에 공백/`(=\,변환) 가 끼어도 단위로 인식한다(사용자 2026-06-08: "20 g"·
 # "20\,g" 처럼 띄어진 단위가 로만 처리 안 됨). 단위 뒤에 영문/숫자 없을 때만(변수 5x 제외).
 # L(리터)은 단독 변수와 충돌해 _UNITS 에서 뺐지만(2026-06-08), **숫자 직결 꼬리**(1L·25L)
@@ -448,7 +457,9 @@ class LaTeXToHWPConverter:
         r"\otimes": "OTIMES",
         r"\therefore": "therefore",
         r"\because": "because",
-        r"\angle": "angle",
+        # 각: HWP 키워드는 대소문자 무관하게 같은 ∠ 글리프로 렌더된다(실측 2026-08-07,
+        # `angle`/`ANGLE` 픽셀 동일). 사용자 지정 표기(HWP 수식편집기 표준)에 맞춰 대문자로.
+        r"\angle": "ANGLE",
         r"\perp": "BOT",
         # 평행기호: HWP ``parallel`` 키워드는 **세로 두 줄**(││)로 렌더돼 평행처럼 안 보인다
         # (사용자 2026-06-15). ⫽(U+2AFD, 빗금 두 줄) 리터럴로 고정 — □(\square) 방식. norm
@@ -580,7 +591,13 @@ class LaTeXToHWPConverter:
     # 도형 라벨(선분 AB·삼각형 ABC·사각형 ABCD 등)도 이탤릭이 되어버리므로,
     # 연속 대문자 2자 이상을 `rm {…}` 로 정자화한다. 이때 SUM·LEFT·LEQ 같은
     # 전부-대문자 키워드는 라벨이 아니라 제어어이므로 감싸면 안 된다 → 이 집합으로 제외.
-    _ROMAN_LABEL_RE = re.compile(r"(?<![A-Za-z])([A-Z]{2,})(?![A-Za-z])")
+    # 프라임(') 을 라벨 글자에 허용 — 대칭이동/접기의 상(像) 라벨 ``A'P``·``QB'``·``A'B'`` 이
+    # ``[A-Z]{2,}`` 에 안 걸려 **이탤릭으로 남던 것**(사용자 2026-08-07 렌더 지적: 같은 줄의
+    # ``AP``·``PQ``·``QB`` 는 정자인데 프라임 라벨만 기울어 혼재). ``(?:[A-Z]'*){2,}`` = 대문자
+    # 2자 이상이면 사이·끝 프라임 허용. **단일 대문자+프라임**(``A'``·도함수 ``F'(x)``)은
+    # 여전히 제외 — 함수 도함수와 구분이 안 돼 위험하다(점 ``A'(7,4)`` 는 좌표쌍+기하 게이트가
+    # 있는 content_parser `_POINT_COORD_RE` 가 담당).
+    _ROMAN_LABEL_RE = re.compile(r"(?<![A-Za-z])((?:[A-Z]'*){2,})(?![A-Za-z])")
     # 맵에 없는 구조 키워드(대형연산자·괄호·행렬·이항계수)도 제외 대상.
     _ROMAN_SKIP_EXTRA = {
         "LEFT", "RIGHT", "SUM", "PROD", "COPROD", "INT", "DINT", "TINT",
@@ -637,8 +654,18 @@ class LaTeXToHWPConverter:
             # HWP 연산자 키워드와 충돌하는 점/선분 라벨(GE=≥·LE=≤·NE=≠·GG=≫·LL=≪)은
             # rm {} 안에서도 HWP 가 ≥ 등으로 토큰화해 글자가 사라진다(대륜중2 #16 GE→≥,
             # 2026-06-15 렌더 실증). 따옴표 리터럴(□·★ 방식)로 감싸 토큰화 차단.
-            if run in _KEYWORD_LABEL_QUOTE:
-                return 'rm {"' + run + '"}'
+            # 프라임 라벨(``GE'``)도 같은 함정 — HWP 는 **연속 대문자 시퀀스**를 토큰화하므로
+            # 프라임이 붙어도 ``rm {GE'}`` 는 ≥′ 로 글자가 사라진다(실측 2026-08-07). 반대로
+            # ``G'E`` 는 프라임이 끼어 GE 연속이 아니라 안전 → 프라임으로 끊은 **세그먼트**
+            # 단위로 판정해 키워드 세그먼트만 따옴표로 감싼다(``GE'`` → ``rm {"GE"'}``).
+            # 프라임 없는 라벨은 종전과 동일한 결과(무회귀).
+            if any(seg in _KEYWORD_LABEL_QUOTE for seg in run.split("'") if seg):
+                quoted = re.sub(
+                    r"[A-Z]+",
+                    lambda mm: ('"' + mm.group(0) + '"'
+                                if mm.group(0) in _KEYWORD_LABEL_QUOTE else mm.group(0)),
+                    run)
+                return "rm {" + quoted + "}"
             return "rm {" + run + "}"
 
         return self._ROMAN_LABEL_RE.sub(_repl, script)
@@ -814,6 +841,13 @@ class LaTeXToHWPConverter:
         # ``\lim\limits`` → "lim lim its"(중복 lim + 잔여 'its'), ``\sum\limits`` → "SUM lim its"
         # 로 깨졌다(진명여고·학남고 수2 #1·6·12·13·15·17·21, 2026-06-23).
         s = re.sub(r"\\(?:no)?limits(?![a-zA-Z])", "", s)
+
+        # 각도 ``90^\circ`` → ``90°`` — **위첨자 표시자를 뗀다**. ° 글리프는 그 자체가 이미
+        # 베이스라인 위 작은 동그라미라, 위첨자로 한 번 더 올리면 ``90˚`` 처럼 과하게 작고
+        # 높이 떠 원본 인쇄(90°)와 어긋난다(HWP 실측 확정 2026-08-07, 사용자 지적).
+        # ``\circ``/``\degree``/유니코드 ° 가 **첨자 그룹의 유일한 내용**일 때만 — 합성함수
+        # ``f \circ g``(위첨자 아님)·다른 첨자 내용은 건드리지 않는다.
+        s = _DEG_SUPERSCRIPT_RE.sub("°", s)
 
         # 단위 \text{g} → 평문 g (뒤 _romanize_units 가 rm`g 로 정자+간격, 2026-06-09).
         s = _unwrap_text_units(s)

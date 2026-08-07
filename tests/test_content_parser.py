@@ -630,7 +630,8 @@ def _check_jung2_2sem_fixes(fails):
     eqP = [b.value for b in cP.contents if b.type.name == "EQUATION"]
     if not any(r"\angle \mathrm{P}" in (e or "") for e in eqP):
         fails.append(f"  J2S ∠P 로만화 실패: {eqP!r}")
-    if "angle rm P" not in l2h(eqP[0], italicize_stat=False):
+    # 각 키워드는 대문자 ``ANGLE``(2026-08-07 사용자 지정 표기; HWP 렌더는 대소문자 동일).
+    if "ANGLE rm P" not in l2h(eqP[0], italicize_stat=False):
         fails.append(f"  J2S ∠P 렌더 로만 실패: {l2h(eqP[0], italicize_stat=False)!r}")
     # 무회귀: ∠ 없는 확통 선택지 P(X=2) 는 이탤릭 유지(로만화 안 함)
     cx = _parse_choice({"number": 3, "contents": [
