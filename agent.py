@@ -17,7 +17,9 @@ import os
 
 AUTOSTART_NAME = "MathGenHWP"
 AUTOSTART_KEY = r"Software\Microsoft\Windows\CurrentVersion\Run"
-SITE_URL = "https://mathgen.para-x.co.kr"
+# 트레이 "웹앱 열기" 가 여는 주소. 배포 도메인이 정해지면 env 로 바꿀 수 있게 둔다 —
+# 하드코딩만 두면 도메인이 바뀔 때마다 exe 를 다시 빌드해 전 사용자에게 재배포해야 한다.
+SITE_URL = os.environ.get("MATHGEN_HWP_SITE") or "https://mathgen.para-x.co.kr"
 
 
 def _ensure_streams() -> None:
@@ -111,8 +113,25 @@ def _run_tray() -> int:
     hwp_ok = connector._detect_hwp_installed()
     status = "한글(HWP) 감지됨 ✓" if hwp_ok else "한글(HWP) 미설치 — 설치 필요 ✗"
 
+    # ⭐ 연결 코드는 여기서 **반드시** 준비해야 한다 — 트레이 앱은 connector.main() 을
+    # 거치지 않으므로, 초기화를 main 에만 두면 exe 에서 토큰이 빈 값이 되어 검사가
+    # 통째로 무효가 된다(웹은 코드를 요구하는데 커넥터는 아무 값이나 통과).
+    token = connector.ensure_token()
+    token_label = f"연결 코드: {token}  (클릭 = 복사)" if token else "연결 코드: 사용 안 함"
+
     def on_site(icon, item):
         webbrowser.open(SITE_URL)
+
+    def on_copy_token(icon, item):
+        """연결 코드를 클립보드로 — 사용자가 옮겨 적지 않아도 되게."""
+        if not token:
+            return
+        try:
+            import subprocess
+            subprocess.run("clip", input=token.encode("utf-16-le"),
+                           check=False, shell=True)
+        except Exception:
+            pass
 
     def on_toggle_autostart(icon, item):
         _set_autostart(not _autostart_enabled())
@@ -128,7 +147,9 @@ def _run_tray() -> int:
         pystray.MenuItem("MathGen HWP 도우미 · 실행 중", None, enabled=False),
         pystray.MenuItem(status, None, enabled=False),
         pystray.Menu.SEPARATOR,
-        pystray.MenuItem("웹앱 열기 (mathgen.para-x.co.kr)", on_site, default=True),
+        pystray.MenuItem(token_label, on_copy_token, enabled=bool(token)),
+        pystray.Menu.SEPARATOR,
+        pystray.MenuItem("웹앱 열기", on_site, default=True),
         pystray.MenuItem("부팅 시 자동 시작", on_toggle_autostart,
                          checked=lambda item: _autostart_enabled()),
         pystray.MenuItem("종료", on_quit),

@@ -92,6 +92,73 @@ def test_token_contract() -> None:
         importlib.reload(c)
 
 
+def test_allowed_origins() -> None:
+    """⭐ 배포 origin 허용 — 이게 막히면 배포 즉시 변환 100% 실패한다.
+
+    공개 HTTPS → 127.0.0.1 은 Chrome PNA preflight 대상이라, 불허 origin 이면
+    do_OPTIONS 가 허용 헤더를 안 붙여 **/health 요청조차 전송되지 않고** 웹은 영영
+    "HWP 도우미 없음" 을 표시한다(2026-08-08 감사).
+    """
+    print("G. 허용 origin (배포 도메인)")
+    import importlib
+    import server.connector as c
+    importlib.reload(c)
+
+    check("로컬 dev(vite 임의 포트) 허용", c._is_allowed_origin("http://localhost:5173"))
+    check("127.0.0.1 임의 포트 허용", c._is_allowed_origin("http://127.0.0.1:3000"))
+    check("기존 프로덕션 허용", c._is_allowed_origin("https://mathgen.para-x.co.kr"))
+
+    # Vercel 은 배포마다 프리뷰 호스트명이 새로 생긴다 — 프로덕션 한 줄로는 부족.
+    check("Vercel 프로덕션 허용",
+          c._is_allowed_origin("https://hwp-convert-web.vercel.app"))
+    check("Vercel 프리뷰(해시 붙은 호스트) 허용",
+          c._is_allowed_origin("https://hwp-convert-web-abc123-sun.vercel.app"))
+
+    # ⚠️ 와일드카드를 너무 넓게 열면 아무나 만든 vercel 사이트가 로컬 커넥터를 부른다.
+    check("남의 vercel.app 은 거부",
+          not c._is_allowed_origin("https://evil-site.vercel.app"))
+    check("유사 도메인 거부",
+          not c._is_allowed_origin("https://hwp-convert-web.vercel.app.evil.com"))
+    check("http 공개 origin 거부", not c._is_allowed_origin("http://example.com"))
+    check("빈 origin 거부", not c._is_allowed_origin(""))
+
+    # env 로 커스텀 도메인 주입 — exe 재빌드 없이 도메인을 바꿀 수 있어야 한다.
+    old = os.environ.get("MATHGEN_HWP_ORIGINS")
+    try:
+        os.environ["MATHGEN_HWP_ORIGINS"] = "https://exam.example.com, https://b.example.com"
+        check("env 주입 origin 허용", c._is_allowed_origin("https://exam.example.com"))
+        check("env 주입 2번째도 허용", c._is_allowed_origin("https://b.example.com"))
+        check("env 에 없는 건 여전히 거부", not c._is_allowed_origin("https://c.example.com"))
+    finally:
+        if old is None:
+            os.environ.pop("MATHGEN_HWP_ORIGINS", None)
+        else:
+            os.environ["MATHGEN_HWP_ORIGINS"] = old
+
+
+def test_token_init_without_main() -> None:
+    """⭐ 트레이 앱(agent.py)은 connector.main() 을 안 거친다 — 그래도 토큰이 살아야 한다.
+
+    초기화를 main() 에만 두면 배포 exe 에서 EXPECTED_TOKEN 이 빈 값이라 검사가 통째로
+    무효가 된다(웹은 코드를 요구하는데 커넥터는 아무 값이나 통과). 2026-08-08 감사 발견.
+    """
+    print("H. main() 없이도 토큰 유효 (배포 트레이 앱 경로)")
+    import importlib
+    import server.connector as c
+    importlib.reload(c)  # main() 을 부르지 않은 갓 임포트한 상태
+
+    check("임포트 직후 EXPECTED_TOKEN 은 비어 있음(지연 초기화)", c.EXPECTED_TOKEN == "")
+    tok = c.ensure_token()
+    check("ensure_token() 이 토큰을 만든다", bool(tok))
+    check("모듈 전역에 실린다", c.EXPECTED_TOKEN == tok)
+    check("멱등", c.ensure_token() == tok)
+
+    src = (ROOT / "agent.py").read_text(encoding="utf-8")
+    check("agent.py 가 ensure_token 을 호출", "connector.ensure_token()" in src)
+    check("agent.py 가 연결 코드를 사용자에게 보여줌", "연결 코드" in src)
+    check("agent.py SITE_URL 이 env 로 바꿀 수 있음", "MATHGEN_HWP_SITE" in src)
+
+
 def test_worker_python() -> None:
     print("D. COM 워커 인터프리터 (하드코딩 금지)")
     import server.connector as c
@@ -139,6 +206,7 @@ def test_form_selection_from_filename() -> None:
 def main() -> int:
     print("웹 ↔ 커넥터 계약 회귀 테스트\n")
     for fn in (test_envelope_discriminator, test_output_suffix, test_token_contract,
+               test_allowed_origins, test_token_init_without_main,
                test_worker_python, test_health_fields, test_form_selection_from_filename):
         fn()
         print()

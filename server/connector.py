@@ -17,10 +17,12 @@ COM 자식 인터프리터는 ``_worker_python()`` 이 찾는다(엔진 .venv �
 실행: python -m server.connector [--host 127.0.0.1] [--port 8765] [--no-token]
 Python 3.11(pywin32) 필수.
 """
+import os
 import sys
 import re
 import csv
 import json
+import secrets
 import argparse
 import threading
 import subprocess
@@ -49,9 +51,38 @@ ALLOWED_ORIGINS = {
 # 임의 포트)은 안전하게 허용한다. 공개 origin 은 위 ALLOWED_ORIGINS 로만.
 _LOCAL_ORIGIN_RE = re.compile(r"^http://(?:localhost|127\.0\.0\.1)(?::\d+)?$")
 
+# ⭐ **Vercel 배포 origin.** 하드코딩만 두면 배포하는 순간 변환이 100% 막힌다 —
+# 브라우저가 공개 HTTPS → 127.0.0.1 호출에 PNA preflight 를 요구하는데, 불허 origin 엔
+# do_OPTIONS 가 허용 헤더를 안 붙여 **/health 요청조차 전송되지 않고** 웹은 영영
+# "HWP 도우미 없음" 을 표시한다. 게다가 Vercel 은 배포마다 프리뷰 호스트명이 새로
+# 생겨(``<project>-<hash>-<scope>.vercel.app``) 도메인 한 줄 추가로는 부족하다.
+#
+# 그래서 두 갈래로 연다:
+#   1) ``MATHGEN_HWP_ORIGINS`` 환경변수(쉼표 구분) — 커스텀 도메인용. exe 재빌드 불필요.
+#   2) 프로젝트 접두사로 한정한 ``*.vercel.app`` 패턴 — 프리뷰·프로덕션 자동 허용.
+# ⚠️ 와일드카드를 ``*.vercel.app`` 전체로 열면 **아무나 만든 vercel 사이트**가 로컬
+# 커넥터를 부를 수 있다. 반드시 프로젝트 접두사로 좁힌다(+ 연결 코드가 2차 방어).
+_VERCEL_PROJECT = os.environ.get("MATHGEN_HWP_VERCEL_PROJECT", "hwp-convert-web").strip()
+_VERCEL_ORIGIN_RE = re.compile(
+    r"^https://" + re.escape(_VERCEL_PROJECT) + r"(?:-[a-z0-9-]+)?\.vercel\.app$"
+)
+
+
+def _env_origins() -> set:
+    raw = os.environ.get("MATHGEN_HWP_ORIGINS", "")
+    return {o.strip().rstrip("/") for o in raw.split(",") if o.strip()}
+
 
 def _is_allowed_origin(origin) -> bool:
-    return bool(origin) and (origin in ALLOWED_ORIGINS or bool(_LOCAL_ORIGIN_RE.match(origin)))
+    if not origin:
+        return False
+    o = origin.rstrip("/")
+    return (
+        o in ALLOWED_ORIGINS
+        or o in _env_origins()
+        or bool(_LOCAL_ORIGIN_RE.match(o))
+        or bool(_VERCEL_ORIGIN_RE.match(o))
+    )
 
 # ⭐ 페어링 토큰 — 커넥터는 127.0.0.1 에만 listen 하지만, **로컬의 아무 페이지나**
 # (사용자가 방문한 악성 사이트 포함) 커넥터를 부를 수 있다. 토큰은 그 시나리오를 막는다:
@@ -59,9 +90,6 @@ def _is_allowed_origin(origin) -> bool:
 # 붙여넣어야 변환이 된다(토큰을 모르는 사이트는 못 부름).
 #
 # ``MATHGEN_HWP_NO_TOKEN=1`` 이면 끈다(dev/로컬 디버깅용 — start-connector-hwp.bat).
-import os
-import secrets
-
 TOKEN_PATH = Path(
     os.environ.get("LOCALAPPDATA") or Path.home()
 ) / "mathgen-connector" / "token.txt"
@@ -82,6 +110,26 @@ def _load_or_create_token() -> str:
         return tok
     except Exception:  # noqa: BLE001 — 토큰 파일 실패 시 무토큰으로 동작(기능 우선)
         return ""
+
+
+def ensure_token() -> str:
+    """토큰을 준비하고 ``EXPECTED_TOKEN`` 에 실어 돌려준다(멱등).
+
+    ⚠️ **`main()` 안에서만 초기화하면 안 된다.** 배포 트레이 앱(`agent.py`)은
+    `main()` 을 거치지 않고 `ThreadingHTTPServer(..., Handler)` 를 직접 띄우므로,
+    초기화를 main 에 두면 exe 에서 `EXPECTED_TOKEN` 이 빈 문자열로 남아 **토큰 검사가
+    통째로 무효**가 된다(웹은 코드를 요구하는데 커넥터는 아무 값이나 통과 — 실측 확인).
+    그래서 서버를 어떤 경로로 띄우든 이 함수를 부르게 하고, 안전망으로 요청 처리
+    시점에도 한 번 더 확인한다.
+    """
+    global EXPECTED_TOKEN, REQUIRE_TOKEN
+    if not REQUIRE_TOKEN:
+        return ""
+    if not EXPECTED_TOKEN:
+        EXPECTED_TOKEN = _load_or_create_token()
+        if not EXPECTED_TOKEN:
+            REQUIRE_TOKEN = False  # 토큰 파일 실패 — 기능을 막지는 않는다
+    return EXPECTED_TOKEN
 
 _convert_lock = threading.Lock()  # 한글 COM 단일 인스턴스 직렬화
 
@@ -275,10 +323,11 @@ class Handler(BaseHTTPRequestHandler):
         if origin is not None and not _is_allowed_origin(origin):
             self._send_json(403, {"error": f"origin not allowed: {origin}"}, origin)
             return
-        if REQUIRE_TOKEN and EXPECTED_TOKEN:
+        expected = ensure_token()  # 어떤 경로로 띄웠든 여기서 보장(agent.py 대비)
+        if REQUIRE_TOKEN and expected:
             got = (self.headers.get("X-Connector-Token")
                    or self.headers.get("X-Pairing-Token") or "")
-            if got.strip().upper() != EXPECTED_TOKEN.upper():
+            if got.strip().upper() != expected.upper():
                 self._send_json(401, {
                     "error": "연결 코드가 필요합니다 — HWP 도우미 창에 표시된 "
                              "코드를 웹에 입력하세요.",
@@ -356,10 +405,7 @@ def main() -> int:
 
     if args.no_token:
         REQUIRE_TOKEN = False
-    if REQUIRE_TOKEN:
-        EXPECTED_TOKEN = _load_or_create_token()
-        if not EXPECTED_TOKEN:
-            REQUIRE_TOKEN = False  # 토큰 파일 실패 — 기능을 막지는 않는다
+    ensure_token()
 
     httpd = ThreadingHTTPServer((args.host, args.port), Handler)
     if REQUIRE_TOKEN:
