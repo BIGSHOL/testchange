@@ -108,15 +108,25 @@ def test_allowed_origins() -> None:
     check("127.0.0.1 임의 포트 허용", c._is_allowed_origin("http://127.0.0.1:3000"))
     check("기존 프로덕션 허용", c._is_allowed_origin("https://mathgen.para-x.co.kr"))
 
-    # Vercel 은 배포마다 프리뷰 호스트명이 새로 생긴다 — 프로덕션 한 줄로는 부족.
-    check("Vercel 프로덕션 허용",
+    # ⭐ 아래 4개는 **실제 배포에서 관측된 호스트명**이다(2026-08-08). Vercel 은 원본
+    # 배포 URL 에서 프로젝트명을 잘라 쓰므로("web" 탈락) 별칭만 보고 규칙을 짜면 막힌다.
+    check("Vercel 프로덕션 별칭 허용",
           c._is_allowed_origin("https://hwp-convert-web.vercel.app"))
-    check("Vercel 프리뷰(해시 붙은 호스트) 허용",
-          c._is_allowed_origin("https://hwp-convert-web-abc123-sun.vercel.app"))
+    check("Vercel 팀 별칭 허용",
+          c._is_allowed_origin(
+              "https://hwp-convert-web-jaesungs-projects-404a3b31.vercel.app"))
+    check("Vercel 브랜치 별칭 허용",
+          c._is_allowed_origin(
+              "https://hwp-convert-web-bigshol-jaesungs-projects-404a3b31.vercel.app"))
+    check("Vercel 원본 배포 URL(프로젝트명 잘림) 허용",
+          c._is_allowed_origin(
+              "https://hwp-convert-glo4u6n9r-jaesungs-projects-404a3b31.vercel.app"))
 
     # ⚠️ 와일드카드를 너무 넓게 열면 아무나 만든 vercel 사이트가 로컬 커넥터를 부른다.
     check("남의 vercel.app 은 거부",
           not c._is_allowed_origin("https://evil-site.vercel.app"))
+    check("접두사만 비슷한 도메인 거부",
+          not c._is_allowed_origin("https://hwp-converter.vercel.app"))
     check("유사 도메인 거부",
           not c._is_allowed_origin("https://hwp-convert-web.vercel.app.evil.com"))
     check("http 공개 origin 거부", not c._is_allowed_origin("http://example.com"))

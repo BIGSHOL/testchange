@@ -62,7 +62,15 @@ _LOCAL_ORIGIN_RE = re.compile(r"^http://(?:localhost|127\.0\.0\.1)(?::\d+)?$")
 #   2) 프로젝트 접두사로 한정한 ``*.vercel.app`` 패턴 — 프리뷰·프로덕션 자동 허용.
 # ⚠️ 와일드카드를 ``*.vercel.app`` 전체로 열면 **아무나 만든 vercel 사이트**가 로컬
 # 커넥터를 부를 수 있다. 반드시 프로젝트 접두사로 좁힌다(+ 연결 코드가 2차 방어).
-_VERCEL_PROJECT = os.environ.get("MATHGEN_HWP_VERCEL_PROJECT", "hwp-convert-web").strip()
+#
+# ⚠️ 접두사가 ``hwp-convert-web`` 이 아니라 ``hwp-convert`` 인 이유(2026-08-08 실측):
+# Vercel 이 배포 호스트명을 만들 때 **프로젝트명을 잘라 쓴다.** 실제 배포에서
+#   별칭   https://hwp-convert-web.vercel.app                        (사용자가 쓰는 주소)
+#   원본   https://hwp-convert-glo4u6n9r-jaesungs-projects-….vercel.app  ← "web" 이 잘림
+# 이 나왔다. 별칭만 보고 ``hwp-convert-web`` 으로 좁히면 원본 URL·프리뷰 배포가 전부
+# 막힌다. 잔여 위험(누가 ``hwp-convert-*`` 이름으로 프로젝트를 만드는 경우)은 연결
+# 코드가 막는다.
+_VERCEL_PROJECT = os.environ.get("MATHGEN_HWP_VERCEL_PROJECT", "hwp-convert").strip()
 _VERCEL_ORIGIN_RE = re.compile(
     r"^https://" + re.escape(_VERCEL_PROJECT) + r"(?:-[a-z0-9-]+)?\.vercel\.app$"
 )
