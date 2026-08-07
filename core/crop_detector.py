@@ -209,25 +209,13 @@ def detect_crops(image: Image.Image, api_key: str | None = None,
                 if permanent or attempt == 2:
                     break
                 time.sleep(1.5 * (attempt + 1))
-    try:
-        boxes = _detect_with_claude(image, api_key)
-        # Gemini 가 한 번이라도 시도됐다가 실패해 Claude 로 내려온 경우 = 폴백.
-        if gem_err is not None:
-            reason = _fallback_reason(gem_err)
-            logger.error("⚠️ Gemini 크롭 실패 → Claude 폴백(크롭 정확도 저하). 원인: %s "
-                         "[로그: 시험지한글화.log]", reason)
-            if on_fallback is not None:
-                try:
-                    on_fallback(reason)
-                except Exception:
-                    pass
-        return boxes
-    except Exception as ce:  # noqa: BLE001
-        # Gemini·Claude 둘 다 실패 → 원인을 합쳐 올린다(워커가 GUI 에 그대로 노출).
-        if gem_err is not None:
-            raise RuntimeError(
-                f"Gemini 실패: {gem_err} / Claude 폴백 실패: {ce}") from ce
-        raise
+    # ⭐ Claude 폴백 폐지(2026-08-07, 사용자: "claude 는 이제 변환기에서 제외").
+    # 변환기는 Gemini(인식) + DeepSeek(정답·해설)만 쓴다. 실패 원인을 그대로 올려
+    # 워커가 한도 초과/키 무효를 판정해 즉시 중단할 수 있게 한다.
+    if gem_err is not None:
+        raise RuntimeError(f"Gemini 크롭 검출 실패: {gem_err}") from gem_err
+    raise RuntimeError(
+        "GEMINI_API_KEY 가 설정되지 않았습니다 — config.json 에 키를 넣어 주세요.")
 
 
 def _detect_with_claude(image: Image.Image, api_key: str | None = None) -> list[CropBox]:

@@ -144,7 +144,7 @@ def _convert_headless(argv: list[str]) -> int:
         if i + 1 < len(argv):
             backend = argv[i + 1]
 
-    from utils.config import get_api_key, get_generate_solutions
+    from utils.config import get_generate_solutions, get_gemini_key
     from core.form_registry import parse_filename, resolve_form
     from gui.main_window import ConversionWorker
 
@@ -157,7 +157,7 @@ def _convert_headless(argv: list[str]) -> int:
     print(f"출력: {out}\n")
 
     worker = ConversionWorker(
-        str(src), str(out), get_api_key(),
+        str(src), str(out), "",          # Anthropic 키 미사용(Claude 경로 제외 2026-08-07)
         form_path=form,
         header_values=(info if info.get("valid") else None),
         skip_first_page=False, use_crop=True, render_figures=False,

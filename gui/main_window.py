@@ -20,7 +20,6 @@ from PySide6.QtGui import QDragEnterEvent, QDropEvent, QFont
 from PySide6.QtWidgets import (
     QApplication,
     QCheckBox,
-    QComboBox,
     QFileDialog,
     QHBoxLayout,
     QLabel,
@@ -51,14 +50,61 @@ from core.hwpx_writer import write_exam_to_hwpx
 from core.hwp_com import is_hwp_available
 from core.hwp_com_writer import write_exam_to_hwp
 from core.hwp_form_writer import write_exam_to_form
-from core.form_registry import list_forms, resolve_auto, resolve_form, parse_filename
+from core.form_registry import resolve_form, parse_filename
 from gui.preview_dialog import PreviewDialog, PageInfo
 from utils.config import get_output_dir
 
 logger = logging.getLogger(__name__)
 
+# ⭐ 인식 엔진 **고정**(2026-08-07, 사용자) — 드롭다운을 없애고 Gemini Flash 로 못박는다.
+# 기존 "auto" 는 페이지 품질로 Flash/Pro 를 분기했는데, 실측상 대부분 Flash 로 갔고
+# (오성중·학남고·함지고 전부) Pro 는 5배 비싸다. 정답·해설은 DeepSeek 고정(solution_generator).
+# ⚠️ 트레이드오프: 손글씨·저품질 스캔에서 Pro 가 더 충실했는데 그 경로를 안 쓰게 된다.
+_FIXED_OCR_BACKEND = "gemini-flash"
+
 # 크롭 OCR 병렬 처리 동시 실행 수(①). 너무 크면 API 레이트리밋, 작으면 속도 이득 적음.
 _OCR_WORKERS = 6
+
+
+class _FatalApiError(RuntimeError):
+    """계속 진행해도 소용없는 API 오류(사용 한도 초과·키 무효) — 변환을 즉시 중단한다."""
+
+
+# 한도 초과/키 무효 신호. **일시적 레이트리밋(재시도로 풀림)과 구분**해야 한다 —
+# 429 라도 "spending cap"·"quota exceeded" 면 이번 달 내내 실패하므로 중단이 맞다.
+_FATAL_API_PATTERNS = (
+    "spending cap", "monthly spending", "quota exceeded", "exceeded your quota",
+    "resource_exhausted", "insufficient balance", "insufficient_quota",
+    "api key not valid", "api_key_invalid", "invalid_api_key",
+    "permission_denied", "unauthorized", "401",
+)
+
+
+def _is_fatal_api_error(msg: str) -> bool:
+    """복구 불가 API 오류인가(한도 초과·키 무효). 일시적 429/503 은 False."""
+    m = (msg or "").lower()
+    if not any(p in m for p in _FATAL_API_PATTERNS):
+        return False
+    # RESOURCE_EXHAUSTED 는 일시적 레이트리밋에도 쓰인다 — 한도/쿼터 문구가 함께 있을 때만 치명.
+    if "resource_exhausted" in m and not any(
+            p in m for p in ("spending cap", "monthly", "quota")):
+        return False
+    return True
+
+
+def _fatal_api_message(reason: str) -> str:
+    """치명 오류 원인 → 사용자가 바로 행동할 수 있는 안내문."""
+    r = (reason or "").lower()
+    if "spending cap" in r or "monthly" in r or "quota" in r or "resource_exhausted" in r:
+        return ("Gemini 사용 한도를 초과했습니다 — 이번 달 설정한 지출 한도에 도달했습니다.\n\n"
+                "· AI Studio(ai.studio/spending)에서 한도를 올리거나\n"
+                "· 다음 달 한도가 초기화될 때까지 기다려 주세요.\n\n"
+                "변환을 중단합니다(계속 진행해도 모든 문항이 실패합니다).")
+    if "balance" in r:
+        return ("DeepSeek 잔액이 부족합니다 — 계정에 충전한 뒤 다시 시도해 주세요.\n\n"
+                "변환을 중단합니다.")
+    return ("API 키가 유효하지 않습니다 — config.json 의 키를 확인해 주세요.\n\n"
+            "변환을 중단합니다.")
 
 # 그림 렌더링 OFF 일 때 figure 자리에 넣는 안내 문구(SVG 생성 대신). 폼 경로 _FIGURE_NOTE 와 통일.
 _FIGURE_NOTE_TEXT = "※ 그림 자리 — 원본에서 이 영역을 캡처해 여기에 붙여넣으세요"
@@ -341,29 +387,15 @@ class ConversionWorker(QObject):
         return b if b in ("auto", "claude", "gemini-pro", "gemini-flash") else "auto"
 
     def _get_ocr_engine(self, backend: str) -> OCREngine:
-        """백엔드별 엔진을 lazy 생성·캐시. Gemini 생성 실패(키 없음 등) → Claude 폴백(1회 경고).
+        """백엔드별 엔진을 lazy 생성·캐시.
 
-        같은 폴백 객체를 요청 백엔드 키로도 캐시해 페이지마다 재생성/재경고하지 않는다.
+        ⭐ Claude 폴백 폐지(2026-08-07, 사용자: "claude 는 이제 변환기에서 제외").
+        변환기는 Gemini(인식)만 쓴다 — 생성 실패는 키 문제이므로 그대로 올려 중단시킨다.
         """
         eng = self._ocr_engines.get(backend)
         if eng is not None:
             return eng
-        try:
-            if backend == "claude":
-                eng = OCREngine(api_key=self.api_key, backend="claude")
-            else:
-                eng = OCREngine(backend=backend)   # Gemini 키는 config.json 에서
-        except Exception as e:  # noqa: BLE001
-            if backend == "claude":
-                raise   # 폴백 대상이 없음 — 진짜 에러(키 없음 등) → 호출부가 페이지별 격리
-            if not self._backend_fallback_warned:
-                self._backend_fallback_warned = True
-                self.log.emit(
-                    "warning",
-                    "⚠️ Gemini 준비가 안 돼 Claude 로 대체합니다 — 설정에서 Gemini 키를 확인하세요.")
-            eng = self._get_ocr_engine("claude")
-            self._ocr_engines[backend] = eng   # 폴백 객체를 요청 키에도 캐시(반복 방지)
-            return eng
+        eng = OCREngine(backend=backend)      # Gemini 키는 config.json 에서
         self._ocr_engines[backend] = eng
         return eng
 
@@ -519,6 +551,10 @@ class ConversionWorker(QObject):
             _com_init = False
         try:
             self._do_conversion()
+        except _FatalApiError as e:
+            # 한도 초과·키 무효 — 스택트레이스 대신 **행동 가능한 안내**만 보여 준다.
+            logger.warning("변환 중단(복구 불가 API 오류): %s", e)
+            self.error.emit(_fatal_api_message(str(e)))
         except Exception as e:
             logger.exception("변환 중 오류 발생")
             self.error.emit(f"변환 실패: {e}\n\n{traceback.format_exc()}")
@@ -782,10 +818,11 @@ class ConversionWorker(QObject):
                     # 부족을 빌드 버그로 오해(2026-06-05). 알려진 원인은 친절히 안내.
                     reason = str(e).strip() or type(e).__name__
                     low = reason.lower()
-                    if "credit" in low or "balance" in low:
-                        reason = "Anthropic 크레딧 부족 — 크레딧 충전 필요(폼/OCR 도 동일)"
-                    elif any(k in low for k in ("rate", "429", "quota", "resource", "exhaust")):
-                        reason = "Gemini 레이트리밋/쿼터 초과 — 잠시 후 다시 시도하세요"
+                    # 한도 초과·키 무효면 여기서 즉시 중단(뒤 페이지도 전부 실패한다).
+                    if _is_fatal_api_error(reason):
+                        raise _FatalApiError(reason)
+                    if any(k in low for k in ("rate", "429", "resource", "exhaust")):
+                        reason = "Gemini 레이트리밋 — 잠시 후 다시 시도하세요"
                     # 검출 실패 → 사용자에게 경고(빈 박스로 편집기에 표시, 수동 보강 가능)
                     self.quality_warning.emit(
                         idx + 1 + page_offset,
@@ -955,6 +992,11 @@ class ConversionWorker(QObject):
                             # 실제 원인을 GUI 에 노출(프리뷰는 박스만 보여 정상처럼 보이므로
                             # 사용자가 왜 실패했는지 알 수 있게). 잘림(max_tokens)은 명시.
                             reason = str(exc).strip() or type(exc).__name__
+                            # ⭐ 사용 한도 초과·키 무효는 **복구 불가** — 남은 페이지를 계속
+                            # 돌려도 전부 실패하고 빈 결과만 나온다(실측 2026-08-07: 한도
+                            # 초과 후 페이지마다 43초씩 갈아넣고 문항 0개로 완료). 즉시 중단.
+                            if _is_fatal_api_error(reason):
+                                raise _FatalApiError(reason) from exc
                             if "max_tokens" in reason or "잘렸" in reason or "truncat" in reason.lower():
                                 reason = "응답이 max_tokens 로 잘림(수식이 많은 문항). 자동 재시도했으나 실패"
                             self._n_skipped_crops += 1
@@ -1152,48 +1194,13 @@ class MainWindow(QMainWindow):
         layout.setSpacing(0)
         layout.setContentsMargins(24, 20, 24, 20)
 
-        # ── 섹션 1: API 키 ──
-        section_label = QLabel("API 설정")
-        section_label.setStyleSheet(
-            "font-size: 11px; font-weight: 600; color: #667085;"
-            "text-transform: uppercase; letter-spacing: 1px;"
-            "padding: 0; margin: 0;"
-        )
-        layout.addWidget(section_label)
-        layout.addSpacing(6)
-
-        api_layout = QHBoxLayout()
-        api_layout.setSpacing(10)
-        api_label = QLabel("API 키")
-        api_label.setFixedWidth(48)
-        api_label.setStyleSheet("font-size: 13px; color: #344054; font-weight: 500;")
-        self._api_key_input = QLineEdit()
-        self._api_key_input.setEchoMode(QLineEdit.EchoMode.Password)
-        self._api_key_input.setPlaceholderText("Anthropic API 키를 입력하세요")
-        self._api_key_input.setFixedHeight(self._BTN_HEIGHT)
-        self._load_api_key()
-        api_layout.addWidget(api_label)
-        api_layout.addWidget(self._api_key_input)
-        layout.addLayout(api_layout)
-
-        # Gemini 키(크롭 검출 정확도 — 없으면 Claude 폴백, 크롭 품질 저하)
-        layout.addSpacing(8)
-        gem_layout = QHBoxLayout()
-        gem_layout.setSpacing(10)
-        gem_label = QLabel("Gemini")
-        gem_label.setFixedWidth(48)
-        gem_label.setStyleSheet("font-size: 13px; color: #344054; font-weight: 500;")
-        self._gemini_key_input = QLineEdit()
-        self._gemini_key_input.setEchoMode(QLineEdit.EchoMode.Password)
-        self._gemini_key_input.setPlaceholderText("Gemini API 키 (문제영역 크롭 검출용 — 권장)")
-        self._gemini_key_input.setFixedHeight(self._BTN_HEIGHT)
-        self._load_gemini_key()
-        gem_layout.addWidget(gem_label)
-        gem_layout.addWidget(self._gemini_key_input)
-        layout.addLayout(gem_layout)
+        # ── API 키 입력란은 **제거**(2026-08-07, 사용자) ─────────────────────────
+        # 키는 프로그램 폴더의 ``config.json`` 에서 읽는다(배포 시 미리 넣어 둠).
+        # 화면에서 입력받지 않으므로 사용자는 파일만 고르면 된다.
+        #   · GEMINI_API_KEY   — 문제영역 검출 + OCR(필수)
+        #   · DEEPSEEK_API_KEY — 정답·해설 자동 작성(체크박스를 켤 때만)
 
         # 구분선
-        layout.addSpacing(16)
         self._add_separator(layout)
         layout.addSpacing(16)
 
@@ -1258,61 +1265,18 @@ class MainWindow(QMainWindow):
         layout.addWidget(info_label)
         layout.addSpacing(6)
 
-        # ── 폼지(양식) 선택 ──
-        # '자동'은 입력 파일명의 학년(예: [조암중][2] → 중2)을 감지해 맞는 폼을 고른다.
-        # 구체 폼을 직접 고르면 그 폼으로, '기본 서식'이면 폼 없이 표준 렌더.
-        form_layout = QHBoxLayout()
-        form_layout.setSpacing(10)
-        form_lbl = QLabel("폼지")
-        form_lbl.setFixedWidth(120)
-        form_layout.addWidget(form_lbl)
-
-        self._form_combo = QComboBox()
-        self._form_combo.setFixedHeight(self._BTN_HEIGHT)
-        self._form_combo.setToolTip(
-            "대수회 폼지에 채워 출력합니다.\n"
-            "· 자동: 파일명의 학년을 감지해 맞는 폼 선택\n"
-            "· 기본 서식: 폼 없이 표준 서식으로 생성"
-        )
-        self._form_combo.addItem("자동 (학년 감지)", "__AUTO__")
-        self._form_combo.addItem("기본 서식 (폼 없음)", "__NONE__")
-        for fi in list_forms():
-            self._form_combo.addItem(f"폼지 — {fi.display}", fi.path)
-        self._form_combo.addItem("직접 찾아보기…", "__BROWSE__")
-        self._form_combo.currentIndexChanged.connect(self._on_form_changed)
-        form_layout.addWidget(self._form_combo, 1)
-        layout.addLayout(form_layout)
-
-        # ── OCR 엔진 선택(2026-06-16) ──────────────────────────────────────────
-        # 자동(기본): 시험지 품질로 페이지마다 Gemini Flash(클린·저렴)/Pro(스캔·충실) 분기.
-        # 수동: 특정 모델로 고정. (크롭 검출은 별개로 항상 Gemini Flash.)
-        ocr_layout = QHBoxLayout()
-        ocr_layout.setSpacing(10)
-        ocr_lbl = QLabel("OCR 엔진")
-        ocr_lbl.setFixedWidth(120)
-        ocr_layout.addWidget(ocr_lbl)
-
-        self._ocr_combo = QComboBox()
-        self._ocr_combo.setFixedHeight(self._BTN_HEIGHT)
-        self._ocr_combo.setToolTip(
-            "시험지에서 글자와 수식을 읽어들이는 방식입니다.\n"
-            "· 자동 (권장): 시험지 상태에 맞춰 가장 적합한 방식을 자동으로 고릅니다.\n"
-            "· 나머지: 특정 방식으로 고정합니다.")
-        self._ocr_combo.addItem("자동 (권장)", "auto")
-        self._ocr_combo.addItem("Gemini Flash (저비용)", "gemini-flash")
-        self._ocr_combo.addItem("Gemini Pro (고충실)", "gemini-pro")
-        self._ocr_combo.addItem("Claude (Sonnet)", "claude")
-        # 초기값 = config 의 OCR_BACKEND
-        try:
-            from utils.config import get_ocr_backend
-            _idx = self._ocr_combo.findData(get_ocr_backend())
-            if _idx >= 0:
-                self._ocr_combo.setCurrentIndex(_idx)
-        except Exception:
-            pass
-        self._ocr_combo.currentIndexChanged.connect(self._on_ocr_backend_changed)
-        ocr_layout.addWidget(self._ocr_combo, 1)
-        layout.addLayout(ocr_layout)
+        # ── 폼지·OCR 엔진 = **전자동**(2026-08-07, 사용자) ─────────────────────
+        # 선택 드롭다운을 없애고 항상 자동으로 처리한다. 실제 동작 차이는 없다 —
+        # 두 드롭다운 모두 기본값이 '자동'이었고, 그 자동 로직을 그대로 쓴다:
+        #   · 폼지: 파일명(`[학교][학년][과목]…`)에서 학년·과목을 파싱해 폼 매칭.
+        #           매칭 실패면 기본 서식으로 렌더(차단하지 않음, 2026-06-16 합의).
+        #   · OCR : 페이지 품질로 Gemini Flash(클린·저렴)/Pro(스캔·충실) 자동 분기.
+        # 다만 폼 매칭은 **파일명 규칙에 의존**하므로, 감지 결과를 화면에 보여 주고
+        # 실패 시 경고한다(예전엔 드롭다운으로 수동 보정이 가능했다).
+        self._auto_lbl = QLabel("폼지·인식 방식은 파일을 선택하면 자동으로 정해집니다.")
+        self._auto_lbl.setWordWrap(True)
+        self._auto_lbl.setStyleSheet("color:#475467; font-size:12px;")
+        layout.addWidget(self._auto_lbl)
 
         # 그림 렌더링 옵션은 폐지(2026-06-16, 사용자) — 그림은 **항상** 안내 박스로 대체한다
         # (render_figures=False 고정). 보안 경고 없이 열리고, 그림은 원본에서 직접 캡처·붙여넣기.
@@ -1477,23 +1441,6 @@ class MainWindow(QMainWindow):
         sep.setStyleSheet("background-color: #e4e7ec;")
         layout.addWidget(sep)
 
-    def _load_api_key(self):
-        """설정에서 API 키 로드."""
-        try:
-            from utils.config import get_api_key
-            key = get_api_key()
-            self._api_key_input.setText(key)
-        except ValueError:
-            pass
-
-    def _load_gemini_key(self):
-        """설정에서 Gemini 키 로드(없으면 빈칸)."""
-        try:
-            from utils.config import get_gemini_key
-            self._gemini_key_input.setText(get_gemini_key())
-        except Exception:
-            pass
-
     # 로그 레벨별 (색상, 아이콘, 굵게) — _append_log 가 사용
     _LOG_STYLES = {
         "step":    ("#1570ef", "▸", True),
@@ -1596,15 +1543,18 @@ class MainWindow(QMainWindow):
         out_path = get_output_dir() / out_name
         self._output_input.setText(str(out_path))
         self._log(f"파일 선택: {path}")
-        # 폼 '자동'이면 파일명 규칙 검사·감지 결과 안내(드롭다운은 '자동' 유지).
-        if self._form_combo.currentData() == "__AUTO__":
+        # 폼은 항상 자동 매칭 — 파일명에서 감지한 결과를 화면에 보여 준다(드롭다운 폐지
+        # 2026-08-07 이후로는 이 안내가 유일한 확인 수단이라 상단 라벨에도 함께 띄운다).
+        if True:
             info = parse_filename(path)
             if info["valid"]:
                 fp = resolve_form(path)
                 self._log(
                     f"  파일명 인식: {info['학년']} {info['과목']} · "
                     f"{info['년도']}년 {info['학기']}학기 {info['구분']}")
-                self._log(f"  자동 폼: {Path(fp).name if fp else '미매칭(드롭다운에서 선택)'}")
+                self._log(f"  자동 폼: {Path(fp).name if fp else '미매칭 → 기본 서식'}")
+                self._set_auto_label(
+                    f"폼지: {Path(fp).stem if fp else '기본 서식(폼 미매칭)'} · 인식: 빠른 인식(Gemini Flash)")
             else:
                 # valid=False 라도 학교/학년/시기는 보통 인식된다(과목 미인식이 대부분 원인) —
                 # 무엇이 읽혔고 무엇이 빠졌는지 구체적으로 알려 준다(2026-06-18).
@@ -1622,6 +1572,18 @@ class MainWindow(QMainWindow):
                 self._log(
                     "  형식: [학교][학년][과목][년-학기-중간/기말]([출판사]) · "
                     "과목 예: 대수 · 미적1(수2) · 확통 · 미적분 · 기하 · 공수1 · 공수2")
+                self._set_auto_label(
+                    "폼지: 기본 서식(파일명 규칙 미일치) · 인식: 빠른 인식(Gemini Flash)",
+                    warn=True)
+
+    def _set_auto_label(self, text: str, warn: bool = False) -> None:
+        """상단 자동 설정 안내 라벨 갱신(폼 미매칭이면 주황색 경고)."""
+        try:
+            self._auto_lbl.setText(text)
+            self._auto_lbl.setStyleSheet(
+                "color:#b54708; font-size:12px;" if warn else "color:#475467; font-size:12px;")
+        except Exception:  # noqa: BLE001
+            pass
 
     # ── 파일 선택 ──
 
@@ -1650,42 +1612,7 @@ class MainWindow(QMainWindow):
             self._output_input.setText(path)
             self._log(f"출력 경로 지정: {path}")
 
-    # ── 폼지(양식) 선택 ──
-
-    def _on_form_changed(self, idx: int):
-        """드롭다운 변경. '직접 찾아보기…' 선택 시 파일 대화상자로 폼 추가."""
-        data = self._form_combo.currentData()
-        if data == "__BROWSE__":
-            path, _ = QFileDialog.getOpenFileName(
-                self, "폼지(.hwp) 선택", "",
-                "한글 폼 (*.hwp *.hwpx);;모든 파일 (*.*)",
-            )
-            if path:
-                # '직접 찾아보기…'(마지막) 앞에 항목 추가하고 선택
-                self._form_combo.blockSignals(True)
-                self._form_combo.insertItem(
-                    self._form_combo.count() - 1, f"폼지 — {Path(path).name}", path)
-                self._form_combo.setCurrentIndex(self._form_combo.count() - 2)
-                self._form_combo.blockSignals(False)
-                self._log(f"폼지 직접 선택: {path}")
-            else:
-                self._form_combo.setCurrentIndex(0)  # 취소 → 자동
-            return
-        label = self._form_combo.currentText()
-        self._log(f"폼지 선택: {label}")
-
-    def _on_ocr_backend_changed(self, idx: int):
-        """OCR 엔진 드롭다운 변경 → config(OCR_BACKEND) 저장(다음 실행·헤드리스도 반영)."""
-        data = self._ocr_combo.currentData() or "auto"
-        try:
-            from utils.config import _load_config, save_config, _init_module_vars
-            cfg = _load_config()
-            cfg["OCR_BACKEND"] = data
-            save_config(cfg)
-            _init_module_vars()
-        except Exception as e:  # noqa: BLE001
-            logger.warning("OCR 백엔드 저장 실패(무시): %s", e)
-        self._log(f"OCR 엔진 선택: {self._ocr_combo.currentText()}")
+    # 폼지 선택·OCR 엔진 선택 핸들러는 제거(2026-08-07) — 둘 다 전자동.
 
     def _on_gen_solutions_changed(self, _state: int):
         """정답·해설 자동 작성 체크 → config(GENERATE_SOLUTIONS) 저장 + 키 확인 안내."""
@@ -1712,16 +1639,12 @@ class MainWindow(QMainWindow):
         self._log("정답·해설 자동 작성: " + ("켬" if on else "끔"))
 
     def _resolve_form_path(self) -> str | None:
-        """현재 드롭다운 선택 → 실제 폼 경로(없으면 None=기본 서식).
+        """입력 파일명 → 폼 경로(매칭 실패면 None=기본 서식).
 
-        자동(__AUTO__)은 파일명 규칙(학년+과목)으로 폼을 고른다(resolve_form).
+        드롭다운 폐지(2026-08-07)로 **항상 자동 매칭**이다. 파일명 규칙
+        (`[학교][학년][과목][년-학기-중간/기말]`)에서 학년·과목을 읽어 폼을 고른다.
         """
-        data = self._form_combo.currentData()
-        if data in ("__NONE__", "__BROWSE__"):
-            return None
-        if data == "__AUTO__":
-            return resolve_form(self._selected_file or "")
-        return data  # 구체 폼 경로
+        return resolve_form(self._selected_file or "")
 
     # ── 변환 ──
 
@@ -1730,36 +1653,26 @@ class MainWindow(QMainWindow):
             QMessageBox.warning(self, "알림", "변환할 파일을 선택하세요.")
             return
 
-        api_key = self._api_key_input.text().strip()
-        gemini_key = self._gemini_key_input.text().strip()
-        if api_key == "your-api-key-here":
+        # 키는 화면에서 입력받지 않고 ``config.json`` 에서 읽는다(2026-08-07, 사용자).
+        # OCR 은 Gemini Flash 고정이므로 Gemini 키만 필수다.
+        from utils.config import get_api_key, get_gemini_key
+        try:
+            api_key = get_api_key()
+        except Exception:  # noqa: BLE001 — 키 없음도 정상(Gemini 만 쓰므로)
             api_key = ""
-        ocr_backend = self._ocr_combo.currentData() or "auto"
-        # Anthropic 키는 더 이상 필수가 아니다(2026-06-16) — 기본 OCR 은 Gemini. 선택한
-        # 백엔드에 필요한 키만 확인한다. (크롭 검출도 Gemini 우선·Claude 폴백.)
-        if ocr_backend == "claude" and not api_key:
-            QMessageBox.warning(self, "알림",
-                                "Claude(OCR) 백엔드에는 Anthropic API 키가 필요합니다.")
-            return
-        if not api_key and not gemini_key:
+        gemini_key = get_gemini_key()
+        ocr_backend = _FIXED_OCR_BACKEND
+        if not gemini_key:
             QMessageBox.warning(
-                self, "알림",
-                "API 키를 입력하세요 — 자동/Gemini OCR 은 Gemini 키를, "
-                "Claude OCR 은 Anthropic 키를 사용합니다(둘 중 하나 이상 필요).")
+                self, "API 키 없음",
+                "Gemini API 키가 설정돼 있지 않습니다.\n\n"
+                "프로그램 폴더의 config.json 을 열어 \"GEMINI_API_KEY\" 에 키를 넣어 주세요.")
             return
 
-        # API 키를 config.json에 저장(빈 값이면 기존 키 보존). Gemini 키는 OCR(자동/Gemini)·
-        # 크롭 검출 정확도에 쓰이고, 비면 Claude 폴백이라, 입력돼 있으면 함께 저장한다.
-        from utils.config import set_api_key, set_gemini_key
-        if api_key:
-            set_api_key(api_key)
-        set_gemini_key(gemini_key)
-
-        # 폼 '자동' 모드에서 파일명이 규칙과 안 맞으면 **차단하지 않고** 기본 서식(폼 없음)으로
-        # HWP 에 그대로 렌더한다(스타일 동일, 사용자 2026-06-16). 폼이 필요하면 파일명을 규칙에
-        # 맞추거나 폼 목록에서 직접 고르면 된다(_resolve_form_path 가 자동 미일치 시 None=기본서식).
+        # 폼은 파일명(`[학교][학년][과목]…`)으로 자동 매칭한다. 규칙과 안 맞으면 **차단하지 않고**
+        # 기본 서식(폼 없음)으로 렌더한다(스타일 동일, 사용자 2026-06-16).
         info = parse_filename(self._selected_file)
-        if self._form_combo.currentData() == "__AUTO__" and not info["valid"]:
+        if not info["valid"]:
             self._log("폼 자동: 파일명 규칙 미일치 → 기본 서식(폼 없음)으로 변환합니다.")
 
         output_path = self._output_input.text().strip()
@@ -1806,7 +1719,7 @@ class MainWindow(QMainWindow):
             use_crop=True,           # 항상 크롭 검수 모드
             render_figures=False,    # 그림 렌더 폐지(항상 안내 박스, 2026-06-16)
             skip_preview=self._skip_preview_check.isChecked(),  # 미리보기 생략 여부
-            ocr_backend=self._ocr_combo.currentData() or "auto",   # OCR 엔진(자동/고정)
+            ocr_backend=_FIXED_OCR_BACKEND,     # 인식 엔진 고정(2026-08-07)
             generate_solutions=self._gen_sol_check.isChecked(),    # 정답·해설 자동 작성
         )
         self._run_worker(worker)
@@ -1967,8 +1880,5 @@ class MainWindow(QMainWindow):
         self._cancel_btn.setEnabled(converting)
         self._browse_btn.setEnabled(not converting)
         self._output_browse_btn.setEnabled(not converting)
-        self._api_key_input.setEnabled(not converting)
-        self._gemini_key_input.setEnabled(not converting)
-        self._form_combo.setEnabled(not converting)
-        self._ocr_combo.setEnabled(not converting)
+        # 키 입력란·폼지/OCR 드롭다운은 제거됨(2026-08-07) — 비활성화 대상 없음.
         self._skip_preview_check.setEnabled(not converting)

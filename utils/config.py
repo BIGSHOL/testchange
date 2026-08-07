@@ -23,7 +23,9 @@ _DEFAULTS = {
     # OCR_BACKEND: "auto"(품질기반 자동) | "claude" | "gemini-pro" | "gemini-flash".
     #   auto = born-digital/고QC → flash(저렴·빠름), 스캔/손글씨 가능 → pro(충실도).
     #   Gemini 가 Sonnet 보다 5~7배 저렴해 기본을 auto(=Gemini) 로 둔다. Claude 는 폴백.
-    "OCR_BACKEND": "auto",
+    # ⭐ 2026-08-07(사용자): 배포 GUI 는 **Gemini Flash 고정**(_FIXED_OCR_BACKEND).
+    #   이 기본값은 헤드리스(--convert, --backend 미지정)·기타 경로에 적용된다.
+    "OCR_BACKEND": "gemini-flash",
     "GEMINI_PRO_MODEL": "gemini-3.1-pro-preview",   # messy/스캔 — 충실도 우선
     "GEMINI_FLASH_MODEL": "gemini-3.5-flash",        # clean/born-digital — 비용·속도
     "PDF_DPI": 300,
