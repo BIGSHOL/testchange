@@ -1,7 +1,11 @@
-# 핸드오프 — 웹 변환 서비스 (2026-08-07)
+# 핸드오프 — 웹 변환 서비스 (2026-08-07, **2026-08-08 갱신**)
 
 다른 PC 에서 이어서 작업하기 위한 인계 문서. **이 문서만 읽으면 현재 상태와 다음 할 일을
 알 수 있게** 썼다.
+
+> ⚠️ **경로는 PC 마다 다르다.** 이 문서의 `D:\시험지 한글화` = 엔진 리포, `D:\hwp-convert-web`
+> = 웹 리포. 예를 들어 2026-08-08 작업 PC 에선 각각 `F:\시험지변환기`·`F:\hwp-convert-web`
+> 였다. 명령을 그대로 붙여넣기 전에 자기 PC 경로로 바꿀 것.
 
 ---
 
@@ -13,10 +17,30 @@
 | 구성요소 | 위치 | 상태 |
 |---|---|---|
 | 변환 엔진 | `D:\시험지 한글화` (이 리포) | ✅ 완성 |
-| 사용자 PC 도우미(커넥터) | 같은 리포 `agent.py` + `agent.spec` | ✅ **이미 완성돼 있었음** |
-| **웹 프론트 + 서버 API** | `D:\hwp-convert-web` | 🟡 코드 완성, **미배포** |
-| GitHub 저장소 | — | ❌ 미생성(로그인 필요) |
+| 사용자 PC 도우미(커넥터) | 같은 리포 `server/connector.py` (+`agent.py`·`agent.spec`) | ✅ 웹 계약 연결 완료(2026-08-08) |
+| **웹 프론트 + 서버 API** | `D:\hwp-convert-web` | 🟡 코드 완성 + **커넥터 E2E 검증됨**, 미배포 |
+| GitHub 저장소 | `BIGSHOL/hwp-convert-web` (private) | ✅ 생성·푸시됨 |
 | Vercel 프로젝트 | — | ❌ 미생성(로그인 필요) |
+
+### 2026-08-08 에 한 일 — 웹↔커넥터 E2E 를 실제로 통과시킴
+
+문서가 "확인 필요"로 남겨 뒀던 **payload 스키마 불일치**는 추측이 아니라 실제였고, 그 외에도
+계약이 여러 군데 어긋나 있었다(웹이 보낸 요청은 커넥터에서 **400 즉사**했다). 전부 수정 후
+캐시 corpus(경원고 기하 20문항, API 0원)로 **대수회 폼 5쪽 + 정답면까지 렌더 확인**했다.
+
+| 어긋나 있던 것 | 고친 방향 |
+|---|---|
+| 웹은 `{header,questions}`, 커넥터는 `payload["problems"]` 요구 → 400 | `convert_cli.is_engine_envelope` **한 곳**에서 판별, 두 payload 다 수용 |
+| mathgen 템플릿으로 렌더 → 대수회 폼·머리말·정답면 전부 유실 | 엔진 봉투는 **exe 와 같은 경로**(`write_exam_to_form`, 파일명→폼) |
+| 산출물 `.hwpx` (폼 바탕쪽 2단 구분선 소실) | 엔진 봉투는 **`.hwp`** 로 굽기(합의 #12). mathgen 은 종전 `.hwpx` |
+| 토큰 헤더 이름 불일치(`X-Connector-Token` vs `X-Pairing-Token`) | 커넥터가 **둘 다** 수용 + CORS 허용 목록에 추가 |
+| `/health` 가 `hwp_com`, 웹은 `j.hwp` 를 읽음 → 한글 미설치 경고가 영영 안 뜸 | 커넥터가 `hwp` 별칭도 반환, 웹도 셋 다 확인 |
+| 커넥터 토큰 인증 미구현(로컬 아무 페이지나 호출 가능) | **기본 켬** + 웹에 연결 코드 입력란 |
+| 워커 파이썬이 `Python311` **절대경로 하드코딩** → 그 경로 없는 PC 는 변환 전멸 | `_worker_python()` 탐색(엔진 `.venv` 우선) |
+| 웹 API 에 한도초과 즉시중단 없음 | `isFatalApiError`(엔진 규칙과 1:1 대조 검증) + `{fatal:true}` |
+| 정답·해설에 **단원 표준 어휘 미주입** → 단원명이 분류표 밖 자유 생성으로 퇴화 | `sync-vocab.mjs` 로 엔진 어휘 동기화 + 파일명→학년·과목 |
+
+회귀 박제: `tests/test_connector_contract.py`(stdlib·COM 없음·API 0원).
 
 ---
 
@@ -54,31 +78,37 @@ HWP 다운로드        ←─────────────────�
 먼저 해야 한다.**
 
 ```
-api/_lib.ts          API 키·Gemini 호출·JSON 추출 (키는 여기서만 읽음)
+api/_lib.ts          API 키·Gemini 호출·JSON 추출·한도초과 판정·파일명 파서
 api/_usage.ts        초대코드 사용 횟수(KV 있으면 영구, 없으면 메모리 폴백)
-api/_ocrPrompt.ts    ⚠️ 자동 생성 — 엔진 EXAM_OCR_PROMPT(8,901자) 사본
+api/_ocrPrompt.ts    ⚠️ 자동 생성 — 엔진 EXAM_OCR_PROMPT(8,896자) 사본
+api/_topicVocab.ts   ⚠️ 자동 생성 — 엔진 단원 분류 어휘(26종 키 / 963항목)
 api/verify.ts        초대코드 검증(차감 안 함)
 api/consume.ts       변환 성공 후 1회 차감
 api/crop-detect.ts   Gemini — 페이지 → 문제영역 bbox
 api/ocr.ts           Gemini Flash — 크롭 → 문항 JSON(엔진과 같은 프롬프트)
-api/solution.ts      DeepSeek — 정답·해설·단원·난이도
-src/App.tsx          코드입력 → 업로드 → 진행로그 → 다운로드
+api/solution.ts      DeepSeek — 정답·해설·단원·난이도 (파일명→학년·과목→표준 어휘)
+src/App.tsx          코드입력 → 연결코드 → 업로드 → 진행로그 → 다운로드
 src/lib/pdf.ts       pdf.js: PDF → 페이지/크롭 이미지
-src/lib/connector.ts 127.0.0.1:8765 커넥터 호출
+src/lib/connector.ts 127.0.0.1:8765 커넥터 호출(토큰·Content-Disposition 파일명)
 scripts/sync-prompt.mjs  엔진 프롬프트 → api/_ocrPrompt.ts 재생성
+scripts/sync-vocab.mjs   엔진 단원 어휘 → api/_topicVocab.ts 재생성
 ```
 
-⚠️ **OCR 프롬프트는 엔진이 단일 출처다.** `api/_ocrPrompt.ts` 를 손으로 고치지 말 것 —
-corpus 검수로 축적된 규약이 8,900자에 담겨 있고 계속 갱신된다. 엔진이 바뀌면:
+⚠️ **엔진이 단일 출처인 파일이 둘 있다.** `api/_ocrPrompt.ts`·`api/_topicVocab.ts` 를 손으로
+고치지 말 것 — 전자는 corpus 검수로 축적된 규약 8,900자, 후자는 분류표 어휘다. 둘 다 빠지거나
+낡으면 **조용히 품질만 떨어진다**(OCR 규약 누락 / 단원명 자유 생성). 엔진이 바뀌면:
 
 ```bash
 cd D:\hwp-convert-web
 node scripts/sync-prompt.mjs "D:\시험지 한글화"
+node scripts/sync-vocab.mjs  "D:\시험지 한글화"
 ```
 
-### 상태
-- `npm install` 완료, `npm run build` **통과**, `tsc` 타입체크 **통과**
-- 실제 API 호출은 **아직 한 번도 안 해봤다**(키·배포 전) — 검증 필요
+### 상태 (2026-08-08)
+- `npm install`·`tsc --noEmit`·`npm run build` **전부 통과**
+- **커넥터 E2E 검증 완료** — 캐시 corpus 로 `.hwp` 5쪽(대수회 폼 + 정답면) 생성 확인, API 0원
+- 헬퍼 정확도는 **엔진과 1:1 대조**로 검증(파일명→학년·과목·어휘수 5케이스, 한도초과 판정 7케이스)
+- **Gemini/DeepSeek 실호출은 아직 안 해봤다**(키·배포 전) — 남은 검증은 그 두 API 뿐
 
 ---
 
@@ -126,9 +156,11 @@ vercel --prod
 | `INVITE_CODES` | `코드:횟수` 쉼표 구분 |
 | `KV_REST_API_URL`/`KV_REST_API_TOKEN` | 횟수 영구저장(선택). 없으면 인스턴스 재시작 시 카운트 초기화 |
 
-### D. 커넥터에 새 도메인 허용
-배포 도메인이 정해지면 `server/connector.py` 의 `ALLOWED_ORIGINS` 에 추가하고,
-`agent.py` 의 `SITE_URL` 도 바꾼 뒤 `agent.spec` 으로 빌드한다.
+### D. 커넥터에 새 도메인 허용 — ⚠️ **배포 도메인이 정해지면 반드시**
+로컬 origin(localhost·127.0.0.1 임의 포트)은 이미 전부 허용돼 dev 는 그냥 된다. 하지만
+**공개 HTTPS 도메인은 화이트리스트에 없으면 CORS 로 막힌다.** 배포 도메인이 정해지면
+`server/connector.py` 의 `ALLOWED_ORIGINS` 에 추가하고, `agent.py` 의 `SITE_URL` 도 바꾼 뒤
+`agent.spec` 으로 빌드한다.
 
 ```python
 ALLOWED_ORIGINS = {
@@ -137,28 +169,41 @@ ALLOWED_ORIGINS = {
 }
 ```
 
-### E. 커넥터 토큰 인증 (미구현)
-`server/connector.py` 에 seam 만 있다: `REQUIRE_TOKEN = False`, `EXPECTED_TOKEN = ""`.
-지금은 **로컬의 아무 페이지나 커넥터를 부를 수 있다**(127.0.0.1 바인딩이라 외부 노출은
-없지만, 악성 사이트가 로컬 커넥터를 부르는 시나리오는 막지 못한다). 배포 전 채울 것.
+### E. 커넥터 토큰 인증 — ✅ **구현됨(2026-08-08)**
+커넥터가 첫 실행 때 랜덤 토큰을 만들어 `%LOCALAPPDATA%\mathgen-connector\token.txt` 에 두고
+**시작할 때 콘솔에 "연결 코드"로 표시**한다. 웹은 그 코드를 입력해 `X-Connector-Token` 헤더로
+보낸다(브라우저에 기억됨). 코드가 없거나 틀리면 **401**. 이제 악성 사이트가 로컬 커넥터를
+몰래 부르지 못한다. dev 에서 끄려면 `--no-token` 또는 `MATHGEN_HWP_NO_TOKEN=1`.
 
-### F. end-to-end 검증
-로컬에서 `npm run dev` → 도우미 실행 → 실제 시험지 PDF 로 변환해 본다.
-**아직 한 번도 통과시켜 본 적 없는 경로**다(특히 커넥터 payload 스키마가 웹이 만든 JSON 과
-맞는지 — `server/adapter.py` 가 camelCase 를 기대할 수 있으니 확인 필요).
+### F. end-to-end 검증 — 🟡 커넥터 절반 완료
+- ✅ **커넥터 경로 검증됨**: 캐시 corpus JSON 을 웹과 똑같은 형태로 POST → `.hwp` 5쪽
+  (대수회 폼 + 정답면 1~20) 확인. 무토큰 401 / 토큰 200 도 확인. **API 0원.**
+- ❌ **남은 것**: 브라우저에서 실제 PDF 로 `npm run dev` → Gemini 크롭·OCR → DeepSeek
+  해설 → 커넥터. **Gemini/DeepSeek 실호출은 키·배포 후에만 가능**하다.
 
 ---
 
 ## 4. 알아둘 함정
 
-- **커넥터 payload 스키마**: `server/adapter.py` 는 웹(mathgen)의 camelCase typed-block
-  (`subQuestions`·`labelType`)을 기대한다. 지금 웹이 보내는 건 엔진 OCR JSON(snake_case)
-  이라 **그대로 맞는지 확인이 필요하다**. 안 맞으면 adapter 를 우회하거나 변환을 넣어야 한다.
-- **한도 초과**: Gemini 월 지출 한도에 걸리면 429 `spending cap` 이 온다. exe 는 이제 즉시
-  중단하지만(이번 커밋), **웹 API 는 아직 그 처리가 없다** — `api/_lib.ts` 에 추가할 것.
+- ~~커넥터 payload 스키마 불일치~~ → **해결(2026-08-08)**. 실제로 어긋나 있었고(웹 요청이
+  400 즉사), `convert_cli.is_engine_envelope` 한 곳에서 판별하도록 고쳤다. ⚠️ **판별을
+  커넥터에 다시 구현하지 말 것** — 양쪽이 따로 판정하면 확장자·렌더 경로가 조용히 어긋난다
+  (`tests/test_connector_contract.py` 가 중복 판별을 막는다).
+- ~~웹 API 한도초과 미처리~~ → **해결**. `isFatalApiError`(엔진 `_is_fatal_api_error` 와
+  같은 규칙, 7케이스 1:1 대조)가 `{fatal:true}` 를 붙이면 프론트가 남은 크롭을 포기하고
+  즉시 멈춘다. ⚠️ 일시적 429/503 과 반드시 구분해야 한다(재시도로 풀리는 것까지 중단하면 안 됨).
+- ⚠️ **`scripts/render_to_png.py` 는 `.hwp` 를 못 연다** — `hwp.Open(src,"HWPX","")` 로
+  포맷이 하드코딩돼 있어 `.hwp` 를 넣으면 **빈 1쪽 PDF** 가 나온다(2026-08-08 실측, 결함으로
+  오인하기 딱 좋음). 확장자에 맞춰 `"HWP"`/`"HWPX"` 를 넘기는 변형으로 렌더할 것.
+- ⚠️ **렌더 중 타이핑 혼입**: 변환 중 다른 곳에 타이핑하면 숨김 COM 문서로 낱자모가 샌다
+  (CLAUDE.md 문서화). 2026-08-08 검증에서도 `[5.1점]ㅂ` 이 한 번 나왔다가 **재렌더로 사라짐** —
+  결함으로 단정하기 전에 클린 재렌더로 확인할 것.
 - **비용**: 시험지 1편 ≈ 215원(Gemini 126 + DeepSeek 89). 실측치.
 - **Vercel 무료 티어 실행시간**: `api/ocr.ts` 는 `maxDuration=60` 으로 뒀다. 문항이 많으면
   브라우저가 크롭별로 나눠 호출하므로 개별 호출은 짧다.
+- **파일명이 폼을 정한다**: 웹은 사용자에게 학교·학년·과목을 묻지 않고 **업로드 파일명**
+  (`[학교][학년][과목][25-2-중간][출판사].pdf`)으로 폼·머리말·단원 어휘를 결정한다. 규칙에
+  안 맞으면 차단하지 않고 **기본 서식**으로 렌더된다(GUI 2026-06-16 합의와 동일).
 
 ---
 

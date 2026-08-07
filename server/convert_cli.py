@@ -1,14 +1,23 @@
 # -*- coding: utf-8 -*-
-"""COM 격리 자식 — stdin의 HwpPayload JSON → .hwpx(COM write_exam_to_hwp) 저장.
+"""COM 격리 자식 — stdin의 변환 payload JSON → .hwp/.hwpx(COM) 저장.
 
 부모 connector.py가 subprocess로 호출한다(ThreadingHTTPServer 워커 스레드의
 COM 초기화 문제 회피 + 타임아웃/크래시 격리). Python 3.11(pywin32) 필수 — 3.13 불가.
 
-COM-only: write_exam_to_hwp 만 사용. write_exam_to_hwpx(비-COM)는 레이아웃 깨짐으로
-사용 금지(사용자 확정). is_hwp_available()도 호출 안 함(한글을 켜므로) — 바로 변환,
-실패 시 예외 전파 → 부모 500.
+⭐ **payload 두 가지를 받는다**(2026-08-08 — 웹 변환 서비스 E2E):
 
-실행: python -m server.convert_cli --out <path>   (payload는 stdin bytes)
+  A) 엔진 봉투  ``{"header","questions":[…],"filename"}``  ← 시험지 한글화 웹
+     엔진 OCR JSON 그대로(snake_case). **exe(GUI)와 같은 렌더 경로** — 파일명으로
+     대수회 폼을 고르고 ``write_exam_to_form`` 으로 채운다(머리말·정답면·메타란).
+     폼이 안 잡히면 기본 서식(``write_exam_to_hwp``) — GUI 2026-06-16 합의와 동일.
+  B) HwpPayload  ``{"problems":[…],"meta","style"}``     ← mathgen 웹
+     camelCase typed-block. 종전대로 ``adapt_payload`` 경유(회귀 0).
+
+구분은 ``questions`` 키 유무. COM-only: write_exam_to_hwpx(비-COM)는 레이아웃
+깨짐으로 사용 금지(사용자 확정). is_hwp_available()도 호출 안 함(한글을 켜므로) —
+바로 변환, 실패 시 예외 전파 → 부모 500.
+
+실행: python -m server.convert_cli --in <payload.json> --out <path>
 """
 import sys
 import json
@@ -27,9 +36,58 @@ if str(ENGINE_ROOT) not in sys.path:
     sys.path.insert(0, str(ENGINE_ROOT))
 
 
+def is_engine_envelope(payload) -> bool:
+    """payload 가 엔진 OCR 봉투(``{header, questions}``)인가.
+
+    ⭐ **판별은 여기 한 곳뿐**이다. 부모 connector.py 도 이 함수를 import 해서 쓴다 —
+    양쪽이 따로 판정하면 어느 한쪽만 바뀌었을 때 확장자(.hwp/.hwpx)와 렌더 경로가
+    조용히 어긋난다.
+    """
+    return isinstance(payload, dict) and isinstance(payload.get("questions"), list)
+
+
+def _render_engine_envelope(payload: dict, out_path: Path) -> None:
+    """엔진 OCR 봉투(``{header, questions, filename}``) → 대수회 폼 .hwp.
+
+    **exe(GUI ConversionWorker)와 같은 렌더 경로**를 탄다 — 웹에서 변환한 결과가
+    배포 exe 와 같아야 하기 때문. 폼 선택은 GUI 와 똑같이 **원본 파일명 규칙**
+    (``[학교][학년][과목][25-2-중간][출판사]``)으로 하고, 규칙에 안 맞으면 차단하지
+    않고 **기본 서식으로 그대로 렌더**한다(2026-06-16 사용자 합의).
+    """
+    from core.content_parser import parse_ocr_response, build_document
+    from core.form_registry import parse_filename, resolve_form
+    from core.hwp_com_writer import write_exam_to_hwp
+    from core.hwp_form_writer import write_exam_to_form
+
+    envelope = {
+        "header": payload.get("header") or "",
+        "questions": payload.get("questions") or [],
+    }
+    page = parse_ocr_response(envelope, page_number=1)
+    document = build_document([page])
+
+    # 파일명 → 폼 + 머리말 값(학교·학년·과목·년도·학기·구분). GUI 와 동일.
+    filename = payload.get("filename") or ""
+    info = parse_filename(filename) if filename else {"valid": False}
+    form_path = resolve_form(filename) if filename else None
+    header_values = info if info.get("valid") else None
+    sys.stderr.write(
+        f"[convert] 엔진 봉투: 문항 {len(envelope['questions'])} · "
+        f"폼={Path(form_path).name if form_path else '(기본 서식)'}\n")
+
+    if form_path:
+        try:
+            write_exam_to_form(document, form_path, out_path,
+                               header_values=header_values, render_figures=False)
+            return
+        except Exception as e:  # noqa: BLE001 — 폼 채움 실패는 기본 서식으로 폴백(GUI 동일)
+            sys.stderr.write(f"[convert] 폼 채움 실패 → 기본 서식으로: {e}\n")
+    write_exam_to_hwp(document, out_path)
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--out", required=True, help="출력 .hwpx 경로")
+    ap.add_argument("--out", required=True, help="출력 .hwp/.hwpx 경로")
     ap.add_argument("--in", dest="infile", default=None,
                     help="입력 JSON 경로(없으면 stdin)")
     args = ap.parse_args()
@@ -41,6 +99,18 @@ def main() -> int:
         return 2
     payload = json.loads(raw)
 
+    # ── A) 엔진 봉투(시험지 한글화 웹) — 대수회 폼 경로 ──
+    if is_engine_envelope(payload):
+        out_path = Path(args.out).resolve()
+        out_path.parent.mkdir(parents=True, exist_ok=True)
+        _render_engine_envelope(payload, out_path)
+        if not out_path.exists():
+            sys.stderr.write("렌더는 끝났으나 출력 파일이 없습니다.\n")
+            return 3
+        sys.stderr.write(f"OK: {out_path} ({out_path.stat().st_size} bytes)\n")
+        return 0
+
+    # ── B) HwpPayload(mathgen 웹) — 종전 경로(회귀 0) ──
     from server.adapter import adapt_payload
     from core.content_parser import parse_ocr_response, build_document
     from core.hwp_com_writer import write_exam_to_hwp

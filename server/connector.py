@@ -2,13 +2,19 @@
 """Math-Gen 로컬 HWP 커넥터 — 웹(127.0.0.1) → COM 변환 → .hwpx.
 
   GET  /health        커넥터/엔진 감지 (한글 안 켬 — 레지스트리 탐지)
-  POST /convert-json  HwpPayload → .hwpx octet-stream (COM subprocess 격리)
+  POST /convert-json  payload → .hwp/.hwpx octet-stream (COM subprocess 격리)
   OPTIONS             CORS preflight
 
-dev 범위: CORS는 localhost:3000만. 무토큰(REQUIRE_TOKEN=False — 후속에 토큰 시스템).
-COM-only(write_exam_to_hwp). 동기 응답(웹이 blob을 직접 await).
+payload 두 종류(convert_cli 가 분기):
+  - ``{"questions":[…],"filename"}``  시험지 한글화 웹 → 대수회 폼 → **.hwp**
+  - ``{"problems":[…],"meta","style"}``  mathgen 웹 → adapt_payload → .hwpx
 
-실행: python -m server.connector [--host 127.0.0.1] [--port 8765]
+CORS 는 모든 로컬 origin + ALLOWED_ORIGINS(공개 HTTPS). 페어링 토큰 기본 **켬**
+(``--no-token`` 또는 ``MATHGEN_HWP_NO_TOKEN=1`` 로 끔).
+COM-only(write_exam_to_form/write_exam_to_hwp). 동기 응답(웹이 blob을 직접 await).
+COM 자식 인터프리터는 ``_worker_python()`` 이 찾는다(엔진 .venv 우선 — 하드코딩 금지).
+
+실행: python -m server.connector [--host 127.0.0.1] [--port 8765] [--no-token]
 Python 3.11(pywin32) 필수.
 """
 import sys
@@ -20,6 +26,7 @@ import threading
 import subprocess
 import tempfile
 from pathlib import Path
+from urllib.parse import quote
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 
 try:
@@ -29,8 +36,7 @@ except Exception:
     pass
 
 ENGINE_ROOT = Path(__file__).resolve().parent.parent
-PY311 = r"C:\Users\user\AppData\Local\Programs\Python\Python311\python.exe"
-VERSION = "1.0.0"
+VERSION = "1.1.0"
 CONVERT_TIMEOUT_S = 180
 ALLOWED_ORIGINS = {
     "http://localhost:3000",
@@ -47,11 +53,55 @@ _LOCAL_ORIGIN_RE = re.compile(r"^http://(?:localhost|127\.0\.0\.1)(?::\d+)?$")
 def _is_allowed_origin(origin) -> bool:
     return bool(origin) and (origin in ALLOWED_ORIGINS or bool(_LOCAL_ORIGIN_RE.match(origin)))
 
-# 후속 토큰 시스템 seam — True로 바꾸고 EXPECTED_TOKEN을 token.txt에서 로드.
-REQUIRE_TOKEN = False
+# ⭐ 페어링 토큰 — 커넥터는 127.0.0.1 에만 listen 하지만, **로컬의 아무 페이지나**
+# (사용자가 방문한 악성 사이트 포함) 커넥터를 부를 수 있다. 토큰은 그 시나리오를 막는다:
+# 커넥터가 첫 실행 때 랜덤 토큰을 만들어 사용자 폴더에 두고, 사용자가 그 값을 웹에
+# 붙여넣어야 변환이 된다(토큰을 모르는 사이트는 못 부름).
+#
+# ``MATHGEN_HWP_NO_TOKEN=1`` 이면 끈다(dev/로컬 디버깅용 — start-connector-hwp.bat).
+import os
+import secrets
+
+TOKEN_PATH = Path(
+    os.environ.get("LOCALAPPDATA") or Path.home()
+) / "mathgen-connector" / "token.txt"
+REQUIRE_TOKEN = os.environ.get("MATHGEN_HWP_NO_TOKEN", "") != "1"
 EXPECTED_TOKEN = ""
 
+
+def _load_or_create_token() -> str:
+    """페어링 토큰을 읽거나(없으면) 만든다. 실패해도 변환을 막지 않는다."""
+    try:
+        if TOKEN_PATH.exists():
+            tok = TOKEN_PATH.read_text(encoding="utf-8").strip()
+            if tok:
+                return tok
+        tok = secrets.token_hex(4).upper()  # 8자 — 사람이 옮겨 적을 수 있는 길이
+        TOKEN_PATH.parent.mkdir(parents=True, exist_ok=True)
+        TOKEN_PATH.write_text(tok, encoding="utf-8")
+        return tok
+    except Exception:  # noqa: BLE001 — 토큰 파일 실패 시 무토큰으로 동작(기능 우선)
+        return ""
+
 _convert_lock = threading.Lock()  # 한글 COM 단일 인스턴스 직렬화
+
+
+def _worker_python() -> str:
+    """COM 자식(convert_cli)을 돌릴 파이썬. **하드코딩 금지 — PC 마다 다르다.**
+
+    과거엔 Python311 절대경로가 박혀 있어 그 경로가 없는 PC 에선 변환이 통째로
+    실패했다(2026-08-08 실측). 필요한 건 버전이 아니라 **pywin32 가 되는 파이썬**이므로
+    엔진 ``.venv`` 를 1순위로 찾는다(CLAUDE.md 의 검증 명령이 쓰는 그 인터프리터).
+
+    우선순위: ``MATHGEN_HWP_PYTHON`` env → 엔진 .venv → 현재 인터프리터.
+    """
+    env = os.environ.get("MATHGEN_HWP_PYTHON", "").strip()
+    if env and Path(env).exists():
+        return env
+    venv = ENGINE_ROOT / ".venv" / "Scripts" / "python.exe"
+    if venv.exists():
+        return str(venv)
+    return sys.executable
 
 
 class ConvertError(Exception):
@@ -107,26 +157,30 @@ def _reap(pids) -> None:
             pass
 
 
-def _run_convert_subprocess(payload_bytes: bytes) -> bytes:
-    """payload JSON bytes → convert_cli subprocess → .hwpx bytes.
+def _run_convert_subprocess(payload_bytes: bytes, suffix: str = ".hwpx") -> bytes:
+    """payload JSON bytes → convert_cli subprocess → .hwp/.hwpx bytes.
+
+    ``suffix`` 는 산출물 확장자. 엔진 봉투(시험지 한글화 웹)는 **.hwp** 로 굽는다 —
+    폼 바탕쪽 2단 가운데 구분선이 .hwpx 로는 안 그려지기 때문(CLAUDE 합의 #12).
+    mathgen 경로는 종전대로 .hwpx.
 
     엔진의 HwpSession.quit() 이 간헐적으로 실패해 고아 Hwp.exe 가 남는다
     (hwp_com.py:268 문서화). 변환 전후 Hwp.exe PID 를 비교해 *이번 변환이 띄운*
     인스턴스만 정리한다 — 사용자가 열어둔 문서·기존 인스턴스는 보존(전체 taskkill 금지).
     """
     with tempfile.TemporaryDirectory() as td:
-        out = Path(td) / "out.hwpx"
+        out = Path(td) / f"out{suffix}"
         inp = Path(td) / "in.json"
         inp.write_bytes(payload_bytes)
         # 배포본(frozen exe)은 자기 자신을 --convert-worker 로 재호출(번들 Python 사용).
-        # dev 는 PY311 -m server.convert_cli. payload 는 stdin 대신 --in 파일로 전달 —
+        # dev 는 _worker_python() -m server.convert_cli. payload 는 stdin 대신 --in 파일로 —
         # windowed exe 는 sys.stdin 이 None 일 수 있어 파일 경유가 안전.
         if getattr(sys, "frozen", False):
             cmd = [sys.executable, "--convert-worker",
                    "--in", str(inp), "--out", str(out)]
             cwd = None
         else:
-            cmd = [PY311, "-m", "server.convert_cli",
+            cmd = [_worker_python(), "-m", "server.convert_cli",
                    "--in", str(inp), "--out", str(out)]
             cwd = str(ENGINE_ROOT)
         target = out
@@ -187,8 +241,9 @@ class Handler(BaseHTTPRequestHandler):
         self.send_response(204)
         self._cors(origin)
         self.send_header("Access-Control-Allow-Methods", "POST, GET, OPTIONS")
+        # X-Connector-Token 은 시험지 한글화 웹, X-Pairing-Token 은 mathgen 웹이 쓴다.
         self.send_header("Access-Control-Allow-Headers",
-                         "Content-Type, X-Pairing-Token")
+                         "Content-Type, X-Pairing-Token, X-Connector-Token")
         # Private Network Access — 공개 HTTPS origin(프로덕션)이 로컬 127.0.0.1 을
         # 호출할 때 Chrome 이 preflight 에 PNA 허용을 요구. 허용 origin 에만 응답.
         if (_is_allowed_origin(origin)
@@ -201,11 +256,14 @@ class Handler(BaseHTTPRequestHandler):
         if self.path.split("?")[0] != "/health":
             self._send_json(404, {"error": "not found"}, self._origin())
             return
+        hwp = _detect_hwp_installed()
         self._send_json(200, {
             "status": "ok",
             "version": VERSION,
             "engine": "hwpx",
-            "hwp_com": _detect_hwp_installed(),
+            "hwp_com": hwp,
+            "hwp": hwp,          # 웹(시험지 한글화)이 읽는 이름 — 같은 값
+            "token": bool(REQUIRE_TOKEN),
             "capabilities": ["convert-json"],
         }, self._origin())
 
@@ -217,9 +275,14 @@ class Handler(BaseHTTPRequestHandler):
         if origin is not None and not _is_allowed_origin(origin):
             self._send_json(403, {"error": f"origin not allowed: {origin}"}, origin)
             return
-        if REQUIRE_TOKEN:
-            if self.headers.get("X-Pairing-Token", "") != EXPECTED_TOKEN:
-                self._send_json(401, {"error": "페어링 토큰이 필요합니다."}, origin)
+        if REQUIRE_TOKEN and EXPECTED_TOKEN:
+            got = (self.headers.get("X-Connector-Token")
+                   or self.headers.get("X-Pairing-Token") or "")
+            if got.strip().upper() != EXPECTED_TOKEN.upper():
+                self._send_json(401, {
+                    "error": "연결 코드가 필요합니다 — HWP 도우미 창에 표시된 "
+                             "코드를 웹에 입력하세요.",
+                }, origin)
                 return
 
         try:
@@ -236,14 +299,22 @@ class Handler(BaseHTTPRequestHandler):
         except Exception:
             self._send_json(400, {"error": "JSON 파싱 실패"}, origin)
             return
-        problems = payload.get("problems") if isinstance(payload, dict) else None
-        if not problems:
+        # payload 두 종류 — 엔진 봉투(questions) / mathgen(problems). 판별은
+        # convert_cli.is_engine_envelope 한 곳(중복 판정 금지).
+        from server.convert_cli import is_engine_envelope
+
+        d = payload if isinstance(payload, dict) else {}
+        engine_env = is_engine_envelope(d)
+        if not (d.get("questions") if engine_env else d.get("problems")):
             self._send_json(400, {"error": "내보낼 문항이 없습니다."}, origin)
             return
+        # 엔진 봉투는 폼 바탕쪽(2단 가운데 구분선) 보존을 위해 .hwp 로 굽는다.
+        suffix = ".hwp" if engine_env else ".hwpx"
+        stem = Path(str(d.get("filename") or "export")).stem or "export"
 
         try:
             with _convert_lock:  # 한글 COM 직렬화
-                data = _run_convert_subprocess(body)
+                data = _run_convert_subprocess(body, suffix)
         except ConvertError as e:
             self._send_json(500, {"error": str(e)}, origin)
             return
@@ -254,7 +325,14 @@ class Handler(BaseHTTPRequestHandler):
         self.send_response(200)
         self._cors(origin)
         self.send_header("Content-Type", "application/octet-stream")
-        self.send_header("Content-Disposition", 'attachment; filename="export.hwpx"')
+        # 한글 파일명은 RFC 5987(filename*)로 — ASCII filename= 만 쓰면 깨진다.
+        # 웹이 fetch 로 읽으려면 Expose-Headers 가 필요(CORS 기본 노출 목록에 없음).
+        name = f"{stem}_변환{suffix}"
+        self.send_header(
+            "Content-Disposition",
+            "attachment; filename=\"export{}\"; filename*=UTF-8''{}".format(
+                suffix, quote(name, safe="")))
+        self.send_header("Access-Control-Expose-Headers", "Content-Disposition")
         self.send_header("Content-Length", str(len(data)))
         self.end_headers()
         try:
@@ -267,13 +345,29 @@ class Handler(BaseHTTPRequestHandler):
 
 
 def main() -> int:
+    global EXPECTED_TOKEN, REQUIRE_TOKEN
+
     ap = argparse.ArgumentParser()
     ap.add_argument("--host", default="127.0.0.1")
     ap.add_argument("--port", type=int, default=8765)
+    ap.add_argument("--no-token", action="store_true", help="페어링 토큰 끄기(dev)")
     ap.add_argument("--output-dir", default=None, help="(미사용, 디버그 예약)")
     args = ap.parse_args()
 
+    if args.no_token:
+        REQUIRE_TOKEN = False
+    if REQUIRE_TOKEN:
+        EXPECTED_TOKEN = _load_or_create_token()
+        if not EXPECTED_TOKEN:
+            REQUIRE_TOKEN = False  # 토큰 파일 실패 — 기능을 막지는 않는다
+
     httpd = ThreadingHTTPServer((args.host, args.port), Handler)
+    if REQUIRE_TOKEN:
+        sys.stderr.write(
+            "\n" + "=" * 46
+            + f"\n  연결 코드:  {EXPECTED_TOKEN}\n"
+              "  웹에 이 코드를 입력하면 변환이 시작됩니다.\n"
+            + "=" * 46 + "\n\n")
     sys.stderr.write(
         f"[connector] listening on http://{args.host}:{args.port} "
         f"(engine=hwpx, hwp_com={_detect_hwp_installed()}, "
