@@ -123,6 +123,12 @@ _UNITS = [
 _DEG_SUPERSCRIPT_RE = re.compile(
     r"\^\s*(?:\{\s*(?:\\circ|\\degree|°)\s*\}|(?:\\circ|\\degree)(?![a-zA-Z])|°)"
 )
+# 위첨자 없이 **숫자 뒤**에 온 ``\circ`` 는 각도(``90\circ``) — OCR 이 위첨자를 빠뜨린 경우의
+# 방어(corpus 상 bare \circ 30건은 전부 합성이라 실발화는 없음).
+# ⚠️ **뒤에 함수 이름/여는괄호가 오면 합성**으로 되돌린다 — 첨자 숫자로 끝나는 함수열 합성
+# ``f_1 \circ f_2``·``(f_2 \circ f_1)(x)`` 이 ``f_1 ° f_2`` 로 깨지던 것(적대리뷰 2026-08-07).
+_BARE_DEG_CIRC_RE = re.compile(
+    r"(?<=\d)\s*\\(?:circ|degree)(?![a-zA-Z])(?!\s*[A-Za-z(])")
 # ⚠️ ``°`` 는 _UNITS 에서 **제외** — 이미 정자 글리프라 ``rm`` 이 불필요하고, 백틱(1/4칸)이
 # 붙으면 ``90 °`` 처럼 벌어져 원본 인쇄(90°)와 어긋난다(``%`` 를 뺀 것과 같은 이유).
 # ℃/℉ 는 단위 조합(온도)이라 종전대로 유지.
@@ -148,8 +154,13 @@ _BRACE_UNIT_RE = re.compile(
 # 변수곱 "ag" 오인 방지). 앞이 다른 글자면(LCM 류 식별자) 제외. 완료본 인쇄는 변수 이탤릭
 # + 단위 정자 + 얇은 간격(범물중 #22 "xkm인"·"yL라고" 통째 이탤릭이던 것, 2026-06-11).
 _VAR_TAIL_UNITS = [u for u in _UNITS if len(u) >= 2 and u.isascii()] + ["L", "ℓ"]
+# ⚠️ **이미 로만화된 도형 라벨 안**(``rm {AL}``·``rm {"LL"}``)은 제외한다 — 2글자 라벨의
+# 둘째가 단위 글자면(선분 AL·BL·KL·CL, 사용자 지적 LL) 첫 글자를 변수로, 둘째를 리터 L 로
+# 오인해 ``rm {A rm`L}``("A 리터")로 깨진다. `_romanize_units` 는 `_apply_roman_labels`
+# **뒤**에 돌아 라벨 내부까지 훑기 때문. 3글자 이상(``ABL``)은 앞 글자 lookbehind 로 이미
+# 안전했고, corpus 실사용 0건이라 드러나지 않던 잠복 결함(2026-08-07).
 _VAR_UNIT_RE = re.compile(
-    r"(?<![A-Za-z])([A-Za-z])[\s`]*("
+    r"(?<![A-Za-z])(?<!rm \{)(?<!rm \{\")([A-Za-z])[\s`]*("
     + "|".join(re.escape(u) for u in _VAR_TAIL_UNITS) + r")(?![A-Za-z0-9(])"
 )
 # 접두(숫자·}·변수글자) 없는 **단독 다문자 단위** — ``cm^{2}``(단독 "몇 cm²인가")·
@@ -473,10 +484,17 @@ class LaTeXToHWPConverter:
         r"\setminus": '"∖"',
         r"\triangle": "TRIANGLE",
         r"\square": '"□"',
-        # 각도: \circ·\degree → ° (리터럴 도, 정상 렌더). CIRC 키워드는 ° 가 아니라
-        # 통째 깨져 각도 ° 가 증발했다(경명여중3·노변중3·영남삼육중3 각도 문항 다수, 2026-06-15).
+        # 각도 \degree → ° (리터럴 도, 정상 렌더). 과거 대문자 CIRC 키워드를 각도로 쓰려다
+        # 통째 깨져 ° 가 증발했다(경명여중3·노변중3·영남삼육중3, 2026-06-15) — 당연한 결과로,
+        # circ 키워드는 **각도 ° 가 아니라 합성 ∘** 이기 때문이다(실측 확정 2026-08-07).
         r"\degree": "°",
-        r"\circ": "°",
+        # ⭐ ``\circ`` 단독 = **합성함수 ∘**(HWP ``circ`` 키워드로 정상 렌더 — 실측
+        # `.testkit/_ang_probe5.py` #3, 리터럴 ``"∘"`` 과 픽셀 동일). 각도는 ``^\circ``
+        # (위첨자) 형태로 오고 전처리 `_DEG_SUPERSCRIPT_RE` 가 이미 ``°`` 로 떼어낸 뒤이며,
+        # 위첨자 없는 숫자 직결 ``90\circ`` 도 `_BARE_DEG_CIRC_RE` 가 각도로 처리한다.
+        # 종전 ``\circ``→``°`` 는 corpus 30건(9개교)의 ``(f∘g)(x)`` 를 ``(f°g)(x)`` 로
+        # 렌더하던 오류(사용자 2026-08-07 확인 후 수정).
+        r"\circ": "circ",
         r"\bullet": "BULLET",
         # ★ 마커(귀납법 증명 ``(★)`` 등) — 키워드 미지원이라 □(\square)처럼 따옴표 리터럴.
         # 없으면 ``\bigstar`` 가 통째 증발해 ``(★)`` 가 ``()`` 로 샌다(상인고 수1 #12).
@@ -848,6 +866,8 @@ class LaTeXToHWPConverter:
         # ``\circ``/``\degree``/유니코드 ° 가 **첨자 그룹의 유일한 내용**일 때만 — 합성함수
         # ``f \circ g``(위첨자 아님)·다른 첨자 내용은 건드리지 않는다.
         s = _DEG_SUPERSCRIPT_RE.sub("°", s)
+        # 위첨자 없이 숫자 직결된 ``\circ``/``\degree`` 도 각도로(합성함수는 앞이 숫자가 아님).
+        s = _BARE_DEG_CIRC_RE.sub("°", s)
 
         # 단위 \text{g} → 평문 g (뒤 _romanize_units 가 rm`g 로 정자+간격, 2026-06-09).
         s = _unwrap_text_units(s)

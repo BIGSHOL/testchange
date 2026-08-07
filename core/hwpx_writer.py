@@ -66,6 +66,10 @@ _SYMBOL_KEYWORDS = [
     # latex_to_hwpeq.py가 생성하는 대문자 키워드
     "PLUSMINUS", "MINUSPLUS", "SMALLUNION", "SMALLINTER",
     "APPROX", "PROPTO", "LAPLACE", "BULLET", "TRIANGLE",
+    # ⚠️ ANGLE 은 **반드시 TRIANGLE 뒤**(TRIANGLE ⊃ ANGLE — 먼저 오면 삼각형이 "TRI"+각으로
+    # 쪼개져 폭이 틀어진다). latex_to_hwpeq 가 \angle 을 대문자 ANGLE 로 내보내므로 필요
+    # (소문자 angle 만 있으면 5글자 문자열로 재 폭이 35% 과대추정, 2026-08-07).
+    "ANGLE",
     "DIAMOND", "SQUARE",
     "EQUIV", "SIMEQ", "ASYMP", "DOTEQ",
     "TIMES", "CDOT", "EXIST",
@@ -80,6 +84,8 @@ _SYMBOL_KEYWORDS = [
     "iota", "kappa", "mu", "nu", "xi", "pi", "rho", "sigma",
     "tau", "phi", "chi", "psi", "omega",
     # 기타 소문자 키워드
+    # circ = 합성함수 ∘ (latex_to_hwpeq 가 \circ 를 소문자 circ 로 내보냄, 2026-08-07).
+    "circ",
     "partial", "therefore", "because", "forall", "exists",
     "emptyset", "subseteq", "supseteq", "subset", "supset",
     "notin", "parallel",
@@ -171,7 +177,7 @@ _HWPEQ_KEYWORD_WIDTHS: dict[str, int] = {
     "wedge": 1000, "vee": 1000, "oplus": 1000, "otimes": 1000,
     "infty": 1000, "inf": 1000, "in": 1000, "partial": 541,
     "nabla": 1000, "forall": 1000, "exists": 1000, "emptyset": 1000,
-    "angle": 1000, "prime": 276, "dprime": 400, "bullet": 1000,
+    "angle": 1000, "ANGLE": 1000, "prime": 276, "dprime": 400, "bullet": 1000,
     "therefore": 1000, "because": 1000, "circ": 1000, "star": 1000,
     "subset": 1000, "supset": 1000, "subseteq": 1000, "supseteq": 1000,
     "notin": 1000, "parallel": 500,

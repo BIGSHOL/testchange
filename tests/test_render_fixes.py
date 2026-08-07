@@ -318,6 +318,48 @@ def run():
     chk(latex_to_hwpeq(r"\overline{AB}", italicize_stat=False) == "bar {rm {AB}}",
         "O7 무회귀: 일반 라벨")
 
+    # ── O8: 합성함수 ∘ + 라벨 내부 단위 오염 (사용자 2026-08-07, O6/O7 인접 결함) ──
+    # ① ``\circ`` 단독 = 합성함수(HWP ``circ`` 키워드 = ∘, 실측 _ang_probe5 #3). 종전
+    # ``\circ``→``°`` 는 corpus 21건(9개교)의 ``(f∘g)(x)`` 를 ``(f°g)(x)`` 로 렌더했다.
+    chk(latex_to_hwpeq(r"(f \circ g)(x)", italicize_stat=False) == "(f circ g)(x)",
+        "O8 합성함수 circ")
+    chk("circ" in latex_to_hwpeq(r"(f \circ f \circ f)(x)=x"), "O8 삼중 합성")
+    # ⚠️ 첨자 숫자로 끝나는 함수열 합성을 각도로 오인하면 안 됨(적대리뷰에서 잡힌 회귀).
+    chk(latex_to_hwpeq(r"f_1 \circ f_2", italicize_stat=False) == "f_{1} circ f_{2}",
+        "O8 첨자 함수열 합성 보호")
+    chk(latex_to_hwpeq(r"(f_2 \circ f_1)(x)", italicize_stat=False) == "(f_{2} circ f_{1})(x)",
+        "O8 괄호 첨자 합성 보호")
+    # 위첨자 없는 숫자 직결 ``90\circ`` 는 각도로(OCR 이 위첨자를 빠뜨린 경우 방어).
+    chk(latex_to_hwpeq(r"90\circ") == "90°", "O8 bare 숫자+circ = 각도")
+    # ② 이미 로만화된 라벨 내부는 단위 로만화 제외 — 2글자 라벨의 둘째가 단위 글자면
+    # ``rm {A rm`L}``("A 리터")로 깨지던 잠복 결함(선분 AL·BL·KL·LL).
+    chk(latex_to_hwpeq(r"\overline{AL}", italicize_stat=False) == "bar {rm {AL}}",
+        "O8 선분 AL 단위 오염 없음")
+    chk(latex_to_hwpeq(r"\overline{LL}", italicize_stat=False) == 'bar {rm {"LL"}}',
+        "O8 선분 LL 단위 오염 없음")
+    chk(latex_to_hwpeq(r"\triangle ABL", italicize_stat=False) == "TRIANGLE rm {ABL}",
+        "O8 무회귀: 3자 라벨")
+    # 무회귀: 진짜 단위는 그대로 로만+얇은 간격.
+    chk(latex_to_hwpeq("xkm") == "x rm`km", "O8 무회귀: 변수+km")
+    chk(latex_to_hwpeq("yL") == "y rm`L", "O8 무회귀: 변수+L")
+    chk(latex_to_hwpeq("1L") == "1 rm`L", "O8 무회귀: 숫자+L")
+    chk(latex_to_hwpeq("a_1L") == "a_{1}L", "O8 무회귀: 첨자 뒤 변수 L 보호(O2)")
+    # ③ hwpx_writer(HWP 미설치 폴백) 심볼 테이블 동기화 — 변환기가 내보내는 **기호**
+    # 키워드가 목록에 없으면 여러 글자 문자열로 재 폭이 과대추정된다(ANGLE 35%·circ 17%).
+    # ⚠️ ANGLE 은 반드시 TRIANGLE **뒤**에 있어야 한다(TRIANGLE ⊃ ANGLE).
+    from core.hwpx_writer import _SYMBOL_KEYWORDS, _HWPEQ_KEYWORD_WIDTHS
+    from core.hwpx_writer import _estimate_equation_size as _eqsize
+    chk("ANGLE" in _SYMBOL_KEYWORDS and "circ" in _SYMBOL_KEYWORDS,
+        "O8 hwpx_writer 심볼 등록(ANGLE·circ)")
+    chk(_SYMBOL_KEYWORDS.index("TRIANGLE") < _SYMBOL_KEYWORDS.index("ANGLE"),
+        "O8 TRIANGLE 이 ANGLE 보다 앞(부분일치 방지)")
+    chk(_HWPEQ_KEYWORD_WIDTHS.get("ANGLE") == _HWPEQ_KEYWORD_WIDTHS.get("angle"),
+        "O8 ANGLE 폭 = angle 폭")
+    chk(_eqsize("ANGLE rm APB=90°") == _eqsize("angle rm APB=90°"),
+        "O8 폭 추정 대소문자 동일")
+    chk(_eqsize("TRIANGLE rm {ABC}")[0] < _eqsize("TRIANGLE ANGLE rm {ABC}")[0],
+        "O8 TRIANGLE 폭 무회귀")
+
     # ── O6: 집합 조건제시법 — \left\{…\right\} 자동크기 + \middle| (사용자 2026-07-31) ──
     # ① ``\mid``→``|`` 매핑이 ``\middle`` 을 접두 매칭해 ``|dle|`` 로 새던 것(현풍고 서답형4).
     # ② 중괄호 구분자는 **맨 ``{``**(``LEFT {``)여야 분수 높이만큼 늘어난다. 따옴표 리터럴
