@@ -18,9 +18,14 @@
 |---|---|---|
 | 변환 엔진 | `D:\시험지 한글화` (이 리포) | ✅ 완성 |
 | 사용자 PC 도우미(커넥터) | 같은 리포 `server/connector.py` (+`agent.py`·`agent.spec`) | ✅ 웹 계약 연결 완료(2026-08-08) |
-| **웹 프론트 + 서버 API** | `D:\hwp-convert-web` | 🟡 코드 완성 + **커넥터 E2E 검증됨**, 미배포 |
-| GitHub 저장소 | `BIGSHOL/hwp-convert-web` (private) | ✅ 생성·푸시됨 |
-| Vercel 프로젝트 | — | ❌ 미생성(로그인 필요) |
+| **웹 프론트 + 서버 API** | `D:\hwp-convert-web` | ✅ **배포됨** — https://hwp-convert-web.vercel.app |
+| GitHub 저장소 | `BIGSHOL/hwp-convert-web` (private) | ✅ 생성·푸시됨 (Vercel 자동배포 연결) |
+| Vercel 프로젝트 | `jaesungs-projects-404a3b31/hwp-convert-web` | ✅ 생성·링크됨 |
+| **환경변수(API 키·초대코드)** | Vercel env | ❌ **미설정 — 이게 없으면 변환이 안 된다** |
+
+> ⚠️ **계정 메모**: GitHub `BIGSHOL` = Vercel `bigshol` = `st2000423@gmail.com` 로 **같은
+> 사람**이다(2026-08-08 확인). 이전 판 문서의 "목표 계정은 st2000423 / 현재는 다른 계정"
+> 서술은 다른 PC 기준이었고, 지금은 계정 전환이 필요 없다.
 
 ### 2026-08-08 에 한 일 — 웹↔커넥터 E2E 를 실제로 통과시킴
 
@@ -41,6 +46,31 @@
 | 정답·해설에 **단원 표준 어휘 미주입** → 단원명이 분류표 밖 자유 생성으로 퇴화 | `sync-vocab.mjs` 로 엔진 어휘 동기화 + 파일명→학년·과목 |
 
 회귀 박제: `tests/test_connector_contract.py`(stdlib·COM 없음·API 0원).
+
+### 2026-08-08 배포 — 다중에이전트 감사에서 나온 blocker 를 먼저 막고 올림
+
+첫 배포 직전 29개 에이전트로 5개 축(서버리스 호환·설정·보안·커넥터 origin·데이터 흐름)을
+감사하고 각 발견을 적대적으로 반증했다(24건 중 23건 확인·1건 기각). **그대로 배포했다면
+① 변환이 100% 실패하고 ② 아무나 API 크레딧을 태울 수 있었다.**
+
+| blocker | 그대로 뒀다면 | 고친 것 |
+|---|---|---|
+| 유료 API 3개가 **완전 무인증** | URL 만 알면 누구나 Gemini/DeepSeek 소진(1편 ≈ 215원) | `requireInvite()` 를 세 핸들러 첫 줄에 |
+| Vercel 본문 **4.5MB 한계** 초과 | 고해상도 스캔 10%가 413 → 첫 페이지에서 중단 | PNG→**JPEG q85** + 최대변 4096 + 예산 초과 시 적응 축소 |
+| OCR 해상도 **144dpi** (엔진은 300) | 총 픽셀 4.3배 부족 → 같은 프롬프트로도 인식 저하 | 300dpi 로 상향(위 JPEG 전환 덕에 **오히려 10배 작아짐**) |
+| 커넥터 origin 에 배포 도메인 없음 | PNA preflight 실패 → 웹이 영영 "도우미 없음" | env 주입 + `hwp-convert*` 패턴 |
+| 트레이 앱 토큰이 **빈 값** | 연결 코드 검사가 통째로 무효(아무 값이나 통과) | `ensure_token()` 분리 + 트레이에 코드 표시 |
+
+실측 근거(기출 24편, 가장 큰 페이지·base64 봉투 포함):
+
+| 렌더 설정 | 최악 payload | 4.5MB 초과 |
+|---|---|---|
+| 현행 scale=2 PNG (144dpi) | 28.68MB | 1편 |
+| 300dpi PNG (4096) | 13.36MB | 3편 |
+| **300dpi JPEG q85 (4096)** ← 채택 | **2.57MB** | **0편** |
+
+프로덕션 실증: 무인증 `/api/ocr` → **401**, 잘못된 코드 → **403**, 배포 도메인의 PNA
+preflight → `Allow-Origin`+`Allow-Private-Network` 정상, 남의 `*.vercel.app` → 허용 헤더 0개.
 
 ---
 
@@ -139,35 +169,59 @@ node scripts/sync-prompt.mjs "D:\시험지 한글화"   # 엔진 경로에 맞�
 있었고, 안 올리면 다른 PC 에서 코드를 받을 수 없었다. 원하면 나중에 Settings →
 Transfer ownership 으로 옮기면 된다(또는 지우고 새로 만들기).
 
-### C. Vercel 연결 + 환경변수
+### C. Vercel 연결 + 환경변수 — 🟡 링크·배포 완료, **env 미설정**
 ```powershell
 cd D:\hwp-convert-web
-vercel link
+vercel link --yes --project hwp-convert-web --scope jaesungs-projects-404a3b31  # 완료
+vercel --prod                                                                   # 완료
+# ↓ 남은 것 — 값을 붙여넣어야 하므로 사람이 직접
 vercel env add GEMINI_API_KEY production
 vercel env add DEEPSEEK_API_KEY production
 vercel env add INVITE_CODES production      # 예: TEST0001:10, FRIEND01:5
-vercel --prod
+vercel --prod                               # env 추가 후 재배포해야 반영됨
 ```
 
-| 변수 | 용도 |
-|---|---|
-| `GEMINI_API_KEY` | 크롭검출 + OCR (필수) |
-| `DEEPSEEK_API_KEY` | 정답·해설 (선택) |
-| `INVITE_CODES` | `코드:횟수` 쉼표 구분 |
-| `KV_REST_API_URL`/`KV_REST_API_TOKEN` | 횟수 영구저장(선택). 없으면 인스턴스 재시작 시 카운트 초기화 |
+| 변수 | 용도 | 값 출처 |
+|---|---|---|
+| `GEMINI_API_KEY` | 크롭검출 + OCR (**필수**) | 엔진 `config.json` 의 같은 이름 필드 |
+| `DEEPSEEK_API_KEY` | 정답·해설 (없으면 그 기능만 꺼짐) | DeepSeek 콘솔 (엔진 config.json 에 없으면 별도 발급) |
+| `INVITE_CODES` | `코드:횟수` 쉼표 구분 | 직접 정함. **없으면 모든 변환이 403** |
+| `KV_REST_API_URL`/`KV_REST_API_TOKEN` | 횟수 영구저장 | Vercel Marketplace → Upstash Redis(무료) |
 
-### D. 커넥터에 새 도메인 허용 — ⚠️ **배포 도메인이 정해지면 반드시**
-로컬 origin(localhost·127.0.0.1 임의 포트)은 이미 전부 허용돼 dev 는 그냥 된다. 하지만
-**공개 HTTPS 도메인은 화이트리스트에 없으면 CORS 로 막힌다.** 배포 도메인이 정해지면
-`server/connector.py` 의 `ALLOWED_ORIGINS` 에 추가하고, `agent.py` 의 `SITE_URL` 도 바꾼 뒤
-`agent.spec` 으로 빌드한다.
+⚠️ **`INVITE_CODES` 가 비어 있으면 유료 엔드포인트가 전부 403 이다** — 지금 배포된 상태가
+그렇다(=아무도 돈을 못 쓴다. 안전한 기본값이지만 본인도 못 쓴다).
+⚠️ **KV 를 안 붙이면 횟수가 인스턴스 메모리라 콜드스타트마다 초기화**된다 — 실질 무제한에
+가깝다. 남에게 코드를 나눠 주기 전에 붙일 것.
 
-```python
-ALLOWED_ORIGINS = {
-    ...,
-    "https://<새-도메인>",   # ← 추가
-}
+### D. 커넥터에 새 도메인 허용 — ✅ **자동으로 됨(2026-08-08)**
+`hwp-convert*.vercel.app` 패턴이 기본 허용이라 현재 배포 도메인은 **추가 작업 없이 통과**한다
+(실증: PNA preflight 에 `Allow-Origin`+`Allow-Private-Network` 정상 응답).
+
+⚠️ **Vercel 은 원본 배포 URL 에서 프로젝트명을 자른다** — 별칭은
+`hwp-convert-web.vercel.app` 인데 원본은 `hwp-convert-<hash>-….vercel.app`("web" 탈락).
+그래서 접두사를 `hwp-convert-web` 이 아니라 **`hwp-convert`** 로 잡았다.
+
+**커스텀 도메인**을 붙이면 exe 재빌드 없이 env 로 넣는다:
+```powershell
+setx MATHGEN_HWP_ORIGINS "https://exam.example.com"
+setx MATHGEN_HWP_SITE    "https://exam.example.com"   # 트레이 '웹앱 열기'
 ```
+`agent.py` 의 `SITE_URL` 기본값은 아직 `mathgen.para-x.co.kr` 이므로, 배포된 도우미 exe 를
+새 도메인으로 굳히려면 그 기본값을 바꾸고 `agent.spec` 으로 재빌드한다.
+
+### ⚠️ 남은 보안·안정성 숙제 (감사 major, 배포는 됐지만 미해결)
+
+돈이 걸린 순서대로. **남에게 코드를 나눠 주기 전에** 위 두 개는 처리할 것.
+
+| # | 문제 | 왜 위험한가 |
+|---|---|---|
+| 1 | **횟수 차감이 클라이언트 의존** — `/api/consume` 을 안 부르면 `used` 가 안 오른다 | 개발자도구로 그 호출만 막으면 한도가 무한이 된다 |
+| 2 | **KV 미설정 시 카운터가 인스턴스 메모리** | 콜드스타트마다 0으로 리셋 → 사실상 무제한 |
+| 3 | `/api/verify` 레이트리밋 없음 | 짧은 코드 브루트포스 + 남의 코드 소진 가능 |
+| 4 | `text/plain` simple request 는 CORS preflight 없이 통과 | 다른 사이트가 방문자 브라우저로 우리 API 를 부를 수 있다(코드는 필요) |
+| 5 | `/api/solution` maxDuration 60s 안에 DeepSeek 2회 순차 | 긴 문항에서 504 → 그 문항 해설 유실 |
+| 6 | 46회 전 구간 순차 호출 + 중간결과 미보존 | 마지막 렌더 실패 시 이미 쓴 API 비용 전액 소실 |
+| 7 | 업스트림 오류 원문 그대로 반환 | 모델명·GCP 프로젝트 번호 노출(minor) |
 
 ### E. 커넥터 토큰 인증 — ✅ **구현됨(2026-08-08)**
 커넥터가 첫 실행 때 랜덤 토큰을 만들어 `%LOCALAPPDATA%\mathgen-connector\token.txt` 에 두고
@@ -175,11 +229,19 @@ ALLOWED_ORIGINS = {
 보낸다(브라우저에 기억됨). 코드가 없거나 틀리면 **401**. 이제 악성 사이트가 로컬 커넥터를
 몰래 부르지 못한다. dev 에서 끄려면 `--no-token` 또는 `MATHGEN_HWP_NO_TOKEN=1`.
 
-### F. end-to-end 검증 — 🟡 커넥터 절반 완료
-- ✅ **커넥터 경로 검증됨**: 캐시 corpus JSON 을 웹과 똑같은 형태로 POST → `.hwp` 5쪽
-  (대수회 폼 + 정답면 1~20) 확인. 무토큰 401 / 토큰 200 도 확인. **API 0원.**
-- ❌ **남은 것**: 브라우저에서 실제 PDF 로 `npm run dev` → Gemini 크롭·OCR → DeepSeek
-  해설 → 커넥터. **Gemini/DeepSeek 실호출은 키·배포 후에만 가능**하다.
+### F. end-to-end 검증 — 🟡 양 끝은 검증, **가운데(실 API)만 남음**
+- ✅ **커넥터 경로**: 캐시 corpus JSON 을 웹과 똑같은 형태로 POST → `.hwp` 5쪽(대수회 폼 +
+  정답면 1~20) 확인. 무토큰 401 / 토큰 200. **API 0원.**
+- ✅ **프로덕션 API 게이트**: 무인증 `/api/ocr` 401, 잘못된 코드 403, SPA 200.
+- ✅ **배포 도메인 ↔ 로컬 커넥터**: PNA preflight 통과, 악성 도메인 차단.
+- ❌ **남은 것**: 브라우저에서 실제 PDF 한 편 → Gemini 크롭·OCR → DeepSeek 해설 → 커넥터
+  → `.hwp` 다운로드. **env(API 키 + 초대코드) 설정 후에만 가능**하다.
+
+배포 후 첫 확인 순서:
+1. `vercel env add` 로 키 3개 넣고 `vercel --prod` 재배포
+2. 도우미 실행 → 트레이 메뉴의 **연결 코드** 클릭(클립보드 복사)
+3. https://hwp-convert-web.vercel.app 에서 초대코드 → 연결 코드 → 파일명 규칙에 맞는
+   시험지 PDF 업로드 → 변환
 
 ---
 
