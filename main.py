@@ -114,9 +114,116 @@ def _selftest_imports() -> int:
         return 1
 
 
+def _convert_headless(argv: list[str]) -> int:
+    """GUI 없이 PDF 한 편을 변환한다(``--convert <PDF> [출력.hwp] [--solutions]``).
+
+    배포 exe 를 **실제로 돌려** 결과를 확인하는 용도(사용자 2026-08-07 "실제 시험지로 exe
+    돌려서 정답·해설 확인"). GUI 워커를 그대로 쓰되, 사람이 누르는 게이트(크롭 편집·
+    미리보기)는 자동 승인한다 — 즉 **GUI 로 변환한 것과 같은 코드 경로**를 탄다.
+
+    옵션:
+      ``--solutions``   정답·해설·메타 자동 작성 켜기(과금). 없으면 config 값을 따름.
+      ``--backend X``   OCR 엔진 고정(auto|gemini-flash|gemini-pro|claude).
+    """
+    from pathlib import Path as _P
+
+    args = [a for a in argv if not a.startswith("--")]
+    if not args:
+        print("사용법: 시험지한글화.exe --convert <입력.pdf> [출력.hwp] "
+              "[--solutions] [--backend auto|gemini-flash|gemini-pro|claude]")
+        return 2
+    src = _P(args[0]).resolve()
+    if not src.exists():
+        print(f"입력 파일 없음: {src}")
+        return 2
+    out = _P(args[1]).resolve() if len(args) > 1 else src.with_name(src.stem + "_변환.hwp")
+
+    backend = "auto"
+    if "--backend" in argv:
+        i = argv.index("--backend")
+        if i + 1 < len(argv):
+            backend = argv[i + 1]
+
+    from utils.config import get_api_key, get_generate_solutions
+    from core.form_registry import parse_filename, resolve_form
+    from gui.main_window import ConversionWorker
+
+    info = parse_filename(src.name)
+    form = resolve_form(src.name)
+    gen = True if "--solutions" in argv else get_generate_solutions()
+    print(f"입력: {src.name}")
+    print(f"폼  : {_P(form).name if form else '(기본 서식)'}")
+    print(f"OCR : {backend} / 정답·해설 자동작성: {'켬' if gen else '끔'}")
+    print(f"출력: {out}\n")
+
+    worker = ConversionWorker(
+        str(src), str(out), get_api_key(),
+        form_path=form,
+        header_values=(info if info.get("valid") else None),
+        skip_first_page=False, use_crop=True, render_figures=False,
+        skip_preview=True, ocr_backend=backend, generate_solutions=gen,
+    )
+    # 사람이 누르는 게이트 자동 승인 — 검출된 크롭을 그대로 사용.
+    worker.crop_requested.connect(lambda pages: worker.set_crop_result([b for _img, b in pages]))
+    worker.preview_requested.connect(lambda _p: worker.set_preview_result(True))
+    # ⚠️ 배포 exe 는 console=False 라 **stdout 이 없다** — print 만 하면 진행 상황을 어디서도
+    # 볼 수 없어 "멈춘 건지 도는 건지" 알 수 없다(실측 2026-08-07: OCR 후 해설 생성 대기가
+    # 로그에 안 남아 hang 으로 오인). 워커 로그를 **파일에도** 남긴다(출력 옆 .log).
+    trace = out.with_suffix(out.suffix + ".log")
+    try:
+        trace.write_text(f"# {src.name} 변환 시작\n", encoding="utf-8")
+    except Exception:  # noqa: BLE001
+        trace = None
+
+    def _trace(line: str) -> None:
+        # ⚠️ **파일 기록을 먼저** 한다. print 를 앞에 두면 cp949 콘솔에서 비ASCII
+        # (em-dash ―·≈ 등)가 UnicodeEncodeError 를 내고, 그 예외 때문에 **파일 기록까지
+        # 통째로 건너뛴다**(실측 2026-08-07: 비용 [USAGE] 줄이 통째로 유실).
+        # build.spec 에서 고친 것과 같은 계열의 버그다.
+        if trace is not None:
+            try:
+                with trace.open("a", encoding="utf-8") as fh:
+                    fh.write(line + "\n")
+            except Exception:  # noqa: BLE001
+                pass
+        try:
+            print(line, flush=True)
+        except Exception:  # noqa: BLE001 — 콘솔 인코딩이 못 찍는 문자(무해, 파일엔 남음)
+            try:
+                enc = getattr(sys.stdout, "encoding", None) or "utf-8"
+                print(line.encode(enc, "replace").decode(enc, "replace"), flush=True)
+            except Exception:  # noqa: BLE001
+                pass
+
+    worker.log.connect(lambda lv, msg: _trace(f"  [{lv}] {msg}"))
+    worker.progress.connect(lambda pct, msg: _trace(f"  {pct:3d}% {msg}"))
+    # 크롭 인식 실패 등 품질 경고도 남긴다 — 문항이 조용히 빠지는 것을 막는다.
+    worker.quality_warning.connect(lambda pg, msg: _trace(f"  [품질] {msg}"))
+    worker.ocr_warning.connect(lambda pg, msg: _trace(f"  [OCR] {msg}"))
+    state = {"ok": False, "err": ""}
+    worker.finished.connect(lambda path: state.update(ok=True))
+    worker.error.connect(lambda e: state.update(err=e))
+
+    from PySide6.QtCore import QCoreApplication
+    _app = QCoreApplication.instance() or QCoreApplication(sys.argv[:1])  # 시그널 전달용
+    worker.run()
+    if state["err"]:
+        _trace(f"[실패] {state['err']}")
+        return 1
+    if not out.exists():
+        _trace(f"[실패] 출력 파일이 생성되지 않았습니다: {out}")
+        return 1
+    _trace(f"[완료] {out}  ({out.stat().st_size // 1024}KB)")
+    return 0
+
+
 def main():
     if "--selftest" in sys.argv:
         sys.exit(_selftest_imports())
+    if "--convert" in sys.argv:
+        setup_logging()
+        i = sys.argv.index("--convert")
+        sys.exit(_convert_headless(sys.argv[i + 1:]))
 
     setup_logging()
 

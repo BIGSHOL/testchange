@@ -139,9 +139,20 @@ def _log_token_usage(exam_path: str, usage: dict, model: str | None = None) -> s
     summary = (f"토큰 사용 — 입력 {inp:,} · 출력 {out:,} · 캐시(쓰기 {cc:,}/읽기 {cr:,}) · "
                f"호출 {usage['calls']}회 · 예상 ${cost:.4f} (₩{krw:,.0f}) ({model})")
     logger.info("[USAGE] %s | %s", name, summary)
-    # CSV 누적(로그파일과 같은 폴더). 헤더 1회.
+    _append_usage_csv(exam_path, model, inp, out, cc, cr, usage["calls"], cost, krw)
+    return summary
+
+
+def _append_usage_csv(exam_path: str, model: str, inp: int, out: int, cc: int,
+                      cr: int, calls: int, cost: float, krw: float) -> None:
+    """``토큰사용.csv`` 한 줄 누적(로그파일과 같은 폴더). 헤더 1회.
+
+    OCR(Gemini/Claude)·해설(DeepSeek) **양쪽이 같이 기록**돼야 시험지당 실제 총비용을
+    추적할 수 있다(과거엔 OCR 만 기록해 총비용의 절반이 빠졌다, 2026-08-07).
+    """
     try:
         import csv
+        from datetime import datetime
         log_dir = (Path(sys.executable).parent if getattr(sys, "frozen", False)
                    else Path(__file__).resolve().parent.parent)   # 프로젝트 루트(gui/..)
         csv_fp = log_dir / "토큰사용.csv"
@@ -151,12 +162,11 @@ def _log_token_usage(exam_path: str, usage: dict, model: str | None = None) -> s
             if new:
                 w.writerow(["시각", "시험지", "모델", "입력토큰", "출력토큰",
                             "캐시쓰기", "캐시읽기", "호출수", "예상USD", "예상KRW"])
-            from datetime import datetime
-            w.writerow([datetime.now().strftime("%Y-%m-%d %H:%M:%S"), name, model,
-                        inp, out, cc, cr, usage["calls"], f"{cost:.4f}", f"{krw:.0f}"])
+            w.writerow([datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+                        Path(exam_path).name if exam_path else "?", model,
+                        inp, out, cc, cr, calls, f"{cost:.4f}", f"{krw:.0f}"])
     except Exception as e:  # noqa: BLE001
         logger.warning("토큰 CSV 기록 실패(무시): %s", e)
-    return summary
 
 
 # ─── 백그라운드 변환 워커 ────────────────────────────────────
@@ -293,16 +303,27 @@ class ConversionWorker(QObject):
             self._log_solution_usage(u)
 
     def _log_solution_usage(self, u: dict) -> None:
-        """DeepSeek 토큰 사용량·비용 로깅(OCR 토큰 로깅과 같은 형식)."""
+        """DeepSeek 토큰 사용량·비용 로깅 + ``토큰사용.csv`` 누적.
+
+        ⚠️ CSV 기록이 중요하다 — 로그(GUI 패널)는 창을 닫으면 사라져서 **실제 지출 추적이
+        안 된다**. OCR(Gemini) 비용만 CSV 에 남고 해설(DeepSeek) 비용은 안 남아, 시험지당
+        총비용의 **절반가량이 집계에서 빠져 있었다**(실측 2026-08-07: Gemini 148원만 기록,
+        DeepSeek ~90원 누락).
+        """
         try:
             model = str(u.get("model") or "")
             # DeepSeek 공식 단가(USD/1M): v4-pro 0.435/0.87, v4-flash 0.14/0.28.
-            inp, outp = (0.14, 0.28) if "flash" in model else (0.435, 0.87)
-            usd = (u.get("input_tokens", 0) / 1e6) * inp + (u.get("output_tokens", 0) / 1e6) * outp
+            in_rate, out_rate = (0.14, 0.28) if "flash" in model else (0.435, 0.87)
+            inp, out = int(u.get("input_tokens", 0)), int(u.get("output_tokens", 0))
+            cr = int(u.get("cached_tokens", 0))
+            usd = (inp * in_rate + out * out_rate) / 1e6
+            krw = usd * 1500
             self.log.emit(
                 "info",
-                f"  [USAGE] 해설 {model} 입력 {u.get('input_tokens', 0):,} / "
-                f"출력 {u.get('output_tokens', 0):,} 토큰 ≈ ${usd:.4f} (₩{usd * 1500:,.0f})")
+                f"  [USAGE] 해설 {model} 입력 {inp:,} / 출력 {out:,} 토큰 "
+                f"= ${usd:.4f} (약 {krw:,.0f}원)")
+            _append_usage_csv(self.file_path, model, inp, out, 0, cr,
+                              int(u.get("calls", 0)), usd, krw)
         except Exception:  # noqa: BLE001
             pass
 
@@ -697,6 +718,7 @@ class ConversionWorker(QObject):
         pages = []
         page_infos: list[PageInfo] = []
         self._n_skipped_crops = 0   # OCR 인식 실패로 건너뛴 문제영역 수(완료 시 요약·경고)
+        self._skipped_numbers: list = []   # 그 문항 번호들(완료 요약에 표시)
 
         # ── Step 1.5: 크롭 검출 + 사용자 검수 (use_crop 시) ──
         crop_boxes_per_page = None  # valid_indices 와 정렬된 list[list[CropBox]]
@@ -936,6 +958,10 @@ class ConversionWorker(QObject):
                             if "max_tokens" in reason or "잘렸" in reason or "truncat" in reason.lower():
                                 reason = "응답이 max_tokens 로 잘림(수식이 많은 문항). 자동 재시도했으나 실패"
                             self._n_skipped_crops += 1
+                            # 어느 문항이 빠졌는지 알아야 사용자가 그 문항만 직접 채운다
+                            # (개수만으로는 원본과 대조해야 알 수 있다 — 오성중 실측 2026-08-07).
+                            if box.number is not None:
+                                self._skipped_numbers.append(box.number)
                             self.quality_warning.emit(
                                 page_num,
                                 f"페이지 {page_num} {bi + 1}번째 문제영역 인식 실패 — 건너뜀. "
@@ -1075,10 +1101,12 @@ class ConversionWorker(QObject):
         # 인식 실패로 건너뛴 문제영역이 있으면 **눈에 띄게** 알린다 — 일부 문항이 결과에서
         # 빠졌으니 사용자가 원본 화질을 확인·재시도하도록(저화질 스캔 누락 가시화, 2026-06-18).
         if getattr(self, "_n_skipped_crops", 0) > 0:
+            nums = sorted(n for n in getattr(self, "_skipped_numbers", []) if n is not None)
+            where = f" (원본 {', '.join(str(n) for n in nums)}번)" if nums else ""
             self.log.emit(
                 "warning",
-                f"⚠ 문제영역 {self._n_skipped_crops}개가 인식 실패로 누락됐습니다 — "
-                f"원본 화질이 낮으면 더 선명한 스캔으로 다시 시도해 보세요.")
+                f"⚠ 문제영역 {self._n_skipped_crops}개가 인식 실패로 누락됐습니다{where} — "
+                f"해당 문항은 결과에 없으니 직접 채우거나, 더 선명한 스캔으로 다시 시도해 보세요.")
         # 토큰 사용량·예상비용 기록(시험지별, 사용자 2026-06-08 비용계산용). 다중 백엔드면
         # 엔진별(모델별)로 따로 집계 — 폴백으로 같은 객체가 여러 키에 캐시될 수 있어 id 로 dedup.
         try:
