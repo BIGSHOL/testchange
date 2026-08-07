@@ -95,11 +95,19 @@ vercel login st2000423@gmail.com    # 메일의 Verify 클릭
 gh auth status ; vercel whoami      # 확인
 ```
 
-### B. 저장소 생성 + 푸시
+### B. 저장소 — ✅ **이미 만들어 푸시함**
+`https://github.com/BIGSHOL/hwp-convert-web` (**private**). 다른 PC 에서:
+
 ```powershell
+gh repo clone BIGSHOL/hwp-convert-web D:\hwp-convert-web
 cd D:\hwp-convert-web
-gh repo create hwp-convert-web --private --source=. --push
+npm install
+node scripts/sync-prompt.mjs "D:\시험지 한글화"   # 엔진 경로에 맞게
 ```
+
+⚠️ st2000423 계정이 아니라 **BIGSHOL 계정에 만들었다** — 그때 그 계정만 로그인돼
+있었고, 안 올리면 다른 PC 에서 코드를 받을 수 없었다. 원하면 나중에 Settings →
+Transfer ownership 으로 옮기면 된다(또는 지우고 새로 만들기).
 
 ### C. Vercel 연결 + 환경변수
 ```powershell
