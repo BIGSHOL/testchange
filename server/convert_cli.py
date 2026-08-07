@@ -36,6 +36,54 @@ if str(ENGINE_ROOT) not in sys.path:
     sys.path.insert(0, str(ENGINE_ROOT))
 
 
+def resolve_figures(envelope: dict) -> int:
+    """OCR JSON 의 ``figure`` 블록 → 그림자리 안내 텍스트(엔진 워커와 동일).
+
+    ⭐⭐ **이 단계가 없으면 그림이 흔적도 없이 사라진다.** `content_parser` 는
+    ``type == "figure"`` 를 무조건 None 으로 드롭하는데(주석: "워커(_resolve_figures)에서
+    해소되어야 한다"), GUI 워커는 파서에 넣기 **전에** 이 치환을 한다
+    (`gui/main_window._resolve_figures`, render_figures=False 경로).
+
+    웹은 워커를 안 거치므로 커넥터가 대신 한다. 순회 규칙(contents·choices·
+    sub_questions 재귀)과 문구를 엔진과 똑같이 맞춘다 — 문구는 단순 안내가 아니라
+    **레이아웃 판정의 시그니처**다(`_is_figure_note` 가운데정렬, `_tail_start` walk-back,
+    `_post_has_stem` 배점 미루기 게이트). 문구가 다르면 배점 위치까지 달라진다.
+
+    Returns: 치환한 블록 수.
+    """
+    from gui.main_window import _FIGURE_NOTE_TEXT  # 문구 단일 출처(손으로 적지 않는다)
+
+    n = 0
+
+    def _contents(blocks):
+        nonlocal n
+        if not isinstance(blocks, list):
+            return blocks
+        out = []
+        for b in blocks:
+            if isinstance(b, dict) and b.get("type") == "figure":
+                out.append({"type": "text", "value": _FIGURE_NOTE_TEXT})
+                n += 1
+            else:
+                out.append(b)
+        return out
+
+    def _walk(q):
+        if not isinstance(q, dict):
+            return
+        if "contents" in q:
+            q["contents"] = _contents(q.get("contents"))
+        for ch in q.get("choices") or []:
+            if isinstance(ch, dict) and "contents" in ch:
+                ch["contents"] = _contents(ch.get("contents"))
+        for sub in q.get("sub_questions") or []:
+            _walk(sub)
+
+    for q in envelope.get("questions") or []:
+        _walk(q)
+    return n
+
+
 def is_engine_envelope(payload) -> bool:
     """payload 가 엔진 OCR 봉투(``{header, questions}``)인가.
 
@@ -63,6 +111,8 @@ def _render_engine_envelope(payload: dict, out_path: Path) -> None:
         "header": payload.get("header") or "",
         "questions": payload.get("questions") or [],
     }
+    # ⭐ 파서에 넣기 **전에** figure → 안내 텍스트(엔진 워커와 같은 순서).
+    n_fig = resolve_figures(envelope)
     page = parse_ocr_response(envelope, page_number=1)
     document = build_document([page])
 
@@ -71,9 +121,24 @@ def _render_engine_envelope(payload: dict, out_path: Path) -> None:
     info = parse_filename(filename) if filename else {"valid": False}
     form_path = resolve_form(filename) if filename else None
     header_values = info if info.get("valid") else None
+    form_name = Path(form_path).name if form_path else "(기본 서식)"
     sys.stderr.write(
         f"[convert] 엔진 봉투: 문항 {len(envelope['questions'])} · "
-        f"폼={Path(form_path).name if form_path else '(기본 서식)'}\n")
+        f"폼={form_name} · 그림자리 {n_fig}\n")
+    # 부모(connector)가 응답 헤더로 웹에 전달할 진단 — "왜 이 서식으로 나왔나"가
+    # 가장 흔한 질문이라, 폼 매칭 결과를 변환 로그에 남길 수 있게 한다.
+    try:
+        out_path.with_suffix(out_path.suffix + ".diag.json").write_text(
+            json.dumps({
+                "questions": len(envelope["questions"]),
+                "form": form_name,
+                "filename": filename,
+                "header_values": bool(header_values),
+                "figure_notes": n_fig,
+            }, ensure_ascii=False),
+            encoding="utf-8")
+    except Exception:  # noqa: BLE001 — 진단 실패가 변환을 막지 않는다
+        pass
 
     if form_path:
         try:

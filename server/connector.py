@@ -140,6 +140,8 @@ def ensure_token() -> str:
     return EXPECTED_TOKEN
 
 _convert_lock = threading.Lock()  # 한글 COM 단일 인스턴스 직렬화
+# 마지막 변환의 진단(폼 매칭 결과 등) — 락 안에서만 쓰므로 경쟁 없음.
+_last_diag = {"v": ""}
 
 
 def _worker_python() -> str:
@@ -258,6 +260,12 @@ def _run_convert_subprocess(payload_bytes: bytes, suffix: str = ".hwpx") -> byte
                 _reap(_hwp_pids() - before)  # 이번 시도 고아만 정리
             if (not timed_out and proc is not None
                     and proc.returncode == 0 and target.exists()):
+                # 진단 사이드카(있으면) — 부모가 응답 헤더로 웹에 넘긴다.
+                diag = target.with_suffix(target.suffix + ".diag.json")
+                try:
+                    _last_diag["v"] = diag.read_text(encoding="utf-8") if diag.exists() else ""
+                except Exception:  # noqa: BLE001
+                    _last_diag["v"] = ""
                 return target.read_bytes()
             if timed_out:
                 last = f"변환 타임아웃({CONVERT_TIMEOUT_S}s)"
@@ -389,7 +397,13 @@ class Handler(BaseHTTPRequestHandler):
             "Content-Disposition",
             "attachment; filename=\"export{}\"; filename*=UTF-8''{}".format(
                 suffix, quote(name, safe="")))
-        self.send_header("Access-Control-Expose-Headers", "Content-Disposition")
+        # 웹이 "어떤 폼으로 렌더됐나"를 로그에 남길 수 있게 진단을 헤더로 넘긴다.
+        # (헤더는 ASCII 만 안전 → URL 인코딩)
+        diag = _last_diag.get("v") or ""
+        if diag:
+            self.send_header("X-Convert-Diag", quote(diag, safe=""))
+        self.send_header("Access-Control-Expose-Headers",
+                         "Content-Disposition, X-Convert-Diag")
         self.send_header("Content-Length", str(len(data)))
         self.end_headers()
         try:
