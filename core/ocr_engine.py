@@ -1065,29 +1065,45 @@ class OCREngine:
 
     @staticmethod
     def _autoclose_json(s: str, aggressive: bool = False) -> str:
-        """잘린 JSON 의 열린 문자열·괄호를 닫는다.
+        """어긋난 JSON 괄호를 정규화한다 — 과잉 닫힘은 드롭, 부족한 닫힘은 보충.
+
+        Gemini 의 STOP-절단은 두 변종이 실측됐다(오성중 #8, 같은 크롭에서 온도에 따라):
+        ① 닫는 괄호 **소실**(``…]`` 로 끝나고 최상위 ``}`` 없음) ② 닫는 괄호 **과잉**
+        (``…] ] }`` — 여분의 ``]``). 스택과 안 맞는 닫힘 문자를 버리고, 끝에 남은 열린
+        괄호를 닫으면 두 변종 다 살아난다.
 
         ``aggressive=True`` 면 꼬리의 **값 위치 미완 문자열**(닫힌 따옴표는 있으나 뒤가
         끊긴 조각)까지 제거한다 — 데이터를 조금 더 버리는 대신 파싱 가능성을 높인다.
         """
+        chars: list[str] = []
         stack: list[str] = []
         in_str = False
         esc = False
         for ch in s:
             if in_str:
+                chars.append(ch)
                 if esc:
                     esc = False
                 elif ch == "\\":
                     esc = True
                 elif ch == '"':
                     in_str = False
-            elif ch == '"':
+                continue
+            if ch == '"':
                 in_str = True
+                chars.append(ch)
             elif ch in "{[":
                 stack.append(ch)
-            elif ch in "}]" and stack:
-                stack.pop()
-        out = s
+                chars.append(ch)
+            elif ch in "}]":
+                want = ("}" if stack[-1] == "{" else "]") if stack else None
+                if want == ch:
+                    stack.pop()
+                    chars.append(ch)
+                # 스택과 안 맞으면(과잉·짝틀림) 그 닫힘 문자를 버린다.
+            else:
+                chars.append(ch)
+        out = "".join(chars)
         if in_str:
             out += '"'
         # 꼬리의 미완 조각 제거: 콤마·콜론·값 없는 키("key": 까지만 쓰다 끊긴 것).
