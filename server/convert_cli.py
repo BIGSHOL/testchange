@@ -51,7 +51,11 @@ def resolve_figures(envelope: dict) -> int:
 
     Returns: 치환한 블록 수.
     """
-    from gui.main_window import _FIGURE_NOTE_TEXT  # 문구 단일 출처(손으로 적지 않는다)
+    # ⚠️⚠️ **`gui.main_window` 를 import 하면 안 된다.** 배포 커넥터(agent.exe)는
+    # `agent.spec` 이 PySide6 를 excludes 하므로, GUI 모듈을 건드리는 순간 figure 가 든
+    # 시험지에서 ImportError 로 즉사한다(적대리뷰 2026-08-08 확인). 문구는 렌더러가 쓰는
+    # `core.hwp_form_writer._FIGURE_NOTE` 와 **같은 문자열**이고 그쪽은 GUI 의존이 없다.
+    from core.hwp_form_writer import _FIGURE_NOTE as _FIGURE_NOTE_TEXT
 
     n = 0
 
@@ -147,7 +151,17 @@ def _render_engine_envelope(payload: dict, out_path: Path) -> None:
             return
         except Exception as e:  # noqa: BLE001 — 폼 채움 실패는 기본 서식으로 폴백(GUI 동일)
             sys.stderr.write(f"[convert] 폼 채움 실패 → 기본 서식으로: {e}\n")
-    write_exam_to_hwp(document, out_path)
+
+    # ⚠️ 기본 서식(폼 미매칭·폼 채움 실패) 경로에서도 **정답·해설을 살린다.**
+    # `write_exam_to_hwp` 는 `show_answers` 가 켜져 있을 때만 정답면을 붙이는데,
+    # 이걸 안 넘기면 **돈 들여 만든 정답·해설이 통째로 버려진다**(적대리뷰 2026-08-08).
+    # 폼 경로는 미주·메타란에 직접 주입하므로 이 플래그와 무관하다.
+    has_answers = any(
+        q.answer or q.solution for page in document.pages for q in page.questions
+    )
+    if has_answers:
+        sys.stderr.write("[convert] 기본 서식 — 정답·해설 페이지 포함\n")
+    write_exam_to_hwp(document, out_path, show_answers=has_answers)
 
 
 def main() -> int:

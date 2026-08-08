@@ -122,9 +122,45 @@ def test_note_text_is_single_source() -> None:
     """문구를 손으로 적으면 레이아웃 판정이 조용히 깨진다 — 상수 참조를 강제."""
     print("C. 안내 문구 단일 출처")
     src = (ROOT / "server" / "convert_cli.py").read_text(encoding="utf-8")
-    check("convert_cli 가 _FIGURE_NOTE_TEXT 를 import",
-          "_FIGURE_NOTE_TEXT" in src and "from gui.main_window import" in src)
-    check("문구를 하드코딩하지 않음", "※ 그림 자리" not in src)
+    check("convert_cli 가 상수를 import(하드코딩 금지)",
+          "_FIGURE_NOTE" in src and "※ 그림 자리" not in src)
+    # ⚠️⚠️ 배포 커넥터(agent.exe)는 agent.spec 이 PySide6 를 excludes 한다 — GUI 모듈을
+    # 건드리면 figure 든 시험지에서 ImportError 로 즉사한다(적대리뷰 2026-08-08).
+    # 주석은 제외하고 **실행되는 코드 줄**만 본다(설명에 gui 를 언급하는 건 정상).
+    code = "\n".join(ln for ln in src.splitlines() if not ln.lstrip().startswith("#"))
+    check("커넥터가 gui 모듈을 import 하지 않음",
+          "import gui" not in code and "from gui" not in code,
+          "agent.exe 에서 PySide6 가 없어 ImportError")
+
+    # 말이 아니라 **실행**으로 확인 — PySide6 를 차단한 환경에서 실제로 돈다.
+    import importlib
+    import sys as _sys
+
+    class _Block:
+        def find_module(self, name, path=None):
+            return self if name.split(".")[0] in ("PySide6", "shiboken6") else None
+
+        def load_module(self, name):
+            raise ImportError("excluded in agent.exe: " + name)
+
+    _sys.meta_path.insert(0, _Block())
+    try:
+        for m in [k for k in list(_sys.modules) if k.startswith("server.convert_cli")]:
+            del _sys.modules[m]
+        mod = importlib.import_module("server.convert_cli")
+        env = {"questions": [{"number": 1, "contents": [{"type": "figure", "value": "원"}]}]}
+        n = mod.resolve_figures(env)
+        check("PySide6 차단 환경(=agent.exe)에서 실제 동작", n == 1)
+    except Exception as e:  # noqa: BLE001
+        check("PySide6 차단 환경(=agent.exe)에서 실제 동작", False, f"{type(e).__name__}: {e}")
+    finally:
+        _sys.meta_path.remove(_Block) if _Block in _sys.meta_path else None
+        _sys.meta_path[:] = [p for p in _sys.meta_path if not isinstance(p, _Block)]
+
+    from core.hwp_form_writer import _FIGURE_NOTE
+    from gui.main_window import _FIGURE_NOTE_TEXT as _GUI_NOTE
+    check("core 문구 == gui 문구(두 경로 동일 렌더)", _FIGURE_NOTE == _GUI_NOTE,
+          f"{_FIGURE_NOTE!r} vs {_GUI_NOTE!r}")
 
     # 렌더러는 ContentBlock 을 받으므로 파서를 거친 실제 블록으로 확인한다.
     from gui.main_window import _FIGURE_NOTE_TEXT
