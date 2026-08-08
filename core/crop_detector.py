@@ -254,17 +254,29 @@ def _detect_with_gemini(image: Image.Image, api_key: str) -> list[CropBox]:
     img_bytes = base64.b64decode(b64)
 
     client = genai.Client(api_key=api_key)
+    cfg_kwargs = dict(
+        response_mime_type="application/json",
+        temperature=0.1,
+        max_output_tokens=65536,
+    )
+    # 사고(thinking) 끔 — 좌표 검출에 사고는 불필요한데 출력 단가로 과금된다
+    # (ocr_engine._gemini_generate 의 동일 설정 주석 참조). flash 한정 + 구 SDK 방어.
+    config = None
+    if "flash" in (GEMINI_MODEL or "").lower():
+        try:
+            config = types.GenerateContentConfig(
+                thinking_config=types.ThinkingConfig(thinking_budget=0), **cfg_kwargs)
+        except Exception:   # noqa: BLE001
+            config = None
+    if config is None:
+        config = types.GenerateContentConfig(**cfg_kwargs)
     resp = client.models.generate_content(
         model=GEMINI_MODEL,
         contents=[
             types.Part.from_bytes(data=img_bytes, mime_type="image/png"),
             _CROP_PROMPT,
         ],
-        config=types.GenerateContentConfig(
-            response_mime_type="application/json",
-            temperature=0.1,
-            max_output_tokens=65536,
-        ),
+        config=config,
     )
     return _parse_crops(resp.text or "")
 

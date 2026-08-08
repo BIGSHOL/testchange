@@ -730,7 +730,22 @@ class OCREngine:
         cfg_kwargs = dict(temperature=0, max_output_tokens=max(int(max_tokens), 4096))
         if json_mode:
             cfg_kwargs["response_mime_type"] = "application/json"
-        config = types.GenerateContentConfig(**cfg_kwargs)
+        # ⭐ flash 는 사고(thinking) **끔** — Gemini 3.x 는 사고가 기본이고 그 토큰이
+        # 출력 단가로 과금된다(실측 2026-08-08: 경원고 기하 실크롭에서 사고가 출력의
+        # 1.5~3.6배, 내용은 A/B 동일). ⚠️ **pro 는 못 끈다** — thinkingBudget:0 과
+        # thinkingLevel:minimal 을 400("only works in thinking mode")으로 거부(실계정
+        # 프로브). low 는 절감이 미미(149→133)해 pro 는 기본 유지. 웹(_lib.ts
+        # OCR_THINKING)과 반드시 함께 움직일 것 — 한쪽만 바꾸면 결과물이 갈린다.
+        config = None
+        if "flash" in (self.model or "").lower():
+            try:
+                config = types.GenerateContentConfig(
+                    thinking_config=types.ThinkingConfig(thinking_budget=0),
+                    **cfg_kwargs)
+            except Exception:   # noqa: BLE001 — 구 SDK(ThinkingConfig 없음)면 기본 동작
+                config = None
+        if config is None:
+            config = types.GenerateContentConfig(**cfg_kwargs)
 
         last_exc: Exception | None = None
         for attempt in range(_RL_RETRIES):
