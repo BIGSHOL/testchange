@@ -974,6 +974,7 @@ def run():
         print("FAIL test_render_fixes:")
         print("\n".join(fails))
         return 1
+    test_score_str_web_exe_parity()
     print("OK test_render_fixes (cell/value-box/caption/shading/essay-label/overline/relabel/"
           "bigstar/boxed/labelless/solo/mixed-label/rm-space/cond-header/form-underline/"
           "sqrt-space/choice-glyph/tail-note/underline-solid/stemleaf-13/choice-geo/cond-circle/"
@@ -981,6 +982,28 @@ def run():
           "answer-header-neutralize/essay-type-label/annot-label/lim-below-subscript/"
           "ksy-ineq-coord-rmbleed/answer-meta-solution/setbuilder-braces/answer-eq-baseunit)")
     return 0
+
+
+def test_score_str_web_exe_parity():
+    """배점 표시 정규화 — 3.0 → "3", 소수배점은 보존 (2026-08-08).
+
+    ⭐ 두 가지를 동시에 고친다:
+      ① 인쇄 원본은 "[3점]" 인데 OCR 이 3.0 을 주면 "[3.0점]" 으로 찍혔다.
+      ② JSON 은 3 과 3.0 을 구분 못 해, HTTP 2홉을 거치는 웹은 int 로 접힌다 —
+         **표시 시점 정규화만이** exe 와 웹을 같게 만든다(corpus 194편 중 32편이 이
+         차이만으로 갈렸다, scripts/web_exe_diff.py).
+    """
+    from core.hwp_com_writer import score_str
+
+    cases = [
+        (3, "3"), (3.0, "3"), (4.0, "4"), (10.0, "10"),
+        (3.5, "3.5"), (4.3, "4.3"), (3.4, "3.4"), (4.7, "4.7"),
+        (0, "0"), (None, "None"),
+    ]
+    for raw, want in cases:
+        got = score_str(raw)
+        assert got == want, f"score_str({raw!r}) = {got!r} (기대 {want!r})"
+    print("  OK   배점 표시 정규화(웹↔exe 동일)")
 
 
 if __name__ == "__main__":

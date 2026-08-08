@@ -36,7 +36,8 @@ from .hwp_com_writer import (HwpComWriter, _BOX_BREAK_RE, _BULLET_RE,
                              _caption_run_back, _caption_spans, _choice_complexity,
                              _COND_HEADER_RE, _condition_start, _has_box_markup,
                              _is_circled_item_start, _post_has_stem, _post_is_box,
-                             _split_tail_post, _split_trailing_score, _tail_start)
+                             _split_tail_post, _split_trailing_score, _tail_start,
+                             score_str)
 from .latex_to_hwpeq import latex_to_hwpeq
 from models.exam_document import (ContentBlock, ContentType, ExamDocument,
                                    Question, reorder_questions_by_number)
@@ -530,7 +531,7 @@ def _put_score(ses, h, score: int, essay: bool = False) -> bool:
     """
     def put_inline(leading_space: bool):
         ses.text(" [" if leading_space else "[")
-        ses.equation(str(score))
+        ses.equation(score_str(score))
         ses.text("점]")
 
     def line():
@@ -654,7 +655,7 @@ def _put_total_score(ses, h, num: int) -> None:
     """
     def put_inline(leading_space: bool):
         ses.text(" [총 " if leading_space else "[총 ")
-        ses.equation(str(num))
+        ses.equation(score_str(num))
         ses.text("점]")
 
     def line():
