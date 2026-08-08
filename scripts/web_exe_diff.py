@@ -13,6 +13,20 @@
 (JSON.stringify(3.0) === "3") 이 왕복에서 float 가 int 로 접힌다 — 이 손실을 정확히
 재현해야 진짜 차이를 볼 수 있다(`_js_json_roundtrip`).
 
+⚠️⚠️ **이 하네스의 사각지대 — 반드시 알고 쓸 것.**
+캐시된 **같은 OCR JSON 에서 출발**하므로, 증명 범위는 딱 "OCR JSON → .hwp" 구간이다.
+그 앞뒤는 하나도 증명하지 못한다:
+
+  · **OCR 요청 자체**(프롬프트 본문·이미지/프롬프트 순서·모델·JSON 모드) — 여기가 갈리면
+    애초에 다른 OCR JSON 이 나오는데 이 하네스는 늘 초록불이다. 실제로 크롭 프롬프트가
+    385자 손본으로 들어가 있던 것을 이 하네스는 못 잡았다.
+  · **정답·해설 경로**(`solution_generator`) — 정답·해설·단원·난이도는 이 비교 대상 밖이다.
+    `\\b` 한글 경계, 코드펜스 제거 누락이 여기 숨어 있었다.
+    → 그 구간은 웹 저장소의 `scripts/test-solution-normalize.mjs`(정규화 4종 차등)와
+      `scripts/verify-against-engine.mjs`(프롬프트 글자 단위 동일)가 맡는다.
+
+즉 **이 셋을 다 통과해야** "exe 와 웹이 같다"가 성립한다. 하나만 보고 단정하지 말 것.
+
 실행:
   python scripts/web_exe_diff.py            # corpus 전체
   python scripts/web_exe_diff.py 경원고 상인고  # 이름에 포함된 것만
