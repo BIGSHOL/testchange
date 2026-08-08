@@ -645,7 +645,8 @@ class OCREngine:
             raise ValueError("빈 응답(content 없음)")
         return content[0].text
 
-    def _stream_message(self, content: list, max_tokens: int, json_mode: bool = True):
+    def _stream_message(self, content: list, max_tokens: int, json_mode: bool = True,
+                        temperature: float = 0.0):
         """메시지를 생성하고 Anthropic Message(호환) 객체를 반환한다 — **백엔드 분기 지점**.
 
         이 메서드가 모델별로 갈리는 **유일한 seam**이다. content 는 Anthropic 형식
@@ -659,7 +660,8 @@ class OCREngine:
         """
         if self.backend == "claude":
             return self._stream_claude(content, max_tokens)
-        return self._gemini_generate(content, max_tokens, json_mode)
+        return self._gemini_generate(content, max_tokens, json_mode,
+                                     temperature=temperature)
 
     def _stream_claude(self, content: list, max_tokens: int):
         """Claude 스트리밍 — 최종 Message 반환.
@@ -708,7 +710,8 @@ class OCREngine:
         # 재시도 소진 → 마지막 예외 전파(워커가 해당 크롭만 건너뛰고 사용자에 원인 노출).
         raise last_exc
 
-    def _gemini_generate(self, content: list, max_tokens: int, json_mode: bool):
+    def _gemini_generate(self, content: list, max_tokens: int, json_mode: bool,
+                         temperature: float = 0.0):
         """Gemini generate_content — Anthropic content → Gemini contents 변환 후 호출.
 
         반환은 `_GeminiMessage`(Anthropic Message 호환). 레이트리밋/일시오류는 Claude 와
@@ -727,7 +730,8 @@ class OCREngine:
                 raw = base64.b64decode(data) if data else b""
                 parts.append(types.Part.from_bytes(
                     data=raw, mime_type=src.get("media_type", "image/png")))
-        cfg_kwargs = dict(temperature=0, max_output_tokens=max(int(max_tokens), 4096))
+        cfg_kwargs = dict(temperature=temperature,
+                          max_output_tokens=max(int(max_tokens), 4096))
         if json_mode:
             cfg_kwargs["response_mime_type"] = "application/json"
         # ⭐ flash 는 사고(thinking) **끔** — Gemini 3.x 는 사고가 기본이고 그 토큰이
@@ -838,15 +842,28 @@ class OCREngine:
                 raise ValueError(
                     f"OCR 응답이 max_tokens({OCR_MAX_TOKENS * 2})로 잘렸습니다 — "
                     f"수식이 매우 많은 문항(크롭을 더 작게 나눠 보세요)")
+        txt0 = message.content[0].text
         try:
-            result = self._extract_json(message.content[0].text)
+            # 1차는 절단 봉합(autoclose) **없이** — 봉합은 잘린 꼬리(선택지 등)를 버리는
+            # 부분 구제라, 완전 복구 기회(온도 재호출)를 가로채면 안 된다.
+            result = self._extract_json(txt0, autoclose=False)
         except ValueError as e:   # JSONDecodeError 포함 — 복구 불가 응답은 OCR 재호출로
             # 구조적 깨진 JSON(예: `"value", "value":` ←콜론 누락)은 복구 단계로 못 고친다.
-            # 모델이 한 번 더 생성하면 정상 JSON 을 주는 경우가 많아 OCR 자체를 1회 재호출
-            # (밀집 문항이 통째로 누락되던 문제 — 2026-06-05 Q8 사례).
+            # ⚠️ 재호출은 temperature 0.3 — 0 이면 재생성이 같은 자리에서 똑같이 깨져
+            # 재시도가 무의미하다(오성중 #8 실측: 4회 전부 동일 지점 절단. 웹 ocr.ts 와
+            # 동일 정책). Claude 백엔드는 종전대로 0(코퍼스 베이스라인 보존).
             logger.warning("크롭 OCR JSON 파싱 실패 → OCR 재호출 1회: %s", e)
-            message = _call(min(OCR_MAX_TOKENS * 2, 32768))
-            result = self._extract_json(message.content[0].text)
+            message = self._stream_message(
+                content, min(OCR_MAX_TOKENS * 2, 32768), temperature=0.3)
+            txt1 = message.content[0].text
+            try:
+                result = self._extract_json(txt1, autoclose=False)
+            except ValueError:
+                # 최후: 절단 봉합 허용 — 원문·재호출 중 살아나는 쪽(부분이라도 문항 보존).
+                try:
+                    result = self._extract_json(txt0)
+                except ValueError:
+                    result = self._extract_json(txt1)
 
         # ── 서술형 지문/박스 누락 복구(2026-06-08, 검증) ──────────────────────────
         # **단일 문제 크롭**을 구조화 OCR 하면 비전 모델이 긴 지문 박스를 "요약"하며 통째로
@@ -939,7 +956,7 @@ class OCREngine:
         ]
         return self._stream_message(content, 8192, json_mode=False).content[0].text or ""
 
-    def _extract_json(self, text: str) -> dict:
+    def _extract_json(self, text: str, autoclose: bool = True) -> dict:
         """응답에서 JSON 추출 (LaTeX 수식이 포함된 경우도 처리).
 
         LLM이 반환하는 JSON은 LaTeX 역슬래시, 이스케이프 누락 등으로
@@ -1016,12 +1033,70 @@ class OCREngine:
         text = re.sub(r",\s*([}\]])", r"\1", text)
         try:
             return self._loads_first(text)
+        except json.JSONDecodeError:
+            pass
+
+        # ── 6단계: 잘린 JSON 괄호 자동 닫기 (최후 안전망) ──
+        # Gemini 가 finishReason=STOP 인데도 JSON 을 **중간에서 끊는** 계통 결함이 있다
+        # (오성중 #8 실측 2026-08-09: 선택지 ④까지 완전한 JSON 을 내고 ⑤·닫는 괄호 없이
+        # 종료. temperature 0 이라 재생성 4회 전부 같은 자리에서 끊겨 문항이 통째 소실).
+        # 열린 괄호를 닫아 주면 앞부분 전부가 살아난다 — 일부(⑤)를 잃더라도 문항을
+        # 통째 버리는 것보단 낫다. ⚠️ 웹(api/_extractJson.ts)과 1:1 — 한쪽만 고치면
+        # exe↔웹 결과가 갈린다(scripts/test-extract-json.mjs 차등 게이트가 대조).
+        # ⚠️ 부분 구제라(잘린 꼬리를 버림) 호출부가 **온도 재호출을 먼저** 시도할 수
+        # 있게 게이트를 둔다 — 봉합이 재호출을 가로채면 완전 복구 기회를 잃는다.
+        if not autoclose:
+            self._loads_first(text)   # 원래 예외를 그대로 올린다
+        logger.warning("JSON 파싱 재실패, 잘린 괄호 자동 닫기 시도")
+        for base in (text, self._fix_json_backslashes(text)):
+            for aggressive in (False, True):
+                try:
+                    return self._loads_first(self._autoclose_json(base, aggressive))
+                except json.JSONDecodeError:
+                    continue
+        try:
+            return self._loads_first(text)
         except json.JSONDecodeError as e:
             # 모든 복구 실패 — 호출부(recognize_crop 등)에서 격리해 변환을
             # 중단하지 않도록 명확한 예외로 올린다. 원문 일부를 로그로 남김.
             logger.error("JSON 복구 최종 실패: %s\n원문 앞부분:\n%s",
                          e, text[:800])
             raise
+
+    @staticmethod
+    def _autoclose_json(s: str, aggressive: bool = False) -> str:
+        """잘린 JSON 의 열린 문자열·괄호를 닫는다.
+
+        ``aggressive=True`` 면 꼬리의 **값 위치 미완 문자열**(닫힌 따옴표는 있으나 뒤가
+        끊긴 조각)까지 제거한다 — 데이터를 조금 더 버리는 대신 파싱 가능성을 높인다.
+        """
+        stack: list[str] = []
+        in_str = False
+        esc = False
+        for ch in s:
+            if in_str:
+                if esc:
+                    esc = False
+                elif ch == "\\":
+                    esc = True
+                elif ch == '"':
+                    in_str = False
+            elif ch == '"':
+                in_str = True
+            elif ch in "{[":
+                stack.append(ch)
+            elif ch in "}]" and stack:
+                stack.pop()
+        out = s
+        if in_str:
+            out += '"'
+        # 꼬리의 미완 조각 제거: 콤마·콜론·값 없는 키("key": 까지만 쓰다 끊긴 것).
+        out = re.sub(r'[,\s]*(?:"(?:[^"\\]|\\.)*"\s*:)?\s*$', "", out)
+        if aggressive:
+            out = re.sub(r'[,\s]*(?:"(?:[^"\\]|\\.)*")?\s*$', "", out)
+        for b in reversed(stack):
+            out += "}" if b == "{" else "]"
+        return re.sub(r",\s*([}\]])", r"\1", out)
 
     @staticmethod
     def _loads_first(s: str) -> dict:
