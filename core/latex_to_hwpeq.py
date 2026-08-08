@@ -599,7 +599,10 @@ class LaTeXToHWPConverter:
         r"\overline": "bar",   # 남던 것(대구고 수1 #10 호 AB:BC:CA, 2026-06-12). HWP=arch.
         r"\underline": "underline",
         r"\overrightarrow": "VEC",
-        r"\widehat": "HAT",
+        # 호(⌒) — 중·고등 수학에서 \widehat 은 사실상 항상 호다. HAT(꺾쇠 악상)로
+        # 두면 hat{rm AB} 가 원본(호 장식)과 어긋난다(사용자 2026-08-09 오성중:
+        # "arch {rm AB} = 9 pi `rm cm 로 할 것"). \overarc 와 동일 매핑.
+        r"\widehat": "arch",
         r"\widetilde": "TILDE",
     }
 

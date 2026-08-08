@@ -1840,6 +1840,33 @@ def _neutralize_answer_header_redefine(hwpx_path: str | Path) -> int:
     return changed_total
 
 
+def _fill_exam_range(hwpx_path: str | Path, range_text: str) -> int:
+    """폼 머리 배너 아래 시험범위 부제(" ~ " 단독 텍스트)를 실제 범위로 치환.
+
+    폼 원문의 그 줄은 ``<hp:t> ~ </hp:t>`` 하나뿐이다(오성중 렌더 실측). 정확히
+    ``공백~공백`` 인 텍스트 노드만 바꿔 다른 ``~``(수식 HWP 공백 등)는 건드리지 않는다.
+    """
+    hwpx_path = Path(hwpx_path)
+    with zipfile.ZipFile(hwpx_path) as z:
+        infos = z.infolist()
+        data = {i.filename: z.read(i.filename) for i in infos}
+    n = 0
+    for fn in list(data):
+        if not re.search(r"section\d+\.xml$", fn):
+            continue
+        s = data[fn].decode("utf-8")
+        s2, cnt = re.subn(r"(<hp:t[^>]*>)\s*~\s*(</hp:t>)",
+                          lambda m: m.group(1) + _xml_text(range_text) + m.group(2),
+                          s, count=1)
+        if cnt:
+            data[fn] = s2.encode("utf-8")
+            n += cnt
+    if n:
+        from core.hwp_com_writer import _rewrite_zip
+        _rewrite_zip(hwpx_path, infos, data)
+    return n
+
+
 # ── 진입점 ────────────────────────────────────────────────
 def _fill_form_header(hwpx_path: str | Path, values: dict) -> int:
     """출력 .hwpx 의 폼 머리말/꼬리말 텍스트를 학년·과목·시기 값으로 치환(결정적 XML).
@@ -2669,12 +2696,25 @@ def write_exam_to_form(
         logger.warning("폼 후처리 실패(_inject_answer_runs): %s", e)
     # 1.56단계: 서술형 해설(step 구조) — 정답 뒤 줄별로 덧붙임(완료본 194차 달서고 규약).
     try:
-        _sols = [list(q.solution or []) for q in (mc + essays)]
+        # ⭐ 객관식은 **정답만**(완료본 규약 194차: ``1. ④`` 원문자만 — 해설 없음.
+        # 사용자 재확인 2026-08-09). 해설 데이터는 보존하되 렌더에서 뺀다.
+        _sols = [[] if q.choices else list(q.solution or [])
+                 for q in (mc + essays)]
         n_sol = _inject_solutions(output_path, _sols)
         if n_sol:
             logger.info("해설 기입 %d줄", n_sol)
     except Exception as e:  # noqa: BLE001
         logger.warning("폼 후처리 실패(_inject_solutions): %s", e)
+    # 1.58단계: 시험범위 부제(폼의 " ~ " 줄) — 문항 메타(중단원/소단원)의 처음~끝으로
+    # 채운다(원본 시험지에 범위 인쇄가 없어도 완료본 관행대로 표기. 사용자 2026-08-09
+    # "상단 시험범위가 없음"). 메타가 없으면 폼 원문(" ~ ") 유지.
+    try:
+        _topics = [t for t in ((q.topic or "").strip() for q in (mc + essays)) if t]
+        if _topics:
+            _rng = _topics[0] if _topics[0] == _topics[-1] else f"{_topics[0]} ~ {_topics[-1]}"
+            _fill_exam_range(output_path, _rng)
+    except Exception as e:  # noqa: BLE001
+        logger.warning("폼 후처리 실패(_fill_exam_range): %s", e)
     # 1.6단계: 서술형 중복 라벨 제거는 위에서 완료. 머리말/꼬리말 채움(결정적 XML 후처리).
     if header_values:
         try:

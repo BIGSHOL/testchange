@@ -518,6 +518,18 @@ def _parse_content_block(block_data: dict) -> ContentBlock | None:
         if not rows and isinstance(value, list):
             rows = value
             value = ""
+        # ⭐ 셀 dict 정규화 — Gemini 가 셀을 문자열 대신 블록 dict
+        # ({"type":"text","value":"회"})로 주는 변종이 있다(오성중 #11·#14 실측
+        # 2026-08-09: str(dict) 가 그대로 렌더돼 표가 {'type': 조각으로 도배).
+        # dict → value, dict 리스트 → value 들 공백 결합. 문자열 셀은 불변.
+        def _cell(c):
+            if isinstance(c, dict):
+                return str(c.get("value", "") or "")
+            if isinstance(c, list):
+                return " ".join(_cell(x) for x in c if _cell(x))
+            return c
+        rows = [[_cell(c) for c in row] if isinstance(row, list) else row
+                for row in rows]
         # 빈 표(행도 값도 없음) = OCR 잡음 → 드롭. 안 그러면 **허위 빈 박스**로 렌더돼
         # 뒤따르는 <조건>/<보기> 내용이 박스 밖으로 밀리거나(경일여중3 #19·#20·#22 조건박스
         # 탈출) 배점·캡션 배치를 교란한다(경명여중3 #7·#16, 2026-06-15).
@@ -1699,9 +1711,46 @@ def _link_cross_block_underline(blocks: list[ContentBlock]) -> list[ContentBlock
     return out
 
 
+# 발문 문장 **중간**의 짧은 수식을 OCR 이 equation_block(display)으로 오분류하면 가운데
+# 별도줄로 떠서 문장이 끊긴다(오성중 #13: "세 변량 / [3a-2, 3b-2, 3c-2 가운데] / 의
+# 분산은?" — 원본은 인라인). 판별: 앞 TEXT 가 문장 종결 없이 끝나고, 뒤 TEXT 가 조사로
+# 이어지며, 수식이 짧을 때(글리프 ≤ 18 — 강동고 #20 의 정당한 긴 display 합수식은 통과).
+_JOSA_LEAD_RE = re.compile(r"^(?:의|이|가|을|를|은|는|와|과|로|에|도)(?![a-zA-Z])")
+_SENT_END_RE = re.compile(r"[.?!。？]\s*$|(?:다|오|시오|것은|값은|때)\s*[,]?\s*$")
+
+
+def _display_eq_glyphs(v: str) -> int:
+    """display 수식의 대략 글리프 수 — 명령·구조문자 제외(선택지 2열 판정과 같은 원칙)."""
+    return len(re.sub(r"\\[a-zA-Z]+|[{}^_\s]", "", v or ""))
+
+
+def _inline_short_display_eq(blocks: list[ContentBlock]) -> list[ContentBlock]:
+    for i, b in enumerate(blocks):
+        if b.type != ContentType.EQUATION_BLOCK or not b.value:
+            continue
+        if _display_eq_glyphs(b.value) > 18:
+            continue
+        # ⚠️ **쉼표 항 나열이면서 관계연산자가 전무할 때만** — corpus 전수 스캔(2026-08-09)
+        # 에서 조사·미종결 조건만으로는 검수 통과된 정당한 display 27건(계성고 (z̄/z)²·
+        # 능인고 점화식 등, 전부 관계식 또는 단일식)이 강등 대상에 걸렸다. 원본이 인라인
+        # 인 것은 오성중 #13 같은 값 나열(3a-2, 3b-2, 3c-2) 패턴뿐.
+        v = b.value or ''
+        if "," not in v or re.search(r"[=<>]|\\(?:leq|geq|neq|le|ge|ne)(?![a-zA-Z])", v):
+            continue
+        prev = blocks[i - 1] if i > 0 else None
+        nxt = blocks[i + 1] if i + 1 < len(blocks) else None
+        if (prev is not None and prev.type == ContentType.TEXT and (prev.value or "").strip()
+                and not _SENT_END_RE.search(prev.value)
+                and nxt is not None and nxt.type == ContentType.TEXT
+                and _JOSA_LEAD_RE.match((nxt.value or "").lstrip())):
+            b.type = ContentType.EQUATION
+    return blocks
+
+
 def _finalize_contents(blocks: list[ContentBlock]) -> list[ContentBlock]:
     """문제 본문 후처리 파이프라인(분리·병합·이탤릭·로만·배점제거)."""
     blocks = _link_cross_block_underline(blocks)   # 교차블록 __밑줄__ 연결(Gemini 분리 복원)
+    blocks = _inline_short_display_eq(blocks)      # 짧은 display 수식이 문장 중간이면 인라인 강등
     blocks = _split_trailing_domain(blocks)        # 수식 끝 정의역 (x=0,1,⋯) 분리
     blocks = _split_comma_equations(blocks)         # 쉼표 구분 독립 수식 분리
     blocks = _merge_operator_split_equations(blocks)  # eq·연산자·eq 병합
