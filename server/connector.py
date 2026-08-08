@@ -39,7 +39,10 @@ except Exception:
 
 ENGINE_ROOT = Path(__file__).resolve().parent.parent
 VERSION = "1.1.0"
-CONVERT_TIMEOUT_S = 180
+# ⭐ 360초 — 실측 렌더가 2~4분(오성중·왕선중 2026-08-09)이라 180초는 3분 넘는
+# 시험지를 **구조적으로 100% 실패**시키고(살해 후 같은 payload 재시도 → 또 180초
+# 소모 → 500) 총 6분+CPU 를 낭비했다. env 로 조정 가능.
+CONVERT_TIMEOUT_S = int(os.environ.get("MATHGEN_HWP_TIMEOUT", "360"))
 ALLOWED_ORIGINS = {
     "http://localhost:3000",
     "http://127.0.0.1:3000",
@@ -267,11 +270,12 @@ def _run_convert_subprocess(payload_bytes: bytes, suffix: str = ".hwpx") -> byte
                     _last_diag["v"] = ""
                 return target.read_bytes()
             if timed_out:
-                last = f"변환 타임아웃({CONVERT_TIMEOUT_S}s)"
-            else:
-                tail = proc.stderr.decode("utf-8", "replace")[-1200:] if proc else ""
-                rc = proc.returncode if proc else "none"
-                last = f"변환 실패(exit {rc})\n{tail}"
+                # ⚠️ 타임아웃은 **재시도하지 않는다** — 시험지 크기가 원인이라 결정적으로
+                # 재발한다. 재시도는 같은 시간을 또 태우고 실패할 뿐(COM flake 만 재시도).
+                raise ConvertError(f"변환 타임아웃({CONVERT_TIMEOUT_S}s) — 문항이 매우 많은 시험지입니다")
+            tail = proc.stderr.decode("utf-8", "replace")[-1200:] if proc else ""
+            rc = proc.returncode if proc else "none"
+            last = f"변환 실패(exit {rc})\n{tail}"
             _t.sleep(1.0)  # 잠깐 쉬고 1회 재시도(COM 안정화)
         raise ConvertError(last)
 

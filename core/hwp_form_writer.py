@@ -941,14 +941,21 @@ def _fill_form(mc: list[Question], essays: list[Question], form_path, out_path,
         def _mc_count():
             return len(_find_all(h, "①", len(_en_anchors(h)) + 4))
 
+        # ⭐ grow 반복 **중**엔 서술형 슬롯 수가 불변 → MC 수 = 전체 미주 − es_form.
+        # RepeatFind ×n(_find_all) 없는 산술이라 O(k×n) COM 왕복이 사라진다(병목 감사
+        # 2026-08-09 — 서술형 grow 는 원래 이 방식). 최종 확정은 실측 _mc_count() 유지
+        # ('실제 개수 기반 while' 원칙 그대로 — 산술도 실제 앵커 수 기반이다).
+        def _mc_count_fast():
+            return len(_en_anchors(h)) - es_form
+
         # 객관식: 템플릿(2번 슬롯) 복사 → MC 끝(첫 서술형 앞)에 삽입.
         if n_mc > mc_form >= 2:
             a = _en_anchors(h)
             _copy_range(h, a[1], a[2])
             guard = 0
-            while _mc_count() < n_mc and guard < (n_mc - mc_form) + 12:
+            while _mc_count_fast() < n_mc and guard < (n_mc - mc_form) + 12:
                 h.Run("MoveDocBegin")
-                cur = _mc_count()
+                cur = _mc_count_fast()
                 a = _en_anchors(h)
                 _paste_at(h, a[cur])                # a[현재 MC수] = 첫 서술형 = MC 끝
                 guard += 1
@@ -968,7 +975,9 @@ def _fill_form(mc: list[Question], essays: list[Question], form_path, out_path,
             end = a[mc_now + 1] if mc_now + 1 < len(a) else _answer_block_pos(h)
             _copy_range(h, a[mc_now], end)
             guard = 0
-            while (len(_en_anchors(h)) - _mc_count()) < n_es and guard < (n_es - es_form) + 12:
+            # 서술형 grow 중엔 MC 수(mc_now)가 불변 — 반복마다 _mc_count(RepeatFind ×n)를
+            # 다시 돌릴 이유가 없다(위 _mc_count_fast 와 같은 산술 원칙).
+            while (len(_en_anchors(h)) - mc_now) < n_es and guard < (n_es - es_form) + 12:
                 h.Run("MoveDocBegin")
                 _paste_at(h, _answer_block_pos(h))  # 정답 블록 앞에 삽입
                 guard += 1
@@ -1333,7 +1342,7 @@ def _measure_answer_page(hwpx) -> int:
         pythoncom.CoUninitialize()
 
 
-def _fix_answer_parity(hwpx_path: str | Path) -> int:
+def _fix_answer_parity(hwpx_path: str | Path, page: int | None = None) -> int:
     """정답(답지) 페이지 홀수쪽 **최종 검증·교정** — 모든 본문-높이 후처리 뒤 측정 기반.
 
     `_layout_form` 의 짝수 보정은 레이아웃 직후 측정인데, 그 **뒤** 후처리(<보기> 5×5 폼
@@ -1345,7 +1354,8 @@ def _fix_answer_parity(hwpx_path: str | Path) -> int:
     호출부는 변경 시 `_com_relaunder` 재실행으로 보안경고를 제거한다.
     """
     hwpx_path = Path(hwpx_path).resolve()   # HWP Open 은 상대경로를 조용히 실패(절대경로화 교훈)
-    page = _measure_answer_page(hwpx_path)
+    if page is None:
+        page = _measure_answer_page(hwpx_path)
     if not page or page % 2 == 1:
         return 0
     with zipfile.ZipFile(hwpx_path) as z:
@@ -1725,17 +1735,16 @@ def _layout_form(filled_hwpx, out_hwpx, per_col: int, n_mc: int, n_es: int,
             colbreak |= set(range(n_mc, n))
             blanks.update({i: 0 for i in range(n_mc, n)})
 
-    # 정답(답지) 블록을 새 페이지로 보낸 뒤, 짝수쪽에 떨어지면 빈 페이지 1장으로 밀어
-    # 홀수쪽에 오도록(문제는 짝수쪽 마무리). 정답 페이지를 측정해 패리티 보정.
+    # 정답(답지) 블록을 새 페이지로 보낸다. ⭐ 짝수쪽 패리티 선(先)보정은 제거(2026-08-09
+    # 병목 감사) — 모든 후처리(보기 5×5 폼·메타란 주입)가 본문 높이를 바꾼 뒤
+    # `_fix_answer_parity` 가 **어차피 최종 측정으로 삽입·제거 양방향 교정**한다
+    # (새본리중 B-1 이 그 이유로 도입됨). 여기서 미리 맞춰도 후처리로 다시 어긋나는
+    # 일이 잦았고, 측정 세션(Hwp 기동+Open ~5-8초)만 낭비였다.
     _build_layout(filled_hwpx, out_hwpx, blanks, colbreak, n_mc,
                   answer_pagebreak=True, pack_essays=True)
-    # 단 물리 넘침 자가치유(빈 단 방지) — 패리티 측정 **전에**(재빌드가 쪽수를 바꿈).
+    # 단 물리 넘침 자가치유(빈 단 방지).
     if mc_cols and n_mc:
         _repair_column_overflow(filled_hwpx, out_hwpx, blanks, colbreak, n_mc, mc_cols)
-    ans_page = _measure_answer_page(out_hwpx)
-    if ans_page and ans_page % 2 == 0:
-        _build_layout(filled_hwpx, out_hwpx, blanks, colbreak, n_mc,
-                      answer_pagebreak=True, answer_blank_pages=1, pack_essays=True)
 
 
 def _first_para_end(sec: str) -> int:
@@ -2565,7 +2574,7 @@ def _strip_residual_meta_tokens(hwpx_path: str | Path) -> int:
     return total
 
 
-def _com_relaunder(hwpx_path: str | Path) -> bool:
+def _com_relaunder(hwpx_path: str | Path, measure_answer: bool = False):
     """후처리한 hwpx 를 HWP COM 으로 한 번 더 열어 다시 저장(launder)해 '변조' 보안경고 제거.
 
     XML 후처리(레이아웃·라벨·머리말)는 HWP 저장 **후** 파일을 외부에서 고치므로, HWP 가 여는
@@ -2578,17 +2587,29 @@ def _com_relaunder(hwpx_path: str | Path) -> bool:
     fd, tmp = tempfile.mkstemp(suffix=".hwpx", dir=str(hwpx_path.parent))
     os.close(fd)
     try:
+        ans_page = 0
         with HwpSession(visible=CONVERSION_VISIBLE) as ses:   # 재저장(launder)도 표시
             ses.open(hwpx_path)
             ses.save_hwpx(tmp)
+            if measure_answer:
+                # ⭐ 같은 세션에서 정답쪽 측정 겸용(병목 감사 2026-08-09) — 저장 직후라
+                # 레이아웃 = 저장본과 동일. 별도 측정 세션(Hwp 기동+Open ~5-8초) 제거.
+                # 저장 바이트에는 영향 없음(읽기 전용 SetPos/KeyIndicator).
+                try:
+                    pos = _answer_block_pos(ses.hwp)
+                    if pos is not None:
+                        ses.hwp.SetPos(pos[0], pos[1], pos[2])
+                        ans_page = ses.hwp.KeyIndicator()[3]
+                except Exception:  # noqa: BLE001
+                    ans_page = 0
         _replace_retry(tmp, hwpx_path)   # 방금 Quit 한 COM 의 핸들 레이스 — 직행 금지
-        return True
+        return (True, ans_page) if measure_answer else True
     except Exception:
         try:
             os.remove(tmp)
         except Exception:
             pass
-        return False
+        return (False, 0) if measure_answer else False
 
 
 def write_exam_to_form(
@@ -2799,10 +2820,12 @@ def write_exam_to_form(
         except Exception as e:  # noqa: BLE001
             logger.warning("폼 후처리 실패(_fix_answer_parity): %s", e)
     else:
-        if not _com_relaunder(output_path):
+        _re_ok, _ans_page = _com_relaunder(output_path, measure_answer=True)
+        if not _re_ok:
             logger.warning("폼 후처리 실패(_com_relaunder): 보안경고 제거 재저장 실패")
         try:
-            if _fix_answer_parity(output_path):
+            # 정답쪽은 relaunder 세션에서 이미 측정 — 별도 측정 세션 없이 교정만.
+            if _fix_answer_parity(output_path, page=_ans_page or None):
                 if not _com_relaunder(output_path):
                     logger.warning("폼 후처리 실패(_com_relaunder): 패리티 교정 재저장 실패")
         except Exception as e:  # noqa: BLE001
