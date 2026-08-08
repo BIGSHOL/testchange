@@ -100,6 +100,14 @@ LaTeX 백슬래시를 있는 그대로 쓸 수 있도록 일부러 JSON 을 쓰�
 - "상" / "중" / "하" 중 하나. 배점과 풀이 단계 수를 함께 고려합니다.
 """
 
+# ⚠️⚠️ **마지막 줄을 "JSON 으로 출력하세요" 로 되돌리지 말 것.**
+# 2026-08-08 까지 그렇게 돼 있었는데, SYSTEM 은 "JSON 금지(구분자 형식)"라고 하고 USER
+# 마지막 줄만 JSON 을 요구하는 **정면 모순**이었다. 모델은 마지막 지시를 따르기 쉬워
+# JSON 으로 답했고, 그러면 수학 해설의 LaTeX 백슬래시가 JSON 이스케이프와 충돌해
+#   · `\\sqrt`·`\\overline`·`\\pi` … → **JSON 무효 이스케이프 → 파싱 통째 실패 → 빈 정답**
+#   · `\\frac`·`\\neq`·`\\times`    → 파싱은 되지만 폼피드·개행·탭으로 **명령이 증발**
+# 이 된다(실측 `_parse_sections` 7케이스 중 3건 정답 추출 실패, 나머지도 내용 손상).
+# 수학 해설에 LaTeX 가 없을 수 없으므로 결과는 **거의 모든 문항 실패**다.
 _USER_TEMPLATE = """\
 다음은 {grade}{subject} 시험지의 {kind} {number}번 문항입니다.{score_note}
 
@@ -107,7 +115,8 @@ _USER_TEMPLATE = """\
 {body}
 --- 문항 끝 ---
 
-이 문항을 풀어 정답·해설·단원·난이도를 JSON 으로 출력하세요."""
+이 문항을 풀어 정답·해설·단원·난이도를 **위 구분자 형식 그대로** 출력하세요.
+(`###ANSWER###` … `###END###`. JSON 금지, 코드펜스 금지.)"""
 
 
 # ── OCR JSON 문항 → 프롬프트용 텍스트 ────────────────────────────────
@@ -264,6 +273,35 @@ def _revive_latex_ctrl(s: str) -> str:
     return s
 
 
+# JSON 에서 백슬래시 뒤에 와도 되는 글자(그 외는 **무효 이스케이프**라 파싱이 통째로 실패).
+_JSON_ESCAPABLE = set('"\\/bfnrtu')
+
+
+def _repair_json_escapes(s: str) -> str:
+    """JSON 폴백 전용 — LaTeX 명령의 홑백슬래시를 이스케이프해 **파싱만이라도 되게** 한다.
+
+    ``\\sqrt``·``\\overline``·``\\pi`` 처럼 뒤 글자가 JSON 이스케이프 대상이 아니면
+    `json.loads` 가 **통째로 실패**해 정답이 빈다(실측 7케이스 중 3건). 그 백슬래시만
+    ``\\\\`` 로 늘리면 원문 그대로 살아난다. ``\\f``·``\\n``·``\\t`` 는 유효 이스케이프라
+    여기서 못 살리고, 파싱 뒤 `_revive_latex_ctrl` 이 맡는다(``\\n`` 은 복구 불가).
+
+    ⚠️ 이미 제대로 이스케이프된 ``\\\\`` 는 건드리면 안 된다 — 두 글자를 한 번에 소비한다.
+    """
+    out = []
+    i, n = 0, len(s)
+    while i < n:
+        ch = s[i]
+        if ch == "\\" and i + 1 < n:
+            nxt = s[i + 1]
+            out.append(ch if nxt in _JSON_ESCAPABLE else "\\\\")
+            out.append(nxt)
+            i += 2
+            continue
+        out.append(ch)
+        i += 1
+    return "".join(out)
+
+
 def _parse_sections(text: str) -> dict:
     """응답 본문 파싱 — 구분자 형식 우선, JSON 으로 오면 폴백(제어문자 복구 포함).
 
@@ -282,14 +320,21 @@ def _parse_sections(text: str) -> dict:
     if out:
         return out
     # 폴백: 모델이 지시를 어기고 JSON 을 준 경우(제어문자 복구 후 사용).
-    try:
-        v = json.loads(s)
-    except Exception:  # noqa: BLE001
-        m = re.search(r"\{.*\}", s, re.S)
+    # ⚠️ 원문 → 실패하면 **이스케이프 복구본** → 그래도 실패하면 ``{…}`` 발췌 순으로 시도한다.
+    # 복구본을 먼저 쓰지 않는 이유: 정상 JSON 은 원문 그대로가 항상 옳기 때문이다.
+    v = None
+    for cand in (s, _repair_json_escapes(s)):
         try:
-            v = json.loads(m.group(0)) if m else None
+            v = json.loads(cand)
+            break
         except Exception:  # noqa: BLE001
-            v = None
+            m = re.search(r"\{.*\}", cand, re.S)
+            if m:
+                try:
+                    v = json.loads(m.group(0))
+                    break
+                except Exception:  # noqa: BLE001
+                    pass
     if isinstance(v, dict):
         return {k: (_revive_latex_ctrl(x) if isinstance(x, str) else x)
                 for k, x in v.items()}

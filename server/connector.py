@@ -140,8 +140,7 @@ def ensure_token() -> str:
     return EXPECTED_TOKEN
 
 _convert_lock = threading.Lock()  # 한글 COM 단일 인스턴스 직렬화
-# 마지막 변환의 진단(폼 매칭 결과 등) — 락 안에서만 쓰므로 경쟁 없음.
-_last_diag = {"v": ""}
+_last_diag = {"v": ""}   # 마지막 변환의 진단(어떤 폼으로 렌더됐나). 쓰기·읽기 모두 락 안에서만.
 
 
 def _worker_python() -> str:
@@ -380,6 +379,11 @@ class Handler(BaseHTTPRequestHandler):
         try:
             with _convert_lock:  # 한글 COM 직렬화
                 data = _run_convert_subprocess(body, suffix)
+                # ⚠️ 진단은 **락 안에서** 집어 온다. `ThreadingHTTPServer` 라 동시 요청이
+                # 실재하고, 밖에서 읽으면 락을 놓은 뒤 다른 요청이 덮어쓴 값(= 남의 폼)을
+                # 헤더로 내보낼 수 있다. 지금 창은 아주 좁지만, 이 줄이 밖에 있으면
+                # 리팩터 한 번에 조용히 살아나는 종류의 버그다.
+                diag = _last_diag.get("v") or ""
         except ConvertError as e:
             self._send_json(500, {"error": str(e)}, origin)
             return
@@ -398,8 +402,7 @@ class Handler(BaseHTTPRequestHandler):
             "attachment; filename=\"export{}\"; filename*=UTF-8''{}".format(
                 suffix, quote(name, safe="")))
         # 웹이 "어떤 폼으로 렌더됐나"를 로그에 남길 수 있게 진단을 헤더로 넘긴다.
-        # (헤더는 ASCII 만 안전 → URL 인코딩)
-        diag = _last_diag.get("v") or ""
+        # (헤더는 ASCII 만 안전 → URL 인코딩. 값은 위 락 안에서 이미 집어 왔다.)
         if diag:
             self.send_header("X-Convert-Diag", quote(diag, safe=""))
         self.send_header("Access-Control-Expose-Headers",
