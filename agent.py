@@ -19,7 +19,9 @@ AUTOSTART_NAME = "MathGenHWP"
 AUTOSTART_KEY = r"Software\Microsoft\Windows\CurrentVersion\Run"
 # 트레이 "웹앱 열기" 가 여는 주소. 배포 도메인이 정해지면 env 로 바꿀 수 있게 둔다 —
 # 하드코딩만 두면 도메인이 바뀔 때마다 exe 를 다시 빌드해 전 사용자에게 재배포해야 한다.
-SITE_URL = os.environ.get("MATHGEN_HWP_SITE") or "https://mathgen.para-x.co.kr"
+# 기본값 = 시험지 한글 변환기 웹(2026-08-09 배포처 확정). mathgen 쪽에 나눠 줄 도우미는
+# MATHGEN_HWP_SITE env 로 바꾸거나 그쪽 도메인으로 재빌드한다.
+SITE_URL = os.environ.get("MATHGEN_HWP_SITE") or "https://hwp-convert-web.vercel.app"
 
 
 def _ensure_streams() -> None:
