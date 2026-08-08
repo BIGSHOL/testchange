@@ -5,6 +5,7 @@ python-hwpx로 문서 골격을 생성하고, lxml로 수식 XML을 직접 삽�
 """
 
 from __future__ import annotations
+from core.score_fmt import score_str
 
 import logging
 import os
@@ -778,7 +779,7 @@ class HWPXWriter:
         prefix = " [" if leading_space else "["
         run = self._create_run(p_elem)
         self._set_run_text(run, prefix)
-        self._insert_equation(p_elem, str(score))
+        self._insert_equation(p_elem, score_str(score))
         run = self._create_run(p_elem)
         self._set_run_text(run, "점]")
 

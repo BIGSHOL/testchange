@@ -18,6 +18,7 @@ Claude Code 세션에서 **사람 대신 문항을 풀어** OCR JSON 의
 번들하지 않아 PyInstaller 빌드 크기·호환 위험이 없다.
 """
 from __future__ import annotations
+from core.score_fmt import score_str
 
 import json
 import logging
@@ -167,7 +168,9 @@ def question_to_text(q: dict) -> str:
         num = sub.get("number") or ""
         body = _blocks_to_text(sub.get("contents"))
         sc = sub.get("score")
-        parts.append(f"\n({num}) {body}" + (f" [{sc}점]" if sc else ""))
+        # ⚠️ score_str 필수 — 안 쓰면 모델이 `[3.0점]` 을 보고 exe↔웹이 갈린다
+        # (웹은 JSON 왕복에서 3 으로 접히므로 `[3점]` 을 본다, 적대리뷰 2026-08-08).
+        parts.append(f"\n({num}) {body}" + (f" [{score_str(sc)}점]" if sc else ""))
     choices = q.get("choices") or []
     if choices:
         parts.append("\n")
@@ -401,7 +404,8 @@ def generate_for_question(q: dict, *, api_key: str, model: str, grade: str = "",
         subject=subject or "수학",
         kind=kind,
         number=q.get("number") or "?",
-        score_note=f" (배점 {score}점)" if score else "",
+        # ⚠️ score_str 필수(위와 같은 이유 — 이 문자열이 모델에게 가는 프롬프트다).
+        score_note=f" (배점 {score_str(score)}점)" if score else "",
         body=body,
     )
     # 분류표 표준 어휘를 프롬프트에 실어 준다 — 세션이 분류표 PDF 를 보고 고르던 것과 같은

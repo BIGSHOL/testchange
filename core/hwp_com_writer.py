@@ -445,25 +445,9 @@ _OPEN_SCORE_RE = re.compile(r'\[\s*(?:총\s*)?$')   # 텍스트 끝이 "[" 또�
 _CLOSE_SCORE_RE = re.compile(r'^\s*점\s*\]')        # 텍스트 시작이 "점]"
 
 
-def score_str(score) -> str:
-    """배점 숫자 → 표시 문자열. **정수값이면 소수점을 떼고**, 소수배점은 그대로.
-
-    ⭐ 왜 필요한가(2026-08-08):
-      ① **인쇄 원본과 다르다** — OCR 이 배점을 ``3.0`` 으로 주면 ``str(3.0)`` = "3.0" 이라
-         ``[3.0점]`` 으로 찍힌다. 실제 시험지엔 "[3점]" 으로 인쇄돼 있다.
-      ② **웹과 exe 가 갈린다** — JSON 은 ``3`` 과 ``3.0`` 을 타입으로 구분하지 못한다.
-         exe 는 파이썬 json 이 파싱한 float 를 그대로 쓰지만, 웹은 (서버→브라우저→커넥터)
-         HTTP JSON 을 두 번 거치며 필연적으로 int 로 접힌다. 코드로는 재현 불가라
-         **표시 시점에 정규화**하는 것이 유일하게 양쪽을 같게 만드는 방법이다.
-         (`scripts/web_exe_diff.py` 가 corpus 194편에서 이 차이만 32편 검출했다.)
-
-    소수배점(3.5·4.3)은 실제로 그렇게 인쇄되므로 **건드리지 않는다**.
-    """
-    try:
-        f = float(score)
-    except (TypeError, ValueError):
-        return str(score)
-    return str(int(f)) if f.is_integer() else str(score)
+# 배점 표시 정규화는 `core.score_fmt` 가 단일 출처 — 렌더뿐 아니라 **DeepSeek 프롬프트**
+# 생성기도 같은 함수를 써야 exe↔웹이 갈리지 않는다(적대리뷰 2026-08-08).
+from .score_fmt import score_str  # noqa: E402,F401  (재수출)
 
 
 def _split_trailing_score(blocks: list[ContentBlock]):

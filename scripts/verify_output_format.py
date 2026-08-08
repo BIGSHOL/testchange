@@ -176,6 +176,31 @@ def run_checks():
         "값을 저장후 XML 로 기입 — 완료본(194차 달서고) 규약. 라이브 COM 캐럿 진입은 정답 "
         "블록 앵커 파손 전례(강동중 #20)라 금지")
 
+    # ⭐ #33 배점 표시 단일 출처 — `score_str` 을 **모든** 소비자가 써야 한다.
+    #
+    # 처음엔 렌더 4곳에만 넣었는데, `score` 를 문자열로 만드는 곳은 그 외에도 있었다:
+    # `solution_generator` 의 소문항 배점·문항 배점(=**DeepSeek 프롬프트**)과
+    # `hwpx_writer` 폴백. 그래서 exe 는 모델에 `(배점 3.0점)` 을, 웹은 `(배점 3점)` 을
+    # 보내 **생성되는 정답·해설이 갈리고 그게 그대로 .hwp 에 렌더**됐다(적대리뷰 2026-08-08).
+    # 렌더만 맞춰서는 소용이 없어 grep 게이트로 박제한다.
+    _score_raw = []
+    for rel in ("core/hwp_com_writer.py", "core/hwp_form_writer.py", "core/hwpx_writer.py",
+                "core/solution_generator.py", "gui/main_window.py"):
+        for i, ln in enumerate(_read(ROOT / rel).splitlines(), 1):
+            if ln.lstrip().startswith("#"):
+                continue
+            # ⚠️ `score_str(score)` 안의 `str(score)` 를 잡지 않도록 lookbehind 필수
+            # (첫 시도가 자기 자신을 오탐해 전부 FAIL 이었다).
+            if re.search(r"(?<!score_)str\(\s*(score|sc|num)\s*\)"
+                         r"|\{\s*(score|sc)\s*\}\s*점", ln):
+                _score_raw.append(f"{rel}:{i}")
+    chk(33, "배점 표시는 score_fmt.score_str 단일 출처(raw str(score) 금지)",
+        not _score_raw and "def score_str" in _read(ROOT / "core" / "score_fmt.py"),
+        f"raw 사용 잔존: {', '.join(_score_raw)}" if _score_raw else
+        "3.0 배점이 exe 는 '[3.0점]', 웹은 '[3점]' 으로 갈린다 — JSON 이 int/float 를 "
+        "구분 못 하므로 표시 시점 정규화가 유일한 해법이고, **프롬프트 생성기까지** "
+        "같은 함수를 써야 정답·해설이 안 갈린다")
+
     mid_ok = ("mid" in L) and (r"\mid" in L)
     try:
         if str(ROOT) not in sys.path:
