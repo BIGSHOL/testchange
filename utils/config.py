@@ -45,7 +45,10 @@ _DEFAULTS = {
     "DEEPSEEK_API_KEY": "",
     "DEEPSEEK_MODEL": "deepseek-v4-pro",              # 정답 정확도 우선(flash 대비 3배가)
     "DEEPSEEK_BASE_URL": "https://api.deepseek.com",  # OpenAI 호환 엔드포인트
-    "DEEPSEEK_MAX_WORKERS": 4,     # 문항 병렬(레이트리밋 여유). 0/1 이면 직렬
+    "DEEPSEEK_MAX_WORKERS": 8,     # 문항 병렬(레이트리밋 여유). 0/1 이면 직렬.
+                                   # 4→8(2026-08-09, 사용자): v4-pro 추론 대기가 길어
+                                   # 속도 병목 — 토큰 수(비용)는 동시성과 무관. 웹
+                                   # (App.tsx SOL_WORKERS)과 같은 값 유지.
     # 초 — thinking 모드라 문항당 수 초~수십 초(실측 4~13초). 재시도(HTTP 3 × 빈정답 2)와
     # 곱해지므로 너무 크면 장애 시 사용자가 오래 갇힌다(180 이면 최악 24분/문항 — 적대리뷰).
     "DEEPSEEK_TIMEOUT": 120,

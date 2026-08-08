@@ -94,6 +94,37 @@ def _set_autostart(enable: bool) -> None:
         pass
 
 
+_MUTEX_HANDLE = None   # 프로세스 수명 동안 잡고 있어야 함 — GC 되면 뮤텍스가 풀린다
+
+
+def _already_running() -> bool:
+    """전역 뮤텍스로 중복 실행 감지.
+
+    포트 검사만으론 부족하다 — 두 번째 인스턴스가 조용히 죽으면 사용자는 "안 켜졌다"고
+    다시 더블클릭하고, 죽은 프로세스의 트레이 유령 아이콘까지 겹쳐 아이콘이 여러 개로
+    보인다(실보고 2026-08-09). 뮤텍스 + 안내창으로 명시적으로 알린다.
+    """
+    global _MUTEX_HANDLE
+    try:
+        import ctypes
+        _MUTEX_HANDLE = ctypes.windll.kernel32.CreateMutexW(
+            None, False, "MathGenHWP_SingleInstance")
+        return ctypes.windll.kernel32.GetLastError() == 183  # ERROR_ALREADY_EXISTS
+    except Exception:
+        return False   # 감지 실패 시 실행은 막지 않는다(포트 검사가 2차 방어)
+
+
+def _msgbox(text: str) -> None:
+    """windowed exe 는 콘솔이 없다 — 사용자에게 보이는 유일한 통로가 메시지박스다."""
+    if os.environ.get("MATHGEN_HWP_QUIET"):   # 자동화 테스트용(모달이 프로세스를 붙잡음)
+        return
+    try:
+        import ctypes
+        ctypes.windll.user32.MessageBoxW(None, text, "MathGen HWP 도우미", 0x40)
+    except Exception:
+        pass
+
+
 def _run_tray() -> int:
     import threading
     import webbrowser
@@ -101,10 +132,19 @@ def _run_tray() -> int:
     import pystray
     from server import connector
 
-    # 커넥터 HTTP 서버 — 백그라운드 데몬 스레드. 8765 이미 점유면(중복 실행) 조용히 종료.
+    # ⚠️ 중복 실행 방지 — 반드시 --convert-worker 분기 **뒤**에서만 검사한다(변환
+    # 자식 프로세스는 같은 exe 를 재호출하므로 뮤텍스를 잡으면 변환이 통째로 막힌다).
+    if _already_running():
+        _msgbox("MathGen HWP 도우미가 이미 실행 중입니다.\n"
+                "트레이(시계 옆 ^ 화살표)에서 아이콘을 확인하세요.")
+        return 0
+
+    # 커넥터 HTTP 서버 — 백그라운드 데몬 스레드. 8765 점유면(다른 프로그램) 안내 후 종료.
     try:
         httpd = ThreadingHTTPServer(("127.0.0.1", 8765), connector.Handler)
     except OSError:
+        _msgbox("8765 포트를 다른 프로그램이 쓰고 있어 시작할 수 없습니다.\n"
+                "이미 실행 중인 도우미(또는 개발용 커넥터)를 먼저 종료하세요.")
         return 0
     threading.Thread(target=httpd.serve_forever, daemon=True).start()
 
