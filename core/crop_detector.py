@@ -270,15 +270,46 @@ def _detect_with_gemini(image: Image.Image, api_key: str) -> list[CropBox]:
             config = None
     if config is None:
         config = types.GenerateContentConfig(**cfg_kwargs)
-    resp = client.models.generate_content(
-        model=GEMINI_MODEL,
-        contents=[
-            types.Part.from_bytes(data=img_bytes, mime_type="image/png"),
-            _CROP_PROMPT,
-        ],
-        config=config,
-    )
-    return _parse_crops(resp.text or "")
+    def _gen(cfg):
+        return client.models.generate_content(
+            model=GEMINI_MODEL,
+            contents=[
+                types.Part.from_bytes(data=img_bytes, mime_type="image/png"),
+                _CROP_PROMPT,
+            ],
+            config=cfg,
+        )
+
+    resp = _gen(config)
+    try:
+        return _parse_crops(resp.text or "")
+    except ValueError:
+        # ⭐ STOP-절단 JSON 2상 수리 — OCR 경로(ocr_engine 2026-08-09)와 동일 정책.
+        # temperature 0 은 재생성이 같은 자리에서 깨지므로 ① 온도 0.3 재호출 →
+        # ② 그래도 실패하면 괄호 봉합(_autoclose_json)으로 앞부분 박스라도 살린다
+        # (p5 크롭 절단으로 페이지 통째 소실되던 것 — 웹 crop-detect.ts 와 한 쌍).
+        logger.warning("크롭 JSON 파싱 실패 → 재호출(temp 0.3)")
+        text0 = resp.text or ""
+        cfg2_kwargs = dict(cfg_kwargs, temperature=0.3)
+        cfg2 = None
+        if "flash" in (GEMINI_MODEL or "").lower():
+            try:
+                cfg2 = types.GenerateContentConfig(
+                    thinking_config=types.ThinkingConfig(thinking_budget=0), **cfg2_kwargs)
+            except Exception:   # noqa: BLE001
+                cfg2 = None
+        if cfg2 is None:
+            cfg2 = types.GenerateContentConfig(**cfg2_kwargs)
+        resp2 = _gen(cfg2)
+        text1 = resp2.text or ""
+        try:
+            return _parse_crops(text1)
+        except ValueError:
+            from core.ocr_engine import OCREngine
+            try:
+                return _parse_crops(OCREngine._autoclose_json(text0))
+            except ValueError:
+                return _parse_crops(OCREngine._autoclose_json(text1))
 
 
 def _parse_crops(text: str) -> list[CropBox]:
