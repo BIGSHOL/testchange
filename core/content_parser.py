@@ -207,6 +207,71 @@ def _strip_md_decoration(text: str) -> str:
     return text
 
 
+# ── 해설 줄 자동 개행 ──────────────────────────────────────────────────────
+# ⭐ 정답면은 2단 좁은 칼럼이라 긴 해설 줄이 **옆 글자와 겹치거나 오른쪽에서 잘린다**
+# (오성중 세션 변환 실측 2026-08-09: #12·#16 텍스트 줄 겹침, #7 긴 수식은 결론 127°가
+# 통째로 잘림 — 매번 사람이 눈으로 잡아 손으로 줄을 나눴다). 모델 프롬프트의 "한 줄
+# 60자 내외"는 지켜질 때만 통하는 부탁일 뿐이라, **렌더 직전에 결정적으로 개행**한다.
+# 여기(파서)에 두면 웹·exe·세션 캐시 재렌더 **모든 경로**가 같은 결과를 얻는다.
+#
+# 폭 기준: 한글·전각=2, 그 외=1(반각). 실측 한계 — 겹친 줄이 폭 ~80, 정상 줄이 ~70.
+_SOL_WRAP_WIDTH = 72
+# $…$ 수식은 원자(내부에서 절대 못 끊는다). 폭은 명령·구조문자를 뺀 글리프 수로 근사
+# (중앙중 선택지 2열 판정과 같은 원칙 — LaTeX 원문 길이는 서너 배 부풀어 못 쓴다).
+_SOL_MATH_ATOM_RE = re.compile(r"\$[^$]*\$")
+_SOL_CMD_RE = re.compile(r"\\[a-zA-Z]+|[{}^_]")
+
+
+def _sol_seg_width(seg: str) -> int:
+    """해설 조각의 표시 폭 — 수식은 명령 제거 후 글리프, 한글·전각은 2."""
+    def piece_w(s: str) -> int:
+        return sum(2 if ord(ch) > 0x2E7F else 1 for ch in s)
+    w = 0
+    pos = 0
+    for m in _SOL_MATH_ATOM_RE.finditer(seg):
+        w += piece_w(seg[pos:m.start()])
+        w += piece_w(_SOL_CMD_RE.sub("", m.group()[1:-1]))
+        pos = m.end()
+    return w + piece_w(seg[pos:])
+
+
+def _wrap_solution_line(line: str) -> list[str]:
+    """긴 해설 줄을 공백 경계(수식 $…$ 밖)에서 폭 한계 안으로 나눈다.
+
+    수식 하나가 한계를 넘으면 나눌 수 없어 그대로 둔다(알려진 한계 — 그 경우만은
+    모델 프롬프트의 "짧게" 지시에 기대야 한다).
+    """
+    if _sol_seg_width(line) <= _SOL_WRAP_WIDTH:
+        return [line]
+    # 토큰화: 수식 원자는 통째, 나머지는 공백으로. (공백은 조인 시 복원)
+    tokens: list[str] = []
+    pos = 0
+    for m in _SOL_MATH_ATOM_RE.finditer(line):
+        tokens += line[pos:m.start()].split(" ")
+        # 직전 토큰이 비면(수식 앞이 공백) 그대로 두어 경계를 보존한다.
+        if tokens and tokens[-1] == "":
+            tokens.pop()
+        tokens.append(m.group())
+        pos = m.end()
+    tokens += line[pos:].split(" ")
+    tokens = [t for t in tokens if t != ""]
+
+    lines: list[str] = []
+    cur: list[str] = []
+    cur_w = 0
+    for tok in tokens:
+        tw = _sol_seg_width(tok)
+        if cur and cur_w + 1 + tw > _SOL_WRAP_WIDTH:
+            lines.append(" ".join(cur))
+            cur, cur_w = [tok], tw
+        else:
+            cur_w += (1 if cur else 0) + tw
+            cur.append(tok)
+    if cur:
+        lines.append(" ".join(cur))
+    return lines
+
+
 def _parse_markdown_lines(text: str) -> list[list[ContentBlock]]:
     """정답/해설 문자열 → 줄별 ContentBlock 런 리스트(빈 줄 제외, 수식 forward-split)."""
     if not isinstance(text, str) or not text.strip():
@@ -216,10 +281,11 @@ def _parse_markdown_lines(text: str) -> list[list[ContentBlock]]:
         line = raw_line.strip()
         if not line:
             continue
-        blocks = _parse_inline_run(line)
-        if blocks:
-            # 본문과 동일 타이포그래피 컨벤션(점 라벨 로만체·한글↔수식 공백 등) 적용(§44).
-            out.append(_demote_step_labels(_finalize_solution_blocks(blocks)))
+        for wrapped in _wrap_solution_line(line):
+            blocks = _parse_inline_run(wrapped)
+            if blocks:
+                # 본문과 동일 타이포그래피 컨벤션(점 라벨 로만체·한글↔수식 공백 등) 적용(§44).
+                out.append(_demote_step_labels(_finalize_solution_blocks(blocks)))
     return out
 
 
