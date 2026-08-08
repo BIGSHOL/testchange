@@ -113,6 +113,12 @@ _STRUCT_KEYWORDS = [
     "OVERLINE", "UNDERLINE", "ACUTE", "GRAVE",
 ]
 
+# 변환기(latex_to_hwpeq)가 실제로 내보내는 **소문자** 스타일/장식 키워드 — 폭 0.
+# substring 치환은 식별자 글자를 오식하므로 단어 경계 정규식으로만 지운다
+# (`bar` 의 b·a·r 가 글리프로 계산되던 과대추정 수정, 2026-08-09).
+_LOWER_STYLE_KW_RE = re.compile(
+    r"\b(?:rm|it|bar|vec|arch|hat|dot|ddot|tilde|acute|grave|under)\b")
+
 # ── HYhwpEQ 폰트 메트릭 (C:\Windows\Fonts\HYHWPEQ.TTF) ───────────
 # unitsPerEm=1024, baseUnit=1000 → hwpunit ≈ font_advance × 0.9766
 
@@ -277,6 +283,12 @@ def _measure_hwpeq_width(script: str, scale: float = 1.0) -> float:
             width += 1000 * scale
 
     # 2. 구조 키워드 + 구문 공백 제거
+    # ⚠️ 소문자 스타일/장식 키워드(rm·it·bar·vec·arch…)는 substring 치환이 아니라
+    # **단어 경계**로 지운다 — _STRUCT_KEYWORDS 는 대문자 BAR/HAT 만 알아서 변환기가
+    # 실제로 내보내는 소문자 `bar {rm {AP}}` 의 키워드 글자가 글리프로 계산돼 폭이
+    # 3~4배 부풀었다(오성중 정답면 실측: bar{rm{AP}}=bar{rm{AB}} 추정 11001 vs 실제
+    # ~5600). 식별자는 전부 1글자라 단어 경계 삭제가 안전하다.
+    s = _LOWER_STYLE_KW_RE.sub("", s)
     for cmd in _STRUCT_KEYWORDS:
         s = s.replace(cmd + " ", "")
         s = s.replace(cmd, "")

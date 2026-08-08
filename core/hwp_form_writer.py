@@ -2315,9 +2315,18 @@ def _eq_xml(script: str, base_unit: int = _EQ_BASE_UNIT_DEFAULT) -> str:
     try:
         from core.hwpx_writer import _estimate_equation_size
         w, h = _estimate_equation_size(script)
-        # 추정치는 baseUnit 1000 기준 — 실제 크기에 비례 보정(최종 크기는 HWP 가 재계산).
-        w = int(w * base_unit / 1000)
-        h = int(h * base_unit / 1000)
+        # 추정치는 baseUnit 1000 기준 — 실제 크기에 비례 보정. ⚠️ 높이는 추정기의
+        # 1200/2400 이진값 대신 **COM native 실측 비율**(baseUnit 1100 → 1125)로 맞춘다:
+        # 1320(=1200×1.1)짜리 박스는 vertAlign TOP 이라 한 줄 수식(숫자 하나)이 본문
+        # 베이스라인보다 떠 보였다(오성중 step 라벨 실측). .hwp 저장은 HWP 가 재계산
+        # 하지만 .hwpx 경로(검증·HWP 미설치 폴백)는 이 값이 그대로 렌더된다.
+        # 폭 안전계수 — 과소추정은 뒤 텍스트가 수식 위로 **겹치고**(오성중 step2 분수+접미
+        # 실측), 과대추정은 약간의 여백뿐이라 비대칭 위험이다. 분수(2단)는 추정기가 분자를
+        # 0.75 축소로 재지만 HWP `over` 는 거의 원크기로 조판해 더 크게 잡는다(1.4).
+        # 최종 .hwp 저장(save_as_hwp = 형식 변환)은 HWP 가 재계산하므로 배포 출력엔 영향 없다.
+        lines = 2 if h >= 2400 else 1
+        w = int(w * base_unit / 1000 * (1.4 if lines == 2 else 1.15))
+        h = int(base_unit * 1.023 * lines)
     except Exception:  # noqa: BLE001
         w, h = max(1000, len(script) * 250), base_unit
     return (

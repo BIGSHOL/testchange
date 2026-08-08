@@ -289,19 +289,51 @@ def _parse_markdown_lines(text: str) -> list[list[ContentBlock]]:
     return out
 
 
-# 해설 단계 머리 ``step1)`` — 완료본(194차 달서고 등)은 **정자 텍스트**다. 인라인 분리기가
-# 뒤 내용에 따라 ``step1`` 을 수식으로 승격해(같은 시험지 안에서도 줄마다 들쭉날쭉) 이탤릭
-# ``step1`` 이 되던 것을 되돌린다(2026-07-24).
-_STEP_LABEL_RE = re.compile(r"^(?:step|Step|STEP)\s*\d+$")
+# 해설 단계 머리 ``step1)`` — ``step`` 은 정자 텍스트, **숫자는 수식 객체**(사용자 2026-08-09:
+# "숫자는 수식처리한다는 룰" — 합의 #6 을 step 라벨 숫자에도 적용). 과거(2026-07-24)엔 라벨
+# 통째 정자였으나, 본문·배점의 모든 숫자가 수식 객체인 것과 어긋나 개정. 인라인 분리기가
+# ``step1`` 을 통째 수식으로 승격하거나(이탤릭 step) 통째 TEXT 로 남기는 들쭉날쭉함도
+# 여기서 한 형태(TEXT ``step`` + EQ ``N``)로 정규화한다.
+_STEP_LABEL_RE = re.compile(r"^(step|Step|STEP)\s*(\d+)(.*)$", re.DOTALL)
 
 
 def _demote_step_labels(blocks: list[ContentBlock]) -> list[ContentBlock]:
-    """해설 줄 선두의 ``stepN`` 수식 블록을 평문으로 되돌린다(정자 통일)."""
-    for b in blocks[:1]:                       # 줄 선두만(본문 중간 'step' 은 손대지 않음)
-        if b.type == ContentType.EQUATION and _STEP_LABEL_RE.match((b.value or "").strip()):
-            b.type = ContentType.TEXT
-            b.value = (b.value or "").strip()
-    return blocks
+    """해설 줄 선두 ``stepN)`` 라벨 → **단일 수식** ``\\mathrm{step}N)``.
+
+    TEXT ``step`` + EQ ``N`` 분리형은 수식 outMargin·괄호 경계 때문에 ``step1 )`` 처럼
+    벌어지고 숫자만 떠 보인다(오성중 재렌더 실측). 라벨 통째 한 수식이면 rm 스코프가
+    숫자·괄호까지 정자로 이어져(도원중 rm 번짐 성질을 역이용) 경계 없이 ``step1)`` 로
+    렌더되면서 숫자는 수식 객체 안에 있다(합의 #6).
+    """
+    if not blocks:
+        return blocks
+    b = blocks[0]                              # 줄 선두만(본문 중간 'step' 은 손대지 않음)
+    if b.type not in (ContentType.TEXT, ContentType.EQUATION):
+        return blocks
+    m = _STEP_LABEL_RE.match((b.value or "").strip())
+    if not m:
+        return blocks
+    # 수식 블록은 값이 ``stepN`` 딱일 때만(수식 안에 다른 내용이 섞이면 라벨이 아님).
+    if b.type == ContentType.EQUATION and m.group(3):
+        return blocks
+    rest = m.group(3)
+    tail = blocks[1:]
+    label = "\\mathrm{step}" + m.group(2)
+    if rest.startswith(")"):                   # 닫는 괄호까지 수식에 흡수(경계 간격 제거)
+        label += ")"
+        rest = rest[1:]
+    elif (not rest and tail and tail[0].type == ContentType.TEXT
+          and (tail[0].value or "").lstrip().startswith(")")):
+        # 분리형(EQ|TEXT ``step1`` + TEXT ``) …``) — 괄호가 다음 블록 선두에 있다.
+        label += ")"
+        tail = tail[:]
+        nxt = tail[0].value.lstrip()[1:]
+        tail[0] = ContentBlock(type=ContentType.TEXT, value=nxt,
+                               bold=tail[0].bold, underline=tail[0].underline)
+    head = [ContentBlock(type=ContentType.EQUATION, value=label)]
+    if rest.strip():
+        head.append(ContentBlock(type=ContentType.TEXT, value=rest))
+    return head + tail
 
 
 def _parse_question(q_data: dict) -> Question:
@@ -1785,7 +1817,25 @@ def _finalize_solution_blocks(blocks: list[ContentBlock]) -> list[ContentBlock]:
     blocks = _romanize_angle_letters(blocks)         # 각 단일대문자 로만체
     blocks = _romanize_context_units(blocks)         # 문맥상 단위 수식 로만화
     blocks = _space_hangul_before_eq(blocks)         # 한글 끝 + 수식 사이 공백
+    blocks = _tighten_eq_comma_separators(blocks)    # 수식 나열 쉼표는 수식에 밀착(", ")
     blocks = _rstrip_last_text(blocks)               # 끝 TEXT 꼬리 공백 제거
+    return blocks
+
+
+# 수식 나열 쉼표 — 모델이 ``$a=2$ , $b=5$`` 처럼 쉼표 **양옆에 공백**을 넣으면 렌더에서
+# 수식 outMargin 까지 겹쳐 ``a=2 , b=5`` 로 벌어진다(사용자 2026-08-09: "-3, 2, -3 처럼
+# 쉼표 처리가 되어야지"). 본문 값나열 컨벤션(개별 수식 + TEXT ", ")과 같게, 수식 뒤 TEXT 가
+# 공백+쉼표로 시작하면 쉼표를 수식에 밀착시킨다. 해설 전용(본문 VL 산출물은 원래 ", ").
+_LEAD_SPACE_COMMA_RE = re.compile(r"^[ \t]+(?=,)")
+
+
+def _tighten_eq_comma_separators(blocks: list[ContentBlock]) -> list[ContentBlock]:
+    """``EQ + TEXT(" , …")`` 경계의 쉼표 앞 공백 제거 — ``$-3$, $2$`` 밀착 나열."""
+    eq_types = (ContentType.EQUATION, ContentType.EQUATION_BLOCK)
+    for i in range(1, len(blocks)):
+        b, prev = blocks[i], blocks[i - 1]
+        if b.type == ContentType.TEXT and prev.type in eq_types and b.value:
+            b.value = _LEAD_SPACE_COMMA_RE.sub("", b.value)
     return blocks
 
 

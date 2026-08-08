@@ -113,8 +113,10 @@ JSON 을 `parse_ocr_response`/`build_document` 에 직접 넣어 렌더까지 �
   `_eq_xml`(hwpx_writer 골든 속성: baseLine=85·treatAsChar=1·outMargin 170·HYhwpEQ).
 - **데이터**: OCR JSON 에 `"answer"`·`"solution"`(줄바꿈 구분 마크다운, `$…$`=수식)·`"topic"`·
   `"difficulty"`. `Question.difficulty` 필드 신설. 해설 줄머리 `stepN)` 은 파서
-  `_demote_step_labels` 가 **정자 텍스트로 고정**(인라인 분리기가 줄마다 이탤릭 수식으로
-  승격하던 것 — 완료본은 정자).
+  `_demote_step_labels` 가 **단일 수식 `\mathrm{step}N)`**(→`rm step1)`, rm 번짐으로 통째
+  정자)로 정규화(2026-08-09 개정 — 사용자 "숫자는 수식" 룰. 과거 정자 TEXT 고정은 분리형
+  `step1 )` 벌어짐·숫자 뜸이 있었다). 해설 수식 나열 쉼표는 `_tighten_eq_comma_separators`
+  가 수식에 밀착(`$-3$, $2$`), 해설 문체는 프롬프트가 평서형(~이다) 강제.
 - **정답 생성 = 결정적 검산 우선**: 문항을 파이썬으로 풀어 선택지와 대조한다.
   경원고 기하 실증: 자동 정답 **19/19 사람 작업본과 일치**, 소단원 20/20 동일 표기.
 - **⭐ 정답 오류 표기 규약**(사용자 2026-07-24): 검산 결과가 선택지와 안 맞으면 **비워 두지
