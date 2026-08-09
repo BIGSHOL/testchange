@@ -567,7 +567,15 @@ def _merge_boxes(a: list, b: list, page_w: int) -> list:
             ap = max(1, (p[2] - p[0]) * (p[3] - p[1]))
             aq = max(1, (q[2] - q[0]) * (q[3] - q[1]))
             if ix * iy / min(ap, aq) >= 0.8:
-                drop.add(j if aq <= ap else i)
+                # ⭐ **거의 같은 상자면 작은 쪽**(=본문 줄을 잘라낸 쪽)을 남긴다. 한
+                # 패스에서만 침범 줄 트림이 성립하면 다른 패스의 안 잘린 상자가 '더
+                # 크다'는 이유로 이겨 침범이 남았다(대륜중 #1 아래 선택지 띠 실측).
+                near_same = (ix * iy / max(ap, aq) >= 0.9
+                             and abs(p[0] - q[0]) <= 3 and abs(p[2] - q[2]) <= 3)
+                if near_same:
+                    drop.add(i if ap >= aq else j)
+                else:
+                    drop.add(j if aq <= ap else i)
     keep = [x for k, x in enumerate(all_b) if k not in drop]
     return _reading_order(keep, page_w)
 
@@ -876,7 +884,28 @@ def _detect_once(img: Image.Image, debug: bool = False,
                 break
 
         # ── 발문/본문 줄 침범 제거: 클러스터 가장자리에 걸친 긴 텍스트 줄을 잘라낸다 ──
-        for (lx0, ly0, lx1, ly1) in line_boxes:
+        # ⭐ 선택지 줄은 항목 사이 간격이 넓어 **한 줄이 여러 조각**으로 잡힌다
+        # (대륜중 #1 아래 "① A(2,3)  ② B(-3,1)" 이 5.9H·8.4H·7.1H 세 조각 → 폭 10H
+        # 문턱을 아무도 못 넘겨 침범이 남았다). 세로로 겹치는 조각을 한 행으로 묶어
+        # 판정한다 — 단 **그림 x 범위를 벗어나는 행만**(그림 안 축 라벨 행은 그림 폭
+        # 안에 머문다) 대상으로 삼아 정상 그림이 깎이지 않게 한다.
+        rows_lb: list[list] = []
+        for lb in sorted(line_boxes, key=lambda b_: b_[1]):
+            for r in rows_lb:
+                ov = min(r[3], lb[3]) - max(r[1], lb[1])
+                if ov > 0 and ov >= min(r[3] - r[1], lb[3] - lb[1]) * 0.5:
+                    r[0] = min(r[0], lb[0]); r[1] = min(r[1], lb[1])
+                    r[2] = max(r[2], lb[2]); r[3] = max(r[3], lb[3]); r[4] += 1
+                    break
+            else:
+                rows_lb.append([lb[0], lb[1], lb[2], lb[3], 1])
+        # 조각이 2개 이상 모인 행 + 그림 바깥까지 뻗은 행 + **상자 바로 아래/위 가장자리**
+        # 에 걸린 행만. (35% 범위까지 허용하면 그림 안 라벨 행이 걸려 정상 그림이 잘린다.)
+        merged = [tuple(r[:4]) for r in rows_lb
+                  if r[4] >= 2
+                  and ((cl["x0"] - r[0]) >= H * 1.5 or (r[2] - cl["x1"]) >= H * 1.5)
+                  and (abs(cl["y1"] - r[1]) <= H * 1.5 or abs(r[3] - cl["y0"]) <= H * 1.5)]
+        for (lx0, ly0, lx1, ly1) in list(line_boxes) + merged:
             # 긴 본문 줄이거나, **그림보다 왼쪽에서 시작하는 줄**(선택지·본문은 단
             # 왼쪽 여백에서 시작하고 그림은 가운데 놓인다 — 학산중 #12 "④ 4 ⑤ 16"
             # 처럼 마커가 2개뿐이라 마커 구조 판정이 성립 안 하는 줄을 잡는다).
