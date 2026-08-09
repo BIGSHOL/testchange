@@ -1854,22 +1854,74 @@ def _fill_exam_range(hwpx_path: str | Path, range_text: str) -> int:
 
     폼 원문의 그 줄은 ``<hp:t> ~ </hp:t>`` 하나뿐이다(오성중 렌더 실측). 정확히
     ``공백~공백`` 인 텍스트 노드만 바꿔 다른 ``~``(수식 HWP 공백 등)는 건드리지 않는다.
+
+    ⭐ 긴 범위는 **폰트 단계 축소**(사용자 2026-08-09 "스마트 처리") — 배너 폭을 넘으면
+    줄바꿈돼 뒷부분이 안 보였다(함지고 "선분의 내분점과 외분점 ~ 점과 직선 사이의 거리").
+    폭(전각 2·반각 1) ≤40 유지 / ≤52 는 85% / 초과는 70% 로, 해당 run 의 charPr 를
+    축소 클론으로 교체한다(다른 텍스트의 charPr 는 공유돼 있어도 무손상 — 새 id 사용).
     """
     hwpx_path = Path(hwpx_path)
     with zipfile.ZipFile(hwpx_path) as z:
         infos = z.infolist()
         data = {i.filename: z.read(i.filename) for i in infos}
+    width = sum(2 if ord(c) > 0x2E7F else 1 for c in range_text)
+    scale = 1.0 if width <= 40 else (0.85 if width <= 52 else 0.7)
     n = 0
     for fn in list(data):
         if not re.search(r"section\d+\.xml$", fn):
             continue
         s = data[fn].decode("utf-8")
-        s2, cnt = re.subn(r"(<hp:t[^>]*>)\s*~\s*(</hp:t>)",
-                          lambda m: m.group(1) + _xml_text(range_text) + m.group(2),
-                          s, count=1)
-        if cnt:
-            data[fn] = s2.encode("utf-8")
-            n += cnt
+        m = re.search(r"(<hp:t[^>]*>)\s*~\s*(</hp:t>)", s)
+        if not m:
+            continue
+        s = s[:m.start()] + m.group(1) + _xml_text(range_text) + m.group(2) + s[m.end():]
+        if scale < 1.0:
+            # 치환 지점을 품은 run 의 charPr 를 축소 클론으로 교체.
+            rs = s.rfind("<hp:run", 0, m.start())
+            run_end = s.find(">", rs) + 1 if rs >= 0 else 0
+            rm = (re.search(r'charPrIDRef="(\d+)"', s[rs:run_end])
+                  if rs >= 0 and run_end > rs else None)
+            hdr_name = next((k for k in data if k.endswith("header.xml")), None)
+            if rm and hdr_name:
+                cp_id = rm.group(1)
+                hdr = data[hdr_name].decode("utf-8")
+                # charPr 블록 — self-closing(`…/>`)과 paired(`…>…</hh:charPr>`) 구분.
+                open_m = re.search(r'<hh:charPr id="' + cp_id + r'"[^>]*?(/?)>', hdr)
+                block = None
+                if open_m:
+                    if open_m.group(1) == "/":
+                        block = open_m.group(0)
+                        blk_end = open_m.end()
+                    else:
+                        close = hdr.find("</hh:charPr>", open_m.end())
+                        if close >= 0:
+                            blk_end = close + len("</hh:charPr>")
+                            block = hdr[open_m.start():blk_end]
+                ids = [int(x) for x in re.findall(r'<hh:charPr id="(\d+)"', hdr)]
+                if block and ids:
+                    new_id = max(ids) + 1
+                    clone = block.replace(f'id="{cp_id}"', f'id="{new_id}"', 1)
+                    clone = re.sub(r'height="(\d+)"',
+                                   lambda hm: f'height="{int(int(hm.group(1)) * scale)}"',
+                                   clone, count=1)
+                    # ⚠️ 반드시 목록 **끝**(</hh:charProperties> 직전)에 — HWPX 는
+                    # charPr id=순번 규약이라 중간 삽입하면 relaunder 때 HWP 가 위치
+                    # 기준으로 재해석해 참조가 엉뚱한 charPr 로 풀린다(실측: 축소 소실).
+                    ce = hdr.find("</hh:charProperties>")
+                    if ce < 0:
+                        continue
+                    hdr = hdr[:ce] + clone + hdr[ce:]
+                    hdr = re.sub(r'(<hh:charProperties[^>]*itemCnt=")(\d+)(")',
+                                 lambda im: im.group(1) + str(int(im.group(2)) + 1) + im.group(3),
+                                 hdr, count=1)
+                    data[hdr_name] = hdr.encode("utf-8")
+                    # run 여는 태그 안의 charPrIDRef 만 교체.
+                    open_tag = s[rs:run_end].replace(f'charPrIDRef="{cp_id}"',
+                                                     f'charPrIDRef="{new_id}"', 1)
+                    s = s[:rs] + open_tag + s[run_end:]
+                    logger.info("[폼] 시험범위 폰트 축소 %d%% (폭 %d)", int(scale * 100), width)
+        data[fn] = s.encode("utf-8")
+        n += 1
     if n:
         from core.hwp_com_writer import _rewrite_zip
         _rewrite_zip(hwpx_path, infos, data)

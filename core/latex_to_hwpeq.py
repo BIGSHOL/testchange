@@ -30,6 +30,44 @@ _SENT_RB = "\x02"  # \}
 # ``LEFT "{"`` 는 파싱이 깨져 ``" … ÿ)`` 로 렌더된다(실측 2026-07-31, 후보 H·I·L).
 # 그렇다고 변환 도중 맨 중괄호로 두면 step 12 그룹핑 재귀(\{…\})가 다시 먹으므로 sentinel.
 _SENT_DLB = "\x03"  # LEFT 구분자 {
+
+# 맨 ``\{…\}`` 승격 판정 — 내용에 이 2단 구조가 있으면 고정 리터럴 중괄호가 내용을
+# 못 감싼다(조건제시법 분수 실측). \left\{ 의 ``\{`` 를 오인하지 않게 앞말을 본다.
+_TALL_INNER_RE = re.compile(
+    r"\\(?:d?frac|sqrt|sum|prod|int|binom|over(?:line)?\b)|\batop\b")
+
+
+def _upgrade_tall_set_braces(s: str) -> str:
+    """키 큰 내용을 품은 맨 ``\\{…\\}`` 를 ``\\left\\{…\\right\\}`` 로 승격."""
+    i = 0
+    while True:
+        j = s.find(r"\{", i)
+        if j < 0:
+            return s
+        # ``\left\{``/``\right\{`` 의 일부면 건너뛴다(이미 자동크기 경로).
+        head = s[max(0, j - 6):j]
+        if head.endswith("\\left") or head.endswith("\\right") or head.endswith("middle"):
+            i = j + 2
+            continue
+        depth, k = 1, j + 2
+        while k < len(s) and depth:
+            if s.startswith(r"\{", k):
+                depth += 1
+                k += 2
+            elif s.startswith(r"\}", k):
+                depth -= 1
+                k += 2
+            else:
+                k += 1
+        if depth:                      # 짝 없음 — 그대로 두고 종료
+            return s
+        inner = s[j + 2:k - 2]
+        if _TALL_INNER_RE.search(inner):
+            s = s[:j] + r"\left\{" + inner + r"\right\}" + s[k:]
+            i = j + 7                  # \left\{ 뒤부터 재개
+        else:
+            i = k
+    return s
 _SENT_DRB = "\x04"  # RIGHT 구분자 }
 # ``\middle|`` — 짝 없는 중간 구분자. HWP 는 ``LEFT { … RIGHT | … RIGHT }`` 로 표기한다
 # (실측 후보 B·C). ``\mid``(→``|``)가 ``\middle`` 을 접두 매칭해 ``|dle|`` 로 새던 버그
@@ -887,6 +925,12 @@ class LaTeXToHWPConverter:
         # 동그라미 기호 정규화: \textcircled{N|ㄱ|가} → 유니코드 ①/㉠/㉮
         s = _normalize_circled(s)
 
+        # ⭐ 키 큰 내용을 품은 맨 ``\{…\}`` → ``\left\{…\right\}`` 승격(사용자 2026-08-09):
+        # 조건제시법 ``B=\{\frac{x+14}{3}|x\in A\}`` 를 모델이 \left 없이 주면 고정 크기
+        # 리터럴 ``"{"``/``"}"`` 가 분수를 못 감쌌다. 내용에 2단 구조가 있을 때만 —
+        # 짧은 ``\{7,13\}`` 은 종전 리터럴 유지(2026-07-31 corpus 무회귀 결정 보존).
+        # ⚠️ 반드시 sentinel 보호 **앞**에서 — 보호 뒤엔 ``\{`` 가 이미 사라져 무효.
+        s = _upgrade_tall_set_braces(s)
         # 리터럴 중괄호 \{ \} 를 sentinel로 보호(그룹핑 {}와 구분, 변환 중 훼손 방지).
         s = s.replace(r"\{", _SENT_LB).replace(r"\}", _SENT_RB)
 

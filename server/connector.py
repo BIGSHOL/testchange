@@ -43,6 +43,9 @@ VERSION = "1.1.0"
 # 시험지를 **구조적으로 100% 실패**시키고(살해 후 같은 payload 재시도 → 또 180초
 # 소모 → 500) 총 6분+CPU 를 낭비했다. env 로 조정 가능.
 CONVERT_TIMEOUT_S = int(os.environ.get("MATHGEN_HWP_TIMEOUT", "360"))
+
+# 동시 변환 잠금 — HWP COM 은 1건씩(여러 탭/브라우저 동시 요청은 409).
+_CONVERT_LOCK = threading.Lock()
 ALLOWED_ORIGINS = {
     "http://localhost:3000",
     "http://127.0.0.1:3000",
@@ -353,6 +356,20 @@ class Handler(BaseHTTPRequestHandler):
                 }, origin)
                 return
 
+        # ⭐ 동시 변환 차단 — HWP COM 은 한 번에 하나만 안전하다. 웹을 여러 탭/창으로
+        # 띄워 동시에 돌리면 렌더가 충돌하므로, 두 번째 요청은 409 로 즉시 거절한다
+        # (웹 쪽 Web Locks 는 같은 브라우저만 막고, 이건 도우미 차원의 최종 방어).
+        if not _CONVERT_LOCK.acquire(blocking=False):
+            self._send_json(409, {
+                "error": "다른 변환이 진행 중입니다 — 앞의 변환이 끝난 뒤 다시 시도하세요.",
+            }, origin)
+            return
+        try:
+            self._do_convert(origin)
+        finally:
+            _CONVERT_LOCK.release()
+
+    def _do_convert(self, origin) -> None:
         try:
             length = int(self.headers.get("Content-Length", 0))
         except ValueError:
