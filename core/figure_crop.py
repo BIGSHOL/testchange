@@ -1139,6 +1139,38 @@ def _detect_once(img: Image.Image, debug: bool = False,
         # (대륜중 #6: ①+④ 병합 상자가 마커 왼쪽 밖이라 따로 살아남았다) → 재정리.
         kept = _drop_nested(split)
 
+        # ⭐ 선택지 마커(①②③)는 **크롭에서 잘라낸다.** 폼이 자기 ①②③ 을 이미 찍으므로
+        # 그림 안에 원본 번호가 같이 들어가면 번호가 두 번 보인다(대륜중 #6, 사용자 지적
+        # 2026-08-10). 상자 좌·우 가장자리(3H 이내)에 있는 마커만 대상 — 그림 한가운데
+        # 원문자(㉠ 라벨 등)는 건드리지 않는다.
+        trimmed = []
+        for cl in kept:
+            # ⚠️ **선택지 칸인 상자에만** 적용한다(좌상단에 마커가 있는 것). 일반 그림에
+            # 적용하면 도형 라벨(O·P)이 가장자리에 있을 때 그림이 깎인다(기준선 경계변화
+            # 7건 실측 — ws3/hs3 의 stem 그림들이 왼쪽 40~70px 잘렸다).
+            if not _lead_marker(cl):
+                trimmed.append(cl)
+                continue
+            nx0, nx1 = cl["x0"], cl["x1"]
+            for mk in markers:
+                if mk["y1"] <= cl["y0"] or mk["y0"] >= cl["y1"]:
+                    continue
+                if mk["x1"] <= cl["x0"] + H * 3 and mk["x1"] > nx0:
+                    nx0 = mk["x1"]
+                if mk["x0"] >= cl["x1"] - H * 3 and mk["x0"] < nx1:
+                    nx1 = mk["x0"]
+            if nx1 - nx0 >= H * 3 and (nx0, nx1) != (cl["x0"], cl["x1"]):
+                t = _trim_to_ink({**cl, "x0": int(nx0), "x1": int(nx1)})
+                if t and _big(t):
+                    cl = t
+            trimmed.append(cl)
+        kept = trimmed
+
+        # ⚠️ 폐기: '그림 아래 선택지 행에서 자르기'(대륜중 #1 하단 띠). 가로 마커 행을
+        # 경계로 삼아 봤으나 기준선에서 **정상 그림 4건이 소실·3건이 훼손**됐다 —
+        # 그림 안 원문자 라벨과 진짜 선택지 행을 y 만으로는 못 가른다. 하단 띠는
+        # 남겨 두는 편이 낫다(내용 손실 없음).
+
     # ⭐ 가장자리 여유(사용자 제안 2026-08-09): 검출 해상도(1800px)에서 원본으로
     # 되돌릴 때의 반올림 + 이진화가 놓친 안티앨리어싱 획 때문에 라벨 끝이 1~2px
     # 잘릴 수 있다. 검출 좌표 기준 PAD_DET px 를 넉넉히 두고 이미지 밖은 클램프.

@@ -53,6 +53,12 @@ _MINGAP = 1
 # 폼 그림 표시 최대 가로 픽셀. insert_picture 는 원본 픽셀 크기로 삽입하므로
 # (96dpi: 260px≈69mm) 단 너비(≈80mm)를 넘지 않게 축소해 단 넘침을 막는다.
 FORM_FIG_MAX_W = 260
+# 선택지 슬롯 그림 최대 폭(px) — 한 줄에 마커+그림이 들어가야 하므로 발문 그림보다 작게.
+FORM_CHOICE_FIG_W = 110
+# 크롭 원본(스캔 렌더) 해상도 — 그림을 **원본 인쇄 크기**로 넣을 때의 px→mm 환산 기준.
+# HWP InsertPicture 는 96dpi 로 픽셀을 mm 로 읽으므로, 200dpi 로 뜬 크롭은 96/200 배가
+# 실제 인쇄 크기다. 이걸 안 하면 스캔 해상도가 높을수록 그림만 커진다(사용자 2026-08-10).
+FIG_SRC_DPI = 200
 
 # 머리말/꼬리말 '과목' 자리 매칭 — 수학뿐 아니라 미적분·기하·확률과 통계 등 모든 과목(비캡처).
 # 폼마다 placeholder 과목이 달라(선택과목 폼은 "미적분") 수학만 매칭하면 치환 실패(사용자 2026-06-08).
@@ -67,7 +73,13 @@ _SUBJ_DISPLAY = {
 }
 
 
-def _fit_image_width(path: str, max_w: int = FORM_FIG_MAX_W) -> str:
+def _natural_width(px: int, src_dpi: int = FIG_SRC_DPI) -> int:
+    """스캔 크롭 픽셀 폭 → **원본 인쇄 크기**에 해당하는 96dpi 픽셀 폭."""
+    return max(1, int(round(px * 96.0 / max(1, src_dpi))))
+
+
+def _fit_image_width(path: str, max_w: int = FORM_FIG_MAX_W,
+                     src_dpi: int | None = None) -> str:
     """그림을 흰 배경으로 평탄화하고, max_w(px)보다 넓으면 비율 유지 축소한 임시 PNG.
 
     - 투명 배경(resvg SVG 출력 등) → RGB 변환 시 검정으로 합성되어 그림이 안 보이므로
@@ -82,8 +94,10 @@ def _fit_image_width(path: str, max_w: int = FORM_FIG_MAX_W) -> str:
             bg = _Image.new("RGBA", rgba.size, (255, 255, 255, 255))
             im = _Image.alpha_composite(bg, rgba).convert("RGB")
         w, h = im.size
-        if w > max_w:
-            im = im.resize((max_w, max(1, int(h * max_w / w))), _Image.LANCZOS)
+        # ⭐ 원본 인쇄 크기 우선 — 단 너비를 넘을 때만 더 줄인다(확대는 절대 안 한다).
+        lim = max_w if src_dpi is None else min(max_w, _natural_width(w, src_dpi))
+        if w > lim:
+            im = im.resize((lim, max(1, int(h * lim / w))), _Image.LANCZOS)
         out = os.path.join(tempfile.gettempdir(), f"formfig_{os.path.basename(path)}")
         if not out.lower().endswith(".png"):
             out += ".png"
@@ -246,7 +260,7 @@ def _eq_script(block) -> str:
     return block.hwp_equation or latex_to_hwpeq(block.value, italicize_stat=False)
 
 
-def _put_block(ses, b) -> None:
+def _put_block(ses, b, in_choice: bool = False) -> None:
     """ContentBlock 하나를 현재 캐럿에 삽입(수식/텍스트/그림).
 
     **발문 아래 독립 블록수식(EQUATION_BLOCK)은 가운데 별도줄**(기본 경로 `_write_block`
@@ -281,12 +295,18 @@ def _put_block(ses, b) -> None:
             else:
                 ses.text(b.value)
     elif b.type == ContentType.IMAGE and b.value:
-        # 그림 자동삽입 보류 — 가운데·독립줄에 '직접 캡처해 붙여넣으세요' 안내(사용자 2026-06-05).
-        ses.break_para()
-        ses.align_center()
-        _place_figure(ses, ses.hwp, b.value)
-        ses.break_para()
-        ses.align_left()
+        if in_choice:
+            # 선택지 그림(①~⑤ 가 전부 그래프인 문항)은 **폼 마커 옆 인라인·작게**.
+            # 발문 그림처럼 break+center 로 넣으면 한 선택지가 한 블록을 통째로 차지해
+            # 문항이 여러 쪽에 흩어진다(대륜중 #6 실측 2026-08-10).
+            _place_figure(ses, ses.hwp, b.value, max_w=FORM_CHOICE_FIG_W)
+        else:
+            # 그림 자동삽입 보류 — 가운데·독립줄에 '직접 캡처해 붙여넣으세요' 안내(사용자 2026-06-05).
+            ses.break_para()
+            ses.align_center()
+            _place_figure(ses, ses.hwp, b.value)
+            ses.break_para()
+            ses.align_left()
 
 
 def _fig_token(idx: int) -> str:
@@ -309,7 +329,7 @@ _META_TOKEN_SO = "소단원자리표식QZX"
 _META_TOKEN_NA = "난이도자리표식QZX"
 
 
-def _place_figure(ses, h, path: str) -> bool:
+def _place_figure(ses, h, path: str, max_w: int = FORM_FIG_MAX_W) -> bool:
     """그림(IMAGE) 자리 처리 — 모드 분기(`ses._render_figures`).
 
     - **렌더 모드**(True): 그림을 실제로 삽입(자리표시 pic + 토큰 → 저장후 `_embed_figures` 가
@@ -319,11 +339,11 @@ def _place_figure(ses, h, path: str) -> bool:
       보존 — 사용자 결정 2026-06-05. 자세히: 메모리 `form-figure-pending`.)
     """
     if getattr(ses, "_render_figures", False):
-        return _place_figure_embed(ses, h, path)
+        return _place_figure_embed(ses, h, path, max_w)
     return _place_figure_note(ses, h, path)
 
 
-def _place_figure_embed(ses, h, path: str) -> bool:
+def _place_figure_embed(ses, h, path: str, max_w: int = FORM_FIG_MAX_W) -> bool:
     """렌더 모드: 그림 자리표시 pic(배너참조) + 토큰 삽입, 경로 등록(저장후 _embed_figures 교정)."""
     if not path or not os.path.exists(path):
         return False
@@ -331,13 +351,18 @@ def _place_figure_embed(ses, h, path: str) -> bool:
     if paths is None:
         paths = []
         ses._fig_paths = paths
+    # ⚠️ **임베드할 바이트와 COM 이 삽입한 그림은 같은 파일이어야 한다.** COM 은
+    # `fitted`(단 너비로 축소한 임시 PNG)를 넣고 그 픽셀 크기로 `orgSz`(그림틀)를
+    # 정하는데, `_embed_figures` 가 **원본** 바이트를 넣으면 원본 해상도가 틀보다 커
+    # 그림이 확대·클리핑된다(대륜중 #1 격자 그래프가 좌상단 1/4 만 보임 — 실측
+    # 2026-08-10). 그래서 등록도 `fitted` 로 한다.
+    fitted = _fit_image_width(path, max_w, getattr(ses, "_fig_src_dpi", None))
     idx = len(paths)
-    paths.append(path)
+    paths.append(fitted)
     try:
         ses.text(_fig_token(idx))
     except Exception:
         pass
-    fitted = _fit_image_width(path)
     try:
         h.InsertPicture(fitted, True, 2, 0, 0, 0, 0, 0)
     except Exception:
@@ -891,7 +916,8 @@ def _is_long_choices(q: Question) -> bool:
 
 # ── 1단계: COM 채움 ───────────────────────────────────────
 def _fill_form(mc: list[Question], essays: list[Question], form_path, out_path,
-               render_figures: bool = False) -> tuple[int, int, list]:
+               render_figures: bool = False,
+               figure_src_dpi: int | None = None) -> tuple[int, int, list]:
     """폼을 열어 슬롯 수 조절 + 객관식/서술형 채움 → out_path 저장.
 
     폼은 앞쪽 객관식 슬롯(①②③④⑤ 사전배치) + 뒤쪽 서술형 슬롯([서술형]). 잉여 객관식
@@ -904,6 +930,7 @@ def _fill_form(mc: list[Question], essays: list[Question], form_path, out_path,
     with HwpSession(visible=CONVERSION_VISIBLE) as ses:   # 실시간 작성 표시(스위치: CONVERSION_VISIBLE)
         h = ses.hwp
         ses._render_figures = render_figures   # 그림 처리 모드(_place_figure 가 분기)
+        ses._fig_src_dpi = figure_src_dpi      # 크롭 원본 해상도(원본 인쇄 크기 삽입)
         ses.open(form_path)
         ses.set_char_size(ses.base_pt)
         _merge_sections(h)        # 2구역 → 단일 구역(레이아웃·짝수쪽이 전 영역에 적용되도록)
@@ -919,7 +946,7 @@ def _fill_form(mc: list[Question], essays: list[Question], form_path, out_path,
             _set_plain(h)
             ses.text(" ")
             for b in choice.contents:
-                _put_block(ses, b)
+                _put_block(ses, b, in_choice=True)
 
         def put_question_at(pos, q):
             h.SetPos(pos[0], pos[1], pos[2])
@@ -2020,6 +2047,46 @@ def _fill_form_header(hwpx_path: str | Path, values: dict) -> int:
     return cnt
 
 
+def _strip_fig_token(sec: str, token: str) -> str:
+    """그림 위치 토큰을 지우면서 **그 단락의 `linesegarray` textpos 를 함께 당긴다.**
+
+    ⚠️ 문자만 지우고 linesegarray 를 그대로 두면 HWP 가 그 파일을 **아예 못 연다**
+    (대륜중 선택지 그림 13개 실측 2026-08-10). 토큰 단락은 좁은 슬롯에서
+    ``textpos 0``(토큰 줄) + ``textpos 10``(그림 줄) 두 lineseg 를 갖는데, 토큰 10자를
+    지우면 '10번째 글자에서 줄이 시작' 이 성립하지 않아 파싱이 실패한다. 폼 렌더가
+    통째로 1쪽이 되던 원인이 이것이었다([[hwpx-lineseg-relaunder-trap]] 계열 —
+    거기선 단락이 드롭됐고 여기선 문서가 안 열린다).
+
+    같은 길이 공백으로 바꾸면 열리기는 하지만 그림 앞에 빈칸이 남으므로, 지우고
+    **토큰 뒤쪽 textpos 만 토큰 길이만큼 당긴다**(앞쪽은 불변).
+    """
+    n = len(token)
+    while True:
+        i = sec.find(token)
+        if i < 0:
+            return sec
+        ps = sec.rfind("<hp:p ", 0, i)
+        pe = sec.find("</hp:p>", i)
+        if ps < 0 or pe < 0:                   # 단락 경계를 못 찾으면 종전대로 삭제만
+            sec = sec[:i] + sec[i + n:]
+            continue
+        pe += len("</hp:p>")
+        para, rel = sec[ps:pe], i - ps
+        before = 0                             # 같은 단락에서 토큰 앞 글자 수
+        for t in re.finditer(r"<hp:t>([^<]*)</hp:t>", para):
+            if t.start(1) >= rel:
+                break
+            before += len(t.group(1))
+        para = para[:rel] + para[rel + n:]
+
+        def _shift(m):
+            tp = int(m.group(1))
+            return (m.group(0) if tp <= before
+                    else f'<hp:lineseg textpos="{max(before, tp - n)}"')
+
+        sec = sec[:ps] + re.sub(r'<hp:lineseg textpos="(\d+)"', _shift, para) + sec[pe:]
+
+
 def _embed_figures(hwpx_path: str | Path, fig_paths: list[str]) -> int:
     """그림 binItem 결정적 임베드(저장 후 XML 후처리).
 
@@ -2060,7 +2127,7 @@ def _embed_figures(hwpx_path: str | Path, fig_paths: list[str]) -> int:
                 img_bytes = f.read()
         except Exception:
             # 그림 파일 분실 → 토큰만 제거(깨진 토큰 텍스트 잔존 방지)
-            sec = data[target].decode("utf-8").replace(token, "")
+            sec = _strip_fig_token(data[target].decode("utf-8"), token)
             data[target] = sec.encode("utf-8")
             continue
         img_id = f"image{next_idx}"
@@ -2081,7 +2148,7 @@ def _embed_figures(hwpx_path: str | Path, fig_paths: list[str]) -> int:
             pic2 = re.sub(r'binaryItemIDRef="[^"]*"', f'binaryItemIDRef="{img_id}"', pic, count=1)
             sec = sec[:ppos] + pic2 + sec[pe:]
             embedded += 1
-        sec = sec.replace(token, "")          # 토큰 텍스트 제거
+        sec = _strip_fig_token(sec, token)    # 토큰 제거 + linesegarray 보정
         data[target] = sec.encode("utf-8")
 
     if not new_bins:
@@ -2671,6 +2738,7 @@ def write_exam_to_form(
     per_col: int = PER_COL,
     header_values: dict | None = None,
     render_figures: bool = False,
+    figure_src_dpi: int | None = None,
 ) -> Path:
     """ExamDocument 를 대수회 폼(.hwp)에 채워 .hwpx 로 저장.
 
@@ -2707,7 +2775,8 @@ def write_exam_to_form(
     os.close(fd)
     try:
         n_mc, n_es, fig_paths = _fill_form(mc, essays, form_path, filled,
-                                           render_figures=render_figures)
+                                           render_figures=render_figures,
+                                           figure_src_dpi=figure_src_dpi)
         # 혼합 레이아웃(객관식 행정렬 + 서술형 빽빽배치 2개/단, 답란 미보존).
         # mc 도 넘겨 COM 측정 실패 시 내용기반 추정으로 폴백(과여백 회피).
         _layout_form(filled, output_path, per_col, n_mc, n_es, essays=essays, mc=mc)
