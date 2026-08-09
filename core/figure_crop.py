@@ -753,7 +753,11 @@ def _detect_once(img: Image.Image, debug: bool = False,
 
         # ── 발문/본문 줄 침범 제거: 클러스터 가장자리에 걸친 긴 텍스트 줄을 잘라낸다 ──
         for (lx0, ly0, lx1, ly1) in line_boxes:
-            if (lx1 - lx0) < H * 10:
+            # 긴 본문 줄이거나, **그림보다 왼쪽에서 시작하는 줄**(선택지·본문은 단
+            # 왼쪽 여백에서 시작하고 그림은 가운데 놓인다 — 학산중 #12 "④ 4 ⑤ 16"
+            # 처럼 마커가 2개뿐이라 마커 구조 판정이 성립 안 하는 줄을 잡는다).
+            starts_left = (cl["x0"] - lx0) >= H * 1.5 and (lx1 - lx0) >= H * 4
+            if (lx1 - lx0) < H * 10 and not starts_left:
                 continue
             if lx1 <= cl["x0"] or lx0 >= cl["x1"] or ly1 <= cl["y0"] or ly0 >= cl["y1"]:
                 continue
@@ -805,6 +809,38 @@ def _detect_once(img: Image.Image, debug: bool = False,
                     cl["x0"] = min(cl["x0"], u["x0"]); cl["y0"] = min(cl["y0"], u["y0"])
                     cl["x1"] = max(cl["x1"], u["x1"]); cl["y1"] = max(cl["y1"], u["y1"])
                     u["_used"] = True
+
+        # ── 바닥 클램프: 상자 아래끝은 **그림 잉크 아래끝 + 한 줄** 을 못 넘는다 ──
+        # 잉크 팽창이 그림 밑 선택지 줄까지 연결해 상자가 통째로 내려가는 것을 막는다
+        # (학산중 #12 "④ 4  ⑤ 16" 실측). 치수 라벨 한 줄(1.8H)은 허용.
+        if cl["y1"] > g["y1"] + H * 1.8:
+            cl["y1"] = int(g["y1"] + H * 1.8)
+
+        # ── 우측 함수식 라벨 보강: 그래프 **오른쪽에 떨어져 붙은** 한 줄 라벨 ──
+        # `y=8x^2`·`y=a(x-p)^2+q` 처럼 곡선 옆에 놓인 식은 잉크가 닿지 않아 흡수가
+        # 안 되고, 상자 오른쪽 경계가 라벨 한가운데를 자른다(학산중 #3·#9·#20 실측).
+        # 조건: 그림 오른쪽 2.5H 이내 · 세로로 그림 범위와 겹침 · **한 줄 크기**.
+        # 단 왼쪽 여백에서 시작하는 본문/선택지는 애초에 그림 왼쪽이라 해당 없음.
+        # 라벨은 `y` `=` `-4/3` `x^2` 처럼 여러 조각으로 쪼개진다 → **사슬로 잇는다**
+        # (첫 조각만 먹으면 상자가 라벨 한가운데를 자른다 — 학산중 #9 실측).
+        redge = base["x1"]
+        for u in sorted(units, key=lambda z: z["x0"]):
+            if u.get("_used"):
+                continue
+            if col_of((u["x0"], u["y0"], u["x1"], u["y1"])) != gcol:
+                continue
+            if u["x0"] < base["x1"] or u["x0"] - redge > H * 2.5:
+                continue
+            ucy = (u["y0"] + u["y1"]) * 0.5
+            if not (base["y0"] <= ucy <= base["y1"]):
+                continue          # 중심이 그림 세로 범위 **안**이어야 옆 라벨이다
+            if (u["y1"] - u["y0"]) > H * 2.2 or (u["x1"] - u["x0"]) > H * 10:
+                continue
+            # ⚠️ **가로만 넓힌다** — 세로까지 늘리면 그림 아래 선택지 줄의 오른쪽
+            # 토큰(④)이 걸려 상자가 선택지까지 내려간다(학산중 #11 실측).
+            cl["x1"] = max(cl["x1"], u["x1"])
+            redge = max(redge, u["x1"])
+            u["_used"] = True
 
         # ── 트림 후 정규화: 남은 잉크에 딱 맞추고, 뭉개진 것은 버린다 ──────
         if cl["x1"] - cl["x0"] < H or cl["y1"] - cl["y0"] < H:
