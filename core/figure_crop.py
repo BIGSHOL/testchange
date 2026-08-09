@@ -58,8 +58,17 @@ def _otsu(gray: np.ndarray) -> int:
     return int(np.argmax((mu_t * omega - mu) ** 2 / denom))
 
 
-def _binarize(gray: np.ndarray) -> np.ndarray:
+def _binarize(gray: np.ndarray, boost: int = 0) -> np.ndarray:
+    """`boost` = 연한 획 복구용 임계값 상향(0 이면 종전과 동일).
+
+    ⭐ 왜 필요한가(2026-08-09 학산중 #11·#20 실측): Otsu 는 **검은 본문 글자**가
+    지배해 임계값이 낮게 잡힌다(그 페이지 otsu=158). 연필 아닌 **인쇄 회색 곡선**
+    (포물선·음영 도형)은 그보다 밝아 이진화에서 통째로 사라진다 — 성분 목록에
+    곡선이 아예 없어 '그림 없음'으로 판정됐다. t=190~205 에서야 곡선이 살아난다.
+    """
     t = min(max(_otsu(gray), 90), 205)
+    if boost:
+        t = min(t + boost, 208)
     return gray < t
 
 
@@ -420,7 +429,90 @@ def _text_lines(comps: list[dict], H: float) -> list[list[int]]:
 
 
 # ── 메인 ────────────────────────────────────────────────────────────────
-def detect(img: Image.Image, debug: bool = False, h_override: float | None = None):
+SOFT_BOOST = 45            # 연한 획 복구 패스의 임계값 상향(회색 인쇄 곡선)
+
+
+def detect(img: Image.Image, debug: bool = False, h_override: float | None = None,
+           faint: bool = True):
+    """엄격 패스 + **연한 획 복구 패스**를 합쳐 최종 그림 상자를 낸다.
+
+    두 패스 모두 같은 기각 규칙(표·글자덩어리·본문)을 통과해야 하므로 오검출은
+    늘지 않고, 회색 곡선만 추가로 살아난다. 겹치는 상자는 **큰 쪽만** 남긴다
+    (연한 패스가 찾은 포물선 전체가 엄격 패스의 축 조각을 흡수).
+    """
+    if not faint:
+        return _detect_once(img, debug, h_override, 0)
+    strict = _detect_once(img, False, h_override, 0)
+    soft = _detect_once(img, False, h_override, SOFT_BOOST)
+    # 연한 패스에만 있는 상자는 **스캔 얼룩일 수 있다** → 선화 판정 통과분만 채택
+    soft = [b for b in soft
+            if _overlaps_any(b, strict) or not _is_smudge(img, b)]
+    out = _merge_boxes(strict, soft, img.size[0])
+    if debug:
+        _, dbg = _detect_once(img, True, h_override, 0)
+        dbg["strict"] = strict
+        dbg["soft"] = soft
+        return out, dbg
+    return out
+
+
+SMUDGE_ERODE = 0.40        # 1px 침식 후 잉크 생존율이 이 이상이면 선화가 아니다
+
+
+def _overlaps_any(box, others, thr: float = 0.3) -> bool:
+    for o in others:
+        ix = max(0, min(box[2], o[2]) - max(box[0], o[0]))
+        iy = max(0, min(box[3], o[3]) - max(box[1], o[1]))
+        if ix * iy / max(1, (box[2] - box[0]) * (box[3] - box[1])) >= thr:
+            return True
+    return False
+
+
+def _is_smudge(img: Image.Image, box) -> bool:
+    """스캔 얼룩(덩어리) vs 그림(선화) 판별 — **1px 침식 생존율**.
+
+    실측(2026-08-09 월서중 오검출 2건 대 학산중 그림 4건): 얼룩은 속이 꽉 찬
+    덩어리라 침식해도 47~59% 가 남고, 인쇄 선화는 획이 얇아 6~24% 만 남는다.
+    농도(어둡기) 분포는 둘이 거의 같아 판별에 못 쓴다 — 형태로 갈라야 한다.
+    """
+    g = np.asarray(img.convert("L"), dtype=np.uint8)[box[1]:box[3], box[0]:box[2]]
+    if g.size == 0:
+        return True
+    m = _binarize(g, SOFT_BOOST)
+    n = int(m.sum())
+    if n == 0:
+        return True
+    inv = ~m
+    er = ~_dilate_h(_dilate_v(inv, 1), 1)
+    return int(er.sum()) / n >= SMUDGE_ERODE
+
+
+def _merge_boxes(a: list, b: list, page_w: int) -> list:
+    """두 패스 결과 합치기 — 80% 이상 겹치면 **큰 상자만** 남긴다.
+
+    정렬은 **읽기 순서**(왼단 위→아래, 오른단)를 유지해야 한다. OCR figure 블록과
+    1:1 로 맞물리는 순서라, 여기서 흐트러지면 그림이 엉뚱한 문항에 들어간다.
+    """
+    all_b = list(a) + [x for x in b if x not in a]
+    drop = set()
+    for i, p in enumerate(all_b):
+        for j, q in enumerate(all_b):
+            if i == j or i in drop or j in drop:
+                continue
+            ix = max(0, min(p[2], q[2]) - max(p[0], q[0]))
+            iy = max(0, min(p[3], q[3]) - max(p[1], q[1]))
+            ap = max(1, (p[2] - p[0]) * (p[3] - p[1]))
+            aq = max(1, (q[2] - q[0]) * (q[3] - q[1]))
+            if ix * iy / min(ap, aq) >= 0.8:
+                drop.add(j if aq <= ap else i)
+    keep = [x for k, x in enumerate(all_b) if k not in drop]
+    mid = page_w * 0.5
+    keep.sort(key=lambda b_: (0 if (b_[0] + b_[2]) * 0.5 < mid else 1, b_[1], b_[0]))
+    return keep
+
+
+def _detect_once(img: Image.Image, debug: bool = False,
+                 h_override: float | None = None, boost: int = 0):
     W0, H0 = img.size
     scale = DET_WIDTH / float(W0)
     if scale < 1.0:
@@ -428,7 +520,7 @@ def detect(img: Image.Image, debug: bool = False, h_override: float | None = Non
     else:
         det, scale = img, 1.0
     gray = _to_gray(det)
-    bw = _binarize(gray)
+    bw = _binarize(gray, boost)
     h, w = bw.shape
 
     comps, lab = _ccl(bw, want_labels=True)
@@ -536,8 +628,18 @@ def detect(img: Image.Image, debug: bool = False, h_override: float | None = Non
                 return float(bounds[i + 1] - bounds[i])
         return float(w)
 
-    stacks = choice_stacks(comps, lab, H, exclude=seeds,
-                           margin_of=_margin_of, colw_of=_colw_of)
+    # ⭐ 선택지 마커(①②③) 판정은 **항상 엄격 이진화로** — 연한 획 복구 패스
+    # (boost>0)에서는 동그라미 안이 메워져 마커 구조(같은 크기·일정 간격)가 깨져
+    # 판정이 실패하고, 그 결과 선택지 줄이 그림에 흡수된다(학산중 #12 실측:
+    # 크롭 아래 "④ 4  ⑤ 16" 침범). 마커는 검은 인쇄라 엄격 패스에 늘 보인다.
+    if boost:
+        _cs, _ls = _ccl(_binarize(gray, 0), want_labels=True)
+        _cs = [c for c in _cs if c["area"] >= max(3, (H * 0.12) ** 2)]
+        stacks = choice_stacks(_cs, _ls, H, exclude=seeds,
+                               margin_of=_margin_of, colw_of=_colw_of)
+    else:
+        stacks = choice_stacks(comps, lab, H, exclude=seeds,
+                               margin_of=_margin_of, colw_of=_colw_of)
 
     groups = _group_by_ink(seeds, lab, bw.shape, gap_px, col_of)
 
@@ -796,6 +898,29 @@ def detect(img: Image.Image, debug: bool = False, h_override: float | None = Non
             rejected.append(cl)
         else:
             kept.append(cl)
+
+    # ⭐ **포개진 검출 제거**(2026-08-09 학산중 #21 실측): 같은 그림에서 큰 상자
+    # (451x362)와 그 안에 든 작은 상자(132x84)가 **둘 다** 살아남아, 배정이 작은
+    # 쪽을 골라 그림의 일부만 잘렸다. 한 상자가 다른 상자에 대부분(80%+) 들어가면
+    # **부모만 남긴다** — 자식은 같은 그림의 조각이다.
+    if len(kept) > 1:
+        drop = set()
+        for i, a in enumerate(kept):
+            for j, b in enumerate(kept):
+                if i == j or j in drop or i in drop:
+                    continue
+                ix = max(0, min(a["x1"], b["x1"]) - max(a["x0"], b["x0"]))
+                iy = max(0, min(a["y1"], b["y1"]) - max(a["y0"], b["y0"]))
+                aa = max(1, (a["x1"] - a["x0"]) * (a["y1"] - a["y0"]))
+                bb = max(1, (b["x1"] - b["x0"]) * (b["y1"] - b["y0"]))
+                inter = ix * iy
+                if inter / min(aa, bb) >= 0.8:      # 작은 쪽이 큰 쪽에 잠김
+                    drop.add(j if bb <= aa else i)
+        if drop:
+            for j in sorted(drop, reverse=True):
+                kept[j]["_why"] = "nested"
+                rejected.append(kept[j])
+            kept = [c for k, c in enumerate(kept) if k not in drop]
 
     # ⭐ 가장자리 여유(사용자 제안 2026-08-09): 검출 해상도(1800px)에서 원본으로
     # 되돌릴 때의 반올림 + 이진화가 놓친 안티앨리어싱 획 때문에 라벨 끝이 1~2px
