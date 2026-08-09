@@ -1218,6 +1218,59 @@ def _check_adversarial_high(fails, _l2h):
         fails.append("  A5 post 배점 본문 잔존")
 
 
+def _check_unam_fixes(fails):
+    """운암중 25-2-기말(웹) 사용자 지적 2건 — 2026-08-09.
+
+    UN1: 발문 물음표 직후 단서 괄호 밀착("값은?(단,") → "? (" 공백. OCR 이 발문과
+         단서를 **별개 TEXT 블록**으로 줘도(블록 경계) 공백이 들어가야 한다(#5 실측).
+    UN2: 다글자 overline(선분 AB) = 기하 신호 — "지점"이 경우의수 디코이라 기하 키워드가
+         전멸한 앙각 문제(#17)에서 점 이름 D·A 가 이탤릭으로 새던 것. 확통 여사건
+         ``\\overline{A}``(1글자)·"A 지점에서 C 지점까지"(디코이)는 비기하 유지.
+    """
+    # UN1-a: 같은 TEXT 블록 안 "?(".
+    q = _parse_q("$\\sin A \\times \\cos A$의 값은?(단, $0° < A < 90°$)")
+    body = "".join((b.value or "") for b in q.contents if b.type == ContentType.TEXT)
+    if "값은? (단," not in body:
+        fails.append(f"  UN1a ?( 공백 미삽입: {body!r}")
+    # UN1-b: 발문/단서가 별개 TEXT 블록(블록 경계) — 운암중 #5 실데이터 형태.
+    data = {"questions": [{"number": 5, "contents": [
+        {"type": "text", "value": "$\\sin A \\times \\cos A$의 값은?"},
+        {"type": "text", "value": "(단, $0° < A < 90°$)"}],
+        "choices": [{"marker": "①", "contents": [{"type": "text", "value": "1"}]}]}]}
+    qb = parse_ocr_response(data, 1).questions[0]
+    joined = "".join((b.value or "") for b in qb.contents if b.type == ContentType.TEXT)
+    if "값은? (단," not in joined.replace("  ", " "):
+        fails.append(f"  UN1b 블록 경계 ?( 공백 미삽입: {joined!r}")
+
+    # UN2: overline{AB}/앙각 문구 = 기하, 여사건·경우의수 지점 = 비기하.
+    from models.exam_document import ContentBlock as _CB
+    from core.content_parser import _has_geometry_context
+
+    def _g2(blocks):
+        return _has_geometry_context(blocks)
+    geo = [_CB(type=ContentType.TEXT, value="떨어진 지점 "),
+           _CB(type=ContentType.EQUATION, value="D"),
+           _CB(type=ContentType.TEXT, value="타워의 높이 "),
+           _CB(type=ContentType.EQUATION, value="\\overline{AB}")]
+    if not _g2(geo):
+        fails.append("  UN2 overline{AB} 기하 신호 미감지")
+    if not _g2([_CB(type=ContentType.TEXT, value="꼭대기를 올려본 각의 크기가")]):
+        fails.append("  UN2 '올려본 각' 기하 신호 미감지")
+    if _g2([_CB(type=ContentType.EQUATION, value="P(\\overline{A})"),
+            _CB(type=ContentType.EQUATION, value="\\overline{A\\cup B}")]):
+        fails.append("  UN2 여사건 overline 오기하 판정")
+    if _g2([_CB(type=ContentType.TEXT, value="A 지점에서 C 지점까지 최단거리 경우의 수")]):
+        fails.append("  UN2 경우의수 '지점' 디코이 무력화")
+    # 전체 파이프라인: #17 형태에서 단일 대문자 D 로만화.
+    data17 = {"questions": [{"number": 17, "contents": [
+        {"type": "text", "value": "지점 $C$와 지점 $D$에서 올려본 각의 크기가 $60°$일 때 타워의 높이 $\\overline{AB}$를 구하시오."}]}]}
+    q17 = parse_ocr_response(data17, 1).questions[0]
+    eqs = [b.value for b in q17.contents
+           if b.type in (ContentType.EQUATION, ContentType.EQUATION_BLOCK)]
+    if "\\mathrm{D}" not in eqs:
+        fails.append(f"  UN2 점 D 로만화 실패: {eqs!r}")
+
+
 def run():
     fails = []
     _check_comma_roots(fails)
@@ -1252,6 +1305,7 @@ def run():
     _check_ksy_box_nobullet(fails)
     _check_suha_fixes(fails)
     _check_negation_emphasis(fails)
+    _check_unam_fixes(fails)
     # KSY 이슈1(경상여고 대수 26-1): 페이지 뒤섞임 → 검출 번호로 재정렬(객관식·서술형 각 그룹).
     from models.exam_document import (Question, Choice, ContentBlock, ContentType,
                                       reorder_questions_by_number)
@@ -1315,7 +1369,7 @@ def run():
         print("FAIL test_content_parser:")
         print("\n".join(fails))
         return 1
-    print(f"OK test_content_parser ({len(_SPACING_CASES) + len(_SCORE_CASES) + 19} cases)")
+    print(f"OK test_content_parser ({len(_SPACING_CASES) + len(_SCORE_CASES) + 20} cases)")
     return 0
 
 

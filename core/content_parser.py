@@ -714,7 +714,19 @@ _GEOMETRY_KEYWORDS = (
     # 단독 "중심"·"원" 은 비기하 충돌(정규분포 '평균을 중심으로'·'원소') 위험으로 제외.
     "반원", "지름", "반지름",
     "△", "∠", "∆",
+    # 앙각/부각 측량 문구 — "타워 꼭대기 지점 A를 올려본 각의 크기"(운암중 25-2 #17)류.
+    # "지점"은 경우의수 디코이(_NONGEO_DECOY)라 기하 신호가 못 되므로 이 관용구로 잡는다.
+    # 단독 "각"은 '각각'·'각 학생' 충돌로 불가 — 앙각 문구 통째만.
+    "올려본 각", "내려본 각",
 )
+
+
+# 다글자 overline(선분 표기 ``\overline{AB}``) = 확실한 기하 신호. 키워드가 전부 디코이에
+# 걸리는 문장("지점 C와 지점 D…", 운암중 #17)에서도 선분 표기가 있으면 기하다. **연속 대문자
+# 2+ 만** — 확통 여사건 ``\overline{A}``(1글자)·``\overline{A\cup B}``(연산자 낀 사건식)는
+# 미매치라 확률변수 이탤릭 규칙 무회귀. \mathrm/\mathit 랩·프라임(A'B) 허용.
+_SEGMENT_BAR_RE = re.compile(
+    r"\\overline\s*\{\s*(?:\\math(?:rm|it)\s*\{\s*)?[A-Z]'*[A-Z]")
 
 
 # 단일음절 키워드 "점"·"호" 가 **부분문자열**로 비기하 단어에 박혀 오판되던 것 차단(적대리뷰
@@ -743,6 +755,10 @@ def _has_geometry_context(blocks: list[ContentBlock]) -> bool:
     for decoy in _NONGEO_DECOY:
         text = text.replace(decoy, "")
     if any(k in text for k in _GEOMETRY_KEYWORDS):
+        return True
+    # 다글자 overline(선분 AB) — 키워드가 디코이에 전부 지워진 앙각 문제("지점 C…높이
+    # \overline{AB}", 운암중 25-2 #17: C 만 OCR \mathrm 로 로만·D/A 이탤릭 혼재) 구제.
+    if _SEGMENT_BAR_RE.search(text):
         return True
     # 원 이름 ``원 O``·``원 O'`` — 단독 "원"은 '원소'·'평균을 중심으로' 충돌 때문에 키워드에서
     # 뺐지만, **원 뒤에 바로 대문자 이름**이 오면 도형(원)이 확실하다(왕선중 #1 `원 O에서` 의
@@ -1799,6 +1815,7 @@ def _finalize_contents(blocks: list[ContentBlock]) -> list[ContentBlock]:
     blocks = _romanize_angle_letters(blocks)        # 각(angle) 단일대문자 로만체(삼각함수·°·∠)
     blocks = _romanize_context_units(blocks)        # '단위는 g' 등 문맥상 단위 수식 로만화
     blocks = _space_hangul_before_eq(blocks)        # 한글 끝 TEXT + EQ 사이 공백(확률을p_1 → 확률을 p_1)
+    blocks = _space_question_paren(blocks)          # "값은?(단," → "값은? (단," 물음표·괄호 사이 공백
     blocks = _emphasize_negation(blocks)            # 부정 선택문 "옳지 않은 것"의 부정어 볼드+밑줄
     blocks = _rstrip_last_text(blocks)              # 끝 TEXT 의 꼬리 공백 제거(점수 앞 이중공백 방지)
     return blocks
@@ -1863,6 +1880,32 @@ def _space_hangul_before_eq(blocks: list[ContentBlock]) -> list[ContentBlock]:
             if (_ORDINAL_JE_RE.search(b.value)
                     and _PURE_NUM_RE.match((nxt.value or "").strip())):
                 continue  # 제4사분면: 접두사 '제'+숫자는 붙여쓰기
+            b.value = b.value + " "
+    return blocks
+
+
+# 발문 물음표 직후 단서 괄호가 붙는 OCR 산출("값은?(단, 0°<A<90°)") — 공백이 없어 HWP 줄바꿈이
+# 괄호 한가운데서 일어나고 배점 정렬까지 흐트러진다(운암중 25-2 #5, 사용자 2026-08-09:
+# "띄어쓰기 혹은 줄바꿈 처리"). 물음표(반각·전각) 바로 뒤 여는 괄호에 공백 1칸 — 자연 줄바꿈
+# 지점이 생겨 배점 인라인/우측정렬 판정(합의 #2)이 원본과 같은 위치에서 일어난다.
+_QMARK_PAREN_RE = re.compile(r"([?？])(\()")
+
+
+def _space_question_paren(blocks: list[ContentBlock]) -> list[ContentBlock]:
+    """TEXT 블록의 ``?(`` 를 ``? (`` 로 — 발문 끝 단서 괄호 밀착 해소.
+
+    OCR 이 발문과 단서를 **별개 TEXT 블록**(``…값은?`` + ``(단, …``)으로 주면 렌더러가
+    이어 붙여 같은 밀착이 생긴다(운암중 #5 실측 — 블록 내부 정규식만으론 못 잡음) →
+    인접 TEXT 경계도 함께 처리한다.
+    """
+    for b in blocks:
+        if b.type == ContentType.TEXT and b.value and ("?" in b.value or "？" in b.value):
+            b.value = _QMARK_PAREN_RE.sub(r"\1 \2", b.value)
+    for i in range(len(blocks) - 1):
+        b, nxt = blocks[i], blocks[i + 1]
+        if (b.type == ContentType.TEXT and nxt.type == ContentType.TEXT
+                and b.value and (nxt.value or "").startswith("(")
+                and b.value.rstrip().endswith(("?", "？")) and b.value == b.value.rstrip()):
             b.value = b.value + " "
     return blocks
 
