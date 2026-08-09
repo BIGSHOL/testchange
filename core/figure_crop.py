@@ -279,16 +279,22 @@ def choice_stacks(comps: list[dict], lab: np.ndarray, H: float,
 
     m = H * 1.2
 
-    def _near_fig(c) -> bool:
-        """도형 라벨 O·B·D 도 정사각형이라 선택지로 오인된다(학산중 p2 실측)."""
+    def _near_ids(c) -> set:
+        """이 요소가 붙어 있는 그림(씨앗) 번호들.
+
+        세로 여유는 **좁게**(0.4H) 준다 — 넉넉히 주면 아래 선택지의 마커가 위 그림에
+        붙은 것으로 집계돼 정상 마커열이 '한 그림에 몰린 라벨' 로 기각된다
+        (중앙고 #7: ③ 이 ① 그림과 ③ 그림 둘 다에 걸렸다). 도형 라벨은 그림의 세로
+        범위 **안**에 있으므로 이 좁은 여유로도 그대로 잡힌다.
+        """
         cx, cy = (c["x0"] + c["x1"]) * 0.5, (c["y0"] + c["y1"]) * 0.5
-        return bool(exclude) and any(
-            e["x0"] - m <= cx <= e["x1"] + m and e["y0"] - m <= cy <= e["y1"] + m
-            for e in exclude)
+        my = H * 0.4
+        return {k for k, e in enumerate(exclude or [])
+                if e["x0"] - m <= cx <= e["x1"] + m and e["y0"] - my <= cy <= e["y1"] + my}
 
     out: list[dict] = []
 
-    def _emit(run, need_margin=True):
+    def _emit(run, need_margin=True, vertical=True):
         if len(run) < 3:
             return
         # ⭐ 세로 선택지 목록은 **단의 왼쪽 여백**에서 시작한다. 그림 안 라벨
@@ -297,7 +303,15 @@ def choice_stacks(comps: list[dict], lab: np.ndarray, H: float,
         # _near_fig 다수결로만 거른다.
         rx0 = min(c["x0"] for c in run)
         rx1 = max(c["x1"] for c in run)
-        if need_margin:
+        # 구성원이 **저마다 다른 그림**을 하나씩 끼고 있으면 = 선택지가 그림인 문항.
+        # 이때는 여백/폭 조건을 면제한다 — 단 구분선을 못 찾은 페이지에서는 여백
+        # 기준이 반대쪽 단의 본문이 돼 정상 마커열이 통째로 기각된다(중앙고 #7:
+        # bounds=[0,w] 라 margin=89 인데 마커는 x=824).
+        own = [next(iter(s)) for s in (_near_ids(c) for c in run) if len(s) == 1]
+        each_own_fig = len(own) >= len(run) - 1 and len(set(own)) == len(own) >= 2
+        if each_own_fig:
+            pass
+        elif need_margin:
             if margin_of is not None and rx0 > margin_of(rx0) + H * 3.5:
                 return
         else:
@@ -309,20 +323,38 @@ def choice_stacks(comps: list[dict], lab: np.ndarray, H: float,
         hs = [c["y1"] - c["y0"] for c in run]
         if max(hs) > min(hs) * 1.35:
             return
-        if sum(1 for c in run if _near_fig(c)) >= len(run) * 0.6:
+        # 세로 목록의 간격 문턱을 넓혀(그림 선택지는 마커 사이가 그림 높이만큼
+        # 벌어진다 — 중앙고 #7 = ①③⑤ 간격 5H) 잡되, **넓은 간격일 때만** 등간격을
+        # 요구한다. 가로 행은 그림 폭이 제각각이라 간격이 원래 들쭉날쭉하다.
+        if vertical and len(run) >= 3:
+            gaps = [max(0, b["y0"] - a["y1"]) for a, b in zip(run, run[1:])]
+            if max(gaps) > H * 4 and max(gaps) > max(H * 1.2, min(gaps) * 1.8):
+                return
+        # ⚠️ 도형 라벨(O·B·D)은 **한 그림**에 몰려 붙지만, 선택지가 그림인 문항의
+        # 마커(①③⑤)는 **저마다 다른 그림** 옆에 선다. '그림 옆이면 라벨' 로 뭉뚱그리면
+        # 후자가 통째로 날아가 위아래 선택지 그림이 한 덩어리가 된다(중앙고 #7 실측).
+        # → **같은 그림 하나**에 몰린 경우에만 라벨로 보고 버린다.
+        tally: dict[int, int] = {}
+        for c in run:
+            for k in _near_ids(c):
+                tally[k] = tally.get(k, 0) + 1
+        if tally and max(tally.values()) >= len(run) * 0.6:
             return
         out.append({"x0": min(g["x0"] for g in run), "x1": max(g["x1"] for g in run),
-                    "y0": min(g["y0"] for g in run), "y1": max(g["y1"] for g in run)})
+                    "y0": min(g["y0"] for g in run), "y1": max(g["y1"] for g in run),
+                    # 격자 판정용: 구성원 x 시작점과 높이(같은 열의 다음 행 마커 찾기)
+                    "xs": [g["x0"] for g in run], "ys": [g["y0"] for g in run],
+                    "hs": hs, "comps": list(run)})
 
-    def _runs(items, key_gap, max_gap, need_margin=True):
+    def _runs(items, key_gap, max_gap, need_margin=True, vertical=True):
         run = [items[0]]
         for c in items[1:]:
             if key_gap(run[-1], c) <= max_gap:
                 run.append(c)
             else:
-                _emit(run, need_margin)
+                _emit(run, need_margin, vertical)
                 run = [c]
-        _emit(run, need_margin)
+        _emit(run, need_margin, vertical)
 
     # ① 세로 목록(같은 x)
     byx: dict[int, list[dict]] = {}
@@ -332,7 +364,7 @@ def choice_stacks(comps: list[dict], lab: np.ndarray, H: float,
         if len(g) < 3:
             continue
         g.sort(key=lambda c: c["y0"])
-        _runs(g, lambda a, b: b["y0"] - a["y1"], H * 4)
+        _runs(g, lambda a, b: b["y0"] - a["y1"], H * 9)
 
     # ② 가로 배치(같은 y): ① 4   ② 6   ③ 8
     byy: dict[int, list[dict]] = {}
@@ -342,7 +374,8 @@ def choice_stacks(comps: list[dict], lab: np.ndarray, H: float,
         if len(g) < 3:
             continue
         g.sort(key=lambda c: c["x0"])
-        _runs(g, lambda a, b: b["x0"] - a["x1"], H * 14, need_margin=False)
+        _runs(g, lambda a, b: b["x0"] - a["x1"], H * 14, need_margin=False,
+              vertical=False)
     return out
 
 
@@ -374,7 +407,19 @@ def _text_lines(comps: list[dict], H: float) -> list[list[int]]:
     제목처럼 큰 글자도 '서로 비슷한 높이' 라는 성질로 함께 묶인다(해상도·글꼴 무관).
     """
     import bisect
-    idx = sorted(range(len(comps)), key=lambda i: comps[i]["x0"])
+    # ⭐ **큰 성긴 요소는 줄의 구성원이 될 수 없다.** 선택지가 그림인 문항
+    # (①②③④⑤ 가 전부 그래프)에서 나란한 그림 3개가 '높이가 비슷하다'는 이유로
+    # 한 텍스트 줄로 묶여 통째로 씨앗에서 제외됐다 — 3개 줄은 죽고 2개 줄만
+    # 살아남는 기묘한 패턴이 그 증거다(성지중 #11·대륜중 #6·중앙고 #7 실측).
+    # 높이 유사 조건 때문에 이 필터에 걸리는 건 '같은 크기 성긴 도형이 늘어선 행'
+    # 뿐이라 본문 줄에는 영향이 없다(제목 글자는 획이 촘촘해 fill 이 크다).
+    def _figure_like(c) -> bool:
+        cw, ch = c["x1"] - c["x0"], c["y1"] - c["y0"]
+        return (cw >= H * SEED_MIN and ch >= H * SEED_MIN
+                and c["area"] / max(1.0, float(cw * ch)) <= 0.15)
+
+    cand_idx = [i for i, c in enumerate(comps) if not _figure_like(c)]
+    idx = sorted(cand_idx, key=lambda i: comps[i]["x0"])
     xs = [comps[i]["x0"] for i in idx]
     n = len(comps)
     parent = list(range(n))
@@ -495,6 +540,24 @@ def _merge_boxes(a: list, b: list, page_w: int) -> list:
     """
     all_b = list(a) + [x for x in b if x not in a]
     drop = set()
+    # ⭐ **한 패스가 붙여 버린 덩어리는 잘게 쪼갠 패스가 이긴다.** 선택지가 그림인
+    # 문항에서 엄격 패스는 위아래 두 그림을 한 상자로 묶고(①+④), 연한획 패스는
+    # 둘로 나눠 낸다. 겹침이 71% 라 아래 80% 규칙에 안 걸려 **둘 다 남아** 배정이
+    # 어긋났다(대륜중 #6 실측). 어떤 상자 안에 다른 상자가 2개 이상 (각자 70%+)
+    # 들어 있으면 그 상자는 병합 아티팩트다.
+    for i, p in enumerate(all_b):
+        inner = 0
+        for j, q in enumerate(all_b):
+            if i == j:
+                continue
+            ix = max(0, min(p[2], q[2]) - max(p[0], q[0]))
+            iy = max(0, min(p[3], q[3]) - max(p[1], q[1]))
+            aq = max(1, (q[2] - q[0]) * (q[3] - q[1]))
+            ap = max(1, (p[2] - p[0]) * (p[3] - p[1]))
+            if aq < ap and ix * iy / aq >= 0.7:
+                inner += 1
+        if inner >= 2:
+            drop.add(i)
     for i, p in enumerate(all_b):
         for j, q in enumerate(all_b):
             if i == j or i in drop or j in drop:
@@ -506,9 +569,37 @@ def _merge_boxes(a: list, b: list, page_w: int) -> list:
             if ix * iy / min(ap, aq) >= 0.8:
                 drop.add(j if aq <= ap else i)
     keep = [x for k, x in enumerate(all_b) if k not in drop]
+    return _reading_order(keep, page_w)
+
+
+def _reading_order(boxes: list, page_w: int) -> list:
+    """읽기 순서(왼단 위→아래, 오른단) — **행 단위**로 묶어 정렬한다.
+
+    ⚠️ y 좌표로 그냥 정렬하면 나란한 그림들이 뒤집힌다: 선택지 그림 ①②③ 의 상단이
+    각각 1016·1012·1010 이라 ③②① 순으로 나갔다(성지중 #11 실측). figure 블록과
+    1:1 로 맞물리는 순서라 여기서 흐트러지면 그림이 엉뚱한 선택지에 들어간다.
+    세로로 겹치면 같은 행 → 그 안에서는 x 순.
+    """
     mid = page_w * 0.5
-    keep.sort(key=lambda b_: (0 if (b_[0] + b_[2]) * 0.5 < mid else 1, b_[1], b_[0]))
-    return keep
+    out: list = []
+    for col in (0, 1):
+        items = [b for b in boxes
+                 if (0 if (b[0] + b[2]) * 0.5 < mid else 1) == col]
+        items.sort(key=lambda b_: (b_[1], b_[0]))
+        rows: list[list] = []
+        for b in items:
+            for r in rows:
+                ry0 = min(x[1] for x in r); ry1 = max(x[3] for x in r)
+                ov = min(ry1, b[3]) - max(ry0, b[1])
+                if ov > 0 and ov >= min(ry1 - ry0, b[3] - b[1]) * 0.5:
+                    r.append(b)
+                    break
+            else:
+                rows.append([b])
+        for r in rows:
+            r.sort(key=lambda b_: b_[0])
+            out.extend(r)
+    return out
 
 
 def _detect_once(img: Image.Image, debug: bool = False,
@@ -633,13 +724,46 @@ def _detect_once(img: Image.Image, debug: bool = False,
     # 판정이 실패하고, 그 결과 선택지 줄이 그림에 흡수된다(학산중 #12 실측:
     # 크롭 아래 "④ 4  ⑤ 16" 침범). 마커는 검은 인쇄라 엄격 패스에 늘 보인다.
     if boost:
-        _cs, _ls = _ccl(_binarize(gray, 0), want_labels=True)
+        _mb = _binarize(gray, 0)
+        _cs, _ls = _ccl(_mb, want_labels=True)
         _cs = [c for c in _cs if c["area"] >= max(3, (H * 0.12) ** 2)]
         stacks = choice_stacks(_cs, _ls, H, exclude=seeds,
                                margin_of=_margin_of, colw_of=_colw_of)
+        _mc, _ml = _cs, _ls
     else:
         stacks = choice_stacks(comps, lab, H, exclude=seeds,
                                margin_of=_margin_of, colw_of=_colw_of)
+        _mb, _mc, _ml = bw, comps, lab
+
+    # 선택지 마커(①②③④⑤) 중 **행 경계로 쓸 수 있는 것**만 고른다.
+    # ⚠️ '동그라미(구멍 있는 글리프)' 만으로 고르면 그림 안 원점 O·각도 ○·8 까지
+    # 마커가 돼 정상 그림을 반토막 낸다(기준선 회귀 11건 실측). 그래서 **이미 구조로
+    # 확정된 선택지 행/열(stacks)의 열 위치와 x 가 맞고 크기도 같은 것**만 인정한다
+    # — ①②③ 이 한 행을 이루면 그 아래 ④⑤ 는 ①② 와 x 가 맞는다(선택지 격자).
+    markers: list[dict] = []
+    if stacks:
+        holes = [c for c in _mc
+                 if H * 0.8 <= (c["y1"] - c["y0"]) <= H * 1.9
+                 and 0.7 <= (c["x1"] - c["x0"]) / max(1, c["y1"] - c["y0"]) <= 1.45
+                 and _has_hole(_mb, c, _ml)]
+        for st in stacks:
+            hs_ = st.get("hs") or []
+            xs_ = st.get("xs") or []
+            if not hs_ or not xs_:
+                continue
+            # 구조로 확정된 구성원은 무조건 마커다(스캔이 흐려 ⑤ 의 구멍이 안 잡혀도
+            # 행 경계 역할은 해야 한다 — 중앙고 #7 실측).
+            markers.extend(st.get("comps") or [])
+            ys_ = st.get("ys") or []
+            h0 = float(np.median(hs_))
+            for c in holes:
+                ch = c["y1"] - c["y0"]
+                if not (h0 * 0.8 <= ch <= h0 * 1.25):
+                    continue
+                # 같은 열(세로 목록의 다음 행) 또는 같은 행(가로 목록의 옆 칸)
+                if (any(abs(c["x0"] - x) <= H * 0.8 for x in xs_)
+                        or any(abs(c["y0"] - y) <= H * 0.8 for y in ys_)):
+                    markers.append(c)
 
     groups = _group_by_ink(seeds, lab, bw.shape, gap_px, col_of)
 
@@ -939,10 +1063,12 @@ def _detect_once(img: Image.Image, debug: bool = False,
     # (451x362)와 그 안에 든 작은 상자(132x84)가 **둘 다** 살아남아, 배정이 작은
     # 쪽을 골라 그림의 일부만 잘렸다. 한 상자가 다른 상자에 대부분(80%+) 들어가면
     # **부모만 남긴다** — 자식은 같은 그림의 조각이다.
-    if len(kept) > 1:
+    def _drop_nested(items: list[dict]) -> list[dict]:
+        if len(items) <= 1:
+            return items
         drop = set()
-        for i, a in enumerate(kept):
-            for j, b in enumerate(kept):
+        for i, a in enumerate(items):
+            for j, b in enumerate(items):
                 if i == j or j in drop or i in drop:
                     continue
                 ix = max(0, min(a["x1"], b["x1"]) - max(a["x0"], b["x0"]))
@@ -952,11 +1078,66 @@ def _detect_once(img: Image.Image, debug: bool = False,
                 inter = ix * iy
                 if inter / min(aa, bb) >= 0.8:      # 작은 쪽이 큰 쪽에 잠김
                     drop.add(j if bb <= aa else i)
-        if drop:
-            for j in sorted(drop, reverse=True):
-                kept[j]["_why"] = "nested"
-                rejected.append(kept[j])
-            kept = [c for k, c in enumerate(kept) if k not in drop]
+        for j in sorted(drop, reverse=True):
+            items[j]["_why"] = "nested"
+            rejected.append(items[j])
+        return [c for k, c in enumerate(items) if k not in drop]
+
+    kept = _drop_nested(kept)
+
+    # ⭐ **선택지가 그림인 문항의 행 분리**(성지중 #11·대륜중 #6 실측): ①②③ 이
+    # 윗줄, ④⑤ 가 아랫줄이면 위아래 그림이 세로로 붙어 한 덩어리가 된다(캡션
+    # `y=ax+b` 가 다리 노릇). 각 선택지 그림의 **왼쪽 위 마커가 곧 행 경계**이므로
+    # 클러스터 안쪽(위아래 1.5H 여유 밖)에 왼쪽 정렬 마커가 있으면 거기서 자른다.
+    # 양쪽 조각이 모두 그림 크기(3H)로 남을 때만 나눠 정상 그림 훼손을 막는다.
+    def _trim_to_ink(b):
+        sub = bw[max(0, b["y0"]):b["y1"], max(0, b["x0"]):b["x1"]]
+        if sub.size == 0 or not sub.any():
+            return None
+        rs = np.where(sub.any(1))[0]
+        cs = np.where(sub.any(0))[0]
+        return {**b, "x0": b["x0"] + int(cs[0]), "x1": b["x0"] + int(cs[-1]) + 1,
+                "y0": b["y0"] + int(rs[0]), "y1": b["y0"] + int(rs[-1]) + 1}
+
+    def _big(b) -> bool:
+        return (b["x1"] - b["x0"]) >= H * 3 and (b["y1"] - b["y0"]) >= H * 3
+
+    def _lead_marker(cl) -> bool:
+        """클러스터 **좌상단에 선택지 마커**가 있나 = 이 덩어리가 선택지 칸인가.
+
+        마커는 그림 왼쪽에 떨어져 있어 클러스터 밖일 수도 있다(대륜중 #6: 클러스터
+        x0=891, ① 마커 x0=849) → 왼쪽으로도 3H 까지 본다.
+        """
+        return any(abs(m["x0"] - cl["x0"]) <= H * 3
+                   and abs(m["y0"] - cl["y0"]) <= H * 1.5 for m in markers)
+
+    def _split_rows(cl, depth=0):
+        if depth >= 4:
+            return [cl]
+        # ⚠️ 좌상단 마커가 없으면 그냥 그림이다. 이 조건이 없으면 원의 중심 라벨
+        # **O** 가 마커로 오인돼(구멍 있는 글리프 + 우연한 x 정렬) 내접원 그림이
+        # 반토막 났다(월서중 p3·학산중 p2 기준선 회귀 6건 실측).
+        if not _lead_marker(cl):
+            return [cl]
+        ms = [m for m in markers
+              if abs(m["x0"] - cl["x0"]) <= H * 3 and m["x1"] <= cl["x1"] + H * 0.5
+              and cl["y0"] + H * 1.5 < m["y0"] < cl["y1"] - H * 1.5]
+        if not ms:
+            return [cl]
+        cut = int(min(m["y0"] for m in ms) - H * 0.3)
+        top = _trim_to_ink({**cl, "y1": cut})
+        bot = _trim_to_ink({**cl, "y0": cut})
+        if not (top and bot and _big(top) and _big(bot)):
+            return [cl]
+        return _split_rows(top, depth + 1) + _split_rows(bot, depth + 1)
+
+    if markers:
+        split = []
+        for cl in kept:
+            split.extend(_split_rows(cl))
+        # 분할로 생긴 조각이 **마커를 안 낀 원본 병합 상자**와 겹칠 수 있다
+        # (대륜중 #6: ①+④ 병합 상자가 마커 왼쪽 밖이라 따로 살아남았다) → 재정리.
+        kept = _drop_nested(split)
 
     # ⭐ 가장자리 여유(사용자 제안 2026-08-09): 검출 해상도(1800px)에서 원본으로
     # 되돌릴 때의 반올림 + 이진화가 놓친 안티앨리어싱 획 때문에 라벨 끝이 1~2px
@@ -985,6 +1166,7 @@ def _detect_once(img: Image.Image, debug: bool = False,
         return out, {"H": H, "H_page": H / max(scale, 1e-9), "shape": (w, h), "scale": scale, "bw": bw,
                      "comps": comps, "lines": lines, "seeds": seeds,
                      "clusters": clusters, "kept": kept, "rejected": rejected,
+                     "stacks": stacks, "markers": markers, "bounds": bounds,
                      "tmask": tmask}
     return out
 
@@ -1192,6 +1374,34 @@ def figures_in_region(img: Image.Image, region, page_h: float | None = None,
     return [(x0 + b[0], y0 + b[1], x0 + b[2], y0 + b[3]) for b in boxes]
 
 
+def figure_score(img: Image.Image, box) -> float:
+    """상자가 '그림다운' 정도(0~1) — 큰 성긴 요소가 차지하는 잉크 비율.
+
+    글자만 든 영역은 낮게 나온다. 문항 안 후보가 블록 수보다 많을 때 **글자 덩어리를
+    떨어내는 데** 쓴다(신명여중 #16: 그래프 대신 발문 줄이 뽑혔다).
+    """
+    x0, y0 = max(0, int(box[0])), max(0, int(box[1]))
+    x1, y1 = min(img.width, int(box[2])), min(img.height, int(box[3]))
+    if x1 - x0 < 12 or y1 - y0 < 12:
+        return 0.0
+    sub = np.asarray(img.convert("L").crop((x0, y0, x1, y1)), dtype=np.uint8)
+    if sub.shape[1] > 900:
+        s = 900 / sub.shape[1]
+        sub = np.asarray(Image.fromarray(sub).resize(
+            (900, max(1, int(sub.shape[0] * s))), Image.LANCZOS), dtype=np.uint8)
+    bw = sub < min(max(_otsu(sub), 90), 205)
+    if not bw.any():
+        return 0.0
+    comps = _ccl(bw)
+    H = _median_text_height(comps)
+    tot = sum(c["area"] for c in comps)
+    if tot <= 0:
+        return 0.0
+    big = sum(c["area"] for c in comps
+              if (c["x1"] - c["x0"]) >= H * 2.2 and (c["y1"] - c["y0"]) >= H * 2.2)
+    return big / tot
+
+
 def assign_figures(img: Image.Image, region, hints, page_h: float | None = None,
                    page_boxes=None):
     """문항 안 그림 검출 결과를 figure 블록(힌트)에 배정한다.
@@ -1208,6 +1418,15 @@ def assign_figures(img: Image.Image, region, hints, page_h: float | None = None,
     # 어긋날 때 tie-break 로만 쓴다.
     if len(boxes) == len(hints):
         return list(boxes)
+    # ⭐ 후보가 블록 수보다 많으면 **글자 덩어리부터 떨어낸다.** 힌트 겹침만으로
+    # 고르면 OCR bbox 가 거친 문항에서 발문 줄이 그림 자리에 들어간다(신명여중 #16:
+    # 그래프(0.81) 대신 발문 줄(0.13) 채택). 남는 후보가 블록 수 이상일 때만 거른다.
+    if len(boxes) > len(hints):
+        good = [b for b in boxes if figure_score(img, b) >= 0.30]
+        if len(good) >= len(hints):
+            boxes = good
+        if len(boxes) == len(hints):
+            return list(boxes)
     used = set()
     # ① 겹침이 큰 순으로 확정(힌트는 '선택'에만 쓴다)
     pairs = []
@@ -1229,6 +1448,20 @@ def assign_figures(img: Image.Image, region, hints, page_h: float | None = None,
         if out[i] is None and rest:
             out[i] = rest.pop(0)
     return out
+
+
+# 이 아래로는 '그림이 아니다' — 잘못된 그림보다 안내문구가 낫다(사용자 원칙).
+TEXT_ONLY = 0.15
+
+
+def drop_text_only(img: Image.Image, boxes: list) -> list:
+    """글자만 든 상자를 None(안내문구)으로 되돌린다.
+
+    후보가 하나뿐이면 개수가 맞아 그대로 채택되는데, 그 하나가 발문 줄일 때가 있다
+    (경원고 #15 = 0.10). 실측 정상 그림의 최저치가 0.37 이라 0.15 는 안전한 문턱이다.
+    """
+    return [b if (b is None or figure_score(img, b) >= TEXT_ONLY) else None
+            for b in boxes]
 
 
 def _fallback_from_hint(img: Image.Image, cands):
