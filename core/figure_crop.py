@@ -1010,6 +1010,11 @@ def assign_figures(img: Image.Image, region, hints, page_h: float | None = None)
     out: list[tuple | None] = [None] * len(hints)
     if not boxes:
         return out
+    # ⭐ **개수가 맞으면 힌트를 아예 쓰지 않고 읽기순 1:1** — OCR bbox 는 기준계도
+    # 경계도 못 믿는다(실측: 힌트 개입이 정확도를 오히려 깎았다). 힌트는 개수가
+    # 어긋날 때 tie-break 로만 쓴다.
+    if len(boxes) == len(hints):
+        return list(boxes)
     used = set()
     # ① 겹침이 큰 순으로 확정(힌트는 '선택'에만 쓴다)
     pairs = []
