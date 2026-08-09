@@ -739,6 +739,11 @@ def detect(img: Image.Image, debug: bool = False, h_override: float | None = Non
                 fat += 1
         big_glyphs = fat >= 3
 
+        # 아주 큰 요소(도형 윤곽) 존재 여부 — glyph-region 면제 조건
+        has_big = any((c["x1"] - c["x0"]) >= H * 6 and (c["y1"] - c["y0"]) >= H * 6
+                      and c["area"] / max(1, (c["x1"] - c["x0"]) * (c["y1"] - c["y0"])) < 0.5
+                      for c in inner)
+
         wide = max(H * 12, (box[2] - box[0]) * 0.6)
         n_long = sum(1 for (lx0, ly0, lx1, ly1) in line_boxes
                      if lx0 >= box[0] - 2 and lx1 <= box[2] + 2
@@ -757,9 +762,14 @@ def detect(img: Image.Image, debug: bool = False, h_override: float | None = Non
         elif (gh >= 2 and gv == 0 and gfrac >= 0.45
               and (box[2] - box[0]) >= (box[3] - box[1]) * 3.0):
             why = "ruled-text"         # 위아래 괘선 + 글자 = 자료 나열 띠(렌더 가능)
-        elif (gh >= 3 and gv >= 3) or gh >= 5:
-            why = "table-grid"         # 행·열 괘선 격자 = 표(HWP 표로 렌더 가능)
-        elif axf >= 0.75:
+        elif ((gh >= 3 and gv >= 3) or gh >= 5) and gfrac >= 0.35:
+            # ⚠️ **모눈 그래프**(거리-시간 그래프 배경)도 격자다 — 표와의 차이는
+            # **셀 안에 글자가 있는가**. 표는 셀마다 값이 들어 있고(gfrac 높음),
+            # 모눈은 셀이 비어 있고 라벨이 바깥이다(실측: 도원중 #14·황금중 #16).
+            why = "table-grid"         # 행·열 괘선 격자 + 셀 안 글자 = 표
+        elif axf >= 0.75 and dens < 0.12:
+            # 칠해진 도형(검게 칠한 L자 다각형)은 내부가 긴 수평런이라 axf 가 1 에
+            # 가깝지만 명백한 그림이다 → 잉크가 빽빽하면 면제(도원중 #6 실측).
             why = "all-straight"       # 축정렬 직선뿐 = 표·박스 테두리 조각
         elif big_glyphs:
             why = "title-text"         # 거대 제목 글자 덩어리
@@ -771,7 +781,9 @@ def detect(img: Image.Image, debug: bool = False, h_override: float | None = Non
             why = "empty-frame"        # 잉크 없는 테두리 조각(꺾쇠)
         elif n_long >= 1:
             why = "text-block"         # 긴 텍스트 줄이 2개 이상 = 안내문·표
-        elif gfrac >= 0.55 and dens >= 0.005:
+        elif gfrac >= 0.55 and dens >= 0.005 and not has_big:
+            # 라벨·수식이 많은 도형(직사각형+치수, 포물선+식)은 gfrac 이 올라가지만
+            # **아주 큰 요소**(도형 윤곽)가 하나라도 있으면 그림이다(학산중 실측).
             why = "glyph-region"       # 잉크 대부분이 글자 = 보기박스·표 조각
         elif framed and dens >= 0.005 and (cov >= 0.13 or gfrac >= 0.5):
             why = "framed-text"
@@ -979,7 +991,8 @@ def snap_hint(img: Image.Image, hint, page_boxes=None,
     return _ink_trim(img, grown)
 
 
-def figures_in_region(img: Image.Image, region, page_h: float | None = None):
+def figures_in_region(img: Image.Image, region, page_h: float | None = None,
+                      page_boxes=None):
     """**문항 크롭 영역 안에서** 그림을 검출한다(페이지 좌표 bbox 목록, 읽기순).
 
     OCR 이 준 figure bbox 는 corpus 마다 기준계도 다르고 경계도 거칠다(실측).
@@ -990,6 +1003,20 @@ def figures_in_region(img: Image.Image, region, page_h: float | None = None):
     x0, y0, x1, y1 = _to_px(img, region)
     if x1 - x0 < 20 or y1 - y0 < 20:
         return []
+
+    # ⭐ **페이지 전체 검출 결과를 문항 크롭으로 걸러내는 쪽이 먼저**다.
+    # 문항 크롭만 떼어 검출하면 그림이 선택지·발문과 한 덩어리로 묶여
+    # `glyph-region`(잉크 대부분이 글자)으로 기각된다 — 미검출 9건 중 6건이
+    # 이 경로였다(실측). 분류에는 페이지 전체 통계(텍스트 줄·선택지 마커·단 경계)가
+    # 필요하다.
+    if page_boxes is None:
+        page_boxes = detect(img)
+    inside = [b for b in page_boxes
+              if x0 <= (b[0] + b[2]) * 0.5 <= x1 and y0 <= (b[1] + b[3]) * 0.5 <= y1]
+    if inside:
+        return inside
+
+    # 페이지 검출이 이 문항에서 아무것도 못 찾았을 때만 창 검출로 재시도
     if page_h is None:
         page_h = _page_text_height(img)
     win = img.crop((x0, y0, x1, y1))
@@ -1000,13 +1027,14 @@ def figures_in_region(img: Image.Image, region, page_h: float | None = None):
     return [(x0 + b[0], y0 + b[1], x0 + b[2], y0 + b[3]) for b in boxes]
 
 
-def assign_figures(img: Image.Image, region, hints, page_h: float | None = None):
+def assign_figures(img: Image.Image, region, hints, page_h: float | None = None,
+                   page_boxes=None):
     """문항 안 그림 검출 결과를 figure 블록(힌트)에 배정한다.
 
     hints: 블록별 후보 rect 목록(기준계가 불확실하므로 여러 후보 허용).
     반환: hints 와 같은 길이의 bbox(또는 None) 목록.
     """
-    boxes = figures_in_region(img, region, page_h)
+    boxes = figures_in_region(img, region, page_h, page_boxes)
     out: list[tuple | None] = [None] * len(hints)
     if not boxes:
         return out
