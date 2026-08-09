@@ -740,8 +740,10 @@ def detect(img: Image.Image, debug: bool = False, h_override: float | None = Non
         big_glyphs = fat >= 3
 
         # 아주 큰 요소(도형 윤곽) 존재 여부 — glyph-region 면제 조건
-        has_big = any((c["x1"] - c["x0"]) >= H * 6 and (c["y1"] - c["y0"]) >= H * 6
-                      and c["area"] / max(1, (c["x1"] - c["x0"]) * (c["y1"] - c["y0"])) < 0.5
+        # ⚠️ fill 상한을 0.5 로 두면 **음영/칠해진 도형**(학산중 #6 직사각형 색칠)이
+        # 면제에서 탈락한다 → 0.85 로 완화하고 크기 문턱도 4.5H 로 낮춘다.
+        has_big = any((c["x1"] - c["x0"]) >= H * 4.5 and (c["y1"] - c["y0"]) >= H * 4.5
+                      and c["area"] / max(1, (c["x1"] - c["x0"]) * (c["y1"] - c["y0"])) < 0.85
                       for c in inner)
 
         wide = max(H * 12, (box[2] - box[0]) * 0.6)
@@ -773,7 +775,9 @@ def detect(img: Image.Image, debug: bool = False, h_override: float | None = Non
             why = "all-straight"       # 축정렬 직선뿐 = 표·박스 테두리 조각
         elif big_glyphs:
             why = "title-text"         # 거대 제목 글자 덩어리
-        elif dens >= 0.28:
+        elif dens >= 0.28 and not (box[2] - box[0] >= H * 5 and box[3] - box[1] >= H * 5):
+            # '선택형' 같은 글자 덩어리는 **작다**. 검게 칠한 다각형처럼 크고 빽빽한
+            # 것은 그림이다(도원중 #6: dens 0.63, 양변 5H 초과) → 크기로 면제.
             why = "dense-glyph"        # '선택형' 같은 큰 글자 덩어리(그림은 성김)
         elif cov >= TEXT_COVER_REJ:
             why = "text-cover"
