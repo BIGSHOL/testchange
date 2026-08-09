@@ -1,0 +1,190 @@
+{
+ "exam": "[왕선중][3][25-2-기말][동아강]",
+ "verified": "수학 검산(좌표 검산 포함), 학생 체크는 참고만",
+ "items": [
+  {
+   "number": 1,
+   "answer": "① 16",
+   "derivation": "반지름 10, 현까지 수직거리 6 → 반현 = √(10²−6²) = 8, 현 x = 16.",
+   "studentMark": "①",
+   "agree": true,
+   "confidence": "high"
+  },
+  {
+   "number": 2,
+   "answer": "④ 4√3",
+   "derivation": "현 AB가 반지름 OC를 수직이등분 → O에서 AB까지 거리 = r/2, 반현 = 6. r² = (r/2)² + 36 → (3/4)r² = 36 → r = √48 = 4√3.",
+   "studentMark": "④",
+   "agree": true,
+   "confidence": "high"
+  },
+  {
+   "number": 3,
+   "answer": "② 2",
+   "derivation": "B(0,0), C(6,0), 중심(r,r), AD=BC=6, E=(3,2r). 접선길이로 CE = (3−r)+(6−r) = 9−2r, 피타고라스 CE² = 3²+(2r)². (9−2r)² = 9+4r² → 81−36r = 9 → r = 2.",
+   "studentMark": "②",
+   "agree": true,
+   "confidence": "high"
+  },
+  {
+   "number": 4,
+   "answer": "⑤ 5cm",
+   "derivation": "원에 외접하는 사각형: AB+CD = BC+AD → 4+6 = 5+AD → AD = 5cm.",
+   "studentMark": "⑤",
+   "agree": true,
+   "confidence": "high"
+  },
+  {
+   "number": 5,
+   "answer": "⑤ 10/3",
+   "derivation": "AD가 지름 → ∠AED = 90°, △ADE에서 ∠DAE = 180−90−60 = 30°(호 DE에 대한 원주각). 호∝원주각: x/5 = 20/30 → x = 10/3.",
+   "studentMark": "⑤",
+   "agree": true,
+   "confidence": "high"
+  },
+  {
+   "number": 6,
+   "answer": "① 50°",
+   "derivation": "접선-현 각 ∠BAT = 65° → 호 AB = 130°, 호 BP = 호 AB = 130° → 호 PA = 100°. ∠PBA는 호 PA의 원주각 = 50°. (검산: ∠PAB = ∠APB = 65° → 180−130 = 50°.)",
+   "studentMark": "①",
+   "agree": true,
+   "confidence": "high"
+  },
+  {
+   "number": 7,
+   "answer": "③ 10",
+   "derivation": "BO=BP → ∠BOP = ∠P = 20° → 호 AB = 20°. △OBP 외각 ∠OBC = 40°, OB=OC → ∠BOC = 100°, ∠COD = 180−100−20 = 60°. 호 CD 60° = 30 이므로 호 AB 20° = 10.",
+   "studentMark": "③",
+   "agree": true,
+   "confidence": "high"
+  },
+  {
+   "number": 8,
+   "answer": "⑤ 80°",
+   "derivation": "호 AB = 360/9 = 40°, 호 CD = 360/3 = 120°. 두 현의 교각 ∠DPC = ½(호 DC + 호 AB) = ½(120+40) = 80°.",
+   "studentMark": "⑤",
+   "agree": true,
+   "confidence": "high"
+  },
+  {
+   "number": 9,
+   "answer": "③ 2",
+   "derivation": "M은 호 BC 중점 → AM은 ∠A 이등분(∠BAM=30°). ∠ANC = ∠BNM(맞꼭지각)이고 방멱 AN·NM = BN·NC → △ANC/△BNM = (AN·NC)/(BN·NM) = AN²/BN². △ABN에서 AN/BN = sin45°/sin30° = √2 → p = 2. (좌표 검산 p=2.0.) 학생은 ④ 2√2 로 표기했으나 검산 결과는 ③ 2 — 채점자 빨간 체크도 ③에 있고 문항번호에 빗금(오답 처리).",
+   "studentMark": "④",
+   "agree": false,
+   "confidence": "high"
+  },
+  {
+   "number": 10,
+   "answer": "④ 60",
+   "derivation": "접선-현 각 ∠BST = 20° → 호 SB = 40°, S를 270°에 두면 B = 310°, 지름 AB → A = 130°, AC∥ST → C = 50°. P = AB∩CS 교점: ∠APC = ½(호 AC + 호 BS) = ½(80+40) = 60°. (좌표 검산 60.0°.)",
+   "studentMark": "④",
+   "agree": true,
+   "confidence": "high"
+  },
+  {
+   "number": 11,
+   "answer": "② 100",
+   "derivation": "∠BAD=90° → BD 지름. ∠EBA=40° → 호 EA=80°, ∠CPD=80° → 호 CD=100°, ∠EDC=70° → 호 EC(B쪽)=140° → 호 BC=80°, 호 EB=60°, 호 AD=40°. x = ∠CED = ½·호CD = 50. F = AB∩ED: y = ∠AFD = ½(호 AD+호 EB) = ½(40+60) = 50. x+y = 100. (좌표 검산 50+50=100.)",
+   "studentMark": "②",
+   "agree": true,
+   "confidence": "high"
+  },
+  {
+   "number": 12,
+   "answer": "① 4점",
+   "derivation": "편차 합 = 0 → A = −(4+1−2−1) = −2. A 점수 = 평균 + 편차 = 6−2 = 4점.",
+   "studentMark": "①",
+   "agree": true,
+   "confidence": "high"
+  },
+  {
+   "number": 13,
+   "answer": "①",
+   "derivation": "평균 10 → 합 80, 기지값 합 58 → a+b=22. 최빈값 9가 유일하려면 a,b 중 하나가 9여야 하고 a<b이므로 a=9, b=13. 정렬 7,9,9,9,10,10,13,13 → 중앙값 c=(9+10)/2=9.5. a−b+c = 9−13+9.5 = 5.5.",
+   "studentMark": "①",
+   "agree": true,
+   "confidence": "high"
+  },
+  {
+   "number": 14,
+   "answer": "⑤",
+   "derivation": "ㄱ 거짓(분산은 편차 제곱의 평균), ㄴ 거짓(평균 크기와 분산 무관), ㄷ 참(편차 작을수록 평균에 가까움), ㄹ 참(평균보다 작은 변량의 편차=변량−평균<0), ㅁ 참(표준편차 작을수록 평균 근처 밀집). 따라서 ㄷ,ㄹ,ㅁ = ⑤.",
+   "studentMark": "⑤",
+   "agree": true,
+   "confidence": "high"
+  },
+  {
+   "number": 15,
+   "answer": "③",
+   "derivation": "구 5명 합 395, 신 5명 합 390 → 준수 = 395−390+75 = 80kg. 남은 4명 합 315, 최빈값 77이므로 77kg 두 명 포함 → 나머지 둘 x+y=161. 새 팀 {75,77,77,x,y}에서 x+y=161이면 77 미만은 최대 1명뿐이라 정렬 3번째는 항상 77 → 중앙값 77kg.",
+   "studentMark": "③",
+   "agree": true,
+   "confidence": "high"
+  },
+  {
+   "number": 16,
+   "answer": "④",
+   "derivation": "그림은 음의 상관. ㄱ 상관없음, ㄷ 양의 상관(인구↑→학교↑). 음의 상관: ㄴ 환율↑→해외여행객↓, ㄹ 산 높이↑→정상 온도↓, ㅁ 농산물 생산량↑→가격↓ → ㄴ,ㄹ,ㅁ = ④.",
+   "studentMark": "④",
+   "agree": true,
+   "confidence": "high"
+  },
+  {
+   "number": 17,
+   "answer": "④",
+   "derivation": "산점도 25명 판독(블롭 검출로 격자 확정): 합(높이+멀리) 내림차순 20,19,19,18,18,17,17,17,16,16 — 합≥16이 정확히 10명: (10,10),(9,10),(10,9),(9,9),(10,8),(8,9),(9,8),(10,7),(8,8),(9,7). 높이뛰기 합 = 10×4+9×4+8×2 = 40+36+16 = 92 → 평균 92/10 = 9.2점.",
+   "studentMark": "④",
+   "agree": true,
+   "confidence": "high"
+  },
+  {
+   "number": 18,
+   "answer": "②",
+   "derivation": "산점도 20명 판독. 조건: 수학>과학, 차≥20, 평균≥70(합≥140). 수학>과학인 점 중 차≥20은 (90,70),(80,60),(70,50)뿐이고 합은 각각 160,140,120 → 평균 조건까지 만족은 (90,70)과 (80,60) 2명.",
+   "studentMark": "②",
+   "agree": true,
+   "confidence": "high"
+  },
+  {
+   "number": 19,
+   "answer": "① ∠PAO=∠PBO=90° / ② OA=OB (반지름) / ③ PO는 공통 / ④ △PAO≡△PBO / ⑤ RHS",
+   "derivation": "원의 접선은 접점을 지나는 반지름에 수직이므로 ∠PAO=∠PBO=90°(①), OA=OB는 원 O의 반지름(②), PO는 공통(③) → 직각삼각형에서 빗변과 다른 한 변이 각각 같으므로 △PAO≡△PBO(④, RHS 합동 ⑤) → PA=PB. (서답형 1, 빈칸 완성형 — 학생 기입 없음, 채점 동그라미만 있음)",
+   "studentMark": "",
+   "agree": null,
+   "confidence": "high"
+  },
+  {
+   "number": 20,
+   "answer": "평균 6, 중앙값 5.5",
+   "derivation": "자료 12,x,3,5,6,4. 최빈값이 존재하려면 x가 기존 값과 같아야 하고, 평균=(30+x)/6=최빈값 x → x=6 (다른 후보 12,3,5,4는 평균≠최빈값). 자료 3,4,5,6,6,12 → 평균 6, 중앙값 (5+6)/2=5.5. (서답형 2)",
+   "studentMark": "6, 5.5",
+   "agree": true,
+   "confidence": "high"
+  },
+  {
+   "number": 21,
+   "answer": "2",
+   "derivation": "합=35 → 10+8+a²+7+3a=35 → a²+3a−10=0 → a=2 (자연수). 자료 10,8,4,7,6, 편차 3,1,−3,0,−1 → 편차제곱합 20 → 분산 4 → 표준편차 2. (서답형 3)",
+   "studentMark": "2",
+   "agree": true,
+   "confidence": "high"
+  },
+  {
+   "number": 22,
+   "answer": "10",
+   "derivation": "중간 a,b,c: 평균 83 → a+b+c=249, 분산 6 → Σ(편차²)=18. 기말 a,79,b,87,c: 합 415=5×83으로 평균 83 일치. 분산 = [18+(79−83)²+(87−83)²]/5 = (18+16+16)/5 = 10. (서답형 4)",
+   "studentMark": "10",
+   "agree": true,
+   "confidence": "high"
+  },
+  {
+   "number": 23,
+   "answer": "6",
+   "derivation": "자료 7, 2a−5, a+1, a+6, a+1: 합 5a+10 → 평균 a+2. 편차 5−a, a−7, −1, 4, −1 → 분산 [(5−a)²+(a−7)²+18]/5=4 → (a−5)²+(a−7)²=2 → a²−12a+36=0 → (a−6)²=0 → a=6. 검산: 자료 7,7,7,12,7 평균 8, 편차제곱합 20, 분산 4 ✓. (서답형 5)",
+   "studentMark": "6",
+   "agree": true,
+   "confidence": "high"
+  }
+ ]
+}
