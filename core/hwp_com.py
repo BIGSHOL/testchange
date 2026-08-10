@@ -452,6 +452,14 @@ class HwpSession:
         """
         if not script:
             return
+        # 수식 안 소유권 표식(config EQ_WATERMARK, 기본 OFF) — 렌더엔 안 보이고
+        # 결합 위험(큰 연산자로 끝나는 식)은 게이트가 걸러 생략한다.
+        try:
+            from core.eq_watermark import stamp as _wm_stamp
+            from utils.config import get_eq_watermark
+            script = _wm_stamp(script, get_eq_watermark())
+        except Exception:   # noqa: BLE001 — 표식 실패가 변환을 막지 않는다
+            pass
         h = self.hwp
         # ParameterSet 은 반드시 한 번만 가져와 캐싱해 재사용한다. ``h.HParameterSet
         # .HEqEdit`` 를 매번 새로 접근하면 GetDefault/설정/Execute 가 서로 다른

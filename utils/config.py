@@ -53,6 +53,9 @@ _DEFAULTS = {
     # 곱해지므로 너무 크면 장애 시 사용자가 오래 갇힌다(180 이면 최악 24분/문항 — 적대리뷰).
     "DEEPSEEK_TIMEOUT": 120,
     "GENERATE_SOLUTIONS": False,   # 기본 OFF(과금) — GUI 체크박스로 켠다
+    # 수식 안에 숨기는 소유권 표식(도용 억제). 빈 문자열이면 기능 OFF.
+    # 렌더엔 안 보이고 수식 편집기·파일 안에만 남는다(core/eq_watermark 실측 근거).
+    "EQ_WATERMARK": "",
     # OCR 골든셋 플라이휠 — Supabase(개발/수동 업로드 전용). 비면 sync 스킵. service_role 키만.
     # ⚠️ 배포 exe 엔 넣지 않는다(서비스키는 로컬 config.json 에만). 키 이름으로 민감도 표시.
     "SUPABASE_URL": "",
@@ -198,6 +201,11 @@ def set_deepseek_key(key: str):
 def get_generate_solutions() -> bool:
     """정답·해설·메타 자동 생성 여부(기본 False — 과금이라 명시적으로 켠다)."""
     return bool(_get("GENERATE_SOLUTIONS"))
+
+
+def get_eq_watermark() -> str:
+    """수식에 숨길 소유권 표식 문구(빈 문자열 = 기능 OFF)."""
+    return str(_get("EQ_WATERMARK") or "").strip()
 
 # PDF 변환 DPI
 PDF_DPI = int(_DEFAULTS["PDF_DPI"])

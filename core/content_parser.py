@@ -221,25 +221,46 @@ _SOL_WRAP_WIDTH = 72
 _SOL_MATH_ATOM_RE = re.compile(r"\$[^$]*\$")
 _SOL_CMD_RE = re.compile(r"\\[a-zA-Z]+|[{}^_]")
 
+# ⚠️ **구조 명령만 폭 0** — 과거엔 `\[a-zA-Z]+` 를 전부 지워 ``\triangle``·``\angle``·
+# ``\times``·``\pi`` 처럼 **실제로 보이는 글리프**까지 0 으로 셌다(적대검증 2026-08-10:
+# 개행 후에도 25.5%가 한계 초과, 최대 +33%). 아래 집합만 0, 나머지 명령은 1글리프로 센다.
+_SOL_ZERO_CMDS = frozenset("""
+left right mathrm mathit mathbf text textrm rm it bf displaystyle limits nolimits
+frac dfrac tfrac begin end array cases matrix pmatrix bmatrix vmatrix
+big Big bigg Bigg bigl bigr Bigl Bigr biggl biggr quad qquad hspace
+overline underline bar vec hat tilde widehat widetilde boxed mbox
+""".split())
+_SOL_WORD_CMD_RE = re.compile(r"\\([a-zA-Z]+)")
+
+
+def _sol_math_glyphs(inner: str) -> str:
+    """수식 내부 → 표시 글리프 근사 문자열. 구조 명령은 제거, 기호 명령은 1글자로."""
+    def repl(m: re.Match) -> str:
+        return "" if m.group(1) in _SOL_ZERO_CMDS else "x"
+    return re.sub(r"[{}^_]", "", _SOL_WORD_CMD_RE.sub(repl, inner))
+
 
 def _sol_seg_width(seg: str) -> int:
-    """해설 조각의 표시 폭 — 수식은 명령 제거 후 글리프, 한글·전각은 2."""
+    """해설 조각의 표시 폭 — 수식은 글리프 근사, 한글·전각은 2."""
     def piece_w(s: str) -> int:
         return sum(2 if ord(ch) > 0x2E7F else 1 for ch in s)
     w = 0
     pos = 0
     for m in _SOL_MATH_ATOM_RE.finditer(seg):
         w += piece_w(seg[pos:m.start()])
-        w += piece_w(_SOL_CMD_RE.sub("", m.group()[1:-1]))
+        w += piece_w(_sol_math_glyphs(m.group()[1:-1]))
         pos = m.end()
     return w + piece_w(seg[pos:])
+
+
 
 
 def _wrap_solution_line(line: str) -> list[str]:
     """긴 해설 줄을 공백 경계(수식 $…$ 밖)에서 폭 한계 안으로 나눈다.
 
-    수식 하나가 한계를 넘으면 나눌 수 없어 그대로 둔다(알려진 한계 — 그 경우만은
-    모델 프롬프트의 "짧게" 지시에 기대야 한다).
+    ⚠️ **수식 하나가 칼럼보다 넓은 경우는 여기서 못 고친다** — 수식 객체는 내부에서
+    줄바꿈이 안 되는 원자다. 그건 렌더 단계에서 HWP 스크립트를 ``#``(행)+``&``(정렬)로
+    접어 해결한다(`latex_to_hwpeq.fold_long_equation`, 사용자 제안 2026-08-10).
     """
     if _sol_seg_width(line) <= _SOL_WRAP_WIDTH:
         return [line]

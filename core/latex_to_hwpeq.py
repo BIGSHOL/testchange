@@ -1318,6 +1318,97 @@ def latex_to_hwpeq(latex: str, italicize_stat: bool = True) -> str:
     return _converter.convert(latex, italicize_stat=italicize_stat)
 
 
+# ── 긴 전개식 접기(#=행, &=정렬) ─────────────────────────────────────────────
+# ⭐ 수식 객체는 **내부에서 줄바꿈이 안 되는 원자**라, 칼럼보다 넓은 전개식 하나가
+# 단 구분선을 넘어 옆 단을 침범한다(오성중 서답형3 실측 2026-08-10 — 정답면 8쪽).
+# HWP 수식은 ``#`` 로 행을, ``&`` 로 정렬 기준을 준다(사용자 제안·실측 확인):
+#     ``A &= B # &= C # &= D`` → ``=`` 를 세로로 맞춘 여러 행
+# 완료본의 전개식 표기와 같은 모양이고, 칼럼 안에 들어간다.
+_FOLD_MAX_ROWS = 4          # 조각이 너무 잘게 쪼개지면 오히려 읽기 나쁘다
+_FOLD_MIN_SEG = 3           # 이보다 짧은 조각은 앞 행에 붙인다(고아 방지)
+
+
+def _toplevel_eq_cuts(script: str) -> list[int]:
+    """HWP 스크립트에서 **최상위** ``=`` 위치들. 중괄호·괄호·LEFT/RIGHT 안은 제외."""
+    cuts: list[int] = []
+    depth = 0
+    lr = 0                     # LEFT…RIGHT 깊이 — 구분자가 | . 면 괄호로 안 잡힌다
+    i, n = 0, len(script)
+    while i < n:
+        if script.startswith("LEFT", i) and (i + 4 >= n or not script[i + 4].isalpha()):
+            lr += 1
+            i += 4
+            continue
+        if script.startswith("RIGHT", i) and (i + 5 >= n or not script[i + 5].isalpha()):
+            lr = max(0, lr - 1)
+            i += 5
+            continue
+        c = script[i]
+        if c in "({[":
+            depth += 1
+        elif c in ")}]":
+            depth = max(0, depth - 1)
+        elif c == "=" and depth == 0 and lr == 0 and i > 0:
+            prev, nxt = script[i - 1], (script[i + 1] if i + 1 < n else "")
+            # <= >= != == 는 한 덩어리 — 그 안에서 끊지 않는다.
+            if prev not in "<>!=" and nxt != "=":
+                cuts.append(i)
+        i += 1
+    return cuts
+
+
+def fold_long_equation(script: str, max_rows: int = _FOLD_MAX_ROWS) -> str:
+    """긴 전개식을 ``#``(행) + ``&``(정렬)로 접는다. 접을 수 없으면 원본 그대로.
+
+    ⚠️ 이미 ``#``/``&`` 를 쓰는 스크립트(CASES·PMATRIX·행렬·기존 정렬식)는 **손대지
+    않는다** — 그 문법을 덮어써 구조가 깨진다. 접은 뒤 중괄호·LEFT/RIGHT 균형이
+    맞지 않으면 통째 롤백한다(미지의 형태까지 덮는 최후 안전망).
+    """
+    s = (script or "").strip()
+    if not s or "#" in s or "&" in s:
+        return script
+    cuts = _toplevel_eq_cuts(s)
+    if len(cuts) < 2:                     # A=B 한 번은 접을 이유가 없다
+        return script
+    segs, prev = [], 0
+    for c in cuts:
+        seg = s[prev:c].strip()
+        if seg:
+            segs.append(seg)
+        prev = c
+    tail = s[prev:].strip()
+    if tail:
+        segs.append(tail)
+    if len(segs) < 2:
+        return script
+    # 너무 짧은 조각은 앞에 병합(고아 방지) — 첫 조각은 그대로 둔다.
+    merged = [segs[0]]
+    for seg in segs[1:]:
+        if len(seg.replace("=", "").strip()) < _FOLD_MIN_SEG:
+            merged[-1] = merged[-1] + " " + seg
+        else:
+            merged.append(seg)
+    # 행 수 상한 — 넘으면 뒤쪽을 마지막 행에 몰아 넣는다.
+    if len(merged) > max_rows:
+        merged = merged[:max_rows - 1] + [" ".join(merged[max_rows - 1:])]
+    if len(merged) < 2:
+        return script
+    rows = [merged[0]] + [f"&{seg}" for seg in merged[1:]]
+    folded = " # ".join(rows)
+    # 첫 행에도 정렬 기준(&)을 넣어야 = 가 세로로 맞는다.
+    first_cuts = _toplevel_eq_cuts(merged[0])
+    if first_cuts:
+        k = first_cuts[0]
+        rows[0] = merged[0][:k].rstrip() + " &" + merged[0][k:]
+        folded = " # ".join(rows)
+    # 균형 검증 — 깨지면 통째 롤백(원본이 잘못 나가는 것보다 낫다).
+    if (folded.count("{") != s.count("{") or folded.count("}") != s.count("}")
+            or folded.count("LEFT") != s.count("LEFT")
+            or folded.count("RIGHT") != s.count("RIGHT")):
+        return script
+    return folded
+
+
 def latex_to_image(latex: str, dpi: int = 150) -> bytes:
     """LaTeX 수식을 PNG 이미지로 렌더링 (폴백용).
 

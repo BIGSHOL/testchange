@@ -2403,7 +2403,12 @@ def _inject_answer_runs(hwpx_path: str | Path,
         out, prev = [], 0
         for (a, b), ans in zip(spans, answers):
             frag = s[a:b]
-            runs = _line_runs(ans[0], base_unit) if ans else ""
+            # ⚠️ **모든 줄**을 기입한다 — 과거엔 `ans[0]`(첫 줄)만 써서, 파서의 해설
+            # 자동개행(`_wrap_solution_line`)이 긴 정답을 2줄로 쪼개면 **뒤가 조용히
+            # 사라졌다**(오성중 #7 `…풀이가` 에서 잘림 — 저장 XML 자체에 없었다,
+            # 2026-08-10 실측 + 적대검증 독립 확인). 정답은 한 줄에 이어 붙인다
+            # (기본 경로 `_write_answer_inline` 도 줄을 " " 로 join 한다 — 경로 동일).
+            runs = _answer_runs(ans, base_unit, _answer_col_width(s)) if ans else ""
             if runs:
                 lm = re.search(r"<hp:linesegarray>", frag)
                 if lm:
@@ -2419,6 +2424,17 @@ def _inject_answer_runs(hwpx_path: str | Path,
 
 _ANSWER_CHARPR = "21"      # 정답면 미주 내용의 글자모양 ID(정답·해설 run 이 쓰는 것)
 _EQ_BASE_UNIT_DEFAULT = 1100   # 폼 본문 글자 11pt = 수식 baseUnit 1100
+# 정답면 한 단의 폭(HWPUNIT). 폼 B4 2단 실측 — 미주 단락 lineseg `horzsize` 가 전부
+# 이 값이다(2026-08-10). `_answer_col_width` 가 문서에서 직접 읽고, 못 읽으면 이 값.
+_ANSWER_COL_WIDTH_DEFAULT = 29620
+
+
+def _answer_col_width(section_xml: str) -> int:
+    """정답면 칼럼 폭 — 미주 단락 `lineseg` 의 `horzsize` 최빈값(폼 종류 무관)."""
+    vals = [int(v) for v in re.findall(r'<hp:lineseg[^>]*horzsize="(\d+)"', section_xml)]
+    if not vals:
+        return _ANSWER_COL_WIDTH_DEFAULT
+    return max(set(vals), key=vals.count)
 
 
 def _eq_base_unit(data: dict[str, bytes]) -> int:
@@ -2443,6 +2459,8 @@ def _eq_xml(script: str, base_unit: int = _EQ_BASE_UNIT_DEFAULT) -> str:
     (골든 84개 기준: baseLine=85·treatAsChar=1·outMargin 170·font HYhwpEQ).
 
     ``base_unit`` = 수식 글자 크기(HWPUNIT). 본문 COM 수식과 같아야 한다(_eq_base_unit)."""
+    # ⚠️ 폭 추정은 **표식을 붙이기 전** 스크립트로 한다 — 표식은 렌더에 안 보이므로
+    # 추정에 넣으면 상자만 넓어져 레이아웃이 틀어진다.
     try:
         from core.hwpx_writer import _estimate_equation_size
         w, h = _estimate_equation_size(script)
@@ -2460,6 +2478,12 @@ def _eq_xml(script: str, base_unit: int = _EQ_BASE_UNIT_DEFAULT) -> str:
         h = int(base_unit * 1.023 * lines)
     except Exception:  # noqa: BLE001
         w, h = max(1000, len(script) * 250), base_unit
+    try:
+        from core.eq_watermark import stamp as _wm_stamp
+        from utils.config import get_eq_watermark
+        script = _wm_stamp(script, get_eq_watermark())
+    except Exception:  # noqa: BLE001 — 표식 실패가 렌더를 막지 않는다
+        pass
     return (
         f'<hp:run charPrIDRef="{_ANSWER_CHARPR}"><hp:equation id="0" zOrder="0"'
         ' numberingType="EQUATION"'
@@ -2476,20 +2500,138 @@ def _eq_xml(script: str, base_unit: int = _EQ_BASE_UNIT_DEFAULT) -> str:
         f'<hp:script>{_xml_text(script)}</hp:script></hp:equation></hp:run>')
 
 
+_LATEX_ENV_RE = re.compile(r"\\begin\{|\\end\{")
+
+
+def _split_latex_at_top_eq(latex: str) -> list[str]:
+    """LaTeX 전개식을 **최상위** ``=`` 앞에서 조각낸다(조각 2개 미만이면 빈 리스트).
+
+    ⚠️ 안전 가드 — 아래는 쪼개면 구조가 깨지므로 손대지 않는다(설계 리뷰 2026-08-10
+    가 현행 분할기의 잠복 버그로 지목한 형태 그대로):
+      · ``\\begin{cases|pmatrix|…}`` 환경(내부 ``=`` 는 행 내용)
+      · ``\\left … \\right`` 쌍(구분자가 ``|`` 면 괄호 깊이에 안 잡힌다)
+      · 중괄호·괄호 안(분수 분자/분모, 근호, 첨자, 함수 인자)
+    조각 재조립 후 ``\\left``/``\\right``·중괄호 균형이 깨지면 분할을 포기한다.
+    """
+    s = (latex or "").strip()
+    if not s or _LATEX_ENV_RE.search(s):
+        return []
+    cuts, depth, lr, i, n = [], 0, 0, 0, len(s)
+    while i < n:
+        if s.startswith(r"\left", i):
+            lr += 1
+            i += 5
+            continue
+        if s.startswith(r"\right", i):
+            lr = max(0, lr - 1)
+            i += 6
+            continue
+        c = s[i]
+        if c == "\\":                      # 명령어는 통째 건너뛴다(\leq 등 오인 방지)
+            j = i + 1
+            while j < n and s[j].isalpha():
+                j += 1
+            i = max(j, i + 2)
+            continue
+        if c in "({[":
+            depth += 1
+        elif c in ")}]":
+            depth = max(0, depth - 1)
+        elif c == "=" and depth == 0 and lr == 0 and i > 0:
+            prev, nxt = s[i - 1], (s[i + 1] if i + 1 < n else "")
+            if prev not in "<>!=:" and nxt != "=":
+                cuts.append(i)
+        i += 1
+    if len(cuts) < 2:                      # A=B 하나는 쪼갤 이유가 없다
+        return []
+    parts, prev = [], 0
+    for c in cuts:
+        seg = s[prev:c].strip()
+        if seg:
+            parts.append(seg)
+        prev = c
+    tail = s[prev:].strip()
+    if tail:
+        parts.append(tail)
+    if len(parts) < 2:
+        return []
+    joined = "".join(parts)
+    if (joined.count("{") != s.count("{") or joined.count("}") != s.count("}")
+            or joined.count(r"\left") != s.count(r"\left")
+            or joined.count(r"\right") != s.count(r"\right")):
+        return []                          # 균형이 깨졌다 — 통째 롤백
+    return parts
+
+
+def _wide_eq_runs(latex: str, base_unit: int, col_width: int) -> str:
+    """수식 하나 → run XML. **칼럼보다 넓으면 여러 수식 run 으로 나눈다.**
+
+    ⭐ 수식 객체는 내부에서 줄바꿈이 안 되는 원자라, 칼럼보다 넓은 전개식 하나가 단
+    구분선을 넘어 옆 단을 침범한다(오성중 서답형3 실측 2026-08-10). 최상위 ``=`` 앞에서
+    여러 수식으로 나누면 HWP 가 **그 사이(run 경계)에서** 줄을 바꾼다 — 한 줄에 들어가면
+    그대로 한 줄이라 과발화 비용은 조각당 여백 1.2mm 뿐이다.
+
+    판정은 **기하**로 한다(추정폭 vs 실제 칼럼). 글리프 근사는 분수·근호를 절반 이하로
+    세어 실사례가 게이트를 통과했다(근사 48 < 한계 72 인데 실제는 칼럼의 1.5배).
+    쪼갤 ``=`` 가 없으면 ``#``(행)+``&``(정렬)로 접어 폭을 줄인다(사용자 제안).
+    """
+    script = latex_to_hwpeq(latex, italicize_stat=False)
+    if col_width <= 0:
+        return _eq_xml(script, base_unit)
+    try:
+        from core.hwpx_writer import _estimate_equation_size
+        est = _estimate_equation_size(script)[0] * base_unit / 1000
+    except Exception:  # noqa: BLE001
+        return _eq_xml(script, base_unit)
+    if est < col_width * 0.9:
+        return _eq_xml(script, base_unit)
+    parts = _split_latex_at_top_eq(latex)
+    if parts:
+        return "".join(
+            _eq_xml(latex_to_hwpeq(p, italicize_stat=False), base_unit) for p in parts)
+    try:                                   # 쪼갤 수 없으면 행으로 접는다(폴백)
+        from core.latex_to_hwpeq import fold_long_equation
+        return _eq_xml(fold_long_equation(script), base_unit)
+    except Exception:  # noqa: BLE001
+        return _eq_xml(script, base_unit)
+
+
 def _line_runs(line: list[ContentBlock],
-               base_unit: int = _EQ_BASE_UNIT_DEFAULT) -> str:
-    """정답/해설 한 줄(블록 런) → run XML 문자열. TEXT=글자, EQUATION=수식 객체(합의 #6)."""
+               base_unit: int = _EQ_BASE_UNIT_DEFAULT,
+               col_width: int = 0) -> str:
+    """정답/해설 한 줄(블록 런) → run XML 문자열. TEXT=글자, EQUATION=수식 객체(합의 #6).
+
+    ``col_width`` > 0 이면 그보다 넓은 전개식을 ``#``/``&`` 로 접는다(단 침범 방지)."""
     out = []
     for b in line:
         val = (b.value or "")
         if not val.strip():
             continue
         if b.type == ContentType.EQUATION:
-            out.append(_eq_xml(latex_to_hwpeq(val, italicize_stat=False), base_unit))
+            out.append(_wide_eq_runs(val, base_unit, col_width))
         else:
             out.append(f'<hp:run charPrIDRef="{_ANSWER_CHARPR}">'
                        f'<hp:t>{_xml_text(val)}</hp:t></hp:run>')
     return "".join(out)
+
+
+def _answer_runs(ans: list[list[ContentBlock]],
+                 base_unit: int = _EQ_BASE_UNIT_DEFAULT,
+                 col_width: int = 0) -> str:
+    """정답(여러 줄일 수 있음) → 한 줄로 이어붙인 run XML.
+
+    파서는 정답도 해설과 같은 `_parse_markdown_lines` 로 처리해 긴 정답이 자동개행으로
+    2줄이 될 수 있다. 정답면의 정답은 문항 번호와 **같은 줄**에 놓이므로 여기서 다시
+    한 줄로 합친다(줄 사이 공백 1칸). HWP 가 텍스트 run 경계에서 알아서 줄을 바꾼다."""
+    parts = []
+    for i, line in enumerate(ans):
+        runs = _line_runs(line, base_unit, col_width)
+        if not runs:
+            continue
+        if parts:
+            parts.append(f'<hp:run charPrIDRef="{_ANSWER_CHARPR}"><hp:t> </hp:t></hp:run>')
+        parts.append(runs)
+    return "".join(parts)
 
 
 def _inject_solutions(hwpx_path: str | Path,
@@ -2519,6 +2661,7 @@ def _inject_solutions(hwpx_path: str | Path,
         if len(spans) != len(solutions):
             logger.warning("해설 기입 생략 — 미주 %d개 ≠ 문항 %d개", len(spans), len(solutions))
             continue
+        col_w = _answer_col_width(s)      # 칼럼보다 넓은 전개식 접기 기준
         out, prev = [], 0
         for (a, b), sol in zip(spans, solutions):
             frag = s[a:b]
@@ -2530,7 +2673,8 @@ def _inject_solutions(hwpx_path: str | Path,
                     lm = re.search(r"<hp:linesegarray>.*?</hp:linesegarray>", base, re.S)
                     lineseg = lm.group(0) if lm else ""
                     added = [open_tag + runs + lineseg + "</hp:p>"
-                             for runs in (_line_runs(line, base_unit) for line in sol)
+                             for runs in (_line_runs(line, base_unit, col_w)
+                                          for line in sol)
                              if runs]
                     if added:
                         total += len(added)
