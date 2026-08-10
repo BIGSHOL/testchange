@@ -1086,7 +1086,14 @@ def _detect_once(img: Image.Image, debug: bool = False,
             # 라벨·수식이 많은 도형(직사각형+치수, 포물선+식)은 gfrac 이 올라가지만
             # **아주 큰 요소**(도형 윤곽)가 하나라도 있으면 그림이다(학산중 실측).
             why = "glyph-region"       # 잉크 대부분이 글자 = 보기박스·표 조각
-        elif framed and dens >= 0.005 and (cov >= 0.13 or gfrac >= 0.5):
+        elif (framed and dens >= 0.005 and (cov >= 0.13 or gfrac >= 0.5)
+              and not (has_big and (box[3] - box[1]) >= H * 8
+                       and (box[2] - box[0]) < (box[3] - box[1]) * 4)):
+            # glyph-region 과 같은 면제 — **아주 큰 윤곽 요소**가 있으면 테두리+글자로
+            # 보여도 그림이다(혜화여고 #17: 60H×34H 윤곽 + 라벨 다수가 framed-text 로
+            # 기각됐다). ⚠️ 단 **세로로 충분히 높고 납작하지 않을 때만** — 한 줄짜리
+            # 자료 상자(``-1, 9, a, -2 …``)도 테두리가 큰 요소라 has_big 만으로 풀면
+            # 보기 상자가 그림으로 잡힌다(학산중 p1 실측 2026-08-10).
             why = "framed-text"
         if why:
             cl["_why"] = why
