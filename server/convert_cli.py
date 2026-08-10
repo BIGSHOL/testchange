@@ -20,8 +20,10 @@ COM 초기화 문제 회피 + 타임아웃/크래시 격리). Python 3.11(pywin3
 실행: python -m server.convert_cli --in <payload.json> --out <path>
 """
 import sys
+import os
 import json
 import argparse
+import time
 import traceback
 from pathlib import Path
 
@@ -98,7 +100,7 @@ def is_engine_envelope(payload) -> bool:
     return isinstance(payload, dict) and isinstance(payload.get("questions"), list)
 
 
-def _render_engine_envelope(payload: dict, out_path: Path) -> None:
+def _render_engine_envelope(payload: dict, out_path: Path) -> Path:
     """엔진 OCR 봉투(``{header, questions, filename}``) → 대수회 폼 .hwp.
 
     **exe(GUI ConversionWorker)와 같은 렌더 경로**를 탄다 — 웹에서 변환한 결과가
@@ -153,17 +155,51 @@ def _render_engine_envelope(payload: dict, out_path: Path) -> None:
 
     form_error = ""
     if form_path:
-        try:
-            # ⭐ 웹은 그림 실삽입 금지 — 항상 안내문구(사용자 2026-08-10). 그림
-            # 파이프라인(figure_crop/figure_embed)이 미완성이라 내부 개발 전용이다.
-            # 켜려면 합의 갱신이 먼저다(test_connector_contract G 가 잠금).
-            write_exam_to_form(document, form_path, out_path,
-                               header_values=header_values, render_figures=False)
-            _diag(form_name)
-            return
-        except Exception as e:  # noqa: BLE001 — 폼 채움 실패는 기본 서식으로 폴백(GUI 동일)
-            form_error = f"{type(e).__name__}: {e}"[:300]
-            sys.stderr.write(f"[convert] 폼 채움 실패 → 기본 서식으로: {e}\n")
+        from core.hwp_com import hwp_pids, reap_hwp
+        # ⭐ 폼 채움을 **2회까지** 시도한다. COM 크래시(-2147417851 RPC_E_SERVERFAULT)는
+        # 비결정적이고, 한 번 죽으면 그 인스턴스가 고아로 남아 **이어지는 렌더까지
+        # 오염**된다(2026-08-10 사용자 PC 로그: 크래시 → Quit 실패 → .hwp 굽기 실패
+        # → 500). 고아를 정리하고 한 번 더 해 보면 폼을 살릴 수 있다 — 실패해도
+        # 잃는 건 시간뿐이고, 성공하면 사용자가 기본 서식 대신 대수회 폼을 받는다.
+        _t0 = time.time()
+        for _try in range(2):
+            hwp_before = hwp_pids()
+            try:
+                # ⭐ 웹은 그림 실삽입 금지 — 항상 안내문구(사용자 2026-08-10). 그림
+                # 파이프라인(figure_crop/figure_embed)이 미완성이라 내부 개발 전용이다.
+                # 켜려면 합의 갱신이 먼저다(test_connector_contract G 가 잠금).
+                made = write_exam_to_form(document, form_path, out_path,
+                                          header_values=header_values,
+                                          render_figures=False)
+                _diag(form_name)
+                return Path(made) if made else out_path
+            except Exception as e:  # noqa: BLE001 — 폼 실패는 기본 서식으로 폴백(GUI 동일)
+                form_error = f"{type(e).__name__}: {e}"[:300]
+                sys.stderr.write(
+                    f"[convert] 폼 채움 실패({_try + 1}/2): {e}\n")
+                # ⚠️ **COM 크래시일 때만** 정리한다. PID 차집합에는 변환 중 사용자가
+                # 직접 띄운 한글도 섞일 수 있어(작업이 분 단위) 무조건 죽이면 남의
+                # 미저장 문서를 날린다(적대리뷰 2026-08-10). 일반 예외는 세션
+                # 컨텍스트매니저가 Quit 하므로 고아가 안 남는다.
+                if _is_com_crash(e):
+                    try:
+                        killed = reap_hwp(hwp_pids() - hwp_before)
+                        if killed:
+                            sys.stderr.write(f"[convert] 크래시 HWP {killed}개 정리\n")
+                    except Exception:  # noqa: BLE001 — 정리 실패가 폴백을 막지 않는다
+                        pass
+                # ⚠️ 재시도가 커넥터 타임아웃(MATHGEN_HWP_TIMEOUT, 기본 360초)을 넘기면
+                # **오히려 결과가 통째로 없어진다** — [폼 2회 + 기본 서식]이 예산을
+                # 초과하기 때문. 크래시가 늦게 났으면 재시도를 포기하고 바로 폴백한다.
+                elapsed = time.time() - _t0
+                if _try == 0 and elapsed >= _FORM_RETRY_BUDGET_S:
+                    sys.stderr.write(
+                        f"[convert] 폼 재시도 생략 — 이미 {elapsed:.0f}초 소모"
+                        f"(타임아웃 예산 보호)\n")
+                    break
+                if _try == 0:
+                    time.sleep(1.0)      # COM 안정화(커넥터 재시도와 같은 간격)
+        sys.stderr.write("[convert] 폼 채움 실패 → 기본 서식으로\n")
 
     # ⚠️ 기본 서식(폼 미매칭·폼 채움 실패) 경로에서도 **정답·해설을 살린다.**
     # `write_exam_to_hwp` 는 `show_answers` 가 켜져 있을 때만 정답면을 붙이는데,
@@ -174,8 +210,76 @@ def _render_engine_envelope(payload: dict, out_path: Path) -> None:
     )
     if has_answers:
         sys.stderr.write("[convert] 기본 서식 — 정답·해설 페이지 포함\n")
-    write_exam_to_hwp(document, out_path, show_answers=has_answers)
+    made = write_exam_to_hwp(document, out_path, show_answers=has_answers)
     _diag("(기본 서식)", form_error)
+    return Path(made) if made else out_path
+
+
+# 폼 채움 재시도를 포기하는 경과시간(초). 커넥터 타임아웃(기본 360초) 안에
+# [폼 2회 + 기본 서식 렌더]가 끝나야 하므로, 첫 크래시가 이보다 늦게 나면 폴백한다.
+_FORM_RETRY_BUDGET_S = int(os.environ.get("MATHGEN_FORM_RETRY_BUDGET", "90"))
+
+# HWP COM 서버가 **죽었을 때** 나오는 HRESULT — 이때만 고아 프로세스를 정리한다.
+_COM_CRASH_HRESULTS = frozenset({
+    -2147417851,   # RPC_E_SERVERFAULT — 서버가 예외로 죽음(2026-08-10 실사고)
+    -2147023174,   # RPC_S_SERVER_UNAVAILABLE
+    -2147417848,   # RPC_E_DISCONNECTED
+    -2146959355,   # CO_E_SERVER_EXEC_FAILURE
+})
+
+
+def _is_com_crash(e: BaseException) -> bool:
+    """예외가 'HWP 프로세스가 죽었다' 는 신호인가(고아 정리 대상)."""
+    args = getattr(e, "args", ()) or ()
+    return bool(args) and args[0] in _COM_CRASH_HRESULTS
+
+
+def _record_output(requested: Path, actual: Path) -> None:
+    """진단 사이드카에 **실제 산출물 파일명**을 박는다(부모가 추측하지 않게).
+
+    ⚠️⚠️ 부모(커넥터)가 산출물을 스스로 찾으면 자식과 규칙이 어긋난다. 실제 위험:
+    HWP 가 ``SaveAs`` **도중** 죽으면 잘린 ``out.hwp`` 가 디스크에 남고 writer 는
+    올바르게 ``.hwpx`` 로 폴백하는데, 부모가 요청 확장자를 먼저 집으면 **그 깨진 파일을
+    성공으로 내보낸다**(사용자는 안 열리는 파일을 받고 로그엔 아무 표시도 없다 —
+    적대리뷰 2026-08-10). 자식은 이미 답을 알고 있으므로 그대로 알려 준다.
+    """
+    p = requested.with_suffix(requested.suffix + ".diag.json")
+    try:
+        d = json.loads(p.read_text(encoding="utf-8")) if p.exists() else {}
+    except Exception:  # noqa: BLE001
+        d = {}
+    if not isinstance(d, dict):
+        d = {}
+    d["output"] = actual.name
+    try:
+        p.write_text(json.dumps(d, ensure_ascii=False), encoding="utf-8")
+    except OSError:
+        pass
+
+
+def resolve_output(produced, requested: Path):
+    """실제로 만들어진 산출물 경로(없으면 None).
+
+    ⚠️ **`.hwp` 굽기가 실패하면 writer 가 `.hwpx` 로 떨어뜨린다** — HWP 가 크래시했거나
+    Quit 이 실패한 뒤가 그렇다. 그때 요청 경로(`.hwp`)만 확인하면 "출력 파일이 없습니다"
+    로 오판해 **변환 전체가 500** 이 되고, 사용자는 멀쩡히 만들어진 `.hwpx` 조차 못 받는다
+    (2026-08-10 실사고: 폼 크래시 → 기본 서식 렌더 성공 → 굽기 실패 → exit 3).
+    `.hwpx` 는 폼 바탕쪽 2단 세로선만 빠질 뿐 내용은 온전하므로 **전달하는 게 맞다**.
+    """
+    cands = []
+    if produced:
+        cands.append(Path(produced))
+    cands.append(requested)
+    if requested.suffix.lower() == ".hwp":
+        cands.append(requested.with_suffix(".hwpx"))
+        cands.append(requested.with_name(requested.stem + ".__work.hwpx"))
+    for c in cands:
+        try:
+            if c.exists() and c.stat().st_size > 0:
+                return c
+        except OSError:
+            pass
+    return None
 
 
 def main() -> int:
@@ -196,11 +300,16 @@ def main() -> int:
     if is_engine_envelope(payload):
         out_path = Path(args.out).resolve()
         out_path.parent.mkdir(parents=True, exist_ok=True)
-        _render_engine_envelope(payload, out_path)
-        if not out_path.exists():
+        produced = _render_engine_envelope(payload, out_path)
+        actual = resolve_output(produced, out_path)
+        if actual is None:
             sys.stderr.write("렌더는 끝났으나 출력 파일이 없습니다.\n")
             return 3
-        sys.stderr.write(f"OK: {out_path} ({out_path.stat().st_size} bytes)\n")
+        _record_output(out_path, actual)
+        if actual != out_path:
+            # 확장자 폴백은 **실패가 아니다** — 커넥터가 이 파일을 그대로 내보낸다.
+            sys.stderr.write(f"[convert] 산출물 확장자 폴백: {actual.name}\n")
+        sys.stderr.write(f"OK: {actual} ({actual.stat().st_size} bytes)\n")
         return 0
 
     # ── B) HwpPayload(mathgen 웹) — 종전 경로(회귀 0) ──
@@ -244,9 +353,13 @@ def main() -> int:
         use_endnote=False,  # 웹 내보내기: 평문 문항번호(미주 첨자·문서끝 미주목록 제거 — 완성도)
     )  # COM → save_hwpx → .hwpx
 
-    if not out_path.exists():
+    # A 경로와 같은 규칙으로 산출물을 판정한다(mathgen 은 .hwpx 요청이라 폴백 후보가
+    # 없지만, 0바이트 산출물을 성공으로 보고하던 구멍은 여기서도 막힌다).
+    actual_b = resolve_output(None, out_path)
+    if actual_b is None:
         sys.stderr.write("write_exam_to_hwp 완료했으나 출력 파일이 없습니다.\n")
         return 3
+    out_path = actual_b
     sys.stderr.write(f"OK: {out_path} ({out_path.stat().st_size} bytes)\n")
     return 0
 

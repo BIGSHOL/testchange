@@ -41,7 +41,7 @@ ENGINE_ROOT = Path(__file__).resolve().parent.parent
 # ⚠️ 도우미를 다시 배포할 때마다 올린다 — `/health` 의 version 이 **사용자 PC 에서
 # 어느 빌드가 도는지 확인하는 유일한 수단**이다(exe 를 갈아끼웠는지 원격에서 알 길이
 # 없어 2026-08-10 경상여고 사고 재테스트 때 문제가 됐다).
-VERSION = "1.1.1"   # 2026-08-10: CoInitialize 방어 + 폼 폴백 진단(form_fallback_error)
+VERSION = "1.1.2"   # 2026-08-10: 산출물 확장자 폴백 전달 + 폼 재시도 + hwp_version 진단
 # ⭐ 360초 — 실측 렌더가 2~4분(오성중·왕선중 2026-08-09)이라 180초는 3분 넘는
 # 시험지를 **구조적으로 100% 실패**시키고(살해 후 같은 payload 재시도 → 또 180초
 # 소모 → 500) 총 6분+CPU 를 낭비했다. env 로 조정 가능.
@@ -190,8 +190,58 @@ def _detect_hwp_installed() -> bool:
     return False
 
 
+def _detect_hwp_version() -> str:
+    """설치된 한글 버전 힌트 — **COM 을 만들지 않고** 레지스트리만 읽는다.
+
+    ⭐ 왜: 사용자 PC 마다 한글 버전이 다르고(2020·2024…), COM 크래시가 버전 의존인지
+    판단할 근거가 지금까지 없었다(2026-08-10 폼 채움 -2147417851 사고). `LocalServer32`
+    경로에 ``Hnc\\Office 2020\\HOffice110`` 처럼 버전이 박혀 있어 그대로 실마리가 된다.
+    실패해도 빈 문자열 — 진단용이라 변환에 영향 없다.
+    """
+    try:
+        import winreg
+    except Exception:  # noqa: BLE001
+        return ""
+    # ⚠️ 한글은 **32비트 COM 서버**라 CLSID 가 WOW6432Node 뷰에 등록된다 — 64비트
+    # 파이썬에서 기본 뷰만 보면 조용히 빈 값이 나온다(실측: 이 PC 한글 2020).
+    try:
+        with winreg.OpenKey(winreg.HKEY_CLASSES_ROOT,
+                            r"HWPFrame.HwpObject\CLSID") as k:
+            clsid, _ = winreg.QueryValueEx(k, "")
+    except OSError:
+        return ""
+    path = ""
+    for view in (winreg.KEY_WOW64_32KEY, winreg.KEY_WOW64_64KEY, 0):
+        try:
+            with winreg.OpenKey(winreg.HKEY_CLASSES_ROOT,
+                                rf"CLSID\{clsid}\LocalServer32", 0,
+                                winreg.KEY_READ | view) as k:
+                path, _ = winreg.QueryValueEx(k, "")
+            if path:
+                break
+        except OSError:
+            continue
+    if not path:
+        return ""
+    path = str(path or "").strip().strip('"')
+    m = re.search(r"Office\s*(\d{4})", path, re.I)
+    if m:
+        return f"한글 {m.group(1)}"
+    m = re.search(r"HOffice(\d+)", path, re.I)
+    return f"HOffice{m.group(1)}" if m else path[:120]
+
+
 def _hwp_pids() -> set:
-    """현재 떠 있는 Hwp.exe PID 집합."""
+    """현재 떠 있는 Hwp.exe PID 집합 — 엔진 `core.hwp_com.hwp_pids` 와 **같은 구현**.
+
+    ⚠️ 사본을 두지 않는다(적대리뷰 2026-08-10: 파서가 갈려 엉뚱한 PID 를 죽일 위험).
+    엔진 import 가 안 되는 환경(부분 배포)에서는 아래 자체 구현으로 폴백한다.
+    """
+    try:
+        from core.hwp_com import hwp_pids as _core_pids
+        return _core_pids()
+    except Exception:  # noqa: BLE001 — 엔진 미탑재 환경 폴백
+        pass
     try:
         out = subprocess.run(
             ["tasklist", "/FI", "IMAGENAME eq Hwp.exe", "/FO", "CSV", "/NH"],
@@ -223,8 +273,12 @@ def _reap(pids) -> None:
             pass
 
 
-def _run_convert_subprocess(payload_bytes: bytes, suffix: str = ".hwpx") -> bytes:
-    """payload JSON bytes → convert_cli subprocess → .hwp/.hwpx bytes.
+def _run_convert_subprocess(payload_bytes: bytes, suffix: str = ".hwpx") -> tuple:
+    """payload JSON bytes → convert_cli subprocess → ``(bytes, 실제 확장자)``.
+
+    ⚠️ 반환 확장자가 요청과 다를 수 있다 — HWP 가 크래시하면 최종 ``.hwp`` 굽기가
+    실패하고 writer 가 ``.hwpx`` 로 떨어뜨린다. 그 경우에도 **파일은 온전하므로
+    그대로 내보낸다**(전달 안 하면 사용자는 500 만 받는다 — 2026-08-10 실사고).
 
     ``suffix`` 는 산출물 확장자. 엔진 봉투(시험지 한글화 웹)는 **.hwp** 로 굽는다 —
     폼 바탕쪽 2단 가운데 구분선이 .hwpx 로는 안 그려지기 때문(CLAUDE 합의 #12).
@@ -266,14 +320,46 @@ def _run_convert_subprocess(payload_bytes: bytes, suffix: str = ".hwpx") -> byte
                 timed_out = True
             finally:
                 _reap(_hwp_pids() - before)  # 이번 시도 고아만 정리
-            if (not timed_out and proc is not None
-                    and proc.returncode == 0 and target.exists()):
+            produced = None
+            if not timed_out and proc is not None and proc.returncode == 0:
+                # ⭐ 자식이 진단에 박아 준 **실제 산출물명을 최우선**으로 믿는다.
+                # 부모가 스스로 찾으면 규칙이 어긋나 사고가 난다: HWP 가 SaveAs 도중
+                # 죽으면 잘린 `out.hwp` 가 남는데, 요청 확장자를 먼저 집으면 그
+                # 깨진 파일을 성공으로 내보낸다(적대리뷰 2026-08-10).
+                declared = ""
+                try:
+                    _dp = target.with_suffix(target.suffix + ".diag.json")
+                    if _dp.exists():
+                        declared = str(json.loads(
+                            _dp.read_text(encoding="utf-8")).get("output") or "")
+                except Exception:  # noqa: BLE001
+                    declared = ""
+                cands = [target.with_name(declared)] if declared else []
+                cands += [target, target.with_suffix(".hwpx"),
+                          target.with_name(target.stem + ".__work.hwpx")]
+                for _c in cands:
+                    try:
+                        if _c.exists() and _c.stat().st_size > 0:
+                            produced = _c
+                            break
+                    except OSError:
+                        pass
+            if produced is not None:
                 # 진단 사이드카(있으면) — 부모가 응답 헤더로 웹에 넘긴다.
                 diag = target.with_suffix(target.suffix + ".diag.json")
                 try:
                     _last_diag["v"] = diag.read_text(encoding="utf-8") if diag.exists() else ""
                 except Exception:  # noqa: BLE001
                     _last_diag["v"] = ""
+                # ⭐ 한글 버전을 **매 변환 진단에** 싣는다 — COM 크래시가 버전 의존인지
+                # 판단할 근거가 지금까지 없어 사용자에게 매번 물어봐야 했다(2026-08-10).
+                try:
+                    _d0 = json.loads(_last_diag["v"] or "{}")
+                    _d0["hwp_version"] = _detect_hwp_version()
+                    _d0["connector"] = VERSION
+                    _last_diag["v"] = json.dumps(_d0, ensure_ascii=False)
+                except Exception:  # noqa: BLE001
+                    pass
                 # ⭐ 폼 채움이 실패해 기본 서식으로 떨어졌으면(=rc 0 이라 stderr 를 안 읽는
                 # 경로) **자식 stderr 꼬리를 진단에 실어** 웹 로그로 올린다. 안 그러면
                 # 결과물이 통째로 달라진 사고가 "성공" 으로만 보인다(적대리뷰 2026-08-10).
@@ -288,7 +374,21 @@ def _run_convert_subprocess(payload_bytes: bytes, suffix: str = ".hwpx") -> byte
                             f"{d.get('form_fallback_error')}\n")
                 except Exception:  # noqa: BLE001 — 진단 보강 실패가 변환을 막지 않는다
                     pass
-                return target.read_bytes()
+                if produced.suffix.lower() != suffix.lower():
+                    # ⭐ 진단에도 싣는다 — 이걸 안 남기면 "폼 바탕쪽 세로선이 빠진
+                    # .hwpx 가 나갔다"는 사고가 웹에선 **그냥 성공**으로만 보인다
+                    # (폼 폴백을 stderr_tail 로 올린 것과 같은 이유, 적대리뷰 2026-08-10).
+                    sys.stderr.write(
+                        f"[connector] 산출물 확장자 폴백: {produced.name}"
+                        f" (요청 {suffix})\n")
+                    try:
+                        d = json.loads(_last_diag["v"] or "{}")
+                        d["output_suffix"] = produced.suffix
+                        d["output_suffix_requested"] = suffix
+                        _last_diag["v"] = json.dumps(d, ensure_ascii=False)
+                    except Exception:  # noqa: BLE001
+                        pass
+                return produced.read_bytes(), produced.suffix
             if timed_out:
                 # ⚠️ 타임아웃은 **재시도하지 않는다** — 시험지 크기가 원인이라 결정적으로
                 # 재발한다. 재시도는 같은 시간을 또 태우고 실패할 뿐(COM flake 만 재시도).
@@ -350,6 +450,8 @@ class Handler(BaseHTTPRequestHandler):
             "engine": "hwpx",
             "hwp_com": hwp,
             "hwp": hwp,          # 웹(시험지 한글화)이 읽는 이름 — 같은 값
+            # 한글 버전 힌트(진단용) — COM 크래시가 버전 의존인지 가르는 유일한 단서.
+            "hwp_version": _detect_hwp_version(),
             "token": bool(REQUIRE_TOKEN),
             "capabilities": ["convert-json"],
         }, self._origin())
@@ -416,7 +518,7 @@ class Handler(BaseHTTPRequestHandler):
 
         try:
             with _convert_lock:  # 한글 COM 직렬화
-                data = _run_convert_subprocess(body, suffix)
+                data, suffix = _run_convert_subprocess(body, suffix)
                 # ⚠️ 진단은 **락 안에서** 집어 온다. `ThreadingHTTPServer` 라 동시 요청이
                 # 실재하고, 밖에서 읽으면 락을 놓은 뒤 다른 요청이 덮어쓴 값(= 남의 폼)을
                 # 헤더로 내보낼 수 있다. 지금 창은 아주 좁지만, 이 줄이 밖에 있으면

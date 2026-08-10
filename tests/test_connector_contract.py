@@ -226,12 +226,76 @@ def test_web_figures_note_only() -> None:
     check("커넥터가 render_figures 를 덮어쓰지 않음", "render_figures" not in con)
 
 
+def test_output_fallback() -> None:
+    print("J. 산출물 확장자 폴백 — .hwp 굽기 실패해도 사용자는 파일을 받는다")
+    # ⭐ 2026-08-10 실사고: 폼 채움이 HWP 크래시(-2147417851)로 죽고, 기본 서식 렌더는
+    # 성공했는데 최종 .hwp 굽기가 실패해 .hwpx 로 떨어졌다. 그런데 요청 경로(.hwp)만
+    # 확인하던 탓에 "출력 파일이 없습니다"(exit 3) → **500, 사용자는 아무것도 못 받음.**
+    import tempfile
+    from server.convert_cli import resolve_output
+
+    d = Path(tempfile.mkdtemp())
+    req = d / "out.hwp"
+    check("아무것도 없으면 None", resolve_output(None, req) is None)
+    (d / "out.hwpx").write_bytes(b"x" * 16)
+    got = resolve_output(None, req)
+    check("`.hwpx` 폴백을 찾아낸다", got is not None and got.name == "out.hwpx", str(got))
+    (d / "out.__work.hwpx").write_bytes(b"x" * 16)
+    req.write_bytes(b"y" * 16)
+    got = resolve_output(None, req)
+    check("요청 확장자가 있으면 그쪽 우선", got is not None and got.name == "out.hwp", str(got))
+    empty = d / "empty.hwp"
+    empty.write_bytes(b"")
+    check("0바이트는 산출물로 안 침", resolve_output(empty, req).name == "out.hwp")
+
+    src = (ROOT / "server" / "connector.py").read_text(encoding="utf-8")
+    check("커넥터가 (bytes, 확장자) 를 돌려준다",
+          "return produced.read_bytes(), produced.suffix" in src)
+    check("커넥터가 폴백 확장자를 응답 헤더에 반영",
+          "data, suffix = _run_convert_subprocess(body, suffix)" in src)
+    check("폴백을 진단에 남긴다(성공으로 위장 금지)", '"output_suffix"' in src)
+
+    cli = (ROOT / "server" / "convert_cli.py").read_text(encoding="utf-8")
+    check("convert_cli 가 실제 산출물로 성공 판정", "resolve_output(produced, out_path)" in cli)
+    check("폼 크래시 뒤 고아 HWP 정리", "reap_hwp(hwp_pids() - hwp_before)" in cli)
+
+    # ⭐ 부모가 산출물을 **추측하지 않는다** — HWP 가 SaveAs 도중 죽으면 잘린 .hwp 가
+    # 남는데, 요청 확장자를 먼저 집으면 그 깨진 파일을 성공으로 내보낸다(적대리뷰).
+    check("자식이 실제 산출물명을 진단에 박는다", "_record_output(out_path, actual)" in cli)
+    check("부모가 그 이름을 최우선으로 믿는다",
+          'get("output")' in src and "cands = [target.with_name(declared)]" in src)
+    # 재시도가 커넥터 타임아웃을 넘겨 결과를 통째로 날리면 안 된다.
+    check("폼 재시도에 시간 예산 가드", "_FORM_RETRY_BUDGET_S" in cli)
+    # 사용자가 변환 중 띄운 한글을 죽이지 않는다.
+    check("COM 크래시일 때만 프로세스 정리", "if _is_com_crash(e):" in cli)
+
+
+def test_process_reaping() -> None:
+    print("K. 프로세스 정리 안전장치")
+    from core.hwp_com import hwp_pids, reap_hwp
+
+    pids = hwp_pids()
+    check("hwp_pids 는 정수 집합", isinstance(pids, set)
+          and all(isinstance(p, int) for p in pids), str(pids))
+    check("빈 목록이면 0개 정리", reap_hwp(set()) == 0)
+    # 존재하지 않는 PID → taskkill 이 실패 → **정리했다고 세면 안 된다**(허위 로그 방지).
+    check("죽이지 못한 건 안 센다", reap_hwp({999999}) == 0)
+
+    core_src = (ROOT / "core" / "hwp_com.py").read_text(encoding="utf-8")
+    check("이미지명을 대조해 엉뚱한 PID 를 안 잡는다",
+          'row[0].strip().lower() == "hwp.exe"' in core_src)
+    check("taskkill 성공(rc 0)만 집계", "if r.returncode == 0:" in core_src)
+    conn_src = (ROOT / "server" / "connector.py").read_text(encoding="utf-8")
+    check("커넥터가 엔진 구현을 재사용(사본 금지)",
+          "from core.hwp_com import hwp_pids as _core_pids" in conn_src)
+
+
 def main() -> int:
     print("웹 ↔ 커넥터 계약 회귀 테스트\n")
     for fn in (test_envelope_discriminator, test_output_suffix, test_token_contract,
                test_allowed_origins, test_token_init_without_main,
                test_worker_python, test_health_fields, test_form_selection_from_filename,
-               test_web_figures_note_only):
+               test_web_figures_note_only, test_output_fallback, test_process_reaping):
         fn()
         print()
     if FAILED:

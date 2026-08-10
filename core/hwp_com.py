@@ -120,6 +120,57 @@ def ensure_com_initialized() -> None:
         logger.debug("CoInitialize 실패(무시): %r", e)
 
 
+def hwp_pids() -> set:
+    """현재 실행 중인 Hwp.exe PID 집합. 조회 실패하면 빈 집합(정리를 건너뛴다).
+
+    ⚠️ **이미지명을 반드시 대조**한다 — tasklist 필터가 안 먹거나(로케일·미지원 옵션)
+    빈 결과 안내문이 오면 엉뚱한 행에서 PID 를 뽑게 되고, 그걸 `reap_hwp` 가 강제
+    종료한다(적대리뷰 2026-08-10).
+    """
+    import csv
+    import io
+    import subprocess
+    pids = set()
+    try:
+        out = subprocess.run(
+            ["tasklist", "/FI", "IMAGENAME eq Hwp.exe", "/FO", "CSV", "/NH"],
+            capture_output=True, text=True, timeout=10).stdout or ""
+    except Exception:   # noqa: BLE001
+        return pids
+    for row in csv.reader(io.StringIO(out)):
+        if len(row) >= 2 and row[0].strip().lower() == "hwp.exe":
+            try:
+                pids.add(int(row[1]))
+            except ValueError:
+                pass
+    return pids
+
+
+def reap_hwp(pids) -> int:
+    """지정 PID 의 Hwp.exe 를 강제 종료하고 **실제로 종료된** 개수를 반환한다.
+
+    ⚠️ **이번 작업이 띄운 PID 만** 넘길 것(작업 전후 `hwp_pids()` 차집합). 전체
+    taskkill 은 사용자가 열어 둔 문서를 죽인다 — 절대 금지(커넥터 `_reap` 과 같은 규칙).
+
+    쓰는 이유: COM 호출 중 HWP 가 죽으면(-2147417851 RPC_E_SERVERFAULT) 그 인스턴스가
+    고아로 남아 **이어지는 렌더까지 오염**한다(저장·Quit 실패 → .hwp 굽기 실패).
+
+    ⚠️ 반환값은 `taskkill` **종료코드 0** 인 것만 센다 — 접근거부·이미 종료를 성공으로
+    세면 "N개 정리" 로그가 하지도 않은 청소를 주장해, 정작 남은 고아를 가린다.
+    """
+    import subprocess
+    n = 0
+    for pid in pids:
+        try:
+            r = subprocess.run(["taskkill", "/F", "/PID", str(pid)],
+                               capture_output=True, timeout=10)
+            if r.returncode == 0:
+                n += 1
+        except Exception:   # noqa: BLE001
+            pass
+    return n
+
+
 def _dispatch_hwp():
     """HWP COM 객체를 생성한다 — **late-binding(dynamic.Dispatch) 우선**.
 
