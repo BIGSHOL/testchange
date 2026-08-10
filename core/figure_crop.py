@@ -1568,8 +1568,13 @@ def assign_figures(img: Image.Image, region, hints, page_h: float | None = None,
             continue
         out[i] = boxes[j]
         used.add(j)
-    # ② 남은 것은 읽기 순서로 채운다(개수가 같으면 순서 매칭이 안전)
+    # ② 남은 것은 읽기 순서로 채운다(개수가 같으면 순서 매칭이 안전).
+    # ⚠️ 단 **후보가 남아도는데 힌트 겹침이 하나도 없었다면** 위치는 못 믿는다 —
+    # 위쪽 발문 띠가 먼저 잡힌다(경원고 #4: 띠 y0.627 / 진짜 그림 y0.841, 두 힌트
+    # 해석 모두 겹침 0). 이때는 **그림다운 순**으로 채운다.
     rest = [b for j, b in enumerate(boxes) if j not in used]
+    if len(boxes) > len(hints) and not used:
+        rest.sort(key=lambda b: figure_score(img, b), reverse=True)
     for i in range(len(hints)):
         if out[i] is None and rest:
             out[i] = rest.pop(0)
