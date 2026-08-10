@@ -2350,3 +2350,22 @@ DeepSeek 이 낸 소단원이 레퍼런스와 달랐던 것은 **모델 능력 �
   GUI 로 변환한 것과 **같은 코드 경로**다. 사용자 "실제 시험지로 exe 돌려서 확인" 요구를
   자동화하려고 추가(회귀 검증·배치 변환에도 쓸 수 있다).
 - ``--solutions`` 로 정답·해설 자동 작성을 켠다(config 의 GENERATE_SOLUTIONS 를 덮어씀).
+
+## Gemini 3.6 Flash 전환 검토 — 실측상 이득 0, **3.5 유지** (2026-08-10, 사용자 지시로 검토)
+
+- 공식가는 3.6 이 싸다(출력 $7.50 vs $9.00, 입력 동일 $1.50). 그러나 **실측(강동중 크롭
+  2장 × EXAM_OCR 프로브)에선 호출당 비용이 동률**(−0.4% ~ +2.5%): ① 우리 OCR 은 입력
+  (이미지+8.9k 프롬프트 ≈ 6.8k tok)이 비용의 ~70% 라 출력 인하 상한이 ~5%인데, ② **3.6 은
+  같은 내용을 pretty-print JSON 으로 뱉어 출력 토큰이 +18~30%** — 인하분을 정확히 상쇄.
+  내용은 두 모델 동일(수식·선택지 일치), 3.6 이 JSON 완결성 1건 우세(3.5 는 닫는 `}` 절단
+  1건 — `_extract_json` 복구 범위). 프로브 `.testkit/_g36_probe.py`(gitignore, 재실행 가능).
+- ⚠️ **3.6+ 는 `thinking_budget` 를 400 으로 거부** — `thinking_level:"minimal"` 만 받는다
+  (실측: minimal = 사고 토큰 0 = 3.5 의 budget:0 과 동등, **무설정 기본값은 사고 636tok 를
+  출력 단가로 과금**). `ocr_engine.gemini_flash_no_think_config`(모델 세대 정규식 분기,
+  crop_detector 공유)로 박제 — config 로 GEMINI_MODEL 을 3.6+ 로 바꿔도 flash 호출이 안 죽는다.
+- 웹(`hwp-convert-web/api/_lib.ts`)의 `OCR_THINKING={thinkingBudget:0}` 은 기본 모델이 3.5 라
+  무변경. **웹 모델을 3.6+ 로 올리려면 REST `thinkingConfig` 를 `thinkingLevel` 로 함께 바꿔야**
+  하고, figure-desc 는 figbench 98% 가 3.5 기준 튜닝이라 전환 시 **figbench 회귀 필수**.
+- Qwen-VL/GLM/Mathpix 대안 검토(같은 날): 단가는 싸지만(qwen3-vl ~$0.21/M 입력) corpus 검수로
+  쌓은 프롬프트 규약·figbench 재검증 비용 > 절감액(현 물량 OCR 비용 ≈ 편당 수백 원). 물량이
+  커져 OCR 비용이 유의미해지면 figbench+corpus 하네스로 실측 후 재검토.

@@ -654,6 +654,30 @@ def active_prompt() -> str:
     return EXAM_OCR_PROMPT + "\n\n" + reinforcement
 
 
+_GEMINI_VER_RE = re.compile(r"gemini-(\d+)\.(\d+)")
+
+
+def gemini_flash_no_think_config(model: str):
+    """flash 사고(thinking) 끄기 설정 — 모델 세대별 필드 분기. 비-flash 는 None.
+
+    3.5 이하 flash 는 ``thinking_budget=0`` 이 사고 0(실측 2026-08-08). **3.6부터는
+    thinking_budget 자체를 400 으로 거부**하고 ``thinking_level`` 만 받는다(실측
+    2026-08-10 프로브: 3.6 minimal = 사고 토큰 0, 무설정 기본값은 사고 636토큰 과금).
+    이 분기가 없으면 config 로 GEMINI_MODEL 을 3.6+ 로 바꾸는 순간 flash 호출이
+    전부 400 으로 죽는다. 구 SDK(ThinkingConfig 없음)면 None — 호출부 기본 동작 폴백.
+    """
+    if "flash" not in (model or "").lower():
+        return None
+    try:
+        from google.genai import types
+        m = _GEMINI_VER_RE.search(model or "")
+        if m and (int(m.group(1)), int(m.group(2))) >= (3, 6):
+            return types.ThinkingConfig(thinking_level="minimal")
+        return types.ThinkingConfig(thinking_budget=0)
+    except Exception:   # noqa: BLE001
+        return None
+
+
 class OCREngine:
     """Vision API 기반 OCR 엔진(Claude / Gemini 다중 백엔드, 2026-06-16).
 
@@ -813,13 +837,14 @@ class OCREngine:
         # thinkingLevel:minimal 을 400("only works in thinking mode")으로 거부(실계정
         # 프로브). low 는 절감이 미미(149→133)해 pro 는 기본 유지. 웹(_lib.ts
         # OCR_THINKING)과 반드시 함께 움직일 것 — 한쪽만 바꾸면 결과물이 갈린다.
+        # 필드는 모델 세대별로 다르다(3.6+ = thinking_level) → 헬퍼가 분기.
         config = None
-        if "flash" in (self.model or "").lower():
+        _tc = gemini_flash_no_think_config(self.model)
+        if _tc is not None:
             try:
                 config = types.GenerateContentConfig(
-                    thinking_config=types.ThinkingConfig(thinking_budget=0),
-                    **cfg_kwargs)
-            except Exception:   # noqa: BLE001 — 구 SDK(ThinkingConfig 없음)면 기본 동작
+                    thinking_config=_tc, **cfg_kwargs)
+            except Exception:   # noqa: BLE001 — 구 SDK 필드 불일치면 기본 동작
                 config = None
         if config is None:
             config = types.GenerateContentConfig(**cfg_kwargs)

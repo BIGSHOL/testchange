@@ -259,13 +259,15 @@ def _detect_with_gemini(image: Image.Image, api_key: str) -> list[CropBox]:
         temperature=0.1,
         max_output_tokens=65536,
     )
-    # 사고(thinking) 끔 — 좌표 검출에 사고는 불필요한데 출력 단가로 과금된다
-    # (ocr_engine._gemini_generate 의 동일 설정 주석 참조). flash 한정 + 구 SDK 방어.
+    # 사고(thinking) 끔 — 좌표 검출에 사고는 불필요한데 출력 단가로 과금된다.
+    # 필드는 모델 세대별로 다르다(3.5↓ thinking_budget / 3.6+ thinking_level) →
+    # ocr_engine.gemini_flash_no_think_config 가 분기(flash 한정 + 구 SDK 방어).
+    from core.ocr_engine import gemini_flash_no_think_config
     config = None
-    if "flash" in (GEMINI_MODEL or "").lower():
+    _tc = gemini_flash_no_think_config(GEMINI_MODEL)
+    if _tc is not None:
         try:
-            config = types.GenerateContentConfig(
-                thinking_config=types.ThinkingConfig(thinking_budget=0), **cfg_kwargs)
+            config = types.GenerateContentConfig(thinking_config=_tc, **cfg_kwargs)
         except Exception:   # noqa: BLE001
             config = None
     if config is None:
@@ -292,10 +294,10 @@ def _detect_with_gemini(image: Image.Image, api_key: str) -> list[CropBox]:
         text0 = resp.text or ""
         cfg2_kwargs = dict(cfg_kwargs, temperature=0.3)
         cfg2 = None
-        if "flash" in (GEMINI_MODEL or "").lower():
+        _tc2 = gemini_flash_no_think_config(GEMINI_MODEL)
+        if _tc2 is not None:
             try:
-                cfg2 = types.GenerateContentConfig(
-                    thinking_config=types.ThinkingConfig(thinking_budget=0), **cfg2_kwargs)
+                cfg2 = types.GenerateContentConfig(thinking_config=_tc2, **cfg2_kwargs)
             except Exception:   # noqa: BLE001
                 cfg2 = None
         if cfg2 is None:
