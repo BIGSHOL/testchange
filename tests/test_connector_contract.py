@@ -213,11 +213,25 @@ def test_form_selection_from_filename() -> None:
           parse_filename("random.pdf").get("valid") is False)
 
 
+def test_web_figures_note_only() -> None:
+    print("I. 웹 그림 = 안내문구 고정 (그림 실삽입은 내부 개발 전용 — 사용자 2026-08-10)")
+    # 신설 그림 파이프라인(figure_crop 검출 + figure_embed 네이티브 삽입)은 미완성이라
+    # 프로덕션(웹·exe) 노출 금지. 웹 경로가 render_figures=True 로 바뀌면 여기서 잡는다.
+    src = (ROOT / "server" / "convert_cli.py").read_text(encoding="utf-8")
+    check("폼 렌더가 render_figures=False", "render_figures=False" in src)
+    check("웹 경로에 render_figures=True 없음", "render_figures=True" not in src)
+    check("파서 전에 figure → 안내문구(resolve_figures) 호출",
+          src.index("resolve_figures(envelope)") < src.index("parse_ocr_response("))
+    con = (ROOT / "server" / "connector.py").read_text(encoding="utf-8")
+    check("커넥터가 render_figures 를 덮어쓰지 않음", "render_figures" not in con)
+
+
 def main() -> int:
     print("웹 ↔ 커넥터 계약 회귀 테스트\n")
     for fn in (test_envelope_discriminator, test_output_suffix, test_token_contract,
                test_allowed_origins, test_token_init_without_main,
-               test_worker_python, test_health_fields, test_form_selection_from_filename):
+               test_worker_python, test_health_fields, test_form_selection_from_filename,
+               test_web_figures_note_only):
         fn()
         print()
     if FAILED:

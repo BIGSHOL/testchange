@@ -146,6 +146,9 @@ def _render_engine_envelope(payload: dict, out_path: Path) -> None:
 
     if form_path:
         try:
+            # ⭐ 웹은 그림 실삽입 금지 — 항상 안내문구(사용자 2026-08-10). 그림
+            # 파이프라인(figure_crop/figure_embed)이 미완성이라 내부 개발 전용이다.
+            # 켜려면 합의 갱신이 먼저다(test_connector_contract G 가 잠금).
             write_exam_to_form(document, form_path, out_path,
                                header_values=header_values, render_figures=False)
             return

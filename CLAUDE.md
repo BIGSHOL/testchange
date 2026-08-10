@@ -2358,7 +2358,8 @@ DeepSeek 이 낸 소단원이 레퍼런스와 달랐던 것은 **모델 능력 �
   (이미지+8.9k 프롬프트 ≈ 6.8k tok)이 비용의 ~70% 라 출력 인하 상한이 ~5%인데, ② **3.6 은
   같은 내용을 pretty-print JSON 으로 뱉어 출력 토큰이 +18~30%** — 인하분을 정확히 상쇄.
   내용은 두 모델 동일(수식·선택지 일치), 3.6 이 JSON 완결성 1건 우세(3.5 는 닫는 `}` 절단
-  1건 — `_extract_json` 복구 범위). 프로브 `.testkit/_g36_probe.py`(gitignore, 재실행 가능).
+  1건 — `_extract_json` 복구 범위). 프로브 `scripts/gemini_flash_ab.py`(재실행 가능),
+  상세 조사 기록 `docs/MODEL_COST_REVIEW_2026-08.md`(Qwen/GLM/Mathpix 검토·전환 체크리스트 포함).
 - ⚠️ **3.6+ 는 `thinking_budget` 를 400 으로 거부** — `thinking_level:"minimal"` 만 받는다
   (실측: minimal = 사고 토큰 0 = 3.5 의 budget:0 과 동등, **무설정 기본값은 사고 636tok 를
   출력 단가로 과금**). `ocr_engine.gemini_flash_no_think_config`(모델 세대 정규식 분기,
@@ -2369,3 +2370,14 @@ DeepSeek 이 낸 소단원이 레퍼런스와 달랐던 것은 **모델 능력 �
 - Qwen-VL/GLM/Mathpix 대안 검토(같은 날): 단가는 싸지만(qwen3-vl ~$0.21/M 입력) corpus 검수로
   쌓은 프롬프트 규약·figbench 재검증 비용 > 절감액(현 물량 OCR 비용 ≈ 편당 수백 원). 물량이
   커져 OCR 비용이 유의미해지면 figbench+corpus 하네스로 실측 후 재검토.
+
+## 그림 실삽입은 내부 개발 전용 — 웹/exe 프로덕션은 안내문구 (2026-08-10, 사용자 지시)
+
+- 신설 그림 파이프라인(`figure_crop` 결정적 검출 + `figure_embed` 네이티브 삽입, 커밋
+  7432685~bfd7431)은 **미완성 — 프로덕션 호출자 없음**(개발 하네스 전용). 사용자 지시:
+  "웹상에서는 이미지 붙여넣기 막아두고 내부 개발서버에서 작업, 웹은 이전처럼 안내문구".
+- 현 상태가 이미 그렇다(이중 방어): 웹 프론트 `App.tsx` 가 figure → `FIGURE_NOTE_TEXT`,
+  커넥터 `convert_cli` 가 `resolve_figures`(figure → 안내문구) + `render_figures=False`
+  고정. exe GUI 도 `render_figures` 항상 False(2026-06-16 결정 유지).
+- **잠금 = `tests/test_connector_contract.py` I**(웹 그림 = 안내문구 고정). 그림 실삽입을
+  프로덕션에 올리려면 사용자 합의 + 이 테스트 갱신이 먼저다.
