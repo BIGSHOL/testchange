@@ -271,6 +271,20 @@ def _run_convert_subprocess(payload_bytes: bytes, suffix: str = ".hwpx") -> byte
                     _last_diag["v"] = diag.read_text(encoding="utf-8") if diag.exists() else ""
                 except Exception:  # noqa: BLE001
                     _last_diag["v"] = ""
+                # ⭐ 폼 채움이 실패해 기본 서식으로 떨어졌으면(=rc 0 이라 stderr 를 안 읽는
+                # 경로) **자식 stderr 꼬리를 진단에 실어** 웹 로그로 올린다. 안 그러면
+                # 결과물이 통째로 달라진 사고가 "성공" 으로만 보인다(적대리뷰 2026-08-10).
+                try:
+                    if '"form_fallback_error": ""' not in _last_diag["v"] \
+                            and "form_fallback_error" in _last_diag["v"]:
+                        d = json.loads(_last_diag["v"])
+                        d["stderr_tail"] = proc.stderr.decode("utf-8", "replace")[-1200:]
+                        _last_diag["v"] = json.dumps(d, ensure_ascii=False)
+                        sys.stderr.write(
+                            f"[connector] 폼 채움 실패 → 기본 서식: "
+                            f"{d.get('form_fallback_error')}\n")
+                except Exception:  # noqa: BLE001 — 진단 보강 실패가 변환을 막지 않는다
+                    pass
                 return target.read_bytes()
             if timed_out:
                 # ⚠️ 타임아웃은 **재시도하지 않는다** — 시험지 크기가 원인이라 결정적으로

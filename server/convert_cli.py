@@ -131,19 +131,27 @@ def _render_engine_envelope(payload: dict, out_path: Path) -> None:
         f"폼={form_name} · 그림자리 {n_fig}\n")
     # 부모(connector)가 응답 헤더로 웹에 전달할 진단 — "왜 이 서식으로 나왔나"가
     # 가장 흔한 질문이라, 폼 매칭 결과를 변환 로그에 남길 수 있게 한다.
-    try:
-        out_path.with_suffix(out_path.suffix + ".diag.json").write_text(
-            json.dumps({
-                "questions": len(envelope["questions"]),
-                "form": form_name,
-                "filename": filename,
-                "header_values": bool(header_values),
-                "figure_notes": n_fig,
-            }, ensure_ascii=False),
-            encoding="utf-8")
-    except Exception:  # noqa: BLE001 — 진단 실패가 변환을 막지 않는다
-        pass
+    # ⚠️ **결과가 확정된 뒤에 쓴다**(적대리뷰 2026-08-10): 시도 전에 쓰면 폼 채움이
+    # 실패해 기본 서식으로 떨어져도 diag 는 "폼=대수회…" 라고 **거짓 보고**하고,
+    # 자식 stderr 는 성공(rc=0) 시 부모가 읽지 않아 폼 실패가 어느 채널에도 안 남는다
+    # (경상여고 사고에서 폴백이 살아날수록 이 무음화가 잦아진다).
+    def _diag(used_form: str, fallback_error: str = "") -> None:
+        try:
+            out_path.with_suffix(out_path.suffix + ".diag.json").write_text(
+                json.dumps({
+                    "questions": len(envelope["questions"]),
+                    "form": used_form,
+                    "form_matched": form_name,
+                    "form_fallback_error": fallback_error,
+                    "filename": filename,
+                    "header_values": bool(header_values),
+                    "figure_notes": n_fig,
+                }, ensure_ascii=False),
+                encoding="utf-8")
+        except Exception:  # noqa: BLE001 — 진단 실패가 변환을 막지 않는다
+            pass
 
+    form_error = ""
     if form_path:
         try:
             # ⭐ 웹은 그림 실삽입 금지 — 항상 안내문구(사용자 2026-08-10). 그림
@@ -151,8 +159,10 @@ def _render_engine_envelope(payload: dict, out_path: Path) -> None:
             # 켜려면 합의 갱신이 먼저다(test_connector_contract G 가 잠금).
             write_exam_to_form(document, form_path, out_path,
                                header_values=header_values, render_figures=False)
+            _diag(form_name)
             return
         except Exception as e:  # noqa: BLE001 — 폼 채움 실패는 기본 서식으로 폴백(GUI 동일)
+            form_error = f"{type(e).__name__}: {e}"[:300]
             sys.stderr.write(f"[convert] 폼 채움 실패 → 기본 서식으로: {e}\n")
 
     # ⚠️ 기본 서식(폼 미매칭·폼 채움 실패) 경로에서도 **정답·해설을 살린다.**
@@ -165,6 +175,7 @@ def _render_engine_envelope(payload: dict, out_path: Path) -> None:
     if has_answers:
         sys.stderr.write("[convert] 기본 서식 — 정답·해설 페이지 포함\n")
     write_exam_to_hwp(document, out_path, show_answers=has_answers)
+    _diag("(기본 서식)", form_error)
 
 
 def main() -> int:

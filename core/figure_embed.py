@@ -38,6 +38,8 @@ def figure_token(idx: int) -> str:
 def _hwp(visible: bool = False):
     import win32com.client as wc
 
+    from core.hwp_com import ensure_com_initialized
+    ensure_com_initialized()                     # frozen/스레드 컨텍스트 방어
     h = wc.Dispatch("HWPFrame.HwpObject")
     try:
         h.RegisterModule("FilePathCheckDLL", "FilePathCheckerModule")

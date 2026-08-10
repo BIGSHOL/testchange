@@ -95,6 +95,31 @@ def _register_security_module() -> bool:
         return False
 
 
+def ensure_com_initialized() -> None:
+    """현재 스레드 COM 초기화 보장(idempotent) — frozen 커넥터 워커 방어.
+
+    배포 agent.exe 워커(convert_cli 인프로세스 렌더)에서 폼 채움이 HWP 서버
+    크래시(-2147417851)로 실패한 뒤, 기본 서식 폴백의 Dispatch 가
+    'CoInitialize가 호출되지 않았습니다'(-2147221008)로 죽었다(2026-08-10,
+    경상여고 기하 — **웹 변환을 처음 해보는 PC**). ⚠️ 그 PC 에서 스레드
+    refcount 가 어쩌다 0 이 됐는지는 **원인 미확정**이다(레포의 CoUninitialize 는
+    `_measure_*` 두 곳뿐이고 짝이 맞는다 — 적대리뷰 2026-08-10 반증). 확정된
+    것은 "Dispatch 시점에 미초기화 상태면 저 오류가 난다"는 재현
+    (`.testkit/_coinit_repro.py`)뿐이므로, pythoncom 의 import 자동 초기화에
+    기대지 말고 Dispatch 직전마다 명시 초기화해 원인과 무관하게 막는다.
+    이미 초기화된 스레드에선 S_FALSE(무해)이고, 일부러 CoUninitialize 짝을
+    안 맞춰 refcount 를 1 이상으로 남긴다. 선초기화 모델이 다르면
+    (RPC_E_CHANGED_MODE) 그대로 진행 — Dispatch 는 동작한다.
+    """
+    try:
+        import pythoncom
+        pythoncom.CoInitialize()
+    except Exception as e:   # noqa: BLE001 — 이미 초기화/모델 불일치면 그대로 진행
+        # 진짜 초기화 실패(E_OUTOFMEMORY 등)는 직후 Dispatch 가 -2147221008 로
+        # 죽으며 단서를 잃는다 → 흔적만 남긴다(흐름은 막지 않음).
+        logger.debug("CoInitialize 실패(무시): %r", e)
+
+
 def _dispatch_hwp():
     """HWP COM 객체를 생성한다 — **late-binding(dynamic.Dispatch) 우선**.
 
@@ -110,6 +135,7 @@ def _dispatch_hwp():
     캐시 손상과 무관하고 강건하다. ``win32com.client.Dispatch`` 는 gen_py 존재 시 early-binding
     을 돌려줄 수 있어, *강제 late* 인 ``dynamic.Dispatch`` 를 쓴다.
     """
+    ensure_com_initialized()
     return _win32.dynamic.Dispatch(HWP_PROGID)
 
 

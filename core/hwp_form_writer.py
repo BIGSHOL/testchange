@@ -31,7 +31,8 @@ from pathlib import Path
 
 logger = logging.getLogger(__name__)
 
-from .hwp_com import CONVERSION_VISIBLE, HwpSession, save_as_hwp, _dispatch_hwp, _win32
+from .hwp_com import (CONVERSION_VISIBLE, HwpSession, save_as_hwp,
+                      ensure_com_initialized, _dispatch_hwp, _win32)
 from .hwp_com_writer import (HwpComWriter, _BOX_BREAK_RE, _BULLET_RE,
                              _caption_run_back, _caption_spans, _choice_complexity,
                              _COND_HEADER_RE, _condition_start, _has_box_markup,
@@ -1284,7 +1285,9 @@ def _measure_first_choice_lines(hwpx, n: int) -> list[tuple[int, int, int]]:
     """COM 으로 열어 각 슬롯의 ① 위치(page, col, line)를 측정(읽기전용)."""
     import pythoncom
 
-    pythoncom.CoInitialize()
+    # bare CoInitialize 는 MTA 스레드에서 RPC_E_CHANGED_MODE 를 **던져** 폼 경로를
+    # 통째로 중단시킨다 → 무음 폴백으로 빨려 들어간다(적대리뷰 2026-08-10).
+    ensure_com_initialized()
     try:
         hwp = _dispatch_hwp()
         hwp.SetMessageBoxMode(0xFFFFFF)
@@ -1340,7 +1343,7 @@ def _measure_answer_page(hwpx) -> int:
     """
     import pythoncom
 
-    pythoncom.CoInitialize()
+    ensure_com_initialized()   # bare CoInitialize 는 MTA 에서 throw(위 함수 주석 참조)
     try:
         hwp = _dispatch_hwp()
         hwp.SetMessageBoxMode(0xFFFFFF)

@@ -2371,6 +2371,33 @@ DeepSeek 이 낸 소단원이 레퍼런스와 달랐던 것은 **모델 능력 �
   쌓은 프롬프트 규약·figbench 재검증 비용 > 절감액(현 물량 OCR 비용 ≈ 편당 수백 원). 물량이
   커져 OCR 비용이 유의미해지면 figbench+corpus 하네스로 실측 후 재검토.
 
+## ⭐ 커넥터 워커 CoInitialize 사고 + 폼 폴백 무음화 (2026-08-10, 사용자 보고)
+
+**웹 변환을 처음 해보는 PC**(경상여고 기하)에서 변환이 HTTP 500. 두 겹이었다.
+
+1. **폼 채움이 HWP 서버 크래시**(`-2147417851` RPC_E_SERVERFAULT)로 실패 → 설계된
+   기본 서식 폴백으로 진행.
+2. 그 **폴백의 `Dispatch` 가 `-2147221008`("CoInitialize가 호출되지 않았습니다")** 로
+   죽어 변환 전체 실패. ⚠️ **원인(그 PC 에서 왜 미초기화였는지)은 미확정** — 레포의
+   `CoUninitialize` 는 `_measure_*` 두 곳뿐이고 짝이 맞는다(적대리뷰 반증). 확정된 건
+   "Dispatch 시점 미초기화면 저 오류"라는 재현뿐(`.testkit/_coinit_repro.py`: 메인
+   스레드 pythoncom 선import → 새 스레드 bare Dispatch = 정확히 재현).
+- **수정 = `hwp_com.ensure_com_initialized()`**(idempotent, `CoUninitialize` 짝을 **일부러
+  안 맞춰** refcount 를 1 이상으로 남긴다 → 언더플로 구조적 차단). `_dispatch_hwp` 초크
+  포인트에 넣어 모든 세션 생성이 통과하고, `figure_embed._hwp`·`_measure_*` 두 곳의 bare
+  `CoInitialize`(MTA 에서 RPC_E_CHANGED_MODE 를 **던져** 폼 경로를 중단시킴)도 교체.
+- ⭐⭐ **적대리뷰가 잡은 실결함 — 폴백이 살아날수록 사고가 무음화된다**: `diag.json` 을
+  폼 채움 **시도 전에** 써서, 폴백이 나도 "폼=대수회…"로 **거짓 보고**했고(웹은 이 헤더로
+  렌더 경로를 로깅) 자식 stderr 는 **rc=0 이면 부모가 안 읽어** 어느 채널에도 안 남았다.
+  → diag 를 **결과 확정 후**에 쓰고 `form_matched`·`form_fallback_error` 를 분리 기록,
+  커넥터가 그 키를 보면 **stderr 꼬리를 diag 에 실어** 웹으로 올리고, 웹은 그 경우
+  **warn 레벨**로 로깅(Supabase `conversion_logs`). 회귀: `tests/test_convert_diag.py`.
+- **오류 로그는 이미 자동 수집된다**(사용자 질문): 커넥터 500 의 `{error}` 에 stderr
+  꼬리(traceback)가 실려 → `connector.ts` 가 예외 메시지로 → `App.tsx` catch 가
+  `log("err", …, {stack})` → `finally` 의 `flushLogs` → `/api/log` → Supabase. 즉 사용자가
+  traceback 을 붙여 줄 필요가 없다. **전제: Vercel env `SUPABASE_URL`+`SUPABASE_SERVICE_KEY`**
+  (없으면 `/api/log` 가 조용히 no-op — `loggingEnabled()`).
+
 ## 그림 실삽입은 내부 개발 전용 — 웹/exe 프로덕션은 안내문구 (2026-08-10, 사용자 지시)
 
 - 신설 그림 파이프라인(`figure_crop` 결정적 검출 + `figure_embed` 네이티브 삽입, 커밋
