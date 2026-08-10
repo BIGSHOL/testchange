@@ -1438,8 +1438,27 @@ def figures_in_region(img: Image.Image, region, page_h: float | None = None,
     # 필요하다.
     if page_boxes is None:
         page_boxes = detect(img)
-    inside = [b for b in page_boxes
-              if x0 <= (b[0] + b[2]) * 0.5 <= x1 and y0 <= (b[1] + b[3]) * 0.5 <= y1]
+    # ⭐ 중심점만 보면 **경계에서 아슬아슬하게 벗어난 그림**을 놓친다(경원고 #15:
+    # 중심 y 0.743 vs 크롭 하단 0.740 — 0.003 차이로 탈락하고 그 자리에 발문 줄이
+    # 뽑혔다). OCR bbox·크롭은 원래 거칠므로 **면적의 절반 이상이 들어오면** 포함.
+    tx, ty = img.width * 0.02, img.height * 0.02      # 크롭 경계 여유(쪽 크기의 2%)
+
+    def _in(b) -> bool:
+        cx, cy = (b[0] + b[2]) * 0.5, (b[1] + b[3]) * 0.5
+        if x0 <= cx <= x1 and y0 <= cy <= y1:
+            return True                       # 확실히 안쪽 — 종전 동작 그대로
+        # 여유(2%)·면적 절반으로 살리는 건 **그림 모양일 때만**. 발문/선택지 띠는 긴
+        # 가로 괘선 때문에 그림다움 점수가 높게 나오므로 모양으로 막는다(경원고 #4:
+        # 706x103 띠가 크롭 밖에서 끌려 들어와 그림 자리를 차지했다).
+        if (b[2] - b[0]) >= (b[3] - b[1]) * 4:
+            return False
+        if x0 - tx <= cx <= x1 + tx and y0 - ty <= cy <= y1 + ty:
+            return True
+        ix = max(0, min(x1, b[2]) - max(x0, b[0]))
+        iy = max(0, min(y1, b[3]) - max(y0, b[1]))
+        return ix * iy >= (b[2] - b[0]) * (b[3] - b[1]) * 0.5
+
+    inside = [b for b in page_boxes if _in(b)]
     if inside:
         return inside
 
@@ -1490,6 +1509,30 @@ def assign_figures(img: Image.Image, region, hints, page_h: float | None = None,
     반환: hints 와 같은 길이의 bbox(또는 None) 목록.
     """
     boxes = figures_in_region(img, region, page_h, page_boxes)
+    if not boxes and hints:
+        # ⭐ 문항 크롭에서 아무것도 못 찾으면 **힌트 rect 자체**를 영역으로 재시도한다.
+        # crops.json 의 문항 상자와 OCR figure bbox 가 서로 다른 곳을 가리키는 corpus 가
+        # 있다(운암중 #21: 크롭 y 0.684~0.935 인데 그림은 0.55~0.78). 둘 중 하나라도
+        # 맞으면 살린다.
+        rects = []
+        for cands in hints:
+            for r in (cands if isinstance(cands[0], (tuple, list)) else [cands]):
+                rects.append(r)
+        if rects:
+            m = 0.02
+            u = (max(0.0, min(r[0] for r in rects) - m),
+                 max(0.0, min(r[1] for r in rects) - m),
+                 min(1.0, max(r[2] for r in rects) + m),
+                 min(1.0, max(r[3] for r in rects) + m))
+            # ⚠️ 재시도 결과는 **그림다울 때만** 받는다. 아니면 그림이 아예 없는 문항
+            # (경원고 #4: 페이지 검출 0개)에서 발문·선택지 띠를 집어 온다.
+            # ⚠️ 재시도 결과는 **그림다울 때만** 받는다. 아니면 그림이 아예 없는 문항
+            # (경원고 #4: 페이지 검출 0개)에서 발문·선택지 띠를 집어 온다. 띠는 긴 가로
+            # 괘선 때문에 figure_score 가 0.54 로 높게 나오므로 **모양(가로가 세로의 4배
+            # 미만)** 조건을 함께 건다.
+            boxes = [b for b in figures_in_region(img, u, page_h, page_boxes)
+                     if figure_score(img, b) >= 0.30
+                     and (b[2] - b[0]) < (b[3] - b[1]) * 4]
     out: list[tuple | None] = [None] * len(hints)
     if not boxes:
         return out
@@ -1508,7 +1551,10 @@ def assign_figures(img: Image.Image, region, hints, page_h: float | None = None,
         if len(boxes) == len(hints):
             return list(boxes)
     used = set()
-    # ① 겹침이 큰 순으로 확정(힌트는 '선택'에만 쓴다)
+    # ① 겹침이 큰 순으로 확정(힌트는 '선택'에만 쓴다). ⭐ 겹침이 비슷하면 **더 그림다운
+    # 쪽**을 고른다 — OCR bbox 가 거칠어 발문/선택지 띠가 그림보다 겹침이 클 때가 있다
+    # (경원고 #4: 타원·쌍곡선 그림 대신 선택지 줄이 뽑혔다, 실측 2026-08-11).
+    fs = {j: figure_score(img, b) for j, b in enumerate(boxes)}
     pairs = []
     for i, cands in enumerate(hints):
         for j, b in enumerate(boxes):
@@ -1516,7 +1562,7 @@ def assign_figures(img: Image.Image, region, hints, page_h: float | None = None,
             for r in (cands if isinstance(cands[0], (tuple, list)) else [cands]):
                 hx = _to_px(img, r)
                 f = max(f, _overlap_frac(hx, b), _overlap_frac(b, hx))
-            pairs.append((f, i, j))
+            pairs.append((f * (0.5 + fs[j]), i, j))
     for f, i, j in sorted(pairs, reverse=True):
         if f <= 0.05 or out[i] is not None or j in used:
             continue
@@ -1540,6 +1586,8 @@ def drop_text_only(img: Image.Image, boxes: list) -> list:
     후보가 하나뿐이면 개수가 맞아 그대로 채택되는데, 그 하나가 발문 줄일 때가 있다
     (경원고 #15 = 0.10). 실측 정상 그림의 최저치가 0.37 이라 0.15 는 안전한 문턱이다.
     """
+    # ⚠️ 폐기 시도: '납작한 띠(가로 4배+)는 그림이 아니다'. 발문 띠(경원고 #4)를
+    # 노렸으나 **수직선처럼 원래 납작한 그림**까지 잃는다(대건중 #16 실측).
     return [b if (b is None or figure_score(img, b) >= TEXT_ONLY) else None
             for b in boxes]
 
