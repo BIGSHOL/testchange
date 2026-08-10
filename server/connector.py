@@ -38,7 +38,10 @@ except Exception:
     pass
 
 ENGINE_ROOT = Path(__file__).resolve().parent.parent
-VERSION = "1.1.0"
+# ⚠️ 도우미를 다시 배포할 때마다 올린다 — `/health` 의 version 이 **사용자 PC 에서
+# 어느 빌드가 도는지 확인하는 유일한 수단**이다(exe 를 갈아끼웠는지 원격에서 알 길이
+# 없어 2026-08-10 경상여고 사고 재테스트 때 문제가 됐다).
+VERSION = "1.1.1"   # 2026-08-10: CoInitialize 방어 + 폼 폴백 진단(form_fallback_error)
 # ⭐ 360초 — 실측 렌더가 2~4분(오성중·왕선중 2026-08-09)이라 180초는 3분 넘는
 # 시험지를 **구조적으로 100% 실패**시키고(살해 후 같은 payload 재시도 → 또 180초
 # 소모 → 500) 총 6분+CPU 를 낭비했다. env 로 조정 가능.
