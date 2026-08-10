@@ -415,6 +415,8 @@ def _text_lines(comps: list[dict], H: float) -> list[list[int]]:
     # 뿐이라 본문 줄에는 영향이 없다(제목 글자는 획이 촘촘해 fill 이 크다).
     def _figure_like(c) -> bool:
         cw, ch = c["x1"] - c["x0"], c["y1"] - c["y0"]
+        if cw >= H * SEED_MIN * 2 and ch >= H * SEED_MIN * 2:
+            return True          # 글자로 보기엔 너무 크다(양변 4.4H+) — 칠해진 도형도 포함
         return (cw >= H * SEED_MIN and ch >= H * SEED_MIN
                 and c["area"] / max(1.0, float(cw * ch)) <= 0.15)
 
@@ -1023,12 +1025,16 @@ def _detect_once(img: Image.Image, debug: bool = False,
                  if c["x0"] >= box[0] and c["x1"] <= box[2]
                  and c["y0"] >= box[1] and c["y1"] <= box[3]]
         # 큰 요소가 '속이 찬'(fill 높은) 획이면 글자, '속이 빈' 윤곽이면 도형.
-        fat = 0
+        fat_h = []
         for c in inner:
             cw2, ch2 = c["x1"] - c["x0"], c["y1"] - c["y0"]
             if ch2 >= H * 3 and c["area"] / max(1, cw2 * ch2) >= 0.35:
-                fat += 1
-        big_glyphs = fat >= 3
+                fat_h.append(ch2)
+        # ⚠️ 폐기 시도: '크기가 1.5배 넘게 벌어지면 제목 글자가 아니다'(신명여중 #8 의
+        # 커지는 빗금 정사각형 93→289px 을 살리려던 완화). 기준선 os3 p1 에서 이웃한
+        # 두 그림이 2636px 한 상자로 뭉쳐 **정상 그림 2건이 소실**됐고, 폭 문턱(60H)으로
+        # 막아도 재현됐다. 신명여중 #8 은 안내문구로 남긴다.
+        big_glyphs = len(fat_h) >= 3
 
         # 아주 큰 요소(도형 윤곽) 존재 여부 — glyph-region 면제 조건
         # ⚠️ fill 상한을 0.5 로 두면 **음영/칠해진 도형**(학산중 #6 직사각형 색칠)이
