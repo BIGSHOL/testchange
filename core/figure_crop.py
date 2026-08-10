@@ -1034,7 +1034,10 @@ def _detect_once(img: Image.Image, debug: bool = False,
         # 커지는 빗금 정사각형 93→289px 을 살리려던 완화). 기준선 os3 p1 에서 이웃한
         # 두 그림이 2636px 한 상자로 뭉쳐 **정상 그림 2건이 소실**됐고, 폭 문턱(60H)으로
         # 막아도 재현됐다. 신명여중 #8 은 안내문구로 남긴다.
-        big_glyphs = len(fat_h) >= 3
+        big_glyphs = len(fat_h) >= 3 and max(fat_h) <= min(fat_h) * 1.5
+        n_glyph = sum(1 for c in inner
+                      if (c["x1"] - c["x0"]) <= H * GLYPH_MAX
+                      and (c["y1"] - c["y0"]) <= H * GLYPH_MAX)
 
         # 아주 큰 요소(도형 윤곽) 존재 여부 — glyph-region 면제 조건
         # ⚠️ fill 상한을 0.5 로 두면 **음영/칠해진 도형**(학산중 #6 직사각형 색칠)이
@@ -1066,7 +1069,10 @@ def _detect_once(img: Image.Image, debug: bool = False,
             # **셀 안에 글자가 있는가**. 표는 셀마다 값이 들어 있고(gfrac 높음),
             # 모눈은 셀이 비어 있고 라벨이 바깥이다(실측: 도원중 #14·황금중 #16).
             why = "table-grid"         # 행·열 괘선 격자 + 셀 안 글자 = 표
-        elif axf >= 0.75 and dens < 0.12:
+        elif (axf >= 0.75 and dens < 0.12
+              and not (cov < 0.05 and (box[2] - box[0]) >= H * 6
+                       and (box[3] - box[1]) >= H * 6
+                       and 1 <= n_glyph <= 5)):
             # 칠해진 도형(검게 칠한 L자 다각형)은 내부가 긴 수평런이라 axf 가 1 에
             # 가깝지만 명백한 그림이다 → 잉크가 빽빽하면 면제(도원중 #6 실측).
             why = "all-straight"       # 축정렬 직선뿐 = 표·박스 테두리 조각
