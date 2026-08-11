@@ -10,6 +10,7 @@ import os
 import sys
 
 sys.path.insert(0, r"F:\시험지변환기")
+from core.figure_svg import halo_angle, halo_text
 sys.stdout.reconfigure(encoding="utf-8")
 
 OUT = r"F:\tmp\figcrop\_ua2\_fig"
@@ -227,11 +228,11 @@ SVGS["q8"] = f'''<svg viewBox="0 0 380 250" xmlns="http://www.w3.org/2000/svg">
 <text x="{Cx8-14}" y="{oy8-9}" font-size="15" {FONT} text-anchor="end">C</text>
 <text x="{Px8+6}" y="{oy8+6}" font-size="16" {FONT}>P</text>
 {meas(Ax8, Ay8, Px8, oy8, off=-9, bow=6, ins_q=14)}
-<text x="{(Ax8+Px8)/2-4:.1f}" y="{(Ay8+oy8)/2-24:.1f}" font-size="12" {FONT}><tspan font-style="italic">x</tspan> cm</text>
+{halo_text((Ax8+Px8)/2 + 12*_px, (Ay8+oy8)/2 + 12*_py + 4, '<tspan font-style="italic">x</tspan> cm', 12)}
 <text x="{(Cx8+Px8)/2-28:.1f}" y="{oy8+25}" font-size="11" {FONT} text-anchor="middle">8 cm</text>
 {meas(Cx8, oy8, Px8, oy8, off=8, bow=4, ins_q=30)}
 {meas(ox8, oy8, Ax8, By8, off=8, bow=5, ins_p=12, ins_q=6)}
-<text x="{ox8-6}" y="{oy8+54}" font-size="11.5" {FONT} text-anchor="end">12 cm</text>
+{halo_text((ox8 + Ax8) / 2 - 2, (oy8 + By8) / 2 + 4, "12 cm", 11.5)}
 </svg>'''
 
 # ── q9: 원 O 내접 오각형, ∠A=120°, ∠D=100°, 중심각 x=∠BOC ──────────
@@ -299,7 +300,7 @@ SVGS["q11"] = f'''<svg viewBox="0 0 360 215" xmlns="http://www.w3.org/2000/svg">
 <circle cx="{cx11}" cy="{cy11}" r="2.4" fill="#000"/>
 <circle cx="325" cy="{ty}" r="2.4" fill="#000"/>
 <path d="{arc(*A11, 19, 0, 55)}" fill="none" stroke="#000" stroke-width="1"/>
-<text x="{A11[0]+22}" y="{A11[1]-7}" font-size="11.5" {FONT}>55°</text>
+{halo_angle(*A11, (A11[0] + 40, A11[1]), B11, 34, "55°", 11.5)}
 <path d="{arc(*B11, 24, 200, 250)}" fill="none" stroke="#000" stroke-width="1"/>
 <text x="{B11[0]-14:.1f}" y="{B11[1]+30:.1f}" font-size="14" {IT}>x</text>
 <path d="{arc(*P11, 26, 0, 20)}" fill="none" stroke="#000" stroke-width="1"/>
@@ -336,9 +337,9 @@ SVGS["q15"] = f'''<svg viewBox="0 0 340 300" xmlns="http://www.w3.org/2000/svg">
 <path d="M {ox15-4} {oy15-222} L {ox15} {oy15-230} L {ox15+4} {oy15-222} Z" fill="#000"/>
 {dots}
 <circle cx="{ox15+ga[0]*sx:.0f}" cy="{oy15-ga[1]*sy:.0f}" r="3.2" fill="#000"/>
-<text x="{ox15+ga[0]*sx:.0f}" y="{oy15-ga[1]*sy-10:.0f}" font-size="13" {FONT} text-anchor="middle">(가)</text>
+{halo_text(ox15 + ga[0] * sx, oy15 - ga[1] * sy - 10, "(가)", 13)}
 <circle cx="{ox15+na[0]*sx:.0f}" cy="{oy15-na[1]*sy:.0f}" r="3.2" fill="#000"/>
-<text x="{ox15+na[0]*sx:.0f}" y="{oy15-na[1]*sy-10:.0f}" font-size="13" {FONT} text-anchor="middle">(나)</text>
+{halo_text(ox15 + na[0] * sx, oy15 - na[1] * sy - 10, "(나)", 13)}
 {xt}{yt}
 <text x="{ox15-10}" y="{oy15+18}" font-size="14" {FONT} text-anchor="end">O</text>
 <text x="{ox15+266}" y="{oy15+18}" font-size="14" {IT}>x</text>
@@ -381,10 +382,10 @@ SVGS["s2"] = f'''<svg viewBox="0 0 360 225" xmlns="http://www.w3.org/2000/svg">
 <path d="{arc(*D17, 40, 0, 30)}" fill="none" stroke="#000" stroke-width="1"/>
 <text x="{D17[0]+46}" y="{gy-8}" font-size="13" {FONT}>30°</text>
 <path d="{arc(C17[0], gy, 26, 0, 60)}" fill="none" stroke="#000" stroke-width="1"/>
-<text x="{C17[0]+27:.1f}" y="{gy-13}" font-size="12" {FONT} text-anchor="middle">60°</text>
-<text x="{(D17[0]+C17[0])/2:.1f}" y="{gy+22}" font-size="13" {FONT} text-anchor="middle">20 m</text>
+{halo_angle(C17[0], gy, (B17[0], gy), A17, 40, "60°", 12)}
+<text x="{(D17[0]+C17[0])/2:.1f}" y="{gy+16}" font-size="13" {FONT} text-anchor="middle">20 m</text>
 <text x="{A17[0]+10}" y="{A17[1]+4:.1f}" font-size="15" {FONT}>A</text>
-<text x="{B17[0]+10}" y="{gy+8}" font-size="15" {FONT}>B</text>
+<text x="{B17[0]+12}" y="{gy+22}" font-size="15" {FONT}>B</text>
 <text x="{C17[0]-2:.1f}" y="{gy+22}" font-size="15" {FONT} text-anchor="middle">C</text>
 <text x="{D17[0]}" y="{gy+22}" font-size="15" {FONT} text-anchor="middle">D</text>
 </svg>'''

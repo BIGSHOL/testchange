@@ -6,46 +6,11 @@ import sys
 
 sys.path.insert(0, r"F:\시험지변환기")
 sys.stdout.reconfigure(encoding="utf-8")
-from core.figure_svg import (FONT, IT, angle_arc, arc, dim_label, eq_tick, meas,
-                             measured, pt, rangle, ray_angle)
+from core.figure_svg import (C, FONT, IT, angle_arc, arc, circ, circle_pt, dim_label, dot, eq_tick, halo_angle, halo_text, line, lint_svg, meas, measured, pt, rangle, rangle_at, ray_angle, seci, txt)
 
 OUT = r"F:\tmp\figcrop\_os2\_fig"
 os.makedirs(OUT, exist_ok=True)
 S = {}
-
-
-def C(cx, cy, ang, r):
-    """원 위 점(수학각 도)."""
-    return (cx + r * math.cos(math.radians(ang)), cy - r * math.sin(math.radians(ang)))
-
-
-def line(p, q, w=2):
-    return (f'<line x1="{p[0]:.1f}" y1="{p[1]:.1f}" x2="{q[0]:.1f}" y2="{q[1]:.1f}" '
-            f'stroke="#000" stroke-width="{w}"/>')
-
-
-def txt(x, y, t, fs=15, anc="middle", it=False):
-    return (f'<text x="{x:.1f}" y="{y:.1f}" font-size="{fs}" {IT if it else FONT} '
-            f'text-anchor="{anc}">{t}</text>')
-
-
-def dot(x, y, r=2.4):
-    return f'<circle cx="{x:.1f}" cy="{y:.1f}" r="{r}" fill="#000"/>'
-
-
-def circ(cx, cy, r, w=2):
-    return f'<circle cx="{cx}" cy="{cy}" r="{r}" fill="none" stroke="#000" stroke-width="{w}"/>'
-
-
-def seci(P, ang_deg, cx, cy, r):
-    """P 에서 수학각 방향 반직선이 원과 만나는 두 점(가까운 것, 먼 것)."""
-    ux, uy = math.cos(math.radians(ang_deg)), -math.sin(math.radians(ang_deg))
-    fx, fy = P[0] - cx, P[1] - cy
-    b = fx * ux + fy * uy
-    c0 = fx * fx + fy * fy - r * r
-    d = math.sqrt(b * b - c0)
-    t1, t2 = -b - d, -b + d
-    return ((P[0] + t1 * ux, P[1] + t1 * uy), (P[0] + t2 * ux, P[1] + t2 * uy))
 
 
 # ── q1: 원 O, 평행현 AB·CD=24cm, 지름 30cm ──────────────────────────
@@ -59,12 +24,12 @@ S["q1"] = f'''<svg viewBox="0 0 245 245" xmlns="http://www.w3.org/2000/svg">
 {circ(cx, cy, r)}{dot(cx, cy)}
 {line(A1, B1)}{line(C1, D1)}
 {line(dia1, dia2, 1)}
-{txt(cx + 10, cy - 5, "O")}
+{txt(cx - 6, cy - 8, "O", anc="end")}
 {txt(A1[0] - 8, A1[1] - 6, "A", anc="end")}{txt(B1[0] + 8, B1[1] - 6, "B")}
 {txt(C1[0] - 8, C1[1] + 16, "C", anc="end")}{txt(D1[0] + 8, D1[1] + 16, "D")}
 {measured(*A1, *B1, -9, "24 cm", 12)}
 {measured(*C1, *D1, 9, "24 cm", 12)}
-{txt((dia1[0] + cx) / 2 - 6, (dia1[1] + cy) / 2 + 14, "30 cm", 12)}
+{halo_text(*C(cx, cy, 205, 0.55 * r), "30 cm", 12)}
 </svg>'''
 
 # ── q2: 외부점 A 의 두 접선(P·Q), B·C, BC 접점 D, PB=15·BA=17 ────────
@@ -115,7 +80,7 @@ S["q4"] = f'''<svg viewBox="0 0 260 250" xmlns="http://www.w3.org/2000/svg">
 {line(A4, B4, 1)}
 {line(P4, Q4)}{line(P4, B4)}{line(R4, Q4)}{line(R4, B4)}
 <path d="{angle_arc(*P4, Q4, B4, 20)}" fill="none" stroke="#000" stroke-width="1"/>
-{txt(P4[0] + 26, P4[1] + 14, "54°", 12)}
+{halo_angle(*P4, Q4, B4, 36, "54°", 12)}
 {txt(cx - 3, cy - 8, "O")}
 {txt(A4[0] - 9, A4[1] + 5, "A", anc="end")}{txt(B4[0] + 9, B4[1] + 5, "B")}
 {txt(P4[0] - 6, P4[1] - 8, "P", anc="end")}{txt(R4[0] + 6, R4[1] - 6, "R")}
@@ -133,7 +98,7 @@ S["q5"] = f'''<svg viewBox="0 0 265 265" xmlns="http://www.w3.org/2000/svg">
 {line(A5, D5)}{line(B5, D5)}{line(C5, D5)}
 {dot(*I5, 2.2)}
 <path d="{angle_arc(*B5, A5, C5, 22)}" fill="none" stroke="#000" stroke-width="1"/>
-{txt(B5[0] + 30, B5[1] - 8, "45°", 12)}
+{halo_angle(*B5, A5, C5, 38, "45°", 12)}
 {txt(A5[0], A5[1] - 9, "A")}{txt(B5[0] - 9, B5[1] + 10, "B", anc="end")}
 {txt(C5[0] + 9, C5[1] + 4, "C")}{txt(D5[0] + 4, D5[1] + 16, "D")}
 {txt(I5[0] + 9, I5[1] - 2, "I")}
@@ -174,7 +139,7 @@ S["q7"] = f'''<svg viewBox="0 0 310 255" xmlns="http://www.w3.org/2000/svg">
 {txt(P7[0] - 32, P7[1] + 4, "53°", 12, anc="end")}
 {txt(cx - 2, cy + 18, "O")}
 {txt(A7[0] - 2, A7[1] - 9, "A")}{txt(E7[0] + 5, E7[1] - 7, "E")}
-{txt(D7[0] + 7, D7[1] + 8, "D")}{txt(C7[0] - 4, C7[1] + 17, "C")}
+{txt(D7[0] + 6, D7[1] + 16, "D")}{txt(C7[0] - 4, C7[1] + 17, "C")}
 {txt(B7[0] - 9, B7[1] + 5, "B", anc="end")}{txt(P7[0] + 8, P7[1] + 5, "P")}
 </svg>'''
 
@@ -333,8 +298,8 @@ S["s2"] = f'''<svg viewBox="0 0 345 265" xmlns="http://www.w3.org/2000/svg">
 {line(A_2, P_2)}{line(C_2, P_2)}
 <path d="{angle_arc(*P_2, A_2, C_2, 22)}" fill="none" stroke="#000" stroke-width="1"/>
 {txt(P_2[0] - 26, P_2[1] - 8, "60°", 12, anc="end")}
-{txt(A_2[0] - 2, A_2[1] - 9, "A")}{txt(B_2[0] + 11, B_2[1] - 12, "B")}
-{txt(C_2[0] - 8, C_2[1] + 16, "C", anc="end")}{txt(D_2[0] + 13, D_2[1] + 18, "D")}
+{txt(A_2[0] - 8, A_2[1] - 10, "A")}{txt(B_2[0] + 11, B_2[1] - 12, "B")}
+{txt(C_2[0] - 8, C_2[1] + 16, "C", anc="end")}{txt(D_2[0] + 21, D_2[1] + 18, "D")}
 {txt(P_2[0] + 8, P_2[1] + 5, "P")}
 <path d="{arc(cx, cy, r + 13, ray_angle(cx, cy, *A_2), ray_angle(cx, cy, *B_2))}" fill="none" stroke="#000" stroke-width="1" stroke-dasharray="3 3"/>
 {txt((A_2[0] + B_2[0]) / 2 + 42, (A_2[1] + B_2[1]) / 2 - 32, "9π cm", 12.5)}

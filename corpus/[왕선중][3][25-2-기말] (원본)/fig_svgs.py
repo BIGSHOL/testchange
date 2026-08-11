@@ -7,59 +7,11 @@ import sys
 
 sys.path.insert(0, r"F:\시험지변환기")
 sys.stdout.reconfigure(encoding="utf-8")
-from core.figure_svg import (FONT, IT, angle_arc, arc, eq_tick, measured, pt,
-                             rangle, ray_angle)
+from core.figure_svg import (C, FONT, IT, angle_arc, arc, circ, circle_pt, dot, eq_tick, halo_angle, halo_text, isect, line, lint_svg, measured, pt, rangle, rangle_at, ray_angle, seci, tangent_isect, txt)
 
 OUT = r"F:\tmp\figcrop\_ws2\_fig"
 os.makedirs(OUT, exist_ok=True)
 S = {}
-
-
-def C(cx, cy, ang, r):
-    return (cx + r * math.cos(math.radians(ang)), cy - r * math.sin(math.radians(ang)))
-
-
-def line(p, q, w=2):
-    return (f'<line x1="{p[0]:.1f}" y1="{p[1]:.1f}" x2="{q[0]:.1f}" y2="{q[1]:.1f}" '
-            f'stroke="#000" stroke-width="{w}"/>')
-
-
-def txt(x, y, t, fs=15, anc="middle", it=False):
-    return (f'<text x="{x:.1f}" y="{y:.1f}" font-size="{fs}" {IT if it else FONT} '
-            f'text-anchor="{anc}">{t}</text>')
-
-
-def dot(x, y, r=2.4):
-    return f'<circle cx="{x:.1f}" cy="{y:.1f}" r="{r}" fill="#000"/>'
-
-
-def circ(cx, cy, r, w=2):
-    return f'<circle cx="{cx}" cy="{cy}" r="{r}" fill="none" stroke="#000" stroke-width="{w}"/>'
-
-
-def seci(P, ang_deg, cx, cy, r):
-    ux, uy = math.cos(math.radians(ang_deg)), -math.sin(math.radians(ang_deg))
-    fx, fy = P[0] - cx, P[1] - cy
-    b = fx * ux + fy * uy
-    d = math.sqrt(b * b - (fx * fx + fy * fy - r * r))
-    return ((P[0] + (-b - d) * ux, P[1] + (-b - d) * uy),
-            (P[0] + (-b + d) * ux, P[1] + (-b + d) * uy))
-
-
-def isect(p1, p2, p3, p4):
-    x1, y1 = p1; x2, y2 = p2; x3, y3 = p3; x4, y4 = p4
-    den = (x1 - x2) * (y3 - y4) - (y1 - y2) * (x3 - x4)
-    px = ((x1 * y2 - y1 * x2) * (x3 - x4) - (x1 - x2) * (x3 * y4 - y3 * x4)) / den
-    py = ((x1 * y2 - y1 * x2) * (y3 - y4) - (y1 - y2) * (x3 * y4 - y3 * x4)) / den
-    return (px, py)
-
-
-def tangent_isect(cx, cy, r, t1, t2):
-    """두 접점 각도 t1·t2 의 접선 교점."""
-    half = abs((t2 - t1 + 180) % 360 - 180) / 2.0
-    mid = (t1 + ((t2 - t1 + 180) % 360 - 180) / 2.0)
-    d = r / math.cos(math.radians(half))
-    return C(cx, cy, mid, d)
 
 
 # ── q1: 원 O, 반지름 10cm·수선 6cm·현 x cm ──────────────────────────
@@ -74,7 +26,7 @@ S["q1"] = f'''<svg viewBox="0 0 250 220" xmlns="http://www.w3.org/2000/svg">
 {line((cx, cy), L1)}
 {line((cx, cy), (cx, chy))}
 {rangle(cx, chy, 1, 0, 0, -1, 9)}
-{txt((cx + L1[0]) / 2 - 6, (cy + chy) / 2 - 11, "10 cm", 11.5, anc="end")}
+{halo_text((cx + L1[0]) / 2, (cy + chy) / 2 + 4, "10 cm", 11.5)}
 {txt(cx + 11, (cy + chy) / 2 + 3, "6 cm", 11)}
 {measured(*L1, *R1, 10, '<tspan font-style="italic">x</tspan> cm', 12)}
 </svg>'''
@@ -143,15 +95,15 @@ S["q5"] = f'''<svg viewBox="0 0 295 255" xmlns="http://www.w3.org/2000/svg">
 {line(A5, D5)}{line(A5, B5)}{line(A5, C5_)}{line(D5, E5)}{line(A5, E5)}
 {rangle(E5[0], E5[1], (A5[0]-E5[0])/94, (A5[1]-E5[1])/94, (D5[0]-E5[0])/108, (D5[1]-E5[1])/108, 9)}
 <path d="{angle_arc(*A5, B5, C5_, 30)}" fill="none" stroke="#000" stroke-width="1"/>
-{txt(A5[0] - 27, A5[1] + 42, "20°", 11)}
+{halo_angle(*A5, B5, C5_, 46, "20°", 11)}
 <path d="{angle_arc(*D5, A5, E5, 24)}" fill="none" stroke="#000" stroke-width="1"/>
 {txt(D5[0] + 16, D5[1] - 28, "60°", 11)}
 <path d="{arc(cx, cy, r + 12, 180, 220)}" fill="none" stroke="#000" stroke-width="1" stroke-dasharray="3 3"/>
-{txt(C(cx, cy, 200, r + 26)[0], C(cx, cy, 200, r + 26)[1], '<tspan font-style="italic">x</tspan> cm', 11.5, anc="end")}
+{halo_text(*C(cx, cy, 200, r + 12), '<tspan font-style="italic">x</tspan> cm', 11.5)}
 <path d="{arc(cx, cy, r + 12, 275, 335)}" fill="none" stroke="#000" stroke-width="1" stroke-dasharray="3 3"/>
-{txt(C(cx, cy, 305, r + 27)[0] + 4, C(cx, cy, 305, r + 27)[1] + 6, "5 cm", 11.5)}
+{halo_text(*C(cx, cy, 305, r + 12), "5 cm", 11.5)}
 {txt(A5[0], A5[1] - 9, "A")}{txt(B5[0] - 9, B5[1] + 5, "B", anc="end")}
-{txt(C5_[0] - 8, C5_[1] + 10, "C", anc="end")}{txt(D5[0] - 2, D5[1] + 18, "D")}
+{txt(C5_[0] - 8, C5_[1] + 10, "C", anc="end")}{txt(D5[0] - 6, D5[1] + 17, "D", anc="end")}
 {txt(E5[0] + 9, E5[1] + 4, "E")}
 </svg>'''
 
@@ -188,7 +140,7 @@ S["q7"] = f'''<svg viewBox="0 0 330 225" xmlns="http://www.w3.org/2000/svg">
 {txt(P7[0] - 32, P7[1] - 7, "20°", 11.5, anc="end")}
 <path d="{arc(cx, cy, r + 11, ray_angle(cx, cy, *C7) % 360, 180)}" fill="none" stroke="#000" stroke-width="1" stroke-dasharray="3 3"/>
 {txt(C(cx, cy, 212, r + 26)[0], C(cx, cy, 212, r + 26)[1], "30", 12)}
-{txt(D7[0] - 8, D7[1] + 5, "D", anc="end")}{txt(A7[0] + 2, A7[1] - 8, "A")}
+{txt(D7[0] - 8, D7[1] + 5, "D", anc="end")}{txt(A7[0] + 11, A7[1] - 7, "A")}
 {txt(P7[0] + 9, P7[1] + 5, "P")}{txt(B7[0] + 9, B7[1] + 18, "B")}
 {txt(C7[0] - 6, C7[1] + 16, "C")}
 </svg>'''
@@ -239,13 +191,13 @@ T10 = (285, cy + r)
 P10 = isect(A10, B10, C10, S10)
 S["q10"] = f'''<svg viewBox="0 0 310 245" xmlns="http://www.w3.org/2000/svg">
 {circ(cx, cy, r)}{dot(cx, cy)}
-{txt(cx - 10, cy - 6, "O", anc="end")}
+{txt(cx + 14, cy + 2, "O")}
 {line((30, S10[1]), (295, S10[1]))}
 {line(A10, C10)}{line(A10, B10)}{line(A10, S10)}{line(C10, S10)}{line(S10, B10)}
 {dot(*P10, 2)}{dot(*T10, 2.4)}
 <path d="{angle_arc(*S10, B10, T10, 22)}" fill="none" stroke="#000" stroke-width="1"/>
-{txt(S10[0] + 42, S10[1] - 13, "20°", 11)}
-{txt(P10[0] - 9, P10[1] - 5, '<tspan font-style="italic">x</tspan>°', 11.5, anc="end")}
+{halo_angle(*S10, B10, T10, 36, "20°", 11)}
+{halo_text(P10[0] - 9, P10[1] - 5, '<tspan font-style="italic">x</tspan>°', 11.5, anc="end")}
 <path d="M {(A10[0] + C10[0]) / 2 - 5:.1f} {A10[1] - 5:.1f} L {(A10[0] + C10[0]) / 2 + 5:.1f} {A10[1]:.1f} L {(A10[0] + C10[0]) / 2 - 5:.1f} {A10[1] + 5:.1f}" fill="none" stroke="#000" stroke-width="1"/>
 <path d="M {cx - 40:.1f} {S10[1] - 5:.1f} L {cx - 30:.1f} {S10[1]:.1f} L {cx - 40:.1f} {S10[1] + 5:.1f}" fill="none" stroke="#000" stroke-width="1"/>
 {txt(A10[0] - 8, A10[1] - 4, "A", anc="end")}{txt(C10[0] + 8, C10[1] - 4, "C")}
@@ -284,7 +236,7 @@ S["q11"] = f'''<svg viewBox="0 0 330 250" xmlns="http://www.w3.org/2000/svg">
 <text x="{F11[0] + 12:.1f}" y="{F11[1] - 6:.1f}" font-size="11" {FONT} text-anchor="middle" paint-order="stroke" stroke="#fff" stroke-width="5" stroke-linejoin="round"><tspan font-style="italic">y</tspan>°</text>
 {txt(E11[0] - 8, E11[1] - 6, "E", anc="end")}{txt(A11[0] + 4, A11[1] - 8, "A")}
 {txt(T11[0] + 6, T11[1], "T")}{txt(B11[0] - 9, B11[1] + 5, "B", anc="end")}
-{txt(C11[0] - 2, C11[1] + 19, "C")}{txt(D11[0] + 9, D11[1] + 2, "D")}
+{txt(C11[0] - 2, C11[1] + 19, "C")}{txt(D11[0] + 20, D11[1] + 1, "D")}
 {txt(S11p[0], S11p[1] + 19, "S")}{txt(P11[0] + 8, P11[1] + 12, "P")}
 </svg>'''
 
@@ -344,8 +296,8 @@ ox, oy, s18 = 84, 232, 25
 g18 = "".join(f'<line x1="{ox + i * s18}" y1="{oy}" x2="{ox + i * s18}" y2="{oy - 5 * s18}" stroke="#bbb" stroke-width="0.7"/>' for i in range(0, 6)) + \
       "".join(f'<line x1="{ox}" y1="{oy - j * s18}" x2="{ox + 5 * s18}" y2="{oy - j * s18}" stroke="#bbb" stroke-width="0.7"/>' for j in range(0, 6))
 d18 = "".join(dot(ox + (x - 50) / 10 * s18, oy - (y - 50) / 10 * s18, 3.4) for x, y in p18)
-xt18 = "".join(txt(ox + i * s18, oy + 17, str(50 + i * 10), 11) for i in range(0, 6))
-yt18 = "".join(txt(ox - 7, oy - j * s18 + 4, str(50 + j * 10), 11, anc="end") for j in range(0, 6))
+xt18 = "".join(txt(ox + i * s18, oy + 28, str(50 + i * 10), 11) for i in range(0, 6))
+yt18 = "".join(txt(ox - 20, oy - j * s18 + 4, str(50 + j * 10), 11, anc="end") for j in range(0, 6))
 S["q18"] = f'''<svg viewBox="0 0 300 285" xmlns="http://www.w3.org/2000/svg">
 {g18}
 <line x1="{ox - 14}" y1="{oy + 14}" x2="{ox + 5 * s18 + 14}" y2="{oy + 14}" stroke="#000" stroke-width="1.3"/>
@@ -353,9 +305,9 @@ S["q18"] = f'''<svg viewBox="0 0 300 285" xmlns="http://www.w3.org/2000/svg">
 <line x1="{ox - 14}" y1="{oy + 14}" x2="{ox - 14}" y2="{oy - 5 * s18 - 12}" stroke="#000" stroke-width="1.3"/>
 <path d="M {ox - 18} {oy - 5 * s18 - 8} L {ox - 14} {oy - 5 * s18 - 16} L {ox - 10} {oy - 5 * s18 - 8} Z" fill="#000"/>
 {d18}{xt18}{yt18}
-{txt(ox - 20, oy + 30, "O", 13, anc="end")}
+{txt(ox - 22, oy + 30, "O", 13, anc="end")}
 <text x="30" y="60" font-size="11.5" {FONT}><tspan x="30" dy="0">과</tspan><tspan x="30" dy="13">학</tspan><tspan x="30" dy="13">(점)</tspan></text>
-{txt(ox + 2.5 * s18, oy + 32, "수학(점)", 11.5)}
+{txt(ox + 2.5 * s18, oy + 44, "수학(점)", 11.5)}
 {txt(ox + 5 * s18 + 24, oy + 31, "x", 12, it=True)}
 {txt(ox - 24, oy - 5 * s18 - 8, "y", 12, anc="end", it=True)}
 </svg>'''
