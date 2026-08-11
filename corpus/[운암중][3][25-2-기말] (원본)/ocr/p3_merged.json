@@ -65,7 +65,10 @@
      ]
     }
    ],
-   "sub_questions": []
+   "sub_questions": [],
+   "answer": "⑤",
+   "topic": "대푯값과 산포도",
+   "difficulty": "중"
   },
   {
    "number": 14,
@@ -139,7 +142,10 @@
      ]
     }
    ],
-   "sub_questions": []
+   "sub_questions": [],
+   "answer": "②",
+   "topic": "대푯값과 산포도",
+   "difficulty": "중"
   },
   {
    "number": 15,
@@ -315,7 +321,10 @@
      ]
     }
    ],
-   "sub_questions": []
+   "sub_questions": [],
+   "answer": "⑤",
+   "topic": "상관관계",
+   "difficulty": "중"
   },
   {
    "number": 16,
@@ -346,7 +355,11 @@
    ],
    "choices": [],
    "sub_questions": [],
-   "label_type": "서답형"
+   "label_type": "서답형",
+   "answer": "$3\\sqrt{3}\\mathrm{cm}^2$",
+   "topic": "삼각비의 활용",
+   "difficulty": "중",
+   "solution": "step1) 두 변의 길이와 그 끼인각을 알 때 삼각형의 넓이는 $S=\\frac{1}{2}ab\\sin C$ 이다.\nstep2) 끼인각이 둔각이므로 $\\sin 120^\\circ=\\sin(180^\\circ-120^\\circ)=\\sin 60^\\circ=\\frac{\\sqrt{3}}{2}$ 이다.\nstep3) $\\triangle ABC=\\frac{1}{2}\\times 3\\times 4\\times\\frac{\\sqrt{3}}{2}=3\\sqrt{3}$ 이다.\nstep4) 따라서 $\\triangle ABC$ 의 넓이는 $3\\sqrt{3}\\mathrm{cm}^2$ 이다."
   },
   {
    "number": 17,
@@ -401,7 +414,11 @@
    ],
    "choices": [],
    "sub_questions": [],
-   "label_type": "서답형"
+   "label_type": "서답형",
+   "answer": "$10\\sqrt{3}\\mathrm{m}$",
+   "topic": "삼각비의 활용",
+   "difficulty": "중",
+   "solution": "step1) $\\angle ACB=60^\\circ$ 이므로 $\\angle ACD=180^\\circ-60^\\circ=120^\\circ$ 이다.\nstep2) $\\triangle ACD$ 에서 $\\angle CAD=180^\\circ-120^\\circ-30^\\circ=30^\\circ$ 이다.\nstep3) $\\angle ADC=\\angle CAD=30^\\circ$ 이므로 $\\triangle ACD$ 는 이등변삼각형이고 $\\overline{AC}=\\overline{DC}=20$ 이다.\nstep4) 직각삼각형 $ABC$ 에서 $\\overline{AB}=\\overline{AC}\\sin 60^\\circ=20\\times\\frac{\\sqrt{3}}{2}=10\\sqrt{3}$ 이다.\nstep5) 따라서 타워의 높이는 $10\\sqrt{3}\\mathrm{m}$ 이다."
   },
   {
    "number": 18,
@@ -456,7 +473,11 @@
    ],
    "choices": [],
    "sub_questions": [],
-   "label_type": "서답형"
+   "label_type": "서답형",
+   "answer": "$70^\\circ$",
+   "topic": "원주각",
+   "difficulty": "상",
+   "solution": "step1) 호 $AB$ 의 길이가 원의 둘레의 $\\frac{1}{6}$ 이므로 그 중심각은 $360^\\circ\\times\\frac{1}{6}=60^\\circ$ 이다.\nstep2) $\\overarc{AB}:\\overarc{CD}=3:4$ 이므로 호 $CD$ 의 중심각은 $60^\\circ\\times\\frac{4}{3}=80^\\circ$ 이다.\nstep3) 원 안에서 두 현이 만나 생기는 각의 크기는 두 호에 대한 원주각의 합과 같다.\nstep4) $\\angle x=\\frac{1}{2}\\times(60^\\circ+80^\\circ)=70^\\circ$ 이다.\nstep5) 따라서 $\\angle x$ 의 크기는 $70^\\circ$ 이다."
   }
  ]
 }

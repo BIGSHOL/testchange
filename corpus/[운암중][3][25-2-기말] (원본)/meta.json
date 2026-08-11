@@ -11,8 +11,9 @@
   "review": {
     "date": "2026-08-11",
     "reviewer": "claude-code-session (claude-opus-5)",
-    "renders": 5,
-    "pages": 5,
+    "renders": 6,
+    "pages": 6,
+    "answers": "21문항 정답 + 서답형 6문항 step 해설 + [중단원]/[난이도] 메타 전부 세션 생성(2026-08-11 보강). 상단 시험범위 '삼각비 ~ 대푯값과 산포도' 는 중단원 메타에서 자동 생성. 난이도는 배점·유형 기반 초안(사용자 확정 필요). 중단원 어휘는 data/topic_vocab.json 중3 14종에서 선택(삼각비·삼각비의 활용·원과 직선·원주각·대푯값과 산포도·상관관계).",
     "lint": "PASS (0 WARN — JSON·XML)",
     "method": "세션 비전 OCR → 폼 렌더(corpus_render) → corpus_lint --json/--xml + 이상문자열 게이트(자모·미상 음절 대조) + 문항별 원본 크롭 1:1 비전 대조 + 배점합/검산 체크섬",
     "result_summary": "내용 결함 0 · A형(JSON) 0 · B형(코드) 3건 수정",
