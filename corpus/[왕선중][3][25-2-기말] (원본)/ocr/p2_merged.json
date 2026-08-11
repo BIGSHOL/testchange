@@ -1,0 +1,619 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 7,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림과 같이 원 O의 지름 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{DA}"
+    },
+    {
+     "type": "text",
+     "value": "의 연장선 위의 한 점 P에서 원 O 위의 한 점 C에 그은 선분과 원 O의 교점을 B라 하자. "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle P = 20\\degree"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{BO} = \\overline{BP}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\overarc{CD} = 30"
+    },
+    {
+     "type": "text",
+     "value": "을 만족할 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\overarc{AB}"
+    },
+    {
+     "type": "text",
+     "value": "의 길이는?"
+    },
+    {
+     "type": "figure",
+     "value": "원 O(중심). 지름 D(좌)–A(우), 연장선 위 P(원 밖 오른쪽). P에서 그은 선분이 원과 B(우하)·C(좌하)에서 만남. 현 DC. P에 20°, 호 CD 옆 30(좌하 점선 치수).",
+     "bbox": [
+      0.2,
+      0.13,
+      0.45,
+      0.25
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{28}{3}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{29}{3}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "10"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{31}{3}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{32}{3}"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 8,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림과 같이 원 O 위의 서로 겹치지 않는 두 호 AB와 CD의 길이가 각각 원주의 길이의 "
+    },
+    {
+     "type": "equation",
+     "value": "\\frac{1}{9}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\frac{1}{3}"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle DPC"
+    },
+    {
+     "type": "text",
+     "value": "의 크기는?"
+    },
+    {
+     "type": "figure",
+     "value": "원 O. D 위, A 좌측, C 우측, B 아래. 현 AC(수평)와 현 DB가 원 안 아래쪽 P에서 교차. ∠DPC 표시(P 오른쪽 위).",
+     "bbox": [
+      0.22,
+      0.4,
+      0.42,
+      0.55
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "60\\degree"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "65\\degree"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "70\\degree"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "75\\degree"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "80\\degree"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 9,
+   "score": 5,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림과 같이 "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle ABC"
+    },
+    {
+     "type": "text",
+     "value": "의 외접원에서 호 BC의 중점을 M, 현 AM과 현 BC의 교점을 N이라 하자. "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle ABC = 45\\degree"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle BAC = 60\\degree"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AN} = 4"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle ANC = p \\times \\triangle BNM"
+    },
+    {
+     "type": "text",
+     "value": "을 만족할 때, "
+    },
+    {
+     "type": "equation",
+     "value": "p"
+    },
+    {
+     "type": "text",
+     "value": "의 값은?"
+    },
+    {
+     "type": "figure",
+     "value": "외접원 안 삼각형 ABC(A 위, B 좌하, C 우측). 호 BC 중점 M(아래), 현 AM이 BC와 N에서 교차. A에 60°, B에 45°, AN에 4 표시. 현 BM·CM.",
+     "bbox": [
+      0.22,
+      0.68,
+      0.45,
+      0.85
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\sqrt{3}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2\\sqrt{2}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 10,
+   "score": 5,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림에서 직선 ST는 원 O의 접선이고, 점 S는 접점이다. 원 O의 현 AC가 직선 ST와 평행하고, "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle BST = 20\\degree"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle APC = x\\degree"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "x"
+    },
+    {
+     "type": "text",
+     "value": "의 값은? (단, "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AB}"
+    },
+    {
+     "type": "text",
+     "value": "는 원 O의 지름이다.)"
+    },
+    {
+     "type": "figure",
+     "value": "원 O. 아래 접점 S, 수평 접선(T 우측 점). 현 AC(위쪽, A 좌상·C 우상, ST와 평행 — 평행 화살표 표시 둘 다). 지름 AB(A→B 우하, O 통과). 현 AS·CS·SB. P = 지름 AB와 현 CS의 교점(x° 표시). S 오른쪽에 20°(∠BST).",
+     "bbox": [
+      0.58,
+      0.12,
+      0.8,
+      0.27
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "45"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "50"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "55"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "60"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "65"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 11,
+   "score": 5,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림에서 두 점 C, D는 점 P에서 원 O에 그은 두 접선의 접점이다. "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle BAD = 90\\degree"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle EBA = 40\\degree"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle CPD = 80\\degree"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle EDC = 70\\degree"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle CED = x\\degree"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle AFD = y\\degree"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "x + y"
+    },
+    {
+     "type": "text",
+     "value": "의 값은?"
+    },
+    {
+     "type": "figure",
+     "value": "원 O 와 외부점 P(우하). 두 접선: 아래 수평선 S(좌)–C(접점, 하단)–P 와 위 T–D(접점, 우측)–P. 원 위 점 E(좌상)·A(우상)·B(좌). 현 EB·EC·ED·AB·AD·BC·CD. F = 현 ED와 현 AB의 교점(내부 위쪽, y° 표시). x°는 E(∠CED), 40°는 B(∠EBA), 70°는 D(∠EDC), 80°는 P.",
+     "bbox": [
+      0.55,
+      0.42,
+      0.82,
+      0.62
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "95"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "100"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "105"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "110"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "115"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 12,
+   "score": 3,
+   "contents": [
+    {
+     "type": "text",
+     "value": "표는 5명의 학생의 미술 실기 점수의 편차를 조사하여 나타낸 것이다. 평균이 6점일 때, A 학생의 점수는?"
+    },
+    {
+     "type": "table",
+     "value": "미술 실기 점수의 편차",
+     "rows": [
+      [
+       "학생",
+       "A",
+       "B",
+       "C",
+       "D",
+       "E"
+      ],
+      [
+       "편차(점)",
+       "-2",
+       "4",
+       "1",
+       "-2",
+       "-1"
+      ]
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "text",
+       "value": "4점"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "text",
+       "value": "5점"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "text",
+       "value": "6점"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "text",
+       "value": "7점"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "text",
+       "value": "8점"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

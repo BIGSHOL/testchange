@@ -53,8 +53,15 @@ def ray_angle(vx, vy, px, py) -> float:
 
 
 def angle_arc(vx, vy, p1, p2, r=26) -> str:
-    """꼭짓점 v 의 각 표시 호 — 변 v→p1 에서 v→p2 까지 정확히."""
-    return arc(vx, vy, r, ray_angle(vx, vy, *p1), ray_angle(vx, vy, *p2))
+    """꼭짓점 v 의 각 표시 호 — 변 v→p1 에서 v→p2 까지 **작은 쪽**으로 정확히.
+
+    ⚠️ atan2 랩어라운드 정규화 필수 — 206.5° 가 −153.5° 로 나오면 |Δ|>180 이 되어
+    반대쪽 큰 호가 그려진다(오성중 q7 53° 가 307° 호로 렌더된 실측 버그).
+    """
+    a0 = ray_angle(vx, vy, *p1)
+    a1 = ray_angle(vx, vy, *p2)
+    da = (a1 - a0 + 180.0) % 360.0 - 180.0
+    return arc(vx, vy, r, a0, a0 + da)
 
 
 def meas(px_, py_, qx_, qy_, off=10.0, ins_p=3.0, ins_q=3.0) -> str:

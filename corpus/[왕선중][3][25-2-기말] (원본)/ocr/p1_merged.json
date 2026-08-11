@@ -1,0 +1,125 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 1, "score": 3,
+      "contents": [
+        {"type": "text", "value": "그림과 같은 원 O에서 "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "의 값은?"},
+        {"type": "figure", "value": "원 O(중심 위쪽). 반지름 10cm(중심에서 좌하 현 끝으로), 중심에서 현에 내린 수선 6cm(직각 표시), 아래 현 x cm.", "bbox": [0.36, 0.32, 0.5, 0.42]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "16"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "18"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "20"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "22"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "24"}]}
+      ]
+    },
+    {
+      "number": 2, "score": 4,
+      "contents": [
+        {"type": "text", "value": "원 O 위의 세 점 A, B, C에 대하여 현 AB가 반지름 OC의 수직이등분선이고 "},
+        {"type": "equation", "value": "\\overline{AB} = 12"},
+        {"type": "text", "value": "일 때, 원 O의 반지름의 길이는?"},
+        {"type": "figure", "value": "원 O. 반지름 OC(아래 방향), 현 AB(수평, A 좌하·B 우하)가 OC를 수직이등분(교점에 직각 표시).", "bbox": [0.3, 0.55, 0.46, 0.66]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "2\\sqrt{3}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{8\\sqrt{3}}{3}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{10\\sqrt{3}}{3}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4\\sqrt{3}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{14\\sqrt{3}}{3}"}]}
+      ]
+    },
+    {
+      "number": 3, "score": 4,
+      "contents": [
+        {"type": "text", "value": "직사각형 ABCD의 세 변 AB, BC, AD에 접하는 원 O가 있다. "},
+        {"type": "equation", "value": "\\overline{AD}"},
+        {"type": "text", "value": " 위의 한 점 E에 대해 "},
+        {"type": "equation", "value": "\\overline{CE}"},
+        {"type": "text", "value": "는 원 O의 접선이고 "},
+        {"type": "equation", "value": "\\overline{ED} = 3"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{BC} = 6"},
+        {"type": "text", "value": "일 때, 원 O의 반지름의 길이는?"},
+        {"type": "figure", "value": "직사각형 ABCD(A 좌상, D 우상, B 좌하, C 우하). 왼쪽에 원 O가 변 AB·BC·AD에 접함. AD 위 점 E(위변, D 쪽), 접선 CE(대각선), E~D 위 3, BC 아래 6.", "bbox": [0.28, 0.75, 0.5, 0.88]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+      ]
+    },
+    {
+      "number": 4, "score": 3,
+      "contents": [
+        {"type": "text", "value": "사각형 ABCD가 원 O에 외접하고 "},
+        {"type": "equation", "value": "\\overline{AB} = 4 \\mathrm{cm}"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{BC} = 5 \\mathrm{cm}"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overline{CD} = 6 \\mathrm{cm}"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\overline{AD}"},
+        {"type": "text", "value": "의 길이는?"},
+        {"type": "figure", "value": "원 O에 외접하는 사각형 ABCD(A 좌상, D 우상, B 좌하, C 우하). 원이 네 변에 내접.", "bbox": [0.68, 0.12, 0.85, 0.22]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "3 \\mathrm{cm}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{7}{2} \\mathrm{cm}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "4 \\mathrm{cm}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{9}{2} \\mathrm{cm}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5 \\mathrm{cm}"}]}
+      ]
+    },
+    {
+      "number": 5, "score": 4,
+      "contents": [
+        {"type": "text", "value": "원 O 위의 점 A, B, C, D, E에 대해 현 AD가 원의 중심을 지나고, "},
+        {"type": "equation", "value": "\\angle BAC = 20\\degree"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\angle ADE = 60\\degree"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overarc{DE} = 5 \\mathrm{cm}"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\overarc{BC} = x \\mathrm{cm}"},
+        {"type": "text", "value": "를 만족할 때, "},
+        {"type": "equation", "value": "x"},
+        {"type": "text", "value": "의 값은?"},
+        {"type": "figure", "value": "원 O. A 위, B 좌, C 좌하, D 아래, E 우측. 지름 AD(O 통과). 현 AB·AC(A에서 20°=∠BAC), 현 DE(D에서 60°=∠ADE, E에 직각 표시는 없음). 호 BC 옆 x cm(좌하), 호 DE 옆 5 cm(우하).", "bbox": [0.72, 0.3, 0.95, 0.45]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{7}{3}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{8}{3}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{10}{3}"}]}
+      ]
+    },
+    {
+      "number": 6, "score": 3,
+      "contents": [
+        {"type": "text", "value": "그림에서 직선 AT는 원 O의 접선이고, 점 A는 접점이다. "},
+        {"type": "equation", "value": "\\overarc{AB} = \\overarc{BP}"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "\\angle BAT = 65\\degree"},
+        {"type": "text", "value": "일 때, "},
+        {"type": "equation", "value": "\\angle PBA"},
+        {"type": "text", "value": "의 크기는?"},
+        {"type": "figure", "value": "원 O. 아래 접점 A, 수평 접선(T 우측). B 우상, P 좌측. 현 AB·AP·BP(삼각형 PAB 내접). A 오른쪽에 65°(∠BAT).", "bbox": [0.72, 0.62, 0.95, 0.76]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "50\\degree"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "55\\degree"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "60\\degree"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "65\\degree"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "70\\degree"}]}
+      ]
+    }
+  ]
+}

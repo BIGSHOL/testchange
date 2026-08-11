@@ -1,0 +1,47 @@
+{
+  "header": "",
+  "questions": [
+    {
+      "number": 19, "score": 5, "label_type": "서답형",
+      "contents": [
+        {"type": "text", "value": "[서답형 1] 원 밖의 한 점 P에서 원 O에 그은 두 접선의 접점을 각각 A, B라고 할 때, 다음 풀이의 ①~⑤를 완성하여 "},
+        {"type": "equation", "value": "\\overline{PA} = \\overline{PB}"},
+        {"type": "text", "value": "임을 설명하시오."},
+        {"type": "figure", "value": "원 O(중심 O, 우측)와 외부점 P(좌측). 두 접선 PA(위, 접점 A)·PB(아래, 접점 B). 반지름 OA·OB, 선분 PO. PA·PB에 같음 표시.", "bbox": [0.55, 0.13, 0.85, 0.24]},
+        {"type": "text", "value": "<상자> (풀이) $\\triangle PAO$와 $\\triangle PBO$에서 • ① ______ • ② ______ • ③ ______ 이므로 • ①, ②, ③에 의해 • ______④______ ( ___⑤___ 합동) • 따라서, $\\overline{PA} = \\overline{PB}$이다."}
+      ]
+    },
+    {
+      "number": 20, "score": 6, "label_type": "서답형",
+      "contents": [
+        {"type": "text", "value": "[서답형 2] 다음 자료의 최빈값은 한 개이고, 최빈값과 평균이 같다고 할 때, 평균과 중앙값을 각각 구하시오."},
+        {"type": "text", "value": "<상자> $12$,  $x$,  $3$,  $5$,  $6$,  $4$"}
+      ]
+    },
+    {
+      "number": 21, "score": 6, "label_type": "서답형",
+      "contents": [
+        {"type": "text", "value": "[서답형 3] 다음 자료의 평균이 7이라고 할 때, 표준편차를 구하시오. (단, "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "는 자연수)"},
+        {"type": "text", "value": "<상자> $10$,  $8$,  $a^2$,  $7$,  $3a$"}
+      ]
+    },
+    {
+      "number": 22, "score": 6, "label_type": "서답형",
+      "contents": [
+        {"type": "text", "value": "[서답형 4] 표는 장미의 1학기 중간고사와 기말고사의 점수를 나타낸 것이다. 중간고사 3개 과목의 성적의 평균이 83점, 분산이 6이었고, 기말고사 5개 과목의 성적의 평균은 중간고사의 평균과 같았다고 할 때, 기말고사 성적의 분산을 구하시오."},
+        {"type": "table", "value": "", "rows": [["구분", "중간고사", "기말고사"], ["점수(점)", "a,  b,  c", "a,  79,  b,  87,  c"]]}
+      ]
+    },
+    {
+      "number": 23, "score": 7, "label_type": "서답형",
+      "contents": [
+        {"type": "text", "value": "[서답형 5] 다음 자료의 분산이 4일 때, "},
+        {"type": "equation", "value": "a"},
+        {"type": "text", "value": "의 값을 구하시오."},
+        {"type": "text", "value": "<상자> $7$,  $2a-5$,  $a+1$,  $a+6$,  $a+1$"}
+      ]
+    }
+  ]
+}
