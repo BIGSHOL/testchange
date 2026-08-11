@@ -360,6 +360,28 @@ def run():
     chk(_eqsize("TRIANGLE rm {ABC}")[0] < _eqsize("TRIANGLE ANGLE rm {ABC}")[0],
         "O8 TRIANGLE 폭 무회귀")
 
+    # ── O9: \mathrm{} 단위가 이탤릭/쪼개짐 (운암중 25-2 렌더 발각, 2026-08-11) ──
+    # ① 단일 소문자 ``\mathrm{m}`` → bare ``rm m`` 이면 `_stop_roman_bleed`(rm 뒤 단일
+    # 소문자를 번짐 피해 변수로 보고 ``it {}`` 로 감쌈, 2026-07-27)가 **rm 자기 피연산자**를
+    # 뒤집어 미터 단위가 이탤릭이 됐다. 중괄호로 감싸 스캐너가 건너뛰게 한다.
+    chk(latex_to_hwpeq(r"20\mathrm{m}") == "20 rm {m}", "O9 미터 단위 정자")
+    chk(latex_to_hwpeq(r"5\mathrm{m}") == "5 rm {m}", "O9 미터 단위 정자(짧은 수)")
+    chk("it" not in latex_to_hwpeq(r"x\mathrm{m}"), "O9 변수+미터 이탤릭 아님")
+    # g(그램)은 _UNITS 라 백틱 얇은 간격까지(= bare ``20g`` 와 동일 형태).
+    chk(latex_to_hwpeq(r"20\mathrm{g}") == "20 rm`g", "O9 그램 단위 백틱 통일")
+    # ② ``\mathrm{mL}`` 이 ``rm m rm`L``("m 리터")로 쪼개지던 것 — 이미 로만화된 런 안에서
+    # `_VAR_UNIT_RE` 가 앞글자 m 을 변수로, 끝 L 을 리터로 재해석했다.
+    chk(latex_to_hwpeq(r"100\mathrm{mL}") == "100 rm`mL", "O9 mL 쪼개짐 없음")
+    chk(latex_to_hwpeq("100mL") == "100 rm`mL", "O9 bare mL 쪼개짐 없음")
+    chk(latex_to_hwpeq(r"50\mathrm{dL}") == "50 rm`dL", "O9 dL 쪼개짐 없음")
+    # 무회귀: rm 번짐 차단(O2/ksy)·다문자 단위·모평균 m·대문자 라벨은 그대로.
+    chk("it {p}" in latex_to_hwpeq(r"\triangle ABC = p", italicize_stat=False),
+        "O9 무회귀: rm 뒤 진짜 변수는 여전히 it 로 차단")
+    chk(latex_to_hwpeq(r"12\mathrm{cm}") == "12 rm`cm", "O9 무회귀: cm 백틱")
+    chk(latex_to_hwpeq("2m") == "2m", "O9 무회귀: 모평균 2m 이탤릭")
+    chk(latex_to_hwpeq(r"\overline{AL}", italicize_stat=False) == "bar {rm {AL}}",
+        "O9 무회귀: 선분 AL(O8)")
+
     # ── O6: 집합 조건제시법 — \left\{…\right\} 자동크기 + \middle| (사용자 2026-07-31) ──
     # ① ``\mid``→``|`` 매핑이 ``\middle`` 을 접두 매칭해 ``|dle|`` 로 새던 것(현풍고 서답형4).
     # ② 중괄호 구분자는 **맨 ``{``**(``LEFT {``)여야 분수 높이만큼 늘어난다. 따옴표 리터럴
@@ -549,6 +571,29 @@ def run():
         with zipfile.ZipFile(tmp, "w") as z:
             z.writestr("Contents/section0.xml", sec2)
         chk(_renumber_essay_labels(tmp, 6) == 0, "H 라벨수 불일치→재부여 생략")
+        # ⚠️ H2: 소유권 표식(eq_watermark ``\nfrom {…}``)이 붙은 라벨도 매칭해야 한다.
+        # 표식 도입(2026-08-10) 후 **우리가 쓴 본문 라벨만** 정규식에서 빠져 라벨 수가 절반으로
+        # 세지고, 2×N 가드에 걸려 재부여가 통째 생략됐다 — 정답면이 [서답형 5](6이어야)로 굳은
+        # 채 출하(운암중 25-2, 2026-08-11). 본문=표식 있음 / 정답=폼 native 표식 없음 혼재.
+        from core.eq_watermark import stamp as _stamp
+        MARK = "수식 변환기로 변환된 수식입니다."
+        def _lbl_wm(n, marked):
+            return (f'<hp:t> [서답형 </hp:t><hp:equation id="1" version="Equation Version 60">'
+                    f'<hp:script>{_stamp(str(n), MARK) if marked else n}</hp:script>'
+                    f'</hp:equation><hp:t>]</hp:t>')
+        pairs = [(1, True), (1, False), (2, True), (2, False), (3, True), (3, False),
+                 (4, True), (4, False), (5, True), (5, False), (6, True), (5, False)]
+        sec3 = "<hp:sec>" + "".join(_lbl_wm(n, w) for n, w in pairs) + "</hp:sec>"
+        with zipfile.ZipFile(tmp, "w") as z:
+            z.writestr("Contents/section0.xml", sec3)
+        chk(len(_ESSAY_LABEL_NUM_RE.findall(sec3)) == 12, "H2 표식 라벨 12개 전부 매칭")
+        _renumber_essay_labels(tmp, 6)
+        with zipfile.ZipFile(tmp) as z:
+            got3 = z.read("Contents/section0.xml").decode("utf-8")
+        out3 = [m.group(2) for m in _ESSAY_LABEL_NUM_RE.finditer(got3)]
+        chk(out3 == ["1", "1", "2", "2", "3", "3", "4", "4", "5", "5", "6", "6"],
+            f"H2 표식 있어도 재부여: {out3}")
+        chk(got3.count(MARK) == 6, "H2 재부여가 표식을 보존")
     finally:
         os.remove(tmp)
 

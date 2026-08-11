@@ -2197,9 +2197,14 @@ _DUP_LABEL_RE = re.compile(
 # 예: ``<hp:t> [서술형 </hp:t><hp:equation>…script 5…</hp:equation><hp:t>] `` → 번호 5 가 수식.
 # 사용자(2026-06-09): "[서술형 5] 의 5 는 텍스트여야". 결정적 후처리로 eq 번호를 **텍스트**로
 # in-place 치환(단락 조작 없음 → lineseg 안전, 멱등).
+# ⚠️ 우리가 쓴 수식에는 **소유권 표식**(`eq_watermark`, ``\nfrom {…}``)이 붙는다 — 라벨 번호를
+# 찾는 정규식이 ``<hp:script>N</hp:script>`` 만 보면 표식 달린 라벨을 통째로 놓친다(표식 도입
+# 2026-08-10 이후 폼 렌더에서 라벨 후처리가 **조용히 비활성**됐다: 운암중 25-2 정답면이
+# ``[서답형 5]`` 로 굳은 채 출하, 2026-08-11 발각). 번호 뒤 표식을 선택적으로 허용한다.
+_EQ_MARK_TAIL = r'(?:\s*from\s*\{[^{}]*\})?'
 _ESSAY_NUM_EQ_RE = re.compile(
     r'(\[\s*서[술답]형\s*)</hp:t>\s*<hp:equation\b[^>]*>'
-    r'(?:(?!</hp:equation>).)*?<hp:script\b[^>]*>\s*(\d+)\s*</hp:script>'
+    r'(?:(?!</hp:equation>).)*?<hp:script\b[^>]*>\s*(\d+)' + _EQ_MARK_TAIL + r'\s*</hp:script>'
     r'(?:(?!</hp:equation>).)*?</hp:equation>\s*<hp:t>(\s*\])',
     re.S)
 
@@ -2302,9 +2307,13 @@ def _sync_essay_label_word(hwpx_path: str | Path, target: str) -> int:
 # 본문 라벨(우리 삽입)과 정답 페이지 라벨(폼 native grow)이 문서순으로 (본문,정답) 쌍 교차.
 # grow 슬롯 복사가 5번 슬롯을 베껴 마지막 라벨이 ``5``로 남고(6이어야), 어느 쪽이 틀리는지
 # 매 렌더 비결정적으로 뒤바뀐다(상인고 #25). 라벨 단어 통일 후 번호도 결정적으로 재부여한다.
+# ⚠️ 번호 뒤 소유권 표식(``\nfrom {…}``) 허용 — 안 그러면 **우리가 쓴 본문 라벨만** 매칭에서
+# 빠져 라벨 수가 절반(=폼 native 정답 라벨)으로 세지고, ``2×서술형수`` 가드에 걸려 재부여가
+# 통째로 생략된다(위 `_EQ_MARK_TAIL` 주석 참고). group(3)=(표식+)닫는 태그.
 _ESSAY_LABEL_NUM_RE = re.compile(
     r'(<hp:t>[^<]*\[\s*(?:서술형|서답형|단답형)\s*</hp:t>'
-    r'<hp:equation\b(?:(?!</hp:equation>).)*?<hp:script>)(\d+)(</hp:script>)', re.S)
+    r'<hp:equation\b(?:(?!</hp:equation>).)*?<hp:script>)(\d+)('
+    + _EQ_MARK_TAIL + r'</hp:script>)', re.S)
 
 
 _ESSAY_WORD_IN_LABEL_RE = re.compile(r'(?:서술형|서답형|단답형)(?=\s*</hp:t>)')

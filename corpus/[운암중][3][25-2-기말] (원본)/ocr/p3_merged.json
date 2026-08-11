@@ -1,0 +1,462 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 13,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "대푯값과 산포도에 대한 설명 중 옳은 것은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "text",
+       "value": "최빈값은 항상 "
+      },
+      {
+       "type": "equation",
+       "value": "1"
+      },
+      {
+       "type": "text",
+       "value": "개이다."
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "text",
+       "value": "표준편차는 편차의 제곱의 평균이다."
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "text",
+       "value": "중앙값은 항상 자료에 있는 값 중 하나이다."
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "text",
+       "value": "편차의 절댓값이 작을수록 그 자료의 값은 평균에서 멀다."
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "text",
+       "value": "자료가 흩어져 있는 정도를 하나의 수로 나타낸 값을 산포도라고 한다."
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 14,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "다음 "
+    },
+    {
+     "type": "equation",
+     "value": "4"
+    },
+    {
+     "type": "text",
+     "value": "개 자료의 분산은?"
+    },
+    {
+     "type": "text",
+     "value": "<상자> "
+    },
+    {
+     "type": "equation",
+     "value": "57 \\quad 61 \\quad 61 \\quad 65"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "6"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "8"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "10"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "12"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "14"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 15,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림은 두 변량 "
+    },
+    {
+     "type": "equation",
+     "value": "x"
+    },
+    {
+     "type": "text",
+     "value": "와 "
+    },
+    {
+     "type": "equation",
+     "value": "y"
+    },
+    {
+     "type": "text",
+     "value": "에 대한 산점도이다. 이에 대한 설명으로 옳지 않은 것은?"
+    },
+    {
+     "type": "figure",
+     "value": "두 변량 x, y의 산점도. 가로축 x는 0부터 120까지 20 간격, 세로축 y는 0부터 100 이상까지 20 간격. 대부분의 점이 x가 0~90, y가 5~50 사이에 분포하고, 오른쪽 위에 떨어진 두 점 (가)(x=75, y=88 부근)와 (나)(x=105, y=105 부근)가 표시되어 있다.",
+     "bbox": [
+      0.17,
+      0.6,
+      0.4,
+      0.75
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "text",
+       "value": "두 변량 "
+      },
+      {
+       "type": "equation",
+       "value": "x"
+      },
+      {
+       "type": "text",
+       "value": "와 "
+      },
+      {
+       "type": "equation",
+       "value": "y"
+      },
+      {
+       "type": "text",
+       "value": "는 양의 상관관계이다."
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "text",
+       "value": "두 변량 "
+      },
+      {
+       "type": "equation",
+       "value": "x, y"
+      },
+      {
+       "type": "text",
+       "value": " 모두 "
+      },
+      {
+       "type": "equation",
+       "value": "80"
+      },
+      {
+       "type": "text",
+       "value": " 이상인 경우의 수는 "
+      },
+      {
+       "type": "equation",
+       "value": "1"
+      },
+      {
+       "type": "text",
+       "value": "개다."
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "x"
+      },
+      {
+       "type": "text",
+       "value": "의 값이 증가함에 따라 "
+      },
+      {
+       "type": "equation",
+       "value": "y"
+      },
+      {
+       "type": "text",
+       "value": "의 값도 대체로 증가한다."
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "text",
+       "value": "한 점 "
+      },
+      {
+       "type": "equation",
+       "value": "(80, 80)"
+      },
+      {
+       "type": "text",
+       "value": "을 추가했을 때, 두 변량 "
+      },
+      {
+       "type": "equation",
+       "value": "x"
+      },
+      {
+       "type": "text",
+       "value": "와 "
+      },
+      {
+       "type": "equation",
+       "value": "y"
+      },
+      {
+       "type": "text",
+       "value": " 사이의 상관관계는 변하지 않는다."
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "text",
+       "value": "두 점 (가), (나)를 지웠을 때, 두 변량 "
+      },
+      {
+       "type": "equation",
+       "value": "x"
+      },
+      {
+       "type": "text",
+       "value": "와 "
+      },
+      {
+       "type": "equation",
+       "value": "y"
+      },
+      {
+       "type": "text",
+       "value": " 사이의 상관관계는 양의 상관관계이다."
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 16,
+   "score": 6,
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서답형 1] 삼각비를 이용하여 "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle ABC"
+    },
+    {
+     "type": "text",
+     "value": "의 넓이를 구하시오."
+    },
+    {
+     "type": "figure",
+     "value": "삼각형 ABC. B는 왼쪽 위, A는 아래, C는 오른쪽. 변 AB는 3cm, 변 AC는 4cm, 두 변이 이루는 각 A는 120도.",
+     "bbox": [
+      0.55,
+      0.14,
+      0.82,
+      0.24
+     ]
+    }
+   ],
+   "choices": [],
+   "sub_questions": [],
+   "label_type": "서답형"
+  },
+  {
+   "number": 17,
+   "score": 7,
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서답형 2] 그림과 같이 "
+    },
+    {
+     "type": "equation",
+     "value": "20\\mathrm{m}"
+    },
+    {
+     "type": "text",
+     "value": " 떨어진 지점 C와 지점 D에서 타워 꼭대기 지점 A를 올려본 각의 크기가 각각 "
+    },
+    {
+     "type": "equation",
+     "value": "60^\\circ"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "30^\\circ"
+    },
+    {
+     "type": "text",
+     "value": "일 때, 타워의 높이 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AB}"
+    },
+    {
+     "type": "text",
+     "value": "를 구하시오."
+    },
+    {
+     "type": "figure",
+     "value": "지면 위에 왼쪽부터 D, C, B가 일직선 위에 있고 B에 타워가 서 있다. 타워 꼭대기가 A. 지점 D에서 A를 올려본 각은 30도, 지점 C에서 A를 올려본 각은 60도, 두 지점 사이 거리 DC는 20m.",
+     "bbox": [
+      0.5,
+      0.39,
+      0.92,
+      0.5
+     ]
+    }
+   ],
+   "choices": [],
+   "sub_questions": [],
+   "label_type": "서답형"
+  },
+  {
+   "number": 18,
+   "score": 7,
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서답형 3] 그림에서 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overarc{AB}"
+    },
+    {
+     "type": "text",
+     "value": "의 길이는 원의 둘레의 길이의 "
+    },
+    {
+     "type": "equation",
+     "value": "\\frac{1}{6}"
+    },
+    {
+     "type": "text",
+     "value": "이고 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overarc{AB} : \\overarc{CD}=3:4"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle x"
+    },
+    {
+     "type": "text",
+     "value": "의 크기를 구하시오."
+    },
+    {
+     "type": "figure",
+     "value": "원 위에 네 점 A(왼쪽 위), D(오른쪽 위), B(왼쪽 아래), C(오른쪽 아래). 두 현 AC와 BD가 원 안의 점 P에서 만난다. 점 P에서 오른쪽으로 벌어진 각 DPC가 x.",
+     "bbox": [
+      0.57,
+      0.745,
+      0.82,
+      0.83
+     ]
+    }
+   ],
+   "choices": [],
+   "sub_questions": [],
+   "label_type": "서답형"
+  }
+ ]
+}

@@ -197,8 +197,12 @@ _VAR_TAIL_UNITS = [u for u in _UNITS if len(u) >= 2 and u.isascii()] + ["L", "�
 # 오인해 ``rm {A rm`L}``("A 리터")로 깨진다. `_romanize_units` 는 `_apply_roman_labels`
 # **뒤**에 돌아 라벨 내부까지 훑기 때문. 3글자 이상(``ABL``)은 앞 글자 lookbehind 로 이미
 # 안전했고, corpus 실사용 0건이라 드러나지 않던 잠복 결함(2026-08-07).
+# ⚠️ **이미 로만화된 단위 런 안**(``rm mL``·``rm`mL``)도 제외한다 — mL·dL·kL 처럼 **단위가
+# L 로 끝나면** 앞 글자(m·d·k)를 변수로, 끝 L 을 리터로 오인해 ``rm m rm`L``("m 리터")로
+# 쪼갠다(``100\mathrm{mL}`` 가 "100 m L" 로 렌더되던 것, 운암중 25-2 서답형6, 2026-08-11).
+# ``rm {AL}`` 라벨 가드(2026-08-07)와 같은 계열 — 로만 런은 이미 정자라 재처리 불필요.
 _VAR_UNIT_RE = re.compile(
-    r"(?<![A-Za-z])(?<!rm \{)(?<!rm \{\")([A-Za-z])[\s`]*("
+    r"(?<![A-Za-z])(?<!rm \{)(?<!rm \{\")(?<!rm )(?<!rm`)([A-Za-z])[\s`]*("
     + "|".join(re.escape(u) for u in _VAR_TAIL_UNITS) + r")(?![A-Za-z0-9(])"
 )
 # 접두(숫자·}·변수글자) 없는 **단독 다문자 단위** — ``cm^{2}``(단독 "몇 cm²인가")·
@@ -232,9 +236,12 @@ def _romanize_units(s: str) -> str:
 # ``a rm cm``(렌더상 "a㎝" 붙음) → ``a rm`cm``(얇은 간격). bare ``5cm`` 은 _romanize_units 가
 # 이미 ``5 rm`cm`` 로 처리하나, ``\mathrm{}`` 로 감싸진 단위(변수 a\mathrm{cm}·숫자 5\mathrm{cm})는
 # _mathrm_pattern 경로로 빠져 백틱이 없었다(2026-06-11 렌더 실증). _UNITS 한정이라 오검출 없음.
+# 중괄호 형태 ``rm {g}`` 도 같이 받는다 — 단일 소문자 ``\mathrm{}`` 는 `_mathrm_repl` 이
+# 중괄호로 감싸므로(`_stop_roman_bleed` 오작동 차단, 2026-08-11) 백틱 보정을 놓치면 bare
+# ``20g``(→``20 rm`g``)와 간격이 달라진다. 중괄호는 벗기고 백틱 형태로 통일.
 _RM_UNIT_RE = re.compile(
-    r"([A-Za-z0-9])\s+rm\s+("
-    + "|".join(re.escape(u) for u in _NUM_TAIL_UNITS) + r")(?![A-Za-z0-9])"
+    r"([A-Za-z0-9])\s+rm\s+\{?("
+    + "|".join(re.escape(u) for u in _NUM_TAIL_UNITS) + r")\}?(?![A-Za-z0-9])"
 )
 
 
@@ -1087,10 +1094,20 @@ class LaTeXToHWPConverter:
         #    ``\mathrm{pH}=-\log x``(소문자 x 변수)에만 넣는다. 숫자 좌표 ``\mathrm{P}(25,3)`` 도
         #    소문자 없어 미삽입(쉼표만 보정 → ``rm P(25,~3)``), 글자 좌표 ``\mathrm{P}(a,b)`` 는
         #    삽입 → ``rm P it (a,~b)``(좌표 이탤릭, 점이름 로만 — 설계 형태와 일치).
+        # ⚠️ **단일 소문자 내용은 중괄호로 감싼다**(``\mathrm{m}`` → ``rm {m}``) — bare ``rm m`` 은
+        # 뒤이어 도는 `_stop_roman_bleed`(rm 뒤 단일 소문자 = 번짐 피해자로 보고 ``it {}`` 로 감쌈,
+        # 2026-07-27 왕선중 #9)가 **rm 자기 피연산자**와 구별하지 못해 ``rm it {m}``(단위 m 이
+        # 이탤릭)으로 뒤집는다. 미터 단위 ``20\mathrm{m}``·``5\mathrm{m}`` 가 전 corpus 에서
+        # 기울어 있던 잠복 결함(운암중 25-2 서답형2 렌더로 발각, 2026-08-11). ``{`` 앞 lookbehind 가
+        # 있어 감싸면 bleed 스캐너가 건너뛴다. 다문자(``cm``·``mL``)는 스캐너가 애초에 단일 글자만
+        # 보므로 무영향, 대문자(``\mathrm{P}``)도 스캐너 대상(`[a-z]`)이 아니라 무영향 → churn 최소.
         _MATHRM_NEXT_STYLE = re.compile(r"\\(?:math(?:rm|it|bf|bb)|text|boxed|fbox)\b")
         def _mathrm_repl(m: "re.Match") -> str:
             lead = " " if (m.start() > 0 and m.string[m.start() - 1].isalnum()) else ""
-            base = lead + "rm " + m.group("txt")
+            txt = m.group("txt")
+            if re.fullmatch(r"[a-z]", txt):
+                txt = "{" + txt + "}"
+            base = lead + "rm " + txt
             tail = m.string[m.end():]
             tstrip = tail.lstrip(" \t")
             no_cmd = re.sub(r"\\[a-zA-Z]+", "", tstrip)   # 함수·기호 명령(키워드) 제거
