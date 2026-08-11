@@ -2149,6 +2149,11 @@ def _embed_figures(hwpx_path: str | Path, fig_paths: list[str]) -> int:
             pic = sec[ppos:pe]
             # 그 pic 의 첫 binaryItemIDRef 만 새 binItem 으로 교체(배너 등 다른 pic 불변).
             pic2 = re.sub(r'binaryItemIDRef="[^"]*"', f'binaryItemIDRef="{img_id}"', pic, count=1)
+            # ⭐ 그림 = **글자처럼취급 + 가운데 정렬 단락 + 단독 줄**(사용자 합의
+            # 2026-08-11). 삽입 단락이 이미 break+center 이므로 treatAsChar=1 이면
+            # 인라인 글자로 가운데에 앉는다. COM 이 PC 에 따라 0(어울림 배치)으로
+            # 저장하면 위치가 떠다니므로 결정적으로 1 을 강제한다.
+            pic2 = re.sub(r'(<hp:pos[^>]*treatAsChar=")0(")', r'\g<1>1\g<2>', pic2, count=1)
             sec = sec[:ppos] + pic2 + sec[pe:]
             embedded += 1
         sec = _strip_fig_token(sec, token)    # 토큰 제거 + linesegarray 보정

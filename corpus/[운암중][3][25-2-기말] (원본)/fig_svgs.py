@@ -80,7 +80,7 @@ SVGS["q3"] = f'''<svg viewBox="0 0 350 300" xmlns="http://www.w3.org/2000/svg">
 <text x="{ox-8}" y="{oy+20}" font-size="15" {FONT} text-anchor="end">O</text>
 <text x="336" y="{oy+22}" font-size="15" {IT}>x</text>
 <text x="{ox-14}" y="26" font-size="15" {IT} text-anchor="end">y</text>
-<text x="{bx+6:.1f}" y="{by-8:.1f}" font-size="15" {FONT}>B</text>
+<text x="{bx+9:.1f}" y="{by-11:.1f}" font-size="15" {FONT}>B</text>
 <text x="{dx+8:.1f}" y="{dy-4:.1f}" font-size="15" {FONT}>D</text>
 <text x="{bx-3:.1f}" y="{oy-8}" font-size="15" {FONT} text-anchor="end">A</text>
 <text x="{dx+6:.1f}" y="{oy-8}" font-size="15" {FONT}>C</text>
@@ -109,17 +109,17 @@ SVGS["q4"] = f'''<svg viewBox="0 0 360 200" xmlns="http://www.w3.org/2000/svg">
 </svg>'''
 
 # ── q6: 삼각형 AB=4cm, ∠B=45°, ∠C=60° ────────────────────────────────
-Ax6, Ay6, Bx6, By6 = 40, 215, 300, 215
+Ax6, Ay6, Bx6, By6 = 40, 233, 300, 233
 t75, t45 = math.tan(math.radians(75)), 1.0
 Cx6 = (Bx6 + t75 * Ax6) / (1 + t75)
 h6 = (Bx6 - Cx6) * t45
 Cy6 = By6 - h6
-SVGS["q6"] = f'''<svg viewBox="0 0 340 260" xmlns="http://www.w3.org/2000/svg">
+SVGS["q6"] = f'''<svg viewBox="0 0 340 290" xmlns="http://www.w3.org/2000/svg">
 <path d="M {Ax6} {Ay6} L {Bx6} {By6} L {Cx6:.1f} {Cy6:.1f} Z" fill="none" stroke="#000" stroke-width="2"/>
 <path d="{arc(Bx6, By6, 34, 180, 135)}" fill="none" stroke="#000" stroke-width="1"/>
 <text x="{Bx6-56}" y="{By6-8}" font-size="14" {FONT}>45°</text>
-<path d="{arc(Cx6, Cy6, 30, -75, -15)}" fill="none" stroke="#000" stroke-width="1"/>
-<text x="{Cx6+2:.1f}" y="{Cy6+42:.1f}" font-size="14" {FONT} text-anchor="middle">60°</text>
+<path d="{arc(Cx6, Cy6, 30, -105, -45)}" fill="none" stroke="#000" stroke-width="1"/>
+<text x="{Cx6+16:.1f}" y="{Cy6+52:.1f}" font-size="14" {FONT} text-anchor="middle">60°</text>
 <path d="M {Ax6} {Ay6+13} Q {(Ax6+Bx6)/2} {Ay6+28} {Bx6} {By6+13}" fill="none" stroke="#000" stroke-width="1" stroke-dasharray="4 3"/>
 <text x="{(Ax6+Bx6)/2}" y="{Ay6+44}" font-size="14" {FONT} text-anchor="middle">4 cm</text>
 <text x="{Ax6-8}" y="{Ay6+8}" font-size="16" {FONT} text-anchor="end">A</text>
@@ -215,7 +215,7 @@ SVGS["q10"] = f'''<svg viewBox="0 0 310 260" xmlns="http://www.w3.org/2000/svg">
 <line x1="{A10[0]:.1f}" y1="{A10[1]:.1f}" x2="{B10[0]:.1f}" y2="{B10[1]:.1f}" stroke="#000" stroke-width="2"/>
 <circle cx="62" cy="{T10[1]}" r="2.6" fill="#000"/>
 <path d="{arc(*T10, 30, 120, 180)}" fill="none" stroke="#000" stroke-width="1"/>
-<text x="96" y="{T10[1]-12}" font-size="14" {FONT}>60°</text>
+<text x="82" y="{T10[1]-12}" font-size="14" {FONT}>60°</text>
 <path d="{arc(*A10, 30, -55, 0)}" fill="none" stroke="#000" stroke-width="1"/>
 <text x="{A10[0]+34:.1f}" y="{A10[1]+16:.1f}" font-size="14" {FONT}>46°</text>
 <text x="62" y="{T10[1]+22}" font-size="16" {FONT} text-anchor="middle">P</text>
@@ -240,12 +240,12 @@ SVGS["q11"] = f'''<svg viewBox="0 0 360 215" xmlns="http://www.w3.org/2000/svg">
 <line x1="{A11[0]}" y1="{A11[1]}" x2="{B11[0]:.1f}" y2="{B11[1]:.1f}" stroke="#000" stroke-width="2"/>
 <circle cx="{cx11}" cy="{cy11}" r="2.4" fill="#000"/>
 <circle cx="325" cy="{ty}" r="2.4" fill="#000"/>
-<path d="{arc(*A11, 26, 0, 55)}" fill="none" stroke="#000" stroke-width="1"/>
-<text x="{A11[0]+30}" y="{A11[1]-10}" font-size="13" {FONT}>55°</text>
+<path d="{arc(*A11, 19, 0, 55)}" fill="none" stroke="#000" stroke-width="1"/>
+<text x="{A11[0]+22}" y="{A11[1]-7}" font-size="11.5" {FONT}>55°</text>
 <path d="{arc(*B11, 24, 200, 250)}" fill="none" stroke="#000" stroke-width="1"/>
 <text x="{B11[0]-14:.1f}" y="{B11[1]+30:.1f}" font-size="14" {IT}>x</text>
-<path d="{arc(*P11, 30, 0, 20)}" fill="none" stroke="#000" stroke-width="1"/>
-<text x="{P11[0]+34:.1f}" y="{ty-12}" font-size="14" {IT}>y</text>
+<path d="{arc(*P11, 26, 0, 20)}" fill="none" stroke="#000" stroke-width="1"/>
+<text x="{P11[0]+28:.1f}" y="{ty-24}" font-size="14" {IT}>y</text>
 <text x="{cx11}" y="{cy11-8}" font-size="15" {FONT} text-anchor="middle">O</text>
 <text x="{C11[0]-6:.1f}" y="{C11[1]-8:.1f}" font-size="15" {FONT} text-anchor="end">C</text>
 <text x="{B11[0]+8:.1f}" y="{B11[1]-4:.1f}" font-size="15" {FONT}>B</text>
@@ -319,7 +319,7 @@ SVGS["s2"] = f'''<svg viewBox="0 0 360 225" xmlns="http://www.w3.org/2000/svg">
 <path d="{arc(*D17, 40, 0, 30)}" fill="none" stroke="#000" stroke-width="1"/>
 <text x="{D17[0]+46}" y="{gy-8}" font-size="13" {FONT}>30°</text>
 <path d="{arc(C17[0], gy, 26, 0, 60)}" fill="none" stroke="#000" stroke-width="1"/>
-<text x="{C17[0]+16:.1f}" y="{gy-26}" font-size="13" {FONT}>60°</text>
+<text x="{C17[0]+27:.1f}" y="{gy-13}" font-size="12" {FONT} text-anchor="middle">60°</text>
 <text x="{(D17[0]+C17[0])/2:.1f}" y="{gy+22}" font-size="13" {FONT} text-anchor="middle">20 m</text>
 <text x="{A17[0]+10}" y="{A17[1]+4:.1f}" font-size="15" {FONT}>A</text>
 <text x="{B17[0]+10}" y="{gy+8}" font-size="15" {FONT}>B</text>
