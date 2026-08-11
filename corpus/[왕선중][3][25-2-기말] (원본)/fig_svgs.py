@@ -74,8 +74,8 @@ S["q1"] = f'''<svg viewBox="0 0 250 220" xmlns="http://www.w3.org/2000/svg">
 {line((cx, cy), L1)}
 {line((cx, cy), (cx, chy))}
 {rangle(cx, chy, 1, 0, 0, -1, 9)}
-{txt((cx + L1[0]) / 2 - 8, (cy + chy) / 2 - 4, "10 cm", 12, anc="end")}
-{txt(cx + 7, (cy + chy) / 2 + 4, "6 cm", 12)}
+{txt((cx + L1[0]) / 2 - 6, (cy + chy) / 2 - 11, "10 cm", 11.5, anc="end")}
+{txt(cx + 11, (cy + chy) / 2 + 3, "6 cm", 11)}
 {measured(*L1, *R1, 10, '<tspan font-style="italic">x</tspan> cm', 12)}
 </svg>'''
 
@@ -141,11 +141,11 @@ S["q5"] = f'''<svg viewBox="0 0 295 255" xmlns="http://www.w3.org/2000/svg">
 {circ(cx, cy, r)}{dot(cx, cy)}
 {txt(cx + 8, cy - 4, "O")}
 {line(A5, D5)}{line(A5, B5)}{line(A5, C5_)}{line(D5, E5)}{line(A5, E5)}
-{rangle(E5[0], E5[1], -0.42, -0.91, -0.87, 0.42, 9)}
+{rangle(E5[0], E5[1], (A5[0]-E5[0])/94, (A5[1]-E5[1])/94, (D5[0]-E5[0])/108, (D5[1]-E5[1])/108, 9)}
 <path d="{angle_arc(*A5, B5, C5_, 30)}" fill="none" stroke="#000" stroke-width="1"/>
-{txt(A5[0] - 34, A5[1] + 26, "20°", 11.5)}
+{txt(A5[0] - 27, A5[1] + 42, "20°", 11)}
 <path d="{angle_arc(*D5, A5, E5, 24)}" fill="none" stroke="#000" stroke-width="1"/>
-{txt(D5[0] + 20, D5[1] - 16, "60°", 11.5)}
+{txt(D5[0] + 16, D5[1] - 28, "60°", 11)}
 <path d="{arc(cx, cy, r + 12, 180, 220)}" fill="none" stroke="#000" stroke-width="1" stroke-dasharray="3 3"/>
 {txt(C(cx, cy, 200, r + 26)[0], C(cx, cy, 200, r + 26)[1], '<tspan font-style="italic">x</tspan> cm', 11.5, anc="end")}
 <path d="{arc(cx, cy, r + 12, 275, 335)}" fill="none" stroke="#000" stroke-width="1" stroke-dasharray="3 3"/>
@@ -189,7 +189,7 @@ S["q7"] = f'''<svg viewBox="0 0 330 225" xmlns="http://www.w3.org/2000/svg">
 <path d="{arc(cx, cy, r + 11, ray_angle(cx, cy, *C7) % 360, 180)}" fill="none" stroke="#000" stroke-width="1" stroke-dasharray="3 3"/>
 {txt(C(cx, cy, 212, r + 26)[0], C(cx, cy, 212, r + 26)[1], "30", 12)}
 {txt(D7[0] - 8, D7[1] + 5, "D", anc="end")}{txt(A7[0] + 2, A7[1] - 8, "A")}
-{txt(P7[0] + 9, P7[1] + 5, "P")}{txt(B7[0] + 4, B7[1] + 16, "B")}
+{txt(P7[0] + 9, P7[1] + 5, "P")}{txt(B7[0] + 9, B7[1] + 18, "B")}
 {txt(C7[0] - 6, C7[1] + 16, "C")}
 </svg>'''
 
@@ -202,11 +202,11 @@ S["q8"] = f'''<svg viewBox="0 0 245 250" xmlns="http://www.w3.org/2000/svg">
 {circ(cx, cy, r)}{dot(cx, cy)}
 {txt(cx - 4, cy - 8, "O")}
 {line(A8, C8)}{line(D8, B8)}
-<path d="{angle_arc(*P8, D8, C8, 17)}" fill="none" stroke="#000" stroke-width="1"/>
+<path d="{angle_arc(*P8, D8, C8, 21)}" fill="none" stroke="#000" stroke-width="1"/>
 {dot(*P8, 2)}
 {txt(D8[0] + 2, D8[1] - 8, "D")}{txt(A8[0] - 8, A8[1] + 4, "A", anc="end")}
 {txt(B8[0] - 4, B8[1] + 16, "B")}{txt(C8[0] + 9, C8[1] + 4, "C")}
-{txt(P8[0] - 4, P8[1] + 18, "P")}
+{txt(P8[0] - 10, P8[1] + 17, "P", anc="end")}
 </svg>'''
 
 # ── q9: 외접원, 호BC 중점 M, N=AM∩BC, 45°·60°·AN=4 ─────────────────
@@ -221,13 +221,13 @@ S["q9"] = f'''<svg viewBox="0 0 265 260" xmlns="http://www.w3.org/2000/svg">
 {line(A9, M9)}{line(B9, M9)}{line(C9, M9)}
 {dot(*N9, 2)}
 <path d="{angle_arc(*A9, B9, C9, 22)}" fill="none" stroke="#000" stroke-width="1"/>
-{txt(A9[0] - 4, A9[1] + 38, "60°", 11.5)}
+{txt(A9[0] - 15, A9[1] + 37, "60°", 11, anc="end")}
 <path d="{angle_arc(*B9, A9, C9, 22)}" fill="none" stroke="#000" stroke-width="1"/>
 {txt(B9[0] + 28, B9[1] - 10, "45°", 11.5)}
 {txt((A9[0] + N9[0]) / 2 + 8, (A9[1] + N9[1]) / 2, "4", 12.5)}
 {txt(A9[0], A9[1] - 9, "A")}{txt(B9[0] - 9, B9[1] + 10, "B", anc="end")}
 {txt(C9[0] + 9, C9[1] + 4, "C")}{txt(M9[0] + 4, M9[1] + 16, "M")}
-{txt(N9[0] - 4, N9[1] + 17, "N")}
+{txt(N9[0] + 13, N9[1] + 13, "N")}
 </svg>'''
 
 # ── q10: 접선 ST(S 접점)·현 AC∥ST·지름 AB, P=AB∩CS, 20°·x° ─────────
@@ -244,12 +244,12 @@ S["q10"] = f'''<svg viewBox="0 0 310 245" xmlns="http://www.w3.org/2000/svg">
 {line(A10, C10)}{line(A10, B10)}{line(A10, S10)}{line(C10, S10)}{line(S10, B10)}
 {dot(*P10, 2)}{dot(*T10, 2.4)}
 <path d="{angle_arc(*S10, B10, T10, 22)}" fill="none" stroke="#000" stroke-width="1"/>
-{txt(S10[0] + 30, S10[1] - 10, "20°", 11.5)}
-{txt(P10[0] + 10, P10[1] + 2, '<tspan font-style="italic">x</tspan>°', 12)}
+{txt(S10[0] + 42, S10[1] - 13, "20°", 11)}
+{txt(P10[0] - 9, P10[1] - 5, '<tspan font-style="italic">x</tspan>°', 11.5, anc="end")}
 <path d="M {(A10[0] + C10[0]) / 2 - 5:.1f} {A10[1] - 5:.1f} L {(A10[0] + C10[0]) / 2 + 5:.1f} {A10[1]:.1f} L {(A10[0] + C10[0]) / 2 - 5:.1f} {A10[1] + 5:.1f}" fill="none" stroke="#000" stroke-width="1"/>
 <path d="M {cx - 40:.1f} {S10[1] - 5:.1f} L {cx - 30:.1f} {S10[1]:.1f} L {cx - 40:.1f} {S10[1] + 5:.1f}" fill="none" stroke="#000" stroke-width="1"/>
 {txt(A10[0] - 8, A10[1] - 4, "A", anc="end")}{txt(C10[0] + 8, C10[1] - 4, "C")}
-{txt(B10[0] + 9, B10[1] + 6, "B")}{txt(S10[0] - 4, S10[1] + 20, "S")}
+{txt(B10[0] + 13, B10[1] + 11, "B")}{txt(S10[0] - 4, S10[1] + 20, "S")}
 {txt(T10[0], T10[1] + 20, "T")}{txt(P10[0] - 2, P10[1] - 8, "P")}
 </svg>'''
 
@@ -274,14 +274,14 @@ S["q11"] = f'''<svg viewBox="0 0 330 250" xmlns="http://www.w3.org/2000/svg">
 {line(A11, B11)}{line(A11, D11)}{line(B11, C11)}{line(C11, D11)}{line(B11, D11)}
 {dot(*F11, 2)}{dot(*S11p, 2.2)}
 <path d="{angle_arc(*B11, E11, A11, 20)}" fill="none" stroke="#000" stroke-width="1"/>
-{txt(B11[0] + 24, B11[1] - 6, "40°", 10.5)}
+<text x="{B11[0] + 26:.1f}" y="{B11[1] - 4:.1f}" font-size="10.5" {FONT} text-anchor="middle" paint-order="stroke" stroke="#fff" stroke-width="5" stroke-linejoin="round">40°</text>
 <path d="{angle_arc(*D11, E11, C11, 20)}" fill="none" stroke="#000" stroke-width="1"/>
-{txt(D11[0] - 24, D11[1] + 12, "70°", 10.5, anc="end")}
+<text x="{D11[0] - 24:.1f}" y="{D11[1] + 14:.1f}" font-size="10.5" {FONT} text-anchor="end" paint-order="stroke" stroke="#fff" stroke-width="5" stroke-linejoin="round">70°</text>
 <path d="{angle_arc(*P11, C11, D11, 22)}" fill="none" stroke="#000" stroke-width="1"/>
 {txt(P11[0] - 26, P11[1] - 8, "80°", 10.5, anc="end")}
 <path d="{angle_arc(*E11, C11, D11, 18)}" fill="none" stroke="#000" stroke-width="1"/>
-{txt(E11[0] + 22, E11[1] + 12, '<tspan font-style="italic">x</tspan>°', 11)}
-{txt(F11[0] + 10, F11[1] - 4, '<tspan font-style="italic">y</tspan>°', 11)}
+<text x="{E11[0] + 22:.1f}" y="{E11[1] + 12:.1f}" font-size="11" {FONT} text-anchor="middle" paint-order="stroke" stroke="#fff" stroke-width="5" stroke-linejoin="round"><tspan font-style="italic">x</tspan>°</text>
+<text x="{F11[0] + 12:.1f}" y="{F11[1] - 6:.1f}" font-size="11" {FONT} text-anchor="middle" paint-order="stroke" stroke="#fff" stroke-width="5" stroke-linejoin="round"><tspan font-style="italic">y</tspan>°</text>
 {txt(E11[0] - 8, E11[1] - 6, "E", anc="end")}{txt(A11[0] + 4, A11[1] - 8, "A")}
 {txt(T11[0] + 6, T11[1], "T")}{txt(B11[0] - 9, B11[1] + 5, "B", anc="end")}
 {txt(C11[0] - 2, C11[1] + 19, "C")}{txt(D11[0] + 9, D11[1] + 2, "D")}

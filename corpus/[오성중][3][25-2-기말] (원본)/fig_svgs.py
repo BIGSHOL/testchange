@@ -86,8 +86,8 @@ S["q2"] = f'''<svg viewBox="0 0 360 240" xmlns="http://www.w3.org/2000/svg">
 {txt(P2[0] - 2, P2[1] - 10, "P")}{txt(Q2[0] - 2, Q2[1] + 20, "Q")}
 {txt(B2[0] + 9, B2[1] - 11, "B")}{txt(C2[0] + 9, C2[1] + 20, "C")}
 {txt(D2[0] - 8, D2[1] - 7, "D", anc="end")}{dot(*B2, 2)}{dot(*C2, 2)}{dot(*D2, 2)}
-{txt((P2[0] + B2[0]) / 2 - 2, (P2[1] + B2[1]) / 2 - 10, "15 cm", 12)}
-{txt((B2[0] + A2[0]) / 2 + 4, (B2[1] + A2[1]) / 2 - 10, "17 cm", 12)}
+{measured(*P2, *B2, -10, "15 cm", 11.5)}
+{measured(*B2, *A2, -10, "17 cm", 11.5)}
 </svg>'''
 
 # ── q3: 원 O 에 외접하는 등변사다리꼴 AD=5·BC=20 ─────────────────────
@@ -137,8 +137,8 @@ S["q5"] = f'''<svg viewBox="0 0 265 265" xmlns="http://www.w3.org/2000/svg">
 {txt(A5[0], A5[1] - 9, "A")}{txt(B5[0] - 9, B5[1] + 10, "B", anc="end")}
 {txt(C5[0] + 9, C5[1] + 4, "C")}{txt(D5[0] + 4, D5[1] + 16, "D")}
 {txt(I5[0] + 9, I5[1] - 2, "I")}
-{txt((A5[0] + I5[0]) / 2 - 7, (A5[1] + I5[1]) / 2 + 2, "4 cm", 11.5, anc="end")}
-{txt((I5[0] + D5[0]) / 2 - 7, (I5[1] + D5[1]) / 2 + 6, "11 cm", 11.5, anc="end")}
+{measured(*A5, *I5, -11, "4 cm", 11)}
+{measured(*I5, *D5, -12, "11 cm", 11)}
 </svg>'''
 
 # ── q6: 두 원 교점 E·F, 직선 AED·BFC, 사각형 ─────────────────────────
@@ -222,8 +222,8 @@ S["q9"] = f'''<svg viewBox="0 0 350 225" xmlns="http://www.w3.org/2000/svg">
 {circ(cx, cy, r)}
 {line(P9, tanA)}
 {line(P9, C9)}{line(A9, B9)}{line(A9, C9)}{line(P9, Q9)}
-<path d="{angle_arc(*A9, B9, C9, 20)}" fill="none" stroke="#000" stroke-width="1"/>
-{txt(A9[0] + 14, A9[1] + 26, "56°", 12)}
+<path d="{angle_arc(*A9, B9, C9, 22)}" fill="none" stroke="#000" stroke-width="1"/>
+{txt(A9[0] + 4, A9[1] + 42, "56°", 11.5)}
 {txt(P9[0] - 9, P9[1] + 5, "P", anc="end")}{txt(A9[0] - 2, A9[1] - 9, "A")}
 {txt(Q9[0] + 8, Q9[1] - 2, "Q")}{dot(*Q9, 2)}
 {txt(B9[0] - 4, B9[1] + 18, "B")}{txt(C9[0] + 8, C9[1] + 12, "C")}
@@ -318,7 +318,7 @@ S["s1"] = f'''<svg viewBox="0 0 350 245" xmlns="http://www.w3.org/2000/svg">
 {txt(C_1[0] + 9, C_1[1] + 6, "C")}{txt(D_1[0] + 4, D_1[1] - 8, "D")}
 {txt(P_1[0] - 6, P_1[1] - 9, "P", anc="end")}
 {measured(*A_1, *D_1, -10, "10 cm", 12)}
-{txt((C_1[0] + D_1[0]) / 2 + 9, (C_1[1] + D_1[1]) / 2 + 4, "8 cm", 12)}
+{measured(*D_1, *C_1, -11, "8 cm", 11.5)}
 </svg>'''
 
 # ── s2: 두 할선 교점 P(60°), 호AB=9π·호CD=13π ───────────────────────
@@ -333,8 +333,8 @@ S["s2"] = f'''<svg viewBox="0 0 345 265" xmlns="http://www.w3.org/2000/svg">
 {line(A_2, P_2)}{line(C_2, P_2)}
 <path d="{angle_arc(*P_2, A_2, C_2, 22)}" fill="none" stroke="#000" stroke-width="1"/>
 {txt(P_2[0] - 26, P_2[1] - 8, "60°", 12, anc="end")}
-{txt(A_2[0] - 2, A_2[1] - 9, "A")}{txt(B_2[0] + 6, B_2[1] - 8, "B")}
-{txt(C_2[0] - 8, C_2[1] + 16, "C", anc="end")}{txt(D_2[0] + 8, D_2[1] + 14, "D")}
+{txt(A_2[0] - 2, A_2[1] - 9, "A")}{txt(B_2[0] + 11, B_2[1] - 12, "B")}
+{txt(C_2[0] - 8, C_2[1] + 16, "C", anc="end")}{txt(D_2[0] + 13, D_2[1] + 18, "D")}
 {txt(P_2[0] + 8, P_2[1] + 5, "P")}
 <path d="{arc(cx, cy, r + 13, ray_angle(cx, cy, *A_2), ray_angle(cx, cy, *B_2))}" fill="none" stroke="#000" stroke-width="1" stroke-dasharray="3 3"/>
 {txt((A_2[0] + B_2[0]) / 2 + 42, (A_2[1] + B_2[1]) / 2 - 32, "9π cm", 12.5)}
