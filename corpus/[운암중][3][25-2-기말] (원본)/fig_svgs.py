@@ -357,7 +357,8 @@ SVGS["s1"] = f'''<svg viewBox="0 0 320 215" xmlns="http://www.w3.org/2000/svg">
 <path d="M {P(*A16)} L {P(*B16)} L {P(*C16)} Z" fill="none" stroke="#000" stroke-width="2"/>
 <path d="{arc(*A16, 26, 5, 125)}" fill="none" stroke="#000" stroke-width="1"/>
 <text x="{A16[0]+14}" y="{A16[1]-30}" font-size="14" {FONT}>120°</text>
-<text x="{(A16[0]+B16[0])/2-10:.1f}" y="{(A16[1]+B16[1])/2:.1f}" font-size="13" {FONT} text-anchor="end">3 cm</text>
+{meas(*A16, *B16, off=-9)}
+{dim_label(*A16, *B16, -9, "3 cm")}
 {meas(*A16, *C16, off=9)}
 {dim_label(*A16, *C16, 9, "4 cm")}
 <text x="{B16[0]-4:.1f}" y="{B16[1]-8:.1f}" font-size="16" {FONT} text-anchor="middle">B</text>
