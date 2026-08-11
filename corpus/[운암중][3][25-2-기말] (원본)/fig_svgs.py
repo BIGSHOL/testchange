@@ -55,6 +55,23 @@ def sqrt_label(x, y, num="2", fs=15):
             f'L {x+0.58*fs+w:.1f} {bar_y:.1f}" fill="none" stroke="#000" stroke-width="1.2"/>'
             f'<text x="{x+0.62*fs:.1f}" y="{y:.1f}" font-size="{fs}" {FONT}>{num}</text>')
 
+
+def meas(px_, py_, qx_, qy_, off=10.0, bow=8.0, ins_p=6.0, ins_q=6.0):
+    """길이 치수 점선(교과서 규격) — p→q 구간을 법선 off 만큼 띄워 얕게 볼록.
+
+    끝이 꼭짓점 근처(ins)까지 닿아야 '이 구간의 길이'로 읽힌다. off 부호로 쪽을
+    고른다(법선 n=(-uy,ux): 수평 좌→우면 +off=아래, 수직 상→하면 +off=왼쪽).
+    """
+    L = math.hypot(qx_ - px_, qy_ - py_)
+    ux_, uy_ = (qx_ - px_) / L, (qy_ - py_) / L
+    nx_, ny_ = -uy_, ux_
+    sx_, sy_ = px_ + ux_ * ins_p + nx_ * off, py_ + uy_ * ins_p + ny_ * off
+    ex_, ey_ = qx_ - ux_ * ins_q + nx_ * off, qy_ - uy_ * ins_q + ny_ * off
+    b = off + (bow if off >= 0 else -bow)
+    cx_, cy_ = (px_ + qx_) / 2 + nx_ * b, (py_ + qy_) / 2 + ny_ * b
+    return (f'<path d="M {sx_:.1f} {sy_:.1f} Q {cx_:.1f} {cy_:.1f} {ex_:.1f} {ey_:.1f}" '
+            f'fill="none" stroke="#000" stroke-width="1" stroke-dasharray="4 3"/>')
+
 SVGS = {}
 
 # ── q2: 직각삼각형 ABC (B 직각, C 45°, BC=√2, AB=x, AC=y) ────────────
@@ -63,12 +80,12 @@ SVGS["q2"] = f'''<svg viewBox="0 0 270 250" xmlns="http://www.w3.org/2000/svg">
 {rangle(65, 195, 1, 0, 0, -1)}
 <path d="{arc(225, 195, 30, 180, 135)}" fill="none" stroke="#000" stroke-width="1"/>
 <text x="173" y="190" font-size="15" {FONT}>45°</text>
-<path d="M 53 45 Q 43 115 53 185" fill="none" stroke="#000" stroke-width="1" stroke-dasharray="4 3"/>
-<text x="36" y="121" font-size="17" {IT} text-anchor="middle">x</text>
-<path d="M 80 32 Q 159 101 232 180" fill="none" stroke="#000" stroke-width="1" stroke-dasharray="4 3"/>
+{meas(65, 35, 65, 195, off=11, bow=8)}
+<text x="34" y="121" font-size="17" {IT} text-anchor="middle">x</text>
+{meas(65, 35, 225, 195, off=-11, bow=8)}
 <text x="163" y="98" font-size="17" {IT}>y</text>
-<path d="M 70 208 Q 145 222 220 208" fill="none" stroke="#000" stroke-width="1" stroke-dasharray="4 3"/>
-{sqrt_label(133, 240, "2", 15)}
+{meas(65, 195, 225, 195, off=11, bow=8)}
+{sqrt_label(133, 236, "2", 15)}
 <text x="65" y="24" font-size="16" {FONT} text-anchor="middle">A</text>
 <text x="52" y="210" font-size="16" {FONT} text-anchor="middle">B</text>
 <text x="238" y="210" font-size="16" {FONT} text-anchor="middle">C</text>
@@ -121,7 +138,7 @@ SVGS["q4"] = f'''<svg viewBox="0 0 360 200" xmlns="http://www.w3.org/2000/svg">
 <text x="{Bx+72}" y="{By-7}" font-size="14" {FONT}>15°</text>
 <path d="{arc(Dx, By, 30, 0, 30)}" fill="none" stroke="#000" stroke-width="1"/>
 <text x="{Dx+38:.1f}" y="{By-8}" font-size="14" {FONT}>30°</text>
-<path d="M {Bx} {By+8} Q {Bx+u:.1f} {By+18} {Dx:.1f} {By+8}" fill="none" stroke="#000" stroke-width="1" stroke-dasharray="4 3"/>
+{meas(Bx, By, Dx, By, off=9, bow=7)}
 <text x="{Bx+u:.1f}" y="{By+33}" font-size="15" {FONT} text-anchor="middle">2</text>
 <text x="{Bx-8}" y="{By+6}" font-size="16" {FONT} text-anchor="end">B</text>
 <text x="{Dx:.1f}" y="{By+18}" font-size="16" {FONT} text-anchor="middle">D</text>
@@ -141,7 +158,7 @@ SVGS["q6"] = f'''<svg viewBox="0 0 340 290" xmlns="http://www.w3.org/2000/svg">
 <text x="{Bx6-56}" y="{By6-8}" font-size="14" {FONT}>45°</text>
 <path d="{arc(Cx6, Cy6, 30, -105, -45)}" fill="none" stroke="#000" stroke-width="1"/>
 <text x="{Cx6+16:.1f}" y="{Cy6+52:.1f}" font-size="14" {FONT} text-anchor="middle">60°</text>
-<path d="M {Ax6} {Ay6+9} Q {(Ax6+Bx6)/2} {Ay6+19} {Bx6} {By6+9}" fill="none" stroke="#000" stroke-width="1" stroke-dasharray="4 3"/>
+{meas(Ax6, Ay6, Bx6, By6, off=10, bow=8)}
 <text x="{(Ax6+Bx6)/2}" y="{Ay6+36}" font-size="14" {FONT} text-anchor="middle">4 cm</text>
 <text x="{Ax6-8}" y="{Ay6+8}" font-size="16" {FONT} text-anchor="end">A</text>
 <text x="{Bx6+8}" y="{By6+8}" font-size="16" {FONT}>B</text>
@@ -166,7 +183,7 @@ SVGS["q7"] = f'''<svg viewBox="0 0 260 250" xmlns="http://www.w3.org/2000/svg">
 <text x="{cx7+7}" y="{(cy7+chy)/2+6:.1f}" font-size="13" {FONT}>1 cm</text>
 <line x1="{(lx7+cx7)/2:.1f}" y1="{chy-6:.1f}" x2="{(lx7+cx7)/2:.1f}" y2="{chy+6:.1f}" stroke="#000" stroke-width="1"/>
 <line x1="{(cx7+rx7)/2:.1f}" y1="{chy-6:.1f}" x2="{(cx7+rx7)/2:.1f}" y2="{chy+6:.1f}" stroke="#000" stroke-width="1"/>
-<path d="M {lx7+4:.1f} {chy+9:.1f} Q {cx7} {chy+19:.1f} {rx7-4:.1f} {chy+9:.1f}" fill="none" stroke="#000" stroke-width="1" stroke-dasharray="4 3"/>
+{meas(lx7, chy, rx7, chy, off=9, bow=7)}
 <text x="{cx7}" y="{chy+34:.1f}" font-size="14" {FONT} text-anchor="middle"><tspan font-style="italic">x</tspan> cm</text>
 </svg>'''
 
@@ -192,14 +209,14 @@ SVGS["q8"] = f'''<svg viewBox="0 0 380 250" xmlns="http://www.w3.org/2000/svg">
 <text x="{ox8-14}" y="{oy8-6}" font-size="16" {FONT} text-anchor="end">O</text>
 <text x="{Ax8-2:.1f}" y="{Ay8-10:.1f}" font-size="16" {FONT}>A</text>
 <text x="{Ax8-2:.1f}" y="{By8+20:.1f}" font-size="16" {FONT}>B</text>
-<text x="{Cx8-6}" y="{oy8-8}" font-size="15" {FONT}>C</text>
+<text x="{Cx8-14}" y="{oy8-9}" font-size="15" {FONT} text-anchor="end">C</text>
 <text x="{Px8+6}" y="{oy8+6}" font-size="16" {FONT}>P</text>
-<path d="M {Ax8+10*_ux+9*_px:.1f} {Ay8+10*_uy+9*_py:.1f} Q {(Ax8+Px8)/2+16*_px:.1f} {(Ay8+oy8)/2+16*_py:.1f} {Px8-12*_ux+9*_px:.1f} {oy8-12*_uy+9*_py:.1f}" fill="none" stroke="#000" stroke-width="1" stroke-dasharray="4 3"/>
+{meas(Ax8, Ay8, Px8, oy8, off=-9, bow=6, ins_q=14)}
 <text x="{(Ax8+Px8)/2-4:.1f}" y="{(Ay8+oy8)/2-24:.1f}" font-size="12" {FONT}><tspan font-style="italic">x</tspan> cm</text>
-<text x="{(Cx8+Px8)/2-14:.1f}" y="{oy8+13.5}" font-size="11.5" {FONT}>8 cm</text>
-<path d="M {Cx8+8} {oy8+17} Q {(Cx8+Px8)/2:.1f} {oy8+25} {(Cx8+Px8)/2+56:.1f} {oy8+15}" fill="none" stroke="#000" stroke-width="1" stroke-dasharray="4 3"/>
-<path d="M {ox8-4.7:.1f} {oy8+12.4} Q {ox8-11:.1f} {oy8+44} {Ax8-11.7:.1f} {By8-6.6:.1f}" fill="none" stroke="#000" stroke-width="1" stroke-dasharray="4 3"/>
-<text x="{ox8-16}" y="{oy8+52}" font-size="11.5" {FONT} text-anchor="end">12 cm</text>
+<text x="{(Cx8+Px8)/2-28:.1f}" y="{oy8+25}" font-size="11" {FONT} text-anchor="middle">8 cm</text>
+{meas(Cx8, oy8, Px8, oy8, off=8, bow=4, ins_q=30)}
+{meas(ox8, oy8, Ax8, By8, off=8, bow=5, ins_p=12, ins_q=6)}
+<text x="{ox8-6}" y="{oy8+54}" font-size="11.5" {FONT} text-anchor="end">12 cm</text>
 </svg>'''
 
 # ── q9: 원 O 내접 오각형, ∠A=120°, ∠D=100°, 중심각 x=∠BOC ──────────
@@ -218,9 +235,9 @@ SVGS["q9"] = f'''<svg viewBox="0 0 260 265" xmlns="http://www.w3.org/2000/svg">
 <text x="{cx9+7}" y="{cy9+5}" font-size="15" {FONT}>O</text>
 <path d="{arc(cx9, cy9, 24, 150, 230)}" fill="none" stroke="#000" stroke-width="1"/>
 <text x="{cx9-30}" y="{cy9+8}" font-size="15" {IT} text-anchor="end">x</text>
-<path d="{arc(*A9, 26, 205, 335)}" fill="none" stroke="#000" stroke-width="1"/>
+<path d="{arc(*A9, 26, 210, 330)}" fill="none" stroke="#000" stroke-width="1"/>
 <text x="{A9[0]:.1f}" y="{A9[1]+46:.1f}" font-size="14" {FONT} text-anchor="middle">120°</text>
-<path d="{arc(*D9, 24, 100, 190)}" fill="none" stroke="#000" stroke-width="1"/>
+<path d="{arc(*D9, 24, 80, 180)}" fill="none" stroke="#000" stroke-width="1"/>
 <text x="{D9[0]-30:.1f}" y="{D9[1]-26:.1f}" font-size="14" {FONT} text-anchor="middle">100°</text>
 <text x="{A9[0]:.1f}" y="{A9[1]-10:.1f}" font-size="16" {FONT} text-anchor="middle">A</text>
 <text x="{B9[0]-8:.1f}" y="{B9[1]-4:.1f}" font-size="16" {FONT} text-anchor="end">B</text>
@@ -243,7 +260,7 @@ SVGS["q10"] = f'''<svg viewBox="0 0 310 260" xmlns="http://www.w3.org/2000/svg">
 <circle cx="62" cy="{T10[1]}" r="2.6" fill="#000"/>
 <path d="{arc(*T10, 30, 120, 180)}" fill="none" stroke="#000" stroke-width="1"/>
 <text x="82" y="{T10[1]-12}" font-size="14" {FONT}>60°</text>
-<path d="{arc(*A10, 30, -55, 0)}" fill="none" stroke="#000" stroke-width="1"/>
+<path d="{arc(*A10, 30, -60, 5)}" fill="none" stroke="#000" stroke-width="1"/>
 <text x="{A10[0]+34:.1f}" y="{A10[1]+16:.1f}" font-size="14" {FONT}>46°</text>
 <text x="62" y="{T10[1]+22}" font-size="16" {FONT} text-anchor="middle">P</text>
 <text x="{T10[0]}" y="{T10[1]+22}" font-size="16" {FONT} text-anchor="middle">T</text>
@@ -408,7 +425,7 @@ SVGS["s4"] = f'''<svg viewBox="0 0 240 255" xmlns="http://www.w3.org/2000/svg">
 {_tick(A19, B19)}
 {_tick(A19, C19)}
 <line x1="{B19[0]:.1f}" y1="{B19[1]:.1f}" x2="{C19[0]:.1f}" y2="{C19[1]:.1f}" stroke="#000" stroke-width="2"/>
-<path d="M {B19[0]+10:.1f} {B19[1]+9:.1f} Q {cx19} {B19[1]+19:.1f} {C19[0]-10:.1f} {C19[1]+9:.1f}" fill="none" stroke="#000" stroke-width="1" stroke-dasharray="4 3"/>
+{meas(*B19, *C19, off=9, bow=7)}
 <text x="{cx19}" y="{B19[1]+34:.1f}" font-size="13" {FONT} text-anchor="middle">12 cm</text>
 <circle cx="{cx19}" cy="{cy19}" r="2.4" fill="#000"/>
 <text x="{cx19}" y="{cy19+22}" font-size="15" {FONT} text-anchor="middle">O</text>
