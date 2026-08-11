@@ -415,6 +415,8 @@ def _text_lines(comps: list[dict], H: float) -> list[list[int]]:
     # 뿐이라 본문 줄에는 영향이 없다(제목 글자는 획이 촘촘해 fill 이 크다).
     def _figure_like(c) -> bool:
         cw, ch = c["x1"] - c["x0"], c["y1"] - c["y0"]
+        if cw >= H * SEED_MIN * 2 and ch >= H * SEED_MIN * 2:
+            return True          # 글자로 보기엔 너무 크다(양변 4.4H+) — 칠해진 도형도 포함
         return (cw >= H * SEED_MIN and ch >= H * SEED_MIN
                 and c["area"] / max(1.0, float(cw * ch)) <= 0.15)
 
@@ -1023,12 +1025,19 @@ def _detect_once(img: Image.Image, debug: bool = False,
                  if c["x0"] >= box[0] and c["x1"] <= box[2]
                  and c["y0"] >= box[1] and c["y1"] <= box[3]]
         # 큰 요소가 '속이 찬'(fill 높은) 획이면 글자, '속이 빈' 윤곽이면 도형.
-        fat = 0
+        fat_h = []
         for c in inner:
             cw2, ch2 = c["x1"] - c["x0"], c["y1"] - c["y0"]
             if ch2 >= H * 3 and c["area"] / max(1, cw2 * ch2) >= 0.35:
-                fat += 1
-        big_glyphs = fat >= 3
+                fat_h.append(ch2)
+        # ⚠️ 폐기 시도: '크기가 1.5배 넘게 벌어지면 제목 글자가 아니다'(신명여중 #8 의
+        # 커지는 빗금 정사각형 93→289px 을 살리려던 완화). 기준선 os3 p1 에서 이웃한
+        # 두 그림이 2636px 한 상자로 뭉쳐 **정상 그림 2건이 소실**됐고, 폭 문턱(60H)으로
+        # 막아도 재현됐다. 신명여중 #8 은 안내문구로 남긴다.
+        big_glyphs = len(fat_h) >= 3 and max(fat_h) <= min(fat_h) * 1.5
+        n_glyph = sum(1 for c in inner
+                      if (c["x1"] - c["x0"]) <= H * GLYPH_MAX
+                      and (c["y1"] - c["y0"]) <= H * GLYPH_MAX)
 
         # 아주 큰 요소(도형 윤곽) 존재 여부 — glyph-region 면제 조건
         # ⚠️ fill 상한을 0.5 로 두면 **음영/칠해진 도형**(학산중 #6 직사각형 색칠)이
@@ -1060,7 +1069,10 @@ def _detect_once(img: Image.Image, debug: bool = False,
             # **셀 안에 글자가 있는가**. 표는 셀마다 값이 들어 있고(gfrac 높음),
             # 모눈은 셀이 비어 있고 라벨이 바깥이다(실측: 도원중 #14·황금중 #16).
             why = "table-grid"         # 행·열 괘선 격자 + 셀 안 글자 = 표
-        elif axf >= 0.75 and dens < 0.12:
+        elif (axf >= 0.75 and dens < 0.12
+              and not (cov < 0.05 and (box[2] - box[0]) >= H * 6
+                       and (box[3] - box[1]) >= H * 6
+                       and 1 <= n_glyph <= 5)):
             # 칠해진 도형(검게 칠한 L자 다각형)은 내부가 긴 수평런이라 axf 가 1 에
             # 가깝지만 명백한 그림이다 → 잉크가 빽빽하면 면제(도원중 #6 실측).
             why = "all-straight"       # 축정렬 직선뿐 = 표·박스 테두리 조각
@@ -1080,7 +1092,14 @@ def _detect_once(img: Image.Image, debug: bool = False,
             # 라벨·수식이 많은 도형(직사각형+치수, 포물선+식)은 gfrac 이 올라가지만
             # **아주 큰 요소**(도형 윤곽)가 하나라도 있으면 그림이다(학산중 실측).
             why = "glyph-region"       # 잉크 대부분이 글자 = 보기박스·표 조각
-        elif framed and dens >= 0.005 and (cov >= 0.13 or gfrac >= 0.5):
+        elif (framed and dens >= 0.005 and (cov >= 0.13 or gfrac >= 0.5)
+              and not (has_big and (box[3] - box[1]) >= H * 8
+                       and (box[2] - box[0]) < (box[3] - box[1]) * 4)):
+            # glyph-region 과 같은 면제 — **아주 큰 윤곽 요소**가 있으면 테두리+글자로
+            # 보여도 그림이다(혜화여고 #17: 60H×34H 윤곽 + 라벨 다수가 framed-text 로
+            # 기각됐다). ⚠️ 단 **세로로 충분히 높고 납작하지 않을 때만** — 한 줄짜리
+            # 자료 상자(``-1, 9, a, -2 …``)도 테두리가 큰 요소라 has_big 만으로 풀면
+            # 보기 상자가 그림으로 잡힌다(학산중 p1 실측 2026-08-10).
             why = "framed-text"
         if why:
             cl["_why"] = why
@@ -1419,8 +1438,27 @@ def figures_in_region(img: Image.Image, region, page_h: float | None = None,
     # 필요하다.
     if page_boxes is None:
         page_boxes = detect(img)
-    inside = [b for b in page_boxes
-              if x0 <= (b[0] + b[2]) * 0.5 <= x1 and y0 <= (b[1] + b[3]) * 0.5 <= y1]
+    # ⭐ 중심점만 보면 **경계에서 아슬아슬하게 벗어난 그림**을 놓친다(경원고 #15:
+    # 중심 y 0.743 vs 크롭 하단 0.740 — 0.003 차이로 탈락하고 그 자리에 발문 줄이
+    # 뽑혔다). OCR bbox·크롭은 원래 거칠므로 **면적의 절반 이상이 들어오면** 포함.
+    tx, ty = img.width * 0.02, img.height * 0.02      # 크롭 경계 여유(쪽 크기의 2%)
+
+    def _in(b) -> bool:
+        cx, cy = (b[0] + b[2]) * 0.5, (b[1] + b[3]) * 0.5
+        if x0 <= cx <= x1 and y0 <= cy <= y1:
+            return True                       # 확실히 안쪽 — 종전 동작 그대로
+        # 여유(2%)·면적 절반으로 살리는 건 **그림 모양일 때만**. 발문/선택지 띠는 긴
+        # 가로 괘선 때문에 그림다움 점수가 높게 나오므로 모양으로 막는다(경원고 #4:
+        # 706x103 띠가 크롭 밖에서 끌려 들어와 그림 자리를 차지했다).
+        if (b[2] - b[0]) >= (b[3] - b[1]) * 4:
+            return False
+        if x0 - tx <= cx <= x1 + tx and y0 - ty <= cy <= y1 + ty:
+            return True
+        ix = max(0, min(x1, b[2]) - max(x0, b[0]))
+        iy = max(0, min(y1, b[3]) - max(y0, b[1]))
+        return ix * iy >= (b[2] - b[0]) * (b[3] - b[1]) * 0.5
+
+    inside = [b for b in page_boxes if _in(b)]
     if inside:
         return inside
 
@@ -1471,6 +1509,30 @@ def assign_figures(img: Image.Image, region, hints, page_h: float | None = None,
     반환: hints 와 같은 길이의 bbox(또는 None) 목록.
     """
     boxes = figures_in_region(img, region, page_h, page_boxes)
+    if not boxes and hints:
+        # ⭐ 문항 크롭에서 아무것도 못 찾으면 **힌트 rect 자체**를 영역으로 재시도한다.
+        # crops.json 의 문항 상자와 OCR figure bbox 가 서로 다른 곳을 가리키는 corpus 가
+        # 있다(운암중 #21: 크롭 y 0.684~0.935 인데 그림은 0.55~0.78). 둘 중 하나라도
+        # 맞으면 살린다.
+        rects = []
+        for cands in hints:
+            for r in (cands if isinstance(cands[0], (tuple, list)) else [cands]):
+                rects.append(r)
+        if rects:
+            m = 0.02
+            u = (max(0.0, min(r[0] for r in rects) - m),
+                 max(0.0, min(r[1] for r in rects) - m),
+                 min(1.0, max(r[2] for r in rects) + m),
+                 min(1.0, max(r[3] for r in rects) + m))
+            # ⚠️ 재시도 결과는 **그림다울 때만** 받는다. 아니면 그림이 아예 없는 문항
+            # (경원고 #4: 페이지 검출 0개)에서 발문·선택지 띠를 집어 온다.
+            # ⚠️ 재시도 결과는 **그림다울 때만** 받는다. 아니면 그림이 아예 없는 문항
+            # (경원고 #4: 페이지 검출 0개)에서 발문·선택지 띠를 집어 온다. 띠는 긴 가로
+            # 괘선 때문에 figure_score 가 0.54 로 높게 나오므로 **모양(가로가 세로의 4배
+            # 미만)** 조건을 함께 건다.
+            boxes = [b for b in figures_in_region(img, u, page_h, page_boxes)
+                     if figure_score(img, b) >= 0.30
+                     and (b[2] - b[0]) < (b[3] - b[1]) * 4]
     out: list[tuple | None] = [None] * len(hints)
     if not boxes:
         return out
@@ -1489,7 +1551,10 @@ def assign_figures(img: Image.Image, region, hints, page_h: float | None = None,
         if len(boxes) == len(hints):
             return list(boxes)
     used = set()
-    # ① 겹침이 큰 순으로 확정(힌트는 '선택'에만 쓴다)
+    # ① 겹침이 큰 순으로 확정(힌트는 '선택'에만 쓴다). ⭐ 겹침이 비슷하면 **더 그림다운
+    # 쪽**을 고른다 — OCR bbox 가 거칠어 발문/선택지 띠가 그림보다 겹침이 클 때가 있다
+    # (경원고 #4: 타원·쌍곡선 그림 대신 선택지 줄이 뽑혔다, 실측 2026-08-11).
+    fs = {j: figure_score(img, b) for j, b in enumerate(boxes)}
     pairs = []
     for i, cands in enumerate(hints):
         for j, b in enumerate(boxes):
@@ -1497,14 +1562,19 @@ def assign_figures(img: Image.Image, region, hints, page_h: float | None = None,
             for r in (cands if isinstance(cands[0], (tuple, list)) else [cands]):
                 hx = _to_px(img, r)
                 f = max(f, _overlap_frac(hx, b), _overlap_frac(b, hx))
-            pairs.append((f, i, j))
+            pairs.append((f * (0.5 + fs[j]), i, j))
     for f, i, j in sorted(pairs, reverse=True):
         if f <= 0.05 or out[i] is not None or j in used:
             continue
         out[i] = boxes[j]
         used.add(j)
-    # ② 남은 것은 읽기 순서로 채운다(개수가 같으면 순서 매칭이 안전)
+    # ② 남은 것은 읽기 순서로 채운다(개수가 같으면 순서 매칭이 안전).
+    # ⚠️ 단 **후보가 남아도는데 힌트 겹침이 하나도 없었다면** 위치는 못 믿는다 —
+    # 위쪽 발문 띠가 먼저 잡힌다(경원고 #4: 띠 y0.627 / 진짜 그림 y0.841, 두 힌트
+    # 해석 모두 겹침 0). 이때는 **그림다운 순**으로 채운다.
     rest = [b for j, b in enumerate(boxes) if j not in used]
+    if len(boxes) > len(hints) and not used:
+        rest.sort(key=lambda b: figure_score(img, b), reverse=True)
     for i in range(len(hints)):
         if out[i] is None and rest:
             out[i] = rest.pop(0)
@@ -1521,6 +1591,8 @@ def drop_text_only(img: Image.Image, boxes: list) -> list:
     후보가 하나뿐이면 개수가 맞아 그대로 채택되는데, 그 하나가 발문 줄일 때가 있다
     (경원고 #15 = 0.10). 실측 정상 그림의 최저치가 0.37 이라 0.15 는 안전한 문턱이다.
     """
+    # ⚠️ 폐기 시도: '납작한 띠(가로 4배+)는 그림이 아니다'. 발문 띠(경원고 #4)를
+    # 노렸으나 **수직선처럼 원래 납작한 그림**까지 잃는다(대건중 #16 실측).
     return [b if (b is None or figure_score(img, b) >= TEXT_ONLY) else None
             for b in boxes]
 

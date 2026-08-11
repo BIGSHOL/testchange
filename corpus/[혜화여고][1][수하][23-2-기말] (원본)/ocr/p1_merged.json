@@ -5,14 +5,57 @@
       "number": 1,
       "score": 3.4,
       "contents": [
-        {"type": "text", "value": "실수 전체의 집합에서 정의된 함수 f에 대하여 f(3x+1)=6x-5가 성립할 때, 역함수는 f^{-1}(x)=ax+b이다. 이때 상수 a, b에 대하여 b-a의 값은? [3.4점]"}
+        {
+          "type": "text",
+          "value": "실수 전체의 집합에서 정의된 함수 f에 대하여 f(3x+1)=6x-5가 성립할 때, 역함수는 f^{-1}(x)=ax+b이다. 이때 상수 a, b에 대하여 b-a의 값은? [3.4점]"
+        }
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+        {
+          "number": 1,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "1"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "2"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "3"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "4"
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "5"
+            }
+          ]
+        }
       ],
       "sub_questions": []
     },
@@ -20,17 +63,75 @@
       "number": 2,
       "score": 3.4,
       "contents": [
-        {"type": "text", "value": "오른쪽 그림과 같이 함수"},
-        {"type": "equation", "value": "y=\\frac{16}{x-1}+2 \\, (x>1)"},
-        {"type": "text", "value": "의 그래프 위의 점 P에서 두 점근선에 내린 수선의 발을 각각 Q와 R라 하자. 이때 \\overline{PQ}+\\overline{PR}의 최솟값을 m, 그때의 점 P의 좌표를 (a, b)라고 할 때, m+a+b의 값은? [3.4점]"},
-        {"type": "figure", "value": "함수 y=16/(x-1)+2 (x>1)의 그래프(직각쌍곡선)와 두 점근선(x=1, y=2). 그래프 위의 점 P에서 두 점근선에 내린 수선의 발 Q(y=2 위)와 R(x=1 위).", "bbox": [0.72, 0.78, 0.97, 0.93]}
+        {
+          "type": "text",
+          "value": "오른쪽 그림과 같이 함수"
+        },
+        {
+          "type": "equation",
+          "value": "y=\\frac{16}{x-1}+2 \\, (x>1)"
+        },
+        {
+          "type": "text",
+          "value": "의 그래프 위의 점 P에서 두 점근선에 내린 수선의 발을 각각 Q와 R라 하자. 이때 \\overline{PQ}+\\overline{PR}의 최솟값을 m, 그때의 점 P의 좌표를 (a, b)라고 할 때, m+a+b의 값은? [3.4점]"
+        },
+        {
+          "type": "figure",
+          "value": "함수 y=16/(x-1)+2 (x>1)의 그래프(직각쌍곡선)와 두 점근선(x=1, y=2). 그래프 위의 점 P에서 두 점근선에 내린 수선의 발 Q(y=2 위)와 R(x=1 위).",
+          "bbox": [
+            0.34,
+            0.42,
+            0.51,
+            0.51
+          ]
+        }
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "11"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "13"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "15"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "17"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "19"}]}
+        {
+          "number": 1,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "11"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "13"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "15"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "17"
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "19"
+            }
+          ]
+        }
       ],
       "sub_questions": []
     },
@@ -38,16 +139,65 @@
       "number": 3,
       "score": 3.4,
       "contents": [
-        {"type": "text", "value": "이차식 f(x)가 x≠-1, x≠1인 모든 실수 x에 대하여 등식"},
-        {"type": "equation_block", "value": "\\frac{a}{x^2-1}+\\frac{bx+c}{(x^2+1)(x-1)}=\\frac{f(x)}{x^4-1}"},
-        {"type": "text", "value": "를 만족시킨다. f(-2)=11, f(0)=5, f(2)=15일 때, a+b+c+f(-3)의 값은? (단, a, b, c는 상수) [3.4점]"}
+        {
+          "type": "text",
+          "value": "이차식 f(x)가 x≠-1, x≠1인 모든 실수 x에 대하여 등식"
+        },
+        {
+          "type": "equation_block",
+          "value": "\\frac{a}{x^2-1}+\\frac{bx+c}{(x^2+1)(x-1)}=\\frac{f(x)}{x^4-1}"
+        },
+        {
+          "type": "text",
+          "value": "를 만족시킨다. f(-2)=11, f(0)=5, f(2)=15일 때, a+b+c+f(-3)의 값은? (단, a, b, c는 상수) [3.4점]"
+        }
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "-2"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "8"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "19"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "24"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "30"}]}
+        {
+          "number": 1,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "-2"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "8"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "19"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "24"
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "30"
+            }
+          ]
+        }
       ],
       "sub_questions": []
     },
@@ -55,16 +205,65 @@
       "number": 4,
       "score": 3.4,
       "contents": [
-        {"type": "text", "value": "x에 대한 이차방정식"},
-        {"type": "equation", "value": "5x^2-{}_{n}P_{r}x-6{}_{n}C_{n-r}=0"},
-        {"type": "text", "value": "의 두 근이 -2, 6일 때, nr의 값은? (단, n, r는 자연수이다.) [3.4점]"}
+        {
+          "type": "text",
+          "value": "x에 대한 이차방정식"
+        },
+        {
+          "type": "equation",
+          "value": "5x^2-{}_{n}P_{r}x-6{}_{n}C_{n-r}=0"
+        },
+        {
+          "type": "text",
+          "value": "의 두 근이 -2, 6일 때, nr의 값은? (단, n, r는 자연수이다.) [3.4점]"
+        }
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "2"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "4"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "6"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "8"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "10"}]}
+        {
+          "number": 1,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "2"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "4"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "6"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "8"
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "10"
+            }
+          ]
+        }
       ],
       "sub_questions": []
     },
@@ -72,14 +271,57 @@
       "number": 5,
       "score": 3.4,
       "contents": [
-        {"type": "text", "value": "5개의 숫자 0, 2, 4, 6, 8 중에서 서로 다른 3개의 숫자를 택하여 세 자리 자연수를 만들려고 한다. 큰 수부터 차례대로 나열했을 때, 35번째에 오는 수는? [3.4점]"}
+        {
+          "type": "text",
+          "value": "5개의 숫자 0, 2, 4, 6, 8 중에서 서로 다른 3개의 숫자를 택하여 세 자리 자연수를 만들려고 한다. 큰 수부터 차례대로 나열했을 때, 35번째에 오는 수는? [3.4점]"
+        }
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "406"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "408"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "420"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "426"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "428"}]}
+        {
+          "number": 1,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "406"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "408"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "420"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "426"
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "428"
+            }
+          ]
+        }
       ],
       "sub_questions": []
     },
@@ -87,14 +329,57 @@
       "number": 6,
       "score": 3.4,
       "contents": [
-        {"type": "text", "value": "12명의 배구 선수 중에서 경기에 출전할 6명의 선수를 뽑으려고 할 때, 두 선수 A, B를 포함하여 뽑는 경우의 수를 p, 두 선수 A, B를 포함하지 않고 뽑는 경우의 수를 q라 하자. p+q의 값은? [3.4점]"}
+        {
+          "type": "text",
+          "value": "12명의 배구 선수 중에서 경기에 출전할 6명의 선수를 뽑으려고 할 때, 두 선수 A, B를 포함하여 뽑는 경우의 수를 p, 두 선수 A, B를 포함하지 않고 뽑는 경우의 수를 q라 하자. p+q의 값은? [3.4점]"
+        }
       ],
       "choices": [
-        {"number": 1, "contents": [{"type": "equation", "value": "400"}]},
-        {"number": 2, "contents": [{"type": "equation", "value": "420"}]},
-        {"number": 3, "contents": [{"type": "equation", "value": "440"}]},
-        {"number": 4, "contents": [{"type": "equation", "value": "460"}]},
-        {"number": 5, "contents": [{"type": "equation", "value": "480"}]}
+        {
+          "number": 1,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "400"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "420"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "440"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "460"
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "480"
+            }
+          ]
+        }
       ],
       "sub_questions": []
     }
