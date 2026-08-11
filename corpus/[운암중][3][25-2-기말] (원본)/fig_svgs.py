@@ -56,21 +56,36 @@ def sqrt_label(x, y, num="2", fs=15):
             f'<text x="{x+0.62*fs:.1f}" y="{y:.1f}" font-size="{fs}" {FONT}>{num}</text>')
 
 
-def meas(px_, py_, qx_, qy_, off=10.0, bow=8.0, ins_p=6.0, ins_q=6.0):
-    """길이 치수 점선(교과서 규격) — p→q 구간을 법선 off 만큼 띄워 얕게 볼록.
+def meas(px_, py_, qx_, qy_, off=10.0, bow=None, ins_p=3.0, ins_q=3.0):
+    """길이 치수 점선(교과서 규격) — **끝은 꼭짓점 옆에 감겨 붙고 가운데만 볼록**.
 
-    끝이 꼭짓점 근처(ins)까지 닿아야 '이 구간의 길이'로 읽힌다. off 부호로 쪽을
-    고른다(법선 n=(-uy,ux): 수평 좌→우면 +off=아래, 수직 상→하면 +off=왼쪽).
+    끝점 오프셋을 3px 로 고정해 꼭짓점 바로 옆에서 시작·끝나게 한다. 끝까지 일정
+    간격을 유지하면 예각 꼭짓점(q2 C 45°)에서 끝이 모서리를 지나쳐 밖으로 삐져
+    나간다(사용자 지적 2026-08-11). off = 가운데 볼록 깊이.
     """
     L = math.hypot(qx_ - px_, qy_ - py_)
     ux_, uy_ = (qx_ - px_) / L, (qy_ - py_) / L
     nx_, ny_ = -uy_, ux_
-    sx_, sy_ = px_ + ux_ * ins_p + nx_ * off, py_ + uy_ * ins_p + ny_ * off
-    ex_, ey_ = qx_ - ux_ * ins_q + nx_ * off, qy_ - uy_ * ins_q + ny_ * off
-    b = off + (bow if off >= 0 else -bow)
-    cx_, cy_ = (px_ + qx_) / 2 + nx_ * b, (py_ + qy_) / 2 + ny_ * b
+    sgn = 1.0 if off >= 0 else -1.0
+    end = 3.0 * sgn
+    sx_, sy_ = px_ + ux_ * ins_p + nx_ * end, py_ + uy_ * ins_p + ny_ * end
+    ex_, ey_ = qx_ - ux_ * ins_q + nx_ * end, qy_ - uy_ * ins_q + ny_ * end
+    c_lat = 2.0 * off - end                    # 2차곡선 중점 = off 가 되도록
+    cx_, cy_ = (px_ + qx_) / 2 + nx_ * c_lat, (py_ + qy_) / 2 + ny_ * c_lat
     return (f'<path d="M {sx_:.1f} {sy_:.1f} Q {cx_:.1f} {cy_:.1f} {ex_:.1f} {ey_:.1f}" '
             f'fill="none" stroke="#000" stroke-width="1" stroke-dasharray="4 3"/>')
+
+
+
+def dim_label(px_, py_, qx_, qy_, off, txt, fs=13):
+    """meas() 점선의 곡선 중점 위에 라벨 — paint-order 흰 테두리로 배경처리되어
+    점선이 라벨 뒤에서 끊긴 것처럼 보인다(알지오매스 관행, 사용자 2026-08-11)."""
+    L = math.hypot(qx_ - px_, qy_ - py_)
+    nx_, ny_ = -(qy_ - py_) / L, (qx_ - px_) / L
+    mx_, my_ = (px_ + qx_) / 2 + nx_ * off, (py_ + qy_) / 2 + ny_ * off
+    return (f'<text x="{mx_:.1f}" y="{my_ + 0.35 * fs:.1f}" font-size="{fs}" {FONT} '
+            f'text-anchor="middle" paint-order="stroke" stroke="#fff" '
+            f'stroke-width="{fs * 0.5:.0f}" stroke-linejoin="round">{txt}</text>')
 
 SVGS = {}
 
@@ -138,8 +153,8 @@ SVGS["q4"] = f'''<svg viewBox="0 0 360 200" xmlns="http://www.w3.org/2000/svg">
 <text x="{Bx+72}" y="{By-7}" font-size="14" {FONT}>15°</text>
 <path d="{arc(Dx, By, 30, 0, 30)}" fill="none" stroke="#000" stroke-width="1"/>
 <text x="{Dx+38:.1f}" y="{By-8}" font-size="14" {FONT}>30°</text>
-{meas(Bx, By, Dx, By, off=9, bow=7)}
-<text x="{Bx+u:.1f}" y="{By+33}" font-size="15" {FONT} text-anchor="middle">2</text>
+{meas(Bx, By, Dx, By, off=9)}
+{dim_label(Bx, By, Dx, By, 9, "2", fs=14)}
 <text x="{Bx-8}" y="{By+6}" font-size="16" {FONT} text-anchor="end">B</text>
 <text x="{Dx:.1f}" y="{By+18}" font-size="16" {FONT} text-anchor="middle">D</text>
 <text x="{Cx+8:.1f}" y="{By+6}" font-size="16" {FONT}>C</text>
@@ -158,8 +173,8 @@ SVGS["q6"] = f'''<svg viewBox="0 0 340 290" xmlns="http://www.w3.org/2000/svg">
 <text x="{Bx6-56}" y="{By6-8}" font-size="14" {FONT}>45°</text>
 <path d="{arc(Cx6, Cy6, 30, -105, -45)}" fill="none" stroke="#000" stroke-width="1"/>
 <text x="{Cx6+16:.1f}" y="{Cy6+52:.1f}" font-size="14" {FONT} text-anchor="middle">60°</text>
-{meas(Ax6, Ay6, Bx6, By6, off=10, bow=8)}
-<text x="{(Ax6+Bx6)/2}" y="{Ay6+36}" font-size="14" {FONT} text-anchor="middle">4 cm</text>
+{meas(Ax6, Ay6, Bx6, By6, off=10)}
+{dim_label(Ax6, Ay6, Bx6, By6, 10, "4 cm")}
 <text x="{Ax6-8}" y="{Ay6+8}" font-size="16" {FONT} text-anchor="end">A</text>
 <text x="{Bx6+8}" y="{By6+8}" font-size="16" {FONT}>B</text>
 <text x="{Cx6:.1f}" y="{Cy6-10:.1f}" font-size="16" {FONT} text-anchor="middle">C</text>
@@ -183,8 +198,8 @@ SVGS["q7"] = f'''<svg viewBox="0 0 260 250" xmlns="http://www.w3.org/2000/svg">
 <text x="{cx7+7}" y="{(cy7+chy)/2+6:.1f}" font-size="13" {FONT}>1 cm</text>
 <line x1="{(lx7+cx7)/2:.1f}" y1="{chy-6:.1f}" x2="{(lx7+cx7)/2:.1f}" y2="{chy+6:.1f}" stroke="#000" stroke-width="1"/>
 <line x1="{(cx7+rx7)/2:.1f}" y1="{chy-6:.1f}" x2="{(cx7+rx7)/2:.1f}" y2="{chy+6:.1f}" stroke="#000" stroke-width="1"/>
-{meas(lx7, chy, rx7, chy, off=9, bow=7)}
-<text x="{cx7}" y="{chy+34:.1f}" font-size="14" {FONT} text-anchor="middle"><tspan font-style="italic">x</tspan> cm</text>
+{meas(lx7, chy, rx7, chy, off=9)}
+{dim_label(lx7, chy, rx7, chy, 9, '<tspan font-style="italic">x</tspan> cm', fs=13)}
 </svg>'''
 
 # ── q8: 접선 2개, OB=12cm, CP=8cm, PA=x cm ──────────────────────────
@@ -343,8 +358,8 @@ SVGS["s1"] = f'''<svg viewBox="0 0 320 215" xmlns="http://www.w3.org/2000/svg">
 <path d="{arc(*A16, 26, 5, 125)}" fill="none" stroke="#000" stroke-width="1"/>
 <text x="{A16[0]+14}" y="{A16[1]-30}" font-size="14" {FONT}>120°</text>
 <text x="{(A16[0]+B16[0])/2-10:.1f}" y="{(A16[1]+B16[1])/2:.1f}" font-size="13" {FONT} text-anchor="end">3 cm</text>
-<path d="M {A16[0]+8*_u1x+12*_n1x:.1f} {A16[1]+8*_u1y+12*_n1y:.1f} Q {(A16[0]+C16[0])/2+21*_n1x:.1f} {(A16[1]+C16[1])/2+21*_n1y:.1f} {C16[0]-8*_u1x+12*_n1x:.1f} {C16[1]-8*_u1y+12*_n1y:.1f}" fill="none" stroke="#000" stroke-width="1" stroke-dasharray="4 3"/>
-<text x="{(A16[0]+C16[0])/2:.1f}" y="{(A16[1]+C16[1])/2+40:.1f}" font-size="13" {FONT} text-anchor="middle">4 cm</text>
+{meas(*A16, *C16, off=9)}
+{dim_label(*A16, *C16, 9, "4 cm")}
 <text x="{B16[0]-4:.1f}" y="{B16[1]-8:.1f}" font-size="16" {FONT} text-anchor="middle">B</text>
 <text x="{A16[0]-10}" y="{A16[1]+16}" font-size="16" {FONT} text-anchor="end">A</text>
 <text x="{C16[0]+8:.1f}" y="{C16[1]+6:.1f}" font-size="16" {FONT}>C</text>
@@ -425,8 +440,8 @@ SVGS["s4"] = f'''<svg viewBox="0 0 240 255" xmlns="http://www.w3.org/2000/svg">
 {_tick(A19, B19)}
 {_tick(A19, C19)}
 <line x1="{B19[0]:.1f}" y1="{B19[1]:.1f}" x2="{C19[0]:.1f}" y2="{C19[1]:.1f}" stroke="#000" stroke-width="2"/>
-{meas(*B19, *C19, off=9, bow=7)}
-<text x="{cx19}" y="{B19[1]+34:.1f}" font-size="13" {FONT} text-anchor="middle">12 cm</text>
+{meas(*B19, *C19, off=9)}
+{dim_label(*B19, *C19, 9, "12 cm", fs=12)}
 <circle cx="{cx19}" cy="{cy19}" r="2.4" fill="#000"/>
 <text x="{cx19}" y="{cy19+22}" font-size="15" {FONT} text-anchor="middle">O</text>
 <text x="{A19[0]}" y="{A19[1]-8:.1f}" font-size="16" {FONT} text-anchor="middle">A</text>
