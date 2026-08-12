@@ -48,9 +48,8 @@ from core.quality_checker import check_image_quality
 from core.content_parser import parse_ocr_response, build_document
 from core.hwpx_writer import write_exam_to_hwpx
 from core.hwp_com import is_hwp_available
-from core.hwp_com_writer import write_exam_to_hwp
 from core.hwp_form_writer import write_exam_to_form
-from core.plain_render import render_plain_2col
+from core.plain_render import render_plain_2col   # 폼 없이 2단(웹·exe 공용 구현)
 from core.form_registry import resolve_form, parse_filename
 from gui.preview_dialog import PreviewDialog, PageInfo
 from utils.config import get_output_dir
