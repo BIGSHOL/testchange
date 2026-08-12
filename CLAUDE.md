@@ -2575,3 +2575,19 @@ HWP Quit 실패(고아 프로세스 가능)
   문항 단위 배치). 정답·해설이 있으면 기본 서식 정답면(빠른정답 표+해설)이 뒤에 붙는다.
 - 회귀: `tests/test_connector_contract.py` L(플래그 on/off·폼 스킵·머리말 토큰·템플릿 번들).
   실렌더 검증: 강동중 중1 20문항 → 5쪽, 폼 경로 무회귀(같은 payload 에서 대수회 중1 남색).
+
+### ⭐ 배포 exe(GUI)에는 대수회 폼을 넣지 않는다 (2026-08-12, 사용자 지시)
+- **`build.spec` datas 가 `forms/plain2col` 만** 싣는다(종전 `forms/` 통째 번들 폐기).
+  남에게 주는 빌드에 남의 폼을 동봉하지 않는다. 그래서 이 exe 는 파일명이 규칙에 맞아도
+  `list_forms()` 가 비어 폼을 못 찾고 → **항상 2단 서식**(`gui/main_window` 의
+  `render_plain_2col` 분기)으로 렌더된다.
+- **웹용 HWP 도우미(`agent.spec`)는 종전대로 대수회 폼 7종을 싣는다** — 별개 빌드다.
+  즉 "웹=대수회 폼(TEST2020 만 2단) / 배포 exe=항상 2단" 이 의도된 차이다.
+- 렌더 구현은 **`core/plain_render.py` 한 곳**을 웹(convert_cli)·exe(GUI)가 공유한다.
+  사본을 만들면 "웹과 exe 결과가 다르다" 가 된다(`_write_tail`/`_put_tail` 이원화 전례).
+- ⚠️ **dev 레포에서 GUI 를 돌리면 여전히 대수회 폼을 쓴다**(`forms/` 에 파일이 있으므로).
+  의도된 차이지만, exe 동작을 확인하려면 배포본(`배포용/`)으로 볼 것.
+- **3중 게이트**(하나만 있으면 조용히 되돌아간다): ① `build.spec` 필수목록이
+  `forms/plain2col` ② `scripts/build_release.py` 가 번들에 `_internal/forms/*.hwp`(대수회)가
+  있으면 **빌드 실패** ③ `main.py --selftest` 가 `FORM BUNDLE OK: … / 대수회 폼 0종` 을
+  찍고, 빌드 스크립트가 그 줄이 없으면 실패 처리.

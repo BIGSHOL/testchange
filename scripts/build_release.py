@@ -34,7 +34,7 @@ DEPLOY = REPO / "배포용"
 # 번들에 **반드시** 있어야 하는 산출물(없으면 기능이 조용히 빠진다)
 REQUIRED_IN_BUNDLE = [
     "_internal/data/topic_vocab.json",   # 단원 분류 어휘(정답·해설 메타)
-    "_internal/forms",                   # 대수회 폼지
+    "_internal/forms/plain2col",         # 2단 바탕 템플릿(이 exe 의 기본 서식)
     "_internal/resources",               # HWP 보안모듈
     "시험지한글화.exe",
 ]
@@ -81,6 +81,12 @@ def main(argv: list[str]) -> int:
     if missing:
         print(tail)
         _fail("빌드 산출물 누락(기능이 빠진 exe 입니다):\n  " + "\n  ".join(missing))
+    # ⭐ 배포 exe 에는 대수회 폼을 **넣지 않는다**(사용자 2026-08-12). 실수로 다시 실리면
+    # 남의 폼을 동봉해 배포하게 되므로 여기서 막는다(변환은 성공해 보여 조용한 사고).
+    daesu = sorted(p.name for p in (DIST / "_internal/forms").glob("*.hwp"))
+    if daesu:
+        _fail("배포 exe 에 대수회 폼이 실렸습니다:\n  " + "\n  ".join(daesu)
+              + "\n  → build.spec datas 에서 forms/ 통째 번들을 빼세요.")
     bundled = json.loads((DIST / "_internal/data/topic_vocab.json").read_text(encoding="utf-8"))
     b_high = sum(len(x) for x in bundled.get("고등", {}).values())
     b_mid = sum(len(x) for x in bundled.get("중등", {}).values())
@@ -118,6 +124,9 @@ def main(argv: list[str]) -> int:
         _fail("selftest 실패 — 배포본이 정상 동작하지 않습니다.")
     if "TOPIC VOCAB OK" not in txt:
         _fail("selftest 에 단원 어휘 확인이 없습니다 — 어휘가 번들에서 빠졌습니다.")
+    if "FORM BUNDLE OK" not in txt:
+        _fail("selftest 에 서식 번들 확인이 없습니다 — 2단 바탕 템플릿이 빠졌거나 "
+              "대수회 폼이 실렸습니다.")
     print("\n[OK] 빌드·검증·배포·selftest 완료")
     return 0
 

@@ -293,7 +293,8 @@ def test_process_reaping() -> None:
 def test_plain_two_column() -> None:
     """L. '폼 없이 2단'(웹 layout 플래그) — 켜야만 켜지고, 켜면 폼을 안 탄다."""
     print("L. 폼 없이 2단(plain2)")
-    from server.convert_cli import _plain_header_meta, wants_plain_layout
+    from core.plain_render import plain_header_meta
+    from server.convert_cli import wants_plain_layout
 
     # 플래그가 없으면 **기존 동작 그대로** — 폼 경로에 회귀를 만들지 않는다.
     check("플래그 없으면 꺼짐", not wants_plain_layout({"questions": []}))
@@ -309,16 +310,28 @@ def test_plain_two_column() -> None:
     check("plain 이면 form_path=None",
           "form_path = None if plain else (resolve_form(filename) if filename else None)" in src)
     check("plain 은 write_exam_to_form 을 안 탄다", "if form_path:" in src)
-    check("2단 + 평문 번호로 렌더", "columns=2," in src and "use_endnote=False," in src)
     check("진단에 서식이 남는다", '"(2단 기본 서식)"' in src)
+
+    # ⚠️ 렌더 구현은 **웹·exe 공용 한 곳**(core/plain_render). 사본을 만들면 "웹과 exe
+    # 결과가 다르다" 가 된다(_write_tail/_put_tail 이원화 전례).
+    core_src = (ROOT / "core" / "plain_render.py").read_text(encoding="utf-8")
+    check("2단 + 평문 번호로 렌더",
+          "columns=2," in core_src and "use_endnote=False," in core_src)
+    check("커넥터가 공용 구현을 씀",
+          "from core.plain_render import render_plain_2col" in src)
+    gui_src = (ROOT / "gui" / "main_window.py").read_text(encoding="utf-8")
+    check("exe GUI 도 같은 공용 구현을 씀", "render_plain_2col(" in gui_src)
+    check("GUI 에 렌더 인자 사본 없음",
+          "use_endnote=False" not in gui_src)
 
     # 머리말 토큰값 — 파일명 규칙에서만 채우고, 규칙 미일치면 빈 dict(차단 아님).
     info = {"valid": True, "학교": "강동중", "학년": "중1", "학기": "1",
             "구분": "기말", "과목": "수학"}
-    meta = _plain_header_meta(info)
+    meta = plain_header_meta(info)
     check("제목 조립", meta.get("title") == "강동중 1학년 1학기 기말고사", str(meta))
     check("과목 전달", meta.get("subject") == "수학")
-    check("규칙 미일치면 빈 값", _plain_header_meta({"valid": False}) == {})
+    check("규칙 미일치면 빈 값", plain_header_meta({"valid": False}) == {})
+    check("info 가 None 이어도 안전", plain_header_meta(None) == {})
 
     # 바탕 템플릿은 forms/ **하위 폴더** — 대수회 폼 드롭다운(비재귀 glob)에 안 섞인다.
     from core.form_registry import list_forms, plain_form_path

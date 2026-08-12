@@ -21,7 +21,10 @@ project_root = Path(SPECPATH)
 #    (재생성이 필요하면 PDF 가 있는 PC 에서 `python scripts/build_topic_vocab.py`.)
 _required = [
     project_root / 'data' / 'topic_vocab.json',   # 단원 분류 어휘(정답·해설 메타)
-    project_root / 'forms',                       # 대수회 폼지 7종
+    # ⭐ 배포 exe 에는 **대수회 폼지를 넣지 않는다**(사용자 2026-08-12). 남에게 주는
+    # 빌드라 남의 폼을 동봉하지 않고, 대신 학교 기출 시험지 양식 2단 바탕만 싣는다.
+    # (웹용 HWP 도우미 agent.spec 은 종전대로 대수회 폼 7종을 싣는다 — 별개 빌드.)
+    project_root / 'forms' / 'plain2col',         # 2단 바탕 템플릿
     project_root / 'resources',                   # HWP 보안모듈 DLL
     project_root / '_version.py',                 # 배포 버전
 ]
@@ -82,8 +85,13 @@ a = Analysis(
     datas=[
         # (구) hwpx_조암 골든셋 번들은 제거 — 개발용 회귀 기준(data/골든셋기준_조암중_hwpx해제본)일 뿐
         # 런타임 코드가 읽지 않는다(2026-06-11, 5d97335 개명 때 spec 누락으로 빌드 깨짐).
-        # 대수회 폼지(학년별 색상 7종) 번들 → _internal/forms/ (core/form_registry 가 _MEIPASS/forms 에서 읽음)
-        (str(project_root / 'forms'), 'forms'),
+        # ⭐ 2단 바탕 템플릿만 번들 → _internal/forms/plain2col/ (core/form_registry
+        # .plain_form_path 가 _MEIPASS/forms/plain2col 에서 읽는다).
+        # **대수회 폼지 7종은 일부러 뺐다**(사용자 2026-08-12) — 남에게 주는 빌드에 남의
+        # 폼을 동봉하지 않는다. 그래서 이 exe 는 파일명이 규칙에 맞아도 폼을 못 찾고
+        # `list_forms()` 가 비어 → 항상 2단 서식으로 렌더된다(gui/main_window 의
+        # `render_plain_2col` 분기). 대수회 폼이 필요한 웹 경로는 agent.spec(도우미) 몫.
+        (str(project_root / 'forms' / 'plain2col'), 'forms/plain2col'),
         # HWP 파일접근 보안 승인 모듈(FilePathCheckerModuleExample.dll) — core/hwp_com.py 가
         # 레지스트리 등록 후 RegisterModule 로 바인딩해 '파일 접근 허용' 팝업을 없앤다.
         (str(project_root / 'resources'), 'resources'),

@@ -118,59 +118,20 @@ def wants_plain_layout(payload) -> bool:
     return v in _PLAIN2_LAYOUTS
 
 
-def _plain_header_meta(info: dict) -> dict:
-    """파일명 파싱 결과 → 2단 템플릿 머리말 토큰값(`{{제목}}`·`{{과목}}`).
-
-    파일명이 규칙에 안 맞으면 빈 값 — 토큰이 빈칸으로 치환돼 머리말이 비고, 변환은
-    그대로 진행한다(2026-06-16 '규칙 미일치라고 차단하지 않는다' 합의와 같은 태도).
-    """
-    if not info.get("valid"):
-        return {}
-    grade = str(info.get("학년") or "")          # "중1" / "고2"
-    gnum = grade[-1] if grade[-1:].isdigit() else ""
-    parts = [str(info.get("학교") or "")]
-    if gnum:
-        parts.append(f"{gnum}학년")
-    if info.get("학기"):
-        parts.append(f"{info['학기']}학기")
-    if info.get("구분"):
-        parts.append(f"{info['구분']}고사")
-    return {
-        "title": " ".join(p for p in parts if p),
-        "subject": str(info.get("과목") or ""),
-        "schoolName": str(info.get("학교") or ""),
-        "grade": f"{gnum}학년" if gnum else grade,
-        "semester": str(info.get("학기") or ""),
-    }
-
-
 def _render_plain_2col(document, info: dict, out_path: Path, show_answers: bool) -> Path:
-    """폼 없이 **2단 기본 서식**으로 렌더(빈 새 문서 또는 2단 바탕 템플릿 위).
+    """폼 없이 **2단 기본 서식**으로 렌더 — 구현은 `core.plain_render`(exe GUI 와 공유).
 
-    - 바탕 템플릿(`forms/plain2col/*.hwp`)이 있으면 그 머리말·용지·단 설정·단 구분선을
-      물려받고 본문만 흘려 쓴다. 없으면 빈 문서 + COM 간단 머리말 + 후처리 2단.
-    - ⚠️ **`use_endnote=False`**: 미주(자동번호)로 두면 문서 끝에 **빈 미주 목록**
-      (`1. 2. 3. …`)이 인쇄된다(실측). 대수회 폼은 그 미주가 답안칸이라 필요하지만
-      평문 2단에는 쓸 자리가 없다 — mathgen 웹 경로가 평문 번호를 쓰는 이유와 같다.
+    ⚠️ 여기서 렌더 인자를 다시 쓰지 말 것: 배포 exe(GUI)도 같은 함수를 부르므로
+    사본을 만들면 "웹과 exe 결과가 다르다" 가 된다.
     """
     from core.form_registry import plain_form_path
-    from core.hwp_com_writer import write_exam_to_hwp
+    from core.plain_render import render_plain_2col
 
     tpl = plain_form_path()
     sys.stderr.write(
         f"[convert] 2단 기본 서식(폼 미사용) · 바탕="
         f"{Path(tpl).name if tpl else '(빈 새 문서)'}\n")
-    made = write_exam_to_hwp(
-        document, out_path,
-        template_path=tpl,
-        form_mode=bool(tpl),        # 템플릿의 머리말/단 설정을 쓰고 COM 헤더는 생략
-        columns=2,
-        divider=not tpl,            # 템플릿엔 단 구분선이 이미 있음(빈 문서일 때만 그림)
-        use_endnote=False,          # 문서 끝 빈 미주 목록 방지
-        header_meta=_plain_header_meta(info),
-        show_answers=show_answers,
-    )
-    return Path(made) if made else out_path
+    return render_plain_2col(document, out_path, info=info, show_answers=show_answers)
 
 
 def _render_engine_envelope(payload: dict, out_path: Path) -> Path:

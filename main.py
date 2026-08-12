@@ -103,9 +103,25 @@ def _selftest_imports() -> int:
                 "data/topic_vocab.json 이 번들에 실리지 않았습니다(build.spec datas 확인).")
         vocab_line = f"TOPIC VOCAB OK: 고2 기하 {len(_hi)}개 / 중2 {len(_mi)}개"
 
+        # ⭐ 서식 번들 확인(사용자 2026-08-12): 이 exe 는 **대수회 폼 없이** 2단 바탕
+        # 템플릿만 싣는다. 둘 중 어느 쪽이 어긋나도 결과물 서식이 통째로 달라지는데
+        # 변환 자체는 성공해 보이므로(=조용한 사고) 여기서 잡는다.
+        from core.form_registry import list_forms, plain_form_path
+        _plain = plain_form_path()
+        if not _plain:
+            raise RuntimeError(
+                "2단 바탕 템플릿 누락 — forms/plain2col 이 번들에 실리지 않았습니다"
+                "(build.spec datas 확인, 제작은 scripts/make_plain2col_form.py).")
+        _daesu = [f.display for f in list_forms()]
+        if _daesu:
+            raise RuntimeError(
+                f"배포 exe 에 대수회 폼이 실렸습니다({len(_daesu)}종: {_daesu[:3]}…) — "
+                "build.spec datas 에서 forms/ 통째 번들을 빼세요.")
+        form_line = f"FORM BUNDLE OK: 2단 바탕 {Path(_plain).name} / 대수회 폼 0종"
+
         out.write_text(
             f"SELFTEST OK (v{_ver}): {google.genai.__file__}\n"
-            f"{gem_line}\n{ds_line}\n{vocab_line}\n",
+            f"{gem_line}\n{ds_line}\n{vocab_line}\n{form_line}\n",
             encoding="utf-8")
         return 0
     except Exception as e:

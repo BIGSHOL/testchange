@@ -50,6 +50,7 @@ from core.hwpx_writer import write_exam_to_hwpx
 from core.hwp_com import is_hwp_available
 from core.hwp_com_writer import write_exam_to_hwp
 from core.hwp_form_writer import write_exam_to_form
+from core.plain_render import render_plain_2col
 from core.form_registry import resolve_form, parse_filename
 from gui.preview_dialog import PreviewDialog, PageInfo
 from utils.config import get_output_dir
@@ -643,11 +644,13 @@ class ConversionWorker(QObject):
                     document, self.form_path, self.output_path,
                     header_values=self.header_values, render_figures=False)
             except Exception as e:   # noqa: BLE001
-                self.log.emit("warning", f"폼 채움 실패 → 기본 서식으로: {e}")
-                result_path = write_exam_to_hwp(document, self.output_path)
+                self.log.emit("warning", f"폼 채움 실패 → 2단 서식으로: {e}")
+                result_path = render_plain_2col(document, self.output_path,
+                                                info=self.header_values)
         elif is_hwp_available():
-            result_path = write_exam_to_hwp(document, self.output_path,
-                                            template_path=self.template_path)
+            self.log.emit("step", "2단 서식으로 문서 생성 중...")
+            result_path = render_plain_2col(document, self.output_path,
+                                            info=self.header_values)
         else:
             # HWP 미설치 폴백 — XML 생성기는 .hwpx 만 만든다(.hwp 로 저장하려면 HWP 필요).
             result_path = write_exam_to_hwpx(document,
@@ -1118,14 +1121,18 @@ class ConversionWorker(QObject):
                     render_figures=self.render_figures,
                 )
             except Exception as e:
-                # 폼 채움 실패(구조 불일치 등) → 기본 서식으로 폴백(변환은 산출되게).
-                self.log.emit("warning", f"폼 채움 실패 → 기본 서식으로: {e}")
-                result_path = write_exam_to_hwp(document, self.output_path)
+                # 폼 채움 실패(구조 불일치 등) → 2단 서식으로 폴백(변환은 산출되게).
+                self.log.emit("warning", f"폼 채움 실패 → 2단 서식으로: {e}")
+                result_path = render_plain_2col(document, self.output_path,
+                                                info=self.header_values)
         elif is_hwp_available():
+            # ⭐ 배포 exe 에는 대수회 폼을 넣지 않는다(사용자 2026-08-12) → 여기로 온다.
+            # 학교 기출 시험지 양식 2단 바탕(`forms/plain2col`) 위에 본문을 흘려 쓴다.
+            # 구현은 웹(커넥터)과 **같은 함수** — 결과가 갈리지 않게.
             self.progress.emit(90, "한글(HWP) 구동하여 문서 생성 중...")
-            self.log.emit("step", "한글(HWP) 문서 생성 중...")
-            result_path = write_exam_to_hwp(
-                document, self.output_path, template_path=self.template_path
+            self.log.emit("step", "2단 서식으로 문서 생성 중...")
+            result_path = render_plain_2col(
+                document, self.output_path, info=self.header_values
             )
         else:
             self.progress.emit(90, "HWP 미설치 — XML 생성기로 생성 중...")
