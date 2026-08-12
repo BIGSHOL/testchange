@@ -945,7 +945,8 @@ class HwpComWriter:
         return ended_box
 
     # ── 문제 ──────────────────────────────────────────────
-    def _write_question(self, question: Question, top_level: bool = True) -> None:
+    def _write_question(self, question: Question, top_level: bool = True,
+                        trailing_gap: bool = True) -> None:
         is_essay = not question.choices
         has_subs = bool(question.sub_questions)
         # 소문항이 **개별 배점**을 가질 때만 부모 배점이 '총점'("[총 N점]", 강동중). 배점 없는
@@ -1073,16 +1074,24 @@ class HwpComWriter:
                 else:
                     self.s.text("\t")
 
-        # 소문항 재귀 (소문항 번호는 미주 아님)
-        for sub in question.sub_questions:
-            self._write_question(sub, top_level=False)
+        # 소문항 재귀 (소문항 번호는 미주 아님). 마지막 문항의 **마지막 소문항** 뒤에는
+        # 빈 줄을 남기지 않는다 — 그 한 줄이 다음 쪽으로 넘어가면 정답면 쪽나눔과 겹쳐
+        # 빈 페이지가 된다(강북고 공수2 #8 = 소문항 있는 마지막 문항).
+        _subs = question.sub_questions
+        for _si, sub in enumerate(_subs):
+            self._write_question(sub, top_level=False,
+                                 trailing_gap=(trailing_gap or _si < len(_subs) - 1))
 
         # 서술형 '풀이)' 답안 공간은 넣지 않는다(사용자 요구 2026-06-02): 배점에서 끝낸다.
 
         # 문제 간 빈 줄 — top-level 문항 사이만 웹 spacing(px) 반영, 소문항은 기본 빈 줄.
+        # ⚠️ **마지막 문항 뒤에는 넣지 않는다**(trailing_gap=False): 본문이 쪽 끝에 딱 맞게
+        # 끝나면 그 빈 단락 하나가 다음 쪽으로 넘어가고, 정답면의 쪽나눔이 그 뒤에서 또
+        # 걸려 **통째로 빈 페이지**가 생긴다(강북고 공수2: 문제 3쪽 → 빈 4쪽 → 정답 5쪽).
         if top_level:
-            self._inter_question_gap()
-        else:
+            if trailing_gap:
+                self._inter_question_gap()
+        elif trailing_gap:
             self.s.break_para()
 
     def _write_choice(self, choice: Choice, as_equation: bool = False) -> None:
@@ -1240,14 +1249,14 @@ class HwpComWriter:
         all_q = reorder_questions_by_number(
             [q for page in document.pages for q in page.questions])
         prev_was_mc = False
-        for question in all_q:
+        for _qi, question in enumerate(all_q):
             is_essay = not question.choices
             if is_essay and prev_was_mc:
                 self.s.align_center()
                 self.s.text(_ESSAY_SEPARATOR_2COL if self._columns == 2 else _ESSAY_SEPARATOR)
                 self.s.break_para()
                 self.s.align_left()
-            self._write_question(question)
+            self._write_question(question, trailing_gap=(_qi < len(all_q) - 1))
             prev_was_mc = bool(question.choices)
 
         # 정답·해설 페이지(§44) — 정답/해설이 하나라도 있으면 문제 뒤 새 쪽에 추가.

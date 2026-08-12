@@ -1365,6 +1365,52 @@ def run():
     if "\mathrm" in _cg2v:
         fails.append(f"  HG2 확통/원소 오로만화: {_cg2v!r}")
 
+    # KB1 소문항을 그대로 되풀이하는 박스 제거(강북고 공수2 #8, 2026-08-12).
+    #     원본엔 박스가 없는데 OCR 이 (물음1)/(물음2)를 <상자> 로 인코딩 + 두 번째 박스가
+    #     발문 후반부까지 삼켜, 같은 문장이 박스와 소문항에 **두 번** 인쇄되고 발문이 끊겼다.
+    from core.content_parser import _parse_question as _pq
+    _kb = _pq({
+        "number": 8, "score": 11, "label_type": "서술형",
+        "contents": [
+            {"type": "text", "value": "그림과 같이 원 $x^2+y^2=25$에 대하여 원과 [총 11점]"},
+            {"type": "text", "value": "<상자> (물음 1) 삼각형 PQR의 둘레의 길이에 대한 "
+                                      "최솟값을 구하고, 풀이 과정을 서술하시오. [5점]"},
+            {"type": "text", "value": "<상자> (물음2) 삼각형 PQR의 둘레의 길이가 최소가 될 "
+                                      "때의 두 점 Q, R의 좌표를 구하고, 풀이 과정을 서술하시오. "
+                                      "$x$축의 교점 중 하나를 A라고 하자. 아래의 물음에 답하시오."},
+        ],
+        "sub_questions": [
+            {"number": 1, "score": 5, "contents": [{"type": "text", "value":
+                "(물음 1) 삼각형 PQR의 둘레의 길이에 대한 최솟값을 구하고, 풀이 과정을 서술하시오."}]},
+            {"number": 2, "score": 6, "contents": [{"type": "text", "value":
+                "(물음 2) 삼각형 PQR의 둘레의 길이가 최소가 될 때의 두 점 Q, R의 좌표를 "
+                "구하고, 풀이 과정을 서술하시오."}]},
+        ],
+    })
+    _kbv = "".join((b.value or "") for b in _kb.contents)
+    if "상자" in _kbv:
+        fails.append(f"  KB1 소문항 중복 박스가 남음: {_kbv[:120]!r}")
+    if "둘레의 길이에 대한" in _kbv:
+        fails.append(f"  KB1 소문항 문장이 발문에 중복: {_kbv[:120]!r}")
+    if "축의 교점 중 하나를 A라고 하자" not in _kbv:
+        fails.append(f"  KB1 박스가 삼킨 발문 후반부가 복원 안 됨: {_kbv[:160]!r}")
+    if len(_kb.sub_questions) != 2:
+        fails.append(f"  KB1 소문항이 사라짐: {len(_kb.sub_questions)}")
+    # 진짜 조건 박스(소문항과 무관)는 그대로 — 과잉 제거 방지.
+    _kb2 = _pq({
+        "number": 9, "score": 8,
+        "contents": [
+            {"type": "text", "value": "다음 조건을 만족시키는 함수를 구하시오."},
+            {"type": "text", "value": "<조건> (가) 모든 실수 $x$에 대하여 $f(x)>0$이다."},
+        ],
+        "sub_questions": [
+            {"number": 1, "score": 4, "contents": [{"type": "text", "value":
+                "함숫값 $f(1)$을 구하고, 풀이 과정을 서술하시오."}]},
+        ],
+    })
+    if "조건" not in "".join((b.value or "") for b in _kb2.contents):
+        fails.append("  KB1 진짜 조건 박스를 잘못 제거함")
+
     if fails:
         print("FAIL test_content_parser:")
         print("\n".join(fails))

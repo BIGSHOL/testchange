@@ -99,6 +99,93 @@ def _drop_duplicate_box_fragments(raw: list[dict]) -> list[dict]:
     return [bd for i, bd in enumerate(raw) if i not in drop_idx]
 
 
+# 소문항 본문을 그대로 담은 박스 — OCR 이 (물음1)/(물음2) 같은 소문항을 박스로 인코딩하면
+# 같은 문장이 **박스로 한 번, 소문항으로 또 한 번** 인쇄된다(강북고 공수2 #8, 2026-08-12:
+# 원본엔 박스가 없는데 1×1 박스 2개 + 소문항 2개 = 완전 중복). 게다가 두 번째 박스는 발문
+# 후반부까지 삼켜 발문이 ``…원과`` 에서 끊겼다.
+_SUB_DUP_MIN_KO = 12          # 비교 최소 한글 길이(짧은 문장 우연 일치 방지)
+
+
+def _dup_key(s: str) -> str:
+    """중복 판정용 정규화 — 한글만 남긴다.
+
+    수식·기호는 LaTeX↔유니코드 표기가 갈려 비교가 안 되므로 `_drop_duplicate_box_fragments`
+    와 같은 원칙(한글 연쇄)으로 본다. 배점 `[5점]`·마커도 자연히 빠진다.
+    """
+    return re.sub(r"[^가-힣]", "", s or "")
+
+
+def _sub_question_keys(q_data: dict) -> list[str]:
+    """소문항 본문의 정규화 키 목록(빈 것·짧은 것 제외)."""
+    keys: list[str] = []
+    for sub in q_data.get("sub_questions") or []:
+        if not isinstance(sub, dict):
+            continue
+        txt = "".join(
+            (b.get("value") or "") for b in (sub.get("contents") or [])
+            if isinstance(b, dict) and b.get("type") == "text")
+        k = _dup_key(txt)
+        if len(k) >= _SUB_DUP_MIN_KO:
+            keys.append(k)
+    return keys
+
+
+def _cut_prefix_by_key(text: str, key: str) -> str | None:
+    """`text` 의 한글 연쇄가 `key` 로 시작하면 그 부분까지 잘라낸 나머지. 아니면 None."""
+    got, cut = 0, None
+    for i, ch in enumerate(text):
+        if "가" <= ch <= "힣":
+            if got >= len(key) or ch != key[got]:
+                return None
+            got += 1
+            if got == len(key):
+                cut = i + 1
+                break
+    if cut is None:
+        return None
+    return text[cut:]
+
+
+def _drop_subquestion_duplicate_boxes(raw: list[dict], q_data: dict) -> list[dict]:
+    """소문항을 그대로 되풀이하는 박스를 없앤다(내용은 잃지 않는다).
+
+    - 박스 내용이 **소문항 본문으로 시작**하면 그 부분을 잘라낸다.
+    - 남는 게 없으면 그 블록을 **드롭**(소문항이 아래에 정상 렌더되므로 손실 없음).
+    - 남는 게 있으면(박스가 발문 문장까지 삼킨 경우) **박스 머리만 떼어** 평범한 발문
+      연속 텍스트로 되돌린다 — 없던 네모박스가 사라지고 발문이 복원된다.
+
+    보수적 게이트: 소문항이 있는 문항 · 박스 머리로 시작하는 text 블록 · 한글 12자 이상
+    **접두 일치**일 때만. 진짜 조건/보기 박스가 소문항 문장으로 시작할 일은 없다.
+    """
+    keys = _sub_question_keys(q_data)
+    if not keys:
+        return raw
+    out: list[dict] = []
+    for bd in raw:
+        if bd.get("type") != "text":
+            out.append(bd)
+            continue
+        val = bd.get("value", "") or ""
+        m = _BOX_MARK_LEAD_RE.match(val)
+        if not m:
+            out.append(bd)
+            continue
+        body = val[m.end():]
+        rest = next((r for r in (_cut_prefix_by_key(body, k) for k in keys)
+                     if r is not None), None)
+        if rest is None:
+            out.append(bd)          # 소문항 되풀이가 아님 = 진짜 박스
+            continue
+        # ⚠️ 남은 게 배점뿐인지 볼 때 `[5점]` 을 먼저 걷어낸다 — 안 그러면 '점' 이 한글로
+        # 잡혀 마침표만 남은 조각(``. ``)이 발문에 붙는다.
+        tail = _SCORE_TEXT_RE.sub(" ", rest)
+        if _dup_key(tail):
+            # 되풀이 문장 끝의 마침표·닫는 괄호는 앞 문장 것이므로 같이 턴다.
+            out.append({**bd, "value": rest.lstrip(" .,)]·")})
+        # 남는 한글이 없으면 통째 드롭(소문항이 아래에 그대로 있다)
+    return out
+
+
 # 발문 종결 뒤 **같은 text 블록 중간**에 오는 박스 머리(``…고른 것은? <보기> ㄱ.``·
 # ``…답하시오. <상자> (가)``). _RAW_BOX_MARK_RE 는 블록 **시작**(^\s*) 앵커라 mid-block 마커를
 # 박스로 인식 못 해 박스 미형성·마커 literal 노출됐다(성서고 수2 #6·12·14·15·20, 2026-06-23).
@@ -379,6 +466,9 @@ def _parse_question(q_data: dict) -> Question:
     # 유령 박스, 2026-06-11). 안 지우면 ① 없던 네모박스가 렌더되고 ② box_head_i 가 그 박스를
     # 가리켜 발문 배점 제거가 통째 스킵된다.
     raw_contents = _drop_duplicate_box_fragments(raw_contents)
+    # 소문항을 그대로 되풀이하는 박스 제거(강북고 공수2 #8 — 박스 2개가 소문항 2개와
+    # 완전 중복 + 발문 후반부 흡수). 남는 문장은 박스를 벗겨 발문 연속으로 되돌린다.
+    raw_contents = _drop_subquestion_duplicate_boxes(raw_contents, q_data)
     # 발문 종결 뒤 같은 블록 중간 박스 머리(``…고른 것은? <보기> ㄱ.``)를 마커 앞에서 쪼개
     # 마커가 블록 시작이 되게 한다(성서고 수2 #6·12·14·15·20 — mid-block 마커 박스 미형성).
     raw_contents = _split_embedded_box_markers(raw_contents)

@@ -1020,12 +1020,14 @@ def run():
         print("\n".join(fails))
         return 1
     test_score_str_web_exe_parity()
+    test_no_trailing_gap_before_answer_page()
     print("OK test_render_fixes (cell/value-box/caption/shading/essay-label/overline/relabel/"
           "bigstar/boxed/labelless/solo/mixed-label/rm-space/cond-header/form-underline/"
           "sqrt-space/choice-glyph/tail-note/underline-solid/stemleaf-13/choice-geo/cond-circle/"
           "repeat-dot/paren-score/phantom-box/box-bullet/post-box/box-ascii-eq/submark-ref/"
           "answer-header-neutralize/essay-type-label/annot-label/lim-below-subscript/"
-          "ksy-ineq-coord-rmbleed/answer-meta-solution/setbuilder-braces/answer-eq-baseunit)")
+          "ksy-ineq-coord-rmbleed/answer-meta-solution/setbuilder-braces/answer-eq-baseunit/"
+          "no-trailing-gap)")
     return 0
 
 
@@ -1049,6 +1051,23 @@ def test_score_str_web_exe_parity():
         got = score_str(raw)
         assert got == want, f"score_str({raw!r}) = {got!r} (기대 {want!r})"
     print("  OK   배점 표시 정규화(웹↔exe 동일)")
+
+
+def test_no_trailing_gap_before_answer_page() -> None:
+    """마지막 문항 뒤 빈 줄 금지 — 정답면 앞 **빈 페이지** 방지(강북고 공수2, 2026-08-12).
+
+    본문이 쪽 끝에 딱 맞게 끝나면 그 빈 단락 하나가 다음 쪽으로 넘어가고, 정답면의
+    쪽나눔이 그 뒤에서 또 걸려 **통째로 빈 페이지**가 생긴다(실측: 문제 3쪽 → 빈 4쪽 →
+    정답 5쪽). COM 렌더 없이 소스 계약으로 잠근다.
+    """
+    src = (Path(__file__).resolve().parent.parent / "core" / "hwp_com_writer.py").read_text(
+        encoding="utf-8")
+    assert "trailing_gap: bool = True" in src, "_write_question 에 trailing_gap 인자 없음"
+    assert "trailing_gap=(_qi < len(all_q) - 1)" in src, "마지막 문항 gap 생략이 없음"
+    assert "trailing_gap=(trailing_gap or _si < len(_subs) - 1)" in src, \
+        "마지막 소문항까지 전파되지 않음(소문항 있는 마지막 문항에서 빈 줄이 남는다)"
+    assert "elif trailing_gap:" in src, "소문항 분기가 trailing_gap 을 안 본다"
+    print("  OK   마지막 문항 뒤 빈 줄 없음(정답면 빈 페이지 방지)")
 
 
 if __name__ == "__main__":
