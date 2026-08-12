@@ -28,17 +28,20 @@
   컬럼이라 스키마에 없어서, 재구축하면 `merge_answers.py`·`solve_merge.py` 가
   "no such column" 으로 죽는다.
 
-### 작업하던 PC 에서 이어가기
+### 👉 이어작업 절차·판독 규약·함정 전부 = **`docs/HANDOFF_DB.md`**
+그 문서 하나로 원격/다른 PC 에서 바로 이어서 작업할 수 있게 정리했다(5분 시작 명령,
+JSON 스키마 실물, 정답 3경로, 체크포인트 규약, 함정표). 요약만 적으면:
+
 ```powershell
 git pull                                  # 위 안전장치 3건 받기
 git add -f db/n_inventory.tsv             # 현재 id 를 만든 원본 인벤토리 = 앵커
-git commit -m "data(db): exam id 앵커 — N: 인벤토리 스냅샷 추적"
-python db/queue.py status                 # DB 살아 있으면 136편 done 이 보인다
-python db/verify_ids.py                   # id 대조(권장)
+git commit -m "data(db): exam id 앵커 - N: 인벤토리 스냅샷 추적"
+.venv\Scripts\python.exe db\queue.py status    # DB 살아 있으면 136편 done 이 보인다
+.venv\Scripts\python.exe db\verify_ids.py      # id 대조(필수)
 ```
-DB 까지 없으면 `build_index.py` → `queue.py scan` → `ingest.py` →
+DB 까지 없으면 `build_index.py` → `verify_ids.py` → `queue.py scan` → `ingest.py` →
 `merge_answers.py` → `solve_merge.py` → `audit.py` 순으로 복원한 뒤,
-`prep_pages.py` → 세션 비전 OCR → `checkpoint.py`(1,000문항마다 커밋·푸시)로 잇는다.
+`prep_pages.py` → 세션 비전 판독 → `checkpoint.py`(1,000문항마다 커밋·푸시)로 잇는다.
 
 ## 🟢 현재 상태 (2026-06-14) — ⭐ 워크트리 통합 완료, 단일 master
 
