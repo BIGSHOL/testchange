@@ -820,9 +820,12 @@ class LaTeXToHWPConverter:
             r"\\binom\s*" + self._brace_group("top") + r"\s*" + self._brace_group("bot")
         )
 
-        # \begin{env}...\end{env} (행렬/조건식)
+        # \begin{env}...\end{env} (행렬/조건식/표)
+        # ``array`` 는 뒤에 열 정렬 스펙 ``{r|rrrr}`` 이 붙는다(조립제법·나눗셈 과정 표).
+        # HWP matrix 에는 정렬 스펙이 없으므로 스펙만 떼고 내용은 살린다.
         self._env_pattern = re.compile(
-            r"\\begin\{(cases|pmatrix|bmatrix|vmatrix|matrix)\}"
+            r"\\begin\{(cases|pmatrix|bmatrix|vmatrix|matrix|array)\}"
+            r"(?:\s*\{[^{}]*\})?"          # array 열 스펙(있으면 버린다)
             r"\s*(.*?)\s*"
             r"\\end\{\1\}",
             re.DOTALL,
@@ -1045,10 +1048,14 @@ class LaTeXToHWPConverter:
                 "bmatrix": "BMATRIX",
                 "vmatrix": "DMATRIX",
                 "matrix": "MATRIX",
+                "array": "MATRIX",      # HWP 에 array 대응이 없어 matrix 로(정렬·괘선 손실)
             }
             hwp_env = env_map[env]
             # \\ → # (행 구분자 변환)
             content = re.sub(r"\\\\", " # ", content)
+            # array 의 가로 괘선·간격 명령은 HWP matrix 에 대응이 없다 → 제거
+            # (안 지우면 ``\hline`` 이 백슬래시째 literal 로 새 나간다)
+            content = re.sub(r"\\(?:hline|cline\s*\{[^{}]*\}|noalign\s*\{[^{}]*\})", "", content)
             content = self._convert_expr(content)
             # 키워드 앞이 영숫자면 공백 보장(PLEFT 계열) — ``A\begin{pmatrix}…`` 가
             # "APMATRIX" 로 붙어 literal + 다글자 대문자 오로만화(rm {APMATRIX})로
