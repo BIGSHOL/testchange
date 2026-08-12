@@ -1,0 +1,391 @@
+{
+ "meta": {"exam_id": 4290, "ocr_source": "session-vision"},
+ "header": {"title": "다사고 1학년 수학 (2025년 1학기 기말고사 대비, 공통수학1) — 방정식과 부등식 ~ 행렬"},
+ "questions": [
+  {
+   "number": 1,
+   "score": 3,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "이차방정식 x^2-2ax+a+5=0의 두 실근 사이에 2가 있도록 하는 실수 a의 값의 범위는?"}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "a<3"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "a<-3"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "a \\leq 3"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "a>3"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "a \\geq 3"}]}
+   ]
+  },
+  {
+   "number": 2,
+   "score": 3,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "삼차방정식 x^3=1의 한 허근을 \\omega라고 할 때, \\frac{1}{1+\\omega^{10}}+\\frac{1}{1+\\omega^{11}}+\\frac{1}{1+\\omega^{12}} 의 값을 구하면?"}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "3"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "\\frac{5}{2}"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "\\frac{3}{2}"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "1"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "\\frac{1}{2}"}]}
+   ]
+  },
+  {
+   "number": 3,
+   "score": 4,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "이차방정식 x^2-3x+4=0의 두 근을 \\alpha, \\beta라고 할 때, 두 수 \\frac{1}{\\alpha^2-2\\alpha+2}, \\frac{1}{\\beta^2-2\\beta+2}을 근으로 하고 x^2의 계수가 2인 이차방정식은?"}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "2x^2+x+1=0"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "2x^2-x+1=0"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "2x^2+\\frac{1}{2}x+\\frac{1}{2}=0"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "2x^2+x+\\frac{1}{2}=0"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "2x^2-x-1=0"}]}
+   ]
+  },
+  {
+   "number": 4,
+   "score": 4,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "이차함수 y=x^2-4kx+a의 그래프와 직선 y=2bx-4k^2+8k가 실수 k의 값에 관계없이 항상 한 점에서 만날 때, 실수 a+b의 값은?"}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+   ]
+  },
+  {
+   "number": 5,
+   "score": 3,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "두 연립방정식"},
+    {"type": "equation_block", "value": "\\begin{cases} 3x+y^2=a \\\\ 2x-y=-1 \\end{cases}, \\quad \\begin{cases} 3x^2-y^2=-6 \\\\ x-y=b \\end{cases}"},
+    {"type": "text", "value": "의 해가 같을 때, 실수 a+b의 값은? (단, x>0, y>0)"}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "8"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "10"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "12"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "14"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "16"}]}
+   ]
+  },
+  {
+   "number": 6,
+   "score": 4,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "x에 대한 이차부등식 x^2-5x+a<0의 해가 b<x<3일 때, 두 실수 a, b에 대하여 a+b의 값은?"}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "4"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "5"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "6"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "7"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "8"}]}
+   ]
+  },
+  {
+   "number": 7,
+   "score": 3,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "부등식 |x-1|+|x-3| \\leq 7을 만족시키는 모든 정수 x의 값의 합은?"}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "6"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "8"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "10"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "12"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "14"}]}
+   ]
+  },
+  {
+   "number": 8,
+   "score": 3,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "모든 실수 x에 대하여 성립하는 부등식을 <보기>에서 있는 대로 고른 것은?"},
+    {"type": "text", "value": "<보기> ㄱ. -x^2+2x \\leq 2 • ㄴ. 2x^2-x>-1 • ㄷ. -3x^2+x \\geq 3 • ㄹ. -x^2+6x \\leq 9"}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "text", "value": "ㄱ, ㄴ"}]},
+    {"number": 2, "contents": [{"type": "text", "value": "ㄷ, ㄹ"}]},
+    {"number": 3, "contents": [{"type": "text", "value": "ㄱ, ㄴ, ㄷ"}]},
+    {"number": 4, "contents": [{"type": "text", "value": "ㄱ, ㄴ, ㄹ"}]},
+    {"number": 5, "contents": [{"type": "text", "value": "ㄴ, ㄷ, ㄹ"}]}
+   ]
+  },
+  {
+   "number": 9,
+   "score": 3,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "x에 대한 연립부등식 2x-3<4x+5 \\leq 3x+a를 만족시키는 정수 x의 개수가 9가 되도록 하는 자연수 a의 값은?"}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "6"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "7"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "8"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "9"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "10"}]}
+   ]
+  },
+  {
+   "number": 10,
+   "score": 4,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "연립부등식"},
+    {"type": "equation_block", "value": "\\begin{cases} x^2+(2k-9)x+k^2-9k>0 \\\\ x^2-4|x|+3 \\leq 0 \\end{cases}"},
+    {"type": "text", "value": "이 해를 갖지 않도록 하는 실수 k의 값의 범위가 \\alpha \\leq k \\leq \\beta일 때, \\beta-\\alpha의 값은?"}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "3"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "4"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "5"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "6"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "7"}]}
+   ]
+  },
+  {
+   "number": 11,
+   "score": 3,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "x, y가 자연수일 때, 4 \\leq x+y \\leq 5를 만족시키는 순서쌍 (x,~y)의 개수는?"}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "7"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "8"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "9"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "10"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "11"}]}
+   ]
+  },
+  {
+   "number": 12,
+   "score": 4,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "다음 그림과 같이 직사각형 \\mathrm{ABCD}의 두 꼭짓점 \\mathrm{A}, \\mathrm{B}는 이차함수 y=-\\frac{1}{2}x^2+2의 그래프 위에 있고, 두 꼭짓점 \\mathrm{C}, \\mathrm{D}는 이차함수 y=x^2-4의 그래프 위에 있다. 이때 직사각형 \\mathrm{ABCD}의 둘레의 길이의 최댓값은? (단, 점 \\mathrm{A}는 제1사분면, 점 \\mathrm{D}는 제4사분면 위의 점이다.)"},
+    {"type": "figure", "value": "좌표평면에 두 포물선이 그려진 그림. 위로 볼록한 포물선 y=-\\frac{1}{2}x^2+2(꼭짓점 (0,~2), y축 눈금 2 표시)와 아래로 볼록한 포물선 y=x^2-4(꼭짓점 (0,~-4), y축 눈금 -4 표시)가 x축 위의 두 점 x=-2, x=2에서 서로 만난다. x축에는 -2와 2, 원점 O가 표시되어 있다. 세로로 긴 직사각형 ABCD가 붉은 선으로 그려져 있으며, 위쪽 변의 왼쪽 꼭짓점이 B, 오른쪽 꼭짓점이 A로 두 점 모두 위로 볼록한 포물선 y=-\\frac{1}{2}x^2+2 위에 있고, 아래쪽 변의 왼쪽 꼭짓점이 C, 오른쪽 꼭짓점이 D로 두 점 모두 아래로 볼록한 포물선 y=x^2-4 위에 있다. 직사각형의 네 꼭짓점에 직각 표시가 있고, 두 세로변은 y축에 평행하며 y축에 대하여 대칭이다. 그래프 옆에 각각 y=x^2-4, y=-\\frac{1}{2}x^2+2 라는 식이 적혀 있다."}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "3"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "\\frac{10}{3}"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "\\frac{20}{3}"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "10"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "\\frac{40}{3}"}]}
+   ]
+  },
+  {
+   "number": 13,
+   "score": 3,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "0, 1, 2, 3, 4의 숫자가 각각 적힌 5장의 카드를 모두 이용하여 다섯 자리 자연수를 만들 때, 32000보다 큰 수의 개수는?"}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "18"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "24"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "30"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "36"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "42"}]}
+   ]
+  },
+  {
+   "number": 14,
+   "score": 3,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "서로 다른 5개의 인형을 크기가 다른 두 상자에 나누어 담으려고 한다. 각 상자에는 인형을 최대 4개까지만 담을 수 있을 때, 두 상자에 인형을 나누어 담는 방법의 수는?"}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "10"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "20"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "30"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "40"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "50"}]}
+   ]
+  },
+  {
+   "number": 15,
+   "score": 4,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "서로 다른 7켤레의 구두 14짝 중에서 4짝을 택할 때, 한 켤레만 짝이 맞도록 하는 경우의 수는?"}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "280"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "350"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "420"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "490"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "560"}]}
+   ]
+  },
+  {
+   "number": 16,
+   "score": 4,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "어느 놀이공원의 놀이기구 \\mathrm{A}, \\mathrm{B}, \\mathrm{C}는 최대 탑승 인원이 각각 1명, 2명, 3명이다. 모든 놀이기구에는 어른 없이 어린이만 탑승할 수 없고, 탑승 순서와 자리 배치는 고려하지 않을 때, 어른 3명과 어린이 2명이 동시에 놀이기구에 탑승하는 방법의 수는? (단, 비어 있는 놀이기구가 있을 수 있다.)"}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "15"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "17"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "25"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "27"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "35"}]}
+   ]
+  },
+  {
+   "number": 17,
+   "score": 4,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "숫자 1, 2, 3, 6, 18, 24가 하나씩 적혀 있는 6장의 카드가 있다. 이 6장의 카드를 일렬로 나열할 때, 이웃한 두 카드에 적혀 있는 수의 곱이 모두 6의 배수가 되도록 나열하는 경우의 수는?"}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "264"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "270"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "276"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "282"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "288"}]}
+   ]
+  },
+  {
+   "number": 18,
+   "score": 3,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "행렬 A=\\begin{pmatrix} 3 & 7 \\\\ -1 & -2 \\end{pmatrix}에 대하여 A^{100}\\begin{pmatrix} x \\\\ y \\end{pmatrix}=\\begin{pmatrix} 5 \\\\ -1 \\end{pmatrix}일 때, x-y의 값은?"}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "3"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "5"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "7"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "9"}]}
+   ]
+  },
+  {
+   "number": 19,
+   "score": 4,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "이차정사각행렬 A는 모든 성분의 합이 0이고"},
+    {"type": "equation_block", "value": "A^6+A^7=-4A-4E"},
+    {"type": "text", "value": "를 만족시킨다. 행렬 A^{12}+A^{13}의 모든 성분의 합은? (단, E는 단위행렬이다.)"}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "4"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "8"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "16"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "32"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "64"}]}
+   ]
+  },
+  {
+   "number": 20,
+   "score": 4,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "이차정사각행렬 A의 (i,~j) 성분 a_{ij}가 a_{ij}=i-j 일 때, 행렬 A+A^2+A^3+\\cdots+A^{2030}의 모든 성분의 합은?"}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "-1"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "-2"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "-3"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "-4"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "-5"}]}
+   ]
+  },
+  {
+   "number": 21,
+   "score": 6,
+   "type": "서술형",
+   "label": "[서술형 1]",
+   "contents": [
+    {"type": "text", "value": "[서술형 1] a<b<c인 실수 a, b, c에 대하여"},
+    {"type": "equation_block", "value": "\\begin{cases} x^2-(a+c)x+ac \\leq 0 \\\\ x^2+(a+b)x+ab>0 \\end{cases}"},
+    {"type": "text", "value": "의 해가 -2 \\leq x<1 또는 2<x \\leq 5일 때, 이차부등식 x^2-2(b+c)x-3bc<0의 해를 구하는 풀이 과정과 답을 쓰시오."}
+   ],
+   "choices": []
+  },
+  {
+   "number": 22,
+   "score": 6,
+   "type": "서술형",
+   "label": "[서술형 2]",
+   "contents": [
+    {"type": "text", "value": "[서술형 2] 이차부등식 3x^2+2(a-2)x+a+4<0이 해를 갖도록 하는 자연수 a의 최솟값을 구하는 풀이 과정과 답을 쓰시오."}
+   ],
+   "choices": []
+  },
+  {
+   "number": 23,
+   "score": 6,
+   "type": "서술형",
+   "label": "[서술형 3]",
+   "contents": [
+    {"type": "text", "value": "[서술형 3] 상자에 1부터 10까지의 자연수가 하나씩 적혀 있는 10장의 카드가 들어 있다. 이 상자에서 카드를 한 장씩 꺼내 짝수가 적힌 카드를 모두 뽑으면 더 이상 카드를 꺼내지 않는다고 한다. 더 이상 카드를 꺼내지 않을 때까지 뽑은 카드의 개수가 n일 경우의 수를 f(n)으로 정의할 때, \\frac{f(4)+f(5)+f(6)+f(7)}{5!} 의 값을 구하는 풀이 과정과 답을 쓰시오. (단, 꺼낸 카드는 다시 상자에 넣지 않는다.)"}
+   ],
+   "choices": []
+  },
+  {
+   "number": 24,
+   "score": 6,
+   "type": "서술형",
+   "label": "[서술형 4]",
+   "contents": [
+    {"type": "text", "value": "[서술형 4] 지도와 같이 행정 구역이 나누어진 어느 도시의 네 지역 \\mathrm{A}, \\mathrm{B}, \\mathrm{C}, \\mathrm{D}를 서로 다른 4가지 이하의 색으로 칠하려고 한다. 같은 색을 중복하여 사용해도 좋으나 인접한 영역은 서로 다른 색으로 칠하여 구분할 때, 칠하는 방법의 수를 구하시오. (단, 경계선을 공유하는 경우만 인접한 영역으로 생각한다.)"},
+    {"type": "figure", "value": "행정 구역이 나누어진 도시의 지도 모양 그림(주황색 경계선). 하나의 큰 영역이 네 지역 A, B, C, D로 나뉘어 있다. A는 위쪽, B는 왼쪽, C는 가운데 아래쪽(B의 오른쪽 아래), D는 오른쪽에 있다. 네 지역의 경계선은 지도 가운데 한 점에서 만나며, 경계선을 공유하는 쌍은 A-B, A-D, B-C, C-D이다. A와 C, B와 D는 가운데 한 점에서만 닿고 경계선을 공유하지 않는다."}
+   ],
+   "choices": []
+  },
+  {
+   "number": 25,
+   "score": 6,
+   "type": "서술형",
+   "label": "[서술형 5]",
+   "contents": [
+    {"type": "text", "value": "[서술형 5] 어느 인터넷 쇼핑몰에서는 두 택배 회사 \\mathrm{A}, \\mathrm{B}를 이용하여 옷과 가방을 배송하려고 한다. 다음 [표 1]은 배송유형에 따른 두 회사의 택배 비용이고, [표 2]는 주문받은 옷과 가방의 배송유형별 수량이다. 회사 \\mathrm{A}를 이용하여 배송하는 경우와 회사 \\mathrm{B}를 이용하여 배송하는 경우 지불해야 할 택배 비용을 각각 구하시오."},
+    {"type": "text", "value": "[표 1] 택배 비용 (단위: 천원)"},
+    {"type": "table", "value": "", "rows": [["회사 / 배송유형", "일반", "당일"], ["A", "3", "4"], ["B", "2", "5"]]},
+    {"type": "text", "value": "[표 2] 주문 수량 (단위: 개)"},
+    {"type": "table", "value": "", "rows": [["배송유형 / 물품", "옷", "가방"], ["일반", "35", "10"], ["당일", "30", "5"]]}
+   ],
+   "choices": []
+  }
+ ]
+}

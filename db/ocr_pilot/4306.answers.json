@@ -1,0 +1,177 @@
+{
+ "exam_id": 4306,
+ "answer_pages": [
+  7,
+  8
+ ],
+ "items": [
+  {
+   "number": 1,
+   "answer": "⑤",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 2,
+   "answer": "④",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 3,
+   "answer": "①",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 4,
+   "answer": "②",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 5,
+   "answer": "③",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 6,
+   "answer": "①",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 7,
+   "answer": "②",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 8,
+   "answer": "②",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 9,
+   "answer": "③",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 10,
+   "answer": "④",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 11,
+   "answer": "③",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 12,
+   "answer": "⑤",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 13,
+   "answer": "④",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 14,
+   "answer": "⑤",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 15,
+   "answer": "④",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 16,
+   "answer": "④",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 17,
+   "answer": "①",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 18,
+   "answer": "①",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 19,
+   "answer": "⑤",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 20,
+   "answer": "②",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 21,
+   "answer": "(1) $\\frac{(x-4)}{(x-3)}$ (2) $\\sqrt{7}$",
+   "solution": "(1) $\\frac{x-2}{x+4} \\div \\frac{x^{2}-5x+6}{x^{2}-16} = \\frac{x-2}{x+4} \\times \\frac{(x+4)(x-4)}{(x-2)(x-3)} = \\frac{(x-4)}{(x-3)}$\n(2) $x+\\frac{1}{x} = \\left(\\sqrt{x}+\\frac{1}{\\sqrt{x}}\\right)^{2} - 2$\n$5 = \\left(\\sqrt{x}+\\frac{1}{\\sqrt{x}}\\right)^{2} - 2$\n$7 = \\left(\\sqrt{x}+\\frac{1}{\\sqrt{x}}\\right)^{2}$\n따라서 $\\sqrt{x}+\\frac{1}{\\sqrt{x}} = \\sqrt{7}$",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 22,
+   "answer": "$a=\\frac{3}{2}b$",
+   "solution": "제1사분면 위의 점 $\\mathrm{P}(2a,~3b)$를 지나고 $\\overline{\\mathrm{OP}}$에 수직인 직선의 방정식은 $y-3b = -\\frac{2a}{3b}(x-2a)$\n즉, $y = -\\frac{2a}{3b}x + \\frac{4a^{2}}{3b} + 3b$ 이다.\n이 직선이 $y$축과 만나는 점은 $\\mathrm{Q}\\left(0,~\\frac{4a^{2}}{3b}+3b\\right)$이다.\n그리고 $\\mathrm{R}\\left(-\\frac{2}{a},~0\\right)$이므로\n삼각형 $\\mathrm{OQR} = \\frac{1}{2} \\times \\frac{2}{a} \\times \\left(\\frac{4a^{2}}{3b}+3b\\right) = \\frac{4a}{3b} + \\frac{3b}{a} \\geq 2\\sqrt{4} = 4$\n(등호는 $4a^{2}=9b^{2}$일 때 성립)\n따라서 $a = \\frac{3}{2}b$",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 23,
+   "answer": "$45$",
+   "solution": "집합 $A_{k}$는 전체집합 $U$의 부분집합이므로 $x$는 25 이하의 자연수이고 $y-k$는 36의 약수이다.\n$y \\in U$이므로 $1 \\leq y-k < 25$에서 $\\frac{36}{25} < x \\leq 36$\n$x \\in U$이므로 $2 \\leq x < 25$\n$y-k$가 $2,~3,~4,~6,~9,~12,~18$일 때 $x$는 각각 $18,~12,~9,~6,~4,~3,~2$이다.\n$A_{k} \\subset \\{2,~3,~4,~6,~9,~12,~18\\}$\n$\\frac{36-x}{6} \\in U$에서 $36-x$는 6의 배수이다. 따라서 집합 $B=\\{6,~12,~18,~24\\}$\n$A_{k}-B \\subset \\{2,~3,~4,~9\\}$\n(ⅰ) $2 \\in \\left(A_{k} \\cap B^{C}\\right)$일 때 $x=2$, $y-k=18$이고 $y=k+18 \\leq 25$이므로 $k \\leq 7$\n(ⅱ) $3 \\in \\left(A_{k} \\cap B^{C}\\right)$일 때 $x=3$, $y-k=12$이고 $y=k+12 \\leq 25$이므로 $k \\leq 13$\n(ⅲ) $4 \\in \\left(A_{k} \\cap B^{C}\\right)$일 때 $x=4$, $y-k=9$이고 $y=k+9 \\leq 25$이므로 $k \\leq 16$\n(ⅳ) $9 \\in \\left(A_{k} \\cap B^{C}\\right)$일 때 $x=9$, $y-k=4$이고 $y=k+4 \\leq 25$이므로 $k \\leq 21$\n$A_{k} \\cap B^{C}$를 구해보면\n$1 \\leq k \\leq 7$일 때, $\\{2,~3,~4,~9\\}$\n$7 < k \\leq 13$일 때, $\\{3,~4,~9\\}$\n$13 < k \\leq 16$일 때, $\\{4,~9\\}$\n$16 < k \\leq 21$일 때, $\\{9\\}$ 이므로\n$n\\left(A_{k} \\cap B^{C}\\right)=2$인 경우는 $13 < k \\leq 16$일 때 이다.\n$14+15+16=45$\n따라서 모든 $k$의 합은 45이다.",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 24,
+   "answer": "$f(3)=4$, 3개",
+   "solution": "(ⅰ) $f(4)=1$일 때 $f(f(4))=f(1)=1$이므로 $f(1)=1$이다.\n① $f(3)=1$이면 함수 $f$의 치역이 $\\{1,~2,~4\\}$가 될 수 없으므로 조건 (나)를 만족시키지 않는다.\n② $f(3)=2$이면 함수 $f$의 치역이 $\\{1,~2,~4\\}$이므로 $f(2)=4$이고 $f(f(3))=f(2)=4>2$가 되어 조건 (가)를 만족시키지 않는다.\n③ $f(3)=4$이면 함수 $f$의 치역이 $\\{1,~2,~4\\}$이므로 $f(2)=2$이고 $f(f(1))=f(1)=1$, $f(f(2))=f(2)=2$, $f(f(3))=f(4)=1$이 되어 조건을 만족시킨다.\n(ⅱ) $f(4)=2$일 때 $f(f(4))=f(2)=1$이므로 $f(2)=1$이다.\n① $f(3)=1$이면 함수 $f$의 치역이 $\\{1,~2,~4\\}$이므로 $f(1)=4$이고 $f(f(2))=f(1)=4>3$이 되어 조건 (가)를 만족시키지 않는다.\n② $f(3)=2$이면 함수 $f$의 치역이 $\\{1,~2,~4\\}$이므로 $f(1)=4$이고 $f(f(2))=f(1)=4>3$이 되어 조건 (가)를 만족시키지 않는다.\n③ $f(3)=4$일 때\n$f(1)=1$이면 $f(f(1))=f(1)=1$, $f(f(2))=f(1)=1$, $f(f(3))=f(4)=2$가 되어 조건을 만족시킨다.\n$f(1)=2$이면 $f(f(1))=f(2)=1$, $f(f(2))=f(1)=2$, $f(f(3))=f(4)=2$가 되어 조건을 만족시킨다.\n$f(1)=4$이면 $f(f(2))=f(1)=4>3$이 되어 조건 (가)를 만족시키지 않는다.\n(ⅲ) $f(4)=4$일 때 $f(f(4))=f(4)=4 \\neq 1$이므로 조건 (가)를 만족시키지 않는다.\n(ⅰ), (ⅱ), (ⅲ)에서 가능한 모든 함수 $f$에 대하여 $f(3)=4$이다.\n(ⅰ), (ⅱ), (ⅲ)에서 가능한 함수 $f$의 개수는 3개이다.",
+   "topic": "",
+   "difficulty": ""
+  }
+ ]
+}

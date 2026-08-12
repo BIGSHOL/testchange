@@ -1,0 +1,424 @@
+{
+  "meta": {"exam_id": 4300, "ocr_source": "session-vision"},
+  "header": {"title": "대건고 1학년 수학 — 2025년 1학기 기말고사 대비 (공통수학1, 이차방정식 ~ 행렬)"},
+  "questions": [
+    {
+      "number": 1,
+      "score": 3.5,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "이차함수 $y=x^{2}+x-1$의 그래프와 직선 $y=3x+k$가 한 점에서 만날 때, 교점의 좌표를 구하시오. (단, $k$는 실수)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "(1,~1)"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "(2,~5)"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "(0,~-1)"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "(-1,~-1)"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "(3,~11)"}]}
+      ]
+    },
+    {
+      "number": 2,
+      "score": 3.5,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "삼차방정식 $x^{3}=1$의 한 허근을 $\\omega$라고 할 때, $\\frac{1}{1+\\omega^{10}}+\\frac{1}{1+\\omega^{11}}+\\frac{1}{1+\\omega^{12}}$의 값을 구하시오."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{1}{2}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{3}{2}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{5}{2}"}]}
+      ]
+    },
+    {
+      "number": 3,
+      "score": 3.5,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "사차방정식 $x^{4}+4x^{3}-3x^{2}-16x-4=0$의 네 근 $\\alpha$, $\\beta$, $\\gamma$, $\\delta$에 대하여 $\\alpha\\gamma-\\beta\\delta$의 값은? (단, $\\alpha<\\beta<\\gamma<\\delta$)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "6"}]}
+      ]
+    },
+    {
+      "number": 4,
+      "score": 3.5,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "부등식 $|x-1|+2|x-2|\\leq 4$를 만족시키는 실수 $x$의 최댓값을 구하시오."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+      ]
+    },
+    {
+      "number": 5,
+      "score": 3.5,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "방정식 $x+2y+3z=12$를 만족시키는 자연수 $x$, $y$, $z$의 순서쌍 $(x,~y,~z)$의 개수를 구하시오."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "7"}]}
+      ]
+    },
+    {
+      "number": 6,
+      "score": 3.5,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "서로 다른 5개의 아이스크림을 크기가 다른 두 상자에 나누어 담으려고 한다. 각 상자에는 아이스크림을 최대 4개까지만 담을 수 있을 때, 두 상자에 아이스크림을 나누어 담는 방법의 수를 구하시오."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "25"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "30"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "35"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "40"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "45"}]}
+      ]
+    },
+    {
+      "number": 7,
+      "score": 3.5,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "다섯 개의 문자 $a$, $b$, $c$, $d$, $e$를 한 번씩 모두 사용하여 만든 문자열을 사전식으로 배열할 때, 105번째의 문자열을 구하시오."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "cadeb"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "ebcda"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "ebcad"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "debca"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "ecbad"}]}
+      ]
+    },
+    {
+      "number": 8,
+      "score": 3.5,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "어느 학교 학생회에서는 학생회에 속한 1학년 학생 9명을 3개의 조로 나누어 교내 축제 진행을 도우려고 한다. 이때 학생들을 2명, 3명, 4명으로 나누는 방법의 수를 구하시오."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "630"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "1260"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "1890"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "2520"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "3150"}]}
+      ]
+    },
+    {
+      "number": 9,
+      "score": 3.5,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "이차정사각행렬 $A$에 대하여 $A\\begin{pmatrix} 1 \\\\ 0 \\end{pmatrix}=\\begin{pmatrix} -1 \\\\ 3 \\end{pmatrix}$, $A\\begin{pmatrix} 0 \\\\ 1 \\end{pmatrix}=\\begin{pmatrix} 3 \\\\ -2 \\end{pmatrix}$가 성립할 때, $A\\begin{pmatrix} 2 \\\\ -1 \\end{pmatrix}$을 구하시오."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\begin{pmatrix} -5 \\\\ 8 \\end{pmatrix}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\begin{pmatrix} -4 \\\\ 8 \\end{pmatrix}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\begin{pmatrix} -3 \\\\ 2 \\end{pmatrix}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\begin{pmatrix} -5 \\\\ 9 \\end{pmatrix}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\begin{pmatrix} -1 \\\\ 3 \\end{pmatrix}"}]}
+      ]
+    },
+    {
+      "number": 10,
+      "score": 3.5,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "행렬 $A=\\begin{pmatrix} 1 & 3 \\\\ -1 & -2 \\end{pmatrix}$에 대하여 $2A^{5}-4A^{2}+A$를 계산하시오."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\begin{pmatrix} -5 & 9 \\\\ -3 & -4 \\end{pmatrix}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\begin{pmatrix} 2 & 3 \\\\ -1 & -1 \\end{pmatrix}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\begin{pmatrix} -9 & 5 \\\\ 3 & -4 \\end{pmatrix}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\begin{pmatrix} 5 & 9 \\\\ -3 & -4 \\end{pmatrix}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\begin{pmatrix} -2 & -3 \\\\ 1 & -1 \\end{pmatrix}"}]}
+      ]
+    },
+    {
+      "number": 11,
+      "score": 3.5,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "연립부등식"},
+        {"type": "equation", "value": "\\begin{cases} |x-k| \\leq 6 \\\\ x^{2}-3x-4>0 \\end{cases}"},
+        {"type": "text", "value": "을 만족시키는 모든 정수 $x$의 값의 합이 17일 때, 정수 $k$의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-6"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-4"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "2"}]}
+      ]
+    },
+    {
+      "number": 12,
+      "score": 3.5,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "$x$에 대한 사차방정식"},
+        {"type": "equation", "value": "x^{4}+(2a-2)x^{3}+12x^{2}-(8a+24)x=0"},
+        {"type": "text", "value": "의 서로 다른 실근의 개수가 3이 되도록 하는 모든 실수 $a$의 값의 합은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+      ]
+    },
+    {
+      "number": 13,
+      "score": 3.5,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "6개의 문자 $a$, $b$, $c$, $d$, $e$, $f$를 일렬로 나열할 때, 다음 조건을 만족시키는 경우의 수는?"},
+        {"type": "text", "value": "<상자> (가) $a$는 $b$보다 왼쪽에 있고, $c$는 $b$보다 오른쪽에 있도록 나열한다. • (나) $e$는 $f$와 이웃하지 않게 나열한다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "60"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "70"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "80"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "90"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "100"}]}
+      ]
+    },
+    {
+      "number": 14,
+      "score": 3.5,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "실수 $a$, $b$에 대하여 이차부등식 $x^{2}-(a-4)x+b-1<0$의 해가 $-1<x<4$일 때, 이차부등식 $bx^{2}+ax+6 \\geq 0$을 만족시키는 정수 $x$의 개수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+      ]
+    },
+    {
+      "number": 15,
+      "score": 3.5,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "여섯 개의 문자 $d$, $a$, $e$, $g$, $u$, $n$을 일렬로 배열할 때, 양 끝에 모음이 오도록 하는 모든 경우의 수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "18"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "36"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "72"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "144"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "288"}]}
+      ]
+    },
+    {
+      "number": 16,
+      "score": 3.5,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "여섯 개의 숫자 1, 2, 3, 4, 5, 6을 일렬로 나열한 각 경우에 대하여 첫 번째와 두 번째에 나열된 두 수의 최대공약수를 $a$, 세 번째와 네 번째에 나열된 두 수의 최대공약수를 $b$, 다섯 번째와 여섯 번째에 나열된 두 수의 최대공약수를 $c$라고 하자. 예를 들어 2, 3, 4, 5, 6, 1로 나열된 경우에 대하여 $a$는 2와 3의 최대공약수, $b$는 4와 5의 최대공약수, $c$는 6과 1의 최대공약수이므로, $a=1$, $b=1$, $c=1$이다. 이때, $a+b+c \\neq 4$를 만족시키는 모든 경우의 수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "288"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "336"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "384"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "432"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "480"}]}
+      ]
+    },
+    {
+      "number": 17,
+      "score": 3.5,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "흰 공, 검은 공, 파란 공이 각각 3개씩, 빨간 공, 노란 공이 각각 2개씩 모두 13개의 공이 들어있는 주머니가 있다. 이 주머니에서 6개의 공을 꺼낼 때, 꺼낸 공들의 색이 서로 다른 4종류가 되는 경우의 수는? (단, 모든 공의 모양과 크기는 같고, 같은 색의 공은 구별하지 않는다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "36"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "42"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "48"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "54"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "60"}]}
+      ]
+    },
+    {
+      "number": 18,
+      "score": 3.5,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "다음은 어느 고등학교의 과목 선택 안내 사항을 나타낸 것이다."},
+        {"type": "text", "value": "<상자> 과목 선택 안내 사항 • 1. 개설된 과목의 수는 사회 교과 4개, 과학 교과 5개, 교양 교과 4개로 모두 13개입니다. • 2. 위의 13개 과목 중에서 선택해야 할 과목의 수는 사회 교과와 과학 교과에서 3개, 교양 교과에서 1개로 모두 4개입니다."},
+        {"type": "text", "value": "위의 과목 선택 안내 사항에 맞게 사회 및 과학, 교양 교과의 개설된 13개의 과목 중에서 4개의 과목을 선택할 때, 사회 교과와 과학 교과의 과목을 동시에 선택하지 않는 모든 경우의 수는? (단, 과목 선택의 순서는 고려하지 않는다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "13"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "18"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "56"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "88"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "336"}]}
+      ]
+    },
+    {
+      "number": 19,
+      "score": 3.5,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "두 이차정사각행렬 $A$, $B$의 $(i,~j)$ 성분 $a_{ij}$, $b_{ij}$가 각각"},
+        {"type": "equation", "value": "a_{ij}=\\begin{cases} k-3^{j} & (i=j) \\\\ 2i-3k & (i \\neq j) \\end{cases},~ b_{ij}=\\sqrt{(a_{ij})^{2}}"},
+        {"type": "text", "value": "을 만족시킨다. 행렬 $A+B$의 모든 성분의 합이 0이하가 되도록 하는 모든 정수 $k$의 값의 합은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+      ]
+    },
+    {
+      "number": 20,
+      "score": 3.5,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "임의의 실수 $x$에 대하여 일차식 $f(x)$가"},
+        {"type": "equation", "value": "\\begin{pmatrix} 1 & -2 \\\\ -2 & 4 \\end{pmatrix}\\begin{pmatrix} f(x) \\\\ f(2x) \\end{pmatrix}=\\begin{pmatrix} 3x+4 \\\\ -6x-8 \\end{pmatrix}"},
+        {"type": "text", "value": "을 만족시킬 때, $f(3)$의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-7"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-6"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-5"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "-4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "-3"}]}
+      ]
+    },
+    {
+      "number": 21,
+      "score": 6,
+      "type": "서술형",
+      "label": "[서술형 1]",
+      "contents": [
+        {"type": "text", "value": "[서술형 1] 이차함수 $y=x^{2}-4x+8$와 직선 $y=-2x+k$에 대하여 다음 물음에 답하시오. (단, $k$는 상수이다.)"}
+      ],
+      "sub_questions": [
+        {
+          "number": 1,
+          "score": 3,
+          "contents": [
+            {"type": "text", "value": "$0<x<3$일 때, 이차함수 $y=x^{2}-4x+8$의 최댓값 또는 최솟값을 구하고, 그 과정을 서술하시오."}
+          ]
+        },
+        {
+          "number": 2,
+          "score": 3,
+          "contents": [
+            {"type": "text", "value": "이차함수 $y=x^{2}-4x+8$와 직선 $y=-2x+k$가 한 점에서 만날 때, 직선 $y=-2x+k$와 $x$축 그리고 $y$축으로 둘러싸인 도형의 넓이를 구하고, 그 과정을 서술하시오."}
+          ]
+        }
+      ]
+    },
+    {
+      "number": 22,
+      "score": 6,
+      "type": "서술형",
+      "label": "[서술형 2]",
+      "contents": [
+        {"type": "text", "value": "[서술형 2] 연립이차부등식 $\\begin{cases} x^{2}-4x-5 \\leq 0 \\\\ -x^{2}+6x-9<0 \\end{cases}$에 대하여 다음 물음에 답하시오."}
+      ],
+      "sub_questions": [
+        {
+          "number": 1,
+          "score": 2,
+          "contents": [
+            {"type": "text", "value": "부등식 $x^{2}-4x-5 \\leq 0$를 풀고, 그 과정을 서술하시오."}
+          ]
+        },
+        {
+          "number": 2,
+          "score": 2,
+          "contents": [
+            {"type": "text", "value": "부등식 $-x^{2}+6x-9<0$를 풀고, 그 과정을 서술하시오."}
+          ]
+        },
+        {
+          "number": 3,
+          "score": 2,
+          "contents": [
+            {"type": "text", "value": "(1), (2)를 이용하여 연립이차부등식 $\\begin{cases} x^{2}-4x-5 \\leq 0 \\\\ -x^{2}+6x-9<0 \\end{cases}$의 해를 구하고, 수직선 위에 나타내시오."}
+          ]
+        }
+      ]
+    },
+    {
+      "number": 23,
+      "score": 6,
+      "type": "서술형",
+      "label": "[서술형 3]",
+      "contents": [
+        {"type": "text", "value": "[서술형 3] 이차함수 $f(x)=x^{2}-2x+2$와 자연수 $n$에 대하여 $x$에 대한 부등식"},
+        {"type": "equation", "value": "-(x-n)+f(n) \\geq |x-f(n-1)|+|x-f(n)|"},
+        {"type": "text", "value": "을 만족시키는 정수 $x$의 개수를 $g(n)$이라 하자. $0<g(k)<10$을 만족시키는 자연수 $k$의 값을 모두 구하고, 그 과정을 서술하시오."}
+      ]
+    },
+    {
+      "number": 24,
+      "score": 6,
+      "type": "서술형",
+      "label": "[서술형 4]",
+      "contents": [
+        {"type": "text", "value": "[서술형 4] 두 자연수 $m$, $n$에 대하여 행렬 $A=\\begin{pmatrix} m & n \\\\ 0 & 0 \\end{pmatrix}$이다. 행렬 $A^{5}=\\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix}$에 대하여 $a-b=cd$, $a+b<1000$일 때, 모든 행렬 $A$의 개수를 구하시오."}
+      ]
+    },
+    {
+      "number": 25,
+      "score": 6,
+      "type": "서술형",
+      "label": "[서술형 5]",
+      "contents": [
+        {"type": "text", "value": "[서술형 5] 집합 $X=\\{1,~2,~3,~4,~5,~6,~7,~8\\}$에 대하여 다음 조건을 만족시키는 함수 $f:X \\to X$의 개수를 구하고, 그 과정을 서술하시오."},
+        {"type": "text", "value": "<상자> (가) $x_{1} \\in X$, $x_{2} \\in X$인 임의의 $x_{1}$, $x_{2}$에 대하여 $1 \\leq x_{1} < x_{2} \\leq 3$이면 $f(x_{1})>f(x_{2})$이다. • (나) $x_{1} \\in X$, $x_{2} \\in X$인 임의의 $x_{1}$, $x_{2}$에 대하여 $4 \\leq x_{1} < x_{2} \\leq 6$이면 $f(x_{1})<f(x_{2})$이다. • (다) 함수 $f$는 일대일대응이다."}
+      ]
+    }
+  ]
+}

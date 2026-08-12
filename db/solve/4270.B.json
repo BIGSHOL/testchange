@@ -1,0 +1,146 @@
+{
+ "exam_id": 4270,
+ "pass": "B",
+ "items": [
+  {
+   "number": 1,
+   "answer": "③",
+   "solution": "step1) 원점 $\\mathrm{O}(0)$, $\\mathrm{A}(-3)$ 이므로 $\\overline{\\mathrm{OA}}=|-3-0|=3$ 이다.\nstep2) $\\overline{\\mathrm{OB}}=|a-0|=|a|$ 이고 $\\overline{\\mathrm{OA}}=\\overline{\\mathrm{OB}}$ 이므로 $|a|=3$ 이다.\nstep3) $a$ 는 양수이므로 $a=3$ 이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 2,
+   "answer": "②",
+   "solution": "step1) 점 $\\mathrm{M}$ 이 $\\overline{\\mathrm{AB}}$ 의 중점이므로 $\\overline{\\mathrm{AB}}=2\\,\\overline{\\mathrm{AM}}$ 이다.\nstep2) $\\overline{\\mathrm{AM}}=2$ 이므로 $\\overline{\\mathrm{AB}}=2\\times 2=4$ (cm) 이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 3,
+   "answer": "②",
+   "solution": "step1) 수직선 위 두 점 $\\mathrm{A}(3)$, $\\mathrm{B}(-1)$ 을 $m:n=1:3$ 으로 내분하는 점의 좌표는 $\\frac{m\\cdot(-1)+n\\cdot 3}{m+n}$ 이다.\nstep2) $\\frac{1\\cdot(-1)+3\\cdot 3}{1+3}=\\frac{-1+9}{4}=\\frac{8}{4}=2$ 이다.\nstep3) 따라서 내분점의 좌표는 $2$ 이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 4,
+   "answer": "⑤",
+   "solution": "step1) 두 점 사이의 거리는 $\\overline{\\mathrm{OA}}=\\sqrt{(-3-0)^{2}+(4-0)^{2}}$ 이다.\nstep2) $=\\sqrt{9+16}=\\sqrt{25}=5$ 이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 5,
+   "answer": "④",
+   "solution": "step1) 중점의 좌표는 $\\left(\\frac{6+(-4)}{2},\\ \\frac{7+3}{2}\\right)$ 이다.\nstep2) $=\\left(\\frac{2}{2},\\ \\frac{10}{2}\\right)=(1,\\ 5)$ 이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 6,
+   "answer": "⑤",
+   "solution": "step1) 무게중심의 좌표는 $\\left(\\frac{3+(-3)+9}{3},\\ \\frac{6+0+(-3)}{3}\\right)$ 이다.\nstep2) $=\\left(\\frac{9}{3},\\ \\frac{3}{3}\\right)=(3,\\ 1)$ 이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 7,
+   "answer": "①",
+   "solution": "step1) 직선 $y=-2x-1$ 의 기울기는 $-2$ 이고, 평행하므로 구하는 직선의 기울기도 $-2$ 이다.\nstep2) 점 $(1,\\ -2)$ 를 지나므로 $y-(-2)=-2(x-1)$ 이다.\nstep3) $y+2=-2x+2$ 이므로 $y=-2x$ 이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 8,
+   "answer": "①",
+   "solution": "step1) 직선 $l$ 의 기울기는 $\\frac{5-3}{4-0}=\\frac{2}{4}=\\frac{1}{2}$ 이다.\nstep2) 직선 $m$ 의 기울기는 $\\frac{2-1}{2-0}=\\frac{1}{2}$ 이다.\nstep3) 두 기울기의 합은 $\\frac{1}{2}+\\frac{1}{2}=1$ 이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 9,
+   "answer": "④",
+   "solution": "step1) 직선 $y=-2x+5$ 의 기울기는 $-2$ 이다.\nstep2) 수직인 두 직선의 기울기의 곱은 $-1$ 이므로 $-2\\times m=-1$ 이다.\nstep3) 따라서 $m=\\frac{1}{2}$ 이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 10,
+   "answer": "③",
+   "solution": "step1) 점 $(x_{1},\\ y_{1})$ 과 직선 $ax+by+c=0$ 사이의 거리는 $\\frac{|ax_{1}+by_{1}+c|}{\\sqrt{a^{2}+b^{2}}}$ 이다.\nstep2) $\\frac{|3\\cdot 3+(-1)\\cdot(-6)-5|}{\\sqrt{3^{2}+(-1)^{2}}}=\\frac{|9+6-5|}{\\sqrt{10}}=\\frac{10}{\\sqrt{10}}$ 이다.\nstep3) $\\frac{10}{\\sqrt{10}}=\\sqrt{10}$ 이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 11,
+   "answer": "②",
+   "solution": "step1) 직선 $x+2y=0$ 위의 점 $(0,\\ 0)$ 을 잡는다.\nstep2) 이 점과 직선 $x+2y+5=0$ 사이의 거리는 $\\frac{|0+2\\cdot 0+5|}{\\sqrt{1^{2}+2^{2}}}=\\frac{5}{\\sqrt{5}}$ 이다.\nstep3) $\\frac{5}{\\sqrt{5}}=\\sqrt{5}$ 이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 12,
+   "answer": "①",
+   "solution": "step1) 점 $\\mathrm{P}(x,\\ y)$ 에 대하여 $\\overline{\\mathrm{OP}}=\\sqrt{x^{2}+y^{2}}=1$ 이다.\nstep2) 양변을 제곱하면 $x^{2}+y^{2}=1$ 이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 13,
+   "answer": "④",
+   "solution": "step1) 접선은 접점을 지나는 반지름과 수직이므로 삼각형 $\\mathrm{OAP}$ 는 직각삼각형이다.\nstep2) $\\overline{\\mathrm{PA}}=\\sqrt{\\overline{\\mathrm{PO}}^{2}-\\overline{\\mathrm{OA}}^{2}}=\\sqrt{13^{2}-5^{2}}=\\sqrt{169-25}=\\sqrt{144}=12$ 이다.\nstep3) 한 점에서 그은 두 접선의 길이는 같으므로 $\\overline{\\mathrm{PA}}=\\overline{\\mathrm{PB}}=12$ 로 확인된다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 14,
+   "answer": "③",
+   "solution": "step1) 중심이 원점이고 반지름이 $r$ 인 원의 방정식은 $x^{2}+y^{2}=r^{2}$ 이다.\nstep2) $r=\\sqrt{6}$ 이므로 $x^{2}+y^{2}=(\\sqrt{6})^{2}=6$ 이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 15,
+   "answer": "⑤",
+   "solution": "step1) 원의 중심은 지름 $\\overline{\\mathrm{AB}}$ 의 중점이므로 $\\left(\\frac{2+10}{2},\\ \\frac{9+3}{2}\\right)=(6,\\ 6)$ 이다.\nstep2) $\\overline{\\mathrm{AB}}=\\sqrt{(10-2)^{2}+(3-9)^{2}}=\\sqrt{64+36}=10$ 이므로 반지름은 $5$ 이다.\nstep3) 따라서 $(x-6)^{2}+(y-6)^{2}=25$ 이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 16,
+   "answer": "④",
+   "solution": "step1) $x^{2}+6x+y^{2}-4y+4=0$ 에서 완전제곱꼴로 고치면 $(x+3)^{2}-9+(y-2)^{2}-4+4=0$ 이다.\nstep2) $(x+3)^{2}+(y-2)^{2}=9$ 이다.\nstep3) 따라서 중심이 $(-3,\\ 2)$ 이고 반지름의 길이가 $3$ 인 원이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 17,
+   "answer": "①",
+   "solution": "step1) 원과 직선이 한 점에서 만나는 것은 접하는 경우이고, 이때 $d=r$ 이다.\nstep2) $r=6$ 이므로 $d=6$ 이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 18,
+   "answer": "⑤",
+   "solution": "step1) 원 $x^{2}+y^{2}=36$ 의 중심은 $(0,\\ 0)$, 반지름은 $r=6$ 이다.\nstep2) 직선 $y=x-2$ 를 $x-y-2=0$ 으로 놓으면 중심과의 거리는 $d=\\frac{|0-0-2|}{\\sqrt{1^{2}+(-1)^{2}}}=\\frac{2}{\\sqrt{2}}=\\sqrt{2}$ 이다.\nstep3) $\\sqrt{2}<6$ 이므로 $d<r$ 이고, 원과 직선은 서로 다른 두 점에서 만난다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 19,
+   "answer": "②",
+   "solution": "step1) 점 $(2,\\ -\\sqrt{6})$ 은 $2^{2}+(-\\sqrt{6})^{2}=4+6=10$ 이므로 원 위의 점이다.\nstep2) 원 $x^{2}+y^{2}=r^{2}$ 위의 점 $(x_{1},\\ y_{1})$ 에서의 접선은 $x_{1}x+y_{1}y=r^{2}$ 이다.\nstep3) $2x+(-\\sqrt{6})y=10$ 이므로 $2x-\\sqrt{6}\\,y=10$ 이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 20,
+   "answer": "③",
+   "solution": "step1) $10000$ 장을 인쇄하는 데 $10$ 개월이 걸리므로 $1$ 개월에 평균 $1000$ 장을 인쇄한다.\nstep2) $8000$ 장이 되는 때는 $8000\\div 1000=8$ 개월 후이다.\nstep3) 따라서 $8$ 개월 후에 연락해야 한다.",
+   "confidence": "high",
+   "note": ""
+  }
+ ]
+}

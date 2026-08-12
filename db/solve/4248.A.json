@@ -1,0 +1,125 @@
+{
+  "exam_id": 4248,
+  "pass": "A",
+  "items": [
+    {
+      "number": 1,
+      "answer": "①",
+      "solution": "step1) $y=2x+3$에 평행하므로 직선 $l$의 기울기는 $2$이다.\nstep2) $l: y=2x+b$에 점 $(1,-3)$을 대입하면 $-3=2\\cdot 1+b$이다.\nstep3) 따라서 $b=-5$이므로 $y$절편은 $-5$이다.\nstep4) 선택지와 대조하면 ①이다.",
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "number": 2,
+      "answer": "②",
+      "solution": "step1) $x^2+y^2-2x+6y-6=0$을 완전제곱하면 $(x-1)^2+(y+3)^2=6+1+9=16$이다.\nstep2) 중심은 $(1,-3)$이므로 $a=1$, $b=-3$이고 반지름은 $r=4$이다.\nstep3) $a+b+r=1-3+4=2$이다.\nstep4) 선택지와 대조하면 ②이다.",
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "number": 3,
+      "answer": "⑤",
+      "solution": "step1) $A \\subset B$이려면 $a \\in B=\\{2a+2,~2,~3\\}$이어야 한다. (원소 $2$는 항상 $B$에 속한다.)\nstep2) $a=2a+2$이면 $a=-2$이다. 이때 $A=\\{-2,2\\}$, $B=\\{-2,2,3\\}$이므로 $A \\subset B$이다.\nstep3) $a=2$는 조건에서 제외된다.\nstep4) $a=3$이면 $A=\\{3,2\\}$, $B=\\{8,2,3\\}$이므로 $A \\subset B$이다.\nstep5) (참고) $2a+2=2$ 즉 $a=0$이면 $B=\\{2,3\\}$이고 $0 \\notin B$이므로 부적합하다.\nstep6) 모든 정수 $a$의 합은 $-2+3=1$이다. 따라서 ⑤이다.",
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "number": 4,
+      "answer": "⑤",
+      "solution": "step1) $(3,2) \\to (1,5)$이므로 평행이동은 $x$축 방향 $-2$, $y$축 방향 $+3$이다.\nstep2) 직선 $2x-y+5=0$을 이 평행이동으로 옮기면 $x \\to x+2$, $y \\to y-3$을 대입한다.\nstep3) $2(x+2)-(y-3)+5=2x+4-y+3+5=2x-y+12=0$이다.\nstep4) 선택지와 대조하면 ⑤이다.",
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "number": 5,
+      "answer": "③",
+      "solution": "step1) $n(A)=n(A \\cap B)+n(A-B)=5+2=7$이다.\nstep2) $n(B)=n(A \\cap B)+n(B-A)=5+n(B-A)$이다.\nstep3) $B-A \\subset U-A$이고 $n(U-A)=15-7=8$이므로 $0 \\le n(B-A) \\le 8$이다.\nstep4) 따라서 $M=5+8=13$, $m=5+0=5$이다.\nstep5) $M+m=18$이므로 ③이다.",
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "number": 6,
+      "answer": "④",
+      "solution": "step1) $B$의 점을 $(X,Y)$라 하면 $X=x+a$, $Y=y$이고 $2x+y+2=0$이다.\nstep2) $x=X-a$를 대입하면 $2(X-a)+Y+2=0$, 즉 $Y=-2X+2a-2$이므로 $B$는 직선 $y=-2x+2a-2$이다.\nstep3) $A$는 포물선 $y=x^2$이므로 $x^2=-2x+2a-2$, 즉 $x^2+2x+2-2a=0$이다.\nstep4) $n(A \\cap B)=1$이려면 이 이차방정식이 중근을 가져야 하므로 $\\frac{D}{4}=1-(2-2a)=2a-1=0$이다.\nstep5) 따라서 $a=\\frac{1}{2}$이므로 ④이다.",
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "number": 7,
+      "answer": "②",
+      "solution": "step1) $C_1$의 중심은 $(3,7)$, $C_2$의 중심은 $(-1,3)$이고 두 원의 반지름은 모두 $1$이다.\nstep2) 점 $\\mathrm{A}$를 직선 $y=x$에 대하여 대칭이동하면 $\\overline{\\mathrm{AP}}=\\overline{\\mathrm{A'P}}$이므로 $\\overline{\\mathrm{AP}}+\\overline{\\mathrm{PB}}=\\overline{\\mathrm{A'P}}+\\overline{\\mathrm{PB}} \\ge \\overline{\\mathrm{A'B}}$이다.\nstep3) $C_1$을 $y=x$에 대하여 대칭이동한 원 $C_1'$의 중심은 $(7,3)$, 반지름은 $1$이다.\nstep4) 두 중심 $(7,3)$, $(-1,3)$ 사이의 거리는 $8$이므로 $\\overline{\\mathrm{A'B}}$의 최솟값은 $8-1-1=6$이다.\nstep5) 이때 선분 $\\mathrm{A'B}$는 $y=3$ 위의 구간이고 직선 $y=x$와 점 $(3,3)$에서 만나므로 그런 $\\mathrm{P}$가 실제로 존재한다.\nstep6) 최솟값은 $6$이므로 ②이다.",
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "number": 8,
+      "answer": "①",
+      "solution": "step1) 원 $(x-a)^2+(y-b)^2=16$의 중심은 $(a,b)$, 반지름은 $4$이다.\nstep2) $y=x$에 대하여 대칭이동하면 중심은 $(b,a)$가 된다.\nstep3) $x$축 방향으로 $3$만큼 평행이동하면 중심은 $(b+3,~a)$이고 반지름은 $4$로 변하지 않는다.\nstep4) $x$축과 $y$축에 동시에 접하려면 $|a|=4$이고 $|b+3|=4$이어야 한다.\nstep5) 따라서 $a=\\pm 4$, $b=1$ 또는 $b=-7$이다.\nstep6) $a+b$의 최솟값은 $-4+(-7)=-11$이므로 ①이다.",
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "number": 9,
+      "answer": "③",
+      "solution": "step1) 원이 $x$축에 접하고 반지름이 $3$이므로 중심은 $(h,3)$이다.\nstep2) 직선 $l:4x+3y-48=0$에도 접하므로 $\\frac{|4h+9-48|}{5}=3$, 즉 $|4h-39|=15$에서 $h=6$ 또는 $h=13.5$이다.\nstep3) 그림에서 원은 원점 쪽(직선 $l$의 왼쪽 아래 영역)에 있으므로 중심은 $(6,3)$이고 $\\mathrm{P}(6,0)$이다.\nstep4) 중심에서 $l$에 내린 수선의 발이 $\\mathrm{Q}$이고 법선방향이 $\\frac{1}{5}(4,3)$이므로 $\\mathrm{Q}=(6,3)+3\\cdot\\frac{1}{5}(4,3)=\\left(\\frac{42}{5},~\\frac{24}{5}\\right)$이다.\nstep5) 직선 $\\mathrm{PQ}$의 기울기는 $\\frac{24/5-0}{42/5-6}=\\frac{24/5}{12/5}=2$이므로 $y=2(x-6)=2x-12$이고 $\\mathrm{R}(0,-12)$이다.\nstep6) 삼각형 $\\mathrm{ORP}$는 두 변이 축 위에 있으므로 넓이는 $\\frac{1}{2}\\cdot 12 \\cdot 6=36$이다. 따라서 ③이다.",
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "number": 10,
+      "answer": "②",
+      "solution": "step1) $A=\\{2,4,6,\\cdots,20\\}$이고 $B=\\{1,2,3,6,9,18\\}$이다.\nstep2) $X-B=\\varnothing$은 $X \\subset B$를 뜻한다.\nstep3) $n(A \\cap X) \\neq 0$은 $X$가 $A \\cap B=\\{2,6,18\\}$의 원소를 적어도 하나 포함함을 뜻한다.\nstep4) $B$의 부분집합의 개수는 $2^6=64$이고, $\\{2,6,18\\}$을 하나도 포함하지 않는 것은 $\\{1,3,9\\}$의 부분집합이므로 $2^3=8$개이다.\nstep5) 구하는 개수는 $64-8=56$이므로 ②이다.",
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "number": 11,
+      "answer": "③",
+      "solution": "step1) 직선 $\\mathrm{AB}$는 $3x-4y-12=0$이고 $\\overline{\\mathrm{AB}}=5$이다.\nstep2) 원 $C$의 중심 $(3a,-4a)$와 직선 $\\mathrm{AB}$ 사이의 거리는 $d=\\frac{|9a+16a-12|}{5}=\\frac{|25a-12|}{5}$이고 반지름은 $3$이다.\nstep3) 점 $\\mathrm{P}$와 직선 $\\mathrm{AB}$ 사이의 거리를 $h$라 하면 넓이는 $\\frac{5}{2}h$이므로, 넓이가 자연수 $S$이려면 $h=\\frac{2S}{5}\\ (S=1,2,3,\\cdots)$이다.\nstep4) 거리 $h$인 점의 개수는 (i) $d \\ge 3$일 때 $h=d\\pm3$에서 $1$개, 그 사이에서 $2$개, (ii) $d<3$일 때 $h=3-d$에서 $3$개, $0<h<3-d$에서 $4$개, $3-d<h<d+3$에서 $2$개, $h=d+3$에서 $1$개이다. 즉 홀수 개가 되는 곳은 $h=d+3$과 $h=|d-3|$뿐이다.\nstep5) $u=|25a-12|$라 하면 $5(d+3)=u+15$, $5|d-3|=|u-15|$이고 두 수의 홀짝은 같으므로, 두 값이 모두 조건 $h=\\frac{2S}{5}$를 만족하거나 모두 만족하지 않아 총 개수는 짝수가 된다.\nstep6) 예외는 $u=15$ 즉 $d=3$인 경우로, 이때 $|d-3|=0$이어서 넓이가 $0$이 되어 제외되고 $h=6\\ (S=15)$에서만 $1$개가 남는다. 실제 총 개수는 $1+2\\times 14=29$로 홀수이다.\nstep7) $|25a-12|=15$에서 $a=\\frac{27}{25}$ 또는 $a=-\\frac{3}{25}$이고 그 합은 $\\frac{24}{25}$이다. 따라서 ③이다.",
+      "confidence": "high",
+      "note": "a=n/25 형태를 넓게 대입 검증한 결과 홀수가 되는 a는 27/25, -3/25 두 개뿐임을 확인함."
+    },
+    {
+      "number": 12,
+      "answer": "$8\\sqrt{3}$",
+      "solution": "step1) 직선 $l_1$이 $x$축의 양의 방향과 이루는 각을 $\\theta$라 하면 $m=\\tan\\theta$이고, 이등분선 $l_2$의 기울기는 $t=\\tan\\frac{\\theta}{2}$이다. ($l_2$가 제1사분면을 지나므로 $0<t<1$)\nstep2) $l_2 \\perp$이고 $\\mathrm{P}(4,0)$을 지나는 직선은 $y=-\\frac{1}{t}(x-4)$이므로 $x=0$을 대입하면 $\\mathrm{Q}\\left(0,~\\frac{4}{t}\\right)$이다.\nstep3) 삼각형 $\\mathrm{POQ}$의 무게중심은 $\\left(\\frac{0+4+0}{3},~\\frac{0+0+4/t}{3}\\right)=\\left(\\frac{4}{3},~\\frac{4}{3t}\\right)$이다.\nstep4) 이 점이 $y=mx$ 위에 있으므로 $\\frac{4}{3t}=m \\cdot \\frac{4}{3}$, 즉 $m=\\frac{1}{t}$이다.\nstep5) 한편 배각공식에서 $m=\\tan\\theta=\\frac{2t}{1-t^2}$이므로 $\\frac{1}{t}=\\frac{2t}{1-t^2}$이다.\nstep6) $1-t^2=2t^2$에서 $t^2=\\frac{1}{3}$, $t=\\frac{1}{\\sqrt{3}}$이고 $m=\\sqrt{3}$이다. (즉 $\\theta=60^\\circ$)\nstep7) $\\mathrm{Q}(0,~4\\sqrt{3})$이므로 삼각형 $\\mathrm{POQ}$의 넓이는 $\\frac{1}{2}\\cdot 4 \\cdot 4\\sqrt{3}=8\\sqrt{3}$이다.",
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "number": 13,
+      "answer": "$2$",
+      "solution": "step1) $\\mathrm{P}$는 원 $(x-8)^2+y^2=r^2$ 위이므로 $\\mathrm{P}'$은 이를 $y=x$에 대칭이동한 원 $x^2+(y-8)^2=r^2$ (중심 $\\mathrm{A}(0,8)$) 위에 있다.\nstep2) $\\mathrm{Q}'$은 원을 $(k,k)$만큼 평행이동한 원 (중심 $\\mathrm{B}(8+k,~k)$, 반지름 $r$) 위에 있다.\nstep3) $\\frac{y_2-y_1}{x_2-x_1}$은 직선 $\\mathrm{P}'\\mathrm{Q}'$의 기울기이다. 반지름이 같은 두 원을 모두 만나는 직선의 방향각 $\\psi$는 $D\\,|\\sin(\\psi-\\varphi)| \\le 2r$ ($D=\\overline{\\mathrm{AB}}$, $\\varphi$는 중심선의 방향각)를 만족하며, 등호일 때 그 직선은 내부공통접선이다.\nstep4) 기울기의 최솟값이 $0$이므로 그 최소를 주는 직선은 수평인 내부공통접선 $y=c$이고, 중심이 서로 반대쪽에 있으므로 $c=8+r=k-r$ 또는 $c=8-r=k+r$이다.\nstep5) (i) $c=8+r$, $k=8+2r$일 때 $\\mathrm{P}'(0,~8+r)$, $\\mathrm{Q}'(16+2r,~8+r)$이고 넓이는 $\\frac{1}{2}(8+r)(16+2r)=(8+r)^2=100$에서 $r=2$, $k=12$이다.\nstep6) 이때 중심은 $(0,8)$, $(20,12)$이고 $\\tan\\varphi=\\frac{1}{5}$, $\\sin\\delta=\\frac{2r}{D}=\\frac{4}{4\\sqrt{26}}=\\frac{1}{\\sqrt{26}}$에서 $\\tan\\delta=\\frac{1}{5}$이므로 $\\varphi=\\delta$이고 기울기의 범위는 $\\left[0,~\\frac{5}{12}\\right]$로 최솟값이 $0$이다. (조건 만족)\nstep7) (ii) $c=8-r$, $k=8-2r$일 때는 $(8-r)^2=100$에서 $r=18$, $k=-28$인데, 이때 방향각 범위가 $[0^\\circ,~121.9^\\circ]$로 수직 방향을 포함하여 기울기가 아래로 유계가 아니므로 최솟값이 존재하지 않아 부적합하다.\nstep8) 따라서 $r=2$이다.",
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "number": 14,
+      "answer": "$\\frac{8}{5}$",
+      "solution": "step1) 직선 $\\mathrm{AB}$는 두 점 $\\mathrm{A}(3,4)$, $\\mathrm{B}(6,0)$을 지나므로 기울기는 $-\\frac{4}{3}$이고 $4x+3y-24=0$이다.\nstep2) 원점에서 이 직선까지의 거리는 $\\frac{24}{5}$이고, 수선의 발은 $\\mathrm{H}\\left(\\frac{96}{25},~\\frac{72}{25}\\right)$이므로 $\\overline{\\mathrm{OH}}=\\frac{24}{5}$이다.\nstep3) $\\mathrm{C}$는 $\\overline{\\mathrm{OA}}$를 $2:1$로 내분하므로 $\\mathrm{C}\\left(2,~\\frac{8}{3}\\right)$, $\\mathrm{D}$는 $\\overline{\\mathrm{OB}}$를 $2:1$로 내분하므로 $\\mathrm{D}(4,~0)$이다.\nstep4) 직선 $\\mathrm{CD}$의 기울기는 $\\frac{0-8/3}{4-2}=-\\frac{4}{3}$으로 $\\mathrm{AB}$와 평행하고, 그 방정식은 $4x+3y-16=0$이다.\nstep5) $\\overline{\\mathrm{CD}} \\parallel \\overline{\\mathrm{AB}}$이고 닮음비가 $2:3$이므로 $\\overline{\\mathrm{OP}}:\\overline{\\mathrm{OH}}=2:3$이다.\nstep6) 따라서 $\\overline{\\mathrm{PH}}=\\frac{1}{3}\\overline{\\mathrm{OH}}=\\frac{1}{3}\\cdot\\frac{24}{5}=\\frac{8}{5}$이다. (직접 계산해도 $\\mathrm{P}\\left(\\frac{64}{25},~\\frac{48}{25}\\right)$에서 $\\overline{\\mathrm{PH}}=\\frac{8}{5}$)",
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "number": 15,
+      "answer": "$x=-2$, $5x-12y-26=0$",
+      "solution": "step1) 원 $x^2+y^2=4$의 중심은 원점, 반지름은 $2$이고 점 $(-2,-3)$은 $4+9=13>4$이므로 원 밖의 점이다.\nstep2) 기울기가 $m$인 접선은 $y+3=m(x+2)$, 즉 $mx-y+2m-3=0$이다.\nstep3) 중심과의 거리가 반지름과 같아야 하므로 $\\frac{|2m-3|}{\\sqrt{m^2+1}}=2$이다.\nstep4) 양변을 제곱하면 $4m^2-12m+9=4m^2+4$에서 $-12m+5=0$, 즉 $m=\\frac{5}{12}$이다.\nstep5) 이 접선은 $y+3=\\frac{5}{12}(x+2)$, 즉 $5x-12y-26=0$이다.\nstep6) 기울기가 정해지지 않는 경우로 $y$축에 평행한 직선 $x=-2$가 있고, 중심과의 거리가 $2$로 반지름과 같으므로 이것도 접선이다.\nstep7) 따라서 구하는 접선은 $x=-2$와 $5x-12y-26=0$이다.",
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "number": 16,
+      "answer": "$7$",
+      "solution": "step1) 원 $(x+1)^2+(y-3)^2=8$의 중심은 $(-1,3)$, 반지름은 $2\\sqrt{2}$이다.\nstep2) $x$축 방향 $a$, $y$축 방향 $2a+1$만큼 평행이동하면 중심은 $(a-1,~2a+4)$이다.\nstep3) $y$축에 대하여 대칭이동하면 중심은 $(1-a,~2a+4)$이고 반지름은 $2\\sqrt{2}$이다.\nstep4) 직선 $y=-x+4$, 즉 $x+y-4=0$과 서로 다른 두 점에서 만나려면 (중심과 직선 사이의 거리) $<$ (반지름)이어야 한다.\nstep5) $\\frac{|(1-a)+(2a+4)-4|}{\\sqrt{2}}<2\\sqrt{2}$에서 $|a+1|<4$이다.\nstep6) 따라서 $-5<a<3$이고 정수 $a$는 $-4,-3,-2,-1,0,1,2$의 $7$개이다.",
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "number": 17,
+      "answer": "$-1 \\le a < 3$",
+      "solution": "step1) $B=\\{x\\,|\\,|x-4|<2\\}=\\{x\\,|\\,2<x<6\\}$이다.\nstep2) $A^{c}=\\{x\\,|\\,x \\ge 3\\}$이므로 $B-A=B \\cap A^{c}=\\{x\\,|\\,3 \\le x < 6\\}$이다.\nstep3) $(B-A) \\cup C=C$는 $(B-A) \\subset C$와 같다.\nstep4) $C=\\{x\\,|\\,a<x<2a+8\\}$이 $\\{x\\,|\\,3 \\le x<6\\}$을 포함하려면 $a<3$이고 $2a+8 \\ge 6$이어야 한다. (경계 $x=3$은 $C$에 속해야 하므로 $a<3$, 상한 $6$은 $B-A$에 속하지 않으므로 $2a+8 \\ge 6$이면 충분하다.)\nstep5) $2a+8 \\ge 6$에서 $a \\ge -1$이고, 이때 $a<2a+8$ (즉 $a>-8$)도 자동으로 성립하여 $C \\neq \\varnothing$이다.\nstep6) 따라서 $-1 \\le a < 3$이다.",
+      "confidence": "high",
+      "note": ""
+    }
+  ]
+}

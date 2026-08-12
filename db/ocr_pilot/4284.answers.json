@@ -1,0 +1,55 @@
+{
+  "exam_id": 4284,
+  "answer_pages": [7],
+  "items": [
+    {"number": 1, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 2, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 3, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 4, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 5, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 6, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 7, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 8, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 9, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 10, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 11, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 12, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 13, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 14, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 15, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 16, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 17, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 18, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 19, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 20, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 21, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {
+      "number": 22,
+      "answer": "$k=4-\\sqrt{10}$",
+      "solution": "직선 $\\mathrm{AB}$를 직선 $l$이라고 할 때, $l: y=-4x+16$\n$y=x-k$가 $x$축, 직선 $l$과 만나는 교점을 각각 $\\mathrm{C}$, $\\mathrm{D}$라고 하면, $\\mathrm{C}(k,~0)$, $\\mathrm{D}\\left(\\frac{k+16}{5},~\\frac{k+16}{5}-k\\right)=\\left(\\frac{k+16}{5},~\\frac{16-4k}{5}\\right)$\n$\\triangle\\mathrm{BCD}=\\frac{1}{2}\\triangle\\mathrm{AOB}$\n$\\frac{1}{2}\\times(4-k)\\times\\frac{4(4-k)}{5}=\\frac{1}{2}\\times\\frac{1}{2}\\times4\\times4$\n$(4-k)^{2}=10$\n$4-k=\\pm\\sqrt{10}$, $k<4$이므로\n$k=4-\\sqrt{10}$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 23,
+      "answer": "$mn=1$",
+      "solution": "그림에서 $\\overline{\\mathrm{AB}}:\\overline{\\mathrm{BC}}=1:2$ 이므로 점 $\\mathrm{A}(-3,~0)$이다.\n접선의 방정식을 $y=m(x+3)$\n$mx-y+3m=0$과 $\\mathrm{B}(-2,~0)$의 거리가\n$d=\\frac{|-m+3m|}{\\sqrt{m^{2}+1}}=1$ 이므로 $m=\\frac{1}{\\sqrt{3}}$, $n=\\sqrt{3}$이다.\n따라서 $mn=1$이다.",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 24,
+      "answer": "$a=-\\frac{4}{5}$",
+      "solution": "직선 $l: y=ax+2$을 $x$축의 방향으로 $-3$만큼, $y$축의 방향으로 $2$만큼 평행이동하면\n$y-2=a(x+3)+2$ 가 되고, 직선 $y=x$에 대하여 대칭이동하면 $l': x-2=a(y+3)+2$이다.\n$l$의 $y$절편이 $(0,~2)$이므로 $l'$에 대입하면,\n$0-2=a(2+3)+2$\n따라서 $a=-\\frac{4}{5}$이다.",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 25,
+      "answer": "$110$",
+      "solution": "(미래엔 교과서 대단원 5번)\n$A_{100}=\\{x|x는 20 이하의 홀수\\}=\\{1,~3,~5,~\\cdots,~19\\}$\n이때 $A_{n} \\subset A_{100}$이어야 하므로 $1 \\leq \\sqrt{4n} < 21$\n$1 \\leq 4n < 441$, $\\frac{1}{4} \\leq n < \\frac{441}{4}$\n따라서 자연수 $n$의 최댓값은 $110$이다.",
+      "topic": "",
+      "difficulty": ""
+    }
+  ]
+}

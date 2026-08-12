@@ -1,0 +1,184 @@
+{
+ "exam_id": 4288,
+ "answer_pages": [
+  7,
+  8
+ ],
+ "items": [
+  {
+   "number": 1,
+   "answer": "①",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 2,
+   "answer": "①",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 3,
+   "answer": "⑤",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 4,
+   "answer": "③",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 5,
+   "answer": "④",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 6,
+   "answer": "②",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 7,
+   "answer": "③",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 8,
+   "answer": "①",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 9,
+   "answer": "①",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 10,
+   "answer": "④",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 11,
+   "answer": "⑤",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 12,
+   "answer": "⑤",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 13,
+   "answer": "③",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 14,
+   "answer": "②",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 15,
+   "answer": "③",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 16,
+   "answer": "③",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 17,
+   "answer": "④",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 18,
+   "answer": "②",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 19,
+   "answer": "①",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 20,
+   "answer": "②",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 21,
+   "answer": "②",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 22,
+   "answer": "6개",
+   "solution": "$A \\cap B^{C}=\\{1,~2,~3,~4\\}$, $A \\cap C^{C}=\\{2,~3,~5,~7\\}$이고\n$A \\cap (B \\cap C)^{C}=A \\cap (B^{C} \\cup C^{C})$ (드 모르간의 법칙)\n$=(A \\cap B^{C}) \\cup (A \\cap C^{C})$ (분배법칙)\n$=\\{1,~2,~3,~4\\} \\cup \\{2,~3,~5,~7\\}$\n$=\\{1,~2,~3,~4,~5,~7\\}$\n$\\therefore$ 6개",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 23,
+   "answer": "112개",
+   "solution": "주어진 조건을 바탕으로 집합 $A$, 집합 $A^{C}$, 집합 $B$를 각각 구해보면\n$A=\\{1,~2,~4\\}$\n$A^{C}=\\{3,~5,~6,~7,~8,~9,~10\\}$\n$B=\\{2,~3,~4,~5,~6,~8\\}$\n(나) 조건에 의하여 집합 $X$는 $A^{C}$의 부분집합임을 알 수 있다. 그리고 (다) 조건에 의하여 집합 $X$가 집합 $B$의 부분집합이 되면 안된다는 사실을 알 수 있다. 즉, 집합 $X$는 집합 $A^{C}$의 부분집합이면서 동시에 집합 $A^{C} \\cap B$의 부분집합이 되면 안 된다.\n집합 $A^{C}$의 부분집합의 개수를 구해보면\n$2^{7}=128$\n집합 $A^{C} \\cap B$을 구해보면\n$A^{C} \\cap B=\\{3,~5,~6,~8\\}$\n집합 $A^{C} \\cap B$의 부분집합의 개수를 구해보면\n$2^{4}=16$\n따라서 주어진 조건을 만족하는 집합 $X$의 개수를 구해보면\n$2^{7}-2^{4}=128-16=112$",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 24,
+   "answer": "$(7,~1)$, $(1,~-1)$",
+   "solution": "중심이 $(m,~n)$이고 반지름의 길이가 1인 원이 직선 $3x-4y-12=0$과 $x$축에 동시에 접하기 위해서는 아래와 같다.\n$x$축에 접할 때 $r=|n|$이므로 $n=\\pm 1$\n[그림] 좌표평면에 직선 $3x-4y-12=0$이 그려져 있고, 이 직선과 $x$축에 동시에 접하는 원이 두 개(하나는 $x$축 위쪽·제1사분면, 다른 하나는 $x$축 아래쪽) 그려져 있다. 각 원의 중심에서 직선과 $x$축에 내린 수선의 발이 직각 표시와 함께 나타나 있다.\n제1사분면에서 접하는 원의 중심의 좌표를 $(m_{1},~1)$, 제4사분면에서 접하는 원의 중심의 좌표를 $(m_{2},~-1)$라 할 때,\n원의 중심의 좌표에서 $3x-4y-12=0$까지의 거리가 1이므로\n$n=1$일 때, $\\frac{|3m_{1}-4-12|}{5}=1$, $m_{1}=7$ $(m_{1}>4)$\n$n=-1$일 때, $\\frac{|3m_{2}+4-12|}{5}=1$, $m_{2}=1$ $(m_{2}<4)$\n따라서 중심의 좌표는 $(7,~1)$, $(1,~-1)$",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 25,
+   "answer": "$15x-15y+4=0$",
+   "solution": "점 $\\mathrm{P}_{1}$가 선분 $\\mathrm{AB}$ 위에 있는 경우는 점 $\\mathrm{P}_{1}$가 $\\overline{\\mathrm{AB}}$를 $4:1$로 내분하는 점이고,\n점 $\\mathrm{P}_{2}$가 선분 $\\mathrm{AB}$의 연장선 위에 있는 경우는 점 $\\mathrm{P}_{2}$가 $\\overline{\\mathrm{AB}}$를 $4:1$로 외분하는 점이다.\n두 점의 좌표를 구하면 $\\mathrm{P}_{1}\\left(\\frac{7}{5},~\\frac{3}{5}\\right)$, $\\mathrm{P}_{2}\\left(\\frac{1}{3},~\\frac{5}{3}\\right)$이다.\n직선 $\\mathrm{P}_{1}\\mathrm{P}_{2}$의 기울기는 $-1$,\n선분 $\\mathrm{P}_{1}\\mathrm{P}_{2}$의 중점의 좌표는 $\\left(\\frac{13}{15},~\\frac{17}{15}\\right)$ 이므로\n따라서, 선분 $\\mathrm{P}_{1}\\mathrm{P}_{2}$의 수직이등분선은 기울기가 $1$, $\\left(\\frac{13}{15},~\\frac{17}{15}\\right)$를 지나는 직선의 방정식이다.\n$y-\\frac{17}{15}=1\\left(x-\\frac{13}{15}\\right)$\n$\\therefore 15x-15y+4=0$, $\\left(y=x+\\frac{4}{15}\\right)$",
+   "topic": "",
+   "difficulty": ""
+  }
+ ]
+}

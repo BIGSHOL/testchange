@@ -1,0 +1,177 @@
+{
+ "exam_id": 4301,
+ "answer_pages": [
+  7,
+  8
+ ],
+ "items": [
+  {
+   "number": 1,
+   "answer": "④",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 2,
+   "answer": "④",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 3,
+   "answer": "①",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 4,
+   "answer": "②",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 5,
+   "answer": "④",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 6,
+   "answer": "②",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 7,
+   "answer": "③",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 8,
+   "answer": "②",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 9,
+   "answer": "⑤",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 10,
+   "answer": "③",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 11,
+   "answer": "①",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 12,
+   "answer": "⑤",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 13,
+   "answer": "①",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 14,
+   "answer": "①",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 15,
+   "answer": "①",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 16,
+   "answer": "⑤",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 17,
+   "answer": "②",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 18,
+   "answer": "③",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 19,
+   "answer": "②",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 20,
+   "answer": "④",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 21,
+   "answer": "$16$",
+   "solution": "$A \\cap X = A$, $B \\cup X = B$이므로 $A \\subset X \\subset B$\n따라서 집합 $X$의 개수는 집합 $\\{2,~4,~10,~20\\}$의 부분집합의 개수와 같으므로 $2^{4} = 16$",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 22,
+   "answer": "(1) 풀이참조 (2) $\\mathrm{A}\\left(-\\frac{3}{2},~-\\frac{3}{2}\\right)$, $\\mathrm{B}(6,~6)$, $\\overline{\\mathrm{AB}} = \\frac{15\\sqrt{3}}{2}$",
+   "solution": "(1) 두 함수 $y = f(x)$, $y = f^{-1}(x)$의 그래프를 그리면 두 그래프는 직선 $y = x$에 대하여 대칭이고, 두 그래프로 둘러싸인 부분은 두 교점 $\\mathrm{A}$, $\\mathrm{B}$ 사이에서 두 그래프가 만드는 도형이다.\n(2) $3x + 3 = x$, $\\frac{1}{2}x + 3 = x$를 구하면 각각 $x = -\\frac{3}{2}$, $x = 6$\n이므로 $\\mathrm{A}\\left(-\\frac{3}{2},~-\\frac{3}{2}\\right)$, $\\mathrm{B}(6,~6)$이다.\n또한 $\\overline{\\mathrm{AB}} = \\frac{15}{2}\\sqrt{2}$이다.",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 23,
+   "answer": "(1) $\\mathrm{A}(-1,~0)$, $\\mathrm{B}(14,~6)$, $\\mathrm{C}\\left(\\frac{5}{3},~6\\right)$ (2) $37$ (3) $0 < m < 1$ 또는 $1 < m \\leq 2$",
+   "solution": "(1) $y = f(x)$에 $y = 0$을 대입하면 $x = -1$, $\\therefore \\mathrm{A}(-1,~0)$\n$y = f(x)$, $y = g(x)$에 $y = 6$을 대입하면 $x = 14$, $x = \\frac{5}{3}$\n$\\therefore \\mathrm{B}(14,~6)$, $\\mathrm{C}\\left(\\frac{5}{3},~6\\right)$\n(2) $\\overline{\\mathrm{BC}}$를 밑변으로 하여 삼각형의 넓이를 구하면\n$\\frac{1}{2} \\times \\left(14 - \\frac{5}{3}\\right) \\times 6 = 37$\n(3) $y = f(x)$와 $y = m(x+1)$을 $y$를 소거하여 연립하여 풀면 $2\\sqrt{x+2} - 2 = m(x+1)$이고\n제곱하여 정리하면\n$m^{2}x^{2} + (2m^{2} + 4m - 4)x + m^{2} + 4m - 4 = 0$이다.\n두 함수가 접할 때는\n$\\frac{\\mathrm{D}}{4} = (m^{2} + 2m - 2)^{2} - m^{2}(m^{2} + 4m - 4) = 4m^{2} - 8m + 4 = 0$에서 $m = 1$일 때이다. 이때 접점은 $(-1,~0)$이므로\n두 함수는 $m > 0$일 때부터 $y = m(x+1)$이 $(-2,~-2)$를 지날 때의 기울기인 $m = 2$일 때까지 $m = 1$일 때를 제외하고 두 점에서 만난다.\n$\\therefore 0 < m < 1$ 또는 $1 < m \\leq 2$",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 24,
+   "answer": "$8$",
+   "solution": "$n(A \\cup B) = n(A) + n(B) - n(A \\cap B)$이므로 조건 (가)에서 $n(A \\cap B) = 0$, $A \\cap B = \\varnothing$\n그러므로 $(A \\cup C) \\cap (B \\cup C) = (A \\cap B) \\cup C = \\varnothing \\cup C = C$\n조건 (나)에 의하여\n$n(C) = 2 \\times n(B - C) = 2 \\times \\{n(B \\cup C) - n(C)\\}$\n$n(C) = \\frac{2}{3} \\times n(B \\cup C)$\n따라서 $n(B \\cup C) = 12$에서 $n(C) = 8$",
+   "topic": "",
+   "difficulty": ""
+  }
+ ]
+}

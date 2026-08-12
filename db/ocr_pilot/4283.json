@@ -1,0 +1,396 @@
+{
+  "meta": {"exam_id": 4283, "ocr_source": "session-vision"},
+  "header": {"title": "2025년 2학기 기말고사 남산고 1학년 공통수학2 — 집합과 명제 ~ 함수"},
+  "questions": [
+    {
+      "number": 1,
+      "score": 2,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "다음 <보기>에서 항상 참인 명제의 개수는?"},
+        {"type": "text", "value": "<보기> ㄱ. $1+\\sqrt{2}$는 실수이다. • ㄴ. $x$는 20의 양의 약수이다. • ㄷ. 맞꼭지각의 크기는 서로 같다. • ㄹ. 모든 정삼각형은 이등변삼각형이다. • ㅁ. 어떤 허수를 제곱한 값은 양수이다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "1개"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "2개"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "3개"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "4개"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "5개"}]}
+      ]
+    },
+    {
+      "number": 2,
+      "score": 3,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "두 실수 $a$, $b$에 대하여 세 조건 $p$, $q$, $r$이 $p: a^{2}+b^{2}=0$, $q: |a+b|=|a-b|$, $r: (a-b)^{2}=0$ 일 때, 다음 <보기> 중 옳은 것만을 있는 대로 고른 것은?"},
+        {"type": "text", "value": "<보기> ㄱ. $p$는 $r$이기 위한 필요조건이다. • ㄴ. $q$는 $p$이기 위한 필요조건이다. • ㄷ. $\\sim r$은 $q$이기 위한 충분조건이다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄴ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄷ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄱ, ㄴ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄴ, ㄷ"}]}
+      ]
+    },
+    {
+      "number": 3,
+      "score": 3,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "양수 $a$, $b$에 대하여 $ab+2a+2b=21$이 성립할 때, $ab$의 최댓값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "15"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "18"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "49"}]}
+      ]
+    },
+    {
+      "number": 4,
+      "score": 4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "$x>-2$ 일 때, $\\frac{x+2}{2x^{2}+5x+4}$은 $x=k$에서 최댓값 $M$을 갖는다. 상수 $k$, $M$에 대하여 $k+M$의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{4}{3}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{3}{2}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{5}{3}"}]}
+      ]
+    },
+    {
+      "number": 5,
+      "score": 3,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "정의역과 공역이 모두 자연수 전체의 집합인 세 함수 $f$, $g$, $h$에 대하여 $f$는 항등함수, $g$는 상수함수, $h(x)=f(x)+g(x)$이다. $f(2)=g(5)$일 때, $h(1)+h(2)+h(3)$의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "14"}]}
+      ]
+    },
+    {
+      "number": 6,
+      "score": 3,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "실수 전체의 집합에서 정의된 두 함수 $f(x)=3x+2$,"},
+        {"type": "equation", "value": "g(x)=\\begin{cases} x+1 & (x \\geq 2) \\\\ 2x-1 & (x<2) \\end{cases}"},
+        {"type": "text", "value": "에서 $(f \\circ g)(2)+f^{-1}(5)$의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "14"}]}
+      ]
+    },
+    {
+      "number": 7,
+      "score": 3,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "$0<x \\leq 3$에서 정의된 함수 $y=f(x)$의 그래프가 다음 그림과 같고 $f^{1}=f$, $f^{n+1}=f \\circ f^{n}(n=1,~2,~3,~\\cdots)$일 때, $f^{30}\\left(\\frac{1}{2}\\right)$의 값은?"},
+        {"type": "figure", "value": "좌표평면 위 계단 모양의 함수 $y=f(x)$ 그래프. $x$축 0~3, $y$축 0~3 눈금. 구간 $0<x \\leq 1$에서 $y=2$(점 $(0,~2)$는 속빈 점, 점 $(1,~2)$는 속찬 점), 구간 $1<x \\leq 2$에서 $y=3$(점 $(1,~3)$은 속빈 점, 점 $(2,~3)$은 속찬 점), 구간 $2<x \\leq 3$에서 $y=1$(점 $(2,~1)$은 속빈 점, 점 $(3,~1)$은 속찬 점). 각 수평선분 끝에서 점선으로 축까지 연결됨."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+      ]
+    },
+    {
+      "number": 8,
+      "score": 3,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "집합 $A$가 $A=\\{1,~2,~3,~4,~5,~6,~7\\}$일 때, $A$에서 $A$로의 함수 중 다음 조건을 모두 만족시키는 함수 $f$의 개수는?"},
+        {"type": "text", "value": "<상자> (가) 함수 $f$는 일대일대응이다. • (나) 정의역 $A$의 오직 한 원소 $n$에 대하여 $f(n+1)-f(n)=6$이다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "700"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "710"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "720"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "730"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "740"}]}
+      ]
+    },
+    {
+      "number": 9,
+      "score": 4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "함수 $y=|x-1|-|x-2|$의 그래프와 직선 $y=kx$가 두 점에서 만날 때, 상수 $k$의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{1}{6}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{1}{5}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{1}{4}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{1}{3}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{1}{2}"}]}
+      ]
+    },
+    {
+      "number": 10,
+      "score": 4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "정수 전체의 집합 $Z$에 대하여 $Z$에서 $Z$로의 함수 $f$가 임의의 정수 $x$, $y$에 대하여 $f(x+y)=f(x)-f(y)$를 만족할 때, 다음 <보기> 중 옳은 것만을 있는 대로 고른 것은?"},
+        {"type": "text", "value": "<보기> ㄱ. $f(0)=0$ • ㄴ. 임의의 정수 $x$에 대하여 $f(x)=f(-x)$이다. • ㄷ. 임의의 정수 $x$, $y$에 대하여 $(f \\circ f)(x+y)=(f \\circ f)(x)+(f \\circ f)(y)$이다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄴ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄱ, ㄴ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄱ, ㄷ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄱ, ㄴ, ㄷ"}]}
+      ]
+    },
+    {
+      "number": 11,
+      "score": 3,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "유리함수 $y=\\frac{2x+b}{x+a}$의 그래프는 점 $(1,~-2)$을 지나고, 직선 $x=3$은 이 그래프의 점근선 중 하나이다. $-1 \\leq x \\leq 2$에서 이 함수의 최솟값을 $m$, 최댓값을 $M$이라 할 때, $M-m$의 값은? (단, $a$, $b$는 상수)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "15"}]}
+      ]
+    },
+    {
+      "number": 12,
+      "score": 4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "함수 $y=\\frac{k}{x-1}-1$의 그래프는 모든 사분면을 지나고, 함수 $y=\\frac{2x+5+k}{x+2}$의 그래프는 제4사분면을 지나지 __않도록__ 하는 모든 정수 $k$의 값들의 곱은? (단, $k \\neq 0$)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-120"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-24"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "24"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "60"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "120"}]}
+      ]
+    },
+    {
+      "number": 13,
+      "score": 3,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "무리함수 $f(x)=\\sqrt{x+4}+1$은 $y=\\sqrt{x}$의 그래프를 $x$축의 방향으로 $a$만큼, $y$축의 방향으로 $b$만큼 평행이동한 것이다. 함수 $f(x)$가 점 $(12,~c)$를 지날 때, 상수 $a$, $b$, $c$에 대하여 $a+b+c$의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+      ]
+    },
+    {
+      "number": 14,
+      "score": 4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 양수 $k$에 대하여 직선 $x=k$와 세 곡선 $y=\\sqrt{2x}$, $y=\\sqrt{4x}$, $y=\\sqrt{6x}$가 만나는 점을 각각 $\\mathrm{A}$, $\\mathrm{B}$, $\\mathrm{C}$라 하자. 점 $\\mathrm{B}$를 지나고 $x$축과 평행한 직선이 곡선 $y=\\sqrt{2x}$와 만나는 점을 $\\mathrm{D}$라 하고, 점 $\\mathrm{D}$를 지나고 $y$축과 평행한 직선이 곡선 $y=\\sqrt{4x}$와 만나는 점을 $\\mathrm{E}$라 하자. 두 점 $\\mathrm{A}$, $\\mathrm{E}$을 지나는 직선의 기울기가 $\\frac{\\sqrt{2}}{2}$일 때, 두 점 $\\mathrm{C}$, $\\mathrm{D}$을 지나는 직선의 기울기는?"},
+        {"type": "figure", "value": "제1사분면에 원점 $\\mathrm{O}$에서 출발해 위로 볼록하게 증가하는 세 곡선 $y=\\sqrt{2x}$(가장 아래), $y=\\sqrt{4x}$(중간), $y=\\sqrt{6x}$(가장 위)가 그려져 있다. 세로 직선 $x=k$가 아래에서부터 곡선 $y=\\sqrt{2x}$와 점 $\\mathrm{A}$, $y=\\sqrt{4x}$와 점 $\\mathrm{B}$, $y=\\sqrt{6x}$와 점 $\\mathrm{C}$에서 만난다. 점 $\\mathrm{B}$를 지나는 수평선이 오른쪽으로 뻗어 곡선 $y=\\sqrt{2x}$와 점 $\\mathrm{D}$에서 만나고, 점 $\\mathrm{D}$를 지나는 세로 직선이 곡선 $y=\\sqrt{4x}$와 점 $\\mathrm{E}$에서 만난다. 각 곡선의 오른쪽 끝에 $y=\\sqrt{6x}$, $y=\\sqrt{4x}$, $y=\\sqrt{2x}$ 라벨이 있고 아래쪽에 $x=k$ 라벨이 있다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1-\\sqrt{7}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{2-\\sqrt{6}}{2}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{3-\\sqrt{5}}{3}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{4-\\sqrt{3}}{4}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{5-\\sqrt{2}}{5}"}]}
+      ]
+    },
+    {
+      "number": 15,
+      "score": 4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "유리함수 $f(x)=\\frac{ax+b}{cx+d}$의 그래프가 두 직선 $y=x-3$, $y=-x+6$에 대하여 각각 대칭일 때, $f(1)+f(2)+f(3)+\\cdots+f(8)$의 값은? (단, $a$, $b$, $c(c \\neq 0)$, $d$는 상수)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "16"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "20"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "24"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "28"}]}
+      ]
+    },
+    {
+      "number": 16,
+      "score": 4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "두 점 $\\mathrm{A}(2,~6)$, $\\mathrm{B}(0,~-2)$와 함수 $y=\\frac{2x-7}{x-1}$의 그래프 위의 한 점 $\\mathrm{P}$에 대하여 $\\overline{\\mathrm{AP}}^{2}+\\overline{\\mathrm{BP}}^{2}$의 최솟값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "42"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "48"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "50"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "54"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "60"}]}
+      ]
+    },
+    {
+      "number": 17,
+      "score": 3,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "정의역이 $\\{x|4 \\leq x \\leq 9\\}$인 두 함수 $y=\\frac{-2x+12}{x-3}$, $y=\\sqrt{2(x-k)}$의 그래프가 한 점에서 만날 때, 상수 $k$의 최솟값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-8"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-7"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-6"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "-5"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "-4"}]}
+      ]
+    },
+    {
+      "number": 18,
+      "score": 4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "좌표평면에서 두 함수 $f(x)=-\\frac{1}{x-2}+2$, $g(x)=-\\sqrt{x+1}$의 그래프에 대하여 두 곡선 $y=f(x)$, $y=g(x)$와 두 직선 $x=3$, $x=15$로 둘러싸인 영역의 내부 또는 그 경계에 포함되고 $x$좌표와 $y$좌표가 모두 정수인 점의 개수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "52"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "55"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "58"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "61"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "64"}]}
+      ]
+    },
+    {
+      "number": 19,
+      "score": 4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "함수 $y=3\\sqrt{x-7}+6$의 그래프를 $x$축의 방향으로 $a$만큼 평행이동한 그래프의 식을 $y=f(x)$라 하자. 함수 $y=f(x)$의 그래프와 그 역함수의 그래프가 접할 때, 실수 $a$의 값을 구하면?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{1}{4}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{1}{2}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{3}{4}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{5}{4}"}]}
+      ]
+    },
+    {
+      "number": 20,
+      "score": 5,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 점 $\\mathrm{A}(-2,~2)$와 곡선 $y=\\frac{3}{x}$ 위의 두 점 $\\mathrm{B}$, $\\mathrm{C}$가 다음 조건을 만족시킨다."},
+        {"type": "text", "value": "<상자> (가) 점 $\\mathrm{B}$와 점 $\\mathrm{C}$는 직선 $y=x$에 대하여 대칭이다. • (나) 삼각형 $\\mathrm{ABC}$의 넓이는 $3\\sqrt{3}$이다."},
+        {"type": "text", "value": "점 $\\mathrm{B}$의 좌표를 $(\\alpha,~\\beta)$라 할 때, $\\alpha^{2}+\\beta^{2}$의 값은? (단, $\\alpha > \\sqrt{3}$)"},
+        {"type": "figure", "value": "좌표평면에 제1사분면 쪽으로 볼록한 곡선 $y=\\frac{3}{x}$(제1사분면 가지만 표시)와 직선 $y=x$가 그려져 있다. $x$축 위 $-2$ 지점에서 위로 올라간 곳(제2사분면)에 점 $\\mathrm{A}$가 있고, $y$축 눈금 $2$가 표시되어 $\\mathrm{A}(-2,~2)$임을 나타낸다. 곡선 $y=\\frac{3}{x}$ 위의 위쪽(직선 $y=x$ 위편)에 점 $\\mathrm{C}$, 아래쪽(직선 $y=x$ 아래편, 오른쪽)에 점 $\\mathrm{B}$가 있으며 두 점은 직선 $y=x$에 대해 대칭이다. 점 $\\mathrm{A}$, $\\mathrm{B}$, $\\mathrm{C}$를 잇는 삼각형 $\\mathrm{ABC}$가 그려져 있다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "11"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "12"}]}
+      ]
+    },
+    {
+      "number": 21,
+      "score": 6,
+      "type": "서술형",
+      "label": "[서술형 1]",
+      "contents": [
+        {"type": "text", "value": "[서술형 1] 다음 물음에 답하여라. (참, 거짓을 판별하는 과정은 쓰지 않아도 됨.) [총 6점]"}
+      ],
+      "sub_questions": [
+        {
+          "number": 1,
+          "score": 3,
+          "contents": [
+            {"type": "text", "value": "[1-1] 명제 ‘$x<3$이고 $y<3$이면 $xy<9$이다.’의 대우를 쓰고, 그것의 참, 거짓을 판별하시오."}
+          ]
+        },
+        {
+          "number": 2,
+          "score": 3,
+          "contents": [
+            {"type": "text", "value": "[1-2] 명제 ‘$x^{2}=y^{2}$이면 $x=y$이다.’의 역을 쓰고, 그것의 참, 거짓을 판별하시오."}
+          ]
+        }
+      ]
+    },
+    {
+      "number": 22,
+      "score": 6,
+      "type": "서술형",
+      "label": "[서술형 2]",
+      "contents": [
+        {"type": "text", "value": "[서술형 2] 정의역이 $X=\\{x|0 \\leq x \\leq 2\\}$, 공역이 $Y=\\{y|-1 \\leq y \\leq 5\\}$인 함수 $f(x)=ax+b$의 역함수가 존재하도록 하는 상수 $a$, $b$에 대하여 $f(2)$의 값을 구하시오. (단, $a<0$)"}
+      ]
+    },
+    {
+      "number": 23,
+      "score": 8,
+      "type": "서술형",
+      "label": "[서술형 3]",
+      "contents": [
+        {"type": "text", "value": "[서술형 3] 실수 전체의 집합에서 정의된 함수"},
+        {"type": "equation", "value": "f(x)=\\begin{cases} \\frac{x-3}{x-2} & (x<1) \\\\ \\sqrt{x-1}+a & (x \\geq 1) \\end{cases}"},
+        {"type": "text", "value": "가 다음 조건을 모두 만족시킬 때, 상수 $a$의 값을 구하시오."},
+        {"type": "text", "value": "<상자> (가) 치역은 $\\{y|y>1\\}$이다. • (나) 임의의 두 실수 $x_{1}$, $x_{2}$에 대하여 $x_{1} \\neq x_{2}$이면 $f(x_{1}) \\neq f(x_{2})$이다."}
+      ]
+    },
+    {
+      "number": 24,
+      "score": 10,
+      "type": "서술형",
+      "label": "[서술형 4]",
+      "contents": [
+        {"type": "text", "value": "[서술형 4] 두 상수 $a$, $b$에 대하여 함수 $f(x)=\\sqrt{-x+a}-b$라 하자. 함수"},
+        {"type": "equation", "value": "g(x)=\\begin{cases} |f(x)|+b & (x \\leq a) \\\\ -f(-x+2a)+|b| & (x>a) \\end{cases}"},
+        {"type": "text", "value": "와 두 실수 $\\alpha$, $\\beta(\\alpha < \\beta)$는 다음 조건을 만족시킨다."},
+        {"type": "text", "value": "<상자> (가) 실수 $t$에 대하여 함수 $y=g(x)$의 그래프와 직선 $y=t$의 교점의 개수를 $h(t)$라 하면 $h(\\alpha) \\times h(\\beta)=4$이다. • (나) 방정식 $\\{g(x)-\\alpha\\}\\{g(x)-\\beta\\}=0$을 만족시키는 실수 $x$의 최솟값은 $-30$, 최댓값은 $15$이다."},
+        {"type": "text", "value": "이 때, $g(15)$의 값은?"}
+      ]
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "exam_id": 4283,
+  "answer_pages": [7],
+  "items": [
+    {"number": 1, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 2, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 3, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 4, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 5, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 6, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 7, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 8, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 9, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 10, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 11, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 12, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 13, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 14, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 15, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 16, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 17, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 18, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 19, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 20, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {
+      "number": 21,
+      "answer": "풀이참고",
+      "solution": "[1-1] 대우명제) $xy \\geq 9$ 이면 $x \\geq 3$ 또는 $y \\geq 3$이다.\n문제에 주어진 명제에서 $x=-3$, $y=-4$ 인 경우 $xy=12$이므로 거짓이다. 따라서 대우도 거짓이다.\n[1-2] $x=y$이면 $x^{2}=y^{2}$이다.\n$x^{2}=y^{2}$은 $x=y$ 또는 $x=-y$ 이므로 주어진 명제의 역은 참이다.",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 22,
+      "answer": "$-1$",
+      "solution": "역함수가 존재하려면 일대일대응이고, $a<0$ 이므로 범위를 통해 $(0,~5)$, $(2,~-1)$을 대입한다.\n$f(x)=ax+b\\,(a<0)$\n$f(0)=a \\times 0+b=5$\n$b=5$\n$f(2)=2a+5=-1$\n$2a=-6$\n$a=-3$\n$f(x)=-3x+5$이므로 $f(2)=-1$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 23,
+      "answer": "$2$",
+      "solution": "$\\frac{x-3}{x-2}=\\frac{(x-2)-1}{x-2}=\\frac{-1}{x-2}+1$\n$y=\\sqrt{x-1}+a$가 $(1,~2)$를 지날 때 다음 조건을 만족시킨다.\n$f(1)=\\sqrt{1-1}+a=2$\n$\\therefore a=2$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 24,
+      "answer": "$3$",
+      "solution": "(ⅰ) $b \\leq 0$일 때\n$g(x)=\\begin{cases} \\sqrt{-x+a} & (x \\leq a) \\\\ -\\sqrt{x-a} & (x>a) \\end{cases}$ 이므로 함수 $y=g(x)$의 그래프는 다음과 같다. (그림: 왼쪽에서 오른쪽으로 계속 감소하며 $x=a$에서 꺾이는 곡선. 직선 $y=t$와 한 점에서만 만난다.)\n(ⅱ) $b>0$일 때\n$g(x)=\\begin{cases} \\sqrt{-x+a} & (x \\leq a-b^{2}) \\\\ -\\sqrt{-x+a}+2b & (a-b^{2}<x \\leq a) \\\\ -\\sqrt{x-a}+2b & (x>a) \\end{cases}$ (그림: $x=a-b^{2}$에서 $y=b$까지 내려왔다가 $x=a$에서 $y=2b$까지 올라간 뒤 다시 감소하는 그래프. 수평선 $y=2b$, $y=b$가 함께 그려져 있다.)\n이므로 $b>0$ 이고, $\\{g(x)-\\alpha\\}\\{g(x)-\\beta\\}=0$를 만족시키는 $x$의 최솟값은 $y=2b$와 만나는 $x$좌표 중 가장 작은 값이고, $x$의 최댓값은 $y=b$와 만나는 $x$좌표 중 가장 큰값이다.\n$g(-30)=2b$, $\\sqrt{30+a}=2b$\n$g(15)=-\\sqrt{15-a}+2b=b$\n두 식을 연립하면 $a=6$, $b=3$이다.\n따라서 $g(15)=3$",
+      "topic": "",
+      "difficulty": ""
+    }
+  ]
+}

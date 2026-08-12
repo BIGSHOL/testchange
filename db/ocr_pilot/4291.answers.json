@@ -1,0 +1,55 @@
+{
+  "exam_id": 4291,
+  "answer_pages": [7],
+  "items": [
+    { "number": 1, "answer": "③", "solution": "", "topic": "", "difficulty": "" },
+    { "number": 2, "answer": "③", "solution": "", "topic": "", "difficulty": "" },
+    { "number": 3, "answer": "②", "solution": "", "topic": "", "difficulty": "" },
+    { "number": 4, "answer": "②", "solution": "", "topic": "", "difficulty": "" },
+    { "number": 5, "answer": "⑤", "solution": "", "topic": "", "difficulty": "" },
+    { "number": 6, "answer": "④", "solution": "", "topic": "", "difficulty": "" },
+    { "number": 7, "answer": "⑤", "solution": "", "topic": "", "difficulty": "" },
+    { "number": 8, "answer": "④", "solution": "", "topic": "", "difficulty": "" },
+    { "number": 9, "answer": "⑤", "solution": "", "topic": "", "difficulty": "" },
+    { "number": 10, "answer": "①", "solution": "", "topic": "", "difficulty": "" },
+    { "number": 11, "answer": "④", "solution": "", "topic": "", "difficulty": "" },
+    { "number": 12, "answer": "④", "solution": "", "topic": "", "difficulty": "" },
+    { "number": 13, "answer": "③", "solution": "", "topic": "", "difficulty": "" },
+    { "number": 14, "answer": "③", "solution": "", "topic": "", "difficulty": "" },
+    { "number": 15, "answer": "③", "solution": "", "topic": "", "difficulty": "" },
+    { "number": 16, "answer": "⑤", "solution": "", "topic": "", "difficulty": "" },
+    { "number": 17, "answer": "①", "solution": "", "topic": "", "difficulty": "" },
+    { "number": 18, "answer": "③", "solution": "", "topic": "", "difficulty": "" },
+    { "number": 19, "answer": "⑤", "solution": "", "topic": "", "difficulty": "" },
+    { "number": 20, "answer": "⑤", "solution": "", "topic": "", "difficulty": "" },
+    { "number": 21, "answer": "④", "solution": "", "topic": "", "difficulty": "" },
+    {
+      "number": 22,
+      "answer": "$-\\frac{7}{3}$",
+      "solution": "점 $(0,~a)$에서 두 직선까지의 거리가 같으므로\n$\\frac{|2a-3|}{\\sqrt{1+4}}=\\frac{|-a+4|}{\\sqrt{4+1}}$\n$2a-3=-a+4$ 또는 $2a-3=a-4$이므로\n$a=\\frac{7}{3}$ 또는 $a=-1$이다.\n따라서 모든 실수 $a$의 값의 곱은 $-\\frac{7}{3}$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 23,
+      "answer": "$1$",
+      "solution": "$y=ax+b$를 $x$축 방향을 $4$만큼, $y$축 방향으로 $-2$만큼 평행이동한 직선은 $y=a(x-4)+b-2$, $y=ax-4a+b-2$ 이다.\n이 직선이 $y=\\frac{1}{2}x+5$와 $y$축 위에서 만나므로 두 직선은 $y$절편이 일치한다.\n$y=ax-4a+b-2$에 $(0,~5)$를 대입하면 $-4a+b-2=5$ $\\cdots$ ㉠\n또한, 두 직선이 수직으로 만나므로 $a\\times\\frac{1}{2}=-1$, $a=-2$\n$a$의 값을 ㉠에 대입하면 $b=-1$\n$\\therefore b-a=-1-(-2)=1$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 24,
+      "answer": "$A\\cup B=\\{0,~1,~4,~5\\}$",
+      "solution": "$A\\cap B=\\{0,~4\\}$이므로 집합 $A$가 $0$, $4$를 원소로 갖는다.\n$a-4$, $a$가 $4$만큼 차이 나는 두 원소이므로 $a-4=0$, $a=4$\n$\\therefore A=\\{0,~4,~5\\}$, $B=\\{0,~1,~4\\}$ 이고 $A\\cup B=\\{0,~1,~4,~5\\}$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 25,
+      "answer": "$87$",
+      "solution": "조건 (나)를 만족하려면 $4$와 $8$ 중 적어도 하나는 $X$의 원소여야 한다.\nⅰ) $4\\in X$, $8\\notin X$인 경우, $2$와 $6$ 중 적어도 하나는 $X$에 포함되어야 한다. (나머지 원소 $3$, $5$, $7$)\n$\\{2,~3,~5,~6,~7\\}$의 부분집합의 개수에서 $\\{3,~5,~7\\}$의 부분집합의 개수를 빼면 $2^{5}-2^{3}=24$\nⅱ) $8\\in X$인 경우, 어떤 원소든 적어도 하나 더 가지면 된다. $2^{6}-1=63$\nⅰ), ⅱ)에 의해 $24+63=87$개",
+      "topic": "",
+      "difficulty": ""
+    }
+  ]
+}

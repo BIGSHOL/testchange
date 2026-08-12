@@ -1,0 +1,181 @@
+{
+  "exam_id": 4305,
+  "answer_pages": [7, 8, 9],
+  "items": [
+    {
+      "number": 1,
+      "answer": "②",
+      "solution": "$-10$ [교과서 p73-5번]",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 2,
+      "answer": "④",
+      "solution": "[24-1-기말-5번]",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 3,
+      "answer": "①",
+      "solution": "$a \\leq -1$ [교과서 p93-11번]\n$\\begin{cases} x^{2}-4x-5 \\leq 0 & \\cdots\\cdots ① \\\\ (x-a)(x-3) > 0 & \\cdots\\cdots ② \\end{cases}$\n①에서 $(x+1)(x-5) \\leq 0$\n$-1 \\leq x \\leq 5$\n(i) $a=3$ 일 때\n부등식 ②의 해는 $x \\neq 3$인 모든 실수\n이때 연립부등식의 해는 $-1 \\leq x < 3$ 또는 $3 < x \\leq 5$\n(ii) $a > 3$일 때\n부등식 ②의 해는 $x < 3$ 또는 $x > a$\n이때 연립부등식의 해는 $3 < x \\leq 5$가 될 수 없다.\n(iii) $a < 3$ 일 때\n부등식 ②의 해는 $x < a$ 또는 $x > 3$\n이때 아래 그림에서 연립부등식의 해는 $3 < x \\leq 5$\n(수직선 위에 $-1$, $3$, $5$를 표시하고 ①의 해 $-1 \\leq x \\leq 5$와 ②의 해가 겹치는 구간 $3 < x \\leq 5$를 색칠한 그림)\n위에서 연립부등식의 해가 $3 < x \\leq 5$가 되도록 하는 실수 $a$의 값의 범위는 $a \\leq -1$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 4,
+      "answer": "③",
+      "solution": "$0$ [교과서 p96-10번]\n$x^{4}+2x^{2}+81=0$에서\n$(x^{2}+9)^{2}-(4x)^{2}=0$, $(x^{2}+4x+9)(x^{2}-4x+9)=0$\n$x^{2}+4x+9=0$ 또는 $x^{2}-4x+9=0$\n이차방정식 $x^{2}+4x+9=0$의 두 근을 $x_{1}$, $x_{2}$라 하고,\n이차방정식 $x^{2}-4x+9=0$의 두 근을 $x_{3}$, $x_{4}$라 하면\n이차방정식의 근과 계수의 관계로부터\n$x_{1}+x_{2}=-4$, $x_{1}x_{2}=9$\n$x_{3}+x_{4}=4$, $x_{3}x_{4}=9$\n따라서 $\\frac{1}{x_{1}}+\\frac{1}{x_{2}}+\\frac{1}{x_{3}}+\\frac{1}{x_{4}}=\\frac{x_{1}+x_{2}}{x_{1}x_{2}}+\\frac{x_{3}+x_{4}}{x_{3}x_{4}}$\n$=\\frac{-4}{9}+\\frac{4}{9}=0$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 5,
+      "answer": "②",
+      "solution": "[24-1-기말-4번]",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 6,
+      "answer": "⑤",
+      "solution": "$5$ [교과서 p96-14번]",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 7,
+      "answer": "⑤",
+      "solution": "$10$ [교과서 p119-9번]",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 8,
+      "answer": "①",
+      "solution": "$4280$ [교과서 p119-11번]\n네 자리 자연수를 작은 것부터 순서대로 나열해야 하므로\n천의 자리 숫자가 $2$, $4$, $6$, $8$인 네 자리 자연수의 개수를 차례대로 구해본다.\n천의 자리 숫자가 $2$인 경우의 수는 ${}_{4}\\mathrm{P}_{3}=24$\n천의 자리 숫자가 $4$이고, 백의 자리 숫자가 $0$인 경우의 수는 ${}_{3}\\mathrm{P}_{2}=6$\n따라서 $35$째 수는 천의 자리 숫자가 $4$이고 백의 자리 숫자가 $2$인 수를 작은 수부터 순서대로 나열한\n$4206,~4208,~4260,~4268,~4280,\\cdots$ 중에서 $5$째 수이므로 $4280$이다.",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 9,
+      "answer": "②",
+      "solution": "$5$ [교과서 p119-12번]\n이차방정식 $3x^{2}-{}_{n}\\mathrm{C}_{r}x-3{}_{n}\\mathrm{P}_{r}=0$의 두 근이 $-2$와 $3$이므로 근과 계수와의 관계로부터\n(두 근의 합)$=\\frac{{}_{n}\\mathrm{C}_{r}}{3}=1$에서 ${}_{n}\\mathrm{C}_{r}=3$\n(두 근의 곱)$=\\frac{-3{}_{n}\\mathrm{P}_{r}}{3}=-6$ 이므로 ${}_{n}\\mathrm{P}_{r}=6$\n${}_{n}\\mathrm{C}_{r}=\\frac{{}_{n}\\mathrm{P}_{r}}{r!}$이므로 $3=\\frac{6}{r!}$\n즉 $r!=2$에서 $r=2$\n${}_{n}\\mathrm{P}_{2}=n(n-1)=6$에서 $n=3$\n따라서 구하는 값은 $n+r=5$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 10,
+      "answer": "④",
+      "solution": "$\\begin{pmatrix} -6 & 21 \\\\ 3 & 12 \\end{pmatrix}$ [교과서 p137-3번]",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 11,
+      "answer": "④",
+      "solution": "$15$ [교과서 p138-10번]\n$A^{2}=AA=\\begin{pmatrix} 1 & 2 \\\\ 0 & 1 \\end{pmatrix}\\begin{pmatrix} 1 & 2 \\\\ 0 & 1 \\end{pmatrix}=\\begin{pmatrix} 1 & 4 \\\\ 0 & 1 \\end{pmatrix}$\n$A^{3}=A^{2}A=\\begin{pmatrix} 1 & 4 \\\\ 0 & 1 \\end{pmatrix}\\begin{pmatrix} 1 & 1 \\\\ 2 & 0 \\end{pmatrix}=\\begin{pmatrix} 1 & 6 \\\\ 0 & 1 \\end{pmatrix}$\n$A^{4}=A^{3}A=\\begin{pmatrix} 1 & 6 \\\\ 0 & 1 \\end{pmatrix}\\begin{pmatrix} 1 & 2 \\\\ 0 & 1 \\end{pmatrix}=\\begin{pmatrix} 1 & 8 \\\\ 0 & 1 \\end{pmatrix}$\n$\\vdots$\n$A^{n}=\\begin{pmatrix} 1 & 2n \\\\ 0 & 1 \\end{pmatrix}$\n이므로 $A^{15}=\\begin{pmatrix} 1 & 30 \\\\ 0 & 1 \\end{pmatrix}$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 12,
+      "answer": "②",
+      "solution": "[절대등급 p106-16번]\n$A=\\begin{pmatrix} -2 & -3 \\\\ 1 & 1 \\end{pmatrix}$\n$A^{2}=AA=\\begin{pmatrix} -2 & -3 \\\\ 1 & 1 \\end{pmatrix}\\begin{pmatrix} -2 & -3 \\\\ 1 & 1 \\end{pmatrix}=\\begin{pmatrix} 1 & 3 \\\\ -1 & -2 \\end{pmatrix}$\n$A^{3}=A^{2}A=\\begin{pmatrix} 1 & 3 \\\\ -1 & -2 \\end{pmatrix}\\begin{pmatrix} -2 & -3 \\\\ 1 & 1 \\end{pmatrix}=\\begin{pmatrix} 1 & 0 \\\\ 0 & 1 \\end{pmatrix}=E$\n이때, $A+A^{2}+A^{3}=O$이므로\n$A^{4}+A^{5}+A^{6}=A^{3}A+A^{3}A^{2}+A^{3}A^{3}=A+A^{2}+A^{3}=O$\n$A^{7}+A^{8}+A^{9}=A^{6}A+A^{7}A+A^{8}A=A+A^{2}+A^{3}=O$\n$A^{19}+A^{20}=A^{18}A+A^{19}A=A+A^{2}=-E$\n$\\therefore A+A^{2}+A^{3}+ \\cdots +A^{20}=-E$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 13,
+      "answer": "③",
+      "solution": "$2048$ [절대등급 p106-17번]\n$x^{3}-1=(x-1)(x^{2}+x+1)$의 한 허근이 $\\omega$이므로\n$\\omega^{3}=1$, $\\omega^{2}+\\omega+1=0$\n$A=\\begin{pmatrix} \\omega^{2} & 1 \\\\ \\omega & \\omega+1 \\end{pmatrix}$\n$A^{2}=\\begin{pmatrix} \\omega^{2} & 1 \\\\ \\omega & \\omega+1 \\end{pmatrix}\\begin{pmatrix} \\omega^{2} & 1 \\\\ \\omega & \\omega+1 \\end{pmatrix}$\n$=\\begin{pmatrix} \\omega^{4}+\\omega & \\omega^{2}+\\omega+1 \\\\ \\omega^{3}+\\omega^{2}+\\omega & \\omega^{2}+3\\omega+1 \\end{pmatrix}=\\begin{pmatrix} 2\\omega & 0 \\\\ 0 & 2\\omega \\end{pmatrix}=2\\omega E$\n이므로\n$A^{4}=A^{2}A^{2}=(2\\omega E)(2\\omega E)=2^{2}\\omega^{2}E^{2}=2^{2}\\omega^{2}E$\n$A^{6}=A^{4}A^{2}=(2^{2}\\omega^{2}E)(2\\omega E)=2^{3}\\omega^{3}E^{2}=2^{3}\\omega^{3}E$\n$\\vdots$\n$A^{20}=2^{10}\\omega^{10}E$\n그런데 $\\omega^{10}=(\\omega^{3})^{3}\\omega=\\omega$ 이므로\n$A^{20}=2^{10}\\omega E=\\begin{pmatrix} 2^{10}\\omega & 0 \\\\ 0 & 2^{10}\\omega \\end{pmatrix}$\n따라서 모든 성분의 합은 $2^{11}\\omega$이므로\n$a=2^{11}=2048$, $b=0$\n$\\therefore a-b=2048$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 14,
+      "answer": "⑤",
+      "solution": "[절대등급 p106-18번]\n$A=\\begin{pmatrix} 0 & -1 \\\\ 1 & 0 \\end{pmatrix}$\n$A^{2}=AA=\\begin{pmatrix} 0 & -1 \\\\ 1 & 0 \\end{pmatrix}\\begin{pmatrix} 0 & -1 \\\\ 1 & 0 \\end{pmatrix}=\\begin{pmatrix} -1 & 0 \\\\ 0 & -1 \\end{pmatrix}=-E$\n$A^{3}=A^{2}A=-EA=-A$\n$A^{4}=A^{3}A=-A^{2}=E$\n이므로\n$A=A^{5}=A^{9}=A^{13}=A^{17}$\n$A^{2}=A^{6}=A^{10}=A^{14}=A^{18}$\n$A^{3}=A^{7}=A^{11}=A^{15}=A^{19}$\n$A^{4}=A^{8}=A^{12}=A^{16}=A^{20}$\n따라서 구하는 순서쌍 $(m,~n)$의 개수는 $40$이다.",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 15,
+      "answer": "③",
+      "solution": "[24-1-기말-6번]",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 16,
+      "answer": "①",
+      "solution": "[24-2-기말-15번]",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 17,
+      "answer": "④",
+      "solution": "[24-2-기말-14번 변형]",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 18,
+      "answer": "③",
+      "solution": "[24-1학기 기말 8번]",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 19,
+      "answer": "①",
+      "solution": "$10$ [23-2-기말-서답형 1번]",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 20,
+      "answer": "④",
+      "solution": "[23-2-기말-12번]",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 21,
+      "answer": "16",
+      "solution": "[서술형 1] $16$ [24-1-기말-17번(단답형1)]\n$f(-3)=f(1)$ 이므로 대칭축은 $x=-1$\n$f(x)=p(x+1)^{2}+q$ 하면 $|f(-3)|=f(3)(\\geq 0)$이므로\n$f(3) > 0$, $f(-3) < 0$을 알 수 있다.\n$\\therefore f(-3)=-f(3)$\n대입하면 $4p+q=-16p-q$, $q=-10p$\n$f(x)=p(x+1)^{2}-10p$\n(i) $p > 0$일 때, $36p-10p=39$, $p=\\frac{3}{2}$\n$f(x)=\\frac{3}{2}(x+1)^{2}-15$  $\\therefore a=-1$, $m=-15$\n(ii) $p < 0$일 때, $f(-3) > 0$ 조건 만족하지 않음",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 22,
+      "answer": "108",
+      "solution": "[서술형 2] $108$ [교과서 p116-9번]\n$ab+c$의 값이 홀수인 경우는 $ab$의 값이 짝수이고 $c$가 홀수인 경우와 $ab$의 값이 홀수이고 $c$가 짝수인 경우이다.\n(i) $ab$의 값이 짝수이고 $c$가 홀수인 경우\n나오는 눈의 수 $a$, $b$, $c$가\n(짝수, 짝수, 홀수)인 경우의 수는\n$3 \\times 3 \\times 3=27$,\n(홀수, 짝수, 홀수)인 경우의 수는\n$3 \\times 3 \\times 3=27$,\n(짝수, 홀수, 홀수)인 경우의 수는\n$3 \\times 3 \\times 3=27$\n(ii) $ab$의 값이 홀수이고 $c$가 짝수인 경우\n나오는 눈의 수 $a$, $b$, $c$가\n(홀수, 홀수, 짝수)인 경우의 수는\n$3 \\times 3 \\times 3=27$\n따라서 구하는 경우의 수는\n$27+27+27+27=108$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 23,
+      "answer": "(1) 9 (2) 11",
+      "solution": "[서술형 3] [24-1-기말-서술형 4]\n(1) $9$ (2) $11$\n(1) $\\begin{cases} (2x+y)(x-y)=0 \\\\ x^{2}+2y^{2}=9 \\end{cases}$ 이므로\n$\\begin{cases} x-y=0 \\\\ x^{2}+2y^{2}=9 \\end{cases}$ 또는 $\\begin{cases} 2x+y=0 \\\\ x^{2}+2y^{2}=9 \\end{cases}$ 이다.\n(i) $x=y$일 때, $x^{2}=3$, $y^{2}=3$이므로 $x^{2}y^{2}=9$\n(ii) $y=-2x$ 일 때, $x^{2}=1$, $y^{2}=4$ 이므로\n$x^{2}y^{2}=4$  $\\therefore a=9$\n(2) $\\begin{cases} (x-12)(x+3) \\leq 0 \\\\ (x-4)(x-8) > 0 \\end{cases}$ 풀면\n$-3 \\leq x \\leq 12$, $x > 8$ 또는 $x < 4$\n연립부등식 해 $-3 \\leq x < 4$, $8 < x \\leq 12$ 를\n만족시키는 정수는 $-3,~-2,~-1,~0,~1,~2,~3,~9,~10,~11,~12$로 $11$개다.",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 24,
+      "answer": "24",
+      "solution": "[서술형 4] $24$가지 [24-2-기말-18번]\n(가) 조건에 의하여 $\\mathrm{A}$는 $37$번 의자에 앉아야한다.\n(나) 조건에 의하여 $36$번과 $38$번에 의자는 앉지못한다.\n(다) 조건에 의하여 $25$번 의자는 앉지못한다.\n$\\mathrm{B}$가 앉을 수 있는 의자는 $21,~22,~23,~24$번 의자이고,\n$25$번 의자를 기준으로 왼쪽과 오른쪽에 각각 $1$명씩 앉으면 되므로, 경우를 나누어서 보면\n(표) A자리 $37$ / B자리 $21$ — 다른 2명이 앉을 수 있는 자리 $23,~24$ 또는 $26,~27$ — 경우의 수 $2 \\times 2 \\times 2=8$\n(표) A자리 $37$ / B자리 $22$ — 다른 2명이 앉을 수 있는 자리 $24$ 또는 $26,~27$ — 경우의 수 $1 \\times 2 \\times 2=4$\n(표) A자리 $37$ / B자리 $23$ — 다른 2명이 앉을 수 있는 자리 $21$ 또는 $26,~27$ — 경우의 수 $1 \\times 2 \\times 2=4$\n(표) A자리 $37$ / B자리 $24$ — 다른 2명이 앉을 수 있는 자리 $21,~22$ 또는 $26,~27$ — 경우의 수 $2 \\times 2 \\times 2=8$\n$\\therefore 8+4+4+8=24$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 25,
+      "answer": "(1) 66 (2) 36",
+      "solution": "[서술형 5] (1) $66$ (2) $36$ [23-2-기말-서답형2번]\n(1) 서로 다른 두 점을 선택하기만 하면 직선이 만들어진다.\n${}_{12}\\mathrm{C}_{2}=66$\n(2) $12$개의 점 중에서 두 점을 선택하면 경우의 수는\n${}_{12}\\mathrm{C}_{2}=66$\n중복되는 직선을 빼준다.\n(i) 서로 다른 세 점으로 이루어진 직선\n세 점으로 이루어진 직선은 $8$개이고 한 직선에 중복되는 직선의 수는 ${}_{3}\\mathrm{C}_{2}-1=2$\n따라서 중복되는 직선의 수는 $2 \\times 8=16$개\n(ii) 서로 다른 네 점으로 이루어진 직선\n네 점으로 이루어진 직선은 $1$개이고 한 직선에 중복되는 직선의 수는 ${}_{4}\\mathrm{C}_{2}-1=5$이므로 중복되는 직선의 수는 $5$개\n(iii) 서로 다른 다섯 개의 점으로 이루어진 직선\n다섯 개의 점으로 이루어진 직선은 $1$개이고 한 직선에 중복되는 직선의 수는 ${}_{5}\\mathrm{C}_{2}-1=9$이므로 중복되는 직선의 수는 $9$개\n따라서 총 직선의 개수는 $66-(16+5+9)=36$",
+      "topic": "",
+      "difficulty": ""
+    }
+  ]
+}

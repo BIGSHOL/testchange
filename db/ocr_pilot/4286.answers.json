@@ -1,0 +1,31 @@
+{
+  "exam_id": 4286,
+  "answer_pages": [7],
+  "items": [
+    {"number": 1, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 2, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 3, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 4, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 5, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 6, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 7, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 8, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 9, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 10, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 11, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 12, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 13, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 14, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 15, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 16, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 17, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 18, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 19, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 20, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 21, "answer": "$a=-5$, $b=-6$, $x=3$ or $x=1+i$", "solution": "$x=1-i$를 대입하면\n$(1-i)^{3}+a(1-i)^{2}+8(1-i)+b=0$에서\n$(b+6)-2(a+5)i=0$이므로 $a=-5$, $b=-6$이다.\n$x^{3}-5x^{2}+8x-6=(x-3)(x^{2}-2x+2)$이므로\n방정식의 나머지 두 근은 $x=3$ or $x=1+i$이다.", "topic": "", "difficulty": ""},
+    {"number": 22, "answer": "$a \\geq 1$", "solution": "$x^{2}-(a-1)x-a<0$을 풀면 $-1<x<a$이다.\n$x^{2}+(a+5)x+5a<0$에서\n① $a>5$일 때, $-a<x<-5$이므로 해가 없다.\n② $a=5$일 때, 해가 없다.\n③ $0<a<5$일 때, $-5<x<-a$이고 해가 존재하지 않으려면 $-a \\leq -1$이어야 하므로 $1 \\leq a<5$이다.\n따라서 $a \\geq 1$이다.", "topic": "", "difficulty": ""},
+    {"number": 23, "answer": "$30$", "solution": "$2700=2^{2} \\times 3^{3} \\times 5^{2}$의 양의 약수 중 홀수는 3, 5의 거듭제곱으로만 나온다.\n따라서 $a=4 \\times 3=12$\n15의 배수는 $15(2^{2} \\times 3^{2} \\times 5^{1})$에서 $2^{2} \\times 3^{2} \\times 5^{1}$의 약수의 개수와 같으므로 $b=3 \\times 3 \\times 2=18$\n따라서 $a+b=30$", "topic": "", "difficulty": ""},
+    {"number": 24, "answer": "(1) $120$ (2) $240$ (3) $60$", "solution": "(1) $5!=120$\n(2) 5가지 색 중 4가지 색을 선택하는 경우의 수는 $_{5}\\mathrm{C}_{4}=5$\n(마)를 칠하는 경우의 수는 4, 나머지 3가지 색 중 하나의 색은 2번 색칠 해야 하므로 $_{3}\\mathrm{C}_{1}=3$\n(가)=(다) 또는 (나)=(라)인 경우 2, 남은 두 영역에 칠하는 경우의 수는 2\n따라서 $5 \\times 4 \\times 3 \\times 2 \\times 2=240$\n(3) 5가지 색 중 3가지 색을 선택하는 경우의 수는 $_{5}\\mathrm{C}_{3}=10$ (가)=(다), (나)=(라), (마)에 서로 다른 3개의 색을 칠하는 경우의 수는 $3 \\neq 6$이므로 $10 \\times 6=60$", "topic": "", "difficulty": ""},
+    {"number": 25, "answer": "$X=\\begin{pmatrix} 1 & 1 \\\\ 2 & 1 \\end{pmatrix}$, $Y=\\begin{pmatrix} 3 & 4 \\\\ 1 & 1 \\end{pmatrix}$", "solution": "①$-$②$\\times 2$를 하면 $5X=B-2A$이고\n$5X=\\begin{pmatrix} 5 & 5 \\\\ 10 & 5 \\end{pmatrix}$이므로 $X=\\begin{pmatrix} 1 & 1 \\\\ 2 & 1 \\end{pmatrix}$이다.\n②에서 $Y=A+2X$이므로 $Y=\\begin{pmatrix} 3 & 4 \\\\ 1 & 1 \\end{pmatrix}$이다.", "topic": "", "difficulty": ""}
+  ]
+}

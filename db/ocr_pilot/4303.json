@@ -1,0 +1,289 @@
+{
+  "meta": {"exam_id": 4303, "ocr_source": "session-vision"},
+  "header": {"title": "대건고 1학년 공통수학1 - 2025년 1학기 중간고사 (다항식의 연산 ~ 여러 가지 방정식)"},
+  "questions": [
+    {
+      "number": 1,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "$2i(3+2i)$의 값은? (단, $i=\\sqrt{-1}$ 이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-4+6i"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-4+8i"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-4+10i"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "-2+6i"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "-2+8i"}]}
+      ]
+    },
+    {
+      "number": 2,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "두 다항식 $A=2x^{2}+3x+4$, $B=-x^{2}+3x-2$에 대하여 $2A+B$를 간단히 하면?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "x^{2}+3x+6"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "x^{2}+6x+9"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3x^{2}+6x+9"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "3x^{2}+9x+6"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "6x^{2}+9x+6"}]}
+      ]
+    },
+    {
+      "number": 3,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "이차방정식 $x^{2}-x+2=0$의 두 근을 $\\alpha, \\beta$라 할 때, $\\alpha+\\beta+\\alpha\\beta$의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+      ]
+    },
+    {
+      "number": 4,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "다항식 $f(x)=x^{3}+2x^{2}+ax-6$이 $x-2$를 인수로 가질 때, 상수 $a$의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-5"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-4"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "-1"}]}
+      ]
+    },
+    {
+      "number": 5,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "다음은 다항식 $6x^{3}+2x^{2}-x+2$를 $3x-2$로 나눈 몫과 나머지를 구하기 위해 조립제법을 이용하는 과정이다. 이때, $3(a+b+c)$의 값은? (단, $a, b, c$는 상수이다.)"},
+        {"type": "figure", "value": "조립제법 표. 왼쪽 세로선 바깥 위에 네모 상자 안 문자 a(나눗셈에 쓰는 값)가 있고, 세로선 오른쪽 첫 행에 피제식의 계수 6, 2, -1, 2 가 차례로 적혀 있다. 둘째 행에는 2, -1, 2 아래에 각각 빈 네모 상자 3개가 있다. 가로선 아래 셋째 행에는 왼쪽부터 6, 빈 네모 상자, 네모 상자 안 문자 b 가 있고, 그 오른쪽에 나머지를 구분하는 꺾은 세로선이 있으며 그 뒤 네모 상자 안에 문자 c(나머지)가 있다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "21"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "22"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "23"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "24"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "25"}]}
+      ]
+    },
+    {
+      "number": 6,
+      "score": 4.1,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "이차함수 $y=-2x^{2}+5x+k$의 그래프가 $x$축에 접할 때, 상수 $k$의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-\\frac{25}{8}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-3"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-\\frac{23}{8}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "-\\frac{11}{4}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "-\\frac{21}{8}"}]}
+      ]
+    },
+    {
+      "number": 7,
+      "score": 4.3,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "$\\sqrt{-3}\\times\\left(\\sqrt{-27}+\\frac{\\sqrt{6}}{\\sqrt{-2}}\\right)$의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-12"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-6"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "12"}]}
+      ]
+    },
+    {
+      "number": 8,
+      "score": 4.4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "$x=2+2\\sqrt{2}$, $y=2+3\\sqrt{2}$일 때, $27x^{3}-54x^{2}y+36xy^{2}-8y^{3}$의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2\\sqrt{2}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "16\\sqrt{2}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "64"}]}
+      ]
+    },
+    {
+      "number": 9,
+      "score": 4.5,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "모든 실수 $x$에 대하여 등식 $(x^{2}-x+1)(x^{2}+2x+3)=x^{4}+x^{3}+ax^{2}+bx+3$ 이 성립할 때, $3a+b$의 값은? (단, $a$, $b$는 상수이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+      ]
+    },
+    {
+      "number": 10,
+      "score": 4.6,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "연립방정식"},
+        {"type": "equation", "value": "\\begin{cases} x-y=3 \\\\ 2x^{2}+y^{2}=6 \\end{cases}"},
+        {"type": "text", "value": "의 해를 $x=a$, $y=b$라 할 때, $4a+3b$의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "1"}]}
+      ]
+    },
+    {
+      "number": 11,
+      "score": 4.7,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "점 $(0,~k)$를 지나고 기울기가 $-2$인 직선과 이차함수 $y=-x^{2}+6x-7$의 그래프가 서로 다른 두 점에서 만나도록 하는 정수 $k$의 최댓값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "8"}]}
+      ]
+    },
+    {
+      "number": 12,
+      "score": 4.7,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "$x$에 대한 이차방정식 $x^{2}-2(a-1)x+(a^{2}-3a-1)=0$이 서로 다른 두 실근을 갖도록 하는 정수 $a$의 최솟값을 $m$, $x$에 대한 이차방정식 $x^{2}-bx+(b+3)=0$이 중근을 갖도록 하는 정수 $b$의 최댓값을 $M$이라 할 때, $m+M$의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+      ]
+    },
+    {
+      "number": 13,
+      "score": 4.8,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "사차방정식 $x^{4}+5x^{3}+6x^{2}-3x-9=0$의 서로 다른 두 허근을 $\\alpha$, $\\beta$라 할 때, $(\\alpha^{2}+\\alpha)+(\\beta^{2}+\\beta)$의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "2"}]}
+      ]
+    },
+    {
+      "number": 14,
+      "score": 4.9,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "$x$에 대한 이차함수 $y=x^{2}-3kx+k^{2}+2k$의 그래프와 직선 $y=2x+3$의 두 교점의 $x$좌표를 각각 $\\alpha$, $\\beta$라고 하자. $-1 \\leq k \\leq 3$일 때, $(2\\alpha-3)(2\\beta-3)$의 최댓값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-13"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-9"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-5"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "3"}]}
+      ]
+    },
+    {
+      "number": 15,
+      "score": 5.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "삼차다항식 $f(x)$를 $x^{2}+2x-3$으로 나눈 나머지가 $-5x+1$이고, $x^{2}-x-1$로 나눈 나머지가 $6x+1$일 때, $f(3)$의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "91"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "92"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "93"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "94"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "95"}]}
+      ]
+    },
+    {
+      "number": 16,
+      "score": 12.0,
+      "type": "서술형",
+      "label": "[서술형 1]",
+      "contents": [
+        {"type": "text", "value": "[서술형 1] 두 실수 $x$, $y$에 대하여 $x+y=1$, $x^{2}+y^{2}=7$ (단, $x>y$) 일 때, 다음 물음에 답하시오."}
+      ],
+      "choices": [],
+      "sub_questions": [
+        {"number": 1, "score": 4.0, "contents": [{"type": "text", "value": "곱셈공식 $(x+y)^{2}=x^{2}+2xy+y^{2}$을 이용하여 $xy$의 값을 구하고, 그 과정을 서술하시오."}]},
+        {"number": 2, "score": 4.0, "contents": [{"type": "text", "value": "(1)의 풀이과정 및 결과를 이용하여 $x-y$의 값을 구하고, 그 과정을 서술하시오."}]},
+        {"number": 3, "score": 4.0, "contents": [{"type": "text", "value": "(1)과 (2)의 풀이과정 및 결과를 이용하여 $x^{3}-y^{3}$의 값을 구하고, 그 과정을 서술하시오."}]}
+      ]
+    },
+    {
+      "number": 17,
+      "score": 11.0,
+      "type": "서술형",
+      "label": "[서술형 2]",
+      "contents": [
+        {"type": "text", "value": "[서술형 2] 복소수 $z=\\frac{\\sqrt{2}}{1+i}$에 대한 다음 물음에 답하시오. (단, $i=\\sqrt{-1}$)"}
+      ],
+      "choices": [],
+      "sub_questions": [
+        {"number": 1, "score": 3.0, "contents": [{"type": "text", "value": "$z=a+bi$를 만족하는 두 실수 $a$, $b$의 값을 모두 구하고, 그 과정을 서술하시오."}]},
+        {"number": 2, "score": 4.0, "contents": [{"type": "text", "value": "$z^{n}=-z$를 만족하는 최소의 자연수 $n$의 값을 구하고, 그 과정을 서술하시오."}]},
+        {"number": 3, "score": 4.0, "contents": [{"type": "text", "value": "$z+z^{2}+z^{3}+z^{4}+z^{5}+z^{6}+z^{7}$의 값을 구하고, 그 과정을 서술하시오."}]}
+      ]
+    },
+    {
+      "number": 18,
+      "score": 11.0,
+      "type": "서술형",
+      "label": "[서술형 3]",
+      "contents": [
+        {"type": "text", "value": "[서술형 3] 실수 $k$에 대하여 $k \\leq x \\leq k+3$에서 이차함수 $f(x)=x^{2}-6x-7$의 최댓값과 최솟값의 차가 15가 되도록 하는 실수 $k$의 값을 모두 구하고, 그 과정을 서술하시오."}
+      ],
+      "choices": []
+    }
+  ]
+}

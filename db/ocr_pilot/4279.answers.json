@@ -1,0 +1,62 @@
+{
+ "exam_id": 4279,
+ "answer_pages": [4, 5],
+ "items": [
+  {
+   "number": 1,
+   "answer": "(1) $4$ (2) $-6$",
+   "solution": "(1) $x^{6}-1=0$\n$(x^{3}-1)(x^{3}+1)=0$\n$(x-1)(x^{2}+x+1)(x+1)(x^{2}-x+1)=0$\n$x^{2}+x+1=0$의 두 근을 $\\alpha$, $\\beta$\n$x^{2}-x+1=0$의 두 근을 $\\gamma$, $\\delta$라 하면\n$\\therefore \\alpha+\\frac{1}{\\alpha}=\\beta+\\frac{1}{\\beta}=-1$, $\\gamma+\\frac{1}{\\gamma}=\\delta+\\frac{1}{\\delta}=1$\n따라서 $\\left|\\alpha+\\frac{1}{\\alpha}\\right|+\\left|\\beta+\\frac{1}{\\beta}\\right|+\\left|\\gamma+\\frac{1}{\\gamma}\\right|+\\left|\\delta+\\frac{1}{\\delta}\\right|=4$\n(2) $x^{2}+x+1=0$의 두 근을 $\\alpha$, $\\beta$\n$x^{2}-x+1=0$의 두 근을 $\\gamma$, $\\delta$라 하면\n$\\alpha^{2}+\\beta^{2}=(\\alpha+\\beta)^{2}-2\\alpha\\beta=-1$\n$\\gamma^{2}+\\delta^{2}=(\\gamma+\\delta)^{2}-2\\gamma\\delta=-1$\n$\\alpha^{3}=\\beta^{3}=1$, $\\gamma^{3}=\\delta^{3}=-1$\n$\\therefore \\alpha^{20}=\\alpha^{2}$, $\\beta^{20}=\\beta^{2}$, $\\gamma^{20}=\\gamma^{2}$, $\\delta^{20}=\\delta^{2}$\n$\\frac{2\\alpha+3}{\\alpha^{20}}+\\frac{2\\beta+3}{\\beta^{20}}+\\frac{2\\gamma+3}{\\gamma^{20}}+\\frac{2\\delta+3}{\\delta^{20}}$\n$=\\frac{2\\alpha+3}{\\alpha^{2}}+\\frac{2\\beta+3}{\\beta^{2}}+\\frac{2\\gamma+3}{\\gamma^{2}}+\\frac{2\\delta+3}{\\delta^{2}}$\n$=\\frac{2\\alpha\\beta(\\alpha+\\beta)+3(\\alpha^{2}+\\beta^{2})}{(\\alpha\\beta)^{2}}+\\frac{2\\gamma\\delta(\\gamma+\\delta)+3(\\gamma^{2}+\\delta^{2})}{(\\gamma\\delta)^{2}}$\n$=\\frac{2\\times 1\\times(-1)+3\\times(-1)}{1}+\\frac{2\\times 1\\times 1+3\\times(-1)}{1}$\n$=-5+(-1)=-6$",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 2,
+   "answer": "(1) $k<2$, $2<k<\\frac{9}{4}$ (2) $\\frac{20}{9}$",
+   "solution": "(1) $x^{3}-4x^{2}+(k+3)x-k=0$에서\n$(x-1)(x^{2}-3x+k)=0$\n$\\alpha$, $\\beta$는 $x^{2}-3x+k=0$의 1이 아닌 서로 다른 두 실근이어야 하므로\n$D=9-4k>0$\n$\\therefore k<\\frac{9}{4}$\n또한 1은 $x^{2}-3x+k=0$의 근이 되면 안되므로\n$1-3+k\\neq 0$\n$\\therefore k\\neq 2$\n$\\therefore k<2$, $2<k<\\frac{9}{4}$\n(2) $x^{2}-3x+k=0$에서\n$\\alpha+\\beta=3$, $\\alpha\\beta=k$\n$\\alpha>\\beta$라 하면 $\\alpha>1$이고 피타고라스정리에서\n$\\alpha^{2}=1^{2}+\\beta^{2}$\n$(\\alpha+\\beta)(\\alpha-\\beta)=1$\n$\\alpha-\\beta=\\frac{1}{3}$\n$\\therefore \\alpha=\\frac{5}{3}$, $\\beta=\\frac{4}{3}$\n$\\therefore k=\\alpha\\beta=\\frac{20}{9}$",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 3,
+   "answer": "(1) 해설참조 (2) 해설참조 (3) $-3$, $\\frac{1}{2}$ (4) $x<-3$, $x>\\frac{1}{2}$",
+   "solution": "(1) $y=2x^{2}+4x-1=2(x+1)^{2}-3$이므로 대칭축 $x=-1$, $y$절편 $(0,~-1)$\n(아래로 볼록한 포물선으로, 직선 $x=-1$을 대칭축으로 하고 꼭짓점은 $(-1,~-3)$이다.)\n(2) $y=|x-2|$에서 $x\\geq 2$이면 $y=x-2$이고 $x<2$이면 $y=-x+2$다. 그래프는 아래와 같으며 $x$절편 $(2,~0)$, $y$절편 $(0,~2)$\n(3) (1)과 (2)의 그래프에 의해 $x\\leq 2$일 때, 두 그래프의 교점은\n$2x^{2}+4x-1=-x+2$\n$\\therefore x=-3$, $\\frac{1}{2}$\n(4) (1)~(3)의 결과를 이용하여 $2x^{2}+4x-1>|x-2|$의 해를 구하면 $x<-3$, $x>\\frac{1}{2}$",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 4,
+   "answer": "(1) $-2<x<\\frac{1}{2}$ (2) $a\\geq\\frac{1}{2}$",
+   "solution": "(1) $(x+2)(2x-1)<0$\n$\\therefore -2<x<\\frac{1}{2}$\n(2) $\\begin{cases} -2x^{2}-3x+2>0 \\\\ (x-a)(2x+1)\\geq 0 \\end{cases}$ 에서 $(x+2)(2x-1)<0$\n$\\therefore -2<x<\\frac{1}{2}$ 이고 연립부등식의 해가\n$-2<x\\leq-\\frac{1}{2}$이므로 수직선에 표현하면 $-2$부터 $-\\frac{1}{2}$까지의 구간이 되고, $(x-a)(2x+1)\\geq 0$의 해가 $x\\leq-\\frac{1}{2}$ 또는 $x\\geq a$이려면 $a$는 $\\frac{1}{2}$ 이상이어야 한다.\n$\\therefore a\\geq\\frac{1}{2}$",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 5,
+   "answer": "(1) $81$ (2) $135$",
+   "solution": "(1) $3$ $2$ $\\square$ $\\square$ : 일의 자리 0또는 4이므로 $2\\times 3=6$\n$3$ $4$ $\\square$ $\\square$ : 일의 자리 0또는 2이므로 $2\\times 3=6$\n$3$ $5$ $\\square$ $\\square$ : 일의 자리 0또는 2또는 4이므로 $3\\times 3=9$\n$4$ $\\square$ $\\square$ $\\square$ : 일의 자리 0또는 2이므로 $2\\times{}_{4}\\mathrm{P}_{2}=24$\n$5$ $\\square$ $\\square$ $\\square$ : 일의 자리 0, 2 또는 4이므로 $3\\times{}_{4}\\mathrm{P}_{2}=36$\n$\\therefore 81$\n(2) $abc+a+b+c$가 홀수가 되는 경우는 $a$, $b$, $c$중 홀수가 한개만 있어야 하므로\n$3\\times(3\\times 3\\times 3)=81$\n$\\therefore 6^{3}-81=135$",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 6,
+   "answer": "(1) $\\frac{20!}{15!}$ (2) $\\frac{12!}{9!\\times 3!}$ (3) $13$ (4) $20$ (5) $96$",
+   "solution": "(1) $_{20}\\mathrm{P}_{5}=\\frac{20!}{(20-5)!}=\\frac{20!}{15!}$\n(2) $_{12}\\mathrm{C}_{3}=\\frac{{}_{12}\\mathrm{P}_{3}}{3!}=\\frac{12!}{(12-3)!\\times 3!}=\\frac{12!}{9!\\times 3!}$\n(3) $_{n}\\mathrm{C}_{r}={}_{n-1}\\mathrm{C}_{r}+{}_{n-1}\\mathrm{C}_{r-1}$이므로 $_{14}\\mathrm{C}_{8}={}_{n}\\mathrm{C}_{8}+{}_{n}\\mathrm{C}_{7}$에서 $n=13$\n(4) $\\mathrm{A}\\Rightarrow\\mathrm{B}\\Rightarrow\\mathrm{D}$ : $2\\times 1=2$\n$\\mathrm{A}\\Rightarrow\\mathrm{B}\\Rightarrow\\mathrm{C}\\Rightarrow\\mathrm{D}$ : $2\\times 2\\times 3=12$\n$\\mathrm{A}\\Rightarrow\\mathrm{C}\\Rightarrow\\mathrm{B}\\Rightarrow\\mathrm{D}$ : $3\\times 2\\times 1=6$\n$\\therefore 20$\n(5) 직원 $A$를 거리가 두 번째로 가까운 지점에 출장을 보내면 직원 $B$가 출장을 가는 경우의 수는 4가지 이고 나머지 직원들을 배치하면 되므로 $4\\times 4!=96$",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 7,
+   "answer": "(1) $_{8}\\mathrm{C}_{2}\\times{}_{6}\\mathrm{C}_{2}$ (2) $_{9}\\mathrm{P}_{3}$ (3) $_{17}\\mathrm{P}_{2}$ (4) $_{23}\\mathrm{C}_{5}$ (5) $_{10}\\mathrm{C}_{3}\\times{}_{7}\\mathrm{C}_{4}\\times{}_{5}\\mathrm{C}_{2}$",
+   "solution": "(1) 가로선, 세로선 6개, 8개 중 2개씩 선택하면 하나의 직사각형이 되므로 $_{6}\\mathrm{C}_{2}\\times{}_{8}\\mathrm{C}_{2}$\n(2) 세자리 자연수의 개수는 $_{9}\\mathrm{P}_{3}$\n(3) 출발역과 도착역이 표기된 열차표의 경우의 수는 $_{17}\\mathrm{P}_{2}$\n(4) 특정 2명을 포함하여 7명을 뽑는 경우의 수이므로 $_{23}\\mathrm{C}_{5}$\n(5) 학생 $A$의 경우의 수는 $_{10}\\mathrm{C}_{3}\\times{}_{7}\\mathrm{C}_{4}$\n학생 $B$의 경우의 수는 $_{5}\\mathrm{C}_{2}$\n$\\therefore {}_{10}\\mathrm{C}_{3}\\times{}_{7}\\mathrm{C}_{4}\\times{}_{5}\\mathrm{C}_{2}$",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 8,
+   "answer": "(1) $A^{n}=(-1)^{n}\\begin{pmatrix} -2n+1 & 2n \\\\ -2n & 2n+1 \\end{pmatrix}$ (2) $A^{100}=\\begin{pmatrix} -199 & 200 \\\\ -200 & 201 \\end{pmatrix}$ (3) $\\begin{pmatrix} -100 & 100 \\\\ -100 & 100 \\end{pmatrix}$",
+   "solution": "(1) $A^{2}=\\begin{pmatrix} 1 & -2 \\\\ 2 & -3 \\end{pmatrix}\\begin{pmatrix} 1 & -2 \\\\ 2 & -3 \\end{pmatrix}=\\begin{pmatrix} -3 & 4 \\\\ -4 & 5 \\end{pmatrix}$\n$A^{3}=\\begin{pmatrix} -3 & 4 \\\\ -4 & 5 \\end{pmatrix}\\begin{pmatrix} 1 & -2 \\\\ 2 & -3 \\end{pmatrix}=\\begin{pmatrix} 5 & -6 \\\\ 6 & -7 \\end{pmatrix}$\n$A^{4}=\\begin{pmatrix} 5 & -6 \\\\ 6 & -7 \\end{pmatrix}\\begin{pmatrix} 1 & -2 \\\\ 2 & -3 \\end{pmatrix}=\\begin{pmatrix} -7 & 8 \\\\ -8 & 9 \\end{pmatrix}$\n각 행렬의 $(1,~2)$성분을 구해보면 $A^{2}$은 $4$, $A^{3}$은 $-6$, $A^{4}$은 $8$이고 이로부터 $A^{n}$의 $(1,~2)$의 성분이 $(-1)^{n}\\times 2n$임을 알 수 있다.\n$\\therefore A^{n}=(-1)^{n}\\begin{pmatrix} -2n+1 & 2n \\\\ -2n & 2n+1 \\end{pmatrix}$\n(2) (1)에서 $A^{n}=(-1)^{n}\\begin{pmatrix} -2n+1 & 2n \\\\ -2n & 2n+1 \\end{pmatrix}$\n$\\therefore A^{100}=\\begin{pmatrix} -199 & 200 \\\\ -200 & 201 \\end{pmatrix}$\n(3) $A+A^{2}=\\begin{pmatrix} 1 & -2 \\\\ 2 & -3 \\end{pmatrix}+\\begin{pmatrix} -3 & 4 \\\\ -4 & 5 \\end{pmatrix}=\\begin{pmatrix} -2 & 2 \\\\ -2 & 2 \\end{pmatrix}$\n$A^{3}+A^{4}=\\begin{pmatrix} 5 & -6 \\\\ 6 & -7 \\end{pmatrix}+\\begin{pmatrix} -7 & 8 \\\\ -8 & 9 \\end{pmatrix}=\\begin{pmatrix} -2 & 2 \\\\ -2 & 2 \\end{pmatrix}$\n모든 자연수 $n$에 대하여 $A^{2n-1}+A^{2n}=\\begin{pmatrix} -2 & 2 \\\\ -2 & 2 \\end{pmatrix}$\n$\\therefore A+A^{2}+A^{3}+\\cdots+A^{100}=50\\times\\begin{pmatrix} -2 & 2 \\\\ -2 & 2 \\end{pmatrix}=\\begin{pmatrix} -100 & 100 \\\\ -100 & 100 \\end{pmatrix}$",
+   "topic": "",
+   "difficulty": ""
+  }
+ ]
+}

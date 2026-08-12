@@ -1,0 +1,55 @@
+{
+  "exam_id": 4302,
+  "answer_pages": [7, 8],
+  "items": [
+    {"number": 1, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 2, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 3, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 4, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 5, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 6, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 7, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 8, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 9, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 10, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 11, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 12, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 13, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 14, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 15, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 16, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 17, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 18, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 19, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 20, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 21, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {
+      "number": 22,
+      "answer": "(1) $y = mx \\pm r\\sqrt{m^{2}+1}$ (2) $x_{1}x + y_{1}y = r^{2}$",
+      "solution": "(1) 기울기가 $m$인 직선의 방정식을 구해보면\n$y = mx + b$, $mx - y + b = 0$\n위 직선이 원 $x^{2}+y^{2}=r^{2}$에 접하기 위해서는 원의 중심과의 거리가 $r$이 되어야 한다. 따라서\n$r = \\frac{|b|}{\\sqrt{m^{2}+1}}$, $b = \\pm r\\sqrt{m^{2}+1}$\n따라서\n$y = mx \\pm r\\sqrt{m^{2}+1}$\n(2) 주어진 원의 중심 $(0,~0)$과 점 $\\mathrm{P}$를 이은 직선의 기울기를 구해보면 $\\frac{y_{1}}{x_{1}}$이다. 따라서 구하고자 하는 직선의 기울기는 $-\\frac{x_{1}}{y_{1}}$임을 알 수 있다. 그리고 점 $\\mathrm{P}$를 지나므로 이를 만족하는 직선의 방정식을 구해보면\n$y = -\\frac{x_{1}}{y_{1}}(x - x_{1}) + y_{1}$\n정리하면\n$y_{1}y = -x_{1}x + x_{1}^{2} + y_{1}^{2}$\n그런데 $x_{1}^{2}+y_{1}^{2}=r^{2}$이므로\n$y_{1}y = -x_{1}x + r^{2}$, $x_{1}x + y_{1}y = r^{2}$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 23,
+      "answer": "(1) $k=10$ (2) $\\{4,~5,~6,~8,~10\\}$",
+      "solution": "(1) $n(A) \\cdot n((A \\cup B)^{C}) = 15$ 이므로, 각각은 15의 약수가 된다.\n$i)$ $n(A)=1$, $n((A \\cup B)^{C})=15$인 경우\n$n(A)=1$이고 $k$는 1보다 큰 자연수이므로 $k=2$이다.\n$n(U)=2$이므로 $n((A \\cup B)^{C})=15$가 될 수 없다.\n$ii)$ $n(A)=3$, $n((A \\cup B)^{C})=5$인 경우\n$n(A)=3$이므로 $k=5,~6$\n$k=5$일 때 $A=\\{1,~3,~5\\}$, $B=\\{1,~5\\}$이므로 $n((A \\cup B)^{C})=2$가 되어 모순\n$k=6$일 때 $A=\\{1,~3,~5\\}$, $B=\\{1,~2,~3,~6\\}$이므로 $n((A \\cup B)^{C})=1$이 되어 모순\n$iii)$ $n(A)=15$, $n((A \\cup B)^{C})=1$인 경우\n$n(A)=15$이므로 $k=29,~30$\n$k=29$일 때 $A=\\{1,~3,~5,~\\cdots,~29\\}$, $B=\\{1,~29\\}$이므로 $n((A \\cup B)^{C})=14$가 되어 모순\n$k=30$일 때 $A=\\{1,~3,~5,~\\cdots,~29\\}$, $B=\\{1,~2,~3,~5,~6,~10,~15,~30\\}$이므로 $n((A \\cup B)^{C})=11$이 되어 모순\n$iii)$ $n(A)=5$, $n((A \\cup B)^{C})=3$인 경우\n$n(A)=5$ 이므로, $k$이하의 홀수는 $1,~3,~5,~7,~9$가 되어야 하고, $k$의 값은 9 또는 10이다.\n$k=9$이면, $U=\\{1,~2,~3,~4,~5,~6,~7,~8,~9\\}$\n$A=\\{1,~3,~5,~7,~9\\}$, $B=\\{1,~3,~9\\}$이므로 $n((A \\cup B)^{C})=4$가 되어 모순\n$k=10$이면, $U=\\{1,~2,~3,~4,~5,~6,~7,~8,~9,~10\\}$\n$A=\\{1,~3,~5,~7,~9\\}$\n$B=\\{1,~2,~5,~10\\}$\n이므로, $n((A \\cup B)^{C})=3$ 이 되어 만족한다.\n따라서 $k=10$\n(2) 집합의 연산을 통하여 $(A \\cup B)^{C} \\cup C = \\{4,~6,~8\\} \\cup \\{5,~10\\}$\n따라서 $(A \\cup B)^{C} \\cup C = \\{4,~5,~6,~8,~10\\}$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 24,
+      "answer": "(1) $3x+4y-5=0$ (2) $2$, $-\\frac{3}{4}$, $-\\frac{5}{3}$",
+      "solution": "(1) 직선 $l$을 구해보면\n$l : 3x+4y+m=0$\n위 직선과 원점과의 거리가 1이므로\n$1 = \\frac{|m|}{\\sqrt{3^{2}+4^{2}}}$, $|m|=5$, $m=\\pm 5$\n그런데 $m=5$인 경우 주어진 직선과 일치하므로\n$m=-5$\n따라서\n$l : 3x+4y-5=0$\n(2) 각 직선의 기울기를 구해보면\n$2x-y+2=0$, 기울기 : $2$\n$3x+4y-5=0$, 기울기 : $-\\frac{3}{4}$\n$mx-y+1=0$, 기울기 : $m$\n주어진 세 직선 중 두 직선이 평행할 경우 삼각형이 만들어지지 않으므로\n$m=2$, $-\\frac{3}{4}$\n그리고 주어진 두 직선의 교점을 다른 한 직선이 지나가는 경우 역시 삼각형이 만들어지지 않는다.\n$mx-y+1=0$을 제외한 다른 두 직선의 교점을 구해보면\n$x=-\\frac{3}{11}$, $y=\\frac{16}{11}$\n대입하여 $m$의 값을 구해보면\n$-\\frac{3m}{11}-\\frac{16}{11}+1=0$, $m=-\\frac{5}{3}$\n따라서 구하고자 하는 $m$의 값은\n$m=2$, $-\\frac{3}{4}$, $-\\frac{5}{3}$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 25,
+      "answer": "(1) 풀이 참고 (2) $\\mathrm{G}(-1,~2)$, 넓이 : $30$",
+      "solution": "(1) $\\mathrm{A}(a,~b)$, $\\mathrm{B}(-c,~0)$, $\\mathrm{C}(c,~0)$라고 하면\n$\\overline{\\mathrm{AB}}^{2}+\\overline{\\mathrm{AC}}^{2} = (a+c)^{2}+b^{2}+(a-c)^{2}+b^{2} = 2(a^{2}+b^{2}+c^{2})$\n$2(\\overline{\\mathrm{AM}}^{2}+\\overline{\\mathrm{BM}}^{2}) = 2(a^{2}+b^{2}+c^{2})$이므로\n$\\overline{\\mathrm{AB}}^{2}+\\overline{\\mathrm{AC}}^{2} = 2(\\overline{\\mathrm{AM}}^{2}+\\overline{\\mathrm{BM}}^{2})$가 성립한다.\n(2) $\\overline{\\mathrm{AB}}^{2}+\\overline{\\mathrm{AC}}^{2} = 2(\\overline{\\mathrm{AM}}^{2}+\\overline{\\mathrm{BM}}^{2})$이므로\n$40+100 = 2(45+\\overline{\\mathrm{BM}}^{2})$\n$\\therefore \\overline{\\mathrm{BM}}=5$\n따라서 점 $\\mathrm{B}$의 좌표는 $(-5,~0)$이다.\n$\\overline{\\mathrm{BM}}=\\overline{\\mathrm{CM}}=5$이므로\n점 $\\mathrm{C}$의 좌표는 $(5,~0)$이다.\n점 $\\mathrm{A}$의 좌표를 $(a,~b)$라고 하면\n$\\overline{\\mathrm{AM}}^{2} = a^{2}+b^{2} = 45$ ⋯ ㉠\n$\\overline{\\mathrm{AB}}^{2} = (a+5)^{2}+b^{2} = 40$ ⋯ ㉡\n㉠-㉡을 하면\n$-10a-25=5$\n$10a=-30$\n$a=-3$\n$a=-3$을 ㉠에 대입하면\n$(-3)^{2}+b^{2}=45$\n$b^{2}=36$\n$b=\\pm 6$\n그런데 점 $\\mathrm{A}$는 제 2사분면의 점이므로 점 $\\mathrm{A}$의 좌표는 $(-3,~6)$이다.\n이 때, 삼각형의 무게중심의 좌표는\n$\\mathrm{G}\\left(\\frac{-3-5+5}{3},~\\frac{6+0+0}{3}\\right)$\n$\\mathrm{G}(-1,~2)$이다.\n따라서 삼각형 $\\mathrm{ABC}$의 넓이는 $S=\\frac{1}{2} \\times 10 \\times 6 = 30$이다.",
+      "topic": "",
+      "difficulty": ""
+    }
+  ]
+}

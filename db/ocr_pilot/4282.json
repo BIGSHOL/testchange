@@ -1,0 +1,396 @@
+{
+  "meta": {"exam_id": 4282, "ocr_source": "session-vision"},
+  "header": {"title": "남산고 1학년 공통수학1 - 2025년 1학기 기말고사 (이차방정식과 이차함수 ~ 행렬)"},
+  "questions": [
+    {
+      "number": 1,
+      "score": 2.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "{}_{10}\\mathrm{P}_{2}\\times{}_{7}\\mathrm{C}_{6}의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "590"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "600"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "610"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "620"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "630"}]}
+      ]
+    },
+    {
+      "number": 2,
+      "score": 2.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "이차함수 y=-2x^{2}+5x의 그래프와 직선 y=3x+k가 만나도록 하는 실수 k의 최댓값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{1}{8}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{1}{4}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{3}{8}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{1}{2}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{5}{8}"}]}
+      ]
+    },
+    {
+      "number": 3,
+      "score": 2.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "연립부등식 2x^{2}-3<3-4x \\leq a-3x을 만족시키는 정수 x가 한 개일 때, 실수 a의 값의 범위는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "0 \\leq a<1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "0<a \\leq 1"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "0<a<1"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "3 \\leq a<4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "3<a \\leq 4"}]}
+      ]
+    },
+    {
+      "number": 4,
+      "score": 3.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "학생 6명의 이름표를 상자 속에 1개씩 넣은 후 임의로 1개씩 고를 때, 6명 중에서 3명만 자신의 이름표를 고르는 모든 경우의 수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "20"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "30"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "40"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "50"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "60"}]}
+      ]
+    },
+    {
+      "number": 5,
+      "score": 3.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "x에 대한 삼차방정식 x^{3}-x^{2}+kx-k=0이 허근 3i와 실근 \\alpha를 가질 때, k\\alpha의 값은? (단, k는 실수이고 i=\\sqrt{-1}이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "11"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "12"}]}
+      ]
+    },
+    {
+      "number": 6,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "이차 정사각행렬 A의 (m,~n) 성분을 a_{mn}이라 할 때, x에 대한 이차방정식 x^{2}+2mx+n=0이 서로 다른 두 실근을 가지면 a_{mn}=1, 중근을 가지면 a_{mn}=0, 허근을 가지면 a_{mn}=-1이다. A^{k}=E를 만족시키는 자연수 k의 최솟값을 구하시오."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "2"}]}
+      ]
+    },
+    {
+      "number": 7,
+      "score": 3.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "연립방정식"},
+        {"type": "equation", "value": "\\begin{cases} 2x+y=1 \\\\ x^{2}-ky=-6 \\end{cases}"},
+        {"type": "text", "value": "이 오직 한 쌍의 해를 갖도록 하는 양수 k의 값을 구하시오."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+      ]
+    },
+    {
+      "number": 8,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "두 행렬"},
+        {"type": "equation", "value": "A_{1}=\\begin{pmatrix} 1 & 3 \\\\ 2 & 4 \\end{pmatrix},\\quad P=\\begin{pmatrix} 0 & 1 \\\\ -1 & 0 \\end{pmatrix}"},
+        {"type": "text", "value": "에 대하여 행렬 A_{n}\\ (n=1,~2,~3,~\\cdots)이 다음 조건을 모두 만족시킨다."},
+        {"type": "text", "value": "<상자> (가) n이 홀수이면 A_{n+1}=PA_{n} • (나) n이 짝수이면 A_{n+1}=A_{n}P"},
+        {"type": "text", "value": "이때 행렬 A_{1000}+A_{1001}의 모든 성분의 합을 구하시오."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "11"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "13"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "14"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "15"}]}
+      ]
+    },
+    {
+      "number": 9,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "방정식 x^{3}-1=0의 한 허근을 \\omega라 할 때, 옳은 것만을 <보기>에서 있는 대로 고른 것은?"},
+        {"type": "text", "value": "<보기> ㄱ. \\omega^{10}=\\omega • ㄴ. \\frac{\\omega^{2}}{1+\\omega}+\\frac{\\overline{\\omega}}{1+\\overline{\\omega}^{2}}=2 (단, \\overline{\\omega}는 \\omega의 켤레복소수이다.) • ㄷ. \\omega^{4n}+(\\omega+1)^{4n}+1=0을 만족시키는 20이하의 양의 정수 n의 개수는 14이다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄷ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄱ, ㄷ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄴ, ㄷ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄱ, ㄴ, ㄷ"}]}
+      ]
+    },
+    {
+      "number": 10,
+      "score": 3.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "5개의 숫자 0, 2, 4, 6, 8 중에서 서로 다른 4개를 택하여 만든 네 자리 자연수를 작은 것부터 순서대로 나열할 때, 35번째 수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "4206"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "4208"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "4260"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4268"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "4280"}]}
+      ]
+    },
+    {
+      "number": 11,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "서로 다른 상자 5개에 서로 다른 공 7개를 넣을 때, 빈 상자가 3개가 되도록 공을 넣는 모든 방법의 수는? (단, 한 상자에는 공이 6개 이상 들어갈 수 없음.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "980"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "1020"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "1080"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "1120"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "1180"}]}
+      ]
+    },
+    {
+      "number": 12,
+      "score": 3.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "이차부등식 ax^{2}+bx+c \\geq 0의 해가 x=2일 때, 옳은 것을 <보기>에서 모두 고르면?"},
+        {"type": "text", "value": "<보기> ㄱ. a<0 • ㄴ. b^{2}-4ac=0 • ㄷ. a+b+c<0"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄱ, ㄴ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄱ, ㄷ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄴ, ㄷ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄱ, ㄴ, ㄷ"}]}
+      ]
+    },
+    {
+      "number": 13,
+      "score": 3.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "우리나라가 16강에 진출했던 2022년 카타르 월드컵 본선은 32개 팀이 4팀씩 8개 조로 나누어 조별 리그를 치른 후 조별 상위 2개팀씩 모두 16개팀이 토너먼트 방식으로 우승팀을 결정한다. 3·4위 결정전을 추가로 치룬다면 총 경기 수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "56"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "60"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "64"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "68"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "72"}]}
+      ]
+    },
+    {
+      "number": 14,
+      "score": 3.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "다음 그림은 매표소, 쉼터, 정상 사이를 연결하는 등산로를 나타낸 것이다. 매표소에서 출발하여 다시 매표소로 돌아오는 방법의 수는? (단, 한 번 지나간 등산로는 다시 지나가지 않고, 정상은 반드시 한 번만 거치되 거치지 않을 수는 없다.)"},
+        {"type": "figure", "value": "세 지점(위쪽에 깃발 아이콘의 '정상', 오른쪽 아래에 집 아이콘의 '쉼터', 왼쪽 아래에 건물 아이콘의 '매표소')을 곡선 등산로로 연결한 그림. 매표소와 정상 사이를 잇는 등산로가 2개, 정상과 쉼터 사이를 잇는 등산로가 3개, 매표소와 쉼터 사이를 잇는 등산로가 3개 그려져 있다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "34"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "36"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "54"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "72"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "74"}]}
+      ]
+    },
+    {
+      "number": 15,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "부등식 \\left| |x-5|+\\sqrt{x^{2}+2x+1} \\right| \\leq 6과 같은 해를 갖는 이차부등식이 ax^{2}+8x+b \\geq 0일 때, 상수 a, b에 대하여 a+b의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "11"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "12"}]}
+      ]
+    },
+    {
+      "number": 16,
+      "score": 3.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "x에 대한 이차방정식"},
+        {"type": "equation", "value": "3x^{2}-{}_{n}\\mathrm{C}_{r}x-3{}_{n}\\mathrm{P}_{r}=0"},
+        {"type": "text", "value": "의 두 근이 -2와 3일 때, n+r의 값은? (단, n과 r은 자연수)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "8"}]}
+      ]
+    },
+    {
+      "number": 17,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "실수 p에 대하여 p \\leq x \\leq p+2에서 이차함수 f(x)=x^{2}-6x+5의 최댓값을 g(p)라 하자. g(p)=\\frac{5}{3}(p-1)을 만족하는 모든 p의 값들의 합은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{2}{3}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{19}{3}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{23}{3}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{32}{3}"}]}
+      ]
+    },
+    {
+      "number": 18,
+      "score": 3.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "그림과 같은 간격으로 배열된 12개의 점 중에서 세 점을 꼭짓점으로 하는 삼각형의 개수를 구하시오."},
+        {"type": "figure", "value": "같은 간격의 격자 모양으로 배열된 12개의 점. 가로로 4개, 세로로 3개씩 (3행 4열) 직사각형 격자를 이루며 찍혀 있다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "220"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "210"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "200"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "190"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "180"}]}
+      ]
+    },
+    {
+      "number": 19,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "이차방정식 x^{2}-2x-1=0의 한 근을 \\alpha라 할 때, 행렬"},
+        {"type": "equation", "value": "A=\\begin{pmatrix} 0 & \\alpha^{2}-2\\alpha \\\\ \\alpha-\\frac{1}{\\alpha}-3 & 0 \\end{pmatrix}"},
+        {"type": "text", "value": "에 대하여 다음 중 행렬 A+A^{2}+A^{3}+\\cdots+A^{333}과 같은 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "O"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "E"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-A"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "A"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "333A"}]}
+      ]
+    },
+    {
+      "number": 20,
+      "score": 3.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "행렬"},
+        {"type": "equation", "value": "A=\\begin{pmatrix} -2 & 5 & 7 \\\\ 4 & -1 & 6 \\\\ 8 & 8 & 3 \\end{pmatrix}"},
+        {"type": "text", "value": "에 대하여 옳은 것을 <보기>에서 모두 고르면?"},
+        {"type": "text", "value": "<보기> ㄱ. 제2행은 (4\\ \\ -1\\ \\ 6)이다. • ㄴ. 행렬 A의 (4,~3)성분은 없다. • ㄷ. 제3열의 성분의 합은 16이다. • ㄹ. 2차 정사각행렬이다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄴ, ㄹ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄱ, ㄷ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄴ, ㄹ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄱ, ㄷ, ㄹ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄱ, ㄴ, ㄷ"}]}
+      ]
+    },
+    {
+      "number": 21,
+      "score": 8.0,
+      "type": "서술형",
+      "label": "[서술형 1]",
+      "contents": [
+        {"type": "text", "value": "[서술형 1] 그림과 같이 중심이 같고, 반지름의 길이가 각각 1, 2, 3, 4인 네 개의 원이 있다. 이 네 개의 원을 경계로 하여 안에서부터 네 개의 영역 \\mathrm{A}, \\mathrm{B}, \\mathrm{C}, \\mathrm{D}로 나누고, 서로 다른 3가지 색의 물감을 칠하여 색칠된 문양을 만들려고 한다. 각 영역은 1가지의 색으로만 칠하고, 이웃한 영역은 서로 다른 색을 칠한다. 3가지의 물감은 각각 9통 이하만 사용할 수 있고, 물감 1통으로는 영역 \\mathrm{A}의 넓이만큼만 칠할 수 있을 때, 만들 수 있는 서로 다르게 색칠된 문양의 개수를 구하는 풀이 과정과 답을 쓰시오."},
+        {"type": "figure", "value": "중심이 같은 네 개의 동심원(반지름 1, 2, 3, 4). 원들이 만드는 네 개의 영역이 가운데(가장 안쪽)부터 바깥쪽으로 차례로 A, B, C, D 로 표시되어 있으며, 라벨은 원의 중심을 지나는 수평선을 따라 오른쪽 방향으로 A, B, C, D 순으로 적혀 있다."}
+      ],
+      "choices": []
+    },
+    {
+      "number": 22,
+      "score": 6.0,
+      "type": "서술형",
+      "label": "[서술형 2]",
+      "contents": [
+        {"type": "text", "value": "[서술형 2] 연립부등식"},
+        {"type": "equation", "value": "\\begin{cases} x^{2}-4x-5 \\leq 0 \\\\ (x-a)(x-3)>0 \\end{cases}"},
+        {"type": "text", "value": "의 해가 3<x \\leq 5가 되도록 하는 실수 a의 값의 범위를 구하는 풀이 과정과 답을 쓰시오."}
+      ],
+      "choices": []
+    },
+    {
+      "number": 23,
+      "score": 6.0,
+      "type": "서술형",
+      "label": "[서술형 3]",
+      "contents": [
+        {"type": "text", "value": "[서술형 3] 행렬 A=\\begin{pmatrix} 1 & 2 \\\\ 0 & 1 \\end{pmatrix}에 대하여 A^{n}=\\begin{pmatrix} 1 & 30 \\\\ 0 & 1 \\end{pmatrix}을 만족시키는 자연수 n의 값을 구하는 풀이과정과 답을 쓰시오."}
+      ],
+      "choices": []
+    },
+    {
+      "number": 24,
+      "score": 8.0,
+      "type": "서술형",
+      "label": "[서술형 4]",
+      "contents": [
+        {"type": "text", "value": "[서술형 4] 서로 다른 종류의 꽃 3송이와 같은 종류의 초콜릿 2개를 4명의 학생에게 남김없이 나누어 주려고 한다. 아무것도 받지 못하는 학생이 없도록 꽃과 초콜릿을 나누어 주는 경우의 수를 구하는 풀이 과정과 답을 쓰시오."}
+      ],
+      "choices": []
+    },
+    {
+      "number": 25,
+      "score": 8.0,
+      "type": "서술형",
+      "label": "[서술형 5]",
+      "contents": [
+        {"type": "text", "value": "[서술형 5] x에 대한 이차부등식 ax^{2}+bx+c \\geq 0의 해가 오직 x=3뿐일 때, bx^{2}+cx+6a<0을 만족시키는 x값의 범위를 구하는 풀이 과정과 답을 쓰시오."}
+      ],
+      "choices": []
+    }
+  ]
+}

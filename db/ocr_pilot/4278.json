@@ -1,0 +1,340 @@
+{
+  "meta": {"exam_id": 4278, "ocr_source": "session-vision"},
+  "header": {"title": "구암고 1학년 공수1"},
+  "questions": [
+    {
+      "number": 1,
+      "score": 3.7,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "두 다항식 A = x^2-5xy+2y^2, B = 4x^2+2xy-y^2에 대하여 A+B를 간단히 한 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-3x^2-7xy+3y^2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "3x^2+7xy-3y^2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3x^2-3xy+y^2"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "5x^2-7xy+y^2"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5x^2-3xy+y^2"}]}
+      ]
+    },
+    {
+      "number": 2,
+      "score": 3.7,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "다항식 (x+2)(3x^2-2x-3)의 전개식에서 x^2의 계수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "7"}]}
+      ]
+    },
+    {
+      "number": 3,
+      "score": 3.8,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "다항식 x^2-5x+11을 x-3으로 나눈 나머지는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "8"}]}
+      ]
+    },
+    {
+      "number": 4,
+      "score": 3.8,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "등식 (2-a)+4i = 1+2bi를 만족시키는 실수 a, b에 대하여 a+b의 값은? (단, i = \\sqrt{-1})"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "6"}]}
+      ]
+    },
+    {
+      "number": 5,
+      "score": 3.9,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "이차방정식 x^2+ax+b = 0의 한 근이 2-3i일 때, a+b의 값은? (단, a, b는 실수)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "11"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "13"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "15"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "17"}]}
+      ]
+    },
+    {
+      "number": 6,
+      "score": 3.9,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "0 \\leq x \\leq 3일 때, 이차함수 f(x) = ax^2-4ax+b의 최댓값이 6, 최솟값이 2이다. 실수 a와 b에 대하여 a+b의 값은? (단, a > 0)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "10"}]}
+      ]
+    },
+    {
+      "number": 7,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "다항식 (x-1)(x-2)(x-3)(x-4)+k가 최고차항의 계수가 1인 이차식의 제곱으로 인수분해 될 때, 상수 k의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+      ]
+    },
+    {
+      "number": 8,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "44^3+18 \\times 50 \\times 44를 250으로 나눈 나머지는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "21"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "34"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "43"}]}
+      ]
+    },
+    {
+      "number": 9,
+      "score": 4.2,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "삼차식 f(x)에 대하여 f(x)+5는 (x+2)^2으로 나누어떨어지고, 3-f(x)는 x^2+5x+4로 나누어떨어진다. f(x)를 x+3으로 나누었을 때의 나머지는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "11"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "16"}]}
+      ]
+    },
+    {
+      "number": 10,
+      "score": 4.2,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "z = \\frac{\\sqrt{2}}{1+i}일 때, z^2+z^4+z^6+ \\cdots +z^{100}의 값은? (단, i = \\sqrt{-1})"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-i"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "-1-i"}]}
+      ]
+    },
+    {
+      "number": 11,
+      "score": 4.3,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "이차함수 y = x^2-kx+k^2의 그래프가 직선 y = kx-2k+4의 그래프와 만나지 않고, 직선 y = 3kx+k^2-36의 그래프와 한 점에서 만나도록 하는 실수 k는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+      ]
+    },
+    {
+      "number": 12,
+      "score": 4.3,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "이차함수 f(x)에 대하여 방정식 f(x) = 0의 근이 -3, -1이고, 0 \\leq x \\leq 2일 때, 함수 f(x)의 최댓값이 -9이다. 이때, f(-2)의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "3"}]}
+      ]
+    },
+    {
+      "number": 13,
+      "score": 4.5,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 \\overline{\\mathrm{AB}} = 4, \\overline{\\mathrm{BC}} = 8인 직사각형과 선분 \\mathrm{BC}를 지름으로 하는 반원이 있다. 호 \\mathrm{BC} 위의 한 점 \\mathrm{P}에서 선분 \\mathrm{AB}에 내린 수선의 발을 \\mathrm{Q}, 선분 \\mathrm{AD}에 내린 수선의 발을 \\mathrm{R}이라고 할 때, 직사각형 \\mathrm{AQPR}의 넓이는 \\frac{25}{2}이다. 직사각형 \\mathrm{AQPR}의 둘레의 길이는? (단, 점 \\mathrm{P}는 직사각형 \\mathrm{ABCD}의 내부에 있다.)"},
+        {"type": "figure", "value": "직사각형 ABCD가 그려져 있다. A는 왼쪽 위, D는 오른쪽 위, B는 왼쪽 아래, C는 오른쪽 아래 꼭짓점이다. 왼쪽 변(A-B) 바깥쪽에 점선 화살표로 길이 4가, 아래 변(B-C) 바깥쪽에 점선 화살표로 길이 8이 표시되어 있다. 아래 변 BC를 지름으로 하는 반원이 직사각형 내부(위쪽)에 그려져 있으며, 반원의 호는 위쪽 변 AD에 접하듯 올라갔다가 C로 내려온다. 점 P·Q·R은 그림에 표시되어 있지 않다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "16"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "17"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "18"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "19"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "20"}]}
+      ]
+    },
+    {
+      "number": 14,
+      "score": 4.5,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 \\angle \\mathrm{A} = 90^\\circ, \\angle \\mathrm{B} = 30^\\circ, \\overline{\\mathrm{BC}} = 10인 직각삼각형 \\mathrm{ABC}가 있다. 변 \\mathrm{AC} 위의 한 점 \\mathrm{P}에서 변 \\mathrm{BC}에 내린 수선의 발을 \\mathrm{Q}라 하고, 점 \\mathrm{P}를 지나고 변 \\mathrm{BC}와 평행한 직선이 변 \\mathrm{AB}와 만나는 점을 \\mathrm{R}이라 하자. 사각형 \\mathrm{RBQP}의 넓이의 최댓값은? (단, 점 \\mathrm{P}는 꼭짓점 \\mathrm{A}와 꼭짓점 \\mathrm{C}가 아니다.)"},
+        {"type": "figure", "value": "직각삼각형 ABC가 그려져 있다. B는 왼쪽 아래, C는 오른쪽 아래, A는 위쪽(오른쪽에 치우친 꼭짓점)에 있고 꼭짓점 A에 직각 표시가 있다. 꼭짓점 B의 내각에 30°가 표시되어 있다. 변 AC 위의 점 P에서 변 BC에 내린 수선의 발 Q에 직각 표시가 있고, 점 P를 지나 BC와 평행한 선분이 변 AB와 만나는 점이 R이다. 사각형 RBQP(R-B-Q-P)가 회색으로 칠해져 있다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "5\\sqrt{3}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "10\\sqrt{2}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "10\\sqrt{3}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "20"}]}
+      ]
+    },
+    {
+      "number": 15,
+      "score": 4.6,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "이차방정식 x^2-x+1 = 0의 두 근 \\alpha, \\beta에 대하여 이차함수 f(x) = x^2+px+q가 f(\\alpha^2) = 2\\alpha와 f(\\beta^2) = 2\\beta를 만족시킬 때, 두 상수 p, q에 대하여 p+q의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "8"}]}
+      ]
+    },
+    {
+      "number": 16,
+      "score": 4.6,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "모든 실수 x에 대하여 두 이차다항식 P(x), Q(x)가 다음 조건을 만족시킨다."},
+        {"type": "text", "value": "<상자> (가) P(x)-Q(x) = 6 • (나) \\{P(x)\\}^3-\\{Q(x)\\}^3 = 18x^4+72x^3+72x^2+54"},
+        {"type": "text", "value": "P(x)의 최고차항의 계수가 양수일 때, P(-4)+Q(2)의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "11"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "16"}]}
+      ]
+    },
+    {
+      "number": 17,
+      "score": 4.0,
+      "type": "서술형",
+      "label": "[서술형 1]",
+      "contents": [
+        {"type": "text", "value": "[서술형 1] 이차방정식 ax^2+bx+c = 0의 판별식을 쓰고, 이차방정식의 판별식이 유용한 이유를 작성하시오. (단, a, b, c는 실수)"}
+      ]
+    },
+    {
+      "number": 18,
+      "score": 5.0,
+      "type": "서술형",
+      "label": "[서술형 2]",
+      "contents": [
+        {"type": "text", "value": "[서술형 2] a^3+b^3과 a^3-b^3에 대한 인수분해 공식을 각각 쓰고, 이를 이용하여 x^3-8y^3 식을 인수분해 하시오."}
+      ]
+    },
+    {
+      "number": 19,
+      "score": 5.0,
+      "type": "서술형",
+      "label": "[서술형 3]",
+      "contents": [
+        {"type": "text", "value": "[서술형 3] 다음 물음에 답하시오. [총 5점]"}
+      ],
+      "sub_questions": [
+        {
+          "number": 1,
+          "score": 2,
+          "contents": [
+            {"type": "text", "value": "(3-2i)+(2+5i)의 값과 켤레복소수를 구하시오. (단, i = \\sqrt{-1})"}
+          ]
+        },
+        {
+          "number": 2,
+          "score": 3,
+          "contents": [
+            {"type": "text", "value": "\\sqrt{18}\\sqrt{-2}+\\sqrt{-2}\\sqrt{-2}+\\frac{\\sqrt{8}}{\\sqrt{-2}}의 실수부분을 a, 허수부분을 b라 할 때, a와 b의 값을 구하는 풀이 과정과 답을 쓰시오."}
+          ]
+        }
+      ]
+    },
+    {
+      "number": 20,
+      "score": 6.0,
+      "type": "서술형",
+      "label": "[서술형 4]",
+      "contents": [
+        {"type": "text", "value": "[서술형 4] 다항식 f(x)를 x^2-2x+4로 나누었을 때의 나머지는 3x-8이다. f(x)를 x^3+8로 나누었을 때의 나머지를 ax^2+bx라 한다. 상수 a와 b의 값을 구하고, f(x)를 x+2로 나누었을 때의 나머지를 구하는 풀이 과정과 답을 쓰시오."}
+      ]
+    },
+    {
+      "number": 21,
+      "score": 7.0,
+      "type": "서술형",
+      "label": "[서술형 5]",
+      "contents": [
+        {"type": "text", "value": "[서술형 5] 계수가 모두 실수인 이차방정식 f(x) = 0이 다음 조건을 만족시킨다."},
+        {"type": "text", "value": "<상자> (가) 방정식 f(x) = 0에서 x의 계수를 잘못 보고 풀었더니 두 근이 -2와 2이고, 상수항을 잘못 보고 풀었더니 두 근이 2와 -5이다. • (나) x^2+x+2 = 0의 두 근 \\alpha, \\beta에 대하여 f(\\alpha)+f(\\beta) = 28"},
+        {"type": "text", "value": "이때, f(0)의 값을 구하는 풀이 과정과 답을 쓰시오."}
+      ]
+    },
+    {
+      "number": 22,
+      "score": 7.0,
+      "type": "서술형",
+      "label": "[서술형 6]",
+      "contents": [
+        {"type": "text", "value": "[서술형 6] 최고차항의 계수가 6인 다항식 f(x)가 다음 조건을 만족시킨다."},
+        {"type": "text", "value": "<상자> (가) 다항식 f(x)를 다항식 g(x)로 나눈 몫과 나머지는 모두 g(x)-3x^2이다. • (나) 다항식 f(x)를 x+1로 나눈 나머지는 f(0)과 같다."},
+        {"type": "text", "value": "f(3)의 값을 구하는 풀이 과정과 답을 쓰시오."}
+      ]
+    }
+  ]
+}

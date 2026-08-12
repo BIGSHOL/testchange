@@ -1,0 +1,499 @@
+{
+ "exam_id": 4304,
+ "tag": "[대건고][1][None][25-2-중간]",
+ "count": 18,
+ "questions": [
+  {
+   "number": 1,
+   "type": "객관식",
+   "score": 4.1,
+   "stem": "두 점 \\mathrm{A}(1,~2), \\mathrm{B}(5,~5) 사이의 거리는?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "2"
+    },
+    {
+     "number": 2,
+     "text": "3"
+    },
+    {
+     "number": 3,
+     "text": "4"
+    },
+    {
+     "number": 4,
+     "text": "5"
+    },
+    {
+     "number": 5,
+     "text": "6"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 2,
+   "type": "객관식",
+   "score": 4.1,
+   "stem": "중심이 점 (6,~8)이고 y축에 접하는 원의 방정식은?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "(x-6)^{2}+(y-8)^{2}=36"
+    },
+    {
+     "number": 2,
+     "text": "(x-6)^{2}+(y+8)^{2}=36"
+    },
+    {
+     "number": 3,
+     "text": "(x+6)^{2}+(y-8)^{2}=36"
+    },
+    {
+     "number": 4,
+     "text": "(x-6)^{2}+(y-8)^{2}=64"
+    },
+    {
+     "number": 5,
+     "text": "(x-8)^{2}+(y-6)^{2}=64"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 3,
+   "type": "객관식",
+   "score": 4.2,
+   "stem": "좌표평면 위의 점 (1,~2)를 x축의 방향으로 a만큼, y축의 방향으로 -5만큼 평행이동한 점의 좌표가 (3,~b)일 때, a\\times b의 값은?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "-6"
+    },
+    {
+     "number": 2,
+     "text": "-3"
+    },
+    {
+     "number": 3,
+     "text": "0"
+    },
+    {
+     "number": 4,
+     "text": "3"
+    },
+    {
+     "number": 5,
+     "text": "6"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 4,
+   "type": "객관식",
+   "score": 4.2,
+   "stem": "두 집합 A=\\{k+3,~k^{2}-6\\}, B=\\{3,~9-k\\}에 대하여 A=B일 때, k의 값은?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "-1"
+    },
+    {
+     "number": 2,
+     "text": "0"
+    },
+    {
+     "number": 3,
+     "text": "1"
+    },
+    {
+     "number": 4,
+     "text": "2"
+    },
+    {
+     "number": 5,
+     "text": "3"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 5,
+   "type": "객관식",
+   "score": 4.3,
+   "stem": "두 직선 mx-y+2m+1=0, \\frac{x}{4}+\\frac{y}{6}=1의 교점이 제1사분면에 있도록 하는 모든 정수 m의 개수는?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "1"
+    },
+    {
+     "number": 2,
+     "text": "2"
+    },
+    {
+     "number": 3,
+     "text": "3"
+    },
+    {
+     "number": 4,
+     "text": "4"
+    },
+    {
+     "number": 5,
+     "text": "5"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 6,
+   "type": "객관식",
+   "score": 4.3,
+   "stem": "직선 3x+ay+b=0은 직선 6x+14y+5=0과 평행하고 점 (-6,~2)를 지날 때, a+b의 값은? (단, a, b는 상수이다.)",
+   "choices": [
+    {
+     "number": 1,
+     "text": "11"
+    },
+    {
+     "number": 2,
+     "text": "12"
+    },
+    {
+     "number": 3,
+     "text": "13"
+    },
+    {
+     "number": 4,
+     "text": "14"
+    },
+    {
+     "number": 5,
+     "text": "15"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 7,
+   "type": "객관식",
+   "score": 4.6,
+   "stem": "두 집합 A=\\{4,~8,~12,~16,~20\\},~B=\\{6,~12,~18\\} 가 있다. A\\cup X=A, B\\cap X=\\{12\\}를 만족시키는 집합 X의 개수는?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "4"
+    },
+    {
+     "number": 2,
+     "text": "8"
+    },
+    {
+     "number": 3,
+     "text": "12"
+    },
+    {
+     "number": 4,
+     "text": "16"
+    },
+    {
+     "number": 5,
+     "text": "20"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 8,
+   "type": "객관식",
+   "score": 4.8,
+   "stem": "삼각형 \\mathrm{ABC}에서 선분 \\mathrm{BC}를 2:3으로 내분하는 점을 \\mathrm{D}, 선분 \\mathrm{BD}를 2:1로 내분하는 점을 \\mathrm{E}라 하자. 직선 \\mathrm{AD} 위에 있고 \\overline{\\mathrm{AF}}=3\\overline{\\mathrm{AD}}를 만족시키는 점 \\mathrm{F}에 대하여 삼각형 \\mathrm{ACF}의 넓이는 삼각형 \\mathrm{ACE}의 넓이의 k배이다. 이때, 상수 k의 값은? (단, 선분 \\mathrm{AF}는 점 \\mathrm{D}를 지난다.)",
+   "choices": [
+    {
+     "number": 1,
+     "text": "\\frac{27}{8}"
+    },
+    {
+     "number": 2,
+     "text": "3"
+    },
+    {
+     "number": 3,
+     "text": "\\frac{27}{10}"
+    },
+    {
+     "number": 4,
+     "text": "\\frac{27}{11}"
+    },
+    {
+     "number": 5,
+     "text": "\\frac{9}{4}"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 9,
+   "type": "객관식",
+   "score": 4.9,
+   "stem": "전체집합 U=\\{x|x는 15 이하의 자연수\\}의 두 부분집합 A=\\{x|x는 홀수\\},~B=\\{x|x는 3의 배수\\} 가 있다. A\\cup X=B\\cup X를 만족시키는 전체집합 U의 부분집합 X의 개수는?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "2^{6}"
+    },
+    {
+     "number": 2,
+     "text": "2^{7}"
+    },
+    {
+     "number": 3,
+     "text": "2^{8}"
+    },
+    {
+     "number": 4,
+     "text": "2^{9}"
+    },
+    {
+     "number": 5,
+     "text": "2^{10}"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 10,
+   "type": "객관식",
+   "score": 5.1,
+   "stem": "원 x^{2}+y^{2}-4kx-10y+16=0의 중심을 \\mathrm{C}라 하고, 이 원과 직선 3x-4y-6k=0의 두 교점을 \\mathrm{A}, \\mathrm{B}라고 하자. 삼각형 \\mathrm{ABC}의 넓이가 12가 되도록 하는 양수 k의 값은?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "1"
+    },
+    {
+     "number": 2,
+     "text": "2"
+    },
+    {
+     "number": 3,
+     "text": "3"
+    },
+    {
+     "number": 4,
+     "text": "4"
+    },
+    {
+     "number": 5,
+     "text": "5"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 11,
+   "type": "객관식",
+   "score": 5.2,
+   "stem": "0이 아닌 실수 t에 대하여 점 (2t,~t)를 중심으로 하고 x축과 직선 y=x+2에 동시에 접하는 서로 다른 두 원 C_{1}, C_{2}가 있다. 두 원 C_{1}, C_{2}의 반지름을 각각 a, b라 할 때, a+b의 값은?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "2\\sqrt{2}"
+    },
+    {
+     "number": 2,
+     "text": "3\\sqrt{2}"
+    },
+    {
+     "number": 3,
+     "text": "4\\sqrt{2}"
+    },
+    {
+     "number": 4,
+     "text": "5\\sqrt{2}"
+    },
+    {
+     "number": 5,
+     "text": "6\\sqrt{2}"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 12,
+   "type": "객관식",
+   "score": 5.3,
+   "stem": "원 (x-4)^{2}+(y-1)^{2}=9 위의 점 \\mathrm{P}가 있다. 점 \\mathrm{P}를 x축의 방향으로 -1만큼, y축의 방향으로 2만큼 평행이동한 후 직선 y=x에 대하여 대칭이동한 점을 \\mathrm{Q}라 하자. 두 점 \\mathrm{A}(-3\\sqrt{3},~-1), \\mathrm{B}(-\\sqrt{3},~5)에 대하여 삼각형 \\mathrm{ABQ}의 넓이가 최대일 때, 점 \\mathrm{P}의 x좌표는?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "\\frac{5}{2}"
+    },
+    {
+     "number": 2,
+     "text": "3"
+    },
+    {
+     "number": 3,
+     "text": "\\frac{7}{2}"
+    },
+    {
+     "number": 4,
+     "text": "4"
+    },
+    {
+     "number": 5,
+     "text": "\\frac{9}{2}"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 13,
+   "type": "객관식",
+   "score": 5.4,
+   "stem": "전체집합 U=\\{1,~2,~3,~4,~5\\}에 대하여 다음 조건을 만족시킬 때, 두 집합 A, B의 순서쌍 (A,~B)의 개수는? <상자> (가) A\\cup B=U • (나) 0<n(A)<n(B)",
+   "choices": [
+    {
+     "number": 1,
+     "text": "75"
+    },
+    {
+     "number": 2,
+     "text": "80"
+    },
+    {
+     "number": 3,
+     "text": "85"
+    },
+    {
+     "number": 4,
+     "text": "90"
+    },
+    {
+     "number": 5,
+     "text": "95"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 14,
+   "type": "객관식",
+   "score": 5.5,
+   "stem": "ab<0인 두 상수 a, b에 대하여 원 C:(x-2)^{2}+(y+3)^{2}=25를 x축의 방향으로 a만큼, y축의 방향으로 b만큼 평행이동한 원을 C'이라 할 때, 두 원 C, C'이 다음 조건을 만족시킨다. <상자> (가) 두 원 C, C'의 중심 사이의 거리는 5\\sqrt{5}이다. • (나) 직선 4x-3y+k=0은 두 원 C, C'에 모두 접한다. ab+k의 최솟값은? (단, k는 양수이다.)",
+   "choices": [
+    {
+     "number": 1,
+     "text": "-50"
+    },
+    {
+     "number": 2,
+     "text": "-42"
+    },
+    {
+     "number": 3,
+     "text": "-34"
+    },
+    {
+     "number": 4,
+     "text": "-26"
+    },
+    {
+     "number": 5,
+     "text": "[판독불가]"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 15,
+   "type": "서술형",
+   "score": 8,
+   "stem": "[서술형 1] 원 x^{2}+y^{2}=9에 대하여 원과 x축의 양의 부분의 교점을 \\mathrm{A}, 제2사분면 위에 있는 원 위의 한 점 \\mathrm{P}를 지나는 접선 l과 x축의 교점을 \\mathrm{B}라 하자. 점 \\mathrm{P}에서 x축에 내린 수선의 발 \\mathrm{H}가 선분 \\mathrm{AB}의 중점일 때, 다음 물음에 답하시오.",
+   "choices": [],
+   "sub_questions": [
+    {
+     "number": 1,
+     "score": 2,
+     "text": "점 \\mathrm{A}의 좌표를 구하고, 그 과정을 서술하시오."
+    },
+    {
+     "number": 2,
+     "score": 4,
+     "text": "점 \\mathrm{P}의 좌표를 구하고, 그 과정을 서술하시오."
+    },
+    {
+     "number": 3,
+     "score": 2,
+     "text": "접선 l의 방정식이 y=mx+n일 때, 두 상수 m, n에 대하여 m+n의 값을 구하고, 그 과정을 서술하시오."
+    }
+   ]
+  },
+  {
+   "number": 16,
+   "type": "서술형",
+   "score": 8,
+   "stem": "[서술형 2] 두 원 C_{1}:(x-1)^{2}+y^{2}=1, C_{2}:x^{2}+(y-2)^{2}=4와 직선 l:y=\\frac{3}{4}x+k가 있다. 다음 물음에 답하시오.",
+   "choices": [],
+   "sub_questions": [
+    {
+     "number": 1,
+     "score": 2,
+     "text": "직선 l과 원 C_{1}이 접할 때, 모든 실수 k의 값을 구하고, 그 과정을 서술하시오."
+    },
+    {
+     "number": 2,
+     "score": 2,
+     "text": "직선 l과 원 C_{2}가 서로 다른 두 점에서 만날 때, 실수 k의 값의 범위를 구하고, 그 과정을 서술하시오."
+    },
+    {
+     "number": 3,
+     "score": 4,
+     "text": "직선 l과 두 원 C_{1}, C_{2}의 교점의 개수를 각각 a, b라 하자. ab=2를 만족시키는 모든 실수 k의 값을 구하고, 그 과정을 서술하시오."
+    }
+   ]
+  },
+  {
+   "number": 17,
+   "type": "서술형",
+   "score": 9,
+   "stem": "[서술형 3] 다음 물음에 답하시오.",
+   "choices": [],
+   "sub_questions": [
+    {
+     "number": 1,
+     "score": 4,
+     "text": "점 \\mathrm{P}(x,~y)를 직선 y=x에 대하여 대칭이동한 점을 \\mathrm{P}'(x',~y')라 하면, 다음 조건을 활용하여 점 \\mathrm{P}'의 좌표가 (y,~x)임을 서술하시오. (단, 점 \\mathrm{P}는 직선 y=x 위의 점이 아니다.) <상자> (가) 선분 \\mathrm{PP}'의 중점은 직선 y=x 위의 점이다. • (나) 두 직선이 서로 수직이면 두 기울기의 곱은 -1이다."
+    },
+    {
+     "number": 2,
+     "score": 5,
+     "text": "점 \\mathrm{A}(1,~0)을 직선 y=2x-1에 대하여 대칭이동한 점을 \\mathrm{A}'(a,~b)라 하자. [서술형 3-(1)]과 같은 방법을 응용하여 a+b의 값을 구하고, 그 과정을 서술하시오."
+    }
+   ]
+  },
+  {
+   "number": 18,
+   "type": "서술형",
+   "score": 9,
+   "stem": "[서술형 4] 1학년 학생 50명을 대상으로 인터넷 강의와 AI 코스웨어를 이용해 공부한 학생 수를 조사하였다. 인터넷 강의를 이용한 학생은 31명, AI 코스웨어를 이용한 학생은 27명이었다. 다음 물음에 답하시오.",
+   "choices": [],
+   "sub_questions": [
+    {
+     "number": 1,
+     "score": 8,
+     "text": "인터넷 강의와 AI 코스웨어를 모두 이용한 학생 수의 최댓값을 M, 최솟값을 m이라 하자. __합집합의 원소의 개수를 활용하여__ M+m의 값을 구하고, 그 과정을 서술하시오."
+    },
+    {
+     "number": 2,
+     "score": 1,
+     "text": "[서술형 4-(1)]에서 인터넷 강의와 AI 코스웨어를 모두 이용한 학생 수가 최댓값 M일 때, '두 집합 사이의 포함관계'를 __벤 다이어그램을 이용__하여 보이시오."
+    }
+   ]
+  }
+ ]
+}

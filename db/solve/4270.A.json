@@ -1,0 +1,146 @@
+{
+ "exam_id": 4270,
+ "pass": "A",
+ "items": [
+  {
+   "number": 1,
+   "answer": "③",
+   "solution": "step1) 원점 $\\mathrm{O}(0)$, $\\mathrm{A}(-3)$이므로 $\\overline{\\mathrm{OA}}=|-3-0|=3$이다.\nstep2) $\\mathrm{B}(a)$에서 $\\overline{\\mathrm{OB}}=|a-0|=|a|$이다.\nstep3) $\\overline{\\mathrm{OA}}=\\overline{\\mathrm{OB}}$이므로 $|a|=3$, 즉 $a=3$ 또는 $a=-3$이다.\nstep4) $a$는 양수이므로 $a=3$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 2,
+   "answer": "②",
+   "solution": "step1) 점 $\\mathrm{M}$이 $\\overline{\\mathrm{AB}}$의 중점이므로 $\\overline{\\mathrm{AB}}=2\\,\\overline{\\mathrm{AM}}$이다.\nstep2) $\\overline{\\mathrm{AM}}=2\\,\\mathrm{cm}$이므로 $\\overline{\\mathrm{AB}}=2\\times2=4\\,(\\mathrm{cm})$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 3,
+   "answer": "②",
+   "solution": "step1) 수직선 위의 두 점 $\\mathrm{A}(x_1)$, $\\mathrm{B}(x_2)$를 $m:n$으로 내분하는 점의 좌표는 $\\dfrac{m x_2+n x_1}{m+n}$이다.\nstep2) $x_1=3$, $x_2=-1$, $m:n=1:3$을 대입하면 $\\dfrac{1\\times(-1)+3\\times3}{1+3}$이다.\nstep3) $=\\dfrac{-1+9}{4}=\\dfrac{8}{4}=2$이다.\nstep4) 검산: $2$는 $\\mathrm{A}(3)$에서 거리 $1$, $\\mathrm{B}(-1)$에서 거리 $3$이므로 $1:3$이 맞다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 4,
+   "answer": "⑤",
+   "solution": "step1) 두 점 사이의 거리는 $\\overline{\\mathrm{OA}}=\\sqrt{(-3-0)^{2}+(4-0)^{2}}$이다.\nstep2) $=\\sqrt{9+16}=\\sqrt{25}=5$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 5,
+   "answer": "④",
+   "solution": "step1) 중점의 좌표는 $\\left(\\dfrac{x_1+x_2}{2},\\ \\dfrac{y_1+y_2}{2}\\right)$이다.\nstep2) $x$좌표: $\\dfrac{6+(-4)}{2}=\\dfrac{2}{2}=1$이다.\nstep3) $y$좌표: $\\dfrac{7+3}{2}=\\dfrac{10}{2}=5$이다.\nstep4) 따라서 중점은 $(1,\\ 5)$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 6,
+   "answer": "⑤",
+   "solution": "step1) 무게중심의 좌표는 $\\left(\\dfrac{x_1+x_2+x_3}{3},\\ \\dfrac{y_1+y_2+y_3}{3}\\right)$이다.\nstep2) $x$좌표: $\\dfrac{3+(-3)+9}{3}=\\dfrac{9}{3}=3$이다.\nstep3) $y$좌표: $\\dfrac{6+0+(-3)}{3}=\\dfrac{3}{3}=1$이다.\nstep4) 따라서 무게중심은 $(3,\\ 1)$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 7,
+   "answer": "①",
+   "solution": "step1) 직선 $y=-2x-1$에 평행하므로 기울기는 $-2$이다.\nstep2) 점 $(1,\\ -2)$를 지나므로 $y-(-2)=-2(x-1)$이다.\nstep3) $y+2=-2x+2$이므로 $y=-2x$이다.\nstep4) 검산: $x=1$일 때 $y=-2$로 주어진 점을 지난다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 8,
+   "answer": "①",
+   "solution": "step1) 직선 $l$의 기울기는 $\\dfrac{5-3}{4-0}=\\dfrac{2}{4}=\\dfrac{1}{2}$이다.\nstep2) 직선 $m$의 기울기는 $\\dfrac{2-1}{2-0}=\\dfrac{1}{2}$이다.\nstep3) 두 기울기의 합은 $\\dfrac{1}{2}+\\dfrac{1}{2}=1$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 9,
+   "answer": "④",
+   "solution": "step1) 두 직선이 수직이면 기울기의 곱이 $-1$이다.\nstep2) $y=-2x+5$의 기울기가 $-2$이므로 구하는 기울기를 $m$이라 하면 $-2m=-1$이다.\nstep3) 따라서 $m=\\dfrac{1}{2}$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 10,
+   "answer": "③",
+   "solution": "step1) 점 $(x_1,\\ y_1)$과 직선 $ax+by+c=0$ 사이의 거리는 $\\dfrac{|ax_1+by_1+c|}{\\sqrt{a^{2}+b^{2}}}$이다.\nstep2) $a=3$, $b=-1$, $c=-5$, $(x_1,\\ y_1)=(3,\\ -6)$을 대입하면 분자는 $|3\\times3+(-1)\\times(-6)-5|=|9+6-5|=10$이다.\nstep3) 분모는 $\\sqrt{3^{2}+(-1)^{2}}=\\sqrt{10}$이다.\nstep4) 따라서 거리는 $\\dfrac{10}{\\sqrt{10}}=\\sqrt{10}$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 11,
+   "answer": "②",
+   "solution": "step1) 직선 $x+2y=0$ 위의 한 점으로 원점 $(0,\\ 0)$을 잡는다.\nstep2) 평행한 두 직선 사이의 거리는 이 점과 직선 $x+2y+5=0$ 사이의 거리와 같다.\nstep3) $\\dfrac{|0+2\\times0+5|}{\\sqrt{1^{2}+2^{2}}}=\\dfrac{5}{\\sqrt{5}}=\\sqrt{5}$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 12,
+   "answer": "①",
+   "solution": "step1) 점 $\\mathrm{P}(x,\\ y)$와 원점 $\\mathrm{O}(0,\\ 0)$ 사이의 거리는 $\\overline{\\mathrm{OP}}=\\sqrt{x^{2}+y^{2}}$이다.\nstep2) $\\overline{\\mathrm{OP}}=1$이므로 $\\sqrt{x^{2}+y^{2}}=1$이다.\nstep3) 양변을 제곱하면 $x^{2}+y^{2}=1$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 13,
+   "answer": "④",
+   "solution": "step1) 원 밖의 한 점에서 원에 그은 두 접선의 길이는 서로 같으므로 $\\overline{\\mathrm{PA}}=\\overline{\\mathrm{PB}}$이다.\nstep2) 그림에서 $\\overline{\\mathrm{PB}}=12$이므로 $\\overline{\\mathrm{PA}}=12$이다.\nstep3) 검산: $\\overline{\\mathrm{OA}}\\perp\\overline{\\mathrm{PA}}$이므로 $\\overline{\\mathrm{PA}}=\\sqrt{\\overline{\\mathrm{PO}}^{2}-\\overline{\\mathrm{OA}}^{2}}=\\sqrt{13^{2}-5^{2}}=\\sqrt{169-25}=\\sqrt{144}=12$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 14,
+   "answer": "③",
+   "solution": "step1) 중심이 원점이고 반지름의 길이가 $r$인 원의 방정식은 $x^{2}+y^{2}=r^{2}$이다.\nstep2) $r=\\sqrt{6}$이므로 $r^{2}=6$이다.\nstep3) 따라서 원의 방정식은 $x^{2}+y^{2}=6$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 15,
+   "answer": "⑤",
+   "solution": "step1) 지름의 양 끝점이 $\\mathrm{A}(2,\\ 9)$, $\\mathrm{B}(10,\\ 3)$이므로 원의 중심은 $\\overline{\\mathrm{AB}}$의 중점이다.\nstep2) 중심은 $\\left(\\dfrac{2+10}{2},\\ \\dfrac{9+3}{2}\\right)=(6,\\ 6)$이다.\nstep3) $\\overline{\\mathrm{AB}}=\\sqrt{(10-2)^{2}+(3-9)^{2}}=\\sqrt{64+36}=\\sqrt{100}=10$이므로 반지름은 $5$이다.\nstep4) 따라서 원의 방정식은 $(x-6)^{2}+(y-6)^{2}=25$이다.\nstep5) 검산: $\\mathrm{A}(2,\\ 9)$를 대입하면 $16+9=25$로 성립한다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 16,
+   "answer": "④",
+   "solution": "step1) $x^{2}+6x+y^{2}-4y+4=0$에서 완전제곱식으로 고친다.\nstep2) $(x+3)^{2}-9+(y-2)^{2}-4+4=0$이다.\nstep3) $(x+3)^{2}+(y-2)^{2}=9$이다.\nstep4) 따라서 중심의 좌표가 $(-3,\\ 2)$이고 반지름의 길이가 $3$인 원이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 17,
+   "answer": "①",
+   "solution": "step1) 원과 직선이 한 점에서 만나는 것은 직선이 원에 접하는 경우이다.\nstep2) 원의 반지름을 $r$, 중심과 직선 사이의 거리를 $d$라 하면 접할 조건은 $d=r$이다.\nstep3) $r=6$이므로 $d=6$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 18,
+   "answer": "⑤",
+   "solution": "step1) 원 $x^{2}+y^{2}=36$의 중심은 $(0,\\ 0)$, 반지름은 $r=6$이다.\nstep2) 직선 $y=x-2$를 정리하면 $x-y-2=0$이다.\nstep3) 중심과 직선 사이의 거리는 $d=\\dfrac{|0-0-2|}{\\sqrt{1^{2}+(-1)^{2}}}=\\dfrac{2}{\\sqrt{2}}=\\sqrt{2}$이다.\nstep4) $\\sqrt{2}<6$이므로 $d<r$이고, 원과 직선은 서로 다른 두 점에서 만난다.\nstep5) 검산: $x^{2}+(x-2)^{2}=36$에서 $2x^{2}-4x-32=0$, $x^{2}-2x-16=0$이고 판별식 $D/4=1+16=17>0$이므로 서로 다른 두 실근이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 19,
+   "answer": "②",
+   "solution": "step1) 점 $(2,\\ -\\sqrt{6})$이 원 위의 점인지 확인하면 $2^{2}+(-\\sqrt{6})^{2}=4+6=10$으로 원 위의 점이다.\nstep2) 원 $x^{2}+y^{2}=r^{2}$ 위의 점 $(x_1,\\ y_1)$에서의 접선의 방정식은 $x_1x+y_1y=r^{2}$이다.\nstep3) $x_1=2$, $y_1=-\\sqrt{6}$, $r^{2}=10$을 대입하면 $2x-\\sqrt{6}\\,y=10$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 20,
+   "answer": "③",
+   "solution": "step1) $10{,}000$장을 인쇄하는 데 평균 $10$개월이 걸리므로 한 달에 평균 $1{,}000$장을 인쇄한다.\nstep2) $8{,}000$장이 되는 시점은 $\\dfrac{8000}{1000}=8$(개월) 후이다.\nstep3) 따라서 $8$개월 후에 연락해야 한다.",
+   "confidence": "high",
+   "note": ""
+  }
+ ]
+}

@@ -1,0 +1,576 @@
+{
+ "exam_id": 4296,
+ "tag": "[달서고][1][공수1][25-1-중간]",
+ "count": 21,
+ "questions": [
+  {
+   "number": 1,
+   "type": "객관식",
+   "score": 3.7,
+   "stem": "두 다항식 A=3x^2-6xy+3y^2, B=x^2+xy+2y^2에 대하여 등식 A-X=B을 만족시키는 다항식 X를 구하면?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "2x^2-5xy+5y^2"
+    },
+    {
+     "number": 2,
+     "text": "2x^2-7xy+5y^2"
+    },
+    {
+     "number": 3,
+     "text": "2x^2-5xy+y^2"
+    },
+    {
+     "number": 4,
+     "text": "2x^2-7xy+y^2"
+    },
+    {
+     "number": 5,
+     "text": "3x^2-5xy+y^2"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 2,
+   "type": "객관식",
+   "score": 3.5,
+   "stem": "a+b=4, ab=2일 때, \\frac{1}{a}+\\frac{1}{b}의 값은?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "0"
+    },
+    {
+     "number": 2,
+     "text": "\\frac{1}{2}"
+    },
+    {
+     "number": 3,
+     "text": "1"
+    },
+    {
+     "number": 4,
+     "text": "\\frac{3}{2}"
+    },
+    {
+     "number": 5,
+     "text": "2"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 3,
+   "type": "객관식",
+   "score": 3.6,
+   "stem": "다항식 x^3-3x+5을 일차식 x-3로 나누었을 때의 나머지는?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "19"
+    },
+    {
+     "number": 2,
+     "text": "21"
+    },
+    {
+     "number": 3,
+     "text": "23"
+    },
+    {
+     "number": 4,
+     "text": "25"
+    },
+    {
+     "number": 5,
+     "text": "27"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 4,
+   "type": "객관식",
+   "score": 3.8,
+   "stem": "등식 x-i-1+3i+yi=4i를 만족시키는 두 실수 x, y에 대하여 x-y의 값은?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "-1"
+    },
+    {
+     "number": 2,
+     "text": "0"
+    },
+    {
+     "number": 3,
+     "text": "1"
+    },
+    {
+     "number": 4,
+     "text": "2"
+    },
+    {
+     "number": 5,
+     "text": "3"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 5,
+   "type": "객관식",
+   "score": 3.9,
+   "stem": "함수 f(x)=1+x+x^2+x^3+ \\cdots +x^{100}일 때, f(i)의 값은?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "-1"
+    },
+    {
+     "number": 2,
+     "text": "0"
+    },
+    {
+     "number": 3,
+     "text": "1"
+    },
+    {
+     "number": 4,
+     "text": "-i"
+    },
+    {
+     "number": 5,
+     "text": "i"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 6,
+   "type": "객관식",
+   "score": 4.0,
+   "stem": "다음 이차방정식 중 서로 다른 두 허근을 갖는 것은?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "x^2-2x-1=0"
+    },
+    {
+     "number": 2,
+     "text": "x^2+3x-2=0"
+    },
+    {
+     "number": 3,
+     "text": "x^2-10x+25=0"
+    },
+    {
+     "number": 4,
+     "text": "x^2-3\\sqrt{2}x+5=0"
+    },
+    {
+     "number": 5,
+     "text": "x^2-6x+8=0"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 7,
+   "type": "객관식",
+   "score": 4.0,
+   "stem": "이차방정식 3x^2-6x+7=0의 두 근을 \\alpha, \\beta라 할 때, \\alpha^3+\\beta^3의 값은?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "-10"
+    },
+    {
+     "number": 2,
+     "text": "-6"
+    },
+    {
+     "number": 3,
+     "text": "0"
+    },
+    {
+     "number": 4,
+     "text": "6"
+    },
+    {
+     "number": 5,
+     "text": "10"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 8,
+   "type": "객관식",
+   "score": 4.0,
+   "stem": "x에 대한 이차방정식 kx^2+px+(k+1)q=0은 실수 k의 값에 관계없이 항상 2를 근으로 갖는다. 이때 pq의 값은?(단, k \\neq 0)",
+   "choices": [
+    {
+     "number": 1,
+     "text": "-8"
+    },
+    {
+     "number": 2,
+     "text": "-4"
+    },
+    {
+     "number": 3,
+     "text": "0"
+    },
+    {
+     "number": 4,
+     "text": "4"
+    },
+    {
+     "number": 5,
+     "text": "8"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 9,
+   "type": "객관식",
+   "score": 4.0,
+   "stem": "다음 식을 인수분해한 결과 A^2B이다. 이때 A-B는? (단, A, B는 a의 계수가 1인 일차식이다.) <상자> a^3-a^2b-ab^2+b^3",
+   "choices": [
+    {
+     "number": 1,
+     "text": "-2a"
+    },
+    {
+     "number": 2,
+     "text": "-2b"
+    },
+    {
+     "number": 3,
+     "text": "2a-b"
+    },
+    {
+     "number": 4,
+     "text": "a+2b"
+    },
+    {
+     "number": 5,
+     "text": "2a+2b"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 10,
+   "type": "객관식",
+   "score": 4.0,
+   "stem": "1 \\leq x \\leq 4에서 이차함수 y=x^2-4x+2의 최댓값을 p, 최솟값을 q라 할 때, p+q의 값은?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "-4"
+    },
+    {
+     "number": 2,
+     "text": "-2"
+    },
+    {
+     "number": 3,
+     "text": "0"
+    },
+    {
+     "number": 4,
+     "text": "2"
+    },
+    {
+     "number": 5,
+     "text": "4"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 11,
+   "type": "객관식",
+   "score": 4.0,
+   "stem": "이차방정식 x^2+ax+b=0의 한 근이 1-2i일 때, 두 실수 a, b를 두 근으로 하는 이차방정식을 구하면?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "x^2-2x+5=0"
+    },
+    {
+     "number": 2,
+     "text": "x^2+2x+5=0"
+    },
+    {
+     "number": 3,
+     "text": "x^2-3x-10=0"
+    },
+    {
+     "number": 4,
+     "text": "x^2+3x-10=0"
+    },
+    {
+     "number": 5,
+     "text": "x^2+3x+10=0"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 12,
+   "type": "객관식",
+   "score": 4.4,
+   "stem": "이차함수 f(x)=3x^2-6kx+k^2-4k-10가 0 \\leq x \\leq 2에서 최솟값이 2가 되도록 하는 모든 실수 k의 값의 합은?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "-4"
+    },
+    {
+     "number": 2,
+     "text": "-2"
+    },
+    {
+     "number": 3,
+     "text": "4"
+    },
+    {
+     "number": 4,
+     "text": "14"
+    },
+    {
+     "number": 5,
+     "text": "16"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 13,
+   "type": "객관식",
+   "score": 4.3,
+   "stem": "등식 (p+2qi)^2 = -8i를 만족시키는 두 실수 p, q는 x에 대한 이차방정식 2x^2+ax+b=0의 두 실근이다. 두 상수 a, b에 대하여 a^3+b^3의 값은?(단, p > 0)",
+   "choices": [
+    {
+     "number": 1,
+     "text": "-72"
+    },
+    {
+     "number": 2,
+     "text": "-36"
+    },
+    {
+     "number": 3,
+     "text": "36"
+    },
+    {
+     "number": 4,
+     "text": "72"
+    },
+    {
+     "number": 5,
+     "text": "102"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 14,
+   "type": "객관식",
+   "score": 4.5,
+   "stem": "최고차항의 계수가 1인 삼차다항식 f(x)가 다음 조건을 만족시킬 때, f(0)의 값은? <상자> (가) 다항식 f(x+3)-f(x)는 (x-1)(x+2)로 나누어 떨어진다. • (나) 다항식 f(x)를 x-2로 나누었을 때의 나머지는 -3이다.",
+   "choices": [
+    {
+     "number": 1,
+     "text": "13"
+    },
+    {
+     "number": 2,
+     "text": "14"
+    },
+    {
+     "number": 3,
+     "text": "15"
+    },
+    {
+     "number": 4,
+     "text": "16"
+    },
+    {
+     "number": 5,
+     "text": "17"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 15,
+   "type": "객관식",
+   "score": 4.6,
+   "stem": "최고차항의 계수가 2이고, f(-1)=f(5)=0인 이차함수 y=f(x)의 그래프와 y=-f(x)+2의 그래프의 꼭짓점을 각각 \\mathrm{A}, \\mathrm{B}라 하고, 함수 y=f(x)의 그래프와 y=-f(x)+2의 그래프가 만나는 두 점을 각각 \\mathrm{C}, \\mathrm{D}라 하자. 사각형 \\mathrm{ABCD}의 넓이는?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "19\\sqrt{17}"
+    },
+    {
+     "number": 2,
+     "text": "\\frac{19\\sqrt{17}}{2}"
+    },
+    {
+     "number": 3,
+     "text": "\\frac{19\\sqrt{38}}{2}"
+    },
+    {
+     "number": 4,
+     "text": "19\\sqrt{38}"
+    },
+    {
+     "number": 5,
+     "text": "38\\sqrt{38}"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 16,
+   "type": "객관식",
+   "score": 4.7,
+   "stem": "최고차항의 계수가 a인 이차함수 f(x)가 다음 조건을 만족시킨다. <상자> (가) 직선 y=3ax-6과 함수 y=f(x)의 그래프가 만나는 점의 x좌표는 1과 4이다. • (나) 1 \\leq x \\leq 4에서 f(x)의 최솟값은 -12이다. 이때, a의 값은?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "-2"
+    },
+    {
+     "number": 2,
+     "text": "-1"
+    },
+    {
+     "number": 3,
+     "text": "-\\frac{1}{5}"
+    },
+    {
+     "number": 4,
+     "text": "-\\frac{1}{3}"
+    },
+    {
+     "number": 5,
+     "text": "-\\frac{1}{2}"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 17,
+   "type": "서술형",
+   "score": 6,
+   "stem": "[서술형 1] 다항식을 전개한 다음 동류항끼리 모아서 정리하는 과정을 다음 단계에 따라 서술하시오.",
+   "choices": [],
+   "sub_questions": [
+    {
+     "number": 1,
+     "score": null,
+     "text": "[1단계] (x-2)(2x^2+3x-1)을 전개하시오."
+    },
+    {
+     "number": 2,
+     "score": null,
+     "text": "[2단계] (a+b)(a^2-ab+b^2)을 전개하시오."
+    },
+    {
+     "number": 3,
+     "score": null,
+     "text": "[3단계] (3x-y)^3을 전개하시오."
+    }
+   ]
+  },
+  {
+   "number": 18,
+   "type": "서술형",
+   "score": 6,
+   "stem": "[서술형 2] 다항식 A=x^3+3x^2+x+k가 다항식 x^2+1로 나누어떨어질 때, 다항식 A를 x-1로 나누었을 때의 몫 Q와 나머지 R을 구하는 과정을 다음 단계에 따라 서술하시오.(단, k는 상수이다.)",
+   "choices": [],
+   "sub_questions": [
+    {
+     "number": 1,
+     "score": null,
+     "text": "[1단계] 상수 k의 값을 구하시오."
+    },
+    {
+     "number": 2,
+     "score": null,
+     "text": "[2단계] 몫 Q와 나머지 R을 각각 구하시오."
+    }
+   ]
+  },
+  {
+   "number": 19,
+   "type": "서술형",
+   "score": 7,
+   "stem": "[서술형 3] 나머지 정리를 활용하여 복잡하고 큰 수의 계산을 간단하게 할 수 있음을 보여주는 과정을 다음 단계에 따라 서술하시오.",
+   "choices": [],
+   "sub_questions": [
+    {
+     "number": 1,
+     "score": null,
+     "text": "[1단계] 368^{10}을 367로 나누었을 때의 나머지를 구하시오."
+    },
+    {
+     "number": 2,
+     "score": null,
+     "text": "[2단계] 368^{11}을 369로 나누었을 때의 나머지를 구하시오."
+    }
+   ]
+  },
+  {
+   "number": 20,
+   "type": "서술형",
+   "score": 7,
+   "stem": "[서술형 4] 다음 단계에 따라 주어진 식을 인수분해 하는 과정을 서술하시오.",
+   "choices": [],
+   "sub_questions": [
+    {
+     "number": 1,
+     "score": null,
+     "text": "[1단계] (x^2+x+3)(x^2+2x+3)-2x^2을 인수분해 하시오."
+    },
+    {
+     "number": 2,
+     "score": null,
+     "text": "[2단계] x^4+2x^2+9을 인수분해 하시오."
+    }
+   ]
+  },
+  {
+   "number": 21,
+   "type": "서술형",
+   "score": 9,
+   "stem": "[서술형 5] 이차방정식 x^2-6x+1-5k=0은 실근을 가지고, 이차방정식 x^2+(2k+1)x+(k^2+3)=0은 허근을 가질 때의 실수 k값의 범위에서 정수의 개수를 구하는 과정을 다음 단계에 따라 서술하시오.",
+   "choices": [],
+   "sub_questions": [
+    {
+     "number": 1,
+     "score": null,
+     "text": "[1단계] x^2-6x+1-5k=0에서의 실근을 가지는 실수 k값의 범위를 구하여라."
+    },
+    {
+     "number": 2,
+     "score": null,
+     "text": "[2단계] x^2+(2k+1)x+(k^2+3)=0에서의 허근을 가지는 실수 k값의 범위를 구하여라."
+    },
+    {
+     "number": 3,
+     "score": null,
+     "text": "[3단계] 이를 모두 만족하는 실수 k값의 범위에서 정수 k의 개수를 구하여라."
+    }
+   ]
+  }
+ ]
+}

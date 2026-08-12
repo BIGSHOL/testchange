@@ -1,0 +1,183 @@
+{
+ "exam_id": 4294,
+ "answer_pages": [
+  7
+ ],
+ "items": [
+  {
+   "number": 1,
+   "answer": "②",
+   "solution": "",
+   "topic": "이차함수",
+   "difficulty": "하"
+  },
+  {
+   "number": 2,
+   "answer": "①",
+   "solution": "",
+   "topic": "여러 가지 방정식",
+   "difficulty": "중"
+  },
+  {
+   "number": 3,
+   "answer": "③",
+   "solution": "",
+   "topic": "연립이차방정식",
+   "difficulty": "하"
+  },
+  {
+   "number": 4,
+   "answer": "②",
+   "solution": "",
+   "topic": "연립일차부등식",
+   "difficulty": "하"
+  },
+  {
+   "number": 5,
+   "answer": "③",
+   "solution": "",
+   "topic": "절대을 포함한 일차부등식",
+   "difficulty": "중"
+  },
+  {
+   "number": 6,
+   "answer": "⑤",
+   "solution": "",
+   "topic": "이차부등식",
+   "difficulty": "하"
+  },
+  {
+   "number": 7,
+   "answer": "④",
+   "solution": "",
+   "topic": "이차부등식",
+   "difficulty": "중"
+  },
+  {
+   "number": 8,
+   "answer": "②",
+   "solution": "",
+   "topic": "경우의 수",
+   "difficulty": "중"
+  },
+  {
+   "number": 9,
+   "answer": "④",
+   "solution": "",
+   "topic": "경우의 수",
+   "difficulty": "중"
+  },
+  {
+   "number": 10,
+   "answer": "④",
+   "solution": "",
+   "topic": "순열",
+   "difficulty": "중"
+  },
+  {
+   "number": 11,
+   "answer": "③",
+   "solution": "",
+   "topic": "순열",
+   "difficulty": "중"
+  },
+  {
+   "number": 12,
+   "answer": "①",
+   "solution": "",
+   "topic": "조합",
+   "difficulty": "하"
+  },
+  {
+   "number": 13,
+   "answer": "④",
+   "solution": "",
+   "topic": "조합",
+   "difficulty": "하"
+  },
+  {
+   "number": 14,
+   "answer": "②",
+   "solution": "",
+   "topic": "조합",
+   "difficulty": "중"
+  },
+  {
+   "number": 15,
+   "answer": "①",
+   "solution": "",
+   "topic": "조합",
+   "difficulty": "중"
+  },
+  {
+   "number": 16,
+   "answer": "⑤",
+   "solution": "",
+   "topic": "행렬",
+   "difficulty": "하"
+  },
+  {
+   "number": 17,
+   "answer": "②",
+   "solution": "",
+   "topic": "행렬",
+   "difficulty": "중"
+  },
+  {
+   "number": 18,
+   "answer": "①",
+   "solution": "",
+   "topic": "행렬",
+   "difficulty": "상"
+  },
+  {
+   "number": 19,
+   "answer": "③",
+   "solution": "",
+   "topic": "행렬",
+   "difficulty": "상"
+  },
+  {
+   "number": 20,
+   "answer": "③",
+   "solution": "",
+   "topic": "행렬",
+   "difficulty": "상"
+  },
+  {
+   "number": 21,
+   "answer": "(1) $a=-2$, $b=-2$ (2) $f(7)=33$",
+   "solution": "(1) 조건 (가)에 의하여 $y=f(x)$의 그래프의 꼭짓점의 $x$좌표는 $\\frac{-2+4}{2}=1$이고, 그래프는 아래로 볼록하므로 조건 (나)에 의하여 꼭짓점의 $y$좌표는 $-3$이다.\n따라서 $f(x)=(x-1)^{2}-3=x^{2}-2x-2$ 이므로 $a=-2$, $b=-2$이다.\n(2) $x=7$일 때 최대이므로 구하는 최댓값은 $f(7)=33$이다.",
+   "topic": "이차함수의 최대최소",
+   "difficulty": "중"
+  },
+  {
+   "number": 22,
+   "answer": "$k=\\pm 2\\sqrt{5}$",
+   "solution": "$x=k-2y$ 아래 식에 대입하면\n$(k-2y)^{2}+y^{2}=4$ 이 식의 $y$의 값이 중근이면 오직 하나의 실근은 가지므로\n$5y^{2}-4ky+(k^{2}-4)=0$\n$\\mathrm{D}/4=0$ : $4k^{2}-5(k^{2}-4)=0$\n$k^{2}=20$\n$\\therefore k=\\pm 2\\sqrt{5}$",
+   "topic": "연립이차방정식",
+   "difficulty": "중"
+  },
+  {
+   "number": 23,
+   "answer": "$3 \\leq k < 4$",
+   "solution": "$\\begin{cases} x^{2}-2x-24 \\leq 0 \\\\ x^{2}-(k+1)x+k \\leq 0 \\end{cases}$ 의 해를 구하면, $\\begin{cases} -4 \\leq x \\leq 6 \\\\ 1 \\leq x \\leq k \\end{cases}$\n$x^{2}-(k+1)x+k \\leq 0$의 해는 $1 \\leq x \\leq k$, $k \\leq x \\leq 1$ 둘 다 되지만, 해는 자연수 $x$의 개수가 3일 때를 구하는 것이기 때문에 $1 \\leq x \\leq k$ 이다.\n$\\begin{cases} -4 \\leq x \\leq 6 \\\\ 1 \\leq x \\leq k \\end{cases}$ 의 공통의 해에서 자연수 개수가 3이기 위한 $k$의 범위는 $3 \\leq k < 4$이다.",
+   "topic": "이차부등식",
+   "difficulty": "중"
+  },
+  {
+   "number": 24,
+   "answer": "$72$",
+   "solution": "$a$, $b$, $c$ 나열하는 경우의 수: $3!=6$\n숫자 이웃하지 않게 나열하는 경우의 수 : ${}_{4}\\mathrm{P}_{2}=12$\n$12 \\times 6=72$",
+   "topic": "순열",
+   "difficulty": "하"
+  },
+  {
+   "number": 25,
+   "answer": "$2268$",
+   "solution": "(ⅰ) $a>b$이고 $c<d$인 경우 : ${}_{10}\\mathrm{C}_{2} \\times {}_{10}\\mathrm{C}_{2}=1260$\n(ⅱ) $a<b$이고 $c>d$인 경우 : ${}_{9}\\mathrm{C}_{2} \\times {}_{8}\\mathrm{C}_{2}=1008$\n따라서 구하는 수의 개수는 $2268$",
+   "topic": "조합",
+   "difficulty": "상"
+  }
+ ]
+}

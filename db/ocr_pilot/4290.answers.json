@@ -1,0 +1,31 @@
+{
+ "exam_id": 4290,
+ "answer_pages": [7, 8],
+ "items": [
+  {"number": 1, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+  {"number": 2, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+  {"number": 3, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+  {"number": 4, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+  {"number": 5, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+  {"number": 6, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+  {"number": 7, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+  {"number": 8, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+  {"number": 9, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+  {"number": 10, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+  {"number": 11, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+  {"number": 12, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+  {"number": 13, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+  {"number": 14, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+  {"number": 15, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+  {"number": 16, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+  {"number": 17, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+  {"number": 18, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+  {"number": 19, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+  {"number": 20, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+  {"number": 21, "answer": "$3<x<5$", "solution": "$x^2-(a+c)x+ac \\leq 0$에서 $x$의 해는 $a \\leq x \\leq c$\n$x^2+(a+b)x+ab>0$에서 $x$의 해는 $x>-a$ 또는 $x<-b$\n주어진 연립부등식의 해가 $-2 \\leq x<1$ 또는 $2<x \\leq 5$이므로 $a=-2$, $b=-1$, $c=5$이다.\n$x^2-2(b+c)x-3bc<0$에 대입하면 $x^2-8x+15<0$\n$x^2-8x+15<0$의 해를 구하면 $3<x<5$", "topic": "", "difficulty": ""},
+  {"number": 22, "answer": "$9$", "solution": "이차부등식 $3x^2+2(a-2)x+a+4<0$이 해를 가지려면 판별식 $D>0$여야 한다.\n$\\frac{D}{4}=(a-2)^2-3(a+4)>0$\n$a^2-4a+4-3a-12>0$\n$a^2-7a-8>0$\n$(a-8)(a+1)>0$\n$a<-1$ 또는 $a>8$\n자연수 $a$의 최솟값은 $9$", "topic": "", "difficulty": ""},
+  {"number": 23, "answer": "$326$", "solution": "1부터 10까지의 자연수 중 짝수가 5개 있으므로 4번 만에 짝수를 모두 뽑을 수는 없다. 따라서 $f(4)=0$\n5번 만에 짝수가 모두 뽑히는 경우는 짝수 5개를 줄 세우는 경우의 수와 같다. 따라서 $f(5)=5!$\n6번 만에 짝수가 모두 뽑히는 경우는 6번째 마지막 짝수가 나오고 5번째까지 홀수 1개 짝수 4개가 뽑히면 된다.\n홀수 하나 선택하는 경우의 수 ${}_{5}\\mathrm{C}_{1}=5$\n짝수 4개 선택하는 경우의 수 ${}_{5}\\mathrm{C}_{4}=5$\n선택된 홀수 1개와 짝수 4개를 나열하는 경우의 수 $5!$\n마지막 남은 짝수 나열하는 경우의 수 $1$\n따라서 $f(6)=5 \\times 5 \\times 5! \\times 1$\n7번 만에 짝수가 모두 뽑히는 경우는 7번째 마지막 짝수가 나오고 6번째까지 홀수 2개 짝수 4개가 뽑히면 된다.\n홀수 2개 선택하는 경우의 수 ${}_{5}\\mathrm{C}_{2}=10$\n짝수 4개 선택하는 경우의 수 ${}_{5}\\mathrm{C}_{4}=5$\n선택된 홀수 2개와 짝수 4개 나열하는 경우의 수 $6!$\n마지막 남은 짝수 나열하는 경우의 수 $1$\n따라서 $f(7)=10 \\times 5 \\times 6! \\times 1$\n$\\therefore \\frac{f(4)+f(5)+f(6)+f(7)}{5!}=\\frac{5!+25 \\times 5!+300 \\times 5!}{5!}=326$", "topic": "", "difficulty": ""},
+  {"number": 24, "answer": "$84$가지", "solution": "( i ) 두 지역 $\\mathrm{A}$, $\\mathrm{C}$를 같은 색으로 칠하는 경우\n세 지역 $\\mathrm{A}$, $\\mathrm{B}$, $\\mathrm{D}$에 칠할 수 있는 색은 각각 4가지, 3가지, 3가지이므로 $4 \\times 3 \\times 3=36$\n( ii ) 두 지역 $\\mathrm{A}$, $\\mathrm{C}$를 다른 색으로 칠하는 경우\n네 지역 $\\mathrm{A}$, $\\mathrm{B}$, $\\mathrm{C}$, $\\mathrm{D}$에 칠할 수 있는 색은 각각 4가지, 3가지, 2가지, 2가지이므로 $4 \\times 3 \\times 2 \\times 2=48$\n( i ), ( ii )에서 구하는 방법의 수는 $36+48=84$", "topic": "", "difficulty": ""},
+  {"number": 25, "answer": "회사 $\\mathrm{A}$: $275000$원, 회사 $\\mathrm{B}$: $265000$원", "solution": "두 회사 $\\mathrm{A}$, $\\mathrm{B}$의 택배 비용과 주문 수량을 각각 행렬 $X$, $Y$로 나타내면\n$X=\\begin{pmatrix} 3 & 4 \\\\ 2 & 5 \\end{pmatrix}$, $Y=\\begin{pmatrix} 35 & 10 \\\\ 30 & 5 \\end{pmatrix}$\n두 회사에 지불해야 할 택배 비용을 행렬로 나타내면\n$XY=\\begin{pmatrix} 3 & 4 \\\\ 2 & 5 \\end{pmatrix}\\begin{pmatrix} 35 & 10 \\\\ 30 & 5 \\end{pmatrix}=\\begin{pmatrix} 225 & 50 \\\\ 220 & 45 \\end{pmatrix}$\n따라서 회사 $\\mathrm{A}$를 이용하여 배송하는 경우 지불해야 할 택배 비용은 $225000+50000=275000$(원)이고, 회사 $\\mathrm{B}$를 이용하여 배송하는 경우 지불해야 할 택배 비용은 $220000+45000=265000$(원)이다.", "topic": "", "difficulty": ""}
+ ]
+}

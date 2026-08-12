@@ -1,0 +1,324 @@
+{
+  "meta": {"exam_id": 4292, "ocr_source": "session-vision"},
+  "header": {"title": "다사고 1학년 공통수학1"},
+  "questions": [
+    {
+      "number": 1,
+      "score": 3.5,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "다항식 (x-2)(x^2+x-3)의 전개식에서 x^2의 계수가 a, 상수항이 b일 때, a+b의 값은? (단, a, b는 상수이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "7"}]}
+      ]
+    },
+    {
+      "number": 2,
+      "score": 3.5,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "다항식 P(x)=x^3-3x^2+kx+2를 x-2로 나눈 나머지가 4일 때, 상수 k의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "7"}]}
+      ]
+    },
+    {
+      "number": 3,
+      "score": 3.8,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "\\sqrt{-3} \\times \\left( \\frac{\\sqrt{-4}}{\\sqrt{3}} - \\sqrt{-27} \\right)의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "8"}]}
+      ]
+    },
+    {
+      "number": 4,
+      "score": 3.8,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "이차방정식 x^2-3x-2=0의 두 근을 \\alpha, \\beta라고 할 때, (\\alpha+1)(\\beta+1)의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "3"}]}
+      ]
+    },
+    {
+      "number": 5,
+      "score": 3.8,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "이차함수 y=x^2+ax-6의 그래프와 x축이 서로 다른 두 점 \\mathrm{A}(2,~0), \\mathrm{B}(b,~0)에서 만날 때, 실수 a, b에 대하여 a+b의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "2"}]}
+      ]
+    },
+    {
+      "number": 6,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "이차방정식 kx^2-2(k-3)x+k-3=0이 서로 다른 두 허근을 갖도록 하는 정수 k의 최솟값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "8"}]}
+      ]
+    },
+    {
+      "number": 7,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "z=\\frac{1+i}{\\sqrt{2}}일 때, z^2+2z^4+3z^6+4z^8+5z^{10}의 값은? (단, i=\\sqrt{-1}이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1+3i"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2-2i"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "2+3i"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "3-2i"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "3+3i"}]}
+      ]
+    },
+    {
+      "number": 8,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "이차방정식 2x^2+7x+a=0의 두 실근의 차가 \\frac{5}{2}일 때, 실수 a의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "6"}]}
+      ]
+    },
+    {
+      "number": 9,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "복소수 z=2+\\sqrt{5}\\,i에 대하여 z^5+(\\overline{z})^5의 값은? (단, \\overline{z}는 z의 켤레복소수이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-240"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-239"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-238"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "-237"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "-236"}]}
+      ]
+    },
+    {
+      "number": 10,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "x에 대한 이차함수 y=x^2-2kx+k^2+6k의 그래프와 직선 y=2ax+b가 실수 k에 관계없이 항상 접할 때, 실수 a, b에 대하여 a-b의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "12"}]}
+      ]
+    },
+    {
+      "number": 11,
+      "score": 4.2,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 이차함수 y=f(x)의 그래프와 직선 y=g(x)가 만나는 두 점의 x좌표는 2, 10이다. h(x)=f(x)-g(x)라고 하면 0 \\leq x \\leq 8에서 이차함수 y=h(x)의 최솟값이 -12일 때, 최댓값은?"},
+        {"type": "figure", "value": "좌표평면 그림. 원점 \\mathrm{O}, 가로축 x, 세로축 y. 아래로 볼록한 포물선 y=f(x)와 오른쪽 위로 향하는 직선 y=g(x)가 그려져 있고, 두 그래프는 서로 다른 두 점에서 만난다. 왼쪽 교점은 x축 아래(제4사분면 부근)에 있고 그 x좌표 2가 x축 위쪽에 표시되어 있으며, 오른쪽 교점은 x축 위쪽에 있고 그 x좌표 10이 x축 아래에 표시되어 있다. 두 교점에서 x축으로 세로 점선이 내려져 있다. 그래프 이름표 y=f(x)와 y=g(x)가 각 곡선·직선 오른쪽 위에 붙어 있다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "15"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "20"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "25"}]}
+      ]
+    },
+    {
+      "number": 12,
+      "score": 4.2,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "이차항의 계수가 1인 두 이차식 P(x), Q(x)의 곱이 x^4-3x^3-2x^2+12x-8이다. P(-2) \\neq 0, Q(1) \\neq 0 일 때, P(4)+Q(3)의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "11"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "13"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "14"}]}
+      ]
+    },
+    {
+      "number": 13,
+      "score": 4.2,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "삼차방정식 x^3=1의 한 허근을 \\omega라고 할 때, \\frac{1}{1-\\omega^{10}}+\\frac{1}{1-\\omega^{11}}+\\frac{1}{1+\\omega^{12}}의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{1}{2}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{3}{2}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{5}{2}"}]}
+      ]
+    },
+    {
+      "number": 14,
+      "score": 4.5,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "삼각형 \\mathrm{ABC}의 세 변의 길이 a, b, c가 다음 조건을 만족시킨다."},
+        {"type": "text", "value": "<상자> (가) |a-b|=2\\sqrt{2}, ab=6 • (나) a^3+ab^2+b^2c=c^3+ac^2-a^2c"},
+        {"type": "text", "value": "삼각형 \\mathrm{ABC}의 넓이를 p, a^2+b^2+c^2=q라 할 때, p+q의 값은? (단, p와 q는 실수이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "42"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "43"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "44"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "45"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "46"}]}
+      ]
+    },
+    {
+      "number": 15,
+      "score": 4.7,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "x에 대한 사차방정식 x^4-7x^2+k=0의 서로 다른 네 근 중 두 근의 합이 3이 된다고 한다. 가장 큰 근과 가장 작은 근의 차가 p+\\sqrt{q}일 때, 두 유리수 p, q에 대하여 p+q의 값은? (단, k는 실수이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "8"}]}
+      ]
+    },
+    {
+      "number": 16,
+      "score": 4.8,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "다항식 A(x)와 x^3의 계수가 1인 삼차식 B(x)가 모든 실수 x에 대하여"},
+        {"type": "equation_block", "value": "(x^2-2x)A(x)=\\{B(x+2)\\}^2+\\{B(x)\\}^2"},
+        {"type": "text", "value": "를 만족시킨다. A(x)를 B(x)로 나눈 나머지를 R(x)라 할 때, R(-2)의 값은? (단, B(x)의 계수는 실수이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "108"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "144"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "216"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "288"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "360"}]}
+      ]
+    },
+    {
+      "number": 17,
+      "score": 5.0,
+      "type": "서술형",
+      "label": "[서술형 1]",
+      "contents": [
+        {"type": "text", "value": "[서술형 1] 두 다항식 A=x^3-2x-1, B=2x^3-3x^2+2x+4와 실수 a, b, c, d에 대하여 2A+B=ax^3+bx^2+cx+d일 때, abcd의 값을 구하는 풀이 과정과 답을 쓰시오."}
+      ]
+    },
+    {
+      "number": 18,
+      "score": 5.0,
+      "type": "서술형",
+      "label": "[서술형 2]",
+      "contents": [
+        {"type": "text", "value": "[서술형 2] 삼차방정식 x^3-x^2+ax+5=0의 한 근이 -1일 때, 실수 a의 값과 나머지 두 근을 구하는 풀이과정과 답을 쓰시오."}
+      ]
+    },
+    {
+      "number": 19,
+      "score": 6.0,
+      "type": "서술형",
+      "label": "[서술형 3]",
+      "contents": [
+        {"type": "text", "value": "[서술형 3] 사차방정식 (x+1)(x+2)(x-3)(x-4)=50의 서로 다른 두 실근을 \\alpha, \\beta (\\alpha < \\beta)라 할 때, (\\beta-\\alpha)^2의 값을 구하는 풀이 과정과 답을 쓰시오."}
+      ]
+    },
+    {
+      "number": 20,
+      "score": 6.0,
+      "type": "서술형",
+      "label": "[서술형 4]",
+      "contents": [
+        {"type": "text", "value": "[서술형 4] 세 모서리의 길이가 각각 a, b, c인 직육면체 2개를 그림과 같이 쌓아 만든 새로운 직육면체 \\mathrm{ABCD}-\\mathrm{EFGH}의 겉넓이가 148이고, 모든 모서리 길이의 합이 60일 때, 직육면체 \\mathrm{ABCD}-\\mathrm{EFGH}의 대각선 \\overline{\\mathrm{AG}}의 길이를 구하는 풀이과정과 답을 쓰시오"},
+        {"type": "figure", "value": "세 모서리 길이가 a, b, c인 직육면체 2개를 위아래로 쌓아 만든 큰 직육면체 \\mathrm{ABCD}-\\mathrm{EFGH} 그림. 윗면의 네 꼭짓점은 왼쪽 뒤부터 시계 방향으로 \\mathrm{A}(왼쪽 위 뒤), \\mathrm{D}(오른쪽 위 뒤), \\mathrm{C}(오른쪽 앞), \\mathrm{B}(왼쪽 앞)이고, 아랫면의 네 꼭짓점은 \\mathrm{E}(뒤 왼쪽, 점선), \\mathrm{H}(오른쪽 뒤), \\mathrm{F}(왼쪽 앞 아래), \\mathrm{G}(오른쪽 앞 아래)이다. 큰 직육면체 중간 높이에 점선으로 두 직육면체의 경계면이 그려져 있다. 오른쪽 세로 모서리에 위쪽 구간 c와 아래쪽 구간 c가 각각 표시되어(세로 높이는 c의 2배), 아래 앞 가로 모서리 \\overline{\\mathrm{FG}}에 a, 오른쪽 아래 깊이 모서리에 b가 표시되어 있다. 꼭짓점 \\mathrm{A}에서 꼭짓점 \\mathrm{G}까지 대각선 \\overline{\\mathrm{AG}}가 굵은 실선으로 그려져 있다."}
+      ]
+    },
+    {
+      "number": 21,
+      "score": 6.0,
+      "type": "서술형",
+      "label": "[서술형 5]",
+      "contents": [
+        {"type": "text", "value": "[서술형 5] 이차함수 f(x)=x^2+7x+2와 서로 다른 두 실수 a, b (a<b)가 f(a)=b, f(b)=a를 만족시킬 때, 함수 y=(x-a)(x-b)의 최솟값을 구하는 풀이 과정과 답을 쓰시오."}
+      ]
+    },
+    {
+      "number": 22,
+      "score": 7.0,
+      "type": "서술형",
+      "label": "[서술형 6]",
+      "contents": [
+        {"type": "text", "value": "[서술형 6] 최고차항의 계수가 각각 1이고, 이차항의 계수가 서로 다른 두 삼차식 P(x), Q(x)에 대하여 두 다항식 A(x)와 B(x)가 다음 조건을 만족시킨다."},
+        {"type": "text", "value": "<상자> (가) A(x)=P(x)+Q(x), B(x)=P(x)-Q(x) • (나) A(0)=A(2)=0 • (다) B(0)=3, B(1)=0 • (라) P(x)와 Q(x)의 최대공약수는 이차식이다."},
+        {"type": "text", "value": "4P(3)Q(3)의 값을 구하는 풀이 과정과 답을 쓰시오."}
+      ]
+    }
+  ]
+}

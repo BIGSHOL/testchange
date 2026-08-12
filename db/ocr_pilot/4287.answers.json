@@ -1,0 +1,54 @@
+{
+  "exam_id": 4287,
+  "answer_pages": [7, 8],
+  "items": [
+    {"number": 1, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 2, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 3, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 4, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 5, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 6, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 7, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 8, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 9, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 10, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 11, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 12, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 13, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 14, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 15, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 16, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 17, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 18, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 19, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 20, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {
+      "number": 21,
+      "answer": "112개",
+      "solution": "주어진 조건을 바탕으로 집합 $A$, 집합 $A^{C}$, 집합 $B$를 각각 구해보면\n$A=\\{1,~2,~4\\}$\n$A^{C}=\\{3,~5,~6,~7,~8,~9,~10\\}$\n$B=\\{2,~3,~4,~5,~6,~8\\}$\n(나) 조건에 의하여 집합 $X$는 $A^{C}$의 부분집합임을 알 수 있다. 그리고 (다) 조건에 의하여 집합 $X$가 집합 $B$의 부분집합이 되면 안된다는 사실을 알 수 있다. 즉, 집합 $X$는 집합 $A^{C}$의 부분집합이면서 동시에 집합 $A^{C} \\cap B$의 부분집합이 되면 안 된다.\n집합 $A^{C}$의 부분집합의 개수를 구해보면\n$2^{7}=128$\n집합 $A^{C} \\cap B$을 구해보면\n$A^{C} \\cap B=\\{3,~5,~6,~8\\}$\n집합 $A^{C} \\cap B$의 부분집합의 개수를 구해보면\n$2^{4}=16$\n따라서 주어진 조건을 만족하는 집합 $X$의 개수를 구해보면\n$2^{7}-2^{4}=128-16=112$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 22,
+      "answer": "7개",
+      "solution": "$f(x)=\\begin{cases} (3+a)x+5 & \\left(x \\geq -\\frac{2}{3}\\right) \\\\ (a-3)x+1 & \\left(x < -\\frac{2}{3}\\right) \\end{cases}$에서\n$f(x)$의 역함수가 존재하지 않으려면\n$(3+a)(a-3) \\leq 0$\n$-3 \\leq a \\leq 3$\n따라서 구하는 정수 $a$의 개수는 7개이다.",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 23,
+      "answer": "$2 < k < \\frac{9}{4}$",
+      "solution": "[그림] 좌표평면에 $y=\\sqrt{|x+2|}$의 그래프(초록색, $x=-2$에서 최솟값 0을 갖고 좌우로 뻗는 곡선)와 직선 $y=x+k$(빨간색)를 함께 그린다.\n$y=x+k$가 $(-2,~0)$을 지날 때, 서로 다른 두 점에서 만난다. 따라서 $k=2$\n$y=x+k$와 $y=\\sqrt{x+2}$가 접할 때 서로 다른 두 점에서 만난다.\n$x+k=\\sqrt{x+2}$에서 $x^{2}+(2x-1)x+k^{2}-2=0$\n$D=-4k+9=0$일 때, $k=\\frac{9}{4}$이다.\n따라서 서로 다른 세 점에서 만나는 범위는 $2 < k < \\frac{9}{4}$이다.",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 24,
+      "answer": "54",
+      "solution": "(가) 함수 $f$는 일대일함수이다.\n(나) $f$는 일대일함수이므로 $f(1)+f(2)+f(3)=15$를 만족하는 서로 다른 세 함숫값 $f(1)$, $f(2)$, $f(3)$은\n$7+6+2$ / $7+5+3$ / $6+5+4$\n3가지이고, 각각을 $f(1)$, $f(2)$, $f(3)$의 값에 대응하는 방법의 수는 $3!$이므로\n$\\therefore 3 \\times 3!=18$\n(다) 남은 공역 3개의 $Y$의 원소 중에서 2개를 선택하여 작은 수를 $f(4)$, 큰 수를 $f(5)$로 두면 된다.\n$\\therefore {}_{3}\\mathrm{C}_{2}=3$\n따라서 구하는 함수 $f$의 개수는 $18 \\times 3=54$이다.",
+      "topic": "",
+      "difficulty": ""
+    }
+  ]
+}

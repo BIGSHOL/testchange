@@ -21,8 +21,17 @@ def render(q: dict) -> dict:
         out = []
         for b in blocks or []:
             t, v = (b.get("type") or ""), (b.get("value") or "")
-            out.append(f"[그림] {v}" if t == "figure" else v)
-        return " ".join(out).strip()
+            if t == "figure":
+                out.append(f"[그림] {v}")
+            elif t == "table":
+                # ⚠️ table 은 value 가 아니라 rows 에 내용이 있다. 안 펼치면 표가
+                #    통째로 사라져 문항을 풀 수 없다(구산고 #9 에서 발각).
+                rows = b.get("rows") or []
+                body = " / ".join(" | ".join(str(c) for c in r) for r in rows)
+                out.append(f"[표] {body}" if body else (v or "[표]"))
+            else:
+                out.append(v)
+        return " ".join(x for x in out if x).strip()
 
     return {
         "number": q.get("number"),

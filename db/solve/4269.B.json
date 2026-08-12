@@ -1,0 +1,139 @@
+{
+ "exam_id": 4269,
+ "pass": "B",
+ "items": [
+  {
+   "number": 1,
+   "answer": "②",
+   "solution": "step1) $\\overline{AB}$를 $3:5$로 내분하는 점은 $\\left(\\dfrac{3\\cdot(-3)+5\\cdot 5}{3+5},\\ \\dfrac{3\\cdot 6+5\\cdot(-4)}{3+5}\\right)$이다.\nstep2) 계산하면 $\\left(\\dfrac{-9+25}{8},\\ \\dfrac{18-20}{8}\\right)=\\left(2,\\ -\\dfrac{1}{4}\\right)$이다.\nstep3) 이 점이 $y=\\dfrac{1}{8}x+k$ 위에 있으므로 $-\\dfrac{1}{4}=\\dfrac{1}{8}\\cdot 2+k=\\dfrac{1}{4}+k$이다.\nstep4) 따라서 $k=-\\dfrac{1}{2}$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 2,
+   "answer": "③",
+   "solution": "step1) 색칠된 부분은 $(A\\cup B)^{C}$, $A\\cap B$, $B-A$이고 색칠되지 않은 부분은 $A-B$뿐이다.\nstep2) 즉 색칠된 부분은 $(A-B)^{C}=(A\\cap B^{C})^{C}=A^{C}\\cup B$이다.\nstep3) 분배법칙으로 $(A\\cap B)\\cup A^{C}=(A\\cup A^{C})\\cap(B\\cup A^{C})=A^{C}\\cup B$이다.\nstep4) 따라서 ③ $(A\\cap B)\\cup A^{C}$가 색칠된 집합과 같다. (①은 $B-A$만, ②는 $(A\\cup B)^{C}$만, ④는 $A-B$를 포함, ⑤는 $A\\cap B$가 빠져 있다.)",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 3,
+   "answer": "④",
+   "solution": "step1) $A\\cap B=A$이므로 $A\\subset B$이다.\nstep2) $-3\\in A$이므로 $-3\\in B$이어야 하고, $B$의 원소 중 $-3$이 될 수 있는 것은 $-x^{2}-2x$뿐이다.\nstep3) $-x^{2}-2x=-3$에서 $x^{2}+2x-3=0$, $(x+3)(x-1)=0$이므로 $x=-3$ 또는 $x=1$이다.\nstep4) $x=1$일 때 $A=\\{0,\\ -3\\}$, $B=\\{-3,\\ 0,\\ 12\\}$이므로 $A\\subset B$이다.\nstep5) $x=-3$일 때 $x^{2}-x=12$이므로 $A=\\{12,\\ -3\\}$, $B=\\{-3,\\ 0,\\ 12\\}$이므로 $A\\subset B$이다.\nstep6) 따라서 모든 정수 $x$의 값의 합은 $1+(-3)=-2$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 4,
+   "answer": "①",
+   "solution": "step1) 원 $x^{2}+y^{2}=16$의 중심은 원점, 반지름은 $4$이다.\nstep2) 직선 $y=\\dfrac{1}{2}x+k$를 정리하면 $x-2y+2k=0$이다.\nstep3) 원점과 직선 사이의 거리는 $\\dfrac{|2k|}{\\sqrt{1^{2}+(-2)^{2}}}=\\dfrac{2|k|}{\\sqrt{5}}$이다.\nstep4) 서로 다른 두 점에서 만나려면 $\\dfrac{2|k|}{\\sqrt{5}}<4$, 즉 $|k|<2\\sqrt{5}$이다.\nstep5) 따라서 $-2\\sqrt{5}<k<2\\sqrt{5}$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 5,
+   "answer": "③",
+   "solution": "step1) $n(A\\cap B)=n(A)+n(B)-n(A\\cup B)=19+17-27=9$이다.\nstep2) 드모르간 법칙에 의하여 $A^{C}\\cup B^{C}=(A\\cap B)^{C}$이다.\nstep3) $n((A\\cap B)^{C})=n(U)-n(A\\cap B)=50-9=41$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 6,
+   "answer": "⑤",
+   "solution": "step1) $y=x^{2}+4x=(x+2)^{2}-4$의 꼭짓점은 $(-2,\\ -4)$이다.\nstep2) $y=x^{2}-8x+20=(x-4)^{2}+4$의 꼭짓점은 $(4,\\ 4)$이다.\nstep3) 평행이동은 $x$축 방향으로 $6$, $y$축 방향으로 $8$만큼이다.\nstep4) 원 $C$의 중심 $(0,\\ 0)$은 $C'$의 중심 $(6,\\ 8)$로 옮겨지고 반지름은 그대로 $r$이다.\nstep5) 두 중심 사이의 거리는 $\\sqrt{6^{2}+8^{2}}=10$이고, 반지름이 같으므로 내접(한 원이 다른 원 안에서 접함)은 불가능하다.\nstep6) 외접 조건 $r+r=10$에서 $r=5$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 7,
+   "answer": "①",
+   "solution": "step1) 직선 $l$은 두 점 $(8,\\ 0)$, $(0,\\ 4)$를 지나므로 $\\dfrac{x}{8}+\\dfrac{y}{4}=1$, 즉 $x+2y-8=0$이다.\nstep2) $\\overline{BC}:\\overline{CD}=2:1$이므로 $\\overline{CD}=t$라 하면 $\\overline{BC}=2t$이고 넓이는 $2t^{2}=\\dfrac{128}{5}$이다.\nstep3) $t^{2}=\\dfrac{64}{5}$이므로 $t=\\dfrac{8}{\\sqrt{5}}$이다.\nstep4) 직사각형에서 $\\overline{AB}=\\overline{CD}=t$이고 $\\overline{AB}\\perp\\overline{BC}$이므로 $\\overline{AB}$는 점 $A$와 직선 $l$ 사이의 거리이다.\nstep5) $\\dfrac{|4+2a-8|}{\\sqrt{1^{2}+2^{2}}}=\\dfrac{|2a-4|}{\\sqrt{5}}=\\dfrac{8}{\\sqrt{5}}$이므로 $|2a-4|=8$이다.\nstep6) $a=6$ 또는 $a=-2$인데 $a>0$이므로 $a=6$이다. (이때 $B(2.4,\\ 2.8)$, $C(8.8,\\ -0.4)$, $D(10.4,\\ 2.8)$로 $D$는 제1사분면 위에 있다.)",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 8,
+   "answer": "",
+   "solution": "step1) $C_{1}:(x-2)^{2}+(y+3)^{2}=9$ (중심 $(2,\\ -3)$, 반지름 $3$), $C_{2}:x^{2}+(y-1)^{2}=4$ (중심 $(0,\\ 1)$, 반지름 $2$)이고 중심거리 $\\sqrt{20}$이 $1$과 $5$ 사이이므로 두 원은 두 점에서 만난다.\nstep2) 두 식을 빼면 공통현(근축) $-4x+8y+7=0$을 얻는다.\nstep3) 넓이가 최소인 원은 공통현을 지름으로 하는 원이므로 그 중심은 공통현의 중점, 즉 두 중심을 잇는 직선 $y=-2x+1$과 근축의 교점이다.\nstep4) $-4x+8(-2x+1)+7=0$에서 $-20x+15=0$, $x=\\dfrac{3}{4}$, $y=-\\dfrac{1}{2}$이다.\nstep5) 실제 교점 $\\left(\\dfrac34\\pm\\dfrac{\\sqrt{95}}{10},\\ -\\dfrac12\\pm\\dfrac{\\sqrt{95}}{20}\\right)$의 중점도 $\\left(\\dfrac34,\\ -\\dfrac12\\right)$로 일치한다.\nstep6) 따라서 $\\dfrac{a}{b}=\\dfrac{3/4}{-1/2}=-\\dfrac{3}{2}$이다.",
+   "confidence": "low",
+   "note": "선택지 불일치: 계산값 a/b = -3/2 (최소 넓이 원의 중심 (3/4, -1/2), 교점 좌표의 중점으로 검산 일치). 선택지는 -9/2, -4, -7/2, -3, -5/2 로 모두 불일치. 원 방정식 계수 중 하나가 OCR 오전사일 가능성이 있어 답을 비워 둠."
+  },
+  {
+   "number": 9,
+   "answer": "④",
+   "solution": "step1) $A_{18}\\subset A_{p}$는 $18$의 모든 배수가 $p$의 배수라는 뜻이므로 $p$는 $18$의 약수이다.\nstep2) 마찬가지로 $A_{24}\\subset A_{p}$에서 $p$는 $24$의 약수이므로 $p$는 $\\gcd(18,\\ 24)=6$의 약수이고 최댓값은 $p=6$이다.\nstep3) $B_{6}\\cap B_{12}$는 $6$과 $12$의 공약수의 집합, 즉 $\\gcd(6,\\ 12)=6$의 약수의 집합 $B_{6}$이다.\nstep4) $B_{q}\\subset B_{6}$는 $q$의 모든 약수가 $6$의 약수라는 뜻이므로 $q$는 $6$의 약수이고 최댓값은 $q=6$이다.\nstep5) 따라서 $p+q$의 최댓값은 $6+6=12$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 10,
+   "answer": "⑤",
+   "solution": "step1) $l_{1}:2x-5y-4=0$에서 $A(2,\\ 0)$, $B\\left(0,\\ -\\dfrac{4}{5}\\right)$이다.\nstep2) $l_{2}:2x-5y+M=0\\ (M>0)$이라 하면 $C\\left(-\\dfrac{M}{2},\\ 0\\right)$, $D\\left(0,\\ \\dfrac{M}{5}\\right)$이다.\nstep3) 사각형 $ABCD$의 대각선 $\\overline{AC}$($x$축), $\\overline{BD}$($y$축)는 서로 수직이므로 넓이는 $\\dfrac{1}{2}\\cdot\\overline{AC}\\cdot\\overline{BD}=\\dfrac{1}{2}\\left(2+\\dfrac{M}{2}\\right)\\left(\\dfrac{4}{5}+\\dfrac{M}{5}\\right)=\\dfrac{(4+M)^{2}}{20}$이다.\nstep4) $\\dfrac{(4+M)^{2}}{20}=\\dfrac{144}{5}$에서 $(4+M)^{2}=576$, $M=20$이다.\nstep5) 두 평행선 $2x-5y-4=0$, $2x-5y+20=0$ 사이의 거리는 $d=\\dfrac{|-4-20|}{\\sqrt{2^{2}+5^{2}}}=\\dfrac{24}{\\sqrt{29}}$이다.\nstep6) 따라서 $29d^{2}=29\\cdot\\dfrac{576}{29}=576$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 11,
+   "answer": "②",
+   "solution": "step1) 원 $x^{2}+y^{2}=18$의 중심은 원점, 반지름은 $3\\sqrt{2}$이다.\nstep2) 원점과 직선 $x+y-12=0$ 사이의 거리는 $\\dfrac{12}{\\sqrt{2}}=6\\sqrt{2}$이다.\nstep3) 원 위의 점 $A$와 직선 사이 거리의 최댓값은 $6\\sqrt{2}+3\\sqrt{2}=9\\sqrt{2}$이다.\nstep4) $\\overline{BC}$가 직선 위에 있으므로 이 거리가 정삼각형의 높이 $h$이고, 한 변의 길이는 $s=\\dfrac{2h}{\\sqrt{3}}$이다.\nstep5) 넓이는 $\\dfrac{\\sqrt{3}}{4}s^{2}=\\dfrac{\\sqrt{3}}{4}\\cdot\\dfrac{4h^{2}}{3}=\\dfrac{h^{2}}{\\sqrt{3}}$이다.\nstep6) $h=9\\sqrt{2}$일 때 $\\dfrac{(9\\sqrt{2})^{2}}{\\sqrt{3}}=\\dfrac{162}{\\sqrt{3}}=54\\sqrt{3}$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 12,
+   "answer": "①",
+   "solution": "step1) $U=\\{1,\\ 2,\\ \\cdots,\\ 2k\\}$이고 $A$는 $2k$ 이하의 짝수의 집합이므로 $n(A)=k$이다.\nstep2) $n(A)\\times n((A\\cup B)^{C})=12$이므로 $k$는 $12$의 약수이고 $k>1$에서 $k\\in\\{2,\\ 3,\\ 4,\\ 6,\\ 12\\}$이다.\nstep3) $k=2$: $B=\\{1,2,4\\}$, $(A\\cup B)^{C}=\\{3\\}$이므로 $2\\times 1=2$로 부적합하다.\nstep4) $k=3$: $B=\\{1,2,3,6\\}$, $(A\\cup B)^{C}=\\{5\\}$이므로 $3\\times 1=3$으로 부적합하다.\nstep5) $k=4$: $U=\\{1,\\cdots,8\\}$, $A=\\{2,4,6,8\\}$, $B=\\{1,2,4,8\\}$, $A\\cup B=\\{1,2,4,6,8\\}$, $(A\\cup B)^{C}=\\{3,5,7\\}$이므로 $4\\times 3=12$로 적합하다.\nstep6) $k=6$은 $6\\times 4=24$, $k=12$는 $12\\times 10=120$으로 부적합하므로 $k=4$이다.\nstep7) $A\\cap B=\\{2,4,8\\}$이므로 $n(A\\cap B)+k=3+4=7$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 13,
+   "answer": "③",
+   "solution": "step1) 점 $A$를 $x$축에 대하여 대칭이동하면 $\\overline{AP}=\\overline{A'P}$이므로, 원 $C_{1}$의 대칭이동인 원 $C_{1}'$의 중심은 $(10,\\ -4)$, 반지름은 $4$이다.\nstep2) 점 $B$를 직선 $y=2x$에 대하여 대칭이동하면 $\\overline{QB}=\\overline{QB'}$이다. $C_{2}$의 중심 $(2,\\ -1)$을 $2x-y=0$에 대하여 대칭이동하면 $(2,\\ -1)-2\\cdot\\dfrac{2\\cdot 2-(-1)}{5}(2,\\ -1)=(-2,\\ 1)$이므로 원 $C_{2}'$의 중심은 $(-2,\\ 1)$, 반지름은 $1$이다.\nstep3) $\\overline{AP}+\\overline{PQ}+\\overline{QB}=\\overline{A'P}+\\overline{PQ}+\\overline{QB'}\\ge \\overline{A'B'}$이다.\nstep4) $\\overline{A'B'}$의 최솟값은 두 중심 사이의 거리에서 두 반지름을 뺀 값이다. 중심거리는 $\\sqrt{(10+2)^{2}+(-4-1)^{2}}=\\sqrt{169}=13$이다.\nstep5) 따라서 최솟값은 $13-4-1=8$이다. (두 중심을 잇는 선분이 $x$축, 직선 $y=2x$를 차례로 지나므로 $P$, $Q$를 실제로 잡을 수 있다.)",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 14,
+   "answer": "⑤",
+   "solution": "step1) 중심 $A$가 직선 $y=x$ 위에 있으므로 $\\mathrm{P}_{1}$, $\\mathrm{P}_{2}$는 직선 $\\mathrm{OA}$ 위의 점이고 $\\overline{\\mathrm{OP}_{1}}=\\overline{\\mathrm{OA}}-r$, $\\overline{\\mathrm{OP}_{2}}=\\overline{\\mathrm{OA}}+r$이다.\nstep2) $\\mathrm{P}_{1}$, $\\mathrm{P}_{2}$에서의 접선은 반지름 $\\mathrm{AP}_{i}$(직선 $\\mathrm{OA}$ 방향)에 수직이다. 직선 $\\mathrm{OA}$와 $l_{1}$이 이루는 각을 $\\theta$라 하면 $\\overline{\\mathrm{P}_{1}\\mathrm{Q}_{1}}=\\overline{\\mathrm{OP}_{1}}\\tan\\theta$, $\\overline{\\mathrm{P}_{2}\\mathrm{Q}_{2}}=\\overline{\\mathrm{OP}_{2}}\\tan\\theta$이다.\nstep3) 두 삼각형은 각각 $\\mathrm{P}_{1}$, $\\mathrm{P}_{2}$에서 직각이고 $\\overline{\\mathrm{AP}_{1}}=\\overline{\\mathrm{AP}_{2}}=r$이므로 넓이의 비는 $\\overline{\\mathrm{P}_{2}\\mathrm{Q}_{2}}:\\overline{\\mathrm{P}_{1}\\mathrm{Q}_{1}}=\\overline{\\mathrm{OP}_{2}}:\\overline{\\mathrm{OP}_{1}}=3:1$이다.\nstep4) $\\overline{\\mathrm{OP}_{1}}=1$이므로 $\\overline{\\mathrm{OP}_{2}}=3$, 따라서 $\\overline{\\mathrm{OA}}=2$, $r=1$이다.\nstep5) $A$는 제1사분면의 $y=x$ 위의 점이므로 $\\mathrm{A}(\\sqrt{2},\\ \\sqrt{2})$이고, $x$축과의 거리 $\\sqrt{2}>1$이므로 조건을 만족한다.\nstep6) 접선 $y=mx$, 즉 $mx-y=0$에 대하여 $\\dfrac{|\\sqrt{2}m-\\sqrt{2}|}{\\sqrt{m^{2}+1}}=1$에서 $2(m-1)^{2}=m^{2}+1$, $m^{2}-4m+1=0$이다.\nstep7) 근과 계수의 관계에 의하여 $m_{1}+m_{2}=4$이다. (실제로 $m=2\\pm\\sqrt{3}$)",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 15,
+   "answer": "①",
+   "solution": "step1) $g(x)=(x-a)^{2}+2a^{2}-4a-12$이고, $f(x)=g(x)$에서 $0=-2ax+3a^{2}-4a-12$이므로 $\\alpha=\\dfrac{3a^{2}-4a-12}{2a}$이다.\nstep2) $h$는 연속이고 $x<\\alpha$에서는 꼭짓점 $x=0$인 포물선, $x\\ge\\alpha$에서는 꼭짓점 $x=a$인 포물선이다.\nstep3) $h(x)=k$가 서로 다른 네 실근을 가지려면 그래프가 $W$ 모양이어야 하므로 $0<\\alpha<a$이어야 한다(왼쪽 조각에 $x=0$, 오른쪽 조각에 $x=a$가 포함).\nstep4) 이때 극솟값은 $0$과 $c=2a^{2}-4a-12$, 극댓값은 $\\alpha^{2}$이므로 $\\max(0,\\ c)<k<\\alpha^{2}$인 $k$가 존재하려면 $\\alpha^{2}>c$이어야 한다.\nstep5) $\\alpha<a$: $a>0$일 때 $3a^{2}-4a-12<2a^{2}$에서 $a^{2}-4a-12<0$, 즉 $-2<a<6$이다.\nstep6) $\\alpha>0$: $a>0$일 때 $3a^{2}-4a-12>0$에서 $a>\\dfrac{2+2\\sqrt{10}}{3}\\approx 2.77$이다. ($a<0$이면 $\\alpha>0$과 $\\alpha<a$를 동시에 만족할 수 없다.)\nstep7) 따라서 정수 $a$는 $3,\\ 4,\\ 5$의 후보이고, $a=3$: $\\alpha=\\dfrac12,\\ \\alpha^{2}=\\dfrac14>c=-6$, $a=4$: $\\alpha=\\dfrac52,\\ \\alpha^{2}=\\dfrac{25}{4}>c=4$, $a=5$: $\\alpha=\\dfrac{43}{10},\\ \\alpha^{2}=18.49>c=18$로 모두 만족한다.\nstep8) 따라서 정수 $a$의 개수는 $3$이다.",
+   "confidence": "medium",
+   "note": "W자 모양(극대 1개·극소 2개)일 때만 해가 4개가 될 수 있음을 근거로 함."
+  },
+  {
+   "number": 16,
+   "answer": "$(x-4)^{2}+(y-5)^{2}=9$",
+   "solution": "step1) 원 $(x-1)^{2}+(y-6)^{2}=9$의 중심은 $(1,\\ 6)$, 반지름은 $3$이다.\nstep2) $x$축의 방향으로 $4$, $y$축의 방향으로 $-2$만큼 평행이동하면 중심은 $(1+4,\\ 6-2)=(5,\\ 4)$가 되고 반지름은 그대로 $3$이므로 $(x-5)^{2}+(y-4)^{2}=9$이다.\nstep3) 직선 $y=x$에 대한 대칭이동은 $x$와 $y$를 서로 바꾸는 것이므로 $(y-5)^{2}+(x-4)^{2}=9$이다.\nstep4) 따라서 구하는 원의 방정식은 $(x-4)^{2}+(y-5)^{2}=9$이다. (중심 $(4,\\ 5)$, 반지름 $3$)",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 17,
+   "answer": "$x+3y-9=0$ 또는 $3x-y+3=0$",
+   "solution": "step1) 각의 이등분선 위의 점 $(x,\\ y)$는 두 직선까지의 거리가 같으므로 $\\dfrac{|2x+y-3|}{\\sqrt{2^{2}+1^{2}}}=\\dfrac{|x-2y+6|}{\\sqrt{1^{2}+(-2)^{2}}}$이다.\nstep2) 분모가 $\\sqrt{5}$로 같으므로 $|2x+y-3|=|x-2y+6|$이다.\nstep3) $2x+y-3=x-2y+6$인 경우 $x+3y-9=0$이다.\nstep4) $2x+y-3=-(x-2y+6)$인 경우 $2x+y-3=-x+2y-6$에서 $3x-y+3=0$이다.\nstep5) 따라서 구하는 직선은 $x+3y-9=0$ 또는 $3x-y+3=0$이다. (두 직선의 기울기가 $-2$, $\\dfrac12$로 서로 수직이므로 두 이등분선도 서로 수직이며, 교점 $(0,\\ 3)$을 지난다.)",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 18,
+   "answer": "$k=-9$",
+   "solution": "step1) $y=0$을 대입하면 $x^{2}-8x+k=0$이고, 이 방정식의 두 근 $x_{1}$, $x_{2}$가 $x$축과의 교점의 $x$좌표이다.\nstep2) 근과 계수의 관계에서 $x_{1}+x_{2}=8$, $x_{1}x_{2}=k$이다.\nstep3) 두 점 사이의 거리가 $10$이므로 $(x_{1}-x_{2})^{2}=(x_{1}+x_{2})^{2}-4x_{1}x_{2}=64-4k=100$이다.\nstep4) 따라서 $-4k=36$, 즉 $k=-9$이다.\nstep5) 확인: $x^{2}+y^{2}-8x-6y-9=0$은 $(x-4)^{2}+(y-3)^{2}=34$로 반지름 $\\sqrt{34}$, 중심에서 $x$축까지 거리 $3$이므로 현의 길이는 $2\\sqrt{34-9}=10$으로 조건을 만족한다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 19,
+   "answer": "$27$",
+   "solution": "step1) $U=\\{1,\\ 2,\\ \\cdots,\\ 30\\}$이므로 $n(U)=30$이다.\nstep2) $A=\\{5,\\ 10,\\ 15,\\ 20,\\ 25,\\ 30\\}$이므로 $n(A)=6$이다.\nstep3) $B=\\{1,\\ 2,\\ 4,\\ 5,\\ 10,\\ 20\\}$이므로 $n(B)=6$이다.\nstep4) $A\\cap B=\\{5,\\ 10,\\ 20\\}$이므로 $n(A\\cap B)=3$이다.\nstep5) 드모르간 법칙에 의하여 $A^{C}\\cup B^{C}=(A\\cap B)^{C}$이므로 $n(A^{C}\\cup B^{C})=n(U)-n(A\\cap B)=30-3=27$이다.",
+   "confidence": "high",
+   "note": ""
+  }
+ ]
+}

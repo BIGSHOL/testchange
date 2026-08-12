@@ -1,0 +1,360 @@
+{
+  "meta": {"exam_id": 4285, "ocr_source": "session-vision"},
+  "header": {"title": "2025년 1학기 중간고사 남산고 1학년 공수1 — 다항식 ~ 이차방정식, 경우의 수"},
+  "questions": [
+    {
+      "number": 1,
+      "score": 2.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "두 다항식 A=2x^{3}+5x^{2}+1, B=-3x^{2}+x-5에 대하여 A-B에서 x^{2}의 계수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "10"}]}
+      ]
+    },
+    {
+      "number": 2,
+      "score": 2.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "(6x-1)+(y+4)i=5+6i일 때, 두 실수 x, y에 대하여 x+y의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+      ]
+    },
+    {
+      "number": 3,
+      "score": 2.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "다항식 (x-y+z)^{2}을 전개하면?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "x^{2}-y^{2}+z^{2}-2xy-2yz+2zx"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "x^{2}+y^{2}+z^{2}-2xy-2yz+2zx"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "x^{2}+y^{2}+z^{2}+2xy+2yz-2zx"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "x^{2}-y^{2}+z^{2}-xy-yz+zx"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "x^{2}+y^{2}+z^{2}-xy-yz+zx"}]}
+      ]
+    },
+    {
+      "number": 4,
+      "score": 2.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "{}_{7}\\mathrm{C}_{4}의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "35"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "36"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "37"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "38"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "39"}]}
+      ]
+    },
+    {
+      "number": 5,
+      "score": 2.5,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "x에 대한 두 다항식 f(x), g(x)에 대하여 f(x)-g(x)를 x-5로 나눈 나머지가 6이고, \\{f(x)\\}^{2}+\\{g(x)\\}^{2}을 x-5로 나눈 나머지가 26일 때, f(x)g(x)를 x-5로 나눈 나머지는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-8"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-7"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-6"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "-5"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "-4"}]}
+      ]
+    },
+    {
+      "number": 6,
+      "score": 2.5,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "이차방정식 x^{2}+ax+b=0은 중근을 갖고, 이차방정식 x^{2}+3x+a=0은 서로 다른 두 실근을 가질 때, 두 자연수 a, b에 대하여 a+b의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "7"}]}
+      ]
+    },
+    {
+      "number": 7,
+      "score": 2.5,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "x에 대한 이차방정식 x^{2}-4kx+k^{2}-2k+4=0의 두 근의 차가 2일 때, 양의 실수 k의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{5}{3}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{7}{3}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{11}{3}"}]}
+      ]
+    },
+    {
+      "number": 8,
+      "score": 2.5,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "서로 다른 노란색 꽃 4송이와 서로 다른 보라색 꽃 5송이 중에서 3송이를 골라 꽃다발을 만들 때, 적어도 1송이가 보라색 꽃일 경우의 수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "68"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "72"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "76"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "80"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "84"}]}
+      ]
+    },
+    {
+      "number": 9,
+      "score": 2.7,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "남학생과 여학생을 합하여 모두 6명이 일렬로 줄을 서려고 한다. 양 끝에 남학생이 오는 경우의 수가 288일 때, 남학생의 수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+      ]
+    },
+    {
+      "number": 10,
+      "score": 2.7,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "7개의 숫자 1, 2, 3, 4, 5, 6, 8에서 서로 다른 5개의 숫자를 택하여 다섯 자리 자연수를 만들 때, 각 자리의 숫자를 짝수와 홀수를 교대로 사용하여 만드는 방법의 수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "144"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "180"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "216"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "252"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "288"}]}
+      ]
+    },
+    {
+      "number": 11,
+      "score": 3.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "다음은 학생 A가 45^{22}을 2026으로 나누었을 때의 나머지를 구하는 과정의 일부이다."},
+        {"type": "text", "value": "<상자> 다항식 x^{22}을 x^{2}+1로 나누었을 때의 몫을 Q(x), 나머지를 R이라고 하면 • x^{22}=(x^{2}+1)Q(x)+R • 나머지정리에 의하여 • \\vdots"},
+        {"type": "text", "value": "이 풀이 방법을 이용하여 구하는 나머지는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "44"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "45"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "2024"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "2025"}]}
+      ]
+    },
+    {
+      "number": 12,
+      "score": 3.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "다항식 P(x)=x(x+2)(x+4)(x+6)+k가 x에 대한 이차식의 제곱으로 인수분해 될 때, 상수 k에 대하여 \\sqrt{P(10)}+k의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "164"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "172"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "180"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "188"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "196"}]}
+      ]
+    },
+    {
+      "number": 13,
+      "score": 3.3,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "x^{3}의 계수가 1인 삼차다항식 P(x)에 대하여 x-3으로 나누었을 때의 나머지가 7, x^{2}-1로 나누었을 때의 나머지가 -2일 때, P(4)-P(0)의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "21"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "23"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "26"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "28"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "30"}]}
+      ]
+    },
+    {
+      "number": 14,
+      "score": 3.3,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "두 학생 A, B가 서로 다른 7개의 선택 과목 중에서 각각 2개씩 선택하여 수강 신청하려고 한다. A, B가 공통으로 수강 신청하는 과목이 1개가 되도록 하는 경우의 수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "70"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "105"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "140"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "175"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "210"}]}
+      ]
+    },
+    {
+      "number": 15,
+      "score": 3.5,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "x에 대한 이차방정식 f(x)=0에 대하여 f(3)=2, f(5)=2일 때, 이차방정식 f(2-3x)=0의 두 근의 합은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-\\frac{10}{3}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-\\frac{4}{3}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{4}{3}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{10}{3}"}]}
+      ]
+    },
+    {
+      "number": 16,
+      "score": 3.5,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "계수가 실수인 x에 대한 두 이차다항식이 A(x)=x^{2}-2ax+b^{2}+b, B(x)=bx^{2}-2ax+b+1일 때, <보기>에서 옳은 것만을 있는 대로 고른 것은? (단, a와 b는 상수이다.)"},
+        {"type": "text", "value": "<보기> ㄱ. 이차방정식 A(x)+B(x)=0의 두 근의 합과 이차방정식 A(x)-B(x)=0의 두 근의 합이 서로 같다면 a=0이다. • ㄴ. 두 이차방정식 A(x)=0과 B(x)=0이 1+i를 공통근으로 가질 때 a+b=2이다. • ㄷ. 이차방정식 kA(x)+B(x)=0이 실수 k값에 관계없이 중근을 가지도록 하는 a의 최솟값은 0이다. (단, k \\neq -b이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄱ, ㄴ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄴ, ㄷ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄱ, ㄷ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄱ, ㄴ, ㄷ"}]}
+      ]
+    },
+    {
+      "number": 17,
+      "score": 2,
+      "type": "단답형",
+      "label": "[단답형 1]",
+      "contents": [
+        {"type": "text", "value": "[단답형 1] 서로 다른 소설책 4권과 서로 다른 시집 2권을 책꽂이에 일렬로 꽂으려고 한다. 소설책 4권이 모두 이웃하도록 꽂는 경우의 수를 구하시오."}
+      ],
+      "choices": []
+    },
+    {
+      "number": 18,
+      "score": 3,
+      "type": "단답형",
+      "label": "[단답형 2]",
+      "contents": [
+        {"type": "text", "value": "[단답형 2] x에 대한 다항식 x^{3}+ax^{2}-4x-12가 (x+3)(x+b)(x+c)로 인수분해 될 때, a+b+c의 값을 구하시오. (단, a, b, c는 상수이다.)"}
+      ],
+      "choices": []
+    },
+    {
+      "number": 19,
+      "score": 4,
+      "type": "단답형",
+      "label": "[단답형 3]",
+      "contents": [
+        {"type": "text", "value": "[단답형 3] 다음을 계산하여 a+bi꼴로 나타내시오. (단, a, b는 실수이다.)"},
+        {"type": "text", "value": "<상자> \\sqrt{-2}\\,\\sqrt{-8}+\\frac{\\sqrt{27}}{\\sqrt{-3}}"}
+      ],
+      "choices": []
+    },
+    {
+      "number": 20,
+      "score": 4,
+      "type": "단답형",
+      "label": "[단답형 4]",
+      "contents": [
+        {"type": "text", "value": "[단답형 4] 복소수 z=2+ai에 대하여 -2i(z-\\overline{z})+z\\overline{z}=0일 때, z^{n}이 정수가 되도록 하는 2025이하의 자연수 n의 개수를 구하시오. (단, a는 실수이다.)"}
+      ],
+      "choices": []
+    },
+    {
+      "number": 21,
+      "score": 4,
+      "type": "단답형",
+      "label": "[단답형 5]",
+      "contents": [
+        {"type": "text", "value": "[단답형 5] x에 대한 방정식 x^{2}-4x+5=0의 두 근을 \\alpha, \\beta라고 하자. <보기>에서 옳은 것만을 있는 대로 고르시오."},
+        {"type": "text", "value": "<보기> ㄱ. \\alpha^{2}+\\beta^{2}=6 • ㄴ. \\alpha^{2}\\beta+\\alpha\\beta^{2}=5(\\alpha^{3}+\\beta^{3}) • ㄷ. \\frac{\\overline{\\beta}}{\\alpha}+\\frac{\\overline{\\alpha}}{\\beta}=1"}
+      ],
+      "choices": []
+    },
+    {
+      "number": 22,
+      "score": 5,
+      "type": "단답형",
+      "label": "[단답형 6]",
+      "contents": [
+        {"type": "text", "value": "[단답형 6] 상수가 아닌 x에 대한 다항식 A(x), B(x)에 대하여 x^{4}-13x^{2}+36=A(x)B(x)일 때, A(1)+B(1)의 최댓값을 M, 최솟값을 m이라고 하자. M-m의 값을 구하시오. (단, A(x)와 B(x)의 x에 대한 최고차항의 계수는 1이다.)"}
+      ],
+      "choices": []
+    },
+    {
+      "number": 23,
+      "score": 10,
+      "type": "서술형",
+      "label": "[서술형 1]",
+      "contents": [
+        {"type": "text", "value": "[서술형 1] 조립제법을 이용하여 다음 나눗셈의 몫과 나머지를 각각 구하는 풀이 과정과 답을 쓰시오."},
+        {"type": "equation_block", "value": "(x^{3}-2x^{2}-3x+5)\\div(x-3)"}
+      ],
+      "choices": []
+    },
+    {
+      "number": 24,
+      "score": 12,
+      "type": "서술형",
+      "label": "[서술형 2]",
+      "contents": [
+        {"type": "text", "value": "[서술형 2] 5개의 문자 a, b, c, d, e를 일렬로 배열할 때, a와 b 또는 b와 c가 이웃하는 경우의 수를 구하는 풀이 과정과 답을 쓰시오."}
+      ],
+      "choices": []
+    },
+    {
+      "number": 25,
+      "score": 13,
+      "type": "서술형",
+      "label": "[서술형 3]",
+      "contents": [
+        {"type": "text", "value": "[서술형 3] x에 대한 다항식 A(x), B(x)가 다음 조건을 만족시킨다."},
+        {"type": "text", "value": "<상자> (가) A(x)를 x^{3}+8로 나누었을 때의 나머지는 x-3이다. • (나) x^{2}의 계수가 1인 이차식 B(x)에 대해서 \\{A(x)\\}^{2}+B(x)는 x^{2}-2x+4로 나누어떨어진다."},
+        {"type": "text", "value": "B(x)를 x-3으로 나눈 나머지를 구하는 풀이 과정과 답을 쓰시오."}
+      ],
+      "choices": []
+    }
+  ]
+}

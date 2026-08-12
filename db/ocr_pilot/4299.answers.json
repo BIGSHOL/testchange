@@ -1,0 +1,31 @@
+{
+  "exam_id": 4299,
+  "answer_pages": [7],
+  "items": [
+    {"number": 1, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 2, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 3, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 4, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 5, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 6, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 7, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 8, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 9, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 10, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 11, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 12, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 13, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 14, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 15, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 16, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 17, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 18, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 19, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 20, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 21, "answer": "$X=\\varnothing$, $\\{c\\}$, $\\{d\\}$, $\\{e\\}$, $\\{c,~e\\}$, $\\{d,~e\\}$ (풀이 참조)", "solution": "$A \\cap X=\\varnothing$이므로 $a \\notin X$, $b \\notin X$\n$n(X \\cup B) \\leq 2$ 이므로 $n(X)=0$ 일 때 $X=\\varnothing$\n$n(X)=1$ 일 때 $X=\\{c\\}$, $\\{d\\}$, $\\{e\\}$\n$n(X)=2$ 일 때 $X=\\{c,~e\\}$, $\\{d,~e\\}$", "topic": "", "difficulty": ""},
+    {"number": 22, "answer": "$1 \\leq m \\leq 5$", "solution": "직선 $mx-2y+3m-4=0$이 $m(x+3)-2y-4=0$이므로 $m$의 값에 관계없이 지나는 점은 $(-3,~-2)$이다.\n주어진 직선이 $(-3,~-2)$와 $(-1,~3)$를 지나는 경우와 $(-3,~-2)$와 $(5,~2)$를 지나는 사이의 범위에서 도형과 만난다.\n각각의 경우에 $m$의 값을 구해 범위를 구하면 $1 \\leq m \\leq 5$이 된다.", "topic": "", "difficulty": ""},
+    {"number": 23, "answer": "$a=2$", "solution": "$2x-y+1=0$을 직선 $y=x$에 대칭이동하면 $2y-x+1=0$이고 $x$축 방향으로 $1$만큼 평행이동 시키면 $2y-x+2=0$이 된다.\n이 직선이 원의 넓이를 이등분하기 위해서는 원의 중심인 $(a,~0)$을 지나야 한다.\n따라서 $a=2$이다.", "topic": "", "difficulty": ""},
+    {"number": 24, "answer": "$-\\frac{4}{9}$", "solution": "$\\mathrm{O}(0,~0)$과 $\\mathrm{A}(2,~0)$을 $3:2$로 외분하는 점 $\\mathrm{B}(6,~0)$이 된다.\n점 $\\mathrm{B}$를 지나는 직선 $m$을 $y=m(x-6)$라 하고 점 $\\mathrm{P}$를 $\\mathrm{P}(a,~b)$라 두면 $\\triangle \\mathrm{PAB}$의 무게중심의 $x$좌표는 $\\frac{2+6+a}{3}=\\frac{19}{6}$이 되고 이때의 $a=\\frac{3}{2}$이다.\n점 $\\mathrm{P}$는 $y=-4x+8$ 위를 지나므로 $\\mathrm{P}\\left(\\frac{3}{2},~2\\right)$이고\n점 $\\mathrm{P}$를 지나는 직선 $m$의 기울기는 $-\\frac{4}{9}$이다.", "topic": "", "difficulty": ""},
+    {"number": 25, "answer": "$17$", "solution": "주어진 점의 평행이동에 의하여 직선 $l:3x+4y-15=0$을 평행이동한 직선 $m$은 $3(x+1)+4(y-2)-15=0$, $3x+4y-20=0$이 된다.\n직선 $m$을 $y$축에 대하여 대칭이동한 직선 $n$은 $-3x+4y-20=0$이다. 두 직선은 $(0,~5)$에서 만난다.\n원의 중심과 직선 사이의 거리에 의해 만나는 점의 개수가 정해지고 두 직선 모두 원의 중심과의 거리가 $d=\\frac{|-20|}{\\sqrt{3^{2}+4^{2}}}=4$로 동일하고,\nⅰ) $r<4$인 경우에는 원과 두 직선이 만나지 않아 $f(r)=0$이고,\nⅱ) $r=4$인 경우 두 직선은 모두 원에 접하므로 $f(4)=2$이고,\nⅲ) $r=5$인 경우 원과 $(0,~5)$에서 만나므로 $f(5)=3$이고\nⅳ) $r>5$인 경우 $f(r)=4$가 된다.\n따라서 $f(1)+f(2)+f(3)+\\cdots+f(8)$의 값은 $0+0+0+2+3+4+4+4=17$이다.", "topic": "", "difficulty": ""}
+  ]
+}

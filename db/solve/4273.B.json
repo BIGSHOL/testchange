@@ -1,0 +1,146 @@
+{
+  "exam_id": 4273,
+  "pass": "B",
+  "items": [
+    {
+      "number": 1,
+      "answer": "③",
+      "solution": "step1) 기울기 $a=\\frac{3-1}{4-(-2)}=\\frac{2}{6}=\\frac{1}{3}$\nstep2) 점 $(-2,~1)$을 지나므로 $y-1=\\frac{1}{3}(x+2)$, 즉 $y=\\frac{1}{3}x+\\frac{5}{3}$\nstep3) $a=\\frac{1}{3}$, $b=\\frac{5}{3}$이므로 $a+b=\\frac{6}{3}=2$\nstep4) 검산: $x=4$일 때 $y=\\frac{4}{3}+\\frac{5}{3}=3$이므로 $(4,~3)$을 지난다.",
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "number": 2,
+      "answer": "①",
+      "solution": "step1) 점 $(-1,~0)$을 지나는 기울기 $a$인 직선은 $y=a(x+1)$, 즉 $ax-y+a=0$이다.\nstep2) 점 $(2,~-1)$과의 거리가 3이므로 $\\frac{|2a+1+a|}{\\sqrt{a^{2}+1}}=\\frac{|3a+1|}{\\sqrt{a^{2}+1}}=3$\nstep3) $(3a+1)^{2}=9(a^{2}+1)$에서 $9a^{2}+6a+1=9a^{2}+9$, $6a=8$, $a=\\frac{4}{3}$\nstep4) 따라서 $y=\\frac{4}{3}x+\\frac{4}{3}$이므로 $a=\\frac{4}{3}$, $b=\\frac{4}{3}$\nstep5) 점 $(-1,~0)$을 지나는 y축에 평행한 직선 $x=-1$도 점 $(2,~-1)$과의 거리가 $|2-(-1)|=3$이므로 조건을 만족한다. 즉 $c=-1$\nstep6) $abc=\\frac{4}{3}\\times\\frac{4}{3}\\times(-1)=-\\frac{16}{9}$",
+      "confidence": "high",
+      "note": "기울기가 있는 직선과 수직선 두 개가 조건을 만족하므로 문제의 y=ax+b, x=c 형태와 일치."
+    },
+    {
+      "number": 3,
+      "answer": "③",
+      "solution": "step1) 세 직선이 삼각형을 이루지 않는 경우는 (i) 두 직선이 평행하거나 일치할 때, (ii) 세 직선이 한 점에서 만날 때이다.\nstep2) 기울기: $3x+2y-1=0 \\Rightarrow -\\frac{3}{2}$, $kx-2y+1=0 \\Rightarrow \\frac{k}{2}$, $x-ky+2=0 \\Rightarrow \\frac{1}{k}$ (단 $k\\neq0$)\nstep3) 1과 2가 평행: $\\frac{k}{2}=-\\frac{3}{2}$에서 $k=-3$ (이때 두 직선은 일치하므로 삼각형이 아니다)\nstep4) 1과 3이 평행: $\\frac{1}{k}=-\\frac{3}{2}$에서 $k=-\\frac{2}{3}$\nstep5) 2와 3이 평행: $\\frac{k}{2}=\\frac{1}{k}$에서 $k^{2}=2$, $k=\\pm\\sqrt{2}$\nstep6) 세 직선이 한 점에서 만날 때: 1, 2의 교점은 두 식을 더하여 $(3+k)x=0$이므로 $x=0$, $y=\\frac{1}{2}$. 점 $\\left(0,~\\frac{1}{2}\\right)$을 $x-ky+2=0$에 대입하면 $-\\frac{k}{2}+2=0$, $k=4$\nstep7) 모든 $k$의 곱 $=(-3)\\times\\left(-\\frac{2}{3}\\right)\\times\\sqrt{2}\\times(-\\sqrt{2})\\times4=2\\times(-2)\\times4=-16$",
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "number": 4,
+      "answer": "④",
+      "solution": "step1) $ax^{2}=x-4$에서 $ax^{2}-x+4=0$. 두 근을 $x_{1}(=x_{\\mathrm{P}})$, $x_{2}(=x_{\\mathrm{Q}})$라 하면 $x_{1}+x_{2}=\\frac{1}{a}=s$, $x_{1}x_{2}=\\frac{4}{a}=4s$\nstep2) $\\mathrm{M}$은 $\\overline{\\mathrm{PQ}}$를 $1:2$로 내분하므로 $x_{\\mathrm{M}}=\\frac{2x_{1}+x_{2}}{3}$\nstep3) $\\overline{\\mathrm{MH}}=2$는 $\\mathrm{M}$과 y축 사이의 거리이고 그림에서 $\\mathrm{M}$은 y축 왼쪽이므로 $x_{\\mathrm{M}}=-2$, 즉 $2x_{1}+x_{2}=-6$\nstep4) $x_{1}=-6-s$, $x_{2}=2s+6$이므로 $x_{1}x_{2}=(-6-s)(2s+6)=-2s^{2}-18s-36=4s$\nstep5) $s^{2}+11s+18=0$에서 $s=-2$ 또는 $s=-9$. $a<-\\frac{1}{3}$이면 $-3<\\frac{1}{a}<0$이므로 $s=-2$, 즉 $a=-\\frac{1}{2}$\nstep6) $-\\frac{1}{2}x^{2}=x-4$에서 $x^{2}+2x-8=0$, $x=-4$ 또는 $x=2$이므로 $\\mathrm{P}(-4,~-8)$, $\\mathrm{Q}(2,~-2)$\nstep7) $\\overline{\\mathrm{PQ}}=\\sqrt{6^{2}+6^{2}}=6\\sqrt{2}$\nstep8) 검산: $\\mathrm{M}=\\left(\\frac{2(-4)+2}{3},~\\frac{2(-8)+(-2)}{3}\\right)=(-2,~-6)$이므로 $\\overline{\\mathrm{MH}}=2$",
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "number": 5,
+      "answer": "②",
+      "solution": "step1) 원의 중심 $(0,~1)$, 반지름 $\\sqrt{2}$\nstep2) 직선 $x-y+k=0$과 중심 사이의 거리 $d=\\frac{|0-1+k|}{\\sqrt{2}}=\\frac{|k-1|}{\\sqrt{2}}$\nstep3) 서로 다른 두 점에서 만나려면 $d<\\sqrt{2}$이므로 $|k-1|<2$, 즉 $-1<k<3$\nstep4) $a=-1$, $b=3$이므로 $a+b=2$",
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "number": 6,
+      "answer": "③",
+      "solution": "step1) 두 직선 $y=mx$, $y=\\frac{1}{m}x$는 직선 $y=x$에 대하여 서로 대칭이므로 접원의 중심은 $\\mathrm{A}(t,~t)$ $(t>0)$이고, 두 접점 $\\mathrm{P}$, $\\mathrm{Q}$도 직선 $y=x$에 대하여 대칭이다.\nstep2) $\\mathrm{P}(p,~mp)$라 하면 $\\mathrm{Q}(mp,~p)$이고 직선 $\\mathrm{PQ}$는 $x+y=p+mp$이므로 $\\mathrm{R}(p+mp,~0)$\nstep3) $\\overline{\\mathrm{PQ}}=\\sqrt{2}\\,p(m-1)$, $\\overline{\\mathrm{QR}}=\\sqrt{(p+mp-mp)^{2}+p^{2}}=\\sqrt{2}\\,p$\nstep4) (가)에서 $\\sqrt{2}p(m-1)=2\\sqrt{2}p$이므로 $m=3$\nstep5) $r=\\overline{\\mathrm{AP}}=\\frac{|3t-t|}{\\sqrt{10}}=\\frac{2t}{\\sqrt{10}}$, $\\overline{\\mathrm{OA}}=\\sqrt{2}\\,t$이므로 $\\overline{\\mathrm{OP}}=\\sqrt{2t^{2}-\\frac{4t^{2}}{10}}=\\frac{2\\sqrt{10}}{5}t$\nstep6) (나)에서 $\\frac{1}{2}\\times\\frac{2\\sqrt{10}}{5}t\\times\\frac{2t}{\\sqrt{10}}=\\frac{2t^{2}}{5}=40$이므로 $t=10$, 즉 $\\mathrm{A}(10,~10)$, $r=2\\sqrt{10}$\nstep7) $\\mathrm{P}(4,~12)$, $\\mathrm{Q}(12,~4)$이고 직선 $\\mathrm{AQ}$는 $l_{2}$에 수직이므로 기울기가 $-3$, 즉 $y=-3x+40$\nstep8) $y=3x$와 연립하면 $x=\\frac{20}{3}$이므로 $\\mathrm{B}\\left(\\frac{20}{3},~20\\right)$\nstep9) $\\overline{\\mathrm{BQ}}=\\sqrt{\\left(12-\\frac{20}{3}\\right)^{2}+(4-20)^{2}}=\\sqrt{\\frac{256}{9}+256}=\\frac{16\\sqrt{10}}{3}$\nstep10) 검산: $\\overline{\\mathrm{AB}}=\\frac{10\\sqrt{10}}{3}$, $\\overline{\\mathrm{AQ}}=2\\sqrt{10}=\\frac{6\\sqrt{10}}{3}$이고 $\\mathrm{A}$가 $\\overline{\\mathrm{BQ}}$ 위에 있으므로 합이 $\\frac{16\\sqrt{10}}{3}$",
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "number": 7,
+      "answer": "①",
+      "solution": "step1) 평행이동하면 $(3+b,~a+1)=(5,~-3)$\nstep2) $3+b=5$에서 $b=2$, $a+1=-3$에서 $a=-4$\nstep3) $a+b=-4+2=-2$",
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "number": 8,
+      "answer": "④",
+      "solution": "step1) 원 $C_{1}$의 중심은 $(-2,~4)$, 반지름은 2\nstep2) $C_{2}$의 중심은 $(-2+a,~4+b)$, 반지름 2\nstep3) $C_{3}$은 $C_{1}$을 $y=x$에 대하여 대칭이동한 것이므로 중심은 $(4,~-2)$, 반지름 2\nstep4) 원 $C_{2}$가 점 $(4,~-2)$를 지나므로 $(-2+a-4)^{2}+(4+b+2)^{2}=4$, 즉 $(a-6)^{2}+(b+6)^{2}=4$\nstep5) $a$가 최대일 때 $a-6=2$, $b+6=0$이므로 $a=8$, $b=-6$\nstep6) 이때 원 $C_{2}$의 중심은 $(-2+8,~4-6)=(6,~-2)$\nstep7) 검산: $(6,~-2)$와 $(4,~-2)$ 사이의 거리는 2로 반지름과 같다.",
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "number": 9,
+      "answer": "②",
+      "solution": "step1) $x$ 대신 $x-a$를 대입하면 $3(x-a)-4y+2=0$, 즉 $3x-4y+2-3a=0$\nstep2) 원의 중심 $(2,~1)$, 반지름 2이므로 접할 조건은 $\\frac{|6-4+2-3a|}{\\sqrt{3^{2}+4^{2}}}=2$\nstep3) $|4-3a|=10$에서 $4-3a=10$ 또는 $4-3a=-10$\nstep4) $a=-2$ 또는 $a=\\frac{14}{3}$\nstep5) 합 $=-2+\\frac{14}{3}=\\frac{8}{3}$",
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "number": 10,
+      "answer": "④",
+      "solution": "step1) $A=\\{\\varnothing,~\\{\\varnothing\\},~0,~\\{\\varnothing,~0\\}\\}$의 원소는 $\\varnothing$, $\\{\\varnothing\\}$, $0$, $\\{\\varnothing,~0\\}$의 4개이다.\nstep2) ㉠ $\\varnothing$은 $A$의 원소이므로 $\\varnothing\\in A$는 참\nstep3) ㉡ $0\\in A$이므로 $\\{0\\}\\subset A$이다. 따라서 $\\{0\\}\\not\\subset A$는 거짓\nstep4) ㉢ $\\{\\varnothing,~0\\}$은 $A$의 원소이므로 참\nstep5) ㉣ $\\varnothing\\in A$이고 $0\\in A$이므로 $\\{\\varnothing,~0\\}\\subset A$는 참\nstep6) ㉤ $\\{\\varnothing,~0\\}\\in A$이므로 $\\{\\{\\varnothing,~0\\}\\}\\subset A$는 참\nstep7) 옳은 것은 ㉠, ㉢, ㉣, ㉤",
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "number": 11,
+      "answer": "⑤",
+      "solution": "step1) $(A^{C}\\cap B)\\cup(A\\cap B^{C})$는 $A$, $B$ 중 어느 한쪽에만 속하는 원소의 집합(대칭차집합)이다.\nstep2) $2\\in A$인데 $2\\notin\\{1,~4\\}$이므로 $2\\in B$여야 한다.\nstep3) $2a-7=2$이면 $a=\\frac{9}{2}$, 이때 $A=\\{2,~3,~\\frac{9}{2}\\}$, $B=\\{3,~2,~\\frac{3}{2}\\}$이고 대칭차집합은 $\\{\\frac{9}{2},~\\frac{3}{2}\\}\\neq\\{1,~4\\}$이므로 부적합\nstep4) $-a+6=2$이면 $a=4$, 이때 $A=\\{2,~3,~4\\}$, $B=\\{3,~1,~2\\}$이고 대칭차집합은 $\\{4,~1\\}=\\{1,~4\\}$이므로 적합\nstep5) $B=\\{1,~2,~3\\}$이므로 원소의 합은 $1+2+3=6$",
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "number": 12,
+      "answer": "③",
+      "solution": "step1) $n(A\\cup B)=n(A)+n(B)-n(A\\cap B)=11+8-2=17$\nstep2) $A^{C}\\cap B^{C}=(A\\cup B)^{C}$\nstep3) $n((A\\cup B)^{C})=n(U)-n(A\\cup B)=24-17=7$",
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "number": 13,
+      "answer": "(1) 2 (2) $y=x-4$, $y=-7x+20$",
+      "solution": "step1) (1) 원 밖의 한 점에서 원에 그은 접선은 항상 2개이다. 그런데 학생 A는 4개의 직선을 답으로 썼으므로 잘못되었다.\nstep2) 잘못된 이유: $y=mx\\pm r\\sqrt{m^{2}+1}$의 복호 $\\pm$는 자유롭게 정하는 것이 아니라, 점 $(3,~-1)$을 지난다는 조건에서 $m$의 값에 따라 부호가 하나로 정해진다. 학생 A는 $m$만 구하고 부호를 다시 확인하지 않아 지나지 않는 직선까지 답에 포함시켰다.\nstep3) (2) 바른 풀이: 점 $(3,~-1)$은 $3^{2}+(-1)^{2}=10>8$이므로 원 밖의 점이다. 원의 중심은 $(0,~0)$, 반지름은 $2\\sqrt{2}$이다.\nstep4) 점 $(3,~-1)$을 지나는 직선을 $y+1=m(x-3)$, 즉 $mx-y-3m-1=0$이라 하자.\nstep5) 원의 중심과의 거리가 반지름과 같으므로 $\\frac{|-3m-1|}{\\sqrt{m^{2}+1}}=2\\sqrt{2}$\nstep6) $(3m+1)^{2}=8(m^{2}+1)$에서 $9m^{2}+6m+1=8m^{2}+8$, $m^{2}+6m-7=0$, $(m+7)(m-1)=0$\nstep7) $m=1$ 또는 $m=-7$\nstep8) $m=1$일 때 $y=x-4$, $m=-7$일 때 $y=-7x+20$\nstep9) 직선 $x=3$은 중심과의 거리가 $3\\neq2\\sqrt{2}$이므로 접선이 아니다. 따라서 접선은 두 개뿐이다.\nstep10) 검산: $\\frac{|-4|}{\\sqrt{2}}=2\\sqrt{2}$, $\\frac{|-20|}{\\sqrt{50}}=2\\sqrt{2}$",
+      "confidence": "high",
+      "note": "소문항 (1)의 빈칸 답은 '2'(개)."
+    },
+    {
+      "number": 14,
+      "answer": "(1) 중심 $(0,~0)$, 반지름 $5$ (2) 중심 $(1,~-2)$, 반지름 $2$ (3) 중심 $(-3,~4)$, 반지름 $2\\sqrt{6}$",
+      "solution": "step1) (1) $x^{2}+y^{2}=25=5^{2}$이므로 중심 $(0,~0)$, 반지름 $5$\nstep2) (2) $(x-1)^{2}+(y+2)^{2}=4=2^{2}$이므로 중심 $(1,~-2)$, 반지름 $2$\nstep3) (3) $x^{2}+6x+y^{2}-8y+1=0$에서 완전제곱식으로 고치면 $(x+3)^{2}-9+(y-4)^{2}-16+1=0$\nstep4) $(x+3)^{2}+(y-4)^{2}=24$이므로 중심 $(-3,~4)$, 반지름 $\\sqrt{24}=2\\sqrt{6}$",
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "number": 15,
+      "answer": "$a=-\\frac{5}{4}$, $b=\\frac{3}{4}$",
+      "solution": "step1) 직선 $x+3y-4=0$의 기울기는 $-\\frac{1}{3}$이고, 이 직선은 선분 $\\mathrm{AB}$의 수직이등분선이므로 직선 $\\mathrm{AB}$의 기울기는 $3$이다.\nstep2) $\\frac{b-3}{-2-a}=3$에서 $b-3=-6-3a$, 즉 $b=-3a-3$ $\\cdots$ ㉠\nstep3) 선분 $\\mathrm{AB}$의 중점 $\\left(\\frac{a-2}{2},~\\frac{3+b}{2}\\right)$이 직선 $x+3y-4=0$ 위에 있으므로 $\\frac{a-2}{2}+3\\times\\frac{3+b}{2}-4=0$\nstep4) 양변에 2를 곱하면 $a-2+9+3b-8=0$, 즉 $a+3b=1$ $\\cdots$ ㉡\nstep5) ㉠을 ㉡에 대입하면 $a+3(-3a-3)=1$, $-8a=10$, $a=-\\frac{5}{4}$\nstep6) ㉠에서 $b=-3\\times\\left(-\\frac{5}{4}\\right)-3=\\frac{15}{4}-3=\\frac{3}{4}$\nstep7) 검산: $\\mathrm{A}\\left(-\\frac{5}{4},~3\\right)$, $\\mathrm{B}\\left(-2,~\\frac{3}{4}\\right)$의 기울기는 $\\frac{3/4-3}{-2+5/4}=\\frac{-9/4}{-3/4}=3$이고, 중점 $\\left(-\\frac{13}{8},~\\frac{15}{8}\\right)$은 $-\\frac{13}{8}+\\frac{45}{8}-4=0$을 만족한다.",
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "number": 16,
+      "answer": "$21$",
+      "solution": "step1) 점 $(3,~4)$를 $x$축에 대하여 대칭이동하면 $\\mathrm{A}(3,~-4)$\nstep2) 원점에 대하여 대칭이동하면 $\\mathrm{B}(-3,~-4)$\nstep3) 직선 $y=x$에 대하여 대칭이동하면 $\\mathrm{C}(4,~3)$\nstep4) $\\mathrm{A}$, $\\mathrm{B}$의 $y$좌표가 같으므로 $\\overline{\\mathrm{AB}}=|3-(-3)|=6$을 밑변으로 두면, 높이는 점 $\\mathrm{C}$와 직선 $y=-4$ 사이의 거리 $|3-(-4)|=7$\nstep5) 삼각형 $\\mathrm{ABC}$의 넓이 $=\\frac{1}{2}\\times6\\times7=21$",
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "number": 17,
+      "answer": "5초 후, 최소 거리 $150\\,\\mathrm{m}$",
+      "solution": "step1) 한 변의 길이가 100인 정육각형의 외접원의 반지름도 100이므로 꼭짓점은 $\\mathrm{P}_{1}(50,~50\\sqrt{3})$, $\\mathrm{P}_{2}(-50,~50\\sqrt{3})$, $\\mathrm{P}_{3}(-100,~0)$, $\\mathrm{P}_{4}(-50,~-50\\sqrt{3})$, $\\mathrm{P}_{5}(50,~-50\\sqrt{3})$, $\\mathrm{P}_{6}(100,~0)$\nstep2) 학생 A: $\\mathrm{P}_{2}\\to\\mathrm{P}_{3}$ 방향의 단위벡터는 $\\left(-\\frac{1}{2},~-\\frac{\\sqrt{3}}{2}\\right)$이므로 $t$초 후 위치는 $\\left(-50-5t,~50\\sqrt{3}-5\\sqrt{3}t\\right)$\nstep3) 학생 B: $\\mathrm{P}_{4}\\to\\mathrm{P}_{5}$ 방향은 $x$축과 평행하므로 $t$초 후 위치는 $\\left(-50+10t,~-50\\sqrt{3}\\right)$\nstep4) 두 점 사이의 거리를 $d$라 하면 $d^{2}=(-15t)^{2}+\\left(100\\sqrt{3}-5\\sqrt{3}t\\right)^{2}=225t^{2}+75(20-t)^{2}$\nstep5) $d^{2}=225t^{2}+75t^{2}-3000t+30000=300t^{2}-3000t+30000=300(t-5)^{2}+22500$\nstep6) $0\\le t\\le10$(각자 100 m를 10초에 이동)에서 $t=5$일 때 최소이고 $d^{2}=22500$, 즉 $d=150$\nstep7) 검산: $t=5$일 때 A는 $(-75,~25\\sqrt{3})$, B는 $(0,~-50\\sqrt{3})$이므로 $d=\\sqrt{75^{2}+(75\\sqrt{3})^{2}}=\\sqrt{5625\\times4}=150$\nstep8) 따라서 5초 후에 처음으로 거리가 최소가 되고, 그때의 거리는 $150\\,\\mathrm{m}$이다.",
+      "confidence": "high",
+      "note": "정육각형의 중심이 원점, 한 변 100 m이므로 외접원 반지름 100 m로 놓고 계산."
+    },
+    {
+      "number": 18,
+      "answer": "(1) $\\{1,~2\\}$ (2) $\\{4,~8\\}$ (3) $\\{3,~6,~7,~10\\}$",
+      "solution": "step1) $U=\\{1,~2,~3,~4,~5,~6,~7,~8,~9,~10\\}$, $A=\\{1,~2,~5,~9\\}$, $B=\\{x|x\\text{는 8의 약수}\\}=\\{1,~2,~4,~8\\}$\nstep2) (1) $A\\cap B=\\{1,~2\\}$\nstep3) (2) $B-A=\\{4,~8\\}$\nstep4) (3) $A^{C}\\cap B^{C}=(A\\cup B)^{C}$이고 $A\\cup B=\\{1,~2,~4,~5,~8,~9\\}$이므로 $(A\\cup B)^{C}=\\{3,~6,~7,~10\\}$",
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "number": 19,
+      "answer": "$8$",
+      "solution": "step1) 집합 $B=\\{1,~2,~3\\}$과 서로소이려면 $A$의 부분집합이 $1$과 $3$을 원소로 갖지 않아야 한다(2는 $A$의 원소가 아니므로 제한이 없다).\nstep2) 따라서 구하는 집합은 $\\{5,~7,~9\\}$의 부분집합이다.\nstep3) 그 개수는 $2^{3}=8$\nstep4) (일반식으로도 $A$의 원소 5개 중 특정한 2개($1$, $3$)를 제외한 부분집합의 개수 $2^{5-2}=8$)",
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "number": 20,
+      "answer": "",
+      "solution": "step1) (나) $A-X=B-X$에서 $A\\cap X^{C}=B\\cap X^{C}$이다. $A-B=\\{1,~2\\}$의 원소가 $X$에 없으면 왼쪽에만 속하므로 $\\{1,~2\\}\\subset X$이고, 같은 이유로 $B-A=\\{5,~6\\}\\subset X$이다.\nstep2) 즉 (나)는 $\\{1,~2,~5,~6\\}\\subset X$와 같다.\nstep3) (가) $n(X)=6$이므로 나머지 원소 2개를 $U-\\{1,~2,~5,~6\\}=\\{3,~4,~7,~8,~9\\}$에서 고르면 되고, 이때 후보는 ${}_{5}\\mathrm{C}_{2}=10$개이다.\nstep4) 한편 $(X-A)\\cap(X-B)=X\\cap(A\\cup B)^{C}=X\\cap\\{7,~8,~9\\}$이므로, (다)가 이 집합에 대한 조건이면 후보 10개는 $X\\cap\\{7,~8,~9\\}$의 원소 개수에 따라 0개일 때 1가지, 1개일 때 6가지, 2개일 때 3가지로 나뉜다.\nstep5) (다) 조건의 뒷부분이 판독 불가하여 최종 개수를 확정할 수 없다.",
+      "confidence": "low",
+      "note": "조건 (다) '(X-A)∩(X-B ...' 이후가 인쇄 판독 불가라 답을 확정할 수 없음. (가)+(나)만으로는 X의 후보가 10개이며, (다)의 내용에 따라 1개(=∅)·6개(원소 1개)·3개(원소 2개)·9개(≠∅) 등으로 달라짐. 원본 재판독 필요."
+    }
+  ]
+}
