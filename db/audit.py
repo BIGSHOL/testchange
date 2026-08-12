@@ -59,10 +59,14 @@ def audit_exam(eid, school, tag, rows, errs, warns):
         n = r["number"]
         where = f"{tag} #{n}"
 
-        # 발문 비어 있음
+        # 발문 비어 있음 — 단, 소문항이 내용을 다 갖는 구조는 정상이다
+        # (공유 전제 없이 (1)(2)만 있는 서술형: 부모 contents 가 비는 게 맞다)
         txt = "".join((b.get("value") or "") for b in (q.get("contents") or []))
-        if not txt.strip():
-            errs.append(f"{where}: 발문 비어 있음")
+        sub_txt = "".join((b.get("value") or "")
+                          for s in (q.get("sub_questions") or [])
+                          for b in (s.get("contents") or []))
+        if not txt.strip() and not sub_txt.strip():
+            errs.append(f"{where}: 발문 비어 있음(소문항도 없음)")
 
         # 선택지
         chs = q.get("choices") or []

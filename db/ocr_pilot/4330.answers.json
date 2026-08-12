@@ -1,0 +1,54 @@
+{
+  "exam_id": 4330,
+  "answer_pages": [7],
+  "items": [
+    {"number": 1, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 2, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 3, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 4, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 5, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 6, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 7, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 8, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 9, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 10, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 11, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 12, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 13, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 14, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 15, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 16, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 17, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 18, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 19, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 20, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {
+      "number": 21,
+      "answer": "$a \\geq 4$",
+      "solution": "$\\sim q: x<a$\n$p \\to \\sim q$가 참이 되기 위해서는 $a$가 4보다 크거나 같은 쪽에 존재해야 한다. 따라서 $a \\geq 4$이다.",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 22,
+      "answer": "$\\frac{31}{3}$",
+      "solution": "$y=-\\sqrt{ax-b}+c$ 의 그래프\n그래프에서 정의역은 $\\{x|x \\geq -3\\}$, 치역은 $\\{y|y \\leq 5\\}$\n시작점은 $(-3,~5)$ 이므로 $y=-\\sqrt{a(x+3)}+5$이고, $(0,~3)$을 지나므로 식에 대입하면\n$3=-\\sqrt{3a}+5$\n$\\sqrt{3a}=2$, $a=\\frac{4}{3}$\n$y=-\\sqrt{\\frac{4}{3}(x+3)}+5$, $y=-\\sqrt{\\frac{4}{3}x+4}+5$\n$a=\\frac{4}{3}$, $b=-4$, $c=5$\n$\\therefore a-b+c=\\frac{4}{3}-(-4)+5=\\frac{31}{3}$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 23,
+      "answer": "$g(f(x))=\\begin{cases} -x^{2}+4 & (x<-2) \\\\ -2x^{2}+8 & (-2 \\leq x<0) \\\\ 2x+8 & (x \\geq 0) \\end{cases}$",
+      "solution": "$f(x)=\\begin{cases} -x^{2}+4 & (x<0) \\\\ x+4 & (x \\geq 0) \\end{cases}$, $g(x)=\\begin{cases} x & (x<0) \\\\ 2x & (x \\geq 0) \\end{cases}$\n$g(f(x))=\\begin{cases} f(x) & (f(x)<0) \\\\ 2f(x) & (f(x) \\geq 0) \\end{cases}$ 이 되고\n$f(x)<0$ 일 때 $x<-2$, $f(x) \\geq 0$ 일 때 $x \\geq -2$ 이므로\n$g(f(x))=\\begin{cases} -x^{2}+4 & (x<-2) \\\\ -2x^{2}+8 & (-2 \\leq x<0) \\\\ 2x+8 & (x \\geq 0) \\end{cases}$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 24,
+      "answer": "(1) 증명 (등호는 $\\frac{x}{a}=\\frac{y}{b}=\\frac{z}{c}$일 때 성립) (2) $8$",
+      "solution": "[서술형 4-(1)]\n$(a^{2}+b^{2}+c^{2})(x^{2}+y^{2}+z^{2})-(ax+by+cz)^{2}$\n$=a^{2}y^{2}+a^{2}z^{2}+b^{2}x^{2}+b^{2}z^{2}+c^{2}x^{2}+c^{2}y^{2}-2abxy-2bcyz-2cazx$\n$=(bx-ay)^{2}+(cy-bz)^{2}+(az-cx)^{2} \\geq 0$ 이므로 다음 부등식이 항상 성립하고,\n(단, 등호는 $\\frac{x}{a}=\\frac{y}{b}=\\frac{z}{c}$일 때 성립한다.)\n[서술형 4-(2)]\n$(2^{2}+(-1)^{2}+2^{2})(4a^{2}+b^{2}+9c^{2}) \\geq (2(2a)+(-1)b+2(3c))^{2}$\n$(4+1+4)(4a^{2}+b^{2}+9c^{2}) \\geq (4a-b+6c)^{2}$\n$4a-b+6c=6\\sqrt{2}$이므로\n$9(4a^{2}+b^{2}+9c^{2}) \\geq (6\\sqrt{2})^{2}$\n따라서 $4a^{2}+b^{2}+9c^{2}$의 최솟값은 $8$.",
+      "topic": "",
+      "difficulty": ""
+    }
+  ]
+}

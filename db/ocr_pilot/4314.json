@@ -1,0 +1,252 @@
+{
+  "meta": {"exam_id": 4314, "ocr_source": "session-vision"},
+  "header": {"title": "대구국제고 1학년 공수2 — 2025년 2학기 중간고사대비 (도형의 방정식 ~ 집합과 명제)"},
+  "questions": [
+    {
+      "number": 1,
+      "score": 16.0,
+      "type": "서술형",
+      "label": "[서답형 1]",
+      "contents": [
+        {"type": "text", "value": "[서답형 1] 주어진 조건을 만족하는 방정식을 구하는 풀이 과정과 답을 쓰시오."}
+      ],
+      "sub_questions": [
+        {
+          "number": 1,
+          "score": 3,
+          "contents": [
+            {"type": "text", "value": "점 $(1,~2)$로부터 거리가 $\\sqrt{5}$로 일정한 점 $(x,~y)$가 그리는 도형의 방정식"}
+          ]
+        },
+        {
+          "number": 2,
+          "score": 4,
+          "contents": [
+            {"type": "text", "value": "두 점 $\\mathrm{P}(2,~-2)$, $\\mathrm{Q}(-4,~2)$를 지름의 양 끝점을 하는 원의 방정식"}
+          ]
+        },
+        {
+          "number": 3,
+          "score": 4,
+          "contents": [
+            {"type": "text", "value": "두 점 $\\mathrm{A}(-3,~1)$, $\\mathrm{B}(2,~1)$에서 $\\overline{\\mathrm{AP}} : \\overline{\\mathrm{BP}} = 3 : 2$를 만족시키는 점 $\\mathrm{P}$가 그리는 도형의 방정식"}
+          ]
+        },
+        {
+          "number": 4,
+          "score": 5,
+          "contents": [
+            {"type": "text", "value": "다음 조건을 만족시키는 원의 방정식"},
+            {"type": "text", "value": "<상자> (가) 중심이 직선 $y=-x$ 위에 있다. • (나) $y$축에 접한다. • (다) 점 $(1,~-2)$를 지난다. • (라) 반지름의 길이는 1보다 크다."}
+          ]
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "score": 4.0,
+      "type": "서술형",
+      "label": "[서답형 2]",
+      "contents": [
+        {"type": "text", "value": "[서답형 2] 직선 $y=-2x+k$와 원 $x^{2}+y^{2}=1$이 서로 다른 두 점에서 만나도록 실수 $k$의 값의 범위를 구하시오."}
+      ]
+    },
+    {
+      "number": 3,
+      "score": 12.0,
+      "type": "서술형",
+      "label": "[서답형 3]",
+      "contents": [
+        {"type": "text", "value": "[서답형 3] 다음 물음에 답하시오."}
+      ],
+      "sub_questions": [
+        {
+          "number": 1,
+          "score": 5,
+          "contents": [
+            {"type": "text", "value": "점 $(4,~3)$에서 원 $x^{2}+y^{2}=9$에 그은 두 접선의 방정식을 구하는 풀이 과정과 답을 쓰시오."}
+          ]
+        },
+        {
+          "number": 2,
+          "score": 7,
+          "contents": [
+            {"type": "text", "value": "원 $C_{1} : x^{2}+y^{2}=25$ 위의 점 $(-3,~4)$에서의 접선을 $x$축에 대하여 대칭이동한 다음 $y$축의 방향으로 $a$만큼 평행이동하였더니 원 $C_{2} : x^{2}+y^{2}-8y-9=0$의 접선이 되었다. 이때 실수 $a$의 값과 원 $C_{2}$의 접점의 좌표를 구하는 풀이 과정과 답을 쓰시오. (단, $a<5$)"}
+          ]
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "score": 12.0,
+      "type": "서술형",
+      "label": "[서답형 4]",
+      "contents": [
+        {"type": "text", "value": "[서답형 4] 세 점 $\\mathrm{A}(0,~a)$, $\\mathrm{B}(b,~b)$, $\\mathrm{C}(1,~2)$를 꼭짓점으로 하는 삼각형 $\\mathrm{ABC}$에 대하여 다음 물음에 답하시오. (단, $a>0$, $b>0$)"}
+      ],
+      "sub_questions": [
+        {
+          "number": 1,
+          "score": 4,
+          "contents": [
+            {"type": "text", "value": "삼각형 $\\mathrm{ABC}$의 둘레 길이의 최솟값을 구하는 풀이 과정과 답을 쓰시오."}
+          ]
+        },
+        {
+          "number": 2,
+          "score": 4,
+          "contents": [
+            {"type": "text", "value": "삼각형 $\\mathrm{ABC}$의 둘레의 길이가 최소일 때, 두 점 $\\mathrm{A}$, $\\mathrm{B}$의 좌표를 구하는 풀이 과정과 답을 쓰시오."}
+          ]
+        },
+        {
+          "number": 3,
+          "score": 4,
+          "contents": [
+            {"type": "text", "value": "(2)에서 구한 두 점 $\\mathrm{A}$, $\\mathrm{B}$를 지나는 직선 위의 점 $\\mathrm{P}$와 원 $x^{2}+y^{2}-6x-8y+16=0$ 위의 점 $\\mathrm{Q}$가 있다. 선분 $\\mathrm{PQ}$의 길이의 최솟값을 구하는 풀이 과정과 답을 쓰시오."}
+          ]
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "score": 12.0,
+      "type": "서술형",
+      "label": "[서답형 5]",
+      "contents": [
+        {"type": "text", "value": "[서답형 5] 전체집합 $U$의 세 부분집합 $A$, $B$, $C$에 대한 연산 결과를 벤다이어그램에 색칠하여 나타내시오."}
+      ],
+      "sub_questions": [
+        {
+          "number": 1,
+          "score": 2,
+          "contents": [
+            {"type": "equation", "value": "(A \\cup B) \\cap C"},
+            {"type": "figure", "value": "색칠용 빈 벤다이어그램. 둥근 사각형 전체집합 U 안에 세 원이 서로 겹쳐 있고, 위쪽 원에 A, 왼쪽 아래 원에 B, 오른쪽 아래 원에 C 라벨이 붙어 있다."}
+          ]
+        },
+        {
+          "number": 2,
+          "score": 2,
+          "contents": [
+            {"type": "equation", "value": "(A - B) - C"},
+            {"type": "figure", "value": "색칠용 빈 벤다이어그램. 둥근 사각형 전체집합 U 안에 세 원이 서로 겹쳐 있고, 위쪽 원에 A, 왼쪽 아래 원에 B, 오른쪽 아래 원에 C 라벨이 붙어 있다."}
+          ]
+        },
+        {
+          "number": 3,
+          "score": 2,
+          "contents": [
+            {"type": "equation", "value": "A - (B - C)"},
+            {"type": "figure", "value": "색칠용 빈 벤다이어그램. 둥근 사각형 전체집합 U 안에 세 원이 서로 겹쳐 있고, 위쪽 원에 A, 왼쪽 아래 원에 B, 오른쪽 아래 원에 C 라벨이 붙어 있다."}
+          ]
+        },
+        {
+          "number": 4,
+          "score": 3,
+          "contents": [
+            {"type": "equation", "value": "A \\cap (C - B)^{C}"},
+            {"type": "figure", "value": "색칠용 빈 벤다이어그램. 둥근 사각형 전체집합 U 안에 세 원이 서로 겹쳐 있고, 위쪽 원에 A, 왼쪽 아래 원에 B, 오른쪽 아래 원에 C 라벨이 붙어 있다."}
+          ]
+        },
+        {
+          "number": 5,
+          "score": 3,
+          "contents": [
+            {"type": "equation", "value": "(A^{C} \\cap B) - (A \\cup C)^{C}"},
+            {"type": "figure", "value": "색칠용 빈 벤다이어그램. 둥근 사각형 전체집합 U 안에 세 원이 서로 겹쳐 있고, 위쪽 원에 A, 왼쪽 아래 원에 B, 오른쪽 아래 원에 C 라벨이 붙어 있다."}
+          ]
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "score": 8.0,
+      "type": "서술형",
+      "label": "[서답형 6]",
+      "contents": [
+        {"type": "text", "value": "[서답형 6] 전체집합 $U$의 두 부분집합 $A$, $B$에 대하여 $n(U)=20$, $n(A-B)=7$, $n(B-A)=5$일 때, $n(B)$의 최솟값과 최댓값을 구하는 풀이 과정과 답을 쓰시오."}
+      ]
+    },
+    {
+      "number": 7,
+      "score": 14.0,
+      "type": "서술형",
+      "label": "[서답형 7]",
+      "contents": [
+        {"type": "text", "value": "[서답형 7] 전체집합 $\\mathrm{U}$에 대하여 세 조건 $p$, $q$, $r$의 진리집합을 각각 $P$, $Q$, $R$이라 할 때, $(P \\cap Q) \\cup (Q - R) = \\varnothing$, $P \\cap R = P$를 만족한다. 다음 물음에 답하시오."}
+      ],
+      "sub_questions": [
+        {
+          "number": 1,
+          "score": 6,
+          "contents": [
+            {"type": "text", "value": "진리집합 $P$, $Q$, $R$ 사이의 포함관계를 벤다이어그램으로 나타내시오."},
+            {"type": "figure", "value": "작성용 빈 벤다이어그램 틀. 오른쪽 위에 U 라벨이 붙은 둥근 사각형 하나만 그려져 있고 내부는 비어 있다."}
+          ]
+        },
+        {
+          "number": 2,
+          "score": 8,
+          "contents": [
+            {"type": "text", "value": "명제의 참, 거짓을 판별하시오. (각 2점)"},
+            {"type": "text", "value": "<상자> 표 — 왼쪽 열 머리글 '명제', 오른쪽 열 머리글 '참/거짓'(빈칸). 명제 행은 • $p \\to q$ • $\\sim q \\to p$ • $q \\to r$ • $\\sim p \\to \\sim r$"}
+          ]
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "score": 12.0,
+      "type": "서술형",
+      "label": "[서답형 8]",
+      "contents": [
+        {"type": "text", "value": "[서답형 8] 실수 $x$에 대한 세 조건 $p$, $q$, $r$이 다음과 같을 때, 물음에 답하시오."},
+        {"type": "text", "value": "<상자> $p : (x+1)(x-2)<0$ • $q :$ (빈칸) • $r : (x-\\alpha)^{2}>0$ (단, $\\alpha$는 실수)"}
+      ],
+      "sub_questions": [
+        {
+          "number": 1,
+          "score": 6,
+          "contents": [
+            {"type": "text", "value": "$q$는 $p$이기 위한 충분조건이지만 필요조건은 아닐 때, $q$로 가능한 조건을 하나만 제시하고, 그 이유를 설명하시오."}
+          ]
+        },
+        {
+          "number": 2,
+          "score": 6,
+          "contents": [
+            {"type": "text", "value": "$r$이 $p$이기 위한 필요조건이 되도록 실수 $\\alpha$의 범위를 구하는 풀이과정과 답을 쓰시오."}
+          ]
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "score": 10.0,
+      "type": "서술형",
+      "label": "[서답형 9]",
+      "contents": [
+        {"type": "text", "value": "[서답형 9] 다음 물음에 답하시오."}
+      ],
+      "sub_questions": [
+        {
+          "number": 1,
+          "score": 6,
+          "contents": [
+            {"type": "text", "value": "그림과 같이 중심이 $\\mathrm{O}$이고 $\\overline{\\mathrm{AB}}$를 지름으로 하는 반원에서 $\\overline{\\mathrm{AC}}=a$, $\\overline{\\mathrm{BC}}=b$, $\\overline{\\mathrm{OB}}$ 위의 한 점 $\\mathrm{C}$를 지나고 $\\overline{\\mathrm{OB}}$에 수직인 직선이 호 $\\mathrm{AB}$와 만나는 교점을 $\\mathrm{D}$라 하자."},
+            {"type": "text", "value": "부등식 $\\frac{a+b}{2} \\geq \\sqrt{ab}$가 성립함을 $\\overline{\\mathrm{DO}}$와 $\\overline{\\mathrm{DC}}$의 길이를 이용하여 증명하시오. (단, $a>0$, $b>0$, $a \\geq b$이다.)"},
+            {"type": "figure", "value": "지름 AB 위에 그려진 반원. 지름의 왼쪽 끝이 A, 오른쪽 끝이 B, 중심이 O(검은 점). 선분 OB 위의 점 C에서 지름에 수직인 선분을 올려 반원의 호와 만나는 점이 D. 중심 O와 D를 잇는 선분 OD(반지름)도 그려져 있다. C에서 직각 표시. 지름 아래쪽에 A~C 구간이 a, C~B 구간이 b 로 점선 화살표와 함께 표기되어 있다."}
+          ]
+        },
+        {
+          "number": 2,
+          "score": 4,
+          "contents": [
+            {"type": "text", "value": "$x>2$인 실수 $x$에 대하여 $4x+\\frac{9}{x-2}$는 $x=\\alpha$일 때, 최솟값 $m$을 갖는다. $\\alpha$와 $m$의 값을 구하는 풀이 과정과 답을 쓰시오."}
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "exam_id": 4316,
+  "answer_pages": [7, 8],
+  "items": [
+    {"number": 1, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 2, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 3, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 4, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 5, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 6, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 7, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 8, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 9, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 10, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 11, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 12, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 13, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 14, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 15, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 16, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 17, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 18, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 19, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 20, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 21, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {
+      "number": 22,
+      "answer": "풀이 참조",
+      "solution": "(1) $\\triangle \\mathrm{PHQ} \\backsim \\triangle \\mathrm{AOB}$ (AA닮음)\n$\\overline{\\mathrm{PH}} : \\overline{\\mathrm{PQ}} = \\overline{\\mathrm{AO}} : \\overline{\\mathrm{AB}}$\n$\\overline{\\mathrm{PH}} : \\frac{9}{2} = 2 : \\sqrt{13}$\n$\\therefore d = \\frac{9}{\\sqrt{13}} = \\frac{9\\sqrt{13}}{13}$\n(2) 기울기가 $-\\frac{3}{2}$인 직선과 수직이므로, $y=\\frac{2}{3}(x-3)+3$이다.\n$\\begin{cases} 3x+2y=6 \\\\ y=\\frac{2}{3}(x-3)+3 \\end{cases}$, $x=\\frac{12}{13}$, $y=\\frac{21}{13}$\n$\\mathrm{H}\\left(\\frac{12}{13},~\\frac{21}{13}\\right)$\n$\\overline{\\mathrm{PH}}=\\sqrt{\\left(3-\\frac{12}{13}\\right)^{2}+\\left(3-\\frac{21}{13}\\right)^{2}}=\\frac{9\\sqrt{13}}{13}$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 23,
+      "answer": "$\\frac{\\sqrt{5}}{2}$",
+      "solution": "반지름이 2인 원의 중심을 $\\mathrm{S}(a,~2)$라 하자. 점 $\\mathrm{S}$와 $mx-y=0$의 거리는 2이므로\n$\\frac{|ma-2|}{\\sqrt{m^{2}+1}}=2$\n양변을 제곱하여 정리하면\n$m=\\frac{4a}{a^{2}-4}$ …… ①\n$\\overline{\\mathrm{OS}}$는 $\\overline{\\mathrm{QP}}$를 수직 이등분한다. $\\overline{\\mathrm{QP}}$의 중점을 $\\mathrm{M}$이라 하면\n$\\angle \\mathrm{OMP}=90°$\n따라서 삼각형 $\\mathrm{PRO}$와 삼각형 $\\mathrm{POM}$은 AA닮음이다. 또한 삼각형 $\\mathrm{POM}$과 삼각형 $\\mathrm{SOP}$도 AA닮음이다.\n$\\triangle \\mathrm{PRO} \\backsim \\triangle \\mathrm{SOP}$ (AA닮음)\n$\\overline{\\mathrm{SP}} : \\overline{\\mathrm{OP}} = \\overline{\\mathrm{OP}} : \\overline{\\mathrm{OR}}$\n$2 : a = a : \\overline{\\mathrm{OR}}$, $\\overline{\\mathrm{OR}}=\\frac{a^{2}}{2}$\n점 $\\mathrm{R}$의 좌표를 구해보면\n$\\mathrm{R}\\left(0,~\\frac{a^{2}}{2}\\right)$\n한편, $\\frac{S_{2}}{S_{1}}=2$이므로 점 $\\mathrm{Q}$는 선분 $\\overline{\\mathrm{PR}}$을 $1:2$로 내분한다.\n따라서 점 $\\mathrm{Q}$의 좌표를 구해보면\n$\\mathrm{Q}\\left(\\frac{2}{3}a,~\\frac{a^{2}}{6}\\right)$\n점 $\\mathrm{Q}$는 $y=mx$위의 점이므로 대입하면\n$\\frac{a^{2}}{6}=\\frac{2}{3}ma$\n$a \\neq 0$이므로 정리하면\n$a=4m$ …… ②\n식 ②를 식 ①에 대입하면\n$m=\\frac{16m}{16m^{2}-4}=\\frac{4m}{4m^{2}-1}$\n$m \\neq 0$이므로\n$1=\\frac{4}{4m^{2}-1}$, $m^{2}=\\frac{5}{4}$\n$m>0$이므로\n$m=\\frac{\\sqrt{5}}{2}$\n[다른풀이]\n반지름이 2인 원의 중심을 $\\mathrm{S}(a,~2)$라 하면 직선 $\\mathrm{OS}$의 기울기는 $\\frac{2}{a}$이고 직선 $\\mathrm{PR}$은 직선 $\\mathrm{OS}$와 수직이므로 $y=-\\frac{a}{2}(x-a)=-\\frac{a}{2}x+\\frac{a^{2}}{2}$이다. 따라서 점 $\\mathrm{R}$은 $\\left(0,~\\frac{a^{2}}{2}\\right)$이고 점 $\\mathrm{Q}$는 선분 $\\overline{\\mathrm{PR}}$을 $1:2$로 내분하므로 $\\mathrm{Q}\\left(\\frac{2a}{3},~\\frac{a^{2}}{6}\\right)$이다. 점 $\\mathrm{Q}$와 점 $\\mathrm{S}$의 거리가 2이므로 $\\frac{a^{2}}{9}+\\left(\\frac{a^{2}}{6}-2\\right)^{2}=4$이고 $a^{2}=t$로 치환하면 $4t+t^{2}-24t=0$, $t=20$, $a=2\\sqrt{5}$ $(a \\neq 0)$이 된다. 이를 대입하면 점 $\\mathrm{Q}$는 $\\left(\\frac{4\\sqrt{5}}{3},~\\frac{10}{3}\\right)$가 되고 $y=mx$를 지나므로 $\\frac{10}{3}=m \\times \\frac{4\\sqrt{5}}{3}$, $m=\\frac{\\sqrt{5}}{2}$이다.",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 24,
+      "answer": "$k=13$, $r=9$",
+      "solution": "(가), (나) 조건을 만족하는 점 $\\mathrm{P}'$와 점 $\\mathrm{Q}'$의 자취는 위 그래프와 같다.\n$|x_{2}-x_{1}|=10+k-2=21$이므로 $k=13$\n$y_{1}$의 최댓값과 $y_{2}$의 최솟값이 같으므로\n$10+r=28-r$ 따라서 $r=9$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 25,
+      "answer": "$b_{1}-b_{2}=6$",
+      "solution": "(가) $n(A^{C} \\cap B^{C})=n(A \\cup B)+10$\n$140-n(A \\cup B)=n(A \\cup B)+10$\n$n(A \\cup B)=65$\n(나) $k \\times n(A \\cap B)=n(A)+n(B)=2 \\times n(A-B)$\n$n(A-B)=a$, $n(A \\cap B)=b$, $n(B-A)=c$라 하면\n$n(A \\cup B)=65$에서 $a+b+c=65$\n$k \\times n(A \\cap B)=n(A)+n(B)=2 \\times n(A-B)$\n$kb=a+2b+c=2a$에서 $a=\\frac{k}{2}b$, $c=\\left(\\frac{k}{2}-2\\right)b$\n$a+b+c=\\frac{k}{2}b+b+\\frac{k}{2}b-2b=65$\n$b(k-1)=65$\n$b=1$, $k=66$일 때, $c=31$ $n(B)=b+c=32$\n$b=5$, $k=14$일 때, $c=25$ $n(B)=b+c=30$\n$b=13$, $k=6$일 때, $c=b$ $n(B)=b+c=26$\n$b=65$, $k=2$일 때, $c<0$이므로 존재하지 않는다.\n따라서 $b_{1}=32$, $b_{2}=26$이므로 $b_{1}-b_{2}=6$",
+      "topic": "",
+      "difficulty": ""
+    }
+  ]
+}

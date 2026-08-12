@@ -1,0 +1,387 @@
+{
+  "meta": {"exam_id": 4334, "ocr_source": "session-vision"},
+  "header": {"title": "대진고 1학년 공통수학2 (2025년 2학기 중간고사 대비) — 도형의 방정식 ~ 집합과 명제"},
+  "questions": [
+    {
+      "number": 1,
+      "score": 2,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "좌표평면에서 점 $(1,~-2)$를 지나고 기울기가 $3$인 직선이 점 $(a,~2a+4)$를 지날 때, 상수 $a$의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "9"}]}
+      ]
+    },
+    {
+      "number": 2,
+      "score": 2,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "두 점 $\\mathrm{A}(3,~-4)$, $\\mathrm{B}(-7,~6)$에 대하여 선분 $\\mathrm{AB}$를 $3:2$로 내분하는 점 $\\mathrm{P}$의 좌표로 옳은 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "(-15,~10)"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "(-27,~26)"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "(3,~-2)"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "(15,~-10)"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "(-3,~2)"}]}
+      ]
+    },
+    {
+      "number": 3,
+      "score": 5,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "그림처럼 좌표평면 위의 네 점 $\\mathrm{A}(1,~0)$, $\\mathrm{B}(1,~2)$, $\\mathrm{C}(4,~4)$, $\\mathrm{D}(8,~0)$을 이은 선분으로 이루어진 사각형 $\\mathrm{ABCD}$가 있다. 점 $\\mathrm{A}(1,~0)$을 지나고 기울기가 $m$인 직선이 사각형 $\\mathrm{ABCD}$의 넓이를 이등분할 때, 상수 $m$의 값은 $\\frac{q}{p}$이다. $p+q$의 값은? (단, $p$와 $q$는 서로소인 자연수이다.)"},
+        {"type": "figure", "value": "좌표평면(x축, y축, 원점 O)에 네 점 A(1,0), B(1,2), C(4,4), D(8,0)을 꼭짓점으로 하는 사각형 ABCD가 회색으로 색칠되어 그려져 있다. A와 D는 x축 위에 있고, B는 A 바로 위(x=1), C는 사각형의 가장 위쪽 꼭짓점이다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "41"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "43"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "45"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "47"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "49"}]}
+      ]
+    },
+    {
+      "number": 4,
+      "score": 3,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "좌표평면 위의 점 $\\mathrm{P}(2,~13)$에서 직선 $x+3y+9=0$에 내린 수선의 발을 $\\mathrm{H}(a,~b)$라고 할 때, $ab$의 값은? (단, $a$, $b$는 상수이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "10"}]}
+      ]
+    },
+    {
+      "number": 5,
+      "score": 3,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "점 $(-1,~5)$를 점 $(0,~0)$으로 옮기는 평행이동에 의하여 원 $x^{2}+y^{2}=1$이 원 $x^{2}+y^{2}+ax+by+c=0$으로 옮겨질 때, $a+b+c$의 값은? (단, $a$, $b$, $c$는 상수이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "31"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "33"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "35"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "37"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "39"}]}
+      ]
+    },
+    {
+      "number": 6,
+      "score": 4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "집합 $A=\\{x|x=2^{m}\\times 5^{n},~m,~n은~2이하의~자연수\\}$에 대하여 집합 $A$의 모든 원소의 합은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "180"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "185"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "190"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "200"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "215"}]}
+      ]
+    },
+    {
+      "number": 7,
+      "score": 4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "좌표평면에서 원 $x^{2}+y^{2}=4$에 접하고 점 $(1,~3)$을 지나는 두 직선의 기울기를 각각 $\\alpha$, $\\beta$라고 할 때, $\\alpha^{3}+\\beta^{3}$의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-18"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-16"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-14"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "-12"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "-10"}]}
+      ]
+    },
+    {
+      "number": 8,
+      "score": 4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "삼각형 $\\mathrm{ABC}$에서 꼭짓점 $\\mathrm{A}$의 좌표가 $(2,~-1)$이고 변 $\\mathrm{BC}$의 중점의 좌표가 $(-4,~5)$, 무게중심의 좌표가 $(a,~b)$일 때, 실수 $a$, $b$에 대하여 $a-b$의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-5"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-4"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "-1"}]}
+      ]
+    },
+    {
+      "number": 9,
+      "score": 4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "다음 그림은 가로의 길이가 $80\\mathrm{cm}$, 세로의 길이가 $40\\mathrm{cm}$인 직사각형의 모양의 미니 당구대를 두 변이 좌표축에 놓이도록 그린 것이다. 점 $\\mathrm{P}(70,~10)$의 위치에 놓여 있는 공을 쳐서 $x$축과 $y$축에 차례대로 부딪히게 한 다음 점 $\\mathrm{Q}(10,~30)$의 위치에 놓은 공을 맞히려고 할 때, 점 $\\mathrm{P}(70,~10)$의 위치에 있던 공의 최단 이동거리는? (단, 공의 크기는 무시한다.)"},
+        {"type": "figure", "value": "좌표평면(단위 cm) 위에 가로 80, 세로 40인 직사각형 당구대가 회색으로 그려져 있다. 왼쪽 아래 꼭짓점이 원점, y축 눈금 40, x축 눈금 80이 표시되어 있다. 직사각형 내부에 점 Q(10, 30)과 점 P(70, 10)이 찍혀 있고, x축 위의 점 A와 y축 위의 점 B가 표시되어 있으며 P→A→B→Q 를 잇는 꺾인 경로(선분 PA, AB, BQ)가 그려져 있다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "30\\sqrt{5}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "40\\sqrt{5}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "50\\sqrt{5}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "60\\sqrt{5}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "80\\sqrt{5}"}]}
+      ]
+    },
+    {
+      "number": 10,
+      "score": 5,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "좌표평면에서 이차함수 $f(x)=x^{2}-2x$의 그래프 위의 점 $\\mathrm{P}(a,~f(a))$를 중심으로 하고 직선 $y=2x+5$에 접하는 원의 넓이의 최댓값은 $\\frac{q}{p}\\pi$이다. $p+q$의 값은? (단, $-1<a<5$이고, $p$와 $q$는 서로소인 자연수이다.)"},
+        {"type": "figure", "value": "좌표평면(x축, y축, 원점 O)에 아래로 볼록한 포물선 y=x^2-2x의 그래프와 오른쪽 위로 향하는 직선 y=2x+5가 그려져 있다. 포물선 위의 한 점을 중심으로 하고 그 직선에 접하는 원이 제1사분면 쪽에 그려져 있으며, 중심에 점이 찍혀 있다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "80"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "82"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "84"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "86"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "88"}]}
+      ]
+    },
+    {
+      "number": 11,
+      "score": 4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "좌표평면에서 원 $C_{1}:x^{2}+y^{2}-8x-2y+13=0$을 $y$축에 대하여 대칭이동한 후 직선 $y=x$에 대하여 대칭이동한 원을 $C_{2}$라고 하자. 두 점 $\\mathrm{P}$, $\\mathrm{Q}$가 각각 두 원 $C_{1}$, $C_{2}$ 위의 점일 때, 선분 $\\mathrm{PQ}$의 길이의 최댓값과 최솟값의 곱은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "18"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "24"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "30"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "34"}]}
+      ]
+    },
+    {
+      "number": 12,
+      "score": 4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "좌표평면에서 방정식 $f(x,~y)=0$이 나타내는 도형이 그림과 같은 모양일 때, 다음 중 방정식 $f(1-x,~y+2)=0$이 좌표평면에 나타내는 도형은?"},
+        {"type": "figure", "value": "제1사분면에 계단(L자) 모양의 도형 f(x, y)=0 이 그려져 있다. y축 위의 점 (0,3)에서 오른쪽으로 (2,3)까지 가로선, 거기서 아래로 (2,0)까지 세로선, 그리고 y축 위의 점 (0,2)에서 오른쪽으로 (1,2)까지 가로선, 거기서 아래로 (1,0)까지 세로선이 그려져 있다. x축 눈금 0, 1, 2와 y축 눈금 2, 3이 표시되어 있다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "figure", "value": "x축 아래쪽 도형. x축 위 눈금 -1, 1 표시. x=-1에서 y=0부터 y=-2까지 세로 점선, (-1,-2)에서 (0,-2)까지 가로 실선(-2 표시), x=1에서 y=0부터 y=-3까지 세로 실선, y=-3에서 x=-1부터 x=1까지 가로 실선, x=-1에서 y=-2부터 y=-3까지 세로 실선."}]},
+        {"number": 2, "contents": [{"type": "figure", "value": "계단 모양 도형. y=2에서 x=0부터 x=1까지 가로선, x=1에서 y=2부터 y=-1까지 세로선, y=-1에서 x=-1부터 x=1까지 가로선, x=-1에서 y=0부터 y=-1까지 세로선. 눈금 2, -1, x축 -1, 1 표시."}]},
+        {"number": 3, "contents": [{"type": "figure", "value": "계단 모양 도형. y=1에서 x=-1부터 x=1까지 가로선, x=1에서 y=1부터 y=0까지 세로선, x=-1에서 y=1부터 y=-2까지 세로선, y=-2에서 x=-1부터 x=0까지 가로선, y축(x=0)을 따라 y=0부터 y=-2까지 세로선. 눈금 1, -2, x축 -1, 1 표시."}]},
+        {"number": 4, "contents": [{"type": "figure", "value": "x축 위쪽 도형. x=-1에서 y=0부터 y=3까지 세로 실선, y=3에서 x=-1부터 x=1까지 가로 실선, x=1에서 y=3부터 y=2까지 세로 실선, y=2에서 x=0부터 x=1까지 가로 실선, x=1에서 y=2부터 y=0까지 세로 점선. 눈금 2, 3, x축 -1, 1 표시."}]},
+        {"number": 5, "contents": [{"type": "figure", "value": "계단 모양 도형. y=2에서 x=-1부터 x=0까지 가로선, x=-1에서 y=2부터 y=-1까지 세로선, y=-1에서 x=-1부터 x=1까지 가로선, x=1에서 y=0부터 y=-1까지 세로선. 눈금 2, -1, x축 -1, 1 표시."}]}
+      ]
+    },
+    {
+      "number": 13,
+      "score": 4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "좌표평면 위에 $x$축과 $y$축에 동시에 접하고 중심이 제1사분면에 속하며 반지름의 길이가 $1$인 원 $C$가 놓여 있다. 이때 원 밖의 한 점 $\\mathrm{A}(2,~3)$에서 원 $C$에 그은 두 접선과 $x$축으로 둘러싸인 삼각형의 둘레의 길이는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "11"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "13"}]}
+      ]
+    },
+    {
+      "number": 14,
+      "score": 4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "좌표평면에서 원 $(x-1)^{2}+(y-1)^{2}=9$와 직선 $3x-4y-9=0$이 서로 다른 두 점 $\\mathrm{A}$, $\\mathrm{B}$에서 만난다. 원 위의 점 $\\mathrm{P}$에 대하여 삼각형 $\\mathrm{ABP}$ 넓이의 최댓값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "2\\sqrt{5}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "5\\sqrt{5}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "8\\sqrt{5}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "11\\sqrt{5}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "14\\sqrt{5}"}]}
+      ]
+    },
+    {
+      "number": 15,
+      "score": 5,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "전체 집합 $U=\\{x|x는~자연수\\}$의 두 부분집합 $A$, $B$에 대하여 $A=\\{x|x는~2의~약수\\}$, $B=\\{x|x는~18의~약수\\}$ 일 때, $A\\cap X=A$, $B\\cup X=B$를 만족시키는 집합 $X$의 개수를 구한 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "16"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "18"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "20"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "22"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "24"}]}
+      ]
+    },
+    {
+      "number": 16,
+      "score": 3,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "집합 $A=\\{\\varnothing,~1,~\\{2\\},~\\{1,~2\\}\\}$의 모든 부분집합을 원소로 갖는 집합을 $B$라 할 때, <보기>에서 옳은 것만을 있는 대로 고른 것은?"},
+        {"type": "text", "value": "<보기> ㄱ. $\\{2\\}\\in A$ • ㄴ. $\\{1,~2\\}\\subset A$ • ㄷ. $\\{\\{\\varnothing\\}\\}\\subset B$ • ㄹ. $\\{\\{1,~2\\}\\}\\subset A$"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ, ㄴ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄱ, ㄹ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄴ, ㄷ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄷ, ㄹ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄱ, ㄷ, ㄹ"}]}
+      ]
+    },
+    {
+      "number": 17,
+      "score": 4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "오늘 안전 동아리 학생 $50$명 중에서 소방안전교육을 받은 학생은 $34$명, 심폐소생교육을 받은 학생은 $23$명이었다. 이 동아리 학생들 중에서 소방안전교육과 심폐소생교육 중 어느 한 교육만 받은 학생 수를 $x$명이라 할 때, $x$의 최댓값과 최솟값의 합은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "45"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "51"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "54"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "64"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "65"}]}
+      ]
+    },
+    {
+      "number": 18,
+      "score": 4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "자연수 $m$에 대하여 $m$의 양의 배수의 집합을 $N_{m}$이라 하자. $N_{m}\\subset (N_{6}\\cap N_{8})$를 만족시키는 자연수 $m$의 최솟값을 $a$, $N_{4}\\cap (N_{3}\\cup N_{5})\\subset N_{m}$을 만족시키는 자연수 $m$의 최댓값을 $b$라 할 때, $a+b$의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "18"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "24"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "28"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "36"}]}
+      ]
+    },
+    {
+      "number": 19,
+      "score": 4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "전체집합 $U=\\{x|x는~10~이하의~자연수\\}$의 두 부분집합 $A=\\{1,~2,~4,~5,~6\\}$, $B=\\{3,~4,~5,~6,~7\\}$에 대하여 집합 $U$의 부분집합 $X$가 다음 조건을 만족시킬 때, 집합 $X$의 모든 원소의 합의 최댓값은?"},
+        {"type": "text", "value": "<상자> (가) $n(X)=6$ • (나) $A\\cap X^{C}=B\\cap X^{C}$ • (다) $(X-A)\\cap (X-B)\\neq \\varnothing$"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "28"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "29"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "30"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "31"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "32"}]}
+      ]
+    },
+    {
+      "number": 20,
+      "score": 3,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "두 실수 $x$, $y$에 대하여 <보기>에서 참인 명제만을 있는 대로 고른 것은?"},
+        {"type": "text", "value": "<보기> ㄱ. $x<-2$이면 $x^{2}>4$이다. • ㄴ. $xy=0$이면 $x^{2}+y^{2}=0$ • ㄷ. $x$가 $3$의 배수이면 $x$는 $6$배수이다. • ㄹ. $x$가 $4$의 약수이면 $x$는 $12$의 약수이다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ, ㄷ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄱ, ㄹ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄴ, ㄷ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄴ, ㄹ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄱ, ㄴ, ㄹ"}]}
+      ]
+    },
+    {
+      "number": 21,
+      "score": 4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "실수 $x$에 대하여 세 조건 $p$, $q$, $r$을 $p:3\\leq x\\leq 10$, $q:x>a-1$, $r:x<b+5$이라 하자. 명제 $p\\to q$가 참일 때, 정수 $a$의 최댓값을 $M$이라 하고, 명제 $p\\to r$가 거짓일 때, 정수 $b$의 최댓값을 $N$이라 할 때, $MN$의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "15"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "18"}]}
+      ]
+    },
+    {
+      "number": 22,
+      "score": 5,
+      "type": "서술형",
+      "label": "[서술형 1]",
+      "contents": [
+        {"type": "text", "value": "[서술형 1] 좌표평면에서 점 $\\mathrm{P}(1,~1)$를 지나는 직선 중에서 두 점 $\\mathrm{A}(-5,~-1)$, $\\mathrm{B}(2,~-2)$에서 같은 거리에 있는 직선의 방정식을 모두 구하는 과정을 서술하시오."}
+      ]
+    },
+    {
+      "number": 23,
+      "score": 5,
+      "type": "서술형",
+      "label": "[서술형 2]",
+      "contents": [
+        {"type": "text", "value": "[서술형 2] 좌표평면에서 세 직선"},
+        {"type": "equation", "value": "\\begin{cases} 3x-y+2=0 \\cdots \\text{①} \\\\ x+3y-6=0 \\cdots \\text{②} \\\\ x-2y-1=0 \\cdots \\text{③} \\end{cases}"},
+        {"type": "text", "value": "으로 둘러싸인 삼각형의 외접원의 방정식을 구하는 과정을 서술하시오."}
+      ]
+    },
+    {
+      "number": 24,
+      "score": 6,
+      "type": "서술형",
+      "label": "[서술형 3]",
+      "contents": [
+        {"type": "text", "value": "[서술형 3] 좌표평면 위의 원 $C$가 제2사분면에서 $x$축, $y$축에 동시에 접하고, 반지름의 길이는 $2$이다. 원 밖의 한 점 $\\mathrm{A}(-4,~6)$에서 원 $C$에 그은 두 접선과 $x$축으로 둘러싸인 도형의 넓이를 구하는 과정을 서술하시오."}
+      ]
+    },
+    {
+      "number": 25,
+      "score": 5,
+      "type": "서술형",
+      "label": "[서술형 4]",
+      "contents": [
+        {"type": "text", "value": "[서술형 4] 좌표평면 위의 두 점 $\\mathrm{A}(-4,~3)$, $\\mathrm{B}(-3,~4)$와 $x$축 위를 움직이는 점 $\\mathrm{P}$, $y$축 위를 움직이는 점 $\\mathrm{Q}$에 대하여 $\\overline{\\mathrm{AP}}+\\overline{\\mathrm{PQ}}+\\overline{\\mathrm{QB}}$의 최솟값을 구하는 풀이 과정과 답을 서술하시오."}
+      ]
+    }
+  ]
+}

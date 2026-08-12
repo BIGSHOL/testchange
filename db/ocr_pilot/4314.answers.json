@@ -1,0 +1,69 @@
+{
+  "exam_id": 4314,
+  "answer_pages": [7, 8],
+  "items": [
+    {
+      "number": 1,
+      "answer": "(1) $(x-1)^{2}+(y-2)^{2}=5$ (2) $(x+1)^{2}+y^{2}=13$ (3) $x^{2}+y^{2}-12x-2y+1=0$ (4) $(x-5)^{2}+(y+5)^{2}=25$",
+      "solution": "(1) $\\sqrt{(x-1)^{2}+(y-2)^{2}}=\\sqrt{5}$\n$(x-1)^{2}+(y-2)^{2}=5$\n(2) $\\overline{\\mathrm{PQ}}$가 지름이므로 두 점의 중점이 원의 중심이다.\n$\\left(\\frac{2-4}{2},~\\frac{-2+2}{2}\\right)=(-1,~0)$\n중심 $(-1,~0)$이고 반지름의 길이가\n$\\frac{\\overline{\\mathrm{PQ}}}{2}=\\frac{\\sqrt{36+16}}{2}=\\sqrt{13}$인 원의 방정식은\n$(x+1)^{2}+y^{2}=13$\n(3) $\\mathrm{P}(x,~y)$로 두면\n$3\\overline{\\mathrm{BP}}=2\\overline{\\mathrm{AP}}$\n$5x^{2}+5y^{2}-60x-10y+5=0$\n$x^{2}+y^{2}-12x-2y+1=0$\n(4) 중심의 좌표를 $(a,~b)$로 두자.\n중심이 직선 $y=-x$ 위에 있으므로 $b=-a$\n원이 $y$축에 접하므로 반지름의 길이는 $|a|$\n$(x-a)^{2}+(y-b)^{2}=a^{2}$\n$(1,~-2)$를 지나고 $b=-a$이므로\n원의 방정식에 대입하면 $a=1$ 또는 $a=5$\n반지름의 길이가 1보다 크므로 $a=5$\n$(x-5)^{2}+(y+5)^{2}=25$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 2,
+      "answer": "$-\\sqrt{5}<k<\\sqrt{5}$",
+      "solution": "원의 중심에서 직선까지의 거리를 $d$, 원의 반지름을 $r$이라 할 때, 직선과 원이 서로 다른 두 점에서 만나려면 $d<r$\n$d=\\frac{|k|}{\\sqrt{5}}$, $r=1$\n$\\frac{|k|}{\\sqrt{5}}<1$\n$-\\sqrt{5}<k<\\sqrt{5}$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 3,
+      "answer": "(1) $y=3$, $24x-7y-75=0$ (2) $a=4$, 접점의 좌표 $(-3,~0)$",
+      "solution": "(1) 접선의 기울기를 $m$이라 하자.\n접선의 방정식은 $y=m(x-4)+3$\n원의 중심에서 접선의 방정식까지의 거리는 원의 반지름과 같으므로\n원의 중심 $(0,~0)$에서 접선의 방정식 $mx-y-4m+3=0$까지의 거리는 $\\frac{|-4m+3|}{\\sqrt{m^{2}+1}}$\n반지름의 길이는 3이므로\n$\\frac{|-4m+3|}{\\sqrt{m^{2}+1}}=3$\n$m=0$, $\\frac{24}{7}$\n$y=3$, $24x-7y-75=0$\n(2) $x^{2}+y^{2}=25$ 위의 점 $(-3,~4)$에서의 접선의 방정식은\n$-3x+4y=25$\n$-3x+4y=25$를 $x$축에 대하여 대칭이동하면\n$-3x-4y=25$\n$-3x-4y=25$를 $y$축의 방향으로 $a$만큼 평행이동하면\n$-3x-4y+4a=25$\n$-3x-4y+4a=25$이 $x^{2}+y^{2}-8y-9=0$의 접선이므로\n원의 중심 $(0,~4)$에서 직선 $3x+4y+25-4a=0$까지의 거리가 5이어야 한다.\n$\\frac{|16+25-4a|}{5}=5$, $|41-4a|=25$\n$41-4a=\\pm 25$, $a=4$ 또는 $a=\\frac{33}{2}$\n$a<5$이므로 $a=4$\n$-3x-4y=9$와 $x^{2}+y^{2}-8y-9=0$의 교점의 좌표는 두 식을 연립해서 구하면 $(-3,~0)$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 4,
+      "answer": "(1) $\\sqrt{10}$ (2) $\\mathrm{A}\\left(0,~\\frac{5}{3}\\right)$, $\\mathrm{B}\\left(\\frac{5}{4},~\\frac{5}{4}\\right)$ (3) $\\sqrt{10}-3$",
+      "solution": "(1) 점 $\\mathrm{C}(1,~2)$를 $y=x$에 대칭하면 $\\mathrm{C}'(2,~1)$\n$y$축에 대칭하면 $\\mathrm{C}''(-1,~2)$\n$\\overline{\\mathrm{AB}}+\\overline{\\mathrm{BC}}+\\overline{\\mathrm{CA}}=\\overline{\\mathrm{AB}}+\\overline{\\mathrm{BC}'}+\\overline{\\mathrm{AC}''} \\geq \\overline{\\mathrm{C}'\\mathrm{C}''}$\n$\\overline{\\mathrm{C}'\\mathrm{C}''}=\\sqrt{10}$\n(2) $(-1,~2)$, $(2,~1)$을 지나는 직선의 방정식은 $x+3y=5$\n점 $\\mathrm{A}$는 $x+3y=5$의 $y$절편이므로 $\\left(0,~\\frac{5}{3}\\right)$\n점 $\\mathrm{B}$는 $x+3y=5$과 $y=x$의 교점이므로 $\\left(\\frac{5}{4},~\\frac{5}{4}\\right)$\n(3) 두 점 $\\mathrm{A}$, $\\mathrm{B}$를 지나는 직선의 방정식은 $x+3y=5$\n$x+3y=5$ 위의 점 $\\mathrm{P}$와 $x^{2}+y^{2}-6x-8y+16=0$ 위의 점 $\\mathrm{Q}$에서 $\\overline{\\mathrm{PQ}}$의 길이가 최소일 때는 원의 중심에서 직선까지의 거리에서 원의 반지름을 뺀 경우이므로\n$\\frac{|10|}{\\sqrt{10}}-3=\\sqrt{10}-3$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 5,
+      "answer": "풀이 참조 (벤다이어그램 색칠)",
+      "solution": "(1) $(A \\cup B) \\cap C$ — $A \\cup B$를 색칠한 벤다이어그램과 $C$를 색칠한 벤다이어그램의 교집합으로, $A \\cup B$와 $C$가 겹치는 부분을 색칠한다.\n(2) $(A - B) - C$ — $A-B$를 색칠한 벤다이어그램에서 $C$를 색칠한 부분을 뺀 영역을 색칠한다.\n(3) $A - (B - C)$ — $A$를 색칠한 벤다이어그램에서 $B-C$를 색칠한 부분을 뺀 영역을 색칠한다.\n(4) $A \\cap (C-B)^{C} = A - (C-B)$ — $A$에서 $C-B$를 뺀 영역을 색칠한다.\n(5) $(A^{C} \\cap B)-(A \\cup C)^{C} = (A^{C} \\cap B) \\cap (A \\cup C)$ — $A^{C} \\cap B$를 색칠한 벤다이어그램과 $A \\cup C$를 색칠한 벤다이어그램의 교집합 영역을 색칠한다.",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 6,
+      "answer": "최댓값 13, 최솟값 5",
+      "solution": "$n(A \\cup B)=n(A-B)+n(B-A)+n(A \\cap B)=7+5+x=12+x$\n전체집합의 원소는 20개이므로\n$n(A \\cup B) \\leq 20$\n$12+x \\leq 20$, $x \\leq 8$, $n(B) \\leq 8+5=13$\n최댓값은 13\n최솟값은 교집합이 최소이어야 하므로\n$n(B) \\geq 0+5=5$\n최솟값은 5",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 7,
+      "answer": "(1) 풀이 참조 (2) $p \\to q$ 거짓, $\\sim q \\to p$ 거짓, $q \\to r$ 참, $\\sim p \\to \\sim r$ 거짓",
+      "solution": "(1) $(P \\cap Q) \\cup (Q-R)=\\varnothing$에서\n$P \\cap Q = \\varnothing$, $Q-R=\\varnothing$\n따라서 $P$와 $Q$는 서로소인 집합이고,\n$Q-R=\\varnothing$이므로 $Q \\subset R$\n$P \\cap R = P$ 이므로 $P \\subset R$\n(벤다이어그램: 전체집합 $U$ 안에 큰 타원 $R$이 있고, 그 안에 서로 만나지 않는 두 원 $P$와 $Q$가 나란히 들어 있다.)\n(2) $p \\to q$ : $P \\not\\subset Q$이므로 거짓\n$\\sim q \\to p$ : $Q^{C} \\not\\subset P$이므로 거짓\n$q \\to r$ : $Q \\subset R$이므로 참\n$\\sim p \\to \\sim r$ : $\\sim p \\to \\sim r$의 대우인 $r \\to p$가 거짓이므로 거짓 ($\\because R \\not\\subset P$)",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 8,
+      "answer": "(1) $q : x(x-1)<0$ (2) $\\alpha \\leq -1$ 또는 $\\alpha \\geq 2$",
+      "solution": "(1) $p : -1<x<2$에서\n$q \\Rightarrow p$가 성립하려면 $Q \\subset P$이므로\n$q : 0<x<1$일 때 성립한다.\n따라서 $q : x(x-1)<0$\n(2) $r : x \\neq \\alpha$인 모든 실수에서\n$p \\Rightarrow r$이 성립하려면 $P \\subset R$이므로\n$-1<x<2$ 에 $\\alpha$가 포함되지 않아야 한다.\n따라서 $\\alpha \\leq -1$ 또는 $\\alpha \\geq 2$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 9,
+      "answer": "(1) 풀이 참조 (2) $m=20$, $\\alpha=\\frac{7}{2}$",
+      "solution": "(1) $\\overline{\\mathrm{DO}}=\\frac{1}{2}\\overline{\\mathrm{AB}}=\\frac{a+b}{2}$\n$\\triangle \\mathrm{ADC} \\sim \\triangle \\mathrm{DBC}$이므로 $\\overline{\\mathrm{CD}}^{2}=\\overline{\\mathrm{AC}} \\times \\overline{\\mathrm{CB}}$, $\\overline{\\mathrm{CD}}=\\sqrt{ab}$\n직각삼각형 $\\mathrm{DOC}$에서 빗변인 선분 $\\mathrm{DO}$는 항상 선분 $\\mathrm{DC}$보다 크거나 같다.\n즉, $\\frac{a+b}{2} \\geq \\sqrt{ab}$가 성립한다.\n(단, 등호는 $a=b$일 때 성립)\n(2) $4x+\\frac{9}{x-2}=4(x-2)+\\frac{9}{x-2}+8$\n$\\geq 2\\sqrt{4(x-2) \\times \\frac{9}{x-2}}+8=2\\sqrt{36}+8=20$\n이므로 최솟값은 20\n$\\therefore m=20$\n등호는 $4(x-2)=\\frac{9}{x-2}$일 때 성립하므로\n$x=\\frac{7}{2}$ $(x>0)$\n$\\therefore \\alpha=\\frac{7}{2}$",
+      "topic": "",
+      "difficulty": ""
+    }
+  ]
+}

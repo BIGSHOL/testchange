@@ -1,0 +1,132 @@
+{
+ "exam_id": 4281,
+ "pass": "A",
+ "items": [
+  {
+   "number": 1,
+   "answer": "④",
+   "solution": "step1) $2A=2(2x^{2}+5x+5)=4x^{2}+10x+10$\nstep2) $-B=-(x^{2}-3)=-x^{2}+3$\nstep3) $2A-B=(4-1)x^{2}+10x+(10+3)=3x^{2}+10x+13$\nstep4) 선택지 ④와 일치한다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 2,
+   "answer": "①",
+   "solution": "step1) 나머지정리에 의해 $P(x)=3x^{4}-x^{3}+2x-1$을 $x+1$로 나눈 나머지는 $P(-1)$이다.\nstep2) $P(-1)=3(-1)^{4}-(-1)^{3}+2(-1)-1=3+1-2-1=1$\nstep3) 나머지는 $1$이므로 ①이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 3,
+   "answer": "③",
+   "solution": "step1) ① $(4-i)+(-5+3i)=-1+2i$\nstep2) ② $(2+3i)-(3+i)=-1+2i$\nstep3) ③ $(-2+3i)(5-3i)=-10+6i+15i-9i^{2}=-10+21i+9=-1+21i$\nstep4) ④ $\\frac{1+3i}{1-i}=\\frac{(1+3i)(1+i)}{(1-i)(1+i)}=\\frac{1+i+3i-3}{2}=\\frac{-2+4i}{2}=-1+2i$\nstep5) ⑤ $\\overline{-1-2i}=-1+2i$\nstep6) ①②④⑤는 모두 $-1+2i$이고 ③만 $-1+21i$이므로 값이 다른 것은 ③이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 4,
+   "answer": "②",
+   "solution": "step1) 서로 다른 두 허근을 가지려면 판별식 $D<0$이어야 한다.\nstep2) ① $D=5^{2}-4\\cdot1\\cdot6=1>0$\nstep3) ② $D=(-5)^{2}-4\\cdot2\\cdot4=25-32=-7<0$\nstep4) ③ $D=2^{2}-4\\cdot3\\cdot(-2)=28>0$\nstep5) ④ $D=(-5)^{2}-4\\cdot3\\cdot(-1)=37>0$\nstep6) ⑤ $-x^{2}-2x+4=0 \\Leftrightarrow x^{2}+2x-4=0$, $D=4+16=20>0$\nstep7) $D<0$인 것은 ②뿐이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 5,
+   "answer": "⑤",
+   "solution": "step1) $x^{2}$항이 나오는 곱: $x^{2}\\cdot1+2x\\cdot(-ax)+(-3)\\cdot4x^{2}$\nstep2) $x^{2}$의 계수 $=1-2a-12=-11-2a$\nstep3) $-11-2a=-5$에서 $-2a=6$, 즉 $a=-3$\nstep4) $x$항이 나오는 곱: $2x\\cdot1+(-3)\\cdot(-ax)$이므로 $x$의 계수 $=2+3a$\nstep5) $2+3(-3)=2-9=-7$이므로 ⑤이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 6,
+   "answer": "④",
+   "solution": "step1) $y=x^{2}-4x+5=(x-2)^{2}+1$이고 꼭짓점 $x=2$는 구간 $0\\leq x\\leq3$에 속한다.\nstep2) 최솟값은 $x=2$에서 $m=1$\nstep3) 양 끝값 $x=0$일 때 $y=5$, $x=3$일 때 $y=2$이므로 최댓값 $M=5$\nstep4) $M-m=5-1=4$이므로 ④이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 7,
+   "answer": "⑤",
+   "solution": "step1) 근과 계수의 관계: $\\alpha+\\beta=-3$, $\\alpha\\beta=\\frac{5}{2}$\nstep2) $\\frac{\\beta}{\\alpha}+\\frac{\\alpha}{\\beta}=\\frac{\\alpha^{2}+\\beta^{2}}{\\alpha\\beta}=\\frac{(\\alpha+\\beta)^{2}-2\\alpha\\beta}{\\alpha\\beta}$\nstep3) $(\\alpha+\\beta)^{2}-2\\alpha\\beta=9-5=4$\nstep4) $\\frac{4}{5/2}=\\frac{8}{5}$이므로 ⑤이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 8,
+   "answer": "②",
+   "solution": "step1) $16x^{5}+x+3=(2x+1)Q(x)+R$ ($R$은 상수)\nstep2) $x=-\\frac{1}{2}$를 대입하면 $R=16\\left(-\\frac{1}{32}\\right)-\\frac{1}{2}+3=-\\frac{1}{2}-\\frac{1}{2}+3=2$\nstep3) $x=1$을 대입하면 $16+1+3=3Q(1)+R$, 즉 $20=3Q(1)+2$\nstep4) $Q(1)=6$이고, $Q(x)$를 $x-1$로 나눈 나머지는 $Q(1)=6$이므로 ②이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 9,
+   "answer": "③",
+   "solution": "step1) $2z-1-\\sqrt{3}i=0$에서 $z=\\frac{1+\\sqrt{3}i}{2}$\nstep2) $|z|=1$이고 편각이 $60°$이므로 $z^{3}=\\cos180°+i\\sin180°=-1$\nstep3) 따라서 $z^{6}=1$, $z^{9}=-1$, $z^{12}=1$\nstep4) $1+2z^{3}+3z^{6}+4z^{9}+5z^{12}=1-2+3-4+5=3$이므로 ③이다.",
+   "confidence": "high",
+   "note": "직접 계산으로도 확인: $z^{2}=\\frac{-1+\\sqrt{3}i}{2}$, $z^{3}=z\\cdot z^{2}=-1$."
+  },
+  {
+   "number": 10,
+   "answer": "①",
+   "solution": "step1) 세 모서리를 $a,b,c$라 하면 모든 모서리 길이의 합은 $4(a+b+c)=20$이므로 $a+b+c=5$\nstep2) 겉넓이는 $2(ab+bc+ca)=15$\nstep3) $a^{2}+b^{2}+c^{2}=(a+b+c)^{2}-2(ab+bc+ca)=25-15=10$\nstep4) 대각선의 길이는 $\\sqrt{a^{2}+b^{2}+c^{2}}=\\sqrt{10}$이므로 ①이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 11,
+   "answer": "④",
+   "solution": "step1) $P(3x+6)$이 $x+2$로 나누어떨어지므로 $x=-2$에서 $P(0)=0$, 즉 $P(x)=ax^{2}+bx$\nstep2) $F(x)=(x+2)^{2}P(x)$를 $x^{2}-1$로 나눈 나머지가 상수 $12$이므로 $F(1)=F(-1)=12$\nstep3) $F(1)=9P(1)=12$에서 $P(1)=\\frac{4}{3}$, 즉 $a+b=\\frac{4}{3}$\nstep4) $F(-1)=1\\cdot P(-1)=12$에서 $a-b=12$\nstep5) 두 식을 더하면 $2a=\\frac{40}{3}$, $a=\\frac{20}{3}$, $b=-\\frac{16}{3}$\nstep6) $P(3)=9a+3b=60-16=44$이므로 나머지는 $44$, ④이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 12,
+   "answer": "②",
+   "solution": "step1) $x=1$을 대입하면 $1+(-k^{2}+2k-4)+(-2k^{3}+4k^{2}-2k+3)+(2k^{3}-3k^{2})=0$이므로 $x-1$을 인수로 갖는다.\nstep2) 조립제법으로 몫을 구하면 $x^{2}-(k^{2}-2k+3)x-k^{2}(2k-3)$\nstep3) 이는 $(x-k^{2})(x-(3-2k))$로 인수분해된다. (합 $k^{2}+3-2k$, 곱 $k^{2}(3-2k)$ 확인)\nstep4) 세 변의 길이는 $1$, $k^{2}$, $3-2k$이고 모두 양수여야 하므로 $k\\neq0$, $k<\\frac{3}{2}$\nstep5) $1=k^{2}$이면 $k=\\pm1$. $k=1$이면 세 변 $1,1,1$로 성립. $k=-1$이면 $1,1,5$로 삼각형이 되지 않아 제외\nstep6) $1=3-2k$이면 $k=1$ (위와 동일)\nstep7) $k^{2}=3-2k$이면 $k^{2}+2k-3=0$, $k=1$ 또는 $k=-3$. $k=-3$이면 세 변 $1,9,9$로 성립\nstep8) 조건을 만족하는 $k$는 $1$, $-3$이고 그 합은 $-2$이므로 ②이다.",
+   "confidence": "medium",
+   "note": "정삼각형($k=1$, 세 변 1,1,1)을 이등변삼각형에 포함시켜 합 $-2$로 계산했다(한국 교과서 정의: 정삼각형은 이등변삼각형의 특수한 경우). 만약 정삼각형을 제외하면 $k=-3$만 남아 합은 $-3$(③)이 된다."
+  },
+  {
+   "number": 13,
+   "answer": "$40$",
+   "solution": "step1) $x^{3}+y^{3}=(x+y)^{3}-3xy(x+y)$\nstep2) $=4^{3}-3\\cdot2\\cdot4=64-24=40$\nstep3) 따라서 $x^{3}+y^{3}=40$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 14,
+   "answer": "$a=-2$, $b=\\frac{2}{3}$, $c=\\frac{1}{3}$",
+   "solution": "step1) $x$에 대한 항등식이므로 각 항의 계수가 모두 $0$이다.\nstep2) $a+2=0$에서 $a=-2$이다.\nstep3) $b-2c=0$에서 $b=2c$이다.\nstep4) $b+c-1=0$에 $b=2c$를 대입하면 $3c=1$, 즉 $c=\\frac{1}{3}$이다.\nstep5) 따라서 $b=\\frac{2}{3}$이므로 $a=-2$, $b=\\frac{2}{3}$, $c=\\frac{1}{3}$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 15,
+   "answer": "(1) $(3x+1)(2x^{2}+x+1)$ (2) $50081=P(20)=61\\times821$ 이므로 합성수이다",
+   "solution": "step1) $P\\left(-\\frac{1}{3}\\right)=6\\left(-\\frac{1}{27}\\right)+5\\cdot\\frac{1}{9}+4\\left(-\\frac{1}{3}\\right)+1=-\\frac{2}{9}+\\frac{5}{9}-\\frac{4}{3}+1=0$이므로 $3x+1$이 인수이다.\nstep2) 조립제법(또는 직접 나눗셈)으로 $6x^{3}+5x^{2}+4x+1=(3x+1)(2x^{2}+x+1)$을 얻는다.\nstep3) 전개로 검산하면 $(3x+1)(2x^{2}+x+1)=6x^{3}+3x^{2}+3x+2x^{2}+x+1=6x^{3}+5x^{2}+4x+1$이다.\nstep4) $x=20$을 대입하면 $P(20)=6\\cdot8000+5\\cdot400+80+1=48000+2000+80+1=50081$이다.\nstep5) 따라서 $50081=(3\\cdot20+1)(2\\cdot20^{2}+20+1)=61\\times821$이다.\nstep6) $61$과 $821$은 모두 $1$과 자기 자신이 아닌 $1$보다 큰 자연수이므로 $50081$은 합성수이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 16,
+   "answer": "$-155$",
+   "solution": "step1) $x^{2}+5x-2=0$에서 $x\\neq0$이므로 양변을 $x$로 나누면 $x+5-\\frac{2}{x}=0$, 즉 $x-\\frac{2}{x}=-5$이다.\nstep2) $\\frac{x^{6}-8}{x^{3}}=x^{3}-\\frac{8}{x^{3}}=x^{3}-\\left(\\frac{2}{x}\\right)^{3}$이다.\nstep3) $a=x$, $b=\\frac{2}{x}$라 하면 $a-b=-5$, $ab=2$이다.\nstep4) $a^{3}-b^{3}=(a-b)^{3}+3ab(a-b)=(-5)^{3}+3\\cdot2\\cdot(-5)=-125-30=-155$이다.\nstep5) 따라서 구하는 값은 $-155$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 17,
+   "answer": "$a=0$, $a=\\pm\\frac{\\sqrt{3}}{3}$, $a=\\pm\\sqrt{3}$",
+   "solution": "step1) 이항정리로 $(1-ai)^{6}=\\sum_{k=0}^{6}{}_{6}\\mathrm{C}_{k}(-ai)^{k}$를 전개한다.\nstep2) 허수부분은 $k=1,3,5$ 항에서 나오며 $-6a+20a^{3}-6a^{5}$이다.\nstep3) $-6a+20a^{3}-6a^{5}=-2a(3a^{4}-10a^{2}+3)=-2a(3a^{2}-1)(a^{2}-3)$이다.\nstep4) 허수부분이 $0$이므로 $a=0$ 또는 $a^{2}=\\frac{1}{3}$ 또는 $a^{2}=3$이다.\nstep5) 따라서 $a=0$, $a=\\pm\\frac{\\sqrt{3}}{3}$, $a=\\pm\\sqrt{3}$이다.",
+   "confidence": "high",
+   "note": "극형식 검산: $1-ai$의 편각 $\\theta$가 $\\theta=\\frac{n\\pi}{6}$일 때 $6\\theta$가 $\\pi$의 배수가 되어 실수가 된다. 실수부가 양수이므로 $\\theta=0,\\pm\\frac{\\pi}{6},\\pm\\frac{\\pi}{3}$이고 $a=-\\tan\\theta$로 같은 5개 값을 얻는다."
+  },
+  {
+   "number": 18,
+   "answer": "$7x$",
+   "solution": "step1) 조건 (나)에서 $P(x)=(x+1)Q(x)+3$이고, (가)에서 $P(x)$가 최고차항의 계수가 $1$인 삼차식이므로 $Q(x)$는 최고차항의 계수가 $1$인 이차식이다.\nstep2) $Q(x)$의 계수가 실수이고 $Q(2-i)=0$이므로 켤레복소수 $2+i$도 근이다.\nstep3) 따라서 $Q(x)=\\{x-(2-i)\\}\\{x-(2+i)\\}=x^{2}-4x+5$이다.\nstep4) $P(x)=(x+1)(x^{2}-4x+5)+3=x^{3}-3x^{2}+x+8$이다.\nstep5) $(x-1)(x+2)$로 나눈 나머지를 $px+q$라 하면 $P(1)=p+q$, $P(-2)=-2p+q$이다.\nstep6) $P(1)=1-3+1+8=7$, $P(-2)=-8-12-2+8=-14$이다.\nstep7) $p+q=7$, $-2p+q=-14$를 풀면 $3p=21$이므로 $p=7$, $q=0$이다.\nstep8) 따라서 나머지는 $7x$이다.",
+   "confidence": "high",
+   "note": ""
+  }
+ ]
+}

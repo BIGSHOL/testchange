@@ -1,0 +1,1251 @@
+{
+ "meta": {
+  "exam_id": 4313,
+  "ocr_source": "session-vision"
+ },
+ "header": {
+  "title": "2025학년도 1학기 기말고사 1학년 공통수학1"
+ },
+ "questions": [
+  {
+   "number": 1,
+   "score": 5.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "1 \\leq x \\leq 5일 때, 이차함수 y=x^{2}-4x+1의 최댓값과 최솟값의 합은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-3"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-2"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "6"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "12"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 2,
+   "score": 4.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "다음 스마트 기기 화면은 가로와 세로의 길이의 비가 3:2이고 대각선의 길이가 20\\mathrm{cm}인 직사각형 모양이다."
+    },
+    {
+     "type": "figure",
+     "value": "가로로 긴 직사각형 모양의 스마트 기기 화면 그림. 직사각형의 왼쪽 아래 꼭짓점과 오른쪽 위 꼭짓점을 잇는 대각선이 그려져 있고, 그 대각선에 '20cm' 라고 표시되어 있다."
+    },
+    {
+     "type": "text",
+     "value": "가로의 길이를 x\\mathrm{cm}, 세로의 길이를 y\\mathrm{cm}라 할 때, x와 y에 대한 연립방정식을 구하면?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\begin{cases} 3x-4y=0 \\\\ x^{2}+y^{2}=9 \\end{cases}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\begin{cases} x+y=5 \\\\ x^{2}+y^{2}=20 \\end{cases}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\begin{cases} x-y=1 \\\\ x^{2}+3xy+y^{2}=110 \\end{cases}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\begin{cases} 2x-3y=0 \\\\ x^{2}+y^{2}=400 \\end{cases}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\begin{cases} x-y=3 \\\\ x^{2}+y^{2}=900 \\end{cases}"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 3,
+   "score": 6.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "사차방정식 x^{4}-4x^{2}+3=0을 풀면?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "x=\\pm 1,~x=\\pm\\sqrt{3}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "x=\\pm 1,~x=\\pm\\sqrt{5}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "x=\\pm 1,~x=\\pm\\sqrt{6}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "x=\\pm 1,~x=\\pm 3"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "x=1,~x=3"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 4,
+   "score": 5.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "연립부등식"
+    },
+    {
+     "type": "equation",
+     "value": "\\begin{cases} 7x-4 \\leq 6x \\\\ -x-1 > 3x-5 \\end{cases}"
+    },
+    {
+     "type": "text",
+     "value": "의 해를 구하면?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "x < -1"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "x < 1"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-1 < x < 1"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "x \\geq 2"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1 < x \\leq 4"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 5,
+   "score": 5.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "부등식 |x-2| < 5의 해가 a < x < b일 때, ab의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-25"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-24"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-23"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-22"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-21"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 6,
+   "score": 5.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "1부터 7까지 숫자가 각각 하나씩 적힌 카드 7장 중에서 한 장을 뽑을 때, 2의 배수 또는 7의 배수가 적힌 카드를 뽑는 경우의 수를 구하면?"
+    },
+    {
+     "type": "figure",
+     "value": "1부터 7까지의 숫자가 하나씩 적힌 카드 7장 그림. 모서리가 둥근 카드 모양으로 윗줄에 1, 2, 3, 4가, 아랫줄에 5, 6, 7이 놓여 있다."
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "7"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "10"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "11"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "14"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 7,
+   "score": 4.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "100원짜리 동전 1개, 500원짜리 동전 1개, 그리고 주사위 1개를 동시에 던질 때 일어나는 모든 경우의 수를 구하면?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "24"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "48"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "60"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "120"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "500"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 8,
+   "score": 5.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "모자 3가지, 안경 2가지, 가방 6가지를 사용하여 캐릭터 꾸미기를 하려고 한다. 모자, 안경, 가방을 각각 한 가지씩 택하여 캐릭터를 꾸미는 경우의 수를 구하면?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "11"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "12"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "15"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "36"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "48"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 9,
+   "score": 6.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "다음 그림과 같이 네 지점 \\mathrm{A}, \\mathrm{B}, \\mathrm{C}, \\mathrm{D}를 연결하는 도로망이 있다. 주어진 도로를 이용하여 \\mathrm{A} 지점에서 \\mathrm{D} 지점으로 가는 경우의 수를 구하면? (단, 같은 지점을 다시 가지 않는다.)"
+    },
+    {
+     "type": "figure",
+     "value": "네 지점 A(왼쪽), B(위), C(아래), D(오른쪽)를 곡선 도로로 연결한 도로망 그림. A와 B를 잇는 도로 2개, A와 C를 잇는 도로 2개, A와 D를 곧게 잇는 도로 1개, B와 D를 잇는 도로 1개, C와 D를 잇는 도로 2개가 그려져 있다. B와 C를 직접 잇는 도로는 없다."
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "6"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "7"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "9"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 10,
+   "score": 5.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "{}_{6}\\mathrm{P}_{3}의 값을 구하면?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "60"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "120"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "125"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "130"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "150"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 11,
+   "score": 4.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "서로 다른 그림 5점 중에서 3점을 선택하여 미술관의 벽에 순서대로 나란히 전시하는 경우의 수를 구하면?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "15"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "30"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "60"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "80"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "90"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 12,
+   "score": 5.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "봅슬레이 4인승 경기에 네 명의 선수 \\mathrm{A}, \\mathrm{B}, \\mathrm{C}, \\mathrm{D}가 한 팀을 이루어 출전할 때, \\mathrm{B}와 \\mathrm{C}가 서로 이웃하게 썰매에 앉는 경우의 수를 구하면?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "6"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "12"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "16"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "18"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "36"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 13,
+   "score": 5.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "학생 11명 중에서 임원 9명을 선출하는 경우의 수를 구하면?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "11"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "36"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "48"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "55"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 14,
+   "score": 6.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "다음 그림에서 찾을 수 있는 크고 작은 직사각형의 개수를 구하면?"
+    },
+    {
+     "type": "figure",
+     "value": "가로로 긴 직사각형을 가로선 4개(위·아래 변 포함)와 세로선 6개(좌·우 변 포함)로 나눈 격자 그림. 가로 5칸, 세로 3칸으로 모두 15개의 작은 직사각형으로 나뉘어 있다."
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "90"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "100"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "125"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "148"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "160"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 15,
+   "score": 5.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "빵 4종류와 음료 5종류가 있는 가게에서 빵 2종류와 음료 2종류를 주문하는 경우의 수를 구하면?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "9"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "15"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "30"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "60"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "120"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 16,
+   "score": 5.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "행렬"
+    },
+    {
+     "type": "equation",
+     "value": "\\begin{pmatrix} -2 & 1 & 3 \\\\ 5 & 2 & -1 \\end{pmatrix}"
+    },
+    {
+     "type": "text",
+     "value": "에 대한 설명으로 옳은 것을 <보기>에서 고른 것은?"
+    },
+    {
+     "type": "text",
+     "value": "<보기> ㄱ. 2\\times 3 행렬이다. • ㄴ. 제1열은 (-2~~1~~3)이다. • ㄷ. 제3행은 \\begin{pmatrix} 3 \\\\ -1 \\end{pmatrix}이다. • ㄹ. 행의 개수는 2, 열의 개수는 3이다."
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄱ, ㄴ"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄱ, ㄹ"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄴ, ㄷ"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄴ, ㄹ"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄷ, ㄹ"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 17,
+   "score": 4.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "행렬"
+    },
+    {
+     "type": "equation",
+     "value": "\\begin{pmatrix} 5 & 2 \\\\ -3 & -4 \\\\ 0 & 1 \\end{pmatrix}"
+    },
+    {
+     "type": "text",
+     "value": "에 대하여 (3,~1) 성분을 구하면?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-4"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-3"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-1"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "0"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 18,
+   "score": 6.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "2\\times 2 행렬 A의 (i,~j) 성분 a_{ij}가 a_{ij}=i-j+1일 때, 행렬 A를 구하면?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\begin{pmatrix} -1 & 0 \\\\ 2 & -1 \\end{pmatrix}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\begin{pmatrix} -1 & 2 & 3 \\\\ 4 & 2 & -1 \\end{pmatrix}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\begin{pmatrix} 1 & 0 \\\\ 2 & 1 \\end{pmatrix}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\begin{pmatrix} 2 & -8 & 1 & -4 \\end{pmatrix}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\begin{pmatrix} 1 & 2 \\\\ 0 & 1 \\end{pmatrix}"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 19,
+   "score": 5.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "등식"
+    },
+    {
+     "type": "equation",
+     "value": "\\begin{pmatrix} -2 & b-a \\\\ -5 & 6 \\end{pmatrix}=\\begin{pmatrix} -2 & 2 \\\\ a-2b & 6 \\end{pmatrix}"
+    },
+    {
+     "type": "text",
+     "value": "이 성립하도록 하는 a와 b의 값을 구하면?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "a=-4,~b=2"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "a=-3,~b=5"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "a=-2,~b=4"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "a=-1,~b=1"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "a=1,~b=3"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 20,
+   "score": 5.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "해양경찰로 근무 중인 김구조 씨는 해수욕장에서 조난된 사람을 구조하였다. 구조된 사람의 심박수를 확인하였더니 10초 동안의 심박수가 7회였다. 김구조 씨가 차트에 기록해야 할 심박수는?"
+    },
+    {
+     "type": "figure",
+     "value": "오른쪽 위에 '심박수:        /분' 이라고 적힌 기록란(밑줄)이 있고, 그 아래 왼쪽에는 볼펜이 놓인 클립보드(기록지) 그림, 오른쪽에는 누워 있는 사람의 목에 손가락을 대어 맥박을 재는 손 그림이 있다. 클립보드에서 기록란으로 향하는 화살표가 그려져 있다."
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "7"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "30"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "42"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "60"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "120"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

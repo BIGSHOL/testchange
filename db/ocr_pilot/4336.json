@@ -1,0 +1,339 @@
+{
+  "meta": { "exam_id": 4336, "ocr_source": "session-vision" },
+  "header": { "title": "2025년 1학기 중간고사 대진고 1학년 공통수학1 (다항식의 연산 ~ 이차방정식과 이차함수)" },
+  "questions": [
+    {
+      "number": 1,
+      "score": 3.6,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        { "type": "text", "value": "다항식 (2x^{2}-x+1)^{2}을 전개한 식에서 x^{2}의 계수는?" }
+      ],
+      "choices": [
+        { "number": 1, "contents": [{ "type": "equation", "value": "-3" }] },
+        { "number": 2, "contents": [{ "type": "equation", "value": "-1" }] },
+        { "number": 3, "contents": [{ "type": "equation", "value": "1" }] },
+        { "number": 4, "contents": [{ "type": "equation", "value": "3" }] },
+        { "number": 5, "contents": [{ "type": "equation", "value": "5" }] }
+      ]
+    },
+    {
+      "number": 2,
+      "score": 3.6,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        { "type": "text", "value": "다항식 3x^{3}-x^{2}+2x-1을 x-1로 나누었을 때의 나머지는?" }
+      ],
+      "choices": [
+        { "number": 1, "contents": [{ "type": "equation", "value": "3" }] },
+        { "number": 2, "contents": [{ "type": "equation", "value": "5" }] },
+        { "number": 3, "contents": [{ "type": "equation", "value": "7" }] },
+        { "number": 4, "contents": [{ "type": "equation", "value": "9" }] },
+        { "number": 5, "contents": [{ "type": "equation", "value": "11" }] }
+      ]
+    },
+    {
+      "number": 3,
+      "score": 3.6,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        { "type": "text", "value": "계산 결과가 옳은 것은?" }
+      ],
+      "choices": [
+        { "number": 1, "contents": [{ "type": "equation", "value": "(7-5i)+4i=6i" }] },
+        { "number": 2, "contents": [{ "type": "equation", "value": "(4-3i)-(2-7i)=1+5i" }] },
+        { "number": 3, "contents": [{ "type": "equation", "value": "(5+2i)(5-2i)=29" }] },
+        { "number": 4, "contents": [{ "type": "equation", "value": "\\frac{1-4i}{3i}=-\\frac{4}{3}+\\frac{1}{3}i" }] },
+        { "number": 5, "contents": [{ "type": "equation", "value": "\\frac{1+i}{1-i}=-i" }] }
+      ]
+    },
+    {
+      "number": 4,
+      "score": 3.8,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        { "type": "text", "value": "다음 등식이 x에 대한 항등식일 때, 상수 a, b, c에 대하여 a^{2}+b^{2}+c^{2}의 값은?" },
+        { "type": "text", "value": "<상자> x^{2}+ax-7=(bx-2)(x+1)+c" }
+      ],
+      "choices": [
+        { "number": 1, "contents": [{ "type": "equation", "value": "27" }] },
+        { "number": 2, "contents": [{ "type": "equation", "value": "29" }] },
+        { "number": 3, "contents": [{ "type": "equation", "value": "31" }] },
+        { "number": 4, "contents": [{ "type": "equation", "value": "33" }] },
+        { "number": 5, "contents": [{ "type": "equation", "value": "35" }] }
+      ]
+    },
+    {
+      "number": 5,
+      "score": 3.8,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        { "type": "text", "value": "[ ]안의 값은 주어진 이차함수의 그래프와 x축의 교점의 개수를 구한 것이다. 옳지 __않은__ 것은?" }
+      ],
+      "choices": [
+        { "number": 1, "contents": [{ "type": "text", "value": "y=3x^{2} [1개]" }] },
+        { "number": 2, "contents": [{ "type": "text", "value": "y=x^{2}+5 [0개]" }] },
+        { "number": 3, "contents": [{ "type": "text", "value": "y=x^{2}-2x-1 [2개]" }] },
+        { "number": 4, "contents": [{ "type": "text", "value": "y=-x^{2}-x-3 [0개]" }] },
+        { "number": 5, "contents": [{ "type": "text", "value": "y=-x^{2}+6x+9 [1개]" }] }
+      ]
+    },
+    {
+      "number": 6,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        { "type": "text", "value": "x에 대한 이차식 (k^{2}+k)x^{2}+2kx+2가 완전제곱식으로 인수분해 될 때, 실수 k에 대하여 \\sqrt{k}+\\frac{1}{\\sqrt{k}}의 값은?" }
+      ],
+      "choices": [
+        { "number": 1, "contents": [{ "type": "equation", "value": "0" }] },
+        { "number": 2, "contents": [{ "type": "equation", "value": "\\frac{3\\sqrt{2}}{2}" }] },
+        { "number": 3, "contents": [{ "type": "equation", "value": "-\\frac{3\\sqrt{2}}{2}i" }] },
+        { "number": 4, "contents": [{ "type": "equation", "value": "\\frac{\\sqrt{2}}{2}i" }] },
+        { "number": 5, "contents": [{ "type": "equation", "value": "-\\sqrt{2}i" }] }
+      ]
+    },
+    {
+      "number": 7,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        { "type": "text", "value": "다항식 x^{4}+x^{3}-7x^{2}-x+6의 인수인 것만을 <보기>에서 있는 대로 고른 것은?" },
+        { "type": "text", "value": "<보기> ㄱ. x+1 • ㄴ. x+2 • ㄷ. x^{2}+4x+3 • ㄹ. x^{2}+3x+2 • ㅁ. x^{3}-2x^{2}-x+2" }
+      ],
+      "choices": [
+        { "number": 1, "contents": [{ "type": "text", "value": "ㄱ, ㄴ, ㄷ" }] },
+        { "number": 2, "contents": [{ "type": "text", "value": "ㄱ, ㄷ, ㅁ" }] },
+        { "number": 3, "contents": [{ "type": "text", "value": "ㄱ, ㄷ, ㄹ" }] },
+        { "number": 4, "contents": [{ "type": "text", "value": "ㄱ, ㄹ, ㅁ" }] },
+        { "number": 5, "contents": [{ "type": "text", "value": "ㄷ, ㄹ, ㅁ" }] }
+      ]
+    },
+    {
+      "number": 8,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        { "type": "text", "value": "다항식 p(x)=2x^{3}+3x^{2}-x-2에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?" },
+        { "type": "text", "value": "<보기> ㄱ. x+1은 p(x)의 인수이다. • ㄴ. p(x)를 x-1로 나눈 나머지는 2이다. • ㄷ. p(x)를 2x+1로 나눈 몫을 Q(x)라 하면 Q(1)=2이고 나머지는 -1이다." }
+      ],
+      "choices": [
+        { "number": 1, "contents": [{ "type": "text", "value": "ㄱ" }] },
+        { "number": 2, "contents": [{ "type": "text", "value": "ㄴ" }] },
+        { "number": 3, "contents": [{ "type": "text", "value": "ㄱ, ㄴ" }] },
+        { "number": 4, "contents": [{ "type": "text", "value": "ㄴ, ㄷ" }] },
+        { "number": 5, "contents": [{ "type": "text", "value": "ㄱ, ㄴ, ㄷ" }] }
+      ]
+    },
+    {
+      "number": 9,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        { "type": "text", "value": "복소수 z와 그 켤레복소수 \\overline{z}에 대하여 옳은 것만을 <보기>에서 있는 대로 고른 것은?" },
+        { "type": "text", "value": "<보기> ㄱ. z^{3}+\\left(\\overline{z}\\right)^{3}은 실수이다. • ㄴ. z\\overline{z}=0이면 z=0이다. • ㄷ. z+\\overline{z}=0이면 z^{2}은 음의 실수이다. • ㄹ. \\frac{1}{z}+\\frac{1}{\\overline{z}}은 실수이다. (단, z \\neq 0이다.) • ㅁ. 자연수 n에 대하여 \\left(\\overline{z}-z\\right)^{2n}은 양의 실수이다." }
+      ],
+      "choices": [
+        { "number": 1, "contents": [{ "type": "text", "value": "ㄱ, ㄴ, ㄷ" }] },
+        { "number": 2, "contents": [{ "type": "text", "value": "ㄱ, ㄴ, ㄹ" }] },
+        { "number": 3, "contents": [{ "type": "text", "value": "ㄱ, ㄷ, ㄹ" }] },
+        { "number": 4, "contents": [{ "type": "text", "value": "ㄴ, ㄹ, ㅁ" }] },
+        { "number": 5, "contents": [{ "type": "text", "value": "ㄷ, ㄹ, ㅁ" }] }
+      ]
+    },
+    {
+      "number": 10,
+      "score": 4.2,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        { "type": "text", "value": "다항식 (2x-1)(x+a)(2x+1)+b(x+a)는 x^{2}+3으로 나누어떨어지고, 그때의 몫을 Q(x)라 하자. Q(1)=8일 때, b-3a의 값은? (단, a, b는 실수이다.)" }
+      ],
+      "choices": [
+        { "number": 1, "contents": [{ "type": "equation", "value": "4" }] },
+        { "number": 2, "contents": [{ "type": "equation", "value": "6" }] },
+        { "number": 3, "contents": [{ "type": "equation", "value": "8" }] },
+        { "number": 4, "contents": [{ "type": "equation", "value": "10" }] },
+        { "number": 5, "contents": [{ "type": "equation", "value": "12" }] }
+      ]
+    },
+    {
+      "number": 11,
+      "score": 4.2,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        { "type": "text", "value": "다음을 계산한 값은?" },
+        { "type": "text", "value": "<상자> \\sqrt{\\frac{2025^{4}+2025^{2}+1}{2025^{2}-2025+1}-\\frac{2025^{4}+2025^{2}+1}{2025^{2}+2025+1}}" }
+      ],
+      "choices": [
+        { "number": 1, "contents": [{ "type": "equation", "value": "25\\sqrt{2}" }] },
+        { "number": 2, "contents": [{ "type": "equation", "value": "30\\sqrt{2}" }] },
+        { "number": 3, "contents": [{ "type": "equation", "value": "35\\sqrt{2}" }] },
+        { "number": 4, "contents": [{ "type": "equation", "value": "40\\sqrt{2}" }] },
+        { "number": 5, "contents": [{ "type": "equation", "value": "45\\sqrt{2}" }] }
+      ]
+    },
+    {
+      "number": 12,
+      "score": 4.2,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        { "type": "text", "value": "\\sqrt{x-4}\\sqrt{1-x}=-\\sqrt{(x-4)(1-x)}를 만족시키는 모든 실수 x와 상수 k에 대하여 이차함수 y=-x^{2}+6x+k는 x=a에서 최댓값 10, x=b에서 최솟값 m을 가진다고 할 때, a+b+m+k의 값은?" }
+      ],
+      "choices": [
+        { "number": 1, "contents": [{ "type": "equation", "value": "21" }] },
+        { "number": 2, "contents": [{ "type": "equation", "value": "20" }] },
+        { "number": 3, "contents": [{ "type": "equation", "value": "16" }] },
+        { "number": 4, "contents": [{ "type": "equation", "value": "11" }] },
+        { "number": 5, "contents": [{ "type": "equation", "value": "7" }] }
+      ]
+    },
+    {
+      "number": 13,
+      "score": 4.2,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        { "type": "text", "value": "z=\\frac{1-i}{\\sqrt{2}}일 때, 1+z+z^{2}+z^{3}+\\cdots+z^{16}의 값은?" }
+      ],
+      "choices": [
+        { "number": 1, "contents": [{ "type": "equation", "value": "0" }] },
+        { "number": 2, "contents": [{ "type": "equation", "value": "1" }] },
+        { "number": 3, "contents": [{ "type": "equation", "value": "-1" }] },
+        { "number": 4, "contents": [{ "type": "equation", "value": "i" }] },
+        { "number": 5, "contents": [{ "type": "equation", "value": "-i" }] }
+      ]
+    },
+    {
+      "number": 14,
+      "score": 4.4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        { "type": "text", "value": "어느 카페에서 원가가 1120원인 커피 한 잔을 1600원에 판매할 때, 하루 100잔의 커피가 팔린다고 한다. 이 커피 한 잔의 판매가격을 x\\% 올리면 하루 판매량이 2x\\% 줄어든다고 하자. 이 커피를 팔아 얻은 하루 총 이익이 최대가 되기 위한 커피 한 잔의 판매가격을 a원, 그때의 하루 총 이익을 b원이라 할 때, a+b의 값은?" }
+      ],
+      "choices": [
+        { "number": 1, "contents": [{ "type": "equation", "value": "52960" }] },
+        { "number": 2, "contents": [{ "type": "equation", "value": "53360" }] },
+        { "number": 3, "contents": [{ "type": "equation", "value": "53760" }] },
+        { "number": 4, "contents": [{ "type": "equation", "value": "54160" }] },
+        { "number": 5, "contents": [{ "type": "equation", "value": "54560" }] }
+      ]
+    },
+    {
+      "number": 15,
+      "score": 4.4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        { "type": "text", "value": "등식 \\sqrt{a}\\sqrt{-2}+\\frac{\\sqrt{32}}{\\sqrt{a}}=-2+bi를 만족시키는 ab \\neq 0인 두 실수 a, b에 대하여" },
+        { "type": "equation_block", "value": "\\frac{\\sqrt{a+4}}{\\sqrt{a}}+\\frac{\\sqrt{a}}{\\sqrt{b+6}}+\\sqrt{a+4}\\sqrt{b+2}+\\sqrt{a-2}\\sqrt{b}=p+qi" },
+        { "type": "text", "value": "가 성립한다고 한다. 두 실수 p, q의 합 p+q의 값은?" }
+      ],
+      "choices": [
+        { "number": 1, "contents": [{ "type": "equation", "value": "-2" }] },
+        { "number": 2, "contents": [{ "type": "equation", "value": "0" }] },
+        { "number": 3, "contents": [{ "type": "equation", "value": "2" }] },
+        { "number": 4, "contents": [{ "type": "equation", "value": "4" }] },
+        { "number": 5, "contents": [{ "type": "equation", "value": "6" }] }
+      ]
+    },
+    {
+      "number": 16,
+      "score": 4.0,
+      "type": "서술형",
+      "label": "[서답형 1]",
+      "contents": [
+        { "type": "text", "value": "[서답형 1] 세 다항식 A=a^{2}+a+5b^{2}, B=2a^{2}+3b+10b^{2}, C=2a^{2}-3b+6ab-b^{2}에 대하여 (2A-B)(B+C)를 계산하고 그 과정을 서술하시오." }
+      ]
+    },
+    {
+      "number": 17,
+      "score": 7.0,
+      "type": "서술형",
+      "label": "[서답형 2]",
+      "contents": [
+        { "type": "text", "value": "[서답형 2] 최고차항의 계수가 1인 이차방정식 f(x)=0가 복소수 z=2+i를 근으로 가질 때, 이차함수 y=f(x)의 그래프와 직선 y=-2x+k가 만나도록 하는 실수 k값의 범위를 구하고 그 과정을 서술하시오." }
+      ]
+    },
+    {
+      "number": 18,
+      "score": 9.0,
+      "type": "서술형",
+      "label": "[서답형 3]",
+      "contents": [
+        { "type": "text", "value": "[서답형 3] 다항식 f(x)를 x+1로 나누었을 때의 나머지가 -8이고, (x-2)^{2}로 나누었을 때의 나머지가 x+2일 때, f(x)를 (x+1)(x-2)^{2}로 나누었을 때의 나머지를 구하고 그 과정을 서술하시오." }
+      ]
+    },
+    {
+      "number": 19,
+      "score": 10.0,
+      "type": "서술형",
+      "label": "[서답형 4]",
+      "contents": [
+        { "type": "text", "value": "[서답형 4] 다음 그림과 같이 모든 모서리의 길이가 a인 정삼각뿔 \\mathrm{O}-\\mathrm{ABC}의 세 모서리 \\mathrm{OA}, \\mathrm{OB}, \\mathrm{OC} 위에 각각 세 점 \\mathrm{D}, \\mathrm{E}, \\mathrm{F}를 \\overline{\\mathrm{OD}}=\\overline{\\mathrm{OE}}=\\overline{\\mathrm{OF}}=b가 되도록 잡는다. 삼각형 \\mathrm{ABC} 위의 점 \\mathrm{G}에 대하여 선분 \\overline{\\mathrm{OG}}는 정삼각뿔 \\mathrm{O}-\\mathrm{ABC}의 높이이고, 삼각형 \\mathrm{DEF} 위의 점 \\mathrm{G}'에 대하여 선분 \\overline{\\mathrm{OG}'}는 정삼각뿔 \\mathrm{O}-\\mathrm{DEF}의 높이이다. 또한 점 \\mathrm{G}'는 선분 \\overline{\\mathrm{OG}} 위에 있다. 다음 물음에 답하시오." },
+        { "type": "figure", "value": "정삼각뿔(정사면체) O-ABC 의 사시도. 꼭짓점 O 가 맨 위, 밑면 삼각형 ABC 의 세 꼭짓점은 왼쪽 C, 아래 A, 오른쪽 B (모서리 CB 와 CA 일부는 점선으로 숨은선 처리). 모서리 OA 위의 점 D, OB 위의 점 E, OC 위의 점 F 를 이어 만든 작은 삼각형 DEF 가 뿔 내부 윗쪽에 그려져 있고 FE, FD, DE 를 잇는데 FE 는 점선. O 에서 밑면 ABC 로 내린 수선(점선)이 밑면과 만나는 점이 G(직각 표시), 같은 수선이 삼각형 DEF 와 만나는 점이 G'(직각 표시). 곡선 화살표 라벨로 OF 쪽(왼쪽 위) 길이가 b, OB 쪽(오른쪽) 길이가 a 로 표시되어 있다." }
+      ],
+      "sub_questions": [
+        {
+          "number": 1,
+          "score": 1,
+          "contents": [
+            { "type": "text", "value": "두 삼각형 \\mathrm{OAB}, \\mathrm{ODE}의 둘레 길이의 합은 12일 때, a+b의 값을 구하고 그 과정을 서술하시오." }
+          ]
+        },
+        {
+          "number": 2,
+          "score": 4,
+          "contents": [
+            { "type": "text", "value": "다음 주어진 사실을 활용하여 두 정삼각뿔 \\mathrm{O}-\\mathrm{ABC}, \\mathrm{O}-\\mathrm{DEF}의 부피의 합이 4\\sqrt{2}일 때, a^{3}+b^{3}의 값을 구하고 그 과정을 서술하시오." },
+            { "type": "text", "value": "<상자> 두 점 \\mathrm{G}, \\mathrm{G}'는 각각 \\triangle \\mathrm{ABC}, \\triangle \\mathrm{DEF}의 무게중심이다." }
+          ]
+        },
+        {
+          "number": 3,
+          "score": 5,
+          "contents": [
+            { "type": "text", "value": "(1)과 (2)의 결과를 이용하여 사각형 \\mathrm{ABED}의 넓이를 구하고 그 과정을 서술하시오." }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 20,
+      "score": 10.0,
+      "type": "서술형",
+      "label": "[서답형 5]",
+      "contents": [
+        { "type": "text", "value": "[서답형 5] 둘레의 길이가 10인 삼각형의 세 변의 길이 a, b, c에 대하여 a^{3}-ab^{2}-b^{2}c+a^{2}c+c^{3}+ac^{2}=0이 성립한다. 이때 최고차항의 계수가 1인 x에 대한 이차방정식 x^{2}-f(b)x+g(b)=0은 두 실수 a와 c를 실근으로 가진다. 다음 물음에 답하시오." }
+      ],
+      "sub_questions": [
+        {
+          "number": 1,
+          "score": 6,
+          "contents": [
+            { "type": "text", "value": "f(4)+g(4)의 값을 구하고 그 과정을 서술하시오." }
+          ]
+        },
+        {
+          "number": 2,
+          "score": 4,
+          "contents": [
+            { "type": "text", "value": "정수 k에 대하여 이차함수 y=x^{2}-f(4)x+g(4)의 그래프와 y=k의 그래프가 만나는 교점의 개수를 p(k)라 할 때, p(0)+p(1)+p(2)+ \\cdots +p(20)의 값을 구하고 그 과정을 서술하시오." }
+          ]
+        }
+      ]
+    }
+  ]
+}

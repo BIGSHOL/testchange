@@ -1,0 +1,387 @@
+{
+  "meta": {"exam_id": 4322, "ocr_source": "session-vision"},
+  "header": {"title": "대륜고 1학년 공통수학2 (2024년 2학기 기말고사 / 집합 ~ 무리함수)"},
+  "questions": [
+    {
+      "number": 1,
+      "score": 2.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "전체집합 U=\\{-1,~0,~1,~2\\}의 두 원소 x, y에 대하여 다음 중 참인 명제는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "어떤 x에 대하여 x+1<0이다."}]},
+        {"number": 2, "contents": [{"type": "text", "value": "모든 x에 대하여 |x|>0이다."}]},
+        {"number": 3, "contents": [{"type": "text", "value": "모든 x에 대하여 -x \\in U"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "어떤 x에 대하여 x^{2} \\neq 1이다."}]},
+        {"number": 5, "contents": [{"type": "text", "value": "모든 x, y에 대하여 x<y이면 x^{2}<y^{2}이다."}]}
+      ]
+    },
+    {
+      "number": 2,
+      "score": 2.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "다음 함수의 그래프 중 일대일대응인 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "figure", "value": "위로 볼록한 포물선. 꼭짓점이 y축 위쪽(양수)에 있고 x축과 서로 다른 두 점에서 만나며 좌우로 아래로 뻗어 있다."}]},
+        {"number": 2, "contents": [{"type": "figure", "value": "원점 O를 꼭짓점으로 하는 V자 모양 그래프(y=|x| 꼴). 원점에서 좌우 위쪽으로 두 반직선이 뻗어 있다."}]},
+        {"number": 3, "contents": [{"type": "figure", "value": "제1사분면의 모눈(격자) 위에 흩어져 찍힌 네 개의 점으로 이루어진 이산적인 그래프. 같은 높이(y좌표)에 두 점이 있다."}]},
+        {"number": 4, "contents": [{"type": "figure", "value": "x축과 평행한 수평 직선(상수함수). x축보다 위쪽에 좌우로 무한히 뻗어 있다."}]},
+        {"number": 5, "contents": [{"type": "figure", "value": "왼쪽 아래에서 완만한 기울기로 증가하다가 y축 근처에서 꺾여 더 큰 기울기로 계속 증가하는 꺾인 직선. 원점 오른쪽에서 x축과 만나며 전 구간에서 증가한다."}]}
+      ]
+    },
+    {
+      "number": 3,
+      "score": 3.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "다음 <보기> 중 절대부등식인 것을 모두 고른 것은?"},
+        {"type": "text", "value": "<보기> ㄱ. |x| \\geq 0 • ㄴ. x+1>1 • ㄷ. x^{2}+2x>0 • ㄹ. x^{2}-4x+4 \\geq 0"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ, ㄴ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄱ, ㄷ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄱ, ㄹ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄴ, ㄷ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄷ, ㄹ"}]}
+      ]
+    },
+    {
+      "number": 4,
+      "score": 3.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "전체집합 U=\\{0,~1,~2,~3,~4,~5,~6\\}의 두 부분집합 A=\\{0,~2,~3,~4\\}, B=\\{3,~4,~5,~6\\}에 대하여 다음 벤 다이어그램의 색칠한 부분을 나타내는 집합의 원소의 개수를 구하여 기호로 바르게 나타낸 것은?"},
+        {"type": "figure", "value": "직사각형 U 안에 서로 겹치는 두 원 A, B가 그려진 벤 다이어그램. 색칠된 부분은 직사각형 U 전체에서 원 A 중 B와 겹치지 않는 부분(A-B)만 제외한 영역이다. 즉 A∩B, B-A, U-(A∪B)가 모두 색칠되어 있고 A-B 부분만 흰색이다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "n(U-A)=3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "n(U-B)=3"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "n(B-A)=2"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "n(A \\cup B^{C})=5"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "n((A-B)^{C})=5"}]}
+      ]
+    },
+    {
+      "number": 5,
+      "score": 3.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "두 유리함수 y=\\frac{kx+1}{x-3}, y=\\frac{-5x+6}{x-k}의 그래프의 점근선으로 둘러싸인 부분의 넓이가 20일 때, 양수 k의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "8"}]}
+      ]
+    },
+    {
+      "number": 6,
+      "score": 3.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "다음 중 무리함수 y=\\sqrt{3x+4}-1에 대한 설명으로 옳지 __않은__ 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "정의역은 \\{x|x \\geq -\\frac{4}{3}\\}이다."}]},
+        {"number": 2, "contents": [{"type": "text", "value": "치역은 \\{y|y \\geq -1\\}"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "그래프는 제 1사분면, 제 2사분면, 제 4사분면을 지난다."}]},
+        {"number": 4, "contents": [{"type": "text", "value": "그래프는 무리함수 y=\\sqrt{-3x+4}-1의 그래프와 y축에 대하여 대칭이다."}]},
+        {"number": 5, "contents": [{"type": "text", "value": "역함수의 그래프는 점 (3,~4)를 지난다."}]}
+      ]
+    },
+    {
+      "number": 7,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "k>2일 때, 3k+\\frac{27}{k-2}은 k=a에서 최솟값 b를 갖는다. 이때 상수 a, b라 할 때, a+b의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "25"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "26"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "27"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "28"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "29"}]}
+      ]
+    },
+    {
+      "number": 8,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "x>0, y>0일 때, (x+y)\\left(\\frac{9}{x}+\\frac{4}{y}\\right)의 최솟값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "21"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "22"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "23"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "24"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "25"}]}
+      ]
+    },
+    {
+      "number": 9,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "유리함수 f(x)=\\frac{ax+b}{x+c}의 그래프가 점 (2,~-2)에 대하여 대칭이고 f(3)=4b일 때, abc값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-4"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-8"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "8"}]}
+      ]
+    },
+    {
+      "number": 10,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "공집합이 아닌 집합 X에 대하여 함수 f:X \\to X가 f(x)=3x^{2}-5x-9일 때, 함수 f가 항등함수가 되도록 하는 집합 X의 개수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+      ]
+    },
+    {
+      "number": 11,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "0 \\leq x \\leq 4에서 정의된 두 함수 y=f(x), y=g(x)의 그래프가 각각 아래 그림과 같을 때, 합성함수 y=(g \\circ f)(x)의 그래프의 개형은?"},
+        {"type": "figure", "value": "두 개의 그래프. 왼쪽 y=f(x): 원점 (0,0)에서 시작해 (2,4)까지 직선으로 증가하고 다시 (4,0)까지 직선으로 감소하는 삼각형 모양(꼭짓점 (2,4)). 오른쪽 y=g(x): (0,4)에서 (2,4)까지 수평(값 4)이고 (2,4)에서 (4,0)까지 직선으로 감소한다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "figure", "value": "0 \\leq x \\leq 2에서 y=0, x=2부터 증가해 (3,4)에서 최대 4, 다시 감소해 (4,0). 봉우리가 x=3에 있는 삼각형 모양."}]},
+        {"number": 2, "contents": [{"type": "figure", "value": "0 \\leq x \\leq 1에서 y=0, x=1부터 증가해 (2,4)에서 최대 4, 감소해 (3,0), 3 \\leq x \\leq 4에서 y=0. 봉우리가 x=2에 있는 삼각형 모양."}]},
+        {"number": 3, "contents": [{"type": "figure", "value": "0 \\leq x \\leq 1에서 y=4, x=1부터 감소해 (2,0), 다시 증가해 (3,4), 3 \\leq x \\leq 4에서 y=4. 골짜기가 x=2에 있는 V자 모양."}]},
+        {"number": 4, "contents": [{"type": "figure", "value": "0 \\leq x \\leq 1에서 y=4, x=1부터 감소해 (2,0), 2 \\leq x \\leq 3에서 y=0, x=3부터 증가해 (4,4). 바닥이 평평한 U자 모양."}]},
+        {"number": 5, "contents": [{"type": "figure", "value": "0 \\leq x \\leq 2에서 y=4, x=2부터 감소해 (3,0), 다시 증가해 (4,4). 골짜기가 x=3에 있는 V자 모양."}]}
+      ]
+    },
+    {
+      "number": 12,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "함수 y=f(x)의 그래프가 아래 그림과 같을 때, 방정식 f(f(x))=x의 서로 다른 실근의 개수는? (단, 0 \\leq x \\leq 4이다.)"},
+        {"type": "figure", "value": "0 \\leq x \\leq 4에서 정의된 y=f(x)의 그래프. 점 (0,4)에서 직선으로 감소해 (1,0), 다시 증가해 (2,4), 감소해 (3,0), 증가해 (4,4)로 이어지는 W 모양의 꺾인 그래프."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "13"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "14"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "15"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "16"}]}
+      ]
+    },
+    {
+      "number": 13,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "집합 X=\\{1,2,3,4\\}에 대하여 다음 조건을 만족시키는 함수 f:X \\to X의 개수는?"},
+        {"type": "text", "value": "<상자> (가) n(\\{f(x)|x \\in X\\})=2 • (나) 집합 X의 모든 원소 x에 대하여 f(x)+f(f(x)) \\leq 2x 이다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "14"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "15"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "16"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "17"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "18"}]}
+      ]
+    },
+    {
+      "number": 14,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "유리함수 f(x)=\\frac{ax+b}{x+c}의 그래프가 다음 그림과 같을 때, 무리함수 g(x)=-\\sqrt{x+a}+b이다. (단, a, b, c는 실수이다.)"},
+        {"type": "figure", "value": "유리함수 y=f(x)의 그래프. 수직 점근선은 x=-3(점선), 수평 점근선은 y=5(점선). y절편은 2로 y축과 점 (0,2)에서 만난다. x=-3의 왼쪽 가지는 왼쪽에서 y=5에 아래로 접근하다 x가 -3에 가까워지면 위로 발산하고, x=-3의 오른쪽 가지는 아래로 발산했다가 (0,2)를 지나 오른쪽으로 가며 y=5에 아래에서 접근한다."},
+        {"type": "text", "value": "-2 \\leq x \\leq 6에서 함수 (g \\circ f)(x)의 최솟값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+      ]
+    },
+    {
+      "number": 15,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "일차함수 f(x)에 대하여 유리함수 y=\\frac{2f(x)+1}{3-f(x)}의 그래프가 점 (4,~-2)에 대하여 대칭이다. f(3)=1일 때, f^{-1}(9)의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "10"}]}
+      ]
+    },
+    {
+      "number": 16,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "유리함수 f(x)=\\frac{3x+b-a}{x-a}가 다음 조건을 만족시킨다."},
+        {"type": "text", "value": "<상자> a가 아닌 모든 실수 x에 대하여 f^{-1}(x-c)=f(x-5)+4이다."},
+        {"type": "text", "value": "상수 a, b, c에 대하여 a+c의 값은? (단, 2a+b \\neq 0이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "15"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "16"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "17"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "18"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "19"}]}
+      ]
+    },
+    {
+      "number": 17,
+      "score": 5.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "다음 그림과 같이 무리함수 y=2\\sqrt{x}의 그래프 위의 점 \\mathrm{A}에서 x축에 평행한 직선을 그어 무리함수 y=\\sqrt{x}의 그래프와 만나는 점을 \\mathrm{D}라 하고, 두 점 \\mathrm{A}, \\mathrm{D}에서 x축에 내린 수선의 발을 각각 \\mathrm{B}, \\mathrm{C}라고 하자. 사각형 \\mathrm{ABCD}가 정사각형일 때, 점 \\mathrm{A}의 좌표를 (p,~q)라고 하면, p+q의 값은?"},
+        {"type": "figure", "value": "제1사분면에 원점에서 출발하는 두 무리함수 곡선 y=2\\sqrt{x}(위쪽)와 y=\\sqrt{x}(아래쪽)가 그려져 있다. 위쪽 곡선 위의 점 A와 아래쪽 곡선 위의 점 D는 같은 높이에 있고 선분 AD는 x축과 평행하다. A, D에서 x축에 내린 수선의 발이 각각 B, C이며 네 점 A, B, C, D를 이은 사각형 ABCD가 정사각형(빨간 테두리)으로 표시되어 있다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{4}{9}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{16}{9}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{16}{27}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{4}{27}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{8}{27}"}]}
+      ]
+    },
+    {
+      "number": 18,
+      "score": 5.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "함수"},
+        {"type": "equation_block", "value": "f(x)=\\begin{cases} (x-a)^{2}+b & (x \\leq a) \\\\ \\sqrt{x-a}+b & (x>a) \\end{cases}"},
+        {"type": "text", "value": "와 서로 다른 세 실수 \\alpha, \\beta, \\gamma가 다음 조건을 만족시킨다."},
+        {"type": "text", "value": "<상자> (가) f(\\alpha)=\\alpha, f(\\beta)=\\beta • (나) 방정식 \\{f(x)-\\alpha\\}\\{f(x)-\\beta\\}=0을 만족시키는 실수 x의 값은 \\alpha, \\beta, \\gamma뿐이다."},
+        {"type": "text", "value": "\\alpha+\\beta+\\gamma=12일 때, f(\\alpha\\beta)의 값은? (단, a, b는 상수이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "14"}]}
+      ]
+    },
+    {
+      "number": 19,
+      "score": 5.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "함수"},
+        {"type": "equation_block", "value": "f(x)=\\begin{cases} -x-3 & (x<-2) \\\\ x+1 & (-2 \\leq x<1) \\\\ 2 & (x \\geq 1) \\end{cases},~ g(x)=\\sqrt{x+3}-1"},
+        {"type": "text", "value": "일 때, 함수 y=(f \\circ g^{-1})(x)의 그래프의 개형은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "figure", "value": "x=-3에서 y=0으로 시작해 위로 볼록하게 올라가 최댓값 1 부근을 지난 뒤 x=-1 근처에서 감소로 바뀌어 아래로 내려가고, x=1에서 y=-2에 도달한 뒤 오른쪽으로 y=-2인 수평선이 이어지는 S자(감소) 곡선."}]},
+        {"number": 2, "contents": [{"type": "figure", "value": "x=-1에서 시작해 급하게 올라가 y축 근처에서 최댓값 1을 갖고, 곧바로 가파르게 감소해 x=1에서 y=-2에 도달한 뒤 오른쪽으로 y=-2인 수평선이 이어지는 그래프."}]},
+        {"number": 3, "contents": [{"type": "figure", "value": "x=-1에서 y=0으로 시작해 아래로 내려가 y축 근처에서 최솟값 -1을 지난 뒤 다시 올라가 x=1에서 y=2에 도달하고, 오른쪽으로 y=2인 수평선이 이어지는 곡선."}]},
+        {"number": 4, "contents": [{"type": "figure", "value": "x=-1에서 y=0으로 시작해 y축 근처에서 최솟값 -1까지 가파르게 내려간 뒤 직선에 가깝게 올라가 x=1에서 y=2에 도달하고, 오른쪽으로 y=2인 수평선이 이어지는 그래프(꺾인 V자 모양)."}]},
+        {"number": 5, "contents": [{"type": "figure", "value": "x=-3에서 y=0으로 시작해 아래로 내려가 최솟값 -1 부근을 지난 뒤 x=-1 근처에서 올라가기 시작해 x=1에서 y=2에 도달하고, 오른쪽으로 y=2인 수평선이 이어지는 S자(증가) 곡선."}]}
+      ]
+    },
+    {
+      "number": 20,
+      "score": 5.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "실수 p와 함수 f(x)=\\frac{2|x+1|-6}{|x-2|}~(x \\neq 2)에 대하여 y=|f(x)|와 g(x)=\\sqrt{x-p}-1의 두 그래프가 만나는 서로 다른 교점의 개수를 h(p)라 하자. \\frac{h(-7)}{h(-5)}의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{1}{2}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{2}{3}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{3}{2}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "2"}]}
+      ]
+    },
+    {
+      "number": 21,
+      "score": 5.0,
+      "type": "서술형",
+      "label": "[서술형 1]",
+      "contents": [
+        {"type": "text", "value": "[서술형 1] 세 양수 x, y, z에 대하여"},
+        {"type": "equation_block", "value": "S=\\frac{xy}{z}+\\frac{2yz}{x}+\\frac{3zx}{y}"},
+        {"type": "text", "value": "라 하자. S^{2}=78일때, 3x^{2}+2y^{2}+6z^{2}의 최댓값을 구하시오."}
+      ],
+      "choices": []
+    },
+    {
+      "number": 22,
+      "score": 6.0,
+      "type": "서술형",
+      "label": "[서술형 2]",
+      "contents": [
+        {"type": "text", "value": "[서술형 2] 1보다 큰 실수 전체의 집합에서 정의된 두 함수"},
+        {"type": "equation_block", "value": "f(x)=\\frac{x+1}{x-1},~ g(x)=\\sqrt{3x-2}"},
+        {"type": "text", "value": "에 대하여 (f \\circ (g \\circ f)^{-1} \\circ f)(3)의 값을 구하는 풀이 과정과 답을 서술하시오."}
+      ],
+      "choices": []
+    },
+    {
+      "number": 23,
+      "score": 6.0,
+      "type": "서술형",
+      "label": "[서술형 3]",
+      "contents": [
+        {"type": "text", "value": "[서술형 3] 함수 f(x)=\\frac{ax+b}{cx+d}~(ad-bc \\neq 0, c \\neq 0)의 그래프가 점 (2,5)를 지나면서 직선 y=x+10에 대칭이고, 직선 y=-x+4에 대해서도 대칭이다. 이때 f(7)의 값을 구하는 풀이 과정과 답을 서술하시오."}
+      ],
+      "choices": []
+    },
+    {
+      "number": 24,
+      "score": 7.0,
+      "type": "서술형",
+      "label": "[서술형 4]",
+      "contents": [
+        {"type": "text", "value": "[서술형 4] 무리함수 y=-\\sqrt{ax+b}+c의 그래프가 오른쪽 그림과 같을 때, 상수 a, b, c에 대하여 |a|+|b|+|c|의 값을 구하는 풀이 과정과 답을 서술하시오."},
+        {"type": "figure", "value": "무리함수 y=-\\sqrt{ax+b}+c의 그래프. 오른쪽 끝점이 (2,~1)이고 거기서 왼쪽으로 갈수록 값이 감소하는 곡선이다. y축과는 점 (0,~-1)에서 만나고 x축과는 0과 2 사이에서 만난다. 곡선은 왼쪽으로 계속 뻗어 있으며 x>2에서는 정의되지 않는다."}
+      ],
+      "choices": []
+    }
+  ]
+}

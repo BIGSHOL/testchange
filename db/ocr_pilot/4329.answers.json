@@ -1,0 +1,55 @@
+{
+  "exam_id": 4329,
+  "answer_pages": [7],
+  "items": [
+    {"number": 1, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 2, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 3, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 4, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 5, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 6, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 7, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 8, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 9, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 10, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 11, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 12, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 13, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 14, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 15, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 16, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 17, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 18, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 19, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 20, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 21, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {
+      "number": 22,
+      "answer": "$-5$",
+      "solution": "주어진 삼차방정식의 좌변을 인수분해하면\n$(x+1)(x^{2}-x+1) = 0$에서 $x = -1$ 또는 $x^{2}-x+1 = 0$이므로\n$\\omega$는 이차방정식 $x^{2}-x+1 = 0$과 삼차방정식 $x^{3}+1 = 0$의 한 허근이다. 따라서\n$\\omega^{2}-\\omega+1 = 0$, $\\omega^{3}+1 = 0$ 이므로\n$4\\omega^{2}+3\\omega^{3}+2\\omega^{4} = 2\\omega-7$ 이므로 $a = 2$, $b = -7$이다.",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 23,
+      "answer": "$21600$",
+      "solution": "3의 배수인 3, 6, 9를 한 묶음으로 생각하고, 4의 배수를 제외하면 다음과 같다.\n1, 2, 5, 7, (3의 배수)\n이 5개의 수를 일렬로 나열하는 경우의 수는 $5! = 120$이고 이때 4의 배수 4, 8은 그림과 같이 5개의 ○를 나열한 수 그 사이에 6개의 ■ 중에서 2개를 택하여 나열하면 되므로 구하는 경우의 수는 ${}_{6}\\mathrm{P}_{2}$ 이다.\n(그림: ■ ○ ■ ○ ■ ○ ■ ○ ■ ○ ■ 가 번갈아 나열된 그림)\n또 3의 배수를 일렬로 나열하는 경우의 수는 $3! = 6$이므로 구하는 경우의 수는\n$120 \\times 30 \\times 6 = 21600$이다.",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 24,
+      "answer": "A의 총점 $36$점, B의 총점 $37$점",
+      "solution": "두 표를 행렬로 나타내면 $\\begin{pmatrix} 30 & 50 \\\\ 40 & 30 \\end{pmatrix}$, $\\begin{pmatrix} 0.7 \\\\ 0.3 \\end{pmatrix}$이고\n$\\begin{pmatrix} 30 & 50 \\\\ 40 & 30 \\end{pmatrix}\\begin{pmatrix} 0.7 \\\\ 0.3 \\end{pmatrix} = \\begin{pmatrix} 30 \\times 0.7 + 50 \\times 0.3 \\\\ 40 \\times 0.7 + 30 \\times 0.3 \\end{pmatrix} = \\begin{pmatrix} 36 \\\\ 37 \\end{pmatrix}$ 이다.",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 25,
+      "answer": "$\\frac{48}{5}$",
+      "solution": "$\\overline{\\mathrm{AB}} = 4$, $\\overline{\\mathrm{DE}} = a$, $\\overline{\\mathrm{DB}} = b$, $\\overline{\\mathrm{AE}} = 8$ 이므로\n$4+a = b+8$, 즉 $b = a-4$ 이다\n$\\overline{\\mathrm{HD}} = \\overline{\\mathrm{DB}} \\times \\tan 60° = \\sqrt{3}b$ 이므로\n삼각형 넓이는 $\\frac{1}{2} \\times b \\times \\sqrt{3}b = \\frac{\\sqrt{3}}{2}b^{2}$ 이다.\n정사각형 $\\mathrm{DEFG}$의 넓이가 삼각형 $\\mathrm{DBH}$의 넓이의 $4\\sqrt{3}$배보다 19만큼 크므로\n$a^{2} = 4\\sqrt{3} \\times \\frac{\\sqrt{3}}{2}b^{2}+19$, $a^{2} = 6b^{2}+19$이다.\n두 식을 연립하면 $a = 5$ 또는 $a = \\frac{23}{5}$ 이므로 모든 $a$의 값의 합은 $\\frac{48}{5}$이다.",
+      "topic": "",
+      "difficulty": ""
+    }
+  ]
+}

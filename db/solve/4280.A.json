@@ -1,0 +1,167 @@
+{
+ "exam_id": 4280,
+ "pass": "A",
+ "items": [
+  {
+   "number": 1,
+   "answer": "④",
+   "solution": "step1) $8$의 약수는 $1,~2,~4,~8$이고 두 눈의 수의 합은 $2$ 이상 $12$ 이하이므로 합이 될 수 있는 값은 $2,~4,~8$이다.\nstep2) 합이 $2$인 경우: $(1,1)$의 $1$가지이다.\nstep3) 합이 $4$인 경우: $(1,3),~(2,2),~(3,1)$의 $3$가지이다.\nstep4) 합이 $8$인 경우: $(2,6),~(3,5),~(4,4),~(5,3),~(6,2)$의 $5$가지이다.\nstep5) 세 사건은 동시에 일어나지 않으므로 구하는 경우의 수는 $1+3+5=9$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 2,
+   "answer": "③",
+   "solution": "step1) $0!=1$이므로 ①은 옳다.\nstep2) ${}_{3}\\mathrm{P}_{0}=1$이므로 ②는 옳다.\nstep3) ${}_{4}\\mathrm{P}_{4}=4!=24$이므로 ③은 옳지 않다.\nstep4) ${}_{5}\\mathrm{C}_{0}=1$, ${}_{5}\\mathrm{C}_{5}=1$이므로 ④, ⑤는 옳다.\nstep5) 따라서 옳지 않은 것은 ③이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 3,
+   "answer": "②",
+   "solution": "step1) ${}_{6}\\mathrm{P}_{2}=6\\times5=30$이다.\nstep2) ${}_{4}\\mathrm{C}_{2}=\\frac{4\\times3}{2\\times1}=6$이다.\nstep3) 따라서 $30\\times6=180$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 4,
+   "answer": "①",
+   "solution": "step1) $5x-10<2(x-1)$에서 $5x-10<2x-2$, $3x<8$이므로 $x<\\frac{8}{3}$이다.\nstep2) $2(x-1)\\leq3x+2$에서 $2x-2\\leq3x+2$, $-4\\leq x$이므로 $x\\geq-4$이다.\nstep3) 연립부등식의 해는 $-4\\leq x<\\frac{8}{3}$이다.\nstep4) 이 범위의 정수는 $-4,~-3,~-2,~-1,~0,~1,~2$이므로 $M=2$, $m=-4$이다.\nstep5) 따라서 $M+m=2+(-4)=-2$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 5,
+   "answer": "①",
+   "solution": "step1) $-x^{2}+2x+8\\geq0$의 양변에 $-1$을 곱하면 $x^{2}-2x-8\\leq0$이다.\nstep2) 좌변을 인수분해하면 $(x-4)(x+2)\\leq0$이다.\nstep3) 해는 $-2\\leq x\\leq4$이므로 $\\alpha=-2$, $\\beta=4$이다.\nstep4) 따라서 $\\beta-\\alpha=4-(-2)=6$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 6,
+   "answer": "③",
+   "solution": "step1) ①의 좌변은 $\\begin{pmatrix} -1 & 5 \\end{pmatrix}$이므로 옳지 않다.\nstep2) ②의 좌변은 $\\begin{pmatrix} -4 & 7 \\\\ 1 & -1 \\end{pmatrix}$, 우변은 $\\begin{pmatrix} 4 & -7 \\\\ -1 & -1 \\end{pmatrix}$이므로 옳지 않다.\nstep3) ③의 좌변은 $\\begin{pmatrix} 5-(-1) & -3-2 \\\\ 2-3 & -4-(-5) \\end{pmatrix}=\\begin{pmatrix} 6 & -5 \\\\ -1 & 1 \\end{pmatrix}$이므로 옳다.\nstep4) ④의 좌변은 $\\begin{pmatrix} 2+12 \\\\ -4+15 \\end{pmatrix}=\\begin{pmatrix} 14 \\\\ 11 \\end{pmatrix}$이므로 옳지 않다.\nstep5) ⑤의 좌변은 $\\begin{pmatrix} -24 & 12 \\\\ 5 & 3 \\end{pmatrix}$이므로 옳지 않다.\nstep6) 따라서 옳은 것은 ③이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 7,
+   "answer": "③",
+   "solution": "step1) $x-y=-1$에서 $x=y-1$이다.\nstep2) 이를 $x^{2}+3xy+y^{2}=11$에 대입하면 $(y-1)^{2}+3(y-1)y+y^{2}=11$이다.\nstep3) 정리하면 $5y^{2}-5y+1=11$, 즉 $y^{2}-y-2=0$이다.\nstep4) $(y-2)(y+1)=0$이므로 $y=2$ 또는 $y=-1$이다.\nstep5) $y=2$일 때 $x=1$이므로 $\\alpha+\\beta=3$이고, $y=-1$일 때 $x=-2$이므로 $\\alpha+\\beta=-3$이다.\nstep6) 두 경우 모두 $|\\alpha+\\beta|=3$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 8,
+   "answer": "⑤",
+   "solution": "step1) 세 숫자의 합이 $3$의 배수여야 하므로 $\\{0,1,2,3,4\\}$에서 뽑은 세 수의 조합을 조사한다.\nstep2) 합이 $3$의 배수인 조합은 $\\{0,1,2\\},~\\{0,2,4\\},~\\{1,2,3\\},~\\{2,3,4\\}$이다.\nstep3) $0$을 포함한 $\\{0,1,2\\},~\\{0,2,4\\}$는 각각 $3!-2!=6-2=4$개의 세 자리 자연수를 만든다.\nstep4) $0$이 없는 $\\{1,2,3\\},~\\{2,3,4\\}$는 각각 $3!=6$개를 만든다.\nstep5) 따라서 $4\\times2+6\\times2=8+12=20$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 9,
+   "answer": "④",
+   "solution": "step1) 1, 2학년 대표 $2$명은 반드시 포함되므로 나머지 $3$명을 뽑아야 한다.\nstep2) 대표를 제외한 학생 수는 $(3-1)+(3-1)+n=n+4$이다.\nstep3) 경우의 수는 ${}_{n+4}\\mathrm{C}_{3}=56$이다.\nstep4) ${}_{8}\\mathrm{C}_{3}=\\frac{8\\times7\\times6}{6}=56$이므로 $n+4=8$이다.\nstep5) 따라서 $n=4$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 10,
+   "answer": "⑤",
+   "solution": "step1) $a_{11}=1+1=2$, $a_{22}=2+2=4$이다.\nstep2) $i<j$인 $a_{12}=-1+2=1$, $i>j$인 $a_{21}=2\\times2-1=3$이다.\nstep3) 행렬 $A$의 성분의 합은 $2+1+3+4=10$이다.\nstep4) $b_{11}=1-2+3=2$, $b_{12}=2-2+6=6$, $b_{21}=2-4+3=1$, $b_{22}=4-4+6=6$이다.\nstep5) 행렬 $B$의 성분의 합은 $2+6+1+6=15$이다.\nstep6) 따라서 두 합의 차는 $15-10=5$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 11,
+   "answer": "②",
+   "solution": "step1) 의자의 개수를 $c$, 학생 수를 $s$라 하면 $4$명씩 앉을 때 $2$명이 남으므로 $s=4c+2$이다.\nstep2) $6$명씩 앉으면 의자가 $1$개 남으므로 $c-1$개의 의자를 사용한다. 즉 $6(c-2)<s\\leq6(c-1)$이다.\nstep3) $6(c-2)<4c+2$에서 $2c<14$이므로 $c<7$이다.\nstep4) $4c+2\\leq6(c-1)$에서 $8\\leq2c$이므로 $c\\geq4$이다.\nstep5) $4\\leq c\\leq6$이므로 $s$는 $18,~22,~26$이고 최솟값은 $c=4$일 때 $s=18$이다.\nstep6) 확인하면 $4$명씩 $4$개의 의자에 앉으면 $16$명이 앉고 $2$명이 남으며, $6$명씩 앉으면 $3$개의 의자를 채우고 $1$개가 남는다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 12,
+   "answer": "⑤",
+   "solution": "step1) 매점과 곤충관을 잇는 산책로의 개수를 $x$라 한다.\nstep2) 입구 → 매점 → 출구인 경우: $3\\times1=3$이다.\nstep3) 입구 → 곤충관 → 출구인 경우: $2\\times2=4$이다.\nstep4) 입구 → 매점 → 곤충관 → 출구인 경우: $3\\times x\\times2=6x$이다.\nstep5) 입구 → 곤충관 → 매점 → 출구인 경우: $2\\times x\\times1=2x$이다.\nstep6) 전체 경우의 수는 $7+8x\\leq50$이므로 $x\\leq\\frac{43}{8}=5.375$이다.\nstep7) 따라서 최대 $5$개를 만들 수 있다. ($x=5$이면 $47$, $x=6$이면 $55$이다.)",
+   "confidence": "medium",
+   "note": "그림 서술(입구-매점 3, 입구-곤충관 2, 매점-출구 1, 곤충관-출구 2)에 근거해 계산함"
+  },
+  {
+   "number": 13,
+   "answer": "①",
+   "solution": "step1) ${}_{n-2}\\mathrm{C}_{2}$가 정의되려면 $n-2\\geq2$, 즉 $n\\geq4$이다.\nstep2) ${}_{n-2}\\mathrm{C}_{2}=\\frac{n^{2}-5n+6}{2}$, ${}_{n+1}\\mathrm{C}_{2}=\\frac{n^{2}+n}{2}$, ${}_{n+3}\\mathrm{C}_{2}=\\frac{n^{2}+5n+6}{2}$이다.\nstep3) 부등식은 $2n^{2}-4n+6\\leq n^{2}+5n+6$이 되어 $n^{2}-9n\\leq0$이다.\nstep4) $n(n-9)\\leq0$이므로 $0\\leq n\\leq9$이다.\nstep5) $n\\geq4$와 함께 생각하면 $n=4,~5,~6,~7,~8,~9$의 $6$개이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 14,
+   "answer": "①",
+   "solution": "step1) $A+B=O$에서 $B=-A$이다.\nstep2) $AB=E$에 대입하면 $-A^{2}=E$, 즉 $A^{2}=-E$이다.\nstep3) $B^{k}=(-A)^{k}=(-1)^{k}A^{k}$이므로 $A^{k}+B^{k}$는 $k$가 홀수이면 $O$, 짝수이면 $2A^{k}$이다.\nstep4) $k=2m$일 때 $A^{2m}=(A^{2})^{m}=(-1)^{m}E$이므로 $\\sum_{m=1}^{1012}(-1)^{m}E=O$ (항이 짝수 개라 상쇄)이다.\nstep5) 따라서 $(A+\\cdots+A^{2025})+(B+\\cdots+B^{2025})=2\\times O=O$이다.\nstep6) $B^{2026}=A^{2026}=(A^{2})^{1013}=(-E)^{1013}=-E$이다.\nstep7) 그러므로 주어진 식은 $-E$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 15,
+   "answer": "②",
+   "solution": "step1) 공통근을 $\\alpha$라 하면 $\\alpha^{2}+2a\\alpha-b=0$, $\\alpha^{2}-b\\alpha+2a=0$이다.\nstep2) 두 식을 빼면 $(2a+b)\\alpha-(2a+b)=0$이고 $2a\\neq-b$이므로 $\\alpha=1$이다.\nstep3) $\\alpha=1$을 대입하면 $1+2a-b=0$이므로 $b=2a+1$이다.\nstep4) 근과 계수의 관계에서 첫 식의 두 근의 곱은 $-b$이므로 $p=-b$, 둘째 식의 두 근의 곱은 $2a$이므로 $q=2a$이다.\nstep5) $pq=-2ab=-20$이므로 $ab=10$이다.\nstep6) $a(2a+1)=10$에서 $2a^{2}+a-10=0$, $(2a+5)(a-2)=0$이고 $a>0$이므로 $a=2$, $b=5$이다.\nstep7) 따라서 $a+b=7$이다. (검산: $x^{2}+4x-5=0$의 근은 $1,~-5$, $x^{2}-5x+4=0$의 근은 $1,~4$이고 $pq=-20$)",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 16,
+   "answer": "④",
+   "solution": "step1) $x^{2}<(4n+1)x$에서 $x\\{x-(4n+1)\\}<0$이므로 $0<x<4n+1$이다.\nstep2) $x^{2}-(n+4)x+2n+4=(x-2)\\{x-(n+2)\\}\\geq0$이고 $n+2>2$이므로 $x\\leq2$ 또는 $x\\geq n+2$이다.\nstep3) 두 해의 공통부분은 $0<x\\leq2$ 또는 $n+2\\leq x<4n+1$이다.\nstep4) $0<x\\leq2$인 정수는 $1,~2$의 $2$개이다.\nstep5) $n+2\\leq x\\leq4n$인 정수는 $4n-(n+2)+1=3n-1$개이다.\nstep6) $f(n)=2+(3n-1)=3n+1$이다.\nstep7) $f(n^{2})=3n^{2}+1<250$에서 $n^{2}<83$이므로 $n\\leq9$이고 최댓값은 $9$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 17,
+   "answer": "④",
+   "solution": "step1) $k$의 최댓값은 $2028!$에 포함된 소인수 $5$의 개수와 같다 (소인수 $2$가 더 많으므로).\nstep2) $\\left[\\frac{2028}{5}\\right]=405$이다.\nstep3) $\\left[\\frac{2028}{25}\\right]=81$이다.\nstep4) $\\left[\\frac{2028}{125}\\right]=16$이다.\nstep5) $\\left[\\frac{2028}{625}\\right]=3$이고 $5^{5}=3125>2028$이다.\nstep6) 따라서 $k=405+81+16+3=505$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 18,
+   "answer": "③",
+   "solution": "step1) $A=\\begin{pmatrix} 3 & m-3 \\\\ 0 & m \\end{pmatrix}$에 대하여 $A^{n}=\\begin{pmatrix} 3^{n} & m^{n}-3^{n} \\\\ 0 & m^{n} \\end{pmatrix}$임을 귀납적으로 확인할 수 있다.\nstep2) 실제로 $A^{n+1}=A^{n}A$의 $(1,2)$ 성분은 $3^{n}(m-3)+(m^{n}-3^{n})m=m^{n+1}-3^{n+1}$이다.\nstep3) 모든 성분의 합은 $3^{n}+(m^{n}-3^{n})+0+m^{n}=2m^{n}$이다.\nstep4) $2m^{n}=2^{41}$이므로 $m^{n}=2^{40}$이다.\nstep5) 자연수 $m$은 $2$의 거듭제곱이어야 하므로 $m=2^{t}$라 하면 $tn=40$이다.\nstep6) $40$의 약수는 $1,~2,~4,~5,~8,~10,~20,~40$의 $8$개이므로 순서쌍 $(m,~n)$은 $8$개이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 19,
+   "answer": "②",
+   "solution": "step1) (가)에서 $P(x)-(x+2)\\geq0$의 해가 $1\\leq x\\leq2$이므로 $P(x)-(x+2)=a(x-1)(x-2)$ (단, $a<0$)이다.\nstep2) 즉 $P(x)=a(x-1)(x-2)+x+2$이다.\nstep3) (나)에서 $P(x)-(4x-1)=a(x^{2}-3x+2)-3x+3=ax^{2}-(3a+3)x+(2a+3)=0$이 중근을 가진다.\nstep4) 판별식 $D=(3a+3)^{2}-4a(2a+3)=a^{2}+6a+9=(a+3)^{2}=0$이므로 $a=-3$이다.\nstep5) $a=-3<0$이므로 조건을 만족하고, $P(x)=-3x^{2}+10x-4$이다.\nstep6) 따라서 이차항의 계수는 $-3$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 20,
+   "answer": "12",
+   "solution": "step1) 서로 다른 $4$개에서 $2$개를 택하여 일렬로 나열하는 경우의 수는 ${}_{4}\\mathrm{P}_{2}$이다.\nstep2) ${}_{4}\\mathrm{P}_{2}=4\\times3=12$이다.\nstep3) 따라서 구하는 경우의 수는 $12$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 21,
+   "answer": "10",
+   "solution": "step1) 이차부등식 $x^{2}+2kx+4k+5>0$이 항상 성립하려면 판별식이 음수여야 한다.\nstep2) $\\frac{D}{4}=k^{2}-(4k+5)<0$이다.\nstep3) $k^{2}-4k-5<0$에서 $(k-5)(k+1)<0$이므로 $-1<k<5$이다.\nstep4) 이를 만족하는 정수 $k$는 $0,~1,~2,~3,~4$이다.\nstep5) 따라서 그 합은 $0+1+2+3+4=10$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 22,
+   "answer": "61",
+   "solution": "step1) A가 받는 장미를 $a$송이라 하면 B는 $2a$송이, C는 $\\frac{a}{2}$송이를 받는다.\nstep2) C가 자연수 개를 받아야 하므로 $a$는 짝수이고, $a\\geq2$이다.\nstep3) A, B, C가 받는 합은 $a+2a+\\frac{a}{2}=\\frac{7a}{2}$이다.\nstep4) $a=2$일 때 $\\frac{7a}{2}=7$이므로 D, E, F에게 $12$송이를 각각 $1$송이 이상 나누는 방법은 ${}_{11}\\mathrm{C}_{2}=55$이다.\nstep5) $a=4$일 때 $\\frac{7a}{2}=14$이므로 남은 $5$송이를 나누는 방법은 ${}_{4}\\mathrm{C}_{2}=6$이다.\nstep6) $a=6$이면 $\\frac{7a}{2}=21>19$이므로 불가능하다.\nstep7) 따라서 구하는 방법의 수는 $55+6=61$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 23,
+   "answer": "1",
+   "solution": "step1) $a=n$, $b=n+5$이므로 부등식은 $|2x+n|+|x|\\leq n+5$이다.\nstep2) $x\\geq0$일 때 $3x+n\\leq n+5$이므로 $x\\leq\\frac{5}{3}$, 즉 $x=0,~1$이다.\nstep3) $-\\frac{n}{2}\\leq x<0$일 때 $x+n\\leq n+5$이므로 이 구간의 모든 $x$가 해이다.\nstep4) $x<-\\frac{n}{2}$일 때 $-3x-n\\leq n+5$이므로 $x\\geq-\\frac{2n+5}{3}$이다.\nstep5) 따라서 해는 $-\\frac{2n+5}{3}\\leq x\\leq\\frac{5}{3}$이고, 정수의 개수가 $4$이려면 가장 작은 정수해가 $-2$여야 한다.\nstep6) $-3<-\\frac{2n+5}{3}\\leq-2$에서 $6\\leq2n+5<9$이므로 $\\frac{1}{2}\\leq n<2$, 즉 $n=1$이다.\nstep7) 검산: $n=1$일 때 $|2x+1|+|x|\\leq6$의 정수해는 $-2,~-1,~0,~1$의 $4$개이고, $n=2$이면 $5$개가 되어 조건에 맞지 않는다.",
+   "confidence": "high",
+   "note": ""
+  }
+ ]
+}

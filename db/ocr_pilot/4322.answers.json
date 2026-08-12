@@ -1,0 +1,54 @@
+{
+  "exam_id": 4322,
+  "answer_pages": [9],
+  "items": [
+    {"number": 1, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 2, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 3, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 4, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 5, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 6, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 7, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 8, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 9, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 10, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 11, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 12, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 13, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 14, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 15, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 16, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 17, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 18, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 19, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 20, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {
+      "number": 21,
+      "answer": "$26$",
+      "solution": "$S^{2}=\\left(\\frac{yz}{z}\\right)^{2}+\\left(\\frac{2yz}{x}\\right)^{2}+\\left(\\frac{3xz}{y}\\right)^{2}+2(3x^{2}+2y^{2}+6z^{2})$\n$\\therefore 2(3x^{2}+2y^{2}+6z^{2})=S^{2}-\\left(\\left(\\frac{yz}{z}\\right)^{2}+\\left(\\frac{2yz}{x}\\right)^{2}+\\left(\\frac{3xz}{y}\\right)^{2}\\right)$\n따라서 $3x^{2}+2y^{2}+6z^{2}$이 최대가 되기 위해서는 $\\left(\\frac{yz}{z}\\right)^{2}+\\left(\\frac{2yz}{x}\\right)^{2}+\\left(\\frac{3xz}{y}\\right)^{2}$이 최소가 되어야 한다.\n따라서 $\\left(\\left(\\frac{yz}{z}\\right)^{2}+\\left(\\frac{2yz}{x}\\right)^{2}+\\left(\\frac{3xz}{y}\\right)^{2}\\right)(1^{2}+1^{2}+1^{2}) \\geq \\left(\\left(\\frac{yz}{z}\\right)+\\left(\\frac{2yz}{x}\\right)+\\left(\\frac{3xz}{y}\\right)\\right)^{2}$\n$\\therefore \\left(\\frac{yz}{z}\\right)^{2}+\\left(\\frac{2yz}{x}\\right)^{2}+\\left(\\frac{3xz}{y}\\right)^{2} \\geq \\frac{S^{2}}{3}=26$\n$\\therefore 3x^{2}+2y^{2}+6z^{2} \\leq \\frac{1}{2}(78-26)=26$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 22,
+      "answer": "$2$",
+      "solution": "$(f \\circ (g \\circ f)^{-1} \\circ f)(3)$\n$=\\{f \\circ (f^{-1} \\circ g^{-1}) \\circ f\\}(3)$\n$=(g^{-1} \\circ f)(3)$\n$=g^{-1}(2)$\n$g^{-1}(2)=a$라 하면 $g(a)=\\sqrt{3a-2}=2$\n$\\therefore (f \\circ (g \\circ f)^{-1} \\circ f)(3)=2$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 23,
+      "answer": "$f(7)=6$",
+      "solution": "함수 $f(x)$는 두 직선의 교점에 대해서 대칭이므로 두 직선의 방정식을 연립하면 $x=-3$, $y=7$\n점 $(-3,~7)$에 대하여 대칭이므로 $f(x)=\\frac{k}{x+3}+7~(k \\neq 0)$\n$f(x)$의 그래프가 $(2,~5)$를 지나므로 $\\frac{k}{5}+7=5$, $k=-10$\n$f(x)=-\\frac{10}{x+3}+7$\n$\\therefore f(7)=6$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 24,
+      "answer": "$7$",
+      "solution": "$y=-\\sqrt{ax}~(a<0)$의 그래프를 $x$축의 방향으로 2만큼, $y$축의 방향으로 1만큼 평행 이동하면 $y=-\\sqrt{a(x-2)}+1$,\n그래프가 점 $(0,~-1)$을 지나므로 $-1=-\\sqrt{-2a}+1$\n$\\therefore a=-2$\n$y=-\\sqrt{-2(x-2)}+1=-\\sqrt{-2x+4}+1$이므로\n$b=4$, $c=1$\n$\\therefore |a|+|b|+|c|=7$",
+      "topic": "",
+      "difficulty": ""
+    }
+  ]
+}

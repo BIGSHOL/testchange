@@ -1,0 +1,65 @@
+{
+  "exam_id": 4347,
+  "answer_pages": [7, 8],
+  "items": [
+    {"number": 1, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 2, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 3, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 4, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 5, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 6, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 7, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 8, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 9, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 10, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 11, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 12, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 13, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 14, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 15, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 16, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 17, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {
+      "number": 18,
+      "answer": "몫 $2x^{2}-10x+19$, 나머지 $-24$",
+      "solution": "조립제법으로 $2x^{3}-6x^{2}-x+14$를 $x+2$로 나눈다.\n$-2$ | $2$  $-6$  $-1$  $14$\n      |       $-4$  $20$  $-38$\n      | $2$  $-10$  $19$ | $-24$\n$2x^{3}-6x^{2}-x+14=(x+2)(2x^{2}-10x+19)-24$\n따라서 몫은 $2x^{2}-10x+19$, 나머지는 $-24$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 19,
+      "answer": "$1012$",
+      "solution": "i) 짝, 짝, 짝 선택 하는 경우\n${}_{12}\\mathrm{C}_{3}=\\frac{12\\times 11\\times 10}{3\\times 2\\times 1}=220$\nii) 홀, 홀, 짝 선택 하는 경우\n${}_{12}\\mathrm{C}_{2}\\times {}_{12}\\mathrm{C}_{1}=\\frac{12\\times 11}{2\\times 1}\\times 12=792$\n$\\therefore 220+792=1012$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 20,
+      "answer": "$99$",
+      "solution": "$x=0$일 때\n$3=a_{0}+a_{1}+a_{2}+a_{3}+a_{4}+a_{5}+a_{6}+a_{7}+a_{8}$ $\\cdots$ ㉠\n$x=-2$일 때\n$195=a_{0}-a_{1}+a_{2}-a_{3}+a_{4}-a_{5}+a_{6}-a_{7}+a_{8}$ $\\cdots$ ㉡\n㉠$+$㉡ $=2(a_{0}+a_{2}+a_{4}+a_{6}+a_{8})=198$\n$\\therefore a_{0}+a_{2}+a_{4}+a_{6}+a_{8}=99$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 21,
+      "answer": "$\\frac{9}{2}$",
+      "solution": "$x^{3}-(3k+5)x^{2}+(2k^{2}+13k+6)x-6k^{2}-12k$\n$=(x-3)(x-2k)(x-k-2)$\n$2k=3$ 또는 $k+2=3$ 또는 $2k=k+2$ 이므로\n$k=\\frac{3}{2}$ 또는 $k=1$ 또는 $k=2$\n따라서 상수 $k$의 값의 합은 $\\frac{9}{2}$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 22,
+      "answer": "$-5$",
+      "solution": "(가)에서\n$f(x)=(x^{3}-1)(x+4)+R(x)$\n$=(x-1)(x^{2}+x+1)(x+4)+R(x)$\n(나)에서\n$f(x)=(x^{2}+x+1)(x-1)(x+4)+a(x^{2}+x+1)+x-2$\n(다)에서\n$f(-1)=(-2)\\times 3+a-3=-8$\n$a=1$\n따라서\n$f(x)=(x^{3}-1)(x+4)+x^{2}+2x-1$이므로\n$\\therefore f(0)=-5$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 23,
+      "answer": "$\\sqrt{2}$",
+      "solution": "모든 모서리의 길이의 합은\n$4(a+b+c)=16$, $a+b+c=4$\n부피는 $abc=1$\n선분 $\\mathrm{AG}$의 길이는\n$\\sqrt{a^{2}+b^{2}+c^{2}}=2\\sqrt{2}$, $a^{2}+b^{2}+c^{2}=8$\n$\\triangle \\mathrm{EFH}$에서 $\\overline{\\mathrm{FH}}=\\sqrt{a^{2}+b^{2}}$이므로\n$\\overline{\\mathrm{EP}}=\\frac{ab}{\\sqrt{a^{2}+b^{2}}}$\n$\\triangle \\mathrm{AEP}$에서\n$\\overline{\\mathrm{AP}}^{2}=c^{2}+\\frac{a^{2}b^{2}}{a^{2}+b^{2}}=\\frac{a^{2}b^{2}+b^{2}c^{2}+c^{2}a^{2}}{a^{2}+b^{2}}$\n$\\overline{\\mathrm{AP}}=\\sqrt{\\frac{a^{2}b^{2}+b^{2}c^{2}+c^{2}a^{2}}{a^{2}+b^{2}}}$\n$\\triangle \\mathrm{AFH}=\\frac{1}{2}\\times \\overline{\\mathrm{FH}}\\times \\overline{\\mathrm{AP}}=\\frac{1}{2}\\times \\sqrt{a^{2}+b^{2}}\\times \\sqrt{\\frac{a^{2}b^{2}+b^{2}c^{2}+c^{2}a^{2}}{a^{2}+b^{2}}}$\n$=\\frac{1}{2}\\sqrt{a^{2}b^{2}+b^{2}c^{2}+c^{2}a^{2}}$\n$a+b+c=4$, $abc=1$, $a^{2}+b^{2}+c^{2}=8$에서\n$(a+b+c)^{2}=a^{2}+b^{2}+c^{2}+2(ab+bc+ca)$이므로\n$ab+bc+ca=4$\n$(ab+bc+ca)^{2}=a^{2}b^{2}+b^{2}c^{2}+c^{2}a^{2}+2abc(a+b+c)$이므로\n$a^{2}b^{2}+b^{2}c^{2}+c^{2}a^{2}=8$\n따라서 $\\frac{1}{2}\\sqrt{a^{2}b^{2}+b^{2}c^{2}+c^{2}a^{2}}=\\frac{1}{2}\\sqrt{8}=\\sqrt{2}$",
+      "topic": "",
+      "difficulty": ""
+    }
+  ]
+}

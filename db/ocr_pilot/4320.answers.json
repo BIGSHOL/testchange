@@ -1,0 +1,55 @@
+{
+  "exam_id": 4320,
+  "answer_pages": [7, 8],
+  "items": [
+    {"number": 1, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 2, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 3, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 4, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 5, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 6, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 7, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 8, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 9, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 10, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 11, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 12, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 13, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 14, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 15, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 16, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 17, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 18, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 19, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 20, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 21, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {
+      "number": 22,
+      "answer": "(1) ㉠ : 드모르간 법칙, ㉡ : 결합법칙 (2) 풀이 참조",
+      "solution": "(1) ㉠ : 드모르간 법칙\n㉡ : 결합법칙\n(2) $(A-B) \\cup (A-C)$\n$= (A \\cap B^{C}) \\cup (A \\cap C^{C})$ (차집합의 정의)\n$= A \\cap (B^{C} \\cup C^{C})$ (분배법칙)\n$= A \\cap (B \\cap C)^{C}$ (드모르간 법칙)\n$= A-(B \\cap C)$ (차집합의 정의)\n따라서 $(A-B) \\cup (A-C) = A-(B \\cap C)$가 성립",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 23,
+      "answer": "$30$",
+      "solution": "$f(x)=k(x-2)(x-a)$ $(k>0)$이라 하면\n$f(x)=k\\left(x-\\frac{a+2}{2}\\right)^{2}-\\frac{k(a-2)^{2}}{4}$\n$\\mathrm{P}\\left(\\frac{a+2}{2},~-\\frac{k(a-2)^{2}}{4}\\right)$, $\\mathrm{C}(0,~2ak)$\n사각형 $\\mathrm{APRQ}$가 정사각형이므로 두 직선 $\\mathrm{AP}$, $\\mathrm{BC}$가 서로 평행하다.\n$\\frac{-\\frac{k(a-2)^{2}}{4}}{\\frac{a+2}{2}-2}=\\frac{-2ak}{a}$\n$\\frac{-k(a-2)}{2}=-2k$, $a=6$\n$\\mathrm{P}(4,~-4k)$, $\\mathrm{C}(0,~12k)$\n직선 $\\mathrm{BC}$의 방정식은 $2kx+y-12k=0$\n사각형 $\\mathrm{APRQ}$가 정사각형이므로 $\\overline{\\mathrm{AP}}=\\overline{\\mathrm{AQ}}$\n$\\sqrt{2^{2}+(-4k)^{2}}=\\frac{|4k-12k|}{\\sqrt{(2k)^{2}+1^{2}}}$\n$\\sqrt{4(4k^{2}+1)}=\\frac{8k}{\\sqrt{4k^{2}+1}}$\n$4k^{2}+1=4k$\n$(2k-1)^{2}=0$, $k=\\frac{1}{2}$\n$f(x)=\\frac{1}{2}(x-2)(x-6)$\n따라서 $f(12)=30$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 24,
+      "answer": "$k=\\frac{2}{5}$, $m=\\frac{1}{5}$",
+      "solution": "삼각형의 외심은 삼각형 세 변의 수직이등분선의 교점이다. 따라서 변 $\\mathrm{BC}$의 수직이등분선이 $y$축이므로 외심 $\\mathrm{O}'$의 좌표를 $\\mathrm{O}'(0,~t)$라 하자.\n$\\overline{\\mathrm{AO'}}=\\overline{\\mathrm{BO'}}$에서 $\\overline{\\mathrm{AO'}}^{2}=\\overline{\\mathrm{BO'}}^{2}$\n$(3a)^{2}+(3a+3-t)^{2}=(-3)^{2}+t^{2}$\n$9a^{2}+(3a+3)^{2}-6(a+1)t+t^{2}=9+t^{2}$\n$6(a+1)t=18a(a+1)$\n$\\therefore t=3a$, $\\mathrm{O}'(0,~3a)$\n삼각형의 무게중심 공식에 의해서\n$\\mathrm{G}\\left(\\frac{3a+3+(-3)}{3},~\\frac{3a+3}{3}\\right)=\\mathrm{G}(a,~a+1)$\n$\\overline{\\mathrm{O'G}}^{2}=a^{2}+(a+1-3a)^{2}$\n$=a^{2}+(-2a+1)^{2}$\n$=5a^{2}-4a+1$\n$=5\\left(a-\\frac{2}{5}\\right)^{2}+\\frac{1}{5}$이므로\n$a=\\frac{2}{5}$일 때, 최솟값 $\\frac{1}{5}$를 갖는다.\n$\\therefore k=\\frac{2}{5}$, $m=\\frac{1}{5}$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 25,
+      "answer": "(1) $y=2x \\pm 2\\sqrt{5}$ (2) $-x+\\sqrt{3}y-4=0$ (3) $x+\\sqrt{3}y=4$, $x-\\sqrt{3}y=4$",
+      "solution": "(1) 원 $O$에 접하고 기울기가 2인 직선의 방정식은 $y=2x \\pm 2\\sqrt{5}$이다.\n(2) 원 $O$ 위의 점 $(-1,~\\sqrt{3})$에서의 접선의 방정식은 $-x+\\sqrt{3}y-4=0$이다.\n(3) 원 위의 접점의 좌표를 $(a,~b)$라 하자.\n$a^{2}+b^{2}=4$ $\\cdots\\cdots$ ㉠\n원 $O$ 위의 점 $(a,~b)$에서의 접선의 방정식은\n$ax+by=4$\n$(4,~0)$이 직선 $ax+by=4$ 위의 점이므로\n$4a=4$\n$\\therefore a=1$ $\\cdots\\cdots$ ㉡\n㉡을 ㉠에 대입하면\n$b^{2}=3$, $b=\\pm\\sqrt{3}$\n그러므로 구하고자 하는 접선의 방정식은\n$x+\\sqrt{3}y=4$, $x-\\sqrt{3}y=4$",
+      "topic": "",
+      "difficulty": ""
+    }
+  ]
+}

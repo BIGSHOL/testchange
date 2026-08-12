@@ -1,0 +1,346 @@
+{
+  "meta": {"exam_id": 4347, "ocr_source": "session-vision"},
+  "header": {"title": "2025년 1학기 중간고사 동문고 1학년 공통수학1"},
+  "questions": [
+    {
+      "number": 1,
+      "score": 2.8,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "두 다항식 A=5x^{2}-4x+6, B=-2x^{2}+x+1에 대하여 A+2B를 간단히 하면?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "x^{2}-3x+7"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "x^{2}-2x+8"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3x^{2}-2x+8"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "3x^{2}-3x+7"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "8x^{2}-7x+13"}]}
+      ]
+    },
+    {
+      "number": 2,
+      "score": 2.9,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "{}_{5}\\mathrm{P}_{2}+{}_{5}\\mathrm{C}_{4}의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "25"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "30"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "35"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "40"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "45"}]}
+      ]
+    },
+    {
+      "number": 3,
+      "score": 2.9,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "1부터 9까지의 숫자가 각각 하나씩 적힌 9개의 공이 들어 있는 상자에서 한 개의 공을 꺼낼 때, 3의 배수 또는 5의 배수가 적힌 공이 나오는 경우의 수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+      ]
+    },
+    {
+      "number": 4,
+      "score": 3.2,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "i^{430}의 값은? (단, i=\\sqrt{-1})"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "-i"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "i"}]}
+      ]
+    },
+    {
+      "number": 5,
+      "score": 3.2,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 4개의 평행선과 5개의 평행선이 만나고 있다. 이 직선들로 만들어지는 평행사변형의 개수는?"},
+        {"type": "figure", "value": "서로 다른 두 방향의 평행선 다발이 겹쳐진 격자 그림. 왼쪽 위에서 오른쪽 아래로 가는 방향의 평행선 4개(가로에 가깝게 눕혀진 직선 4개)와, 그 위를 비스듬히 가로지르는 다른 방향의 평행선 5개가 서로 만나 기울어진 격자(평행사변형 모양의 칸)를 이루고 있다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "20"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "30"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "40"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "50"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "60"}]}
+      ]
+    },
+    {
+      "number": 6,
+      "score": 3.2,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 원의 둘레에 12개의 점이 같은 간격으로 놓여 있다. 이 중 3개의 점을 택하여 만든 삼각형이 직각삼각형이 되는 경우의 수는?"},
+        {"type": "figure", "value": "하나의 원 위에 같은 간격(30도 간격)으로 12개의 점이 찍혀 있는 그림. 점을 잇는 선분은 그려져 있지 않고 원과 12개의 점만 표시되어 있다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "36"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "42"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "48"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "54"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "60"}]}
+      ]
+    },
+    {
+      "number": 7,
+      "score": 3.5,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "이차식 x^{2}-6x+14를 복소수 범위에서 인수분해하면? (단, i=\\sqrt{-1})"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "(x-3+2i)(x-3-2i)"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "(x+3+2i)(x+3-2i)"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "(x-3+\\sqrt{5}\\,i)(x-3-\\sqrt{5}\\,i)"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "(x+3+\\sqrt{5}\\,i)(x+3-\\sqrt{5}\\,i)"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "(x+3+\\sqrt{6}\\,i)(x+3-\\sqrt{6}\\,i)"}]}
+      ]
+    },
+    {
+      "number": 8,
+      "score": 3.5,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "<보기>에서 옳은 것만을 있는 대로 고른 것은?"},
+        {"type": "text", "value": "<보기> ㄱ. \\sqrt{2}\\sqrt{-3}=\\sqrt{-6} • ㄴ. \\sqrt{-2}\\sqrt{-3}=-\\sqrt{-6} • ㄷ. \\frac{\\sqrt{-2}}{\\sqrt{3}}=-\\sqrt{-\\frac{2}{3}} • ㄹ. \\frac{\\sqrt{-2}}{\\sqrt{-3}}=\\sqrt{\\frac{2}{3}}"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ, ㄹ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄴ, ㄷ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄴ, ㄹ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄱ, ㄴ, ㄹ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄴ, ㄷ, ㄹ"}]}
+      ]
+    },
+    {
+      "number": 9,
+      "score": 3.5,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "다항식 x^{4}-3x^{3}-12x-16가 (x+a)(x+b)(x^{2}+cx+d)로 인수분해될 때, 네 상수 a, b, c, d에 대하여 a+b+c+d의 값은? (단, a, b, c, d는 실수이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "4"}]}
+      ]
+    },
+    {
+      "number": 10,
+      "score": 3.5,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "각 면에 1에서부터 6까지의 자연수가 적힌 정육면체의 주사위를 세 번 던져서 나온 수를 차례로 x, y, z라 할 때, 3x+2y+z=12를 만족시키는 순서쌍 (x,~y,~z)의 개수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "10"}]}
+      ]
+    },
+    {
+      "number": 11,
+      "score": 3.8,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "이차방정식 x^{2}+4x+9=0의 두 근을 \\alpha, \\beta라 할 때, 2-\\alpha, 2-\\beta를 두 근으로 하는 이차방정식은? (단, 이차방정식의 이차항의 계수는 1이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "x^{2}-8x+9=0"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "x^{2}-8x+17=0"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "x^{2}-8x+21=0"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "x^{2}+8x+17=0"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "x^{2}+8x+21=0"}]}
+      ]
+    },
+    {
+      "number": 12,
+      "score": 3.8,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "x에 대한 이차방정식 x^{2}-5x+4-n=0이 서로 다른 두 실근을 갖도록 하는 정수 n의 최솟값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-5"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-4"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "-1"}]}
+      ]
+    },
+    {
+      "number": 13,
+      "score": 3.8,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 한 줄에 3개씩 모두 6개의 좌석이 있는 케이블카가 있다. 두 학생 A, B를 포함한 5명의 학생이 이 케이블카에 탑승하려고 한다. A와 B는 같은 줄에 서로 이웃하여 앉고, 나머지 세 명은 맞은편 줄의 좌석에 앉는 경우의 수는? (단, 2명이 같은 줄의 바로 옆에 앉을 때만 이웃한 것으로 본다.)"},
+        {"type": "figure", "value": "케이블카(곤돌라) 탑승 장면 사진. 문이 열린 케이블카 내부가 보이며, 서로 마주 보는 두 줄의 좌석이 있고 각 줄에 3개씩 모두 6개의 좌석이 배치되어 있다. 바닥에 '탑승위치' 표시가 있다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "42"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "48"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "54"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "60"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "66"}]}
+      ]
+    },
+    {
+      "number": 14,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "이차방정식 4x^{2}-2x+3=0의 두 근을 \\alpha, \\beta라 할 때, \\frac{\\overline{\\alpha}}{\\alpha}+\\frac{\\overline{\\beta}}{\\beta}의 값은? (단, \\overline{\\alpha}, \\overline{\\beta}는 각각 \\alpha, \\beta의 켤레복소수이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-\\frac{11}{3}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-\\frac{8}{3}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-\\frac{5}{3}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "-\\frac{2}{3}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "-\\frac{1}{3}"}]}
+      ]
+    },
+    {
+      "number": 15,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "\\frac{2025^{4}-4\\times 2025^{2}+2027}{2025^{3}-2\\times 2025^{2}+1} 의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "2024"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2025"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "2026"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "2027"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "2028"}]}
+      ]
+    },
+    {
+      "number": 16,
+      "score": 4.2,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "자연수 n에 대하여 복소수 z를"},
+        {"type": "equation", "value": "z=(2n^{2}-4n-9)+(n^{2}+3n-1)i"},
+        {"type": "text", "value": "라 하자. \\overline{z^{2}}=-z^{2}을 만족시키는 모든 n의 값의 합은? (단, \\overline{z^{2}}는 z^{2}의 켤레복소수이고, i=\\sqrt{-1}이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "10"}]}
+      ]
+    },
+    {
+      "number": 17,
+      "score": 4.2,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "최고차항의 계수가 1인 삼차다항식 P(x)가 다음 조건을 모두 만족시킬 때, P(x)를 x-3으로 나누었을 때의 나머지는?"},
+        {"type": "text", "value": "<상자> (가) P(2x+7)을 x+3으로 나누었을 때의 나머지는 -1이다. • (나) (x^{2}+1)P(x)를 x^{2}-2x로 나누었을 때의 나머지는 32x-4이다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "35"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "37"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "39"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "41"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "43"}]}
+      ]
+    },
+    {
+      "number": 18,
+      "score": 4.0,
+      "type": "서술형",
+      "label": "[서술형 1]",
+      "contents": [
+        {"type": "text", "value": "[서술형 1] 다항식 2x^{3}-6x^{2}-x+14를 x+2로 나누었을 때의 몫과 나머지를 각각 구하는 풀이 과정과 답을 쓰시오."}
+      ]
+    },
+    {
+      "number": 19,
+      "score": 6.0,
+      "type": "서술형",
+      "label": "[서술형 2]",
+      "contents": [
+        {"type": "text", "value": "[서술형 2] 1부터 24까지의 자연수 중에서 서로 다른 세 수를 택할 때, 세 수의 합이 짝수가 되는 경우의 수를 구하는 풀이 과정과 답을 쓰시오."}
+      ]
+    },
+    {
+      "number": 20,
+      "score": 6.0,
+      "type": "서술형",
+      "label": "[서술형 3]",
+      "contents": [
+        {"type": "text", "value": "[서술형 3] 모든 실수 x에 대하여 등식"},
+        {"type": "equation", "value": "x^{8}+2x^{5}+3=a_{0}+a_{1}(x+1)+a_{2}(x+1)^{2}+\\cdots+a_{8}(x+1)^{8}"},
+        {"type": "text", "value": "이 성립할 때, a_{0}+a_{2}+a_{4}+a_{6}+a_{8}의 값을 구하는 풀이 과정과 답을 쓰시오. (단, a_{0}, a_{1}, \\cdots, a_{8}은 상수이다.)"}
+      ]
+    },
+    {
+      "number": 21,
+      "score": 7.0,
+      "type": "서술형",
+      "label": "[서술형 4]",
+      "contents": [
+        {"type": "text", "value": "[서술형 4] 다항식"},
+        {"type": "equation", "value": "x^{3}-(3k+5)x^{2}+(2k^{2}+13k+6)x-6k^{2}-12k"},
+        {"type": "text", "value": "가 (x-a)(x-b)(x-c)로 인수분해 된다."},
+        {"type": "text", "value": "a, b, c를 세 변의 길이로 하는 삼각형 \\mathrm{ABC}가 이등변삼각형이 되도록 하는 상수 k의 값의 합을 구하는 풀이 과정과 답을 쓰시오."}
+      ]
+    },
+    {
+      "number": 22,
+      "score": 8.0,
+      "type": "서술형",
+      "label": "[서술형 5]",
+      "contents": [
+        {"type": "text", "value": "[서술형 5] 다항식 f(x)가 다음 세 조건을 모두 만족시킬 때, f(0)의 값을 구하는 풀이 과정과 답을 쓰시오."},
+        {"type": "text", "value": "<상자> (가) f(x)를 x^{3}-1로 나누었을 때의 몫은 x+4이다. • (나) f(x)를 x^{2}+x+1로 나누었을 때의 나머지는 x-2이다. • (다) f(x)를 x+1로 나누었을 때의 나머지는 -8이다."}
+      ]
+    },
+    {
+      "number": 23,
+      "score": 9.0,
+      "type": "서술형",
+      "label": "[서술형 6]",
+      "contents": [
+        {"type": "text", "value": "[서술형 6] 그림과 같이 \\overline{\\mathrm{AD}}=a, \\overline{\\mathrm{AB}}=b, \\overline{\\mathrm{BF}}=c인 직육면체 \\mathrm{ABCD}-\\mathrm{EFGH}가 있다. 이 직육면체의 모든 모서리의 길이의 합은 16이고, 부피는 1이고, 선분 \\mathrm{AG}의 길이는 2\\sqrt{2}이다. 꼭짓점 \\mathrm{A}, \\mathrm{F}, \\mathrm{H}를 지나는 평면으로 잘라 사면체 \\mathrm{A}-\\mathrm{EFH}를 만들면 꼭짓점 \\mathrm{A}, \\mathrm{E}에서 선분 \\mathrm{FH}에 각각 내린 수선의 발은 \\mathrm{P}로 일치한다. 삼각형 \\mathrm{AFH}의 넓이를 구하는 풀이 과정과 답을 쓰시오."},
+        {"type": "figure", "value": "직육면체 ABCD-EFGH를 비스듬히 그린 입체도형. 윗면이 A(왼쪽 위), D(오른쪽 위), B(왼쪽 앞), C(오른쪽 앞), 아랫면이 E(안쪽 왼쪽), H(오른쪽), F(왼쪽 아래 앞), G(오른쪽 아래 앞)로 표시되어 있다. 모서리 AD에 a, AB에 b, 왼쪽 세로 모서리(B에서 F로 내려가는 모서리)에 c가 점선 호와 함께 표시되어 있다. 꼭짓점 A에서 F, H로 선분이 그어져 삼각형 AFH가 나타나고, 선분 FH 위의 점 P가 표시되며 A와 E에서 FH에 내린 수선의 발이 P로 일치함을 나타내는 직각 표시가 P에 그려져 있다. E에서 P로 가는 점선, A에서 P로 가는 선분, 그리고 대각선 AG에 해당하는 선도 함께 보인다."}
+      ]
+    }
+  ]
+}

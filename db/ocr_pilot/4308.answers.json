@@ -1,0 +1,162 @@
+{
+ "exam_id": 4308,
+ "answer_pages": [
+  7
+ ],
+ "items": [
+  {
+   "number": 1,
+   "answer": "⑤",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 2,
+   "answer": "③",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 3,
+   "answer": "③",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 4,
+   "answer": "④",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 5,
+   "answer": "②",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 6,
+   "answer": "⑤",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 7,
+   "answer": "①",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 8,
+   "answer": "⑤",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 9,
+   "answer": "④",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 10,
+   "answer": "①",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 11,
+   "answer": "⑤",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 12,
+   "answer": "①",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 13,
+   "answer": "③",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 14,
+   "answer": "③",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 15,
+   "answer": "①",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 16,
+   "answer": "④",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 17,
+   "answer": "②",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 18,
+   "answer": "②",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 19,
+   "answer": "$27$",
+   "solution": "$C=\\begin{pmatrix} a+3 & 0 \\\\ -4+b & 2 \\end{pmatrix}$, $D=\\begin{pmatrix} 3-a & -2 \\\\ b+4 & -2 \\end{pmatrix}$\n$CD=\\begin{pmatrix} 9-a^{2} & -2a-6 \\\\ (b-4)(3-a)+2(b+4) & -2b+4 \\end{pmatrix}=\\begin{pmatrix} 8 & -8 \\\\ 8 & 0 \\end{pmatrix}$\n$a=1$, $b=2$",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 20,
+   "answer": "$65$",
+   "solution": "근과 계수의 공식에 대입하면\n$127=(7+{}_{n-1}\\mathrm{C}_{r-1}\\times 3!)$ , $20={}_{n-1}\\mathrm{C}_{r-1}$\n$120\\times 7=7\\times{}_{n-1}\\mathrm{P}_{r-1}$, $120={}_{n-1}\\mathrm{P}_{r-1}$\n$(r-1)!=6$, $r=4$, $n=7$\n$n^{2}+r^{2}=49+16=65$",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 21,
+   "answer": "$f(x)=3x^{2}-6x+6$, $g(x)=-3x+6$",
+   "solution": "$f(x)g(x)$는 삼차식이다. $f(x)-3(x^{2}+x-1)$으로 나누었을 때의 몫은 $x^{2}-3x+3$이라면, $f(x)-3(x^{2}+x-1)$은 일차다항식이고, 나머지 $f(x)+xg(x)+3$은 상수항이다.\n$f(x)=3x^{2}+ax+b$, $g(x)=cx+d$라고 하면\n$f(x)-3(x^{2}+x-1)=(a-3)x+b+3$\n$f(x)+xg(x)+3=(3+c)x^{2}+(a+d)x+b+3$\n$c=-3$, $a=-d$\n$f(x)g(x)=\\{(a-3)x+(b+3)\\}(x^{2}-3x+3)+(b+3)$\n계수비교법으로 최고차항의 계수와 상수항을 구하면\n$a-3=3c=-9$ , $a=-6$, $d=6$\n$bd=6b=4(b+3)$   $b=6$\n$f(x)=3x^{2}-6x+6$, $g(x)=-3x+6$",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 22,
+   "answer": "$f(2)=420$",
+   "solution": "$f(x)$를 $x^{3}-x^{2}+5x-5$로 나눈 몫과 나머지를 $g(x)$라고 하면 $g(x)$는 이차 이하의 다항식이다.\n$f(x)=g(x)(x^{2}+5)(x-1)+g(x)$\n$f(x)-12x=g(x)(x^{2}+5)(x-1)+g(x)-12x$는 $x^{2}+5$로 나누어 떨어지므로 $g(x)-12x=a(x^{2}+5)$이고,\n$g(x)=a(x^{2}+5)+12x$를 대입하면,\n$f(x)=\\{a(x^{2}+5)+12x\\}(x^{2}+5)(x-1)+a(x^{2}+5)+12x$\n$f(0)=-40$을 대입하여 정리하면 $a=2$\n$f(2)=420$",
+   "topic": "",
+   "difficulty": ""
+  }
+ ]
+}

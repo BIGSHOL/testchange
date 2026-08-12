@@ -1,0 +1,1218 @@
+{
+ "meta": {
+  "exam_id": 4328,
+  "ocr_source": "session-vision"
+ },
+ "header": {
+  "title": "2025학년도 1학년 1학기 중간고사 [공통수학1]"
+ },
+ "questions": [
+  {
+   "number": 1,
+   "score": 2.9,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "다항식 $f(x)=7(x-1)^{2}+(2x+3)^{3}$을 $x-1$로 나눈 나머지를 구하면?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "7"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "27"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "28"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "64"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "125"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 2,
+   "score": 3.1,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "두 다항식 $A=x^{2}-x+1$, $B=-x^{3}-2x+2$에 대하여 $(A-2B)+(B-2A)$를 구하면?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-x^{3}+x^{2}-3x+3"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-x^{3}+x^{2}-3x-3"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "x^{3}+x^{2}-3x-3"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "x^{3}-x^{2}-3x-3"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "x^{3}-x^{2}+3x-3"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 3,
+   "score": 3.2,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "$x+y+z=2$, $x^{2}+y^{2}+z^{2}=26$일 때, $xy+yz+xz$의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-12"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-11"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "11"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "12"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "13"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 4,
+   "score": 3.5,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "$\\frac{99^{3}+99+2}{99^{2}-99+2}$의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "100"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "99"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "98"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "97"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "96"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 5,
+   "score": 3.8,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "상수 $a_{0}, a_{1}, a_{2}, \\cdots, a_{15}$에 대하여 등식"
+    },
+    {
+     "type": "equation",
+     "value": "(x^{3}+2x^{2}+1)^{5}=a_{0}+a_{1}x+a_{2}x^{2}+\\cdots+a_{15}x^{15}"
+    },
+    {
+     "type": "text",
+     "value": "이 $x$에 대한 항등식일 때, $a_{0}+a_{2}+a_{4}+a_{6}+a_{8}+a_{10}+a_{12}+a_{14}$ 의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1056"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1024"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "992"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "528"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "496"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 6,
+   "score": 3.8,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "모든 실수 $x$에 대하여 등식"
+    },
+    {
+     "type": "equation",
+     "value": "x^{3}-3x^{2}+2x-3=a(x-1)^{3}+b(2x-2)^{2}+c(3x-3)+d"
+    },
+    {
+     "type": "text",
+     "value": "가 성립할 때, $a+b+c+d$의 값은? (단, $a, b, c, d$는 상수이다.)"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{7}{3}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-\\frac{7}{3}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-3"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-5"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 7,
+   "score": 3.9,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "다항식 $P(x)$에 대하여 $(x^{2}+3x+2)(x^{2}-5x+6)+k=\\{P(x)\\}^{2}$일 때, $P(k)$의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "8"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "16"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "64"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 8,
+   "score": 4.2,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "다음 <보기> 중 옳은 것의 개수는?"
+    },
+    {
+     "type": "text",
+     "value": "<보기> ㄱ. x^{2}-xy-2y^{2}+x+7y-6=(x-2y+3)(x+y-2) • ㄴ. x^{4}-7x^{3}+16x^{2}-14x+4=(x-1)(x-2)(x^{2}+4x+2) • ㄷ. 27x^{3}-64y^{3}=(3x-4y)(9x^{2}+24xy+16y^{2}) • ㄹ. x^{4}-13x^{2}+36=(x+2)(x-2)(x+3)(x-3) • ㅁ. (x+3)^{3}=x^{3}+6x^{2}+9x+27"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 9,
+   "score": 4.4,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "세 변의 길이가 $a, b, c$인 삼각형에서"
+    },
+    {
+     "type": "equation",
+     "value": "a^{3}-b^{3}+2ab^{2}-2a^{2}b+ac^{2}+a^{2}c-bc^{2}+b^{2}c-2abc=0"
+    },
+    {
+     "type": "text",
+     "value": "이 성립할 때, 이 삼각형이 어떤 삼각형인지 찾으면?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "text",
+       "value": "$a=b$인 이등변삼각형"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "text",
+       "value": "$a=c$인 이등변삼각형"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "text",
+       "value": "$a=b$인 직각이등변삼각형"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "text",
+       "value": "$a=c$인 직각이등변삼각형"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "text",
+       "value": "정삼각형"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 10,
+   "score": 3.3,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "등식 $\\sqrt{-2}\\times\\sqrt{-3}+\\frac{\\sqrt{10}}{\\sqrt{-2}}\\times\\frac{\\sqrt{-3}}{\\sqrt{-15}}=a+bi$를 만족시키는 두 실수 $a$, $b$에 대하여 $ab$의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\sqrt{2}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\sqrt{6}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2\\sqrt{2}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\sqrt{10}"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 11,
+   "score": 3.9,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "실수 $x$에 대하여 복소수 $z=(2xi+4)i-x(2+i)+8$가 $z^{2}<0$을 만족시킬 때, $\\frac{z^{6}}{x}$의 값은? (단, $i=\\sqrt{-1}$)"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-32"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-16"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-8"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "8"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "16"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 12,
+   "score": 4.3,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "복소수 $z=\\frac{1+i}{1-i}$에 대하여 $z+2z^{2}+3z^{3}+4z^{4}+\\cdots+62z^{62}=a+bi$가 성립할 때, 두 실수 $a, b$에 대하여 $b-a$의 값은? (단, $i=\\sqrt{-1}$)"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "54"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "57"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "60"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "63"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "66"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 13,
+   "score": 4.3,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "$x$에 대한 이차방정식"
+    },
+    {
+     "type": "equation",
+     "value": "x^{2}-2(k-a)x+k^{2}+2k+2a+b=0"
+    },
+    {
+     "type": "text",
+     "value": "이 실수 $k$의 값에 관계없이 항상 서로 다른 두 실근을 갖도록 하는 두 정수 $a$, $b$에 대하여 $a+b$의 최댓값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-5"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-3"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-1"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 14,
+   "score": 3.4,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "이차방정식 $f(x)=0$의 두 근 $\\alpha$, $\\beta$에 대하여 $\\alpha+\\beta=4$, $\\alpha\\beta=-6$일 때, 이차방정식 $f(3x+1)=0$의 두 근의 곱은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-5"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-3"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-1"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 15,
+   "score": 3.7,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "이차함수 $f(x)=ax^{2}+bx+c$는 모든 실수 $x$에 대하여 $f(x+4)=f(-x)$가 성립하고, 이차함수 $y=f(x)$의 그래프는 오른쪽 그림과 같다. 이때, 이차방정식 $ax^{2}+bx+c=0$의 두 실근의 합은? (단, $a, b, c$는 상수)"
+    },
+    {
+     "type": "figure",
+     "value": "위로 볼록한 포물선 $y=f(x)$의 그래프. 꼭짓점은 $y$축의 오른쪽 위(제1사분면)에 있고, 그래프는 $x$축과 원점 왼쪽의 한 점과 원점 오른쪽의 한 점에서 각각 만난다. $y$절편은 양수이며, 곡선 오른쪽 위에 $y=f(x)$ 라벨이, 원점에 O, 가로축에 $x$, 세로축에 $y$가 표시되어 있다."
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 16,
+   "score": 4.9,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "자연수 $n$에 대하여 이차함수 $y=x^{2}+4x+k$의 그래프와 직선 $y=x+n-2$가 만나는 점의 개수를 $f(n)$이라고 하자. $f(1)+f(2)+f(3)+f(4)=5$일 때, 상수 $k$의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{5}{4}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{3}{2}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{7}{4}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{9}{4}"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 17,
+   "score": 4.6,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "이차함수 $f(x)=\\frac{1}{2}x^{2}-ax+5$의 그래프와 직선 $y=x+1$이 서로 다른 두 점 $\\mathrm{A}$, $\\mathrm{B}$에서 만난다. 선분 $\\mathrm{AB}$의 길이가 $2\\sqrt{2}$일 때, 양수 $a$의 값은? (단, 점 $\\mathrm{B}$의 $x$좌표가 점 $\\mathrm{A}$의 $x$좌표보다 크다.)"
+    },
+    {
+     "type": "figure",
+     "value": "아래로 볼록한 포물선 $y=f(x)$와 기울기가 1인 직선 $y=x+1$이 두 점 $\\mathrm{A}$(왼쪽 아래), $\\mathrm{B}$(오른쪽 위)에서 만나는 그림. 두 점 $\\mathrm{A}$, $\\mathrm{B}$에서 $x$축에 내린 수선이 점선으로 그려져 직각 표시가 되어 있고, 점 $\\mathrm{B}$에만 라벨 B가 붙어 있다. 곡선에 $y=f(x)$, 직선에 $y=x+1$ 라벨, 원점 O와 가로축 $x$, 세로축 $y$가 표시되어 있다."
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 18,
+   "score": 4.8,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "$0\\leq x\\leq 1$일 때, 이차함수 $y=x^{2}-2ax+a^{2}+1$의 최솟값이 10이 되도록 하는 모든 실수 $a$의 값의 합은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 19,
+   "score": 7,
+   "type": "서술형",
+   "label": "[서답형 1]",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서답형 1] 다항식 $f(x)$를 $(x+3)(2x-1)$로 나눈 몫이 $Q(x)$이고 나머지가 $2x-5$일 때, $f(2x)+1$을 $4x+6$으로 나눈 나머지를 구하는 과정을 상세히 서술하시오."
+    }
+   ],
+   "choices": []
+  },
+  {
+   "number": 20,
+   "score": 8,
+   "type": "서술형",
+   "label": "[서답형 2]",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서답형 2] 삼차식 $f(x)$와 다항식 $g(x)$가 다음 조건을 만족시킨다."
+    },
+    {
+     "type": "text",
+     "value": "<상자> (가) f(-1)=f(2)=f(3) • (나) f(x)의 상수항을 포함한 계수의 총합은 0이다. • (다) f(x)는 g(x)로 나누어떨어진다. • (라) 모든 실수 x에 대하여 g(x) \\geq g\\left(\\frac{3}{2}\\right)이고, g\\left(\\frac{3}{2}\\right)=-17"
+    },
+    {
+     "type": "text",
+     "value": "$g(x)$를 $x-1$로 나눈 나머지를 구하시오. (단, $g(1)\\neq 0$)"
+    }
+   ],
+   "choices": []
+  },
+  {
+   "number": 21,
+   "score": 6,
+   "type": "서술형",
+   "label": "[서답형 3]",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서답형 3] 오른쪽 그림과 같이 곡선 $y=-x^{2}+24x$ 위의 두 점 $\\mathrm{A}$, $\\mathrm{B}$와 $x$축 위의 두 점 $\\mathrm{C}$, $\\mathrm{D}$를 꼭짓점으로 하는 직사각형 $\\mathrm{ACDB}$의 둘레의 길이의 최댓값을 구하시오. (단, 두 점 $\\mathrm{A}$, $\\mathrm{B}$는 제1사분면 위의 점이다.)"
+    },
+    {
+     "type": "figure",
+     "value": "위로 볼록한 곡선 $y=-x^{2}+24x$가 원점 O와 $x=24$에서 $x$축과 만나는 그림. 곡선 위의 두 점 $\\mathrm{A}$(왼쪽), $\\mathrm{B}$(오른쪽)를 잇는 가로 선분과, 그 아래 $x$축 위의 두 점 $\\mathrm{C}$($\\mathrm{A}$ 바로 아래), $\\mathrm{D}$($\\mathrm{B}$ 바로 아래)로 이루어진 직사각형 $\\mathrm{ACDB}$가 그려져 있다. $x$축에는 왼쪽부터 O, C, D, 24가 표시되어 있고, 곡선 위쪽에 $y=-x^{2}+24x$ 라벨이 있다."
+    }
+   ],
+   "sub_questions": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "text",
+       "value": "점 $\\mathrm{C}$의 $x$좌표를 $a$라고 할 때, $a$의 값의 범위를 구하시오."
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "text",
+       "value": "직사각형 $\\mathrm{ACDB}$의 둘레의 길이를 $a$에 대한 식으로 나타내시오."
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "text",
+       "value": "직사각형 $\\mathrm{ACDB}$의 둘레의 길이의 최댓값을 구하시오."
+      }
+     ]
+    }
+   ],
+   "choices": []
+  },
+  {
+   "number": 22,
+   "score": 9,
+   "type": "서술형",
+   "label": "[서답형 4]",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서답형 4] 최고차항의 계수가 1인 이차함수 $y=f(x)$의 그래프와 $x$축은 서로 다른 두 점에서 만나고, 이차함수 $f(x)$가 다음 조건을 만족시킨다."
+    },
+    {
+     "type": "text",
+     "value": "<상자> (가) 이차함수 y=f(x)의 그래프는 이차함수 y=2x^{2}-4x의 그래프와 x축이 만나는 두 점 중에서 한 점만을 지난다. • (나) 이차함수 y=f(x)+1의 그래프와 x축은 한 점에서 만난다. • (다) f(3)<0이다."
+    },
+    {
+     "type": "text",
+     "value": "$f(x)$의 식을 구하는 과정을 상세히 서술하시오."
+    }
+   ],
+   "choices": []
+  }
+ ]
+}

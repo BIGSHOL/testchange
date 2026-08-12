@@ -1,0 +1,1259 @@
+{
+ "meta": {
+  "exam_id": 4327,
+  "ocr_source": "session-vision"
+ },
+ "header": {
+  "title": "대명여자고등학교 1학년 1학기 기말고사 — [공통수학1] (CODE : 02, 2025년 7월 4일)"
+ },
+ "questions": [
+  {
+   "number": 1,
+   "score": 3.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "이차방정식 x^{2}+ax+b=0의 한 허근이 1+2i 일 때, a+b의 값은? (단, a, b는 모두 실수이다.)"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "0"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 2,
+   "score": 3.1,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "y=2x+a가 이차함수 y=x^{2}+x의 그래프와 만나지 않을 때, 정수 a의 최댓값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "0"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-1"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-2"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 3,
+   "score": 3.2,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "두 행렬 A=\\begin{pmatrix} 2a+1 & -1 \\\\ 5 & d-2 \\end{pmatrix}, B=\\begin{pmatrix} 3 & b-1 \\\\ -c+4 & 3 \\end{pmatrix}에 대하여, A=B일 때, a+b+c+d의 값은? (단, a, b, c, d는 모두 실수이다.)"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "6"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "7"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 4,
+   "score": 3.3,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "두 행렬 A=\\begin{pmatrix} 3 & 4 \\\\ 5 & 7 \\end{pmatrix}, B=\\begin{pmatrix} a & -4 \\\\ b & 3 \\end{pmatrix}에 대하여 AB=BA일 때, a+b의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "0"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 5,
+   "score": 3.4,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "다음 <보기> 중 옳은 것의 개수는? (단, O는 영행렬이고, E는 단위행렬이다.)"
+    },
+    {
+     "type": "text",
+     "value": "<보기> ㄱ. A는 m \\times n행렬이고 B는 p \\times q행렬일 때, AB는 m \\times q행렬이다. • ㄴ. 이차 정사각행렬 A, B에 대하여 AB=O이면 BA=O이다. • ㄷ. 행렬 A, B가 이차 정사각행렬일 때, AB \\neq BA이다. • ㄹ. 정사각행렬 A에 대하여 (A+E)^{2}=A^{2}+2A+E이 성립한다."
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "text",
+       "value": "0개"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "text",
+       "value": "1개"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "text",
+       "value": "2개"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "text",
+       "value": "3개"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "text",
+       "value": "4개"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 6,
+   "score": 3.5,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "알파벳에서 네 개의 자음 b, c, d, f와 세 개의 모음 a, e, i를 일렬로 나열할 때, 모음끼리 어느 두 모음도 이웃하지 않는 경우의 수는?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1440"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1500"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1672"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1944"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2016"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 7,
+   "score": 3.6,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "최고차항의 계수가 -2인 이차함수 y=f(x)의 그래프와 x축이 만나는 두 점의 x좌표가 각각 -1, 3일 때, 부등식 f(2x-4)>0을 만족시키는 모든 정수 x의 값의 합은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "6"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "7"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "8"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 8,
+   "score": 3.7,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "두 연립방정식 \\begin{cases} x+y=3 \\\\ 3x-2y=a \\end{cases}, \\begin{cases} x-by=-3 \\\\ x^{2}+2y=5 \\end{cases} 의 공통인 해가 존재할 때, ab의 값을 구하면? (단, a, b는 상수이다.)"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-2"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-1"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "0"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 9,
+   "score": 3.8,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "연립부등식 \\begin{cases} x^{2}-2x>3 \\\\ x^{2}-(a+5)x+5a \\leq 0 \\end{cases} 의 해가 3<x \\leq 5가 되도록 하는 실수 a의 값의 범위는?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "a \\leq -1"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-1<a<3"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-1 \\leq a<3"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-1<a \\leq 3"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-1 \\leq a \\leq 3"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 10,
+   "score": 3.9,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "1부터 n까지의 자연수 중에서 서로 다른 3개의 수를 뽑으려고 한다. 뽑은 3개의 수 중 가장 작은 수가 6인 경우의 수가 60 이상이 되도록 하는 자연수 n의 최솟값은? (단, n \\geq 8)"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "14"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "15"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "16"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "17"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "18"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 11,
+   "score": 4.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "이차부등식 (k+1)x^{2}-3(k+1)x+2k \\geq 0이 해를 갖지 않도록 하는 실수 k의 값의 범위가 \\alpha<k<\\beta일 때, \\alpha\\beta의 값은? (단, \\alpha, \\beta는 상수이다.)"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "6"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "7"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "8"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "9"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "10"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 12,
+   "score": 4.1,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "x에 대한 삼차방정식 x^{3}+(a-2)x^{2}-(2a^{2}-2a-4)x-4a=0의 서로 다른 실근의 개수가 2가 되도록 하는 자연수 a의 값을 구하면?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "6"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 13,
+   "score": 4.4,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "이차 정사각행렬 A가 다음 조건을 만족시킨다."
+    },
+    {
+     "type": "text",
+     "value": "<조건> (가) A\\begin{pmatrix} 1 \\\\ -1 \\end{pmatrix}=\\begin{pmatrix} 2 \\\\ 3 \\end{pmatrix} • (나) A\\begin{pmatrix} 2 \\\\ 3 \\end{pmatrix}=\\begin{pmatrix} -1 \\\\ 1 \\end{pmatrix}"
+    },
+    {
+     "type": "text",
+     "value": "행렬 A^{2025}\\begin{pmatrix} 4 \\\\ 6 \\end{pmatrix}를 구하면?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\begin{pmatrix} -1 \\\\ 1 \\end{pmatrix}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\begin{pmatrix} 1 \\\\ -1 \\end{pmatrix}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\begin{pmatrix} 2 \\\\ 3 \\end{pmatrix}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\begin{pmatrix} -2 \\\\ -3 \\end{pmatrix}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\begin{pmatrix} -2 \\\\ 2 \\end{pmatrix}"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 14,
+   "score": 4.2,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "1부터 8까지의 자연수가 하나씩 적힌 8개의 공과 1부터 8까지의 자연수가 하나씩 적힌 8개의 바구니가 있다. 각 바구니에 공을 하나씩 넣을 때, 바구니에 적힌 수와 공에 적힌 수가 같은 바구니의 개수가 4가 되는 경우의 수는?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "315"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "560"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "630"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "700"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "840"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 15,
+   "score": 4.3,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "A, B를 포함한 8명 중에서 4명을 뽑아 일렬로 세우려고 한다. 다음 조건을 만족시키는 경우의 수는?"
+    },
+    {
+     "type": "text",
+     "value": "<조건> (가) A, B 중 적어도 한 명은 반드시 뽑혀야 한다. • (나) 양 끝에는 A, B 중 어느 누구도 서지 않는다."
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "280"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "300"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "520"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "540"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "620"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 16,
+   "score": 4.6,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "연립부등식 \\begin{cases} |x+2|<3 \\\\ x^{2}-3x-18<0 \\end{cases} 의 해가 \\alpha<x<\\beta일 때, 부등식 |x-\\alpha|+2|x-\\beta|<8을 만족시키는 정수 x의 개수는? (단, \\alpha, \\beta는 상수이다.)"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "6"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "7"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "8"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "9"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 17,
+   "score": 4.9,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "삼차방정식 x^{3}=-1의 한 허근을 \\omega라고 하자. 다음 보기 중 옳은 것의 개수는? (단, \\overline{\\omega}는 \\omega의 켤레복소수이다.)"
+    },
+    {
+     "type": "text",
+     "value": "<보기> ㄱ. \\omega+\\frac{1}{\\omega}=1 • ㄴ. \\omega^{5}+\\omega^{7}=1 • ㄷ. \\frac{\\omega^{2}}{\\omega-1}-\\frac{\\overline{\\omega}}{1+\\overline{\\omega}^{2}}=-2 • ㄹ. \\frac{\\omega-1}{2\\omega^{2}}+\\frac{2\\omega^{2}}{\\omega-1}=\\frac{5}{2} • ㅁ. \\overline{\\omega}^{4n}+(\\overline{\\omega}-1)^{4n}+1=0 을 만족시키는 30이하의 자연수 n의 개수는 20개이다."
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 18,
+   "score": 5.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "a, b, c가 실수이고 a>0일 때, 이차부등식 ax^{2}+bx+c \\leq 0에 대하여 다음 보기 중 옳은 것을 모두 고른 것은?"
+    },
+    {
+     "type": "text",
+     "value": "<보기> ㄱ. c<0이면 부등식의 해가 존재한다. • ㄴ. a=c이면 부등식의 해는 오직 한 개뿐이다. • ㄷ. 부등식의 해가 오직 한 개 뿐이면 \\frac{2b^{2}}{a}+c \\geq 0이다."
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄱ"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄴ"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄱ, ㄷ"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄴ, ㄷ"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄱ, ㄴ, ㄷ"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 19,
+   "score": 7,
+   "type": "서술형",
+   "label": "[서답형 1]",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서답형 1] 성훈, 미주, 유정이는 두 편의점 P와 Q에서 빵과 우유를 사려고 한다. [표1]은 두 편의점의 빵과 우유의 가격을 나타낸 것이고, [표2]는 성훈이와 미주가 사려고 하는 빵과 우유의 개수를 나타낸 것이다. 다음 물음에 답하시오."
+    },
+    {
+     "type": "text",
+     "value": "[표1]"
+    },
+    {
+     "type": "table",
+     "rows": [
+      [
+       "",
+       "빵",
+       "우유"
+      ],
+      [
+       "P",
+       "2000",
+       "600"
+      ],
+      [
+       "Q",
+       "1500",
+       "800"
+      ]
+     ]
+    },
+    {
+     "type": "text",
+     "value": "[표2]"
+    },
+    {
+     "type": "table",
+     "rows": [
+      [
+       "",
+       "성훈",
+       "미주"
+      ],
+      [
+       "빵",
+       "5",
+       "3"
+      ],
+      [
+       "우유",
+       "3",
+       "6"
+      ]
+     ]
+    }
+   ],
+   "choices": [],
+   "sub_questions": [
+    {
+     "number": 1,
+     "score": 4,
+     "contents": [
+      {
+       "type": "text",
+       "value": "[표1]과 [표2]를 행렬로 표현하고, 성훈이와 미주가 두 편의점 P와 Q에 지불해야 할 금액을 행렬로 나타내시오."
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "score": 3,
+     "contents": [
+      {
+       "type": "text",
+       "value": "성훈이와 미주는 두 편의점 P와 Q 중 어디에서 사야 비용이 얼마나 더 적게 드는지 각각 자세히 서술하시오."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 20,
+   "score": 8,
+   "type": "서술형",
+   "label": "[서답형 2]",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서답형 2] 최고차항의 계수가 1이고 모든 항의 계수가 실수인 사차방정식 f(x)=0 의 한 허근을 \\omega라고 하자."
+    },
+    {
+     "type": "text",
+     "value": "<조건> (가) \\omega+\\overline{\\omega}=6, \\omega^{2}+\\overline{\\omega}^{2}=16 • (나) f(x)=0 은 절댓값이 같고 부호가 서로 다른 두 실근 \\alpha, \\beta를 갖는다.(단, \\alpha>\\beta) • (다) 모든 실수 x에 대하여 x^{2}+2(k-1)x-k+3 \\geq 0이 성립하는 정수 k의 개수는 \\alpha개이다."
+    },
+    {
+     "type": "text",
+     "value": "<조건>을 만족하는 사차방정식 f(x)=0에 대하여 f(\\alpha-\\beta)의 값을 구하는 과정을 자세히 서술하시오."
+    }
+   ],
+   "choices": []
+  },
+  {
+   "number": 21,
+   "score": 6,
+   "type": "서술형",
+   "label": "[서답형 3]",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서답형 3] 다섯 개의 숫자 0, 1, 2, 3, 4에서 서로 다른 숫자 3개를 사용하여 만들 수 있는 세 자리 자연수 중에서 짝수의 개수를 구하시오."
+    }
+   ],
+   "choices": []
+  },
+  {
+   "number": 22,
+   "score": 9,
+   "type": "서술형",
+   "label": "[서답형 4]",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서답형 4] 이차함수 f(x)=-x^{2}+ax-b에 대하여 부등식 f(x)>0을 만족시키는 정수가 5개이고 그 합이 5일 때, 다음 물음에 답하시오. (단, a, b는 정수이고, 이차방정식 f(x)=0의 두 실근은 정수가 아니다.)"
+    }
+   ],
+   "choices": [],
+   "sub_questions": [
+    {
+     "number": 1,
+     "score": 2,
+     "contents": [
+      {
+       "type": "text",
+       "value": "부등식 f(x)>0을 만족시키는 정수를 모두 구하시오."
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "score": 4,
+     "contents": [
+      {
+       "type": "text",
+       "value": "정수인 a와 b를 모두 구하시오."
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "score": 3,
+     "contents": [
+      {
+       "type": "text",
+       "value": "f(2)의 최솟값을 구하시오."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

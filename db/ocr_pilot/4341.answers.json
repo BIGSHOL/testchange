@@ -1,0 +1,85 @@
+{
+  "exam_id": 4341,
+  "answer_pages": [7, 8],
+  "items": [
+    {"number": 1, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 2, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 3, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 4, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 5, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 6, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 7, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 8, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 9, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 10, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 11, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 12, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 13, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 14, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 15, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 16, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {
+      "number": 17,
+      "answer": "②",
+      "solution": "원 $x^{2}+y^{2}=25$ 위의 점 $(-4,~3)$에서의 접선은 $-4x+3y=25$이므로 이를 정리하면 $4x-3y+25=0$이다.\n이 접선이 원 $(x-6)^{2}+(y-8)^{2}=r^{2}$과 만나지 않도록 하기 위해서는 원의 중심 $(6,~8)$과 직선과의 거리가 반지름 $r$보다 커야한다.\n따라서 $d=\\frac{25}{5}=5>r$이므로 자연수 $r$의 개수는 4개다.",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 18,
+      "answer": "④",
+      "solution": "좌표평면 위에 $x$축과 $y$축에 동시에 접하고 중심이 제2사분면에 속하며 반지름의 길이가 2인 원 $C$는 $(x+2)^{2}+(y-2)^{2}=4$이다. 원 밖의 한 점 $\\mathrm{A}(0,~6)$을 지나고 원 $C$에 그은 접선의 방정식을 $y=mx+6$이라 하면 이 직선과 $(-2,~2)$ 사이의 거리는 2이다.\n따라서 $d=\\frac{|-2m+4|}{\\sqrt{m^{2}+1}}=2$이므로 이를 풀이하면 $m=\\frac{3}{4}$이다. 따라서 직선 $y=\\frac{3}{4}x+6$과 $y=-4$와의 교점은 $\\left(-\\frac{40}{3},~-4\\right)$이고, 직선 $x=0$과의 교점 $(0,~-4)$, $(0,~6)$을 연결한 삼각형의 넓이는 $\\frac{1}{2}\\times 10\\times\\frac{40}{3}=\\frac{200}{3}$이다.",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 19,
+      "answer": "①",
+      "solution": "직선 $\\mathrm{AD}$와 직선 $\\mathrm{BC}$는 평행하므로 직선 $\\mathrm{BC}$의 방정식은\n$y=\\frac{3}{2}(x-4) \\to 3x-2y-12=0$\n점 $\\mathrm{D}$에서 직선까지의 거리는 두 직선 $\\mathrm{AD}$, $\\mathrm{BC}$ 사이의 거리와 같으므로\n$\\frac{|0-2\\times 3-12|}{\\sqrt{9+4}}=\\frac{18}{\\sqrt{13}}=\\frac{18}{13}\\sqrt{13}$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 20,
+      "answer": "④",
+      "solution": "직선 $\\frac{x}{a}+\\frac{y}{b}=1$에서 $x$절편은 $a$, $y$절편은 $b$이므로\n$\\frac{1}{2}\\times a\\times b=9 \\to ab=18$\n원점과 이 직선 사이의 거리가 6이므로\n$\\frac{x}{a}+\\frac{y}{b}=1 \\to bx+ay-ab=0$\n$6=\\frac{|-ab|}{\\sqrt{a^{2}+b^{2}}} \\to a^{2}+b^{2}=9$\n$(a+b)^{2}=a^{2}+b^{2}+2ab=9+36=45$\n$\\therefore a+b=3\\sqrt{5}$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 21,
+      "answer": "④",
+      "solution": "$\\mathrm{A}(-2,~2)$, $\\mathrm{B}(6,~-4)$에 대하여\nㄷ. 에 의하여 $\\mathrm{D}$의 좌표는 $\\left(\\frac{1\\times 6+3\\times(-2)}{1+3},~\\frac{1\\times(-4)+3\\times 2}{1+3}\\right)=\\left(0,~\\frac{1}{2}\\right)$\nㄴ. 에 의하여 $\\mathrm{C}$의 좌표는 $\\left(-4,~\\frac{7}{2}\\right)$\nㄹ. 에 의하여 $\\mathrm{E}$의 좌표를 $(a,~b)$라 할 때, $\\left(\\frac{2a-18}{11},~\\frac{2b+18}{11}\\right)=\\left(0,~\\frac{1}{2}\\right)$\n$a=9$, $b=-\\frac{25}{4}$\n$\\therefore \\mathrm{E}\\left(9,~-\\frac{25}{4}\\right)$\n$\\therefore \\overline{\\mathrm{CE}}=\\sqrt{(9+4)^{2}+\\left(-\\frac{25}{4}-\\frac{7}{2}\\right)^{2}}=13\\sqrt{1+\\frac{9}{16}}=13\\times\\frac{5}{4}=\\frac{65}{4}$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 22,
+      "answer": "(1) $P\\subset Q\\subset R$ (2) $1<a<4$, $b\\geq 4$",
+      "solution": "(1) $p$는 $q$이기 위한 충분조건이고, $r$은 $q$이기 위한 필요조건이 되어야 하므로 $P\\subset Q\\subset R$ 이다.\n(2) $P=\\{x|a-2\\leq x\\leq a\\}$, $Q=\\{x|-1<x<4\\}$, $R=\\{x|x\\leq b\\}$ 이고 $p$가 $q$이기 위한 충분조건이고 $r$는 $q$이기 위한 필요조건이 되어야 하므로 $1<a<4$, $b\\geq 4$이다.",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 23,
+      "answer": "$\\mathrm{C}(8,~19)$, $\\mathrm{C}(0,~-5)$",
+      "solution": "$2\\overline{\\mathrm{AB}}=\\overline{\\mathrm{BC}}$에서 $\\overline{\\mathrm{AB}}:\\overline{\\mathrm{BC}}=1:2$\nⅰ) 점 $\\mathrm{B}$는 $\\mathrm{A}$와 $\\mathrm{C}$의 $1:2$ 내분점이다. $\\mathrm{C}(8,~19)$\nⅱ) 점 $\\mathrm{A}$는 $\\mathrm{C}$와 $\\mathrm{B}$의 $1:1$ 내분점이다. $\\mathrm{C}(0,~-5)$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 24,
+      "answer": "$a=-2$, $b=-4$, $m=2$, $r=2$",
+      "solution": "원 $C$의 중심의 좌표는 $(a,~b)$이고 반지름의 길이는 $r$\n$y$축 방향으로 $m$만큼 평행이동하면 $x$축과 $(-2,~0)$에서 접하므로 $a=-2$, $|b+m|=r$\n(그림: y축에 해당하는 세로 직선과 만나는 원이 그려져 있고, 중심 $(-2+m,~-4)$에서 반지름 $r$가 표시되며 세로 직선과의 교점이 $-2$와 $-6$으로 표시되어 있다.)\n$x$축 방향으로 $m$만큼 평행이동하면 $y$축과 두 점 $(0,~-2)$, $(0,~-6)$에서 만나므로 $b=-4$\n중심의 좌표는 $(m-2,~-4)$이므로\n$r^{2}=(m-2)^{2}+2^{2}$\n$(m-4)^{2}=(m-2)^{2}+4$에서 $m=2$\n따라서 $r=2$\n$a=-2$, $b=-4$, $m=2$, $r=2$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 25,
+      "answer": "$3$, $-3$, $-9$",
+      "solution": "$x-y+1=0$과 평행하면 $\\frac{3}{k}=1$ 따라서 $k=3$\n$x+y-1=0$과 평행하면 $\\frac{3}{k}=-1$ 따라서 $k=-3$\n$x-y+1=0$, $x+y-1=0$의 교점을 지나면 삼각형을 이루지 않으므로 교점의 좌표는 $(0,~1)$이다.\n따라서 $k=-9$\n따라서 모든 $k$값은 $3$, $-3$, $-9$",
+      "topic": "",
+      "difficulty": ""
+    }
+  ]
+}

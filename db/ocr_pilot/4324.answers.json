@@ -1,0 +1,68 @@
+{
+  "exam_id": 4324,
+  "answer_pages": [5, 6],
+  "items": [
+    {"number": 1, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 2, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 3, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 4, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 5, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 6, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 7, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 8, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 9, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 10, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 11, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 12, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 13, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {
+      "number": 14,
+      "answer": "최댓값 $7$, 최솟값 $-11$",
+      "solution": "$y=-2(x-1)^{2}+7$ 이므로, 꼭짓점 $(1,~7)$\n꼭짓점의 $x$좌표인 $1$은 $x$의 범위에 포함되므로,\n$f(-2)=-11$, $f(1)=7$, $f(2)=5$\n따라서 $x=1$일 때 최댓값 $7$, $x=-2$일 때 최솟값 $-11$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 15,
+      "answer": "$a=-1$, $b=4$",
+      "solution": "$P(x)=(x-2)(x+1)Q(x)+ax+b$\n$P(-1)=5$, $P(2)=2$이므로,\n$P(-1)=-a+b=5$, $P(2)=2a+b=2$이다.\n이 식을 풀면 $a=-1$, $b=4$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 16,
+      "answer": "$k=\\frac{1}{4}$",
+      "solution": "이차방정식의 두 실근을 $\\alpha$, $2\\alpha$\n두 실근의 합이 $6k$ 이므로, $3\\alpha=6k$\n두 실근의 곱이 $2k$ 이므로, $2\\alpha^{2}=2k$\n$4k^{2}=k$ 따라서 $k=\\frac{1}{4}$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 17,
+      "answer": "$k=0$",
+      "solution": "이차함수와 직선이 한 점에서 만나므로,\n$x^{2}+x+1=3x+k$ 이고,\n$x^{2}-2x+1-k=0$ 의 판별식 $D=0$이다.\n$D=4-4(1-k)=0$ 이므로, $k=0$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 18,
+      "answer": "$28$",
+      "solution": "step1) $f(x)=g(x)+4$ 대입하고 정리하면,\n$3\\{(g(x))^{2}+4(g(x))+4\\}+4=3x^{4}-12x^{3}+6x^{2}+12x+7$\n$\\{g(x)+2\\}^{2}=x^{4}-4x^{3}+2x^{2}+4x+1$\n$\\{g(x)+2\\}^{2}=(x^{2}-2x-1)^{2}$\n따라서 $g(x)+2=x^{2}-2x-1 \\to g(x)=x^{2}-2x-3$\n또는 $g(x)+2=-x^{2}+2x+1 \\to g(x)=-x^{2}+2x-1$\nstep2) (가) 조건에 의해 $g(x)=x^{2}-2x-3$이다.\n$f(x)=x^{2}-2x+1$이므로,\n$f(5)=16$, $g(5)=12$ 따라서 $f(5)+g(5)=28$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 19,
+      "answer": "$\\frac{2}{3}$",
+      "solution": "step1) $y=\\frac{1}{a}(x-2a)^{2}-4a+1$ 이고, 꼭짓점의 좌표는 $(2a,~-4a+1)$이다.\nstep2) $a$의 값의 범위에 맞추어, 그래프의 개형 및 최댓값 최솟값을 확인한다.\n1) $2a<0 \\to a<0$일 때, $f(0)=1$, $f(1)=-\\frac{3}{2}$이다. $a=\\frac{2}{3}$ 이므로, 범위에 맞지 않다.\n2) $0<2a<1 \\to 0<a<\\frac{1}{2}$일 때, 꼭짓점이 최솟값이 되고, $-4a+1=-\\frac{3}{2} \\to -4a=-\\frac{5}{2}$이므로, $a=\\frac{5}{8}$ 는 범위에 맞지 않다.\n3) $2a \\geq 1 \\to a \\geq \\frac{1}{2}$일 때, $f(0)=1$, $f(1)=-\\frac{3}{2}$이므로, $a=\\frac{2}{3}$ ($a$의 범위에 만족)\n따라서 $a=\\frac{2}{3}$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 20,
+      "answer": "$8$",
+      "solution": "step1) 보기 (나), (라)에 의하면\n$f(k)+g(k)=-1+6=-3k^{2}+8k+1$\n$(3k-2)(k-2)=0$이고, $(k>1)$조건에 따라 $k=2$이다.\nstep2) $f(x)=a(x-2)^{2}-1 \\to ax^{2}-4ax+4a-1$\n$g(x)=(-a-3)x^{2}+(4a+8)x+(-4a+2)$라 하자.\nstep3) $g(x)$는 축의 방정식인 $\\frac{2a+4}{a+3}$에서 최댓값 $8$을 가진다.\n$g\\left(\\frac{2a+4}{a+3}\\right)=\\frac{-(2a+4)^{2}}{a+3}+\\frac{2(2a+4)^{2}}{a+3}-4a+2=8$\n양변에 $a+3$ 을 곱하여 식을 간단히 하면\n$6a+22=8a+24$\n$a=-1$이고,\n$g(x)=-2x^{2}+4x+6$ 이므로, $g(0)=6$\n따라서 $k=2$, $g(0)=6$ 이므로, 합은 $8$이다.",
+      "topic": "",
+      "difficulty": ""
+    }
+  ]
+}

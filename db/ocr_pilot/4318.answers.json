@@ -1,0 +1,64 @@
+{
+  "exam_id": 4318,
+  "answer_pages": [7],
+  "items": [
+    {"number": 1, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 2, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 3, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 4, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 5, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 6, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 7, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 8, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 9, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 10, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 11, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 12, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 13, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 14, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 15, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 16, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {
+      "number": 17,
+      "answer": "$498000$",
+      "solution": "$\\frac{2(499^{4}-1)}{500 \\times 499-498}$에서 $499=x$라고 두자.\n$\\frac{2(499^{4}-1)}{500 \\times 499-498}=\\frac{2(x^{4}-1)}{x(x+1)-(x-1)}$\n$=\\frac{2(x^{2}+1)(x+1)(x-1)}{x^{2}+1}$\n$=\\frac{2(x^{2}+1)(x+1)(x-1)}{(x^{2}+1)}$\n$=2(x+1)(x-1)$\n$=2 \\times 500 \\times 498$\n$=498000$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 18,
+      "answer": "$-9$",
+      "solution": "$x=-2$를 대입하면 $-8=64a-32b+16c-8d+4e-2f+g$\n$x=1$을 대입하면 $1=a+b+c+d+e+f+g$\n두 식을 빼면 $-9=63a-33b+15c-9d+3e-3f$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 19,
+      "answer": "$8$",
+      "solution": "(가)에 의하여 $(x-2)(y-2)(z-2)=0$이다.\n이 식을 전개하면,\n$xyz-2(xy+yz+zx)+4(x+y+z)-8=0$이므로,\n(나)에 의하여 $xyz=8$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 20,
+      "answer": "(1) $z=-\\frac{\\sqrt{2}}{2}+\\frac{\\sqrt{2}}{2}i$ (2) $-1$",
+      "solution": "$z=\\sqrt{-\\frac{1}{6}}\\sqrt{-3}+\\frac{\\sqrt{-5}}{\\sqrt{10}}$\n$=\\sqrt{\\frac{1}{6}}i \\times \\sqrt{3}i+\\frac{\\sqrt{5}i}{\\sqrt{10}}$\n$=-\\frac{1}{\\sqrt{2}}+\\frac{1}{\\sqrt{2}}i$\n$z=-\\frac{\\sqrt{2}}{2}(1-i)$이므로, $z^{2}=\\frac{1}{2}(-2i)=-i$\n즉, $z^{4}=-1$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 21,
+      "answer": "$-5$",
+      "solution": "첫 번째 이차방정식이 중근을 가질려면\n$D=0$이어야하므로, $D_{1}/4=k^{2}-(20-k)=0$\n$k^{2}+k-20=(k+5)(k-4)=0$, $k=-5$ 또는 $k=4$\n두 번째 이차방정식이 실근을 가질려면\n$D \\geq 0$이어야하므로, $D_{2}=1-4(k-1) \\geq 0$, $k \\leq \\frac{5}{4}$\n즉, 두 조건을 동시에 만족하는 $k=-5$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 22,
+      "answer": "$28$",
+      "solution": "이차함수의 축의 방정식이 3이므로, $\\mathrm{A}(-1,~0)$, $\\mathrm{B}(7,~0)$\n즉, 이차함수의 식은 $y=-(x+1)(x-7)$이므로 $a=7$\n그리고 $\\mathrm{A}$가 $y=x+b$위의 점이므로 $b=1$\n일차함수와 이차함수의 교점의 좌표가 $\\mathrm{C}$이므로\n$-x^{2}+6x+7=x+1$, $x^{2}-5x-6=0$, $x=6$ 또는 $x=-1$\n$x=6$이므로 $\\mathrm{C}(6,~7)$이다.\n삼각형의 넓이는 $8 \\times 7 \\times \\frac{1}{2}=28$",
+      "topic": "",
+      "difficulty": ""
+    }
+  ]
+}

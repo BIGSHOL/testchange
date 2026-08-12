@@ -1,0 +1,395 @@
+{
+  "meta": {"exam_id": 4329, "ocr_source": "session-vision"},
+  "header": {"title": "대원고 1학년 수학 — 2025년 1학기 기말고사 대비 (공통수학1) : 방정식과 부등식 ~ 행렬"},
+  "questions": [
+    {
+      "number": 1,
+      "score": 3,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "두 정수 a, b에 대하여 이차함수 y = 2x^{2}+ax+4의 그래프와 직선 y = -3x+b가 서로 다른 두 점에서 만나고, 두 교점의 x좌표의 합은 -3이다. b의 최솟값을 m이라 할 때, a+m의 값을 구하시오."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+      ]
+    },
+    {
+      "number": 2,
+      "score": 3,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "0 \\leq x \\leq 3에서 함수 f(x) = x^{2}+2ax+2a^{2}-a의 최솟값이 0이 되도록 하는 모든 실수 a의 값의 합은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{1}{2}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{3}{2}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{5}{2}"}]}
+      ]
+    },
+    {
+      "number": 3,
+      "score": 3,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "남학생 6명과 여학생 3명으로 이루어진 독서 동아리에서 독서 토론회에 나갈 3명을 뽑으려고 한다. 이때 남학생 2명과 여학생 1명을 뽑는 경우의 수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "25"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "35"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "45"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "55"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "65"}]}
+      ]
+    },
+    {
+      "number": 4,
+      "score": 3,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "다음 그림과 같이 남학생 2명과 여학생 2명이 함께 놀이공원에 가서 한 줄에 2개씩 의자가 있고, 모두 3줄로 된 놀이 기구를 타려고 한다. 남학생 1명과 여학생 1명이 짝을 지어 2명씩 같은 줄에 앉을 때, 4명이 모두 놀이 기구의 의자에 앉는 경우의 수를 구하시오. (단, 다른 탑승자는 없다고 한다.)"},
+        {"type": "figure", "value": "놀이공원 놀이기구(바이킹 형태) 삽화. 남학생 2명과 여학생 2명이 놀이기구 위에 서 있고, 기구에는 한 줄에 2개씩 의자가 있는 좌석이 모두 3줄 배치되어 있다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "45"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "46"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "47"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "48"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "49"}]}
+      ]
+    },
+    {
+      "number": 5,
+      "score": 3,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "3 \\times 3 의 행렬 A의 (i,~j) 성분 a_{ij}가"},
+        {"type": "equation", "value": "a_{ij} = \\begin{cases} i+j & (i \\geq j) \\\\ ij+1 & (i < j) \\end{cases}"},
+        {"type": "text", "value": "일 때, 행렬 A의 모든 성분의 합은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "32"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "34"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "36"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "38"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "40"}]}
+      ]
+    },
+    {
+      "number": 6,
+      "score": 3,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "연립부등식"},
+        {"type": "equation", "value": "\\begin{cases} |x-1| \\leq 3 \\\\ x^{2}-4x+3 > 0 \\end{cases}"},
+        {"type": "text", "value": "을 만족시키는 모든 정수 x의 값의 합은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "3"}]}
+      ]
+    },
+    {
+      "number": 7,
+      "score": 3,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "서로 다른 12개의 마카롱 중에서 서로 다른 5개의 마카롱을 고르는 경우의 수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "360"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "496"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "532"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "624"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "792"}]}
+      ]
+    },
+    {
+      "number": 8,
+      "score": 4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "사차방정식 x(x+1)(x+2)(x+3) = 3의 모든 실근의 곱은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "-3"}]}
+      ]
+    },
+    {
+      "number": 9,
+      "score": 4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "선재네 반을 포함하여 7개의 반이 아래쪽 그림과 같은 토너먼트 방식으로 시합을 치를 때, 선재네 반이 한 번만 이기면 결승에 진출하도록 대진표를 작성하는 방법의 수는?"},
+        {"type": "figure", "value": "7개 반 토너먼트 대진표. 맨 아래에 7개의 회색 원(참가 반)이 놓여 있고, 왼쪽 가지는 4개 원이 2+2로 짝지어져 두 번의 경기를 거쳐 준결승에 오르며, 오른쪽 가지는 2개 원이 짝지어진 경기의 승자와 나머지 1개 원이 곧바로 준결승에서 만난다. 두 준결승 승자가 맨 위 결승에서 만나는 구조."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "45"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "60"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "75"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "90"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "105"}]}
+      ]
+    },
+    {
+      "number": 10,
+      "score": 4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "연립방정식"},
+        {"type": "equation", "value": "\\begin{cases} (x+2)(y+3) = k \\\\ (x-2)(y-1) = k \\end{cases}"},
+        {"type": "text", "value": "가 실근을 가질 때, 정수 k의 최댓값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "0"}]}
+      ]
+    },
+    {
+      "number": 11,
+      "score": 4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "x \\leq 10인 모든 실수 x에 대하여 부등식 |x-a| \\leq |x-b|가 성립하도록 하는 두 실수 a, b의 합 a+b의 최솟값은? (단, a < b)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "28"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "26"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "24"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "22"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "20"}]}
+      ]
+    },
+    {
+      "number": 12,
+      "score": 3,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "모든 실수 x에 대하여 성립하는 부등식을 <보기>에서 있는 대로 고른 것은?"},
+        {"type": "text", "value": "<보기> ㉠ x^{2}+25 > 10x • ㉡ x^{2}-x+1 \\geq 0 • ㉢ -x^{2}+10 \\leq 3x • ㉣ 4x^{2} > 2x-1"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "㉠, ㉡"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "㉠, ㉢"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "㉡, ㉢"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "㉡, ㉣"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "㉢, ㉣"}]}
+      ]
+    },
+    {
+      "number": 13,
+      "score": 4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "어느 반 학생들이 긴 의자에 앉으려고 한다. 한 의자에 5명씩 앉으면 3명이 앉지 못하고, 8명씩 앉으면 의자가 1개 남는다고 할 때, 최대 학생 수는 몇 명인가?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "43"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "38"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "33"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "28"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "23"}]}
+      ]
+    },
+    {
+      "number": 14,
+      "score": 3,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "서로 다른 잡지 2권, 서로 다른 시집 2권이 있다. 잡지와 시집을 일렬로 나열할 때, 번갈아 놓는 경우의 수를 a, 시집이 서로 이웃하는 경우의 수를 b라고 하자. a+b의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "14"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "16"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "18"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "20"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "22"}]}
+      ]
+    },
+    {
+      "number": 15,
+      "score": 3,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "{}_{n}\\mathrm{C}_{4} = {}_{n}\\mathrm{C}_{3},~ {}_{5}\\mathrm{C}_{r} = {}_{5}\\mathrm{C}_{r-1}일 때, {}_{n}\\mathrm{P}_{r}의 값은? (단, n, r은 자연수이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "210"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "220"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "230"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "240"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "250"}]}
+      ]
+    },
+    {
+      "number": 16,
+      "score": 4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "아래쪽 그림과 같이 여섯 개의 영역을 서로 다른 4가지 색으로 일부 또는 전부를 사용하여 칠하려고 한다. 같은 색을 여러 번 사용해도 좋으나 이웃하는 영역은 서로 다른 색으로 칠할 때, 칠할 수 있는 모든 방법의 수는? (단, ②와 ⑥은 다른 색을 칠한다.)"},
+        {"type": "figure", "value": "삿갓 쓴 사람 모양 도형이 여섯 개의 영역으로 나뉘어 있다. 위에서부터 ① 삼각형 모양의 삿갓 챙(맨 위), ② 삿갓 아래 직사각형 모양의 모자 띠, ③ 웃는 얼굴이 그려진 원형의 머리, ④ 머리 아래 작은 직사각형 모양의 목, ⑤ 사다리꼴 모양의 몸통(윗변이 좁고 아랫변이 넓음), ⑥ 몸통 아래 반원 모양의 하단부. 인접 관계는 ①-②, ②-③, ③-④, ④-⑤, ⑤-⑥ 이며 ②와 ⑥은 서로 떨어져 있으나 다른 색을 칠하라는 단서가 붙어 있다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "576"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "612"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "648"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "684"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "720"}]}
+      ]
+    },
+    {
+      "number": 17,
+      "score": 4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "smile에 있는 다섯 개의 문자를 한 번씩만 사용하여 만든 문자열을 사전식으로 나열할 때, 95번째의 문자열을 구하시오."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "mslei"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "mslie"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "msile"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "miles"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "mseil"}]}
+      ]
+    },
+    {
+      "number": 18,
+      "score": 5,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "이차정사각행렬 A가 (A-E)^{2} = 2A-3E를 만족시킬 때, (A-E)^{3} = mA+nE이다. 두 실수 m, n에 대하여 mn의 값은? (단, E는 단위행렬이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-15"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-8"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+      ]
+    },
+    {
+      "number": 19,
+      "score": 3,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "서로 다른 종류의 샤프 2개와 서로 다른 종류의 사인펜 3개를 4명의 학생에게 남김없이 나누어 주는 방법의 수는? (단, 아무것도 받지 못한 학생은 없다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "160"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "180"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "200"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "220"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "240"}]}
+      ]
+    },
+    {
+      "number": 20,
+      "score": 5,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "이차정사각행렬 A가 A^{2}-2A+4E = O를 만족시킬 때, 행렬 A^{15}의 모든 성분의 합은? (단, E는 단위행렬, O는 영행렬이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-2^{16}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-2^{5}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "2^{5}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "2^{16}"}]}
+      ]
+    },
+    {
+      "number": 21,
+      "score": 5,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "이차정사각행렬 A가 다음 조건을 만족시킬 때, 양수 a의 값을 구하시오. (단, E는 단위행렬이다.)"},
+        {"type": "text", "value": "<상자> (가) A = \\begin{pmatrix} a & 1 \\\\ 4 & -1 \\end{pmatrix} • (나) (A+3E)(A-2E)의 모든 성분의 합이 12이다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+      ]
+    },
+    {
+      "number": 22,
+      "score": 6,
+      "type": "서술형",
+      "label": "[서술형 1]",
+      "contents": [
+        {"type": "text", "value": "[서술형 1] 삼차방정식 x^{3}+1 = 0의 한 허근을 \\omega라 할 때, 4\\omega^{2}+3\\omega^{3}+2\\omega^{4} = a\\omega+b 를 만족시키는 실수 a, b에 대하여 a+b의 값을 서술하시오."}
+      ],
+      "choices": []
+    },
+    {
+      "number": 23,
+      "score": 6,
+      "type": "서술형",
+      "label": "[서술형 2]",
+      "contents": [
+        {"type": "text", "value": "[서술형 2] 1부터 9까지의 자연수를 일렬로 나열할 때, 3의 배수끼리 이웃하고, 4의 배수끼리 이웃하지 않는 경우의 수를 구하시오."}
+      ],
+      "choices": []
+    },
+    {
+      "number": 24,
+      "score": 6,
+      "type": "서술형",
+      "label": "[서술형 3]",
+      "contents": [
+        {"type": "text", "value": "[서술형 3] 야구 중계 프로그램에서 인기 선수를 선정하기 위해 팬 투표와 선수단 투표를 실시하고, 각각의 득표율에 가중치를 부여한 뒤 합산하여 총점을 구하기로 하였다. 두 선수 A, B가 팬 투표와 선수단 투표에서 받은 득표율과 각 투표에 부여하는 가중치가 다음 표와 같을 때, 두 선수 A, B의 총점을 행렬을 이용하여 구하시오."},
+        {"type": "figure", "value": "표 두 개가 나란히 인쇄된 이미지. (단위: %) 왼쪽 표 — 열 머리글: 선수 / 팬 투표 / 선수단 투표, 행: A는 팬 투표 30, 선수단 투표 50 ; B는 팬 투표 40, 선수단 투표 30. 오른쪽 표 — 열 머리글: 투표 / 가중치, 행: 팬 투표 0.7 ; 선수단 투표 0.3."}
+      ],
+      "choices": []
+    },
+    {
+      "number": 25,
+      "score": 6,
+      "type": "서술형",
+      "label": "[서술형 4]",
+      "contents": [
+        {"type": "text", "value": "[서술형 4] 한 변의 길이가 4인 정삼각형 \\mathrm{ABC}와 한 변의 길이가 a인 정사각형 \\mathrm{DEFG}가 있다. 다음 그림과 같이 네 점 \\mathrm{A}, \\mathrm{D}, \\mathrm{B}, \\mathrm{E}가 한 직선 위에 있고, \\overline{\\mathrm{DB}} = b, \\overline{\\mathrm{AE}} = 8이 되도록 두 도형을 겹쳐 놓았을 때, 선분 \\mathrm{CB}와 선분 \\mathrm{GD}의 교점을 \\mathrm{H}라 하자. 정사각형 \\mathrm{DEFG}의 넓이가 삼각형 \\mathrm{DBH}의 넓이의 4\\sqrt{3}배보다 19만큼 클 때, 가능한 모든 a의 값의 합을 구하시오. (단, 4 < a < 6, 0 < b < 2)"},
+        {"type": "figure", "value": "정삼각형 ABC와 정사각형 DEFG를 겹쳐 놓은 그림. 아래쪽 수평선 위에 왼쪽부터 점 A, D, B, E가 차례로 놓여 있다. 정삼각형 ABC는 밑변 AB 위에 꼭짓점 C가 위로 솟아 있고 변 AC 옆에 길이 4가 점선 화살표로 표시되어 있다. 정사각형 DEFG는 밑변 DE 위에 세워져 있으며 왼쪽 위 꼭짓점이 G, 오른쪽 위 꼭짓점이 F이고 오른쪽 변 EF 옆에 길이 a가 점선으로 표시되어 있다. 정사각형의 왼쪽 변 GD가 삼각형의 변 CB와 만나는 점이 H로 표시되어 있고, 점 D, B, H로 이루어진 작은 삼각형 DBH가 분홍색으로 칠해져 있다. 선분 DB 아래에 길이 b가 점선으로 표시되어 있다."}
+      ],
+      "choices": []
+    }
+  ]
+}

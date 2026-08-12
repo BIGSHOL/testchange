@@ -1,0 +1,177 @@
+{
+ "exam_id": 4315,
+ "answer_pages": [
+  7,
+  8
+ ],
+ "items": [
+  {
+   "number": 1,
+   "answer": "③",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 2,
+   "answer": "④",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 3,
+   "answer": "②",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 4,
+   "answer": "②",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 5,
+   "answer": "④",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 6,
+   "answer": "③",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 7,
+   "answer": "③",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 8,
+   "answer": "③",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 9,
+   "answer": "①",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 10,
+   "answer": "⑤",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 11,
+   "answer": "③",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 12,
+   "answer": "③",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 13,
+   "answer": "⑤",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 14,
+   "answer": "⑤",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 15,
+   "answer": "①",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 16,
+   "answer": "⑤",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 17,
+   "answer": "②",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 18,
+   "answer": "④",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 19,
+   "answer": "③",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 20,
+   "answer": "④",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 21,
+   "answer": "풀이참조",
+   "solution": "(1) 대우명제는 ‘자연수 $n$에 대하여, $n$이 홀수이면 $n^{2}$도 홀수이다.’이다.\n$n$이 홀수이므로 $n=2k-1$ ($n$은 자연수)라 하면\n$n^{2}=(2k-1)^{2}=4k^{2}-4k+1$\n$=2(2k^{2}-2k)+1$이다.\n$2k^{2}-2k$는 $0$ 또는 자연수이므로 $n^{2}$도 홀수이다.\n따라서, 주어진 명제의 대우가 참이므로 명제 ‘자연수 $n$에 대하여, $n^{2}$이 짝수이면 $n$도 짝수이다.’도 참이다.\n(2) 자연수 $n$에 대하여, $n^{2}$이 짝수이면 $n$이 짝수가 아니라고 가정하면 $n$은 홀수이다.\n$n=2k-1$ ($k$는 자연수)일 때,\n$n^{2}=(2k-1)^{2}$\n$=4k^{2}-4k+1$\n$=2(2k^{2}-2k)+1$이므로 짝수가 아니므로 가정에 모순이다. 따라서, 주어진 명제는 참이다.",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 22,
+   "answer": "$\\frac{5}{6}$",
+   "solution": "$f(x)$와 $g(x)$는 서로 역함수 관계이고 $f\\left(\\frac{5}{3}\\right)=g\\left(\\frac{5}{3}\\right)$을 성립하므로, 두 함수 모두 $\\left(\\frac{5}{3},~\\frac{5}{3}\\right)$를 지난다.\n$f(x)$의 기울기가 $m$이므로 $g(x)$의 기울기는 $\\frac{1}{m}$이다.\n따라서\n$f(x)=m\\left(x-\\frac{5}{3}\\right)+\\frac{5}{3}$\n$g(x)=\\frac{1}{m}\\left(x-\\frac{5}{3}\\right)+\\frac{5}{3}$\n또한 $r(x)=f\\left(\\frac{1}{3}x-2\\right)$이므로\n$r(x)=\\frac{m}{3}x-\\frac{11}{3}m+\\frac{5}{3}$이고 $r(x)$의 역함수를 구하면\n$r^{-1}(x)=\\frac{3}{m}\\left(x-\\frac{5}{3}\\right)+11$이다.\n이를 $g(x)$에 대한 식으로 정리하면\n$r^{-1}(x)=3g(x)+6$이므로\n$a=3$, $b=6$이다.\n$r(11)=f\\left(\\frac{5}{3}\\right)=\\frac{5}{3}$이므로,\n$r(11)\\times\\frac{a}{b}=\\frac{5}{6}$",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 23,
+   "answer": "$62$",
+   "solution": "그림과 같이 유리함수 $y=\\frac{m}{x}+n$의 그래프가 직선 $y=-x+9+n$과 서로 다른 두 점 $\\mathrm{P}(x_{1},~y_{1})$, $\\mathrm{Q}(x_{2},~y_{2})$에서 만난다. 먼저 (가)조건에 의해 $y_{1}+y_{2}=15$이다.\n이는 두 교점 $\\mathrm{P}$, $\\mathrm{Q}$의 중점의 $y$좌표의 값이 $\\frac{15}{2}$라는 의미로 해석할 수 있다. 직선 $y=-x+9+n$의 $y$절편을 점 $\\mathrm{A}(0,~9+n)$이라 하면 점 $\\mathrm{A}$와 점 $\\mathrm{R}$의 $y$좌표의 평균이 $\\frac{15}{2}$라는 의미이므로 $n+9+n=15$, 곧 $n=3$이다.\n다음으로 (나) 조건에서 삼각형 $\\mathrm{PQR}$의 넓이가 $18$이다. 점 $\\mathrm{R}$에서 직선 $y=-x+9+n=-x+12$까지의 거리는 $\\frac{9}{\\sqrt{2}}$이고, 이를 삼각형 $\\mathrm{PQR}$의 높이라고 했을 때, 삼각형 $\\mathrm{PQR}$의 넓이가 $18$이기 위해서는 선분 $\\overline{\\mathrm{PQ}}$의 길이가 $4\\sqrt{2}$이다.\n점 $\\mathrm{P}$와 점 $\\mathrm{Q}$의 중점의 좌표가 $\\left(\\frac{9}{2},~\\frac{15}{2}\\right)$이고 선분 $\\overline{\\mathrm{PQ}}$의 길이가 $4\\sqrt{2}$이므로 점 $\\mathrm{Q}\\left(\\frac{13}{2},~\\frac{11}{2}\\right)$이다.\n$n=3$이므로 주어진 유리함수는 $y=\\frac{m}{x}+n=\\frac{m}{x}+3$이고 이 함수가 점 $\\mathrm{Q}\\left(\\frac{13}{2},~\\frac{11}{2}\\right)$를 지나므로 대입하여 계산하면 $m=\\frac{65}{4}$이다.\n따라서 $4m-n=62$",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 24,
+   "answer": "$\\frac{21}{8}$",
+   "solution": "함수 $f(x)$와 $g(x)$는 역함수 관계이므로 함수 $g(x)=\\frac{1}{2}\\left(x^{2}-3\\right)$의 그래프와 직선 $y=x$가 만나는 점의 좌표를 구하면\n$\\mathrm{A}(3,~3)$\n점 $\\mathrm{C}$는 점 $\\mathrm{B}$를 $y=x$에 대하여 대칭이동한 점이므로\n$\\mathrm{C}\\left(2,~\\frac{1}{2}\\right)$\n선분 $\\overline{\\mathrm{BC}}$의 길이를 구해보면\n$\\overline{\\mathrm{BC}}=\\sqrt{\\left(\\frac{1}{2}-2\\right)^{2}+\\left(2-\\frac{1}{2}\\right)^{2}}=\\frac{3\\sqrt{2}}{2}$\n점 $\\mathrm{B}\\left(\\frac{1}{2},~2\\right)$를 지나고 기울기가 $-1$인 직선을 구해보면\n$y=-\\left(x-\\frac{1}{2}\\right)+2=-x+\\frac{5}{2}$\n$\\therefore 2x+2y-5=0$\n점 $\\mathrm{A}(3,~3)$에서 직선 $2x+2y-5=0$에 내린 수선의 발을 $\\mathrm{H}$라 하자. 선분 $\\overline{\\mathrm{AH}}$의 길이를 구해보면\n$\\overline{\\mathrm{AH}}=\\frac{|6+6-5|}{\\sqrt{2^{2}+2^{2}}}=\\frac{7\\sqrt{2}}{4}$\n따라서 삼각형 $\\mathrm{ABC}$의 넓이는\n$\\frac{1}{2}\\times\\overline{\\mathrm{AH}}\\times\\overline{\\mathrm{BC}}=\\frac{21}{8}$",
+   "topic": "",
+   "difficulty": ""
+  }
+ ]
+}

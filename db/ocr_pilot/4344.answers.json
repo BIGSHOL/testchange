@@ -1,0 +1,183 @@
+{
+ "exam_id": 4344,
+ "answer_pages": [
+  7
+ ],
+ "items": [
+  {
+   "number": 1,
+   "answer": "①",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 2,
+   "answer": "④",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 3,
+   "answer": "③",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 4,
+   "answer": "③",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 5,
+   "answer": "①",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 6,
+   "answer": "⑤",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 7,
+   "answer": "⑤",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 8,
+   "answer": "⑤",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 9,
+   "answer": "②",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 10,
+   "answer": "③",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 11,
+   "answer": "③",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 12,
+   "answer": "③",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 13,
+   "answer": "④",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 14,
+   "answer": "⑤",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 15,
+   "answer": "⑤",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 16,
+   "answer": "②",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 17,
+   "answer": "①",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 18,
+   "answer": "②",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 19,
+   "answer": "③",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 20,
+   "answer": "⑤",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 21,
+   "answer": "$35$",
+   "solution": "이차함수 $f(x)$의 이차항의 계수를 $a$라 하면 (가)에 의하여 $f(x)=a(x+4)(x-2)$로 놓을 수 있으므로\n$f(x)=ax^{2}+2ax-8a=a(x+1)^{2}-9a$\n(나)에서 $4 \\leq x \\leq 6$일 때 $f(x)$는 $x=4$에서 최소이므로 $f(4)=80$\n즉 $16a=80$에서 $a=5$\n따라서 $f(x)=5x^{2}+10x-40$이므로 $f(-5)=35$",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 22,
+   "answer": "$2$",
+   "solution": "$A=4x^{3}$, $B=18x^{2}$이고 $3A=B+24$를 만족하므로\n$12x^{3}-18x^{2}-24=0$\n$2x^{3}-3x^{2}-4=0$을 인수분해하면\n$(x-2)(2x^{2}+x+2)=0$이므로 $x=2$",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 23,
+   "answer": "$1 \\leq x < 9$",
+   "solution": "$\\begin{cases} 3+2(x-6)<x & \\cdots ① \\\\ x \\leq 4x-3 & \\cdots ② \\end{cases}$\n①을 풀면 $x<9$\n②를 풀면 $1 \\leq x$\n공통범위를 구하면 $1 \\leq x < 9$",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 24,
+   "answer": "(1) $144$ (2) $72$",
+   "solution": "(1) 여학생을 이웃하게 $4!\\times 3!=144$\n(2) 남녀가 교대로 남녀 or 여남 두가지 경우\n$3!\\times 3!\\times 2=72$",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 25,
+   "answer": "$8$",
+   "solution": "삼차방정식 $x^{3}-3x^{2}-2x+k=0$의 세 근이 $\\alpha$, $\\beta$, $\\gamma$이므로 근과 계수의 관계에 의하여\n$\\alpha+\\beta+\\gamma=3$ $\\cdots\\cdots ㉠$\n$\\alpha\\beta+\\beta\\gamma+\\gamma\\alpha=-2$ $\\cdots\\cdots ㉡$\n$\\alpha\\beta\\gamma=-k$ $\\cdots\\cdots ㉢$\n$AB=\\begin{pmatrix} 1 & \\alpha \\\\ \\gamma & 1 \\end{pmatrix}\\begin{pmatrix} \\alpha & \\beta \\\\ \\beta & 1 \\end{pmatrix}=\\begin{pmatrix} \\alpha+\\alpha\\beta & \\alpha+\\beta \\\\ \\gamma\\alpha+\\beta & \\beta\\gamma+1 \\end{pmatrix}$이고 행렬 $AB$의 모든 성분의 합이 $1$이므로\n$(\\alpha+\\alpha\\beta)+(\\alpha+\\beta)+(\\gamma\\alpha+\\beta)+(\\beta\\gamma+1)=1$\n$2(\\alpha+\\beta)+(\\alpha\\beta+\\beta\\gamma+\\gamma\\alpha)+1=1$\n$2(\\alpha+\\beta)-2=0$ (∵ ㉡)\n∴ $\\alpha+\\beta=1$, $\\gamma=2$ (∵ ㉠)\n$\\gamma=2$를 ㉡에 대입하면\n$\\alpha\\beta+2\\beta+2\\alpha=-2$\n$\\alpha\\beta+2(\\alpha+\\beta)=-2$\n∴ $\\alpha\\beta=-4$ (∵ $\\alpha+\\beta=1$)\n따라서 ㉢에서\n$k=-\\alpha\\beta\\gamma=-(-4)\\times 2=8$",
+   "topic": "",
+   "difficulty": ""
+  }
+ ]
+}

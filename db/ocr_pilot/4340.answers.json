@@ -1,0 +1,76 @@
+{
+  "exam_id": 4340,
+  "answer_pages": [5, 6],
+  "items": [
+    {"number": 1, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 2, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 3, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 4, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 5, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 6, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 7, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 8, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 9, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 10, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 11, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 12, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 13, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 14, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {
+      "number": 15,
+      "answer": "$12$",
+      "solution": "$x^{2}-4x+2=0$ 근과 계수관계에서\n$\\alpha+\\beta=4$, $\\alpha\\beta=2$\n$\\alpha^{2}+\\beta^{2}=(\\alpha+\\beta)^{2}-2\\alpha\\beta=16-4=12$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 16,
+      "answer": "$192$",
+      "solution": "두 이차함수 $f(x)$와 $g(x)$를 $x$축의 방향으로 $\\alpha$만큼 평행이동한 함수를 $f_{1}(x)$, $g_{1}(x)$라 하면\n두 이차함수의 접하는 점의 $x$좌표는 $0$이고\n위 조건은\n$f_{1}(-2)=f_{1}(0)=g_{1}(6)=12$일 때\n$f_{1}(-1)g_{1}(3)$의 최댓값을 구하는 문제와 같다.\n$f_{1}(x)=sx(x+2)+12$\n$g_{1}(x)=tx(x-6)+12$\n$f_{1}(x)=g_{1}(x)$는 $x=0$을 중근으로 가진다.\n$f_{1}(x)-g_{1}(x)=(s-t)x^{2}+(2s+6t)x=0$\n$2s+6t=0$, $s=-3t$이다.\n$f_{1}(-1)g_{1}(3)$\n$=(3t+12)(-9t+12)$\n$=-9(t+4)(3t-4)$는 $t=-\\frac{4}{3}$일 때 최대이다.\n$-9 \\times \\frac{8}{3} \\times (-8)=192$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 17,
+      "answer": "$5$",
+      "solution": "$y=x^{2}+4x+a-1$이 $x$축에 접한다.\n$x^{2}+4x+a-1=0$이 중근을 가진다.\n$\\frac{D}{4}=2^{2}-(a-1)=0$\n$a=5$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 18,
+      "answer": "$2$, $6$",
+      "solution": "ⅰ) $0<a<4$\n최솟값은 $f(a)$\n$a^{2}-7a+7=-3$\n$a=2$, $5$\n$\\therefore a=2$\nⅱ) $a \\geq 4$\n최솟값은 $f(4)$\n$a-9=-3$, $\\therefore a=6$\nⅰ), ⅱ)에서 $\\therefore a=2,~6$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 19,
+      "answer": "(1) 해설 참조 (2) 해설 참조",
+      "solution": "(1) 가로의 길이를 $a$, 세로의 길이를 $b$라 하면\n$a^{2}+b^{2}=1600$, $ab=2400$\n$x+y \\geq 2\\sqrt{xy}$ 이므로(산술기하평균)\n$a^{2}+b^{2} \\geq 2ab$ 이고\n$1600 \\geq 2 \\times 2400$ 부등식이 성립하지 않으므로\n위 조건을 만족시키는 운동장은 만들 수 없다.\n(2) (다) 조건에서 운동장의 넓이 $ab$의 조건을 수정하면\n$a^{2}+b^{2} \\geq 2ab$\n$1600 \\geq 2ab$\n$800 \\geq ab$\n즉, 운동장의 넓이는 $800\\mathrm{m}^{2}$ 이하 이다.",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 20,
+      "answer": "$x=\\frac{1}{2}$일 때, 최솟값 $\\frac{23}{8}$",
+      "solution": "$y=2\\left(x^{2}-x+2\\right)^{2}-3\\left(x^{2}-x+2\\right)+2$\n$t=x^{2}-x+2$로 치환하면\n$t=\\left(x-\\frac{1}{2}\\right)^{2}+\\frac{7}{4}$\n$t \\geq \\frac{7}{4}$\n$y=2t^{2}-3t+2=2\\left(t-\\frac{3}{4}\\right)^{2}+\\frac{7}{8}$\n$t=\\frac{7}{4}$일 때 함수값이 최소이고 최솟값은 $\\frac{23}{8}$\n그때 $x=\\frac{1}{2}$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 21,
+      "answer": "$-5$",
+      "solution": "(가) 조건에서\n두 함수 $y=f(x+1)$, $y=2g(x+1)$를 $x$축의 방향으로 $1$만큼 평행이동한 두 함수 $y=f(x)$, $y=2g(x)$가 만나는 점의 $x$좌표는 $3$이다.\n$f(x)=2g(x)$\n$f(x)-2g(x)=0$는 $x=3$을 중근으로 가진다.\n$f(x)-2g(x)=(x-3)^{2}$\n$f(x)=(x-3)^{2}+2g(x)$\n$g(x)=x+a$라 하면\n$f(x)=x^{2}-6x+9+2(x+a)$\n$f(1)g(1)=(2a+6)(1+a)=16$\n$a=1$ 또는 $-5$\n$g(1)=1+a<0$, $a<-1$\n즉, $a=-5$\n$f(x)=x^{2}-4x-1$\n$f(2)=-5$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 22,
+      "answer": "$9$",
+      "solution": "$f(x)$\n$=\\left(x^{6}-1\\right)Q(x)+R(x)$\n$=\\left(x^{3}-1\\right)\\left(x^{3}+1\\right)Q(x)+R(x)$\n$=(x-1)(x+1)\\left(x^{2}+x+1\\right)\\left(x^{2}-x+1\\right)Q(x)+R(x)$\n$R(x)$를 $x^{3}+1$로 나눈 나머지는 $2x+1$\n$R(x)=\\left(x^{3}+1\\right)\\left(ax^{2}+bx+c\\right)+2x+1$\n$R(0)=c+1=2$, $c=1$\n$R(x)$는 $x^{2}+x+1$로 나누어 떨어진다.\n$x^{2}+x+1=0$의 한 근을 $w$라 하면\n$w^{2}+w+1=0$, $w^{3}=1$\n$R(w)=0$\n$\\left(w^{3}+1\\right)\\left(aw^{2}+bw+1\\right)+2w+1$\n$=2\\{a(-w-1)+bw+1\\}+2w+1$\n$=(-2a+2b+2)w-2a+3=0$\n$-2a+2b+2=0$, $-2a+3=0$\n$a=\\frac{3}{2}$, $b=\\frac{1}{2}$\n$R(1)=2\\left(\\frac{3}{2}+\\frac{1}{2}+1\\right)+3=9$",
+      "topic": "",
+      "difficulty": ""
+    }
+  ]
+}

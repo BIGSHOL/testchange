@@ -1,0 +1,391 @@
+{
+  "meta": {"exam_id": 4330, "ocr_source": "session-vision"},
+  "header": {"title": "대원고 1학년 공통수학2 (2025년 2학기 기말고사 대비)"},
+  "questions": [
+    {
+      "number": 1,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "다음 중 명제인 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "날씨가 맑다."}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "5x-3>0"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "x=1이면 4x-2=2이다."}]},
+        {"number": 4, "contents": [{"type": "text", "value": "-1은 작은 수이다."}]},
+        {"number": 5, "contents": [{"type": "text", "value": "어떤 영화는 재미있다."}]}
+      ]
+    },
+    {
+      "number": 2,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "세 조건 p, q, r이 다음 조건을 만족시킨다."},
+        {"type": "text", "value": "<상자> (가) \\sim q는 p이기 위한 필요조건이다. • (나) \\sim r은 \\sim p이기 위한 충분조건이다."},
+        {"type": "text", "value": "세 조건 p, q, r의 진리집합을 각각 P, Q, R이라 할 때, <보기>에서 항상 옳은 것만을 있는 대로 고른 것은?"},
+        {"type": "text", "value": "<보기> ㄱ. P \\cap Q^{C}=P • ㄴ. P \\cap R^{C}=\\varnothing • ㄷ. Q^{C} \\subset (P^{C} \\cap R^{C})"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄱ, ㄴ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄱ, ㄷ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄴ, ㄷ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄱ, ㄴ, ㄷ"}]}
+      ]
+    },
+    {
+      "number": 3,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "a>0, b>0일 때, \\left(a+\\frac{9}{b}\\right)\\left(b+\\frac{4}{a}\\right) 의 최솟값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "21"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "22"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "23"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "24"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "25"}]}
+      ]
+    },
+    {
+      "number": 4,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "x>-2일 때, x+\\frac{16}{x+2} 은 x=a 에서 최솟값 b를 갖는다. 이때 상수 a, b에 대하여 ab의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "14"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "16"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "18"}]}
+      ]
+    },
+    {
+      "number": 5,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "실수 a, b 에 대하여 옳은 것만을 <보기>에서 있는 대로 고른 것은?"},
+        {"type": "text", "value": "<보기> ㄱ. a^{2}+4b^{2} \\geq 2ab • ㄴ. a^{2}+b^{2}>2(a+b-1) • ㄷ. \\sqrt{a}-\\sqrt{b}>\\sqrt{a-b} (단, a>b>0)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄴ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄱ, ㄷ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄴ, ㄷ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄱ, ㄴ, ㄷ"}]}
+      ]
+    },
+    {
+      "number": 6,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "일대일대응인 함수 y=f(x)의 역함수를 y=g(x)라 할 때, y=f(2x-1)의 역함수를 g(x)로 나타내면?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "y=2g(x)-1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "y=\\frac{1}{2}g(x)-\\frac{1}{2}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "y=\\frac{1}{2}g(x)+\\frac{1}{2}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "y=\\frac{1}{2}g(x)+1"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "y=2g(x)+1"}]}
+      ]
+    },
+    {
+      "number": 7,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "두 함수 f(x)=-3x+2, g(x)=2x-5에 대하여 (g \\circ f^{-1})(a)=-1일 때, 상수 a의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-4"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "4"}]}
+      ]
+    },
+    {
+      "number": 8,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "두 집합 X=\\{x|-1 \\leq x \\leq 3\\}, Y=\\{y|-2 \\leq y \\leq 4\\}와 상수 a, b에 대하여 X에서 Y로의 함수 f(x)=ax+b가 일대일대응을 만족시킬 때, a+3b의 값은? (단, a<0)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "9"}]}
+      ]
+    },
+    {
+      "number": 9,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "집합 X=\\{1,~2,~3,~4\\}에 대하여 X에서 X로의 두 함수 f, g가 다음 조건을 만족시킨다."},
+        {"type": "text", "value": "<상자> (가) f는 일대일함수이고, g는 항등함수이다. • (나) f(4)=g(4) • (다) f(3)g(2)=f(2)g(1)"},
+        {"type": "text", "value": "(f \\circ f)(1)-f^{-1}(2)의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "2"}]}
+      ]
+    },
+    {
+      "number": 10,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "자연수 전체의 집합에서 정의된 함수 f(x)가"},
+        {"type": "equation_block", "value": "f(x)=\\begin{cases} \\frac{x}{2} & (x는 짝수) \\\\ x+1 & (x는 홀수) \\end{cases}"},
+        {"type": "text", "value": "일 때, 집합 X=\\{f^{n}(9)-f^{n}(6) \\mid n은 자연수\\}의 원소의 개수 n(X)는? (단, f^{1}=f, f^{n+1}=f \\circ f^{n})"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "8"}]}
+      ]
+    },
+    {
+      "number": 11,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "다음 중 함수 y=\\frac{3x-1}{x+1}의 그래프에 대한 설명으로 __옳지 않은__ 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "정의역은 \\{x|x \\neq -1 인 실수 \\} 이다."}]},
+        {"number": 2, "contents": [{"type": "text", "value": "치역은 \\{y|y \\neq 3 인 실수 \\} 이다."}]},
+        {"number": 3, "contents": [{"type": "text", "value": "점근선의 방정식은 x=-1, y=3이다."}]},
+        {"number": 4, "contents": [{"type": "text", "value": "y=-\\frac{1}{x} 의 그래프를 평행이동한 것이다."}]},
+        {"number": 5, "contents": [{"type": "text", "value": "모든 사분면을 지난다."}]}
+      ]
+    },
+    {
+      "number": 12,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "0 \\leq x \\leq 1 에서 함수 y=\\frac{3x+a}{x+1} 의 최댓값이 5일 때, 상수 a의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+      ]
+    },
+    {
+      "number": 13,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "함수 y=\\frac{bx-1}{x-a}의 그래프가 두 직선 y=x-3, y=-x+1 에 대하여 대칭일 때, a+b의 값은? (단, a, b는 상수이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+      ]
+    },
+    {
+      "number": 14,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "점 \\mathrm{P}(0,~-3)과 양수 k에 대하여 직선 y=kx-1+2k와 함수 y=\\frac{-x+1}{x+2}의 그래프가 만나는 서로 다른 두 점을 각각 \\mathrm{P}_{1}\\left(x_{1},~\\frac{-x_{1}+1}{x_{1}+2}\\right), \\mathrm{P}_{2}\\left(x_{2},~\\frac{-x_{2}+1}{x_{2}+2}\\right)이라 할 때, 삼각형 \\mathrm{PP}_{1}\\mathrm{P}_{2}의 넓이의 최솟값은? (단, x_{1}>-2, x_{2}<-2)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "4\\sqrt{6}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "4\\sqrt{5}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4\\sqrt{3}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "4\\sqrt{2}"}]}
+      ]
+    },
+    {
+      "number": 15,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "\\frac{a}{x+2}+\\frac{b}{x+3}=\\frac{x}{x^{2}+5x+6} 가 x에 대한 항등식이 되도록 하는 상수 a, b에 대하여 ab의 값은? (단, x \\neq -2, x \\neq -3)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-6"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-3"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "12"}]}
+      ]
+    },
+    {
+      "number": 16,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "함수 y=\\sqrt{ax+b}+c 의 그래프가 점 (1,~-1)을 지나고 정의역이 \\{x|x \\leq 5\\}, 치역이 \\{y|y \\geq -3\\} 일 때, 상수 a, b, c에 대하여 a+b-c의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "7"}]}
+      ]
+    },
+    {
+      "number": 17,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "정의역이 \\{x|x>1\\} 인 두 함수 f(x)=\\frac{x+2}{x-1}, g(x)=\\sqrt{2x-2}+1 에 대하여 (f \\circ (g \\circ f)^{-1} \\circ f)(2) 의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{9}{2}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{11}{2}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "6"}]}
+      ]
+    },
+    {
+      "number": 18,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "함수 f(x)=\\sqrt{2x-7}+k의 그래프와 직선 y=x가 서로 다른 두 점에서 만나도록 하는 실수 k값의 범위를 a<k \\leq b라고 할 때, b-a의 최댓값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{1}{4}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{1}{2}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{3}{4}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{5}{4}"}]}
+      ]
+    },
+    {
+      "number": 19,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "자연수 n(n \\leq 5)에 대하여 곡선 y=x^{2}+3~(x \\geq 0) 위의 두 점 \\mathrm{A}_{n}, \\mathrm{B}_{n}이 다음 조건을 만족시킨다."},
+        {"type": "text", "value": "<상자> (가) 직선 \\mathrm{A}_{n}\\mathrm{B}_{n}의 기울기는 5이다. • (나) \\overline{\\mathrm{A}_{n}\\mathrm{B}_{n}}=n \\times \\sqrt{26}"},
+        {"type": "text", "value": "중심이 직선 y=x위에 있고 두 점 \\mathrm{A}_{n}, \\mathrm{B}_{n}을 지나는 원이 y=\\sqrt{x-3}과 만나는 서로 다른 두 점의 y좌표 중 작은 값을 y_{n}이라 하자. y_{1}+y_{2}의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{13}{2}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{11}{2}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{9}{2}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{7}{2}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{5}{2}"}]}
+      ]
+    },
+    {
+      "number": 20,
+      "score": 4.1,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "함수 f(x)=\\begin{cases} 2ax-a+1 & (x \\leq 0) \\\\ a\\sqrt{x}-a+1 & (x>0) \\end{cases} 는 역함수를 갖는다. 함수 y=f(x)의 그래프와 y=f^{-1}(x)의 그래프의 교점의 x좌표가 -\\frac{1}{2}, 1, k뿐일 때, 2a+3k의 값은? (단, a, k는 상수이고, k>1이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "11"}]}
+      ]
+    },
+    {
+      "number": 21,
+      "score": 4.0,
+      "type": "서술형",
+      "label": "[서술형 1]",
+      "contents": [
+        {"type": "text", "value": "[서술형 1] 두 조건 ‘p: -3 \\leq x<4’, ‘q: x \\geq a’에 대하여 명제 p \\to \\sim q가 참이 되도록 하는 실수 a의 값의 범위를 구하시오."}
+      ]
+    },
+    {
+      "number": 22,
+      "score": 4.0,
+      "type": "서술형",
+      "label": "[서술형 2]",
+      "contents": [
+        {"type": "text", "value": "[서술형 2] 함수 y=-\\sqrt{ax-b}+c의 그래프가 아래쪽 그림과 같을 때, a-b+c의 값을 구하여라. (단, a, b, c는 상수이다.)"},
+        {"type": "figure", "value": "좌표평면에 그려진 감소하는 무리함수 그래프. 그래프의 시작점(끝점)은 x=-3 위쪽에 있고 y좌표는 5이며, 시작점에서 y축의 5까지 가로 점선, 시작점에서 x축의 -3까지 세로 점선이 그어져 있다. 그래프는 오른쪽으로 갈수록 완만하게 감소하며 y축과는 (0, 3)에서 만난다(y축 눈금 3 표시). x축 눈금은 -3과 원점 0, 축 이름은 x, y."}
+      ]
+    },
+    {
+      "number": 23,
+      "score": 4.0,
+      "type": "서술형",
+      "label": "[서술형 3]",
+      "contents": [
+        {"type": "text", "value": "[서술형 3] 두 함수"},
+        {"type": "equation_block", "value": "f(x)=\\begin{cases} -x^{2}+4 & (x<0) \\\\ x+4 & (x \\geq 0) \\end{cases},~ g(x)=\\begin{cases} x & (x<0) \\\\ 2x & (x \\geq 0) \\end{cases}"},
+        {"type": "text", "value": "에 대하여 합성함수 g \\circ f를 구하시오. (합성함수가 정의되는 x의 범위와 함께 각 범위에서의 함수 형태를 x에 대한 다항식으로 구할 것.)"}
+      ]
+    },
+    {
+      "number": 24,
+      "score": 8.0,
+      "type": "서술형",
+      "label": "[서술형 4]",
+      "contents": [],
+      "sub_questions": [
+        {
+          "number": 1,
+          "score": 4.0,
+          "contents": [
+            {"type": "text", "value": "[서술형 4-(1)] a, b, c, x, y, z가 실수일 때, 다음 부등식이 성립함을 증명하시오. (등호가 성립할 조건을 반드시 쓰시오.)"},
+            {"type": "equation_block", "value": "(a^{2}+b^{2}+c^{2})(x^{2}+y^{2}+z^{2}) \\geq (ax+by+cz)^{2}"}
+          ]
+        },
+        {
+          "number": 2,
+          "score": 4.0,
+          "contents": [
+            {"type": "text", "value": "[서술형 4-(2)] 세 실수 a, b, c에 대하여 4a-b+6c=6\\sqrt{2}일 때, 4a^{2}+b^{2}+9c^{2}의 최솟값을 구하시오."},
+            {"type": "text", "value": "[서술형 4-(1)의 부등식을 활용할 것.]"}
+          ]
+        }
+      ]
+    }
+  ]
+}

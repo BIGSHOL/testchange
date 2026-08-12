@@ -1,0 +1,294 @@
+{
+ "meta": {"exam_id": 4326, "ocr_source": "session-vision"},
+ "header": {"title": "2025학년도 1학년 2학기 중간고사 공통수학2"},
+ "questions": [
+  {
+   "number": 1,
+   "score": 2.3,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "원 (x+1)^{2}+y^{2}=2의 넓이는?"}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "\\pi"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "2\\pi"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "3\\pi"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "4\\pi"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "5\\pi"}]}
+   ]
+  },
+  {
+   "number": 2,
+   "score": 2.4,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "점 (2,~4)를 원점에 대하여 대칭이동한 점의 좌표는?"}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "(-2,~-4)"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "(-2,~4)"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "(2,~-4)"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "(4,~-2)"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "(4,~2)"}]}
+   ]
+  },
+  {
+   "number": 3,
+   "score": 2.5,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "세 점 \\mathrm{A}(a,~b), \\mathrm{B}(b,~2), \\mathrm{C}(-2,~6)을 꼭짓점으로 하는 삼각형 \\mathrm{ABC}의 무게중심의 좌표가 (-1,~2)일 때, a+b의 값은?"}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "-2"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "-1"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "0"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "1"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "2"}]}
+   ]
+  },
+  {
+   "number": 4,
+   "score": 2.6,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "두 집합 A=\\{2,~3,~4\\}, B=\\{5,~6,~7\\}에 대하여 집합 C가 C=\\{c|c=a+b,~a \\in A,~b \\in B\\}일 때, n(C)의 값은?"}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "3"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "4"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "5"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "6"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "7"}]}
+   ]
+  },
+  {
+   "number": 5,
+   "score": 2.7,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "두 점 \\mathrm{A}(-2,~4), \\mathrm{B}(3,~-2)에 대하여 선분 \\overline{\\mathrm{AB}}를 t:(1-t)로 내분하는 점이 제1사분면 위에 있도록 하는 실수 t의 값의 범위는 a<t<b이다. a+b의 값은? (단, 0<t<1)"}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "\\frac{4}{5}"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "\\frac{13}{15}"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "\\frac{14}{15}"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "1"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "\\frac{16}{15}"}]}
+   ]
+  },
+  {
+   "number": 6,
+   "score": 2.8,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "진로 체험 캠프에 참여한 학생 35명 중에서 책자를 받은 학생은 17명, 배지를 받은 학생은 24명이다. 책자와 배지를 모두 받은 학생이 x명일 때, x의 최댓값을 a, 최솟값을 b라 하자. a+b의 값은?"}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "23"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "25"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "27"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "29"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "31"}]}
+   ]
+  },
+  {
+   "number": 7,
+   "score": 2.9,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "좌표평면에서 포물선 y=-x^{2}-2x+1을 포물선 y=-x^{2}+4x-3으로 옮기는 평행이동에 의하여 직선 l:x+2y=0이 직선 l'로 옮겨진다. 두 직선 l과 l' 사이의 거리를 d라 할 때, d^{2}의 값은?"}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "\\frac{1}{7}"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "\\frac{1}{6}"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "\\frac{1}{5}"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "\\frac{1}{4}"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "\\frac{1}{3}"}]}
+   ]
+  },
+  {
+   "number": 8,
+   "score": 3.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "전체집합 U=\\{x|x는 13 이하의 자연수\\}의 두 부분집합 A, B에 대하여"},
+    {"type": "equation", "value": "A \\cap B=\\{3,~9,~11\\}"},
+    {"type": "equation", "value": "(B^{C} \\cup A)^{C}=\\{1,~6,~8\\}"},
+    {"type": "equation", "value": "(A-B)^{C} \\cap (B-A)^{C}=\\{2,~3,~9,~11,~13\\}"},
+    {"type": "text", "value": "일 때, 집합 A-B의 모든 원소의 합은? (단, A^{C}는 A의 여집합이다.)"}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "26"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "30"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "34"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "38"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "42"}]}
+   ]
+  },
+  {
+   "number": 9,
+   "score": 3.1,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "점 (3,~1)에서 원 x^{2}+y^{2}=5에 그은 두 접선이 원과 만나는 점을 각각 \\mathrm{P}, \\mathrm{Q}라고 할 때, 두 점 \\mathrm{P}, \\mathrm{Q}를 지나는 직선의 기울기는?"}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "-\\frac{9}{2}"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "-4"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "-\\frac{7}{2}"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "-3"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "-\\frac{5}{2}"}]}
+   ]
+  },
+  {
+   "number": 10,
+   "score": 3.2,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "원 x^{2}+y^{2}=9에 대하여 원과 x축의 양의 부분의 교점을 \\mathrm{A}, 제2사분면 위에 있는 원 위의 한 점 \\mathrm{P}를 지나는 접선 l과 x축의 교점을 \\mathrm{B}라고 하자. 점 \\mathrm{P}에서 x축에 내린 수선의 발 \\mathrm{H}가 선분 \\overline{\\mathrm{BA}}를 1:2로 내분하는 점일 때, 접선 l의 방정식은 ax+by=9이다. 두 상수 a, b에 대하여 a \\times b의 값은?"}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "-2\\sqrt{5}"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "-3\\sqrt{2}"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "-4"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "-\\sqrt{14}"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "-2\\sqrt{3}"}]}
+   ]
+  },
+  {
+   "number": 11,
+   "score": 3.4,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "세 점 \\mathrm{A}(-2,~0), \\mathrm{B}(0,~2), \\mathrm{C}(a,~-3)을 꼭짓점으로 하는 삼각형 \\mathrm{ABC}가 직각삼각형이 되도록 하는 모든 실수 a의 값의 합은?"}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "2"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "3"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "4"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "5"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "6"}]}
+   ]
+  },
+  {
+   "number": 12,
+   "score": 3.5,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "전체집합 U가 좌표평면 위의 점의 좌표를 원소로 가질 때, 다음 조건을 만족시키는 U의 부분집합 X의 개수는?"},
+    {"type": "text", "value": "<상자> (가) P \\subset U, Q \\subset U • (나) P=\\{(p,~q)| |p| \\leq 2, |q| \\leq 2, p, q는 정수\\} • (다) Q=\\{(2,~r)| |r| \\leq 2, r는 정수\\} • (라) Q \\subset X \\subset P • (마) 집합 X에 속하는 임의의 두 점 \\mathrm{A}, \\mathrm{B}에 대하여 \\overline{\\mathrm{AB}}의 길이의 최댓값은 4\\sqrt{2}이다."}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "3 \\cdot 2^{16}"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "5 \\cdot 2^{16}"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "3 \\cdot 2^{17}"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "5 \\cdot 2^{17}"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "3 \\cdot 2^{18}"}]}
+   ]
+  },
+  {
+   "number": 13,
+   "score": 3.6,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "좌표평면 위의 삼각형 \\mathrm{ABC}에서 선분 \\overline{\\mathrm{BC}}를 1:2로 내분하는 점을 \\mathrm{D}, 선분 \\overline{\\mathrm{AC}}를 3:2로 내분하는 점을 \\mathrm{E}, 선분 \\overline{\\mathrm{AB}}를 1:n으로 내분하는 점을 \\mathrm{F}라 할 때, 삼각형 \\mathrm{ABC}의 넓이는 삼각형 \\mathrm{DEF}의 넓이의 3배라고 한다. 이를 만족하는 자연수 n의 값은?"}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "2"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "3"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "4"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "5"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "6"}]}
+   ]
+  },
+  {
+   "number": 14,
+   "score": 12,
+   "type": "서술형",
+   "label": "[서술형 1]",
+   "contents": [
+    {"type": "text", "value": "[서술형 1] 『풀이 과정이 없는 경우 0점 처리함.』 세 점 \\mathrm{A}(4,~2), \\mathrm{B}(3,~5), \\mathrm{C}(-1,~-4)를 꼭짓점으로 하는 삼각형 \\mathrm{ABC}의 무게중심을 지나며 직선 2x+4y+1=0과 수직인 직선의 방정식은 y=ax+b이다. 상수 a와 b의 값을 각각 구하고, 풀이과정을 서술하시오."}
+   ],
+   "choices": []
+  },
+  {
+   "number": 15,
+   "score": 12,
+   "type": "서술형",
+   "label": "[서술형 2]",
+   "contents": [
+    {"type": "text", "value": "[서술형 2] 『풀이 과정이 없는 경우 0점 처리함.』 전체집합 U=\\{x|x는 5 이하의 자연수\\}의 두 부분집합 A, B에 대하여"},
+    {"type": "equation", "value": "A \\cup B=U,~A \\cap (A-B)^{C}=A"},
+    {"type": "text", "value": "를 만족시킬 때, 집합 A가 될 수 있는 집합의 개수를 구하고, 풀이과정을 서술하시오. (단, A^{C}는 A의 여집합이다.)"}
+   ],
+   "choices": []
+  },
+  {
+   "number": 16,
+   "score": 13,
+   "type": "서술형",
+   "label": "[서술형 3]",
+   "contents": [
+    {"type": "text", "value": "[서술형 3] 『풀이 과정이 없는 경우 0점 처리함.』 직선 4x-3y+k=0을 x축에 대하여 대칭이동한 직선을 l, 원 (x-3)^{2}+(y-2)^{2}=4를 직선 y=x에 대하여 대칭이동한 원을 C라고 하자. 원 C와 직선 l이 한 점에서 만나도록 하는 실수 k의 값을 모두 구하고, 풀이과정을 서술하시오."}
+   ],
+   "choices": []
+  },
+  {
+   "number": 17,
+   "score": 13,
+   "type": "서술형",
+   "label": "[서술형 4]",
+   "contents": [
+    {"type": "text", "value": "[서술형 4] 『풀이 과정이 없는 경우 0점 처리함.』 원점 \\mathrm{O}와 원 x^{2}+y^{2}-8x-6y+16=0 위를 움직이는 점 \\mathrm{P}에 대하여 선분 \\overline{\\mathrm{OP}}의 길이의 최댓값과 최솟값을 각각 구하고, 풀이과정을 서술하시오."}
+   ],
+   "choices": []
+  },
+  {
+   "number": 18,
+   "score": 3.8,
+   "type": "단답형",
+   "label": "[단답형 5]",
+   "contents": [
+    {"type": "text", "value": "[단답형 5] 두 집합 A=\\{x|x는 100 이하의 자연수\\}, B=\\{x|x는 40과 서로소인 자연수\\}에 대하여 다음 조건을 만족시키는 집합 X의 개수는 2^{k}-1개이다. 상수 k의 값을 구하시오."},
+    {"type": "text", "value": "<상자> (가) X \\subset A, X \\neq \\varnothing • (나) X \\cap B=\\varnothing • (다) 집합 X의 모든 원소는 21과 서로소이다."}
+   ],
+   "choices": []
+  },
+  {
+   "number": 19,
+   "score": 4.0,
+   "type": "단답형",
+   "label": "[단답형 6]",
+   "contents": [
+    {"type": "text", "value": "[단답형 6] 좌표평면에 세 원 C_{1}, C_{2}, C_{3}이 다음 조건을 만족시킬 때, \\overline{\\mathrm{PQ}}<\\sqrt{15}가 되도록 하는 정수 k의 값을 모두 구하시오."},
+    {"type": "text", "value": "<상자> (가) 원 C_{1}:x^{2}+y^{2}+2x-10y+21=0 • (나) 원 C_{2}:x^{2}+y^{2}-18x+76=0 • (다) 원 C_{3}은 원 C_{1}을 x축의 방향으로 8만큼, y축의 방향으로 k만큼 평행이동한 원이다. • (라) 두 원 C_{2}와 C_{3}은 서로 다른 두 점 \\mathrm{P}, \\mathrm{Q}에서 만난다."}
+   ],
+   "choices": []
+  },
+  {
+   "number": 20,
+   "score": 4.2,
+   "type": "단답형",
+   "label": "[단답형 7]",
+   "contents": [
+    {"type": "text", "value": "[단답형 7] 두 실수 a, b에 대하여 이차함수 f(x)=a(x-b)^{2}이 있다. 중심이 함수 y=f(x)의 그래프 위에 있고 직선 y=\\frac{3}{4}x와 x축에 모두 접하는 서로 다른 원은 3개 존재한다. 이 세 원의 중심의 x좌표를 각각 x_{1}, x_{2}, x_{3}이라 할 때, 세 실수 x_{1}, x_{2}, x_{3}이 다음 조건을 만족시킨다. f(x_{1})의 값을 구하시오. (단, a \\neq 0)"},
+    {"type": "text", "value": "<상자> (가) x_{1}<x_{2}<x_{3} • (나) x_{1} \\times x_{2} \\times x_{3}<0 • (다) 세 점 (x_{1},~f(x_{1})), (x_{2},~f(x_{2})), (x_{3},~f(x_{3}))을 꼭짓점으로 하는 삼각형의 무게중심의 y좌표는 \\frac{103}{6}이다."}
+   ],
+   "choices": []
+  }
+ ]
+}

@@ -1,0 +1,50 @@
+{
+  "exam_id": 4335,
+  "answer_pages": [5],
+  "items": [
+    {"number": 1, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 2, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 3, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 4, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 5, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 6, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 7, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 8, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 9, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 10, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 11, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 12, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 13, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 14, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 15, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 16, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {
+      "number": 17,
+      "answer": "(1) $A=\\begin{pmatrix} 2 & -1 \\\\ 1 & 16 \\end{pmatrix}$, $B=\\begin{pmatrix} 1 & 1 \\\\ -1 & 8 \\end{pmatrix}$ (2) $3B-A=\\begin{pmatrix} 1 & 4 \\\\ -4 & 18 \\end{pmatrix}$",
+      "solution": "(1) $a_{11}=\\sqrt{2^{2}}=2$, $a_{12}=(1-2)^{3}=-1$\n$a_{21}=(2-1)^{2}=1$, $a_{22}=\\sqrt{4^{4}}=16$\n따라서 $A=\\begin{pmatrix} 2 & -1 \\\\ 1 & 16 \\end{pmatrix}$이다.\n$b_{11}=\\frac{1}{2}a_{11}=\\frac{1}{2}\\times 2=1$, $b_{12}=a_{12}=-1$\n$b_{21}=a_{21}=-1$, $b_{22}=\\frac{1}{2}a_{22}=8$\n따라서 $B=\\begin{pmatrix} 1 & 1 \\\\ -1 & 8 \\end{pmatrix}$이다.\n(2) $3B-A=3\\begin{pmatrix} 2 & -1 \\\\ 1 & 16 \\end{pmatrix}-\\begin{pmatrix} 1 & 1 \\\\ -1 & 8 \\end{pmatrix}=\\begin{pmatrix} 1 & 4 \\\\ -4 & 18 \\end{pmatrix}$이다.",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 18,
+      "answer": "$(x,~y)=(2,~5)$, $(5,~2)$, $(-2,~-5)$, $(-5,~-2)$",
+      "solution": "$x^{2}+y^{2}=(x+y)^{2}-2xy=29$ 이므로\n$(x+y)^{2}-20=29$\n$(x+y)^{2}=49$\n따라서 $x+y=7,~-7$이다.\n$\\begin{cases} x+y=7 \\\\ xy=10 \\end{cases}$일 때 $x$, $y$를 이차방정식의 두 근이라 하면\n$t^{2}-7t+10=0$\n따라서 $t=2,~5$이다.\n따라서 $x=2$, $y=5$ 또는 $x=5$, $y=2$이다.\n$\\begin{cases} x+y=-7 \\\\ xy=10 \\end{cases}$일 때 $x$, $y$를 이차방정식의 두 근이라 하면\n$t^{2}+7t+10=0$\n따라서 $t=-2,~-5$이다.\n따라서 $x=-2$, $y=-5$ 또는 $x=-5$, $y=-2$이다.",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 19,
+      "answer": "$8$",
+      "solution": "$a$가 근이므로 식에 대입하여 정리하면\n$2a^{3}-8a=0$\n$2a(a+2)(a-2)=0$\n따라서 $a=0,~2,~-2$이다.\n조건에서 $a$는 $0$이 아니므로 $a=2,~-2$이다.\n$a=2$일 때\n$x^{3}+2x^{2}-16=0$\n$(x-2)(x^{2}+4x+8)=0$\n따라서 허근을 가지는 이차방정식은 $x^{2}+4x+8=0$이고 $\\alpha\\beta=8$이다.\n$a=-2$일 때\n$x^{3}-2x^{2}+16=0$\n$(x+2)(x^{2}-4x+8)=0$\n허근을 가지는 이차방정식은 $x^{2}-4x+8=0$이고 $\\alpha\\beta=8$이다.\n따라서 $\\alpha\\beta=8$이다.",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 20,
+      "answer": "12쌍",
+      "solution": "$x^{2}+(a+b)x+ab+1 \\leq 0$의 해가 무수히 많도록 하는 조건은 이차방정식 $x^{2}+(a+b)x+ab+1=0$이 서로 다른 두 실근을 가지면 된다.\n$D=(a+b)^{2}-4(ab+1)>0$\n$(a-b)^{2}>4$\n$a=1$일 때 $b=4,~5,~6$\n$a=2$일 때 $b=5,~6$\n$a=3$일 때 $b=6$\n$a=4$일 때 $b=1$\n$a=5$일 때 $b=1,~2$\n$a=6$일 때 $b=1,~2,~3$\n이므로 $(a,~b)$의 개수는 모두 12쌍이다.",
+      "topic": "",
+      "difficulty": ""
+    }
+  ]
+}

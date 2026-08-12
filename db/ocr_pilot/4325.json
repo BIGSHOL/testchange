@@ -1,0 +1,878 @@
+{
+ "meta": {
+  "exam_id": 4325,
+  "ocr_source": "session-vision"
+ },
+ "header": {
+  "title": "대륜고 1학년 공통수학1 — 2025학년도 제1학기 중간고사 (과목번호:02)"
+ },
+ "questions": [
+  {
+   "number": 1,
+   "score": 2.4,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "두 다항식 A=x^{3}+2x^{2}-1, B=x^{2}+x+3에 대하여 A+B를 간단히 한 것은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "x^{3}-2"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "x^{3}+x-1"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "x^{3}+x^{2}-x-1"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "x^{3}+3x^{2}+x+2"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "x^{3}+3x^{2}+2x-1"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 2,
+   "score": 2.4,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "(2+7i)+(1+2i)의 값은? (단, i=\\sqrt{-1}이다.)"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3+7i"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3+8i"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3+9i"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4+7i"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4+8i"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 3,
+   "score": 2.6,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "다항식 P(x)=x^{3}+ax^{2}-5x+1을 x-1로 나누었을 때, 나머지가 1이다. 이때 상수 a의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 4,
+   "score": 2.6,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "이차함수 y=x^{2}-(a+1)x+b의 그래프와 x축이 서로 다른 두 점 \\mathrm{A}(-1,~0), \\mathrm{B}(4,~0)에서 만날 때, ab의 값은? (단, a, b는 상수이다.)"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-8"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-6"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-4"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-2"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "0"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 5,
+   "score": 2.7,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "다항식 (x^{2}+x-1)(2x+3)을 전개한 식에서 x의 계수는?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 6,
+   "score": 2.7,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "이차방정식 kx^{2}+2(k-1)x-(k-1)=0이 중근을 갖도록 하는 모든 실수 k의 값의 합은? (단, k \\neq 0이다.)"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{3}{2}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{5}{2}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 7,
+   "score": 3.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "x=\\sqrt{2}-1, y=\\sqrt{2}+1일 때, x^{3}+y^{3}의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2\\sqrt{2}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "6\\sqrt{2}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "10\\sqrt{2}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "14\\sqrt{2}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "18\\sqrt{2}"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 8,
+   "score": 3.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "다항식 P(x)를 x-3로 나누었을 때 몫은 A(x), 나머지는 -7이고, x-9로 나누었을 때 몫은 B(x), 나머지는 -3이다. 다항식 x\\{A(x)+B(x)\\}를 x-6으로 나누었을 때, 나머지는?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "6"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "8"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "10"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 9,
+   "score": 3.1,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "x에 대한 이차함수 y=x^{2}-2(k+a)x+(k+1)^{2}+a^{2}-b+1의 그래프가 실수 k의 값에 관계없이 항상 x축에 접할 때, a+b의 값은? (단, a, b는 상수이다.)"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "6"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 10,
+   "score": 3.2,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "x의 값의 범위가 -2 \\leq x \\leq 1일 때, 이차함수 y=x^{2}+2x+m의 최솟값은 4이다. 이 범위에서 이차함수의 최댓값은? (단, m은 상수이다.)"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "6"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "7"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "8"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "9"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "10"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 11,
+   "score": 3.3,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "다항식 x(x+1)(x+2)(x+3)+a가 (x^{2}+bx+c)^{2}으로 인수분해될 때, a+b+c의 값은? (단, a, b, c는 상수이다.)"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 12,
+   "score": 3.5,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "z=\\frac{1+i}{\\sqrt{2}}일 때, z+z^{2}+z^{3}+z^{4}+ \\cdots +z^{17}의 값은? (단, i=\\sqrt{-1}이다.)"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-1"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{-1-i}{\\sqrt{2}}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "0"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{1+i}{\\sqrt{2}}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 13,
+   "score": 3.5,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "최고차항의 계수가 양수인 다항식 P(x)가 P(0)=0이고, 모든 실수 x에 대하여"
+    },
+    {
+     "type": "equation",
+     "value": "\\{P(x)\\}^{2} = -4P(x)+x^{6}+4x^{5}+2x^{4}+9x^{2}-4x"
+    },
+    {
+     "type": "text",
+     "value": "를 만족시킬 때, P(2)의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "12"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "14"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "16"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "18"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "20"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 14,
+   "score": 12,
+   "type": "서술형",
+   "label": "[서술형 1]",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서술형 1] 이차함수 y=-2x^{2}+4x+5 (-2 \\leq x \\leq 2)의 최댓값과 최솟값을 각각 구하고, 풀이 과정을 서술하시오."
+    }
+   ]
+  },
+  {
+   "number": 15,
+   "score": 12,
+   "type": "서술형",
+   "label": "[서술형 2]",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서술형 2] 다항식 P(x)를 x+1로 나누었을 때, 나머지가 5이고, x-2로 나누었을 때, 나머지가 2이다. P(x)를 x^{2}-x-2로 나누었을 때, 나머지는 ax+b이다. 상수 a, b의 값을 각각 구하고, 풀이 과정을 서술하시오."
+    }
+   ]
+  },
+  {
+   "number": 16,
+   "score": 13,
+   "type": "서술형",
+   "label": "[서술형 3]",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서술형 3] 이차방정식 x^{2}-6kx+2k=0의 두 실근의 비가 1:2일 때, 실수 k의 값을 구하고, 풀이 과정을 서술하시오. (단, k \\neq 0이다.)"
+    }
+   ]
+  },
+  {
+   "number": 17,
+   "score": 13,
+   "type": "서술형",
+   "label": "[서술형 4]",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서술형 4] 이차함수 y=x^{2}+x+1의 그래프와 직선 y=3x+k가 한 점에서 만날 때, k의 값을 구하고, 풀이 과정을 서술하시오. (단, k는 상수이다.)"
+    }
+   ]
+  },
+  {
+   "number": 18,
+   "score": 3.8,
+   "type": "단답형",
+   "label": "[단답형 5]",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[단답형 5] 각 항의 계수와 상수항이 정수인 두 이차다항식 f(x), g(x)가 모든 실수 x에 대하여 다음 조건을 만족할 때, f(5)+g(5)의 값을 구하시오."
+    },
+    {
+     "type": "text",
+     "value": "<상자> (가) f(3)g(1) \\neq 0 • (나) f(x)=g(x)+4 • (다) \\{f(x)\\}^{2}+f(x)g(x)+\\{g(x)\\}^{2} = 3x^{4}-12x^{3}+6x^{2}+12x+7"
+    }
+   ]
+  },
+  {
+   "number": 19,
+   "score": 4.0,
+   "type": "단답형",
+   "label": "[단답형 6]",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[단답형 6] x의 값의 범위가 0 \\leq x \\leq 1일 때, 이차함수 f(x)=\\frac{1}{a}x^{2}-4x+1는 최댓값 1, 최솟값 -\\frac{3}{2}을 가진다. 이를 만족하는 실수 a의 값을 구하시오. (단, a \\neq 0이다.)"
+    }
+   ]
+  },
+  {
+   "number": 20,
+   "score": 4.2,
+   "type": "단답형",
+   "label": "[단답형 7]",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[단답형 7] 이차함수 f(x), g(x)가 다음 조건을 만족시킬 때, k+g(0)의 값을 구하시오. (단, k>1이다.)"
+    },
+    {
+     "type": "text",
+     "value": "<상자> (가) 모든 실수 x에 대하여 f(x), g(x)의 최댓값이 각각 -1, 8이다. • (나) 모든 실수 x에 대하여 f(x)+g(x)=-3x^{2}+8x+1이다. • (다) 함수 f(x)는 x=k에서 최댓값을 갖는다. • (라) g(k)=6"
+    }
+   ]
+  }
+ ]
+}
