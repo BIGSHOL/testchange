@@ -1,6 +1,6 @@
 ## Skills
 
-커스텀 검증 및 유지보수 스킬은 `.Codex/skills/`에 정의되어 있습니다.
+커스텀 검증 및 유지보수 스킬은 `.agents/skills/`에 정의되어 있습니다.
 
 | Skill | Purpose |
 |-------|---------|
@@ -11,6 +11,7 @@
 | `verify-equation-metrics` | 수식 크기 추정기 정확도 회귀 검증 (골든셋 84개 기반) |
 | `verify-ocr-parser-sync` | OCR 엔진↔콘텐츠 파서 동기화 검증 |
 | `verify-output-format` | 시험지 출력 포맷 합의사항(미주 번호·배점 정렬·표 셀·보기 박스·선택지 정렬) 강제 적용 검증 |
+| `verify-figure-engine` | Figure Engine v2의 기하·치수선·라벨 배치·SVG 보안과 기존 42개 도형 회귀 검증 |
 
 ## 시험지 출력 포맷 합의사항 (COM writer — 강제 준수)
 

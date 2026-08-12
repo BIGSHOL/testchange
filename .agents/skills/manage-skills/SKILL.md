@@ -28,11 +28,14 @@ argument-hint: "[선택사항: 특정 스킬 이름 또는 집중할 영역]"
 
 현재 프로젝트에 등록된 검증 스킬 목록입니다. 새 스킬 생성/삭제 시 이 목록을 업데이트합니다.
 
-자| 스킬 | 설명 | 커버 파일 패턴 |
+| 스킬 | 설명 | 커버 파일 패턴 |
 |------|------|---------------|
 | `verify-latex-hwpeq` | LaTeX→HWP 수식 변환 매핑 무결성 검증 | `core/latex_to_hwpeq.py`, `core/hwpx_writer.py` |
 | `verify-hwpx-structure` | HWPX 문서 생성 구조 검증 | `core/hwpx_writer.py`, `core/template_loader.py`, `models/template_config.py` |
+| `verify-equation-metrics` | 수식 크기 추정기 정확도 회귀 검증 | `core/hwpx_writer.py`, `tests/test_equation_metrics.py`, `scripts/tune_equation/**` |
 | `verify-ocr-parser-sync` | OCR 엔진↔콘텐츠 파서 동기화 검증 | `core/ocr_engine.py`, `core/content_parser.py`, `core/quality_checker.py`, `utils/config.py`, `models/exam_document.py` |
+| `verify-output-format` | COM 시험지 출력 포맷 합의 검증 | `core/hwp_com_writer.py`, `core/hwp_com.py`, `core/latex_to_hwpeq.py` |
+| `verify-figure-engine` | 선언형 기하·치수선·라벨 배치·SVG 보안·corpus 회귀 검증 | `core/figure_*.py`, `tests/test_figure_*.py`, `corpus/**/fig_svgs.py` |
 
 ## 워크플로우
 

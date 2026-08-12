@@ -4,12 +4,19 @@ import math
 import os
 import random
 import sys
+import tempfile
+from pathlib import Path
 
-sys.path.insert(0, r"F:\시험지변환기")
+ROOT = Path(__file__).resolve().parents[2]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
 sys.stdout.reconfigure(encoding="utf-8")
-from core.figure_svg import (C, FONT, IT, angle_arc, arc, circ, circle_pt, dot, eq_tick, halo_angle, halo_text, isect, line, lint_svg, measured, pt, rangle, rangle_at, ray_angle, seci, tangent_isect, txt)
+from core.figure_svg import (C, FONT, IT, SVGTextRun, angle_arc, arc, circ, circle_pt, dot, eq_tick, halo_angle, halo_text, isect, line, lint_svg, measured, measured_runs, pt, rangle, rangle_at, ray_angle, seci, tangent_isect, txt)
 
-OUT = r"F:\tmp\figcrop\_ws2\_fig"
+OUT = os.environ.get(
+    "FIG_SVG_OUT",
+    str(Path(tempfile.gettempdir()) / "exam_figure_svg" / "wangseon"),
+)
 os.makedirs(OUT, exist_ok=True)
 S = {}
 
@@ -28,7 +35,7 @@ S["q1"] = f'''<svg viewBox="0 0 250 220" xmlns="http://www.w3.org/2000/svg">
 {rangle(cx, chy, 1, 0, 0, -1, 9)}
 {halo_text((cx + L1[0]) / 2, (cy + chy) / 2 + 4, "10 cm", 11.5)}
 {txt(cx + 11, (cy + chy) / 2 + 3, "6 cm", 11)}
-{measured(*L1, *R1, 10, '<tspan font-style="italic">x</tspan> cm', 12)}
+{measured_runs(*L1, *R1, 10, (SVGTextRun("x", italic=True), SVGTextRun(" cm")), 12)}
 </svg>'''
 
 # ── q2: 현 AB 가 반지름 OC 를 수직이등분 ─────────────────────────────
@@ -335,6 +342,9 @@ if __name__ == "__main__":
          "q7": 255, "q8": 195, "q9": 208, "q10": 240, "q11": 262, "q16": 175,
          "q17": 235, "q18": 235, "s1": 240}
     for k, svg in S.items():
+        issues = lint_svg(svg)
+        if issues:
+            raise RuntimeError(f"{k} SVG lint 실패: {'; '.join(issues)}")
         png = _svg_to_png_bytes(svg, width=W[k] * 2)
         if not png:
             print(k, "FAIL")

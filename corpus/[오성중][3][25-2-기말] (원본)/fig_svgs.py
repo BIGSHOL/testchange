@@ -3,12 +3,19 @@
 import math
 import os
 import sys
+import tempfile
+from pathlib import Path
 
-sys.path.insert(0, r"F:\시험지변환기")
+ROOT = Path(__file__).resolve().parents[2]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
 sys.stdout.reconfigure(encoding="utf-8")
 from core.figure_svg import (C, FONT, IT, angle_arc, arc, circ, circle_pt, dim_label, dot, eq_tick, halo_angle, halo_text, line, lint_svg, meas, measured, pt, rangle, rangle_at, ray_angle, seci, txt)
 
-OUT = r"F:\tmp\figcrop\_os2\_fig"
+OUT = os.environ.get(
+    "FIG_SVG_OUT",
+    str(Path(tempfile.gettempdir()) / "exam_figure_svg" / "oseong"),
+)
 os.makedirs(OUT, exist_ok=True)
 S = {}
 
@@ -255,8 +262,7 @@ for i in range(7):
     cells.append(mini(38 + col * 118, 46 + row * 108, kinds[i], labs[i]))
 S["q16"] = f'''<svg viewBox="0 0 510 280" xmlns="http://www.w3.org/2000/svg">
 <rect x="4" y="4" width="502" height="272" fill="none" stroke="#000" stroke-width="1.4"/>
-<line x1="4" y1="22" x2="205" y2="22" stroke="#fff" stroke-width="0"/>
-{txt(255, 27, "&lt; 보 기 &gt;", 14)}
+{txt(255, 27, "< 보 기 >", 14)}
 {"".join(cells)}
 </svg>'''
 
@@ -312,6 +318,9 @@ if __name__ == "__main__":
     W = {"q1": 200, "q2": 265, "q3": 240, "q4": 205, "q5": 210, "q6": 235,
          "q7": 270, "q8": 255, "q9": 268, "q15": 245, "q16": 330, "s1": 262, "s2": 268}
     for k, svg in S.items():
+        issues = lint_svg(svg)
+        if issues:
+            raise RuntimeError(f"{k} SVG lint 실패: {'; '.join(issues)}")
         png = _svg_to_png_bytes(svg, width=W[k] * 2)
         if not png:
             print(k, "FAIL")

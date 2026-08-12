@@ -8,12 +8,19 @@ math-gen SVG 규칙(core.figure_generator.SVG_RULES) 준수:
 import math
 import os
 import sys
+import tempfile
+from pathlib import Path
 
-sys.path.insert(0, r"F:\시험지변환기")
-from core.figure_svg import halo_angle, halo_text
+ROOT = Path(__file__).resolve().parents[2]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+from core.figure_svg import halo_angle, halo_text, lint_svg
 sys.stdout.reconfigure(encoding="utf-8")
 
-OUT = r"F:\tmp\figcrop\_ua2\_fig"
+OUT = os.environ.get(
+    "FIG_SVG_OUT",
+    str(Path(tempfile.gettempdir()) / "exam_figure_svg" / "unam"),
+)
 os.makedirs(OUT, exist_ok=True)
 
 FONT = 'font-family="Times New Roman, Batang, serif"'
@@ -462,6 +469,9 @@ if __name__ == "__main__":
     for k, svg in SVGS.items():
         if k == "s2":      # 사진 문항 — 원본 정리본을 별도 저장(photo_s2.py)
             continue
+        issues = lint_svg(svg)
+        if issues:
+            raise RuntimeError(f"{k} SVG lint 실패: {'; '.join(issues)}")
         png = _svg_to_png_bytes(svg, width=WIDTHS[k] * 2)
         if not png:
             print(k, "렌더 실패")

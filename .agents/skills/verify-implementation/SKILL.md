@@ -31,8 +31,10 @@ argument-hint: "[선택사항: 특정 verify 스킬 이름]"
 |---|------|------|
 | 1 | `verify-latex-hwpeq` | LaTeX→HWP 수식 변환 매핑 무결성 검증 |
 | 2 | `verify-hwpx-structure` | HWPX 문서 생성 구조 검증 |
-| 3 | `verify-ocr-parser-sync` | OCR 엔진↔콘텐츠 파서 동기화 검증 |
-| 4 | `verify-output-format` | 시험지 출력 포맷 합의사항(미주·배점·표·보기 정렬) 강제 적용 검증 |
+| 3 | `verify-equation-metrics` | 수식 크기 추정기 정확도 회귀 검증 |
+| 4 | `verify-ocr-parser-sync` | OCR 엔진↔콘텐츠 파서 동기화 검증 |
+| 5 | `verify-output-format` | 시험지 출력 포맷 합의사항(미주·배점·표·보기 정렬) 강제 적용 검증 |
+| 6 | `verify-figure-engine` | Figure Engine v2 기하·치수선·라벨·보안·corpus 회귀 검증 |
 
 ## 워크플로우
 
