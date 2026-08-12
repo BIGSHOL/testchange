@@ -50,6 +50,16 @@ DEFAULT_OUT = REPO / "forms" / "plain2col" / "기본2단.hwp"
 # 머리말에 심을 토큰 — 변환 때 _fill_tokens 가 채운다(제목="○○중 1학년 2학기 기말고사").
 HEADER_TOKENS = "{{제목}}    {{과목}}"
 
+# HWP 길이 단위(1/7200 inch). 1mm ≈ 283.465
+_MM = 283.465
+# 용지 여백(mm) — 사용자 지정 2026-08-12(강북고 변환물 검수).
+# ⭐ 왜 넓히나: 원본 양식의 좌우 20mm 는 A4 2단에서 칼럼을 81mm 로 만든다. 그러면 긴
+# 수식이 든 줄이 자주 넘쳐 **낱말 간격이 벌어지고**(양쪽정렬), 배점 `[2.7점]` 이
+# `[2.7` / `점]` 로 갈라진다(실측). 좌우 10mm 면 칼럼 91mm(+12%)로 그 대부분이 풀린다.
+# 참고: 대수회 폼은 **B4(257mm)** 라 칼럼이 104.5mm — A4 에서는 여기까지가 한계다.
+MARGIN_MM = {"header": 15.0, "footer": 15.0, "gutter": 0.0,
+             "left": 10.0, "right": 10.0, "top": 5.0, "bottom": 10.0}
+
 
 def _mask(text: str, tag: str) -> str:
     """머리말/꼬리말 구간을 같은 길이 공백으로 덮어 본문만 남긴다(인덱스 보존)."""
@@ -106,6 +116,20 @@ def _strip_body_text(section_xml: str) -> tuple[str, list[str]]:
         return "<hp:t></hp:t>"
 
     return re.sub(r"<hp:t>([^<]*)</hp:t>", repl, section_xml), removed
+
+
+def _set_margins(section_xml: str, mm: dict) -> tuple[str, str]:
+    """용지 여백을 지정값으로 교체. (xml, 바뀐 내용 설명)"""
+    old = re.search(r"<hp:margin[^>]*/>", section_xml)
+    tag = "<hp:margin " + " ".join(
+        f'{k}="{round(v * _MM)}"' for k, v in mm.items()) + "/>"
+    if not old:
+        return section_xml, "(margin 태그 없음 — 건너뜀)"
+    before = {k: int(v) for k, v in re.findall(r'(\w+)="(\d+)"', old.group(0))}
+    desc = ("좌%.0f→%.0f 우%.0f→%.0f 상%.0f→%.0f 하%.0f→%.0f" % (
+        before.get("left", 0) / _MM, mm["left"], before.get("right", 0) / _MM, mm["right"],
+        before.get("top", 0) / _MM, mm["top"], before.get("bottom", 0) / _MM, mm["bottom"]))
+    return section_xml[:old.start()] + tag + section_xml[old.end():], desc
 
 
 def _replace_header_text(section_xml: str, tokens: str) -> tuple[str, str]:
@@ -166,6 +190,7 @@ def main(argv: list[str]) -> int:
         original_header = ""
         if not args.keep_header:
             sec, original_header = _replace_header_text(sec, HEADER_TOKENS)
+        sec, margin_desc = _set_margins(sec, MARGIN_MM)
         sec, leftover = _strip_body_text(sec)
 
         contents[sec_name] = sec.encode("utf-8")
@@ -183,10 +208,18 @@ def main(argv: list[str]) -> int:
             final = z.read(sec_name).decode("utf-8")
 
         cols = re.search(r'colCount="(\d+)"', sec)
+        page_w = re.search(r'<hp:pagePr[^>]*width="(\d+)"', sec)
+        gap = re.search(r'sameGap="(\d+)"', sec)
+        col_mm = ""
+        if page_w and cols:
+            body = int(page_w.group(1)) / _MM - MARGIN_MM["left"] - MARGIN_MM["right"]
+            g = int(gap.group(1)) / _MM if gap else 0.0
+            col_mm = f" · 칼럼폭 {(body - g) / max(int(cols.group(1)), 1):.0f}mm"
         print(f"[{attempt}회] 본문 paraPr {sorted(ids)} · 개요번호 해제 {n_outline}건 · "
               f"{cols.group(1) if cols else '?'}단 · 구분선 "
-              f"{'있음' if 'colLine' in sec else '없음'}"
+              f"{'있음' if 'colLine' in sec else '없음'}{col_mm}"
               + (f" · 잔여글자 제거 {leftover}" if leftover else ""))
+        print(f"       여백 {margin_desc} (mm)")
         if original_header:
             print(f"       머리말 {original_header!r} → {HEADER_TOKENS!r}")
 

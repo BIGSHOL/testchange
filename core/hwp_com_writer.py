@@ -1843,6 +1843,32 @@ def _col_width_2col(left_u: int, right_u: int) -> int:
     return (_A4_WIDTH_HWPUNIT - left_u - right_u - _COL_GAP_2COL) // 2 - 500
 
 
+def _section_col_width(section_xml: str) -> int | None:
+    """섹션 XML 에서 **실제 칼럼 폭**(units)을 잰다. 다단이 아니면 None.
+
+    ⭐ 계산식(`_col_width_2col`)은 **A4 + 우리가 지정한 여백**을 가정한다. 그런데 폼
+    템플릿 위에 쓰는 경로는 용지·여백이 폼 파일에서 오므로(대수회 폼은 **B4 257mm**,
+    학교 양식은 A4 + 자체 여백) 가정이 어긋나 보기 박스가 칼럼보다 넓어진다 —
+    ``<보기>`` 라벨이 ``<보기`` / ``>`` 로 접혀 인쇄됐다(강북고 변환물, 2026-08-12).
+    저장된 문서에서 직접 재면 어느 경로든 맞다.
+    """
+    pg = re.search(r'<hp:pagePr\b[^>]*\bwidth="(\d+)"', section_xml)
+    mg = re.search(r"<hp:margin\b[^>]*/>", section_xml)
+    col = re.search(r"<hp:colPr\b[^>]*>", section_xml)
+    if not (pg and mg and col):
+        return None
+    cnt_m = re.search(r'colCount="(\d+)"', col.group(0))
+    cnt = int(cnt_m.group(1)) if cnt_m else 1
+    if cnt < 2:
+        return None
+    d = {k: int(v) for k, v in re.findall(r'(\w+)="(\d+)"', mg.group(0))}
+    gap_m = re.search(r'sameGap="(\d+)"', col.group(0))
+    gap = int(gap_m.group(1)) if gap_m else 0
+    body = int(pg.group(1)) - d.get("left", 0) - d.get("right", 0)
+    width = (body - gap * (cnt - 1)) // cnt
+    return width if width > 0 else None
+
+
 def _margins_2col_units(margins: dict | None) -> tuple[int, int, int]:
     """2단 (좌, 우, 하) 여백(units). 웹 프리셋(mm) 있으면 반영, 없으면 대수회 기본.
 
@@ -2570,13 +2596,22 @@ def _fit_wide_tables_2col(hwpx_path: "str | Path", margins: dict | None = None) 
     안 건드리고 **표 sz + cellSz 만 비례 축소**(`_scale_bogi_box_width` 와 동일 패턴)."""
     left, right, _ = _margins_2col_units(margins)
     col_w = _col_width_2col(left, right)
-    target = col_w - _BOGI_OUT_MARGIN
-    if target <= 0:
-        return 0
     z = zipfile.ZipFile(hwpx_path)
     infos = z.infolist()
     contents = {i.filename: z.read(i.filename) for i in infos}
     z.close()
+    # ⭐ 실제 지면에서 잰 칼럼 폭 우선 — 폼 템플릿 위에 쓸 때는 용지·여백이 폼에서 오므로
+    # 계산식(A4 + 지정 여백)이 어긋난다. 어긋나면 **보기 박스까지 이 함수가 다시 줄여**
+    # 칼럼보다 한참 좁아지고 라벨이 접힌다(실측: 칼럼 91mm에 박스 77mm, 2026-08-12).
+    for _fn, _raw in contents.items():
+        if re.search(r"section\d+\.xml$", _fn):
+            _m = _section_col_width(_raw.decode("utf-8", "ignore"))
+            if _m:
+                col_w = _m
+            break
+    target = col_w - _BOGI_OUT_MARGIN
+    if target <= 0:
+        return 0
     tbl_re = re.compile(r"<hp:tbl\b.*?</hp:tbl>", re.DOTALL)
     changed = 0
 
@@ -3040,9 +3075,16 @@ def _scale_bogi_box_width(tbl: str, target: int) -> str:
     outMargin/inMargin 은 left/right(=width 아님), lineseg 는 horzsize → 불변. widthRelTo=
     "ABSOLUTE" 는 토큰이 ``width=`` 와 달라 매칭 안 됨. target<=0/base 면 그대로(1단).
     """
-    if target <= 0 or target == _BOGI_BASE_WIDTH:
+    if target <= 0:
         return tbl
-    ratio = target / _BOGI_BASE_WIDTH
+    # ⚠️ 기준은 **그 표의 현재 폭**이다(상수 base 가정 금지). 상수로 나누면 템플릿이
+    # 바뀌거나 스케일이 두 번 걸릴 때 조용히 더 작아진다 — 실측(2026-08-12): 칼럼 91mm
+    # 인데 보기 박스가 77mm 로 나와 라벨이 접혔다.
+    cur = re.search(r'<hp:sz\b[^>]*\bwidth="(\d+)"', tbl)
+    base = int(cur.group(1)) if cur else _BOGI_BASE_WIDTH
+    if base <= 0 or abs(target - base) <= max(1, base // 100):
+        return tbl
+    ratio = target / base
     return re.sub(
         r'width="(\d+)"',
         lambda m: 'width="%d"' % max(int(round(int(m.group(1)) * ratio)), 1),
@@ -3141,9 +3183,13 @@ def _inject_bogi_form(hwpx_path: str | Path, columns: int = 1,
             # target = 칼럼폭 − outMargin → 박스 footprint(표폭+outMargin) 가 칼럼 안에 들어감.
             # 칼럼 폭은 좌우 여백 프리셋 반영(§42-10) — margins 없으면 대수회 기본.
             if columns == 2:
-                _l, _r, _ = _margins_2col_units(margins)
-                new_tbl = _scale_bogi_box_width(
-                    new_tbl, _col_width_2col(_l, _r) - _BOGI_OUT_MARGIN)
+                # 실제 지면에서 잰 칼럼 폭 우선(폼 템플릿은 용지·여백이 폼에서 온다).
+                # 못 재면 종전 계산식(A4 + 지정 여백) — 회귀 0.
+                measured = _section_col_width(s)
+                if measured is None:
+                    _l, _r, _ = _margins_2col_units(margins)
+                    measured = _col_width_2col(_l, _r)
+                new_tbl = _scale_bogi_box_width(new_tbl, measured - _BOGI_OUT_MARGIN)
 
             out.append(s[last:tstart])
             out.append(new_tbl)
