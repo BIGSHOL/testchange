@@ -145,6 +145,27 @@ def resolve_auto(input_path: str) -> str | None:
     return match_by_grade(detect_grade(input_path))
 
 
+# ── 폼 없이 2단 — 바탕 템플릿 ────────────────────────────────────
+# 대수회 폼(슬롯 채우기)이 아니라 **바탕만 물려받는** 템플릿. 머리말·용지·단 설정·
+# 단 구분선만 제공하고 본문은 write_exam_to_hwp 가 흘려 쓴다. 제작은
+# `scripts/make_plain2col_form.py`(본문 비우기 + 개요번호 해제 + 머리말 토큰화).
+#
+# ⚠️ **`forms/` 바로 밑이 아니라 하위 폴더**에 둔다 — `list_forms()` 는 `*.hwp` 를
+# 비재귀로 훑으므로, 여기 두면 GUI 폼 드롭다운(대수회 7종)에 섞이지 않는다.
+_PLAIN_SUBDIR = "plain2col"
+
+
+def plain_form_path() -> str | None:
+    """'폼 없이 2단' 바탕 템플릿 경로. 없으면 None(템플릿 없이 빈 문서 2단)."""
+    for d in _base_dirs():
+        pd = d / _PLAIN_SUBDIR
+        if not pd.is_dir():
+            continue
+        for p in sorted(pd.glob("*.hwp")) + sorted(pd.glob("*.hwpx")):
+            return str(p)
+    return None
+
+
 # ── 파일명 규칙 파싱 (머리말 채움·폼 선택용) ─────────────────────────
 # 규칙: 중등 [학교중][학년][시기][출판사] / 고등 [학교고][학년][시기][과목][출판사]
 #   학년 = 1|2|3, 시기 = "25-1-중간"(년-학기-중간/기말), 과목 = 고등만(브래킷).

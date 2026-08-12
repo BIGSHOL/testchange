@@ -19,6 +19,12 @@ project_root = Path(SPECPATH)
 _forms = sorted((project_root / 'forms').glob('*.hwp'))
 if len(_forms) < 7:
     raise SystemExit(f"[agent.spec] forms/*.hwp {len(_forms)}개 — 대수회 폼 7종 필요")
+# '폼 없이 2단'(웹 layout=plain2) 바탕 템플릿 — 빠지면 그 모드가 조용히 빈 문서로 떨어져
+# 머리말·단 구분선이 사라진다(변환은 성공해 보이므로 자동 게이트가 필요).
+_plain = sorted((project_root / 'forms' / 'plain2col').glob('*.hwp'))
+if not _plain:
+    raise SystemExit("[agent.spec] forms/plain2col/*.hwp 없음 — "
+                     "scripts/make_plain2col_form.py 로 제작 필요")
 if not (project_root / 'resources').is_dir():
     raise SystemExit("[agent.spec] resources/ 없음 — 보안승인 DLL 필수")
 

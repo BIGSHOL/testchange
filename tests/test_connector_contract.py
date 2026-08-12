@@ -290,12 +290,52 @@ def test_process_reaping() -> None:
           "from core.hwp_com import hwp_pids as _core_pids" in conn_src)
 
 
+def test_plain_two_column() -> None:
+    """L. '폼 없이 2단'(웹 layout 플래그) — 켜야만 켜지고, 켜면 폼을 안 탄다."""
+    print("L. 폼 없이 2단(plain2)")
+    from server.convert_cli import _plain_header_meta, wants_plain_layout
+
+    # 플래그가 없으면 **기존 동작 그대로** — 폼 경로에 회귀를 만들지 않는다.
+    check("플래그 없으면 꺼짐", not wants_plain_layout({"questions": []}))
+    check("빈 layout 은 꺼짐", not wants_plain_layout({"layout": ""}))
+    check("모르는 layout 은 꺼짐", not wants_plain_layout({"layout": "elegant"}))
+    check("dict 아님 방어", not wants_plain_layout(None))
+    for v in ("plain2", "PLAIN2", " plain2col ", "plain-2col", "2col", "2단"):
+        check(f"layout={v!r} 이면 켜짐", wants_plain_layout({"layout": v}))
+    check("noForm 플래그도 켜짐", wants_plain_layout({"noForm": True}))
+
+    # 켜지면 폼 매칭을 아예 건너뛴다(대수회 슬롯 채우기 금지) — 소스로 잠금.
+    src = (ROOT / "server" / "convert_cli.py").read_text(encoding="utf-8")
+    check("plain 이면 form_path=None",
+          "form_path = None if plain else (resolve_form(filename) if filename else None)" in src)
+    check("plain 은 write_exam_to_form 을 안 탄다", "if form_path:" in src)
+    check("2단 + 평문 번호로 렌더", "columns=2," in src and "use_endnote=False," in src)
+    check("진단에 서식이 남는다", '"(2단 기본 서식)"' in src)
+
+    # 머리말 토큰값 — 파일명 규칙에서만 채우고, 규칙 미일치면 빈 dict(차단 아님).
+    info = {"valid": True, "학교": "강동중", "학년": "중1", "학기": "1",
+            "구분": "기말", "과목": "수학"}
+    meta = _plain_header_meta(info)
+    check("제목 조립", meta.get("title") == "강동중 1학년 1학기 기말고사", str(meta))
+    check("과목 전달", meta.get("subject") == "수학")
+    check("규칙 미일치면 빈 값", _plain_header_meta({"valid": False}) == {})
+
+    # 바탕 템플릿은 forms/ **하위 폴더** — 대수회 폼 드롭다운(비재귀 glob)에 안 섞인다.
+    from core.form_registry import list_forms, plain_form_path
+
+    tpl = plain_form_path()
+    check("2단 바탕 템플릿 번들됨", bool(tpl) and Path(tpl).exists(), str(tpl))
+    check("대수회 폼 목록에 안 섞임",
+          tpl is None or all(Path(f.path) != Path(tpl) for f in list_forms()))
+
+
 def main() -> int:
     print("웹 ↔ 커넥터 계약 회귀 테스트\n")
     for fn in (test_envelope_discriminator, test_output_suffix, test_token_contract,
                test_allowed_origins, test_token_init_without_main,
                test_worker_python, test_health_fields, test_form_selection_from_filename,
-               test_web_figures_note_only, test_output_fallback, test_process_reaping):
+               test_web_figures_note_only, test_output_fallback, test_process_reaping,
+               test_plain_two_column):
         fn()
         print()
     if FAILED:
