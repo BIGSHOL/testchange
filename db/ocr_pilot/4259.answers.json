@@ -1,0 +1,27 @@
+{
+  "exam_id": 4259,
+  "answer_pages": [7],
+  "items": [
+    {"number": 1, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 2, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 3, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 4, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 5, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 6, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 7, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 8, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 9, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 10, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 11, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 12, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 13, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 14, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 15, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 16, "answer": "(1) $x=-1\\pm\\sqrt{3}i$, 허근 (2) $2(x+1+\\sqrt{3}i)(x+1-\\sqrt{3}i)$", "solution": "(1) 주어진 이차방정식을 풀면 $2(x+1)^2=-6$\n$x+1=\\pm\\sqrt{3}i$\n$x=-1\\pm\\sqrt{3}i$이므로 허근\n(2) 복소수 범위에서 인수분해 하면\n$2(x+1+\\sqrt{3}i)(x+1-\\sqrt{3}i)$", "topic": "", "difficulty": ""},
+    {"number": 17, "answer": "(1) $2\\sqrt{3}$, $1$ (2) $18\\sqrt{3}$", "solution": "(1) $x+y=2\\sqrt{3}$, $xy=(\\sqrt{3}+\\sqrt{2})(\\sqrt{3}-\\sqrt{2})=1$\n(2) $x^3+y^3=(x+y)^3-3xy(x+y)=18\\sqrt{3}$", "topic": "", "difficulty": ""},
+    {"number": 18, "answer": "$k \\leq 1$", "solution": "$x^2-3x+6k+1=3x-2k$\n$x^2-6x+8k+1=0$\n두 그래프가 만나려면 $D=9-8k-1 \\geq 0$\n$k \\leq 1$", "topic": "", "difficulty": ""},
+    {"number": 19, "answer": "(1) 풀이참조 (2) $b$가 빗변인 직각삼각형 (3) $\\frac{1}{2}ac$", "solution": "(1) $P(x)=x^2(x+b+c)-(b^2-c^2)(x+b+c)=(x+b+c)(x^2-b^2+c^2)$\n(2) $P(x)$가 $x-a$를 인수로 가지므로 $P(a)=0$\n$P(a)=0$를 풀면 $b^2=a^2+c^2$이므로 $b$가 빗변인 직각삼각형\n(3) $\\frac{1}{2}ac$", "topic": "", "difficulty": ""},
+    {"number": 20, "answer": "(1) $1$ (2) $a=b=3$ (3) $-1$", "solution": "(1) $\\frac{z^3}{z+1}+\\frac{1}{z+1}=z^2-z+1$의 값이 실수이므로\n$z=a+bi$, $\\bar{z}=a-bi$라 두고 대입하면\n$z^2-z+1=(a^2-b^2-a+1)+b(2a-1)i$가 실수\n$a=\\frac{1}{2}$이므로 $z+\\bar{z}=1$\n(2) $z+\\bar{z}=1$, $z\\bar{z}=3$이므로 $z^2-z+3=0$, $\\bar{z}^2-\\bar{z}+3=0$이 성립한다. $a=b=3$\n(3) $\\frac{z}{z^2+\\bar{z}+1}+\\frac{\\bar{z}}{\\bar{z}^2+z+1}=\\frac{z}{z+\\bar{z}-2}+\\frac{\\bar{z}}{z+\\bar{z}-2}=z+\\bar{z}=-1$", "topic": "", "difficulty": ""},
+    {"number": 21, "answer": "(1) 풀이참조 (2) $k=2$ (3) $k=-2$", "solution": "(1) $y=k(x+k)^2-k^3+2k+1$\n(2) $k>0$인 경우 $0 \\leq x \\leq 2$에서 최솟값은 $f(0)=5$\n만족하는 $k$값을 구하면 $k=2$\n(3) $-2<k<0$인 경우 최댓값은 $f(-k)=5$\n주어진 범위에 만족하는 $k$값은 존재하지 않는다.\n$k \\leq -2$인 경우 최댓값은 $f(2)=5$이므로 주어진 범위에 만족하는 $k$값을 계산하면 $k=-2$", "topic": "", "difficulty": ""}
+  ]
+}

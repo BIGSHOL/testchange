@@ -1,0 +1,54 @@
+{
+  "exam_id": 4250,
+  "answer_pages": [7],
+  "items": [
+    {"number": 1, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 2, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 3, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 4, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 5, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 6, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 7, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 8, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 9, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 10, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 11, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 12, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 13, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 14, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 15, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 16, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 17, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 18, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 19, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 20, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {
+      "number": 21,
+      "answer": "증명 (풀이 참조)",
+      "solution": "주어진 명제의 대우는 ‘$m$, $n$이 자연수일 때, $mn$이 홀수이면 $m^{2}+n^{2}$은 짝수이다.’이다.\n$mn$이 홀수이면 $m$과 $n$은 모두 홀수이므로 $m=2k-1$, $n=2l-1$ ($k$, $l$은 자연수)로 나타낼 수 있다.\n$m^{2}+n^{2}=(2k-1)^{2}+(2l-1)^{2}=2(2k^{2}-2k+2l^{2}-2l+1)$이므로 $m^{2}+n^{2}$은 짝수이다.\n따라서 주어진 명제의 대우가 참이므로 주어진 명제도 참이다.",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 22,
+      "answer": "$4$",
+      "solution": "$y=f(x)$, $y=g(x)$는 역함수 관계이므로 그래프의 교점은 직선 $y=x$ 위에 있다.\n즉, $\\frac{1}{4}x^{2}+\\frac{1}{4}k=x$에서 $x^{2}-4x+k=0$이고 음이 아닌 서로 다른 두 실근을 가져야 하므로\n① $D/4=4-k>0$, $k<4$\n② $\\alpha+\\beta=4>0$\n③ $\\alpha\\beta=k \\geq 0$\n$\\therefore 0 \\leq k<4$\n따라서 정수는 $0$, $1$, $2$, $3$으로 4개다.",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 23,
+      "answer": "(1) $k=0$ (2) $6\\sqrt{2}$",
+      "solution": "(1) 역함수가 존재하려면 $f(x)$가 일대일대응이어야 하므로 $k-1=-1$ $\\therefore k=0$ 이다.\n(2) $\\frac{1}{2}x-\\frac{3}{2}=x \\rightarrow x=-3$ 이므로 교점은 $(-3,~-3)$\n$x^{2}-2x=x \\rightarrow x=3$ 이므로 교점은 $(3,~3)$\n$\\overline{\\mathrm{PQ}}=\\sqrt{36+36}=6\\sqrt{2}$ 이다.",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 24,
+      "answer": "$k \\leq \\frac{1}{4}$",
+      "solution": "$f(2x+1)=4x^{2}-6x-4+k$\n$g\\left(x-\\frac{1}{2}\\right)=2x^{2}-3x+1+\\frac{k}{2}$\n$t=x-\\frac{1}{2} \\rightarrow x=t+\\frac{1}{2}$\n$g(t)=2t^{2}-t+\\frac{k}{2}$\n$g(x)=2x^{2}-x+\\frac{k}{2}$ 이므로 $g(x)=0$이 실근을 가지도록 하는 실수 $k$의 값의 범위를 구하면 $(-1)^{2}-4\\times2\\times\\frac{k}{2} \\geq 0$\n$\\therefore k \\leq \\frac{1}{4}$",
+      "topic": "",
+      "difficulty": ""
+    }
+  ]
+}

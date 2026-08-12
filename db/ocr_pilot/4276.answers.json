@@ -1,0 +1,55 @@
+{
+  "exam_id": 4276,
+  "answer_pages": [7, 8],
+  "items": [
+    {"number": 1, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 2, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 3, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 4, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 5, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 6, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 7, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 8, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 9, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 10, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 11, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 12, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 13, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 14, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 15, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 16, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 17, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 18, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 19, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 20, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 21, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {
+      "number": 22,
+      "answer": "(1) $A=\\{x|x는 10의 양의 약수\\}$ (2) $B=\\{-4,~3\\}$",
+      "solution": "(1) $A=\\{x|x는 10의 양의 약수\\}$\n벤다이어그램: 집합 $A$ 를 나타내는 원 안에 원소 $1$, $2$, $5$, $10$ 을 나열한다.\n(2) $B=\\{-4,~3\\}$\n벤다이어그램: 집합 $B$ 를 나타내는 원 안에 원소 $-4$, $3$ 을 나열한다.",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 23,
+      "answer": "$1$, $\\frac{1}{3}$, $-2$",
+      "solution": "(1) 세 직선이 한 점에서 만날 때 :\n$3x-y-2=0$, $x+2y-3=0$ 을 연립하여 교점의 좌표를 구하면 $(1,~1)$ 이고 이 점이 $x-my=0$ 을 지날 때 삼각형이 만들어지지 않으므로 대입하면 $m=1$\n(2) $3x-y-2=0$ 과 $x-my=0$ 이 평행할 때 :\n$\\frac{1}{3}=\\frac{-m}{-1}\\neq\\frac{0}{-2}$ 에서 $m=\\frac{1}{3}$\n(3) $x+2y-3=0$ 과 $x-my=0$ 이 평행할 때 :\n$\\frac{1}{1}=\\frac{-m}{2}\\neq\\frac{0}{-3}$ 에서 $m=-2$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 24,
+      "answer": "$\\frac{27}{2}$",
+      "solution": "$x_{1}<x_{2}<x_{3}$ 이라 하면\n조건 (가)에 의하여 $x_{1}<0$, $x_{2}<0$, $x_{3}<0$ 또는 $x_{1}<0$, $x_{2}>0$, $x_{3}>0$\n조건 (나)에 의하여 세 점 $(x_{1},~f(x_{1}))$, $(x_{2},~f(x_{2}))$, $(x_{3},~f(x_{3}))$ 을 꼭짓점으로 하는 삼각형의 무게중심의 $y$ 좌표가 양수이므로 $a>0$\n원의 중심을 $\\mathrm{P}(p,~q)$ 라 하면 $q>0$\n점 $\\mathrm{P}$ 와 직선 $3x-4y=0$ 사이의 거리는 점 $\\mathrm{P}$ 와 $x$ 축 사이의 거리 $q$ 와 같다.\n$\\frac{|3p-4q|}{\\sqrt{3^{2}+(-4)^{2}}}=\\frac{|3p-4q|}{5}=q$\n(i) $3p-4q=-5q$ 인 경우\n$q=-3p$ 이므로 점 $\\mathrm{P}$ 는 이차함수 $y=f(x)$ 의 그래프와 직선 $y=-3x$ 가 만나는 점이다.\n(ii) $3p-4q=5q$ 인 경우\n$q=\\frac{1}{3}p$ 이므로 점 $\\mathrm{P}$ 는 이차함수 $y=f(x)$ 의 그래프와 직선 $y=\\frac{1}{3}x$ 가 만나는 점이다.\n조건 (가)와 (i), (ii)에 의하여\n$x_{1}<0$, $x_{2}>0$, $x_{3}>0$ 이고 $b>0$\n이차함수 $y=f(x)$ 의 그래프는 직선 $y=-3x$ 에 접하고, 직선 $y=\\frac{1}{3}x$ 와 서로 다른 두 점에서 만난다.\n[원본 풀이과정이 여기서 끝남 — 이후 과정은 인쇄되어 있지 않음]",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 25,
+      "answer": "$\\sqrt{89}$",
+      "solution": "점 $\\mathrm{A}$ 를 직선 $y=x$ 에 대하여 대칭이동한 점을 $\\mathrm{A}'$, 점 $\\mathrm{B}$ 를 $y$ 축에 대하여 대칭이동한 점을 $\\mathrm{B}'$ 이라 하면\n$\\mathrm{A}'(3,~4)$, $\\mathrm{B}'(-2,~-4)$\n$\\overline{\\mathrm{AD}}=\\overline{\\mathrm{A}'\\mathrm{D}}$ 이고 $\\overline{\\mathrm{CB}}=\\overline{\\mathrm{CB}'}$ 이므로\n$\\overline{\\mathrm{AD}}+\\overline{\\mathrm{DC}}+\\overline{\\mathrm{CB}}=\\overline{\\mathrm{A}'\\mathrm{D}}+\\overline{\\mathrm{DC}}+\\overline{\\mathrm{CB}'} \\geq \\overline{\\mathrm{A}'\\mathrm{B}'}=\\sqrt{(-2-3)^{2}+(-4-4)^{2}}=\\sqrt{89}$",
+      "topic": "",
+      "difficulty": ""
+    }
+  ]
+}

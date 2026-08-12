@@ -1,0 +1,285 @@
+{
+  "meta": {"exam_id": 4252, "ocr_source": "session-vision"},
+  "header": {"title": "경상여고 1학년 수학 — 2025년 1학기 중간고사 (다항식의 덧셈과 뺄셈 ~ 이차함수의 최대,최소)"},
+  "questions": [
+    {
+      "number": 1,
+      "score": 2.6,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "$(a+b)^{3}$을 전개한 식으로 옳은 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "a^{3}-3a^{2}b+3ab^{2}+b^{3}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "a^{3}+3a^{2}b+3ab^{2}+b^{3}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "a^{3}-3a^{2}b+3ab^{2}-b^{3}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "a^{3}+3a^{2}b-3ab^{2}+b^{3}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "a^{3}-3a^{2}b-3ab^{2}-b^{3}"}]}
+      ]
+    },
+    {
+      "number": 2,
+      "score": 2.7,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "$a^{2}+b^{2}+c^{2}+2ab+2bc+2ca$를 인수분해한 식으로 옳은 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "(a+b+c)^{2}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "(a+b-c)^{2}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "(a-b+c)^{2}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "(a-b-c)^{3}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "(a+b+c)^{3}"}]}
+      ]
+    },
+    {
+      "number": 3,
+      "score": 2.7,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "다음 중 $x$에 대한 내림차순으로 정리한 것으로 옳지 __않은__ 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "x^{3}-2x-x^{2}+3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "x^{3}+2x-2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-x^{4}+2x^{2}+1"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "-x^{4}-5x^{3}+x-7"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "x^{4}-x^{3}+5x^{2}-2x+4"}]}
+      ]
+    },
+    {
+      "number": 4,
+      "score": 2.8,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "다항식 $f(x)$를 $2x^{2}+x+1$로 나누었을 때의 몫이 $x-1$이고 나머지가 $2x-1$일 때, $f(2)$의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "11"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "13"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "14"}]}
+      ]
+    },
+    {
+      "number": 5,
+      "score": 2.9,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "등식 $(a-1)x^{2}+(b-2)x+c=0$이 $x$에 대한 항등식이다. 이때, $a+b+c$의 값은? (단, $a$, $b$, $c$는 상수)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+      ]
+    },
+    {
+      "number": 6,
+      "score": 3.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "등식 $(1+i)\\overline{(1+i)}=a+bi$를 만족시키는 두 실수 $a$, $b$에 대하여 $a+b$의 값은? (단, $i=\\sqrt{-1}$)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "3"}]}
+      ]
+    },
+    {
+      "number": 7,
+      "score": 3.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "다음은 조립제법을 이용하여 다항식 $x^{3}+5x^{2}-2x+c$를 $x-1$로 나누었을 때의 몫과 나머지를 구하는 과정이다. $a \\sim e$의 값으로 옳지 __않은__ 것은?"},
+        {"type": "figure", "value": "조립제법 표. 세로선 왼쪽 나눗수 자리에 $a$. 첫째 줄(피제식 계수) : $1$, $b$, $-2$, $c$. 둘째 줄(한 칸 오른쪽부터) : $1$, $6$, $4$. 가로선 아래 셋째 줄 : $1$, $d$, $e$ 이고 마지막 칸(나머지, 세로선으로 구분)은 $6$."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "a=1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "b=5"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "c=2"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "d=5"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "e=4"}]}
+      ]
+    },
+    {
+      "number": 8,
+      "score": 3.1,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "이차방정식 $x^{2}-2x+3=0$의 두 근을 $\\alpha$와 $\\beta$라 할 때, $\\frac{1}{\\alpha}+\\frac{1}{\\beta}$의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-\\frac{3}{2}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-\\frac{2}{3}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{1}{2}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{2}{3}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{3}{2}"}]}
+      ]
+    },
+    {
+      "number": 9,
+      "score": 3.2,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "양수 $k$에 대하여 $x$에 대한 이차방정식 $4x^{2}-kx+9=0$이 중근을 가질 때, $k$의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "12"}]}
+      ]
+    },
+    {
+      "number": 10,
+      "score": 3.4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "등식 $\\sqrt{-2}\\,\\sqrt{2}+\\sqrt{-3}\\,\\sqrt{-3}+\\frac{\\sqrt{32}}{\\sqrt{-2}}=a+bi$를 만족시키는 두 실수 $a$와 $b$에 대하여 $\\frac{b}{a}$의 값은? (단, $i=\\sqrt{-1}$)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{1}{3}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{1}{2}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{2}{3}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{5}{6}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "1"}]}
+      ]
+    },
+    {
+      "number": 11,
+      "score": 3.4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "이차함수 $y=-x^{2}+8x-k$의 그래프가 $x$축과 서로 다른 두 점에서 만나도록 하는 정수 $k$의 최댓값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "13"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "14"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "15"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "16"}]}
+      ]
+    },
+    {
+      "number": 12,
+      "score": 3.5,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "이차함수 $f(x)=x^{2}+ax+b$의 그래프는 직선 $x=4$에 대하여 대칭이다. $1 \\leq x \\leq 3$에서 함수 $f(x)$의 최솟값이 5일 때, $a+b$의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "13"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "14"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "15"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "16"}]}
+      ]
+    },
+    {
+      "number": 13,
+      "score": 3.7,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "오른쪽 그림의 직사각형 $\\mathrm{ABCD}$에서 두 점 $\\mathrm{A}$와 $\\mathrm{B}$는 $x$축 위에 있고, 두 점 $\\mathrm{C}$와 $\\mathrm{D}$는 이차함수 $y=10x-\\frac{1}{5}x^{2}$의 그래프 위에 있다. 이때 직사각형 $\\mathrm{ABCD}$의 둘레의 길이의 최댓값은?"},
+        {"type": "figure", "value": "좌표평면에 위로 볼록한 포물선 $y=10x-\\frac{1}{5}x^{2}$ 가 그려져 있다(그래프 옆에 식 $y=10x-\\frac{1}{5}x^{2}$ 표기). 포물선은 원점 $\\mathrm{O}$ 부근에서 $x$축을 지나 위로 올라갔다가 다시 내려온다. $x$축 양의 부분에 두 점 $\\mathrm{A}$, $\\mathrm{B}$ 가 있고($\\mathrm{O}$ 오른쪽에 $\\mathrm{A}$, 그보다 오른쪽에 $\\mathrm{B}$), 두 점에서 $y$축과 평행하게 올라간 선분의 끝점 $\\mathrm{D}$(왼쪽 위), $\\mathrm{C}$(오른쪽 위)가 포물선 위에 있다. $\\mathrm{D}$와 $\\mathrm{C}$를 잇는 가로 선분으로 직사각형 $\\mathrm{ABCD}$가 만들어진다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "250"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "260"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "270"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "280"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "290"}]}
+      ]
+    },
+    {
+      "number": 14,
+      "score": 10,
+      "type": "서술형",
+      "label": "[서술형 1]",
+      "contents": [
+        {"type": "text", "value": "[서술형 1] 등식 $(x+2)+(x+y-1)i=3+5i$가 성립하도록 하는 실수 $x$와 $y$의 값을 구하시오. [$x$값 : 5점, $y$값 : 5점]"}
+      ],
+      "choices": []
+    },
+    {
+      "number": 15,
+      "score": 10,
+      "type": "서술형",
+      "label": "[서술형 2]",
+      "contents": [
+        {"type": "text", "value": "[서술형 2] 다항식 $f(x)$가 다음 조건을 모두 만족시킨다."},
+        {"type": "text", "value": "<상자> (가) $f(x)$를 $x^{2}-x+1$로 나눈 나머지는 $-x+4$이다. • (나) $f(x)$를 $x^{3}+1$로 나눈 나머지는 $ax^{2}+b$이다."},
+        {"type": "text", "value": "다음 물음에 답하시오."}
+      ],
+      "choices": [],
+      "sub_questions": [
+        {"number": 1, "score": 4, "contents": [{"type": "text", "value": "상수 $a$의 값을 구하시오."}]},
+        {"number": 2, "score": 4, "contents": [{"type": "text", "value": "상수 $b$의 값을 구하시오."}]},
+        {"number": 3, "score": 2, "contents": [{"type": "text", "value": "$f(x)$를 $x+1$로 나누었을 때의 나머지를 구하시오."}]}
+      ]
+    },
+    {
+      "number": 16,
+      "score": 10,
+      "type": "서술형",
+      "label": "[서술형 3]",
+      "contents": [
+        {"type": "text", "value": "[서술형 3] 두 다항식 $A$, $B$에 대하여 $A+B=-2x^{2}+8x-1$, $2A-B=11x^{2}+4x+7$일 때, $A+2B=ax^{2}+bx+c$이다. 상수 $a$, $b$, $c$에 대하여 $a+b+c$의 값을 구하시오. [10점, 부분점수 있음]"}
+      ],
+      "choices": []
+    },
+    {
+      "number": 17,
+      "score": 10,
+      "type": "서술형",
+      "label": "[서술형 4]",
+      "contents": [
+        {"type": "text", "value": "[서술형 4] 삼차식 $f(x)$와 일차식 $g(x)$가 다음 조건을 모두 만족시킨다."},
+        {"type": "text", "value": "<상자> (가) $2x^{4}+5x^{3}+6x^{2}+6x+2$를 $f(x)$로 나눈 나머지는 $g(x)$이다. • (나) $2x^{4}+5x^{3}+6x^{2}+6x+2$를 $g(x)$로 나눈 나머지는 $f(x)-x^{3}-2x^{2}-2x$이다."},
+        {"type": "text", "value": "$f(1)-f(0)$의 값을 $m$, $g\\left(\\frac{1}{2}\\right)$의 값을 $n$이라 할 때, $m+n$의 값을 구하시오. [10점, 부분점수 있음]"}
+      ],
+      "choices": []
+    },
+    {
+      "number": 18,
+      "score": 8,
+      "type": "서술형",
+      "label": "[서술형 5]",
+      "contents": [
+        {"type": "text", "value": "[서술형 5] 이차식 $x^{2}-2x+10$을 복소수의 범위에서 인수분해 하시오. [8점, 부분 점수 있음]"}
+      ],
+      "choices": []
+    },
+    {
+      "number": 19,
+      "score": 12,
+      "type": "서술형",
+      "label": "[서술형 6]",
+      "contents": [
+        {"type": "text", "value": "[서술형 6] 이차식 $f(x)$에 대하여 이차방정식 $f(x)=0$의 두 근을 $\\alpha$, $\\beta$라 하자. $\\alpha+\\beta=2$, $\\alpha^{3}+\\beta^{3}=14$일 때, 이차방정식 $f(3x-4)=0$의 두 근의 곱을 구하시오. [12점, 부분 점수 있음]"}
+      ],
+      "choices": []
+    }
+  ]
+}

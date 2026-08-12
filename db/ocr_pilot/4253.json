@@ -1,0 +1,406 @@
+{
+  "meta": {"exam_id": 4253, "ocr_source": "session-vision"},
+  "header": {"title": "경신고 1학년 수학 — 2025년 1학기 기말고사 대비 (공통수학1) 이차방정식과 이차함수 ~ 행렬"},
+  "questions": [
+    {
+      "number": 1,
+      "score": 3,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "x에 대한 이차부등식 x^{2}+ax+6>0의 해가 x<1 또는 x>6일 때, 상수 a의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-8"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-7"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-6"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "-5"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "-4"}]}
+      ]
+    },
+    {
+      "number": 2,
+      "score": 3,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "5개의 숫자 1, 2, 3, 4, 5가 각각 하나씩 적힌 5장의 카드 중에서 서로 다른 3장의 카드를 뽑아 일렬로 나열할 때, 가운데 놓인 카드가 3인 경우의 수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "16"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "20"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "24"}]}
+      ]
+    },
+    {
+      "number": 3,
+      "score": 3,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "사차방정식 x^{4}-5x^{3}+11x^{2}-7x=0의 두 허근을 \\alpha, \\beta라 할 때, \\alpha^{2}+\\beta^{2}의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "2"}]}
+      ]
+    },
+    {
+      "number": 4,
+      "score": 4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "놀이공원에서 서로 다른 5가지 놀이 기구 중에서 서로 다른 3가지를 골라 타는 순서를 정하는 경우의 수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "30"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "45"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "60"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "75"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "90"}]}
+      ]
+    },
+    {
+      "number": 5,
+      "score": 4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "이차함수 f(x)=ax^{2}+2bx가 다음 조건을 만족시킬 때, f(2)의 최댓값은?"},
+        {"type": "text", "value": "<상자> (가) a와 b는 자연수이다. • (나) 1 \\leq x \\leq 3일 때, 이차함수 f(x)의 최솟값은 8이다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "24"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "28"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "32"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "36"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "40"}]}
+      ]
+    },
+    {
+      "number": 6,
+      "score": 4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "사차방정식 x^{4}+8x^{3}+2x^{2}-40x+25=0에 대하여 양수인 모든 근의 합이 -a+\\sqrt{b}+\\sqrt{c}일 때, a+b+c의 값은? (단, a, b, c는 자연수이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "24"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "25"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "26"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "27"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "28"}]}
+      ]
+    },
+    {
+      "number": 7,
+      "score": 4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "이차함수 f(x)=x^{2}-ax+3b의 그래프와 직선 g(x)=ax+b가 임의의 실수 x에 대하여 f(x)>g(x)를 만족시킬 때, 옳은 것만을 <보기>에서 있는 대로 고른 것은? (단, a, b는 실수인 상수이다.)"},
+        {"type": "text", "value": "<보기> ㄱ. a^{2}-2b<0 • ㄴ. 임의의 모든 실수 k에 대하여 k^{2}>2ak-2b가 항상 성립한다. • ㄷ. 임의의 모든 실수 a, b에 대하여 -\\frac{a^{2}}{4}+2b<0가 항상 성립한다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄷ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄱ, ㄴ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄴ, ㄷ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄱ, ㄴ, ㄷ"}]}
+      ]
+    },
+    {
+      "number": 8,
+      "score": 4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "등식"},
+        {"type": "equation_block", "value": "\\begin{pmatrix} a & b \\\\ 2 & a \\end{pmatrix}\\begin{pmatrix} 2 & 1 \\\\ 1 & 3 \\end{pmatrix}=\\begin{pmatrix} 4 & -3 \\\\ c & d \\end{pmatrix}"},
+        {"type": "text", "value": "가 성립할 때, a+b+c+d의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "11"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "13"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "15"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "17"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "19"}]}
+      ]
+    },
+    {
+      "number": 9,
+      "score": 4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "서로 다른 세 실수 x, y, z가"},
+        {"type": "equation_block", "value": "\\frac{x^{2}}{2}=yz+2, \\quad \\frac{y^{2}}{2}=xz+2, \\quad \\frac{z^{2}}{2}=xy+2"},
+        {"type": "text", "value": "을 만족시킬 때, x^{2}+y^{2}+z^{2}의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "6"}]}
+      ]
+    },
+    {
+      "number": 10,
+      "score": 4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "부등식"},
+        {"type": "equation", "value": "\\begin{cases} x^{2}-2x-8 \\leq 0 \\\\ |x-2|<k \\end{cases}"},
+        {"type": "text", "value": "을 만족시키는 서로 다른 정수 x가 3개 존재할 때, 양수 k의 최댓값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+      ]
+    },
+    {
+      "number": 11,
+      "score": 4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "중고차 A, B의 가격과 휘발유 1L당 주행거리가 다음표와 같다. 앞으로 휘발유 가격이 1L당 1500원으로 일정하다고 가정할 때, 차의 가격과 휘발유의 가격만을 고려하여 중고차 A를 구입하는 것보다 중고차 B를 구입하는 것이 더 경제적이려면 중고차 B를 구입한 후 최소 a\\mathrm{km}를 넘게 타야 한다. 상수 a의 값은?"},
+        {"type": "table", "rows": [["", "차의 가격", "1L당 주행거리"], ["중고차 A", "9백만원", "12km"], ["중고차 B", "천만원", "15km"]]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "10000"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "20000"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "30000"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "40000"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "50000"}]}
+      ]
+    },
+    {
+      "number": 12,
+      "score": 4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "연립부등식"},
+        {"type": "equation_block", "value": "ax-1 \\leq 3x-3 < -2x+13"},
+        {"type": "text", "value": "을 만족시키는 정수 x의 개수가 2가 되도록 하는 실수 a의 값의 범위는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-1<a \\leq 0"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "0<a \\leq 1"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "1<a \\leq 2"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "2<a \\leq 3"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "3<a \\leq 4"}]}
+      ]
+    },
+    {
+      "number": 13,
+      "score": 4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "두 이차함수"},
+        {"type": "equation_block", "value": "f(x)=x^{2}+4x-k^{2}+8,"},
+        {"type": "equation_block", "value": "g(x)=x^{2}-6x+k^{2}-10k+30"},
+        {"type": "text", "value": "의 그래프가 x축과 만나는 점의 개수가 서로 같도록 하는 모든 정수 k의 개수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "8"}]}
+      ]
+    },
+    {
+      "number": 14,
+      "score": 4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "6개의 숫자 0, 1, 2, 3, 4, 5 에서 서로 다른 4개의 숫자를 택하여 만들 수 있는 네 자리의 자연수 중 3201보다 작은 짝수의 개수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "72"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "75"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "78"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "81"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "84"}]}
+      ]
+    },
+    {
+      "number": 15,
+      "score": 4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 한 변의 길이가 1인 정사각형 8개를 붙여 만든 직사각형이 있다. 각 정사각형에 의해 나누어진 A에서 H까지 8개의 영역 각각에 다음 조건을 만족시키면서 흰색 또는 검은색을 칠하는 경우의 수는?"},
+        {"type": "figure", "value": "가로로 길게 이어붙인 1×8 직사각형. 왼쪽부터 정사각형 8칸에 각각 A, B, C, D, E, F, G, H 라고 적혀 있다."},
+        {"type": "text", "value": "<상자> (가) 각 영역에는 한 가지 색만을 칠한다. • (나) 흰색은 3개 또는 4개 영역에 칠한다. • (다) 흰색을 칠한 영역은 서로 이웃하지 않는다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "25"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "30"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "35"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "40"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "45"}]}
+      ]
+    },
+    {
+      "number": 16,
+      "score": 4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "아래 그림과 같이 정육각형의 꼭짓점과 세 대각선의 교점을 포함한 점 7개 중에서 점 3개를 꼭짓점으로 하는 삼각형의 개수는?"},
+        {"type": "figure", "value": "정육각형 하나. 여섯 꼭짓점이 점으로 찍혀 있고, 마주 보는 꼭짓점을 잇는 세 개의 긴 대각선(주대각선)이 모두 그려져 있어 육각형이 여섯 개의 정삼각형으로 나뉜다. 세 대각선이 만나는 중심에도 점이 찍혀 있어 점은 모두 7개(꼭짓점 6 + 중심 1)이다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "32"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "33"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "34"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "35"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "36"}]}
+      ]
+    },
+    {
+      "number": 17,
+      "score": 4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "남학생 6명과 여학생 3명으로 이루어진 독서 동아리에서 독서 토론회에 나갈 3명을 뽑으려고 한다. 이때 남학생 2명과 여학생 1명을 뽑는 경우의 수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "25"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "35"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "45"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "55"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "65"}]}
+      ]
+    },
+    {
+      "number": 18,
+      "score": 4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "이차방정식 x^{2}-5x-2=0의 두 근을 \\alpha, \\beta라 할 때, 두 행렬의 곱"},
+        {"type": "equation", "value": "\\begin{pmatrix} \\alpha & \\beta \\\\ \\beta & 0 \\end{pmatrix}\\begin{pmatrix} \\beta & \\alpha \\\\ \\alpha & 0 \\end{pmatrix}"},
+        {"type": "text", "value": "의 모든 성분의 합은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "21"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "23"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "25"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "27"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "29"}]}
+      ]
+    },
+    {
+      "number": 19,
+      "score": 4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "n차 정사각행렬 A의 (i,~j) 성분 a_{ij}를"},
+        {"type": "equation_block", "value": "a_{ij}=\\left[ \\frac{i^{2}-4j-12}{2} \\right]"},
+        {"type": "text", "value": "(단, 1 \\leq i \\leq n, 1 \\leq j \\leq n)라 하자. a_{11}+a_{22}+a_{33}+\\cdots+a_{nn}>0이 되도록 하는 자연수 n의 최솟값을 구하면? (단, [x]는 x보다 크지 않은 최대의 정수이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "11"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "13"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "14"}]}
+      ]
+    },
+    {
+      "number": 20,
+      "score": 4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "두 이차 정사각행렬 A=(a_{ij}), B=(b_{ij})에 대하여 a_{ij}-a_{ji}=0, b_{ij}+b_{ji}=0이고,"},
+        {"type": "equation", "value": "A-2B=\\begin{pmatrix} 1 & 1 \\\\ 1 & 1 \\end{pmatrix}"},
+        {"type": "text", "value": "이다. A^{n}-C=B를 만족시키는 행렬 C의 모든 성분의 합이 2^{12}일 때, 자연수 n의 값을 구하면?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "11"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "12"}]}
+      ]
+    },
+    {
+      "number": 21,
+      "score": 4,
+      "type": "서술형",
+      "label": "[서술형 1]",
+      "contents": [
+        {"type": "text", "value": "[서술형 1] 그림과 같이 평행한 9개의 직선들과 이들과는 평행하지 않은 5개의 평행한 직선들이 있다. 이 직선들로 둘러싸인 평행사변형 중 색칠한 부분을 하나만 포함하는 평행사변형의 개수를 구하시오. (단, 정답은 자연수로 작성하시오.)"},
+        {"type": "figure", "value": "가로로 나란한 직선 5개(위에서부터 b_1~b_5)와, 왼쪽 아래에서 오른쪽 위로 기울어진 나란한 직선 9개(왼쪽부터 a_1~a_9)가 서로 교차해 평행사변형 격자를 이룬다. 색칠된(검게 칠한) 평행사변형은 두 개로, 하나는 위에서 둘째 가로줄(b_2와 b_3 사이)의 왼쪽에서 셋째 칸이고, 다른 하나는 위에서 넷째 가로줄(b_4와 b_5 사이)의 왼쪽에서 여섯째 칸이다. 두 색칠된 칸은 서로 겹치지 않고 떨어져 있다."}
+      ],
+      "choices": []
+    },
+    {
+      "number": 22,
+      "score": 4,
+      "type": "서술형",
+      "label": "[서술형 2]",
+      "contents": [
+        {"type": "text", "value": "[서술형 2] 6개의 숫자 0, 1, 2, 3, 4, 5 중 서로 다른 3개의 수를 사용하여 세 자리의 자연수를 만들 때, 6의 배수가 되는 경우의 수를 구하시오. (단, 정답은 자연수로 작성하시오.)"}
+      ],
+      "choices": []
+    },
+    {
+      "number": 23,
+      "score": 5,
+      "type": "서술형",
+      "label": "[서술형 3]",
+      "contents": [
+        {"type": "text", "value": "[서술형 3] 한 변의 길이가 1인 정사각형 16개로 이루어진 한 변의 길이가 4인 정사각형이 있다. 한 변의 길이가 1인 정사각형 5개에 다음 조건을 만족시키도록 색칠하는 경우의 수를 구하시오. 그림은 아래 조건을 만족시키는 한 예이다. (단, 정답은 자연수로 작성하시오.)"},
+        {"type": "text", "value": "<상자> (가) 모든 가로줄에는 적어도 한 개의 정사각형을 색칠한다. • (나) 어느 가로줄에도 변을 공유하는 두 정사각형을 모두 색칠한 것은 없다. • (다) 어느 세로줄에도 변을 공유하는 두 정사각형을 모두 색칠한 것은 없다."},
+        {"type": "figure", "value": "4×4 격자(한 변의 길이가 4인 정사각형을 1×1 정사각형 16개로 나눈 것). 격자 위쪽에 '세로줄 ↓', 왼쪽에 '가로줄 →' 표시가 있다. 색칠(검게 칠)된 칸은 5개로, 1행 1열, 2행 3열, 3행 2열, 3행 4열, 4행 3열이다."}
+      ],
+      "choices": []
+    },
+    {
+      "number": 24,
+      "score": 5,
+      "type": "서술형",
+      "label": "[서술형 4]",
+      "contents": [
+        {"type": "text", "value": "[서술형 4] 다음 조건을 만족시키는 10 이하의 네 자연수 a, b, c, d의 모든 순서쌍 (a,~b,~c,~d)의 개수를 구하시오. (단, 정답은 자연수로 작성하시오.)"},
+        {"type": "text", "value": "<상자> (가) a<b<c • (나) |b-a| \\leq |b-c| • (다) b \\neq d 이고, bd는 홀수이다."}
+      ],
+      "choices": []
+    },
+    {
+      "number": 25,
+      "score": 5,
+      "type": "서술형",
+      "label": "[서술형 5]",
+      "contents": [
+        {"type": "text", "value": "[서술형 5] 행렬"},
+        {"type": "equation", "value": "A=\\begin{pmatrix} 0 & 0 \\\\ 1 & -1 \\end{pmatrix}"},
+        {"type": "text", "value": "에 대하여 다음 조건을 만족시키는 이차 정사각행렬 M의 개수를 구하시오."},
+        {"type": "text", "value": "<상자> (가) AM=MA • (나) 행렬 M의 모든 성분의 합은 4이다. • (다) 행렬 M의 모든 성분은 음이 아닌 정수이다."}
+      ],
+      "choices": []
+    }
+  ]
+}

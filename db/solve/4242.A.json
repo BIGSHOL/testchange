@@ -1,0 +1,202 @@
+{
+ "exam_id": 4242,
+ "pass": "A",
+ "items": [
+  {
+   "number": 1,
+   "answer": "③",
+   "solution": "step1) 선분 $\\mathrm{AB}$를 $1:3$으로 내분하는 점은 $\\left(\\frac{3x_A+x_B}{4},~\\frac{3y_A+y_B}{4}\\right)$이다.\nstep2) $x$좌표: $\\frac{3\\times(-3)+b}{4}=-1$에서 $-9+b=-4$이므로 $b=5$이다.\nstep3) $y$좌표: $\\frac{3a+6}{4}=3$에서 $3a+6=12$이므로 $a=2$이다.\nstep4) 따라서 $a+b=2+5=7$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 2,
+   "answer": "②",
+   "solution": "step1) $2x+y+4=0$의 기울기는 $-2$이다.\nstep2) $ax+2y-1=0$의 기울기는 $-\\frac{a}{2}$이다.\nstep3) 두 직선이 수직이므로 $(-2)\\times\\left(-\\frac{a}{2}\\right)=-1$, 즉 $a=-1$이다.\nstep4) 검산: $2x+y+4=0$과 $-x+2y-1=0$의 기울기는 $-2$와 $\\frac{1}{2}$로 곱이 $-1$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 3,
+   "answer": "④",
+   "solution": "step1) 점 $(2,~4)$를 지나는 접선을 $y-4=m(x-2)$, 즉 $mx-y+4-2m=0$이라 한다.\nstep2) 원 $x^{2}+y^{2}=1$의 중심 $(0,~0)$과의 거리가 반지름 $1$이므로 $\\frac{|4-2m|}{\\sqrt{m^{2}+1}}=1$이다.\nstep3) 양변을 제곱하면 $4m^{2}-16m+16=m^{2}+1$, 즉 $3m^{2}-16m+15=0$이다.\nstep4) 판별식 $D=256-180=76>0$이므로 두 접선의 기울기는 이 이차방정식의 두 근이고, 그 곱은 $\\frac{15}{3}=5$이다.\nstep5) 직선 $x=2$는 중심과의 거리가 $2\\neq1$이라 접선이 아니므로 기울기가 없는 접선은 없다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 4,
+   "answer": "②",
+   "solution": "step1) 원의 중심은 $(2,~3)$, 반지름은 $\\sqrt{10}$이다.\nstep2) 직선 $-x+y-5=0$, 즉 $x-y+5=0$과 중심 사이의 거리는 $d=\\frac{|2-3+5|}{\\sqrt{2}}=\\frac{4}{\\sqrt{2}}=2\\sqrt{2}$이다.\nstep3) $d^{2}=8$이므로 현의 절반 길이는 $\\sqrt{r^{2}-d^{2}}=\\sqrt{10-8}=\\sqrt{2}$이다.\nstep4) 따라서 $\\overline{\\mathrm{AB}}=2\\sqrt{2}$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 5,
+   "answer": "⑤",
+   "solution": "step1) $\\mathrm{A}(a,~b)$를 원점 대칭하면 $\\mathrm{B}(-a,~-b)$이다.\nstep2) $\\mathrm{B}$를 $x$축 대칭하면 $(-a,~b)$, 이를 다시 $y=x$에 대칭하면 $\\mathrm{C}(b,~-a)$이다.\nstep3) 무게중심의 $x$좌표: $\\frac{a+(-a)+b}{3}=\\frac{b}{3}=2$이므로 $b=6$이다.\nstep4) 무게중심의 $y$좌표: $\\frac{b+(-b)+(-a)}{3}=\\frac{-a}{3}=-3$이므로 $a=9$이다.\nstep5) 따라서 $a+b=15$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 6,
+   "answer": "①",
+   "solution": "step1) 원의 중심은 $(a,~b)$, 반지름은 $|a|=a$ (단, $a>0$)이다.\nstep2) $x$축으로 $-4$, $y$축으로 $-2$ 평행이동하면 중심은 $(a-4,~b-2)$, 반지름은 그대로 $a$이다.\nstep3) $y$축에 접하므로 $|a-4|=a$이다. $a-4=a$는 불가능하므로 $a-4=-a$, 즉 $a=2$이다.\nstep4) $x$축에 접하므로 $|b-2|=a=2$에서 $b=4$ 또는 $b=0$인데 $b>0$이므로 $b=4$이다.\nstep5) 따라서 $a+b=6$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 7,
+   "answer": "④",
+   "solution": "step1) $\\{1,~3\\}\\subset X\\subset U$이므로 $1,~3$은 반드시 포함된다.\nstep2) 나머지 원소 $2,~4,~5$의 포함 여부만 자유롭다.\nstep3) 따라서 개수는 $2^{5-2}=2^{3}=8$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 8,
+   "answer": "②",
+   "solution": "step1) $n(A\\cap B)=n(A)-n(A-B)=50-20=30$이다.\nstep2) $n(B-A)=n(B)-n(A\\cap B)=35-30=5$이다.\nstep3) $n((B-A)^{C})=n(U)-n(B-A)=70-5=65$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 9,
+   "answer": "①",
+   "solution": "step1) 구하는 점은 삼각형 $\\mathrm{ABC}$의 수심이다.\nstep2) 직선 $\\mathrm{BC}$의 기울기는 $\\frac{4-0}{-1-3}=-1$이므로, $\\mathrm{A}(2,~-2)$에서 내린 수선의 기울기는 $1$이고 그 방정식은 $y=x-4$이다.\nstep3) 직선 $\\mathrm{AB}$의 기울기는 $\\frac{0-(-2)}{3-2}=2$이므로, $\\mathrm{C}(-1,~4)$에서 내린 수선의 기울기는 $-\\frac{1}{2}$이고 그 방정식은 $y=-\\frac{1}{2}(x+1)+4$이다.\nstep4) $x-4=-\\frac{x+1}{2}+4$에서 $2x-8=-x+7$, 즉 $x=5$, $y=1$이다.\nstep5) 따라서 $ab=5\\times1=5$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 10,
+   "answer": "②",
+   "solution": "step1) $y=x^{2}+4x+1$을 $x$축 대칭이동하면 $y=-x^{2}-4x-1$이다.\nstep2) $y$축 방향으로 $k$만큼 평행이동하면 $y=-x^{2}-4x-1+k$이다.\nstep3) 직선 $y=2x+5$와 연립하면 $-x^{2}-4x-1+k=2x+5$, 즉 $x^{2}+6x+6-k=0$이다.\nstep4) 한 점에서 만나므로 $D/4=9-(6-k)=3+k=0$, 즉 $k=-3$이다.\nstep5) 검산: $k=-3$이면 $x^{2}+6x+9=(x+3)^{2}=0$으로 중근이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 11,
+   "answer": "②",
+   "solution": "step1) $60=2^{2}\\times3\\times5$이므로 $B=\\{1,2,3,4,5,6,10,12,15,20,30,60\\}$이고, $B$에 속한 소수는 $2,~3,~5$뿐이다.\nstep2) $A_{m}$은 $m+1$ 이하의 소수의 집합이므로 $A_{m}\\subset B$가 되려면 $7$이 포함되면 안 된다.\nstep3) 즉 $m+1<7$이어야 하므로 $m+1\\leq6$, $m\\leq5$이다.\nstep4) $m\\geq3$이므로 최댓값은 $m=5$이다. ($m=5$일 때 $A_5=\\{2,3,5\\}\\subset B$)",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 12,
+   "answer": "③",
+   "solution": "step1) 삼각형이 모두 직선 $l$의 같은 쪽에 있으므로 무게중심까지의 거리는 세 꼭짓점까지 거리의 평균이다.\nstep2) $\\frac{11+16+d_{C}}{3}=14$이므로 $11+16+d_{C}=42$이다.\nstep3) 따라서 $d_{C}=42-27=15$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 13,
+   "answer": "⑤",
+   "solution": "step1) 점 $\\mathrm{A}(3,~4)$에서의 접선은 $3x+4y=25$이다.\nstep2) 점 $\\mathrm{B}(-5,~0)$에서의 접선은 $-5x=25$, 즉 $x=-5$이다.\nstep3) 교점: $x=-5$를 대입하면 $-15+4y=25$에서 $y=10$이므로 $\\mathrm{P}(-5,~10)$이다.\nstep4) $\\overline{\\mathrm{OA}}=5$이고 $\\overline{\\mathrm{AP}}=\\sqrt{(-5-3)^{2}+(10-4)^{2}}=\\sqrt{64+36}=10$이며 $\\overline{\\mathrm{OA}}\\perp\\overline{\\mathrm{AP}}$이다.\nstep5) 따라서 넓이는 $\\frac{1}{2}\\times5\\times10=25$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 14,
+   "answer": "⑤",
+   "solution": "step1) $\\mathrm{A}(0,~8)$, $\\mathrm{B}(2,~0)$, 두 직선의 교점은 $-x+8=2x-4$에서 $x=4$, $y=4$이므로 $\\mathrm{C}(4,~4)$이다.\nstep2) 삼각형 $\\mathrm{ABC}$의 넓이는 $\\frac{1}{2}|0(0-4)+2(4-8)+4(8-0)|=\\frac{1}{2}|-8+32|=12$이다.\nstep3) $\\mathrm{D}(0,~a)$이고 $a>8$이므로 $\\overline{\\mathrm{AD}}=a-8$이고, 점 $\\mathrm{B}$에서 $y$축까지의 거리는 $2$이다.\nstep4) 삼각형 $\\mathrm{ABD}$의 넓이는 $\\frac{1}{2}(a-8)\\times2=a-8$이다.\nstep5) $a-8=12$이므로 $a=20$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 15,
+   "answer": "③",
+   "solution": "step1) 주어진 식은 $\\overline{\\mathrm{AB}}+\\overline{\\mathrm{BC}}$이다.\nstep2) 점 $\\mathrm{B}$가 선분 $\\mathrm{AC}$ 위에 있을 때 최소이고 그 값은 $\\overline{\\mathrm{AC}}$이다.\nstep3) $\\overline{\\mathrm{AC}}=\\sqrt{(k+5)^{2}+(-8-12)^{2}}=\\sqrt{(k+5)^{2}+400}=25$이다.\nstep4) $(k+5)^{2}=625-400=225$이므로 $k+5=\\pm15$, 즉 $k=10$ 또는 $k=-20$이다.\nstep5) $k>0$이므로 $k=10$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 16,
+   "answer": "④",
+   "solution": "step1) 수학 동아리 집합을 $M$, 과학 동아리 집합을 $S$라 하면 $n(M)=25$, $n(S)=20$, $n(M\\cup S)\\leq40$이다.\nstep2) $n(M\\cap S)=45-n(M\\cup S)$이므로 한 동아리에만 가입한 학생 수는 $n(M\\cup S)-n(M\\cap S)=2n(M\\cup S)-45$이다.\nstep3) $n(M\\cup S)$의 최댓값은 $40$이므로 $M=2\\times40-45=35$이다. (이때 $n(M\\cap S)=5$)\nstep4) $n(M\\cup S)$의 최솟값은 $25$(즉 $S\\subset M$)이므로 $m=2\\times25-45=5$이다.\nstep5) 따라서 $M\\times m=35\\times5=175$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 17,
+   "answer": "②",
+   "solution": "step1) 각의 이등분선 위의 점은 두 직선까지의 거리가 같으므로 $\\frac{|x-2y+3|}{\\sqrt{5}}=\\frac{|2x+y-4|}{\\sqrt{5}}$이다.\nstep2) $x-2y+3=2x+y-4$인 경우: $x+3y-7=0$이고 $y$절편은 $\\frac{7}{3}>0$이다.\nstep3) $x-2y+3=-(2x+y-4)$인 경우: $3x-y-1=0$이고 $y$절편은 $-1<0$이므로 제외한다.\nstep4) 따라서 구하는 직선은 $x+3y-7=0$이고 $x$절편은 $7$이다.\nstep5) 검산: 두 직선의 교점 $(1,~2)$가 $x+3y-7=0$을 만족한다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 18,
+   "answer": "⑤",
+   "solution": "step1) 평행한 두 직선 $x-y+8=0$, $x-y-2=0$ 사이의 거리는 $\\frac{|8-(-2)|}{\\sqrt{2}}=5\\sqrt{2}$이고 이것이 $\\overline{\\mathrm{PQ}}$이다.\nstep2) 삼각형 $\\mathrm{OPQ}$의 넓이가 $50$이므로 $\\frac{1}{2}\\times5\\sqrt{2}\\times h=50$에서 $h=10\\sqrt{2}$이다.\nstep3) 직선 $\\mathrm{PQ}$는 기울기가 $-1$이므로 $x+y-c=0$ 꼴이고, $\\frac{|c|}{\\sqrt{2}}=10\\sqrt{2}$에서 $|c|=20$이다.\nstep4) $\\mathrm{P}$, $\\mathrm{Q}$가 제1사분면 위의 점이므로 $c=20$, 즉 $x+y-20=0$이다.\nstep5) $ax+by-20=0$과 비교하면 $a=1$, $b=1$이므로 $a+b=2$이다. (검산: $\\mathrm{P}(6,~14)$, $\\mathrm{Q}(11,~9)$로 $\\overline{\\mathrm{PQ}}=5\\sqrt{2}$)",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 19,
+   "answer": "④",
+   "solution": "step1) 조건 (나)에서 $X\\subset B^{C}$이고 $B$는 $6$과 서로소인 자연수의 집합이므로, $X$의 원소는 $2$ 또는 $3$의 배수이다.\nstep2) 조건 (다)에서 원소는 $10$과 서로소이므로 홀수이면서 $5$의 배수가 아니다.\nstep3) 홀수이면서 $2$ 또는 $3$의 배수이려면 $3$의 배수여야 한다.\nstep4) $40$ 이하의 $3$의 홀수배는 $3,~9,~15,~21,~27,~33,~39$이고, 이 중 $5$의 배수인 $15$를 제외하면 $3,~9,~21,~27,~33,~39$의 $6$개이다.\nstep5) $X\\neq\\varnothing$이므로 개수는 $2^{6}-1$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 20,
+   "answer": "①",
+   "solution": "step1) 왼쪽 아래 모서리를 원점으로 하면 당구대는 $[0,~400]\\times[0,~250]$이고 노란 공은 $\\mathrm{Y}(50,~100)$, 빨간 공은 $\\mathrm{R}(280,~70)$이다.\nstep2) 위쪽 벽 → 오른쪽 벽 순으로 부딪히므로, 목표점을 나중 벽부터 대칭시킨다. $\\mathrm{R}$을 직선 $x=400$에 대칭하면 $(520,~70)$이다.\nstep3) 이를 다시 직선 $y=250$에 대칭하면 $(520,~430)$이다.\nstep4) 최단 거리는 $L=\\sqrt{(520-50)^{2}+(430-100)^{2}}=\\sqrt{470^{2}+330^{2}}=\\sqrt{220900+108900}=\\sqrt{329800}$이다.\nstep5) 따라서 $\\frac{L^{2}}{100}=\\frac{329800}{100}=3298$이다.\nstep6) 검산: 선분이 $y=250$과 만나는 점의 $x$좌표는 약 $263.6$, $x=400$과 만나는 점의 실제 $y$좌표는 약 $154.3$으로 모두 당구대 안이므로 경로가 유효하다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 21,
+   "answer": "⑤",
+   "solution": "step1) 홀수 $1,~3,~5$ 중 홀수 개를 뽑아야 원소의 합이 홀수가 된다. 그 방법은 $_{3}\\mathrm{C}_{1}+_{3}\\mathrm{C}_{3}=3+1=4$가지이다.\nstep2) 짝수 $2,~4,~6$은 자유롭게 뽑으므로 $2^{3}=8$가지, 따라서 합이 홀수인 부분집합은 $4\\times8=32$개이다.\nstep3) 이 중 $n(X)\\geq5$인 것을 뺀다. $n(X)=6$: $X=U$이고 합은 $21$로 홀수이므로 $1$개이다.\nstep4) $n(X)=5$: 원소 하나 $x$를 뺀 합 $21-x$가 홀수이려면 $x$가 짝수이므로 $3$개이다.\nstep5) 따라서 $32-(1+3)=28$개이다. (합이 홀수이면 자동으로 $X\\neq\\varnothing$)",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 22,
+   "answer": "③",
+   "solution": "step1) $\\angle\\mathrm{APB}=90^{\\circ}$이므로 점 $\\mathrm{P}$는 선분 $\\mathrm{AB}$를 지름으로 하는 원 위에 있다.\nstep2) 중심은 $\\mathrm{M}(-4,~8)$, 반지름은 $\\frac{1}{2}\\overline{\\mathrm{AB}}=\\frac{1}{2}\\sqrt{16+16}=2\\sqrt{2}$이다.\nstep3) $\\overline{\\mathrm{OM}}=\\sqrt{16+64}=4\\sqrt{5}$이므로 $\\overline{\\mathrm{OP}}$의 최댓값은 $4\\sqrt{5}+2\\sqrt{2}$이고, 이때 $\\mathrm{P}$는 반직선 $\\mathrm{OM}$의 연장선 위에 있다.\nstep4) $\\mathrm{P}=\\left(1+\\frac{2\\sqrt{2}}{4\\sqrt{5}}\\right)(-4,~8)$이고 $\\frac{2\\sqrt{2}}{4\\sqrt{5}}=\\frac{\\sqrt{10}}{10}$이다.\nstep5) $x$좌표는 $-4\\left(1+\\frac{\\sqrt{10}}{10}\\right)=-4-\\frac{2\\sqrt{10}}{5}$이므로 $p=-4$, $q=-\\frac{2}{5}$이다.\nstep6) 따라서 $q-p=-\\frac{2}{5}+4=\\frac{18}{5}$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 23,
+   "answer": "③",
+   "solution": "step1) 점 $\\mathrm{P}$를 $y$축 대칭하면 $\\mathrm{P}'$은 중심 $(-6,~3)$, 반지름 $1$인 원 위를 움직인다.\nstep2) $\\frac{b}{a}$는 원점과 $\\mathrm{P}'$을 잇는 직선의 기울기이므로, $y=mx$가 이 원에 접할 때 최대·최소가 된다. $\\frac{|-6m-3|}{\\sqrt{m^{2}+1}}=1$에서 $35m^{2}+36m+8=0$이다.\nstep3) 두 근은 $m=\\frac{-18\\pm2\\sqrt{11}}{35}$이고, $\\frac{b}{a}$의 최댓값은 $m_{1}=\\frac{-18+2\\sqrt{11}}{35}$이다.\nstep4) 점 $\\mathrm{Q}$를 $y$축 방향으로 $-6$ 평행이동하면 $\\mathrm{Q}'$은 중심 $(6,~-3)$, 반지름 $1$인 원 위를 움직이고, $\\frac{|6m+3|}{\\sqrt{m^{2}+1}}=1$에서 역시 $35m^{2}+36m+8=0$이다.\nstep5) $\\frac{d}{c}$의 최솟값은 $m_{2}=\\frac{-18-2\\sqrt{11}}{35}$이므로, 구하는 곱은 두 근의 곱 $m_{1}m_{2}=\\frac{8}{35}$이다.\nstep6) $\\frac{q}{p}=\\frac{8}{35}$에서 $q=8$, $p=35$ (서로소)이므로 $p+q=43$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 24,
+   "answer": "④",
+   "solution": "step1) 원 $(x+m)^{2}+(y-1)^{2}=9$를 $x$축 대칭하면 $C_{1}$의 중심은 $(-m,~-1)$, 반지름은 $3$이다.\nstep2) $C_{2}$의 중심은 $(-m+n,~-1)$, 반지름은 $3$이다.\nstep3) $C_{1}$이 직선 $3x-4y=0$과 만날 조건: $\\frac{|-3m+4|}{5}\\leq3$, 즉 $|4-3m|\\leq15$이다. $m$은 자연수이고 $m\\leq3$이므로 $m=1,~2,~3$ 모두 가능하다.\nstep4) $C_{2}$가 만날 조건: $\\frac{|3(n-m)+4|}{5}\\leq3$, 즉 $-19\\leq3(n-m)\\leq11$에서 $-\\frac{19}{3}\\leq n-m\\leq\\frac{11}{3}$, 즉 $-6\\leq n-m\\leq3$이다.\nstep5) $n$은 자연수이므로 $m=1$일 때 $n=1\\sim4$ (4개), $m=2$일 때 $n=1\\sim5$ (5개), $m=3$일 때 $n=1\\sim6$ (6개)이다.\nstep6) 따라서 순서쌍의 개수는 $4+5+6=15$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 25,
+   "answer": "①",
+   "solution": "step1) $y=(x-k)^{2}-15$와 $y=1$을 연립하면 $(x-k)^{2}=16$이므로 $\\mathrm{A}(k-4,~1)$, $\\mathrm{B}(k+4,~1)$이고 $\\overline{\\mathrm{AB}}=8$이다.\nstep2) $\\overline{\\mathrm{OA}}=\\overline{\\mathrm{OB}}$인 경우: $(k-4)^{2}=(k+4)^{2}$에서 $k=0$이다.\nstep3) $\\overline{\\mathrm{OA}}=\\overline{\\mathrm{AB}}$인 경우: $(k-4)^{2}+1=64$에서 $k=4\\pm3\\sqrt{7}$이다.\nstep4) $\\overline{\\mathrm{OB}}=\\overline{\\mathrm{AB}}$인 경우: $(k+4)^{2}+1=64$에서 $k=-4\\pm3\\sqrt{7}$이다.\nstep5) $3\\sqrt{7}\\approx7.94$이므로 다섯 값 $0,~4\\pm3\\sqrt{7},~-4\\pm3\\sqrt{7}$은 모두 서로 다르고, 원점은 직선 $y=1$ 위에 없어 삼각형이 항상 만들어지므로 $n=5$이다.\nstep6) $M=4+3\\sqrt{7}$이므로 $n-M=5-(4+3\\sqrt{7})=1-3\\sqrt{7}$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 26,
+   "answer": "①",
+   "solution": "step1) $\\mathrm{P}(p,~p)$, $\\mathrm{Q}(q,~-q)$라 하면 $\\overline{\\mathrm{PQ}}^{2}=(p-q)^{2}+(p+q)^{2}=2p^{2}+2q^{2}=5$이므로 $p^{2}+q^{2}=\\frac{5}{2}$이다.\nstep2) 중점은 $\\mathrm{M}\\left(\\frac{p+q}{2},~\\frac{p-q}{2}\\right)$이므로 $a=\\frac{p+q}{2}$이다.\nstep3) 코시-슈바르츠 부등식에서 $(p+q)^{2}\\leq2(p^{2}+q^{2})=5$이므로 $p+q\\leq\\sqrt{5}$이다.\nstep4) 따라서 $a$의 최댓값은 $\\frac{\\sqrt{5}}{2}$이다.\nstep5) 검산: $p=q=\\frac{\\sqrt{5}}{2}$일 때 $\\mathrm{P}\\left(\\frac{\\sqrt{5}}{2},\\frac{\\sqrt{5}}{2}\\right)$, $\\mathrm{Q}\\left(\\frac{\\sqrt{5}}{2},-\\frac{\\sqrt{5}}{2}\\right)$로 $\\overline{\\mathrm{PQ}}=\\sqrt{5}$이고 $a=\\frac{\\sqrt{5}}{2}$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 27,
+   "answer": "④",
+   "solution": "step1) $U$의 모든 원소의 합은 $2+4+8+14+16+28+32+64=168$이다.\nstep2) $A^{C}\\cup B=(A-B)^{C}$이므로 조건 (가)는 $168-s=3s$ (단, $s$는 $A-B$의 원소의 합)에서 $s=42$이다.\nstep3) 원소의 합이 $42$이고 원소가 $1{\\sim}3$개인 부분집합은 $\\{14,~28\\}$과 $\\{2,~8,~32\\}$뿐이다.\nstep4) $A-B=\\{14,~28\\}$이면 $n(A\\cap B)+n(B-A)=6-2=4$이므로 $n(A\\cap B)$를 $4$로 하고 남은 원소 중 큰 것부터 $64,~32,~16,~8$을 택하면 합은 $120$이다. 이때 $A$의 원소의 합은 $42+120=162$이다.\nstep5) $A-B=\\{2,~8,~32\\}$이면 $n(A\\cap B)\\leq3$이므로 최대 $64+28+16=108$, 즉 $A$의 합은 $42+108=150$이다.\nstep6) 따라서 최댓값은 $162$이다. (검산: $A=\\{8,14,16,28,32,64\\}$, $B=\\{8,16,32,64\\}$이면 $A^{C}\\cup B=\\{2,4,8,16,32,64\\}$의 합 $126=3\\times42$이고 $n(A\\cup B)=6$이다.)",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 28,
+   "answer": "⑤",
+   "solution": "step1) $f(x)=x^{2}+bx+c$라 하면 원점 대칭이동한 함수는 $g(x)=-f(-x)=-x^{2}+bx-c$이다.\nstep2) $f(x)=g(x)$에서 $2x^{2}+2c=0$, 즉 $x^{2}=-c$이므로 $\\alpha=-t$, $\\beta=t$ $(t=\\sqrt{-c}>0)$로 놓을 수 있고 $c=-t^{2}$이다.\nstep3) $h(\\alpha)=f(-t)=t^{2}-bt-t^{2}=-bt$이다. $f(x)=-bt$를 풀면 $(x+t)(x+b-t)=0$에서 $x=-t,~t-b$이고, $g(x)=-bt$를 풀면 $(x+t)(x-b-t)=0$에서 $x=-t,~b+t$이다.\nstep4) 세 실근 $-t,~t-b,~b+t$의 합은 $t$이므로 조건 (가)에서 $t=8$, 즉 $\\alpha=-8$, $\\beta=8$, $c=-64$이다. (근이 각 구간에 놓이려면 $-16<b<0$)\nstep5) $h$는 $x<-8$에서 감소하여 $h(-8)=-8b>0$, $[-8,8]$에서 위로 볼록하며 $h(8)=8b<0$이 최솟값, $x>8$에서 증가한다. 따라서 $y=-n$ $(n$은 자연수$)$과의 교점은 $-n>8b$이면 $2$개, $-n=8b$이면 $1$개, $-n<8b$이면 $0$개이다.\nstep6) $s=-8b$라 하면 교점의 총 개수는 $s$가 정수일 때 $2(s-1)+1=2s-1$이다. $2s-1=11$에서 $s=6$이므로 $b=-\\frac{3}{4}$이다. ($s$가 정수가 아니면 총 개수가 짝수라 불가능)\nstep7) $h(4)=g(4)=-16-3+64=45$, $h(12)=f(12)=144-9-64=71$이므로 $h(4)+h(12)=116$이다.",
+   "confidence": "high",
+   "note": "조건 (나)는 '모든 자연수 n에 대한 교점 개수의 총합이 11'로 해석함(특정 n 하나로는 교점이 최대 2개이므로 다른 해석 불가). n=1~5에서 각 2개, n=6에서 1개로 총 11개."
+  }
+ ]
+}

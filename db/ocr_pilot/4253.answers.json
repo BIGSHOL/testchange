@@ -1,0 +1,61 @@
+{
+  "exam_id": 4253,
+  "answer_pages": [7, 8],
+  "items": [
+    {"number": 1, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 2, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 3, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 4, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 5, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 6, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 7, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 8, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 9, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 10, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 11, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 12, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 13, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 14, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 15, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 16, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 17, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 18, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 19, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 20, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {
+      "number": 21,
+      "answer": "144",
+      "solution": "다음 그림과 같이 각각의 평행한 선을 $a_i$, $b_j$ $(i=1,2,3,4,5,6,7,8,9,~j=1,2,3,4,5)$이라 하자.\n[그림] 기울어진 직선 9개를 왼쪽부터 $a_1 \\sim a_9$, 가로 직선 5개를 위에서부터 $b_1 \\sim b_5$로 표시한 격자. 색칠된 두 평행사변형이 표시되어 있다.\nⅰ) 위에서 둘째 줄, 왼쪽에서 셋째 칸에 위치한 부분을 포함하는 평행사변형을 만들려면 가로 방향의 선 2개는 $b_1, b_2$ 중 한 개, $b_3, b_4, b_5$ 중 한 개를 택해야 하므로 가로 방향의 선을 택하는 방법의 수는 $2 \\times 3$.\n마찬가지로 세로 방향의 선 2개는 $a_1, a_2, a_3$ 중 한 개, $a_4, a_5, \\cdots, a_9$ 중 한 개를 택해야 하므로 세로 방향의 선을 택하는 방법의 수는 $3 \\times 6$\n따라서 위에서 둘째 줄, 왼쪽에서 셋째 칸에 위치한 부분을 포함한 평행사변형의 개수는 $3 \\times 6 \\times 2 \\times 3$\nⅱ) 위에서 넷째 줄, 왼쪽에서 여섯째 칸에 위치한 부분을 포함하는 평행사변형을 만들려면 가로 방향의 선 2개는 $b_1, \\cdots, b_4$ 중 한 개, $b_5$ 중 한 개를 택해야 하므로 가로 방향의 선을 택하는 방법의 수는 $4 \\times 1$\n마찬가지로 세로 방향의 선 2개는 $a_1, \\cdots, a_6$ 중 한 개, $a_7, a_8, a_9$ 중 한 개를 택해야 하므로 세로 방향의 선을 택하는 방법의 수는 $6 \\times 3$\n따라서 위에서 넷째 줄, 왼쪽에서 여섯째 칸에 위치한 부분만을 포함한 평행사변형의 개수는 $4 \\times 1 \\times 6 \\times 3$\nⅲ) 두 색칠된 평행사변형을 모두 포함하는 평행사변형은 같은 방식으로 $2 \\times 1 \\times 3 \\times 3$이다.\nⅰ) + ⅱ) - ⅲ) - ⅲ) = $144$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 22,
+      "answer": "20",
+      "solution": "6의 배수가 되기 위해서는 짝수이면서 각 자리 숫자의 합이 3의 배수여야 한다. 6개의 숫자 $0,1,2,3,4,5$에서 서로 다른 3개를 택하여 합이 3의 배수가 되는 경우는 $0,1,2$ 또는 $0,1,5$ 또는 $0,2,4$ 또는 $0,4,5$ 또는 $1,2,3$ 또는 $1,3,5$ 또는 $2,3,4$ 또는 $3,4,5$를 택해야 한다.\n또한, 짝수가 되기 위해서는 일의 자리의 수는 0 또는 2 또는 4이어야 하므로\nⅰ) 일의 자리의 수가 0인 경우\n6의 배수인 세 자리 자연수의 개수는 $1,2$를 일렬로 배열하는 경우의 수와 $1,5$를 일렬로 배열하는 경우의 수, $2,4$를 일렬로 배열하는 경우의 수, $4,5$를 일렬로 배열하는 경우의 수의 합과 같으므로 $2!+2!+2!+2!=8$\nⅱ) 일의 자리의 수가 2인 경우\n6의 배수인 세 자리 자연수의 개수는 1이 백의 자리, 0이 십의 자릿수로 배열하는 경우의 수, 4이 백의 자리, 0이 십의 자릿수로 배열하는 경우의 수, $1,3$을 일렬로 배열하는 경우의 수, $3,4$를 일렬로 배열하는 경우의 수의 합과 같으므로 $1+1+2!+2!=6$\nⅲ) 일의 자리의 수가 4인 경우\n6의 배수인 세 자리 자연수의 개수는 2이 백의 자리, 0이 십의 자릿수로 배열하는 경우의 수, 5이 백의 자리, 0이 십의 자릿수로 배열하는 경우의 수, $2,3$을 일렬로 배열하는 경우의 수, $3,5$를 일렬로 배열하는 경우의 수의 합과 같으므로 $1+1+2!+2!=6$\nⅰ), ⅱ), ⅲ)에 의하여 조건을 만족시키는 자연수의 개수는 $8+6+6=20$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 23,
+      "answer": "180",
+      "solution": "가로 네칸을 왼쪽에서부터 ①②③④로 정의하자.\n즉, 아래와 같은 경우는 ②④라고하자.\n[그림] 가로 4칸 중 둘째 칸과 넷째 칸이 검게 칠해진 한 줄.\n까만 사각형이 총 5개이고, 각 줄에 적어도 한 개 이상이 필요하므로, 위와 같은 2개짜리 줄이 하나, 한 개짜리 줄이 3개이다.\n또한 2개짜리의 경우는 ①③, ①④, ②④ 세가지이다.\n또한 2개짜리 줄과 이웃한 줄은 총 2가지의 경우의 수를 가지고,\n1개짜리와 이웃한 줄은 3가지의 경우의 수를 가진다.\n1) 첫줄과 마지막줄에 2개짜리가 들어가는 경우\n(두개짜리 줄)x(두개짜리와 이웃한 한개짜리 줄)x(한개짜리 줄)x(한개짜리 줄)$=3 \\times 2 \\times 3 \\times 3$\n2) 1) 둘쨋줄과 셋쨋줄에 2개짜리가 들어가는 경우\n(두개짜리 줄)x(두개짜리와 이웃한 한개짜리 줄)x(두개짜리와 이웃한 한개짜리 줄)x(한개짜리 줄)$=3 \\times 2 \\times 2 \\times 3$\n1), 2)를 각각 두 개씩 가져와서 더하면\n$2(3^{3} \\times 2 + 3^{2} \\times 2^{2})=180$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 24,
+      "answer": "136",
+      "solution": "$bd$가 홀수이므로 $b$는 홀수이다.\n1) $b=1$이면 $a<1$이므로 모순이다.\n2) $b=3$일 때,\n2-1) $a=1 \\Rightarrow c=5, \\cdots, 10$\n2-2) $a=2 \\Rightarrow c=4, \\cdots, 10$\n이므로, $(a,~b,~c)$는 13가지이다.\n3) $b=5$일 때,\n3-1) $a=1 \\Rightarrow c=9, 10$\n3-2) $a=2 \\Rightarrow c=8, 9, 10$\n3-3) $a=3 \\Rightarrow c=7, 8, 9, 10$\n3-4) $a=4 \\Rightarrow c=6, 7, 8, 9, 10$\n이므로, $(a,~b,~c)$는 14가지이다.\n4) $b=7$일 때,\n4-1) $c=8 \\Rightarrow a=6$\n4-2) $c=9 \\Rightarrow a=6, 5$\n4-3) $c=10 \\Rightarrow a=6, 5, 4$\n이므로, $(a,~b,~c)$는 6가지이다.\n5) $b=9$일 때,\n$c=10 \\Rightarrow a=8$\n이므로, $(a,~b,~c)$는 1가지이다.\n1)~5)를 합하면 총 34가지이며, $d$는 $b$가 아닌 홀수이므로 4를 곱하여 $34 \\times 4=136$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 25,
+      "answer": "3",
+      "solution": "$M=\\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix}$라 하면 조건 (가)에서\n$AM=\\begin{pmatrix} 0 & 0 \\\\ 1 & -1 \\end{pmatrix}\\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix}=\\begin{pmatrix} 0 & 0 \\\\ a-c & b-d \\end{pmatrix}$,\n$MA=\\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix}\\begin{pmatrix} 0 & 0 \\\\ 1 & -1 \\end{pmatrix}=\\begin{pmatrix} b & -b \\\\ d & -d \\end{pmatrix}$\n두 행렬이 서로 같을 조건에 의하여\n$b=0,~a-c=d,~b-d=-d$ ……㉠\n조건 (나)에서 $a+b+c+d=4$ ……㉡\n㉠, ㉡에서 $a=2,~b=0,~c+d=2$\n이때 조건 (다)에서\n$c=0,~d=2$ 또는 $c=1,~d=1$ 또는 $c=2,~d=0$\n따라서 조건을 만족시키는 행렬 $M$은\n$\\begin{pmatrix} 2 & 0 \\\\ 0 & 2 \\end{pmatrix}$, $\\begin{pmatrix} 2 & 0 \\\\ 1 & 1 \\end{pmatrix}$, $\\begin{pmatrix} 2 & 0 \\\\ 2 & 0 \\end{pmatrix}$의 3개이다.",
+      "topic": "",
+      "difficulty": ""
+    }
+  ]
+}

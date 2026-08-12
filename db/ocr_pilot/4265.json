@@ -1,0 +1,360 @@
+{
+ "meta": {"exam_id": 4265, "ocr_source": "session-vision"},
+ "header": {"title": "경화여고 1학년 수학 - 2025년 1학기 중간고사 (다항식 ~ 이차방정식과 이차함수)"},
+ "questions": [
+  {
+   "number": 1,
+   "score": 3.2,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "두 다항식 $A=2x^{2}+y^{2}-1$, $B=3x^{2}-2y^{2}$ 에 대하여 $2A-B$는?"}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "-x^{2}-y^{2}-1"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "x^{2}-y^{2}-2"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "x^{2}+4y^{2}-2"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "x^{2}+4y^{2}-1"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "5x^{2}-y^{2}-1"}]}
+   ]
+  },
+  {
+   "number": 2,
+   "score": 3.2,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "등식 $(2x+y)+(3x-2y)i=\\overline{2-3i}$를 만족시키는 실수 $x$, $y$의 합 $x+y$의 값은? (단, $i=\\sqrt{-1}$, $\\bar{z}$는 $z$의 켤레복소수이다.)"}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "-1"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "0"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "1"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "2"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "3"}]}
+   ]
+  },
+  {
+   "number": 3,
+   "score": 3.2,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "$(x+2)$가 다항식 $P(x)=x^{2}-kx-5+2k^{2}$ 의 인수가 되도록 하는 모든 실수 $k$의 합은?"}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "-2"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "-1"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "0"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "1"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "2"}]}
+   ]
+  },
+  {
+   "number": 4,
+   "score": 3.2,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "$x$에 대한 다항식 $(x^{2}+4x)(x^{2}+2x-3)+k$가 $(x^{2}+ax+b)^{2}$으로 인수분해 될 때, 세 실수 $a,~b,~k$에 대하여 $a+b+k$의 값은?"}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "-4"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "-1"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "5"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "9"}]}
+   ]
+  },
+  {
+   "number": 5,
+   "score": 3.4,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "다음 중 바르게 계산한 것은? (단, $i=\\sqrt{-1}$)"}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "(2-i)-(-4i)=2-5i"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "(4-2i)(1+3i)=-2+10i"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "\\sqrt{-3}\\,\\sqrt{-2}=\\sqrt{6}"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "\\frac{\\sqrt{32}}{\\sqrt{-8}}=2i"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "\\frac{1+5i}{1-i}=-2+3i"}]}
+   ]
+  },
+  {
+   "number": 6,
+   "score": 3.4,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "삼각형 $\\mathrm{ABC}$의 세 변의 길이 $\\overline{\\mathrm{BC}}=a$, $\\overline{\\mathrm{AC}}=b$, $\\overline{\\mathrm{AB}}=c$에 대하여 다음 등식이 성립할 때, 삼각형 $\\mathrm{ABC}$의 모양은?"},
+    {"type": "text", "value": "<상자> $a^{3}+a^{2}b+ab^{2}-ac^{2}-bc^{2}+b^{3}=0$"}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "text", "value": "정삼각형"}]},
+    {"number": 2, "contents": [{"type": "text", "value": "$a=b$인 이등변삼각형"}]},
+    {"number": 3, "contents": [{"type": "text", "value": "$a=c$인 이등변삼각형"}]},
+    {"number": 4, "contents": [{"type": "text", "value": "$\\angle \\mathrm{B}=90^{\\circ}$인 직각삼각형"}]},
+    {"number": 5, "contents": [{"type": "text", "value": "$\\angle \\mathrm{C}=90^{\\circ}$인 직각삼각형"}]}
+   ]
+  },
+  {
+   "number": 7,
+   "score": 3.4,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "다항식 $P(x)=x^{4}+ax^{3}+b$가 $(x+1)^{2}$로 나누어 떨어질 때, 실수 $a,~b$에 대하여 $9ab$의 값은?"}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+   ]
+  },
+  {
+   "number": 8,
+   "score": 3.6,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "이차방정식 $x^{2}+ax+b=0$의 한 근이 $-1+\\sqrt{3}\\,i$일 때, $\\frac{1}{a}$, $\\frac{1}{b}$을 두 근으로 하고 $x^{2}$의 계수가 2인 이차방정식을 구하면? (단, $a,~b$는 실수이다.)"}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "2x^{2}-\\frac{3}{2}x+\\frac{1}{4}=0"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "2x^{2}-\\frac{3}{4}x+\\frac{1}{8}=0"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "2x^{2}+\\frac{1}{4}x-\\frac{1}{8}=0"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "2x^{2}+\\frac{3}{4}x+\\frac{1}{8}=0"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "2x^{2}+\\frac{3}{2}x+\\frac{1}{4}=0"}]}
+   ]
+  },
+  {
+   "number": 9,
+   "score": 3.6,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "이차함수 $y=x^{2}-2kx+k^{2}$와 직선 $y=-2ax+2k-b$가 실수 $k$값에 관계없이 항상 접할 때, 상수 $a,~b$의 합 $a+b$의 값은?"}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+   ]
+  },
+  {
+   "number": 10,
+   "score": 3.6,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "$y=0$, $y=(k-1)x^{2}-(2k+3)x+k+5$을 동시에 만족하는 $(x,~y)$가 2개일 때, 양수 $k$의 개수는?"}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "4"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "5"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "6"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "7"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "8"}]}
+   ]
+  },
+  {
+   "number": 11,
+   "score": 3.6,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "이차함수 $y=x^{2}-4x+m$의 그래프와 직선 $y=nx+2$의 그래프가 그림과 같을 때 유리수 $m,~n$에 대하여 $m+n$의 값은?"},
+    {"type": "figure", "value": "좌표평면 위에 아래로 볼록한 포물선 $y=x^{2}-4x+m$(오른쪽 위로 올라가는 가지에 $y=x^{2}-4x+m$ 라벨)과 기울기가 음수인 직선 $y=nx+2$(오른쪽 아래로 내려가며 $y=nx+2$ 라벨)가 그려져 있다. 두 그래프는 $y$축 왼쪽 $x$축 위쪽에서 한 번 만나고, 그 교점에서 $x$축으로 세로 점선이 내려져 있으며 그 발에 $1-\\sqrt{5}$ 가 표시되어 있다. 두 그래프는 $y$축 오른쪽 $x$축 아래에서 다시 한 번 만난다. 포물선의 꼭짓점은 $x$축 아래(제4사분면 쪽)에 있고, 포물선은 $x$축과 서로 다른 두 점에서 만난다."}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "-4"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "-3"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "-2"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "-1"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "0"}]}
+   ]
+  },
+  {
+   "number": 12,
+   "score": 3.6,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "이차함수 $y=x^{2}+(a^{2}-a-2)x-a+1$과 $x$축은 서로 다른 두 점에서 만난다. 두 교점의 $x$좌표의 절댓값이 같고 부호가 서로 다를 때, 상수 $a$의 값은?"}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "-2"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "-1"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "0"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "1"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "2"}]}
+   ]
+  },
+  {
+   "number": 13,
+   "score": 4.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "자연수 $n$에 대하여 복소수 $z_{n}=\\left(\\frac{1-i}{\\sqrt{2}}\\right)^{n}$이라 할 때, 다음 보기 중 옳은 것만을 있는 대로 고른 것은? (단, $i=\\sqrt{-1}$)"},
+    {"type": "text", "value": "<보기> ㄱ. $z_{4}=-1$ • ㄴ. $z_{2024}=z_{4}$ • ㄷ. $z_{1}+z_{2}+\\cdots+z_{39}=1$"}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "text", "value": "ㄱ"}]},
+    {"number": 2, "contents": [{"type": "text", "value": "ㄴ"}]},
+    {"number": 3, "contents": [{"type": "text", "value": "ㄱ, ㄷ"}]},
+    {"number": 4, "contents": [{"type": "text", "value": "ㄴ, ㄷ"}]},
+    {"number": 5, "contents": [{"type": "text", "value": "ㄱ, ㄴ, ㄷ"}]}
+   ]
+  },
+  {
+   "number": 14,
+   "score": 4.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "$x$에 대한 삼차다항식 $P(x)$를 $x^{2}-x-1$로 나누었을 때의 몫은 $Q(x)$, 나머지는 8 이다. $P(x+1)$을 $x^{2}-4$로 나눈 나머지가 $-2$일 때, $Q(5)$의 값은?"}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+   ]
+  },
+  {
+   "number": 15,
+   "score": 4.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "다항식 $P(x)$와 최고차항의 계수가 양수인 삼차다항식 $Q(x)$가 모든 실수 $x$에 대하여"},
+    {"type": "text", "value": "$\\{Q(x-1)\\}^{2}+\\{Q(x+1)\\}^{2}=36(x^{2}-2x)P(x)$ 를 만족시킨다. $P(4)=2$일 때, $Q(5)$의 값은? (단, 다항식 $Q(x)$의 계수는 실수이다.)"}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "6"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "10"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "12"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "18"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "24"}]}
+   ]
+  },
+  {
+   "number": 16,
+   "score": 4.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "이차함수 $f(x)=-(x-2)^{2}+3$ $(k \\leq x \\leq k+1)$의 최댓값이 $-1$, 최솟값이 $-6$이 되도록하는 실수 $k$값을 모두 합하면?"}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "-5"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "-1"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "1"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "3"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "6"}]}
+   ]
+  },
+  {
+   "number": 17,
+   "score": 4.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "이차항의 계수가 각각 $a$, $-a$인 두 이차함수 $y=f(x)$, $y=g(x)$의 그래프가 다음과 같다. $h(x)=f(x)-g(x)$라고 하면 $1 \\leq x \\leq 3$에서 이차함수 $y=h(x)$의 최솟값이 $-50$일 때, 최댓값은? (단, $a>0$이고 $\\mathrm{O}$는 원점이다.)"},
+    {"type": "figure", "value": "좌표평면 위에 두 포물선이 그려져 있다. 아래로 볼록한 포물선 $y=f(x)$(오른쪽 위 가지에 $y=f(x)$ 라벨)는 $x$축과 $x=-2$, $x=4$ 두 점에서 만난다. 위로 볼록한 포물선 $y=g(x)$(오른쪽 아래 가지에 $y=g(x)$ 라벨)는 $x$축과 원점 $\\mathrm{O}(x=0)$, $x=4$ 두 점에서 만난다. $x$축 위에는 $-2$, 원점 $\\mathrm{O}$, $4$ 가 표시되어 있고, 두 그래프는 $x=4$인 $x$축 위의 점에서 만난다."}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "-48"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "-40"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "-32"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "-16"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "-8"}]}
+   ]
+  },
+  {
+   "number": 18,
+   "score": 4.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "효진이의 가게에서는 한 개의 가격이 2000원인 샌드위치가 하루에 500개씩 팔린다. 샌드위치 한 개의 가격을 $50x$원 인상할 때마다 하루 판매량은 $10x$개씩 줄어든다고 한다. 샌드위치 판매금액이 최대가 되기 위한 샌드위치 하나의 가격은? (단, $0 \\leq x \\leq 15$)"}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "text", "value": "2100원"}]},
+    {"number": 2, "contents": [{"type": "text", "value": "2150원"}]},
+    {"number": 3, "contents": [{"type": "text", "value": "2200원"}]},
+    {"number": 4, "contents": [{"type": "text", "value": "2250원"}]},
+    {"number": 5, "contents": [{"type": "text", "value": "2300원"}]}
+   ]
+  },
+  {
+   "number": 19,
+   "score": 4.0,
+   "type": "서술형",
+   "label": "[서술형 1]",
+   "contents": [
+    {"type": "text", "value": "[서술형 1]"},
+    {"type": "text", "value": "$6x^{2}+10x+a=b(x+1)(x+2)+cx(x+2)+3x(x+1)$가 $x$에 대한 항등식일 때, 상수 $a,~b,~c$ 에 대하여 $a \\times b \\times c$의 값을 구하고 풀이과정을 서술하시오. [부분 점수 있음]"}
+   ]
+  },
+  {
+   "number": 20,
+   "score": 5.0,
+   "type": "서술형",
+   "label": "[서술형 2]",
+   "contents": [
+    {"type": "text", "value": "[서술형 2] 이차식 $2x^{2}-4x+5$를 복소수의 범위에서 인수분해하고 풀이과정을 서술하시오. [부분 점수 있음]"}
+   ]
+  },
+  {
+   "number": 21,
+   "score": 5.0,
+   "type": "서술형",
+   "label": "[서술형 3]",
+   "contents": [
+    {"type": "text", "value": "[서술형 3] 다음 그림과 같이 0을 제외한 $-3$부터 3까지의 정수가 각각 적혀있는 카드가 6장 있다. 이 중에서 카드 한 장씩 세 번 뽑아 첫 번째, 두 번째, 세 번째 뽑은 카드에 적혀 있는 정수를 각각 $a,~b,~c$라고 하자. (단, 뽑은 카드를 다시 뽑을 수 있다.)"},
+    {"type": "figure", "value": "정사각형 테두리의 카드 6장이 가로로 나란히 놓여 있고, 왼쪽부터 각각 $-3$, $-2$, $-1$, $1$, $2$, $3$ 이 적혀 있다."},
+    {"type": "text", "value": "다음 두 조건을 모두 만족시키면 상품을 받는 게임을 하려고 한다. 상품을 받기 위한 $a,~b,~c$의 순서쌍 $(a,~b,~c)$을 모두 구하고 풀이과정을 서술하시오. [부분 점수 있음]"},
+    {"type": "text", "value": "<상자> 조건1. 이차방정식 $ax^{2}+bx+c=0$은 중근을 갖는다. • 조건2. 이차방정식 $bx^{2}+ax+c=0$은 서로 다른 두 허근을 갖는다."}
+   ]
+  },
+  {
+   "number": 22,
+   "score": 6.0,
+   "type": "서술형",
+   "label": "[서술형 4]",
+   "contents": [
+    {"type": "text", "value": "[서술형 4] $x+y=4$, $x^{3}+y^{3}=28$일 때 $x^{2}-y^{2}$의 값을 구하고 풀이과정을 서술하시오. (단, $x<y$) [부분 점수 있음]"}
+   ]
+  },
+  {
+   "number": 23,
+   "score": 7.0,
+   "type": "서술형",
+   "label": "[서술형 5]",
+   "contents": [
+    {"type": "text", "value": "[서술형 5] 그림과 같은 텐트에서 앞면은 밑변의 길이가 $4m$, 높이가 $6m$인 이등변삼각형이다. 이 텐트의 앞면에 직사각형 모양의 출입구를 만들려고 한다. 출입구의 넓이가 최대일 때, 출입구의 가로와 세로의 길이를 구하고 풀이과정을 서술하시오. [부분 점수 있음]"},
+    {"type": "figure", "value": "삼각기둥 모양(옆으로 누운 형태)의 텐트 그림. 왼쪽 앞면이 이등변삼각형(그물망 무늬)으로, 밑변에는 아래쪽 점선 화살표와 함께 $4m$, 삼각형 안쪽 높이를 가리키는 화살표와 함께 $6m$ 이 표시되어 있다. 삼각형 앞면 가운데에 회색으로 칠해진 세로로 긴 직사각형이 있고 화살표와 함께 '출입구' 라벨이 붙어 있다. 직사각형의 밑변은 삼각형의 밑변 위에 놓여 있고 밑변과 직각임을 나타내는 직각 표시가 있다. 오른쪽으로 텐트의 옆면(사각형 면들)이 이어져 있다."}
+   ]
+  },
+  {
+   "number": 24,
+   "score": 8.0,
+   "type": "서술형",
+   "label": "[서술형 6]",
+   "contents": [
+    {"type": "text", "value": "[서술형 6] $x$에 대한 삼차식 $P(x)$가 다음 조건을 만족시킨다."},
+    {"type": "text", "value": "<상자> (가) $P(x-1)$을 $(x-2)$로 나눈 나머지는 $-2$이다. • (나) $P(x)+P(6-x)=8$"},
+    {"type": "text", "value": "$P(x)$를 $x^{2}-8x+15$로 나누었을 때의 나머지를 구하고 풀이과정을 서술하시오. [부분 점수 있음]"}
+   ]
+  }
+ ]
+}

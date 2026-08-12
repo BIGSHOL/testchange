@@ -1,0 +1,1376 @@
+{
+ "meta": {
+  "exam_id": 4267,
+  "school": "계성고",
+  "grade": 1,
+  "subject": "공통수학2",
+  "year": 2025,
+  "semester": 2,
+  "round": "중간",
+  "unit": "평면좌표 ~ 명제와 조건",
+  "pages": 7,
+  "ocr_source": "session-vision",
+  "ocr_date": "2026-08-12"
+ },
+ "header": {
+  "title": "계성고 1학년 공통수학2 — 2025년 2학기 중간고사 대비"
+ },
+ "questions": [
+  {
+   "number": 1,
+   "score": 2.6,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "x축, y축에 동시에 접하고 반지름의 길이가 7인 원의 중심이 제4사분면 위에 있을 때 원의 방정식으로 알맞은 것은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "(x-7)^{2}+(y-7)^{2}=49"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "(x+7)^{2}+(y-7)^{2}=49"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "(x+7)^{2}+(y-7)^{2}=7"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "(x-7)^{2}+(y+7)^{2}=7"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "(x-7)^{2}+(y+7)^{2}=49"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 2,
+   "score": 2.6,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "두 점 \\mathrm{A}(0,~3), \\mathrm{B}(2,~7)의 중점을 \\mathrm{C}라 하자. 직선 \\mathrm{AB}에 수직이고, 점 \\mathrm{C}를 지나는 직선의 방정식은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "y=-\\frac{1}{2}x+3"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "y=-\\frac{1}{2}x+\\frac{11}{2}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "y=-\\frac{1}{2}x+8"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "y=2x+3"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "y=2x+8"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 3,
+   "score": 2.6,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "집합 A=\\{1,~2,~3,~4,~5,~6\\}의 부분집합 중에서 홀수인 원소가 적어도 한 개 이상 속해 있는 집합의 개수는?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "55"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "56"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "57"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "58"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "59"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 4,
+   "score": 2.8,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "세 조건 p, q, r에 대하여 두 명제 p \\to q, r \\to \\sim q가 모두 참일 때, 다음 명제 중에서 항상 참인 것은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "p \\to r"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "q \\to p"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "q \\to r"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "r \\to q"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "r \\to \\sim p"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 5,
+   "score": 2.8,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "점 (2,~3)을 x축의 방향으로 1만큼, y축의 방향으로 2만큼 평행이동하고, y=x에 대하여 대칭이동한 점의 좌표는?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "(1,~1)"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "(3,~4)"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "(3,~5)"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "(5,~3)"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "(4,~4)"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 6,
+   "score": 2.8,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "원 C : x^{2}+y^{2}=25을 x축으로 3만큼, y축으로 4만큼 평행이동한 원을 C_{1}이라 하자. 원 C_{1} 위의 점 \\mathrm{A}(6,~8)을 지나는 접선의 방정식이 3x+ay+b=0일 때, a+b의 값은? (단, a, b는 실수이다.)"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-48"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-47"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-46"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-45"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-44"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 7,
+   "score": 3,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "집합 S=\\{\\varnothing,~1,~2,~\\{1\\},~\\{2\\}\\}일 때, 다음 설명 중 옳지 __않은__ 것은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\varnothing \\in S"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\{\\varnothing\\} \\subset S"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\{1,~2\\} \\subset S"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\{\\{1\\},~2\\} \\in S"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\{\\{1\\}\\} \\subset S"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 8,
+   "score": 3,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "방정식 x^{2}+y^{2}-4x-6ky+2k+4=0이 나타내는 도형이 원일 때, 상수 k의 값의 범위가 k < \\alpha 또는 k > \\beta이다. \\alpha - \\beta의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-\\frac{9}{2}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-\\frac{2}{9}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "0"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{2}{9}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{9}{2}"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 9,
+   "score": 3,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "두 직선 x-3y+5=0, 3x+y-3=0이 이루는 각을 이등분하는 직선 중에서 기울기가 음수인 직선의 방정식과 원점 사이의 거리는?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{\\sqrt{5}}{5}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{2\\sqrt{5}}{5}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{3\\sqrt{5}}{5}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{4\\sqrt{5}}{5}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\sqrt{5}"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 10,
+   "score": 3.2,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "‘소수의 개수는 무한하다.’라는 명제가 참임을 증명하는 과정이다. 빈칸에 알맞은 것은?"
+    },
+    {
+     "type": "text",
+     "value": "<상자> 결론을 부정하는 ‘소수의 개수는 유한하다.’라고 가정하자. 모든 소수를 P_{1}, P_{2}, P_{3}, \\cdots, P_{n} (n은 자연수)라고 하면, 새로운 수 P=P_{1}\\times P_{2}\\times P_{3}\\times \\cdots \\times P_{n}+\\boxed{(가)}로 정의하자. • P는 P_{1}, P_{2}, P_{3}, \\cdots, P_{n} 중 어느 것과 같지 않으므로 \\boxed{(나)}이다. • P를 P_{1}, P_{2}, P_{3}, \\cdots, P_{n}로 각각 나누면 나머지가 \\boxed{(가)}이다. • 그러므로 소수의 개수가 \\boxed{(다)}하다는 가정에 모순이므로 소수의 개수는 무한하다."
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "text",
+       "value": "(가) 1, (나) 합성수, (다) 유한"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "text",
+       "value": "(가) 1, (나) 소수, (다) 무한"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "text",
+       "value": "(가) 1, (나) 합성수, (다) 무한"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "text",
+       "value": "(가) 2, (나) 소수, (다) 무한"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "text",
+       "value": "(가) 2, (나) 합성수, (다) 유한"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 11,
+   "score": 3.5,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "원점 \\mathrm{O}(0,~0)과 직선 2x-y-8=0의 x절편, y절편을 꼭짓점으로 하는 삼각형의 외접원이 원 (x-2)^{2}+(y-2)^{2}=n 과 만나는 교점의 개수를 f(n)이라고 할 때, f(1)+f(10)+f(100)의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "6"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 12,
+   "score": 3.5,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "양의 실수 p에 대하여 좌표평면에서 이차함수 y=x^{2}-8x+1의 그래프와 직선 y=x+p이 만나는 두 점을 각각 \\mathrm{A}, \\mathrm{B}라고 하고, 삼각형 \\mathrm{OAB}의 무게중심의 좌표를 \\mathrm{G}(a,~b)라 하자. 무게중심 \\mathrm{G}가 나타내는 도형과 원 C : (x-k+9)^{2}+(y-k)^{2}=k^{2}가 접할 때, k의 값은? (단, \\mathrm{O}는 원점이다.)"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "6"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "7"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "8"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "9"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "10"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 13,
+   "score": 4,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "두 방정식 f(x,~y)=0, g(x,~y)=0이 나타내는 도형이 각각 그림과 같을 때, 다음 중 옳은 것은?"
+    },
+    {
+     "type": "figure",
+     "value": "좌표평면에 두 개의 색칠된 직각삼각형이 그려져 있다. 왼쪽 도형(f(x, y)=0)은 세 꼭짓점 (-3, 0), (-1, 0), (-1, 3)을 잇는 직각삼각형으로, 밑변은 x축 위 -3에서 -1까지, 수직변은 직선 x=-1 위 (-1, 0)에서 (-1, 3)까지, 빗변은 (-3, 0)에서 (-1, 3)까지이며 내부가 회색으로 칠해져 있다. y축에 눈금 3이 점선으로 연결되어 있다. 오른쪽 도형(g(x, y)=0)은 세 꼭짓점 (2, 0), (2, 2), (5, 0)을 잇는 직각삼각형으로, 밑변은 x축 위 2에서 5까지, 수직변은 직선 x=2 위 (2, 0)에서 (2, 2)까지, 빗변은 (2, 2)에서 (5, 0)까지이며 내부가 회색으로 칠해져 있다. y축에 눈금 2가 점선으로 연결되어 있다. x축 눈금은 -3, -1, O, 2, 5이다."
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "g(x,~y)=f(-x-1,~y-2)"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "g(x,~y)=f(-y-1,~-x-2)"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "g(x,~y)=f(-y-1,~x-2)"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "g(x,~y)=f(y-1,~x-2)"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "g(x,~y)=f(y+1,~x+2)"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 14,
+   "score": 3.5,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "좌표평면 위에 점 \\mathrm{A}(1,~3)과 직선 l : y=-x+5가 있다. 직선 l 위의 점 \\mathrm{B}(a,~b)와 직선 y=2 위의 점 \\mathrm{C}에 대하여 삼각형 \\mathrm{ABC}의 둘레의 길이의 최솟값은? (단, 점 \\mathrm{B}는 제 1사분면 위의 점이다.)"
+    },
+    {
+     "type": "figure",
+     "value": "좌표평면에 기울기가 -1인 직선 l(y=-x+5)이 왼쪽 위에서 오른쪽 아래로 그려져 있고, 오른쪽에 라벨 y=2가 붙은 수평선이 그려져 있다. 점 A는 직선 l 왼쪽(제1사분면, y=2보다 위)에 점으로 찍혀 있고 라벨 A가 왼쪽에 있다. 점 B는 직선 l 위, 점 A보다 오른쪽 위쪽에 찍혀 있고 라벨 B가 위쪽에 있다. 점 C는 수평선 y=2 위, A와 B 사이 아래쪽에 찍혀 있고 라벨 C가 아래에 있다. 원점 O가 표시되어 있다."
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\sqrt{7}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2\\sqrt{2}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\sqrt{10}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\sqrt{11}"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 15,
+   "score": 3.5,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "집합 A=\\{3,~4,~5,~6,~7,~9\\}에 대하여 다음 조건을 만족시키는 집합 A의 모든 부분집합 X의 개수는?"
+    },
+    {
+     "type": "text",
+     "value": "<상자> (가) n(X) \\geq 2 • (나) 집합 X의 모든 원소의 곱은 6의 배수이다. • (다) 집합 X의 모든 원소의 합은 3의 배수이다."
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "12"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "13"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "14"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "15"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "16"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 16,
+   "score": 4.4,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림과 같이 \\overline{\\mathrm{AB}}=3, \\overline{\\mathrm{AC}}=4, \\angle \\mathrm{A}=30^{\\circ}인 삼각형 \\mathrm{ABC}의 변 \\mathrm{BC} 위의 점 \\mathrm{P}에서 두 직선 \\mathrm{AB}, \\mathrm{AC} 위에 내린 수선의 발을 각각 \\mathrm{M}, \\mathrm{N}이라 하자. \\frac{\\overline{\\mathrm{AB}}}{\\overline{\\mathrm{PM}}}+\\frac{\\overline{\\mathrm{AC}}}{\\overline{\\mathrm{PN}}}의 최솟값이 \\frac{q}{p}일 때, p+q의 값은? (단, p, q는 서로소인 자연수이다.)"
+    },
+    {
+     "type": "figure",
+     "value": "삼각형 ABC 그림. 꼭짓점 A가 왼쪽 아래에 있고 A에서 오른쪽으로 수평선(직선 AB)이 뻗어 있으며 그 위에 점 B, 그 오른쪽에 점 M이 있다. A에서 오른쪽 위로 뻗은 선(직선 AC) 위에 점 N이 있고 그 끝에 꼭짓점 C가 있다. A에서의 각(∠A)에 30° 표시가 있다. 점 P는 변 BC 위에 있으며 C와 B 사이(B에 가까운 쪽)에 있다. P에서 수평선(직선 AB)에 내린 수선의 발이 M이고 직각 표시가 있으며, P에서 직선 AC에 내린 수선의 발이 N이고 직각 표시가 있다. 위쪽 점선 호에 길이 4(AC), 아래쪽 점선 호에 길이 3(AB)이 표기되어 있다."
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "55"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "56"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "57"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "58"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "59"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 17,
+   "score": 3.5,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "영화를 관람한 학생 50명 중에서 공포 영화를 관람한 학생은 30명, 공상 과학 영화를 관람한 학생은 26명이다. 공포 영화와 공상 과학 영화를 모두 관람한 학생이 x명일 때, x의 최댓값과 최솟값의 합은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "30"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "32"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "34"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "36"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "38"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 18,
+   "score": 4.5,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림과 같이 좌표평면에 세 점 \\mathrm{O}(0,~0), \\mathrm{A}(2,~1), \\mathrm{B}(4,~a)와 삼각형 \\mathrm{OAB}의 무게중심 \\mathrm{G}(2,~b)가 있다. 점 \\mathrm{G}와 직선 \\mathrm{OA} 사이의 거리가 2\\sqrt{5}일 때, a+b의 값은? (단, a > 0)"
+    },
+    {
+     "type": "figure",
+     "value": "좌표평면에 원점 O에서 출발하는 가늘고 긴 삼각형 OAB가 그려져 있다. 점 A는 x축 바로 위 오른쪽(제1사분면 아래쪽)에 있고 라벨 A가 오른쪽에 있다. 점 B는 오른쪽 위 높은 곳에 있고 라벨 B가 오른쪽 위에 있다. 삼각형은 O→A, A→B, B→O 세 선분으로 이루어져 있다. 삼각형 내부, 선분 OB 쪽에 가까운 위치에 점 G가 굵은 점으로 찍혀 있고 그 아래에 라벨 G가 있다. x축과 y축이 표시되어 있다."
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "17"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "19"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "21"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "23"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "25"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 19,
+   "score": 4.4,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "좌표평면 위의 두 원 C_{1} : (x+4)^{2}+(y-4)^{2}=18, C_{2}가 (-7,~1), (-7,~7)에서 만나고 원 C_{2}가 C_{1}의 중심을 지난다. 두 교점과 C_{1}의 중심이 이루는 삼각형이 직각이등변삼각형일 때, C_{2}의 영역 중 C_{1}과 겹치지 않는 영역의 넓이는?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "6"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "9"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "12"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "6\\pi"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "9\\pi"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 20,
+   "score": 4.4,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "자연수 k, m (k \\geq m)에 대하여 전체 집합 U=\\{x|x는 k이하의 자연수\\}의 부분집합 A_{m}과 B_{m}이 다음 조건을 만족시킨다."
+    },
+    {
+     "type": "text",
+     "value": "<상자> (가) A_{m}=\\{x|x는 m의 약수\\} • (나) B_{m}-A_{m}=\\{3,~9\\}, n\\left(A_{m} \\cup (B_{m})^{C}\\right)=9 • (다) 집합 A_{m}의 모든 원소의 합과 집합 B_{m}의 모든 원소의 합은 서로 같다."
+    },
+    {
+     "type": "text",
+     "value": "(A_{m})^{C} \\cap (B_{m})^{C}의 모든 원소의 합을 S_{m}이라 할 때, S_{m}의 최댓값과 최솟값의 차는?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "6"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "7"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 21,
+   "score": 4.4,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "세 점 \\mathrm{A}(0,~a), \\mathrm{B}(b,~0), \\mathrm{C}(c,~d)를 꼭짓점으로 하는 삼각형 \\mathrm{ABC}가 다음 <조건>을 만족시킬 때, 8\\overline{\\mathrm{BC}}의 값은?"
+    },
+    {
+     "type": "text",
+     "value": "<조건> (가) y축은 \\angle \\mathrm{BAC}를 이등분한다. • (나) 선분 \\mathrm{AC}의 중점을 \\mathrm{D}라고 하면 점 \\mathrm{D}는 x축 위에 있고, \\overline{\\mathrm{BD}}=2이다. • (다) 선분 \\mathrm{BC}가 y축과 만나는 점을 \\mathrm{E}라고 하면 \\overline{\\mathrm{AE}}=3이다. • (라) a > 0, b < 0, c > 0, d < 0이다."
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "15"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "20"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "25"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "30"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "35"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 22,
+   "score": 7,
+   "type": "서술형",
+   "label": "[서술형 1]",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서술형 1] 세 직선 3x+2y-7=0, ax+y+3=0, 4x+2y-10=0이 삼각형을 이루지 않도록 하는 상수 a의 값의 곱을 구하는 단계적 풀이 과정과 답을 쓰시오."
+    }
+   ],
+   "choices": [],
+   "sub_questions": []
+  },
+  {
+   "number": 23,
+   "score": 7,
+   "type": "서술형",
+   "label": "[서술형 2]",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서술형 2] 100 이하인 자연수 중에서 60과 서로소인 자연수의 개수를 구하는 단계적 풀이과정과 답을 쓰시오."
+    }
+   ],
+   "choices": [],
+   "sub_questions": []
+  },
+  {
+   "number": 24,
+   "score": 7,
+   "type": "서술형",
+   "label": "[서술형 3]",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서술형 3] 직선 3x+4y-12=0이 x축, y축과 만나는 점을 각각 \\mathrm{A}, \\mathrm{B}라 하자. 선분 \\mathrm{AB}를 n : 1로 내분하는 점을 \\mathrm{P}_{n}라 할 때, 점 \\mathrm{P}_{n}를 x축, y축에 대하여 대칭이동한 점을 각각 \\mathrm{Q}_{n}, \\mathrm{R}_{n}라 하자. 삼각형 \\mathrm{R}_{n}\\mathrm{Q}_{n}\\mathrm{P}_{n}의 무게중심의 좌표를 (a,~b)라 할 때, \\frac{3a}{b}이 자연수가 되게 하는 n의 최댓값을 구하는 단계적 풀이과정과 답을 쓰시오. (단, n은 자연수이다.)"
+    }
+   ],
+   "choices": [],
+   "sub_questions": []
+  },
+  {
+   "number": 25,
+   "score": 7,
+   "type": "서술형",
+   "label": "[서술형 4]",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서술형 4] 실수 x에 대한 두 조건 p : x^{2}+2ax+n \\geq 0, q : x^{2}+2bx+16 < 0이 있다. 다음 두 문장이 모두 참인 명제가 되도록 하는 정수 a, b의 순서쌍 (a,~b)의 개수가 45개일 때, 정수 n의 최댓값을 구하는 단계적 풀이과정과 답을 쓰시오."
+    },
+    {
+     "type": "text",
+     "value": "<상자> (가) 모든 실수 x에 대하여 p이다. • (나) 두 조건 p, q의 진리집합을 각각 P, Q라 할 때, (P \\cap Q)^{C} \\cap Q=Q이다."
+    }
+   ],
+   "choices": [],
+   "sub_questions": []
+  }
+ ]
+}

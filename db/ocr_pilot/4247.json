@@ -1,0 +1,247 @@
+{
+  "meta": {"exam_id": 4247, "ocr_source": "session-vision"},
+  "header": {"title": "경상고 1학년 공통수학1 (2025년 1학기 중간고사 · 다항식의 연산 ~ 여러 가지 방정식)"},
+  "questions": [
+    {
+      "number": 1,
+      "score": 3.3,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "두 다항식 A, B가 A=x^{2}-xy+y^{2}, B=x^{2}+2xy-y^{2}일 때, A+X=B를 만족하는 다항식 X를 구하면?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-3xy+2y^{2}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "3xy-2y^{2}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3xy+2y^{2}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "2x^{2}+xy"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "2x^{2}-xy"}]}
+      ]
+    },
+    {
+      "number": 2,
+      "score": 3.4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "이차함수 y=3x^{2}-6x+k+1의 그래프가 x축과 접할 때, 실수 k의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+      ]
+    },
+    {
+      "number": 3,
+      "score": 3.6,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "등식 (2x^{2}+3x-2)^{3}=a_{0}+a_{1}x+a_{2}x^{2}+\\cdots+a_{6}x^{6}이 x에 대한 항등식일 때, a_{1}+a_{2}+a_{3}+\\cdots+a_{6}의 값은? (단, a_{1}, a_{2}, a_{3}, \\cdots, a_{6}은 상수이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "32"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "33"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "34"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "35"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "36"}]}
+      ]
+    },
+    {
+      "number": 4,
+      "score": 3.8,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "삼차방정식 x^{3}+x^{2}+(a-6)x-2a=0이 허근을 가질 때, 자연수 a의 최솟값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+      ]
+    },
+    {
+      "number": 5,
+      "score": 4.4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "다항식 f(x)를 x-1로 나눈 나머지가 5이고, x+1로 나눈 나머지가 1이다. xf(x)를 x^{2}-1로 나눈 나머지가 R(x)일 때, R(3)의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "11"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "13"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "14"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "15"}]}
+      ]
+    },
+    {
+      "number": 6,
+      "score": 4.6,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "이차함수 y=x^{2}+2kx+k^{2}-k의 그래프가 직선 y=ax+b와 실수 k에 관계없이 항상 접할 때, a+b의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{1}{2}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{3}{4}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{5}{4}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{3}{2}"}]}
+      ]
+    },
+    {
+      "number": 7,
+      "score": 4.8,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 이차함수 y=2x^{2}의 그래프와 직선 y=3x+a가 만나는 두 점 \\mathrm{A}, \\mathrm{B}에 대해 \\overline{\\mathrm{AB}}를 빗변으로 하고 \\overline{\\mathrm{AC}}가 x축에 평행한 직각삼각형 \\mathrm{ABC}가 있다. \\overline{\\mathrm{BC}}=6일 때, a의 값은?"},
+        {"type": "figure", "value": "좌표평면에 위로 볼록하지 않은 포물선 y=2x^{2}(원점을 꼭짓점으로 하는 아래로 볼록한 포물선)과 기울기 3인 직선 y=3x+a가 그려져 있다. 두 그래프는 두 점에서 만나는데, 왼쪽 교점이 점 A(원점 왼쪽 아래, x축 바로 위), 오른쪽 위 교점이 점 B이다. 점 A에서 x축에 평행하게 오른쪽으로 그은 선분과, 점 B에서 아래로 내린 수직선이 만나는 점이 점 C이며 C에서 직각 표시가 되어 있다. 즉 선분 AC는 x축에 평행, 선분 BC는 y축에 평행하고, 삼각형 ABC는 선분 AB를 빗변으로 하는 직각삼각형이다. 그래프 라벨은 y=2x^{2}, y=3x+a, 원점 O, x축, y축."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{7}{32}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{7}{16}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{7}{8}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{7}{4}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{7}{2}"}]}
+      ]
+    },
+    {
+      "number": 8,
+      "score": 5.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "삼차방정식 x^{3}-(a+2)x^{2}+(2a+5)x-5a=0과 이차방정식 x^{2}-2x+b=0이 공통인 해를 가질 때, <보기>에서 옳은 것만을 있는 대로 고른 것은? (단, a, b는 실수이다.)"},
+        {"type": "text", "value": "<보기> ㄱ. 두 방정식의 공통인 해가 1일 때, a=1, b=1이다. • ㄴ. 두 방정식의 공통인 해가 실수일 때, b=-a^{2}+2a이다. • ㄷ. 이차방정식 x^{2}-2x+b=0이 허근을 가질 때, b=5이다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄴ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄱ, ㄷ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄴ, ㄷ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄱ, ㄴ, ㄷ"}]}
+      ]
+    },
+    {
+      "number": 9,
+      "score": 5.5,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "10 이하의 자연수 m, n에 대하여 복소수 z는"},
+        {"type": "equation", "value": "z=\\left(\\frac{1+i}{\\sqrt{2}}\\right)^{2m}+\\left(\\frac{1-i}{\\sqrt{2}}\\right)^{2n}"},
+        {"type": "text", "value": "이라 하자. z^{2}이 음의 실수일 때, 순서쌍 (m,~n)의 개수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "12"}]}
+      ]
+    },
+    {
+      "number": 10,
+      "score": 5.7,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "이차함수 f(x)=x^{2}-4x+3가 있다. 실수 k에 대하여 k \\leq x \\leq k+3에서 함수 f(x)의 최솟값을 g(k)라 하자. 함수 y=g(x)와 직선 y=mx-6이 한 점에서 만날 때, 가능한 모든 실수 m 값의 합은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-8"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-4"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "4-2\\sqrt{6}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "4+2\\sqrt{6}"}]}
+      ]
+    },
+    {
+      "number": 11,
+      "score": 5.9,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "최고차항의 계수가 1인 두 다항식 f(x), g(x)에 대하여 f(x)는 삼차다항식, g(x)는 이차다항식이고 다음 조건을 만족시킨다."},
+        {"type": "text", "value": "<보기> (가) 방정식 f(x)=xg(x)는 x=1을 오직 하나의 근으로 갖는다. • (나) f(x)를 g(x)로 나눈 몫과 나머지는 서로 같다."},
+        {"type": "text", "value": "g(1)=-\\frac{1}{2}일 때, f(4)의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "22"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "24"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "26"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "28"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "30"}]}
+      ]
+    },
+    {
+      "number": 12,
+      "score": 4.5,
+      "type": "단답형",
+      "label": "[단답형 1]",
+      "contents": [
+        {"type": "text", "value": "[단답형 1] 삼차다항식 P(x)=x^{3}+3x^{2}+6x+4에 대하여 P(2x-2)=0을 만족시키는 한 허근을 \\omega라 할 때, \\omega^{n}=1이 되도록 하는 자연수 n의 최솟값은?"}
+      ]
+    },
+    {
+      "number": 13,
+      "score": 5.5,
+      "type": "단답형",
+      "label": "[단답형 2]",
+      "contents": [
+        {"type": "text", "value": "[단답형 2] 자연수 a에 대하여 이차함수 f(x)=ax^{2}-72x+b가 다음 조건을 만족시킨다."},
+        {"type": "text", "value": "<상자> (가) 임의로 서로 다른 두 정수 p, q에 대하여 f(p) \\neq f(q)이다. • (나) 2n-2 \\leq x \\leq 2n+2에서 함수 f(x)의 최솟값이 0이 되도록 하는 모든 자연수 n의 값은 2, 3이다."},
+        {"type": "text", "value": "f(4)의 값은? (단, b는 실수이다.)"}
+      ]
+    },
+    {
+      "number": 14,
+      "score": 8,
+      "type": "서술형",
+      "label": "[서술형 1]",
+      "contents": [
+        {"type": "text", "value": "[서술형 1] 복소수 z가 2iz=\\overline{z}+2을 만족시킬 때 z의 값을 구하고, 그 과정을 서술하시오. (단, i=\\sqrt{-1}이고, \\overline{z}는 z의 켤레복소수이다.)"}
+      ]
+    },
+    {
+      "number": 15,
+      "score": 10,
+      "type": "서술형",
+      "label": "[서술형 2]",
+      "contents": [
+        {"type": "text", "value": "[서술형 2] 이차방정식 x^{2}+3x+4=0의 두 근을 \\alpha, \\beta라 할 때, \\alpha, \\beta, \\frac{\\beta}{\\alpha^{2}+4\\alpha+4}+\\frac{\\alpha}{\\beta^{2}+4\\beta+4} 을 세 근으로 하고 x^{3}의 계수가 4인 삼차방정식 f(x)=0에 대하여 f(1)의 값을 구하고, 그 과정을 서술하시오."}
+      ]
+    },
+    {
+      "number": 16,
+      "score": 10,
+      "type": "서술형",
+      "label": "[서술형 3]",
+      "contents": [
+        {"type": "text", "value": "[서술형 3] 그림과 같이 \\overline{\\mathrm{AD}}가 x축에 평행한 직사각형 \\mathrm{ABCD}의 꼭짓점 \\mathrm{A}, \\mathrm{D}는 이차함수 y=x^{2}-3x-1의 그래프 위에 있고, 꼭짓점 \\mathrm{B}, \\mathrm{C}는 이차함수 y=-x^{2}+3x+2의 그래프 위에 있다. 직사각형 \\mathrm{ABCD}의 둘레의 길이의 최댓값과 그때의 점 \\mathrm{A}의 좌표를 구하고, 그 과정을 서술하시오. (단, 점 \\mathrm{A}는 제 4사분면 위의 점이다.)"},
+        {"type": "figure", "value": "좌표평면에 아래로 볼록한 포물선 y=x^{2}-3x-1(오른쪽 위에 라벨)과 위로 볼록한 포물선 y=-x^{2}+3x+2(왼쪽 아래에 라벨)가 서로 두 점에서 교차하며 그려져 있다. 두 포물선 사이에 직사각형 ABCD가 내접해 있는데, 위쪽 변의 두 꼭짓점 B(왼쪽)·C(오른쪽)는 위로 볼록한 포물선 y=-x^{2}+3x+2 위에 있고, 아래쪽 변의 두 꼭짓점 A(왼쪽)·D(오른쪽)는 아래로 볼록한 포물선 y=x^{2}-3x-1 위에 있다. 변 BC와 변 AD는 x축에 평행하고, 변 AB와 변 CD는 y축에 평행하다. A와 D는 x축 아래(제4사분면 쪽), B와 C는 x축 위에 위치한다. 원점 O, x축, y축 표시."}
+      ]
+    },
+    {
+      "number": 17,
+      "score": 12,
+      "type": "서술형",
+      "label": "[서술형 4]",
+      "contents": [
+        {"type": "text", "value": "[서술형 4] 연립이차방정식"},
+        {"type": "equation", "value": "\\begin{cases} x^{2}-xy-(a^{2}-a)y^{2}=0 \\\\ x-y^{2}=5 \\end{cases}"},
+        {"type": "text", "value": "가 서로 다른 세 쌍의 실수인 해를 갖도록 하는 실수 a의 값을 모두 구하고, 그 과정을 서술하시오."}
+      ]
+    }
+  ]
+}

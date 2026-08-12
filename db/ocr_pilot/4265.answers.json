@@ -1,0 +1,30 @@
+{
+ "exam_id": 4265,
+ "answer_pages": [7],
+ "items": [
+  {"number": 1, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+  {"number": 2, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+  {"number": 3, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+  {"number": 4, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+  {"number": 5, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+  {"number": 6, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+  {"number": 7, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+  {"number": 8, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+  {"number": 9, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+  {"number": 10, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+  {"number": 11, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+  {"number": 12, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+  {"number": 13, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+  {"number": 14, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+  {"number": 15, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+  {"number": 16, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+  {"number": 17, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+  {"number": 18, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+  {"number": 19, "answer": "$4$", "solution": "수치 대입법에 따라 주어진 등식에\n$x=0$, $x=-1$, $x=-2$을 각각 대입하면\n$x=0$일 때, $a=2b$,\n$x=-1$일 때, $6-10+a=-c$, $a+c=4$\n$x=-2$일 때, $4+a=6$, $a=2$, $c=2$, $b=1$\n$a \\times b \\times c=2 \\times 1 \\times 2=4$", "topic": "", "difficulty": ""},
+  {"number": 20, "answer": "$2\\left(x-1-\\frac{\\sqrt{6}\\,i}{2}\\right)\\left(x-1+\\frac{\\sqrt{6}\\,i}{2}\\right)$", "solution": "짝수 근의 공식에 따라 $b'=-2$\n$x=\\frac{2 \\pm \\sqrt{4-10}}{2}=1 \\pm \\frac{\\sqrt{6}\\,i}{2}$\n따라서 $2\\left(x-1-\\frac{\\sqrt{6}\\,i}{2}\\right)\\left(x-1+\\frac{\\sqrt{6}\\,i}{2}\\right)$", "topic": "", "difficulty": ""},
+  {"number": 21, "answer": "$(1,~2,~1)$, $(-1,~-2,~-1)$", "solution": "조건1 $b^{2}=4ac$이므로 $b$는 짝수만 되므로 $-2$, $2$\n$b$가 $-2$일 때 $(-2)^{2}=4 \\times ac$이므로\n$ac=1 \\times 1$, $ac=-1 \\times -1$ 따라서\n$(a,~b,~c)=(-1,~-2,~-1)$, $(1,~-2,~1)$\n$(a,~b,~c)=(-1,~2,~-1)$, $(1,~2,~1)$   4가지\n조건2 $a^{2}<4bc$이므로 $bc$의 부호가 다르면 성립이 되지 않으므로 조건1에서 4가지 중 $(1,~2,~1)$, $(-1,~-2,~-1)$이 성립됨", "topic": "", "difficulty": ""},
+  {"number": 22, "answer": "$-8$", "solution": "$x^{3}+y^{3}=(x+y)^{3}-3xy(x+y)$\n$28=4^{3}-12xy$, $xy=3$\n$(x+y)^{2}-4xy=(x-y)^{2}$, $16-12=(x-y)^{2}$,\n$x-y=\\pm 2$, $(x<y)$조건으로 $x-y=-2$\n따라서 $x^{2}-y^{2}=(x-y)(x+y)=4 \\times (-2)=-8$", "topic": "", "difficulty": ""},
+  {"number": 23, "answer": "가로 $2m$, 세로 $3m$", "solution": "[그림] 직각삼각형 $\\mathrm{ABC}$에서 $\\mathrm{A}$가 꼭대기, $\\overline{\\mathrm{AB}}$가 세로(길이 6), $\\overline{\\mathrm{BC}}$가 가로(길이 2)이고, 변 $\\overline{\\mathrm{AC}}$ 위의 점 $\\mathrm{D}$에서 밑변에 내린 수선의 발이 $\\mathrm{F}$, $\\overline{\\mathrm{AB}}$ 위의 점이 $\\mathrm{E}$인 직사각형 $\\mathrm{EBFD}$가 그려져 있다. $\\overline{\\mathrm{BF}}=x$, $\\overline{\\mathrm{FC}}=2-x$, $\\overline{\\mathrm{DF}}=y$로 표시되어 있다.\n$\\angle \\mathrm{C}$가 공통, $\\angle \\mathrm{ABC}$, $\\angle \\mathrm{DFC}$가 각각 직각이므로\n$\\triangle \\mathrm{ABC}$∽$\\triangle \\mathrm{DFC}$ (AA닮음) $\\overline{\\mathrm{BF}}=x$, $\\overline{\\mathrm{DF}}=y$\n$\\overline{\\mathrm{AB}}:\\overline{\\mathrm{BC}}=\\overline{\\mathrm{DF}}:\\overline{\\mathrm{FC}}$에서 $6:2=y:(2-x)$\n$y=6-3x$ $(0<x<2)$\n출입구넓이 $2xy$\n$2x(6-3x)=-6x^{2}+12x=-6(x-1)^{2}+6$\n$x=1$일 때 넓이 최대 그러므로 가로 $2m$, 세로 $3m$", "topic": "", "difficulty": ""},
+  {"number": 24, "answer": "$3x-5$", "solution": "$\\mathrm{P}(x)=(x-3)(x-5)\\mathrm{Q}(x)+ax+b$\n(가)에 의해 $x=2$, $\\mathrm{P}(1)=-2$\n(나)에 의해 $x=3$, $\\mathrm{P}(3)+\\mathrm{P}(3)=8$, $\\mathrm{P}(3)=4$\n$4=3a+b$\n$x=5$, $\\mathrm{P}(5)+\\mathrm{P}(1)=8$, $\\mathrm{P}(5)=10$\n$10=5a+b$  $a=3$, $b=-5$\n따라서 $3x-5$", "topic": "", "difficulty": ""}
+ ]
+}

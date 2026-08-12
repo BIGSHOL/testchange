@@ -1,0 +1,524 @@
+{
+ "exam_id": 4274,
+ "tag": "[구성고][1][공수1][25-1-중간]",
+ "count": 20,
+ "questions": [
+  {
+   "number": 1,
+   "type": "객관식",
+   "score": 4.5,
+   "stem": "x에 대한 다항식 x^3+2x^2-9x+5를 x-1로 나눈 나머지는?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "3"
+    },
+    {
+     "number": 2,
+     "text": "2"
+    },
+    {
+     "number": 3,
+     "text": "1"
+    },
+    {
+     "number": 4,
+     "text": "0"
+    },
+    {
+     "number": 5,
+     "text": "-1"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 2,
+   "type": "객관식",
+   "score": 4.5,
+   "stem": "(x^2+3x+1)(2x^2-x-3)을 전개한 식에서 x^3의 계수는?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "-3"
+    },
+    {
+     "number": 2,
+     "text": "-1"
+    },
+    {
+     "number": 3,
+     "text": "1"
+    },
+    {
+     "number": 4,
+     "text": "3"
+    },
+    {
+     "number": 5,
+     "text": "5"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 3,
+   "type": "객관식",
+   "score": 4.7,
+   "stem": "x에 대한 이차방정식 x^2+(2k-8)x+k^2-ak+16=0 이 실수 k의 값에 관계없이 항상 중근을 가질 때, 실수 a의 값은?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "4"
+    },
+    {
+     "number": 2,
+     "text": "6"
+    },
+    {
+     "number": 3,
+     "text": "8"
+    },
+    {
+     "number": 4,
+     "text": "10"
+    },
+    {
+     "number": 5,
+     "text": "12"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 4,
+   "type": "객관식",
+   "score": 4.7,
+   "stem": "x에 대한 이차방정식 3x^2+ax+b=0의 한 근이 1-\\sqrt{2}\\,i일 때, a-b의 값은? (단, a, b는 실수이고, i=\\sqrt{-1}이다.)",
+   "choices": [
+    {
+     "number": 1,
+     "text": "-15"
+    },
+    {
+     "number": 2,
+     "text": "-13"
+    },
+    {
+     "number": 3,
+     "text": "-11"
+    },
+    {
+     "number": 4,
+     "text": "13"
+    },
+    {
+     "number": 5,
+     "text": "15"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 5,
+   "type": "객관식",
+   "score": 4.8,
+   "stem": "이차함수 y=-2x^2-8x+k\\,(-5 \\leq x \\leq 0)의 최댓값이 2일 때, 이 이차함수의 최솟값은? (단, k는 실수이다.)",
+   "choices": [
+    {
+     "number": 1,
+     "text": "-20"
+    },
+    {
+     "number": 2,
+     "text": "-18"
+    },
+    {
+     "number": 3,
+     "text": "-16"
+    },
+    {
+     "number": 4,
+     "text": "18"
+    },
+    {
+     "number": 5,
+     "text": "20"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 6,
+   "type": "객관식",
+   "score": 4.8,
+   "stem": "실수 a_0, a_1, a_2, \\cdots, a_{15}에 대하여 등식 (x^3+x^2-1)^5=a_0+a_1x+a_2x^2+\\cdots+a_{15}x^{15} 이 x에 대한 항등식일 때, a_0+a_1+a_3+a_5+\\cdots+a_{15}의 값은?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "-1"
+    },
+    {
+     "number": 2,
+     "text": "-\\frac{1}{2}"
+    },
+    {
+     "number": 3,
+     "text": "0"
+    },
+    {
+     "number": 4,
+     "text": "\\frac{1}{2}"
+    },
+    {
+     "number": 5,
+     "text": "1"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 7,
+   "type": "객관식",
+   "score": 4.9,
+   "stem": "삼각형 \\mathrm{ABC}의 세 변의 길이 a, b, c에 대하여 등식 a^3+a^2b+ab^2-ac^2-bc^2+b^3=0 이 성립할 때, 삼각형 \\mathrm{ABC}는 어떤 삼각형인가?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "정삼각형"
+    },
+    {
+     "number": 2,
+     "text": "a=b인 이등변삼각형"
+    },
+    {
+     "number": 3,
+     "text": "b=c인 이등변삼각형"
+    },
+    {
+     "number": 4,
+     "text": "a가 빗변인 직각삼각형"
+    },
+    {
+     "number": 5,
+     "text": "c가 빗변인 직각삼각형"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 8,
+   "type": "객관식",
+   "score": 4.9,
+   "stem": "다음 조건을 만족시키는 허수 z가 존재하도록 하는 두 정수 m, n에 대하여 n-m의 최댓값은? (단, \\bar{z}는 z의 켤레복소수이다.) <상자> (가) z^2+mz+n=0 • (나) \\bar{z}z=9",
+   "choices": [
+    {
+     "number": 1,
+     "text": "13"
+    },
+    {
+     "number": 2,
+     "text": "14"
+    },
+    {
+     "number": 3,
+     "text": "15"
+    },
+    {
+     "number": 4,
+     "text": "16"
+    },
+    {
+     "number": 5,
+     "text": "17"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 9,
+   "type": "객관식",
+   "score": 4.9,
+   "stem": "아래 그림과 같이 밑변의 길이가 6, 높이가 5인 직각삼각형 \\mathrm{ABC}에 내접하는 직사각형 \\mathrm{BFDE}의 넓이가 최대일 때, 직사각형 \\mathrm{BFDE}의 둘레의 길이는? [그림] 좌표평면 위의 직각삼각형 ABC. 꼭짓점 B는 원점에 있고 직각 표시가 되어 있으며, 점 A는 y축 위(B로부터 높이 5), 점 C는 x축 위(B로부터 밑변 6)에 있다. 빗변은 A에서 C로 내려가는 선분 AC. 삼각형 안에 직사각형 BFDE가 내접해 색칠되어 있고, 점 E는 선분 AB 위, 점 F는 x축(선분 BC) 위, 점 D는 빗변 AC 위에 있다. 왼쪽 점선 화살표로 높이 5, 아래쪽 점선 화살표로 밑변 6이 표시되어 있다.",
+   "choices": [
+    {
+     "number": 1,
+     "text": "9"
+    },
+    {
+     "number": 2,
+     "text": "11"
+    },
+    {
+     "number": 3,
+     "text": "13"
+    },
+    {
+     "number": 4,
+     "text": "15"
+    },
+    {
+     "number": 5,
+     "text": "17"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 10,
+   "type": "객관식",
+   "score": 5.0,
+   "stem": "자연수 n에 대하여 이차함수 y=x^2+5x+k의 그래프와 직선 y=x+n-3의 그래프가 서로 다른 두 점에서 만나도록 하는 모든 자연수 k의 개수를 f(n)이라고 하자. 이때 f(2)+f(3)+f(4)+f(5)의 값은?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "14"
+    },
+    {
+     "number": 2,
+     "text": "15"
+    },
+    {
+     "number": 3,
+     "text": "16"
+    },
+    {
+     "number": 4,
+     "text": "17"
+    },
+    {
+     "number": 5,
+     "text": "18"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 11,
+   "type": "객관식",
+   "score": 5.2,
+   "stem": "다항식 P(x)를 x^2+2x-3으로 나눈 나머지가 2x+1일 때, 다항식 \\{P(x)\\}^3-4P(x)를 x^2+2x-3으로 나눈 나머지는 R(x)이다. 이때 R(x)를 x-3으로 나눈 나머지는?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "65"
+    },
+    {
+     "number": 2,
+     "text": "75"
+    },
+    {
+     "number": 3,
+     "text": "85"
+    },
+    {
+     "number": 4,
+     "text": "95"
+    },
+    {
+     "number": 5,
+     "text": "105"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 12,
+   "type": "객관식",
+   "score": 5.2,
+   "stem": "그림과 같이 이차함수 y=-x^2+5x+6의 그래프와 직선 y=3x+a가 한 점 \\mathrm{A}에서만 만난다. 이차함수 y=-x^2+5x+6의 그래프가 x축과 만나는 점을 \\mathrm{B}, \\mathrm{C}라 하고 직선 y=3x+a가 x축과 만나는 점을 \\mathrm{D}라 하자. 삼각형 \\mathrm{ABC}의 넓이를 S라 하고 삼각형 \\mathrm{ADB}의 넓이를 T라 할 때, S-T의 값은? (단, a는 상수이다.) [그림] 좌표평면에 위로 볼록한 포물선 y=-x^2+5x+6과 오른쪽 위로 향하는 직선 y=3x+a가 그려져 있다. 직선은 포물선과 한 점 A에서만 접한다(A는 y축 오른쪽 위, 그래프 상단). 포물선이 x축과 만나는 두 점이 B(왼쪽, 원점 O 왼쪽)와 C(오른쪽)이고, 직선이 x축과 만나는 점 D는 B보다 더 왼쪽에 있다. 점 A, B, C를 잇는 삼각형 ABC 영역이 색칠되어 있다. 그래프 옆에 y=3x+a, y=-x^2+5x+6 라벨이 붙어 있다.",
+   "choices": [
+    {
+     "number": 1,
+     "text": "\\frac{83}{2}"
+    },
+    {
+     "number": 2,
+     "text": "\\frac{85}{2}"
+    },
+    {
+     "number": 3,
+     "text": "\\frac{83}{3}"
+    },
+    {
+     "number": 4,
+     "text": "\\frac{85}{3}"
+    },
+    {
+     "number": 5,
+     "text": "\\frac{88}{3}"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 13,
+   "type": "객관식",
+   "score": 5.3,
+   "stem": "실수 a에 대하여 복소수 z를 z=a^2-1+(a-2)i라 하자. z^2이 실수일 때, z^2+(k^2-3k-4)z+(2k-7)=0을 만족하는 모든 실수 k의 값의 합은? (단, i=\\sqrt{-1})",
+   "choices": [
+    {
+     "number": 1,
+     "text": "5"
+    },
+    {
+     "number": 2,
+     "text": "\\frac{16}{3}"
+    },
+    {
+     "number": 3,
+     "text": "6"
+    },
+    {
+     "number": 4,
+     "text": "\\frac{19}{3}"
+    },
+    {
+     "number": 5,
+     "text": "\\frac{20}{3}"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 14,
+   "type": "객관식",
+   "score": 5.3,
+   "stem": "다항식 A(x)와 최고차항의 계수가 1인 삼차다항식 B(x)가 모든 실수 x에 대하여 \\{B(x+1)\\}^2+\\{B(x)\\}^2=(x^2+x)A(x) 를 만족시킨다. A(x)를 B(x)로 나눌 때 몫을 Q(x), 나머지를 R(x)라 하자. 이때 Q(1)+R(-2)의 값은? (단, 모든 다항식의 계수는 실수이다.)",
+   "choices": [
+    {
+     "number": 1,
+     "text": "12"
+    },
+    {
+     "number": 2,
+     "text": "15"
+    },
+    {
+     "number": 3,
+     "text": "18"
+    },
+    {
+     "number": 4,
+     "text": "21"
+    },
+    {
+     "number": 5,
+     "text": "24"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 15,
+   "type": "객관식",
+   "score": 5.4,
+   "stem": "세 양수 a, b, c에 대하여 두 이차함수 f(x)=(x-a)^2+2 g(x)=-(x-b)^2+c (단, a<b) 가 있다. x에 대한 이차방정식 f(x)=g(x)는 서로 다른 두 실근 \\alpha, \\beta\\,(\\alpha<\\beta)를 갖는다. 함수 h(x)가 h(x)=\\begin{cases} f(x) & (x<\\alpha 또는 x>\\beta) \\\\ g(x) & (\\alpha \\leq x \\leq \\beta) \\end{cases} 일 때, 함수 h(x)는 다음 조건을 만족시킨다. <상자> 함수 y=h(x)의 그래프와 직선 y=k가 서로 다른 세 점에서만 만나도록 하는 실수 k의 값은 11과 12이다. 함수 y=h(x)의 그래프가 직선 y=11과 만나는 서로 다른 세 점의 x좌표의 합을 m이라 하고, 직선 y=12와 만나는 서로 다른 세 점의 x좌표의 합을 n이라 하자. n=m+\\frac{b}{3}일 때, a+b+c의 값은?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "10"
+    },
+    {
+     "number": 2,
+     "text": "12"
+    },
+    {
+     "number": 3,
+     "text": "14"
+    },
+    {
+     "number": 4,
+     "text": "16"
+    },
+    {
+     "number": 5,
+     "text": "18"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 16,
+   "type": "객관식",
+   "score": 5.4,
+   "stem": "이차함수 f(x)와 이차항의 계수가 1인 이차함수 g(x)에 대하여 x에 대한 이차방정식 \\{x-f(k)\\}\\{x-g(k)\\}=0 이 서로 다른 두 실근 2, 5를 갖도록 하는 모든 실수 k의 개수가 4이다. f(-1)=f(5)=-3일 때, f(6)-g(6)의 값은?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "-27"
+    },
+    {
+     "number": 2,
+     "text": "-25"
+    },
+    {
+     "number": 3,
+     "text": "23"
+    },
+    {
+     "number": 4,
+     "text": "25"
+    },
+    {
+     "number": 5,
+     "text": "27"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 17,
+   "type": "객관식",
+   "score": 5.5,
+   "stem": "두 이차함수 f(x), g(x)는 다음 조건을 만족한다. <상자> (가) f(x)g(x)=(x^2-9)(x^2-25) • (나) f(\\alpha)=f(\\alpha-8)=0인 실수 \\alpha가 존재한다. <보기>에서 옳은 것만을 있는 대로 고른 것은? <보기> ㄱ. f(3)=0일 때, g(-3)=0이다. • ㄴ. f(5)>0일 때, g(2)>g(6)이다. • ㄷ. x에 대한 방정식 f(x)-g(x)=0이 서로 다른 두 정수 \\alpha, \\beta를 근으로 가질 때, \\alpha^2+\\beta^2=226이다. (단, \\alpha+\\beta>0)",
+   "choices": [
+    {
+     "number": 1,
+     "text": "ㄱ"
+    },
+    {
+     "number": 2,
+     "text": "ㄱ, ㄴ"
+    },
+    {
+     "number": 3,
+     "text": "ㄱ, ㄷ"
+    },
+    {
+     "number": 4,
+     "text": "ㄴ, ㄷ"
+    },
+    {
+     "number": 5,
+     "text": "ㄱ, ㄴ, ㄷ"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 18,
+   "type": "서술형",
+   "score": 3.0,
+   "stem": "【논술형1】 등식 (3+i)x+(2-i)y=1+2i를 만족시키는 두 실수 x, y를 구하고, 그 풀이과정을 논술하시오. (단, i=\\sqrt{-1})",
+   "choices": [],
+   "sub_questions": []
+  },
+  {
+   "number": 19,
+   "type": "서술형",
+   "score": 5.0,
+   "stem": "【논술형2】 x에 대한 다항식 x^3+ax^2+bx+5를 x+1로 나누었을 때의 몫은 Q(x)이고 나머지는 2이다. (x^2+a)Q(x-2)가 x-2로 나누어 떨어질 때, Q(1)의 값을 구하고, 그 풀이과정을 논술하시오. (단, a, b는 실수이다.)",
+   "choices": [],
+   "sub_questions": []
+  },
+  {
+   "number": 20,
+   "type": "서술형",
+   "score": 7.0,
+   "stem": "【논술형3】 두 양수 a, b (단, a<b)에 대하여 이차함수 f(x)=-(x-a)^2+b와 자연수 n이 다음 조건을 만족시킬 때, a+b+n의 값을 구하고, 그 풀이과정을 논술하시오. <상자> (가) 0 \\leq x \\leq 4에서 함수 f(x)의 최솟값은 n-9이고 최댓값은 n이다. • (나) 0 \\leq x \\leq 7에서 함수 f(x)의 최솟값은 -4n-1이고 최댓값은 n이다.",
+   "choices": [],
+   "sub_questions": []
+  }
+ ]
+}

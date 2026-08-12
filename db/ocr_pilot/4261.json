@@ -1,0 +1,348 @@
+{
+  "meta": {"exam_id": 4261, "ocr_source": "session-vision"},
+  "header": {"title": "경일여고 1학년 수학 - 2025년 1학기 기말고사 (삼차방정식과 사차방정식 ~ 행렬의 곱셈)"},
+  "questions": [
+    {
+      "number": 1,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "서로 다른 정육면체 주사위 2개를 던져서 나오는 모든 경우의 수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "36"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "25"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "16"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "4"}]}
+      ]
+    },
+    {
+      "number": 2,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "{}_{5}\\mathrm{P}_{2}의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "15"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "20"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "25"}]}
+      ]
+    },
+    {
+      "number": 3,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "행렬 "},
+        {"type": "equation", "value": "A=\\begin{pmatrix} 4 & 2 \\\\ 1 & 3 \\\\ 0 & 1 \\end{pmatrix}"},
+        {"type": "text", "value": "의 행의 개수와 열의 개수의 합은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+      ]
+    },
+    {
+      "number": 4,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "두 행렬 "},
+        {"type": "equation", "value": "A=\\begin{pmatrix} 2 & 1 \\\\ 3 & 0 \\end{pmatrix}"},
+        {"type": "text", "value": "와 "},
+        {"type": "equation", "value": "B=\\begin{pmatrix} -2 & -1 \\\\ -4 & 1 \\end{pmatrix}"},
+        {"type": "text", "value": "에 대하여 A+B의 (1,~1)성분은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "2"}]}
+      ]
+    },
+    {
+      "number": 5,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "방정식 x^{3}+1=0의 한 허근을 \\omega라 할 때, 옳은 것만을 <보기>에서 모두 고른 것의 개수는?"},
+        {"type": "text", "value": "<보기> ㄱ. \\omega^{3}=-1 • ㄴ. \\omega^{2}-\\omega+1=0 • ㄷ. \\omega+\\overline{\\omega}=1 • ㄹ. \\omega\\overline{\\omega}=1"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "4"}]}
+      ]
+    },
+    {
+      "number": 6,
+      "score": 4.2,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "연립방정식 "},
+        {"type": "equation", "value": "\\begin{cases} x^{2}-y^{2}=0 \\\\ x^{2}+2xy-y^{2}=8 \\end{cases}"},
+        {"type": "text", "value": "의 실수인 해를 "},
+        {"type": "equation", "value": "\\begin{cases} x=\\alpha \\\\ y=\\beta \\end{cases}"},
+        {"type": "text", "value": "라 할 때, \\alpha\\beta의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-4"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "12"}]}
+      ]
+    },
+    {
+      "number": 7,
+      "score": 4.2,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "이차방정식 x^{2}-x+2=0의 두 근을 \\alpha,~\\beta라 하자. 두 행렬 "},
+        {"type": "equation", "value": "A=\\begin{pmatrix} 4 & 1 \\\\ \\alpha & 3 \\end{pmatrix}"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "B=\\begin{pmatrix} 4 & \\beta \\\\ -3 & 0 \\end{pmatrix}"},
+        {"type": "text", "value": "에 대하여 행렬 AB의 모든 성분의 합은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "14"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "16"}]}
+      ]
+    },
+    {
+      "number": 8,
+      "score": 4.4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "이차부등식 ax^{2}+bx+c \\geq 0의 해가 x=2 뿐일 때, <보기>에서 옳은 것만을 있는 대로 고른 것은?"},
+        {"type": "text", "value": "<보기> ㄱ. cx^{2}+bx+a \\leq 0의 해는 모든 실수이다. • ㄴ. -ax^{2}+bx-c \\leq 0의 해는 x=-2 뿐이다. • ㄷ. ax^{2}+bx+c < 0의 해는 x \\neq 2인 모든 실수이다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄷ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄱ, ㄴ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄴ, ㄷ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄱ, ㄴ, ㄷ"}]}
+      ]
+    },
+    {
+      "number": 9,
+      "score": 4.4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "서로 다른 6켤레의 슬리퍼 낱개 12개 중에서 4개를 선택할 때, 한 켤레만 짝이 맞도록 하는 경우의 수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "180"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "200"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "220"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "240"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "260"}]}
+      ]
+    },
+    {
+      "number": 10,
+      "score": 4.4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "운동 경기에서 우승 팀을 가리는 방법으로 토너먼트와 리그전이 있다. 토너먼트란 두 팀이 한 번 경기할 때마다 한 팀이 탈락하는 방법이고, 리그전이란 참가한 모든 팀과 한 번씩 경기를 하는 방법이다. 2030년 월드컵부터는 출전팀을 기존 48개 팀에서 64개 팀으로 늘이는 것이 고려되고 있다. 64개 팀을 4팀씩 16개 조로 나누어 조별 리그전으로 32강을 결정하고, 이 32강 팀이 토너먼트로 우승 팀을 가리되, 3•4위전을 한 번 더 치르게 된다. 2030년 월드컵 본선 경기 수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "112"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "128"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "144"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "160"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "176"}]}
+      ]
+    },
+    {
+      "number": 11,
+      "score": 4.6,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "equation", "value": "\\begin{cases} |ax-1| < 10 \\\\ 2x-1 \\leq 3 \\end{cases}"},
+        {"type": "text", "value": "를 만족시키는 정수 x의 개수가 4일 때, 모든 정수 a의 값의 합은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-12"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-9"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-6"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "-3"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "0"}]}
+      ]
+    },
+    {
+      "number": 12,
+      "score": 4.6,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "서로 다른 3개의 주사위를 던져서 나오는 눈의 수를 각각 a,~b,~c라 할 때, abc+ab+c의 값이 홀수가 되는 경우의 수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "81"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "108"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "135"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "162"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "189"}]}
+      ]
+    },
+    {
+      "number": 13,
+      "score": 4.6,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "다음 그림과 같은 7인승 자동차에 가족 5명이 함께 타고 여행을 가려고 한다. 그 중 남자는 3명, 여자는 2명이다. 같은 열에는 남자와 여자가 이웃하지 않도록 자리를 배정하는 경우의 수는? (단, 1열과 2열은 두 좌석 사이에 여유 공간이 있어 보여도 이를 무시한다.)"},
+        {"type": "figure", "value": "7인승 승용차를 위에서 내려다본 좌석 배치도. 좌석 열은 왼쪽부터 '1열', '2열', '3열'로 표시되어 있다. 1열에는 좌석 2개(아래쪽 좌석에 '운전석'이라는 지시선이 달려 있음), 2열에는 좌석 2개, 3열에는 좌석 3개(위·가운데·아래)가 배치되어 총 7개의 좌석이다. 즉 1열 2석, 2열 2석, 3열 3석 구조이며, 1열과 2열은 두 좌석이 위아래로 나뉘어 있다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "480"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "496"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "512"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "528"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "544"}]}
+      ]
+    },
+    {
+      "number": 14,
+      "score": 4.8,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "x에 대한 삼차방정식 ax^{3}+3bx^{2}+(3a+3b)x+4a=0이 서로 다른 세 정수를 근으로 갖는다. 두 정수 a,~b가 |a| \\leq 30, |b| \\leq 30일 때, 순서쌍 (a,~b)의 개수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "13"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "14"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "15"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "16"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "17"}]}
+      ]
+    },
+    {
+      "number": 15,
+      "score": 4.8,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "다음은 두 이차함수와 두 직선이다."},
+        {"type": "text", "value": "이차함수 p_{1}(x)=x^{2}"},
+        {"type": "text", "value": "이차함수 p_{2}(x)=x^{2}-2x+2"},
+        {"type": "text", "value": "직선 q_{1}(x)=kx+1"},
+        {"type": "text", "value": "직선 q_{2}(x)=-x+k"},
+        {"type": "text", "value": "함수 p_{i}(x)와 q_{j}(x)의 교점의 개수를 a_{ij}라 할 때, 행렬 A=\\left[a_{ij}\\right]는 다음과 같은 2\\times 2행렬이다."},
+        {"type": "equation", "value": "A=\\begin{pmatrix} a_{11} & a_{12} \\\\ a_{21} & a_{22} \\end{pmatrix}"},
+        {"type": "text", "value": "(단, i=1,~2,~j=1,~2)"},
+        {"type": "text", "value": "이때, 행렬 A의 모든 성분의 합이 7이 되도록 하는 실수 k의 개수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+      ]
+    },
+    {
+      "number": 16,
+      "score": 3.0,
+      "type": "서술형",
+      "label": "[서술형 1]",
+      "contents": [
+        {"type": "text", "value": "[서술형 1] 두 행렬 "},
+        {"type": "equation", "value": "A=\\begin{pmatrix} 2 & 0 \\\\ 2 & 5 \\end{pmatrix}"},
+        {"type": "text", "value": ", "},
+        {"type": "equation", "value": "B=\\begin{pmatrix} 0 & 7 \\\\ 0 & 4 \\end{pmatrix}"},
+        {"type": "text", "value": "에 대하여 행렬 A-B의 (1,~2)성분을 구하는 과정을 서술하시오."}
+      ]
+    },
+    {
+      "number": 17,
+      "score": 4.0,
+      "type": "서술형",
+      "label": "[서술형 2]",
+      "contents": [
+        {"type": "text", "value": "[서술형 2] 5개의 숫자 0, 1, 2, 3, 4중에서 서로 다른 4개를 택하여 만든 네 자리 자연수를 작은 것부터 순서대로 나열할 때, 56번째 수를 구하는 과정을 서술하시오."}
+      ]
+    },
+    {
+      "number": 18,
+      "score": 5.0,
+      "type": "서술형",
+      "label": "[서술형 3]",
+      "contents": [
+        {"type": "text", "value": "[서술형 3] 부등식 |x+1|+|2x-5| \\leq 7의 해를 구하는 과정을 서술하시오."}
+      ]
+    },
+    {
+      "number": 19,
+      "score": 5.0,
+      "type": "서술형",
+      "label": "[서술형 4]",
+      "contents": [
+        {"type": "text", "value": "[서술형 4] 과학 전시회를 준비하는 두 학급 \\mathrm{A}, \\mathrm{B}반은 실험 키트와 안내판을 대여해야 한다. 두 대여업체 \\mathrm{X}와 \\mathrm{Y}는 동일한 장비를 제공하며 가격은 다음과 같다."},
+        {"type": "text", "value": "<대여 가격> 단위: 원"},
+        {"type": "text", "value": "업체 | 실험 키트 | 안내판\n\\mathrm{X} | 12,000 | 6,000\n\\mathrm{Y} | 13,000 | 5,500"},
+        {"type": "text", "value": "<대여 수량> 단위: 개"},
+        {"type": "text", "value": "구분 | \\mathrm{A}반 | \\mathrm{B}반\n실험 키트 | a | a+2\n안내판 | 4 | b"},
+        {"type": "text", "value": "\\mathrm{A}반은 \\mathrm{X}업체에서, \\mathrm{B}반은 \\mathrm{Y}업체에서 물건을 대여하는 것이 더 저렴할 때, 자연수 a, b에 대하여 a+b의 최솟값을 구하는 과정을 서술하시오."}
+      ]
+    },
+    {
+      "number": 20,
+      "score": 6.0,
+      "type": "서술형",
+      "label": "[서술형 5]",
+      "contents": [
+        {"type": "text", "value": "[서술형 5] 세 실수 a,~b,~c에 대하여 다항식 P(x)=x^{3}-ax^{2}+bx-c는 다음 <조건>을 만족시킨다."},
+        {"type": "text", "value": "<조건> (가) 1+i는 삼차방정식 P(x)의 근이다. • (나) P(x)를 일차식 x-1로 나눈 나머지는 -4이다."},
+        {"type": "text", "value": "이때, a+b+c의 값을 구하는 과정을 서술하시오. (단, i=\\sqrt{-1})"}
+      ]
+    },
+    {
+      "number": 21,
+      "score": 6.0,
+      "type": "서술형",
+      "label": "[서술형 6]",
+      "contents": [
+        {"type": "text", "value": "[서술형 6] 두 등식 {}_{8}\\mathrm{C}_{r} = {}_{8}\\mathrm{C}_{2r-1}, {}_{n+5}\\mathrm{C}_{r} - {}_{n+2}\\mathrm{C}_{r} = 2^{2r}을 만족시키는 두 자연수 n,~r에 대하여 n+r의 값을 구하는 과정을 서술하시오. (단, 1 \\leq r \\leq 4, r-2 \\leq n)"}
+      ]
+    },
+    {
+      "number": 22,
+      "score": 6.0,
+      "type": "서술형",
+      "label": "[서술형 6]",
+      "contents": [
+        {"type": "text", "value": "[서술형 6] 방정식 x^{3}-1=0의 한 허근을 \\omega라 할 때,"},
+        {"type": "equation", "value": "\\left(\\omega+\\frac{1}{\\omega}\\right)+\\left(\\omega^{2}+\\frac{1}{\\omega^{2}}\\right)+\\left(\\omega^{3}+\\frac{1}{\\omega^{3}}\\right)+ \\cdots +\\left(\\omega^{10}+\\frac{1}{\\omega^{10}}\\right)"},
+        {"type": "text", "value": "의 값을 구하는 과정을 서술하시오."}
+      ]
+    }
+  ]
+}

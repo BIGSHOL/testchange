@@ -1,0 +1,947 @@
+{
+ "meta": {
+  "exam_id": 4256,
+  "ocr_source": "session-vision"
+ },
+ "header": {
+  "title": "경신고 1학년 수학 (2025년 1학기 중간고사) — 다항식 ~ 이차함수"
+ },
+ "questions": [
+  {
+   "number": 1,
+   "score": 4.6,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "두 다항식 A = x^{3} - 2x^{2}, B = -2x^{3} - 3x^{2}일 때, 다항식 A - B는?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3x^{3} - 2x^{2}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2x^{3} - x^{2}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2x^{3} + x^{2}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3x^{3} + x^{2}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3x^{3} + 2x^{2}"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 2,
+   "score": 4.6,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "두 실수 x, y에 대하여 x + y = 2, xy = -2일 때, x^{3} + y^{3}의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "16"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "20"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "24"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "28"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "32"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 3,
+   "score": 4.6,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "다항식 P(x) = x^{3} + 4x^{2} + x - 5를 x + 1로 나누었을 때의 나머지는?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-3"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-2"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-1"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 4,
+   "score": 4.8,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "이차방정식 x^{2} - 5x + 3 = 0의 두 근을 \\alpha, \\beta라 할 때, \\alpha + \\beta + \\alpha\\beta의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "6"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "7"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "8"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 5,
+   "score": 4.8,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "복소수 z = -1 + 2i에 대하여 \\left(z^{2} + 2z\\right)^{2} - 3\\left(z^{2} + 2z\\right)의 값은? (단, i = \\sqrt{-1})"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "30"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "35"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "40"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "45"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "50"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 6,
+   "score": 4.8,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "1 \\leq x \\leq 5에서 이차함수 f(x) = x^{2} - 4x + 3의 최댓값을 M, 최솟값을 m이라 할 때, M + m의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "7"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "8"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "9"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "10"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "11"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 7,
+   "score": 4.8,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "다음 중 x^{4} + 2x^{2} - 15의 인수인 것은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "x^{2} - 5"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "x - \\sqrt{3}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "x + \\sqrt{2}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "x^{2} + 1"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "x^{2} + 3"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 8,
+   "score": 5,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "두 다항식 f(x), g(x)가 다음 조건을 만족시킨다."
+    },
+    {
+     "type": "text",
+     "value": "<상자> (가) f(x) + g(x) = 1 • (나) \\{f(x)\\}^{2} - \\{g(x)\\}^{2} = 2x^{2} - 4x - 3"
+    },
+    {
+     "type": "text",
+     "value": "다항식 f(x-1) + g(x+2)를 x - 2로 나눈 나머지는?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-11"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-10"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-9"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-8"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-7"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 9,
+   "score": 5,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "7이하의 두 자연수 m, n에 대하여 복소수 z를 z = (m + n - 6) + (m - n)i라 하자. \\left(\\overline{z}\\right)^{2}이 실수가 되도록 하는 m, n의 모든 순서쌍 (m,~n)의 개수는? (단, i = \\sqrt{-1}이고, \\overline{z}는 z의 켤레복소수이다.)"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "10"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "11"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "12"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "13"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "14"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 10,
+   "score": 4,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "등식 (1 + i)x^{2} + \\left(m^{2} + 2i\\right)x = 3i를 만족시키는 실수 x가 존재할 때, 모든 실수 m의 값의 곱은? (단, i = \\sqrt{-1})"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-5"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-4"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-3"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-2"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-1"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 11,
+   "score": 5,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "등식 \\left(2x^{2} + x - 2\\right)^{3} = a_{0} + a_{1}x + a_{2}x^{2} + \\cdots + a_{5}x^{5} + a_{6}x^{6}이 x에 대한 항등식일 때, a_{0} + a_{1} + a_{3} + a_{5}의 값은? (단, a_{0}, a_{1}, a_{2}, \\cdots, a_{5}는 상수)"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-1"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-3"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-5"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-7"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-9"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 12,
+   "score": 5,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "0 \\leq x \\leq 1에서 이차함수 y = -x^{2} + 2kx의 최댓값이 5일 때, 상수 k의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 13,
+   "score": 5,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "실수 k에 대하여 복소수 z을 z = k^{2} - 1 + (k - 1)i라 하자. z^{2}이 음의 실수일 때, \\frac{4}{i}\\left(\\frac{1-i}{\\sqrt{2}}\\right)^{n} = \\left(z - \\overline{z}\\right)가 되도록 하는 200이하의 자연수 n의 개수는? (단, i = \\sqrt{-1}이고, \\overline{z}는 z의 켤레복소수이다.)"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "17"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "19"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "21"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "23"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "25"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 14,
+   "score": 5.2,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "일차식 f(x)에 대하여 x^{3} + 3x^{2} + 3x + 2 - f(x)가 (x + 2)(x + a)^{2}으로 인수분해될 때, f(4)의 값은? (단, a는 상수이다.)"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{7}{2}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{9}{2}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{11}{2}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{13}{2}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{15}{2}"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 15,
+   "score": 5.2,
+   "type": "단답형",
+   "label": "[단답형 1]",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[단답형 1] 복소수 z = \\frac{\\sqrt{2} - 3i}{3 + \\sqrt{2}\\,i}와 자연수 n에 대하여 f(n) = (-1)^{n} \\times n \\times z^{n+2}라 할 때, f(1) + f(2) + f(3) + \\cdots + f(16) + f(17) = a + bi일 때, a - b의 값을 구하시오. (단, i = \\sqrt{-1}이고, a, b는 실수이다.)"
+    }
+   ],
+   "choices": []
+  },
+  {
+   "number": 16,
+   "score": 5.2,
+   "type": "단답형",
+   "label": "[단답형 2]",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[단답형 2] x에 대한 다항식 f(x)를 x - 2로 나누었을 때의 나머지는 5이다. f(x)를 x^{2} + 4x + 4으로 나누었을 때의 나머지는 x - 1이다. f(x)를 x^{3} + 2x^{2} - 4x - 8로 나누었을 때의 나머지를 R(x)라 하자. R(4)의 값을 구하시오."
+    }
+   ],
+   "choices": []
+  },
+  {
+   "number": 17,
+   "score": 5.2,
+   "type": "단답형",
+   "label": "[단답형 3]",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[단답형 3] 이차함수 f(x)에 대하여 함수 g(x)가 g(x) = \\begin{cases} f(x) & (x < 0) \\\\ -f(x) & (x \\geq 0) \\end{cases}이고, 다음 조건을 만족시킨다."
+    },
+    {
+     "type": "text",
+     "value": "<상자> (가) f(0) = 0, f(1) < 0 • (나) 방정식 f(x) = 7인 모든 x의 값의 합은 3이다. • (다) 함수 y = g(x)의 그래프와 직선 y = t가 만나는 교점의 개수가 2인 모든 실수 t의 값의 합은 9이다."
+    },
+    {
+     "type": "text",
+     "value": "함수 g(x)의 그래프와 직선 y = 6이 만나는 모든 점의 x좌표의 값의 합을 구하시오."
+    }
+   ],
+   "choices": []
+  },
+  {
+   "number": 18,
+   "score": 5.4,
+   "type": "단답형",
+   "label": "[단답형 4]",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[단답형 4] 다음 조건을 만족시키는 모든 이차다항식 P(x)의 합을 Q(x)라 하자."
+    },
+    {
+     "type": "text",
+     "value": "<상자> (가) 이차방정식 x^{2} - 3x = 0의 두 근은 P(0)와 P(3)이다. • (나) z = P(1) + P(2)i라 하면 z^{2}은 실수이다."
+    },
+    {
+     "type": "text",
+     "value": "다항식 Q(x)를 x - 3으로 나눈 나머지를 구하시오. (단, i = \\sqrt{-1}이다.)"
+    }
+   ],
+   "choices": []
+  },
+  {
+   "number": 19,
+   "score": 5.4,
+   "type": "단답형",
+   "label": "[단답형 5]",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[단답형 5] 두 실수 a, b가 다음 조건을 만족시킬 때, 4a + b의 값 중 정수인 것의 개수를 구하시오."
+    },
+    {
+     "type": "text",
+     "value": "<상자> (가) |a| \\leq 4 • (나) 0 \\leq x \\leq 1에서 이차함수 f(x) = (x - a)^{2} + b의 최솟값이 6이다."
+    }
+   ],
+   "choices": []
+  },
+  {
+   "number": 20,
+   "score": 5.4,
+   "type": "단답형",
+   "label": "[단답형 6]",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[단답형 6] 양수 p에 대하여 최고차항의 계수가 1인 사차다항식 f(x)가 다음 조건을 만족시킬 때, p의 값을 구하시오."
+    },
+    {
+     "type": "text",
+     "value": "<상자> (가) f(x) = \\left(x^{2} - 1\\right)Q_{1}(x) - 6p인 다항식 Q_{1}(x)가 존재한다. • (나) f(x) = \\left(x^{2} + 9\\right)Q_{2}(x) + 2p^{2}인 다항식 Q_{2}(x)가 존재한다. • (다) f(x) = (x + 3)Q_{3}(x) + 2p^{2}인 다항식 Q_{3}(x)가 존재한다."
+    }
+   ],
+   "choices": []
+  }
+ ]
+}

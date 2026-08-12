@@ -1,0 +1,298 @@
+{
+ "meta": {
+  "exam_id": 4271,
+  "ocr_source": "session-vision"
+ },
+ "header": {
+  "title": "구산고등학교 1학년 1학기 2회 지필평가 공통수학1(4단위)과 과목코드(02) 2025년 6월 24일 2교시"
+ },
+ "questions": [
+  {
+   "number": 1,
+   "score": 3.7,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "$-4 \\leq x \\leq 1$일 때, 이차함수 $y=x^{2}+6x-1$의 최댓값과 최솟값의 합은?"}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "-6"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "-4"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "-2"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "0"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "2"}]}
+   ]
+  },
+  {
+   "number": 2,
+   "score": 3.8,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "연립방정식"},
+    {"type": "equation", "value": "\\begin{cases} x+y=5 \\\\ 3x^{2}+y^{2}=19 \\end{cases}"},
+    {"type": "text", "value": "의 해를 $x=\\alpha$, $y=\\beta$라 할 때, $\\alpha-\\beta$의 값은? (단, $\\alpha$, $\\beta$는 정수이다.)"}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "-3"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "-2"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "-1"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "0"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "1"}]}
+   ]
+  },
+  {
+   "number": 3,
+   "score": 4.6,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "삼차방정식 $x^{3}+1=0$의 한 허근을 $\\alpha$라고 할 때, $\\frac{1}{\\alpha^{4}}+\\alpha^{2}+\\alpha^{4}=a+b\\alpha$를 만족시키는 실수 $a, b$에 대하여 $a+b$의 값은?"}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "-3"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "-2"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "-1"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "0"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "1"}]}
+   ]
+  },
+  {
+   "number": 4,
+   "score": 4.2,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "이차함수 $y=3x^{2}-5x+4$의 그래프가 직선 $y=ax+1$과 한 점에서 만나도록 하는 자연수 $a$의 값은?"}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+   ]
+  },
+  {
+   "number": 5,
+   "score": 4.5,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "함수 $y=-x^{2}+6x+a$의 그래프가 직선 $y=2$와 두 점 $\\mathrm{A}$, $\\mathrm{B}$에서 만날 때, 점 $(1,~2)$가 두 점 $\\mathrm{A}$, $\\mathrm{B}$ 사이에 있도록 하는 실수 $a$의 값의 범위는?"}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "a<-3"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "a<-1"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "a>0"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "a>-1"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "a>-3"}]}
+   ]
+  },
+  {
+   "number": 6,
+   "score": 4.9,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "실수 $p$, $q$에 대하여 이차함수 $y=-(x-p)^{2}+q$와 자연수 $m$이 다음 조건을 만족할 때, $f(3)$의 값은?"},
+    {"type": "text", "value": "<상자> (가) $-2 \\leq x \\leq 1$에서 함수 $f(x)$의 최솟값은 $m$, 최댓값은 $2m$이다. • (나) $-4 \\leq x \\leq 1$에서 함수 $f(x)$의 최솟값은 $-m+3$, 최댓값은 $2m$이다."}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "-10"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "-8"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "-6"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "-4"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "-2"}]}
+   ]
+  },
+  {
+   "number": 7,
+   "score": 3.7,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "연립방정식"},
+    {"type": "equation", "value": "\\begin{cases} 2x-1 \\geq 1 \\\\ x-3 < 2 \\end{cases}"},
+    {"type": "text", "value": "의 해가 __아닌__ 것은?"}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+   ]
+  },
+  {
+   "number": 8,
+   "score": 4.4,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "부등식 $|2x-4|+|x+1|>4$의 해가 $x<a$ 또는 $x>b$일 때, $a+b$의 값은?"}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "\\frac{4}{3}"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "\\frac{7}{3}"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "\\frac{10}{3}"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "4"}]}
+   ]
+  },
+  {
+   "number": 9,
+   "score": 4.3,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "연립부등식"},
+    {"type": "equation", "value": "\\begin{cases} x-2 \\geq 0 \\\\ x^{2}-4x+3 \\leq 0 \\end{cases}"},
+    {"type": "text", "value": "을 만족하는 모든 정수 $x$의 값의 합은?"}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "2"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "3"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "4"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "5"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "6"}]}
+   ]
+  },
+  {
+   "number": 10,
+   "score": 3.6,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "부등식 $2<x+y<5$를 만족시키는 자연수 $x$, $y$의 모든 순서쌍 $(x,~y)$ 개수는?"}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "5"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "6"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "7"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "8"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "9"}]}
+   ]
+  },
+  {
+   "number": 11,
+   "score": 4.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "5개의 숫자 $1$, $2$, $3$, $4$, $5$를 한 번씩 사용하여 일렬로 나열할 때, 양 끝에 홀수가 오도록 나열하는 경우의 수는?"}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "18"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "36"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "72"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "108"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "120"}]}
+   ]
+  },
+  {
+   "number": 12,
+   "score": 4.3,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "그림과 같이 마름모 위에 16개의 점이 있다. 이 중에서 3개의 점을 연결하여 만들 수 있는 삼각형의 개수는?"},
+    {"type": "figure", "value": "가로로 긴 마름모(다이아몬드 모양)의 둘레 위에만 점 16개가 찍혀 있는 그림. 마름모의 네 꼭짓점(위·아래·좌·우)에 각각 점이 있고, 네 변마다 그 사이에 점이 3개씩 등간격으로 놓여 있어 한 변 위에는 양 끝 꼭짓점을 포함해 5개의 점이 일직선으로 늘어서 있다. 4(꼭짓점)+4×3(변 위)=16개이며 내부에는 점이 없다."}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "400"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "480"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "520"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "560"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "640"}]}
+   ]
+  },
+  {
+   "number": 13,
+   "score": 5,
+   "type": "서술형",
+   "label": "[서답형 1]",
+   "contents": [
+    {"type": "text", "value": "[서답형 1] 이차함수 $y=x^{2}-3x+5$의 그래프와 각 직선의 위치 관계를 찾는 과정을 서술하시오. [총 5점]"}
+   ],
+   "sub_questions": [
+    {"number": 1, "score": 2, "contents": [{"type": "text", "value": "$x$축"}]},
+    {"number": 2, "score": 3, "contents": [{"type": "text", "value": "$y=-5x+4$"}]}
+   ]
+  },
+  {
+   "number": 14,
+   "score": 5,
+   "type": "서술형",
+   "label": "[서답형 2]",
+   "contents": [
+    {"type": "text", "value": "[서답형 2] 연립방정식을 푸는 과정을 서술하시오."},
+    {"type": "equation", "value": "\\begin{cases} x+y+xy=9 \\\\ x+y-2xy=-3 \\end{cases}"}
+   ]
+  },
+  {
+   "number": 15,
+   "score": 7,
+   "type": "서술형",
+   "label": "[서답형 3]",
+   "contents": [
+    {"type": "text", "value": "[서답형 3] 수학 체험전 부스를 설치하기 위하여 종이테이프를 이용하여 아래 그림과 같이 합동인 3개의 직사각형 모양으로 된 영역을 표시하려고 한다. 사용할 수 있는 종이테이프의 전체 길이가 $60\\mathrm{m}$일 때, 표시할 수 있는 영역의 최대 넓이를 구하는 과정을 서술하시오. (단, 종이테이프의 폭은 생각하지 않는다.)"},
+    {"type": "figure", "value": "굵은 선으로 그린 큰 직사각형이 내부의 가로선 2개로 3등분되어, 합동인 직사각형 3개가 세로로 나란히 쌓여 있는 그림. 바깥 테두리(가로 2줄·세로 2줄)와 내부 가로 구분선 2줄이 모두 종이테이프로 표시된 선이다."}
+   ]
+  },
+  {
+   "number": 16,
+   "score": 8,
+   "type": "서술형",
+   "label": "[서답형 4]",
+   "contents": [
+    {"type": "text", "value": "[서답형 4] 최고차항의 계수가 1인 사차다항식 $P(x)$가 다음 조건을 만족시킬 때, $P(2)$의 값을 구하는 과정을 서술하시오."},
+    {"type": "text", "value": "<상자> (가) $x$에 대한 사차방정식 $P(x)=0$은 중근과 서로 다른 두 허근을 갖고, 서로 다른 두 허근의 합은 $5$이다. • (나) $x$에 대한 사차방정식 $P(2x+1)=0$은 중근 $2$와 서로 다른 두 허근을 갖고, 서로 다른 두 허근의 곱은 $\\frac{5}{2}$이다."}
+   ]
+  },
+  {
+   "number": 17,
+   "score": 6,
+   "type": "서술형",
+   "label": "[서답형 5]",
+   "contents": [
+    {"type": "text", "value": "[서답형 5] 다음 이차부등식을 푸는 과정을 서술하시오. [총 6점]"}
+   ],
+   "sub_questions": [
+    {"number": 1, "score": 2, "contents": [{"type": "text", "value": "$x^{2}-5x-14<0$"}]},
+    {"number": 2, "score": 2, "contents": [{"type": "text", "value": "$2x^{2}+3x+2 \\leq 0$"}]},
+    {"number": 3, "score": 2, "contents": [{"type": "text", "value": "$3x^{2}-12x+12>0$"}]}
+   ]
+  },
+  {
+   "number": 18,
+   "score": 6,
+   "type": "서술형",
+   "label": "[서답형 6]",
+   "contents": [
+    {"type": "text", "value": "[서답형 6] 연립부등식"},
+    {"type": "equation", "value": "\\begin{cases} -x^{2}+ax+b \\geq 0 \\\\ 2x^{2}+cx+d>0 \\end{cases}"},
+    {"type": "text", "value": "의 해가 $-3 \\leq x < -2$ 또는 $\\frac{1}{2}<x \\leq 2$가 되도록 하는 상수 $a$, $b$, $c$, $d$의 값을 구하는 과정을 서술하시오."}
+   ]
+  },
+  {
+   "number": 19,
+   "score": 8,
+   "type": "서술형",
+   "label": "[서답형 7]",
+   "contents": [
+    {"type": "text", "value": "[서답형 7] 아래 그림과 같이 한 변의 길이가 $16\\mathrm{m}$인 정팔각형 모양의 잔디밭에 폭이 $x\\mathrm{m}$로 일정한 산책로를 만들려고 한다. 산책로의 넓이가 $16(7+8\\sqrt{2})\\mathrm{m}^{2}$ 이상 $20(11+16\\sqrt{2})\\mathrm{m}^{2}$ 이하가 되게 하는 $x$의 값의 범위를 구하는 과정을 서술하시오."},
+    {"type": "figure", "value": "정팔각형 모양의 잔디밭 안에, 폭이 일정한(x m) 산책로가 세로 2줄·가로 2줄로 지나가 회색으로 칠해진 그림. 두 세로줄과 두 가로줄이 서로 직교하여 팔각형 내부를 9개 영역으로 나누며, 산책로를 뺀 잔디 영역은 가운데 정사각형 1개, 위·아래·좌·우의 직사각형 4개, 네 모서리의 직각이등변삼각형 4개로 남는다."}
+   ]
+  },
+  {
+   "number": 20,
+   "score": 5,
+   "type": "서술형",
+   "label": "[서답형 8]",
+   "contents": [
+    {"type": "text", "value": "[서답형 8] 서로 다른 3개의 주머니에 $1$, $2$, $3$, $4$의 숫자가 하나씩 적힌 4개의 공이 각각 들어 있다. 각 주머니에서 공을 1개씩 꺼낼 때, 꺼낸 공에 적힌 수의 합이 $4$ 또는 $6$이 되는 경우의 수를 구하는 과정을 서술하시오."}
+   ]
+  }
+ ]
+}

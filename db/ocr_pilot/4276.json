@@ -1,0 +1,395 @@
+{
+  "meta": {"exam_id": 4276, "ocr_source": "session-vision"},
+  "header": {"title": "구암고 1학년 공통수학2 — 2025년 2학기 중간고사대비 (도형의 방정식~집합과 명제)"},
+  "questions": [
+    {
+      "number": 1,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "두 점 \\mathrm{A}, \\mathrm{B}사이의 거리 중 가장 짧은 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\mathrm{A}(3),~\\mathrm{B}(6)"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\mathrm{A}(-1),~\\mathrm{B}(-5)"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\mathrm{A}(0,~0),~\\mathrm{B}(3,~4)"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\mathrm{A}(1,~3),~\\mathrm{B}(-1,~2)"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\mathrm{A}(-1,~2),~\\mathrm{B}(-3,~4)"}]}
+      ]
+    },
+    {
+      "number": 2,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "직선 x+ay+b=0이 직선 2x-4y+5=0과 만나지 않고 직선 y=-\\frac{b}{2}x와 수직일 때, 두 상수 a, b에 대하여 a+b의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "10"}]}
+      ]
+    },
+    {
+      "number": 3,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "원 x^{2}+y^{2}=5 위의 점 (1,~2)에서의 접선의 방정식은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "x+2y=\\sqrt{5}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "x+2y=5"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "x+2y=25"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "2x+y=5"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "2x+y=25"}]}
+      ]
+    },
+    {
+      "number": 4,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "직선 2x+3y-5=0을 y=x에 대하여 대칭이동한 도형의 방정식은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "2x-3y-5=0"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2x-3y+5=0"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "2x+3y+5=0"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "3x-2y-5=0"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "3x+2y-5=0"}]}
+      ]
+    },
+    {
+      "number": 5,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "두 점 \\mathrm{A}(2,~3), \\mathrm{B}(5,~-1)를 이은 직선 위의 점 \\mathrm{P}에 대하여 삼각형 \\mathrm{OAB}의 넓이와 삼각형 \\mathrm{OBP}의 넓이비가 3:1이다. 이 때, 가능한 점 \\mathrm{P}의 x좌표의 합은? (단, 점 \\mathrm{O}는 원점)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "14"}]}
+      ]
+    },
+    {
+      "number": 6,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "두 직선 2x-3y+4=0과 3x+y-5=0의 교점을 지나고 직선 6x+3y+1=0과 평행한 직선의 방정식은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "y=2x+4"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "y=2x-8"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "y=-2x+4"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "y=-2x-4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "y=-2x+8"}]}
+      ]
+    },
+    {
+      "number": 7,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "점 (1,~1)을 지나고 x축과 y축에 모두 접하는 원은 두 개 존재한다. 이 두 원의 넓이의 합은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "10\\pi"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "12\\pi"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "14\\pi"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "16\\pi"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "18\\pi"}]}
+      ]
+    },
+    {
+      "number": 8,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "세 점 \\mathrm{O}(0,~0), \\mathrm{A}(1,~4), \\mathrm{B}(6,~0)을 꼭짓점으로 하는 삼각형 \\mathrm{OAB}가 있다. 점 (4,~0)을 지나는 직선이 삼각형 \\mathrm{OAB}의 넓이를 이등분 할 때, 이 직선의 방정식은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "3x+4y+16=0"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "4x+3y-16=0"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "4x-3y+16=0"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "13x-12y-48=0"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "12x+13y-48=0"}]}
+      ]
+    },
+    {
+      "number": 9,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "세 점 (0,~0), (4,~0), (-2,~6)을 지나는 원의 중심의 좌표를 (p,~q)라 할 때, p+q의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "10"}]}
+      ]
+    },
+    {
+      "number": 10,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "직선 x+y-4=0을 원점에 대하여 대칭이동한 직선이 원 x^{2}+y^{2}+ax-4y-6=0의 넓이를 이등분할 때, 상수 a의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "14"}]}
+      ]
+    },
+    {
+      "number": 11,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "아래 그림과 같이 원 x^{2}+y^{2}=8 위의 점 \\mathrm{A}와 직선 y=x+6 위의 서로 다른 두 점 \\mathrm{B}와 \\mathrm{C}를 꼭짓점으로 하는 정삼각형 \\mathrm{ABC}를 만들 때, 그 넓이의 최댓값과 최솟값의 합은?"},
+        {"type": "figure", "value": "좌표평면. 원점 O를 중심으로 하는 원 x^2+y^2=8이 그려져 있고(원의 방정식 x^2+y^2=8이 원 아래 왼쪽에 표기), 기울기 1인 직선 y=x+6이 y절편 6, x절편 -6을 지나며 오른쪽 위로 뻗어 있다(직선 라벨 y=x+6은 오른쪽 위, y축과의 교점 6과 x축과의 교점 -6이 표기됨). 직선 위 y절편 바로 위쪽(제2사분면에 가까운 y축 오른쪽)에 점 B가, 직선 위 왼쪽 아래(원의 왼쪽 위 바깥)에 점 C가 찍혀 있다. 원 위 오른쪽(제1사분면, x축 바로 위)에 점 A가 찍혀 있다. 세 점 A, B, C를 잇는 정삼각형 ABC 내부가 연보라색으로 칠해져 있다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{48\\sqrt{3}}{3}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{49\\sqrt{3}}{3}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{50\\sqrt{3}}{3}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{51\\sqrt{3}}{3}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{52\\sqrt{3}}{3}"}]}
+      ]
+    },
+    {
+      "number": 12,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "두 집합 A=\\{3,~6\\}, B=\\{a,~a+3\\}에 대하여 A\\cap B=\\{6\\}일 때, 실수 a의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "6"}]}
+      ]
+    },
+    {
+      "number": 13,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "다음에서 집합인 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "그림을 잘 그리는 사람의 모임"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "예쁜 꽃의 모임"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "우리 학교 1학년 학생의 모임"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "성능이 우수한 컴퓨터의 모임"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "키가 큰 식물의 모임"}]}
+      ]
+    },
+    {
+      "number": 14,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "전체집합 U의 공집합이 아닌 두 부분집합 A, B에 대하여 다음 중 옳지 __않은__ 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "(A\\cap A^{C})^{C}=U"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "B\\cap(B-A)^{C}=A\\cap B"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "A \\subset B이면, A^{C}-B^{C}=\\varnothing"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "A^{C}와 B가 서로소이면 (A\\cup B)^{C}=A^{C}"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "A와 B가 서로소이면 (A^{C}\\cup B^{C})\\cap A=A"}]}
+      ]
+    },
+    {
+      "number": 15,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "다음 <보기> 중 옳은 것만을 있는 대로 고른 것은?"},
+        {"type": "text", "value": "<보기> ㄱ. ‘32는 홀수이다.’는 명제이다. • ㄴ. 명제 ‘x>3이면 x>4이다.’는 참이다. • ㄷ. 명제 ‘x^{2}<9이면 -4<x<4이다.’의 대우는 참이다. • ㄹ. 명제 ‘x=y이면 x^{2}=y^{2}’의 역은 ‘x^{2}=y^{2}이면 x=y이다.’이다. • ㅁ. 두 실수 a, b에 대하여 명제 ‘ab>0이면 a>0이고 b>0이다.’의 대우는 ‘a<0 이거나 b<0이면 ab<0이다.’이다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ, ㄴ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄱ, ㄷ, ㄹ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄴ, ㄹ, ㅁ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄴ, ㄷ, ㄹ, ㅁ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄱ, ㄷ, ㄹ, ㅁ"}]}
+      ]
+    },
+    {
+      "number": 16,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "원 (x-1)^{2}+(y-6)^{2}=9를 x축의 방향으로 5만큼, y축의 방향으로 -1만큼 평행이동한 다음 직선 y=x에 대하여 대칭이동한 원의 방정식은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "(x-5)^{2}+(y-6)^{2}=9"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "(x+5)^{2}+(y-6)^{2}=9"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "(x-6)^{2}+(y-5)^{2}=9"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "x^{2}+(y-11)^{2}=9"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "(x-11)^{2}+y^{2}=9"}]}
+      ]
+    },
+    {
+      "number": 17,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "다음 그림과 같이 직선으로 뻗은 도로변에 4\\mathrm{km} 떨어진 두 지점 \\mathrm{A}와 \\mathrm{B}로부터 각각 수직으로 2\\mathrm{km}와 1\\mathrm{km} 떨어진 지점에 두 건물 \\mathrm{C}와 \\mathrm{D}가 있다. 도로변에 버스 정류장을 만들려고 할 때, 두 건물에서 버스 정류장까지의 거리의 합의 최솟값은?"},
+        {"type": "figure", "value": "가로로 뻗은 직선 도로(회색 아스팔트에 흰 점선 중앙선)가 그려져 있고, 도로 위 왼쪽에 지점 A, 오른쪽에 지점 B가 표시되며 두 지점 사이 거리가 4 km로 표기되어 있다. A에서 도로와 수직으로 위쪽 2 km 지점에 건물 C(작은 빌딩 그림)가 있고 직각 표시와 함께 2 km가 표기되어 있다. B에서 도로와 수직으로 위쪽 1 km 지점에 건물 D(높은 빌딩 그림)가 있고 직각 표시와 함께 1 km가 표기되어 있다. 두 건물 C, D는 도로의 같은 쪽(위쪽)에 있으며, 도로 위 A와 B 사이에 버스 정류장(버스 표지판 그림)이 점으로 표시되어 있고, C와 D에서 정류장까지 잇는 점선이 그려져 있다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "9"}]}
+      ]
+    },
+    {
+      "number": 18,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "집합 A=\\{5,~6,~7,~8,~9,~10\\}에 대하여 다음 조건을 만족시키는 집합 A의 모든 부분집합 X의 개수는?"},
+        {"type": "text", "value": "<상자> (가) n(X) \\geq 3 • (나) 집합 X의 모든 원소의 곱은 10의 배수이다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "36"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "38"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "40"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "42"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "44"}]}
+      ]
+    },
+    {
+      "number": 19,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 좌표평면 위의 점 \\mathrm{A}(1,~k)를 x축에 대칭이동한 점을 \\mathrm{B}, 직선 y=x에 대하여 대칭이동한 점을 \\mathrm{C}라 하자. 두 삼각형 \\mathrm{ABC}, \\mathrm{BOC}의 외접원의 넓이의 곱이 50\\pi^{2}이다. 상수 k의 값은? (단, 점 \\mathrm{O}는 워점, 점 \\mathrm{A}는 점 \\mathrm{C}와 같지 않은 제1사분면 위의 점이다.)"},
+        {"type": "figure", "value": "좌표평면에 두 원과 직선 y=x가 그려져 있다. 직선 y=x는 원점을 지나 왼쪽 아래에서 오른쪽 위로 뻗어 있고 오른쪽 위에 y=x 라벨이 있다. 큰 원은 원점 O를 지나며 y축 왼쪽으로 크게 부풀어 있고, 원 위 y축 오른쪽 위쪽에 점 A, 원 아래쪽(y축 근처 아래)에 점 B가 찍혀 있다. 작은 원은 원점 O 부근을 지나 오른쪽 아래로 놓여 있으며 원 위 오른쪽 위(직선 y=x 위)에 점 C, 아래쪽에 점 B가 찍혀 있다. 두 원은 원점 O 부근과 점 B 부근에서 만난다. 점 A는 제1사분면, 점 B는 y축 아래쪽(제4사분면 쪽), 점 C는 제1사분면 오른쪽에 위치한다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{2}{5}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{7}{2}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "4"}]}
+      ]
+    },
+    {
+      "number": 20,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "두 동아리 \\mathrm{A}또는 \\mathrm{B}에 가입한 남학생 28명과 여학생 22명을 조사한 결과가 다음과 같다."},
+        {"type": "text", "value": "<상자> (가) 동아리 \\mathrm{A}에 가입한 학생 수와 동아리 \\mathrm{B}에 가입한 학생 수의 합은 60이다. • (나) 두 동아리 \\mathrm{A}와 \\mathrm{B} 중에서 한 동아리에만 가입한 남학생 수와 여학생 수는 같다."},
+        {"type": "text", "value": "이때 두 동아리 \\mathrm{A}와 \\mathrm{B}에 모두 가입한 여학생 수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "6"}]}
+      ]
+    },
+    {
+      "number": 21,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "좌표평면 위 세 점 \\mathrm{O}(0,~0), \\mathrm{A}(a,~3), \\mathrm{B}(3,~b)와 삼각형 \\mathrm{OAB}의 무게중심 \\mathrm{G}(c,~4)가 있다. 점 \\mathrm{G}와 직선 \\mathrm{OB}사이의 거리가 \\frac{\\sqrt{10}}{2}일 때, a-b+c의 값은? (단, \\mathrm{G}는 제1사분면 위의 점이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "9"}]}
+      ]
+    },
+    {
+      "number": 22,
+      "score": 4.0,
+      "type": "서술형",
+      "label": "[서술형 1]",
+      "contents": [
+        {"type": "text", "value": "[서술형 1] 다음에서 원소나열법으로 나타낸 집합은 조건제시법으로, 조건제시법으로 나타낸 집합은 원소나열법으로 나타내고 각 집합을 벤다이어그램으로 나타내시오."}
+      ],
+      "choices": [],
+      "sub_questions": [
+        {"number": 1, "score": 2, "contents": [{"type": "equation", "value": "A=\\{1,~2,~5,~10\\}"}]},
+        {"number": 2, "score": 2, "contents": [{"type": "equation", "value": "B=\\{x|x^{2}+x-12=0\\}"}]}
+      ]
+    },
+    {
+      "number": 23,
+      "score": 4.0,
+      "type": "서술형",
+      "label": "[서술형 2]",
+      "contents": [
+        {"type": "text", "value": "[서술형 2] 세 직선 3x-y-2=0, x+2y-3=0, x-my=0이 삼각형을 만들지 못하도록 하는 상수 m의 값을 모두 구하시오."}
+      ],
+      "choices": []
+    },
+    {
+      "number": 24,
+      "score": 4.0,
+      "type": "서술형",
+      "label": "[서술형 3]",
+      "contents": [
+        {"type": "text", "value": "[서술형 3] 두 실수 a, b에 대하여 이차함수 f(x)=a(x-b)^{2}이 있다. 중심이 함수 y=f(x)의 그래프 위에 있고 직선 3x-4y=0과 x축에 동시에 접하는 서로 다른 원의 개수는 3이다. 이 세원의 중심의 x좌표를 각각 x_{1}, x_{2}, x_{3}라 할 때, 세 실수 x_{1}, x_{2}, x_{3}이 다음 조건을 만족시킨다."},
+        {"type": "text", "value": "<상자> (가) x_{1}<x_{2}<x_{3} • (나) x_{1}\\times x_{2}\\times x_{3}<0 • (다) 세 점 (x_{1},~f(x_{1})), (x_{2},~f(x_{2})), (x_{3},~f(x_{3}))을 꼭짓점으로 하는 삼각형의 무게중심의 y좌표는 \\frac{103}{18}이다."},
+        {"type": "text", "value": "f(x_{1})의 값을 구하시오."}
+      ],
+      "choices": []
+    },
+    {
+      "number": 25,
+      "score": 4.0,
+      "type": "서술형",
+      "label": "[서술형 4]",
+      "contents": [
+        {"type": "text", "value": "[서술형 4] 다음 그림과 같이 두 점 \\mathrm{A}(4,~3)과 \\mathrm{B}(2,~-4)에 대하여 서로 다른 두 점 \\mathrm{C}와 \\mathrm{D}가 각각 y축과 직선 y=x 위에 있을 때, \\overline{\\mathrm{AD}}+\\overline{\\mathrm{DC}}+\\overline{\\mathrm{CB}}의 최솟값을 구하시오."}
+      ],
+      "choices": []
+    }
+  ]
+}

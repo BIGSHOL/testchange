@@ -1,0 +1,55 @@
+{
+  "exam_id": 4263,
+  "answer_pages": [7, 8],
+  "items": [
+    {"number": 1, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 2, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 3, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 4, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 5, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 6, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 7, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 8, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 9, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 10, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 11, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 12, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 13, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 14, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 15, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 16, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 17, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 18, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 19, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 20, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 21, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {
+      "number": 22,
+      "answer": "$y=\\frac{5}{4}x+3$, $y=\\frac{1}{2}x$",
+      "solution": "삼각형 $\\mathrm{ABC}$에서 $\\overline{\\mathrm{AC}}$를 $1:2$로 내분하는 점을 $\\mathrm{P}$라 두고, $\\overline{\\mathrm{AC}}$를 $2:1$로 내분하는 점을 $\\mathrm{Q}$라 두자.\n$\\mathrm{P}\\left(\\frac{4+(-4)}{1+2},~\\frac{-1+10}{1+2}\\right)$, $\\mathrm{Q}\\left(\\frac{8+(-2)}{1+2},~\\frac{-2+5}{1+2}\\right)$ 이므로 $\\mathrm{P}(0,~3)$, $\\mathrm{Q}(2,~1)$이다.\n직선 $\\mathrm{BP}$의 기울기는 $\\frac{5}{4}$이고, 점 $\\mathrm{P}(0,~3)$을 지나므로 직선 $\\mathrm{BP}$의 방정식은 $y=\\frac{5}{4}x+3$\n직선 $\\mathrm{BQ}$의 기울기는 $\\frac{1}{2}$이고, 점 $\\mathrm{Q}(2,~1)$을 지나므로 직선 $\\mathrm{BQ}$의 방정식은 $y=\\frac{1}{2}x$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 23,
+      "answer": "$a=4$",
+      "solution": "$x^{2}+y^{2}=10$ 위의 점 $(1,~3)$에서의 접선의 방정식은 $x+3y=10$\n이 접선을 $x$축에 대하여 대칭이동하면 $x-3y=10$\n한편 $x^{2}-2ax+y^{2}+4y+a^{2}=0$\n$(x-a)^{2}+(y+2)^{2}=4$의 넓이를 이등분하려면 $x-3y=10$이 원의 중심인 $(a,~-2)$를 지나야 한다.\n$a-3\\times(-2)=10$\n$a+6=10$\n$a=4$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 24,
+      "answer": "(1) $-9<a<1$ (2) $m=-4$, $n=25\\pi$",
+      "solution": "(1)\n$x^{2}-3ax+\\left(\\frac{3a}{2}\\right)^{2}+y^{2}+ay+\\left(\\frac{a}{2}\\right)^{2}=-\\frac{7}{2}a^{2}-8a+9+\\frac{5}{2}a^{2}$\n$\\left(x-\\frac{3a}{2}\\right)^{2}+\\left(y-\\frac{a}{2}\\right)^{2}=-a^{2}-8a+9$\n이 도형이 원이 되기 위해서는 $-a^{2}-8a+9>0$\n$a^{2}+8a-9<0$\n$(a+9)(a-1)<0$\n$-9<a<1$\n(2)\n$r^{2}=-a^{2}-8a+9$\n$=-(a+4)^{2}+25$\n따라서 $a=-4$일 때, 최대넓이 $25\\pi$를 가진다.\n$m=-4$, $n=25\\pi$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 25,
+      "answer": "대우: $x^{2}-(2k-1)x+k(k-1) \\leq 0$이면 $x \\leq 0$ 또는 $x>3$, $k$의 범위: $k \\leq 0$ 또는 $k>4$",
+      "solution": "대우: $x^{2}-(2k-1)x+k(k-1) \\leq 0$이면 $x \\leq 0$ 또는 $x>3$\n$p: x^{2}-(2k-1)x+k(k-1) \\leq 0$, $q: x \\leq 0$ 또는 $x>3$이고 각각의 진리집합을 $P$, $Q$라고 할 때, 대우명제가 참이되려면 $P \\subset Q$를 만족해야 한다.\n$p: x^{2}-(2k-1)x+k(k-1) \\leq 0$\n$(x-k+1)(x-k) \\leq 0$\n$k-1 \\leq x \\leq k$\n$\\{x|k-1 \\leq x \\leq k\\} \\subset \\{x|x \\leq 0\\}$ 또는 $\\{x|k-1 \\leq x \\leq k\\} \\subset \\{x|x>3\\}$을 만족하면 되는데\n전자의 경우 $k \\leq 0$, 후자의 경우 $k-1>3$이므로 $k \\leq 0$ 또는 $k>4$일 때 대우 명제는 참이다.",
+      "topic": "",
+      "difficulty": ""
+    }
+  ]
+}

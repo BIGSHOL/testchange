@@ -1,0 +1,59 @@
+{
+  "exam_id": 4247,
+  "answer_pages": [5, 6],
+  "items": [
+    {"number": 1, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 2, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 3, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 4, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 5, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 6, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 7, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 8, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 9, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 10, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 11, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {
+      "number": 12,
+      "answer": "$6$",
+      "solution": "$P(x)=x^{3}+3x^{2}+6x+4=(x+1)(x^{2}+2x+4)$\n$P(2x-2)=(2x-1)\\{(2x-2)^{2}+2(2x-2)+4\\}=4(2x-1)(x^{2}-x+1)=0$\n을 만족시키는 한 허근이 $\\omega$이므로\n$\\omega^{2}-\\omega+1=0$\n$(\\omega+1)(\\omega^{2}-\\omega+1)=0$, $\\omega^{3}+1=0$\n$\\omega^{3}=-1$\n$\\omega^{n}=1$이 되도록 하는 자연수 $n$의 최솟값은 $6$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 13,
+      "answer": "$\\frac{64}{7}$",
+      "solution": "$2 \\leq x \\leq 6$에서 최솟값 $0$\n$4 \\leq x \\leq 8$에서 최솟값 $0$ 이므로 $f(x)$의 중심축\n$x=\\frac{36}{a} \\neq \\frac{\\text{정수}}{2}$ $\\left(\\frac{p+q}{2} \\neq \\frac{36}{a}\\right)$\n$4<\\frac{36}{a}<6$\n$6<a<9$\n$a=7$ ($a=8$이면 $x=\\frac{9}{2}$라서 안됨)\n$f(x)=7\\left(x-\\frac{36}{7}\\right)^{2}$\n$f(4)=7 \\times \\frac{8^{2}}{7^{2}}=\\frac{64}{7}$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 14,
+      "answer": "$z=\\frac{2}{3}-\\frac{4}{3}i$",
+      "solution": "$z=a+bi$, $\\overline{z}=a-bi$\n$2iz=\\overline{z}+2$에서 $2i(a+bi)=a-bi+2$\n$-2b+2ai=2+a-bi$\n$(a+2)-bi=-2b+2ai$\n$a+2=-2b$, $-b=2a$\n$a=\\frac{2}{3}$, $b=-\\frac{4}{3}$\n$\\therefore z=\\frac{2}{3}-\\frac{4}{3}i$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 15,
+      "answer": "$24$",
+      "solution": "$\\alpha+\\beta=-3$, $\\alpha\\beta=4$\n$\\alpha^{2}+4\\alpha+4=\\alpha^{2}+3\\alpha+4+\\alpha=\\alpha$, $\\beta^{2}+4\\beta+4=\\beta^{2}+3\\beta+4+\\beta=\\beta$\n$\\frac{\\beta}{\\alpha^{2}+4\\alpha+4}+\\frac{\\alpha}{\\beta^{2}+4\\beta+4}=\\frac{\\beta}{\\alpha}+\\frac{\\alpha}{\\beta}=\\frac{1}{4}$\n근과 계수의 관계에서\n$\\alpha+\\beta+\\frac{1}{4}=-\\frac{11}{4}$, $\\alpha\\beta+\\frac{1}{4}(\\alpha+\\beta)=\\frac{13}{4}$, $\\frac{1}{4}\\alpha\\beta=1$\n$f(x)=4\\left(x^{3}+\\frac{11}{4}x^{2}+\\frac{13}{4}x-1\\right)=4x^{3}+11x^{2}+13x-4$\n$f(1)=4+11+13-4=24$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 16,
+      "answer": "최댓값 $22$, 점 $\\mathrm{A}$의 좌표 $(2,~-3)$",
+      "solution": "두 그래프의 축의 방정식 $x=\\frac{3}{2}$\n점 $\\mathrm{C}$의 좌표 $\\left(\\frac{3}{2}+a,~-a^{2}+\\frac{17}{4}\\right)$\n점 $\\mathrm{B}$의 좌표 $\\left(\\frac{3}{2}-a,~-a^{2}+\\frac{17}{4}\\right)$\n점 $\\mathrm{A}$의 좌표 $\\left(\\frac{3}{2}+a,~a^{2}-\\frac{13}{4}\\right)$\n점 $\\mathrm{D}$의 좌표 $\\left(\\frac{3}{2}-a,~a^{2}-\\frac{13}{4}\\right)$\n직사각형 둘레의 길이 :\n$2\\left(2a-a^{2}+\\frac{17}{4}-a^{2}+\\frac{13}{4}\\right)=-4a^{2}+4a+21=-4\\left(a-\\frac{1}{2}\\right)^{2}+22$\n둘레의 최댓값은 $a=\\frac{1}{2}$일 때 $22$이다.\n그때 점 $\\mathrm{A}$의 좌표는 $(2,~-3)$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 17,
+      "answer": "$a=1+2\\sqrt{5}$, $a=-2\\sqrt{5}$",
+      "solution": "$x^{2}-xy-(a^{2}-a)y^{2}=0$ ⋯ ㉠\n$x-y^{2}=5$ ⋯ ㉡\n㉠에서\n$x^{2}-xy-(a^{2}-a)y^{2}=(x-ay)\\{x+(a-1)y\\}=0$\ni) $x=ay$\n㉡에 대입하면 $y^{2}-ay+5=0$\n$\\mathrm{D}_{1}=a^{2}-20$\nii) $x=-(a-1)y$\n㉡에 대입하면 $y^{2}+(a-1)y+5=0$\n$\\mathrm{D}_{2}=(a-1)^{2}-20=a^{2}-2a-19$\n① i)은 서로 다른 두 실근, ii) 중근을 갖는 경우\n$\\mathrm{D}_{1}=a^{2}-20>0$, $a>2\\sqrt{5}$, $a<-2\\sqrt{5}$\n$\\mathrm{D}_{2}=a^{2}-2a-19=0$, $a=1 \\pm 2\\sqrt{5}$\n$\\therefore a=1+2\\sqrt{5}$\n② i)은 중근, ii) 서로 다른 두 실근을 갖는 경우\n$\\mathrm{D}_{1}=a^{2}-20=0$, $\\mathrm{D}_{2}=a^{2}-2a-19>0$\n$\\therefore a=-2\\sqrt{5}$",
+      "topic": "",
+      "difficulty": ""
+    }
+  ]
+}

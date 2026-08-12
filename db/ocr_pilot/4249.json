@@ -1,0 +1,389 @@
+{
+  "meta": {"exam_id": 4249, "ocr_source": "session-vision"},
+  "header": {"title": "경상여고 1학년 공통수학1 - 2025년 1학기 기말고사 (이차방정식과 이차함수 ~ 행렬)"},
+  "questions": [
+    {
+      "number": 1,
+      "score": 3.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "이차정사각행렬 A의 (i,~j)성분 a_{ij}가"},
+        {"type": "equation", "value": "a_{ij}=2i+j+1 \\quad (i=1,~2,~j=1,~2)"},
+        {"type": "text", "value": "이다. 행렬 A의 모든 성분의 합을 구하면?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "16"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "18"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "20"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "22"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "24"}]}
+      ]
+    },
+    {
+      "number": 2,
+      "score": 3.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "삼차방정식 x^{3}+x^{2}-2=0의 두 허근을 \\alpha, \\beta라 할 때, \\frac{1}{\\alpha}+\\frac{1}{\\beta}의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-4"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-3"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "0"}]}
+      ]
+    },
+    {
+      "number": 3,
+      "score": 3.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "이차부등식 x^{2}-x-12 \\leq 0의 해가 a \\leq x \\leq b일 때, 두 상수 a, b에 대하여 b-a의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "10"}]}
+      ]
+    },
+    {
+      "number": 4,
+      "score": 3.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "연립부등식"},
+        {"type": "equation", "value": "\\begin{cases} 3x-5<4 \\\\ x \\geq a \\end{cases}"},
+        {"type": "text", "value": "를 만족하는 정수 x의 값이 2개일 때, 상수 a의 값의 범위는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "0 \\leq a < 1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "0 < a \\leq 1"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "1 < a < 2"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "1 \\leq a < 2"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "1 < a \\leq 2"}]}
+      ]
+    },
+    {
+      "number": 5,
+      "score": 3.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "1부터 9까지의 자연수가 하나씩 적힌 9장의 카드에서 서로 다른 두 장의 카드를 사용하여 만들 수 있는 두 자리의 자연수 중 30이하 또는 80이상의 자연수의 개수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "24"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "32"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "40"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "48"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "56"}]}
+      ]
+    },
+    {
+      "number": 6,
+      "score": 3.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "1에서 12까지의 자연수 중에서 임의로 서로 다른 2개의 수를 선택한다. 선택한 2개의 수 중에서 적어도 하나가 6이상의 짝수인 경우의 수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "38"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "42"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "48"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "52"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "56"}]}
+      ]
+    },
+    {
+      "number": 7,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "삼차방정식 x^{3}=1의 한 허근을 \\omega라 할 때, 1+\\omega+\\omega^{2}+\\omega^{3}+ \\cdots +\\omega^{50}을 간단히 하면?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\omega"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "2\\omega"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\omega^{2}"}]}
+      ]
+    },
+    {
+      "number": 8,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "연립이차부등식"},
+        {"type": "equation", "value": "\\begin{cases} x^{2}+2x-8 \\leq 0 \\\\ x^{2}-2kx-3k^{2} > 0 \\end{cases}"},
+        {"type": "text", "value": "의 해가 존재하도록 하는 실수 k의 값의 범위는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-2 \\leq k < 5"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-1 < k \\leq 4"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-2 < k < 4"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "0 \\leq k \\leq 4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "-1 \\leq k \\leq 5"}]}
+      ]
+    },
+    {
+      "number": 9,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "남학생 2명과 여학생 3명이 함께 보트를 타려고 한다. 이 보트는 그림과 같이 앞줄에 2개, 뒷줄에 3개의 의자가 있다. 여학생이 남학생과 반드시 같은 줄에 앉을 때, 5명이 모두 보트의 의자에 앉는 방법의 수는?"},
+        {"type": "figure", "value": "보트를 비스듬히 위에서 본 그림. 보트 안에 좌석이 두 줄로 배치되어 있으며, 앞줄(뱃머리 쪽)에 의자 2개, 뒷줄에 의자 3개가 놓여 있다. 좌석은 회색 사각 방석 모양으로 그려져 있고 각 줄 사이에 손잡이 프레임이 있다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "36"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "48"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "72"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "84"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "108"}]}
+      ]
+    },
+    {
+      "number": 10,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "서로 다른 3개의 주머니에 1, 2, 3, 4, 5, 6이 하나씩 적혀 있는 6개의 공이 각각 들어 있다. 각각의 주머니에서 공을 1개씩 꺼낼 때, 꺼낸 공에 적힌 수를 a,b,c라 하자. (a+b)(a+b+c)가 짝수가 되는 경우의 수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "144"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "162"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "180"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "198"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "216"}]}
+      ]
+    },
+    {
+      "number": 11,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "두 이차정사각행렬 A, B에 대하여"},
+        {"type": "equation", "value": "A+2B=\\begin{pmatrix} 1 & 4 \\\\ -3 & 12 \\end{pmatrix},~ -2A+B=\\begin{pmatrix} -7 & 7 \\\\ 1 & 26 \\end{pmatrix}"},
+        {"type": "text", "value": "일 때, 행렬 A+B를 구하면?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\begin{pmatrix} -1 & 3 \\\\ -1 & -2 \\end{pmatrix}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\begin{pmatrix} 1 & 3 \\\\ 1 & 2 \\end{pmatrix}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\begin{pmatrix} -2 & 1 \\\\ -2 & 2 \\end{pmatrix}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\begin{pmatrix} -2 & 1 \\\\ 2 & 2 \\end{pmatrix}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\begin{pmatrix} 2 & 1 \\\\ -2 & 2 \\end{pmatrix}"}]}
+      ]
+    },
+    {
+      "number": 12,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "두 행렬"},
+        {"type": "equation", "value": "A=\\begin{pmatrix} 2 & -3 \\\\ a & b \\end{pmatrix},~ B=\\begin{pmatrix} x & 3 \\\\ y & 3 \\end{pmatrix}"},
+        {"type": "text", "value": "에 대하여"},
+        {"type": "equation", "value": "A^{2}=5A,~ (A+B)(A-B)=A^{2}-B^{2}"},
+        {"type": "text", "value": "이 성립할 때, 네 실수 a, b, x, y에 대하여 a+b+x+y의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "9"}]}
+      ]
+    },
+    {
+      "number": 13,
+      "score": 5.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "이차정사각행렬 A에 대하여 <보기>에서 옳은 것만을 있는 대로 고른 것은?"},
+        {"type": "text", "value": "<보기> ㄱ. 임의의 실수 x, y에 대하여 A\\begin{pmatrix} x \\\\ y \\end{pmatrix}=\\begin{pmatrix} x \\\\ 0 \\end{pmatrix}이면 A^{2}=A이다. • ㄴ. 임의의 실수 x, y에 대하여 A\\begin{pmatrix} x \\\\ y \\end{pmatrix}=\\begin{pmatrix} -y \\\\ x \\end{pmatrix}이면 A^{3}=A이다. • ㄷ. 임의의 실수 x, y에 대하여 A\\begin{pmatrix} x \\\\ y \\end{pmatrix}=\\begin{pmatrix} -x \\\\ -y \\end{pmatrix}이면 A^{2}=-A이다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄴ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄱ, ㄷ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄴ, ㄷ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄱ, ㄴ, ㄷ"}]}
+      ]
+    },
+    {
+      "number": 14,
+      "score": 5.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "주머니에서 1부터 9까지의 자연수가 하나씩 적혀있는 9개의 공이 들어 있다. 이 주머니에서 임의로 공을 한 개씩 4번 꺼내어 나온 공에 적혀 있는 수를 꺼낸 순서대로 a, b, c, d라 하자. a+b \\times c+d가 짝수인 경우의 수는? (단, 꺼낸 공은 다시 넣지 않는다.)"},
+        {"type": "figure", "value": "주둥이를 끈으로 묶은 주머니 그림. 주머니 안에 동그란 공이 9개 들어 있으며 윗줄에 1, 2, 3, 4가 적힌 공 4개, 아랫줄에 5, 6, 7, 8, 9가 적힌 공 5개가 그려져 있다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1224"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "1344"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "1440"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "1464"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "1512"}]}
+      ]
+    },
+    {
+      "number": 15,
+      "score": 5.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "사차방정식 (x^{2}+kx+2)(x^{2}+kx+6)+3=0이 실근과 허근을 모두 갖도록 하는 자연수 k의 값을 구하면?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "8"}]}
+      ]
+    },
+    {
+      "number": 16,
+      "score": 5.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "행렬"},
+        {"type": "equation", "value": "A=\\begin{pmatrix} 0 & 1 \\\\ -1 & 1 \\end{pmatrix}"},
+        {"type": "text", "value": "에 대하여 자연수 m, n은 다음 조건을 만족시킨다."},
+        {"type": "text", "value": "<상자> (가) A^{m}=A^{n} • (나) m, n은 100 이하의 서로 다른 자연수이다."},
+        {"type": "text", "value": "|m-n|의 최댓값을 p, 최솟값을 q라 할 때, p+q의 값을 구하면?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "102"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "100"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "98"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "96"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "94"}]}
+      ]
+    },
+    {
+      "number": 17,
+      "score": 3.0,
+      "type": "단답형",
+      "label": "[단답형 1]",
+      "contents": [
+        {"type": "text", "value": "[단답형 1] 부등식 |x+2|+2|x-1| \\geq 12의 해를 구하시오."}
+      ]
+    },
+    {
+      "number": 18,
+      "score": 5.0,
+      "type": "단답형",
+      "label": "[단답형 2]",
+      "contents": [
+        {"type": "text", "value": "[단답형 2] 다음을 구하시오."}
+      ],
+      "sub_questions": [
+        {
+          "number": 1,
+          "score": 1,
+          "contents": [
+            {"type": "text", "value": "4개의 문자 a, b, c, d를 일렬로 나열 할 때, a와 b가 이웃하도록 나열하는 경우의 수를 구하시오."}
+          ]
+        },
+        {
+          "number": 2,
+          "score": 1,
+          "contents": [
+            {"type": "text", "value": "5개의 문자 a, b, c, d, e를 한 번씩 사용하여 만든 문자열을 사전식으로 나열할 때, 60번째에 나열된 문자열을 구하시오."}
+          ]
+        },
+        {
+          "number": 3,
+          "score": 3,
+          "contents": [
+            {"type": "text", "value": "아래 그림과 같이 7개의 영역 \\mathrm{A}, \\mathrm{B}, \\mathrm{C}, \\mathrm{D}, \\mathrm{E}, \\mathrm{F}, \\mathrm{G} 에 각각 빨강, 파랑, 노랑 중 어느 한 색을 칠하려고 한다. 같은 색을 여러 번 사용할 수 있지만 이웃하는 영역에는 서로 다른 색을 칠한다고 할 때, 색을 칠하는 경우의 수를 구하시오. (단, 3가지 색을 모두 사용하지 않아도 된다.)"},
+            {"type": "figure", "value": "가로로 긴 타원 안에 가운데를 차지하는 큰 원이 하나 있고, 그 원의 안쪽 영역이 D이다. 타원의 왼쪽 부분은 두 개의 사선으로 3등분되어 위쪽이 B, 왼쪽 끝이 A, 아래쪽이 C이다. 타원의 오른쪽 부분도 두 개의 사선으로 3등분되어 위쪽이 E, 오른쪽 끝이 G, 아래쪽이 F이다. 전체 7개 영역(A, B, C, D, E, F, G)이며 A는 B·C와, B·C는 D와, D는 E·F와, E·F는 G와 각각 이웃한다."}
+          ]
+        }
+      ]
+    },
+    {
+      "number": 19,
+      "score": 4.0,
+      "type": "서술형",
+      "label": "[서술형 1]",
+      "contents": [
+        {"type": "text", "value": "[서술형 1] 연립방정식"},
+        {"type": "equation", "value": "\\begin{cases} x^{2}+xy-2y^{2}=0 \\\\ x^{2}+2y^{2}=12 \\end{cases}"},
+        {"type": "text", "value": "의 해를 구하고 그 과정을 서술하시오."}
+      ]
+    },
+    {
+      "number": 20,
+      "score": 4.0,
+      "type": "서술형",
+      "label": "[서술형 2]",
+      "contents": [
+        {"type": "text", "value": "[서술형 2] 삼차방정식 x^{3}+ax^{2}-5x-6=0의 한 근이 2일 때, 상수 a의 값과 나머지 두 근을 모두 구하고 그 과정을 서술하시오."}
+      ]
+    },
+    {
+      "number": 21,
+      "score": 4.0,
+      "type": "서술형",
+      "label": "[서술형 3]",
+      "contents": [
+        {"type": "text", "value": "[서술형 3] 각 자리의 숫자가 1 또는 2로 이루어진 네 자리 자연수 중 같은 숫자가 연속해서 3번 이상 나오지 않는 자연수의 개수를 구하고 그 과정을 서술하시오."}
+      ]
+    },
+    {
+      "number": 22,
+      "score": 4.0,
+      "type": "서술형",
+      "label": "[서술형 4]",
+      "contents": [
+        {"type": "text", "value": "[서술형 4] {}_{n}\\mathrm{P}_{3} = 8 \\times {}_{n-1}\\mathrm{C}_{3}을 만족시키는 자연수 n의 값을 구하고 그 과정을 서술하시오."}
+      ]
+    },
+    {
+      "number": 23,
+      "score": 4.0,
+      "type": "서술형",
+      "label": "[서술형 5]",
+      "contents": [
+        {"type": "text", "value": "[서술형 5] x에 대한 이차방정식 x^{2}-70x+k=0의 두 근을 {}_{n}\\mathrm{P}_{3}, {}_{n}\\mathrm{C}_{n-3}이라 할 때, 실수 k의 값을 구하는 과정을 상세히 서술하시오. (단, n은 자연수이다.)"}
+      ]
+    },
+    {
+      "number": 24,
+      "score": 5.0,
+      "type": "서술형",
+      "label": "[서술형 6]",
+      "contents": [
+        {"type": "text", "value": "[서술형 6] 서로 다른 종류의 꽃 3송이와 같은 종류의 초콜릿 2개를 4명의 학생에게 남김없이 나누어 주려고 한다. 아무것도 받지 못하는 학생이 없도록 꽃과 초콜릿을 나누어 주는 경우의 수를 구하고 그 과정을 서술하시오."},
+        {"type": "figure", "value": "서로 다른 종류의 꽃 3송이(튤립 모양, 백합 모양, 팬지 모양)가 나란히 그려져 있고, 그 오른쪽에 같은 모양의 초콜릿 2개가 그려져 있다."}
+      ]
+    },
+    {
+      "number": 25,
+      "score": 5.0,
+      "type": "서술형",
+      "label": "[서술형 7]",
+      "contents": [
+        {"type": "text", "value": "[서술형 7] 함수 f(x)=\\frac{1}{2k}x^{2}+(k+1)x+k+1의 최솟값이 0이고, 자연수 n에 대하여 직선 y=n이 함수 f(x)의 그래프와 만나는 두 점의 x좌표를 각각 x_{1}, x_{2}라 하자. |x_{1}|+|x_{2}|의 값이 자연수가 되도록 하는 100이하의 자연수 n의 개수를 구하고 그 과정을 서술하시오. (단, x_{1} < x_{2}이고, k는 0이 아닌 실수이다.)"}
+      ]
+    }
+  ]
+}

@@ -1,0 +1,149 @@
+{
+ "exam_id": 4256,
+ "answer_pages": [
+  7,
+  8
+ ],
+ "items": [
+  {
+   "number": 1,
+   "answer": "④",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 2,
+   "answer": "②",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 3,
+   "answer": "①",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 4,
+   "answer": "⑤",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 5,
+   "answer": "③",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 6,
+   "answer": "①",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 7,
+   "answer": "②",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 8,
+   "answer": "④",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 9,
+   "answer": "②",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 10,
+   "answer": "③",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 11,
+   "answer": "④",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 12,
+   "answer": "③",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 13,
+   "answer": "⑤",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 14,
+   "answer": "②",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 15,
+   "answer": "1",
+   "solution": "$f(n) = (-1)^{n} \\times n \\times (-i)^{n+2} = -n \\cdot i^{n}$\n$f(4k-3) + \\cdots + f(4k)$\n$= -(4k-3)i + (4k-2) + (4k-1)i - 4k$\n$= 2i - 2$\n$f(1) + f(2) + f(3) + \\cdots + f(16) + f(17)$\n$= 4(2i-2) - 17i = -8 - 9i$\n$a - b = -8 - (-9) = 1$",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 16,
+   "answer": "12",
+   "solution": "$f(x) = (x-2)Q(x) + 5 \\rightarrow f(2) = 5$\n$= \\left(x^{2} + 4x + 4\\right)Q_{1}(x) + x - 1$\n$= (x-2)(x+2)^{2}Q_{2}(x) + R(x)$\n$R(x) = a(x+2)^{2} + x - 1$\n$f(x) = (x+2)^{2}\\{(x-2)Q_{2}(x) + a\\} + x - 1$\n$f(2) = 16a + 1 = 5$, $a = \\frac{1}{4}$\n$R(x) = \\frac{1}{4}(x+2)^{2} + x - 1$, $R(4) = \\frac{1}{4} \\times 6^{2} + 3 = 12$",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 17,
+   "answer": "$\\frac{9 - \\sqrt{15}}{2}$",
+   "solution": "(가)조건을 통해 이차함수 $f(x)$의 최고항의 계수가 양수이며, (나)조건을 통해 아래 그림과 같이 $f(x)$의 축의 방정식이 $x = \\frac{3}{2}$이고, $f(x) = ax(x-3)$ 이다.\n[그림] 왼쪽: 아래로 볼록한 포물선 $y=f(x)$와 직선 $y=7$이 두 점 $\\alpha$, $\\beta$에서 만나고 축은 $x=\\frac{3}{2}$. 오른쪽: $y=g(x)$의 그래프($x<0$에서 위로 뻗고 $x \\geq 0$에서 위로 볼록)와 직선 $y=7$.\n(다)조건을 통해 교점의 개수가 2개이려면 꼭짓점을 지나므로 점 $\\left(\\frac{3}{2},~9\\right)$을 대입하면 $a \\cdot \\left(\\frac{3}{2}\\right)^{2} = 9$, $a = 4$\n[그림] $y=g(x)$의 그래프와 직선 $y=6$이 세 점 $x_{1}$, $x_{2}$, $x_{3}$에서 만난다 ($x_{1}<0<x_{2}<\\frac{3}{2}<x_{3}$).\n$x_{1}$을 식에 대입하면\n$f(x_{1}) = 4x_{1}(x_{1}-3) = 6$, $2x_{1}^{2} - 6x_{1} - 3 = 0$, $x_{1} = \\frac{3 - \\sqrt{15}}{2}$\n$x_{2} + x_{3} = 3$, $x_{1} + x_{2} + x_{3} = \\frac{9 - \\sqrt{15}}{2}$",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 18,
+   "answer": "6",
+   "solution": "$P(0) = 0$, $P(3) = 3$일 때\n$P(x) = ax(x-3) + x$\n$P(1) = a \\times (-2) + 1 = 0$, $a = \\frac{1}{2}$\n$P(2) = 2a \\times (-1) + 2 = 0$, $a = 1$\n$P(0) = 3$, $P(3) = 0$일 때\n$P(x) = ax(x-3) + 3 - x$\n$P(1) = a \\times (-2) + 2 = 0$, $a = 1$\n$P(2) = 2a \\times (-1) + 1 = 0$, $a = \\frac{1}{2}$\n모든 이차다항식 $P(x)$의 합 $Q(x) = 3x(x-3) + 6$\n$Q(3) = 9 \\times 0 + 6 = 6$",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 19,
+   "answer": "41",
+   "solution": "$i)$ $a \\leq 0$일 때,\n$f(0) = a^{2} + b = 6$\n$4a + b = -a^{2} + 4a + 6 = -(a-2)^{2} + 10$\n$-4 \\leq a \\leq 0$일 때, $-26 \\leq 4a + b \\leq 6$\n$ii)$ $0 \\leq a \\leq 1$일 때,\n$f(a) = b = 6$, $4a + b = 4a + 6$\n$0 \\leq a \\leq 1$일 때, $-6 \\leq 4a + b \\leq 10$\n$iii)$ $a \\geq 1$일 때,\n$f(1) = (1-a)^{2} + b = 6$\n$4a + b = -a^{2} + 6a + 5 = -(a-3)^{2} + 14$\n$1 \\leq a \\leq 4$일 때, $10 \\leq 4a + b \\leq 14$\n위 모든 조건에서의 범위는 $-26 \\leq 4a + b \\leq 14$\n따라서 $4a + b$의 개수는 41개 이다.",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 20,
+   "answer": "5",
+   "solution": "(나), (다) 조건을 통해 $f(x) = \\left(x^{2} + 9\\right)(x+3)(x+a) + 2p^{2}$\n(가)조건을 통해 $x = -1$, $1$을 대입하면\n$f(1) = 40(a+1) + 2p^{2} = 6p$\n$f(-1) = 20(a-1) + 2p^{2} = 6p$\n위 두 식을 서로 빼면\n$20a + 60 = 0$이다.\n$a = -3$, $p = 5$",
+   "topic": "",
+   "difficulty": ""
+  }
+ ]
+}

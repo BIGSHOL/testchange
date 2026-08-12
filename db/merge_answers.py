@@ -138,7 +138,9 @@ def main():
             print(f"  없음: {f.name}"); continue
         n_a, n_s, msg = merge(f, con)
         ta += n_a; ts += n_s
-        print(f"  {'OK  ' if n_a else 'FAIL'} {f.name:<24} 정답 {n_a:>3} 해설 {n_s:>3}  {msg}")
+        # 정답면이 없는 시험지는 결함이 아니라 '출처 없음' 상태다(FAIL 로 보이면 오해)
+        mark = "OK  " if n_a else ("SKIP" if "없음" in msg else "FAIL")
+        print(f"  {mark} {f.name:<24} 정답 {n_a:>3} 해설 {n_s:>3}  {msg}")
     print(f"\n병합 완료 — 정답 {ta}개 / 해설 {ts}개")
     sanity(con)
     if a.verify:

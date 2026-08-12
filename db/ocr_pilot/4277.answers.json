@@ -1,0 +1,64 @@
+{
+  "exam_id": 4277,
+  "answer_pages": [5],
+  "items": [
+    {"number": 1, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 2, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 3, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 4, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 5, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 6, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 7, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 8, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 9, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 10, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 11, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 12, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 13, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 14, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 15, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 16, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {
+      "number": 17,
+      "answer": "(1) $x<-1$ 또는 $x>3$ (2) $0 \\leq x < 3$",
+      "solution": "(1) $(x-3)(x+1)>0$ 이므로 $x<-1$ 또는 $x>3$\n(2) $2x+3 \\geq 3-x$, $3x \\geq 0$ 이고 $x \\geq 0$\n$3x-2<x+4$, $2x<6$ 이고 $x<3$\n따라서 두 부등식의 공통범위는 $0 \\leq x < 3$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 18,
+      "answer": "(1) $\\begin{pmatrix} 3 & 2 \\\\ -3 & 1 \\end{pmatrix}$ (2) $\\begin{pmatrix} -12 & 0 \\\\ -6 & -10 \\end{pmatrix}$",
+      "solution": "(1) $\\begin{pmatrix} 1 & -2 \\\\ 3 & -1 \\end{pmatrix}+\\begin{pmatrix} 2 & 4 \\\\ -6 & 2 \\end{pmatrix}=\\begin{pmatrix} 3 & 2 \\\\ -3 & 1 \\end{pmatrix}$\n(2) $\\begin{pmatrix} 1 & -2 \\\\ 3 & -1 \\end{pmatrix}\\begin{pmatrix} 0 & -4 \\\\ 6 & -2 \\end{pmatrix}=\\begin{pmatrix} -12 & 0 \\\\ -6 & -10 \\end{pmatrix}$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 19,
+      "answer": "$a=1$, $\\alpha^{3}+\\beta^{3}=-10$",
+      "solution": "삼차방정식 근과 계수와의 관계에 의하여\n$-1+\\alpha+\\beta=1$ 이므로 $\\alpha+\\beta=2$\n$-\\alpha\\beta=-3$ 이므로 $\\alpha\\beta=3$\n따라서 $-\\alpha+\\alpha\\beta-\\beta=a=1$ 이므로 $a=1$\n또 $\\alpha^{3}+\\beta^{3}=(\\alpha+\\beta)^{3}-3\\alpha\\beta(\\alpha+\\beta)=-10$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 20,
+      "answer": "$-1<a \\leq 3$",
+      "solution": "주어진 식으로 연립부등식을 작성해보면\n$\\begin{cases} 2ax-5<x^{2}+2x+a \\cdots ① \\\\ x^{2}+2x+a \\leq x^{2}+2x+3 \\cdots ② \\end{cases}$ 이다.\n①을 풀면 $x^{2}+2(1-a)x+a+5>0$ 이고 모든 실수 $x$에 대하여 성립하기 위해선 $\\frac{D}{4}=(1-a)^{2}-(a+5)<0$ 이여야 하고 주어진 부등식을 풀면 $-1<a<4$ 이다.\n②를 풀면 $a \\leq 3$ 이다.\n①과 ②의 공통범위는 $-1<a \\leq 3$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 21,
+      "answer": "$412$",
+      "solution": "삼각형을 만드는 세 점을 선택하는 경우는 ${}_{15}\\mathrm{C}_{3}=455$\n그러나 그 중 삼각형이 이루어지지 않는 경우가 있다.\n(1) 가로점 5개중 3개가 선택 되는 경우 ${}_{5}\\mathrm{C}_{3} \\times 3=30$\n(2) 세로점 3개중 3개가 선택 되는 경우 ${}_{3}\\mathrm{C}_{3} \\times 5=5$\n(3) 점 3개로 이루어진 대각선 8개\n따라서 삼각형의 개수는 $455-30-5-8=412$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 22,
+      "answer": "$60$",
+      "solution": "$A^{3}=-E$ 이므로 $A^{6}=E$ 이다.\n따라서 $A^{n}$꼴은 6제곱마다 반복된다.\n따라서 $A^{m}=A^{n}$관계를 만족하는 순서쌍 $(m,~n)$의 개수는 집합\n$\\{1,~7,~13,~19,~25\\}$, $\\{2,~8,~14,~20,~26\\}$, $\\{3,~9,~15,~21,~27\\}$, $\\{4,~10,~16,~22,~28\\}$, $\\{5,~11,~17,~23,~29\\}$, $\\{6,~12,~18,~24,~30\\}$ 이 있어 각 집합에서 원소가 2개인 부분집합의 개수와 경우의 수가 같다\n따라서 ${}_{5}\\mathrm{C}_{2} \\times 6=60$",
+      "topic": "",
+      "difficulty": ""
+    }
+  ]
+}

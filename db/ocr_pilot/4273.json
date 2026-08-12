@@ -1,0 +1,435 @@
+{
+  "meta": {
+    "exam_id": 4273,
+    "ocr_source": "session-vision"
+  },
+  "header": {
+    "title": "구산고등학교 1학년 2학기 1회 지필평가 공통수학2과(4단위) 과목코드(02) 2025년 9월 30일 3교시"
+  },
+  "questions": [
+    {
+      "number": 1,
+      "score": 3.7,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {
+          "type": "text",
+          "value": "두 점 (-2,~1), (4,~3)을 지나는 직선의 방정식을 y=ax+b라 할 때, a+b의 값은?(단, a,~b는 상수이다.)"
+        }
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "4"}]}
+      ]
+    },
+    {
+      "number": 2,
+      "score": 4.2,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {
+          "type": "text",
+          "value": "점 (-1,~0)을 지나고 점 (2,~-1)에서의 거리가 3인 직선의 방정식이 y=ax+b, x=c일 때, abc의 값은?(단, a,~b,~c는 상수이다.)"
+        }
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-\\frac{16}{9}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-\\frac{4}{9}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{4}{9}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{16}{9}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{25}{9}"}]}
+      ]
+    },
+    {
+      "number": 3,
+      "score": 4.5,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {
+          "type": "text",
+          "value": "세 직선 3x+2y-1=0, kx-2y+1=0, x-ky+2=0이 삼각형을 이루지 않도록 하는 0을 제외한 모든 상수 k의 값의 곱은?"
+        }
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-8"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-12"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-16"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "-20"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "-24"}]}
+      ]
+    },
+    {
+      "number": 4,
+      "score": 4.6,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {
+          "type": "text",
+          "value": "그림과 같이 이차함수 y=ax^{2}\\left(a<-\\frac{1}{3}\\right)의 그래프와 직선 y=x-4가 서로 다른 두 점 \\mathrm{P}, \\mathrm{Q}에서 만난다. 선분 \\mathrm{PQ}를 1:2로 내분하는 점 \\mathrm{M}에서 y축에 내린 수선의 발을 \\mathrm{H}라 하자. 선분 \\mathrm{MH}의 길이가 2일 때, 선분 \\mathrm{PQ}의 길이는?"
+        },
+        {
+          "type": "figure",
+          "value": "좌표평면 그림. 가로로 x축(오른쪽 화살표), 세로로 y축(위쪽 화살표)이 그려져 있고 두 축의 교점에 원점 O가 표시되어 있다. 원점을 꼭짓점으로 하여 아래로 볼록하지 않고 위로 볼록한(아래로 열린) 포물선 y=ax^{2}이 그려져 있으며 왼쪽에 'y=ax^{2}' 라벨이 붙어 있다. 오른쪽 위로 향하는 기울기 1의 직선이 그려져 있고 오른쪽에 'y=x-4' 라벨이 붙어 있다. 포물선과 직선의 두 교점 중 왼쪽 아래의 것이 점 P, 오른쪽 위(x축 아래, 원점 오른쪽)의 것이 점 Q이다. 선분 PQ 위에 점 M이 표시되어 있고, M에서 오른쪽으로 y축까지 그은 수평 선분의 발이 점 H이며 H 부근에 직각 표시(□)가 있다. M과 H는 원점보다 아래쪽에 있다."
+        }
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "5\\sqrt{2}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{16\\sqrt{2}}{3}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{17\\sqrt{2}}{3}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "6\\sqrt{2}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{19\\sqrt{2}}{3}"}]}
+      ]
+    },
+    {
+      "number": 5,
+      "score": 3.8,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {
+          "type": "text",
+          "value": "원 x^{2}+(y-1)^{2}=2와 직선 y=x+k가 서로 다른 두 점에서 만날 때, 실수 k의 값의 범위는 a<k<b이다. a+b의 값은?(단, a,~b는 상수이다.)"
+        }
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+      ]
+    },
+    {
+      "number": 6,
+      "score": 4.9,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {
+          "type": "text",
+          "value": "그림과 같이 두 직선 l_{1}:y=mx(m>1)과 l_{2}:y=\\frac{1}{m}x에 동시에 접하는 원의 중심을 점 \\mathrm{A}라 하자. 직선 l_{1}과 원의 접점을 점 \\mathrm{P}, 직선 l_{2}와 원의 접점을 점 \\mathrm{Q}, 직선 \\mathrm{PQ}가 x축과 만나는 점을 점 \\mathrm{R}이라 할 때, 세 점 \\mathrm{P}, \\mathrm{Q}, \\mathrm{R}이 조건 (가), (나)를 만족시킨다. 직선 l_{1}과 직선 \\mathrm{AQ}의 교점을 \\mathrm{B}라 할 때, 선분 \\mathrm{BQ}의 길이는?(단, 원의 중심 \\mathrm{A}는 제1사분면 위에 있고, 점 \\mathrm{O}는 원점이다.)"
+        },
+        {
+          "type": "text",
+          "value": "<조건> (가) \\overline{\\mathrm{PQ}}=2\\overline{\\mathrm{QR}} • (나) 삼각형 \\mathrm{OAP}의 넓이는 40이다."
+        },
+        {
+          "type": "figure",
+          "value": "좌표평면 그림. 원점 O에서 출발해 오른쪽 위로 가파르게 올라가는 직선에 'l_{1}:y=mx' 라벨, 원점에서 오른쪽 위로 완만하게 올라가는 직선에 'l_{2}:y=\\frac{1}{m}x' 라벨이 붙어 있다. 두 직선에 동시에 접하는 원이 제1사분면에 그려져 있고 그 중심이 점 A이다. 직선 l_{1}과 원의 접점이 점 P(원의 왼쪽 위, A의 왼쪽), 직선 l_{2}와 원의 접점이 점 Q(원의 아래쪽)이다. 점 P와 점 Q를 잇는 직선이 아래로 연장되어 x축과 만나는 점이 점 R(Q의 오른쪽 아래, x축 위)이다. 직선 l_{1} 위에서 점 P보다 위쪽에 점 B가 표시되어 있으며, 선분 AQ를 연장한 직선이 l_{1}과 만나는 점이다. 원점에는 O가 표시되어 있다."
+        }
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{14\\sqrt{10}}{3}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "5\\sqrt{10}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{16\\sqrt{10}}{3}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{17\\sqrt{10}}{3}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "6\\sqrt{10}"}]}
+      ]
+    },
+    {
+      "number": 7,
+      "score": 3.7,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {
+          "type": "text",
+          "value": "점 (3,~a)를 x축의 방향으로 b만큼, y축의 방향으로 1만큼 평행이동하면 점 (5,~-3)이 된다고 할 때, a+b의 값은?"
+        }
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "2"}]}
+      ]
+    },
+    {
+      "number": 8,
+      "score": 4.4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {
+          "type": "text",
+          "value": "원 C_{1}:(x+2)^{2}+(y-4)^{2}=4를 x축의 방향으로 a만큼, y축의 방향으로 b만큼 평행이동한 원을 C_{2}라 하자. 원 C_{1}을 직선 y=x에 대하여 대칭이동한 원을 C_{3}이라 할 때, 원 C_{2}는 원 C_{3}의 중심을 지난다. a의 값이 최대일 때, 원의 중심의 좌표는?"
+        }
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "(4,~0)"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "(2,~-2)"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "(4,~-2)"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "(6,~-2)"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "(6,~-4)"}]}
+      ]
+    },
+    {
+      "number": 9,
+      "score": 4.3,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {
+          "type": "text",
+          "value": "직선 3x-4y+2=0을 x축의 방향으로 a만큼 평행이동한 직선이 원 (x-2)^{2}+(y-1)^{2}=4에 접할 때, a의 모든 값의 합은?"
+        }
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{7}{3}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{8}{3}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{10}{3}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{11}{3}"}]}
+      ]
+    },
+    {
+      "number": 10,
+      "score": 4.3,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {
+          "type": "text",
+          "value": "집합 A=\\{\\varnothing,~\\{\\varnothing\\},~0,~\\{\\varnothing,~0\\}\\}에 대하여 옳은 것만을 있는 대로 고른 것은?"
+        },
+        {
+          "type": "text",
+          "value": "<보기> ㉠. \\varnothing\\in A • ㉡. \\{0\\}\\not\\subset A • ㉢. \\{\\varnothing,~0\\}\\in A • ㉣. \\{\\varnothing,~0\\}\\subset A • ㉤. \\{\\{\\varnothing,~0\\}\\}\\subset A"
+        }
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "㉠, ㉡, ㉢"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "㉡, ㉢, ㉣"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "㉠, ㉡, ㉢, ㉣"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "㉠, ㉢, ㉣, ㉤"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "㉡, ㉢, ㉣, ㉤"}]}
+      ]
+    },
+    {
+      "number": 11,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {
+          "type": "text",
+          "value": "두 집합 A=\\{2,~3,~a\\}, B=\\{3,~2a-7,~-a+6\\}에 대하여 (A^{C}\\cap B)\\cup(A\\cap B^{C})=\\{1,~4\\}일 때, 집합 B의 원소의 합은?"
+        }
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "6"}]}
+      ]
+    },
+    {
+      "number": 12,
+      "score": 3.6,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {
+          "type": "text",
+          "value": "전체집합 U의 두 부분집합 A, B에 대하여"
+        },
+        {
+          "type": "equation_block",
+          "value": "n(U)=24,~n(A)=11,~n(B)=8,~n(A\\cap B)=2"
+        },
+        {
+          "type": "text",
+          "value": "일 때, n(A^{C}\\cap B^{C})의 값은?"
+        }
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "10"}]}
+      ]
+    },
+    {
+      "number": 13,
+      "score": 5,
+      "type": "서술형",
+      "label": "[서술형 1]",
+      "contents": [
+        {
+          "type": "text",
+          "value": "[서술형 1] 학생 \\mathrm{A}가 점 (3,~-1)에서 원 x^{2}+y^{2}=8에 그은 접선의 방정식을 구하는 과정을 나타낸 것이다. 풀이 과정이 잘못된 이유를 쓰고, 바르게 푸는 과정을 서술하시오. [총 5점]"
+        },
+        {
+          "type": "text",
+          "value": "<상자> [학생 \\mathrm{A}의 풀이] • 접선의 방정식을 y=mx\\pm r\\sqrt{m^{2}+1} 이라고 하면 • y=mx\\pm 2\\sqrt{2}\\times\\sqrt{m^{2}+1} 이다. • 점 (3,~-1)을 지나므로 -1=3m\\pm 2\\sqrt{2}\\times\\sqrt{m^{2}+1}. • 즉 m=1 또는 m=-7이다. • 따라서 접선의 방정식은 • y=x\\pm 4,~y=-7x\\pm 20 • 이다."
+        }
+      ],
+      "choices": [],
+      "sub_questions": [
+        {
+          "number": 1,
+          "score": 1,
+          "contents": [
+            {"type": "text", "value": "잘못된 이유: 원 밖의 한 점에서 원에 그은 접선의 방정식은 ____개이다."}
+          ]
+        },
+        {
+          "number": 2,
+          "score": 4,
+          "contents": [
+            {"type": "text", "value": "바르게 푸는 과정:"}
+          ]
+        }
+      ]
+    },
+    {
+      "number": 14,
+      "score": 5,
+      "type": "서술형",
+      "label": "[서술형 2]",
+      "contents": [
+        {
+          "type": "text",
+          "value": "[서술형 2] 주어진 원의 중심의 좌표와 반지름의 길이를 각각 구하시오. [총 5점]"
+        }
+      ],
+      "choices": [],
+      "sub_questions": [
+        {
+          "number": 1,
+          "score": 1,
+          "contents": [
+            {"type": "equation", "value": "x^{2}+y^{2}=25"}
+          ]
+        },
+        {
+          "number": 2,
+          "score": 2,
+          "contents": [
+            {"type": "equation", "value": "(x-1)^{2}+(y+2)^{2}=4"}
+          ]
+        },
+        {
+          "number": 3,
+          "score": 2,
+          "contents": [
+            {"type": "equation", "value": "x^{2}+y^{2}+6x-8y+1=0"}
+          ]
+        }
+      ]
+    },
+    {
+      "number": 15,
+      "score": 7,
+      "type": "서술형",
+      "label": "[서술형 3]",
+      "contents": [
+        {
+          "type": "text",
+          "value": "[서술형 3] 두 점 \\mathrm{A}(a,~3), \\mathrm{B}(-2,~b)를 이은 선분 \\mathrm{AB}의 수직이등분선이 x+3y-4=0일 때, 상수 a,~b를 구하는 과정을 서술하시오."
+        }
+      ],
+      "choices": []
+    },
+    {
+      "number": 16,
+      "score": 6,
+      "type": "서술형",
+      "label": "[서술형 4]",
+      "contents": [
+        {
+          "type": "text",
+          "value": "[서술형 4] 점 (3,~4)를 x축, 원점, 직선 y=x에 대하여 대칭이동한 점을 각각 \\mathrm{A}, \\mathrm{B}, \\mathrm{C}라고 할 때, 삼각형 \\mathrm{ABC}의 넓이를 구하는 과정을 서술하시오."
+        }
+      ],
+      "choices": []
+    },
+    {
+      "number": 17,
+      "score": 8,
+      "type": "서술형",
+      "label": "[서답형 5]",
+      "contents": [
+        {
+          "type": "text",
+          "value": "[서답형 5] 그림과 같이 원점 \\mathrm{O}(0,~0)에 분수대가 있는 한 변의 길이가 100m인 정육각형 모양의 공원이 있다. 제1사분면의 꼭짓점부터 차례로 점 \\mathrm{P}_{1}, \\mathrm{P}_{2}, \\cdots, \\mathrm{P}_{6}이라 하자. 학생 \\mathrm{A}는 자전거를 타고 점 \\mathrm{P}_{2}에서 출발하여 점 \\mathrm{P}_{3}를 향해 초속 10m의 일정한 속력으로 움직인다. 학생 \\mathrm{B}는 자전거를 타고 점 \\mathrm{P}_{4}에서 출발하여 점 \\mathrm{P}_{5}를 향해 초속 10m의 일정한 속력으로 움직인다. 두 사람이 동시에 출발하여 움직일 때, __몇 초 후__에 처음으로 두 사람의 거리가 최소가 되는지 구하고, 그때의 __거리__를 구하는 과정을 서술하시오. (단, 공원의 폭은 생각하지 않는다.)"
+        },
+        {
+          "type": "figure",
+          "value": "좌표평면 위에 원점 O(0,0)를 중심으로 하는 정육각형이 그려져 있다. 세로로 y축, 가로로 x축이 지나며 x축 오른쪽 끝에 'O'(원점 표시가 아니라 축 라벨로 보이는 표기)가 있다. 정육각형의 꼭짓점은 제1사분면(오른쪽 위)부터 시계 반대 방향으로 P_{1}(오른쪽 위), P_{2}(왼쪽 위), P_{3}(왼쪽, x축 위), P_{4}(왼쪽 아래), P_{5}(오른쪽 아래), P_{6}(오른쪽, x축 위)이다. 변 P_{2}P_{3} 를 따라 P_{2}에서 P_{3} 쪽(왼쪽 아래 방향)으로 향하는 화살표가, 변 P_{4}P_{5} 를 따라 P_{4}에서 P_{5} 쪽(오른쪽 방향)으로 향하는 화살표가 그려져 있다. 원점 부근에는 분수대가 표시되어 있다."
+        }
+      ],
+      "choices": []
+    },
+    {
+      "number": 18,
+      "score": 6,
+      "type": "서술형",
+      "label": "[서답형 6]",
+      "contents": [
+        {
+          "type": "text",
+          "value": "[서답형 6] 전체집합 U=\\{x|x는 10 이하의 자연수\\}의 두 부분집합 A=\\{1,~2,~5,~9\\}, B=\\{x|x는 8의 약수\\}에 대하여 다음을 구하시오. [총 6점]"
+        }
+      ],
+      "choices": [],
+      "sub_questions": [
+        {
+          "number": 1,
+          "score": 2,
+          "contents": [{"type": "equation", "value": "A\\cap B"}]
+        },
+        {
+          "number": 2,
+          "score": 2,
+          "contents": [{"type": "equation", "value": "B-A"}]
+        },
+        {
+          "number": 3,
+          "score": 2,
+          "contents": [{"type": "equation", "value": "A^{C}\\cap B^{C}"}]
+        }
+      ]
+    },
+    {
+      "number": 19,
+      "score": 5,
+      "type": "서술형",
+      "label": "[서답형 7]",
+      "contents": [
+        {
+          "type": "text",
+          "value": "[서답형 7] 집합 A=\\{1,~3,~5,~7,~9\\}의 부분집합 중에서 집합 B=\\{1,~2,~3\\}과 서로소인 집합의 개수를 구하는 과정을 서술하시오."
+        }
+      ],
+      "choices": []
+    },
+    {
+      "number": 20,
+      "score": 8,
+      "type": "서술형",
+      "label": "[서답형 8]",
+      "contents": [
+        {
+          "type": "text",
+          "value": "[서답형 8] 전체집합 U=\\{x|x는 9 이하의 자연수\\}의 두 부분집합 A=\\{1,~2,~3,~4\\}, B=\\{3,~4,~5,~6\\}에 대하여 집합 U의 부분집합 X가 다음 조건을 만족시키는 부분집합 X의 개수를 구하는 과정을 서술하시오."
+        },
+        {
+          "type": "text",
+          "value": "<상자> (가) n(X)=6 • (나) A-X=B-X • (다) (X-A)\\cap(X-B [판독불가 — 인쇄가 흐려 (다) 조건의 뒷부분을 읽을 수 없음]"
+        }
+      ],
+      "choices": []
+    }
+  ]
+}

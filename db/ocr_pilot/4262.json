@@ -1,0 +1,336 @@
+{
+  "meta": {"exam_id": 4262, "ocr_source": "session-vision"},
+  "header": {"title": "경일여고 1학년 수학 (2025년 1학기 중간고사) — 다항식의 연산 ~ 이차방정식과 이차함수"},
+  "questions": [
+    {
+      "number": 1,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "두 다항식 A=-x^{2}+x-1, B=3x^{2}-2x-1에 대하여 A+B를 간단히 하면?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "2x^{2}-x-2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2x^{2}-x+2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "2x^{2}+x-2"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "-2x^{2}+x-2"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "-2x^{2}+x+2"}]}
+      ]
+    },
+    {
+      "number": 2,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "(7-5i)+(1-i)의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "6-6i"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "6+6i"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "7-6i"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "8-6i"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "8+6i"}]}
+      ]
+    },
+    {
+      "number": 3,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "등식 ax^{2}+(1-b)x+c=0가 x에 대한 항등식일 때, a+b+c의 값은? (단, a, b, c는 상수)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+      ]
+    },
+    {
+      "number": 4,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "다항식 (2x+y)^{3}의 전개식에서 xy^{2}의 계수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "10"}]}
+      ]
+    },
+    {
+      "number": 5,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "\\sqrt{-5}\\sqrt{-5}+\\sqrt{-5}\\sqrt{20}+\\frac{\\sqrt{20}}{\\sqrt{-5}}=a+bi일 때, 실수 a와 b에 대하여 a+b의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "6"}]}
+      ]
+    },
+    {
+      "number": 6,
+      "score": 4.2,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "실수 a, b에 대하여 이차방정식 x^{2}+ax+b=0의 한 근이 2+\\sqrt{3}i일 때, a+b, a-b를 두 근으로 하고, x^{2}의 계수가 1인 이차방정식의 일차항의 계수와 상수항의 합은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-33"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-25"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-11"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "8"}]}
+      ]
+    },
+    {
+      "number": 7,
+      "score": 4.2,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "이차함수 f(x)=(x-2)^{2}-1\\,(k \\leq x \\leq k+2)의 최댓값이 8, 최솟값이 0이 되도록 하는 실수 k의 값의 곱은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "6"}]}
+      ]
+    },
+    {
+      "number": 8,
+      "score": 4.4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "실수 a, b에 대하여 이차함수 y=(x-a)^{2}의 그래프와 직선 y=2x+b의 위치 관계에 대한 설명으로 <보기>에서 옳은 것만을 있는 대로 고른 것은?"},
+        {"type": "text", "value": "<보기> ㄱ. a=1일 때, 이차함수의 그래프와 직선이 만나지 않도록 하는 b의 값의 범위는 b<-3이다. • ㄴ. 이차함수의 그래프와 직선이 한 점에서 만날 때, a, b 사이의 관계를 식으로 나타내면 2a+b=-1이다. • ㄷ. b=1일 때, 이차함수의 그래프와 직선이 서로 다른 두 점에서 만나도록 하는 a의 값의 범위는 a>-1이다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄷ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄱ, ㄴ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄴ, ㄷ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄱ, ㄴ, ㄷ"}]}
+      ]
+    },
+    {
+      "number": 9,
+      "score": 4.4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "다항식 f(x)를 x^{3}+x^{2}-3x로 나눈 나머지는 x^{2}+ax+2이고, x^{2}+x-3으로 나눈 나머지는 x+b이다. 이때, ab의 값은? (단, a, b는 상수)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "10"}]}
+      ]
+    },
+    {
+      "number": 10,
+      "score": 4.4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "다음 그림의 직사각형 \\mathrm{ABCD}에서 두 점 \\mathrm{A}와 \\mathrm{D}는 x축 위에 있고, 두 점 \\mathrm{B}와 \\mathrm{C}는 이차함수 y=2x^{2}-10x-5의 그래프 위에 있다. 이때 직사각형 \\mathrm{ABCD}의 둘레의 길이의 최댓값은?"},
+        {"type": "figure", "value": "좌표평면에 아래로 볼록한 포물선 y=2x^{2}-10x-5의 그래프가 그려져 있다. 원점 O를 지나는 x축(가로 점선)과 y축이 표시되어 있고, 포물선의 꼭짓점은 x축 아래 제4사분면 쪽에 있다. x축 위에 두 점 A(왼쪽), D(오른쪽)가 있고, 포물선 위에 두 점 B(A의 바로 아래), C(D의 바로 아래)가 있어 네 점 A, B, C, D가 x축에 변 AD를 두고 아래로 늘어진 직사각형 ABCD(회색 음영)를 이룬다. 즉 변 AB와 변 DC는 y축에 평행하고, 변 AD는 x축 위에, 변 BC는 포물선의 두 점을 잇는 수평선이다. 그래프 오른쪽에 식 y=2x^{2}-10x-5 가 라벨로 적혀 있다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "16"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "25"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "36"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "49"}]}
+      ]
+    },
+    {
+      "number": 11,
+      "score": 4.6,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "-36에서 36까지의 정수가 각각 적혀 있는 카드 73장 중에서 카드를 한 장씩 두 번 뽑아 첫 번째, 두 번째 뽑은 카드에 적혀 있는 정수를 각각 m, n이라고 하자. 다음 두 <조건>을 모두 만족시키면 상품을 받는 게임을 하려고 할 때, 상품을 받기 위한 m, n의 순서쌍의 개수는? (단, 뽑은 카드를 다시 뽑을 수 있다.)"},
+        {"type": "text", "value": "<조건> 1. 이차방정식 2x^{2}+nx+2m=0은 중근을 갖는다. • 2. 이차방정식 x^{2}+mx+n=0은 서로 다른 두 허근을 갖는다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "13"}]}
+      ]
+    },
+    {
+      "number": 12,
+      "score": 4.6,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "다항식 f(x)=x^{4}+3x^{3}+x^{2}-3x-2를 x+a로 나누었을 때의 몫을 Q(x)라 하자. 실수 a에 대하여 다항식 f(x)가 x+a로 나누어 떨어질 때, Q(2a)의 최댓값과 최솟값의 합은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "35"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "45"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "55"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "65"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "75"}]}
+      ]
+    },
+    {
+      "number": 13,
+      "score": 4.6,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "이차방정식 x^{2}+ax+b=0이 두 허근을 가질 때, <보기>에서 항상 서로 다른 두 실근을 갖는 방정식을 있는 대로 고른 것은? (단, a, b는 실수)"},
+        {"type": "text", "value": "<보기> ㄱ. x^{2}-2bx-a^{2}=0 • ㄴ. 3x^{2}-ax+b=0 • ㄷ. 4x^{2}-2(4b-a^{2})x-b=0"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄴ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄷ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄱ, ㄴ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄱ, ㄷ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄱ, ㄴ, ㄷ"}]}
+      ]
+    },
+    {
+      "number": 14,
+      "score": 4.8,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "다항식 x^{4}+3x^{2}-2xy+4-y^{2}를 인수분해하면 \\left(x^{2}+a_{1}x+a_{2}y+a_{3}\\right)\\left(x^{2}+a_{4}x+a_{5}y+a_{6}\\right)가 될 때, a_{1}+a_{2}+a_{3}+a_{4}+a_{5}+a_{6}의 값은? (단, a_{1}, a_{2}, a_{3}, a_{4}, a_{5}, a_{6}은 상수)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "12"}]}
+      ]
+    },
+    {
+      "number": 15,
+      "score": 4.8,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "자연수 n^{4}-2n^{3}+n^{2}+14n-14가 (n+1)(n-1)의 배수가 되도록 하는 자연수 n의 최댓값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "11"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "13"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "15"}]}
+      ]
+    },
+    {
+      "number": 16,
+      "score": 3.0,
+      "type": "서술형",
+      "label": "[서술형 1]",
+      "contents": [
+        {"type": "text", "value": "[서술형 1] 두 다항식 A=x^{2}+2xy+y^{2}, B=x^{2}-xy+2y^{2}에 대하여 A-B를 간단히 하는 과정을 서술하시오."}
+      ],
+      "choices": []
+    },
+    {
+      "number": 17,
+      "score": 4.0,
+      "type": "서술형",
+      "label": "[서술형 2]",
+      "contents": [
+        {"type": "text", "value": "[서술형 2] 다항식 x^{4}+5x^{2}+9가 최고차항의 계수가 1인 두 이차식의 곱으로 인수분해될 때, 그 두 이차식의 합을 구하는 과정을 서술하시오."}
+      ],
+      "choices": []
+    },
+    {
+      "number": 18,
+      "score": 5.0,
+      "type": "서술형",
+      "label": "[서술형 3]",
+      "contents": [
+        {"type": "text", "value": "[서술형 3] 이차방정식 ax^{2}+bx+c=0에서 b를 잘못 보고 풀었더니 두 근이 -7과 \\frac{3}{2}이 되었고, c를 잘못 보고 풀었더니 두 근이 4와 -\\frac{7}{2}이 되었다. 처음 이차방정식과 그 근을 구하는 과정을 각각 서술하시오."}
+      ],
+      "choices": []
+    },
+    {
+      "number": 19,
+      "score": 5.0,
+      "type": "서술형",
+      "label": "[서술형 4]",
+      "contents": [
+        {"type": "text", "value": "[서술형 4] 실수 k, m에 대하여 이차함수 y=3x^{2}-2m\\,(m>0)의 그래프와 직선 y=k\\,(k>0)가 만나는 두 점을 \\mathrm{A}, \\mathrm{B}라 하고, 이차함수의 그래프의 꼭짓점을 \\mathrm{C}라 하자. \\triangle \\mathrm{ABC}의 넓이가 81일 때, 제1사분면 위의 점 \\mathrm{B}의 x좌표를 구하는 과정을 서술하시오. (단, 점 \\mathrm{B}의 x좌표는 자연수)"}
+      ],
+      "choices": []
+    },
+    {
+      "number": 20,
+      "score": 6.0,
+      "type": "서술형",
+      "label": "[서술형 5]",
+      "contents": [
+        {"type": "text", "value": "[서술형 5] 다음 물음에 답하시오. [각3점]"}
+      ],
+      "choices": [],
+      "sub_questions": [
+        {
+          "number": 1,
+          "score": 3,
+          "contents": [
+            {"type": "text", "value": "다항식 t(t+1)(t+4)(t+5)+k가 최고차항의 계수가 1인 이차식 g(t)의 제곱으로 인수분해될 때, g(t)와 상수 k의 값을 구하는 과정을 서술하시오."}
+          ]
+        },
+        {
+          "number": 2,
+          "score": 3,
+          "contents": [
+            {"type": "text", "value": "위의 (1)을 이용하여 \\sqrt{11 \\times 12 \\times 15 \\times 16+k}의 값을 구하는 과정을 서술하시오."}
+          ]
+        }
+      ]
+    },
+    {
+      "number": 21,
+      "score": 6.0,
+      "type": "서술형",
+      "label": "[서술형 6]",
+      "contents": [
+        {"type": "text", "value": "[서술형 6] 삼차다항식 f(x)에 대하여 f(x)는 x^{2}-x-1로 나누어 떨어지고, f(x)+4x+3은 x^{2}+1로 나누어 떨어진다. f(0)=-2일 때, f(1)의 값을 구하는 과정을 서술하시오."}
+      ],
+      "choices": []
+    },
+    {
+      "number": 22,
+      "score": 6.0,
+      "type": "서술형",
+      "label": "[서술형 7]",
+      "contents": [
+        {"type": "text", "value": "[서술형 7] 실수 a의 값에 관계없이 이차함수 y=x^{2}-2ax+a^{2}+3a+1의 그래프와 항상 접하는 직선이 있다. 이 직선의 방정식을 y=mx+n이라고 할 때, 실수 m, n에 대하여 m+4n의 값을 구하는 과정을 서술하시오."}
+      ],
+      "choices": []
+    }
+  ]
+}

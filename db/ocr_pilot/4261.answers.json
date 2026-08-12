@@ -1,0 +1,70 @@
+{
+  "exam_id": 4261,
+  "answer_pages": [7, 8],
+  "items": [
+    {"number": 1, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 2, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 3, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 4, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 5, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 6, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 7, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 8, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 9, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 10, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 11, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 12, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 13, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 14, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 15, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {
+      "number": 16,
+      "answer": "$-7$",
+      "solution": "$A-B=\\begin{pmatrix} 2 & 0 \\\\ 2 & 5 \\end{pmatrix}-\\begin{pmatrix} 0 & 7 \\\\ 0 & 4 \\end{pmatrix}=\\begin{pmatrix} 2 & -7 \\\\ 2 & 1 \\end{pmatrix}$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 17,
+      "answer": "$3104$",
+      "solution": "① 천의 자리 숫자가 1일 때:\n백, 십, 일의 자리에 나머지 4개의 숫자 중 3개를 나열하는 경우의 수와 같으므로\n$1 \\times {}_{4}\\mathrm{P}_{3} = 4 \\times 3 \\times 2 = 24$\n② 천의 자리 숫자가 2일 때:\n마찬가지로 경우의 수는 $1 \\times {}_{4}\\mathrm{P}_{3} = 24$\n③ 천의 자리 숫자가 3이고 백의 자리 숫자가 0일 때:\n십, 일의 자리에 나머지 3개의 숫자 중 2개를 나열하므로 $1 \\times 1 \\times {}_{3}\\mathrm{P}_{2} = 3 \\times 2 = 6$\n여기까지 경우의 수는 $24+24+6=54$개이다.\n④ 천의 자리 숫자가 3이고 백의 자리 숫자가 1일 때:\n작은 수부터 차례대로 나열하면\n55번째 수는 $3102$이고 56번째 수는 $3104$이다.",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 18,
+      "answer": "$-1 \\leq x \\leq \\frac{11}{3}$",
+      "solution": "① $x < -1$일 때:\n$-(x+1)-(2x-5) \\leq 7$, $-3x+4 \\leq 7$, $-3x \\leq 3$, $x \\geq -1$\n해당 범위에서 조건을 만족하는 $x$는 존재하지 않는다.\n② $-1 \\leq x < \\frac{5}{2}$일 때:\n$(x+1)-(2x-5) \\leq 7$, $-x+6 \\leq 7$, $x \\geq -1$\n$\\therefore -1 \\leq x < \\frac{5}{2}$이다.\n③ $x \\geq \\frac{5}{2}$일 때:\n$(x+1)+(2x-5) \\leq 7$, $3x-4 \\leq 7$, $3x \\leq 11$, $x \\leq \\frac{11}{3}$\n$\\therefore \\frac{5}{2} \\leq x \\leq \\frac{11}{3}$이다.\n①, ②, ③을 종합하면 부등식의 해는 $-1 \\leq x \\leq \\frac{11}{3}$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 19,
+      "answer": "$14$",
+      "solution": "$\\mathrm{A}$반은 $\\mathrm{X}$업체에서 대여하는 것이 더 저렴하므로\n$12000a+6000 \\times 4 < 13000a+5500 \\times 4$\n$12000a+24000 < 13000a+22000$, $2000 < 1000a$, $a > 2$\n$\\mathrm{B}$반은 $\\mathrm{Y}$업체에서 대여하는 것이 더 저렴하므로\n$13000(a+2)+5500b < 12000(a+2)+6000b$\n$1000(a+2) < 500b$, $2a+4 < b$\n$a$, $b$는 자연수이므로 $a > 2$를 만족하는 $a$의 최솟값은 $3$이다.\n$a=3$을 $2a+4 < b$에 대입하면 $10 < b$이므로 자연수 $b$의 최솟값은 $11$이다.\n따라서 $a+b$의 최솟값은 $3+11=14$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 20,
+      "answer": "$a+b+c=29$",
+      "solution": "조건 (가)에서 $1+i$가 실계수 방정식 $P(x)=0$의 근이므로, 켤레복소수 $1-i$도 근이다.\n이차항의 계수가 $1$이고 두 근 $1 \\pm i$를 갖는 이차식은\n$(x-(1+i))(x-(1-i))=x^{2}-2x+2$\n$P(x)$는 3차식이므로 나머지 한 근을 $\\alpha$라 하면\n$P(x)=(x^{2}-2x+2)(x-\\alpha)$\n조건 (나)에서 $P(1)=-4$이므로\n$P(1)=(1^{2}-2 \\times 1+2)(1-\\alpha)=1-\\alpha=-4$, $\\alpha=5$\n따라서 $P(x)$를 전개하면\n$P(x)=(x^{2}-2x+2)(x-5)$\n$P(x)=x^{3}-5x^{2}-2x^{2}+10x+2x-10$\n$P(x)=x^{3}-7x^{2}+12x-10$\n계수를 비교하면 $a=7$, $b=12$, $c=10$이므로\n$a+b+c=7+12+10=29$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 21,
+      "answer": "$n+r=7$",
+      "solution": "첫 번째 등식 ${}_{8}\\mathrm{C}_{r} = {}_{8}\\mathrm{C}_{2r-1}$에서\n$r=2r-1$ 또는 $r+(2r-1)=8$\n$r=1$ 또는 $3r=9$, $r=3$\n두 번째 등식 ${}_{n+5}\\mathrm{C}_{r} - {}_{n+2}\\mathrm{C}_{r} = 2^{2r}$에 대입하여 검토한다.\n① $r=1$인 경우:\n${}_{n+5}\\mathrm{C}_{1} - {}_{n+2}\\mathrm{C}_{1} = (n+5)-(n+2) = 3$\n$2^{2(1)}=4$이므로 $3 \\neq 4$ (모순)\n② $r=3$인 경우:\n${}_{n+5}\\mathrm{C}_{3} - {}_{n+2}\\mathrm{C}_{3} = 2^{6} = 64$\n$\\frac{(n+5)(n+4)(n+3)}{6} - \\frac{(n+2)(n+1)n}{6} = 64$\n$(n^{3}+12n^{2}+47n+60)-(n^{3}+3n^{2}+2n)=384$\n$9n^{2}+45n+60=384$, $9n^{2}+45n-324=0$\n$n^{2}+5n-36=0$, $(n+9)(n-4)=0$\n$n$은 자연수이므로 $n=4$\n$\\therefore n+r=4+3=7$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 22,
+      "answer": "$-1$",
+      "solution": "$x^{3}-1=0$, $(x-1)(x^{2}+x+1)=0$, $\\omega^{3}=1$, $\\omega^{2}+\\omega+1=0$\n$f(n)=\\omega^{n}+\\frac{1}{\\omega^{n}}$이라 하면\n$f(1)=\\omega+\\frac{1}{\\omega}=\\frac{\\omega^{2}+1}{\\omega}=\\frac{-\\omega}{\\omega}=-1$\n$f(2)=\\omega^{2}+\\frac{1}{\\omega^{2}}=\\left(\\omega+\\frac{1}{\\omega}\\right)^{2}-2=(-1)^{2}-2=-1$\n$f(3)=\\omega^{3}+\\frac{1}{\\omega^{3}}=1+1=2$\n$f(4)=\\omega^{4}+\\frac{1}{\\omega^{4}}=\\omega+\\frac{1}{\\omega}=f(1)$\n이와 같이 $f(n)$의 값은 $-1$, $-1$, $2$가 반복되며 세 항의 합은 $0$이다.\n따라서 구하는 값은\n$f(1)+f(2)+f(3)+\\cdots f(10)=f(10)=f(1)=-1$",
+      "topic": "",
+      "difficulty": ""
+    }
+  ]
+}

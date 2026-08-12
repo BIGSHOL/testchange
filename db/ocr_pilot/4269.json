@@ -1,0 +1,295 @@
+{
+ "meta": {"exam_id": 4269, "ocr_source": "session-vision"},
+ "header": {"title": "계성고등학교 2025학년도 2학기 중간고사 1학년 공통수학2"},
+ "questions": [
+  {
+   "number": 1,
+   "score": 4.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "두 점 $\\mathrm{A}(5,~-4)$와 $\\mathrm{B}(-3,~6)$에 대하여 선분 $\\overline{\\mathrm{AB}}$를 $3:5$로 내분하는 점이 직선 $y=\\frac{1}{8}x+k$ 위에 있을 때, 상수 $k$의 값은?"}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "-1"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "-\\frac{1}{2}"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "0"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "\\frac{1}{2}"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "1"}]}
+   ]
+  },
+  {
+   "number": 2,
+   "score": 4.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "다음 그림은 전체집합 $U$의 서로 다른 두 부분집합 $A$, $B$ 사이의 관계를 벤 다이어그램으로 나타낸 것이다. 다음 중 색칠한 부분을 나타낸 집합과 같은 것은?"},
+    {"type": "figure", "value": "벤 다이어그램. 전체집합 $U$를 나타내는 직사각형 안에 두 원 $A$(왼쪽), $B$(오른쪽)가 서로 겹쳐 그려져 있다. 색칠(회색 빗금)된 영역은 ① 두 원 바깥의 $U$ 영역, ② 두 원이 겹치는 부분 $A \\cap B$, ③ $B$에만 속하는 부분 $B-A$ 이고, $A$에만 속하는 부분($A-B$)만 색칠되어 있지 않다."}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "A^{C} \\cap B"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "A^{C}-B"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "(A \\cap B) \\cup A^{C}"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "(A \\cap B) \\cup B^{C}"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "(B-A) \\cup (A^{C} \\cap B^{C})"}]}
+   ]
+  },
+  {
+   "number": 3,
+   "score": 4.1,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "두 집합 $A=\\{x^{2}-x,~-3\\}$와 $B=\\{-x^{2}-2x,~0,~12\\}$에 대하여 $A \\cap B = A$를 만족시키는 모든 정수 $x$의 값의 합은?"}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "-5"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "-4"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "-3"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "-2"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "-1"}]}
+   ]
+  },
+  {
+   "number": 4,
+   "score": 4.1,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "원 $x^{2}+y^{2}=16$와 직선 $y=\\frac{1}{2}x+k$가 서로 다른 두 점에서 만나도록 하는 실수 $k$의 값의 범위는?"}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "-2\\sqrt{5} < k < 2\\sqrt{5}"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "k < -2\\sqrt{5} \\text{ 또는 } k > 2\\sqrt{5}"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "-2\\sqrt{10} < k < 2\\sqrt{10}"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "k < -2\\sqrt{10} \\text{ 또는 } k > 2\\sqrt{10}"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "-4\\sqrt{5} < k < 4\\sqrt{5}"}]}
+   ]
+  },
+  {
+   "number": 5,
+   "score": 4.2,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "전체집합 $U$의 두 부분집합 $A$와 $B$에 대하여 $n(U)=50$, $n(A)=19$, $n(B)=17$, $n(A \\cup B)=27$일 때, $n(A^{C} \\cup B^{C})$의 값은?"}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "37"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "39"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "41"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "43"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "45"}]}
+   ]
+  },
+  {
+   "number": 6,
+   "score": 4.2,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "포물선 $y=x^{2}+4x$를 포물선 $y=x^{2}-8x+20$으로 옮기는 평행이동에 의하여 원 $C : x^{2}+y^{2}=r^{2}$이 원 $C'$으로 옮겨진다. 이때 두 원이 한 점에서 만나도록 하는 실수 $r$의 값은?"}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+   ]
+  },
+  {
+   "number": 7,
+   "score": 4.2,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "그림과 같이 좌표평면 위에 점 $\\mathrm{A}(4,~a)$ $(a>0)$와 두 점 $(8,~0)$, $(0,~4)$를 지나는 직선 $l$이 있다. 직선 $l$ 위의 서로 다른 두 점 $\\mathrm{B}$, $\\mathrm{C}$와 제 1사분면 위의 점 $\\mathrm{D}$를 사각형 $\\mathrm{ABCD}$가 $\\overline{\\mathrm{BC}} : \\overline{\\mathrm{CD}} = 2 : 1$ 인 직사각형이 되도록 잡는다. 직사각형 $\\mathrm{ABCD}$의 넓이가 $\\frac{128}{5}$일 때, $a$의 값은?"},
+    {"type": "figure", "value": "좌표평면. 원점 $\\mathrm{O}$와 $x$축, $y$축이 그려져 있고, 점 $(0,~4)$와 $(8,~0)$을 지나는 우하향 직선 $l$이 그려져 있다. 직선 $l$ 위에 왼쪽 위 점 $\\mathrm{B}$와 오른쪽 아래 점 $\\mathrm{C}$가 표시되어 있고, 직선 $l$의 위쪽(제1사분면)에 점 $\\mathrm{A}(4,~a)$가, 오른쪽 위에 점 $\\mathrm{D}$가 있다. 네 점이 직사각형 $\\mathrm{ABCD}$를 이루며 긴 변 $\\overline{\\mathrm{BC}}$가 직선 $l$ 위에 놓여 있다."}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "6"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "8"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "10"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "12"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "14"}]}
+   ]
+  },
+  {
+   "number": 8,
+   "score": 4.3,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "두 원 $C_{1} : x^{2}+y^{2}-4x+6y+4=0$, $C_{2} : x^{2}+y^{2}-2y=3$의 교점을 지나는 원 중에서 그 넓이가 최소인 원의 중심의 좌표를 $(a,~b)$라 할 때, $\\frac{a}{b}$의 값은?"}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "-\\frac{9}{2}"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "-4"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "-\\frac{7}{2}"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "-3"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "-\\frac{5}{2}"}]}
+   ]
+  },
+  {
+   "number": 9,
+   "score": 4.3,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "자연수 $m$, $n$에 대하여 $m$의 배수의 집합을 $A_{m}$, $n$의 약수의 집합을 $B_{n}$라 하자. $(A_{18} \\cup A_{24}) \\subset A_{p}$, $B_{q} \\subset (B_{6} \\cap B_{12})$를 만족시키는 자연수 $p$, $q$에 대하여 $p+q$의 최댓값은?"}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "9"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "10"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "11"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "12"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "13"}]}
+   ]
+  },
+  {
+   "number": 10,
+   "score": 4.4,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "그림과 같이 좌표평면 위에 직선 $l_{1} : 2x-5y-4=0$과 평행하고 $y$절편이 양수인 직선 $l_{2}$가 있다. 직선 $l_{1}$이 $x$축, $y$축과 만나는 점을 각각 $\\mathrm{A}$, $\\mathrm{B}$라 하고 직선 $l_{2}$가 $x$축, $y$축과 만나는 점을 각각 $\\mathrm{C}$, $\\mathrm{D}$라 할 때, 사각형 $\\mathrm{ABCD}$의 넓이가 $\\frac{144}{5}$이다. 두 직선 $l_{1}$과 $l_{2}$ 사이의 거리를 $d$라 할 때, $29d^{2}$의 값은?"},
+    {"type": "figure", "value": "좌표평면. 서로 평행한 두 직선 $l_{1}$(아래쪽)과 $l_{2}$(위쪽)가 오른쪽 위로 향하게 그려져 있다. 직선 $l_{1}$은 $x$축의 양의 부분에서 점 $\\mathrm{A}$와 $y$축의 음의 부분에서 점 $\\mathrm{B}$를 지나고, 직선 $l_{2}$는 $x$축의 음의 부분에서 점 $\\mathrm{C}$와 $y$축의 양의 부분에서 점 $\\mathrm{D}$를 지난다. 네 점 $\\mathrm{A}$, $\\mathrm{B}$, $\\mathrm{C}$, $\\mathrm{D}$를 이어 사각형 $\\mathrm{ABCD}$가 그려져 있으며 원점 $\\mathrm{O}$가 그 내부에 있다."}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "400"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "441"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "484"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "529"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "576"}]}
+   ]
+  },
+  {
+   "number": 11,
+   "score": 4.5,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "그림과 같이 원 $x^{2}+y^{2}=18$ 위의 점 $\\mathrm{A}$와 직선 $y=-x+12$ 위의 서로 다른 두 점 $\\mathrm{B}$와 $\\mathrm{C}$를 꼭짓점으로 하는 정삼각형 $\\mathrm{ABC}$를 만들 때, 그 넓이의 최댓값은?"},
+    {"type": "figure", "value": "좌표평면. 원점을 중심으로 하는 원 $x^{2}+y^{2}=18$과 우하향 직선 $y=-x+12$가 그려져 있다. 원 위의 왼쪽 위 부분에 점 $\\mathrm{A}$가 있고, 직선 $y=-x+12$ 위에 위쪽 점 $\\mathrm{B}$와 아래쪽 점 $\\mathrm{C}$가 있으며 세 점을 이어 정삼각형 $\\mathrm{ABC}$가 그려져 있다."}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "27\\sqrt{6}"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "54\\sqrt{3}"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "54\\sqrt{6}"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "108\\sqrt{3}"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "108\\sqrt{6}"}]}
+   ]
+  },
+  {
+   "number": 12,
+   "score": 4.5,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "$1$보다 큰 자연수 $k$에 대하여 전체집합 $U=\\{x \\mid x는~2k~이하의~자연수\\}$의 두 부분집합 $A=\\{x \\mid x는~2k~이하의~짝수\\}$, $B=\\{x \\mid x는~2k의~약수\\}$가 $n(A) \\times n((A \\cup B)^{C})=12$를 만족시킨다. 이때 $n(A \\cap B)+k$의 값은?"}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "7"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "9"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "11"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "13"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "15"}]}
+   ]
+  },
+  {
+   "number": 13,
+   "score": 4.6,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "그림과 같이 좌표평면 위에 두 원 $C_{1} : (x-10)^{2}+(y-4)^{2}=16$, $C_{2} : (x-2)^{2}+(y+1)^{2}=1$와 직선 $y=2x$가 있다. 점 $\\mathrm{A}$는 원 $C_{1}$ 위에 있고, 점 $\\mathrm{B}$는 원 $C_{2}$ 위에 있다. 점 $\\mathrm{P}$는 $x$축 위에 있고, 점 $\\mathrm{Q}$는 직선 $y=2x$ 위에 있을 때, $\\overline{\\mathrm{AP}}+\\overline{\\mathrm{PQ}}+\\overline{\\mathrm{QB}}$의 최솟값은? (단, 세 점 $\\mathrm{A}$, $\\mathrm{P}$, $\\mathrm{Q}$는 서로 다른 점이다.)"},
+    {"type": "figure", "value": "좌표평면. 오른쪽 위에 큰 원 $C_{1}$(중심 $(10,~4)$, 반지름 $4$)이 있고 그 원 위 오른쪽 위에 점 $\\mathrm{A}$가 표시되어 있다. 원점 근처 $x$축 아래에 작은 원 $C_{2}$(중심 $(2,~-1)$, 반지름 $1$)가 있고 그 원 위에 점 $\\mathrm{B}$가 있다. 원점을 지나는 기울기 $2$의 직선 $y=2x$가 그려져 있고 그 위에 점 $\\mathrm{Q}$가, $x$축 위에 점 $\\mathrm{P}$가 있다. 점 $\\mathrm{A}$에서 $\\mathrm{P}$, $\\mathrm{P}$에서 $\\mathrm{Q}$, $\\mathrm{Q}$에서 $\\mathrm{B}$를 잇는 꺾인 선분이 그려져 있다."}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "6"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "7"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "8"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "9"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "10"}]}
+   ]
+  },
+  {
+   "number": 14,
+   "score": 4.7,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "그림과 같이 직선 $y=x$ 위의 점 $\\mathrm{A}$를 중심으로 하고 $x$축과 만나지 않는 원 $C$에 대하여 원점 $\\mathrm{O}$를 지나고 원 $C$에 접하는 두 직선 중 기울기가 큰 직선을 $l_{1} : y=m_{1}x$, 기울기가 작은 직선을 $l_{2} : y=m_{2}x$ 하자. 원 $C$와 직선 $y=x$의 교점 중 $x$좌표가 작은 것을 $\\mathrm{P}_{1}$, $x$좌표가 큰 것을 $\\mathrm{P}_{2}$라 하면 $\\overline{\\mathrm{OP}_{1}}=1$이다. 원 $C$ 위의 점 $\\mathrm{P}_{1}$에서의 접선과 직선 $l_{1}$의 교점을 $\\mathrm{Q}_{1}$, 원 $C$ 위의 점 $\\mathrm{P}_{2}$에서의 접선과 직선 $l_{1}$의 교점을 $\\mathrm{Q}_{2}$라 하면 삼각형 $\\mathrm{AQ}_{2}\\mathrm{P}_{2}$의 넓이는 삼각형 $\\mathrm{AP}_{1}\\mathrm{Q}_{1}$의 넓이의 $3$배이다. 이때 $m_{1}+m_{2}$의 값은? (단, 점 $\\mathrm{A}$는 제1사분면 위의 점이다.)"},
+    {"type": "figure", "value": "좌표평면. 원점 $\\mathrm{O}$를 지나는 직선 $y=x$ 위에 중심 $\\mathrm{A}$가 있는 원 $C$가 제1사분면에 그려져 있다($x$축과는 만나지 않는다). 원점에서 원 $C$에 그은 두 접선 중 기울기가 큰 직선 $l_{1}$은 왼쪽 위로, 기울기가 작은 직선 $l_{2}$는 오른쪽 위로 뻗어 있다. 직선 $y=x$와 원 $C$의 교점 중 원점에 가까운 쪽이 $\\mathrm{P}_{1}$, 먼 쪽이 $\\mathrm{P}_{2}$이다. 점 $\\mathrm{P}_{1}$에서의 접선과 $l_{1}$의 교점 $\\mathrm{Q}_{1}$(아래쪽), 점 $\\mathrm{P}_{2}$에서의 접선과 $l_{1}$의 교점 $\\mathrm{Q}_{2}$(위쪽)가 표시되어 있다."}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "2"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "\\frac{5}{2}"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "\\frac{7}{2}"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "4"}]}
+   ]
+  },
+  {
+   "number": 15,
+   "score": 4.9,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "실수 $a$에 대하여 이차함수 $f(x)=x^{2}$을 $x$축의 방향으로 $a$만큼, $y$축의 방향으로 $2a^{2}-4a-12$만큼 평행이동한 그래프를 $y=g(x)$라고 하자. $x$에 대한 이차방정식 $f(x)=g(x)$는 실근 $x=\\alpha$를 갖는다. 함수 $h(x)$가"},
+    {"type": "equation", "value": "h(x)=\\begin{cases} f(x) & (x<\\alpha) \\\\ g(x) & (x \\geq \\alpha) \\end{cases}"},
+    {"type": "text", "value": "일 때, 함수 $h(x)$가 다음 조건을 만족시키도록 하는 정수 $a$의 개수는? (단, $a \\neq 0$)"},
+    {"type": "text", "value": "<조건> $h(x)=k$의 해가 4개가 되는 실수 $k$가 존재한다."}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "3"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "4"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "5"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "6"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "7"}]}
+   ]
+  },
+  {
+   "number": 16,
+   "score": 8,
+   "type": "서술형",
+   "label": "[서술형 1]",
+   "contents": [
+    {"type": "text", "value": "[서술형 1] 원 $(x-1)^{2}+(y-6)^{2}=9$를 $x$축의 방향으로 $4$만큼, $y$축의 방향으로 $-2$만큼 평행이동한 다음 직선 $y=x$에 대하여 대칭이동한 원의 방정식을 구하는 단계적 풀이과정과 답을 쓰시오."}
+   ],
+   "choices": []
+  },
+  {
+   "number": 17,
+   "score": 9,
+   "type": "서술형",
+   "label": "[서술형 2]",
+   "contents": [
+    {"type": "text", "value": "[서술형 2] 두 직선 $2x+y-3=0$과 $x-2y+6=0$이 이루는 각을 이등분하는 직선의 방정식을 구하는 단계적 풀이과정과 답을 쓰시오."}
+   ],
+   "choices": []
+  },
+  {
+   "number": 18,
+   "score": 9,
+   "type": "서술형",
+   "label": "[서술형 3]",
+   "contents": [
+    {"type": "text", "value": "[서술형 3] 원 $x^{2}+y^{2}-8x-6y+k=0$이 $x$축과 만나는 두 점 사이의 거리가 $10$일 때, 상수 $k$의 값을 구하는 단계적 풀이과정과 답을 쓰시오."}
+   ],
+   "choices": []
+  },
+  {
+   "number": 19,
+   "score": 9,
+   "type": "서술형",
+   "label": "[서술형 4]",
+   "contents": [
+    {"type": "text", "value": "[서술형 4] 전체집합 $U=\\{x \\mid x는~30~이하의~자연수\\}$의 두 부분집합 $A=\\{x \\mid x는~5의~배수\\}$, $B=\\{x \\mid x는~20의~약수\\}$에 대하여 $n(A^{C} \\cup B^{C})$를 구하는 단계적 풀이과정과 답을 쓰시오."}
+   ],
+   "choices": []
+  }
+ ]
+}

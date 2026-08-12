@@ -1,0 +1,377 @@
+{
+  "meta": {"exam_id": 4250, "ocr_source": "session-vision"},
+  "header": {"title": "경상여고 1학년 공통수학2 — 2025년 2학기 기말고사 (집합 ~ 무리함수)"},
+  "questions": [
+    {
+      "number": 1,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "유리함수 y=\\frac{1}{x-1}+2에 대한 설명으로 옳지 __않은__ 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "정의역은 \\{x|x \\neq 1인 실수\\}이다."}]},
+        {"number": 2, "contents": [{"type": "text", "value": "치역은 \\{y|y \\neq 2인 실수\\}이다."}]},
+        {"number": 3, "contents": [{"type": "text", "value": "그래프는 제3사분면을 지나지 않는다."}]},
+        {"number": 4, "contents": [{"type": "text", "value": "그래프는 y=\\frac{1}{x}의 그래프를 x축의 방향으로 1만큼, y축의 방향으로 2만큼 평행이동한 것이다."}]},
+        {"number": 5, "contents": [{"type": "text", "value": "그래프는 점 \\left(3,~\\frac{3}{2}\\right)를 지난다."}]}
+      ]
+    },
+    {
+      "number": 2,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "무리함수 y=\\sqrt{x-a}+b의 그래프가 그림과 같을 때, 상수 a, b에 대하여 a+b의 값은?"},
+        {"type": "figure", "value": "좌표평면에 그려진 무리함수 y=√(x-a)+b 의 그래프. 곡선은 왼쪽 끝점인 점 (0, -1)(검은 점으로 표시)에서 시작해 오른쪽 위로 완만하게 증가한다. 곡선은 점 (1, 0)에서 x축과 만나고, x=4 부근에서 y=1 정도의 높이를 지난다. x축에는 -1, 0, 1, 2, 3, 4 눈금이, y축에는 -1, 1, 2 눈금이 표시되어 있으며 축 라벨은 x, y 이다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "3"}]}
+      ]
+    },
+    {
+      "number": 3,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "집합 A=\\{\\varnothing,~0,~1,~\\{1,~2\\}\\}에 대하여 <보기>에서 옳지 __않은__ 것을 있는 대로 모두 고르면?"},
+        {"type": "text", "value": "<보기> ㄱ. \\varnothing \\in A • ㄴ. \\{\\varnothing\\} \\in A • ㄷ. \\{1,~2\\} \\in A • ㄹ. 2 \\in A • ㅁ. 0 \\subset A • ㅂ. \\{0,~1\\} \\subset A"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ, ㄷ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄱ, ㄷ, ㅂ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄴ, ㄷ, ㄹ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄴ, ㄹ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄴ, ㄹ, ㅁ"}]}
+      ]
+    },
+    {
+      "number": 4,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "f(x)=\\frac{1}{x^{2}-1}일 때, f(2)+f(3)+f(4)+\\cdots+f(10)=\\frac{q}{p}이다. p+q의 값은? (단, p와 q는 서로소인 자연수이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "20"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "27"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "52"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "91"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "127"}]}
+      ]
+    },
+    {
+      "number": 5,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "함수 f(x)=\\frac{5}{x+2}-k의 그래프가 모든 사분면을 지나도록 하는 모든 정수 k의 값의 합은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-6"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-3"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "6"}]}
+      ]
+    },
+    {
+      "number": 6,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "명제 ‘모든 실수 x에 대하여 x^{2}+2ax-4a \\geq 0이다.’는 참이고, 명제 ‘어떤 실수 x에 대하여 x^{2}-ax-6a<0이다.’는 거짓일 때, 정수 a의 값의 합은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-11"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-10"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-9"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "-8"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "-7"}]}
+      ]
+    },
+    {
+      "number": 7,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "다음 중 절대부등식인 것은? (단, a, b, x, y는 실수)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "a>b일 때, a^{2}>b^{2}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{a+b}{2} \\geq \\sqrt{ab}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "(bx-ay)^{2} \\geq 0"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "|a+b| \\geq |a|+|b|"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "(a^{2}+b^{2})(x^{2}+y^{2})>(ax+by)^{2}"}]}
+      ]
+    },
+    {
+      "number": 8,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "실수 전체의 집합 X에서 X로의 일대일대응인 두 함수 f, g에 대하여 (g \\circ f)(x)=3x-5라 하자. f \\circ h=g^{-1}를 만족시키는 함수 h(x)=ax+b일 때, 두 상수 a, b에 대하여 ab의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{1}{9}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{2}{9}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{1}{3}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{4}{9}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{5}{9}"}]}
+      ]
+    },
+    {
+      "number": 9,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "유리함수 f(x)=\\frac{2\\sqrt{2}}{x-a}~(a>0)에 대하여 좌표평면에서 함수 y=f(x)의 그래프가 y축과 만나는 점을 \\mathrm{A}라 하고, 함수 y=f(x)의 그래프와 y=\\sqrt{x-a} 의 그래프가 만나는 점을 \\mathrm{B}라 하자. 삼각형 \\mathrm{OAB}의 넓이가 3\\sqrt{2}일 때, 상수 a의 값은? (단, \\mathrm{O}는 원점이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{\\sqrt{2}}{2}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\sqrt{2}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\sqrt{3}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "2"}]}
+      ]
+    },
+    {
+      "number": 10,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "무리함수 y=\\sqrt{ax+b} 의 역함수의 그래프가 두 점 (2,~0), (5,~7)을 지날 때, a+b의 값은? (단, a, b는 상수)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "11"}]}
+      ]
+    },
+    {
+      "number": 11,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "실수 전체의 집합에서 함수"},
+        {"type": "equation", "value": "f(x)=\\begin{cases} 2x+b & (x<-1) \\\\ x^{2}-2ax+1 & (x \\geq -1) \\end{cases}"},
+        {"type": "text", "value": "의 역함수가 존재하기 위한 실수 a, b에 대하여 ab의 최솟값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "2"}]}
+      ]
+    },
+    {
+      "number": 12,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "a>1일 때, 2a+\\frac{8}{a-1}의 최솟값을 m, 그때의 a의 값을 k라고 할 때, m-k의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "13"}]}
+      ]
+    },
+    {
+      "number": 13,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "함수 y=\\sqrt{|x-1|} 의 그래프와 직선 y=mx-2가 서로 다른 세 점에서 만날 때, 실수 m의 값의 범위는 \\alpha<m<\\beta이다. 2\\beta-\\alpha의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-\\sqrt{5}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "1-\\sqrt{5}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\sqrt{5}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "1+\\sqrt{5}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "2\\sqrt{5}"}]}
+      ]
+    },
+    {
+      "number": 14,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "함수 f(x)=|x-2|+ax-3의 역함수가 존재하기 위한 상수 a의 값의 범위를 바르게 구한 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-1<a<1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-1 \\leq a<1"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-1 \\leq a \\leq 1"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "a<-1 또는 a>1"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "a \\leq -1 또는 a \\geq 1"}]}
+      ]
+    },
+    {
+      "number": 15,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "무리함수 y=\\sqrt{a(x+1)}+5의 그래프를 x축의 방향으로 b만큼, y축의 방향으로 c만큼 평행이동하면 무리함수 y=\\sqrt{6-3x} 의 그래프와 겹쳐질 때, 상수 a, b, c에 대하여 a+b+c의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "-4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "-5"}]}
+      ]
+    },
+    {
+      "number": 16,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "함수 f(x)=|x-2|에 대하여 합성함수 y=(f \\circ f \\circ f)(x)의 그래프가 이차함수 y=-x^{2}-6x-k의 그래프와 오직 한 점에서 만나기 위한 상수 k의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{15}{2}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{31}{4}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{33}{4}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{17}{2}"}]}
+      ]
+    },
+    {
+      "number": 17,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "두 양수 x, y에 대하여 \\frac{3}{x}+\\frac{4}{y}=6일 때, xy의 최솟값을 a, 그때의 x, y의 값을 각각 b, c라 하자. 세 상수 a, b, c에 대하여 \\frac{ab}{c}의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+      ]
+    },
+    {
+      "number": 18,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "실수 전체에서 정의된 두 함수 f(x)=-2x-5, g(x)=3x+2에 대하여 (g \\circ (f \\circ g)^{-1} \\circ g)\\left(\\frac{1}{3}\\right)의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-11"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-7"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-4"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "-1"}]}
+      ]
+    },
+    {
+      "number": 19,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "두 실수 a(a>-2), b에 대하여 함수 f(x)를"},
+        {"type": "equation", "value": "f(x)=\\begin{cases} bx(x-a)-2 & (x<a) \\\\ \\frac{2a+4}{x+2}-4 & (x \\geq a) \\end{cases}"},
+        {"type": "text", "value": "라 하자. 함수 f(x)가 다음 조건을 만족시키도록 하는 a, b의 모든 순서쌍이 (a_{1},~b_{1}), (a_{2},~b_{2})일 때, a_{1}+b_{1}+a_{2}+b_{2}의 값은?"},
+        {"type": "text", "value": "<상자> (가) x \\geq 0인 모든 실수 x에 대하여 f(x) \\leq f(1)이다. • (나) 방정식 |f(x)|=4의 서로 다른 실근의 개수는 2이다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "8"}]}
+      ]
+    },
+    {
+      "number": 20,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "실수 전체를 정의역으로 가지는 함수 f(x)가 다음과 같다."},
+        {"type": "equation", "value": "f(x)=\\begin{cases} \\frac{x}{ax+b} & (x<2) \\\\ \\sqrt{x-2}+1 & (x \\geq 2) \\end{cases}"},
+        {"type": "text", "value": "함수 f(x)의 역함수가 존재할 때, a, b값의 합 a+b의 값을 구하시오. (단, a \\neq 0)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "-3"}]}
+      ]
+    },
+    {
+      "number": 21,
+      "score": 5.0,
+      "type": "서술형",
+      "label": "[서술형 1]",
+      "contents": [
+        {"type": "text", "value": "[서술형 1] 다음 명제 ‘m, n이 자연수일 때, m^{2}+n^{2}이 홀수이면 mn은 짝수이다.’를 대우법을 이용하여 증명하는 과정을 __상세히 서술하시오.__"}
+      ]
+    },
+    {
+      "number": 22,
+      "score": 5.0,
+      "type": "서술형",
+      "label": "[서술형 2]",
+      "contents": [
+        {"type": "text", "value": "[서술형 2] 두 함수 f(x)=\\frac{1}{4}x^{2}+\\frac{1}{4}k~(x \\geq 0), g(x)=\\sqrt{4x-k} 에 대하여 y=f(x), y=g(x)의 그래프가 서로 다른 두 점에서 만나도록 하는 모든 정수 k의 개수를 구하고 그 과정을 서술하시오."}
+      ]
+    },
+    {
+      "number": 23,
+      "score": 5.0,
+      "type": "서술형",
+      "label": "[서술형 3]",
+      "contents": [
+        {"type": "text", "value": "[서술형 3] 함수"},
+        {"type": "equation", "value": "f(x)=\\begin{cases} \\frac{1}{2}x-\\frac{3}{2} & (x<1) \\\\ x^{2}-2x+k & (x \\geq 1) \\end{cases}"},
+        {"type": "text", "value": "의 역함수를 y=f^{-1}(x)라 할 때, 두 함수 y=f(x), y=f^{-1}(x)의 그래프의 두 교점을 \\mathrm{P}, \\mathrm{Q}라 하자. 다음 물음에 답하시오."}
+      ],
+      "sub_questions": [
+        {"number": 1, "contents": [{"type": "text", "value": "상수 k의 값을 구하는 과정을 __상세히 서술하시오.__"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "선분 \\mathrm{PQ}의 길이를 구하는 과정을 __상세히 서술하시오.__"}]}
+      ]
+    },
+    {
+      "number": 24,
+      "score": 5.0,
+      "type": "서술형",
+      "label": "[서술형 4]",
+      "contents": [
+        {"type": "text", "value": "[서술형 4] 함수 f(x)=x^{2}-5x+k에 대하여 함수 g(x)가 모든 실수 x에 대하여 g\\left(x-\\frac{1}{2}\\right)=\\frac{1}{2}f(2x+1)+3을 만족시킬 때, 함수 g(x)=0이 실근을 가지도록 하는 실수 k의 값의 범위를 구하는 과정을 __상세히 서술하시오.__"}
+      ]
+    }
+  ]
+}
