@@ -1,0 +1,112 @@
+{
+ "source": "_국제고__1__공수1__25-1-기말고사_대비__지학사___완료_.hwpx",
+ "question_count": 8,
+ "questions": [
+  {
+   "number": 1,
+   "answer": null,
+   "solution": "$⑴$ $4$ $⑵$ $-6$ $⑴$ $x ^{6} -1=0`$$LEFT ( x ^{3} -1 RIGHT ) LEFT ( x ^{3} +1 RIGHT ) =0$$LEFT ( x-1 RIGHT ) LEFT ( x ^{2} +x+1 RIGHT ) LEFT ( x+1 RIGHT ) LEFT ( x ^{2} -x+1 RIGHT ) =0$$x ^{2} +x+1=0`$의 두 근을 $alpha$, $beta$$x ^{2} -x+1=0`$의 두 근을 $gamma$, $delta`$라 하면$therefore ~$$alpha + 1 over alpha = beta + 1 over beta  =it-1$, $gamma  + {1} over {gamma } = delta  + {1} over {delta } =1$따라서 $LEFT | ` alpha  + {1} over {alpha } ` RIGHT | + LEFT | ` beta  + {1} over {beta } ` RIGHT | + LEFT | ` gamma  + {1} over {gamma } ` RIGHT | + LEFT | ` delta  + {1} over {delta } ` RIGHT | `=4$$⑵$ $x^2 +x+1= 0`$의 두 근을 $alpha$, $beta$$x^2 -x+1=0 `$의 두 근을 $gamma$, $delta$라 하면$alpha  ^{2} + beta  ^{2} = LEFT ( alpha  + beta  RIGHT ) ^{2} -2 alpha  beta  = it -1$$gamma  ^{2} + delta  ^{2} = LEFT ( gamma  + delta  RIGHT ) ^{2} -2 gamma  delta  = it -1$$alpha  ^{3} = beta  ^{3} =1$, $gamma  ^{3} = delta  ^{3} = it -1$$therefore ~alpha^20 = alpha^2$, $beta^20 =  beta^2$, $gamma^20 = gamma^2$, $delta^20 = delta^2$${2 alpha  +3} over {alpha  ^{20}} + {2 beta  +3} over {beta  ^{20}} + {2 gamma  +3} over {gamma  ^{20}} + {2 delta  +3} over {delta  ^{20}} `$      $= {2 alpha  +3} over {alpha  ^{2}} + {2 beta  +3} over {beta  ^{2}} + {2 gamma  +3} over {gamma  ^{2}} + {2 delta  +3} over {delta  ^{2}}$      $= {2 alpha  beta  LEFT ( alpha  + beta  RIGHT ) +3 LEFT ( alpha  ^{2} + beta  ^{2} RIGHT )} over {LEFT ( alpha  beta  RIGHT ) ^{2}} + {2 gamma  delta  LEFT ( gamma  + delta  RIGHT ) +3 LEFT ( gamma  ^{2} + delta  ^{2} RIGHT )} over {LEFT ( gamma  delta  RIGHT ) ^{2}}$    $= {2 TIMES  1 TIMES  LEFT ( -1 RIGHT ) +3 TIMES  LEFT ( -1 RIGHT )} over {1} + {2 TIMES  1 TIMES  1+3 TIMES  LEFT ( -1 RIGHT )} over {1}$      $= it -5+ LEFT ( -1 RIGHT ) = it -6$",
+   "topic": "방정식 $x^{3}-1=0$의 근",
+   "difficulty": "중",
+   "score": 5.0,
+   "label": "[서술형 $1$]",
+   "type": "서술형",
+   "stem": "[서술형 $1$] 방정식 $x ^{6} -1=0`$의 서로 다른 허근 $alpha,~beta,~gamma,~delta `$에 대하여 물음에 답하시오.[총 $11$점]\n$⑴$ $LEFT | ` alpha + {1} over {alpha } ` RIGHT | + LEFT | ` beta + {1} over {beta } ` RIGHT | + LEFT | ` gamma + {1} over {gamma } ` RIGHT | + LEFT | ` delta + {1} over {delta } ` RIGHT | `$의 값을 구하시오. \n$⑵$ ${2 alpha +3} over {alpha ^{20}} + {2 beta +3} over {beta ^{20}} + {2 gamma +3} over {gamma ^{20}} + {2 delta +3} over {delta ^{20}} `$의 값을 구하시오.",
+   "choices": []
+  },
+  {
+   "number": 2,
+   "answer": null,
+   "solution": "$⑴$ $k<2$, $2<k< {9} over {4}$ $⑵$ $20 over 9$$⑴$ $x ^{3} -4x ^{2} + LEFT ( k+3 RIGHT ) x-k=0`$에서 $LEFT ( x-1 RIGHT ) LEFT ( x ^{2} -3x+k RIGHT ) =0$ $alpha$, $beta$는 $x ^{2} -3x+k=0$의 $1$이 아닌 서로 다른 두 실근이어야 하므로 $D = 9 -4k >0$ $therefore ~k< {9} over {4}$또한 $1$은 $x^2 - 3x + k =0$의 근이 되면 안되므로  $1-3+k ne  0$ $THEREFORE  ~k ne  2$$THEREFORE  ~k<2$, $2<k< {9} over {4}$$⑵$ $x ^{2} -3x+k=0$에서 $alpha  + beta  =3$, $alpha  beta  =k$$alpha>beta$라 하면 $alpha>1`$이고 피타고라스정리에서 $alpha^2 = 1^2 + beta^2$ $LEFT ( alpha+beta RIGHT ) LEFT ( alpha -beta RIGHT ) =1$  $alpha  - beta  = {1} over {3}$ $therefore ~alpha  = {5} over {3}$, $beta  = {4} over {3}$$therefore ~k = alpha beta = 20 over 9$",
+   "topic": "삼차방정식의 근과 계수의 관계",
+   "difficulty": "중",
+   "score": 7.0,
+   "label": "[서술형 $2$]",
+   "type": "서술형",
+   "stem": "[서술형 $2$] 삼차방정식 $x ^{3} -4x ^{2} + LEFT ( k+3 RIGHT ) x-k=0$이 서로 다른 세 실수 $1$, $alpha$, $beta$를 근으로 가질 때, 물음에 답하시오. [총 $13$점]\n$⑴$ 상수 $k$의 값의 범위를 구하시오. \n$⑵$ $1$, $alpha$, $beta$가 직각삼각형의 세 변의 길이가 될 때, 상수 $k$의 값을 구하시오.",
+   "choices": []
+  },
+  {
+   "number": 3,
+   "answer": null,
+   "solution": "$⑴$ 해설참조 $⑵$ 해설참조 $⑶$ $-3$, $1 over 2$  $⑷$$x<`-3,~x> {1} over {2}$ $⑴$ $y=2x ^{2} +4x-1=2(x+1) ^{2} -3$이므로 대칭축 $x=`-1$, $y$절편 $LEFT ( 0,~-1 RIGHT )$        $⑵$ $y= LEFT | x-2 RIGHT |$에서 $x ge 2$이면 $y = x-2$이고 $x < 2$이면 $y = -x +2$다. 그래프는 아래와 같으며 $x$절편 $LEFT ( 2,~0 RIGHT )$, $y$절편 $LEFT ( 0,~2 RIGHT )$ $⑶$ $⑴$과 $⑵$의 그래프에 의해 $x LEQ  2$일 때, 두 그래프의 교점은    $2x ^{2} +4x-1=-x+2$$therefore ~x=`-3$, ${1} over {2}$$⑷$ $⑴$~$⑶$의 결과를 이용하여 $2x ^{2} +4x-1> LEFT | x-2 RIGHT |$ 의 해를 구하면 $x<`-3,~x> {1} over {2}$",
+   "topic": "이차부등식",
+   "difficulty": "중",
+   "score": 3.0,
+   "label": "[서술형 $3$]",
+   "type": "서술형",
+   "stem": "[서술형 $3$] 이차부등식 $2x ^{2} +4x-1> LEFT | x-2 RIGHT |$에 대하여 다음 물음에 답하시오. [총 $15$점]\n$⑴$ 이차함수 $y=2x ^{2} +4x-1$의 그래프 개형을 그리고, 대칭축과 $y$절편을 표시하시오. \n$⑵$ 함수 $y= LEFT | x-2 RIGHT |$의 그래프 개형을 그리고, $x$절편과 $y$절편을 표시하시오. \n$⑶$ 이차함수 $y=2x ^{2} +4x-1$의 그래프와 함수 $y= LEFT | x-2 RIGHT |$의 그래프의 교점의 $x$좌표를 모두 구하시오. \n \n$⑷$ $⑴$~$⑶$의 결과를 이용하여 $2x ^{2} +4x-1> LEFT | x-2 RIGHT |$의 해를 구하시오.",
+   "choices": []
+  },
+  {
+   "number": 4,
+   "answer": null,
+   "solution": "$⑴$ $-2<x< {1} over {2}$ $⑵$ $a GEQ  {1} over {2}$ $⑴$ $LEFT ( x+2 RIGHT ) LEFT ( 2x-1 RIGHT ) <0$$therefore ~-2<x< {1} over {2}$$⑵$ $cases{ -2x ^{2} -3x+2>0& # LEFT ( x-a RIGHT ) LEFT ( 2x+1 RIGHT ) GEQ  0}& }$에서 $LEFT ( x+2 RIGHT ) LEFT ( 2x-1 RIGHT ) <0$ $therefore ~-2<x< {1} over {2}$ 이고 연립부등식의 해가 $-2<x LEQ  `- {1} over {2}$이므로 수직선에 표현하면 아래와 같다.$therefore ~a GEQ  {1} over {2}$",
+   "topic": "연립부등식",
+   "difficulty": "중",
+   "score": 4.0,
+   "label": "[서술형 $4$]",
+   "type": "서술형",
+   "stem": "[서술형 $4$] 연립부등식 $cases{ -2x ^{2} -3x+2>0& # LEFT ( x-a RIGHT ) LEFT ( 2x+1 RIGHT ) GEQ 0}& }$에 대하여 물음에 답하시오. [총 $10$점]\n$⑴$ 부등식 $-2x ^{2} -3x+2>0$을 푸시오. \n$⑵$ 연립부등식 $cases{ -2x ^{2} -3x+2>0& # LEFT ( x-a RIGHT ) LEFT ( 2x+1 RIGHT ) GEQ 0}& }$의 해가 $-2<x LEQ - {1} over {2}$가 되도록 실수 $a$의 범위를 정하시오.",
+   "choices": []
+  },
+  {
+   "number": 5,
+   "answer": null,
+   "solution": "$⑴$ $81$ $⑵$ $135$ $⑴$ $box {~3~} box {~2~}box {~~~}box {~~~}$  일의 자리 $0$또는 $4$이므로 $2 times 3=6$    $box {~3~} box {~4~}box {~~~}box {~~~}$  일의 자리 $0$또는 $2$이므로 $2 times 3=6$    $box {~3~} box {~5~}box {~~~}box {~~~}$  일의 자리 $0$또는 $2$또는 $4$이므로 $3 times 3=9$ $box {~4~} box {~~~}box {~~~}box {~~~}$  일의 자리 $0$또는 $2$이므로 $2 times {}_4 rmP_2 = 24$$box {~5~} box {~~~}box {~~~}box {~~~}$  일의 자리 $0$, $2$ 또는 $4$이므로 $3 times {}_4 rmP_2 = 36$$therefore ~ 81$ $⑵$ $abc + a+b+c$가 홀수가 되는 경우는 $a$, $b$, $c$중 홀수가 한개만 있어야 하므로 $3 times (3 times 3 times 3 ) = 81$$therefore ~ 6^3 - 81 = 135$",
+   "topic": "경우의 수",
+   "difficulty": "중",
+   "score": 8.0,
+   "label": "[서술형 $5$]",
+   "type": "서술형",
+   "stem": "[서술형 $5$] 물음에 답하시오. [총 $18$점]\n$⑴$ $6$개의 숫자 $0$, $1$, $2$, $3$, $4$, $5$ 중에서 서로 다른 $4$개의 숫자를 택하여 네 자리 자연수를 만들려고 한다. $3200$보다 큰 짝수의 개수를 구하는 풀이 과정과 답을 쓰시오. \n$⑵$ 서로 다른 세 개의 주사위를 던져서 나오는 눈의 수를 각각 $a$, $b$, $c$라 할 때, $abc + a+ b+c$의 값이 짝수가 되는 경우의 수를 구하는 풀이 과정과 답을 쓰시오.",
+   "choices": []
+  },
+  {
+   "number": 6,
+   "answer": null,
+   "solution": "$⑴$ ${20! } over {15!}$ $⑵$ ${12! } over {9! times 3!}$ $⑶$ $13$ $⑷$ $20$ $⑸$ $96$$⑴$ ${}_20 rm P _5$$= {20! } over {(20-5)!}= {20! } over {15!}$$⑵$ ${}_12 rm C _3$$= {{}_12 rmP_3 }over 3! = {12! } over {(12-3)! times 3!}= {12! } over {9! times 3!}$$⑶$ ${}_n rm C _ {itr} = {}_{n-1} rm C _ {itr} + {}_{n-1} rm C _ {itr-1}$이므로 ${}_14  rm C _ 8 = {}_{itn}  rm C _ 8  + {}_{itn}  rm C _ 7$에서 $n= 13$$⑷$ $rm A ` RARROW`  B ` RARROW`  D$ : $2 times 1 =2$$rm A ` RARROW`  B ` RARROW`  C ` RARROW`  D$ : $2 times 2 times 3 = 12$$rm  A ` RARROW`  C ` RARROW`  B ` RARROW`  D$ : $3 times 2 times 1 = 6$$therefore ~ 20$$⑸$ 직원 $A$를 거리가 두 번째로 가까운 지점에 출장을 보내면 직원 $B$가 출장을 가는 경우의 수는 $4$가지 이고 나머지 직원들을 배치하면 되므로 $4 times 4! = 96$",
+   "topic": "경우의 수",
+   "difficulty": "하",
+   "score": 1.0,
+   "label": "[서술형 $6$]",
+   "type": "서술형",
+   "stem": "[서술형 $6$] 물음에 답하시오. [총 $8$점]\n$⑴$ ${}_20 rm P _5$를 계승($!$)을 사용하여 나태내시오. \n$⑵$ ${}_12 rm C _3$를 계승($!$)을 사용하여 나태내시오. \n$⑶$ 등식 ${}_14 rm C _ 8 = {}_{itn} rm C _ 8 + {}_{itn} rm C _ 7$를 만족하는 $8$이상인 자연수 $n$의 값을 구하시오. \n$⑷$ 그림과 같이 네 지점 $rmA$, $rm B$, $rm C$, $rm D$를 연결하는 도로망이 있다. 주어진 도로를 이용하여 $rm A$지점에서 $rm D$지점까지 갈 때 $rm B$지점을 거쳐 가는 경우의 수를 구하시오. \n(단, 같은 지점을 두 번 이상 지나지 않는다.) \n$⑸$ 어느 회사의 본점이 있는 도시에 $6$ 개의 지점이 있는데, 본점에서 각 지점까지의 거리는 모두 다르다. 본점에 소속된 $6$명의 직원 $rmA$, $rm B$, $rm C$, $rm D$, $rm E$, $rm F$를 각 지점에 한 명씩 출장을 보내려고 한다. $rmA$를 본점에서의 거리가 두 번째로 가까운 지점으로 출장을 보내고, $rmB$는 $rmA$보다 거리가 먼 지점으로 출장을 보내는 경우의 수를 구하시오.",
+   "choices": []
+  },
+  {
+   "number": 7,
+   "answer": null,
+   "solution": "$⑴$ ${}_{8}RM C _{2} TIMES _{6}C_{2}$ $⑵$ ${} rm_9 rm P_3$ $⑶$ ${} rm_17 rm P_2$ $⑷$ ${}_23 rm C_5$ $⑴$ 가로선, 세로선 $6$개, $8$개 중 $2$개씩 선택하면 하나의 직사각형이 되므로 ${}_{6}RM C_{2} TIMES _{8}RM C _{2}$$⑵$ 세자리 자연수의 개수는 ${} rm_9 rm P_3$$⑶$ 출발역과 도착역이 표기된 열차표의 경우의 수는 ${} rm_17 rm P_2$$⑷$ 특정 $2$명을 포함하여 $7$명을 뽑는 경우의 수이므로 ${}_23 rm C_5$$⑸$ 학생 $A$의 경우의 수는 ${}_10 rm C _ 3  times  {}_7 rm C _ 4$학생 $B$의 경우의 수는 ${}_5 rm C _ 2$$therefore ~$${}_10 rm C _ 3  times {}_7 rm C _ 4 times  {}_5 rm C _ 2$",
+   "topic": "경우의 수",
+   "difficulty": "하",
+   "score": 2.0,
+   "label": "[서술형 $7$]",
+   "type": "서술형",
+   "stem": "[서술형 $7$] 경우의 수를 구하는 식을 ${}_n rm P _{itr}$, ${}_n rm C _{itr}$, 연산기호($+$, $times$)등을 적절히 이용하여 표현하시오. \n(단, 계승($!$)기호는 사용하지 말 것) [총 $11$점]\n$⑴$ 직사각형의 가로와 세로에 평행한 선분을 각각 $4$개와 $6$개를 그었을 때, 그림에서 찾을 수 있는 크고 작은 직사각형의 개수를 구하시오. \n$⑵$ $1$부터 $9$까지의 숫자가 각각 하나씩 적힌 $9$개의 공이 들어있는 주머니에서 $3$개의 공을 꺼내서 만들 수 있는 세 자리 자연수의 개수 \n$⑶$ $rm X$지역과 $rmY$지역 사이를 운행하는 철도에는 $17$개의 정차역이 있다. 철도의 출발역과 도착역이 표기된 열차표를 발행하는 경우의 수 \n(단, 출발역과 도착역은 서로 다르다.) \n$⑷$ 어느 반 학생 $25$명 중 교실을 청소할 학생 $7$명을 뽑으려고 할 때, 두 학생 $rmA$, $rmB$를 포함하여 뽑는 경우의 수 \n\n$⑸$ 어느 옷 가게에 서로 다른 종류의 티셔츠, 바지, 점퍼가 각각 $10$개, $7$개, $5$개가 있다. 학생 $rmA$는 티셔츠 $3$개, 바지 $4$개를 고르고, 학생 $rmB$는 점퍼 $2$개를 고르는 경우의 수",
+   "choices": []
+  },
+  {
+   "number": 8,
+   "answer": null,
+   "solution": "$⑴$ $A^n = (-1)^n pmatrix { -2n+1&~2n # -2n&~2n+1 }$ $⑵$ $A^100 =  pmatrix { -199&~200 # -200&~201 }$ $⑶$ $pmatrix{ -100&~100 # -100&~100 }$$⑴$ $A^2 = pmatrix { 1&~-2 # 2&~-3 } pmatrix { 1&~-2 # 2&~-3 } =pmatrix { -3&~4 # -4&~5 }$$A^3 = pmatrix { -3&~4 # -4&~5 } pmatrix { 1&~-2 # 2&~-3 } =pmatrix { 5&~-6 # 6&~-7 }$$A^4 = pmatrix { 5&~-6 # 6&~-7 } pmatrix { 1&~-2 # 2&~-3 } =pmatrix { -7&~8 #  -8&~9 }$각 행렬의 $(1,~2)$성분을 구해보면 $A^2$은 $4$, $A^3$은 $-6$, $A^4$은 $8$이고 이로부터 $A^n$의 $(1,~2)$의 성분이 $(-1)^n times 2n$임을 알 수 있다.$therefore ~$$A^n = (-1)^n pmatrix { -2n+1&~2n # -2n&~2n+1 }$$⑵$ $⑴$에서 $A^n = (-1)^n pmatrix { -2n+1&~2n # -2n&~2n+1 }$$therefore ~ A^100 =  pmatrix { -199&~200 # -200&~201 }$$⑶$ $A+ A^2 = pmatrix { 1&~-2 # 2&~-3 } + pmatrix { -3&~4 # -4&~5 } =pmatrix { -2&~2 # -2&~2 }$$A^3 + A^4 = pmatrix { 5&~-6 # 6&~-7 } + pmatrix { -7&~8 # -8&~9 } =pmatrix { -2&~2 # -2&~2 }$모든 자연수 $n$에 대하여 $A^2n-1 + A^2n = pmatrix { -2&~2 # -2&~2 }$$therefore ~A+ A^2 +A^3 + ` cdots ` + A^100 = 50 times  pmatrix { -2&~2 # -2&~2 }=   pmatrix{ -100&~100 # -100&~100 }$",
+   "topic": "행렬의 곱셈",
+   "difficulty": "중",
+   "score": 4.0,
+   "label": "[서술형 $8$]",
+   "type": "서술형",
+   "stem": "[서술형 $8$] 행렬 $A = pmatrix { 1&~-2 # 2&~-3 }$에 대하여 다음 물음에 답하여라.[총 $14$점]\n$⑴$ $A^2$, $A^3$, $A^4$, $cdots$을 계산하고 규칙을 찾으시오.\n$⑵$ $⑴$에서 찾은 규칙을 이용하여 $A^100$을 구하시오.\n$⑶$ $⑴$에서 찾은 규칙을 이용하여 $A+ A^2 +A^3 + ` cdots ` + A^100$ 을 구하시오.\n  \n  \n정답\n워드:조용주t\n오검:조혜미t \n완료:신강재t",
+   "choices": []
+  }
+ ],
+ "meta": {
+  "exam_id": 4279,
+  "school": "국제고",
+  "grade": 1,
+  "subject": "공수1",
+  "year": 2025,
+  "semester": 1,
+  "round": "기말",
+  "src": "N:\\개인\\기출\\2024 기출모음\\2024년 1학기 기말 고사 모음\\워드\\고1\\[국제고][1][공수1][25-1-기말고사 대비][지학사] (완료).hwp"
+ }
+}

@@ -1,0 +1,160 @@
+{
+  "exam_id": 4484,
+  "pass": "A",
+  "items": [
+    {
+      "number": 1,
+      "answer": "②",
+      "solution": "step1) $\\omega$는 $x^3-1=0$의 허근이므로 $\\omega^3=1$이고 $\\omega^2+\\omega+1=0$이다.\nstep2) $\\omega^4=\\omega,\\ \\omega^5=\\omega^2,\\ \\omega^6=1$이다.\nstep3) 주어진 식은 $1+\\omega+\\omega^2+1+\\omega+\\omega^2+1=3+2(\\omega+\\omega^2)$이다.\nstep4) $\\omega+\\omega^2=-1$이므로 값은 $3-2=1$이다.\nstep5) $a\\omega+b=1$에서 $a=0,\\ b=1$이므로 $a-b=-1$이다.",
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "number": 2,
+      "answer": "⑤",
+      "solution": "step1) $x=0$일 때 $2y\\le 6$이므로 $y=0,1,2,3$의 4개이다.\nstep2) $x=1$일 때 $2y\\le 3$이므로 $y=0,1$의 2개이다.\nstep3) $x=2$일 때 $2y\\le 0$이므로 $y=0$의 1개이다.\nstep4) $x\\ge 3$이면 $3x>6$이므로 해가 없다.\nstep5) 순서쌍의 개수는 $4+2+1=7$이다.",
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "number": 3,
+      "answer": "⑤",
+      "solution": "step1) 전개항은 세 인수에서 각각 한 항씩 택해 만들어진다.\nstep2) $b$를 포함하려면 둘째 인수에서 $-5b$를 택해야 하므로 1가지이다.\nstep3) 첫째 인수에서 $x,\\ 2y,\\ -3z$ 중 하나로 3가지, 셋째 인수에서 $3t,\\ 4s$ 중 하나로 2가지이다.\nstep4) 만들어지는 항은 서로 동류항이 아니므로 개수는 $3\\times 1\\times 2=6$이다.",
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "number": 4,
+      "answer": "④",
+      "solution": "step1) 두 행렬이 같으므로 대응하는 성분이 각각 같다.\nstep2) $a+1=4$에서 $a=3$이다.\nstep3) $-b=4$에서 $b=-4$이다.\nstep4) $c-2=6$에서 $c=8$이다.\nstep5) $a+b+c=3-4+8=7$이다.",
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "number": 5,
+      "answer": "③",
+      "solution": "step1) 계수가 실수이므로 $2-i$가 근이면 켤레복소수 $2+i$도 근이다.\nstep2) 나머지 한 근을 $r$라 하면 세 근의 곱은 $-\\frac{5}{1}=-5$이다.\nstep3) $(2-i)(2+i)=5$이므로 $5r=-5$에서 $r=-1$이다.\nstep4) 세 근의 합은 $a$이므로 $a=(2-i)+(2+i)+(-1)=3$이다.\nstep5) 검산: 두 근씩 곱의 합 $=5+(-1)(2-i)+(-1)(2+i)=5-4=1$로 $x$의 계수 1과 일치한다.",
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "number": 6,
+      "answer": "⑤",
+      "solution": "step1) $x=1$을 대입하면 $1+1+a-a-2=0$이므로 $x=1$은 $a$에 관계없이 항상 근이다.\nstep2) 인수분해하면 $(x-1)(x^2+2x+a+2)=0$이다.\nstep3) 서로 다른 실근이 2개이려면 (i) 이차식이 중근을 갖고 그 근이 1이 아니거나, (ii) 이차식이 서로 다른 두 실근을 갖고 그중 하나가 1이어야 한다.\nstep4) (i) 판별식 $\\frac{D}{4}=1-(a+2)=0$에서 $a=-1$, 이때 $x^2+2x+1=0$의 근은 $x=-1$이므로 실근은 $1,-1$의 2개이다.\nstep5) (ii) $x=1$이 근이면 $1+2+a+2=0$에서 $a=-5$, 이때 $x^2+2x-3=0$의 근은 $1,-3$이므로 실근은 $1,-3$의 2개이다.\nstep6) 모든 $a$의 값의 합은 $-1+(-5)=-6$이다.",
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "number": 7,
+      "answer": "①",
+      "solution": "step1) 공통인 해는 네 식을 모두 만족시킨다.\nstep2) $x+y=-1$에서 $y=-1-x$를 $2x^2-y^2=-1$에 대입하면 $2x^2-(1+x)^2=-1$이다.\nstep3) 정리하면 $x^2-2x-1=-1$, 즉 $x(x-2)=0$이므로 $x=0$ 또는 $x=2$이다.\nstep4) $x=0$이면 $y=-1$인데 $a\\cdot 0+1=13$이 될 수 없으므로 $x=2,\\ y=-3$이다.\nstep5) $4a+9=13$에서 $a=1$이고, $2b-2(-3)=12$에서 $b=3$이다.\nstep6) $a+b+x+2y=1+3+2-6=0$이다.",
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "number": 8,
+      "answer": "③",
+      "solution": "step1) $x<-1$이면 $-(x+1)-(x-3)=-2x+2\\le 4$에서 $x\\ge -1$이므로 해가 없다.\nstep2) $-1\\le x\\le 3$이면 $(x+1)+(3-x)=4\\le 4$이므로 항상 성립한다.\nstep3) $x>3$이면 $(x+1)+(x-3)=2x-2\\le 4$에서 $x\\le 3$이므로 해가 없다.\nstep4) 따라서 $-1\\le x\\le 3$이고 정수는 $-1,0,1,2,3$의 5개이다.",
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "number": 9,
+      "answer": "④",
+      "solution": "step1) $2x-10\\le x-6$에서 $x\\le 4$이다.\nstep2) $x-6<ax-12$에서 $(1-a)x<-6$이다.\nstep3) $a\\le 1$이면 해가 없거나 $x$가 음수 전체가 되어 정수 개수가 2가 될 수 없으므로 $a>1$이다.\nstep4) $a>1$이면 $1-a<0$이므로 $x>\\frac{6}{a-1}$이고, 해는 $\\frac{6}{a-1}<x\\le 4$이다.\nstep5) 정수가 2개이려면 그 정수가 $3,4$이어야 하므로 $2\\le \\frac{6}{a-1}<3$이다.\nstep6) $\\frac{6}{a-1}\\ge 2$에서 $a\\le 4$, $\\frac{6}{a-1}<3$에서 $a>3$이므로 $3<a\\le 4$이다.",
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "number": 10,
+      "answer": "①",
+      "solution": "step1) $x^2-3x-10<0$에서 $(x+2)(x-5)<0$이므로 $-2<x<5$이다.\nstep2) $x^2-2kx+k^2-16\\ge 0$은 $(x-k)^2\\ge 16$, 즉 $x\\le k-4$ 또는 $x\\ge k+4$이다.\nstep3) 연립부등식의 해가 없으려면 구간 $-2<x<5$가 모두 $k-4<x<k+4$에 포함되어야 한다.\nstep4) $k-4\\le -2$에서 $k\\le 2$이고, $k+4\\ge 5$에서 $k\\ge 1$이다.\nstep5) 따라서 $1\\le k\\le 2$이다. (경계 $k=2$이면 $x\\le -2$ 또는 $x\\ge 6$이 되어 교집합이 실제로 공집합이다.)",
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "number": 11,
+      "answer": "④",
+      "solution": "step1) 역사책 3권을 한 묶음, 시집 5권을 한 묶음으로 본다.\nstep2) 두 묶음을 배열하는 경우의 수는 $2!=2$이다.\nstep3) 역사책끼리 배열하는 경우의 수는 $3!=6$이다.\nstep4) 시집끼리 배열하는 경우의 수는 $5!=120$이다.\nstep5) 구하는 경우의 수는 $2\\times 6\\times 120=1440$이다.",
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "number": 12,
+      "answer": "⑤",
+      "solution": "step1) ㄴ: ${}_{6}\\mathrm{C}_{4}={}_{6}\\mathrm{C}_{2}=15$이므로 좌변은 $15\\times 2=30$이고, ${}_{6}\\mathrm{P}_{2}=6\\times 5=30$이므로 참이다.\nstep2) ㄷ: 파스칼의 법칙 ${}_{n}\\mathrm{C}_{r}+{}_{n}\\mathrm{C}_{r+1}={}_{n+1}\\mathrm{C}_{r+1}$에서 ${}_{12}\\mathrm{C}_{5}+{}_{12}\\mathrm{C}_{6}={}_{13}\\mathrm{C}_{6}$이므로 참이다.\nstep3) ㄱ: $0!=1$이므로 참이다.\nstep4) 따라서 옳은 것은 ㄱ, ㄴ, ㄷ이다.",
+      "confidence": "medium",
+      "note": "ㄱ의 전사가 '0!=0'으로 되어 있는데 이는 거짓이며, 그 경우 정답 집합이 {ㄴ,ㄷ}이 되어 선택지에 없다. ㄴ·ㄷ은 계산상 명백히 참이고 선택지 구성(①ㄱ ②ㄷ ③ㄱ,ㄴ ④ㄱ,ㄷ ⑤ㄱ,ㄴ,ㄷ)상 원본 ㄱ은 '0!=1'(참)로 판단해 ⑤로 답함. 원본 확인 권장."
+    },
+    {
+      "number": 13,
+      "answer": "③",
+      "solution": "step1) $a_{13}$은 $i=1<j=3$이므로 $ij=1\\times 3=3$이다.\nstep2) $a_{22}$는 $i=j=2$로 $i\\ge j$이므로 $2i-j=4-2=2$이다.\nstep3) $a_{32}$는 $i=3\\ge j=2$이므로 $2i-j=6-2=4$이다.\nstep4) $a_{13}+a_{22}-a_{32}=3+2-4=1$이다.",
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "number": 14,
+      "answer": "①",
+      "solution": "step1) $2(A-B)=X+3B$에서 $X=2A-2B-3B=2A-5B$이다.\nstep2) $2A=\\begin{pmatrix} 2 & 4k \\\\ 2k+2 & -4 \\end{pmatrix}$이다.\nstep3) $5B=\\begin{pmatrix} -10 & 0 \\\\ 5k & 15 \\end{pmatrix}$이다.\nstep4) $X=\\begin{pmatrix} 12 & 4k \\\\ -3k+2 & -19 \\end{pmatrix}$이다.\nstep5) 모든 성분의 합은 $12+4k+(-3k+2)+(-19)=k-5$이다.\nstep6) $k-5=5$이므로 $k=10$이다.",
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "number": 15,
+      "answer": "①",
+      "solution": "step1) $AB=\\begin{pmatrix} 2 & -2b \\\\ -3+4a & 3b-a \\end{pmatrix}$이다.\nstep2) $BA=\\begin{pmatrix} 2+3b & ab \\\\ -11 & -a \\end{pmatrix}$이다.\nstep3) $(1,1)$ 성분에서 $2=2+3b$이므로 $b=0$이다.\nstep4) $(2,1)$ 성분에서 $-3+4a=-11$이므로 $a=-2$이다.\nstep5) 검산: $(1,2)$ 성분은 $-2b=ab$에서 $0=0$, $(2,2)$ 성분은 $3b-a=-a$에서 $0=0$으로 모두 성립한다.\nstep6) $a-b=-2-0=-2$이다.",
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "number": 16,
+      "answer": "②",
+      "solution": "step1) $(x+1)(y+1)=xy+(x+y)+1=xy+2a+1$이다.\nstep2) $xy+2a+1=5+a^2$이므로 $xy=a^2-2a+4$이다.\nstep3) $x,\\ y$는 $t^2-2at+(a^2-2a+4)=0$의 두 근이다.\nstep4) 두 근이 모두 실수이려면 $\\frac{D}{4}=a^2-(a^2-2a+4)=2a-4\\ge 0$이어야 한다.\nstep5) 따라서 $a\\ge 2$이므로 정수 $a$의 최솟값은 $2$이다.",
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "number": 17,
+      "answer": "②",
+      "solution": "step1) 회원 $a$명에게 2개씩 주면 11개가 남으므로 $b=2a+11$이다.\nstep2) $a-1$명에게 4개씩 주고 남은 개수는 $b-4(a-1)=2a+11-4a+4=-2a+15$이다.\nstep3) 회원 A가 받는 개수는 1 이상 3 이하이므로 $1\\le -2a+15\\le 3$이다.\nstep4) $-2a+15\\ge 1$에서 $a\\le 7$, $-2a+15\\le 3$에서 $a\\ge 6$이므로 $a=6$ 또는 $a=7$이다.\nstep5) $a=6$이면 $b=23$이므로 $a+b=29$이고, $a=7$이면 $b=25$이므로 $a+b=32$이다.\nstep6) 최솟값은 $29$이다.",
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "number": 18,
+      "answer": "③",
+      "solution": "step1) $k=0$이면 부등식은 $-11<0$이 되어 모든 실수 $x$에 대하여 성립한다.\nstep2) $k\\ne 0$이면 이차부등식이므로 $k<0$이고 판별식 $D<0$이어야 한다.\nstep3) $D=(4k)^2-4k(-11)=16k^2+44k<0$에서 $4k(4k+11)<0$이므로 $-\\frac{11}{4}<k<0$이다.\nstep4) 이 범위의 정수는 $-2,\\ -1$이다.\nstep5) $k=0$을 포함하면 정수 $k$는 $-2,-1,0$의 3개이다.",
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "number": 19,
+      "answer": "③",
+      "solution": "step1) 6개 팀을 일렬로 배열하는 경우의 수는 $6!=720$이다.\nstep2) 조건은 클래식 1팀이 발레 3팀보다 모두 앞에 오는 것이다.\nstep3) 클래식과 발레 3팀, 즉 4개 팀의 상대적 순서 $4!$가지 중 클래식이 맨 앞인 경우는 $3!$가지이므로 그 비율은 $\\frac{1}{4}$이다.\nstep4) 구하는 경우의 수는 $720\\times \\frac{1}{4}=180$이다.",
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "number": 20,
+      "answer": "②",
+      "solution": "step1) 둘레길을 정확히 2곳 방문하는 경우는 ${}_{4}\\mathrm{C}_{2}\\times {}_{3}\\mathrm{C}_{1}=6\\times 3=18$이다.\nstep2) 둘레길을 3곳 모두 방문하는 경우는 ${}_{4}\\mathrm{C}_{3}=4$이다.\nstep3) 구하는 경우의 수는 $18+4=22$이다.",
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "number": 21,
+      "answer": "$5$",
+      "solution": "step1) 4의 배수가 적힌 카드는 $4,\\ 8,\\ 12$의 3개이다.\nstep2) 7의 배수가 적힌 카드는 $7,\\ 14$의 2개이다.\nstep3) 4와 7의 공배수인 28 이하의 수는 15 이하에 없으므로 중복되는 카드는 없다.\nstep4) 합의 법칙에 의하여 경우의 수는 $3+2=5$이다.",
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "number": 22,
+      "answer": "$3 \\le a < 5$",
+      "solution": "step1) $x^2+4ax+3a^2-2a+15=0$이 실근을 가지려면 $\\frac{D_1}{4}=4a^2-(3a^2-2a+15)\\ge 0$이어야 한다.\nstep2) 정리하면 $a^2+2a-15\\ge 0$, 즉 $(a+5)(a-3)\\ge 0$이므로 $a\\le -5$ 또는 $a\\ge 3$이다.\nstep3) $x^2+2ax+a+20=0$이 서로 다른 두 허근을 가지려면 $\\frac{D_2}{4}=a^2-(a+20)<0$이어야 한다.\nstep4) 정리하면 $a^2-a-20<0$, 즉 $(a+4)(a-5)<0$이므로 $-4<a<5$이다.\nstep5) 두 범위의 공통부분은 $3\\le a<5$이다.",
+      "confidence": "high",
+      "note": ""
+    }
+  ]
+}

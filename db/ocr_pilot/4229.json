@@ -1,0 +1,437 @@
+{
+  "meta": {"exam_id": 4229, "ocr_source": "session-vision"},
+  "header": {"title": "경북여고 1학년 공통수학1 — 2025년 1학기 기말고사 (이차방정식 ~ 행렬)"},
+  "questions": [
+    {
+      "number": 1,
+      "score": 3.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "계수가 실수인 사차방정식 $x^{4}+ax^{3}+2x^{2}+2x+b=0$의 두 근이 2, $-1$일 때, 나머지 두 근의 합은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-4"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "4"}]}
+      ]
+    },
+    {
+      "number": 2,
+      "score": 3.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "$x$에 대한 이차부등식 $x^{2}+ax+5<0$의 해가 $1<x<5$일 때, 상수 $a$의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-8"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-7"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-6"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "-5"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "-4"}]}
+      ]
+    },
+    {
+      "number": 3,
+      "score": 3.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "500의 약수의 개수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "14"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "16"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "18"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "20"}]}
+      ]
+    },
+    {
+      "number": 4,
+      "score": 3.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "음이 아닌 정수 $x,~y$에 대하여 $x+y \\leq 4$를 만족시키는 순서쌍 $(x,~y)$의 개수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "11"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "13"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "14"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "15"}]}
+      ]
+    },
+    {
+      "number": 5,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "$x$에 대한 이차방정식 $4x^{2}-{}_{n}\\mathrm{P}_{r}x-7{}_{n}\\mathrm{C}_{n-r}=0$의 두 근이 $-1$, 7 일 때, $n+r$의 값은? (단, $n$, $r$는 자연수)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "10"}]}
+      ]
+    },
+    {
+      "number": 6,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "5개의 문자 $a,~b,~c,~d,~e$ 중에서 3개를 택하여 일렬로 나열하는 경우의 수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "35"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "60"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "120"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "240"}]}
+      ]
+    },
+    {
+      "number": 7,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "다음 (가)~(다)의 대소관계를 바르게 나타낸 것은?"},
+        {"type": "text", "value": "<상자> (가) 남학생 2명과 여학생 3명을 일렬로 세울 때, 여학생 3명을 서로 이웃하게 세우는 경우의 수 • (나) $\\mathrm{A}$, $\\mathrm{B}$를 포함한 8명 중에서 $\\mathrm{A}$, $\\mathrm{B}$ 중 한 명만 포함하여 5명을 뽑는 경우의 수 • (다) 1부터 7까지의 숫자가 각각 하나씩 적힌 7개의 공이 들어있는 주머니에서 3개의 공을 동시에 꺼낼 때, 적어도 짝수 한 개를 포함하여 뽑는 경우의 수"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "(가) < (나) < (다)"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "(가) < (다) < (나)"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "(나) < (가) < (다)"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "(나) < (다) < (가)"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "(다) < (나) < (가)"}]}
+      ]
+    },
+    {
+      "number": 8,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 밑변의 길이가 $40\\mathrm{m}$, 높이가 $10\\mathrm{m}$인 이등변삼각형 모양의 땅에 밑면이 직사각형 모양인 건물을 지으려고 한다. 이 건물의 밑면의 최대 넓이는?"},
+        {"type": "figure", "value": "밑변이 아래쪽 수평선인 이등변삼각형. 밑변에 '40m' 라고 표시되어 있고, 꼭짓점에서 밑변으로 내린 높이에 '10m' 라벨이 화살표로 연결되어 있다. 삼각형 내부에 밑변 위에 놓인 회색 음영 직사각형(건물 밑면)이 삼각형에 내접하도록 그려져 있으며, 직사각형의 위쪽 두 꼭짓점이 삼각형의 두 빗변에 닿아 있다. 직사각형은 가운데 세로선으로 나뉘어 있고 밑변 아래에는 점선 타원(땅 표시)이 그려져 있다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "80\\mathrm{m}^{2}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "90\\mathrm{m}^{2}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "100\\mathrm{m}^{2}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "110\\mathrm{m}^{2}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "120\\mathrm{m}^{2}"}]}
+      ]
+    },
+    {
+      "number": 9,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "이차함수 $y=2x^{2}+ax+4$의 그래프와 직선 $y=-x+b$의 두 교점의 $x$좌표가 1, 4일 때, 실수 $a$, $b$에 대하여 $a+b$의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-15"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-14"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-13"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "-12"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "-11"}]}
+      ]
+    },
+    {
+      "number": 10,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "연립방정식"},
+        {"type": "equation", "value": "\\begin{cases} x^{2}+2xy-3y^{2}=0 \\\\ x^{2}+xy-6=0 \\end{cases}"},
+        {"type": "text", "value": "을 만족시키는 $x,~y$에 대하여 $x+y$의 최댓값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2\\sqrt{2}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "2\\sqrt{3}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+      ]
+    },
+    {
+      "number": 11,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "3명의 학생이 일렬로 놓인 9개의 의자에 앉을 때, 어느 두 명도 이웃하지 __않도록__ 앉는 방법의 수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "120"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "160"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "210"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "300"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "360"}]}
+      ]
+    },
+    {
+      "number": 12,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "9개의 숫자 0, 1, 2, 3, 4, 5, 6, 7, 8 중에서 서로 다른 4개의 숫자를 택하여 네 자리 자연수 $abcd$를 만들 때, $(a-c)(b-d)>0$를 만족하는 자연수 $abcd$의 개수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1314"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "1324"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "1334"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "1344"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "1354"}]}
+      ]
+    },
+    {
+      "number": 13,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "상자에 떡을 담는데 한 상자에 5개씩 담으면 떡이 13개가 남고, 7개씩 담으면 마지막 상자의 떡은 2개 이상 6개 미만이 된다고 한다. 상자의 수의 최솟값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "9"}]}
+      ]
+    },
+    {
+      "number": 14,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "$-3 \\leq x \\leq 1$에서 이차함수 $f(x)=-x^{2}+(4a+b)x+2a^{2}-b$가 다음 조건을 만족시킨다."},
+        {"type": "text", "value": "<상자> (가) 함수 $f(x)$는 $x=-2$에서 최댓값을 가진다. • (나) 함수 $f(x)$의 최솟값은 15이다."},
+        {"type": "text", "value": "$a+b$의 값은? (단, $a<b$)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-16"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-8"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "10"}]}
+      ]
+    },
+    {
+      "number": 15,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "$n$이 자연수일 때, 연립부등식"},
+        {"type": "equation", "value": "\\begin{cases} |x-n| \\geq 1 \\\\ x^{2}+(n^{2}-n)x-n^{3}<0 \\end{cases}"},
+        {"type": "text", "value": "의 정수인 해의 개수가 11 이하가 되도록 하는 모든 자연수 $n$의 값의 합은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "15"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "21"}]}
+      ]
+    },
+    {
+      "number": 16,
+      "score": 5.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "집합 $X=\\{1,~2,~3,~4,~5,~6,~7,~8,~9\\}$에 대하여 일대일대응인 함수 $f:X \\to X$가 다음 조건을 만족시킬 때, 함수 $f$의 개수는?"},
+        {"type": "text", "value": "<상자> (가) $p$가 소수일 때, $f(p) \\leq p$이다. • (나) $a<b$이고 $a$가 $b$의 약수이면 $f(a)<f(b)$이다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "54"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "63"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "72"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "81"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "90"}]}
+      ]
+    },
+    {
+      "number": 17,
+      "score": 3.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "두 행렬"},
+        {"type": "equation", "value": "A=\\begin{pmatrix} 4 & 3 \\\\ 5 & 8 \\end{pmatrix}"},
+        {"type": "text", "value": "과"},
+        {"type": "equation", "value": "B=\\begin{pmatrix} 0 & 1 \\\\ a & b \\end{pmatrix}"},
+        {"type": "text", "value": "에 대하여 $AB=BA$일 때, $a+b$의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+      ]
+    },
+    {
+      "number": 18,
+      "score": 3.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "행렬"},
+        {"type": "equation", "value": "A=\\begin{pmatrix} -2 & 5 & 7 \\\\ 4 & -1 & 6 \\\\ 8 & 8 & 3 \\end{pmatrix}"},
+        {"type": "text", "value": "에 대하여 옳은 것을 보기에서 모두 고르면?"},
+        {"type": "text", "value": "<보기> ㄱ. 제2행은 $(4~-1~6)$이다. • ㄴ. 행렬 $A$의 $(4,~3)$ 성분은 없다. • ㄷ. 제3열의 성분의 합은 16이다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄴ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄱ, ㄴ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄴ, ㄷ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄱ, ㄴ, ㄷ"}]}
+      ]
+    },
+    {
+      "number": 19,
+      "score": 5.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "equation", "value": "A=\\begin{pmatrix} a+1 & b \\\\ c & d+1 \\end{pmatrix},~ B=\\begin{pmatrix} a-1 & b \\\\ c & d-1 \\end{pmatrix}"},
+        {"type": "text", "value": "에 대하여"},
+        {"type": "equation", "value": "A^{2}-B^{2}=\\begin{pmatrix} 4 & 7 \\\\ 8 & 9 \\end{pmatrix}"},
+        {"type": "text", "value": "일 때, $a+b+c+d$의 값은? (단, $a$, $b$, $c$, $d$는 상수이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "11"}]}
+      ]
+    },
+    {
+      "number": 20,
+      "score": 5.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "그림과 같은 두 개의 도로망이 있다."},
+        {"type": "figure", "value": "두 개의 도로망 그림. 왼쪽 도로망: 45도로 기울어진 정사각 격자(마름모 모양)로, 위쪽에 두 꼭짓점 P_1, P_2 (왼쪽이 P_1, 오른쪽이 P_2)가 검은 점으로 표시되어 있고, 아래쪽에 두 꼭짓점 Q_1, Q_2 (왼쪽이 Q_1, 오른쪽이 Q_2)가 표시되어 있다. P_1, P_2 에서 아래로 내려가 Q_1, Q_2 에 이르는 대각선 격자망이며 두 마름모형 격자가 서로 겹쳐진 모양이다. 오른쪽 도로망: 왼쪽 도로망과 같은 모양의 격자를 위·아래로 두 개 이어 붙인 형태로, 맨 위에 R_1, R_2 (왼쪽이 R_1, 오른쪽이 R_2), 맨 아래에 S_1, S_2 (왼쪽이 S_1, 오른쪽이 S_2)가 표시되어 있다. 위쪽 격자의 아래 꼭짓점과 아래쪽 격자의 위 꼭짓점이 만나는 중간 지점이 두 곳 있다. 모든 도로는 서로 평행하거나 수직이다."},
+        {"type": "text", "value": "이차정사각행렬 $A$의 $(i,~j)$ 성분 $a_{ij}$ $(i=1,~2,~j=1,~2)$를"},
+        {"type": "text", "value": "$a_{ij}=(\\mathrm{P}_{i}$ 지점에서 도로망을 따라 $\\mathrm{Q}_{j}$ 지점까지 최단거리로 가는 방법의 수$)$"},
+        {"type": "text", "value": "라 하자. 다음 중 $\\mathrm{R}_{1}$ 지점에서 도로망을 따라 $\\mathrm{S}_{2}$ 지점까지 최단거리로 가는 방법의 수와 같은 것은? (단, 모든 도로는 서로 평행하거나 수직이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "행렬 $2A$의 $(1,~2)$ 성분"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "행렬 $A^{2}$의 $(1,~2)$ 성분"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "행렬 $A^{2}$의 $(2,~1)$ 성분"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "행렬 $A$의 $(1,~2)$ 성분과 $(2,~2)$ 성분의 곱"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "행렬 $A$의 $(1,~2)$ 성분과 $(2,~1)$ 성분의 곱"}]}
+      ]
+    },
+    {
+      "number": 21,
+      "score": 3.0,
+      "type": "서술형",
+      "label": "[서술형 1]",
+      "contents": [
+        {"type": "text", "value": "[서술형 1] 이차부등식 $-x^{2}+2(a-3)x+5(a-3)>0$의 해가 존재하지 __않도록__ 하는 실수 $a$의 값의 범위를 구하시오"}
+      ]
+    },
+    {
+      "number": 22,
+      "score": 8.0,
+      "type": "서술형",
+      "label": "[서술형 2]",
+      "contents": [
+        {"type": "text", "value": "[서술형 2] 삼차방정식 $x^{3}-3x^{2}+x+5=0$의 두 허근을 $\\alpha, \\beta$라고 할 때, $\\left\\{\\left(\\frac{\\alpha+\\beta}{2}\\right)i\\right\\}^{6}$의 값을 구하는 풀이 과정과 답을 서술하시오. (단, $i=\\sqrt{-1}$이다.)"}
+      ]
+    },
+    {
+      "number": 23,
+      "score": 5.0,
+      "type": "서술형",
+      "label": "[서술형 3]",
+      "contents": [
+        {"type": "text", "value": "[서술형 3] 다음 물음에 답하시오."}
+      ],
+      "sub_questions": [
+        {
+          "number": 1,
+          "score": 1.0,
+          "contents": [
+            {"type": "text", "value": "서로 다른 상자 5개에 서로 다른 공 3개를 넣을 때, 각 상자에 많아야 공 1개를 넣는 모든 경우의 수를 구하는 풀이 과정과 답을 서술하시오."}
+          ]
+        },
+        {
+          "number": 2,
+          "score": 2.0,
+          "contents": [
+            {"type": "text", "value": "서로 다른 상자 5개에 똑같은 공 3개를 넣을 때, 각 상자에 많아야 공 1개를 넣는 모든 경우의 수를 구하는 풀이 과정과 답을 서술하시오."}
+          ]
+        },
+        {
+          "number": 3,
+          "score": 2.0,
+          "contents": [
+            {"type": "text", "value": "그림과 같이 9칸으로 이루어진 진열장에 똑같은 인형 6개를 진열하려고 한다. 인형을 세 가로줄에 각각 1개, 2개, 3개로 진열하는 모든 경우의 수를 구하는 풀이 과정과 답을 서술하시오."},
+            {"type": "figure", "value": "3행 3열(9칸)의 정사각형 진열장 그림. 1행: 왼쪽 칸은 비어 있고 가운데 칸과 오른쪽 칸에 곰인형이 놓여 있다(2개). 2행: 왼쪽 칸에만 곰인형이 놓여 있고 가운데·오른쪽 칸은 비어 있다(1개). 3행: 왼쪽·가운데·오른쪽 세 칸 모두 곰인형이 놓여 있다(3개). 인형은 모두 똑같은 모양이며 총 6개이다."}
+          ]
+        }
+      ]
+    },
+    {
+      "number": 24,
+      "score": 5.0,
+      "type": "서술형",
+      "label": "[서술형 4]",
+      "contents": [
+        {"type": "text", "value": "[서술형 4] 한 변의 길이가 5인 정사각형을 한 변의 길이가 1인 정사각형 25개로 나눈 도형이 있고, 그림과 같이 한 변의 길이가 1인 정사각형에 색이 칠해져 있다."},
+        {"type": "figure", "value": "한 변의 길이가 5인 정사각형을 가로 5칸, 세로 5칸의 1×1 정사각형 25개로 나눈 격자 그림. 가로선 6개, 세로선 6개로 이루어져 있다. 위에서 네 번째 행(아래에서 두 번째 행), 왼쪽에서 두 번째 열에 있는 1×1 정사각형 한 칸만 회색으로 칠해져 있다."}
+      ],
+      "sub_questions": [
+        {
+          "number": 1,
+          "score": 2.0,
+          "contents": [
+            {"type": "text", "value": "도형의 선으로 만들어지는 모든 사각형의 개수를 구하는 풀이과정과 답을 서술하시오."}
+          ]
+        },
+        {
+          "number": 2,
+          "score": 3.0,
+          "contents": [
+            {"type": "text", "value": "도형의 선으로 만들어지는 사각형 중에서 색칠한 부분을 포함하지 __않는__ 사각형의 개수를 구하는 풀이 과정과 답을 서술하시오."}
+          ]
+        }
+      ]
+    },
+    {
+      "number": 25,
+      "score": 5.0,
+      "type": "서술형",
+      "label": "[서술형 5]",
+      "contents": [
+        {"type": "text", "value": "[서술형 5] 두 이차정사각행렬 $A$, $B$와 실수 $k$에 대하여"},
+        {"type": "equation", "value": "A+kB=\\begin{pmatrix} 3 & 3 \\\\ 2 & 4 \\end{pmatrix},~ A+B=E,~ B^{2}=B"},
+        {"type": "text", "value": "가 성립할 때, $k$의 값을 구하시오. (단, $E$는 단위행렬이다.)"}
+      ]
+    }
+  ]
+}

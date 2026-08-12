@@ -1,0 +1,430 @@
+{
+ "source": "_경산고__1__공수1__25-1-중간__동아___완료_.hwpx",
+ "question_count": 24,
+ "questions": [
+  {
+   "number": 1,
+   "answer": "④",
+   "solution": null,
+   "topic": "다항식의 덧셈과 뺄셈",
+   "difficulty": "하",
+   "score": 3.5,
+   "label": null,
+   "type": "객관식",
+   "stem": "세 다항식 $A = 2x^2 +3xy-y^2$, $B=x^2 -5xy+3y^2$, $C=-x^2 +2xy$에 대하여 $LEFT ( A+3B-2C RIGHT )-2 LEFT ( B-C RIGHT )$를 간단히 한 것은?",
+   "choices": [
+    "$-3xy+3y^2$",
+    "$2x^2 +2y^2$",
+    "$x^2 +5xy-y^2$",
+    "$3x^2 -2xy+2y^2$",
+    "$x^2 +8xy-4y^2$"
+   ]
+  },
+  {
+   "number": 2,
+   "answer": "④",
+   "solution": null,
+   "topic": "다항식의 나눗셈",
+   "difficulty": "하",
+   "score": 3.5,
+   "label": null,
+   "type": "객관식",
+   "stem": "다음 나눗셈의 나머지로 옳은 것은? \n$LEFT ( x^4 +x^3 -3x^2 -3 RIGHT ) DIVIDE LEFT ( x^2 +3x +4 RIGHT )$",
+   "choices": [
+    "$-15x-21$",
+    "$-8x+2$",
+    "$-7x+1$",
+    "$11x+1$",
+    "$17x+41$"
+   ]
+  },
+  {
+   "number": 3,
+   "answer": "③",
+   "solution": null,
+   "topic": "이차방정식",
+   "difficulty": "하",
+   "score": 3.5,
+   "label": null,
+   "type": "객관식",
+   "stem": "두 수 $-2,~-3$을 근으로 하고 $x^2$의 계수가 $1$인 이차방정식은?",
+   "choices": [
+    "$x^2 -5x+6=0$",
+    "$x^2 +6x-5=0$",
+    "$x^2 +5x+6=0$",
+    "$x^2 -6x+5=0$",
+    "$x^2 -5x-6=0$"
+   ]
+  },
+  {
+   "number": 4,
+   "answer": "②",
+   "solution": null,
+   "topic": "이차방정식과 이차함수의 관계",
+   "difficulty": "하",
+   "score": 3.5,
+   "label": null,
+   "type": "객관식",
+   "stem": "이차함수 $y=x^2 -2x+k$의 그래프가 $x$축과 한 점에서 만나도록 하는 실수 $k$의 값은?",
+   "choices": [
+    "$2$",
+    "$1$",
+    "$0$",
+    "$-1$",
+    "$-2$"
+   ]
+  },
+  {
+   "number": 5,
+   "answer": "①",
+   "solution": null,
+   "topic": "조립제법",
+   "difficulty": "하",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "다음은 조립제법을 이용하여 다항식 $4x^3 -x+1$을 일차식 $2x-3$으로 나누었을 때의 몫 $Q(x)$와 나머지 $R$을 구하는 과정이다.\n${3} over {2}$\n$4$\n$a$\n$b$\n$1$\n$6$\n$9$\n${3} over {2} c$\n$4$\n$a+6$\n$c$\n$d$\n$a-b+c-d+Q(2)-R$의 값은? \n (단, $a,~b,~c,~d$는 상수)",
+   "choices": [
+    "$1$",
+    "$2$",
+    "$3$",
+    "$4$",
+    "$5$"
+   ]
+  },
+  {
+   "number": 6,
+   "answer": "⑤",
+   "solution": null,
+   "topic": "인수분해",
+   "difficulty": "하",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "다음 식을 인수분해 한 것으로 옳은 것은? \n$x^3 +9x^2 y+18xy^2 \n+8y^3$",
+   "choices": [
+    "$LEFT ( x+2y RIGHT )^3$",
+    "$LEFT ( x-2y RIGHT ) ^{3}$",
+    "$LEFT ( x-2y RIGHT ) LEFT ( x^2 +2xy+4y^2 RIGHT )$",
+    "$LEFT ( x+2y RIGHT ) LEFT ( x^2 -7xy+4y^2 RIGHT )$",
+    "$LEFT ( x+2y RIGHT ) LEFT ( x^2 +7xy+4y^2 RIGHT )$"
+   ]
+  },
+  {
+   "number": 7,
+   "answer": "⑤",
+   "solution": null,
+   "topic": "이차방정식의 근과 계수와의 관계",
+   "difficulty": "하",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "$x$에 대한 이차방정식 $x^2 +ax+b=0$의 한 근이 $3+2i$일 때, $b-a$의 값은? (단, $a,~b$는 실수, $i= sqrt {-1}$)",
+   "choices": [
+    "$11$",
+    "$13$",
+    "$15$",
+    "$17$",
+    "$19$"
+   ]
+  },
+  {
+   "number": 8,
+   "answer": "③",
+   "solution": null,
+   "topic": "항등식",
+   "difficulty": "하",
+   "score": 4.2,
+   "label": null,
+   "type": "객관식",
+   "stem": "등식 $a LEFT ( x+2 RIGHT ) LEFT ( x^2 -1 RIGHT )+b LEFT ( x+1 RIGHT ) LEFT ( x-1 RIGHT )+c LEFT ( x+2 RIGHT )=x^3 +2x^2 +3x+d$이 $x$에 대한 항등식이 되도록 하는 네 상수 $a,~b,~c,~d$ 에 대하여 $a+b+c+d$의 값은?",
+   "choices": [
+    "$9$",
+    "$10$",
+    "$11$",
+    "$12$",
+    "$13$"
+   ]
+  },
+  {
+   "number": 9,
+   "answer": "②",
+   "solution": null,
+   "topic": "나머지정리와 인수정리",
+   "difficulty": "하",
+   "score": 4.2,
+   "label": null,
+   "type": "객관식",
+   "stem": "다항식 $P(x)$를 $x$로 나누었을 때의 나머지는 $2$이고, $x ^{2} -x-6$으로 나누었을 때의 나머지는 $x-1$이다. 다항식 $P(x)$를 $x(x+2)(x-3)$으로 나누었을 때의 나머지를 $R(x)$라 할 때, $R(5)$의 값은?",
+   "choices": [
+    "$-5$",
+    "$-3$",
+    "$-1$",
+    "$1$",
+    "$3$"
+   ]
+  },
+  {
+   "number": 10,
+   "answer": "①",
+   "solution": null,
+   "topic": "인수분해",
+   "difficulty": "하",
+   "score": 4.2,
+   "label": null,
+   "type": "객관식",
+   "stem": "다항식 $f(x)$, $g(x)$에 대하여 $f(x)=x ^{4} +x ^{3} +ax ^{2} -x+b=(x+1)(x+3)g(x)$이고 $g(x)=x ^{2} +cx+d$라 할 때, $a+b+c+d$의 값은? \n (단, $a,~b,~c,~d$는 상수)",
+   "choices": [
+    "$-2$",
+    "$-1$",
+    "$0$",
+    "$1$",
+    "$2$"
+   ]
+  },
+  {
+   "number": 11,
+   "answer": "②",
+   "solution": null,
+   "topic": "복소수와 켤레복소수",
+   "difficulty": "하",
+   "score": 4.2,
+   "label": null,
+   "type": "객관식",
+   "stem": "복소수 $z=a+bi$에 대하여 $z ^{2} + {1} over {z ^{2}}$이 실수가 된다고 할 때, $z$가 될 수 없는 것은? \n (단, $a,~b$는 $0$이 아닌 실수, $i= sqrt {-1}$)",
+   "choices": [
+    "${1} over {2} + {sqrt {3}} over {2} i$",
+    "$- {1} over {4} + {3} over {4} i$",
+    "$- {3} over {5} + {4} over {5} i$",
+    "${12} over {13} - {5} over {13} i$",
+    "${7} over {25} + {24} over {25} i$"
+   ]
+  },
+  {
+   "number": 12,
+   "answer": "③",
+   "solution": null,
+   "topic": "음수의 제곱근",
+   "difficulty": "하",
+   "score": 4.2,
+   "label": null,
+   "type": "객관식",
+   "stem": "$z= sqrt {-2} sqrt {-8} + sqrt {-3} sqrt {3} + {sqrt {125}} over {sqrt {-5}} + {sqrt {-144}} over {sqrt {-4}}$일 때, $z ^{2} +z+1=a+bi$이다. $a+b$의 값은? \n (단, $a,~b$는 실수, $i= sqrt {-1}$)",
+   "choices": [
+    "$-13$",
+    "$-10$",
+    "$-7$",
+    "$7$",
+    "$13$"
+   ]
+  },
+  {
+   "number": 13,
+   "answer": "④",
+   "solution": null,
+   "topic": "이차방정식의 판별식",
+   "difficulty": "하",
+   "score": 4.2,
+   "label": null,
+   "type": "객관식",
+   "stem": "$x$에 대한 두 이차방정식 중 $x ^{2} +6x+a-1=0$은 실근을 갖고, $ax ^{2} +4x+1=0$은 서로 다른 두 허근을 갖도록 하는 자연수 $a$의 개수는?",
+   "choices": [
+    "$3$",
+    "$4$",
+    "$5$",
+    "$6$",
+    "$7$"
+   ]
+  },
+  {
+   "number": 14,
+   "answer": "③",
+   "solution": null,
+   "topic": "이차방정식의 항등식",
+   "difficulty": "중",
+   "score": 4.2,
+   "label": null,
+   "type": "객관식",
+   "stem": "$x$에 대한 이차방정식$x ^{2} -2(a+k)x+(k ^{2} +2k-b)=0$이 실수 $k$의 값에 관계없이 항상 중근을 가질 때, $a+b$의 값은? (단, $a,~b$는 실수)",
+   "choices": [
+    "$-2$",
+    "$-1$",
+    "$0$",
+    "$1$",
+    "$2$"
+   ]
+  },
+  {
+   "number": 15,
+   "answer": "①",
+   "solution": null,
+   "topic": "이차방정식의 근과 계수와외 관계",
+   "difficulty": "중",
+   "score": 4.2,
+   "label": null,
+   "type": "객관식",
+   "stem": "$x$에 대한 이차방정식 $x ^{2} -(a ^{2} -3a+2)x-2a+3=0$의 두 실근은 절댓값이 같고 부호가 서로 다를 때, 이 이차방정식의 서로 다른 실근의 곱은 $b$이다. $a+b$의 값은? \n(단, $a$는 상수)",
+   "choices": [
+    "$1$",
+    "$2$",
+    "$3$",
+    "$4$",
+    "$5$"
+   ]
+  },
+  {
+   "number": 16,
+   "answer": "⑤",
+   "solution": null,
+   "topic": "이차방정식과 이차함수의 관계",
+   "difficulty": "하",
+   "score": 4.2,
+   "label": null,
+   "type": "객관식",
+   "stem": "이차함수 $y=x ^{2} -ax-5$의 그래프와 $x$축이 만나는 두 점을 각각 $rm A,~B$라 하고, $y$축과 만나는 점을 $rm C$라 하자. 삼각형 $rm ABC$의 넓이가 $15$일 때, $a ^{2}$의 값은? (단, $a$는 상수)",
+   "choices": [
+    "$6$",
+    "$9$",
+    "$11$",
+    "$13$",
+    "$16$"
+   ]
+  },
+  {
+   "number": 17,
+   "answer": "②",
+   "solution": null,
+   "topic": "이차함수와 직선의 위치관계",
+   "difficulty": "중",
+   "score": 4.2,
+   "label": null,
+   "type": "객관식",
+   "stem": "이차함수 $y=-x ^{2} +4x+3$의 그래프와 $y$절편이 $4$인 직선이 접하는 점의 좌표가 $(a,~b)$일 때, $a TIMES b$의 최댓값과 최솟값을 각각 $M$과 $m$이라 하자. $M-m$의 값은? \n (단, $a,~b$는 실수)",
+   "choices": [
+    "$3$",
+    "$4$",
+    "$5$",
+    "$6$",
+    "$7$"
+   ]
+  },
+  {
+   "number": 18,
+   "answer": "①",
+   "solution": null,
+   "topic": "이차함수의 최대,최소",
+   "difficulty": "하",
+   "score": 4.2,
+   "label": null,
+   "type": "객관식",
+   "stem": "$x LEQ 0$에서 이차함수 $f(x)=2x ^{2} +4kx$의 최솟값이 $-8$일 때, 상수 $k$의 값은?",
+   "choices": [
+    "$2$",
+    "$1$",
+    "$0$",
+    "$-1$",
+    "$-2$"
+   ]
+  },
+  {
+   "number": 19,
+   "answer": "⑤",
+   "solution": null,
+   "topic": "이차함수의 최대,최소",
+   "difficulty": "중",
+   "score": 4.2,
+   "label": null,
+   "type": "객관식",
+   "stem": "다음 그림과 같이 전체 길이가 $30rmm$인 검정 테이프를 겹치지 않고 남김없이 사용하여 강당 바닥에 합동인 두 직사각형 모양으로 된 동아리 부스를 만들려고 한다. 만들 수 있는 동아리 부스의 넓이의 최댓값은? (단, 검정 테이프의 너비는 생각하지 않고 넓이의 단위는 $rmm ^{2}$이다.)",
+   "choices": [
+    "${55} over {2}$",
+    "$30$",
+    "${65} over {2}$",
+    "$35$",
+    "${75} over {2}$"
+   ]
+  },
+  {
+   "number": 20,
+   "answer": "④",
+   "solution": null,
+   "topic": "곱셈공식의 변형",
+   "difficulty": "중",
+   "score": 4.6,
+   "label": null,
+   "type": "객관식",
+   "stem": "세 실수 $a,~b,~c$에 대하여, $a+b+c=3$, $a ^{2} +b ^{2} +c ^{2} =15$, $abc=-6$일 때, <보기>에서 옳은 것만을 바르게 고른 것은? \n<보기>\nㄱ. $a^2 bc+ab^2 c+abc^2 =-15$\nㄴ. $ab+bc+ca = -3$\nㄷ. $a^2 b^2 +b^2 c^2 + c^2 a^2 = 45$\nㄹ. $a^4 +b^4 + c^4 = 145$\n대구광역시 내신 수학 연구회\n.",
+   "choices": [
+    "ㄱ, ㄴ",
+    "ㄱ, ㄷ",
+    "ㄱ, ㄹ",
+    "ㄴ, ㄷ",
+    "ㄴ, ㄹ"
+   ]
+  },
+  {
+   "number": 21,
+   "answer": "④",
+   "solution": null,
+   "topic": "나머지 정리와 인수정리",
+   "difficulty": "중",
+   "score": 4.6,
+   "label": null,
+   "type": "객관식",
+   "stem": "다항식 $P(x)$를 $x ^{2} +2$로 나누었을 때의 나머지는 $x-1$이다. 다항식 $x LEFT { P(x) RIGHT } ^{3}$을 $x _{}^{2} +2$로 나누었을 때의 나머지가 $R(x)$일 때, $R(3)$의 값은?",
+   "choices": [
+    "$10$",
+    "$11$",
+    "$12$",
+    "$13$",
+    "$14$"
+   ]
+  },
+  {
+   "number": 22,
+   "answer": null,
+   "solution": "$24$$f(x)=LEFT ( {sqrt {6} + sqrt {2}} over {4} + {sqrt {6} - sqrt {2}} over {4} i RIGHT ) ^{x}$라 할 때,$f(2)= {sqrt {3} +i} over {2}$, $f(4)= {1+ sqrt {3} i} over {2}$, $f(8)= {-1+ sqrt {3} i} over {2}$ 이므로 $f(4)` TIMES `f(8)=f(12)= {1+ sqrt {3} i} over {2} TIMES  {-1+ sqrt {3} i} over {2} =-1$이다.$LEFT { f(12) ^{2} RIGHT } =f(24)=1$이므로 $f(x)$가 $1$이 되게 하는 가장 작은 값은 $24$이다.",
+   "topic": "복소수의 사직연산",
+   "difficulty": "중",
+   "score": 4.8,
+   "label": "[단답형 $1$]",
+   "type": "단답형",
+   "stem": "[단답형 $1$] $LEFT ( {sqrt {6} + sqrt {2}} over {4} + {sqrt {6} - sqrt {2}} over {4} i RIGHT ) ^{n} =1$일 때, 자연수 $n$의 최솟값을 구하시오. (단, $i= sqrt {-1}$)",
+   "choices": []
+  },
+  {
+   "number": 23,
+   "answer": null,
+   "solution": "$- {9} over {4}$$f(1)=f(2)=f(3)=2$, $f(4)=1$, $f(5)=0$이므로   $h(1)+h(2)+h(3)+h(4)+h(5)$$=7+g(1)+g(2)+g(3)+g(4)+g(5)$이므로직선 $y=-x+k-2$와  $y=x ^{2} +4x+n$가 만날 수 있는 점은 3개 이다. 기울기가 음수인 직선이기 때문에 $y=x ^{2} +4x+1$과는 두 점에서 만나고, $y=x ^{2} +4x+2$와는 한 점에서 접해야 한다. 따라서$-x+k-2=x ^{2} +4x+2$$x ^{2} +5x+4-k`=0$  $D=25-4(4-k)=0$,  $k=- {9} over {4}$이다.",
+   "topic": "이차함수와 직선의 위치관계",
+   "difficulty": "상",
+   "score": 4.8,
+   "label": "[단답형 $2$]",
+   "type": "단답형",
+   "stem": "[단답형 $2$] 자연수 $n$에 대하여 이차함수 $y=x ^{2} +4x+n$의 그래프와 $x$축이 만나는 점의 개수를 $f(n)$, $y=x ^{2} +4x+n$의 그래프와 직선 $y=-x+k-2$가 만나는 점의 개수를 $g(n)$이라고 하자. $h(n)=f(n)+g(n)$라 정의하고, $h(1)+h(2)+h(3)+h(4)+h(5)=10$일 때, 상수 $k$의 값을 구하시오.",
+   "choices": []
+  },
+  {
+   "number": 24,
+   "answer": null,
+   "solution": "$-4$$f(x)=x ^{2} +2ax=(x+a) ^{2} -a ^{2}$ 범위를 나누어서 $a$의 값을 구한다.$M$은 최댓값, $m$은 최솟값이라 하면ⅰ) $-a GEQ 4$ 일 때,  $0 LEQ  x LEQ  4$에서  $M=f(0)=0$, $m=f(4)$$16+8a=-7$,  $a=- {23} over {8}$이므로 성립하지 않는다.ⅱ) $-a LEQ 0$일 때, $m=f(0)=0$이고 $M=f(4)=16+8a$ 이므로 $a=- {9} over {8}$이므로 성립하지 않는다. ⅲ) $2 LEQ `-a<4$, 즉 $-4<a LEQ `-2$ 일 때, $M=f(0)=0$이고, $m=f(-a)=-a ^{2`}$이므로 $a ^{2} =7`,`~a= +-  sqrt {7}$이므로 $a=- sqrt {7}$($-4<a LEQ `-2$)ⅳ) $0<`-a<2$, 즉 $-2<`a<`0$ $M=f(4)=16+8a$, $m=f(-a)=-a ^{2}$ 이므로 $16+8a+a ^{2} =7$이므로 $a=-4+ sqrt {7}$($-2<`a<`0$)그러므로 $a$의 값의 합은 $- sqrt {7} -4+ sqrt {7} =-4$이다.",
+   "topic": "이차함수의 최대,최소",
+   "difficulty": "상",
+   "score": 4.8,
+   "label": "[단답형 $3$]",
+   "type": "단답형",
+   "stem": "[단답형 $3$] $0 LEQ x LEQ 4$에서 이차함수 $y=x ^{2} +2ax$의 최댓값과 최솟값의 차가 $7$이 되도록 하는 모든 실수 $a$의 값의 합을 구하시오. \n  \n  \n정답\n워드:이영지t\n오검:장우혁t \n완료:김재웅t",
+   "choices": []
+  }
+ ],
+ "meta": {
+  "exam_id": 4237,
+  "school": "경산고",
+  "grade": 1,
+  "subject": "공수1",
+  "year": 2025,
+  "semester": 1,
+  "round": "중간",
+  "src": "N:\\개인\\기출\\2025 기출모음\\2025년 1학기 중간고사 모음\\워드\\고1\\[경산고][1][공수1][25-1-중간][동아] (완료).hwp"
+ }
+}

@@ -1,0 +1,307 @@
+{
+  "meta": {"exam_id": 4215, "ocr_source": "session-vision"},
+  "header": {"title": "강북고 1학년 공통수학1 — 2025년 1학기 중간고사 (다항식의 연산 ~ 이차방정식과 이차함수)"},
+  "questions": [
+    {
+      "number": 1,
+      "score": 3.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "$2x(x^{2}+2x-1)$을 전개한 식에서 $x^{2}$의 계수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+      ]
+    },
+    {
+      "number": 2,
+      "score": 3.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "다항식 $P(x)=x^{2}-x+a$가 $x-1$을 인수로 가질 때, 실수 $a$의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "2"}]}
+      ]
+    },
+    {
+      "number": 3,
+      "score": 3.1,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "$(1-i)-(-2i)$를 $a+bi$의 꼴로 나타낸 것은? (단, $i=\\sqrt{-1}$이고, $a$, $b$는 실수이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1-i"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "i"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "1+i"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "1+2i"}]}
+      ]
+    },
+    {
+      "number": 4,
+      "score": 3.1,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "등식 $x^{2}-4x+4=(x-1)^{2}-2(x-1)+a$가 $x$에 대한 항등식이 되도록 하는 실수 $a$의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+      ]
+    },
+    {
+      "number": 5,
+      "score": 3.2,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "이차방정식 $x^{2}+4x+2=0$의 두 근의 합은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-4"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "4"}]}
+      ]
+    },
+    {
+      "number": 6,
+      "score": 3.3,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "$x$에 대한 이차함수 $y=x^{2}-4x+k$의 그래프와 $x$축이 한 점에서 만나도록 하는 실수 $k$의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+      ]
+    },
+    {
+      "number": 7,
+      "score": 3.3,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "$3+\\sqrt{3}$의 실수 부분과 $3-\\sqrt{3}\\,i$의 허수 부분의 합은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "3-2\\sqrt{3}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "3-\\sqrt{3}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "3+\\sqrt{3}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "3+2\\sqrt{3}"}]}
+      ]
+    },
+    {
+      "number": 8,
+      "score": 3.4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "등식 $a(x+1)+b(x+1)(x+2)=c(x+2)(x-3)+3x-1$이 모든 실수 $x$에 대하여 성립할 때, 실수 $a$, $b$, $c$에 대하여 $a+b+c$의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+      ]
+    },
+    {
+      "number": 9,
+      "score": 3.5,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "다항식 $a^{4}+3a^{3}-15a^{2}+pa-6$이 $(a-1)^{3}(a+q)$로 인수분해될 때, $p+q$의 값은? (단, $p$, $q$는 실수이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "21"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "23"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "25"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "27"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "29"}]}
+      ]
+    },
+    {
+      "number": 10,
+      "score": 3.6,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "$x^{3}=1$의 한 허근을 $w$라고 할 때, $w+w^{2}+w^{3}+\\cdots+w^{30}+w^{31}$의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-w"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "w"}]}
+      ]
+    },
+    {
+      "number": 11,
+      "score": 3.7,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "이차방정식 $2x^{2}-x+2=0$의 두 근을 $\\alpha$, $\\beta$라고 하자. 두 수 $\\frac{1}{\\alpha^{2}+1}$, $\\frac{1}{\\beta^{2}+1}$을 근으로 하는 이차방정식을 $x^{2}+ax+b=0$이라고 할 때, $a+b$의 값은? (단, $a$, $b$는 실수이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+      ]
+    },
+    {
+      "number": 12,
+      "score": 3.8,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "이차함수 $y=-2x^{2}-3x$의 그래프와 직선 $y=3x+n$이 서로 다른 두 점에서 만나도록 하는 자연수 $n$의 개수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "7"}]}
+      ]
+    },
+    {
+      "number": 13,
+      "score": 3.0,
+      "type": "단답형",
+      "label": "[단답형 1]",
+      "contents": [
+        {"type": "text", "value": "[단답형 1] 다음 식을 계산하시오."},
+        {"type": "text", "value": "<상자> $(-2x^{2}+3x+1)+(3x^{2}-2x+2)$"}
+      ]
+    },
+    {
+      "number": 14,
+      "score": 5.0,
+      "type": "단답형",
+      "label": "[단답형 2]",
+      "contents": [
+        {"type": "text", "value": "[단답형 2] 세 다항식 $A$, $B$, $C$에 대하여 $A=x^{3}-2x-1$, $B=2x^{3}-3x^{2}+2x+4$이고 $(3C-2B)-(C-A)=-x^{3}+4x-5$이다. 다항식 $C$를 구하시오."}
+      ]
+    },
+    {
+      "number": 15,
+      "score": 5.0,
+      "type": "단답형",
+      "label": "[단답형 3]",
+      "contents": [
+        {"type": "text", "value": "[단답형 3] 등식 $-iz+2i\\bar{z}=-3+i$를 만족시키는 복소수 $z$를 구하시오. (단, $i=\\sqrt{-1}$이고, $\\bar{z}$는 $z$의 켤레복소수이다.)"}
+      ]
+    },
+    {
+      "number": 16,
+      "score": 7.0,
+      "type": "단답형",
+      "label": "[단답형 4]",
+      "contents": [
+        {"type": "text", "value": "[단답형 4] 매점에서 빵 한 개의 가격이 2000원일 때 하루에 200개씩 팔리고, 빵 한 개의 가격을 $200x$원씩 인상할 때마다 하루 판매량은 $10x$개씩 감소한다고 한다. 빵의 가격을 인상했을 때, 빵의 하루 판매 금액을 $f(x)$라고 하자. 다음 물음에 답하시오. (단, $0 \\leq x \\leq 15$이다.)"}
+      ],
+      "sub_questions": [
+        {
+          "number": 1,
+          "score": 3.0,
+          "contents": [{"type": "text", "value": "$f(x)$를 $x$에 대한 식으로 나타내시오."}]
+        },
+        {
+          "number": 2,
+          "score": 4.0,
+          "contents": [{"type": "text", "value": "$f(x)$의 최댓값을 구하시오."}]
+        }
+      ]
+    },
+    {
+      "number": 17,
+      "score": 9.0,
+      "type": "서술형",
+      "label": "[서술형 5]",
+      "contents": [
+        {"type": "text", "value": "[서술형 5] 다음 물음에 풀이 과정과 답을 서술하시오."}
+      ],
+      "sub_questions": [
+        {
+          "number": 1,
+          "score": 3.0,
+          "contents": [{"type": "text", "value": "다항식 $P(x)$를 $x-\\frac{1}{3}$로 나누었을 때 몫을 $Q(x)$, 나머지를 $R$라고 하자. $P(x)$를 $3x-1$로 나누었을 때, 몫과 나머지를 차례대로 구하시오."}]
+        },
+        {
+          "number": 2,
+          "score": 6.0,
+          "contents": [{"type": "text", "value": "다항식 $P(x)=3x^{3}+2x^{2}-x+4$를 일차식 $3x-1$로 나누었을 때, 몫을 $Q(x)$, 나머지를 $R$라 하자. 조립제법을 이용하여 $P(x)=(3x-1)Q(x)+R$꼴로 나타내시오. (단, ‘물음1’의 과정을 포함하여 서술하시오.)"}]
+        }
+      ]
+    },
+    {
+      "number": 18,
+      "score": 9.0,
+      "type": "서술형",
+      "label": "[서술형 6]",
+      "contents": [
+        {"type": "text", "value": "[서술형 6] 이차함수 $y=x^{2}-4kx+4k^{2}-8k$의 그래프와 직선 $y=2bx+a$가 실수 $k$의 값에 관계없이 항상 한 점에서 만날 때, 실수 $a$, $b$의 값을 구하는 과정에 대하여 서술하시오."}
+      ]
+    },
+    {
+      "number": 19,
+      "score": 10.0,
+      "type": "서술형",
+      "label": "[서술형 7]",
+      "contents": [
+        {"type": "text", "value": "[서술형 7] 다음 물음에 풀이 과정과 함께 답을 서술하시오."}
+      ],
+      "sub_questions": [
+        {
+          "number": 1,
+          "score": 3.0,
+          "contents": [{"type": "text", "value": "이차방정식 $x^{2}-6x+a=0$이 실근을 갖도록 하는 실수 $a$의 범위를 구하시오."}]
+        },
+        {
+          "number": 2,
+          "score": 7.0,
+          "contents": [{"type": "text", "value": "이차방정식 $x^{2}-6x+7=0$의 두 근 $\\alpha$, $\\beta$라고 할 때, 두 수 $\\frac{1}{\\alpha}$, $\\frac{1}{\\beta}$을 근으로 하고 $x^{2}$의 계수가 7인 이차방정식을 구하시오."}]
+        }
+      ]
+    },
+    {
+      "number": 20,
+      "score": 12.0,
+      "type": "서술형",
+      "label": "[서술형 8]",
+      "contents": [
+        {"type": "text", "value": "[서술형 8] 이차함수 $f(x)=-2x^{2}-8x+3$ $(a \\leq x \\leq b)$의 최댓값이 11, 최솟값이 $-21$이 되도록 하는 정수 $a$, $b$에 대하여 순서쌍 $(a,~b)$의 개수를 구하시오."}
+      ]
+    }
+  ]
+}

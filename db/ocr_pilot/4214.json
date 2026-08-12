@@ -1,0 +1,407 @@
+{
+  "meta": {
+    "exam_id": 4214,
+    "ocr_source": "session-vision"
+  },
+  "header": {
+    "title": "강북고 1학년 수학 - 2025년 2학기 중간고사 (공통수학2) 두 점 사이의 거리 ~ 절대부등식"
+  },
+  "questions": [
+    {
+      "number": 1,
+      "score": 3.2,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "다음 중 집합이 __아닌__ 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "사계절의 모임"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "날개가 있는 동물의 모임"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "1보다 작은 자연수의 모임"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "무리수 \\pi에 가까운 실수의 모임"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "세계에서 해발 8000\\mathrm{m} 이상인 산의 모임"}]}
+      ]
+    },
+    {
+      "number": 2,
+      "score": 3.3,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "점 (3,~1)을 x축의 방향으로 -1만큼, y축의 방향으로 2만큼 평행이동하면 직선 y=x-a 위의 점이 될 때, 상수 a의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "3"}]}
+      ]
+    },
+    {
+      "number": 3,
+      "score": 3.8,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "실수 x,~y에 대하여 \\sqrt{x^{2}+y^{2}}+\\sqrt{(x-3)^{2}+(y-4)^{2}} 의 최솟값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "2\\sqrt{6}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\sqrt{26}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "3\\sqrt{3}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "2\\sqrt{7}"}]}
+      ]
+    },
+    {
+      "number": 4,
+      "score": 3.4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "다음 방정식이 나타내는 도형을 원점에 대하여 대칭이동한 도형의 방정식을 바르게 구한 것은?"},
+        {"type": "text", "value": "<상자> (x-3)^{2}+(y+1)^{2}=4"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "(x-1)^{2}+(y+3)^{2}=4"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "(x+1)^{2}+(y-3)^{2}=4"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "(x+1)^{2}+(y+3)^{2}=4"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "(x-3)^{2}+(y-1)^{2}=4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "(x+3)^{2}+(y-1)^{2}=4"}]}
+      ]
+    },
+    {
+      "number": 5,
+      "score": 3.6,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "원 (x-4)^{2}+(y+k)^{2}=5를 x축에 대하여 대칭이동한 원을 C라 하고, 직선 2x+y=-3을 y축에 대하여 대칭이동한 직선을 l이라 하자. 원 C의 넓이를 직선 l이 이등분할 때, 상수 k의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "7"}]}
+      ]
+    },
+    {
+      "number": 6,
+      "score": 4.6,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "세 점 \\mathrm{A}(3,~6), \\mathrm{B}(-1,~1), \\mathrm{C}(4,~2)를 꼭짓점으로 하는 삼각형 \\mathrm{ABC}의 세 변 \\mathrm{AB}, \\mathrm{BC}, \\mathrm{CA}의 중점을 각각 \\mathrm{D}, \\mathrm{E}, \\mathrm{F}라 하자. \\mathrm{DEF}의 무게중심의 좌표가 (a,~b)일 때, b-a의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+      ]
+    },
+    {
+      "number": 7,
+      "score": 3.7,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "어느 학급의 학생 34명 중에서 축구를 좋아하는 학생은 23명, 야구를 좋아하는 학생은 15명, 축구와 야구 둘 다 좋아하지 않는 학생은 7명일 때, 축구와 야구를 모두 좋아하는 학생 수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "11"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "13"}]}
+      ]
+    },
+    {
+      "number": 8,
+      "score": 3.8,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "점 (x,~y)를 점 (x-3,~y+2)로 이동시키는 평행이동에 의하여 직선 y=ax+b를 이동시키면 직선 y=-\\frac{1}{2}x+9와 y축 위의 한 점에서 수직으로 만난다. a+b의 값은? (단, a,~b는 상수이다)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "7"}]}
+      ]
+    },
+    {
+      "number": 9,
+      "score": 3.9,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "다음 <보기>의 실수 x에 대한 세 조건 p,~q,~r에 대하여 q는 p이기 위한 필요조건, p는 \\sim r이기 위한 충분조건이다. 정수 k의 최댓값을 \\alpha, 정수 s의 최솟값을 \\beta라 할 때, \\alpha\\beta의 값은?"},
+        {"type": "text", "value": "<보기> p : 3 \\leq x \\leq 9,   q : x > k-3,   r : x > s+1"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "25"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "30"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "35"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "40"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "45"}]}
+      ]
+    },
+    {
+      "number": 10,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "<보기>의 명제 p가 참이 되도록 하는 순서쌍 (a,~b)의 개수를 m이라 하고, 명제 \\sim p가 참이 되도록 하는 순서쌍 (a,~b)에 대하여 b-a의 최댓값을 n이라 하자. m-n의 값은? (단, a \\in \\{1,~2,~3\\}, b \\in \\{0,~1,~2,~3\\})"},
+        {"type": "text", "value": "<보기> p : 모든 실수 x에 대하여 ax^{2}+(b+1)x+1>0이다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "7"}]}
+      ]
+    },
+    {
+      "number": 11,
+      "score": 4.3,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "두 집합 X,~Y는 다음 <조건>을 모두 만족한다. 집합 X=\\{x_{1},~x_{2},~x_{3},~x_{4}\\}라 할 때, x_{2}+x_{3}의 값은? (단, x_{1}<x_{2}<x_{3}<x_{4})"},
+        {"type": "text", "value": "<조건> (가) 두 집합 X,~Y의 모든 원소는 자연수이다. • (나) n(Y)=4 • (다) X \\cap Y=\\{6,~11\\} • (라) X=\\{x-k \\mid x \\in Y, k는 상수\\} • (마) 집합 Y의 원소 중 최솟값은 3이다. • (바) 집합 X-Y의 모든 원소의 합은 23이다. • (사) 집합 X \\cup U의 모든 원소의 합은 51이다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "17"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "20"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "23"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "26"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "29"}]}
+      ]
+    },
+    {
+      "number": 12,
+      "score": 4.1,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "아래 그림과 같이 큰 직사각형 모양의 땅을 길이가 32\\mathrm{m}인 철사를 이용하여 같은 크기의 세 개의 작은 직사각형 모양의 땅으로 구분지었다. 큰 직사각형 모양의 땅의 넓이가 최대일 때, 큰 직사각형 모양의 땅의 둘레의 길이는? (단, 철사의 두께는 고려하지 않는다.)"},
+        {"type": "figure", "value": "가로로 긴 직사각형 하나가 두 개의 세로 선분에 의해 좌우로 삼등분되어, 같은 크기의 작은 직사각형 3개가 가로로 나란히 붙어 있는 그림. 내부는 연한 하늘색으로 칠해져 있고 길이·치수 라벨은 표시되어 있지 않다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "20\\mathrm{m}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "21\\mathrm{m}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "22\\mathrm{m}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "23\\mathrm{m}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "24\\mathrm{m}"}]}
+      ]
+    },
+    {
+      "number": 13,
+      "score": 5.2,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "다음은 삼각형 \\mathrm{ABC}에서 변 \\mathrm{BC}의 중점을 \\mathrm{M}이라 할 때, \\overline{\\mathrm{AB}}^{2}+\\overline{\\mathrm{AC}}^{2}=\\boxed{(다)}\\,(\\overline{\\mathrm{AM}}^{2}+\\overline{\\mathrm{BM}}^{2})임을 보이는 과정이다."},
+        {"type": "text", "value": "<상자> 직선 \\mathrm{BC}를 x축, 변 \\mathrm{BC}의 중점 \\mathrm{M}을 지나고 변 \\mathrm{BC}에 수직인 직선을 y축으로 잡고, • 세 꼭짓점 \\mathrm{A},~\\mathrm{B},~\\mathrm{C}의 좌표를 각각 \\mathrm{A}(a,~b), \\mathrm{B}(-c,~0), \\mathrm{C}(c,~0)이라 하면 • \\overline{\\mathrm{AB}}^{2}+\\overline{\\mathrm{AC}}^{2}=\\{(a+c)^{2}+b^{2}\\}+\\boxed{(가)} • =2(a^{2}+b^{2}+c^{2}) • 이고, \\overline{\\mathrm{AM}}^{2}=a^{2}+b^{2}, \\overline{\\mathrm{BM}}^{2}=c^{2} • 따라서 \\overline{\\mathrm{AM}}^{2}+\\overline{\\mathrm{BM}}^{2}=\\boxed{(나)} 이다. • \\therefore \\overline{\\mathrm{AB}}^{2}+\\overline{\\mathrm{AC}}^{2}=\\boxed{(다)}\\,(\\overline{\\mathrm{AM}}^{2}+\\overline{\\mathrm{BM}}^{2})"},
+        {"type": "figure", "value": "위 <상자> 안에 들어 있는 좌표평면 그림. 세로로 y축, 가로로 x축이 그려져 있고 x축 위 왼쪽부터 B(-c, 0), 원점 O, 그 바로 오른쪽에 M, 그리고 C(c, 0)이 표시되어 있다(M은 원점 위치, 즉 변 BC의 중점). 제1사분면 쪽 위에 꼭짓점 A(a, b)가 있고, 선분 AB(B에서 A까지), 선분 AC(A에서 C까지), 그리고 A에서 원점(M)까지의 선분 AM이 그려져 삼각형 ABC와 중선 AM을 이룬다."},
+        {"type": "text", "value": "위의 (가), (나), (다)에 알맞은 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "(가) (a-c)^{2}+b^{2} / (나) a^{2}+b^{2}+c^{2} / (다) 1"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "(가) (a-c)^{2}+b^{2} / (나) 2(a^{2}+b^{2}+c^{2}) / (다) 1"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "(가) (a-c)^{2}+b^{2} / (나) a^{2}+b^{2}+c^{2} / (다) 2"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "(가) (a+c)^{2}+b^{2} / (나) 2(a^{2}+b^{2}+c^{2}) / (다) 2"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "(가) (a+c)^{2}+b^{2} / (나) a^{2}+b^{2}+c^{2} / (다) 3"}]}
+      ]
+    },
+    {
+      "number": 14,
+      "score": 5.4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "중심이 y=-\\frac{1}{3}x 위에 있고, 두 점 (1,~1), (3,~-1)을 지나는 원의 방정식이 x^{2}+y^{2}+Ax+By+C=0일 때, A+B-C의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "1"}]}
+      ]
+    },
+    {
+      "number": 15,
+      "score": 3.6,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "직선 y=ax+b를 x축의 방향으로 3만큼, y축의 방향으로 -2만큼 평행이동한 직선과 직선 y=-3x+4가 y축 위의 점에서 수직으로 만난다. 이때 상수 a,~b에 대하여 ab의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-\\frac{8}{3}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-\\frac{5}{3}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{4}{3}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{5}{3}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{7}{3}"}]}
+      ]
+    },
+    {
+      "number": 16,
+      "score": 3.8,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "직선 x-2y+3=0을 x축에 대하여 대칭이동시킨 후 다시 원점에 대하여 대칭이동시킨 직선이 원 (x-1)^{2}+(y+2)^{2}=a에 접할 때, 양수 a의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{34}{5}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{36}{5}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{37}{5}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{38}{5}"}]}
+      ]
+    },
+    {
+      "number": 17,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "두 직선 mx+3y-6=0, x+(m-2)y-2=0이 다음 조건을 만족시킬 때, 2a+b-c의 값은? (단, m은 상수)"},
+        {"type": "text", "value": "<상자> (가) m=a일 때, 두 직선은 수직이다. • (나) m=b일 때, 두 직선은 일치한다. • (다) m=c일 때, 두 직선은 만나지 않는다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "9"}]}
+      ]
+    },
+    {
+      "number": 18,
+      "score": 4.0,
+      "type": "단답형",
+      "label": "[단답형 1]",
+      "contents": [
+        {"type": "text", "value": "[단답형 1] 두 원 x^{2}+y^{2}=4, (x-3)^{2}+y^{2}=4의 교점과 두 원의 중심을 이은 사각형의 넓이를 구하시오."}
+      ],
+      "choices": []
+    },
+    {
+      "number": 19,
+      "score": 4.0,
+      "type": "단답형",
+      "label": "[단답형 2]",
+      "contents": [
+        {"type": "text", "value": "[단답형 2] 실수 x에 대한 두 조건"},
+        {"type": "equation", "value": "p : |x-5| > 2"},
+        {"type": "equation", "value": "q : x^{2}-(a+b)x+ab \\leq 0"},
+        {"type": "text", "value": "에 대하여 \\sim p가 q이기 위한 충분조건일 때, a의 최댓값과 b의 최솟값의 차를 구하시오. (단, a<b)"}
+      ],
+      "choices": []
+    },
+    {
+      "number": 20,
+      "score": 5.0,
+      "type": "단답형",
+      "label": "[단답형 3]",
+      "contents": [
+        {"type": "text", "value": "[단답형 3] 다음 <보기>는 집합과 명제에 대한 설명이다. <보기>에서 옳은 것만을 있는 대로 고르시오."},
+        {"type": "text", "value": "<보기> ㄱ. A \\cap B=B일 때, A^{C} \\subset B^{C}이다. • ㄴ. A \\cup B^{C}=\\{x \\mid x \\in A 그리고 x \\notin B\\} • ㄷ. A \\cap B \\neq \\varnothing일 때, n(B)=n(A \\cup B)-n(A)이다. • ㄹ. a>0,~b>0일 때, a+b>2\\sqrt{ab}가 항상 성립한다. • ㅁ. 두 조건 p,~q의 진리집합을 각각 P,~Q라고 할때, 명제 p \\to q가 거짓이면 Q^{C} \\subset P^{C}이다. • ㅂ. 명제 ‘어떤 실수 x에 대하여 x^{2}-3x+a \\leq 0이다.’의 부정이 참일 때, 상수 a의 최솟값은 2.25이다. • ㅅ. 전체집합 U에 대하여 조건 p의 진리집합을 P라고 할 때, 명제 ‘모든 x에 대하여 p이다.’는 P \\neq \\varnothing이면 참이다. • ㅇ. 명제의 결론을 부정하여 가정 또는 이미 알려진 사실에 모순됨을 보여서 그 결론이 성립함을 보여주는 증명 방법을 귀류법이라고 한다."}
+      ],
+      "choices": []
+    },
+    {
+      "number": 21,
+      "score": 5.0,
+      "type": "단답형",
+      "label": "[단답형 4]",
+      "contents": [
+        {"type": "text", "value": "[단답형 4] 두 집합"},
+        {"type": "equation", "value": "A=\\{k-1,~k+1,~k^{2}+1,~k^{3}-6\\}"},
+        {"type": "equation", "value": "B=\\{k-5,~k-4,~k+2,~k+3\\}"},
+        {"type": "text", "value": "에 대하여 A \\cap B=\\{2\\}일 때, 집합 A \\cup B의 모든 원소의 합을 구하시오. (단, k는 실수이다.)"}
+      ],
+      "choices": []
+    },
+    {
+      "number": 22,
+      "score": 6.0,
+      "type": "서술형",
+      "label": "[서술형 1]",
+      "contents": [
+        {"type": "text", "value": "[서술형 1] 두 조건 p,~q의 진리집합을 각각 P,~Q라 할 때, S(p,~q)의 값을 <보기>와 같이 정의하자."},
+        {"type": "text", "value": "<보기> (가) P \\subset Q, Q \\not\\subset P이면 S(p,~q)=1이다. • (나) Q \\subset P, P \\not\\subset Q이면 S(p,~q)=2이다. • (다) P=Q이면 S(p,~q)=3이다. • (라) P \\not\\subset Q, Q \\not\\subset P이면 S(p,~q)=0이다."},
+        {"type": "text", "value": "전체집합 U가 실수 전체의 집합일 때, 실수 x에 대한 다음 세 조건 p,~q,~r이"},
+        {"type": "equation", "value": "p : (x^{2}-\\alpha^{2})(x^{2}-\\beta^{2})(x^{2}-\\gamma^{2})=0"},
+        {"type": "text", "value": "q : x는 5의 양의 약수이다."},
+        {"type": "text", "value": "r : x는 0이 아닌 정수이다."},
+        {"type": "text", "value": "이다. S(r,~p)+S(p,~\\sim r)+S(p,~q) \\times S(q,~r)=2를 만족하는 정수 \\alpha,~\\beta,~\\gamma에 대하여 \\alpha+\\beta+\\gamma의 최솟값을 구하시오. (단, n(P)=5)"}
+      ],
+      "choices": []
+    },
+    {
+      "number": 23,
+      "score": 8.0,
+      "type": "서술형",
+      "label": "[서술형 2]",
+      "contents": [
+        {"type": "text", "value": "[서술형 2] 두 집합"},
+        {"type": "text", "value": "A=\\{a,~b,~c\\} (단, a,~b,~c는 a<b<c인 자연수),"},
+        {"type": "equation", "value": "B=\\{10,~d,~e,~f,~30\\}"},
+        {"type": "text", "value": "(단, d,~e,~f는 10<d<e<f<30인 자연수)"},
+        {"type": "text", "value": "에 대하여 A^{\\bigstar}=\\{x+y \\mid x \\in A, y \\in A\\}로 정의하면 B=A^{\\bigstar}를 만족한다. 집합 A \\cup B를 원소나열법으로 구하는 풀이 과정과 답을 서술하시오."}
+      ],
+      "choices": []
+    },
+    {
+      "number": 24,
+      "score": 12.0,
+      "type": "서술형",
+      "label": "[서술형 3]",
+      "contents": [
+        {"type": "text", "value": "[서술형 3] n이 자연수일 때, 다음 물음에 답하시오. [총 12점]"}
+      ],
+      "choices": [],
+      "sub_questions": [
+        {
+          "number": 1,
+          "score": 6.0,
+          "contents": [
+            {"type": "text", "value": "명제 ‘n^{2}이 3의 배수이면 n도 3의 배수이다.’가 참임을 대우를 이용하여 증명하시오."}
+          ]
+        },
+        {
+          "number": 2,
+          "score": 6.0,
+          "contents": [
+            {"type": "text", "value": "(1)의 명제를 활용하여 명제 ‘\\sqrt{3}은 유리수가 아니다.’가 참임을 귀류법을 이용하여 증명하시오."}
+          ]
+        }
+      ]
+    },
+    {
+      "number": 25,
+      "score": 15.0,
+      "type": "서술형",
+      "label": "[서술형 4]",
+      "contents": [
+        {"type": "text", "value": "[서술형 4] 원 (x+1)^{2}+y^{2}=4를 x축의 방향으로 3만큼, y축의 방향으로 2만큼 평행이동한 원을 C라 하자. 원 C 위를 움직이는 한 점 \\mathrm{E}와 좌표평면 위의 점 \\mathrm{F}는 다음 조건을 만족시킨다."},
+        {"type": "text", "value": "<상자> (가) 원점 \\mathrm{O}에 대하여 직선 \\mathrm{OE}와 직선 \\mathrm{OF}의 기울기는 서로 같다. • (나) \\overline{\\mathrm{OE}}=m, \\overline{\\mathrm{OF}}=n라 하면 점 (m,~n)는 함수 y=\\frac{6}{x}을 지난다. (단, m,~n는 상수)"},
+        {"type": "text", "value": "점 \\mathrm{P}(4,~4)에 대하여 \\overline{\\mathrm{PF}}의 최댓값과 최솟값의 합을 구하는 풀이 과정과 답을 서술하시오."}
+      ],
+      "choices": []
+    }
+  ]
+}

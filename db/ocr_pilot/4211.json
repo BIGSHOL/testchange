@@ -1,0 +1,353 @@
+{
+  "meta": {"exam_id": 4211, "ocr_source": "session-vision"},
+  "header": {"title": "2025년 1학기 중간고사 강동고 1학년 공통수학1 — 다항식의 연산 ~ 연립이차방정식"},
+  "questions": [
+    {
+      "number": 1,
+      "score": 3.4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "$(1+2i)+(2-5i)$의 값은? (단, $i=\\sqrt{-1}$이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "2-3i"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "3-3i"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "1+i"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "2+3i"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "3+3i"}]}
+      ]
+    },
+    {
+      "number": 2,
+      "score": 3.4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "두 다항식 $A=3x^{2}-2x+1$, $B=-x^{2}+x-4$에 대하여 $A-B$를 간단히 한 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "2x^{2}-x-3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2x^{2}-x+5"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "2x^{2}-3x-3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4x^{2}+x+3"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "4x^{2}-3x+5"}]}
+      ]
+    },
+    {
+      "number": 3,
+      "score": 3.4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "다항식 $x^{3}+27$이 $(x+3)(x^{2}+ax+b)$로 인수분해될 때, $a+b$의 값은? (단, $a$, $b$는 상수이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "8"}]}
+      ]
+    },
+    {
+      "number": 4,
+      "score": 3.6,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "$x$에 대한 이차방정식 $x^{2}-8x+a=0$이 중근을 갖도록 하는 상수 $a$의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "13"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "14"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "15"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "16"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "17"}]}
+      ]
+    },
+    {
+      "number": 5,
+      "score": 3.6,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "$-1 \\leq x \\leq 2$에서 이차함수 $y=(x-1)^{2}+4$의 최솟값은 $m$, 최댓값은 $M$일 때, $m+M$의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "11"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "13"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "14"}]}
+      ]
+    },
+    {
+      "number": 6,
+      "score": 3.6,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "이차식 $x^{2}-4x+7$을 복소수 범위에서 인수분해 한 것으로 옳은 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "(x-2-\\sqrt{3}i)(x-2+\\sqrt{3}i)"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "(x+2-\\sqrt{3}i)(x+2+\\sqrt{3}i)"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "(x-2-2\\sqrt{3}i)(x-2+2\\sqrt{3}i)"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "(x-4-2\\sqrt{3}i)(x-4+2\\sqrt{3}i)"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "(x+4-2\\sqrt{3}i)(x+4+2\\sqrt{3}i)"}]}
+      ]
+    },
+    {
+      "number": 7,
+      "score": 3.6,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "다항식 $6x^{3}+2x^{2}-2x-1$을 다항식 $f(x)$로 나누었을 때의 몫이 $3x-2$, 나머지가 $-x+1$일 때, $f(x)$의 일차항의 계수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "6"}]}
+      ]
+    },
+    {
+      "number": 8,
+      "score": 3.8,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "$x=2+\\sqrt{3}$, $y=2-\\sqrt{3}$일 때, $x^{3}-y^{3}$의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "24\\sqrt{3}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "26\\sqrt{3}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "28\\sqrt{3}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "30\\sqrt{3}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "32\\sqrt{3}"}]}
+      ]
+    },
+    {
+      "number": 9,
+      "score": 3.8,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "이차함수 $y=x^{2}-x-1$이 그래프와 직선 $y=3x-k$가 점 $(a,~b)$에서 접할 때, $a+2b$의 값은? (단, $a$, $b$, $k$는 상수이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "6"}]}
+      ]
+    },
+    {
+      "number": 10,
+      "score": 3.8,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "$\\frac{\\sqrt{-20}}{\\sqrt{5}}-\\frac{\\sqrt{150}}{\\sqrt{-6}}+\\sqrt{-3}\\sqrt{-12}=a+bi$일 때, 두 실수 $a$, $b$에 대하여 $a+b$의 값은? (단, $i=\\sqrt{-1}$이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "2"}]}
+      ]
+    },
+    {
+      "number": 11,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "연립방정식"},
+        {"type": "equation", "value": "\\begin{cases} x^{2}-2xy-3y^{2}=0 \\\\ x^{2}+y^{2}=40 \\end{cases}"},
+        {"type": "text", "value": "을 만족시키는 정수 $x$, $y$에 대하여 $x-y$의 최솟값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-4"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "4"}]}
+      ]
+    },
+    {
+      "number": 12,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "방정식 $x^{3}=1$의 한 허근을 $\\omega$라 할 때, <보기>에서 옳은 것만을 있는 대로 고른 것은? (단, $\\overline{\\omega}$는 $\\omega$의 켤레복소수이다.)"},
+        {"type": "text", "value": "<보기> ㄱ. $\\overline{\\omega}=\\omega^{2}$ • ㄴ. $\\frac{1}{1+\\omega}+\\frac{1}{1+\\overline{\\omega}}=1$ • ㄷ. $1+\\omega+\\omega^{2}+\\cdots+\\omega^{50}=1$"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄱ, ㄴ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄱ, ㄷ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄴ, ㄷ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄱ, ㄴ, ㄷ"}]}
+      ]
+    },
+    {
+      "number": 13,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "복소수 $z=(x^{2}+3x+2)+(x^{2}+5x+4)i$에 대하여 $z^{2}$이 음의 실수가 되도록 하는 실수 $x$의 값을 $a$, 그때의 $z$의 값을 $b$라 할 때, $ab$의 값은? (단, $i=\\sqrt{-1}$이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-4i"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-2i"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-i"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "2i"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "4i"}]}
+      ]
+    },
+    {
+      "number": 14,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "최고차항의 계수가 1인 삼차식 $P(x)$에 대하여 $P(1)=-1$, $P(2)=-2$, $P(3)=-3$일 때, $P(x)$를 $x-5$로 나누었을 때 나머지는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "18"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "19"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "20"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "21"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "22"}]}
+      ]
+    },
+    {
+      "number": 15,
+      "score": 4.2,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "$x$에 대한 다항식 $x^{3}+ax^{2}+bx-3$을 $x-1$로 나누었을 때의 몫은 $Q(x)$이고 나머지는 $5$이다. $(x^{2}-x+a)Q(x+2)$가 $x+2$로 나누어 떨어질 때, $Q(-1)$의 값은? (단, $a$, $b$는 상수이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "11"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "13"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "14"}]}
+      ]
+    },
+    {
+      "number": 16,
+      "score": 4.4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 최고차항의 계수가 1인 이차함수 $y=f(x)$의 그래프가 원점 $\\mathrm{O}$를 지나는 직선 $y=g(x)$와 서로 다른 두 점 $\\mathrm{A}$, $\\mathrm{B}$에서 만날 때, $\\overline{\\mathrm{OA}}:\\overline{\\mathrm{OB}}=4:1$이다. $h(x)=f(x)-g(x)$라고 하면 $h(x)$의 최솟값이 $-25$일 때, $1 \\leq x \\leq 4$에서 $y=h(x)$의 최댓값은? (단, 점 $\\mathrm{A}$의 $x$좌표는 양수이고, 점 $\\mathrm{B}$의 $x$좌표는 음수이다.)"},
+        {"type": "figure", "value": "좌표평면(x축·y축)에 아래로 볼록한 포물선 y=f(x)와 원점 O를 지나는 오른쪽 위로 향하는 직선 y=g(x)가 그려져 있다. 포물선의 꼭짓점은 y축 오른쪽 아래(제4사분면)에 있고, 왼쪽 가지 위쪽에 'y=f(x)' 라벨이 붙어 있다. 직선은 왼쪽 아래에서 오른쪽 위로 지나며 왼쪽 아래 끝에 'y=g(x)' 라벨이 있다. 직선과 포물선은 서로 다른 두 점에서 만나는데, 오른쪽 위 제1사분면의 교점이 A(라벨은 교점 오른쪽 위), 원점 왼쪽 아래(제3사분면 부근)의 교점이 B(라벨은 교점 왼쪽 아래)이다. 원점에는 O가 표시되어 있다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-19"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-20"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-21"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "-22"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "-23"}]}
+      ]
+    },
+    {
+      "number": 17,
+      "score": 4.4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "세 실수 $a$, $b$, $c$에 대하여 삼차다항식 $P(x)=x^{3}+ax^{2}+bx+c$가 다음 조건을 만족시킬 때, $a+2b+c$의 값은?"},
+        {"type": "text", "value": "<상자> (가) $x$에 대한 삼차방정식 $P(x)=0$은 한 실근과 서로 다른 두 허근을 갖고, 서로 다른 두 허근의 합은 $4$이다. • (나) $x$에 대한 삼차방정식 $P(2x+1)=0$의 한 근 $0$과 서로 다른 두 허근을 갖고, 서로 다른 두 허근의 곱은 $2$이다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "11"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "13"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "14"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "15"}]}
+      ]
+    },
+    {
+      "number": 18,
+      "score": 5,
+      "type": "서술형",
+      "label": "[서술형 1]",
+      "contents": [
+        {"type": "text", "value": "[서술형 1] 이차방정식 $x^{2}-3x+5=0$의 두 근을 $\\alpha$, $\\beta$라고 할 때, 다음 물음에 답하시오. [총 5점]"}
+      ],
+      "sub_questions": [
+        {
+          "number": 1,
+          "score": 2,
+          "contents": [{"type": "text", "value": "$\\alpha+\\beta$, $\\alpha\\beta$의 값을 각각 구하시오."}]
+        },
+        {
+          "number": 2,
+          "score": 3,
+          "contents": [{"type": "text", "value": "두 수 $\\frac{1}{\\alpha}$, $\\frac{1}{\\beta}$을 근으로 하고 $x^{2}$의 계수가 1인 이차방정식을 구하시오."}]
+        }
+      ]
+    },
+    {
+      "number": 19,
+      "score": 5,
+      "type": "서술형",
+      "label": "[서술형 2]",
+      "contents": [
+        {"type": "text", "value": "[서술형 2] 복소수 $z=\\frac{1-i}{1+i}$에 대하여 $\\frac{1}{z}+\\frac{2}{z^{2}}+\\frac{3}{z^{3}}+\\cdots+\\frac{50}{z^{50}}=a+bi$일 때, 실수 $a$, $b$의 값을 각각 구하고 그 과정을 서술하시오. (단, $i=\\sqrt{-1}$이다.)"}
+      ]
+    },
+    {
+      "number": 20,
+      "score": 6,
+      "type": "서술형",
+      "label": "[서술형 3]",
+      "contents": [
+        {"type": "text", "value": "[서술형 3] 등식 $(x^{2}+x+1)^{4}=a_{0}+a_{1}x+a_{2}x^{2}+\\cdots+a_{8}x^{8}$이 $x$에 대한 항등식일 때, $a_{2}+a_{4}+a_{6}+a_{8}$의 값을 구하고 그 과정을 서술하시오. (단, $a_{0}$, $a_{1}$, $a_{2}$, $\\cdots$, $a_{8}$은 상수이다.)"}
+      ]
+    },
+    {
+      "number": 21,
+      "score": 6,
+      "type": "서술형",
+      "label": "[서술형 4]",
+      "contents": [
+        {"type": "text", "value": "[서술형 4] 다항식 $(x^{2}-4x+3)(x^{2}-6x+8)+a$가 $(x^{2}+bx+c)^{2}$으로 인수분해될 때, 실수 $a$, $b$, $c$의 값을 각각 구하시오."}
+      ]
+    },
+    {
+      "number": 22,
+      "score": 6,
+      "type": "서술형",
+      "label": "[서술형 5]",
+      "contents": [
+        {"type": "text", "value": "[서술형 5] 두 연립방정식"},
+        {"type": "equation", "value": "\\begin{cases} 3x^{2}+y^{2}=76 \\\\ 2x-y=a \\end{cases} ,\\quad \\begin{cases} 4x^{2}-y^{2}=b \\\\ x-y=4 \\end{cases}"},
+        {"type": "text", "value": "의 해가 같을 때, 실수 $a$, $b$의 값을 각각 구하고 그 과정을 서술하시오. (단, $x>0$이다.)"}
+      ]
+    },
+    {
+      "number": 23,
+      "score": 7,
+      "type": "서술형",
+      "label": "[서술형 6]",
+      "contents": [
+        {"type": "text", "value": "[서술형 6] 다음은 상품 $\\mathrm{A}$의 생산과 판매를 위한 조건이다."},
+        {"type": "text", "value": "<상자> (가) 상품 $\\mathrm{A}$의 총판매 수량이 $x(0 \\leq x \\leq 500)$개일 때, 판매단가는 $(90-0.1x)$만원이 적절하다. • (나) 상품 $\\mathrm{A}$를 생산하기 위한 설비 투자 비용은 $3000$만원이다. • (다) 상품 $\\mathrm{A}$를 1개 생산하는 데 필요한 비용은 $a$만원이다. • (라) 상품을 판매할 때, 총이익은 총수입에서 총비용을 뺀 것이다."},
+        {"type": "text", "value": "이때, 총이익의 최댓값이 $6000$만 원이 되도록 하는 $a$의 값을 구하고 그 과정을 서술하시오. (단, $0 \\leq a \\leq 40$, 비용의 단위는 풀이과정에서 생략가능하다.)"}
+      ]
+    }
+  ]
+}

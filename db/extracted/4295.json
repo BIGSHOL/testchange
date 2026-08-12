@@ -1,0 +1,442 @@
+{
+ "source": "_달서고__1__공수2__25-2-중간대비__신사고___완료_.hwpx",
+ "question_count": 25,
+ "questions": [
+  {
+   "number": 1,
+   "answer": "②",
+   "solution": null,
+   "topic": "집합의 연산법칙",
+   "difficulty": "하",
+   "score": 2.5,
+   "label": null,
+   "type": "객관식",
+   "stem": "전체집합 $U$의 공집합이 아닌 두 부분집합 $A,~B$에 대하여 $A SUBSET B$일 때, 다음 중에서 옳지 않은 것은?",
+   "choices": [
+    "$A CUP B=B$",
+    "$(A SMALLINTER B) ^{C} =B `^{C}$",
+    "$B ^{C} SUBSET A ^{C}$",
+    "$B ^{C} -A ^{C} = EMPTYSET$",
+    "$A ^{C} CUP B=U$"
+   ]
+  },
+  {
+   "number": 2,
+   "answer": "④",
+   "solution": null,
+   "topic": "직선의 방정식",
+   "difficulty": "하",
+   "score": 2.5,
+   "label": null,
+   "type": "객관식",
+   "stem": "두 점 $rm `A LEFT ( 4,~-5 RIGHT ) ,~B LEFT ( -1,~5 RIGHT )$를 지나는 직선의 방정식은?",
+   "choices": [
+    "$y=-x+3$",
+    "$y=2x-3$",
+    "$y=-2x-3$",
+    "$y=-2x+3$",
+    "$y=2x+3$"
+   ]
+  },
+  {
+   "number": 3,
+   "answer": "⑤",
+   "solution": null,
+   "topic": "점과 직선 사이의 거리",
+   "difficulty": "중",
+   "score": 2.5,
+   "label": null,
+   "type": "객관식",
+   "stem": "두 점 $rm `A LEFT ( 3,~2 RIGHT ) ,~B LEFT ( -1,~6 RIGHT )$와 $x$축 위의 점 $rmP$에 대하여 $rm {bar{AP}} ^{2} ~+~ {bar{BP}} ^{2}$의 최솟값은?",
+   "choices": [
+    "$35$",
+    "$38$",
+    "$40$",
+    "$44$",
+    "$48$"
+   ]
+  },
+  {
+   "number": 4,
+   "answer": "③",
+   "solution": null,
+   "topic": "두직선의 위치 관계",
+   "difficulty": "중",
+   "score": 2.5,
+   "label": null,
+   "type": "객관식",
+   "stem": "세 직선 $x+y-3=0,~x-y-3=0,~mx+y+1=0$이 삼각형을 이루지 않도록 하는 상수 $m$의 모든 값들의 합은?",
+   "choices": [
+    "$- {4} over {3}$",
+    "$- {2} over {3}$",
+    "$- {1} over {3}$",
+    "${1} over {3}$",
+    "${2} over {3}$"
+   ]
+  },
+  {
+   "number": 5,
+   "answer": "①",
+   "solution": null,
+   "topic": "원과 직선의 위치 관계",
+   "difficulty": "중",
+   "score": 3.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "점 $LEFT ( 4,~k RIGHT )$에서 거리가 $2 sqrt {5}$인 점들이 나타내는 도형을 $C$라 하자 도형 $C$가 다음 조건을 만족시키도록 하는 정수 $k$의 최댓값은? \n(가) 도형 $C$는 직선 $2x+y-2=0$과 만난다.\n(나) 도형 $C$는 직선 $x-2y-4=0$과 만나지 않는다.\n대구광역시 내신 수학 연구회",
+   "choices": [
+    "$-6$",
+    "$-5$",
+    "$-4$",
+    "$5$",
+    "$6$"
+   ]
+  },
+  {
+   "number": 6,
+   "answer": "③",
+   "solution": null,
+   "topic": "집합의 뜻과 표현",
+   "difficulty": "하",
+   "score": 2.5,
+   "label": null,
+   "type": "객관식",
+   "stem": "다음 집합 중 원소의 개수가 유한개인 집합은?",
+   "choices": [
+    "$LEFT { x` vert ` x$는 소수$itright}$",
+    "$LEFT { x` vert ` x$는 $3$의 배수$itright}$",
+    "$LEFT { 2,~5,~8,~11,~14 RIGHT }$",
+    "$LEFT { x` vert ` 0<x<1$인 실수$itright}$",
+    "$LEFT { x` vert ` x$는 $10$보다 큰 짝수$itright}$"
+   ]
+  },
+  {
+   "number": 7,
+   "answer": "①",
+   "solution": null,
+   "topic": "대칭이동",
+   "difficulty": "하",
+   "score": 2.5,
+   "label": null,
+   "type": "객관식",
+   "stem": "점 $(1,~2)$를 $x$축에 대하여 대칭이동한 점을 $rmP$, $y$축에 대하여 대칭이동한 점을 $rmQ$라고 할 때, 선분 $rmPQ$의 길이는?",
+   "choices": [
+    "$2 sqrt {5}$",
+    "$2 sqrt {7}$",
+    "$3 sqrt {5}$",
+    "$3 sqrt {7}$",
+    "$4 sqrt {5}$"
+   ]
+  },
+  {
+   "number": 8,
+   "answer": "③",
+   "solution": null,
+   "topic": "집합의 연산",
+   "difficulty": "하",
+   "score": 3.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "다음 두 집합 $A= LEFT { x` vert ` x$는 $12$의 약수$itright}$, $B= LEFT { x` vert ` x=2n,~n$은 자연수$itright}$에 대하여 $A-B$ 집합의 모든 원소의 합은?",
+   "choices": [
+    "$2$",
+    "$3$",
+    "$4$",
+    "$7$",
+    "$9$"
+   ]
+  },
+  {
+   "number": 9,
+   "answer": "③",
+   "solution": null,
+   "topic": "명제와 조건",
+   "difficulty": "하",
+   "score": 3.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "다음 문장 또는 식 중 참인 명제인 것은?",
+   "choices": [
+    "$10$은 홀수이다.",
+    "$sqrt {2} + sqrt {3} = sqrt {5}$",
+    "$sqrt {125}$는 무리수이다.",
+    "$8$의 약수는 $4$의 약수이다.",
+    "이등변삼각형의 세 내각의 크기는 모두 같다."
+   ]
+  },
+  {
+   "number": 10,
+   "answer": "④",
+   "solution": null,
+   "topic": "집합의 연산법칙",
+   "difficulty": "하",
+   "score": 3.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "전체집합 $U= LEFT { 1,~2,~4,~8,~16,~32 RIGHT }$의 두 부분집합 $A,~B`$에 대하여 $A SMALLINTER B `^{C} = LEFT { 1,~4 RIGHT }$, $B-A= LEFT { 32 RIGHT }$, $(A CUP B) ^{C} = LEFT { 2 RIGHT }$일 때, 집합 $A$로 옳은 것은?",
+   "choices": [
+    "$LEFT { 8,~16 RIGHT }$",
+    "$LEFT { 1,~4,~16 RIGHT }$",
+    "$LEFT { 8,~16,~32 RIGHT }$",
+    "$LEFT { 1,~4,~8,~16 RIGHT }$",
+    "$LEFT { 1,~4,~8,~16,~32 RIGHT }$"
+   ]
+  },
+  {
+   "number": 11,
+   "answer": "④",
+   "solution": null,
+   "topic": "명제의 참, 거짓",
+   "difficulty": "중",
+   "score": 3.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "전체집합 $U$에 대하여 두 조건 $p,~q$의 진리집합을 각각 $P,~Q$라고 하자. 명제 $p`` rarrow`` SIM q$가 참일 때, 다음 중에서 항상 옳은 것은?",
+   "choices": [
+    "$P-Q= EMPTYSET$",
+    "$P CUP Q=P$",
+    "$P CUP Q `^{C} =P$",
+    "$P SMALLINTER Q= EMPTYSET$",
+    "$Q-P= EMPTYSET$"
+   ]
+  },
+  {
+   "number": 12,
+   "answer": "①",
+   "solution": null,
+   "topic": "평행이동",
+   "difficulty": "중",
+   "score": 4.1,
+   "label": null,
+   "type": "객관식",
+   "stem": "직선 $2x+3y+1=0$과 이 직선을 $x$축의 방향으로 $1$만큼, $y$축의 방향으로 $a$만큼 평행이동한 직선 사이의 거리가 $sqrt {13}$일 때, 음수 $a$의 값은?",
+   "choices": [
+    "$-5$",
+    "$- {11} over {3}$",
+    "$-3$",
+    "$- {5} over {2}$",
+    "$-1$"
+   ]
+  },
+  {
+   "number": 13,
+   "answer": "⑤",
+   "solution": null,
+   "topic": "유한집합의 원소의 개수",
+   "difficulty": "중",
+   "score": 3.5,
+   "label": null,
+   "type": "객관식",
+   "stem": "$1$반 $24$명의 학생에게 세 개의 수학 문제 $A$, $B$, $C$를 풀게 하였더니 $A$문제만 맞힌 학생은 $6$명, $B$문제만 맞힌 학생은 $5$명이었고, $C$문제를 맞힌 학생은 $8$명이었다. $A$문제와 $B$문제는 맞히고 $C$문제는 틀린 학생은 몇 명인가? (단, 세 문제를 모두 틀린 학생은 없다.)",
+   "choices": [
+    "$1$명",
+    "$2$명",
+    "$3$명",
+    "$4$명",
+    "$5$명"
+   ]
+  },
+  {
+   "number": 14,
+   "answer": "④",
+   "solution": null,
+   "topic": "충분조건과 필요조건",
+   "difficulty": "중",
+   "score": 3.5,
+   "label": null,
+   "type": "객관식",
+   "stem": "실수 전체의 집합에서 세 조건 $‘p`:`-1<x LEQ 5$ 또는 $x>7’,~‘q:x>a’,~‘r:x>b’$에 대하여 $q$는 $p$이기 위한 필요조건이고, $r$은 $p$이기 위한 충분조건이다. 이때, $b-a$의 최솟값은? (단, $a,~b$는 실수이다.)",
+   "choices": [
+    "$5$",
+    "$6$",
+    "$7$",
+    "$8$",
+    "$9$"
+   ]
+  },
+  {
+   "number": 15,
+   "answer": "②",
+   "solution": null,
+   "topic": "충분조건과 필요조건",
+   "difficulty": "중",
+   "score": 3.5,
+   "label": null,
+   "type": "객관식",
+   "stem": "<보기> 중 두 조건 $p,~q$에 대하여 $p$는 $q$이기 위한 필요충분조건인 것은 모두 몇 개인가? \n<보기>\nㄱ. $p`:`x ^{2} =x$ $q:x=0$ 또는 $x=1$\nㄴ. $p`:`xy=0$ $q:x=0$ 또는 $y=0$\nㄷ. $p`:`x=2$ 이고 $y=3$ $q`:`xy=6$\nㄹ. $p`: `left| x+y right| = left| x right| + left| y right|$ $q`:`xy>0$\nㅁ. $` rm TRIANGLE ABC$에서 $p`:`rm {bar{AB}} = {bar{AC}}$ $q`:` rm ANGLE A= ANGLE C$\n대구광역시 내신 수학 연구회",
+   "choices": [
+    "$1$개",
+    "$2$개",
+    "$3$개",
+    "$4$개",
+    "$5$개"
+   ]
+  },
+  {
+   "number": 16,
+   "answer": "④",
+   "solution": null,
+   "topic": "절대부등식",
+   "difficulty": "중",
+   "score": 3.5,
+   "label": null,
+   "type": "객관식",
+   "stem": "$x>1$일 때, $4x+ {4} over {x-1}$은 $x=a$에서 최솟값 $b$를 갖는다. 이때, 상수 $a,~b$에 대하여 $a TIMES b$의 값은?",
+   "choices": [
+    "$16$",
+    "$18$",
+    "$22$",
+    "$24$",
+    "$26$"
+   ]
+  },
+  {
+   "number": 17,
+   "answer": "③",
+   "solution": null,
+   "topic": "대칭이동",
+   "difficulty": "중",
+   "score": 3.5,
+   "label": null,
+   "type": "객관식",
+   "stem": "점 $rmA(3,~5)$와 $y$축 위의 점 $rmB$, 직선 $y=x$위의 점 $rmC$를 꼭짓점으로 하는 삼각형 $rmABC$ 둘레의 길이의 최솟값은?",
+   "choices": [
+    "$2 sqrt {13}$",
+    "$2 sqrt {15}$",
+    "$2 sqrt {17}$",
+    "$2 sqrt {19}$",
+    "$2 sqrt {21}$"
+   ]
+  },
+  {
+   "number": 18,
+   "answer": "②",
+   "solution": null,
+   "topic": "집합 사이의 포함관계",
+   "difficulty": "중",
+   "score": 4.4,
+   "label": null,
+   "type": "객관식",
+   "stem": "집합 $A= LEFT { {1} over {2} ,~ {1} over {4} ,~ {1} over {8} ,~ {1} over {16} ,~ {1} over {32} RIGHT }$의 공집합이 아닌 서로 다른 부분집합을 각각 $A _{1} ,~A _{2} ,~A _{3} ,~ CDOTS ,~A _{31}$이라 하자. 집합 $A _{1} ,~A _{2} ,~A _{3} ,~ CDOTS ,~A _{31}$에서 최소인 원소를 뽑아 이들을 모두 더한 값을 $m$, 최대인 원소를 뽑아 이들을 모두 더한 값을 $M$이라 할 때, $32(M+m)$의 값은?",
+   "choices": [
+    "$501$",
+    "$421$",
+    "$346$",
+    "$341$",
+    "$335$"
+   ]
+  },
+  {
+   "number": 19,
+   "answer": "⑤",
+   "solution": null,
+   "topic": "평행이동",
+   "difficulty": "중",
+   "score": 4.5,
+   "label": null,
+   "type": "객관식",
+   "stem": "세 점 $(-6,~7),~(-4,~4),~(-4,~7)$을 꼭짓점으로 하는 삼각형을 나타내는 도형의 방정식을 $f(x,~y)=0$이라 하자. $f(y-7,~x+2)=0$이 나타내는 도형 위의 점 $rm P`it(a,~b)$에 대하여 ${5(b+3)} over {a}$의 값이 정수가 되도록 하는 점 $rm P`it(a,~b)$의 개수는?",
+   "choices": [
+    "$12$",
+    "$15$",
+    "$17$",
+    "$20$",
+    "$22$"
+   ]
+  },
+  {
+   "number": 20,
+   "answer": "④",
+   "solution": null,
+   "topic": "직선의 방정식",
+   "difficulty": "상",
+   "score": 4.5,
+   "label": null,
+   "type": "객관식",
+   "stem": "좌표평면 위의 네 점 \n$rm A LEFT ( -2,~0 RIGHT ) ,~B LEFT ( -2,~-2 RIGHT ) ,~C LEFT ( 0,~-2 RIGHT ) ,~D LEFT ( it`a,~a RIGHT )$를 꼭짓점으로 하는 사각형 $rmABCD$가 있다. $y$축이 사각형 $rmABCD$의 넓이를 이등분할 때, 양수 $a$의 값은?",
+   "choices": [
+    "${3+ sqrt {3}} over {2}$",
+    "${3+ sqrt {5}} over {2}$",
+    "$2+ sqrt {3}$",
+    "$1+ sqrt {5}$",
+    "$4$"
+   ]
+  },
+  {
+   "number": 21,
+   "answer": "①",
+   "solution": null,
+   "topic": "원의 접선의 방정식",
+   "difficulty": "상",
+   "score": 5.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "원 $x ^{2} +y ^{2} =1$위의 점 $rmP$에 대하여 직선 $rmOP$가 $x$축의 양의 방향과 이루는 각의 크기가 $45`°$일 때, 점 $rmP$에서의 접선이 $x$축,$y$축과 만나는 두 점을 각각 $rmA,~B$라 하자. 선분 $rmAB$ 위를 움직이는 임의의 점 $rm Q LEFT ( it`a,~b RIGHT )$에 대하여 $a ^{2} +b ^{2} +2a+1$의 최댓값을 $M$, 최솟값을 $m$이라 할 때, $2Mm$의 값은? (단, $rm`O$는 원점이다.)",
+   "choices": [
+    "$17+12 sqrt {2}$",
+    "$17+13 sqrt {3}$",
+    "$12+17 sqrt {2}$",
+    "$13+17 sqrt {3}$",
+    "$12+13 sqrt {2}$"
+   ]
+  },
+  {
+   "number": 22,
+   "answer": null,
+   "solution": "풀이참조[$1$단계] $A= LEFT { 3,~5,~7 RIGHT } ,~B= LEFT { 1,~3,~7,~21 RIGHT }$이므로$A CUP  B= LEFT { 1,~3,~5,~7,~21 RIGHT } ,~A SMALLINTER  B= LEFT { 3,~7 RIGHT }$[$2$단계] $(A CUP  B)-(A SMALLINTER  B)= LEFT { 1,~5,~21 RIGHT }$이다.",
+   "topic": "집합의 연산",
+   "difficulty": "하",
+   "score": 6.0,
+   "label": "[서술형 $1$]",
+   "type": "서술형",
+   "stem": "[서술형 $1$] 다음 두 집합 $A,~B`$에 대하여 $(A CUP B)-(A SMALLINTER B)$를 구하는 과정을 다음 단계에 따라 서술하시오.\n$A= LEFT { 3,~5,~7 RIGHT }$, $~B= LEFT { x` vert ` x$는 $21$의 약수$itright}$\n대구광역시 내신 수학 연구회\n  \n  \n[$1$단계] $A CUP B$와 $A SMALLINTER B$를 구하시오.\n[$2$단계] $(A CUP B)-(A SMALLINTER B)$를 구하시오.",
+   "choices": []
+  },
+  {
+   "number": 23,
+   "answer": null,
+   "solution": "$rm R LEFT ( 13 over 3 ,~ 7 over 3 RIGHT )$[$1$단계] 점 $rmQ$의 좌표를 $(a,~b)$라고 하자.(ⅰ) 중점 조건점 $rmP$와 점 $rmQ$를 이은 선분 $rm PQ$의 중점 $LEFT ( {a+7} over {2} ,~ {b-3} over {2} RIGHT )$은 직선 $x-2y-3=0$ 위의 점이므로 ${a+7} over {2} -2 TIMES  LEFT ( {b-3} over {2} RIGHT ) -3=0$  $THEREFORE  ~a-2b=it-7$(ⅱ) 수직 조건두 점 $rmP,~Q$를 지나는 직선이 직선 $x-2y-3=0$과 수직이므로 ${b-(-3)} over {a-7} TIMES  {1} over {2} =-1$ $THEREFORE  ~2a+b=11$ (ⅰ), (ⅱ)를 연립하면 $a=3,~b=5$이다. 따라서 점 $rmQ$의 좌표는 $(3,~5)$이다.[$2$단계] 선분 $rmPQ$를 $2:1$로 내분하는 점 $rmR$은 $LEFT ( {2 TIMES  3+7 TIMES  1} over {2+1} ,~ {2 TIMES  5+1 TIMES  (-3)} over {2+1} RIGHT ) = LEFT ( {13} over {3} ,~ {7} over {3} RIGHT )$이다.",
+   "topic": "점과 직선에 대한 대칭이동",
+   "difficulty": "중",
+   "score": 9.0,
+   "label": "[서술형 $2$]",
+   "type": "서술형",
+   "stem": "[서술형 $2$] 점 $rmP(7,~-3)$를 직선 $x-2y-3=0$에 대하여 대칭이동한 점을 $rmQ$라 할 때, 선분 $rmPQ$를 $2`:`1$로 내분하는 점 $rmR$의 좌표를 다음 단계에 따라 서술하시오.\n\n  \n  \n[$1$단계] 점 $rmQ$의 좌표를 구하시오.\n[$2$단계] 점 $rmR$의 좌표를 구하시오.",
+   "choices": []
+  },
+  {
+   "number": 24,
+   "answer": null,
+   "solution": "풀이 참조명제 ‘$a,~b,~c$가 자연수일 때, $a ^{2} +b ^{2} =c ^{2}$이면 $a,~b,~c$ 중 적어도 하나는 짝수이다.’의 대우는 ‘$a,~b,~c$가 자연수일 때, $a,~b,~c$가 모두 홀수이면  $a ^{2} +b ^{2} != c ^{2}$이다.$a,~b,~c$가 모두 홀수이므로$a=2p-1,~b=2q-1,~c=2r-1$($p,~q,~r$은 자연수)라 하자.$a ^{2} +b ^{2}$$=(2p-1) ^{2} +(2q-1) ^{2}$ $=4p ^{2} -4p+1+4q ^{2} -4q+1$$=2(2p ^{2} +2q ^{2} -2p-2q+1)$이므로 짝수이고,$c ^{2} =(2r-1) ^{2} =4r ^{2} -4r+1 =2(2r^2 -2r) +1$이므로 홀수이다.따라서 $a ^{2} +b ^{2} != c ^{2}$이다.즉, 주어진 명제의 대우가 참이므로 주어진 명제는 참이다.",
+   "topic": "명제 : 명제의 증명",
+   "difficulty": "중",
+   "score": 6.0,
+   "label": "[서술형 $3$]",
+   "type": "서술형",
+   "stem": "[서술형 $3$] 명제 ‘$a,~b,~c$가 자연수일 때, $a ^{2} +b ^{2} =c ^{2}$이면 $a,~b,~c$ 중 적어도 하나는 짝수이다.’가 참임을 대우를 이용하여 증명하는 과정을 서술하시오.",
+   "choices": []
+  },
+  {
+   "number": 25,
+   "answer": null,
+   "solution": "⑴ $4$개  ⑵ $(8 + 4 root 7 ) pi$ⅰ) $x^2 -3x -3 =x$일 때 만나는 점 $2$개 ⅰ) ${cases{y=x ^{2} -3x-3#y=x}}$의 해를 찾으면$x^2 -3x -3 =x$$x^2 -4x -3 = 0$$x = 2 +- root7$이므로 $r_1 = 2 + root7$, $r_2 =root7 -2$원주는 ${cases{2 pi  TIMES  LEFT ( 2+ sqrt {7} RIGHT ) =(4+2 sqrt {7} ) pi #2 pi  TIMES  LEFT ( sqrt {7} -2 RIGHT ) =(2 sqrt {7} -4) pi }}$ ⅱ) $x^2 -3x -3 =-x$일 때 만나는 점 $2$개$x^2 -3x -3 =-x$$x^2 - 2x -3 = 0$$x = 3$ 또는 $x =-1$이므로 $r_3 = 3$, $r_4 = 1`$원주는 $cases{ 2pi times3 =6 pi #  2pi times1 =2pi$ 모든 원들의 둘레의 합 : $(4 + 2 root7 ) pi  + (2 root7 - 4 ) pi + 6pi + 2pi = (8 + 4 root 7 ) pi$",
+   "topic": "원과 직선의 위치관계",
+   "difficulty": "중",
+   "score": 4.0,
+   "label": "[서술형 $4$]",
+   "type": "서술형",
+   "stem": "[서술형 $4$] 중심이 곡선 $y= x^2 -3x -3$위에 있고 $x$축과 $y$축에 동시에 접하는 원에 대하여 다음 물음에 대한 답을 구하는 과정을 서술하시오. \n⑴ 동시에 접하는 원의 개수를 구하시오. \n⑵ 동시에 접하는 원들의 둘레의 합을 구하시오. \n  \n  \n정답\n워드:황수영t\n오검:최재영t \n완료:박정용t",
+   "choices": []
+  }
+ ],
+ "meta": {
+  "exam_id": 4295,
+  "school": "달서고",
+  "grade": 1,
+  "subject": "공수2",
+  "year": 2025,
+  "semester": 2,
+  "round": "중간",
+  "src": "N:\\개인\\기출\\2024 기출모음\\2024년 2학기 중간 고사 모음\\#워드\\고1\\[달서고][1][공수2][25-2-중간대비][신사고] (완료).hwp"
+ }
+}

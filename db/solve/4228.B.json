@@ -1,0 +1,146 @@
+{
+ "exam_id": 4228,
+ "pass": "B",
+ "items": [
+  {
+   "number": 1,
+   "answer": "①",
+   "solution": "step1) 내림차순은 차수가 높은 항부터 쓰는 정리이다.\nstep2) 주어진 다항식의 항은 $5x^{2}$(2차), $7x$(1차), $4$(상수)이다.\nstep3) 차수 순으로 나열하면 $5x^{2}+7x+4$ 이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 2,
+   "answer": "③",
+   "solution": "step1) $A-B=(x^{2}+9x+6)-(x^{2}+5x+3)$ 이다.\nstep2) 동류항끼리 계산하면 $x^{2}-x^{2}=0$, $9x-5x=4x$, $6-3=3$ 이다.\nstep3) 따라서 $A-B=4x+3$ 이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 3,
+   "answer": "⑤",
+   "solution": "step1) $(x+3)(x^{2}+4x+2)$ 에서 $x$항이 나오는 곱은 $x\\times 2$ 와 $3\\times 4x$ 이다.\nstep2) $x\\times 2=2x$, $3\\times 4x=12x$ 이다.\nstep3) 두 항을 더하면 $2x+12x=14x$ 이므로 $x$의 계수는 $14$ 이다.",
+   "confidence": "high",
+   "note": "전개식 전체는 $x^{3}+7x^{2}+14x+6$ 이다."
+  },
+  {
+   "number": 4,
+   "answer": "②",
+   "solution": "step1) 항등식이므로 양변의 동차항 계수가 각각 같다.\nstep2) $x^{2}$의 계수에서 $1=b$ 이므로 $b=1$ 이다.\nstep3) $x$의 계수에서 $a-2=4$ 이므로 $a=6$ 이다.\nstep4) 상수항에서 $5=c$ 이므로 $c=5$ 이다.\nstep5) 따라서 $a+b+c=6+1+5=12$ 이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 5,
+   "answer": "③",
+   "solution": "step1) 나머지정리에 의해 $x-3$으로 나눈 나머지는 $P(3)$ 이다.\nstep2) $P(3)=3^{3}-2\\times 3^{2}-3\\times 3+1$ 이다.\nstep3) $=27-18-9+1=1$ 이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 6,
+   "answer": "④",
+   "solution": "step1) 곱이 $35$, 합이 $12$인 두 수를 찾는다.\nstep2) $5\\times 7=35$, $5+7=12$ 이다.\nstep3) 따라서 $x^{2}+12x+35=(x+5)(x+7)$ 이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 7,
+   "answer": "⑤",
+   "solution": "step1) 복소수 $a+bi$ 에서 실수부분은 $a$, 허수부분은 $b$ 이다.\nstep2) $-3+2i$ 는 $a=-3$, $b=2$ 이다.\nstep3) 따라서 $k=2$ 이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 8,
+   "answer": "④",
+   "solution": "step1) 복소수가 서로 같을 조건에서 실수부분끼리, 허수부분끼리 같다.\nstep2) $x+3=4$ 이므로 $x=1$ 이다.\nstep3) $y-1=2$ 이므로 $y=3$ 이다.\nstep4) 따라서 $x+y=1+3=4$ 이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 9,
+   "answer": "①",
+   "solution": "step1) 켤레복소수는 허수부분의 부호만 바꾼 것이다.\nstep2) $-1+3i$ 의 켤레복소수는 $-1-3i$ 이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 10,
+   "answer": "③",
+   "solution": "step1) 실수부분끼리 더하면 $2+4=6$ 이다.\nstep2) 허수부분끼리 더하면 $1+(-3)=-2$ 이다.\nstep3) 따라서 $(2+i)+(4-3i)=6-2i$ 이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 11,
+   "answer": "④",
+   "solution": "step1) $i=i$, $i^{2}=-1$, $i^{3}=-i$, $i^{4}=1$ 이므로 연속한 네 항의 합은 $i-1-i+1=0$ 이다.\nstep2) $i^{5}+i^{6}+i^{7}+i^{8}$ 도 같은 값이 반복되므로 합은 $0$ 이다.\nstep3) 따라서 전체 합은 $0+0=0$ 이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 12,
+   "answer": "③",
+   "solution": "step1) 근의 공식에서 $x=\\frac{-1\\pm\\sqrt{1^{2}-4\\times 2\\times(-4)}}{2\\times 2}$ 이다.\nstep2) 판별식은 $1+32=33$ 이다.\nstep3) 따라서 $x=\\frac{-1\\pm\\sqrt{33}}{4}$ 이므로 $k=33$ 이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 13,
+   "answer": "④",
+   "solution": "step1) 근과 계수의 관계에서 $\\alpha\\beta=\\frac{c}{a}$ 이다.\nstep2) $x^{2}+5x+4=0$ 에서 $a=1$, $c=4$ 이다.\nstep3) 따라서 $\\alpha\\beta=4$ 이다.",
+   "confidence": "high",
+   "note": "실제 근은 $-1,\\ -4$ 이고 곱이 $4$ 로 일치한다."
+  },
+  {
+   "number": 14,
+   "answer": "②",
+   "solution": "step1) $(1+2i)(3+i)=3+i+6i+2i^{2}$ 이다.\nstep2) $i^{2}=-1$ 이므로 $=3+7i-2=1+7i$ 이다.\nstep3) 따라서 $a=1$, $b=7$ 이므로 $a-b=1-7=-6$ 이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 15,
+   "answer": "⑤",
+   "solution": "step1) 중근을 가지려면 판별식이 $0$ 이어야 한다.\nstep2) $\\frac{D}{4}=(-3)^{2}-(k+2)=9-k-2=7-k$ 이다.\nstep3) $7-k=0$ 이므로 $k=7$ 이다.",
+   "confidence": "high",
+   "note": "$k=7$ 이면 $x^{2}-6x+9=(x-3)^{2}=0$ 으로 중근 $x=3$ 이다."
+  },
+  {
+   "number": 16,
+   "answer": "①",
+   "solution": "step1) 조립제법에서 1행은 피제식 $2x^{3}-3x^{2}+x+1$ 의 계수 $2,\\ -3,\\ 1,\\ 1$ 이므로 $a=-3$, $b=1$ 이다.\nstep2) 맨 왼쪽 계수 $2$ 를 그대로 내려쓰므로 $d=2$ 이다.\nstep3) $2\\times 2=4$ 를 더하면 $-3+4=1$ 이고, $1\\times 2=2$ 이므로 $c=2$ 이다.\nstep4) $1+2=3$, $3\\times 2=6$, $1+6=7$ 이므로 나머지 $e=7$ 이다.\nstep5) 따라서 $a+b+c+d+e=(-3)+1+2+2+7=9$ 이다.",
+   "confidence": "high",
+   "note": "몫은 $2x^{2}+x+3$, 나머지는 $7$ 이다."
+  },
+  {
+   "number": 17,
+   "answer": "②",
+   "solution": "step1) $x^{3}+8=x^{3}+2^{3}=(x+2)(x^{2}-2x+4)$ 이므로 $a=2$ 이다.\nstep2) $x^{2}-9=(x+3)(x-3)$ 이므로 $b=3$ 이다.\nstep3) 따라서 $a-b=2-3=-1$ 이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 18,
+   "answer": "①",
+   "solution": "step1) $\\sqrt{-4}\\sqrt{-9}=2i\\times 3i=6i^{2}=-6$ 이다.\nstep2) $\\frac{\\sqrt{8}}{\\sqrt{-2}}=\\frac{2\\sqrt{2}}{\\sqrt{2}i}=\\frac{2}{i}=\\frac{2i}{i^{2}}=-2i$ 이다.\nstep3) 따라서 두 값을 더하면 $-6-2i$ 이다.",
+   "confidence": "high",
+   "note": "분자가 양수, 분모가 음수이므로 $\\frac{\\sqrt{a}}{\\sqrt{b}}=-\\sqrt{\\frac{a}{b}}$ 규칙과도 일치한다($-\\sqrt{-4}=-2i$)."
+  },
+  {
+   "number": 19,
+   "answer": "②",
+   "solution": "step1) $z=a+bi$ ($a,b$는 실수, 실수가 아니므로 $b\\neq 0$)라 하면 $z^{2}=a^{2}-b^{2}+2abi$, $2\\overline{z}=2a-2bi$ 이다.\nstep2) 합의 허수부분에서 $2ab-2b=2b(a-1)=0$ 이고 $b\\neq 0$ 이므로 $a=1$ 이다.\nstep3) 합의 실수부분에서 $a^{2}-b^{2}+2a=0$ 에 $a=1$ 을 대입하면 $1-b^{2}+2=0$ 이므로 $b^{2}=3$ 이다.\nstep4) 따라서 $z\\overline{z}=a^{2}+b^{2}=1+3=4$ 이다.",
+   "confidence": "high",
+   "note": "$z=1\\pm\\sqrt{3}i$ 를 대입하면 $z^{2}+2\\overline{z}=0$ 이 성립함을 확인했다."
+  },
+  {
+   "number": 20,
+   "answer": "③",
+   "solution": "step1) 근과 계수의 관계에서 $\\alpha+\\beta=3$, $\\alpha\\beta=k$ 이다.\nstep2) $\\alpha^{3}+\\beta^{3}=(\\alpha+\\beta)^{3}-3\\alpha\\beta(\\alpha+\\beta)=27-9k$ 이다.\nstep3) $27-9k=63$ 이므로 $-9k=36$, 즉 $k=-4$ 이다.\nstep4) 이때 판별식은 $9-4k=9+16=25>0$ 이므로 서로 다른 두 근을 갖는 조건을 만족한다.",
+   "confidence": "high",
+   "note": "근은 $-1,\\ 4$ 이고 $(-1)^{3}+4^{3}=63$ 으로 검산된다."
+  }
+ ]
+}

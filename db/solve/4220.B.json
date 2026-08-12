@@ -1,0 +1,146 @@
+{
+ "exam_id": 4220,
+ "pass": "B",
+ "items": [
+  {
+   "number": 1,
+   "answer": "②",
+   "solution": "step1) $|x+2|<3 \\Leftrightarrow -3<x+2<3$\nstep2) 각 변에서 $2$를 빼면 $-5<x<1$\nstep3) 이 범위의 정수는 $-4,\\ -3,\\ -2,\\ -1,\\ 0$의 5개이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 2,
+   "answer": "③",
+   "solution": "step1) $2x-2>x-3$에서 $x>-1$\nstep2) $3x-2\\leq 4$에서 $3x\\leq 6$, 즉 $x\\leq 2$\nstep3) 공통범위는 $-1<x\\leq 2$이므로 정수해는 $0,\\ 1,\\ 2$\nstep4) 정수해의 합은 $0+1+2=3$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 3,
+   "answer": "④",
+   "solution": "step1) $y=-5x^{2}+20x=-5(x^{2}-4x)$\nstep2) 완전제곱식으로 고치면 $y=-5(x-2)^{2}+20$\nstep3) $x=2$일 때 최댓값 $20$을 가지므로 높이의 최댓값은 $20\\mathrm{m}$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 4,
+   "answer": "④",
+   "solution": "step1) 서로 다른 3개에서 2개를 택해 일렬로 나열하는 경우의 수는 순열 ${}_{3}\\mathrm{P}_{2}$이다.\nstep2) ${}_{3}\\mathrm{P}_{2}=3\\times 2=6$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 5,
+   "answer": "①",
+   "solution": "step1) $2\\begin{pmatrix} 1 & 1 \\\\ 0 & -1 \\end{pmatrix}=\\begin{pmatrix} 2 & 2 \\\\ 0 & -2 \\end{pmatrix}$\nstep2) 성분끼리 더하면 $\\begin{pmatrix} -1+2 & 3+2 \\\\ 1+0 & 2-2 \\end{pmatrix}=\\begin{pmatrix} 1 & 5 \\\\ 1 & 0 \\end{pmatrix}$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 6,
+   "answer": "⑤",
+   "solution": "step1) $i=1,\\ 2,\\ 3$이고 $j=1,\\ 2$이므로 $A$는 $3\\times 2$ 행렬이다.\nstep2) $a_{11}=2-1=1,\\ a_{12}=2-2=0$\nstep3) $a_{21}=8-1=7,\\ a_{22}=8-2=6$\nstep4) $a_{31}=18-1=17,\\ a_{32}=18-2=16$\nstep5) 따라서 $A=\\begin{pmatrix} 1 & 0 \\\\ 7 & 6 \\\\ 17 & 16 \\end{pmatrix}$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 7,
+   "answer": "⑤",
+   "solution": "step1) 해가 $-1<x<2$이고 $x^{2}$의 계수가 $1$인 이차부등식은 $(x+1)(x-2)<0$이다.\nstep2) 전개하면 $x^{2}-x-2<0$이므로 $a=-1,\\ b=-2$\nstep3) $ab=(-1)\\times(-2)=2$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 8,
+   "answer": "③",
+   "solution": "step1) $x=2$를 대입하면 $24-28+8-4=0$이므로 $x-2$를 인수로 갖는다.\nstep2) 조립제법으로 $3x^{3}-7x^{2}+4x-4=(x-2)(3x^{2}-x+2)$\nstep3) 허근 $\\alpha$는 $3\\alpha^{2}-\\alpha+2=0$을 만족하므로 $3\\alpha^{2}=\\alpha-2$\nstep4) $-6\\alpha^{2}+2\\alpha+3=-2(3\\alpha^{2})+2\\alpha+3=-2(\\alpha-2)+2\\alpha+3$\nstep5) $=-2\\alpha+4+2\\alpha+3=7$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 9,
+   "answer": "④",
+   "solution": "step1) 6개의 자리에 5명을 앉히는 전체 경우의 수는 ${}_{6}\\mathrm{P}_{5}=720$\nstep2) A, B가 이웃하는 경우: 같은 줄에서 옆으로 이웃한 자리쌍은 한 줄에 2쌍씩 모두 4쌍\nstep3) 각 쌍에 A, B를 앉히는 방법 $2!$, 나머지 3명을 남은 4자리에 앉히는 방법 ${}_{4}\\mathrm{P}_{3}=24$\nstep4) 이웃하는 경우의 수 $=4\\times 2\\times 24=192$\nstep5) 이웃하지 않는 경우의 수 $=720-192=528$이다.",
+   "confidence": "high",
+   "note": "이웃 = 같은 줄에서 옆자리로 해석(앞뒤까지 이웃으로 보면 384로 선택지에 없음)"
+  },
+  {
+   "number": 10,
+   "answer": "③",
+   "solution": "step1) $1$부터 $20$까지 홀수 10개, 짝수 10개이다.\nstep2) 세 수의 합이 짝수인 경우는 (짝,짝,짝) 또는 (짝,홀,홀)이다.\nstep3) (짝,짝,짝): ${}_{10}\\mathrm{C}_{3}=120$\nstep4) (짝,홀,홀): ${}_{10}\\mathrm{C}_{1}\\times{}_{10}\\mathrm{C}_{2}=10\\times 45=450$\nstep5) 합하면 $120+450=570$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 11,
+   "answer": "⑤",
+   "solution": "step1) 모든 실수 $x$에 대해 성립하려면 판별식 $D<0$이어야 한다.\nstep2) $\\frac{D}{4}=a^{2}-(a+6)<0$\nstep3) $a^{2}-a-6<0$, 즉 $(a+2)(a-3)<0$이므로 $-2<a<3$\nstep4) 정수 $a=-1,\\ 0,\\ 1,\\ 2$이고 그 합은 $2$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 12,
+   "answer": "④",
+   "solution": "step1) 그래프에서 $f(x)>0 \\Leftrightarrow x<-1$ 또는 $x>4$, $f(x)<0 \\Leftrightarrow -1<x<4$\nstep2) $g(x)>0 \\Leftrightarrow -3<x<2$, $g(x)<0 \\Leftrightarrow x<-3$ 또는 $x>2$\nstep3) 둘 다 양수: $(x<-1$ 또는 $x>4)$와 $-3<x<2$의 교집합 $= -3<x<-1$\nstep4) 둘 다 음수: $-1<x<4$와 $(x<-3$ 또는 $x>2)$의 교집합 $= 2<x<4$\nstep5) 정수해는 $-2$와 $3$이므로 합은 $-2+3=1$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 13,
+   "answer": "②",
+   "solution": "step1) $3x^{2}-4x-4\\geq 0$에서 $(3x+2)(x-2)\\geq 0$이므로 $x\\leq -\\frac{2}{3}$ 또는 $x\\geq 2$\nstep2) $x^{2}-(a+1)x-a-2<0$은 $(x+1)\\{x-(a+2)\\}<0$으로 인수분해된다.\nstep3) $a>-3$이면 해는 $-1<x<a+2$이고, $(-1,-\\frac{2}{3}]$ 부분에는 정수가 없으므로 $[2,\\ a+2)$에 정수가 오직 한 개여야 한다. 즉 $2<a+2\\leq 3$에서 $0<a\\leq 1$이므로 정수 $a=1$\nstep4) $a<-3$이면 해는 $a+2<x<-1$이고 이 구간은 모두 첫 부등식을 만족한다. 정수가 $-2$ 하나뿐이려면 $-3\\leq a+2<-2$, 즉 $-5\\leq a<-4$이므로 정수 $a=-5$\nstep5) $a=-3$이면 해가 없으므로 제외. 따라서 구하는 합은 $1+(-5)=-4$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 14,
+   "answer": "①",
+   "solution": "step1) $3a+2=-1$에서 $a=-1$\nstep2) $b+2c=1$, $2b-c=7$\nstep3) $c=2b-7$을 대입하면 $b+2(2b-7)=1$, $5b=15$, $b=3$\nstep4) $c=2\\times 3-7=-1$\nstep5) $a+b+c=-1+3-1=1$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 15,
+   "answer": "①",
+   "solution": "step1) $A^{2}=\\begin{pmatrix} -2 & -1 \\\\ 3 & 1 \\end{pmatrix}\\begin{pmatrix} -2 & -1 \\\\ 3 & 1 \\end{pmatrix}=\\begin{pmatrix} 1 & 1 \\\\ -3 & -2 \\end{pmatrix}$이므로 $A^{2}\\neq E$\nstep2) $A^{3}=A^{2}A=\\begin{pmatrix} 1 & 1 \\\\ -3 & -2 \\end{pmatrix}\\begin{pmatrix} -2 & -1 \\\\ 3 & 1 \\end{pmatrix}=\\begin{pmatrix} 1 & 0 \\\\ 0 & 1 \\end{pmatrix}=E$\nstep3) $A\\neq E$, $A^{2}\\neq E$, $A^{3}=E$이므로 최솟값은 $n=3$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 16,
+   "answer": "②",
+   "solution": "step1) 13명 중 3명을 뽑는 경우의 수는 ${}_{13}\\mathrm{C}_{3}=286$\nstep2) (적어도 한 명 남학생) $=$ (전체) $-$ (모두 여학생)이므로 모두 여학생인 경우는 $286-251=35$\nstep3) 여학생 수를 $k$라 하면 ${}_{k}\\mathrm{C}_{3}=35$에서 ${}_{7}\\mathrm{C}_{3}=35$이므로 $k=7$\nstep4) 남학생 수는 $13-7=6$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 17,
+   "answer": "$-16$",
+   "solution": "step1) 계수가 실수이므로 두 허근은 켤레복소수이다. 따라서 $\\overline{\\alpha}=-\\alpha^{2}$\nstep2) 양변에 켤레를 취하면 $\\alpha=-\\overline{\\alpha}^{2}=-(-\\alpha^{2})^{2}=-\\alpha^{4}$이므로 $\\alpha(\\alpha^{3}+1)=0$\nstep3) $\\alpha\\neq 0$이므로 $\\alpha^{3}=-1$, 즉 $(\\alpha+1)(\\alpha^{2}-\\alpha+1)=0$이고 $\\alpha$가 허수이므로 $\\alpha^{2}-\\alpha+1=0$\nstep4) 두 허근은 $x^{2}-x+1=0$의 두 근이므로 $\\alpha+\\overline{\\alpha}=1$, $\\alpha\\overline{\\alpha}=1$\nstep5) 세 근의 곱은 $3$이므로 실근을 $r$이라 하면 $r\\times 1=3$, $r=3$\nstep6) 따라서 $x^{3}+ax^{2}+bx-3=(x^{2}-x+1)(x-3)=x^{3}-4x^{2}+4x-3$\nstep7) $a=-4$, $b=4$이므로 $ab=-16$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 18,
+   "answer": "$X=\\begin{pmatrix} -1 & 1 \\\\ -3 & 4 \\end{pmatrix}$",
+   "solution": "step1) 근과 계수의 관계에서 $\\alpha+\\beta=2$, $\\alpha\\beta=4$\nstep2) $\\alpha^{2}+\\beta^{2}=(\\alpha+\\beta)^{2}-2\\alpha\\beta=4-8=-4$\nstep3) 따라서 $A=\\begin{pmatrix} 2 & 0 \\\\ 4 & -4 \\end{pmatrix}$\nstep4) $2X=\\begin{pmatrix} 0 & 2 \\\\ -2 & 4 \\end{pmatrix}-\\begin{pmatrix} 2 & 0 \\\\ 4 & -4 \\end{pmatrix}=\\begin{pmatrix} -2 & 2 \\\\ -6 & 8 \\end{pmatrix}$\nstep5) 따라서 $X=\\begin{pmatrix} -1 & 1 \\\\ -3 & 4 \\end{pmatrix}$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 19,
+   "answer": "$108$",
+   "solution": "step1) $x^{4}-3x^{3}-x+3=x^{3}(x-3)-(x-3)=(x-3)(x^{3}-1)=(x-3)(x-1)(x^{2}+x+1)$\nstep2) 허근 $\\alpha$는 $\\alpha^{2}+\\alpha+1=0$, $\\alpha^{3}=1$을 만족한다.\nstep3) (가): $\\frac{1}{\\alpha}=\\alpha^{2}$, $\\frac{1}{\\alpha^{2}}=\\alpha$이므로 $\\frac{1}{\\alpha}+\\frac{1}{\\alpha^{2}}-\\alpha=\\alpha^{2}+\\alpha-\\alpha=\\alpha^{2}$\nstep4) 즉 $(\\alpha^{2})^{n}=\\alpha^{2n}=1$이어야 하므로 $2n$이 $3$의 배수, 즉 $n$은 $3$의 배수이다.\nstep5) (나): $-1-\\alpha=\\alpha^{2}$이고 $\\overline{\\alpha}=\\alpha^{2}$, $\\alpha+\\overline{\\alpha}=\\alpha+\\alpha^{2}=-1$이므로 $\\frac{\\overline{\\alpha}}{\\alpha+\\overline{\\alpha}}=-\\alpha^{2}$\nstep6) 즉 $(\\alpha^{2})^{n}=(-\\alpha^{2})^{n}$에서 $(-1)^{n}=1$이므로 $n$은 짝수이다.\nstep7) 따라서 $n$은 $6$의 배수인 두 자리 자연수이므로 $12,\\ 18,\\ \\cdots,\\ 96$\nstep8) $M=96$, $m=12$이므로 $M+m=108$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 20,
+   "answer": "$720$",
+   "solution": "step1) 각 자동차는 운전석 1, 운전자 옆자리 1, 뒷좌석 2로 모두 4자리이므로 두 대의 자리는 8개이다.\nstep2) A는 자기 차의 운전석, B는 다른 차의 운전석에 앉는 것이 정해져 있으므로 남은 자리는 6개이다.\nstep3) 남은 5명을 서로 다른 6개의 자리에 한 명씩 앉히면 되고, 각 차의 비운전석은 3자리뿐이므로 정원(4명) 조건은 자동으로 만족된다.\nstep4) 경우의 수는 ${}_{6}\\mathrm{P}_{5}=6\\times 5\\times 4\\times 3\\times 2=720$이다.",
+   "confidence": "medium",
+   "note": "운전자 A, B의 차가 각각 정해져 있다고 보고 남은 5명을 6개 자리에 배열(6P5=720)로 계산"
+  }
+ ]
+}

@@ -1,0 +1,1412 @@
+{
+ "meta": {
+  "exam_id": 4212,
+  "school": "강북고",
+  "grade": 1,
+  "subject": "공수1",
+  "year": 2025,
+  "semester": 1,
+  "round": "기말",
+  "unit": "이차방정식과 이차함수 ~ 행렬",
+  "pages": 8,
+  "ocr_source": "session-vision",
+  "ocr_date": "2026-08-12"
+ },
+ "header": {
+  "title": "강북고 1학년 공통수학1 — 2025년 1학기 기말고사 대비"
+ },
+ "questions": [
+  {
+   "number": 1,
+   "score": 3.5,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "이차함수 y=x^{2}-2mx+m+2의 그래프가 x축과 접할 때, 양수 m의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 2,
+   "score": 3.5,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "x^{3}의 계수가 1인 삼차식 f(x)가 f(0)=5, f(2)=f(3)=f(4)=a를 만족시킬 때, 실수 a의 값은? (단, a \\neq 0)"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "29"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "30"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "31"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "32"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "33"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 3,
+   "score": 3.5,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "사차방정식 x^{4}-3x^{3}+4x^{2}-3x+1=0의 한 허근을 \\alpha라고 할 때, 1+\\alpha+\\alpha^{2}+\\alpha^{3}+\\alpha^{4}+\\alpha^{5}+\\alpha^{6}+\\alpha^{7}+\\alpha^{8}의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "0"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\alpha"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2\\alpha"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 4,
+   "score": 3.5,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "부등식 |x-2|+|x-3|<5의 해가 a<x<5일 때, 실수 a의 값을 구하면?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-2"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-1"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "0"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 5,
+   "score": 3.5,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "실수 a, b, c에 대하여 이차부등식 ax^{2}+bx+c>0의 해가 -1<x<3일 때, 이차부등식 bx^{2}-ax-c<0의 해를 구하면?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "text",
+       "value": "x<-\\frac{3}{2} 또는 x>1"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-\\frac{3}{2}<x<1"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "text",
+       "value": "x<-\\frac{5}{2} 또는 x>2"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-\\frac{5}{2}<x<2"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "text",
+       "value": "x<-\\frac{7}{2} 또는 x>2"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 6,
+   "score": 3.5,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "연립부등식"
+    },
+    {
+     "type": "equation",
+     "value": "\\begin{cases} x^{2}-3x-10 \\leq 0 \\\\ -3x^{2}+4x+4 < 0 \\end{cases}"
+    },
+    {
+     "type": "text",
+     "value": "을 만족시키는 정수 x가 될 수 있는 모든 값의 합을 구하면?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "7"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "9"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "12"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 7,
+   "score": 3.5,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "모든 실수 x에 대하여 이차부등식 ax^{2}-4ax-3<0이 성립할 때, 실수 a의 값의 범위는?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-1<a<0"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-\\frac{3}{4}<a<\\frac{3}{4}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "text",
+       "value": "a<-1 또는 a \\geq \\frac{3}{4}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "text",
+       "value": "a<-\\frac{3}{4} 또는 a>0"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-\\frac{3}{4}<a<0"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 8,
+   "score": 3.5,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "6개의 문자 \\mathrm{C}, \\mathrm{H}, \\mathrm{A}, \\mathrm{N}, \\mathrm{G}, \\mathrm{E}를 일렬로 나열할 때, 모음끼리는 이웃하지 않게 나열하는 방법의 수는?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "480"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "500"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "520"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "540"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "560"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 9,
+   "score": 3.5,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "방정식 x+2y+3z=12를 만족시키는 자연수 x, y, z의 순서쌍 (x,~y,~z)의 개수는?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "6"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "7"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 10,
+   "score": 3.5,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "남학생 4명과 여학생 4명이 일렬로 줄을 선다고 한다. 여학생 4명이 이웃하여 서는 모든 경우의 수를 a, 남학생과 여학생이 교대로 서는 모든 경우의 수를 b라고 할 때, a+b의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "216"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "576"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2880"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4032"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5760"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 11,
+   "score": 3.5,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "6개의 숫자 0, 1, 2, 3, 4, 5 중에서 서로 다른 3개를 택하여 세 자리의 자연수를 만들 때, 500보다 큰 수를 만드는 모든 경우의 수는?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "10"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "15"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "20"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "25"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 12,
+   "score": 3.5,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "두 집합 A=\\{1,~2,~3\\}, B=\\{1,~2,~3,~4,~5,~6,~7,~8\\}에 대하여 a \\in A, b \\in B일 때, x에 대한 이차방정식 x^{2}-2ax+b=0이 실근을 갖도록 하는 순서쌍 (a,~b)의 개수는?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "9"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "10"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "11"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "12"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "13"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 13,
+   "score": 3.5,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "아래 그림과 같이 크기가 동일한 정사각형 타일 16장을 사용하여 벽면을 꾸미려고 한다."
+    },
+    {
+     "type": "figure",
+     "value": "4행 4열(16칸)의 정사각형 타일 격자. 초록색 타일 5장이 1행 3열, 2행 2열, 3행 1열, 3행 4열, 4행 2열 칸에 칠해져 있고 나머지 11칸은 흰색이다. 격자 위쪽에 '세로줄' 이라는 빨간 글씨와 아래를 향한 화살표(열 방향)가, 격자 왼쪽에 '가로줄' 이라는 파란 글씨와 오른쪽을 향한 화살표(행 방향)가 표시되어 있다."
+    },
+    {
+     "type": "text",
+     "value": "다음 세 조건을 모두 만족시키도록 벽면을 꾸미는 방법의 수는?"
+    },
+    {
+     "type": "text",
+     "value": "<상자> 초록색 타일 5장, 흰색 타일 11장을 모두 사용한다. • 어느 가로줄에도 이웃한 칸에 초록색 타일을 붙이지 않는다 • 모든 세로줄에는 적어도 한 칸 이상 초록색 타일을 붙인다."
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "144"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "288"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "360"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "720"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1440"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 14,
+   "score": 3.5,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "등식 {}_{m}\\mathrm{P}_{2}+{}_{m+1}\\mathrm{C}_{2}=145를 만족시키는 자연수 m의 값을 \\alpha, 등식 {}_{n}\\mathrm{P}_{2}+{}_{n}\\mathrm{C}_{n-2}=63을 만족시키는 자연수 n의 값을 \\beta라 할 때, \\alpha-\\beta의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "6"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "7"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 15,
+   "score": 3.5,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "다은이가 친구 9명 중에서 4명을 집에 초대하려고 한다. 친구를 초대하는 모든 경우의 수를 a, 친구 9명 중에서 2명이 쌍둥이일 때, 이 쌍둥이를 둘 다 초대하거나 둘 다 초대하지 않는 모든 경우의 수를 b라고 할 때, a+b의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "182"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "183"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "184"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "185"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "186"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 16,
+   "score": 3.5,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "다음 그림과 같이 6개의 돌을 놓아 만든 징검다리가 있다. 한 번에 한 칸 또는 두 칸을 건널 수 있다고 할 때, 출발 지점에서 도착 지점까지 가는 방법의 수는?"
+    },
+    {
+     "type": "figure",
+     "value": "강을 가로지르는 징검다리 그림. 왼쪽 강가에 '출발', 오른쪽 강가에 '도착' 이라고 적혀 있고, 그 사이 물 위에 돌 6개가 일렬로 나란히 놓여 있다."
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "20"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "21"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "22"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "23"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "24"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 17,
+   "score": 3.5,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "세 행렬"
+    },
+    {
+     "type": "equation",
+     "value": "A=\\begin{pmatrix} 1 \\\\ 6 \\end{pmatrix}, \\quad B=\\begin{pmatrix} 4 & -2 \\end{pmatrix}, \\quad C=\\begin{pmatrix} 0 & -2 \\\\ -1 & 9 \\end{pmatrix}"
+    },
+    {
+     "type": "text",
+     "value": "에 대하여 다음 중 행렬의 곱셈이 불가능한 것을 __모두__ 고르면?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "AB"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "AC"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "BC"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "CA"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "CB"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 18,
+   "score": 3.5,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "행렬"
+    },
+    {
+     "type": "equation",
+     "value": "A=\\begin{pmatrix} 1 & -3 \\\\ 0 & 1 \\end{pmatrix}"
+    },
+    {
+     "type": "text",
+     "value": "에 대하여 행렬 A^{30}-A^{31}의 (1,~2) 성분은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-3"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "0"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3^{29}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3^{30}"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 19,
+   "score": 3.5,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "두 행렬"
+    },
+    {
+     "type": "equation",
+     "value": "A=\\begin{pmatrix} 2 & 1 \\\\ 1 & |x| \\end{pmatrix}, \\quad B=\\begin{pmatrix} |y-2| & 1 \\\\ 1 & 1 \\end{pmatrix}"
+    },
+    {
+     "type": "text",
+     "value": "에 대하여 A^{2}-B^{2}=(A+B)(A-B)일 때, 좌표평면 위의 점 (x,~y)가 나타내는 도형의 둘레의 길이가 l이다. l^{2}의 값을 구하면?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "144"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "288"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "432"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "576"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "720"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 20,
+   "score": 3.5,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "0이 아닌 실수 a_{n}, b_{n} (n=1,~2,~3,~4)에 대하여 이차정사각행렬 A가"
+    },
+    {
+     "type": "equation",
+     "value": "A\\begin{pmatrix} a_{1} \\\\ b_{1} \\end{pmatrix}=\\begin{pmatrix} a_{2} \\\\ b_{2} \\end{pmatrix}, \\quad A\\begin{pmatrix} a_{2} \\\\ b_{2} \\end{pmatrix}=\\begin{pmatrix} a_{3} \\\\ b_{3} \\end{pmatrix},"
+    },
+    {
+     "type": "equation",
+     "value": "A\\begin{pmatrix} a_{3} \\\\ b_{3} \\end{pmatrix}=\\begin{pmatrix} a_{4} \\\\ b_{4} \\end{pmatrix}, \\quad A\\begin{pmatrix} a_{4} \\\\ b_{4} \\end{pmatrix}=\\begin{pmatrix} a_{1} \\\\ b_{1} \\end{pmatrix}"
+    },
+    {
+     "type": "text",
+     "value": "을 항상 만족시킨다."
+    },
+    {
+     "type": "equation",
+     "value": "E+A+A^{2}+\\cdots+A^{12}=aE+bA+cA^{2}+dA^{3}"
+    },
+    {
+     "type": "text",
+     "value": "일 때, 네 실수 a, b, c, d에 대하여 \\frac{abc}{d}의 값을 구하면?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "6"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "12"
+      }
+     ]
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 21,
+   "score": 6,
+   "type": "서술형",
+   "label": "[서술형 1]",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서술형 1] 이차함수 y=x^{2}+mx+4의 그래프와 직선 y=-2x+n이 서로 다른 두 점에서 만나고, 두 교점 중 한 교점의 x좌표가 2-\\sqrt{5}이다. 이때 유리수 m, n의 값을 구하시오."
+    }
+   ],
+   "choices": [],
+   "sub_questions": []
+  },
+  {
+   "number": 22,
+   "score": 6,
+   "type": "서술형",
+   "label": "[서술형 2]",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서술형 2] 삼차방정식 x^{3}=1의 한 허근을 \\omega라고 할 때, \\frac{1}{1+\\omega^{10}}+\\frac{1}{1+\\omega^{11}}+\\frac{1}{1+\\omega^{12}}의 값을 구하시오."
+    }
+   ],
+   "choices": [],
+   "sub_questions": []
+  },
+  {
+   "number": 23,
+   "score": 6,
+   "type": "서술형",
+   "label": "[서술형 3]",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서술형 3] 연립부등식 a-3x<6-4x \\leq x+1을 만족시키는 정수 x가 한 개일 때, 실수 a의 값의 범위를 구하는 과정을 서술하시오."
+    }
+   ],
+   "choices": [],
+   "sub_questions": []
+  },
+  {
+   "number": 24,
+   "score": 6,
+   "type": "서술형",
+   "label": "[서술형 4]",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서술형 4] 어느 놀이공원의 놀이기구 \\mathrm{A}, \\mathrm{B}, \\mathrm{C}는 최대 탑승 인원이 각각 1명, 2명, 3명이다. 모든 놀이기구에는 어른 없이 어린이만 탑승할 수 없고, 탑승 순서와 자리 배치는 고려하지 않을 때, 어른 3명과 어린이 2명이 동시에 놀이기구에 탑승하는 방법의 수를 구하시오. (단, 비어 있는 놀이기구가 있을 수 있다.)"
+    }
+   ],
+   "choices": [],
+   "sub_questions": []
+  },
+  {
+   "number": 25,
+   "score": 6,
+   "type": "서술형",
+   "label": "[서술형 5]",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서술형 5] A 문구점의 공책과 볼펜의 판매 단가는 각각 2500원, 1500원이고, B 문구점의 공책과 볼펜의 판매 단가는 각각 3000원, 1000원이다. 다음 표는 두 문구점의 공책과 볼펜에 대한 이틀 동안의 판매 실적을 나타낸 것이다."
+    },
+    {
+     "type": "text",
+     "value": "표1 A 문구점의 판매 실적"
+    },
+    {
+     "type": "table",
+     "value": "",
+     "rows": [
+      [
+       "종류 / 판매일",
+       "공책(권)",
+       "볼펜(자루)"
+      ],
+      [
+       "제 1일",
+       "6",
+       "7"
+      ],
+      [
+       "제 2일",
+       "9",
+       "4"
+      ]
+     ]
+    },
+    {
+     "type": "text",
+     "value": "표2 B 문구점의 판매 실적"
+    },
+    {
+     "type": "table",
+     "value": "",
+     "rows": [
+      [
+       "종류 / 판매일",
+       "공책(권)",
+       "볼펜(자루)"
+      ],
+      [
+       "제 1일",
+       "7",
+       "x(x-2)"
+      ],
+      [
+       "제 2일",
+       "x",
+       "3"
+      ]
+     ]
+    },
+    {
+     "type": "text",
+     "value": "표1과 표2의 자료로 두 문구점의 매출액을 행렬을 이용하여 비교하려고 한다. A 문구점과 B 문구점의 이틀 동안의 매출액이 서로 같도록 하는 x에 대하여 B 문구점의 제 2일의 매출액을 구하시오."
+    }
+   ],
+   "choices": [],
+   "sub_questions": []
+  }
+ ]
+}

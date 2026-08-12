@@ -1,0 +1,328 @@
+{
+  "meta": {"exam_id": 4231, "ocr_source": "session-vision"},
+  "header": {"title": "2025학년도 1학기 중간고사 1학년 공통수학1"},
+  "questions": [
+    {
+      "number": 1,
+      "score": 3.6,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "x+y=2, x^{3}+y^{3}=14를 만족시키는 두 실수 x, y에 대하여 x^{2}+y^{2}의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "10"}]}
+      ]
+    },
+    {
+      "number": 2,
+      "score": 3.6,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "다항식 2x^{3}+ax^{2}+bx+1을 (x-1)(x-2)로 나누었을 때의 나머지가 2x-5일 때, 상수 a, b에 대하여 ab의 값은? (단, a, b는 실수이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-9"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-6"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "9"}]}
+      ]
+    },
+    {
+      "number": 3,
+      "score": 3.6,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "두 실수 x, y에 대하여 (2x+y-1)+(x-y)i=2i 일 때, 3x+y의 값은? (단, i=\\sqrt{-1} 이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+      ]
+    },
+    {
+      "number": 4,
+      "score": 3.6,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "<보기> 중 실근을 가지는 이차방정식의 개수는?"},
+        {"type": "text", "value": "<보기> ㄱ. x^{2}-4x+3=0 • ㄴ. 4x^{2}-4x+1=0 • ㄷ. 2x^{2}-x+1=0 • ㄹ. 3x^{2}+3x-1=0"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "4"}]}
+      ]
+    },
+    {
+      "number": 5,
+      "score": 3.6,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "서로 다른 주사위 두 개를 동시에 던질 때 나오는 눈의 수의 차가 4 이상인 경우의 수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "12"}]}
+      ]
+    },
+    {
+      "number": 6,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "다항식 (x^{2}+3x)(x^{2}+3x-1)-6이"},
+        {"type": "equation_block", "value": "(x+a)(x+b)(x^{2}+cx+d)"},
+        {"type": "text", "value": "로 인수분해 될 때, 실수 a, b, c, d에 대하여 a+b+c+d의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "11"}]}
+      ]
+    },
+    {
+      "number": 7,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "7개의 문자 \\mathrm{P}, \\mathrm{L}, \\mathrm{A}, \\mathrm{S}, \\mathrm{T}, \\mathrm{I}, \\mathrm{C} 를 일렬로 나열할 때 두 모음 사이에 3개의 자음이 들어가도록 나열하는 경우의 수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "240"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "480"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "720"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "960"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "1200"}]}
+      ]
+    },
+    {
+      "number": 8,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "x에 대한 이차방정식"},
+        {"type": "equation_block", "value": "5x^{2}-2\\times{}_{n}\\mathrm{C}_{r}x-{}_{n}\\mathrm{P}_{n-r}=0"},
+        {"type": "text", "value": "의 두 근이 -2, 6일 때, {}_{n+r}\\mathrm{C}_{n-r}의 값은? (단, n과 r은 자연수)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "15"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "21"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "28"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "35"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "56"}]}
+      ]
+    },
+    {
+      "number": 9,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "두 다항식 f(x), g(x)에 대하여 3f(x)+g(x)는 x-1로 나누어떨어지고, g(x)-f(x)를 x-1로 나누었을 때의 나머지는 4일 때, x-1로 나누어 떨어지는 다항식으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?"},
+        {"type": "text", "value": "<보기> ㄱ. f(x)-x^{2} • ㄴ. 2f(x)g(x)+6x^{2} • ㄷ. \\{g(x)\\}^{2}-3x^{2}-6x"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄷ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄱ, ㄴ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄴ, ㄷ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄱ, ㄴ, ㄷ"}]}
+      ]
+    },
+    {
+      "number": 10,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "자연수 k에 대하여 x에 대한 이차방정식"},
+        {"type": "equation_block", "value": "x^{2}-(4k+2)x+4k^{2}+2k+7=0"},
+        {"type": "text", "value": "의 서로 다른 실근의 개수를 N(k)라 할 때, N(1)+N(2)+N(3)+\\cdots+N(10)의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "13"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "14"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "15"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "16"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "17"}]}
+      ]
+    },
+    {
+      "number": 11,
+      "score": 4.5,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "두 다항식 f(x), g(x)에 대하여 f(x)를 x^{2}-x+1로 나누었을 때의 나머지는 3x-6, g(x)를 x+1로 나누었을 때의 나머지는 3이다. f(x)-g(x)와 g(x)를 각각 x^{3}+1로 나누었을 때의 나머지가 R(x)로 같을 때, R(3)의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "19"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "21"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "23"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "25"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "27"}]}
+      ]
+    },
+    {
+      "number": 12,
+      "score": 4.5,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "삼차다항식 f(x)=x^{3}+ax^{2}+bx+c가 있다. 0이 아닌 모든 실수 x에 대하여"},
+        {"type": "equation_block", "value": "f\\left(x-\\frac{1}{x}+1\\right)=x^{3}-\\frac{1}{x^{3}}+3"},
+        {"type": "text", "value": "이 성립할 때, a+2b+3c의 값은? (단, a, b, c는 상수이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "6"}]}
+      ]
+    },
+    {
+      "number": 13,
+      "score": 4.5,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "c<b<a인 세 자연수 a, b, c에 대하여"},
+        {"type": "equation_block", "value": "ba^{2}-ca^{2}-ab^{2}+ac^{2}+b^{2}c-bc^{2}=84"},
+        {"type": "text", "value": "를 만족시킬 때, a+b+c의 최솟값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "13"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "14"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "15"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "16"}]}
+      ]
+    },
+    {
+      "number": 14,
+      "score": 4.5,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "복소수 z=\\frac{1+i}{\\sqrt{2}}와 자연수 n에 대하여"},
+        {"type": "equation_block", "value": "a_{n}=z^{2}+z^{4}+z^{6}+\\cdots+z^{2n},\\ b_{n}=z+z^{3}+z^{5}+\\cdots+z^{2n-1}"},
+        {"type": "text", "value": "이라 하자. {a_{50}}^{2}+{b_{50}}^{2}=p+qi를 만족하는 실수 p, q에 대하여 p+q의 값은? (단, i=\\sqrt{-1} 이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-4"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "4"}]}
+      ]
+    },
+    {
+      "number": 15,
+      "score": 4.5,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "한 근이 2+i인 x에 대한 이차방정식 x^{2}+ax+b=0에 대한 옳은 설명만을 <보기>에서 있는 대로 고른 것은? (단, i=\\sqrt{-1} 이고, a, b는 실수이다.)"},
+        {"type": "text", "value": "<보기> ㄱ. b=3이다. • ㄴ. \\frac{\\sqrt{b}}{\\sqrt{a}}=-\\sqrt{\\frac{b}{a}} 가 성립한다. • ㄷ. 이차방정식 x^{2}+(a+b)x-a=0은 서로 다른 두 허근을 갖는다. • ㄹ. 실수 p, q, r, s에 대하여 이차식 x^{2}+(a+b)x-a 가 (x+p+qi)(x+r+si)로 인수분해될 때, pr-qs=4이다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ, ㄴ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄱ, ㄹ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄴ, ㄷ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄷ, ㄹ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄴ, ㄷ, ㄹ"}]}
+      ]
+    },
+    {
+      "number": 16,
+      "score": 4.5,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "1부터 9까지의 자연수 중에서 서로 다른 숫자 3개를 뽑아 일렬로 나열하여 만들 수 있는 세 자리의 자연수에 대하여 다음 조건을 만족시키는 모든 자연수의 개수는?"},
+        {"type": "text", "value": "<상자> (가) 일의 자리의 수는 a, 십의 자리의 수는 b, 백의 자리의 수는 c이다. • (나) (a+b)\\times(b+c)의 값은 짝수이다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "334"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "344"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "354"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "364"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "374"}]}
+      ]
+    },
+    {
+      "number": 17,
+      "score": 6,
+      "type": "서술형",
+      "label": "[서술형 1]",
+      "contents": [
+        {"type": "text", "value": "[서술형 1] 두 다항식 A, B에 대하여"},
+        {"type": "equation_block", "value": "A+B=x^{3}+8x^{2}-3x+1,\\ 2A-B=2x^{3}+7x^{2}-7"},
+        {"type": "text", "value": "일 때, A와 B를 구하는 풀이 과정과 답을 쓰시오. [총6점, 부분점수 있음]"}
+      ]
+    },
+    {
+      "number": 18,
+      "score": 6,
+      "type": "서술형",
+      "label": "[서술형 2]",
+      "contents": [
+        {"type": "text", "value": "[서술형 2] 두 복소수 z_{1}=3+i, z_{2}=1-2i에 대하여"},
+        {"type": "equation_block", "value": "z_{1}z_{2}+\\overline{z_{1}}z_{2}-z_{1}\\overline{z_{2}}-\\overline{z_{1}}\\,\\overline{z_{2}}"},
+        {"type": "text", "value": "의 값을 구하는 풀이 과정과 답을 쓰시오. (단, i=\\sqrt{-1} 이고, \\overline{z_{1}}, \\overline{z_{2}}는 각각 z_{1}, z_{2}의 켤레복소수이다.) [총6점, 부분점수 있음]"}
+      ]
+    },
+    {
+      "number": 19,
+      "score": 7,
+      "type": "서술형",
+      "label": "[서술형 3]",
+      "contents": [
+        {"type": "text", "value": "[서술형 3] 그림과 같이 평행사변형 위에 10개의 점이 있다. 이 중에서 2개의 점을 연결하여 만들 수 있는 서로 다른 직선의 개수를 구하는 풀이 과정과 답을 쓰시오. [총7점, 부분점수 있음]"},
+        {"type": "figure", "value": "평행사변형(왼쪽 위로 기울어진 모양) 둘레 위에 검은 점 10개가 찍혀 있다. 윗변에는 왼쪽 위 꼭짓점·중간 2개·오른쪽 위 꼭짓점으로 모두 4개의 점이 일직선으로 놓여 있고, 아랫변에도 왼쪽 아래 꼭짓점·중간 2개·오른쪽 아래 꼭짓점으로 모두 4개의 점이 있다. 왼쪽 빗변에는 두 꼭짓점 사이에 점이 1개 있어 그 변 위의 점은 3개, 오른쪽 빗변에도 두 꼭짓점 사이에 점이 1개 있어 그 변 위의 점은 3개이다. 네 꼭짓점은 이웃한 두 변에 공유되어 전체 점의 개수는 10개이다. 점에 붙은 문자 라벨은 없다."}
+      ]
+    },
+    {
+      "number": 20,
+      "score": 8,
+      "type": "서술형",
+      "label": "[서술형 4]",
+      "contents": [
+        {"type": "text", "value": "[서술형 4] 자연수 n에 대하여 다항식 f(x)=ax^{n}-2nx+b가 (x-1)^{2}으로 나누어 떨어질 때, 상수 a, b에 대하여 ab의 값을 n을 사용한 식으로 나타내면 ab=pn+q이다. p와 q의 값을 구하는 풀이 과정과 답을 쓰시오. (단, p, q는 실수이다.) [총8점, 부분점수 있음]"}
+      ]
+    },
+    {
+      "number": 21,
+      "score": 8,
+      "type": "서술형",
+      "label": "[서술형 5]",
+      "contents": [
+        {"type": "text", "value": "[서술형 5] 이차방정식 x^{2}+5x-a=0의 두 근이 \\alpha와 \\beta이고, 이차방정식 x^{2}-bx+4=0의 두 근이 \\frac{1}{\\alpha^{2}}와 \\frac{1}{\\beta^{2}}일 때, 상수 a, b에 대하여 모든 ab의 값의 합을 구하는 풀이 과정과 답을 쓰시오. (단, a, b는 실수이고, a \\neq 0이다.) [총8점, 부분점수 있음]"}
+      ]
+    }
+  ]
+}

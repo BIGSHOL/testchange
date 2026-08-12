@@ -1,0 +1,146 @@
+{
+ "exam_id": 4222,
+ "pass": "B",
+ "items": [
+  {
+   "number": 1,
+   "answer": "②",
+   "solution": "step1) $A+B=(x^2-2x+1)+(2x^2+x+3)=3x^2-x+4$\nstep2) 계수를 비교하면 $a=3,\\ b=-1,\\ c=4$이다.\nstep3) $a+b+c=3-1+4=6$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 2,
+   "answer": "⑤",
+   "solution": "step1) 근의 공식에서 $x=\\frac{1\\pm\\sqrt{(-1)^2-4\\cdot2\\cdot1}}{2\\cdot2}=\\frac{1\\pm\\sqrt{-7}}{4}$이다.\nstep2) $\\sqrt{-7}=\\sqrt{7}i$이므로 $x=\\frac{1\\pm\\sqrt{7}i}{4}$이다.\nstep3) 검산: 두 근의 합 $\\frac{1}{2}$, 곱 $\\frac{1+7}{16}=\\frac{1}{2}$로 $2x^2-x+1=0$의 근과 계수의 관계와 일치한다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 3,
+   "answer": "①",
+   "solution": "step1) $2x^3-x^2+3x+4$를 $x^2+x-1$로 나눈다. 최고차 몫 $2x$: $2x(x^2+x-1)=2x^3+2x^2-2x$, 빼면 $-3x^2+5x+4$이다.\nstep2) 다음 몫 $-3$: $-3(x^2+x-1)=-3x^2-3x+3$, 빼면 $8x+1$이다.\nstep3) 따라서 몫은 $2x-3$, 나머지는 $8x+1$이므로 $a=2,\\ b=-3,\\ c=8,\\ d=1$이다.\nstep4) $a+b+c+d=2-3+8+1=8$이다.\nstep5) 검산: $x=2$일 때 좌변 $=22$, 우변 $=(4+2-1)(4-3)+(16+1)=5+17=22$로 일치한다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 4,
+   "answer": "③",
+   "solution": "step1) 나머지정리에 의해 나머지는 $P(-2)$이다.\nstep2) $P(-2)=2(-2)^3-3(-2)+15=-16+6+15=5$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 5,
+   "answer": "②",
+   "solution": "step1) $y=(x+1)^2+2$의 꼭짓점은 $(-1,\\,2)$이고 $-2\\le x\\le 1$에 $x=-1$이 포함된다.\nstep2) 최솟값은 $x=-1$에서 $2$이다.\nstep3) 축에서 가장 먼 점은 $x=1$이므로 최댓값은 $(1+1)^2+2=6$이다. ($x=-2$일 때는 $3$)\nstep4) 최댓값 $6$, 최솟값 $2$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 6,
+   "answer": "②",
+   "solution": "step1) $2x^3-5x^2+5=A(x-3)+(4x+2)$이므로 $A(x-3)=2x^3-5x^2-4x+3$이다.\nstep2) 조립제법($x=3$): $2,\\ -5,\\ -4,\\ 3 \\to 2,\\ 1,\\ -1,\\ 0$이므로 $A=2x^2+x-1$이다.\nstep3) $a+b+c=2+1-1=2$이다.\nstep4) 검산: $x=1$에서 $A=2$, $(x-3)=-2$, $2\\cdot(-2)+6=2$이고 좌변 $2-5+5=2$로 일치한다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 7,
+   "answer": "④",
+   "solution": "step1) $\\sqrt{-2}\\sqrt{-3}=(\\sqrt{2}i)(\\sqrt{3}i)=-\\sqrt{6}$이다.\nstep2) $\\sqrt{-2}\\sqrt{3}=\\sqrt{2}i\\cdot\\sqrt{3}=\\sqrt{6}i$이다.\nstep3) $\\frac{\\sqrt{-3}}{\\sqrt{-2}}=\\frac{\\sqrt{3}i}{\\sqrt{2}i}=\\sqrt{\\frac{3}{2}}=\\frac{\\sqrt{6}}{2}$이다.\nstep4) $\\frac{\\sqrt{2}}{\\sqrt{-3}}=\\frac{\\sqrt{2}}{\\sqrt{3}i}=-\\frac{\\sqrt{2}}{\\sqrt{3}}i=-\\frac{\\sqrt{6}}{3}i$이다.\nstep5) 실수부 $a=-\\sqrt{6}+\\frac{\\sqrt{6}}{2}=-\\frac{\\sqrt{6}}{2}$, 허수부 $b=\\sqrt{6}-\\frac{\\sqrt{6}}{3}=\\frac{2\\sqrt{6}}{3}$이다.\nstep6) $a+b=-\\frac{3\\sqrt{6}}{6}+\\frac{4\\sqrt{6}}{6}=\\frac{\\sqrt{6}}{6}$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 8,
+   "answer": "⑤",
+   "solution": "step1) 근과 계수의 관계에서 $\\alpha+\\beta=5$, $\\alpha\\beta=1$이다.\nstep2) $\\frac{1}{\\alpha}+\\frac{1}{\\beta}=\\frac{\\alpha+\\beta}{\\alpha\\beta}=\\frac{5}{1}=5$이다.\nstep3) $\\frac{1}{\\alpha}\\cdot\\frac{1}{\\beta}=\\frac{1}{\\alpha\\beta}=1$이다.\nstep4) 구하는 이차방정식은 $x^2-5x+1=0$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 9,
+   "answer": "①",
+   "solution": "step1) $y=x^2+ax-a+3=x^2+3+a(x-1)$이므로 $a$에 관계없이 $x=1$일 때 항상 지난다. 즉 $\\mathrm{P}(1,\\,4)$이다.\nstep2) 접한다는 조건에서 $x^2+ax-a+3=-2x+b$, 즉 $x^2+(a+2)x+(3-a-b)=0$이 $x=1$을 중근으로 가져야 한다.\nstep3) 두 근의 합에서 $-(a+2)=2$이므로 $a=-4$이다.\nstep4) 두 근의 곱에서 $3-a-b=1$이므로 $3+4-b=1$, $b=6$이다.\nstep5) 검산: 직선 $y=-2x+6$은 $x=1$에서 $y=4$로 $\\mathrm{P}$를 지나고, $x^2-2x+1=(x-1)^2=0$으로 중근이다.\nstep6) $a+b=-4+6=2$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 10,
+   "answer": "④",
+   "solution": "step1) $t=x^2+2x$로 놓으면 주어진 식은 $(t-2)^2-2t-11$이다.\nstep2) $(t-2)^2-2t-11=t^2-4t+4-2t-11=t^2-6t-7=(t-7)(t+1)$이다.\nstep3) $t+1=x^2+2x+1=(x+1)^2$이고 $t-7=x^2+2x-7$이다.\nstep4) 따라서 $P(x)=x^2+2x-7$이므로 $P(3)=9+6-7=8$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 11,
+   "answer": "④",
+   "solution": "step1) $a=2025$로 놓으면 $(a-1)(a^2+a+1)=a^3-1$이므로 주어진 수는 $2025^3-1$이다.\nstep2) $2025=2026-1$이므로 $2025\\equiv-1 \\pmod{2026}$이다.\nstep3) $2025^3-1\\equiv(-1)^3-1=-2 \\pmod{2026}$이다.\nstep4) $-2\\equiv 2026-2=2024$이므로 나머지는 $2024$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 12,
+   "answer": "⑤",
+   "solution": "step1) $\\sqrt{2}z+1-i=0$에서 $z=\\frac{-1+i}{\\sqrt{2}}$이다.\nstep2) $z^2=\\frac{(-1+i)^2}{2}=\\frac{1-2i-1}{2}=-i$이다.\nstep3) 구하는 값은 $\\sum_{k=1}^{1013}(z^2)^k=\\sum_{k=1}^{1013}(-i)^k$이며 항의 개수는 $\\frac{2026}{2}=1013$이다.\nstep4) $(-i)^1+(-i)^2+(-i)^3+(-i)^4=-i-1+i+1=0$으로 주기 $4$마다 합이 $0$이다.\nstep5) $1013=4\\times253+1$이므로 남는 항은 $(-i)^{1013}=(-i)^1=-i$이다.\nstep6) 따라서 값은 $-i$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 13,
+   "answer": "①",
+   "solution": "step1) $(x+2)P(x)$를 $x-1$로 나눈 나머지가 $6$이므로 $3P(1)=6$, 즉 $P(1)=2$이다.\nstep2) $(2x-1)P(2x-5)$를 $x-2$로 나눈 나머지가 $12$이므로 $x=2$를 대입하면 $3P(-1)=12$, 즉 $P(-1)=4$이다.\nstep3) $P(x)=(x^2-1)Q(x)+px+q$로 놓으면 $R(1)=p+q=2$, $R(-1)=-p+q=4$이다.\nstep4) 연립하면 $q=3$, $p=-1$이므로 $R(x)=-x+3$이다.\nstep5) $R(2)=-2+3=1$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 14,
+   "answer": "③",
+   "solution": "step1) $2x+1$로 나누어떨어지므로 $P\\left(-\\frac{1}{2}\\right)=0$이다.\nstep2) $4\\left(-\\frac{1}{8}\\right)-4\\left(\\frac{1}{4}\\right)-7\\left(-\\frac{1}{2}\\right)+k=-\\frac{1}{2}-1+\\frac{7}{2}+k=2+k=0$이므로 $k=-2$이다.\nstep3) $(2x+1)(ax^2+bx+c)$와 비교하면 최고차에서 $2a=4$, $a=2$이고 상수항에서 $c=-2$이다.\nstep4) $x^2$의 계수에서 $2b+a=-4$, 즉 $2b+2=-4$이므로 $b=-3$이다. ($x$의 계수 $b+2c=-3-4=-7$로 일치)\nstep5) $abc+k=2\\times(-3)\\times(-2)+(-2)=12-2=10$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 15,
+   "answer": "③",
+   "solution": "step1) 중근 조건은 판별식 $\\frac{D}{4}=(k+a)^2-(bk^2+c+2)=0$이다.\nstep2) 정리하면 $(1-b)k^2+2ak+(a^2-c-2)=0$이며, 이것이 모든 실수 $k$에 대해 성립해야 한다.\nstep3) 항등식이므로 $1-b=0$, $2a=0$, $a^2-c-2=0$이다.\nstep4) 따라서 $b=1$, $a=0$, $c=-2$이다.\nstep5) $a+b+c=0+1-2=-1$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 16,
+   "answer": "④",
+   "solution": "step1) 점 $\\mathrm{P}(a,\\,b)$가 그래프 위의 점이므로 $b=a^2-5a+6$이다.\nstep2) $a+b+2=a+a^2-5a+6+2=a^2-4a+8=(a-2)^2+4$이다.\nstep3) $0\\le a\\le3$에서 $a=2$일 때 최솟값 $4$이다.\nstep4) $a=0$일 때 $8$, $a=3$일 때 $5$이므로 최댓값은 $8$이다.\nstep5) 최댓값과 최솟값의 합은 $8+4=12$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 17,
+   "answer": "$6$",
+   "solution": "step1) $x^3-x^2+ax+b$를 $x^2-2x-1$로 나눈다. 몫의 첫 항 $x$: $x(x^2-2x-1)=x^3-2x^2-x$, 빼면 $x^2+(a+1)x+b$이다.\nstep2) 다음 항 $1$: $x^2-2x-1$을 빼면 $(a+3)x+(b+1)$이다.\nstep3) 따라서 $Q(x)=x+1$, $R(x)=(a+3)x+(b+1)$이다.\nstep4) $R(2)=2(a+3)+(b+1)=2a+b+7=9$이므로 $2a+b=2$이다.\nstep5) $P(x)$가 $Q(x)=x+1$로 나누어떨어지므로 $P(-1)=-1-1-a+b=0$, 즉 $b=a+2$이다.\nstep6) 연립하면 $2a+(a+2)=2$에서 $a=0$, $b=2$이다.\nstep7) $P(x)=x^3-x^2+2$이므로 $P(2)=8-4+2=6$이다.\nstep8) 검산: $R(x)=3x+3$에서 $R(2)=9$이고 $P(-1)=-1-1+2=0$으로 조건을 만족한다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 18,
+   "answer": "$42$",
+   "solution": "step1) 최고차항의 계수가 $1$인 삼차식이고 $(x-1)^2$으로 나눈 나머지가 $3x-3$이므로 $P(x)=(x-1)^2(x+m)+3x-3$으로 놓는다.\nstep2) 조건 (가)에서 $P(2)=(2-1)^2(2+m)+6-3=m+5=8$이므로 $m=3$이다.\nstep3) $P(x)=(x-1)^2(x+3)+3(x-1)=(x^3+x^2-5x+3)+(3x-3)=x^3+x^2-2x$이다.\nstep4) 인수분해하면 $P(x)=x(x^2+x-2)=x(x+2)(x-1)$이다.\nstep5) 따라서 $P(x)$를 $x+2$로 나눈 몫은 $Q(x)=x(x-1)=x^2-x$이다.\nstep6) $Q(7)=49-7=42$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 19,
+   "answer": "$3$",
+   "solution": "step1) 계수가 실수이고 허근을 가지므로 두 근은 켤레복소수이다. $\\alpha=m+ni\\ (n\\neq0)$, $\\beta=m-ni$로 놓는다.\nstep2) $2\\alpha^2+4\\beta=2$의 양변을 $2$로 나누면 $\\alpha^2+2\\beta=1$이다.\nstep3) $\\alpha^2=m^2-n^2+2mni$, $2\\beta=2m-2ni$이므로 실수부는 $m^2-n^2+2m=1$, 허수부는 $2mn-2n=0$이다.\nstep4) $n\\neq0$이므로 $2n(m-1)=0$에서 $m=1$이다.\nstep5) $1-n^2+2=1$에서 $n^2=2$이므로 $\\alpha=1\\pm\\sqrt{2}i$, $\\beta=1\\mp\\sqrt{2}i$이다.\nstep6) 두 근의 합은 $2$, 곱은 $1+2=3$이므로 $f(x)=x^2-2x+3$이다.\nstep7) $f(2)=4-4+3=3$이다.\nstep8) 검산: $\\alpha=1+\\sqrt{2}i$이면 $2\\alpha^2=-2+4\\sqrt{2}i$, $4\\beta=4-4\\sqrt{2}i$로 합이 $2$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 20,
+   "answer": "$f(x)=(x+1)^2+4=x^2+2x+5$",
+   "solution": "step1) 조건 (가)에서 축이 $x=-1$이므로 $f(x)=a(x+1)^2+k\\ (a\\neq0)$로 놓는다.\nstep2) $-2\\le x\\le2$에는 축 $x=-1$이 포함되고, 축에서 가장 먼 점은 $x=2$이다.\nstep3) $a>0$인 경우 최솟값은 $f(-1)=k=4$, 최댓값은 $f(2)=9a+4=13$이므로 $a=1$이다. 즉 $f(x)=(x+1)^2+4$이다.\nstep4) $a<0$인 경우 최댓값은 $f(-1)=k=13$, 최솟값은 $f(2)=9a+13=4$이므로 $a=-1$, 즉 $f(x)=-(x+1)^2+13$이다.\nstep5) 조건 (다) 확인: $a=1$일 때 $(x+1)^2+4=4x+4$에서 $x^2-2x+1=(x-1)^2=0$으로 중근이므로 접한다.\nstep6) $a=-1$일 때 $-(x+1)^2+13=4x+4$에서 $x^2+6x-8=0$, 판별식 $36+32=68\\neq0$이므로 접하지 않아 제외한다.\nstep7) 따라서 $f(x)=x^2+2x+5$이다.",
+   "confidence": "high",
+   "note": ""
+  }
+ ]
+}

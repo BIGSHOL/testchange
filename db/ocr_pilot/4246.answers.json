@@ -1,0 +1,61 @@
+{
+  "exam_id": 4246,
+  "answer_pages": [7, 8],
+  "items": [
+    {"number": 1, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 2, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 3, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 4, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 5, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 6, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 7, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 8, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 9, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 10, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 11, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 12, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 13, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 14, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 15, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 16, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 17, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 18, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 19, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 20, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {
+      "number": 21,
+      "answer": "$a=2$, $b=-3$",
+      "solution": "$y=\\frac{bx+7}{ax-1}$가 $(1,~4)$를 지나므로 $4=\\frac{b+7}{a-1}$이고\n점근선이 $y=\\frac{b}{a}$이므로 $\\frac{b}{a}=-\\frac{3}{2}$\n따라서 $a=2$, $b=-3$이다.",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 22,
+      "answer": "$x=1$ 또는 $x=-10$",
+      "solution": "① $f(x)=ax^{n}+\\cdots$이라 하자.\n$(f \\circ f)(x)=a(ax^{n}+\\cdots)^{n}=a^{n+1}x^{2n}+\\cdots$이므로 일차함수가 되려면 $n=1$이다. 따라서 $f(x)=ax+b$라 하자.\n② $f(1)=2$이므로 $a+b=2$\n③ $f^{-1}(x)=\\frac{1}{a}x-\\frac{b}{a}$이고 $f=f^{-1}$이므로\n$\\frac{1}{a}=a$, $-\\frac{b}{a}=b$\nⅰ) $a=1$이면 $b=0$ $a+b=2$에 모순\nⅱ) $a=-1$이면 $a+b=2$에서 $b=3$\n따라서 $f(x)=-x+3$\n③ $g(f(x))=g(2x)$이므로\n$(-x+3)^{2}+7(-x+3)-6=(2x)^{2}+7 \\cdot 2x-6$\n$x^{2}+9x-10=0$이므로 $x=1$ or $x=-10$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 23,
+      "answer": "$\\frac{27}{2}$",
+      "solution": "$f(x)=\\frac{1}{2}x+k$가 서로 다른 두 실근을 갖는 $k$의 최솟값이 3이므로 $y=\\frac{1}{2}x+3$이 $(a,~b)$를 지날 때이다.\n또 $h(x)=-2x+13$이라 하면 $f(\\beta)=g(\\beta)=h(\\beta)$이므로 $\\beta$는 $\\frac{1}{2}\\beta+3=-2\\beta+13$의 해이므로 $\\beta=4$이다. 따라서 $a=4$, $b=5$이다.\n$\\frac{4}{3}(x-4)^{2}+5=-2x+13$의 두 근 $\\alpha=\\frac{5}{2}$, $\\beta=4$이고\n$\\sqrt{\\frac{3}{4}(x-4)}+5=\\frac{1}{2}x+3$의 두 근 $\\beta=4$, $\\gamma=7$이므로\n$\\alpha+\\beta+\\gamma=\\frac{27}{2}$이다.",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 24,
+      "answer": "$m=-\\frac{2}{5}$ or $0<m<\\frac{4}{5}$",
+      "solution": "그래프를 그려보면 두 함수가 서로 다른 두 점에서 만나려면 기울기 $m$이 $y=-\\sqrt{4x-5}+2$와 접할 때 보다 크거나 같고 $0<m<\\frac{4}{5}$여야 한다.\n$y=-\\sqrt{4x-5}+2$와 접할 때\n$-\\sqrt{4x-5}+2=mx$\n$m^{2}x^{2}-4(m+1)x+9=0$의 $D=0$\n$\\frac{D}{4}=5m^{2}-8m-4=0$이므로 $m=-\\frac{2}{5}$ or $m=2$\n따라서 $m=-\\frac{2}{5}$ or $0<m<\\frac{4}{5}$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 25,
+      "answer": "$9$",
+      "solution": "$n=a_{m} \\times 10^{m}+\\cdots+a_{2} \\times 10^{2}+a_{1} \\times 10+a_{0}$일 때,\n$f(a_{m} \\times 10^{m}+\\cdots+a_{2} \\times 10^{2}+a_{1} \\times 10+a_{0})$\n$=f(a_{m} \\times 10^{m-1}+\\cdots+a_{2} \\times 10+a_{1})+a_{0}$\n$=f(a_{m} \\times 10^{m-2}+\\cdots+a_{2})+a_{1}+a_{0}$\n$\\vdots$\n$=a_{m}+\\cdots+a_{2}+a_{1}+a_{0}$\n$\\therefore f(n)=a_{m}+\\cdots+a_{2}+a_{1}+a_{0}$\n$(f \\circ f)(999)=f(27)=9$",
+      "topic": "",
+      "difficulty": ""
+    }
+  ]
+}

@@ -1,0 +1,424 @@
+{
+ "source": "_대원고__1__공수2__25-2-기말대비__신사고___완료_.hwpx",
+ "question_count": 24,
+ "questions": [
+  {
+   "number": 1,
+   "answer": "③",
+   "solution": null,
+   "topic": "명제와 조건",
+   "difficulty": "하",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "다음 중 명제인 것은?",
+   "choices": [
+    "날씨가 맑다.",
+    "$5x-3>0$",
+    "$x=1$이면 $4x-2=2$이다.",
+    "$-1$은 작은 수이다.",
+    "어떤 영화는 재미있다."
+   ]
+  },
+  {
+   "number": 2,
+   "answer": "②",
+   "solution": null,
+   "topic": "충분조건과 필요조건",
+   "difficulty": "중",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "세 조건 $p,~q, ~r$이 다음 조건을 만족시킨다.\n(가) $SIMq$는 $p$이기 위한 필요조건이다.\n(나) $SIMr$은 $sim p$이기 위한 충분조건이다.\n대구광역시 내신 수학 연구회\n세 조건 $p, ~q, ~r$의 진리집합을 각각 $P, ~Q, ~R$이라 할 때, <보기>에서 항상 옳은 것만을 있는 대로 고른 것은?\n\n<보기>\nㄱ. $P smallinterQ^C = P$\nㄴ. $P smallinter R ^C = EMPTYSET$\nㄷ. $Q ^C SUBSET (P ^C smallinter R \n^C )$\n대구광역시 내신 수학 연구회",
+   "choices": [
+    "ㄱ",
+    "ㄱ, ㄴ",
+    "ㄱ, ㄷ",
+    "ㄴ, ㄷ",
+    "ㄱ, ㄴ, ㄷ"
+   ]
+  },
+  {
+   "number": 3,
+   "answer": "⑤",
+   "solution": null,
+   "topic": "절대부등식",
+   "difficulty": "중",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "$a>0,~b>0$일 때, $LEFT ( a+ {9} over {b} RIGHT ) LEFT ( b+ {4} over {a} RIGHT )$ 의 최솟값은?",
+   "choices": [
+    "$21$",
+    "$22$",
+    "$23$",
+    "$24$",
+    "$25$"
+   ]
+  },
+  {
+   "number": 4,
+   "answer": "②",
+   "solution": null,
+   "topic": "절대부등식",
+   "difficulty": "중",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "$x>-2$일 때, $x+ {16} over {x+2}$은 $x=a$ 에서 최솟값 $b$를 갖는다. 이때 상수 $a,~b$에 대하여 $ab$의 값은?",
+   "choices": [
+    "$10$",
+    "$12$",
+    "$14$",
+    "$16$",
+    "$18$"
+   ]
+  },
+  {
+   "number": 5,
+   "answer": "①",
+   "solution": null,
+   "topic": "절대부등식",
+   "difficulty": "중",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "실수 $a$, $b$ 에 대하여 옳은 것만을 <보기>에서 있는 대로 고른 것은? \n<보기>\nㄱ. $a ^{2} +4b ^{2} GEQ 2ab$\nㄴ. $a ^{2} +b ^{2} >2 LEFT (a+b-1 RIGHT )$\nㄷ. $sqrt {a} - sqrt {b} > sqrt {a-b}$ (단, $a>b>0$)\n대구광역시 내신 수학 연구회",
+   "choices": [
+    "ㄱ",
+    "ㄴ",
+    "ㄱ, ㄷ",
+    "ㄴ, ㄷ",
+    "ㄱ, ㄴ, ㄷ"
+   ]
+  },
+  {
+   "number": 6,
+   "answer": "③",
+   "solution": null,
+   "topic": "역함수",
+   "difficulty": "중",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "일대일대응인 함수 $y=f(x)$의 역함수를 $y=g(x)$라 할 때, $y=f(2x-1)$의 역함수를 $g(x)$로 나타내면?",
+   "choices": [
+    "$y=2g(x)-1$",
+    "$y= {1} over {2} g(x)- {1} over {2}$",
+    "$y= {1} over {2} g(x)+ {1} over {2}$",
+    "$y= {1} over {2} g(x)+1$",
+    "$y=2g(x)+1$"
+   ]
+  },
+  {
+   "number": 7,
+   "answer": "①",
+   "solution": null,
+   "topic": "역함수",
+   "difficulty": "중",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "두 함수 $f(x)=-3x+2$, $g(x)=2x-5$에 대하여 $(g CIRC f ^{-1} )(a)=-1$일 때, 상수 $a$의 값은?",
+   "choices": [
+    "$-4$",
+    "$-2$",
+    "$0$",
+    "$2$",
+    "$4$"
+   ]
+  },
+  {
+   "number": 8,
+   "answer": "②",
+   "solution": null,
+   "topic": "여러 가지 함수",
+   "difficulty": "하",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "두 집합 $X= LEFT { x`vert `-1 LEQ x LEQ 3 RIGHT }$, $Y= LEFT { y` vert `-2 LEQ y LEQ 4 RIGHT }$와 상수 $a$, $b$에 대하여 $X$에서 $Y$로의 함수 $f` LEFT ( x RIGHT ) =ax+b$가 일대일대응을 만족시킬 때, $a+3b$의 값은? (단, $a<0$)",
+   "choices": [
+    "$5$",
+    "$6$",
+    "$7$",
+    "$8$",
+    "$9$"
+   ]
+  },
+  {
+   "number": 9,
+   "answer": "②",
+   "solution": null,
+   "topic": "여러 가지 함수",
+   "difficulty": "중",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "집합 $X= LEFT { 1`,~2`,~3`,~4` RIGHT }$에 대하여 $X$에서 $X$로의 두 함수 $f$, $g$가 다음 조건을 만족시킨다.\n(가) $f$는 일대일함수이고, $g$는 항등함수이다.\n(나) $f` LEFT ( 4 RIGHT ) =g` LEFT ( 4 RIGHT )$\n(다) $f` LEFT ( 3 RIGHT ) g` LEFT ( 2 RIGHT ) =f` LEFT ( 2 RIGHT ) g` LEFT ( 1 RIGHT )$\n대구광역시 내신 수학 연구회\n$LEFT ( f CIRC f RIGHT ) LEFT ( 1 RIGHT ) -f ^{-1} LEFT ( 2 RIGHT )$의 값은?",
+   "choices": [
+    "$-2$",
+    "$-1$",
+    "$0$",
+    "$1$",
+    "$2$"
+   ]
+  },
+  {
+   "number": 10,
+   "answer": "②",
+   "solution": null,
+   "topic": "합성합수",
+   "difficulty": "중",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "자연수 전체의 집합에서 정의된 함수 $f` LEFT ( x RIGHT )$가\n$f` LEFT ( x RIGHT ) = {cases{{x} over {2}&~(x는~짝수)#x+1&~(x는~홀수)}}$\n일 때, 집합 $X= LEFT { `f ^{n} LEFT ( 9 RIGHT ) -f ^{n} LEFT ( 6 RIGHT ) ```vert ```n RIGHT .$은 자연수$`right$의 원소의 개수 $n LEFT ( X RIGHT )$는? (단, $f ^{1} =f$, $f ^{n+1} =f CIRC f ^{n}$)",
+   "choices": [
+    "$4$",
+    "$5$",
+    "$6$",
+    "$7$",
+    "$8$"
+   ]
+  },
+  {
+   "number": 11,
+   "answer": "④",
+   "solution": null,
+   "topic": "유리함수",
+   "difficulty": "하",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "다음 중 함수 $y= {3x-1} over {x+1}$의 그래프에 대한 설명으로 옳지 않은 것은?",
+   "choices": [
+    "정의역은 $LEFT { x`|`x != -1 RIGHT .$ 인 실수$LEFT. ` RIGHT }$ 이다.",
+    "치역은 $LEFT { y`|`y != 3 RIGHT .$ 인 실수$LEFT. ` RIGHT }$ 이다.",
+    "점근선의 방정식은 $x=-1,$ $y=3$이다.",
+    "$y=- {1} over {x}$ 의 그래프를 평행이동한 것이다.",
+    "모든 사분면을 지난다."
+   ]
+  },
+  {
+   "number": 12,
+   "answer": "⑤",
+   "solution": null,
+   "topic": "유리함수",
+   "difficulty": "중",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "$0 LEQ x LEQ 1$ 에서 함수 $y= {3x+a} over {x+1}$ 의 최댓값이 $5$일 때, 상수 $a$의 값은?",
+   "choices": [
+    "$1$",
+    "$2$",
+    "$3$",
+    "$4$",
+    "$5$"
+   ]
+  },
+  {
+   "number": 13,
+   "answer": "①",
+   "solution": null,
+   "topic": "유리함수",
+   "difficulty": "중",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "함수 $y= {bx-1} over {x-a}$의 그래프가 두 직선 $y=x-3$, $y=-x+1$ 에 대하여 대칭일 때, $a+b$의 값은? \n(단, $a$, $b$는 상수이다.)",
+   "choices": [
+    "$1$",
+    "$2$",
+    "$3$",
+    "$4$",
+    "$5$"
+   ]
+  },
+  {
+   "number": 14,
+   "answer": "④",
+   "solution": null,
+   "topic": "유리함수",
+   "difficulty": "상",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "점 $rm P LEFT ( 0,````-3 RIGHT )$과 양수 $k$에 대하여 직선 $y=kx-1+2k$와 함수 $y= {-x+1 } over { x+2}$의 그래프가 만나는 서로 다른 두 점을 각각 $rm P _{1} LEFT ( it x _{1} ,```` {-x _{1} +1} over {x _{1} +2} RIGHT )$, $rm P _{2} LEFT ( it x _{2} ,```` {-x _{2} +1} over {x _{2} +2} RIGHT )$이라 할 때, 삼각형 $rmPP _{1} P _{2}$의 넓이의 최솟값은? \n(단, $x _{1} >`-2$, $x _{2} <`-2$)",
+   "choices": [
+    "$4 sqrt {6}$",
+    "$4 sqrt {5}$",
+    "$8$",
+    "$4 sqrt {3}$",
+    "$4 sqrt {2}$"
+   ]
+  },
+  {
+   "number": 15,
+   "answer": "①",
+   "solution": null,
+   "topic": "유리식",
+   "difficulty": "하",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "${a} over {x+2} + {b} over {x+3} = {x} over {x ^{2} +5x+6}$ 가 $x$에 대한 항등식이 되도록 하는 상수 $a,~b$에 대하여 $ab$의 값은? \n(단, $x != -2,~x != -3$)",
+   "choices": [
+    "$-6$",
+    "$-3$",
+    "$3$",
+    "$6$",
+    "$12$"
+   ]
+  },
+  {
+   "number": 16,
+   "answer": "⑤",
+   "solution": null,
+   "topic": "무리함수",
+   "difficulty": "중",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "함수 $y=` sqrt {ax+b} +c$ 의 그래프가 점 $(1,~-1)$을 지나고 정의역이 $LEFT { x``|``x LEQ 5 RIGHT }$, 치역이 $LEFT { y``|``y GEQ -3 RIGHT }$ 일 때, 상수 $a,~b,~c$에 대하여 $a+b-c$의 값은?",
+   "choices": [
+    "$3$",
+    "$4$",
+    "$5$",
+    "$6$",
+    "$7$"
+   ]
+  },
+  {
+   "number": 17,
+   "answer": "④",
+   "solution": null,
+   "topic": "무리함수",
+   "difficulty": "중",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "정의역이 $LEFT { x`|`x>1 RIGHT }$ 인 두 함수 $f(x)= {x+2} over {x-1}$, $g(x)= sqrt {2x-2} +1$ 에 대하여 $(f CIRC (g CIRC f) ^{-1} CIRC f)(2)$ 의 값은?",
+   "choices": [
+    "$4$",
+    "${9} over {2}$",
+    "$5$",
+    "${11} over {2}$",
+    "$6$"
+   ]
+  },
+  {
+   "number": 18,
+   "answer": "②",
+   "solution": null,
+   "topic": "무리함수",
+   "difficulty": "중",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "함수 $f LEFT ( x RIGHT ) = sqrt {2x-7} +k$의 그래프와 직선 $y=x$가 서로 다른 두 점에서 만나도록 하는 실수 $k$값의 범위를 $a<k LEQ b$라고 할 때, $b-a$의 최댓값은?",
+   "choices": [
+    "${1} over {4}$",
+    "${1} over {2}$",
+    "${3} over {4}$",
+    "$1$",
+    "${5} over {4}$"
+   ]
+  },
+  {
+   "number": 19,
+   "answer": "④",
+   "solution": null,
+   "topic": "무리함수",
+   "difficulty": "상",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "자연수 $n$($n LEQ 5$)에 대하여 곡선 $y=x ^{2} +3$ ($x GEQ 0$) 위의 두 점 $rm A _{it n} rm$, $rm B _{it n} rm$이 다음 조건을 만족시킨다.\n(가) 직선 $rm A _{it n} rm B _{it n}$의 기울기는 $5$이다.\n(나) ${bar{rm A _{it n} rm B _{it n}}} =n TIMES sqrt {26}$\n대구광역시 내신 수학 연구회\n중심이 직선 $y=x$위에 있고 두 점 $rm A _{it n} rm$, $rm B _{it n} rm$을 지나는 원이 $y= sqrt {x-3}$과 만나는 서로 다른 두 점의 $y$좌표 중 작은 값을 $y _{n}$이라 하자. $y _{1} +y _{2}$의 값은?",
+   "choices": [
+    "${13} over {2}$",
+    "${11} over {2}$",
+    "${9} over {2}$",
+    "${7} over {2}$",
+    "${5} over {2}$"
+   ]
+  },
+  {
+   "number": 20,
+   "answer": "③",
+   "solution": null,
+   "topic": "무리함수",
+   "difficulty": "상",
+   "score": 4.1,
+   "label": null,
+   "type": "객관식",
+   "stem": "함수 $f` LEFT ( x RIGHT ) = {cases{2ax-a+1&LEFT ( x LEQ 0 RIGHT )#a sqrt {x} -a+1&LEFT ( x>0 RIGHT )}}$ 는 역함수를 갖는다. 함수 $y=f` LEFT ( x RIGHT )$의 그래프와 $y=f ^{-1} LEFT ( x RIGHT )$의 그래프의 교점의 $x$좌표가 $- {1} over {2}$, $1$, $k$뿐일 때, $2a+3k$의 값은?\n(단, $a$, $k$는 상수이고, $k>1$이다.)",
+   "choices": [
+    "$7$",
+    "$8$",
+    "$9$",
+    "$10$",
+    "$11$"
+   ]
+  },
+  {
+   "number": 21,
+   "answer": null,
+   "solution": "$a GEQ  4$$SIM  q:x<a$$p -> ~simq$가 참이 되기 위해서는 $a$가 $4$보다 크거나 같은 쪽에 존재해야 한다. 따라서 $a GEQ  4$이다.",
+   "topic": "충분조건과 필요조건",
+   "difficulty": "하",
+   "score": 4.0,
+   "label": "[서술형 $1$]",
+   "type": "서술형",
+   "stem": "[서술형 $1$] 두 조건 ‘$p:~-3 LEQ x<4$’,‘$q:~x GEQ a$’에 대하여 명제 $p -> ~simq$가 참이 되도록 하는 실수 $a$의 값의 범위를 구하시오.",
+   "choices": []
+  },
+  {
+   "number": 22,
+   "answer": null,
+   "solution": "${31} over {3}$$y=- sqrt {ax-b} +c$ 의 그래프그래프에서 정의역은 $LEFT { x`vert `x GEQ  -3 RIGHT }$, 치역은 $LEFT { y`vert `y LEQ  5 RIGHT }$시작점은 $LEFT ( -3,````5 RIGHT )$ 이므로 $y=- sqrt {a LEFT ( x+3 RIGHT )} +5$이고, $LEFT ( 0,````3 RIGHT )$을 지나므로 식에 대입하면$3=- sqrt {3a} +5$$sqrt {3a} =2$, $a= {4} over {3}$$y=- sqrt {{4} over {3} LEFT ( x+3 RIGHT )} +5$, $y=- sqrt {{4} over {3} x+4} +5$$a= {4} over {3}$, $b=-4$, $c=5$$THEREFORE `a-b+c= {4} over {3} - LEFT ( -4 RIGHT ) +5= {31} over {3}$",
+   "topic": "무리함수",
+   "difficulty": "중",
+   "score": 4.0,
+   "label": "[서술형 $2$]",
+   "type": "서술형",
+   "stem": "[서술형 $2$] 함수 $y=- sqrt {ax-b} +c$의 그래프가 아래쪽 그림과 같을 때, $a-b+c$의 값을 구하여라.\n(단, $a$, $b$, $c$는 상수이다.)",
+   "choices": []
+  },
+  {
+   "number": 23,
+   "answer": null,
+   "solution": "$g` LEFT ( f LEFT ( x RIGHT ) RIGHT ) = {cases{eqalign{-x ^{2} +4#\n-2x ^{2} +8}&eqalign{LEFT ( x<`- 2 RIGHT )#\nLEFT ( -2 LEQ  x<0 RIGHT )}#2x+8&LEFT ( x GEQ  0 RIGHT )}}$$f LEFT ( x RIGHT ) = {cases{-x ^{2} +4&LEFT ( x<0 RIGHT )#x+4&LEFT ( x GEQ  0 RIGHT )}}$, $g` LEFT ( x RIGHT ) = {cases{x&LEFT ( x<0 RIGHT )#2x&LEFT ( x GEQ  0 RIGHT )}}$$g` LEFT ( f LEFT ( x RIGHT ) RIGHT ) = {cases{f LEFT ( x RIGHT )&LEFT ( f LEFT ( x RIGHT ) <0 RIGHT )#2f LEFT ( x RIGHT )&LEFT ( f LEFT ( x RIGHT )  GEQ  0 RIGHT )}}$이 되고 $f` LEFT ( x RIGHT ) <0$ 일 때 $x<`-2$, $f` LEFT ( x RIGHT ) GEQ 0$ 일 때 $x GEQ -2$ 이므로$g` LEFT ( f LEFT ( x RIGHT ) RIGHT ) = {cases{eqalign{-x ^{2} +4#\n-2x ^{2} +8}&eqalign{LEFT ( x<`- 2 RIGHT )#\nLEFT ( -2 LEQ  x<0 RIGHT )}#2x+8&LEFT ( x GEQ  0 RIGHT )}}$",
+   "topic": "합성함수",
+   "difficulty": "상",
+   "score": 4.0,
+   "label": "[서술형 $3$]",
+   "type": "서술형",
+   "stem": "[서술형 $3$] 두 함수\n$f LEFT ( x RIGHT ) = {cases{-x ^{2} +4&~ LEFT ( x<0 RIGHT )#x+4&~ LEFT ( x GEQ 0 RIGHT )}}$, $g` LEFT ( x RIGHT ) = {cases{x&~ LEFT ( x<0 RIGHT )#2x&~ LEFT ( x GEQ 0 RIGHT )}}$\n에 대하여 합성함수 $g CIRC f$를 구하시오.\n(합성함수가 정의되는 $x$의 범위와 함께 각 범위에서의 함수 형태를 $x$에 대한 다항식으로 구할 것.)",
+   "choices": []
+  },
+  {
+   "number": 24,
+   "answer": null,
+   "solution": "[서술형 $4-(1)$] $(a ^{2} +b ^{2} +c ^{2} )(x ^{2} +y ^{2} +z ^{2} )- (ax+by+cz) ^{2}$$=a ^{2} y ^{2} +a ^{2} z ^{2} +b ^{2} x ^{2} +b ^{2} z ^{2} +c ^{2} x ^{2} +c ^{2} y ^{2} -2abxy-2bcyz-2cazx$$=(bx-ay) ^{2} +(cy-bz) ^{2} +(az-cx) ^{2} GEQ  0$ 이므로 다음 부등식이 항상 성립하고, (단, 등호는 ${x} over {a} = {y} over {b} = {z} over {c}$일 때 성립한다.)[서술형 $4-(2)$] $(2  ^{2} +(-1)  ^{2} +2  ^{2} )(4a  ^{2} +b  ^{2} +9c  ^{2} ) GEQ (2(2a)+(-1)b+2(3c))  ^{2}$$(4+1+4)(4a  ^{2} +b  ^{2} +9c  ^{2} ) GEQ (4a-b+6c)  ^{2}$$4a-b+6c=6 sqrt {2}$이므로$9(4a  ^{2} +b  ^{2} +9c  ^{2} ) GEQ `(6 sqrt {2} )  ^{2}$따라서 $4a ^{2} +b ^{2} +9c ^{2}$의 최솟값은 $8$.",
+   "topic": "절대부등식",
+   "difficulty": "상",
+   "score": 4.0,
+   "label": null,
+   "type": "단답형",
+   "stem": "[서술형 $4-(1)$] $a,~b,~c,~x,~y,~z$가 실수일 때, 다음 부등식이 성립함을 증명하시오. \n(등호가 성립할 조건을 반드시 쓰시오.) \n$(a^2 + b^2 + c^2 )(x^2 + y ^2 + z^2 ) >= (ax + by + cz )^2$\n  \n  \n[서술형 $4-(2)$] 세 실수 $a,~b,~c$에 대하여 $4a - b + 6c = 6root2$일 때, $4a^2 + b^2 + 9c^2$의 최솟값을 구하시오. \n[서술형 $4-(1)$의 부등식을 활용할 것.]\n  \n  \n정답\n워드:안문환t\n오검:박소선t \n완료:t",
+   "choices": []
+  }
+ ],
+ "meta": {
+  "exam_id": 4330,
+  "school": "대원고",
+  "grade": 1,
+  "subject": "공수2",
+  "year": 2025,
+  "semester": 2,
+  "round": "기말",
+  "src": "N:\\개인\\기출\\2024 기출모음\\2024년 2학기 기말 고사 모음\\공수2\\[대원고][1][공수2][25-2-기말대비][신사고] (완료).hwp"
+ }
+}

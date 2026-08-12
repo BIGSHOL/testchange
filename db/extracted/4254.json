@@ -1,0 +1,424 @@
+{
+ "source": "_경신고__1__공수2__25-2-기말대비__와이비엠___완료_.hwpx",
+ "question_count": 24,
+ "questions": [
+  {
+   "number": 1,
+   "answer": "②",
+   "solution": null,
+   "topic": "역함수",
+   "difficulty": "하",
+   "score": 3.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "함수 $f LEFT ( x RIGHT ) =ax+b$에 대해 $f LEFT ( 2 RIGHT ) =5,~f ^{`-1} LEFT ( 8 RIGHT ) =3$일 때, $a+b$의 값은?",
+   "choices": [
+    "$1$",
+    "$2$",
+    "$3$",
+    "$4$",
+    "$5$"
+   ]
+  },
+  {
+   "number": 2,
+   "answer": "④",
+   "solution": null,
+   "topic": "유리함수",
+   "difficulty": "하",
+   "score": 3.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "함수 $f LEFT ( x RIGHT ) = {bx+c} over {2x+a}$의 역함수가 $f` ^{-1} LEFT ( x RIGHT ) = {ex+3} over {2x+d`}$일 때, $a+b+c+d+e$의 값은? (단, $ab != 0$이고, $dc != 0$이다.)",
+   "choices": [
+    "$-6$",
+    "$-3$",
+    "$0$",
+    "$3$",
+    "$6$"
+   ]
+  },
+  {
+   "number": 3,
+   "answer": "①",
+   "solution": null,
+   "topic": "무리함수",
+   "difficulty": "하",
+   "score": 3.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "함수 $f LEFT ( x RIGHT ) =a sqrt {bx-3} +c$의 정의역이 $LEFT { x LEFT | x LEQ - {3} over {4} RIGHT } RIGHT .$이고, 치역이 $LEFT { y`vert `y LEQ -1 RIGHT }$이 되도록 하는 세 상수 $a,~b,~c$에 대하여 ${abc} over {LEFT | a RIGHT |}$의 값은? (단, $a != 0$)",
+   "choices": [
+    "$-4$",
+    "$-2$",
+    "$0$",
+    "$2$",
+    "$4$"
+   ]
+  },
+  {
+   "number": 4,
+   "answer": "③",
+   "solution": null,
+   "topic": "집합",
+   "difficulty": "중",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "집합 $A= LEFT { x LEFT | x는 ````자연수 RIGHT } RIGHT .$에 대하여 다음을 만족시키는 집합 $B$의 개수는? (단, $B!=EMPTYSET$) \n(가) $B SUBSET A$\n(나) $a IN B$ 이면 ${16}over{a} in B$이다.\n대구광역시 내신 수학 연구회",
+   "choices": [
+    "$5$",
+    "$6$",
+    "$7$",
+    "$8$",
+    "$9$"
+   ]
+  },
+  {
+   "number": 5,
+   "answer": "②",
+   "solution": null,
+   "topic": "명제",
+   "difficulty": "하",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "두 실수 $x,~y$에 대하여 다음 중에서 그 역과 대우가 모두 참인 명제는?",
+   "choices": [
+    "$x^2 -y^2 =0$이면 $x=y$이다.",
+    "$LEFT | x RIGHT | -1=0$이면 $x^2 -1 =0$이다.",
+    "$x>0$이고 $y>0$이면 $xy= LEFT | xy RIGHT |$이다.",
+    "$x<0$ 또는 $y<0$이면 $xy<0$이다.",
+    "$xy<0$ 이면 $x^2 +y^2 >0$이다."
+   ]
+  },
+  {
+   "number": 6,
+   "answer": "③",
+   "solution": null,
+   "topic": "함수",
+   "difficulty": "하",
+   "score": 3.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "두 집합 $X,~Y$가 $X=LEFT \n{ -1,~0,~1 RIGHT$, $Y= LEFT { -2 ,~-1,~0,~1,~2 RIGHT$일 때, 다음 중 $X$에서 $Y$로의 함수가 아닌 것은?",
+   "choices": [
+    "$y=2x$",
+    "$y=x-1$",
+    "$y=-x+2$",
+    "$y= LEFT | x RIGHT | +1$",
+    "$y=-x^2 +1$\n  \n  \nㄱ"
+   ]
+  },
+  {
+   "number": 7,
+   "answer": "④",
+   "solution": null,
+   "topic": "함수",
+   "difficulty": "하",
+   "score": 3.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "두 집합 $X= LEFT { x | x GEQ a right } ,~Y =left { y|y GEQ b right}$에 대하여 $X$에서 $Y$로의 함수 $f(x) =x^2 -4x +5$가 일대일대응일 때, $a+b$의 최솟값은? (단, $a,~b$는 실수)",
+   "choices": [
+    "${3}over{2}$",
+    "$2$",
+    "${5}over{2}$",
+    "$3$",
+    "${7}over{2}$"
+   ]
+  },
+  {
+   "number": 8,
+   "answer": "③",
+   "solution": null,
+   "topic": "유리함수",
+   "difficulty": "중",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "정의역이 $LEFT { x | x GEQ0,~x !=3 right}$인 함수 $f(x)= LEFT | {-2x+12} over{x-3} RIGHT |$ 에 대하여 함수 $y=f(x)$의 그래프와 직선 $y=t$의 서로 다른 교점의 개수를 $g(t)$라 할 때, $g(1)+g(2) +g(3) +g(4)+g(5)$의 값을 구하시오.",
+   "choices": [
+    "$6$",
+    "$7$",
+    "$8$",
+    "$9$",
+    "$10$"
+   ]
+  },
+  {
+   "number": 9,
+   "answer": "③",
+   "solution": null,
+   "topic": "무리함수",
+   "difficulty": "중",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "함수 $f(x) = root{3x-4 } +1$의 역함수를 $g(x)$라 할 때, 두 함수 $y=f(x)$와 $y=g(x)$의 그래프의 두 교점 사이의 거리를 구하시오.",
+   "choices": [
+    "$2root2$",
+    "$3$",
+    "$root10$",
+    "$root11$",
+    "$2root3$"
+   ]
+  },
+  {
+   "number": 10,
+   "answer": "②",
+   "solution": null,
+   "topic": "무리함수",
+   "difficulty": "중",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "다음 그림과 같이 함수 $y={1}over{x}$의 그래프 위의 점 $rmA$에서 $x$축,$y$축에 각각 평행한 직선을 그어 함수 $y={k}over{x} (k > 1 )$의 그래프와 만나는 점을 각각 $rmB,~C$라 하자. 삼각형 $RM ABC$의 넓이가 32일 때, 상수 $k$의 값을 구하시오.\n(단, 점 $rmA$는 제$1$사분면 위에 있다.)",
+   "choices": [
+    "$8$",
+    "$9$",
+    "$10$",
+    "$11$",
+    "$12$"
+   ]
+  },
+  {
+   "number": 11,
+   "answer": "②",
+   "solution": null,
+   "topic": "무리함수",
+   "difficulty": "하",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "정의역이 $LEFT { x | 0 leq x LEQ 4 RIGHT}$인 함수 $y=root{2x+a } +3$의 최솟값이 $4$, 최댓값이 $b$일 때, $a+b$의 값은?\n(단, $a,~b$는상수)",
+   "choices": [
+    "$6$",
+    "$7$",
+    "$8$",
+    "$9$",
+    "$10$"
+   ]
+  },
+  {
+   "number": 12,
+   "answer": "④",
+   "solution": null,
+   "topic": "무리함수",
+   "difficulty": "중",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "함수 $f(x) = {x}over{x-1 }$에 대하여 $f^1 =f,~f^{n+1} =f CIRCf^n$으로 정의할 때, $f^10 (3)$의 값은? (단 $n$은 자연수)",
+   "choices": [
+    "${1}over{3}$",
+    "${1}over{2}$",
+    "${3}over{2}$",
+    "$3$",
+    "$6$"
+   ]
+  },
+  {
+   "number": 13,
+   "answer": "⑤",
+   "solution": null,
+   "topic": "역함수",
+   "difficulty": "하",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "함수 $f LEFT ( x RIGHT ) =x ^{2} -8x+a`` LEFT ( x GEQ 4 RIGHT )$의 역함수를 $g LEFT ( x RIGHT )$라 하자. 방정식 $f LEFT ( x RIGHT ) =g LEFT ( x RIGHT )$의 실근이 있을 때, 실수 $a$의 최댓값은?",
+   "choices": [
+    "$- {81} over {4}$",
+    "$-12$",
+    "$0$",
+    "$12$",
+    "${81} over {4}$"
+   ]
+  },
+  {
+   "number": 14,
+   "answer": "③",
+   "solution": null,
+   "topic": "유리함수",
+   "difficulty": "중",
+   "score": 5.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "실수 전체의 집합에서 정의된 함수\n $f LEFT ( x RIGHT ) = {cases{{2x+5} over {x-1}&~~ LEFT ( x>2 RIGHT )#-x+a&~~ LEFT ( x LEQ 2 RIGHT )}}$\n가 다음 조건을 모두 만족시킨다.\n(가) 치역은 $LEFT { y``vert ``y>2 RIGHT }$이다.\n(나) 임의의 두 실수 $x _{1} ,~x _{2}$에 대하여 $x _{1} != x _{2}$ 이면 $f LEFT ( x _{1} RIGHT ) != f LEFT ( x _{2} RIGHT )$이다.\n대구광역시 내신 수학 연구회\n$a+f LEFT ( k RIGHT ) =16$일 때, 상수 $k$의 값은?",
+   "choices": [
+    "${8} over {3}$",
+    "$3$",
+    "${10} over {3}$",
+    "${11} over {3}$",
+    "$4$"
+   ]
+  },
+  {
+   "number": 15,
+   "answer": "①",
+   "solution": null,
+   "topic": "유리함수",
+   "difficulty": "중",
+   "score": 5.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "함수 $y= {bx+c} over {x+a}$의 그래프가 두 직선 $y=x+4,~$\n$y=-x+2$에 대하여 대칭이고, 점 $LEFT ( 4,~ {3} over {5} RIGHT )$을 지난다. $1 LEQ x LEQ 4$에서 함수 $f LEFT ( x RIGHT )$의 최댓값을 $M,~$최솟값을 $m$이라 할 때, $M-m$의 값은? (단, $a,~b,~c$는 상수이다.)",
+   "choices": [
+    "${18} over {5}$",
+    "$4$",
+    "${22} over {5}$",
+    "${24} over {5}$",
+    "${26} over {5}$"
+   ]
+  },
+  {
+   "number": 16,
+   "answer": "④",
+   "solution": null,
+   "topic": "무리함수",
+   "difficulty": "중",
+   "score": 5.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "함수 $f LEFT ( x RIGHT ) = sqrt {2x+3}$의 그래프와 직선 $g LEFT ( x RIGHT ) =x+ LEFT | x-k RIGHT |$가 서로 다른 두 점에서 만나도록 하는 정수 $k$의 개수는?",
+   "choices": [
+    "$1$",
+    "$2$",
+    "$3$",
+    "$4$",
+    "$5$"
+   ]
+  },
+  {
+   "number": 17,
+   "answer": "③",
+   "solution": null,
+   "topic": "절대부등식",
+   "difficulty": "중",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "두 자연수 $a$, $b$에 대하여 <보기>에서 옳은 것만을 있는 대로 고른 것은? \n<보기>\nㄱ. $a ^{2} +b ^{2}$이 홀수이면 $ab$는 짝수이다.\nㄴ. $a ^{`2} + {4} over {a ^{`2} +1}$의 최솟값은 $3$이다.\nㄷ. $a+9b=30$일 때, $ab$의 최댓값은 $5$이다.\n대구광역시 내신 수학 연구회",
+   "choices": [
+    "ㄱ",
+    "ㄴ",
+    "ㄱ, ㄴ",
+    "ㄱ, ㄷ",
+    "ㄱ, ㄴ, ㄷ"
+   ]
+  },
+  {
+   "number": 18,
+   "answer": "②",
+   "solution": null,
+   "topic": "절대부등식",
+   "difficulty": "중",
+   "score": 5.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "$a>0$, $b>0$일 때, $(a+b) LEFT ( {9a+4b} over {ab} RIGHT )$는 $a=kb$일 때, 최솟값 $m$을 갖는다. $km$의 값은? (단,$k$는 상수)",
+   "choices": [
+    "$16$",
+    "${50} over {3}$",
+    "${52} over {3}$",
+    "$18$",
+    "${56} over {3}$"
+   ]
+  },
+  {
+   "number": 19,
+   "answer": "④",
+   "solution": null,
+   "topic": "절대부등식",
+   "difficulty": "중",
+   "score": 5.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "세 실수 $x,~y,~z$에 대하여 $x+y+z=15$, $x ^{2} +y ^{2} +z ^{2} =81$ 일 때, $z$의 최댓값은?",
+   "choices": [
+    "$4$",
+    "$5$",
+    "$6$",
+    "$7$",
+    "$8$\n  \n  ㄴ"
+   ]
+  },
+  {
+   "number": 20,
+   "answer": "①",
+   "solution": "$f LEFT ( a RIGHT ) =f LEFT ( {2} over {3} RIGHT )$이므로 $f LEFT ( a RIGHT ) =f LEFT ( {2} over {3} RIGHT ) = {1} over {2} =1- {1} over {a}$, $a=2$이다.$g LEFT ( x RIGHT ) =g LEFT ( x+ {4} over {3} RIGHT )$이고, $y= {1} over {14} LEFT ( x+ {2} over {3} RIGHT )$이다. $y= {1} over {14} LEFT ( x+ {2} over {3} RIGHT )$는 $LEFT ( - {2} over {3} ,~0 RIGHT )$을 지나고, $LEFT ( 6+ {1} over {3} = {19} over {3} ,~ {1} over {2} RIGHT )$을 지난다.한편, $g(x)$는 $x= {2} over {3}$에서 $x=2$까지 ${1} over {2} ->0-> {1} over {2}$의 증가와 감소를 반복하는 주기가 ${4} over {3}$인 그래프이다.$y= {1} over {14} LEFT ( x+ {2} over {3} RIGHT )$와의 교점을 살펴보면, 각 구간 $- {2} over {3} <x< {2} over {3}$, ${2} over {3} <x< {6} over {3}$, ~,  ${14} over {3} <x< {18} over {3}$까지 각 두점에서 만나고, ${18} over {3} <x LEQ  {19} over {3}$에서 한점에서 만나므로, 모두 $11$개의 점에서 만난다. $k=11$$g(a)= {1} over {2}$이므로, $10g(a)+k=16$이다.",
+   "topic": "유리함수",
+   "difficulty": "상",
+   "score": 5.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "$x != 0$인 실수 전체에서 정의된 함수 $f LEFT ( x RIGHT )$는 $f LEFT ( x RIGHT ) = LEFT | 1- {1} over {x} RIGHT |$이다. $f LEFT ( a RIGHT ) =f LEFT ( {2} over {3} RIGHT )$를 만족시키는 상수 $a` LEFT ( a> {2} over {3} RIGHT )$에 대하여 함수 $g LEFT ( x RIGHT )$는 다음 조건을 만족시킨다.\n(가) ${2} over {3} LEQ x LEQ a$ 에서 $g LEFT ( x RIGHT ) =f LEFT ( x RIGHT )$ 이다.\n(나) 모든 실수 $x$에 대하여 $g LEFT ( x RIGHT ) =g LEFT ( x+a- {2} over {3} RIGHT )$이다.\n대구광역시 내신 수학 연구회\n직선 $y= {1} over {7a} LEFT ( x+ {a} over {3} RIGHT )$의 그래프와 함수 $y=g LEFT ( x RIGHT )$의 그래프가 만나는 서로 다른 점의 개수는 $k$이다. $10 TIMES g LEFT ( a RIGHT ) +k$ 의 값을 구하시오.",
+   "choices": [
+    "$16$",
+    "$17$",
+    "$18$",
+    "$19$",
+    "$20$"
+   ]
+  },
+  {
+   "number": 21,
+   "answer": null,
+   "solution": "정답 $1$ $p$와 $q$의 진리집합을 각각 $rm{ P }$, $rm{ Q }$라 하면$rm{ P` SUBSET  Q }$이다.$p:`a-1 LEQ  x LEQ  b+2,~q:`-2<x<4$이므로$-2<a-1$, $b+2<4$$-1<a$, $b<2$이다.정수 $a$의 최솟값은 $0$정수 $b$의 최댓값은 $1$합은 $1$",
+   "topic": "충분조건과 필요조건",
+   "difficulty": "하",
+   "score": 4.0,
+   "label": "[서술형 $1$]",
+   "type": "서술형",
+   "stem": "[서술형 $1$] 실수 $x$, 두 정수 $a,~b`$에 대한 두 조건\n$p:`a-1 LEQ x LEQ b+2,~q:` LEFT | x-1 RIGHT | <3`$에 대하여 $p$가 $q`$이기 위한 충분조건일 때, $a`$의 최솟값과 $b`$의 최댓값의 합을 구하시오. (단, $a LEQ b+3$)",
+   "choices": []
+  },
+  {
+   "number": 22,
+   "answer": null,
+   "solution": "$11$ $f(x)=5x-3,~ (g CIRC f)(x) =x^2 +6x +4$이므로, $f(a)=2$라 하면, $g(2) =g(f(a))=a^2 +6a +4 ,~f(a) =5a-3 =2$에서 $a=1,~f(1) =2$따라서 $g(2) =g(f(1) ) =11$",
+   "topic": "함수",
+   "difficulty": "하",
+   "score": 4.0,
+   "label": "[서술형 $2$]",
+   "type": "서술형",
+   "stem": "[서술형 $2$] 두 함수 $f,~g$에 대하여 $f(x)=5x-3,~ (g CIRC f)(x) =x^2 +6x +4$일 때, $g(2)$의 값을 구하시오.",
+   "choices": []
+  },
+  {
+   "number": 23,
+   "answer": null,
+   "solution": "$14$ $f(x)= {a+8} over {x-2} +a$에서 $x GEQ  3$의 치역은 $a<y LEQ  2a+8$이다. $g(x)= sqrt {4-x} +b$에서 $x<3$의 치역은 $y>b+1$이다.$h(x)$의 치역은 $a<y LEQ  2a+8$와 $y>b+1$의 합집합이다.따라서 $a=-2$, $b+1 GEQ  -2$ 또는 $b+1=-2$, $a GEQ  -2$이다.또한 동시에 $2a+8 GEQ  b+1$이여야 한다.⑴ $a=-2$, $b+1 GEQ  -2$, $2a+8 GEQ  b+1$$a=-2$, $b GEQ  -3$, $3 GEQ  b$ 즉, $a=-2$, $-3{le}b{le}3$이므로 $7$가지⑵ $b+1=-2$, $a{ge} -2$, $2a+8 GEQ  b+1$$b=-3,~a{ge} -2,~a GEQ  -5$즉, $b=-3$, $a{ge}-2}$이므로 $8$가지$(1)$, $(2)$에서 $(-2,````-3)$이 중복된다.따라서 $7+8-1=14$",
+   "topic": "유리함수, 무리함수",
+   "difficulty": "상",
+   "score": 6.0,
+   "label": "[서술형 $3$]",
+   "type": "서술형",
+   "stem": "[서술형 $3$] 두 정수 $a,~b$에 대하여 두 함수 $f LEFT ( x RIGHT )$와 $g LEFT ( x RIGHT )$가 \n $f LEFT ( x RIGHT ) = {a+8} over {x-2} +a,~g LEFT ( x RIGHT ) = sqrt {4-x} +b$\n이다. 함수 $h LEFT ( x RIGHT )$가 $h LEFT ( x RIGHT ) = {cases{f LEFT ( x RIGHT )&~~ LEFT ( x GEQ 3 RIGHT )#g LEFT ( x RIGHT )&~~ LEFT ( x<3 RIGHT )}}$ 일 때, 다음 조건을 만족시키는 모든 순서쌍 $LEFT ( a,~b RIGHT )$의 개수를 구하시오. \n(가) $LEFT | a RIGHT | LEQ 5,~ LEFT | b RIGHT | LEQ 5$\n(나) 함수 $h LEFT ( x RIGHT )$의 치역은 $LEFT { y`vert `y>-2 RIGHT }$이다.\n대구광역시 내신 수학 연구회",
+   "choices": []
+  },
+  {
+   "number": 24,
+   "answer": null,
+   "solution": "$26$ $left {f(x)+x^2 -5 right } cdot left {f(x)+4x right} =0$ 에서 집합 $X$의 모든원소에 대하여 $f(x) =-x^2 +5  ````or f(x) = -4x$이다.$-x^2 +5 = -4x$의 근은 $x=-1 ,~5$이므로 $f(-1) =4$$-x^2 +5$는 $y$축 대칭이므로 $f(1) =4$라 가정 하면 일대일함수라는 조건에 모순이므로 $f(-1)=-4$이 여야한다. 또한 $-x^2 +5 =-4$에서, $x=-3$이므로. $f(-3) =-4$이면 일대일 함수라는 조건에 모순이므로, $f(-3\n)=1`2$여야 한다. 또한 $f(0)$은  $0$또는 $5$여야 하는데, $f(0) =0$이면 조건 (나)에 모순이므로 $f(0) =5$. $f(2) = -8$또는 $1$인데 조건(나)에 의하여 $f(2) >0$이므로 $f(2) =1$여야한다. $-x^2 +5$는 $y$축 대칭이므로 $f(-2) =1$이라 가정하면 일대일 함수에 모순이므로 $f(-2) =8$이다. 따라서 $f(-3)+f(-2)+f(-1)+f(0)+f(1)+f(2) =26$",
+   "topic": "함수",
+   "difficulty": "상",
+   "score": 5.0,
+   "label": "[서술형 $4$]",
+   "type": "서술형",
+   "stem": "[서술형 $4$] 집합 $X=left {-3,~-2,~-1,~0,~1,~2 right}$에서 실수 전체의 집합으로의 일대일함수 $f(x)$가 다음 조건을 만족시킨다.\n(가) 집합 $X$의 모든 원소 $x$에 대하여\n$left {f(x)+x^2 -5 right } cdot left {f(x)+4x right} =0$이다.\n(나) $f(0) cdot f(1) cdot f(2) < 0$\n대구광역시 내신 수학 연구회\n$f(-3) + f(-2) +f(-1) + f(0 ) +f(1 ) +f(2)$의 값을 구하시오.  \n  \n  \n정답\n워드:김민식t\n오검:성지민t \n완료:박순찬t",
+   "choices": []
+  }
+ ],
+ "meta": {
+  "exam_id": 4254,
+  "school": "경신고",
+  "grade": 1,
+  "subject": "공수2",
+  "year": 2025,
+  "semester": 2,
+  "round": "기말",
+  "src": "N:\\개인\\기출\\2024 기출모음\\2024년 2학기 기말 고사 모음\\공수2\\[경신고][1][공수2][25-2-기말대비][와이비엠] (완료).hwp"
+ }
+}

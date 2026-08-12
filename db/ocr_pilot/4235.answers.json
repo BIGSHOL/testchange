@@ -1,0 +1,184 @@
+{
+ "exam_id": 4235,
+ "answer_pages": [
+  7,
+  8
+ ],
+ "items": [
+  {
+   "number": 1,
+   "answer": "①",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 2,
+   "answer": "③",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 3,
+   "answer": "⑤",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 4,
+   "answer": "①",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 5,
+   "answer": "⑤",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 6,
+   "answer": "⑤",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 7,
+   "answer": "②",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 8,
+   "answer": "②",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 9,
+   "answer": "④",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 10,
+   "answer": "③",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 11,
+   "answer": "③",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 12,
+   "answer": "④",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 13,
+   "answer": "②",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 14,
+   "answer": "③",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 15,
+   "answer": "④",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 16,
+   "answer": "①",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 17,
+   "answer": "③",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 18,
+   "answer": "②",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 19,
+   "answer": "④",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 20,
+   "answer": "⑤",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 21,
+   "answer": "12",
+   "solution": "(i) 눈의 수의 차가 3인 경우 : $(1,~4)$, $(2,~5)$, $(3,~6)$, $(4,~1)$, $(5,~2)$, $(6,~3)$의 6개\n(ii) 눈의 수의 차가 4인 경우 : $(1,~5)$, $(2,~6)$, $(5,~1)$, $(6,~2)$의 4개\n(iii) 눈의 수의 차가 5인 경우 : $(1,~6)$, $(6,~1)$의 2개\n(i), (ii), (iii)의 경우 동시에 일어나지 않으므로 구하는 경우의 수는 합의 법칙에 의하여\n$\\therefore 6+4+2=12$",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 22,
+   "answer": "$a=8$, $b=4$",
+   "solution": "(i) $x<-1$일 때\n$-2(x+1)+(x-2) \\leq a$, $x \\geq -4-a$\n그런데 $x<-1$이고 주어진 부등식의 해가 $-12 \\leq x \\leq b$이므로 $-4-a \\leq x < -1$\n이때 $-4-a=-12$이므로 $a=8$\n(ii) $-1 \\leq x < 2$일 때\n$2(x+1)+(x-2) \\leq 8$, $3x \\leq 8$, $x \\leq \\frac{8}{3}$\n그런데 $-1 \\leq x < 2$이므로 $-1 \\leq x < 2$\n(iii) $x \\geq 2$일 때\n$2(x+1)-(x-2) \\leq 8$, $x \\leq 4$\n그런데 $x \\geq 2$이므로 $2 \\leq x \\leq 4$\n(i), (ii), (iii)에서 주어진 부등식의 해는 $-12 \\leq x \\leq 4$\n이때 부등식의 해가 $-12 \\leq x \\leq b$이므로 $b=4$",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 23,
+   "answer": "(1) 풀이참고 (2) $D=\\begin{pmatrix} -1 \\\\ 1 \\end{pmatrix}$",
+   "solution": "(1) $AB=\\begin{pmatrix} 82 & 90 \\\\ 54 & 86 \\end{pmatrix}\\begin{pmatrix} \\frac{1}{2} \\\\ \\frac{1}{2} \\end{pmatrix}=\\begin{pmatrix} \\frac{82+90}{2} \\\\ \\frac{54+86}{2} \\end{pmatrix}$이므로 민준이의 1차, 2차 성적의 평균 점수와 서현이의 1차, 2차 성적의 평균 점수를 나타낸 행렬이다.\n$CA=\\begin{pmatrix} \\frac{1}{2} & \\frac{1}{2} \\end{pmatrix}\\begin{pmatrix} 82 & 90 \\\\ 54 & 86 \\end{pmatrix}=\\begin{pmatrix} \\frac{82+54}{2} & \\frac{90+86}{2} \\end{pmatrix}$이므로 민준이와 서현이의 1차 성적의 평균 점수와 민준이와 서현이의 2차 성적의 평균 점수를 나타낸 행렬이다.\n(2) (성적의 변화)\n$=$(2차 수학 시험 성적)$-$(1차 수학 시험 성적)\n$=-$(1차 수학 시험 성적)$+$(2차 수학 시험 성적)\n이므로 $\\begin{pmatrix} 82 & 90 \\\\ 54 & 86 \\end{pmatrix}\\begin{pmatrix} -1 \\\\ 1 \\end{pmatrix}=\\begin{pmatrix} -82+90 \\\\ -54+86 \\end{pmatrix}=\\begin{pmatrix} 8 \\\\ 32 \\end{pmatrix}$이다. 따라서\n$\\therefore D=\\begin{pmatrix} -1 \\\\ 1 \\end{pmatrix}$",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 24,
+   "answer": "120",
+   "solution": "$E$, $F$ 사이에 $D$가 오는 경우\n○$E$○$D$○$F$○ : $A$, $B$, $C$를 배열하는 경우의 수는 ${}_{4}\\mathrm{P}_{3}$이고 $E$, $F$가 자리를 바꾸는 경우 2가지이므로 ${}_{4}\\mathrm{P}_{3} \\times 2$\n(2) $E$, $F$ 사이에 $D$가 오지 않는 경우\n$E$, $F$ 사이에 반드시 $A$, $B$, $C$ 중 하나가 오고 나머지를 배열하는 방법의 수는 $3 \\times {}_{3}\\mathrm{P}_{2}$이고 $E$, $F$가 자리는 바꾸는 경우 2가지, $D$가 $E$, $F$보다 앞으로 가거나 뒤로 가는 경우 2가지이므로 $3 \\times {}_{3}\\mathrm{P}_{2} \\times 2 \\times 2$\n따라서, ${}_{4}\\mathrm{P}_{3} \\times 2 + 3 \\times {}_{3}\\mathrm{P}_{2} \\times 2 \\times 2 = 48+72=120$",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 25,
+   "answer": "24",
+   "solution": "$A=\\begin{pmatrix} 1 & -2 \\\\ 0 & 1 \\end{pmatrix}$\n$A^{2}=AA=\\begin{pmatrix} 1 & -2 \\\\ 0 & 1 \\end{pmatrix}\\begin{pmatrix} 1 & -2 \\\\ 0 & 1 \\end{pmatrix}=\\begin{pmatrix} 1 & -4 \\\\ 0 & 1 \\end{pmatrix}$\n$A^{3}=A^{2}A=\\begin{pmatrix} 1 & -4 \\\\ 0 & 1 \\end{pmatrix}\\begin{pmatrix} 1 & -2 \\\\ 0 & 1 \\end{pmatrix}=\\begin{pmatrix} 1 & -6 \\\\ 0 & 1 \\end{pmatrix}$\n$\\vdots$\n$A^{n}=\\begin{pmatrix} 1 & -2n \\\\ 0 & 1 \\end{pmatrix}$\n이므로\n$A^{n}B=\\begin{pmatrix} 1 & -2n \\\\ 0 & 1 \\end{pmatrix}\\begin{pmatrix} 1 & 2 \\\\ -1 & 0 \\end{pmatrix}=\\begin{pmatrix} 2n+1 & 2 \\\\ -1 & 0 \\end{pmatrix}$\n모든 성분의 합이 50이므로\n$2n+2=50$\n$\\therefore n=24$",
+   "topic": "",
+   "difficulty": ""
+  }
+ ]
+}

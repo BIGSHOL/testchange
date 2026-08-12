@@ -1,0 +1,436 @@
+{
+ "source": "_달성고__1__공수2__25-2-중간대비__천재류___완료_.hwpx",
+ "question_count": 25,
+ "questions": [
+  {
+   "number": 1,
+   "answer": "④",
+   "solution": null,
+   "topic": "유한집합의 원소의 개수",
+   "difficulty": "하",
+   "score": 2.5,
+   "label": null,
+   "type": "객관식",
+   "stem": "다음 중 바르게 표현된 것은?",
+   "choices": [
+    "$n LEFT ( LEFT { 0 RIGHT } RIGHT ) =0$",
+    "$A ^{C} SMALLINTER B=A-B$",
+    "$A CUP EMPTYSET = EMPTYSET$",
+    "$n LEFT ( LEFT { 0 RIGHT } RIGHT ) +n LEFT ( EMPTYSET RIGHT ) =1$",
+    "$n LEFT ( A RIGHT ) =n LEFT ( B RIGHT )$이면 $A=B$"
+   ]
+  },
+  {
+   "number": 2,
+   "answer": "②",
+   "solution": null,
+   "topic": "삼각형의 무게중심",
+   "difficulty": "하",
+   "score": 2.5,
+   "label": null,
+   "type": "객관식",
+   "stem": "세 점 $rm A(3,~5)`$, $rm B(it a,~1)`$, $rm C(-4,~it b )`$를 꼭짓점으로 하는 삼각형 $rm ABC`$의 무게중심의 좌표가 $(2,~-9)`$일 때, $a-b`$의 값은?",
+   "choices": [
+    "$50$",
+    "$40$",
+    "$30$",
+    "$20$",
+    "$10`$"
+   ]
+  },
+  {
+   "number": 3,
+   "answer": "②",
+   "solution": null,
+   "topic": "집합 사이의 포함관계",
+   "difficulty": "하",
+   "score": 2.5,
+   "label": null,
+   "type": "객관식",
+   "stem": "집합 $A= LEFT { 0,~1,~2,~3,~4 RIGHT }$에 대하여 옳은 것만을 있는 대로 고른 것은? \n< 보 기 >\nㄱ. $0 IN A$\nㄴ. $EMPTYSET IN A$\nㄷ. $LEFT { 2,~3 RIGHT } IN A$\nㄹ. $A SUBSET LEFT { 0,~1,~2,~3,~4,~5 RIGHT }$",
+   "choices": [
+    "ㄱ",
+    "ㄱ, ㄹ",
+    "ㄴ, ㄷ",
+    "ㄴ, ㄹ",
+    "ㄱ, ㄷ, ㄹ"
+   ]
+  },
+  {
+   "number": 4,
+   "answer": "②",
+   "solution": null,
+   "topic": "평행이동",
+   "difficulty": "하",
+   "score": 2.5,
+   "label": null,
+   "type": "객관식",
+   "stem": "직선 $x-2y-2=0$을 $x$축의 방향으로 $-2$만큼, $y$축의 방향으로 $3$만큼 평행이동한 직선의 방정식이 $x-2y+k=0$일 때, 상수 $k$의 값은?",
+   "choices": [
+    "$7$",
+    "$6$",
+    "$5$",
+    "$4$",
+    "$3$"
+   ]
+  },
+  {
+   "number": 5,
+   "answer": "①",
+   "solution": null,
+   "topic": "두 점 사이의 거리",
+   "difficulty": "하",
+   "score": 3.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "두 점 $rmA (-1,~-2),~B(3,~4)$에서 같은 거리에 있고, 직선 $y=2x+1$ 위에 있는 점 $rmP$의 $x$좌표는?",
+   "choices": [
+    "$1over4$",
+    "$3over 8$",
+    "$1over2$",
+    "$5over8$",
+    "$3over4$"
+   ]
+  },
+  {
+   "number": 6,
+   "answer": "②",
+   "solution": null,
+   "topic": "원의 접선의 방정식",
+   "difficulty": "하",
+   "score": 3.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "원 $x^2 +y^2 =r^2$위의 점 $(1,~b)$에서의 접선의 방정식은 $2x-y-4=0$이다. $b+r^2$의 값은? (단, $b,~r$는 상수이다.)",
+   "choices": [
+    "$-1$",
+    "$3over2$",
+    "$2$",
+    "$5over2$",
+    "$11over2$"
+   ]
+  },
+  {
+   "number": 7,
+   "answer": "③",
+   "solution": null,
+   "topic": "점과 직선사이의 거리",
+   "difficulty": "하",
+   "score": 3.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "다음 중 점 $rmA(-1,~3)$을 지나고 원점에서의 거리가 $sqrt5$인 직선의 $y$절편이 될 수 있는 것은?",
+   "choices": [
+    "$1over 2$",
+    "$2$",
+    "$5over2$",
+    "$3$",
+    "$7over2$"
+   ]
+  },
+  {
+   "number": 8,
+   "answer": "①",
+   "solution": null,
+   "topic": "집합의 연산",
+   "difficulty": "하",
+   "score": 3.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "전체집합 $U$의 공집합이 아닌 세 부분집합 $A$, $B$, $C$에 대하여 <보기>에서 옳은 것만을 있는 대로 고른 것은? \n\n<보기>\nㄱ. $A ^{C} SUBSET B `^{C}$이면 $A CUP B=B$\nㄴ. $A SMALLINTER B=A$이면 $A-B= EMPTYSET$\nㄷ. $A SUBSET B$, $B SUBSET A$이면 $A=B$\nㄹ. $C SUBSET LEFT ( A CUP B RIGHT )$이면 $C SUBSET A$이고 $C SUBSET B$\n대구광역시 내신 수학 연구회",
+   "choices": [
+    "ㄴ, ㄷ",
+    "ㄴ, ㄹ",
+    "ㄱ, ㄷ, ㄹ",
+    "ㄴ, ㄷ, ㄹ",
+    "ㄱ, ㄴ, ㄷ, ㄹ"
+   ]
+  },
+  {
+   "number": 9,
+   "answer": "④",
+   "solution": null,
+   "topic": "원의 방정식",
+   "difficulty": "하",
+   "score": 3.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "$x,~y$에 대한 이차방정식 $x^2 +y^2 +6x-2y+k^2 -k=0$이 나타내는 도형이 반지름의 길이가 $2$이상인 원이 되도록 하는 정수 $k$의 개수는?",
+   "choices": [
+    "$3$",
+    "$4$",
+    "$5$",
+    "$6$",
+    "$7$"
+   ]
+  },
+  {
+   "number": 10,
+   "answer": "①",
+   "solution": null,
+   "topic": "직선의 방정식",
+   "difficulty": "하",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "두 점 $rmA it(a,~b),~ rmB it(-3,~5)$를 잇는 선분 $rmAB$의 수직이등분선의 방정식이 $x+2y- 9over2 =0$일 때, $a+b$의 값은?",
+   "choices": [
+    "$-1$",
+    "$0$",
+    "$1$",
+    "$2$",
+    "$3$"
+   ]
+  },
+  {
+   "number": 11,
+   "answer": "①",
+   "solution": null,
+   "topic": "집합의 연산",
+   "difficulty": "하",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "다음 중 두 집합 $A$, $B$가 서로소인 것은?",
+   "choices": [
+    "$A= LEFT { EMPTYSET ,~ LEFT { 0 RIGHT } ,~ LEFT { 1 RIGHT } RIGHT }$, $B= LEFT { 0 RIGHT }$",
+    "$A= LEFT { x``|``x$는 소수$`right}$, $B= LEFT { x``|``x$는 짝수$`right}$",
+    "$A= LEFT { x``|``x$는 홀수$`right}$, $B=LEFT{x``|``x$는 $12$의 약수$`right}$",
+    "$A= LEFT { LEFT ( x,~y RIGHT ) ``|``y=x ^{2} -4x+4 RIGHT }$, $B= LEFT { LEFT ( x,~y RIGHT ) ``|``y=0 RIGHT }$",
+    "$A= LEFT { x``|``x$는 $10$ 이하의 짝수$`right}$, $B=LEFT{x``|``x=5n$, $n$은 자연수$`right}$"
+   ]
+  },
+  {
+   "number": 12,
+   "answer": "④",
+   "solution": null,
+   "topic": "직선의 방정식",
+   "difficulty": "중",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "좌표평면 위의 세 점 $rmA(-3,~3),~B(-1,~0),~C(2,~1)$을 꼭짓점으로 하는 삼각형 $rmABC$가 있다. 삼각형 $rmABC$의 넓이와 삼각형 $rmDBC$의 넓이가 같을 때, 직선 $rmDB$의 기울기는? (단, 점 $rmD$는 $y$축 위를 움직이고, 직선 $rmDB$의 기울기는 양수이다.)",
+   "choices": [
+    "$1$",
+    "$2$",
+    "$3$",
+    "$4$",
+    "$5$"
+   ]
+  },
+  {
+   "number": 13,
+   "answer": "⑤",
+   "solution": null,
+   "topic": "점과 직선에 대한 대칭이동",
+   "difficulty": "하",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "다음 그림은 직선 도로와 두 건물 $rmA(-3,~2),~B(4,~5)$를 좌표평면 위에 나타낸 것이다. 두 건물 쪽의 도로변인 직선 $y=x$ 위에 두 건물까지의 거리의 합이 최소가 되게 편의점을 설치하려고 한다. 편의점을 설치할 지점의 좌표는 $(a,~b)$이다. $a+b$의 값은? \n(단, 건물의 크기는 무시한다.)",
+   "choices": [
+    "$11over3$",
+    "$5over2$",
+    "$16over5$",
+    "$5$",
+    "$22over3$"
+   ]
+  },
+  {
+   "number": 14,
+   "answer": "③",
+   "solution": null,
+   "topic": "충분조건과 필요조건",
+   "difficulty": "하",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "세 조건 $p$, $q$, $r$의 진리집합이 각각 $P$, $Q$, $R$이고, $U$는 전체집합이다. 명제 $p$는 $SIM q$이기 위한 충분조건이고, $SIM p$는 $SIM r$이기 위한 필요조건일 때, <보기>에서 옳은 것만을 있는 대로 고른 것은? \n<보기>\nㄱ. $P SUBSET R$ ㄴ. $Q-P= EMPTYSET$\nㄷ. $LEFT ( R-Q RIGHT ) ^{C} =R$ ㄹ. $P SMALLINTER Q ^{C} =P$\n대구광역시 내신 수학 연구회",
+   "choices": [
+    "ㄱ, ㄴ",
+    "ㄱ, ㄷ",
+    "ㄱ, ㄹ",
+    "ㄴ, ㄷ, ㄹ",
+    "ㄱ, ㄷ, ㄹ"
+   ]
+  },
+  {
+   "number": 15,
+   "answer": "⑤",
+   "solution": null,
+   "topic": "유한집합의 원소의 개수",
+   "difficulty": "중",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "은민이네 반 $30$명 중에서 설악산을 가 본 학생은 $12$명이고, 설악산 또는 지리산을 가 본 학생은 $18$명 이상 $25$명 이하라고 한다. 지리산을 가 본 학생 수의 최댓값과 최솟값의 합은?",
+   "choices": [
+    "$19$",
+    "$23$",
+    "$25$",
+    "$27$",
+    "$31$"
+   ]
+  },
+  {
+   "number": 16,
+   "answer": "②",
+   "solution": null,
+   "topic": "집합의 연산",
+   "difficulty": "중",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "$A _{k}$는 자연수 $k$의 배수의 집합이다. 자연수 $m$, $n$에 대하여 $A _{m} SUBSET LEFT ( A _{12} SMALLINTER A _{18} RIGHT )$와 $LEFT ( A _{12} CUP A _{18} RIGHT ) SUBSET A _{n}$을 만족할 때, $m+n$의 값이 될 수 있는 것은?",
+   "choices": [
+    "$40$",
+    "$74$",
+    "$76$",
+    "$112$",
+    "$148$"
+   ]
+  },
+  {
+   "number": 17,
+   "answer": "④",
+   "solution": null,
+   "topic": "집합의 연산",
+   "difficulty": "중",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "전체집합 $U= LEFT { x``|``x RIGHT .$는 $15$ 이하의 자연수$` RIGHT }$의 두 부분집합 $A=left{x``|``x$는 $2$의 배수$` RIGHT }$, $B=LEFT{x``|``x$는 $3$의 배수$` RIGHT }$ 에 대하여 집합 $U$의 부분집합 $X$가 다음 조건을 만족시킬 때, 집합 $X$의 모든 원소의 합의 최댓값은?  \n(가) $n LEFT ( X RIGHT ) =4$\n(나) $X-A=X-B$\n(다) $LEFT ( A-X RIGHT ) SMALLINTER LEFT ( B-X RIGHT ) = EMPTYSET$\n대구광역시 내신 수학 연구회",
+   "choices": [
+    "$30$",
+    "$33$",
+    "$36$",
+    "$42$",
+    "$45$"
+   ]
+  },
+  {
+   "number": 18,
+   "answer": "②",
+   "solution": null,
+   "topic": "점과 직선 사이의 거리",
+   "difficulty": "중",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "그림과 같이 $bar{rmAB}=4,~bar{rmBC}=6$인 직사각형 $rmABCD$가 있다. 선분 $rmBC$를 $2:1$로 내분하는 점을 $rmP$, 선분 $rmCD$를 $3:1$로 외분하는 점을 $rmQ$라 하자. 점 $rmA$와 직선 $rmPQ$사이의 거리를 $a$, 점 $rmB$와 직선 $rmPQ$사이의 거리를 $b$라 할 때, $a+b$의 값은? (단, $a,~b$는 상수이다.)",
+   "choices": [
+    "$5over 2 root10$",
+    "$14 over 5 root 10$",
+    "$31 over 10 sqrt10$",
+    "$17 over 5 sqrt10$",
+    "$37 over 10 sqrt 10$"
+   ]
+  },
+  {
+   "number": 19,
+   "answer": "①",
+   "solution": null,
+   "topic": "원과 직선의 위치관계",
+   "difficulty": "중",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "직선 $l:mx+ left(m+1 right) y+2=0$에 대하여 <보기>에서 옳은 것만을 있는 대로 고른 것은? (단, $m GEQ3$이다.) \n<보기>\nㄱ. 직선 $l$은 점 $(2,~-2)$를 지난다.\nㄴ. 점 $(-1,~1)$과 직선 $l$ 사이의 거리의 최댓값은 $4over5$이다.\nㄷ. 직선 $l$과 원 $(x-2)^2 +y^2 =1$이 한 점에서 만나기 위한 실수 $m$의 값이 존재한다.\n대구광역시 내신 수학 연구회",
+   "choices": [
+    "ㄱ",
+    "ㄷ",
+    "ㄱ, ㄷ",
+    "ㄴ, ㄷ",
+    "ㄱ, ㄴ, ㄷ"
+   ]
+  },
+  {
+   "number": 20,
+   "answer": "③",
+   "solution": null,
+   "topic": "원과 접선의 방정식",
+   "difficulty": "상",
+   "score": 5.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "세 원 $rmC,~C prime,~C primeprime$는 직선 $l$에 접하는 원이다.\n원 $rmC : it x^2 +y^2 =5$는 직선 $l$과 점 $rmP(-1,~2)$에서 접하고, 원 $rmC prime it : (x-a)^2 +(y-5)^2 = 5over4$와 $rm C prime prime it : left(x- 13over4 right)^2 + (y-b)^2 = r^2$는 점 $rmQ$에서 공통으로 접한다. $bar{rmPQ} it=2sqrt5$일 때, $ab over r^2$의 값은? (단, $a,~b$는 상수이고, $r< sqrt5 over 2$이다.)",
+   "choices": [
+    "$24$",
+    "$26$",
+    "$28$",
+    "$30$",
+    "$32$"
+   ]
+  },
+  {
+   "number": 21,
+   "answer": null,
+   "solution": "풀이 참조$A SMALLINTER  X= EMPTYSET$이므로 $a NOTIN  X,~b NOTIN  X$$n LEFT ( X CUP  B` RIGHT ) LEQ  2$ 이므로 $n LEFT ( X RIGHT ) =0$ 일 때 $X= EMPTYSET$                   $n LEFT ( X RIGHT ) =1$ 일 때 $X= LEFT { c RIGHT } ,~ LEFT { d RIGHT } ,~ LEFT { e RIGHT }$                   $n LEFT ( X RIGHT ) =2$ 일 때 $X= LEFT { c,~e RIGHT } ,~ LEFT { d,~e RIGHT }$",
+   "topic": "집합의 연산법칙",
+   "difficulty": "중",
+   "score": 6.0,
+   "label": "[서술형 $1$]",
+   "type": "서술형",
+   "stem": "[서술형 $1$] 전체집합 $U`= LEFT { a,~b,~c,~d,~e RIGHT }$의 두 부분집합 $A= LEFT { a,~b RIGHT } ,~B= LEFT { e RIGHT }$에 대하여 $A SMALLINTER X= EMPTYSET ,~n LEFT ( X CUP B` RIGHT ) LEQ 2$를 만족시키는 모든 집합 $X$를 구하는 풀이 과정과 답을 쓰시오. (단, $X` SUBSET `U$이다.)",
+   "choices": []
+  },
+  {
+   "number": 22,
+   "answer": null,
+   "solution": "$1 leq} { } m leq5$직선 $mx-2y+3m-4=0$이 $m(x+3)-2y-4=0$이므로 $m$의 값에 관계없이 지나는 점은 $(-3,~-2)$이다. 주어진 직선이 $(-3,~-2)$와 $(-1,~3)$를 지나는 경우와 $(-3,~-2)$와 $(5,~2)$를 지나는 사이의 범위에서 도형과 만난다. 각각의 경우에 $m$의 값을 구해 범위를 구하면 $1 leqm leq5$이 된다.",
+   "topic": "직선의 방정식",
+   "difficulty": "중",
+   "score": 6.0,
+   "label": "[서술형 $2$]",
+   "type": "서술형",
+   "stem": "[서술형 $2$] 직선 $mx-2y+3m-4=0$이 아래\n 모양의 도형과 만나기 위한 실수 $m$의 값의 범위를 구하는 풀이 과정과 답을 쓰시오. (단, 모양의 도형의 모든 모서리는 격자선과 겹치며 좌표평면의 모든 격자선은 $x$축 또는 $y$축과 평행하다.)",
+   "choices": []
+  },
+  {
+   "number": 23,
+   "answer": null,
+   "solution": "$a=2$$2x-y+1=0$을 직선 $y=x$에 대칭이동하면 $2y-x+1=0$이고 $x$축 방향으로 $1$만큼 평행이동 시키면 $2y-x+2=0$이 된다. 이 직선이 원의 넓이를 이등분하기 위해서는 원의 중심인 $(a,~0)$을 지나야 한다.따라서 $a=2$이다.",
+   "topic": "점과 직선에 대한 대칭이동",
+   "difficulty": "하",
+   "score": 6.0,
+   "label": "[서술형 $3$]",
+   "type": "서술형",
+   "stem": "[서술형 $3$] 직선 $2x-y+1=0$을 직선 $y=x$에 대하여 대칭이동한 후, $x$축의 방향으로 $1$만큼 평행이동하였더니 원 $(x-a)^2 +y^2 =5$의 넓이를 이등분 하였다. 상수 $a$의 값을 구하는 풀이 과정과 답을 쓰시오.",
+   "choices": []
+  },
+  {
+   "number": 24,
+   "answer": null,
+   "solution": "$- 4over9$$rm O LEFT ( 0,~0\n RIGHT )$과 $rmA LEFT ( 2,~0\n RIGHT )$을 $3:2$로 외분하는 점 $rmB LEFT ( 6,~0 RIGHT )$이 된다. 점 $rmB$를 지나는 직선 $m$을  $y=m(x-6)$라 하고 점 $rmP$를 $rmP`(it`a,~b)$라 두면 $TRIANGLE rmPAB$의 무게중심의 $x$좌표는 ${2+6+a} over {3} = {19} over {6}$이 되고 이때의 $a= {3} over {2}$이다.점 $rmP$는 $y=-4x+8$ 위를 지나므로 $rmP( {3} over {2} ,~2)$이고 점 $rmP$를 지나는 직선 $m$의 기울기는 $- 4over9$이다.",
+   "topic": "직선의 방정식",
+   "difficulty": "중",
+   "score": 6.0,
+   "label": "[서술형 $4$]",
+   "type": "서술형",
+   "stem": "[서술형 $4$] 그림과 같이 직선 $l:y=-4x+8$이 $x$축과 만나는 점을 $rmA$, 선분 $rmOA$를 $3:2$로 외분하는 점을 $rmB$, 점 $rmB$를 지나는 직선 $m$이 직선 $l$과 만나는 점을 $rmP$라 하자. 삼각형 $rmPAB$의 무게중심의 $x$좌표가 $19over6$일 때, 직선 $m$의 기울기를 구하는 풀이과정과 답을 쓰시오. (단, 점 $rmO$는 원점이고 점 $rmP$는 제$1$사분면 위의 점이다.)",
+   "choices": []
+  },
+  {
+   "number": 25,
+   "answer": null,
+   "solution": "$17$주어진 점의 평행이동에 의하여 직선 $l:3x+4y-15=0$을 평행이동한 직선 $m$은$3(x+1)+4(y-2)-15=0$, $3x+4y-20=0$이 된다.직선 $m$을 $y$축에 대하여 대칭이동한 직선 $n$은 $-3x+4y-20=0$이다. 두 직선은 $(0,~5)$에서 만난다.원의 중심과 직선 사이의 거리에 의해 만나는 점의 개수가 정해지고 두 직선 모두 원의 중심과의 거리가 $d= {LEFT | -20 RIGHT |} over {sqrt {3 ^{2} +4 ^{2}}} =4$로 동일하고, ⅰ) $r<4$인 경우에는 원과 두 직선이 만나지 않아 $f(r)=0$이고, ⅱ) $r=4$인 경우 두 직선은 모두 원에 접하므로 $f(4)=2$이고, ⅲ) $r=5$인 경우 원과 $(0,~5)$에서 만나므로 $f(5)=3$이고 ⅳ) $r>5$인 경우 $f(r)=4$가 된다. 따라서 $f(1)+f(2)+f(3) + CDOTS+f(8)$의 값은 $0+0+0+2+3+4+4+4=17$이다.",
+   "topic": "평행이동",
+   "difficulty": "중",
+   "score": 6.0,
+   "label": "[서술형 $5$]",
+   "type": "서술형",
+   "stem": "[서술형 $5$] 점 $(1,~-2)$를 원점으로 이동시키는 평행이동에 의하여 직선 $l:3x+4y-15=0$을 평행이동한 직선을 $m$, 직선 $m$을 $y$축에 대하여 대칭이동한 직선을 $n$이라 하자. 원 $x^2 +y^2 =r^2$이 두 직선 $m,~n$과 만나는 점의 개수를 $f(r)$이라 할 때, $f(1)+f(2)+f(3) + CDOTS+f(8)$의 값을 구하는 풀이과정과 답을 쓰시오. \n  \n  \n정답\n워드:최재영t\n오검:박정용t \n완료:이현일t",
+   "choices": []
+  }
+ ],
+ "meta": {
+  "exam_id": 4299,
+  "school": "달성고",
+  "grade": 1,
+  "subject": "공수2",
+  "year": 2025,
+  "semester": 2,
+  "round": "중간",
+  "src": "N:\\개인\\기출\\2024 기출모음\\2024년 2학기 중간 고사 모음\\#워드\\고1\\[달성고][1][공수2][25-2-중간대비][천재류] (완료).hwp"
+ }
+}

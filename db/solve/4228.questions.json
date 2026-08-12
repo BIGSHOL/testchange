@@ -1,0 +1,587 @@
+{
+ "exam_id": 4228,
+ "tag": "[경북공고][1][공수1][25-1-중간]",
+ "count": 20,
+ "questions": [
+  {
+   "number": 1,
+   "type": "객관식",
+   "score": 4.0,
+   "stem": "다항식 5x^{2}+4+7x를 x에 대하여 내림차순으로 정리하면?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "5x^{2}+7x+4"
+    },
+    {
+     "number": 2,
+     "text": "4+5x^{2}+7x"
+    },
+    {
+     "number": 3,
+     "text": "4+7x+5x^{2}"
+    },
+    {
+     "number": 4,
+     "text": "7x+4+5x^{2}"
+    },
+    {
+     "number": 5,
+     "text": "7x+5x^{2}+4"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 2,
+   "type": "객관식",
+   "score": 4.0,
+   "stem": "두 다항식 A=x^{2}+9x+6, B=x^{2}+5x+3에 대하여 A-B를 계산하면?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "4x+1"
+    },
+    {
+     "number": 2,
+     "text": "4x+2"
+    },
+    {
+     "number": 3,
+     "text": "4x+3"
+    },
+    {
+     "number": 4,
+     "text": "3x+4"
+    },
+    {
+     "number": 5,
+     "text": "3x+5"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 3,
+   "type": "객관식",
+   "score": 5.0,
+   "stem": "다항식 (x+3)(x^{2}+4x+2)의 전개식에서 x의 계수는?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "10"
+    },
+    {
+     "number": 2,
+     "text": "11"
+    },
+    {
+     "number": 3,
+     "text": "12"
+    },
+    {
+     "number": 4,
+     "text": "13"
+    },
+    {
+     "number": 5,
+     "text": "14"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 4,
+   "type": "객관식",
+   "score": 5.0,
+   "stem": "등식 x^{2}+(a-2)x+5=bx^{2}+4x+c가 x에 대한 항등식일 때, 상수 a, b, c에 대하여 a+b+c의 값은?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "11"
+    },
+    {
+     "number": 2,
+     "text": "12"
+    },
+    {
+     "number": 3,
+     "text": "13"
+    },
+    {
+     "number": 4,
+     "text": "14"
+    },
+    {
+     "number": 5,
+     "text": "15"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 5,
+   "type": "객관식",
+   "score": 5.0,
+   "stem": "다항식 P(x)=x^{3}-2x^{2}-3x+1을 x-3으로 나누었을 때의 나머지는?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "-3"
+    },
+    {
+     "number": 2,
+     "text": "-1"
+    },
+    {
+     "number": 3,
+     "text": "1"
+    },
+    {
+     "number": 4,
+     "text": "3"
+    },
+    {
+     "number": 5,
+     "text": "5"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 6,
+   "type": "객관식",
+   "score": 5.0,
+   "stem": "다항식 x^{2}+12x+35를 인수분해하면?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "(x+2)(x+3)"
+    },
+    {
+     "number": 2,
+     "text": "(x+3)(x+4)"
+    },
+    {
+     "number": 3,
+     "text": "(x+3)(x+7)"
+    },
+    {
+     "number": 4,
+     "text": "(x+5)(x+7)"
+    },
+    {
+     "number": 5,
+     "text": "(x+6)(x+8)"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 7,
+   "type": "객관식",
+   "score": 5.0,
+   "stem": "복소수 -3+2i의 실수부분은 -3, 허수부분은 k이다. 실수 k의 값은?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "-2"
+    },
+    {
+     "number": 2,
+     "text": "-1"
+    },
+    {
+     "number": 3,
+     "text": "0"
+    },
+    {
+     "number": 4,
+     "text": "1"
+    },
+    {
+     "number": 5,
+     "text": "2"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 8,
+   "type": "객관식",
+   "score": 5.0,
+   "stem": "등식 (x+3)+(y-1)i=4+2i를 만족시키는 실수 x, y에 대하여 x+y의 값은?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "1"
+    },
+    {
+     "number": 2,
+     "text": "2"
+    },
+    {
+     "number": 3,
+     "text": "3"
+    },
+    {
+     "number": 4,
+     "text": "4"
+    },
+    {
+     "number": 5,
+     "text": "5"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 9,
+   "type": "객관식",
+   "score": 5.0,
+   "stem": "복소수 -1+3i의 켤레복소수는?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "-1-3i"
+    },
+    {
+     "number": 2,
+     "text": "1"
+    },
+    {
+     "number": 3,
+     "text": "-3i"
+    },
+    {
+     "number": 4,
+     "text": "1-3i"
+    },
+    {
+     "number": 5,
+     "text": "1+3i"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 10,
+   "type": "객관식",
+   "score": 5.0,
+   "stem": "(2+i)+(4-3i)의 값은?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "3-2i"
+    },
+    {
+     "number": 2,
+     "text": "3-i"
+    },
+    {
+     "number": 3,
+     "text": "6-2i"
+    },
+    {
+     "number": 4,
+     "text": "6+2i"
+    },
+    {
+     "number": 5,
+     "text": "6+3i"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 11,
+   "type": "객관식",
+   "score": 5.0,
+   "stem": "i+i^{2}+i^{3}+i^{4}+i^{5}+i^{6}+i^{7}+i^{8}의 값은?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "-i"
+    },
+    {
+     "number": 2,
+     "text": "i"
+    },
+    {
+     "number": 3,
+     "text": "-1"
+    },
+    {
+     "number": 4,
+     "text": "0"
+    },
+    {
+     "number": 5,
+     "text": "1"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 12,
+   "type": "객관식",
+   "score": 5.0,
+   "stem": "이차방정식 2x^{2}+x-4=0의 근이 x=\\frac{-1\\pm\\sqrt{k}}{4}일 때, 실수 k의 값은?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "31"
+    },
+    {
+     "number": 2,
+     "text": "32"
+    },
+    {
+     "number": 3,
+     "text": "33"
+    },
+    {
+     "number": 4,
+     "text": "34"
+    },
+    {
+     "number": 5,
+     "text": "35"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 13,
+   "type": "객관식",
+   "score": 5.0,
+   "stem": "이차방정식 x^{2}+5x+4=0의 두 근을 \\alpha, \\beta라 할 때, \\alpha\\beta의 값은?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "-5"
+    },
+    {
+     "number": 2,
+     "text": "-4"
+    },
+    {
+     "number": 3,
+     "text": "0"
+    },
+    {
+     "number": 4,
+     "text": "4"
+    },
+    {
+     "number": 5,
+     "text": "5"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 14,
+   "type": "객관식",
+   "score": 5.0,
+   "stem": "(1+2i)(3+i)=a+bi를 만족시키는 두 실수 a, b에 대하여 a-b의 값은?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "-8"
+    },
+    {
+     "number": 2,
+     "text": "-6"
+    },
+    {
+     "number": 3,
+     "text": "-4"
+    },
+    {
+     "number": 4,
+     "text": "-2"
+    },
+    {
+     "number": 5,
+     "text": "0"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 15,
+   "type": "객관식",
+   "score": 5.0,
+   "stem": "이차방정식 x^{2}-6x+k+2=0이 중근을 갖도록 하는 실수 k의 값은?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "-7"
+    },
+    {
+     "number": 2,
+     "text": "-3"
+    },
+    {
+     "number": 3,
+     "text": "1"
+    },
+    {
+     "number": 4,
+     "text": "3"
+    },
+    {
+     "number": 5,
+     "text": "7"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 16,
+   "type": "객관식",
+   "score": 5.0,
+   "stem": "다음은 조립제법을 이용하여 다항식 2x^{3}-3x^{2}+x+1을 x-2로 나누었을 때의 몫과 나머지를 구하는 과정이다. 이때, a+b+c+d+e의 값은? [그림] 조립제법(가로식 표). 왼쪽 나누는 수 칸에 2. 1행(피제식 계수): 2, a, 1, b. 2행: (빈칸), 4, c, 6. 가로줄 아래 3행(몫과 나머지): d, 1, 3, 그리고 마지막 칸이 세로줄로 구분된 e(나머지).",
+   "choices": [
+    {
+     "number": 1,
+     "text": "9"
+    },
+    {
+     "number": 2,
+     "text": "10"
+    },
+    {
+     "number": 3,
+     "text": "11"
+    },
+    {
+     "number": 4,
+     "text": "12"
+    },
+    {
+     "number": 5,
+     "text": "13"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 17,
+   "type": "객관식",
+   "score": 5.0,
+   "stem": "다항식 x^{3}+8을 인수분해하면 (x+a)(x^{2}-ax+4)가 되고, 다항식 x^{2}-9를 인수분해하면 (x+b)(x-b)가 될 때, 자연수 a, b에 대하여 a-b의 값은?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "-2"
+    },
+    {
+     "number": 2,
+     "text": "-1"
+    },
+    {
+     "number": 3,
+     "text": "0"
+    },
+    {
+     "number": 4,
+     "text": "1"
+    },
+    {
+     "number": 5,
+     "text": "2"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 18,
+   "type": "객관식",
+   "score": 5.0,
+   "stem": "\\sqrt{-4}\\sqrt{-9}+\\frac{\\sqrt{8}}{\\sqrt{-2}}의 값은?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "-6-2i"
+    },
+    {
+     "number": 2,
+     "text": "-6+2i"
+    },
+    {
+     "number": 3,
+     "text": "-2-6i"
+    },
+    {
+     "number": 4,
+     "text": "6-2i"
+    },
+    {
+     "number": 5,
+     "text": "6+2i"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 19,
+   "type": "객관식",
+   "score": 6.0,
+   "stem": "실수가 아닌 복소수 z와 그 켤레복소수 \\overline{z}에 대하여 z^{2}+2\\overline{z}=0일 때, z\\overline{z}의 값은?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "2"
+    },
+    {
+     "number": 2,
+     "text": "4"
+    },
+    {
+     "number": 3,
+     "text": "6"
+    },
+    {
+     "number": 4,
+     "text": "8"
+    },
+    {
+     "number": 5,
+     "text": "10"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 20,
+   "type": "객관식",
+   "score": 6.0,
+   "stem": "x에 대한 이차방정식 x^{2}-3x+k=0이 서로 다른 두 근 \\alpha, \\beta를 갖는다. \\alpha^{3}+\\beta^{3}=63일 때, 상수 k의 값은?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "-6"
+    },
+    {
+     "number": 2,
+     "text": "-5"
+    },
+    {
+     "number": 3,
+     "text": "-4"
+    },
+    {
+     "number": 4,
+     "text": "-3"
+    },
+    {
+     "number": 5,
+     "text": "-2"
+    }
+   ],
+   "sub_questions": []
+  }
+ ]
+}

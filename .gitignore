@@ -29,6 +29,18 @@ config.json
 /crop/
 /ocr/
 
+# 문제 DB — 재생성 가능한 것만 제외하고 산출물(JSON)은 추적한다.
+#   pages/  = 페이지 PNG + 원본 PDF 사본(616MB, prep_pages.py 로 재생성)
+#   *.db    = SQLite (ingest.py + merge_answers.py 로 JSON 에서 재구축)
+#   export/ = Supabase 업로드용 (export_supabase.py 로 재생성)
+# ⭐ db/ocr_pilot/*.json 은 **판독 결과 원본**이라 반드시 추적한다(재생성 불가).
+/db/pages/
+/db/export/
+/db/*.db
+/db/*.db-wal
+/db/*.db-shm
+/db/n_inventory.tsv
+
 # 자가발전 corpus — OCR JSON·crops.json·meta.json 은 추적(재현 비용 큼),
 # 페이지/크롭 PNG 는 용량 때문에 제외(원본 PDF·bbox 에서 재생성 가능)
 corpus/**/pages/

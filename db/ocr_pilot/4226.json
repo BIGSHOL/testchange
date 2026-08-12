@@ -1,0 +1,391 @@
+{
+  "meta": {"exam_id": 4226, "ocr_source": "session-vision"},
+  "header": {"title": "경북고 1학년 공통수학2"},
+  "questions": [
+    {
+      "number": 1,
+      "score": 3.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "집합 $A=\\{x \\mid x는 20 이하의 소수\\}$에 대하여 $n(A)$의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "9"}]}
+      ]
+    },
+    {
+      "number": 2,
+      "score": 3.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "실수 $x$에 대한 조건"},
+        {"type": "equation", "value": "'\\,x^{2}-7x-8=0\\,'"},
+        {"type": "text", "value": "의 진리집합은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\{-8,~-1\\}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\{-8,~1\\}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\{-1,~8\\}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\{1,~8\\}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\{-8,~-1,~1,~8\\}"}]}
+      ]
+    },
+    {
+      "number": 3,
+      "score": 3.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "집합 $A=\\{1,~2,~\\{3\\}\\}$에 대하여 옳지 __않은__ 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1 \\in A"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\{3\\} \\in A"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\{1\\} \\subset A"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\{3\\} \\subset A"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\{1,~2\\} \\subset A"}]}
+      ]
+    },
+    {
+      "number": 4,
+      "score": 3.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "전체집합 $U=\\{x \\mid x는 12 이하의 자연수\\}$의 세 부분집합 $A=\\{x \\mid x는 3의 배수\\}$, $B=\\{x \\mid x는 12의 약수\\}$, $C=\\{x \\mid x는 소수\\}$에 대하여 $n\\left(\\left(A^{C}-B\\right)^{C} \\cup C\\right)$의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "10"}]}
+      ]
+    },
+    {
+      "number": 5,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "실수 $x$에 대하여 $x^{2}+\\frac{25}{x^{2}+1}$ 일 때, $x=a$일 때 최솟값 $m$을 갖는다. $m+a^{2}$의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "13"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "14"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "15"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "16"}]}
+      ]
+    },
+    {
+      "number": 6,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "다음 조건을 만족시키는 집합 $A$의 개수는?"},
+        {"type": "text", "value": "<상자> (가) $\\{0\\} \\subset A \\subset \\{x \\mid x는 정수\\}$ • (나) $\\frac{a^{2}}{2}-2 \\notin A$ 이면 $a \\notin A$ 이다. • (다) $n(A)=3$"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+      ]
+    },
+    {
+      "number": 7,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "두 실수 $x$, $y$에 대하여 네 조건 $p$, $q$, $r$, $s$가 다음과 같다."},
+        {"type": "equation_block", "value": "p : x^{2}+xy+y^{2} \\neq 0"},
+        {"type": "equation_block", "value": "q : x^{3} \\neq y^{3}"},
+        {"type": "equation_block", "value": "r : x^{2}-5x-14 \\leq 0"},
+        {"type": "equation_block", "value": "s : |x-2| < k"},
+        {"type": "text", "value": "옳은 것만을 <보기>에서 있는 대로 고른 것은?"},
+        {"type": "text", "value": "<보기> ㄱ. $q$는 $p$이기 위한 필요조건이다. • ㄴ. 명제 '어떤 $x$에 대하여 $r$이다.'는 참이다. • ㄷ. $r$가 $s$이기 위한 충분조건이 되도록 하는 자연수 $k$의 최솟값은 5이다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄴ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄷ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄱ, ㄴ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄱ, ㄷ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄱ, ㄴ, ㄷ"}]}
+      ]
+    },
+    {
+      "number": 8,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "집합 $A=\\{x \\mid x는 90의 약수\\}$, $B=\\{x \\mid x는 18의 약수\\}$, $C=\\{x \\mid x는 30의 배수\\}$에 대하여 $X \\cap A=X$, $X \\cap B=B$, $X \\cap C=\\varnothing$ 을 만족하는 집합 $X$의 개수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "16"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "32"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "64"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "128"}]}
+      ]
+    },
+    {
+      "number": 9,
+      "score": 3.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "수직선 위의 두 점 $\\mathrm{A}(-2)$, $\\mathrm{B}(8)$에 대하여 선분 $\\mathrm{AB}$를 $2:3$으로 내분하는 점의 좌표를 $a$, 선분 $\\mathrm{AB}$를 $2:3$으로 외분하는 점의 좌표를 $b$라고 할 때, $a-b$의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "16"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "18"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "20"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "22"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "24"}]}
+      ]
+    },
+    {
+      "number": 10,
+      "score": 3.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "직선 $3x+y+1=0$을 $x$축의 방향으로 $1$만큼, $y$축의 방향으로 $-2$만큼 평행이동한 도형의 방정식은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "3x+y-2=0"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "3x+y-1=0"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3x+y=0"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "3x+y+1=0"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "3x+y+2=0"}]}
+      ]
+    },
+    {
+      "number": 11,
+      "score": 3.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "$\\overline{\\mathrm{AB}}=10$, $\\overline{\\mathrm{BC}}=12$, $\\overline{\\mathrm{CA}}=4$ 인 삼각형 $\\mathrm{ABC}$에서 변 $\\mathrm{BC}$의 중점을 $\\mathrm{M}$이라 할 때, $\\overline{\\mathrm{AM}}$의 길이는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "3\\sqrt{2}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "2\\sqrt{5}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\sqrt{22}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "2\\sqrt{6}"}]}
+      ]
+    },
+    {
+      "number": 12,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "두 상수 $a$, $b$에 대하여 이차함수 $y=x^{2}+ax-1$의 그래프의 꼭짓점을 $\\mathrm{A}$, 원 $x^{2}+y^{2}-6x+by+64=0$의 중심을 $\\mathrm{B}$라 하자. 두 점 $\\mathrm{A}$, $\\mathrm{B}$의 중점의 좌표가 $(1,~3)$일 때, $a+b$의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-16"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-14"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-12"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "-10"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "-8"}]}
+      ]
+    },
+    {
+      "number": 13,
+      "score": 3.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "두 직선 $x+(2a-5)y+2=0$, $ax-2y+4=0$ 이 서로 평행일 때의 $a$의 값은? (단, $a$는 실수이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{1}{2}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{3}{2}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{5}{2}"}]}
+      ]
+    },
+    {
+      "number": 14,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "세 직선 $x+2y=3$, $2x-y=1$, $3x+ay=2$ 가 삼각형을 이루지 않도록 하는 모든 상수 $a$의 값의 곱은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "11"}]}
+      ]
+    },
+    {
+      "number": 15,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "두 양의 상수 $a$, $r$에 대하여 원 $C : x^{2}+(y-a)^{2}=r^{2}$이 있다. 직선 $l : y=2x-2$를 직선 $y=x$에 대칭이동한 직선을 $l'$라 하면 두 직선 $l$, $l'$은 모두 원 $C$에 접한다. $r$의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{2\\sqrt{5}}{5}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{3\\sqrt{5}}{5}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{4\\sqrt{5}}{5}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\sqrt{5}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{6\\sqrt{5}}{5}"}]}
+      ]
+    },
+    {
+      "number": 16,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "두 직선 $x-3y+5=0$, $2x+y-4=0$ 과 $x$축, $y$축으로 둘러싸인 도형의 넓이가 $y=mx$에 의해 이등분될 때의 $m$의 값을 $\\frac{q}{p}$라 하자. 이 때 $p+q$의 값은? (단, $p$, $q$는 서로소인 자연수이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "61"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "63"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "65"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "67"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "69"}]}
+      ]
+    },
+    {
+      "number": 17,
+      "score": 4.7,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "원 $x^{2}+y^{2}=4$ 위를 움직이는 점 $(x,~y)$에 대하여 $\\frac{y-5}{x-3}$ 의 값이 최대와 최소가 될 때의 점을 각각 $\\mathrm{B}$, $\\mathrm{C}$라 하자. 점 $\\mathrm{A}(3,~5)$에 대하여 삼각형 $\\mathrm{ABC}$의 넓이를 $\\frac{q}{p}\\sqrt{30}$이라 할 때, $p+q$의 값은? (단, $p$와 $q$는 서로소인 자연수이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "32"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "37"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "42"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "47"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "52"}]}
+      ]
+    },
+    {
+      "number": 18,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "원 $x^{2}+y^{2}=2$ 위를 움직이는 점 $\\mathrm{A}$와 임의의 점에서 원 $x^{2}+y^{2}=2$에 그은 접선 위를 움직이는 서로 다른 두 점 $\\mathrm{B}$, $\\mathrm{C}$를 꼭짓점으로 하는 삼각형 $\\mathrm{ABC}$를 만들 때, 정삼각형이 되는 삼각형 $\\mathrm{ABC}$의 넓이의 최댓값은? (단, 점 $\\mathrm{B}$와 점 $\\mathrm{C}$는 한 직선 위에 있다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{5\\sqrt{3}}{3}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2\\sqrt{3}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{7\\sqrt{3}}{3}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{8\\sqrt{3}}{3}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "3\\sqrt{3}"}]}
+      ]
+    },
+    {
+      "number": 19,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "두 집합 $A=\\{1,~2,~3,~5,~8,~13\\}$, $B=\\{2,~5,~8\\}$일 때, $n(X \\cap B)=2$인 $A$의 부분집합 $X$의 개수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "22"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "24"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "26"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "28"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "30"}]}
+      ]
+    },
+    {
+      "number": 20,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "두 자연수 $m$, $n$에 대하여 $m$의 양의 배수의 집합을 $A_{m}$, $n$의 양의 약수의 집합을 $B_{n}$이라 하자. $A_{p} \\subset \\left(A_{6} \\cap A_{8}\\right)$를 만족시키는 자연수 $p$의 최솟값과 $B_{q} \\subset \\left(B_{18} \\cap B_{27}\\right)$를 만족시키는 자연수 $q$의 최댓값의 합은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "25"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "27"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "29"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "31"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "33"}]}
+      ]
+    },
+    {
+      "number": 21,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "삼각형 $\\mathrm{ABC}$의 세 변 $\\mathrm{AB}$, $\\mathrm{BC}$, $\\mathrm{CA}$의 중점을 $\\mathrm{P}(2,~2)$, $\\mathrm{Q}(a,~b)$, $\\mathrm{R}(6,~-2)$이고, 삼각형 $\\mathrm{ABC}$의 무게중심을 $\\mathrm{G}$라고 하자. 이때 직선 $\\mathrm{AQ}$와 직선 $\\mathrm{PR}$는 서로 수직이고 점 $\\mathrm{G}$에서 직선 $\\mathrm{PR}$까지의 거리가 $6\\sqrt{2}$일 때, <보기>에서 옳은 것만을 있는 대로 고른 것은? (단, 점 $\\mathrm{G}$는 제 1사분면 위에 있고, $x$좌표가 $y$좌표보다 크다.)"},
+        {"type": "text", "value": "<보기> ㄱ. $a+b=40$ • ㄴ. $\\mathrm{G}(9,~5)$ • ㄷ. $\\overline{\\mathrm{AP}}=4\\sqrt{41}$"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄷ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄱ, ㄷ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄴ, ㄷ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄱ, ㄴ, ㄷ"}]}
+      ]
+    },
+    {
+      "number": 22,
+      "score": 5.0,
+      "type": "서술형",
+      "label": "[서술형 1]",
+      "contents": [
+        {"type": "text", "value": "[서술형 1] 두 원 $(x+1)^{2}+(y-5)^{2}=4$, $(x-3)^{2}+(y-2)^{2}=4$이 직선 $l$에 대하여 서로 대칭이다. 직선 $l$의 방정식을 구하는 풀이 과정과 답을 쓰시오."}
+      ]
+    },
+    {
+      "number": 23,
+      "score": 7.0,
+      "type": "서술형",
+      "label": "[서술형 2]",
+      "contents": [
+        {"type": "text", "value": "[서술형 2] 직선 $y=mx+n$이 두 원"},
+        {"type": "equation_block", "value": "x^{2}+(y-5)^{2}=9,~x^{2}+(y-3)^{2}=16"},
+        {"type": "text", "value": "에 동시에 접할 때, 두 양의 실수 $m$, $n$에 대하여 $\\sqrt{3}\\,mn$의 값을 구하는 풀이 과정과 답을 쓰시오."}
+      ]
+    },
+    {
+      "number": 24,
+      "score": 6.0,
+      "type": "서술형",
+      "label": "[서술형 3]",
+      "contents": [
+        {"type": "text", "value": "[서술형 3] 두 점 $\\mathrm{A}(4,~-3)$, $\\mathrm{B}(2,~-1)$와 직선 $y=-x$위를 움직이는 점 $\\mathrm{P}$에 대하여 $\\overline{\\mathrm{PA}}+\\overline{\\mathrm{PB}}$가 최소가 되도록 하는 점 $\\mathrm{P}$의 좌표를 구하는 풀이 과정과 답을 쓰시오."}
+      ]
+    },
+    {
+      "number": 25,
+      "score": 6.0,
+      "type": "서술형",
+      "label": "[서술형 4]",
+      "contents": [
+        {"type": "text", "value": "[서술형 4] 그림과 같이 한 변의 길이가 $2$인 정육각형 $\\mathrm{ABCDEF}$가 좌표평면 위에 놓여 있다고 하자. 이때 직선 $\\mathrm{CF}$의 방정식을 구하는 풀이 과정과 답을 쓰시오."},
+        {"type": "figure", "value": "좌표평면(원점 O, x축·y축 표시) 위에 놓인 한 변의 길이가 2인 정육각형 ABCDEF. 꼭짓점 C와 D는 x축 위에 있고 C는 왼쪽으로 좌표가 C(1, 0)으로 표기되어 있으며 D는 그 오른쪽에 있다. 왼쪽 꼭짓점 B와 오른쪽 꼭짓점 E는 같은 높이(육각형의 가운데 높이)에 있고, 위쪽 두 꼭짓점 A(왼쪽)와 F(오른쪽)가 윗변을 이룬다. 육각형은 y축 오른쪽에 놓여 있고 꼭짓점 B가 y축에 거의 닿아 있다. 라벨 순서는 시계 반대 방향이 아니라 A(좌상), F(우상), B(좌), E(우), C(좌하, x축), D(우하, x축)."}
+      ]
+    }
+  ]
+}

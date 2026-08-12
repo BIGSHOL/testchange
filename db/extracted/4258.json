@@ -1,0 +1,358 @@
+{
+ "source": "_경원고__1__공수1__25-1-기말__비상___완료_.hwpx",
+ "question_count": 21,
+ "questions": [
+  {
+   "number": 1,
+   "answer": "⑤",
+   "solution": null,
+   "topic": "행렬의 뜻",
+   "difficulty": "하",
+   "score": 3.3,
+   "label": null,
+   "type": "객관식",
+   "stem": "다음 등식이 성립할 때, 실수 $x+y$의 값은? \n$LEFT ( {matrix{``````````5&``````-2``#``-4`&`````````````x``}} RIGHT ) = LEFT ( {matrix{``y+1&``````````-2``#``````-4&``````y-5``}} RIGHT )$",
+   "choices": [
+    "$-1$",
+    "$0$",
+    "$1$",
+    "$2$",
+    "$3$"
+   ]
+  },
+  {
+   "number": 2,
+   "answer": "①",
+   "solution": null,
+   "topic": "절댓값 기호를 포함한 일차부등식",
+   "difficulty": "하",
+   "score": 3.4,
+   "label": null,
+   "type": "객관식",
+   "stem": "부등식 $LEFT | 4x-6 RIGHT | <10$의 해가 $a<x<b$일 때, $ab$의 값은? \n(단, $a,~b$는 상수이다.)",
+   "choices": [
+    "$-4$",
+    "$-2$",
+    "$0$",
+    "$2$",
+    "$4$"
+   ]
+  },
+  {
+   "number": 3,
+   "answer": "④",
+   "solution": null,
+   "topic": "삼차방정식과 사차방정식",
+   "difficulty": "하",
+   "score": 3.5,
+   "label": null,
+   "type": "객관식",
+   "stem": "삼차방정식 $x ^{3} -9x=0$의 세 근을 $alpha ,~ beta ,~ gamma$라고 할 때, $alpha +2 beta +3 gamma$의 값은? (단, $alpha < beta < gamma$이다.)",
+   "choices": [
+    "$-12$",
+    "$-6$",
+    "$0$",
+    "$6$",
+    "$12$"
+   ]
+  },
+  {
+   "number": 4,
+   "answer": "③",
+   "solution": null,
+   "topic": "순열",
+   "difficulty": "중",
+   "score": 3.6,
+   "label": null,
+   "type": "객관식",
+   "stem": "$3$쌍의 커플이 일렬로 된 의자에 앉으려고 한다. 이때, 세 커플 모두가 각각 커플끼리 이웃하여 앉는 경우의 수는?",
+   "choices": [
+    "$16$",
+    "$24$",
+    "$48$",
+    "$72$",
+    "$96$"
+   ]
+  },
+  {
+   "number": 5,
+   "answer": "②",
+   "solution": null,
+   "topic": "이차부등식",
+   "difficulty": "중",
+   "score": 3.7,
+   "label": null,
+   "type": "객관식",
+   "stem": "이차부등식 $x ^{2} -2ax+a ^{2} -4 LEQ 0$을 만족시키는 모든 정수 $x$의 값의 합이 $10$일 때, 정수 $a$의 값은?",
+   "choices": [
+    "$1$",
+    "$2$",
+    "$3$",
+    "$4$",
+    "$5$"
+   ]
+  },
+  {
+   "number": 6,
+   "answer": "③",
+   "solution": null,
+   "topic": "연립이차방정식",
+   "difficulty": "중",
+   "score": 3.8,
+   "label": null,
+   "type": "객관식",
+   "stem": "연립방정식 ${cases{2x+y-xy=3&#2x ^{2} y+xy ^{2} =10&}}$을 만족시키는 양수 $x,~y$에 대하여 $2x+y$의 값은?",
+   "choices": [
+    "$3$",
+    "$4$",
+    "$5$",
+    "$6$",
+    "$7$"
+   ]
+  },
+  {
+   "number": 7,
+   "answer": "③",
+   "solution": null,
+   "topic": "연립이차부등식",
+   "difficulty": "중",
+   "score": 3.9,
+   "label": null,
+   "type": "객관식",
+   "stem": "연립부등식 ${cases{x ^{2} +x-6<0&#x ^{2} - LEFT ( a+1 RIGHT ) x+a>0&}}$을 만족시키는 정수 $x$가 $1$개가 되도록 하는 실수 $a$의 값의 범위는?",
+   "choices": [
+    "$-3<a LEQ -2$",
+    "$-2 LEQ a< -1$",
+    "$-2<a LEQ -1$",
+    "$-1 LEQ a<0$",
+    "$-1<a LEQ 0$"
+   ]
+  },
+  {
+   "number": 8,
+   "answer": "②",
+   "solution": null,
+   "topic": "방정식 허근의 주기성",
+   "difficulty": "중",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "삼차방정식 $x ^{3} -1=0$의 한 허근 $omega$와 자연수 $n$에 대하여 $f LEFT ( n RIGHT ) = omega ^{2n} - omega ^{n} +2$라고 할 때, $f LEFT ( 1 RIGHT ) +f LEFT ( 2 RIGHT ) +f LEFT ( 3 RIGHT ) + CDOTS +f LEFT ( n RIGHT ) =60$을 만족시키는 $n$의 값은?",
+   "choices": [
+    "$20$",
+    "$30$",
+    "$40$",
+    "$50$",
+    "$60$"
+   ]
+  },
+  {
+   "number": 9,
+   "answer": "④",
+   "solution": null,
+   "topic": "순열",
+   "difficulty": "중",
+   "score": 4.1,
+   "label": null,
+   "type": "객관식",
+   "stem": "$1,~2,~3,~4$중에서 서로 다른 세 숫자를 사용하여 세 자리 정수를 만들 때, 세 자리 정수 전체의 합은?",
+   "choices": [
+    "$666$",
+    "$1332$",
+    "$3330$",
+    "$6660$",
+    "$13320$"
+   ]
+  },
+  {
+   "number": 10,
+   "answer": "①",
+   "solution": null,
+   "topic": "경우의 수",
+   "difficulty": "중",
+   "score": 4.2,
+   "label": null,
+   "type": "객관식",
+   "stem": "수학 시간에 서로 다른 $6$개의 수학 문제 중 $2$문제를 선택하여 $A$조 학생 $3$명과 $B$조 학생 $4$명이 풀기로 하였다. 선택한 $2$개의 문제 중에서 모든 학생은 $1$문제씩 풀어야 하고, 각 문제를 택하는 학생은 최대 $4$명이다. $B$조의 학생은 반드시 $A$조 학생 한 명 이상과 함께 같은 문제를 풀어야 할 때, $7$명의 학생이 문제를 선택하여 푸는 경우의 수는?",
+   "choices": [
+    "$900$",
+    "$930$",
+    "$960$",
+    "$990$",
+    "$1020$"
+   ]
+  },
+  {
+   "number": 11,
+   "answer": "⑤",
+   "solution": null,
+   "topic": "방정식 허근의 주기성",
+   "difficulty": "중",
+   "score": 4.3,
+   "label": null,
+   "type": "객관식",
+   "stem": "다항식 $x ^{9} +2x ^{2} +4$을 다항식 $x ^{2} -x+1$로 나누었을 때 나머지를 $R LEFT ( x RIGHT )$라고 하자. $R LEFT ( 2 RIGHT )$의 값은?",
+   "choices": [
+    "$1$",
+    "$2$",
+    "$3$",
+    "$4$",
+    "$5$"
+   ]
+  },
+  {
+   "number": 12,
+   "answer": "⑤",
+   "solution": null,
+   "topic": "삼차방정식의 근과 계수와의 관계",
+   "difficulty": "중",
+   "score": 4.4,
+   "label": null,
+   "type": "객관식",
+   "stem": "삼차방정식 $x ^{3} -2x ^{2} -2=0$의 세 근을 $alpha ,~ beta ,~ gamma$라고 할 때, $LEFT ( alpha ^{2} - alpha RIGHT ) LEFT ( beta ^{2} - beta RIGHT ) LEFT ( gamma ^{2} - gamma RIGHT )$의 값은?",
+   "choices": [
+    "$-6$",
+    "$-3$",
+    "$0$",
+    "$3$",
+    "$6$"
+   ]
+  },
+  {
+   "number": 13,
+   "answer": "③",
+   "solution": null,
+   "topic": "이차부등식의 해의 조건",
+   "difficulty": "중",
+   "score": 4.5,
+   "label": null,
+   "type": "객관식",
+   "stem": "이차부등식 $x ^{2} -4x+4>0$의 해를 만족시키는 모든 실수 $x$에 대하여 이차부등식 $2x ^{2} -4ax-a ^{2} +12>0$을 항상 \n만족시키는 정수 $a$의 개수는?",
+   "choices": [
+    "$2$",
+    "$3$",
+    "$4$",
+    "$5$",
+    "$6$"
+   ]
+  },
+  {
+   "number": 14,
+   "answer": "④",
+   "solution": null,
+   "topic": "행렬의 곱셈",
+   "difficulty": "상",
+   "score": 4.6,
+   "label": null,
+   "type": "객관식",
+   "stem": "두 행렬 $A= LEFT ( {matrix{``t+1&``````1#-2&``````2t}} `` RIGHT ) ,~X= LEFT ( {matrix{``x``#``y``}} RIGHT )$에 대하여 실수 $t$의 값에 관계없이 $AX-kX= LEFT ( {matrix{``2``#3}} RIGHT )$를 만족시키는 행렬 $X$가 존재할 때, 모든 정수 $k$의 값의 합은?",
+   "choices": [
+    "$11$",
+    "$12$",
+    "$13$",
+    "$14$",
+    "$15$"
+   ]
+  },
+  {
+   "number": 15,
+   "answer": "②",
+   "solution": null,
+   "topic": "삼차방정식과 사차방정식",
+   "difficulty": "상",
+   "score": 4.7,
+   "label": null,
+   "type": "객관식",
+   "stem": "사차방정식 $LEFT ( x ^{2} -4x) RIGHT . ^{2} +k LEFT ( x ^{2} -4x RIGHT ) +k-3=0$의 근이 모두 양수가 되도록 하는 실수 $k$의 값의 범위가 $a<k LEQ b$이다. $ab$의 값은? \n(단, $a,~b$는 상수이다.)",
+   "choices": [
+    "$12$",
+    "$13$",
+    "$14$",
+    "$15$",
+    "$16$"
+   ]
+  },
+  {
+   "number": 16,
+   "answer": null,
+   "solution": "$x=4,~y=2$$x=y+2$를 대입하면$LEFT ( y+2 RIGHT ) ^{2} -2y ^{2} =8$$y ^{2} -4y+4=0$이므로 $y=2$, $x=4$",
+   "topic": "연립이차방정식",
+   "difficulty": "하",
+   "score": null,
+   "label": "[서술형 $1$]",
+   "type": "서술형",
+   "stem": "[서술형 $1$] 연립방정식 ${cases{x-y=2&#x ^{2} -2y ^{2} =8&}}$의 근을 구하시오. [$4$점, 부분 점수 있음]",
+   "choices": []
+  },
+  {
+   "number": 17,
+   "answer": null,
+   "solution": "$-1 LEQ  x<1$$LEFT ( x-1 RIGHT ) LEFT ( x+3 RIGHT ) <0$을 풀면 $-3<x<1$이고$LEFT ( x+1 RIGHT ) LEFT ( x-1 RIGHT ) LEQ  0$을 풀면 $-1 LEQ  x LEQ  1$이므로공통인 해는 $-1 LEQ  x<1$이다.",
+   "topic": "연립이차부등식",
+   "difficulty": "하",
+   "score": null,
+   "label": "[서술형 $2$]",
+   "type": "서술형",
+   "stem": "[서술형 $2$] 연립부등식 ${cases{LEFT ( x-1 RIGHT ) LEFT ( x+3 RIGHT ) <0&#LEFT ( x+1 RIGHT ) LEFT ( x-1 RIGHT ) LEQ 0&}}$의 해를 구하시오. [$4$점, 부분 점수 있음]",
+   "choices": []
+  },
+  {
+   "number": 18,
+   "answer": null,
+   "solution": "$-8$$LEFT ( {matrix{``x _{1} ``#``x _{2} ``}} RIGHT ) = LEFT ( {matrix{````3&``1``#``-5``````&1}} RIGHT ) LEFT ( {matrix{``y _{1} ``#``y _{2} ``}} RIGHT )$, $LEFT ( {matrix{``y _{1} ``#``y _{2} ``}} RIGHT ) = LEFT ( {matrix{``````````3&``````1``#``-2&``````2``}} RIGHT ) LEFT ( {matrix{``z _{1} ``#``z _{2} ``}} RIGHT )$이고,$LEFT ( {matrix{``x _{1} ``#``x _{2} ``}} RIGHT ) = LEFT ( {matrix{````3&``1``#``-5``````&1}} RIGHT ) LEFT ( {matrix{``````````3&``````1``#``-2&``````2``}} RIGHT ) LEFT ( {matrix{``z _{1} ``#``z _{2} ``}} RIGHT )$이므로$A= LEFT ( {matrix{````3&``1``#``-5``````&1}} RIGHT ) LEFT ( {matrix{``````````3&``````1``#``-2&``````2``}} RIGHT ) = LEFT ( {matrix{`````````````7&``````````````5``#``-17&``````-3``}} RIGHT )$",
+   "topic": "행렬의 뜻",
+   "difficulty": "중",
+   "score": null,
+   "label": "[서술형 $3$]",
+   "type": "서술형",
+   "stem": "[서술형 $3$] 두 연립방정식 ${cases{x _{1} =3y _{1} +y _{2}#x _{2} =y _{2} -5y _{1}}}$, ${cases{y _{1} =3z _{1} +z _{2}#y _{2} =-2z _{1} +2z _{2}}}$을 행렬을 이용하여 나타내면 ${pmatrix{``x _{1} ``#x _{2}}} =A {pmatrix{``z _{1} ``#z _{2}}}$이다. 행렬$A$의 모든 성분의 합을 구하시오. \n[$4$점, 부분 점수 있음]",
+   "choices": []
+  },
+  {
+   "number": 19,
+   "answer": null,
+   "solution": "1) $44$, 2) $26$1) $3 TIMES  5 TIMES  3-1=44$2) $10000$원짜리 지폐를 $5000$원짜리 지폐로 바꾸면 $5000$원짜리 지폐가 총 $8$장이므로 $3 TIMES  9-1=26$",
+   "topic": "경우의 수",
+   "difficulty": "중",
+   "score": null,
+   "label": "[서술형 $4$]",
+   "type": "서술형",
+   "stem": "[서술형 $4$] $1000$원짜리 지폐 $2$장, $5000$원짜리 지폐 $4$장, $10000$원짜리 지폐 $2$장이 있다. 다음 물음에 답하시오. (단, $0$원을 지불하는 경우는 제외한다.) \n[총 $9$점, 부분 점수 있음]\n$1)$ 이 지폐의 전부 또는 일부를 사용하여 지불할 수 있는 방법의 수를 구하시오. [$4$점, 부분 점수 있음]\n$2)$ 이 지폐의 전부 또는 일부를 사용하여 지불할 수 있는 금액의 수를 구하시오. [$5$점, 부분 점수 있음]",
+   "choices": []
+  },
+  {
+   "number": 20,
+   "answer": null,
+   "solution": "1) $1- sqrt {2} i$, 2) $LEFT ( x ^{2} +ax-15 RIGHT ) LEFT ( x ^{2} -2x+3 RIGHT )$ 3) $a=-1,~b=16,~c=33,~d=-45$1) 계수가 모두 실수이므로 다른 한 허근은 $1- sqrt {2} i$이다.2) 이차방정식 $x ^{2} +ax-15=0$과 공통인 실근을 두 개 가지고 다른 두 허근 $1+ sqrt {2} i,~1- sqrt {2} i$를 해로 갖는 이차방정식은 $x ^{2} -2x+3=0$이므로 $x ^{4} -ax ^{3} +bx ^{2} +cx+d= LEFT ( x ^{2} +ax-15 RIGHT ) LEFT ( x ^{2} -2x+3 RIGHT )$이다.3) $LEFT ( x ^{2} +ax-15 RIGHT ) LEFT ( x ^{2} -2x+3 RIGHT )$$=x ^{4} + LEFT ( a-2 RIGHT ) x ^{3} + LEFT ( 3-2a-15 RIGHT ) x ^{2} + LEFT ( 3a+30 RIGHT ) x-45$이므로 계수비교법에 의해 $a=1,~b=-14,~c=33,~d=-45$",
+   "topic": "삼차방정식과 사차방정식",
+   "difficulty": "중",
+   "score": 2.0,
+   "label": "[서술형 $5$]",
+   "type": "서술형",
+   "stem": "[서술형 $5$] 사차방정식 $x ^{4} -ax ^{3} +bx ^{2} +cx+d=0$이 다음 조건을 만족시킬 때, 다음 물음에 답하시오. \n(단, $a,~b,~c,~d$는 실수이고, $i= sqrt {-1}$이다.) \n[총 $9$점, 부분 점수 있음]\n(가) 한 근이 $1+ sqrt {2} i$이다.\n(나) 이차방정식 $x ^{2} +ax-15=0$과 공통인 실근을 두 \n 개 갖는다. \n대구광역시 내신 수학 연구회\n$1)$ 조건 (가)를 이용하여 사차방정식 $x ^{4} -ax ^{3} +bx ^{2} +cx+d=0$의 다른 한 허근을 구하시오. \n\n$2)$ $1)$과 조건 (나)를 이용하여 $x ^{4} -ax ^{3} +bx ^{2} +cx+d$를 $x$에 대한 두 이차식의 곱의 형태로 나타내시오. \n(단, $x$이외의 문자는 $a$만 사용할 것) \n[$3$점, 부분 점수 있음]\n$3)$ 실수 $a,~b,~c,~d$의 값을 구하시오. \n[$4$점, 부분 점수 있음]",
+   "choices": []
+  },
+  {
+   "number": 21,
+   "answer": null,
+   "solution": "1) 모든 실수, 2) $3$개, 3) $3$1) $a ^{2} -3a+5>0$의 $D=-36<0$이므로 해는 모든 실수이다.2) $-1 LEQ  x-5 LEQ  1$이므로 $4 LEQ  x LEQ  6$따라서 정수해는 $3$개다.3) $alpha  LEQ  x LEQ  beta$의 정수해가 $3$개가 되려면 $1 LEQ  beta  - alpha  LEQ  3$이다.(가)에서 ${1} over {2} LEFT ( beta  - alpha  RIGHT ) + {1} over {2} =n$ ($n$은 자연수)이라 하자.$beta  - alpha  =2n-1$$n=1$이면 $beta  - alpha  =1$이고, $a ^{2} -3a+5=1$은 실근을 갖지 않는다.$n=2$이면 $beta  - alpha  =3$이고, $a ^{2} -3a+5=3$의 해는 $a=1~or~a=2$이다.따라서 모든 $a$의 합은 $3$이다.",
+   "topic": "이차부등식의 해의 조건",
+   "difficulty": "상",
+   "score": 2.0,
+   "label": "[서술형 $6$]",
+   "type": "서술형",
+   "stem": "[서술형 $6$] 부등식 $LEFT ( x-a ^{2} +4a- {3} over {2} RIGHT ) LEFT ( x+a+ {7} over {2} RIGHT ) LEQ 0$의 해가 $alpha LEQ x LEQ beta$이다. 두 실수 $alpha ,~ beta$가 다음 조건을 만족시킬 때, 모든 실수 $a$의 값의 합을 구하는 과정이다. 다음 물음에 답하시오, [총 $10$점, 부분 점수 있음] \n(가) ${1} over {2} LEFT ( beta - alpha RIGHT ) + {1} over {2}$은 자연수이다.\n(나) $alpha LEQ x LEQ beta$를 만족시키는 정수 $x$의 개수는 \n 부등식 $LEFT | x-5 RIGHT | LEQ 1$를 만족시키는 정수의 개수와\n 같다. \n대구광역시 내신 수학 연구회\n$1)$ $a$에 대한 부등식 $a ^{2} -4a+ {3} over {2} >-a- {7} over {2}$의 해를 구하시오. \n$2)$ 부등식 $LEFT | x-5 RIGHT | LEQ 1$를 만족시키는 정수의 개수를 구하시오. \n$3)$ 모든 실수 $a$의 값의 합을 구하시오. (단, $beta - alpha$의 값을 기준으로 경우를 나눌 것) [$6$점, 부분 점수 있음]\n  \n  \n정답\n워드:박순찬t\n오검:황수영t \n완료:최재영t",
+   "choices": []
+  }
+ ],
+ "meta": {
+  "exam_id": 4258,
+  "school": "경원고",
+  "grade": 1,
+  "subject": "공수1",
+  "year": 2025,
+  "semester": 1,
+  "round": "기말",
+  "src": "N:\\개인\\기출\\2025 기출모음\\2025년 1학기 기말고사 모음\\워드\\공수1\\[경원고][1][공수1][25-1-기말][비상] (완료).hwp"
+ }
+}

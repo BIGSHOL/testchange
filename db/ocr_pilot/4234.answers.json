@@ -1,0 +1,25 @@
+{
+  "exam_id": 4234,
+  "answer_pages": [5],
+  "items": [
+    {"number": 1, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 2, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 3, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 4, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 5, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 6, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 7, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 8, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 9, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 10, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 11, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 12, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 13, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 14, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 15, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 16, "answer": "$A=x^{2}+4x-1$, $B=x^{2}+3x+2$", "solution": "$A+B=2x^{2}+7x+1$ ⋯ (가)\n$A-2B=-x^{2}-2x-5$ ⋯ (나)\n(가)-(나)에서 $3B=3x^{2}+9x+6$\n$B=x^{2}+3x+2$, $A=x^{2}+4x-1$", "topic": "", "difficulty": ""},
+    {"number": 17, "answer": "(1) $(x-1)(x-2)(x+3)$ (2) $(x+3)(x-1)$ (3) $886$", "solution": "(1) 조립제법을 이용하면 $x^{3}-7x+6=(x-1)(x-2)(x+3)$\n(2) $x(x+2)-3=x^{2}+2x-3=(x+3)(x-1)$\n(3) $\\frac{888^{3}-7\\times888+6}{888\\times890-3}$에서 $x=888$이라 하면\n$\\frac{x^{3}-7x+6}{x^{2}+2x-3}=\\frac{(x-1)(x-2)(x+3)}{(x+3)(x-1)}=x-2=886$", "topic": "", "difficulty": ""},
+    {"number": 18, "answer": "$a=-5$, $f(x)=(x-1)(x+1)(x^{2}+2x-4)$", "solution": "다항식 $f(x)=x^{4}+2x^{3}+ax^{2}-2x+4$가 $x-1$을 인수로 가지면 $f(1)=0$이므로\n$1+2+a-2+4=0$, $a=-5$\n$f(x)=x^{4}+2x^{3}-5x^{2}-2x+4$\n조립제법으로 $x=1$, $x=-1$을 차례로 나누면 몫이 $x^{2}+2x-4$이므로\n$f(x)=(x-1)(x+1)(x^{2}+2x-4)$", "topic": "", "difficulty": ""},
+    {"number": 19, "answer": "$\\frac{29}{4}$", "solution": "$ax^{2}+bx+c=0$의 양 변을 $x^{2}$으로 나누면\n$a+b\\left(\\frac{1}{x}\\right)+c\\left(\\frac{1}{x}\\right)^{2}=0$, $\\frac{1}{x}=t$라 하면\n$ct^{2}+bt+a=0$\n이차방정식 $ax^{2}+bx+c=0$의 두 근이 1과 $\\frac{2}{5}$이므로\n이차방정식 $ct^{2}+bt+a=0$의 두 근이 $\\alpha$와 $\\beta$일 때, $\\alpha=1$, $\\beta=\\frac{5}{2}$이다.\n$\\alpha^{2}+\\beta^{2}=\\frac{29}{4}$", "topic": "", "difficulty": ""}
+  ]
+}

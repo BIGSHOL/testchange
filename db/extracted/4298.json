@@ -1,0 +1,412 @@
+{
+ "source": "_달성고__1__공수2__25-2-기말대비__미래엔___완료_.hwpx",
+ "question_count": 24,
+ "questions": [
+  {
+   "number": 1,
+   "answer": "⑤",
+   "solution": null,
+   "topic": "‘모든’이나 ‘어떤’을 포함한 명제",
+   "difficulty": "하",
+   "score": 3.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "다음 중 거짓인 명제는?",
+   "choices": [
+    "$LEFT | x RIGHT | =3$이면 $x ^{2} =9$이다.",
+    "어떤 실수 $x$에 대하여 $x ^{2} LEQ 0$이다.",
+    "$x$가 $6$의 약수이면 $x$는 $12$의 약수이다.",
+    "모든 실수 $x$에 대하여 $x ^{2} +1>0$이다.",
+    "어떤 실수 $x$에 대하여 $LEFT | x RIGHT | + LEFT | y RIGHT | < LEFT | x+y RIGHT |$이다."
+   ]
+  },
+  {
+   "number": 2,
+   "answer": "⑤",
+   "solution": null,
+   "topic": "역함수",
+   "difficulty": "하",
+   "score": 3.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "함수 $f(x)=3x+2$의 역함수가 $f ^{`-1} (x)=ax+b$일 때, $a-b$의 값은? (단, $a,~b$는 상수이다.)",
+   "choices": [
+    "$- {1} over {3}$",
+    "$0$",
+    "${1} over {3}$",
+    "${2} over {3}$",
+    "$1$"
+   ]
+  },
+  {
+   "number": 3,
+   "answer": "③",
+   "solution": null,
+   "topic": "유리함수",
+   "difficulty": "하",
+   "score": 3.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "함수 $f LEFT ( x RIGHT )= { ax+b} over { x+1}$에 대하여 $y=f LEFT ( x RIGHT )$의 그래프가 점 $LEFT ( 3,``1 RIGHT )$을 지나고 $f=f^{``-1}$일 때, $a+b$의 값은?",
+   "choices": [
+    "$4$",
+    "$5$",
+    "$6$",
+    "$7$",
+    "$8$"
+   ]
+  },
+  {
+   "number": 4,
+   "answer": "④",
+   "solution": null,
+   "topic": "무리함수",
+   "difficulty": "하",
+   "score": 3.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "다음에서 함수 $y=- sqrt { 3x+6}+3$에 대한 설명으로 옳지 않은 것은?",
+   "choices": [
+    "정의역은 $left{`x ``vert ``x geq -2 `right}$이다.",
+    "치역은 $left{`y ``vert``y leq 3 `right}$이다.",
+    "그래프는 함수 $y=- sqrt { 3x}$의 그래프를 $x$축의 방향으로 $-2$만큼, $y$축의 방향으로 $3$만큼 평행이동한 것이다.",
+    "그래프는 제$4$사분면을 지나지 않는다.",
+    "역함수는 $y= { 1} over { 3}x^2 -2x+1$ $LEFT ( x le 3 RIGHT )$이다."
+   ]
+  },
+  {
+   "number": 5,
+   "answer": "④",
+   "solution": null,
+   "topic": "합성함수",
+   "difficulty": "하",
+   "score": 3.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "집합 $X= left{0,``2,``4,``6 right}$에 대하여 함수 $f:X`` `rarrow``X$가\n $f LEFT ( x RIGHT ) = {cases{``x+2````&LEFT ( x LEQ 4 RIGHT )#``0&LEFT ( x=6 RIGHT )}}$\n이다. $f ^{``2}=f CIRCf$, $f ^{``3}=f CIRCf^{``2}$, $cdots$, $f ^{``n+1}=f CIRC f^{``n}$으로 나타낼 때, $f^{``26} LEFT ( 6 RIGHT )+f^{``27} LEFT ( 0 RIGHT )$의 값은? (단, $n$은 자연수)",
+   "choices": [
+    "$2$",
+    "$4$",
+    "$6$",
+    "$8$",
+    "$10$"
+   ]
+  },
+  {
+   "number": 6,
+   "answer": "③",
+   "solution": null,
+   "topic": "합성함수",
+   "difficulty": "하",
+   "score": 3.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "세 함수 $f,~g,~h$에 대하여 \n$(h CIRC g)(x)=-3x+3$\n$(h CIRC (g CIRC f))(x)=3x ^{2} -18x+6$\n일 때, $f(1)$의 값은?",
+   "choices": [
+    "$2$",
+    "$3$",
+    "$4$",
+    "$5$",
+    "$6$"
+   ]
+  },
+  {
+   "number": 7,
+   "answer": "①",
+   "solution": null,
+   "topic": "유리식",
+   "difficulty": "하",
+   "score": 3.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "$f(n)= {2} over {n ^{2} +2n}$($n$은 자연수)로 정의할 때, $f(1)+f(3)+f(5)+` CDOTS `+f(99)= {q} over {p}$이다. 이 때, $p+q$의 값은?",
+   "choices": [
+    "$201$",
+    "$202$",
+    "$203$",
+    "$204$",
+    "$205$"
+   ]
+  },
+  {
+   "number": 8,
+   "answer": "②",
+   "solution": null,
+   "topic": "유리함수",
+   "difficulty": "하",
+   "score": 3.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "함수 $f(x)= {2x+3} over {4x-5}$의 역함수 $g(x)$에 대하여 함수 $y=g(x)$의 그래프의 점근선의 방정식은 $x=a,~y=b$이고 함수 $y=g(x)$의 그래프가 점 $(1,~c)$를 지날 때, 세 상수 $a,~b,~c$에 대하여 $2a+4b+6c$의 값은?",
+   "choices": [
+    "$24$",
+    "$30$",
+    "$36$",
+    "$42$",
+    "$48$"
+   ]
+  },
+  {
+   "number": 9,
+   "answer": "②",
+   "solution": null,
+   "topic": "무리함수",
+   "difficulty": "하",
+   "score": 3.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "정의역이 $LEFT { x`vert `-5 LEQ `x` LEQ 3 RIGHT }$ 인 무리함수 $f(x)= sqrt {4-x} +a$의 최솟값이 $4$이다. $f(x)$의 최댓값을 $M$이라 할 때, $a+M$ 의 값은?",
+   "choices": [
+    "$8$",
+    "$9$",
+    "$10$",
+    "$11$",
+    "$12$"
+   ]
+  },
+  {
+   "number": 10,
+   "answer": "①",
+   "solution": null,
+   "topic": "무리함수",
+   "difficulty": "하",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "무리함수 $y=- sqrt {ax+b} +c$의 그래프가 아래 그림과 같다. $4 LEQ x LEQ 7$에서 유리함수 $y= {ax+b} over {x+c}$의 최댓값을 $M,$ 최솟값을 $m$이라 할 때, $M-m$의 값은?",
+   "choices": [
+    "${1} over {6}$",
+    "${1} over {3}$",
+    "${1} over {2}$",
+    "${2} over {3}$",
+    "${5} over {6}$"
+   ]
+  },
+  {
+   "number": 11,
+   "answer": "③",
+   "solution": null,
+   "topic": "여러 가지 함수",
+   "difficulty": "하",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "집합 $X= LEFT { 0,~1,~2 RIGHT }$에 대하여 $X$에서 $X$로의 서로 다른 세 함수 $f$, $g$, $h$는 각각 일대일대응, 상수함수, 항등함수이고 $f LEFT ( 0 RIGHT ) =g LEFT ( 2 RIGHT ) =h LEFT ( 1 RIGHT )$, $f LEFT ( 2 RIGHT ) -g LEFT ( 1 RIGHT ) =f LEFT ( 0 RIGHT )$를 만족시킬 때, $f LEFT ( 1 RIGHT ) +g LEFT ( 0 RIGHT ) +h LEFT ( 2 RIGHT )$의 값은?",
+   "choices": [
+    "$1$",
+    "$2$",
+    "$3$",
+    "$4$",
+    "$5$"
+   ]
+  },
+  {
+   "number": 12,
+   "answer": "⑤",
+   "solution": null,
+   "topic": "유한집합의 원소의 개수",
+   "difficulty": "중",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "어느 자전거 동아리 회원 $40$명을 대상으로 두 코스 $rmA$와 $rmB$를 다녀온 경험이 있는 회원 수를 조사하였더니 $rmA$코스는 $28$명이고 $rmB$코스는 $21$명이었다. 두 코스 $rmA$와 $rmB$를 모두 다녀온 회원 수의 최댓값과 최솟값의 합은?",
+   "choices": [
+    "$18$",
+    "$22$",
+    "$24$",
+    "$26$",
+    "$30~$"
+   ]
+  },
+  {
+   "number": 13,
+   "answer": "④",
+   "solution": null,
+   "topic": "절대부등식",
+   "difficulty": "중",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "$x>0$이고 $y>0$일 때, $LEFT ( 4x+ { 1} over { y} RIGHT ) LEFT ( { 1} over { x}+16y RIGHT )$의 최솟값은?",
+   "choices": [
+    "$42$",
+    "$40$",
+    "$38$",
+    "$36$",
+    "$34$"
+   ]
+  },
+  {
+   "number": 14,
+   "answer": "①",
+   "solution": null,
+   "topic": "역함수",
+   "difficulty": "중",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "실수 전체의 집합에서 정의된 함수 $f$에 대하여 $f LEFT ( 6x+1 RIGHT )=-2x+7$이 성립할 때, 역함수 $f^{`-1} LEFT ( x RIGHT )=ax+b$이다. 이때 상수 $a$와 $b$에 대하여 $ab$의 값은?",
+   "choices": [
+    "$-66$",
+    "$66$",
+    "$-60$",
+    "$60$",
+    "$-33$"
+   ]
+  },
+  {
+   "number": 15,
+   "answer": "⑤",
+   "solution": null,
+   "topic": "유리함수",
+   "difficulty": "중",
+   "score": 5.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "다음 그림과 같이 함수 $y= { k} over { x}$$LEFT ( k>0 RIGHT )$의 그래프가 직선 $y=-x+8$과 두 점 $rmP$, $rmQ$에서 만난다. 삼각형 $rmOPQ$의 넓이가 $20$일 때, 상수 $k$의 값은? (단, $rmO$는 원점)",
+   "choices": [
+    "${ 31} over { 4}$",
+    "${ 33} over { 4}$",
+    "${ 35} over { 4}$",
+    "${ 37} over { 4}$",
+    "${ 39} over { 4}$"
+   ]
+  },
+  {
+   "number": 16,
+   "answer": "④",
+   "solution": null,
+   "topic": "무리함수",
+   "difficulty": "중",
+   "score": 5.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "함수 $f LEFT ( x RIGHT )= sqrt { 3x-5}+1$의 그래프와 그 역함수 $y=f^{``-1} LEFT ( x RIGHT )$의 그래프가 만나는 두 점을 각각 $rmP$와 $rmQ$라 할 때, $bar{rmPQ}$의 길이는?",
+   "choices": [
+    "$sqrt { 5}$",
+    "$2$",
+    "$sqrt { 3}$",
+    "$sqrt { 2}$",
+    "$1$"
+   ]
+  },
+  {
+   "number": 17,
+   "answer": "②",
+   "solution": null,
+   "topic": "절대부등식",
+   "difficulty": "중",
+   "score": 5.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "한 변의 길이가 $6$인 정삼각형에 내접하는 원과 그 원에 내접하는 직사각형이 있다. 직사각형의 넓이의 최댓값을 $a$, 그때의 직사각형의 둘레의 길이를 $b$라 할 때, ${b ^{2}} over {a}$의 값은?",
+   "choices": [
+    "$12$",
+    "$16$",
+    "$24$",
+    "$30$",
+    "$48$"
+   ]
+  },
+  {
+   "number": 18,
+   "answer": "③",
+   "solution": null,
+   "topic": "유리함수 리",
+   "difficulty": "중",
+   "score": 6.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "실수 $k$에 대하여 정의역이 $LEFT { x`vert ``x GEQ 0,~x != 2 RIGHT }$인 \n함수 $f(x)= LEFT | {-3x+10} over {x-2} RIGHT |$의 그래프와 직선 $y=k$가 만나는 서로 다른 점의 개수를 $g(k)$라 할 때, $g(0)+g(1)+g(2)+g(3)+` CDOTS `+g(30)`$의 값을 구하시오.",
+   "choices": [
+    "$53$",
+    "$56$",
+    "$59$",
+    "$62$",
+    "$65$"
+   ]
+  },
+  {
+   "number": 19,
+   "answer": null,
+   "solution": "$13$ [2024년 2학기 중간 달성고]$2y + 8 over y-1 = 2(y-1) + 8 over y-1 +2$에서$y>1$이므로 $y-1>0$이고 산술평균과 기하평균의 관계에 의하여$2(y-1) + 8 over y-1 ge 2 root{2 (y-1 ) times 8 over y-1 } = 2 times 4 =8$이므로등호는 $2 (y-1 ) = 8 over y-1  =4$, $y-1=2$, 즉 $y=3$일 때 성립$THEREFORE$ $a= 3$$2(y-1) + 8 over y-1 +2  ge 8 +2 =10$이므로 최솟값은 $10$이다.$THEREFORE$ $m=10$따라서 $a+m = 3 + 10 =13$",
+   "topic": "절대부등식",
+   "difficulty": "중",
+   "score": 4.0,
+   "label": "[서술형 $1$]",
+   "type": "서술형",
+   "stem": "[서술형 $1$] $y>1$일 때, $2y+ {8} over {y-1}$는 $y=a$에서 최솟값 $m$을 갖는다. $a+m$의 값을 구하는 풀이 과정과 답을 쓰시오.",
+   "choices": []
+  },
+  {
+   "number": 20,
+   "answer": null,
+   "solution": "[2024년 2학기 중간 달성고]$LEFT { -2 RIGHT }$, $LEFT { 0 RIGHT }$, $LEFT { 1 RIGHT }$, $LEFT { -2,~0 RIGHT }$, $LEFT { -2,~1 RIGHT }$, $LEFT { 0,~1 RIGHT }$, $LEFT { -2,~0,~1 RIGHT }$$y=x$가 항등함수이므로 항등함수가 되기 위해서는 집합 $X$의 원소들이 $y=x$ 위에 존재해야 한다.$x^ 3 + x^2 -x =  x$$x^3 +x^2 -2x =0$, $x(x^2 +x -2)=0$$x(x+2)(x-1) =0$$THEREFORE$ $x= 0$ 또는 $x= it -2$ 또는 $x=1$따라서 집합 $X$는 $-2$, $0$, $1$ 중 적어도 하나를 원소로 가지면 된다.그러므로 모든 집합 $X$는 $LEFT { -2 RIGHT }$, $LEFT { 0 RIGHT }$, $LEFT { 1 RIGHT }$, $LEFT { -2,~0 RIGHT }$, $LEFT { -2,~1 RIGHT }$, $LEFT { 0,~1 RIGHT }$, $LEFT { -2,~0,~1 RIGHT }$",
+   "topic": "여러 가지 함수",
+   "difficulty": "중",
+   "score": 5.0,
+   "label": "[서술형 $2$]",
+   "type": "서술형",
+   "stem": "[서술형 $2$] 집합 $X$가 공집합이 아닐 때, $X$에서 $X$로의 함수 $f LEFT ( x RIGHT ) =x ^{3} +x ^{2} -x$가 항등함수가 되도록 하는 집합 $X$를 모두 구하는 풀이 과정과 답을 쓰시오.",
+   "choices": []
+  },
+  {
+   "number": 21,
+   "answer": null,
+   "solution": "$4$ [2024년 2학기 기말 달성고]ⅰ) $n=1$$sqrt {1-x} = {x-3} over {x-2} ~(x LEQ  1)$$f(1)=1$                      ⅱ) $n=2$$sqrt {2-x} = {x-3} over {x-2} ~(x LEQ  2)$$f(2)=1$ⅲ) $n=3$$sqrt {3-x} = {x-3} over {x-2} ~(x LEQ  3)$$f(3)=2$",
+   "topic": "무리함수",
+   "difficulty": "중",
+   "score": 5.0,
+   "label": "[서술형 $3$]",
+   "type": "서술형",
+   "stem": "[서술형 $3$] 정수 $n$에 대하여 $x$에 대한 방정식\n $sqrt {n-x} = {x-3} over {x-2} ~(x LEQ n,~x != 2)$\n의 서로 다른 실근의 개수를 $f(n)$이라 할 때,\n$f(1)+f(2)+f(3)$의 값을 구하는 풀이과정과 답을 쓰시오.",
+   "choices": []
+  },
+  {
+   "number": 22,
+   "answer": null,
+   "solution": "$sqrt {10}$ [2024년 2학기 기말 달성고]$f(x)= {3x-1} over {x-2}$의 그래프 점근선은 $x=2,~y=3$이다.직선 $y=`-x+5$는 $(2,~3)$을 지나므로유리함수는 $x+y-5=0$에 대하여 대칭이다.$rm P left(it t,~ {3t-1} over {t-2}  right)$와 직선 사이의 거리는${LEFT | t+ {3t-1} over {t-2} -5 RIGHT |} over {sqrt {2}} = {LEFT | t-2+ {5} over {t-2} RIGHT |} over {sqrt {2}}$$(t-2)+ {5} over {(t-2)} GEQ  2 sqrt {5}$$THEREFORE  sqrt {10}$",
+   "topic": "유리함수",
+   "difficulty": "중",
+   "score": 6.0,
+   "label": "[서술형 $4$]",
+   "type": "서술형",
+   "stem": "[서술형 $4$] 유리함수 $f(x)= {3x-1} over {x-2}$의 그래프 위를 움직이는 점 $rmP$와 직선 $y=`-x+5$ 사이의 거리의 최솟값을 구하는 풀이과정과 답을 쓰시오.",
+   "choices": []
+  },
+  {
+   "number": 23,
+   "answer": null,
+   "solution": "${7} over {4} <k<2$ [2023년 2학기 기말 달성고]step $1$) $f(x)$ 의 그래프를 그린다. step $2$) $y=-x+k$의 그래프는 기울기가 $-1$이며, 직선을 움직여가면서 $f(x)$와 네 점에서 만나는 구간을 찾는다.① $y=-x+k$ 가 $(1,~1)$을 지날 때 서로 다른 세 점에서 만난다. $1=-1+k$ $k=2$ ② $y=-x+k$ 가 $y=- sqrt {x-1} +1$과 접할 때 세 점에서 만난다. → $-x+k`=`- sqrt {x-1} +1$ 의 판별식$=0$이다.$k= {7} over {4}$따라서 ${7} over {4} <k<2$",
+   "topic": "무리함수",
+   "difficulty": "중",
+   "score": 6.0,
+   "label": "[서술형 $5$]",
+   "type": "서술형",
+   "stem": "[서술형 $5$] 정의역이 $LEFT { x`|`x != -1`인``실수` RIGHT }$인 함수 $f(x)$를 \n $f(x)= {cases{{2x} over {x+1}&~~~~(x<1,~x != -1)#eqalign{#\n- sqrt {x-1} +1}&eqalign{#\n~~~~(x GEQ 1)}}}$\n과 같이 정의한다. 직선 $y=-x+k$와 함수 $y=f(x)$의 그래프가 서로 다른 네 점에서 만날 때, 실수 $k$의 값의 범위를 구하는 풀이과정과 답을 쓰시오.",
+   "choices": []
+  },
+  {
+   "number": 24,
+   "answer": null,
+   "solution": "$68$ [2025년 교육청 고2 3월 30번]$f left(x right)= cases {``{ax-an} over {x-2}-n & & left(x < 2~또는~2 < x < n right) #`` -a sqrt{x-n}-n & & left(x ge n right)}$${ax-an} over {x-2}-n$$={a left(x-2 right)+2a-an} over {x-2}-n$$={a left(2-n right)} over {x-2}+a-n$이므로$f left(x right)= cases {``{a left(2-n right)} over {x-2}+a-n & & left(x < 2~또는~2 < x < n right) #`` -a sqrt{x-n}-n & & left(x ge n right)}$(ⅰ) $0 < a < n`$인 경우$y= left|` f left(x right)`right| `$의 그래프는 다음 그림과 같고, $g left(0 right)=1`$이므로 조건 (가)를 만족시키지 않는다.(ⅱ) $a > n`$인 경우$y= left|` f left(x right)`right| `$의 그래프는 위 그림과 같고, $g left(0 right)=0`$이므로 조건 (가)를 만족시키지 않는다.(ⅲ) $a < 0`$인 경우$y= left|` f left(x right)`right| `$의 그래프는 다음 그림과 같고, 이때$g left(t right)= cases {``0 & & left(t < 0 right) #`` 2 & & left(t=0~또는~n < t le n-a right) #`` 3 & & left(t=n~또는~t > n-a right) #`` 4 & & left(0 < t < n right)}$ $cdots$$cdots$ ㉠$g left(t right)=2`$를 만족시키는 실수 $t`$의 최솟값은 $0$, 최댓값은 $n-a`$이다. 조건 (가)에서 $n-a={3} over {2}n`$이므로$a=`-{1} over {2}n`$이고$f left(x right)= cases {``{n^{2}-2n} over {2x-4}-{3} over {2}n & & left(x < 2~또는~2 < x < n right) #``{1} over {2}n sqrt{x-n}-n & & left(x ge n right)}$조건 (나)에서 $g left(n right)=3`$이므로 $g left( left|` f left(5 right)`right| right)=2$$f left(5 right) < 0`$인 경우 $-n < f left(5 right) < 0`$이므로 ㉠에서$g left( left|` f left(5 right)`right| right)=4`$가 되어 조건 (나)를 만족시키지 않는다. 그러므로 $f left(5 right) ge 0$즉, ㉠에서 $f left(5 right)=0$ 또는 $n < f left(5 right) le{3} over {2}n$① $f left(5 right)=0`$인 경우$2 < n le 5`$이면$f left(5 right)={1} over {2}n sqrt{5-n}-n=0$$2n=n sqrt{5-n}$$2= sqrt{5-n}$$n=1`$이므로 조건을 만족시키지 않는다.$n > 5`$이면$f left(5 right)={n^{2}-2n} over {6}-{3} over {2}n={1} over {6}n left(n-11 right)=0`$이므로조건을 만족시키는 자연수 $n`$의 값은 $11$② $n < f left(5 right) le{3} over {2}n`$인 경우$2 < n le 5`$이면$f left(5 right)={1} over {2}n sqrt{5-n}-n`$이므로$n <{1} over {2}n sqrt{5-n}-n le{3} over {2}n$$1 <{1} over {2} sqrt{5-n}-1 le{3} over {2}$$4 < sqrt{5-n} le 5$그런데 $2 < n le 5`$에서 $sqrt{5-n} < sqrt{3}`$이므로조건을 만족시키지 않는다.$n > 5`$이면$f left(5 right)$$={n^{2}-2n} over {6}-{3} over {2}n$$={1} over {6}n^{2}-{11} over {6}n$$n <{1} over {6}n^{2}-{11} over {6}n le{3} over {2}n$$1 <{1} over {6}n-{11} over {6} le{3} over {2}$$6 < n-11 le 9$$17 < n le 20$이므로 조건을 만족시키는 자연수 $n`$의 값은 $18$, $19$, $20$(ⅰ), (ⅱ), (ⅲ)에서 조건을 만족시키는 모든 $n`$의 값은$11$, $18$, $19$, $20`$이고 그 합은 $68`$이다.",
+   "topic": "무리함수",
+   "difficulty": "상",
+   "score": 6.0,
+   "label": "[서술형 $6$]",
+   "type": "서술형",
+   "stem": "[서술형 $6$] 실수 $a~ left(a ne 0 right)`$과 $2`$보다 큰 자연수 $n`$에 대하여 집합 $left {x`left|` x ne 2`$인 실수$left.` right }`$에서 정의된 함수 $f left(x right)`$를\n $f left(x right)= cases {``~{ax-an} over {x-2}-n & & left(x < 2~또는~2 < x < n right) #`` -a sqrt{x-n}-n & & left(x ge n right)}$\n이라 하자. 실수 $t`$에 대하여 $x`$에 대한 방정식 $left|` f left(x right)`right| =t`$의 서로 다른 실근의 개수를 $g left(t right)`$라 할 때, 함수 $g left(t right)`$가 다음 조건을 만족시키도록 하는 모든 $n`$의 값의 합을 구하시오. \n(가) $g left(t right)=2`$를 만족시키는 실수 $t`$의 최솟값은 $0$, 최댓값은 ${3} over {2}n`$이다.\n(나) $g left( left|` f left(5 right)`right| right) times g left(n right)=6$\n대구광역시 내신 수학 연구회\n  \n  \n정답\n워드:김소라t\n오검:김진식t \n완료:권성재t",
+   "choices": []
+  }
+ ],
+ "meta": {
+  "exam_id": 4298,
+  "school": "달성고",
+  "grade": 1,
+  "subject": "공수2",
+  "year": 2025,
+  "semester": 2,
+  "round": "기말",
+  "src": "N:\\개인\\기출\\2024 기출모음\\2024년 2학기 기말 고사 모음\\공수2\\[달성고][1][공수2][25-2-기말대비][미래엔] (완료).hwp"
+ }
+}

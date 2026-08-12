@@ -1,0 +1,436 @@
+{
+ "source": "_대건고__1__공수1__25-1-기말고사대비__비상___완료_.hwpx",
+ "question_count": 25,
+ "questions": [
+  {
+   "number": 1,
+   "answer": "①",
+   "solution": "이차방정식 $x^2 -2x -k-1=0$의 판별식 $D$에서 $D over 4 = k +2=0$이어야 하므로 $k= it -2$즉, 이차방정식 $x^2 +x-1=3x-2$에서 $x=1$따라서 교점의 좌표는 $LEFT ( 1, ~1 RIGHT )$이다.",
+   "topic": "이차함수와 직선의 위치 관계",
+   "difficulty": "하",
+   "score": 3.5,
+   "label": null,
+   "type": "객관식",
+   "stem": "이차함수 $y=x ^{2} +x-1$의 그래프와 직선 $y=3x+k$가 한 점에서 만날 때, 교점의 좌표를 구하시오. \n(단, $k$는 실수)",
+   "choices": [
+    "$(1,~1)$",
+    "$(2,~5)$",
+    "$(0,~-1)$",
+    "$(-1,~-1)$",
+    "$(3,~11)$"
+   ]
+  },
+  {
+   "number": 2,
+   "answer": "③",
+   "solution": "$(x-1) (x^2 +x+1) =0$에서 $omega ^2 + omega +1=0$이고,$omega^3 =1$이므로$1 over {1 + omega ^11 } = 1 over{1+ omega^2 } = it - 1over omega$, $1  over{1+ omega ^12 } = 1over2$따라서 (문제의 식)$= it - 1over omega^2  - 1over omega + 1 over 2$$= it - {1+ omega} over{omega^2} + 1over 2$$= 1 + 1over 2 = 3 over 2$",
+   "topic": "방정식 허근의 주기성",
+   "difficulty": "중",
+   "score": 3.5,
+   "label": null,
+   "type": "객관식",
+   "stem": "삼차방정식 $x ^{3} =1$의 한 허근을 $omega$라고 할 때, \n${1} over {1+omega ^{10}} + {1} over {1+ omega^{11}} + {1} over {1+ omega^{12}}$의 값을 구하시오.",
+   "choices": [
+    "${1} over {2}$",
+    "$1$",
+    "${3} over {2}$",
+    "$2$",
+    "${5} over {2}$"
+   ]
+  },
+  {
+   "number": 3,
+   "answer": "④",
+   "solution": null,
+   "topic": "삼차방정식과 사차방정식",
+   "difficulty": "하",
+   "score": 3.5,
+   "label": null,
+   "type": "객관식",
+   "stem": "사차방정식 $x ^{4} +4x ^{3} -3x ^{2} -16x-4=0$의 네 근 $alpha ,~ beta ,~ gamma ,~ delta$에 대하여 $alphagamma-betadelta$의 값은? (단, $alpha<beta<gamma<delta$)",
+   "choices": [
+    "$2$",
+    "$3$",
+    "$4$",
+    "$5$",
+    "$6$"
+   ]
+  },
+  {
+   "number": 4,
+   "answer": "③",
+   "solution": "(ⅰ) $x< 1$일 때, $- (x-1) - 2 (x-2) le 4$이므로 $x ge 1over3$그런데 $x< 1$이므로 $1 over 3 le x <1$(ⅱ) $1 le x < 2$일 때,$LEFT ( x-1 RIGHT ) -2(x-2) le 4$이므로 $x ge it -1$그런데 $1 le x < 2$이므로 $1 le x <2$(ⅲ) $x ge2$일 때,$(x-1 ) + 2(x-2) le 4$이므로 $x le 3$그런데 $x ge2$이므로 $2 le x le3$(ⅰ), (ⅱ), (ⅲ)에서 $1 over 3 le x le 3$이므로 실수 $x$의 최댓값은 $3$이다.",
+   "topic": "절댓값 기호를 포함한 일차부등식",
+   "difficulty": "중",
+   "score": 3.5,
+   "label": null,
+   "type": "객관식",
+   "stem": "부등식 $LEFT | x-1 RIGHT | +2 LEFT | x-2 RIGHT | LEQ 4$를 만족시키는 실수 $x$의 최댓값을 구하시오.",
+   "choices": [
+    "$1$",
+    "$2$",
+    "$3$",
+    "$4$",
+    "$5$"
+   ]
+  },
+  {
+   "number": 5,
+   "answer": "⑤",
+   "solution": "$z=1$인 경우: $x+ 2y =9$이므로 $(1, ~4,~1)$, $(3, ~3, ~1)$, $(5,~2,~1)$, $(7,~1,~1)$의 $4$개$z=2$인 경우: $x+ 2y =6$이므로 $(2, ~2,~2)$, $(4, ~1, ~2)$의 $2$개$z=3$인 경우: $x+ 2y =3$이므로 $(1, ~1,~3)$의 $1$개따라서 구하는 개수는 $4+2+1=7$",
+   "topic": "경우의 수",
+   "difficulty": "하",
+   "score": 3.5,
+   "label": null,
+   "type": "객관식",
+   "stem": "방정식 $x+2y+3z=12$를 만족시키는 자연수 $x,~y,~z$의 순서쌍 $(x,~y,~z)$의 개수를 구하시오.",
+   "choices": [
+    "$3$",
+    "$4$",
+    "$5$",
+    "$6$",
+    "$7$"
+   ]
+  },
+  {
+   "number": 6,
+   "answer": "②",
+   "solution": "크기가 다른 두 상자에 나누어 담는 아이스크림의 개수를 순서쌍을 나타내면$(1,~4)$, $(2,~3)$, $(3,~2)$, $(4,~1)$따라서 구하는 방법의 수는$it _{5} rm C _{1} TIMES  it _{4} rm C _{4} + it _{5} rm C _{2} TIMES  it _{3} rm C _{3} + it _{5} rm C _{3} TIMES  it _{2} rm C _{2} + it _{5} rm C _{4} TIMES  it _{1} rm C _{1}$$=`5`+10`+10`+5`=30$",
+   "topic": "조합",
+   "difficulty": "중",
+   "score": 3.5,
+   "label": null,
+   "type": "객관식",
+   "stem": "서로 다른 $5$개의 아이스크림을 크기가 다른 두 상자에 나누어 담으려고 한다. 각 상자에는 아이스크림을 최대 $4$개까지만 담을 수 있을 때, 두 상자에 아이스크림을 나누어 담는 방법의 수를 구하시오.",
+   "choices": [
+    "$25$",
+    "$30$",
+    "$35$",
+    "$40$",
+    "$45$"
+   ]
+  },
+  {
+   "number": 7,
+   "answer": "③",
+   "solution": "(ⅰ) $a$~$d$로 시작하는 문자열의 개수는 $4! TIMES  4=96$(ⅱ) $ea$로 시작하는 문자열의 개수는 $3! =6$(ⅲ) $eba$로 시작하는 문자열의 개수는 $2!`=2$(ⅰ), (ⅱ), (ⅲ)에서 문자열의 개수는 $96+`6+2`=104$이므로 $105$번째의 문자열은 $ebcad$이다.",
+   "topic": "순열",
+   "difficulty": "중",
+   "score": 3.5,
+   "label": null,
+   "type": "객관식",
+   "stem": "다섯 개의 문자 $a,~b,~c,~d,~e$를 한 번씩 모두 사용하여 만든 문자열을 사전식으로 배열할 때, $105$번째의 문자열을 구하시오.",
+   "choices": [
+    "$cadeb$",
+    "$ebcda$",
+    "$ebcad$",
+    "$debca$",
+    "$ecbad$"
+   ]
+  },
+  {
+   "number": 8,
+   "answer": "②",
+   "solution": "$it _{9} rm C _{2} TIMES  it _{7} rm C _{3} TIMES  it _{4} rm C _{4} =1260$",
+   "topic": "조합",
+   "difficulty": "중",
+   "score": 3.5,
+   "label": null,
+   "type": "객관식",
+   "stem": "어느 학교 학생회에서는 학생회에 속한 $1$학년 학생 $9$명을 $3$개의 조로 나누어 교내 축제 진행을 도우려고 한다. 이때 학생들을 $2$명, $3$명, $4$명으로 나누는 방법의 수를 구하시오.",
+   "choices": [
+    "$630$",
+    "$1260$",
+    "$1890$",
+    "$2520$",
+    "$3150$"
+   ]
+  },
+  {
+   "number": 9,
+   "answer": "①",
+   "solution": "$A=` {pmatrix{`a~&~b`#`c~&~d`}}$ ($a$, $b$, $c$, $d$는 실수)라고 하면$A pmatrix {``1`` # 0 } = pmatrix {``a`` # c}  = pmatrix {``-1`` # ~~3$, $A {pmatrix{``0``#1}} = {pmatrix{``b``#d}} = {pmatrix{~~3#``-2``}}$즉, $A= {pmatrix{`-1~&~```3#~~3~&-2`}}$이므로 $A {pmatrix{``~2`#-1`}} = {pmatrix{`-5#``~~8`}}$",
+   "topic": "행렬의 곱셈",
+   "difficulty": "하",
+   "score": 3.5,
+   "label": null,
+   "type": "객관식",
+   "stem": "이차정사각행렬 $A$에 대하여 $A {pmatrix{`1#``0`}} = {pmatrix{`-1`#3}}$, $A {pmatrix{`0#``1`}} = {pmatrix{`3`#-2}}$ 가 성립할 때, $A {pmatrix{`2#-1}}$ 을 구하시오.",
+   "choices": [
+    "${pmatrix{`-5#````````8}}$",
+    "${pmatrix{`-4#````````8}}$",
+    "${pmatrix{`-3#````````2}}$",
+    "${pmatrix{`-5#````````9}}$",
+    "${pmatrix{`-1#````````3}}$"
+   ]
+  },
+  {
+   "number": 10,
+   "answer": "④",
+   "solution": "$A ^{2} = {pmatrix{`-2~&-3#~~1~&~~1`}}$, $A^3 =E$이므로$2A^5 -4A^2 +A = it -2A^2 +A= pmatrix { ~~5~&~~9` #`-3~ &-4 `}$",
+   "topic": "행렬의 곱셈",
+   "difficulty": "중",
+   "score": 3.5,
+   "label": null,
+   "type": "객관식",
+   "stem": "행렬 $A= {pmatrix{1~~&3#-1~~&-2}}$에 대하여 $2A ^{5} -4A ^{2} +A$를 계산하시오.",
+   "choices": [
+    "${pmatrix{-5~&```````9#-3~&-4}}$",
+    "${pmatrix{```````2~&```````3#-1~&-1}}$",
+    "${pmatrix{-9~&``````5#3&-4}}$",
+    "${pmatrix{```````5~&```````9#-3~&-4}}$",
+    "${pmatrix{-2~~&-3#1&-1}}$"
+   ]
+  },
+  {
+   "number": 11,
+   "answer": "⑤",
+   "solution": null,
+   "topic": "연립이차부등식",
+   "difficulty": "중",
+   "score": 3.5,
+   "label": null,
+   "type": "객관식",
+   "stem": "연립부등식\n ${cases{LEFT | x-k RIGHT | {leq}6 _{`}&it#x ^{2} -3x-4>0&it}}$\n을 만족시키는 모든 정수 $x$의 값의 합이 $17$일 때, 정수 $k$의 값은?",
+   "choices": [
+    "$-6$",
+    "$-4$",
+    "$-2$",
+    "$0$",
+    "$2$"
+   ]
+  },
+  {
+   "number": 12,
+   "answer": "③",
+   "solution": null,
+   "topic": "삼차방정식과 사차방정식",
+   "difficulty": "중",
+   "score": 3.5,
+   "label": null,
+   "type": "객관식",
+   "stem": "$x$에 대한 사차방정식 \n $x ^{4} +(2a-2)x ^{3} +12x ^{2} -(8a+24)x=0$\n의 서로 다른 실근의 개수가 $3$이 되도록 하는 모든 실수 $a$의 값의 합은?",
+   "choices": [
+    "$1$",
+    "$2$",
+    "$3$",
+    "$4$",
+    "$5$"
+   ]
+  },
+  {
+   "number": 13,
+   "answer": "③",
+   "solution": null,
+   "topic": "조합",
+   "difficulty": "중",
+   "score": 3.5,
+   "label": null,
+   "type": "객관식",
+   "stem": "$6`$개의 문자 $a, ~b,~c, ~d, ~e, ~f `$를 일렬로 나열할 때, 다음 조건을 만족시키는 경우의 수는? \n(가) $a`$는 $b`$보다 왼쪽에 있고, \n $c`$는 $b`$보다 오른쪽에 있도록 나열한다.\n(나) $e`$는 $f`$와 이웃하지 않게 나열한다.",
+   "choices": [
+    "$60$",
+    "$70$",
+    "$80$",
+    "$90$",
+    "$100$"
+   ]
+  },
+  {
+   "number": 14,
+   "answer": "④",
+   "solution": "이차함수 $y= x^2 - (a-4)x +b-1$의 그래프는 $x$축과 두 점 $(-1,~0)$, $(4,~0)$에서 만나므로 이차방정식 $x^2 - (a-4)x +b-1=0$의 두 근은 $-1$, $4$이다.즉, $3= a-4$, $-4 =b -1$이므로 $a=7$, $b= it-3$이차부등식 $-3x^2 +7x+6 ge0$의 해는 $- 2over 3 le x le3$따라서 구하는 정수 $x$는 $0$, $1$, $2$, $3$의 $4$개다.",
+   "topic": "이차부등식",
+   "difficulty": "중",
+   "score": 3.5,
+   "label": null,
+   "type": "객관식",
+   "stem": "실수 $a$, $b$에 대하여 이차부등식 $x^2 - (a-\n4)x +b-1 <0$의 해가 $-1 <x<4$일 때, 이차부등식 $bx^2 +ax+6 ge0$을 만족시키는 정수 $x$의 개수는?",
+   "choices": [
+    "$1$",
+    "$2$",
+    "$3$",
+    "$4$",
+    "$5$"
+   ]
+  },
+  {
+   "number": 15,
+   "answer": "④",
+   "solution": null,
+   "topic": "순열",
+   "difficulty": "하",
+   "score": 3.5,
+   "label": null,
+   "type": "객관식",
+   "stem": "여섯 개의 문자 $d,~a,~e,~g,~u,~n$을 일렬로 배열할 때, 양 끝에 모음이 오도록 하는 모든 경우의 수는?",
+   "choices": [
+    "$18$",
+    "$36$",
+    "$72$",
+    "$144$",
+    "$288$"
+   ]
+  },
+  {
+   "number": 16,
+   "answer": "②",
+   "solution": null,
+   "topic": "경우의 수",
+   "difficulty": "상",
+   "score": 3.5,
+   "label": null,
+   "type": "객관식",
+   "stem": "여섯 개의 숫자 $1,~2,~3,~4,~5,~6$을 일렬로 나열한 각 경우에 대하여 첫 번째와 두 번째에 나열된 두 수의 최대공약수를 $a$, 세 번째와 네 번째에 나열된 두 수의 최대공약수를 $b$, 다섯 번째와 여섯 번째에 나열된 두 수의 최대공약수를 $c$라고 하자. 예를 들어 $2,~3,~4,~5,~6,~1$로 나열된 경우에 대하여 $a$는 $2$와 $3$의 최대공약수, $b$는 $4$와 $5$의 최대공약수, $c$는 $6$과 $1$의 최대공약수이므로, $a=1,~b=1,~c=1$이다. 이때, $a+b+c!=4$를 만족시키는 모든 경우의 수는?",
+   "choices": [
+    "$288$",
+    "$336$",
+    "$384$",
+    "$432$",
+    "$480$"
+   ]
+  },
+  {
+   "number": 17,
+   "answer": "②",
+   "solution": null,
+   "topic": "경우의 수",
+   "difficulty": "중",
+   "score": 3.5,
+   "label": null,
+   "type": "객관식",
+   "stem": "흰 공, 검은 공, 파란 공이 각각 $3$개씩, 빨간 공, 노란 공이 각각 $2$개씩 모두 $13$개의 공이 들어있는 주머니가 있다. 이 주머니에서 $6$개의 공을 꺼낼 때, 꺼낸 공들의 색이 서로 다른 $4$종류가 되는 경우의 수는? \n(단, 모든 공의 모양과 크기는 같고, 같은 색의 공은 구별하지 않는다.)",
+   "choices": [
+    "$36$",
+    "$42$",
+    "$48$",
+    "$54$",
+    "$60$"
+   ]
+  },
+  {
+   "number": 18,
+   "answer": "③",
+   "solution": null,
+   "topic": "조합",
+   "difficulty": "중",
+   "score": 3.5,
+   "label": null,
+   "type": "객관식",
+   "stem": "다음은 어느 고등학교의 과목 선택 안내 사항을 나타낸 것이다.\n과목 선택 안내 사항\n$1.$ 개설된 과목의 수는 사회 교과 $4$개, 과학 교과 $5$개, 교양 교과 $4$개로\n 모두 $13$개입니다.\n$2$. 위의 $13$개 과목 중에서 선택해야 할 과목의 수는\n 사회 교과와 과학 교과에서 $3$개, 교양 교과에서 \n $1$개로 모두 $4$개입니다.\n대구광역시 내신 수학 연구회\n위의 과목 선택 안내 사항에 맞게 사회 및 과학, 교양 교과의 개설된 $13$개의 과목 중에서 $4$개의 과목을 선택할 때, 사회 교과와 과학 교과의 과목을 동시에 선택하지 않는 모든 경우의 수는? \n(단, 과목 선택의 순서는 고려하지 않는다.)",
+   "choices": [
+    "$13$",
+    "$18$",
+    "$56$",
+    "$88$",
+    "$336$"
+   ]
+  },
+  {
+   "number": 19,
+   "answer": "⑤",
+   "solution": "$a_ij = cases{ k-3^j &&&(i=j) #2i-3k &&&(i!=j) }$에$i=1,~2$, $j=`1,~2$를 차례로 대입하면$a _{11}=k-3}$, $a_12 = 2 -3k$,$a_21 =  4 -3k$, $a_22 = k-9$행렬 $A+B$의 $LEFT ( i ,~j RIGHT )$ 성분을 $c_ij$라 하자.$b_ij = root{ LEFT ({ a_ij itright) ^2}$에서 $b_ij = LEFT |  a_ij RIGHT |$이므로$a _ij le 0$일 때, $c _ij = a_ij + LEFT |  a_ij RIGHT | =0$$a _ij > 0$일 때, $c _ij = a_ij + LEFT |  a_ij RIGHT | = 2 a_ij$행렬 $A+B$의 모든 성분의 합이 $0$이하이므로행렬 $A$의 모든 성분은 $0$ 이하이다. $k-3 le0$에서 $k le 3$    $cdotscdots$㉠$2- 3k le 0$에서 $k ge 2 over 3$    $cdotscdots$㉡$4-3k le 0$에서 $k ge 4 over 3$    $cdotscdots$㉢$k-9 le 0$에서 $k le 9$    $cdotscdots$㉣㉠~㉣에서 $4 over3 le k le 3$따라서 조건을 만족시키는 정수 $k$는 $2 ,~3$이므로 구하는 합은 $2+3 =5$",
+   "topic": "행렬의 덧셈, 뺄셈과 실수배",
+   "difficulty": "상",
+   "score": 3.5,
+   "label": null,
+   "type": "객관식",
+   "stem": "두 이차정사각행렬 $A$, $B$의 $LEFT ( i ,~j RIGHT )$ 성분 $a_ij$, $b_ij$가 각각\n $a_ij = cases{ k-3^j &&&(i=j) #2i-3k &&&(i!=j) }$, $b_ij = root{ LEFT ({ a_ij itright) ^2}$\n을 만족시킨다. 행렬 $A+B$의 모든 성분의 합이 $0$이하가 되도록 하는 모든 정수 $k$의 값의 합은?",
+   "choices": [
+    "$1$",
+    "$2$",
+    "$3$",
+    "$4$",
+    "$5$"
+   ]
+  },
+  {
+   "number": 20,
+   "answer": "①",
+   "solution": "$f(x)=ax +b$라 하면$f(2x) =2ax +b$${pmatrix{~~1&~-2#-2&~~~4}} left(pile{f(x) # f(2x) } right) =  left(pile{3x+4# -6x-8 } right)$에서${pmatrix{~~1&~-2#-2&~~~4}} left(pile{ax+b # ``2ax+b`` } right) =  left(pile{3x+4# -6x-8 } right)$$left( pile{ ``-3ax-b``#`` 6ax+2b``} right)  = LEFT ( pile{ 3x+4# ``-6x-8``} RIGHT )$$-3ax-b =3x+4$, $6ax+ 2b = it -6x-8$  $cdotscdots$㉠임의의 실수 $x$에 대하여 ㉠이 성립하므로$-3a=3$에서 $a= it -1$$-b= 4$에서 $b= it -4$따라서 $f(x) = it -x-4$이므로$f(3)= it -3 -4 =it -7$",
+   "topic": "행렬의 곱셈",
+   "difficulty": "중",
+   "score": 3.5,
+   "label": null,
+   "type": "객관식",
+   "stem": "임의의 실수 $x$에 대하여 일차식 $f(x)$가\n ${pmatrix{~~1&~-2#-2&~~~4}} left(pile{f(x) # f(2x) } right) = left(pile{3x+4# -6x-8 } right)$ \n을 만족시킬 때, $f(3)$의 값은?",
+   "choices": [
+    "$-7$",
+    "$-6$",
+    "$-5$",
+    "$-4$",
+    "$-3$"
+   ]
+  },
+  {
+   "number": 21,
+   "answer": null,
+   "solution": "⑴ 최솟값 $4$, 최댓값 $TIMES$⑵ $49 over4$ ⑴ $x ^{2} -4x+8=(x-2) ^{2} +4$이므로 $x=2$일 때 최솟값 $4$, $x=0$ 은 범위에 포함되지 않으므로 최댓값은 존재하지 않는다.⑵ 이차함수와 직선이 한 점에서 만나야 하므로 $(x ^{2} -4x+8)-(-2x+k)=x ^{2} -2x+8-k$에서 $D=0$즉, $k=7$직선 $y=-2x+7$이 $x$축과 만나는 점의 좌표는 $left( {7} over {2} ,~0right)$이고 $y$축과 만나는 점의 좌표는 $(0,~7)$이다.둘러싸인 도형의 넓이는 ${1} over {2} TIMES 7 TIMES  {7} over {2} = {49} over {4}$",
+   "topic": "이차함수의 최대, 최소",
+   "difficulty": "중",
+   "score": 3.0,
+   "label": "[서술형 $1$]",
+   "type": "서술형",
+   "stem": "[서술형 $1$] 이차함수 $y=x ^{2} -4x+8$와 직선 $y=-2x+k$에 대하여 다음 물음에 답하시오. (단, $k$는 상수이다.) [총 $6$점, 부분점수 있음]\n⑴ $0<x<3$일 때, 이차함수 $y=x ^{2} -4x+8$의 최댓값 또는 최솟값을 구하고, 그 과정을 서술하시오. \n⑵ 이차함수 $y=x ^{2} -4x+8$와 직선 $y=-2x+k$가 한 점에서 만날 때, 직선 $y=-2x+k$와 $x$축 그리고 $y$축으로 둘러싸인 도형의 넓이를 구하고, 그 과정을 서술하시오.",
+   "choices": []
+  },
+  {
+   "number": 22,
+   "answer": null,
+   "solution": "⑴ $-1{le}x{le}5$ ⑵ $x!=3$인 모든 실수 ⑶ 풀이참조⑴ $x^{2}-4x-5{le}0$$(x-5)(x+1){le}0$$-1{le}x{le}5$⑵ $-x^{2}+6x-9<0$$x^{2}-6x+9>0$$(x-3)^{2}>0$$x!=3$인 모든 실수 ⑶ $-1{le}x<3$ 또는 $3<x{le}5$",
+   "topic": "연립이차부등식",
+   "difficulty": "중",
+   "score": 2.0,
+   "label": "[서술형 $2$]",
+   "type": "서술형",
+   "stem": "[서술형 $2$] 연립이차부등식 $cases{{x^{2}-4x-5{le}0}#{-x^{2}+6x-9<0}}$에 대하여 다음 물음에 답하시오. [총 $6$점, 부분점수 있음]\n⑴ 부등식 $x^{2}-4x-5{le}0$를 풀고, 그 과정을 서술하시오. \n\n⑵ 부등식 $-x^{2}+6x-9<0$를 풀고, 그 과정을 서술하시오. \n⑶ ⑴, ⑵를 이용하여 연립이차부등식 $cases{{x^{2}-4x-5{le}0}#{-x^{2}+6x-9<0}}$의 해를 구하고, 수직선 위에 나타내시오.",
+   "choices": []
+  },
+  {
+   "number": 23,
+   "answer": null,
+   "solution": "$f LEFT ( n RIGHT )$과 $f LEFT ( n-1 RIGHT )$의 크기를 비교해보자. 서로 빼면$f LEFT ( n RIGHT ) -f LEFT ( n-1 RIGHT )$$=n ^{2} -2n+2- LEFT { LEFT ( n-1 RIGHT ) ^{2} -2 LEFT ( n-1 RIGHT ) +2 RIGHT }$$=2n-3$따라서 $n=1$인 경우와 $n{geq}2$인 경우 $f LEFT ( n RIGHT )$과 $f LEFT ( n-1 RIGHT )$의 대소관계가 바뀐다는 것을 알 수 있다. 따라서 경우를 나누어 $g LEFT ( n RIGHT )$을 구해보도록 하자.(ⅰ) $n=1$인 경우주어진 부등식에 $n=1$을 대입하면 $-x+2{geq} LEFT | x-2 RIGHT | + LEFT | x-1 RIGHT |$위 부등식의 해를 구해보면 $x=1$(ⅱ) $n{geq}2$인 경우주어진 부등식을 다시 범위를 나누어 생각해보자.① $x<f LEFT ( n-1 RIGHT )$인 경우주어진 부등식을 다시 쓰면 $-x+n+f LEFT ( n RIGHT ) {geq}-2x+f LEFT ( n-1 RIGHT ) +f LEFT ( n RIGHT )$ $x{geq}f LEFT ( n-1 RIGHT ) -n$따라서 $x$의 범위를 구해보면 $f LEFT ( n-1 RIGHT ) -n{leq} x<f LEFT ( n-1 RIGHT )$② $f LEFT ( n-1 RIGHT ) {leq}x{leq}f LEFT ( n RIGHT )$인 경우주어진 부등식을 다시 쓰면 $-x+n+f LEFT ( n RIGHT ) {geq}f LEFT ( n RIGHT ) -f LEFT ( n-1 RIGHT )$ $x{leq}f LEFT ( n-1 RIGHT ) +n$$f LEFT ( n RIGHT )$과 $f LEFT ( n-1 RIGHT ) +n$의 대소를 비교하기 위해 서로 빼면 $f LEFT ( n RIGHT ) - LEFT { f LEFT ( n-1 RIGHT ) +n RIGHT } =2n-3-n=n-3$따라서 $n=2$인 경우 : $f LEFT ( n RIGHT ) <f LEFT ( n-1 RIGHT ) +n$ $n{geq}3$인 경우 : $f LEFT ( n RIGHT ) {geq}f LEFT ( n-1 RIGHT ) +n$따라서 $x$의 범위를 구해보면 $n=2$인 경우 : $f LEFT ( n-1 RIGHT ) LEQ  x LEQ  f LEFT ( n RIGHT )$ $n{geq}3$인 경우 : $f LEFT ( n-1 RIGHT ) {leq}x{leq}f LEFT ( n-1 RIGHT ) +n$③ $x>f LEFT ( n RIGHT )$인 경우주어진 부등식을 다시 쓰면 $-x+n+f LEFT ( n RIGHT ) {geq}2x-f LEFT ( n-1 RIGHT ) -f LEFT ( n RIGHT )$ $3x{leq}2f LEFT ( n RIGHT ) +f LEFT ( n-1 RIGHT ) +n$$f LEFT ( n RIGHT ) -f LEFT ( n-1 RIGHT ) =2n-3$이므로 $f LEFT ( n-1 RIGHT ) =f LEFT ( n RIGHT ) -2n+3$이다. 대입하여 정리하면 $3x{leq}3f LEFT ( n RIGHT ) -n+3$ $x{leq}f LEFT ( n RIGHT ) - {n-3} over {3}$$f LEFT ( n RIGHT ) - {n-3} over {3}$은 $n=2$인 경우 $f LEFT ( n RIGHT )$보다 커지고, $n{geq}3$인 경우 $f LEFT ( n RIGHT )$보다 작거나 같아진다. 따라서 이를 바탕으로 $x$의 범위를 구해보면 $n=2$인 경우 : $f LEFT ( n RIGHT ) <x{leq}f LEFT ( n RIGHT ) - {n-3} over {3}$ $n{geq}3$인 경우 : 존재하지 않음.①, ②, ③에 의해 $x$의 범위를 구해보면$n=2$인 경우 : $-1 LEQ  x LEQ  {7} over {3}$$n{geq}3$인 경우 : $f LEFT ( n-1 RIGHT ) -n{leq}x{leq}f LEFT ( n-1 RIGHT ) +n$(ⅰ), (ⅱ)에 의하여 $g LEFT ( n RIGHT )$을 구해보면 $g LEFT ( n RIGHT ) = {cases{1&&LEFT ( n=1 RIGHT )#4&&LEFT ( n=2 RIGHT )#2n+1&&LEFT ( n{geq}3 RIGHT )}}$, ($n$은 자연수)따라서 $0<g LEFT ( k RIGHT ) <1`0$을 만족하는 자연수 $k$를 구해보면 $k=1$, $2$, $3$, $4$",
+   "topic": "절댓값 기호를 포함한 일차부등식",
+   "difficulty": "상",
+   "score": null,
+   "label": "[서술형 $3$]",
+   "type": "서술형",
+   "stem": "[서술형 $3$] 이차함수 $f LEFT ( x RIGHT ) =x ^{2} -2x+2$와 자연수 $n$에 대하여 $x$에 대한 부등식\n $- LEFT ( x-n RIGHT ) +f LEFT ( n RIGHT ) {geq} LEFT | x-f LEFT ( n-1 RIGHT ) RIGHT | + LEFT | x-f LEFT ( n RIGHT ) RIGHT |$\n을 만족시키는 정수 $x$의 개수를 $g LEFT ( n RIGHT )$이라 하자. $0<g LEFT ( k RIGHT ) <10$을 만족시키는 자연수 $k$의 값을 모두 구하고, 그 과정을 서술하시오. [총 $6$점, 부분점수 있음]",
+   "choices": []
+  },
+  {
+   "number": 24,
+   "answer": null,
+   "solution": "$3$ $A^2 = pmatrix { `m~& ~n`# `0~& ~0`}pmatrix { `m~& ~n`# `0~& ~0`} =pmatrix { `m^2~& ~mn`# `0~& ~0`}$$A^3 = A^2 A = pmatrix { `m^2~& ~mn`# `0~& ~0`}pmatrix { `m~& ~n`# `0~& ~0`} =pmatrix { `m^3~& ~m^2 n`# `0~& ~0`}$$A ^{4} =A ^{3} A= {pmatrix{`m ^{3~}&~m ^{2} n`#`0~&~0`}} {pmatrix{`m~&~n`#`0~&~0`}} = {pmatrix{`m ^{4~}&~m ^{3} n`#`0~&~0`}}$ ⋮$k`ge2$인 자연수 $k$에 대하여 $A ^{k} = {pmatrix{`m ^{k~}&~m^k-1 n`#`0~&~0`}}$$A ^{5} = {pmatrix{`a&~~b`#`c&~~d`}}$에서 $a= m^5$, $b= m^4 n$, $c=d=0$$a-b= cd$에서 $m^5 - m^4 n=0$이때 $m$은 자연수이므로 $m=n$$a+b < 1000$에서 $m^5 + m^4 n < 1000$$2m ^5 < 1000$ $THEREFORE$ $m ^5 < 500$따라서 부등식을 만족시키는 자연수 $m$의 값은 $1$, $2$, $3$이므로 가능한 행렬 $A$의 개수는 $3$이다.",
+   "topic": "행렬의 곱셈",
+   "difficulty": "중",
+   "score": null,
+   "label": "[서술형 $4$]",
+   "type": "서술형",
+   "stem": "[서술형 $4$] 두 자연수 $m$, $n$에 대하여 행렬 $A= {pmatrix{m&~~n#0&~~0}}$이다. 행렬 $A ^{5} = {pmatrix{a&~~b#c&~~d}}$에 대하여 $a-b=`cd$, $a+b`<1000$일 때, 모든 행렬 $A$의 개수를 구하시오.\n[$6$점, 부분점수 있음]",
+   "choices": []
+  },
+  {
+   "number": 25,
+   "answer": null,
+   "solution": "$1120$ 조건 (가)에 의하여 집합 $X$의 $8$개의 원소 중에서 서로 다른 $3$개의 원소를 선택하면 $f LEFT ( 1 RIGHT ) ,~f LEFT ( 2 RIGHT ) ,~f LEFT ( 3 RIGHT )$의 값이 정해진다.${}_{8} rmC _{3} = {8times7times6} over {3times2times1} =56$조건 (나)에서 조건 (가)에서 선택된 나머지 $5$개의 원소 중에서 서로 다른 $3$개의 원소를 선택하면 $f LEFT ( 4 RIGHT ) ,~f LEFT ( 5 RIGHT ) ,~f LEFT ( 6 RIGHT )$의 값이 정해진다.${}_{5} rmC _{3} =10$조건 (다)에서 (가)와 (나)에서 선택된 나머지 $2$개의 원소가 $f LEFT ( 7 RIGHT ) ,~f LEFT ( 8 RIGHT )$의 값이 되므로 경우의 수는 $2$가지따라서 구하고자 하는 함수의 개수는$56times10times2=1120$",
+   "topic": "조합",
+   "difficulty": "중",
+   "score": null,
+   "label": "[서술형 $5$]",
+   "type": "서술형",
+   "stem": "[서술형 $5$] 집합 $X= LEFT { 1,~2,~3,~4,~5,~6,~7,~8 RIGHT }$에 대하여 다음 조건을 만족시키는 함수 $f`:`X``->``X$의 개수를 구하고, 그 과정을 서술하시오.[$6$점, 부분점수 있음]\n(가) $x _{1} IN X$, $x _{2} IN X$인 임의의 $x _{1} ,~x _{2}$에 대하여 $1 LEQ x _{1} <x _{2} LEQ3$이면 $f LEFT ( x _{1} RIGHT ) >f LEFT ( x _{2} RIGHT )$이다.\n(나) $x _{1} IN X$, $x _{2} IN X$인 임의의 $x _{1,} ~x _{2}$에 대하여$4 LEQ x _{1} <x _{2} LEQ6$이면 $f LEFT ( x _{1} RIGHT ) <f LEFT ( x _{2} RIGHT )$이다.\n(다) 함수 $f$는 일대일대응이다.\n대구광역시 내신 수학 연구회\n  \n  \n정답\n워드:심청솔t\n오검:김재웅t \n완료:이영지t",
+   "choices": []
+  }
+ ],
+ "meta": {
+  "exam_id": 4300,
+  "school": "대건고",
+  "grade": 1,
+  "subject": "공수1",
+  "year": 2025,
+  "semester": 1,
+  "round": "기말",
+  "src": "N:\\개인\\기출\\2024 기출모음\\2024년 1학기 기말 고사 모음\\워드\\고1\\[대건고][1][공수1][25-1-기말고사대비][비상] (완료).hwp"
+ }
+}

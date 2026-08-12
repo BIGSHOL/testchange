@@ -1,0 +1,280 @@
+{
+ "source": "_경기외고__1__공수1__25-1-중간__성남___완료_.hwpx",
+ "question_count": 16,
+ "questions": [
+  {
+   "number": 1,
+   "answer": "①",
+   "solution": null,
+   "topic": "다항식의 덧셈과 뺄셈",
+   "difficulty": "하",
+   "score": 4.5,
+   "label": null,
+   "type": "객관식",
+   "stem": "두 다항식 $A=3x^2 -2xy+6y^2$, $B=-x^2 +5xy+2y^2$에 대하여 $4X-2A=X-B$를 만족하는 다항식 $X$의 상수항을 포함한 모든 계수의 합은?",
+   "choices": [
+    "${ 8} over { 3}$",
+    "$4$",
+    "${ 16} over { 3}$",
+    "${ 20} over { 3}$",
+    "$8$"
+   ]
+  },
+  {
+   "number": 2,
+   "answer": "③",
+   "solution": null,
+   "topic": "곱셈공식의 변형",
+   "difficulty": "하",
+   "score": 4.6,
+   "label": null,
+   "type": "객관식",
+   "stem": "두 양수 $a$, $b$에 대하여 $a-b=2$, $ab=3$일 때, $a^3 +b^3$의 값은?",
+   "choices": [
+    "$24$",
+    "$26$",
+    "$28$",
+    "$30$",
+    "$32$"
+   ]
+  },
+  {
+   "number": 3,
+   "answer": "⑤",
+   "solution": null,
+   "topic": "인수분해",
+   "difficulty": "하",
+   "score": 4.6,
+   "label": null,
+   "type": "객관식",
+   "stem": "다음 중 다항식 $x^3 +2x^2 -x-2$의 인수가 아닌 것은?",
+   "choices": [
+    "$LEFT ( x-1 RIGHT ) LEFT ( x+2 RIGHT ) LEFT ( x+1 RIGHT )$",
+    "$x^2 -1$",
+    "$x+2$",
+    "$x-1$",
+    "$x-2$"
+   ]
+  },
+  {
+   "number": 4,
+   "answer": "①",
+   "solution": null,
+   "topic": "복잡한 식의 인수분해",
+   "difficulty": "하",
+   "score": 4.7,
+   "label": null,
+   "type": "객관식",
+   "stem": "다항식 $LEFT ( x^2 -8x RIGHT )^2 -2kx LEFT ( x-8 RIGHT )+16$이 $x$에 대한 이차식의 완전제곱식으로 인수분해 되도록 하는 모든 상수 $k$값의 합은?",
+   "choices": [
+    "$0$",
+    "$2$",
+    "$4$",
+    "$6$",
+    "$8$"
+   ]
+  },
+  {
+   "number": 5,
+   "answer": "④",
+   "solution": null,
+   "topic": "음수의 제곱근",
+   "difficulty": "하",
+   "score": 4.9,
+   "label": null,
+   "type": "객관식",
+   "stem": "$0$이 아닌 세 실수 $a$, $b$, $c$가 다음 조건을 만족시킬 때, $verta-b vert-vert b-c vert+vertc+a vert$를 간단히 하면? \n(가) $sqrt { -a} sqrt { b}=- sqrt { -ab}$ (나) ${ sqrt { c} } over { sqrt { ab} }=- sqrt { { c} over { ab} }$\n대구광역시 내신 수학 연구회",
+   "choices": [
+    "$2a+2b$",
+    "$2b+2c$",
+    "$2c$",
+    "$2a$",
+    "$2b$"
+   ]
+  },
+  {
+   "number": 6,
+   "answer": "④",
+   "solution": null,
+   "topic": "이차방정식의 판별식",
+   "difficulty": "하",
+   "score": 5.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "$x$에 대한 이차방정식 $x^2 -2 LEFT ( k-1 RIGHT )x+ak^2 -bk+c-3=0$\n이 실수 $k$값에 관계없이 항상 중근을 가질 때, 실수 $a+b+c$의 값은?",
+   "choices": [
+    "$1$",
+    "$3$",
+    "$5$",
+    "$7$",
+    "$9$"
+   ]
+  },
+  {
+   "number": 7,
+   "answer": "⑤",
+   "solution": null,
+   "topic": "이차함수와 직선의 위치관계",
+   "difficulty": "하",
+   "score": 5.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "이차함수 $y=-x^2 +5x +1$의 그래프와 다음 <보기>의 각 직선의 위치 관계에 대해 항상 옳은 것을 모두 고른 것은? \n<보기>\nㄱ. 직선 $y=-x+3$와 서로 다른 두 점에서 만난다.\nㄴ. 직선 $y=x+5$와 오직 한 점에서 만난다.\nㄷ. 직선 $y=3x+4$와 만나지 않는다.\n대구광역시 내신 수학 연구회",
+   "choices": [
+    "ㄱ",
+    "ㄱ, ㄴ",
+    "ㄴ, ㄷ",
+    "ㄱ, ㄷ",
+    "ㄱ, ㄴ, ㄷ"
+   ]
+  },
+  {
+   "number": 8,
+   "answer": "③",
+   "solution": null,
+   "topic": "나머지정리와 인수정리",
+   "difficulty": "중",
+   "score": 5.2,
+   "label": null,
+   "type": "객관식",
+   "stem": "최고차항의 계수가 $1$인 삼차식 $f LEFT ( x RIGHT )$가 다음 조건을 만족시킬 때, $f LEFT ( 4 RIGHT )$의 값은? \n(가) $f LEFT ( 1 RIGHT )=f LEFT ( 2 RIGHT )=f LEFT ( 3 RIGHT )=a$ (단, $a$는 상수)\n(나) $f LEFT ( x^2 -x RIGHT )$을 $x-1$로 나눈 나머지가 $-5$이다.\n대구광역시 내신 수학 연구회",
+   "choices": [
+    "$3$",
+    "$5$",
+    "$7$",
+    "$9$",
+    "$11$"
+   ]
+  },
+  {
+   "number": 9,
+   "answer": "④",
+   "solution": null,
+   "topic": "이차함수와 직선의 위치 관계",
+   "difficulty": "중",
+   "score": 5.2,
+   "label": null,
+   "type": "객관식",
+   "stem": "이차함수 $y=x^2 -6x +k$의 그래프와 직선 $y=2x-9$가 점 $rmA$에서 접한다. 이차함수 $y=x^2 -6x+k$의 그래프가 $x$축과 만나는 서로 다른 두 점 $rmB$, $rmC$에 대하여 삼각형 $rmABC$의 넓이는? (단, $k$는 상수)",
+   "choices": [
+    "${ 1} over { 2}$",
+    "${ sqrt { 2} } over { 2}$",
+    "$1$",
+    "$sqrt { 2}$",
+    "$2$"
+   ]
+  },
+  {
+   "number": 10,
+   "answer": "①",
+   "solution": null,
+   "topic": "이차방정식의 근과 계수의 관계",
+   "difficulty": "중",
+   "score": 5.4,
+   "label": null,
+   "type": "객관식",
+   "stem": "이차식 $f LEFT ( x RIGHT )$에 대하여 이차방정식 $f LEFT ( x RIGHT )=0$의 두 근을 $alpha$, $beta$라 하자. $alpha+beta=4$, $alpha^2 +beta^2 =12$일 때, 이차방정식 $f LEFT ( 2x+5 RIGHT )=0$의 두 근의 곱은?",
+   "choices": [
+    "${ 7} over { 4}$",
+    "${ 9} over { 4}$",
+    "${ 11} over { 4}$",
+    "${ 13} over { 4}$",
+    "${ 15} over { 4}$"
+   ]
+  },
+  {
+   "number": 11,
+   "answer": "②",
+   "solution": null,
+   "topic": "나머지정리와 인수정리",
+   "difficulty": "상",
+   "score": 5.4,
+   "label": null,
+   "type": "객관식",
+   "stem": "다항식 $f LEFT ( x RIGHT )=x^5 -x^4 -3x^2 +2x$에 대하여 최고차항의 계수가 $1$인 다항식 $P LEFT ( x RIGHT )$, $Q LEFT ( x RIGHT )$는 다음 조건을 만족한다. 이때 다항식 $P LEFT ( x RIGHT )+Q LEFT ( x RIGHT )$를 $x-1$로 나누었을 때의 나머지는? (단, 다항식 $P LEFT ( x RIGHT )$, $Q LEFT ( x RIGHT )$는 상수항을 포함한 모든 계수가 정수이며 몫이 상수인 경우는 생각하지 않는다.) \n(가) 다항식 $f LEFT ( x RIGHT )$를 다항식 $P LEFT ( x RIGHT )$로 나누었을 때의 나머지는 $x^3 -2x^2$이다.\n(나) 다항식 $P LEFT ( x RIGHT )$는 $x$로 나누어 떨어지지 않는다.\n(다) 다항식 $P LEFT ( x RIGHT )$를 다항식 $Q LEFT ( x RIGHT )$로 나누었을 때의 나머지는 $-x+3$이다.\n대구광역시 내신 수학 연구회",
+   "choices": [
+    "$-3$",
+    "$-1$",
+    "$1$",
+    "$3$",
+    "$5$"
+   ]
+  },
+  {
+   "number": 12,
+   "answer": "③",
+   "solution": null,
+   "topic": "복소수의 사칙연산",
+   "difficulty": "상",
+   "score": 5.5,
+   "label": null,
+   "type": "객관식",
+   "stem": "다음 조건을 만족하도록 하는 $40$이하의 두 자연수 $m$, $n$의 모든 순서쌍 $LEFT ( m,~n RIGHT )$의 개수는? \n(가) $z= { 1-i} over { sqrt { 2} }$ (단, $i= sqrt { -1}$)\n(나) $left{ z^m + LEFT ( bar{z} RIGHT )^n right}^4 =16$ (단, $bar{z$는 $z$의 켤레복소수)\n대구광역시 내신 수학 연구회",
+   "choices": [
+    "$50$",
+    "$75$",
+    "$100$",
+    "$125$",
+    "$150$"
+   ]
+  },
+  {
+   "number": 13,
+   "answer": null,
+   "solution": "풀이참조ⅰ) $x= {-1+ sqrt {3} i} over {2}$, $2x=-1+ sqrt {3} i$, $2x+1= sqrt {3} i$, $LEFT ( 2x+1 RIGHT ) ^{2} = LEFT ( sqrt {3} i RIGHT ) ^{2}$, $4x ^{2} +4x+1=-3$, $4x^2 +4x+4=0$, $x^2 +x+1=0$따라서 구하는 이차방정식은 $x^2 +x+1=0$이다.ⅱ) $a$, $b`$는 실수이므로 이차방정식 $x^2 +ax+b=0$의 한 근이 ${ -1+ sqrt { 3}i } over { 2}$이면 다른 근은 ${-1- sqrt {3} i} over {2}$이다. 두 근의 합은 $-1$이고, 두 근의 곱은 $1$이 되어 근과 계수의 관계에 의해 $a=1$, $b=1$이다.따라서 구하는 이차방정식은 $x^2 +x+1=0$이다.",
+   "topic": "이차방정식의 근과 계수의 관계",
+   "difficulty": "하",
+   "score": null,
+   "label": "[서술형 $1$]",
+   "type": "서술형",
+   "stem": "[서술형 $1$] 한 근이 ${ -1+ sqrt { 3}i } over { 2}$인 이차방정식 $x^2 +ax+b=0$을 구하되 서로 다른 두 가지 방법으로 논술하시오. (단, $a$, $b$는 실수)\n[총 $10$점 - 각 방법당 $5$점씩]",
+   "choices": []
+  },
+  {
+   "number": 14,
+   "answer": null,
+   "solution": "풀이참조주어진 식을 인수분해하면$a ^{4} -35a ^{2} +25= LEFT ( a ^{2} -5 RIGHT ) ^{2} - LEFT ( 5a RIGHT ) ^{2}#\n```````````````````````````````````````````````= LEFT ( a ^{2} -5a-5 RIGHT ) LEFT ( a ^{2} +5a-5 RIGHT )$이고, 소수가 되기 위해 $a ^{2}-5a-5$가 $+-1$ 또는 $a^2 +5a-5$가 $+-1$이 되어야 한다.ⅰ) $a^2 -5a-5=1$인 $a$는 $6$, $-1$이고 $a=6$일 때, $61$이 되어 소수이다. $a=-1$일 때, $-9$가 되어 소수가 아니다.ⅱ) $a ^{2} -5a-5=-1$인 $a$는 정수가 아니다.ⅲ) $a ^{2}+5a-5=1$인 $a$는 $-6$, $1$이고 $a=-6$일 때, $61$이 되어 소수이다. $a=1$일 때, $-9$가 되어 소수가 아니다.ⅳ) $a ^{2} +5a-5=-1$인 $a$는 정수가 아니다.따라서 $a=6$일 때 $f LEFT ( 6 RIGHT ) =185$이고, $a=-6$일 때 $f LEFT ( -6 RIGHT ) =-259$가 되어 다항식 $f LEFT ( x RIGHT )=x^3 -x^2 +x-1$을 $x-a$로 나눈 나머지는 $185$와 $-259$이다.",
+   "topic": "나머지정리와 인수정리",
+   "difficulty": "중",
+   "score": 10.0,
+   "label": "[서술형 $2$]",
+   "type": "서술형",
+   "stem": "[서술형 $2$] $a^4 -35a^2 +25$가 소수임을 만족하는 모든 정수 $a$에 대하여 다항식 $f LEFT ( x RIGHT )=x^3 -x^2 +x-1$을 $x-a$로 나눈 나머지를 구하고, 그 과정을 논술하시오.",
+   "choices": []
+  },
+  {
+   "number": 15,
+   "answer": null,
+   "solution": "$6$개조건 (다)에서 $f LEFT ( x RIGHT )= LEFT ( x-2 RIGHT ) LEFT ( x-a RIGHT ) LEFT ( x+b RIGHT )$이다. $x^3 - LEFT ( ab-2a+2b RIGHT )x+n= LEFT ( x-2 RIGHT ) LEFT ( x-a RIGHT ) LEFT ( x+b RIGHT )$에서$x ^{3} - LEFT ( ab-2a+2b RIGHT ) x+n$$=$$x ^{3} + LEFT ( -2-a+b RIGHT ) x ^{2} - LEFT ( ab-2a+2b RIGHT ) x+2ab$계수 비교하면 $-2-a+b=0$, $2ab=n$이다.$b=a+2$이므로 $2a LEFT ( a+2 RIGHT ) =n$이다.$a$는 정수이고 $n$은 $100$이하의 자연수이므로 조건을 만족하는 경우는 아래의 표와 같다.$a$$b$$n$$f LEFT ( x RIGHT )$$6$$8$$96$$f LEFT ( x RIGHT ) = LEFT ( x-2 RIGHT ) LEFT ( x-6 RIGHT ) LEFT ( x+8 RIGHT )$$CDOTS `$①$5$$7$$70$$f LEFT ( x RIGHT ) = LEFT ( x-2 RIGHT ) LEFT ( x-5 RIGHT ) LEFT ( x+7 RIGHT )$$CDOTS `$②$4$$6$$48$$f LEFT ( x RIGHT ) = LEFT ( x-2 RIGHT ) LEFT ( x-4 RIGHT ) LEFT ( x+6 RIGHT )$$CDOTS `$③$3$$5$$30$$f LEFT ( x RIGHT ) = LEFT ( x-2 RIGHT ) LEFT ( x-3 RIGHT ) LEFT ( x+5 RIGHT )$$CDOTS `$④$2$$4$$16$$f LEFT ( x RIGHT ) = LEFT ( x-2 RIGHT ) LEFT ( x-2 RIGHT ) LEFT ( x+4 RIGHT )$$CDOTS `$⑤$1$$3$$6$$f LEFT ( x RIGHT ) = LEFT ( x-2 RIGHT ) LEFT ( x-1 RIGHT ) LEFT ( x+3 RIGHT )$$CDOTS `$⑥$-3$$-1$$6$$f LEFT ( x RIGHT ) = LEFT ( x-2 RIGHT ) LEFT ( x+3 RIGHT ) LEFT ( x-1 RIGHT )$$CDOTS `$⑦$-4$$-2$$16$$f LEFT ( x RIGHT ) = LEFT ( x-2 RIGHT ) LEFT ( x+4 RIGHT ) LEFT ( x-2 RIGHT )$$CDOTS `$⑧$-5$$-3$$30$$f LEFT ( x RIGHT ) = LEFT ( x-2 RIGHT ) LEFT ( x+5 RIGHT ) LEFT ( x-3 RIGHT )$$CDOTS `$⑨$-6$$-4$$48$$f LEFT ( x RIGHT ) = LEFT ( x-2 RIGHT ) LEFT ( x+6 RIGHT ) LEFT ( x-4 RIGHT )$$CDOTS `$⑩$-7$$-5$$70$$f LEFT ( x RIGHT ) = LEFT ( x-2 RIGHT ) LEFT ( x+7 RIGHT ) LEFT ( x-5 RIGHT )$$CDOTS `$⑪$-8$$-6$$96$$f LEFT ( x RIGHT ) = LEFT ( x-2 RIGHT ) LEFT ( x+8 RIGHT ) LEFT ( x-6 RIGHT )$$CDOTS `$⑫①$=$⑫, ②$=$⑪, ③$=$⑩, ④$=$⑨, ⑤$=$⑧, ⑥$=$⑦이므로주어진 조건을 만족시키는 다항식 $f LEFT ( x RIGHT )$는 $6$개다.",
+   "topic": "나머지정리와 인수정리",
+   "difficulty": "상",
+   "score": 10.0,
+   "label": "[서술형 $3$]",
+   "type": "서술형",
+   "stem": "[서술형 $3$] 다항식 $f LEFT ( x RIGHT )=x^3 - LEFT ( ab-2a+2b RIGHT )x+n$에 대하여 다음 조건을 만족시키는 다항식의 개수를 구하고, 그 과정을 논술하시오. \n(가) $a$, $b$는 정수이다.\n(나) $n$은 $100$이하의 자연수이다.\n(다) $f LEFT ( 2 RIGHT )=f LEFT ( a RIGHT )=f LEFT ( -b RIGHT )=0$이다.\n대구광역시 내신 수학 연구회",
+   "choices": []
+  },
+  {
+   "number": 16,
+   "answer": null,
+   "solution": "풀이참조⑴ 이차방정식 $ax^2 +bx+c=0$에서 판별식 $D=b^2 -4ac$이고, $c=0$이므로 $D=b^2$이며, $b$는 실수이므로 $D geq0$이다. 따라서, 주어진 이차방정식은 실근을 가진다.⑵ $ax^2 +bx+c=0$는 이차방정식이므로 $a !=0$이고, $a$와 $c$의 부호가 다르므로 $c!=0$, $ac<0$이다. 따라서, 판별식 $D=b^2 -ac$에서 $D!=0$, $D>0$이다. 즉, 주어진 이차방정식은 서로 다른 실근을 가진다.",
+   "topic": "이차방정식의 판별식",
+   "difficulty": "중",
+   "score": 10.0,
+   "label": "[서술형 $4$]",
+   "type": "서술형",
+   "stem": "[서술형 $4$] 이차방정식 $ax^2 +bx +c=0$의 계수를 이용하여 다음 각 물음에 대해 논술하시오. \n(단, $a$, $b$, $c$는 실수) \n⑴ $c=0$이면 이차방정식 $ax^2 +bx +c=0$이 실근을 가짐에 대해 논술하시오. \n⑵ $a$와 $c$의 부호가 다르면 이차방정식 $ax^2 +bx+c=0$이 서로 다른 실근을 가짐에 대해 논술하시오. \n  \n  \n정답\n워드:김소라t\n오검:김진식t\n완료:권성재t",
+   "choices": []
+  }
+ ],
+ "meta": {
+  "exam_id": 4216,
+  "school": "경기외고",
+  "grade": 1,
+  "subject": "공수1",
+  "year": 2025,
+  "semester": 1,
+  "round": "중간",
+  "src": "N:\\개인\\기출\\2025 기출모음\\2025년 1학기 중간고사 모음\\워드\\고1\\[경기외고][1][공수1][25-1-중간][성남] (완료).hwp"
+ }
+}

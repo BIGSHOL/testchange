@@ -1,0 +1,1372 @@
+{
+ "meta": {
+  "exam_id": 4218,
+  "ocr_source": "session-vision"
+ },
+ "header": {
+  "title": "경명여고 1학년 공통수학1 (2025년 1학기 기말고사 대비) — 이차방정식과 이차함수 ~ 행렬"
+ },
+ "questions": [
+  {
+   "number": 1,
+   "score": 3.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "연립부등식"
+    },
+    {
+     "type": "equation",
+     "value": "\\begin{cases} x^{2}-5x \\leq 0 \\\\ x^{2}+3x-1 \\geq 2x+5 \\end{cases}"
+    },
+    {
+     "type": "text",
+     "value": "의 해와 이차부등식 $ax^{2}-14x+b \\leq 0$의 해가 서로 같을 때, 실수 $a$, $b$에 대하여 $b-a$값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "18"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "19"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "20"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "21"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "22"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 2,
+   "score": 3.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "연립부등식"
+    },
+    {
+     "type": "equation",
+     "value": "\\begin{cases} x^{2}-13x+40 \\leq 0 \\\\ x^{2}-(a+1)x+a \\leq 0 \\end{cases}"
+    },
+    {
+     "type": "text",
+     "value": "의 정수인 해가 1개 뿐일 때, 실수 $a$의 값의 범위는?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4 < a < 5"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4 \\leq a < 5"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5 \\leq a < 6"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5 < a \\leq 6"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "6 \\leq a < 7"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 3,
+   "score": 3.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "$x$에 대한 이차방정식 $x^{2}-2(m+a)x+(a^{2}+4a+n)=0$이 실수 $a$의 값에 관계없이 항상 중근을 가질 때, 실수 $m,~n$의 합 $m+n$의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "6"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "8"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "10"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 4,
+   "score": 3.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "세 실수 $a,~b,~c$에 대하여 한 근이 $1-\\sqrt{3}\\,i$인 방정식 $x^{3}+ax^{2}+bx+c=0$과 이차방정식 $x^{2}+ax+2=0$은 공통의 근을 가진다. 세 실수 $a,~b,~c$의 합 $a+b+c$의 값은? (단, $i=\\sqrt{-1}$)"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-3"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-2"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-1"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "0"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 5,
+   "score": 3.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "$a$, $b$, $c$, $d$, $e$의 다섯 개의 문자를 문자열 $abcde$부터 문자열 $edcba$까지 사전식으로 배열할 때, 91번째의 문자열의 마지막 문자는?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "a"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "b"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "c"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "d"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "e"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 6,
+   "score": 3.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "서로 다른 한자리의 자연수 6개를 일렬로 나열할 때, 적어도 한쪽 끝에 짝수가 오도록 나열하는 방법의 수는 240이다. 이때 홀수의 개수는?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 7,
+   "score": 3.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "6개의 문자 $a$, $b$, $c$, $d$, $e$, $f$를 일렬로 나열할 때, 다음 조건을 만족시키도록 나열하는 경우의 수는?"
+    },
+    {
+     "type": "text",
+     "value": "<상자> 가. 모음끼리는 서로 이웃하지 않는다. • 나. 양 끝자리 중 적어도 하나는 모음이다."
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "226"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "236"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "266"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "336"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "366"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 8,
+   "score": 3.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "모든 실수 $x$에 대하여 부등식 $-x^{2}+\\frac{3}{2} \\leq x^{2}+2x+a < 3x^{2}+7$을 성립하는 정수 $a$의 개수는?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "6"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "7"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "8"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 9,
+   "score": 3.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "삼차방정식 $x^{3}+1=0$의 한 허근을 $\\omega$라고 할 때, 다음 중 $\\frac{\\omega^{2}}{\\omega-1}+\\frac{\\overline{\\omega}^{2}}{\\overline{\\omega}-1}$의 값과 같은 것은? (단, $\\omega$는 $\\overline{\\omega}$의 켤레 복소수이다.)"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-2"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "0"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2\\overline{\\omega}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2\\omega"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 10,
+   "score": 3.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "부등식 $|x-2|+2|x+1| \\leq 4$를 만족시키는 정수 $x$의 개수를 구하시오."
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 11,
+   "score": 3.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "세 변의 길이가 각각 $x$, $x+2$, $x+4$인 삼각형이 둔각삼각형이 되도록 하는 $x$의 값의 범위를 구하시오."
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2 < x < 6"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-2 < x < 6"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2 \\leq x < 6"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-2 \\leq x < 6"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2 \\leq x \\leq 6"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 12,
+   "score": 3.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "남학생 5명과 여학생 3명이 있는 동아리에서 4명을 뽑아 한 모둠을 구성할 때, 모둠에 적어도 한 명의 여학생이 포함되는 경우의 수를 구하시오."
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "61"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "62"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "63"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "64"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "65"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 13,
+   "score": 3.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "일렬로 놓인 8개의 의자에 부부 3쌍과 청소년 2명이 일렬로 앉을 때, 부부끼리는 서로 이웃하여 앉는 경우의 수를 구하시오."
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "945"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "950"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "955"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "960"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "965"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 14,
+   "score": 3.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "1부터 20까지의 자연수 중에서 서로 다른 세 수를 택할 때, 세 수의 합이 홀수가 되는 경우의 수를 구하시오."
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "565"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "570"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "575"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "580"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "585"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 15,
+   "score": 3.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "$2\\times 2$ 행렬 $A$의 $(i,~j)$ 성분 $a_{ij}$가 $a_{ij}=(-1)^{i}+kj$이고, 행렬 $A$의 모든 성분의 합이 12일 때, 실수 $k$의 값을 구하시오."
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "0"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 16,
+   "score": 3.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "다음 그림과 같이 직사각형 $\\mathrm{ABCD}$의 꼭짓점 $\\mathrm{A}$, $\\mathrm{D}$는 이차함수 $y=-x^{2}+4$의 그래프 위에 있고, 꼭짓점 $\\mathrm{B}$, $\\mathrm{C}$는 $x$축 위에 있다. 직사각형 $\\mathrm{ABCD}$의 둘레의 길이의 최댓값을 구하시오.(단, 점 $\\mathrm{D}$는 제 1사분면 위의 점이다.)"
+    },
+    {
+     "type": "figure",
+     "value": "좌표평면에 위로 볼록한 포물선 y=-x^2+4 의 그래프가 그려져 있다. 포물선의 꼭짓점은 y축 위의 점 (0, 4)이고 y축 눈금에 4가 표시되어 있다. 포물선 아래, x축 위에 밑변을 둔 노란색으로 칠해진 직사각형 ABCD가 y축에 대하여 좌우 대칭으로 그려져 있다. 왼쪽 위 꼭짓점 A와 오른쪽 위 꼭짓점 D는 포물선 위에 있고, 왼쪽 아래 꼭짓점 B와 오른쪽 아래 꼭짓점 C는 x축 위에 있다(B는 원점 O의 왼쪽, C는 원점 O의 오른쪽). 그래프 오른쪽 아래에 곡선 이름 y=-x^2+4 가 적혀 있다."
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "7"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "8"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "9"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "10"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "11"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 17,
+   "score": 3.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "두 행렬"
+    },
+    {
+     "type": "equation",
+     "value": "A=\\begin{pmatrix} 2 & 1 \\\\ 1 & |x| \\end{pmatrix},~B=\\begin{pmatrix} |2y+1| & 1 \\\\ 1 & 1 \\end{pmatrix}"
+    },
+    {
+     "type": "text",
+     "value": "애 대하여 $(A+B)^{2}=A^{2}+2AB+B^{2}$일 때, 좌표평면 위의 점 $(x,~y)$가 나타내는 도형의 둘레의 길이가 $l$이다. $l^{2}$의 값을 구하시오."
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "178"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "179"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "180"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "181"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "182"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 18,
+   "score": 3.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "행렬"
+    },
+    {
+     "type": "equation",
+     "value": "A=\\begin{pmatrix} 0 & 1 \\\\ -1 & 0 \\end{pmatrix}"
+    },
+    {
+     "type": "text",
+     "value": "에 대하여 $A^{n}=E$를 만족시키는 자연수 $n$의 최솟값을 구하시오.(단, $E$는 단위행렬이다.)"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 19,
+   "score": 3.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "서로 다른 두 개의 주사위를 동시에 던져서 나오는 눈의 수를 각각 $a,b$라 할 때, 이차함수 $y=x^{2}-2(a+b)x+4ab$의 그래프와 직선 $y=-4$과 만나지 않도록 하는 순서쌍 $(a,~b)$의 개수를 구하시오."
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "16"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "17"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "18"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "19"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "20"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 20,
+   "score": 3.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "행렬"
+    },
+    {
+     "type": "equation",
+     "value": "A=\\begin{pmatrix} 4 & 1 \\\\ -2 & 0 \\end{pmatrix}"
+    },
+    {
+     "type": "text",
+     "value": "에 대하여 행렬 $A^{500}+A-3E$ 의 모든 성분의 합이 $2^{a}-b$일 때, $a+b$의 값을 구하시오.(단, $a,b$는 자연수이다.)"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "500"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "501"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "502"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "503"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "504"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 21,
+   "score": 8.0,
+   "type": "서술형",
+   "label": "[서술형 1]",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서술형 1] 행렬"
+    },
+    {
+     "type": "equation",
+     "value": "A=\\begin{pmatrix} 0 & 1 \\\\ -1 & -1 \\end{pmatrix}"
+    },
+    {
+     "type": "text",
+     "value": "에 대하여 두 자연수 $m$, $n$이 다음 조건을 만족시킨다."
+    },
+    {
+     "type": "text",
+     "value": "<상자> 가. $A^{m}=A^{n}$ • 나. $m$은 $n$의 배수이다."
+    },
+    {
+     "type": "text",
+     "value": "$m-n$의 값이 최대일 때의 $m+n$의 값을 $p$, 최소일 때의 $m+n$의 값을 $q$라 할 때, $p+q$의 값을 구하시오. (단 $10 \\leq n < m \\leq 100$)"
+    }
+   ],
+   "choices": []
+  },
+  {
+   "number": 22,
+   "score": 8.0,
+   "type": "서술형",
+   "label": "[서술형 2]",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서술형 2] 다음 그림과 같이 반원 위에 있는 9개의 점 중에서 3개를 꼭짓점으로 하는 삼각형의 개수를 구하시오."
+    },
+    {
+     "type": "figure",
+     "value": "반원 모양의 도형(위쪽은 반원의 호, 아래쪽은 지름인 선분)이 그려져 있고 그 위에 굵은 점 9개가 찍혀 있다. 아래쪽 지름인 선분 위에 5개의 점이 일직선으로 놓여 있고(선분의 양 끝점 2개와 그 사이의 점 3개), 위쪽 호 위에 나머지 4개의 점이 놓여 있다."
+    }
+   ],
+   "choices": []
+  },
+  {
+   "number": 23,
+   "score": 8.0,
+   "type": "서술형",
+   "label": "[서술형 3]",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서술형 3] 방정식 $x^{3}=1$의 한 허근을 $\\omega$라 할 때, 다음 물음에 답하시오. (단, $\\overline{\\omega}$는 $\\omega$의 켤레복소수이다.)"
+    }
+   ],
+   "choices": [],
+   "sub_questions": [
+    {
+     "number": 1,
+     "score": 4.0,
+     "contents": [
+      {
+       "type": "text",
+       "value": "$\\frac{1}{1-\\omega}+\\frac{1}{1-\\overline{\\omega}}$의 값을 구하는 풀이과정과 답을 쓰시오."
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "score": 4.0,
+     "contents": [
+      {
+       "type": "text",
+       "value": "$(-\\omega-1)^{n}=\\left(\\frac{\\overline{\\omega}}{\\omega+\\overline{\\omega}}\\right)^{n}$을 만족시키는 200이하의 자연수 $n$의 개수를 구하는 풀이과정과 답을 답안지에 쓰시오."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 24,
+   "score": 8.0,
+   "type": "서술형",
+   "label": "[서술형 4]",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서술형 4] 다음 물음에 답하시오."
+    }
+   ],
+   "choices": [],
+   "sub_questions": [
+    {
+     "number": 1,
+     "score": 4.0,
+     "contents": [
+      {
+       "type": "text",
+       "value": "등식 $\\frac{1}{5}\\times{}_{n}\\mathrm{P}_{3}+{}_{n}\\mathrm{P}_{2}={}_{n+1}\\mathrm{P}_{2}+n-3$을 만족시키는 자연수 $n$의 값을 구하고 풀이과정을 쓰시오."
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "score": 4.0,
+     "contents": [
+      {
+       "type": "text",
+       "value": "$x$에 대한 이차방정식 ${}_{n}\\mathrm{C}_{1}x^{2}-{}_{n}\\mathrm{C}_{2}x+{}_{n}\\mathrm{C}_{3}=0$의 두 근의 합이 3일 때, 자연수 $n$의 값과 두 근의 곱의 값을 각각 구하고 풀이과정을 쓰시오."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 25,
+   "score": 8.0,
+   "type": "서술형",
+   "label": "[서술형 5]",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서술형 5] 다음은 $1 \\leq r < n$일 때, 등식 ${}_{n}\\mathrm{C}_{r}={}_{n-1}\\mathrm{C}_{r}+{}_{n-1}\\mathrm{C}_{r-1}$이 성립함을 보이는 과정이다. (가), (나)에 알맞은 것을 써넣으시오."
+    },
+    {
+     "type": "text",
+     "value": "<상자> ${}_{n-1}\\mathrm{C}_{r}+{}_{n-1}\\mathrm{C}_{r-1}$ • $=\\frac{(n-1)!}{r!\\,(n-r-1)!}+\\frac{(n-1)!}{\\boxed{(가)}}$ • $=\\frac{\\boxed{(나)}\\times(n-1)!}{r!\\,(n-r)!}$ • $=\\frac{n!}{r!\\,(n-r)!}={}_{n}\\mathrm{C}_{r}$ • 따라서 ${}_{n}\\mathrm{C}_{r}={}_{n-1}\\mathrm{C}_{r}+{}_{n-1}\\mathrm{C}_{r-1}$이 성립한다."
+    }
+   ],
+   "choices": []
+  }
+ ]
+}

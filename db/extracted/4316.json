@@ -1,0 +1,442 @@
+{
+ "source": "_대구여고__1__공수2__25-2-중간대비__지학사___완료_.hwpx",
+ "question_count": 25,
+ "questions": [
+  {
+   "number": 1,
+   "answer": "③",
+   "solution": null,
+   "topic": "선분의 내분점",
+   "difficulty": "하",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "좌표평면 위의 두 점 $rmA LEFT ( -1,~-3 RIGHT ) ,~B LEFT ( 2,~2 RIGHT )$에 대하여 선분 $rmAB$를 $2`:`1$로 내분하는 점의 좌표가 $LEFT ( p,~q RIGHT )$일 때, $p-3q$의 값은?",
+   "choices": [
+    "$-2$",
+    "$-1$",
+    "$0$",
+    "$1$",
+    "$2$"
+   ]
+  },
+  {
+   "number": 2,
+   "answer": "①",
+   "solution": null,
+   "topic": "직선의 방정식",
+   "difficulty": "하",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "두 점 $LEFT ( k,~2 RIGHT ) ,~ LEFT ( 0,~k+3 RIGHT )$을 지나는 직선이 점 $LEFT ( 5,~-6 RIGHT )$을 지날 때, 양수 $k$의 값은?",
+   "choices": [
+    "$1$",
+    "$2$",
+    "$3$",
+    "$4$",
+    "$5$"
+   ]
+  },
+  {
+   "number": 3,
+   "answer": "④",
+   "solution": null,
+   "topic": "원의 방정식",
+   "difficulty": "하",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "원 $x ^{2} +y ^{2} -4x+2y-4=0$의 중심이 $LEFT ( a,~b RIGHT )$이고 반지름의 길이가 $c$일 때, $a+b+c$의 값은?",
+   "choices": [
+    "$1$",
+    "$2$",
+    "$3$",
+    "$4$",
+    "$5$"
+   ]
+  },
+  {
+   "number": 4,
+   "answer": "③",
+   "solution": null,
+   "topic": "집합 사이의 포함관계",
+   "difficulty": "하",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "$A= LEFT { 0 RIGHT } ,~B= LEFT { -1,~0,~1 RIGHT }$일 때, 옳은 것은?",
+   "choices": [
+    "$A SUBSET EMPTYSET$",
+    "$n(A)=0$",
+    "$A SUBSET (A SMALLINTER B)$",
+    "$LEFT { -1,~1 RIGHT } IN B$",
+    "$A-B= LEFT { -1,~1 RIGHT }$"
+   ]
+  },
+  {
+   "number": 5,
+   "answer": "⑤",
+   "solution": null,
+   "topic": "유한집합의 원소의 개수",
+   "difficulty": "중",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "전체집합 $U= LEFT { x vert x는~7이하의~자연수 RIGHT }$의 두 부분집합 $A= LEFT { 1,~2,~3 RIGHT } ,~B= LEFT { 3,~4,~5 RIGHT }$에 대하여 $n(X SMALLINTER A)=1,$\n$n(X SMALLINTER B)=2$를 만족시키는 $U$의 부분집합 $X$의 개수는?",
+   "choices": [
+    "$8$",
+    "$10$",
+    "$12$",
+    "$14$",
+    "$16$"
+   ]
+  },
+  {
+   "number": 6,
+   "answer": "③",
+   "solution": null,
+   "topic": "평행이동",
+   "difficulty": "중",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "좌표평면에서 세 점 $rmA(0,~3),~B(- sqrt {3} ,~0),~C( sqrt {3} ,~0)$이 있다. 두 점 $rmA,~B$를 $x$축 방향으로 $a$만큼 평행이동한 점을 각각 $rmA`',~B`'$라 하자. 직선 $rm A prime B'$가 정삼각형 $rmABC$에 내접하는 원의 넓이를 이등분할 때, 양수 $a$의 값은?",
+   "choices": [
+    "${1} over {2}$",
+    "${sqrt {3}} over {2}$",
+    "${2 sqrt {3}} over {3}$",
+    "$1$",
+    "$sqrt {3}$"
+   ]
+  },
+  {
+   "number": 7,
+   "answer": "④",
+   "solution": null,
+   "topic": "대칭이동",
+   "difficulty": "하",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "점 $(2,~5)$를 $x$축에 대하여 대칭이동한 점의 좌표는?",
+   "choices": [
+    "$(-5,~-2)$",
+    "$(-2,~-5)$",
+    "$(-2,~5)$",
+    "$(2,~-5)$",
+    "$(5,~2)$"
+   ]
+  },
+  {
+   "number": 8,
+   "answer": "③",
+   "solution": null,
+   "topic": "원의방정식 형의 이동",
+   "difficulty": "중",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "양수 $p,~q$ 에 대하여 세 점 $rmA LEFT ( 0,~4 RIGHT ) ,~B LEFT ( 0,~-2 RIGHT ) ,~C LEFT ( it`p,~q RIGHT )$\n를 꼭짓점으로 하는 정삼각형 $rmABC$가 있다. 선분 $rmBC$의 중점을 $rmM$이라 할 때, 직선 $rmAM$위의 점 $rmD$가 다음 조건을 만족시킨다.\n(가) 삼각형 $rmABC$와 삼각형 $rmABD$의 넓이는 같다.\n(나) 직선 $rmAC$와 직선 $rmBD$는 오직 한 점에서 만난다. \n대구광역시 내신 수학 연구회\n세 점 $rmB,~M,~D$를 지나는 원의 중심을 $LEFT ( a,~b RIGHT )$라 할 때, $a ^{2} +b ^{2}$의 값은?",
+   "choices": [
+    "$33$",
+    "$35$",
+    "$37$",
+    "$39$",
+    "$41$"
+   ]
+  },
+  {
+   "number": 9,
+   "answer": "①",
+   "solution": null,
+   "topic": "두 직선의 위치 관계",
+   "difficulty": "하",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "두 직선 $y=5x+1$과 $y= LEFT ( 2k-7 RIGHT ) x-4$가 서로 평행할 때, 상수 $k$의 값은?",
+   "choices": [
+    "$6$",
+    "$7$",
+    "$8$",
+    "$9$",
+    "$10$"
+   ]
+  },
+  {
+   "number": 10,
+   "answer": "①",
+   "solution": null,
+   "topic": "평면좌표",
+   "difficulty": "중",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "그림과 같이 좌표평면 위에 네 점 $rm O LEFT ( 0,~0 RIGHT ) ,~A LEFT ( 0,~2 RIGHT ) ,$ $rmB LEFT ( -2,~2 RIGHT ) ,~C LEFT ( -2,~0 RIGHT )$과 점 $rmD LEFT ( 3,~0 RIGHT )$이 있다. 다음은 직선 $l$이 정사각형 $rmOABC$의 넓이와 직각삼각형 $rmAOD$의 넓이를 각각 이등분할 때, 직선 $l$의 기울기를 구하는 과정이다.\n직선 $l$이 정사각형 $rmOABC$의 넓이를 이등분하므로\n직선 $l$은 점 $LEFT ( -1,~1 RIGHT )$을 지난다. 직선 $l$의 기울기를 $m$이라 하면, 직선 $l$의 방정식은\n $y=m LEFT ( x+1 RIGHT ) +1$ $LEFT ( pile{it#it} RIGHT .$단, $- {1} over {4} <m<1$$LEFT. pile{it#it} RIGHT )$\n이다.\n직선 $l$과 $y$축이 만나는 점을 $rmP$라 하면\n $rm {bar{AP}} `=` {BOX{~~~(가)~~~}}$\n이다.\n직선 $l$이 선분 $rmAD$와 만나는 점을 $rmQ$라 하자.\n직선 $rmAD$의 방정식이 $y=- {2} over {3} x+2$이므로\n점 $rmQ$의 $x$좌표는\n ${{BOX{~~~(나)~~~}}} over {3m+2}$\n이다.\n직각삼각형 $rmAOD$의 넓이는 $3$이므로 삼각형 $rmAPQ$의 넓이는 \n ${1} over {2} TIMES$$rm ` {BOX{~~~(가)~~~}} ` TIMES$${{BOX{~~~(나)~~~}}} over {3m+2}$$= {3} over {2}$\n이다.\n따라서 $- {1} over {4} <m<1$인 $m$의 값은\n $m= {{BOX{~~~(다)~~~}} - sqrt {29}} over {2}$\n이다.\n대구광역시 내신 수학 연구회\n위의 (가), (나)에 알맞은 식을 각각 $f LEFT ( m RIGHT ) ,~g LEFT ( m RIGHT )$이라 하고, (다)에 알맞은 수를 $k$라 할 때, $f LEFT ( k RIGHT ) TIMES g LEFT ( k RIGHT )$의 값은?",
+   "choices": [
+    "$48$",
+    "$50$",
+    "$54$",
+    "$56$",
+    "$60$"
+   ]
+  },
+  {
+   "number": 11,
+   "answer": "②",
+   "solution": null,
+   "topic": "직선의 방정식",
+   "difficulty": "중",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "<보기>는 직선의 방정식에 대한 설명이다. <보기>에서 옳은 것만을 있는 대로 고르면 모두 몇 개인가? \n(단, $a,~b,~c,~a',~b',~c'$는 모두 $0$이 아닌 실수이다.) \n<보기>\n가. 직선 $x=a$와 직선 $y=b$는 서로 수직이다.\n나. $x$절편이 $a$이고 $y$절편이 $b$인 직선의 방정식은 ${x} over {a} + {y} over {b} =0$이다.\n다. 실수 $m,~n$에 대하여 좌표평면 위의 모든 직선은 일차함수 $y=mx+n$으로 나타낼 수 있다.\n라. 두 직선 $l`:`ax+by+c=0,~l'`:`a'x+b'y+c'=0$에서 ${b} over {a} != {b'} over {a'}$이면 두 직선은 항상 한 점에서 만난다.\n마. 두 직선 $l`:`ax+by+c=0,~l'`:`a'x+b'y+c'=0$이 평행하면 $a=a',~b=b',~c=c'$이다.\n대구광역시 내신 수학 연구회",
+   "choices": [
+    "$1$개",
+    "$2$개",
+    "$3$개",
+    "$4$개",
+    "$5$개"
+   ]
+  },
+  {
+   "number": 12,
+   "answer": "⑤",
+   "solution": null,
+   "topic": "원의 방정식",
+   "difficulty": "상",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "좌표평면 위에 중심이 원점이고, 세 점 $rmA LEFT ( -3,~4 RIGHT ) ,~B,~C$ 를 지나는 원이 있다. 선분 $rmBC$의 중점을 $rmM$, 삼각형 $rmABC$의 무게중심을 $rmG$라 하자. $rmG$의 좌표가 $LEFT ( {1} over {3} ,~0 RIGHT )$일 때, 삼각형 $rmABC$의 넓이는?",
+   "choices": [
+    "${7} over {2} sqrt {34}$",
+    "$4 sqrt {34}$",
+    "${9} over {2} sqrt {34}$",
+    "$5 sqrt {34}$",
+    "${11} over {2} sqrt {34}$"
+   ]
+  },
+  {
+   "number": 13,
+   "answer": "⑤",
+   "solution": null,
+   "topic": "집합의 연산법칙",
+   "difficulty": "하",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "전체집합 $U$의 두 부분집합 $A,~B$에 대하여 $B CUP (A SMALLINTER B ^{``C} )$을 간단히 하면?",
+   "choices": [
+    "$A$",
+    "$A ^{C}$",
+    "$B$",
+    "$A SMALLINTER B$",
+    "$A CUP B$"
+   ]
+  },
+  {
+   "number": 14,
+   "answer": "②",
+   "solution": null,
+   "topic": "집합의 연산",
+   "difficulty": "하",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "그림은 전체집합 $U$의 서로 다른 두 부분집합 $A,~B$\n사이의 관계를 벤다이어그램으로 나타낸 것이다. 어두운 부분을 나타낸 집합은?",
+   "choices": [
+    "$LEFT { x` vert `x NOTIN A~또는~x IN B RIGHT }$",
+    "$LEFT { x` vert `x IN A~또는~x NOTIN B RIGHT }$",
+    "$LEFT { x` vert `x NOTIN A~그리고~x IN B RIGHT }$",
+    "$LEFT { x` vert `x IN A~그리고~x NOTIN B RIGHT }$",
+    "$LEFT { x` vert `x NOTIN A~그리고~x NOTIN B RIGHT }$"
+   ]
+  },
+  {
+   "number": 15,
+   "answer": "④",
+   "solution": null,
+   "topic": "집합의 연산",
+   "difficulty": "중",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "실수 전체의 집합 $U$의 두 부분집합\n$A= LEFT { x` vert ` x ^{2} +3x-4>0 RIGHT }$, $B= LEFT { x` vert ` x ^{2} +ax+b LEQ 0 RIGHT }$가 다음 조건을 모두 만족시킬 때, $a-b$의 값은? \n (단, $a,~b$는 상수이다.) \n(가) $A CUP B=U$\n(나) $A SMALLINTER B= LEFT { x` vert -6 LEQ x<`-4 RIGHT }$",
+   "choices": [
+    "$8$",
+    "$9$",
+    "$10$",
+    "$11$",
+    "$12$"
+   ]
+  },
+  {
+   "number": 16,
+   "answer": "①",
+   "solution": null,
+   "topic": "명제의 역과 대우",
+   "difficulty": "하",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "<보기>에서 역이 항상 참인 명제만을 있는 대로 고른 것은? \n<보기>\nㄱ. 실수 $x$에 대하여 $x ^{2} GEQ 1$이면 $x>1$이다.\nㄴ. 실수 $x,~y$에 대하여\n $x+y>0$이면 $x>0$ 또는 $y>0$이다.\nㄷ. 자연수 $x$에 대하여\n $x$가 $16$의 약수이면 $x$는 $12$의 약수이다.\n대구광역시 내신 수학 연구회",
+   "choices": [
+    "ㄱ",
+    "ㄷ",
+    "ㄱ, ㄴ",
+    "ㄴ, ㄷ",
+    "ㄱ, ㄴ, ㄷ"
+   ]
+  },
+  {
+   "number": 17,
+   "answer": "②",
+   "solution": null,
+   "topic": "명제의 참, 거짓",
+   "difficulty": "중",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "전체집합 $U$의 공집합이 아닌 서로 다른 세 부분집합 $P,~Q,~R$이 각각 세 조건 $p,~q,~r$의 진리집합이라 하자.\n$R-P= EMPTYSET ,~ LEFT ( P SMALLINTER Q ^{C} RIGHT ) SMALLINTER R= EMPTYSET ,~P CUP Q ^{C} =U$일 때, 다음 명제 중에서 항상 참인 것은?",
+   "choices": [
+    "$p` rarrow ` r$",
+    "$q` rarrow `p$",
+    "$p` rarrow ` SIM q$",
+    "$SIM q` rarrow `r$",
+    "$SIM r` rarrow `q$"
+   ]
+  },
+  {
+   "number": 18,
+   "answer": "④",
+   "solution": null,
+   "topic": "집합의 연산",
+   "difficulty": "중",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "전체집합 $U= LEFT { x` vert `x는~10이하의~자연수 RIGHT }$의 두 부분집합 $A,~B$가 다음 조건을 만족시킨다.\n(가) $(A CUP B) ^{C} = LEFT { 1,~6,~8,~10 RIGHT }$\n(나) $n(A SMALLINTER B)=3$\n(다) $A-B= LEFT { 2 RIGHT }$\n집합 $X$의 모든 원소의 합을 $S(X)$라 하자. $S(A)$가 $5$의 배수일 때, $S(A SMALLINTER B)$의 값을 구하시오.",
+   "choices": [
+    "$15$",
+    "$16$",
+    "$17$",
+    "$18$",
+    "$19$"
+   ]
+  },
+  {
+   "number": 19,
+   "answer": "①",
+   "solution": null,
+   "topic": "유한집합의 원소의 개수",
+   "difficulty": "상",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "전체집합 $U= LEFT { x` vert `x는~20이하의~자연수 RIGHT }$의 부분집합 $A _{k} = LEFT { x` vert `x=2(y-k),~y IN U RIGHT }$, $B= LEFT { x` vert `2(20-x) IN U RIGHT }$에 대하여 $n(A _{k} SMALLINTER B ^{C} )=4$가 되도록 하는 모든 자연수 $k$의 개수는?",
+   "choices": [
+    "$6$",
+    "$7$",
+    "$8$",
+    "$9$",
+    "$10$"
+   ]
+  },
+  {
+   "number": 20,
+   "answer": "②",
+   "solution": null,
+   "topic": "삼각형의 무게중심",
+   "difficulty": "중",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "세점 $rm A(-6,~3),~B(4,~-5),~C( it a,~b)$를 꼭짓점으로 하는 삼각형 $rm ABC$의 무게중심의 좌표가 $(1,`0)$일 때, $a+b$의 값은?",
+   "choices": [
+    "$5$",
+    "$7$",
+    "$9$",
+    "$11$",
+    "$13$"
+   ]
+  },
+  {
+   "number": 21,
+   "answer": "⑤",
+   "solution": null,
+   "topic": "점과 직선에 대한 대칭이동",
+   "difficulty": "중",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "좌표평면 위의 두 점 $rm A(4,~3),~B(6,~8)$에 대하여 $angle rm AOB$를 이등분하는 직선과 선분 $rm AB$의 교점의 좌표는? (단, $rm O$는 원점이다.)",
+   "choices": [
+    "$left( 8 over3 , ~8 over3 right)$",
+    "$LEFT ( {10} over {3} ,~ {10} over {3} RIGHT )$",
+    "$LEFT ( {11} over {3} ,~ {11} over {3} RIGHT )$",
+    "$LEFT ( {13} over {3} ,~ {13} over {3} RIGHT )$",
+    "$LEFT ( {14} over {3} ,~ {14} over {3} RIGHT )$"
+   ]
+  },
+  {
+   "number": 22,
+   "answer": "풀이 참조풀이$LEFT ( 1 RIGHT )$ $TRIANGLE",
+   "solution": "정답 풀이 참조풀이$LEFT ( 1 RIGHT )$ $TRIANGLE  rm PHQ$∽$TRIANGLE  rm AOB$ ($rmAA$닮음)$rm {bar{PH}} `:` {bar{PQ}} = rm {bar{AO}} `:` {bar{AB}}$${bar{rmPH}} `: {9} over {2} =2: sqrt {13}$$THEREFORE `d= {9} over {sqrt {13}} = {9 sqrt {13}} over {13}$$LEFT ( 2 RIGHT )$ 기울기가$- {3} over {2}$인 직선과 수직이므로, $y= {2} over {3} (x-3)+3$이다. $cases{{3x+2y=6}#y={2over3}(x-3)+3$ , $x={12over13}$, $y={21over13}$$rm H left({12over13},````{21over13}right)$$rm {bar{PH=}} sqrt {LEFT ( 3- {12} over {13} RIGHT ) ^{2} + LEFT ( 3- {21} over {13} RIGHT ) ^{2}} = {9 sqrt {13}} over {13}$",
+   "topic": "점과 직선 사이의 거리",
+   "difficulty": "중",
+   "score": 4.0,
+   "label": "[서술형 $1$]",
+   "type": "서술형",
+   "stem": "[서술형 $1$] 다음은 점 $rmP LEFT ( 3,~3 RIGHT )$과 직선 $3x+2y-6=0$ 사이의 거리를 구하는 과정을 나타낸 것이다. Ⓐ와 Ⓑ를 반드시 써서 <학생 (가)와 학생 (나)의 주장>에 따라 $LEFT ( 1 RIGHT )$ ~ $LEFT ( 2 RIGHT )$에 알맞은 과정을 서술하시오. \n<학생 (가)>와 학생 (나)의 주장>\n학생 (가) : 그림과 같이 점 $rmP$에서 직선 $3x+2y-6=0$ 에 내린 수선의 발을 $rmH$라 하고, $x$절편을 점 $rmA$, $y$절편을 점 $rmB$라 하자. 직선 $x=3$과 직선 $3x+2y-6=0$의 교점을 점 $rmQ$라 할 때, 닮음을 이용해서 구하려고 해.\n$LEFT ( 1 RIGHT )$ Ⓐ 삼각형 $rmPHQ$와 닮음인 삼각형을 쓰고,Ⓑ 비례식으로 선분 $rmPH$의 길이를 구하시오.\n대구광역시 내신 수학 연구회\n학생 (나) : 그림과 같이 점 $rmP$에서 직선 $3x+2y-6=0$ 에 내린 수선의 발을 $rmH$라 할 때, 직선의 방정식을 이용해서 구하려고 해.\n$LEFT ( 2 RIGHT )$ Ⓐ 점 $rmP$와 점 $rmH$를 지나는 직선의 방정식을 쓰고,Ⓑ 점 $rmH$의 좌표로 선분 $rmPH$의 길이를 구하시오.\n대구광역시 내신 수학 연구회\n대구광역시 내신 수학 연구회",
+   "choices": []
+  },
+  {
+   "number": 23,
+   "answer": null,
+   "solution": "정답 ${sqrt {5}} over {2}$풀이반지름이 $2$인 원의 중심을 $rm S( it a,~2)$라 하자. 점 $rm S$와 $mx-y=0$의 거리는 $2$이므로 ${LEFT | ma-2 RIGHT |} over {sqrt {m ^{2} +1}} =2$양변을 제곱하여 정리하면 $m= {4a} over {a ^{2} -4}$  $cdotscdots$ ①$rm {bar{OS}}$는 $rm {bar{QP}}$를 수직 이등분한다. $rm {bar{QP}}$의 중점을 $rmM$이라 하면 $rmangleOMP=90`°$따라서 삼각형 $rmPRO$와 삼각형 $rmPOM$은 $rmAA$닮음이다. 또한 삼각형 $rmPOM$과 삼각형 $rmSOP$도 $rmAA$닮음이다.  $rmtrianglePRO󰁀triangleSOP$ ($rmAA$닮음) $rm {bar{SP}} `:` {bar{OP}} = {bar{OP}} `:` {bar{OR}}$ $2`:`a=a`:`rmbar{OR}$, $rmbar{OR}=it {a ^{2}} over {2}$점 $rmR$의 좌표를 구해보면 $rmR LEFT ( 0,~it {a ^{2}} over {2} RIGHT )$한편, ${S _{2}} over {S _{1}} =2$이므로 점 $rmQ$는 선분 $rmPR$을 $1:2$로 내분한다. 따라서 점 $rmQ$의 좌표를 구해보면 $rm Q LEFT ( it {2} over {3} a,~ {a ^{2}} over {6} RIGHT )$점 $rmQ$는 $y=mx$위의 점이므로 대입하면 ${a ^{2}} over {6} = {2} over {3} ma$$a!=0$이므로 정리하면 $a=4m$   $cdotscdots$ ②식 ②를 식 ①에 대입하면 $m= {16m} over {16m ^{2} -4} = {4m} over {4m ^{2} -1}$$m!=0$이므로 $1= {4} over {4m ^{2} -1}$, $m ^{2} = {5} over {4}$$m>0$이므로 $m= {sqrt {5}} over {2}$다른풀이반지름이 $2$인 원의 중심을 $rm S( it a,~2)$라 하면 직선 $rmOS$의 기울기는 ${2} over {a}$이고 직선 $rmPR$은 직선 $rmOS$와 수직이므로 $y=- {a} over {2} (x-a)=- {a} over {2} x+ {a ^{2}} over {2}$이다. 따라서 점 $rmR$은 $(0,~ {a ^{2}} over {2} )$이고 점 $rmQ$는 선분 $rmPR$을 $1:2$로 내분하므로 $Q( {2a} over {3} ,~ {a ^{2}} over {6} )$이다. 점 $rmQ$와 점 $rmS$의 거리가 $2$이므로 ${a ^{2}} over {9} +( {a ^{2}} over {6} -2) ^{2} =4$이고 $a ^{2} =t$로 치환하면 $4t+t ^{2} -24t=0,~t=20,~a=2 sqrt {5} ~(a != 0)$이 된다. 이를 대입하면 점 $rmQ$는 $rm ( {4 sqrt {5}} over {3} ,~ {10} over {3} )$가 되고 $y=mx$를 지나므로 ${10} over {3} =m TIMES  {4 sqrt {5}} over {3} ,~m= {sqrt {5}} over {2}$이다.",
+   "topic": "원의 접선의 방정식",
+   "difficulty": "상",
+   "score": 4.0,
+   "label": "[서술형 $2$]",
+   "type": "서술형",
+   "stem": "[서술형 $2$] 그림과 같이 $x$축과 직선 $l~:~y=mx LEFT ( m>0 RIGHT )$ 에 동시에 접하는 반지름의 길이가 $2$인 원이 있다. $x$축과 원이 만나는 점을 $rmP$, 직선 $l$과 원이 만나는 점을 $rmQ$, 두 점 $rmP,~Q$를 지나는 직선이 $y$축과 만나는 점을 $rmR$라 하자. 두 삼각형 $rmOPQ$와 $rmOQR$의 넓이를 각각 $S _{1} ,~S _{2}$라 할 때, ${S _{2}} over {S _{1}} =2$를 만족시키는 상수 $m$의 값을 구하고, 그 과정을 서술하시오. (단, 원의 중심은 제 $1$사분면 위에 있고, $rmO$는 원점이다.)",
+   "choices": []
+  },
+  {
+   "number": 24,
+   "answer": null,
+   "solution": "$k=13$, $r=9$(가), (나) 조건을 만족하는 점 $rm P'$와 점 $rm Q'$의 자취는 위 그래프와 같다.$LEFT | x _{2} -x _{1} RIGHT | =10+k-2=21$이므로 $k=13$$y _{1}$의 최댓값과 $y _{2}$의 최솟값이 같으므로$10+r=28-r$ 따라서 $r=9$",
+   "topic": "상",
+   "difficulty": "대칭이동",
+   "score": 4.0,
+   "label": "[서술형 $3$]",
+   "type": "서술형",
+   "stem": "[서술형 $3$] 원 $(x-10) ^{2} +(y-2) ^{2} =r ^{2}$위를 움직이는 두 점 $rmP,~Q$가 있다. 점 $rmP$를 직선 $y=x$에 대하여 대칭이동한 점을 $rmP`'it(x _{1} ,~y _{1} )$이라 하고, 점 $rmQ$를 $x$축의 방향으로 $k$, $y$축의 방향으로 $2k$만큼 평행이동한 점을 $rmQ`'it(x _{2} ,~y _{2} )$이라 할 때, 다음 조건을 만족시킨다.\n(가) ${y _{2} -y _{1}} over {x _{2} -x _{1}}$의 최솟값은 $0$이다.\n(나) $y _{1}$의 최댓값과 $y _{2}$의 최솟값이 같을 때, $LEFT | x _{2} -x _{1} RIGHT | =21$이다.\n반지름 $r$과 상수 $k$의 값을 구하고 그 과정을 서술하시오. (단, $x _{1} != x _{2}$이고 $k>0$이다.)",
+   "choices": []
+  },
+  {
+   "number": 25,
+   "answer": null,
+   "solution": "$b _{1} -b _{2} =6$(가) $n LEFT ( A ^{C} SMALLINTER  B ^{C} RIGHT ) =n LEFT ( A` CUP `B RIGHT ) +10$$140-n LEFT ( A CUP  B RIGHT ) =n LEFT ( A` CUP  `B RIGHT ) +10$$n LEFT ( A` CUP  `B RIGHT )=65$(나) $k TIMES  n(A SMALLINTER  B)=n(A)+n(B)=2 TIMES  n(A-B)$$n(A-B)=a,~n(A SMALLINTER  B)=b,~n(B-A)=c$라 하면$n LEFT ( A` CUP  `B RIGHT )=65$에서 $a+b+c=65$$k TIMES  n(A SMALLINTER  B)=n(A)+n(B)=2 TIMES  n(A-B)$$kb=a+2b+c=2a$에서 $a= {k} over {2} b,~c= LEFT ( {k} over {2} -2 RIGHT ) b$$a+b+c= {k} over {2} b+b+ {k} over {2} b-2b=65$$b(k-1)=65$$b=1,~k=66$일 때, $c=31$ $n(B)=b+c=32$$b=5,~k=14$일 때, $c=25$ $n(B)=b+c=30$$b=13,~k=6$일 때, $c=b$ $n(B)=b+c=26$$b=65,~k=2$일 때, $c<0$이므로 존재하지 않는다.따라서 $b _{1} =32,~b _{2} =26$이므로 $b _{1} -b _{2} =6$",
+   "topic": "유한집합의 원소의 개수",
+   "difficulty": "상",
+   "score": 4.0,
+   "label": "[서술형 $4$]",
+   "type": "서술형",
+   "stem": "[서술형 $4$] 전체집합 $U$의 공집합이 아닌 두 부분집합 $A,~B$가 다음 조건을 만족시킨다.\n(가) $n LEFT ( A ^{C} SMALLINTER B ^{C} RIGHT ) =n LEFT ( A` CUP `B RIGHT ) +10$\n(나) $k TIMES n(A SMALLINTER B)=n(A)+n(B)=2 TIMES n(A-B)$\n (단, $k$는 자연수이다.)\n$n(U)=140$이고 $n(B)$의 최댓값이 $b _{1}$ 최솟값이 $b _{2}$일 때, $b _{1} -b _{2}$의 값을 구하고 그 과정을 서술하시오. \n  \n  \n정답\n워드:안준철t\n오검:김종호t \n완료:조남웅t",
+   "choices": []
+  }
+ ],
+ "meta": {
+  "exam_id": 4316,
+  "school": "대구여고",
+  "grade": 1,
+  "subject": "공수2",
+  "year": 2025,
+  "semester": 2,
+  "round": "중간",
+  "src": "N:\\개인\\기출\\2024 기출모음\\2024년 2학기 중간 고사 모음\\#워드\\고1\\[대구여고][1][공수2][25-2-중간대비][지학사] (완료).hwp"
+ }
+}

@@ -1,0 +1,1755 @@
+{
+ "meta": {
+  "exam_id": 4242,
+  "ocr_source": "session-vision"
+ },
+ "header": {
+  "title": "2025학년도 2학기 1차 지필고사 공통수학2 (1학년)"
+ },
+ "questions": [
+  {
+   "number": 1,
+   "score": 3.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "두 점 \\mathrm{A}(-3,~a), \\mathrm{B}(b,~6)에 대하여 선분 \\mathrm{AB}를 1:3으로 내분하는 점의 좌표가 (-1,~3)일 때, a+b의 값은? (단, a, b는 상수이다.)"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "6"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "7"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "8"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "9"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 2,
+   "score": 3.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "두 직선 2x+y+4=0, ax+2y-1=0이 서로 수직일 때, 상수 a의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-\\frac{1}{2}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-1"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{1}{2}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 3,
+   "score": 3.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "점 (2,~4)에서 원 x^{2}+y^{2}=1에 그은 두 접선의 기울기의 곱은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{13}{3}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{14}{3}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{16}{3}"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 4,
+   "score": 3.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "원 (x-2)^{2}+(y-3)^{2}=10과 직선 -x+y-5=0이 서로 다른 두 점 \\mathrm{A}, \\mathrm{B}에서 만날 때, 선분 \\mathrm{AB}의 길이는?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\sqrt{2}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2\\sqrt{2}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3\\sqrt{2}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4\\sqrt{2}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5\\sqrt{2}"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 5,
+   "score": 3.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "점 \\mathrm{A}(a,~b)를 원점에 대하여 대칭이동한 점을 \\mathrm{B}라 하고, 점 \\mathrm{B}를 x축에 대하여 대칭이동한 후 직선 y=x에 대하여 대칭이동한 점을 \\mathrm{C}라고 하자. 삼각형 \\mathrm{ABC}의 무게중심이 \\mathrm{G}(2,~-3)일 때, a+b의 값은? (단, a, b는 상수이다.)"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "11"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "12"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "13"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "14"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "15"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 6,
+   "score": 3.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "원 (x-a)^{2}+(y-b)^{2}=a^{2}을 x축의 방향으로 -4만큼, y축의 방향으로 -2만큼 평행이동한 도형이 x축과 y축에 동시에 접할 때, 실수 a+b의 값은? (단, a>0, b>0)"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "6"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "7"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "8"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "9"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "10"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 7,
+   "score": 3.1,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "전체집합 U=\\{1,~2,~3,~4,~5\\}에 대하여 \\{1,~3\\} \\subset X를 만족시키는 U의 모든 부분집합 X의 개수는?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "6"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "7"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "8"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "9"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 8,
+   "score": 3.1,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "전체집합 U의 두 부분집합 A, B에 대하여"
+    },
+    {
+     "type": "equation",
+     "value": "n(U)=70,~n(A)=50"
+    },
+    {
+     "type": "equation",
+     "value": "n(B)=35,~n(A-B)=20"
+    },
+    {
+     "type": "text",
+     "value": "일 때, n((B-A)^{C})의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "64"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "65"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "66"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "67"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "68"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 9,
+   "score": 3.1,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "세 점 \\mathrm{A}(2,~-2), \\mathrm{B}(3,~0), \\mathrm{C}(-1,~4)를 꼭짓점으로 하는 삼각형 \\mathrm{ABC}에 대하여 두 점 \\mathrm{A}, \\mathrm{C}에서 각각 두 변 \\mathrm{BC}, \\mathrm{AB}에 내린 수선의 교점의 좌표를 (a,~b)라 할 때, ab의 값은? (단, a, b는 상수이다.)"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "6"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "7"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "8"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "9"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 10,
+   "score": 3.5,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "이차함수 y=x^{2}+4x+1의 그래프를 x축 대칭이동한 후, y축 방향으로 k만큼 평행이동을 하였더니 직선 y=2x+5와 한 점에서 만날 때, 상수 k의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-5"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-3"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-1"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 11,
+   "score": 3.5,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "3 이상의 자연수 m에 대하여 두 집합"
+    },
+    {
+     "type": "text",
+     "value": "A_{m}=\\{x \\mid x는 m+1 이하의 소수\\}"
+    },
+    {
+     "type": "text",
+     "value": "B=\\{x \\mid x는 60의 양의 약수\\}"
+    },
+    {
+     "type": "text",
+     "value": "에 대하여 A_{m} \\subset B를 만족시키는 m의 최댓값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "6"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "7"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "8"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 12,
+   "score": 3.5,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림과 같이 삼각형 \\mathrm{ABC}의 무게중심을 \\mathrm{G}라 하자. 삼각형 \\mathrm{ABC}와 같은 평면에 있는 직선 l에 대하여 세 점 \\mathrm{A}, \\mathrm{B}, \\mathrm{G}에서 직선 l까지의 거리를 각각 11, 16, 14라 할 때, 점 \\mathrm{C}에서 직선 l 사이의 거리는?"
+    },
+    {
+     "type": "figure",
+     "value": "삼각형 ABC(위쪽 꼭짓점 C, 왼쪽 꼭짓점 B, 오른쪽 아래 꼭짓점 A)와 그 오른쪽에 위에서 아래로 비스듬히 지나는 직선 l이 그려져 있다. 삼각형 내부에 무게중심 G가 점으로 표시되어 있고, 점 B·G·A에서 직선 l에 내린 수선(직각 표시)의 길이가 각각 16, 14, 11로 적혀 있다. 삼각형 전체가 직선 l의 왼쪽에 있다."
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "7"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "11"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "15"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "19"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "23"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 13,
+   "score": 3.5,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "원점 \\mathrm{O}(0,~0)을 중심으로 하고, 반지름의 길이가 5인 원 위에 두 점 \\mathrm{A}(3,~4)와 \\mathrm{B}(-5,~0)이 있다. 점 \\mathrm{A}에서의 접선과 점 \\mathrm{B}에서의 접선의 교점을 \\mathrm{P}라고 할 때, 삼각형 \\mathrm{OAP}의 넓이는?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "12"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "15"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "18"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "20"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "25"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 14,
+   "score": 3.6,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림과 같이 좌표평면에서 y=-x+8과 y축의 교점을 \\mathrm{A}, 직선 y=2x-4와 x축과의 교점을 \\mathrm{B}, 두 직선 y=-x+8, y=2x-4의 교점을 \\mathrm{C}라 하자. y축 위의 점 \\mathrm{D}(0,~a)에 대하여 삼각형 \\mathrm{ABD}의 넓이가 삼각형 \\mathrm{ABC}의 넓이와 같도록 하는 a의 값은? (단, a>8이다.)"
+    },
+    {
+     "type": "figure",
+     "value": "좌표평면에 기울기가 양수인 직선 y=2x-4와 기울기가 음수인 직선 y=-x+8이 그려져 있다. 직선 y=-x+8은 y축과 점 A(0, 8)에서, x축과는 x=8에서 만나고, 직선 y=2x-4는 x축과 점 B(2, 0)에서 만난다. 두 직선의 교점은 C(4, 4)로 표시되어 있으며, 삼각형 ABC가 그려져 있다."
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "12"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "14"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "16"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "18"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "20"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 15,
+   "score": 3.6,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "세 점 \\mathrm{A}(-5,~12), \\mathrm{B}(a,~b), \\mathrm{C}(k,~-8)에 대하여"
+    },
+    {
+     "type": "equation",
+     "value": "\\sqrt{(a+5)^{2}+(b-12)^{2}}+\\sqrt{(a-k)^{2}+(b+8)^{2}}"
+    },
+    {
+     "type": "text",
+     "value": "의 최솟값이 25일 때, 양수 k의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "6"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "8"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "10"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "12"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "14"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 16,
+   "score": 3.6,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "어느 고등학교 1학년 학생 40명 중에서 수학 동아리에 가입한 학생이 25명, 과학 동아리에 가입한 학생이 20명이다. 두 동아리 중 어느 한 동아리에만 가입한 학생의 수의 최댓값을 M, 최솟값을 m이라 할 때, M \\times m의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "100"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "125"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "150"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "175"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "200"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 17,
+   "score": 3.6,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "두 직선 x-2y+3=0과 2x+y-4=0이 이루는 각을 이등분하는 직선 중에서 y절편이 양수인 직선의 방정식의 x절편의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "7"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "10"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "13"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "16"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 18,
+   "score": 3.7,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림과 같이 원점 \\mathrm{O}를 꼭짓점으로 하고 평행한 두 직선 y=x+8, y=x-2와 각각 수직인 선분 \\mathrm{PQ}를 밑변으로 하는 삼각형 \\mathrm{OPQ}의 넓이가 50이다. 직선 \\mathrm{PQ}의 방정식이 ax+by-20=0일 때, 상수 a, b에 대하여 a+b의 값은? (단, 두 점 \\mathrm{P}, \\mathrm{Q}는 제1사분면 위의 점이다.)"
+    },
+    {
+     "type": "figure",
+     "value": "좌표평면에 기울기 1인 평행한 두 직선 y=x+8과 y=x-2가 그려져 있다. 제1사분면에서 직선 y=x+8 위의 점 P와 직선 y=x-2 위의 점 Q를 잇는 선분 PQ가 두 직선과 수직으로 (기울기 -1) 그어져 있고, 원점 O와 P, Q를 이어 삼각형 OPQ가 그려져 있다."
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-2"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-1"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "0"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 19,
+   "score": 3.7,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "두 집합"
+    },
+    {
+     "type": "text",
+     "value": "A=\\{x \\mid x는 40 이하의 자연수\\}"
+    },
+    {
+     "type": "text",
+     "value": "B=\\{x \\mid x는 6과 서로소인 자연수\\}"
+    },
+    {
+     "type": "text",
+     "value": "에 대하여 다음 조건을 만족시키는 집합 X의 개수는?"
+    },
+    {
+     "type": "text",
+     "value": "<상자> (가) X \\subset A, X \\neq \\varnothing • (나) X \\subset B^{C} • (다) 집합 X의 모든 원소는 10과 서로소이다."
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2^{3}-1"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2^{4}-1"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2^{5}-1"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2^{6}-1"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2^{7}-1"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 20,
+   "score": 3.7,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "가로 400\\mathrm{cm}, 세로 250\\mathrm{cm}인 직사각형 모양의 당구대가 있다. 노란 공은 왼쪽 아래 모서리 지점에서 오른쪽으로 50\\mathrm{cm}, 위쪽으로 100\\mathrm{cm}의 위치에 놓여있고, 빨간 공은 오른쪽 아래 모서리 지점에서 왼쪽으로 120\\mathrm{cm}, 위쪽으로 70\\mathrm{cm}의 위치에 있다. 그림과 같이 노란 공을 쳐서 벽면에 2번 부딪힌 후, 빨간 공을 맞힐 때까지 노란공이 움직인 최단 거리를 L\\mathrm{cm}라고 할 때, \\frac{L^{2}}{100}의 값은? (단, 공의 회전은 없고 공의 크기와 마찰은 무시한다.)"
+    },
+    {
+     "type": "figure",
+     "value": "가로 400cm, 세로 250cm인 직사각형 당구대가 그려져 있다. 왼쪽 아래 모서리에서 오른쪽으로 50cm, 위쪽으로 100cm 지점에 노란 공이, 오른쪽 아래 모서리에서 왼쪽으로 120cm, 위쪽으로 70cm 지점에 빨간 공이 표시되어 있다(각각 점선과 치수 50cm·100cm·120cm·70cm로 위치가 표시됨). 노란 공에서 출발해 위쪽 벽면의 한 점에 부딪히고, 이어서 오른쪽 벽면에 부딪힌 뒤 빨간 공에 도달하는 경로가 화살표로 그려져 있으며, 당구대 바깥으로는 대칭이동을 나타내는 점선이 그려져 있다."
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3298"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3398"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3498"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3598"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3698"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 21,
+   "score": 4.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "전체집합 U=\\{1,~2,~3,~4,~5,~6\\}의 부분집합 중 다음 두 조건을 만족시키는 집합 X의 개수는? (단, X \\neq \\varnothing 이다.)"
+    },
+    {
+     "type": "text",
+     "value": "<상자> (가) 집합 X의 모든 원소의 합이 홀수이다. • (나) n(X) \\leq 4"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "24"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "25"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "26"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "27"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "28"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 22,
+   "score": 4.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "좌표평면 위의 두 점 \\mathrm{A}(-6,~6), \\mathrm{B}(-2,~10)에 대하여 \\angle \\mathrm{APB}=90^{\\circ}를 만족시키는 점 \\mathrm{P}가 있다. 선분 \\mathrm{OP}의 길이가 최대가 될 때, \\mathrm{P}점의 x좌표의 값은 p+q\\sqrt{10}이다. q-p의 값은? (단, \\mathrm{O}는 원점이며, p, q는 유리수이다.)"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{14}{5}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{16}{5}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{18}{5}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{22}{5}"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 23,
+   "score": 4.1,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "원 (x-6)^{2}+(y-3)^{2}=1 위를 움직이는 두 점 \\mathrm{P}, \\mathrm{Q}에 대하여 점 \\mathrm{P}를 y축에 대칭이동시킨 점을 \\mathrm{P}'(a,~b), 점 \\mathrm{Q}를 y축의 방향으로 -6만큼 평행이동시킨 점을 \\mathrm{Q}'(c,~d)라 하자. 두 점 \\mathrm{P}', \\mathrm{Q}'에 대하여 \\frac{b}{a}의 최댓값과 \\frac{d}{c}의 최솟값의 곱을 \\frac{q}{p}이라 할 때, p+q의 값은? (단, p와 q는 서로소인 자연수이다.)"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "39"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "41"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "43"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "45"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "47"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 24,
+   "score": 4.1,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "자연수 m, n에 대하여 원 (x+m)^{2}+(y-1)^{2}=9를 x축으로 대칭시킨 원을 C_{1}, C_{1}을 x축의 방향으로 n만큼 평행이동한 원을 C_{2}라 하자. 직선 3x-4y=0이 원 C_{1}, C_{2}와 동시에 만나도록 하는 순서쌍 (m,~n)의 개수는? (단, m \\leq 3)"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "9"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "11"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "13"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "15"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "17"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 25,
+   "score": 4.1,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "실수 k에 대하여 이차함수 y=x^{2}-2kx+k^{2}-15의 그래프와 직선 y=1이 서로 다른 두 점 \\mathrm{A}, \\mathrm{B}에서 만난다. 삼각형 \\mathrm{AOB}가 이등변삼각형이 되도록 하는 서로 다른 k의 개수를 n, k의 최댓값을 M이라 하자. n-M의 값은? (단, \\mathrm{O}는 원점이고, 점 \\mathrm{A}의 x좌표는 점 \\mathrm{B}의 x좌표보다 작다.)"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1-3\\sqrt{7}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1+3\\sqrt{7}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4-3\\sqrt{7}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4+3\\sqrt{7}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "7-3\\sqrt{7}"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 26,
+   "score": 4.2,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "직선 y=x 위의 점 \\mathrm{P}와 직선 y=-x 위의 점 \\mathrm{Q}가 \\overline{\\mathrm{PQ}}=\\sqrt{5}를 만족시키면서 움직인다. 선분 \\mathrm{PQ}의 중점을 \\mathrm{M}(a,~b)라 할 때, 실수 a의 최댓값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{\\sqrt{5}}{2}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\sqrt{5}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{3\\sqrt{5}}{2}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2\\sqrt{5}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3\\sqrt{5}"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 27,
+   "score": 4.3,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "전체집합 U=\\{2,~4,~8,~14,~16,~28,~32,~64\\}의 두 부분집합 A, B가 다음 조건을 만족시킨다."
+    },
+    {
+     "type": "text",
+     "value": "<상자> (가) 집합 A^{C} \\cup B 의 모든 원소의 합은 집합 A-B 의 모든 원소의 합의 3배이다. • (나) n(A \\cup B)=6, 1 \\leq n(A-B) \\leq 3"
+    },
+    {
+     "type": "text",
+     "value": "집합 A의 모든 원소의 합의 최댓값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "126"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "138"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "150"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "162"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "174"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 28,
+   "score": 4.4,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "최고차항의 계수가 1인 이차함수 y=f(x)의 그래프를 원점에 대하여 대칭이동하면 이차함수 y=g(x)의 그래프와 일치한다. 방정식 f(x)=g(x)는 서로 다른 두 실근 \\alpha, \\beta (\\alpha<\\beta)를 갖고, 함수 h(x)는"
+    },
+    {
+     "type": "equation",
+     "value": "h(x)=\\begin{cases} f(x) & (x<\\alpha \\text{ 또는 } x>\\beta) \\\\ g(x) & (\\alpha \\leq x \\leq \\beta) \\end{cases}"
+    },
+    {
+     "type": "text",
+     "value": "일 때, 함수 h(x)는 다음 조건을 만족시킨다."
+    },
+    {
+     "type": "text",
+     "value": "<상자> (가) 방정식 h(x)=h(\\alpha)는 서로 다른 세 실근을 갖고, 세 실근의 합은 8이다. • (나) 자연수 n에 대하여 함수 y=h(x)와 y=-n의 그래프의 교점의 개수는 11이다."
+    },
+    {
+     "type": "text",
+     "value": "h(4)+h(12)의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "92"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "98"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "104"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "110"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "116"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

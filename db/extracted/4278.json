@@ -1,0 +1,376 @@
+{
+ "source": "_구암고__1__공수1__25-1-중간__금성___완료_.hwpx",
+ "question_count": 22,
+ "questions": [
+  {
+   "number": 1,
+   "answer": "⑤",
+   "solution": null,
+   "topic": "다항식의 덧셈과 뺄셈",
+   "difficulty": "하",
+   "score": 3.7,
+   "label": null,
+   "type": "객관식",
+   "stem": "두 다항식 $A=x ^{2} -5xy+2y ^{2} ,~B=4x ^{2} +2xy-y ^{2}$에 대하여 $A+B$를 간단히 한 것은?",
+   "choices": [
+    "$-3x ^{2} -7xy+3y ^{2}$",
+    "$3x ^{2} +7xy-3y ^{2}$",
+    "$3x ^{2} -3xy+y ^{2}$",
+    "$5x ^{2} -7xy+y ^{2}$",
+    "$5x ^{2} -3xy+y ^{2}$"
+   ]
+  },
+  {
+   "number": 2,
+   "answer": "②",
+   "solution": null,
+   "topic": "다항식의 곱셈",
+   "difficulty": "하",
+   "score": 3.7,
+   "label": null,
+   "type": "객관식",
+   "stem": "다항식 $LEFT ( x+2 RIGHT ) LEFT ( 3x ^{2} -2x-3 RIGHT )$의 전개식에서 $x ^{2}$의 계수는?",
+   "choices": [
+    "$3$",
+    "$4$",
+    "$5$",
+    "$6$",
+    "$7$"
+   ]
+  },
+  {
+   "number": 3,
+   "answer": "③",
+   "solution": null,
+   "topic": "나머지정리와 인수정리",
+   "difficulty": "하",
+   "score": 3.8,
+   "label": null,
+   "type": "객관식",
+   "stem": "다항식 $x ^{2} -5x+11$을 $x-3$으로 나눈 나머지는?",
+   "choices": [
+    "$2$",
+    "$3$",
+    "$5$",
+    "$7$",
+    "$8$"
+   ]
+  },
+  {
+   "number": 4,
+   "answer": "②",
+   "solution": null,
+   "topic": "복소수와 켤레복소수",
+   "difficulty": "하",
+   "score": 3.8,
+   "label": null,
+   "type": "객관식",
+   "stem": "등식 $LEFT ( 2-a RIGHT ) +4i=1+2bi$를 만족시키는 실수 $a,~b$에 대하여 $a+b$의 값은? (단, $i= sqrt {-1}$)",
+   "choices": [
+    "$2$",
+    "$3$",
+    "$4$",
+    "$5$",
+    "$6$"
+   ]
+  },
+  {
+   "number": 5,
+   "answer": "①",
+   "solution": null,
+   "topic": "이차방정식의 근과 계수의 관계",
+   "difficulty": "하",
+   "score": 3.9,
+   "label": null,
+   "type": "객관식",
+   "stem": "이차방정식 $x ^{2} +ax+b=0$의 한 근이 $2-3i$일 때, $a+b$\n의 값은? (단, $a,~b$는 실수)",
+   "choices": [
+    "$9$",
+    "$11$",
+    "$13$",
+    "$15$",
+    "$17$"
+   ]
+  },
+  {
+   "number": 6,
+   "answer": "②",
+   "solution": null,
+   "topic": "이차함수의 최대, 최소",
+   "difficulty": "하",
+   "score": 3.9,
+   "label": null,
+   "type": "객관식",
+   "stem": "$0LEQx LEQ3$일 때, 이차함수 $f(x)=ax ^{2} -4ax+b$의 최댓값이 $6$, 최솟값이 $2$이다. 실수 $a$와 $b$에 대하여 $a+b$ 의 값은? (단, $a>0$)",
+   "choices": [
+    "$6$",
+    "$7$",
+    "$8$",
+    "$9$",
+    "$10$"
+   ]
+  },
+  {
+   "number": 7,
+   "answer": "①",
+   "solution": null,
+   "topic": "복잡한 식의 인수분해",
+   "difficulty": "중",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "다항식 $LEFT ( x-1 RIGHT ) LEFT ( x-2 RIGHT ) LEFT ( x-3 RIGHT ) LEFT ( x-4 RIGHT ) +k$가 최고차항의 계수가 $1$인 이차식의 제곱으로 인수분해 될 때, 상수 $k$의 값은?",
+   "choices": [
+    "$1$",
+    "$2$",
+    "$3$",
+    "$4$",
+    "$5$"
+   ]
+  },
+  {
+   "number": 8,
+   "answer": "④",
+   "solution": null,
+   "topic": "복잡한 식의 인수분해",
+   "difficulty": "중",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "$44 ^{3} +18 TIMES 50 TIMES 44$를 $250$으로 나눈 나머지는?",
+   "choices": [
+    "$3$",
+    "$7$",
+    "$21$",
+    "$34$",
+    "$43$"
+   ]
+  },
+  {
+   "number": 9,
+   "answer": "①",
+   "solution": null,
+   "topic": "나머지정리와 인수정리",
+   "difficulty": "중",
+   "score": 4.2,
+   "label": null,
+   "type": "객관식",
+   "stem": "삼차식 $f(x)$에 대하여 $f(x)+5$는 $LEFT ( x+2 RIGHT ) ^{2}$으로 나누어\n떨어지고, $3-f(x)$는 $x ^{2} +5x+4$로 나누어떨어진다. $f(x)$\n를 $x+3$으로 나누었을 때의 나머지는?",
+   "choices": [
+    "$-1$",
+    "$3$",
+    "$7$",
+    "$11$",
+    "$16$"
+   ]
+  },
+  {
+   "number": 10,
+   "answer": "⑤",
+   "solution": null,
+   "topic": "음수의 제곱근",
+   "difficulty": "중",
+   "score": 4.2,
+   "label": null,
+   "type": "객관식",
+   "stem": "$z= {sqrt {2}} over {1+i}$일 때, $z ^{2} +z ^{4} +z ^{6} +` CDOTS `+z ^{100}$의 값은?\n(단, $i= sqrt {-1}$)",
+   "choices": [
+    "$0$",
+    "$1$",
+    "$-i$",
+    "$-1$",
+    "$-1-i$"
+   ]
+  },
+  {
+   "number": 11,
+   "answer": "④",
+   "solution": null,
+   "topic": "이차함수와 직선의 위치관계",
+   "difficulty": "중",
+   "score": 4.3,
+   "label": null,
+   "type": "객관식",
+   "stem": "이차함수 $y=x ^{2} -kx+k ^{2}$의 그래프가 직선 $y=kx-2k+4$의 그래프와 만나지 않고, 직선 $y=3kx+k ^{2} -36$의 그래프와 한 점에서 만나도록 하는 실수 $k$는?",
+   "choices": [
+    "$-3$",
+    "$-1$",
+    "$1$",
+    "$3$",
+    "$5$"
+   ]
+  },
+  {
+   "number": 12,
+   "answer": "⑤",
+   "solution": null,
+   "topic": "이차함수의 최대, 최소",
+   "difficulty": "중",
+   "score": 4.3,
+   "label": null,
+   "type": "객관식",
+   "stem": "이차함수 $f(x)$에 대하여 방정식 $f(x)=0$의 근이 $-3$, $-1$이고, $0 LEQ x LEQ 2$일 때, 함수 $f(x)$의 최댓값이 $-9$이다. 이때, $f(-2)$의 값은?",
+   "choices": [
+    "$-1$",
+    "$0$",
+    "$1$",
+    "$2$",
+    "$3$"
+   ]
+  },
+  {
+   "number": 13,
+   "answer": "③",
+   "solution": null,
+   "topic": "곱셈공식의 변형",
+   "difficulty": "중",
+   "score": 4.5,
+   "label": null,
+   "type": "객관식",
+   "stem": "그림과 같이 $rm {bar{AB}} =4,~ {bar{BC}} =8$인 직사각형과 선분 $rmBC$를 지름으로 하는 반원이 있다. 호 $rmBC$ 위의 한 점 $rmP$에서 선분 $rmAB$에 내린 수선의 발을 $rmQ$, 선분 $rmAD$에 내린 수선의 발을 $rmR$이라고 할 때, 직사각형 $rmAQPR$의 넓이는 ${25} over {2}$이다. 직사각형 $rmAQPR$의 둘레의 길이는? (단, 점 $rmP$는 직사각형 $rmABCD$의 내부에 있다.)",
+   "choices": [
+    "$16$",
+    "$17$",
+    "$18$",
+    "$19$",
+    "$20$"
+   ]
+  },
+  {
+   "number": 14,
+   "answer": "④",
+   "solution": null,
+   "topic": "이차함수의 최대, 최소",
+   "difficulty": "중",
+   "score": 4.5,
+   "label": null,
+   "type": "객관식",
+   "stem": "그림과 같이 $rm ANGLE A=90°,~ ANGLE B=30°,~ {bar{BC}} =10$인 직각삼각형 $rmABC$가 있다. 변 $rmAC$ 위의 한 점 $rmP$에서 변 $rmBC$에 내린 수선의 발을 $rmQ$라 하고, 점 $rmP$를 지나고 변 $rmBC$와 평행한 직선이 변 $rmAB$와 만나는 점을 $rmR$이라 하자. 사각형 $rmRBQP$의 넓이의 최댓값은? (단, 점 $rmP$는 꼭짓점 $rmA$와 꼭짓점 $rm C`$가 아니다.)",
+   "choices": [
+    "$5 sqrt {3}$",
+    "$10$",
+    "$10 sqrt {2}$",
+    "$10 sqrt {3}$",
+    "$20$"
+   ]
+  },
+  {
+   "number": 15,
+   "answer": "③",
+   "solution": null,
+   "topic": "이차방정식의 근과 계수의 관계",
+   "difficulty": "상",
+   "score": 4.6,
+   "label": null,
+   "type": "객관식",
+   "stem": "이차방정식 $x ^{2} -x+1=0$의 두 근 $alpha ,~ beta `$에 대하여 이차함수 $f(x)=x ^{2} +px+q$가 $f LEFT ( alpha ^{2} RIGHT ) =2 alpha$와 $f LEFT ( beta ^{2} RIGHT ) =2 beta$를 만족시킬 때, 두 상수 $p,~q`$에 대하여 $p+q`$의 값은?",
+   "choices": [
+    "$4$",
+    "$5$",
+    "$6$",
+    "$7$",
+    "$8$"
+   ]
+  },
+  {
+   "number": 16,
+   "answer": "⑤",
+   "solution": null,
+   "topic": "복잡한 식의 인수분해",
+   "difficulty": "상",
+   "score": 4.6,
+   "label": null,
+   "type": "객관식",
+   "stem": "모든 실수 $x$에 대하여 두 이차다항식 $P(x),~Q(x)$가 다음 조건을 만족시킨다.\n(가) $P(x)-Q(x)=6$\n(나) $LEFT { P(x) RIGHT } ^{3} - LEFT { Q(x) RIGHT } ^{3} =18x ^{4} +72x ^{3} +72x ^{2} +54$\n대구광역시 내신 수학 연구회\n$P(x)$의 최고차항의 계수가 양수일 때, $P(-4)+Q(2)$의 값은?",
+   "choices": [
+    "$3$",
+    "$5$",
+    "$6$",
+    "$11$",
+    "$16$"
+   ]
+  },
+  {
+   "number": 17,
+   "answer": null,
+   "solution": "판별식 : $b ^{2} -4ac$계수가 실수인 이차방정식 $ax ^{2} +bx+c=0$의 두 근$x= {-b +-  sqrt {b ^{2} -4ac}} over {2a}$의 근호 안에 있는 $b ^{2} -4ac$의 부호에 따라 이차방정식의 근이 실근인지 허근인지 판별할 수 있다. $b ^{2} -4ac>0$ : 서로 다른 두 실근$b ^{2} -4ac=0$ : 중근 (서로 같은 두 실근)$b ^{2} -4ac<0$ : 서로 다른 두 허근",
+   "topic": "이차방정식의 판별식",
+   "difficulty": "중",
+   "score": null,
+   "label": "[서술형 $1$]",
+   "type": "서술형",
+   "stem": "[서술형 $1$] 이차방정식 $ax ^{2} +bx+c=0$의 판별식을 쓰고, 이차방정식의 판별식이 유용한 이유를 작성하시오.\n(단, $a,~b,~c$는 실수) [$4$점, 부분점수 있음]",
+   "choices": []
+  },
+  {
+   "number": 18,
+   "answer": null,
+   "solution": "$a ^{3} +b ^{3} = LEFT ( a+b RIGHT ) LEFT ( a ^{2} -ab`+b ^{2} RIGHT )$, $a ^{3} -b ^{3} = LEFT ( a-b RIGHT ) LEFT ( a ^{2} +ab`+b ^{2} RIGHT )$$x ^{3} -8y ^{3} =(x) ^{3} -(2y) ^{3} = LEFT ( x-2y RIGHT ) LEFT ( x ^{2} +2xy+4y ^{2} RIGHT )$",
+   "topic": "인수분해",
+   "difficulty": "하",
+   "score": null,
+   "label": "[서술형 $2$]",
+   "type": "서술형",
+   "stem": "[서술형 $2$] $a ^{3} +b ^{3}$과 $a ^{3} -b ^{3}$에 대한 인수분해 공식을 각각 쓰고, 이를 이용하여 $x ^{3} -8y ^{3}$ 식을 인수분해 하시오.\n[$5$점, 부분점수 있음]",
+   "choices": []
+  },
+  {
+   "number": 19,
+   "answer": null,
+   "solution": "$⑴$ $LEFT ( 3-2i RIGHT ) + LEFT ( 2+5i RIGHT ) =5+3i$   켤레복소수 : $5-3i$$⑵$ $sqrt {18} sqrt {-2} + sqrt {-2} sqrt {-2} + {sqrt {8}} over {sqrt {-2}} =6i-2-2i=-2+4i$$THEREFORE `a=-2,~b=4$",
+   "topic": "음수의 제곱근",
+   "difficulty": "중",
+   "score": null,
+   "label": "[서술형 $3$]",
+   "type": "서술형",
+   "stem": "[서술형 $3$] 다음 물음에 답하시오. [총 $5$점]\n$⑴$ $LEFT ( 3-2i RIGHT ) + LEFT ( 2+5i RIGHT )$의 값과 켤레복소수를 구하시오.\n(단, $i= sqrt {-1}$) [$2$점, 부분점수 있음]\n$⑵$ $sqrt {18} sqrt {-2} + sqrt {-2} sqrt {-2} + {sqrt {8}} over {sqrt {-2}}$의 실수부분을 $a$, 허수부분을 $b`$라 할 때, $a$와 $b$의 값을 구하는 풀이 과정과 답을 쓰시오. [$3$점, 부분점수 있음]",
+   "choices": []
+  },
+  {
+   "number": 20,
+   "answer": null,
+   "solution": "$f(x)= LEFT ( x ^{2} -2x+4 RIGHT ) Q _{1} (x)+3x-8$$f(x)= LEFT ( x ^{3} +8 RIGHT ) Q _{2} (x)+ax ^{2} +bx$$```````````````=(x+2) LEFT ( x ^{2} -2x+4 RIGHT ) Q _{2} (x)+ax ^{2} +bx$$````````````````= LEFT ( x ^{2} -2x+4 RIGHT ) LEFT { LEFT ( x+2 RIGHT ) Q _{2} (x)+a RIGHT } +3x-8$이므로 $a LEFT ( x ^{2} -2x+4 RIGHT ) +3x-8=ax ^{2} +bx$이다.그러므로, $a=2,~b=-1,~f(-2)=10$",
+   "topic": "나머지정리와 인수정리",
+   "difficulty": "중",
+   "score": null,
+   "label": "[서술형 $4$]",
+   "type": "서술형",
+   "stem": "[서술형 $4$] 다항식 $f(x)$를 $x ^{2} -2x+4$로 나누었을 때의 나머지는 $3x-8$이다. $f(x)$를 $x ^{3} +8$로 나누었을 때의 나머지를 $ax ^{2} +bx$라 한다. 상수 $a$와 $b$의 값을 구하고, $f(x)$를 $x+2$로 나누었을 때의 나머지를 구하는 풀이 과정과 답을 쓰시오. [$6$점, 부분점수 있음]",
+   "choices": []
+  },
+  {
+   "number": 21,
+   "answer": null,
+   "solution": "$f(x)=ax ^{2} +bx+c$라 두고(가) 조건에 의해 ${c} over {a} =-4,~- {b} over {a} =-3$ 이므로 $f(x)=a LEFT ( x ^{2} +3x-4 RIGHT )$이다.$f LEFT ( alpha  RIGHT ) +f LEFT ( beta  RIGHT ) =a LEFT ( alpha  ^{2} +3 alpha  -4 RIGHT ) +a LEFT ( beta  ^{2} +3 beta  -4 RIGHT )$        $``=a LEFT { LEFT ( alpha  + beta  RIGHT ) ^{2} +3 LEFT ( alpha  + beta  RIGHT ) -2 alpha  beta  -8 RIGHT } =28$이고, (나) 조건에서 $alpha + beta =-1,~ alpha  beta =2$이므로 $a=-2$그러므로, $f(0)=-4a=8$이다.",
+   "topic": "이차방정식의 근과 계수의 관계",
+   "difficulty": "상",
+   "score": null,
+   "label": "[서술형 $5$]",
+   "type": "서술형",
+   "stem": "[서술형 $5$] 계수가 모두 실수인 이차방정식 $f(x)=0$이 다음 조건을 만족시킨다.\n(가) 방정식 $f(x)=0`$에서 $x$의 계수를 잘못 보고 풀었더니 두 근이 $-2$와 $2$이고, 상수항을 잘못 보고 풀었더니 두 근이 $2$와 $-5$이다.\n(나) $x ^{2} +x+2=0`$의 두 근 $alpha ,~ beta `$에 대하여 $f( alpha )+f( beta )=28$\n대구광역시 내신 수학 연구회\n이때, $f(0)$의 값을 구하는 풀이 과정과 답을 쓰시오.\n[$7$점. 부분점수 있음]",
+   "choices": []
+  },
+  {
+   "number": 22,
+   "answer": null,
+   "solution": "(가) 조건에 따라 $f(x)=g(x) LEFT { g(x)-3x ^{2} RIGHT } +g(x)-3x ^{2}$에서 $g(x)$가 $n$차식이라면 $g(x)-3x ^{2}$은 $(n-1)$차 이하가 되어야 하므로 $g(x)=3x ^{2} +ax+b$라 둘 수 있다.$f(x)= LEFT ( 3x ^{2} +ax+b RIGHT ) LEFT ( ax+b RIGHT ) +ax+b$ 에서 최고차항의 계수가 $6$이라 $a=2$(나) 조건에서 $f(-1)=b ^{2} -4$와 $f(0)=b ^{2} +b$가 같으므로 $b=-4$그러므로, $f(3)=60$이다.",
+   "topic": "나머지정리와 인수정리",
+   "difficulty": "상",
+   "score": null,
+   "label": "[서술형 $6$]",
+   "type": "서술형",
+   "stem": "[서술형 $6$] 최고차항의 계수가 $6$인 다항식 $f(x)$가 다음 조건을 만족시킨다.\n(가) 다항식 $f(x)$를 다항식 $g(x)$로 나눈 몫과 나머지는 모두 $g(x)-3x ^{2}$이다.\n(나) 다항식 $f(x)$를 $x+1$로 나눈 나머지는 $f(0)$과 같다.\n대구광역시 내신 수학 연구회\n$f(3)$의 값을 구하는 풀이 과정과 답을 쓰시오.\n[$7$점, 부분점수 있음]\n  \n  \n정답\n워드:윤동혁t\n오검:권보선t \n완료:장현숙t",
+   "choices": []
+  }
+ ],
+ "meta": {
+  "exam_id": 4278,
+  "school": "구암고",
+  "grade": 1,
+  "subject": "공수1",
+  "year": 2025,
+  "semester": 1,
+  "round": "중간",
+  "src": "N:\\개인\\기출\\2025 기출모음\\2025년 1학기 중간고사 모음\\워드\\고1\\[구암고][1][공수1][25-1-중간][금성] (완료).hwp"
+ }
+}

@@ -1,0 +1,424 @@
+{
+ "source": "_경북고__1__공수2__25-2-기말대비__미래엔___완료_.hwpx",
+ "question_count": 24,
+ "questions": [
+  {
+   "number": 1,
+   "answer": "②",
+   "solution": null,
+   "topic": "집합의 뜻과 표현",
+   "difficulty": "하",
+   "score": 3.7,
+   "label": null,
+   "type": "객관식",
+   "stem": "집합 $A = left{ emptyset `,~ 4`,~ left{3right} `,~left{ 3`,~4 right} right}$에 대하여 옳은 것만을 <보기>에서 있는 대로 고른 것은? \n<보기>\nㄱ. $3 inA$ ㄴ. $EMPTYSET SUBSET A$\nㄷ. $LEFT{ EMPTYSET RIGHT} SUBSETA$ ㄹ. $LEFT{ 3`,~4 RIGHT} NOT IN A$\nㅁ. $LEFT{3 RIGHT} SUBSETA$ ㅂ. $LEFT{ EMPTYSET `,~ LEFT{3 RIGHT} RIGHT} SUBSETA$\n대구광역시 내신 수학 연구회",
+   "choices": [
+    "ㄱ, ㄹ, ㅁ",
+    "ㄴ, ㄷ, ㅂ",
+    "ㄷ, ㅁ, ㅂ",
+    "ㄱ, ㄴ, ㄹ, ㅂ",
+    "ㄴ, ㄷ, ㄹ, ㅁ"
+   ]
+  },
+  {
+   "number": 2,
+   "answer": "⑤",
+   "solution": null,
+   "topic": "충분조건과 필요조건",
+   "difficulty": "하",
+   "score": 3.9,
+   "label": null,
+   "type": "객관식",
+   "stem": "실수 $a$와 $b$에 대하여 세 조건 $p$, $q$, $r$이 $p: LEFT | a RIGHT | + LEFT | b RIGHT | =0$, $q: LEFT | a+b RIGHT | = LEFT | a-b RIGHT |$, $r:ab=0$ 일 때, 옳은 것을 <보기>에서 모두 고른 것은? \n<보기>\nㄱ. $p$는 $q$이기 위한 충분조건이다.\nㄴ. $SIM p$는 $SIM r$이기 위한 필요조건이다.\nㄷ. $SIM q$는 $SIM r$이기 위한 필요충분조건이다.\n대구광역시 내신 수학 연구회",
+   "choices": [
+    "ㄷ",
+    "ㄱ, ㄴ",
+    "ㄱ, ㄷ",
+    "ㄴ, ㄷ",
+    "ㄱ, ㄴ, ㄷ"
+   ]
+  },
+  {
+   "number": 3,
+   "answer": "②",
+   "solution": null,
+   "topic": "절대부등식",
+   "difficulty": "하",
+   "score": 3.7,
+   "label": null,
+   "type": "객관식",
+   "stem": "실수 $x`$에 대하여 $x^{ 2}+ { 25} over { x^{ 2}+1}`$일 때, $x=a`$일 때 최솟값 $m`$을 갖는다. $m+a ^{ 2}`$의 값은?",
+   "choices": [
+    "$12$",
+    "$13$",
+    "$14$",
+    "$15$",
+    "$16$"
+   ]
+  },
+  {
+   "number": 4,
+   "answer": "③",
+   "solution": null,
+   "topic": "절대부등식",
+   "difficulty": "하",
+   "score": 3.9,
+   "label": null,
+   "type": "객관식",
+   "stem": "$a>1$일 때, $2a+ {8} over {a-1}$의 최솟값을 $m$, 그 때의 $a$의 값을 $k$라고 할 때, $m-k$의 값은?",
+   "choices": [
+    "$1$",
+    "$4$",
+    "$7$",
+    "$10$",
+    "$13$"
+   ]
+  },
+  {
+   "number": 5,
+   "answer": "②",
+   "solution": null,
+   "topic": "절대부등식",
+   "difficulty": "중",
+   "score": 3.9,
+   "label": null,
+   "type": "객관식",
+   "stem": "실수 $x$와 $y$에 대하여 $2x ^{2} +y ^{2} -4x+ {25} over {x ^{2} +y ^{2} +1}$ 의 최솟값을 구하시오.",
+   "choices": [
+    "$4$",
+    "$5$",
+    "$6$",
+    "$7$",
+    "$8$"
+   ]
+  },
+  {
+   "number": 6,
+   "answer": "④",
+   "solution": null,
+   "topic": "함성함수",
+   "difficulty": "중",
+   "score": 3.9,
+   "label": null,
+   "type": "객관식",
+   "stem": "집합 $X= LEFT { 2,~3,~4,~5,~6 RIGHT }$에 대하여 $X$에서 $X$로의 세 함수 $f,~g,~h$가 다음 조건을 만족시킨다.\n(가) $f$는 항등함수, $g$는 상수함수이고 $h$는 \n 일대일대응이다.\n(나) $f(5)=g(3)=h(4),~h(5)-h(6)=h(3)$\n대구광역시 내신 수학 연구회\n$(h CIRC g)(2)$의 값은?",
+   "choices": [
+    "$3$",
+    "$4$",
+    "$5$",
+    "$6$",
+    "$7$"
+   ]
+  },
+  {
+   "number": 7,
+   "answer": "⑤",
+   "solution": null,
+   "topic": "여러 가지 함수",
+   "difficulty": "상",
+   "score": 3.9,
+   "label": null,
+   "type": "객관식",
+   "stem": "실수 $a,~b$와 집합 $X= LEFT { x`vert `0 LEQ x LEQ 5 RIGHT }$에 대하여 $X$에서 $X$로의 함수\n $f(x)= {cases{~ax ^{2} +b&~(0 LEQ x<3)#~x-3&(3 LEQ x LEQ 5)}}$\n가 일대일대응일 때, $f(2)+f(4)$의 값은? \n(단, $a<0$ 이다.)",
+   "choices": [
+    "$-2$",
+    "$- {1} over {3}$",
+    "${4} over {3}$",
+    "$3$",
+    "${14} over {3`}$"
+   ]
+  },
+  {
+   "number": 8,
+   "answer": "④",
+   "solution": null,
+   "topic": "여러 가지 함수",
+   "difficulty": "하",
+   "score": 3.7,
+   "label": null,
+   "type": "객관식",
+   "stem": "정의역이 $left{1,``2 right}$인 두 함수 $f(x)=x+a$와 $g(x)=x^2 +bx+5$에 대하여 $f=g$가 성립할 때, 상수 $a+b$의 값은?",
+   "choices": [
+    "$-2$",
+    "$-1$",
+    "$0$",
+    "$1$",
+    "$2$"
+   ]
+  },
+  {
+   "number": 9,
+   "answer": "③",
+   "solution": null,
+   "topic": "함수",
+   "difficulty": "중",
+   "score": 3.9,
+   "label": null,
+   "type": "객관식",
+   "stem": "실수 전체의 집합에서 정의된 함수\n$f LEFT ( x RIGHT ) =2 LEFT | x-1 RIGHT | +ax-6$ 이 일대일대응이 되도록 하는 자연수 $a$의 최솟값은?",
+   "choices": [
+    "$1$",
+    "$2$",
+    "$3$",
+    "$4$",
+    "$5$"
+   ]
+  },
+  {
+   "number": 10,
+   "answer": "③",
+   "solution": null,
+   "topic": "합성함수",
+   "difficulty": "상",
+   "score": 4.2,
+   "label": null,
+   "type": "객관식",
+   "stem": "함수 $f`$와 자연수 $n`$에 대하여\n$f` ^{ 2} LEFT ( x RIGHT )`=`f` LEFT ( f LEFT ( x RIGHT ) RIGHT )$, $f` ^{ 3} LEFT ( x RIGHT )`=`f` LEFT ( f ^{ 2} LEFT ( x RIGHT ) RIGHT )$, $CDOTS`$,$f` ^{ n} LEFT ( x RIGHT )`=`f` LEFT ( f ^{` n-1} LEFT ( x RIGHT ) RIGHT )$\n로 정의하자. 집합 $X`=` LEFT { 4,````5,````6` RIGHT }$에 대하여 함수 $f`:`X``` rarrow```X``$가 아래 조건을 만족한다. 함수 $f`$의 역함수를 $g`$ 라 할 때, $6g ^{ 20} LEFT ( 6 RIGHT )-g ^{ 19} LEFT ( 5 RIGHT )-\ng ^{ 18} LEFT ( 4 RIGHT )``$의 값은? \n(가) $f` LEFT ( 4 RIGHT )`=`6$\n(나) $f` ^{ 3}`=`I`` LEFT ( `I``는 ````항등함수`` RIGHT )`$이다.\n대구광역시 내신 수학 연구회",
+   "choices": [
+    "$12$",
+    "$16$",
+    "$20$",
+    "$24$",
+    "$28$"
+   ]
+  },
+  {
+   "number": 11,
+   "answer": "①",
+   "solution": null,
+   "topic": "유리식",
+   "difficulty": "하",
+   "score": 3.9,
+   "label": null,
+   "type": "객관식",
+   "stem": "${6} over {LEFT ( x-3 RIGHT ) x} + {6} over {x LEFT ( x+3 RIGHT )} + {6} over {LEFT ( x+3 RIGHT ) LEFT ( x+6 RIGHT )}$을 간단히 한 식이 ${a} over {x ^{2} +bx+c}$일 때, $a+b+c$의 값은?",
+   "choices": [
+    "$3$",
+    "$5$",
+    "$7$",
+    "$9$",
+    "$11$"
+   ]
+  },
+  {
+   "number": 12,
+   "answer": "②",
+   "solution": null,
+   "topic": "유리함수",
+   "difficulty": "하",
+   "score": 3.9,
+   "label": null,
+   "type": "객관식",
+   "stem": "평행이동하여 함수 $y= it - 1 over x `$의 그래프와 일치하도록 할 수 있는 것만을 <보기>에서 있는 대로 고른 것은?\n\n<보기>\nㄱ. $y= { 2x -1 } over x$ ㄴ. $y= { 2x +7} over { x+3 }$\nㄷ. $y= {x-3} over { x-1}$ ㄹ. $y= { -3x -7} over { x+2 }$\n대구광역시 내신 수학 연구회",
+   "choices": [
+    "ㄱ",
+    "ㄱ, ㄹ",
+    "ㄴ, ㄷ",
+    "ㄴ, ㄷ, ㄹ",
+    "ㄱ, ㄴ, ㄷ, ㄹ"
+   ]
+  },
+  {
+   "number": 13,
+   "answer": "④",
+   "solution": null,
+   "topic": "유리함수",
+   "difficulty": "중",
+   "score": 3.9,
+   "label": null,
+   "type": "객관식",
+   "stem": "함수 $f LEFT ( x RIGHT ) = {x+2} over {x-3}$의 그래프에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고른 것은? \n<보기>\nㄱ. $y=f LEFT ( x RIGHT )$의 정의역은 $LEFT { xx != 3인~실수 RIGHT }$이다.\nㄴ. $y=f LEFT ( x RIGHT )$의 그래프는 제 $3$사분면을 지나지 않는다.\nㄷ. $y=f LEFT ( x RIGHT )$의 그래프는 점 $LEFT ( 3,~-2 RIGHT )$에 대해 대칭이다.\nㄹ. $y=f LEFT ( x RIGHT )$의 그래프를 평행이동하여 $y=f ^{-1} LEFT ( x RIGHT )$의 그래프와 일치시킬 수 있다.\nㅁ. $y=f LEFT ( x RIGHT )$의 그래프와 $y=f ^{-1} LEFT ( x RIGHT )$의 그래프는 서로 다른 두 점에서 만난다.\n대구광역시 내신 수학 연구회",
+   "choices": [
+    "ㄱ, ㄷ",
+    "ㄴ, ㅁ",
+    "ㄱ, ㄴ, ㄹ",
+    "ㄱ, ㄹ, ㅁ",
+    "ㄴ, ㄷ, ㄹ"
+   ]
+  },
+  {
+   "number": 14,
+   "answer": "①",
+   "solution": null,
+   "topic": "유리함수",
+   "difficulty": "상",
+   "score": 4.2,
+   "label": null,
+   "type": "객관식",
+   "stem": "함수 $f LEFT ( x RIGHT ) = {-4x+9} over {x+3}$와 유리함수 $y=g LEFT ( x RIGHT )$가 $x != it-3$, $x != it -4$인 모든 실수 $x$에 대하여 $LEFT ( g CIRC f RIGHT ) LEFT ( x RIGHT ) =x$를 만족시킨다. $y=g LEFT ( x RIGHT )$의 그래프가 서로 다른 두 직선 $l,~m$에 대해 대칭일 때, 두 직선의 $l,~m$의 교점의 좌표가 $LEFT ( a,~b RIGHT )$이고, $g LEFT ( 5 RIGHT ) =c$이다. $abc$의 값은?",
+   "choices": [
+    "$-8$",
+    "$-4$",
+    "$0$",
+    "$4$",
+    "$8$"
+   ]
+  },
+  {
+   "number": 15,
+   "answer": "②",
+   "solution": null,
+   "topic": "유리함수",
+   "difficulty": "중",
+   "score": 3.9,
+   "label": null,
+   "type": "객관식",
+   "stem": "함수 $f(x)= 2x+b over x-a$가 다음 조건을 만족시킬 때, 상수 $a$와 $b$에 대하여 $a+b$의 값은? \n(가) $2$가 아닌 모든 실수 $x$에 대하여 $f ^{-1} LEFT ( x RIGHT ) =f LEFT ( x-4 RIGHT ) -4$이다.\n(나) 함수 $y=f LEFT ( x RIGHT )$의 그래프를 평행이동하면 함수$y= {3} over {x}$의 그래프와 일치한다.",
+   "choices": [
+    "$3$",
+    "$5$",
+    "$7$",
+    "$9$",
+    "$11$"
+   ]
+  },
+  {
+   "number": 16,
+   "answer": "②",
+   "solution": null,
+   "topic": "무리함수",
+   "difficulty": "중",
+   "score": 3.9,
+   "label": null,
+   "type": "객관식",
+   "stem": "함수 $y= sqrt {ax} LEFT ( a != 0 RIGHT )$의 그래프에 대한 설명 중 옳은 것만을 <보기>에서 있는 대로 고른 것은? \n<보기>\nㄱ. $a<0$이면 정의역 $LEFT { x` vert ` x GEQ 0 RIGHT }$이다.\nㄴ. 치역은 $LEFT { y` vert `y GEQ 0 RIGHT }$이다.\nㄷ. 그래프는 함수 $y=it- sqrt {ax}$의 그래프와 $y$축에 대하여 대칭이다.\nㄹ. 그래프는 함수 $y= it - sqrt {-ax}$의 그래프와 원점에 대하여 대칭이다.\n대구광역시 내신 수학 연구회",
+   "choices": [
+    "ㄱ, ㄷ",
+    "ㄴ, ㄹ",
+    "ㄱ, ㄴ, ㄷ",
+    "ㄴ, ㄷ, ㄹ",
+    "ㄱ, ㄴ, ㄷ, ㄹ"
+   ]
+  },
+  {
+   "number": 17,
+   "answer": "①",
+   "solution": null,
+   "topic": "무리함수",
+   "difficulty": "하",
+   "score": 3.9,
+   "label": null,
+   "type": "객관식",
+   "stem": "함수 $y= sqrt {3x}$의 그래프를 $x$축의 방향으로 $-2$만큼, $y$축의 방향으로 $1$만큼 평행이동한 그래프가 점 $LEFT ( a,~4 RIGHT )$를 지날 때, $a$의 값은? (단, $a$는 상수이다.)",
+   "choices": [
+    "$1$",
+    "$3$",
+    "$5$",
+    "$7$",
+    "$9$"
+   ]
+  },
+  {
+   "number": 18,
+   "answer": "②",
+   "solution": null,
+   "topic": "무리함수",
+   "difficulty": "중",
+   "score": 3.9,
+   "label": null,
+   "type": "객관식",
+   "stem": "함수 $f LEFT ( x RIGHT ) = sqrt {3x+6} -2$와 그 역함수 $y=f ^{-1} LEFT ( x RIGHT )$의 그래프가 만나는 두 점을 각각 $rm P$와 $RMQ$라 할 때, $bar{rm PQ it}$의 길이는?",
+   "choices": [
+    "$sqrt {5}$",
+    "$3 sqrt {2}$",
+    "$2 sqrt {5}$",
+    "$3 sqrt {3}$",
+    "$5 sqrt {2}$"
+   ]
+  },
+  {
+   "number": 19,
+   "answer": "③",
+   "solution": null,
+   "topic": "무리함수",
+   "difficulty": "중",
+   "score": 3.9,
+   "label": null,
+   "type": "객관식",
+   "stem": "함수 $y=1- sqrt {4+x}$의 그래프와 직선 $y=x+k$가 제$2$사분면에서 만나도록 하는 모든 정수 $k$의 값의 합은?",
+   "choices": [
+    "$3$",
+    "$6$",
+    "$9$",
+    "$12$",
+    "$15$"
+   ]
+  },
+  {
+   "number": 20,
+   "answer": "⑤",
+   "solution": null,
+   "topic": "무리함수",
+   "difficulty": "중",
+   "score": 3.9,
+   "label": null,
+   "type": "객관식",
+   "stem": "상수 $a,~b,~c LEFT ( a != 0 RIGHT )$에 대하여 함수 $y= sqrt {ax-b} -c$의 그래프가 그림과 같을 때, 함수 $f LEFT ( x RIGHT ) = {ax+b} over {x-c}$의 그래프에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고른 것은? \n<보기>\nㄱ. 점근선은 $x=it-1,~y=it-2$이다.\nㄴ. $y=f LEFT ( x RIGHT )$의 그래프는 두 직선 $y=x-1$, $y=it-x-3$ 각각에 대하여 대칭이다.\nㄷ. 곡선 $y= LEFT | f LEFT ( x RIGHT ) RIGHT |$는 직선 $y=2$와 한 점에서 만난다.\nㄹ. $y= LEFT | f LEFT ( x-d RIGHT ) +e RIGHT |$의 그래프가 $y$축에 대하여 대칭일 때, $d+e$의 값은 $3$이다.\n대구광역시 내신 수학 연구회",
+   "choices": [
+    "ㄱ, ㄹ",
+    "ㄴ, ㄷ",
+    "ㄱ, ㄴ, ㄷ",
+    "ㄱ, ㄴ, ㄹ",
+    "ㄱ, ㄴ, ㄷ, ㄹ"
+   ]
+  },
+  {
+   "number": 21,
+   "answer": null,
+   "solution": "정답 $4$개$A SMALLINTER X= EMPTYSET$에서 두 집합 $X$와 $A$는 서로소이고,$B CUP X=B$에서 $X SUBSET B$이다.……(가)$A= LEFT { 1,~5 RIGHT }$, $B= LEFT { 1,~3,~5,~15 RIGHT }$이므로 $X$는 집합 $B$의 부분집합 중에서 $A$와 서로소인 집합, 즉 $B-A= LEFT { 3,~15 RIGHT }$의 부분집합과 같다.……(나)따라서 조건을 만족시키는 집합 $X$는 $EMPTYSET$, $LEFT { 3 RIGHT }$, $LEFT { 15 RIGHT }$, $LEFT { 3,~15 RIGHT }$이고, 그 개수는 $4$개이다.……(다)",
+   "topic": "유한집합의 원소의 개수",
+   "difficulty": "하",
+   "score": 4.0,
+   "label": "[서술형 $1$]",
+   "type": "서술형",
+   "stem": "[서술형 $1$] 두 집합 $A= LEFT { x`|`x RIGHT .$는 $5$의 약수$rmRIGHT }$, $B= LEFT { x`|`x RIGHT .$는 $15$의 약수$rmRIGHT }$에 대하여 $A SMALLINTER X= EMPTYSET$,　$B CUP X=B$를 만족시키는 집합 $X$의 개수를 구하시오.\n(단, 풀이 과정을 자세히 쓰시오.)",
+   "choices": []
+  },
+  {
+   "number": 22,
+   "answer": null,
+   "solution": "정답 $7$주어진 함수의 그래프는 두 직선의 교점에 대해서도 대칭이다.두 직선의 방정식 $y=x+5$, $y=-x+3$을 연립하여 풀면 $x=-1$, $y=4$즉, 점 $(-1,~4)$에 대하여 대칭이므로 점근선은 두 직선 $x=-1$, $y=4$ ……(가)$f(x)= {k} over {x+1} +4`$$(k != 0$$)$  ……㉠㉠의 그래프가 점 $(2,~5)$를 지나므로$5= {k} over {2+1} +4$, $k=3$$k=3$을 ㉠에 대입하면$f(x)= {3} over {x+1} +4= {4x+7} over {x+1}$ ……(나)따라서 $f(0)=7$ ……(다)",
+   "topic": "유리함수",
+   "difficulty": "중",
+   "score": 5.0,
+   "label": "[서술형 $2$]",
+   "type": "서술형",
+   "stem": "[서술형 $2$] 함수 $f(x)= {ax+b} over {cx+d} `(ad-bc != 0,~c != 0)$의 그래프가 점 $(2,~5)$를 지나면서 직선 $y=x+5$에 대하여 대칭이고, 직선 $y=-x+3$에 대해서도 대칭이다. 이때 $f(0)$의 값을 구하시오. (단, $a$, $b$, $c$, $d$는 상수이고, 풀이 과정을 자세히 쓰시오.)",
+   "choices": []
+  },
+  {
+   "number": 23,
+   "answer": null,
+   "solution": "정답 $- sqrt {2}$$f(x)= {cases{````ax ^{2} +b&~(x GEQ 0)#`-ax ^{2} +b&~(x<0)}}$$f ^{-1} (5)=1$에서 $f(1)=5$이므로$f(1)=a+b=5$ ……㉠$f(-2)=-5$에서 $f(-2)=-4a+b=-5$ ……㉡㉠, ㉡을 연립하여 풀면 $a=2$, $b=3$따라서 $f(x)=$${cases{`````2x ^{2} +3&~(x GEQ 0)#`-2x ^{2} +3&~(x<0)}}$$(f CIRC f) ^{-1} (1)=f ^{-1} (f ^{-1} (1))=f ^{-1} (-1)$에서$f ^{-1} (-1)=k$라 하면 $f(k)=-1<0$이므로 $k<0$$f(k)=-2k ^{2} +3=-1$, $k ^{2} =2$, $k=± sqrt {2}$이때 $k<0$이므로 $k=- sqrt {2}$즉, 구하는 값은 $(f CIRC f) ^{-1} (1)=- sqrt {2}$",
+   "topic": "합성함수",
+   "difficulty": "상",
+   "score": 6.0,
+   "label": "[서술형 $3$]",
+   "type": "서술형",
+   "stem": "[서술형 $3$] 함수 $f(x)=ax LEFT | x RIGHT | +b$와 그 역함수 $f ^{-1}$에 대하여 $f ^{-1} (5)=1$, $f(-2)=-5$일 때, $(f CIRC f) ^{-1} (1)$의 값을 구하시오. (단, $a$는 상수이다.)",
+   "choices": []
+  },
+  {
+   "number": 24,
+   "answer": null,
+   "solution": "정답 $50$함수 $f$는 역함수가 존재하므로 일대일대응이다.조건 (가)에서 $x=1$, $2$, $6$일 때 $f LEFT ( f LEFT ( x RIGHT ) RIGHT ) +f ^{`-1} LEFT ( x RIGHT ) =2x$이므로(ⅰ) $x=1$일 때, $f LEFT ( f LEFT ( 1 RIGHT ) RIGHT ) +f ^{`-1} LEFT ( 1 RIGHT ) =2$이고, $f LEFT ( f LEFT ( 1 RIGHT ) RIGHT )  IN X$, $f ^{`-1} LEFT ( 1 RIGHT )  IN X$이므로$f LEFT ( f LEFT ( 1 RIGHT ) RIGHT ) =f ^{`-1} LEFT ( 1 RIGHT ) =1$ $THEREFORE$ $f LEFT ( 1 RIGHT ) =1$(ⅱ) $x=2$일 때, $f LEFT ( f LEFT ( 2 RIGHT ) RIGHT ) +f ^{`-1} LEFT ( 2 RIGHT ) =4$이고, $LEFT . f LEFT ( f LEFT ( 2 RIGHT ) RIGHT )  IN X$, $f ^{`-1} LEFT ( 2 RIGHT )  IN X$이므로$f LEFT ( f LEFT ( 2 RIGHT ) RIGHT ) =1$이면 $f LEFT ( 2 RIGHT ) =1$이므로 함수 $f$가 일대일대응인 것에 모순이다.$f ^{`-1} LEFT ( 2 RIGHT ) =1$이면 $f LEFT ( 1 RIGHT ) =2$이므로 $f LEFT ( 1 RIGHT ) =1$에 모순이다.따라서 $f LEFT ( f LEFT ( 2 RIGHT ) RIGHT ) =f ^{`-1} LEFT ( 2 RIGHT ) =2$ $THEREFORE$ $f LEFT ( 2 RIGHT ) =2$(ⅲ) $x=6$일 때, $f LEFT ( 6 RIGHT )  != 6$, $f LEFT ( f LEFT ( 6 RIGHT ) RIGHT ) +f ^{`-1} LEFT ( 6 RIGHT ) =12$이고 $f LEFT ( f LEFT ( 6 RIGHT ) RIGHT )  IN X$, $f ^{`-1} LEFT ( 6 RIGHT )  IN X$이므로$f LEFT ( f LEFT ( 6 RIGHT ) RIGHT ) =7$,$f ^{`-1} LEFT ( 6 RIGHT ) =5$ 또는 $f LEFT ( f LEFT ( 6 RIGHT ) RIGHT ) =5$,$`f ^{`-1} LEFT ( 6 RIGHT ) =7$$f LEFT ( f LEFT ( 6 RIGHT ) RIGHT ) =7$,$f ^{`-1} LEFT ( 6 RIGHT ) =5$인 경우$f LEFT ( 5 RIGHT ) =6$이고 $f LEFT ( 3 RIGHT ) +f LEFT ( 5 RIGHT ) =10$이므로 $f LEFT ( 3 RIGHT ) =4$$f LEFT ( 6 RIGHT ) =a$라 하면 $f LEFT ( a RIGHT ) =7$이므로 $a=6$ 또는 $a=7$$f LEFT ( 6 RIGHT ) !=6$이므로 $a != 6$$a=7$이면 $f LEFT ( 6 RIGHT ) =7$이고 $f LEFT ( f LEFT ( 6 RIGHT ) RIGHT ) =7$에서$f LEFT ( 7 RIGHT ) =7$이므로 함수 $f$가 일대일대응인 것에 모순이다.$f LEFT ( f LEFT ( 6 RIGHT ) RIGHT ) =5$,$f ^{`-1} LEFT ( 6 RIGHT ) =7$인 경우$f LEFT ( 7 RIGHT ) =6`$이고 $f LEFT ( 3 RIGHT ) +f LEFT ( 5 RIGHT ) =10$이므로 $f LEFT ( 3 RIGHT ) =3$, $f LEFT ( 5 RIGHT ) =7$ 또는 $f LEFT ( 3 RIGHT ) =7$, $f LEFT ( 5 RIGHT ) =3$따라서 $f LEFT ( 6 RIGHT ) =4$ 또는 $f LEFT ( 6 RIGHT ) =5$$f LEFT ( 6 RIGHT ) =5$이면 $f LEFT ( f LEFT ( 6 RIGHT ) RIGHT ) =5$에서 $f LEFT ( f LEFT ( 6 RIGHT ) RIGHT ) =f LEFT ( 5 RIGHT ) =5$이므로 함수 $f$가 일대일대응인 것에 모순이다.$f LEFT ( 6 RIGHT ) =4$이면 $f LEFT ( 4 RIGHT ) =5$이고 $f LEFT ( f LEFT ( 6 RIGHT ) RIGHT ) =f LEFT ( 4 RIGHT ) =5$이다. 이때 함수 $f$는 주어진 조건을 모두 만족한다. 따라서 $f LEFT ( 4 RIGHT ) =5$, $f LEFT ( 6 RIGHT ) =4$, $f LEFT ( 7 RIGHT ) =6$이므로$f LEFT ( 4 RIGHT ) times LEFT { f LEFT ( 6 RIGHT ) +f LEFT ( 7 RIGHT ) RIGHT } =5times LEFT ( 4+6 RIGHT ) =50$",
+   "topic": "합성함수",
+   "difficulty": "상",
+   "score": 7.0,
+   "label": "[서술형 $4$]",
+   "type": "서술형",
+   "stem": "[서술형 $4$] 집합 $X= LEFT { `1,``2,``3,``4,``5,``6,``7 RIGHT }$에 대하여 함수 $f`:X`` -> ``X`$가 역함수가 존재하고, 다음 조건을 만족시킨다. \n(가) $x=1$, $2$, $6$일 때 $LEFT ( f CIRC f RIGHT ) LEFT ( x RIGHT ) +f ^{`-1} LEFT ( x RIGHT ) =2x$이다.\n(나) $f LEFT ( 3 RIGHT ) +f LEFT ( 5 RIGHT ) =10$\n$f LEFT ( 6 RIGHT ) !=6$일 때, $f LEFT ( 4 RIGHT ) times LEFT { f LEFT ( 6 RIGHT ) +f LEFT ( 7 RIGHT ) RIGHT }$의 값을 구하시오. \n  \n  \n정답\n워드:조수정t\n오검:이준우t \n완료:t",
+   "choices": []
+  }
+ ],
+ "meta": {
+  "exam_id": 4225,
+  "school": "경북고",
+  "grade": 1,
+  "subject": "공수2",
+  "year": 2025,
+  "semester": 2,
+  "round": "기말",
+  "src": "N:\\개인\\기출\\2024 기출모음\\2024년 2학기 기말 고사 모음\\공수2\\[경북고][1][공수2][25-2-기말대비][미래엔] (완료).hwp"
+ }
+}

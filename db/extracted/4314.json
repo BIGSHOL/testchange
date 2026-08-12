@@ -1,0 +1,124 @@
+{
+ "source": "_대구국제고__1__공수2__25-2-중간대비__지학사___완료_.hwpx",
+ "question_count": 9,
+ "questions": [
+  {
+   "number": 1,
+   "answer": null,
+   "solution": "⑴ $LEFT ( x-1 RIGHT ) ^{2} + LEFT ( y-2 RIGHT ) ^{2} =5$⑵ $LEFT ( x+1 RIGHT ) ^{2} +y ^{2} =13$⑶ $x ^{2} +y ^{2} -12x-2y+1=0$⑷ $LEFT ( x-5 RIGHT ) ^{2} + LEFT ( y+5 RIGHT ) ^{2} =25$⑴ $sqrt {LEFT ( x-1 RIGHT ) ^{2} + LEFT ( y-2 RIGHT ) ^{2}} = sqrt {5}$$LEFT ( x-1 RIGHT ) ^{2} + LEFT ( y-2 RIGHT ) ^{2} =5$⑵ $bar { rm PQ}$가 지름이므로 두 점의 중점이 원의 중심이다.$LEFT ( 2-4 over 2 ,~ -2+2 over 2  RIGHT ) = (-1 ,~ 0)$중심 $LEFT ( -1`,````0 RIGHT )$이고 반지름의 길이가 ${{bar{rm PQ it}}} over {2} = {sqrt {36+16}} over {2} = sqrt {13}$인 원의 방정식은$LEFT ( x+1 RIGHT ) ^{2} +y ^{2} =13$⑶ $rmP LEFT (it x`,````y RIGHT )$로 두면$3 {bar{rmBP}} =2 {bar{rmAP}}$$5x ^{2} +5y ^{2} -60x-10y+5=0$$x ^{2} +y ^{2} -12x-2y+1=0$⑶ 중심의 좌표를 $LEFT ( a`,````b RIGHT )$로 두자.중심이 직선 $y=-x$위에 있으므로 $b=it-a$원이 $y$축에 접하므로 반지름의 길이는 $LEFT | a RIGHT |$$LEFT ( x-a RIGHT ) ^{2} + LEFT ( y-b RIGHT ) ^{2} =a ^{2}$$LEFT ( 1`,````-2 RIGHT )$를 지나고 $b=it-a$이므로원의 방정식에 대입하면 $a=1`$또는 $a=5$반지름의 길이가 $1$보다 크므로 $a=5$$LEFT ( x-5 RIGHT ) ^{2} + LEFT ( y+5 RIGHT ) ^{2} =25$",
+   "topic": "원의 방정식",
+   "difficulty": "하",
+   "score": 3.0,
+   "label": "[서답형 $1$]",
+   "type": "단답형",
+   "stem": "[서답형 $1$] 주어진 조건을 만족하는 방정식을 구하는 풀이 과정과 답을 쓰시오. [총 $16$점]\n⑴ 점 $(1,````2)$로부터 거리가 $sqrt {5}$로 일정한 점 $(x,````y)$가 그리는 도형의 방정식 \n⑵ 두 점 $rmP(2,````-2)$, $rmQ(-4,````2)$를 지름의 양 끝점을 하는 원의 방정식 [$4$점, 부분점수 있음]\n⑶ 두 점 $rmA(-3,````1)$, $rmB(2,````1)$에서 ${bar{rmAP}} `: `{bar{rmBP}} =3`:`2$를 만족시키는 점 $rmP$가 그리는 도형의 방정식\n[$4$점, 부분점수 있음]\n⑷ 다음 조건을 만족시키는 원의 방정식\n [$5$점, 부분점수 있음]\n(가) 중심이 직선 $y=it-x$위에 있다.\n(나) $y$축에 접한다.\n(다) 점 $(1,````-2)$를 지난다.\n(라) 반지름의 길이는 $1$보다 크다.\n대구광역시 내신 수학 연구회",
+   "choices": []
+  },
+  {
+   "number": 2,
+   "answer": null,
+   "solution": "$- sqrt {5} <k< sqrt {5}$원의 중심에서 직선까지의 거리를 $d$, 원의 반지름을 $r$이라 할 때, 직선과 원이 서로 다른 두 점에서 만나려면$d<r$$d= {LEFT | k RIGHT |} over {sqrt {5}}$, $r=1$${LEFT | k RIGHT |} over {sqrt {5}} <1$$- sqrt {5} <k< sqrt {5}$",
+   "topic": "원과 직선의 위치관계",
+   "difficulty": "중",
+   "score": null,
+   "label": "[서답형 $2$]",
+   "type": "단답형",
+   "stem": "[서답형 $2$] 직선 $y=it\n-2x+k$와 원 $x ^{2} +y ^{2} =1$이 서로 다른 두 점에서 만나도록 실수 $k$의 값의 범위를 구하시오. [$4$점, 부분점수 있음]",
+   "choices": []
+  },
+  {
+   "number": 3,
+   "answer": null,
+   "solution": "⑴ $y=3$, $24x-7y-75=0$⑵ $a=4$ , 접점의 좌표 $LEFT ( -3`,````0 RIGHT )$⑴ 접선의 기울기를 $m$이라 하자.접선의 방정식은 $y=m(x-4)+3$원의 중심에서 접선의 방정식까지의 거리는 원의 반지름과 같으므로원의 중심 $(0`,````0)$에서 접선의 방정식$mx-y-4m+3=0$까지의 거리는 ${LEFT | -4m+3 RIGHT |} over {sqrt {m ^{2} +1}}$반지름의 길이는 $3$이므로 ${LEFT | -4m+3 RIGHT |} over {sqrt {m ^{2} +1}} =3$$m=0`,```` {24} over {7}$$y=3$, $24x-7y-75=0$⑵ $x ^{2} +y ^{2} =25$ 위의 점 $(-3`,````4)$에서의 접선의 방정식은 $-3x+4y=25$$-3x+4y=25$를 $x$축에 대하여 대칭이동하면 $-3x-4y=25$$-3x-4y=25$를 $y$축의 방향으로 $a$만큼 평행이동하면$-3x-4y+4a=25$$-3x-4y+4a=25$이 $`x ^{2} +y ^{2} -8y-9=0$의 접선이므로 원의 중심 $(0`,````4)$에서 직선 $3x+4y+25 -4a=0$까지의 거리가 $5$이어야 한다.${ LEFT |  16+25-4a RIGHT | } over { 5} =5$, $LEFT |  41 -4a RIGHT | = 25$$41 -4a= +- 25$, $a= 4$ 또는 $a = 33 over 2$$a<5$이므로 $a=4$$-3x-4y=9$와 $`x ^{2} +y ^{2} -8y-9=0$의 교점의 좌표는두 식을 연립해서 구하면 $LEFT ( -3`,````0 RIGHT )$",
+   "topic": "원의 접선의 방정식",
+   "difficulty": "중",
+   "score": null,
+   "label": "[서답형 $3$]",
+   "type": "단답형",
+   "stem": "[서답형 $3$] 다음 물음에 답하시오. [총 $12$점]\n⑴ 점 $(4,````3)$에서 원 $x ^{2} +y ^{2} =9$에 그은 두 접선의 방정식을 구하는 풀이 과정과 답을 쓰시오.\n [$5$점, 부분점수 있음]\n⑵ 원 $C _{1} :x ^{2} +y ^{2} =25$ 위의 점 $(-3,````4)$에서의 접선을 $x$축에 대하여 대칭이동한 다음 $y$축의 방향으로 $a$만큼 평행이동하였더니 원 $C _{2} :`x ^{2} +y ^{2} -8y-9=0$의 접선이 되었다. 이때 실수 $a$의 값과 원 $C _{2}$의 접점의 좌표를 구하는 풀이 과정과 답을 쓰시오. (단, $a<5$)\n [$7$점, 부분점수 있음]",
+   "choices": []
+  },
+  {
+   "number": 4,
+   "answer": null,
+   "solution": "⑴$sqrt { 10}$ ⑵ $rmA LEFT ( 0,```` {5} over {3} RIGHT ) ``$, $rmB LEFT ( {5} over {4} `,```` {5} over {4} RIGHT )$⑶ $sqrt {10} -3$⑴ 점 $rmC(1,````2)$를 $y=x$에 대칭하면 $rmC`` prime (2`,````1)$$y$축에 대칭하면 $rmC`` '' (-1`,````2)$$rm{bar{AB}} + {bar{BC}} + {bar{CA}} = {bar{AB}} + {bar{BC`` prime }} + {bar{AC`` '' }} GEQ  {bar{C`` prime `C`` '' }}$${bar{rmC` prime C`` '' }} = sqrt {10}$⑵ $LEFT ( -1,````2 RIGHT ) `,```` LEFT ( 2`,````1 RIGHT )$을 지나는 직선의 방정식은 $x+3y=5$점 $rmA$는 $x+3y=5$의 $y$절편이므로 $LEFT ( 0,```` {5} over {3} RIGHT ) ``$점 $rmB$는 $x+3y=5$과 $y=x$의 교점이므로 $LEFT ( {5} over {4} `,```` {5} over {4} RIGHT )$⑶ 두 점 $rmA,````B$을 지나는 직선의 방정식은 $x+3y=5$$x+3y=5$위의 점 $rmP$와 $x ^{2} +y ^{2} -6x-8y+16=0$ 위의 점 $rmQ$에서 $bar { rmPQ}$의 길이가 최소일 때는 원의 중심에서 직선까지의 거리에서 원의 반지름을 뺀 경우이므로${LEFT | 10 RIGHT |} over {sqrt {10}} -3= sqrt {10} -3$",
+   "topic": "점과 직선에 대한 대칭이동",
+   "difficulty": "중",
+   "score": null,
+   "label": "[서답형 $4$]",
+   "type": "단답형",
+   "stem": "[서답형 $4$] 세 점 $rmA(0,````ita)$, $rmB(itb,````b)$, $rmC(1,````2)$를 꼭짓점으로 하는 삼각형 $rmABC$에 대하여 다음 물음에 답하시오. (단, $a>0$, $b>0$) [총 $12$점]\n⑴ 삼각형 $rmABC$의 둘레 길이의 최솟값을 구하는 풀이 과정과 답을 쓰시오. [$4$점, 부분점수 있음]\n⑵ 삼각형 $rmABC$의 둘레의 길이가 최소일 때, 두 점 $rmA$, $rm B$의 좌표를 구하는 풀이 과정과 답을 쓰시오.\n [$4$점, 부분점수 있음]\n⑶ ⑵에서 구한 두 점 $rmA$, $rm B$를 지나는 직선 위의 점 $rmP$와 원 $x ^{2} +y ^{2} -6x-8y+16=0$ 위의 점 $rmQ$가 있다. 선분 $rmPQ$의 길이의 최솟값을 구하는 풀이 과정과 답을 쓰시오. [$4$점, 부분점수 있음]",
+   "choices": []
+  },
+  {
+   "number": 5,
+   "answer": null,
+   "solution": "풀이참조⑴ $LEFT ( A CUP B RIGHT )  SMALLINTER C$$cap$$=$⑵ $LEFT (  A-B RIGHT ) -C$$-$$=$⑶ $A-(B-C)$$-$$=$⑷ $A SMALLINTER (C-B) ^{C} = A - (C-B)$$-$$=$⑸ $(  A ^{C}  SMALLINTER B)-(A CUP C) ^{C}= (  A ^{C}  SMALLINTER B) CAP (A CUP C)$$CAP$$=$",
+   "topic": "집합 사시의 포함관계, 집합의 연산",
+   "difficulty": "하",
+   "score": 2.0,
+   "label": "[서답형 $5$]",
+   "type": "단답형",
+   "stem": "[서답형 $5$] 전체집합 $U$의 세 부분집합 $A,~B,~C`$에 대한 연산 결과를 벤다이어그램에 색칠하여 나타내시오. [총$12$점]\n⑴ $LEFT ( A CUP B RIGHT ) SMALLINTER C$ \n⑵ $LEFT ( A-B RIGHT ) -C$ \n⑶ $A-(B-C)$ \n⑷ $A SMALLINTER (C-B) ^{C}$ \n⑸ $( A ^{C} SMALLINTER B)-(A CUP C) ^{C}$",
+   "choices": []
+  },
+  {
+   "number": 6,
+   "answer": null,
+   "solution": "최댓값 $13$, 최솟값 $5$$n LEFT ( A CUP B RIGHT ) = it n LEFT (  A-B RIGHT ) + it n LEFT (  B-A RIGHT ) + it n LEFT (  A SMALLINTER B RIGHT ) = 7+5+IT  x = 12+x$전체집합의 원소는 $20$개이므로 $n LEFT (  A CUP B RIGHT )  leq 20$$12+x leq 20,~x leq 8$ $n(B) leq 8+5=13$최댓값은 $13$최솟값은 교집합이 최소이어야 하므로$n( rm B) geq 0+5=5$최솟값은 $5$",
+   "topic": "유한집합의 원소의 개수",
+   "difficulty": "중",
+   "score": null,
+   "label": "[서답형 $6$]",
+   "type": "단답형",
+   "stem": "[서답형 $6$] 전체집합 $U$의 두 부분집합 $A,~B`$에 대하여 $n( U)=20$, $n LEFT ( A-B RIGHT ) =7$, $n LEFT ( B-A RIGHT ) =5$일 때, $n( B)$의 최솟값과 최댓값을 구하는 풀이 과정과 답을 쓰시오.\n[$8$점, 부분점수 있음]",
+   "choices": []
+  },
+  {
+   "number": 7,
+   "answer": null,
+   "solution": "풀이 참조⑴ $( P CAP Q ) CUP (Q- R) = EMPTYSET$에서 $P CAP Q = EMPTYSET$, $Q-R = EMPTYSET$따라서 $P$와 $Q$는 서로소인 집합이고, $Q- R = EMPTYSET$이므로 $Q subset R$$P CAP R = P$ 이므로 $P subset R$⑵ 명제참/거짓$p ``->`` q$$P nsubset Q$이므로 거짓$SIM q ``-> ``p$$Q^C nsubset P$이므로 거짓$q ``->`` r$$Q subset R$이므로 참$sim p ``-> ``sim r$$sim p`` ->`` sim r$의 대우인 $r ``->`` p$가 거짓이므로 거짓 ($BECAUSE$ $R nsubset P$)",
+   "topic": "집합 사이의 포함관계, 명제의 참, 거짓",
+   "difficulty": "중",
+   "score": null,
+   "label": "[서답형 $7$]",
+   "type": "단답형",
+   "stem": "[서답형 $7$] 전체집합 $rm U$에 대하여 세 조건 $p$, $q$, $r$의 진리집합을 각각 $P$, $Q$, $R$이라 할 때, $(P SMALLINTER Q) CUP (Q-R)= EMPTYSET$, $P SMALLINTER R=P$를 만족한다. 다음 물음에 답하시오. [총 $14$점]\n⑴ 진리집합 $P$, $Q$, $R$ 사이의 포함관계를 벤 다이어그램으로 나타내시오. [$6$점, 부분점수 있음]\n⑵ 명제의 참, 거짓을 판별하시오. [$8$점, 각 $2$점]명제\n참/거짓\n$p ``rarrow ``q$\n$SIM q ``rarrow ``p$\n$q ``rarrow ``r$\n$SIM p`` rarrow `` SIM r$",
+   "choices": []
+  },
+  {
+   "number": 8,
+   "answer": null,
+   "solution": "⑴ $q `:` x(x-1)<0$ ⑵ $alpha leq -1$ 또는 $alpha geq 2$⑴ $p `:` -1 < x <2$에서 $q`` RARROW ``p$가 성립하려면 $Q SUBSET P$이므로 $q : 0<x<1$일 때 성립한다. 따라서 $q `:` x(x-1)<0$⑵ $r`:` x != alpha$인 모든 실수에서$p`` RARROW``r$이 성립하려면 $P SUBSET R$이므로 $-1<x<2$ 에 $alpha$가 포함되지 않아야 한다. 따라서 $alpha leq -1$ 또는 $alpha geq 2$",
+   "topic": "필요조건과 충분조건",
+   "difficulty": "중",
+   "score": null,
+   "label": "[서답형 $8$]",
+   "type": "단답형",
+   "stem": "[서답형 $8$] 실수 $x$에 대한 세 조건 $p,~q,~r$이 다음과 같을 때, 물음에 답하시오. [총 $12$점]\n $p`:`(x+1)(x-2)<0$\n $q`:` {BOX{~~~~~~~~~~~~~~~~~~}}$\n $r`:`(x- alpha ) ^{2} >0$ (단, $alpha$는 실수)\n대구광역시 내신 수학 연구회\n⑴ $q$는 $p$이기 위한 충분조건이지만 필요조건은 아닐 때, $q$로 가능한 조건을 하나만 제시하고, 그 이유를 설명하시오. [$6$점, 부분점수 있음]\n⑵ $r$이 $p$이기 위한 필요조건이 되도록 실수 $alpha$의 범위를 구하는 풀이과정과 답을 쓰시오. \n[$6$점, 부분점수 있음]",
+   "choices": []
+  },
+  {
+   "number": 9,
+   "answer": null,
+   "solution": "⑴ 풀이참조 ⑵ $m=20$, $alpha= {7} over {2}$⑴ $rm BAR DO = 1 OVER 2 BAR AB = {it {a+b} over 2$$TRIANGLE  rm ADC `∾ ` TRIANGLE DBC$이므로 $RM {BAR CD }^2 = BAR AC TIMES BAR CB$, $RM BAR CD = SQRT {it ab}$직각삼각형 $rm DOC$에서 빗변인 선분 $rm DO$는 항상 선분 $rm  DC$보다 크거나 같다.즉, ${a+b} over 2  geq sqrt{ab}$가 성립한다.    (단, 등호는 $a=b$일 때 성립)⑵ $4x+ {9} over {x-2} =4(x-2)+ {9} over {x-2} +8$  $GEQ 2 sqrt {4(x-2) TIMES  {9} over {x-2}} +8=2 sqrt {36} +8=20$이므로 최솟값은 $20$$THEREFORE$ $m=20$등호는 $4(x-2) = 9 over {x-2}$일 때 성립하므로 $x = 7over 2 ~ (x>0)$$THEREFORE$ $alpha =  7 over 2$",
+   "topic": "절대부등식",
+   "difficulty": "중",
+   "score": null,
+   "label": "[서답형 $9$]",
+   "type": "단답형",
+   "stem": "[서답형 $9$] 다음 물음에 답하시오. [총 $10$점]\n⑴ 그림과 같이 중심이 $rm O$이고 $bar {rmAB}$를 지름으로 하는 반원에서 $bar{rmAC it }=a$, $bar{rmBC it }=b$, $bar{rmOB}$ 위의 한 점 $rm C$를 지나고 $bar{rmOB}$에 수직인 직선이 호 $rm AB$와 만나는 교점을 $rm D$라 하자.부등식 ${a+b}over2 GEQ sqrtab$가 성립함을 $bar{rmDO}$와 $bar{rmDC}$의 길이를 이용하여 증명하시오. (단, $a>0,~b>0,~a GEQb$이다.)\n [$6$점, 부분점수 있음]\n \n⑵ $x>2$인 실수 $x$에 대하여 $4x+{9}over{x-2}$는 $x=alpha$일 때, 최솟값 $m$을 갖는다. $alpha$와 $m$의 값을 구하는 풀이 과정과 답을 쓰시오. [$4$점, 부분점수 있음]\n  \n  \n정답\n워드:이영지t\n오검:심청솔t \n완료:장우혁t",
+   "choices": []
+  }
+ ],
+ "meta": {
+  "exam_id": 4314,
+  "school": "대구국제고",
+  "grade": 1,
+  "subject": "공수2",
+  "year": 2025,
+  "semester": 2,
+  "round": "중간",
+  "src": "N:\\개인\\기출\\2024 기출모음\\2024년 2학기 중간 고사 모음\\#워드\\고1\\[대구국제고][1][공수2][25-2-중간대비][지학사] (완료).hwp"
+ }
+}

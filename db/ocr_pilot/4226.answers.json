@@ -1,0 +1,55 @@
+{
+  "exam_id": 4226,
+  "answer_pages": [7, 8],
+  "items": [
+    {"number": 1, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 2, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 3, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 4, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 5, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 6, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 7, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 8, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 9, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 10, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 11, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 12, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 13, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 14, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 15, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 16, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 17, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 18, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 19, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 20, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 21, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {
+      "number": 22,
+      "answer": "$y=\\frac{4}{3}x+\\frac{13}{6}$",
+      "solution": "두 원의 중심인 점 $(-1,~5)$과 점 $(3,~2)$은 직선 $l$에 대하여 대칭이므로 직선 $l$은 두 원의 중심을 이은 선분의 수직이등분선이다.\n두 점 $(-1,~5)$, $(3,~2)$을 지나는 직선의 기울기는\n$\\frac{5-2}{-1-3}=-\\frac{3}{4}$\n이므로 직선 $l$의 기울기는 $\\frac{4}{3}$이다. 또, 두 원의 중심의 중점은\n$\\left(\\frac{-1+3}{2},~\\frac{5+2}{2}\\right)=\\left(1,~\\frac{7}{2}\\right)$\n따라서 직선 $l$은 기울기가 $\\frac{4}{3}$이고 $\\left(1,~\\frac{7}{2}\\right)$를 지나므로\n$y=\\frac{4}{3}x+\\frac{13}{6}$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 23,
+      "answer": "$33$",
+      "solution": "양수 $m$, $n$에 대해 두 원과 접하는 직선 $y=mx+n$은 아래 그림과 같이 그려진다.\n두 원의 반지름의 길이가 각각 $3$, $4$이므로 $\\triangle\\mathrm{ABC}$와 $\\triangle\\mathrm{ADE}$는 닮음이고, 닮음비는 $3:4$이다.\n$\\overline{\\mathrm{AC}}:\\overline{\\mathrm{AE}}=3:4$, $\\overline{\\mathrm{AC}}:\\overline{\\mathrm{CE}}=3:1$이고, $\\overline{\\mathrm{AE}}=\\overline{\\mathrm{AC}}+\\overline{\\mathrm{CE}}$이므로 $\\overline{\\mathrm{CE}}=2$, $\\overline{\\mathrm{AC}}=6$이다. 이때, $\\mathrm{A}$점의 $y$좌표가 $11$이 되고, 주어진 직선 $y=mx+n$에서 $n=11$이다.\n$\\triangle\\mathrm{ABC}$에서 피타고라스 정리에 의해\n$\\overline{\\mathrm{AC}}^{2}=\\overline{\\mathrm{AB}}^{2}+\\overline{\\mathrm{BC}}^{2}$, $\\overline{\\mathrm{AB}}^{2}=\\overline{\\mathrm{AC}}^{2}-\\overline{\\mathrm{BC}}^{2}=6^{2}-3^{2}=27$\n$\\overline{\\mathrm{AB}}=3\\sqrt{3}$\n이때, $\\angle\\mathrm{ACB}=\\theta$라 하면, 주어진 직선 $y=mx+n$의 기울기 $m=\\tan\\theta=\\frac{3\\sqrt{3}}{3}=\\sqrt{3}$이다.\n점 $\\mathrm{A}(0,~11)$을 지나므로 직선의 방정식은 $y=\\sqrt{3}x+11$\n$\\sqrt{3}\\,mn=\\sqrt{3}\\cdot\\sqrt{3}\\cdot 11=33$\n[다른풀이] 직선 $y=mx+n$에서 위의 풀이 중 닮음을 이용해 $n=11$임을 알 수 있다. 또한, $y=mx+11$과 $\\mathrm{C}(0,~5)$까지의 거리가 $3$인 것을 이용해 $m$을 구할 수 있다. 점과 직선 사이의 거리 공식에 의해 $\\frac{6}{\\sqrt{m^{2}+1}}=3$이고, $m^{2}=3$이므로 양의 실수 $m=\\sqrt{3}$이다.",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 24,
+      "answer": "$\\left(\\frac{5}{2},~-\\frac{5}{2}\\right)$",
+      "solution": "점 $\\mathrm{A}(4,~-3)$을 직선 $y=-x$에 대칭이동한 점을 $\\mathrm{C}$라 하면 $\\mathrm{C}(3,~-4)$다. $\\overline{\\mathrm{PA}}+\\overline{\\mathrm{PB}}$가 최소가 되도록 하는 점 $\\mathrm{P}$는 $\\overline{\\mathrm{BC}}$와 $y=-x$의 교점이므로 직선 $\\mathrm{BC}$의 방정식은\n$y+1=\\frac{-1-(-4)}{2-3}(x-2)$\n$\\therefore y=-3x+5$\n따라서 점 $\\mathrm{P}$의 좌표는 두 직선 $y=-3x+5$, $y=-x$의 교점이므로 $\\left(\\frac{5}{2},~-\\frac{5}{2}\\right)$이다.",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 25,
+      "answer": "$y=\\sqrt{3}x-\\sqrt{3}$",
+      "solution": "$\\triangle\\mathrm{BOC}$는 $\\angle\\mathrm{BCO}=60^\\circ$인 직각삼각형이므로 $\\overline{\\mathrm{CB}}=2$이고, $\\overline{\\mathrm{CD}}=2$이다. $\\triangle\\mathrm{CFD}$도 $\\angle\\mathrm{FCD}=60^\\circ$인 직각삼각형이므로 $\\overline{\\mathrm{CF}}$의 기울기는 $\\tan 60^\\circ=\\sqrt{3}$이다.\n따라서 직선 $\\mathrm{CF}$의 방정식은 $y=\\sqrt{3}x-\\sqrt{3}$",
+      "topic": "",
+      "difficulty": ""
+    }
+  ]
+}

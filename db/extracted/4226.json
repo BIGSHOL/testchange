@@ -1,0 +1,442 @@
+{
+ "source": "_경북고__1__공수2__25-2-중간대비__미래엔__완료_.hwpx",
+ "question_count": 25,
+ "questions": [
+  {
+   "number": 1,
+   "answer": "④",
+   "solution": "[경북고][1][수하][24-2-중간] 1번",
+   "topic": "유한집합의 원소의 개수",
+   "difficulty": "하",
+   "score": 3.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "집합 $A`=` LEFT {` x`` vert``x는 ````20`이하의````소수`` RIGHT }`$에 대하여 $n` LEFT (` A` RIGHT )`$의 값은?",
+   "choices": [
+    "$5$",
+    "$6$",
+    "$7$",
+    "$8$",
+    "$9$"
+   ]
+  },
+  {
+   "number": 2,
+   "answer": "③",
+   "solution": "[경북고][1][수하][24-2-중간] 2번",
+   "topic": "집합의 뜻과 표현",
+   "difficulty": "하",
+   "score": 3.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "실수 $x`$에 대한 조건\n$‘``x ^{ 2}-7x-8=0``’$\n의 진리집합은?",
+   "choices": [
+    "$LEFT { -8,````-1 RIGHT }$",
+    "$LEFT { -8,````1 RIGHT }$",
+    "$LEFT { -1,````8 RIGHT }$",
+    "$LEFT { 1,````8 RIGHT }$",
+    "$LEFT { -8,````-1,````1,````8` RIGHT }$"
+   ]
+  },
+  {
+   "number": 3,
+   "answer": "④",
+   "solution": "[경북고][1][수하][24-2-중간] 3번",
+   "topic": "집합의 뜻과 표현",
+   "difficulty": "하",
+   "score": 3.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "집합 $A`=` LEFT { 1,````2,```` LEFT { 3 RIGHT } RIGHT }$에 대하여 옳지 않은 것은?",
+   "choices": [
+    "$1`IN`A$",
+    "$LEFT { 3 RIGHT } `IN`A$",
+    "$LEFT { 1 RIGHT }` SUBSET`A$",
+    "$LEFT { 3 RIGHT }` SUBSET`A$",
+    "$LEFT { 1,````2 RIGHT }` SUBSET`A$"
+   ]
+  },
+  {
+   "number": 4,
+   "answer": "⑤",
+   "solution": "[경북고][1][수하][24-2-중간] 4번",
+   "topic": "집합의 연산법칙",
+   "difficulty": "하",
+   "score": 3.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "전체집합 $U`=` LEFT { x` vert`x는 ````12이하의````자연수` RIGHT }$의 세 부분집합 $A`=` LEFT {` x`` vert``x는 ```` 3의 ````배수 RIGHT }`$, $B`=` LEFT {` x`` vert``x는 ```` 12의 ````약수 RIGHT }`$, $C`=` LEFT {` x`` vert``x는 ```` 소수 RIGHT }`$에 대하여 $n` LEFT ( LEFT ( A` ^{ C} -`B RIGHT )` ^{ C}`` CUP`C` RIGHT )$의 값은?",
+   "choices": [
+    "$6$",
+    "$7$",
+    "$8$",
+    "$9$",
+    "$10$"
+   ]
+  },
+  {
+   "number": 5,
+   "answer": "②",
+   "solution": "[경북고][1][수하][24-2-중간] 6번",
+   "topic": "절대부등식",
+   "difficulty": "하",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "실수 $x`$에 대하여 $x^{ 2}+ { 25} over { x^{ 2}+1}`$일 때, $x=a`$일 때 최솟값 $m`$을 갖는다. $m+a ^{ 2}`$의 값은?",
+   "choices": [
+    "$12$",
+    "$13$",
+    "$14$",
+    "$15$",
+    "$16$"
+   ]
+  },
+  {
+   "number": 6,
+   "answer": "①",
+   "solution": "[경북고][1][수하][24-2-중간] 8번",
+   "topic": "유한집합의 원소의 개수",
+   "difficulty": "중",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "다음 조건을 만족시키는 집합 $A`$의 개수는? \n(가) $LEFT { 0 RIGHT }` SUBSET`A` SUBSET` LEFT { x`` vert``x는````정수` RIGHT }$\n(나) ${ a ^{ 2} } over {2 }-2` NOTIN`A``$이면 $a` NOTIN`A`$이다.\n(다) $n` LEFT ( A`RIGHT )`=`3$\n대구광역시 내신 수학 연구회",
+   "choices": [
+    "$1$",
+    "$2$",
+    "$3$",
+    "$4$",
+    "$5$"
+   ]
+  },
+  {
+   "number": 7,
+   "answer": "①",
+   "solution": "[경북고][1][수하][24-2-중간] 9번",
+   "topic": "충분조건과 필요조건",
+   "difficulty": "중",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "두 실수 $x,````y`$에 대하여 네 조건 $p,````q,````r,````s`$가 다음과 같다.\n$p`:`x ^{ 2}`+`xy`+`y ^{ 2}` !=`0$\n$q`:`x ^{ 3}` !=`y ^{ 3}$\n$r`:`x` ^{ 2}-5x-14` LEQ`0$\n$s`:` LEFT | x`-`2`RIGHT |`<`k$\n옳은 것만을 <보기>에서 있는 대로 고른 것은? \n< 보 기 >\nㄱ. $q`$는 $p`$이기 위한 필요조건이다.\nㄴ. 명제‘어떤 $x`$에 대하여 $r`$이다.는 참이다.\nㄷ. $r`$가 $s`$이기 위한 충분조건이 되도록 하는 자연수 $k`$ 의 최솟값은 $5`$이다.",
+   "choices": [
+    "ㄴ",
+    "ㄷ",
+    "ㄱ, ㄴ",
+    "ㄱ, ㄷ",
+    "ㄱ, ㄴ, ㄷ"
+   ]
+  },
+  {
+   "number": 8,
+   "answer": "②",
+   "solution": "[경북고][1][수하][24-2-중간] 10번",
+   "topic": "유한집합의 원소의 개수",
+   "difficulty": "중",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "집합 $A`=` LEFT {` x`` vert``x는 ```` 90의 ````약수 RIGHT }`$, $B`=` LEFT {` x`` vert``x는 ```` 18의 ````약수 RIGHT }`$, $C`=` LEFT {` x`` vert``x는 ```` 30의 ````배수 RIGHT }`$에 대하여 $X` SMALLINTER`A`=X$, $X` SMALLINTER`B`=B`$, $X` SMALLINTER`C`= EMPTYSET`$을 만족하는 집합 $X`$의 개수는?",
+   "choices": [
+    "$8$",
+    "$16$",
+    "$32$",
+    "$64$",
+    "$128$"
+   ]
+  },
+  {
+   "number": 9,
+   "answer": "⑤",
+   "solution": "[경북고][1][수상][24-1-기말] 1번",
+   "topic": "선분의 내분점과 외분점",
+   "difficulty": "하",
+   "score": 3.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "수직선 위의 두 점 $rmA` LEFT ( -2 RIGHT )$, $rmB` LEFT ( 8 RIGHT )$에 대하여 선분 $rmAB`$를 $2`:`3`$로 내분하는 점의 좌표를 $a`$, 선분 $rmAB`$를 $2`:`3`$으로 외분하는 점의 좌표를 $b`$라고 할 때, $a-b`$의 값은?",
+   "choices": [
+    "$16$",
+    "$18$",
+    "$20$",
+    "$22$",
+    "$24$"
+   ]
+  },
+  {
+   "number": 10,
+   "answer": "③",
+   "solution": "[경북고][1][수상][24-1-기말] 3번",
+   "topic": "평행이동",
+   "difficulty": "하",
+   "score": 3.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "직선 $3x+y+1=0`$을 $x`$축의 방향으로 $1`$만큼, $y`$축의 방향으로 $-2`$만큼 평행이동한 도형의 방정식은?",
+   "choices": [
+    "$3x+y-2=0$",
+    "$3x+y-1=0$",
+    "$3x+y=0$",
+    "$3x+y+1=0$",
+    "$3x+y+2=0$"
+   ]
+  },
+  {
+   "number": 11,
+   "answer": "④",
+   "solution": "[경북고][1][수상][24-1-기말] 4번",
+   "topic": "점과 직선사이의 거리",
+   "difficulty": "하",
+   "score": 3.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "$rmbarAB`=`10$, $rmbarBC`=`12$, $rmbarCA`=`4$ 인 삼각형 $rmABC`$에서 변 $rmBC`$의 중점을 $rmM`$이라 할 때, $rmbarAM`$의 길이는?",
+   "choices": [
+    "$4$",
+    "$3sqrt { 2}$",
+    "$2sqrt { 5}$",
+    "$sqrt { 22}$",
+    "$2sqrt { 6}$"
+   ]
+  },
+  {
+   "number": 12,
+   "answer": "②",
+   "solution": "[경북고][1][수상][24-1-기말] 5번",
+   "topic": "원의 방정식",
+   "difficulty": "중",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "두 상수 $a,````b`$에 대하여 이차함수 $y=x ^{ 2}+ax-1`$의 그래프의 꼭짓점을 $rmA`$, 원 $x^{ 2}+y ^{ 2}-6x+by+64=0`$의 중심을 $rmB`$라 하자. 두 점 $rmA,````B`$의 중점의 좌표가 $LEFT ( 1,````3 RIGHT )$일 때, $a+b`$의 값은?",
+   "choices": [
+    "$-16$",
+    "$-14$",
+    "$-12$",
+    "$-10$",
+    "$-8$"
+   ]
+  },
+  {
+   "number": 13,
+   "answer": "①",
+   "solution": "[경북고][1][수상][24-1-기말] 6번",
+   "topic": "두 직선의 위치 관계",
+   "difficulty": "하",
+   "score": 3.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "두 직선 $x+ LEFT ( 2a-5 RIGHT )y+2=0$, $ax-2y+4=0``$이 서로 평행일 때의 $a`$의 값은? (단, $a`$는 실수이다.)",
+   "choices": [
+    "${ 1} over {2 }$",
+    "$1$",
+    "${ 3} over {2 }$",
+    "$2$",
+    "${ 5} over {2 }$"
+   ]
+  },
+  {
+   "number": 14,
+   "answer": "④",
+   "solution": "[경북고][1][수상][24-1-기말] 9번",
+   "topic": "두 직선의 위치 관계",
+   "difficulty": "중",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "세 직선 $x+2y=3$, $2x-y=1$, $3x+ay=2`$ 가 삼각형을 이루지 않도록 하는 모든 상수 $a`$의 값의 곱은?",
+   "choices": [
+    "$3$",
+    "$5$",
+    "$7$",
+    "$9$",
+    "$11$"
+   ]
+  },
+  {
+   "number": 15,
+   "answer": "⑤",
+   "solution": "[경북고][1][수상][24-1-기말] 10번",
+   "topic": "원과 직선의 위치관계",
+   "difficulty": "중",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "두 양의 상수 $a,````r`$에 대하여 원 $C``:``x ^{ 2}+ LEFT ( y-a RIGHT )^{ 2}`=`r^{ 2}`$이 있다. 직선 $l`:`y=2x-2`$를 직선 $y=`x`$에 대칭이동한 직선을 $l`prime`$라 하면 두 직선 $`l,````l`prime`$은 모두 원 $C``$에 접한다. $r``$의 값은?",
+   "choices": [
+    "${ 2 sqrt { 5} } over {5 }$",
+    "${ 3 sqrt { 5} } over {5 }$",
+    "${ 4 sqrt { 5} } over {5 }$",
+    "$sqrt { 5}$",
+    "${ 6 sqrt { 5} } over {5 }$"
+   ]
+  },
+  {
+   "number": 16,
+   "answer": "③",
+   "solution": "[경북고][1][수상][24-1-기말] 11번",
+   "topic": "두 직선의 위치 관계",
+   "difficulty": "중",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "두 직선 $x-3y+5=0$, $2x+y-4=0``$과 $x`$축, $y`$축으로 둘러싸인 도형의 넓이가 $y=mx`$에 의해 이등분될 때의 $m`$ 의 값을 ${ q} over {p }`$라 하자. 이 때 $p+q`$의 값은? (단, $p,````q`$는 서로소인 자연수이다.)",
+   "choices": [
+    "$61$",
+    "$63$",
+    "$65$",
+    "$67$",
+    "$69$"
+   ]
+  },
+  {
+   "number": 17,
+   "answer": "④",
+   "solution": "[정화여고][1][수상][24-1-기말] 15번",
+   "topic": "원의 접선의 방정식",
+   "difficulty": "중",
+   "score": 4.7,
+   "label": null,
+   "type": "객관식",
+   "stem": "원 $x^2 +y^2 =4$ 위를 움직이는 점 $(x,~y)$에 대하여 ${ y-5} over { x-3}$ 의 값이 최대와 최소가 될 때의 점을 각각 $rmB,~C$라 하자. 점 $rmA(3,~5)$에 대하여 삼각형 $rmABC$의 넓이를 ${ q} over { p}sqrt30$이라 할 때, $p+q$의 값은? (단, $p$와 $q$는 서로소인 자연수이다.)",
+   "choices": [
+    "$32$",
+    "$37$",
+    "$42$",
+    "$47$",
+    "$52$"
+   ]
+  },
+  {
+   "number": 18,
+   "answer": "④",
+   "solution": "[오성고][1][수상][23-1-기말] 10번",
+   "topic": "원과 직선의 위치 관계",
+   "difficulty": "중",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "원 $x^2 +y^2 =2$ 위를 움직이는 점 $rmA$와 임의의 점에서 원 $x^2 +y^2 =2$에 그은 접선 위를 움직이는 서로 다른 두 점 $rmB,~C$를 꼭짓점으로 하는 삼각형 $rmABC$를 만들 때, 정삼각형이 되는 삼각형 $rmABC$의 넓이의 최댓값은? (단, 점 $rmB$와 점 $rmC$는 한 직선 위에 있다.)",
+   "choices": [
+    "$5sqrt3 }over3$",
+    "$2sqrt3$",
+    "$7sqrt3 }over3$",
+    "$8sqrt3} over3$",
+    "$3sqrt3$"
+   ]
+  },
+  {
+   "number": 19,
+   "answer": "②",
+   "solution": "[오성고][1][수하][23-2-중간] 9번",
+   "topic": "유한집합의 원소의 개수",
+   "difficulty": "하",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "두 집합 $A= LEFT {1,~2,~3,~5,~8,~13 RIGHT }$, $B= LEFT { 2,~5,~8 RIGHT }$일 때, $n LEFT ( X SMALLINTER B RIGHT )=2$인 $A$의 부분집합 $X$의 개수는?",
+   "choices": [
+    "$22$",
+    "$24$",
+    "$26$",
+    "$28$",
+    "$30$"
+   ]
+  },
+  {
+   "number": 20,
+   "answer": "⑤",
+   "solution": "[오성고][1][수하][23-2-중간] 15번",
+   "topic": "유한집합의 원소의 개수",
+   "difficulty": "중",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "두 자연수 $m$, $n$에 대하여 $m$의 양의 배수의 집합을 $A_{m}$, $n$의 양의 약수의 집합을 $B_{n}$이라 하자. $A_{p} subset LEFT ( A_{6} SMALLINTERA_{8} RIGHT )$를 만족시키는 자연수 $p$의 최솟값과 $B_{q} subset LEFT ( B_{18} SMALLINTER B_{27} RIGHT )$를 만족시키는 자연수 $q$의 최댓값의 합은?",
+   "choices": [
+    "$25$",
+    "$27$",
+    "$29$",
+    "$31$",
+    "$33$"
+   ]
+  },
+  {
+   "number": 21,
+   "answer": "③",
+   "solution": "[오성고][1][수상][23-1-기말] 15번",
+   "topic": "점과 직선 사이의 거리",
+   "difficulty": "상",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "삼각형 $rmABC$의 세 변 $rmAB,~BC,~CA$의 중점을 $rmP(2,~2)$, $rmQ(it a,~b)$, $rmR (6,~-2)$이고, 삼각형 $rmABC$의 무게중심을 $rmG$라고 하자. 이때 직선 $rmAQ$와 직선 $rmPR$는 서로 수직이고 점 $rmG$에서 직선 $rmPR$까지의 거리가 $6sqrt2$일 때, <보기>에서 옳은 것만을 있는 대로 고른 것은? (단, 점 $rmG$는 제 $1$사분면 위에 있고, $x$좌표가 $y$좌표보다 크다.) \n< 보 기 >\nㄱ. $a+b =40$\nㄴ. $rmG(9,~5)$\nㄷ. $rmbarAP = 4sqrt41$",
+   "choices": [
+    "ㄱ",
+    "ㄷ",
+    "ㄱ, ㄷ",
+    "ㄴ, ㄷ",
+    "ㄱ, ㄴ, ㄷ"
+   ]
+  },
+  {
+   "number": 22,
+   "answer": "$y= { 4} over { 3}x+ { 13} over { 6}$",
+   "solution": "정답 $y= { 4} over { 3}x+ { 13} over { 6}$  [오성고][1][수하][23-2-중간] 서술3풀이)두 원의 중심인 점$LEFT ( -1,~5 RIGHT )$과 점$LEFT ( 3,~2 RIGHT )$은 직선 $l$에 대하여 대칭이므로 직선$l$은 두 원의 중심을 이은 선분의 수직이등분선이다. 두 점 $LEFT ( -1,~5 RIGHT )$, $LEFT ( 3,~2 RIGHT )$을 지나는 직선의 기울기는 ${5-2 } over { -1-3}=- { 3} over { 4}$ 이므로 직선 $l$의 기울기는 ${ 4} over { 3}$이다. 또, 두 원의 중심의 중점은  $LEFT ( { -1+3} over { 2}, ~ { 5+2} over {2 } RIGHT )= LEFT ( 1,~ { 7} over { 2} RIGHT )$따라서 직선 $l$은 기울기가 ${ 4} over { 3}$이고 $LEFT ( 1,~ { 7} over {2 } RIGHT )$를 지나므로 $y= { 4} over { 3}x+ { 13} over { 6}$",
+   "topic": "원과 직선의 위치 관계",
+   "difficulty": "하",
+   "score": 5.0,
+   "label": "[서술형 $1$]",
+   "type": "서술형",
+   "stem": "[서술형 $1$] 두 원 $LEFT ( x+1 RIGHT )^{2}+ LEFT ( y-5 RIGHT )^{2}=4$, $LEFT ( x-3 RIGHT )^{2}+ LEFT ( y-2 RIGHT )^{2}=4$이 직선 $l$에 대하여 서로 대칭이다. 직선 $l$의 방정식을 구하는 풀이 과정과 답을 쓰시오.",
+   "choices": []
+  },
+  {
+   "number": 23,
+   "answer": "$33$",
+   "solution": "정답 $33$   [오성고][1][수상][23-1-기말] 서술6풀이) 양수 $m,~n$에 대해 두 원과 접하는 직선 $y=mx+n$은 아래 그림과 같이 그려진다. 두 원의 반지름의 길이가 각각 $3,~4$이므로 $triangle rmABC$와 $triangle rm ADE$는 닮음이고, 닮음비는 $3:4$이다.  $rm {bar{AC}} `: {bar{AE}} = 3:4$, ${bar{rm AC}} :` {bar{rm CE}} =3:1$이고, $rm {bar{AE}}={bar{AC}} + {bar{CE}}$이므로  $rm {bar{CE}}=2$, $rmbar AC = 6$이다. 이때, $rm A$점의 $y$좌표가 $11$이 되고, 주어진 직선 $y=mx+n$에서 $n=11$이다.$triangle rmABC$에서 피타고라스 정리에 의해${bar{rm AC it}} ^{2} rm = {bar{AB}} ^{2} + {bar{BC}} ^{2}$, ${bar{rm AB}} ^{2} = rm {bar{AC}} ^{2} - {bar{BC}} ^{2} =6 ^{2} -3 ^{2} =27$$rmbarAB = 3sqrt3$이때, $angle rm ACB = theta$라 하면, 주어진 직선 $y=mx+n$의 기울기 $m=tan` theta  = {3 sqrt {3}} over {3}=sqrt3$이다.점 $rmA(0,~11)$을 지나므로 직선의 방정식은 $y=sqrt3 x +11$$sqrt3 m n = sqrt3 ⋅sqrt3 ⋅11=33$다른풀이)직선 $y=mx+n$에서 위의 풀이 중 닮음을 이용해 $n=11$ 임을 알 수 있다. 또한, $y=mx+11$과 $rm C LEFT ( 0,~5 RIGHT )$까지의 거리가 $3$인 것을 이용해 $m$을 구할 수 있다.점과 직선 사이의 거리 공식에 의해 ${6} over {sqrt {m ^{2} +1}} =3$이고, $m ^{2} =3$이므로 양의 실수 $m= sqrt {3}$이다.",
+   "topic": "원의 접선의 방정식",
+   "difficulty": "중",
+   "score": 7.0,
+   "label": "[서술형 $2$]",
+   "type": "서술형",
+   "stem": "[서술형 $2$] 직선 $y=mx+n$이 두 원\n$x^2 +(y-5)^2 =9$, $x ^{2} +(y-3) ^{2}=16$\n에 동시에 접할 때, 두 양의 실수 $m,~n$에 대하여 $sqrt3 mn$의 값을 구하는 풀이 과정과 답을 쓰시오.",
+   "choices": []
+  },
+  {
+   "number": 24,
+   "answer": null,
+   "solution": "정답 $LEFT ( { 5} over {2 }, ~- { 5} over { 2} RIGHT )$  [오성고][1][수하][23-2-중간] 서술7풀이)점 $rm A LEFT ( 4,~-3 RIGHT )$을 직선 $y=-x$에 대칭이동한 점을 $rm C$라 하면 $RM C LEFT ( 3,~-4 RIGHT )$다. $RM BAR{PA} +BAR{PB}$가 최소가 되도록 하는 점 $RMP$는 $BAR{RM BC}$와 $y=-x$의 교점이므로 직선 $rm BC$의 방정식은 $y+1= { -1- LEFT ( -4 RIGHT ) } over { 2-3} LEFT ( x-2 RIGHT )$ $therefore ~$$y=-3x+5$따라서 점 $rm P$의 좌표는 두 직선 $y=-3x+5$, $y=-x$의 교점이므로 $LEFT ( { 5} over {2 }, ~- { 5} over { 2} RIGHT )$이다.",
+   "topic": "점과 직선에 대한 대칭이동",
+   "difficulty": "중",
+   "score": 6.0,
+   "label": "[서술형 $3$]",
+   "type": "서술형",
+   "stem": "[서술형 $3$] 두 점 $rm A LEFT ( 4,~-3 RIGHT )$, $RM B LEFT ( 2,~-1 RIGHT )$와 직선 $y=-x$위를 움직이는 점 $rm P$에 대하여 $RM BAR{PA} +BAR{PB}$가 최소가 되도록 하는 점 $RM P$의 좌표를 구하는 풀이 과정과 답을 쓰시오.",
+   "choices": []
+  },
+  {
+   "number": 25,
+   "answer": "$y= sqrt3 x -sqrt3$",
+   "solution": "정답 $y= sqrt3 x -sqrt3$  [오성고][1][수상][23-1-기말] 서술7풀이) $triangle rmBOC$는 $angle rmBCO = 60°$인 직각삼각형이므로 $rmbar CB = 2$이고, $rmbarCD =2$이다. $rm triangleCFD$도 $angle rmFCD = 60°$인 직각삼각형이므로 $rmbarCF$의 기울기는 $tan`60°= sqrt {3}$이다.따라서 직선 $rm CF$의 방정식은 $y=sqrt3 x -sqrt3$",
+   "topic": "점과 직선사이의 거리",
+   "difficulty": "중",
+   "score": 6.0,
+   "label": "[서술형 $4$]",
+   "type": "서술형",
+   "stem": "[서술형 $4$] 그림과 같이 한 변의 길이가 $2$인 정육각형 $rmABCDEF$가 좌표평면 위에 놓여 있다고 하자. 이때 직선 $rmCF$의 방정식을 구하는 풀이 과정과 답을 쓰시오. \n  \n  \n정답\n워드:박기원t\n오검:강동희t \n완료:장세완t",
+   "choices": []
+  }
+ ],
+ "meta": {
+  "exam_id": 4226,
+  "school": "경북고",
+  "grade": 1,
+  "subject": "공수2",
+  "year": 2025,
+  "semester": 2,
+  "round": "중간",
+  "src": "N:\\개인\\기출\\2024 기출모음\\2024년 2학기 중간 고사 모음\\#워드\\고1\\[경북고][1][공수2][25-2-중간대비][미래엔](완료).hwp"
+ }
+}

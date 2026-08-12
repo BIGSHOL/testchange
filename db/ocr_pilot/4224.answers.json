@@ -1,0 +1,103 @@
+{
+  "exam_id": 4224,
+  "answer_pages": [7, 8],
+  "items": [
+    {"number": 1, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 2, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 3, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 4, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 5, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 6, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 7, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 8, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 9, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 10, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 11, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 12, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {
+      "number": 13,
+      "answer": "⑤",
+      "solution": "ㄱ. $A=\\begin{pmatrix} 0 & 0 \\\\ 1 & 0 \\end{pmatrix}$, $B=\\begin{pmatrix} 1 & 0 \\\\ 1 & 1 \\end{pmatrix}$이면 $AB=\\begin{pmatrix} 0 & 0 \\\\ 1 & 0 \\end{pmatrix}\\begin{pmatrix} 1 & 0 \\\\ 1 & 1 \\end{pmatrix}=\\begin{pmatrix} 0 & 0 \\\\ 1 & 0 \\end{pmatrix}=A$이지만 $B \\neq E$이다. (거짓)\nㄴ. $(ABA)^{2}=(ABA)(ABA)=ABA^{2}BA=ABEBA=AB^{2}A=AEA=A^{2}=E$ (참)\nㄷ. $A+E=(B+E)^{2}$이므로 $A+E=B^{2}+2B+E$, 즉 $A=B^{2}+2B$\n$AB=(B^{2}+2B)B=B^{3}+2B^{2}$, $BA=B(B^{2}+2B)=B^{3}+2B^{2}$이므로 $AB=BA$ (참)\n따라서 옳은 것은 ㄴ, ㄷ이다.",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 14,
+      "answer": "②",
+      "solution": "ㄱ. $A \\ast O=(A-O)(A+O)=A^{2}$\n이때 $A=\\begin{pmatrix} 0 & 0 \\\\ 1 & 0 \\end{pmatrix}$이면 $A^{2}=O$이지만 $A \\neq O$이다. (거짓)\nㄴ. $A \\ast B=A \\ast (-B)$이면 $(A-B)(A+B)=(A+B)(A-B)$이므로\n$A^{2}+AB-BA-B^{2}=A^{2}-AB+BA-B^{2}$\n$2AB=2BA$, 즉 $AB=BA$\n$(AB)^{2}=A(BA)B=A(AB)B=A^{2}B^{2}$ (참)\nㄷ. $A \\ast E=E$이므로 $(A-E)(A+E)=E$\n$A^{2}-E=E$, 즉 $A^{2}=2E$\n$A^{6}=(A^{2})^{3}=(2E)^{3}=2^{3}E=8E$ (거짓)\n따라서 옳은 것은 ㄴ이다.",
+      "topic": "",
+      "difficulty": ""
+    },
+    {"number": 15, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {
+      "number": 16,
+      "answer": "$f(-5)=35$",
+      "solution": "이차함수 $f(x)$의 이차항의 계수를 $a$라 하면 (가)에 의해\n$f(x)=a(x+4)(x-2)=a(x^{2}+2x-8)=a(x+1)^{2}-9a$\n(나)에서 $4 \\leq x \\leq 6$일 때, $f(x)$의 최솟값은 양수이므로 이차함수 $y=f(x)$의 그래프는 아래쪽 그림의 실선 부분이다.\n(그림: 아래로 볼록한 포물선 $y=f(x)$, $x$절편은 $-4$와 $2$, 축은 $x=-1$, 구간 $4 \\leq x \\leq 6$ 부분이 실선으로 강조되어 있다.)\n$4 \\leq x \\leq 6$일 때, $f(x)$는 $x=4$에서 최소이므로 $f(4)=80$\n즉, $16a=80$, $a=5$\n따라서 $f(x)=5x^{2}+10x-40$, $f(-5)=35$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 17,
+      "answer": "$0$",
+      "solution": "$\\omega$는 $x^{3}-1=0$의 근이므로 $\\omega^{3}=1$,\n$x^{3}-1=(x-1)(x^{2}+x+1)=0$\n$\\omega$는 $x^{2}+x+1=0$의 근이므로 $\\omega^{2}+\\omega+1=0$\n$\\omega$의 켤레복소수 $\\bar{\\omega}$도 $x^{2}+x+1=0$의 근이므로 $\\bar{\\omega}^{2}+\\bar{\\omega}+1=0$\n근과 계수의 관계에 의해 $\\omega+\\bar{\\omega}=-1$, $\\omega\\bar{\\omega}=1$\n$\\omega^{100}+\\frac{1}{\\omega^{100}}+\\frac{1}{1-\\omega}+\\frac{1}{1-\\bar{\\omega}}=\\omega+\\frac{1}{\\omega}+\\frac{1-\\bar{\\omega}+1-\\omega}{(1-\\omega)(1-\\bar{\\omega})}$\n$=\\frac{\\omega^{2}+1}{\\omega}+\\frac{2-(\\omega+\\bar{\\omega})}{1-(\\omega+\\bar{\\omega})+\\omega\\bar{\\omega}}=\\frac{-\\omega}{\\omega}+\\frac{2-(-1)}{1-(-1)+1}=-1+\\frac{3}{3}=0$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 18,
+      "answer": "$1<x<3$",
+      "solution": "$x$가 삼각형의 변의 길이를 나타내므로 $x>0$ ……㉠\n세 실수 $x$, $x+1$, $x+2$가 삼각형의 세변의 길이가 되려면 $x+(x+1)>x+2$, $x>1$ ……㉡\n이 삼각형이 둔각삼각형이 되도록 하려면\n$x^{2}+(x+1)^{2}<(x+2)^{2}$\n$x^{2}+x^{2}+2x+1<x^{2}+4x+4$\n$x^{2}-2x-3=(x-3)(x+1)<0$\n$-1<x<3$ ……㉢\n㉠, ㉡, ㉢에 공통부분은 $1<x<3$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 19,
+      "answer": "$108$",
+      "solution": "$ab+c$의 값이 홀수가 되는 경우는 $ab$는 짝수이고 $c$는 홀수인 경우와 $ab$는 홀수이고 $c$는 짝수이다.\n(ⅰ) $ab$는 짝수이고 $c$는 홀수인 경우\n$(a,~b,~c)$가 (짝수, 짝수, 홀수)인 경우의 수 $3 \\times 3 \\times 3=27$\n$(a,~b,~c)$가 (짝수, 홀수, 홀수)인 경우의 수 $3 \\times 3 \\times 3=27$\n$(a,~b,~c)$가 (홀수, 짝수, 홀수)인 경우의 수 $3 \\times 3 \\times 3=27$\n(ⅱ) $ab$는 홀수이고 $c$는 짝수인 경우\n$(a,~b,~c)$가 (홀수, 홀수, 짝수)인 경우의 수 $3 \\times 3 \\times 3=27$\n(ⅰ), (ⅱ)에 의해 $27 \\times 4=108$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 20,
+      "answer": "$4280$",
+      "solution": "천의 자리가 2인 경우의 수 : ${}_{4}\\mathrm{P}_{3}=24$\n천의 자리가 4이고 백의 자리가 0인 경우의 수 : ${}_{3}\\mathrm{P}_{2}=6$\n$4206$, $4208$, $4260$, $4268$, $4280$, $\\cdots$\n35째 수는 $4280$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 21,
+      "answer": "(1) $12$ (2) $48$",
+      "solution": "(1) 아버지와 어머니가 앞좌석에 앉는 경우 : $2 \\times 1=2$\n나머지 가족 3명이 뒷좌석에 앉는 경우의 수 : $3 \\times 2 \\times 1=6$\n따라서 $2 \\times 6=12$\n(2) 아버지와 어머니 중에서 한 사람은 운전석에 앉는 경우의 수 : ${}_{2}\\mathrm{C}_{1}=2$\n나머지 가족 4명이 운전석이 아닌 4개의 좌석에 앉는 경우의 수 : $4 \\times 3 \\times 2 \\times 1=24$\n따라서 $2 \\times 24=48$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 22,
+      "answer": "$200$",
+      "solution": "삼각형이 되려면 점 12개 중에서 점 3개를 택해야 하므로\n${}_{12}\\mathrm{C}_{3}=\\frac{12 \\times 11 \\times 10}{3 \\times 2 \\times 1}=220$\n한 직선 위에 점 3개가 있는 경우에는 삼각형이 되지 않으므로\n(ⅰ) 한 직선 위의 점 4개 중에서 점 3개를 택하는 경우의 수는 $3 \\times {}_{4}\\mathrm{C}_{3}=12$\n(그림: 점 4개가 놓인 가로줄 3개)\n(ⅱ) 한 직선 위의 점 3개 중에서 점 3개를 택하는 경우의 수는 $8 \\times {}_{3}\\mathrm{C}_{3}=8$\n(그림: 점 3개가 놓인 세로줄과 대각선 8개)\n따라서 구하는 삼각형의 개수는 $220-(12+8)=200$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 23,
+      "answer": "(1) $AB=\\begin{pmatrix} 13800 & 12000 \\\\ 14500 & 12000 \\end{pmatrix}$ (2) 성훈이는 편의점 P에서 사야 비용이 더 적게 들고, 미주는 두 편의점 P와 Q에서 사는 비용이 같다.",
+      "solution": "(1) [표 1]과 [표 2]를 각각 행렬 $A$와 $B$로 나타내면\n$A=\\begin{pmatrix} 3000 & 1200 \\\\ 3500 & 1000 \\end{pmatrix}$, $B=\\begin{pmatrix} 3 & 2 \\\\ 4 & 5 \\end{pmatrix}$\n성훈이와 미주가 두 편의점 P와 Q에 지불해야 할 금액을 행렬로 나타내면\n$AB=\\begin{pmatrix} 3000 & 1200 \\\\ 3500 & 1000 \\end{pmatrix}\\begin{pmatrix} 3 & 2 \\\\ 4 & 5 \\end{pmatrix}=\\begin{pmatrix} 13800 & 12000 \\\\ 14500 & 12000 \\end{pmatrix}$\n(2) 성훈이는 편의점 P에서 구입해야 비용이 더 적게 들고, 미주는 두 편의점 P와 Q에서 구입하는 비용이 같다.",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 24,
+      "answer": "$n=15$",
+      "solution": "$A^{2}=AA=\\begin{pmatrix} 1 & 2 \\\\ 0 & 1 \\end{pmatrix}\\begin{pmatrix} 1 & 2 \\\\ 0 & 1 \\end{pmatrix}=\\begin{pmatrix} 1 & 4 \\\\ 0 & 1 \\end{pmatrix}$\n$A^{3}=A^{2}A=\\begin{pmatrix} 1 & 4 \\\\ 0 & 1 \\end{pmatrix}\\begin{pmatrix} 1 & 2 \\\\ 0 & 1 \\end{pmatrix}=\\begin{pmatrix} 1 & 6 \\\\ 0 & 1 \\end{pmatrix}$\n$A^{4}=A^{3}A=\\begin{pmatrix} 1 & 6 \\\\ 0 & 1 \\end{pmatrix}\\begin{pmatrix} 1 & 2 \\\\ 0 & 1 \\end{pmatrix}=\\begin{pmatrix} 1 & 8 \\\\ 0 & 1 \\end{pmatrix}$\n$\\vdots$\n$A^{n}=\\begin{pmatrix} 1 & 2n \\\\ 0 & 1 \\end{pmatrix}$이므로 $A^{15}=\\begin{pmatrix} 1 & 2 \\times 15 \\\\ 0 & 1 \\end{pmatrix}=\\begin{pmatrix} 1 & 30 \\\\ 0 & 1 \\end{pmatrix}$\n따라서 자연수 $n=15$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 25,
+      "answer": "$2$",
+      "solution": "$f(A,~B)=AB-BA=\\begin{pmatrix} -1 & 2 \\\\ -3 & 1 \\end{pmatrix}$\n$f(A+B,~A-B)=(A+B)(A-B)-(A-B)(A+B)$\n$=A^{2}-AB+BA-B^{2}-(A^{2}+AB-BA-B^{2})$\n$=-2AB+2BA=-2(AB-BA)=-2\\begin{pmatrix} -1 & 2 \\\\ -3 & 1 \\end{pmatrix}=\\begin{pmatrix} 2 & -4 \\\\ 6 & -2 \\end{pmatrix}$\n따라서 $f(A+B,~A-B)$의 모든 성분의 합은 $2+(-4)+6+(-2)=2$",
+      "topic": "",
+      "difficulty": ""
+    }
+  ]
+}

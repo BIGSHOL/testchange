@@ -1,0 +1,48 @@
+{
+  "exam_id": 4237,
+  "answer_pages": [7],
+  "items": [
+    {"number": 1, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 2, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 3, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 4, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 5, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 6, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 7, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 8, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 9, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 10, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 11, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 12, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 13, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 14, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 15, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 16, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 17, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 18, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 19, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 20, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 21, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {
+      "number": 22,
+      "answer": "$24$",
+      "solution": "$f(x)=\\left(\\frac{\\sqrt{6}+\\sqrt{2}}{4}+\\frac{\\sqrt{6}-\\sqrt{2}}{4}i\\right)^{x}$라 할 때,\n$f(2)=\\frac{\\sqrt{3}+i}{2}$, $f(4)=\\frac{1+\\sqrt{3}i}{2}$, $f(8)=\\frac{-1+\\sqrt{3}i}{2}$\n이므로\n$f(4) \\times f(8)=f(12)=\\frac{1+\\sqrt{3}i}{2} \\times \\frac{-1+\\sqrt{3}i}{2}=-1$이다.\n$\\{f(12)^{2}\\}=f(24)=1$이므로 $f(x)$가 $1$이 되게 하는 가장 작은 값은 $24$이다.",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 23,
+      "answer": "$-\\frac{9}{4}$",
+      "solution": "$f(1)=f(2)=f(3)=2$, $f(4)=1$, $f(5)=0$이므로\n$h(1)+h(2)+h(3)+h(4)+h(5)$\n$=7+g(1)+g(2)+g(3)+g(4)+g(5)$이므로\n직선 $y=-x+k-2$와 $y=x^{2}+4x+n$가 만날 수 있는 점은 3개 이다. 기울기가 음수인 직선이기 때문에\n$y=x^{2}+4x+1$과는 두 점에서 만나고, $y=x^{2}+4x+2$와는 한 점에서 접해야 한다. 따라서\n$-x+k-2=x^{2}+4x+2$\n$x^{2}+5x+4-k=0$\n$D=25-4(4-k)=0$, $k=-\\frac{9}{4}$이다.",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 24,
+      "answer": "$-4$",
+      "solution": "$f(x)=x^{2}+2ax=(x+a)^{2}-a^{2}$ 범위를 나누어서 $a$의 값을 구한다. $M$은 최댓값, $m$은 최솟값이라 하면\nⅰ) $-a \\geq 4$ 일 때,\n$0 \\leq x \\leq 4$에서 $M=f(0)=0$, $m=f(4)$\n$16+8a=-7$, $a=-\\frac{23}{8}$이므로 성립하지 않는다.\nⅱ) $-a \\leq 0$일 때, $m=f(0)=0$이고 $M=f(4)=16+8a$\n이므로 $a=-\\frac{9}{8}$이므로 성립하지 않는다.\nⅲ) $2 \\leq -a < 4$, 즉 $-4 < a \\leq -2$ 일 때,\n$M=f(0)=0$이고, $m=f(-a)=-a^{2}$이므로\n$a^{2}=7$, $a=\\pm\\sqrt{7}$이므로 $a=-\\sqrt{7}$ ($-4<a \\leq -2$)\nⅳ) $0 < -a < 2$, 즉 $-2 < a < 0$\n$M=f(4)=16+8a$, $m=f(-a)=-a^{2}$ 이므로\n$16+8a+a^{2}=7$이므로 $a=-4+\\sqrt{7}$ ($-2<a<0$)\n그러므로 $a$의 값의 합은 $-\\sqrt{7}-4+\\sqrt{7}=-4$이다.",
+      "topic": "",
+      "difficulty": ""
+    }
+  ]
+}

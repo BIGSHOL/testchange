@@ -1,0 +1,503 @@
+{
+ "exam_id": 4220,
+ "tag": "[경명여고][1][공수1][25-2-기말]",
+ "count": 20,
+ "questions": [
+  {
+   "number": 1,
+   "type": "객관식",
+   "score": 3.9,
+   "stem": "부등식 |x+2|<3을 만족하는 정수 x의 개수는?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "4개"
+    },
+    {
+     "number": 2,
+     "text": "5개"
+    },
+    {
+     "number": 3,
+     "text": "6개"
+    },
+    {
+     "number": 4,
+     "text": "7개"
+    },
+    {
+     "number": 5,
+     "text": "8개"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 2,
+   "type": "객관식",
+   "score": 4.0,
+   "stem": "연립부등식 \\begin{cases} 2x-2 > x-3 \\\\ 3x-2 \\leq 4 \\end{cases} 의 모든 정수해의 합은?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "1"
+    },
+    {
+     "number": 2,
+     "text": "2"
+    },
+    {
+     "number": 3,
+     "text": "3"
+    },
+    {
+     "number": 4,
+     "text": "4"
+    },
+    {
+     "number": 5,
+     "text": "5"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 3,
+   "type": "객관식",
+   "score": 4.1,
+   "stem": "지면에서 수직으로 던진 공의 x초 후의 높이가 y\\mathrm{m}가 y=-5x^{2}+20x일 때, 공을 던진 후 공의 높이의 최댓값은?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "5\\mathrm{m}"
+    },
+    {
+     "number": 2,
+     "text": "10\\mathrm{m}"
+    },
+    {
+     "number": 3,
+     "text": "15\\mathrm{m}"
+    },
+    {
+     "number": 4,
+     "text": "20\\mathrm{m}"
+    },
+    {
+     "number": 5,
+     "text": "25\\mathrm{m}"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 4,
+   "type": "객관식",
+   "score": 3.9,
+   "stem": "어떤 남학생이 서로 다른 화분 A, B, C를 갖고 있다. 3개의 화분 중에서 2개를 택하여 창틀에 일렬로 나열하는 경우의 수는?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "3"
+    },
+    {
+     "number": 2,
+     "text": "4"
+    },
+    {
+     "number": 3,
+     "text": "5"
+    },
+    {
+     "number": 4,
+     "text": "6"
+    },
+    {
+     "number": 5,
+     "text": "7"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 5,
+   "type": "객관식",
+   "score": 4.0,
+   "stem": "\\begin{pmatrix} -1 & 3 \\\\ 1 & 2 \\end{pmatrix}+2\\begin{pmatrix} 1 & 1 \\\\ 0 & -1 \\end{pmatrix} 을 계산한 값은?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "\\begin{pmatrix} 1 & 5 \\\\ 1 & 0 \\end{pmatrix}"
+    },
+    {
+     "number": 2,
+     "text": "\\begin{pmatrix} -2 & 0 \\\\ 1 & 3 \\end{pmatrix}"
+    },
+    {
+     "number": 3,
+     "text": "\\begin{pmatrix} 2 & -2 \\\\ -4 & 6 \\end{pmatrix}"
+    },
+    {
+     "number": 4,
+     "text": "\\begin{pmatrix} 4 & 0 \\\\ -4 & 7 \\end{pmatrix}"
+    },
+    {
+     "number": 5,
+     "text": "\\begin{pmatrix} 4 & 0 \\\\ 1 & 9 \\end{pmatrix}"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 6,
+   "type": "객관식",
+   "score": 4.0,
+   "stem": "행렬 A의 (i,~j) 성분 a_{ij}가 a_{ij}=2i^{2}-j로 정의될 때, 행렬 A를 구한 것은? (단, i=1,~2,~3, j=1,~2)",
+   "choices": [
+    {
+     "number": 1,
+     "text": "\\begin{pmatrix} 6 & 5 & 10 \\\\ 12 & 4 & 7 \\end{pmatrix}"
+    },
+    {
+     "number": 2,
+     "text": "\\begin{pmatrix} 1 & 7 & 17 \\\\ 0 & 6 & 16 \\end{pmatrix}"
+    },
+    {
+     "number": 3,
+     "text": "\\begin{pmatrix} 6 & 5 & 10 \\\\ 0 & 6 & 16 \\end{pmatrix}"
+    },
+    {
+     "number": 4,
+     "text": "\\begin{pmatrix} 6 & 12 \\\\ 5 & 4 \\\\ 10 & 7 \\end{pmatrix}"
+    },
+    {
+     "number": 5,
+     "text": "\\begin{pmatrix} 1 & 0 \\\\ 7 & 6 \\\\ 17 & 16 \\end{pmatrix}"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 7,
+   "type": "객관식",
+   "score": 4.1,
+   "stem": "이차부등식 x^{2}+ax+b<0의 해가 -1<x<2일 때, 상수 a, b에 대하여 ab의 값은?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "-2"
+    },
+    {
+     "number": 2,
+     "text": "-1"
+    },
+    {
+     "number": 3,
+     "text": "0"
+    },
+    {
+     "number": 4,
+     "text": "1"
+    },
+    {
+     "number": 5,
+     "text": "2"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 8,
+   "type": "객관식",
+   "score": 4.2,
+   "stem": "삼차방정식은 3x^{3}-7x^{2}+4x-4=0의 한 허근을 \\alpha라고 할 때, -6\\alpha^{2}+2\\alpha+3의 값은?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "5"
+    },
+    {
+     "number": 2,
+     "text": "6"
+    },
+    {
+     "number": 3,
+     "text": "7"
+    },
+    {
+     "number": 4,
+     "text": "8"
+    },
+    {
+     "number": 5,
+     "text": "9"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 9,
+   "type": "객관식",
+   "score": 4.1,
+   "stem": "A, B, C, D, E 5명이 다음 그림과 같이 한 줄에 3개의 의자가 있고 모두 2줄로 된 6인용 가상 현실 체험 기구에 탑승하려고 한다. A와 B가 서로 이웃하지 않게 앉는 방법의 수는? [그림] 6인용 좌석 배치도. 가로로 3칸으로 나뉜 직사각형(한 줄에 의자 3개)이 위아래로 두 줄 나란히 그려져 있다. 총 2줄 × 3자리 = 6개의 빈 칸이며 칸 안에 글자나 기호는 없다.",
+   "choices": [
+    {
+     "number": 1,
+     "text": "192"
+    },
+    {
+     "number": 2,
+     "text": "264"
+    },
+    {
+     "number": 3,
+     "text": "360"
+    },
+    {
+     "number": 4,
+     "text": "528"
+    },
+    {
+     "number": 5,
+     "text": "720"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 10,
+   "type": "객관식",
+   "score": 4.1,
+   "stem": "1부터 20까지의 자연수 중에서 서로 다른 세 수를 택할 때, 세 수의 합이 짝수가 되는 경우의 수는?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "120"
+    },
+    {
+     "number": 2,
+     "text": "450"
+    },
+    {
+     "number": 3,
+     "text": "570"
+    },
+    {
+     "number": 4,
+     "text": "690"
+    },
+    {
+     "number": 5,
+     "text": "1020"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 11,
+   "type": "객관식",
+   "score": 4.2,
+   "stem": "모든 실수 x에 대하여 이차부등식 x^{2}+2ax+a+6>0이 항상 성립하도록 하는 정수 a의 값의 합은? (단, a는 상수)",
+   "choices": [
+    {
+     "number": 1,
+     "text": "-2"
+    },
+    {
+     "number": 2,
+     "text": "-1"
+    },
+    {
+     "number": 3,
+     "text": "0"
+    },
+    {
+     "number": 4,
+     "text": "1"
+    },
+    {
+     "number": 5,
+     "text": "2"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 12,
+   "type": "객관식",
+   "score": 4.3,
+   "stem": "두 이차함수 y=f(x), y=g(x)의 그래프가 그림과 같을 때, 부등식 f(x)g(x)>0의 정수해의 합은? [그림] 좌표평면에 두 이차함수의 그래프가 그려져 있다. x축 눈금은 -3, -1, 0, 2, 4가 표시되어 있다. y=f(x)는 아래로 볼록한(∪ 모양) 포물선으로 x축과 x=-1, x=4에서 만나고 꼭짓점(최솟값)은 x=1.5 부근 x축 아래에 있으며, 그래프 왼쪽 위 가지에 y=f(x) 라벨이 붙어 있다. y=g(x)는 위로 볼록한(∩ 모양) 포물선으로 x축과 x=-3, x=2에서 만나고 꼭짓점(최댓값)은 y축 바로 왼쪽(x=-0.5 부근) x축 위에 있으며, 그래프 왼쪽 아래 가지에 y=g(x) 라벨이 붙어 있다. 두 그래프는 제2사분면 부근에서 서로 교차한다.",
+   "choices": [
+    {
+     "number": 1,
+     "text": "-2"
+    },
+    {
+     "number": 2,
+     "text": "-1"
+    },
+    {
+     "number": 3,
+     "text": "0"
+    },
+    {
+     "number": 4,
+     "text": "1"
+    },
+    {
+     "number": 5,
+     "text": "2"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 13,
+   "type": "객관식",
+   "score": 4.3,
+   "stem": "연립부등식 \\begin{cases} 3x^{2}-4x-4 \\geq 0 \\\\ x^{2}-(a+1)x-a-2 < 0 \\end{cases} 을 만족시키는 정수 x가 오직 한 개가 되도록 하는 정수 a의 값의 합은?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "-5"
+    },
+    {
+     "number": 2,
+     "text": "-4"
+    },
+    {
+     "number": 3,
+     "text": "-3"
+    },
+    {
+     "number": 4,
+     "text": "-2"
+    },
+    {
+     "number": 5,
+     "text": "-1"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 14,
+   "type": "객관식",
+   "score": 4.2,
+   "stem": "\\begin{pmatrix} 3a+2 & b+2c \\\\ 7 & 5 \\end{pmatrix}=\\begin{pmatrix} -1 & 1 \\\\ 2b-c & 5 \\end{pmatrix} 성립하도록 하는 상수 a, b, c에 대하여 a+b+c의 값은?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "1"
+    },
+    {
+     "number": 2,
+     "text": "2"
+    },
+    {
+     "number": 3,
+     "text": "3"
+    },
+    {
+     "number": 4,
+     "text": "4"
+    },
+    {
+     "number": 5,
+     "text": "5"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 15,
+   "type": "객관식",
+   "score": 4.3,
+   "stem": "행렬 A=\\begin{pmatrix} -2 & -1 \\\\ 3 & 1 \\end{pmatrix} 에 대하여 A^{n}=E를 만족시키는 자연수 n의 최솟값을 구한 것은? (단, E는 단위행렬이다.)",
+   "choices": [
+    {
+     "number": 1,
+     "text": "3"
+    },
+    {
+     "number": 2,
+     "text": "4"
+    },
+    {
+     "number": 3,
+     "text": "5"
+    },
+    {
+     "number": 4,
+     "text": "6"
+    },
+    {
+     "number": 5,
+     "text": "7"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 16,
+   "type": "객관식",
+   "score": 4.3,
+   "stem": "남녀 학생 13명으로 구성된 동아리에서 3명의 대표를 뽑으려고 한다. 적어도 한 명의 남학생이 뽑히는 방법의 수가 251일 때, 남학생의 수는?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "5"
+    },
+    {
+     "number": 2,
+     "text": "6"
+    },
+    {
+     "number": 3,
+     "text": "7"
+    },
+    {
+     "number": 4,
+     "text": "8"
+    },
+    {
+     "number": 5,
+     "text": "9"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 17,
+   "type": "서술형",
+   "score": 8,
+   "stem": "[서술형 1] 삼차방정식 x^{3}+ax^{2}+bx-3=0이 한 실근과 두 허근 \\alpha, -\\alpha^{2}을 가질 때, 실수 a, b에 대하여 ab값을 구하는 풀이과정과 답을 서술하시오.",
+   "choices": [],
+   "sub_questions": []
+  },
+  {
+   "number": 18,
+   "type": "서술형",
+   "score": 8,
+   "stem": "[서술형 2] 이차방정식 x^{2}-2x+4=0의 두 근을 \\alpha, \\beta라 할 때, 행렬 A를 A=\\begin{pmatrix} \\alpha+\\beta & 0 \\\\ \\alpha\\beta & \\alpha^{2}+\\beta^{2} \\end{pmatrix} 이라 하자. A+2X=\\begin{pmatrix} 0 & 2 \\\\ -2 & 4 \\end{pmatrix} 를 만족시키는 행렬 X를 구하는 풀이과정과 답을 서술하시오.",
+   "choices": [],
+   "sub_questions": []
+  },
+  {
+   "number": 19,
+   "type": "서술형",
+   "score": 9,
+   "stem": "[서술형 3] 사차방정식 x^{4}-3x^{3}-x+3=0의 한 허근이 \\alpha라고 할 때, 다음 조건 (가), (나)를 모두 만족시키는 100 이하의 두 자리 자연수 n에 대하여 최댓값과 최솟값을 각각 M과 m이라 하자. M+m의 값을 구하는 풀이과정과 답을 서술하시오. (단, \\overline{\\alpha}는 \\alpha의 켤레복소수이다.) <상자> (가) \\left(\\frac{1}{\\alpha}+\\frac{1}{\\alpha^{2}}-\\alpha\\right)^{n}=1 • (나) (-1-\\alpha)^{n}=\\left(\\frac{\\overline{\\alpha}}{\\alpha+\\overline{\\alpha}}\\right)^{n}",
+   "choices": [],
+   "sub_questions": []
+  },
+  {
+   "number": 20,
+   "type": "서술형",
+   "score": 9,
+   "stem": "[서술형 4] A와 B가 각각 운전하는 두 대의 자동차가 있다. A, B를 포함하여 7명이 두 대의 자동차에 나누어 타려고 한다. 한 대의 자동차에 탈 수 있는 최대 인원은 운전자 포함 4명이다. 운전자 옆자리는 한 명만 앉을 수 있으며 운전자 뒷좌석은 2명이 일렬로 앉을 수 있는 2개의 자리가 있다. 한 자리에 한 명씩 앉는 자리를 정하는 경우의 수를 구하는 풀이과정과 답을 서술하시오.",
+   "choices": [],
+   "sub_questions": []
+  }
+ ]
+}

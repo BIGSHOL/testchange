@@ -1,0 +1,424 @@
+{
+ "source": "_대곡고__1__공수2__25-2-기말대비__미래엔___완료_.hwpx",
+ "question_count": 24,
+ "questions": [
+  {
+   "number": 1,
+   "answer": "⑤",
+   "solution": "[대곡고][1][수하][24-2-중간][미래엔] - 5번",
+   "topic": "유한집합의 원소의 개수",
+   "difficulty": "중",
+   "score": 3.4,
+   "label": null,
+   "type": "객관식",
+   "stem": "자연수 $k`$에 대하여 전체집합 $U`= left {x`left|` x`$는 $105$ 이하의 자연수$left.` right }`$의 부분집합 $A`_{k}`$를 $A`_{k}= left {x`left|` x`$는 $k`$의 배수$left.` right }`$라 할 때, 세 집합 $A`_{2}$, $A`_{3}$, $A`_{5}`$에 대하여 $n left(A`_{5} cup left(A`_{2} cap A`_{3} right)^{C`} right)`$의 값은?",
+   "choices": [
+    "$87$",
+    "$88$",
+    "$89$",
+    "$90$",
+    "$91$"
+   ]
+  },
+  {
+   "number": 2,
+   "answer": "④",
+   "solution": "[대곡고][1][공수2][미래엔] - 100쪽 12번",
+   "topic": "충분조건과 필요조건",
+   "difficulty": "하",
+   "score": 3.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "전체집합 $U`$에 대하여 세 조건 $p`$, $q`$, $r`$의 진리집합을 각각 $P,~Q,~R`$이라 할 때, 세 집합 사이의 포함 관계가 오른쪽 그림과 같다. 다음에서 옳은 것은?",
+   "choices": [
+    "$p`$는 $q`$이기 위한 충분조건이다.",
+    "$simq`$는 $p`$이기 위한 충분조건이다.",
+    "$q`$는 $simr`$이기 위한 필요조건이다.",
+    "$r`$은 $simp`$이기 위한 필요충분조건이다.",
+    "$simr`$은 $simq`$이기 위한 필요조건이다."
+   ]
+  },
+  {
+   "number": 3,
+   "answer": "①",
+   "solution": "[상원고][1][수하][24-2-중간][미래엔] - 서술형 8번",
+   "topic": "절대부등식",
+   "difficulty": "중",
+   "score": 3.4,
+   "label": null,
+   "type": "객관식",
+   "stem": "상수 $k(k>0)$에 대하여 $x>k$일 때, ${x-k} over {(x-k) ^{2} +2k(x-k)+k}$의 최댓값이 ${1} over {4}$이 되도록 하는 상수 $k$의 값은?",
+   "choices": [
+    "$1$",
+    "$2$",
+    "$3$",
+    "$4$",
+    "$5$"
+   ]
+  },
+  {
+   "number": 4,
+   "answer": "②",
+   "solution": "[대원고][1][수하][24-2-중간][미래엔] - 8번",
+   "topic": "절대부등식",
+   "difficulty": "중",
+   "score": 3.6,
+   "label": null,
+   "type": "객관식",
+   "stem": "$x > 0 , ~y > 0$일 때, $(3x + 4y ) left(3 overx + 4 overy right)$의 최솟값은?",
+   "choices": [
+    "$48$",
+    "$49$",
+    "$50$",
+    "$51$",
+    "$52$"
+   ]
+  },
+  {
+   "number": 5,
+   "answer": "③",
+   "solution": "[송현여고][1][수하][24-2-중간][비상] - 단답형 4번",
+   "topic": "절대부등식",
+   "difficulty": "중",
+   "score": 3.4,
+   "label": null,
+   "type": "객관식",
+   "stem": "$a^2 +b^2 = 52$을 만족시키는 실수 $a,~b`$에 대하여 $2a+3b`$의 최댓값을 $m$, 최댓값이 될 때의 $a`$의 값을 $n`$이라고 할 때, $m+n`$의 값은?",
+   "choices": [
+    "$15$",
+    "$20$",
+    "$30$",
+    "$45$",
+    "$65$"
+   ]
+  },
+  {
+   "number": 6,
+   "answer": "①",
+   "solution": "[대곡고][1][수하][24-2-중간][미래엔] - 15번",
+   "topic": "여러 가지 함수",
+   "difficulty": "중",
+   "score": 3.4,
+   "label": null,
+   "type": "객관식",
+   "stem": "$X`= left {x left|` -1 le x le 3 right }$, $Y`= left {y`right| -4 le y le 2 right }`$에 대하여 $X``$에서 $Y``$로의 함수 $f left(x right)=ax-2a+1`$이 일대일함수가 되도록 하는 정수 $a`$의 개수는?",
+   "choices": [
+    "$1$",
+    "$2$",
+    "$3$",
+    "$4$",
+    "$5$"
+   ]
+  },
+  {
+   "number": 7,
+   "answer": "②",
+   "solution": "[대곡고][1][수하][24-2-중간][미래엔] - 16번",
+   "topic": "여러 가지 함수",
+   "difficulty": "중",
+   "score": 3.4,
+   "label": null,
+   "type": "객관식",
+   "stem": "이차함수 $g left(x right)`$에 대하여 함수 $f left(x right)`$를 다음과 같이 정의하자.\n $f left(x right)= cases {``x+4 & & left(x > 1 right) #`` g left(x right) & & left(-1 le x le 1 right) #`` 2x-1 & & left(x <`-1 right)}$\n함수 $f left(x right)`$의 치역이 실수 전체의 집합이고, 함수 $f left(x right)`$는 다음을 만족시킨다.\n(가) 함수 $f left(x right)`$는 일대일대응이다.\n(나) $y=g left(x right)`$의 꼭짓점의 $x`$좌표가 $-2`$이다.\n$f left(f left(a right) right)=`-7`$을 만족시키는 실수 $a`$의 값은?",
+   "choices": [
+    "$-3$",
+    "$-1$",
+    "$1$",
+    "$3$",
+    "$5$"
+   ]
+  },
+  {
+   "number": 8,
+   "answer": "②",
+   "solution": "[대곡고][1][수하][24-2-기말][미래엔] - 9번",
+   "topic": "합성함수",
+   "difficulty": "중",
+   "score": 3.8,
+   "label": null,
+   "type": "객관식",
+   "stem": "함수 $f LEFT ( x RIGHT )$가 $f left ({x-1} over{x+2} right ) = 2x$를 만족시키고, $( g CIRC f)(x) = { x+3 } over{ x-1}$을 만족시키는 함수 $g(x)$가 있다. $(f circ g) (-2)$의 값은?",
+   "choices": [
+    "$1 over 3$",
+    "$1 over2$",
+    "$1$",
+    "$2$",
+    "$3$"
+   ]
+  },
+  {
+   "number": 9,
+   "answer": "③",
+   "solution": "[대곡고][1][공수2][미래엔] - 136쪽 3번",
+   "topic": "여러 가지 함수",
+   "difficulty": "중",
+   "score": 3.4,
+   "label": null,
+   "type": "객관식",
+   "stem": "실수 전체의 집합에서 정의된 함수\n $f LEFT ( x RIGHT )= 2 LEFT |` x -1 ` RIGHT | + a x - 6`$\n이 일대일대응이 되도록 하는 자연수 $a`$의 최솟값은?",
+   "choices": [
+    "$1`$",
+    "$2`$",
+    "$3`$",
+    "$4`$",
+    "$5`$"
+   ]
+  },
+  {
+   "number": 10,
+   "answer": "④",
+   "solution": "[대곡고][1][공수2][미래엔] - 136쪽 5번",
+   "topic": "합성함수",
+   "difficulty": "중",
+   "score": 3.4,
+   "label": null,
+   "type": "객관식",
+   "stem": "집합 $X = LEFT { 0,~2,~4,~6 RIGHT }`$에 대하여 함수 $f`:`X` rarrow `X`$가\n $f LEFT ( x RIGHT )= cases{ x+2&~ LEFT ( x le 4 RIGHT ) # 0&~ LEFT (x=6 RIGHT ) }`$\n이다. $f `^2 = f circ f `$, $f `^3 = f circ f `^2`$, $cdots`$, $f ` ^ n+1 = f circ f `^n`$으로 나타낼 때, $f ` ^ 26 LEFT ( 6 RIGHT )+ f `^ 27 LEFT ( 0 RIGHT ) `$의 값은? (단, $n`$은 자연수)",
+   "choices": [
+    "$2`$",
+    "$4`$",
+    "$6`$",
+    "$8`$",
+    "$10`$"
+   ]
+  },
+  {
+   "number": 11,
+   "answer": "③",
+   "solution": "[대곡고][1][수하][23-2-기말][미래엔] - 10번",
+   "topic": "유리함수",
+   "difficulty": "중",
+   "score": 3.4,
+   "label": null,
+   "type": "객관식",
+   "stem": "함수 $y= LEFT | - {4x+5} over {x+1} RIGHT |$의 그래프와 직선 $mx-y-m=0$의 서로 다른 교점의 개수를 $f(m)$이라 할 때, 실수 $a,~`b,`~c$에 대하여 $a+b+c$의 값은? (단,$m$은 실수이다.) \n\n·$f(-5)+f(5)=a$ 이다.\n·$-1<m<0`$ 일 때, $f(m)=b$이다\n·$f(m)=2$가 되도록 하는 $m$의 개수는 $c$이다.",
+   "choices": [
+    "$7$",
+    "$8$",
+    "$9$",
+    "$10$",
+    "$11$"
+   ]
+  },
+  {
+   "number": 12,
+   "answer": "⑤",
+   "solution": "[대곡고][1][공수2][미래엔] - 137쪽 11번",
+   "topic": "유리함수",
+   "difficulty": "중",
+   "score": 3.4,
+   "label": null,
+   "type": "객관식",
+   "stem": "오른쪽 그림과 같이 함수 $y= k over x`$ $LEFT ( k >0 RIGHT )`$의 그래프가 직선 $y = it - x +8`$과 두 점 $rmP`$, $rmQ`$에서 만난다. 삼각형 $rm OPQ`$의 넓이가 $20`$일 때, 상수 $k`$의 값을 구하시오. (단, $rmO`$는 원점)",
+   "choices": [
+    "${35} over {4}$",
+    "$9$",
+    "${37} over {4}$",
+    "${19} over {2}$",
+    "${39} over {4}$"
+   ]
+  },
+  {
+   "number": 13,
+   "answer": "④",
+   "solution": "[대곡고][1][공수2][미래엔] - 134쪽 6번",
+   "topic": "유리함수",
+   "difficulty": "중",
+   "score": 3.4,
+   "label": null,
+   "type": "객관식",
+   "stem": "함수 $y= ax+b over x+c`$의 그래프가 오른쪽 그림과 같을 때, 상수 $a`$, $b`$, $c`$에 대하여 $a+b+c`$의 값은?",
+   "choices": [
+    "$-1$",
+    "$-2$",
+    "$-3$",
+    "$-4$",
+    "$-5$"
+   ]
+  },
+  {
+   "number": 14,
+   "answer": "⑤",
+   "solution": "[대곡고][1][수하][24-2-기말][미래엔] - 6번",
+   "topic": "유리함수",
+   "difficulty": "하",
+   "score": 3.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "함수 $y= a over x ~(a !=0)$의 그래프를 $x$축의 방향으로 $1$만큼, $y$축의 방향으로 $b$만큼 평행이동하였더니 함수 $y= {3x +1} over{x-1}$의 그래프와 일치하였다. 상수 $a, ~ b$에 대하여 $a+b$의 값은?",
+   "choices": [
+    "$3$",
+    "$4$",
+    "$5$",
+    "$6$",
+    "$7$"
+   ]
+  },
+  {
+   "number": 15,
+   "answer": "④",
+   "solution": "[대곡고][1][수하][24-2-기말][미래엔] - 8번",
+   "topic": "유리함수",
+   "difficulty": "중",
+   "score": 3.4,
+   "label": null,
+   "type": "객관식",
+   "stem": "그림과 같은 유리함수의 그래프가 나타내는 함수의 역함수의 식은?",
+   "choices": [
+    "$y = { 2x+1} over {x-1}$",
+    "$y = { 2x-1} over {x-1}$",
+    "$y = -{ 2x+1} over {x+1}$",
+    "$y = -{ x-1} over {x-2}$",
+    "$y = -{ x+1} over {x-2}$"
+   ]
+  },
+  {
+   "number": 16,
+   "answer": "④",
+   "solution": "[대곡고][1][공수2][미래엔] - 137쪽 12번",
+   "topic": "무리함수",
+   "difficulty": "하",
+   "score": 3.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "다음에서 함수 $y = it - sqrt { 3x+6}+3`$에 대한 설명으로 옳지 않은 것은?",
+   "choices": [
+    "정의역은 $LEFT {x`left|` x ge it -2 RIGHT }`$이다.",
+    "치역은 $LEFT { y` left | ` y le 3 RIGHT }`$이다.",
+    "그래프는 함수 $y = it - sqrt { 3x}`$의 그래프를 $x`$축의 방향으로 $-2`$만큼, $y`$축의 방향으로 $3`$만큼 평행이동 한 것이다.",
+    "그래프는 제$4`$사분면을 지나지 않는다.",
+    "역함수는 $y = 1 over 3 x^2 - 2 x +1`$ $LEFT ( x le 3 RIGHT )`$이다."
+   ]
+  },
+  {
+   "number": 17,
+   "answer": "①",
+   "solution": "[대곡고][1][공수2][미래엔] - 137쪽 13번",
+   "topic": "무리함수",
+   "difficulty": "중",
+   "score": 3.4,
+   "label": null,
+   "type": "객관식",
+   "stem": "함수 $y = a sqrt { x+b}+c`$의 그래프가 오른쪽 그림과 같을 때, 상수 $a`$, $b`$, $c`$에 대하여 $a+b+c`$의 값은?",
+   "choices": [
+    "$1$",
+    "$2$",
+    "$3$",
+    "$4$",
+    "$5$"
+   ]
+  },
+  {
+   "number": 18,
+   "answer": "①",
+   "solution": "[대곡고][1][수하][24-2-기말][미래엔] - 10번",
+   "topic": "무리함수",
+   "difficulty": "중",
+   "score": 3.9,
+   "label": null,
+   "type": "객관식",
+   "stem": "함수 $f(x) = root { ax+b}$의 그래프와 그 역함수 $y= f ^ -1 (x)$의 그래프가 점 $( 2, ~2)$에서만 만날 때, 상수 $a, ~b$에 대하여 $a+b$의 값은? (단, $a>0>b$이다.)",
+   "choices": [
+    "$0$",
+    "$1$",
+    "$2$",
+    "$3$",
+    "$4$"
+   ]
+  },
+  {
+   "number": 19,
+   "answer": "⑤",
+   "solution": "[대곡고][1][수하][24-2-기말][미래엔] - 11번",
+   "topic": "무리함수",
+   "difficulty": "중",
+   "score": 3.4,
+   "label": null,
+   "type": "객관식",
+   "stem": "무리함수 $y= root {ax}~ (0 < x <5)$의 그래프 위를 움직이는 점 $rm P$에 대하여 점 $rm P$와 원점 $rm O$, 점 $rm A (2, ~2)$로 이루어진 삼각형 $rm AOP$의 넓이의 최댓값이 $4$일 때, 양수 $a$의 값은?\n(단, $a >5$이다.)",
+   "choices": [
+    "$12$",
+    "$13$",
+    "$14$",
+    "$15$",
+    "$16$"
+   ]
+  },
+  {
+   "number": 20,
+   "answer": "②",
+   "solution": "[대곡고][1][수하][24-2-기말][미래엔] - 12번",
+   "topic": "무리함수",
+   "difficulty": "상",
+   "score": 4.5,
+   "label": null,
+   "type": "객관식",
+   "stem": "함수 $f(x)$가 다음과 같을 때,\n $f(x) = cases{ (x-a)^2 +b ~~` (x le a) #- root{ x-a} +b ~ (x > a)$\n함수 $y= f(x)$와 $y= alpha$와의 교점을 $rm A$, 함수 $y= f(x)$와 $y= beta$와의 교점을 $rm B$라 하자. 서로 다른 두 실수 $alpha,~beta$가 다음 조건을 만족시킨다.\n$(가)$ 방정식 $left{ f(x) - alpha right } left{ f(x) - beta right} =0$을 만족시키는 실수 $x$의 값은 $alpha, ~ beta$뿐이다.\n$(나)$ 점 $(a, ~ b)$는 두 점 $rm A, ~ B$를 지나는 직선 위에 있다.\n대구광역시 내신 수학 연구회\n$alpha + beta =8$일 때, $f(a+b)$의 값은? (단, $a, ~b$는 상수이다.)",
+   "choices": [
+    "$1`$",
+    "$2$",
+    "$3$",
+    "$4$",
+    "$5$"
+   ]
+  },
+  {
+   "number": 21,
+   "answer": null,
+   "solution": "$⑴$ ${(x-4)} over {(x-3)}$ $⑵$ $root {7}$ [대곡고][1][수하][24-2-기말][미래엔] - 19번$⑴$ ${x-2} over {x+4} DIVIDE  {x ^{2} -5x+6} over {x ^{2} -16} = {x-2} over {x+4} TIMES  {(x+4)(x-4)} over {(x-2)(x-3)} = {(x-4)} over {(x-3)}$$⑵$ $x + 1 over x  =  left( root{x} + 1 over root {x} right) ^2 -2$       $5  =  left( root{x} + 1 over root {x} right) ^2 -2$       $7 =   left( root{x} + 1 over root {x} right) ^2$$therefore ~   root{x} + 1 over root {x}  = root{7 }$",
+   "topic": "유리식",
+   "difficulty": "하",
+   "score": null,
+   "label": "[서술형 $1$]",
+   "type": "서술형",
+   "stem": "[서술형 $1$] 다음 물음에 알맞은 풀이 과정과 답을 적으시오. [총 $7$점]\n$⑴$ ${x-2} over {x+4} div { x^2 -5x +6} over{ x^2 -16}$을 간단히 하시오. \n[$4$점/부분점수 있음]\n$LEFT ( 2 RIGHT )$ $x + 1 overx = 5$일 때, $root{x} + 1 over root {x}$의 값을 구하시오. \n(단, $x >0$이다.) [$3$점/부분점수 있음]",
+   "choices": []
+  },
+  {
+   "number": 22,
+   "answer": null,
+   "solution": "$a= {3} over {2} b$ [대곡고][1][수하][24-2-기말][미래엔] - 22번제 $1$사분면 위의 점 ${rmP} it { LEFT (  `2a,~3b` RIGHT )}}$를 지나고 $rm {bar{OP}}$의 수직인 직선의 방정식은 $y-3b=- {2a} over {3b} LEFT ( x-2a RIGHT )$ 즉,$y=- {2a} over {3b} x+ {4a ^{2}} over {3b} +3b$ 이다. 이 직선이 $y$축과 만나는 점은 ${rmQ}  it {LEFT ( `0,~ {4a ^{2}} over {3b} +3b` RIGHT ) }$이다. 그리고,${rmR} it { LEFT ( `- {2} over {a} ,~0` RIGHT )}$이므로 삼각형 $rm OQR= it {1} over {2} TIMES  {2} over {a} TIMES  LEFT ( {4a ^{2}} over {3b} +3b RIGHT ) = {4a} over {3b} + {3b} over {a} GEQ  2 sqrt {4} =4$(등호는 $4a ^{2} =9b ^{2}$일 때 성립)$THEREFORE a= {3} over {2} b$",
+   "topic": "절대부등식",
+   "difficulty": "중",
+   "score": null,
+   "label": "[서술형 $2$]",
+   "type": "서술형",
+   "stem": "[서술형 $2$] 두 양수 $a, ~b$에 대하여 좌표평면 위의 점 ${rm P} {it (2a, ~3b)}$를 지나고 직선 $rm OP$에 수직인 직선이 $y$축과 만나는 점을 $rm Q$라 하자. 점 $rm R left ( { it - 2 over a , ~0 right)$에 대하여 삼각형 $rm OQR$의 넓이가 최솟값을 가질 때의 $a,~b$의 관계식을 구하는 풀이 과정과 답을 적으시오. (단, $rmO$는 원점이다.) \n[$7$점/부분점수 있음]",
+   "choices": []
+  },
+  {
+   "number": 23,
+   "answer": null,
+   "solution": "$45$ [대곡고][1][수하][24-2-중간][미래엔] - 17번집합 $A  _{k}$는 전체집합 $U$의 부분집합이므로 $x$는 $25$이하의 자연수 이고 $y-k$는 36의 약수이다. $y IN U$이므로 $1 leq y-k < 25$에서 $36 over 25 < x leq 36$$x IN U$이므로 $2  leq x < 25$$y-k$$2$$3$$4$$6$$9$$12$$18$$x$$18$$12$$9$${} ^{}$$6$$4$$3$$2$$A  _{k}  SUBSET  LEFT { 2,~3,~4,~6,~9,~12,~18 RIGHT }$${36-x} over {6}  IN U$에서 $36-x$는 $6$의 배수이다. 따라서 집합 $B= LEFT { 6,~12,~18,~24 RIGHT }$$A  _{k} -B SUBSET  LEFT { 2,~3,~4,~9 RIGHT }$(ⅰ) $2 IN  LEFT ( A  _{k}  SMALLINTER B  ^{`C} RIGHT )$일 때$x=2,~y-k=18$이고 $y=k+18 LEQ 25$$THEREFORE k LEQ 7$(ⅱ) $3 IN  LEFT ( A  _{k}  SMALLINTER B  ^{`C} RIGHT )$일 때$x=3,~y-k=12$이고 $y=k+12 LEQ 25$$THEREFORE k LEQ 13$(ⅲ) $4 IN  LEFT ( A  _{k}  SMALLINTER B  ^{`C} RIGHT )$일 때$x=4,~y-k=9$이고 $y=k+9 LEQ 25$$THEREFORE k LEQ 16$(ⅳ) $9 IN  LEFT ( A  _{k}  SMALLINTER B  ^{`C} RIGHT )$일 때$x=9,~y-k=4$이고 $y=k+4 LEQ 25$$THEREFORE k LEQ 21$$A _{k} SMALLINTER  B ^{`C} `$를 구해보면$1LEQ k leq 7$일 때, $left{ 2,~3,~4,~9 right}$$7< k leq 13$일 때, $left{ 3,~4,~9 right}$$13 < k leq 16$일 때, $left{4,~9 right}$$16<k leq 21$일 때, $left{ 9 right}$ 이므로$n left(A`_{k} cap B`^{C`} right)=2`$인 경우는 $13 < k leq 16$일 때 이다.$14+15+16=45$따라서 모든 $k$의 합은 $45$이다.",
+   "topic": "집합의 연산",
+   "difficulty": "상",
+   "score": null,
+   "label": "[서술형 $3$]",
+   "type": "서술형",
+   "stem": "[서술형 $3$] 전체집합 $U`= left {x`left|` x`$는 $25$ 이하의 자연수$left.` right }`$의 두 부분집합\n $A`_{k}= left {x`left|` x left(y-k right)=36,~y in U` right }$, $B`= left {x left|` {36-x} over {6} in U` right }$\n에 대하여 $n left(A`_{k} cap B`^{C`} right)=2`$가 되도록 하는 모든 자연수 $k`$의 합을 구하시오. [$7$점/ 부분점수 있음]",
+   "choices": []
+  },
+  {
+   "number": 24,
+   "answer": null,
+   "solution": "$f(3)=4`$, $3$개 [24-3-서울교육청] - 20번 변형(ⅰ) $f(4)=1`$일 때 $f(f(4))=f(1)=1`$이므로 $f(1)=1`$이다.① $f(3)=1`$이면 함수 $f`$의 치역이 $left{ 1,``2,``4 it right} `$가 될 수 없으므로 조건 (나)를 만족시키지 않는다.② $f(3)=2`$이면 함수 $f`$의 치역이 $left{ 1,``2,``4 it right} `$이므로 $f(2)=4`$이고 $f(f(3))=f(2)=4>2`$가 되어 조건 (가)를 만족시키지 않는다.③ $f(3)=4`$이면 함수 $f`$의 치역이 $left{ 1,``2,``4 it right} `$이므로 $f(2)=2`$이고 $f(f(1))=f(1)=1`$, $f(f(2))=f(2)=2`$, $f(f(3))=f(4)=1`$이 되어 조건을 만족시킨다.(ⅱ) $f(4)=2`$일 때 $f(f(4))=f(2)=1`$이므로 $f(2)=1`$이다.① $f(3)=1`$이면 함수 $f`$의 치역이 $left{ 1,``2,``4 it right} `$이므로 $f(1)=4`$이고 $f(f(2))=f(1)=4>3`$이 되어 조건 (가)를 만족시키지 않는다.② $f(3)=2`$이면 함수 $f`$의 치역이 $left{ 1,``2,``4 it right} `$이므로 $f(1)=4`$이고 $f(f(2))=f(1)=4>3`$이 되어 조건 (가)를 만족시키지 않는다.③ $f(3)=4`$일 때 $f(1)=1`$이면 $f(f(1))=f(1)=1`$, $f(f(2))=f(1)=1`$, $f(f(3))=f(4)=2`$가 되어 조건을 만족시킨다.$f(1)=2`$이면 $f(f(1))=f(2)=1`$, $f(f(2))=f(1)=2`$, $f(f(3))=f(4)=2`$가 되어 조건을 만족시킨다.$f(1)=4`$이면 $f(f(2))=f(1)=4>3`$이 되어 조건 (가)를 만족시키지 않는다.(ⅲ) $f(4)=4`$일 때$f(f(4))=f(4)=4  neq 1`$이므로 조건 (가)를 만족시키지 않는다.(ⅰ), (ⅱ), (ⅲ)에서 가능한 모든 함수 $f`$에 대하여$f(3)=4`$이다.     (ⅰ), (ⅱ), (ⅲ)에서 가능한 함수 $f`$의 개수는 $rm 3`$개이다.",
+   "topic": "함수",
+   "difficulty": "상",
+   "score": null,
+   "label": "[서술형 $4$]",
+   "type": "서술형",
+   "stem": "[서술형 $4$] 집합 $X= left{ 1,``2,``3,``4 it right} `$에 대하여 함수 $f: X ``rarrow`` X`$가 다음 조건을 만족시킨다.\n (가) 집합 $X`$의 모든 원소 $x`$에 대하여 $x+f(f(x)) leq 5`$이다.\n (나) 함수 $f`$의 치역은 $left{ 1,``2,``4 it right} `$이다.\n (다) $f(f(4))=1`$\n$f(3)`$의 값과 가능한 함수의 개수를 구하시오. \n[$10$점/부분점수 있음]\n  \n  \n정답\n워드:이재열t\n오검:송성재t \n완료:한정아t",
+   "choices": []
+  }
+ ],
+ "meta": {
+  "exam_id": 4306,
+  "school": "대곡고",
+  "grade": 1,
+  "subject": "공수2",
+  "year": 2025,
+  "semester": 2,
+  "round": "기말",
+  "src": "N:\\개인\\기출\\2024 기출모음\\2024년 2학기 기말 고사 모음\\공수2\\[대곡고][1][공수2][25-2-기말대비][미래엔] (완료).hwp"
+ }
+}

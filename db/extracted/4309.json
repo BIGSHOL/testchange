@@ -1,0 +1,442 @@
+{
+ "source": "_대구고__1__공수2__25-2-중간대비__동아___완료_.hwpx",
+ "question_count": 25,
+ "questions": [
+  {
+   "number": 1,
+   "answer": "②",
+   "solution": "[출처: 24-1-중간 2번문제]$LEFT ( A SMALLINTER B RIGHT ) CUP (A-B)= LEFT ( A SMALLINTER B RIGHT ) CUP (A SMALLINTER B ^{C} )=A SMALLINTER U=A$",
+   "topic": "집합의 연산",
+   "difficulty": "하",
+   "score": 2.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "전체집합 $U$의 두 부분집합 $A,~B$에 대하여 집합 $LEFT ( A SMALLINTER B RIGHT ) CUP (A-B)$를 간단히 한 것은?",
+   "choices": [
+    "$EMPTYSET$",
+    "$A$",
+    "$B$",
+    "$U$",
+    "$A SMALLINTER B$"
+   ]
+  },
+  {
+   "number": 2,
+   "answer": "⑤",
+   "solution": null,
+   "topic": "두 점 사이의 거리",
+   "difficulty": "하",
+   "score": 2.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "두 점 $rm A(3,````-4)$, $rm B(-2,````-1)$에서 같은 거리에 있는 직선 $y=x$ 위의 점의 좌표를 $(a,````b)$라 할 때, 실수 $a,````b$에 대하여 $a+b$의 값은?",
+   "choices": [
+    "$2$",
+    "$4$",
+    "$6$",
+    "$8$",
+    "$10$"
+   ]
+  },
+  {
+   "number": 3,
+   "answer": "①",
+   "solution": null,
+   "topic": "원과 직선의 위치관계",
+   "difficulty": "하",
+   "score": 3.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "원 $x ^{2} +y ^{2} =9$와 직선 $y=it-2x+n$이 서로 다른 두 점에서 만나도록 하는 정수 $n$의 개수는?",
+   "choices": [
+    "$13$",
+    "$15$",
+    "$17$",
+    "$19$",
+    "$21$"
+   ]
+  },
+  {
+   "number": 4,
+   "answer": "⑤",
+   "solution": null,
+   "topic": "원의 방정식",
+   "difficulty": "하",
+   "score": 3.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "두 점 $(3,````4)$, $(5,````2)$을 지나고, $x$축에 접하는 두 원의 반지름의 합은?",
+   "choices": [
+    "$8$",
+    "$9$",
+    "$10$",
+    "$11$",
+    "$12$"
+   ]
+  },
+  {
+   "number": 5,
+   "answer": "②",
+   "solution": null,
+   "topic": "원과 직선의 위치관계",
+   "difficulty": "하",
+   "score": 3.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "원 $(x-2) ^{2} +(y+1) ^{2} =20$ 위의 점과 직선 $y=2x+7$ 사이의 거리의 최솟값은?",
+   "choices": [
+    "${sqrt {5}} over {5}$",
+    "${2 sqrt {5}} over {5}$",
+    "${3 sqrt {5}} over {5}$",
+    "${4 sqrt {5}} over {5}$",
+    "$sqrt {5}$"
+   ]
+  },
+  {
+   "number": 6,
+   "answer": "③",
+   "solution": null,
+   "topic": "선분의 내분점",
+   "difficulty": "하",
+   "score": 3.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "두 점 $rm{A}it(1,~2),~ rm{C}it(-2,~5)$에 대하여 선분 $rm{AC}it$ 위의 점 $rm{B}it(a,~ b)$가 $bar{rm{AB}it}=2 bar{rm{BC}it}$를 만족시킬 때, 두 상수 $a,~ b$의 합은?",
+   "choices": [
+    "$1$",
+    "$2$",
+    "$3$",
+    "$4$",
+    "$5$"
+   ]
+  },
+  {
+   "number": 7,
+   "answer": "⑤",
+   "solution": "[출처: 24-1-중간 4번문제]$x ^{2} =`-1$을 만족하는 실수는 없으므로$n(A)=0$",
+   "topic": "집합의 연산",
+   "difficulty": "하",
+   "score": 3.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "다음 중 옳지 않은 것은?",
+   "choices": [
+    "$n LEFT ( LEFT { EMPTYSET RIGHT } RIGHT ) =1$",
+    "$n LEFT ( LEFT { 0 RIGHT } RIGHT ) -n LEFT ( EMPTYSET RIGHT ) =1$",
+    "$n LEFT ( LEFT { 3 RIGHT } RIGHT ) -n LEFT ( LEFT { 1 RIGHT } RIGHT ) =0$",
+    "$n LEFT ( LEFT { 1,~2,~3 RIGHT } RIGHT ) +n LEFT ( LEFT { 1,~2 RIGHT } RIGHT ) =5$",
+    "$A= LEFT { x``vert ``x ^{2} =`-1,~x는````실수 RIGHT }$이면 $n LEFT ( A RIGHT ) =2$"
+   ]
+  },
+  {
+   "number": 8,
+   "answer": "④",
+   "solution": "[출처: 24-1-기말 5번문제] $simq``->``p`,~q``->``r$의 대우가 각각 $simp``->``q`,~simr``->``simq$이고 삼단논법에 의하여$SIM  r`` rarrow  ``p$이고 이 명제의 대우가 $simp`` rarrow  ``r$이다.따라서 명제$simp``->``q`,~simr``->``simq$와 $SIM  r`` rarrow  ``p`,$ $simp`` rarrow  ``r$가 모두 성립한다.각각 보기의 ②, ⑤, ③, ①에 해당된다.따라서 ④ $simr``->``simp$가 반드시 참이라고 할 수 없다.",
+   "topic": "명제의 역과 대우",
+   "difficulty": "하",
+   "score": 3.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "세 조건 $p,~q,~r$에 대하여 두 명제 $SIM q`` rarrow` `p`,~q`` rarrow ``r$가 모두 참일 때, 다음 중 반드시 참이라고 할 수 없는 것은?",
+   "choices": [
+    "$SIM p`` rarrow ``r$",
+    "$SIM p`` rarrow ``q$",
+    "$SIM r`` rarrow ``p$",
+    "$SIM r`` rarrow `` SIM p$",
+    "$SIM r`` rarrow `` SIM q$"
+   ]
+  },
+  {
+   "number": 9,
+   "answer": "③",
+   "solution": "[출처: 24-1-중간 9번문제]$B= LEFT { 1,~2,~3,~4,~6,~12 RIGHT }$집합 $X$는 $LEFT { 3,~4,~6,~12 RIGHT }$의 부분집합이여야한다.따라서 $2 ^{4} =16$",
+   "topic": "집합의 연산",
+   "difficulty": "하",
+   "score": 3.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "두 집합 $A= LEFT { 1,~2 RIGHT }$, $B= LEFT { x``vert ``x$는 $12$의 약수$itright}$에 대하여 $A SMALLINTER X= EMPTYSET$, $B CUP X=B$를 만족시키는 집합 $X$의 개수는?",
+   "choices": [
+    "$4$개",
+    "$8$개",
+    "$16$개",
+    "$32$개",
+    "$64$개"
+   ]
+  },
+  {
+   "number": 10,
+   "answer": "⑤",
+   "solution": null,
+   "topic": "원의 접선의 방정식",
+   "difficulty": "중",
+   "score": 3.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "점 $(9,````9)$에서 원 $x ^{2} +y ^{2} =9$에 그은 두 접선이 각각 지나는 접점의 $x$좌표의 곱은?",
+   "choices": [
+    "$-8$",
+    "$-7$",
+    "$-6$",
+    "$-5$",
+    "$-4$"
+   ]
+  },
+  {
+   "number": 11,
+   "answer": "②",
+   "solution": "[출처: 24-1-중간 12번문제]$n LEFT { LEFT ( A-B RIGHT ) CUP  LEFT ( B-A RIGHT ) RIGHT } =n(A)+n(B)-2n(A SMALLINTER B)$$35=38+37-2n(A SMALLINTER B)$$n(A SMALLINTER B)=20$$n(A CUP  B)=n(A)+n(B)-n(A SMALLINTER  B)=55$",
+   "topic": "집합의 연산",
+   "difficulty": "하",
+   "score": 3.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "두 집합 $A,~B$에 대하여 $n(A)=38$, $n(B)=37$, $n LEFT { LEFT ( A-B RIGHT ) CUP LEFT ( B-A RIGHT ) RIGHT } =35$일 때, $n LEFT ( A CUP B RIGHT )$의 값은?",
+   "choices": [
+    "$54$",
+    "$55$",
+    "$56$",
+    "$57$",
+    "$58$"
+   ]
+  },
+  {
+   "number": 12,
+   "answer": "③",
+   "solution": null,
+   "topic": "삼각형의 무게중심",
+   "difficulty": "중",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "세 점 $rm P(6,````7)$, $rm Q(4,````-2)$, $rm R(12,````2)$로부터 같은 거리에 있고 선분 $rm PQ,````PR$과 만나는 직선을 $l$이라 하자. 직선 $l$이 선분 $rm PQ,````PR$과 만나는 점을 각각 $rm A,````B$라 하고 선분 $rmQR$의 중점 $rmC$에 대하여 삼각형 $rmABC$의 무게중심의 좌표를 $(a,````b)$라 할 때, $a+b$의 값은? (단, $a,````b$는 실수)",
+   "choices": [
+    "${25} over {3}$",
+    "$9$",
+    "${29} over {3}$",
+    "${31} over {3}$",
+    "$11$"
+   ]
+  },
+  {
+   "number": 13,
+   "answer": "④",
+   "solution": "[출처: 24-1-중간 15번문제]$n=1$부터 $n=7$까지는 $13$을 공통으로 가지고 있으므로 교집합이 공집합을 가질 수 없으므로 문제 조건을 만족하는 가장 작은 $n$값 $k=8$이다.$A _{6} = LEFT { 11,~12,~13 RIGHT }$$11+12+13=36$",
+   "topic": "집합의 연산",
+   "difficulty": "하",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "자연수 $n$에 대하여 집합 $A _{n} = LEFT { x``vert ``2n-1 LEQ x LEQ 13,~x$는 자연수$itright}$이라 하자.\n$A _{1} SMALLINTER A _{2} SMALLINTER CDOTS SMALLINTER A _{n} = EMPTYSET$이 만족되도록 하는 $n$의 최솟값을 $k$라 할 때, $A _{k-2}$의 모든 원소의 합은?",
+   "choices": [
+    "$30$",
+    "$32$",
+    "$33$",
+    "$36$",
+    "$39$"
+   ]
+  },
+  {
+   "number": 14,
+   "answer": "②",
+   "solution": null,
+   "topic": "두 직선의 위치관계",
+   "difficulty": "중",
+   "score": 5.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "그림과 같이 $y=it- {1} over {2} x+5$가 두 직선 $y= {1} over {3} x$, $y=2x$와 만나는 점을 각각 $rm A,````B$라 하자. $x$축 위의 점 $rmC$에 대하여 삼각형 $rmOAB$와 삼각형 $rmOBC$의 넓이가 같을 때 선분 $rmAC$의 길이는? (단, 점 $rmC$의 $x$좌표는 양수이다.)",
+   "choices": [
+    "$2$",
+    "$sqrt {5}$",
+    "$sqrt {6}$",
+    "$sqrt {7}$",
+    "$2 sqrt {2}$"
+   ]
+  },
+  {
+   "number": 15,
+   "answer": "③",
+   "solution": "[출처: 24-1-중간 10번문제]$A SUBSET B$일 때, $B-A != B$",
+   "topic": "집합의 연산",
+   "difficulty": "하",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "다음 중 전체집합 $U$의 세 부분집합 $A,~B,~C$에 대하여 옳지 않은 것은?",
+   "choices": [
+    "$A CUP A ^{C} =U$",
+    "$LEFT ( A ^{C} RIGHT ) ^{C} =A$",
+    "$A SUBSET B$일 때, $B-A=B$",
+    "$A CUP LEFT ( B SMALLINTER C RIGHT ) = LEFT ( A CUP B RIGHT ) SMALLINTER LEFT ( A CUP C RIGHT )$",
+    "$LEFT { LEFT ( A SMALLINTER B RIGHT ) CUP LEFT ( A SMALLINTER B ^{C} RIGHT ) RIGHT } SMALLINTER LEFT { LEFT ( C CUP B RIGHT ) SMALLINTER LEFT ( C CUP B ^{C} RIGHT ) RIGHT } =A SMALLINTER C$"
+   ]
+  },
+  {
+   "number": 16,
+   "answer": "④",
+   "solution": null,
+   "topic": "두 직선의 위치관계",
+   "difficulty": "중",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "두 직선\n $l```:```(2k+3)x-(k-1)y+9k+6=0$,\n$m```:```(k-3)x+y-2k+3=0$\n에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고른 것은? (단, $k$는 실수) \n<보기>\nㄱ. 직선 $l$은 실수 $k$의 값이 관계없이 항상 \n 점 $(-3,````3)$을 지난다.\nㄴ. 직선 $m$과 점 $(2,````1)$ 사이의 거리의 최댓값은 $sqrt {2}$이다.\nㄷ. 두 직선 $l$과 $m$이 수직으로 만나도록 하는 실수 $k$의 값은 $2$개다.\nㄹ. 두 직선 $l$과 $m$이 평행하도록 하는 실수 $k$의 값은 존재하지 않는다.\n대구광역시 내신 수학 연구회",
+   "choices": [
+    "ㄱ, ㄴ",
+    "ㄱ, ㄷ",
+    "ㄴ, ㄹ",
+    "ㄱ, ㄷ, ㄹ",
+    "ㄴ, ㄷ, ㄹ"
+   ]
+  },
+  {
+   "number": 17,
+   "answer": "①",
+   "solution": null,
+   "topic": "두 점 사이의 거리",
+   "difficulty": "중",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "세 직선 $l,````m,````n$은 다음과 같다.\n$l$ : 점 $(-1,````3)$을 지나고 기울기가 $-2$인 직선\n$m$ : 두 점 $(-2,````5)$, $(4,````11)$을 지나는 직선\n$n$ : 점 $(1,````-3)$을 지나고 $y$축에 수직인 직선\n대구광역시 내신 수학 연구회\n세 직선으로 둘러싸인 삼각형의 외심의 좌표를 $(a,````b)$라 할 때, 실수 $a,````b$에 대하여 $ab$의 값은?",
+   "choices": [
+    "$4$",
+    "$6$",
+    "$8$",
+    "$10$",
+    "$12$"
+   ]
+  },
+  {
+   "number": 18,
+   "answer": "④",
+   "solution": null,
+   "topic": "원의 방정식",
+   "difficulty": "중",
+   "score": 5.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "그림에서 사각형 $rmABCD$는 정사각형이고\n$rm A( it a,````0)$, $rm B(0,````itb)$, $rm D(14,````6)$이다. 선분 $rmCD$를 지름으로 하는 원의 방정식이 $x ^{2} +y ^{2} -22x-20y+c=0$일 때, 실수 $a,````b,````c$에 대하여 $a+b+c$의 값은? (단, $a,````b$는 양수이고, 점 $rmC$는 제$1$사분면 위의 점이다.)",
+   "choices": [
+    "$180$",
+    "$190$",
+    "$200$",
+    "$210$",
+    "$220$"
+   ]
+  },
+  {
+   "number": 19,
+   "answer": "④",
+   "solution": "[출처: 21-11월-고1 학력평가 17번문제]",
+   "topic": "원의 방정식",
+   "difficulty": "상",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "좌표평면 위에 두 점 $rmA(0,~sqrt3 ),~B(1,~0)$과 \n원 $C`:`(x-1)^2 + (y-10)^2 =9$가 있다. 원 $C$ 위의 점 $rmP$에 대하여 삼각형 $rmABP$의 넓이가 자연수가 되도록 하는 모든 점 $rmP$의 개수는?",
+   "choices": [
+    "$9$",
+    "$10$",
+    "$11$",
+    "$12$",
+    "$13$"
+   ]
+  },
+  {
+   "number": 20,
+   "answer": "⑤",
+   "solution": null,
+   "topic": "원의 접선의 방정식",
+   "difficulty": "상",
+   "score": 5.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "두 점 $rm A(-5,````0)$, $rm B(-2,````0)$에 대하여 ${bar{rmAP}} `:` {bar{rmBP}} `=`1:2$ 을 만족하는 점 $rmP$가 그리는 도형 $rmO _{1}$과 $rm C(4,````-3)$, $rm D(4,````3)$을 지름의 양 끝점으로 하는 원 $rmO _{2}$에 공통으로 접하는 직선 $l _{1} ,~l _{2} ,~l _{3} ,~l _{4}$의 기울기가 각각 $m _{1} ,~m _{2} ,~m _{3} ,~m _{4}$ 일 때, 직선 $l _{1} ,````l _{4} `$와 직선 $x=1$에 둘러싸인 영역의 넓이는? (단, $m _{1} <`m _{2} <`m _{3} <`m _{4} `$)",
+   "choices": [
+    "${sqrt {3}} over {2}$",
+    "$sqrt {3}$",
+    "${4} over {3} sqrt {3}$",
+    "$2 sqrt {3}$",
+    "$3 sqrt {3}$"
+   ]
+  },
+  {
+   "number": 21,
+   "answer": "②",
+   "solution": "[출처: 21-11월-고1 학력평가 20번문제]",
+   "topic": "집합의 연산",
+   "difficulty": "상",
+   "score": 5.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "전체집합 $U= LEFT {` x` vert `x$는 $10$이하의 자연수$itright}$의 두 부분집합 \n$A= left{1,~2,~3,~4,~5 right},~B= left{3,~4,~5,~6,~7 right}$\n에 대하여 집합 $U$의 부분집합 $X$가 다음 조건을 만족시킬 때, 집합 $X$의 모든 원소의 합의 최솟값은? \n(가) $n left(X right)=6$\n(나) $A-X=B-X$\n(다) $left(X-A right)`cap`left(X-B right) != EMPTYSET$\n대구광역시 내신 수학 연구회",
+   "choices": [
+    "$26$",
+    "$27$",
+    "$28$",
+    "$29$",
+    "$30$"
+   ]
+  },
+  {
+   "number": 22,
+   "answer": null,
+   "solution": "$3$ [출처: 24-1-기말 11번문제]$p`,~q$의 진리집합을 각각 $P`,~Q$라 하면$p$가 $q$이기 위한 충분조건이려면 $p`` RARROW ``q$이므로 이 명제의 대우인 $simq`` RARROW ``simp$도 참이다.$simp``:`` LEFT | `x` RIGHT | {<}a`,~simq``:``-2{le}x<3$이고 $simq`` RARROW ``simp$이므로 $Q ^{C} {subset}P ^{C}$이다.수직선에 나타내면조건을 만족하는 $a$의 범위는$-a< -2`,~a GEQ  3$동시에 만족하는 $a$의 범위는 $a{ge}3$따라서 양수 $a$의 최솟값은 $3$이다.",
+   "topic": "충분조건과 필요조건",
+   "difficulty": "중",
+   "score": 5.0,
+   "label": "[서술형 $1$]",
+   "type": "서술형",
+   "stem": "[서술형 $1$] 실수 $x$에 대하여 두 조건 $p,~q$가 \n$p:` LEFT | x RIGHT | GEQ a,~~q:`x<`-2$ 또는 $x GEQ 3$\n일 때, $p$는 $q$이기 위한 충분조건이 되도록 하는 양수 $a$의 최솟값은?",
+   "choices": []
+  },
+  {
+   "number": 23,
+   "answer": null,
+   "solution": "$2$ [출처: 24-1-기말 7번문제]두 조건 $p`,~q$의 진리집합을 각각 $P`,~Q$라고 하면$P= LEFT { x` LEFT  `2x ^{2} -3x-14 GEQ  0 RIGHT } RIGHT . `,~Q= LEFT { x` LEFT  `a LEQ  x LEQ  b RIGHT } RIGHT .$명제 $simp``->``q$의 역 $q``->``simp$이 참이 되려면 $Q{subset}P `^{C}$$P ^{C} = LEFT { x` LEFT  `2x ^{2} -3x-14<0 RIGHT } RIGHT . `$이고$2x ^{2} -3x-14<0$$LEFT ( 2x-7 RIGHT ) LEFT ( x+2 RIGHT ) <0$$-2<x< {7} over {2}$$Q{subset}P `^{C}$가 되도록 두 집합 $P ^{C} `,~Q$를 수직선 위에 나타내면따라서 조건을 만족하는 $a`,~b$의 범위는$-2<a`,~b< {7} over {2}$조건을 만족하는 정수 $a$의 최솟값은 $-1$이므로 $m=it-1$조건을 만족하는 정수 $b$의 최댓값은 $3$이므로 $M=3$$THEREFORE ~M+m=3+ LEFT ( -1 RIGHT ) =2$",
+   "topic": "충분조건과 필요조건",
+   "difficulty": "중",
+   "score": 5.0,
+   "label": "[서술형 $2$]",
+   "type": "서술형",
+   "stem": "[서술형 $2$] 실수 $x$에 대하여 두 조건 $p,~q$가 다음과 같다.\n$p:2x ^{2} -3x-14 GEQ 0,~~q:a LEQ x LEQ b$\n에 대하여 명제 $SIM p`` rarrow ``q$의 역이 참이 되도록 하는 정수 $a$의 최솟값을 $m$, 정수 $b$의 최댓값을 $M$ 이라 할 때, $M+m$의 값은?",
+   "choices": []
+  },
+  {
+   "number": 24,
+   "answer": null,
+   "solution": "중심의 좌표 $LEFT ( 5`,````4 RIGHT )$ 반지름의 길이 $5$                           [출처: 24-2-중간 19번문제]원의 중심의 좌표를 $rmO LEFT ( ita`,````b RIGHT )$라 하자.${bar{rmOA}} = {bar{rmOB}} = {bar{rmOC}}$이고 반지름의 길이와 같다.${bar{rm OA it}} ^{2} = {bar{rm OB it}} ^{2} = {bar{rm OC it}} ^{2}$$LEFT ( a-5 RIGHT ) ^{2} + LEFT ( b+1 RIGHT ) ^{2} =a ^{2} + LEFT ( b-4 RIGHT ) ^{2} = LEFT ( a-9 RIGHT ) ^{2} + LEFT ( b-7 RIGHT ) ^{2}$${cases{`-a+b=`-1&#`````3a+b=`````19&}}$$a=5`,````b=4$반지름의 길이는 $sqrt {25} =5$따라서 중심의 좌표는 $LEFT ( 5`,````4 RIGHT )$, 반지름의 길이는 $5$이다.",
+   "topic": "원의 방정식",
+   "difficulty": "중",
+   "score": null,
+   "label": "[서술형 $3$]",
+   "type": "서술형",
+   "stem": "[서술형 $3$] 세 점 $rm A(5,````-1)$, $rm B(0,````4)$, $rm C(9,````7)$을 지나는 원의 중심의 좌표와 반지름의 길이를 구하는 풀이과정과 답을 쓰시오. \n[$6$점, 부분 점수 있음, 수식 오류 시 $0.5$점씩 감점]",
+   "choices": []
+  },
+  {
+   "number": 25,
+   "answer": null,
+   "solution": "⑴ $k != 0$ ⑵ $k=12$[출처: 24-2-중간 20번문제]⑴ 세 직선이 삼각형을 이루기 위해서는 세 직선이 한 점에서 만나지 않고 어느 두 직선도 평행하지 않아야 한다.$2x+y-4=0$의 기울기는 $-2$이고, $x-2y+3=0$의 기울기는 ${1} over {2}$, $2x-y+k=0$의 기울기는 $2$이므로 어느 두 직선도 평행하지 않는다.따라서 세 직선이 한 점에서 만나지 않아야 하므로$2x+y-4=0$, $x-2y+3=0$ 의 교점인 $LEFT ( 1`,````2 RIGHT )$를 $2x-y+k=0$이 지나지 않아야 한다.$2-2+k!=0$$THEREFORE$ $k != 0$⑵ 내심에서 세 직선까지의 거리가 모두 같아야 한다.$(-2,````3)$에서 $2x+y-4=0$ 까지의 거리는 ${LEFT | -4+3-4 RIGHT |} over {sqrt {4+1}} = sqrt {5}$$(-2,````3)$에서 $2x-y+k=0$ 까지의 거리도 $sqrt {5}$이어야 하므로${LEFT | -4-3+k RIGHT |} over {sqrt {4+1}} = sqrt {5}$$LEFT | k-7 RIGHT | =5$$k=12$ 또는 $k=2$$k=2$일 경우 $(-2,````3)$는 삼각형 내부의 점이 아니므로$THEREFORE ~k=12$",
+   "topic": "두 직선의 위치관계",
+   "difficulty": "상",
+   "score": 9.0,
+   "label": "[서술형 $4$]",
+   "type": "서술형",
+   "stem": "[서술형 $4$] 세 직선 $2x+y-4=0$, $x-2y+3=0$,\n$2x-y+k=0$에 대하여 다음 물음에 답하시오.\n(단, $k$는 실수이다.)  \n⑴ 세 직선이 삼각형을 이루기 위한 상수 $k$의 조건을 구하는 풀이과정과 답을 쓰시오. \n[$4$점, 부분 점수 있음, 수식 오류 시 $0.5$점씩 감점]\n⑵ 세 직선이 이루는 삼각형의 내심의 좌표가 $(-2,````3)$이 되게 하는 상수 $k$의 값을 구하는 풀이과정과 답을 쓰시오. \n[$5$점, 부분 점수 있음, 수식 오류 시 $0.5$점씩 감점]\n  \n  \n정답\n워드: 김재웅t\n오검:이영지t \n완료:심청솔t",
+   "choices": []
+  }
+ ],
+ "meta": {
+  "exam_id": 4309,
+  "school": "대구고",
+  "grade": 1,
+  "subject": "공수2",
+  "year": 2025,
+  "semester": 2,
+  "round": "중간",
+  "src": "N:\\개인\\기출\\2024 기출모음\\2024년 2학기 중간 고사 모음\\#워드\\고1\\[대구고][1][공수2][25-2-중간대비][동아] (완료).hwp"
+ }
+}

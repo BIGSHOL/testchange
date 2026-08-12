@@ -1,0 +1,436 @@
+{
+ "source": "_경상고__1__공수2__25-2-기말대비__와이비엠___완료_.hwpx",
+ "question_count": 25,
+ "questions": [
+  {
+   "number": 1,
+   "answer": "③",
+   "solution": null,
+   "topic": "함수",
+   "difficulty": "하",
+   "score": 3.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "집합 $X= LEFT { 3,~a RIGHT }$에서 정의된 함수 $f LEFT ( x RIGHT ) =x ^{2} -2x-1$에 대하여 함수 $f LEFT ( x RIGHT )$의 치역이 $LEFT { -2,~b RIGHT }$일 때, $a+b$의 값은? \n(단, $a,~b$는 상수이다.)",
+   "choices": [
+    "$1$",
+    "$2$",
+    "$3$",
+    "$4$",
+    "5"
+   ]
+  },
+  {
+   "number": 2,
+   "answer": "③",
+   "solution": null,
+   "topic": "합성함수",
+   "difficulty": "하",
+   "score": 3.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "두 함수 $f LEFT ( x RIGHT ) =2x-5,~g LEFT ( x RIGHT ) =-x+k$에 대하여 $f CIRC g=g CIRC f$일 때, 상수 $k$의 값은?",
+   "choices": [
+    "$4$",
+    "$7$",
+    "$10$",
+    "$13$",
+    "$16$"
+   ]
+  },
+  {
+   "number": 3,
+   "answer": "②",
+   "solution": null,
+   "topic": "유리함수",
+   "difficulty": "하",
+   "score": 3.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "함수 $y= {ax+b} over {x+c}$의 그래프를 $x$축으로 $2$만큼, $y$축으로 $-3$만큼 평행이동하면 $y=- {3} over {x}$의 그래프와 일치한다. $a-b+c$의 값은? (단, $a,~b,~c$는 상수이다.)",
+   "choices": [
+    "$1$",
+    "$2$",
+    "$3$",
+    "$4$",
+    "$5$"
+   ]
+  },
+  {
+   "number": 4,
+   "answer": "③",
+   "solution": null,
+   "topic": "충분조건과 필요조건",
+   "difficulty": "중",
+   "score": 3.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "실수 $a,~b$에 대한 두 조건 $p,~q$에 대하여 $p$가 $q$이기 위한 필요충분조건인 것은?",
+   "choices": [
+    "$p: LEFT | a+b RIGHT | = LEFT | a-b RIGHT |$\n$q:a=0$이고 $b=0$",
+    "$p:ab>0$\n$q:a>0$이고 $b>0$",
+    "$p:a ^{2} +b ^{2} =0$\n$q: LEFT | a RIGHT | + LEFT | b RIGHT | =0$",
+    "$p:a>b$\n$q:a ^{2} >b ^{2}$",
+    "$p: {a+b} over {2} GEQ sqrt {ab}$\n$q: LEFT | a RIGHT | + LEFT | b RIGHT | GEQ LEFT | a+b RIGHT |$"
+   ]
+  },
+  {
+   "number": 5,
+   "answer": "⑤",
+   "solution": null,
+   "topic": "역함수",
+   "difficulty": "중",
+   "score": 3.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "실수 전체의 집합 $X$에서 $X$로의 두 함수 $f,~g$에 대하여 $f,~g$는 일대일대응이다. $f ^{-1} LEFT ( x RIGHT ) =4x-1,~ LEFT ( f CIRC g ^{-1} RIGHT ) LEFT ( -2x+5 RIGHT ) =x$일 때, $LEFT ( f ^{-1} CIRC g RIGHT ) LEFT ( 7 RIGHT )$의 값은?",
+   "choices": [
+    "$-5$",
+    "$-3$",
+    "$-1$",
+    "$1$",
+    "$3$"
+   ]
+  },
+  {
+   "number": 6,
+   "answer": "⑤",
+   "solution": null,
+   "topic": "여러 가지 함수",
+   "difficulty": "중",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "함수 $f LEFT ( x RIGHT ) = {cases{x ^{2} -4x+5&LEFT ( x>a RIGHT )#~~~x+1&LEFT ( x LEQ a RIGHT )}}$의 치역이 실수 전체의 집합이 되도록 하는 모든 정수 $a$의 개수는?",
+   "choices": [
+    "$1$",
+    "$2$",
+    "$3$",
+    "$4$",
+    "$5$"
+   ]
+  },
+  {
+   "number": 7,
+   "answer": "②",
+   "solution": null,
+   "topic": "명제의 참, 거짓",
+   "difficulty": "중",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "전체집합 $U$에서 세 조건 $p,~q,~r$의 진리집합을 각각 $P,~Q,~R$이라 하자. 세 명제 $p rarrow r,~ SIM q rarrow SIM p,~ SIM r rarrow q$ 가 모두 참일 때, <보기>에서 항상 옳은 것만을 있는 대로 고른 것은? \n<보기>\nㄱ. $P SMALLINTER R ^{C} = EMPTYSET$\nㄴ. $P ^{C} CUP R=U$\nㄷ. $Q SMALLINTER R=P$\n대구광역시 내신 수학 연구회",
+   "choices": [
+    "ㄱ",
+    "ㄱ, ㄴ",
+    "ㄱ, ㄷ",
+    "ㄴ, ㄷ",
+    "ㄱ, ㄴ, ㄷ"
+   ]
+  },
+  {
+   "number": 8,
+   "answer": "①",
+   "solution": null,
+   "topic": "무리함수",
+   "difficulty": "중",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "무리함수 $f LEFT ( x RIGHT ) = sqrt {2x+a} +b$가 다음 조건을 만족시킨다. \n(가) 함수 $f LEFT ( x RIGHT )$의 정의역은 $LEFT { x` vert ` x GEQ -1 RIGHT }$이다.\n(나) 방정식 $LEFT | f LEFT ( x RIGHT ) RIGHT | =k` LEFT ( k != 0 RIGHT )$의 서로 다른 실근의 개수를 $g LEFT ( k RIGHT )$라 할 때, 집합 $A= LEFT { k`vert `g LEFT ( k RIGHT ) =1 RIGHT }$에 대하여 $A= LEFT { k` vert `k>3 RIGHT }$이다.\n대구광역시 내신 수학 연구회\n$a+b$의 값은? (단, $a,~b$는 상수이다.)",
+   "choices": [
+    "$-1$",
+    "$0$",
+    "$1$",
+    "$2$",
+    "$3$"
+   ]
+  },
+  {
+   "number": 9,
+   "answer": "③",
+   "solution": null,
+   "topic": "절대부등식",
+   "difficulty": "중",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "원 $x ^{2} +y ^{2} =4$ 위의 점 $rmP$에서 그은 접선이 $x$축과 만나는 점을 $rmA$, $y$축에 내린 수선의 발을 $rmB$라 하자. 이때, $rm {{bar{OB}}} over {{bar{OA}}}$의 최댓값은? (단, 점 $rmP$는 제 $1$사분면 위의 점이며, $rmO$는 원점이다.)",
+   "choices": [
+    "$1$",
+    "${sqrt {2}} over {2}$",
+    "${1} over {2}$",
+    "${sqrt {2}} over {4}$",
+    "${1} over {4}$"
+   ]
+  },
+  {
+   "number": 10,
+   "answer": "②",
+   "solution": null,
+   "topic": "유리함수",
+   "difficulty": "상",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "집합 $X= LEFT { x`vert `x>0 RIGHT }$에서 실수 전체의 집합 $Y$로의 함수 $f LEFT ( x RIGHT ) = {cases{```````` {4} over {x}&`(0<x LEQ 2)#ax+3&````````` LEFT ( x>2 RIGHT )}}$ 에 대하여 함수 $y=f LEFT ( x RIGHT )$의 그래프와 역함수 $y=f ^{-1} LEFT ( x RIGHT )$의 그래프의 세 교점의 $x$좌표가 각각 $1,~2,~b$일 때, $ab+f ^{2024} LEFT ( 1 RIGHT )$의 값은? \n(단, $a,~b$는 상수이고, $f ^{1} =f,~f ^{n+1} =f CIRC f ^{n}$ $LEFT ( n=1,~2,~3, ~CDOTS RIGHT )$이다.)",
+   "choices": [
+    "$-3$",
+    "$-1$",
+    "$0$",
+    "$1$",
+    "$3$\n  \n  \nㅇ"
+   ]
+  },
+  {
+   "number": 11,
+   "answer": "⑤",
+   "solution": null,
+   "topic": "무리함수",
+   "difficulty": "상",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "실수 전체의 집합 $X$에서 $X$로의 함수 $f LEFT ( x RIGHT ) = {cases{sqrt {x+1} +a&` LEFT ( x GEQ -1 RIGHT )#```````` {2x+b} over {x+1}&``` LEFT ( x< -1 RIGHT )}}$ 의 역함수 $f ^{-1}$가 존재한다. 방정식 $LEFT ( f CIRC f RIGHT ) LEFT ( x RIGHT ) =f LEFT ( -x+k RIGHT )$의 실근이 존재하지 않는 $k$값의 범위가 $alpha <k< alpha +4$라 할 때, $a+b$의 값은? \n(단, $a,~b$는 상수이다.)",
+   "choices": [
+    "$4$",
+    "$5$",
+    "$6$",
+    "$7$",
+    "$8$\n  \n  \n========================"
+   ]
+  },
+  {
+   "number": 12,
+   "answer": "①",
+   "solution": null,
+   "topic": "명제의 역과 대우",
+   "difficulty": "중",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "한쪽 면에는 자연수가, 다른 쪽 면에는 영문자가 적혀 있는 카드 , , , $4$장이 있다. 명제 ‘홀수가 적힌 카드의 다른 쪽 면에는 모음이 적혀 있다.’가 참인지 확인하기 위하여 $2$장을 선택하여 다른 쪽 면을 확인할 때, 선택해야 할 $2$장의 카드는?",
+   "choices": [
+    ",",
+    ",",
+    ",",
+    ",",
+    ","
+   ]
+  },
+  {
+   "number": 13,
+   "answer": "⑤",
+   "solution": null,
+   "topic": "절대부등식",
+   "difficulty": "중",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "두 양수 $x$, $y$에 대하여 $x+2y=1$일 때, $1 over x + 2 over y$의 최솟값은?",
+   "choices": [
+    "$5$",
+    "$6$",
+    "$7$",
+    "$8$",
+    "$9$"
+   ]
+  },
+  {
+   "number": 14,
+   "answer": "④",
+   "solution": null,
+   "topic": "여러 가지 함수",
+   "difficulty": "중",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "두 집합 $X= LEFT { x`|`x GEQ a RIGHT }$, $Y= LEFT { y`|`y GEQ b RIGHT }$에 대하여 $X$에서 $Y$로의 함수 $f(x)=x^2 -4x+5$가 일대일대응일 때, $a+b$의 최솟값은? (단, $a$, $b$는 실수)",
+   "choices": [
+    "$3 over 2$",
+    "$2$",
+    "$5 over 2$",
+    "$3$",
+    "$7 over 2$"
+   ]
+  },
+  {
+   "number": 15,
+   "answer": "④",
+   "solution": null,
+   "topic": "유리함수",
+   "difficulty": "중",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "함수 $f(x)= x over x-1$에 대하여 $f^1 =f$, $f` ^{n+1} =f CIRC f ^{n}$으로 정의할 때, $f^10 (3)$의 값은? (단, $n$은 자연수)",
+   "choices": [
+    "$1 over 3$",
+    "$1 over 2$",
+    "$3 over 2$",
+    "$3$",
+    "$6$"
+   ]
+  },
+  {
+   "number": 16,
+   "answer": "②",
+   "solution": null,
+   "topic": "무리함수",
+   "difficulty": "중",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "정의역이 $LEFT { x`|`0 LEQ x LEQ 4 RIGHT }$인 함수 $y=sqrt2x+a +3$의 최솟값이 $4$, 최댓값이 $b$일 때, $a+b$의 값은? (단, $a$, $b$는 상수)",
+   "choices": [
+    "$6$",
+    "$7$",
+    "$8$",
+    "$9$",
+    "$10$"
+   ]
+  },
+  {
+   "number": 17,
+   "answer": "③",
+   "solution": null,
+   "topic": "유리함수",
+   "difficulty": "중",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "함수 $f LEFT(x RIGHT)={ax+2}over{x-b}$의 그래프의 점근선은 $x=b`,~y=2`$이고 $f` LEFT ( 5 RIGHT ) `=4`$일 때, $a+2b$의 값은? (단, $a`,~b`$는 상수이다.)",
+   "choices": [
+    "$2$",
+    "$4$",
+    "$6$",
+    "$8$",
+    "$10$"
+   ]
+  },
+  {
+   "number": 18,
+   "answer": "②",
+   "solution": null,
+   "topic": "무리함수",
+   "difficulty": "하",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "함수 $y=2sqrt{x+1}+a$의 그래프가 제$2$사분면을 지나지 않을 때, 상수 $a$의 최댓값은?",
+   "choices": [
+    "$-3$",
+    "$-2$",
+    "$-1$",
+    "$0$",
+    "$1$"
+   ]
+  },
+  {
+   "number": 19,
+   "answer": "②",
+   "solution": null,
+   "topic": "유리함수",
+   "difficulty": "상",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "함수 $f` LEFT ( x RIGHT)`={a}over{2x}+b````LEFT( a>{1}over{2}right)$가 다음 <조 건>을 만족시킨다.\n<조건>\n곡선 $y= LEFT | f` LEFT ( x RIGHT ) RIGHT |$는 직선 $y=a`$와 한 점에서 만난다.\n$y=f LEFT ( x RIGHT )$는 제 $2$사분면을 지나지 않는다. \n대구광역시 내신 수학 연구회\n이 때, 함수 $f` LEFT ( x RIGHT)`={a}over{2x}+b`$의 그래프와 $x$축의 교점을 $rmA`$, 곡선 $y=f`LEFT(x RIGHT)$ 위의 점 $rmP$에서 $x$축에 내린 수선의 발을 $RMQ$라 하자. 점 $rmP$의 $x$좌표가 $a$일 때, 삼각형 $rmAQP$의 넓이가 자연수가 되도록 하는 유리수 $a$의 최솟값은?",
+   "choices": [
+    "$2$",
+    "${5}over{2}$",
+    "$3$",
+    "${7} over {2}$",
+    "$4$"
+   ]
+  },
+  {
+   "number": 20,
+   "answer": "⑤",
+   "solution": null,
+   "topic": "무리함수",
+   "difficulty": "상",
+   "score": 4.0,
+   "label": null,
+   "type": "객관식",
+   "stem": "아래 그림과 같이 함수 $f` LEFT ( x RIGHT ) `= sqrt {6x+7}$의 그래프와 $g` LEFT ( x RIGHT ) `= {1} over {6} LEFT ( x ^{2} -7 RIGHT ) `` LEFT ( x GEQ 0 RIGHT )$의 그래프의 교점을 $RMA$라 하자. 함수 $y=f`LEFT(x RIGHT)$ 위의 점 $RMB`LEFT(`3`,~5`RIGHT)$를 지나고 기울기가 $-1$인 직선과 함수 $y=g`LEFT(x RIGHT)$의 교점을 $rmC`$라 할 때, 삼각형 $rmABC`$의 외접원의 넓이는?",
+   "choices": [
+    "${10}OVER{3}`pi$",
+    "${35}OVER{9}`pi$",
+    "${40}OVER{9}`pi$",
+    "$5`pi$",
+    "${50}OVER{9}`pi$"
+   ]
+  },
+  {
+   "number": 21,
+   "answer": null,
+   "solution": "$a=2,~b=-3$  : 경상고 24-2-기말 17번$y= {bx+7} over {ax-1}$가 $LEFT ( 1,~4 RIGHT )$를 지나므로 $4= {b+7} over {a-1}$이고점근선이 $y= {b} over {a}$이므로 ${b} over {a} =- {3} over {2}$ 따라서 $a=2,~b=-3$이다.",
+   "topic": "유리함수",
+   "difficulty": "하",
+   "score": 5.0,
+   "label": "[서술형 $1$]",
+   "type": "서술형",
+   "stem": "[서술형 $1$] 함수 $y= {bx+7} over {ax-1}$의 그래프가 점 $LEFT ( 1,~4 RIGHT )$를 지나고 직선 $y=- {3} over {2}$를 한 점근선으로 가질 때, 상수 $a,~b$의 값을 구하고 그 과정을 서술하시오.",
+   "choices": []
+  },
+  {
+   "number": 22,
+   "answer": null,
+   "solution": "$x=1$ 또는 $x=-10$: 경상고 24-2-기말 18번① $f LEFT ( x RIGHT ) =ax ^{n} + CDOTS$이라 하자. $LEFT ( f CIRC  f RIGHT ) LEFT ( x RIGHT ) =a LEFT ( ax ^{n} + CDOTS  RIGHT ) ^{n} =a ^{n+1} x ^{2n} + CDOTS$이므로 일차함수가 되려면 $n=1$이다. 따라서 $f LEFT ( x RIGHT ) =ax+b$라 하자.② $f LEFT ( 1 RIGHT ) =2$이므로 $a+b=2$③ $f ^{-1} LEFT ( x RIGHT ) = {1} over {a} x- {b} over {a}$이고 $f=f ^{-1}$이므로 ${1} over {a} =a,~- {b} over {a} =b$$ⅰ)$ $a=1$이면 $b=0$ $a+b=2$에 모순$ⅱ)$ $a=-1$이면 $a+b=2$에서 $b=3$따라서 $f LEFT ( x RIGHT ) =-x+3$③ $g LEFT ( f LEFT ( x RIGHT ) RIGHT ) =g LEFT ( 2x RIGHT )$이므로   $LEFT ( -x+3 RIGHT ) ^{2} +7 LEFT ( -x+3 RIGHT ) -6= LEFT ( 2x RIGHT ) ^{2} +7 BULLET  2x-6$   $x ^{2} +9x-10=0$이므로 $x=1~or~x=-10$",
+   "topic": "역함수",
+   "difficulty": "중",
+   "score": 5.0,
+   "label": "[서술형 $2$]",
+   "type": "서술형",
+   "stem": "[서술형 $2$] 다항함수 $f LEFT ( x RIGHT )$가 다음 조건을 만족시킨다.\n(가) $f CIRC f$는 일차함수\n(나) $f LEFT ( 1 RIGHT ) =2$\n(다) $f LEFT ( x RIGHT )$의 역함수 $f ^{-1} LEFT ( x RIGHT )$에 대하여 $f LEFT ( x RIGHT ) =f ^{-1} LEFT ( x RIGHT )$\n대구광역시 내신 수학 연구회\n이차함수 $g LEFT ( x RIGHT ) =x ^{2} +7x-6$에 대하여 $x$에 대한 방정식 $g LEFT ( f LEFT ( x RIGHT ) RIGHT ) =g LEFT ( 2x RIGHT )$의 모든 실근을 구하고, 그 과정을 서술하시오.",
+   "choices": []
+  },
+  {
+   "number": 23,
+   "answer": null,
+   "solution": "${27} over {2}$  : 경상고 24-2-기말 15번$f LEFT ( x RIGHT ) = {1} over {2} x+k$가 서로 다른 두 실근을 갖는 $k$의 최솟값이 $3$이므로 $y= {1} over {2} x+3$이 $LEFT ( a,~b RIGHT )$를 지날 때이다.또 $h LEFT ( x RIGHT ) =-2x+13$이라 하면 $f LEFT ( beta  RIGHT ) =g LEFT ( beta  RIGHT ) =h LEFT ( beta  RIGHT )$이므로 $beta$는 ${1} over {2} beta  +3=-2 beta  +13$의 해이므로 $beta  =4$이다. 따라서 $a=4,~b=5$이다.${4} over {3} LEFT ( x-4 RIGHT ) ^{2} +5=-2x+13$의 두 근 $alpha  = {5} over {2} ,~ beta  =4$이고$sqrt {{3} over {4} LEFT ( x-4 RIGHT )} +5= {1} over {2} x+3$의 두 근 $beta  =4,~ gamma  =7$이므로 $alpha  + beta  + gamma  = {27} over {2}$이다.",
+   "topic": "무리함수",
+   "difficulty": "상",
+   "score": 5.0,
+   "label": "[서술형 $3$]",
+   "type": "서술형",
+   "stem": "[서술형 $3$] 두 함수 \n$f LEFT ( x RIGHT ) = {cases{{4} over {3} LEFT ( x-a RIGHT ) ^{2} +b`&LEFT ( x<a RIGHT )#sqrt {{3} over {4} LEFT ( x-a RIGHT )} +b&` LEFT ( x GEQ a RIGHT )}}$ , $g LEFT ( x RIGHT ) = {1} over {2} x+3$\n과 서로 다른 세 실수 $alpha ,~ beta ,~ gamma$가 다음 조건을 만족시킨다.\n(가) 방정식 $f LEFT ( x RIGHT ) = {1} over {2} x+k$가 서로 다른 두 실근을 갖도록 하는 $k$의 최솟값은 $3$이다.\n(나) 방정식 $LEFT { f LEFT ( x RIGHT ) -g LEFT ( x RIGHT ) RIGHT } LEFT { f LEFT ( x RIGHT ) +2x-13 RIGHT } =0$을 만족시키는 실수 $x$의 값은 $alpha ,~ beta ,~ gamma ` LEFT ( alpha < beta < gamma RIGHT )$뿐이다.\n(다) $f LEFT ( beta RIGHT ) =g LEFT ( beta RIGHT ) ,~f LEFT ( beta RIGHT ) =-2 beta +13$\n대구광역시 내신 수학 연구회\n$alpha + beta + gamma$의 값은? \n  \n  \nㅇㅌ",
+   "choices": []
+  },
+  {
+   "number": 24,
+   "answer": null,
+   "solution": "$m=- {2} over {5} ~or~0<m< {4} over {5}$  : 경상고 24-2-기말 19번그래프를 그려보면 두 함수가 서로 다른 두 점에서 만나려면 기울기 $m$이 $y=- sqrt {4x-5} +2$와 접할 때 보다 크거나 같고 $0<m< {4} over {5}$여야 한다.$y=- sqrt {4x-5} +2$와 접할 때$- sqrt {4x-5} +2=mx$$m ^{2} x ^{2} -4 LEFT ( m+1 RIGHT ) x+9=0$의 $D=0$${D} over {4} =5m ^{2} -8m-4=0$이므로 $m=- {2} over {5} ~or~m=2$따라서 $m=- {2} over {5} ~or~0<m< {4} over {5}$",
+   "topic": "무리함수",
+   "difficulty": "중",
+   "score": 5.0,
+   "label": "[서술형 $4$]",
+   "type": "서술형",
+   "stem": "[서술형 $4$] 함수 $f LEFT ( x RIGHT ) = {cases{- sqrt {4x-5} +2&` LEFT ( x GEQ {5} over {4} RIGHT )#`````````````` {4} over {5} x+1&` LEFT ( x< {5} over {4} RIGHT )}}$ 에 대하여 $y=f LEFT ( x RIGHT )$의 함수의 그래프와 직선 $y=mx$가 서로 다른 두 점에서 만나도록 하는 실수 $m$의 값의 범위를 구하고, 그 과정을 서술하시오.",
+   "choices": []
+  },
+  {
+   "number": 25,
+   "answer": null,
+   "solution": "$9$ : 2012년 교육청 고1공통 11월 20번 (변형)$n=a_{m}  times 10^{m}+ cdots+a_{2}  times 10^{2}+a_{1}  times 10+a_{0}$일 때,$f left(a_{m}  times 10^{m}+ cdots+a_{2}  times 10^{2}+a_{1}  times 10+a_{0} right)$$=f left(a_{m}  times 10^{m-1}+ cdots+a_{2}  times 10+a_{1} right)+a_{0}$$=f left(a_{m}  times 10^{m-2}+ cdots+a_{2} right)+a_{1}+a_{0}$ $vdots$$=a_{m}+ cdots+a_{2}+a_{1}+a_{0}$$therefore~f(n)=a_{m}+ cdots+a_{2}+a_{1}+a_{0}$ $(f  circ f)(999)=f(27)=9$",
+   "topic": "무리함수",
+   "difficulty": "상",
+   "score": 5.0,
+   "label": "[서술형 $5$]",
+   "type": "서술형",
+   "stem": "[서술형 $5$] 음이 아닌 정수 전체의 집합에서 정의된 함수 $f$가 음이 아닌 정수 $n$과 $0 leq k leq 9$인 정수 $k$에 대하여 다음 조건을 만족시킨다.\n(가) $f(0)=0$\n(나) $f(10 n+k)=f(n)+k$\n대구광역시 내신 수학 연구회\n위 조건을 만족하는 $f LEFT ( x RIGHT )$에 대하여 $(f CIRC f)(999)$ 값은? \n\n  \n  \n정답\n워드:장세완t\n오검:박기원t \n완료:강동희t",
+   "choices": []
+  }
+ ],
+ "meta": {
+  "exam_id": 4246,
+  "school": "경상고",
+  "grade": 1,
+  "subject": "공수2",
+  "year": 2025,
+  "semester": 2,
+  "round": "기말",
+  "src": "N:\\개인\\기출\\2024 기출모음\\2024년 2학기 기말 고사 모음\\공수2\\[경상고][1][공수2][25-2-기말대비][와이비엠] (완료).hwp"
+ }
+}

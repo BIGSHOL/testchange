@@ -1,0 +1,368 @@
+{
+  "meta": {"exam_id": 4224, "ocr_source": "session-vision"},
+  "header": {"title": "경북고 1학년 공통수학1 — 2025년 1학기 기말고사 (이차방정식과 이차함수 ~ 행렬)"},
+  "questions": [
+    {
+      "number": 1,
+      "score": 4.3,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "두 이차함수 f(x), g(x)가 다음 조건을 만족시킨다."},
+        {"type": "text", "value": "<상자> (가) 부등식 f(x)+g(x) \\leq 0의 해는 x \\geq 3 이다. • (나) 모든 실수 x에 대하여 f(x)-g(x) \\leq f(2)-g(2)이다. • (다) 함수 y=f(x)의 그래프는 x축과 한 점 (0,~0)에서만 만난다."},
+        {"type": "text", "value": "x에 대한 방정식 \\{f(x)-k\\} \\times \\{g(x)-k\\}=0 이 실근을 갖지 않도록 하는 정수 k의 개수가 4일 때, f(6)-g(6)의 최솟값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-30"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-25"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-20"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "-15"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "-10"}]}
+      ]
+    },
+    {
+      "number": 2,
+      "score": 3.3,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "연립방정식"},
+        {"type": "equation", "value": "\\begin{cases} x^{2}-4xy+3y^{2}=0 \\\\ x^{2}+3xy+2y^{2}=4 \\end{cases}"},
+        {"type": "text", "value": "를 만족시키는 x, y에 대하여 xy의 최댓값을 \\frac{q}{p}라 할 때, p+q의 값은? (단, p, q는 서로소인 자연수이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "11"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "13"}]}
+      ]
+    },
+    {
+      "number": 3,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "x^{3}=1의 한 허근을 \\omega라 할 때, 옳은 것만을 <보기>에서 있는 대로 고른 것은? (단, \\bar{\\omega}는 \\omega의 켤레복소수이다.)"},
+        {"type": "text", "value": "<보기> ㄱ. \\frac{\\bar{\\omega}}{\\omega^{5}}+\\frac{(\\bar{\\omega})^{2}}{\\omega^{4}}+\\frac{(\\bar{\\omega})^{3}}{\\omega^{3}}-\\frac{(\\bar{\\omega})^{4}}{\\omega^{2}}=2 • ㄴ. 1+2\\omega+3\\omega^{2}+ \\cdots +10\\omega^{9}=4-3\\omega • ㄷ. \\left(\\omega+\\frac{1}{\\omega}\\right)+\\left(\\omega^{2}+\\frac{1}{\\omega^{2}}\\right)+\\cdots+\\left(\\omega^{50}+\\frac{1}{\\omega^{50}}\\right)=-2 • ㄹ. (\\omega+\\omega^{3}+\\omega^{5}+\\omega^{7})+\\{\\bar{\\omega}+(\\bar{\\omega})^{2}+(\\bar{\\omega})^{3}+(\\bar{\\omega})^{4}\\}=1"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ, ㄴ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄴ, ㄷ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄱ, ㄴ, ㄷ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄴ, ㄷ, ㄹ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄱ, ㄴ, ㄷ, ㄹ"}]}
+      ]
+    },
+    {
+      "number": 4,
+      "score": 3.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "x에 대한 연립부등식"},
+        {"type": "equation", "value": "\\begin{cases} x^{2}-5x-14 \\leq 0 \\\\ x^{2}-6x+8 > 0 \\end{cases}"},
+        {"type": "text", "value": "을 만족시키는 모든 정수 x의 값의 합은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "14"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "16"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "18"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "20"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "22"}]}
+      ]
+    },
+    {
+      "number": 5,
+      "score": 3.6,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "부등식 (5-m)x^{2}+2(5-m)x-4<0이 모든 실수 x에 대하여 성립하도록 하는 모든 정수 m의 합은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "16"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "21"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "26"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "30"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "35"}]}
+      ]
+    },
+    {
+      "number": 6,
+      "score": 3.7,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "x에 대한 부등식 2|x+1|-3|x-2| \\geq -9를 만족시키는 정수 x의 개수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "19"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "20"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "21"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "22"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "23"}]}
+      ]
+    },
+    {
+      "number": 7,
+      "score": 3.3,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 \\mathrm{A}, \\mathrm{B}, \\mathrm{C}, \\mathrm{D} 4개의 영역에 서로 다른 5가지 색을 칠하여 구분하려고 한다. 같은 색을 중복하여 사용할 수 있으나 인접한 영역은 서로 다른 색으로 칠할 때, 칠하는 방법의 수는?"},
+        {"type": "figure", "value": "직사각형을 4개의 영역으로 나눈 그림. 맨 위 가로 전체가 영역 A, 그 아래 오른쪽 넓은 부분이 영역 B, 왼쪽 아래로 돌출된 작은 영역이 C, 오른쪽 맨 아래 작은 영역이 D이다. 인접 관계는 A-B, A-C, B-C, B-D 이고 A와 D, C와 D는 접하지 않는다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "72"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "120"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "180"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "240"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "600"}]}
+      ]
+    },
+    {
+      "number": 8,
+      "score": 3.8,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "5개의 숫자 1, 2, 3, 4, 5를 일렬로 나열할 때, 앞에서부터 차례로 a_{1}, a_{2}, a_{3}, a_{4}, a_{5}라 하자. 다음 조건을 만족시키는 경우의 수는?"},
+        {"type": "text", "value": "<상자> (가) a_{5}=3 • (나) (a_{1}-1)(a_{2}-2)(a_{3}-3)(a_{4}-4) \\neq 0"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "11"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "12"}]}
+      ]
+    },
+    {
+      "number": 9,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 번호가 적힌 10개의 자리가 있다."},
+        {"type": "figure", "value": "자리표 그림. 윗줄에 왼쪽부터 1, 2, 3, 4, 5, 6 번 자리 6칸이 가로로 놓여 있고, 아랫줄에는 윗줄의 2, 3, 4, 5번 칸 바로 아래에 각각 12, 13, 14, 15 번 자리 4칸이 놓여 있다(총 10개 자리). 즉 위아래로 마주 보는 자리의 번호 차는 10이다."},
+        {"type": "text", "value": "두 학생 A, B를 포함한 5명의 학생이 다음 규칙에 따라 10개의 자리 중에서 서로 다른 5개의 자리에 서는 경우의 수는?"},
+        {"type": "text", "value": "<상자> (가) A의 자리 번호는 14 이상이고, B의 자리 번호는 4이하이다. • (나) 5명의 학생 중에서 어느 두 학생도 자리 번호의 차가 1이 되도록 서지 않는다. • (다) 5명의 학생 중에서 어느 두 학생도 자리 번호의 차가 10이 되도록 서지 않는다. • (라) 5명의 학생이 서있는 자리 번호의 합이 3의 배수이다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "24"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "36"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "60"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "72"}]}
+      ]
+    },
+    {
+      "number": 10,
+      "score": 2.5,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "{}_{8}\\mathrm{C}_{6}+{}_{8}\\mathrm{C}_{7}의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "24"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "36"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "48"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "60"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "72"}]}
+      ]
+    },
+    {
+      "number": 11,
+      "score": 3.2,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 직사각형 위에 8개의 점이 있을 때, 이 중에서 3개의 점을 꼭짓점으로 하는 삼각형의 개수는?"},
+        {"type": "figure", "value": "세로로 긴 직사각형의 둘레 위에 8개의 점이 찍힌 그림. 위쪽 변에 3개(두 꼭짓점과 중앙 1개), 아래쪽 변에 3개(두 꼭짓점과 중앙 1개)가 보이고, 왼쪽 변 중앙과 오른쪽 변에도 점이 놓여 있다. 개별 점의 정확한 위치·개수 배분은 해상도 한계로 일부 [판독불가]."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "53"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "54"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "55"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "56"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "57"}]}
+      ]
+    },
+    {
+      "number": 12,
+      "score": 3.4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "두 집합 X=\\{1,~2,~3,~4,~5,~6\\}, Y=\\{1,~2,~3,~4,~5,~6,~7\\}에 대하여 다음 조건을 만족시키는 함수 f: X \\to Y의 개수는?"},
+        {"type": "text", "value": "<상자> (가) x_{1} \\in X, x_{2} \\in X인 임의의 x_{1}, x_{2}에 대하여 1 \\leq x_{1} < x_{2} \\leq 3이면 f(x_{1})<f(x_{2})이다. • (나) f는 일대일함수이다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "280"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "420"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "560"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "840"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "1680"}]}
+      ]
+    },
+    {
+      "number": 13,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "두 이차정사각행렬 A, B에 대하여 <보기>에서 옳은 것만을 있는 대로 고른 것은? (단, E는 단위행렬이고, O는 영행렬이다.)"},
+        {"type": "text", "value": "<보기> ㄱ. A \\neq O이고 AB=A이면 B=E이다. • ㄴ. A^{2}=E, B^{2}=E이면 (ABA)^{2}=E이다. • ㄷ. A+E=(B+E)^{2}이면 AB=BA이다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄴ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄷ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄱ, ㄴ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄴ, ㄷ"}]}
+      ]
+    },
+    {
+      "number": 14,
+      "score": 4.3,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "두 이차정사각행렬 X, Y에 대하여 연산 \\ast 를 X \\ast Y=(X-Y)(X+Y)라 하자. 이차정사각행렬 A, B에 대하여 <보기>에서 옳은 것만을 있는 대로 고른 것은? (단, E는 단위행렬이고, O는 영행렬이다.)"},
+        {"type": "text", "value": "<보기> ㄱ. A \\ast O=O이면 A=O이다. • ㄴ. A \\ast B=A \\ast (-B)이면 (AB)^{2}=A^{2}B^{2}이다. • ㄷ. A \\ast E=E이면 A^{6}=6E이다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄴ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄷ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄱ, ㄴ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄴ, ㄷ"}]}
+      ]
+    },
+    {
+      "number": 15,
+      "score": 3.6,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "이차부등식 ax^{2}+bx+c \\geq 0의 해가 x=2일 때, 옳은 것을 보기에서 모두 고르면?"},
+        {"type": "text", "value": "<보기> ㄱ. a<0 • ㄴ. b^{2}-4ac=0 • ㄷ. a+b+c<0"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄱ, ㄴ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄱ, ㄷ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄴ, ㄷ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄱ, ㄴ, ㄷ"}]}
+      ]
+    },
+    {
+      "number": 16,
+      "score": 4.0,
+      "type": "서술형",
+      "label": "[서술형 1]",
+      "contents": [
+        {"type": "text", "value": "[서술형 1] 이차함수 f(x)가 다음을 모두 만족시킬 때, f(-5)의 값을 구하시오."},
+        {"type": "text", "value": "<상자> (가) 방정식 f(x)=0의 두 근은 -4와 2이다. • (나) 4 \\leq x \\leq 6일 때, 함수 f(x)의 최솟값은 80이다."}
+      ]
+    },
+    {
+      "number": 17,
+      "score": 4.0,
+      "type": "서술형",
+      "label": "[서술형 2]",
+      "contents": [
+        {"type": "text", "value": "[서술형 2] 삼차방정식 x^{3}-1=0의 한 허근을 \\omega라 할 때, 다음 식의 값을 구해보자. (단, \\bar{\\omega}는 \\omega의 켤레복소수이다.)"},
+        {"type": "text", "value": "<상자> \\omega^{100}+\\frac{1}{\\omega^{100}}+\\frac{1}{1-\\omega}+\\frac{1}{1-\\bar{\\omega}}"}
+      ]
+    },
+    {
+      "number": 18,
+      "score": 4.0,
+      "type": "서술형",
+      "label": "[서술형 3]",
+      "contents": [
+        {"type": "text", "value": "[서술형 3] 실수 x, x+1, x+2가 둔각삼각형의 세 변의 길이가 되도록 하는 x의 값의 범위를 구하시오."}
+      ]
+    },
+    {
+      "number": 19,
+      "score": 4.0,
+      "type": "서술형",
+      "label": "[서술형 4]",
+      "contents": [
+        {"type": "text", "value": "[서술형 4] 서로 다른 주사위 3개를 동시에 던져서 나오는 눈의 수를 a, b, c라 할 때, ab+c의 값이 홀수가 되는 경우의 수를 구하는 풀이 과정과 답을 쓰시오."}
+      ]
+    },
+    {
+      "number": 20,
+      "score": 4.0,
+      "type": "서술형",
+      "label": "[서술형 5]",
+      "contents": [
+        {"type": "text", "value": "[서술형 5] 5개의 숫자 0, 2, 4, 6, 8 중에서 서로 다른 4개를 택하여 만든 네 자리 자연수를 작은 것부터 순서대로 나열할 때, 35째 수를 구하시오."}
+      ]
+    },
+    {
+      "number": 21,
+      "score": 6.0,
+      "type": "서술형",
+      "label": "[서술형 6]",
+      "contents": [
+        {"type": "text", "value": "[서술형 6] 앞좌석이 2개, 뒷자석이 3개 있는 승용차에 아버지와 어머니를 포함한 가족 5명이 탈 때, 다음을 구하시오."}
+      ],
+      "sub_questions": [
+        {"number": 1, "contents": [{"type": "text", "value": "아버지와 어머니가 앞좌석에 앉고 나머지 가족은 뒷좌석에 앉는 경우의 수"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "아버지와 어머니 중에서 한 사람은 운전석에 앉고 나머지 가족은 운전석이 아닌 4개의 좌석에 앉는 경우의 수"}]}
+      ]
+    },
+    {
+      "number": 22,
+      "score": 4.0,
+      "type": "서술형",
+      "label": "[서술형 7]",
+      "contents": [
+        {"type": "text", "value": "[서술형 7] 아래 그림과 같이 같은 간격으로 배열된 12개의 점 중에서 세 점을 꼭짓점으로 하는 삼각형의 개수를 구하시오."},
+        {"type": "figure", "value": "가로 4개, 세로 3개로 같은 간격으로 배열된 12개의 점(3행 4열 격자점)."}
+      ]
+    },
+    {
+      "number": 23,
+      "score": 6.0,
+      "type": "서술형",
+      "label": "[서술형 8]",
+      "contents": [
+        {"type": "text", "value": "[서술형 8] 성훈이와 미주는 두 편의점 P와 Q에서 빵과 우유를 사려고 한다. [표 1]은 두 편의점의 빵과 우유의 가격을 나타낸 것이고, [표 2]는 성훈이와 미주가 사려고 하는 빵과 우유의 개수를 나타낸 것이다. 다음에 답하시오."},
+        {"type": "text", "value": "[표 1] (단위: 원)"},
+        {"type": "table", "rows": [["", "빵", "우유"], ["P", "3000", "1200"], ["Q", "3500", "1000"]]},
+        {"type": "text", "value": "[표 2] (단위: 개)"},
+        {"type": "table", "rows": [["", "성훈", "미주"], ["빵", "3", "2"], ["우유", "4", "5"]]}
+      ],
+      "sub_questions": [
+        {"number": 1, "contents": [{"type": "text", "value": "성훈이와 미주가 두 편의점 P와 Q에 지불해야 할 금액을 행렬로 나타내시오."}]},
+        {"number": 2, "contents": [{"type": "text", "value": "성훈이와 미주는 두 편의점 P와 Q 중 어디에서 사야 비용이 더 적게 드는지 말하시오."}]}
+      ]
+    },
+    {
+      "number": 24,
+      "score": 5.0,
+      "type": "서술형",
+      "label": "[서술형 9]",
+      "contents": [
+        {"type": "text", "value": "[서술형 9] 행렬 A=\\begin{pmatrix} 1 & 2 \\\\ 0 & 1 \\end{pmatrix}에 대하여 A^{n}=\\begin{pmatrix} 1 & 30 \\\\ 0 & 1 \\end{pmatrix}을 만족시키는 자연수 n의 값을 구하시오."}
+      ]
+    },
+    {
+      "number": 25,
+      "score": 5.0,
+      "type": "서술형",
+      "label": "[서술형 10]",
+      "contents": [
+        {"type": "text", "value": "[서술형 10] 두 이차정사각행렬 X, Y에 대하여 f(X,~Y)=XY-YX라 하자. 두 행렬 A, B에 대하여 f(A,~B)=\\begin{pmatrix} -1 & 2 \\\\ -3 & 1 \\end{pmatrix}일 때, 행렬 f(A+B,~A-B)의 모든 성분의 합을 구하시오."}
+      ]
+    }
+  ]
+}

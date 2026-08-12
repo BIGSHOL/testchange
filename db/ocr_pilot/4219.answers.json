@@ -1,0 +1,30 @@
+{
+  "exam_id": 4219,
+  "answer_pages": [7, 8],
+  "items": [
+    {"number": 1, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 2, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 3, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 4, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 5, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 6, "answer": "④", "solution": "$x$, $y$가 실수이므로 코시-슈바르츠의 부등식에 의하여\n$(2^{2}+3^{2})(x^{2}+y^{2}) \\geq (2x+3y)^{2}$\n그런데 $x^{2}+y^{2}=26$이므로\n$13 \\cdot 26 \\geq (2x+3y)^{2}$\n$\\therefore -13\\sqrt{2} \\leq 2x+3y \\leq 13\\sqrt{2}$\n(단, 등호는 $\\frac{x}{2}=\\frac{y}{3}$일 때 성립)\n따라서 $M=13\\sqrt{2}$, $m=-13\\sqrt{2}$이므로\n$M-m=26\\sqrt{2}$", "topic": "", "difficulty": ""},
+    {"number": 7, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 8, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 9, "answer": "②", "solution": "주어진 그래프는 무리함수 $y=-\\sqrt{ax}$ $(a>0)$의 그래프를 $x$축의 방향으로 $-3$만큼, $y$축의 방향으로 $1$만큼 평행이동한 것이므로 무리함수의 식을 $y=-\\sqrt{a(x+3)}+1$로 놓을 수 있다.\n이 무리함수의 그래프가 점 $(0, -2)$를 지나므로\n$-2=-\\sqrt{3a}+1$, $\\sqrt{3a}=3$\n$3a=9$, $a=3$\n즉, $y=-\\sqrt{3(x+3)}+1=-\\sqrt{3x+9}+1$이므로\n$a=3$, $b=9$, $c=1$\n따라서 유리함수 $y=\\frac{9x-1}{x+3}$의 그래프가 점 $(1, k)$를 지나므로 $k=\\frac{9-1}{1+3}=2$", "topic": "", "difficulty": ""},
+    {"number": 10, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 11, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 12, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 13, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 14, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 15, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 16, "answer": "⑤", "solution": "$f(x)$의 역함수는 $g(x)=\\frac{5}{x+2}-4$이고 최소의 원의 넓이가 되는 점 $\\mathrm{P}$는 기울기가 $1$이고 점 $\\mathrm{A}$를 지나는 직선의 방정식 $y=x-2$과의 교점이다.\n$\\frac{5}{x+2}-4=x-2$\n$(x+2)^{2}=5$\n$\\therefore x=-2\\pm\\sqrt{5}$\n따라서 점 $\\mathrm{P}$는 $(-2+\\sqrt{5}, -4+\\sqrt{5})$ 또는 $(-2-\\sqrt{5}, -4-\\sqrt{5})$이므로 반지름의 길이는 $\\overline{\\mathrm{AP}}=\\sqrt{10}$이고 원의 넓이는 $10\\pi$이다.", "topic": "", "difficulty": ""},
+    {"number": 17, "answer": "③", "solution": "$y=-\\frac{3}{x}$의 그래프를 $x$축의 방향으로 $a$만큼, $y$축의 방향으로 $4$만큼 평행이동한 그래프의 식은\n$y=-\\frac{3}{x-a}+4$\n이므로 점근선의 방정식은 $x=a$, $y=4$\n이때 점 $(a, 4)$는 직선 $y=x+6$ 위의 점이므로\n$4=a+6$ $\\therefore a=-2$\n따라서 $y=-\\frac{3}{x+2}+4$의 그래프는 점 $(-2, 4)$를 지나고 기울기가 $-1$인 직선에 대하여 대칭이다.\n점 $(-2, 4)$를 지나고 기울기가 $-1$인 직선의 방정식은\n$y-4=-(x+2)$ $\\therefore y=-x+2$\n이 직선이 직선 $y=mx+n$과 일치하므로\n$m=-1$, $n=2$\n$\\therefore a-m-n=-3$", "topic": "", "difficulty": ""},
+    {"number": 18, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 19, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 20, "answer": "①", "solution": "함수 $y=\\frac{x}{x+3}$의 그래프와 직선 $y=mx+3m$이 만나므로\n$\\frac{x}{x+3}=mx+3m$에서 $x=m(x+3)^{2}$\n$\\therefore mx^{2}+(6m-1)x+9m=0$\n이 이차방정식의 판별식을 $D$라 하면\n$D=(6m-1)^{2}-36m^{2} \\geq 0$\n$-12m+1 \\geq 0$ $\\therefore m \\leq \\frac{1}{12}$\n따라서 $m$의 최댓값은 $\\frac{1}{12}$이다.", "topic": "", "difficulty": ""},
+    {"number": 21, "answer": "$-6$, $-1$, $1$, $6$", "solution": "$f(x)=0$을 풀면\n$x \\geq 1$일 때, $-x+3=0$에서 $x=3$\n$x<1$일 때, $x^{2}-4=0$에서 $(x+2)(x-2)=0$\n$x=-2$ 또는 $x=2$\n그런데 $x<1$이므로 $x=-2$\n즉, $(f \\circ g)(x)=f(g(x))=0$이려면\n$g(x)=3$ 또는 $g(x)=-2$이어야 한다.\n$g(x)=|x|-3=3$에서 $x=-6$ 또는 $x=6$\n$g(x)=|x|-3=-2$에서 $x=-1$ 또는 $x=1$\n따라서 방정식 $(f \\circ g)(x)=0$의 해는 $-6$, $-1$, $1$, $6$이다.", "topic": "", "difficulty": ""},
+    {"number": 22, "answer": "(1) $n=97$ (2) $a+b+c=6$", "solution": "(1) $f\\left(\\frac{1}{3}\\right)=\\frac{1}{4}$, $f_{2}\\left(\\frac{1}{3}\\right)=\\frac{1}{5}$, $f_{3}\\left(\\frac{1}{3}\\right)=\\frac{1}{6}$, $f_{4}\\left(\\frac{1}{3}\\right)=\\frac{1}{7}$이므로\n$f_{97}\\left(\\frac{1}{3}\\right)=\\frac{1}{100}$이고 $n=97$\n(2) 무리함수의 꼭짓점이 $(-1, -2)$를 지나므로\n$y=\\sqrt{a(x+1)}-2$이고 원점을 지나므로 $a=4$이다.\n$y=\\sqrt{4x+4}-2$이므로 $a=4$, $b=4$, $c=-2$\n$\\therefore a+b+c=6$", "topic": "", "difficulty": ""},
+    {"number": 23, "answer": "(1) $2$ (2) $36$", "solution": "(1) $\\frac{x+1}{x^{2}-x+2}=\\frac{1}{\\frac{x^{2}-x+2}{x+1}}=\\frac{1}{\\frac{(x-2)(x+1)+4}{x+1}}=\\frac{1}{x-2+\\frac{4}{x+1}}=\\frac{1}{x+1+\\frac{4}{x+1}-3}$\n$x+1+\\frac{4}{x+1}$가 최소일 때, 분모가 최소이고, 최댓값 $\\mathrm{M}$을 갖는다.\n$x+1+\\frac{4}{x+1} \\geq 2\\sqrt{(x+1)\\frac{4}{x+1}}=4$\n따라서, $x=1$일 때, 최솟값 $4$를 가지므로\n($\\because x+1=\\frac{4}{x+1}$ $(x>-1)$일 때 최소이므로)\n$x=1$일 때, $\\frac{x+1}{x^{2}-x+2}$의 최댓값 $\\mathrm{M}$은 $1$이다.\n따라서, $a+\\mathrm{M}=1+1=2$\n(2) $\\frac{x}{3}+\\frac{y}{4}=\\frac{5}{2}$ 양변에 $12$를 곱하면 $4x+3y=30$이다.\n코시-슈바르츠 공식에 의해\n$(4^{2}+3^{2})(x^{2}+y^{2}) \\geq (4x+3y)^{2}$\n$25 \\times (x^{2}+y^{2}) \\geq 900$\n$x^{2}+y^{2} \\geq 36$\n따라서, $x^{2}+y^{2}$의 최솟값은 $36$이다.\n(단, 등호는 $\\frac{x}{4}=\\frac{y}{3}$일 때 성립한다.)\n$x=4k$, $y=3k$라 하면\n$x^{2}+y^{2}=16k^{2}+9k^{2}=25k^{2}=36$\n$\\therefore k=\\frac{6}{5}$\n따라서, $x=\\frac{24}{5}$, $y=\\frac{18}{5}$일 때,\n$x^{2}+y^{2}$의 최솟값은 $36$이다.", "topic": "", "difficulty": ""},
+    {"number": 24, "answer": "$27$", "solution": "$A \\cap B \\subset A$이므로\n조건 (가)에서 $\\{3, 6\\} \\subset A$\n$3$, $6$이 모두 $a$의 배수이므로 $a=1$ 또는 $a=3$\n$a=1$이면 $A=U$가 되어 $B-A=\\varnothing$이므로 조건 (나)를 만족시키지 않는다.\n그러므로 $a=3$이고, $A=\\{3, 6, 9, 12, 15, 18\\}$\n또한 $A \\cap B \\subset B$이므로\n조건 (가)에서 $\\{3, 6\\} \\subset B$\n$3$, $6$이 모두 $b$의 약수이므로\n$b=6$ 또는 $b=12$ 또는 $b=18$\n(ⅰ) $b=6$일 때\n$B=\\{1, 2, 3, 6\\}$이므로\n$B-A=\\{1, 2\\}$가 되어 조건 (나)를 만족시킨다.\n$A-B=\\{9, 12, 15, 18\\}$이므로\n집합 $A-B$의 모든 원소의 합은\n$9+12+15+18=54$\n(ⅱ) $b=12$일 때\n$B=\\{1, 2, 3, 4, 6, 12\\}$이므로\n$B-A=\\{1, 2, 4\\}$가 되어\n조건 (나)를 만족시키지 않는다.\n(ⅲ) $b=18$일 때\n$B=\\{1, 2, 3, 6, 9, 18\\}$이므로\n$B-A=\\{1, 2\\}$가 되어 조건 (나)를 만족시킨다.\n$A-B=\\{12, 15\\}$이므로\n집합 $A-B$의 모든 원소의 합은 $12+15=27$\n따라서 (ⅰ), (ⅱ), (ⅲ)에 의하여\n집합 $A-B$의 모든 원소의 합의 최솟값은 $27$", "topic": "", "difficulty": ""}
+  ]
+}

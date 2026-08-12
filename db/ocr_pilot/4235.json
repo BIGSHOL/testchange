@@ -1,0 +1,1313 @@
+{
+ "meta": {
+  "exam_id": 4235,
+  "ocr_source": "session-vision"
+ },
+ "header": {
+  "title": "경산고 1학년 공수1 (2025년 1학기 기말고사 대비) — 이차방정식과 이차함수 ~ 행렬"
+ },
+ "questions": [
+  {
+   "number": 1,
+   "score": null,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "행렬 $A=\\begin{pmatrix} 7 & -2 & 1 \\\\ 3 & 4 & 1 \\end{pmatrix}$의 $(1,~3)$ 성분과 $(2,~1)$의 성분의 차는?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-2"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-1"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "0"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 2,
+   "score": 3.5,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "${}_{4}\\mathrm{P}_{3}+{}_{5}\\mathrm{C}_{2}$의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "14"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "24"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "34"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "44"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "54"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 3,
+   "score": null,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "다섯 개의 숫자 $1,~2,~3,~4,~5$를 한 번씩 사용하여 다섯 자리의 자연수를 만들 때, 홀수의 개수는?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "24"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "36"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "48"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "60"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "72"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 4,
+   "score": null,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "연립부등식 $\\begin{cases} 1-2x \\leq -x-1 \\\\ 5-4x \\geq a-x \\end{cases}$의 해가 $x=b$일 때, $a+b$의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 5,
+   "score": null,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "이차함수 $y=-2x^{2}+ax+4$의 그래프가 $x$축과 두 점 $\\mathrm{A}$, $\\mathrm{B}$에서 만난다. 두 점 $\\mathrm{A}$, $\\mathrm{B}$의 $x$좌표의 합이 5일 때, 실수 $a$의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "6"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "7"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "8"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "9"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "10"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 6,
+   "score": 4.2,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "남학생 3명과 여학생 2명이 일렬로 서서 사진을 찍는다고 한다. 이때, 적어도 한쪽 끝에는 여학생이 서서 사진을 찍는 경우의 수는?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "36"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "48"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "60"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "72"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "84"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 7,
+   "score": null,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "다음 등식을 만족시키는 $x,~y$에 대하여 $x^{2}+y^{2}$의 값은?"
+    },
+    {
+     "type": "text",
+     "value": "<상자> $\\begin{pmatrix} 8 & x \\end{pmatrix} - \\begin{pmatrix} 3 & 4 \\end{pmatrix} = \\begin{pmatrix} xy & y \\end{pmatrix}$"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "25"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "26"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "27"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "28"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "29"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 8,
+   "score": null,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "다음 그림과 같이 반원 위에 7개의 점이 있을 때, 두 점을 이어서 만들 수 있는 서로 다른 직선의 개수는?"
+    },
+    {
+     "type": "figure",
+     "value": "위쪽이 볼록한 반원. 반원의 호 위에 3개의 점(왼쪽 위·꼭대기·오른쪽 위)이 찍혀 있고, 아래쪽 지름(선분) 위에 4개의 점(양 끝점 2개와 그 사이의 점 2개)이 일직선으로 찍혀 있어 모두 7개의 점이다."
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "15"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "16"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "17"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "18"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "19"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 9,
+   "score": 4.2,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "이차함수 $y=-x^{2}+3x-2$의 그래프와 직선 $y=2x+k$가 만나지 않도록 하는 실수 $k$의 값의 범위는?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "k<\\frac{7}{4}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "k>\\frac{7}{4}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "k<-\\frac{7}{4}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "k>-\\frac{7}{4}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "k>-\\frac{9}{4}"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 10,
+   "score": null,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "연립방정식 $\\begin{cases} 4x^{2}+4xy-3y^{2}=0 \\\\ 2x^{2}+2xy-y^{2}=2 \\end{cases}$의 해를 $x=a,~y=b$라고 할 때, $a+b$의 값은? (단, $a>0,~b>0$)"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 11,
+   "score": 4.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "삼차방정식 $x^{3}+ax^{2}-bx+2=0$의 한 근이 $-i$이고, 나머지 두 근 중 실근을 $\\alpha$, 허근을 $\\beta$라 할 때, $ab+\\frac{\\alpha}{\\beta}$의 값은? (단, $a$와 $b$는 실수)"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-3-3i"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-2-2i"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-2+2i"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2-2i"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3+3i"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 12,
+   "score": 4.2,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "$x$에 대한 연립부등식 $2x-5 \\leq x-7 \\leq 3x+a$를 만족시키는 정수 $x$의 개수가 9가 되도록 하는 모든 자연수 $a$의 값의 합은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "26"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "27"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "28"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "29"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "30"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 13,
+   "score": 4.2,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "8개의 반이 승자 진출전 방식으로 축구 경기를 하려고 할 때, 다음과 같이 대진표를 작성하는 경우의 수는?"
+    },
+    {
+     "type": "figure",
+     "value": "8개 팀이 참가하는 승자 진출전(토너먼트) 대진표. 맨 아래에 8개의 자리가 있고 두 자리씩 짝지어 4개의 1회전 경기를 이룬 뒤, 그 승자끼리 2개의 준결승, 다시 그 승자끼리 1개의 결승으로 이어지는 좌우 대칭의 완전 이진 토너먼트 그림이다."
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "210"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "315"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "420"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "525"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "630"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 14,
+   "score": null,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "실수 $x$에 대하여 행렬 $\\begin{pmatrix} x \\\\ x-1 \\end{pmatrix}\\begin{pmatrix} x+1 & x-1 \\end{pmatrix}$의 모든 성분의 합을 $f(x)$라 할 때, $f(x)$의 최솟값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-2"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-1"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-\\frac{1}{4}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{1}{4}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 15,
+   "score": 4.2,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "이차방정식 $x^{2}-4(a-k)x-a+8=0$이 실수 $k$의 값에 관계없이 항상 실근을 갖도록 실수 $a$의 최솟값을 구하면?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "6"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "7"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "8"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "9"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 16,
+   "score": 4.2,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "다음 <보기>에서 항상 성립하는 것만을 있는 대로 고른 것은? (단, $1 \\leq r < n$이고 $n$과 $r$은 자연수)"
+    },
+    {
+     "type": "text",
+     "value": "<보기> ㄱ. ${}_{n}\\mathrm{P}_{r} = n \\times {}_{n-1}\\mathrm{P}_{r-1}$ • ㄴ. ${}_{n}\\mathrm{P}_{r} = {}_{n-1}\\mathrm{P}_{r} + {}_{n-1}\\mathrm{P}_{r-1}$ • ㄷ. ${}_{n}\\mathrm{C}_{r} = r \\times {}_{n-1}\\mathrm{C}_{r-1} + {}_{n-1}\\mathrm{C}_{r}$"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄱ"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄱ, ㄴ"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄱ, ㄷ"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄴ, ㄷ"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄱ, ㄴ, ㄷ"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 17,
+   "score": 4.2,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림과 같이 크기가 같은 6개의 정사각형에 1부터 6까지의 자연수가 하나씩 적혀있다."
+    },
+    {
+     "type": "figure",
+     "value": "가로 3칸 세로 2칸으로 붙어 있는, 크기가 같은 6개의 정사각형. 윗줄 왼쪽부터 1, 2, 3이 적혀 있고 아랫줄 왼쪽부터 4, 5, 6이 적혀 있다. (1과 4, 2와 5, 3과 6이 위아래로 변을 공유한다.)"
+    },
+    {
+     "type": "text",
+     "value": "서로 다른 4가지 색의 전부를 사용하여 다음 <조건>을 만족시키도록 6개의 정사각형에 색을 칠하는 경우의 수는? (단, 한 정사각형에 한 가지 색만을 칠한다.)"
+    },
+    {
+     "type": "text",
+     "value": "<조건> (가) 1이 적힌 정사각형과 6이 적힌 정사각형에는 같은 색을 칠한다. • (나) 변을 공유하는 두 정사각형에는 서로 다른 색을 칠한다."
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "48"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "60"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "72"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "84"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "96"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 18,
+   "score": 4.2,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "이차다항식 $P(x)$가 다음 조건을 만족시킬 때, $P(-2)$의 값은?"
+    },
+    {
+     "type": "text",
+     "value": "<조건> (가) 부등식 $P(x) \\geq 3x+5$의 해는 $0 \\leq x \\leq 1$이다. • (나) 방정식 $P(x)=x+7$는 중근을 가진다."
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-14"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-13"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-12"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-11"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-10"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 19,
+   "score": null,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "1층에서 8층까지 올라가는 엘리베이터에 1층에서 6명이 탔다. 1층에서는 내리지 않는다고 할 때, 2명씩 3개의 층에서 6명이 모두 내리는 경우의 수는?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3000"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3050"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3100"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3150"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3200"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 20,
+   "score": null,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "$A=\\begin{pmatrix} 0 & -1 \\\\ 1 & 0 \\end{pmatrix}$이고, $m$과 $n$은 $m>n$인 20 이하의 자연수이다."
+    },
+    {
+     "type": "equation",
+     "value": "A^{m}=A^{n}"
+    },
+    {
+     "type": "text",
+     "value": "을 만족시키는 순서쌍 $(m,~n)$의 개수는?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "20"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "25"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "30"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "35"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "40"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 21,
+   "score": null,
+   "type": "서술형",
+   "label": "[서술형 1]",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서술형 1] 서로 다른 두 개의 주사위를 동시에 던질 때, 나오는 눈의 수의 차가 3 이상이 되는 경우의 수를 구하시오."
+    }
+   ]
+  },
+  {
+   "number": 22,
+   "score": null,
+   "type": "서술형",
+   "label": "[서술형 2]",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서술형 2] 부등식 $2|x+1|-|x-2| \\leq a$의 해가 $-12 \\leq x \\leq b$일 때, 두 상수 $a,~b$의 값을 각각 구하시오."
+    }
+   ]
+  },
+  {
+   "number": 23,
+   "score": null,
+   "type": "서술형",
+   "label": "[서술형 3]",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서술형 3] 다음 표는 민준이와 서현이의 1차, 2차 수학 시험 성적을 나타낸 것이다. 행렬 $A=\\begin{pmatrix} 82 & 90 \\\\ 54 & 86 \\end{pmatrix}$이라고 할 때, 물음에 답하시오."
+    }
+   ],
+   "sub_questions": [
+    {
+     "number": 1,
+     "score": null,
+     "contents": [
+      {
+       "type": "text",
+       "value": "두 행렬 $B=\\begin{pmatrix} \\frac{1}{2} \\\\ \\frac{1}{2} \\end{pmatrix}$, $C=\\begin{pmatrix} \\frac{1}{2} & \\frac{1}{2} \\end{pmatrix}$에 대하여 행렬 $AB$, $CA$가 각각 무엇을 의미하는지 설명하시오."
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "score": null,
+     "contents": [
+      {
+       "type": "text",
+       "value": "행렬 $AD$는 민준이와 서현이의 2차 성적이 1차에 비해 각각 얼마나 높아졌는지 나타낸 행렬이라고 한다. $2 \\times 1$행렬 $D$를 구하시오."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 24,
+   "score": 4.8,
+   "type": "서술형",
+   "label": "[서술형 4]",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서술형 4] 6개의 문자 $A$, $B$, $C$, $D$, $E$, $F$를 일렬로 배열한다고 한다. $A$, $B$, $C$가 어느 두 개도 서로 이웃하지 않고 $E$, $F$도 서로 이웃하지 않도록 6개의 문자를 일렬로 배열하는 경우의 수를 구하시오."
+    }
+   ]
+  },
+  {
+   "number": 25,
+   "score": null,
+   "type": "서술형",
+   "label": "[서술형 5]",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서술형 5] $A=\\begin{pmatrix} 1 & -2 \\\\ 0 & 1 \\end{pmatrix}$, $B=\\begin{pmatrix} 1 & 2 \\\\ -1 & 0 \\end{pmatrix}$이다. $n$이 자연수이고 $A^{n}B$의 모든 성분의 합이 50일 때, $n$의 값을 구하시오."
+    }
+   ]
+  }
+ ]
+}

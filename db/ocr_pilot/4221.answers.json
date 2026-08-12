@@ -1,0 +1,50 @@
+{
+  "exam_id": 4221,
+  "answer_pages": [5],
+  "items": [
+    {"number": 1, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 2, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 3, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 4, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 5, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 6, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 7, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 8, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 9, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 10, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 11, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 12, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 13, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 14, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 15, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 16, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {
+      "number": 17,
+      "answer": "$P(2)=6$",
+      "solution": "$P(x)=x^{3}-x^{2}+ax+b$를 $x^{2}-2x-1$로 직접 나누면 몫 $Q(x)=x+1$이고, 나머지 $R(x)=(a+3)x+b+1$이다.\n$R(2)=2(a+3)+b+1=9$, $2a+b=2$ \\cdots ①\n$P(x)$가 $Q(x)$로 나누어 떨어지므로 $P(-1)=0$\n$P(-1)=-2-a+b=0$, $-a+b=2$ \\cdots ②\n①, ②에 의하여 $a=0$, $b=2$\n$P(x)=x^{3}-x^{2}+2$\n$P(2)=8-4+2=6$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 18,
+      "answer": "$Q(7)=42$",
+      "solution": "$P(x)=(x-1)^{2}(x+a)+3x-3$\n$P(2)=2+a+3=8$, $a=3$\n$P(x)=(x-1)^{2}(x+3)+3x-3$\n$=(x-1)^{2}(x+3)+3(x-1)$\n$=(x-1)(x^{2}+2x)=x(x-1)(x+2)$\n$P(x)$를 $x+2$로 나누어 떨어지므로 몫 $Q(x)=x(x-1)$\n$Q(7)=42$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 19,
+      "answer": "$f(2)=3$",
+      "solution": "계수가 실수인 이차방정식의 두 허근이 $\\alpha$, $\\beta$이므로 $\\beta=\\overline{\\alpha}$라 할 수 있다.\n$\\alpha=a+bi$ ($a$, $b$는 실수), $\\beta=a-bi$라 하자.\n$2\\alpha^{2}+4\\beta=2$, $2\\alpha^{2}+4\\overline{\\alpha}=2$\n$2(a+bi)^{2}+4(a-bi)=2$\n$2(a^{2}+2abi-b^{2})+4a-4bi=2$\n$2a^{2}-2b^{2}+4a=2$, $4ab-4b=0$\n허근이 존재하므로 $b \\neq 0$이다.\n$4b(a-1)=0$, $b \\neq 0$, $a=1$\n$b^{2}=2$, $b=\\pm\\sqrt{2}$\n두 허근은 $1+\\sqrt{2}i$, $1-\\sqrt{2}i$\n두 근의 합은 $2$, 두 근의 곱은 $3$이므로\n이차항의 계수가 $1$인 이차방정식은 $x^{2}-2x+3=0$이다.",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 20,
+      "answer": "$f(x)=x^{2}+2x+5$",
+      "solution": "이차함수 $f(x)$의 대칭축이 $x=-1$이므로\n$f(x)=a(x+1)^{2}+b$\nⅰ) $a>0$일 때\n$-2 \\leq x \\leq 2$에서 최댓값이 $13$, 최솟값이 $4$이므로 $b=4$\n직선 $y=4x+4$와 접하므로\n$a(x+1)^{2}+4=4x+4$\n$ax^{2}+2(a-2)x+a=0$의 $D=0$, $a=1$\nⅱ) $a<0$일 때\n$-2 \\leq x \\leq 2$에서 최댓값이 $13$, 최솟값이 $4$이므로 $b=13$\n직선 $y=4x+4$와 접하므로\n$a(x+1)^{2}+13=4x+4$\n$ax^{2}+2(a-2)x+a+9=0$의 $D=0$, $a=\\frac{4}{13}$ ($a<0$에 모순)\n따라서 $f(x)=(x+1)^{2}+4=x^{2}+2x+5$",
+      "topic": "",
+      "difficulty": ""
+    }
+  ]
+}

@@ -1,0 +1,169 @@
+{
+ "exam_id": 4211,
+ "answer_pages": [
+  7
+ ],
+ "items": [
+  {
+   "number": 1,
+   "answer": "②",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 2,
+   "answer": "⑤",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 3,
+   "answer": "③",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 4,
+   "answer": "④",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 5,
+   "answer": "③",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 6,
+   "answer": "①",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 7,
+   "answer": "①",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 8,
+   "answer": "④",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 9,
+   "answer": "③",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 10,
+   "answer": "④",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 11,
+   "answer": "①",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 12,
+   "answer": "②",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 13,
+   "answer": "⑤",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 14,
+   "answer": "②",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 15,
+   "answer": "⑤",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 16,
+   "answer": "③",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 17,
+   "answer": "④",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 18,
+   "answer": "(1) $\\alpha+\\beta=3$, $\\alpha\\beta=5$ (2) $x^2-\\frac{3}{5}x+\\frac{1}{5}=0$",
+   "solution": "(1) 두 근을 $\\alpha$, $\\beta$로 하고 이차항의 계수가 1인 이차방정식을 구하면 $(x-\\alpha)(x-\\beta)=0$이므로 전개하면 $x^2-(\\alpha+\\beta)x+\\alpha\\beta=0$이므로 $\\alpha+\\beta=3$, $\\alpha\\beta=5$\n(2) 두 근의 합은 $\\frac{1}{\\alpha}+\\frac{1}{\\beta}=\\frac{\\alpha+\\beta}{\\alpha\\beta}=\\frac{3}{5}$이고 두 근의 곱은 $\\frac{1}{\\alpha\\beta}=\\frac{1}{5}$이므로 이차방정식을 구하면 $x^2-\\frac{3}{5}x+\\frac{1}{5}=0$",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 19,
+   "answer": "$a=-26$, $b=25$",
+   "solution": "$z=\\frac{(1-i)^2}{(1+i)(1-i)}=\\frac{-2i}{2}=-i$\n$\\frac{1}{z}=-\\frac{1}{i}=i$, $\\frac{1}{z^2}=\\frac{1}{(-i)^2}=-1$, $\\frac{1}{z^3}=\\frac{1}{(-i)^3}=\\frac{1}{i}=-i$, $\\frac{1}{z^4}=1$가 반복되고 주기가 4이므로 $50\\div4=12\\cdots2$이므로 4개씩 묶어서 계산하면\n$\\frac{1}{z}+\\frac{2}{z^2}+\\frac{3}{z^3}+\\cdots+\\frac{50}{z^{50}}$\n$=i-2-3i+4+5i-6-7i+8+\\cdots+49i-50$\n$=(2-2i)\\times12+49i-50=-26+25i$\n그러므로 $a=-26$, $b=25$",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 20,
+   "answer": "40",
+   "solution": "$x=1$을 대입하면 $81=a_{0}+a_{1}+a_{2}+a_{3}+a_{4}+\\cdots+a_{8}$\n$x=-1$을 대입하면 $1=a_{0}-a_{1}+a_{2}-a_{3}+a_{4}-\\cdots+a_{8}$\n두 식을 더하면 $2(a_{0}+a_{2}+a_{4}+a_{6}+a_{8})=82$\n$a_{0}$는 이 식의 상수항이므로 1이다.\n그러므로 $a_{2}+a_{4}+a_{6}+a_{8}=40$",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 21,
+   "answer": "$a=1$, $b=-5$, $c=5$",
+   "solution": "두 식을 인수분해 하면\n$(x-3)(x-1)(x-2)(x-4)+a=(x-3)(x-2)(x-1)(x-4)+a=(x^2-5x+6)(x^2-5x+4)+a$\n에서 $x^2-5x=A$로 치환하면\n$(A+6)(A+4)+a=A^2+10A+24+a$인데 이 식이 완전제곱식이 되려면 $24+a=25$가 되어야 하므로 $a=1$\n또 이식을 정리하면 $(A+5)^2=(x^2-5x+5)^2$이므로 $b=-5$, $c=5$이다.",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 22,
+   "answer": "$a=9$, $b=99$",
+   "solution": "두 식 중 미지수가 없는 두 식의 연립방정식을 풀어보면 $\\begin{cases}3x^2+y^2=76\\\\x-y=4\\end{cases}$\n$y=x-4$를 대입하면 $3x^2+(x-4)^2=76$이고 정리하면\n$4x^2-8x-60=0$, $x^2-2x-15=0$, $(x-5)(x+3)=0$\n$x>0$이므로 $x=5$, $y=1$\n$a=2x-y=10-1=9$\n$b=4x^2-y^2=100-1=99$",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 23,
+   "answer": "$a=30$",
+   "solution": "상품의 수량이 $x$일 때 판매단가는 $(90-0.1x)$만원\n설비투자비용 3000만원, 1개 생산할 때 비용이 $a$만원이므로 $x$개를 생산할 때 비용은 $ax$만원이다.\n그러므로 총이익은 $x(90-0.1x)-3000-ax$이므로 정리하면\n$-0.1x^2+(90-a)x-3000$\n$=-\\frac{1}{10}\\{x-5(90-a)\\}^2+\\frac{25}{10}(90-a)^2-3000$\n최댓값이 6000만원이므로 $\\frac{25}{10}(90-a)^2-3000=6000$이 된다. 계산하면 $a=30$ or $a=150$인데 $0\\leq a\\leq40$이므로 $a=30$이다.",
+   "topic": "",
+   "difficulty": ""
+  }
+ ]
+}
