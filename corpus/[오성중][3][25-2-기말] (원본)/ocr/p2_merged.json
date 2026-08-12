@@ -1,0 +1,413 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 5,
+   "score": 5,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림과 같이 점 I는 "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle ABC"
+    },
+    {
+     "type": "text",
+     "value": "의 내심이고 점 D는 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AI}"
+    },
+    {
+     "type": "text",
+     "value": "의 연장선과 "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle ABC"
+    },
+    {
+     "type": "text",
+     "value": "의 외접원의 교점이다. "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle ABC = 45^\\circ"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AI} = 4cm"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{ID} = 11cm"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle IDC"
+    },
+    {
+     "type": "text",
+     "value": "의 넓이는?"
+    },
+    {
+     "type": "figure",
+     "value": "외접원 안의 삼각형 ABC(A 위, B 좌하, C 우측). 내심 I, AI 연장선이 외접원과 만나는 점 D(아래). B에서 45° 표시. AI=4cm, ID=11cm.",
+     "bbox": [
+      0.06,
+      0.075,
+      0.47,
+      0.28
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "11\\sqrt{2} cm^2"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "11\\sqrt{3} cm^2"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{121}{4}\\sqrt{2} cm^2"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{121}{4}\\sqrt{3} cm^2"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{121}{2}\\sqrt{2} cm^2"
+      }
+     ]
+    }
+   ],
+   "answer": "③",
+   "solution": "step1) $\\overline{AI}$의 연장선은 $\\angle A$의 이등분선이므로 D는 호 BC의 중점이다.\nstep2) 내심과 외접원의 성질에서 $\\overline{DI} = \\overline{DC} = 11cm$이다.\nstep3) $\\angle IDC = \\angle ADC$는 호 AC에 대한 원주각이므로 $\\angle ADC = \\angle ABC = 45^\\circ$이다.\nstep4) $\\triangle IDC$의 넓이는 $\\frac{1}{2} \\times 11 \\times 11 \\times \\sin 45^\\circ = \\frac{121}{2} \\times \\frac{\\sqrt{2}}{2} = \\frac{121}{4}\\sqrt{2}(cm^2)$이다.",
+   "topic": "원주각",
+   "difficulty": "상"
+  },
+  {
+   "number": 6,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림에서 두 원 O, O'이 두 점 E, F에서 만나고, 두 교점을 각각 지나는 직선과 원과의 교점을 각각 A, B, C, D라 할 때, 옳은 것만을 <보기>에서 있는 대로 고른 것은?"
+    },
+    {
+     "type": "figure",
+     "value": "두 원 O(좌)·O'(우)가 E(위)·F(아래)에서 만난다. E를 지나는 직선이 원 O와 A(좌), 원 O'과 D(우상)에서 만나고, F를 지나는 직선이 원 O와 B(좌하), 원 O'과 C(우하)에서 만난다. 사각형 ABFE(왼쪽 원 내접)·EFCD(오른쪽 원 내접).",
+     "bbox": [
+      0.07,
+      0.585,
+      0.47,
+      0.72
+     ]
+    },
+    {
+     "type": "text",
+     "value": "<보기> ㄱ. $\\overline{AB} \\parallel \\overline{CD}$ • ㄴ. $\\angle B = \\angle D$ • ㄷ. $\\angle A = \\angle CFE$ • ㄹ. $\\angle B + \\angle C = 180^\\circ$"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄱ, ㄴ"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄱ, ㄷ"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄷ, ㄹ"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄱ, ㄷ, ㄹ"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄴ, ㄷ, ㄹ"
+      }
+     ]
+    }
+   ],
+   "answer": "④",
+   "solution": "step1) 원 O에서 사각형 ABFE가 내접하므로 $\\angle A + \\angle BFE = 180^\\circ$, 원 O'에서 사각형 EFCD가 내접하므로 $\\angle D + \\angle EFC = 180^\\circ$이다.\nstep2) $\\angle BFE + \\angle EFC = 180^\\circ$이므로 $\\angle A = \\angle EFC$ (ㄷ 옳음), 같은 방법으로 $\\angle D = \\angle BFE$이다.\nstep3) $\\angle A + \\angle D = 180^\\circ$이므로 $\\overline{AB} \\parallel \\overline{CD}$ (ㄱ 옳음), 또한 $\\angle B + \\angle C = 360^\\circ - (\\angle A + \\angle D) = 180^\\circ$ (ㄹ 옳음).\nstep4) $\\angle B = \\angle D$는 일반적으로 성립하지 않는다 (ㄴ 틀림). 따라서 옳은 것은 ㄱ, ㄷ, ㄹ이다.",
+   "topic": "원주각",
+   "difficulty": "중"
+  },
+  {
+   "number": 7,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림과 같이 다섯 개의 점 A, B, C, D, E가 원 O위에 있다. "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AE}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{CD}"
+    },
+    {
+     "type": "text",
+     "value": "의 연장선의 교점을 점 P라 하자. "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle APC = 53^\\circ"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle ABD + \\angle EDP"
+    },
+    {
+     "type": "text",
+     "value": "의 크기는?"
+    },
+    {
+     "type": "figure",
+     "value": "원 O 위의 다섯 점 A(위)·E(우상)·D(우하)·C(아래)·B(좌). AE 연장선과 CD 연장선이 원 밖 오른쪽 점 P에서 만나고 P에 53° 표시.",
+     "bbox": [
+      0.55,
+      0.075,
+      0.95,
+      0.28
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "108^\\circ"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "117^\\circ"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "119^\\circ"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "127^\\circ"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "128^\\circ"
+      }
+     ]
+    }
+   ],
+   "answer": "④",
+   "solution": "step1) $\\angle ABD$는 호 AED에 대한 원주각이므로\n$\\angle ABD = \\frac{1}{2}(호AE + 호ED)$이다.\nstep2) $\\angle EDP = 180^\\circ - \\angle EDC$이고\n$\\angle EDC$는 호 EABC에 대한 원주각이므로\n$\\angle EDP = \\frac{1}{2}(호ED + 호DC)$이다.\nstep3) 원 밖의 각에서 $53^\\circ = \\frac{1}{2}(호AB + 호BC - 호ED)$\n이므로 $호AB + 호BC = 106^\\circ + 호ED$이다.\nstep4) 두 각의 합은 $\\frac{1}{2}(호AE + 2 \\times 호ED + 호DC)$이고\n$호AE + 호ED + 호DC = 360^\\circ - 호AB - 호BC$이므로\nstep5) 합 $= \\frac{1}{2}(360^\\circ - 106^\\circ) = 127^\\circ$이다.",
+   "topic": "원주각",
+   "difficulty": "중"
+  },
+  {
+   "number": 8,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림과 같이 "
+    },
+    {
+     "type": "equation",
+     "value": "\\square ABCD"
+    },
+    {
+     "type": "text",
+     "value": "는 원 O에 내접하고 직선 BT는 원 O의 접선이다. "
+    },
+    {
+     "type": "equation",
+     "value": "\\widehat{AB} : \\widehat{BC} = 5 : 3"
+    },
+    {
+     "type": "text",
+     "value": "이고 "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle CBT = 48^\\circ"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle ABC"
+    },
+    {
+     "type": "text",
+     "value": "의 크기는?"
+    },
+    {
+     "type": "figure",
+     "value": "원 O에 내접하는 사각형 ABCD(A 좌상, D 우상, C 우측, B 아래). B를 접점으로 하는 접선 BT(아래 가로선, T 우측). B에서 48° 표시.",
+     "bbox": [
+      0.55,
+      0.585,
+      0.95,
+      0.8
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "50^\\circ"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "51^\\circ"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "52^\\circ"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "53^\\circ"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "54^\\circ"
+      }
+     ]
+    }
+   ],
+   "answer": "③",
+   "solution": "step1) 접선과 현이 이루는 각에서 $\\angle CBT = \\angle BDC = 48^\\circ$ (호 BC에 대한 원주각)이다.\nstep2) $\\widehat{AB} : \\widehat{BC} = 5 : 3$이고 원주각은 호의 길이에 정비례하므로 $\\angle ADB = 48^\\circ \\times \\frac{5}{3} = 80^\\circ$이다.\nstep3) $\\angle ADC = \\angle ADB + \\angle BDC = 80^\\circ + 48^\\circ = 128^\\circ$\nstep4) 원에 내접하는 사각형에서 $\\angle ABC = 180^\\circ - 128^\\circ = 52^\\circ$이다.",
+   "topic": "원주각",
+   "difficulty": "중"
+  }
+ ]
+}
