@@ -152,6 +152,9 @@ CREATE TABLE exam_files(
 CREATE TABLE questions(
   id INTEGER PRIMARY KEY, exam_id INT, number INT, qtype TEXT,
   ocr_json TEXT, answer TEXT, solution TEXT, topic TEXT, difficulty TEXT,
+  -- printed=원본 인쇄 정답 / computed=검산 정답. merge_answers·solve_merge 가 쓴다
+  -- (세션 중 ALTER 로 만들었던 컬럼 — 스키마에 없으면 재구축 후 병합이 죽는다)
+  answer_source TEXT,
   FOREIGN KEY(exam_id) REFERENCES exams(id));
 CREATE INDEX ix_exams_meta ON exams(year, level, grade, semester, round, subject);
 CREATE INDEX ix_exams_school ON exams(school);

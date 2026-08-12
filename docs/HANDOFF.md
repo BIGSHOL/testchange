@@ -3,6 +3,43 @@
 > 이 문서 하나로 **다른 컴퓨터에서 이어서 작업**할 수 있게 정리. 상세 설계·함정은
 > `CLAUDE.md`(루트)와 자동메모리(`C:\Users\<you>\.claude\projects\F--------\memory\MEMORY.md`)에 있다.
 
+## 🔴 2026-08-13 — 문제 DB(N: 기출) 재개 절차 · exam id 앵커
+
+작업 PC 가 원격 접속 중 셧다운돼 중단됐다. **판독 결과는 전부 git 에 있다**
+(`db/ocr_pilot/` 269개 = 본문 136편 3,094문항 + 정답 133). 날아간 건 재생성
+가능한 것들뿐이다 — `exam_index.db`·`db/pages/`(PNG 616MB)·`n_inventory.tsv`.
+마지막 체크포인트 `e7dc3eb`(136편 3,094문항, 정답 2,483·80.3%)와 커밋된 JSON 이
+정확히 일치하므로 **유실된 판독분은 없다**.
+
+### ⭐⭐ 재개 전 반드시 — exam id 는 인벤토리 순서에 매달려 있다
+`build_index.py` 는 DB 를 지우고 그룹을 정렬한 순서로 id 를 다시 매긴다. 그래서
+**N: 스캔 결과가 달라지면 id 가 통째로 밀려** 기존 `db/ocr_pilot/<id>.json` 이
+엉뚱한 시험지에 붙는다(형식은 멀쩡하고 lint 도 통과 — 조용히 오염된다).
+실측: 2026-08-13 재스캔은 28,473개로 원래 23,395개보다 늘어 있었다.
+
+- **`db/n_inventory.tsv` 를 git 추적으로 바꿨다** = id 앵커. **작업하던 PC 가
+  켜지면 그 PC 의 기존 TSV(현재 id 를 만들어낸 원본)를 그대로 커밋**할 것.
+  다른 PC 에서 새로 스캔한 TSV 를 올리면 id 가 밀린다.
+- 인덱스 재구축 뒤에는 **항상** `python db/verify_ids.py` — 판독 JSON 이 들고
+  있는 메타(학교·학년·과목·연도·학기·회차)를 DB 행과 대조해 밀림을 잡는다.
+- `db/scan_inventory.py` 신설(종전엔 임시 스캔이라 레포에 없어 다른 PC 에서
+  인덱스를 못 만들었다). **TSV 가 이미 있으면 돌리지 말 것.**
+- `build_index.py` 스키마에 `answer_source` 추가 — 세션 중 `ALTER` 로 만들었던
+  컬럼이라 스키마에 없어서, 재구축하면 `merge_answers.py`·`solve_merge.py` 가
+  "no such column" 으로 죽는다.
+
+### 작업하던 PC 에서 이어가기
+```powershell
+git pull                                  # 위 안전장치 3건 받기
+git add -f db/n_inventory.tsv             # 현재 id 를 만든 원본 인벤토리 = 앵커
+git commit -m "data(db): exam id 앵커 — N: 인벤토리 스냅샷 추적"
+python db/queue.py status                 # DB 살아 있으면 136편 done 이 보인다
+python db/verify_ids.py                   # id 대조(권장)
+```
+DB 까지 없으면 `build_index.py` → `queue.py scan` → `ingest.py` →
+`merge_answers.py` → `solve_merge.py` → `audit.py` 순으로 복원한 뒤,
+`prep_pages.py` → 세션 비전 OCR → `checkpoint.py`(1,000문항마다 커밋·푸시)로 잇는다.
+
 ## 🟢 현재 상태 (2026-06-14) — ⭐ 워크트리 통합 완료, 단일 master
 
 > **다른 컴퓨터에서 이어받는 사람은 이 절만 읽으면 된다. 아래 나머지 절은 환경/하네스 레퍼런스다.**
