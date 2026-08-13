@@ -84,6 +84,8 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--limit", type=int, default=3)
     ap.add_argument("--exam", type=int)
+    ap.add_argument("--level", choices=["중", "고"], help="학교급 지정(균형 배분용)")
+    ap.add_argument("--grade", type=int, help="학년 지정")
     ap.add_argument("--with-ref", action="store_true",
                     help="완료본(정답·해설 보유)이 있는 시험지만 — 우선 처리 대상")
     a = ap.parse_args()
@@ -94,6 +96,8 @@ def main():
         rows = con.execute("""SELECT id,school,grade,subject,year,semester,round,src_path
                               FROM exams WHERE id=?""", (a.exam,)).fetchall()
     else:
+        lv = f" AND level='{a.level}'" if a.level else ""
+        gd = f" AND grade={a.grade}" if a.grade else ""
         ref = ("""AND id IN (SELECT exam_id FROM exam_files
                     WHERE ext IN ('.hwp','.hwpx')
                       AND (status LIKE '%완료%' OR path LIKE '%워드%'))"""
@@ -101,7 +105,7 @@ def main():
         rows = con.execute(f"""
           SELECT id,school,grade,subject,year,semester,round,src_path
           FROM exams WHERE ocr_status='pending' AND src_ext='.pdf'
-            AND {_scope.sql()} {ref}
+            AND {_scope.sql()} {lv} {gd} {ref}
           ORDER BY year DESC, id LIMIT ?""", (a.limit,)).fetchall()
     con.close()
 

@@ -1,0 +1,335 @@
+{
+  "meta": {"exam_id": 5371, "ocr_source": "session-vision"},
+  "header": {"title": "경명여중 2학년 수학 — 2025년 1학기 중간고사 (유리수 ~ 연립일차방정식)"},
+  "questions": [
+    {
+      "number": 1,
+      "score": 3.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "순환소수 0.1\\dot{5}\\dot{7}을 분수로 나타낼 때, 다음 중 가장 편리한 식은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "10x-x"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "100x-x"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "100x-10x"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "1000x-x"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "1000x-10x"}]}
+      ]
+    },
+    {
+      "number": 2,
+      "score": 3.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "(x^{3})^{4} \\div (x^{2})^{5} \\div x^{4}을 간단히 하면?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{1}{x^{2}}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{1}{x}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "x"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "x^{2}"}]}
+      ]
+    },
+    {
+      "number": 3,
+      "score": 3.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "6x^{2}+4x-\\{-2x^{2}+1-4(3x+1)\\}을 계산하면?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "4x^{2}-16x+3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "4x^{2}+8x-3"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "4x^{2}+12x+3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "8x^{2}-8x+3"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "8x^{2}+16x+3"}]}
+      ]
+    },
+    {
+      "number": 4,
+      "score": 3.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "3a(a-2b+3c)를 바르게 전개한 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "6a-6ab+6ac"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "6a+6ab+9ac"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3a^{2}+6ab+9ac"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "3a^{2}-6ab+9ac"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "3a^{2}-6ab+6ac"}]}
+      ]
+    },
+    {
+      "number": 5,
+      "score": 3.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "<보기> 중에서 일차부등식인 것만을 고른 것은?"},
+        {"type": "text", "value": "<보기> ㄱ. 3+7x \\geq 2x • ㄴ. -3x \\leq -3x+1 • ㄷ. x(2x-1) < 2x^{2}+5 • ㄹ. x^{2}-3x > 2x+1"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ, ㄴ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄱ, ㄷ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄴ, ㄷ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄴ, ㄹ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄷ, ㄹ"}]}
+      ]
+    },
+    {
+      "number": 6,
+      "score": 3.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "일차부등식 -x+4 < 2x-2을 만족시키는 x의 값 중에서 가장 작은 자연수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+      ]
+    },
+    {
+      "number": 7,
+      "score": 3.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "2x(3x-2y)-(-6xy+4xy^{2}) \\div \\frac{2}{3}y를 계산하면?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "6x^{2}-10xy+9x"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "6x^{2}-10xy-9x"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "6x^{2}+10xy+9x"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "6x^{2}+2xy-9x"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "6x^{2}+2xy+9x"}]}
+      ]
+    },
+    {
+      "number": 8,
+      "score": 3.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "다음 중 해가 x=2, y=-1인 연립방정식은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\begin{cases} 3x-y=5 \\\\ 2x+y=3 \\end{cases}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\begin{cases} 0.1x+0.3y=-0.1 \\\\ 7x+y=15 \\end{cases}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\begin{cases} 0.2x-y=1.4 \\\\ \\frac{1}{3}x+\\frac{1}{3}y=1 \\end{cases}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\begin{cases} \\frac{1}{2}x=-y \\\\ 5x-y=11 \\end{cases}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\begin{cases} x-2y=0 \\\\ 9x+7y=12 \\end{cases}"}]}
+      ]
+    },
+    {
+      "number": 9,
+      "score": 3.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "\\frac{a}{140}를 약분하면 \\frac{1}{b}이 되고, 이것을 소수로 나타내면 유한소수가 된다. 이때 a-b의 값은? (단, 25 < a < 30)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "13"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "18"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "23"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "28"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "33"}]}
+      ]
+    },
+    {
+      "number": 10,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "어떤 식에서 x-\\frac{y}{2}-1을 더해야 할 것을 잘못하여 뺐더니 \\frac{5}{3}x-\\frac{3}{4}y+1이 되었다. 바르게 계산한 식은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{8}{3}x-\\frac{5}{4}y"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{11}{3}x-\\frac{7}{4}y-1"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{11}{3}x+\\frac{3}{4}y+1"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{13}{3}x-\\frac{5}{4}y-2"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{13}{3}x+\\frac{1}{4}y+2"}]}
+      ]
+    },
+    {
+      "number": 11,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "두 식 \\mathrm{A}, \\mathrm{B}가 다음과 같을 때, \\frac{\\mathrm{A}}{\\mathrm{B}}를 계산하면?"},
+        {"type": "text", "value": "<상자> \\mathrm{A}=6x^{4}y^{2} \\times \\frac{1}{3}x^{7}y^{2} \\div \\frac{1}{3}xy^{3} • \\mathrm{B}=(-x^{2}y)^{3} \\times (-3xy)^{2}"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-\\frac{2x^{3}}{y^{4}}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-\\frac{2x^{2}}{3y^{4}}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-\\frac{x^{2}}{4y^{3}}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{x^{2}}{4y}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{3x^{3}}{4y^{5}}"}]}
+      ]
+    },
+    {
+      "number": 12,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "분수 \\frac{28}{80 \\times x}을 소수로 나타내면 유한소수가 될 때, x의 값이 될 수 있는 모든 한 자리의 자연수의 합은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "24"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "25"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "26"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "27"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "28"}]}
+      ]
+    },
+    {
+      "number": 13,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "예경이가 집에서 자전거를 타고 갈 때는 시속 12\\mathrm{km}로 달리고, 돌아올 때는 시속 8\\mathrm{km}로 달려서 1시간 45분 이내에 집으로 돌아오려고 한다. 예경이가 집에서 최대로 갔다 올 수 있는 거리는? (단, 갈 때와 올 때의 거리는 같다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{36}{5}\\mathrm{km}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{39}{5}\\mathrm{km}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{42}{5}\\mathrm{km}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "9\\mathrm{km}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{48}{5}\\mathrm{km}"}]}
+      ]
+    },
+    {
+      "number": 14,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 한 변의 길이가 4a인 정사각형에서 색칠한 사각형의 넓이는?"},
+        {"type": "figure", "value": "한 변의 길이가 4a인 정사각형(아랫변에 4a 표시). 윗변 위의 한 점 P에서 오른쪽 위 꼭짓점까지의 길이가 3b(점선 화살표로 3b 표시). 오른쪽 변 위에 점 Q가 있고, 점 Q에서 오른쪽 아래 꼭짓점까지의 길이가 2b(점선으로 2b 표시). 점 P와 점 Q를 잇는 선분, 점 Q와 왼쪽 아래 꼭짓점을 잇는 선분이 그려져 있다. 왼쪽 위 꼭짓점 - P - Q - 왼쪽 아래 꼭짓점으로 둘러싸인 사각형이 회색으로 색칠되어 있다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "16a^{2}+2ab+3b^{2}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "16a^{2}+10ab+3b^{2}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "16a^{2}+10ab-3b^{2}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "16a^{2}-10ab-3b^{2}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "16a^{2}-10ab+3b^{2}"}]}
+      ]
+    },
+    {
+      "number": 15,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "일차부등식 ax+3 > 2-(2x+a)의 해를 수직선에 나타내면 그림과 같다. 이때, 수 a에 대하여 2a의 값은?"},
+        {"type": "figure", "value": "수직선 그림. 눈금에 왼쪽부터 -\\frac{4}{3}, -1, -\\frac{2}{3}, -\\frac{1}{3}, 0, \\frac{1}{3}이 표시되어 있다. -\\frac{2}{3} 위치에 속이 빈 동그라미(○)가 있고, 그 지점부터 오른쪽 방향으로 화살표가 그려져 회색 띠로 표시되어 있다. 즉 해는 x > -\\frac{2}{3}."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "6"}]}
+      ]
+    },
+    {
+      "number": 16,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "연립방정식 \\begin{cases} x+ay=3 \\\\ 5x-4y=14 \\end{cases}를 만족시키는 x의 값이 y의 값의 \\frac{1}{3}배일 때, -a^{2}의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-\\frac{25}{36}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-\\frac{5}{6}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{1}{6}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{5}{6}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{25}{36}"}]}
+      ]
+    },
+    {
+      "number": 17,
+      "score": 5.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "\\mathrm{A}=2^{x-1}일 때, 8^{2x} \\times \\left(\\frac{1}{4}\\right)^{x+3}을 \\mathrm{A}를 사용하여 나타내면?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{\\mathrm{A}^{3}}{8}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{\\mathrm{A}^{4}}{4}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{\\mathrm{A}^{3}}{2}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "2\\mathrm{A}^{4}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "4\\mathrm{A}^{3}"}]}
+      ]
+    },
+    {
+      "number": 18,
+      "score": 5.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "<보기>의 세 일차부등식의 해가 서로 같을 때, a+b의 값은?"},
+        {"type": "text", "value": "<보기> 3+ax \\geq bx, -0.3x \\leq -0.1x+0.1, bx+b \\leq 3x"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-6"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-3"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "6"}]}
+      ]
+    },
+    {
+      "number": 19,
+      "score": 10.0,
+      "type": "서술형",
+      "label": "[서술형 1]",
+      "contents": [
+        {"type": "text", "value": "[서술형 1] 어떤 기약분수를 순환소수로 나타내는데, 주영이는 분모를 잘못 보아서 2.7\\dot{3}이라 하였고, 민성인 분자를 잘못 보아서 3.\\dot{5}\\dot{4}라고 하였다. 처음의 기약분수를 순환소수로 바르게 나타내고 그 과정을 서술하시오."}
+      ]
+    },
+    {
+      "number": 20,
+      "score": 7.0,
+      "type": "서술형",
+      "label": "[서술형 2]",
+      "contents": [
+        {"type": "text", "value": "[서술형 2] 2^{8} \\times 3^{2} \\times 5^{10}을 a \\times 10^{n}(단, 1 \\leq a < 10, n은 자연수)의 꼴로 나타낸 후, 2^{8} \\times 3^{2} \\times 5^{10}이 몇 자리 자연수인지 구하고 그 과정을 서술하시오."}
+      ]
+    },
+    {
+      "number": 21,
+      "score": 10.0,
+      "type": "서술형",
+      "label": "[서술형 3]",
+      "contents": [
+        {"type": "text", "value": "[서술형 3] 연립방정식 \\begin{cases} ax+by=7 \\\\ bx+ay=-2 \\end{cases}에서 잘못하여 a와 b를 서로 바꾸어 놓고 풀었더니 해가 x=2, y=-1이었다. 처음의 연립방정식의 해를 구하고, 그 과정을 서술하시오."}
+      ]
+    },
+    {
+      "number": 22,
+      "score": 8.0,
+      "type": "서술형",
+      "label": "[서술형 4]",
+      "contents": [
+        {"type": "text", "value": "[서술형 4] 어떤 상품에 원가의 70%의 이익을 붙여서 정가를 정하였다. 이 상품을 정가에서 10000원을 할인하여 팔아서 원가의 30% 이상의 이익을 얻으려면 원가가 얼마 이상이어야 하는지 구하고, 그 과정을 서술하시오."}
+      ]
+    }
+  ]
+}

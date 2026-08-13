@@ -1,0 +1,28 @@
+{
+  "exam_id": 5371,
+  "answer_pages": [5],
+  "items": [
+    {"number": 1, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 2, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 3, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 4, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 5, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 6, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 7, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 8, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 9, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 10, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 11, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 12, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 13, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 14, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 15, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 16, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 17, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 18, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 19, "answer": "$3.\\dot{7}\\dot{2}$", "solution": "주영이는 분자를 제대로 보았으므로\n$2.7\\dot{3}=\\frac{273-27}{90}=\\frac{246}{90}=\\frac{41}{15}$에서 처음 기약분수의 분자는 41이다.\n민성이는 분모를 제대로 보았으므로\n$3.\\dot{5}\\dot{4}=\\frac{354-3}{99}=\\frac{351}{99}=\\frac{39}{11}$에서 처음 기약분수의 분모는 11이다.\n따라서 처음의 기약분수는 $\\frac{41}{11}$이고 이를 순환소수로 바르게 나타내면 $3.\\dot{7}\\dot{2}$이다.", "topic": "", "difficulty": ""},
+    {"number": 20, "answer": "11자리", "solution": "$2^{8} \\times 3^{2} \\times 5^{10}$을 $a \\times 10^{n}$으로 나타내면 $(2 \\times 5)^{8} \\times 3^{2} \\times 5^{2}$이다.\n$225 \\times 10^{8}$ 여기서 $1 \\leq a < 10$이므로 $2.25 \\times 10^{10}$이 되어야 한다.\n따라서 $a=2.25$, $n=10$이므로 11자리수 이다.", "topic": "", "difficulty": ""},
+    {"number": 21, "answer": "$(-1,~2)$", "solution": "$\\begin{cases} ax+by=7 \\\\ bx+ay=-2 \\end{cases}$에서 $a$와 $b$를 바꾸어 놓고 풀었으므로\n$\\begin{cases} bx+ay=7 \\\\ ax+by=-2 \\end{cases}$로 두고, $x=2$, $y=-1$을 대입하면\n$2b-a=7$과 $2a-b=-2$를 연립하여 풀면\n$a=1$, $b=4$이므로 $x+4y=7$과 $4x+y=-2$를 연립하여 풀면 $x=-1$, $y=2$가 된다.", "topic": "", "difficulty": ""},
+    {"number": 22, "answer": "25000원", "solution": "원가를 $x$라 하면, 정가는 $1.7x$이므로\n$1.7x-10000-x \\geq 0.3x$\n$-10000 \\geq -0.4x$\n$x \\geq 25000$\n따라서 원가는 25000원 이상이어야한다.", "topic": "", "difficulty": ""}
+  ]
+}

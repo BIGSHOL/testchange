@@ -1,0 +1,26 @@
+{
+  "exam_id": 5365,
+  "answer_pages": [5],
+  "items": [
+    {"number": 1, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 2, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 3, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 4, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 5, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 6, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 7, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 8, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 9, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 10, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 11, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 12, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 13, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 14, "answer": "①, ③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 15, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 16, "answer": "$-1,~0,~1$", "solution": "$2x<3$에서 $x$에 각각의 값을 대입해보면\ni) $x=-1$\n$-2<3$ 참\nii) $x=0$\n$0<3$ 참\niii) $x=1$\n$2<3$ 참\niv) $x=2$\n$4<3$ 거짓\n따라서 해는 $-1,~0,~1$", "topic": "", "difficulty": ""},
+    {"number": 17, "answer": "$15$", "solution": "$\\frac{1}{12}=\\frac{6}{72}$, $\\frac{1}{3}=\\frac{24}{72}$\n따라서 $6<a<24$일 때 자연수 $a$의 개수는 17개\n순환소수로 나타낼 수 있으므로 $a$는 9의 배수가 아니다.\n9의 배수인 $a$는 2개\n따라서 $17-2=15$", "topic": "", "difficulty": ""},
+    {"number": 18, "answer": "$19$", "solution": "$\\frac{3}{5}\\times\\left(\\frac{1}{5}+\\frac{1}{50}+\\frac{1}{500}+\\cdots\\right)=\\frac{3}{5}\\times\\left(\\frac{2}{10}+\\frac{2}{100}+\\frac{2}{1000}+\\cdots\\right)$\n$=\\frac{3}{5}\\times(0.2+0.02+0.002+\\cdots)$\n$=\\frac{3}{5}\\times 0.\\dot{2}$\n$=\\frac{3}{5}\\times\\frac{2}{9}=\\frac{2}{15}$\n따라서 $a=15$\n$\\frac{2}{15}=0.1\\dot{3}$ 따라서 $b=1$, $c=3$\n$a+b+c=15+1+3=19$", "topic": "", "difficulty": ""},
+    {"number": 19, "answer": "$A=ab^{3}$, $B=4a^{3}b$", "solution": "대각선의 곱은\n$2ab^{3}\\times 2a^{2}b^{2}\\times 2a^{3}b=8a^{6}b^{6}$\n$A\\times 4a^{2}b^{2}\\times 2a^{3}b=8a^{6}b^{6}$\n따라서 $A=ab^{3}$\n$B\\times 2a^{2}b^{2}\\times ab^{3}=8a^{6}b^{6}$\n따라서 $B=4a^{3}b$", "topic": "", "difficulty": ""},
+    {"number": 20, "answer": "$A=5x-3y+2$, 식: $8x+3y+1$", "solution": "$A-(3x+6y-1)=2x-9y+3$\n$A=2x-9y+3+3x+6y-1$\n$=5x-3y+2$\n바르게 계산해보면\n$5x-3y+2+3x+6y-1=8x+3y+1$", "topic": "", "difficulty": ""}
+  ]
+}

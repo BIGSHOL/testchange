@@ -1,0 +1,337 @@
+{
+  "meta": {"exam_id": 5178, "ocr_source": "session-vision"},
+  "header": {"title": "경명여중 1학년 수학 (2025년 1학기 중간고사) — 소인수분해 ~ 문자의 사용과 식의 계산"},
+  "questions": [
+    {
+      "number": 1,
+      "score": 3.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "<보기>에서 두 수가 서로소인 것을 고른 것은?"},
+        {"type": "text", "value": "<보기> ㄱ. 2, 11 • ㄴ. 1, 18 • ㄷ. 21, 87 • ㄹ. 40, 56"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ, ㄴ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄴ, ㄷ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄱ, ㄷ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄴ, ㄹ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄷ, ㄹ"}]}
+      ]
+    },
+    {
+      "number": 2,
+      "score": 3.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "20보다 큰 자연수 중에서 가장 작은 소수를 a, 20보다 작은 자연수 중에서 가장 큰 합성수를 b라고 할 때, a-b의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+      ]
+    },
+    {
+      "number": 3,
+      "score": 3.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "정수와 유리수에 대한 설명으로 옳지 않은 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "모든 정수는 유리수이다."}]},
+        {"number": 2, "contents": [{"type": "text", "value": "절댓값이 3인 수는 2개다."}]},
+        {"number": 3, "contents": [{"type": "text", "value": "-\\frac{15}{5}는 정수가 아닌 유리수이다."}]},
+        {"number": 4, "contents": [{"type": "text", "value": "-1과 1사이에 있는 정수는 1개뿐이다."}]},
+        {"number": 5, "contents": [{"type": "text", "value": "분자와 분모가 모두 자연수인 분수에 양의 부호 +를 붙인 수는 양의 유리수이다."}]}
+      ]
+    },
+    {
+      "number": 4,
+      "score": 3.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "다음 수를 수직선 위에 나타낼 때, 왼쪽에서 두 번째에 오는 수는?"},
+        {"type": "text", "value": "<상자> -3, -\\frac{2}{5}+1, -\\frac{1}{2}, -2+3, -0.2"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-\\frac{2}{5}+1"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-\\frac{1}{2}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "-2+3"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "-0.2"}]}
+      ]
+    },
+    {
+      "number": 5,
+      "score": 3.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "어느 해 4월 원/달러 환율은 전날과 비교하여 아래 표와 같이 변했다. 예를 들어 4월 7일의 원/달러 환율이 1461.5원이었다면 4월 8일의 원/달러 환율은 1461.5+9.3=1470.8(원)이다. 4월 7일의 원/달러 환율이 1461.5원이었을 때, 4월 11일의 원/달러 환율은?"},
+        {"type": "table", "value": "", "rows": [["날짜", "전일 대비(원)"], ["4월 8일", "▲ 9.3 (+9.3)"], ["4월 9일", "▼ 2.5 (-2.5)"], ["4월 10일", "▼ 7.1 (-7.1)"], ["4월 11일", "▲ 4.0 (+4.0)"]]}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "1457.8원"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "1461.2원"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "1464.8원"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "1465.2원"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "1471.2원"}]}
+      ]
+    },
+    {
+      "number": 6,
+      "score": 3.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "소인수의 개수가 가장 많은 수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "25"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "36"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "60"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "91"}]}
+      ]
+    },
+    {
+      "number": 7,
+      "score": 3.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "약수의 개수가 __다른__ 수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "66"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "76"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "98"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "99"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "243"}]}
+      ]
+    },
+    {
+      "number": 8,
+      "score": 3.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "계산 결과가 가장 큰 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\left(+\\frac{1}{12}\\right)-\\left(-\\frac{1}{4}\\right)"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\left|-\\frac{7}{2}\\right|-\\left(+\\frac{5}{2}\\right)+\\left|-\\frac{3}{2}\\right|"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3\\times(-2.84)+3\\times3.84"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{1}{3}+\\left(-\\frac{3}{2}\\right)\\times\\frac{2}{5}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{4}{5}\\div\\left(-\\frac{4}{3}\\right)-\\left(-\\frac{1}{2}\\right)"}]}
+      ]
+    },
+    {
+      "number": 9,
+      "score": 3.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "곱셈 기호 \\times와 나눗셈 기호 \\div를 쓰지 않고 나타낸 것으로 옳지 않은 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "a\\times a\\times b=a^{2}b"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "a\\times b\\div a\\times 3=3b"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "(x+y+3)\\times\\frac{1}{5}=\\frac{x+y+3}{5}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "(c+d)\\div\\frac{1}{5}\\times 2\\times a=10a(c+d)"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "(-1)^{5}\\times(x-y)\\div\\frac{1}{2}z^{2}=-\\frac{x-y}{2z^{2}}"}]}
+      ]
+    },
+    {
+      "number": 10,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "두 수 2^{3}\\times3^{3}\\times5^{3}, 2^{2}\\times3^{4}\\times5^{2}의 최대공약수를 a, 최소공배수를 b라고 할 때, b\\div a의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "30"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "45"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "50"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "60"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "90"}]}
+      ]
+    },
+    {
+      "number": 11,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "24\\times a=40\\times b=c^{2}=2^{4}\\times3^{2}\\times5^{2}일 때, a-b+c의 값은? (단, a, b, c는 자연수)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "100"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "120"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "140"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "160"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "180"}]}
+      ]
+    },
+    {
+      "number": 12,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "어떤 두 자리 자연수와 2^{3}\\times7^{2}의 최대공약수는 2\\times7이다. 이때, 가능한 두 자리 자연수의 개수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "1개"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "2개"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "3개"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "4개"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "5개"}]}
+      ]
+    },
+    {
+      "number": 13,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "a=2, b=-1일 때, 식의 값이 __다른__ 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "a^{2}-b"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "4a+3b"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3a-b^{2}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{a^{2}+b^{2}}{a+b}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{1}{2}a+4b"}]}
+      ]
+    },
+    {
+      "number": 14,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "아래 그림에서 각 변에 놓인 세 수를 곱한 결과가 모두 같을 때, abc의 값은? (단, a, b, c는 유리수)"},
+        {"type": "figure", "value": "정사각형 모양으로 배치된 8개의 원(회색 원) 안에 수가 적혀 있고, 이웃한 원끼리 선분으로 연결되어 정사각형의 네 변을 이룬다. 윗변(왼쪽→오른쪽): 9, -\\frac{1}{6}, \\frac{8}{3}. 왼쪽 변(위→아래): 9, a, \\frac{1}{2}. 오른쪽 변(위→아래): \\frac{8}{3}, c, b. 아랫변(왼쪽→오른쪽): \\frac{1}{2}, -\\frac{2}{3}, b. 즉 네 꼭짓점은 각각 9(왼쪽 위), \\frac{8}{3}(오른쪽 위), \\frac{1}{2}(왼쪽 아래), b(오른쪽 아래)이고, 각 변의 가운데 원은 위쪽 -\\frac{1}{6}, 왼쪽 a, 오른쪽 c, 아래쪽 -\\frac{2}{3}이다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-\\frac{3}{4}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-\\frac{4}{3}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-\\frac{2}{3}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{3}{4}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{4}{3}"}]}
+      ]
+    },
+    {
+      "number": 15,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "세 정수 a, b, c가 다음 조건을 모두 만족시킬 때, a+b+c의 값은?"},
+        {"type": "text", "value": "<상자> a\\times b\\times c=-165 • c<0<a<b • 1<|a|<|b|<|c|"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-19"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-3"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "13"}]}
+      ]
+    },
+    {
+      "number": 16,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "\\mathrm{A}=2+\\frac{2}{3}\\times\\left[\\left\\{\\frac{2}{3}+(-2)^{2}\\right\\}\\div\\frac{7}{9}-12\\right], \\mathrm{B}=(-8)\\times\\left[\\frac{1}{4}-\\left\\{\\frac{4}{5}\\div\\left(-\\frac{6}{5}\\right)+1\\right\\}\\right]일 때, \\mathrm{A}\\leq x<\\mathrm{B}를 만족하는 정수 x의 개수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "1개"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "2개"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "3개"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "4개"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "5개"}]}
+      ]
+    },
+    {
+      "number": 17,
+      "score": 5.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "분수 \\frac{18-n}{24}를 기약분수로 나타내었을 때, 분모가 3을 소인수로 가지게 하는 한 자리 자연수 n의 값의 합은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "24"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "25"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "26"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "27"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "28"}]}
+      ]
+    },
+    {
+      "number": 18,
+      "score": 5.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "주어진 식을 바르게 계산하면?"},
+        {"type": "text", "value": "<상자> (-1)^{20}\\times21+(-1)^{21}\\times22+(-1)^{22}\\times23+(-1)^{23}\\times24+\\cdots+(-1)^{98}\\times99+(-1)^{99}\\times100"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-50"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-40"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "40"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "50"}]}
+      ]
+    },
+    {
+      "number": 19,
+      "score": 7.0,
+      "type": "서술형",
+      "label": "[서술형 1]",
+      "contents": [
+        {"type": "text", "value": "[서술형 1] 3보다 +\\frac{3}{5} 작은 수를 a, \\frac{7}{2}보다 -2 큰 수를 b라고 할 때, a-b의 값을 구하고, 그 과정을 서술하시오."}
+      ]
+    },
+    {
+      "number": 20,
+      "score": 8.0,
+      "type": "서술형",
+      "label": "[서술형 2]",
+      "contents": [
+        {"type": "text", "value": "[서술형 2] 세 수 108, 126, 198을 어떤 자연수로 각각 나누면 세 수가 모두 나누어떨어지고 그 몫이 서로소가 된다. 소인수분해를 이용하여 어떤 자연수를 구하고, 그 과정을 서술하시오."}
+      ]
+    },
+    {
+      "number": 21,
+      "score": 10.0,
+      "type": "서술형",
+      "label": "[서술형 3]",
+      "contents": [
+        {"type": "text", "value": "[서술형 3] 두 분수 \\frac{33}{14}, \\frac{44}{21}의 어느 것에 곱해도 항상 자연수가 되게 하는 가장 작은 기약분수를 소인수분해를 이용하여 구하고, 그 과정을 서술하시오."}
+      ]
+    },
+    {
+      "number": 22,
+      "score": 10.0,
+      "type": "서술형",
+      "label": "[서술형 4]",
+      "contents": [
+        {"type": "text", "value": "[서술형 4] 세 유리수 a, b, c가 다음 조건을 만족시킨다. a, b, c의 값을 각각 구하고, 그 과정을 서술하시오."},
+        {"type": "text", "value": "<상자> a를 -\\frac{9}{4}로 나누면 b이다. • b에 -\\frac{16}{3}을 곱하면 c이다. • c에 -\\frac{2}{3}를 더하면 2이다."}
+      ]
+    }
+  ]
+}

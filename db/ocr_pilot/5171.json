@@ -1,0 +1,362 @@
+{
+ "meta": {"exam_id": 5171, "ocr_source": "session-vision"},
+ "header": {"title": "강동중 1학년 수학 2025년 1학기 기말고사 (문자와 식 ~ 통계)"},
+ "questions": [
+  {
+   "number": 1,
+   "score": 3.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "곱셈 기호 \\times 와 나눗셈 기호 \\div 를 생략한 식으로 옳지 __않은__ 것은?"}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "a \\div b \\times 3 = \\frac{3a}{b}"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "x \\div y \\div z = \\frac{x}{yz}"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "(a-b) \\div 5 = a - \\frac{b}{5}"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "(-1) \\times y \\times x = -xy"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "a \\times b \\times (-0.1) \\times a = -0.1a^{2}b"}]}
+   ]
+  },
+  {
+   "number": 2,
+   "score": 4.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "x=\\frac{1}{5} 일 때, 식의 값이 가장 작은 것은?"}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "5x^{2}"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "-14x"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "(-x)^{2}"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "5(x-1)"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "(-x)^{2}-x"}]}
+   ]
+  },
+  {
+   "number": 3,
+   "score": 4.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "다항식 7x^{2}-5x-6 에서 x 의 계수를 a, 다항식의 차수를 b, 상수항을 c라고 할 때, a+b-c 의 값은?"}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "-7"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "-4"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "-1"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "1"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "3"}]}
+   ]
+  },
+  {
+   "number": 4,
+   "score": 5.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "다음 중 계산 결과가 옳은 것은?"}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "14x \\div \\frac{1}{2} = 7x"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "(-8a) \\times \\left(-\\frac{5}{2}\\right) = 20a"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "(10y+5) \\div \\frac{5}{2} = 25y+2"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "\\frac{3x-1}{4} + \\frac{x+1}{2} = x + \\frac{1}{4}"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "2(3a-1) + \\frac{1}{4}(8+16a) = 8a+2"}]}
+   ]
+  },
+  {
+   "number": 5,
+   "score": 5.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "x 에 대한 일차방정식 3x-\\frac{3}{2}(x+a) = -6 의 해가 음의 정수가 되도록 하는 자연수 a 의 값의 합은?"}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "6"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "7"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "8"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "9"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "10"}]}
+   ]
+  },
+  {
+   "number": 6,
+   "score": 4.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "다음 중 옳지 __않은__ 것은?"}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "text", "value": "4a=12b 이면 a=3b 이다."}]},
+    {"number": 2, "contents": [{"type": "text", "value": "a=b 이면 2+a=2+b 이다."}]},
+    {"number": 3, "contents": [{"type": "text", "value": "\\frac{a}{3}=\\frac{b}{5} 이면 -5a=-3b 이다."}]},
+    {"number": 4, "contents": [{"type": "text", "value": "a=-b 이면 -2b=b-a 이다."}]},
+    {"number": 5, "contents": [{"type": "text", "value": "a=7b 이면 1-a=1-7b 이다."}]}
+   ]
+  },
+  {
+   "number": 7,
+   "score": 5.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "다음 일차방정식 중 해가 가장 작은 것은?"}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "-2x = 4x+12"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "4(x+1) = 10+x"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "\\frac{x}{6}-2 = \\frac{x-9}{4}-3"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "x+5(x+1) = -4-3x"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "0.05x+0.42 = -0.01x-0.3"}]}
+   ]
+  },
+  {
+   "number": 8,
+   "score": 5.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "수지가 집에서 약국까지 가는데 시속 6\\mathrm{km} 로 뛰어가면 시속 3\\mathrm{km} 로 걸어가는 것보다 15분 더 빨리 도착한다고 한다. 수지네 집에서 약국까지의 거리는?"}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "\\frac{3}{2}\\mathrm{km}"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "\\frac{4}{3}\\mathrm{km}"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "\\frac{5}{4}\\mathrm{km}"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "\\frac{3}{4}\\mathrm{km}"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "\\frac{2}{3}\\mathrm{km}"}]}
+   ]
+  },
+  {
+   "number": 9,
+   "score": 4.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "다음은 정국이네 반 학생들의 하루 동안의 독서 시간을 조사하여 나타낸 히스토그램이다. 그래프를 해석한 내용으로 옳은 것은?"},
+    {"type": "figure", "value": "히스토그램. 가로축은 하루 독서 시간(분)으로 0부터 60까지 10분 간격 눈금, 세로축은 학생 수(명)으로 1부터 8까지 눈금. 각 계급의 도수는 10분 이상 20분 미만 6명, 20분 이상 30분 미만 3명, 30분 이상 40분 미만 8명, 40분 이상 50분 미만 8명, 50분 이상 60분 미만 1명이고, 0분 이상 10분 미만 계급의 직사각형은 없다(0명). 전체 학생 수는 26명."}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "text", "value": "계급의 크기는 10분이다."}]},
+    {"number": 2, "contents": [{"type": "text", "value": "정국이네 반의 전체 학생 수는 20명이다."}]},
+    {"number": 3, "contents": [{"type": "text", "value": "30분 이상 40분 미만의 계급의 도수는 16이다."}]},
+    {"number": 4, "contents": [{"type": "text", "value": "도수가 가장 큰 계급은 50분 이상 60분 미만이다."}]},
+    {"number": 5, "contents": [{"type": "text", "value": "히스토그램은 가로축에 계급의 중간값을 써서 나타낸다."}]}
+   ]
+  },
+  {
+   "number": 10,
+   "score": 3.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "다음은 어느 중학교 홈페이지 게시글 8개의 공감 수를 조사한 자료이다. 이 자료의 평균과 최빈값이 서로 같을 때, x 의 값은?"},
+    {"type": "text", "value": "<상자> 18    13    8    9    17    13    x    13"}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "12"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "13"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "14"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "15"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "16"}]}
+   ]
+  },
+  {
+   "number": 11,
+   "score": 5.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "두 학급 \\mathrm{A}, \\mathrm{B} 의 전체 학생 수가 각각 40명, 25명이고, 중간고사 국어 성적이 80점 이상인 학생의 상대도수가 각각 x, y 라고 할 때, 두 학급 전체 학생 65명에 대하여 중간고사 국어 성적이 80점 이상인 학생의 상대도수를 x, y 를 사용하여 나타낸 것으로 옳은 것은?"}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "\\frac{5x+8y}{13}"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "\\frac{8x+5y}{13}"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "\\frac{5x+8y}{40}"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "\\frac{5x+8y}{65}"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "\\frac{8x+5y}{65}"}]}
+   ]
+  },
+  {
+   "number": 12,
+   "score": 4.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "다음은 줄넘기 방과후수업에 참여하는 남학생과 여학생의 2분 동안의 줄넘기 횟수를 조사하여 나타낸 도수분포다각형이다. 그래프를 해석한 내용으로 옳은 것은?"},
+    {"type": "figure", "value": "여학생과 남학생 두 개의 도수분포다각형이 겹쳐 그려진 그래프. 가로축은 2분 동안의 줄넘기 횟수(회)로 20부터 140까지 20회 간격 눈금(계급의 크기 20회), 세로축은 학생 수(명)로 2, 4, 6, 8 눈금. 여학생 그래프는 계급값 10에서 0명, 30에서 4명, 50에서 6명, 70에서 8명, 90에서 4명, 110에서 1명, 130에서 1명, 150에서 0명(합 24명). 남학생 그래프는 계급값 30에서 0명, 50에서 2명, 70에서 6명, 90에서 9명, 110에서 5명, 130에서 2명, 150에서 0명(합 24명). '여학생' 말풍선은 왼쪽 위로 올라가는 그래프를, '남학생' 말풍선은 오른쪽으로 내려가는 그래프를 가리킨다."}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "text", "value": "남학생의 수가 여학생의 수보다 많다."}]},
+    {"number": 2, "contents": [{"type": "text", "value": "줄넘기 횟수가 가장 적은 학생은 남학생이다."}]},
+    {"number": 3, "contents": [{"type": "text", "value": "여학생 중 줄넘기 횟수가 5번째로 많은 학생이 속하는 계급의 도수는 8명이다."}]},
+    {"number": 4, "contents": [{"type": "text", "value": "줄넘기 횟수가 50회인 학생이 속하는 계급의 학생은 여학생이 남학생보다 4명 더 많다."}]},
+    {"number": 5, "contents": [{"type": "text", "value": "줄넘기 횟수가 120회 이상 140회 미만인 학생은 줄넘기 방과후수업에 참여하는 전체 학생의 7.25\\%이다."}]}
+   ]
+  },
+  {
+   "number": 13,
+   "score": 5.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "다음은 어느 마트에서 판매하는 통조림의 유통기한을 조사하여 나타낸 표이다. \\mathrm{A} \\sim \\mathrm{E} 의 값으로 옳은 것은?"},
+    {"type": "text", "value": "어느 마트에서 판매하는 통조림의 유통기한"},
+    {"type": "table", "value": "", "rows": [
+      ["유통기한(개월)", "통조림 개수(개)", "상대도수"],
+      ["6이상 ~ 12미만", "6", ""],
+      ["12 ~ 18", "15", "A"],
+      ["18 ~ 24", "B", "0.16"],
+      ["24 ~ 30", "", "C"],
+      ["30 ~ 36", "30", "0.2"],
+      ["36 ~ 42", "", "0.26"],
+      ["합계", "D", "E"]
+    ]}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "\\mathrm{A}=0.3"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "\\mathrm{B}=42"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "\\mathrm{C}=0.42"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "\\mathrm{D}=150"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "\\mathrm{E}=0.62"}]}
+   ]
+  },
+  {
+   "number": 14,
+   "score": 5.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "도수분포표에 대한 설명으로 옳은 것은?"}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "text", "value": "도수의 총합은 모든 변량의 합과 같다."}]},
+    {"number": 2, "contents": [{"type": "text", "value": "변량을 나눈 구간의 너비를 상대도수라고 한다."}]},
+    {"number": 3, "contents": [{"type": "text", "value": "각 계급에 속하는 변량의 개수를 그 계급의 도수라고 한다."}]},
+    {"number": 4, "contents": [{"type": "text", "value": "일반적으로 계급의 크기는 자료의 양에 따라 모두 다르게 한다."}]},
+    {"number": 5, "contents": [{"type": "text", "value": "계급의 크기가 너무 크면 계급의 개수가 많아지므로 자료의 전체적인 분포 상태를 알기 쉽다."}]}
+   ]
+  },
+  {
+   "number": 15,
+   "score": 5.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "다음은 어느 중학교 1학년 학생 200명의 중간고사 수학 성적에 대한 상대도수의 분포를 도수분포다각형 모양의 그래프로 나타낸 것이다. 중간고사 수학 성적이 80점 이상 100점 미만인 학생의 수는?"},
+    {"type": "figure", "value": "상대도수의 분포를 나타낸 도수분포다각형. 가로축은 중간고사 수학 성적(점)으로 40, 50, 60, 70, 80, 90, 100 눈금(계급의 크기 10점), 세로축은 상대도수로 0.1, 0.2, 0.3 눈금. 각 계급값에서의 상대도수는 35에서 0, 45에서 0.08, 55에서 0.15, 65에서 0.30, 75에서 0.23, 85에서 0.20, 95에서 0.04, 105에서 0이다(상대도수의 합 1)."}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "text", "value": "8명"}]},
+    {"number": 2, "contents": [{"type": "text", "value": "15명"}]},
+    {"number": 3, "contents": [{"type": "text", "value": "24명"}]},
+    {"number": 4, "contents": [{"type": "text", "value": "36명"}]},
+    {"number": 5, "contents": [{"type": "text", "value": "48명"}]}
+   ]
+  },
+  {
+   "number": 16,
+   "score": 4.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "다음은 어느 도서관에서 일별 기증받은 도서의 수를 조사하여 도수분포표로 나타낸 것이다. 기증받은 도서의 수가 4권 미만인 날이 전체의 20\\%일 때, \\mathrm{B}-\\mathrm{A} 의 값은?"},
+    {"type": "text", "value": "일별 기증받은 도서의 수"},
+    {"type": "table", "value": "", "rows": [
+      ["기증받은 도서 수(권)", "날수(일)"],
+      ["0이상 ~ 2미만", "3"],
+      ["2 ~ 4", "A"],
+      ["4 ~ 6", "5"],
+      ["6 ~ 8", "B"],
+      ["8 ~ 10", "6"],
+      ["10 ~ 12", "1"],
+      ["합계", "30"]
+    ]}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "3"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "5"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "9"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "10"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "12"}]}
+   ]
+  },
+  {
+   "number": 17,
+   "score": 8.0,
+   "type": "서술형",
+   "label": "[서술형 1]",
+   "contents": [
+    {"type": "text", "value": "[서술형 1] 다음 그림에서 아래 칸의 식이 바로 위 두 칸의 식을 더한 것일 때, A-B-C 를 구하시오. (단, 모든 풀이 과정을 자세히 쓰시오.)"},
+    {"type": "figure", "value": "둥근 모서리 칸들이 3층으로 배치된 그림. 맨 윗줄에는 왼쪽부터 2x+3, A, -3x+2 세 칸이 있다. 둘째 줄에는 왼쪽 칸 7x+4(윗줄의 2x+3과 A를 잇는 선으로 연결)와 오른쪽 칸 B(윗줄의 A와 -3x+2를 잇는 선으로 연결)가 있다. 셋째 줄에는 7x+4와 B를 잇는 선으로 연결된 칸 C가 있다."}
+   ],
+   "choices": []
+  },
+  {
+   "number": 18,
+   "score": 7.0,
+   "type": "서술형",
+   "label": "[서술형 2]",
+   "contents": [
+    {"type": "text", "value": "[서술형 2] 어떤 빈 수조에 물을 가득 채우는 데 수도꼭지 \\mathrm{A} 만 틀면 30분, 수도꼭지 \\mathrm{B} 만 틀면 1시간이 걸린다. 두 수도꼭지에서 각각 1분 동안 나오는 물의 양은 일정하다고 할 때, 두 수도꼭지 \\mathrm{A}, \\mathrm{B} 를 동시에 틀면 빈 수조에 물을 가득 채우는 데 몇 분이 걸리는지 구하시오. (단, 모든 풀이 과정을 자세히 쓰시오.)"}
+   ],
+   "choices": []
+  },
+  {
+   "number": 19,
+   "score": 8.0,
+   "type": "서술형",
+   "label": "[서술형 3]",
+   "contents": [
+    {"type": "text", "value": "[서술형 3] 다음 자료의 대푯값을 구하시오. (단, 모든 풀이 과정을 자세히 쓰시오.)"}
+   ],
+   "choices": [],
+   "sub_questions": [
+    {"number": 1, "score": 3, "contents": [
+      {"type": "text", "value": "어느 지역 영화관 10곳에서 상영하는 영화의 수를 조사한 자료이다. 중앙값을 구하시오."},
+      {"type": "text", "value": "<상자> 6    5    9    8    5    1    10    7    9    8"}
+    ]},
+    {"number": 2, "score": 2, "contents": [
+      {"type": "text", "value": "수학 동아리 학생 8명이 사용하는 다회용 컵의 용량을 조사한 자료이다. 최빈값을 구하시오."},
+      {"type": "text", "value": "<상자> 400    500    300    250    550    550    500    550"}
+    ]},
+    {"number": 3, "score": 3, "contents": [
+      {"type": "text", "value": "강철이네 가족의 6개월 간의 월별 전기 사용량을 조사한 자료이다. 강철이네 가족의 6개월 간의 월별 전기 사용량의 평균을 구하시오."},
+      {"type": "text", "value": "<상자> 194    200    1080    275    215    220"}
+    ]}
+   ]
+  },
+  {
+   "number": 20,
+   "score": 7.0,
+   "type": "서술형",
+   "label": "[서술형 4]",
+   "contents": [
+    {"type": "text", "value": "[서술형 4] 다음은 헬스클럽 회원 25명의 나이를 조사한 자료를 줄기와 잎 그림으로 나타낸 것이다. 다음 물음에 답하시오. (단, 모든 풀이 과정을 자세히 쓰시오.)"},
+    {"type": "text", "value": "헬스클럽 회원의 나이 (단위:세)"},
+    {"type": "text", "value": "<상자> 18  27  43  47  45 • 32  38  33  25  16 • 52  21  39  32  50 • 28  53  45  49  30 • 25  41  35  46  34"},
+    {"type": "text", "value": "헬스클럽 회원의 나이 (1|6은 16세)"},
+    {"type": "table", "value": "", "rows": [
+      ["줄기", "잎"],
+      ["1", "6 8"],
+      ["2", "1 5 5 7 8"],
+      ["3", "0 2 2 3 4 5 8 9"],
+      ["4", "1 3 5 5 6 7 9"],
+      ["5", "0 2 3"]
+    ]}
+   ],
+   "choices": [],
+   "sub_questions": [
+    {"number": 1, "score": 3, "contents": [
+      {"type": "text", "value": "40세 이상인 회원의 수를 구하시오."}
+    ]},
+    {"number": 2, "score": 4, "contents": [
+      {"type": "text", "value": "20대 회원은 헬스클럽 전체 회원의 몇 \\%인지 구하시오."}
+    ]}
+   ]
+  }
+ ]
+}

@@ -1,0 +1,27 @@
+{
+  "exam_id": 5364,
+  "answer_pages": [5],
+  "items": [
+    {"number": 1, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 2, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 3, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 4, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 5, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 6, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 7, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 8, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 9, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 10, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 11, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 12, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 13, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 14, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 15, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 16, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 17, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 18, "answer": "7개", "solution": "초콜릿 수를 $x$라고 하자.\n$0.7x < 5$\n$7x < 50$\n$x < \\frac{50}{7} = 7.1\\cdots$ 이므로 최대 7개 조각을 넣을 수 있다.", "topic": "", "difficulty": ""},
+    {"number": 19, "answer": "$a=\\frac{1}{2}$", "solution": "$\\begin{cases} \\frac{x}{2}+\\frac{y}{3}=\\frac{2}{3} \\cdots ㉠ \\\\ 0.3x-0.5y=1.1 \\cdots ㉡ \\end{cases}$\n㉠$\\times 6$, ㉡$\\times 10$ 하면 $\\begin{cases} 3x+2y=4 \\\\ 3x-5y=11 \\end{cases}$ 이다.\n연립하면 $x=2$, $y=-1$이므로 $2(y-ax)=3+7y$에 대입한다.\n$2(-1-2a)=3-7$\n$\\therefore a=\\frac{1}{2}$", "topic": "", "difficulty": ""},
+    {"number": 20, "answer": "50명", "solution": "$\\mathrm{B}$ 지점에서 탄 승객수 $x$, 내린 승객수 $y$라 하자.\n$70+x-y=40$\n$\\therefore x-y=-30$\n$1200x+1000y+2400 \\times 30 = 124000$\n$\\therefore 6x+5y=260$\n두 식을 연립하면 $x=10$, $y=40$\n$\\therefore x+y=50$", "topic": "", "difficulty": ""},
+    {"number": 21, "answer": "3", "solution": "$m = \\frac{-2}{3} = -\\frac{2}{3}$\n일차함수 $y=-\\frac{2}{3}x-1$의 그래프를 $y$축 방향으로 3만큼 평행이동한 그래프는 $y=-\\frac{2}{3}x+2$\n$(0,~2)$, $(3,~0)$을 지나므로 $x$절편은 3, $y$절편은 2이다.\n둘러싸인 넓이는 $\\frac{1}{2} \\times 3 \\times 2 = 3$", "topic": "", "difficulty": ""}
+  ]
+}

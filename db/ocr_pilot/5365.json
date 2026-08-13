@@ -1,0 +1,298 @@
+{
+  "meta": {"exam_id": 5365, "ocr_source": "session-vision"},
+  "header": {"title": "강북중 2학년 수학 2025년 1학기 중간고사 (유리수 ~ 일차부등식)"},
+  "questions": [
+    {
+      "number": 1,
+      "score": 3,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "순환소수를 순환마디를 사용하여 바르게 나타낸 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "0.111\\cdots=0.\\dot{1}\\dot{1}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "5.454545\\cdots=\\dot{5}.\\dot{4}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "1.3666\\cdots=1.\\dot{3}\\dot{6}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4.131313\\cdots=4.\\dot{1}\\dot{3}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "0.1234234234\\cdots=0.1\\dot{2}\\dot{3}\\dot{4}"}]}
+      ]
+    },
+    {
+      "number": 2,
+      "score": 4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "소수에 대한 설명으로 옳은 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "0.112123은 무한소수이다."}]},
+        {"number": 2, "contents": [{"type": "text", "value": "모든 무한소수는 순환소수이다."}]},
+        {"number": 3, "contents": [{"type": "text", "value": "\\frac{3}{2\\times 7}은 유한소수로 나타낼 수 있다."}]},
+        {"number": 4, "contents": [{"type": "text", "value": "순환소수 중에는 유리수가 아닌 것도 있다."}]},
+        {"number": 5, "contents": [{"type": "text", "value": "정수가 아닌 유리수는 유한소수 또는 순환소수로 나타낼 수 있다."}]}
+      ]
+    },
+    {
+      "number": 3,
+      "score": 4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "분수 \\frac{9}{252}\\times x를 소수로 나타내면 유한소수가 될 때, 다음 중 x의 값이 될 수 있는 자연수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "33"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "54"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "63"}]}
+      ]
+    },
+    {
+      "number": 4,
+      "score": 4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "순환소수 3.535353\\cdots=\\frac{a}{99}, 0.7222\\cdots=\\frac{13}{b}일 때, a+b의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "368"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "369"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "370"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "371"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "372"}]}
+      ]
+    },
+    {
+      "number": 5,
+      "score": 5,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "순환소수 중 소수점 아래 100번째 자리의 숫자가 가장 작은 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1.1\\dot{2}3\\dot{4}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2.\\dot{4}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "1.2\\dot{3}\\dot{8}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "2.\\dot{5}1\\dot{2}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "3.\\dot{3}\\dot{4}"}]}
+      ]
+    },
+    {
+      "number": 6,
+      "score": 5,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "다음 <조건>을 만족시키는 세 자연수 a, m, n에 대하여 a+m+n의 값은?"},
+        {"type": "text", "value": "<조건> 1 \\leq a \\leq 4 • 순환소수 3.\\dot{a}을 기약분수 \\frac{n}{m}으로 나타낼 때, \\frac{m}{n}을 소수로 나타내면 유한소수이다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "15"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "16"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "20"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "38"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "40"}]}
+      ]
+    },
+    {
+      "number": 7,
+      "score": 3,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "a^{7} \\div a^{4} \\times a^{6}의 계산 결과는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "a^{7}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "a^{8}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "a^{9}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "a^{10}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "a^{11}"}]}
+      ]
+    },
+    {
+      "number": 8,
+      "score": 4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "\\frac{(x^{2}y)^{3}}{(xy^{2})^{n}}=\\frac{x^{k}}{y^{5}}일 때, 자연수 n, k에 대하여 n-k의 값은? (단, x, y는 0이 아닌 정수)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+      ]
+    },
+    {
+      "number": 9,
+      "score": 5,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "(2^{4}+2^{4}+2^{4}+2^{4}+2^{4}) \\times (5^{7}+5^{7}+5^{7}+5^{7})은 몇 자리 자연수인가?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "9"}]}
+      ]
+    },
+    {
+      "number": 10,
+      "score": 4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "식 (-2xy^{2})^{3} \\div \\frac{4}{3}y^{3} \\times \\left(-\\frac{1}{2}x^{2}y\\right)^{2} \\times 2xy를 계산하면?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-3x^{8}y^{9}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-3x^{8}y^{6}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-x^{8}y^{6}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "3x^{8}y^{6}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "3x^{8}y^{9}"}]}
+      ]
+    },
+    {
+      "number": 11,
+      "score": 4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "식 -x^{2}+x-1-\\left[2x-\\{x^{2}-x-(x+1)\\}\\right]을 간단히 정리하면 ax^{2}+bx+c일 때, 세 상수 a, b, c에 대하여 a+b-c의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-5"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+      ]
+    },
+    {
+      "number": 12,
+      "score": 4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "식 (4a^{2}-6ab) \\div 2a - (15ab+5b^{2}) \\div 5b를 계산하면?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "5a-2b"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "5a-4b"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-a+2a"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "-a-2b"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "-a-4b"}]}
+      ]
+    },
+    {
+      "number": 13,
+      "score": 4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "가로의 길이가 5y, 세로의 길이가 3x인 직사각형에서 색칠한 부분의 넓이는? (단, 3x>6, 5y>8)"},
+        {"type": "figure", "value": "가로 5y, 세로 3x 인 직사각형. 위쪽 변 위에 한 점 P가 있는데, 오른쪽 위 꼭짓점에서 P까지의 거리가 8이다. 오른쪽 변 위에 한 점 Q가 있는데, 오른쪽 위 꼭짓점에서 Q까지의 거리가 6이다. 직사각형의 왼쪽 아래 꼭짓점과 P, Q를 이은 삼각형 내부가 회색으로 색칠되어 있다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "12x+15y-24"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "12x+15y+24"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "24x+30y-15xy+48"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "15xy-12x-15y+24"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "30xy-12x-15y+24"}]}
+      ]
+    },
+    {
+      "number": 14,
+      "score": 3,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "부등식인 것을 모두 고르면? (정답 2개)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "5<7"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "3x-6=0"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "4x-3<5"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "x+2x=6"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5x-2"}]}
+      ]
+    },
+    {
+      "number": 15,
+      "score": 4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "세 유리수 a, b, c에 대하여 c<a<0<b일 때, 옳은 것만을 <보기>에서 고른 것은?"},
+        {"type": "text", "value": "<보기> ㄱ. a+b<b+c • ㄴ. a-c<b-c • ㄷ. ac<bc • ㄹ. \\frac{a}{c}>\\frac{b}{c}"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ, ㄴ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄱ, ㄷ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄴ, ㄷ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄴ, ㄹ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄷ, ㄹ"}]}
+      ]
+    },
+    {
+      "number": 16,
+      "score": 5,
+      "type": "서술형",
+      "label": "[서술형 1]",
+      "contents": [
+        {"type": "text", "value": "[서술형 1] x의 값이 -1, 0, 1, 2일 때, 부등식 x+4>3x+1을 풀고 그 과정을 쓰시오."},
+        {"type": "text", "value": "<조건> 부등식에 x의 값을 각각 대입하여 참, 거짓을 판별할 것 • 부등식의 해를 모두 구하여 마지막에 적을 것"}
+      ]
+    },
+    {
+      "number": 17,
+      "score": 9,
+      "type": "서술형",
+      "label": "[서술형 2]",
+      "contents": [
+        {"type": "text", "value": "[서술형 2] \\frac{1}{12}과 \\frac{1}{3} 사이의 분수인 \\frac{a}{72}를 순환소수로 나타낼 수 있을 때, a의 값이 될 수 있는 자연수의 개수를 구하고 그 풀이과정을 쓰시오. (단, a는 자연수)"}
+      ]
+    },
+    {
+      "number": 18,
+      "score": 10,
+      "type": "서술형",
+      "label": "[서술형 3]",
+      "contents": [
+        {"type": "text", "value": "[서술형 3] \\frac{3}{5} \\times \\left(\\frac{1}{5}+\\frac{1}{50}+\\frac{1}{500}+\\cdots\\right)을 계산하여 기약분수로 나타내면 \\frac{2}{a}가 되고, 소수로 나타내면 0.b\\dot{c}가 된다고 할 때, a+b+c의 값을 구하고 그 풀이과정을 쓰시오. (단, a, b, c는 자연수)"}
+      ]
+    },
+    {
+      "number": 19,
+      "score": 9,
+      "type": "서술형",
+      "label": "[서술형 4]",
+      "contents": [
+        {"type": "text", "value": "[서술형 4] 표에서 가로, 세로, 대각선에 있는 세 식의 곱이 모두 같게 하려고 한다. A, B에 알맞은 식을 각각 구하고 그 풀이과정을 쓰시오. (단, A, B는 식)"},
+        {"type": "table", "rows": [["2ab^{3}", "", "A"], ["", "2a^{2}b^{2}", "4a^{2}b^{2}"], ["B", "", "2a^{3}b"]]},
+        {"type": "text", "value": "<조건> 대각선에 있는 세 식의 곱을 구할 것 • A, B를 구할 수 있는 식을 각각 적을 것"}
+      ]
+    },
+    {
+      "number": 20,
+      "score": 7,
+      "type": "서술형",
+      "label": "[서술형 5]",
+      "contents": [
+        {"type": "text", "value": "[서술형 5] 어떤 식 A에 3x+6y-1을 더해야 할 것을 잘못하여 빼었더니 2x-9y+3이 되었다. 어떤 식 A와 바르게 계산한 식을 구하고 그 풀이과정을 쓰시오."},
+        {"type": "text", "value": "<조건> A를 구하는 식을 적고 A를 구할 것 • 바르게 계산한 식을 적을 것"}
+      ]
+    }
+  ]
+}

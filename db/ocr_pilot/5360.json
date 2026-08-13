@@ -1,0 +1,345 @@
+{
+  "meta": {
+    "exam_id": 5360,
+    "ocr_source": "session-vision"
+  },
+  "header": {
+    "title": "강동중 2학년 수학 2024년 2학기 기말고사 (삼각형의 성질 ~ 확률)"
+  },
+  "questions": [
+    {
+      "number": 1,
+      "score": 3.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "점 \\mathrm{O}는 \\triangle \\mathrm{ABC}의 외심일 때, \\angle x의 크기는?"},
+        {"type": "figure", "value": "삼각형 ABC(A 위쪽 꼭짓점, B 왼쪽 아래, C 오른쪽 아래)의 내부에 외심 O가 있고 선분 OA, OB, OC가 그려져 있다. O에서 OA와 OB가 이루는 각 ∠AOB에 100°가 표시되어 있고, B에서 BO와 BC가 이루는 각 ∠OBC에 20°가 표시되어 있다. C에서 CO와 CA가 이루는 각 ∠OCA가 x로 표시되어 있다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "10^{\\circ}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "15^{\\circ}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "20^{\\circ}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "25^{\\circ}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "30^{\\circ}"}]}
+      ]
+    },
+    {
+      "number": 2,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "서로 다른 두 개의 주사위를 동시에 던질 때, 나온 두 눈의 수의 합이 2 또는 5일 확률은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{1}{12}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{1}{9}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{5}{36}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{5}{12}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{5}{6}"}]}
+      ]
+    },
+    {
+      "number": 3,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "각 면에 1에서 8까지의 자연수가 적힌 정팔면체 주사위 1개와 각 면에 1에서 20까지의 자연수가 적힌 정이십면체 주사위 1개를 동시에 던질 때, 정팔면체 주사위는 3의 배수가 나오고, 정이십면체 주사위는 홀수가 나올 확률은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{1}{16}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{1}{8}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{1}{4}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{5}{16}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{3}{8}"}]}
+      ]
+    },
+    {
+      "number": 4,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "두 사면체는 서로 닮은 도형이다. \\triangle \\mathrm{ABC}와 \\triangle \\mathrm{A'B'C'}가 서로 대응하는 면이고, 사면체 \\mathrm{A'B'C'D'}의 부피가 128\\,\\mathrm{cm}^{3}일 때, 옳지 __않은__ 것은?"},
+        {"type": "figure", "value": "닮은 두 사면체 그림. 왼쪽 사면체 ABCD는 A가 위쪽, B가 왼쪽, D가 오른쪽, C가 아래쪽 꼭짓점이며 선분 BC에 6cm가 표시되어 있다. 오른쪽 사면체 A'B'C'D'는 A'가 위쪽, B'가 왼쪽, D'가 오른쪽, C'가 아래쪽 꼭짓점이며 선분 A'D'에 12cm, 선분 B'C'에 8cm가 표시되어 있다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\overline{\\mathrm{AD}}=8\\,\\mathrm{cm}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\overline{\\mathrm{AB}}:\\overline{\\mathrm{A'B'}}=3:4"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\triangle \\mathrm{ABD} \\backsim \\triangle \\mathrm{A'B'D'}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\triangle \\mathrm{BCD}=\\frac{9}{16}\\triangle \\mathrm{B'C'D'}"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "사면체 \\mathrm{ABCD}의 부피는 54\\,\\mathrm{cm}^{3}이다."}]}
+      ]
+    },
+    {
+      "number": 5,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "\\triangle \\mathrm{ABC} \\backsim \\triangle \\mathrm{DEF}가 되기 위해 필요한 조건은?"},
+        {"type": "figure", "value": "두 개의 삼각형 그림. 왼쪽 삼각형 ABC는 A가 위쪽, B가 왼쪽 아래, C가 오른쪽 꼭짓점이며 변 AB에 9cm, 각 B에 45°가 표시되어 있다. 오른쪽 삼각형 DEF는 E가 왼쪽 위, F가 왼쪽 아래, D가 오른쪽 꼭짓점이며 변 EF에 6cm, 각 F(∠EFD)에 75°가 표시되어 있다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\angle \\mathrm{A}=\\angle \\mathrm{E}=60^{\\circ}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\angle \\mathrm{C}=75^{\\circ},~\\angle \\mathrm{E}=45^{\\circ}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\overline{\\mathrm{BC}}=9\\,\\mathrm{cm},~\\overline{\\mathrm{FD}}=6\\,\\mathrm{cm}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\overline{\\mathrm{AC}}=6\\,\\mathrm{cm},~\\overline{\\mathrm{ED}}=4\\,\\mathrm{cm}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\overline{\\mathrm{AC}}=8\\,\\mathrm{cm},~\\overline{\\mathrm{FD}}=5\\,\\mathrm{cm}"}]}
+      ]
+    },
+    {
+      "number": 6,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "그림에서 \\overline{\\mathrm{AB}}=\\overline{\\mathrm{AC}}=\\overline{\\mathrm{CD}}이고, \\angle \\mathrm{ECD}=120^{\\circ}일 때, \\angle \\mathrm{B}의 크기는?"},
+        {"type": "figure", "value": "점 B가 왼쪽 아래, C가 오른쪽 아래에 있고 B에서 오른쪽 위로 뻗은 직선 위에 점 A, 그 위에 점 D가 있다. 선분 BC를 오른쪽으로 연장한 반직선 위 C 바로 오른쪽에 점 E가 있다. 선분 AC와 선분 CD가 그려져 있으며, AB, AC, CD에 같은 길이 표시(빗금)가 되어 있다. ∠ECD=120°이고 구하는 각은 ∠B(=∠ABC)이다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "30^{\\circ}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "35^{\\circ}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "40^{\\circ}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "45^{\\circ}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "50^{\\circ}"}]}
+      ]
+    },
+    {
+      "number": 7,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 \\angle \\mathrm{C}=90^{\\circ}인 직각삼각형 ABC에서 \\angle \\mathrm{A}의 이등분선과 \\overline{\\mathrm{AB}}의 수직이등분선이 \\overline{\\mathrm{BC}}위의 한 점 D에서 만난다. 다음 설명 중 옳은 것은?"},
+        {"type": "figure", "value": "직각삼각형 ABC. A가 오른쪽 위, B가 왼쪽, C가 오른쪽 아래이며 C에 직각 표시가 있다. 변 BC 위의 점 D에서 선분 DA와 선분 DE가 그려져 있고, E는 변 AB 위의 점으로 DE가 AB와 만나는 곳에 직각 표시가 있다. 선분 AE와 EB에 같은 길이 빗금 표시(수직이등분선), 각 A는 선분 AD로 두 각으로 나뉘어 같은 각 표시가 되어 있다. B에도 각 표시가 있다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "\\overline{\\mathrm{AC}}=\\overline{\\mathrm{BD}}이다."}]},
+        {"number": 2, "contents": [{"type": "text", "value": "\\angle \\mathrm{B}=40^{\\circ}이다."}]},
+        {"number": 3, "contents": [{"type": "text", "value": "\\angle \\mathrm{ABC}=\\angle \\mathrm{EDA}이다."}]},
+        {"number": 4, "contents": [{"type": "text", "value": "\\triangle \\mathrm{DAE}와 \\triangle \\mathrm{ABC}는 닮은 도형이다."}]},
+        {"number": 5, "contents": [{"type": "text", "value": "\\triangle \\mathrm{DBE}와 \\triangle \\mathrm{ABC}의 닮음비는 1:2이다."}]}
+      ]
+    },
+    {
+      "number": 8,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "점 \\mathrm{I}는 \\triangle \\mathrm{ABC}의 내심이고, 점 \\mathrm{I}를 지나고 변 \\overline{\\mathrm{BC}}에 평행한 직선이 \\overline{\\mathrm{AB}}, \\overline{\\mathrm{AC}}와 만나는 점을 각각 D, E라고 한다. 다음 설명 중 옳지 __않은__ 것은?"},
+        {"type": "figure", "value": "삼각형 ABC. A가 위쪽, B가 왼쪽 아래, C가 오른쪽 아래이며 변 AB에 15cm, 변 AC에 12cm, 변 BC에 9cm가 표시되어 있다. 내부에 내심 I가 있고 I를 지나며 BC에 평행한 선분 DE가 그려져 있다(D는 변 AB 위, E는 변 AC 위). 선분 BI, CI도 그려져 있고 DE와 BC에 평행 표시(화살표)가 있다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "\\angle \\mathrm{ICB}=45^{\\circ}이다."}]},
+        {"number": 2, "contents": [{"type": "text", "value": "\\triangle \\mathrm{IBC}=27\\,\\mathrm{cm}^{2}이다."}]},
+        {"number": 3, "contents": [{"type": "text", "value": "\\triangle \\mathrm{ABC}는 직각삼각형이다."}]},
+        {"number": 4, "contents": [{"type": "text", "value": "\\triangle \\mathrm{DBI}는 이등변삼각형이다."}]},
+        {"number": 5, "contents": [{"type": "text", "value": "\\triangle \\mathrm{ADE}의 둘레의 길이는 27\\,\\mathrm{cm}이다."}]}
+      ]
+    },
+    {
+      "number": 9,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "평행사변형 ABCD가 직사각형이 되는 조건이 __아닌__ 것은?"},
+        {"type": "figure", "value": "평행사변형 ABCD. A가 왼쪽 위, D가 오른쪽 위, B가 왼쪽 아래, C가 오른쪽 아래이며 두 대각선 AC와 BD가 그려져 그 교점을 O로 표시하였다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\overline{\\mathrm{AC}}=\\overline{\\mathrm{BD}}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\overline{\\mathrm{AO}}=\\overline{\\mathrm{BO}}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\angle \\mathrm{AOD}=90^{\\circ}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\angle \\mathrm{ABC}=90^{\\circ}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\angle \\mathrm{DAB}=\\angle \\mathrm{ABC}"}]}
+      ]
+    },
+    {
+      "number": 10,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "정사각형 ABCD에서 \\overline{\\mathrm{AD}}=\\overline{\\mathrm{AE}}, \\angle \\mathrm{AEB}=20^{\\circ}일 때, \\angle \\mathrm{ADE}의 크기는?"},
+        {"type": "figure", "value": "정사각형 ABCD가 A(왼쪽 위), D(오른쪽 위), C(오른쪽 아래), B(왼쪽 아래)로 그려져 있고, 변 AD 위쪽 바깥에 점 E가 있다. 선분 AE와 선분 DE, 그리고 B에서 E까지의 선분 BE가 그려져 있으며 BE는 변 AD와 만난다. 선분 AE와 선분 AD에 같은 길이 표시(빗금)가 되어 있다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "65^{\\circ}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "70^{\\circ}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "75^{\\circ}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "80^{\\circ}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "85^{\\circ}"}]}
+      ]
+    },
+    {
+      "number": 11,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "\\overline{\\mathrm{AD}} /\\!/ \\overline{\\mathrm{BC}}인 사다리꼴 ABCD에서 \\overline{\\mathrm{EF}} /\\!/ \\overline{\\mathrm{BC}}이다. \\overline{\\mathrm{DB}}와 \\overline{\\mathrm{EF}}의 교점을 G라고 할 때, <보기>에서 옳은 것만을 있는 대로 고른 것은?"},
+        {"type": "figure", "value": "사다리꼴 ABCD(AD∥BC). A가 왼쪽 위, D가 오른쪽 위, B가 왼쪽 아래, C가 오른쪽 아래이며 변 AD에 5cm가 표시되어 있다. 변 AB 위의 점 E에서 변 DC 위의 점 F까지 BC에 평행한 선분 EF가 그려져 있고, AE에 5cm, EB에 7cm가 표시되어 있다. 대각선 DB가 그려져 EF와 만나는 점을 G로 표시하였다."},
+        {"type": "text", "value": "<보기> ㄱ. \\overline{\\mathrm{EG}}=\\frac{35}{12}\\,\\mathrm{cm} • ㄴ. \\overline{\\mathrm{GF}}=\\frac{5}{12}\\overline{\\mathrm{BC}} • ㄷ. \\overline{\\mathrm{DG}}:\\overline{\\mathrm{GB}}=5:7 • ㄹ. \\overline{\\mathrm{AB}}:\\overline{\\mathrm{EB}}=\\overline{\\mathrm{DC}}:\\overline{\\mathrm{FC}}"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ, ㄴ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄴ, ㄷ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄴ, ㄷ, ㄹ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄱ, ㄷ, ㄹ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄱ, ㄴ, ㄷ, ㄹ"}]}
+      ]
+    },
+    {
+      "number": 12,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "\\overline{\\mathrm{DC}}의 길이는?"},
+        {"type": "figure", "value": "삼각형 ABC와 그 안의 삼각형 DBC. A가 오른쪽 위, B가 왼쪽 아래, C가 아래쪽 가운데-오른쪽에 있고, 변 AB 위에 점 D가 있다. 선분 DC가 그려져 있다. 길이 표시: 변 AB(B에서 A까지) 18cm, 선분 AD 16cm, 변 AC 15cm, 변 BC 6cm."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "4\\,\\mathrm{cm}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{9}{2}\\,\\mathrm{cm}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "5\\,\\mathrm{cm}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{16}{3}\\,\\mathrm{cm}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "6\\,\\mathrm{cm}"}]}
+      ]
+    },
+    {
+      "number": 13,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "\\overline{\\mathrm{AB}} /\\!/ \\overline{\\mathrm{EF}} /\\!/ \\overline{\\mathrm{CD}}일 때, y-x의 값은?"},
+        {"type": "figure", "value": "선분 BC를 밑변으로 하고 그 위에 A(왼쪽 위)와 D(오른쪽 위)가 있는 그림. 선분 AB와 선분 CD는 BC에 수직 방향으로 그려져 서로 평행하며, 대각선 AC와 BD의 교점이 E이다. E에서 BC에 내린(평행한 방향) 선분 EF가 그려져 있고 F는 BC 위의 점이다. 길이 표시: AB=12cm, CD=15cm, BC=16cm, EF=x, BF=y. AB, EF, CD에 평행 표시(화살표)가 있다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{8}{3}\\,\\mathrm{cm}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{9}{4}\\,\\mathrm{cm}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "1\\,\\mathrm{cm}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{4}{9}\\,\\mathrm{cm}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{3}{8}\\,\\mathrm{cm}"}]}
+      ]
+    },
+    {
+      "number": 14,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "\\triangle \\mathrm{ABC}에서 두 점 M, D는 각각 \\overline{\\mathrm{AD}}, \\overline{\\mathrm{BC}}의 중점이다. \\overline{\\mathrm{BP}} /\\!/ \\overline{\\mathrm{DQ}}이고 \\overline{\\mathrm{BM}}=10\\,\\mathrm{cm}일 때, \\overline{\\mathrm{DQ}}의 길이는?"},
+        {"type": "figure", "value": "삼각형 ABC. A가 위쪽, B가 왼쪽 아래, C가 오른쪽 아래이며 변 BC의 중점 D에서 A까지 선분 AD가 그려져 있다. AD의 중점이 M이다. 변 AC 위에 두 점 P(위쪽), Q(아래쪽)가 있고 선분 BP는 M을 지나며, 선분 DQ가 BP와 평행하게 그려져 있다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "6\\,\\mathrm{cm}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{20}{3}\\,\\mathrm{cm}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{22}{3}\\,\\mathrm{cm}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "9\\,\\mathrm{cm}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "10\\,\\mathrm{cm}"}]}
+      ]
+    },
+    {
+      "number": 15,
+      "score": 5.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "그림과 같은 \\triangle \\mathrm{ABC}에서 두 점 D, E는 각각 \\overline{\\mathrm{BC}}와 \\overline{\\mathrm{AC}}의 중점이고, 점 F는 \\overline{\\mathrm{AD}}와 \\overline{\\mathrm{BE}}의 교점일 때, <보기> 중 옳은 것만의 개수는?"},
+        {"type": "figure", "value": "삼각형 ABC. A가 위쪽, B가 왼쪽 아래, C가 오른쪽 아래이다. 변 BC의 중점이 D, 변 AC의 중점이 E이며 선분 AD와 선분 BE가 그려져 그 교점을 F로 표시하였다(F는 무게중심). 선분 DE도 그려져 있다."},
+        {"type": "text", "value": "<보기> ○ \\overline{\\mathrm{BF}}=2\\overline{\\mathrm{FE}} • ○ \\triangle \\mathrm{AFE} \\backsim \\triangle \\mathrm{BFD} • ○ \\triangle \\mathrm{ABC}=12\\triangle \\mathrm{FDE} • ○ \\square \\mathrm{EFDC}=\\frac{4}{3}\\triangle \\mathrm{EBD} • ○ \\triangle \\mathrm{ABF}:\\triangle \\mathrm{EDC}=4:3"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "1개"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "2개"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "3개"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "4개"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "5개"}]}
+      ]
+    },
+    {
+      "number": 16,
+      "score": 5.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "\\overline{\\mathrm{AB}}=\\overline{\\mathrm{AC}}인 이등변삼각형 ABC에서 점 \\mathrm{O}와 점 \\mathrm{I}는 각각 \\triangle \\mathrm{ABC}의 외심과 내심이다. \\angle \\mathrm{A}=54^{\\circ}일 때, 다음 중 옳지 __않은__ 것은?"},
+        {"type": "figure", "value": "이등변삼각형 ABC(AB=AC). A가 위쪽, B가 왼쪽 아래, C가 오른쪽 아래이며 변 AB와 AC에 같은 길이 빗금 표시가 있다. 삼각형 내부 위쪽에 외심 O, 그 아래에 내심 I가 있고 선분 OB, OC, IB, IC가 그려져 있다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "\\angle \\mathrm{OBI}=7^{\\circ}이다."}]},
+        {"number": 2, "contents": [{"type": "text", "value": "\\angle \\mathrm{OBC}=36^{\\circ}이다."}]},
+        {"number": 3, "contents": [{"type": "text", "value": "\\angle \\mathrm{BIC}=117^{\\circ}이다."}]},
+        {"number": 4, "contents": [{"type": "text", "value": "\\triangle \\mathrm{IBC}는 이등변삼각형이다."}]},
+        {"number": 5, "contents": [{"type": "text", "value": "세 점 A, O, I는 한 직선 위에 있다."}]}
+      ]
+    },
+    {
+      "number": 17,
+      "score": 7.0,
+      "type": "서술형",
+      "label": "[서술형 1]",
+      "contents": [
+        {"type": "text", "value": "[서술형 1] 그림과 같이 \\angle \\mathrm{C}=90^{\\circ}인 직각삼각형 ABC에서 \\overline{\\mathrm{BC}}=6\\,\\mathrm{cm}, \\overline{\\mathrm{AC}}=8\\,\\mathrm{cm}일 때, 아래 <조건>을 모두 사용하여 \\triangle \\mathrm{ABC}의 내접원의 넓이를 구하시오. (단, 풀이 과정을 자세히 쓰시오.)"},
+        {"type": "figure", "value": "∠C=90°인 직각삼각형 ABC. A가 오른쪽 위, B가 왼쪽 아래, C가 오른쪽 아래이며 C에 직각 표시가 있다. 변 AC에 8cm, 변 BC에 6cm가 표시되어 있다."},
+        {"type": "text", "value": "<조건> ○ \\overline{\\mathrm{AB}}의 길이 구하기 • ○ 내접원의 반지름 구하기 • ○ 내접원의 넓이 구하기"}
+      ],
+      "choices": []
+    },
+    {
+      "number": 18,
+      "score": 10.0,
+      "type": "서술형",
+      "label": "[서술형 2]",
+      "contents": [
+        {"type": "text", "value": "[서술형 2] 평행사변형 ABCD에서 두 꼭짓점 A, C에서 대각선 \\overline{\\mathrm{BD}}에 내린 수선의 발을 각각 점 E, 점 F라 할 때, 다음 물음에 답하시오."},
+        {"type": "figure", "value": "평행사변형 ABCD. A가 왼쪽 위, D가 오른쪽 위, B가 왼쪽 아래, C가 오른쪽 아래이며 대각선 BD와 대각선 AC가 그려져 있다. 대각선 BD 위에 점 E(A에서 내린 수선의 발, B쪽)와 점 F(C에서 내린 수선의 발, D쪽)가 있고 선분 AE와 선분 CF에 각각 직각 표시가 있다."}
+      ],
+      "choices": [],
+      "sub_questions": [
+        {
+          "number": 1,
+          "score": 5.0,
+          "contents": [
+            {"type": "text", "value": "직각삼각형의 합동조건을 이용하여 합동인 삼각형을 찾아 기호를 사용하여 나타내고, 합동인 이유를 쓰시오."}
+          ]
+        },
+        {
+          "number": 2,
+          "score": 5.0,
+          "contents": [
+            {"type": "text", "value": "\\square \\mathrm{AECF}는 어떤 사각형인지 쓰고, (1)을 이용하여 그 이유를 설명하시오."}
+          ]
+        }
+      ]
+    },
+    {
+      "number": 19,
+      "score": 9.0,
+      "type": "서술형",
+      "label": "[서술형 3]",
+      "contents": [
+        {"type": "text", "value": "[서술형 3] 평행사변형 ABCD의 한 꼭짓점 A에서 \\overline{\\mathrm{BC}}와 \\overline{\\mathrm{DC}}에 내린 수선의 발을 각각 점 E, 점 F라 할 때, 아래 <조건>을 모두 사용하여 \\overline{\\mathrm{BE}}의 길이를 구하시오. (단, 풀이 과정을 자세히 쓰시오.)"},
+        {"type": "figure", "value": "평행사변형 ABCD. A가 왼쪽 위, D가 오른쪽 위, B가 왼쪽 아래, C가 오른쪽 아래이다. A에서 변 BC에 내린 수선의 발이 E(직각 표시), A에서 변 DC에 내린 수선의 발이 F(직각 표시)이며 선분 AE와 선분 AF가 그려져 있다. 길이 표시: 변 AD 24cm, 변 AB 18cm, 선분 FC 10cm."},
+        {"type": "text", "value": "<조건> ○ 닮음인 삼각형을 찾아 닮음 기호를 사용하여 나타내기 • ○ 닮음인 삼각형의 닮음 조건과 그 이유 쓰기 • ○ 비례식 이용하기"}
+      ],
+      "choices": []
+    },
+    {
+      "number": 20,
+      "score": 9.0,
+      "type": "서술형",
+      "label": "[서술형 4]",
+      "contents": [
+        {"type": "text", "value": "[서술형 4] 두 점 G, M은 각각 삼각형 ABC와 직각삼각형 GBC의 무게중심이고 \\overline{\\mathrm{BC}}=18\\,\\mathrm{cm}일 때, \\overline{\\mathrm{AM}}의 길이를 구하시오. (단, 풀이 과정을 자세히 쓰시오.)"},
+        {"type": "figure", "value": "삼각형 ABC. A가 위쪽, B가 왼쪽 아래, C가 오른쪽 아래이며 변 BC의 중점 D에서 A까지 선분 AD가 그려져 있다. 선분 AD 위에 위에서부터 점 G, 점 M이 있고 선분 BG, CG, BM, CM이 그려져 있다. G에서 ∠BGC에 직각 표시가 있다(삼각형 GBC가 직각삼각형)."}
+      ],
+      "choices": []
+    }
+  ]
+}

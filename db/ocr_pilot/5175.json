@@ -1,0 +1,320 @@
+{
+  "meta": {"exam_id": 5175, "ocr_source": "session-vision"},
+  "header": {"title": "경구중 1학년 수학 - 2025년 1학기 기말고사 (문자와 식 ~ 좌표평면과 그래프)"},
+  "questions": [
+    {
+      "number": 1,
+      "score": 4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "다음 중 곱셈 기호와 나눗셈 기호를 생략하여 나타낸 것으로 옳은 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "2 \\div b \\times a = \\frac{2a}{b}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "a \\div b \\times 4 = \\frac{a}{4b}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "4 \\div a + b = \\frac{4}{a+b}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "a \\times a \\times (-2) = a^{2}-2"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "(-1) \\times x \\times y \\times x = -2xy"}]}
+      ]
+    },
+    {
+      "number": 2,
+      "score": 3,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "다음 중 옳지 않은 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "2x와 \\frac{x}{3}은 동류항이다."}]},
+        {"number": 2, "contents": [{"type": "text", "value": "0 \\times x + 3은 일차식이다."}]},
+        {"number": 3, "contents": [{"type": "text", "value": "2x^{2}-x+4의 항은 3개이다."}]},
+        {"number": 4, "contents": [{"type": "text", "value": "4x-5에서 상수항은 -5이다."}]},
+        {"number": 5, "contents": [{"type": "text", "value": "3x-2y에서 y의 계수는 -2이다."}]}
+      ]
+    },
+    {
+      "number": 3,
+      "score": 4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "다음 중 [ ] 안의 수가 방정식의 해가 아닌 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "2x-1=1 \\quad [1]"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-(x-3)=3 \\quad [0]"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-3x+1=-5 \\quad [2]"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4-2x=3x+5 \\quad [-2]"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "2(x-2)=x-1 \\quad [3]"}]}
+      ]
+    },
+    {
+      "number": 4,
+      "score": 5,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "다음 중 옳은 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "(8x-4) \\div (-4) = -2x-1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "3(2-3x)+4(2x-1) = x+2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "(11x+4)-(-2x+7) = 9x-3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{1}{2}(-6x+8)-(9x-4) = -12x+8"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "-\\frac{5}{3}(12x-9)-\\frac{1}{4}(8x+12) = -22x-3"}]}
+      ]
+    },
+    {
+      "number": 5,
+      "score": 3,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "<보기>에서 항등식인 것만을 고른 것은?"},
+        {"type": "text", "value": "<보기> ㄱ. 2-3x=5 • ㄴ. 4x-1=3x • ㄷ. -5x+6=6-5x • ㄹ. 3(2x+1)=6x+1 • ㅁ. -3(x+1)+2=-3x-1"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ, ㄴ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄱ, ㄷ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄴ, ㄹ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄷ, ㄹ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄷ, ㅁ"}]}
+      ]
+    },
+    {
+      "number": 6,
+      "score": 4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "a=4, b=-9일 때, 2a-\\frac{1}{3}ab의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-8"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-4"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "20"}]}
+      ]
+    },
+    {
+      "number": 7,
+      "score": 5,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "일차방정식 0.5x-0.2=0.2x+4를 풀면?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "x=2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "x=14"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "x=16"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "x=18"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "x=20"}]}
+      ]
+    },
+    {
+      "number": 8,
+      "score": 3,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "다음 중 밑줄 친 항을 이항한 것으로 옳지 않은 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\underline{3}=7\\underline{-x} \\Rightarrow x=7-3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-2x\\underline{-6}=4 \\Rightarrow -2x=4+6"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "2x\\underline{-12}=\\underline{6x} \\Rightarrow 2x+6x=12"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "2x\\underline{-3}=11\\underline{-5x} \\Rightarrow 2x+5x=11+3"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "-3x\\underline{+5}=\\underline{-x}-6 \\Rightarrow -3x+x=-6-5"}]}
+      ]
+    },
+    {
+      "number": 9,
+      "score": 5,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "다음 일차방정식 중 해가 가장 작은 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "x-5=4"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2x+1=-3"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "4x-3=6-x"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "-4x+7=4-x"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "3x-7=x-5"}]}
+      ]
+    },
+    {
+      "number": 10,
+      "score": 3,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "좌표평면 위의 점의 좌표를 바르게 나타낸 것은?"},
+        {"type": "figure", "value": "좌표평면(모눈, x축 -4~4, y축 -4~4, 원점 O). 점 다섯 개가 찍혀 있다. 점 A는 (1, 4)에 있고 라벨 A는 그 오른쪽 아래, 점 D는 (-4, 2)에 있고 라벨 D는 그 오른쪽 위, 점 B는 (-2, 0)(x축 위)에 있고 라벨 B는 그 위, 점 C는 (2, -3)에 있고 라벨 C는 그 오른쪽 아래, 점 E는 (-3, -4)에 있고 라벨 E는 그 왼쪽 위."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\mathrm{A}(4,~1)"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\mathrm{B}(0,~-2)"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\mathrm{C}(3,~-2)"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\mathrm{D}(4,~2)"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\mathrm{E}(-3,~-4)"}]}
+      ]
+    },
+    {
+      "number": 11,
+      "score": 3,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "다음 중 점의 좌표와 그 점이 속하는 사분면을 바르게 짝지은 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "(3,~2) \\Rightarrow 제3사분면"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "(3,~-6) \\Rightarrow 제4사분면"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "(5,~1) \\Rightarrow 제2사분면"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "(-1,~-9) \\Rightarrow 제2사분면"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "(-5,~-6) \\Rightarrow 제1사분면"}]}
+      ]
+    },
+    {
+      "number": 12,
+      "score": 5,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "다음 중 정비례 관계 y=-\\frac{3}{2}x의 그래프에 대한 설명으로 옳지 않은 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "점 (2,~-3)을 지난다."}]},
+        {"number": 2, "contents": [{"type": "text", "value": "원점을 지나는 직선이다."}]},
+        {"number": 3, "contents": [{"type": "text", "value": "오른쪽 아래로 향하는 직선이다."}]},
+        {"number": 4, "contents": [{"type": "text", "value": "제1사분면과 제3사분면을 지난다."}]},
+        {"number": 5, "contents": [{"type": "text", "value": "x의 값이 증가하면 y의 값은 감소한다."}]}
+      ]
+    },
+    {
+      "number": 13,
+      "score": 4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "<보기>에서 그 그래프가 제2사분면과 제4사분면을 지나는 것을 고른 것은?"},
+        {"type": "text", "value": "<보기> ㄱ. y=\\frac{8}{x} • ㄴ. y=-\\frac{5}{x} • ㄷ. xy=12 • ㄹ. xy=-3"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ, ㄴ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄱ, ㄷ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄴ, ㄷ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄴ, ㄹ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄷ, ㄹ"}]}
+      ]
+    },
+    {
+      "number": 14,
+      "score": 5,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "그림은 준서가 x분 동안 이동한 거리를 y km라 할 때, x와 y 사이의 관계를 그래프로 나타낸 것이다. 다음 설명 중 옳은 것은?"},
+        {"type": "figure", "value": "꺾은선 그래프. 가로축 x(분)은 0, 20, 40, 60, 80 눈금(10분 간격 모눈), 세로축 y(km)는 1부터 5까지 눈금. 그래프는 원점 (0, 0)에서 출발해 (40, 2.5)까지 직선으로 올라가고, (40, 2.5)에서 (60, 2.5)까지 수평(정지 구간, 20분간 휴식), 이후 (60, 2.5)에서 오른쪽 위로 직선으로 올라가 약 (95, 4.5)에서 끝난다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "걸린 시간은 총 1시간이다."}]},
+        {"number": 2, "contents": [{"type": "text", "value": "이동한 거리는 총 4km이다."}]},
+        {"number": 3, "contents": [{"type": "text", "value": "휴식 후 이동한 거리는 1.5km이다."}]},
+        {"number": 4, "contents": [{"type": "text", "value": "준서는 중간에 10분 동안 멈추고 휴식을 취하였다."}]},
+        {"number": 5, "contents": [{"type": "text", "value": "준서가 출발 후 1시간 동안 이동한 거리는 2.5km이다."}]}
+      ]
+    },
+    {
+      "number": 15,
+      "score": 4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "y는 x에 반비례하고, x=-5일 때 y=3이다. x와 y의 사이의 관계식은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "y=-15x"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "y=-\\frac{3}{5}x"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "y=-\\frac{15}{x}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "y=-\\frac{5}{3}x"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "y=-\\frac{3}{5x}"}]}
+      ]
+    },
+    {
+      "number": 16,
+      "score": 5,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "10\\%의 소금물 200g에 물을 더 넣었더니 8\\%의 소금물이 되었다. 더 넣은 물의 양을 구하면?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "50\\mathrm{g}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "75\\mathrm{g}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "100\\mathrm{g}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "125\\mathrm{g}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "150\\mathrm{g}"}]}
+      ]
+    },
+    {
+      "number": 17,
+      "score": 10,
+      "type": "서술형",
+      "label": "[서술형 1]",
+      "contents": [
+        {"type": "text", "value": "[서술형 1] 철수와 순이는 각자의 집에서 도서관까지의 거리가 같다. 두 사람이 오전 10시에 동시에 각자의 집에서 출발하여 도서관까지 철수는 시속 6km로 뛰어가고 순이는 시속 4km로 걸어갔다. 두 사람이 20분 차이로 도서관에 도착했다고 할 때, 철수가 도서관에 도착한 시각을 구하시오."}
+      ],
+      "sub_questions": [
+        {"number": 1, "score": 5, "contents": [{"type": "text", "value": "철수가 도서관까지 걸린 시간(시)을 x로 하는 일차방정식을 구하시오."}]},
+        {"number": 2, "score": 5, "contents": [{"type": "text", "value": "철수가 도서관에 도착한 시각을 구하시오."}]}
+      ]
+    },
+    {
+      "number": 18,
+      "score": 8,
+      "type": "서술형",
+      "label": "[서술형 2]",
+      "contents": [
+        {"type": "text", "value": "[서술형 2] 두 순서쌍 (4+3a,~3b-4)과 (a-2,~-b)가 서로 같을 때, 점 (a+b,~b)는 제 몇 사분면 위의 점인지 구하시오."}
+      ],
+      "sub_questions": [
+        {"number": 1, "score": 3, "contents": [{"type": "text", "value": "a의 값을 구하시오."}]},
+        {"number": 2, "score": 3, "contents": [{"type": "text", "value": "b의 값을 구하시오."}]},
+        {"number": 3, "score": 2, "contents": [{"type": "text", "value": "제 몇 사분면 위의 점인지 구하시오."}]}
+      ]
+    },
+    {
+      "number": 19,
+      "score": 7,
+      "type": "서술형",
+      "label": "[서술형 3]",
+      "contents": [
+        {"type": "text", "value": "[서술형 3] 반비례 관계 y=\\frac{a}{x}의 그래프가 두 점 (3,~15), (-9,~b)를 지날 때, a, b의 값을 구하시오."}
+      ],
+      "sub_questions": [
+        {"number": 1, "score": 3, "contents": [{"type": "text", "value": "a의 값을 구하시오."}]},
+        {"number": 2, "score": 4, "contents": [{"type": "text", "value": "b의 값을 구하시오."}]}
+      ]
+    },
+    {
+      "number": 20,
+      "score": 10,
+      "type": "서술형",
+      "label": "[서술형 4]",
+      "contents": [
+        {"type": "text", "value": "[서술형 4] 그림과 같이 정비례 관계의 그래프와 반비례 관계 y=\\frac{24}{x} (x>0)의 그래프가 점 P에서 만난다. 점 P의 x좌표가 2일 때, 다음 물음에 답하시오."},
+        {"type": "figure", "value": "좌표평면 제1사분면. 원점 O를 지나는 가파른 정비례 그래프(직선)와 반비례 곡선 y=\\frac{24}{x} (x>0)가 점 P에서 만난다. 점 P는 x=2 위쪽에 있고, P에서 x축으로 내린 점선과 y축으로 그은 점선이 그려져 있으며 x축 눈금에 2가 표시되어 있다. 곡선 오른쪽 아래에 y=\\frac{24}{x} 라벨이 붙어 있다."}
+      ],
+      "sub_questions": [
+        {"number": 1, "score": 5, "contents": [{"type": "text", "value": "점 P의 좌표를 구하시오."}]},
+        {"number": 2, "score": 5, "contents": [{"type": "text", "value": "점 P를 지나는 정비례 관계의 그래프가 나타내는 식을 구하시오."}]}
+      ]
+    }
+  ]
+}

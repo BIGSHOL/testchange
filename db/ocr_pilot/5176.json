@@ -1,0 +1,325 @@
+{
+  "meta": {"exam_id": 5176, "ocr_source": "session-vision"},
+  "header": {"title": "경구중 1학년 수학 - 2025년 1학기 중간고사 (소인수분해 ~ 정수와 유리수의 계산)"},
+  "questions": [
+    {
+      "number": 1,
+      "score": 3.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "다음 중 옳은 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "모든 소수는 홀수이다."}]},
+        {"number": 2, "contents": [{"type": "text", "value": "소수는 약수가 3개이다."}]},
+        {"number": 3, "contents": [{"type": "text", "value": "가장 작은 소수는 1이다."}]},
+        {"number": 4, "contents": [{"type": "text", "value": "소수는 약수가 1과 자기 자신뿐이다."}]},
+        {"number": 5, "contents": [{"type": "text", "value": "소수가 아닌 자연수는 모두 합성수이다."}]}
+      ]
+    },
+    {
+      "number": 2,
+      "score": 3.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "다음 수 중 소수는 몇 개인가?"},
+        {"type": "text", "value": "<상자> 1, 2, 7, 15, 17, 19, 28, 29"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "7"}]}
+      ]
+    },
+    {
+      "number": 3,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "소인수분해 한 것으로 옳은 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "15 = 3 \\times 5^{2}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "42 = 6 \\times 7"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "56 = 2^{4} \\times 7"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "72 = 2^{3} \\times 3^{2}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "100 = 10^{2}"}]}
+      ]
+    },
+    {
+      "number": 4,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "$3^{a} \\times 5^{3}$의 약수의 개수가 12일 때, 자연수 $a$의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "6"}]}
+      ]
+    },
+    {
+      "number": 5,
+      "score": 3.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "두 수가 서로소인 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "14, 56"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "17, 20"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "18, 24"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "22, 33"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "70, 135"}]}
+      ]
+    },
+    {
+      "number": 6,
+      "score": 5.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "다음 중 두 수 $3^{2} \\times 5^{2} \\times 7^{3}$, $2 \\times 3^{2} \\times 5^{3} \\times 7$의 공약수가 아닌 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "5 \\times 7^{2}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "3 \\times 5 \\times 7"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3 \\times 5^{2} \\times 7"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "3^{2} \\times 5 \\times 7"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "3^{2} \\times 5^{2} \\times 7"}]}
+      ]
+    },
+    {
+      "number": 7,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "두 수 $2^{3} \\times 3$, $2^{2} \\times 3 \\times 7$의 최소공배수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "2 \\times 3^{2} \\times 7"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2^{2} \\times 3 \\times 7"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "2^{3} \\times 3 \\times 7"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "2^{3} \\times 3^{2} \\times 7"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "2^{3} \\times 3 \\times 7^{2}"}]}
+      ]
+    },
+    {
+      "number": 8,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "다음 수직선 위의 점 중에서 $\\mathrm{A}(-5)$라 나타낼 때 옳지 않은 것은?"},
+        {"type": "figure", "value": "수직선. 눈금이 -5, -4, -3, -2, -1, 0, +1, +2, +3, +4, +5 로 표시되어 있다. 점 A는 -5 위에, 점 B는 -4와 -3 사이를 2등분한 가운데(즉 -3.5) 위에, 점 C는 -1과 0 사이를 3등분한 눈금 중 -1에서 첫 번째 눈금(즉 -2/3) 위에, 점 D는 0 위에, 점 E는 +2 위에, 점 F는 +4와 +5 사이를 2등분한 가운데(즉 +4.5) 위에 찍혀 있다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\mathrm{B}\\left(-\\frac{7}{2}\\right)"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\mathrm{C}\\left(-\\frac{1}{3}\\right)"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\mathrm{D}(0)"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\mathrm{E}(+2)"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\mathrm{F}\\left(\\frac{9}{2}\\right)"}]}
+      ]
+    },
+    {
+      "number": 9,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "두 유리수 $-\\frac{5}{3}$와 $\\frac{9}{4}$ 사이에 있는 정수의 개수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "6"}]}
+      ]
+    },
+    {
+      "number": 10,
+      "score": 5.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "다음 수 중에서 정수가 아닌 유리수의 개수는?"},
+        {"type": "text", "value": "<상자> $-6$, $-\\frac{1}{5}$, $0$, $\\frac{5}{3}$, $2$, $-\\frac{8}{4}$, $+1$, $-0.2$"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "7"}]}
+      ]
+    },
+    {
+      "number": 11,
+      "score": 5.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "다음 중 수의 대소 관계로 옳은 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-8 > -1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{1}{9} > \\frac{1}{3}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "0.2 > \\left|-\\frac{1}{4}\\right|"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "(-2)^{2} > (-2)^{3}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\left|\\frac{2}{7}\\right| > \\left|-\\frac{1}{3}\\right|"}]}
+      ]
+    },
+    {
+      "number": 12,
+      "score": 5.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "다음을 계산하면?"},
+        {"type": "text", "value": "<상자> $\\left(+\\frac{3}{2}\\right)+\\left(-\\frac{1}{3}\\right)+\\left(-\\frac{1}{2}\\right)$"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-\\frac{7}{6}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-\\frac{2}{3}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "+\\frac{1}{6}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "+\\frac{2}{3}"}]}
+      ]
+    },
+    {
+      "number": 13,
+      "score": 3.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "주어진 수직선으로 설명할 수 있는 덧셈식은?"},
+        {"type": "figure", "value": "수직선. 눈금이 -3, -2, -1, 0, 1, 2, 3, 4 로 표시되어 있다. 수직선 위쪽에 두 개의 화살표가 그려져 있다. 첫 번째(위쪽) 화살표는 0에서 시작해 오른쪽으로 3까지(길이 3, 오른쪽 방향) 향하고, 두 번째(아래쪽) 화살표는 3에서 시작해 왼쪽으로 -3까지(길이 6, 왼쪽 방향) 향한다. 즉 0에서 +3만큼 이동한 뒤 다시 -6만큼 이동해 -3에 도착하는 그림이다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "(-3)+(-3) = -6"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "(+3)+(-6) = -3"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "(-3)+(+3) = 0"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "(-3)+(+6) = +3"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "(+3)+(+6) = +9"}]}
+      ]
+    },
+    {
+      "number": 14,
+      "score": 5.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "다음 중 가장 큰 수를 $a$, 절댓값이 가장 큰 수를 $b$라 할 때, $a-b$의 값은?"},
+        {"type": "text", "value": "<상자> $-5$, $+\\frac{2}{5}$, $-\\frac{7}{2}$, $0$, $+2$, $-\\frac{3}{4}$"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-\\frac{1}{2}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "7"}]}
+      ]
+    },
+    {
+      "number": 15,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "다음 중 계산 결과가 가장 작은 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "(-3)^{3} \\times (-1)"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-(-2)^{2} \\times (-4)"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-5^{2} \\times 2"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "9 \\div \\left(-\\frac{2}{3}\\right)^{2}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "-(-4)^{3} \\div 2"}]}
+      ]
+    },
+    {
+      "number": 16,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "다음 식의 계산에서 두 번째로 계산해야 하는 것은?"},
+        {"type": "text", "value": "<상자> $\\frac{1}{2}-\\left[\\frac{2}{3}+(-2)\\times\\left\\{6\\div\\left(-\\frac{1}{2}\\right)\\times\\frac{1}{3}\\right\\}\\right]$"},
+        {"type": "figure", "value": "위 식의 다섯 개 연산 기호 아래에 각각 위쪽을 가리키는 화살표와 기호가 붙어 있다. ㄱ은 $\\frac{1}{2}$ 뒤의 뺄셈 기호 $-$, ㄴ은 $\\frac{2}{3}$ 뒤의 덧셈 기호 $+$, ㄷ은 $(-2)$ 뒤의 곱셈 기호 $\\times$, ㄹ은 $6$ 뒤의 나눗셈 기호 $\\div$, ㅁ은 $\\left(-\\frac{1}{2}\\right)$ 뒤의 곱셈 기호 $\\times$ 를 가리킨다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄴ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄷ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄹ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㅁ"}]}
+      ]
+    },
+    {
+      "number": 17,
+      "score": 12.0,
+      "type": "서술형",
+      "label": "[서술형 1]",
+      "contents": [
+        {"type": "text", "value": "[서술형 1] 두 수 $2^{a} \\times 3 \\times b$, $2^{2} \\times 5 \\times 7^{c}$의 최대공약수가 $2^{2} \\times 5$, 최소공배수가 $2^{4} \\times 3 \\times 5 \\times 7^{3}$일 때, 세 자연수 $a$, $b$, $c$의 값을 구하시오. (단, $b$는 소수이다.)"}
+      ],
+      "sub_questions": [
+        {"number": 1, "score": 4, "contents": [{"type": "text", "value": "$a$를 구하시오."}]},
+        {"number": 2, "score": 4, "contents": [{"type": "text", "value": "$b$를 구하시오."}]},
+        {"number": 3, "score": 4, "contents": [{"type": "text", "value": "$c$를 구하시오."}]}
+      ]
+    },
+    {
+      "number": 18,
+      "score": 8.0,
+      "type": "서술형",
+      "label": "[서술형 2]",
+      "contents": [
+        {"type": "text", "value": "[서술형 2] 네 유리수 $\\frac{3}{4}$, $-6$, $-\\frac{1}{3}$, $\\frac{7}{2}$ 중에서 서로 다른 세 수를 뽑아 곱한 값 중 가장 작은 수와 가장 큰 수를 구하시오."}
+      ],
+      "sub_questions": [
+        {"number": 1, "score": 4, "contents": [{"type": "text", "value": "가장 작은 수를 구하시오."}]},
+        {"number": 2, "score": 4, "contents": [{"type": "text", "value": "가장 큰 수를 구하시오."}]}
+      ]
+    },
+    {
+      "number": 19,
+      "score": 9.0,
+      "type": "서술형",
+      "label": "[서술형 3]",
+      "contents": [
+        {"type": "text", "value": "[서술형 3] 아래쪽 그림과 같은 전개도를 접어 정육면체를 만들었을 때, 마주 보는 면에 적힌 두 수의 합이 $\\frac{3}{5}$이다. 이때 $a$, $b$, $c$의 값을 구하시오."},
+        {"type": "figure", "value": "정육면체의 전개도(십자 모양). 세로 방향으로 네 개의 정사각형이 위에서부터 차례로 $a$, $c$, $\\frac{3}{2}$, $-1$ 이 적혀 있고, 가운데 $c$ 가 적힌 정사각형의 왼쪽에 $-\\frac{6}{5}$ 이 적힌 정사각형이, 오른쪽에 $b$ 가 적힌 정사각형이 붙어 있다. 즉 가로줄은 왼쪽부터 $-\\frac{6}{5}$, $c$, $b$ 이고 세로줄은 위부터 $a$, $c$, $\\frac{3}{2}$, $-1$ 이다."}
+      ],
+      "sub_questions": [
+        {"number": 1, "score": 3, "contents": [{"type": "text", "value": "$a$를 구하시오."}]},
+        {"number": 2, "score": 3, "contents": [{"type": "text", "value": "$b$를 구하시오."}]},
+        {"number": 3, "score": 3, "contents": [{"type": "text", "value": "$c$를 구하시오."}]}
+      ]
+    },
+    {
+      "number": 20,
+      "score": 6.0,
+      "type": "서술형",
+      "label": "[서술형 4]",
+      "contents": [
+        {"type": "text", "value": "[서술형 4] 어떤 수에서 $-\\frac{3}{4}$을 더해야 할 것을 잘못하여 빼었더니 그 결과가 $\\frac{2}{5}$가 되었다. 처음 계산식을 옳게 계산한 답을 구하시오."}
+      ],
+      "sub_questions": [
+        {"number": 1, "score": 3, "contents": [{"type": "text", "value": "어떤 수를 구하시오."}]},
+        {"number": 2, "score": 3, "contents": [{"type": "text", "value": "옳게 계산한 답을 구하시오."}]}
+      ]
+    }
+  ]
+}

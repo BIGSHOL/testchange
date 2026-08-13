@@ -1,0 +1,27 @@
+{
+  "exam_id": 5174,
+  "answer_pages": [5],
+  "items": [
+    {"number": 1, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 2, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 3, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 4, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 5, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 6, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 7, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 8, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 9, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 10, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 11, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 12, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 13, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 14, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 15, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 16, "answer": "$\\frac{1}{3}$", "solution": "$-\\frac{3}{2}\\times a=1$, $a=-\\frac{2}{3}$\n$3-\\frac{7}{2}=b$, $b=-\\frac{1}{2}$\n$a\\times b=\\left(-\\frac{2}{3}\\right)\\times\\left(-\\frac{1}{2}\\right)=\\frac{1}{3}$", "topic": "", "difficulty": ""},
+    {"number": 17, "answer": "$-4$", "solution": "15이하의 자연수 중 소수는\n$2,~3,~5,~7,~11,~13$ 따라서 $a=6$\n15이하의 자연수 중 6과 서로소인 자연수는\n$1,~5,~7,~11,~13$ 따라서 $b=5$\n$a-2b=6-10=-4$", "topic": "", "difficulty": ""},
+    {"number": 18, "answer": "$1395$", "solution": "$A=3^{2}\\times5=45$\n$B=2\\times3^{3}\\times5^{2}=1350$\n$A+B=45+1350=1395$", "topic": "", "difficulty": ""},
+    {"number": 19, "answer": "$13$", "solution": "$6600=2^{3}\\times3\\times5^{2}\\times11$\n100이하의 자연수를 찾아보면\n$A=2^{3}\\times11=88$, $B=3\\times5^{2}=75$\n$A-B=88-75=13$", "topic": "", "difficulty": ""},
+    {"number": 20, "answer": "$\\frac{10}{3}$", "solution": "가장 큰 값 $a$는 양수 하나 음수 중 절댓값이 큰 두 개를 선택해서 곱한값이므로\n$5\\times\\left(-\\frac{5}{3}\\right)\\times\\left(-\\frac{3}{7}\\right)=\\frac{25}{7}=a$\n가장 작은 값 $b$는 음수 세 개를 선택해서 곱한값이므로\n$\\left(-\\frac{5}{3}\\right)\\times\\left(-\\frac{3}{7}\\right)\\times\\left(-\\frac{1}{3}\\right)=-\\frac{5}{21}=b$\n$a+b=\\frac{25}{7}+\\left(-\\frac{5}{21}\\right)=\\frac{10}{3}$", "topic": "", "difficulty": ""},
+    {"number": 21, "answer": "$-28$, $-22$, $-16$, $-4$, $2$, $6$, $14$, $24$, $26$", "solution": "$-50=-2\\times5^{2}$\n따라서 순서쌍과 합을 구해보면\nⅰ) 음수, 양수, 양수의 곱\n$(-1,~2,~25)$일 때 합은 $26$\n$(1,~-2,~25)$일 때 합은 $24$\n$(1,~2,~-25)$일 때 합은 $-22$\n$(-1,~5,~10)$일 때 합은 $14$\n$(1,~-5,~10)$일 때 합은 $6$\n$(1,~5,~-10)$일 때 합은 $-4$\n$(2,~5,~-5)$일 때 합은 $2$\nⅱ) 음수, 음수, 음수의 곱\n$(-1,~-5,~-10)$일 때 합은 $-16$\n$(-1,~-2,~-25)$일 때 합은 $-28$", "topic": "", "difficulty": ""}
+  ]
+}

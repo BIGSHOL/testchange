@@ -1,0 +1,304 @@
+{
+  "meta": {"exam_id": 5174, "ocr_source": "session-vision"},
+  "header": {"title": "강북중 1학년 수학 2025년 1학기 중간고사 (소인수분해 ~ 문자의 사용과 식의 계산)"},
+  "questions": [
+    {
+      "number": 1,
+      "score": 3.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "(-3)+(-6)의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-9"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-6"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "+3"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "+9"}]}
+      ]
+    },
+    {
+      "number": 2,
+      "score": 3.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "-3 \\leq a < 2를 만족하는 a의 값 중 가장 큰 정수와 가장 작은 정수의 합은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "1"}]}
+      ]
+    },
+    {
+      "number": 3,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "다음 수 중에서 절댓값이 가장 큰 수를 a, 절댓값이 가장 작은 수를 b라고 할 때, a-b의 값은?"},
+        {"type": "text", "value": "<상자> +2.5, -3, -\\frac{16}{5}, +0.1, +\\frac{1}{2}, -\\frac{4}{3}"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-\\frac{7}{2}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-\\frac{33}{10}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-\\frac{31}{10}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "-\\frac{29}{10}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "-\\frac{27}{10}"}]}
+      ]
+    },
+    {
+      "number": 4,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "1\\times2\\times3\\times4\\times5\\times6\\times7\\times8\\times9\\times10의 소인수의 개수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "8"}]}
+      ]
+    },
+    {
+      "number": 5,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "<보기>는 곱셈 기호 \\times와 나눗셈 기호 \\div를 생략하여 나타낸 것이다. 옳은 것만을 고른 것은?"},
+        {"type": "text", "value": "<보기> ㄱ. a\\times(-2)=a-2 • ㄴ. 0.1\\times a=0.1a • ㄷ. a\\div3\\times b=\\frac{a}{3b} • ㄹ. a+b\\div4=a+\\frac{b}{4}"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ, ㄴ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄱ, ㄷ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄴ, ㄷ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄴ, ㄹ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄷ, ㄹ"}]}
+      ]
+    },
+    {
+      "number": 6,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "x=-3, y=6일 때, x^{2}-\\frac{y}{x}의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-11"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-7"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-4"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "11"}]}
+      ]
+    },
+    {
+      "number": 7,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "두 자연수 225와 135의 공약수의 개수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "9"}]}
+      ]
+    },
+    {
+      "number": 8,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "계산 결과가 큰 수부터 순서대로 바르게 배열한 것은?"},
+        {"type": "text", "value": "<상자> ㄱ. (-6.7)-(+3.9) • ㄴ. \\left(-\\frac{5}{8}\\right)\\times(+5)\\times\\left(-\\frac{16}{5}\\right) • ㄷ. \\left(-\\frac{5}{3}\\right)\\div\\left(-\\frac{5}{27}\\right) • ㄹ. 20\\times\\left(-\\frac{5}{4}+\\frac{3}{5}\\right)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄴ-ㄱ-ㄷ-ㄹ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄴ-ㄷ-ㄹ-ㄱ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄴ-ㄷ-ㄱ-ㄹ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄷ-ㄱ-ㄴ-ㄹ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄷ-ㄴ-ㄹ-ㄱ"}]}
+      ]
+    },
+    {
+      "number": 9,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "어떤 수를 \\frac{5}{3}로 나누어야 할 것을 잘못하여 곱하였더니 그 결과가 -\\frac{1}{2}이 되었다. 이때 바르게 계산한 답은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-\\frac{1}{2}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-\\frac{21}{50}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-\\frac{17}{50}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "-\\frac{13}{50}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "-\\frac{9}{50}"}]}
+      ]
+    },
+    {
+      "number": 10,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "576의 약수 중에서 자연수의 제곱이 되는 수의 개수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "9"}]}
+      ]
+    },
+    {
+      "number": 11,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "두 분수 \\frac{45}{28}와 \\frac{75}{98}의 어느 것에 곱해도 그 결과가 자연수가 되는 가장 작은 기약분수를 \\frac{b}{a}라 할 때, a+b의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "211"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "219"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "231"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "239"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "251"}]}
+      ]
+    },
+    {
+      "number": 12,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "<보기> 중 옳은 것만을 있는 대로 고른 것은?"},
+        {"type": "text", "value": "<보기> ㄱ. 절댓값은 항상 양수이다. • ㄴ. 0과 1사이의 유리수는 \\frac{1}{2}밖에 없다. • ㄷ. 음의 정수가 아닌 정수는 자연수이다. • ㄹ. 모든 정수는 분수의 꼴로 나타낼 수 있다. • ㅁ. 0은 양의 정수도 아니고 음의 정수도 아니다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄴ, ㄷ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄹ, ㅁ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄱ, ㄴ, ㄹ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄱ, ㄷ, ㅁ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄱ, ㄴ, ㄷ, ㄹ, ㅁ"}]}
+      ]
+    },
+    {
+      "number": 13,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "두 자연수 324와 21\\times\\square의 최소공배수가 2^{2}\\times3^{4}\\times7일 때, \\square안에 들어갈 수 있는 모든 자연수들의 합은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "40"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "80"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "160"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "240"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "280"}]}
+      ]
+    },
+    {
+      "number": 14,
+      "score": 5.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "5-\\frac{2}{3}\\times\\left[\\left\\{\\frac{1}{3}+(-3)^{2}\\right\\}\\times\\frac{9}{7}-9\\right]의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+      ]
+    },
+    {
+      "number": 15,
+      "score": 5.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "최대공약수가 2^{2}\\times3이고, 최소공배수가 2^{3}\\times3^{3}\\times7인 200이하의 두 자연수를 A, B라 할 때, A+B의 값은? (단, A > B이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "216"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "240"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "252"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "276"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "324"}]}
+      ]
+    },
+    {
+      "number": 16,
+      "score": 5.0,
+      "type": "서술형",
+      "label": "[서술형 1]",
+      "contents": [
+        {"type": "text", "value": "[서술형 1] -\\frac{3}{2}의 역수를 a, 3보다 \\frac{7}{2}만큼 작은 수를 b라 할 때, a\\times b의 값을 구하고 그 풀이과정을 쓰시오."}
+      ]
+    },
+    {
+      "number": 17,
+      "score": 6.0,
+      "type": "서술형",
+      "label": "[서술형 2]",
+      "contents": [
+        {"type": "text", "value": "[서술형 2] 15이하의 자연수 중에서 소수의 개수를 a, 15이하의 자연수 중에서 6과 서로소인 자연수의 개수를 b라 할 때, a-2b의 값을 구하고 그 풀이과정을 쓰시오."}
+      ]
+    },
+    {
+      "number": 18,
+      "score": 7.0,
+      "type": "서술형",
+      "label": "[서술형 3]",
+      "contents": [
+        {"type": "text", "value": "[서술형 3] 두 자연수 3^{3}\\times5와 2\\times3^{2}\\times5^{2}의 최대공약수를 A, 최소공배수를 B라 할 때, A+B의 값을 구하고 그 풀이과정을 쓰시오."}
+      ]
+    },
+    {
+      "number": 19,
+      "score": 7.0,
+      "type": "서술형",
+      "label": "[서술형 4]",
+      "contents": [
+        {"type": "text", "value": "[서술형 4] 최소공배수가 6600인 100이하의 두 자연수 A, B가 서로소일 때, 소인수분해를 이용하여 A-B의 값을 구하고 그 풀이과정을 쓰시오. (단, A > B이다.)"}
+      ]
+    },
+    {
+      "number": 20,
+      "score": 7.0,
+      "type": "서술형",
+      "label": "[서술형 5]",
+      "contents": [
+        {"type": "text", "value": "[서술형 5] 네 유리수 -\\frac{5}{3}, -\\frac{3}{7}, 5, -\\frac{1}{3} 중에서 서로 다른 세 수를 뽑아 곱한 값 중 가장 큰 값을 a, 가장 작은 값을 b라 할 때, a+b의 값을 구하고 그 풀이과정을 쓰시오."}
+      ]
+    },
+    {
+      "number": 21,
+      "score": 8.0,
+      "type": "서술형",
+      "label": "[서술형 6]",
+      "contents": [
+        {"type": "text", "value": "[서술형 6] 서로 다른 세 정수의 곱이 -50일 때, 가능한 세 정수의 합을 모두 구하고 그 풀이과정을 쓰시오."}
+      ]
+    }
+  ]
+}

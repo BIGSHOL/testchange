@@ -1,0 +1,186 @@
+{
+ "exam_id": 4371,
+ "answer_pages": [
+  7,
+  8,
+  9,
+  10
+ ],
+ "items": [
+  {
+   "number": 1,
+   "answer": "③",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 2,
+   "answer": "①",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 3,
+   "answer": "①",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 4,
+   "answer": "④",
+   "solution": "추가해야 하는 산책로의 수를 $n$이라고 할 때, 건물 $\\mathrm{A}$에서 건물 $\\mathrm{D}$까지 가는 방법의 수는\n(i) $\\mathrm{A} \\to \\mathrm{B} \\to \\mathrm{D}$ : $3 \\times 2 = 6$\n(ii) $\\mathrm{A} \\to \\mathrm{C} \\to \\mathrm{D}$ : $2 \\times 3 = 6$\n(iii) $\\mathrm{A} \\to \\mathrm{B} \\to \\mathrm{C} \\to \\mathrm{D}$ : $3 \\times n \\times 3 = 9n$\n(iv) $\\mathrm{A} \\to \\mathrm{C} \\to \\mathrm{B} \\to \\mathrm{D}$ : $2 \\times n \\times 2 = 4n$\n(i)~(iv)에서 $6+6+9n+4n=13n+12$\n따라서 $13n+12=64$에서 $n=4$이므로 추가해야 하는 산책로의 수는 4이다.",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 5,
+   "answer": "③",
+   "solution": "영역 (마), (라), (나), (다), (가)에 칠할 수 있는 색은 각각 5가지, 4가지, 3가지, 3가지, 3가지이므로\n$5 \\times 4 \\times 3 \\times 3 \\times 3 = 540$",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 6,
+   "answer": "④",
+   "solution": "이차방정식 $x^{2}-2(2k+b)x+4k^{2}-8k+a=0$의 판별식 $D$에서\n$\\frac{D}{4}=(4b+8)k+b^{2}-a=0$\n이 등식이 $k$에 대한 항등식이어야 하므로\n$4b+8=0$, $b^{2}-a=0$, 즉 $a=4$, $b=-2$\n$\\therefore a+b=2$",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 7,
+   "answer": "⑤",
+   "solution": "점 $\\mathrm{A}$의 $x$좌표를 $a\\ (0<a<2)$라고 하면\n$\\overline{\\mathrm{AB}}=2a$, $\\overline{\\mathrm{AD}}=\\left(-\\frac{a^{2}}{2}+2\\right)-(a^{2}-4)=6-\\frac{3a^{2}}{2}$\n직사각형 $\\mathrm{ABCD}$의 둘레의 길이를 $y$라고 하면\n$y=2\\left\\{2a+\\left(6-\\frac{3a^{2}}{2}\\right)\\right\\}=-3\\left(a-\\frac{2}{3}\\right)^{2}+\\frac{40}{3}$\n이때 $0<a<2$이므로 구하는 최댓값은 $\\frac{40}{3}$이다.",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 8,
+   "answer": "⑤",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 9,
+   "answer": "⑤",
+   "solution": "$R(x)=px+q$ ($p$, $q$는 실수)라고 하면\n$x^{7}+3x+1=(x^{2}+x+1)Q(x)+px+q$이므로\n$\\omega^{7}+3\\omega+1=(\\omega^{2}+\\omega+1)Q(\\omega)+p\\omega+q$\n이때 $\\omega^{3}=1$, $\\omega^{2}+\\omega+1=0$이므로\n$4\\omega+1=p\\omega+q$, $(4-p)\\omega+(1-q)=0$\n따라서 $p=4$, $q=1$이므로 $R(x)=4x+1$",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 10,
+   "answer": "②",
+   "solution": "$2x^{3}+(k+2)x^{2}+2kx+k=0$의 좌변을 인수분해하면\n$(x+1)(2x^{2}+kx+k)=0$이므로\n$x=-1$ 또는 $2x^{2}+kx+k=0$\n이차방정식 $2x^{2}+kx+k=0$의 판별식 $D$에서\n$D=k^{2}-8k \\geq 0$이어야 하므로\n$k \\leq 0$ 또는 $k \\geq 8$",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 11,
+   "answer": "①",
+   "solution": "$f(x)=x^{2}-4x-3k+4$라고 하면\n$f(x)=(x-2)^{2}-3k$\n$4 \\leq x \\leq 5$에서 이차함수 $y=f(x)$의 최댓값은 $x=5$일 때 $-3k+9$이다.\n따라서 $4 \\leq x \\leq 5$에서 $f(x) \\leq 0$이 성립하려면\n$-3k+9 \\leq 0$이어야 하므로 $k \\geq 3$",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 12,
+   "answer": "③",
+   "solution": "크기가 다른 두 상자에 나누어 담는 아이스크림의 개수를 순서쌍으로 나타내면\n$(1,~4)$, $(2,~3)$, $(3,~2)$, $(4,~1)$\n따라서 구하는 방법의 수는\n${}_{5}\\mathrm{C}_{1} \\times {}_{4}\\mathrm{C}_{4}+{}_{5}\\mathrm{C}_{2} \\times {}_{3}\\mathrm{C}_{3}+{}_{5}\\mathrm{C}_{3} \\times {}_{2}\\mathrm{C}_{2}+{}_{5}\\mathrm{C}_{4} \\times {}_{1}\\mathrm{C}_{1}$\n$=5+10+10+5=30$",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 13,
+   "answer": "⑤",
+   "solution": "$A^{2}=E$, $A^{3}=A$, $A^{4}=E$, $\\cdots$이므로\n$A+A^{2}+A^{3}+A^{4}+\\cdots+A^{99}+A^{100}$\n$=A+E+A+E+\\cdots+A+E$\n$=50(A+E)$\n$=50\\begin{pmatrix} 0 & 0 \\\\ -2 & 2 \\end{pmatrix}=\\begin{pmatrix} 0 & 0 \\\\ -100 & 100 \\end{pmatrix}$\n따라서 구하는 행렬의 모든 성분의 합은 $0$",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 14,
+   "answer": "⑤",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 15,
+   "answer": "②",
+   "solution": "각 단의 높이는 $0.5\\,\\mathrm{m}$이므로 단의 개수는 $4 \\div 0.5 = 8$\n(i) 폭이 $1\\,\\mathrm{m}$인 단 6개와 $2\\,\\mathrm{m}$인 단 2개로 구조물을 설계하는 방법의 수는 ${}_{8}\\mathrm{C}_{6} \\times {}_{2}\\mathrm{C}_{2}=28$\n(ii) 폭이 $1\\,\\mathrm{m}$인 단 7개와 $3\\,\\mathrm{m}$인 단 1개로 구조물을 설계하는 방법의 수는 ${}_{8}\\mathrm{C}_{7} \\times {}_{1}\\mathrm{C}_{1}=8$\n(i), (ii)에서 구하는 방법의 수는 $28+8=36$",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 16,
+   "answer": "③",
+   "solution": "(i) 놀이기구 $\\mathrm{B}$, $\\mathrm{C}$에 어린이가 각각 1명씩 탈 때,\n놀이기구 $\\mathrm{A}$, $\\mathrm{B}$, $\\mathrm{C}$에 타는 어른의 수를 순서쌍 $(\\mathrm{A},~\\mathrm{B},~\\mathrm{C})$로 나타내면\n(0명, 1명, 2명) $\\Rightarrow {}_{3}\\mathrm{C}_{1} \\times {}_{2}\\mathrm{C}_{2}=3$\n(1명, 1명, 1명) $\\Rightarrow {}_{3}\\mathrm{C}_{1} \\times {}_{2}\\mathrm{C}_{1} \\times {}_{1}\\mathrm{C}_{1}=6$\n따라서 어린이가 바꿔 타는 경우를 생각하면 $2! \\times (3+6)=18$\n(ii) 놀이기구 $\\mathrm{C}$에 어린이가 2명 탈 때,\n놀이기구 $\\mathrm{A}$, $\\mathrm{B}$, $\\mathrm{C}$에 타는 어른의 수를 순서쌍 $(\\mathrm{A},~\\mathrm{B},~\\mathrm{C})$로 나타내면\n(0명, 2명, 1명) $\\Rightarrow {}_{3}\\mathrm{C}_{2} \\times {}_{1}\\mathrm{C}_{1}=3$\n(1명, 1명, 1명) $\\Rightarrow {}_{3}\\mathrm{C}_{1} \\times {}_{2}\\mathrm{C}_{1} \\times {}_{1}\\mathrm{C}_{1}=6$\n따라서 $3+6=9$\n(i), (ii)에서 구하는 방법의 수는 $18+9=27$",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 17,
+   "answer": "①",
+   "solution": "2차 조사 결과 찬성, 반대하는 사원들의 비율을 각각 구한다.\n2차 조사 결과 전체 사원 중에서 찬성하는 사원들의 비율을 $p$라 하면\n$p=$ (1차에서 찬성한 사원 중 2차에서도 찬성한 비율) $+$ (1차에서 반대한 사원 중 2차에서 찬성으로 의견을 바꾼 비율)\n$=0.6 \\times (1-0.2)+0.4 \\times 0.3 = 0.6 \\times 0.8+0.4 \\times 0.3$ $\\cdots\\cdots$ ㉠\n반대하는 사원들의 비율을 $q$라 하면\n$q=$ (1차에서 찬성한 사원 중 2차에서 반대로 의견을 바꾼 비율) $+$ (1차에서 반대한 사원 중 2차에서도 반대한 비율)\n$=0.6 \\times 0.2+0.4 \\times (1-0.3) = 0.6 \\times 0.2+0.4 \\times 0.7$ $\\cdots\\cdots$ ㉡\n㉠, ㉡을 행렬로 나타내면\n$\\begin{pmatrix} p & q \\end{pmatrix}=\\begin{pmatrix} 0.6 & 0.4 \\end{pmatrix}\\begin{pmatrix} 0.8 & 0.2 \\\\ 0.3 & 0.7 \\end{pmatrix}=AB$\n3차 조사 결과 전체 사원 중에서 찬성하는 사원들의 비율은\n(2차에서 찬성한 사원 중 3차에서도 찬성한 비율) $+$ (2차에서 반대한 사원 중 3차에서 찬성으로 의견을 바꾼 비율)\n$=p \\times (1-0.1)+q \\times 0.4 = p \\times 0.9+q \\times 0.4$\n이것을 행렬로 나타내면 $\\begin{pmatrix} p & q \\end{pmatrix}\\begin{pmatrix} 0.9 \\\\ 0.4 \\end{pmatrix}=AB\\begin{pmatrix} 0.9 \\\\ 0.4 \\end{pmatrix}$\n이때 $\\begin{pmatrix} 0.9 \\\\ 0.4 \\end{pmatrix}$는 행렬 $C$의 제1열 부분과 같으므로 구하는 것은 행렬 $ABC$의 $(1,~1)$ 성분과 같다.",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 18,
+   "answer": "⑤",
+   "solution": "$x$의 값을 구한다.\n$X^{2}=\\begin{pmatrix} 0 & x \\\\ 1 & 0 \\end{pmatrix}\\begin{pmatrix} 0 & x \\\\ 1 & 0 \\end{pmatrix}=\\begin{pmatrix} x & 0 \\\\ 0 & x \\end{pmatrix}=xE$이므로\n$X^{3}=X^{2}X=xEX=xX$\n이때 $X^{3}=9X$이므로 $xX=9X$\n$\\therefore x=9$ ($\\because X \\neq O$)\n$a$와 $d$, $b$와 $c$ 사이의 관계식을 구한다.\n$(A+X)(A-X)=A^{2}-X^{2}$에서 $A^{2}-AX+XA-X^{2}=A^{2}-X^{2}$이므로 $AX=XA$\n즉 $\\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix}\\begin{pmatrix} 0 & 9 \\\\ 1 & 0 \\end{pmatrix}=\\begin{pmatrix} 0 & 9 \\\\ 1 & 0 \\end{pmatrix}\\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix}$이므로\n$\\begin{pmatrix} b & 9a \\\\ d & 9c \\end{pmatrix}=\\begin{pmatrix} 9c & 9d \\\\ a & b \\end{pmatrix}$\n두 행렬이 서로 같을 조건에 의하여 $b=9c$, $a=d$\n$a$, $c$의 값을 구한다.\n$A^{2}=\\begin{pmatrix} a & 9c \\\\ c & a \\end{pmatrix}\\begin{pmatrix} a & 9c \\\\ c & a \\end{pmatrix}=\\begin{pmatrix} a^{2}+9c^{2} & 18ac \\\\ 2ac & a^{2}+9c^{2} \\end{pmatrix}$\n이때 $A^{2}=2A$이므로 $\\begin{pmatrix} a^{2}+9c^{2} & 18ac \\\\ 2ac & a^{2}+9c^{2} \\end{pmatrix}=\\begin{pmatrix} 2a & 18c \\\\ 2c & 2a \\end{pmatrix}$\n두 행렬이 서로 같을 조건에 의하여 $a^{2}+9c^{2}=2a$, $2ac=2c$\n$2ac=2c$에서 $a=1$ ($\\because c \\neq 0$)\n$a^{2}+9c^{2}=2a$에서 $1+9c^{2}=2$\n$c^{2}=\\frac{1}{9}$ $\\therefore c=\\frac{1}{3}$ ($\\because c>0$)\n$abcdx$의 값을 구한다.\n$b=9c=9 \\cdot \\frac{1}{3}=3$, $d=a=1$이므로\n$abcdx=1 \\cdot 3 \\cdot \\frac{1}{3} \\cdot 1 \\cdot 9=9$",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 19,
+   "answer": "④",
+   "solution": "$A^{2}\\begin{pmatrix} 2 \\\\ 3 \\end{pmatrix}=\\begin{pmatrix} 2 \\\\ -3 \\end{pmatrix}$을 $A$로 나타낸다.\n$A\\begin{pmatrix} 2 \\\\ 3 \\end{pmatrix}=\\begin{pmatrix} 1 \\\\ 0 \\end{pmatrix}$에서 $AA\\begin{pmatrix} 2 \\\\ 3 \\end{pmatrix}=\\begin{pmatrix} 2 \\\\ -3 \\end{pmatrix}$\n$\\therefore A\\begin{pmatrix} 1 \\\\ 0 \\end{pmatrix}=\\begin{pmatrix} 2 \\\\ -3 \\end{pmatrix}$\n$\\begin{pmatrix} -5 \\\\ 9 \\end{pmatrix}$를 $\\begin{pmatrix} 1 \\\\ 0 \\end{pmatrix}$, $\\begin{pmatrix} 2 \\\\ -3 \\end{pmatrix}$으로 나타낸다.\n실수 $a$, $b$에 대하여 $a\\begin{pmatrix} 1 \\\\ 0 \\end{pmatrix}+b\\begin{pmatrix} 2 \\\\ -3 \\end{pmatrix}=\\begin{pmatrix} -5 \\\\ 9 \\end{pmatrix}$가 성립한다고 하면\n$\\begin{pmatrix} a+2b \\\\ -3b \\end{pmatrix}=\\begin{pmatrix} -5 \\\\ 9 \\end{pmatrix}$\n두 행렬이 서로 같을 조건에 의하여 $a+2b=-5$, $-3b=9$\n$\\therefore a=1$, $b=-3$\n$\\therefore \\begin{pmatrix} 1 \\\\ 0 \\end{pmatrix}-3\\begin{pmatrix} 2 \\\\ -3 \\end{pmatrix}=\\begin{pmatrix} -5 \\\\ 9 \\end{pmatrix}$\n$x+y$의 값을 구한다.\n$A\\begin{pmatrix} 2 \\\\ 3 \\end{pmatrix}-3A\\begin{pmatrix} 1 \\\\ 0 \\end{pmatrix}=\\begin{pmatrix} -5 \\\\ 9 \\end{pmatrix}$이므로\n$A\\begin{pmatrix} 2 \\\\ 3 \\end{pmatrix}-A\\begin{pmatrix} 3 \\\\ 0 \\end{pmatrix}=\\begin{pmatrix} -5 \\\\ 9 \\end{pmatrix}$\n$\\therefore A\\begin{pmatrix} -1 \\\\ 3 \\end{pmatrix}=\\begin{pmatrix} -5 \\\\ 9 \\end{pmatrix}$\n즉 $x=-1$, $y=3$이므로 $x+y=2$",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 20,
+   "answer": "⑤",
+   "solution": "$A^{2}=\\begin{pmatrix} 3 & -1 \\\\ 13 & -4 \\end{pmatrix}$, $A^{3}=-E$, $A^{4}=-A$, $A^{5}=-A^{2}$, $A^{6}=-A^{3}=E$, $\\cdots$\n$B^{2}=-E$, $B^{3}=-B$, $B^{4}=-B^{2}=E$, $B^{5}=B$, $B^{6}=B^{2}=-E$, $\\cdots$\n따라서 등식 $A^{n}+B^{n}=O$를 만족시키는 가장 작은 자연수 $n$의 값은 $6$",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 21,
+   "answer": "11개",
+   "solution": "검은 공 개수 : $n$\n흰 공을 1개 뽑는 경우의 수 : ${}_{5}\\mathrm{C}_{1} \\times {}_{n}\\mathrm{C}_{2}$\n흰 공을 3개 뽑는 경우의 수 : ${}_{5}\\mathrm{C}_{3}$\n$({}_{5}\\mathrm{C}_{1} \\times {}_{n}\\mathrm{C}_{2})+{}_{5}\\mathrm{C}_{3}=85$\n$5 \\times \\frac{n(n-1)}{2}+10=85$, 따라서 $n=6$이다\n따라서 총 11개다.",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 22,
+   "answer": "$1 \\leq x \\leq 3$",
+   "solution": "(1) $x<-1$일 때,\n$-x-1-2x+5 \\leq 5$\n$-3x \\leq 1$\n$x \\geq -\\frac{1}{3}$\n이므로, 만족하는 $x$는 존재하지 않는다.\n(2) $-1 \\leq x < \\frac{5}{2}$일 때,\n$x+1-2x+5 \\leq 5$\n$-x \\leq -1$\n$x \\geq 1$\n이므로, $1 \\leq x < \\frac{5}{2}$\n(3) $x \\geq \\frac{5}{2}$일 때,\n$x+1+2x-5 \\leq 5$\n$3x \\leq 9$\n$x \\leq 3$\n이므로, $\\frac{5}{2} \\leq x \\leq 3$\n$\\therefore$ (1), (2), (3)에 의해 $1 \\leq x \\leq 3$",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 23,
+   "answer": "$1$",
+   "solution": "$\\begin{cases} a-4x \\leq b-5x \\\\ a-4x \\leq x+2a \\end{cases}$ 을 정리하면, $\\begin{cases} x \\leq b-a \\\\ x \\geq -\\frac{a}{5} \\end{cases}$ 이므로\n$-\\frac{a}{5} \\leq x \\leq b-a$이다. 즉, $a=-4$이고, $b+4=k$이다.\n연립부등식 $a-4x \\leq b-5x \\leq x+2a$을 바르게 풀면,\n$\\begin{cases} a-4x \\leq b-5x \\\\ b-5x \\leq x+2a \\end{cases}$ 이고, 정리하면 $\\begin{cases} x \\leq b-a \\\\ x \\geq -\\frac{2a-b}{6} \\end{cases}$ 과 같다.\n이 연립부등식이 해가 존재해야 하므로\n$b-a \\geq -\\frac{2a-b}{6}$이어야 한다. 정리하면 $4a \\leq 5b$이고,\n$a=-4$이므로 $-16 \\leq 5b$, $-\\frac{16}{5} \\leq b$이다. $k=b+4$이므로\n$-\\frac{16}{5}+4 \\leq k$, $\\frac{4}{5} \\leq k$\n즉, 자연수 $k$의 최솟값은 $1$이다.",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 24,
+   "answer": "432",
+   "solution": "i) 반장 옆에 빈 의자가 있는 경우 $5! \\times 2$\nii) 부반장 옆에 빈 의자가 있는 경우 $5! \\times 2$\niii) 반장과 부반장 사이에 빈 의자가 있는 경우 $4! \\times 2$\n$5! \\times 2+5! \\times 2-4! \\times 2=432$",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 25,
+   "answer": "(1) $0$ (2) $-1<a<3$ (3) $3$",
+   "solution": "(1) 한 근이 $-1$이므로 $x=-1$을 대입하면,\n$-1+a-b+1=0$이므로 $a-b=0$\n(2) 주어진 식을 $x=-1$로 인수분해하면 다음과 같다.\n$(x+1)\\{x^{2}+(a-1)x+1\\}=0$\n$x^{2}+(a-1)x+1=0$이 허근을 가져야하므로\n$(a-1)^{2}-4<0$, $-1<a<3$\n(3) $a=2$이므로 $a=2$를 대입하고 인수분해하면 다음과 같다.\n$(x+1)(x^{2}+x+1)=0$\n$x^{2}+x+1=0$이므로 $x^{3}=1$이다. 즉, $\\alpha^{3}=1$이므로 $\\alpha^{6}=1$이다.\n$\\alpha^{6}+2\\alpha^{2}+2\\alpha+4=2\\alpha^{2}+2\\alpha+5=2(\\alpha^{2}+\\alpha+1)+3$\n인데, $\\alpha^{2}+\\alpha+1=0$이므로 답은 $3$이다.",
+   "topic": "",
+   "difficulty": ""
+  }
+ ]
+}

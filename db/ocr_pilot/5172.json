@@ -1,0 +1,288 @@
+{
+ "meta": {"exam_id": 5172, "ocr_source": "session-vision"},
+ "header": {"title": "강동중 1학년 수학 2025년 1학기 중간고사"},
+ "questions": [
+  {
+   "number": 1,
+   "score": 3.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "두 수 2^{a} \\times 3^{2}, 2 \\times 3^{b} \\times 5^{3}의 최대공약수가 2 \\times 3^{2}이고, 최소공배수가 2^{4} \\times 3^{3} \\times 5^{c}일 때, a+b+c의 값은?"}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "3"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "4"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "7"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "10"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "12"}]}
+   ]
+  },
+  {
+   "number": 2,
+   "score": 4.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "금명이는 지상 1층부터 50층까지 지어진 아파트에 살고 있다. 금명이가 살고 있는 아파트 엘리베이터 입구에는 ‘약수의 개수가 2개인 층에서만 섭니다.’라는 안내문이 적혀 있다. 엘리베이터가 고장 없이 정상적으로 작동하고 있다고 할 때, 지상 1층을 제외하고 엘리베이터가 설 수 있는 층의 개수는?"}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "text", "value": "8개"}]},
+    {"number": 2, "contents": [{"type": "text", "value": "13개"}]},
+    {"number": 3, "contents": [{"type": "text", "value": "15개"}]},
+    {"number": 4, "contents": [{"type": "text", "value": "25개"}]},
+    {"number": 5, "contents": [{"type": "text", "value": "32개"}]}
+   ]
+  },
+  {
+   "number": 3,
+   "score": 4.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "20보다 크고 40보다 작은 자연수 중 16과 서로소인 수의 개수는?"}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "text", "value": "4개"}]},
+    {"number": 2, "contents": [{"type": "text", "value": "6개"}]},
+    {"number": 3, "contents": [{"type": "text", "value": "7개"}]},
+    {"number": 4, "contents": [{"type": "text", "value": "9개"}]},
+    {"number": 5, "contents": [{"type": "text", "value": "10개"}]}
+   ]
+  },
+  {
+   "number": 4,
+   "score": 3.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "다음 중 옳지 않은 것은?"}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "text", "value": "0은 유리수이다."}]},
+    {"number": 2, "contents": [{"type": "text", "value": "모든 자연수는 정수이다."}]},
+    {"number": 3, "contents": [{"type": "text", "value": "모든 정수는 유리수이다."}]},
+    {"number": 4, "contents": [{"type": "text", "value": "음수끼리는 절댓값이 큰 수가 작다."}]},
+    {"number": 5, "contents": [{"type": "text", "value": "정수는 양의 정수와 음의 정수로 이루어졌다."}]}
+   ]
+  },
+  {
+   "number": 5,
+   "score": 3.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "다음 중 옳지 않은 것은?"}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "-\\frac{19}{3} < -5"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "-\\frac{1}{2} > -\\frac{2}{5}"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "\\left| -\\frac{2}{3} \\right| > \\frac{2}{7}"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "-10.7 < 5"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "\\frac{1}{4} > \\frac{1}{6}"}]}
+   ]
+  },
+  {
+   "number": 6,
+   "score": 4.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "다음 중 계산 결과가 옳지 않은 것은?"}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "\\left( -\\frac{6}{5} \\right) + \\left( +\\frac{7}{5} \\right) = +\\frac{1}{5}"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "\\left( -\\frac{7}{3} \\right) - \\left( +\\frac{1}{6} \\right) = -\\frac{5}{2}"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "\\left( -\\frac{5}{14} \\right) + \\left( -\\frac{1}{7} \\right) = +\\frac{1}{2}"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "(-3.8) - (-5.2) = +1.4"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "(+3) - (+6) - (-5) = +2"}]}
+   ]
+  },
+  {
+   "number": 7,
+   "score": 3.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "\\frac{5}{4} - 7 + \\frac{11}{4}을 계산하면?"}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "-3"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "-2"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "+2"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "+3"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "+4"}]}
+   ]
+  },
+  {
+   "number": 8,
+   "score": 4.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "-\\frac{1}{7}의 역수를 a, 0.6의 역수를 b라 할 때, a-b의 값은?"}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "-9"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "-\\frac{26}{3}"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "-\\frac{25}{3}"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "-8"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "-\\frac{23}{3}"}]}
+   ]
+  },
+  {
+   "number": 9,
+   "score": 5.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "두 수 a, b에 대하여 b-a<0, a \\div b<0, |a|<|b|일 때, 다음 중 옳지 않은 것은?"}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "a+b<0"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "-b+a>0"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "-a-b<0"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "|a|-b>0"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "|b|-a>0"}]}
+   ]
+  },
+  {
+   "number": 10,
+   "score": 5.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "\\frac{5}{8} \\times \\left[ -\\frac{1}{5} + \\left\\{ \\frac{1}{3} + (-3)^{2} \\div \\frac{9}{2} \\right\\} \\right]를 계산하면?"}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "-\\frac{7}{3}"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "-\\frac{5}{3}"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "-\\frac{4}{3}"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "\\frac{4}{3}"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "\\frac{5}{3}"}]}
+   ]
+  },
+  {
+   "number": 11,
+   "score": 5.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "곱셈 기호 \\times와 나눗셈 기호 \\div를 생략한 식으로 옳은 것은?"}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "a \\div 3 = \\frac{1}{3}a"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "(-1) \\times b \\times a = -ba"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "5 \\div (x+y) = \\frac{5}{x} + y"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "a \\times 7 - 2 \\div b = \\frac{a}{7} - \\frac{2}{b}"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "x \\times x \\times (-0.1) \\times y \\times x = -0.x^{3}y"}]}
+   ]
+  },
+  {
+   "number": 12,
+   "score": 3.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "어린이 보호 구역에 있는 길이가 x\\mathrm{m}인 횡단보도의 녹색 신호 시간은 \\left( \\frac{5}{4}x + 7 \\right)초로, 일반 횡단보도보다 더 긴 시간을 적용한다. 어느 어린이 보호 구역에 있는 길이가 20\\mathrm{m}인 횡단보도의 녹색 신호 시간은?"}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "text", "value": "17초"}]},
+    {"number": 2, "contents": [{"type": "text", "value": "25초"}]},
+    {"number": 3, "contents": [{"type": "text", "value": "30초"}]},
+    {"number": 4, "contents": [{"type": "text", "value": "32초"}]},
+    {"number": 5, "contents": [{"type": "text", "value": "45초"}]}
+   ]
+  },
+  {
+   "number": 13,
+   "score": 4.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "다음 중 계산 결과가 옳은 것은?"}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "(9y+3) \\div \\frac{3}{2} = 3y+1"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "-(7a+4) = -7a+4"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "(-12a) \\div \\frac{1}{4} = -3a"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "5a \\times (-3) = 15a"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "15x \\div 3 = 5x"}]}
+   ]
+  },
+  {
+   "number": 14,
+   "score": 5.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "x = \\frac{5}{3}일 때, 식의 값의 절댓값이 가장 큰 것은?"}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "9x^{2}"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "-27x"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "-x^{2}"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "(-x)^{2}"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "6(x-10)"}]}
+   ]
+  },
+  {
+   "number": 15,
+   "score": 5.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {"type": "text", "value": "ax+b에 \\frac{4}{7}를 곱하면 -8x+5가 되고, -8x+5에 \\frac{4}{7}를 곱하면 cx+d가 될 때, a+4b+7(c+d)의 값은?"},
+    {"type": "figure", "value": "테두리 박스 안의 흐름도. 왼쪽부터 둥근 상자 [ax+b] → 오른쪽 화살표(화살표 위에 × 4/7) → 둥근 상자 [-8x+5] → 오른쪽 화살표(화살표 위에 × 4/7) → 둥근 상자 [cx+d]"}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "17"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "9"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "\\frac{35}{4}"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "\\frac{20}{7}"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "-14"}]}
+   ]
+  },
+  {
+   "number": 16,
+   "score": 10.0,
+   "type": "서술형",
+   "label": "[서술형 1]",
+   "contents": [
+    {"type": "text", "value": "[서술형 1] 정수 a의 절댓값은 5이고, 유리수 b의 절댓값은 \\frac{3}{7}이다. a-b의 값 중에서 가장 큰 값을 M, 가장 작은 값을 m이라고 할 때, M-m의 값을 구하시오. (단, 모든 풀이 과정은 자세하게 서술하시오.)"}
+   ],
+   "choices": []
+  },
+  {
+   "number": 17,
+   "score": 8.0,
+   "type": "서술형",
+   "label": "[서술형 2]",
+   "contents": [
+    {"type": "text", "value": "[서술형 2] \\frac{25}{3}에 가장 가까이 있는 정수를 a, -4.25에 가장 가까이 있는 정수를 b, -\\frac{14}{5}에 가장 가까이 있는 정수를 c라 할 때, a \\div b \\times c의 값을 구하시오. (단, 모든 풀이 과정은 자세하게 서술하시오.)"}
+   ],
+   "choices": []
+  },
+  {
+   "number": 18,
+   "score": 12.0,
+   "type": "서술형",
+   "label": "[서술형 3]",
+   "contents": [
+    {"type": "text", "value": "[서술형 3] 다음 빈칸에 알맞은 수를 구하시오. (단, 모든 풀이 과정은 자세하게 서술하시오.)"},
+    {"type": "text", "value": "<상자> \\left( -\\frac{5}{7} \\right)^{2} \\times \\left( \\boxed{\\quad} \\right) \\div \\frac{5}{14} = -\\frac{6}{7}"}
+   ],
+   "choices": []
+  },
+  {
+   "number": 19,
+   "score": 10.0,
+   "type": "서술형",
+   "label": "[서술형 4]",
+   "contents": [
+    {"type": "text", "value": "[서술형 4] 두 수 a, b 사이에 a★b = (a+1) \\times b, a○b = 5 \\times a \\div b - 7과 같은 관계가 있다고 약속할 때, \\left\\{ \\left( -\\frac{2}{3} \\right) ★ \\frac{3}{5} \\right\\} ○ \\left( -\\frac{1}{8} \\right)의 값을 구하시오. (단, 모든 풀이 과정은 자세하게 서술하시오.)"}
+   ],
+   "choices": []
+  }
+ ]
+}

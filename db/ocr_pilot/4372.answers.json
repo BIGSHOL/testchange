@@ -1,0 +1,54 @@
+{
+  "exam_id": 4372,
+  "answer_pages": [7, 8],
+  "items": [
+    {"number": 1, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 2, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 3, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 4, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 5, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 6, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 7, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 8, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 9, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 10, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 11, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 12, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 13, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 14, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 15, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 16, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 17, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 18, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 19, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 20, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {
+      "number": 21,
+      "answer": "(1) $a$, $b$ 모두 짝수이면 $a$, $b$는 서로소가 아니다. (2) 풀이 참조",
+      "solution": "(1) $a$, $b$ 모두 짝수이면 $a$, $b$는 서로소가 아니다.\n(2) $a$, $b$ 짝수이므로\n$a=2k$ ($k$는 자연수), $b=2m$ ($m$은 자연수)으로 나타내면\n$a$와 $b$는 1이 아닌 공약수 2가 있으므로 서로소가 아니다.\n즉, 주어진 명제의 대우가 참이므로 주어진 명제도 참이다.",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 22,
+      "answer": "(1) $y=\\sqrt{x+0.8}-1~(x \\geq -0.8)$ (2) $\\frac{2}{5}$",
+      "solution": "(1) $y=(x+1)^{2}-0.8$\n의 역함수는 $x=(y+1)^{2}-0.8$\n$(y+1)^{2}=x+0.8$\n$(y+1)=\\sqrt{x+0.8}$\n따라서 $y=\\sqrt{x+0.8}-1~(x \\geq -0.8)$\n(2) $x^{2}+2x+0.2=x$\n$x^{2}+x+0.2=0$ 의 두 근을 $\\alpha$, $\\beta$라 하면,\n$\\alpha+\\beta=-1$, $\\alpha\\beta=0.2$이다.\n$(\\alpha-\\beta)^{2}=(\\alpha+\\beta)^{2}-4\\alpha\\beta$ 이므로,\n$(\\alpha-\\beta)^{2}=\\frac{1}{5}$ 이다.\n$\\mathrm{A}$, $\\mathrm{B}$는 $y=x$ 위의 점이므로 $\\mathrm{A}(\\alpha,~\\alpha)$, $\\mathrm{B}(\\beta,~\\beta)$이다.\n$\\overline{\\mathrm{AB}}=\\sqrt{(\\alpha-\\beta)^{2}+(\\alpha-\\beta)^{2}}$ 이고,\n따라서 $\\overline{\\mathrm{AB}}=\\sqrt{\\frac{2}{5}}$\n$\\overline{\\mathrm{AB}}^{2}=\\frac{2}{5}$ 이다.",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 23,
+      "answer": "$3$",
+      "solution": "$\\mathrm{B}\\left(\\frac{k}{3},~k\\right)$, $\\mathrm{C}(k,~k)$, $\\mathrm{D}(k^{2},~k)$가 되고,\n삼각형 $\\mathrm{ODC}$의 넓이가 삼각형 $\\mathrm{OBA}$의 넓이의 6배이므로\n$\\overline{\\mathrm{CD}}=6\\overline{\\mathrm{AB}}$ 이고,\n$k^{2}-k=6\\left(\\frac{k}{3}\\right)$ 즉,\n$k=3$이다.\n삼각형 $\\mathrm{OCB}$의 넓이는\n$\\frac{1}{2}\\overline{\\mathrm{OA}} \\times \\overline{\\mathrm{BC}}=\\frac{1}{2}k \\times \\left(k-\\frac{k}{3}\\right)=\\frac{1}{2} \\times 3 \\times 2=3$이다.",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 24,
+      "answer": "$26$",
+      "solution": "$g(x)=-x^{2}+5$, $h(x)=-4x$라 하면\n집합 $X$의 모든 원소 $x$에 대하여\n$f(x)=g(x)$ 또는 $f(x)=h(x)$이다.\n이때 $g(x)=h(x)$에서\n$x^{2}-4x-5=0$, $(x+1)(x-5)=0$\n$\\therefore x=-1$\n따라서 $g(-1)=h(-1)=4$이므로\n$f(-1)=4$\n이차함수 $y=g(x)$의 그래프는 $y$축에 대하여 대칭이므로\n$g(1)=g(-1)$\n이때 $f(1)=g(1)=4$라 하면 함수 $f(x)$는 일대일함수가 아니다.\n$\\therefore f(1)=h(1)=-4$\n또, $g(x)=-4$에서 $x^{2}=9$, $\\therefore x=-3$\n이때 $f(-3)=g(-3)=-4$라 하면 함수 $f(x)$는 일대일함수가 아니다.\n$\\therefore f(-3)=h(-3)=12$\n이때 $f(0)=h(0)=0$이라 하면 조건 (나)를 만족시키지 않는다.\n$\\therefore f(0)=g(0)=5$\n또한, $f(0) \\cdot f(1) \\cdot f(2)<0$에서 $f(2)>0$\n이때 $h(2)=-8<0$이므로\n$f(2)=g(2)=1$\n이차함수 $y=g(x)$의 그래프는 $y$축에 대하여 대칭이므로\n$g(-2)=g(2)$\n$f(-2)=g(-2)=1$이라 하면 함수 $f(x)$는 일대일함수가 아니다.\n$\\therefore f(-2)=h(-2)=8$\n$\\therefore f(-3)+f(-2)+f(-1)+f(0)+f(1)+f(2)$\n$=12+8+4+5+(-1)+1=26$",
+      "topic": "",
+      "difficulty": ""
+    }
+  ]
+}

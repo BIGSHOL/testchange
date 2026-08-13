@@ -1,0 +1,305 @@
+{
+  "meta": {"exam_id": 5650, "ocr_source": "session-vision"},
+  "header": {"title": "2025년 1학기 중간고사 강동중 3학년 수학 (제곱근과 실수 ~ 인수분해)"},
+  "questions": [
+    {
+      "number": 1,
+      "score": 3.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "제곱근 49를 a, \\sqrt{81}의 음의 제곱근을 b라고 할 때, a+b의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-6"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "10"}]}
+      ]
+    },
+    {
+      "number": 2,
+      "score": 3.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "<보기>에서 무리수인 것만을 있는 대로 고른 것은?"},
+        {"type": "text", "value": "<보기> ㄱ. \\pi • ㄴ. 2+\\sqrt{2} • ㄷ. \\sqrt{16}-\\sqrt{4} • ㄹ. \\sqrt{\\frac{9}{25}}"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄱ, ㄴ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄱ, ㄹ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄴ, ㄷ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄴ, ㄷ, ㄹ"}]}
+      ]
+    },
+    {
+      "number": 3,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "제곱근표에서 \\sqrt{50}의 값이 7.071일 때, \\sqrt{a}의 값이 0.7071이 되도록 하는 a의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "0.0005"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "0.005"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "0.05"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "0.5"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+      ]
+    },
+    {
+      "number": 4,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "\\sqrt{45-x}가 자연수가 되게 하는 가장 큰 자연수 x를 a, 가장 작은 자연수 x를 b라고 할 때, a+b의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "53"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "56"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "64"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "65"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "73"}]}
+      ]
+    },
+    {
+      "number": 5,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "두 실수의 대소 관계가 옳은 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1+\\sqrt{5}<3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\sqrt{4}+\\sqrt{7}<4"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-5<1-3\\sqrt{5}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\sqrt{5}-2<\\sqrt{3}-2"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "7\\sqrt{3}-\\sqrt{27}<\\sqrt{6}+\\sqrt{24}"}]}
+      ]
+    },
+    {
+      "number": 6,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "a>0, b>0이고, ab=64일 때, a\\sqrt{\\frac{28b}{a}}+b\\sqrt{\\frac{7a}{b}}의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "8\\sqrt{7}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "12\\sqrt{7}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "16\\sqrt{7}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "20\\sqrt{7}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "24\\sqrt{7}"}]}
+      ]
+    },
+    {
+      "number": 7,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "\\sqrt{54}+(\\sqrt{18}-\\sqrt{6})\\div\\sqrt{3}-\\sqrt{2}=a\\sqrt{2}+b\\sqrt{6}일 때, a-b의 값은? (단, a, b는 정수)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-8"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-6"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "6"}]}
+      ]
+    },
+    {
+      "number": 8,
+      "score": 3.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "(5x-2y)(3y+4x)를 전개하였을 때, xy의 계수는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "11"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "14"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "15"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "23"}]}
+      ]
+    },
+    {
+      "number": 9,
+      "score": 3.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "9xy-6y^{2}을 인수분해하면 3y(3x-ay)일 때, 상수 a의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "6"}]}
+      ]
+    },
+    {
+      "number": 10,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "인수분해를 바르게 한 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "a^{2}+3a+9=(a+3)^{2}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "4a^{2}+4a-1=(2a-1)^{2}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "x^{2}-3y^{2}=(x+3y)(x-3y)"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "x^{2}+5x-24=(x-3)(x+8)"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "6x^{2}-7xy-3y^{2}=(2x+3y)(3x-y)"}]}
+      ]
+    },
+    {
+      "number": 11,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "\\frac{12}{5\\sqrt{3}-3\\sqrt{7}}-\\frac{12}{5\\sqrt{3}+3\\sqrt{7}}의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "3\\sqrt{7}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "5\\sqrt{3}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "6\\sqrt{7}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "10\\sqrt{3}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "12\\sqrt{7}"}]}
+      ]
+    },
+    {
+      "number": 12,
+      "score": 5.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "그림은 두 직각삼각형 \\mathrm{ABC}, \\mathrm{ABD}를 수직선 위에 그리고 점 \\mathrm{C}를 중심으로 하고 \\overline{\\mathrm{AC}}를 반지름으로 하는 원의 일부와 점 \\mathrm{D}를 중심으로 하고, \\overline{\\mathrm{AD}}를 반지름으로 하는 원의 일부를 그린 것이다. 그림에서 원의 일부와 수직선이 만나는 두 점을 각각 \\mathrm{E}, \\mathrm{F}라 하고 \\overline{\\mathrm{AB}}=\\sqrt{3}, \\overline{\\mathrm{BC}}=3, \\overline{\\mathrm{BD}}=1일 때, \\overline{\\mathrm{EF}}의 길이는?"},
+        {"type": "figure", "value": "수평 수직선(양쪽 화살표) 위에 왼쪽부터 점 E, C, B, D, F 가 차례로 놓여 있다. 점 B 에서 수직선에 수직으로 올라간 곳에 점 A 가 있고 직각 표시가 B 에 있다. 선분 AB 에 길이 √3 이 표시되고, C~B 사이 거리에 3, B~D 사이 거리에 1 이 표시되어 있다. 직각삼각형 ABC(빗변 AC)와 직각삼각형 ABD(빗변 AD)가 그려져 있으며, 중심 C 반지름 AC 인 큰 반원 호가 A 를 지나 수직선과 왼쪽 점 E 에서 만나고, 중심 D 반지름 AD 인 작은 반원 호가 A 를 지나 수직선과 오른쪽 점 F 에서 만난다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "4+\\sqrt{2}+2\\sqrt{3}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "6+2\\sqrt{3}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "4+3\\sqrt{2}+\\sqrt{3}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "6+3\\sqrt{2}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "8+2\\sqrt{3}"}]}
+      ]
+    },
+    {
+      "number": 13,
+      "score": 5.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "자연수 n에 대하여 n \\leq \\sqrt{x} < n+1을 만족시키는 자연수 x의 개수를 f(n)이라고 할 때, f(n)=7을 만족하는 모든 자연수 x의 값의 합은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "69"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "72"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "84"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "91"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "100"}]}
+      ]
+    },
+    {
+      "number": 14,
+      "score": 5.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "9x^{2}-24x+4a+2b가 완전제곱식일 때, 2a+b-3의 값은? (단, a, b는 상수)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "13"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "16"}]}
+      ]
+    },
+    {
+      "number": 15,
+      "score": 5.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "두 자연수 a, b에 대하여 다항식 2x^{2}+11x+k=(2x+a)(x+b)를 만족할 때, k의 최댓값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "14"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "15"}]}
+      ]
+    },
+    {
+      "number": 16,
+      "score": 6.0,
+      "type": "서술형",
+      "label": "[서술형 1]",
+      "contents": [
+        {"type": "text", "value": "[서술형 1] a<0<b일 때, 제곱근의 성질을 이용하여 \\sqrt{a^{2}}+\\sqrt{b^{2}}+\\sqrt{(2a-b)^{2}}을 간단히 하고, 그 풀이 과정에 제곱근의 성질을 이용하여 각 항을 나타내시오."}
+      ]
+    },
+    {
+      "number": 17,
+      "score": 6.0,
+      "type": "서술형",
+      "label": "[서술형 2]",
+      "contents": [
+        {"type": "text", "value": "[서술형 2] 그림과 같이 \\overline{\\mathrm{AB}}=2\\sqrt{13}, \\overline{\\mathrm{BC}}=4, \\angle \\mathrm{C}=90°인 직각삼각형 \\mathrm{ABC}와 넓이가 같은 정사각형의 한 변의 길이를 구하고, 그 풀이 과정에 \\overline{\\mathrm{AC}}의 길이를 구하여 나타내시오."},
+        {"type": "figure", "value": "직각삼각형 ABC. 아래쪽 변 BC 가 수평이고 왼쪽 끝이 B, 오른쪽 끝이 C, 길이 4 가 표시되어 있다. 점 C 에서 위로 올라간 곳에 점 A 가 있고 C 에 직각 표시가 있다. 빗변 AB(왼쪽 아래 B 에서 오른쪽 위 A 로 이어짐)에 길이 2√13 이 표시되어 있다."}
+      ]
+    },
+    {
+      "number": 18,
+      "score": 8.0,
+      "type": "서술형",
+      "label": "[서술형 3]",
+      "contents": [
+        {"type": "text", "value": "[서술형 3] 그림은 한 변의 길이가 8\\sqrt{2}인 정사각형에 네 변의 중점을 연결한 정사각형을 연속해서 세 번 그린 모양이다. 그림에서 색칠된 부분의 둘레의 길이의 합을 구하고, 그 풀이 과정에 ①, ②, ③ 부분의 둘레의 길이를 각각 구하여 나타내시오."},
+        {"type": "figure", "value": "한 변의 길이가 8√2 인 가장 바깥 정사각형(가로·세로 모두 8√2 로 표시) 안에, 네 변의 중점을 이은 정사각형(마름모 방향)을 그리고, 다시 그 정사각형의 네 변의 중점을 이은 정사각형(축에 평행), 다시 그 네 변의 중점을 이은 정사각형(마름모 방향)까지 연속 세 번 그렸다. 색칠된 부분은 세 곳으로, ①은 가장 바깥 정사각형의 왼쪽 아래 모서리에 생기는 직각이등변삼각형, ②는 가장 안쪽 마름모 방향 정사각형 전체, ③은 두 번째(축평행) 정사각형의 오른쪽 변과 마름모 변 사이 오른쪽에 생기는 직각이등변삼각형이다."}
+      ]
+    },
+    {
+      "number": 19,
+      "score": 4.0,
+      "type": "서술형",
+      "label": "[서술형 4]",
+      "contents": [
+        {"type": "text", "value": "[서술형 4] 곱셈 공식을 이용하여 199\\times201을 계산하시오."}
+      ]
+    },
+    {
+      "number": 20,
+      "score": 6.0,
+      "type": "서술형",
+      "label": "[서술형 5]",
+      "contents": [
+        {"type": "text", "value": "[서술형 5] 인수분해를 이용하여 2209가 소수가 아님을 나타내고, 그 이유를 약수의 관점에서 설명하시오."}
+      ]
+    },
+    {
+      "number": 21,
+      "score": 10.0,
+      "type": "서술형",
+      "label": "[서술형 6]",
+      "contents": [
+        {"type": "text", "value": "[서술형 6] 가로의 길이가 3a, 세로의 길이가 2b인 직사각형 모양의 종이 \\mathrm{ABCD}를 그림과 같이 접었더니 □\\mathrm{AFHG}와 □\\mathrm{GECD}가 정사각형이 되었다. 이때, 사다리꼴 \\mathrm{FBEG}의 넓이를 a, b를 사용한 식으로 전개하고, 그 풀이 과정에 \\overline{\\mathrm{BE}}, \\overline{\\mathrm{BF}}, \\overline{\\mathrm{EG}}의 길이를 각각 구하여 나타내시오. (단, 2b<3a<4b)"},
+        {"type": "figure", "value": "직사각형 ABCD(왼쪽 위 A, 위쪽 변 위의 점 G, 오른쪽 위 D, 오른쪽 아래 C, 왼쪽 아래 B). 가로 BC = 3a, 세로 DC = 2b 로 표시. 왼쪽 변 AB 위의 점 F, 아래쪽 변 BC 위의 점 E, 내부에 점 H 가 있다. 선분 FH 는 수평, 선분 GEH 는 수직(G 에서 E 까지 내린 수선)이며 □AFHG 가 정사각형, □GECD 가 정사각형이다. 접힌 결과로 A, D 쪽 점선 부분은 접혀 사라졌고, 색칠된 부분은 사다리꼴 FBEG(삼각형 FG 위쪽 영역)와 삼각형 GEC 이다. 즉 G 에서 F 로, G 에서 C 로 이은 선분이 그려져 있다."}
+      ]
+    }
+  ]
+}

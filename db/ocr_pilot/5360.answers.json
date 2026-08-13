@@ -1,0 +1,50 @@
+{
+  "exam_id": 5360,
+  "answer_pages": [7],
+  "items": [
+    {"number": 1, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 2, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 3, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 4, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 5, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 6, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 7, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 8, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 9, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 10, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 11, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 12, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 13, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 14, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 15, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 16, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {
+      "number": 17,
+      "answer": "$4\\pi\\,\\mathrm{cm}^{2}$",
+      "solution": "$\\triangle \\mathrm{ABC}$는 직각삼각형이므로 피타고라스 정리에 의해\n$\\overline{\\mathrm{AB}}^{2}=6^{2}+8^{2}=100$\n$\\overline{\\mathrm{AB}}=10$이다.\n삼각형의 넓이에서 내접원의 반지름을 $r$이라 하면\n$\\frac{1}{2}\\times 6 \\times 8 = \\frac{1}{2}\\times r(6+8+10)$ 이므로\n$r=2$이다.\n따라서 내접원의 넓이는 $4\\pi\\,\\mathrm{cm}^{2}$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 18,
+      "answer": "(1) $\\triangle \\mathrm{AED} \\equiv \\triangle \\mathrm{CFB}$ (2) 평행사변형",
+      "solution": "(1) $\\angle \\mathrm{AEF}=90^{\\circ}$, $\\angle \\mathrm{CFE}=90^{\\circ}$\nABCD는 평행사변형이므로 $\\overline{\\mathrm{AD}}=\\overline{\\mathrm{BC}}$이고\n$\\angle \\mathrm{ADE}=\\angle \\mathrm{CBF}$이다.\n$\\therefore \\triangle \\mathrm{AED} \\equiv \\triangle \\mathrm{CFB}$ (RHA합동)\n(2) $\\triangle \\mathrm{AED} \\equiv \\triangle \\mathrm{CFB}$이므로\n$\\overline{\\mathrm{AE}}=\\overline{\\mathrm{CF}}$이고 $\\overline{\\mathrm{AE}} /\\!/ \\overline{\\mathrm{CF}}$\n마주보는 한 쌍의 대변이 길이가 같고 평행하므로 평행사변형이다.",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 19,
+      "answer": "$6\\,\\mathrm{cm}$",
+      "solution": "$\\angle \\mathrm{AEB}=\\angle \\mathrm{AFD}=90^{\\circ}$\n평행사변형에서 $\\angle \\mathrm{B}=\\angle \\mathrm{D}$ 이므로\n$\\triangle \\mathrm{ADF} \\backsim \\triangle \\mathrm{ABE}$ (AA닮음)\n$18:24=\\overline{\\mathrm{BE}}:8$\n$\\therefore \\overline{\\mathrm{BE}}=6\\,(\\mathrm{cm})$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 20,
+      "answer": "$24\\,\\mathrm{cm}$",
+      "solution": "점 $\\mathrm{G}$, $\\mathrm{M}$은 각각 삼각형 ABC와 직각삼각형 GBC의 무게중심이므로 $\\overline{\\mathrm{GM}}:\\overline{\\mathrm{MD}}=2:1$이고, $\\overline{\\mathrm{AG}}:\\overline{\\mathrm{GD}}=2:1$이다.\n$\\overline{\\mathrm{MD}}=k$라 하면 $\\overline{\\mathrm{GM}}=2k$, $\\overline{\\mathrm{AG}}=6k$이다.\n직각삼각형 GBC에서 D는 빗변의 중점이므로 외심이다.\n$3k=9\\,\\mathrm{cm}$\n$k=3\\,\\mathrm{cm}$\n$\\overline{\\mathrm{AM}}=8k=24\\,\\mathrm{cm}$",
+      "topic": "",
+      "difficulty": ""
+    }
+  ]
+}

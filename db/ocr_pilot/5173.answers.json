@@ -1,0 +1,51 @@
+{
+  "exam_id": 5173,
+  "answer_pages": [7],
+  "items": [
+    {"number": 1, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 2, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 3, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 4, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 5, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 6, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 7, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 8, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 9, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 10, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 11, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 12, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 13, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 14, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 15, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 16, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 17, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {
+      "number": 18,
+      "answer": "$A=-5x+17$, $B=-9x+25$",
+      "solution": "$A+4(x-2)=-x+9$ 이므로\n$A=-x+9-4(x-2)=-x+9-4x+8=-5x+17$ 이다.\n바르게 계산한 식은\n$B=-5x+17-4(x-2)=-5x+17-4x+8=-9x+25$ 이므로\n$A=-5x+17$, $B=-9x+25$ 이다.",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 19,
+      "answer": "$\\mathrm{A}(18,~0)$, $\\mathrm{B}(0,~25)$",
+      "solution": "점 $\\mathrm{A}\\left(a-2,~\\frac{2}{5}a-8\\right)$은 $x$축 위의 점이므로 $y$좌표가 0이다.\n$\\frac{2}{5}a=0$, $2a-40=0$, $a=20$ 이므로 $\\mathrm{A}(18,~0)$이다.\n점 $\\mathrm{B}\\left(1-\\frac{b+7}{2},~b^{2}\\right)$은 $y$축 위의 점이므로 $x$좌표가 0이다.\n$1-\\frac{b+7}{2}=0$, $2-(b+7)=0$, $b=-5$ 이므로 $\\mathrm{B}(0,~25)$이다.\n따라서 $\\mathrm{A}(18,~0)$, $\\mathrm{B}(0,~25)$ 이다.",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 20,
+      "answer": "$a=-1$",
+      "solution": "$5-4(x-3)=29$, $5-4x+12=29$, $-4x=12$, $x=-3$ 이므로\n$3x-a=2(x+a)$의 해는 $x=-3$이다. 해를 대입하면\n$-9-a=2(-3+a)$, $-9-a=-6+2a$, $3a=-3$, $a=-1$이다.",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 21,
+      "answer": "오후 3시 35분",
+      "solution": "형이 이동한 시간을 $x$분이라 하면 동생이 이동한 시간은 $(x+20)$분이다. 형은 분속 70m의 속력으로 $x$분 움직였으므로 이동한 거리는 $70x\\mathrm{m}$이다.\n동생은 분속 30m의 속력으로 $(x+20)$분 움직였으므로 이동한 거리는 $30(x+20)\\mathrm{m}$이다.\n형과 동생이 만났으므로 이동한 거리는 같다.\n따라서 $70x=30(x+20)$, $70x=30x+600$, $x=15$ 이다.\n그러므로 형이 이동한 시간은 15분이고, 만나는 시간은 오후 3시 35분이다.",
+      "topic": "",
+      "difficulty": ""
+    }
+  ]
+}

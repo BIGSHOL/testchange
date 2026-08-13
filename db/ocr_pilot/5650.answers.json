@@ -1,0 +1,27 @@
+{
+  "exam_id": 5650,
+  "answer_pages": [5],
+  "items": [
+    {"number": 1, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 2, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 3, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 4, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 5, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 6, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 7, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 8, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 9, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 10, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 11, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 12, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 13, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 14, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 15, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 16, "answer": "$-3a+2b$", "solution": "$a<0<b$일 때 $\\sqrt{a^{2}}+\\sqrt{b^{2}}+\\sqrt{(2a-b)^{2}}=|a|+|b|+|2a-b|$\n$=-a+b-2a+b$\n$=-3a+2b$", "topic": "", "difficulty": ""},
+    {"number": 17, "answer": "$2\\sqrt{3}$", "solution": "$\\overline{\\mathrm{AC}}=\\sqrt{(2\\sqrt{13})^{2}-4^{2}}=\\sqrt{52-16}=6$\n$\\triangle \\mathrm{ABC}$의 넓이는 $\\frac{1}{2}\\times4\\times6=12$이고 넓이가 같은 정사각형의 한 변의 길이는 $\\sqrt{12}=2\\sqrt{3}$", "topic": "", "difficulty": ""},
+    {"number": 18, "answer": "$32+12\\sqrt{2}$", "solution": "① 둘레 : $8+4\\sqrt{2}+4\\sqrt{2}=8+8\\sqrt{2}$\n② 둘레 : $4\\times4=16$\n③ 둘레 : $4+4+4\\sqrt{2}=8+4\\sqrt{2}$\n둘레의 길이의 합은 $32+12\\sqrt{2}$", "topic": "", "difficulty": ""},
+    {"number": 19, "answer": "$39999$", "solution": "곱셈공식 $(a+b)(a-b)=a^{2}-b^{2}$를 이용하여 계산하면\n$199\\times201=(200-1)(200+1)=200^{2}-1^{2}=39999$", "topic": "", "difficulty": ""},
+    {"number": 20, "answer": "$(50-3)^{2}$", "solution": "곱셈공식 $(a-b)^{2}=a^{2}-2ab+b^{2}$를 이용하여 계산하면\n$2209=2500-300+9=(50-3)^{2}$, $2209$는 약수의 개수가 3개이므로 소수가 아니다.", "topic": "", "difficulty": ""},
+    {"number": 21, "answer": "$-\\frac{9}{2}a^{2}+12ab-6b^{2}$", "solution": "$\\overline{\\mathrm{EG}}=\\overline{\\mathrm{DC}}=2b$\n$\\overline{\\mathrm{BE}}=\\overline{\\mathrm{BC}}-\\overline{\\mathrm{EC}}=3a-2b$\n$\\overline{\\mathrm{BF}}=\\overline{\\mathrm{EG}}-\\overline{\\mathrm{HG}}=\\overline{\\mathrm{EG}}-\\overline{\\mathrm{BE}}=-3a+4b$\n$\\square \\mathrm{FBEG}=\\frac{1}{2}(-3a+6b)(3a-2b)$\n$=\\frac{1}{2}(-9a^{2}+24ab-12b^{2})$\n$=-\\frac{9}{2}a^{2}+12ab-6b^{2}$", "topic": "", "difficulty": ""}
+  ]
+}

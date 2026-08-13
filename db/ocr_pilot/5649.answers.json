@@ -1,0 +1,155 @@
+{
+ "exam_id": 5649,
+ "answer_pages": [
+  5
+ ],
+ "items": [
+  {
+   "number": 1,
+   "answer": "①",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 2,
+   "answer": "⑤",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 3,
+   "answer": "②",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 4,
+   "answer": "④",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 5,
+   "answer": "⑤",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 6,
+   "answer": "③",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 7,
+   "answer": "④",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 8,
+   "answer": "③",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 9,
+   "answer": "③",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 10,
+   "answer": "③",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 11,
+   "answer": "①",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 12,
+   "answer": "⑤",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 13,
+   "answer": "④",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 14,
+   "answer": "②",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 15,
+   "answer": "⑤",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 16,
+   "answer": "②",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 17,
+   "answer": "①",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 18,
+   "answer": "$a=-7$, $x=\\frac{-2\\pm\\sqrt{13}}{2}$",
+   "solution": "$x^{2}+2x-35=0$, $(x+7)(x-5)=0$ 에서 $a=-7$\n주어진 식에 $a=-7$을 대입하면\n$4x^{2}+8x-9=0$, $4x^{2}+8x=9$, $4(x^{2}+2x+1)=13$\n$(x+1)^{2}=\\frac{13}{4}$, $x+1=\\pm\\frac{\\sqrt{13}}{2}$\n$\\therefore x=\\frac{-2\\pm\\sqrt{13}}{2}$",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 19,
+   "answer": "$\\overline{\\mathrm{AD}}=10\\mathrm{cm}$",
+   "solution": "$\\triangle\\mathrm{ACB}$와 $\\triangle\\mathrm{DEC}$는 합동이므로 $\\triangle\\mathrm{BCE}$는 직각이등변삼각형이다.\n$\\overline{\\mathrm{BC}}=\\overline{\\mathrm{EC}}=a$라 두면 $\\frac{1}{2}a^{2}=26$이므로 $a=2\\sqrt{13}$\n$\\triangle\\mathrm{ACB}$에서 피타고라스의 정리에 의해서\n$(x+2)^{2}+x^{2}=52$, $x^{2}+2x-24=0$\n$(x+6)(x-4)=0$, $x=4$\n$\\therefore \\overline{\\mathrm{AD}}=2x+2=10\\mathrm{cm}$",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 20,
+   "answer": "$a=\\frac{1}{3}$, $b=2$, $c=-4$",
+   "solution": "꼭짓점의 좌표가 $(-3,~-7)$인 이차함수의 식은\n$y=a(x+3)^{2}-7$이고 이 그래프가 $y$축과 만나는 점의\n좌표가 $(0,~-4)$이므로 $-4=9a-7$, $a=\\frac{1}{3}$이다.\n주어진 그래프의 이차함수는\n$y=\\frac{1}{3}(x+3)^{2}-7=\\frac{1}{3}x^{2}+2x-4$ 이므로\n$\\therefore a=\\frac{1}{3}$, $b=2$, $c=-4$",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 21,
+   "answer": "$a=\\frac{5}{2}$, 꼭짓점의 좌표 $(5,~21)$, 축의 방정식 $x=5$",
+   "solution": "위로 볼록인 이차함수가 $x<5$이면 $x$의 값이 증가할 때 $y$의 값도 증가하고, $x>5$이면 $x$의 값이 증가할 때 $y$의 값은 감소하므로\n$y=-(x^{2}-4ax+4a^{2}-4a^{2})-2a+1=-(x-2a)^{2}+4a^{2}-2a+1$\n축의 방정식은 $x=2a=5$, $a=\\frac{5}{2}$\n$y=-x^{2}+10x-4=-(x-5)^{2}+21$ 이므로\n꼭짓점의 좌표는 $(5,~21)$이고 축의 방정식은 $x=5$이다.",
+   "topic": "",
+   "difficulty": ""
+  }
+ ]
+}
