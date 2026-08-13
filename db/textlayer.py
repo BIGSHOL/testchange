@@ -35,6 +35,11 @@ _SCORE = re.compile(r"\[\s*(?:총\s*)?(\d+(?:\.\d+)?)\s*점[^\]]*\]")
 _META = re.compile(r"\[(소단원|중단원|난이도)\]\s*([^\[\n]*)")
 
 
+# PDF 에 **유니코드 그대로** 실리는 수식 기호. PUA 가 아니라서 그냥 두면 수식 런이
+# 여기서 끊겨 `A={` / `∅` / `,{` 처럼 조각난다.
+MATH_UNI = set("∅∩∪⊂⊃⊆⊇∈∉≠≤≥×÷±∞√∠△□∽≡→←↔⇔⇒∑∏∫αβγδθπωΩ")
+
+
 def ispua(ch: str) -> bool:
     return 0xE000 <= ord(ch) <= 0xF8FF
 
@@ -61,7 +66,7 @@ def spans(doc) -> list[dict]:
                     for ch in sp.get("chars") or []:
                         c = ch["c"]
                         out.append({
-                            "page": pno, "c": c, "eq": ispua(c),
+                            "page": pno, "c": c, "eq": ispua(c) or c in MATH_UNI,
                             "x0": ch["bbox"][0], "y0": ch["bbox"][1],
                             "x1": ch["bbox"][2], "y1": ch["bbox"][3],
                             "size": sp.get("size", 0), "ly": ly, "blk": bi, "ln": li,
@@ -71,6 +76,81 @@ def spans(doc) -> list[dict]:
 
 def _col_of(s: dict, mid: float) -> int:
     return 0 if s["x0"] < mid else 1
+
+
+# --------------------------------------------------- 그림·박스(벡터/이미지) 검출
+def page_figures(page, pno: int) -> list[dict]:
+    """그림 = **임베드 이미지**. 단 1쪽 상단 전폭 배너는 학원 로고라 뺀다."""
+    W = page.rect.width
+    out = []
+    for im in page.get_images(full=True):
+        try:
+            rects = page.get_image_rects(im[0])
+        except Exception:
+            continue
+        for r in rects:
+            if pno == 0 and r.y0 < 110 and r.width > W * 0.6:
+                continue                      # 머리 배너(로고)
+            if r.width < 24 or r.height < 24:
+                continue                      # 장식용 작은 조각
+            out.append({"x0": r.x0, "y0": r.y0, "x1": r.x1, "y1": r.y1, "page": pno})
+    return out
+
+
+def page_boxes(page) -> list[tuple[float, float, float, float]]:
+    """테두리 박스 = 가로선 2 + 세로선 2. 쪽 테두리와 단 구분선은 뺀다.
+
+    라벨이 인쇄된 박스(`─<보기>─`)는 윗변이 라벨 자리에서 **끊겨 두 토막**으로
+    그려진다 → 같은 y 의 가로 조각을 먼저 이어 붙여야 박스로 인식된다.
+    """
+    W, H = page.rect.width, page.rect.height
+    hs, vs = [], []
+    for d in page.get_drawings():
+        for it in d["items"]:
+            if it[0] != "l":
+                continue
+            a, b = it[1], it[2]
+            if abs(a.y - b.y) < 1.2:
+                hs.append((round((a.y + b.y) / 2, 1), min(a.x, b.x), max(a.x, b.x)))
+            elif abs(a.x - b.x) < 1.2:
+                vs.append((round((a.x + b.x) / 2, 1), min(a.y, b.y), max(a.y, b.y)))
+    merged: dict[float, list[list[float]]] = {}
+    for y, x0, x1 in hs:
+        segs = merged.setdefault(y, [])
+        for s in segs:
+            if x0 <= s[1] + 12 and x1 >= s[0] - 12:      # 라벨 틈(≤12pt) 이어 붙임
+                s[0], s[1] = min(s[0], x0), max(s[1], x1)
+                break
+        else:
+            segs.append([x0, x1])
+
+    out = []
+    ys = sorted(merged)
+    for i, yt in enumerate(ys):
+        for yb in ys[i + 1:]:
+            if yb - yt < 14 or yb - yt > H * 0.75:
+                continue
+            for st in merged[yt]:
+                for sb in merged[yb]:
+                    x0, x1 = max(st[0], sb[0]), min(st[1], sb[1])
+                    if x1 - x0 < 40:
+                        continue
+                    if x1 - x0 > W * 0.92 and yb - yt > H * 0.7:
+                        continue                          # 쪽 테두리
+                    lv = any(abs(vx - x0) < 3 and vy0 <= yt + 3 and vy1 >= yb - 3
+                             for vx, vy0, vy1 in vs)
+                    rv = any(abs(vx - x1) < 3 and vy0 <= yt + 3 and vy1 >= yb - 3
+                             for vx, vy0, vy1 in vs)
+                    if lv and rv:
+                        out.append((x0, yt, x1, yb))
+    # 큰 박스가 작은 박스를 품으면 큰 것만(중첩 테두리 중복 제거)
+    out.sort(key=lambda r: (r[2] - r[0]) * (r[3] - r[1]), reverse=True)
+    keep: list[tuple] = []
+    for r in out:
+        if not any(k[0] - 2 <= r[0] and k[1] - 2 <= r[1]
+                   and k[2] + 2 >= r[2] and k[3] + 2 >= r[3] for k in keep):
+            keep.append(r)
+    return keep
 
 
 def read_order(sp: list[dict], page_w: float) -> list[dict]:
@@ -158,31 +238,111 @@ def _flush(run: list[dict], parts: list):
 
 
 def to_blocks(sp: list[dict]) -> list[dict]:
-    """글자열 → contents 블록(평문/수식 교대)."""
+    """글자열 → contents 블록(평문/수식 교대 + 그림·박스)."""
     parts: list[dict] = []
     run: list[dict] = []
     buf: list[str] = []
-    for s in sp:
+
+    def flush_text():
+        if buf:
+            t = "".join(buf).strip()
+            if t:
+                parts.append({"type": "text", "value": t})
+            buf.clear()
+
+    i = 0
+    while i < len(sp):
+        s = sp[i]
+        if s.get("fig"):
+            _flush(run, parts); flush_text()
+            f = s["fig"]
+            parts.append({"type": "figure", "value": "",
+                          "bbox": [round(f["x0"], 1), round(f["y0"], 1),
+                                   round(f["x1"], 1), round(f["y1"], 1)],
+                          "page": f["page"] + 1})
+            i += 1
+            continue
+        if s.get("bx") is not None:
+            # 박스는 통째로 모아 라벨 순으로 조립한다(중간에 쪼개면 순서가 깨진다)
+            bi = s["bx"]
+            j = i
+            grp = []
+            while j < len(sp) and sp[j].get("bx") == bi:
+                grp.append(sp[j]); j += 1
+            _flush(run, parts); flush_text()
+            body = box_text(grp)
+            if body:
+                # 인쇄된 `<보기>`/`<조건>` 라벨이 없으면 라벨 없는 박스 = `<상자>`
+                if not _PRINTED_BOX.search(body):
+                    body = "<상자> " + body
+                parts.append({"type": "text", "value": body})
+            i = j
+            continue
         if s["eq"]:
-            if buf:
-                t = "".join(buf).strip()
-                if t:
-                    parts.append({"type": "text", "value": t})
-                buf.clear()
+            flush_text()
+            run.append(s)
+        elif run and s["c"] == " ":
+            # 수식 사이에 낀 공백 한 칸은 수식의 일부로 본다(끊으면 조각난다)
             run.append(s)
         else:
-            # 수식 사이에 낀 공백 한 칸은 수식의 일부로 본다(끊으면 조각난다)
-            if run and s["c"] == " ":
-                run.append(s)
-                continue
             _flush(run, parts)
             buf.append(s["c"])
-    if buf:
-        t = "".join(buf).strip()
-        if t:
-            parts.append({"type": "text", "value": t})
+        i += 1
+    flush_text()
     _flush(run, parts)
-    return [p for p in parts if (p["value"] or "").strip()]
+    # 그림 블록은 value 가 비어 있는 게 정상이라 빈값 필터에서 지켜 준다
+    return [p for p in parts
+            if p["type"] == "figure" or (p.get("value") or "").strip()]
+
+
+# 항목 머리 = `(가)` `ㄱ.` `①` — 여는 괄호부터 통째로 잡아야 잘린 자리가 깨끗하다
+_ITEM_HEAD = re.compile(r"[(（]\s*([가-힣])\s*[)）]|(?:^|(?<=\s))([ㄱ-ㅎ])\s*\.|([①-⑩])")
+_LABEL_ORDER = {c: i for i, c in enumerate("가나다라마바사아자차카타파하")}
+_LABEL_ORDER.update({c: i for i, c in enumerate("ㄱㄴㄷㄹㅁㅂㅅㅇㅈㅊ")})
+_LABEL_ORDER.update({c: i for i, c in enumerate("①②③④⑤⑥⑦⑧⑨⑩")})
+_PRINTED_BOX = re.compile(r"<\s*(보기|조건)\s*>")
+
+
+def _head_label(m) -> str | None:
+    """_ITEM_HEAD 의 세 갈래(괄호한글·자모마침표·원문자) 중 잡힌 것을 돌려준다."""
+    return next((g for g in m.groups() if g), None)
+
+
+def box_text(chars: list[dict]) -> str:
+    """박스 안 내용을 우리 파서가 아는 꼴로 — 라벨 순 정렬 + `•` 구분.
+
+    박스 항목은 2~3열로 배치되곤 하는데, 지면을 읽는 순서(행 우선)와 라벨 순서가
+    어긋난다(작성자가 세로로 (가)(나)(다)를 먼저 채운다). 문항 본문이 라벨로
+    항목을 가리키므로 **라벨 순서가 의미상 옳다** — 그 순서로 되돌린다.
+    """
+    lines: dict[tuple, list[dict]] = {}
+    for c in chars:
+        lines.setdefault((c["blk"], c["ln"]), []).append(c)
+    segs: list[str] = []
+    for key in sorted(lines):
+        row = decode("".join(c["c"] for c in sorted(lines[key], key=lambda c: c["x0"])))
+        row = re.sub(r"\s+", " ", row).strip()
+        if not row:
+            continue
+        # 항목 라벨 위치에서 자른다. 글자 단위로 끊으면 여는 괄호가 떨어져 나가
+        # `( • 가)` 처럼 망가진다 — **줄 문자열에 정규식**을 걸어야 한다.
+        cuts = [m.start() for m in _ITEM_HEAD.finditer(row)]
+        if not cuts or cuts[0] != 0:
+            cuts = [0] + cuts
+        for a, b in zip(cuts, cuts[1:] + [len(row)]):
+            t = row[a:b].strip()
+            if t:
+                segs.append(t)
+    lab = []
+    for t in segs:
+        m = _ITEM_HEAD.match(t)
+        key = _LABEL_ORDER.get(_head_label(m)) if m else None
+        lab.append((key, t))
+    # 라벨 붙은 항목이 과반이면 라벨 순으로 재배열(열 우선 배치를 되돌린다)
+    if sum(1 for k, _ in lab if k is not None) >= max(2, len(segs) * 0.6):
+        known = sorted((x for x in lab if x[0] is not None), key=lambda x: x[0])
+        segs = [t for _, t in known] + [t for k, t in lab if k is None]
+    return " • ".join(segs)
 
 
 # ----------------------------------------------------------------- 문항 분해
@@ -190,8 +350,35 @@ def extract(pdf: pathlib.Path) -> dict:
     doc = fitz.open(pdf)
     sp = spans(doc)
     w = doc[0].rect.width
+    boxes, figs = [], []
+    for pno in range(doc.page_count):
+        page = doc[pno]
+        for b in page_boxes(page):
+            boxes.append((pno,) + tuple(b))
+        figs += page_figures(page, pno)
     doc.close()
+
+    # 글자에 박스 소속을 붙인다(박스 안 내용은 따로 조립한다)
+    for s in sp:
+        s["bx"] = None
+        cx, cy = (s["x0"] + s["x1"]) / 2, (s["y0"] + s["y1"]) / 2
+        for bi, (pno, x0, y0, x1, y1) in enumerate(boxes):
+            if s["page"] == pno and x0 <= cx <= x1 and y0 <= cy <= y1:
+                s["bx"] = bi
+                break
     sp = read_order(sp, w)
+    # 그림은 **바로 위 본문 다음**에 끼운다 — 같은 단에서 그림보다 위에 있는
+    # 마지막 글자를 찾아 그 뒤에 합성 스팬을 넣는다.
+    for f in figs:
+        best = -1
+        for i, s in enumerate(sp):
+            if s["page"] == f["page"] and s["y1"] <= f["y0"] + 2 \
+               and s["x1"] > f["x0"] - 30 and s["x0"] < f["x1"] + 30:
+                best = i
+        sp.insert(best + 1, {"c": "\x00", "eq": False, "page": f["page"],
+                             "x0": f["x0"], "y0": f["y0"], "x1": f["x1"], "y1": f["y1"],
+                             "size": 0, "ly": f["y0"], "blk": -1, "ln": -1,
+                             "bol": False, "bx": None, "fig": f})
     if not any(s["eq"] for s in sp):
         raise ValueError("수식 글리프가 없다 — 텍스트 레이어 없는 스캔본")
 
@@ -262,6 +449,10 @@ def _drop_marks(seg: list[dict]) -> list[dict]:
 def _clean(blocks: list[dict], num: int | None) -> list[dict]:
     out = []
     for b in blocks:
+        # 그림 블록은 value 가 비어 있는 게 정상 — 빈값 검사에 걸려 사라지면 안 된다
+        if b["type"] == "figure":
+            out.append(b)
+            continue
         v = decode(b["value"])
         if b["type"] == "text":
             v = _SCORE.sub("", v)
