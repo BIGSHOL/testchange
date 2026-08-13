@@ -40,7 +40,8 @@ FIGURE_TESTS = (
     "tests/test_figure_generator_quality.py",
     "tests/test_figure_svg_dimension.py",
 )
-EXPECTED_CORPUS_FIGURES = 42
+# 왕선중 2번은 원본에 인쇄 그림이 없다(2026-08-13 원본 확인) — 41 이 정상
+EXPECTED_CORPUS_FIGURES = 41
 
 
 def _compile_modules() -> None:

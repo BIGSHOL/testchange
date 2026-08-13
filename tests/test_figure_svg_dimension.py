@@ -52,17 +52,23 @@ def _local_name(element: ET.Element) -> str:
 
 
 class DimensionCurveGeometryTest(unittest.TestCase):
-    def test_curve_has_inset_ends_and_requested_midpoint_offset(self) -> None:
+    def test_curve_ends_touch_the_measured_points(self) -> None:
         fragment = meas(10, 20, 110, 20, off=12)
         path = ET.fromstring(fragment)
 
-        self.assertEqual(path.attrib["stroke-dasharray"], "4 3")
+        # 치수 점선 규격은 6 4 / 1.4px — 인쇄 가독성 때문에 상향했다(2026-08-13,
+        # 사용자 "시험지에 비해 선·글자가 너무 작다"). 각 표시 호(angle_mark)의
+        # 4 3 과는 별개 규격이다.
+        self.assertEqual(path.attrib["stroke-dasharray"], "6 4")
+        self.assertEqual(path.attrib["stroke-width"], "1.4")
         numbers = [float(token) for token in path.attrib["d"].split()[1::3]]
-        # The exact v1 path is M(13,23) Q(60,41) (107,23).  A quadratic
-        # Bezier with those controls reaches y=32 at t=.5: 12 px off y=20.
-        self.assertEqual(path.attrib["d"], "M 13.0 23.0 Q 60.0 41.0 107.0 23.0")
+        # 2026-08-13: 인셋 기본 0 — 양끝이 **잰 두 점(x=10, x=110)에 정확히** 닿는다.
+        # 예전 3px 인셋(13→107)은 긴 구간에선 안 보이지만 짧은 구간에서 19% 를
+        # 깎아 "길이 표현이 짧아 보인다"는 지적을 받았다.
+        self.assertEqual(path.attrib["d"], "M 10.0 21.5 Q 60.0 42.5 110.0 21.5")
         self.assertTrue(all(math.isfinite(value) for value in numbers))
-        midpoint_y = 0.25 * 23.0 + 0.5 * 41.0 + 0.25 * 23.0
+        # 2차 베지에가 t=.5 에서 닿는 높이는 여전히 y=32 (기준선 20 에서 off=12).
+        midpoint_y = 0.25 * 21.5 + 0.5 * 42.5 + 0.25 * 21.5
         self.assertAlmostEqual(midpoint_y, 32.0)
 
     def test_curve_and_label_share_the_same_normal_offset(self) -> None:
@@ -71,7 +77,7 @@ class DimensionCurveGeometryTest(unittest.TestCase):
         path = next(element for element in root if _local_name(element) == "path")
         label = next(element for element in root if _local_name(element) == "text")
 
-        self.assertEqual(path.attrib["d"], "M 13.0 17.0 Q 60.0 -1.0 107.0 17.0")
+        self.assertEqual(path.attrib["d"], "M 10.0 18.5 Q 60.0 -2.5 110.0 18.5")
         self.assertEqual(label.attrib["x"], "60.0")
         # Curve midpoint is y=8; text baseline adds the documented 0.35*fs.
         self.assertEqual(label.attrib["y"], "12.2")
@@ -116,10 +122,17 @@ class DimensionLabelTrustBoundaryTest(unittest.TestCase):
         safe_root = ET.fromstring(safe_result.sanitized_svg or "")
         self.assertEqual(len(safe_root.findall(".//{*}tspan")), 1)
 
-        injected = halo_text(70, 34, '<script onload="alert(1)">x</script>', fs=12)
+        # 1차 방어(2026-08-13 신설): halo_text 가 <tspan> 아닌 원시 요소를
+        # 애초에 거부한다. 예전에는 그대로 통과시키고 assess_svg 허용목록에만
+        # 기댔다 — 이제 발생 지점에서 막는다.
+        with self.assertRaises(ValueError):
+            halo_text(70, 34, '<script onload="alert(1)">x</script>', fs=12)
+
+        # 2차 방어는 그대로 유효해야 한다 — 다른 경로로 <script> 가 섞여 들어와도
+        # assess_svg 허용목록이 거부한다(1차 방어가 생겼다고 느슨해지면 안 된다).
         injected_result = assess_svg(
-            _svg('<line x1="5" y1="40" x2="135" y2="40" '
-                 f'stroke="#000"/>{injected}'),
+            _svg('<line x1="5" y1="40" x2="135" y2="40" stroke="#000"/>'
+                 '<text x="70" y="34"><script onload="alert(1)">x</script></text>'),
             run_pixel_lint=False,
         )
         self.assertFalse(injected_result.accepted)

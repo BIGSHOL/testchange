@@ -22,8 +22,7 @@
       "contents": [
         {"type": "text", "value": "원 O 위의 세 점 A, B, C에 대하여 현 AB가 반지름 OC의 수직이등분선이고 "},
         {"type": "equation", "value": "\\overline{AB} = 12"},
-        {"type": "text", "value": "일 때, 원 O의 반지름의 길이는?"},
-        {"type": "figure", "value": "원 O. 반지름 OC(아래 방향), 현 AB(수평, A 좌하·B 우하)가 OC를 수직이등분(교점에 직각 표시).", "bbox": [0.3, 0.55, 0.46, 0.66]}
+        {"type": "text", "value": "일 때, 원 O의 반지름의 길이는?"}
       ],
       "choices": [
         {"number": 1, "contents": [{"type": "equation", "value": "2\\sqrt{3}"}]},

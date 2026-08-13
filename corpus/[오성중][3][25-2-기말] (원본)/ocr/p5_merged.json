@@ -1,0 +1,174 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 3,
+   "score": 8,
+   "contents": [
+    {
+     "type": "text",
+     "value": "A, B 두 반 학생의 1학기 문화 체험 활동 시간의 평균은 18시간이다. A반 학생들의 1학기 문화 체험 활동 시간의 평균은 22시간이고, B반 학생들의 1학기 문화 체험 활동 시간의 평균은 16시간일 때, A반과 B반의 학생수의 비를 구하시오. (단, 가장 간단한 자연수의 비로 구하시오.)"
+    }
+   ],
+   "choices": [],
+   "answer": "$1:2$",
+   "solution": "step1) A반 학생수를 $a$명, B반 학생수를 $b$명이라 하면 전체 평균에서 $\\frac{22a+16b}{a+b} = 18$이다.\nstep2) $22a+16b = 18a+18b$이므로 $4a = 2b$, 즉 $b = 2a$이다.\nstep3) 따라서 $a : b = 1 : 2$이다.",
+   "topic": "대푯값과 산포도",
+   "difficulty": "상"
+  },
+  {
+   "number": 4,
+   "score": 6,
+   "contents": [
+    {
+     "type": "text",
+     "value": "6개 자료의 평균이 2, 중앙값이 3일 때, 이 자료의 최빈값을 "
+    },
+    {
+     "type": "equation",
+     "value": "c"
+    },
+    {
+     "type": "text",
+     "value": "라고 하자. 이때 "
+    },
+    {
+     "type": "equation",
+     "value": "a"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "b"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "c"
+    },
+    {
+     "type": "text",
+     "value": "의 값을 구하고 "
+    },
+    {
+     "type": "equation",
+     "value": "ab-c"
+    },
+    {
+     "type": "text",
+     "value": "의 값을 구하시오 (단, "
+    },
+    {
+     "type": "equation",
+     "value": "a < b"
+    },
+    {
+     "type": "text",
+     "value": "이고, "
+    },
+    {
+     "type": "equation",
+     "value": "a"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "b"
+    },
+    {
+     "type": "text",
+     "value": "는 자연수)"
+    },
+    {
+     "type": "text",
+     "value": "<상자> $-3$  $a$  $-3$  $4$  $b$  $7$"
+    }
+   ],
+   "choices": [],
+   "answer": "$13$",
+   "solution": "step1) 평균이 2이므로 $-3+a-3+4+b+7 = 12$에서 $a+b = 7$이다.\nstep2) $a<b$인 자연수이므로 $(a, b)$는 $(1, 6)$, $(2, 5)$, $(3, 4)$ 중 하나이다.\nstep3) $(1, 6)$이면 자료를 정렬하면 $-3, -3, 1, 4, 6, 7$로 중앙값이 $\\frac{1+4}{2} = 2.5$, $(3, 4)$이면 $-3, -3, 3, 4, 4, 7$로 중앙값이 $\\frac{3+4}{2} = 3.5$가 되어 조건에 맞지 않는다.\nstep4) $(2, 5)$이면 $-3, -3, 2, 4, 5, 7$로 중앙값이 $\\frac{2+4}{2} = 3$이 되어 성립한다. 즉 $a = 2$, $b = 5$이다.\nstep5) 자료에서 $-3$이 두 번 나타나므로 최빈값 $c = -3$이다.\nstep6) $ab-c = 2 \\times 5 - (-3) = 13$이다.",
+   "topic": "대푯값과 산포도",
+   "difficulty": "중"
+  },
+  {
+   "number": 5,
+   "score": 6,
+   "contents": [
+    {
+     "type": "text",
+     "value": "농장 A의 딸기 6개의 당도의 평균은 12, 분산은 "
+    },
+    {
+     "type": "equation",
+     "value": "\\frac{5}{3}"
+    },
+    {
+     "type": "text",
+     "value": "이고, 농장 B의 딸기 6개의 각각의 당도는 12, 10, 13, 10, "
+    },
+    {
+     "type": "equation",
+     "value": "a"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "a+3"
+    },
+    {
+     "type": "text",
+     "value": "이다. 농장 A의 딸기 6개의 당도의 평균과 농장 B의 딸기 6개의 당도의 평균이 같고 농장 B의 딸기 6개의 당도의 분산은 "
+    },
+    {
+     "type": "equation",
+     "value": "b"
+    },
+    {
+     "type": "text",
+     "value": "가 된다고 할 때, 두 상수 "
+    },
+    {
+     "type": "equation",
+     "value": "a"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "b"
+    },
+    {
+     "type": "text",
+     "value": "에 대하여 "
+    },
+    {
+     "type": "equation",
+     "value": "a+b"
+    },
+    {
+     "type": "text",
+     "value": "의 값을 구하시오."
+    }
+   ],
+   "choices": [],
+   "answer": "$15$",
+   "solution": "step1) 두 농장의 평균이 같으므로 농장 B의 평균도 12이다.\nstep2) $\\frac{12+10+13+10+a+(a+3)}{6} = 12$에서\n$48+2a = 72$이므로 $a = 12$이다.\nstep3) 농장 B의 당도는 12, 10, 13, 10, 12, 15가 되고\n편차는 $0, -2, 1, -2, 0, 3$이다.\nstep4) 분산 $b = \\frac{0+4+1+4+0+9}{6} = 3$이다.\nstep5) 따라서 $a+b = 12+3 = 15$이다.",
+   "topic": "대푯값과 산포도",
+   "difficulty": "중"
+  }
+ ]
+}

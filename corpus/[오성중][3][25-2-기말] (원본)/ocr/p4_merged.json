@@ -1,0 +1,293 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 15,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림은 어느 반 학생들의 쓰기 점수와 말하기 점수를 조사하여 나타낸 산점도이다. 옳지 __않은__ 것은?"
+    },
+    {
+     "type": "figure",
+     "value": "산점도. 가로축 말하기 점수(점) 0~10, 세로축 쓰기 점수(점) 0~10. 점 20개: (1,1), (3,2), (4,2), (5,2), (5,3), (3,4), (5,4), (7,4), (3,5), (6,5), (7,6), (8,6), (5,7), (9,7), (6,8), (7,8), (9,8), (7,9), (9,9), (10,10).",
+     "bbox": [
+      0.06,
+      0.03,
+      0.42,
+      0.22
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "text",
+       "value": "쓰기 점수가 7점 이상인 학생은 8명이다."
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "text",
+       "value": "쓰기 점수와 말하기 점수가 같은 학생은 3명이다."
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "text",
+       "value": "말하기 점수가 6점 미만인 학생은 전체의 45%이다."
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "text",
+       "value": "쓰기 점수와 말하기 점수가 모두 6점 이상인 학생은 9명이다."
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "text",
+       "value": "말하기 점수가 3점 이상이고 쓰기 점수가 5점 미만인 학생은 전체의 25%이다."
+      }
+     ]
+    }
+   ],
+   "answer": "⑤",
+   "solution": "step1) 전체 학생은 20명이다.\nstep2) ① 쓰기 점수가 7점 이상인 학생은 8명이다 (옳음).\nstep3) ② 두 점수가 같은 학생은 (1,1), (9,9), (10,10)의 3명이다 (옳음).\nstep4) ③ 말하기 점수가 6점 미만인 학생은 9명으로 전체의 45%이다 (옳음).\nstep5) ④ 두 점수가 모두 6점 이상인 학생은 9명이다 (옳음).\nstep6) ⑤ 말하기 점수가 3점 이상이고 쓰기 점수가 5점 미만인 학생은 7명으로 전체의 35%이다 (틀림). 따라서 답은 ⑤이다.",
+   "topic": "상관관계",
+   "difficulty": "중"
+  },
+  {
+   "number": 16,
+   "score": 3,
+   "contents": [
+    {
+     "type": "text",
+     "value": "<보기>의 산점도에 대한 설명으로 옳은 것은?"
+    },
+    {
+     "type": "figure",
+     "value": "<보기> 박스 안 산점도 7개(ㄱ~ㅅ). ㄱ: 오른쪽 위로 좁게 모인 강한 양의 상관. ㄴ: 오른쪽 위로 넓게 퍼진 약한 양의 상관. ㄷ: 오른쪽 아래로 좁게 모인 강한 음의 상관. ㄹ: 오른쪽 아래로 넓게 퍼진 약한 음의 상관. ㅁ: 둥글게 흩어져 상관없음. ㅂ: 가로로 넓게 퍼짐(x 변화에 y 일정). ㅅ: 세로로 길게 퍼짐(y 변화에 x 일정).",
+     "bbox": [
+      0.06,
+      0.43,
+      0.47,
+      0.65
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄷ이 ㄹ보다 더 강한 상관관계를 나타낸다."
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "text",
+       "value": "상관관계가 없는 경우의 산점도는 ㅂ, ㅅ이다."
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "text",
+       "value": "음의 상관관계를 나타내는 산점도는 ㄱ, ㄴ이다."
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "text",
+       "value": "양의 상관관계를 나타내는 산점도는 ㄷ, ㄹ이다."
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "text",
+       "value": "$y$의 값의 변화에도 $x$의 값은 대체로 일정함을 보여주는 산점도는 ㅂ이다."
+      }
+     ]
+    }
+   ],
+   "answer": "①",
+   "solution": "step1) ㄱ, ㄴ은 양의 상관관계이고 ㄷ, ㄹ은 음의 상관관계이다.\nstep2) 점이 좁게 모일수록 강한 상관관계이다.\nstep3) ① ㄷ이 ㄹ보다 좁게 모여 있으므로 더 강하다 (옳음).\nstep4) ② 상관관계가 없는 산점도는 ㅁ, ㅂ, ㅅ이다 (틀림).\nstep5) ③, ④는 양·음이 서로 바뀌었다 (틀림).\nstep6) ⑤ 세로로 퍼진 ㅅ의 설명이다 (틀림). 따라서 답은 ①이다.",
+   "topic": "상관관계",
+   "difficulty": "하"
+  },
+  {
+   "number": 1,
+   "score": 7,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림과 같이 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{BC}"
+    },
+    {
+     "type": "text",
+     "value": "는 반 원 O의 지름이고, "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AB}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AD}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{DC}"
+    },
+    {
+     "type": "text",
+     "value": "는 반 원 O의 접선이고, 점 B, P, C는 접점이다. "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AD} = 10cm"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{DC} = 8cm"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\square ABCD"
+    },
+    {
+     "type": "text",
+     "value": "의 넓이를 구하시오"
+    },
+    {
+     "type": "figure",
+     "value": "반원 O(지름 BC 가 아래 가로). B(좌하)·C(우하). B 위에 A, C 위로 길게 D(우상). AB(왼쪽 세로)·DC(오른쪽 세로, 8cm)는 반원의 접선, AD(빗변, 10cm)도 접선이며 접점 P. 사다리꼴 ABCD.",
+     "bbox": [
+      0.55,
+      0.09,
+      0.95,
+      0.28
+     ]
+    }
+   ],
+   "choices": [],
+   "answer": "$40\\,\\mathrm{cm}^2$",
+   "solution": "step1) A에서 그은 두 접선에서 $\\overline{AP} = \\overline{AB}$, D에서 그은 두 접선에서 $\\overline{DP} = \\overline{DC} = 8cm$이다.\nstep2) $\\overline{AD} = \\overline{AP} + \\overline{DP} = 10cm$이므로 $\\overline{AB} = \\overline{AP} = 10-8 = 2(cm)$이다.\nstep3) A에서 $\\overline{DC}$에 수선을 내리면 직각삼각형에서 $\\overline{BC} = \\sqrt{10^2 - (8-2)^2} = \\sqrt{64} = 8(cm)$이다.\nstep4) $\\square ABCD$는 $\\overline{AB} \\parallel \\overline{DC}$인 사다리꼴이므로 넓이는 $\\frac{1}{2} \\times (2+8) \\times 8 = 40(cm^2)$이다.",
+   "topic": "원과 직선",
+   "difficulty": "상"
+  },
+  {
+   "number": 2,
+   "score": 8,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림과 같이 반지름의 길이가 "
+    },
+    {
+     "type": "equation",
+     "value": "18cm"
+    },
+    {
+     "type": "text",
+     "value": "인 원에서 두 현 AB, CD의 연장선의 교점을 P라 하자. "
+    },
+    {
+     "type": "equation",
+     "value": "\\widehat{AB} = 9\\pi cm"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\widehat{CD} = 13\\pi cm"
+    },
+    {
+     "type": "text",
+     "value": "이고 "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle APC = 60^\\circ"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\widehat{AC}"
+    },
+    {
+     "type": "text",
+     "value": " 의 길이를 구하시오."
+    },
+    {
+     "type": "figure",
+     "value": "원(반지름 18cm). 위쪽에 A, 우측에 B, 아래 왼쪽에 C, 우측에 D. 현 AB 연장선과 현 CD 연장선이 원 밖 오른쪽 P에서 만나고 60° 표시. 호 AB=9π cm(우상), 호 CD=13π cm(아래).",
+     "bbox": [
+      0.55,
+      0.55,
+      0.95,
+      0.8
+     ]
+    }
+   ],
+   "choices": [],
+   "answer": "$13\\pi\\,\\mathrm{cm}$",
+   "solution": "step1) 원주는 $2\\pi \\times 18 = 36\\pi (cm)$이다.\nstep2) $\\widehat{AB} = 9\\pi cm$의 중심각은 $\\frac{9\\pi}{36\\pi} \\times 360^\\circ = 90^\\circ$, $\\widehat{CD} = 13\\pi cm$의 중심각은 $\\frac{13\\pi}{36\\pi} \\times 360^\\circ = 130^\\circ$이다.\nstep3) 원 밖의 각의 성질에서 $60^\\circ = \\frac{1}{2}(\\widehat{AC} - \\widehat{BD})$ (중심각 기준)이므로 $\\widehat{AC} - \\widehat{BD} = 120^\\circ$이다.\nstep4) $\\widehat{AC} + \\widehat{BD} = 360^\\circ - 90^\\circ - 130^\\circ = 140^\\circ$이므로 $\\widehat{AC} = 130^\\circ$, $\\widehat{BD} = 10^\\circ$이다.\nstep5) $\\widehat{AC}$의 길이는 $\\frac{130}{360} \\times 36\\pi = 13\\pi (cm)$이다.",
+   "topic": "원주각",
+   "difficulty": "상"
+  }
+ ]
+}

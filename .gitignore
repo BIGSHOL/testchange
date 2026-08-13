@@ -34,12 +34,14 @@ config.json
 #   *.db    = SQLite (ingest.py + merge_answers.py 로 JSON 에서 재구축)
 #   export/ = Supabase 업로드용 (export_supabase.py 로 재생성)
 # ⭐ db/ocr_pilot/*.json 은 **판독 결과 원본**이라 반드시 추적한다(재생성 불가).
+# ⭐ db/n_inventory.tsv 도 추적한다 — exam id 는 build_index.py 가 이 목록을
+#    정렬해 매기므로, 스캔 시점·PC 가 다르면 id 가 통째로 밀려 기존 판독 JSON 이
+#    엉뚱한 시험지에 붙는다. **id 를 재현하는 앵커**라서 산출물로 남긴다.
 /db/pages/
 /db/export/
 /db/*.db
 /db/*.db-wal
 /db/*.db-shm
-/db/n_inventory.tsv
 
 # 자가발전 corpus — OCR JSON·crops.json·meta.json 은 추적(재현 비용 큼),
 # 페이지/크롭 PNG 는 용량 때문에 제외(원본 PDF·bbox 에서 재생성 가능)

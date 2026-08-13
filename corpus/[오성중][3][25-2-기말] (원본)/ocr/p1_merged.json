@@ -1,0 +1,117 @@
+{
+ "header": "2025학년도 오성중학교 2학기 기말고사 문제지 중3 수학",
+ "questions": [
+  {
+   "number": 1,
+   "score": 3,
+   "contents": [
+    {"type": "text", "value": "그림과 같이 지름의 길이가 "},
+    {"type": "equation", "value": "30cm"},
+    {"type": "text", "value": "인 원 O에서 "},
+    {"type": "equation", "value": "\\overline{AB} = \\overline{CD} = 24cm"},
+    {"type": "text", "value": ", "},
+    {"type": "equation", "value": "\\overline{AB} \\parallel \\overline{CD}"},
+    {"type": "text", "value": "일 때, 두 현 AB, CD사이의 거리는?"},
+    {"type": "figure", "value": "원 O. 지름 30cm. 평행한 두 현 AB(위쪽)·CD(아래쪽), 각 24cm. 현 AB 는 A(좌상)~B(우측), 현 CD 는 C(좌측)~D(하단).", "bbox": [0.13, 0.105, 0.42, 0.185]}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "15cm"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "16cm"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "17cm"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "18cm"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "19cm"}]}
+   ],
+   "answer": "④",
+   "solution": "step1) 반지름은 $15cm$, 현의 길이가 $24cm$이므로 현의 절반은 $12cm$이다.\nstep2) 중심 O에서 현에 내린 수선의 길이는 $\\sqrt{15^2-12^2} = \\sqrt{81} = 9(cm)$이다.\nstep3) 두 현은 평행하고 그림에서 중심의 양쪽에 있으므로 두 현 사이의 거리는 $9+9=18(cm)$이다.",
+   "topic": "원과 직선",
+   "difficulty": "하"
+  },
+  {
+   "number": 2,
+   "score": 5,
+   "contents": [
+    {"type": "text", "value": "그림에서 두 점 P, Q는 점 A에서 원 O에 그은 두 접선의 접점이고, 점 B와 점 C는 각각 "},
+    {"type": "equation", "value": "\\overline{AP}"},
+    {"type": "text", "value": ", "},
+    {"type": "equation", "value": "\\overline{AQ}"},
+    {"type": "text", "value": " 위의 점이다. "},
+    {"type": "equation", "value": "\\overline{AO}"},
+    {"type": "text", "value": "와 "},
+    {"type": "equation", "value": "\\overline{BC}"},
+    {"type": "text", "value": "의 교점 D는 "},
+    {"type": "equation", "value": "\\overline{BC}"},
+    {"type": "text", "value": "와 원 O의 접점이다. "},
+    {"type": "equation", "value": "\\overline{AB} = 17cm"},
+    {"type": "text", "value": ", "},
+    {"type": "equation", "value": "\\overline{BP} = 15cm"},
+    {"type": "text", "value": "일 때, 원 O의 반지름의 길이는?"},
+    {"type": "figure", "value": "원 O(중심 좌측). 점 A(우측 밖)에서 그은 두 접선의 접점 P(위)·Q(아래). AP 위의 점 B, AQ 위의 점 C. AO 와 BC 의 교점 D 는 BC 와 원의 접점. P 옆 15cm, B~A 17cm 표시.", "bbox": [0.06, 0.60, 0.47, 0.85]}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "52cm"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "54cm"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "56cm"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "58cm"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "60cm"}]}
+   ],
+   "answer": "⑤",
+   "solution": "step1) B는 $\\overline{AP}$ 위의 점이므로 $\\overline{AP} = \\overline{AB} + \\overline{BP} = 17+15 = 32(cm)$이다.\nstep2) 점 B에서 원에 그은 두 접선의 접점이 P, D이므로 $\\overline{BD} = \\overline{BP} = 15cm$이다.\nstep3) D는 접점이므로 $\\overline{OD} \\perp \\overline{BC}$이고 D가 $\\overline{AO}$ 위에 있으므로 $\\triangle ABD$는 직각삼각형이다. $\\overline{AD} = \\sqrt{17^2-15^2} = \\sqrt{64} = 8(cm)$\nstep4) 반지름을 $r$라 하면 $\\overline{AO} = 8+r$이고, 직각삼각형 APO에서 $32^2 + r^2 = (8+r)^2$\nstep5) $1024 = 16r + 64$이므로 $r = 60(cm)$이다.",
+   "topic": "원과 직선",
+   "difficulty": "상"
+  },
+  {
+   "number": 3,
+   "score": 5,
+   "contents": [
+    {"type": "text", "value": "그림과 같이 원 O에 외접하고 "},
+    {"type": "equation", "value": "\\overline{AD} \\parallel \\overline{BC}"},
+    {"type": "text", "value": "이고 "},
+    {"type": "equation", "value": "\\angle B = \\angle C"},
+    {"type": "text", "value": "인 "},
+    {"type": "equation", "value": "\\square ABCD"},
+    {"type": "text", "value": "에서 "},
+    {"type": "equation", "value": "\\overline{AD} = 5cm"},
+    {"type": "text", "value": ", "},
+    {"type": "equation", "value": "\\overline{BC} = 20cm"},
+    {"type": "text", "value": "이다. 이때 원 O의 지름의 길이는?"},
+    {"type": "figure", "value": "원 O에 외접하는 등변사다리꼴 ABCD. 윗변 AD=5cm(위), 아랫변 BC=20cm(아래). 원이 네 변에 내접.", "bbox": [0.55, 0.115, 0.95, 0.20]}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "9cm"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "10cm"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "11cm"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "12cm"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "13cm"}]}
+   ],
+   "answer": "②",
+   "solution": "step1) 원에 외접하는 사각형의 성질에서 $\\overline{AB} + \\overline{CD} = \\overline{AD} + \\overline{BC} = 5+20 = 25(cm)$\nstep2) $\\angle B = \\angle C$인 등변사다리꼴이므로 $\\overline{AB} = \\overline{CD} = \\frac{25}{2}(cm)$이다.\nstep3) A에서 $\\overline{BC}$에 수선을 내리면 밑변은 $\\frac{20-5}{2} = \\frac{15}{2}(cm)$이므로 높이는 $\\sqrt{(\\frac{25}{2})^2 - (\\frac{15}{2})^2} = \\sqrt{100} = 10(cm)$\nstep4) 사다리꼴의 높이가 내접원의 지름이므로 지름은 $10cm$이다.",
+   "topic": "원과 직선",
+   "difficulty": "상"
+  },
+  {
+   "number": 4,
+   "score": 3,
+   "contents": [
+    {"type": "text", "value": "그림과 같이 원 O에서 "},
+    {"type": "equation", "value": "\\overline{AB}"},
+    {"type": "text", "value": "는 원 O의 지름이고 "},
+    {"type": "equation", "value": "\\angle APQ = 54^\\circ"},
+    {"type": "text", "value": "일 때, "},
+    {"type": "equation", "value": "\\angle QRB"},
+    {"type": "text", "value": "의 크기는?"},
+    {"type": "figure", "value": "원 O. 지름 AB(가로). 원 위의 점 P(좌상)·R(우상)·Q(하단). P에서 54° 표시. 현 PQ·PB, 현 RQ·RB.", "bbox": [0.55, 0.55, 0.92, 0.78]}
+   ],
+   "choices": [
+    {"number": 1, "contents": [{"type": "equation", "value": "36^\\circ"}]},
+    {"number": 2, "contents": [{"type": "equation", "value": "37^\\circ"}]},
+    {"number": 3, "contents": [{"type": "equation", "value": "38^\\circ"}]},
+    {"number": 4, "contents": [{"type": "equation", "value": "39^\\circ"}]},
+    {"number": 5, "contents": [{"type": "equation", "value": "40^\\circ"}]}
+   ],
+   "answer": "①",
+   "solution": "step1) $\\overline{AB}$는 지름이므로 반원에 대한 원주각 $\\angle APB = 90^\\circ$이다.\nstep2) $\\angle QPB = 90^\\circ - 54^\\circ = 36^\\circ$\nstep3) $\\angle QPB$와 $\\angle QRB$는 같은 호 QB에 대한 원주각이므로 $\\angle QRB = 36^\\circ$이다.",
+   "topic": "원주각",
+   "difficulty": "하"
+  }
+ ]
+}

@@ -1,0 +1,553 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 9,
+   "score": 5,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림과 같이 "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle ABC"
+    },
+    {
+     "type": "text",
+     "value": "가 원에 내접하고 있다. "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{BC}"
+    },
+    {
+     "type": "text",
+     "value": "의 연장선과 점 A에서의 접선의 교점을 P라 하고 "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle APB"
+    },
+    {
+     "type": "text",
+     "value": "의 이등분선과 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AC}"
+    },
+    {
+     "type": "text",
+     "value": "의 교점을 Q라 하자. "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle BAC = 56^\\circ"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle AQP"
+    },
+    {
+     "type": "text",
+     "value": "의 크기는?"
+    },
+    {
+     "type": "figure",
+     "value": "원에 내접하는 삼각형 ABC(A 위, B 아래 중앙, C 우측). BC 연장선과 A에서의 접선이 원 밖 왼쪽 점 P에서 만난다. ∠APB의 이등분선이 AC와 Q(원 안 우상)에서 만남. A에 56° 표시.",
+     "bbox": [
+      0.06,
+      0.1,
+      0.47,
+      0.3
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "62^\\circ"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "63^\\circ"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "64^\\circ"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "65^\\circ"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "66^\\circ"
+      }
+     ]
+    }
+   ],
+   "answer": "①",
+   "solution": "step1) $\\angle ACB = \\gamma$라 하면 접선과 현이 이루는 각에서 $\\angle PAB = \\angle ACB = \\gamma$이다.\nstep2) $\\triangle APC$에서 $\\angle PAC = \\gamma + 56^\\circ$, $\\angle ACP = \\gamma$이므로 $\\angle APC = 180^\\circ - (\\gamma + 56^\\circ) - \\gamma = 124^\\circ - 2\\gamma$이다.\nstep3) PQ는 $\\angle APC$의 이등분선이므로 $\\angle APQ = 62^\\circ - \\gamma$이다.\nstep4) $\\triangle AQP$에서 $\\angle AQP = 180^\\circ - (\\gamma + 56^\\circ) - (62^\\circ - \\gamma) = 62^\\circ$이다.",
+   "topic": "원주각",
+   "difficulty": "상"
+  },
+  {
+   "number": 10,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "학생 10명이 일주일 동안 핸드폰 게임을 하는 시간을 조사하여 나타낸 것이다. 이 자료의 최빈값은 한 개이고 최빈값과 중앙값이 같을 때, "
+    },
+    {
+     "type": "equation",
+     "value": "x"
+    },
+    {
+     "type": "text",
+     "value": "의 값은?"
+    },
+    {
+     "type": "text",
+     "value": "(단위: 시간)"
+    },
+    {
+     "type": "text",
+     "value": "<상자> $4$  $5$  $5$  $6$  $7$  $7$  $8$  $8$  $9$  $x$"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "6"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "7"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "8"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "9"
+      }
+     ]
+    }
+   ],
+   "answer": "③",
+   "solution": "step1) $x=5$이면 최빈값은 5이지만 중앙값은 $\\frac{6+7}{2} = 6.5$가 되어 다르다.\nstep2) $x=8$이면 최빈값은 8이지만 중앙값은 7이 되어 다르다.\nstep3) $x=7$이면 자료는 4, 5, 5, 6, 7, 7, 7, 8, 8, 9가 되어 최빈값은 7 하나이고 중앙값도 $\\frac{7+7}{2} = 7$로 같다.\nstep4) 따라서 $x = 7$이다.",
+   "topic": "대푯값과 산포도",
+   "difficulty": "중"
+  },
+  {
+   "number": 11,
+   "score": 3,
+   "contents": [
+    {
+     "type": "text",
+     "value": "어떤 양궁선수가 6회에 걸쳐 받은 양궁 점수의 편차를 조사하여 나타낸 표이다. 양궁 점수의 평균이 7점일 때, 4회에 받은 양궁 점수 "
+    },
+    {
+     "type": "equation",
+     "value": "x"
+    },
+    {
+     "type": "text",
+     "value": "의 값은?"
+    },
+    {
+     "type": "table",
+     "value": "",
+     "rows": [
+      [
+       "회",
+       "1",
+       "2",
+       "3",
+       "4",
+       "5",
+       "6"
+      ],
+      [
+       "편차(점)",
+       "-3",
+       "2",
+       "-2",
+       "x",
+       "-1",
+       "2"
+      ]
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "text",
+       "value": "$5$점"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "text",
+       "value": "$6$점"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "text",
+       "value": "$7$점"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "text",
+       "value": "$8$점"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "text",
+       "value": "$9$점"
+      }
+     ]
+    }
+   ],
+   "answer": "⑤",
+   "solution": "step1) 편차의 합은 항상 0이므로 $-3+2-2+(4회 편차)-1+2 = 0$에서 4회의 편차는 $2$이다.\nstep2) 점수 = 평균 + 편차이므로 4회에 받은 양궁 점수는 $7+2 = 9$(점)이다.",
+   "topic": "대푯값과 산포도",
+   "difficulty": "하"
+  },
+  {
+   "number": 12,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "산포도에 대한 설명으로 옳은 것은 <보기>에서 모두 몇 개인가?"
+    },
+    {
+     "type": "text",
+     "value": "<보기> ㄱ. 분산은 0이 될 수 없다. • ㄴ. 편차의 평균은 항상 0이다. • ㄷ. 자료의 분산은 표준편차보다 항상 크다. • ㄹ. 서로 다른 두 집단의 자료에서 분산이 같으면 평균도 같다. • ㅁ. 편차의 절댓값이 클수록 그 변량은 평균에 가까이 있다."
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "text",
+       "value": "$1$개"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "text",
+       "value": "$2$개"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "text",
+       "value": "$3$개"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "text",
+       "value": "$4$개"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "text",
+       "value": "$5$개"
+      }
+     ]
+    }
+   ],
+   "answer": "①",
+   "solution": "step1) ㄱ: 모든 변량이 같으면 분산은 0이 될 수 있다 (틀림).\nstep2) ㄴ: 편차의 합이 0이므로 편차의 평균은 항상 0이다 (옳음).\nstep3) ㄷ: 분산이 $\\frac{1}{4}$이면 표준편차는 $\\frac{1}{2}$이다.\n즉 분산이 1보다 작으면 표준편차보다 작다 (틀림).\nstep4) ㄹ: 분산이 같아도 평균은 다를 수 있다 (틀림).\nstep5) ㅁ: 편차의 절댓값이 클수록 평균에서 멀리 있다 (틀림).\nstep6) 따라서 옳은 것은 ㄴ의 1개이다.",
+   "topic": "대푯값과 산포도",
+   "difficulty": "중"
+  },
+  {
+   "number": 13,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "세 변량 "
+    },
+    {
+     "type": "equation",
+     "value": "a"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "b"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "c"
+    },
+    {
+     "type": "text",
+     "value": "의 평균이 3, 분산이 6일 때, 세 변량 "
+    },
+    {
+     "type": "equation",
+     "value": "3a-2"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "3b-2"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "3c-2"
+    },
+    {
+     "type": "text",
+     "value": "의 분산은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "53"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "54"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "55"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "56"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "57"
+      }
+     ]
+    }
+   ],
+   "answer": "②",
+   "solution": "step1) 변량에 3을 곱하고 2를 빼면 편차는 3배가 되고, 분산은 $3^2 = 9$배가 된다.\nstep2) 따라서 구하는 분산은 $9 \\times 6 = 54$이다.",
+   "topic": "대푯값과 산포도",
+   "difficulty": "중"
+  },
+  {
+   "number": 14,
+   "score": 5,
+   "contents": [
+    {
+     "type": "text",
+     "value": "A, B 두 반의 윗몸 일으키기 횟수의 평균과 분산을 나타낸 것이다. B반에 윗몸 일으키기 횟수가 20회인 학생이 4명 추가되어 25명이 된다면 두 반 전체 학생의 윗몸 일으키기 횟수의 분산은?"
+    },
+    {
+     "type": "table",
+     "value": "",
+     "rows": [
+      [
+       "",
+       "학생수(명)",
+       "평균(회)",
+       "분산"
+      ],
+      [
+       "A반",
+       "25",
+       "20",
+       "80"
+      ],
+      [
+       "B반",
+       "21",
+       "20",
+       "65"
+      ]
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "65.1"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "67.3"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "68.5"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "71.3"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "72.5"
+      }
+     ]
+    }
+   ],
+   "answer": "②",
+   "solution": "step1) A반의 (편차)$^2$의 총합은 $25 \\times 80 = 2000$이다.\nstep2) B반의 기존 (편차)$^2$의 총합은 $21 \\times 65 = 1365$이고, 추가된 4명은 횟수가 평균 20회와 같아 편차가 0이므로 총합은 그대로 1365이다.\nstep3) 두 반 전체 평균은 모두 20회로 같고 전체 학생수는 $25+25 = 50$(명)이다.\nstep4) 전체 분산은 $\\frac{2000+1365}{50} = \\frac{3365}{50} = 67.3$이다.",
+   "topic": "대푯값과 산포도",
+   "difficulty": "상"
+  }
+ ]
+}
