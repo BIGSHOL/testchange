@@ -1,0 +1,174 @@
+{
+ "exam_id": 4359,
+ "pass": "A",
+ "items": [
+  {
+   "number": 1,
+   "answer": "④",
+   "solution": "step1) $144$을 소인수분해하면 $144=2^{4}\\times3^{2}$이다.\nstep2) 약수의 개수는 $(4+1)(2+1)=15$이다.\nstep3) 따라서 답은 $15$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 2,
+   "answer": "①",
+   "solution": "step1) 대응하는 성분끼리 비교한다.\nstep2) $(1,1)$성분: $a+1=4$이므로 $a=3$이다.\nstep3) $(1,2)$성분: $-2+1=c$이므로 $c=-1$이다.\nstep4) $(2,1)$성분: $1+(-1)=d$이므로 $d=0$이다.\nstep5) $(2,2)$성분: $2+b=0$이므로 $b=-2$이다.\nstep6) $a+b+c+d=3+(-2)+(-1)+0=0$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 3,
+   "answer": "③",
+   "solution": "step1) $x-2\\leq 2x+1$에서 $-3\\leq x$이다.\nstep2) $5x+1\\leq 3x+5$에서 $2x\\leq 4$, 즉 $x\\leq 2$이다.\nstep3) 공통범위는 $-3\\leq x\\leq 2$이다.\nstep4) 정수 $x$는 $-3,-2,-1,0,1,2$이고 그 합은 $-3$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 4,
+   "answer": "⑤",
+   "solution": "step1) $a_{12}=1+2\\times2-3=2$이다.\nstep2) $a_{22}=2+2\\times2-3=3$이다.\nstep3) $a_{12}+a_{22}=2+3=5$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 5,
+   "answer": "④",
+   "solution": "step1) $E$가 단위행렬이므로 $BE=B$이다.\nstep2) $A+B=\\begin{pmatrix}2&1\\\\4&1\\end{pmatrix}$이다.\nstep3) $A(A+B)=\\begin{pmatrix}1&-2\\\\0&3\\end{pmatrix}\\begin{pmatrix}2&1\\\\4&1\\end{pmatrix}=\\begin{pmatrix}-6&-1\\\\12&3\\end{pmatrix}$이다.\nstep4) 모든 성분의 합은 $-6-1+12+3=8$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 6,
+   "answer": "②",
+   "solution": "step1) 수빈이와 신영이를 한 묶음으로 보면 $5$개를 일렬로 나열하는 경우의 수는 $5!=120$이다.\nstep2) 묶음 안에서 두 사람이 자리를 바꾸는 경우의 수는 $2!=2$이다.\nstep3) 구하는 경우의 수는 $120\\times2=240$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 7,
+   "answer": "②",
+   "solution": "step1) 행렬 $A$의 행은 문구점(P, Q), 열은 품목(샤프, 볼펜)이다.\nstep2) 행렬 $B$의 행은 품목(샤프, 볼펜), 열은 사람(준수, 유민)이다.\nstep3) 따라서 $AB$의 $(i,j)$성분은 문구점 $i$에서 사람 $j$가 지불하는 금액이다.\nstep4) 준수는 $1$열, 문구점 Q는 $2$행이므로 $AB$의 $(2,1)$성분이다.\nstep5) 실제로 $1500\\times6+650\\times4=11600$(원)이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 8,
+   "answer": "③",
+   "solution": "step1) $3x^{2}-8xy+5y^{2}=(3x-5y)(x-y)=0$이므로 $x=y$ 또는 $3x=5y$이다.\nstep2) $x=y$일 때 $2x^{2}-3x^{2}+3x^{2}=2x^{2}=8$이므로 $x=\\pm2$이고 $2x+y=3x=\\pm6$이다.\nstep3) $x=\\frac{5}{3}y$일 때 $\\frac{50}{9}y^{2}-5y^{2}+3y^{2}=\\frac{32}{9}y^{2}=8$이므로 $y^{2}=\\frac{9}{4}$, $y=\\pm\\frac{3}{2}$이다.\nstep4) 이때 $x=\\pm\\frac{5}{2}$이므로 $2x+y=\\pm\\left(5+\\frac{3}{2}\\right)=\\pm\\frac{13}{2}$이다.\nstep5) 최댓값은 $\\frac{13}{2}$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 9,
+   "answer": "⑤",
+   "solution": "step1) $f(x)=x^{4}-2x^{3}-x^{2}+8x-12$라 하면 $f(2)=16-16-4+16-12=0$, $f(-2)=16+16-4-16-12=0$이다.\nstep2) 따라서 $x^{2}-4$로 나누어떨어지고 $f(x)=(x^{2}-4)(x^{2}-2x+3)$이다.\nstep3) $x^{2}-2x+3=0$에서 $x=1\\pm\\sqrt{2}\\,i$이다.\nstep4) 선택지 중 해인 것은 $1+\\sqrt{2}\\,i$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 10,
+   "answer": "④",
+   "solution": "step1) 주어진 부등식은 $|x+3|+|x-1|\\leq 8$과 같다.\nstep2) $-3\\leq x\\leq 1$이면 좌변은 $4$이므로 항상 성립한다.\nstep3) $x>1$이면 $2x+2\\leq 8$에서 $x\\leq 3$이다.\nstep4) $x<-3$이면 $-2x-2\\leq 8$에서 $x\\geq -5$이다.\nstep5) 해는 $-5\\leq x\\leq 3$이므로 $a=-5$, $b=3$, $a+b=-2$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 11,
+   "answer": "①",
+   "solution": "step1) $t=x^{2}-x$로 놓으면 $t(t-1)-6=0$, 즉 $t^{2}-t-6=0$이다.\nstep2) $(t-3)(t+2)=0$이므로 $t=3$ 또는 $t=-2$이다.\nstep3) $t=3$일 때 $x^{2}-x-3=0$은 판별식 $1+12=13>0$이므로 서로 다른 두 실근을 갖고, 근과 계수의 관계로 곱은 $-3$이다.\nstep4) $t=-2$일 때 $x^{2}-x+2=0$은 판별식 $1-8=-7<0$이므로 실근이 없다.\nstep5) 따라서 $\\alpha\\beta=-3$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 12,
+   "answer": "①",
+   "solution": "step1) $5x-3\\leq 3x+1$에서 $x\\leq 2$이다.\nstep2) $4x+a<5x-3$에서 $x>a+3$이다.\nstep3) 해는 $a+3<x\\leq 2$이고 정수 $x$가 $2$개이려면 $x=1,2$만 포함해야 한다.\nstep4) $1$이 포함되려면 $a+3<1$, 즉 $a<-2$이다.\nstep5) $0$이 포함되지 않으려면 $a+3\\geq 0$, 즉 $a\\geq -3$이다.\nstep6) 따라서 $-3\\leq a<-2$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 13,
+   "answer": "⑤",
+   "solution": "step1) ㄱ. 일의 자리가 $0$이면 $5\\times4=20$개, 일의 자리가 $2$ 또는 $4$이면 각각 $4\\times4=16$개이므로 $20+32=52$이다. (참)\nstep2) ㄴ. 일의 자리가 $0$이면 $5\\times4=20$개, 일의 자리가 $5$이면 $4\\times4=16$개이므로 $36$이다. (참)\nstep3) ㄷ. 백의 자리 짝수는 $2,4$의 $2$가지, 십의 자리와 일의 자리는 홀수 $1,3,5$에서 순서를 생각해 $3\\times2=6$가지이므로 $2\\times6=12$이다. (참)\nstep4) 따라서 ㄱ, ㄴ, ㄷ 모두 옳다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 14,
+   "answer": "②",
+   "solution": "step1) $\\mathrm{H}$와 $\\mathrm{Y}$가 양 끝에 오는 경우는 $2$가지이다.\nstep2) 남은 자리는 $2$번째부터 $6$번째까지이고, $\\mathrm{I}$와 $\\mathrm{T}$ 사이에 문자가 $2$개이므로 자리 번호 차가 $3$이어야 한다.\nstep3) 가능한 자리쌍은 $(2,5)$, $(3,6)$의 $2$가지이고 각각 $\\mathrm{I}$, $\\mathrm{T}$의 순서가 $2$가지이다.\nstep4) 나머지 $\\mathrm{S}$, $\\mathrm{O}$, $\\mathrm{R}$를 남은 $3$자리에 나열하는 경우는 $3!=6$이다.\nstep5) 총 경우의 수는 $2\\times2\\times2\\times6=48$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 15,
+   "answer": "①",
+   "solution": "step1) 계수가 실수이므로 $1+\\sqrt{3}\\,i$가 근이면 $1-\\sqrt{3}\\,i$도 근이다.\nstep2) 네 근의 합은 $3$이므로 나머지 근을 $r$라 하면 $-1+(1+\\sqrt{3}i)+(1-\\sqrt{3}i)+r=3$에서 $r=2$이다.\nstep3) $f(x)=(x+1)(x-2)(x^{2}-2x+4)=(x^{2}-x-2)(x^{2}-2x+4)$이다.\nstep4) 전개하면 $x^{4}-3x^{3}+4x^{2}+0\\cdot x-8$이므로 $a=4$, $b=0$, $c=-8$이다.\nstep5) $a+2b+c=4+0-8=-4$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 16,
+   "answer": "④",
+   "solution": "step1) ${}_{n-1}\\mathrm{C}_{r-1}=\\frac{(n-1)!}{(r-1)!\\,(n-r)!}$이므로 (가)$=(n-r)!$이다.\nstep2) ${}_{n-1}\\mathrm{C}_{r}=\\frac{(n-1)!}{r!\\,(n-r-1)!}$이므로 (나)$=(n-r-1)!$이다.\nstep3) 분모를 $r!(n-r)!$로 통분하면 첫 항은 $\\frac{(n-1)!\\times r}{r!(n-r)!}$, 둘째 항은 $\\frac{(n-1)!\\times(n-r)}{r!(n-r)!}$이므로 (다)$=(n-r)$이다.\nstep4) 분자는 $(n-1)!\\{r+(n-r)\\}=n\\times(n-1)!$이므로 (라)$=n$이다.\nstep5) 순서대로 $(n-r)!,\\ (n-r-1)!,\\ (n-r),\\ n$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 17,
+   "answer": "③",
+   "solution": "step1) 가로를 $x$, 세로를 $y$라 하면 $x^{2}+y^{2}=50^{2}=2500$이다.\nstep2) $(x-4)(y+8)=xy+48$에서 $8x-4y-32=48$, 즉 $2x-y=20$이므로 $y=2x-20$이다.\nstep3) $x^{2}+(2x-20)^{2}=2500$에서 $5x^{2}-80x-2100=0$, 즉 $x^{2}-16x-420=0$이다.\nstep4) $(x-30)(x+14)=0$이므로 $x=30$이고 $y=40$이다.\nstep5) 검산: $30^{2}+40^{2}=2500$, $26\\times48=1248=1200+48$이므로 성립한다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 18,
+   "answer": "②",
+   "solution": "step1) 의자를 $n$개, 학생을 $s$명이라 하면 $s=4n+9$이다.\nstep2) $5$명씩 앉으면 의자가 $4$개 남으므로 $n-5$개는 꽉 차고 마지막 한 의자에 $1$명 이상 $5$명 이하가 앉는다. 즉 $5(n-5)<s\\leq 5(n-4)$이다.\nstep3) $5(n-5)<4n+9$에서 $n<34$이다.\nstep4) $4n+9\\leq 5n-20$에서 $n\\geq 29$이다.\nstep5) $29\\leq n\\leq 33$이므로 최대 $n=33$일 때 $s=4\\times33+9=141$이다.\nstep6) 검산: $141=5\\times28+1$이므로 $29$개 의자를 쓰고 $33-29=4$개가 남는다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 19,
+   "answer": "②",
+   "solution": "step1) 정리하면 $(k-3)x^{2}+(6-2k)x+2\\geq 0$이 모든 실수 $x$에서 성립해야 한다.\nstep2) $k=3$이면 좌변은 $2\\geq 0$이므로 성립한다.\nstep3) $k\\neq3$이면 $k-3>0$이고 판별식 $D=(6-2k)^{2}-8(k-3)=4(k-3)(k-5)\\leq 0$이어야 한다.\nstep4) $k>3$이므로 $3<k\\leq 5$이다.\nstep5) 종합하면 $3\\leq k\\leq 5$이므로 최댓값 $5$, 최솟값 $3$, 합은 $8$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 20,
+   "answer": "④",
+   "solution": "step1) (마)는 나머지 네 영역 모두와 인접하고, (가)-(나)-(다)-(라)-(가)는 사각형 모양의 사이클을 이룬다.\nstep2) (마)를 칠하는 경우가 $4$가지이고, 나머지 네 영역은 (마)와 다른 $3$가지 색으로 사이클을 칠해야 한다.\nstep3) 길이 $4$인 사이클을 $m$가지 색으로 칠하는 경우의 수는 $(m-1)^{4}+(m-1)$이므로 $m=3$일 때 $2^{4}+2=18$이다.\nstep4) 전체 경우의 수는 $4\\times18=72$이다.\nstep5) $3$가지 색만 쓰는 경우의 수는 $3\\times\\{(2-1)^{4}+(2-1)\\}=6$이고, 색을 고르는 방법이 $4$가지이므로 $4$색을 모두 쓰는 경우는 $72-4\\times6=48$이다.\nstep6) 구하는 합은 $72+48=120$이다.",
+   "confidence": "high",
+   "note": "그림의 인접 관계는 문항에 서술된 대로 사용(마=중앙 허브, 가-나-다-라 사이클)."
+  },
+  {
+   "number": 21,
+   "answer": "①",
+   "solution": "step1) $w$는 $x^{3}=1$의 허근이므로 $w^{3}=1$, $w^{2}+w+1=0$이고 $\\overline{w}=w^{2}$, $w\\overline{w}=1$이다.\nstep2) ㄱ. $w^{2}+w+1=0$이므로 참이다.\nstep3) ㄴ. $\\overline{w}^{3}+w\\overline{w}=1+1=2\\neq0$이므로 거짓이다.\nstep4) ㄷ. $1+w=-w^{2}$, $1+\\overline{w}=1+w^{2}=-w$이므로 $\\frac{1}{-w}+\\frac{1}{-w^{2}}=-w^{2}-w=1$이다. 참이다.\nstep5) ㄹ. $w^{4}=w$, $w^{8}=w^{2}$이므로 주어진 식은 $\\{(1-w)(1-w^{2})\\}^{2}$이고 $(1-w)(1-w^{2})=1-(w+w^{2})+w^{3}=3$이므로 값은 $9$이다. 거짓이다.\nstep6) 옳은 것은 ㄱ, ㄷ이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 22,
+   "answer": "②",
+   "solution": "step1) $x^{2}-ax-3\\geq 0$의 두 근은 곱이 $-3$이므로 $r_{1}<0<r_{2}$이고 해는 $x\\leq r_{1}$ 또는 $x\\geq r_{2}$이다.\nstep2) $x^{2}-bx+c\\leq 0$의 해를 $p\\leq x\\leq q$라 하면 $b=p+q$, $c=pq$이다.\nstep3) 교집합이 $3\\leq x\\leq 4$이려면 $q=4$이고 $\\max(p,\\ r_{2})=3$, 또 $p>r_{1}$이어야 한다.\nstep4) $r_{2}=3$인 경우는 $\\frac{a+\\sqrt{a^{2}+12}}{2}=3$에서 $a=2$이고, 이때 $r_{1}=-1$이다.\nstep5) $a=2$일 때 $-1<p\\leq 3$이고 $b=p+4$, $c=4p$가 자연수이려면 $p=1,2,3$이다. $p=1$이면 $a+b+c=2+5+4=11$이다.\nstep6) $p=3$인 경우($r_{2}\\leq3$, 즉 $a=1,2$)는 $b=7$, $c=12$이므로 $a+b+c\\geq 20$이다.\nstep7) 따라서 최솟값은 $11$이다. 검산: $x^{2}-2x-3\\geq0 \\Rightarrow x\\leq-1$ 또는 $x\\geq3$, $x^{2}-5x+4\\leq0 \\Rightarrow 1\\leq x\\leq4$, 교집합은 $3\\leq x\\leq4$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 23,
+   "answer": "⑤",
+   "solution": "step1) $x^{2}+2x-3>0$에서 $(x+3)(x-1)>0$이므로 $x<-3$ 또는 $x>1$이고, 자연수 해는 $x\\geq2$이다.\nstep2) $|ax+2|<8$은 $-10<ax<6$과 같다.\nstep3) $a=0$이면 모든 $x$에서 성립하므로 자연수 해가 무수히 많아 조건에 맞지 않는다.\nstep4) $a>0$이면 $x<\\frac{6}{a}$이고 $x=2$만 해가 되려면 $2<\\frac{6}{a}\\leq 3$에서 $2\\leq a<3$이므로 $a=2$이다.\nstep5) $a<0$이면 $x<\\frac{10}{|a|}$이고 $x=2$만 해가 되려면 $2<\\frac{10}{|a|}\\leq 3$에서 $\\frac{10}{3}\\leq|a|<5$이므로 $|a|=4$, 즉 $a=-4$이다.\nstep6) 모든 정수 $a$의 합은 $2+(-4)=-2$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 24,
+   "answer": "③",
+   "solution": "step1) $x\\{x^{2}-8x+(8|a|-a^{2})\\}=0$이므로 한 근은 $x=0$이다.\nstep2) 이차방정식의 판별식 부분은 $16-(8|a|-a^{2})=(|a|-4)^{2}$이므로 근은 $x=4\\pm\\bigl||a|-4\\bigr|$이다.\nstep3) $t=|a|$라 하면 두 근은 $t$와 $8-t$이므로 세 근은 $0,\\ t,\\ 8-t$이다.\nstep4) $0\\leq t\\leq4$이면 $\\alpha-\\beta=8-t$이고 $6\\leq 8-t\\leq10$에서 $0\\leq t\\leq2$이다.\nstep5) $4\\leq t\\leq8$이면 $\\alpha-\\beta=t$이고 $6\\leq t\\leq8$이다.\nstep6) $t>8$이면 $\\alpha-\\beta=t-(8-t)=2t-8$이고 $6\\leq 2t-8\\leq10$에서 $7\\leq t\\leq9$, 즉 $8<t\\leq9$이다.\nstep7) 따라서 $t=|a|\\in[0,2]\\cup[6,9]$이므로 $|a|=0,1,2,6,7,8,9$이고 정수 $a$는 $0,\\pm1,\\pm2,\\pm6,\\pm7,\\pm8,\\pm9$의 $13$개이다.",
+   "confidence": "high",
+   "note": "중근을 포함해 세 근으로 셈(예: $a=0$이면 근이 $0,0,8$). 서로 다른 세 근을 요구하면 10개가 되나 선택지에 없어 중근 포함 해석을 채택."
+  }
+ ]
+}

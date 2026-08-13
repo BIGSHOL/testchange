@@ -1,0 +1,146 @@
+{
+ "exam_id": 4360,
+ "pass": "B",
+ "items": [
+  {
+   "number": 1,
+   "answer": "④",
+   "solution": "step1) 평행이동: $x$축 방향 $1$, $y$축 방향 $-2$이므로 $(x,y)\\to(x+1,\\;y-2)$이다.\nstep2) $(2,1)\\to(2+1,\\;1-2)=(3,-1)$이다.\nstep3) 선택지 ④ $(3,-1)$과 일치한다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 2,
+   "answer": "②",
+   "solution": "step1) 두 점 사이의 거리 공식 $\\overline{\\mathrm{PQ}}=\\sqrt{(x_2-x_1)^2+(y_2-y_1)^2}$을 쓴다.\nstep2) $\\overline{\\mathrm{PQ}}=\\sqrt{(-3-1)^2+(3-2)^2}=\\sqrt{16+1}=\\sqrt{17}$이다.\nstep3) 선택지 ② $\\sqrt{17}$과 일치한다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 3,
+   "answer": "③",
+   "solution": "step1) $y=kx+1$을 $x$축 방향 $1$, $y$축 방향 $-2$만큼 평행이동하면 $x\\to x-1$, $y\\to y+2$를 대입해 $y+2=k(x-1)+1$이다.\nstep2) 정리하면 $y=kx-k-1$이다.\nstep3) 점 $(3,1)$을 지나므로 $1=3k-k-1$, 즉 $2k=2$이다.\nstep4) $k=1$이므로 선택지 ③이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 4,
+   "answer": "①",
+   "solution": "step1) $2x+y-3=0$에 평행한 직선은 $2x+y+c=0$이다.\nstep2) 원 $x^2+y^2=25$(중심 원점, 반지름 $5$)에 접하므로 $\\frac{|c|}{\\sqrt{2^2+1^2}}=5$, 즉 $|c|=5\\sqrt{5}$이다.\nstep3) 점 $(-\\sqrt{5},a)$를 지나므로 $2(-\\sqrt{5})+a+c=0$에서 $a=2\\sqrt{5}-c$이다.\nstep4) $c=-5\\sqrt{5}$이면 $a=2\\sqrt{5}+5\\sqrt{5}=7\\sqrt{5}>0$, $c=5\\sqrt{5}$이면 $a=-3\\sqrt{5}<0$이다.\nstep5) 양수 $a=7\\sqrt{5}$이므로 선택지 ①이다. (검산: $2(-\\sqrt5)+7\\sqrt5-5\\sqrt5=0$)",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 5,
+   "answer": "④",
+   "solution": "step1) 선분 $\\mathrm{AB}$를 $2:3$으로 내분하는 점은 $\\left(\\frac{2\\cdot5+3\\cdot2}{2+3},\\;\\frac{2\\cdot6+3\\cdot(-3)}{2+3}\\right)$이다.\nstep2) 계산하면 $\\left(\\frac{16}{5},\\;\\frac{3}{5}\\right)$이다.\nstep3) $y=\\frac{1}{8}x+k$에 대입하면 $\\frac{3}{5}=\\frac{1}{8}\\cdot\\frac{16}{5}+k=\\frac{2}{5}+k$이다.\nstep4) $k=\\frac{1}{5}$이므로 선택지 ④이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 6,
+   "answer": "①",
+   "solution": "step1) 두 점 $(1,6),(7,0)$의 중점은 $(4,3)$이다.\nstep2) 두 점을 잇는 선분의 기울기는 $\\frac{0-6}{7-1}=-1$이다.\nstep3) 수직이등분선의 기울기는 $1$이고 중점 $(4,3)$을 지나므로 $y-3=1\\cdot(x-4)$이다.\nstep4) $y=x-1$이므로 선택지 ①이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 7,
+   "answer": "⑤",
+   "solution": "step1) $C_1$의 중심 $\\mathrm{O_1}(16,4)$, $C_2$의 중심 $\\mathrm{O_2}(6,-8)$, 반지름은 모두 $4$이다.\nstep2) 점 $\\mathrm{P}$에 대해 $\\overline{\\mathrm{AP}}$의 최솟값은 $\\overline{\\mathrm{O_1P}}-4$, 점 $\\mathrm{Q}$에 대해 $\\overline{\\mathrm{QB}}$의 최솟값은 $\\overline{\\mathrm{O_2Q}}-4$이다.\nstep3) 따라서 구하는 최솟값은 $(\\overline{\\mathrm{O_1P}}+\\overline{\\mathrm{PQ}}+\\overline{\\mathrm{QO_2}})_{\\min}-8$이다.\nstep4) $\\mathrm{O_1}$을 $x$축에 대하여 대칭이동하면 $\\mathrm{O_1}'(16,-4)$, $\\mathrm{O_2}$를 직선 $y=x$에 대하여 대칭이동하면 $\\mathrm{O_2}'(-8,6)$이다.\nstep5) $\\overline{\\mathrm{O_1P}}+\\overline{\\mathrm{PQ}}+\\overline{\\mathrm{QO_2}}\\ge\\overline{\\mathrm{O_1}'\\mathrm{O_2}'}=\\sqrt{24^2+10^2}=\\sqrt{676}=26$이다.\nstep6) 최솟값은 $26-8=18$이므로 선택지 ⑤이다. (검산: 등호는 $\\mathrm{P}(6.4,0)$, $\\mathrm{Q}\\left(\\frac{32}{17},\\frac{32}{17}\\right)$에서 성립하고 두 점 모두 각 원 밖에 있다.)",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 8,
+   "answer": "⑤",
+   "solution": "step1) 두 직선 $x-y=0$, $x-7y=0$의 각의 이등분선은 $\\frac{|x-y|}{\\sqrt{2}}=\\frac{|x-7y|}{\\sqrt{50}}$, 즉 $5|x-y|=|x-7y|$이다.\nstep2) $5(x-y)=x-7y$에서 $y=-2x$, $5(x-y)=-(x-7y)$에서 $y=\\frac{1}{2}x$이다.\nstep3) 기울기가 양수인 $l:y=\\frac{1}{2}x$, $m:y=-2x$이고 두 직선은 서로 수직이며 원점에서 만난다.\nstep4) $l$과 $y=-\\frac{1}{3}x+\\frac{5}{3}$: $\\frac{1}{2}x=-\\frac{1}{3}x+\\frac{5}{3}$에서 $x=2$, 교점 $(2,1)$이다.\nstep5) $m$과 $y=-\\frac{1}{3}x+\\frac{5}{3}$: $-2x=-\\frac{1}{3}x+\\frac{5}{3}$에서 $x=-1$, 교점 $(-1,2)$이다.\nstep6) 넓이 $=\\frac{1}{2}|2\\cdot2-(-1)\\cdot1|=\\frac{5}{2}$이므로 $q=5$, $p=2$이다.\nstep7) $p+q=7$이므로 선택지 ⑤이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 9,
+   "answer": "②",
+   "solution": "step1) $\\angle\\mathrm{APB}=90^\\circ$이므로 점 $\\mathrm{P}$는 선분 $\\mathrm{AB}$를 지름으로 하는 원 위에 있다.\nstep2) 그 원은 중심 $(6,8)$, 반지름 $4$인 원 $(x-6)^2+(y-8)^2=16$이다.\nstep3) 직선 $\\mathrm{CD}$는 $\\frac{x}{4t}+\\frac{y}{2t}=1$, 즉 $x+2y-4t=0$이다.\nstep4) 원과 만나려면 $\\frac{|6+16-4t|}{\\sqrt{5}}\\le4$, 즉 $|22-4t|\\le4\\sqrt{5}$이다.\nstep5) $\\frac{11}{2}-\\sqrt{5}\\le t\\le\\frac{11}{2}+\\sqrt{5}$이고 양 끝값에서 접점이 선분 $\\mathrm{CD}$ 위에 있음을 확인하면 $M=\\frac{11}{2}+\\sqrt{5}$, $m=\\frac{11}{2}-\\sqrt{5}$이다.\nstep6) $3M^2-3m^2=3(M+m)(M-m)=3\\cdot11\\cdot2\\sqrt{5}=66\\sqrt{5}$이므로 선택지 ②이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 10,
+   "answer": "3",
+   "solution": "step1) 직선 $y=\\frac{3}{4}x+\\frac{11}{4}$의 양변에 $4$를 곱해 정리하면 $3x-4y+11=0$이다.\nstep2) 점과 직선 사이의 거리 $=\\frac{|3\\cdot4-4\\cdot2+11|}{\\sqrt{3^2+(-4)^2}}=\\frac{|12-8+11|}{5}$이다.\nstep3) $=\\frac{15}{5}=3$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 11,
+   "answer": "17",
+   "solution": "step1) $x^2+6x+y^2-8y+9=0$을 완전제곱하면 $(x+3)^2-9+(y-4)^2-16+9=0$이다.\nstep2) $(x+3)^2+(y-4)^2=16$이므로 중심 $(-3,4)$, 반지름 $4$이다.\nstep3) $a=-3$, $b=4$, $r=4$이므로 $a+2b+3r=-3+8+12=17$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 12,
+   "answer": "20",
+   "solution": "step1) 선분 $\\mathrm{AB}$를 $1:2$로 내분하는 점은 $\\left(\\frac{1\\cdot a+2\\cdot1}{3},\\;\\frac{1\\cdot b+2\\cdot2}{3}\\right)=\\left(\\frac{a+2}{3},\\frac{b+4}{3}\\right)$이다.\nstep2) $\\frac{a+2}{3}=2$에서 $a=4$이다.\nstep3) $\\frac{b+4}{3}=3$에서 $b=5$이다.\nstep4) $ab=4\\times5=20$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 13,
+   "answer": "63",
+   "solution": "step1) $\\mathrm{A}(2,1)$을 원점에 대하여 대칭이동하면 $\\mathrm{B}(-2,-1)$이다.\nstep2) $\\mathrm{A}(2,1)$을 직선 $y=x$에 대하여 대칭이동하면 $\\mathrm{C}(1,2)$이다.\nstep3) 넓이 $=\\frac{1}{2}|2(-1-2)+(-2)(2-1)+1(1-(-1))|=\\frac{1}{2}|-6-2+2|=3$이다.\nstep4) $k=3$이므로 $7k^2=7\\times9=63$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 14,
+   "answer": "144",
+   "solution": "step1) $\\mathrm{P}(-2,4)$를 지나는 직선을 $y-4=m(x+2)$, 즉 $mx-y+2m+4=0$이라 한다.\nstep2) 원 $x^2+y^2=2$에 접하므로 $\\frac{|2m+4|}{\\sqrt{m^2+1}}=\\sqrt{2}$이다.\nstep3) 양변을 제곱하면 $4m^2+16m+16=2m^2+2$, 즉 $m^2+8m+7=0$이므로 $m=-1$ 또는 $m=-7$이다. (직선 $x=-2$는 원점과의 거리가 $2\\ne\\sqrt2$이므로 접선이 아니다.)\nstep4) $y$절편은 $y=2m+4$이므로 $m=-1$일 때 $2$, $m=-7$일 때 $-10$이다. 즉 $\\mathrm{A}(0,2)$, $\\mathrm{B}(0,-10)$이다.\nstep5) $\\overline{\\mathrm{AB}}=12$, 점 $\\mathrm{P}$와 $y$축 사이의 거리는 $2$이므로 넓이 $k=\\frac{1}{2}\\times12\\times2=12$이다.\nstep6) $k^2=144$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 15,
+   "answer": "216",
+   "solution": "step1) 두 점 $\\mathrm{A}(a,b)$, $\\mathrm{B}(b,a)$는 직선 $y=x$에 대하여 대칭이므로 선분 $\\mathrm{AB}$의 수직이등분선은 직선 $y=x$이다.\nstep2) $\\overline{\\mathrm{AP}}=\\overline{\\mathrm{BP}}$, $\\overline{\\mathrm{AQ}}=\\overline{\\mathrm{BQ}}$이므로 $\\mathrm{P}$, $\\mathrm{Q}$는 직선 $y=x$와 원 $C$의 교점, 즉 $(2\\sqrt2,2\\sqrt2)$와 $(-2\\sqrt2,-2\\sqrt2)$이고 $\\overline{\\mathrm{PQ}}=8$(지름)이다.\nstep3) 두 대각선 $\\mathrm{AB}\\perp\\mathrm{PQ}$이므로 사각형 넓이 $=\\frac{1}{2}\\cdot\\overline{\\mathrm{AB}}\\cdot\\overline{\\mathrm{PQ}}=4\\overline{\\mathrm{AB}}=8\\sqrt2$이다.\nstep4) $\\overline{\\mathrm{AB}}=2\\sqrt2$이고 $\\overline{\\mathrm{AB}}=\\sqrt{2(a-b)^2}=|a-b|\\sqrt2$이므로 $|a-b|=2$이다.\nstep5) $a^2+b^2=16$이므로 $(a-b)^2=16-2ab=4$에서 $ab=6$이다.\nstep6) $a^3b^3=(ab)^3=6^3=216$이다. (검산: $a+b=\\pm2\\sqrt7$로 실수해가 존재한다.)",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 16,
+   "answer": "$\\frac{1}{27}$",
+   "solution": "step1) $l:a(x-3)+(y-1)=0$이므로 $l$은 $a$의 값에 관계없이 점 $(3,1)$을 지나고 기울기는 $-a$이다.\nstep2) $m$의 기울기는 $-\\frac{2}{3}$, $n$의 기울기는 $\\frac{1}{3}$이며 $m\\cap n=(-1,\\frac{1}{3})$이다.\nstep3) $l$이 $m$과 평행하면($-a=-\\frac{2}{3}$, $a=\\frac{2}{3}$) $n$과만 만나므로 $f(a)=1$이다. ($m$은 $(3,1)$을 지나지 않으므로 일치하지 않는다.)\nstep4) $l$이 $n$과 평행하면($-a=\\frac{1}{3}$, $a=-\\frac{1}{3}$) $m$과만 만나므로 $f(a)=1$이다.\nstep5) $l$이 점 $(-1,\\frac{1}{3})$을 지나면 두 교점이 겹쳐 $f(a)=1$이다: $-a+\\frac{1}{3}-3a-1=0$에서 $a=-\\frac{1}{6}$이다.\nstep6) 모든 값의 곱 $=\\frac{2}{3}\\times\\left(-\\frac{1}{3}\\right)\\times\\left(-\\frac{1}{6}\\right)=\\frac{2}{54}=\\frac{1}{27}$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 17,
+   "answer": "132",
+   "solution": "step1) 원이 $x$축에 접하고 반지름이 $4$이므로 접점 $\\mathrm{P}(t,0)$, 중심 $(t,4)$ $(t>0)$이다.\nstep2) $\\overline{\\mathrm{OP}}=\\overline{\\mathrm{OQ}}=t$이고 $\\angle\\mathrm{POQ}=\\theta$(단, $\\tan\\theta=m$)라 하면 $4=t\\tan\\frac{\\theta}{2}$이다.\nstep3) $\\mathrm{P}(t,0)$, $\\mathrm{Q}(t\\cos\\theta,\\;t\\sin\\theta)$를 지나는 직선의 $y$절편은 $\\frac{t\\sin\\theta}{1-\\cos\\theta}=t\\cot\\frac{\\theta}{2}=\\frac{t^2}{4}$이므로 $\\mathrm{R}\\left(0,\\frac{t^2}{4}\\right)$이다.\nstep4) 삼각형 $\\mathrm{ROP}$의 넓이 $=\\frac{1}{2}\\cdot\\frac{t^2}{4}\\cdot t=\\frac{t^3}{8}=64$에서 $t^3=512$, $t=8$이다.\nstep5) $\\tan\\frac{\\theta}{2}=\\frac{4}{8}=\\frac{1}{2}$이므로 $m=\\tan\\theta=\\frac{2\\cdot\\frac12}{1-\\frac14}=\\frac{4}{3}$이다.\nstep6) $\\sin\\theta=\\frac{2\\cdot\\frac12}{1+\\frac14}=\\frac{4}{5}$이므로 $k=\\frac{1}{2}t^2\\sin\\theta=\\frac{1}{2}\\cdot64\\cdot\\frac{4}{5}=\\frac{128}{5}$이다.\nstep7) $3m+5k=3\\cdot\\frac{4}{3}+5\\cdot\\frac{128}{5}=4+128=132$이다. (검산: 중심 $(8,4)$와 직선 $4x-3y=0$의 거리 $=\\frac{|32-12|}{5}=4$, $\\mathrm{R}(0,16)$, 삼각형 $\\mathrm{ROP}$ 넓이 $=\\frac12\\cdot16\\cdot8=64$)",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 18,
+   "answer": "68",
+   "solution": "step1) 정사각형 $\\mathrm{ABCD}$에서 $\\mathrm{AB}\\parallel\\mathrm{CD}$이고 $\\mathrm{C},\\mathrm{D}$가 직선 $y=x$ 위에 있으므로 직선 $\\mathrm{AB}$의 기울기는 $1$이다.\nstep2) $\\mathrm{A}(p,p^2)$, $\\mathrm{B}(q,q^2)$라 하면 기울기 $=p+q=1$이다 $(p<q)$.\nstep3) 한 변의 길이 $\\overline{\\mathrm{AB}}=|q-p|\\sqrt2=(1-2p)\\sqrt2$이다.\nstep4) 직선 $\\mathrm{AB}$는 $y=x+(p^2-p)$이므로 직선 $y=x$와의 거리는 $\\frac{p-p^2}{\\sqrt2}$이고, 이것이 변의 길이와 같다.\nstep5) $\\frac{p-p^2}{\\sqrt2}=(1-2p)\\sqrt2$에서 $p-p^2=2-4p$, 즉 $p^2-5p+2=0$이므로 $p=\\frac{5-\\sqrt{17}}{2}$이다 $\\left(p<\\frac12\\right)$.\nstep6) 변의 길이 $=(1-2p)\\sqrt2=(\\sqrt{17}-4)\\sqrt2$이므로 대각선 $=(\\sqrt{17}-4)\\sqrt2\\cdot\\sqrt2=2\\sqrt{17}-8$이다.\nstep7) $a=-8$, $b=2$이므로 $a^2+b^2=64+4=68$이다. (검산: $2\\sqrt{17}-8\\approx0.246>0$)",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 19,
+   "answer": "9",
+   "solution": "step1) 두 점 $(-4,0)$, $(2,0)$을 지름의 양 끝점으로 하는 원은 중심 $(-1,0)$, 반지름 $3$이다.\nstep2) 직선을 $kx+y-3=0$으로 보면(판독불가 부분을 $-3$으로 복원), 오직 한 점에서 만나므로 접한다: $\\frac{|-k+0-3|}{\\sqrt{k^2+1}}=3$이다.\nstep3) 양변을 제곱하면 $k^2+6k+9=9k^2+9$, 즉 $8k^2-6k=0$이므로 $k=0$ 또는 $k=\\frac{3}{4}$이다.\nstep4) $k$가 양수이므로 $k=\\frac{3}{4}$이다.\nstep5) $12k=12\\times\\frac{3}{4}=9$이다.",
+   "confidence": "medium",
+   "note": "발문에 [판독불가]가 있어 직선의 상수항을 복원했다. 일반형 $kx+y+c=0$이면 접선 조건은 $8k^2+2ck+(9-c^2)=0$인데, '양수 k'라는 단서(=양수가 아닌 근이 함께 존재)를 만족하려면 $c=\\pm3$이어야 하고 그중 양수해를 주는 것은 $c=-3$뿐이다. 따라서 직선은 $kx+y-3=0$, $k=3/4$, $12k=9$로 판단했다. 다른 상수항이면 답이 달라질 수 있다."
+  },
+  {
+   "number": 20,
+   "answer": "18",
+   "solution": "step1) 정삼각형의 한 변을 $s$라 하면 넓이 $\\frac{\\sqrt3}{4}s^2=6\\sqrt3$에서 $s^2=24$, $s=2\\sqrt6$이다.\nstep2) 정삼각형에서 무게중심은 외심과 같으므로 $\\overline{\\mathrm{OG}}=\\frac{s}{\\sqrt3}=\\frac{2\\sqrt6}{\\sqrt3}=2\\sqrt2$이다.\nstep3) $\\mathrm{A},\\mathrm{B}$가 제1사분면 위에 있으므로 $\\mathrm{G}$도 제1사분면 위에 있고, $\\mathrm{G}$는 직선 $y=x$ 위의 점 $(g,g)$ $(g>0)$이다.\nstep4) $\\overline{\\mathrm{OG}}=g\\sqrt2=2\\sqrt2$에서 $g=2$이므로 $\\mathrm{G}(2,2)$이다.\nstep5) 무게중심 공식에서 $\\frac{0+a+c}{3}=2$, $\\frac{0+b+d}{3}=2$이므로 $a+c=6$, $b+d=6$이다.\nstep6) $2a+b+2c+d=2(a+c)+(b+d)=2\\cdot6+6=18$이다. (검산: $\\mathrm{OA}$, $\\mathrm{OB}$가 $x$축과 이루는 각이 $75^\\circ$, $15^\\circ$이면 두 점 모두 제1사분면에 있고 $a+c=2\\sqrt6(\\cos75^\\circ+\\cos15^\\circ)=6$)",
+   "confidence": "high",
+   "note": ""
+  }
+ ]
+}

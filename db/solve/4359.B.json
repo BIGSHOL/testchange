@@ -1,0 +1,174 @@
+{
+ "exam_id": 4359,
+ "pass": "B",
+ "items": [
+  {
+   "number": 1,
+   "answer": "④",
+   "solution": "step1) $144=2^4\\times3^2$로 소인수분해된다.\nstep2) 약수의 개수는 $(4+1)(2+1)=15$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 2,
+   "answer": "①",
+   "solution": "step1) 좌변을 더하면 $\\begin{pmatrix} a+1 & -1 \\\\ 0 & 2+b \\end{pmatrix}$이다.\nstep2) 성분을 비교하면 $a+1=4$에서 $a=3$, $c=-1$, $d=0$, $2+b=0$에서 $b=-2$이다.\nstep3) 따라서 $a+b+c+d=3+(-2)+(-1)+0=0$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 3,
+   "answer": "③",
+   "solution": "step1) $x-2\\leq 2x+1$에서 $-3\\leq x$이다.\nstep2) $5x+1\\leq 3x+5$에서 $2x\\leq 4$, 즉 $x\\leq 2$이다.\nstep3) 공통범위는 $-3\\leq x\\leq 2$이므로 정수는 $-3,-2,-1,0,1,2$이고 그 합은 $-3$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 4,
+   "answer": "⑤",
+   "solution": "step1) $a_{12}=1+2\\times2-3=2$이다.\nstep2) $a_{22}=2+2\\times2-3=3$이다.\nstep3) 따라서 $a_{12}+a_{22}=5$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 5,
+   "answer": "④",
+   "solution": "step1) $E$는 단위행렬이므로 $BE=B$이고 $A+BE=A+B=\\begin{pmatrix} 2 & 1 \\\\ 4 & 1 \\end{pmatrix}$이다.\nstep2) $A(A+B)=\\begin{pmatrix} 1 & -2 \\\\ 0 & 3 \\end{pmatrix}\\begin{pmatrix} 2 & 1 \\\\ 4 & 1 \\end{pmatrix}=\\begin{pmatrix} -6 & -1 \\\\ 12 & 3 \\end{pmatrix}$이다.\nstep3) 모든 성분의 합은 $-6-1+12+3=8$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 6,
+   "answer": "②",
+   "solution": "step1) 수빈이와 신영이를 한 묶음으로 보면 $5$개를 일렬로 나열하는 경우의 수는 $5!=120$이다.\nstep2) 묶음 안에서 두 사람이 자리를 바꾸는 경우가 $2!=2$가지이다.\nstep3) 따라서 $120\\times2=240$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 7,
+   "answer": "②",
+   "solution": "step1) $A$의 행은 문구점(P, Q), 열은 품목(샤프, 볼펜)이고 $B$의 행은 품목, 열은 사람(준수, 유민)이다.\nstep2) 따라서 $AB$의 $(i,j)$ 성분은 문구점 $i$에서 사람 $j$가 지불하는 금액이다.\nstep3) 준수는 $1$열, 문구점 Q는 $2$행이므로 $AB$의 $(2,1)$ 성분이며, 그 값은 $1500\\times6+650\\times4=11600$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 8,
+   "answer": "③",
+   "solution": "step1) 첫 식은 $(3x-5y)(x-y)=0$으로 인수분해되므로 $x=y$ 또는 $3x=5y$이다.\nstep2) $x=y$이면 둘째 식은 $2x^2-3x^2+3x^2=2x^2=8$이므로 $x=\\pm2$이고, $2x+y=3x=\\pm6$이다.\nstep3) $3x=5y$이면 $x=\\frac{5y}{3}$을 대입하여 $\\frac{50y^2}{9}-5y^2+3y^2=\\frac{32y^2}{9}=8$, 즉 $y^2=\\frac94$이므로 $y=\\pm\\frac32$, $x=\\pm\\frac52$이고 $2x+y=\\pm\\frac{13}{2}$이다.\nstep4) 값은 $6,-6,\\frac{13}{2},-\\frac{13}{2}$이므로 최댓값은 $\\frac{13}{2}$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 9,
+   "answer": "⑤",
+   "solution": "step1) $x=2$를 대입하면 $16-16-4+16-12=0$이므로 $x-2$를 인수로 갖고, 몫은 $x^3-x+6$이다.\nstep2) $x=-2$를 대입하면 $-8+2+6=0$이므로 $x+2$를 인수로 갖고, 몫은 $x^2-2x+3$이다.\nstep3) $x^2-2x+3=0$에서 $x=1\\pm\\sqrt{2}\\,i$이다.\nstep4) 따라서 해는 $2,\\,-2,\\,1\\pm\\sqrt{2}\\,i$이고 선택지 중 해인 것은 $1+\\sqrt{2}\\,i$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 10,
+   "answer": "④",
+   "solution": "step1) 주어진 부등식은 $|x+3|+|x-1|\\leq 8$과 같다.\nstep2) $x\\geq1$일 때 $2x+2\\leq8$에서 $1\\leq x\\leq3$이다.\nstep3) $-3\\leq x<1$일 때 좌변은 항상 $4$이므로 성립한다.\nstep4) $x<-3$일 때 $-2x-2\\leq8$에서 $-5\\leq x<-3$이다.\nstep5) 따라서 해는 $-5\\leq x\\leq3$이므로 $a=-5,\\ b=3$, $a+b=-2$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 11,
+   "answer": "①",
+   "solution": "step1) $t=x^2-x$로 놓으면 $t(t-1)-6=0$, 즉 $t^2-t-6=(t-3)(t+2)=0$이다.\nstep2) $t=-2$이면 $x^2-x+2=0$이고 판별식이 $1-8=-7<0$이므로 실근이 없다.\nstep3) $t=3$이면 $x^2-x-3=0$이고 판별식이 $1+12=13>0$이므로 서로 다른 두 실근을 갖는다.\nstep4) 근과 계수의 관계에서 $\\alpha\\beta=-3$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 12,
+   "answer": "①",
+   "solution": "step1) $5x-3\\leq3x+1$에서 $x\\leq2$이다.\nstep2) $4x+a<5x-3$에서 $x>a+3$이다.\nstep3) 해는 $a+3<x\\leq2$이고 정수가 $2$개이려면 정수 $2,1$만 포함해야 한다.\nstep4) $1$이 포함되려면 $a+3<1$, $0$이 포함되지 않으려면 $a+3\\geq0$이므로 $0\\leq a+3<1$, 즉 $-3\\leq a<-2$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 13,
+   "answer": "⑤",
+   "solution": "step1) ㄱ: 일의 자리가 $0$이면 $5\\times4=20$, 일의 자리가 $2$ 또는 $4$이면 백의 자리는 $0$과 그 수를 뺀 $4$가지, 십의 자리는 $4$가지이므로 $2\\times4\\times4=32$. 합은 $52$이므로 참이다.\nstep2) ㄴ: 일의 자리가 $0$이면 $5\\times4=20$, 일의 자리가 $5$이면 $4\\times4=16$. 합은 $36$이므로 참이다.\nstep3) ㄷ: 백의 자리 짝수는 $0$이 될 수 없으므로 $2,4$의 $2$가지, 십·일의 자리는 홀수 $1,3,5$ 중 서로 다른 두 개를 배열하여 ${}_3P_2=6$가지. $2\\times6=12$이므로 참이다.\nstep4) 따라서 ㄱ, ㄴ, ㄷ 모두 옳다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 14,
+   "answer": "②",
+   "solution": "step1) H와 Y가 양 끝에 오는 경우는 $2!=2$가지이다.\nstep2) 남은 자리는 $2,3,4,5,6$번이고 I와 T 사이에 문자가 $2$개이려면 자리 번호 차가 $3$이어야 하므로 $(2,5),(3,6)$의 $2$가지, 각각 I와 T의 순서가 $2$가지이므로 $4$가지이다.\nstep3) 남은 문자 S, O, R을 남은 세 자리에 나열하는 경우가 $3!=6$가지이다.\nstep4) 따라서 $2\\times4\\times6=48$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 15,
+   "answer": "①",
+   "solution": "step1) 계수가 실수이므로 $1-\\sqrt{3}\\,i$도 근이다.\nstep2) 네 근의 합은 $3$이므로 나머지 근을 $k$라 하면 $-1+(1+\\sqrt{3}i)+(1-\\sqrt{3}i)+k=3$에서 $k=2$이다.\nstep3) 따라서 $(x+1)(x-2)(x^2-2x+4)=(x^2-x-2)(x^2-2x+4)=x^4-3x^3+4x^2-8$이다.\nstep4) $a=4,\\ b=0,\\ c=-8$이므로 $a+2b+c=4+0-8=-4$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 16,
+   "answer": "④",
+   "solution": "step1) ${}_{n-1}\\mathrm{C}_{r-1}=\\frac{(n-1)!}{(r-1)!\\,(n-r)!}$이므로 (가)는 $(n-r)!$이다.\nstep2) ${}_{n-1}\\mathrm{C}_{r}=\\frac{(n-1)!}{r!\\,(n-r-1)!}$이므로 (나)는 $(n-r-1)!$이다.\nstep3) 분모를 $r!(n-r)!$로 통분하면 첫 항의 분자에 $r$, 둘째 항의 분자에 $(n-r)$이 곱해지므로 (다)는 $(n-r)$이다.\nstep4) $(n-1)!\\times r+(n-1)!\\times(n-r)=n\\times(n-1)!$이므로 (라)는 $n$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 17,
+   "answer": "③",
+   "solution": "step1) 가로를 $x$, 세로를 $y$라 하면 $x^2+y^2=50^2=2500$이다.\nstep2) $(x-4)(y+8)=xy+48$에서 $8x-4y-32=48$, 즉 $y=2x-20$이다.\nstep3) 대입하면 $x^2+(2x-20)^2=2500$, $5x^2-80x-2100=0$, $x^2-16x-420=0$이다.\nstep4) $x=\\frac{16\\pm44}{2}$이므로 $x=30$ (길이이므로 양수).\nstep5) 검산하면 $y=40$, $30^2+40^2=2500$이고 $26\\times48-30\\times40=1248-1200=48$로 성립한다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 18,
+   "answer": "②",
+   "solution": "step1) 의자를 $n$개, 학생을 $S$명이라 하면 $S=4n+9$이다.\nstep2) $5$명씩 앉을 때 의자가 $4$개 남으므로 사용한 의자는 $n-4$개이고 $5(n-5)<S\\leq5(n-4)$이다.\nstep3) $5n-25<4n+9$에서 $n<34$, $4n+9\\leq5n-20$에서 $n\\geq29$이므로 $29\\leq n\\leq33$이다.\nstep4) $n=33$일 때 $S=4\\times33+9=141$이 최대이다.\nstep5) 검산: $141$명이 $5$명씩 앉으면 $28$개 의자가 차고 $29$번째 의자에 $1$명, 남는 의자는 $33-29=4$개로 조건에 맞는다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 19,
+   "answer": "②",
+   "solution": "step1) 정리하면 $(k-3)x^2+(6-2k)x+2\\geq0$이 모든 실수 $x$에서 성립해야 한다.\nstep2) $k=3$이면 좌변은 $2\\geq0$으로 항상 성립한다.\nstep3) $k\\neq3$이면 $k-3>0$이고 판별식 $D=(6-2k)^2-8(k-3)=4(k-3)(k-5)\\leq0$에서 $3\\leq k\\leq5$이므로 $3<k\\leq5$이다.\nstep4) 따라서 $3\\leq k\\leq5$이고 최댓값 $5$, 최솟값 $3$의 합은 $8$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 20,
+   "answer": "④",
+   "solution": "step1) (마)는 나머지 네 영역 모두와 인접하고, (가)-(나)-(다)-(라)-(가)는 사각형 모양의 사이클을 이룬다.\nstep2) (마)를 칠하는 경우가 $4$가지이고, 나머지 네 영역은 (마)의 색을 제외한 $3$가지 색으로 사이클을 칠해야 한다.\nstep3) $4$개의 영역이 이루는 사이클을 $3$색으로 칠하는 경우의 수는 $(3-1)^4+(3-1)=18$이므로 전체는 $4\\times18=72$이다.\nstep4) $4$가지 색을 모두 쓰려면 사이클이 $3$색을 모두 써야 하는데, 사이클을 $2$색으로만 칠하는 경우가 $3\\times2=6$이므로 $18-6=12$이고 전체는 $4\\times12=48$이다.\nstep5) 따라서 $72+48=120$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 21,
+   "answer": "①",
+   "solution": "step1) $w$는 $x^3-1=(x-1)(x^2+x+1)=0$의 허근이므로 $w^2+w+1=0$이고 $w^3=1$이다. 따라서 ㄱ은 참이다.\nstep2) $w$와 $\\overline{w}$는 $x^2+x+1=0$의 두 근이므로 $w+\\overline{w}=-1$, $w\\overline{w}=1$이고 $\\overline{w}^3=1$이다. 그러므로 $\\overline{w}^3+w\\overline{w}=1+1=2\\neq0$이어서 ㄴ은 거짓이다.\nstep3) $\\frac{1}{1+\\overline{w}}+\\frac{1}{1+w}=\\frac{2+w+\\overline{w}}{1+w+\\overline{w}+w\\overline{w}}=\\frac{2-1}{1-1+1}=1$이므로 ㄷ은 참이다.\nstep4) $w^4=w$, $w^8=w^2$이므로 주어진 식은 $\\{(1-w)(1-w^2)\\}^2$이고 $(1-w)(1-w^2)=2-(w+w^2)=2-(-1)=3$이므로 값은 $9$이다. 따라서 ㄹ은 거짓이다.\nstep5) 옳은 것은 ㄱ, ㄷ이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 22,
+   "answer": "②",
+   "solution": "step1) $x^2-ax-3\\geq0$의 두 근은 곱이 $-3$이므로 부호가 다르다. 두 근을 $r_1<0<r_2$라 하면 해는 $x\\leq r_1$ 또는 $x\\geq r_2$이다.\nstep2) $x^2-bx+c\\leq0$의 해를 $p\\leq x\\leq q$라 하면 두 해의 공통부분이 $3\\leq x\\leq4$이므로 $q=4$이고 $\\max(p,\\,r_2)=3$이어야 한다.\nstep3) $r_2=3$인 경우 $9-3a-3=0$에서 $a=2$이고, 이때 $x^2-2x-3\\geq0$의 해는 $x\\leq-1$ 또는 $x\\geq3$이므로 $-1<p\\leq3$이면 된다.\nstep4) $b=p+4$, $c=4p$가 자연수이려면 $p$는 자연수여야 하므로 $p=1,2,3$이고, $p=1$일 때 $b=5$, $c=4$로 $a+b+c=11$이 최소이다.\nstep5) $p=3$인 경우($b=7$, $c=12$)에는 $r_2\\leq3$에서 $a\\leq2$이므로 최솟값은 $1+7+12=20$이어서 더 크다.\nstep6) 검산: $a=2,b=5,c=4$일 때 $x\\leq-1$ 또는 $x\\geq3$과 $1\\leq x\\leq4$의 공통부분은 $3\\leq x\\leq4$로 조건에 맞는다. 따라서 최솟값은 $11$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 23,
+   "answer": "⑤",
+   "solution": "step1) $x^2+2x-3>0$에서 $(x+3)(x-1)>0$이므로 $x<-3$ 또는 $x>1$이고, 자연수 해의 후보는 $x=2,3,4,\\cdots$이다.\nstep2) $|ax+2|<8$은 $-10<ax<6$과 같다.\nstep3) $a=0$이면 모든 자연수가 만족하므로 조건에 맞지 않는다.\nstep4) $a>0$이면 $x<\\frac{6}{a}$이고 $x=2$만 해가 되려면 $2<\\frac6a\\leq3$에서 $2\\leq a<3$이므로 정수 $a=2$이다.\nstep5) $a<0$이고 $a=-m\\ (m>0)$이면 $x<\\frac{10}{m}$이고 $x=2$만 해가 되려면 $2<\\frac{10}{m}\\leq3$에서 $\\frac{10}{3}\\leq m<5$이므로 정수 $m=4$, 즉 $a=-4$이다.\nstep6) 따라서 모든 정수 $a$의 합은 $2+(-4)=-2$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 24,
+   "answer": "③",
+   "solution": "step1) $x\\{x^2-8x+(8|a|-a^2)\\}=0$이고 $t=|a|$라 하면 판별식 부분이 $16-(8t-t^2)=(t-4)^2$이다.\nstep2) 이차식의 두 근은 $4\\pm|4-t|$, 즉 $t$와 $8-t$이므로 세 근은 $0,\\ t,\\ 8-t$이다.\nstep3) $0\\leq t\\leq8$이면 $\\beta=0$이고 $\\alpha=\\max(t,\\,8-t)$이므로, $t\\leq4$일 때 $6\\leq8-t\\leq10$에서 $0\\leq t\\leq2$, $t>4$일 때 $6\\leq t\\leq8$이다.\nstep4) $t>8$이면 $\\alpha=t$, $\\beta=8-t$이므로 $\\alpha-\\beta=2t-8$이고 $6\\leq2t-8\\leq10$에서 $7\\leq t\\leq9$, 즉 $8<t\\leq9$이다.\nstep5) 종합하면 $0\\leq t\\leq2$ 또는 $6\\leq t\\leq9$이고, $t=|a|$가 정수이므로 $t=0,1,2,6,7,8,9$이다.\nstep6) $t=0$은 $a=0$의 $1$개, $t=1,2$는 각각 $2$개씩 $4$개, $t=6,7,8,9$는 각각 $2$개씩 $8$개이므로 모두 $13$개이다.",
+   "confidence": "high",
+   "note": ""
+  }
+ ]
+}

@@ -1,0 +1,160 @@
+{
+ "exam_id": 4367,
+ "pass": "A",
+ "items": [
+  {
+   "number": 1,
+   "answer": "②",
+   "solution": "step1) 두 집합이 서로 같으므로 $\\{2,4,a\\}=\\{2,b,5\\}$에서 $\\{4,a\\}=\\{b,5\\}$이다.\nstep2) 집합의 원소는 서로 다르므로 $a\\neq 4$, $b\\neq 5$이다. 따라서 $b=4$, $a=5$이다.\nstep3) 그러므로 $a+b=5+4=9$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 2,
+   "answer": "②",
+   "solution": "step1) 중심이 $(p,q)$이고 반지름이 $r$인 원의 방정식은 $(x-p)^2+(y-q)^2=r^2$이다.\nstep2) 중심 $(4,-1)$, 반지름 $5$이므로 $(x-4)^2+(y+1)^2=5^2=25$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 3,
+   "answer": "①",
+   "solution": "step1) $x^2+y^2-4x-2y-2k+8=0$을 완전제곱식으로 정리하면 $(x-2)^2+(y-1)^2=4+1-(-2k+8)=2k-3$이다.\nstep2) 반지름이 $1$이므로 $2k-3=1^2=1$이다.\nstep3) 따라서 $k=2$이다. (이때 $2k-3=1>0$이므로 원이 존재한다.)",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 4,
+   "answer": "③",
+   "solution": "step1) $A=\\{0,1,2,3,4,6,12,18\\}$이다.\nstep2) ① $4\\in A$이므로 거짓, ② $10\\notin A$이므로 거짓, ④ $5\\notin A$이므로 $\\{3,4,5\\}\\not\\subset A$ 거짓.\nstep3) ⑤ $0$은 자연수가 아니므로 $0\\in A$이지만 $0\\notin\\{x\\mid x는 18 이하의 자연수\\}$, 따라서 거짓.\nstep4) ③ $0\\in A$이므로 $\\{0\\}\\subset A$가 참이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 5,
+   "answer": "③",
+   "solution": "step1) $(5,-3)\\to(10,8)$이므로 평행이동은 $x$축 방향 $+5$, $y$축 방향 $+11$이다.\nstep2) $(a,b)\\to(a+5,\\,b+11)=(2,5)$이므로 $a=-3$, $b=-6$이다.\nstep3) 따라서 $ab=(-3)\\times(-6)=18$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 6,
+   "answer": "⑤",
+   "solution": "step1) $y=2x+a$를 $x$축 방향 $-3$, $y$축 방향 $1$만큼 평행이동하면 $y-1=2(x+3)+a$, 즉 $y=2x+a+7$이다.\nstep2) 원 $x^2+y^2-8x+4=0$은 $(x-4)^2+y^2=12$이므로 중심은 $(4,0)$이다.\nstep3) 직선이 원의 넓이를 이등분하려면 원의 중심을 지나야 하므로 $0=2\\times 4+a+7$이다.\nstep4) 따라서 $a=-15$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 7,
+   "answer": "④",
+   "solution": "step1) $\\overline{AB}$를 $m:n$으로 내분하는 점의 $y$좌표는 $\\frac{m\\times(-3)+n\\times 1}{m+n}$이다.\nstep2) 이 점이 $x$축 위에 있으므로 $-3m+n=0$, 즉 $n=3m$이다.\nstep3) $m,n$이 서로소인 자연수이므로 $m=1$, $n=3$이다.\nstep4) 따라서 $m+n=4$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 8,
+   "answer": "①",
+   "solution": "step1) $A-(A-B)=A\\cap B=\\{6,12\\}$이다.\nstep2) $A^c\\cup B^c=(A\\cap B)^c$이므로 $B\\cap(A\\cap B)^c=B-(A\\cap B)=B-A=\\{2,4,8,10\\}$이다.\nstep3) 따라서 $B=(A\\cap B)\\cup(B-A)=\\{2,4,6,8,10,12\\}$이므로 $n(B)=6$이다.\nstep4) $n(U)=12$이므로 $n(B^c)=12-6=6$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 9,
+   "answer": "③",
+   "solution": "step1) $\\angle C=90^{\\circ}$이므로 $\\overline{CA}^2+\\overline{CB}^2=\\overline{AB}^2$, 즉 $\\overrightarrow{CA}\\cdot\\overrightarrow{CB}=0$이다.\nstep2) $\\overrightarrow{CA}=(6-k,\\,3)$, $\\overrightarrow{CB}=(1-k,\\,2)$이므로 $(6-k)(1-k)+6=0$이다.\nstep3) 정리하면 $k^2-7k+12=0$이므로 $k=3$ 또는 $k=4$이다.\nstep4) $k=4$이면 $\\overline{CA}=\\sqrt{2^2+3^2}=\\sqrt{13}$, $\\overline{BC}=\\sqrt{3^2+2^2}=\\sqrt{13}$로 같아져 조건 $\\overline{BC}\\neq\\overline{CA}$에 어긋난다.\nstep5) $k=3$일 때 $\\overline{CA}=3\\sqrt{2}$, $\\overline{BC}=2\\sqrt{2}$로 서로 다르므로 $k=3$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 10,
+   "answer": "①",
+   "solution": "step1) 직선 $y=a(x-1)$은 항상 점 $(1,0)$을 지나고, 이 점은 큰 원 $x^2+y^2=4$의 내부이므로 큰 원과 항상 서로 다른 두 점에서 만난다.\nstep2) 점 $(1,0)$은 오른쪽 반원(중심 $(1,0)$, 반지름 $1$의 위쪽 반원)의 중심이므로 $a\\neq 0$이면 이 반원과 정확히 한 점에서 만난다.\nstep3) 여기까지 항상 $3$개이므로, 왼쪽 반원(중심 $(-1,0)$, 반지름 $1$의 아래쪽 반원)과 꼭 한 점에서 만나야 한다.\nstep4) $a>0$이면 원 $(x+1)^2+y^2=1$과의 교점은 모두 $x<0$이라 $y=a(x-1)<0$, 즉 모두 아래쪽 반원 위에 있다. 따라서 두 점이 되지 않으려면 접해야 한다. $\\frac{|{-a}-a|}{\\sqrt{a^2+1}}=1$에서 $3a^2=1$, $a=\\frac{\\sqrt3}{3}$.\nstep5) $a<0$이면 $x\\le 0$에서 $y=a(x-1)>0$이므로 아래쪽 반원과 만나지 않아 교점이 $3$개, $a=0$이면 $(-2,0),(0,0),(2,0)$의 $3$개이다. 따라서 $a=\\frac{\\sqrt3}{3}$뿐이다.\nstep6) $y=\\frac{\\sqrt3}{3}(x-1)$을 정리하면 $\\sqrt3\\,x-3y-\\sqrt3=0$이므로 $m=\\sqrt3$, $n=-\\sqrt3$이다.\nstep7) 따라서 $mn=\\sqrt3\\times(-\\sqrt3)=-3$이다.",
+   "confidence": "high",
+   "note": "반원의 위·아래 배치가 뒤바뀌어도 대칭성으로 a=-√3/3이 되어 mn=-3으로 동일함을 확인함."
+  },
+  {
+   "number": 11,
+   "answer": "④",
+   "solution": "step1) ㄱ: $k=0$이면 $l:-y+2=0$ 즉 $y=2$, $m:4x+8=0$ 즉 $x=-2$이다. 하나는 가로선, 하나는 세로선이므로 수직이다. (참)\nstep2) ㄴ: $l$을 $k$에 대하여 정리하면 $k(x+1)+(-y+2)=0$이므로 $k$의 값에 관계없이 $x+1=0$, $-y+2=0$인 점 $(-1,2)$를 지난다. 즉 $(1,2)$가 아니다. (거짓)\nstep3) ㄷ: $l:kx-y+(k+2)=0$, $m:4x+ky+(3k+8)=0$이 평행하려면 $k\\times k-4\\times(-1)=0$, 즉 $k^2+4=0$이어야 하는데 실수 $k$는 존재하지 않는다. (참)\nstep4) 따라서 옳은 것은 ㄱ, ㄷ이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 12,
+   "answer": "⑤",
+   "solution": "step1) $x^2-11x+28\\leq 0$에서 $(x-4)(x-7)\\leq 0$이므로 $4\\leq x\\leq 7$, 즉 $A=\\{4,5,6,7\\}$이다.\nstep2) $x^2-11x+24>0$에서 $(x-3)(x-8)>0$이므로 $x<3$ 또는 $x>8$, 즉 $B=\\{1,2,9,10\\}$이다.\nstep3) $A\\cap C^{c}=\\varnothing$은 $A\\subset C$를 뜻하고, $B\\cap C\\neq\\varnothing$은 $C$가 $B$의 원소를 적어도 하나 포함함을 뜻한다.\nstep4) $A$의 원소 $4$개는 반드시 포함하므로 나머지 $U-A=\\{1,2,3,8,9,10\\}$의 $6$개 원소를 자유롭게 선택하는 경우는 $2^6=64$가지이다.\nstep5) 이 중 $B$의 원소를 하나도 포함하지 않는 경우는 $\\{3,8\\}$의 부분집합인 $2^2=4$가지이다.\nstep6) 따라서 $64-4=60$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 13,
+   "answer": "④",
+   "solution": "step1) (가) $100\\notin A_n$은 $n$이 $100$의 약수가 아님을 뜻한다. $2\\leq n\\leq 25$에서 $100$의 약수는 $2,4,5,10,20,25$이다.\nstep2) (나) $A_3\\cap A_n$은 $3$과 $n$의 최소공배수의 배수의 집합이다. $n$이 $3$의 배수이면 $A_3\\cap A_n=A_n$인데 $n\\leq 25\\leq 100$이므로 $n\\in A_n$, $n\\notin A_{3n}$이 되어 $A_n\\neq A_{3n}$이다.\nstep3) 반대로 $n$이 $3$의 배수가 아니면 $\\operatorname{lcm}(3,n)=3n$이므로 $A_3\\cap A_n=A_{3n}$이 성립한다. 즉 (나)는 $n$이 $3$의 배수가 아님과 동치이다.\nstep4) $2\\leq n\\leq 25$인 $24$개 중 $3$의 배수 $3,6,\\cdots,24$ $8$개를 빼면 $16$개, 여기서 $100$의 약수 $2,4,5,10,20,25$ $6$개(모두 $3$의 배수가 아님)를 빼면 $10$개이다.\nstep5) 실제로 $n=7,8,11,13,14,16,17,19,22,23$의 $10$개이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 14,
+   "answer": "⑤",
+   "solution": "step1) $a=\\overline{BC}$, $b=\\overline{CA}$, $c=\\overline{AB}$라 하면 중선 길이 공식에 의해 $\\overline{AL}^2=\\frac{2b^2+2c^2-a^2}{4}$, $\\overline{BM}^2=\\frac{2c^2+2a^2-b^2}{4}$, $\\overline{CN}^2=\\frac{2a^2+2b^2-c^2}{4}$이다.\nstep2) 세 식을 더하면 $\\overline{AL}^2+\\overline{BM}^2+\\overline{CN}^2=\\frac{3}{4}(a^2+b^2+c^2)$이다.\nstep3) $\\left(\\frac{51}{2}\\right)^2+\\left(\\frac{45}{2}\\right)^2+30^2=\\frac{2601}{4}+\\frac{2025}{4}+900=\\frac{4113}{2}$이므로 $a^2+b^2+c^2=\\frac{4}{3}\\times\\frac{4113}{2}=2742$이다.\nstep4) $4\\overline{AL}^2=2(a^2+b^2+c^2)-3a^2$이므로 $2601=5484-3a^2$, 즉 $a^2=961$이다.\nstep5) 따라서 $\\overline{BC}=a=31$이다. (검산: $b^2=1153$, $c^2=628$로 세 중선 길이가 모두 일치한다.)",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 15,
+   "answer": "④",
+   "solution": "step1) 두 원의 공통현은 $\\overline{AB}$이고 중심 $\\mathrm{C_1}$이 $\\overline{AB}$ 위에 있으므로 $\\overline{AB}$는 원 $C_1$의 지름이고 $\\mathrm{C_1}$은 $\\overline{AB}$의 중점이다.\nstep2) $\\mathrm{C_1}=\\left(\\frac{a+b}{2},\\,4\\right)$가 직선 $x+3y=15$ 위에 있으므로 $\\frac{a+b}{2}+12=15$, 즉 $\\mathrm{C_1}=(3,4)$이고 $a+b=6$이다.\nstep3) 직선 $\\mathrm{C_1C_2}$는 공통현 $\\overline{AB}$의 수직이등분선이므로 $\\overline{AB}$의 기울기는 $-\\frac{1}{-1/3}$의 관계에서 $3$이다. 즉 $\\frac{7-1}{b-a}=3$에서 $b-a=2$이므로 $a=2$, $b=4$이다.\nstep4) 따라서 $\\mathrm{A}(2,1)$, $\\mathrm{B}(4,7)$이고 $r_1=\\frac{1}{2}\\overline{AB}=\\frac{\\sqrt{4+36}}{2}=\\sqrt{10}$이므로 원 $C_1$의 넓이는 $10\\pi$이다.\nstep5) $\\mathrm{C_2}$는 직선 $x+3y=15$ 위이면서 원 $C_1:(x-3)^2+(y-4)^2=10$ 위의 점이므로 $10(y-4)^2=10$에서 $\\mathrm{C_2}=(6,3)$ (또는 $(0,5)$)이다.\nstep6) $r_2=\\overline{\\mathrm{C_2}\\mathrm{A}}=\\sqrt{(6-2)^2+(3-1)^2}=\\sqrt{20}$이므로 원 $C_2$의 넓이는 $20\\pi$이다.\nstep7) 따라서 넓이의 합은 $10\\pi+20\\pi=30\\pi$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 16,
+   "answer": "②",
+   "solution": "step1) $\\mathrm{A}(0,0)$, $\\mathrm{B}(4,0)$으로 놓으면 $\\angle CBA=90^{\\circ}$이므로 $\\mathrm{C}(4,2)$이다.\nstep2) $\\angle BAD=45^{\\circ}$, $\\overline{DA}=3\\sqrt2$이므로 $\\mathrm{D}=(3\\sqrt2\\cos45^{\\circ},\\,3\\sqrt2\\sin45^{\\circ})=(3,3)$이다. (검산: $\\overline{CD}=\\sqrt{1+1}=\\sqrt2$로 조건과 일치)\nstep3) 삼각형 $\\mathrm{DEC}$의 둘레는 $\\overline{DE}+\\overline{EC}+\\overline{CD}$이고 $\\overline{CD}=\\sqrt2$는 고정이므로 $\\overline{DE}+\\overline{EC}$를 최소화한다.\nstep4) 점 $\\mathrm{D}$를 직선 $\\mathrm{AB}$($x$축)에 대하여 대칭이동한 점을 $\\mathrm{D'}(3,-3)$이라 하면 $\\overline{DE}+\\overline{EC}=\\overline{D'E}+\\overline{EC}\\geq \\overline{D'C}$이다.\nstep5) $\\overline{D'C}=\\sqrt{(4-3)^2+(2+3)^2}=\\sqrt{26}$이고, 선분 $\\mathrm{D'C}$가 $x$축과 만나는 점 $(3.6,\\,0)$은 선분 $\\mathrm{AB}$ 위에 있으므로 최솟값이 실제로 얻어진다.\nstep6) 따라서 최솟값은 $\\sqrt2+\\sqrt{26}$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 17,
+   "answer": "125",
+   "solution": "step1) $\\mathrm{P_1}(3,5)$에서 $x\\neq y$이므로 (나)에 의해 $\\mathrm{P_2}(5,6)$, $\\mathrm{P_3}(7,7)$이다.\nstep2) $\\mathrm{P_3}$은 $x=y$이므로 (가)에 의해 $\\mathrm{P_4}(-7,7)$이다.\nstep3) (나)의 이동에서는 $y-x$의 값이 매번 $1$씩 줄어든다. $\\mathrm{P_4}$에서 $y-x=14$이므로 $14$번 뒤인 $\\mathrm{P_{18}}$에서 $y-x=0$, 즉 $\\mathrm{P_{18}}(-7+28,\\,7+14)=(21,21)$이다.\nstep4) 따라서 $\\mathrm{P_{19}}(-21,21)$이고 $y-x=42$이므로 $42$번 뒤인 $\\mathrm{P_{61}}(-21+84,\\,21+42)=(63,63)$이다.\nstep5) $\\mathrm{P_{62}}(-63,63)$이고, $x\\neq y$이므로 $\\mathrm{P_{63}}(-61,64)$이다.\nstep6) 따라서 $a=-61$, $b=64$이므로 $b-a=64-(-61)=125$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 18,
+   "answer": "(가) $x^{2}+(mx+n)^{2}=r^{2}$ (나) $(1+m^{2})x^{2}+2mnx+n^{2}-r^{2}=0$ (다) $D=(2mn)^{2}-4(1+m^{2})(n^{2}-r^{2})=4\\{(m^{2}+1)r^{2}-n^{2}\\}$ (라) $n=\\pm r\\sqrt{m^{2}+1}$ (마) $y=mx\\pm r\\sqrt{m^{2}+1}$",
+   "solution": "step1) ② $y=mx+n$을 ① $x^{2}+y^{2}=r^{2}$에 대입하면 (가) $x^{2}+(mx+n)^{2}=r^{2}$이다.\nstep2) 전개하여 $x$에 대하여 정리하면 (나) $(1+m^{2})x^{2}+2mnx+n^{2}-r^{2}=0$이다.\nstep3) 접한다는 것은 이 이차방정식이 중근을 가진다는 뜻이므로 판별식은 (다) $D=(2mn)^{2}-4(1+m^{2})(n^{2}-r^{2})=4\\{(m^{2}+1)r^{2}-n^{2}\\}$이다.\nstep4) $D=0$에서 $n^{2}=(m^{2}+1)r^{2}$이므로 (라) $n=\\pm r\\sqrt{m^{2}+1}$이다.\nstep5) 따라서 접선의 방정식은 (마) $y=mx\\pm r\\sqrt{m^{2}+1}$이다.",
+   "confidence": "high",
+   "note": "(다)는 D/4로 쓰면 $(m^2+1)r^2-n^2$이다."
+  },
+  {
+   "number": 19,
+   "answer": "$\\frac{100}{3}$",
+   "solution": "step1) (가) 원 $x^{2}+y^{2}=10$ 위의 점 $(x_1,y_1)$에서의 접선의 방정식은 $x_1x+y_1y=10$이다.\nstep2) 이 접선이 점 $(0,10)$을 지나므로 $10y_1=10$, 즉 $y_1=1$이다.\nstep3) $(x_1,y_1)$은 원 위의 점이므로 $x_1^{2}+1=10$에서 $x_1=\\pm 3$이다.\nstep4) 따라서 두 접선은 $3x+y=10$과 $-3x+y=10$이다.\nstep5) (나) $y=0$을 대입하면 $x$절편은 각각 $x=\\frac{10}{3}$, $x=-\\frac{10}{3}$이다.\nstep6) 삼각형의 세 꼭짓점은 $(0,10)$, $\\left(\\frac{10}{3},0\\right)$, $\\left(-\\frac{10}{3},0\\right)$이므로 밑변의 길이는 $\\frac{20}{3}$, 높이는 $10$이다.\nstep7) 따라서 넓이는 $\\frac{1}{2}\\times\\frac{20}{3}\\times 10=\\frac{100}{3}$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 20,
+   "answer": "$\\frac{6\\sqrt{5}}{5}$",
+   "solution": "step1) (가) 세 꼭짓점을 구한다. $x+2y-4=0$과 $y=1$의 교점은 $(2,1)$, $y=1$과 $x-y+8=0$의 교점은 $(-7,1)$, $x+2y-4=0$과 $x-y+8=0$의 교점은 $(-4,4)$이다.\nstep2) (나) 외심을 $\\mathrm{O}(a,b)$라 하자. $(2,1)$과 $(-7,1)$에서 같은 거리이므로 $(a-2)^{2}=(a+7)^{2}$에서 $18a=-45$, 즉 $a=-\\frac{5}{2}$이다.\nstep3) $(2,1)$과 $(-4,4)$에서 같은 거리이므로 $(a-2)^{2}+(b-1)^{2}=(a+4)^{2}+(b-4)^{2}$에서 $-12a+6b=27$이다.\nstep4) $a=-\\frac{5}{2}$를 대입하면 $30+6b=27$이므로 $b=-\\frac{1}{2}$이다. 즉 외심은 $\\mathrm{O}\\left(-\\frac{5}{2},\\,-\\frac{1}{2}\\right)$이다. (검산: 세 꼭짓점까지의 거리가 모두 $\\sqrt{\\frac{45}{2}}$로 같다.)\nstep5) (다) 점과 직선 사이의 거리 공식에서 $d=\\frac{\\left|2\\times\\left(-\\frac{5}{2}\\right)+4\\times\\left(-\\frac{1}{2}\\right)-5\\right|}{\\sqrt{2^{2}+4^{2}}}=\\frac{|-12|}{2\\sqrt5}=\\frac{6}{\\sqrt5}$이다.\nstep6) 따라서 구하는 거리는 $\\frac{6\\sqrt5}{5}$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 21,
+   "answer": "$\\mathrm{P}(-\\sqrt{3},\\,-1)$",
+   "solution": "step1) $C_1:x^{2}+y^{2}+4x-2y+1=0$은 $(x+2)^{2}+(y-1)^{2}=4$이므로 중심 $(-2,1)$, 반지름 $2$이다.\nstep2) (가) $x$축 방향 $2$, $y$축 방향 $-1$만큼 평행이동하면 중심은 $(0,0)$이 되므로 $C_2:x^{2}+y^{2}=4$이다.\nstep3) 직선 $\\mathrm{AB}$의 기울기는 $\\frac{7-(-2)}{-2\\sqrt3-\\sqrt3}=\\frac{9}{-3\\sqrt3}=-\\sqrt3$이므로 $y+2=-\\sqrt3(x-\\sqrt3)$, 즉 $\\sqrt3x+y-1=0$이다.\nstep4) $\\overline{AB}=\\sqrt{(-3\\sqrt3)^{2}+9^{2}}=\\sqrt{108}=6\\sqrt3$으로 일정하므로, 넓이가 최대이려면 점 $\\mathrm{P}$와 직선 $\\mathrm{AB}$ 사이의 거리가 최대여야 한다.\nstep5) 원의 중심 $(0,0)$과 직선 사이의 거리는 $\\frac{|-1|}{\\sqrt{3+1}}=\\frac{1}{2}$이므로 최대 거리는 $\\frac{1}{2}+2=\\frac{5}{2}$이고, 이때 $\\mathrm{P}$는 중심에서 직선의 반대쪽으로 수선의 방향에 있는 점이다.\nstep6) 직선의 법선벡터 방향 단위벡터는 $\\left(\\frac{\\sqrt3}{2},\\frac{1}{2}\\right)$이고, 중심에서 $\\sqrt3\\cdot0+0-1=-1<0$이므로 $\\mathrm{P}$는 $-$방향, 즉 $\\mathrm{P}=2\\times\\left(-\\frac{\\sqrt3}{2},-\\frac{1}{2}\\right)=(-\\sqrt3,-1)$이다.\nstep7) (나) 따라서 $\\mathrm{P}(-\\sqrt3,\\,-1)$이고, 이때 넓이는 $\\frac{1}{2}\\times6\\sqrt3\\times\\frac{5}{2}=\\frac{15\\sqrt3}{2}$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 22,
+   "answer": "3",
+   "solution": "step1) (가) 집합 $P$의 원소는 직선 $y=2x+k$와 원 $(x+1)^{2}+(y-2)^{2}=5$(중심 $(-1,2)$, 반지름 $\\sqrt5$)의 교점이고, 집합 $Q$의 원소는 같은 직선과 원 $x^{2}+(y+1)^{2}=5$(중심 $(0,-1)$, 반지름 $\\sqrt5$)의 교점이다.\nstep2) (나) 직선과 원의 교점은 최대 $2$개이므로 $n(P)+n(Q)=4$이려면 $n(P)=n(Q)=2$, 즉 직선이 두 원 모두와 서로 다른 두 점에서 만나야 한다.\nstep3) 직선을 $2x-y+k=0$으로 쓰면 중심 $(-1,2)$까지의 거리는 $\\frac{|-2-2+k|}{\\sqrt5}=\\frac{|k-4|}{\\sqrt5}$이고, 이것이 $\\sqrt5$보다 작아야 하므로 $|k-4|<5$, 즉 $-1<k<9$이다.\nstep4) 중심 $(0,-1)$까지의 거리는 $\\frac{|1+k|}{\\sqrt5}<\\sqrt5$이어야 하므로 $|k+1|<5$, 즉 $-6<k<4$이다.\nstep5) 두 조건의 공통범위는 $-1<k<4$이므로 정수 $k$는 $0,1,2,3$이다.\nstep6) 따라서 최댓값 $3$, 최솟값 $0$의 합은 $3$이다.",
+   "confidence": "high",
+   "note": ""
+  }
+ ]
+}
