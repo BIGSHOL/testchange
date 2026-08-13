@@ -383,7 +383,38 @@ def isometric(scale: float = 60.0, origin: Pt2 = (200.0, 200.0)) -> View:
 
 # ── 검산 ─────────────────────────────────────────────────────────────────
 
-def verify_solid(name, *, feet=(), angles=(), areas=(), lengths=(),
+def plane_from_equation(a: float, b: float, c: float, d: float) -> Plane:
+    """``ax + by + cz + d = 0`` 으로 평면을 만든다 — 라벨과 작도의 단일 출처.
+
+    평면을 좌표로 따로 만들고 라벨을 손으로 적으면 둘이 갈라진다(실측 2026-08-13:
+    작도는 ``y = 4`` 인데 그림엔 ``y = 3`` 이 인쇄됐고, 검산이 그걸 못 잡았다).
+    """
+    n = (float(a), float(b), float(c))
+    if norm(n) <= _EPS:
+        raise SolidGeometryError("법선이 영벡터라 평면이 아님")
+    u = unit(n)
+    return Plane(scale(u, -float(d) / norm(n)), u)
+
+
+def equation_text(a: float, b: float, c: float, d: float,
+                  names: Sequence[str] = ("x", "y", "z")) -> str:
+    """평면 방정식을 사람이 읽는 문자열로 — 라벨을 **계수에서 생성**해 드리프트를 막는다."""
+    parts: list[str] = []
+    for coef, nm in zip((a, b, c), names):
+        if abs(coef) <= _EPS:
+            continue
+        sign = "-" if coef < 0 else ("+" if parts else "")
+        mag = abs(coef)
+        body = nm if abs(mag - 1.0) <= 1e-9 else (
+            f"√{round(mag ** 2)} {nm}" if abs(mag ** 2 - round(mag ** 2)) < 1e-9
+            and abs(mag - round(mag)) > 1e-9 else f"{mag:g} {nm}")
+        parts.append(f"{sign} {body}".strip() if parts else f"{sign}{body}")
+    if abs(d) > _EPS:
+        parts.append(f"{'-' if d < 0 else '+'} {abs(d):g}")
+    return " ".join(parts) + " = 0"
+
+
+def verify_solid(name, *, feet=(), angles=(), areas=(), lengths=(), equations=(),
                  perpendicular=(), on_plane=(), view: View | None = None,
                  tol: float = 0.06, tol_deg: float = 2.0,
                  tol_abs: float = 1e-6) -> None:
@@ -397,6 +428,7 @@ def verify_solid(name, *, feet=(), angles=(), areas=(), lengths=(),
                                                 kind='line'     → (p, q, plane)
     areas:         (S′라벨|None, 다각형, plane) — 평면성 + S′ = S·cos θ
     lengths:       (라벨값, p, q)             — 3D 거리(척도 중앙값으로 비율 검사)
+    equations:     ((a, b, c, d), plane)      — 그림에 적은 방정식 ↔ 실제 평면
     perpendicular: ((p, q), (r, s))          — 두 선분이 수직인가
     on_plane:      (점, plane)                — 점이 그 평면 위인가
     view:          주면 퇴화 시점(면이 선으로 뭉갬)인지 함께 본다
@@ -476,6 +508,19 @@ def verify_solid(name, *, feet=(), angles=(), areas=(), lengths=(),
             problems.append(
                 f"  수직 검사: 두 선분이 이루는 각 "
                 f"{math.degrees(math.acos(min(1.0, c))):.2f}° (90° 여야 함)")
+
+    for coeffs, plane in equations:
+        checks += 1
+        a_, b_, c_, d_ = (float(v) for v in coeffs)
+        want = plane_from_equation(a_, b_, c_, d_)
+        # 법선은 부호가 반대라도 같은 평면이다.
+        aligned = abs(dot(want.normal, plane.normal))
+        off = abs(want.signed_distance(plane.point))
+        if aligned < math.cos(math.radians(tol_deg)) or off > max(tol_abs, 1e-4):
+            problems.append(
+                f"  방정식 라벨 {equation_text(a_, b_, c_, d_)}: 실제 평면과 다름"
+                f"(법선 어긋남 {math.degrees(math.acos(min(1.0, aligned))):.2f}°,"
+                f" 거리 {off:.4f})")
 
     for p, plane in on_plane:
         checks += 1
