@@ -86,6 +86,10 @@ _ALLOWED_TAGS = frozenset({
     "tspan",
     "title",
     "desc",
+    "defs",
+    "linearGradient",
+    "radialGradient",
+    "stop",
 })
 _BLOCKED_TAGS = frozenset({
     "script",
@@ -144,9 +148,18 @@ _TAG_ATTRS = {
     "tspan": _COMMON_ATTRS | _TEXT_ATTRS,
     "title": frozenset(),
     "desc": frozenset(),
+    "defs": frozenset(),
+    "linearGradient": frozenset({"id", "x1", "y1", "x2", "y2", "gradientUnits"}),
+    "radialGradient": frozenset({"id", "cx", "cy", "r", "fx", "fy", "gradientUnits"}),
+    "stop": frozenset({"offset", "stop-color", "stop-opacity"}),
 }
+_GRADIENT_TAGS = frozenset({"linearGradient", "radialGradient"})
+_PAINT_ATTRS = frozenset({"fill", "stroke"})
+_LOCAL_REF_RE = re.compile(r"^url\(\s*#([A-Za-z][\w.:-]*)\s*\)$")
+_ID_RE = re.compile(r"^[A-Za-z][\w.:-]*$")
 
-_CONTAINER_CHILDREN = _ALLOWED_TAGS - {"svg", "tspan"}
+_CONTAINER_CHILDREN = (_ALLOWED_TAGS - {"svg", "tspan", "stop"}
+                       - _GRADIENT_TAGS)
 _TEXT_CHILDREN = frozenset({"tspan"})
 _DRAWABLE_TAGS = frozenset({
     "circle", "ellipse", "line", "path", "polygon", "polyline", "rect", "text"
@@ -226,8 +239,12 @@ def _preflight(svg: str) -> None:
         raise SvgSecurityError("DOCTYPE declarations are not allowed")
     if re.search(r"<!\s*ENTITY\b", svg, re.I):
         raise SvgSecurityError("ENTITY declarations are not allowed")
-    if re.search(r"\burl\s*\(", svg, re.I):
-        raise SvgSecurityError("CSS url() references are not allowed")
+    for _ref in re.finditer(r"\burl\s*\(([^)]*)\)", svg, re.I):
+        # 사용자 승인(2026-08-13)은 **구 음영 같은 특정 경우 한정**이다. 문서 안
+        # 그라데이션을 가리키는 url(#id) 만 통과시키고 나머지(외부 URL·pattern·
+        # filter·clip-path 참조)는 종전대로 막는다.
+        if not re.fullmatch(r"\s*#[A-Za-z][\w.:-]*\s*", _ref.group(1)):
+            raise SvgSecurityError("only local url(#id) gradient references are allowed")
 
     # XML declarations are harmless; all other processing instructions are
     # unnecessary for a generated diagram and are rejected.
@@ -421,12 +438,28 @@ def _validate_attr(tag: str, name: str, value: str) -> None:
         raise SvgSecurityError(f"event attribute is not allowed: {name}")
     if lowered_name in {"href", "xlink:href", "style", "class", "src"}:
         raise SvgSecurityError(f"attribute is not allowed: {name}")
-    if "url(" in lowered_value or _SCHEME_RE.search(value) or value.lstrip().startswith("//"):
+    if "url(" in lowered_value:
+        if name not in _PAINT_ATTRS or not _LOCAL_REF_RE.match(value.strip()):
+            raise SvgSecurityError(f"external/reference value is not allowed in {name}")
+    elif _SCHEME_RE.search(value) or value.lstrip().startswith("//"):
         raise SvgSecurityError(f"external/reference value is not allowed in {name}")
     if name not in _TAG_ATTRS[tag]:
         raise SvgSecurityError(f"attribute {name!r} is not allowed on <{tag}>")
 
-    if name == "viewBox":
+    if name == "id":
+        if not _ID_RE.match(value.strip()):
+            raise SvgSecurityError("invalid id")
+    elif name == "gradientUnits":
+        if value.strip() not in {"objectBoundingBox", "userSpaceOnUse"}:
+            raise SvgSecurityError("invalid gradientUnits")
+    elif name == "offset":
+        v = value.strip()
+        _parse_number(v[:-1] if v.endswith("%") else v, label="offset")
+    elif name == "stop-color":
+        _validate_color(value.strip(), name)
+    elif name == "stop-opacity":
+        _parse_number(value, label=name, minimum=0.0, maximum=1.0)
+    elif name == "viewBox":
         _validate_viewbox(value)
     elif name == "preserveAspectRatio":
         if not re.fullmatch(
@@ -441,7 +474,10 @@ def _validate_attr(tag: str, name: str, value: str) -> None:
         if len(coords) < minimum:
             raise SvgSecurityError(f"{tag} has too few points")
     elif name in {"fill", "stroke", "color"}:
-        _validate_color(value, name)
+        # 로컬 그라데이션 참조는 색이 아니라 참조다 — 존재 여부는 sanitize_svg 가
+        # 문서 전체를 보고 확인한다(여기선 형식만).
+        if not (name in _PAINT_ATTRS and _LOCAL_REF_RE.match(value.strip())):
+            _validate_color(value, name)
     elif name in {"fill-opacity", "stroke-opacity", "opacity"}:
         _parse_number(value, label=name, minimum=0, maximum=1)
     elif name == "stroke-width":
@@ -526,9 +562,19 @@ def _check_limits_and_shape(root: ET.Element) -> None:
             raise SvgSecurityError("root element must be <svg>")
         if parent_tag == "svg" and tag == "svg":
             raise SvgSecurityError("nested <svg> elements are not allowed")
+        if tag == "defs" and parent_tag != "svg":
+            raise SvgSecurityError("<defs> may only appear directly under <svg>")
+        if tag in _GRADIENT_TAGS and parent_tag != "defs":
+            raise SvgSecurityError(f"<{tag}> may only appear inside <defs>")
+        if tag == "stop" and parent_tag not in _GRADIENT_TAGS:
+            raise SvgSecurityError("<stop> may only appear inside a gradient")
+        if parent_tag == "defs" and tag not in _GRADIENT_TAGS:
+            raise SvgSecurityError(f"<defs> may only contain gradients, not <{tag}>")
+        if parent_tag in _GRADIENT_TAGS and tag != "stop":
+            raise SvgSecurityError(f"gradients may only contain <stop>, not <{tag}>")
         if parent_tag in {"text", "tspan"} and tag not in _TEXT_CHILDREN:
             raise SvgSecurityError(f"<{parent_tag}> may only contain <tspan> elements")
-        if parent_tag not in {None, "svg", "g", "text", "tspan"}:
+        if parent_tag not in {None, "svg", "g", "text", "tspan", "defs"} | _GRADIENT_TAGS:
             raise SvgSecurityError(f"<{parent_tag}> cannot contain child elements")
         if parent_tag in {"svg", "g"} and tag not in _CONTAINER_CHILDREN:
             raise SvgSecurityError(f"<{parent_tag}> cannot contain <{tag}>")
@@ -598,6 +644,14 @@ def sanitize_svg(svg: str) -> str:
         return clean
 
     clean_root = rebuild(root, is_root=True)
+    defined = {e.get("id") for e in clean_root.iter()
+               if _local_tag(e.tag)[0] in _GRADIENT_TAGS and e.get("id")}
+    for element in clean_root.iter():
+        for attr in _PAINT_ATTRS:
+            ref = _LOCAL_REF_RE.match((element.get(attr) or "").strip())
+            if ref and ref.group(1) not in defined:
+                raise SvgSecurityError(
+                    f"paint references an undefined gradient: {ref.group(1)}")
     sanitized = ET.tostring(clean_root, encoding="unicode", short_empty_elements=True)
     if len(sanitized.encode("utf-8")) > MAX_SVG_BYTES:
         raise SvgSecurityError("sanitized SVG exceeds the output size limit")
@@ -976,7 +1030,11 @@ def validate_svg_structure(svg: str) -> list[str]:
                 continue
             if name.lower().startswith("on") or name.lower() in {"href", "xlink:href", "src"}:
                 issues.append(f"reference/event attribute is not allowed: {name}")
-            if "url(" in value.lower() or _SCHEME_RE.search(value):
+            if "url(" in value.lower():
+                # 허용된 좁은 예외(구 음영): fill/stroke 의 로컬 그라데이션 참조.
+                if name not in _PAINT_ATTRS or not _LOCAL_REF_RE.match(value.strip()):
+                    issues.append(f"external/reference value in {name}")
+            elif _SCHEME_RE.search(value):
                 issues.append(f"external/reference value in {name}")
             if re.search(r"(?:nan|[+-]?inf(?:inity)?)", value, re.I):
                 issues.append(f"non-finite numeric value in {name}")

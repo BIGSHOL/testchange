@@ -446,19 +446,293 @@ def halo_angle(vx, vy, p1, p2, d, content=None, fs=12, runs=None,
 
     clear=False 는 기하적으로 회피 불가능한 자리(쐐기 안)에서만, 이유를 적고 쓴다.
     """
+    bx, by = _angle_label_pos(vx, vy, p1, p2, d, fs, content, runs, clear)
+    return halo_text(bx, by + 0.3 * fs, content, fs, runs=runs)
+
+
+def _label_halfsize(content, runs, fs) -> tuple[float, float]:
+    """라벨 상자의 반폭·반높이(여유 포함) — 배치 판정과 렌더가 **같은 수**를 써야 한다."""
+    plain = content if runs is None else "".join(r.text for r in runs)
+    n = max(1, len(_re.sub(r"<[^>]+>", "", str(plain or ""))))
+    # ⚠️ 이 근사가 실제 글리프보다 작으면 배치가 "안 겹친다"고 판정한 자리를
+    # 픽셀 lint 가 겹침으로 잡는다 — 그림마다 gap 을 손보게 되는 원인이었다.
+    # 세로는 어센더+디센더(약 1em), 가로는 세리프 평균 자폭(약 0.64em)을 잡는다.
+    return 0.32 * fs * n + _LABEL_CLEAR, 0.46 * fs + _LABEL_CLEAR
+
+
+def _angle_label_pos(vx, vy, p1, p2, d, fs, content=None, runs=None,
+                     clear=True) -> tuple[float, float]:
+    """`halo_angle` 이 라벨을 놓을 좌표.
+
+    ⚠️ 이 계산을 호출부가 **다시 구현하거나 마크업을 정규식으로 파싱하면** 두 값이
+    갈라져 판정과 렌더가 어긋난다. 자리 판정(`angle_label`)도 이 함수를 쓴다.
+    """
     if clear:
         a0 = ray_angle(vx, vy, *p1)
         da = (ray_angle(vx, vy, *p2) - a0 + 180.0) % 360.0 - 180.0
         half = math.radians(abs(da) / 2.0)
         if math.sin(half) > 1e-3:
-            plain = content if runs is None else "".join(r.text for r in runs)
-            n = len(_re.sub(r"<[^>]+>", "", str(plain or "")))
-            w = 0.30 * fs * max(1, n)
-            h = 0.38 * fs
-            reach = math.hypot(w, h) + 0.5 * max(4.0, fs * 0.45) + _LABEL_CLEAR
+            w, h = _label_halfsize(content, runs, fs)
+            reach = math.hypot(w, h) + 0.5 * max(4.0, fs * 0.45)
             d = max(d, reach / math.sin(half))
-    bx, by = bisect_pt(vx, vy, p1, p2, d)
-    return halo_text(bx, by + 0.3 * fs, content, fs, runs=runs)
+    return bisect_pt(vx, vy, p1, p2, d)
+
+
+def _arrow_head(tip, ux, uy, head) -> str:
+    bx, by = tip[0] - ux * head, tip[1] - uy * head
+    nx, ny = -uy, ux
+    return (f'<path d="M {tip[0]:.1f} {tip[1]:.1f} '
+            f'L {bx + nx * head * 0.36:.1f} {by + ny * head * 0.36:.1f} '
+            f'L {bx - nx * head * 0.36:.1f} {by - ny * head * 0.36:.1f} Z" fill="#000"/>')
+
+
+def leader(frm, to, arrow=True, w=1.0, head=6.5, gap=4.0, end_dir=None,
+           bow=0.55) -> str:
+    """지시선 — 라벨(frm)에서 가리킬 곳(to)까지 얇은 선 + 화살촉.
+
+    ``end_dir`` 을 주면 **곡선(2차 베지에)** 으로 그리고 그 방향으로 **도착**한다.
+    직선 지시선은 라벨이 각의 반대편에 놓였을 때 화살표가 각이 열린 방향과 거꾸로
+    들어가 어색하다(사용자 2026-08-13 왕선중 q11 의 70°·80°: "각의 방향과 반대라서
+    어색"). 도착 접선을 각 쪽으로 맞추면 어디에 적든 화살표가 각을 향해 들어온다.
+
+    라벨 쪽은 gap 만큼 띄워 글자에 닿지 않게 한다.
+    """
+    L = _nonzero_segment(frm[0], frm[1], to[0], to[1], "leader")
+    _finite(w, head, gap, what="leader")
+    if w <= 0 or head <= 0:
+        raise ValueError("leader: 굵기와 화살촉 크기는 양수여야 함")
+    ux, uy = (to[0] - frm[0]) / L, (to[1] - frm[1]) / L
+    # 라벨이 대상에 바짝 붙으면 gap+화살촉이 선 길이를 넘어 선이 뒤집힌다.
+    gap = max(0.0, min(gap, L - (head if arrow else 0.0) - 2.0))
+    sx, sy = frm[0] + ux * gap, frm[1] + uy * gap
+
+    if end_dir is None:
+        tip_u, tip_v = ux, uy
+        bx, by = (to[0] - ux * head, to[1] - uy * head) if arrow else to
+        path = (f'<line x1="{sx:.1f}" y1="{sy:.1f}" x2="{bx:.1f}" y2="{by:.1f}" '
+                f'stroke="#000" stroke-width="{w}"/>')
+    else:
+        ex, ey = end_dir
+        n = math.hypot(ex, ey)
+        if n <= _EPS:
+            raise ValueError("leader: end_dir 은 영벡터일 수 없음")
+        tip_u, tip_v = ex / n, ey / n
+        # 제어점을 도착점 뒤에 두면 끝 접선이 end_dir 이 된다. 다만 너무 멀리 두면
+        # 곡선이 크게 부풀어 다른 요소를 가로지른다 — 길이에 비례해 묶는다.
+        reach = min(bow * L, 0.6 * L, 72.0)
+        cx_, cy_ = to[0] - tip_u * reach, to[1] - tip_v * reach
+        bx, by = ((to[0] - tip_u * head, to[1] - tip_v * head) if arrow else to)
+        path = (f'<path d="M {sx:.1f} {sy:.1f} Q {cx_:.1f} {cy_:.1f} {bx:.1f} {by:.1f}" '
+                f'fill="none" stroke="#000" stroke-width="{w}"/>')
+
+    return path + (_arrow_head(to, tip_u, tip_v, head) if arrow else "")
+
+
+def _box_hits_segment(box, a, b) -> bool:
+    """축정렬 상자와 선분이 만나는가(Liang-Barsky 클리핑)."""
+    x0, y0, x1, y1 = box
+    dx, dy = b[0] - a[0], b[1] - a[1]
+    t0, t1 = 0.0, 1.0
+    for p, q in ((-dx, a[0] - x0), (dx, x1 - a[0]),
+                 (-dy, a[1] - y0), (dy, y1 - a[1])):
+        if abs(p) < _EPS:
+            if q < 0:
+                return False
+            continue
+        t = q / p
+        if p < 0:
+            if t > t1:
+                return False
+            t0 = max(t0, t)
+        else:
+            if t < t0:
+                return False
+            t1 = min(t1, t)
+    return t0 <= t1
+
+
+def _box_hits_circle(box, cx, cy, r) -> bool:
+    """상자가 원주(테두리)와 만나는가 — 원 안에 통째로 들어간 경우는 아니다."""
+    x0, y0, x1, y1 = box
+    near = math.hypot(max(x0 - cx, 0, cx - x1), max(y0 - cy, 0, cy - y1))
+    far = max(math.hypot(cx - x0, cy - y0), math.hypot(cx - x1, cy - y0),
+              math.hypot(cx - x0, cy - y1), math.hypot(cx - x1, cy - y1))
+    return near <= r <= far
+
+
+def angle_label_leader(vx, vy, p1, p2, content=None, runs=None, fs=12,
+                       arc_r=20.0, out=64.0, side=1, margin_deg=26.0,
+                       arrow=True, avoid=(), circles=(), keep_out=(),
+                       curve_deg=40.0) -> str:
+    """**좁은 각** 라벨 — 각 바깥에 적고 지시선으로 각 호를 가리킨다.
+
+    좁은 각(≲25°)에서는 라벨을 각 안에 둘 자리가 없다. `halo_angle` 은 변을 안
+    지우려고 이등분선을 따라 멀리 미는데(clear), 그러면 "이 라벨이 어느 각인지"
+    가 흐려진다(사용자 2026-08-13, 왕선중 q5 의 20° "너무 아래쪽"). 인쇄 원본도
+    이럴 때 **밖에 적고 선을 긋는다**.
+
+    side=+1/-1 로 어느 변 쪽으로 뺄지 고른다. margin_deg 는 변을 넘어 얼마나
+    더 벌릴지. 라벨은 빈 공간에 놓이므로 halo 를 쓰지 않는다(halo 가 실선을
+    지우는 lint 규칙 7 을 애초에 피한다).
+
+    ⚠️ **arc_r 은 같이 그리는 `angle_mark` 의 r 과 같아야 한다** — 다르면 화살촉이
+    호에서 살짝 뜬 허공을 가리켜 어긋나 보인다(기본값은 둘 다 20).
+    """
+    a0 = ray_angle(vx, vy, *p1)
+    da = (ray_angle(vx, vy, *p2) - a0 + 180.0) % 360.0 - 180.0
+    mid = a0 + da / 2.0
+    anchor = circle_pt(vx, vy, mid, arc_r)
+
+    hw, hh = _label_halfsize(content, runs, fs)
+    head = max(6.0, 0.42 * fs)          # 화살촉도 글자와 함께 커져야 균형이 맞는다
+
+    def _box(px, py):
+        return (px - hw, py - hh, px + hw, py + hh)
+
+    def _clear(px, py) -> bool:
+        """라벨 상자와 지시선이 도형 선·원을 건드리지 않는가."""
+        box = _box(px, py)
+        if any(_box_hits_segment(box, a, b) for a, b in avoid):
+            return False
+        if any(_box_hits_circle(box, *c) for c in circles):
+            return False
+        # 이미 놓인 라벨(점 이름 등) 과도 겹치면 안 된다 — lint 규칙 3.
+        for kx, ky, kr in keep_out:
+            near = math.hypot(max(box[0] - kx, 0, kx - box[2]),
+                              max(box[1] - ky, 0, ky - box[3]))
+            if near <= kr:
+                return False
+        return True
+
+    # 손으로 고른 방향은 자주 선을 밟는다(실측: q5 20°·q11 x°/y°/70°/80° 전부 겹침).
+    # 지시선이 있으니 라벨은 **어디든 빈 곳**이면 된다 — 각 바깥 전 방향을 훑되
+    # 원하는 쪽(side)에 가까운 후보를 먼저 본다. 결정적 탐색이라 렌더마다 같다.
+    base_side = 1 if side >= 0 else -1
+    prefer = mid + base_side * (abs(da) / 2.0 + margin_deg)
+    cands = []
+    for step in range(24):                    # 15° 간격 전 방향
+        ang = prefer + step * 15.0
+        if abs((ang - mid + 180.0) % 360.0 - 180.0) < abs(da) / 2.0 + 8.0:
+            continue                          # 각 안쪽은 제외(라벨이 변을 밟는다)
+        for k in (1.0, 1.22, 1.5, 0.84):
+            cands.append((step, circle_pt(vx, vy, ang, out * k)))
+    lx, ly = None, None
+    for _, (px, py) in cands:
+        if _clear(px, py):
+            lx, ly = px, py
+            break
+    if lx is None:                            # 전부 막히면 요청값 그대로(작도자 판단)
+        lx, ly = circle_pt(vx, vy, prefer, out)
+
+    body = (txt(lx, ly + 0.35 * fs, content, fs) if runs is None
+            else f'<text x="{lx:.1f}" y="{ly + 0.35 * fs:.1f}" font-size="{fs}" {FONT} '
+                 f'text-anchor="middle">{_text_runs_markup(runs)}</text>')
+    # ⚠️ 지시선 시작점은 **라벨 상자 밖**이어야 한다. 고정 gap 을 쓰면 선이 글자를
+    # 관통해 lint 규칙 2(라벨-선 겹침)에 걸린다(실측 8~9px).
+    dx, dy = anchor[0] - lx, anchor[1] - ly
+    L = math.hypot(dx, dy) or 1.0
+    ux, uy = dx / L, dy / L
+    reach = min(hw / abs(ux) if abs(ux) > 1e-6 else 1e9,
+                hh / abs(uy) if abs(uy) > 1e-6 else 1e9)
+    gap = min(L * 0.7, reach + 3.0)
+
+    # 화살표는 **각이 열린 쪽에서** 들어와야 자연스럽다 — 도착 접선을 꼭짓점
+    # 방향(= 이등분선 반대)으로 맞춘다. 직선으로도 그 방향이면 그냥 직선을 쓰고,
+    # 라벨이 옆이나 반대편에 놓여 방향이 많이 틀어졌을 때만 곡선으로 감아 들어온다.
+    ex, ey = vx - anchor[0], vy - anchor[1]
+    en = math.hypot(ex, ey) or 1.0
+    ex, ey = ex / en, ey / en
+    deviation = math.degrees(math.acos(max(-1.0, min(1.0, ux * ex + uy * ey))))
+    end_dir = (ex, ey) if deviation > curve_deg else None
+    return leader((lx, ly), anchor, arrow=arrow, gap=gap, head=head,
+                  end_dir=end_dir, bow=min(0.85, 0.30 + deviation / 180.0)) + body
+
+
+def point_labels(items, avoid=(), curves=(), circles=(), fs=15, gap=13.0,
+                 occupied=(), italic=()) -> str:
+    """점 이름 라벨 **자동 배치** — 선·곡선·서로와 안 겹치는 방향을 골라 한 번에 낸다.
+
+    손으로 dx·dy 를 적으면 그림을 조금만 고쳐도 라벨이 선을 밟는다. 이 세션에서만
+    같은 수정을 열 번 넘게 반복했다(사용자 2026-08-13 "정교하게 꽉 쪼아서 어색하고
+    어긋나지 않도록"). 배치는 결정적이라 렌더마다 같다.
+
+    items:    (x, y, 이름) 목록 — 화면(SVG) 좌표
+    avoid:    도형 선분 [(p, q), …]
+    curves:   샘플 점열 [[(x, y), …], …] — 타원·원뿔곡선처럼 곡선인 요소
+    circles:  (cx, cy, r) 목록 — 원주
+    occupied: 이미 자리를 차지한 상자 [(x0, y0, x1, y1), …]
+    italic:   이탤릭으로 낼 이름 집합
+    """
+    segs = [tuple(s) for s in avoid]
+    for pts in curves:
+        segs.extend(zip(pts, pts[1:]))
+    taken = [tuple(b) for b in occupied]
+    out = []
+    for x, y, name in items:
+        hw, hh = _label_halfsize(str(name), None, fs)
+        best, far = None, False
+        near_tiers = (gap, gap * 1.45, gap * 2.0, gap * 2.7)
+        for dist in near_tiers + (gap * 3.6, gap * 4.8):
+            for k in range(24):
+                a = math.radians(k * 15.0)
+                px, py = x + dist * math.cos(a), y - dist * math.sin(a)
+                box = (px - hw, py - hh, px + hw, py + hh)
+                if any(_box_hits_segment(box, s, e) for s, e in segs):
+                    continue
+                if any(_box_hits_circle(box, *c) for c in circles):
+                    continue
+                if any(not (box[2] < b[0] or b[2] < box[0]
+                            or box[3] < b[1] or b[3] < box[1]) for b in taken):
+                    continue
+                best, far = (px, py, box), dist > near_tiers[-1] + 1e-9
+                break
+            if best:
+                break
+        if best is None:                       # 전부 막히면 오른쪽 위(관례)로 둔다
+            px, py = x + gap * 0.8, y - gap * 0.8
+            best = (px, py, (px - hw, py - hh, px + hw, py + hh))
+        taken.append(best[2])
+        # 가까이엔 자리가 없어 멀리 밀린 라벨은 **지시선으로 묶는다** — 안 그러면
+        # 어느 점의 이름인지 알 수 없다(각 라벨과 같은 원칙).
+        if far:
+            dx, dy = x - best[0], y - best[1]
+            L = math.hypot(dx, dy) or 1.0
+            ux, uy = dx / L, dy / L
+            reach = min(hw / abs(ux) if abs(ux) > 1e-6 else 1e9,
+                        hh / abs(uy) if abs(uy) > 1e-6 else 1e9)
+            out.append(leader((best[0], best[1]), (x, y), arrow=False, w=0.9,
+                              gap=min(L * 0.6, reach + 3.0)))
+        out.append(txt(best[0], best[1] + 0.35 * fs, str(name), fs,
+                       it=name in italic))
+    return "\n".join(out)
+
+
+def angle_label(vx, vy, p1, p2, content=None, runs=None, fs=12, d=30.0,
+                arc_r=20.0, out=58.0, wide_deg=30.0, avoid=(), circles=(),
+                keep_out=(), **leader_kw) -> str:
+    """각 라벨 **표준 진입점** — 안에 쓸 수 있으면 안에, 아니면 지시선으로 뺀다.
+
+    사용자 2026-08-13: "너무 다 화살표로 땅길 필요없고, 적기 힘든곳, 아주 작은곳들만."
+    넓은 각은 종전처럼 `halo_angle` 이 읽기 좋다. 좁거나(<wide_deg) 자리가 막힌
+    각만 `angle_label_leader` 로 뺀다 — 판정은 눈대중이 아니라 라벨 상자와 도형
+    선·원·기존 라벨의 실제 충돌로 한다.
+    """
+    a0 = ray_angle(vx, vy, *p1)
+    da = abs((ray_angle(vx, vy, *p2) - a0 + 180.0) % 360.0 - 180.0)
+    if da >= wide_deg:
+        px, py = _angle_label_pos(vx, vy, p1, p2, d, fs, content, runs)
+        hw, hh = _label_halfsize(content, runs, fs)
+        box = (px - hw, py - hh, px + hw, py + hh)
+        blocked = (any(_box_hits_segment(box, a, b) for a, b in avoid)
+                   or any(_box_hits_circle(box, *c) for c in circles)
+                   or any(math.hypot(max(box[0] - kx, 0, kx - box[2]),
+                                     max(box[1] - ky, 0, ky - box[3])) <= kr
+                          for kx, ky, kr in keep_out))
+        if not blocked:
+            return halo_angle(vx, vy, p1, p2, d, content, fs, runs=runs)
+    return angle_label_leader(vx, vy, p1, p2, content, runs, fs, arc_r=arc_r,
+                              out=out, avoid=avoid, circles=circles,
+                              keep_out=keep_out, **leader_kw)
 
 
 def rangle_at(vx, vy, p1, p2, s=9) -> str:
@@ -535,6 +809,40 @@ def tangent_isect(cx, cy, r, t1, t2):
     return circle_pt(cx, cy, mid, d)
 
 
+def tangent_dir(cx, cy, r, ang) -> tuple[float, float]:
+    """접점(각 ang)에서의 **단위 접선 방향**(각이 커지는 쪽).
+
+    접선을 그릴 때 방향벡터를 손으로 적으면 부호를 틀린다 — 왕선중 q11 의 T 가
+    `(sin, -cos)` 로 적혀 반지름과 70°(90° 여야 접선)를 이뤄 접선이 접점 D 를
+    10px 비껴갔다(실측 2026-08-13, 사용자 "D는 딱봐도 접점인것같은데").
+    접선은 **접점을 기준으로** 이 함수에서 뽑는다.
+    """
+    _finite(cx, cy, r, ang, what="tangent_dir")
+    if r <= 0:
+        raise ValueError("tangent_dir: 반지름은 양수여야 함")
+    a = math.radians(ang)
+    return (-math.sin(a), -math.cos(a))
+
+
+def tangent_seg(cx, cy, r, ang, back=40.0, fwd=40.0):
+    """접점 양옆으로 뻗은 접선 **선분의 두 끝점** — 접점을 반드시 지난다."""
+    _finite(back, fwd, what="tangent_seg")
+    px, py = circle_pt(cx, cy, ang, r)
+    ux, uy = tangent_dir(cx, cy, r, ang)
+    return ((px - ux * back, py - uy * back), (px + ux * fwd, py + uy * fwd))
+
+
+def tangent_beyond(cx, cy, r, ang, through, extra=40.0):
+    """접점에서 `through`(보통 두 접선의 교점) **반대쪽**으로 extra 만큼 나간 점.
+
+    ``line(through, tangent_beyond(...))`` 이면 접점을 지나는 접선이 자동으로
+    보장된다(접점 기준 작도).
+    """
+    px, py = circle_pt(cx, cy, ang, r)
+    L = _nonzero_segment(through[0], through[1], px, py, "tangent_beyond")
+    return (px + (px - through[0]) / L * extra, py + (py - through[1]) / L * extra)
+
+
 def line(p, q, w=2, dash=None):
     _nonzero_segment(p[0], p[1], q[0], q[1], "line")
     _finite(w, what="line")
@@ -553,6 +861,35 @@ def line(p, q, w=2, dash=None):
             f'stroke="#000" stroke-width="{w}"{da}/>')
 
 
+_MAX_ATTR = 2000          # figure_quality.MAX_ATTRIBUTE_CHARS(2048) 안쪽
+
+
+def curve_path(points, w=2, dash=None, close=False, fill="none") -> str:
+    """샘플 점열을 곡선(polyline path)으로 — 3D 에서 투영한 타원·원뿔곡선용.
+
+    ⚠️ 촘촘히 뽑은 점열은 속성 길이 한도(2048자)를 바로 넘긴다(201점 = 2.4KB).
+    한도 안에 들어올 때까지 **균등하게 솎아낸다** — 곡선이라 시각차가 없다.
+    """
+    pts = [(float(x), float(y)) for x, y in points]
+    if len(pts) < 2:
+        raise ValueError("curve_path: 점이 2개 이상이어야 함")
+    for x, y in pts:
+        _finite(x, y, what="curve_path")
+    while True:
+        d = "M " + " L ".join(f"{x:.1f} {y:.1f}" for x, y in pts) + (" Z" if close else "")
+        if len(d) <= _MAX_ATTR or len(pts) < 24:
+            break
+        pts = pts[::2] + [pts[-1]]
+    da = ""
+    if dash is not None:
+        values = [float(v) for v in str(dash).replace(",", " ").split()]
+        if not values or any(v < 0 for v in values) or not any(values):
+            raise ValueError("curve_path: dash 는 양수 하나 이상을 포함해야 함")
+        da = ' stroke-dasharray="' + " ".join(f"{v:g}" for v in values) + '"'
+    return (f'<path d="{d}" fill="{fill}" stroke="#000" stroke-width="{w}"'
+            f'{da} stroke-linejoin="round"/>')
+
+
 def txt(x, y, t, fs=15, anc="middle", it=False):
     _finite(x, y, fs, what="txt")
     if fs <= 0:
@@ -568,6 +905,35 @@ def dot(x, y, r=2.4):
     if r <= 0:
         raise ValueError("dot: 반지름은 양수여야 함")
     return f'<circle cx="{x:.1f}" cy="{y:.1f}" r="{r}" fill="#000"/>'
+
+
+def shaded_sphere(cx, cy, r, ident="sphereShade", w=1.6, light=(0.35, 0.32),
+                  inner="#ffffff", outer="#b9b9b9") -> str:
+    """구 음영 — 참조 기반 SVG 중 **유일하게 허용된** 경우(사용자 승인 2026-08-13).
+
+    `figure_quality` 는 원래 url() 참조를 통째로 막는다. 구를 입체로 보이게 하는
+    방사형 그라데이션만 좁게 열었고(로컬 `url(#id)` + `<defs>` 안 그라데이션 한정),
+    pattern·filter·clip-path·외부 URL 은 여전히 차단이다. 그래서 **직접 defs 를
+    쓰지 말고 이 함수를 통해서만** 음영을 넣는다 — 허용 형태가 한 곳에 모인다.
+
+    light 는 하이라이트 위치(0~1, 원 상자 기준). 흑백 인쇄를 감안해 밝은 회색까지만.
+    """
+    _finite(cx, cy, r, w, what="shaded_sphere")
+    if r <= 0 or w <= 0:
+        raise ValueError("shaded_sphere: 반지름과 선 굵기는 양수여야 함")
+    if not _re.fullmatch(r"[A-Za-z][\w.:-]*", str(ident)):
+        raise ValueError("shaded_sphere: ident 는 XML id 규칙을 따라야 함")
+    lx, ly = float(light[0]), float(light[1])
+    if not (0.0 <= lx <= 1.0 and 0.0 <= ly <= 1.0):
+        raise ValueError("shaded_sphere: light 는 0~1 이어야 함")
+    for c in (inner, outer):
+        if not _re.fullmatch(r"#[0-9A-Fa-f]{6}", str(c)):
+            raise ValueError("shaded_sphere: 색은 #rrggbb 형식")
+    return (f'<defs><radialGradient id="{ident}" cx="{lx:g}" cy="{ly:g}" r="0.78">'
+            f'<stop offset="0" stop-color="{inner}"/>'
+            f'<stop offset="1" stop-color="{outer}"/></radialGradient></defs>'
+            f'<circle cx="{cx:.1f}" cy="{cy:.1f}" r="{r:.1f}" '
+            f'fill="url(#{ident})" stroke="#000" stroke-width="{w}"/>')
 
 
 def circ(cx, cy, r, w=2):
@@ -598,7 +964,29 @@ _MEASURE_LABEL_RE = _re.compile(
     r"(?:\d+(?:\.\d+)?|[a-z])\s*(?:π\s*)?(?:cm|mm|m|km|kg|g|L|mL|°)")
 
 
-def verify_figure(name, lengths=(), arcs=(), angles=(), tol=0.06, tol_deg=2.0):
+def type_scale(vb_w, vb_h, role="label") -> float:
+    """그림 크기에 맞춘 **표준 글자 크기** — 점 이름과 수치를 한 크기로 통일한다.
+
+    ⚠️ 크기를 호출부마다 손으로 적으면 한 그림 안에서 점 이름 15 · 각도 11 ·
+    치수 12.5 처럼 제각각이 된다(사용자 2026-08-13 "숫자에 비해 문자들이 크기가
+    큰것 같으니까 폰트 사이즈 통일시켜야된다"). 게다가 그림마다 viewBox 가 달라
+    같은 15 라도 큰 그림에선 작아 보인다 — 그래서 **짧은 변에 비례**시킨다.
+
+    role: ``label``(점 이름·각도·치수 공용, 기본) · ``tick``(축 눈금처럼 수가
+    많아 작아야 하는 것) · ``small``(보조 주석).
+    """
+    _finite(vb_w, vb_h, what="type_scale")
+    if vb_w <= 0 or vb_h <= 0:
+        raise ValueError("type_scale: viewBox 크기는 양수여야 함")
+    base = max(13.0, min(22.0, 0.072 * min(float(vb_w), float(vb_h))))
+    factor = {"label": 1.0, "tick": 0.78, "small": 0.68}
+    if role not in factor:
+        raise ValueError(f"type_scale: role 은 {sorted(factor)} 중 하나")
+    return round(base * factor[role], 1)
+
+
+def verify_figure(name, lengths=(), arcs=(), angles=(), tangents=(), on_line=(),
+                  on_circle=(), tol=0.06, tol_deg=2.0, tol_px=1.0):
     """**라벨에 적은 값과 실제 작도가 맞는지 재측정해 대조**한다 — 안 맞으면 예외.
 
     lint_svg 는 "보기 좋은가"(겹침·잘림)만 본다. 라벨이 15:17 인데 그림이 1:3 이면
@@ -608,6 +996,14 @@ def verify_figure(name, lengths=(), arcs=(), angles=(), tol=0.06, tol_deg=2.0):
     lengths: (라벨값, 점p, 점q)                 — 그림 안 상대 비율만 본다
     arcs:    (라벨값, cx, cy, r, 시작각, 끝각)   — 호 길이 = r·θ, 길이와 같은 척도
     angles:  (라벨각도, 꼭짓점, 변끝1, 변끝2)    — 절대값(도)
+    tangents:  (p, q, cx, cy, r)                — 선분 pq 가 원에 **접하는가**
+    on_line:   (점, a, b)                       — 점이 직선 ab **위**인가
+    on_circle: (점, cx, cy, r)                  — 점이 원 위인가
+
+    ⚠️ tangents/on_line/on_circle 은 **픽셀 절대오차**(tol_px)로 본다. 길이·각처럼
+    비율이 아니라 "닿는가/지나는가"라는 이산 명제라 비율 허용오차로는 못 잡는다.
+    이 셋이 없어서 왕선중 q11 의 접선이 접점 D 를 10px 비껴간 채 lint CLEAN 으로
+    통과했다(2026-08-13 사용자 지적).
 
     길이·호는 그림마다 척도 k(px/단위)가 하나뿐이라는 성질로 검사한다. k 는 비율의
     **중앙값**으로 잡아 한 항목이 틀려도 나머지가 끌려가지 않게 한다.
@@ -651,11 +1047,33 @@ def verify_figure(name, lengths=(), arcs=(), angles=(), tol=0.06, tol_deg=2.0):
                 f"  각 {value}°: 실제로 그려진 각은 {drawn:.1f}°"
                 f" (차 {abs(drawn - float(value)):.1f}° > 허용 {tol_deg}°)")
 
+    for p, q, cx, cy, r in tangents:
+        L = _nonzero_segment(p[0], p[1], q[0], q[1], "verify_figure.tangents")
+        d = abs((q[0] - p[0]) * (p[1] - cy) - (p[0] - cx) * (q[1] - p[1])) / L
+        if abs(d - float(r)) > tol_px:
+            problems.append(
+                f"  접선: 중심에서 선까지 {d:.2f}px 인데 반지름은 {float(r):.2f}px"
+                f" — {'원을 자른다(할선)' if d < r else '원에 닿지 않는다'}"
+                f" (차 {abs(d - float(r)):.2f}px). 접점 기준으로 그을 것"
+                f"(tangent_seg/tangent_beyond).")
+
+    for pt_, a, b in on_line:
+        L = _nonzero_segment(a[0], a[1], b[0], b[1], "verify_figure.on_line")
+        d = abs((b[0] - a[0]) * (a[1] - pt_[1]) - (a[0] - pt_[0]) * (b[1] - a[1])) / L
+        if d > tol_px:
+            problems.append(f"  점이 직선 위에 없음: {d:.2f}px 벗어남")
+
+    for pt_, cx, cy, r in on_circle:
+        d = abs(math.hypot(pt_[0] - cx, pt_[1] - cy) - float(r))
+        if d > tol_px:
+            problems.append(f"  점이 원 위에 없음: 반지름과 {d:.2f}px 차이")
+
     if problems:
         raise ValueError(
             f"[{name}] 검산 실패 — 라벨과 작도가 모순된다. 좌표를 조건에서 유도할 것:\n"
             + "\n".join(problems))
-    _VERIFIED[(_caller_scope(), str(name))] = len(items) + len(angles)
+    _VERIFIED[(_caller_scope(), str(name))] = (
+        len(items) + len(angles) + len(tangents) + len(on_line) + len(on_circle))
 
 
 def unverified(svgs: dict) -> list[str]:

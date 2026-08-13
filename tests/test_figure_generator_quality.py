@@ -450,5 +450,70 @@ class FigureGeneratorPipelineTest(unittest.TestCase):
         self.assertTrue(assess_svg(compiled, run_pixel_lint=True).accepted)
 
 
+class LocalGradientAllowanceTests(unittest.TestCase):
+    """구 음영 한 가지 경우만 여는 좁은 예외(사용자 승인 2026-08-13, "특정 경우에만").
+
+    참조 기반 SVG 는 원래 통째로 막혀 있었다. 여는 순간 pattern·filter·clip-path·
+    외부 URL 이 함께 열리기 쉬우므로 **막혀 있어야 할 것들이 여전히 막히는지**를
+    허용 케이스와 같은 무게로 검사한다.
+    """
+
+    SPHERE = (
+        '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">'
+        '<defs><radialGradient id="sph" cx="0.35" cy="0.32" r="0.75">'
+        '<stop offset="0" stop-color="#ffffff"/>'
+        '<stop offset="1" stop-color="#9a9a9a"/></radialGradient></defs>'
+        '<circle cx="50" cy="50" r="40" fill="url(#sph)" stroke="#000" '
+        'stroke-width="2"/></svg>'
+    )
+
+    def test_sphere_shading_is_accepted(self) -> None:
+        out = sanitize_svg(self.SPHERE)
+        self.assertIn("radialGradient", out)
+        self.assertIn("url(#sph)", out)
+
+    def test_dangling_reference_is_rejected(self) -> None:
+        with self.assertRaises(SvgSecurityError):
+            sanitize_svg(self.SPHERE.replace("url(#sph)", "url(#nope)"))
+
+    def test_external_and_scheme_urls_stay_blocked(self) -> None:
+        for bad in ("url(http://evil/x.png)", "url(//evil/x)"):
+            with self.assertRaises(SvgSecurityError):
+                sanitize_svg(self.SPHERE.replace("url(#sph)", bad))
+
+    def test_other_reference_constructs_stay_blocked(self) -> None:
+        cases = {
+            "pattern": self.SPHERE.replace("radialGradient", "pattern"),
+            "clip-path": self.SPHERE.replace('stroke="#000"', 'clip-path="url(#sph)"'),
+            "filter": self.SPHERE.replace('stroke="#000"', 'filter="url(#sph)"'),
+            "mask": self.SPHERE.replace('stroke="#000"', 'mask="url(#sph)"'),
+        }
+        for name, svg in cases.items():
+            with self.subTest(name), self.assertRaises(SvgSecurityError):
+                sanitize_svg(svg)
+
+    def test_gradient_placement_rules(self) -> None:
+        bad = [
+            self.SPHERE.replace("<defs>", "").replace("</defs>", ""),
+            self.SPHERE.replace("</radialGradient>",
+                                '</radialGradient><circle cx="1" cy="1" r="1"/>'),
+            self.SPHERE.replace('<stop offset="0" stop-color="#ffffff"/>',
+                                '<circle cx="1" cy="1" r="1"/>'),
+        ]
+        for svg in bad:
+            with self.assertRaises(SvgSecurityError):
+                sanitize_svg(svg)
+
+    def test_gradient_cannot_inherit_via_href(self) -> None:
+        for attr in ('href="#o"', 'xlink:href="#o"'):
+            with self.assertRaises(Exception):
+                sanitize_svg(self.SPHERE.replace('id="sph"', f'id="sph" {attr}'))
+
+    def test_script_and_style_stay_blocked(self) -> None:
+        for bad in ("<script>x</script>", "<style>*{fill:red}</style>"):
+            with self.assertRaises(SvgSecurityError):
+                sanitize_svg(self.SPHERE.replace("<defs>", bad + "<defs>"))
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)
