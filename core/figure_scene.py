@@ -93,10 +93,10 @@ class StyleProfile:
     padding: float = 12.0
     angle_radius: float = 15.0
     angle_label_distance: float = 25.0
-    dimension_width: float = 1.0
-    dimension_font_size: float = 13.0
+    dimension_width: float = 1.4        # figure_svg.meas 와 동일 규격
+    dimension_font_size: float = 15.0   # figure_svg.dim_label 과 동일
     dimension_offset: float = 14.0
-    dimension_dash: str = "4 3"
+    dimension_dash: str = "6 4"         # figure_svg.meas 와 동일
     dimension_halo_width: float = 7.0
     halo_color: str = "#ffffff"
     halo_width: float = 4.5
@@ -172,7 +172,9 @@ class DimensionMark:
     label: str
     side: str = "auto"
     offset: float | None = None
-    inset: float = 3.0
+    # 인셋 기본 0 = 치수 양끝이 **잰 두 점에 정확히 닿는다**(figure_svg.meas 참고).
+    # 3.0 은 짧은 구간에서 19% 를 깎아 '길이가 짧아 보인다' 지적을 받았다.
+    inset: float = 0.0
     font_size: float | None = None
 
 
@@ -658,7 +660,7 @@ class FigureScene:
 
     def add_dimension(self, name: str, p1: str, p2: str, label: str,
                       *, side: str = "auto", offset: Number | None = None,
-                      curvature: Number | None = None, inset: Number = 3.0,
+                      curvature: Number | None = None, inset: Number = 0.0,
                       font_size: Number | None = None) -> "FigureScene":
         """Attach a collision-aware curved dashed length mark.
 

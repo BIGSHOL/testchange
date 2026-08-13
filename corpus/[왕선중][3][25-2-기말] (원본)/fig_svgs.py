@@ -5,13 +5,14 @@ import os
 import random
 import sys
 import tempfile
+
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 sys.stdout.reconfigure(encoding="utf-8")
-from core.figure_svg import (C, FONT, IT, SVGTextRun, angle_arc, arc, circ, circle_pt, dot, eq_tick, halo_angle, halo_text, isect, line, lint_svg, measured, measured_runs, pt, rangle, rangle_at, ray_angle, seci, tangent_isect, txt)
+from core.figure_svg import (C, FONT, IT, SVGTextRun, angle_arc, angle_mark, arc, arc_measured, arc_tick, circ, circle_pt, dim_label, dot, eq_angle, eq_tick, halo_angle, halo_text, isect, line, lint_svg, measured, measured_runs, pt, rangle, rangle_at, ray_angle, seci, tangent_isect, txt, unverified, verify_figure)
 
 OUT = os.environ.get(
     "FIG_SVG_OUT",
@@ -21,11 +22,27 @@ os.makedirs(OUT, exist_ok=True)
 S = {}
 
 
+def _ang_pt(v, p1, p2, d, frac=0.0):
+    """꼭짓점 v 의 각 안쪽 한 점 — frac 0=이등분선, ±1=변 쪽.
+
+    이등분선이 다른 선에 막힐 때만 쓴다(왕선중 q11 D 는 현 4개가 뻗어
+    이등분선 위 어느 거리도 막힌다 — lint 규칙 7 로 확인).
+    """
+    a0 = ray_angle(*v, *p1)
+    da = (ray_angle(*v, *p2) - a0 + 180.0) % 360.0 - 180.0
+    ang = a0 + da / 2.0 + (da / 2.0) * frac
+    return circle_pt(v[0], v[1], ang, d)
+
+
+
 # ── q1: 원 O, 반지름 10cm·수선 6cm·현 x cm ──────────────────────────
 cx, cy, r = 122, 108, 90
 chy = cy + 54
 half = 72
 L1, R1 = (cx - half, chy), (cx + half, chy)
+# 검산: r=10cm, 중심거리 6cm → 반현 √(10²−6²)=8cm → 현 x=16cm
+verify_figure("q1", lengths=[(10, (cx, cy), L1), (6, (cx, cy), (cx, chy)),
+                             (16, L1, R1)])
 S["q1"] = f'''<svg viewBox="0 0 250 220" xmlns="http://www.w3.org/2000/svg">
 {circ(cx, cy, r)}{dot(cx, cy)}
 {txt(cx + 6, cy - 8, "O")}
@@ -33,27 +50,12 @@ S["q1"] = f'''<svg viewBox="0 0 250 220" xmlns="http://www.w3.org/2000/svg">
 {line((cx, cy), L1)}
 {line((cx, cy), (cx, chy))}
 {rangle(cx, chy, 1, 0, 0, -1, 9)}
-{halo_text((cx + L1[0]) / 2, (cy + chy) / 2 + 4, "10 cm", 11.5)}
+{dim_label(cx, cy, *L1, -11, "10 cm", 11.5)}
 {txt(cx + 11, (cy + chy) / 2 + 3, "6 cm", 11)}
-{measured_runs(*L1, *R1, 10, (SVGTextRun("x", italic=True), SVGTextRun(" cm")), 12)}
+{measured_runs(*L1, *R1, 10, [SVGTextRun("x", italic=True), SVGTextRun(" cm")], 12)}
 </svg>'''
 
-# ── q2: 현 AB 가 반지름 OC 를 수직이등분 ─────────────────────────────
-cx, cy, r = 120, 100, 80
-C2 = (cx, cy + r)
-my = cy + r / 2
-hf = math.sqrt(r * r - (r / 2) ** 2)
-A2, B2 = (cx - hf, my), (cx + hf, my)
-S["q2"] = f'''<svg viewBox="0 0 245 210" xmlns="http://www.w3.org/2000/svg">
-{circ(cx, cy, r)}{dot(cx, cy)}
-{txt(cx + 3, cy - 8, "O")}
-{line((cx, cy), C2)}{line(A2, B2)}
-{rangle(cx, my, 1, 0, 0, 1, 8)}
-{eq_tick((cx, cy), (cx, my), 5)}
-{eq_tick((cx, my), C2, 5)}
-{txt(A2[0] - 8, A2[1] + 6, "A", anc="end")}{txt(B2[0] + 8, B2[1] + 6, "B")}
-{txt(C2[0], C2[1] + 18, "C")}
-</svg>'''
+# ── q2: 원본에 그림 없음(사용자 확인 2026-08-13) — 작도하지 않음
 
 # ── q3: 직사각형 ABCD, 세 변 접원 O, 접선 CE, ED=3·BC=6 ─────────────
 u3 = 45
@@ -96,6 +98,11 @@ A5 = C(cx, cy, 95, r)
 D5 = C(cx, cy, 275, r)
 B5, C5_ = C(cx, cy, 180, r), C(cx, cy, 220, r)
 E5 = C(cx, cy, 335, r)
+# 검산: ∠BAC=20°→호BC=40°, ∠ADE=60°→호AE=120°, AD 는 지름
+verify_figure("q5", angles=[(20, A5, B5, C5_), (60, D5, A5, E5)],
+              arcs=[(40, cx, cy, r, 180, 220), (60, cx, cy, r, 275, 335)])
+# 지름 검사는 단위가 달라 별도 호출(호는 도, 길이는 반지름 단위)
+verify_figure("q5-지름", lengths=[(2, A5, D5), (1, (cx, cy), A5)])
 S["q5"] = f'''<svg viewBox="0 0 295 255" xmlns="http://www.w3.org/2000/svg">
 {circ(cx, cy, r)}{dot(cx, cy)}
 {txt(cx + 8, cy - 4, "O")}
@@ -105,10 +112,8 @@ S["q5"] = f'''<svg viewBox="0 0 295 255" xmlns="http://www.w3.org/2000/svg">
 {halo_angle(*A5, B5, C5_, 46, "20°", 11)}
 <path d="{angle_arc(*D5, A5, E5, 24)}" fill="none" stroke="#000" stroke-width="1"/>
 {txt(D5[0] + 16, D5[1] - 28, "60°", 11)}
-<path d="{arc(cx, cy, r + 12, 180, 220)}" fill="none" stroke="#000" stroke-width="1" stroke-dasharray="3 3"/>
-{halo_text(*C(cx, cy, 200, r + 12), '<tspan font-style="italic">x</tspan> cm', 11.5)}
-<path d="{arc(cx, cy, r + 12, 275, 335)}" fill="none" stroke="#000" stroke-width="1" stroke-dasharray="3 3"/>
-{halo_text(*C(cx, cy, 305, r + 12), "5 cm", 11.5)}
+{arc_measured(cx, cy, r, 180, 220, runs=[SVGTextRun("x", italic=True), SVGTextRun(" cm")])}
+{arc_measured(cx, cy, r, 275, 335, txt="5 cm")}
 {txt(A5[0], A5[1] - 9, "A")}{txt(B5[0] - 9, B5[1] + 5, "B", anc="end")}
 {txt(C5_[0] - 8, C5_[1] + 10, "C", anc="end")}{txt(D5[0] - 6, D5[1] + 17, "D", anc="end")}
 {txt(E5[0] + 9, E5[1] + 4, "E")}
@@ -120,12 +125,17 @@ A6 = (cx, cy + r)
 B6 = C(cx, cy, 270 + 130, r)
 P6 = C(cx, cy, 270 + 260, r)
 T6 = (290, cy + r)
+# 검산: ∠BAT=65°(접현각) → 호AB=130°, 호AB=호BP → P=B+130°
+verify_figure("q6", angles=[(65, A6, B6, T6)],
+              arcs=[(1, cx, cy, r, 270, 400), (1, cx, cy, r, 40, 170)])
 S["q6"] = f'''<svg viewBox="0 0 315 235" xmlns="http://www.w3.org/2000/svg">
 {circ(cx, cy, r)}{dot(cx, cy)}
 {txt(cx + 12, cy - 6, "O")}
 {line((35, A6[1]), (300, A6[1]))}
 {line(A6, B6)}{line(B6, P6)}{line(A6, P6)}
 {dot(*T6, 2.4)}
+{arc_tick(cx, cy, r, 270, 400)}{arc_tick(cx, cy, r, 40, 170)}
+{angle_mark(*B6, P6, A6, r=21, dash=False)}
 <path d="{angle_arc(*A6, B6, T6, 24)}" fill="none" stroke="#000" stroke-width="1"/>
 {txt(A6[0] + 34, A6[1] - 12, "65°", 12)}
 {txt(P6[0] - 9, P6[1] + 2, "P", anc="end")}{txt(B6[0] + 8, B6[1] - 4, "B")}
@@ -138,6 +148,9 @@ D7, A7 = (cx - r, cy), (cx + r, cy)
 B7 = C(cx, cy, -20, r)
 P7 = (B7[0] + (B7[1] - cy) / math.tan(math.radians(20)), cy)
 C7 = seci(P7, 200, cx, cy, r)[1]
+# 검산: ∠P=20°, BO=BP(=반지름)
+verify_figure("q7", angles=[(20, P7, C7, D7)],
+              lengths=[(1, (cx, cy), B7), (1, B7, P7)])
 S["q7"] = f'''<svg viewBox="0 0 330 225" xmlns="http://www.w3.org/2000/svg">
 {circ(cx, cy, r)}{dot(cx, cy)}
 {txt(cx - 2, cy - 8, "O")}
@@ -145,8 +158,7 @@ S["q7"] = f'''<svg viewBox="0 0 330 225" xmlns="http://www.w3.org/2000/svg">
 {line(P7, C7)}{line(D7, C7)}
 <path d="{angle_arc(*P7, C7, D7, 26)}" fill="none" stroke="#000" stroke-width="1"/>
 {txt(P7[0] - 32, P7[1] - 7, "20°", 11.5, anc="end")}
-<path d="{arc(cx, cy, r + 11, ray_angle(cx, cy, *C7) % 360, 180)}" fill="none" stroke="#000" stroke-width="1" stroke-dasharray="3 3"/>
-{txt(C(cx, cy, 212, r + 26)[0], C(cx, cy, 212, r + 26)[1], "30", 12)}
+{arc_measured(cx, cy, r, ray_angle(cx, cy, *C7) % 360, 180, txt="30")}
 {txt(D7[0] - 8, D7[1] + 5, "D", anc="end")}{txt(A7[0] + 11, A7[1] - 7, "A")}
 {txt(P7[0] + 9, P7[1] + 5, "P")}{txt(B7[0] + 9, B7[1] + 18, "B")}
 {txt(C7[0] - 6, C7[1] + 16, "C")}
@@ -174,6 +186,9 @@ A9, C9 = C(cx, cy, 100, r), C(cx, cy, 10, r)
 B9 = C(cx, cy, 250, r)
 M9 = C(cx, cy, 310, r)
 N9 = isect(A9, M9, B9, C9)
+# 검산: ∠BAC=60°(호BC=120°), ∠ABC=45°(호AC=90°), M 은 호BC 중점
+verify_figure("q9", angles=[(60, A9, B9, C9), (45, B9, A9, C9)],
+              arcs=[(120, cx, cy, r, 250, 370), (90, cx, cy, r, 100, 10)])
 S["q9"] = f'''<svg viewBox="0 0 265 260" xmlns="http://www.w3.org/2000/svg">
 {circ(cx, cy, r)}
 {line(A9, B9)}{line(A9, C9)}{line(B9, C9)}
@@ -192,10 +207,13 @@ S["q9"] = f'''<svg viewBox="0 0 265 260" xmlns="http://www.w3.org/2000/svg">
 # ── q10: 접선 ST(S 접점)·현 AC∥ST·지름 AB, P=AB∩CS, 20°·x° ─────────
 cx, cy, r = 135, 118, 85
 S10 = (cx, cy + r)
-A10, C10 = C(cx, cy, 128, r), C(cx, cy, 52, r)
-B10 = C(cx, cy, -52, r)
+# 조건 유도: ∠BST=20°(접현각) → 호SB=40° → B=270°+40°=310°.
+# AB 는 지름 → A=B+180°=130°. AC∥ST(수평) → C=180°−130°=50°.
+A10, C10 = C(cx, cy, 130, r), C(cx, cy, 50, r)
+B10 = C(cx, cy, -50, r)
 T10 = (285, cy + r)
 P10 = isect(A10, B10, C10, S10)
+verify_figure("q10", angles=[(20, S10, B10, T10)])
 S["q10"] = f'''<svg viewBox="0 0 310 245" xmlns="http://www.w3.org/2000/svg">
 {circ(cx, cy, r)}{dot(cx, cy)}
 {txt(cx + 14, cy + 2, "O")}
@@ -204,7 +222,7 @@ S["q10"] = f'''<svg viewBox="0 0 310 245" xmlns="http://www.w3.org/2000/svg">
 {dot(*P10, 2)}{dot(*T10, 2.4)}
 <path d="{angle_arc(*S10, B10, T10, 22)}" fill="none" stroke="#000" stroke-width="1"/>
 {halo_angle(*S10, B10, T10, 36, "20°", 11)}
-{halo_text(P10[0] - 9, P10[1] - 5, '<tspan font-style="italic">x</tspan>°', 11.5, anc="end")}
+{halo_text(P10[0] - 16, P10[1] - 2, '<tspan font-style="italic">x</tspan>°', 11.5, anc="end")}
 <path d="M {(A10[0] + C10[0]) / 2 - 5:.1f} {A10[1] - 5:.1f} L {(A10[0] + C10[0]) / 2 + 5:.1f} {A10[1]:.1f} L {(A10[0] + C10[0]) / 2 - 5:.1f} {A10[1] + 5:.1f}" fill="none" stroke="#000" stroke-width="1"/>
 <path d="M {cx - 40:.1f} {S10[1] - 5:.1f} L {cx - 30:.1f} {S10[1]:.1f} L {cx - 40:.1f} {S10[1] + 5:.1f}" fill="none" stroke="#000" stroke-width="1"/>
 {txt(A10[0] - 8, A10[1] - 4, "A", anc="end")}{txt(C10[0] + 8, C10[1] - 4, "C")}
@@ -217,10 +235,14 @@ cx, cy, r = 150, 112, 88
 C11 = (cx, cy + r)
 D11 = C(cx, cy, 10, r)
 P11 = tangent_isect(cx, cy, r, 270, 10)
-E11 = C(cx, cy, 150, r)
-A11 = C(cx, cy, 75, r)
+# 조건 유도: C=270°·D=10°(∠CPD=80° → 호CD=100°), ∠BAD=90° → BD 는 지름
+# → B=190°. ∠EDC=70° → 호EC=140° → E=130°. ∠EBA=40° → 호EA=80° → A=50°.
+E11 = C(cx, cy, 130, r)
+A11 = C(cx, cy, 50, r)
 B11 = C(cx, cy, 190, r)
 F11 = isect(E11, D11, A11, B11)
+verify_figure("q11", angles=[(90, A11, B11, D11), (40, B11, E11, A11),
+                             (80, P11, C11, D11), (70, D11, E11, C11)])
 _td = (math.sin(math.radians(10)), math.cos(math.radians(10)))
 T11 = (D11[0] + 40 * _td[0], D11[1] - 40 * _td[1])
 S11p = (40, C11[1])
@@ -232,19 +254,21 @@ S["q11"] = f'''<svg viewBox="0 0 330 250" xmlns="http://www.w3.org/2000/svg">
 {line(E11, B11)}{line(E11, C11)}{line(E11, D11)}
 {line(A11, B11)}{line(A11, D11)}{line(B11, C11)}{line(C11, D11)}{line(B11, D11)}
 {dot(*F11, 2)}{dot(*S11p, 2.2)}
-<path d="{angle_arc(*B11, E11, A11, 20)}" fill="none" stroke="#000" stroke-width="1"/>
-<text x="{B11[0] + 26:.1f}" y="{B11[1] - 4:.1f}" font-size="10.5" {FONT} text-anchor="middle" paint-order="stroke" stroke="#fff" stroke-width="5" stroke-linejoin="round">40°</text>
-<path d="{angle_arc(*D11, E11, C11, 20)}" fill="none" stroke="#000" stroke-width="1"/>
-<text x="{D11[0] - 24:.1f}" y="{D11[1] + 14:.1f}" font-size="10.5" {FONT} text-anchor="end" paint-order="stroke" stroke="#fff" stroke-width="5" stroke-linejoin="round">70°</text>
-<path d="{angle_arc(*P11, C11, D11, 22)}" fill="none" stroke="#000" stroke-width="1"/>
-{txt(P11[0] - 26, P11[1] - 8, "80°", 10.5, anc="end")}
-<path d="{angle_arc(*E11, C11, D11, 18)}" fill="none" stroke="#000" stroke-width="1"/>
-<text x="{E11[0] + 22:.1f}" y="{E11[1] + 12:.1f}" font-size="11" {FONT} text-anchor="middle" paint-order="stroke" stroke="#fff" stroke-width="5" stroke-linejoin="round"><tspan font-style="italic">x</tspan>°</text>
-<text x="{F11[0] + 12:.1f}" y="{F11[1] - 6:.1f}" font-size="11" {FONT} text-anchor="middle" paint-order="stroke" stroke="#fff" stroke-width="5" stroke-linejoin="round"><tspan font-style="italic">y</tspan>°</text>
+{angle_mark(*B11, E11, A11, r=20, dash=False)}
+{halo_angle(*B11, E11, A11, 30, "40°", 10.5)}
+{angle_mark(*D11, E11, C11, r=20, dash=False)}
+{halo_text(*_ang_pt(D11, E11, C11, 30, -0.35), "70°", 10.5)}
+{angle_mark(*P11, C11, D11, r=22, dash=False)}
+{halo_angle(*P11, C11, D11, 34, "80°", 10.5)}
+{angle_mark(*E11, C11, D11, r=18, dash=False)}
+{halo_angle(*E11, C11, D11, 28, runs=[SVGTextRun("x", italic=True), SVGTextRun("°")], fs=11)}
+{angle_mark(*F11, A11, D11, r=15, dash=False)}
+{halo_angle(*F11, A11, D11, 24, runs=[SVGTextRun("y", italic=True), SVGTextRun("°")], fs=11)}
 {txt(E11[0] - 8, E11[1] - 6, "E", anc="end")}{txt(A11[0] + 4, A11[1] - 8, "A")}
 {txt(T11[0] + 6, T11[1], "T")}{txt(B11[0] - 9, B11[1] + 5, "B", anc="end")}
 {txt(C11[0] - 2, C11[1] + 19, "C")}{txt(D11[0] + 20, D11[1] + 1, "D")}
 {txt(S11p[0], S11p[1] + 19, "S")}{txt(P11[0] + 8, P11[1] + 12, "P")}
+{txt(F11[0] - 9, F11[1] - 7, "F", anc="end")}
 </svg>'''
 
 # ── q16: 음의 상관 산점도(예시) ──────────────────────────────────────
@@ -338,14 +362,17 @@ S["s1"] = f'''<svg viewBox="0 0 320 240" xmlns="http://www.w3.org/2000/svg">
 
 if __name__ == "__main__":
     from core.figure_generator import _svg_to_png_bytes
-    W = {"q1": 195, "q2": 190, "q3": 240, "q4": 235, "q5": 215, "q6": 240,
+    W = {"q1": 195, "q3": 240, "q4": 235, "q5": 215, "q6": 240,
          "q7": 255, "q8": 195, "q9": 208, "q10": 240, "q11": 262, "q16": 175,
          "q17": 235, "q18": 235, "s1": 240}
+    miss = unverified(S)
+    if miss:
+        raise SystemExit(f"검산 누락(verify_figure 미호출): {miss}")
     for k, svg in S.items():
         issues = lint_svg(svg)
         if issues:
             raise RuntimeError(f"{k} SVG lint 실패: {'; '.join(issues)}")
-        png = _svg_to_png_bytes(svg, width=W[k] * 2)
+        png = _svg_to_png_bytes(svg, width=W[k] * 3)
         if not png:
             print(k, "FAIL")
             continue

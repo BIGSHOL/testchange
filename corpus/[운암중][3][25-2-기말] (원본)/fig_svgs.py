@@ -9,12 +9,14 @@ import math
 import os
 import sys
 import tempfile
+
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
-from core.figure_svg import halo_angle, halo_text, lint_svg
+from core.figure_svg import (FONT, IT, SVGTextRun, angle_mark, arc, arc_measured, arc_tick, bisect_pt, dim_label, dim_label_runs, halo_angle, halo_text, isect, lint_svg, meas, measured, rangle, ray_angle, sqrt_label, unverified, verify_figure)
+from core.figure_svg import pt as P      # 로컬 복붙 대신 엔진 것
 sys.stdout.reconfigure(encoding="utf-8")
 
 OUT = os.environ.get(
@@ -23,91 +25,32 @@ OUT = os.environ.get(
 )
 os.makedirs(OUT, exist_ok=True)
 
-FONT = 'font-family="Times New Roman, Batang, serif"'
-IT = f'{FONT} font-style="italic"'
-
-
-def P(x, y):
-    return f"{x:.1f},{y:.1f}"
-
-
-def arc(cx, cy, r, a0, a1, sweep=None):
-    """중심 (cx,cy) 반지름 r, 수학각 a0→a1(도)의 원호 path (SVG y-down 보정).
-
-    sweep 을 안 주면 방향에서 자동 결정 — 수학각 증가(a1>a0)=화면 반시계=sweep 0,
-    감소=sweep 1. 고정 0 이던 시절 감소 방향 호(q2·q6 45°=180→135)가 각 바깥으로
-    뒤집혀 그려졌다(사용자 지적 2026-08-11).
-    """
-    if sweep is None:
-        sweep = 0 if a1 > a0 else 1
-    x0, y0 = cx + r * math.cos(math.radians(a0)), cy - r * math.sin(math.radians(a0))
-    x1, y1 = cx + r * math.cos(math.radians(a1)), cy - r * math.sin(math.radians(a1))
-    large = 1 if abs(a1 - a0) > 180 else 0
-    return f'M {x0:.1f} {y0:.1f} A {r} {r} 0 {large} {sweep} {x1:.1f} {y1:.1f}'
-
-
-def rangle(x, y, ux, uy, vx, vy, s=11):
-    """점 (x,y)에서 단위방향 u,v 로 이루는 직각 표시(작은 사각형)."""
-    return (f'<path d="M {x+ux*s:.1f} {y+uy*s:.1f} L {x+(ux+vx)*s:.1f} {y+(uy+vy)*s:.1f} '
-            f'L {x+vx*s:.1f} {y+vy*s:.1f}" fill="none" stroke="#000" stroke-width="1"/>')
 
 
 
 
-def sqrt_label(x, y, num="2", fs=15):
-    """근호를 선으로 그린 √num 라벨 — 유니코드 √ 는 vinculum 이 없어 희미하다."""
-    w = 0.62 * fs * len(num)
-    bar_y = y - 0.82 * fs
-    return (f'<path d="M {x:.1f} {y-0.38*fs:.1f} L {x+0.16*fs:.1f} {y-0.46*fs:.1f} '
-            f'L {x+0.34*fs:.1f} {y-0.06*fs:.1f} L {x+0.58*fs:.1f} {bar_y:.1f} '
-            f'L {x+0.58*fs+w:.1f} {bar_y:.1f}" fill="none" stroke="#000" stroke-width="1.2"/>'
-            f'<text x="{x+0.62*fs:.1f}" y="{y:.1f}" font-size="{fs}" {FONT}>{num}</text>')
-
-
-def meas(px_, py_, qx_, qy_, off=10.0, bow=None, ins_p=3.0, ins_q=3.0):
-    """길이 치수 점선(교과서 규격) — **끝은 꼭짓점 옆에 감겨 붙고 가운데만 볼록**.
-
-    끝점 오프셋을 3px 로 고정해 꼭짓점 바로 옆에서 시작·끝나게 한다. 끝까지 일정
-    간격을 유지하면 예각 꼭짓점(q2 C 45°)에서 끝이 모서리를 지나쳐 밖으로 삐져
-    나간다(사용자 지적 2026-08-11). off = 가운데 볼록 깊이.
-    """
-    L = math.hypot(qx_ - px_, qy_ - py_)
-    ux_, uy_ = (qx_ - px_) / L, (qy_ - py_) / L
-    nx_, ny_ = -uy_, ux_
-    sgn = 1.0 if off >= 0 else -1.0
-    end = 3.0 * sgn
-    sx_, sy_ = px_ + ux_ * ins_p + nx_ * end, py_ + uy_ * ins_p + ny_ * end
-    ex_, ey_ = qx_ - ux_ * ins_q + nx_ * end, qy_ - uy_ * ins_q + ny_ * end
-    c_lat = 2.0 * off - end                    # 2차곡선 중점 = off 가 되도록
-    cx_, cy_ = (px_ + qx_) / 2 + nx_ * c_lat, (py_ + qy_) / 2 + ny_ * c_lat
-    return (f'<path d="M {sx_:.1f} {sy_:.1f} Q {cx_:.1f} {cy_:.1f} {ex_:.1f} {ey_:.1f}" '
-            f'fill="none" stroke="#000" stroke-width="1" stroke-dasharray="4 3"/>')
 
 
 
-def dim_label(px_, py_, qx_, qy_, off, txt, fs=13):
-    """meas() 점선의 곡선 중점 위에 라벨 — paint-order 흰 테두리로 배경처리되어
-    점선이 라벨 뒤에서 끊긴 것처럼 보인다(알지오매스 관행, 사용자 2026-08-11)."""
-    L = math.hypot(qx_ - px_, qy_ - py_)
-    nx_, ny_ = -(qy_ - py_) / L, (qx_ - px_) / L
-    mx_, my_ = (px_ + qx_) / 2 + nx_ * off, (py_ + qy_) / 2 + ny_ * off
-    return (f'<text x="{mx_:.1f}" y="{my_ + 0.35 * fs:.1f}" font-size="{fs}" {FONT} '
-            f'text-anchor="middle" paint-order="stroke" stroke="#fff" '
-            f'stroke-width="{fs * 0.5:.0f}" stroke-linejoin="round">{txt}</text>')
 
 SVGS = {}
 
 # ── q2: 직각삼각형 ABC (B 직각, C 45°, BC=√2, AB=x, AC=y) ────────────
+A2u, B2u, C2u = (65, 35), (65, 195), (225, 195)
+# 검산: ∠B=90°·∠C=45° → AB=BC=√2, AC=2
+verify_figure("q2", lengths=[(math.sqrt(2), B2u, C2u), (math.sqrt(2), A2u, B2u),
+                             (2, A2u, C2u)],
+              angles=[(90, B2u, A2u, C2u), (45, C2u, B2u, A2u)])
 SVGS["q2"] = f'''<svg viewBox="0 0 270 250" xmlns="http://www.w3.org/2000/svg">
 <path d="M 65 195 L 225 195 L 65 35 Z" fill="none" stroke="#000" stroke-width="2"/>
 {rangle(65, 195, 1, 0, 0, -1)}
 <path d="{arc(225, 195, 30, 180, 135)}" fill="none" stroke="#000" stroke-width="1"/>
 <text x="173" y="190" font-size="15" {FONT}>45°</text>
-{meas(65, 35, 65, 195, off=11, bow=8)}
+{meas(65, 35, 65, 195, off=11)}
 <text x="34" y="121" font-size="17" {IT} text-anchor="middle">x</text>
-{meas(65, 35, 225, 195, off=-11, bow=8)}
+{meas(65, 35, 225, 195, off=-11)}
 <text x="163" y="98" font-size="17" {IT}>y</text>
-{meas(65, 195, 225, 195, off=11, bow=8)}
+{meas(65, 195, 225, 195, off=11)}
 {sqrt_label(133, 236, "2", 15)}
 <text x="65" y="24" font-size="16" {FONT} text-anchor="middle">A</text>
 <text x="52" y="210" font-size="16" {FONT} text-anchor="middle">B</text>
@@ -119,6 +62,10 @@ _c40, _s40, _t40 = math.cos(math.radians(40)), math.sin(math.radians(40)), math.
 ox, oy, R = 62, 258, 235
 bx, by = ox + R * _c40, oy - R * _s40
 dx, dy = ox + R, oy - R * _t40
+# 검산: 반지름 1, 40° → 가로 cos40·세로 sin40·접선 tan40
+verify_figure("q3", lengths=[(1, (ox, oy), (bx, by)), (_c40, (ox, oy), (bx, oy)),
+                             (_s40, (bx, oy), (bx, by)), (_t40, (ox + R, oy), (dx, dy))],
+              angles=[(40, (ox, oy), (ox + R, oy), (bx, by))])
 SVGS["q3"] = f'''<svg viewBox="0 0 350 300" xmlns="http://www.w3.org/2000/svg">
 <line x1="{ox}" y1="{oy}" x2="335" y2="{oy}" stroke="#000" stroke-width="1"/>
 <path d="M 330 {oy-4} L 338 {oy} L 330 {oy+4} Z" fill="#000"/>
@@ -153,6 +100,12 @@ Bx, By = 22, 152
 Dx = Bx + 2 * u
 Cx = Bx + (2 + math.sqrt(3)) * u
 Ay = By - u  # AC = 1
+# 검산: BD=2·AC=1·BC=2+√3·DC=√3 → tan15°=1/(2+√3)=2−√3
+verify_figure("q4", lengths=[(2, (Bx, By), (Dx, By)), (1, (Cx, Ay), (Cx, By)),
+                             (2 + math.sqrt(3), (Bx, By), (Cx, By)),
+                             (math.sqrt(3), (Dx, By), (Cx, By))],
+              angles=[(15, (Bx, By), (Cx, By), (Cx, Ay)),
+                      (30, (Dx, By), (Cx, By), (Cx, Ay))])
 SVGS["q4"] = f'''<svg viewBox="0 0 360 200" xmlns="http://www.w3.org/2000/svg">
 <path d="M {Bx} {By} L {Cx:.1f} {By} L {Cx:.1f} {Ay:.1f} Z" fill="none" stroke="#000" stroke-width="2"/>
 <line x1="{Dx:.1f}" y1="{By}" x2="{Cx:.1f}" y2="{Ay:.1f}" stroke="#000" stroke-width="2"/>
@@ -175,6 +128,9 @@ t75, t45 = math.tan(math.radians(75)), 1.0
 Cx6 = (Bx6 + t75 * Ax6) / (1 + t75)
 h6 = (Bx6 - Cx6) * t45
 Cy6 = By6 - h6
+verify_figure("q6", lengths=[(4, (Ax6, Ay6), (Bx6, By6))],
+              angles=[(45, (Bx6, By6), (Ax6, Ay6), (Cx6, Cy6)),
+                      (60, (Cx6, Cy6), (Ax6, Ay6), (Bx6, By6))])
 SVGS["q6"] = f'''<svg viewBox="0 0 340 290" xmlns="http://www.w3.org/2000/svg">
 <path d="M {Ax6} {Ay6} L {Bx6} {By6} L {Cx6:.1f} {Cy6:.1f} Z" fill="none" stroke="#000" stroke-width="2"/>
 <path d="{arc(Bx6, By6, 34, 180, 135)}" fill="none" stroke="#000" stroke-width="1"/>
@@ -194,6 +150,10 @@ sc7 = R7 / 3.0
 chy = cy7 + sc7
 half = math.sqrt(9 - 1) * sc7 / 1.0
 lx7, rx7 = cx7 - half, cx7 + half
+# 검산: 반지름 3cm·중심거리 1cm → 반현 √8, 현 x=2√8=4√2
+verify_figure("q7", lengths=[(3, (cx7, cy7), (lx7, chy)),
+                             (1, (cx7, cy7), (cx7, chy)),
+                             (2 * math.sqrt(8), (lx7, chy), (rx7, chy))])
 SVGS["q7"] = f'''<svg viewBox="0 0 260 250" xmlns="http://www.w3.org/2000/svg">
 <circle cx="{cx7}" cy="{cy7}" r="{R7}" fill="none" stroke="#000" stroke-width="2"/>
 <circle cx="{cx7}" cy="{cy7}" r="2.4" fill="#000"/>
@@ -207,12 +167,14 @@ SVGS["q7"] = f'''<svg viewBox="0 0 260 250" xmlns="http://www.w3.org/2000/svg">
 <line x1="{(lx7+cx7)/2:.1f}" y1="{chy-6:.1f}" x2="{(lx7+cx7)/2:.1f}" y2="{chy+6:.1f}" stroke="#000" stroke-width="1"/>
 <line x1="{(cx7+rx7)/2:.1f}" y1="{chy-6:.1f}" x2="{(cx7+rx7)/2:.1f}" y2="{chy+6:.1f}" stroke="#000" stroke-width="1"/>
 {meas(lx7, chy, rx7, chy, off=9)}
-{dim_label(lx7, chy, rx7, chy, 9, '<tspan font-style="italic">x</tspan> cm', fs=13)}
+{dim_label_runs(lx7, chy, rx7, chy, 9, [SVGTextRun("x", italic=True), SVGTextRun(" cm")], fs=13)}
 </svg>'''
 
 # ── q8: 접선 2개, OB=12cm, CP=8cm, PA=x cm ──────────────────────────
 ox8, oy8, R8 = 100, 122, 80
-Px8 = 352
+# 조건 유도: OB=12cm(=R8), CP=8cm → OP=OC+CP=20cm. 접선 PA=√(20²−12²)=16cm.
+# (기존 Px8=352 는 OP 를 37.8cm 로 그려 라벨 12·8 과 모순이었다)
+Px8 = ox8 + 20 * (R8 / 12.0)
 alpha = math.degrees(math.acos(R8 / (Px8 - ox8)))
 Ax8 = ox8 + R8 * math.cos(math.radians(alpha))
 Ay8 = oy8 - R8 * math.sin(math.radians(alpha))
@@ -221,6 +183,10 @@ Cx8 = ox8 + R8
 _uL = math.hypot(Px8 - Ax8, oy8 - Ay8)
 _ux, _uy = (Px8 - Ax8) / _uL, (oy8 - Ay8) / _uL     # PA 방향
 _px, _py = _uy, -_ux                                 # PA 위쪽 수직
+verify_figure("q8", lengths=[(12, (ox8, oy8), (Ax8, Ay8)),
+                             (8, (Cx8, oy8), (Px8, oy8)),
+                             (16, (Ax8, Ay8), (Px8, oy8)),
+                             (20, (ox8, oy8), (Px8, oy8))])
 SVGS["q8"] = f'''<svg viewBox="0 0 380 250" xmlns="http://www.w3.org/2000/svg">
 <circle cx="{ox8}" cy="{oy8}" r="{R8}" fill="none" stroke="#000" stroke-width="2"/>
 <line x1="{ox8}" y1="{oy8}" x2="{Ax8:.1f}" y2="{Ay8:.1f}" stroke="#000" stroke-width="2"/>
@@ -234,12 +200,12 @@ SVGS["q8"] = f'''<svg viewBox="0 0 380 250" xmlns="http://www.w3.org/2000/svg">
 <text x="{Ax8-2:.1f}" y="{By8+20:.1f}" font-size="16" {FONT}>B</text>
 <text x="{Cx8-14}" y="{oy8-9}" font-size="15" {FONT} text-anchor="end">C</text>
 <text x="{Px8+6}" y="{oy8+6}" font-size="16" {FONT}>P</text>
-{meas(Ax8, Ay8, Px8, oy8, off=-9, bow=6, ins_q=14)}
-{halo_text((Ax8+Px8)/2 + 12*_px, (Ay8+oy8)/2 + 12*_py + 4, '<tspan font-style="italic">x</tspan> cm', 12)}
-<text x="{(Cx8+Px8)/2-28:.1f}" y="{oy8+25}" font-size="11" {FONT} text-anchor="middle">8 cm</text>
-{meas(Cx8, oy8, Px8, oy8, off=8, bow=4, ins_q=30)}
-{meas(ox8, oy8, Ax8, By8, off=8, bow=5, ins_p=12, ins_q=6)}
-{halo_text((ox8 + Ax8) / 2 - 2, (oy8 + By8) / 2 + 4, "12 cm", 11.5)}
+{meas(Ax8, Ay8, Px8, oy8, off=-9, ins_q=14)}
+{halo_text((Ax8+Px8)/2 + 20*_px, (Ay8+oy8)/2 + 20*_py + 4, '<tspan font-style="italic">x</tspan> cm', 12)}
+{meas(Cx8, oy8, Px8, oy8, off=9, ins_q=6)}
+{halo_text((Cx8 + Px8) / 2, oy8 + 40, "8 cm", 11.5)}
+{meas(ox8, oy8, Ax8, By8, off=8, ins_p=12, ins_q=6)}
+{dim_label(ox8, oy8, Ax8, By8, -15, "12 cm", 11.5)}
 </svg>'''
 
 # ── q9: 원 O 내접 오각형, ∠A=120°, ∠D=100°, 중심각 x=∠BOC ──────────
@@ -249,6 +215,9 @@ for k, ang in {"A": 90, "B": 150, "C": 230, "D": 310, "E": 30}.items():
     pts9[k] = (cx9 + R9 * math.cos(math.radians(ang)), cy9 - R9 * math.sin(math.radians(ang)))
 pg = " ".join(P(*pts9[k]) for k in "ABCDE" if True)
 A9, B9, C9, D9, E9 = (pts9[k] for k in "ABCDE")
+# 검산: ∠A=120°(호BCDE=240°)·∠D=100°(호EABC=200°)·중심각 ∠BOC=x=80°
+verify_figure("q9", angles=[(120, A9, B9, E9), (100, D9, C9, E9),
+                            (80, (cx9, cy9), B9, C9)])
 SVGS["q9"] = f'''<svg viewBox="0 0 260 265" xmlns="http://www.w3.org/2000/svg">
 <circle cx="{cx9}" cy="{cy9}" r="{R9}" fill="none" stroke="#000" stroke-width="2"/>
 <polygon points="{P(*A9)} {P(*B9)} {P(*C9)} {P(*D9)} {P(*E9)}" fill="none" stroke="#000" stroke-width="2"/>
@@ -273,7 +242,10 @@ SVGS["q9"] = f'''<svg viewBox="0 0 260 265" xmlns="http://www.w3.org/2000/svg">
 cx10, cy10, R10 = 160, 108, 86
 T10 = (cx10, cy10 + R10)
 A10 = (cx10 + R10 * math.cos(math.radians(150)), cy10 - R10 * math.sin(math.radians(150)))
-B10 = (cx10 + R10 * math.cos(math.radians(40)), cy10 - R10 * math.sin(math.radians(40)))
+# 조건 유도: ∠ATP=60°(접현각) → 호TA(좌)=120° → A=270°−120°=150°.
+# ∠BAT=46°(원주각) → 호BT=92° → B=270°+92°=362°=2°. (기존 40°는 65°가 됐다)
+B10 = (cx10 + R10 * math.cos(math.radians(2)), cy10 - R10 * math.sin(math.radians(2)))
+verify_figure("q10", angles=[(46, A10, B10, T10), (60, T10, A10, (62, T10[1]))])
 SVGS["q10"] = f'''<svg viewBox="0 0 310 260" xmlns="http://www.w3.org/2000/svg">
 <circle cx="{cx10}" cy="{cy10}" r="{R10}" fill="none" stroke="#000" stroke-width="2"/>
 <line x1="30" y1="{T10[1]}" x2="292" y2="{T10[1]}" stroke="#000" stroke-width="2"/>
@@ -281,10 +253,10 @@ SVGS["q10"] = f'''<svg viewBox="0 0 310 260" xmlns="http://www.w3.org/2000/svg">
 <line x1="{T10[0]}" y1="{T10[1]}" x2="{B10[0]:.1f}" y2="{B10[1]:.1f}" stroke="#000" stroke-width="2"/>
 <line x1="{A10[0]:.1f}" y1="{A10[1]:.1f}" x2="{B10[0]:.1f}" y2="{B10[1]:.1f}" stroke="#000" stroke-width="2"/>
 <circle cx="62" cy="{T10[1]}" r="2.6" fill="#000"/>
-<path d="{arc(*T10, 30, 120, 180)}" fill="none" stroke="#000" stroke-width="1"/>
-<text x="82" y="{T10[1]-12}" font-size="14" {FONT}>60°</text>
-<path d="{arc(*A10, 30, -60, 5)}" fill="none" stroke="#000" stroke-width="1"/>
-<text x="{A10[0]+34:.1f}" y="{A10[1]+16:.1f}" font-size="14" {FONT}>46°</text>
+{angle_mark(*T10, A10, (62, T10[1]), r=30, dash=False)}
+{halo_angle(*T10, A10, (62, T10[1]), 46, "60°", 14)}
+{angle_mark(*A10, T10, B10, r=27, dash=False)}
+{halo_angle(*A10, T10, B10, 44, "46°", 14)}
 <text x="62" y="{T10[1]+22}" font-size="16" {FONT} text-anchor="middle">P</text>
 <text x="{T10[0]}" y="{T10[1]+22}" font-size="16" {FONT} text-anchor="middle">T</text>
 <text x="{A10[0]-8:.1f}" y="{A10[1]:.1f}" font-size="16" {FONT} text-anchor="end">A</text>
@@ -299,6 +271,9 @@ C11 = (cx11 + R11 * math.cos(math.radians(200)), cy11 - R11 * math.sin(math.radi
 ty = A11[1]
 t11 = (ty - B11[1]) / (C11[1] - B11[1])
 P11 = (B11[0] + t11 * (C11[0] - B11[0]), ty)
+# 검산: ∠BAQ=55°(접현각) → 호AB=110°. BC 는 지름(B·C 는 서로 반대편)
+verify_figure("q11", angles=[(55, A11, (A11[0] + 40, A11[1]), B11)],
+              lengths=[(2, B11, C11), (1, (cx11, cy11), B11)])
 SVGS["q11"] = f'''<svg viewBox="0 0 360 215" xmlns="http://www.w3.org/2000/svg">
 <circle cx="{cx11}" cy="{cy11}" r="{R11}" fill="none" stroke="#000" stroke-width="2"/>
 <line x1="30" y1="{ty}" x2="340" y2="{ty}" stroke="#000" stroke-width="2"/>
@@ -306,11 +281,11 @@ SVGS["q11"] = f'''<svg viewBox="0 0 360 215" xmlns="http://www.w3.org/2000/svg">
 <line x1="{A11[0]}" y1="{A11[1]}" x2="{B11[0]:.1f}" y2="{B11[1]:.1f}" stroke="#000" stroke-width="2"/>
 <circle cx="{cx11}" cy="{cy11}" r="2.4" fill="#000"/>
 <circle cx="325" cy="{ty}" r="2.4" fill="#000"/>
-<path d="{arc(*A11, 19, 0, 55)}" fill="none" stroke="#000" stroke-width="1"/>
+{angle_mark(*A11, (A11[0] + 40, A11[1]), B11, r=19, dash=False)}
 {halo_angle(*A11, (A11[0] + 40, A11[1]), B11, 34, "55°", 11.5)}
-<path d="{arc(*B11, 24, 200, 250)}" fill="none" stroke="#000" stroke-width="1"/>
+{angle_mark(*B11, P11, A11, r=24, dash=False)}
 <text x="{B11[0]-14:.1f}" y="{B11[1]+30:.1f}" font-size="14" {IT}>x</text>
-<path d="{arc(*P11, 26, 0, 20)}" fill="none" stroke="#000" stroke-width="1"/>
+{angle_mark(*P11, (P11[0] + 40, ty), B11, r=26, dash=False)}
 <text x="{P11[0]+28:.1f}" y="{ty-24}" font-size="14" {IT}>y</text>
 <text x="{cx11}" y="{cy11-8}" font-size="15" {FONT} text-anchor="middle">O</text>
 <text x="{C11[0]-6:.1f}" y="{C11[1]-8:.1f}" font-size="15" {FONT} text-anchor="end">C</text>
@@ -344,9 +319,9 @@ SVGS["q15"] = f'''<svg viewBox="0 0 340 300" xmlns="http://www.w3.org/2000/svg">
 <path d="M {ox15-4} {oy15-222} L {ox15} {oy15-230} L {ox15+4} {oy15-222} Z" fill="#000"/>
 {dots}
 <circle cx="{ox15+ga[0]*sx:.0f}" cy="{oy15-ga[1]*sy:.0f}" r="3.2" fill="#000"/>
-{halo_text(ox15 + ga[0] * sx, oy15 - ga[1] * sy - 10, "(가)", 13)}
+{halo_text(ox15 + ga[0] * sx + 15.0, oy15 - ga[1] * sy + -0.0, "(가)", 13, anc="start")}
 <circle cx="{ox15+na[0]*sx:.0f}" cy="{oy15-na[1]*sy:.0f}" r="3.2" fill="#000"/>
-{halo_text(ox15 + na[0] * sx, oy15 - na[1] * sy - 10, "(나)", 13)}
+{halo_text(ox15 + na[0] * sx + 8.5, oy15 - na[1] * sy + -8.5, "(나)", 13, anc="start")}
 {xt}{yt}
 <text x="{ox15-10}" y="{oy15+18}" font-size="14" {FONT} text-anchor="end">O</text>
 <text x="{ox15+266}" y="{oy15+18}" font-size="14" {IT}>x</text>
@@ -361,6 +336,9 @@ C16 = (A16[0] + 4 * sc1 * math.cos(math.radians(5)), A16[1] - 4 * sc1 * math.sin
 _l1 = math.hypot(C16[0] - A16[0], C16[1] - A16[1])
 _u1x, _u1y = (C16[0] - A16[0]) / _l1, (C16[1] - A16[1]) / _l1
 _n1x, _n1y = -_u1y, _u1x          # AC 아래쪽 법선
+# 검산: AB=3cm·AC=4cm·∠A=120°
+verify_figure("s1", lengths=[(3, A16, B16), (4, A16, C16)],
+              angles=[(120, A16, B16, C16)])
 SVGS["s1"] = f'''<svg viewBox="0 0 320 215" xmlns="http://www.w3.org/2000/svg">
 <path d="M {P(*A16)} L {P(*B16)} L {P(*C16)} Z" fill="none" stroke="#000" stroke-width="2"/>
 <path d="{arc(*A16, 26, 5, 125)}" fill="none" stroke="#000" stroke-width="1"/>
@@ -376,10 +354,16 @@ SVGS["s1"] = f'''<svg viewBox="0 0 320 215" xmlns="http://www.w3.org/2000/svg">
 
 # ── s2(17): 타워 개략도 — D 30°, C 60°, DC=20m ───────────────────────
 gy = 190
-D17, B17 = (42, gy), (300, gy)
 AB17 = 150.0
+# 조건 유도: ∠D=30° → BD=AB·√3 (눈대중 42 는 0.7% 어긋났다)
+B17 = (300, gy)
+D17 = (B17[0] - AB17 * math.sqrt(3), gy)
 C17 = (B17[0] - AB17 / math.tan(math.radians(60)), gy)
 A17 = (B17[0], gy - AB17)
+# 검산: ∠D=30°·∠C=60°·DC=20m → AB=10√3 m
+verify_figure("s2", angles=[(30, D17, B17, A17), (60, (C17[0], gy), B17, A17)],
+              lengths=[(20, (C17[0], gy), D17),
+                       (10 * math.sqrt(3), (B17[0], gy), A17)])
 SVGS["s2"] = f'''<svg viewBox="0 0 360 225" xmlns="http://www.w3.org/2000/svg">
 <line x1="20" y1="{gy}" x2="340" y2="{gy}" stroke="#000" stroke-width="2"/>
 <line x1="{B17[0]}" y1="{gy}" x2="{A17[0]}" y2="{A17[1]:.1f}" stroke="#000" stroke-width="2"/>
@@ -429,9 +413,15 @@ SVGS["s3"] = f'''<svg viewBox="0 0 240 245" xmlns="http://www.w3.org/2000/svg">
 
 # ── s4(19): 원 O 내접 이등변삼각형, BC=12cm, r=10cm ─────────────────
 cx19, cy19, R19 = 120, 132, 100
+# 조건 유도: r=10cm(=100px), BC=12cm → 반현 6cm, 중심거리 √(10²−6²)=8cm.
+# A 는 BC 반대쪽 극. (기존 152°/28° 는 BC 를 중심 **위** 4.7cm 에 두고 길이도 17.7cm 였다)
+k19 = R19 / 10.0
 A19 = (cx19, cy19 - R19)
-B19 = (cx19 + R19 * math.cos(math.radians(152)), cy19 - R19 * math.sin(math.radians(152)))
-C19 = (cx19 + R19 * math.cos(math.radians(28)), cy19 - R19 * math.sin(math.radians(28)))
+B19 = (cx19 - 6 * k19, cy19 + 8 * k19)
+C19 = (cx19 + 6 * k19, cy19 + 8 * k19)
+verify_figure("s4", lengths=[(12, B19, C19), (10, (cx19, cy19), A19),
+                             (6 * math.sqrt(10), A19, B19),
+                             (6 * math.sqrt(10), A19, C19)])
 
 
 def _tick(p, q):
@@ -466,13 +456,16 @@ WIDTHS = {"q2": 190, "q3": 235, "q4": 262, "q6": 235, "q7": 195, "q8": 250,
 
 if __name__ == "__main__":
     from core.figure_generator import _svg_to_png_bytes
+    miss = unverified(SVGS)
+    if miss:
+        raise SystemExit(f"검산 누락(verify_figure 미호출): {miss}")
     for k, svg in SVGS.items():
         if k == "s2":      # 사진 문항 — 원본 정리본을 별도 저장(photo_s2.py)
             continue
         issues = lint_svg(svg)
         if issues:
             raise RuntimeError(f"{k} SVG lint 실패: {'; '.join(issues)}")
-        png = _svg_to_png_bytes(svg, width=WIDTHS[k] * 2)
+        png = _svg_to_png_bytes(svg, width=WIDTHS[k] * 3)
         if not png:
             print(k, "렌더 실패")
             continue
