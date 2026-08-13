@@ -33,12 +33,15 @@ FIGURE_MODULES = (
     ROOT / "core" / "figure_generator.py",
     ROOT / "core" / "figure_quality.py",
     ROOT / "core" / "figure_scene.py",
+    ROOT / "core" / "figure_solid.py",
     ROOT / "core" / "figure_svg.py",
 )
 FIGURE_TESTS = (
     "tests/test_figure_scene.py",
     "tests/test_figure_generator_quality.py",
     "tests/test_figure_svg_dimension.py",
+    "tests/test_figure_solid.py",
+    "tests/test_figure_svg_tangency.py",
 )
 # 왕선중 2번은 원본에 인쇄 그림이 없다(2026-08-13 원본 확인) — 41 이 정상
 EXPECTED_CORPUS_FIGURES = 41
