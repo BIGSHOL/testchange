@@ -1,0 +1,31 @@
+{
+ "exam_id": 4376,
+ "answer_pages": [7],
+ "items": [
+  {"number": 1, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+  {"number": 2, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+  {"number": 3, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+  {"number": 4, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+  {"number": 5, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+  {"number": 6, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+  {"number": 7, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+  {"number": 8, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+  {"number": 9, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+  {"number": 10, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+  {"number": 11, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+  {"number": 12, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+  {"number": 13, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+  {"number": 14, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+  {"number": 15, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+  {"number": 16, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+  {"number": 17, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+  {"number": 18, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+  {"number": 19, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+  {"number": 20, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+  {"number": 21, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+  {"number": 22, "answer": "$5$", "solution": "두 직선이 평행하려면 $\\frac{1}{k}=\\frac{k-2}{k+4} \\neq -1$ 이므로\n$k+4=k^{2}-2k$\n$k^{2}-3k-4=0$ $\\therefore k=4$ 또는 $k=-1$\n이때, $\\frac{1}{k} \\neq -1$ 이므로 $k=4$ $\\therefore a=4$\n두 직선이 일치하려면 $\\frac{1}{k}=\\frac{k-2}{k+4}=-1$ 이므로\n$k=-1$ $\\therefore b=-1$\n$\\therefore a-b=4-(-1)=5$", "topic": "", "difficulty": ""},
+  {"number": 23, "answer": "$29$", "solution": "주어진 명제의 부정은 모든 실수 $x$에 대하여 $ax^{2}+bx+4>0$이다.\n$a=0$인 경우 : $b=0$이면 성립\n$a>0$이면 $y=ax^{2}+bx+4$의 그래프가 $x$축보다 항상 위에 있어야 하므로 판별식 $\\mathrm{D}=b^{2}-16a<0$이 성립해야 한다\n$a=1$인 경우 : 가능한 $b=0,~1,~2,~3$\n$a=2$인 경우 : $b=0,~1,~2,~3,~4,~5$\n$a=3$인 경우 : $b=0,~1,~2,~3,~4,~5$\n$a=4$인 경우 : $b=0,~1,~2,~3,~4,~5$\n$a=5$인 경우 : $b=0,~1,~2,~3,~4,~5$\n따라서 두 정수 $a,~b$의 순서쌍 $(a,~b)$의 개수는\n$1+4+6+6+6+6=29$", "topic": "", "difficulty": ""},
+  {"number": 24, "answer": "11명", "solution": "예금을 거래한 사람을 $A$, 펀드를 거래한 사람을 $B$, 주식을 거래한 사람을 $C$라 하면\n$n(C)=42$, $n(A \\cap B^{C} \\cap C)=22$\n(라)에 의해 $B \\subset A$, (가)에 의해 $n(A \\cap B \\cap C)=9$\n100명 중 주식 거래만 한 사람의 수는 $C-A$부분이 된다.\n따라서 $n(C-A)=42-22-9=11$", "topic": "", "difficulty": ""},
+  {"number": 25, "answer": "40개", "solution": "$(A \\cup B) \\cap C$의 원소의 개수가 2개가 되려면\n$3x+4y-k=0$과 두 원의 교점의 개수가 2개가 된다.\n원 $B$의 중심인 $(3,~4)$, 원 $A$의 중심인 $(0,~0)$와 직선 $3x+4y-k=0$ 까지의 거리가 각각 5, 2가 되는\n$k=\\pm10,~0,~50$\n$k$는 자연수이므로 $10<k<50$\n이를 만족하는 $k$의 개수 : $50-10+1=39$\n또한 $A$, $B$를 나타내는 원의 교점을 $3x+4y=2$가 지나므로 $k=2$인 경우도 성립한다.\n$\\therefore$ 40개", "topic": "", "difficulty": ""}
+ ]
+}

@@ -1,0 +1,1314 @@
+{
+ "meta": {
+  "exam_id": 4362,
+  "ocr_source": "session-vision"
+ },
+ "header": {
+  "title": "문명고 1학년 수학 (2025년 2학기 중간고사 대비, 평면좌표 ~ 명제)"
+ },
+ "questions": [
+  {
+   "number": 1,
+   "score": 4.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "두 점 \\mathrm{A}(a,~-3), \\mathrm{B}(1,~2a+3)에 대하여 \\overline{\\mathrm{AB}}=2\\sqrt{5}일 때, 가능한 모든 상수 a의 합은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-\\frac{22}{5}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-\\frac{21}{5}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-4"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-\\frac{19}{5}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-\\frac{18}{5}"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 2,
+   "score": 4.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "두 점 \\mathrm{A}(a,~2), \\mathrm{B}(1,~6)를 이은 선분 \\mathrm{AB}를 3:1으로 내분하는 점이 직선 y=-3x+2위에 있을 때, 상수 a의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-7"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-3"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "9"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 3,
+   "score": 4.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "두 점 \\mathrm{A}(3,~1), \\mathrm{B}(7,~9)에 대하여 선분 \\mathrm{AB}를 3:1로 내분하는 점이 직선 kx+2y+4=0 위에 있을 때, 상수 k의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-5"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-3"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-1"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 4,
+   "score": 4.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "직선 y=2x-1과 평행하며 거리가 3\\sqrt{5}가 되도록 하는 모든 직선의 y절편의 합은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-18"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-14"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-10"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-6"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-2"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 5,
+   "score": 4.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "직선의 방정식 ax+y-2a+1=0에 대하여 [보기]에서 옳은 것만을 있는대로 고른 것은? (단, a는 실수)"
+    },
+    {
+     "type": "text",
+     "value": "<보기> ㄱ. 점 (2,~-1)을 지난다. • ㄴ. a=2일 때, y=-2x+3와 평행하다. • ㄷ. a=-1일 때, y=-x-5와 수직이다. • ㄹ. a=-2일 때, 원점으로부터 거리는 \\sqrt{5}이다."
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄱ, ㄷ"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄱ, ㄴ, ㄷ"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄱ, ㄴ, ㄹ"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄱ, ㄷ, ㄹ"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄱ, ㄴ, ㄷ, ㄹ"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 6,
+   "score": 4.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "좌표평면 위에 세 점 \\mathrm{A}(1,~1), \\mathrm{B}(3,~-2), \\mathrm{C}(5,~4)로 이루어진 삼각형의 넓이와 네 직선 y=-3, y=-7, x=-2, x=-6으로 둘러싸인 직사각형의 넓이를 동시에 이등분하는 직선의 방정식을 ax+by+11=0이라 할 때, ab의 값은? (단, a, b는 상수)"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-42"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-35"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-28"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-21"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-14"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 7,
+   "score": 4.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "원 x^{2}+y^{2}-4x+6y+5=0과 중심이 같고, 점 (-2,~-6)를 지나는 원의 반지름 길이는?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3\\sqrt{2}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2\\sqrt{5}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2\\sqrt{6}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 8,
+   "score": 4.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "원 x^{2}+y^{2}=16와 직선 y=-x+k가 만나서 생기는 현의 길이가 2\\sqrt{7}일 때, 양수 k의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3\\sqrt{2}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3\\sqrt{3}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "6"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3\\sqrt{5}"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 9,
+   "score": 4.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "원의 방정식 x^{2}+y^{2}=25에 기울기가 2이고 원과 만나는 점이 제4사분면인 접선과 원 위의 한 점 (-\\sqrt{5},~2\\sqrt{5})에서의 접선의 교점을 (a,~b)라 할 때, a+b의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "6\\sqrt{5}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "7\\sqrt{5}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "8\\sqrt{5}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "9\\sqrt{5}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "10\\sqrt{5}"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 10,
+   "score": 4.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "x^{2}+y^{2}-8x-2ay+25=0을 직선 y=x에 대하여 대칭이동하면 x축에 접한다. 이때 실수 a^{2}의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "9"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "16"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "25"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 11,
+   "score": 4.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "기울기가 -2이고 x절편이 a인 직선을 y축의 방향으로 3만큼 평행이동한 후, x축에 대하여 대칭이동하면 점(-3,~4)를 지난다. 이때, 상수 a의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-\\frac{13}{2}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-\\frac{11}{2}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-\\frac{9}{2}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-\\frac{7}{2}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-\\frac{5}{2}"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 12,
+   "score": 4.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "원 \\mathrm{O}: x^{2}+y^{2}+2x-2y-6=0을 y축 대칭이동 후 y=3에 대하여 대칭 이동한 그래프가 원 \\mathrm{O}를 x축 대칭이동 후 x축의 양의 방향으로 a만큼 y축의 양의 방향으로 b만큼 평행 이동한 그래프와 완전히 겹칠 때, a+b의 값은? (단, a, b는 상수)"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "7"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "8"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "9"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "10"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "11"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 13,
+   "score": 4.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "두 집합 A=\\{x|x^{2}-7x+10<0\\}, B=\\{x|x는 자연수\\}에서 n(A\\cap B)의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "6"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 14,
+   "score": 4.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "두 집합 A=\\{a+2,~5\\}, B=\\{9,~b-1\\}에 대하여 A\\subset B, B\\subset A를 만족시키는 상수 a, b에 대하여 a+b의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "12"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "13"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "14"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "15"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "16"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 15,
+   "score": 4.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "A=\\{x||x|\\leq 2\\}, B=\\{x|a\\leq x\\leq b\\}, C=\\{x|x^{2}-x-20\\leq 0\\}에 대하여 세 집합 A, B, C의 포함관계가 A\\subset B\\subset C으로 성립하도록 하는 모든 정수 a, b에 대하여 순서쌍(a,~b)의 개수는?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "10"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "11"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "12"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "13"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "14"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 16,
+   "score": 4.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "집합 A=\\{x|x^{3}+2x^{2}-5x-6=0\\}, B=\\{x|3x-4<0\\}에 대하여 X\\subset A\\cap B, X\\not\\subset\\varnothing인 집합 X의 개수를 구하시오."
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 17,
+   "score": 4.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "두 집합 A=\\{a,~b,~c,~d\\}, B=\\{a+k,~b+2k,~c+3k,~d+4k\\}에서 집합 A의 모든 원소의 합이 23이고, 집합 A\\cup B의 모든 원소의 합은 57이라면, A\\cap B=\\{6,~13\\}일 때, 집합 B-A의 모든 원소의 합은? (단, k는 상수이다.)"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "34"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "36"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "38"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "40"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "42"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 18,
+   "score": 4.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "세 집합 A, B, C가 \\mathrm{n}(A\\cup B\\cup C)=37, n(A)=19, n(B)=18, n(C)=15, n(A\\cap B)=7, n(B-(A\\cup C))=11, n(A\\cap B\\cap C)=3을 만족시킬 때, n((A\\cap(B\\cup C^{C})^{C})의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "6"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "7"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "8"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 19,
+   "score": 4.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "세 집합 A=\\{x|x는 4보다 작은 자연수\\}, B=\\{x|x는 4의 양의 약수\\}, C=\\{x|x는 |x|\\leq 1인 정수\\}에 대하여 집합 D=\\{xy+z|x\\in A,~y\\in B,~z\\in C\\}의 원소의 개수는?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "9"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "10"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "11"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "12"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "13"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 20,
+   "score": 4.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "세 조건 p, q, r이 다음 조건을 만족시킨다."
+    },
+    {
+     "type": "text",
+     "value": "<상자> (가) 명제 p\\to\\sim q가 참이다. • (나) 명제 q\\to r의 역이 참이다."
+    },
+    {
+     "type": "text",
+     "value": "다음 중 항상 참인 명제는?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "p\\to r"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "q\\to r"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "r\\to\\sim q"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "p\\to\\sim r"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "q\\to\\sim r"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 21,
+   "score": 4.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "다음 중 참인 명제만을 있는 대로 고른 것은?"
+    },
+    {
+     "type": "text",
+     "value": "<상자> ㄱ. 모든 자연수 x에 대하여 x-1은 자연수이다. • ㄴ. 모든 자연수 x에 대하여 x^{2}+4x+4\\geq 0이다. • ㄷ. 어떤 자연수 x에 대하여 2-x는 자연수이다. • ㄹ. 어떤 자연수 x에 대하여 -x^{2}+4x-4>0이다."
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄱ, ㄴ"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄱ, ㄷ"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄴ, ㄷ"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄴ, ㄹ"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄷ, ㄹ"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 22,
+   "score": 4.0,
+   "type": "서술형",
+   "label": "[서술형 1]",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서술형 1] 점(2,~-3)와 직선 x+y-2+k(4x+y-5)=0 사이의 거리를 f(k)라 할 때, f(k)의 최댓값을 구하시오. (단, k는 실수)"
+    }
+   ]
+  },
+  {
+   "number": 23,
+   "score": 4.0,
+   "type": "서술형",
+   "label": "[서술형 2]",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서술형 2] x^{2}+y^{2}=9 위의 점 \\mathrm{P}(x_{1},~y_{1})에서의 접선이 원 (x-5)^{2}+(y-4)^{2}=9에도 동시에 접할 때, 41x_{1}y_{1}의 값을 구하시오. (단, 점 \\mathrm{P}는 제4사분면 위의 점이다.)"
+    }
+   ]
+  },
+  {
+   "number": 24,
+   "score": 4.0,
+   "type": "서술형",
+   "label": "[서술형 3]",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서술형 3] 두 점 \\mathrm{A}(-3,~2), \\mathrm{B}(3,~5)와 두 직선 y=x+1, y=x-2가 있다. 직선 y=x+1위의 점 \\mathrm{M}과 직선 y=x-2 위의 두 점 \\mathrm{L}, \\mathrm{N}에 대하여 \\overline{\\mathrm{AL}}+\\overline{\\mathrm{LM}}+\\overline{\\mathrm{MN}}+\\overline{\\mathrm{NB}}의 최솟값을 구하시오."
+    }
+   ]
+  },
+  {
+   "number": 25,
+   "score": 4.0,
+   "type": "서술형",
+   "label": "[서술형 4]",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서술형 4] 집합 A=\\{x|x는 17이하의 소수\\}의 부분집합 중 원소의 개수가 홀수개인 부분집합을 각각 A_{1}, A_{2}, A_{3}, \\cdots, A_{k}이라 하고, 집합 A_{k}(k=1,~2,~3,~\\cdots,~n)의 중앙값을 m_{k}라 할 때, m_{1}+m_{2}+m_{3}+\\cdots+m_{n}의 값을 구하여라. (단, 중앙값이란 자료를 값의 크기대로 차례로 늘어놓았을 때, 그 중앙에 위치하는 값이라 한다. 자료의 개수가 한 개인 경우 그 값이 중앙값이다.)"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,1375 @@
+{
+ "meta": {
+  "exam_id": 4371,
+  "ocr_source": "session-vision"
+ },
+ "header": {
+  "title": "사대부고 1학년 공통수학1 — 2025년 1학기 기말고사 (이차방정식과 이차함수 ~ 행렬)"
+ },
+ "questions": [
+  {
+   "number": 1,
+   "score": 3.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "{}_{3}\\mathrm{P}_{2}-{}_{3}\\mathrm{C}_{2}의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 2,
+   "score": 3.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "남학생 5명과 여학생 4명으로 구성된 동아리에서 대표 4명을 뽑아 일렬로 배치된 의자에 앉히려고 한다. 남학생과 여학생을 적어도 1명씩 포함하여 앉히는 모든 경우의 수는?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2880"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3000"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3018"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3024"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3124"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 3,
+   "score": 4.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림과 같이 사각형의 각 변 위에 모두 11개의 점이 있다. 이 11개의 점 중에서 4개의 점을 꼭짓점으로 하는 사각형의 개수는?"
+    },
+    {
+     "type": "figure",
+     "value": "볼록사각형의 네 변 위에 모두 11개의 점(꼭짓점 4개 포함)이 찍힌 그림. 네 꼭짓점을 포함하여 셀 때 위쪽 변에 3개(꼭짓점 2개 + 중간 1개), 오른쪽 변에 3개(꼭짓점 2개 + 중간 1개), 아래쪽 변에 5개(꼭짓점 2개 + 중간 3개), 왼쪽 변에 4개(꼭짓점 2개 + 중간 2개)의 점이 있다. 꼭짓점은 이웃한 두 변이 공유하므로 서로 다른 점은 모두 11개이다."
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "220"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "222"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "224"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "226"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "228"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 4,
+   "score": 4.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "다음 그림은 어느 건물들 사이의 산책로를 나타낸 것이다. 건물\\mathrm{B}와 건물\\mathrm{C} 사이에 산책로를 추가하여 건물\\mathrm{A}에서 건물\\mathrm{D}까지 가는 방법의 수가 64가 되도록 할 때, 추가해야 하는 산책로의 수를 구하시오. (단, 같은 지점은 두 번 이상 지나지 않고, 산책로는 서로 만나지 않는다.)"
+    },
+    {
+     "type": "figure",
+     "value": "네 건물 A(왼쪽), B(위쪽), C(아래쪽), D(오른쪽)가 마름모꼴로 놓인 산책로 그림. A와 B 사이에 산책로 3개, B와 D 사이에 산책로 2개, A와 C 사이에 산책로 2개, C와 D 사이에 산책로 3개가 곡선으로 그려져 있고, B와 C 사이에는 산책로가 없다."
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 5,
+   "score": 4.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "다음 그림에서 다섯 개의 영역을 서로 다른 5가지 이하의 색으로 칠하려고 한다. 같은 색을 중복하여 사용해도 좋으나 인접한 영역은 서로 다른 색으로 칠하여 구분할 때, 칠하는 방법의 수는 구하시오."
+    },
+    {
+     "type": "figure",
+     "value": "직사각형이 곡선과 직선으로 다섯 영역 (가), (나), (다), (라), (마)로 나뉜 그림. 왼쪽 위가 (가), 그 아래(왼쪽 아래)가 (라), 가운데가 (나), 오른쪽 위가 (다), 아래쪽을 가로지르는 넓은 영역이 (마)이다. 인접 관계는 (가)-(나), (가)-(라), (나)-(라), (나)-(다), (나)-(마), (다)-(마), (라)-(마)이며, (가)와 (다), (가)와 (마)는 인접하지 않는다."
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "180"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "360"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "540"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "720"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "810"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 6,
+   "score": 4.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "이차함수 y=x^{2}-4kx+a의 그래프와 직선 y=2bx-4k^{2}+8k가 실수 k의 값에 관계없이 항상 한 점에서 만날 때, 실수 a, b에 대하여 a+b의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "0"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-1"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 7,
+   "score": 4.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "다음 그림과 같이 직사각형 \\mathrm{ABCD}의 두 꼭짓점 \\mathrm{A}, \\mathrm{B}는 이차함수 y=-\\frac{1}{2}x^{2}+2의 그래프 위에 있고, 두 꼭짓점 \\mathrm{C}, \\mathrm{D}는 이차함수 y=x^{2}-4의 그래프 위에 있다. 이때 직사각형 \\mathrm{ABCD}의 둘레의 길이에 대한 최댓값은? (단, 점 \\mathrm{A}는 제1사분면, 점 \\mathrm{D}는 제4사분면 위의 점이다.)"
+    },
+    {
+     "type": "figure",
+     "value": "좌표평면에 위로 볼록한 포물선 y=-1/2 x^2+2 (y절편 2, x절편 -2와 2)와 아래로 볼록한 포물선 y=x^2-4 (y절편 -4, x절편 -2와 2)가 그려져 있고 두 곡선은 (-2, 0), (2, 0)에서 만난다. y축에 대칭인 세로로 긴 직사각형 ABCD가 빨간색으로 그려져 있으며, 위쪽 변의 오른쪽 끝점 A와 왼쪽 끝점 B는 y=-1/2 x^2+2 위에, 아래쪽 변의 왼쪽 끝점 C와 오른쪽 끝점 D는 y=x^2-4 위에 있다. 네 꼭짓점에 직각 표시가 되어 있다."
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "11"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{34}{3}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "12"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{38}{3}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{40}{3}"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 8,
+   "score": 4.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "x, y에 대한 연립방정식"
+    },
+    {
+     "type": "equation",
+     "value": "\\begin{cases} x^{2}-2xy-3y^{2}=0 \\\\ x^{2}+2xy+2y^{2}=34 \\end{cases}"
+    },
+    {
+     "type": "text",
+     "value": "를 만족시키는 실수 x, y에 대하여 x^{2}+y^{2}의 최댓값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "20"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "34"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "40"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "51"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "68"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 9,
+   "score": 4.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "방정식 x^{7}+3x+1을 다항식 x^{2}+x+1로 나누었을 때 몫을 Q(x), 나머지를 R(x)라고 할 때, R(x)을 바르게 적은 것은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2x-1"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3x-1"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3x+1"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4x-1"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4x+1"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 10,
+   "score": 4.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "삼차방정식 2x^{3}+(k+2)x^{2}+2kx+k=0의 근이 모두 실수가 되도록 하는 실수 k의 값의 범위를 바르게 구한 것은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "text",
+       "value": "k<0 또는 k>8"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "text",
+       "value": "k \\leq 0 또는 k \\geq 8"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "0 \\leq k \\leq 8"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "0<k<8"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "text",
+       "value": "k=0 또는 k=8"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 11,
+   "score": 4.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "x의 값의 범위가 4 \\leq x \\leq 5일 때, 이차부등식 x^{2}-4x-3k+4 \\leq 0이 성립하도록 하는 실수 k의 값의 범위를 구한 것은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "k \\geq 3"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "k \\leq 3"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1 \\leq k \\leq 3"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "text",
+       "value": "k \\leq 1 또는 k \\geq 3"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "k \\geq 1"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 12,
+   "score": 4.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "서로 다른 5개의 아이스크림을 크기가 다른 두 상자에 나누어 담으려고 한다. 각 상자에는 아이스크림을 최대 4개까지만 담을 수 있을 때, 두 상자에 아이스크림을 나누어 담는 방법의 수를 구하시오."
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "20"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "25"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "30"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "35"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "40"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 13,
+   "score": 4.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "행렬 A=\\begin{pmatrix} -1 & 0 \\\\ -2 & 1 \\end{pmatrix}에 대하여 행렬 A+A^{2}+A^{3}+\\cdots+A^{100}의 모든 성분의 합은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-2"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-1"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "0"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 14,
+   "score": 4.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "x에 대한 연립부등식"
+    },
+    {
+     "type": "equation",
+     "value": "\\begin{cases} 2x^{2}-17x+21 \\leq 0 \\\\ x^{2}-2kx+k^{2}-4>0 \\end{cases}"
+    },
+    {
+     "type": "text",
+     "value": "을 만족시키는 정수 x의 개수가 2가 되도록 하는 실수 k의 최댓값과 최솟값을 각각 M, m이라 하자. 가능한 k의 값 중 정수의 개수를 n이라 할 때, M-m+n의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{7}{2}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{9}{2}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 15,
+   "score": 4.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "아래 그림과 같이 높이가 4\\mathrm{m}, 폭이 10\\mathrm{m}인 계단 모양의 구조물을 만들려고 한다. 다음 설계서의 두 조건을 모두 만족시키도록 구조물을 만드는 방법의 수를 구하시오."
+    },
+    {
+     "type": "figure",
+     "value": "왼쪽이 가장 높고 오른쪽으로 갈수록 낮아지는 계단 모양의 구조물이 주황색으로 칠해진 그림. 왼쪽 세로변에 전체 높이 4 m, 아래 가로변에 전체 폭 10 m가 점선 화살표로 표시되어 있다. 각 단의 높이가 서로 같음을 나타내는 등호 표시(빗금)가 각 단의 세로변에 그려져 있고, 단은 모두 8개이며 단마다 폭은 서로 다를 수 있다."
+    },
+    {
+     "type": "text",
+     "value": "<조건> (가) 각 단의 높이는 0.5\\mathrm{m}로 동일하다. • (나) 각 단의 폭(\\mathrm{m})은 자연수이고, 각 단의 폭은 동일하지 않아도 된다."
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "28"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "36"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "38"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "42"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "51"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 16,
+   "score": 4.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "어느 놀이공원의 놀이기구 A, B, C 는 최대 탑승 인원이 각각 1명, 2명, 3명이다. 모든 놀이기구에는 어른 없이 어린이만 탑승할 수 없고, 탑승 순서와 자리 배치는 고려하지 않을 때, 어른 3명과 어린이 2명이 동시에 놀이기구에 탑승하는 방법의 수를 구하시오. (단, 비어있는 놀이기구가 있을 수 있다.)"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "9"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "18"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "27"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "36"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "45"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 17,
+   "score": 4.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "어떤 회사에서 새로 추진하려는 사업에 대하여 전체 사원을 대상으로 세 차례에 걸쳐 찬반 의견을 조사하였다. 1차 조사 결과 찬성이 60\\%, 반대가 40\\%였다. 아래 표는 사업 설명회 이후 2차 조사 결과 1차 조사와 달리 찬반 의견을 바꾼 비율과 사원 토론회 이후 3차 조사 결과 2차 조사와 달리 찬반 의견을 바꾼 비율을 각각 나타낸 것이다."
+    },
+    {
+     "type": "table",
+     "rows": [
+      [
+       "조사 \\ 변화",
+       "직전조사에서 찬성한 사원 중 반대로 의견을 바꾼 비율",
+       "직전조사에서 반대한 사원 중 찬성으로 의견을 바꾼 비율"
+      ],
+      [
+       "2차 조사 결과",
+       "20\\%",
+       "30\\%"
+      ],
+      [
+       "3차 조사 결과",
+       "10\\%",
+       "40\\%"
+      ]
+     ]
+    },
+    {
+     "type": "text",
+     "value": "A=\\begin{pmatrix} 0.6 & 0.4 \\end{pmatrix}, B=\\begin{pmatrix} 0.8 & 0.2 \\\\ 0.3 & 0.7 \\end{pmatrix}, C=\\begin{pmatrix} 0.9 & 0.1 \\\\ 0.4 & 0.6 \\end{pmatrix}일 때, 3차 조사 결과 전체 사원 중에서 찬성하는 사원들의 비율을 나타내는 것은? (단, 기권한 사원은 없다."
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ABC의 (1,~1)성분"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ABC의 (1,~2)성분"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ACB의 (1,~1)성분"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ACB의 (1,~2)성분"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "text",
+       "value": "AB^{2}의 (1,~1)성분"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 18,
+   "score": 4.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "두 행렬 A=\\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix}, X=\\begin{pmatrix} 0 & x \\\\ 1 & 0 \\end{pmatrix}에 대하여"
+    },
+    {
+     "type": "equation",
+     "value": "(A+X)(A-X)=A^{2}-X^{2}"
+    },
+    {
+     "type": "equation",
+     "value": "A^{2}=2A,\\quad X^{3}=9X"
+    },
+    {
+     "type": "text",
+     "value": "가 성립할 때, 양수 a, b, c, d에 대하여 abcdx의 값은? (단, x는 상수이다.)"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{1}{3}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "6"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "9"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 19,
+   "score": 4.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "이차 정사각행렬 A에 대하여"
+    },
+    {
+     "type": "equation",
+     "value": "A\\begin{pmatrix} 2 \\\\ 3 \\end{pmatrix}=\\begin{pmatrix} 1 \\\\ 0 \\end{pmatrix},\\quad A^{2}\\begin{pmatrix} 2 \\\\ 3 \\end{pmatrix}=\\begin{pmatrix} 2 \\\\ -3 \\end{pmatrix}"
+    },
+    {
+     "type": "text",
+     "value": "이 성립한다. 이때 A\\begin{pmatrix} x \\\\ y \\end{pmatrix}=\\begin{pmatrix} -5 \\\\ 9 \\end{pmatrix}를 만족시키는 상수 x, y에 대하여 x+y의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-1"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "0"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 20,
+   "score": 4.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "두 행렬 A=\\begin{pmatrix} 4 & -1 \\\\ 13 & -3 \\end{pmatrix}, B=\\begin{pmatrix} 1 & -2 \\\\ 1 & -1 \\end{pmatrix}에 대하여 등식 A^{n}+B^{n}=O 를 만족시키는 가장 작은 자연수 n의 값을 구하시오."
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "6"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 21,
+   "score": 4.0,
+   "type": "서술형",
+   "label": "[서답형 1]",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서답형 1] 서로 다른 흰 공 5개와 서로 다른 검은 공이 담긴 상자에서 3개의 공을 꺼내려고 한다. 흰 공이 홀수개 포함되는 모든 경우의 수가 85일 때, 상자에 담긴 모든 공의 개수를 풀이과정과 함께 구하시오."
+    }
+   ]
+  },
+  {
+   "number": 22,
+   "score": 4.0,
+   "type": "서술형",
+   "label": "[서답형 2]",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서답형 2] 부등식 |x+1|+|2x-5| \\leq 5 의 해를 구하고 풀이과정을 쓰시오."
+    }
+   ]
+  },
+  {
+   "number": 23,
+   "score": 4.0,
+   "type": "서술형",
+   "label": "[서답형 3]",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서답형 3] 연립부등식 a-4x \\leq b-5x \\leq x+2a를"
+    },
+    {
+     "type": "equation",
+     "value": "\\begin{cases} a-4x \\leq b-5x \\\\ a-4x \\leq x+2a \\end{cases}"
+    },
+    {
+     "type": "text",
+     "value": "로 잘못 변형하여 풀었더니 해가 \\frac{4}{5} \\leq x \\leq k이었다. 처음 부등식의 해가 존재하도록 하는 자연수 k의 최솟값을 구하고 풀이과정을 쓰시오. (단, a, b, k는 상수이다.)"
+    }
+   ]
+  },
+  {
+   "number": 24,
+   "score": 5.0,
+   "type": "서술형",
+   "label": "[서답형 4]",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서답형 4] 반장과 부반장을 포함한 5명의 학생이 일렬로 배치된 6개의 의자에 앉으려고 한다. 반장 또는 부반장 옆에 빈 의자가 있도록 앉는 모든 경우의 수를 풀이과정과 함께 구하시오."
+    }
+   ]
+  },
+  {
+   "number": 25,
+   "score": 5.0,
+   "type": "서술형",
+   "label": "[서답형 5]",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서답형 5] 삼차방정식 x^{3}+ax^{2}+bx+1=0의 서로 다른 세 근이 -1, \\alpha, \\frac{1}{\\alpha}일 때, 다음 물음에 답하시오. (단, a, b는 상수이다.)"
+    }
+   ],
+   "sub_questions": [
+    {
+     "number": 1,
+     "score": 1,
+     "contents": [
+      {
+       "type": "text",
+       "value": "a-b의 값을 구하고 풀이 과정을 쓰시오."
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "score": 2,
+     "contents": [
+      {
+       "type": "text",
+       "value": "위의 삼차방정식이 허근을 갖기 위한 a의 범위를 구하고 풀이 과정을 쓰시오."
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "score": 2,
+     "contents": [
+      {
+       "type": "text",
+       "value": "a=2일 때, \\alpha^{6}+2\\alpha^{2}+2\\alpha+4의 값을 구하고 풀이 과정을 쓰시오."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

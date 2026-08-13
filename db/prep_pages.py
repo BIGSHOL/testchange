@@ -8,7 +8,7 @@
 PNG 는 재생성 가능하므로 git 추적 대상이 아니다.
 """
 from __future__ import annotations
-import argparse, json, shutil, sqlite3, sys, io, pathlib
+import argparse, json, os, shutil, sqlite3, sys, io, pathlib
 
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8")
 import fitz
@@ -20,6 +20,22 @@ PAGES = BASE / "pages"
 MAXW = 1100          # 판독용 폭 — 파일럿에서 이 크기로 전 페이지 정확 판독 확인
 
 
+def resolve_src(src: str) -> str | None:
+    """원본 PDF 경로 해석 — N: 가 끊기면 로컬 미러 D:\\기출 로 폴백한다.
+
+    N: 은 비영구 네트워크 매핑이라 세션 중 사라진다(실제로 작업 중 끊겼다).
+    D:\\기출 이 같은 트리를 담고 있어 접두사만 바꾸면 그대로 이어진다.
+    """
+    if os.path.exists(src):
+        return src
+    for old, new in ((r"N:\개인\기출", r"D:\기출"),):
+        if src.startswith(old):
+            alt = new + src[len(old):]
+            if os.path.exists(alt):
+                return alt
+    return None
+
+
 def prep(row) -> dict | None:
     eid, sch, gr, subj, yr, sem, rnd, src = row
     tag = f"[{sch}][{gr}][{subj}][{yr % 100}-{sem}-{rnd}]"
@@ -28,7 +44,11 @@ def prep(row) -> dict | None:
     try:
         local = out / "src.pdf"
         if not local.exists():
-            shutil.copy2(src, local)          # 네트워크 드라이브 재읽기 방지
+            real = resolve_src(src)
+            if real is None:
+                print(f"  MISS {tag} :: 원본 없음(N: 끊김 + 미러에도 없음)")
+                return None
+            shutil.copy2(real, local)         # 네트워크/미러 재읽기 방지
         doc = fitz.open(local)
     except Exception as ex:
         print(f"  FAIL {tag} :: {ex}")

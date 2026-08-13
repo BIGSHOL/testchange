@@ -1,0 +1,83 @@
+{
+  "exam_id": 4357,
+  "answer_pages": [7, 8],
+  "items": [
+    {"number": 1, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 2, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 3, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 4, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 5, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 6, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 7, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 8, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 9, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 10, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 11, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 12, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 13, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 14, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {
+      "number": 15,
+      "answer": "$x^{2}+y^{2}+z^{2}+2xy-2yz-2zx$",
+      "solution": "$x^{2}+y^{2}+z^{2}+2(xy-yz-zx)$\n$=x^{2}+y^{2}+z^{2}+2xy-2yz-2zx$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 16,
+      "answer": "$9x^{2}+15x+25$",
+      "solution": "나머지가 $0$이므로 $3x-5$를 인수로 갖는다.\n$27x^{3}-125=(3x-5)(9x^{2}+15x+25)$이므로 $A=9x^{2}+15x+25$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 17,
+      "answer": "$-5+16i$",
+      "solution": "$(-3+2i)(4-3i)+\\frac{3-i}{2+i}=-12+17i+6+\\frac{(3-i)(2-i)}{(2+i)(2-i)}$\n$=-6+17i+1-i=-5+16i$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 18,
+      "answer": "$-7$",
+      "solution": "$y=x^{2}+ax+b=(x+2)(x-3)=x^{2}-x-6$이므로\n$a=-1$, $b=-6$\n$a+b=-7$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 19,
+      "answer": "$3b$",
+      "solution": "$a<0$, $b \\geq 0$이고\n$\\sqrt{(2b)^{2}}-\\sqrt{a^{2}}+\\sqrt{(b-a)^{2}}=|2b|-|a|+|b-a|$\n$=2b+a+b-a=3b$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 20,
+      "answer": "(1) $-2$ (2) $-\\frac{3}{2}$ (3) $7$ (4) $3x^{2}+14x+3=0$",
+      "solution": "(1) $\\alpha+\\beta=-\\frac{4}{2}=-2$\n(2) $\\alpha\\beta=\\frac{-3}{2}=-\\frac{3}{2}$\n(3) $\\alpha^{2}+\\beta^{2}=(\\alpha+\\beta)^{2}-2\\alpha\\beta=4+3=7$\n(4) 두 근의 합 $\\frac{\\beta}{\\alpha}+\\frac{\\alpha}{\\beta}=\\frac{\\alpha^{2}+\\beta^{2}}{\\alpha\\beta}=-\\frac{14}{3}$\n두 근의 곱 $\\frac{\\beta}{\\alpha}\\times\\frac{\\alpha}{\\beta}=1$이고 $x^{2}$의 계수가 $3$인 이차방정식은\n$3\\left(x^{2}+\\frac{14}{3}x+1\\right)=0$\n$3x^{2}+14x+3=0$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 21,
+      "answer": "$a=1$, $m=-3$",
+      "solution": "$m(x-2)+(x^{2}-y-7)=0$일 때, $x=2$, $y=-3$이므로 점 $\\mathrm{P}$의 좌표는 $(2,~-3)$\n$y=ax-5$와 $(2,~-3)$에서 접하므로 $2a-5=-3$\n$a=1$\n$y=x^{2}+mx-2m-7$과 $y=x-5$는 접하므로\n$x^{2}+(m-1)x-2m-2=0$\n$D=(m-1)^{2}-4(-2m-2)=0$\n$m^{2}+6m+9=0$이므로 $m=-3$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 22,
+      "answer": "$-247$",
+      "solution": "(다) 조건에 의해 $f(x)$의 상수항은 $-8$\n(가), (나) 조건에 의해 $f(x)$와 $g(x)$의 최고차항의 계수는 각각 $2$, $-2$\n$f(x)=2x-8$, $g(x)=-2x^{2}+cx+d$\n$xf(x)-g(x)=4x^{2}+(-8-c)x-d=4x^{2}+12x+9$이므로\n$c=-20$, $d=-9$\n$g(x)=-2x-20x-9$\n$g(4x-1)$을 $x-2$로 나눈 나머지는 $g(7)=-247$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 23,
+      "answer": "$5$, $\\frac{1+\\sqrt{17}}{2}$",
+      "solution": "$x^{3}+(-2k-2)x^{2}+(k^{2}+5k-3)x-3k^{2}+3k$\n$=(x-3)(x-k)(x-k+1)$\n삼각형의 세 변의 길이는 각각 $3$, $k$, $k-1$\n$k>3$일 때 $k^{2}=(k-1)^{2}+9$\n$k=5$\n$k<3$일 때, $9=k^{2}+(k-1)^{2}$\n$k=\\frac{1+\\sqrt{17}}{2}$\n$k=3$일 때, 직각삼각형이 성립하지 않는다.",
+      "topic": "",
+      "difficulty": ""
+    }
+  ]
+}

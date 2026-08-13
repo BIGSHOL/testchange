@@ -1,0 +1,327 @@
+{
+  "meta": {"exam_id": 4365, "ocr_source": "session-vision"},
+  "header": {"title": "2025학년도 1학기 중간지필평가 문제지 (공통수학1, 1학년) - 범서고등학교"},
+  "questions": [
+    {
+      "number": 1,
+      "score": 3.1,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "두 다항식 A와 B에 대하여"},
+        {"type": "equation", "value": "\\mathrm{A}+\\mathrm{B}=5x^{2}+4xy-2y^{2},~\\mathrm{A}-\\mathrm{B}=-x^{2}+2xy-6y^{2}"},
+        {"type": "text", "value": "일 때, 다항식 A에서 $x^{2}$의 계수와 $y^{2}$의 계수의 합은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "2"}]}
+      ]
+    },
+    {
+      "number": 2,
+      "score": 3.1,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "$x=1-2i$, $y=1+2i$일 때, $x^{2}y+xy^{2}$의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "20"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "-10"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "-20"}]}
+      ]
+    },
+    {
+      "number": 3,
+      "score": 3.2,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "등식 $x^{3}-2x^{2}-2x+7=x(x-1)^{2}+a(x-2)+b$가 $x$에 대한 항등식이 되도록 상수 $a$, $b$의 값을 정할 때, $ab$의 값을 구하면?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "-3"}]}
+      ]
+    },
+    {
+      "number": 4,
+      "score": 3.2,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "이차방정식 $2x^{2}-6x+3=0$의 두 근을 $\\alpha,\\beta$라 할 때 $\\alpha^{2}+\\beta^{2}$의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "15"}]}
+      ]
+    },
+    {
+      "number": 5,
+      "score": 3.4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "그림과 같은 직육면체의 모든 모서리의 길이의 합이 104이고 대각선 AG의 길이가 $2\\sqrt{61}$일 때, 이 직육면체의 겉넓이는?"},
+        {"type": "figure", "value": "직육면체 그림. 윗면이 사각형 ABCD(A는 왼쪽 뒤, D는 오른쪽 뒤, B는 왼쪽 앞, C는 오른쪽 앞), 아랫면이 사각형 EFGH이며 A-E, B-F, C-G, D-H가 서로 대응하는 수직 모서리이다. 꼭짓점 A에서 꼭짓점 G까지 이어지는 대각선이 그려져 있고 그 길이가 $2\\sqrt{61}$로 표시되어 있다. 보이지 않는 모서리(E를 지나는 모서리들)는 점선으로 그려져 있다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "420"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "424"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "428"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "432"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "436"}]}
+      ]
+    },
+    {
+      "number": 6,
+      "score": 3.3,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "이차함수 $y=6x^{2}-12x+2a$의 그래프가 $x$축과 만나도록 하는 자연수 $a$의 최댓값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+      ]
+    },
+    {
+      "number": 7,
+      "score": 3.6,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "다항식 $f(x)=x^{4}+ax^{2}-b$가 $(x-1)^{2}$으로 나누어떨어질 때, 다항식 $x^{2}f(x)$를 $x-2$로 나눈 나머지는? (단, $a,b$는 상수)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-20"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-15"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "36"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "40"}]}
+      ]
+    },
+    {
+      "number": 8,
+      "score": 3.7,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "$\\frac{2i-1}{3}$의 실수부분을 $a$, $1-2i$의 허수부분을 $b$라 할 때, $ab$의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-\\frac{4}{3}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-\\frac{2}{3}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{2}{3}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{4}{3}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "1"}]}
+      ]
+    },
+    {
+      "number": 9,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "이차방정식 $f(x)=0$의 두 근의 합은 5이고, 두 근의 곱은 $-2$일 때, $f(2x-3)=0$의 두 근의 곱은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{7}{2}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{11}{2}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{19}{3}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{20}{3}"}]}
+      ]
+    },
+    {
+      "number": 10,
+      "score": 3.9,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "이차함수 $y=x^{2}-7x-3$의 그래프에 접하고 직선 $y=-x+3$과 평행한 직선의 $y$절편은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-12"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-10"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-8"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "-6"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "-4"}]}
+      ]
+    },
+    {
+      "number": 11,
+      "score": 3.8,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "$1+i+i^{2}+i^{3}+i^{4}+\\cdots+i^{99}+i^{100}$을 간단히 한 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "1+i"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "2+i"}]}
+      ]
+    },
+    {
+      "number": 12,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "0이 아닌 두 실수 $a$, $b$에 대하여 $\\frac{\\sqrt{b}}{\\sqrt{a}}=-\\sqrt{\\frac{b}{a}}$ 가 성립할 때, 다음 <보기> 중 항상 실근을 갖는 이차방정식을 모두 고르면?"},
+        {"type": "text", "value": "<보기> ㄱ. $x^{2}-2ax-b=0$ • ㄴ. $2x^{2}-bx-a=0$ • ㄷ. $x^{2}+bx+3a=0$"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄴ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄷ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄱ, ㄴ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄱ, ㄷ"}]}
+      ]
+    },
+    {
+      "number": 13,
+      "score": 4.2,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "다항식 $x^{4}+ax^{3}+bx^{2}+cx+d$를 $x^{2}-2x+2$로 나누었을 때의 나머지와 $x^{2}-3x+1$로 나누었을 때의 나머지가 모두 $3x+7$일 때, $8a+4b+2c+d$의 값은? (단, $a,b,c,d$는 상수)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-5"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-4"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "-1"}]}
+      ]
+    },
+    {
+      "number": 14,
+      "score": 4.4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "다항식 $x^{4}+ax^{3}+bx^{2}+2x+7$를 $x^{2}+2x+4$로 나누었을 때 나머지를 $R(x)$라고 하자. $R(-1)=R(2)=3$일 때, $a+2b$의 값은? (단, $a,b$는 상수)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "11"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "13"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "14"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "15"}]}
+      ]
+    },
+    {
+      "number": 15,
+      "score": 4.5,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "사차식 $f(x)$를 $x^{2}-x+1$로 나누었을 때의 몫을 $Q(x)$, 나머지를 $3x-1$이라고 하자. $Q(-1)=7$ 이고, $f(x)$를 $x^{3}+1$로 나눈 나머지를 $R(x)$라고 할 때, $R(1)$의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-12"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-4"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "18"}]}
+      ]
+    },
+    {
+      "number": 16,
+      "score": 4.6,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "$x$에 대한 이차식 $kx^{2}+(5k+1)x+a(k+1)$이 완전제곱식이 되도록 하는 실수 $k$의 값이 오직 한 개뿐일 때, 실수 $a$가 될 수 있는 모든 값의 합은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{33}{4}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{37}{4}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{41}{4}"}]}
+      ]
+    },
+    {
+      "number": 17,
+      "score": 6,
+      "type": "서술형",
+      "label": "[서술형 1]",
+      "contents": [
+        {"type": "text", "value": "[서술형 1] 다음 이차식을 복소수의 범위에서 인수분해 하시오."}
+      ],
+      "sub_questions": [
+        {"number": 1, "score": 2, "contents": [{"type": "equation", "value": "x^{2}+3"}]},
+        {"number": 2, "score": 4, "contents": [{"type": "equation", "value": "2x^{2}+6x+1"}]}
+      ]
+    },
+    {
+      "number": 18,
+      "score": 7,
+      "type": "서술형",
+      "label": "[서술형 2]",
+      "contents": [
+        {"type": "text", "value": "[서술형 2] 이차함수 $f(x)=x^{2}+ax+b$의 그래프는 직선 $x=2$에 대하여 대칭이다. $-1 \\leq x \\leq 3$에서 함수 $f(x)$의 최댓값이 10일 때, $a+b$의 값은? (단, $a,b$는 상수이다)"}
+      ]
+    },
+    {
+      "number": 19,
+      "score": 7,
+      "type": "서술형",
+      "label": "[서술형 3]",
+      "contents": [
+        {"type": "text", "value": "[서술형 3] 다음 그림과 같이 상추를 심기 위해 담장 옆에 길이가 $40\\mathrm{m}$인 철망을 이용하여 직사각형 모양의 텃밭을 만들려고 한다. 이때 텃밭 넓이의 최댓값을 구하시오."},
+        {"type": "figure", "value": "벽돌 담장 그림 앞에, 담장을 한 변으로 삼고 나머지 세 변을 철망(그물망)으로 두른 직사각형 모양의 텃밭이 입체적으로 그려져 있다. 길이 표시는 따로 없고 철망 전체 길이가 40m라는 조건만 본문에 있다."}
+      ]
+    },
+    {
+      "number": 20,
+      "score": 6,
+      "type": "서술형",
+      "label": "[서술형 4]",
+      "contents": [
+        {"type": "text", "value": "[서술형 4] 등식"},
+        {"type": "equation", "value": "\\frac{a}{3+i}+\\frac{bi}{3-i}=2-2i"},
+        {"type": "text", "value": "를 만족시키는 두 실수 $a$, $b$를 구하시오."}
+      ]
+    },
+    {
+      "number": 21,
+      "score": 6,
+      "type": "서술형",
+      "label": "[서술형 5]",
+      "contents": [
+        {"type": "text", "value": "[서술형 5] 다항식 $(x-1)(x-3)(x+5)(x+7)+k$가 최고차항의 계수가 1인 이차식의 제곱으로 인수분해 될 때, 상수 $k$의 값을 구하시오."}
+      ]
+    },
+    {
+      "number": 22,
+      "score": 8,
+      "type": "서술형",
+      "label": "[서술형 6]",
+      "contents": [
+        {"type": "text", "value": "[서술형 6] 다항식 $f(x)$를 $x^{2}-3x+2$로 나누었을 때의 나머지는 $x+1$이다. $\\{f(x)\\}^{2}-2f(x)$를 $x^{2}-3x+2$로 나눈 나머지를 $ax+b$라 할 때, 상수 $a$, $b$를 구하시오."}
+      ]
+    }
+  ]
+}

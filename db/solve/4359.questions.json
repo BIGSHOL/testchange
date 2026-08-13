@@ -1,0 +1,703 @@
+{
+ "exam_id": 4359,
+ "tag": "[무거고][1][공수1][25-1-기말]",
+ "count": 24,
+ "questions": [
+  {
+   "number": 1,
+   "type": "객관식",
+   "score": 3,
+   "stem": "144의 약수의 개수는?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "6"
+    },
+    {
+     "number": 2,
+     "text": "9"
+    },
+    {
+     "number": 3,
+     "text": "12"
+    },
+    {
+     "number": 4,
+     "text": "15"
+    },
+    {
+     "number": 5,
+     "text": "18"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 2,
+   "type": "객관식",
+   "score": 3.1,
+   "stem": "등식 \\begin{pmatrix} a & -2 \\\\ 1 & 2 \\end{pmatrix} + \\begin{pmatrix} 1 & 1 \\\\ -1 & b \\end{pmatrix} = \\begin{pmatrix} 4 & c \\\\ d & 0 \\end{pmatrix} 를 만족시키는 실수 a, b, c, d에 대하여 a+b+c+d의 값은?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "0"
+    },
+    {
+     "number": 2,
+     "text": "1"
+    },
+    {
+     "number": 3,
+     "text": "2"
+    },
+    {
+     "number": 4,
+     "text": "3"
+    },
+    {
+     "number": 5,
+     "text": "4"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 3,
+   "type": "객관식",
+   "score": 3.2,
+   "stem": "연립부등식 \\begin{cases} x-2 \\leq 2x+1 \\\\ 5x+1 \\leq 3x+5 \\end{cases} 을 만족시키는 모든 정수 x의 값의 합은?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "-5"
+    },
+    {
+     "number": 2,
+     "text": "-4"
+    },
+    {
+     "number": 3,
+     "text": "-3"
+    },
+    {
+     "number": 4,
+     "text": "-2"
+    },
+    {
+     "number": 5,
+     "text": "-1"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 4,
+   "type": "객관식",
+   "score": 3.3,
+   "stem": "2 \\times 2 행렬 A의 (i,~j) 성분 a_{ij}가 a_{ij}=i+2j-3일 때, a_{12}+a_{22}의 값은?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "1"
+    },
+    {
+     "number": 2,
+     "text": "2"
+    },
+    {
+     "number": 3,
+     "text": "3"
+    },
+    {
+     "number": 4,
+     "text": "4"
+    },
+    {
+     "number": 5,
+     "text": "5"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 5,
+   "type": "객관식",
+   "score": 3.4,
+   "stem": "두 행렬 A = \\begin{pmatrix} 1 & -2 \\\\ 0 & 3 \\end{pmatrix},~ B = \\begin{pmatrix} 1 & 3 \\\\ 4 & -2 \\end{pmatrix} 에 대하여 A(A+BE)의 모든 성분의 합은? (단, E는 단위행렬이다.)",
+   "choices": [
+    {
+     "number": 1,
+     "text": "5"
+    },
+    {
+     "number": 2,
+     "text": "6"
+    },
+    {
+     "number": 3,
+     "text": "7"
+    },
+    {
+     "number": 4,
+     "text": "8"
+    },
+    {
+     "number": 5,
+     "text": "9"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 6,
+   "type": "객관식",
+   "score": 3.5,
+   "stem": "수빈이와 신영이를 포함한 학생 6명이 영화관에서 일렬로 앉으려고 한다. 수빈이와 신영이가 이웃하게 앉는 경우의 수는?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "120"
+    },
+    {
+     "number": 2,
+     "text": "240"
+    },
+    {
+     "number": 3,
+     "text": "360"
+    },
+    {
+     "number": 4,
+     "text": "480"
+    },
+    {
+     "number": 5,
+     "text": "720"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 7,
+   "type": "객관식",
+   "score": 3.6,
+   "stem": "[표1]은 두 문구점 P, Q에서 판매하는 샤프와 볼펜의 개당 가격이고, [표2]는 준수와 유민이가 사려고 하는 샤프와 볼펜의 개수이다. (단위: 원) | 문구점 / 품목 | 샤프 | 볼펜 | • | P | 1200 | 700 | • | Q | 1500 | 650 | • [표 1] (단위: 개) | 품목 / 사람 | 준수 | 유민 | • | 샤프 | 6 | 3 | • | 볼펜 | 4 | 5 | • [표 2] [표1]과 [표2]를 각각 행렬 A = \\begin{pmatrix} 1200 & 700 \\\\ 1500 & 650 \\end{pmatrix},~ B = \\begin{pmatrix} 6 & 3 \\\\ 4 & 5 \\end{pmatrix} 로 나타낼 때, 준수가 문구점 Q에서 샤프와 볼펜을 살 때 지불해야 하는 금액을 나타낸 것은?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "AB의 (1,~2) 성분"
+    },
+    {
+     "number": 2,
+     "text": "AB의 (2,~1) 성분"
+    },
+    {
+     "number": 3,
+     "text": "AB의 (2,~2) 성분"
+    },
+    {
+     "number": 4,
+     "text": "BA의 (1,~2) 성분"
+    },
+    {
+     "number": 5,
+     "text": "BA의 (2,~1) 성분"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 8,
+   "type": "객관식",
+   "score": 3.7,
+   "stem": "연립방정식 \\begin{cases} 3x^{2}-8xy+5y^{2}=0 \\\\ 2x^{2}-3xy+3y^{2}=8 \\end{cases} 을 만족시키는 x,~y에 대하여 2x+y의 최댓값은?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "3"
+    },
+    {
+     "number": 2,
+     "text": "6"
+    },
+    {
+     "number": 3,
+     "text": "\\frac{13}{2}"
+    },
+    {
+     "number": 4,
+     "text": "7"
+    },
+    {
+     "number": 5,
+     "text": "\\frac{19}{2}"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 9,
+   "type": "객관식",
+   "score": 3.8,
+   "stem": "다음 중 방정식 x^{4}-2x^{3}-x^{2}+8x-12=0의 해인 것은?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "-1-\\sqrt{2}\\,i"
+    },
+    {
+     "number": 2,
+     "text": "-1"
+    },
+    {
+     "number": 3,
+     "text": "-1+\\sqrt{2}\\,i"
+    },
+    {
+     "number": 4,
+     "text": "1"
+    },
+    {
+     "number": 5,
+     "text": "1+\\sqrt{2}\\,i"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 10,
+   "type": "객관식",
+   "score": 3.9,
+   "stem": "부등식 |x+3| \\leq 8-|x-1|의 해가 a \\leq x \\leq b일 때, a+b의 값은? (단, a, b는 상수이다.)",
+   "choices": [
+    {
+     "number": 1,
+     "text": "-8"
+    },
+    {
+     "number": 2,
+     "text": "-6"
+    },
+    {
+     "number": 3,
+     "text": "-4"
+    },
+    {
+     "number": 4,
+     "text": "-2"
+    },
+    {
+     "number": 5,
+     "text": "0"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 11,
+   "type": "객관식",
+   "score": 4,
+   "stem": "사차방정식 (x^{2}-x)(x^{2}-x-1)-6=0의 서로 다른 두 실근을 \\alpha, \\beta라 할 때, \\alpha\\beta의 값은?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "-3"
+    },
+    {
+     "number": 2,
+     "text": "-2"
+    },
+    {
+     "number": 3,
+     "text": "1"
+    },
+    {
+     "number": 4,
+     "text": "2"
+    },
+    {
+     "number": 5,
+     "text": "3"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 12,
+   "type": "객관식",
+   "score": 4.1,
+   "stem": "부등식 4x+a < 5x-3 \\leq 3x+1을 만족시키는 정수 x의 개수가 2일 때, 실수 a의 값의 범위는?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "-3 \\leq a < -2"
+    },
+    {
+     "number": 2,
+     "text": "-3 < a \\leq -2"
+    },
+    {
+     "number": 3,
+     "text": "-2 \\leq a < -1"
+    },
+    {
+     "number": 4,
+     "text": "-2 < a \\leq -1"
+    },
+    {
+     "number": 5,
+     "text": "-1 \\leq a < 0"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 13,
+   "type": "객관식",
+   "score": 4.2,
+   "stem": "6개의 숫자 0, 1, 2, 3, 4, 5 중에서 서로 다른 3개를 택하여 세 자리 자연수를 만들려고 한다. <보기>에서 옳은 것만을 있는 대로 고른 것은? <보기> ㄱ. 만들 수 있는 세 자리 자연수 중 짝수의 개수는 52이다. • ㄴ. 만들 수 있는 세 자리 자연수 중 5의 배수의 개수는 36이다. • ㄷ. 만들 수 있는 세 자리 자연수 중에서 백의 자리의 수가 짝수이고, 십의 자리의 수와 일의 자리의 수는 홀수인 개수는 12이다.",
+   "choices": [
+    {
+     "number": 1,
+     "text": "ㄱ"
+    },
+    {
+     "number": 2,
+     "text": "ㄱ, ㄴ"
+    },
+    {
+     "number": 3,
+     "text": "ㄱ, ㄷ"
+    },
+    {
+     "number": 4,
+     "text": "ㄴ, ㄷ"
+    },
+    {
+     "number": 5,
+     "text": "ㄱ, ㄴ, ㄷ"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 14,
+   "type": "객관식",
+   "score": 4.3,
+   "stem": "7개의 문자 \\mathrm{H}, \\mathrm{I}, \\mathrm{S}, \\mathrm{T}, \\mathrm{O}, \\mathrm{R}, \\mathrm{Y}가 각각 하나씩 적힌 7장의 카드를 일렬로 나열하려고 한다. \\mathrm{H}와 \\mathrm{Y}는 양 끝에 오고, \\mathrm{I}와 \\mathrm{T} 사이에 2개의 문자만 있는 경우의 수는?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "24"
+    },
+    {
+     "number": 2,
+     "text": "48"
+    },
+    {
+     "number": 3,
+     "text": "96"
+    },
+    {
+     "number": 4,
+     "text": "144"
+    },
+    {
+     "number": 5,
+     "text": "288"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 15,
+   "type": "객관식",
+   "score": 4.4,
+   "stem": "사차방정식 x^{4}-3x^{3}+ax^{2}+bx+c=0의 네 근 중에서 두 근이 -1, 1+\\sqrt{3}\\,i일 때, a+2b+c의 값은? (단, a, b, c는 실수이다.)",
+   "choices": [
+    {
+     "number": 1,
+     "text": "-4"
+    },
+    {
+     "number": 2,
+     "text": "-2"
+    },
+    {
+     "number": 3,
+     "text": "0"
+    },
+    {
+     "number": 4,
+     "text": "2"
+    },
+    {
+     "number": 5,
+     "text": "4"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 16,
+   "type": "객관식",
+   "score": 4.5,
+   "stem": "다음은 1 \\leq r < n인 두 정수 n,~r에 대하여 {}_{n-1}\\mathrm{C}_{r-1} + {}_{n-1}\\mathrm{C}_{r} = {}_{n}\\mathrm{C}_{r}임을 보이는 과정이다. <상자> {}_{n-1}\\mathrm{C}_{r-1} + {}_{n-1}\\mathrm{C}_{r} = \\frac{(n-1)!}{(r-1)! \\times (가)} + \\frac{(n-1)!}{r! \\times (나)} • = \\frac{(n-1)! \\times r + (n-1)! \\times (다)}{r!(n-r)!} • = \\frac{(라) \\times (n-1)!}{r!(n-r)!} • = \\frac{n!}{r!(n-r)!} • = {}_{n}\\mathrm{C}_{r} 위의 (가), (나), (다), (라)에 알맞은 식을 순서대로 나열한 것은?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "r!,~(r-1)!,~(n-r),~n"
+    },
+    {
+     "number": 2,
+     "text": "(n-r-1)!,~(n-r)!,~(n-r),~n"
+    },
+    {
+     "number": 3,
+     "text": "(n-r-1)!,~(n-r)!,~n,~(n-r)"
+    },
+    {
+     "number": 4,
+     "text": "(n-r)!,~(n-r-1)!,~(n-r),~n"
+    },
+    {
+     "number": 5,
+     "text": "(n-r)!,~(n-r-1)!,~n,~(n-r)"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 17,
+   "type": "객관식",
+   "score": 4.6,
+   "stem": "대각선의 길이가 50\\mathrm{cm}인 직사각형 모양의 종이가 있다. 이 종이의 가로의 길이를 4\\mathrm{cm} 줄이고 세로의 길이를 8\\mathrm{cm} 늘렸더니 넓이가 48\\mathrm{cm}^{2}만큼 더 커졌다. 이때, 처음 종이의 가로의 길이는?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "20\\mathrm{cm}"
+    },
+    {
+     "number": 2,
+     "text": "25\\mathrm{cm}"
+    },
+    {
+     "number": 3,
+     "text": "30\\mathrm{cm}"
+    },
+    {
+     "number": 4,
+     "text": "35\\mathrm{cm}"
+    },
+    {
+     "number": 5,
+     "text": "40\\mathrm{cm}"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 18,
+   "type": "객관식",
+   "score": 4.7,
+   "stem": "어느 고등학교 1학년 전체 학생들이 강당의 의자에 앉을 때, 한 의자에 4명씩 앉으면 9명의 학생이 앉지 못하고, 5명씩 앉으면 의자가 4개 남는다고 한다. 이때 1학년 최대 학생 수는?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "137명"
+    },
+    {
+     "number": 2,
+     "text": "141명"
+    },
+    {
+     "number": 3,
+     "text": "145명"
+    },
+    {
+     "number": 4,
+     "text": "149명"
+    },
+    {
+     "number": 5,
+     "text": "153명"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 19,
+   "type": "객관식",
+   "score": 4.8,
+   "stem": "x에 대한 부등식 kx^{2}+6x+2 \\geq 3x^{2}+2kx의 해가 모든 실수가 되도록 하는 k의 최댓값과 최솟값의 합은? (단, k는 실수이다.)",
+   "choices": [
+    {
+     "number": 1,
+     "text": "7"
+    },
+    {
+     "number": 2,
+     "text": "8"
+    },
+    {
+     "number": 3,
+     "text": "9"
+    },
+    {
+     "number": 4,
+     "text": "10"
+    },
+    {
+     "number": 5,
+     "text": "11"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 20,
+   "type": "객관식",
+   "score": 4.9,
+   "stem": "아래 그림과 같이 (가), (나), (다), (라), (마)의 5개 영역으로 나누어 놓은 지도를 서로 다른 네 가지 색의 전부 또는 일부를 사용하여 칠하려고 한다. 5개 영역에 같은 색을 중복하여 사용해도 좋으나 인접한 영역은 서로 다른 색으로 칠할 때, 칠할 수 있는 모든 경우의 수와 4가지 색을 전부 사용하여 칠하는 경우의 수의 합은? (단, 각 영역에는 한 가지 색만을 칠한다.) [그림] 5개 영역으로 나뉜 지도 그림. 왼쪽 위가 (가), 오른쪽 위가 (나), 그 아래 오른쪽이 (다), 한가운데 작은 영역이 (마), 아래쪽 전체를 차지하는 영역이 (라)이다. 인접 관계는 (가)-(나), (가)-(마), (가)-(라), (나)-(마), (나)-(다), (다)-(마), (다)-(라), (마)-(라)이며 (가)와 (다), (나)와 (라)는 서로 접하지 않는다.",
+   "choices": [
+    {
+     "number": 1,
+     "text": "48"
+    },
+    {
+     "number": 2,
+     "text": "72"
+    },
+    {
+     "number": 3,
+     "text": "96"
+    },
+    {
+     "number": 4,
+     "text": "120"
+    },
+    {
+     "number": 5,
+     "text": "148"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 21,
+   "type": "객관식",
+   "score": 5.1,
+   "stem": "삼차방정식 x^{3}-1=0의 한 허근이 w라 할 때, <보기>에서 옳은 것만을 있는 대로 고른 것은? (단, \\overline{w}는 w의 켤레복소수이다.) <보기> ㄱ. w^{2}+w+1=0 • ㄴ. \\overline{w}^{3}+w\\overline{w}=0 • ㄷ. \\frac{1}{1+\\overline{w}}+\\frac{1}{1+w}=1 • ㄹ. (1-w)(1-w^{2})(1-w^{4})(1-w^{8})=-9",
+   "choices": [
+    {
+     "number": 1,
+     "text": "ㄱ, ㄷ"
+    },
+    {
+     "number": 2,
+     "text": "ㄱ, ㄹ"
+    },
+    {
+     "number": 3,
+     "text": "ㄱ, ㄴ, ㄷ"
+    },
+    {
+     "number": 4,
+     "text": "ㄱ, ㄷ, ㄹ"
+    },
+    {
+     "number": 5,
+     "text": "ㄴ, ㄷ, ㄹ"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 22,
+   "type": "객관식",
+   "score": 5.2,
+   "stem": "연립부등식 \\begin{cases} x^{2}-ax-3 \\geq 0 \\\\ x^{2}-bx+c \\leq 0 \\end{cases} 의 해가 3 \\leq x \\leq 4이다. a, b, c가 자연수일 때, a+b+c의 최솟값은?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "8"
+    },
+    {
+     "number": 2,
+     "text": "11"
+    },
+    {
+     "number": 3,
+     "text": "14"
+    },
+    {
+     "number": 4,
+     "text": "17"
+    },
+    {
+     "number": 5,
+     "text": "20"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 23,
+   "type": "객관식",
+   "score": 5.3,
+   "stem": "x에 대한 연립부등식 \\begin{cases} |ax+2| < 8 \\\\ x^{2}+2x-3 > 0 \\end{cases} 를 만족시키는 자연수 x가 단 한 개 존재할 때, 모든 정수 a의 값의 합은?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "-6"
+    },
+    {
+     "number": 2,
+     "text": "-5"
+    },
+    {
+     "number": 3,
+     "text": "-4"
+    },
+    {
+     "number": 4,
+     "text": "-3"
+    },
+    {
+     "number": 5,
+     "text": "-2"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 24,
+   "type": "객관식",
+   "score": 5.4,
+   "stem": "방정식 x^{3}-8x^{2}+(8|a|-a^{2})x=0의 세 근 중 가장 큰 근을 \\alpha, 가장 작은 근을 \\beta라 할 때, 6 \\leq \\alpha-\\beta \\leq 10인 정수 a의 개수는?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "9"
+    },
+    {
+     "number": 2,
+     "text": "11"
+    },
+    {
+     "number": 3,
+     "text": "13"
+    },
+    {
+     "number": 4,
+     "text": "15"
+    },
+    {
+     "number": 5,
+     "text": "17"
+    }
+   ],
+   "sub_questions": []
+  }
+ ]
+}

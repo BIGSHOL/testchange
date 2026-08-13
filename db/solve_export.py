@@ -53,10 +53,13 @@ def main():
 
     con = sqlite3.connect(DB)
     con.row_factory = sqlite3.Row
-    sql = """SELECT e.id, e.school, e.grade, e.subject, e.year, e.semester, e.round
+    # 중복으로 표시된 편은 풀지 않는다 — 원본 쪽에 이미 정답이 있고, 풀면 토큰 낭비다
+    dup_col = [r[1] for r in con.execute("PRAGMA table_info(exams)")]
+    dup_filter = " AND e.duplicate_of IS NULL" if "duplicate_of" in dup_col else ""
+    sql = f"""SELECT e.id, e.school, e.grade, e.subject, e.year, e.semester, e.round
              FROM exams e WHERE EXISTS (
                SELECT 1 FROM questions q WHERE q.exam_id=e.id
-                 AND (q.answer IS NULL OR q.answer=''))"""
+                 AND (q.answer IS NULL OR q.answer='')){dup_filter}"""
     if a.exam:
         sql += f" AND e.id={a.exam}"
     exams = con.execute(sql + " ORDER BY e.id").fetchall()

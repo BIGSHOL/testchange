@@ -1,0 +1,56 @@
+{
+  "exam_id": 4363,
+  "answer_pages": [5],
+  "items": [
+    {"number": 1, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 2, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 3, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 4, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 5, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 6, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 7, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 8, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 9, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 10, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 11, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 12, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 13, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 14, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 15, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {
+      "number": 16,
+      "answer": "$96$",
+      "solution": "$f(x)=(x-\\alpha)(x-\\beta)$ 일 때, $g(x)=k(x-\\alpha)$\n$f(x)-g(x)=(x-\\alpha)(x-\\beta)-k(x-\\alpha)=(x-\\alpha)(x-\\beta-k)=(x-\\alpha)(x-\\gamma)$\n$\\beta=\\alpha+4$, $\\gamma=\\alpha+6$, $\\beta+k=\\gamma$ 이므로 $k=2$ 이다.\n$g(0)=-2$, $\\alpha=1$ 이고, $\\beta=5$, $\\gamma=7$이다.\n따라서 $f(13)=96$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 17,
+      "answer": "$-1$",
+      "solution": "$f(x)=x^{2}+3x+2$, $g(x)=3x+t$, $h(x)=-x^{2}-kx-k$\n$f(x)$, $g(x)$가 접하므로 곡선과 직선의 위치관계에 의해\n$f(x)-g(x)=x^{2}+2-t$ 에서 $D=0$이므로 $t=2$이다.\n$g(x)-h(x)=x^{2}+(3+k)x+2+k$ 에서 $D=0$\n$k^{2}+2k+1=0$, $k=-1$이다.",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 18,
+      "answer": "$\\frac{35}{12}$",
+      "solution": "점 $\\mathrm{P}$에서 $\\overline{\\mathrm{BC}}$에 내린 수선의 발을 $\\mathrm{H}$라 하고 $\\overline{\\mathrm{CH}}=x$라고 하면 $\\triangle \\mathrm{CPH} \\backsim \\triangle \\mathrm{CAB}$는 $\\mathrm{AA}$닮음이다.\n$x:\\sqrt{5}=\\overline{\\mathrm{PH}}:1$ 에서 $\\overline{\\mathrm{PH}}=\\frac{x}{\\sqrt{5}}$ 이다.\n두 직각삼각형 $\\triangle \\mathrm{PHC}$, $\\triangle \\mathrm{PHB}$ 에서 피타고라스 정리를 이용하면 $\\overline{\\mathrm{PB}}^{2}+\\overline{\\mathrm{PC}}^{2}=x^{2}+\\frac{x^{2}}{5}+\\frac{x^{2}}{5}+(\\sqrt{5}-x)^{2}$\n$\\frac{12}{5}x^{2}-2\\sqrt{5}x+5$ 에서\n$\\frac{12}{5}\\left(x^{2}-\\frac{5\\sqrt{5}}{6}x+\\frac{125}{144}-\\frac{125}{144}\\right)+5=\\frac{12}{5}\\left(x-\\frac{5\\sqrt{5}}{12}\\right)^{2}-\\frac{25}{12}+\\frac{60}{12}$\n이므로 $x=\\frac{5\\sqrt{5}}{12}$ 일 때 최솟값 $\\frac{35}{12}$를 가진다.\n[다른 풀이]\n직각삼각형 $\\mathrm{ABC}$를 좌표평면에 나타내어 $\\mathrm{A}(-1,~0)$, $\\mathrm{B}(0,~0)$, $\\mathrm{C}(0,~\\sqrt{5})$\n직선 $\\mathrm{AC}$의 방정식은 $y=\\sqrt{5}x+\\sqrt{5}$\n점 $\\mathrm{P}(t,~\\sqrt{5}t+\\sqrt{5})$라고 하면\n$\\overline{\\mathrm{PB}}^{2}+\\overline{\\mathrm{PC}}^{2}$\n$=t^{2}+5(t+1)^{2}+t^{2}+(\\sqrt{5}t+\\sqrt{5}-\\sqrt{5})^{2}$\n$=12t^{2}+10t+5=12\\left(t+\\frac{5}{12}\\right)^{2}+\\frac{35}{12}$\n$t=-\\frac{5}{12}$ 일 때 최솟값 $\\frac{35}{12}$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 19,
+      "answer": "$3$",
+      "solution": "$x^{2}+x+1=t$라고 하면\n$t^{2}-3(t-1)-7=0$ 에서 $t^{2}-3t-4=0$\n$(t-4)(t+1)=0$ 이고 $t=-1$ 또는 $t=4$이다.\n$x^{2}+x+1=-1$ 일 때, $x^{2}+x+2=0$은 허근을 가지고 모든 허근의 합은 $-1$이다.\n$x^{2}+x+1=4$ 일 때 $x^{2}+x-3=0$은 실근을 가지고 두 실근의 곱은 $-3$이다. 따라서 $a=-3$, $b=-1$ 이므로 $ab=3$이다.",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 20,
+      "answer": "$6$",
+      "solution": "처음 정육면체 한 변의 길이를 $x$라고 하면\n$x^{3}:(x-1)(x+3)(x+2)=1:\\frac{5}{3}$ 이고 식을 정리하면\n$2x^{3}-12x^{2}-3x+18=0$ 이다.\n$2x^{2}(x-6)-3(x-6)=(x-6)(2x^{2}-3)=0$ 이므로\n$x=6$ (자연수)",
+      "topic": "",
+      "difficulty": ""
+    }
+  ]
+}

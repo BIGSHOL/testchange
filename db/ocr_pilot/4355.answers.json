@@ -1,0 +1,183 @@
+{
+ "exam_id": 4355,
+ "answer_pages": [
+  7
+ ],
+ "items": [
+  {
+   "number": 1,
+   "answer": "①",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 2,
+   "answer": "⑤",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 3,
+   "answer": "③",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 4,
+   "answer": "④",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 5,
+   "answer": "⑤",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 6,
+   "answer": "⑤",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 7,
+   "answer": "①",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 8,
+   "answer": "①",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 9,
+   "answer": "②",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 10,
+   "answer": "④",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 11,
+   "answer": "⑤",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 12,
+   "answer": "①",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 13,
+   "answer": "③",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 14,
+   "answer": "③",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 15,
+   "answer": "⑤",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 16,
+   "answer": "④",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 17,
+   "answer": "②",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 18,
+   "answer": "③",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 19,
+   "answer": "⑤",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 20,
+   "answer": "④",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 21,
+   "answer": "①",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 22,
+   "answer": "$(x-2)^{2}+(y-1)^{2}=4$",
+   "solution": "원의 방정식을 정리하면 $(x-3)^{2}+(y+1)^{2}=4$이다.\n원의 중심이 $(3,~-1)$이고 주어진 방법대로 평행이동하면 $(1,~2)$이고, $y=x$에 대하여 대칭이동하면 $(2,~1)$이다.\n원의 반지름은 이동하기 전과 같으므로\n$(x-2)^{2}+(y-1)^{2}=4$이다.",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 23,
+   "answer": "$20$",
+   "solution": "원 $\\mathrm{C}$의 반지름을 $r$이라 두면\n$\\mathrm{C}: (x-r)^{2}+(y-r)^{2}=r^{2}$이고 $y=2x$와의 교점을 구하면\n$(x-r)^{2}+(2x-r)^{2}=r^{2}$, $5x^{2}-6rx+r^{2}=(x-r)(5x-r)=0$\n$\\therefore x=r$, $x=\\frac{r}{5}$이므로 $\\mathrm{A}\\left(\\frac{r}{5},~\\frac{2r}{5}\\right)$, $\\mathrm{B}(r,~2r)$\n$\\triangle \\mathrm{ABP}$는 이등변삼각형이고 $\\overline{\\mathrm{BP}}$의 중점을 $\\mathrm{D}$라 두면\n직선 $\\mathrm{AD}$ : $\\mathrm{A}\\left(\\frac{r}{5},~\\frac{2r}{5}\\right)$, $(r,~r)$ 지나고 $y=\\frac{3}{4}x+\\frac{r}{4}$\n직선 $\\mathrm{BP}$ : 기울기가 $-\\frac{4}{3}$, $(r,~2r)$ 지나고 $y=-\\frac{4}{3}x+\\frac{10}{3}r$\n직선 $\\mathrm{AD}$와 직선 $\\mathrm{BP}$의 교점인 점 $\\mathrm{D}$의 좌표는 $\\left(\\frac{37}{25}r,~\\frac{34}{25}r\\right)$이 된다.\n$\\overline{\\mathrm{BD}}=\\frac{4}{5}r=8$, $r=10$\n따라서 $\\mathrm{A}(2,~4)$가 되어 $\\overline{\\mathrm{OA}}^{2}=\\left(\\sqrt{2^{2}+4^{2}}\\right)^{2}=20$",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 24,
+   "answer": "(1) $4\\sqrt{2}$ (2) $\\frac{5\\sqrt{2}}{2}$ (3) $10$",
+   "solution": "(1) $\\overline{\\mathrm{AB}}=\\sqrt{(-1-3)^{2}+(4-0)^{2}}=\\sqrt{32}=4\\sqrt{2}$\n(2) 두 점 $\\mathrm{A}$, $\\mathrm{B}$를 지나는 직선의 방정식은\n$y=\\frac{0-4}{3-(-1)}(x-3)=-x+3$, $y=-x+3$\n점 $\\mathrm{C}(5,~3)$와 $x+y-3=0$ 사이의 거리는\n$\\frac{|5+3-3|}{\\sqrt{2}}=\\frac{5\\sqrt{2}}{2}$\n(3) 삼각형 $\\mathrm{ABC}$의 넓이는 $4\\sqrt{2}\\times\\frac{5\\sqrt{2}}{2}\\times\\frac{1}{2}=10$",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 25,
+   "answer": "(1) $a=6$ (2) $A=\\{1,~2,~4\\}$, $B=\\{4,~10\\}$",
+   "solution": "(1) $(A-B)\\cup(B-A)=\\{1,~2,~10\\}$을 만족하기 위해서\nⅰ) $a-2=10$일 때, $B=\\{82,~16\\}$이므로 만족하지 않음\nⅱ) $a-2=a^{2}-5a-2$ 즉 $a=6~(\\because a-2>0)$일 때, $A=\\{1,~2,~4\\}$, $B=\\{4,~10\\}$\nⅲ) $a-2=a+4$를 만족하는 $a$값은 없다.\n따라서 $a=6$\n(2) $A=\\{1,~2,~4\\}$, $B=\\{4,~10\\}$",
+   "topic": "",
+   "difficulty": ""
+  }
+ ]
+}

@@ -1,0 +1,61 @@
+{
+  "exam_id": 4370,
+  "answer_pages": [7, 8],
+  "items": [
+    { "number": 1, "answer": "①", "solution": "", "topic": "", "difficulty": "" },
+    { "number": 2, "answer": "③", "solution": "", "topic": "", "difficulty": "" },
+    { "number": 3, "answer": "②", "solution": "", "topic": "", "difficulty": "" },
+    { "number": 4, "answer": "①", "solution": "", "topic": "", "difficulty": "" },
+    { "number": 5, "answer": "⑤", "solution": "", "topic": "", "difficulty": "" },
+    { "number": 6, "answer": "④", "solution": "", "topic": "", "difficulty": "" },
+    { "number": 7, "answer": "①", "solution": "", "topic": "", "difficulty": "" },
+    { "number": 8, "answer": "①", "solution": "", "topic": "", "difficulty": "" },
+    { "number": 9, "answer": "⑤", "solution": "", "topic": "", "difficulty": "" },
+    { "number": 10, "answer": "④", "solution": "", "topic": "", "difficulty": "" },
+    { "number": 11, "answer": "④", "solution": "", "topic": "", "difficulty": "" },
+    { "number": 12, "answer": "④", "solution": "", "topic": "", "difficulty": "" },
+    { "number": 13, "answer": "④", "solution": "", "topic": "", "difficulty": "" },
+    { "number": 14, "answer": "⑤", "solution": "", "topic": "", "difficulty": "" },
+    { "number": 15, "answer": "①", "solution": "", "topic": "", "difficulty": "" },
+    { "number": 16, "answer": "⑤", "solution": "", "topic": "", "difficulty": "" },
+    { "number": 17, "answer": "③", "solution": "", "topic": "", "difficulty": "" },
+    { "number": 18, "answer": "①", "solution": "", "topic": "", "difficulty": "" },
+    { "number": 19, "answer": "③", "solution": "", "topic": "", "difficulty": "" },
+    { "number": 20, "answer": "⑤", "solution": "", "topic": "", "difficulty": "" },
+    {
+      "number": 21,
+      "answer": "14개",
+      "solution": "$A$는 9, 11, 13 원소 중 하나를 필수로 가지고 있어야 하고, 1, 3, 5 원소는 가지지 않아야 한다.\n집합 $A$의 개수는 원소 1, 3, 5을 포함하지 않는 $2^{4}$개 중에서 원소 9, 11, 13 중에서 하나도 포함하지 않는 $\\{7\\}$, $\\varnothing$을 뺀 14개이다.",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 22,
+      "answer": "$5$",
+      "solution": "두 직선이 평행 하려면 $\\frac{1}{k}=\\frac{k-2}{k+4}\\neq -1$ 이므로\n$k+4=k^{2}-2k$\n$k^{2}-3k-4=0$ $\\therefore k=4$ 또는 $k=-1$\n이때, $\\frac{1}{k}\\neq -1$ 이므로 $k=4$ $\\therefore a=4$\n두 직선이 일치하려면 $\\frac{1}{k}=\\frac{k-2}{k+4}=-1$ 이므로\n$k=-1$ $\\therefore b=-1$\n$\\therefore a-b=4-(-1)=5$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 23,
+      "answer": "$75$",
+      "solution": "(그림) 점 $\\mathrm{A}(4,~3)$을 직선 $y=x$에 대하여 대칭이동한 점 $\\mathrm{A}'(3,~4)$, $x$축에 대하여 대칭이동한 점 $\\mathrm{A}''(4,~-3)$을 잡는다.\n$\\overline{\\mathrm{AB}}+\\overline{\\mathrm{BC}}+\\overline{\\mathrm{CA}} \\geq \\overline{\\mathrm{A}'\\mathrm{A}''}$\n직선 $\\overline{\\mathrm{A}'\\mathrm{A}''}$의 기울기 $\\frac{-3-4}{4-3}$ 이므로 $-7$\n직선 $\\overline{\\mathrm{A}'\\mathrm{A}''}$ : $y-4=-7(x-3)$에서 $y=-7x+25$\n점 $\\mathrm{B}$는 $\\overline{\\mathrm{A}'\\mathrm{A}''}$의 $x$절편이므로\n$0=-7x+25$ 이므로 $x=\\frac{25}{7}$ $\\therefore a=\\frac{25}{7}$\n점 $\\mathrm{C}$는 $\\overline{\\mathrm{A}'\\mathrm{A}''}$과 $y=x$의 교점이므로\n$x=-7x+25$ 이므로 $x=\\frac{25}{8}$ $\\therefore b=\\frac{25}{8}$\n$\\therefore \\frac{56}{5}(a+b)=\\frac{56}{5}\\left(\\frac{25}{7}+\\frac{25}{8}\\right)=75$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 24,
+      "answer": "$2$",
+      "solution": "원 $C_{1}$, $C_{2}$와 직선 $y=-x+k$의 교점이 3개가 되는 경우는\nⅰ) 원 $C_{1}$과 직선 $y=-x+k$가 접할 때\n$x+y-k=0$ 이므로 $\\frac{|2-2-k|}{\\sqrt{2}}=2$\n$|-k|=2\\sqrt{2}$\n$k=\\pm 2\\sqrt{2}$에서 $k>0$ 이므로 $k=2\\sqrt{2}$\nⅱ) 원 $C_{2}$과 직선 $y=-x+k$가 접할 때\n$\\frac{|2-k|}{\\sqrt{2}}=2$\n$|2-k|=2\\sqrt{2}$\n$k=2\\pm 2\\sqrt{2}$에서 $k<0$ 이므로 $k=2-2\\sqrt{2}$\n$\\therefore 2\\sqrt{2}+(2-2\\sqrt{2})=2$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 25,
+      "answer": "$8$",
+      "solution": "점 $\\mathrm{A}(2,~1)$을 대입하면\n$\\frac{2}{a}+\\frac{1}{b}=1$ ( $a>0,~b>0$ 이므로 $\\frac{2}{a}>0,~\\frac{1}{b}>0$이다.)\n$1=\\frac{2}{a}+\\frac{1}{b} \\geq 2\\sqrt{\\frac{2}{ab}}=2\\frac{\\sqrt{2}}{\\sqrt{ab}}$ (산술평균과 기하평균의 관계)\n따라서 $\\sqrt{ab} \\geq 2\\sqrt{2}$ 이므로 $ab \\geq 8$ (단, 등호는 $\\frac{2}{a}=\\frac{1}{b}$일 때 성립)",
+      "topic": "",
+      "difficulty": ""
+    }
+  ]
+}

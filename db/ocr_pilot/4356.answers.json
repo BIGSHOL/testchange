@@ -1,0 +1,29 @@
+{
+  "exam_id": 4356,
+  "answer_pages": [6],
+  "items": [
+    {"number": 1, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 2, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 3, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 4, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 5, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 6, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 7, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 8, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 9, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 10, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 11, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 12, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 13, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 14, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 15, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 16, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 17, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 18, "answer": "(1) $X$는 이항분포 $\\mathrm{B}(3,~0.7)$을 따르고, $P(X=x)={}_{3}\\mathrm{C}_{x}(0.7)^{x}(0.3)^{3-x}$ (2) $0.216$", "solution": "(1) 한 번 던져 스트라이크가 될 확률이 $0.7$인 독립시행을 3번 반복하므로 $X$는 이항분포 $\\mathrm{B}(3,~0.7)$을 따른다.\n따라서 확률질량함수는 $P(X=x)={}_{3}\\mathrm{C}_{x}(0.7)^{x}(0.3)^{3-x}$ ($x=0,~1,~2,~3$)이다.\n(2) $P(X<2)=P(X=0)+P(X=1)$이다.\n$P(X=0)=(0.3)^{3}=0.027$, $P(X=1)={}_{3}\\mathrm{C}_{1}(0.7)(0.3)^{2}=0.189$이다.\n따라서 $P(X<2)=0.027+0.189=0.216$이다.", "topic": "", "difficulty": ""},
+    {"number": 19, "answer": "신뢰도 95%: $82.51 \\leq m \\leq 83.49$, 신뢰도 99%: $82.355 \\leq m \\leq 83.645$", "solution": "$\\sigma=4$, $n=256$, $\\overline{x}=83$이므로 $\\frac{\\sigma}{\\sqrt{n}}=\\frac{4}{16}=0.25$이다.\n신뢰도 95%인 신뢰구간은 $83-1.96\\times0.25 \\leq m \\leq 83+1.96\\times0.25$이므로 $82.51 \\leq m \\leq 83.49$이다.\n신뢰도 99%인 신뢰구간은 $83-2.58\\times0.25 \\leq m \\leq 83+2.58\\times0.25$이므로 $82.355 \\leq m \\leq 83.645$이다.", "topic": "", "difficulty": ""},
+    {"number": 20, "answer": "(1) $P(X=0)=\\frac{1}{21}$, $P(X=1)=\\frac{10}{21}$, $P(X=2)=\\frac{10}{21}$ (2) $\\frac{20}{21}$", "solution": "(1) 전체 7개의 구슬에서 2개를 꺼내는 경우의 수는 ${}_{7}\\mathrm{C}_{2}=21$이다.\n$P(X=0)=\\frac{{}_{2}\\mathrm{C}_{2}}{21}=\\frac{1}{21}$, $P(X=1)=\\frac{{}_{5}\\mathrm{C}_{1}\\times{}_{2}\\mathrm{C}_{1}}{21}=\\frac{10}{21}$, $P(X=2)=\\frac{{}_{5}\\mathrm{C}_{2}}{21}=\\frac{10}{21}$이다.\n따라서 확률분포표는 $X=0,~1,~2$에 대하여 확률이 각각 $\\frac{1}{21}$, $\\frac{10}{21}$, $\\frac{10}{21}$이고 합계는 $1$이다.\n(2) $P(X \\geq 1)=1-P(X=0)=1-\\frac{1}{21}=\\frac{20}{21}$이다.", "topic": "", "difficulty": ""},
+    {"number": 21, "answer": "(1) 임의로 택한 한 행운 박스에 들어 있는 사탕의 개수 (2) $X=1,~3,~5,~10$일 확률이 각각 $0.4$, $0.3$, $0.2$, $0.1$ (3) $\\mathrm{E}(X)=3.3$ (4) $\\mathrm{V}(X)=7.21$", "solution": "(1) 확률변수 $X$를 100개의 행운 박스 중에서 임의로 택한 한 행운 박스에 들어 있는 사탕의 개수라 하자.\n(2) $P(X=1)=\\frac{40}{100}=0.4$, $P(X=3)=\\frac{30}{100}=0.3$, $P(X=5)=\\frac{20}{100}=0.2$, $P(X=10)=\\frac{10}{100}=0.1$이므로 확률의 합은 $1$이다.\n(3) $\\mathrm{E}(X)=1\\times0.4+3\\times0.3+5\\times0.2+10\\times0.1=3.3$이다.\n(4) $\\mathrm{E}(X^{2})=1\\times0.4+9\\times0.3+25\\times0.2+100\\times0.1=18.1$이다.\n따라서 $\\mathrm{V}(X)=\\mathrm{E}(X^{2})-\\{\\mathrm{E}(X)\\}^{2}=18.1-3.3^{2}=18.1-10.89=7.21$이다.", "topic": "", "difficulty": ""},
+    {"number": 22, "answer": "(1) $a=15$, $b=100$ (2) 풀이 참조 (3) $107.5$", "solution": "(1) $T=a\\times\\frac{X-m}{\\sigma}+b$에서 $\\mathrm{E}(T)=b=100$, $\\sigma(T)=|a|=15$이므로 $a=15$, $b=100$이다.\n(2) $\\mathrm{E}(T)=15\\times\\frac{1}{\\sigma}\\{\\mathrm{E}(X)-m\\}+100=15\\times\\frac{1}{\\sigma}\\times0+100=100$이다.\n$\\sigma(T)=15\\times\\frac{1}{\\sigma}\\times\\sigma(X-m)=15\\times\\frac{1}{\\sigma}\\times\\sigma=15$이다.\n(3) $m=82$, $\\sigma=10$, $X=87$이므로 $T=15\\times\\frac{87-82}{10}+100=15\\times0.5+100=107.5$이다.", "topic": "", "difficulty": ""},
+    {"number": 23, "answer": "(1) $P(A|B)=P(A)$ (2) $P(A \\cap B)=P(A)P(B)$ (3) 풀이 참조", "solution": "(1) 두 사건 $A$, $B$가 서로 독립이라는 것은 $P(A|B)=P(A)$가 성립한다는 뜻이다.\n(2) 이와 필요충분조건은 $P(A \\cap B)=P(A)P(B)$이다.\n(3) $P(A^{C} \\cap B)=P(B)-P(A \\cap B)=P(B)-P(A)P(B)=P(B)\\{1-P(A)\\}=P(B)P(A^{C})$이다.\n따라서 $P(A^{C} \\cap B)=P(A^{C})P(B)$이므로 두 사건 $A^{C}$, $B$도 서로 독립이다.", "topic": "", "difficulty": ""}
+  ]
+}

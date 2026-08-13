@@ -1,0 +1,377 @@
+{
+  "meta": {"exam_id": 4358, "ocr_source": "session-vision"},
+  "header": {"title": "모계고 1학년 공통수학1 (2025년 1학기 중간고사) — 다항식의 덧셈과 뺄셈~방정식 허근의 주기성"},
+  "questions": [
+    {
+      "number": 1,
+      "score": 3,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "$x=1+\\sqrt{5}$이고 $y=1-\\sqrt{5}$일 때, $x^{3}-y^{3}$의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "16\\sqrt{5}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "19\\sqrt{5}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "22\\sqrt{5}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "25\\sqrt{5}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "28\\sqrt{5}"}]}
+      ]
+    },
+    {
+      "number": 2,
+      "score": 3,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "다음 <보기>에서 $\\overline{z}=-z$를 만족하는 복소수 $z$의 개수는?"},
+        {"type": "text", "value": "<보기> $i^{2}-1$ • $3-\\pi$ • $5i^{2}-\\frac{1}{2}i$ • $-\\sqrt{-2}$ • $-8$ • $1+i$ • $\\sqrt{3}\\,i$ • $1+\\sqrt{2}$"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "1개"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "2개"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "3개"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "4개"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "5개"}]}
+      ]
+    },
+    {
+      "number": 3,
+      "score": 3,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "이차방정식 $x^{2}-2x+7=0$의 두 근을 $\\alpha$, $\\beta$라고 할 때, $(\\alpha-1)(\\beta-1)$의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "10"}]}
+      ]
+    },
+    {
+      "number": 4,
+      "score": 3,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "이차함수 $y=2x^{2}+4x-1-k$의 그래프가 $x$축과 만나도록 하는 실수 $k$의 최솟값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "3"}]}
+      ]
+    },
+    {
+      "number": 5,
+      "score": 4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "등식 $x(-k+1)^{2}-(-2k+3)y+x+5+6k=5k^{2}+9$가 실수 $k$의 값에 관계없이 항상 성립할 때, $x-y$의 값은? (단, $x$, $y$는 상수)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "6"}]}
+      ]
+    },
+    {
+      "number": 6,
+      "score": 4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "다항식 $f(x)$를 $x^{3}-1$로 나누었을 때의 몫은 $x+1$이고 나머지는 $3x^{2}+2x$이다. $f(x)$를 $x^{2}+x+1$로 나누었을 때의 몫을 $Q(x)$, 나머지를 $R(x)$라고 할 때, $Q(2)+R(3)$의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "1"}]}
+      ]
+    },
+    {
+      "number": 7,
+      "score": 4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "다항식 $(x+a)(2x^{2}+bx+3)$를 전개하였더니 $x^{2}$의 계수와 $x$의 계수가 모두 4일 때, $8a^{3}+b^{3}$의 값은? (단, $a$, $b$는 상수)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-40"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "40"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "64"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "88"}]}
+      ]
+    },
+    {
+      "number": 8,
+      "score": 4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "다음 식의 값은?"},
+        {"type": "equation", "value": "\\frac{2^{24}+2^{21}-2^{3}-1}{2^{21}-1}"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "10"}]}
+      ]
+    },
+    {
+      "number": 9,
+      "score": 4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "다항식 $f(x)=2x^{3}-2x^{2}+ax+8$이 $x^{2}+x-2$로 나누어떨어질 때, $f(x)$의 인수인 것은? (단, $a$는 상수)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "x^{2}+x+2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "x^{2}-2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "2x-1"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "x+1"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "x-2"}]}
+      ]
+    },
+    {
+      "number": 10,
+      "score": 4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "실수 $x$에 대하여 $\\frac{\\sqrt{2-x}}{\\sqrt{x-5}}=-\\sqrt{\\frac{2-x}{x-5}}$일 때, $\\sqrt{(x-3)^{2}}+|5-x|$를 간단히 하면?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "x^{2}+2x+2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2x-8"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-2x+8"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "-8"}]}
+      ]
+    },
+    {
+      "number": 11,
+      "score": 4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "삼각형의 세 변의 길이 $a$, $b$, $c$에 대하여 $a^{2}(b+c)=b^{2}(c-a)+c^{2}(a+b)$이 성립할 때, 이 삼각형은 어떤 삼각형인가?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "정삼각형"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "$a=c$인 이등변삼각형"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "$b=c$인 이등변삼각형"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "빗변의 길이가 $a$인 직각삼각형"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "빗변의 길이가 $c$인 직각삼각형"}]}
+      ]
+    },
+    {
+      "number": 12,
+      "score": 4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "이차함수 $f(x)$가 다음을 모두 만족시킬 때, $f(-2)$의 값은?"},
+        {"type": "text", "value": "<상자> (가) 방정식 $f(x)=0$의 두 근이 $-1$, 3이다. • (나) $4 \\leq x \\leq 6$에서 이차함수 $f(x)$의 최댓값은 63이다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "14"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "15"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "16"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "18"}]}
+      ]
+    },
+    {
+      "number": 13,
+      "score": 4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "자연수 $n$에 대하여 다항식 $x^{n}(x^{2}+ax-b)$를 $x^{2}-9$로 나누었을 때의 나머지가 $3^{n}(x+3)$일 때, 상수 $a$, $b$에 대하여 $ab$의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "7"}]}
+      ]
+    },
+    {
+      "number": 14,
+      "score": 4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "이차방정식 $x^{2}+4x-8=0$의 두 근을 $\\alpha$, $\\beta$라고 할 때, 두 수 $\\frac{2\\beta}{\\alpha}$, $\\frac{2\\alpha}{\\beta}$를 근으로 하고 이차항의 계수가 3인 이차방정식은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "3x^{2}+24x+12=0"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "3x^{2}-24x+12=0"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3x^{2}+8x+4=0"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "3x^{2}+8x-4=0"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "3x^{2}-8x-4=0"}]}
+      ]
+    },
+    {
+      "number": 15,
+      "score": 4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "어느 공장의 입장료는 1인당 5000원이고, 하루 입장객은 200명이다. 시장 조사에 의하면 입장료를 100원씩 올릴 때마다 하루 입장객이 10명씩 감소한다고 한다. 이 공원의 하루 입장료 수입이 최대일 때 1인당 입장료는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "3500원"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "4000원"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "4500원"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "5000원"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "5500원"}]}
+      ]
+    },
+    {
+      "number": 16,
+      "score": 4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "이차방정식 $2x^{2}+ax+b=0$에서 $a$를 잘못 보고 풀었더니 두 근이 2와 7이 되었고, $b$를 잘못 보고 풀었더니 한 근이 $-2+\\sqrt{3}$이 되었다. 유리수 $a$, $b$에 대하여 $\\frac{a}{b}$의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{1}{7}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{2}{7}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{3}{7}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{4}{7}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{5}{7}"}]}
+      ]
+    },
+    {
+      "number": 17,
+      "score": 4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "$x$에 대한 삼차방정식"},
+        {"type": "text", "value": "$x^{3}+2kx^{2}+(2k+7)x=2x^{2}+3k^{2}x+7k$이 서로 다른 세 실근 1, $\\alpha$, $\\beta$을 가질 때, $\\alpha+\\beta$의 값은? (단, $k$는 정수)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "9"}]}
+      ]
+    },
+    {
+      "number": 18,
+      "score": 5,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "$x+y+z=2$, $x^{2}+y^{2}+z^{2}=10$, $x^{3}+y^{3}+z^{3}=21$일 때, $5\\left(\\frac{1}{x}+\\frac{1}{y}+\\frac{1}{z}\\right)$의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "9"}]}
+      ]
+    },
+    {
+      "number": 19,
+      "score": 5,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "자연수 $n$에 대하여 $f(n)=\\left(\\frac{\\sqrt{2}\\,i}{1-i}\\right)^{2n}$일 때, $f(1)+f(2)+ \\cdots +f(k)$가 음의 실수가 되도록 하는 50이하의 자연수 $k$의 개수는? (단, $i=\\sqrt{-1}$)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "11"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "13"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "14"}]}
+      ]
+    },
+    {
+      "number": 20,
+      "score": 5,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "이차함수 $f(x)=(x-1)^{2}$과 이차함수 $g(x)=-x^{2}+2x+1$에 대하여 직선 $y=x+k$가 두 함수 $y=f(x)$, $y=g(x)$의 그래프와 서로 다른 세 점에서 만나도록 하는 모든 양수 $k$의 합은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{5}{4}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{9}{4}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{5}{8}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{13}{8}"}]}
+      ]
+    },
+    {
+      "number": 21,
+      "score": 3,
+      "type": "서술형",
+      "label": "[서술형 1]",
+      "contents": [
+        {"type": "text", "value": "[서술형 1] 삼차방정식 $x^{3}-1=0$의 한 허근을 $\\omega$라 할 때, $\\omega^{100}+\\frac{1}{\\omega^{100}}$의 값을 구하시오."}
+      ]
+    },
+    {
+      "number": 22,
+      "score": 4,
+      "type": "서술형",
+      "label": "[서술형 2]",
+      "contents": [
+        {"type": "text", "value": "[서술형 2] 다항식 $P(x)$와 상수 $a$에 대하여 등식 $x^{3}-2x^{2}-3x+6=(x-1)P(x)+ax$가 $x$에 대한 항등식일 때, $P(4)$의 값을 구하시오."}
+      ]
+    },
+    {
+      "number": 23,
+      "score": 4,
+      "type": "서술형",
+      "label": "[서술형 3]",
+      "contents": [
+        {"type": "text", "value": "[서술형 3] $x=\\frac{1}{1+2i}$일 때, $5x^{3}-2x^{2}+6x+2$의 값을 구하면, $a+bi$이다. 두 실수 $a$, $b$에 대하여 $ab$의 값을 구하시오. (단, $i=\\sqrt{-1}$)"}
+      ]
+    },
+    {
+      "number": 24,
+      "score": 5,
+      "type": "서술형",
+      "label": "[서술형 4]",
+      "contents": [
+        {"type": "text", "value": "[서술형 4] 다항식 $f(x)$를 $(x-2)^{2}$으로 나누었을 때의 나머지가 $3x-5$이고, $x-1$로 나누었을 때의 나머지가 5이다. $f(x)$를 $(x-2)^{2}(x-1)$로 나누었을 때의 나머지를 $R(x)$라 할 때, $R(3)$의 값을 구하시오."}
+      ]
+    },
+    {
+      "number": 25,
+      "score": 5,
+      "type": "서술형",
+      "label": "[서술형 5]",
+      "contents": [
+        {"type": "text", "value": "[서술형 5] 실수 $a$, $b$에 대하여 이차다항식 $P(x)=x^{2}+ax+b$가 다음 조건을 만족시킨다."},
+        {"type": "text", "value": "<상자> (가) $x$에 대한 이차방정식 $P(x)=0$은 서로 다른 두 허근을 갖고, 한 허근의 허수부분이 2이다. • (나) $x$에 대한 이차방정식 $P(3x-1)=0$은 서로 다른 두 허근을 갖고, 서로 다른 두 허근의 합은 4이다."},
+        {"type": "text", "value": "이때, $a+b$의 값을 구하시오."}
+      ]
+    }
+  ]
+}

@@ -1,0 +1,160 @@
+{
+ "exam_id": 4328,
+ "pass": "A",
+ "items": [
+  {
+   "number": 1,
+   "answer": "⑤",
+   "confidence": "high",
+   "note": "",
+   "solution": "step1) 나머지정리: $x-1$로 나눈 나머지는 $f(1)$이다.\nstep2) $f(1)=7(1-1)^{2}+(2\\cdot 1+3)^{3}=0+5^{3}=125$\nstep3) 따라서 나머지는 $125$이다."
+  },
+  {
+   "number": 2,
+   "answer": "⑤",
+   "confidence": "high",
+   "note": "",
+   "solution": "step1) $(A-2B)+(B-2A)=A-2B+B-2A=-A-B$\nstep2) $-A=-(x^{2}-x+1)=-x^{2}+x-1$\nstep3) $-B=-(-x^{3}-2x+2)=x^{3}+2x-2$\nstep4) 두 식을 더하면 $x^{3}-x^{2}+3x-3$"
+  },
+  {
+   "number": 3,
+   "answer": "②",
+   "confidence": "high",
+   "note": "",
+   "solution": "step1) $(x+y+z)^{2}=x^{2}+y^{2}+z^{2}+2(xy+yz+zx)$\nstep2) $2^{2}=26+2(xy+yz+zx)$\nstep3) $2(xy+yz+zx)=4-26=-22$\nstep4) $xy+yz+zx=-11$"
+  },
+  {
+   "number": 4,
+   "answer": "①",
+   "confidence": "high",
+   "note": "",
+   "solution": "step1) $x=99$로 놓으면 주어진 식은 $\\dfrac{x^{3}+x+2}{x^{2}-x+2}$이다.\nstep2) 분자는 $x=-1$일 때 $0$이므로 $x^{3}+x+2=(x+1)(x^{2}-x+2)$\nstep3) 약분하면 $x+1=99+1=100$"
+  },
+  {
+   "number": 5,
+   "answer": "④",
+   "confidence": "high",
+   "note": "",
+   "solution": "step1) $f(x)=(x^{3}+2x^{2}+1)^{5}$이라 하면 짝수차 계수의 합은 $\\dfrac{f(1)+f(-1)}{2}$이다.\nstep2) $f(1)=(1+2+1)^{5}=4^{5}=1024$\nstep3) $f(-1)=(-1+2+1)^{5}=2^{5}=32$\nstep4) 최고차항이 $15$차이므로 짝수차 항은 $a_{0},a_{2},\\cdots ,a_{14}$뿐이다.\nstep5) 구하는 값은 $\\dfrac{1024+32}{2}=528$"
+  },
+  {
+   "number": 6,
+   "answer": "③",
+   "confidence": "high",
+   "note": "",
+   "solution": "step1) $t=x-1$로 놓으면 우변은 $at^{3}+b(2t)^{2}+c(3t)+d=at^{3}+4bt^{2}+3ct+d$\nstep2) 좌변은 $(t+1)^{3}-3(t+1)^{2}+2(t+1)-3=t^{3}-t-3$\nstep3) 계수를 비교하면 $a=1$, $4b=0$, $3c=-1$, $d=-3$\nstep4) $a=1,\\ b=0,\\ c=-\\dfrac{1}{3},\\ d=-3$이므로 $a+b+c+d=-\\dfrac{7}{3}$"
+  },
+  {
+   "number": 7,
+   "answer": "③",
+   "confidence": "high",
+   "note": "",
+   "solution": "step1) $x^{2}+3x+2=(x+1)(x+2)$, $x^{2}-5x+6=(x-2)(x-3)$\nstep2) $(x+1)(x-2)=x^{2}-x-2$, $(x+2)(x-3)=x^{2}-x-6$이므로 $u=x^{2}-x$로 놓으면 좌변은 $(u-2)(u-6)+k$\nstep3) $(u-2)(u-6)+k=u^{2}-8u+12+k=(u-4)^{2}+(k-4)$\nstep4) 완전제곱식이 되려면 $k=4$, 이때 $P(x)=u-4=x^{2}-x-4$\nstep5) $P(k)=P(4)=16-4-4=8$"
+  },
+  {
+   "number": 8,
+   "answer": "②",
+   "confidence": "high",
+   "note": "",
+   "solution": "step1) ㄱ. $(x-2y+3)(x+y-2)=x^{2}-xy-2y^{2}+x+7y-6$ (참)\nstep2) ㄴ. $x^{4}-7x^{3}+16x^{2}-14x+4=(x-1)(x-2)(x^{2}-4x+2)$이므로 $x^{2}+4x+2$는 틀림 (거짓)\nstep3) ㄷ. $27x^{3}-64y^{3}=(3x-4y)(9x^{2}+12xy+16y^{2})$이므로 $24xy$는 틀림 (거짓)\nstep4) ㄹ. $x^{4}-13x^{2}+36=(x^{2}-4)(x^{2}-9)=(x+2)(x-2)(x+3)(x-3)$ (참)\nstep5) ㅁ. $(x+3)^{3}=x^{3}+9x^{2}+27x+27$이므로 거짓\nstep6) 옳은 것은 ㄱ, ㄹ의 $2$개이다."
+  },
+  {
+   "number": 9,
+   "answer": "①",
+   "confidence": "high",
+   "note": "",
+   "solution": "step1) $c$에 대하여 정리하면 $c^{2}(a-b)+c(a-b)^{2}+(a-b)(a^{2}-ab+b^{2})=0$\nstep2) 즉 $(a-b)\\{c^{2}+(a-b)c+a^{2}-ab+b^{2}\\}=0$\nstep3) 중괄호 안을 $c$에 대한 이차식으로 보면 판별식은 $(a-b)^{2}-4(a^{2}-ab+b^{2})=-3a^{2}+2ab-3b^{2}=-(3a^{2}-2ab+3b^{2})<0$\nstep4) 따라서 중괄호 안은 항상 양수이므로 $a-b=0$, 즉 $a=b$인 이등변삼각형이다."
+  },
+  {
+   "number": 10,
+   "answer": "③",
+   "confidence": "high",
+   "note": "",
+   "solution": "step1) $\\sqrt{-2}\\times\\sqrt{-3}=-\\sqrt{6}$ (음수끼리의 곱)\nstep2) $\\dfrac{\\sqrt{10}}{\\sqrt{-2}}=-\\sqrt{-5}=-\\sqrt{5}\\,i$\nstep3) $\\dfrac{\\sqrt{-3}}{\\sqrt{-15}}=\\sqrt{\\dfrac{3}{15}}=\\dfrac{1}{\\sqrt{5}}$\nstep4) 두 번째 항 $=-\\sqrt{5}\\,i\\times\\dfrac{1}{\\sqrt{5}}=-i$\nstep5) 전체는 $-\\sqrt{6}-i$이므로 $a=-\\sqrt{6}$, $b=-1$\nstep6) $ab=\\sqrt{6}$"
+  },
+  {
+   "number": 11,
+   "answer": "①",
+   "confidence": "high",
+   "note": "",
+   "solution": "step1) $z=(2xi+4)i-x(2+i)+8=-2x+4i-2x-xi+8=(-4x+8)+(4-x)i$\nstep2) $z^{2}<0$이려면 $z$가 $0$이 아닌 순허수여야 하므로 $-4x+8=0$, $4-x\\neq 0$\nstep3) $x=2$이고 이때 $z=2i$ (허수부 $2\\neq 0$ 확인)\nstep4) $z^{6}=(2i)^{6}=64\\,i^{6}=-64$\nstep5) $\\dfrac{z^{6}}{x}=\\dfrac{-64}{2}=-32$"
+  },
+  {
+   "number": 12,
+   "answer": "④",
+   "confidence": "high",
+   "note": "",
+   "solution": "step1) $z=\\dfrac{1+i}{1-i}=\\dfrac{(1+i)^{2}}{2}=\\dfrac{2i}{2}=i$\nstep2) 구하는 값은 $\\sum_{n=1}^{62} n\\,i^{n}$이고 $i^{n}$은 주기 $4$이다.\nstep3) 연속한 네 항 $(4k+1)i-(4k+2)-(4k+3)i+(4k+4)=2-2i$\nstep4) $n=1$부터 $60$까지 $15$묶음이므로 $15(2-2i)=30-30i$\nstep5) 남은 항 $61i^{61}+62i^{62}=61i-62$\nstep6) 합은 $(30-62)+(-30+61)i=-32+31i$이므로 $a=-32$, $b=31$\nstep7) $b-a=31-(-32)=63$"
+  },
+  {
+   "number": 13,
+   "answer": "④",
+   "confidence": "high",
+   "note": "",
+   "solution": "step1) 판별식 $\\dfrac{D}{4}=(k-a)^{2}-(k^{2}+2k+2a+b)>0$\nstep2) 정리하면 $-2(a+1)k+(a^{2}-2a-b)>0$\nstep3) 모든 실수 $k$에 대하여 성립하려면 $k$의 계수가 $0$이어야 하므로 $a=-1$\nstep4) 상수항 조건 $a^{2}-2a-b>0$에서 $1+2-b>0$, 즉 $b<3$\nstep5) $b$는 정수이므로 $b\\leq 2$, 따라서 $a+b$의 최댓값은 $-1+2=1$"
+  },
+  {
+   "number": 14,
+   "answer": "③",
+   "confidence": "high",
+   "note": "",
+   "solution": "step1) $f(3x+1)=0$의 근은 $3x+1=\\alpha$ 또는 $3x+1=\\beta$에서 $x=\\dfrac{\\alpha-1}{3},\\ \\dfrac{\\beta-1}{3}$\nstep2) 두 근의 곱 $=\\dfrac{(\\alpha-1)(\\beta-1)}{9}=\\dfrac{\\alpha\\beta-(\\alpha+\\beta)+1}{9}$\nstep3) $=\\dfrac{-6-4+1}{9}=\\dfrac{-9}{9}=-1$"
+  },
+  {
+   "number": 15,
+   "answer": "④",
+   "confidence": "high",
+   "note": "",
+   "solution": "step1) $f(x+4)=f(-x)$에서 두 점 $x+4$와 $-x$의 중점이 축이므로 축은 $x=\\dfrac{(x+4)+(-x)}{2}=2$\nstep2) 그래프가 $x$축과 서로 다른 두 점에서 만나므로 두 실근은 축 $x=2$에 대하여 대칭이다.\nstep3) 두 실근의 합은 $2\\times 2=4$"
+  },
+  {
+   "number": 16,
+   "answer": "⑤",
+   "confidence": "high",
+   "note": "",
+   "solution": "step1) $x^{2}+4x+k=x+n-2$에서 $x^{2}+3x+(k-n+2)=0$\nstep2) $D=9-4(k-n+2)=4n-4k+1$이고 $n$이 커질수록 증가한다.\nstep3) $f(n)$은 증가(비감소)하므로 합이 $5$가 되려면 $f(1),f(2),f(3),f(4)=0,1,2,2$뿐이다.\nstep4) $f(2)=1$에서 $D=9-4k=0$, 즉 $k=\\dfrac{9}{4}$\nstep5) 검산: $D(1)=-4<0$, $D(2)=0$, $D(3)=4>0$, $D(4)=8>0$이므로 합은 $0+1+2+2=5$"
+  },
+  {
+   "number": 17,
+   "answer": "②",
+   "confidence": "high",
+   "note": "",
+   "solution": "step1) $\\dfrac{1}{2}x^{2}-ax+5=x+1$에서 $x^{2}-2(a+1)x+8=0$\nstep2) 두 근을 $x_{A},x_{B}$라 하면 $x_{A}+x_{B}=2(a+1)$, $x_{A}x_{B}=8$\nstep3) 직선의 기울기가 $1$이므로 $\\overline{\\mathrm{AB}}=\\sqrt{2}\\,|x_{B}-x_{A}|=2\\sqrt{2}$에서 $|x_{B}-x_{A}|=2$\nstep4) $(x_{B}-x_{A})^{2}=4(a+1)^{2}-32=4$이므로 $(a+1)^{2}=9$\nstep5) $a=2$ 또는 $a=-4$이고 $a>0$이므로 $a=2$"
+  },
+  {
+   "number": 18,
+   "answer": "①",
+   "confidence": "high",
+   "note": "",
+   "solution": "step1) $y=(x-a)^{2}+1$이므로 축은 $x=a$\nstep2) $a<0$이면 $x=0$에서 최소 $a^{2}+1=10$, $a^{2}=9$에서 $a=-3$ (조건 만족)\nstep3) $0\\leq a\\leq 1$이면 최솟값이 $1$이므로 $10$이 될 수 없다.\nstep4) $a>1$이면 $x=1$에서 최소 $(1-a)^{2}+1=10$, $(a-1)^{2}=9$에서 $a=4$ (조건 만족)\nstep5) 모든 $a$의 합은 $-3+4=1$"
+  },
+  {
+   "number": 19,
+   "answer": "$-10$",
+   "confidence": "high",
+   "note": "",
+   "solution": "step1) 조건에서 $f(x)=(x+3)(2x-1)Q(x)+2x-5$이다.\nstep2) $x=-3$을 대입하면 $f(-3)=0\\cdot(-7)Q(-3)+2\\cdot(-3)-5=-11$\nstep3) $f(2x)+1$을 $4x+6$으로 나눈 나머지는 상수이고, 나머지정리에 의해 $4x+6=0$, 즉 $x=-\\dfrac{3}{2}$일 때의 값이다.\nstep4) $f\\left(2\\cdot\\left(-\\dfrac{3}{2}\\right)\\right)+1=f(-3)+1=-11+1=-10$\nstep5) 따라서 구하는 나머지는 $-10$이다."
+  },
+  {
+   "number": 20,
+   "answer": "$-16$",
+   "confidence": "high",
+   "note": "",
+   "solution": "step1) (가)에서 $f(-1)=f(2)=f(3)=c$라 하면 $f(x)-c$는 $-1,2,3$을 근으로 가지므로 $f(x)=k(x+1)(x-2)(x-3)+c$ ($k\\neq 0$)\nstep2) (나)의 계수의 총합은 $f(1)$이므로 $f(1)=4k+c=0$, 즉 $c=-4k$\nstep3) $f(x)=k\\{(x+1)(x-2)(x-3)-4\\}=k(x^{3}-4x^{2}+x+2)=k(x-1)(x^{2}-3x-2)$\nstep4) (라)에서 $g(x)$는 최솟값을 가지므로 최고차항의 계수가 양수인 이차식이고 축은 $x=\\dfrac{3}{2}$이다.\nstep5) (다)에서 $g(x)$는 $f(x)$의 이차 인수이고, $g(1)\\neq 0$이므로 $x-1$을 인수로 갖지 않는다. 따라서 $g(x)=m(x^{2}-3x-2)$ ($m>0$) 꼴이다. (실제로 $x^{2}-3x-2$의 축이 $x=\\dfrac{3}{2}$로 조건과 일치한다.)\nstep6) $g\\left(\\dfrac{3}{2}\\right)=m\\left(\\dfrac{9}{4}-\\dfrac{9}{2}-2\\right)=-\\dfrac{17}{4}m=-17$이므로 $m=4$\nstep7) $g(x)=4x^{2}-12x-8$이고 나머지정리에 의해 나머지는 $g(1)=4-12-8=-16$"
+  },
+  {
+   "number": 21,
+   "answer": "(1) $0<a<12$ (2) $-2a^{2}+44a+48$ (3) $290$",
+   "confidence": "high",
+   "note": "",
+   "solution": "step1) 곡선 $y=-x^{2}+24x$의 축은 $x=12$이고, 두 점 $\\mathrm{A}$, $\\mathrm{B}$는 같은 $y$좌표를 가지므로 축에 대하여 대칭이다.\nstep2) 점 $\\mathrm{C}$의 $x$좌표가 $a$이면 $\\mathrm{A}(a,\\ -a^{2}+24a)$, $\\mathrm{B}(24-a,\\ -a^{2}+24a)$이다.\nstep3) (1) 두 점이 제1사분면 위에 있고 $\\mathrm{A}$가 $\\mathrm{B}$의 왼쪽이므로 $a>0$, $-a^{2}+24a>0$, $a<24-a$에서 $0<a<12$\nstep4) (2) 가로 $=(24-a)-a=24-2a$, 세로 $=-a^{2}+24a$이므로 둘레 $l=2\\{(24-2a)+(-a^{2}+24a)\\}=-2a^{2}+44a+48$\nstep5) (3) $l=-2(a-11)^{2}+290$이고 $a=11$은 $0<a<12$에 속하므로 최댓값은 $290$\nstep6) 검산: $a=11$일 때 가로 $=2$, 세로 $=143$이므로 둘레 $=2(2+143)=290$"
+  },
+  {
+   "number": 22,
+   "answer": "$f(x)=x^{2}-6x+8$",
+   "confidence": "high",
+   "note": "",
+   "solution": "step1) (나)에서 $f(x)+1=0$이 중근을 가지므로 $f(x)+1=(x-p)^{2}$, 즉 $f(x)=(x-p)^{2}-1$ (최고차항의 계수 $1$)\nstep2) 이때 $f(x)=(x-p-1)(x-p+1)$이므로 $x$축과 항상 서로 다른 두 점에서 만난다.\nstep3) $y=2x^{2}-4x=2x(x-2)$의 그래프가 $x$축과 만나는 점은 $(0,0)$, $(2,0)$이다.\nstep4) (가)에서 두 점 중 한 점만 지나야 한다. $f(0)=0$이면 $p^{2}=1$에서 $p=\\pm 1$, $f(2)=0$이면 $(2-p)^{2}=1$에서 $p=1$ 또는 $p=3$\nstep5) $p=1$이면 $f(x)=x^{2}-2x$로 두 점을 모두 지나므로 제외한다.\nstep6) $p=-1$이면 $f(x)=x^{2}+2x$이고 $f(3)=15>0$이므로 (다)에 어긋난다.\nstep7) $p=3$이면 $f(x)=x^{2}-6x+8$이고 $f(0)=8\\neq 0$, $f(2)=0$, $f(3)=-1<0$으로 모든 조건을 만족한다.\nstep8) 따라서 $f(x)=x^{2}-6x+8$"
+  }
+ ]
+}

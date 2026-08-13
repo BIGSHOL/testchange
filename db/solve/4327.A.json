@@ -1,0 +1,160 @@
+{
+ "exam_id": 4327,
+ "pass": "A",
+ "items": [
+  {
+   "number": 1,
+   "answer": "④",
+   "solution": "step1) 계수가 실수이므로 한 허근이 $1+2i$이면 켤레인 $1-2i$도 근이다.\nstep2) 근과 계수의 관계: 두 근의 합 $=(1+2i)+(1-2i)=2=-a$ 이므로 $a=-2$.\nstep3) 두 근의 곱 $=(1+2i)(1-2i)=1+4=5=b$ 이므로 $b=5$.\nstep4) 따라서 $a+b=-2+5=3$ 이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 2,
+   "answer": "④",
+   "solution": "step1) 두 그래프가 만나지 않으려면 $x^{2}+x=2x+a$, 즉 $x^{2}-x-a=0$ 이 실근을 갖지 않아야 한다.\nstep2) 판별식 $D=(-1)^{2}-4\\cdot 1\\cdot(-a)=1+4a<0$ 이므로 $a<-\\frac{1}{4}$ 이다.\nstep3) 이를 만족하는 정수 $a$ 중 최댓값은 $a=-1$ 이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 3,
+   "answer": "③",
+   "solution": "step1) $A=B$ 이므로 대응하는 성분이 각각 같다.\nstep2) $2a+1=3$ 에서 $a=1$.\nstep3) $-1=b-1$ 에서 $b=0$.\nstep4) $5=-c+4$ 에서 $c=-1$.\nstep5) $d-2=3$ 에서 $d=5$.\nstep6) 따라서 $a+b+c+d=1+0-1+5=5$ 이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 4,
+   "answer": "③",
+   "solution": "step1) $AB=\\begin{pmatrix} 3a+4b & -12+12 \\\\ 5a+7b & -20+21 \\end{pmatrix}=\\begin{pmatrix} 3a+4b & 0 \\\\ 5a+7b & 1 \\end{pmatrix}$ 이다.\nstep2) $BA=\\begin{pmatrix} 3a-20 & 4a-28 \\\\ 3b+15 & 4b+21 \\end{pmatrix}$ 이다.\nstep3) $(1,2)$ 성분: $0=4a-28$ 에서 $a=7$.\nstep4) $(1,1)$ 성분: $3a+4b=3a-20$ 에서 $b=-5$.\nstep5) 검산: $(2,1)$ 성분 $5(7)+7(-5)=0$, $3(-5)+15=0$ 일치. $(2,2)$ 성분 $1=4(-5)+21=1$ 일치. (실제로 $AB=BA=E$)\nstep6) 따라서 $a+b=7+(-5)=2$ 이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 5,
+   "answer": "②",
+   "solution": "step1) ㄱ: 곱 $AB$ 가 정의되려면 $A$ 의 열의 개수와 $B$ 의 행의 개수가 같아야 한다($n=p$). 그 조건이 없으므로 $AB$ 는 정의되지 않을 수 있다. 거짓.\nstep2) ㄴ: 반례 $A=\\begin{pmatrix} 0 & 1 \\\\ 0 & 0 \\end{pmatrix}$, $B=\\begin{pmatrix} 1 & 0 \\\\ 0 & 0 \\end{pmatrix}$ 이면 $AB=O$ 이지만 $BA=\\begin{pmatrix} 0 & 1 \\\\ 0 & 0 \\end{pmatrix}\\neq O$ 이다. 거짓.\nstep3) ㄷ: $A=B=E$ 이면 $AB=BA$ 이므로 항상 $AB\\neq BA$ 인 것은 아니다. 거짓.\nstep4) ㄹ: $AE=EA=A$ 이므로 $(A+E)^{2}=A^{2}+AE+EA+E^{2}=A^{2}+2A+E$ 이다. 참.\nstep5) 옳은 것은 ㄹ 하나뿐이므로 1개이다.",
+   "confidence": "medium",
+   "note": "ㄱ은 n=p 조건이 없어 곱이 정의되지 않을 수 있으므로 거짓으로 판단(교과 표준 해석). 만약 곱이 정의된다는 전제로 읽으면 2개(③)가 됨."
+  },
+  {
+   "number": 6,
+   "answer": "①",
+   "solution": "step1) 먼저 자음 $b,c,d,f$ 4개를 일렬로 나열: $4!=24$ 가지.\nstep2) 자음 사이와 양 끝의 5개 자리 중 3개를 골라 모음을 넣으면 어느 두 모음도 이웃하지 않는다: $_{5}C_{3}=10$ 가지.\nstep3) 고른 자리에 모음 $a,e,i$ 를 배열: $3!=6$ 가지.\nstep4) 따라서 $24\\times 10\\times 6=1440$ 이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 7,
+   "answer": "②",
+   "solution": "step1) $f(x)=-2(x+1)(x-3)$ 이다.\nstep2) $f(t)>0$ 은 $-2(t+1)(t-3)>0$, 즉 $(t+1)(t-3)<0$ 이므로 $-1<t<3$ 이다.\nstep3) $t=2x-4$ 를 대입하면 $-1<2x-4<3$, 즉 $3<2x<7$ 이므로 $\\frac{3}{2}<x<\\frac{7}{2}$ 이다.\nstep4) 정수 $x$ 는 $2, 3$ 이므로 그 합은 $5$ 이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 8,
+   "answer": "①",
+   "solution": "step1) 공통해는 네 식을 모두 만족하므로, 미지수만 있는 두 식 $x+y=3$ 과 $x^{2}+2y=5$ 를 연립한다.\nstep2) $y=3-x$ 를 대입하면 $x^{2}+2(3-x)=5$, 즉 $x^{2}-2x+1=0$ 이므로 $(x-1)^{2}=0$, $x=1$, $y=2$ 이다.\nstep3) $3x-2y=a$ 에 대입하면 $a=3-4=-1$ 이다.\nstep4) $x-by=-3$ 에 대입하면 $1-2b=-3$ 이므로 $b=2$ 이다.\nstep5) 따라서 $ab=(-1)\\times 2=-2$ 이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 9,
+   "answer": "⑤",
+   "solution": "step1) $x^{2}-2x>3$ 에서 $(x-3)(x+1)>0$ 이므로 $x<-1$ 또는 $x>3$ 이다.\nstep2) $x^{2}-(a+5)x+5a\\leq 0$ 은 $(x-5)(x-a)\\leq 0$ 이다.\nstep3) 해가 $3<x\\leq 5$ 이려면 $a<5$ 이어야 하고 이때 둘째 부등식의 해는 $a\\leq x\\leq 5$ 이다.\nstep4) 오른쪽 끝이 $5$, 왼쪽이 $x>3$ 로 잘리려면 $a\\leq 3$ 이어야 한다($a>3$ 이면 해가 $a\\leq x\\leq 5$ 가 되어 $3<x\\leq 5$ 와 다르다).\nstep5) 또 $x<-1$ 쪽에 해가 남지 않으려면 $a\\geq -1$ 이어야 한다($a<-1$ 이면 $a\\leq x<-1$ 부분이 해가 된다).\nstep6) 따라서 $-1\\leq a\\leq 3$ 이다. (수치 검증: $a=-1$ 과 $a=3$ 에서 해가 정확히 $3<x\\leq 5$)",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 10,
+   "answer": "⑤",
+   "solution": "step1) 가장 작은 수가 $6$ 이려면 $6$ 을 반드시 뽑고 나머지 $2$ 개는 $7,8,\\cdots,n$ 에서 뽑아야 한다.\nstep2) 그 경우의 수는 $_{n-6}C_{2}=\\frac{(n-6)(n-7)}{2}$ 이다.\nstep3) $\\frac{(n-6)(n-7)}{2}\\geq 60$, 즉 $(n-6)(n-7)\\geq 120$ 이다.\nstep4) $n=17$ 이면 $11\\times 10=110<120$, $n=18$ 이면 $12\\times 11=132\\geq 120$ 이다.\nstep5) 따라서 $n$ 의 최솟값은 $18$ 이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 11,
+   "answer": "④",
+   "solution": "step1) 이차부등식이므로 $k+1\\neq 0$ 이다.\nstep2) $(k+1)x^{2}-3(k+1)x+2k\\geq 0$ 이 해를 갖지 않으려면 모든 실수 $x$ 에 대하여 $(k+1)x^{2}-3(k+1)x+2k<0$ 이어야 한다.\nstep3) 그러려면 $k+1<0$ 이고 판별식 $D<0$ 이어야 한다.\nstep4) $D=9(k+1)^{2}-8k(k+1)=(k+1)(9k+9-8k)=(k+1)(k+9)<0$ 이므로 $-9<k<-1$ 이다.\nstep5) $k+1<0$ 과 합치면 $-9<k<-1$ 이므로 $\\alpha=-9$, $\\beta=-1$ 이다.\nstep6) 따라서 $\\alpha\\beta=(-9)(-1)=9$ 이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 12,
+   "answer": "②",
+   "solution": "step1) 좌변을 $a$ 에 대한 식으로 정리하면 $-2xa^{2}+(x^{2}+2x-4)a+x^{3}-2x^{2}+4x=0$ 이고, 인수분해하면 $(x-a)\\left(x^{2}+(2a-2)x+4\\right)=0$ 이다. (전개하여 원식과 일치 확인)\nstep2) 한 근은 $x=a$ 이고, 나머지는 $x^{2}+(2a-2)x+4=0$ 의 근이다.\nstep3) 이 이차방정식의 판별식은 $D=(2a-2)^{2}-16=4(a-3)(a+1)$ 이다.\nstep4) $a$ 가 $x^{2}+(2a-2)x+4=0$ 의 근이 되는 경우는 $3a^{2}-2a+4=0$ 인데 판별식이 음수이므로 없다. 즉 $x=a$ 는 항상 이차식의 근과 다르다.\nstep5) $D<0$ ($a=1,2$)이면 서로 다른 실근은 $x=a$ 하나뿐이고, $D>0$ ($a\\geq 4$)이면 3개이다.\nstep6) $D=0$ 인 $a=3$ 일 때 실근은 $x=3$ 과 중근 $x=-2$ 로 서로 다른 실근이 2개이다.\nstep7) 따라서 자연수 $a=3$ 이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 13,
+   "answer": "⑤",
+   "solution": "step1) $u=\\begin{pmatrix} 1 \\\\ -1 \\end{pmatrix}$, $v=\\begin{pmatrix} 2 \\\\ 3 \\end{pmatrix}$ 라 하면 (가)는 $Au=v$, (나)는 $Av=\\begin{pmatrix} -1 \\\\ 1 \\end{pmatrix}=-u$ 이다.\nstep2) 따라서 $A^{2}v=A(-u)=-Au=-v$ 이므로 $A^{4}v=v$ 이다.\nstep3) $2025=4\\times 506+1$ 이므로 $A^{2025}v=(A^{4})^{506}Av=Av=-u$ 이다.\nstep4) $\\begin{pmatrix} 4 \\\\ 6 \\end{pmatrix}=2v$ 이므로 $A^{2025}\\begin{pmatrix} 4 \\\\ 6 \\end{pmatrix}=2Av=-2u=\\begin{pmatrix} -2 \\\\ 2 \\end{pmatrix}$ 이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 14,
+   "answer": "③",
+   "solution": "step1) 공을 바구니에 하나씩 넣는 것은 $1\\sim 8$ 의 순열이고, 번호가 일치하는 바구니는 고정점이다.\nstep2) 고정점이 될 4개의 바구니를 고르는 경우의 수는 $_{8}C_{4}=70$ 이다.\nstep3) 나머지 4개는 모두 번호가 어긋나야 하므로 완전순열의 수 $D_{4}=9$ 이다.\nstep4) 따라서 $70\\times 9=630$ 이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 15,
+   "answer": "④",
+   "solution": "step1) 4자리 중 양 끝(1번, 4번)에는 A, B 가 올 수 없으므로 뽑힌 A 또는 B 는 가운데 두 자리(2번, 3번)에만 놓인다.\nstep2) [A, B 중 정확히 한 명만 뽑는 경우] 누구인지 2가지, 가운데 두 자리 중 하나 선택 2가지, 남은 세 자리에 나머지 6명 중 3명을 배열 $6\\times 5\\times 4=120$ 가지 → $2\\times 2\\times 120=480$.\nstep3) [A, B 둘 다 뽑는 경우] 가운데 두 자리에 A, B 배열 $2!=2$ 가지, 양 끝 두 자리에 나머지 6명 중 2명 배열 $6\\times 5=30$ 가지 → $2\\times 30=60$.\nstep4) 따라서 $480+60=540$ 이다. (전수조사로 확인)",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 16,
+   "answer": "①",
+   "solution": "step1) $|x+2|<3$ 에서 $-3<x+2<3$ 이므로 $-5<x<1$ 이다.\nstep2) $x^{2}-3x-18<0$ 에서 $(x-6)(x+3)<0$ 이므로 $-3<x<6$ 이다.\nstep3) 공통 범위는 $-3<x<1$ 이므로 $\\alpha=-3$, $\\beta=1$ 이다.\nstep4) $|x+3|+2|x-1|<8$ 을 구간별로 푼다.\nstep5) $x<-3$ 일 때 $-3x-1<8$ 에서 $x>-3$ 이 되어 해가 없다.\nstep6) $-3\\leq x<1$ 일 때 $-x+5<8$ 에서 $x>-3$ 이므로 $-3<x<1$ 이다.\nstep7) $x\\geq 1$ 일 때 $3x+1<8$ 에서 $x<\\frac{7}{3}$ 이므로 $1\\leq x<\\frac{7}{3}$ 이다.\nstep8) 전체 해는 $-3<x<\\frac{7}{3}$ 이고 정수는 $-2,-1,0,1,2$ 의 5개이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 17,
+   "answer": "②",
+   "solution": "step1) $x^{3}+1=(x+1)(x^{2}-x+1)=0$ 이고 $\\omega$ 는 허근이므로 $\\omega^{2}-\\omega+1=0$, 즉 $\\omega^{2}=\\omega-1$, $\\omega^{3}=-1$, $\\omega^{6}=1$ 이다.\nstep2) ㄱ: $\\omega^{2}-\\omega+1=0$ 을 $\\omega$ 로 나누면 $\\omega-1+\\frac{1}{\\omega}=0$ 이므로 $\\omega+\\frac{1}{\\omega}=1$. 참.\nstep3) ㄴ: $\\omega^{7}=\\omega^{6}\\cdot\\omega=\\omega$, $\\omega^{5}=\\frac{\\omega^{6}}{\\omega}=\\frac{1}{\\omega}$ 이므로 $\\omega^{5}+\\omega^{7}=\\omega+\\frac{1}{\\omega}=1$. 참.\nstep4) ㄷ: $\\omega^{2}=\\omega-1$ 이므로 $\\frac{\\omega^{2}}{\\omega-1}=1$ 이고, $\\overline{\\omega}$ 도 같은 이차식의 근이므로 $1+\\overline{\\omega}^{2}=\\overline{\\omega}$ 에서 $\\frac{\\overline{\\omega}}{1+\\overline{\\omega}^{2}}=1$ 이다. 따라서 값은 $1-1=0\\neq -2$. 거짓.\nstep5) ㄹ: $\\frac{\\omega-1}{2\\omega^{2}}=\\frac{\\omega^{2}}{2\\omega^{2}}=\\frac{1}{2}$, $\\frac{2\\omega^{2}}{\\omega-1}=\\frac{2\\omega^{2}}{\\omega^{2}}=2$ 이므로 합은 $\\frac{5}{2}$. 참.\nstep6) ㅁ: $\\overline{\\omega}-1=\\overline{\\omega}^{2}$ 이므로 식은 $\\overline{\\omega}^{4n}+\\overline{\\omega}^{8n}+1=0$ 이다. $t=\\overline{\\omega}^{4n}$ 이라 하면 $t^{2}+t+1=0$ 이어야 하고, $t^{3}=\\overline{\\omega}^{12n}=1$ 은 항상 성립하므로 조건은 $t\\neq 1$, 즉 $\\overline{\\omega}^{4n}\\neq 1$ 이다.\nstep7) $\\overline{\\omega}$ 의 위수가 6이므로 $\\overline{\\omega}^{4n}=1 \\iff 6\\mid 4n \\iff 3\\mid n$ 이다. 따라서 조건을 만족하는 것은 $n$ 이 3의 배수가 아닐 때이고, 30 이하의 자연수 중 $30-10=20$ 개이다. 참.\nstep8) 옳은 것은 ㄱ, ㄴ, ㄹ, ㅁ 의 4개이다. (수치 검증 완료)",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 18,
+   "answer": "③",
+   "solution": "step1) ㄱ: $f(x)=ax^{2}+bx+c$ 라 하면 $f(0)=c<0$ 이므로 $x=0$ 이 $f(x)\\leq 0$ 의 해가 된다. 즉 해가 존재한다. 참.\nstep2) ㄴ: 반례로 $a=c=1$, $b=0$ 이면 $x^{2}+1\\leq 0$ 은 해가 없다. 해가 오직 하나이려면 $b^{2}-4ac=0$, 즉 $b^{2}=4a^{2}$ 이어야 하는데 $a=c$ 만으로는 보장되지 않는다. 거짓.\nstep3) ㄷ: 해가 오직 한 개이면 $a>0$ 이므로 판별식 $b^{2}-4ac=0$, 즉 $c=\\frac{b^{2}}{4a}$ 이다.\nstep4) 이때 $\\frac{2b^{2}}{a}+c=\\frac{2b^{2}}{a}+\\frac{b^{2}}{4a}=\\frac{9b^{2}}{4a}\\geq 0$ ($a>0$)이다. 참.\nstep5) 따라서 옳은 것은 ㄱ, ㄷ 이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 19,
+   "answer": "(1) 가격행렬 $A=\\begin{pmatrix} 2000 & 600 \\\\ 1500 & 800 \\end{pmatrix}$(행: P, Q / 열: 빵, 우유), 개수행렬 $B=\\begin{pmatrix} 5 & 3 \\\\ 3 & 6 \\end{pmatrix}$(행: 빵, 우유 / 열: 성훈, 미주), 지불 금액 $AB=\\begin{pmatrix} 11800 & 9600 \\\\ 9900 & 9300 \\end{pmatrix}$ (행: P, Q / 열: 성훈, 미주) (2) 성훈이는 편의점 Q에서 사야 $1900$원 더 적게 들고, 미주도 편의점 Q에서 사야 $300$원 더 적게 든다.",
+   "solution": "step1) [표1]을 행이 편의점 P, Q이고 열이 빵, 우유인 행렬로 나타내면 $A=\\begin{pmatrix} 2000 & 600 \\\\ 1500 & 800 \\end{pmatrix}$ 이다.\nstep2) [표2]를 행이 빵, 우유이고 열이 성훈, 미주인 행렬로 나타내면 $B=\\begin{pmatrix} 5 & 3 \\\\ 3 & 6 \\end{pmatrix}$ 이다.\nstep3) 지불 금액은 (가격)$\\times$(개수)의 합이므로 곱 $AB$ 로 나타난다.\nstep4) $AB=\\begin{pmatrix} 2000\\times 5+600\\times 3 & 2000\\times 3+600\\times 6 \\\\ 1500\\times 5+800\\times 3 & 1500\\times 3+800\\times 6 \\end{pmatrix}=\\begin{pmatrix} 11800 & 9600 \\\\ 9900 & 9300 \\end{pmatrix}$ 이다.\nstep5) 이 행렬의 $(1,1)$, $(2,1)$ 성분에서 성훈이는 P에서 $11800$원, Q에서 $9900$원이므로 Q가 $11800-9900=1900$원 더 싸다.\nstep6) $(1,2)$, $(2,2)$ 성분에서 미주는 P에서 $9600$원, Q에서 $9300$원이므로 Q가 $9600-9300=300$원 더 싸다.\nstep7) 따라서 두 사람 모두 편의점 Q에서 사야 하며, 성훈이는 $1900$원, 미주는 $300$원 더 적게 든다.",
+   "confidence": "high",
+   "note": "행/열의 배치는 표를 그대로 옮긴 것으로, 전치하여 잡아도 같은 결론(성훈 Q 1900원, 미주 Q 300원 절약)."
+  },
+  {
+   "number": 20,
+   "answer": "$f(\\alpha-\\beta)=f(8)=1248$",
+   "solution": "step1) (가)에서 $(\\omega+\\overline{\\omega})^{2}=\\omega^{2}+2\\omega\\overline{\\omega}+\\overline{\\omega}^{2}$ 이므로 $36=16+2\\omega\\overline{\\omega}$, 즉 $\\omega\\overline{\\omega}=10$ 이다.\nstep2) 계수가 실수이므로 $\\overline{\\omega}$ 도 근이고, 두 허근은 $x^{2}-6x+10=0$ 의 근이다.\nstep3) (다)에서 모든 실수 $x$ 에 대하여 $x^{2}+2(k-1)x-k+3\\geq 0$ 이려면 $\\frac{D}{4}=(k-1)^{2}-(-k+3)\\leq 0$ 이어야 한다.\nstep4) $k^{2}-2k+1+k-3\\leq 0$ 에서 $k^{2}-k-2\\leq 0$, 즉 $(k-2)(k+1)\\leq 0$ 이므로 $-1\\leq k\\leq 2$ 이다.\nstep5) 정수 $k$ 는 $-1, 0, 1, 2$ 의 4개이므로 $\\alpha=4$ 이고, (나)에서 $\\beta=-\\alpha=-4$ 이다.\nstep6) 따라서 $f(x)=(x^{2}-6x+10)(x-4)(x+4)=(x^{2}-6x+10)(x^{2}-16)$ 이다.\nstep7) $\\alpha-\\beta=4-(-4)=8$ 이므로 $f(8)=(64-48+10)(64-16)=26\\times 48=1248$ 이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 21,
+   "answer": "$30$",
+   "solution": "step1) 세 자리 자연수이므로 백의 자리에는 $0$ 이 올 수 없고, 짝수이므로 일의 자리는 $0, 2, 4$ 중 하나이다.\nstep2) 일의 자리가 $0$ 인 경우: 남은 $1,2,3,4$ 에서 백의 자리와 십의 자리를 뽑아 배열하므로 $4\\times 3=12$ 가지.\nstep3) 일의 자리가 $2$ 인 경우: 백의 자리는 $0$ 을 제외한 $1,3,4$ 중 하나로 3가지, 십의 자리는 남은 3개 중 하나로 3가지이므로 $3\\times 3=9$ 가지.\nstep4) 일의 자리가 $4$ 인 경우도 같은 방법으로 $9$ 가지.\nstep5) 따라서 $12+9+9=30$ 이다. (전수조사로 확인)",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 22,
+   "answer": "(1) $-1, 0, 1, 2, 3$ (2) $a=2$ 이고 $b=-4, -5, -6, -7$ (3) $f(2)$ 의 최솟값은 $4$",
+   "solution": "step1) $f(x)=-x^{2}+ax-b>0$ 은 $x^{2}-ax+b<0$ 과 같고, 이차방정식의 두 실근을 $r_{1}<r_{2}$ 라 하면 해는 $r_{1}<x<r_{2}$ 인 하나의 구간이다.\nstep2) 이 구간 안의 정수는 연속한 5개이고 그 합이 $5$ 이므로 가운데 수는 $1$ 이다. 따라서 정수는 $-1, 0, 1, 2, 3$ 이다.\nstep3) 정수 $-1$ 은 포함되고 $-2$ 는 포함되지 않으므로 $-2\\leq r_{1}<-1$ 인데, 근이 정수가 아니므로 $-2<r_{1}<-1$ 이다. 같은 이유로 $3<r_{2}<4$ 이다.\nstep4) 근과 계수의 관계에서 $a=r_{1}+r_{2}\\in(1,3)$ 이므로 정수 $a=2$ 이다.\nstep5) $a=2$ 이면 $x^{2}-2x+b=0$ 의 근은 $x=1\\pm\\sqrt{1-b}$ 이고, $-2<1-\\sqrt{1-b}<-1$ 에서 $2<\\sqrt{1-b}<3$, 즉 $4<1-b<9$ 이므로 $-8<b<-3$ 이다.\nstep6) 정수 $b$ 는 $-4, -5, -6, -7$ 이고 이때 $\\sqrt{1-b}=\\sqrt{5},\\sqrt{6},\\sqrt{7},\\sqrt{8}$ 이 모두 무리수이므로 근이 정수가 아니라는 조건도 만족한다.\nstep7) $f(2)=-4+2a-b=-4+4-b=-b$ 이므로 $b=-4,-5,-6,-7$ 에 대하여 $f(2)=4,5,6,7$ 이다.\nstep8) 따라서 $f(2)$ 의 최솟값은 $b=-4$ 일 때 $4$ 이다. (검증: $f(x)=-x^{2}+2x+4$ 의 $f(x)>0$ 해는 $1-\\sqrt{5}<x<1+\\sqrt{5}$, 정수는 $-1,0,1,2,3$ 으로 5개, 합 5)",
+   "confidence": "high",
+   "note": ""
+  }
+ ]
+}

@@ -1,0 +1,174 @@
+{
+ "exam_id": 4311,
+ "pass": "A",
+ "items": [
+  {
+   "number": 1,
+   "answer": "③",
+   "solution": "step1) 음수의 제곱근 성질: $a<0, b<0$이면 $\\sqrt{a}\\sqrt{b}=-\\sqrt{ab}$이므로 $\\sqrt{-2}\\sqrt{-8}=-\\sqrt{16}=-4$이다.\nstep2) $\\sqrt{-8}=2\\sqrt{2}\\,i$, $\\sqrt{-2}=\\sqrt{2}\\,i$이므로 $\\dfrac{\\sqrt{-8}}{\\sqrt{-2}}=\\dfrac{2\\sqrt{2}\\,i}{\\sqrt{2}\\,i}=2$이다.\nstep3) 따라서 구하는 값은 $-4+2=-2$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 2,
+   "answer": "④",
+   "solution": "step1) $A+B-C=(2x^{2}-x+1)+(3x-2)-(-x^{2}+3)$이다.\nstep2) 괄호를 풀면 $2x^{2}-x+1+3x-2+x^{2}-3$이다.\nstep3) 동류항끼리 정리하면 $3x^{2}+2x-4$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 3,
+   "answer": "①",
+   "solution": "step1) $x^{3}$의 계수는 $x^{2}\\cdot bx$와 $x\\cdot x^{2}$에서 나오므로 $b+1$이다.\nstep2) $x^{2}$의 계수는 $x^{2}\\cdot(-2)$, $x\\cdot bx$, $a\\cdot x^{2}$에서 나오므로 $-2+b+a$이다.\nstep3) $b+1=a+b-2$에서 $a=3$이다.\nstep4) 상수항은 $a\\times(-2)=-6$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 4,
+   "answer": "③",
+   "solution": "step1) 복소수 $a+bi$($a,b$는 실수)에서 실수부분은 $a$, 허수부분은 $b$이다.\nstep2) $1+i$의 허수부분은 $i$가 아니라 $1$이므로 ③이 옳지 않다.\nstep3) ①, ②, ④, ⑤는 각각 허수단위의 정의, $\\overline{1}=1$, $\\overline{i}=-i$, $2+3i$의 실수부분 $2$로 모두 옳다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 5,
+   "answer": "④",
+   "solution": "step1) $z-\\bar{z}\\neq 0$이므로 $z$는 실수가 아니다.\nstep2) $w=z-1$이라 하면 $w$도 실수가 아니고 $w^{2}$은 실수이다.\nstep3) $w=p+qi$($q\\neq 0$)라 하면 $w^{2}=p^{2}-q^{2}+2pqi$가 실수이므로 $2pq=0$, 즉 $p=0$이다.\nstep4) 따라서 $z-1=qi$, $z=1+qi$이므로 $z+\\bar{z}=(1+qi)+(1-qi)=2$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 6,
+   "answer": "③",
+   "solution": "step1) ㄱ: $x^{2}-5x+3=0$에서 두 근의 곱은 $\\dfrac{3}{1}=3$이므로 옳다.\nstep2) ㄴ: $4x^{2}-4x+1=(2x-1)^{2}=0$이므로 중근 $x=\\dfrac{1}{2}$를 가진다. 옳다.\nstep3) ㄷ: 계수가 실수이므로 한 근이 $2+i$이면 다른 한 근은 켤레복소수 $2-i$이다. $i-2=-2+i$가 아니므로 옳지 않다.\nstep4) 따라서 옳은 것은 ㄱ, ㄴ이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 7,
+   "answer": "⑤",
+   "solution": "step1) 몫의 최고차항 $2x$와 나누는 식의 곱이 $2ax^{3}+2bx^{2}-2x=2x^{3}+2x^{2}+cx$이므로 $a=1$, $b=1$, $c=-2$이다.\nstep2) 나누는 식은 $x^{2}+x-1$이고, 첫 뺄셈 결과는 $(2x^{3}+x^{2}+2)-(2x^{3}+2x^{2}-2x)=-x^{2}+2x+2$이다.\nstep3) 몫의 다음 항 $-1$과의 곱은 $-x^{2}-x+1$이고, 나머지는 $(-x^{2}+2x+2)-(-x^{2}-x+1)=3x+1$이므로 $d=3$, $e=1$이다.\nstep4) $a+b+c+d+e=1+1-2+3+1=4$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 8,
+   "answer": "④",
+   "solution": "step1) $(x^{2}-2x+1)^{10}=\\{(x-1)^{2}\\}^{10}=(x-1)^{20}$이다.\nstep2) ㄱ: $x=0$을 대입하면 $a_{0}=(-1)^{20}=1$이므로 옳다.\nstep3) ㄴ: $x=1$을 대입하면 $a_{0}+a_{1}+\\cdots+a_{20}=0$이므로 $1$이라는 것은 옳지 않다.\nstep4) ㄷ: $x=-1$을 대입하면 $a_{0}-a_{1}+\\cdots+a_{20}=(-2)^{20}=2^{20}$이므로 짝수 번째 계수의 합은 $\\dfrac{0+2^{20}}{2}=2^{19}$이다. 여기서 $a_{0}=1$을 빼면 $a_{2}+a_{4}+\\cdots+a_{20}=2^{19}-1$이므로 옳다.\nstep5) 따라서 옳은 것은 ㄱ, ㄷ이다.",
+   "confidence": "medium",
+   "note": "ㄷ의 우변 끝 숫자가 [판독불가]. 계산상 $2^{19}-1$이며 ㄴ이 거짓이므로 후보는 ①(ㄱ) 또는 ④(ㄱ,ㄷ). 빈칸이 1이면 ④."
+  },
+  {
+   "number": 9,
+   "answer": "②",
+   "solution": "step1) $(x-b)(x-3)(x+4)=(x-b)(x^{2}+x-12)=x^{3}+(1-b)x^{2}+(-12-b)x+12b$이다.\nstep2) 상수항 비교: $12b=24$에서 $b=2$이다.\nstep3) $x^{2}$의 계수 비교: $1-b=-1$로 $b=2$와 일치한다.\nstep4) $x$의 계수 비교: $-12-b=-14=-a$이므로 $a=14$이다.\nstep5) 따라서 $ab=14\\times 2=28$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 10,
+   "answer": "②",
+   "solution": "step1) $x^{2}-3x+1=-2x+k+3$에서 $x^{2}-x-2-k=0$이다.\nstep2) 적어도 한 점에서 만나려면 판별식 $D=(-1)^{2}-4(-2-k)=1+8+4k\\ge 0$이다.\nstep3) $4k\\ge -9$이므로 $k\\ge -\\dfrac{9}{4}=-2.25$이다.\nstep4) 이를 만족하는 정수 $k$의 최솟값은 $-2$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 11,
+   "answer": "⑤",
+   "solution": "step1) $a$, $b$는 $x^{2}+x-3=0$의 두 근이므로 근과 계수의 관계에서 $a+b=-1$, $ab=-3$이다.\nstep2) $a+ab+b=(a+b)+ab=-1+(-3)=-4$이다.\nstep3) $P(-4)=(-4)^{2}+(-4)-3=16-4-3=9$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 12,
+   "answer": "①",
+   "solution": "step1) $3, -4, 7, -1$에 대해 $\\dfrac{1}{3}$으로 조립제법을 하면 $3,\\ -3,\\ 6$이 나오고 나머지는 $1$이다.\nstep2) 즉 $3x^{3}-4x^{2}+7x-1=\\left(x-\\dfrac{1}{3}\\right)(3x^{2}-3x+6)+1$이므로 (가)$=f(x)=3x^{2}-3x+6$이다.\nstep3) $\\left(x-\\dfrac{1}{3}\\right)(3x^{2}-3x+6)=(3x-1)(x^{2}-x+2)$이므로 (나)$=g(x)=x^{2}-x+2$이고 나머지 $a=1$이다.\nstep4) $f(1)=6$, $g(1)=2$이므로 $f(1)-g(1)+a=6-2+1=5$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 13,
+   "answer": "⑤",
+   "solution": "step1) ㄱ: $i^{4}=1$이므로 $i^{4}-1=0$이다. 옳다.\nstep2) ㄴ: 좌변 $=i-i+i-i=0$, 우변 $=-1+1-1+1=0$이므로 두 값이 같다. 옳다.\nstep3) ㄷ: $x^{2}=-a$의 해는 $x=\\pm\\sqrt{a}\\,i$이므로 $-a$의 제곱근은 $\\sqrt{a}\\,i$와 $-\\sqrt{a}\\,i$이다. 옳다.\nstep4) 따라서 ㄱ, ㄴ, ㄷ 모두 옳다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 14,
+   "answer": "①",
+   "solution": "step1) (가)에서 $a^{2}-4b=0$, 즉 $a^{2}=4b$이다.\nstep2) (나)에서 $\\dfrac{D}{4}=16-a>0$이므로 $a<16$이다.\nstep3) (다)에서 $\\dfrac{D}{4}=4-b<0$이므로 $b>4$이다.\nstep4) $a^{2}=4b$이고 $b$가 자연수이려면 $a=2k$($k$는 자연수), 이때 $b=k^{2}$이다.\nstep5) $b>4$에서 $k\\ge 3$, $a<16$에서 $2k<16$이므로 $k\\le 7$이다.\nstep6) $k=3,4,5,6,7$의 5가지, 즉 $(a,b)=(6,9),(8,16),(10,25),(12,36),(14,49)$로 5개이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 15,
+   "answer": "⑤",
+   "solution": "step1) $f(x)=x^{2}+px+q$라 하자.\nstep2) (나)에서 $x^{2}+px+q=-2x+4$, 즉 $x^{2}+(p+2)x+(q-4)=0$의 두 근의 합이 $-(p+2)=2$이므로 $p=-4$이다.\nstep3) (가)에서 $x^{2}+px+q+3=0$이 중근을 가지므로 $p^{2}-4(q+3)=0$이다. $16=4(q+3)$에서 $q=1$이다.\nstep4) 따라서 $f(x)=x^{2}-4x+1$이고 $\\alpha+\\beta=4$, $\\alpha\\beta=1$이다.\nstep5) $\\alpha^{2}+\\beta^{2}=(\\alpha+\\beta)^{2}-2\\alpha\\beta=16-2=14$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 16,
+   "answer": "①",
+   "solution": "step1) $\\alpha$는 근이므로 $\\alpha^{2}-2\\alpha+3=0$, 즉 $\\alpha^{2}=2\\alpha-3$이다.\nstep2) 그러므로 $\\alpha^{2}-\\alpha+1=(2\\alpha-3)-\\alpha+1=\\alpha-2$이고, 마찬가지로 $\\beta^{2}-\\beta+1=\\beta-2$이다.\nstep3) 근과 계수의 관계에서 $\\alpha+\\beta=2$, $\\alpha\\beta=3$이다.\nstep4) $\\dfrac{1}{\\alpha-2}+\\dfrac{1}{\\beta-2}=\\dfrac{\\alpha+\\beta-4}{\\alpha\\beta-2(\\alpha+\\beta)+4}=\\dfrac{2-4}{3-4+4}=\\dfrac{-2}{3}$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 17,
+   "answer": "②",
+   "solution": "step1) 나머지 $g(x)-3x^{2}$의 차수가 $g(x)$의 차수보다 작아야 하므로 $g(x)$는 이차식이고 $x^{2}$의 계수는 $3$이다. $g(x)=3x^{2}+bx+c$로 놓으면 몫과 나머지는 모두 $bx+c$이다.\nstep2) $f(x)=g(x)(bx+c)+(bx+c)=(bx+c)(3x^{2}+bx+c+1)$이다.\nstep3) 최고차항의 계수가 $1$이므로 $3b=1$, 즉 $b=\\dfrac{1}{3}$이다.\nstep4) (나)에서 $f(1)=\\left(\\dfrac{1}{3}+c\\right)\\left(c+\\dfrac{13}{3}\\right)=-4$이고, 정리하면 $c^{2}+\\dfrac{14}{3}c+\\dfrac{49}{9}=0$, 즉 $\\left(c+\\dfrac{7}{3}\\right)^{2}=0$이므로 $c=-\\dfrac{7}{3}$이다.\nstep5) $f(x)=\\dfrac{1}{9}(x-7)(9x^{2}+x-4)$이므로 $f(-2)=\\dfrac{1}{9}(-9)(36-2-4)=-30$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 18,
+   "answer": "$6-i$ (즉 $a=6$, $b=-1$)",
+   "solution": "step1) $x^{2}=(1+i)^{2}=1+2i+i^{2}=2i$이다.\nstep2) $y^{2}=(-2+i)^{2}=4-4i+i^{2}=3-4i$이다.\nstep3) $xy=(1+i)(-2+i)=-2+i-2i+i^{2}=-3-i$이다.\nstep4) $x^{2}-xy+y^{2}=2i-(-3-i)+(3-4i)=2i+3+i+3-4i=6-i$이다.\nstep5) 따라서 $a=6$, $b=-1$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 19,
+   "answer": "$m=3$, $n=1$",
+   "solution": "step1) 중근을 가지려면 판별식이 $0$이어야 하므로 $\\dfrac{D}{4}=(m+k)^{2}-(k^{2}+6k+9n)=0$이다.\nstep2) 좌변을 전개하면 $m^{2}+2mk+k^{2}-k^{2}-6k-9n=(2m-6)k+(m^{2}-9n)$이다.\nstep3) 실수 $k$의 값에 관계없이 항상 $0$이어야 하므로 $2m-6=0$이고 $m^{2}-9n=0$이다.\nstep4) $m=3$이고 $9-9n=0$에서 $n=1$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 20,
+   "answer": "$P(x)=x^{2}-3x+3$",
+   "solution": "step1) 최고차항의 계수가 $1$이고 두 근이 $\\alpha$, $\\beta$이므로 $P(x)=(x-\\alpha)(x-\\beta)$이다.\nstep2) (가)에서 $(\\alpha-1)(\\beta-1)=(1-\\alpha)(1-\\beta)=P(1)=1$이다.\nstep3) (나)에서 나머지정리에 의해 $P(2)=1$이다.\nstep4) $P(x)=x^{2}+px+q$로 놓으면 $P(1)=1+p+q=1$에서 $p+q=0$, $P(2)=4+2p+q=1$에서 $2p+q=-3$이다.\nstep5) 두 식을 빼면 $p=-3$, $q=3$이므로 $P(x)=x^{2}-3x+3$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 21,
+   "answer": "$3$",
+   "solution": "step1) $x^{2}-3x=t$로 놓으면 주어진 식은 $t(t+1)-20=t^{2}+t-20$이다.\nstep2) $t^{2}+t-20=(t+5)(t-4)$이다.\nstep3) $t$를 되돌리면 $(x^{2}-3x+5)(x^{2}-3x-4)=(x^{2}-3x+5)(x-4)(x+1)$이다.\nstep4) $(x+a)(x-4)(x^{2}+bx+c)$와 비교하면 $a=1$, $b=-3$, $c=5$이다.\nstep5) 따라서 $a+b+c=1-3+5=3$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 22,
+   "answer": "$152$",
+   "solution": "step1) 겉넓이의 합이 $6a^{2}+6b^{2}=204$이므로 $a^{2}+b^{2}=34$이다.\nstep2) $(a+b)^{2}=a^{2}+2ab+b^{2}$에서 $64=34+2ab$이므로 $ab=15$이다.\nstep3) 부피의 합은 $a^{3}+b^{3}=(a+b)^{3}-3ab(a+b)$이다.\nstep4) $=8^{3}-3\\times 15\\times 8=512-360=152$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 23,
+   "answer": "$y=3$, $y=-8x+3$",
+   "solution": "step1) 점 $(0,3)$을 지나는 직선을 $y=mx+3$이라 하자. ($x=0$은 그래프와 접할 수 없다.)\nstep2) $x^{2}-4x+7=mx+3$에서 $x^{2}-(4+m)x+4=0$이다.\nstep3) 접하려면 판별식 $D=(4+m)^{2}-16=0$이므로 $4+m=\\pm 4$, 즉 $m=0$ 또는 $m=-8$이다.\nstep4) 따라서 접선의 방정식은 $y=3$과 $y=-8x+3$이다. (각각 $x=2$, $x=-2$에서 접한다.)",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 24,
+   "answer": "$3x^{2}-x+4$",
+   "solution": "step1) 조건에서 $f(x)=(x^{2}-x+1)g(x)+2x+1$이다.\nstep2) $g(x)$를 $x+1$로 나눈 몫을 $h(x)$라 하면 나머지가 $3$이므로 $g(x)=(x+1)h(x)+3$이다.\nstep3) 대입하면 $f(x)=(x^{2}-x+1)\\{(x+1)h(x)+3\\}+2x+1=(x+1)(x^{2}-x+1)h(x)+3(x^{2}-x+1)+2x+1$이다.\nstep4) $(x+1)(x^{2}-x+1)=x^{3}+1$이므로 나머지는 $3(x^{2}-x+1)+2x+1=3x^{2}-x+4$이다.\nstep5) 차수가 $2$로 $x^{3}+1$의 차수보다 작으므로 나머지는 $3x^{2}-x+4$이다.",
+   "confidence": "high",
+   "note": ""
+  }
+ ]
+}

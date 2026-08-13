@@ -1,0 +1,160 @@
+{
+  "exam_id": 4333,
+  "pass": "A",
+  "items": [
+    {
+      "number": 1,
+      "answer": "①",
+      "solution": "step1) 선분 $\\mathrm{AB}$를 $2:3$으로 내분하는 점은 $\\left(\\frac{2\\cdot(-3)+3\\cdot 3}{2+3},\\ \\frac{2\\cdot(-4)+3\\cdot(-5)}{2+3}\\right)$이다.\nstep2) 계산하면 $\\left(\\frac{-6+9}{5},\\ \\frac{-8-15}{5}\\right)=\\left(\\frac{3}{5},\\ -\\frac{23}{5}\\right)$이다.\nstep3) 따라서 $a+b=\\frac{3}{5}-\\frac{23}{5}=-\\frac{20}{5}=-4$이다.",
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "number": 2,
+      "answer": "③",
+      "solution": "step1) 평행이동은 $x \\to x-1$, $y \\to y+2$를 대입하므로 $2(x-1)-(y+2)+3=0$, 즉 $2x-y-1=0$이다.\nstep2) 직선 $y=x$에 대한 대칭이동은 $x$와 $y$를 바꾸므로 $2y-x-1=0$, 즉 $x-2y+1=0$이다.\nstep3) $x+ay+b=0$과 비교하면 $a=-2$, $b=1$이다.\nstep4) 따라서 $a+2b=-2+2=0$이다.",
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "number": 3,
+      "answer": "②",
+      "solution": "step1) 구하는 원을 $x^{2}+y^{2}+Dx+Ey+F=0$이라 하면 $\\mathrm{O}(0,0)$을 지나므로 $F=0$이다.\nstep2) $\\mathrm{B}(4,0)$을 지나므로 $16+4D=0$에서 $D=-4$이다.\nstep3) $\\mathrm{A}(3,1)$을 지나므로 $9+1-12+E=0$에서 $E=2$이다.\nstep4) 원의 방정식은 $x^{2}+y^{2}-4x+2y=0$, 즉 $(x-2)^{2}+(y+1)^{2}=5$이므로 반지름은 $\\sqrt{5}$이다.\nstep5) 따라서 넓이는 $\\pi(\\sqrt{5})^{2}=5\\pi$이다.",
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "number": 4,
+      "answer": "③",
+      "solution": "step1) 직선 $y=x+1$ 위의 점을 $\\mathrm{P}(t,\\ t+1)$이라 한다.\nstep2) $\\overline{\\mathrm{PA}}^{2}=(t-3)^{2}+(t+4)^{2}=2t^{2}+2t+25$이다.\nstep3) $\\overline{\\mathrm{PB}}^{2}=(t-5)^{2}+(t-3)^{2}=2t^{2}-16t+34$이다.\nstep4) 두 식을 같게 놓으면 $2t+25=-16t+34$에서 $18t=9$, $t=\\frac{1}{2}$이다.\nstep5) 점의 좌표는 $\\left(\\frac{1}{2},\\ \\frac{3}{2}\\right)$이므로 $a+b=2$이다.",
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "number": 5,
+      "answer": "④",
+      "solution": "step1) $A=\\{9,\\ 18,\\ 27,\\ 36,\\ 45\\}$이고 $B=\\{1,\\ 2,\\ 3,\\ 6,\\ 9,\\ 18\\}$이다.\nstep2) ①은 $45 \\in A$는 참이지만 $\\{45\\}$는 $A$의 원소가 아니므로 거짓이다.\nstep3) ②는 $3 \\notin A$이므로 $3 \\in A^{c}$, 즉 거짓이다.\nstep4) ③은 $n(B)=6$이므로 거짓이다.\nstep5) ④는 $B-A^{c}=B \\cap A=\\{9,\\ 18\\}$이므로 $n(B-A^{c})=2$, 즉 참이다.\nstep6) ⑤는 $A^{c}-A=A^{c}$이고 $n(A^{c})=50-5=45 \\neq 0$이므로 거짓이다.",
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "number": 6,
+      "answer": "①",
+      "solution": "step1) 점 $\\mathrm{P}$가 $x$축 위에 있으므로 $\\mathrm{A}(7,4)$를 $x$축에 대하여 대칭이동한 점 $\\mathrm{A}'(7,-4)$에 대해 $\\overline{\\mathrm{AP}}=\\overline{\\mathrm{A}'\\mathrm{P}}$이다.\nstep2) 점 $\\mathrm{Q}$가 직선 $y=x$ 위에 있으므로 $\\mathrm{B}(2,1)$을 $y=x$에 대하여 대칭이동한 점 $\\mathrm{B}'(1,2)$에 대해 $\\overline{\\mathrm{QB}}=\\overline{\\mathrm{QB}'}$이다.\nstep3) $\\overline{\\mathrm{AP}}+\\overline{\\mathrm{PQ}}+\\overline{\\mathrm{QB}}=\\overline{\\mathrm{A}'\\mathrm{P}}+\\overline{\\mathrm{PQ}}+\\overline{\\mathrm{QB}'} \\geq \\overline{\\mathrm{A}'\\mathrm{B}'}$이다.\nstep4) 선분 $\\mathrm{A}'\\mathrm{B}'$은 $x$축과 $(3,0)$에서, 직선 $y=x$와 $\\left(\\frac{3}{2},\\frac{3}{2}\\right)$에서 이 순서대로 만나므로 등호가 성립한다.\nstep5) 따라서 최솟값은 $\\sqrt{(7-1)^{2}+(-4-2)^{2}}=\\sqrt{72}=6\\sqrt{2}$이다.",
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "number": 7,
+      "answer": "②",
+      "solution": "step1) 수학학원 집합을 $M$, 영어학원 집합을 $E$라 하면 $n(M)=20$, $n(E)=14$이다.\nstep2) 어느 학원도 다니지 않는 학생이 $7$명이므로 $n(M \\cup E)=30-7=23$이다.\nstep3) $n(M \\cap E)=n(M)+n(E)-n(M \\cup E)=20+14-23=11$이다.\nstep4) 따라서 수학학원만 다니는 학생 수는 $n(M)-n(M \\cap E)=20-11=9$이다.",
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "number": 8,
+      "answer": "④",
+      "solution": "step1) $y=x+3$을 $kx+y-2k+3=0$에 대입하면 $(k+1)x=2k-6$이므로 $x=\\frac{2k-6}{k+1}$ (단, $k \\neq -1$)이다.\nstep2) $y=x+3=\\frac{2k-6+3k+3}{k+1}=\\frac{5k-3}{k+1}$이다.\nstep3) 제2사분면 조건 $x<0$에서 $\\frac{2(k-3)}{k+1}<0$이므로 $-1<k<3$이다.\nstep4) $y>0$에서 $\\frac{5k-3}{k+1}>0$이므로 $k<-1$ 또는 $k>\\frac{3}{5}$이다.\nstep5) 두 조건의 공통범위는 $\\frac{3}{5}<k<3$이므로 정수 $k$는 $1,\\ 2$이다.\nstep6) 따라서 모든 정수 $k$의 합은 $3$이다.",
+      "confidence": "high",
+      "note": "k=3이면 교점이 (0,3)으로 y축 위라 제2사분면이 아니어서 제외했다."
+    },
+    {
+      "number": 9,
+      "answer": "③",
+      "solution": "step1) $(A^{c} \\cap B)^{c}=\\{1,2,3,5,7\\}$이므로 $A^{c} \\cap B=B-A=U-\\{1,2,3,5,7\\}$이다.\nstep2) $B=\\{1,3,6,8\\}$이고 $B-A \\subset B$이므로 $6,\\ 8$은 $\\{1,2,3,5,7\\}$에 없어 반드시 $B-A$에 속한다.\nstep3) 따라서 $B-A=\\{6,8\\}$이고 $U=\\{1,2,3,5,6,7,8\\}$이다.\nstep4) $1,\\ 3 \\in B$이지만 $B-A$에 없으므로 $1,\\ 3 \\in A$이고, $6,\\ 8 \\notin A$이다.\nstep5) $2,\\ 5,\\ 7$은 $A$에 속할 수도 아닐 수도 있으므로 최댓값 $m=1+3+2+5+7=18$, 최솟값 $n=1+3=4$이다.\nstep6) 따라서 $m+n=22$이다.",
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "number": 10,
+      "answer": "⑤",
+      "solution": "step1) 접선을 $y-4=m(x-3)$, 즉 $mx-y+4-3m=0$이라 한다.\nstep2) 원의 중심 $(0,0)$과의 거리가 반지름 $2$이므로 $\\frac{|4-3m|}{\\sqrt{m^{2}+1}}=2$이다.\nstep3) 양변을 제곱하면 $9m^{2}-24m+16=4m^{2}+4$에서 $5m^{2}-24m+12=0$이다.\nstep4) $m=\\frac{24 \\pm \\sqrt{576-240}}{10}=\\frac{24 \\pm 4\\sqrt{21}}{10}=\\frac{12 \\pm 2\\sqrt{21}}{5}$이다.\nstep5) $x$절편은 $3-\\frac{4}{m}$이므로 $m=\\frac{12+2\\sqrt{21}}{5} \\approx 4.23$일 때 $x$절편 $\\approx 2.06>0$이고, $m=\\frac{12-2\\sqrt{21}}{5} \\approx 0.57$일 때 $x$절편 $\\approx -4.06<0$이다.\nstep6) 따라서 $a=12$, $b=2$이므로 $a+b=14$이다.",
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "number": 11,
+      "answer": "⑤",
+      "solution": "step1) 포물선 위의 점을 $(t,\\ t^{2}+3t)$라 하면 직선 $2x-y-5=0$과의 거리는 $\\frac{|2t-(t^{2}+3t)-5|}{\\sqrt{5}}$이다.\nstep2) 분자는 $|-t^{2}-t-5|=t^{2}+t+5$ (판별식 $1-20<0$이므로 항상 양수)이다.\nstep3) $t^{2}+t+5=\\left(t+\\frac{1}{2}\\right)^{2}+\\frac{19}{4}$이므로 $t=-\\frac{1}{2}$에서 최솟값 $\\frac{19}{4}$를 갖는다.\nstep4) 거리의 최솟값은 $\\frac{19}{4\\sqrt{5}}=\\frac{19\\sqrt{5}}{20}=\\frac{19}{20}\\sqrt{5}$이다.\nstep5) $p=20$, $q=19$는 서로소이므로 $p+q=39$이다.",
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "number": 12,
+      "answer": "②",
+      "solution": "step1) 원점과 직선 $3x+4y+5=0$ 사이의 거리는 $\\frac{|5|}{\\sqrt{9+16}}=1$이고, 원 $C_{1}$이 이 직선에 접하므로 $r=1$이다.\nstep2) 조건 (가)에서 원 $C_{2}$가 $C_{1}$의 중심인 원점을 지나므로 $a^{2}+b^{2}=r^{2}=1$이다.\nstep3) 조건 (나)에서 $C_{2}$의 중심 $(-a,\\ b)$와 직선 사이의 거리가 $1$이므로 $\\frac{|-3a+4b+5|}{5}=1$, 즉 $-3a+4b=0$ 또는 $-3a+4b=-10$이다.\nstep4) $-3a+4b=-10$이면 $a \\leq 1$에서 $4b=3a-10 \\leq -7$이 되어 $b>0$에 모순이다.\nstep5) $-3a+4b=0$에서 $b=\\frac{3}{4}a$를 $a^{2}+b^{2}=1$에 대입하면 $\\frac{25}{16}a^{2}=1$, $a=\\frac{4}{5}$, $b=\\frac{3}{5}$이다.\nstep6) 따라서 $a+b-r=\\frac{4}{5}+\\frac{3}{5}-1=\\frac{2}{5}$이다.",
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "number": 13,
+      "answer": "③",
+      "solution": "step1) 평행이동한 원은 중심 $(p,\\ q)$, 반지름 $\\sqrt{10}$이다.\nstep2) 직선 $3x-y-5=0$에 접하므로 $\\frac{|3p-q-5|}{\\sqrt{10}}=\\sqrt{10}$, 즉 $|3p-q-5|=10$이다.\nstep3) $3p-q-5=10$이면 $q=3p-15$이다. $p>0,\\ q<0$이려면 $p<5$이므로 $p=1,2,3,4$이고 $q=-12,-9,-6,-3$으로 $4$개이다. $p<0,\\ q>0$은 불가능하다.\nstep4) $3p-q-5=-10$이면 $q=3p+5$이다. $p<0,\\ q>0$이려면 $-\\frac{5}{3}<p<0$이므로 $p=-1$, $q=2$로 $1$개이다. $p>0,\\ q<0$은 불가능하다.\nstep5) 따라서 순서쌍의 개수는 $4+1=5$이다.",
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "number": 14,
+      "answer": "④",
+      "solution": "step1) $\\mathrm{B}(-3,-\\sqrt{7})$은 $9+7=16$이므로 원 위의 점이다.\nstep2) $\\overline{\\mathrm{AB}}=\\sqrt{(4+3)^{2}+(\\sqrt{7})^{2}}=\\sqrt{49+7}=2\\sqrt{14}$이다.\nstep3) 직선 $\\mathrm{AB}$의 기울기는 $\\frac{-\\sqrt{7}-0}{-3-4}=\\frac{1}{\\sqrt{7}}$이므로 직선의 방정식은 $x-\\sqrt{7}y-4=0$이다.\nstep4) 원의 중심 $(0,0)$과 이 직선 사이의 거리는 $\\frac{4}{\\sqrt{8}}=\\sqrt{2}$이므로 점 $\\mathrm{C}$에서 직선까지 거리의 최댓값은 $4+\\sqrt{2}$이다.\nstep5) 넓이의 최댓값은 $\\frac{1}{2} \\times 2\\sqrt{14} \\times (4+\\sqrt{2})=4\\sqrt{14}+\\sqrt{28}=2\\sqrt{7}+4\\sqrt{14}$이다.\nstep6) $a=2$, $b=4$이므로 $a+b=6$이다.",
+      "confidence": "high",
+      "note": "발문의 '원 위를 움직이는 두 점 A, B'는 좌표가 주어져 있어 고정점으로 해석했다."
+    },
+    {
+      "number": 15,
+      "answer": "①",
+      "solution": "step1) 점 $(1,2)$를 지나는 직선 중 원점과의 거리가 최대인 직선은 원점과 $(1,2)$를 잇는 선분에 수직인 직선이므로 $l_{1}: x+2y-5=0$이다.\nstep2) $l_{1}$의 $x$절편은 $x=5$이므로 $\\mathrm{A}(5,\\ 0)$이다.\nstep3) $\\mathrm{P}(a,b)$가 $l_{1}$ 위에 있으므로 $a=5-2b$이고, 제2사분면 조건 $a<0$에서 $b>\\frac{5}{2}$이다.\nstep4) $l_{2}$는 기울기가 $2$이고 $\\mathrm{P}$를 지나므로 $x$절편은 $a-\\frac{b}{2}$, 즉 $\\mathrm{B}\\left(a-\\frac{b}{2},\\ 0\\right)$이다.\nstep5) $\\overline{\\mathrm{AB}}=\\left|5-a+\\frac{b}{2}\\right|=\\left|2b+\\frac{b}{2}\\right|=\\frac{5b}{2}$이고 높이는 $b$이다.\nstep6) 넓이 $\\frac{1}{2} \\cdot \\frac{5b}{2} \\cdot b=\\frac{5b^{2}}{4}=20$에서 $b=4$, $a=-3$이다.\nstep7) 따라서 $a+b=1$이다.",
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "number": 16,
+      "answer": "②",
+      "solution": "step1) 조건 (나)에서 $1 \\leftrightarrow 16$, $2 \\leftrightarrow 8$, $4 \\leftrightarrow 4$이므로 $A$는 $\\{1,16\\}$, $\\{2,8\\}$, $\\{4\\}$의 합집합 꼴이어야 한다.\nstep2) 조건 (가) $A \\cup B=U$에서 $B \\supset U-A$이므로 $B$의 개수는 $2^{n(A)}$이다.\nstep3) 공집합이 아닌 $A$는 $\\{1,16\\}$, $\\{2,8\\}$, $\\{4\\}$, $\\{1,2,8,16\\}$, $\\{1,4,16\\}$, $\\{2,4,8\\}$, $U$의 $7$가지이고 원소 개수는 각각 $2,2,1,4,3,3,5$이다.\nstep4) $2^{2}+2^{2}+2^{1}+2^{4}+2^{3}+2^{3}+2^{5}=4+4+2+16+8+8+32=74$이다.\nstep5) $B=\\varnothing$인 경우는 $A=U$일 때 한 가지뿐이므로 조건 (다)에 의해 제외한다.\nstep6) 따라서 순서쌍의 개수는 $74-1=73$이다.",
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "number": 17,
+      "answer": "①",
+      "solution": "step1) 직선 $\\mathrm{OA}$와 $\\mathrm{BC}$의 기울기가 모두 $-\\frac{3}{2}$이므로 $\\overline{\\mathrm{OA}} \\parallel \\overline{\\mathrm{BC}}$인 사다리꼴이다.\nstep2) $\\overline{\\mathrm{OA}}=\\sqrt{13}$, $\\overline{\\mathrm{BC}}=2\\sqrt{13}$, 두 평행선 사이의 거리는 $\\frac{|3 \\cdot 2+2 \\cdot 6|}{\\sqrt{13}}=\\frac{18}{\\sqrt{13}}$이므로 $S=\\frac{1}{2}(\\sqrt{13}+2\\sqrt{13}) \\cdot \\frac{18}{\\sqrt{13}}=27$이다.\nstep3) 선분 $\\mathrm{OA}$를 $1:3$으로 내분하는 점은 $\\mathrm{M}\\left(-\\frac{1}{2},\\ \\frac{3}{4}\\right)$이다.\nstep4) 직선이 변 $\\mathrm{BC}$와 만나는 점을 $\\mathrm{N}=(2+4s,\\ 6-6s)$라 하면 사각형 $\\mathrm{MABN}$의 넓이는 $\\frac{13.5+36s}{2}$이다.\nstep5) 이 값이 $\\frac{S}{2}=\\frac{27}{2}$이 되려면 $s=\\frac{3}{8}$이므로 $\\mathrm{N}\\left(\\frac{7}{2},\\ \\frac{15}{4}\\right)$이다.\nstep6) 직선 $\\mathrm{MN}$의 기울기는 $m=\\frac{\\frac{15}{4}-\\frac{3}{4}}{\\frac{7}{2}+\\frac{1}{2}}=\\frac{3}{4}$이고, $\\frac{3}{4}=\\frac{3}{4}\\left(-\\frac{1}{2}\\right)+n$에서 $n=\\frac{9}{8}$이다.\nstep7) 따라서 $\\frac{8}{9} \\times 27 \\times \\left(\\frac{9}{8}-\\frac{3}{4}\\right)=24 \\times \\frac{3}{8}=9$이다.",
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "number": 18,
+      "answer": "③",
+      "solution": "step1) $a=4$일 때 $(4,4) \\to (3,6) \\to (6,3) \\to \\mathrm{P}_{3}(5,5)$이다.\nstep2) 이어서 $(5,5) \\to (4,7) \\to (3,9) \\to (9,3) \\to (8,5) \\to \\mathrm{P}_{8}(7,7)$이다.\nstep3) 다른 자연수 $a$에서는 $\\mathrm{P}_{3}$ 또는 $\\mathrm{P}_{8}$의 두 좌표가 같지 않아 두 원이 동시에 $x$축, $y$축에 접할 수 없으므로 $a=4$이다.\nstep4) 두 원은 $(x-5)^{2}+(y-5)^{2}=25$, $(x-7)^{2}+(y-7)^{2}=49$이다.\nstep5) 두 식을 빼면 $4x-24+4y-24=-24$에서 공통현의 방정식은 $x+y-6=0$이다.\nstep6) 중심 $(5,5)$에서 이 직선까지의 거리는 $\\frac{|5+5-6|}{\\sqrt{2}}=2\\sqrt{2}$이다.\nstep7) 따라서 $\\overline{\\mathrm{AB}}=2\\sqrt{25-8}=2\\sqrt{17}$이다.",
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "number": 19,
+      "answer": "중심 $(-3,~1)$, 반지름의 길이 $\\sqrt{3}$",
+      "solution": "step1) $x^{2}+6x+y^{2}-2y+7=0$에서 완전제곱식으로 고친다.\nstep2) $(x^{2}+6x+9)+(y^{2}-2y+1)=-7+9+1$이다.\nstep3) $(x+3)^{2}+(y-1)^{2}=3$이다.\nstep4) 따라서 중심은 $(-3,\\ 1)$이고 반지름의 길이는 $\\sqrt{3}$이다.",
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "number": 20,
+      "answer": "$y=3x-10$",
+      "solution": "step1) 선분 $\\mathrm{AB}$의 중점은 $\\left(\\frac{-1+5}{2},\\ \\frac{-3-5}{2}\\right)=(2,\\ -4)$이다.\nstep2) 직선 $\\mathrm{AB}$의 기울기는 $\\frac{-5-(-3)}{5-(-1)}=\\frac{-2}{6}=-\\frac{1}{3}$이다.\nstep3) 수직이등분선의 기울기는 $-\\frac{1}{3}$의 음의 역수인 $3$이다.\nstep4) 점 $(2,-4)$를 지나므로 $y+4=3(x-2)$이다.\nstep5) 따라서 수직이등분선의 방정식은 $y=3x-10$이다.",
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "number": 21,
+      "answer": "$5$",
+      "solution": "step1) 점 $\\mathrm{P}(2,-3)$을 원점에 대하여 대칭이동하면 $\\mathrm{Q}(-2,\\ 3)$이다.\nstep2) 점 $\\mathrm{P}(2,-3)$을 직선 $y=x$에 대하여 대칭이동하면 $\\mathrm{R}(-3,\\ 2)$이다.\nstep3) 세 점 $\\mathrm{P}(2,-3)$, $\\mathrm{Q}(-2,3)$, $\\mathrm{R}(-3,2)$에 대하여 넓이는 $\\frac{1}{2}|x_{P}(y_{Q}-y_{R})+x_{Q}(y_{R}-y_{P})+x_{R}(y_{P}-y_{Q})|$이다.\nstep4) $\\frac{1}{2}|2(3-2)+(-2)(2+3)+(-3)(-3-3)|=\\frac{1}{2}|2-10+18|=\\frac{1}{2} \\times 10$이다.\nstep5) 따라서 삼각형 $\\mathrm{PQR}$의 넓이는 $5$이다.",
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "number": 22,
+      "answer": "$a=2$, $A=\\{2,~4,~5\\}$, $B=\\{1,~2,~4\\}$",
+      "solution": "step1) $2 \\in B$인데 $2 \\notin A$이면 $2 \\in B-A \\subset \\{1,5\\}$가 되어 모순이므로 $2 \\in A$이다.\nstep2) 따라서 $a^{2}+1=2$ 또는 $2a^{2}-6=2$이다.\nstep3) $a^{2}+1=2$이면 $a=\\pm 1$이고 $A=\\{4,\\ 2,\\ -4\\}$이다. $a=1$일 때 $B=\\{2,4,0\\}$이므로 대칭차집합은 $\\{-4,\\ 0\\}$, $a=-1$일 때 $B=\\{2,4,-2\\}$이므로 $\\{-4,\\ -2\\}$가 되어 모두 조건에 맞지 않는다.\nstep4) $2a^{2}-6=2$이면 $a^{2}=4$, $a=\\pm 2$이고 $a^{2}+1=5$이므로 $A=\\{4,\\ 5,\\ 2\\}$이다.\nstep5) $a=2$이면 $B=\\{2,\\ 4,\\ 1\\}$이므로 $A-B=\\{5\\}$, $B-A=\\{1\\}$에서 $(A-B) \\cup (B-A)=\\{1,\\ 5\\}$로 조건을 만족한다.\nstep6) $a=-2$이면 $B=\\{2,\\ 4,\\ -3\\}$이므로 대칭차집합이 $\\{5,\\ -3\\}$이 되어 조건에 맞지 않는다.\nstep7) 따라서 $a=2$, $A=\\{2,\\ 4,\\ 5\\}$, $B=\\{1,\\ 2,\\ 4\\}$이다.",
+      "confidence": "high",
+      "note": ""
+    }
+  ]
+}

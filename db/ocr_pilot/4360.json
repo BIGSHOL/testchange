@@ -1,0 +1,686 @@
+{
+ "meta": {
+  "exam_id": 4360,
+  "ocr_source": "session-vision"
+ },
+ "header": {
+  "title": "무학고 1학년 공통수학2 (2025학년도 2학기 1회 지필고사)"
+ },
+ "questions": [
+  {
+   "number": 1,
+   "score": 4.2,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "점 (2,~1)을 $x$축의 방향으로 $1$만큼, $y$축의 방향으로 $-2$만큼 평행이동한 점의 좌표는?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "(1,~-1)"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "(1,~3)"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "(2,~3)"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "(3,~-1)"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "(3,~3)"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 2,
+   "score": 4.3,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "좌표평면 위의 두 점 $\\mathrm{P}(1,~2)$, $\\mathrm{Q}(-3,~3)$ 사이의 거리는?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\sqrt{5}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\sqrt{17}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\sqrt{19}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\sqrt{22}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\sqrt{26}"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 3,
+   "score": 4.4,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "직선 $y=kx+1$을 $x$축의 방향으로 $1$만큼, $y$축의 방향으로 $-2$만큼 평행이동한 직선이 점 (3,~1)을 지날 때, 상수 $k$의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-2"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-1"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 4,
+   "score": 4.6,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "직선 $2x+y-3=0$에 평행하고 원 $x^{2}+y^{2}=25$에 접하는 직선은 점 $(-\\sqrt{5},~a)$를 지날 때, 양수 $a$의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "7\\sqrt{5}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "7\\sqrt{6}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "10\\sqrt{3}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "8\\sqrt{5}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "8\\sqrt{6}"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 5,
+   "score": 4.7,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "두 점 $\\mathrm{A}(2,~-3)$과 $\\mathrm{B}(5,~6)$에 대하여 선분 $\\mathrm{AB}$를 $2:3$으로 내분하는 점이 직선 $y=\\frac{1}{8}x+k$ 위에 있을 때, 상수 $k$의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-\\frac{1}{3}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-\\frac{1}{5}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{1}{8}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{1}{5}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{1}{3}"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 6,
+   "score": 4.9,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "두 점 (1,~6), (7,~0)을 잇는 선분의 수직이등분선의 방정식은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "y=x-1"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "y=-x+1"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "y=x-2"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "y=-x+2"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "y=x+2"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 7,
+   "score": 5.1,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "좌표평면 위에 두 원 $C_{1}:(x-16)^{2}+(y-4)^{2}=16$, $C_{2}:(x-6)^{2}+(y+8)^{2}=16$와 직선 $y=x$가 있다. 점 $\\mathrm{A}$는 원 $C_{1}$ 위에 있고, 점 $\\mathrm{B}$는 원 $C_{2}$ 위에 있다. 점 $\\mathrm{P}$는 $x$축 위에 있고, 점 $\\mathrm{Q}$는 직선 $y=x$ 위에 있을 때, $\\overline{\\mathrm{AP}}+\\overline{\\mathrm{PQ}}+\\overline{\\mathrm{QB}}$의 최솟값은? (단, 세 점 $\\mathrm{A}$, $\\mathrm{P}$, $\\mathrm{Q}$는 서로 다른 점이다.)"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "10"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "12"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "14"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "16"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "18"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 8,
+   "score": 5.3,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "두 직선 $y=x$, $y=\\frac{1}{7}x$가 이루는 각을 이등분하는 서로 다른 두 직선을 $l,~m$이라 하자. 세 직선 $l$, $m$, $y=-\\frac{1}{3}x+\\frac{5}{3}$로 둘러싸인 부분의 넓이는 $\\frac{q}{p}$이다. $p+q$의 값은?(단, 직선 $l$의 기울기는 양수이고 $p$와 $q$는 서로소인 자연수이다.)"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "6"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "7"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 9,
+   "score": 5.5,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "좌표평면 위에 네 점 $\\mathrm{A}(2,~8)$, $\\mathrm{B}(10,~8)$, $\\mathrm{C}(4t,~0)$, $\\mathrm{D}(0,~2t)$에 대하여 선분 $\\mathrm{CD}$ 위에 $\\angle \\mathrm{APB}=90^\\circ$인 점 $\\mathrm{P}$가 존재하도록 하는 실수 $t$의 최댓값을 $M$, 최솟값을 $m$이라 할 때, $3M^{2}-3m^{2}$의 값은? (단, $t>0$이다.)"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "60\\sqrt{6}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "66\\sqrt{5}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "68\\sqrt{5}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "63\\sqrt{6}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "65\\sqrt{6}"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 10,
+   "score": 4.3,
+   "type": "단답형",
+   "label": "[단답형 1]",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[단답형 1] 점 (4,~2)와 직선 $y=\\frac{3}{4}x+\\frac{11}{4}$ 사이의 거리를 구하시오."
+    }
+   ]
+  },
+  {
+   "number": 11,
+   "score": 4.4,
+   "type": "단답형",
+   "label": "[단답형 2]",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[단답형 2] 원 $x^{2}+y^{2}+6x-8y+9=0$의 중심의 좌표는 $(a,~b)$이고 반지름의 길이는 $r$이다. 이때 $a+2b+3r$의 값을 구하시오."
+    }
+   ]
+  },
+  {
+   "number": 12,
+   "score": 4.6,
+   "type": "단답형",
+   "label": "[단답형 3]",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[단답형 3] 좌표평면 위의 두 점 $\\mathrm{A}(1,~2)$, $\\mathrm{B}(a,~b)$에 대하여 선분 $\\mathrm{AB}$를 $1:2$로 내분하는 점의 좌표가 (2,~3)일 때, $ab$의 값을 구하시오."
+    }
+   ]
+  },
+  {
+   "number": 13,
+   "score": 4.8,
+   "type": "단답형",
+   "label": "[단답형 4]",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[단답형 4] 점 $\\mathrm{A}(2,~1)$을 원점에 대하여 대칭이동한 점을 $\\mathrm{B}$, 직선 $y=x$에 대하여 대칭이동한 점을 $\\mathrm{C}$라 할 때, 세 점 $\\mathrm{A}$, $\\mathrm{B}$, $\\mathrm{C}$를 꼭짓점으로 하는 삼각형 $\\mathrm{ABC}$의 넓이를 $k$라 할 때, $7k^{2}$의 값을 구하시오."
+    }
+   ]
+  },
+  {
+   "number": 14,
+   "score": 5.0,
+   "type": "단답형",
+   "label": "[단답형 5]",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[단답형 5] 점 $\\mathrm{P}(-2,~4)$에서 원 $x^{2}+y^{2}=2$에 그은 두 접선이 $y$축과 만나는 두 점을 $\\mathrm{A}$와 $\\mathrm{B}$라 할 때, 삼각형 $\\mathrm{PAB}$의 넓이를 $k$라 할 때, $k^{2}$의 값을 구하시오."
+    }
+   ]
+  },
+  {
+   "number": 15,
+   "score": 5.2,
+   "type": "단답형",
+   "label": "[단답형 6]",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[단답형 6] 원 $C:x^{2}+y^{2}=16$ 위에 서로 다른 두 점 $\\mathrm{A}(a,~b)$, $\\mathrm{B}(b,~a)$가 있다. 원 $C$ 위의 점 중 $\\overline{\\mathrm{AP}}=\\overline{\\mathrm{BP}}$, $\\overline{\\mathrm{AQ}}=\\overline{\\mathrm{BQ}}$를 만족시키는 서로 다른 두 점 $\\mathrm{P}$, $\\mathrm{Q}$에 대하여 사각형 $\\mathrm{APBQ}$의 넓이가 $8\\sqrt{2}$일 때, $a^{3}b^{3}$의 값을 구하시오."
+    }
+   ]
+  },
+  {
+   "number": 16,
+   "score": 5.4,
+   "type": "단답형",
+   "label": "[단답형 7]",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[단답형 7] 세 직선 $l:ax+y-3a-1=0$, $m:2x+3y+1=0$, $n:x-3y+2=0$에 대하여 직선 $l$이 직선 $m$ 또는 직선 $n$과 만나는 서로 다른 점의 개수를 $f(a)$라 할 때, 방정식 $f(a)=1$을 만족시키는 모든 실수 $a$의 값의 곱을 구하시오."
+    }
+   ]
+  },
+  {
+   "number": 17,
+   "score": 5.6,
+   "type": "단답형",
+   "label": "[단답형 8]",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[단답형 8] $x$축과 직선 $l:y=mx~(m>0)$에 동시에 접하는 원의 중심은 제1사분면 위에 있고, 반지름의 길이가 $4$인 원이 있다. $x$축과 원이 만나는 점을 $\\mathrm{P}$, 직선 $l$과 원이 만나는 점을 $\\mathrm{Q}$, 두 점 $\\mathrm{P}$, $\\mathrm{Q}$를 지나는 직선이 $y$축과 만나는 점을 $\\mathrm{R}$라 하자. 삼각형 $\\mathrm{ROP}$의 넓이가 $64$일 때, 삼각형 $\\mathrm{OPQ}$의 넓이를 $k$하자. 이때 $3m+5k$의 값을 구하시오. (단, $\\mathrm{O}$는 원점이다.)"
+    }
+   ]
+  },
+  {
+   "number": 18,
+   "score": 5.7,
+   "type": "단답형",
+   "label": "[단답형 9]",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[단답형 9] 그림과 같이 직선 $y=x$와 곡선 $y=x^{2}$으로 둘러싸인 도형이 있다. 곡선 $y=x^{2}$ 위에 두 점 $\\mathrm{A},~\\mathrm{B}$를 잡고, 직선 $y=x$ 위에 두 점 $\\mathrm{C},~\\mathrm{D}$를 잡아 정사각형 $\\mathrm{ABCD}$를 그릴 때, 정사각형 $\\mathrm{ABCD}$의 대각선의 길이는 $a+b\\sqrt{17}$이다. $a^{2}+b^{2}$의 값을 구하시오.(단, $a$와 $b$는 정수이다.)"
+    },
+    {
+     "type": "figure",
+     "value": "좌표평면 제1사분면에 원점 O를 지나는 직선 y=x(가는 직선)와 위로 볼록하지 않은 포물선 y=x^2(굵은 곡선)이 그려져 있다. 두 그래프는 원점과 우상단의 한 점에서 만나 눈 모양(렌즈 모양) 영역을 이룬다. 그 영역 안에 작은 정사각형 ABCD가 기울어진 채 내접해 있다. 정사각형의 두 꼭짓점 A(아래쪽), B(오른쪽)는 포물선 y=x^2 위에 있고, 나머지 두 꼭짓점 C(위쪽), D(왼쪽)는 직선 y=x 위에 있다. 라벨 위치는 왼쪽부터 D, 위쪽 C, 아래 A, 오른쪽 B 순이며, 원점에는 O, 축에는 x, y 표기가 있다. 곡선 옆에 y=x^2, 직선 옆에 y=x 라벨이 붙어 있다."
+    }
+   ]
+  },
+  {
+   "number": 19,
+   "score": 5.0,
+   "type": "서술형",
+   "label": "[서술형 1]",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서술형 1] 좌표평면에서 두 점 (-4,~0), (2,~0)을 지름의 양 끝점으로 하는 원과 직선 $kx+y$[판독불가]$=0$이 오직 한 점에서 만나도록 하는 양수 $k$에 대하여 $12k$의 값을 구하시오."
+    }
+   ]
+  },
+  {
+   "number": 20,
+   "score": 7.0,
+   "type": "서술형",
+   "label": "[서술형 2]",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서술형 2] 제 1사분면 위의 두 점 $\\mathrm{A}(a,~b)$, $\\mathrm{B}(c,~d)$에 대하여 삼각형 $\\mathrm{AOB}$가 다음 조건을 모두 만족시킨다."
+    },
+    {
+     "type": "text",
+     "value": "<상자> (가) 삼각형 $\\mathrm{AOB}$는 넓이가 $6\\sqrt{3}$인 정삼각형이다. • (나) 삼각형 $\\mathrm{AOB}$의 무게중심 $\\mathrm{G}$는 직선 $y=x$ 위에 있다."
+    },
+    {
+     "type": "text",
+     "value": "$2a+b+2c+d$의 값을 구하시오. (단, $\\mathrm{O}$는 원점이다.)"
+    }
+   ]
+  }
+ ]
+}

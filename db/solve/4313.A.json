@@ -1,0 +1,146 @@
+{
+ "exam_id": 4313,
+ "pass": "A",
+ "items": [
+  {
+   "number": 1,
+   "answer": "③",
+   "solution": "step1) $y=x^2-4x+1=(x-2)^2-3$ 이므로 꼭짓점은 $x=2$, 이는 구간 $1\\leq x\\leq 5$ 안에 있다.\nstep2) 최솟값은 $x=2$일 때 $y=-3$이다.\nstep3) 구간의 양 끝값을 비교하면 $x=1$일 때 $y=1-4+1=-2$, $x=5$일 때 $y=25-20+1=6$이므로 최댓값은 $6$이다.\nstep4) 따라서 최댓값과 최솟값의 합은 $6+(-3)=3$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 2,
+   "answer": "④",
+   "solution": "step1) 가로와 세로의 비가 $3:2$이므로 $x:y=3:2$, 즉 $2x=3y$에서 $2x-3y=0$이다.\nstep2) 대각선의 길이가 $20$이므로 피타고라스 정리에 의해 $x^2+y^2=20^2=400$이다.\nstep3) 따라서 연립방정식은 $\\begin{cases}2x-3y=0\\\\ x^2+y^2=400\\end{cases}$ 이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 3,
+   "answer": "①",
+   "solution": "step1) $x^2=t$로 놓으면 $t^2-4t+3=0$이다.\nstep2) 인수분해하면 $(t-1)(t-3)=0$이므로 $t=1$ 또는 $t=3$이다.\nstep3) $x^2=1$에서 $x=\\pm 1$, $x^2=3$에서 $x=\\pm\\sqrt{3}$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 4,
+   "answer": "②",
+   "solution": "step1) $7x-4\\leq 6x$에서 $x\\leq 4$이다.\nstep2) $-x-1>3x-5$에서 $-4x>-4$이므로 $x<1$이다.\nstep3) 두 해의 공통 범위는 $x<1$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 5,
+   "answer": "⑤",
+   "solution": "step1) $|x-2|<5$는 $-5<x-2<5$와 같다.\nstep2) 각 변에 $2$를 더하면 $-3<x<7$이다.\nstep3) 따라서 $a=-3$, $b=7$이므로 $ab=-21$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 6,
+   "answer": "①",
+   "solution": "step1) $1$부터 $7$까지 중 $2$의 배수는 $2,4,6$의 $3$개이다.\nstep2) $7$의 배수는 $7$의 $1$개이다.\nstep3) 두 사건은 동시에 일어나지 않으므로 합의 법칙에 의해 $3+1=4$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 7,
+   "answer": "①",
+   "solution": "step1) 동전 $1$개를 던질 때 나오는 경우의 수는 $2$이다.\nstep2) 동전 $2$개와 주사위 $1$개이므로 곱의 법칙에 의해 $2\\times 2\\times 6=24$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 8,
+   "answer": "④",
+   "solution": "step1) 모자를 택하는 경우 $3$가지, 안경 $2$가지, 가방 $6$가지이다.\nstep2) 곱의 법칙에 의해 $3\\times 2\\times 6=36$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 9,
+   "answer": "④",
+   "solution": "step1) $\\mathrm{A}\\to\\mathrm{D}$로 곧바로 가는 경우는 $1$가지이다.\nstep2) $\\mathrm{A}\\to\\mathrm{B}\\to\\mathrm{D}$인 경우는 $2\\times 1=2$가지이다.\nstep3) $\\mathrm{A}\\to\\mathrm{C}\\to\\mathrm{D}$인 경우는 $2\\times 2=4$가지이다.\nstep4) $\\mathrm{B}$와 $\\mathrm{C}$를 잇는 도로가 없으므로 다른 경로는 없다. 따라서 $1+2+4=7$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 10,
+   "answer": "②",
+   "solution": "step1) $_{6}\\mathrm{P}_{3}=6\\times 5\\times 4$이다.\nstep2) 계산하면 $120$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 11,
+   "answer": "③",
+   "solution": "step1) 서로 다른 $5$점에서 $3$점을 뽑아 순서대로 나열하므로 $_{5}\\mathrm{P}_{3}$이다.\nstep2) $_{5}\\mathrm{P}_{3}=5\\times 4\\times 3=60$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 12,
+   "answer": "②",
+   "solution": "step1) $\\mathrm{B}$, $\\mathrm{C}$를 한 묶음으로 보면 묶음 $1$개와 $\\mathrm{A}$, $\\mathrm{D}$의 $3$개를 일렬로 배열하는 경우의 수는 $3!=6$이다.\nstep2) 묶음 안에서 $\\mathrm{B}$, $\\mathrm{C}$의 자리를 바꾸는 경우의 수는 $2!=2$이다.\nstep3) 곱의 법칙에 의해 $6\\times 2=12$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 13,
+   "answer": "⑤",
+   "solution": "step1) 순서를 생각하지 않고 뽑으므로 $_{11}\\mathrm{C}_{9}$이다.\nstep2) $_{11}\\mathrm{C}_{9}=_{11}\\mathrm{C}_{2}=\\frac{11\\times 10}{2\\times 1}=55$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 14,
+   "answer": "①",
+   "solution": "step1) 직사각형은 가로선 $2$개와 세로선 $2$개를 택하면 하나로 정해진다.\nstep2) 가로선은 $4$개이므로 $_{4}\\mathrm{C}_{2}=6$, 세로선은 $6$개이므로 $_{6}\\mathrm{C}_{2}=15$이다.\nstep3) 곱의 법칙에 의해 $6\\times 15=90$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 15,
+   "answer": "④",
+   "solution": "step1) 빵 $4$종류 중 $2$종류를 고르는 경우의 수는 $_{4}\\mathrm{C}_{2}=6$이다.\nstep2) 음료 $5$종류 중 $2$종류를 고르는 경우의 수는 $_{5}\\mathrm{C}_{2}=10$이다.\nstep3) 곱의 법칙에 의해 $6\\times 10=60$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 16,
+   "answer": "②",
+   "solution": "step1) 주어진 행렬은 행이 $2$개, 열이 $3$개이므로 $2\\times 3$ 행렬이다. (ㄱ 참, ㄹ 참)\nstep2) 제$1$열은 $\\begin{pmatrix}-2\\\\ 5\\end{pmatrix}$이고 $(-2~~1~~3)$은 제$1$행이므로 ㄴ은 거짓이다.\nstep3) 행이 $2$개뿐이라 제$3$행은 없고 $\\begin{pmatrix}3\\\\ -1\\end{pmatrix}$은 제$3$열이므로 ㄷ은 거짓이다.\nstep4) 따라서 옳은 것은 ㄱ, ㄹ이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 17,
+   "answer": "④",
+   "solution": "step1) $(3,~1)$ 성분은 제$3$행 제$1$열의 값이다.\nstep2) 제$3$행은 $(0~~1)$이므로 그 제$1$열의 값은 $0$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 18,
+   "answer": "③",
+   "solution": "step1) $a_{11}=1-1+1=1$, $a_{12}=1-2+1=0$이다.\nstep2) $a_{21}=2-1+1=2$, $a_{22}=2-2+1=1$이다.\nstep3) 따라서 $A=\\begin{pmatrix}1&0\\\\ 2&1\\end{pmatrix}$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 19,
+   "answer": "⑤",
+   "solution": "step1) 두 행렬이 같으므로 대응하는 성분이 각각 같다. $(1,2)$ 성분에서 $b-a=2$이다.\nstep2) $(2,1)$ 성분에서 $-5=a-2b$이다.\nstep3) $b=a+2$를 대입하면 $a-2(a+2)=-5$, 즉 $-a-4=-5$에서 $a=1$이다.\nstep4) 따라서 $b=1+2=3$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 20,
+   "answer": "③",
+   "solution": "step1) $1$분은 $60$초이므로 $10$초의 $6$배이다.\nstep2) 심박수는 $7\\times 6=42$(회$/$분)이다.",
+   "confidence": "high",
+   "note": ""
+  }
+ ]
+}

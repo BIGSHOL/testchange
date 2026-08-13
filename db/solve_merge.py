@@ -24,12 +24,16 @@ _SYN = [(r"\\leq?\b", r"\\leq"), (r"\\geq?\b", r"\\geq"), (r"\\neq?\b", r"\\neq"
 
 
 def norm(s: str | None) -> str:
-    """비교용 정규화 — 공백·달러·동의어를 흡수하되 값 자체는 보존."""
+    """비교용 정규화 — 공백·달러·동의어·군더더기 표기를 흡수하되 값 자체는 보존."""
     s = (s or "").strip()
     s = s.replace("$", "").replace("\\,", "").replace("~", "").replace("\\ ", "")
     for pat, rep in _SYN:
         s = re.sub(pat, rep, s)
     s = re.sub(r"\s+", "", s)
+    # ``x^{2}`` ≡ ``x^2`` — 한 글자 첨자의 중괄호는 LaTeX 상 의미가 같다.
+    s = re.sub(r"([\^_])\{([^{}])\}", r"\1\2", s)
+    # 한쪽만 붙이는 부연 ``(즉 a=6, b=-1)`` ``(직선 y=2x-3)`` 은 값이 아니다.
+    s = re.sub(r"\((?:즉|따라서|직선|즉,)[^()]*\)$", "", s)
     return s
 
 

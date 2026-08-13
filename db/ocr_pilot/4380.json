@@ -1,0 +1,1315 @@
+{
+ "meta": {
+  "exam_id": 4380,
+  "ocr_source": "session-vision"
+ },
+ "header": {
+  "title": "2025학년도 1학기 중간고사 (1)학년 공통수학1 상서고등학교"
+ },
+ "questions": [
+  {
+   "number": 1,
+   "score": 4.9,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "다항식 5x^{4}+3x-2+4x^{2}-6x^{3} 을 x에 대하여 내림차순으로 바르게 정리한 것은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-2+5x^{4}-6x^{3}+4x^{2}+3x"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-2+3x+4x^{2}-6x^{3}+5x^{4}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5x^{4}-6x^{3}+4x^{2}+3x-2"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5x^{4}+4x^{2}+3x-2-6x^{3}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-6x^{3}+5x^{4}+4x^{2}+3x-2"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 2,
+   "score": 5.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "두 다항식 A=x^{2}-2x+3, B=2x^{3}+x-1일 때, A-B의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2x^{3}+x^{2}-x+2"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-2x^{3}+x^{2}-x+2"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-2x^{3}+x^{2}-3x+4"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2x^{3}+x^{2}-3x+4"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2x^{3}+x^{2}-3x+2"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 3,
+   "score": 5.1,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "옳은 것만을 <보기>에서 있는 대로 고른 것은?"
+    },
+    {
+     "type": "text",
+     "value": "<보기> ㄱ. (a+b+c)^{2}=a^{2}+b^{2}+c^{2}+2ab+2bc+2ca • ㄴ. (a+b)^{3}=a^{3}+3a^{2}b+3ab^{2}+b^{3} • ㄷ. a^{3}-b^{3}=(a-b)(a^{2}+ab+b^{2}) • ㄹ. (a+b)(a^{2}-ab+b^{2})=a^{3}+b^{3}"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄱ"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄴ,ㄷ"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄷ,ㄹ"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄴ,ㄷ,ㄹ"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄱ,ㄴ,ㄷ,ㄹ"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 4,
+   "score": 4.8,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "a+b=1, a^{2}-ab+b^{2}=5 일 때, a^{3}+b^{3} 의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-5"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "15"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "25"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "125"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 5,
+   "score": 5.1,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "조립제법을 이용하여 다음 나눗셈의 몫과 나머지를 구하는 과정이다. 옳은 것은?"
+    },
+    {
+     "type": "equation_block",
+     "value": "(3x^{3}-2x+1)\\div(x-2)"
+    },
+    {
+     "type": "table",
+     "value": "",
+     "rows": [
+      [
+       "2",
+       "3",
+       "b",
+       "c",
+       "1"
+      ],
+      [
+       "",
+       "",
+       "6",
+       "12",
+       "20"
+      ],
+      [
+       "",
+       "a",
+       "6",
+       "d",
+       "e"
+      ]
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "a=3"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "b=-2"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "c=0"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "d=12"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "e=-19"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 6,
+   "score": 4.7,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "등식 (a-1)x^{2}+bx+(c+1)=0이 x에 대한 항등식이 되게 하는 상수 a, b, c의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "a=1,~b=0,~c=-1"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "a=-1,~b=0,~c=1"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "a=0,~b=0,~c=0"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "a=1,~b=1,~c=1"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "a=-1,~b=-1,~c=-1"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 7,
+   "score": 5.3,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "다항식 P(x)를 x-1로 나누었을 때의 나머지가 5이고, x+2로 나누었을 때의 나머지가 -4이다. P(x)를 (x-1)(x+2)로 나누었을 때의 나머지가 ax+b일 때, ab의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "6"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "7"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "8"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "9"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "10"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 8,
+   "score": 5.2,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "이차식 (x+1)^{2}이 다항식 x^{3}-x^{2}+ax+b의 인수일 때, 상수 a-b의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-8"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-2"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "0"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "8"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 9,
+   "score": 5.1,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "다항식 x^{4}-10x^{2}+9을 인수분해하면 (x+a)(x+b)(x+c)(x+d)일 때, a+b+c+d의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "0"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 10,
+   "score": 4.6,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "복소수 3-2i의 실수부분을 a, 허수부분을 b라고 할 때, a+b의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "0"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 11,
+   "score": 4.6,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "복소수 -5+2\\sqrt{3}i의 켤레복소수는?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5+2\\sqrt{3}i"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5-2\\sqrt{3}i"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2\\sqrt{3}i"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-5"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-5-2\\sqrt{3}i"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 12,
+   "score": 4.7,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "i^{4}의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "i"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-i"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-1"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "0"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 13,
+   "score": 5.3,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "i+i^{2}+i^{3}+\\cdots+i^{10} 의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "i"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-i"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1+i"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-1+i"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1-i"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 14,
+   "score": 5.1,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "이차방정식 x^{2}+2x+k-3=0이 중근을 가질 때, 실수 k의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "6"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "7"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 15,
+   "score": 4.7,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "이차방정식 x^{2}+4x+5=0의 두 근의 합은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "0"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-4"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-5"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 16,
+   "score": 5.1,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "두 수 \\frac{1+\\sqrt{3}i}{2}, \\frac{1-\\sqrt{3}i}{2} 를 근으로 하고 x^{2}의 계수가 1인 이차방정식은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "x^{2}-2x+1=0"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "x^{2}-x+2=0"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "x^{2}-x+1=0"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "x^{2}+2x-2=0"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "x^{2}+2x+2=0"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 17,
+   "score": 5.4,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "이차방정식 x^{2}+ax-2=0의 두 근 \\alpha, \\beta 가 \\alpha^{2}+\\beta^{2}=13을 만족시킬 때, 양수 a의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 18,
+   "score": 5.1,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "이차함수 y=x^{2}+4x+3의 그래프와 직선 y=3x+k가 서로 다른 두 점에서 만날 때, 실수 k의 범위를 구하면?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "k\\geq-\\frac{4}{11}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "k>\\frac{4}{11}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "k<\\frac{11}{4}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "k\\leq-\\frac{11}{4}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "k>\\frac{11}{4}"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 19,
+   "score": 5.1,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "[직업기초] 식품회사에서 근무하는 K씨는 설을 맞이하여 **마트에 설 선물세트를 납품하려고 한다. K씨가 선물세트를 납품하기 위해 필요한 참치 통조림의 수는?"
+    },
+    {
+     "type": "text",
+     "value": "<조건> **마트 설 선물세트 구매 현황"
+    },
+    {
+     "type": "table",
+     "value": "",
+     "rows": [
+      [
+       "선물세트",
+       "수량",
+       "햄 통조림",
+       "참치 통조림",
+       "식용유"
+      ],
+      [
+       "A 세트",
+       "212개",
+       "4개",
+       "4개",
+       "1개"
+      ],
+      [
+       "B 세트",
+       "183개",
+       "4개",
+       "6개",
+       "2개"
+      ],
+      [
+       "C 세트",
+       "146개",
+       "8개",
+       "6개",
+       "2개"
+      ]
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "text",
+       "value": "2633개"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "text",
+       "value": "2752개"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "text",
+       "value": "2790개"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "text",
+       "value": "2822개"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "text",
+       "value": "2900개"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 20,
+   "score": 5.1,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "[직업기초] 도시락 회사에서 근무하는 A씨는 손님으로부터 받은 주문 내역을 정리하고 있다. 주문 내역이 다음과 같을 때 총 주문 금액은 얼마인가?"
+    },
+    {
+     "type": "table",
+     "value": "",
+     "rows": [
+      [
+       "메뉴",
+       "개수(개)",
+       "개당 가격(원)"
+      ],
+      [
+       "매화",
+       "2",
+       "10,000"
+      ],
+      [
+       "진달래",
+       "4",
+       "8,000"
+      ],
+      [
+       "고등어조림",
+       "3",
+       "7,000"
+      ],
+      [
+       "돈가스 치킨",
+       "8",
+       "6,500"
+      ],
+      [
+       "고기 많이",
+       "12",
+       "4,500"
+      ],
+      [
+       "국화",
+       "20",
+       "4,200"
+      ],
+      [
+       "돈가스 덮밥",
+       "7",
+       "5,000"
+      ],
+      [
+       "합계",
+       "56",
+       "?"
+      ]
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "text",
+       "value": "254,000원"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "text",
+       "value": "264,000원"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "text",
+       "value": "272,000원"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "text",
+       "value": "284,000원"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "text",
+       "value": "298,000원"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,61 @@
+{
+  "exam_id": 4373,
+  "answer_pages": [7],
+  "items": [
+    {"number": 1, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 2, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 3, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 4, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 5, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 6, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 7, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 8, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 9, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 10, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 11, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 12, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 13, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 14, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 15, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 16, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 17, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 18, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 19, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 20, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {
+      "number": 21,
+      "answer": "$14$",
+      "solution": "원의 중심 $(-5,~1)$에서 직선 $l$까지의 거리는 $7$\n선분 $\\overline{\\mathrm{PH}}$의 길이의 최댓값을 $M=9$\n최솟값을 $m=5$\n$M+m=14$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 22,
+      "answer": "원의 중심 $(4,~-3)$, 반지름 $5$",
+      "solution": "원의 방정식 $(x-a)^{2}+(y-b)^{2}=r^{2}$에 $(0,~0)$, $(8,~0)$, $(9,~-3)$대입하여 정리하면\n$a=4$, $b=-3$, $r=5$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 23,
+      "answer": "$(-1,~20)$, $(-1,~0)$, $(1,~18)$, $(1,~-2)$",
+      "solution": "평행이동한 후 $(x-3)^{2}+(y-a)^{2}=10$\n원점에 대칭이동 $(-x-3)^{2}+(-y-a)^{2}=10$이 원점을 지나므로 $a^{2}=1$, $a=\\pm 1$\n직선과 한점에서 만나므로\n$a=1$, $b=18,~-2$\n$a=-1$, $b=20,~0$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 24,
+      "answer": "(1) 풀이참조 (2) $1$",
+      "solution": "(1) 어떤 실수 $x$에 대하여 $x^{2}+2x+a \\leq 0$이다.\n(2) $a=1$\n부정이 참이므로 $x$가 두 실근을 가지려면 판별식 $D \\geq 0$\n$D=4-4a \\geq 0$, $a \\leq 1$\n실수 $a$의 최댓값은 $1$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 25,
+      "answer": "$10$",
+      "solution": "$(A \\cup B)=\\{x|x<3,~x \\geq 5\\}$이므로\n$f(x)$의 두 실근은 $-4 \\leq x<3$이고, $x=5$이므로\n$f(6)$의 최댓값은 $10$",
+      "topic": "",
+      "difficulty": ""
+    }
+  ]
+}

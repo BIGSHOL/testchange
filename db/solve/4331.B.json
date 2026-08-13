@@ -1,0 +1,181 @@
+{
+  "exam_id": 4331,
+  "pass": "B",
+  "items": [
+    {
+      "number": 1,
+      "answer": "④",
+      "solution": "step1) 원소의 개수가 $2$인 집합 $A=\\{a,~b\\}$의 부분집합의 개수는 $2^{2}=4$이다.\nstep2) 진부분집합은 자기 자신을 제외한 것이므로 $4-1=3$이다.\nstep3) 따라서 답은 $3$이다.",
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "number": 2,
+      "answer": "④",
+      "solution": "step1) 원 $x^{2}+y^{2}=r^{2}$ 위의 점 $(x_{1},~y_{1})$에서의 접선은 $x_{1}x+y_{1}y=r^{2}$이다.\nstep2) 점 $(-1,~2)$, $r^{2}=5$이므로 접선은 $-x+2y=5$이다.\nstep3) $x=0$을 대입하면 $2y=5$, 즉 $y=\\frac{5}{2}$이다.\nstep4) 검산: 점 $(-1,~2)$는 $(-1)^{2}+2^{2}=5$로 원 위의 점이고, 접선에 대입하면 $1+4=5$로 성립한다.",
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "number": 3,
+      "answer": "②",
+      "solution": "step1) $\\overline{\\mathrm{OA}}=\\sqrt{5^{2}+(-5)^{2}}=\\sqrt{50}$이다.\nstep2) $\\overline{\\mathrm{OB}}=\\sqrt{1^{2}+a^{2}}=\\sqrt{1+a^{2}}$이다.\nstep3) $1+a^{2}=50$이므로 $a^{2}=49$, 즉 $a=\\pm 7$이다.\nstep4) $a$는 양수이므로 $a=7$이다.",
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "number": 4,
+      "answer": "①",
+      "solution": "step1) $A=\\{1,~2,~3,~\\{1,~2\\}\\}$의 원소는 $1$, $2$, $3$, $\\{1,~2\\}$의 네 개이다.\nstep2) ① 공집합 $\\varnothing$은 $A$의 원소가 아니므로 $\\varnothing \\in A$는 거짓이다. (참인 것은 $\\varnothing \\subset A$이다.)\nstep3) ② $3$은 $A$의 원소이므로 참, ③ $\\{1,~2\\}$가 원소이므로 참이다.\nstep4) ④ $1 \\in A$, $2 \\in A$이므로 $\\{1,~2\\} \\subset A$는 참이다.\nstep5) ⑤ $0 \\notin A$이므로 $\\{0,~3\\} \\not\\subset A$는 참이다.\nstep6) 따라서 옳지 않은 것은 ①이다.",
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "number": 5,
+      "answer": "①",
+      "solution": "step1) $y=-x^{2}+3$의 꼭짓점은 $\\mathrm{A}(0,~3)$이다.\nstep2) $y=x^{2}-4x+3=(x-2)^{2}-1$이므로 꼭짓점은 $\\mathrm{B}(2,~-1)$이다.\nstep3) 직선 $\\mathrm{AB}$의 기울기는 $\\frac{-1-3}{2-0}=-2$이므로 $y=-2x+3$이다.\nstep4) $y=0$일 때 $x=\\frac{3}{2}$이다.",
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "number": 6,
+      "answer": "①",
+      "solution": "step1) 평행이동한 직선은 $2(x-3)+a(y+1)+2=0$이다.\nstep2) 점 $(0,~3)$을 대입하면 $2(-3)+a(4)+2=0$이다.\nstep3) $-6+4a+2=0$이므로 $4a=4$, 즉 $a=1$이다.\nstep4) 검산: $a=1$이면 원래 직선 $2x+y+2=0$을 이동한 $2x+y-3=0$이고 $(0,~3)$에서 $0+3-3=0$으로 성립한다.",
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "number": 7,
+      "answer": "④",
+      "solution": "step1) 강정보 희망 집합을 $A$, 달성보 희망 집합을 $B$라 하면 $n(A)=15$, $n(B)=19$이다.\nstep2) 어느 곳도 희망하지 않는 학생이 $4$명이므로 $n(A \\cup B)=30-4=26$이다.\nstep3) $n(A \\cap B)=n(A)+n(B)-n(A \\cup B)=15+19-26=8$이다.\nstep4) 어느 한 곳만 희망하는 학생 수는 $n(A \\cup B)-n(A \\cap B)=26-8=18$이다.",
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "number": 8,
+      "answer": "①",
+      "solution": "step1) $A=\\{0,~1,~2\\}$, $A-\\{0\\}=\\{1,~2\\}$이다.\nstep2) $B$는 $x \\in \\{0,1,2\\}$, $y \\in \\{1,2\\}$인 $x^{y}$의 집합이므로 $0^{1}=0$, $0^{2}=0$, $1^{1}=1$, $1^{2}=1$, $2^{1}=2$, $2^{2}=4$에서 $B=\\{0,~1,~2,~4\\}$이다.\nstep3) $C$는 $x,y \\in \\{0,1,2\\}$인 $xy$의 집합이므로 값은 $0,~1,~2,~4$이고 $C=\\{0,~1,~2,~4\\}$이다.\nstep4) 따라서 $B=C=\\{0,~1,~2,~4\\}$이고 $A \\subset B$이므로 $A \\subset B \\subset C$가 성립한다.",
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "number": 9,
+      "answer": "③",
+      "solution": "step1) 점 $\\mathrm{P}(x,~y)$에 대하여 주어진 식은 $\\overline{\\mathrm{PQ}}+\\overline{\\mathrm{PR}}$이다. 여기서 $\\mathrm{Q}(-3,~0)$, $\\mathrm{R}(2,~1)$이다.\nstep2) 삼각부등식에 의해 $\\overline{\\mathrm{PQ}}+\\overline{\\mathrm{PR}} \\geq \\overline{\\mathrm{QR}}$이고, 등호는 $\\mathrm{P}$가 선분 $\\mathrm{QR}$ 위에 있을 때 성립한다.\nstep3) $\\overline{\\mathrm{QR}}=\\sqrt{(2+3)^{2}+(1-0)^{2}}=\\sqrt{25+1}=\\sqrt{26}$이다.\nstep4) 따라서 최솟값은 $\\sqrt{26}$이다.",
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "number": 10,
+      "answer": "②",
+      "solution": "step1) 전개하면 $(3x+4y)\\left(\\frac{3}{x}+\\frac{4}{y}\\right)=9+\\frac{12x}{y}+\\frac{12y}{x}+16$이다.\nstep2) $=25+12\\left(\\frac{x}{y}+\\frac{y}{x}\\right)$이다.\nstep3) $x>0$, $y>0$이므로 산술평균과 기하평균의 관계에 의해 $\\frac{x}{y}+\\frac{y}{x} \\geq 2$이다.\nstep4) 따라서 $25+12 \\times 2=49$가 최솟값이고, 등호는 $x=y$일 때 성립한다.\nstep5) 검산: $x=y=1$이면 $(3+4)\\left(3+4\\right)=49$이다.",
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "number": 11,
+      "answer": "②",
+      "solution": "step1) 주어진 식을 완전제곱 꼴로 고치면 $(x-2k)^{2}+(y+3)^{2}=4k^{2}+9-8k-3$이다.\nstep2) 즉 $r^{2}=4k^{2}-8k+6=4(k-1)^{2}+2$이다.\nstep3) $k=1$일 때 $r^{2}$의 최솟값은 $2$이므로 $r$의 최솟값은 $\\sqrt{2}$이다.\nstep4) 따라서 둘레의 길이 $l=2\\pi r$의 최솟값은 $2\\sqrt{2}\\pi$이다.",
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "number": 12,
+      "answer": "③",
+      "solution": "step1) 색칠된 부분은 $C$에서 $B \\cap C \\cap A^{C}$를 제외한 영역이다.\nstep2) 즉 색칠된 부분은 $C \\cap (B \\cap A^{C})^{C}$이다.\nstep3) 드모르간 법칙에 의해 $(B \\cap A^{C})^{C}=B^{C} \\cup A$이다.\nstep4) 따라서 색칠된 부분은 $(A \\cup B^{C}) \\cap C$이다.\nstep5) 검산: $C$의 네 영역 중 $A \\cap B \\cap C$, $A \\cap B^{C} \\cap C$, $A^{C} \\cap B^{C} \\cap C$는 포함되고 $A^{C} \\cap B \\cap C$만 제외되어 서술과 일치한다.",
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "number": 13,
+      "answer": "②",
+      "solution": "step1) 각의 이등분선 위의 점은 두 직선까지의 거리가 같으므로 $\\frac{|2x-y+5|}{\\sqrt{5}}=\\frac{|x+2y-3|}{\\sqrt{5}}$이다.\nstep2) $2x-y+5=\\pm(x+2y-3)$이다.\nstep3) $+$인 경우 $2x-y+5=x+2y-3$에서 $x-3y+8=0$이고 기울기는 $\\frac{1}{3}$로 양수이다.\nstep4) $-$인 경우 $2x-y+5=-x-2y+3$에서 $3x+y+2=0$이고 기울기는 $-3$으로 음수이다.\nstep5) 기울기가 양수인 직선은 $x-3y+8=0$이므로 $b=-3$, $c=8$이고 $b+c=5$이다.",
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "number": 14,
+      "answer": "④",
+      "solution": "step1) 점 $\\mathrm{B}$는 $y$축 위에, 점 $\\mathrm{C}$는 직선 $y=x$ 위에 있다.\nstep2) $\\mathrm{A}(1,~3)$을 $y$축에 대하여 대칭이동한 점을 $\\mathrm{A}_{1}(-1,~3)$, 직선 $y=x$에 대하여 대칭이동한 점을 $\\mathrm{A}_{2}(3,~1)$이라 하면 둘레의 길이는 $\\overline{\\mathrm{A}_{1}\\mathrm{B}}+\\overline{\\mathrm{BC}}+\\overline{\\mathrm{CA}_{2}} \\geq \\overline{\\mathrm{A}_{1}\\mathrm{A}_{2}}$이다.\nstep3) 등호는 $\\mathrm{B}$, $\\mathrm{C}$가 선분 $\\mathrm{A}_{1}\\mathrm{A}_{2}$ 위에 있을 때 성립한다.\nstep4) 직선 $\\mathrm{A}_{1}\\mathrm{A}_{2}$의 기울기는 $\\frac{1-3}{3-(-1)}=-\\frac{1}{2}$이므로 $y=-\\frac{1}{2}(x+1)+3$이다.\nstep5) $x=0$을 대입하면 $y=\\frac{5}{2}$이므로 $a=\\frac{5}{2}$이다.\nstep6) $\\frac{q}{p}=\\frac{5}{2}$에서 $p=2$, $q=5$이므로 $p+q=7$이다.\nstep7) 검산: $y=x$와의 교점은 $x=-\\frac{1}{2}(x+1)+3$에서 $x=\\frac{5}{3}>0$이므로 $b>0$ 조건도 만족한다.",
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "number": 15,
+      "answer": "④",
+      "solution": "step1) $A \\cup X=B \\cup X$가 성립할 필요충분조건은 $(A-B) \\cup (B-A) \\subset X$이다.\nstep2) 이때 $X$의 개수는 $2^{7-n(A \\triangle B)}$이고 이 값이 $4=2^{2}$이므로 $n(A \\triangle B)=5$이다.\nstep3) $B=\\{a-1,~a,~a+1\\} \\subset U$이므로 $2 \\leq a \\leq 6$이다.\nstep4) $a=2$: $B=\\{1,2,3\\}$, $A \\triangle B=\\{5,7,2\\}$로 $3$개. $a=3$: $B=\\{2,3,4\\}$, $A \\triangle B=\\{1,5,7,2,4\\}$로 $5$개.\nstep5) $a=4$: $B=\\{3,4,5\\}$, $A \\triangle B=\\{1,7,4\\}$로 $3$개. $a=5$: $B=\\{4,5,6\\}$, $A \\triangle B=\\{1,3,7,4,6\\}$로 $5$개. $a=6$: $B=\\{5,6,7\\}$, $A \\triangle B=\\{1,3,6\\}$으로 $3$개.\nstep6) 조건을 만족하는 $a$는 $3$, $5$이므로 합은 $8$이다.",
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "number": 16,
+      "answer": "⑤",
+      "solution": "step1) $|x+1| \\leq 2$에서 $-2 \\leq x+1 \\leq 2$이므로 $A=\\{x|-3 \\leq x \\leq 1\\}$이다.\nstep2) $(x+1)(x-2) \\geq 0$에서 $B=\\{x|x \\leq -1$ 또는 $x \\geq 2\\}$이다.\nstep3) $A \\cap B=\\{x|-3 \\leq x \\leq -1\\}$이다.\nstep4) 이는 $(x+3)(x+1) \\leq 0$, 즉 $x^{2}+4x+3 \\leq 0$이므로 $a=4$, $b=3$이다.\nstep5) 따라서 $a+b=7$이다.",
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "number": 17,
+      "answer": "②",
+      "solution": "step1) 선분 $\\mathrm{AB}$를 $t:(1-t)$로 내분하는 점은 $\\left(\\frac{t \\cdot 6+(1-t)(-2)}{t+(1-t)},~\\frac{t \\cdot (-3)+(1-t) \\cdot 5}{1}\\right)$이다.\nstep2) 계산하면 $(8t-2,~5-8t)$이다.\nstep3) 제1사분면 조건은 $8t-2>0$이고 $5-8t>0$이다.\nstep4) $t>\\frac{1}{4}$, $t<\\frac{5}{8}$이므로 $\\frac{1}{4}<t<\\frac{5}{8}$이다.\nstep5) 검산: $t=\\frac{1}{2}$이면 점은 $(2,~1)$로 제1사분면에 있다.",
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "number": 18,
+      "answer": "⑤",
+      "solution": "step1) 점 $\\mathrm{A}$를 원점으로 평행이동하면 $\\mathrm{B}'(-4,~-8)$, $\\mathrm{C}'(2,~-10)$이다.\nstep2) 넓이는 $\\frac{1}{2}|x_{1}y_{2}-x_{2}y_{1}|=\\frac{1}{2}|(-4)(-10)-(2)(-8)|$이다.\nstep3) $=\\frac{1}{2}|40+16|=\\frac{1}{2} \\times 56=28$이다.\nstep4) 검산: $\\overline{\\mathrm{BC}}=\\sqrt{36+4}=2\\sqrt{10}$, 직선 $\\mathrm{BC}$는 $x+3y+5=0$이고 $\\mathrm{A}(2,~7)$까지의 거리는 $\\frac{|2+21+5|}{\\sqrt{10}}=\\frac{28}{\\sqrt{10}}$이므로 넓이는 $\\frac{1}{2} \\times 2\\sqrt{10} \\times \\frac{28}{\\sqrt{10}}=28$이다.",
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "number": 19,
+      "answer": "①",
+      "solution": "step1) $\\mathrm{P}_{1}(0,~-1)$은 $y<0$이므로 $\\mathrm{P}_{2}(-2,~0)$이다.\nstep2) $\\mathrm{P}_{2}$는 $y \\geq 0$이므로 $y=x$에 대칭이동하여 $\\mathrm{P}_{3}(0,~-2)$이다.\nstep3) 이후 $y<0$인 동안 $(-2,~+1)$씩 평행이동한다. $\\mathrm{P}_{4}(-2,~-1)$, $\\mathrm{P}_{5}(-4,~0)$이고 $y=0 \\geq 0$이므로 $\\mathrm{P}_{6}(0,~-4)$이다.\nstep4) $\\mathrm{P}_{6}$부터 $\\mathrm{P}_{7}(-2,~-3)$, $\\mathrm{P}_{8}(-4,~-2)$, $\\mathrm{P}_{9}(-6,~-1)$, $\\mathrm{P}_{10}(-8,~0)$이고 대칭이동하여 $\\mathrm{P}_{11}(0,~-8)$이다.\nstep5) $\\mathrm{P}_{12}(-2,~-7)$, $\\mathrm{P}_{13}(-4,~-6)$, $\\mathrm{P}_{14}(-6,~-5)$, $\\mathrm{P}_{15}(-8,~-4)$, $\\mathrm{P}_{16}(-10,~-3)$, $\\mathrm{P}_{17}(-12,~-2)$, $\\mathrm{P}_{18}(-14,~-1)$, $\\mathrm{P}_{19}(-16,~0)$이다.\nstep6) $\\mathrm{P}_{19}$는 $y=0 \\geq 0$이므로 대칭이동하여 $\\mathrm{P}_{20}(0,~-16)$이다.\nstep7) $\\mathrm{P}_{21}(-2,~-15)$, $\\mathrm{P}_{22}(-4,~-14)$이다.\nstep8) 따라서 $x_{22} \\times y_{22}=(-4) \\times (-14)=56$이다.",
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "number": 20,
+      "answer": "⑤",
+      "solution": "step1) $l_{1}:k(x-3)+y-1=0$이다.\nstep2) $y=x$에 대하여 대칭이동하면 $x$와 $y$를 바꾸어 $k(y-3)+x-1=0$이다.\nstep3) 다시 $y$축에 대하여 대칭이동하면 $x$ 대신 $-x$를 넣어 $l_{2}:k(y-3)-x-1=0$이다.\nstep4) 두 식에서 $k(x-3)=1-y$, $k(y-3)=x+1$이다.\nstep5) 양변을 각각 $(y-3)$, $(x-3)$과 곱하면 좌변이 같으므로 $(1-y)(y-3)=(x+1)(x-3)$이다.\nstep6) 정리하면 $-y^{2}+4y-3=x^{2}-2x-3$, 즉 $x^{2}-2x+y^{2}-4y=0$이다.\nstep7) $(x-1)^{2}+(y-2)^{2}=5$이므로 반지름이 $\\sqrt{5}$인 원이고 $S=5\\pi$이다.\nstep8) 따라서 $2S=10\\pi$이다.",
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "number": 21,
+      "answer": "③",
+      "solution": "step1) 버스 이용 집합을 $B$, 지하철 이용 집합을 $S$라 하면 $n(B)=20$, $n(S)=a$, $n(B \\cap S)=b$이다.\nstep2) $b \\geq 1$이고 $B \\cap S \\subset B$이므로 $b \\leq 20$이며, $B \\cap S \\subset S$이므로 $b \\leq a$이다.\nstep3) $n(B \\cup S)=20+a-b \\leq 30$이므로 $a \\leq b+10$이다.\nstep4) 따라서 각 $b$ $(1 \\leq b \\leq 20)$에 대하여 $a$는 $b$부터 $b+10$까지 $11$개이다.\nstep5) 순서쌍의 개수는 $20 \\times 11=220$이다.",
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "number": 22,
+      "answer": "$y=3x+8$",
+      "solution": "step1) 직선 $y=\\frac{1}{3}x-2$를 $y$축에 대하여 대칭이동하면 $x$ 대신 $-x$를 대입하여 $y=-\\frac{1}{3}x-2$이다.\nstep2) 이 직선의 기울기는 $-\\frac{1}{3}$이다.\nstep3) 이에 수직인 직선의 기울기를 $m$이라 하면 $-\\frac{1}{3} \\times m=-1$이므로 $m=3$이다.\nstep4) 점 $(-1,~5)$를 지나므로 $y-5=3(x+1)$이다.\nstep5) 따라서 구하는 직선의 방정식은 $y=3x+8$이다.",
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "number": 23,
+      "answer": "$a \\geq 4$",
+      "solution": "step1) 조건 $p$의 진리집합은 $P=\\{x|-3 \\leq x<4\\}$이다.\nstep2) 조건 $q$의 진리집합은 $Q=\\{x|x \\geq a\\}$이므로 $\\sim q$의 진리집합은 $Q^{C}=\\{x|x<a\\}$이다.\nstep3) 명제 $p \\rightarrow \\sim q$가 참이려면 $P \\subset Q^{C}$이어야 한다.\nstep4) $\\{x|-3 \\leq x<4\\} \\subset \\{x|x<a\\}$이려면 $a \\geq 4$이어야 한다.\nstep5) 검산: $a=4$이면 $Q^{C}=\\{x|x<4\\}$로 $P$를 포함하고, $a=3.9$이면 $x=3.95 \\in P$가 포함되지 않아 거짓이 된다.\nstep6) 따라서 $a \\geq 4$이다.",
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "number": 24,
+      "answer": "$x=-1$, $3x-4y+15=0$",
+      "solution": "step1) 원 $(x+2)^{2}+(y-1)^{2}=1$의 중심은 $(-2,~1)$, 반지름은 $1$이다.\nstep2) 점 $(-1,~3)$과 중심 사이의 거리는 $\\sqrt{1^{2}+2^{2}}=\\sqrt{5}>1$이므로 접선은 두 개이다.\nstep3) 기울기가 없는 직선 $x=-1$은 중심 $(-2,~1)$과의 거리가 $|-1-(-2)|=1$로 반지름과 같으므로 접선이다.\nstep4) 기울기가 $m$인 접선은 $y-3=m(x+1)$, 즉 $mx-y+m+3=0$이다.\nstep5) 중심까지의 거리가 $1$이므로 $\\frac{|-2m-1+m+3|}{\\sqrt{m^{2}+1}}=1$에서 $|2-m|=\\sqrt{m^{2}+1}$이다.\nstep6) 양변을 제곱하면 $4-4m+m^{2}=m^{2}+1$이므로 $m=\\frac{3}{4}$이다.\nstep7) 이때 접선은 $y-3=\\frac{3}{4}(x+1)$, 즉 $3x-4y+15=0$이다.\nstep8) 따라서 접선의 방정식은 $x=-1$과 $3x-4y+15=0$이다.",
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "number": 25,
+      "answer": "$2\\sqrt{2}$",
+      "solution": "step1) 직선 $m$이 $x$축의 양의 방향과 이루는 각을 $\\theta$라 하면 $m$의 기울기는 $\\tan\\theta$이고 직선 $l$의 각은 $2\\theta$이므로 기울기는 $\\tan 2\\theta$이다.\nstep2) $l$의 기울기가 $m$의 기울기의 $4$배이므로 $\\tan 2\\theta=4\\tan\\theta$이다.\nstep3) $t=\\tan\\theta$ $(t>0)$라 하면 $\\frac{2t}{1-t^{2}}=4t$이다.\nstep4) $t \\neq 0$이므로 양변을 $2t$로 나누면 $\\frac{1}{1-t^{2}}=2$, 즉 $1-t^{2}=\\frac{1}{2}$이다.\nstep5) $t^{2}=\\frac{1}{2}$이므로 $t=\\frac{1}{\\sqrt{2}}$이다.\nstep6) 직선 $l$의 기울기는 $4t=\\frac{4}{\\sqrt{2}}=2\\sqrt{2}$이다.\nstep7) 검산: $\\tan 2\\theta=\\frac{2 \\times \\frac{1}{\\sqrt{2}}}{1-\\frac{1}{2}}=\\frac{\\sqrt{2}}{\\frac{1}{2}}=2\\sqrt{2}$로 일치하고 두 기울기 모두 양수이다.",
+      "confidence": "high",
+      "note": ""
+    }
+  ]
+}

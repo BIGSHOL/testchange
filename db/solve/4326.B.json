@@ -1,0 +1,146 @@
+{
+ "exam_id": 4326,
+ "pass": "B",
+ "items": [
+  {
+   "number": 1,
+   "answer": "②",
+   "solution": "step1) 원 $(x+1)^2+y^2=2$의 반지름은 $r=\\sqrt{2}$이다.\nstep2) 넓이는 $\\pi r^2=\\pi(\\sqrt{2})^2=2\\pi$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 2,
+   "answer": "①",
+   "solution": "step1) 원점에 대한 대칭이동은 $(x,~y)\\to(-x,~-y)$이다.\nstep2) 따라서 점 $(2,~4)$의 상은 $(-2,~-4)$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 3,
+   "answer": "②",
+   "solution": "step1) 무게중심은 $\\left(\\dfrac{a+b+(-2)}{3},~\\dfrac{b+2+6}{3}\\right)=(-1,~2)$이다.\nstep2) $y$좌표에서 $\\dfrac{b+8}{3}=2$이므로 $b=-2$이다.\nstep3) $x$좌표에서 $\\dfrac{a+b-2}{3}=-1$이므로 $a+b-2=-3$, 즉 $a+b=-1$이다.\nstep4) (검산) $a=1,~b=-2$이면 세 점 $(1,-2),(-2,2),(-2,6)$의 무게중심은 $(-1,~2)$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 4,
+   "answer": "③",
+   "solution": "step1) $a+b$의 값을 모두 구하면 $2+5=7$, $2+6=3+5=8$, $2+7=3+6=4+5=9$, $3+7=4+6=10$, $4+7=11$이다.\nstep2) 따라서 $C=\\{7,~8,~9,~10,~11\\}$이므로 $n(C)=5$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 5,
+   "answer": "⑤",
+   "solution": "step1) $\\overline{\\mathrm{AB}}$를 $t:(1-t)$로 내분하는 점은 $P=(1-t)\\mathrm{A}+t\\mathrm{B}$이다.\nstep2) $P=\\big((1-t)(-2)+3t,~(1-t)\\cdot4+t(-2)\\big)=(5t-2,~4-6t)$이다.\nstep3) 제1사분면 조건: $5t-2>0 \\Rightarrow t>\\dfrac{2}{5}$, $4-6t>0 \\Rightarrow t<\\dfrac{2}{3}$.\nstep4) $0<t<1$과 함께 $\\dfrac{2}{5}<t<\\dfrac{2}{3}$이므로 $a=\\dfrac{2}{5},~b=\\dfrac{2}{3}$.\nstep5) $a+b=\\dfrac{6}{15}+\\dfrac{10}{15}=\\dfrac{16}{15}$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 6,
+   "answer": "①",
+   "solution": "step1) 책자 집합 $B_1$($n=17$), 배지 집합 $B_2$($n=24$), $x=n(B_1\\cap B_2)$이다.\nstep2) $n(B_1\\cup B_2)=17+24-x\\le35$이므로 $x\\ge6$이다.\nstep3) $x\\le\\min(17,~24)=17$이므로 최댓값 $a=17$, 최솟값 $b=6$이다.\nstep4) $a+b=23$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 7,
+   "answer": "③",
+   "solution": "step1) $y=-x^2-2x+1=-(x+1)^2+2$이므로 꼭짓점은 $(-1,~2)$이다.\nstep2) $y=-x^2+4x-3=-(x-2)^2+1$이므로 꼭짓점은 $(2,~1)$이다.\nstep3) 평행이동은 $x$축으로 $3$, $y$축으로 $-1$만큼이다.\nstep4) $l:x+2y=0$의 상은 $(x-3)+2(y+1)=0$, 즉 $x+2y-1=0$이다.\nstep5) 두 평행선 사이의 거리는 $d=\\dfrac{|0-(-1)\\cdot 1|}{\\sqrt{1^2+2^2}}=\\dfrac{1}{\\sqrt5}$이므로 $d^2=\\dfrac{1}{5}$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 8,
+   "answer": "④",
+   "solution": "step1) $(B^C\\cup A)^C=B\\cap A^C=B-A=\\{1,~6,~8\\}$이다.\nstep2) $(A-B)^C\\cap(B-A)^C=\\big((A-B)\\cup(B-A)\\big)^C=\\{2,~3,~9,~11,~13\\}$이므로 $(A-B)\\cup(B-A)=\\{1,~4,~5,~6,~7,~8,~10,~12\\}$이다.\nstep3) $B-A=\\{1,~6,~8\\}$을 빼면 $A-B=\\{4,~5,~7,~10,~12\\}$이다.\nstep4) (검산) $A=\\{3,4,5,7,9,10,11,12\\}$, $B=\\{1,3,6,8,9,11\\}$이면 $A\\cap B=\\{3,9,11\\}$로 조건에 맞는다.\nstep5) 원소의 합은 $4+5+7+10+12=38$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 9,
+   "answer": "④",
+   "solution": "step1) 점 $(3,~1)$은 $3^2+1^2=10>5$이므로 원 밖의 점이다.\nstep2) 접점 $\\mathrm{P}(x_1,y_1)$에서의 접선은 $x_1x+y_1y=5$이고 $(3,~1)$을 지나므로 $3x_1+y_1=5$이다.\nstep3) $\\mathrm{Q}$에 대해서도 같으므로 두 접점은 모두 직선 $3x+y=5$ 위에 있다(접점현).\nstep4) $y=-3x+5$이므로 기울기는 $-3$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 10,
+   "answer": "①",
+   "solution": "step1) $\\mathrm{A}(3,~0)$이고 $\\mathrm{P}(p,~q)$ ($p<0,~q>0$, $p^2+q^2=9$)에서의 접선은 $px+qy=9$이다.\nstep2) $y=0$을 대입하면 $\\mathrm{B}\\left(\\dfrac{9}{p},~0\\right)$, 수선의 발은 $\\mathrm{H}(p,~0)$이다.\nstep3) $\\mathrm{H}$가 $\\overline{\\mathrm{BA}}$를 $1:2$로 내분하므로 $p=\\dfrac{2\\cdot\\frac{9}{p}+1\\cdot3}{3}$이다.\nstep4) $3p=\\dfrac{18}{p}+3 \\Rightarrow p^2-p-6=0 \\Rightarrow (p-3)(p+2)=0$, $p<0$이므로 $p=-2$이다.\nstep5) $q^2=9-4=5$, $q>0$이므로 $q=\\sqrt5$. 접선은 $-2x+\\sqrt5\\,y=9$이다.\nstep6) (검산) $\\mathrm{B}(-4.5,0)$, $\\mathrm{H}(-2,0)$, $\\mathrm{A}(3,0)$에서 $\\overline{\\mathrm{BH}}:\\overline{\\mathrm{HA}}=2.5:5=1:2$이다.\nstep7) $a=-2,~b=\\sqrt5$이므로 $a\\times b=-2\\sqrt5$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 11,
+   "answer": "⑤",
+   "solution": "step1) $\\mathrm{A}$가 직각: $\\overrightarrow{\\mathrm{AB}}\\cdot\\overrightarrow{\\mathrm{AC}}=(2,2)\\cdot(a+2,-3)=2a+4-6=0 \\Rightarrow a=1$.\nstep2) $\\mathrm{B}$가 직각: $\\overrightarrow{\\mathrm{BA}}\\cdot\\overrightarrow{\\mathrm{BC}}=(-2,-2)\\cdot(a,-5)=-2a+10=0 \\Rightarrow a=5$.\nstep3) $\\mathrm{C}$가 직각: $(-2-a)(-a)+(3)(5)=a^2+2a+15=0$, 판별식 $4-60<0$이므로 실근 없음.\nstep4) $a=1,~5$ 모두 세 점이 한 직선 위에 있지 않아 삼각형이 되므로 합은 $1+5=6$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 12,
+   "answer": "⑤",
+   "solution": "step1) $P$는 $|p|\\le2,~|q|\\le2$인 격자점 $5\\times5=25$개, $Q$는 $x=2$인 $5$개이다.\nstep2) $P$의 두 점 사이 거리의 최댓값은 $\\sqrt{4^2+4^2}=4\\sqrt2$이고, 이 값을 주는 쌍은 $\\{(-2,-2),(2,2)\\}$, $\\{(-2,2),(2,-2)\\}$ 두 가지뿐이다.\nstep3) $X$는 $Q$를 포함하므로 $(2,2),(2,-2)$를 이미 가진다. 따라서 조건 (마)는 '$(-2,-2)$ 또는 $(-2,2)$ 중 적어도 하나를 포함'과 동치이다.\nstep4) $Q\\subset X\\subset P$인 $X$는 $P-Q$의 $20$개 점에 대한 선택이므로 $2^{20}$개이다.\nstep5) 두 점을 모두 포함하지 않는 경우는 $2^{18}$개이므로 $2^{20}-2^{18}=(4-1)2^{18}=3\\cdot2^{18}$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 13,
+   "answer": "②",
+   "solution": "step1) 무게중심좌표로 $\\mathrm{D}=\\left(0,\\frac23,\\frac13\\right)$, $\\mathrm{E}=\\left(\\frac25,0,\\frac35\\right)$, $\\mathrm{F}=\\left(\\frac{n}{n+1},\\frac{1}{n+1},0\\right)$이다.\nstep2) $\\dfrac{[\\mathrm{DEF}]}{[\\mathrm{ABC}]}$는 이 행렬식이므로 $\\dfrac{6n+2}{15(n+1)}$이다.\nstep3) $[\\mathrm{ABC}]=3[\\mathrm{DEF}]$이므로 $\\dfrac{6n+2}{15(n+1)}=\\dfrac13$, 즉 $18n+6=15n+15$, $n=3$이다.\nstep4) (검산) $\\mathrm{A}(0,0),\\mathrm{B}(1,0),\\mathrm{C}(0,1)$, $n=3$이면 $\\mathrm{D}\\left(\\frac23,\\frac13\\right)$, $\\mathrm{E}\\left(0,\\frac35\\right)$, $\\mathrm{F}\\left(\\frac14,0\\right)$이고 $[\\mathrm{DEF}]=\\frac16=\\frac13\\cdot\\frac12=\\frac13[\\mathrm{ABC}]$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 14,
+   "answer": "$a=2$, $b=-3$ (직선 $y=2x-3$)",
+   "solution": "step1) 삼각형 $\\mathrm{ABC}$의 무게중심은 $\\left(\\dfrac{4+3-1}{3},~\\dfrac{2+5-4}{3}\\right)=(2,~1)$이다.\nstep2) 직선 $2x+4y+1=0$은 $y=-\\dfrac12x-\\dfrac14$이므로 기울기가 $-\\dfrac12$이다.\nstep3) 수직인 직선의 기울기는 $2$이다.\nstep4) 점 $(2,~1)$을 지나므로 $y-1=2(x-2)$, 즉 $y=2x-3$이다.\nstep5) 따라서 $a=2$, $b=-3$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 15,
+   "answer": "32",
+   "solution": "step1) $A\\cap(A-B)^C=A-(A-B)=A\\cap B$이므로 조건은 $A\\cap B=A$, 즉 $A\\subset B$이다.\nstep2) $A\\subset B$이면 $A\\cup B=B$이고, $A\\cup B=U$이므로 $B=U$이다.\nstep3) $B=U$일 때 $A\\subset B$는 $A\\subset U$와 같으므로 $A$는 $U$의 임의의 부분집합이면 된다.\nstep4) $U=\\{1,~2,~3,~4,~5\\}$이므로 가능한 $A$의 개수는 $2^5=32$이다.",
+   "confidence": "medium",
+   "note": "조건 $A\\cap(A-B)^C=A$ 를 문자 그대로 해석하면 $A\\subset B$ 이고 $B=U$ 로 확정돼 답이 $2^5=32$."
+  },
+  {
+   "number": 16,
+   "answer": "$k=-7$ 또는 $k=-27$",
+   "solution": "step1) 직선 $4x-3y+k=0$을 $x$축에 대하여 대칭이동하면 $y$ 대신 $-y$를 대입하여 $l:4x+3y+k=0$이다.\nstep2) 원 $(x-3)^2+(y-2)^2=4$를 직선 $y=x$에 대하여 대칭이동하면 $x,~y$를 바꾸어 $C:(x-2)^2+(y-3)^2=4$, 즉 중심 $(2,~3)$, 반지름 $2$이다.\nstep3) 한 점에서 만나려면 접해야 하므로 (중심과 $l$ 사이의 거리)$=2$이다.\nstep4) $\\dfrac{|4\\cdot2+3\\cdot3+k|}{\\sqrt{4^2+3^2}}=\\dfrac{|17+k|}{5}=2 \\Rightarrow |17+k|=10$.\nstep5) $17+k=10$ 또는 $17+k=-10$이므로 $k=-7$ 또는 $k=-27$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 17,
+   "answer": "최댓값 $8$, 최솟값 $2$",
+   "solution": "step1) $x^2+y^2-8x-6y+16=0 \\Rightarrow (x-4)^2+(y-3)^2=16+9-16=9$이므로 중심 $\\mathrm{C}(4,~3)$, 반지름 $r=3$이다.\nstep2) $\\overline{\\mathrm{OC}}=\\sqrt{4^2+3^2}=5$이고 $5>3$이므로 원점은 원 밖에 있다.\nstep3) 점 $\\mathrm{P}$가 원 위를 움직일 때 $\\overline{\\mathrm{OP}}$의 최댓값은 $\\overline{\\mathrm{OC}}+r=5+3=8$이다.\nstep4) 최솟값은 $\\overline{\\mathrm{OC}}-r=5-3=2$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 18,
+   "answer": "$k=35$",
+   "solution": "step1) 조건 (나) $X\\cap B=\\varnothing$은 $X$의 모든 원소가 $40=2^3\\times5$와 서로소가 아니라는 뜻, 즉 $2$ 또는 $5$의 배수라는 뜻이다.\nstep2) 조건 (다)는 $X$의 모든 원소가 $3$의 배수도 $7$의 배수도 아니라는 뜻이다.\nstep3) $100$ 이하 자연수 중 $2$ 또는 $5$의 배수는 $50+20-10=60$개이다.\nstep4) 그중 $3$의 배수는 ($6$의 배수 $16$)+($15$의 배수 $6$)-($30$의 배수 $3$)$=19$개, $7$의 배수는 ($14$의 배수 $7$)+($35$의 배수 $2$)-($70$의 배수 $1$)$=8$개, $21$의 배수는 ($42$의 배수 $2$)$=2$개이다.\nstep5) 따라서 제외할 개수는 $19+8-2=25$개이므로 조건을 만족하는 원소는 $60-25=35$개이다.\nstep6) (검산) 짝수 $50-21=29$개, $5$의 배수 $20-8=12$개, $10$의 배수 $10-4=6$개 → $29+12-6=35$개.\nstep7) 공집합이 아닌 부분집합의 개수는 $2^{35}-1$이므로 $k=35$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 19,
+   "answer": "$k=-8,~-7,~-3,~-2$",
+   "solution": "step1) $C_1:(x+1)^2+(y-5)^2=5$ (중심 $(-1,~5)$, 반지름 $\\sqrt5$), $C_2:(x-9)^2+y^2=5$ (중심 $(9,~0)$, 반지름 $\\sqrt5$)이다.\nstep2) $C_3$은 $C_1$을 $(8,~k)$만큼 평행이동한 원이므로 중심 $(7,~5+k)$, 반지름 $\\sqrt5$이다.\nstep3) $m=5+k$라 하면 두 중심 사이의 거리는 $d=\\sqrt{(9-7)^2+m^2}=\\sqrt{4+m^2}$이다.\nstep4) 반지름이 같은 두 원이 서로 다른 두 점에서 만날 조건은 $0<d<2\\sqrt5$, 즉 $d^2<20$이다.\nstep5) 공통현의 길이는 $\\overline{\\mathrm{PQ}}=2\\sqrt{5-\\dfrac{d^2}{4}}$이므로 $\\overline{\\mathrm{PQ}}<\\sqrt{15} \\Rightarrow 4\\left(5-\\dfrac{d^2}{4}\\right)<15 \\Rightarrow d^2>5$이다.\nstep6) $5<4+m^2<20 \\Rightarrow 1<m^2<16 \\Rightarrow 1<|m|<4$이다.\nstep7) $m=5+k$가 정수이므로 $m=\\pm2,~\\pm3$, 즉 $k=-3,~-2,~-7,~-8$이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 20,
+   "answer": "$f(x_1)=\\dfrac{81}{2}$",
+   "solution": "step1) 중심 $(X,~Y)$인 원이 $x$축과 직선 $3x-4y=0$에 모두 접하면 $|Y|=\\dfrac{|3X-4Y|}{5}$이고, 양변을 제곱하여 정리하면 $(3Y-X)(Y+3X)=0$이다.\nstep2) 즉 중심은 직선 $y=\\dfrac13x$ 또는 $y=-3x$ 위에 있다(원점은 반지름 $0$이므로 제외).\nstep3) $a(x-b)^2=\\dfrac{x}{3}$에서 $3ax^2-(6ab+1)x+3ab^2=0$, 판별식 $D_1=12ab+1$이다.\nstep4) $a(x-b)^2=-3x$에서 $ax^2+(3-2ab)x+ab^2=0$, 판별식 $D_2=9-12ab$이다.\nstep5) 원이 3개이려면 ($D_1>0,~D_2=0$) 또는 ($D_1=0,~D_2>0$)이다. 후자는 $ab=-\\dfrac{1}{12}$이고 이때 $x_1x_2x_3<0$에서 $b>0$이므로 $a<0$이 되어 모든 $f(x_i)\\le0$, 조건 (다)의 $\\dfrac{103}{6}>0$과 모순이다.\nstep6) 따라서 $D_2=0$, 즉 $ab=\\dfrac34$이다. 이때 $y=-3x$ 위의 중근은 $x=-\\dfrac{3}{4a}=-b$이고, $y=\\dfrac13x$ 위의 두 근은 곱이 $b^2$, 합이 $\\dfrac{6ab+1}{3a}=\\dfrac{11}{6a}=\\dfrac{22b}{9}$이다.\nstep7) $x_1x_2x_3=b^2\\cdot(-b)=-b^3<0$이므로 $b>0$이고, 나머지 두 근은 합과 곱이 모두 양수라 양수이다. 따라서 $x_1=-b$이다.\nstep8) $f(x_1)+f(x_2)+f(x_3)=(-3)(-b)+\\dfrac{1}{3}\\cdot\\dfrac{22b}{9}=3b+\\dfrac{22b}{27}=\\dfrac{103b}{27}$이고, 이것이 $3\\times\\dfrac{103}{6}=\\dfrac{103}{2}$이므로 $b=\\dfrac{27}{2}$, $a=\\dfrac{3}{4b}=\\dfrac{1}{18}$이다.\nstep9) $f(x_1)=-3x_1=3b=\\dfrac{81}{2}$이다.\nstep10) (검산) $f(x)=\\dfrac{1}{18}\\left(x-\\dfrac{27}{2}\\right)^2$에서 $x_1=-\\dfrac{27}{2}$이면 $f(x_1)=\\dfrac{729}{18}=\\dfrac{81}{2}$, $x_2+x_3=33$이므로 $f(x_2)+f(x_3)=\\dfrac{33}{3}=11$, 합 $=\\dfrac{81}{2}+11=\\dfrac{103}{2}$로 일치한다.",
+   "confidence": "high",
+   "note": ""
+  }
+ ]
+}

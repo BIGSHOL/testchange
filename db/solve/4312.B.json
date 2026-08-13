@@ -1,0 +1,174 @@
+{
+ "exam_id": 4312,
+ "pass": "B",
+ "items": [
+  {
+   "number": 1,
+   "answer": "⑤",
+   "solution": "step1) 완전제곱: $x^2+8x=(x+4)^2-16$, $y^2-10y=(y-5)^2-25$\nstep2) $(x+4)^2+(y-5)^2-16-25+25=0 \\Rightarrow (x+4)^2+(y-5)^2=16$\nstep3) 중심 $(-4,~5)$, 반지름 $r=4$이므로 $a=-4,~b=5,~r=4$\nstep4) $a+b+r=-4+5+4=5$",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 2,
+   "answer": "⑤",
+   "solution": "step1) 직선 $y=-x+1$을 $y=x$에 대하여 대칭이동하면 $x,~y$를 바꾸어 $x=-y+1$\nstep2) 정리하면 $y=-x+1$ (자기 자신과 일치한다)\nstep3) 점 $(k,~-4)$를 지나므로 $-4=-k+1$\nstep4) $k=5$",
+   "confidence": "high",
+   "note": "y=-x+1은 y=x에 대해 대칭인 직선이라 이동 후에도 같은 직선이다."
+  },
+  {
+   "number": 3,
+   "answer": "③",
+   "solution": "step1) 직선 $x-y-1=0$ 위의 점 $(1,~0)$을 잡는다.\nstep2) 이 점과 직선 $x-y+1=0$ 사이의 거리를 구하면 $\\frac{|1-0+1|}{\\sqrt{1^2+(-1)^2}}=\\frac{2}{\\sqrt2}$\nstep3) $\\frac{2}{\\sqrt2}=\\sqrt2$",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 4,
+   "answer": "④",
+   "solution": "step1) $(2,~-1)\\to(1,~-2)$ 이므로 평행이동은 $x$축 $-1$, $y$축 $-1$ 만큼이다.\nstep2) $y=x^2+x-6$을 $(-1,~-1)$ 만큼 옮기면 $y+1=(x+1)^2+(x+1)-6$\nstep3) $y=x^2+2x+1+x+1-6-1=x^2+3x-5$\nstep4) $a=3,~b=-5$이므로 $a-b=3-(-5)=8$",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 5,
+   "answer": "③",
+   "solution": "step1) 원의 중심은 $(-1,~1)$, 반지름은 $1$이다.\nstep2) 중심과 직선 $3x-4y-1=0$ 사이의 거리는 $\\frac{|3(-1)-4(1)-1|}{\\sqrt{3^2+(-4)^2}}=\\frac{8}{5}$\nstep3) $\\frac{8}{5}>1$이므로 직선은 원과 만나지 않는다.\nstep4) 최솟값은 $\\frac{8}{5}-1=\\frac{3}{5}$",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 6,
+   "answer": "①",
+   "solution": "step1) 중심을 $(t,~2t)$라 하면 $\\overline{\\mathrm{CA}}=\\overline{\\mathrm{CB}}$이다.\nstep2) $(t+3)^2+(2t-5)^2=(t-5)^2+(2t+1)^2$\nstep3) $5t^2-14t+34=5t^2-6t+26 \\Rightarrow 8t=8 \\Rightarrow t=1$\nstep4) 중심 $(1,~2)$, 반지름 $=\\sqrt{(1+3)^2+(2-5)^2}=\\sqrt{25}=5$\nstep5) 검산: $\\sqrt{(1-5)^2+(2+1)^2}=\\sqrt{25}=5$",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 7,
+   "answer": "④",
+   "solution": "step1) $k$에 대해 정리하면 $k(x+2y-2)+(3x+5y-1)=0$\nstep2) $x+2y-2=0,~3x+5y-1=0$을 연립하면 $x=-8,~y=5$이므로 항상 점 $(-8,~5)$를 지난다. (ㄱ 참)\nstep3) $k=-2$: $x+y+3=0$, 즉 $y=-x-3$으로 기울기 $-1$. 직선 $y=x+5$의 기울기는 $1$이므로 평행하지 않다. (ㄴ 거짓)\nstep4) $k=0$: $3x+5y-1=0$의 기울기는 $-\\frac{3}{5}$, $-5x+3y-1=0$의 기울기는 $\\frac{5}{3}$. 곱이 $-1$이므로 수직이다. (ㄷ 참)\nstep5) 따라서 ㄱ, ㄷ",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 8,
+   "answer": "③",
+   "solution": "step1) 기울기 $-2$인 직선과 수직인 직선의 기울기는 $\\frac{1}{2}$이다.\nstep2) 원의 중심 $(0,~0)$에서 접점 $(a,~b)$로 가는 반지름은 접선과 수직이므로 기울기가 $-2$이다. 즉 $b=-2a$\nstep3) 접점은 원 위의 점이므로 $a^2+b^2=5 \\Rightarrow a^2+4a^2=5 \\Rightarrow a^2=1$\nstep4) $a>0$이므로 $a=1,~b=-2$\nstep5) $3a+2b=3-4=-1$",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 9,
+   "answer": "①",
+   "solution": "step1) 직선 $x-3y+2=0$의 기울기는 $\\frac{1}{3}$이므로 수선의 기울기는 $-3$이다.\nstep2) $(3,~5)$를 지나는 수선: $y-5=-3(x-3) \\Rightarrow y=-3x+14$\nstep3) 대입: $x-3(-3x+14)+2=10x-40=0 \\Rightarrow x=4,~y=2$, 즉 $\\mathrm{H}(4,~2)$\nstep4) $\\mathrm{H}(4,~2)$와 $(7,~5)$를 지나는 직선의 기울기는 $\\frac{5-2}{7-4}=1$\nstep5) $y-2=x-4 \\Rightarrow x-y-2=0$",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 10,
+   "answer": "④",
+   "solution": "step1) 직선 $\\mathrm{AC}$의 기울기는 $\\frac{3-5}{5-1}=-\\frac{1}{2}$이므로 (가)$=-\\frac{1}{2}$\nstep2) 직선 $\\mathrm{AC}$: $y-5=-\\frac{1}{2}(x-1) \\Rightarrow x+2y-11=0$\nstep3) 점 $\\mathrm{B}(-1,~1)$과의 거리는 $\\frac{|-1+2-11|}{\\sqrt5}=\\frac{10}{\\sqrt5}=2\\sqrt5$이므로 (나)$=2\\sqrt5$\nstep4) $\\overline{\\mathrm{AC}}=\\sqrt{(5-1)^2+(3-5)^2}=\\sqrt{20}=2\\sqrt5$이므로 (다)$=2\\sqrt5$\nstep5) 넓이 $=\\frac{1}{2}\\times 2\\sqrt5\\times 2\\sqrt5=10$이므로 (라)$=10$\nstep6) 네 수의 곱 $=\\left(-\\frac{1}{2}\\right)\\times 2\\sqrt5\\times 2\\sqrt5\\times 10=-\\frac{1}{2}\\times 20\\times 10=-100$",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 11,
+   "answer": "②",
+   "solution": "step1) $2\\overline{\\mathrm{AC}}=5\\overline{\\mathrm{BC}}$에서 $\\overline{\\mathrm{AC}}:\\overline{\\mathrm{BC}}=5:2$\nstep2) 점 $\\mathrm{C}$는 선분 $\\mathrm{AB}$의 연장선 위에 있으므로 $\\overline{\\mathrm{AB}}=\\overline{\\mathrm{AC}}-\\overline{\\mathrm{BC}}$, 즉 $\\overline{\\mathrm{AB}}:\\overline{\\mathrm{BC}}=3:2$\nstep3) 따라서 $\\mathrm{B}$는 선분 $\\mathrm{AC}$를 $3:2$로 내분하는 점이다.\nstep4) $\\mathrm{B}=\\left(\\frac{3\\cdot7+2\\cdot(-3)}{5},~\\frac{3\\cdot4+2\\cdot(-1)}{5}\\right)=(3,~2)$\nstep5) 검산: $\\overline{\\mathrm{AC}}=5\\sqrt5,~\\overline{\\mathrm{BC}}=2\\sqrt5$이므로 $2\\cdot5\\sqrt5=5\\cdot2\\sqrt5$ 성립\nstep6) $a+b=3+2=5$",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 12,
+   "answer": "②",
+   "solution": "step1) $\\frac{x}{2}-\\frac{y}{3}=1$에서 $y=0$이면 $x=2$, $x=0$이면 $y=-3$이므로 $\\mathrm{A}(2,~0),~\\mathrm{B}(0,~-3)$\nstep2) $\\overrightarrow{\\mathrm{AB}}=(-2,~-3)$이고 정사각형이므로 $\\overrightarrow{\\mathrm{BC}}$는 이를 $90^{\\circ}$ 회전한 $(3,~-2)$ 또는 $(-3,~2)$\nstep3) $\\mathrm{C},~\\mathrm{D}$가 제4사분면에 있으려면 $(3,~-2)$를 택해야 하므로 $\\mathrm{C}(3,~-5),~\\mathrm{D}(5,~-2)$\nstep4) 직선 $\\mathrm{CD}$의 기울기는 $\\frac{-2-(-5)}{5-3}=\\frac{3}{2}$ (변 $\\mathrm{AB}$와 평행)\nstep5) $y+5=\\frac{3}{2}(x-3) \\Rightarrow y=\\frac{3}{2}x-\\frac{19}{2}$\nstep6) $y$절편은 $-\\frac{19}{2}$",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 13,
+   "answer": "②",
+   "solution": "step1) 두 점 $\\mathrm{A}(2,~0),~\\mathrm{B}(-3,~5)$를 지나는 직선의 기울기는 $\\frac{5-0}{-3-2}=-1$이므로 $y=-x+2$\nstep2) 이 직선의 제1사분면 부분은 $0<x<2$ (양 끝점 $(0,~2),~(2,~0)$은 제외)\nstep3) $kx-y-3k+3=0 \\Rightarrow k(x-3)+(3-y)=0$이므로 항상 점 $(3,~3)$을 지나고 기울기가 $k$인 직선이다.\nstep4) 교점: $k(x-3)+3=-x+2 \\Rightarrow x=\\frac{3k-1}{k+1}$\nstep5) $0<\\frac{3k-1}{k+1}<2$를 풀면, $\\frac{3k-1}{k+1}>0$에서 $k<-1$ 또는 $k>\\frac13$, $\\frac{k-3}{k+1}<0$에서 $-1<k<3$\nstep6) 공통범위는 $\\frac{1}{3}<k<3$ (경계 기울기는 점 $(3,3)$과 $(0,2),(2,0)$을 잇는 기울기 $\\frac13,~3$)",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 14,
+   "answer": "③",
+   "solution": "step1) 원의 중심은 $(a,~a)$, 반지름은 $1$이고 중심과 직선 $3x+4y-2=0$ 사이의 거리는 $d=\\frac{|7a-2|}{5}$\nstep2) ㄱ. $a=1$이면 $d=\\frac{|7-2|}{5}=1=r$이므로 접한다. (참)\nstep3) ㄴ. 직선이 원의 넓이를 이등분하려면 중심을 지나야 하므로 $7a-2=0$, 즉 $a=\\frac{2}{7}$. $a=\\frac{1}{7}$이면 $d=\\frac{1}{5}\\ne0$이므로 이등분하지 않는다. (거짓)\nstep4) ㄷ. $a=0$이면 $d=\\frac{2}{5}$이고 현의 길이는 $2\\sqrt{1^2-\\left(\\frac{2}{5}\\right)^2}=2\\sqrt{\\frac{21}{25}}=\\frac{2\\sqrt{21}}{5}$ (참)\nstep5) 따라서 ㄱ, ㄷ",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 15,
+   "answer": "①",
+   "solution": "step1) $\\frac{1}{4}(x+2)^2=k \\Rightarrow (x+2)^2=4k \\Rightarrow x=-2\\pm2\\sqrt{k}$\nstep2) $\\mathrm{A}(-2-2\\sqrt{k},~k),~\\mathrm{B}(-2+2\\sqrt{k},~k)$\nstep3) 선분 $\\mathrm{AB}$를 $3:1$로 내분하는 점의 $x$좌표는 $\\frac{3(-2+2\\sqrt{k})+1\\cdot(-2-2\\sqrt{k})}{4}=\\frac{-8+4\\sqrt{k}}{4}=-2+\\sqrt{k}$\nstep4) 이 점이 $y$축 위에 있으므로 $-2+\\sqrt{k}=0 \\Rightarrow k=4$ ($k>1$ 만족)\nstep5) 검산: $k=4$일 때 $\\mathrm{A}(-6,~4),~\\mathrm{B}(2,~4)$이고 $\\overline{\\mathrm{AO'}}:\\overline{\\mathrm{O'B}}=6:2=3:1$",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 16,
+   "answer": "⑤",
+   "solution": "step1) 직선 $l$은 $\\mathrm{A}$와 $\\mathrm{BC}$ 위의 점 $\\mathrm{P}$를 지나므로 삼각형을 $\\triangle\\mathrm{ABP}$와 $\\triangle\\mathrm{APC}$로 나누고 넓이비는 $\\overline{\\mathrm{BP}}:\\overline{\\mathrm{PC}}$이다.\nstep2) 삼등분이 되려면 한 쪽이 $\\frac{1}{3}S$, 다른 쪽이 $\\frac{2}{3}S$이고, 직선 $m$이 $\\frac{2}{3}S$ 쪽을 이등분해야 한다.\nstep3) [경우 2] $\\overline{\\mathrm{BP}}:\\overline{\\mathrm{PC}}=2:1$이면 $\\mathrm{P}=\\left(\\frac{2\\cdot5+1\\cdot(-4)}{3},~\\frac{2\\cdot(-4)+1\\cdot(-1)}{3}\\right)=(2,~-3)$\nstep4) 이때 $m$은 $\\mathrm{P}$와 $\\overline{\\mathrm{AB}}$의 중점 $\\left(-\\frac{3}{2},~1\\right)$을 지난다.\nstep5) $l$의 기울기 $=\\frac{3-(-3)}{1-2}=-6$, $m$의 기울기 $=\\frac{1-(-3)}{-\\frac{3}{2}-2}=-\\frac{8}{7}$, 곱 $=\\frac{48}{7}$\nstep6) [경우 1] $\\overline{\\mathrm{BP}}:\\overline{\\mathrm{PC}}=1:2$이면 $\\mathrm{P}(-1,~-2)$, $m$은 $\\overline{\\mathrm{AC}}$의 중점 $\\left(3,~-\\frac{1}{2}\\right)$을 지나 기울기 곱은 $\\frac{5}{2}\\times\\frac{3}{8}=\\frac{15}{16}$\nstep7) 최댓값은 $\\frac{48}{7}$",
+   "confidence": "high",
+   "note": "S=51/2, 경우2의 △ARP 넓이=17/2=S/3 로 검산함."
+  },
+  {
+   "number": 17,
+   "answer": "②",
+   "solution": "step1) $\\overline{\\mathrm{PQ}}=\\sqrt2$이고 두 점이 직선 $y=x$ 위에 있으므로 $\\mathrm{Q}=\\mathrm{P}+(1,~1)$ 또는 $\\mathrm{P}-(1,~1)$\nstep2) $\\mathrm{Q}=\\mathrm{P}+(1,~1)$인 경우, $\\mathrm{B}(6,~2)$를 $(-1,~-1)$ 만큼 옮긴 $\\mathrm{B}'(5,~1)$에 대하여 $\\overline{\\mathrm{QB}}=\\overline{\\mathrm{PB}'}$\nstep3) 따라서 $\\overline{\\mathrm{AP}}+\\overline{\\mathrm{PB}'}$의 최솟값을 구하면 된다. $\\mathrm{A}(3,~-1),~\\mathrm{B}'(5,~1)$은 직선 $y=x$의 같은 쪽에 있으므로 $\\mathrm{A}$를 대칭이동한 $\\mathrm{A}'(-1,~3)$을 이용\nstep4) 최솟값 $=\\overline{\\mathrm{A}'\\mathrm{B}'}=\\sqrt{(5+1)^2+(1-3)^2}=\\sqrt{40}=2\\sqrt{10}$\nstep5) 다른 방향($\\mathrm{Q}=\\mathrm{P}-(1,~1)$)은 $\\mathrm{B}''(7,~3)$에 대해 $\\overline{\\mathrm{A}'\\mathrm{B}''}=8>2\\sqrt{10}$이므로 제외\nstep6) 전체 최솟값 $=2\\sqrt{10}+\\sqrt2$이므로 $a=2,~b=1$, $a+b=3$",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 18,
+   "answer": "$k>-3$",
+   "solution": "step1) 주어진 식을 완전제곱꼴로 고친다.\nstep2) $x^2+2x=(x+1)^2-1$, $y^2-6y=(y-3)^2-9$\nstep3) $(x+1)^2-1+(y-3)^2-9-3k+1=0$\nstep4) $(x+1)^2+(y-3)^2=3k+9$\nstep5) 이 도형이 원이 되려면 반지름의 제곱이 양수여야 하므로 $3k+9>0$\nstep6) 따라서 $k>-3$",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 19,
+   "answer": "$y=-\\frac{1}{2}x+\\frac{1}{4}$ (즉 $2x+4y-1=0$)",
+   "solution": "step1) 선분 $\\mathrm{AB}$의 중점은 $\\left(\\frac{3+(-2)}{2},~\\frac{5+(-5)}{2}\\right)=\\left(\\frac{1}{2},~0\\right)$\nstep2) 직선 $\\mathrm{AB}$의 기울기는 $\\frac{5-(-5)}{3-(-2)}=\\frac{10}{5}=2$\nstep3) 수직이등분선의 기울기는 $-\\frac{1}{2}$\nstep4) 중점을 지나므로 $y-0=-\\frac{1}{2}\\left(x-\\frac{1}{2}\\right)$\nstep5) $y=-\\frac{1}{2}x+\\frac{1}{4}$, 즉 $2x+4y-1=0$",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 20,
+   "answer": "$\\mathrm{G}\\left(\\frac{x_{1}+x_{2}+x_{3}}{3},~\\frac{y_{1}+y_{2}+y_{3}}{3}\\right)$ 임이 증명됨",
+   "solution": "step1) (가) 무게중심의 정의: 삼각형의 무게중심 $\\mathrm{G}$는 세 중선의 교점이며, 각 중선을 꼭짓점으로부터 $2:1$로 내분하는 점이다.\nstep2) (나) 중점의 좌표: 변 $\\mathrm{BC}$의 중점을 $\\mathrm{M}$이라 하면 $\\mathrm{M}\\left(\\frac{x_{2}+x_{3}}{2},~\\frac{y_{2}+y_{3}}{2}\\right)$\nstep3) (다) 내분점: 두 점 $\\mathrm{A}(x_{1},~y_{1})$, $\\mathrm{M}$을 이은 선분을 $m:n$으로 내분하는 점은 $\\left(\\frac{m x_{\\mathrm{M}}+n x_{1}}{m+n},~\\frac{m y_{\\mathrm{M}}+n y_{1}}{m+n}\\right)$\nstep4) $\\mathrm{G}$는 선분 $\\mathrm{AM}$을 $2:1$로 내분하므로 $m=2,~n=1$을 대입한다.\nstep5) $x$좌표: $\\frac{2\\cdot\\frac{x_{2}+x_{3}}{2}+1\\cdot x_{1}}{3}=\\frac{x_{1}+x_{2}+x_{3}}{3}$\nstep6) $y$좌표: $\\frac{2\\cdot\\frac{y_{2}+y_{3}}{2}+1\\cdot y_{1}}{3}=\\frac{y_{1}+y_{2}+y_{3}}{3}$\nstep7) 따라서 $\\mathrm{G}\\left(\\frac{x_{1}+x_{2}+x_{3}}{3},~\\frac{y_{1}+y_{2}+y_{3}}{3}\\right)$ 이다.",
+   "confidence": "high",
+   "note": "증명형 문항."
+  },
+  {
+   "number": 21,
+   "answer": "$x=3$",
+   "solution": "step1) 점 $\\mathrm{P}$는 $\\mathrm{A}(-3,~-1),~\\mathrm{B}(7,~4)$를 $3:2$로 내분하는 점이므로\nstep2) $\\mathrm{P}\\left(\\frac{3\\cdot7+2\\cdot(-3)}{3+2},~\\frac{3\\cdot4+2\\cdot(-1)}{3+2}\\right)=\\left(\\frac{15}{5},~\\frac{10}{5}\\right)=(3,~2)$\nstep3) $mx+y-3m+2=0$을 $m$에 대하여 정리하면 $m(x-3)+(y+2)=0$\nstep4) $m$의 값에 관계없이 성립하려면 $x-3=0,~y+2=0$이므로 $\\mathrm{Q}(3,~-2)$\nstep5) 두 점 $\\mathrm{P}(3,~2),~\\mathrm{Q}(3,~-2)$는 $x$좌표가 같으므로 직선은 $y$축에 평행하다.\nstep6) 구하는 직선의 방정식은 $x=3$",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 22,
+   "answer": "$x^{2}+y^{2}-4x+6y-12=0$ (즉 $(x-2)^{2}+(y+3)^{2}=25$)",
+   "solution": "step1) 세 직선의 교점을 구한다.\nstep2) $y=1$과 $x-y+2=0$: $x=-1$이므로 $(-1,~1)$\nstep3) $y=1$과 $x-7y+2=0$: $x=5$이므로 $(5,~1)$\nstep4) $x-y+2=0$과 $x-7y+2=0$: $y-2=7y-2 \\Rightarrow y=0,~x=-2$이므로 $(-2,~0)$\nstep5) 원을 $x^{2}+y^{2}+Ax+By+C=0$이라 하고 세 점을 대입하면\n$-A+B+C=-2$, $5A+B+C=-26$, $-2A+C=-4$\nstep6) 두 식을 빼면 $6A=-24 \\Rightarrow A=-4$, 이어서 $C=-12$, $B=6$\nstep7) $x^{2}+y^{2}-4x+6y-12=0$, 즉 $(x-2)^{2}+(y+3)^{2}=25$\nstep8) 검산: $(-1,1)$에서 $9+16=25$, $(5,1)$에서 $9+16=25$, $(-2,0)$에서 $16+9=25$",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 23,
+   "answer": "$-4$",
+   "solution": "step1) 점 $(1,~4)$를 지나고 기울기가 $m$인 직선은 $y-4=m(x-1)$, 즉 $mx-y+4-m=0$\nstep2) 원 $x^{2}+y^{2}=4$의 중심 $(0,~0)$과 이 직선 사이의 거리가 반지름 $2$와 같아야 한다.\nstep3) $\\frac{|4-m|}{\\sqrt{m^{2}+1}}=2$\nstep4) 양변을 제곱하면 $(4-m)^{2}=4(m^{2}+1)$\nstep5) $16-8m+m^{2}=4m^{2}+4 \\Rightarrow 3m^{2}+8m-12=0$\nstep6) 판별식 $64+144=208>0$이므로 서로 다른 두 실근 $m_{1},~m_{2}$를 가진다.\nstep7) 근과 계수의 관계에 의하여 $m_{1}\\times m_{2}=\\frac{-12}{3}=-4$",
+   "confidence": "high",
+   "note": "점 (1,4)는 원 밖의 점이고 두 접선 모두 기울기가 존재한다(x=1은 접선이 아님)."
+  },
+  {
+   "number": 24,
+   "answer": "$\\frac{29}{3}$",
+   "solution": "step1) 두 원의 중심과 반지름은 $\\mathrm{O}(0,~0),~r=3$ 과 $\\mathrm{C}(-4,~0),~r=2$ 이다.\nstep2) 접선을 $mx-y+n=0$이라 하면 두 원에 동시에 접하므로\n$\\frac{|n|}{\\sqrt{m^{2}+1}}=3$, $\\frac{|-4m+n|}{\\sqrt{m^{2}+1}}=2$\nstep3) $s=\\sqrt{m^{2}+1}$이라 두면 $|n|=3s$, $|n-4m|=2s$\nstep4) $n=3s$인 경우 $|3s-4m|=2s$에서 $3s-4m=2s$ 또는 $3s-4m=-2s$\nstep5) $3s-4m=2s \\Rightarrow s=4m \\Rightarrow m^{2}+1=16m^{2} \\Rightarrow m^{2}=\\frac{1}{15}$ (이때 $m>0$)\nstep6) $3s-4m=-2s \\Rightarrow 5s=4m \\Rightarrow 25(m^{2}+1)=16m^{2}$ 은 해가 없다.\nstep7) $m=\\frac{1}{\\sqrt{15}}$일 때 $s=\\frac{4}{\\sqrt{15}}$, $n=3s=\\frac{12}{\\sqrt{15}}$ 이므로 $n^{2}=\\frac{144}{15}$\nstep8) $m^{2}+n^{2}=\\frac{1}{15}+\\frac{144}{15}=\\frac{145}{15}=\\frac{29}{3}$\nstep9) $n=-3s$인 경우도 부호만 반대인 접선이라 $m^{2}+n^{2}$의 값은 같다. (두 원은 두 점에서 만나므로 공통접선은 이 두 개뿐이다.)",
+   "confidence": "high",
+   "note": "중심거리 4, 반지름 합 5·차 1 이므로 두 원은 두 점에서 만나 공통외접선 2개만 존재. 두 접선 모두 m²+n²=29/3."
+  }
+ ]
+}

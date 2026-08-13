@@ -1,0 +1,645 @@
+{
+ "exam_id": 4352,
+ "tag": "[두호고][1][공수1][25-1-기말]",
+ "count": 22,
+ "questions": [
+  {
+   "number": 1,
+   "type": "객관식",
+   "score": 4.0,
+   "stem": "행렬 \\begin{pmatrix} 5 & -1 & 2 \\\\ 3 & 0 & -1 \\end{pmatrix}의 (1,~2) 성분은?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "-1"
+    },
+    {
+     "number": 2,
+     "text": "0"
+    },
+    {
+     "number": 3,
+     "text": "2"
+    },
+    {
+     "number": 4,
+     "text": "3"
+    },
+    {
+     "number": 5,
+     "text": "5"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 2,
+   "type": "객관식",
+   "score": 4.0,
+   "stem": "다항식 (x+y+z)(a+b+c)를 전개하였을 때, 모든 항의 개수는?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "1"
+    },
+    {
+     "number": 2,
+     "text": "3"
+    },
+    {
+     "number": 3,
+     "text": "6"
+    },
+    {
+     "number": 4,
+     "text": "8"
+    },
+    {
+     "number": 5,
+     "text": "9"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 3,
+   "type": "객관식",
+   "score": 4.0,
+   "stem": "등식 {}_{7}\\mathrm{C}_{r+1}={}_{7}\\mathrm{C}_{r+2}을 만족시키는 자연수 r의 값은?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "1"
+    },
+    {
+     "number": 2,
+     "text": "2"
+    },
+    {
+     "number": 3,
+     "text": "3"
+    },
+    {
+     "number": 4,
+     "text": "4"
+    },
+    {
+     "number": 5,
+     "text": "5"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 4,
+   "type": "객관식",
+   "score": 4.0,
+   "stem": "연립부등식 \\begin{cases} -x+1 > 3x+9 \\\\ 3x-5 \\leq 13 \\end{cases} 을 만족시키는 정수 x의 최댓값은?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "-6"
+    },
+    {
+     "number": 2,
+     "text": "-5"
+    },
+    {
+     "number": 3,
+     "text": "-4"
+    },
+    {
+     "number": 4,
+     "text": "-3"
+    },
+    {
+     "number": 5,
+     "text": "-2"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 5,
+   "type": "객관식",
+   "score": 4.0,
+   "stem": "삼차방정식 x^{3}-3x^{2}+5x-3=0의 두 허근을 \\alpha, \\beta라 할 때, \\alpha+\\beta의 값은?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "-5"
+    },
+    {
+     "number": 2,
+     "text": "-3"
+    },
+    {
+     "number": 3,
+     "text": "0"
+    },
+    {
+     "number": 4,
+     "text": "2"
+    },
+    {
+     "number": 5,
+     "text": "3"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 6,
+   "type": "객관식",
+   "score": 4.0,
+   "stem": "3\\times 3 행렬 A의 (i,~j) 성분 a_{ij}가 a_{ij}=i+j-1 일 때, 행렬 A의 모든 성분의 합은?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "14"
+    },
+    {
+     "number": 2,
+     "text": "20"
+    },
+    {
+     "number": 3,
+     "text": "27"
+    },
+    {
+     "number": 4,
+     "text": "36"
+    },
+    {
+     "number": 5,
+     "text": "44"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 7,
+   "type": "객관식",
+   "score": 4.4,
+   "stem": "연립부등식 3x-10 < 5x+4 \\leq 30+3x의 해가 a < x \\leq b일 때, 두 상수 a, b에 대하여 a+b의 값은?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "6"
+    },
+    {
+     "number": 2,
+     "text": "7"
+    },
+    {
+     "number": 3,
+     "text": "8"
+    },
+    {
+     "number": 4,
+     "text": "9"
+    },
+    {
+     "number": 5,
+     "text": "10"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 8,
+   "type": "객관식",
+   "score": 4.4,
+   "stem": "삼차방정식 x^{3}-1=0의 한 허근을 \\omega라 할 때, 3\\omega^{2}-\\omega^{3}+4\\omega^{4}=a\\omega+b 를 만족시키는 실수 a, b에 대하여 a+b의 값은?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "-3"
+    },
+    {
+     "number": 2,
+     "text": "0"
+    },
+    {
+     "number": 3,
+     "text": "3"
+    },
+    {
+     "number": 4,
+     "text": "6"
+    },
+    {
+     "number": 5,
+     "text": "9"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 9,
+   "type": "객관식",
+   "score": 4.4,
+   "stem": "이차부등식 x^{2}-5x-14 \\leq 0과 부등식 |x-a| \\leq b의 해가 일치할 때, ab의 값은? (단, a, b는 실수이다.)",
+   "choices": [
+    {
+     "number": 1,
+     "text": "11"
+    },
+    {
+     "number": 2,
+     "text": "\\frac{45}{4}"
+    },
+    {
+     "number": 3,
+     "text": "12"
+    },
+    {
+     "number": 4,
+     "text": "\\frac{49}{4}"
+    },
+    {
+     "number": 5,
+     "text": "14"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 10,
+   "type": "객관식",
+   "score": 4.4,
+   "stem": "모든 실수 x에 대하여 이차부등식 3x^{2}-2(k+1)x+k+1 > 0이 항상 성립하도록 하는 정수 k의 개수는?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "1"
+    },
+    {
+     "number": 2,
+     "text": "2"
+    },
+    {
+     "number": 3,
+     "text": "3"
+    },
+    {
+     "number": 4,
+     "text": "4"
+    },
+    {
+     "number": 5,
+     "text": "5"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 11,
+   "type": "객관식",
+   "score": 4.4,
+   "stem": "1부터 6까지의 자연수를 일렬로 나열할 때, 2의 배수끼리 이웃하고, 1과 3은 이웃하지 않는 경우의 수는?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "24"
+    },
+    {
+     "number": 2,
+     "text": "72"
+    },
+    {
+     "number": 3,
+     "text": "144"
+    },
+    {
+     "number": 4,
+     "text": "360"
+    },
+    {
+     "number": 5,
+     "text": "720"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 12,
+   "type": "객관식",
+   "score": 4.4,
+   "stem": "연립이차방정식 \\begin{cases} x-y=a \\\\ x^{2}+y^{2}=18 \\end{cases} 이 오직 한 쌍의 해를 갖도록 하는 양수 a의 값은?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "3"
+    },
+    {
+     "number": 2,
+     "text": "4"
+    },
+    {
+     "number": 3,
+     "text": "5"
+    },
+    {
+     "number": 4,
+     "text": "6"
+    },
+    {
+     "number": 5,
+     "text": "7"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 13,
+   "type": "객관식",
+   "score": 4.7,
+   "stem": "다음 그림은 집, 학교, 도서관, 공원을 연결하는 길을 나타낸 것이다. 집에서 출발하여 도서관까지 가는 모든 경우의 수는? (단, 같은 지점은 두 번 지나지 않는다.) [그림] 원 모양의 도로망 그림. 원 위에 네 지점이 놓여 있다 — 맨 위가 '집', 오른쪽이 '학교', 맨 아래가 '도서관', 왼쪽이 '공원'. 지점을 잇는 길의 개수는 다음과 같다. 집-공원: 3개(바깥 원호 1개 + 직선 1개 + 안쪽 곡선 1개). 집-학교: 2개(바깥 원호 1개 + 직선 1개). 공원-학교: 1개(원의 중심을 지나는 수평 직선). 공원-도서관: 3개(바깥 원호 1개 + 안쪽 곡선 2개). 학교-도서관: 3개(바깥 원호 1개 + 안쪽 곡선 2개). 집과 도서관을 직접 잇는 길은 없다.",
+   "choices": [
+    {
+     "number": 1,
+     "text": "6"
+    },
+    {
+     "number": 2,
+     "text": "12"
+    },
+    {
+     "number": 3,
+     "text": "18"
+    },
+    {
+     "number": 4,
+     "text": "25"
+    },
+    {
+     "number": 5,
+     "text": "30"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 14,
+   "type": "객관식",
+   "score": 4.7,
+   "stem": "대각선의 길이가 10\\mathrm{m}인 직사각형 모양의 땅이 있다. 이 땅의 가로의 길이를 1\\mathrm{m} 줄이고, 세로의 길이를 2\\mathrm{m} 늘렸더니 땅의 넓이는 처음 땅의 넓이보다 8\\mathrm{m}^{2}만큼 넓어졌다고 한다. 처음 땅의 넓이는?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "48\\mathrm{m}^{2}"
+    },
+    {
+     "number": 2,
+     "text": "52\\mathrm{m}^{2}"
+    },
+    {
+     "number": 3,
+     "text": "56\\mathrm{m}^{2}"
+    },
+    {
+     "number": 4,
+     "text": "60\\mathrm{m}^{2}"
+    },
+    {
+     "number": 5,
+     "text": "64\\mathrm{m}^{2}"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 15,
+   "type": "객관식",
+   "score": 4.7,
+   "stem": "다음 그림과 같이 반원 위에 놓인 8개의 점 중에서 3개의 점을 꼭짓점으로 하는 삼각형의 개수는? [그림] 반원(위쪽이 호, 아래쪽이 수평 지름) 위에 8개의 점이 찍혀 있는 그림. 지름(아래 수평선) 위에 5개의 점(양 끝점 2개 포함, 그 사이에 3개)이 놓여 있고, 호(반원의 곡선) 위에 3개의 점(왼쪽 위·꼭대기·오른쪽 위)이 놓여 있다. 지름 위의 5개 점은 한 직선 위에 있다.",
+   "choices": [
+    {
+     "number": 1,
+     "text": "40"
+    },
+    {
+     "number": 2,
+     "text": "46"
+    },
+    {
+     "number": 3,
+     "text": "48"
+    },
+    {
+     "number": 4,
+     "text": "52"
+    },
+    {
+     "number": 5,
+     "text": "56"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 16,
+   "type": "객관식",
+   "score": 4.7,
+   "stem": "연립부등식 \\begin{cases} 2x^{2}-5x-7 \\leq 0 \\\\ x^{2}+3x-4 > 0 \\end{cases} 을 만족시키는 정수 x의 개수는?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "0"
+    },
+    {
+     "number": 2,
+     "text": "1"
+    },
+    {
+     "number": 3,
+     "text": "2"
+    },
+    {
+     "number": 4,
+     "text": "3"
+    },
+    {
+     "number": 5,
+     "text": "4"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 17,
+   "type": "객관식",
+   "score": 4.7,
+   "stem": "연립이차방정식 \\begin{cases} 4x^{2}-5xy+y^{2}=0 \\\\ x^{2}-2xy+2y^{2}=25 \\end{cases} 의 해를 x=\\alpha, y=\\beta라 할 때, \\alpha\\beta의 최댓값은?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "-25"
+    },
+    {
+     "number": 2,
+     "text": "-4"
+    },
+    {
+     "number": 3,
+     "text": "0"
+    },
+    {
+     "number": 4,
+     "text": "4"
+    },
+    {
+     "number": 5,
+     "text": "25"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 18,
+   "type": "객관식",
+   "score": 5.1,
+   "stem": "부등식 |x-3|+|x+5| \\leq 11의 해가 a \\leq x \\leq b일 때, a+b의 값은?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "-2"
+    },
+    {
+     "number": 2,
+     "text": "-1"
+    },
+    {
+     "number": 3,
+     "text": "0"
+    },
+    {
+     "number": 4,
+     "text": "1"
+    },
+    {
+     "number": 5,
+     "text": "2"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 19,
+   "type": "객관식",
+   "score": 5.1,
+   "stem": "다음 그림과 같이 남학생 2명과 여학생 3명이 함께 놀이공원에 가서 각 줄이 2인용 의자로 구성되어 있고, 모두 4줄로 된 놀이 기구를 타려고 한다. 다음 중 경우의 수를 바르게 구한 것을 <보기>에서 있는 대로 고른 것은? (단, 다른 탑승자는 없다고 한다.) [그림] 놀이공원 놀이기구 삽화. 2인용 좌석이 한 줄을 이루고 그런 줄이 앞뒤로 모두 4줄 배치된 차량(롤러코스터 모양) 위에 남학생 2명과 여학생 3명, 모두 5명의 학생이 나란히 서 있는 만화 그림. <보기> ㄱ. 모든 여학생이 2인용 의자의 왼쪽 좌석에 앉도록 하는 경우의 수는 480이다. • ㄴ. 남학생끼리 이웃하게 앉는 경우의 수는 960이다. • ㄷ. 남학생 2명이 각각 여학생과 같은 줄에 앉는 경우의 수는 1152이다.",
+   "choices": [
+    {
+     "number": 1,
+     "text": "ㄱ"
+    },
+    {
+     "number": 2,
+     "text": "ㄴ"
+    },
+    {
+     "number": 3,
+     "text": "ㄱ, ㄴ"
+    },
+    {
+     "number": 4,
+     "text": "ㄴ, ㄷ"
+    },
+    {
+     "number": 5,
+     "text": "ㄱ, ㄴ, ㄷ"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 20,
+   "type": "객관식",
+   "score": 5.1,
+   "stem": "어느 진로 캠프에 참가한 학생들을 각 체험 부스에 나누어 배정하려고 한다. 한 체험 부스에 5명씩 배정하면 12명이 남고, 7명씩 배정하면 체험 부스 한 곳은 비게 된다. 가능한 체험 부스의 개수를 모두 더한 값은?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "15"
+    },
+    {
+     "number": 2,
+     "text": "21"
+    },
+    {
+     "number": 3,
+     "text": "33"
+    },
+    {
+     "number": 4,
+     "text": "42"
+    },
+    {
+     "number": 5,
+     "text": "46"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 21,
+   "type": "객관식",
+   "score": 5.4,
+   "stem": "연립부등식 \\begin{cases} x^{2}-5x-14 \\geq 0 \\\\ x^{2}-(2k+5)x+k^{2}+5k \\leq 0 \\end{cases} 의 해가 없을 때, 실수 k의 값의 범위가 a < k < b이다. 이때 ab의 값은? (단, a, b는 상수이다.)",
+   "choices": [
+    {
+     "number": 1,
+     "text": "-8"
+    },
+    {
+     "number": 2,
+     "text": "-7"
+    },
+    {
+     "number": 3,
+     "text": "-6"
+    },
+    {
+     "number": 4,
+     "text": "-5"
+    },
+    {
+     "number": 5,
+     "text": "-4"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 22,
+   "type": "객관식",
+   "score": 5.4,
+   "stem": "이차함수 f(x)=x^{2}+2x-8가 있다. 실수 k에 대하여 x에 대한 방정식 f(x)f(x-k)=0의 서로 다른 실근의 개수를 g(k)라 하자. g(k-7)+g(k+5)=6이 되도록 하는 모든 k의 값의 합은?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "0"
+    },
+    {
+     "number": 2,
+     "text": "2"
+    },
+    {
+     "number": 3,
+     "text": "[판독불가]"
+    },
+    {
+     "number": 4,
+     "text": "6"
+    },
+    {
+     "number": 5,
+     "text": "8"
+    }
+   ],
+   "sub_questions": []
+  }
+ ]
+}

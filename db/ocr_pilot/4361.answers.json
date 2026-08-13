@@ -1,0 +1,183 @@
+{
+ "exam_id": 4361,
+ "answer_pages": [
+  7
+ ],
+ "items": [
+  {
+   "number": 1,
+   "answer": "①",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 2,
+   "answer": "②",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 3,
+   "answer": "④",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 4,
+   "answer": "③",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 5,
+   "answer": "⑤",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 6,
+   "answer": "①",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 7,
+   "answer": "⑤",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 8,
+   "answer": "④",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 9,
+   "answer": "⑤",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 10,
+   "answer": "③",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 11,
+   "answer": "②",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 12,
+   "answer": "①",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 13,
+   "answer": "⑤",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 14,
+   "answer": "②",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 15,
+   "answer": "①",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 16,
+   "answer": "④",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 17,
+   "answer": "③",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 18,
+   "answer": "②",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 19,
+   "answer": "②",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 20,
+   "answer": "④",
+   "solution": "",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 21,
+   "answer": "$-5$",
+   "solution": "$4x-5 \\leq 7$, $x \\leq 3$\n$3x-1 \\geq x-k$, $2x \\geq 1-k$, $x \\geq \\frac{1-k}{2}$\n해가 $x=3$이 되려면 $\\frac{1-k}{2}=3$, $k=-5$",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 22,
+   "answer": "$-2-2\\sqrt{2} \\leq m \\leq -4+2\\sqrt{3}$",
+   "solution": "$h(x)=mx+1$는 $(0,~1)$을 지나는 직선이므로\n$f(x) \\leq h(x)$, $-x^{2}-4x-2 \\leq mx+1$\n$x^{2}+(m+4)x+3 \\geq 0$\n$D=(m+4)^{2}-12=m^{2}+8x+4 \\leq 0$\n$-4-\\sqrt{12} \\leq m \\leq -4+\\sqrt{12}$\n$h(x) \\leq g(x)$, $mx+1 \\leq x^{2}-2x+3$\n$x^{2}-(2+m)x+2 \\geq 0$\n$D=(m+2)^{2}-8=m^{2}+4m-4 \\leq 0$\n$-2-2\\sqrt{2} \\leq m \\leq -2+2\\sqrt{2}$\n따라서 $-2-2\\sqrt{2} \\leq m \\leq -4+2\\sqrt{3}$",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 23,
+   "answer": "$n=4$",
+   "solution": "$240^{n}=2^{4n} \\times 3^{n} \\times 5^{n}$이므로\n약수의 개수는 $(4n+1)(n+1)^{2}=425$이다.\n$425=17 \\times 5^{2}$이므로 $n=4$이다.",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 24,
+   "answer": "$21600$",
+   "solution": "1) 이웃해도 되는것부터 나열하면 3의 배수 3, 6, 9를 한 묶음으로 하고 4의 배수를 제외하고 나열하면 다음과 같다.\n$1,~2,~5,~7,~(3~6~9)$\n2) 사이사이 앞뒤에 이웃하면 안되는것을 나열하면 4의 배수 4, 8이 들어갈 수 있는 자리 6개 중에 2개를 택해 나열하는 되므로\n$5! \\times 3! \\times {}_{6}\\mathrm{P}_{2}=21600$",
+   "topic": "",
+   "difficulty": ""
+  },
+  {
+   "number": 25,
+   "answer": "$-2$",
+   "solution": "$A\\begin{pmatrix} 0 \\\\ 8 \\end{pmatrix}=A\\left\\{\\begin{pmatrix} 2 \\\\ -1 \\end{pmatrix}+\\begin{pmatrix} -2 \\\\ 9 \\end{pmatrix}\\right\\}=\\begin{pmatrix} -4 \\\\ 2 \\end{pmatrix}+\\begin{pmatrix} 0 \\\\ 0 \\end{pmatrix}=-2\\begin{pmatrix} 2 \\\\ -1 \\end{pmatrix}$\n$A^{2}\\begin{pmatrix} 0 \\\\ 8 \\end{pmatrix}=AA\\begin{pmatrix} 0 \\\\ 8 \\end{pmatrix}=-2A\\begin{pmatrix} 2 \\\\ -1 \\end{pmatrix}=(-2)^{2}\\begin{pmatrix} 2 \\\\ -1 \\end{pmatrix}$\n그러므로, $A^{n}\\begin{pmatrix} 0 \\\\ 8 \\end{pmatrix}=(-2)^{n}\\begin{pmatrix} 2 \\\\ -1 \\end{pmatrix}$이다.\n$A^{200}\\begin{pmatrix} 0 \\\\ 8 \\end{pmatrix}=(-2)^{200}\\begin{pmatrix} 2 \\\\ -1 \\end{pmatrix}=\\begin{pmatrix} 2^{201} \\\\ -2^{200} \\end{pmatrix}$이므로 $\\frac{x}{y}=-2$이다.",
+   "topic": "",
+   "difficulty": ""
+  }
+ ]
+}

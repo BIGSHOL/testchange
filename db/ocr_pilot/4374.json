@@ -1,0 +1,333 @@
+{
+  "meta": {"exam_id": 4374, "ocr_source": "session-vision"},
+  "header": {"title": "사대부고 1학년 공통수학1 (2025년 1학기 중간고사)"},
+  "questions": [
+    {
+      "number": 1,
+      "score": 3.5,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "다항식 $P(x)=x^{4}+5x^{2}-5x+a$가 $x-1$로 나누어떨어질 때, 실수 $a$의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-5"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-4"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "-1"}]}
+      ]
+    },
+    {
+      "number": 2,
+      "score": 3.5,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "다항식 $(5x+y)(25x^{2}-5xy+y^{2})$을 전개하면?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "25x^{2}+y^{2}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "25x^{2}+y^{3}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "125x^{3}+y^{3}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "125x^{3}+5x^{2}y^{2}+y^{3}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "125x^{3}-5x^{2}y^{2}+y^{3}"}]}
+      ]
+    },
+    {
+      "number": 3,
+      "score": 3.6,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "등식 $(x+3)^{2}+a(x+1)+4=x^{2}+bx+10$이 $x$에 대한 항등식이 되도록 하는 실수 $a$, $b$에 대하여 $a+b$의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "1"}]}
+      ]
+    },
+    {
+      "number": 4,
+      "score": 3.8,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "$\\sqrt{-2}\\sqrt{-8}+\\frac{\\sqrt{54}}{\\sqrt{-2}}+\\sqrt{3}\\sqrt{-9}$ 를 계산하면?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-4"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "-4+\\sqrt{3}i"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "-8+3\\sqrt{3}i"}]}
+      ]
+    },
+    {
+      "number": 5,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "두 복소수 $\\alpha=2-i$, $\\beta=2+i$에 대하여 $\\alpha^{3}+\\beta^{3}$의 값은? (단, $i=\\sqrt{-1}$ 이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "8"}]}
+      ]
+    },
+    {
+      "number": 6,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "이차방정식 $x^{2}-abx+a+b=0$의 한 근이 $1+2i$일 때, 실수 $a$, $b$에 대하여 $a+b$, $ab$를 두 근으로 하고 $x^{2}$의 계수가 1인 이차방정식은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "x^{2}-7x+7=0"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "x^{2}-7x+10=0"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "x^{2}+7x+10=0"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "x^{2}-10x+7=0"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "x^{2}+10x+7=0"}]}
+      ]
+    },
+    {
+      "number": 7,
+      "score": 4.3,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "다항식 $3x^{3}+14x^{2}-8x+1$를 인수분해하면 $(3x+a)(x^{2}+bx+c)$일 때, 정수 $a$, $b$, $c$에 대하여 $a+b+c$의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "3"}]}
+      ]
+    },
+    {
+      "number": 8,
+      "score": 4.3,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "다항식 $(x-2y-5)(x-2y+2)+6$의 인수만을 <보기>에서 고른 것은?"},
+        {"type": "text", "value": "<보기> ㄱ. $x-2y-4$ • ㄴ. $x-2y-2$ • ㄷ. $x-2y+1$ • ㄹ. $x-2y+3$"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ, ㄴ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄱ, ㄷ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄱ, ㄹ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄴ, ㄷ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄴ, ㄹ"}]}
+      ]
+    },
+    {
+      "number": 9,
+      "score": 4.5,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "다항식 $P(x)$를 $4x-2$로 나누었을 때 몫을 $Q(x)$, 나머지를 $R$라고 하자. $P(x)$를 $6x-3$으로 나누었을 때 몫과 나머지를 차례로 구한 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{1}{4}Q(x),~R"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{1}{6}Q(x),~R"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{1}{6}Q(x),~6R"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{2}{3}Q(x),~R"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{3}{2}Q(x),~\\frac{3}{2}R"}]}
+      ]
+    },
+    {
+      "number": 10,
+      "score": 4.5,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "1부터 9까지의 자연수가 각각 적힌 9장의 카드 중에서 서로 다른 2장을 뽑아 다음 그림의 빈칸에 한 장씩 놓았더니 서로 다른 두 실근을 갖는 이차방정식이 되었다. 그러고나서 카드의 위치를 서로 바꾸었더니 중근을 갖는 이차방정식이 되었다고 할 때, 뽑은 2장의 카드에 적힌 수의 합은?"},
+        {"type": "figure", "value": "1부터 9까지의 수가 하나씩 적힌 정사각형 카드 9장이 3행 3열 격자로 배열되어 있다(1행: 1, 2, 3 / 2행: 4, 5, 6 / 3행: 7, 8, 9). 격자 오른쪽에 화살표 →가 있고 그 오른쪽에 이차방정식 $x^{2}+\\square x+\\square=0$ 이 적혀 있다. 즉 $x$의 계수 자리와 상수항 자리에 각각 빈칸(□) 한 개씩 모두 두 개의 빈칸이 있고, 뽑은 카드 2장을 이 두 빈칸에 한 장씩 놓는다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "11"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "13"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "15"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "17"}]}
+      ]
+    },
+    {
+      "number": 11,
+      "score": 4.7,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "$x$에 대한 이차방정식 $x^{2}+(1-2k)x+2k^{2}+3k-3=0$의 두 근의 차가 3이 되도록 하는 모든 실수 $k$의 값의 합은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-5"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-4"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "-1"}]}
+      ]
+    },
+    {
+      "number": 12,
+      "score": 4.7,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "$-2a+3b+c=\\frac{1}{2}$, $\\frac{3}{a}-\\frac{2}{b}-\\frac{6}{c}=-8$, $abc=\\frac{1}{4}$일 때, $4a^{2}+9b^{2}+c^{2}$의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{17}{4}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{9}{2}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{19}{4}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{21}{4}"}]}
+      ]
+    },
+    {
+      "number": 13,
+      "score": 5.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "자연수 $n$에 대하여 이차함수 $y=x^{2}+2(n+2)x+4$의 그래프가 직선 $y=nx-5$와 만나는 점의 개수를 $f(n)$라 할 때, $f(1)+f(2)+f(3)+f(4)+f(5)$의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "8"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "9"}]}
+      ]
+    },
+    {
+      "number": 14,
+      "score": 5.2,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "$z_{1}=\\frac{1-i}{\\sqrt{2}}$, $z_{2}=\\frac{1+\\sqrt{3}i}{2}$ 일 때, $z_{1}^{m}+z_{2}^{n}=0$을 만족시키는 자연수 $m$, $n$에 대하여 $m+n$의 최솟값은? (단, $i=\\sqrt{-1}$ 이다.)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "11"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "13"}]}
+      ]
+    },
+    {
+      "number": 15,
+      "score": 5.4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 점 $\\mathrm{A}$가 $x$축 위에 있고 변 $\\mathrm{BC}$가 $y$축 위에 있는 평행사변형 $\\mathrm{ABCD}$가 있다. 최고차항의 계수가 $-1$이고 꼭짓점 $\\mathrm{P}$가 $y$축 위에 있는 이차함수 $y=f(x)$의 그래프가 점 $\\mathrm{A}$를 지나고, 변 $\\mathrm{CD}$에 접한다. 두 점 $\\mathrm{A}$, $\\mathrm{B}$를 지나는 직선의 기울기가 $-1$이고, 원점 $\\mathrm{O}$에 대해 $\\overline{\\mathrm{OA}}:\\overline{\\mathrm{OP}}=1:2$을 만족할 때, 평행사변형 $\\square\\mathrm{ABCD}$의 넓이는?"},
+        {"type": "figure", "value": "좌표평면 그림. 위로 볼록한 포물선 $y=f(x)$(최고차항 계수 $-1$)의 꼭짓점 $\\mathrm{P}$가 $y$축 위(양의 부분)에 있다. $y$축 위에는 아래에서부터 원점 $\\mathrm{O}$, 점 $\\mathrm{B}$, 꼭짓점 $\\mathrm{P}$, 점 $\\mathrm{C}$ 순서로 있으며 $\\mathrm{C}$는 $\\mathrm{P}$보다 조금 위에 있다. 점 $\\mathrm{A}$는 $x$축의 양의 부분에 있고 포물선이 점 $\\mathrm{A}$를 지난다. 평행사변형 $\\mathrm{ABCD}$에서 변 $\\mathrm{BC}$는 $y$축 위의 선분이고, 변 $\\mathrm{AD}$는 그와 평행한 세로 선분으로 점 $\\mathrm{D}$는 점 $\\mathrm{A}$의 바로 위에 있다. 변 $\\mathrm{CD}$는 $\\mathrm{C}$에서 오른쪽 아래 $\\mathrm{D}$로 내려가는 선분이며 포물선에 접한다. 왼쪽 위에서 오른쪽 아래로 내려오는 긴 직선이 점 $\\mathrm{B}$와 점 $\\mathrm{A}$를 지나며(기울기 $-1$) 변 $\\mathrm{AB}$를 이룬다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{9}{2}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{7}{2}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{5}{2}"}]}
+      ]
+    },
+    {
+      "number": 16,
+      "score": 5.0,
+      "type": "서술형",
+      "label": "[서술형 1]",
+      "contents": [
+        {"type": "text", "value": "[서술형 1] 두 다항식 $A=x^{2}+2xy+2y^{2}$, $B=x^{2}-xy-2y^{2}$에 대하여 $2A+B$를 구하는 풀이과정과 답을 쓰시오."}
+      ]
+    },
+    {
+      "number": 17,
+      "score": 5.0,
+      "type": "서술형",
+      "label": "[서술형 2]",
+      "contents": [
+        {"type": "text", "value": "[서술형 2] 등식 $(x+y)+(2x-y)i=2+i$를 만족시키는 실수 $x$, $y$의 값을 각각 구하는 풀이과정과 답을 쓰시오. (단, $i=\\sqrt{-1}$ 이다.)"}
+      ]
+    },
+    {
+      "number": 18,
+      "score": 5.0,
+      "type": "서술형",
+      "label": "[서술형 3]",
+      "contents": [
+        {"type": "text", "value": "[서술형 3] 복소수 $z=(1+i)x^{2}+(1+3i)x-2+2i$에 대하여 $\\overline{z}=-z$를 만족시키는 모든 실수 $x$의 값을 구하는 풀이과정과 답을 쓰시오. (단, $i=\\sqrt{-1}$ 이고, $\\overline{z}$는 $z$의 켤레복소수이다.)"}
+      ]
+    },
+    {
+      "number": 19,
+      "score": 6.0,
+      "type": "서술형",
+      "label": "[서술형 4]",
+      "contents": [
+        {"type": "text", "value": "[서술형 4] 이차함수 $y=x^{2}-2kx+a$의 그래프와 직선 $y=4bx-k^{2}+12k$가 실수 $k$의 값에 관계없이 항상 한 점에서 만날 때, 실수 $a$, $b$를 각각 구하는 풀이과정과 답을 쓰시오."}
+      ]
+    },
+    {
+      "number": 20,
+      "score": 6.0,
+      "type": "서술형",
+      "label": "[서술형 5]",
+      "contents": [
+        {"type": "text", "value": "[서술형 5] 실수 $a_{0}$, $a_{1}$, $a_{2}$, $a_{3}$, $a_{4}$, $a_{5}$, $a_{6}$에 대하여 등식 $\\left(x^{2}-2x-1\\right)^{3}=a_{0}+a_{1}x+a_{2}x^{2}+a_{3}x^{3}+a_{4}x^{4}+a_{5}x^{5}+a_{6}x^{6}$ 이 $x$에 대한 항등식일 때, 물음에 답하시오. [총 6점]"}
+      ],
+      "sub_questions": [
+        {
+          "number": 1,
+          "score": 2,
+          "contents": [{"type": "text", "value": "$a_{0}+a_{1}+a_{2}+a_{3}+a_{4}+a_{5}+a_{6}$의 값을 구하는 풀이과정과 답을 쓰시오."}]
+        },
+        {
+          "number": 2,
+          "score": 2,
+          "contents": [{"type": "text", "value": "$a_{0}+2a_{1}+4a_{2}+8a_{3}+16a_{4}+32a_{5}+64a_{6}$의 값을 구하는 풀이과정과 답을 쓰시오."}]
+        },
+        {
+          "number": 3,
+          "score": 2,
+          "contents": [{"type": "text", "value": "$a_{1}+3a_{2}+7a_{3}+15a_{4}+31a_{5}+63a_{6}$의 값을 구하는 풀이과정과 답을 쓰시오."}]
+        }
+      ]
+    },
+    {
+      "number": 21,
+      "score": 8.0,
+      "type": "서술형",
+      "label": "[서술형 6]",
+      "contents": [
+        {"type": "text", "value": "[서술형 6] 다항식 $A(x)=\\left(x^{2}-3x+2\\right)\\left(x^{2}+2x+2\\right)$에 대하여 다항식 $P(x)$가 다음 조건을 만족시킬 때, 물음에 답하시오. [총 8점]"},
+        {"type": "text", "value": "<조건> (가) $P(x)$를 $x-1$로 나누었을 때 나머지는 $1$이다. • (나) $P(x)$를 $x-2$로 나누었을 때 나머지는 $-2$이다. • (다) $P(x)$를 $A(x)$로 나누었을 때 나머지는 $x^{3}+ax+b$이다. (단, $a$, $b$는 실수이다.)"}
+      ],
+      "sub_questions": [
+        {
+          "number": 1,
+          "score": 4,
+          "contents": [{"type": "text", "value": "두 실수 $a$, $b$의 값을 각각 구하는 풀이과정과 답을 쓰시오."}]
+        },
+        {
+          "number": 2,
+          "score": 4,
+          "contents": [{"type": "text", "value": "다항식 $P(x)$를 $x^{2}+2x+2$로 나누었을 때 몫을 $Q(x)$, 나머지를 $R(x)$라 하자. $Q(2)+R(3)$의 값을 구하는 풀이과정과 답을 쓰시오."}]
+        }
+      ]
+    }
+  ]
+}

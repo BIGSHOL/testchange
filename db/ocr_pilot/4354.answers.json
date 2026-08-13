@@ -1,0 +1,31 @@
+{
+  "exam_id": 4354,
+  "answer_pages": [7, 8],
+  "items": [
+    {"number": 1, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 2, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 3, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 4, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 5, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 6, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 7, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 8, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 9, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 10, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 11, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 12, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 13, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 14, "answer": "⑤", "solution": "ㄱ. $(A+B)^{2}=A^{2}+AB+BA+B^{2}=O+E+O=E$\n따라서 $(A+B)^{3}=(A+B)^{2}(A+B)=E(A+B)=A+B$ (참)\nㄴ. $AB+BA=E$에서 $BA=E-AB$이므로\n$(AB)^{2}=ABAB=A(E-AB)B=(A-A^{2}B)B=AB-A^{2}B^{2}=AB-O=AB$\n$(AB)^{3}=(AB)^{2}AB=(AB)^{2}=AB$\n$(AB)^{4}=(AB)^{3}AB=(AB)^{2}=AB$\n따라서 $(AB)^{50}=AB$ (참)\nㄷ. $(A+B)C=ABC$에서 $AC+BC=ABC$\n양변의 왼쪽에 행렬 $A$를 곱하면 $A^{2}C+ABC=A^{2}BC$\n따라서 $ABC=O$ ($\\because A^{2}=O$)\n즉, $(A+B)C=O$이므로 양변의 왼쪽에 행렬 $A+B$를 곱하면\n$(A+B)^{2}C=O$, $EC=O$\n따라서 $C=O$ (참)\n따라서 옳은 것은 ㄱ, ㄴ, ㄷ이다.", "topic": "", "difficulty": ""},
+    {"number": 15, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 16, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 17, "answer": "③", "solution": "ㄱ. $ABA-A^{2}=E$에서\n$(AB-A)A=E$, $A(BA-A)=E$\n$(AB-A)A=E$의 양변의 오른쪽에 $BA-A$를 곱하면\n$(AB-A)A(BA-A)=BA-A$\n$AB-A=BA-A$ 따라서 $AB=BA$\n따라서 $(A+B)^{2}=A^{2}+2AB+B^{2}$ (참)\nㄴ. $AB+B=A$의 양변의 오른쪽에 행렬 $A$를 곱하면\n$ABA+BA=A^{2}$이므로 $ABA-A^{2}=-BA$\n이때 $ABA-A^{2}=E$이므로\n$-BA=E$, 즉 $BA=-E$\n따라서 $AB=BA=-E$이므로\n$A^{5}B^{5}=(AB)^{5}=(-E)^{5}=-E$ (거짓)\nㄷ. $BA=-E$이므로 $ABA-A^{2}=E$에서\n$-A-A^{2}=E$ 따라서 $A^{2}+A+E=O$ $\\cdots\\cdots$ ㉠\n이 식의 양변에 $A-E$를 곱하면\n$(A-E)(A^{2}+A+E)=A^{3}-E=O$\n따라서 $A^{3}=E$\n㉠에서 $A^{2}=-A-E$이므로\n$(A-E)^{2}=A^{2}-2A+E=-A-E-2A+E=-3A$\n따라서 $(A-E)^{60}=\\{(A-E)^{2}\\}^{30}=(-3A)^{30}=3^{30}A^{30}=3^{30}(A^{3})^{10}=3^{30}E$ (참)\n따라서 옳은 것은 ㄱ, ㄷ이다.", "topic": "", "difficulty": ""},
+    {"number": 18, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 19, "answer": "④", "solution": "$5\\square\\square\\square\\square$인 경우의 수 : $4!=24$가지\n$4\\square\\square\\square\\square$인 경우의 수 : $4!=24$가지\n$3\\square\\square\\square\\square$인 경우의 수 : $4!=24$가지\n$25\\square\\square\\square$인 경우의 수 : $3!=6$가지 이므로\n$25431$, $25413$, $25341$, $25314$\n따라서 $25314$", "topic": "", "difficulty": ""},
+    {"number": 20, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 21, "answer": "$4$", "solution": "$BA=\\begin{pmatrix} y & 1 \\\\ 1 & 1 \\end{pmatrix}\\begin{pmatrix} x & -1 \\\\ -4 & 1 \\end{pmatrix}=\\begin{pmatrix} xy-4 & -y+1 \\\\ x-4 & 0 \\end{pmatrix}$\n$BA=O$이므로 $\\begin{pmatrix} xy-4 & -y+1 \\\\ x-4 & 0 \\end{pmatrix}=\\begin{pmatrix} 0 & 0 \\\\ 0 & 0 \\end{pmatrix}$\n행렬이 서로 같을 조건에 의하여\n$-y+1=0$, $x-4=0$\n따라서 $x=4$, $y=1$\n따라서 $xy=4 \\times 1=4$", "topic": "", "difficulty": ""},
+    {"number": 22, "answer": "$a=1$, $b=-15$", "solution": "$x^{2}+(a+1)x+b=0$의 두 근 $-5$, $3$\n합 : $-2=-(a+1)$, $a=1$\n곱 : $-15=b$", "topic": "", "difficulty": ""},
+    {"number": 23, "answer": "$2640$", "solution": "$c$와 $d$를 한 문자로 생각하여 6개의 문자를 일렬로 나열하는 방법의 수는 $6!=720$\n$c$와 $d$의 자리를 바꾸는 방법의 수는 $2!=2$\n즉 $c$와 $d$를 이웃하게 나열하는 방법의 수는\n$720 \\times 2=1440$\n마찬가지로 $d$와 $e$를 이웃하게 나열하는 방법의 수는\n$720 \\times 2=1440$\n$c$와 $d$, $d$와 $e$가 동시에 이웃하는 경우는 $cde$, $edc$의 2가지이고, $c$, $d$, $e$를 한 문자로 생각하여 5개의 문자를 일렬로 나열하는 방법의 수는 $5!=120$ 이므로\n$c$와 $d$, $d$와 $e$가 동시에 이웃하게 나열하는 방법의 수는\n$2 \\times 120=240$\n따라서 구하는 방법의 수는\n$1440+1440-240=2640$", "topic": "", "difficulty": ""},
+    {"number": 24, "answer": "$-52$", "solution": "$A=\\begin{pmatrix} 0 & 1 \\\\ -1 & 0 \\end{pmatrix}$에서\n$A^{2}=AA=\\begin{pmatrix} 0 & 1 \\\\ -1 & 0 \\end{pmatrix}\\begin{pmatrix} 0 & 1 \\\\ -1 & 0 \\end{pmatrix}=\\begin{pmatrix} -1 & 0 \\\\ 0 & -1 \\end{pmatrix}=-E$\n$A^{4}=(A^{2})^{2}=(-E)^{2}=E$ $\\cdots\\cdots$ ㉠\n$B=\\begin{pmatrix} -2 & 1 \\\\ -5 & 2 \\end{pmatrix}$에서\n$B^{2}=BB=\\begin{pmatrix} -2 & 1 \\\\ -5 & 2 \\end{pmatrix}\\begin{pmatrix} -2 & 1 \\\\ -5 & 2 \\end{pmatrix}=\\begin{pmatrix} -1 & 0 \\\\ 0 & -1 \\end{pmatrix}=-E$\n따라서 $B^{4}=(B^{2})^{2}=(-E)^{2}=E$ $\\cdots\\cdots$ ㉡\n㉠, ㉡에서 자연수 $n$에 대하여 $A^{4n}=E$, $B^{4n}=E$\n이때\n$C_{4n-1}=B(A^{4n-1}+B^{4n-1})A^{5}=(BA^{4n-1}+B^{4n})A^{5}=BA^{4n+4}+B^{4n}A^{5}=BE+EA^{5}=B+A$\n$=\\begin{pmatrix} -2 & 1 \\\\ -5 & 2 \\end{pmatrix}+\\begin{pmatrix} 0 & 1 \\\\ -1 & 0 \\end{pmatrix}=\\begin{pmatrix} -2 & 2 \\\\ -6 & 2 \\end{pmatrix}$\n이므로\n$C_{3}+C_{7}+C_{11}+\\cdots+C_{51}=13\\begin{pmatrix} -2 & 2 \\\\ -6 & 2 \\end{pmatrix}=\\begin{pmatrix} -26 & 26 \\\\ -78 & 26 \\end{pmatrix}$\n따라서 구하는 행렬의 모든 성분의 합은\n$(-26)+26+(-78)+26=-52$", "topic": "", "difficulty": ""},
+    {"number": 25, "answer": "$26$", "solution": "두 삼각형 $\\mathrm{APC}$, $\\mathrm{BPA}$에서 $\\angle \\mathrm{PAB}=\\angle \\mathrm{PCA}$, $\\angle \\mathrm{P}$는 공통이므로 $\\triangle \\mathrm{APC} \\backsim \\triangle \\mathrm{BPA}$\n$\\overline{\\mathrm{BC}}=x$, $\\overline{\\mathrm{AC}}=x-\\frac{2}{3}$, $\\overline{\\mathrm{BP}}=y$ 라 하면\n$\\overline{\\mathrm{AP}}:\\overline{\\mathrm{AC}}=\\overline{\\mathrm{BP}}:\\overline{\\mathrm{BA}}$ 이므로 $8:\\left(x-\\frac{2}{3}\\right)=y:4$\n따라서 $x=\\frac{32}{y}+\\frac{2}{3}$ $\\cdots$ ㉠\n$\\overline{\\mathrm{AP}}:\\overline{\\mathrm{PC}}=\\overline{\\mathrm{BP}}:\\overline{\\mathrm{PA}}$ 이므로 $8:(x+y)=y:8$\n따라서 $y^{2}+xy-64=0$ $\\cdots$ ㉡\n㉠을 ㉡에 대입하면 $y^{2}+\\frac{2}{3}y-32=0$\n$(y+6)(3y-16)=0$\n따라서 $y=\\frac{16}{3}$ ($\\because y>0$)\n$y=\\frac{16}{3}$을 ㉠에 대입하면\n$x=\\frac{20}{3}$\n따라서 $\\overline{\\mathrm{PC}}=\\frac{16}{3}+\\frac{12}{3}=12$, $\\overline{\\mathrm{AC}}=6$\n따라서 삼각형 $\\mathrm{APC}$의 둘레의 길이는\n$8+12+6=26$", "topic": "", "difficulty": ""}
+  ]
+}
