@@ -18,7 +18,10 @@ import argparse, json, re, sqlite3, sys, io, pathlib, statistics
 
 BASE = pathlib.Path(__file__).parent
 sys.path.insert(0, str(BASE))
-sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
+# ⚠️ stdout 교체는 **직접 실행될 때만**. import 하는 쪽의 래퍼를 닫아 버려
+#    부르는 스크립트가 print 에서 죽는다(실제로 배치 실행기가 터졌다).
+if __name__ == "__main__":
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
 import fitz
 
 DB = BASE / "exam_index.db"
@@ -346,12 +349,54 @@ def box_text(chars: list[dict]) -> str:
 
 
 # ----------------------------------------------------------------- 문항 분해
-def extract(pdf: pathlib.Path) -> dict:
+def answer_page_start(doc) -> int:
+    """정답·해설면이 시작하는 쪽(없으면 page_count).
+
+    ⚠️ 정답면을 문제면과 함께 파싱하면 **정답 표의 ①②③ 이 선택지로 빨려 들어가고**
+    (실측: 마지막 문항이 선택지 20개), 해설의 배점이 더해져 배점 합이 100 을 넘는다.
+    정답면은 문서 뒤쪽에 있고 '정답' 이라는 낱말을 달고 있다 — 앞쪽 문제면엔 없다.
+    """
+    n = doc.page_count
+    for p in range(max(1, n // 2), n):
+        t = decode(doc[p].get_text())
+        # '정답' 만 보면 '해설'·'풀이' 로만 표기한 면을 놓쳐, 해설의 배점까지
+        # 문제 배점으로 세어 버린다(실측: 인쇄 26개 vs 추출 23개).
+        if re.search(r"정\s*답|해\s*설|풀\s*이\s*과\s*정|빠른\s*정답", t):
+            return p
+    return n
+
+
+def parse_answers(doc, start: int) -> list[dict]:
+    """정답면에서 `1. ①` `17. 5` 꼴을 걷어 온다 — 이것도 비전 없이 얻는다."""
+    items = []
+    for p in range(start, doc.page_count):
+        txt = decode(doc[p].get_text())
+        for m in re.finditer(r"(?m)^\s*(\d{1,2})\s*[.)]\s*([^\n]{0,60})", txt):
+            num, val = int(m.group(1)), m.group(2).strip()
+            if not val or num > 60:
+                continue
+            # 객관식은 원문자 하나, 서답형은 짧은 값. 해설 문장은 정답이 아니다.
+            if val[0] in CIRCLED:
+                items.append({"number": num, "answer": val[0]})
+            elif len(val) <= 24 and not re.search(r"[가-힣]{3,}", val):
+                items.append({"number": num, "answer": val})
+    seen, out = set(), []
+    for it in items:                       # 같은 번호가 여러 번이면 첫 것만
+        if it["number"] in seen:
+            continue
+        seen.add(it["number"])
+        out.append(it)
+    return sorted(out, key=lambda x: x["number"])
+
+
+def extract(pdf: pathlib.Path, with_answers: bool = False):
     doc = fitz.open(pdf)
-    sp = spans(doc)
+    a_start = answer_page_start(doc)
+    answers = parse_answers(doc, a_start) if with_answers else None
+    sp = [s for s in spans(doc) if s["page"] < a_start]
     w = doc[0].rect.width
     boxes, figs = [], []
-    for pno in range(doc.page_count):
+    for pno in range(a_start):
         page = doc[pno]
         for b in page_boxes(page):
             boxes.append((pno,) + tuple(b))
@@ -425,9 +470,60 @@ def extract(pdf: pathlib.Path) -> dict:
             q["choices"] = chs
         else:
             q["type"] = "서술형"
+            # 서술형은 `(1) … [3점]` 소문항으로 갈린다. 안 나누면 소문항 배점이
+            # 통째로 사라져(첫 배점만 잡힌다) 인쇄 배점과 개수가 안 맞는다.
+            subs = _split_subs(seg, num)
+            if subs:
+                q["contents"], q["sub_questions"] = subs[0], subs[1]
+                # 부모에 `[총 N점]` 이 없으면 소문항 합을 총점으로 두지 않는다
+                # (이중 계산 방지 — 합산은 소비하는 쪽이 판단한다)
         qs.append(q)
-    return {"header": {"title": decode(flat[:120]).split("\n")[0].strip()},
-            "questions": qs}
+    doc_out = {"header": {"title": decode(flat[:120]).split("\n")[0].strip()},
+               "questions": qs}
+    return (doc_out, answers) if with_answers else doc_out
+
+
+_SUBMARK = re.compile(r"^[(（]\s*(\d{1,2})\s*[)）]\s")
+
+
+def _split_subs(seg: list[dict], num: int):
+    """서술형을 `(1) (2)` 소문항으로 가른다. 없으면 None.
+
+    소문항 마커는 **줄 첫머리**에 오고 번호가 1부터 이어진다. 본문 속 교차참조
+    (`(1)에서 구한 …`)는 닫는 괄호 뒤에 공백 없이 한글이 붙어 구분된다.
+    """
+    flat = decode("".join(s["c"] for s in seg))
+    marks: list[tuple[int, int]] = []
+    for i, s in enumerate(seg):
+        if not s.get("bol"):
+            continue
+        m = _SUBMARK.match(flat[i:i + 6])
+        if not m:
+            continue
+        k = int(m.group(1))
+        if (not marks and k == 1) or (marks and k == marks[-1][0] + 1):
+            marks.append((k, i))
+    if len(marks) < 2:
+        return None
+    head = _clean(to_blocks(_drop_marks(seg[:marks[0][1]])), num)
+    subs = []
+    for j, (k, pos) in enumerate(marks):
+        end = marks[j + 1][1] if j + 1 < len(marks) else len(seg)
+        part = seg[pos:end]
+        sc = _SCORE.search(decode("".join(s["c"] for s in part)))
+        body = _clean(to_blocks(_drop_marks(part)), None)
+        if body:
+            # 소문항 머리의 `(k)` 는 우리 스키마의 number 와 중복이라 뗀다
+            b0 = body[0]
+            if b0["type"] == "text":
+                b0["value"] = _SUBMARK.sub("", b0["value"]).strip()
+                if not b0["value"]:
+                    body = body[1:]
+        s: dict = {"number": k, "contents": body}
+        if sc:
+            s["score"] = float(sc.group(1))
+        subs.append(s)
+    return head, subs
 
 
 def _drop_marks(seg: list[dict]) -> list[dict]:
