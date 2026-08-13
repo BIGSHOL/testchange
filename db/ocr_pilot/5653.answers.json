@@ -1,0 +1,57 @@
+{
+  "exam_id": 5653,
+  "answer_pages": [5],
+  "items": [
+    {"number": 1, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 2, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 3, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 4, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 5, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 6, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 7, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 8, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 9, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 10, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 11, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 12, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 13, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 14, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 15, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 16, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {
+      "number": 17,
+      "answer": "39개",
+      "solution": "정수 부분이 2가 되려면 $2 \\leq \\frac{\\sqrt{n}+4}{\\sqrt{n}-2} < 3$\n㉠ $2 \\leq \\frac{\\sqrt{n}+4}{\\sqrt{n}-2}$ 을 계산하면\n$2(\\sqrt{n}-2) \\leq \\sqrt{n}+4$, $\\sqrt{n} \\leq 8$, 따라서 $n \\leq 64$\n㉡ $\\frac{\\sqrt{n}+4}{\\sqrt{n}-2} < 3$ 을 계산하면\n$\\sqrt{n}+4 < 3(\\sqrt{n}-2)$, $\\sqrt{n} > 5$, 따라서 $n > 25$\n$25 < n \\leq 64$가 된다. $n=26, 27, 28, \\cdots, 64$ 따라서 $n$은 $39$개.",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 18,
+      "answer": "$a=2$, $b=-24$",
+      "solution": "$(x+3a)(x-2a)=x^{2}+ax-6a^{2}=x^{2}+2x+b$\n$a=2$, $-6a^{2}=-6 \\times 2^{2}=-24=b$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 19,
+      "answer": "$56\\sqrt{3}$",
+      "solution": "$x=\\frac{(2-\\sqrt{3})^{2}}{(2+\\sqrt{3})(2-\\sqrt{3})}=7-4\\sqrt{3}$\n$y=\\frac{(2+\\sqrt{3})^{2}}{(2-\\sqrt{3})(2+\\sqrt{3})}=7+4\\sqrt{3}$\n$y+x=(7+4\\sqrt{3})+(7-4\\sqrt{3})=14$\n따라서 $y^{2}-7y+xy-7x=y(y-7)+x(y-7)=(y+x)(y-7)$\n$=14 \\times 4\\sqrt{3}=56\\sqrt{3}$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 20,
+      "answer": "$a=6$",
+      "solution": "$4x^{2}+9x-9=(4x-3)(x+3)$\n$4x^{2}-23x+15=(4x-3)(x-5)$ 공통인수가 $4x-3$이다.\n$4x^{2}-11x+a=(4x-3)(x+m)=4x^{2}+(4m-3)x-3m$\n$4m-3=-11$, $m=-2$. 따라서 $a=-3m=-3 \\times (-2)=6$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 21,
+      "answer": "$a=53$, $b=14000$",
+      "solution": "① $57 \\times 49+16=a^{2}$\n$49=x$라고 하면 $57=x+8$이 된다.\n$57 \\times 49+16=(x+8) \\times x+16=x^{2}+8x+16=(x+4)^{2}$\n$=(49+4)^{2}=53^{2}$ 따라서 $a=53$\n② $2 \\times 85^{2}-18 \\times 5^{2}=2 \\times (85^{2}-9 \\times 5^{2})=2 \\times (85^{2}-3^{2} \\times 5^{2})$\n$=2 \\times (85^{2}-15^{2})=2 \\times (85-15) \\times (85+15)$\n$=2 \\times 70 \\times 100=14000=b$",
+      "topic": "",
+      "difficulty": ""
+    }
+  ]
+}

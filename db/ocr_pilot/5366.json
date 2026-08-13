@@ -1,0 +1,312 @@
+{
+  "meta": {"exam_id": 5366, "ocr_source": "session-vision"},
+  "header": {"title": "2025학년도 2학년 2학기 중간고사 수학"},
+  "questions": [
+    {
+      "number": 1,
+      "score": 3.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "연립방정식 \\begin{cases} -2x+ay=3 \\\\ 4x-8y=5 \\end{cases}의 해가 없을 때, 상수 a의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-4"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-3"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "9"}]}
+      ]
+    },
+    {
+      "number": 2,
+      "score": 3.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "\\overline{\\mathrm{AB}}=\\overline{\\mathrm{AC}}인 \\triangle \\mathrm{ABC}에서 \\angle \\mathrm{ACD}=130^{\\circ}일 때, \\angle x와 \\angle y의 크기는? (단, 점 \\mathrm{D}는 \\overline{\\mathrm{BC}}의 연장선 위의 점)"},
+        {"type": "figure", "value": "이등변삼각형 ABC. 꼭짓점 A가 위, B가 왼쪽 아래, C가 오른쪽 아래에 있고 변 BC의 연장선 위(C의 오른쪽)에 점 D가 있다. 변 AB와 변 AC에 같음 표시(빗금)가 하나씩 그려져 있다. 꼭짓점 A의 내각에 ∠x, 꼭짓점 B의 내각에 ∠y가 표시되어 있고, 꼭짓점 C의 바깥쪽 각 ∠ACD가 130°로 표시되어 있다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\angle x=30^{\\circ},~\\angle y=50^{\\circ}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\angle x=50^{\\circ},~\\angle y=30^{\\circ}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\angle x=50^{\\circ},~\\angle y=80^{\\circ}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\angle x=80^{\\circ},~\\angle y=30^{\\circ}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\angle x=80^{\\circ},~\\angle y=50^{\\circ}"}]}
+      ]
+    },
+    {
+      "number": 3,
+      "score": 3.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "<보기>의 직각삼각형 중 서로 합동인 것끼리 바르게 짝지은 것은?"},
+        {"type": "figure", "value": "<보기> 상자 안에 직각삼각형 6개(ㄱ, ㄴ, ㄷ, ㄹ, ㅁ, ㅂ)가 그려져 있다. ㄱ. 한 예각이 63°이고 빗변의 길이가 5인 직각삼각형(빗변에 점선 호로 5 표시). ㄴ. 한 예각이 50°이고 그 예각과 직각을 낀 변(직각을 낀 변)의 길이가 5인 직각삼각형. ㄷ. 한 예각이 50°이고 빗변의 길이가 5인 직각삼각형. ㄹ. 한 예각이 27°이고 빗변의 길이가 5인 직각삼각형. ㅁ. 직각을 낀 한 변의 길이가 3, 빗변의 길이가 5인 직각삼각형. ㅂ. 한 예각이 63°이고 직각을 낀 한 변(63°의 대변)의 길이가 5인 직각삼각형."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ, ㄹ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄱ, ㅂ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄴ, ㄷ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄷ, ㅁ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄹ, ㅂ"}]}
+      ]
+    },
+    {
+      "number": 4,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "일차방정식 3x+2y-6=0의 그래프에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?"},
+        {"type": "text", "value": "<보기> ㄱ. x절편은 y절편보다 크다. • ㄴ. 제3사분면을 지나지 않는다. • ㄷ. 그래프가 오른쪽 위를 향한다. • ㄹ. 일차방정식 6x+4y=-12의 그래프와 일치한다. • ㅁ. 이 그래프와 x축, y축에 둘러싸인 도형의 넓이는 3이다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ, ㄴ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄴ, ㅁ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄱ, ㄷ, ㅁ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄴ, ㄷ, ㄹ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄴ, ㄹ, ㅁ"}]}
+      ]
+    },
+    {
+      "number": 5,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "일차방정식 x-ay+3=0의 그래프는 세 점 (1,~2), (-1,~b), (c,~4)를 지나고, 기울기가 k일 때, kabc의 값은? (단, a, b, c, k는 상수)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "11"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "20"}]}
+      ]
+    },
+    {
+      "number": 6,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "연립방정식 \\begin{cases} 2x+y=6 \\\\ ax-y=b \\end{cases}에서 각 방정식의 그래프가 다음 그림과 같을 때, a+b의 값은? (단, a, b는 상수)"},
+        {"type": "figure", "value": "좌표평면에 두 직선이 그려져 있다. 한 직선은 오른쪽 아래로 향하며 x축과 x=3에서 만난다(x절편 3). 다른 직선은 오른쪽 위로 향하며 y축과 y=1에서 만난다(y절편 1, y축에 1이 표시됨). 두 직선의 교점에서 x축에 내린 점선이 x=2를 가리키고 있다(x축에 2와 3이 표시됨)."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-\\frac{3}{2}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-\\frac{1}{2}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{1}{2}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{3}{2}"}]}
+      ]
+    },
+    {
+      "number": 7,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "일차함수 y=f(x)의 그래프는 일차함수 y=-3x+9의 그래프와 x축 위에서 만나고, 일차함수 y=4x-8의 그래프와 y축 위에서 만난다. 이 일차함수 y=f(x)의 식은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "y=\\frac{3}{8}x-8"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "y=\\frac{3}{5}x+3"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "y=\\frac{5}{3}x-8"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "y=\\frac{7}{3}x+3"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "y=\\frac{8}{3}x-8"}]}
+      ]
+    },
+    {
+      "number": 8,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "\\angle \\mathrm{B}=\\angle \\mathrm{C}인 \\triangle \\mathrm{ABC}의 \\overline{\\mathrm{BC}} 위의 점 \\mathrm{P}에서 \\overline{\\mathrm{AB}}, \\overline{\\mathrm{AC}}에 내린 수선의 발을 각각 \\mathrm{Q}, \\mathrm{R}라 하자. \\overline{\\mathrm{AB}}=15, \\triangle \\mathrm{ABC}의 넓이가 90일 때, \\overline{\\mathrm{PQ}}+\\overline{\\mathrm{PR}}의 길이는?"},
+        {"type": "figure", "value": "이등변삼각형 ABC(A가 위, B가 왼쪽 아래, C가 오른쪽 아래). 밑변 BC 위에 점 P가 있고, P에서 변 AB에 내린 수선의 발 Q(변 AB 위), 변 AC에 내린 수선의 발 R(변 AC 위)가 표시되어 있으며 각 수선의 발에 직각 표시가 있다. 선분 AP도 그려져 있다. 변 AB 옆에 점선 호로 15가 표시되어 있고, 두 밑각 B, C에 같음 표시(점), ∠BPQ와 ∠CPR 부근에 ×표시가 있다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "9"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "11"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "12"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "15"}]}
+      ]
+    },
+    {
+      "number": 9,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "직사각형 \\mathrm{ABCD} 종이를 \\overline{\\mathrm{EF}}를 접는 선으로 하여 접었다. \\angle \\mathrm{AEF}=55^{\\circ}일 때, \\angle y-\\angle x의 크기는? (단, 점 \\mathrm{E}은 \\overline{\\mathrm{AD}} 위의 점이고, 점 \\mathrm{F}와 점 \\mathrm{G}는 \\overline{\\mathrm{BC}} 위의 점)"},
+        {"type": "figure", "value": "직사각형 ABCD(A 왼쪽 위, B 왼쪽 아래, C 오른쪽 아래, D 오른쪽 위)를 EF를 접는 선으로 접은 그림. E는 변 AD 위, F는 변 BC 위의 점이고, 왼쪽 부분(사각형 ABFE)이 오른쪽 아래로 접혀 있다. 접히기 전 위치인 A, B 쪽 변은 점선으로 그려져 있다. 접힌 부분(짙게 칠해진 사각형)은 E와 F를 지나 오른쪽 아래로 뻗어 있고, BC의 연장선 위(F의 오른쪽)에 점 G가 있다. E에서 ∠AEF=55°가 표시되고, 접힌 부분 안쪽 F 부근에 ∠x, 접힌 변이 오른쪽 부분과 만나는 C 쪽 각에 ∠y가 표시되어 있다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "50^{\\circ}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "55^{\\circ}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "60^{\\circ}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "65^{\\circ}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "70^{\\circ}"}]}
+      ]
+    },
+    {
+      "number": 10,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "\\triangle \\mathrm{ABC}에서 \\overline{\\mathrm{BE}}=\\overline{\\mathrm{DE}}=\\overline{\\mathrm{AD}}=\\overline{\\mathrm{AC}}이고, \\angle \\mathrm{DAC}=108^{\\circ}일 때, \\angle \\mathrm{B}의 크기는?"},
+        {"type": "figure", "value": "밑변이 긴 삼각형 ABC(B가 왼쪽 아래, C가 오른쪽 아래, A가 오른쪽 위). 변 AB 위에 점 E, 밑변 BC 위에 점 D가 있고, 선분 ED와 선분 AD가 그려져 있다. 네 선분 BE, DE, AD, AC에 같음 표시(빗금 두 개)가 되어 있고, ∠DAC=108°가 A의 내각으로 표시되어 있다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "10^{\\circ}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "11^{\\circ}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "12^{\\circ}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "13^{\\circ}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "14^{\\circ}"}]}
+      ]
+    },
+    {
+      "number": 11,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "\\triangle \\mathrm{ABC}의 외접원과 내접원에 대한 설명으로 옳은 것은? (단, 점 \\mathrm{O}는 \\triangle \\mathrm{ABC}의 외심, 점 \\mathrm{I}는 \\triangle \\mathrm{ABC}의 내심)"},
+        {"type": "figure", "value": "큰 원(외접원) 안에 삼각형 ABC가 내접해 있고(A가 위, B가 왼쪽 아래, C가 오른쪽 아래), 그 삼각형 안에 작은 원(내접원)이 내접해 있다. 내접원 안에 점 I와 점 O가 표시되어 있다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "점 O에서 \\triangle \\mathrm{ABC}의 세 꼭짓점에 이르는 거리는 같다."}]},
+        {"number": 2, "contents": [{"type": "text", "value": "점 I는 직각삼각형 \\mathrm{ABC}의 빗변의 중점과 일치한다."}]},
+        {"number": 3, "contents": [{"type": "text", "value": "점 I는 \\triangle \\mathrm{ABC}의 세 변의 수직이등분선의 교점이다."}]},
+        {"number": 4, "contents": [{"type": "text", "value": "점 O는 \\triangle \\mathrm{ABC}의 세 내각의 이등분선의 교점이다."}]},
+        {"number": 5, "contents": [{"type": "text", "value": "점 O에서 \\triangle \\mathrm{ABC}의 세 변에 이르는 거리는 같다."}]}
+      ]
+    },
+    {
+      "number": 12,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "점 \\mathrm{I}는 정삼각형 \\mathrm{ABC}의 내심이다. \\overline{\\mathrm{AB}} \\parallel \\overline{\\mathrm{ID}}, \\overline{\\mathrm{AC}} \\parallel \\overline{\\mathrm{IE}}, \\overline{\\mathrm{AB}}=12일 때, \\overline{\\mathrm{DE}}의 길이는? (단, 점 \\mathrm{D}, 점 \\mathrm{E}는 \\overline{\\mathrm{BC}} 위의 점)"},
+        {"type": "figure", "value": "정삼각형 ABC(A가 위, B가 왼쪽 아래, C가 오른쪽 아래) 안에 내심 I가 있다. 밑변 BC 위에 점 D와 점 E가 있고(B, D, E, C 순서), 선분 ID와 선분 IE가 그려져 있다. 변 AB와 선분 ID에 같은 방향 화살표(평행 표시), 변 AC와 선분 IE에도 같은 방향 화살표(평행 표시)가 있다. 변 AB 옆에 점선 호로 12가 표시되어 있다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "3.5"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4.5"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+      ]
+    },
+    {
+      "number": 13,
+      "score": 5.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "세 일차방정식 x+2y-5=0, 3x-y-1=0, ax-y+4=0의 그래프가 삼각형을 만들지 않을 때, 상수 a가 될 수 있는 모든 값의 곱은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-\\frac{3}{2}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "3"}]}
+      ]
+    },
+    {
+      "number": 14,
+      "score": 5.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "점 \\mathrm{O}와 점 \\mathrm{I}는 각각 \\triangle \\mathrm{ABC}의 외심, 내심이고, \\overline{\\mathrm{BO}}, \\overline{\\mathrm{BI}}의 연장선과 \\overline{\\mathrm{AC}}의 교점을 각각 \\mathrm{D}, \\mathrm{E}라 하자. \\angle \\mathrm{OAB}=26^{\\circ}, \\angle \\mathrm{ODA}=110^{\\circ}일 때, \\angle \\mathrm{OBI}의 크기는?"},
+        {"type": "figure", "value": "삼각형 ABC(A가 위, B가 왼쪽 아래, C가 오른쪽 아래) 안에 외심 O와 내심 I가 있다(O가 I보다 위쪽). 선분 AO, BO, BI가 그려져 있고, BO의 연장선이 변 AC와 만나는 점이 D, BI의 연장선이 변 AC와 만나는 점이 E이다. ∠OAB=26°가 A의 각에, ∠ODA=110°가 D의 각에 표시되어 있다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "9^{\\circ}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "10^{\\circ}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "11^{\\circ}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "12^{\\circ}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "13^{\\circ}"}]}
+      ]
+    },
+    {
+      "number": 15,
+      "score": 5.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "직사각형 \\mathrm{ABCD}의 꼭짓점 \\mathrm{B}에서 \\overline{\\mathrm{CD}} 위의 한 점 \\mathrm{E}를 지나는 직선과 \\overline{\\mathrm{AD}}의 연장선이 만나는 교점을 점 \\mathrm{F}, \\overline{\\mathrm{EF}}의 중점을 점 \\mathrm{H}, \\overline{\\mathrm{BD}}=\\overline{\\mathrm{DH}}, \\angle \\mathrm{BDC}=36^{\\circ}일 때, \\angle \\mathrm{DEF}의 크기는?"},
+        {"type": "figure", "value": "직사각형 ABCD(A 왼쪽 위, B 왼쪽 아래, C 오른쪽 아래, D 오른쪽 위)가 그려져 있고, 변 AD의 연장선(오른쪽)에 점 F가 있다. 변 CD 위의 점 E를 지나는 직선 BE가 AD의 연장선과 만나는 점이 F이다. 선분 EF의 중점이 H이고 선분 DH, 선분 DF가 그려져 있다. BD와 DH에 같음 표시, EH와 HF에 같음 표시가 있으며 ∠BDC=36°가 표시되어 있다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "36^{\\circ}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "54^{\\circ}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "63^{\\circ}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "68^{\\circ}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "72^{\\circ}"}]}
+      ]
+    },
+    {
+      "number": 16,
+      "score": 8.0,
+      "type": "서술형",
+      "label": "[서술형 1]",
+      "contents": [
+        {"type": "text", "value": "[서술형 1] 두 점 (-2,~3), (1,~-3)을 지나는 직선과 평행하고, x절편이 k인 직선을 그래프로 하는 일차함수의 식을 y=ax+6이라고 할 때, a+k의 값을 구하고 그 풀이과정을 쓰시오."}
+      ],
+      "choices": []
+    },
+    {
+      "number": 17,
+      "score": 7.0,
+      "type": "서술형",
+      "label": "[서술형 2]",
+      "contents": [
+        {"type": "text", "value": "[서술형 2] 두 점 (-1,~a-3), (2,~3a+5)을 지나는 직선이 x축에 평행할 때, a의 값과 직선의 방정식을 구하고 그 풀이과정을 쓰시오."}
+      ],
+      "choices": []
+    },
+    {
+      "number": 18,
+      "score": 9.0,
+      "type": "서술형",
+      "label": "[서술형 3]",
+      "contents": [
+        {"type": "text", "value": "[서술형 3] 물이 조금 들어 있는 원기둥 모양의 물통이 있다. 이 물통에 일정한 속도로 물을 채우기 시작하여 7분과 17분 후에 물의 높이를 재었더니 각각 50m, 80m였다. x분 후에 물통에 든 물의 높이를 y m라 할 때, 물통에 든 물의 높이가 95m가 되는 것은 물을 채우기 시작한 지 몇 분 후인지 구하고 그 풀이과정을 쓰시오."},
+        {"type": "text", "value": "<조건> x와 y 사이의 관계를 식으로 나타낼 것"}
+      ],
+      "choices": []
+    },
+    {
+      "number": 19,
+      "score": 7.0,
+      "type": "서술형",
+      "label": "[서술형 4]",
+      "contents": [
+        {"type": "text", "value": "[서술형 4] \\triangle \\mathrm{ABC}에서 점 \\mathrm{M}은 \\overline{\\mathrm{BC}}의 중점이고, 두 점 \\mathrm{B}, \\mathrm{C}에서 직선 \\mathrm{AM}에 내린 수선의 발을 각각 \\mathrm{D}, \\mathrm{E}라 하자. \\overline{\\mathrm{AM}}=9, \\overline{\\mathrm{CE}}=5, \\overline{\\mathrm{EM}}=3일 때, \\triangle \\mathrm{ABD}의 넓이를 구하고 그 풀이과정을 쓰시오."},
+        {"type": "figure", "value": "삼각형 ABC(A가 오른쪽 위, B가 왼쪽, C가 오른쪽 아래)에서 변 BC의 중점 M을 지나는 직선 AM이 그려져 있고, 이 직선은 M을 지나 아래쪽으로 연장되어 있다. C에서 직선 AM에 내린 수선의 발이 E(선분 AM 위, 직각 표시), B에서 직선 AM의 연장선에 내린 수선의 발이 D(M 아래쪽, 직각 표시)이다. BM과 MC에 같음 표시(빗금 두 개)가 있고, AM 위쪽 부분에 9, ME에 3, CE에 5가 표시되어 있다. 삼각형 ABD 부분이 색칠되어 있다."},
+        {"type": "text", "value": "<조건> 합동인 삼각형을 찾아 기호 ≡를 사용하여 나타낼 것 • 이용된 합동 조건을 쓸 것"}
+      ],
+      "choices": []
+    },
+    {
+      "number": 20,
+      "score": 9.0,
+      "type": "서술형",
+      "label": "[서술형 5]",
+      "contents": [
+        {"type": "text", "value": "[서술형 5] \\overline{\\mathrm{AB}}=6, \\overline{\\mathrm{AC}}=10, \\overline{\\mathrm{BC}}=8, \\angle \\mathrm{B}=90^{\\circ}인 직각삼각형 \\mathrm{ABC}의 내접원과 외접원을 그릴 때, 색칠한 부분의 넓이를 구하고 그 풀이과정을 쓰시오. (단, 점 \\mathrm{O}는 \\triangle \\mathrm{ABC}의 외심, 점 \\mathrm{I}는 \\triangle \\mathrm{ABC}의 내심)"},
+        {"type": "figure", "value": "직각삼각형 ABC(A 왼쪽 위, B 왼쪽 아래에 직각 표시, C 오른쪽 아래)가 큰 원(외접원)에 내접해 있고, 빗변 AC가 외접원의 지름이며 그 중점이 외심 O이다. 삼각형 안에는 내심 I를 중심으로 하는 작은 원(내접원)이 내접해 있다. 외접원의 내부에서 내접원을 제외한 부분이 색칠되어 있다."},
+        {"type": "text", "value": "<조건> 내접원과 외접원의 반지름을 각각 구할 것 • 내접원과 외접원의 넓이를 각각 구할 것"}
+      ],
+      "choices": []
+    }
+  ]
+}

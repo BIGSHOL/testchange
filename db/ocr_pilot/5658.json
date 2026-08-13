@@ -1,0 +1,1187 @@
+{
+ "meta": {
+  "exam_id": 5658,
+  "ocr_source": "session-vision"
+ },
+ "header": {
+  "title": "경명여중 3학년 수학 (2025년 1학기 중간고사) — 제곱근과 실수 ~ 인수분해"
+ },
+ "questions": [
+  {
+   "number": 1,
+   "score": 3.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "'x는 7의 제곱근이다.'를 관계식으로 바르게 나타낸 것은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "x=7^{2}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "x^{2}=7"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "x^{2}=\\sqrt{7}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\sqrt{x}=7"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\sqrt{x}=7^{2}"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 2,
+   "score": 3.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "계산이 옳지 않은 것은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2\\sqrt{5}+4\\sqrt{5}=6\\sqrt{5}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3\\sqrt{7}-8\\sqrt{7}+2\\sqrt{7}=-3\\sqrt{7}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\sqrt{98}-\\sqrt{18}-\\sqrt{50}=-\\sqrt{2}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3\\sqrt{12}+\\frac{15}{\\sqrt{3}}-4\\sqrt{3}=5\\sqrt{3}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\sqrt{250}+\\frac{10}{\\sqrt{10}}-3\\sqrt{10}=3\\sqrt{10}"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 3,
+   "score": 3.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "<보기>에 있는 수의 제곱근 중 근호를 사용하지 않고 나타낼 수 있는 수의 개수는?"
+    },
+    {
+     "type": "text",
+     "value": "<보기> ㄱ. \\sqrt{16} • ㄴ. \\sqrt{0.25} • ㄷ. \\sqrt{0.0001} • ㄹ. \\sqrt{\\frac{1}{81}} • ㅁ. \\sqrt{\\frac{9}{49}} • ㅂ. \\sqrt{256}"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "text",
+       "value": "1개"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "text",
+       "value": "2개"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "text",
+       "value": "3개"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "text",
+       "value": "4개"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "text",
+       "value": "5개"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 4,
+   "score": 3.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "\\frac{\\sqrt{32}-6}{\\sqrt{2}}+a(\\sqrt{8}-3)이 유리수일 때, 유리수 a의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{2}{3}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{3}{4}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{4}{3}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{3}{2}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 5,
+   "score": 3.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "\\sqrt{x}=26.12, \\sqrt{y}=0.2577일 때, 다음 제곱근표를 이용하여 x,~y의 값을 바르게 짝지은 것은?"
+    },
+    {
+     "type": "table",
+     "value": "",
+     "rows": [
+      [
+       "수",
+       "0",
+       "1",
+       "2",
+       "3",
+       "4",
+       "5"
+      ],
+      [
+       "6.5",
+       "2.550",
+       "2.551",
+       "2.553",
+       "2.555",
+       "2.557",
+       "2.559"
+      ],
+      [
+       "6.6",
+       "2.569",
+       "2.571",
+       "2.573",
+       "2.575",
+       "2.577",
+       "2.579"
+      ],
+      [
+       "6.7",
+       "2.588",
+       "2.590",
+       "2.592",
+       "2.594",
+       "2.596",
+       "2.598"
+      ],
+      [
+       "6.8",
+       "2.608",
+       "2.610",
+       "2.612",
+       "2.613",
+       "2.615",
+       "2.617"
+      ],
+      [
+       "6.9",
+       "2.627",
+       "2.629",
+       "2.631",
+       "2.632",
+       "2.634",
+       "2.636"
+      ]
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "x=68.2,~y=0.66"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "x=68.2,~y=0.664"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "x=680,~y=0.066"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "x=682,~y=0.664"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "x=682,~y=0.0664"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 6,
+   "score": 3.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "\\sqrt{2}=a, \\sqrt{3}=b라 할 때, 옳지 않은 것은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\sqrt{18}=ab^{2}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\sqrt{72}=a^{3}b^{2}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\sqrt{1.5}=\\frac{b}{a^{2}}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{2}{\\sqrt{3}}=\\frac{a^{2}}{b}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{3\\sqrt{3}}{2}=\\frac{b^{3}}{a^{2}}"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 7,
+   "score": 3.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "(x-ay+6)(x-3y-b)의 전개식에서 xy의 계수와 x의 계수가 모두 -2일 때, ab의 값은? (단, a,~b는 수)"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-20"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-8"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-4"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "8"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "20"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 8,
+   "score": 3.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "-4<x<3일 때, -\\sqrt{x^{2}+8x+16}+\\sqrt{x^{2}-6x+9}를 간단히 하면?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-2x-1"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-2x-7"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2x+1"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-7"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "7"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 9,
+   "score": 3.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "(x-6)(x+2)+m이 완전제곱식이 되도록 하는 수 m의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-16"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-4"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "12"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "16"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 10,
+   "score": 4.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "다음 수를 수직선 위에 나타낼 때, 가장 오른쪽에 위치하는 수는?"
+    },
+    {
+     "type": "text",
+     "value": "<상자> 3\\sqrt{5}-1, ~~2\\sqrt{2}+1, ~~3+\\sqrt{5}, ~~5-\\sqrt{2}, ~~\\sqrt{10}-1"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3\\sqrt{5}-1"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2\\sqrt{2}+1"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3+\\sqrt{5}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5-\\sqrt{2}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\sqrt{10}-1"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 11,
+   "score": 4.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "부등식 \\sqrt{100}<2x<\\sqrt{200}을 만족시키는 자연수 x의 개수는?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "text",
+       "value": "1개"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "text",
+       "value": "2개"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "text",
+       "value": "3개"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "text",
+       "value": "4개"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "text",
+       "value": "5개"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 12,
+   "score": 4.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "네 개의 정사각형 \\mathrm{A}, \\mathrm{B}, \\mathrm{C}, \\mathrm{D}는 한 변의 길이의 비가 1:2:3:4인 색종이들이다. 이 색종이들의 넓이의 합이 90일 때, 가장 큰 정사각형 모양의 색종이의 한 변의 길이는?"
+    },
+    {
+     "type": "figure",
+     "value": "네 개의 정사각형 색종이가 밑변을 같은 수평선에 맞춘 채 왼쪽부터 크기 순으로 나란히 놓인 그림. 가장 작은 것부터 차례로 안쪽에 A, B, C, D 라고 적혀 있고, 오른쪽으로 갈수록 한 변의 길이가 커진다(한 변의 길이의 비 1:2:3:4). C 는 회색으로 칠해져 있다."
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\sqrt{2}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\sqrt{3}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4\\sqrt{2}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4\\sqrt{3}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "12"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 13,
+   "score": 4.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "\\sqrt{2}\\times\\sqrt{3}\\times\\sqrt{4}\\times\\cdots\\times\\sqrt{10}의 값을 계산하면?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "240\\sqrt{7}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "360\\sqrt{2}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "360\\sqrt{7}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "720\\sqrt{5}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "720\\sqrt{7}"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 14,
+   "score": 4.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "7992+996^{2}=10^{m}+n일 때, \\frac{m}{n}의 값은? (단, m,~n은 한 자리 자연수)"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{3}{4}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{4}{3}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{3}{2}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 15,
+   "score": 4.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "옳은 것만을 <보기>에서 있는 대로 고른 것은?"
+    },
+    {
+     "type": "text",
+     "value": "<보기> ㄱ. x^{2}-4x-4=(x-2)^{2} • ㄴ. x^{2}+xy+\\frac{1}{4}y^{2}=\\left(x+\\frac{1}{2}\\right)^{2} • ㄷ. 4x^{2}-12xy+9y^{2}=(2x-3y)^{2} • ㄹ. \\frac{1}{4}x^{2}-y^{2}=\\frac{1}{4}(x+y)(x-y) • ㅁ. 3x^{2}+8x+4=(x+2)(3x+2)"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄱ, ㄴ"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄱ, ㄹ"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄷ, ㅁ"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄴ, ㄷ, ㅁ"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄷ, ㄹ, ㅁ"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 16,
+   "score": 4.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "a=\\frac{3}{2-\\sqrt{3}},~b=\\frac{3}{2+\\sqrt{3}}일 때, a^{2}-ab+b^{2}의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "63"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "81"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "117"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "135"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "171"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 17,
+   "score": 5.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "6x-3y=1,~4x+2y=3일 때, 4x^{2}-10x-y^{2}-5y의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-7"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-\\frac{27}{4}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-\\frac{14}{3}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-\\frac{28}{9}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{3}{2}"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 18,
+   "score": 5.0,
+   "type": "서술형",
+   "label": "[서술형 1]",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서술형 1] 사각형 \\mathrm{ABCD}는 한 변의 길이가 2인 정사각형이다. 수직선 위에 \\overline{\\mathrm{AC}}=\\overline{\\mathrm{CP}}, \\overline{\\mathrm{BD}}=\\overline{\\mathrm{BQ}}인 두 점 \\mathrm{P}와 \\mathrm{Q}를 각각 잡을 때, \\overline{\\mathrm{PQ}}의 길이를 구하시오."
+    },
+    {
+     "type": "figure",
+     "value": "수직선 위에 0, 2, 4, 6 눈금이 표시되어 있다. 한 변의 길이가 2인 정사각형 ABCD 가 수직선 위에 놓여 있는데, 아래쪽 두 꼭짓점 B(좌표 2)와 C(좌표 4)가 수직선 위에 있고 위쪽 두 꼭짓점은 각각 A(B 바로 위), D(C 바로 위)이다. 두 대각선 AC 와 BD 가 그려져 있다. C 를 중심으로 반지름 AC 인 점선 원호가 A 에서 수직선 쪽으로 내려와 2 의 왼쪽 점 P 에 닿고, B 를 중심으로 반지름 BD 인 점선 원호가 D 에서 수직선 쪽으로 내려와 4 의 오른쪽 점 Q 에 닿는다."
+    }
+   ],
+   "choices": []
+  },
+  {
+   "number": 19,
+   "score": 8.0,
+   "type": "서술형",
+   "label": "[서술형 2]",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서술형 2] \\sqrt{100-4x}-\\sqrt{10+2y}가 가장 큰 정수가 되도록 하는 자연수 x,~y의 값과 그때의 가장 큰 정수를 구하고, 그 과정을 서술하시오."
+    }
+   ],
+   "choices": []
+  },
+  {
+   "number": 20,
+   "score": 8.0,
+   "type": "서술형",
+   "label": "[서술형 3]",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서술형 3] x=\\sqrt{5}+1일 때, x^{2}-2x-3의 값을 구하려고 한다. 다음 제시된 두 가지 방법을 각각 이용하여 값을 구하고, 그 과정을 서술하시오."
+    }
+   ],
+   "choices": [],
+   "sub_questions": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "text",
+       "value": "인수분해 공식을 이용하여 구하시오."
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "text",
+       "value": "완전제곱식을 이용하여 구하시오."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 21,
+   "score": 9.0,
+   "type": "서술형",
+   "label": "[서술형 4]",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서술형 4] 아래 왼쪽 그림은 반 고흐가 그린 '고흐의 의자'의 작품을 화면 분할한 그림이고, 그 옆의 도형은 화면 분할 무늬의 일부분이다. 화면 분할 무늬의 일부분에서 사각형 \\mathrm{ABDE}의 넓이는 직사각형 \\mathrm{ACDF}의 넓이의 몇 배인지 구하고, 그 과정을 서술하시오."
+    },
+    {
+     "type": "figure",
+     "value": "왼쪽에는 '고흐의 의자' 그림을 여러 직선으로 화면 분할한 어두운 사진이 있고, 화살표(→) 오른쪽에 그 무늬의 일부분인 도형이 있다. 도형은 사각형 ABDE 로, 위쪽 변에 왼쪽부터 A, F, E 가 일직선으로 놓이고 아래쪽 변에 왼쪽부터 B, C, D 가 일직선으로 놓인다. 선분 AB 는 왼쪽 위에서 왼쪽 아래로 비스듬히 내려가고, 선분 DE 는 오른쪽 아래에서 오른쪽 위로 비스듬히 올라간다. 내부에 수직선분 AC 와 FD 가 그려져 직사각형 ACDF 를 이루며, A, C, F, D 네 곳에 직각 표시가 있다. 점선 호로 표시된 길이는 AF=\\sqrt{3}, FE=\\sqrt{2}, BC=\\sqrt{3}, FD=\\sqrt{2} 이다."
+    }
+   ],
+   "choices": []
+  },
+  {
+   "number": 22,
+   "score": 10.0,
+   "type": "서술형",
+   "label": "[서술형 5]",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서술형 5] 다음 솔이와 정우의 대화를 읽고, 솔이의 사물함의 비밀번호 \\boxed{A}\\boxed{B}\\boxed{C}\\boxed{D}를 구하고 그 과정을 서술하시오."
+    },
+    {
+     "type": "text",
+     "value": "<상자> 솔이 : 내 사물함의 비밀번호는 \\boxed{A}\\boxed{B}\\boxed{C}\\boxed{D} 네 개의 자연수로 이루어져 있어. • 정우 : 힌트 좀 줘. • 솔이 : 두 다항식 6x^{2}+x-2와 8x^{2}-10x+3의 공통인수가 Ax-B 야. • 정우 : C, D와 관련된 힌트도 줘. • 솔이 : (a^{2}+1)(a+1)(a-1)=a^{C}-D 야."
+    }
+   ],
+   "choices": []
+  }
+ ]
+}

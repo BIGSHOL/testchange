@@ -1,0 +1,587 @@
+{
+ "exam_id": 4381,
+ "tag": "[상서고][1][공수2][25-2-중간]",
+ "count": 20,
+ "questions": [
+  {
+   "number": 1,
+   "type": "객관식",
+   "score": 4.8,
+   "stem": "두 점 \\mathrm{O}(0,~0), \\mathrm{A}(5,~-12)의 거리는?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "10"
+    },
+    {
+     "number": 2,
+     "text": "11"
+    },
+    {
+     "number": 3,
+     "text": "12"
+    },
+    {
+     "number": 4,
+     "text": "13"
+    },
+    {
+     "number": 5,
+     "text": "14"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 2,
+   "type": "객관식",
+   "score": 4.7,
+   "stem": "수직선위의 두 점 \\mathrm{A}(-4), \\mathrm{B}(6)에 대하여 선분 \\overline{\\mathrm{AB}}의 중점의 좌표는?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "3"
+    },
+    {
+     "number": 2,
+     "text": "2"
+    },
+    {
+     "number": 3,
+     "text": "1"
+    },
+    {
+     "number": 4,
+     "text": "0"
+    },
+    {
+     "number": 5,
+     "text": "-1"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 3,
+   "type": "객관식",
+   "score": 5.0,
+   "stem": "두 점 \\mathrm{A}(3,~-5), \\mathrm{B}(-3,~1)에 대하여 선분 \\overline{\\mathrm{AB}}를 1 : 2로 내분한 점의 좌표는?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "(-1,~-3)"
+    },
+    {
+     "number": 2,
+     "text": "(-1,~3)"
+    },
+    {
+     "number": 3,
+     "text": "(1,~-3)"
+    },
+    {
+     "number": 4,
+     "text": "(1,~3)"
+    },
+    {
+     "number": 5,
+     "text": "(3,~1)"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 4,
+   "type": "객관식",
+   "score": 5.0,
+   "stem": "세 점 \\mathrm{A}(-1,~-2), \\mathrm{B}(6,~-3), \\mathrm{C}(4,~8)을 꼭짓점으로 하는 삼각형 \\mathrm{ABC}의 무게중심 \\mathrm{G}의 좌표는?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "(9,~-3)"
+    },
+    {
+     "number": 2,
+     "text": "(9,~3)"
+    },
+    {
+     "number": 3,
+     "text": "(3,~9)"
+    },
+    {
+     "number": 4,
+     "text": "(3,~-1)"
+    },
+    {
+     "number": 5,
+     "text": "(3,~1)"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 5,
+   "type": "객관식",
+   "score": 4.6,
+   "stem": "점 (2,~4)를 지나고 x축에 평행한 직선의 방정식은?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "y=2"
+    },
+    {
+     "number": 2,
+     "text": "y=4"
+    },
+    {
+     "number": 3,
+     "text": "x=2"
+    },
+    {
+     "number": 4,
+     "text": "x=4"
+    },
+    {
+     "number": 5,
+     "text": "y=2x+4"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 6,
+   "type": "객관식",
+   "score": 5.0,
+   "stem": "직선 y=2x-1과 평행한 직선은?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "4x-2y-1=0"
+    },
+    {
+     "number": 2,
+     "text": "6x+2y-3=0"
+    },
+    {
+     "number": 3,
+     "text": "y=-3x+4"
+    },
+    {
+     "number": 4,
+     "text": "2x-4y-3=0"
+    },
+    {
+     "number": 5,
+     "text": "y=\\frac{1}{2}x+3"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 7,
+   "type": "객관식",
+   "score": 5.0,
+   "stem": "점 (4,~-5)를 지나고 직선 y=\\frac{1}{2}x+1에 수직인 직선의 방정식은?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "y=-\\frac{1}{2}x-3"
+    },
+    {
+     "number": 2,
+     "text": "y=-\\frac{1}{2}x+3"
+    },
+    {
+     "number": 3,
+     "text": "y=-2x-3"
+    },
+    {
+     "number": 4,
+     "text": "y=-2x+3"
+    },
+    {
+     "number": 5,
+     "text": "y=2x-13"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 8,
+   "type": "객관식",
+   "score": 5.0,
+   "stem": "점 (4,~3)과 직선 5x-12y+3=0사이의 거리는?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "1"
+    },
+    {
+     "number": 2,
+     "text": "\\sqrt{2}"
+    },
+    {
+     "number": 3,
+     "text": "\\sqrt{3}"
+    },
+    {
+     "number": 4,
+     "text": "2"
+    },
+    {
+     "number": 5,
+     "text": "\\sqrt{5}"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 9,
+   "type": "객관식",
+   "score": 5.3,
+   "stem": "평행한 두 직선 x+2y-3=0, 2x+4y-1=0 사이의 거리는?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "1"
+    },
+    {
+     "number": 2,
+     "text": "\\frac{\\sqrt{5}}{2}"
+    },
+    {
+     "number": 3,
+     "text": "\\frac{\\sqrt{6}}{2}"
+    },
+    {
+     "number": 4,
+     "text": "\\frac{\\sqrt{7}}{2}"
+    },
+    {
+     "number": 5,
+     "text": "\\sqrt{2}"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 10,
+   "type": "객관식",
+   "score": 4.7,
+   "stem": "중심이 원점이고 점 (2,~3)을 지나는 원의 방정식은?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "x^{2}+y^{2}=5"
+    },
+    {
+     "number": 2,
+     "text": "x^{2}+y^{2}=7"
+    },
+    {
+     "number": 3,
+     "text": "x^{2}+y^{2}=9"
+    },
+    {
+     "number": 4,
+     "text": "x^{2}+y^{2}=11"
+    },
+    {
+     "number": 5,
+     "text": "x^{2}+y^{2}=13"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 11,
+   "type": "객관식",
+   "score": 5.1,
+   "stem": "두 점 \\mathrm{A}(-3,~1), \\mathrm{B}(5,~3)을 지름의 양 끝점으로 하는 원의 방정식은?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "(x+1)^{2}+(y+2)^{2}=17"
+    },
+    {
+     "number": 2,
+     "text": "(x-1)^{2}+(y+2)^{2}=17"
+    },
+    {
+     "number": 3,
+     "text": "(x-1)^{2}+(y-2)^{2}=17"
+    },
+    {
+     "number": 4,
+     "text": "(x+1)^{2}+(y-2)^{2}=17"
+    },
+    {
+     "number": 5,
+     "text": "(x-2)^{2}+(y-1)^{2}=17"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 12,
+   "type": "객관식",
+   "score": 5.2,
+   "stem": "원 x^{2}+y^{2}+4x-6y-12=0의 반지름의 길이는?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "1"
+    },
+    {
+     "number": 2,
+     "text": "2"
+    },
+    {
+     "number": 3,
+     "text": "3"
+    },
+    {
+     "number": 4,
+     "text": "4"
+    },
+    {
+     "number": 5,
+     "text": "5"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 13,
+   "type": "객관식",
+   "score": 5.4,
+   "stem": "방정식 x^{2}+y^{2}-2x+8y+k=0이 원을 나타낼 때, 실수 k값의 범위는?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "k>14"
+    },
+    {
+     "number": 2,
+     "text": "k>15"
+    },
+    {
+     "number": 3,
+     "text": "k<16"
+    },
+    {
+     "number": 4,
+     "text": "k<17"
+    },
+    {
+     "number": 5,
+     "text": "k<18"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 14,
+   "type": "객관식",
+   "score": 5.0,
+   "stem": "점 (1,~-5)를 x축의 방향으로 3만큼, y축의 방향으로 -2만큼 평행이동한 점의 좌표는?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "(4,~-7)"
+    },
+    {
+     "number": 2,
+     "text": "(4,~-3)"
+    },
+    {
+     "number": 3,
+     "text": "(-2,~-7)"
+    },
+    {
+     "number": 4,
+     "text": "(-2,~-3)"
+    },
+    {
+     "number": 5,
+     "text": "(-7,~4)"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 15,
+   "type": "객관식",
+   "score": 5.1,
+   "stem": "방정식 y=-2x^{2}이 나타내는 도형을 x축의 방향으로 -1만큼, y축의 방향으로 -3만큼 평행이동한 도형의 방정식은?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "y=-2(x+1)^{2}+3"
+    },
+    {
+     "number": 2,
+     "text": "y=-2(x+1)^{2}-3"
+    },
+    {
+     "number": 3,
+     "text": "y=-2(x-1)^{2}+3"
+    },
+    {
+     "number": 4,
+     "text": "y=-2(x-1)^{2}-3"
+    },
+    {
+     "number": 5,
+     "text": "y=2(x-1)^{2}+3"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 16,
+   "type": "객관식",
+   "score": 4.9,
+   "stem": "점 (3,~-4)를 직선 y=x에 대하여 대칭이동한 점의 좌표는?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "(4,~-3)"
+    },
+    {
+     "number": 2,
+     "text": "(4,~3)"
+    },
+    {
+     "number": 3,
+     "text": "(3,~4)"
+    },
+    {
+     "number": 4,
+     "text": "(-4,~-3)"
+    },
+    {
+     "number": 5,
+     "text": "(-4,~3)"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 17,
+   "type": "객관식",
+   "score": 5.0,
+   "stem": "방정식 2x-3y+5=0이 나타내는 도형을 x축에 대하여 대칭이동한 도형의 방정식은?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "3x+2y+5=0"
+    },
+    {
+     "number": 2,
+     "text": "2x+3y+5=0"
+    },
+    {
+     "number": 3,
+     "text": "-2x-3y+5=0"
+    },
+    {
+     "number": 4,
+     "text": "-2x+3y+5=0"
+    },
+    {
+     "number": 5,
+     "text": "-3x-2y+5=0"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 18,
+   "type": "객관식",
+   "score": 5.2,
+   "stem": "방정식 (x-2)^{2}+(y+3)^{2}=16이 나타내는 도형을 원점에 대하여 대칭이동한 도형의 방정식은?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "(x+2)^{2}+(y-3)^{2}=16"
+    },
+    {
+     "number": 2,
+     "text": "(x+2)^{2}+(y+3)^{2}=16"
+    },
+    {
+     "number": 3,
+     "text": "(x-2)^{2}+(y-3)^{2}=16"
+    },
+    {
+     "number": 4,
+     "text": "(x-3)^{2}+(y+2)^{2}=16"
+    },
+    {
+     "number": 5,
+     "text": "(x+3)^{2}+(y-2)^{2}=16"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 19,
+   "type": "객관식",
+   "score": 5.0,
+   "stem": "[직업기초] ○○반도체의 경영지원팀에서 근무하는 이루리 씨는 공장별 근무환경 만족도 조사결과를 정리하고 있다. 이루리 씨가 결과 보고를 위해 만족 비율이 높은 순으로 공장을 정렬하고자 할 때, 바르게 정렬된 것은? 공장별 근무환경 만족도 조사 결과 (단위: 명) [표]  | 만족 | 불만족 | 계 / 공장A | 46 | 52 | 98 / 공장B | 76 | 32 | 108 / 공장C | 23 | 41 | 64 / 공장D | 81 | 75 | 156 / 계 | 226 | 200 | 426",
+   "choices": [
+    {
+     "number": 1,
+     "text": "공장D-공장B-공장C-공장A"
+    },
+    {
+     "number": 2,
+     "text": "공장D-공장A-공장B-공장C"
+    },
+    {
+     "number": 3,
+     "text": "공장C-공장A-공장D-공장B"
+    },
+    {
+     "number": 4,
+     "text": "공장B-공장D-공장A-공장C"
+    },
+    {
+     "number": 5,
+     "text": "공장B-공장C-공장D-공장A"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 20,
+   "type": "객관식",
+   "score": 5.0,
+   "stem": "[직업기초] ○○인테리어 직원 이루리 씨는 담벼락에 페인트를 칠하려고 한다. 이루리 씨가 구입해야 할 페인트의 최소량으로 가장 적절한 것은? <상자> 페인트 1통이면 10m^{2}를 칠할 수 있으니까... [그림] 한 사람이 페인트 통을 들고 벽돌 담벼락 앞에 서서 벽을 가리키고 있는 그림. 담벼락은 직사각형이며 가로 길이가 12m(위쪽에 12m 표시), 세로(높이)가 2.5m(오른쪽에 2.5m 표시)로 치수가 적혀 있다.",
+   "choices": [
+    {
+     "number": 1,
+     "text": "1통"
+    },
+    {
+     "number": 2,
+     "text": "2통"
+    },
+    {
+     "number": 3,
+     "text": "3통"
+    },
+    {
+     "number": 4,
+     "text": "4통"
+    },
+    {
+     "number": 5,
+     "text": "5통"
+    }
+   ],
+   "sub_questions": []
+  }
+ ]
+}

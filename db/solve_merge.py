@@ -19,7 +19,11 @@ CIRCLED = "①②③④⑤⑥⑦⑧⑨⑩"
 
 
 # 같은 뜻 다른 표기 — 값이 같은데 불일치로 잡히면 정답을 버리게 된다
-_SYN = [(r"\\leq?\b", r"\\leq"), (r"\\geq?\b", r"\\geq"), (r"\\neq?\b", r"\\neq"),
+# ⚠️ 경계를 `\b` 로 두면 뒤에 숫자가 붙은 ``\ge5`` 를 못 잡는다(e·5 둘 다 \w 라
+#    경계가 아니다). ``x\ge5`` 와 ``x\geq5`` 가 불일치로 잡혔다 — `(?![a-z])` 로
+#    바꾸면 뒤가 숫자든 기호든 잡고, 더 긴 명령(``\gets``)만 비켜 간다.
+_SYN = [(r"\\leq?(?![a-z])", r"\\leq"), (r"\\geq?(?![a-z])", r"\\geq"),
+        (r"\\neq?(?![a-z])", r"\\neq"),
         (r"\\cdot", r"\\times"), (r"\\dfrac", r"\\frac")]
 
 
@@ -76,7 +80,10 @@ def _sort_factors(s: str) -> str:
     return "".join(out)
 
 
-_EQUIV = re.compile(r"^(.*?)\((?:즉|곧|즉,)(.+)\)$")
+# `X (즉 Y)` 와 `X, 즉 Y` 는 같은 선언이다 — 쓰는 사람마다 괄호/쉼표가 갈린다
+_EQUIV = re.compile(r"^(.*?)(?:\((?:즉|곧|즉,)(.+)\)|,\s*(?:즉|곧)\s+(.+))$")
+_PART_SPLIT = re.compile(r"(?=\(\d{1,2}\)\s)")      # `(1) … (2) …` 소문항 경계
+_TRAIL_PAREN = re.compile(r"\s*\([^()]*\)\s*$")
 
 
 def _strip_point_label(s: str) -> str:
@@ -113,8 +120,24 @@ def equiv_set(s: str | None) -> set[str]:
     """
     raw = (s or "").strip().replace("$", "")
     m = _EQUIV.search(re.sub(r"\s+", " ", raw))
-    parts = [m.group(1), m.group(2)] if m else [raw]
+    parts = [m.group(1), m.group(2) or m.group(3)] if m else [raw]
     return {norm(p) for p in parts if norm(p)}
+
+
+def _core(s: str | None) -> str:
+    """꼬리 괄호 부연을 뗀 알맹이. ``-24`` 와 ``-24 (최댓값 0, 최솟값 -24)`` 는
+    같은 답이고, 뒤엣것은 근거를 덧붙였을 뿐이다."""
+    t = (s or "").strip()
+    return norm(_TRAIL_PAREN.sub("", t)) if _TRAIL_PAREN.search(t) else norm(t)
+
+
+def _parts(s: str | None) -> list[str] | None:
+    """`(1) … (2) …` 소문항 답을 조각으로. 조각이 2개 미만이면 의미 없다."""
+    segs = [x.strip() for x in _PART_SPLIT.split((s or "").strip()) if x.strip()]
+    # 조각 머리의 `(1)` 라벨은 떼어 낸다 — 위치로 이미 짝을 맞췄고, 라벨이 붙어
+    # 있으면 동치 표기 집합에 섞여 들어가 겹침 판정을 막는다.
+    segs = [re.sub(r"^\(\d{1,2}\)\s*", "", x) for x in segs]
+    return segs if len(segs) > 1 else None
 
 
 def same_answer(a: str | None, b: str | None) -> bool:
@@ -124,7 +147,17 @@ def same_answer(a: str | None, b: str | None) -> bool:
     if value_of(a) == value_of(b):
         return True
     # 동치 표기가 하나라도 겹치면 같은 답을 다르게 적은 것이다
-    return bool(equiv_set(a) & equiv_set(b))
+    if equiv_set(a) & equiv_set(b):
+        return True
+    # 한쪽만 꼬리 괄호로 근거를 덧붙인 경우
+    if _core(a) and _core(a) == _core(b):
+        return True
+    # 소문항 답은 **조각별로** 본다. 통짜 비교는 한 조각의 표기 차이가 답 전체를
+    # 버리게 만든다(조각마다 '즉' 위치·괄호가 달라지기 때문).
+    pa, pb = _parts(a), _parts(b)
+    if pa and pb and len(pa) == len(pb):
+        return all(same_answer(x, y) for x, y in zip(pa, pb))
+    return False
 
 
 def value_of(s: str | None) -> str:

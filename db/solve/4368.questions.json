@@ -1,0 +1,488 @@
+{
+ "exam_id": 4368,
+ "tag": "[분성여고][1][공수1][25-1-기말]",
+ "count": 20,
+ "questions": [
+  {
+   "number": 1,
+   "type": "객관식",
+   "score": 3.3,
+   "stem": "다음 중 옳은 것은?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "\\begin{pmatrix} -1 \\\\ 5 \\end{pmatrix}+\\begin{pmatrix} 4 \\\\ -2 \\end{pmatrix}=\\begin{pmatrix} -1 & 4 \\\\ 5 & -2 \\end{pmatrix}"
+    },
+    {
+     "number": 2,
+     "text": "-\\begin{pmatrix} -1 & 4 \\\\ 5 & -2 \\end{pmatrix}=\\begin{pmatrix} 1 & 4 \\\\ 5 & 2 \\end{pmatrix}"
+    },
+    {
+     "number": 3,
+     "text": "4\\begin{pmatrix} 2 & -7 \\\\ 5 & 9 \\end{pmatrix}=\\begin{pmatrix} 8 & -7 \\\\ 5 & 9 \\end{pmatrix}"
+    },
+    {
+     "number": 4,
+     "text": "\\begin{pmatrix} 2 & -3 \\end{pmatrix}-\\begin{pmatrix} 4 & 6 \\end{pmatrix}=\\begin{pmatrix} -2 & -9 \\end{pmatrix}"
+    },
+    {
+     "number": 5,
+     "text": "3\\begin{pmatrix} 1 & 0 \\\\ 0 & 1 \\end{pmatrix}=\\begin{pmatrix} 3 & 3 \\\\ 3 & 3 \\end{pmatrix}"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 2,
+   "type": "객관식",
+   "score": 3.7,
+   "stem": "연립방정식 \\begin{cases} 2x^{2}+3xy-2y^{2}=0 \\\\ x^{2}+2y^{2}=54 \\end{cases} 의 한 근을 x=\\alpha, y=\\beta라고 할 때, \\alpha-\\beta의 최댓값은?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "1"
+    },
+    {
+     "number": 2,
+     "text": "3"
+    },
+    {
+     "number": 3,
+     "text": "6"
+    },
+    {
+     "number": 4,
+     "text": "9"
+    },
+    {
+     "number": 5,
+     "text": "12"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 3,
+   "type": "객관식",
+   "score": 3.6,
+   "stem": "다항식 (a+b)(p+q+r)(x+y+z)를 전개하였을 때, 모든 항의 개수와 a를 포함한 항의 개수의 합은?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "27"
+    },
+    {
+     "number": 2,
+     "text": "30"
+    },
+    {
+     "number": 3,
+     "text": "33"
+    },
+    {
+     "number": 4,
+     "text": "36"
+    },
+    {
+     "number": 5,
+     "text": "39"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 4,
+   "type": "객관식",
+   "score": 3.6,
+   "stem": "남학생 4명과 여학생 5명으로 구성된 동아리가 있다. 이 동아리에서 남녀 학생 각각 2명씩의 대표를 선출하는 경우의 수는?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "36"
+    },
+    {
+     "number": 2,
+     "text": "60"
+    },
+    {
+     "number": 3,
+     "text": "120"
+    },
+    {
+     "number": 4,
+     "text": "180"
+    },
+    {
+     "number": 5,
+     "text": "240"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 5,
+   "type": "객관식",
+   "score": 4.0,
+   "stem": "다음 <보기>에서 옳은 것의 총 개수는? <보기> ㄱ. 행렬의 곱셈은 결합법칙이 성립한다. • ㄴ. 행렬 AB가 정의된다면 행렬 BA도 정의된다. • ㄷ. A \\neq O, B \\neq O 이면 AB \\neq O (O는 영행렬) • ㄹ. 행렬 A, B 의 행의 개수와 열의 개수가 각각 같으면 A=B • ㅁ. 행렬 A의 행의 개수와 행렬 B의 열의 개수가 같으면 행렬 AB가 정의된다. • ㅂ. 행렬 A, E 가 같은 꼴일 때, (E는 단위행렬) (A+E)^{2}=A^{2}+2A+E",
+   "choices": [
+    {
+     "number": 1,
+     "text": "2"
+    },
+    {
+     "number": 2,
+     "text": "3"
+    },
+    {
+     "number": 3,
+     "text": "4"
+    },
+    {
+     "number": 4,
+     "text": "5"
+    },
+    {
+     "number": 5,
+     "text": "6"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 6,
+   "type": "객관식",
+   "score": 4.1,
+   "stem": "다음 표는 A회사와 B회사의 에어컨과 선풍기 한 대당 가격을 나타낸 것이다. 6월 할인 기간 동안 A회사와 B회사 모두 에어컨 10%, 선풍기는 20% 할인하여 판매한다. 이 할인 기간 동안 B회사의 에어컨 한 대와 선풍기 한 대 가격의 합을 나타낸 것은? [표]  | A회사 | B회사 / 에어컨 | a | c / 선풍기 | b | d",
+   "choices": [
+    {
+     "number": 1,
+     "text": "행렬 \\begin{pmatrix} a & c \\\\ b & d \\end{pmatrix}\\begin{pmatrix} 0.9 \\\\ 0.8 \\end{pmatrix}의 (1,~1)성분"
+    },
+    {
+     "number": 2,
+     "text": "행렬 \\begin{pmatrix} a & c \\\\ b & d \\end{pmatrix}\\begin{pmatrix} 0.9 \\\\ 0.8 \\end{pmatrix}의 (2,~1)성분"
+    },
+    {
+     "number": 3,
+     "text": "행렬 \\begin{pmatrix} 0.9 & 0.8 \\end{pmatrix}\\begin{pmatrix} a & c \\\\ b & d \\end{pmatrix}의 (1,~1)성분"
+    },
+    {
+     "number": 4,
+     "text": "행렬 \\begin{pmatrix} 0.9 & 0.8 \\end{pmatrix}\\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix}의 (1,~2)성분"
+    },
+    {
+     "number": 5,
+     "text": "행렬 \\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix}\\begin{pmatrix} 0.9 \\\\ 0.8 \\end{pmatrix}의 (2,~1)성분"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 7,
+   "type": "객관식",
+   "score": 4.4,
+   "stem": "방정식 (x^{2}-2x)(x^{2}-2x-1)=2 의 네 근의 합은?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "-1"
+    },
+    {
+     "number": 2,
+     "text": "1"
+    },
+    {
+     "number": 3,
+     "text": "2"
+    },
+    {
+     "number": 4,
+     "text": "3"
+    },
+    {
+     "number": 5,
+     "text": "4"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 8,
+   "type": "객관식",
+   "score": 4.6,
+   "stem": "B학교에서 수학여행을 가게 되어 방을 배정하려고 할 때, 학생들이 한 방에 4명씩 배정되면 16명 남고, 5명씩 배정되면 5명이 배정되지 않는 방 1개가 있고, 빈 방이 4개 남는다고 한다. 배정할 방의 개수의 최솟값을 m, 그때의 총 학생의 수를 a 라 할 때, a+m은?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "201"
+    },
+    {
+     "number": 2,
+     "text": "196"
+    },
+    {
+     "number": 3,
+     "text": "181"
+    },
+    {
+     "number": 4,
+     "text": "176"
+    },
+    {
+     "number": 5,
+     "text": "167"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 9,
+   "type": "객관식",
+   "score": 4.8,
+   "stem": "삼차방정식 x^{3}+1=0 의 한 허근을 \\omega 라고 할 때, 다음 중 옳은 것은?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "\\omega^{2}-\\omega+1=0"
+    },
+    {
+     "number": 2,
+     "text": "1+\\omega^{2}+\\omega^{4}+\\cdots+\\omega^{100}=1"
+    },
+    {
+     "number": 3,
+     "text": "\\frac{\\omega^{100}}{1-\\omega^{101}}=-1"
+    },
+    {
+     "number": 4,
+     "text": "\\frac{1}{\\omega}+\\frac{1}{\\omega^{2}}+\\frac{1}{\\omega^{3}}=0"
+    },
+    {
+     "number": 5,
+     "text": "\\omega^{100}-\\omega=0"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 10,
+   "type": "객관식",
+   "score": 4.0,
+   "stem": "이차부등식 2x^{2}-x+a<0의 해가 b<x<1일 때, a-b의 값은? (단, a,~b는 상수)",
+   "choices": [
+    {
+     "number": 1,
+     "text": "\\frac{9}{2}"
+    },
+    {
+     "number": 2,
+     "text": "\\frac{3}{2}"
+    },
+    {
+     "number": 3,
+     "text": "-\\frac{1}{2}"
+    },
+    {
+     "number": 4,
+     "text": "-\\frac{3}{2}"
+    },
+    {
+     "number": 5,
+     "text": "-\\frac{9}{2}"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 11,
+   "type": "객관식",
+   "score": 4.2,
+   "stem": "부등식 2<|3x-2|<4를 만족하는 정수 x의 개수는?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "4"
+    },
+    {
+     "number": 2,
+     "text": "3"
+    },
+    {
+     "number": 3,
+     "text": "2"
+    },
+    {
+     "number": 4,
+     "text": "1"
+    },
+    {
+     "number": 5,
+     "text": "0"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 12,
+   "type": "객관식",
+   "score": 4.9,
+   "stem": "아래 표는 대기 중 미세먼지 농도에 따른 예보 등급을 나타낸 것이다. 미세먼지 농도 a\\mu g/m^{3}에 대하여 |a-15|+|a-25| \\leq 17일 때, 미세먼지의 등급을 판정하면? [표] 등급 | 농도(\\mu g/m^{3}) / 좋음 | 0 이상 ~ 30 이하 / 보통 | 31 이상 ~ 80 이하 / 나쁨 | 81 이상 ~ 150 이하 / 매우 나쁨 | 151 이상 ~",
+   "choices": [
+    {
+     "number": 1,
+     "text": "판정불가"
+    },
+    {
+     "number": 2,
+     "text": "좋음"
+    },
+    {
+     "number": 3,
+     "text": "보통"
+    },
+    {
+     "number": 4,
+     "text": "나쁨"
+    },
+    {
+     "number": 5,
+     "text": "매우 나쁨"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 13,
+   "type": "객관식",
+   "score": 5.5,
+   "stem": "연립부등식 \\begin{cases} x^{2}-10x+24 \\leq 0 \\\\ x^{2}-2(n-1)x+n^{2}-2n \\geq 0 \\end{cases} 을 만족하는 정수 x의 개수가 2가 되도록 하는 모든 자연수 n의 값의 합은?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "18"
+    },
+    {
+     "number": 2,
+     "text": "13"
+    },
+    {
+     "number": 3,
+     "text": "11"
+    },
+    {
+     "number": 4,
+     "text": "7"
+    },
+    {
+     "number": 5,
+     "text": "6"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 14,
+   "type": "객관식",
+   "score": 5.3,
+   "stem": "다음 <보기>에서 옳은 것의 총 개수는? <보기> ㄱ. {}_{n}\\mathrm{P}_{0}={}_{n}\\mathrm{C}_{0} • ㄴ. {}_{n}\\mathrm{P}_{n}={}_{n}\\mathrm{C}_{n} \\ (n>1) • ㄷ. {}_{n}\\mathrm{C}_{r}=\\frac{n!}{r!(n-r)!} (단, 0 \\leq r \\leq n) • ㄹ. {}_{n}\\mathrm{P}_{r}={}_{n}\\mathrm{C}_{r} \\times r (단, 0 \\leq r \\leq n) • ㅁ. {}_{n+1}\\mathrm{C}_{r+1}={}_{n+1}\\mathrm{C}_{n-r} (단, 0 \\leq r \\leq n) • ㅂ. n \\times {}_{n-1}\\mathrm{P}_{r-1}={}_{n}\\mathrm{P}_{r} (단, 1<r \\leq n) • ㅅ. {}_{n-1}\\mathrm{P}_{r}+r \\times {}_{n-1}\\mathrm{P}_{r-1}={}_{n}\\mathrm{P}_{r} (단, 1 \\leq r<n) • ㅇ. n \\times {}_{n-1}\\mathrm{C}_{r-1}=r \\times {}_{n}\\mathrm{C}_{r} (단, 1 \\leq r \\leq n)",
+   "choices": [
+    {
+     "number": 1,
+     "text": "4"
+    },
+    {
+     "number": 2,
+     "text": "5"
+    },
+    {
+     "number": 3,
+     "text": "6"
+    },
+    {
+     "number": 4,
+     "text": "7"
+    },
+    {
+     "number": 5,
+     "text": "8"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 15,
+   "type": "서술형",
+   "score": 3,
+   "stem": "[서답형 1] 다음 연립부등식을 푸시오. \\begin{cases} -2x+4 \\geq 3x-6 \\quad \\cdots\\cdots ① \\\\ x-2 \\geq 4-2x \\quad \\cdots\\cdots ② \\end{cases}",
+   "choices": [],
+   "sub_questions": []
+  },
+  {
+   "number": 16,
+   "type": "서술형",
+   "score": 6,
+   "stem": "[서답형 2] x에 대한 사차방정식 x^{4}-(2a-1)x^{3}+2(a+6)x^{2}+4(a+3)x=0 이 서로 다른 두 허근 \\alpha, \\beta 와 서로 다른 두 실근 \\gamma, \\delta 를 가질 때, \\alpha^{2}+\\beta^{2}+\\gamma^{2}+\\delta^{2} 의 최솟값을 구하시오.",
+   "choices": [],
+   "sub_questions": []
+  },
+  {
+   "number": 17,
+   "type": "서술형",
+   "score": 11,
+   "stem": "[서답형 3]",
+   "choices": [],
+   "sub_questions": [
+    {
+     "number": 1,
+     "score": 1.5,
+     "text": "두 행렬 A=\\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\\\ 5 & 6 \\end{pmatrix}, \\quad B=\\begin{pmatrix} 1 & 2 & 3 \\\\ 4 & 5 & 6 \\\\ 7 & 8 & 9 \\end{pmatrix} 에 대하여 행렬 A는 a \\times b 행렬이고, 행렬 B의 (2,~3)성분을 c 라 할 때, a,~b,~c 를 구하시오."
+    },
+    {
+     "number": 2,
+     "score": 2.5,
+     "text": "2차정사각행렬 A, B가 A+B=\\begin{pmatrix} 5 & 0 \\\\ 1 & 3 \\end{pmatrix}, \\quad A-B=\\begin{pmatrix} -1 & 2 \\\\ -1 & 3 \\end{pmatrix} 을 만족시킬 때, 행렬 A^{2}-B^{2} 을 구하시오."
+    },
+    {
+     "number": 3,
+     "score": 7,
+     "text": "행렬 A=\\begin{pmatrix} \\frac{1}{2} & -\\frac{\\sqrt{3}}{2} \\\\ \\frac{\\sqrt{3}}{2} & \\frac{1}{2} \\end{pmatrix} 에 대하여 A+A^{2}+A^{3}+\\cdots+A^{1013} 의 모든 성분의 합을 구하시오."
+    }
+   ]
+  },
+  {
+   "number": 18,
+   "type": "서술형",
+   "score": 6,
+   "stem": "[서답형 4] 오른쪽 그림과 같이 반원 위에 9개의 점이 있다. 이 중 4개의 점을 꼭짓점으로 하는 사각형의 개수를 구하시오. [그림] 위쪽으로 볼록한 반원(반원의 호 + 아래쪽 지름인 수평 선분)이 그려져 있고, 그 위에 검은 점 9개가 찍혀 있다. 지름(수평 선분) 위에 5개의 점(양 끝점 2개와 그 사이 3개)이 대략 같은 간격으로 있고, 반원의 호 위에 4개의 점(왼쪽 위, 왼쪽 꼭대기 부근, 오른쪽 꼭대기 부근, 오른쪽 위)이 있다. 점의 이름(라벨)은 표시되어 있지 않다.",
+   "choices": [],
+   "sub_questions": []
+  },
+  {
+   "number": 19,
+   "type": "서술형",
+   "score": 8,
+   "stem": "[서답형 5]",
+   "choices": [],
+   "sub_questions": [
+    {
+     "number": 1,
+     "score": 3,
+     "text": "다음 이차부등식을 이차부등식과 이차함수의 관계를 이용하여 푸시오. x^{2}+6x+10 \\geq 0"
+    },
+    {
+     "number": 2,
+     "score": 5,
+     "text": "지은, 지혜, 혜숙, 선경, 해영을 다음 조건을 만족하도록 일렬로 세우려고 한다. 아래의 조건 (가)를 만족하는 경우의 수를 a, 조건 (나)를 만족하는 경우의 수를 b라고 할 때, a-b의 값을 구하시오. <조건> (가) 지은, 지혜, 혜숙이 이웃해 있는 경우 • (나) 지은, 지혜 사이에 한 사람이 끼어 있는 경우"
+    }
+   ]
+  },
+  {
+   "number": 20,
+   "type": "서술형",
+   "score": 6,
+   "stem": "[서답형 6] 아래 그림과 같이 두 이차함수 f(x)=-\\frac{1}{2}x^{2}+x+k, \\quad g(x)=\\frac{1}{2}x^{2}-2x+3 의 그래프가 서로 다른 두 점에서 만나고, 두 교점 중 한 교점의 x좌표가 -2이다. f(x) \\leq g(x)의 해를 구하시오. (단, k는 실수) [그림] 좌표평면에 두 포물선이 그려져 있다. 위로 볼록한 포물선은 f(x)=-\\frac{1}{2}x^{2}+x+k (그래프 아래쪽에 식이 표기됨)이고, 아래로 볼록한 포물선은 g(x)=\\frac{1}{2}x^{2}-2x+3 (그래프 위쪽에 식이 표기됨)이다. 두 그래프는 서로 다른 두 점에서 만나며, 왼쪽 교점은 y축 왼쪽·x축 위쪽에 있고 그 점에서 x축으로 점선을 내려 x좌표 -2가 표시되어 있다. 오른쪽 교점은 y축 오른쪽·x축 위쪽에 있다. y축(y), x축(x)과 원점 O가 표시되어 있다.",
+   "choices": [],
+   "sub_questions": []
+  }
+ ]
+}

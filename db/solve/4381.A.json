@@ -1,0 +1,146 @@
+{
+ "exam_id": 4381,
+ "pass": "A",
+ "items": [
+  {
+   "number": 1,
+   "answer": "④",
+   "solution": "step1) 두 점 사이의 거리 공식 $\\overline{OA}=\\sqrt{(5-0)^2+(-12-0)^2}$\nstep2) $=\\sqrt{25+144}=\\sqrt{169}=13$\nstep3) 선택지 ④ $13$ 과 일치한다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 2,
+   "answer": "③",
+   "solution": "step1) 수직선 위 두 점 $A(-4)$, $B(6)$ 의 중점은 $\\frac{-4+6}{2}$ 이다.\nstep2) $=\\frac{2}{2}=1$\nstep3) 선택지 ③ $1$ 과 일치한다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 3,
+   "answer": "③",
+   "solution": "step1) $\\overline{AB}$ 를 $m:n=1:2$ 로 내분하는 점은 $\\left(\\frac{mx_2+nx_1}{m+n},\\frac{my_2+ny_1}{m+n}\\right)$ 이다.\nstep2) $x=\\frac{1\\cdot(-3)+2\\cdot3}{1+2}=\\frac{-3+6}{3}=1$\nstep3) $y=\\frac{1\\cdot1+2\\cdot(-5)}{1+2}=\\frac{1-10}{3}=-3$\nstep4) 내분점은 $(1,-3)$ 이므로 선택지 ③ 과 일치한다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 4,
+   "answer": "⑤",
+   "solution": "step1) 무게중심은 $G\\left(\\frac{x_1+x_2+x_3}{3},\\frac{y_1+y_2+y_3}{3}\\right)$ 이다.\nstep2) $x=\\frac{-1+6+4}{3}=\\frac{9}{3}=3$\nstep3) $y=\\frac{-2+(-3)+8}{3}=\\frac{3}{3}=1$\nstep4) $G(3,1)$ 이므로 선택지 ⑤ 와 일치한다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 5,
+   "answer": "②",
+   "solution": "step1) $x$ 축에 평행한 직선은 $y=k$ 꼴이다.\nstep2) 점 $(2,4)$ 를 지나므로 $k=4$ 이다.\nstep3) 구하는 직선은 $y=4$ 이므로 선택지 ② 와 일치한다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 6,
+   "answer": "①",
+   "solution": "step1) $y=2x-1$ 의 기울기는 $2$ 이므로 기울기가 $2$ 이면서 일치하지 않는 직선을 찾는다.\nstep2) ① $4x-2y-1=0 \\Rightarrow y=2x-\\frac{1}{2}$ (기울기 $2$, $y$ 절편 $-\\frac{1}{2}\\neq-1$) → 평행\nstep3) ② $6x+2y-3=0 \\Rightarrow y=-3x+\\frac{3}{2}$ (기울기 $-3$), ③ 기울기 $-3$\nstep4) ④ $2x-4y-3=0 \\Rightarrow y=\\frac{1}{2}x-\\frac{3}{4}$ (기울기 $\\frac{1}{2}$), ⑤ 기울기 $\\frac{1}{2}$\nstep5) 따라서 답은 ① 이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 7,
+   "answer": "④",
+   "solution": "step1) $y=\\frac{1}{2}x+1$ 의 기울기가 $\\frac{1}{2}$ 이므로 수직인 직선의 기울기는 $-2$ 이다 ($\\frac{1}{2}\\times(-2)=-1$).\nstep2) 점 $(4,-5)$ 를 지나므로 $y-(-5)=-2(x-4)$\nstep3) $y+5=-2x+8$, 즉 $y=-2x+3$\nstep4) 선택지 ④ 와 일치한다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 8,
+   "answer": "①",
+   "solution": "step1) 점과 직선 사이의 거리 $d=\\frac{|5\\cdot4-12\\cdot3+3|}{\\sqrt{5^2+(-12)^2}}$\nstep2) 분자 $=|20-36+3|=|-13|=13$\nstep3) 분모 $=\\sqrt{25+144}=13$\nstep4) $d=\\frac{13}{13}=1$ 이므로 선택지 ① 과 일치한다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 9,
+   "answer": "②",
+   "solution": "step1) 두 직선의 기울기가 같아 평행함을 확인한다 ($2x+4y-1=0$ 은 $x+2y-\\frac{1}{2}=0$).\nstep2) 첫 직선 $x+2y-3=0$ 위의 한 점을 잡는다. $y=0$ 이면 $x=3$ 이므로 $(3,0)$.\nstep3) 이 점과 $2x+4y-1=0$ 사이의 거리 $d=\\frac{|2\\cdot3+4\\cdot0-1|}{\\sqrt{2^2+4^2}}=\\frac{5}{\\sqrt{20}}$\nstep4) $=\\frac{5}{2\\sqrt{5}}=\\frac{\\sqrt{5}}{2}$ 이므로 선택지 ② 와 일치한다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 10,
+   "answer": "⑤",
+   "solution": "step1) 중심이 원점인 원은 $x^2+y^2=r^2$ 이다.\nstep2) 점 $(2,3)$ 을 지나므로 $r^2=2^2+3^2=13$\nstep3) 원의 방정식은 $x^2+y^2=13$ 이므로 선택지 ⑤ 와 일치한다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 11,
+   "answer": "③",
+   "solution": "step1) 지름의 양 끝점이 $A(-3,1)$, $B(5,3)$ 이므로 중심은 중점 $\\left(\\frac{-3+5}{2},\\frac{1+3}{2}\\right)=(1,2)$ 이다.\nstep2) 지름의 길이 $\\overline{AB}=\\sqrt{(5+3)^2+(3-1)^2}=\\sqrt{64+4}=\\sqrt{68}$\nstep3) 반지름 $r=\\frac{\\sqrt{68}}{2}$ 이므로 $r^2=\\frac{68}{4}=17$\nstep4) 원의 방정식은 $(x-1)^2+(y-2)^2=17$ 이므로 선택지 ③ 과 일치한다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 12,
+   "answer": "⑤",
+   "solution": "step1) $x^2+4x+y^2-6y=12$ 로 정리한다.\nstep2) 완전제곱 $ (x^2+4x+4)+(y^2-6y+9)=12+4+9$\nstep3) $(x+2)^2+(y-3)^2=25$\nstep4) $r=\\sqrt{25}=5$ 이므로 선택지 ⑤ 와 일치한다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 13,
+   "answer": "④",
+   "solution": "step1) $x^2-2x+y^2+8y+k=0$ 을 완전제곱한다.\nstep2) $(x-1)^2-1+(y+4)^2-16+k=0$\nstep3) $(x-1)^2+(y+4)^2=17-k$\nstep4) 원이 되려면 $17-k>0$, 즉 $k<17$ 이므로 선택지 ④ 와 일치한다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 14,
+   "answer": "①",
+   "solution": "step1) 평행이동 $(x,y)\\to(x+3,y-2)$ 를 적용한다.\nstep2) $x$ 좌표 $1+3=4$\nstep3) $y$ 좌표 $-5+(-2)=-7$\nstep4) $(4,-7)$ 이므로 선택지 ① 과 일치한다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 15,
+   "answer": "②",
+   "solution": "step1) $x$ 축 방향 $-1$, $y$ 축 방향 $-3$ 평행이동은 $x \\to x+1$, $y \\to y+3$ 을 대입하는 것이다.\nstep2) $y+3=-2(x+1)^2$\nstep3) $y=-2(x+1)^2-3$\nstep4) 검산: 원래 꼭짓점 $(0,0)$ 이 $(-1,-3)$ 으로 옮겨져야 하는데 $y=-2(x+1)^2-3$ 의 꼭짓점이 $(-1,-3)$ 이므로 맞다. 선택지 ② 와 일치한다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 16,
+   "answer": "⑤",
+   "solution": "step1) 직선 $y=x$ 에 대한 대칭이동은 $(a,b)\\to(b,a)$ 이다.\nstep2) $(3,-4) \\to (-4,3)$\nstep3) 선택지 ⑤ 와 일치한다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 17,
+   "answer": "②",
+   "solution": "step1) $x$ 축 대칭이동은 $y$ 대신 $-y$ 를 대입한다.\nstep2) $2x-3(-y)+5=0$\nstep3) $2x+3y+5=0$ 이므로 선택지 ② 와 일치한다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 18,
+   "answer": "①",
+   "solution": "step1) 원점 대칭이동은 $x \\to -x$, $y \\to -y$ 를 대입한다.\nstep2) $(-x-2)^2+(-y+3)^2=16$\nstep3) $(x+2)^2+(y-3)^2=16$\nstep4) 검산: 원래 중심 $(2,-3)$ 이 $(-2,3)$ 으로 옮겨지고 반지름 $4$ 는 그대로이므로 맞다. 선택지 ① 과 일치한다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 19,
+   "answer": "④",
+   "solution": "step1) 공장별 만족 비율(만족/계)을 구한다.\nstep2) 공장A $=\\frac{46}{98}\\approx0.469$\nstep3) 공장B $=\\frac{76}{108}\\approx0.704$\nstep4) 공장C $=\\frac{23}{64}\\approx0.359$\nstep5) 공장D $=\\frac{81}{156}\\approx0.519$\nstep6) 높은 순서는 B $>$ D $>$ A $>$ C 이므로 선택지 ④ 공장B-공장D-공장A-공장C 와 일치한다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 20,
+   "answer": "③",
+   "solution": "step1) 담벼락의 넓이는 $12 \\times 2.5 = 30\\,(\\mathrm{m}^2)$ 이다.\nstep2) 페인트 $1$ 통으로 $10\\,\\mathrm{m}^2$ 를 칠할 수 있으므로 필요한 통 수는 $\\frac{30}{10}=3$ 이다.\nstep3) 최소 $3$ 통이 필요하므로 선택지 ③ 과 일치한다.",
+   "confidence": "high",
+   "note": "그림은 직사각형 담벼락(가로 12m, 세로 2.5m) 치수가 서술에 명시되어 있어 풀이에 지장 없음."
+  }
+ ]
+}

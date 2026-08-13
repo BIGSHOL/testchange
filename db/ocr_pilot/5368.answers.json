@@ -1,0 +1,44 @@
+{
+  "exam_id": 5368,
+  "answer_pages": [5],
+  "items": [
+    {"number": 1, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 2, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 3, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 4, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 5, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 6, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 7, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 8, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 9, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 10, "answer": "①", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 11, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 12, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 13, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 14, "answer": "④", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 15, "answer": "②", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 16, "answer": "③", "solution": "", "topic": "", "difficulty": ""},
+    {"number": 17, "answer": "⑤", "solution": "", "topic": "", "difficulty": ""},
+    {
+      "number": 18,
+      "answer": "(1) $a=48$, $n=8$ (2) 10자리 자연수",
+      "solution": "(1) $(2^{3}\\times 2^{4}\\times 2^{5})(5^{8}+5^{8}+5^{8})$\n$=2^{12}\\times 3\\times 5^{8}$\n$=3\\times 2^{4}\\times 2^{8}\\times 5^{8}$\n$=48\\times 10^{8}$\n$a=48$, $n=8$이다.\n(2) 10자리 자연수",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 19,
+      "answer": "(1) $4.3\\dot{3}\\dot{1}$ (2) $a=4$ (3) $b=3$",
+      "solution": "(1) $\\frac{120\\times 33+328}{990}$\n$=\\frac{4\\times 990+328}{990}$\n$=4+\\frac{328}{990}$\n$=4.3\\dot{3}\\dot{1}$\n(2) $a=4$\n(3) 소수점 아래 두번째부터 3과 1이 반복이 된다.\n49를 2로 나눈 나머지는 1이므로 소수점 아래 50번째 자리의 숫자는 3이다.\n$b=3$",
+      "topic": "",
+      "difficulty": ""
+    },
+    {
+      "number": 20,
+      "answer": "(1) $6xy-6x$ (2) $6xy-12y$ (3) $6x+12y$",
+      "solution": "(1) $\\mathrm{AED}$의 넓이\n$\\frac{1}{2}\\times 3x\\times(4y-4)$\n$=6xy-6x$\n(2) 삼각형 $\\mathrm{DFC}$의 넓이\n$\\frac{1}{2}\\times(3x-6)\\times 4y$\n$=6xy-12y$\n(3) 사각형 $\\mathrm{EBFD}$의 넓이\n$=3x\\times 4y-(6xy-6x)-(6xy-12y)$\n$=12xy-6xy+6x-6xy+12y$\n$=6x+12y$",
+      "topic": "",
+      "difficulty": ""
+    }
+  ]
+}

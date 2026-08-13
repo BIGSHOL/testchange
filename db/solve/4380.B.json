@@ -1,0 +1,146 @@
+{
+ "exam_id": 4380,
+ "pass": "B",
+ "items": [
+  {
+   "number": 1,
+   "answer": "③",
+   "solution": "step1) 내림차순은 $x$의 차수가 큰 항부터 쓰는 것이다.\nstep2) 주어진 다항식의 항을 차수별로 정리하면 $5x^{4}$(4차), $-6x^{3}$(3차), $4x^{2}$(2차), $3x$(1차), $-2$(상수항)이다.\nstep3) 차수가 큰 것부터 나열하면 $5x^{4}-6x^{3}+4x^{2}+3x-2$이다.\nstep4) 따라서 답은 ③이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 2,
+   "answer": "③",
+   "solution": "step1) $A-B=(x^{2}-2x+3)-(2x^{3}+x-1)$이다.\nstep2) 괄호를 풀면 $x^{2}-2x+3-2x^{3}-x+1$이다.\nstep3) 동류항끼리 모으면 $-2x^{3}+x^{2}+(-2x-x)+(3+1)=-2x^{3}+x^{2}-3x+4$이다.\nstep4) 따라서 답은 ③이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 3,
+   "answer": "⑤",
+   "solution": "step1) ㄱ. $(a+b+c)^{2}=a^{2}+b^{2}+c^{2}+2ab+2bc+2ca$는 옳다.\nstep2) ㄴ. $(a+b)^{3}=a^{3}+3a^{2}b+3ab^{2}+b^{3}$는 옳다.\nstep3) ㄷ. $a^{3}-b^{3}=(a-b)(a^{2}+ab+b^{2})$는 옳다.\nstep4) ㄹ. $(a+b)(a^{2}-ab+b^{2})=a^{3}+b^{3}$는 옳다.\nstep5) 네 개 모두 옳으므로 답은 ⑤이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 4,
+   "answer": "②",
+   "solution": "step1) 인수분해 공식 $a^{3}+b^{3}=(a+b)(a^{2}-ab+b^{2})$를 이용한다.\nstep2) $a+b=1$, $a^{2}-ab+b^{2}=5$를 대입하면 $a^{3}+b^{3}=1 \\times 5=5$이다.\nstep3) 따라서 답은 ②이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 5,
+   "answer": "①",
+   "solution": "step1) $3x^{3}-2x+1$의 계수를 차수 순으로 쓰면 $3,\\ 0,\\ -2,\\ 1$이므로 표에서 $b=0$, $c=-2$이다.\nstep2) 조립제법에서 첫 계수를 그대로 내리므로 $a=3$이다.\nstep3) $3 \\times 2=6$, $b+6=0+6=6$이고, $6 \\times 2=12$이므로 $d=c+12=-2+12=10$이다.\nstep4) $10 \\times 2=20$이므로 $e=1+20=21$이다. 즉 몫은 $3x^{2}+6x+10$, 나머지는 $21$이다.\nstep5) 선택지를 대조하면 $a=3$만 옳으므로 답은 ①이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 6,
+   "answer": "①",
+   "solution": "step1) $x$에 대한 항등식이 되려면 모든 항의 계수가 $0$이어야 한다.\nstep2) $a-1=0$에서 $a=1$, $b=0$, $c+1=0$에서 $c=-1$이다.\nstep3) 따라서 답은 ①이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 7,
+   "answer": "①",
+   "solution": "step1) 나머지정리에 의해 $P(1)=5$, $P(-2)=-4$이다.\nstep2) $P(x)=(x-1)(x+2)Q(x)+ax+b$로 놓는다.\nstep3) $x=1$을 대입하면 $a+b=5$, $x=-2$를 대입하면 $-2a+b=-4$이다.\nstep4) 두 식을 빼면 $3a=9$이므로 $a=3$, $b=2$이다.\nstep5) 따라서 $ab=6$이므로 답은 ①이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 8,
+   "answer": "②",
+   "solution": "step1) $(x+1)^{2}$이 인수이므로 $x^{3}-x^{2}+ax+b=(x+1)^{2}(x+k)$로 놓는다.\nstep2) 우변을 전개하면 $(x^{2}+2x+1)(x+k)=x^{3}+(k+2)x^{2}+(2k+1)x+k$이다.\nstep3) $x^{2}$의 계수를 비교하면 $k+2=-1$이므로 $k=-3$이다.\nstep4) 따라서 $a=2k+1=-5$, $b=k=-3$이다.\nstep5) 검산: $(x+1)^{2}(x-3)=x^{3}-x^{2}-5x-3$으로 일치한다.\nstep6) $a-b=-5-(-3)=-2$이므로 답은 ②이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 9,
+   "answer": "①",
+   "solution": "step1) $x^{2}=t$로 놓으면 $t^{2}-10t+9=(t-1)(t-9)$이다.\nstep2) 즉 $x^{4}-10x^{2}+9=(x^{2}-1)(x^{2}-9)$이다.\nstep3) 다시 인수분해하면 $(x-1)(x+1)(x-3)(x+3)$이다.\nstep4) $(x+a)(x+b)(x+c)(x+d)$와 비교하면 $\\{a,b,c,d\\}=\\{-1,1,-3,3\\}$이다.\nstep5) 따라서 $a+b+c+d=0$이므로 답은 ①이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 10,
+   "answer": "②",
+   "solution": "step1) $3-2i$에서 실수부분은 $a=3$이다.\nstep2) 허수부분은 $i$의 계수이므로 $b=-2$이다.\nstep3) 따라서 $a+b=3+(-2)=1$이므로 답은 ②이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 11,
+   "answer": "⑤",
+   "solution": "step1) 켤레복소수는 허수부분의 부호만 바꾼 것이다.\nstep2) $-5+2\\sqrt{3}i$의 켤레복소수는 $-5-2\\sqrt{3}i$이다.\nstep3) 따라서 답은 ⑤이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 12,
+   "answer": "③",
+   "solution": "step1) $i^{2}=-1$이다.\nstep2) $i^{4}=(i^{2})^{2}=(-1)^{2}=1$이다.\nstep3) 따라서 답은 ③이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 13,
+   "answer": "④",
+   "solution": "step1) $i+i^{2}+i^{3}+i^{4}=i-1-i+1=0$이므로 연속한 네 항의 합은 $0$이다.\nstep2) $i$부터 $i^{8}$까지는 네 항씩 두 묶음이므로 그 합은 $0$이다.\nstep3) 남은 항은 $i^{9}+i^{10}$이고 $i^{9}=i$, $i^{10}=i^{2}=-1$이다.\nstep4) 따라서 전체 합은 $-1+i$이므로 답은 ④이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 14,
+   "answer": "②",
+   "solution": "step1) 중근을 가지려면 판별식이 $0$이어야 한다.\nstep2) $\\frac{D}{4}=1^{2}-(k-3)=0$이다.\nstep3) $1-k+3=0$에서 $k=4$이다.\nstep4) 검산: $k=4$이면 $x^{2}+2x+1=(x+1)^{2}=0$으로 중근 $x=-1$을 가진다. 답은 ②이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 15,
+   "answer": "④",
+   "solution": "step1) 이차방정식 $ax^{2}+bx+c=0$의 두 근의 합은 $-\\frac{b}{a}$이다.\nstep2) $x^{2}+4x+5=0$에서 두 근의 합은 $-\\frac{4}{1}=-4$이다.\nstep3) 따라서 답은 ④이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 16,
+   "answer": "③",
+   "solution": "step1) 두 근의 합은 $\\frac{1+\\sqrt{3}i}{2}+\\frac{1-\\sqrt{3}i}{2}=\\frac{2}{2}=1$이다.\nstep2) 두 근의 곱은 $\\frac{(1)^{2}-(\\sqrt{3}i)^{2}}{4}=\\frac{1-(-3)}{4}=\\frac{4}{4}=1$이다.\nstep3) 따라서 구하는 방정식은 $x^{2}-(\\text{합})x+(\\text{곱})=x^{2}-x+1=0$이다.\nstep4) 따라서 답은 ③이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 17,
+   "answer": "③",
+   "solution": "step1) 근과 계수의 관계에서 $\\alpha+\\beta=-a$, $\\alpha\\beta=-2$이다.\nstep2) $\\alpha^{2}+\\beta^{2}=(\\alpha+\\beta)^{2}-2\\alpha\\beta=a^{2}-2(-2)=a^{2}+4$이다.\nstep3) $a^{2}+4=13$에서 $a^{2}=9$이므로 $a=\\pm3$이고, 양수이므로 $a=3$이다.\nstep4) 따라서 답은 ③이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 18,
+   "answer": "⑤",
+   "solution": "step1) 두 그래프의 교점을 구하면 $x^{2}+4x+3=3x+k$이다.\nstep2) 정리하면 $x^{2}+x+3-k=0$이다.\nstep3) 서로 다른 두 점에서 만나려면 $D>0$이어야 하므로 $1^{2}-4(3-k)>0$이다.\nstep4) $1-12+4k>0$에서 $4k>11$, 즉 $k>\\frac{11}{4}$이다.\nstep5) 따라서 답은 ⑤이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 19,
+   "answer": "④",
+   "solution": "step1) A 세트의 참치 통조림은 세트당 4개이므로 $212 \\times 4=848$(개)이다.\nstep2) B 세트는 세트당 6개이므로 $183 \\times 6=1098$(개)이다.\nstep3) C 세트는 세트당 6개이므로 $146 \\times 6=876$(개)이다.\nstep4) 합하면 $848+1098+876=2822$(개)이다.\nstep5) 따라서 답은 ④이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 20,
+   "answer": "⑤",
+   "solution": "step1) 매화 $2 \\times 10000=20000$(원), 진달래 $4 \\times 8000=32000$(원)이다.\nstep2) 고등어조림 $3 \\times 7000=21000$(원), 돈가스 치킨 $8 \\times 6500=52000$(원)이다.\nstep3) 고기 많이 $12 \\times 4500=54000$(원), 국화 $20 \\times 4200=84000$(원), 돈가스 덮밥 $7 \\times 5000=35000$(원)이다.\nstep4) 모두 더하면 $20000+32000+21000+52000+54000+84000+35000=298000$(원)이다.\nstep5) 개수 검산: $2+4+3+8+12+20+7=56$(개)로 표의 합계와 일치한다.\nstep6) 따라서 답은 ⑤이다.",
+   "confidence": "high",
+   "note": ""
+  }
+ ]
+}

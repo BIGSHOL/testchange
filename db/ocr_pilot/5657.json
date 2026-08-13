@@ -1,0 +1,1119 @@
+{
+ "meta": {
+  "exam_id": 5657,
+  "ocr_source": "session-vision"
+ },
+ "header": {
+  "title": "경명여중 3학년 수학 — 2025년 1학기 기말고사 (이차방정식 ~ 이차함수)"
+ },
+ "questions": [
+  {
+   "number": 1,
+   "score": 3.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "이차방정식 $2x^{2}-5x+a=0$의 한 근이 $2$일 때, 나머지 한 근은? (단, $a$는 수이다.)"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-2"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-\\frac{1}{2}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-\\frac{1}{4}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{1}{4}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{1}{2}"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 2,
+   "score": 3.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "이차방정식 $x^{2}-x-1=0$을 $(x+p)^{2}=q$의 꼴로 나타낼 때, 두 수 $p$와 $q$의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "p=-\\frac{1}{2},~q=\\frac{\\sqrt{5}}{2}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "p=-\\frac{1}{2},~q=\\frac{5}{4}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "p=\\frac{1}{4},~q=1"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "p=\\frac{1}{2},~q=\\frac{\\sqrt{5}}{2}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "p=\\frac{1}{2},~q=\\frac{5}{4}"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 3,
+   "score": 3.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "이차방정식 $x^{2}+kx+4=0$이 중근을 가질 때, 이차방정식 $x^{2}+(k-2)x-7=0$의 근을 구하면? (단, $k<0$)"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "x=-7 \\text{ or } x=1"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "x=-1\\pm2\\sqrt{2}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "x=-1 \\text{ or } x=7"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "x=1\\pm2\\sqrt{2}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "x=2\\pm\\sqrt{11}"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 4,
+   "score": 3.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "<보기> 중에서 $y$가 $x$의 이차함수인 것을 있는 대로 고른 것은?"
+    },
+    {
+     "type": "text",
+     "value": "<보기> ㄱ. 시속 $x\\mathrm{km}$로 $\\frac{1}{10}x$시간 동안 달린 거리 $y\\mathrm{km}$ • ㄴ. $x$각형의 대각선의 총 개수 $y$ • ㄷ. $x$의 제곱근 $y$ (단, $x>0$) • ㄹ. 반지름의 길이가 $x$인 구의 부피 $y$ • ㅁ. 윗변의 길이가 $x$, 아랫변의 길이가 $2x$이고, 높이가 $\\frac{1}{3}x$인 사다리꼴의 넓이 $y$"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄱ, ㄴ"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄷ, ㄹ"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄱ, ㄴ, ㅁ"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄴ, ㄷ, ㄹ"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄱ, ㄴ, ㄷ, ㅁ"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 5,
+   "score": 3.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "두 이차함수 $y=mx^{2}$과 $y=(n+4)x^{2}$의 그래프가 $x$축에 대해 서로 대칭이고, $mn=-12$일 때, 두 수 $m,~n$의 순서쌍 $(m,~n)$으로 가능한 것은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "(2,~-6)"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "(3,~-4)"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "(6,~-2)"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "(-2,~6)"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "(-4,~3)"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 6,
+   "score": 3.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "다음의 조건을 모두 만족하는 포물선을 그래프로 하는 이차함수의 식은?"
+    },
+    {
+     "type": "text",
+     "value": "<상자> (가) 그래프의 꼭짓점은 원점이다. • (나) 그래프는 아래로 볼록이다. • (다) 그래프는 $y$축을 축으로 하는 포물선이다. • (라) 이차함수 $y=\\frac{2}{3}x^{2}$의 그래프보다 폭이 넓다."
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "y=-3x^{2}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "y=-\\frac{1}{2}x^{2}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "y=\\frac{1}{3}x^{2}+1"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "y=\\frac{1}{4}x^{2}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "y=x^{2}"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 7,
+   "score": 3.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "이차함수 $y=a(x+p)^{2}$의 그래프의 축의 방정식이 $x=3$이고, 점 $(2,~-5)$를 지난다. 이때 $ap$의 값은? (단, $a,~p$는 수)"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-15"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "0"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "15"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 8,
+   "score": 3.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "<보기> 중에서 이차함수 $y=3x^{2}-6x+4$의 그래프에 대한 설명으로 옳은 것의 개수는?"
+    },
+    {
+     "type": "text",
+     "value": "<보기> ㄱ. 위로 볼록한 포물선이다. • ㄴ. 꼭짓점의 좌표는 $(-1,~1)$이다. • ㄷ. $x$축과 $(0,~4)$에서 만난다. • ㄹ. 제1사분면과 제2사분면을 지난다. • ㅁ. $x<1$일 때, $x$의 값이 증가할 때, $y$의 값은 감소한다."
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "text",
+       "value": "1개"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "text",
+       "value": "2개"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "text",
+       "value": "3개"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "text",
+       "value": "4개"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "text",
+       "value": "5개"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 9,
+   "score": 3.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "이차함수 $y=-\\frac{1}{3}(x-4)^{2}+k$의 그래프의 꼭짓점이 $y=-2x-1$위에 있을 때, $y=-x^{2}+k$의 그래프의 꼭짓점은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "(-9,~0)"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "(0,~-9)"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "(0,~7)"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "(0,~9)"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "(9,~0)"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 10,
+   "score": 4.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "이차방정식 $x(x+1)=12$의 해가 $x=a$ 또는 $x=b$일 때, 이차방정식 $ax^{2}+2bx+1=0$의 해를 구하면? (단, $a>b$)"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "x=\\frac{1}{6} \\text{ or } x=1"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "x=\\frac{1}{3} \\text{ or } x=1"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "x=\\frac{4\\pm\\sqrt{13}}{3}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "x=\\frac{4\\pm2\\sqrt{2}}{3}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "x=\\frac{4\\pm\\sqrt{17}}{6}"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 11,
+   "score": 4.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "이차방정식 $4x^{2}-16x+9=0$의 두 근을 $a,~b\\,(a<b)$라 할 때, $a-2<n<b-2$를 만족하는 정수 $n$의 개수는?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "text",
+       "value": "1개"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "text",
+       "value": "2개"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "text",
+       "value": "3개"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "text",
+       "value": "4개"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "text",
+       "value": "5개"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 12,
+   "score": 4.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림은 올해 7월의 우리 학교 달력이다. 위아래로 이웃하는 두 날짜를 곱한 값이 $494$일 때, 두 날짜의 합은?"
+    },
+    {
+     "type": "figure",
+     "value": "2025년 7월 달력(월간 캘린더 화면 캡처). 요일 열은 왼쪽부터 일·월·화·수·목·금·토. 1일이 화요일이고, 첫 주는 (일)29 (월)30 (화)1 (수)2 (목)3 (금)4 (토)5 — 29·30은 6월 날짜로 흐리게 표시. 둘째 주 6~12, 셋째 주 13~19, 넷째 주 20~26, 다섯째 주 27~31(31일은 목요일)이며 그 뒤 1·2는 8월 날짜로 흐리게 표시. 일부 칸에 소서·정보보호의 날·세계 인구의 날·제헌절·초복·대서·중복 등 기념일 문구가 작게 적혀 있음."
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "37"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "39"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "43"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "45"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "47"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 13,
+   "score": 4.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "다음 두 이차방정식의 공통인 근이 이차방정식 $2x^{2}-ax-2a+2=0$의 한 근일 때, 나머지 한 근은 $b$라고 하자. $a-b$의 값은?"
+    },
+    {
+     "type": "text",
+     "value": "<상자> $(x+6)(x-1)=18$,  $x(x-2)=x$"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-3"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-1"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "6"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 14,
+   "score": 4.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "이차함수 $f(x)=(m^{2}-4)x^{2}+4mx+m^{2}$에서 $\\frac{1}{2}f(1)=6$일 때, 수 $m$의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-4"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-2"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "0"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "6"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 15,
+   "score": 4.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "이차함수 $y=ax^{2}+bx+c$의 그래프가 그림과 같을 때, 옳지 __않은__ 것은?"
+    },
+    {
+     "type": "figure",
+     "value": "좌표평면에 위로 볼록한 포물선. 꼭짓점은 $y$축보다 왼쪽 위에 있고, 포물선은 $x$축과 두 점에서 만난다. 한 교점은 원점보다 왼쪽(음수)이고 다른 교점은 $0$과 $1$ 사이에 있다. $x$축 위에 눈금 $1$이 표시되어 있으며, 그래프는 $x=1$일 때 $x$축 아래를 지난다. $y$절편은 양수이다."
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "ab>0"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "ac<0"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "a+b+c<0"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "c>\\frac{b^{2}}{4a}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{c}{b}>0"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 16,
+   "score": 4.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "$a<0$일 때, 이차함수 $y=ax^{2}-4ax+4a+5$의 그래프가 제2사분면을 지나지 않도록 하는 $a$의 값의 범위는?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "a\\leq-\\frac{5}{4}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "a\\leq-\\frac{5}{2}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "a<0"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-\\frac{5}{2}<a<0"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-\\frac{5}{4}<a<0"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 17,
+   "score": 5.0,
+   "type": "객관식",
+   "label": null,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림의 이차함수 $y=ax^{2}$의 그래프가 점 $\\mathrm{A}(2,~1)$를 지날 때, 포물선 위의 또 다른 한 점 $\\mathrm{B}$에 대하여 직선 $\\mathrm{AB}$의 기울기가 $2$이다. 이때, 점 $\\mathrm{B}$의 좌표를 $(m,~n)$이라 할 때, $m-n$의 값은? (단, $a$는 수)"
+    },
+    {
+     "type": "figure",
+     "value": "좌표평면에 원점을 꼭짓점으로 하는 아래로 볼록한 포물선 $y=ax^{2}$가 그려져 있다. 포물선 위 오른쪽에 점 $\\mathrm{A}(2,~1)$가 표시되어 있고, 그보다 더 오른쪽 위에 점 $\\mathrm{B}$가 표시되어 있다. 두 점 $\\mathrm{A}$, $\\mathrm{B}$를 지나는 직선이 그려져 있으며 이 직선은 $y$축 아래쪽(음의 $y$절편)에서 $y$축과 만난다. 원점 $\\mathrm{O}$가 표시되어 있다."
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-30"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-3"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "6"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "30"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 18,
+   "score": 5.0,
+   "type": "서술형",
+   "label": "[서술형 1]",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서술형 1] 이차함수 $y=x^{2}+ax+b$의 그래프는 $y$축을 축으로 하고, $x$축과 만나는 두 점 사이의 거리가 $6$이다. 이때, 수 $a,~b$에 대하여 $a+b$의 값을 구하시오."
+    }
+   ],
+   "choices": []
+  },
+  {
+   "number": 19,
+   "score": 7.0,
+   "type": "서술형",
+   "label": "[서술형 2]",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서술형 2] 가로와 세로의 길이가 각각 $14\\mathrm{cm}$와 $42\\mathrm{cm}$인 직사각형이 있다. 가로의 길이는 매초 $1\\mathrm{cm}$씩 늘어나고 세로의 길이는 매초 $2\\mathrm{cm}$씩 줄어들 때, $x$초 후에는 처음 직사각형과 넓이가 같아진다고 한다. $x$의 값을 구하고 그 과정을 서술하시오."
+    }
+   ],
+   "choices": []
+  },
+  {
+   "number": 20,
+   "score": 8.0,
+   "type": "서술형",
+   "label": "[서술형 3]",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서술형 3] 이차방정식 $x^{2}-5x+k-2=0$의 해가 모두 유리수가 되도록 하는 자연수 $k$의 값을 모두 구하고, 그 과정을 서술하시오."
+    }
+   ],
+   "choices": []
+  },
+  {
+   "number": 21,
+   "score": 10.0,
+   "type": "서술형",
+   "label": "[서술형 4]",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서술형 4] 이차함수 $y=a(x+b)^{2}+c$의 그래프가 그림과 같을 때, $y=cx^{2}+ax+b$의 그래프의 꼭짓점과 축의 방정식, $y$절편을 각각 구하고 그 과정을 서술하시오. (단, $a,~b,~c$는 수)"
+    },
+    {
+     "type": "figure",
+     "value": "좌표평면에 아래로 볼록한 포물선. 꼭짓점은 $(2,~1)$이며, 꼭짓점에서 $x$축으로 수직선이, $y$축 쪽으로 점선이 그어져 있고 $y$축 눈금 $1$과 $x$축 눈금 $2$가 표시되어 있다. 포물선은 $y$축과 $(0,~3)$에서 만나며 그 점에 눈금 $3$이 표시되어 있다. 원점 $\\mathrm{O}$가 표시되어 있다."
+    }
+   ],
+   "choices": []
+  },
+  {
+   "number": 22,
+   "score": 10.0,
+   "type": "서술형",
+   "label": "[서술형 5]",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서술형 5] 수민이와 민호는 주사위를 던져 주어진 이차함수의 그래프를 아래 규칙에 따라 평행이동 시키는 놀이를 하고 있다. ㄱ과 ㄴ에 들어갈 이차함수의 식을 $y=ax^{2}+bx+c$의 꼴로 각각 나타내고, 그 과정을 서술하시오."
+    },
+    {
+     "type": "figure",
+     "value": "표(3열). 첫 행 머리글: (빈칸) / 수민 / 민호. 둘째 행 왼쪽 칸은 '주사위 한 개를 두 번 던져서 나온 눈의 모양'이고, 수민 칸에는 눈이 6인 주사위 그림과 눈이 4인 주사위 그림이, 민호 칸에는 눈이 3인 주사위 그림과 눈이 2인 주사위 그림이 나란히 그려져 있다. 셋째 행 왼쪽 칸은 '$y=\\frac{1}{2}(x+1)^{2}$의 그래프를 규칙에 따라 평행이동한 이차함수의 식'이고, 수민 칸에는 'ㄱ', 민호 칸에는 'ㄴ'이 적혀 있다. 넷째 행은 전체를 합친 칸으로 '단, ㄱ과 ㄴ에 들어갈 식을 쓸 때, 규칙에 따라 평행이동한 이차함수의 식에 대한 설명을 아래 예와 같이 각각 덧붙일 것 (예: ~축의 방향으로 ~만큼 평행이동 한 것)'이라고 적혀 있다."
+    },
+    {
+     "type": "text",
+     "value": "<상자> 규칙 • 주사위를 한 번 던져서 나오는 눈의 수가 홀수이면 주어진 이차함수의 그래프를 $x$축의 방향으로 $-2$만큼, 짝수이면 $y$축의 방향으로 $3$만큼 평행이동한다. • 예를 들어 한 개의 주사위를 두 번 던져서 나오는 눈의 수가 모두 홀수이면 $x$축의 방향으로 $-4$만큼 평행이동한다."
+    }
+   ],
+   "choices": []
+  }
+ ]
+}

@@ -1,0 +1,394 @@
+{
+  "meta": {"exam_id": 5656, "ocr_source": "session-vision"},
+  "header": {"title": "2025학년도 2학기 1차 지필평가 3학년 수학"},
+  "questions": [
+    {
+      "number": 1,
+      "score": 3,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "\\triangle \\mathrm{ABC}에 대한 삼각비로 옳은 것은?"},
+        {"type": "figure", "value": "직각삼각형 ABC. 점 A는 왼쪽 아래, 점 C는 오른쪽 아래, 점 B는 오른쪽 위에 있다. ∠C = 90°(직각 표시). 빗변 AB = 5, 오른쪽 세로변 BC = 3, 밑변 AC = 4로 표시되어 있고 점 A와 점 B에 각의 호 표시가 있다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\sin \\mathrm{A} = \\frac{5}{3}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\cos \\mathrm{A} = \\frac{3}{5}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\tan \\mathrm{A} = \\frac{4}{3}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\sin \\mathrm{B} = \\frac{4}{5}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\tan \\mathrm{B} = \\frac{3}{4}"}]}
+      ]
+    },
+    {
+      "number": 2,
+      "score": 3,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "\\angle \\mathrm{C} = 90^{\\circ}인 \\triangle \\mathrm{ABC}에서 \\sin \\mathrm{A} = \\frac{2}{3}이고 \\overline{\\mathrm{AB}} = 6\\sqrt{5}일 때, \\overline{\\mathrm{CA}}의 길이는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\sqrt{5}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\sqrt{13}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "4\\sqrt{5}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "10"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "25"}]}
+      ]
+    },
+    {
+      "number": 3,
+      "score": 3,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "\\triangle \\mathrm{ABC}에서, \\tan \\mathrm{A} \\times \\sin \\mathrm{B}의 값은?"},
+        {"type": "figure", "value": "삼각형 ABC. 점 A는 왼쪽 아래, 점 B는 오른쪽 아래, 점 C는 위쪽 오른편에 있다. ∠C = 90°(직각 표시). 변 AC = √3, 변 CB = 1로 표시되어 있고, 밑변 AB에는 길이 표시가 없다. 점 A와 점 B에 각의 호 표시가 있다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{\\sqrt{3}}{6}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{1}{2}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{\\sqrt{3}}{2}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{3}{2}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "2\\sqrt{3}"}]}
+      ]
+    },
+    {
+      "number": 4,
+      "score": 3,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "그림에서 \\triangle \\mathrm{ABC}는 \\angle \\mathrm{BAC} = 90^{\\circ}이고 \\overline{\\mathrm{AD}} \\perp \\overline{\\mathrm{BC}}이다. \\cos x^{\\circ} + \\cos y^{\\circ}의 값은?"},
+        {"type": "figure", "value": "삼각형 ABC. 꼭짓점 A는 위, B는 왼쪽 아래, C는 오른쪽 아래에 있다. D는 변 BC 위의 점으로 AD ⊥ BC(D에 직각 표시). 변 AB = 6, 변 AC = 4로 표시되어 있다. 꼭짓점 A에서 ∠BAD = x°, ∠DAC = y°로 표시되어 있다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\sqrt{13}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2\\sqrt{13}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{5\\sqrt{13}}{13}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{15\\sqrt{13}}{13}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{17\\sqrt{13}}{13}"}]}
+      ]
+    },
+    {
+      "number": 5,
+      "score": 3,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "<보기>의 삼각비의 값을 그 크기가 작은 것부터 차례대로 나열한 것은?"},
+        {"type": "text", "value": "<보기> ㄱ. \\sin 30^{\\circ} • ㄴ. \\cos 30^{\\circ} • ㄷ. \\cos 80^{\\circ} • ㄹ. \\tan 50^{\\circ}"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ, ㄴ, ㄷ, ㄹ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄱ, ㄷ, ㄴ, ㄹ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄴ, ㄷ, ㄹ, ㄱ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄷ, ㄹ, ㄱ, ㄴ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄷ, ㄱ, ㄴ, ㄹ"}]}
+      ]
+    },
+    {
+      "number": 6,
+      "score": 3,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "오른쪽 그림과 같이 반지름의 길이가 1인 사분원에서 \\overline{\\mathrm{OC}} = 0.5446일 때, \\overline{\\mathrm{AD}}의 길이는?"},
+        {"type": "table", "rows": [["각도", "sin", "cos", "tan"], ["32^{\\circ}", "0.5229", "0.8480", "0.6249"], ["33^{\\circ}", "0.5446", "0.8387", "0.6494"], ["56^{\\circ}", "0.8290", "0.5592", "1.4826"], ["57^{\\circ}", "0.8387", "0.5446", "1.5399"]]},
+        {"type": "figure", "value": "중심이 O이고 반지름의 길이가 1인 사분원. O는 왼쪽 아래, A는 O의 오른쪽(같은 수평선 위)에 있고 호가 왼쪽 위에서 A까지 그려져 있다. O에서 출발한 반직선이 호와 점 B에서 만난 뒤 A를 지나는 수직선과 점 D(오른쪽 위)에서 만난다. C는 B에서 선분 OA에 내린 수선의 발이며 ∠BCO = 90°, ∠DAO = 90°(직각 표시). 왼쪽 반지름에 1이 표시되어 있다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "0.6249"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "0.6494"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "1.3833"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "1.4826"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "1.5399"}]}
+      ]
+    },
+    {
+      "number": 7,
+      "score": 3,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "<보기>에서 옳은 것만을 있는 대로 고른 것은?"},
+        {"type": "text", "value": "<보기> ㄱ. \\sin 30^{\\circ} \\times \\sin 45^{\\circ} = \\sqrt{2} • ㄴ. \\tan 30^{\\circ} \\times \\sin 60^{\\circ} = \\frac{1}{2} • ㄷ. \\sin 45^{\\circ} \\div \\cos 60^{\\circ} - \\tan 45^{\\circ} = \\sqrt{2}-1"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄴ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄷ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄱ, ㄴ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄱ, ㄷ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄴ, ㄷ"}]}
+      ]
+    },
+    {
+      "number": 8,
+      "score": 4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "삼각형 \\mathrm{ABC}에서 \\overline{\\mathrm{AH}}의 길이를 삼각비로 나타낸 것은?"},
+        {"type": "figure", "value": "삼각형 ABC. A는 위 꼭짓점, B는 왼쪽 아래(∠B = 45°), C는 오른쪽 아래(∠C = 40°)이다. H는 변 BC 위의 점으로 AH ⊥ BC(H에 직각 표시). 밑변 BC = 8로 표시되어 있다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "8(\\tan 40^{\\circ}+1)"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "8(\\tan 50^{\\circ}+1)"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{8}{\\tan 40^{\\circ}+1}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{8}{\\tan 50^{\\circ}+1}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{8}{\\tan 40^{\\circ}+\\tan 50^{\\circ}}"}]}
+      ]
+    },
+    {
+      "number": 9,
+      "score": 4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "직각삼각형 \\mathrm{ABC}에서 \\angle \\mathrm{A}의 이등분선과 변 \\mathrm{BC}의 교점이 \\mathrm{D}일 때, \\tan x의 값은?"},
+        {"type": "figure", "value": "직각삼각형 ABC. A는 오른쪽 위, B는 왼쪽 아래, C는 오른쪽 아래에 있고 ∠C = 90°(직각 표시). 빗변 AB = 20, 변 AC = 12로 표시되어 있다. D는 변 BC 위의 점이고 선분 AD가 ∠A를 이등분한다(A에 두 각이 같음을 나타내는 표시). ∠ADC = x로 표시되어 있다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{3}{2}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\sqrt{3}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{3\\sqrt{10}}{5}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{6\\sqrt{2}}{5}"}]}
+      ]
+    },
+    {
+      "number": 10,
+      "score": 4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "직사각형 \\mathrm{ABCD}에서 \\sin 15^{\\circ}의 값은?"},
+        {"type": "figure", "value": "직사각형 ABCD. A는 왼쪽 위, D는 오른쪽 위, B는 왼쪽 아래, C는 오른쪽 아래에 있다. E는 변 BC 위의 점, F는 변 DC 위의 점이며 선분 AE, AF, EF가 그려져 있다. 변 AB = √3으로 표시되어 있고, 꼭짓점 A에서 ∠BAE = 45°, ∠EAF = 30°로 표시되어 있다(따라서 ∠FAD = 15°). ∠AEF = 90°(E에 직각 표시)."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\sqrt{3}-1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2-\\sqrt{3}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{3-\\sqrt{2}}{2}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{\\sqrt{6}-\\sqrt{2}}{4}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{3-\\sqrt{3}}{6}"}]}
+      ]
+    },
+    {
+      "number": 11,
+      "score": 4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "그림의 사각뿔은 밑면이 정사각형이고, 옆면은 모두 합동인 이등변삼각형이다. 꼭짓점 \\mathrm{O}에서 밑면에 내린 수선의 발을 \\mathrm{H}라 할 때, \\angle \\mathrm{OAH} = 60^{\\circ}이다. 이 사각뿔의 부피는?"},
+        {"type": "figure", "value": "사각뿔 O-ABCD. 꼭짓점 O가 맨 위에 있고 밑면은 정사각형 ABCD(A는 왼쪽 앞, B는 오른쪽 앞, C는 오른쪽 뒤, D는 왼쪽 뒤)이다. AB = 2 cm, BC = 2 cm로 표시되어 있다. H는 밑면 정사각형의 중심(대각선의 교점)이고 OH ⊥ 밑면(H에 직각 표시), 선분 OA, AH, OH가 그려져 있으며 ∠OAH = 60°로 표시되어 있다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{4\\sqrt{2}}{3} (\\mathrm{cm}^{3})"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{4\\sqrt{3}}{3} (\\mathrm{cm}^{3})"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{4\\sqrt{6}}{3} (\\mathrm{cm}^{3})"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4\\sqrt{3} (\\mathrm{cm}^{3})"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "4\\sqrt{6} (\\mathrm{cm}^{3})"}]}
+      ]
+    },
+    {
+      "number": 12,
+      "score": 4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 두 지점 \\mathrm{B}, \\mathrm{C}에서 탑의 꼭대기 \\mathrm{A}를 올려본 각의 크기가 각각 60^{\\circ}, 45^{\\circ}일 때, 이 탑의 높이는?"},
+        {"type": "figure", "value": "삼각형 ABC 모양. A는 위 꼭짓점(탑의 꼭대기), B는 왼쪽 아래로 ∠B = 60°, C는 오른쪽 아래로 ∠C = 45°가 표시되어 있다. 두 지점 사이의 거리 BC = 10 m로 표시되어 있고, B와 C 사이의 지면 위에 석탑 그림이 세워져 있으며 그 꼭대기가 점 A이다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "5\\sqrt{3} (\\mathrm{m})"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "10\\sqrt{3} (\\mathrm{m})"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "5\\sqrt{3}-5 (\\mathrm{m})"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "15-5\\sqrt{3} (\\mathrm{m})"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "30-10\\sqrt{3} (\\mathrm{m})"}]}
+      ]
+    },
+    {
+      "number": 13,
+      "score": 5,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "정삼각형 \\mathrm{ABC}에서 삼각형 \\mathrm{ADC}의 넓이는?"},
+        {"type": "figure", "value": "정삼각형 ABC. A는 위 꼭짓점, B는 왼쪽 아래, C는 오른쪽 아래에 있다. D는 변 AB 위의 점이고 선분 DC가 그려져 있으며 삼각형 ADC가 색칠되어 있다. 점선 호로 BD = 10√2가 표시되어 있고, 점 D에서 ∠ADC = 105°가 표시되어 있다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "25\\sqrt{3}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "50\\sqrt{3}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{25\\sqrt{3}}{2}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{25\\sqrt{3}}{3}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{25\\sqrt{3}}{4}"}]}
+      ]
+    },
+    {
+      "number": 14,
+      "score": 3,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "원 \\mathrm{O}에서 현 \\mathrm{AB}에 내린 수선의 발을 \\mathrm{M}이라 할 때, \\overline{\\mathrm{AB}}의 길이는?"},
+        {"type": "figure", "value": "원 O. 원 안 아래쪽에 현 AB가 수평으로 그려져 있고 A는 왼쪽, B는 오른쪽 끝점이다. M은 중심 O에서 현 AB에 내린 수선의 발로 ∠OMA = 90°(직각 표시). 점선으로 OA = 6 cm, OM = 4 cm가 표시되어 있다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "2\\sqrt{5} (\\mathrm{cm})"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2\\sqrt{10} (\\mathrm{cm})"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3\\sqrt{5} (\\mathrm{cm})"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "3\\sqrt{10} (\\mathrm{cm})"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "4\\sqrt{5} (\\mathrm{cm})"}]}
+      ]
+    },
+    {
+      "number": 15,
+      "score": 3,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "원 \\mathrm{O}의 중심에서 두 현 \\mathrm{AB}, \\mathrm{AC}에 이르는 거리가 같다. \\angle \\mathrm{B}의 크기는?"},
+        {"type": "figure", "value": "원 O에 내접한 삼각형 ABC. A는 원의 위쪽, B는 왼쪽 아래, C는 오른쪽 아래에 있다. 꼭짓점 A에 ∠A = 52°가 표시되어 있다. 중심 O에서 현 AB와 현 AC에 각각 내린 수선이 그려져 있고 두 수선의 발에 직각 표시가, 두 수선에는 길이가 같음을 나타내는 눈금 표시가 있다. 꼭짓점 B에 각의 호 표시가 있다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "64^{\\circ}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "65^{\\circ}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "66^{\\circ}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "67^{\\circ}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "68^{\\circ}"}]}
+      ]
+    },
+    {
+      "number": 16,
+      "score": 3,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "점 \\mathrm{A}는 점 \\mathrm{P}에서 원 \\mathrm{O}에 그은 접선의 접점이다. \\triangle \\mathrm{OAP}의 넓이는?"},
+        {"type": "figure", "value": "원 O와 원 밖 오른쪽에 있는 점 P. 접점 A는 원의 아래쪽에 있고 선분 PA가 접선이다. 선분 OP가 원과 만나는 점을 B라 하고, 점선으로 BP = 6 cm, 반지름 OA = 5 cm가 표시되어 있다. 삼각형 OAP가 색칠되어 있다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "10\\sqrt{6} (\\mathrm{cm}^{2})"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "11\\sqrt{6} (\\mathrm{cm}^{2})"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "12\\sqrt{6} (\\mathrm{cm}^{2})"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "13\\sqrt{6} (\\mathrm{cm}^{2})"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "14\\sqrt{6} (\\mathrm{cm}^{2})"}]}
+      ]
+    },
+    {
+      "number": 17,
+      "score": 3,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "동심원에서 큰 원의 현 \\mathrm{AB}가 작은 원과 점 \\mathrm{H}에서 접할 때, 색칠한 부분의 넓이는?"},
+        {"type": "figure", "value": "중심이 O로 같은 두 원(동심원). 큰 원과 작은 원 사이의 고리 모양 부분이 색칠되어 있다. 큰 원의 현 AB가 위쪽에 수평으로 그려져 A는 왼쪽, B는 오른쪽 끝점이며 이 현이 작은 원과 점 H에서 접한다. 점선 호로 AB = 12가 표시되어 있고 선분 OA와 OH가 그려져 있다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "6\\pi"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "12\\pi"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "36\\pi"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "72\\pi"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "144\\pi"}]}
+      ]
+    },
+    {
+      "number": 18,
+      "score": 3,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "\\overline{\\mathrm{BC}}는 반원 \\mathrm{O}의 지름이고, \\overline{\\mathrm{AB}}, \\overline{\\mathrm{AD}}, \\overline{\\mathrm{CD}}는 반원 \\mathrm{O}의 접선이다. \\overline{\\mathrm{BC}}의 길이는?"},
+        {"type": "figure", "value": "지름 BC가 아래쪽 수평선인 반원 O. B는 왼쪽 아래, C는 오른쪽 아래에 있고 A는 왼쪽 위, D는 오른쪽 위에 있다. AB는 B에서, CD는 C에서 반원에 접하며(두 선분 모두 BC에 수직) AD도 반원에 접한다. 점선 호로 AB = 4, CD = 7이 표시되어 있다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "11"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "4\\sqrt{7}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3\\sqrt{17}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "5\\sqrt{11}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\sqrt{117}"}]}
+      ]
+    },
+    {
+      "number": 19,
+      "score": 4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "\\overline{\\mathrm{BC}}는 반원 \\mathrm{O}의 지름이고, \\overline{\\mathrm{AB}}, \\overline{\\mathrm{AE}}, \\overline{\\mathrm{CE}}는 각각 점 \\mathrm{B}, \\mathrm{F}, \\mathrm{C}에서 반원 \\mathrm{O}에 접할 때, 정사각형 \\mathrm{ABCD}의 한 변의 길이는?"},
+        {"type": "figure", "value": "정사각형 ABCD. A는 왼쪽 위, D는 오른쪽 위, B는 왼쪽 아래, C는 오른쪽 아래에 있다. 아래 변 BC를 지름으로 하는 반원 O가 정사각형 안에 그려져 있다. E는 오른쪽 변 DC 위의 점이고 선분 AE가 반원과 점 F에서 접한다. 점선 호로 AE = 6이 표시되어 있다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "4.4"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "4.6"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "4.8"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "5.2"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5.4"}]}
+      ]
+    },
+    {
+      "number": 20,
+      "score": 7,
+      "type": "서술형",
+      "label": "[서술형 1]",
+      "contents": [
+        {"type": "text", "value": "[서술형 1번] 그림과 같이 반지름의 길이가 1인 사분원을 보고, 물음에 답하시오."},
+        {"type": "figure", "value": "중심이 O이고 반지름의 길이가 1인 사분원. O는 왼쪽 아래, A는 O의 바로 위(왼쪽 위), B는 O의 오른쪽(오른쪽 아래)에 있고 A에서 B까지 호가 그려져 있다. 왼쪽 반지름 OA에 1이 표시되어 있다. 점 B에서 선분 OB에 수직으로 위쪽으로 선분 BE가 그려져 있고(E는 오른쪽 위), O에서 E로 향하는 선분이 호와 점 C에서 만난다. D는 점 C에서 선분 OB에 내린 수선의 발이며 ∠CDO와 ∠EBO에 직각 표시가 있다. 점 O에 각 x(∠COD), 점 C 아래쪽에 각 y, 점 E에 각 z(∠OEB)가 표시되어 있다."}
+      ],
+      "choices": [],
+      "sub_questions": [
+        {"number": 1, "score": 2, "contents": [{"type": "text", "value": "\\sin x를 나타내는 선분을 구하시오."}]},
+        {"number": 2, "score": 2, "contents": [{"type": "text", "value": "\\cos x를 나타내는 선분을 구하시오."}]},
+        {"number": 3, "score": 3, "contents": [{"type": "text", "value": "\\tan x \\times \\tan z의 값을 구하시오(선분이 아님)."}]}
+      ]
+    },
+    {
+      "number": 21,
+      "score": 10,
+      "type": "서술형",
+      "label": "[서술형 2]",
+      "contents": [
+        {"type": "text", "value": "[서술형 2번] 그림을 보고, 물음에 답하시오."},
+        {"type": "figure", "value": "A는 왼쪽 위, B는 왼쪽 아래, C는 오른쪽 아래, D는 C의 위쪽(오른쪽)에 있다. 선분 AB(수직), BC(수평), DC(수직)와 두 대각선 AC, BD가 그려져 있고 AC와 BD의 교점이 P이다. ∠ABC = 90°, ∠BCD = 90°(직각 표시). 꼭짓점 A에 ∠BAC = 45°, 꼭짓점 D에 ∠BDC = 60°가 표시되어 있고, 점선 호로 DC = 4가 표시되어 있다."}
+      ],
+      "choices": [],
+      "sub_questions": [
+        {"number": 1, "score": 2, "contents": [{"type": "text", "value": "\\angle \\mathrm{APB}의 크기를 구하시오."}]},
+        {"number": 2, "score": 2, "contents": [{"type": "text", "value": "\\overline{\\mathrm{BD}}의 길이를 구하시오."}]},
+        {"number": 3, "score": 2, "contents": [{"type": "text", "value": "\\overline{\\mathrm{AC}}의 길이를 구하시오."}]},
+        {"number": 4, "score": 4, "contents": [{"type": "text", "value": "\\triangle \\mathrm{APB}의 넓이를 구하시오."}]}
+      ]
+    },
+    {
+      "number": 22,
+      "score": 8,
+      "type": "서술형",
+      "label": "[서술형 3]",
+      "contents": [
+        {"type": "text", "value": "[서술형 3번] \\overrightarrow{\\mathrm{AP}}, \\overrightarrow{\\mathrm{AQ}}, \\overline{\\mathrm{BC}}는 원 \\mathrm{O}의 접선이고 세 점 \\mathrm{P}, \\mathrm{Q}, \\mathrm{D}는 접점이다. \\angle \\mathrm{BAC} = 60^{\\circ}, \\overline{\\mathrm{OA}} = 4일 때, 물음에 답하시오."},
+        {"type": "figure", "value": "원 O와 원 밖 왼쪽에 있는 점 A. A에서 그은 두 반직선이 각각 원의 위쪽 점 P와 아래쪽 점 Q에서 접한다. 선분 BC는 점 D에서 원에 접하며, C는 위쪽 접선 AP 위의 점, B는 아래쪽 접선 AQ 위의 점이다. 점 A에서 ∠BAC = 60°가 표시되어 있고, 점선으로 OA = 4가 표시되어 있다."}
+      ],
+      "choices": [],
+      "sub_questions": [
+        {"number": 1, "score": 2, "contents": [{"type": "text", "value": "원 \\mathrm{O}의 반지름의 길이를 구하시오."}]},
+        {"number": 2, "score": 2, "contents": [{"type": "text", "value": "\\overline{\\mathrm{AP}}의 길이를 구하시오."}]},
+        {"number": 3, "score": 4, "contents": [{"type": "text", "value": "\\triangle \\mathrm{ABC}의 둘레의 길이를 구하시오."}]}
+      ]
+    },
+    {
+      "number": 23,
+      "score": 10,
+      "type": "서술형",
+      "label": "[서술형 4]",
+      "contents": [
+        {"type": "text", "value": "[서술형 4번] 원 밖의 점 \\mathrm{P}에서 원 \\mathrm{O}에 그은 두 접선의 접점을 각각 \\mathrm{A}, \\mathrm{B}라 하자. \\angle \\mathrm{APB} : \\angle \\mathrm{AOB} = 1 : 2 일 때, 물음에 답하시오."},
+        {"type": "figure", "value": "원 O와 원 밖 왼쪽 아래에 있는 점 P. 점 P에서 그은 두 접선의 접점은 A(원의 왼쪽 위)와 B(원의 아래쪽)이다. 점선으로 반지름 OA = 3이 표시되어 있고 점 A에 직각 표시(∠OAP = 90°)가 있으며 선분 OB도 그려져 있다. 두 접선 PA, PB와 호 AB로 둘러싸인 부분(사각형 OAPB에서 부채꼴 OAB를 제외한 부분)이 빗금으로 색칠되어 있다."}
+      ],
+      "choices": [],
+      "sub_questions": [
+        {"number": 1, "score": 3, "contents": [{"type": "text", "value": "\\angle \\mathrm{AOB}의 크기를 구하시오."}]},
+        {"number": 2, "score": 3, "contents": [{"type": "text", "value": "\\overline{\\mathrm{OP}}의 길이를 구하시오."}]},
+        {"number": 3, "score": 4, "contents": [{"type": "text", "value": "색칠한 부분의 넓이를 구하시오."}]}
+      ]
+    }
+  ]
+}

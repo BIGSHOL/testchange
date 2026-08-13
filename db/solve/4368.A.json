@@ -1,0 +1,146 @@
+{
+ "exam_id": 4368,
+ "pass": "A",
+ "items": [
+  {
+   "number": 1,
+   "answer": "④",
+   "solution": "step1) ①: $\\begin{pmatrix}-1\\\\5\\end{pmatrix}+\\begin{pmatrix}4\\\\-2\\end{pmatrix}=\\begin{pmatrix}3\\\\3\\end{pmatrix}$ 이므로 $2\\times2$ 행렬이 될 수 없다. 거짓이다.\nstep2) ②: $-\\begin{pmatrix}-1&4\\\\5&-2\\end{pmatrix}=\\begin{pmatrix}1&-4\\\\-5&2\\end{pmatrix}$ 이므로 거짓이다.\nstep3) ③: $4\\begin{pmatrix}2&-7\\\\5&9\\end{pmatrix}=\\begin{pmatrix}8&-28\\\\20&36\\end{pmatrix}$ 이므로 거짓이다.\nstep4) ④: $(2\\ \\ -3)-(4\\ \\ 6)=(2-4\\ \\ \\ -3-6)=(-2\\ \\ -9)$ 이므로 참이다.\nstep5) ⑤: $3\\begin{pmatrix}1&0\\\\0&1\\end{pmatrix}=\\begin{pmatrix}3&0\\\\0&3\\end{pmatrix}$ 이므로 거짓이다.\nstep6) 따라서 옳은 것은 ④이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 2,
+   "answer": "④",
+   "solution": "step1) 첫 식을 인수분해하면 $2x^2+3xy-2y^2=(2x-y)(x+2y)=0$ 이다.\nstep2) (i) $y=2x$ 인 경우: $x^2+2(2x)^2=9x^2=54$ 이므로 $x^2=6$, $x=\\pm\\sqrt{6}$, $y=\\pm2\\sqrt{6}$ 이다. 이때 $x-y=-x=\\mp\\sqrt{6}$ 이므로 최댓값 후보는 $\\sqrt{6}$ 이다.\nstep3) (ii) $x=-2y$ 인 경우: $4y^2+2y^2=6y^2=54$ 이므로 $y^2=9$, $y=\\pm3$ 이다. $y=-3$ 이면 $x=6$ 이므로 $x-y=9$, $y=3$ 이면 $x=-6$ 이므로 $x-y=-9$ 이다.\nstep4) 두 경우를 비교하면 $\\sqrt{6}<9$ 이므로 $\\alpha-\\beta$ 의 최댓값은 $9$ 이다.\nstep5) 검산: $x=6,\\ y=-3$ 은 $2(36)+3(6)(-3)-2(9)=72-54-18=0$, $36+2(9)=54$ 를 모두 만족한다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 3,
+   "answer": "①",
+   "solution": "step1) $(a+b)(p+q+r)(x+y+z)$ 를 전개하면 각 괄호에서 한 항씩 택하므로 항의 개수는 $2\\times3\\times3=18$ 이다.\nstep2) 동류항이 생기지 않으므로 모든 항의 개수는 $18$ 이다.\nstep3) $a$ 를 포함한 항은 첫 괄호에서 $a$ 를 택한 경우이므로 $1\\times3\\times3=9$ 이다.\nstep4) 따라서 구하는 합은 $18+9=27$ 이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 4,
+   "answer": "②",
+   "solution": "step1) 남학생 4명 중 2명을 뽑는 경우의 수는 ${}_{4}\\mathrm{C}_{2}=6$ 이다.\nstep2) 여학생 5명 중 2명을 뽑는 경우의 수는 ${}_{5}\\mathrm{C}_{2}=10$ 이다.\nstep3) 곱의 법칙에 의하여 $6\\times10=60$ 이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 5,
+   "answer": "①",
+   "solution": "step1) ㄱ. 행렬의 곱셈은 결합법칙 $(AB)C=A(BC)$ 가 성립하므로 참이다.\nstep2) ㄴ. $A$ 가 $m\\times n$, $B$ 가 $n\\times p$ 이면 $AB$ 는 정의되지만 $BA$ 는 $p=m$ 일 때만 정의되므로 거짓이다.\nstep3) ㄷ. $A=\\begin{pmatrix}1&0\\\\0&0\\end{pmatrix}$, $B=\\begin{pmatrix}0&0\\\\0&1\\end{pmatrix}$ 이면 $A\\neq O$, $B\\neq O$ 이지만 $AB=O$ 이므로 거짓이다.\nstep4) ㄹ. 꼴이 같아도 성분이 다를 수 있으므로 거짓이다.\nstep5) ㅁ. $AB$ 가 정의되려면 $A$ 의 열의 개수와 $B$ 의 행의 개수가 같아야 하므로 거짓이다.\nstep6) ㅂ. $E$ 는 모든 행렬과 교환가능하므로 $(A+E)^2=A^2+AE+EA+E^2=A^2+2A+E$ 로 참이다.\nstep7) 옳은 것은 ㄱ, ㅂ 의 2개이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 6,
+   "answer": "⑤",
+   "solution": "step1) 표에서 에어컨 가격은 A회사 $a$, B회사 $c$ 이고 선풍기 가격은 A회사 $b$, B회사 $d$ 이다.\nstep2) 에어컨은 10% 할인이므로 $0.9\\times(\\text{정가})$, 선풍기는 20% 할인이므로 $0.8\\times(\\text{정가})$ 이다.\nstep3) 따라서 구하는 값은 $0.9c+0.8d$ 이다.\nstep4) ⑤에서 $\\begin{pmatrix}a&b\\\\c&d\\end{pmatrix}\\begin{pmatrix}0.9\\\\0.8\\end{pmatrix}=\\begin{pmatrix}0.9a+0.8b\\\\0.9c+0.8d\\end{pmatrix}$ 이므로 $(2,\\ 1)$성분이 $0.9c+0.8d$ 로 일치한다.\nstep5) ①은 $0.9a+0.8c$, ②는 $0.9b+0.8d$, ③은 $0.9a+0.8b$, ④는 $0.9b+0.8d$ 이므로 모두 다르다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 7,
+   "answer": "⑤",
+   "solution": "step1) $t=x^2-2x$ 로 놓으면 $t(t-1)=2$, 즉 $t^2-t-2=(t-2)(t+1)=0$ 이므로 $t=2$ 또는 $t=-1$ 이다.\nstep2) $t=2$ 일 때 $x^2-2x-2=0$ 이고 판별식 $D/4=1+2=3>0$ 이므로 두 실근을 가지며 그 합은 $2$ 이다.\nstep3) $t=-1$ 일 때 $x^2-2x+1=(x-1)^2=0$ 이므로 $x=1$ (중근) 이다.\nstep4) 원래 방정식을 전개하면 $x^4-4x^3+3x^2+2x-2=0$ 이므로 네 근의 합은 근과 계수의 관계에 의해 $4$ 이다.\nstep5) 실제 네 근 $1,\\ 1,\\ 1+\\sqrt{3},\\ 1-\\sqrt{3}$ 의 합도 $4$ 로 일치한다.",
+   "confidence": "medium",
+   "note": "중근 x=1을 두 번 세는(근과 계수의 관계) 해석으로 4. 서로 다른 근만 더하면 3(선택지 ④)이 되지만 '네 근의 합'은 중복도 포함이 표준."
+  },
+  {
+   "number": 8,
+   "answer": "①",
+   "solution": "step1) 방의 개수를 $m$, 학생 수를 $a$ 라 하면 4명씩 배정할 때 16명이 남으므로 $a=4m+16$ 이다.\nstep2) 5명씩 배정하면 5명이 배정되지 않은(즉 $r$명만 든) 방이 1개, 빈 방이 4개이므로 꽉 찬 방은 $m-5$ 개이고 $a=5(m-5)+r$ (단 $1\\le r\\le4$) 이다.\nstep3) 두 식을 연립하면 $4m+16=5m-25+r$ 이므로 $m=41-r$ 이다.\nstep4) $1\\le r\\le4$ 이므로 $m\\in\\{37,38,39,40\\}$ 이고 최솟값은 $r=4$ 일 때 $m=37$ 이다.\nstep5) 이때 $a=4\\times37+16=164$ 이므로 $a+m=164+37=201$ 이다.\nstep6) 검산: $164=4\\times37+16$ ✓, $164=5\\times32+4$ 이므로 꽉 찬 방 32개, 4명 든 방 1개, 남는 빈 방 $37-33=4$ 개 ✓",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 9,
+   "answer": "③",
+   "solution": "step1) $x^3+1=(x+1)(x^2-x+1)=0$ 이므로 허근 $\\omega$ 는 $\\omega^2-\\omega+1=0$ 을 만족하고 $\\omega^3=-1$, $\\omega^6=1$ 이다.\nstep2) ②: $\\omega^2$ 의 거듭제곱은 주기 3이고 $1+\\omega^2+\\omega^4=1+(\\omega-1)+(-\\omega)=0$ 이다. 항이 51개(=17주기)이므로 합은 $0\\neq1$ 로 거짓이다.\nstep3) ③: $100=6\\cdot16+4$ 이므로 $\\omega^{100}=\\omega^4=-\\omega$, $101=6\\cdot16+5$ 이므로 $\\omega^{101}=\\omega^5=-\\omega^2=1-\\omega$ 이다. 따라서 $\\frac{\\omega^{100}}{1-\\omega^{101}}=\\frac{-\\omega}{1-(1-\\omega)}=\\frac{-\\omega}{\\omega}=-1$ 로 참이다.\nstep4) ④: $\\frac{1}{\\omega}+\\frac{1}{\\omega^2}+\\frac{1}{\\omega^3}=\\frac{\\omega^2+\\omega+1}{\\omega^3}=\\frac{2\\omega}{-1}=-2\\omega\\neq0$ 이므로 거짓이다.\nstep5) ⑤: $\\omega^{100}-\\omega=-\\omega-\\omega=-2\\omega\\neq0$ 이므로 거짓이다.\nstep6) 계산으로 참인 것은 ③이다.",
+   "confidence": "low",
+   "note": "전사된 ① $\\omega^2-\\omega+1=0$ 은 $x^3+1=0$ 의 허근이 만족하는 관계식이므로 그대로면 ①도 참이다(정답 2개). 원본 ①은 $\\omega^2+\\omega+1=0$ 같은 오답 보기였을 가능성이 높아, 비자명하게 참인 ③을 답으로 둠. 원본 ① 확인 필요."
+  },
+  {
+   "number": 10,
+   "answer": "③",
+   "solution": "step1) 해가 $b<x<1$ 이므로 $2x^2-x+a=0$ 의 두 근은 $b$ 와 $1$ 이다.\nstep2) 근과 계수의 관계에서 $b+1=\\frac{1}{2}$ 이므로 $b=-\\frac{1}{2}$ 이다.\nstep3) 또 $b\\cdot1=\\frac{a}{2}$ 이므로 $a=2b=-1$ 이다.\nstep4) 따라서 $a-b=-1-\\left(-\\frac{1}{2}\\right)=-\\frac{1}{2}$ 이다.\nstep5) 검산: $2x^2-x-1=(2x+1)(x-1)<0$ 의 해는 $-\\frac{1}{2}<x<1$ 로 조건과 일치한다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 11,
+   "answer": "⑤",
+   "solution": "step1) $2<|3x-2|<4$ 는 $2<3x-2<4$ 또는 $-4<3x-2<-2$ 와 같다.\nstep2) 첫 경우 $4<3x<6$ 이므로 $\\frac{4}{3}<x<2$ 이고, 이 구간에 정수는 없다.\nstep3) 둘째 경우 $-2<3x<0$ 이므로 $-\\frac{2}{3}<x<0$ 이고, 이 구간에도 정수는 없다.\nstep4) 검산: $x=1$ 이면 $|3-2|=1$ (조건 불만족), $x=2$ 이면 $|4|=4$ (부등호가 강부등호라 불만족), $x=0$ 이면 $|-2|=2$ (불만족) 이다.\nstep5) 따라서 정수 $x$ 의 개수는 $0$ 이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 12,
+   "answer": "②",
+   "solution": "step1) $a<15$ 이면 $(15-a)+(25-a)=40-2a\\le17$ 이므로 $a\\ge11.5$, 즉 $11.5\\le a<15$ 이다.\nstep2) $15\\le a\\le25$ 이면 좌변은 항상 $10\\le17$ 이므로 모두 성립한다.\nstep3) $a>25$ 이면 $(a-15)+(a-25)=2a-40\\le17$ 이므로 $a\\le28.5$, 즉 $25<a\\le28.5$ 이다.\nstep4) 종합하면 $11.5\\le a\\le28.5$ 이고 이는 모두 $0$ 이상 $30$ 이하이다.\nstep5) 따라서 농도가 어떤 값이든 등급은 '좋음' 으로 판정된다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 13,
+   "answer": "①",
+   "solution": "step1) $x^2-10x+24\\le0$ 은 $(x-4)(x-6)\\le0$ 이므로 $4\\le x\\le6$ 이고 정수는 $4,5,6$ 이다.\nstep2) $x^2-2(n-1)x+n^2-2n$ 의 판별식은 $D/4=(n-1)^2-(n^2-2n)=1$ 이므로 두 근은 $(n-1)\\pm1$, 즉 $n-2$ 와 $n$ 이다.\nstep3) 따라서 둘째 부등식의 해는 $x\\le n-2$ 또는 $x\\ge n$ 이고, 제외되는 구간은 $n-2<x<n$ 으로 그 안의 정수는 $n-1$ 하나뿐이다.\nstep4) 정수해가 2개가 되려면 $\\{4,5,6\\}$ 중 정확히 하나가 제외되어야 하므로 $n-1\\in\\{4,5,6\\}$, 즉 $n=5,6,7$ 이다.\nstep5) 검산: $n=5$ 이면 $\\{5,6\\}$, $n=6$ 이면 $\\{4,6\\}$, $n=7$ 이면 $\\{4,5\\}$ 로 각각 2개이다. $n=4$ 나 $n=8$ 이면 3개가 된다.\nstep6) 따라서 모든 자연수 $n$ 의 합은 $5+6+7=18$ 이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 14,
+   "answer": "③",
+   "solution": "step1) ㄱ. ${}_{n}\\mathrm{P}_{0}=1$, ${}_{n}\\mathrm{C}_{0}=1$ 이므로 참이다.\nstep2) ㄴ. ${}_{n}\\mathrm{P}_{n}=n!$, ${}_{n}\\mathrm{C}_{n}=1$ 이고 $n>1$ 이면 $n!\\neq1$ 이므로 거짓이다.\nstep3) ㄷ. 조합의 정의식이므로 참이다.\nstep4) ㄹ. ${}_{n}\\mathrm{P}_{r}={}_{n}\\mathrm{C}_{r}\\times r!$ 이 옳으므로 거짓이다 (예: $r=3$).\nstep5) ㅁ. ${}_{n+1}\\mathrm{C}_{r+1}={}_{n+1}\\mathrm{C}_{(n+1)-(r+1)}={}_{n+1}\\mathrm{C}_{n-r}$ 이므로 참이다.\nstep6) ㅂ. $n\\times{}_{n-1}\\mathrm{P}_{r-1}=n\\cdot\\frac{(n-1)!}{(n-r)!}=\\frac{n!}{(n-r)!}={}_{n}\\mathrm{P}_{r}$ 이므로 참이다.\nstep7) ㅅ. ${}_{n-1}\\mathrm{P}_{r}+r\\cdot{}_{n-1}\\mathrm{P}_{r-1}=\\frac{(n-1)!(n-r)}{(n-r)!}+\\frac{r(n-1)!}{(n-r)!}=\\frac{n!}{(n-r)!}={}_{n}\\mathrm{P}_{r}$ 이므로 참이다.\nstep8) ㅇ. $n\\times{}_{n-1}\\mathrm{C}_{r-1}=r\\times{}_{n}\\mathrm{C}_{r}$ 는 잘 알려진 항등식이므로 참이다.\nstep9) 참인 것은 ㄱ, ㄷ, ㅁ, ㅂ, ㅅ, ㅇ 의 6개이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 15,
+   "answer": "$x=2$",
+   "solution": "step1) ①에서 $-2x+4\\ge3x-6$ 이므로 $10\\ge5x$, 즉 $x\\le2$ 이다.\nstep2) ②에서 $x-2\\ge4-2x$ 이므로 $3x\\ge6$, 즉 $x\\ge2$ 이다.\nstep3) 두 해를 모두 만족하는 $x$ 는 $x\\le2$ 이고 $x\\ge2$ 이므로 $x=2$ 뿐이다.\nstep4) 검산: $x=2$ 를 대입하면 ①은 $0\\ge0$, ②는 $0\\ge0$ 으로 모두 성립한다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 16,
+   "answer": "$-27$",
+   "solution": "step1) 좌변을 인수분해하면 $x\\{x^3-(2a-1)x^2+2(a+6)x+4(a+3)\\}=0$ 이다.\nstep2) 삼차식에 $x=-1$ 을 대입하면 $-1-(2a-1)-2(a+6)+4(a+3)=(-1+1-12+12)+(-2a-2a+4a)=0$ 이므로 $x+1$ 을 인수로 갖는다.\nstep3) 조립제법으로 나누면 주어진 방정식은 $x(x+1)(x^2-2ax+4a+12)=0$ 이다.\nstep4) 서로 다른 두 실근은 $\\gamma=0$, $\\delta=-1$ 이고, 서로 다른 두 허근을 가지려면 $x^2-2ax+4a+12=0$ 의 판별식이 $D/4=a^2-4a-12<0$, 즉 $(a-6)(a+2)<0$ 이므로 $-2<a<6$ 이다.\nstep5) 근과 계수의 관계에서 $\\alpha+\\beta=2a$, $\\alpha\\beta=4a+12$ 이므로 $\\alpha^2+\\beta^2=(2a)^2-2(4a+12)=4a^2-8a-24$ 이다.\nstep6) $\\gamma^2+\\delta^2=0+1=1$ 이므로 구하는 식은 $4a^2-8a-23=4(a-1)^2-27$ 이다.\nstep7) $a=1$ 은 $-2<a<6$ 에 속하므로 최솟값은 $-27$ 이다.\nstep8) 검산: $a=1$ 이면 $x^2-2x+16=0$ 의 근은 $1\\pm\\sqrt{15}i$ 이고 $\\alpha^2+\\beta^2=4-32=-28$, 여기에 $1$ 을 더하면 $-27$ 이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 17,
+   "answer": "(1) $a=3,\\ b=2,\\ c=6$ (2) $\\begin{pmatrix}-4&8\\\\-3&10\\end{pmatrix}$ (3) $-2$",
+   "solution": "step1) (1) $A$ 는 행이 3개, 열이 2개이므로 $3\\times2$ 행렬이다. 따라서 $a=3$, $b=2$ 이다.\nstep2) $B$ 의 $(2,\\ 3)$성분은 2행 3열의 수이므로 $c=6$ 이다.\nstep3) (2) $A=\\frac{1}{2}\\{(A+B)+(A-B)\\}=\\frac{1}{2}\\begin{pmatrix}4&2\\\\0&6\\end{pmatrix}=\\begin{pmatrix}2&1\\\\0&3\\end{pmatrix}$ 이다.\nstep4) $B=\\frac{1}{2}\\{(A+B)-(A-B)\\}=\\frac{1}{2}\\begin{pmatrix}6&-2\\\\2&0\\end{pmatrix}=\\begin{pmatrix}3&-1\\\\1&0\\end{pmatrix}$ 이다.\nstep5) $A^2=\\begin{pmatrix}4&5\\\\0&9\\end{pmatrix}$, $B^2=\\begin{pmatrix}8&-3\\\\3&-1\\end{pmatrix}$ 이므로 $A^2-B^2=\\begin{pmatrix}-4&8\\\\-3&10\\end{pmatrix}$ 이다.\nstep6) (3) $A$ 는 $60^{\\circ}$ 회전을 나타내는 행렬이므로 $A^6=E$ 이고 거듭제곱은 주기가 6이다.\nstep7) $A+A^2+\\cdots+A^6=O$ 이다. (성분별로 $\\cos60^{\\circ}k$, $\\sin60^{\\circ}k$ 의 합이 각각 0)\nstep8) $1013=6\\times168+5$ 이므로 앞의 $1008$ 항은 168개의 주기로 묶여 $O$ 가 되고, 남는 항은 $A^{1009}+\\cdots+A^{1013}=A+A^2+A^3+A^4+A^5$ 이다.\nstep9) $A+A^2+\\cdots+A^5=(A+\\cdots+A^6)-A^6=O-E=-E$ 이다.\nstep10) 따라서 $-E=\\begin{pmatrix}-1&0\\\\0&-1\\end{pmatrix}$ 이고 모든 성분의 합은 $-1+0+0-1=-2$ 이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 18,
+   "answer": "$81$",
+   "solution": "step1) 점은 지름 위 5개(일직선), 호 위 4개로 모두 9개이고, 세 점이 한 직선 위에 놓이는 경우는 지름 위의 5개 중에서만 생긴다.\nstep2) 9개의 점에서 4개를 뽑는 경우의 수는 ${}_{9}\\mathrm{C}_{4}=126$ 이다.\nstep3) 지름 위의 점을 3개 뽑고 나머지 1개를 뽑는 경우는 ${}_{5}\\mathrm{C}_{3}\\times{}_{4}\\mathrm{C}_{1}=10\\times4=40$ 이다.\nstep4) 지름 위의 점을 4개 모두 뽑는 경우는 ${}_{5}\\mathrm{C}_{4}=5$ 이다.\nstep5) 이 $40+5=45$ 가지는 사각형을 만들 수 없다.\nstep6) 나머지 경우는 어느 세 점도 일직선 위에 있지 않고 모든 점이 볼록한 반원 경계 위에 있으므로 항상 사각형이 된다.\nstep7) 따라서 사각형의 개수는 $126-45=81$ 이다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 19,
+   "answer": "(1) 모든 실수 $x$ (2) $0$",
+   "solution": "step1) (1) $x^2+6x+10=(x+3)^2+1$ 이므로 이차함수 $y=x^2+6x+10$ 의 그래프는 아래로 볼록하고 꼭짓점의 $y$좌표가 $1>0$ 이다.\nstep2) 즉 판별식 $D/4=9-10=-1<0$ 이어서 그래프가 $x$축과 만나지 않고 항상 $x$축 위쪽에 있다.\nstep3) 따라서 $x^2+6x+10\\ge0$ 의 해는 모든 실수이다.\nstep4) (2) 조건 (가): 지은, 지혜, 혜숙을 한 묶음으로 보면 (묶음 + 선경 + 해영) 3개를 배열하는 $3!=6$ 가지, 묶음 내부 배열 $3!=6$ 가지이므로 $a=6\\times6=36$ 이다.\nstep5) 조건 (나): 지은과 지혜 사이에 낄 한 사람을 고르는 방법이 3가지, 지은·지혜의 순서가 2가지, 이 세 사람 묶음과 남은 2명을 배열하는 방법이 $3!=6$ 가지이므로 $b=3\\times2\\times6=36$ 이다.\nstep6) 따라서 $a-b=36-36=0$ 이다.\nstep7) 검산: (나)를 자리로 세면 (지은, 지혜)의 자리쌍은 $(1,3),(2,4),(3,5)$ 의 3가지, 순서 2가지, 가운데 사람 3가지, 남은 두 자리 $2!$ 가지로 $3\\times2\\times3\\times2=36$ 으로 같다.",
+   "confidence": "high",
+   "note": ""
+  },
+  {
+   "number": 20,
+   "answer": "$x\\le-2$ 또는 $x\\ge5$",
+   "solution": "step1) 교점의 $x$좌표가 $-2$ 이므로 $f(-2)=g(-2)$ 이다.\nstep2) $f(-2)=-\\frac{1}{2}(4)+(-2)+k=k-4$ 이고 $g(-2)=\\frac{1}{2}(4)-2(-2)+3=9$ 이므로 $k-4=9$, 즉 $k=13$ 이다.\nstep3) $f(x)\\le g(x)$ 는 $-\\frac{1}{2}x^2+x+13\\le\\frac{1}{2}x^2-2x+3$ 이므로 $0\\le x^2-3x-10$ 이다.\nstep4) $x^2-3x-10=(x-5)(x+2)\\ge0$ 이므로 해는 $x\\le-2$ 또는 $x\\ge5$ 이다.\nstep5) 검산: 두 교점의 $x$좌표는 $-2$ 와 $5$ 로 서로 다른 두 점에서 만나고, 그림처럼 위로 볼록한 $f$ 가 두 교점 사이에서 위쪽에 있으므로 $f\\le g$ 인 범위는 바깥쪽이 맞다.",
+   "confidence": "high",
+   "note": ""
+  }
+ ]
+}

@@ -1,0 +1,397 @@
+{
+  "meta": {"exam_id": 5654, "ocr_source": "session-vision"},
+  "header": {"title": "경구중 2025학년도 1학기 2차 지필평가 3학년 수학"},
+  "questions": [
+    {
+      "number": 1,
+      "score": 2,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "식 2(x+3)의 인수가 __아닌__ 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "x+3"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "2x+6"}]}
+      ]
+    },
+    {
+      "number": 2,
+      "score": 3,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "식을 인수분해한 것으로 옳지 __않은__ 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "2x^{2}-4x=2x(x-2)"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "x^{2}-9=(x+3)(x-3)"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "25a^{2}-4b^{2}=(5a-2b)^{2}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4x^{2}-4x+1=(2x-1)^{2}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "x^{2}-x-6=(x+2)(x-3)"}]}
+      ]
+    },
+    {
+      "number": 3,
+      "score": 2,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "다항식 x^{2}-x+a를 인수분해하면 (x+2)(x-3)일 때, 상수 a의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-6"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-5"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "6"}]}
+      ]
+    },
+    {
+      "number": 4,
+      "score": 4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "아버지로부터 금고의 비밀번호 힌트가 담긴 메모를 받았다. 금고의 비밀번호는?"},
+        {"type": "text", "value": "<상자> 수학 공부는 열심히 하고 있니? • △△은행에 있는 나의 유산이 담긴 금고의 비밀번호는 \\mathrm{ABCD} 란다. • x^{2}+\\mathrm{A}x+2=(x+2)(x+\\mathrm{B}) • 4x^{2}-8x+3=(2x-1)(\\mathrm{C}x-\\mathrm{D}) • 인수분해를 이용하면 쉽지? • 수학을 사랑하는 아빠가..."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1368"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "1332"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3112"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "3123"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "3136"}]}
+      ]
+    },
+    {
+      "number": 5,
+      "score": 3,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "[5~8] 주어진 이차방정식을 푸시오."},
+        {"type": "equation", "value": "x^{2}-5x=0"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "x=0"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "x=5"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "x=-5 또는 x=0"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "x=0 또는 x=5"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "x=-5 또는 x=5"}]}
+      ]
+    },
+    {
+      "number": 6,
+      "score": 3,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "equation", "value": "x^{2}-6x+9=0"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "x=-3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "x=3"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "x=-3 또는 x=3"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "x=3 또는 x=6"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "x=-3 또는 x=6"}]}
+      ]
+    },
+    {
+      "number": 7,
+      "score": 3,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "equation", "value": "9x^{2}-64=0"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "x=\\frac{8}{3}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "x=\\frac{64}{9}"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "x=-\\frac{8}{3} 또는 x=\\frac{8}{3}"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "x=-\\frac{64}{3} 또는 x=\\frac{64}{3}"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "x=-\\frac{64}{9} 또는 x=\\frac{64}{9}"}]}
+      ]
+    },
+    {
+      "number": 8,
+      "score": 4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "equation", "value": "\\frac{3}{2}x^{2}+2x-\\frac{5}{6}=0"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "x=-5 또는 x=1"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "x=-1 또는 x=5"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "x=-\\frac{4}{3} 또는 x=6"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "x=-\\frac{5}{3} 또는 x=\\frac{1}{3}"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "x=-\\frac{1}{3} 또는 x=\\frac{5}{3}"}]}
+      ]
+    },
+    {
+      "number": 9,
+      "score": 3,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "이차방정식 3x^{2}+ax+b=0의 해가 x=-\\frac{1}{3} 또는 x=2일 때, a+b의 값은? (단, a,b는 상수)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-10"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-7"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-4"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "10"}]}
+      ]
+    },
+    {
+      "number": 10,
+      "score": 3,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "이차방정식 (x+3)(x-9)=-10을 (x-a)^{2}=b의 꼴로 나타낼 때, a+b의 값은? (단, a,b는 상수)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "20"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "22"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "25"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "27"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "29"}]}
+      ]
+    },
+    {
+      "number": 11,
+      "score": 4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "이차방정식 x^{2}-3x+a-1=0의 해가 모두 유리수가 되도록 하는 자연수 a의 값의 합은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "6"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "7"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "8"}]}
+      ]
+    },
+    {
+      "number": 12,
+      "score": 4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "이차방정식 \\frac{1}{10}x^{2}-0.2x-\\frac{2}{5}=0의 두 근을 \\alpha, \\beta 라 할 때, \\frac{\\alpha}{\\beta}+\\frac{\\beta}{\\alpha}의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "3"}]}
+      ]
+    },
+    {
+      "number": 13,
+      "score": 2,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "이차함수 y=2x^{2}-x+5에서 f(1)의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "5"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "6"}]}
+      ]
+    },
+    {
+      "number": 14,
+      "score": 3,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "이차함수 y=3x^{2}의 그래프에 대한 설명으로 옳지 __않은__ 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "축의 방정식은 x=0이다."}]},
+        {"number": 2, "contents": [{"type": "text", "value": "아래로 볼록한 포물선이다."}]},
+        {"number": 3, "contents": [{"type": "text", "value": "꼭짓점의 좌표는 (0,~0)이다."}]},
+        {"number": 4, "contents": [{"type": "text", "value": "x>0일 때, x의 값이 증가하면 y값은 감소한다."}]},
+        {"number": 5, "contents": [{"type": "text", "value": "이차함수 y=-3x^{2}의 그래프와 x축에 대하여 대칭이다."}]}
+      ]
+    },
+    {
+      "number": 15,
+      "score": 3,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "폭이 가장 넓은 이차함수의 그래프는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "y=\\frac{1}{3}x^{2}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "y=\\frac{1}{4}x^{2}+1"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "y=(x-3)^{2}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "y=2(x-1)^{2}-5"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "y=6x^{2}-3x+2"}]}
+      ]
+    },
+    {
+      "number": 16,
+      "score": 3,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "이차함수 y=2x^{2}-3의 그래프는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "figure", "value": "좌표평면 위 아래로 볼록한 포물선. 꼭짓점이 원점 \\mathrm{O}(0,~0)에 있고 x축에 접한다."}]},
+        {"number": 2, "contents": [{"type": "figure", "value": "좌표평면 위 아래로 볼록한 포물선. 꼭짓점이 x축 위의 점 (3,~0)에 있고 x축에 접한다. 원점 \\mathrm{O}는 꼭짓점 왼쪽에 표시."}]},
+        {"number": 3, "contents": [{"type": "figure", "value": "좌표평면 위 아래로 볼록한 포물선. 꼭짓점이 x축 위의 점 (-3,~0)에 있고 x축에 접한다. 원점 \\mathrm{O}는 꼭짓점 오른쪽에 표시."}]},
+        {"number": 4, "contents": [{"type": "figure", "value": "좌표평면 위 아래로 볼록한 포물선. 꼭짓점이 y축 위의 점 (0,~3)에 있고 x축과 만나지 않는다."}]},
+        {"number": 5, "contents": [{"type": "figure", "value": "좌표평면 위 아래로 볼록한 포물선. 꼭짓점이 y축 위의 점 (0,~-3)에 있고 x축과 서로 다른 두 점에서 만난다."}]}
+      ]
+    },
+    {
+      "number": 17,
+      "score": 4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "이차함수 y=ax^{2}의 그래프가 두 점 \\left(-1,~\\frac{1}{3}\\right), (6,~b)를 지날 때, ab의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+      ]
+    },
+    {
+      "number": 18,
+      "score": 4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "y=2x^{2}-8x+7의 식을 y=a(x-p)^{2}+q의 꼴로 나타내었을 때, 세 수 a, p, q에 대하여 a+p+q의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+      ]
+    },
+    {
+      "number": 19,
+      "score": 4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "두 이차함수 y=x^{2}-2ax+6, y=-2x^{2}-8x+b+3의 그래프의 꼭짓점이 일치할 때, 두 수 a, b에 대하여 a+b의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-11"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-9"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-7"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "-5"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "-3"}]}
+      ]
+    },
+    {
+      "number": 20,
+      "score": 4,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "이차함수 y=ax^{2}+bx+c의 그래프가 오른쪽 그림과 같을 때, <보기>에서 옳은 것만을 있는 대로 고른 것은? (단, a,b,c는 상수)"},
+        {"type": "figure", "value": "좌표평면 위 위로 볼록한 포물선. 꼭짓점은 y축 왼쪽 위(제2사분면)에 있고, 곡선은 원점 \\mathrm{O}의 왼쪽 음수 지점과 원점 오른쪽 가까운 양수 지점에서 x축과 만난다. y절편은 양수이다."},
+        {"type": "text", "value": "<보기> ㄱ. a<0 • ㄴ. \\frac{b}{a}>0 • ㄷ. bc>0"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄱ, ㄴ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄱ, ㄷ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄴ, ㄷ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄱ, ㄴ, ㄷ"}]}
+      ]
+    },
+    {
+      "number": 21,
+      "score": 7,
+      "type": "서술형",
+      "label": "[서술형 1번]",
+      "contents": [
+        {"type": "text", "value": "[서술형 1번] 두 다항식이 모두 완전제곱식일 때, 물음에 답하시오. [총 7점]"},
+        {"type": "text", "value": "<상자> x^{2}-6x+\\boxed{가} , 4x^{2}+\\boxed{나}x+25"}
+      ],
+      "sub_questions": [
+        {"number": 1, "score": 3, "contents": [{"type": "text", "value": "(가)에 알맞은 수를 구하시오."}]},
+        {"number": 2, "score": 4, "contents": [{"type": "text", "value": "(나)에 알맞은 수를 모두 구하시오."}]}
+      ]
+    },
+    {
+      "number": 22,
+      "score": 6,
+      "type": "서술형",
+      "label": "[서술형 2번]",
+      "contents": [
+        {"type": "text", "value": "[서술형 2번] 이차방정식 x^{2}+ax-14=0의 한 근이 x=2일 때, 물음에 답하시오. (단, a는 상수) [총 6점, 각 3점]"}
+      ],
+      "sub_questions": [
+        {"number": 1, "score": 3, "contents": [{"type": "text", "value": "a의 값을 구하시오."}]},
+        {"number": 2, "score": 3, "contents": [{"type": "text", "value": "다른 한 근을 구하시오."}]}
+      ]
+    },
+    {
+      "number": 23,
+      "score": 8,
+      "type": "서술형",
+      "label": "[서술형 3번]",
+      "contents": [
+        {"type": "text", "value": "[서술형 3번] 이차방정식 2x^{2}-4x+k=0이 중근을 가질 때, 물음에 답하시오. (단, k는 상수) [총 8점, 각 4점]"}
+      ],
+      "sub_questions": [
+        {"number": 1, "score": 4, "contents": [{"type": "text", "value": "k의 값을 구하시오."}]},
+        {"number": 2, "score": 4, "contents": [{"type": "text", "value": "중근을 구하시오."}]}
+      ]
+    },
+    {
+      "number": 24,
+      "score": 6,
+      "type": "서술형",
+      "label": "[서술형 4번]",
+      "contents": [
+        {"type": "text", "value": "[서술형 4번] 이차함수 y=3x^{2}의 그래프를 x축 방향으로 a만큼, y축 방향으로 -2만큼 평행이동하면, 점 (5,~k)를 지나고 대칭축이 x=2일 때, 물음에 답하시오. [총 6점]"}
+      ],
+      "sub_questions": [
+        {"number": 1, "score": 2, "contents": [{"type": "text", "value": "a의 값을 구하시오."}]},
+        {"number": 2, "score": 4, "contents": [{"type": "text", "value": "k의 값을 구하시오."}]}
+      ]
+    },
+    {
+      "number": 25,
+      "score": 8,
+      "type": "서술형",
+      "label": "[서술형 5번]",
+      "contents": [
+        {"type": "text", "value": "[서술형 5번] 그림과 같은 이차함수의 그래프를 보고, 물음에 답하시오. [총 8점]"},
+        {"type": "figure", "value": "좌표평면 위 아래로 볼록한 포물선. x축과 x=-1에서 만나고, 꼭짓점은 (1,~-4)이다(꼭짓점에서 x축의 1까지 점선으로 연결, y축에는 -4가 표시). 원점 \\mathrm{O}가 표시되어 있다."}
+      ],
+      "sub_questions": [
+        {"number": 1, "score": 5, "contents": [{"type": "text", "value": "이차함수의 식을 y=ax^{2}+bx+c의 꼴로 나타내시오. (단, a, b, c는 상수)"}]},
+        {"number": 2, "score": 3, "contents": [{"type": "text", "value": "그래프의 나머지 x절편을 구하시오."}]}
+      ]
+    }
+  ]
+}

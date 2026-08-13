@@ -1,0 +1,482 @@
+{
+ "exam_id": 5180,
+ "tag": "[경상중][1][수학][25-1-중간]",
+ "count": 20,
+ "questions": [
+  {
+   "number": 1,
+   "type": "객관식",
+   "score": 4.0,
+   "stem": "다음 중 소수의 개수는? <상자> 1, 2, 6, 7, 13, 25",
+   "choices": [
+    {
+     "number": 1,
+     "text": "1개"
+    },
+    {
+     "number": 2,
+     "text": "2개"
+    },
+    {
+     "number": 3,
+     "text": "3개"
+    },
+    {
+     "number": 4,
+     "text": "4개"
+    },
+    {
+     "number": 5,
+     "text": "5개"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 2,
+   "type": "객관식",
+   "score": 3.0,
+   "stem": "2^{4}에 대한 설명으로 옳은 것만을 <보기>에서 고른 것은? <보기> ㄱ. 밑은 2이다. • ㄴ. 지수는 4이다. • ㄷ. 32와 같은 수이다. • ㄹ. '4의 제곱'이라고 읽는다.",
+   "choices": [
+    {
+     "number": 1,
+     "text": "ㄱ, ㄴ"
+    },
+    {
+     "number": 2,
+     "text": "ㄱ, ㄹ"
+    },
+    {
+     "number": 3,
+     "text": "ㄴ, ㄷ"
+    },
+    {
+     "number": 4,
+     "text": "ㄴ, ㄹ"
+    },
+    {
+     "number": 5,
+     "text": "ㄷ, ㄹ"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 3,
+   "type": "객관식",
+   "score": 4.0,
+   "stem": "360을 소인수분해하면 2^{a} \\times 3^{b} \\times c일 때, a+b+c의 값으로 옳은 것은?(단, a,~b,~c는 자연수)",
+   "choices": [
+    {
+     "number": 1,
+     "text": "6"
+    },
+    {
+     "number": 2,
+     "text": "7"
+    },
+    {
+     "number": 3,
+     "text": "8"
+    },
+    {
+     "number": 4,
+     "text": "9"
+    },
+    {
+     "number": 5,
+     "text": "10"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 4,
+   "type": "객관식",
+   "score": 4.0,
+   "stem": "다음 표는 소인수분해를 이용하여 54의 약수를 구하는 과정이다. 옳지 __않은__ 것은? [표] 2의 약수 ＼ 3^{3}의 약수 | 1 | 3 | ㉠ | 3^{3} / ㉡ | 1 \\times 1 = 1 |  | 1 \\times 3^{2} = 9 | 1 \\times 3^{3} = 27 / 2 |  | ㉢ |  |",
+   "choices": [
+    {
+     "number": 1,
+     "text": "54의 약수는 8개이다."
+    },
+    {
+     "number": 2,
+     "text": "54를 소인수분해하면 2 \\times 3^{3}이다."
+    },
+    {
+     "number": 3,
+     "text": "㉠에 들어갈 알맞은 수는 3^{2}이다."
+    },
+    {
+     "number": 4,
+     "text": "㉡에 들어갈 알맞은 수는 1이다."
+    },
+    {
+     "number": 5,
+     "text": "㉢에 들어갈 알맞은 식은 2 \\times 3^{2} = 18이다."
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 5,
+   "type": "객관식",
+   "score": 4.0,
+   "stem": "수에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고른 것은? <보기> ㄱ. 소수의 약수는 2개이다. • ㄴ. 12의 소인수의 합은 7이다. • ㄷ. 2^{5} \\times 3^{4}의 약수의 개수는 30이다. • ㄹ. 모든 자연수는 소수이거나 합성수이다. • ㅁ. 두 수가 서로소이면 둘 중 하나는 소수이다.",
+   "choices": [
+    {
+     "number": 1,
+     "text": "ㄱ, ㄷ"
+    },
+    {
+     "number": 2,
+     "text": "ㄹ, ㅁ"
+    },
+    {
+     "number": 3,
+     "text": "ㄱ, ㄷ, ㅁ"
+    },
+    {
+     "number": 4,
+     "text": "ㄴ, ㄷ, ㄹ"
+    },
+    {
+     "number": 5,
+     "text": "ㄴ, ㄹ, ㅁ"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 6,
+   "type": "객관식",
+   "score": 4.0,
+   "stem": "두 수 2^{2} \\times 3^{3}, 2 \\times 3^{2} \\times 5의 최대공약수와 최소공배수로 옳은 것은? 최대공약수　　최소공배수",
+   "choices": [
+    {
+     "number": 1,
+     "text": "2 \\times 3 \\quad 2^{2} \\times 3^{2} \\times 5"
+    },
+    {
+     "number": 2,
+     "text": "2 \\times 3 \\quad 2^{2} \\times 3^{3} \\times 5"
+    },
+    {
+     "number": 3,
+     "text": "2 \\times 3^{2} \\quad 2 \\times 3^{2} \\times 5"
+    },
+    {
+     "number": 4,
+     "text": "2 \\times 3^{2} \\quad 2^{2} \\times 3^{3} \\times 5"
+    },
+    {
+     "number": 5,
+     "text": "2^{2} \\times 3 \\quad 2^{2} \\times 3^{3} \\times 5"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 7,
+   "type": "객관식",
+   "score": 5.0,
+   "stem": "500 이하의 자연수 중에서 9와 서로소인 자연수의 개수로 옳은 것은?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "334"
+    },
+    {
+     "number": 2,
+     "text": "386"
+    },
+    {
+     "number": 3,
+     "text": "402"
+    },
+    {
+     "number": 4,
+     "text": "428"
+    },
+    {
+     "number": 5,
+     "text": "445"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 8,
+   "type": "객관식",
+   "score": 4.0,
+   "stem": "두 수 4 \\times \\square, 10 \\times \\square의 최소공배수가 500일 때, \\square 안에 공통으로 들어갈 수 있는 자연수로 옳은 것은?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "5"
+    },
+    {
+     "number": 2,
+     "text": "10"
+    },
+    {
+     "number": 3,
+     "text": "15"
+    },
+    {
+     "number": 4,
+     "text": "25"
+    },
+    {
+     "number": 5,
+     "text": "125"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 9,
+   "type": "객관식",
+   "score": 3.0,
+   "stem": "1000원 이익을 +1000으로 나타낼 때, 500원 손해를 부호 + 또는 -를 사용하여 나타낸 것으로 옳은 것은?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "-1000"
+    },
+    {
+     "number": 2,
+     "text": "-500"
+    },
+    {
+     "number": 3,
+     "text": "-100"
+    },
+    {
+     "number": 4,
+     "text": "+100"
+    },
+    {
+     "number": 5,
+     "text": "+500"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 10,
+   "type": "객관식",
+   "score": 4.0,
+   "stem": "수에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고른 것은? <보기> ㄱ. \\frac{8}{4}는 정수이다. • ㄴ. -7은 양수이다. • ㄷ. 모든 정수는 유리수이다. • ㄹ. -1과 0사이의 유리수는 없다. • ㅁ. 절댓값이 6인 수는 6과 -6이다. • ㅂ. 양의 정수중에 제일 작은 수는 0이다.",
+   "choices": [
+    {
+     "number": 1,
+     "text": "ㄱ, ㄷ, ㅁ"
+    },
+    {
+     "number": 2,
+     "text": "ㄱ, ㄹ, ㅂ"
+    },
+    {
+     "number": 3,
+     "text": "ㄴ, ㄷ, ㄹ"
+    },
+    {
+     "number": 4,
+     "text": "ㄴ, ㄹ, ㅁ"
+    },
+    {
+     "number": 5,
+     "text": "ㄱ, ㄷ, ㅁ, ㅂ"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 11,
+   "type": "객관식",
+   "score": 4.0,
+   "stem": "다음 수직선 위의 점에 대응하는 수로 옳은 것은? [그림] 수직선. 왼쪽 끝과 오른쪽 끝에 화살표가 있고 눈금에 -5, -4, -3, -2, -1, 0, 1, 2, 3 이 차례로 적혀 있다. -3과 -2 사이의 한가운데(-2.5 자리)에 점이 하나 찍혀 있다.",
+   "choices": [
+    {
+     "number": 1,
+     "text": "-4"
+    },
+    {
+     "number": 2,
+     "text": "-\\frac{7}{2}"
+    },
+    {
+     "number": 3,
+     "text": "-\\frac{5}{2}"
+    },
+    {
+     "number": 4,
+     "text": "+\\frac{1}{2}"
+    },
+    {
+     "number": 5,
+     "text": "+\\frac{5}{2}"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 12,
+   "type": "객관식",
+   "score": 4.0,
+   "stem": "대소 관계가 옳은 것은?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "|-3| > |-4|"
+    },
+    {
+     "number": 2,
+     "text": "-6 > -4"
+    },
+    {
+     "number": 3,
+     "text": "+\\frac{2}{3} < -1"
+    },
+    {
+     "number": 4,
+     "text": "-2.6 < 0"
+    },
+    {
+     "number": 5,
+     "text": "0 > +7"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 13,
+   "type": "객관식",
+   "score": 4.0,
+   "stem": "유리수의 계산이 옳지 __않은__ 것은?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "(+4)+(+7) = +11"
+    },
+    {
+     "number": 2,
+     "text": "(+4)+(-2) = -6"
+    },
+    {
+     "number": 3,
+     "text": "(-60)+(+60) = 0"
+    },
+    {
+     "number": 4,
+     "text": "(-2.3)+(+3.4) = +1.1"
+    },
+    {
+     "number": 5,
+     "text": "(-11)+(-13) = -24"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 14,
+   "type": "객관식",
+   "score": 4.0,
+   "stem": "다음 중 계산 결과의 절댓값이 가장 작은 것은?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "-15-6+30"
+    },
+    {
+     "number": 2,
+     "text": "(-1.2) \\div \\left(-\\frac{5}{2}\\right)"
+    },
+    {
+     "number": 3,
+     "text": "-7-|+5|+|-2|"
+    },
+    {
+     "number": 4,
+     "text": "24 \\div (-3)+(-2)^{2}"
+    },
+    {
+     "number": 5,
+     "text": "(-11) \\times (-8) \\times (-0.01)"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 15,
+   "type": "객관식",
+   "score": 5.0,
+   "stem": "다음 식을 계산한 것으로 옳은 것은? <상자> (-16) \\div (-2)^{4}+(-2^{2}) \\times \\left\\{\\frac{3}{4}-(-1)^{2025}\\right\\}",
+   "choices": [
+    {
+     "number": 1,
+     "text": "-8"
+    },
+    {
+     "number": 2,
+     "text": "-6"
+    },
+    {
+     "number": 3,
+     "text": "0"
+    },
+    {
+     "number": 4,
+     "text": "+2"
+    },
+    {
+     "number": 5,
+     "text": "+8"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 16,
+   "type": "서술형",
+   "score": 8.0,
+   "stem": "[서술형 1] 두 수 \\frac{42}{\\square}, \\frac{96}{\\square}이 모두 자연수가 되게 하는 자연수 \\square 중에서 가장 큰 자연수를 소인수분해를 이용하여 구하고, 그 풀이 과정을 서술하시오.",
+   "choices": [],
+   "sub_questions": []
+  },
+  {
+   "number": 17,
+   "type": "서술형",
+   "score": 6.0,
+   "stem": "[서술형 2] 'a는 -2보다 크고 3보다 작거나 같다.'를 부등호를 사용하여 나타내고, a의 값이 될 수 있는 정수를 모두 구하시오.",
+   "choices": [],
+   "sub_questions": []
+  },
+  {
+   "number": 18,
+   "type": "서술형",
+   "score": 8.0,
+   "stem": "[서술형 3] a = \\left(+\\frac{1}{4}\\right)-\\left(-\\frac{1}{2}\\right), b = (-1)-\\left(+\\frac{1}{5}\\right)일 때, a \\div b의 값을 구하고, 그 풀이 과정을 서술하시오.",
+   "choices": [],
+   "sub_questions": []
+  },
+  {
+   "number": 19,
+   "type": "서술형",
+   "score": 8.0,
+   "stem": "[서술형 4] 다음 네 개의 정수 중에서 서로 다른 두 수를 골라서 곱할 때, 곱한 값 중에서 가장 큰 수와 가장 작은 수를 각각 구하고, 그 풀이 과정을 서술하시오. <상자> -10, +6, -1, +8",
+   "choices": [],
+   "sub_questions": []
+  },
+  {
+   "number": 20,
+   "type": "서술형",
+   "score": 10.0,
+   "stem": "[서술형 5] 그림은 마주 보는 면에 적힌 두 수가 서로 역수인 정육면체이다. 이때 보이지 않는 세 면에 적힌 수 중에서 가장 큰 수와 절댓값이 가장 작은 수의 곱을 구하고 그 풀이 과정을 서술하시오. [그림] 정육면체의 겨냥도. 보이는 세 면에 수가 적혀 있다 — 윗면에 +5, 앞쪽(왼쪽) 면에 -\\frac{4}{3}, 오른쪽 옆면에 +\\frac{2}{5}. 마주 보는 면에 적힌 두 수는 서로 역수이므로 보이지 않는 세 면의 수는 각각 +5, -\\frac{4}{3}, +\\frac{2}{5}의 역수이다.",
+   "choices": [],
+   "sub_questions": []
+  }
+ ]
+}

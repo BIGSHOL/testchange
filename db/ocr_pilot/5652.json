@@ -1,0 +1,320 @@
+{
+  "meta": {"exam_id": 5652, "ocr_source": "session-vision"},
+  "header": {"title": "강북중 3학년 수학 - 2025년 1학기 기말고사 (이차방정식의 풀이 ~ 이차함수의 활용)"},
+  "questions": [
+    {
+      "number": 1,
+      "score": 3.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "다음 중에서 이차방정식이 __아닌__ 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "x^{2}+3x=0"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "3x^{2}=2x^{2}+1"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "x(2x-1)=2x"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "(x-1)(x+1)=-1"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "x(x-4)=(x+1)(x-2)"}]}
+      ]
+    },
+    {
+      "number": 2,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "이차방정식 x^{2}+ax+a-7=0의 한 근이 x=-4일 때, 상수 a의 값은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "3"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "5"}]}
+      ]
+    },
+    {
+      "number": 3,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "이차방정식 3x^{2}+3x-2=-2x의 두 근을 x=a 또는 x=b라고 할 때, 3a+b의 값은? (단, a>b)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-3"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "3"}]}
+      ]
+    },
+    {
+      "number": 4,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "이차방정식 2x^{2}+ax+b=0의 중근이 x=-1일 때, ab의 값은? (단, a, b는 상수)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-8"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "8"}]}
+      ]
+    },
+    {
+      "number": 5,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "이차방정식 3(x-4)^{2}=6의 해 중 일차부등식 x+9<5x-7을 만족시키는 해는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "x=4+\\sqrt{6}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "x=4+\\sqrt{2}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "x=4-\\sqrt{2}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "x=4\\pm\\sqrt{2}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "x=4\\pm\\sqrt{6}"}]}
+      ]
+    },
+    {
+      "number": 6,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "두 이차방정식 x^{2}-6x+8=0, x^{2}-x-12=0을 동시에 만족시키는 해는?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "x=4"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "x=2"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "x=-2"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "x=-3"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "x=-4"}]}
+      ]
+    },
+    {
+      "number": 7,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "그림은 가로와 세로의 길이의 비가 5:3이고, 대각선의 길이가 10인 직사각형이다. 직사각형의 세로의 길이는?"},
+        {"type": "figure", "value": "가로가 세로보다 긴 직사각형. 왼쪽 아래 꼭짓점에서 오른쪽 위 꼭짓점으로 대각선이 그어져 있고, 그 대각선 위쪽에 길이 10이 표시되어 있다(대각선 옆에 곡선 화살표 모양의 점선으로 10을 가리킴). 가로:세로 = 5:3."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{5\\sqrt{17}}{17}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{15\\sqrt{17}}{17}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{5\\sqrt{34}}{17}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{15\\sqrt{34}}{17}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{25\\sqrt{34}}{17}"}]}
+      ]
+    },
+    {
+      "number": 8,
+      "score": 5.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "그림과 같이 일차함수 y=-3x+17의 그래프 위의 한 점 \\mathrm{P}(a,~b)에서 x축, y축에 내린 수선의 발을 각각 \\mathrm{Q}, \\mathrm{R}이라 하자. □\\mathrm{OQPR}의 넓이가 20일 때, a+b의 값은? (단, 점 \\mathrm{P}는 제1사분면 위의 점이고, a<3이다.)"},
+        {"type": "figure", "value": "좌표평면에 오른쪽 아래로 향하는 직선 y=-3x+17의 그래프가 그려져 있고 그래프 옆에 화살표와 함께 식 y=-3x+17이 적혀 있다. 제1사분면의 직선 위의 점 P(a, b)에서 x축에 내린 수선의 발이 Q, y축에 내린 수선의 발이 R이며, 원점 O, Q, P, R을 꼭짓점으로 하는 직사각형 OQPR이 색칠되어 있다. 직각 표시가 되어 있다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{43}{3}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "\\frac{41}{3}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{38}{3}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{65}{4}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "\\frac{105}{4}"}]}
+      ]
+    },
+    {
+      "number": 9,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "함수 y=-6x^{2}-x(3ax-1)+2가 x에 대한 이차함수일 때, 다음 중 상수 a의 값이 될 수 __없는__ 것은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "2"}]}
+      ]
+    },
+    {
+      "number": 10,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "이차함수 y=\\frac{1}{9}x^{2}의 그래프와 x축에 대칭인 그래프가 점 (6a,~a)를 지날 때, 상수 a의 값은? (단, a\\neq 0)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "-\\frac{1}{6}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "-\\frac{1}{4}"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "6"}]}
+      ]
+    },
+    {
+      "number": 11,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "이차함수 y=-3x^{2}+4의 그래프에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?"},
+        {"type": "text", "value": "<보기> ㄱ. 꼭짓점의 좌표는 (4,~0)이다. • ㄴ. x축 보다 항상 아래쪽에 있다. • ㄷ. x<0일 때, x의 값이 증가하면 y의 값도 증가한다. • ㄹ. y=-2x^{2}의 그래프보다 폭이 더 좁고, y=-4x^{2}의 그래프 보다 폭이 더 넓다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄱ, ㄷ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄴ, ㄹ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄷ, ㄹ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄴ, ㄷ, ㄹ"}]}
+      ]
+    },
+    {
+      "number": 12,
+      "score": 3.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "이차함수 y=-4x^{2}의 그래프를 x축의 방향으로 -1만큼 평행이동한 그래프가 나타내는 이차함수의 식은?"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "y=4x^{2}-1"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "y=-4x^{2}-1"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "y=4(x+1)^{2}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "y=-4(x-1)^{2}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "y=-4(x+1)^{2}"}]}
+      ]
+    },
+    {
+      "number": 13,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "이차함수의 그래프가 제4사분면을 지나지 __않는__ 것만을 <보기>에서 있는 대로 고른 것은?"},
+        {"type": "text", "value": "<보기> ㄱ. y=5x^{2}-3 • ㄴ. y=2(x+4)^{2} • ㄷ. y=-\\frac{2}{3}(x+5)^{2}+1 • ㄹ. y=\\frac{1}{4}(x+3)^{2}+2"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "text", "value": "ㄱ"}]},
+        {"number": 2, "contents": [{"type": "text", "value": "ㄱ, ㄷ"}]},
+        {"number": 3, "contents": [{"type": "text", "value": "ㄴ, ㄹ"}]},
+        {"number": 4, "contents": [{"type": "text", "value": "ㄷ, ㄹ"}]},
+        {"number": 5, "contents": [{"type": "text", "value": "ㄴ, ㄷ, ㄹ"}]}
+      ]
+    },
+    {
+      "number": 14,
+      "score": 5.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "이차함수 y=ax^{2}+bx+c의 그래프를 x축의 방향으로 5만큼, y축의 방향으로 -2만큼 평행이동한 그래프는 꼭짓점의 좌표가 (1,~2)이고 점 (2,~4)를 지난다. \\frac{b}{a}-\\frac{c}{4}의 값은? (단, a, b, c는 상수, a\\neq 0)"}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "2"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "1"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "0"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "-1"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "-2"}]}
+      ]
+    },
+    {
+      "number": 15,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "이차함수 y=-a(x-p)^{2}+q의 그래프가 그림과 같을 때, 상수 a, p, q의 부호는?"},
+        {"type": "figure", "value": "좌표평면에 위로 볼록한 포물선이 그려져 있다. 꼭짓점은 y축의 오른쪽, x축의 위쪽(제1사분면)에 있다. 포물선은 x축과 두 점에서 만나는데 하나는 원점의 바로 왼쪽(음의 x), 다른 하나는 원점의 오른쪽(양의 x)이다. y절편은 양수이다. 그래프 아래에 식 y=-a(x-p)^{2}+q 가 적혀 있다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "a>0,~p>0,~q>0"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "a>0,~p>0,~q<0"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "a>0,~p<0,~q<0"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "a<0,~p>0,~q>0"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "a<0,~p<0,~q<0"}]}
+      ]
+    },
+    {
+      "number": 16,
+      "score": 5.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {"type": "text", "value": "그림에서 □\\mathrm{ABCD}는 이차함수 y=\\frac{1}{4}x^{2}의 그래프 위의 두 점 \\mathrm{B}, \\mathrm{D}를 지나며 각 변은 각각 x축, y축에 평행한 정사각형이다. \\overline{\\mathrm{EB}}=\\overline{\\mathrm{BC}}일 때, □\\mathrm{ABCD}의 둘레의 길이는? (단, 점 \\mathrm{B}는 원점 \\mathrm{O}가 아니다.)"},
+        {"type": "figure", "value": "좌표평면에 이차함수 y=\\frac{1}{4}x^{2}의 그래프(아래로 볼록, 꼭짓점은 원점)가 그려져 있고 오른쪽 위에 식 y=\\frac{1}{4}x^{2}이 적혀 있다. 제1사분면에 각 변이 x축, y축에 평행한 정사각형 ABCD가 있으며 왼쪽 위가 A, 왼쪽 아래가 B, 오른쪽 아래가 C, 오른쪽 위가 D이다. 두 점 B와 D는 포물선 위에 있다. 점 E는 y축 위의 점으로 선분 EB가 x축에 평행하며 E에서 직각 표시가 있다. 선분 EB와 선분 BC에 같은 길이 표시(빗금 두 개)가 되어 있다."}
+      ],
+      "choices": [
+        {"number": 1, "contents": [{"type": "equation", "value": "\\frac{4}{3}"}]},
+        {"number": 2, "contents": [{"type": "equation", "value": "4"}]},
+        {"number": 3, "contents": [{"type": "equation", "value": "\\frac{16}{3}"}]},
+        {"number": 4, "contents": [{"type": "equation", "value": "\\frac{8\\sqrt{6}}{3}"}]},
+        {"number": 5, "contents": [{"type": "equation", "value": "16"}]}
+      ]
+    },
+    {
+      "number": 17,
+      "score": 6.0,
+      "type": "서술형",
+      "label": "[서술형 1]",
+      "contents": [
+        {"type": "text", "value": "[서술형 1] 이차방정식 \\frac{1}{4}x^{2}-x-2=0을 푸시오."},
+        {"type": "text", "value": "<조건> 반드시 완전제곱식을 이용하여 풀 것 • 풀이 과정과 답을 모두 적을 것"}
+      ]
+    },
+    {
+      "number": 18,
+      "score": 5.0,
+      "type": "서술형",
+      "label": "[서술형 2]",
+      "contents": [
+        {"type": "text", "value": "[서술형 2] 이차방정식 \\frac{1}{5}x^{2}+0.3x-\\frac{3}{2}=0을 푸시오."},
+        {"type": "text", "value": "<조건> 풀이 과정과 답을 모두 적을 것"}
+      ]
+    },
+    {
+      "number": 19,
+      "score": 8.0,
+      "type": "서술형",
+      "label": "[서술형 3]",
+      "contents": [
+        {"type": "text", "value": "[서술형 3] 연속하는 3개의 홀수가 있다. 가장 큰 홀수의 제곱은 다른 두 홀수의 제곱의 합보다 33만큼 작을 때, 가장 큰 홀수를 구하시오. (단, 연속하는 3개의 홀수는 모두 자연수이다.)"},
+        {"type": "text", "value": "<조건> 풀이 과정과 답을 모두 적을 것"}
+      ]
+    },
+    {
+      "number": 20,
+      "score": 8.0,
+      "type": "서술형",
+      "label": "[서술형 4]",
+      "contents": [
+        {"type": "text", "value": "[서술형 4] 그림과 같이 x축 위의 두 점 \\mathrm{A}, \\mathrm{B}와 이차함수 y=-\\frac{1}{3}x^{2}-\\frac{8}{3}x+\\frac{8}{3}의 그래프 위의 두 점 \\mathrm{C}, \\mathrm{D}를 이어서 만든 직사각형 \\mathrm{ABCD}의 가로의 길이가 6일 때, 두 점 \\mathrm{C}, \\mathrm{D}의 좌표와 직사각형 \\mathrm{ABCD}의 넓이를 각각 구하시오."},
+        {"type": "figure", "value": "좌표평면에 위로 볼록한 포물선이 그려져 있고 꼭짓점은 y축의 왼쪽 위에 있다. x축 위에 두 점 A(왼쪽), B(오른쪽)가 있으며 둘 다 원점 O의 왼쪽에 있다. 포물선 위의 두 점 D(왼쪽 위), C(오른쪽 위)가 있어 A, B, C, D를 이어 만든 직사각형 ABCD가 색칠되어 있다(A는 왼쪽 아래, B는 오른쪽 아래, C는 오른쪽 위, D는 왼쪽 위). 그래프 아래에 식 y=-\\frac{1}{3}x^{2}-\\frac{8}{3}x+\\frac{8}{3} 이 적혀 있다."},
+        {"type": "text", "value": "<조건> 풀이 과정과 답을 모두 적을 것"}
+      ]
+    },
+    {
+      "number": 21,
+      "score": 8.0,
+      "type": "서술형",
+      "label": "[서술형 5]",
+      "contents": [
+        {"type": "text", "value": "[서술형 5] 이차함수 y=ax^{2}+bx+c의 그래프가 그림과 같을 때, a, b, c의 값을 각각 구하시오. (단, a, b, c는 상수)"},
+        {"type": "figure", "value": "좌표평면에 위로 볼록한 포물선이 그려져 있다. 꼭짓점의 좌표는 (3, 2)이며 x축 위의 3에서 꼭짓점까지, y축 위의 2에서 꼭짓점까지 점선이 그어져 있다. 포물선은 y축과 (0, -1)에서 만나며 y축 아래 -1이 표시되어 있다. 그래프 오른쪽 아래에 식 y=ax^{2}+bx+c 가 적혀 있다."},
+        {"type": "text", "value": "<조건> 풀이 과정과 답을 모두 적을 것"}
+      ]
+    }
+  ]
+}

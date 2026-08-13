@@ -1,0 +1,538 @@
+{
+ "exam_id": 4366,
+ "tag": "[부산외고][1][공수2][25-2-중간]",
+ "count": 19,
+ "questions": [
+  {
+   "number": 1,
+   "type": "객관식",
+   "score": 3.6,
+   "stem": "<보기>에서 집합인 것의 개수는? <보기> (가) 매우 큰 행성의 모임 • (나) 가장 작은 소수의 모임 • (다) 영어를 잘하는 학생의 모임 • (라) 우리 반에서 생일이 9월인 남학생의 모임 • (마) 우리 학교에서 독서를 많이 하는 선생님의 모임",
+   "choices": [
+    {
+     "number": 1,
+     "text": "1"
+    },
+    {
+     "number": 2,
+     "text": "2"
+    },
+    {
+     "number": 3,
+     "text": "3"
+    },
+    {
+     "number": 4,
+     "text": "4"
+    },
+    {
+     "number": 5,
+     "text": "5"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 2,
+   "type": "객관식",
+   "score": 3.6,
+   "stem": "점 \\mathrm{A}(4,~1)을 [판독불가 - 원본 스캔 훼손으로 발문 중간부 판독 불가] \\cdots +a \\cdots -8=0에 평행한 직선의 y절편은?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "[판독불가]"
+    },
+    {
+     "number": 2,
+     "text": "[판독불가]"
+    },
+    {
+     "number": 3,
+     "text": "3"
+    },
+    {
+     "number": 4,
+     "text": "7"
+    },
+    {
+     "number": 5,
+     "text": "9"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 3,
+   "type": "객관식",
+   "score": 3.8,
+   "stem": "집합 A=\\{\\{a\\},~\\{b,~c,~\\{d\\}\\},~\\{b,~c\\}\\}에 대하여 옳은 것은?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "[판독불가]"
+    },
+    {
+     "number": 2,
+     "text": "\\{a\\} \\subset A"
+    },
+    {
+     "number": 3,
+     "text": "\\{\\{a\\}\\} \\subset A"
+    },
+    {
+     "number": 4,
+     "text": "\\{b,~c\\} \\subset A"
+    },
+    {
+     "number": 5,
+     "text": "[판독불가]"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 4,
+   "type": "객관식",
+   "score": 4.0,
+   "stem": "다음은 전체집합 U의 세 부분집합 A, B, C에 대하여 (A \\cup B)-(A \\cup C)=B-(A \\cup C)임을 보이는 과정이다. ㉠, ㉡, ㉢에 알맞은 연산 법칙을 짝지은 것으로 옳은 것은? <상자> (A \\cup B)-(A \\cup C)=(A \\cup B) \\cap (A \\cup C)^{c} • =(A \\cup B) \\cap (A^{c} \\cap C^{c}) • =(A \\cap A^{c} \\cap C^{c}) \\cup (B \\cap A^{c} \\cap C^{c})   ㉠ • =\\varnothing \\cup (B \\cap A^{c} \\cap C^{c}) • =(B \\cap A^{c}) \\cap C^{c}   ㉡ • =B \\cap (A^{c} \\cap C^{c})   ㉢ • =B \\cap (A \\cup C)^{c} • =B-(A \\cup C) (㉡·㉢은 각각 두 줄을 묶는 중괄호 옆에 표시되어 있음. ㉠ 표시는 스캔 우측 잘림으로 위치만 추정)",
+   "choices": [
+    {
+     "number": 1,
+     "text": "분배법칙 / 결합법칙 / 드모르간의 법칙"
+    },
+    {
+     "number": 2,
+     "text": "드모르간의 법칙 / 결합법칙 / 분배법칙"
+    },
+    {
+     "number": 3,
+     "text": "드모르간의 법칙 / 교환법칙 / 분배법칙"
+    },
+    {
+     "number": 4,
+     "text": "분배법칙 / 교환법칙 / 드모르간의 법칙"
+    },
+    {
+     "number": 5,
+     "text": "결합법칙 / 교환법칙 / 분배법칙"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 5,
+   "type": "객관식",
+   "score": 4.2,
+   "stem": "<보기>의 명제가 모두 참일 때, 항상 참인 명제는? <보기> (가) 국어를 잘하는 학생은 수학을 잘한다. • (나) 국어를 잘하지 않는 학생은 영어를 잘하지 않는다. • (다) 과학을 잘하는 학생은 수학을 잘한다.",
+   "choices": [
+    {
+     "number": 1,
+     "text": "국어를 잘하는 학생은 영어를 잘한다."
+    },
+    {
+     "number": 2,
+     "text": "과학을 잘하는 학생은 국어를 잘한다."
+    },
+    {
+     "number": 3,
+     "text": "수학을 잘하지 않는 학생은 국어를 잘한다."
+    },
+    {
+     "number": 4,
+     "text": "국어를 잘하지 않는 학생은 수학을 잘하지 않는다."
+    },
+    {
+     "number": 5,
+     "text": "수학을 잘하지 않는 학생은 영어를 잘하지 않는다."
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 6,
+   "type": "객관식",
+   "score": 4.2,
+   "stem": "n(A)의 값이 가장 큰 것은?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "A=\\{10\\}"
+    },
+    {
+     "number": 2,
+     "text": "A=\\{x \\mid x는 한 자리 소수\\}"
+    },
+    {
+     "number": 3,
+     "text": "A=\\{x \\mid x는 9<x[판독불가]11인 홀수\\}"
+    },
+    {
+     "number": 4,
+     "text": "A=\\{(x,~y) \\mid x[판독불가]5,~x,~y는 정수\\}"
+    },
+    {
+     "number": 5,
+     "text": "A=\\{x \\mid x는 5로 나누었을 때 나머지가 2인 자연수[판독불가 - 우측 잘림]\\}"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 7,
+   "type": "객관식",
+   "score": 4.4,
+   "stem": "다음은 명제 '\\sqrt{2}가 유리수가 아니다.'가 참임을 귀류법을 이용하여 증명하는 과정이다. <상자> \\sqrt{2}가 [(가)] 라 가정하면 • \\sqrt{2}=\\frac{n}{m} (m, n은 서로소인 자연수)로 나타낼 수 있다. • 양변을 제곱하여 정리하면 • 2=\\frac{n^{2}}{m^{2}}   \\therefore n^{2}=2m^{2} \\cdots\\cdots ㉠ • 이때 n^{2}이 [(나)] 이므로 n도 [(나)] 이다. • n=2k(k 자연수)라 하고 ㉠에 대입하면 • (2k)^{2}=2m^{2}   \\therefore m^{2}=2k^{2} • 이때 m^{2}이 [(나)] 이므로 m도 [(나)] 이다. • 이것은 m, n이 서로소인 자연수라는 가정에 [(다)] 이므로 \\sqrt{2}가 유리수가 아니다. 위의 과정에서 (가), (나), (다)에 알맞은 것은?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "무리수 / 홀수 / 모순"
+    },
+    {
+     "number": 2,
+     "text": "무리수 / 짝수 / 모순"
+    },
+    {
+     "number": 3,
+     "text": "유리수 / 홀수 / 참"
+    },
+    {
+     "number": 4,
+     "text": "유리수 / 짝수 / 참"
+    },
+    {
+     "number": 5,
+     "text": "유리수 / 짝수 / 모순"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 8,
+   "type": "객관식",
+   "score": 4.4,
+   "stem": "<보기>에서 명제의 대우가 참인 것의 개수는? (단, x, y는 실수이다.) <보기> (가) x^{2} \\geq 4이면 x \\geq 2이다. • (나) xy=0이면 x=0이고 y=0이다. • (다) x^{2} \\neq y^{2}이면 x \\neq y이다. • (라) x+y가 정수이면 x, y가 모두 정수이다. • (마) x+y>0이면 x, y 중 적어도 하나는 양수이다.",
+   "choices": [
+    {
+     "number": 1,
+     "text": "1"
+    },
+    {
+     "number": 2,
+     "text": "2"
+    },
+    {
+     "number": 3,
+     "text": "3"
+    },
+    {
+     "number": 4,
+     "text": "4"
+    },
+    {
+     "number": 5,
+     "text": "5"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 9,
+   "type": "객관식",
+   "score": 4.5,
+   "stem": "세 점 \\mathrm{A}(a,~b), \\mathrm{B}(3,~0), \\mathrm{C}(1,~2)를 꼭짓점으로 하는 삼각형 \\mathrm{ABC}가 있다. \\overline{\\mathrm{AB}}=\\overline{\\mathrm{AC}}이고 삼각형 \\mathrm{ABC}의 무게중심이 x축 위에 있을 때, a+b의 값은?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "-3"
+    },
+    {
+     "number": 2,
+     "text": "-1"
+    },
+    {
+     "number": 3,
+     "text": "0"
+    },
+    {
+     "number": 4,
+     "text": "1"
+    },
+    {
+     "number": 5,
+     "text": "3"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 10,
+   "type": "객관식",
+   "score": 4.5,
+   "stem": "그림과 같이 반지름의 길이가 2인 원에 내접하는 직사각형이 있다. 직사각형의 넓이의 최댓값을 S, 그때의 둘레의 길이를 l이라 할 때, S+l의 값은? [그림] 원 하나와 그 원에 내접하는 직사각형이 그려져 있다. 직사각형의 네 꼭짓점이 모두 원 위에 있고, 원의 중심에서 직사각형의 오른쪽 위 꼭짓점까지 그은 선분(반지름)에 길이 2가 표시되어 있다.",
+   "choices": [
+    {
+     "number": 1,
+     "text": "8+2\\sqrt{2}"
+    },
+    {
+     "number": 2,
+     "text": "8+4\\sqrt{2}"
+    },
+    {
+     "number": 3,
+     "text": "8+8\\sqrt{2}"
+    },
+    {
+     "number": 4,
+     "text": "16+4\\sqrt{2}"
+    },
+    {
+     "number": 5,
+     "text": "16+8\\sqrt{2}"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 11,
+   "type": "객관식",
+   "score": 4.6,
+   "stem": "어느 고등학교의 1학년 학생 170명을 대상으로 방과후학교 신청자 수를 조사한 결과 다음과 같은 사실을 알게 되었다. 문학을 신청한 학생의 수는? <상자> (가) 사회만 신청한 학생은 25명이다. • (나) 체육을 신청한 학생 중 문학을 신청하지 않은 학생은 21명이다. • (다) 세 가지 강좌 중 어느 것도 신청하지 않은 학생은 50명이다.",
+   "choices": [
+    {
+     "number": 1,
+     "text": "69"
+    },
+    {
+     "number": 2,
+     "text": "74"
+    },
+    {
+     "number": 3,
+     "text": "79"
+    },
+    {
+     "number": 4,
+     "text": "84"
+    },
+    {
+     "number": 5,
+     "text": "89"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 12,
+   "type": "객관식",
+   "score": 4.6,
+   "stem": "집합 A=\\{x \\mid x는 40의 양의 약수\\}의 진부분집합 중에서 5의 배수인 원소가 3개 이상인 집합의 개수는?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "63"
+    },
+    {
+     "number": 2,
+     "text": "64"
+    },
+    {
+     "number": 3,
+     "text": "79"
+    },
+    {
+     "number": 4,
+     "text": "80"
+    },
+    {
+     "number": 5,
+     "text": "81"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 13,
+   "type": "객관식",
+   "score": 4.8,
+   "stem": "두 집합 A=\\left\\{(x,~y) \\mid \\frac{x}{3}+\\frac{y}{4}=1,~x \\geq 0,~y \\geq 0\\right\\} B=\\{(x,~y) \\mid mx-y-m+6=0\\} 에 대하여 A \\cap B=\\varnothing이 성립하도록 하는 정수 m의 개수는?",
+   "choices": [
+    {
+     "number": 1,
+     "text": "2"
+    },
+    {
+     "number": 2,
+     "text": "3"
+    },
+    {
+     "number": 3,
+     "text": "4"
+    },
+    {
+     "number": 4,
+     "text": "5"
+    },
+    {
+     "number": 5,
+     "text": "6"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 14,
+   "type": "객관식",
+   "score": 4.8,
+   "stem": "이차함수 y=x^{2}+3x+5와 직선 y=3x+k(k>5)가 두 점 \\mathrm{A}, \\mathrm{B}에서 만난다. 선분 \\mathrm{AB}를 2:1로 내분하는 점의 x좌표가 [판독불가 - 스캔 우측 잘림]일 때, 삼각형 \\mathrm{OAB}의 넓이는? (단, \\mathrm{O}는 원점이고, 점 \\mathrm{A}의 x좌표는 점 \\mathrm{B}의 x좌표보다 작다.)",
+   "choices": [
+    {
+     "number": 1,
+     "text": "3"
+    },
+    {
+     "number": 2,
+     "text": "6"
+    },
+    {
+     "number": 3,
+     "text": "9"
+    },
+    {
+     "number": 4,
+     "text": "12"
+    },
+    {
+     "number": 5,
+     "text": "15"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 15,
+   "type": "객관식",
+   "score": 5.0,
+   "stem": "전체집합 U=\\{x \\mid x는 10 이하의 자연수\\}의 두 부분집합 A=\\{1,~2,~3,~4,~5\\},~B=\\{1,~3,~5,~7,~9\\} 에 대하여 집합 U의 부분집합 X가 다음 조건을 만족시킬 때, 집합 X의 모든 원소의 합의 최솟값은? <상자> (가) n(X)=4 • (나) X [판독불가] A=X-B • (다) (A-X) \\cap (B [판독불가] X) [판독불가] \\varnothing",
+   "choices": [
+    {
+     "number": 1,
+     "text": "15"
+    },
+    {
+     "number": 2,
+     "text": "16"
+    },
+    {
+     "number": 3,
+     "text": "17"
+    },
+    {
+     "number": 4,
+     "text": "18"
+    },
+    {
+     "number": 5,
+     "text": "19"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 16,
+   "type": "객관식",
+   "score": 5.0,
+   "stem": "세 점 \\mathrm{A}(6,~3), \\mathrm{B}(0,~0), \\mathrm{C}(10,~-5)를 꼭짓점으로 하는 삼각형 \\mathrm{ABC}의 외심과 내심의 좌표를 각각 \\mathrm{P}, \\mathrm{Q}라 할 때, <보기>에서 옳은 것만을 있는 대로 고른 것은? <보기> ㄱ. 점 \\mathrm{P}의 좌표는 \\left(5,~-\\frac{5}{2}\\right)이다. • ㄴ. 점 \\mathrm{A}와 삼각형 \\mathrm{ABC}의 내심을 지나는 직선의 방정식은 x+3y-15=0이다. • ㄷ. 선분 \\mathrm{PQ}의 길이는 5이다.",
+   "choices": [
+    {
+     "number": 1,
+     "text": "ㄱ"
+    },
+    {
+     "number": 2,
+     "text": "ㄱ, ㄴ"
+    },
+    {
+     "number": 3,
+     "text": "ㄱ, ㄷ"
+    },
+    {
+     "number": 4,
+     "text": "ㄴ, ㄷ"
+    },
+    {
+     "number": 5,
+     "text": "ㄱ, ㄴ, ㄷ"
+    }
+   ],
+   "sub_questions": []
+  },
+  {
+   "number": 17,
+   "type": "서술형",
+   "score": 10,
+   "stem": "[서술형 1] - 서술형 답안지에 기재하시오. 전체집합 U=\\{x \\mid x는 50 이하의 자연수\\}의 부분집합 A_{k}=\\{x \\mid x는 자연수 k의 배수\\}에 대하여 물음에 답하시오. (단, k는 50 이하의 자연수이다.)",
+   "choices": [],
+   "sub_questions": [
+    {
+     "number": 1,
+     "score": null,
+     "text": "A_{6} \\cup A_{12}를 원소나열법으로 나타내고, (A_{6} \\cup A_{12}) \\subset A_{m}을 만족시키는 자연수 m의 값을 모두 구하시오."
+    },
+    {
+     "number": 2,
+     "score": null,
+     "text": "A_{3} \\cap A_{4}를 원소나열법으로 나타내고, A_{n} \\subset (A_{3} \\cap A_{4})를 만족시키는 자연수 n의 값을 모두 구하시오."
+    },
+    {
+     "number": 3,
+     "score": null,
+     "text": "A_{5} \\cap (A_{4} \\cup A_{10})의 원소의 개수를 구하시오."
+    }
+   ]
+  },
+  {
+   "number": 18,
+   "type": "서술형",
+   "score": 10,
+   "stem": "[서술형 2] - 서술형 답안지에 기재하시오. 세 조건 p: x<a 또는 0 \\leq x \\leq 4, q: x<-5 또는 |x-b| \\leq 1, r: x \\geq c에 대하여 진리집합을 각각 P, Q, R이라 할 때, 물음에 답하시오. (단, a<0<b이다.)",
+   "choices": [],
+   "sub_questions": [
+    {
+     "number": 1,
+     "score": null,
+     "text": "다음 설명에서 ㉠에 들어갈 기호와 ㉡에 들어갈 용어를 쓰시오. <상자> p \\Rightarrow q이고 q \\Rightarrow p일 때, 기호로 [㉠] 와 같이 나타낸다. 이때 q는 p이기 위한 [㉡] (이)라 한다."
+    },
+    {
+     "number": 2,
+     "score": null,
+     "text": "q는 p이기 위한 충분조건, \\sim r은 p이기 위한 필요조건일 때, ㉢ 정수 a의 개수, ㉣ b의 최댓값과 최솟값의 합, ㉤ c의 값의 범위를 <조건>에 따라 각각 구하시오. <조건> (가) p, q, \\sim r의 관계를 기호 \\Rightarrow 를 사용하여 나타낸다. • (나) p, q, \\sim r의 진리집합의 포함관계를 나타낸다"
+    }
+   ]
+  },
+  {
+   "number": 19,
+   "type": "서술형",
+   "score": 10,
+   "stem": "[서술형 3] - 서술형 답안지에 기재하시오. 그림과 같이 두 점 \\mathrm{A}(0,~a), \\mathrm{B}(2,~0)을 꼭짓점으로 하는 정사각형 \\mathrm{ABCD}의 넓이가 20일 때, 물음에 답하시오. (단, a>0이다.) [그림] 좌표평면 위에 기울어진 정사각형 ABCD가 그려져 있다. 꼭짓점 A는 y축 위의 점 (0, a), 꼭짓점 B는 x축 위의 점 (2, 0)이며, A에서 시계 방향으로 D(오른쪽 위), C(오른쪽 아래), B(왼쪽 아래) 순서로 놓여 있다. 원점 O와 x축, y축이 함께 표시되어 있다.",
+   "choices": [],
+   "sub_questions": [
+    {
+     "number": 1,
+     "score": null,
+     "text": "a의 값을 구하시오."
+    },
+    {
+     "number": 2,
+     "score": null,
+     "text": "직선 \\mathrm{AD}의 방정식을 구하시오."
+    },
+    {
+     "number": 3,
+     "score": null,
+     "text": "점과 직선 사이의 거리를 [판독불가 - 스캔 우측 잘림] 직선 \\mathrm{CD}의 방정식을 구하시오."
+    }
+   ]
+  }
+ ]
+}

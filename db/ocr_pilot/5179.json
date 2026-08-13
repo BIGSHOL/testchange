@@ -1,0 +1,1823 @@
+{
+  "meta": {
+    "exam_id": 5179,
+    "ocr_source": "session-vision"
+  },
+  "header": {
+    "title": "2025학년도 2학기 중간고사 1학년 수학 (경산여자중학교)"
+  },
+  "questions": [
+    {
+      "number": 1,
+      "score": 3.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {
+          "type": "text",
+          "value": "문장이 옳은 것은?"
+        }
+      ],
+      "choices": [
+        {
+          "number": 1,
+          "contents": [
+            {
+              "type": "text",
+              "value": "교선은 직선 뿐이다."
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "contents": [
+            {
+              "type": "text",
+              "value": "면과 면이 만나면 한 점이 생긴다."
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "contents": [
+            {
+              "type": "text",
+              "value": "한 점을 지나는 직선은 오직 하나 뿐이다."
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "contents": [
+            {
+              "type": "text",
+              "value": "선과 선이 만나서 생기는 점을 교점이라고 한다."
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "contents": [
+            {
+              "type": "text",
+              "value": "두 점 \\mathrm{A}와 \\mathrm{B}를 잇는 선 중에서 가장 긴 것은 선분 \\mathrm{AB}이다."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "score": 3.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {
+          "type": "text",
+          "value": "\\overline{\\mathrm{AB}}=32\\mathrm{cm}이고 \\overline{\\mathrm{AC}}=\\overline{\\mathrm{CB}}, 5\\overline{\\mathrm{AB}}=16\\overline{\\mathrm{BD}}일 때, \\overline{\\mathrm{CD}}의 길이는?"
+        },
+        {
+          "type": "figure",
+          "value": "한 직선 위에 왼쪽부터 점 A, C, D, B 가 차례로 찍혀 있다. 양 끝 점 A 와 B 사이 전체 길이가 32cm 로 표시되어 있다(위쪽에 32cm 표기)."
+        }
+      ],
+      "choices": [
+        {
+          "number": 1,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "5\\mathrm{cm}"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "6\\mathrm{cm}"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "7\\mathrm{cm}"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "8\\mathrm{cm}"
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "10\\mathrm{cm}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "score": 3.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {
+          "type": "text",
+          "value": "x의 값은?"
+        },
+        {
+          "type": "figure",
+          "value": "한 점에서 만나는 세 직선이 그려져 있다. 왼쪽으로 뻗은 수평 반직선, 위아래로 뻗은 세로 직선, 왼쪽 위에서 오른쪽 아래로 지나는 비스듬한 직선이다. 수평 반직선(왼쪽 방향)과 비스듬한 직선의 왼쪽 위 방향 사이의 각이 2x^\\circ-2^\\circ 로 표시되어 있고, 수평 반직선(왼쪽 방향)과 세로 직선의 아래쪽 방향 사이에는 직각 표시가 있다. 세로 직선의 위쪽 방향과 비스듬한 직선의 오른쪽 아래 방향 사이의 각이 4x^\\circ+24^\\circ 로 표시되어 있다."
+        }
+      ],
+      "choices": [
+        {
+          "number": 1,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "32"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "34"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "36"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "38"
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "40"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "score": 3.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {
+          "type": "text",
+          "value": "직사각형 \\mathrm{ABCD}에 대한 설명으로 옳은 것만을 <보기>에서 고른 것은?"
+        },
+        {
+          "type": "figure",
+          "value": "직사각형 ABCD. 왼쪽 위 꼭짓점이 A, 오른쪽 위가 D, 왼쪽 아래가 B, 오른쪽 아래가 C 이고 네 꼭짓점에 직각 표시가 있다. 위쪽 변 AD 의 길이가 15cm(점선 호로 표시), 왼쪽 변 AB 의 길이가 8cm 로 표시되어 있으며, 꼭짓점 A 에서 꼭짓점 C 로 그은 대각선 AC 의 길이가 17cm 로 표시되어 있다."
+        },
+        {
+          "type": "text",
+          "value": "<보기> ㉠. \\overline{\\mathrm{AD}}와 \\overline{\\mathrm{CD}}는 직교한다. • ㉡. \\overline{\\mathrm{AD}}의 수선은 \\overline{\\mathrm{AC}}와 \\overline{\\mathrm{CD}}이다. • ㉢. 점 \\mathrm{C}와 \\overline{\\mathrm{AD}} 사이의 거리는 8\\mathrm{cm}이다. • ㉣. 점 \\mathrm{A}와 \\overline{\\mathrm{CD}} 사이의 거리는 17\\mathrm{cm}이다. • ㉤. 점 \\mathrm{C}에서 \\overline{\\mathrm{AB}}에 내린 수선의 발은 점 \\mathrm{A}이다."
+        }
+      ],
+      "choices": [
+        {
+          "number": 1,
+          "contents": [
+            {
+              "type": "text",
+              "value": "㉠, ㉡"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "contents": [
+            {
+              "type": "text",
+              "value": "㉠, ㉢"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "contents": [
+            {
+              "type": "text",
+              "value": "㉡, ㉣"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "contents": [
+            {
+              "type": "text",
+              "value": "㉢, ㉣"
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "contents": [
+            {
+              "type": "text",
+              "value": "㉣, ㉤"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "score": 3.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {
+          "type": "text",
+          "value": "작도에 대한 설명으로 옳은 것은?"
+        }
+      ],
+      "choices": [
+        {
+          "number": 1,
+          "contents": [
+            {
+              "type": "text",
+              "value": "선분을 연장할 때는 컴퍼스를 사용한다."
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "contents": [
+            {
+              "type": "text",
+              "value": "작도는 눈금 없는 자와 각도기만을 이용한다."
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "contents": [
+            {
+              "type": "text",
+              "value": "두 점을 연결할 때는 눈금 없는 자를 사용한다."
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "contents": [
+            {
+              "type": "text",
+              "value": "작도 할 때 눈금 있는 자로 길이를 잰 후 선분을 옮겨도 된다."
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "contents": [
+            {
+              "type": "text",
+              "value": "선분의 길이를 다른 직선 위로 옮길 때는 눈금 없는 자를 사용한다."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "score": 3.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {
+          "type": "text",
+          "value": "변량의 평균이 7일 때, a의 값은?"
+        },
+        {
+          "type": "table",
+          "value": "",
+          "rows": [
+            [
+              "a-5",
+              "a+2",
+              "2a",
+              "a+1"
+            ]
+          ]
+        }
+      ],
+      "choices": [
+        {
+          "number": 1,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "2"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "3"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "4"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "5"
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "6"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "score": 3.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {
+          "type": "text",
+          "value": "학생 9명이 제기차기를 한 횟수를 조사한 자료이다. 이 자료의 평균을 a, 중앙값을 b, 최빈값을 c라고 할 때, a+b+c 의 값은?"
+        },
+        {
+          "type": "text",
+          "value": "제기차기 횟수                    (단위: 회)"
+        },
+        {
+          "type": "table",
+          "value": "",
+          "rows": [
+            [
+              "17",
+              "10",
+              "1",
+              "4",
+              "7",
+              "5",
+              "7",
+              "9",
+              "3"
+            ]
+          ]
+        }
+      ],
+      "choices": [
+        {
+          "number": 1,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "21"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "22"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "23"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "24"
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "25"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "score": 3.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {
+          "type": "text",
+          "value": "동현이네 반 학생들의 낮잠 시간을 조사하여 나타낸 줄기와 잎 그림이다. 동현이네 반 학생 낮잠 시간의 최빈값은?"
+        },
+        {
+          "type": "text",
+          "value": "낮잠 시간                    (1|2는 12분)"
+        },
+        {
+          "type": "table",
+          "value": "",
+          "rows": [
+            [
+              "줄기",
+              "잎"
+            ],
+            [
+              "1",
+              "2 6 8 9"
+            ],
+            [
+              "2",
+              "2 5 7"
+            ],
+            [
+              "3",
+              "3 3 3 5 6"
+            ],
+            [
+              "4",
+              "0 0 2 2 4"
+            ],
+            [
+              "5",
+              "2 2 4"
+            ]
+          ]
+        }
+      ],
+      "choices": [
+        {
+          "number": 1,
+          "contents": [
+            {
+              "type": "text",
+              "value": "33분"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "contents": [
+            {
+              "type": "text",
+              "value": "40분"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "contents": [
+            {
+              "type": "text",
+              "value": "42분"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "contents": [
+            {
+              "type": "text",
+              "value": "44분"
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "contents": [
+            {
+              "type": "text",
+              "value": "52분"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {
+          "type": "text",
+          "value": "위치관계에 대한 설명으로 옳지 __않은__ 것은?"
+        }
+      ],
+      "choices": [
+        {
+          "number": 1,
+          "contents": [
+            {
+              "type": "text",
+              "value": "점과 직선 사이의 위치 관계는 두 가지다."
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "contents": [
+            {
+              "type": "text",
+              "value": "꼬인 위치에 있는 두 직선은 한 평면 위에 있지 않다."
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "contents": [
+            {
+              "type": "text",
+              "value": "두 직선 l과 m이 평행한 경우 기호로 l \\parallel m와 같이 쓴다."
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "contents": [
+            {
+              "type": "text",
+              "value": "평면에서 두 직선이 만나지 않는 경우는 두 직선이 평행한 경우이다."
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "contents": [
+            {
+              "type": "text",
+              "value": "평면에서 두 직선이 만나지도 않고 평행하지도 않은 경우를 꼬인위치라고 한다."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {
+          "type": "text",
+          "value": "공간에서 서로 다른 두 직선 l과 m, 서로 다른 평면 P와 Q의 위치 관계에 대한 설명으로 옳지 __않은__ 것은?"
+        }
+      ],
+      "choices": [
+        {
+          "number": 1,
+          "contents": [
+            {
+              "type": "text",
+              "value": "l \\perp P, m \\perp P이면 l \\parallel m이다."
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "contents": [
+            {
+              "type": "text",
+              "value": "l \\perp P, l \\perp Q이면 P \\parallel Q이다."
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "contents": [
+            {
+              "type": "text",
+              "value": "l \\perp P, P \\parallel Q이면 l \\perp Q이다."
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "contents": [
+            {
+              "type": "text",
+              "value": "l \\parallel P, m \\parallel P이면 l \\parallel m이다."
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "contents": [
+            {
+              "type": "text",
+              "value": "P \\parallel Q, P \\perp R이면 Q \\perp R이다."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 11,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {
+          "type": "text",
+          "value": "직사각형 모양의 종이를 접었을 때, \\angle x-\\angle y의 크기는?"
+        },
+        {
+          "type": "figure",
+          "value": "점선으로 그린 직사각형 모양의 띠 종이를 두 번 접은 그림. 접힌 왼쪽 부분(위로 젖혀진 사각형) 안쪽 각이 66^\\circ 로 표시되어 있고, 종이 아래쪽 접힘점에서 만들어진 각 중 가운데 각이 68^\\circ 로 표시되어 있다. 그 왼쪽(직사각형 아래변과 접힌 선 사이) 각이 \\angle y, 오른쪽으로 접혀 내려온 사각형에서 직사각형 위변과 접힌 선 사이의 각이 \\angle x 로 표시되어 있다."
+        }
+      ],
+      "choices": [
+        {
+          "number": 1,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "30^\\circ"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "34^\\circ"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "36^\\circ"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "40^\\circ"
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "42^\\circ"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 12,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {
+          "type": "text",
+          "value": "직선 l밖의 한 점 \\mathrm{P}를 지나고 직선 l에 평행한 직선 m을 작도한 것이다. 옳지 __않은__ 것은?"
+        },
+        {
+          "type": "figure",
+          "value": "아래쪽에 직선 l, 위쪽에 직선 m 이 평행하게 그려져 있고, 두 직선을 가로지르는 비스듬한 직선(가로지르는 선)이 있다. 점 P 는 직선 m 위의 교점이고, 비스듬한 직선이 직선 l 과 만나는 점이 A 이다. 직선 l 위에서 A 의 왼쪽에 점 C, 비스듬한 직선 위 A 와 P 사이에 점 B 가 있으며, 점 A 를 중심으로 그린 호가 C 와 B 를 지난다. 점 P 를 중심으로 같은 반지름의 호를 그려 비스듬한 직선과 만나는 점이 Q, 그 호 위에서 \\overline{CB} 만큼 옮겨 잡은 점이 R 이고 직선 m 은 점 P 와 R 을 지난다."
+        }
+      ],
+      "choices": [
+        {
+          "number": 1,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "\\overline{\\mathrm{AB}}=\\overline{\\mathrm{PR}}"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "\\overline{\\mathrm{QR}}=\\overline{\\mathrm{BC}}"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "\\angle \\mathrm{QRP}=\\angle \\mathrm{PQR}"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "\\angle \\mathrm{BAC}=\\angle \\mathrm{QPR}"
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "\\angle \\mathrm{QRP}=\\angle \\mathrm{RPQ}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 13,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {
+          "type": "text",
+          "value": "삼각형의 세 변의 길이가 각각 6\\mathrm{cm}, 8\\mathrm{cm}, x\\mathrm{cm}일 때, x값이 될 수 __없는__ 것은?"
+        }
+      ],
+      "choices": [
+        {
+          "number": 1,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "2"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "3"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "5"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "9"
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "13"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 14,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {
+          "type": "text",
+          "value": "성욱이네 반 학생들의 윗몸 일으키기 횟수를 조사하여 나타낸 줄기와 잎 그림의 일부분이다. 줄기가 3인 학생 수가 전체 학생 수의 \\frac{1}{4}일 때, 이 자료의 중앙값은?"
+        },
+        {
+          "type": "text",
+          "value": "윗몸 일으키기 횟수                    (1|0은 10회)"
+        },
+        {
+          "type": "table",
+          "value": "",
+          "rows": [
+            [
+              "줄기",
+              "잎"
+            ],
+            [
+              "1",
+              "0 2 3 5"
+            ],
+            [
+              "2",
+              "1 7 9"
+            ],
+            [
+              "3",
+              "0 2 3 4 6"
+            ]
+          ]
+        }
+      ],
+      "choices": [
+        {
+          "number": 1,
+          "contents": [
+            {
+              "type": "text",
+              "value": "32회"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "contents": [
+            {
+              "type": "text",
+              "value": "33회"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "contents": [
+            {
+              "type": "text",
+              "value": "33.5회"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "contents": [
+            {
+              "type": "text",
+              "value": "34회"
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "contents": [
+            {
+              "type": "text",
+              "value": "35회"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 15,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {
+          "type": "text",
+          "value": "두 변의 길이와 그 끼인각의 크기가 주어졌을 때, \\overline{\\mathrm{BC}}를 밑변으로 하는 \\triangle \\mathrm{ABC}를 작도한 것이다. 작도 순서를 바르게 배열한 것은?"
+        },
+        {
+          "type": "figure",
+          "value": "왼쪽에는 주어진 조건이 그려져 있다. 선분 AB, 선분 BC(선분 AB보다 길다), 그리고 꼭짓점이 B 인 각. 오른쪽에는 작도 결과인 삼각형 ABC 가 그려져 있고, 작도 과정의 각 단계에 ㉠~㉥ 번호가 붙어 있다. 꼭짓점 B 에서 그린 큰 호에 ㉡, 그 호와 각의 두 변이 만나는 부분에 ㉢, 각의 위쪽 변(변 BA 방향)을 따라 그은 선에 ㉣, 삼각형 내부 오른쪽 아래(변 BC 방향 표시)에 ㉠, 점 C 부근 아래쪽 호에 ㉤과 ㉥ 이 표시되어 있다."
+        }
+      ],
+      "choices": [
+        {
+          "number": 1,
+          "contents": [
+            {
+              "type": "text",
+              "value": "㉢ → ㉡ → ㉠ → ㉣ → ㉤ → ㉥"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "contents": [
+            {
+              "type": "text",
+              "value": "㉡ → ㉢ → ㉤ → ㉣ → ㉥ → ㉠"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "contents": [
+            {
+              "type": "text",
+              "value": "㉡ → ㉢ → ㉣ → ㉤ → ㉠ → ㉥"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "contents": [
+            {
+              "type": "text",
+              "value": "㉤ → ㉥ → ㉡ → ㉢ → ㉣ → ㉠"
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "contents": [
+            {
+              "type": "text",
+              "value": "㉠ → ㉣ → ㉡ → ㉢ → ㉤ → ㉥"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 16,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {
+          "type": "text",
+          "value": "지각생이 가장 많은 철수네 반에서 30일 동안 지각생 수를 조사하여 나타낸 도수분포표이다. 도수분포표에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?"
+        },
+        {
+          "type": "table",
+          "value": "",
+          "rows": [
+            [
+              "지각일 수(일)",
+              "지각생 수(명)"
+            ],
+            [
+              "0이상 ~ 2미만",
+              "6"
+            ],
+            [
+              "2 ~ 4",
+              "9"
+            ],
+            [
+              "4 ~ 6",
+              "3"
+            ],
+            [
+              "6 ~ 8",
+              "5"
+            ],
+            [
+              "8 ~ 10",
+              "3"
+            ],
+            [
+              "10 ~ 12",
+              "2"
+            ],
+            [
+              "12 ~ 14",
+              "2"
+            ],
+            [
+              "합계",
+              "30"
+            ]
+          ]
+        },
+        {
+          "type": "text",
+          "value": "<보기> ㄱ. 지각일이 6일인 학생의 수는 1명이다. • ㄴ. 지각일이 4일 미만인 학생은 전체의 50%이다. • ㄷ. 지각일이 3번째로 많은 학생이 속하는 계급은 10일 이상 12일 미만이다."
+        }
+      ],
+      "choices": [
+        {
+          "number": 1,
+          "contents": [
+            {
+              "type": "text",
+              "value": "ㄱ"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "contents": [
+            {
+              "type": "text",
+              "value": "ㄴ"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "contents": [
+            {
+              "type": "text",
+              "value": "ㄱ, ㄷ"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "contents": [
+            {
+              "type": "text",
+              "value": "ㄴ, ㄷ"
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "contents": [
+            {
+              "type": "text",
+              "value": "ㄱ, ㄴ, ㄷ"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 17,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {
+          "type": "text",
+          "value": "학생 40명의 머리카락의 길이를 조사하여 나타낸 히스토그램인데 일부가 찢어져 보이지 않는다. 이때 머리카락의 길이가 4\\mathrm{cm} 이상 8\\mathrm{cm} 미만인 학생의 비율은?"
+        },
+        {
+          "type": "figure",
+          "value": "히스토그램. 가로축은 머리카락의 길이로 2, 4, 6, 8, 10, 12, 14(cm) 눈금이 있고, 세로축은 학생 수(명)로 0부터 14까지 2 간격 눈금이 있다. 막대 높이는 2cm 이상 4cm 미만 6명, 4cm 이상 6cm 미만 8명, 8cm 이상 10cm 미만 7명, 10cm 이상 12cm 미만 4명, 12cm 이상 14cm 미만 1명이며, 6cm 이상 8cm 미만 계급의 막대는 종이가 찢어져 윗부분(도수)이 보이지 않는다. 전체 학생 수는 40명이다."
+        }
+      ],
+      "choices": [
+        {
+          "number": 1,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "0.35"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "0.4"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "0.45"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "0.5"
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "0.55"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 18,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {
+          "type": "text",
+          "value": "\\mathrm{A} 학교와 \\mathrm{B} 학교의 학생들이 방학 동안 읽은 책의 권수를 조사하여 상대도수의 분포를 나타낸 것이다. 읽은 책의 권수가 4권 이상 6권 미만인 학생 수가 \\mathrm{A} 학교는 125명, \\mathrm{B} 학교는 60명이다. 옳은 것은?"
+        },
+        {
+          "type": "figure",
+          "value": "두 개의 상대도수 분포다각형이 겹쳐 그려져 있다. 가로축은 읽은 책의 권수로 2, 4, 6, 8, 10, 12(권) 눈금, 세로축은 상대도수로 0, 0.1, 0.2, 0.3 눈금이 있다. 가는 선이 A 학교, 굵은 선이 B 학교이다. 계급값(1, 3, 5, 7, 9, 11, 13)에서 A 학교의 상대도수는 0, 0.15, 0.25, 0.3, 0.25, 0.05, 0 이고, B 학교의 상대도수는 0, 0.05, 0.15, 0.25, 0.3, 0.25, 0 이다."
+        }
+      ],
+      "choices": [
+        {
+          "number": 1,
+          "contents": [
+            {
+              "type": "text",
+              "value": "\\mathrm{A} 학교 전체학생 수는 400명이다."
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "contents": [
+            {
+              "type": "text",
+              "value": "\\mathrm{B} 학교 전체학생 수는 500명이다."
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "contents": [
+            {
+              "type": "text",
+              "value": "\\mathrm{A} 학교의 읽은 책의 권수가 8권 이상인 학생의 수는 150명이다."
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "contents": [
+            {
+              "type": "text",
+              "value": "\\mathrm{B} 학교의 읽은 책의 권수가 8권 이상 10권 미만인 학생의 수는 150명이다."
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "contents": [
+            {
+              "type": "text",
+              "value": "\\mathrm{A} 학교의 학생들이 상대적으로 책을 더 많이 읽는다고 할 수 있다."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 19,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {
+          "type": "text",
+          "value": "과학 실험에 참여한 학생들의 과학 실험보고서 점수를 조사한 히스토그램이다. 옳지 __않은__ 것은?"
+        },
+        {
+          "type": "figure",
+          "value": "히스토그램. 가로축은 과학 실험보고서 점수로 2, 4, 6, 8, 10(점) 눈금, 세로축은 학생 수(명)로 0, 5, 10 눈금이 있다. 막대 높이는 2점 이상 4점 미만 1명, 4점 이상 6점 미만 4명, 6점 이상 8점 미만 10명, 8점 이상 10점 미만 5명이다."
+        }
+      ],
+      "choices": [
+        {
+          "number": 1,
+          "contents": [
+            {
+              "type": "text",
+              "value": "계급의 개수는 4이다."
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "contents": [
+            {
+              "type": "text",
+              "value": "직사각형의 넓이의 합은 40이다."
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "contents": [
+            {
+              "type": "text",
+              "value": "과학 실험에 참여한 학생은 20명이다."
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "contents": [
+            {
+              "type": "text",
+              "value": "과학 실험보고서 점수가 9점인 학생이 5명이다."
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "contents": [
+            {
+              "type": "text",
+              "value": "과학 실험보고서 점수가 7번째로 높은 학생이 속한 계급은 6점 이상 8점 미만이다."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 20,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {
+          "type": "text",
+          "value": "경산여자중학교 학생의 친구와 다툰 후 화해하는 데까지 걸리는 시간을 조사하여 나타낸 상대도수 분포표이다."
+        },
+        {
+          "type": "table",
+          "value": "",
+          "rows": [
+            [
+              "화해하는데 걸리는 시간(분)",
+              "도수(명)",
+              "상대도수"
+            ],
+            [
+              "0이상 ~ 10미만",
+              "5",
+              "0.1"
+            ],
+            [
+              "10 ~ 20",
+              "",
+              "0.24"
+            ],
+            [
+              "20 ~ 30",
+              "18",
+              ""
+            ],
+            [
+              "30 ~ 40",
+              "11",
+              ""
+            ],
+            [
+              "40 ~ 50",
+              "",
+              "0.08"
+            ],
+            [
+              "합계",
+              "",
+              "1"
+            ]
+          ]
+        },
+        {
+          "type": "text",
+          "value": "화해하는 데 걸리는 시간이 20분 이상인 학생은 전체의 몇 %인가?"
+        }
+      ],
+      "choices": [
+        {
+          "number": 1,
+          "contents": [
+            {
+              "type": "text",
+              "value": "45 %"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "contents": [
+            {
+              "type": "text",
+              "value": "50 %"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "contents": [
+            {
+              "type": "text",
+              "value": "63 %"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "contents": [
+            {
+              "type": "text",
+              "value": "66 %"
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "contents": [
+            {
+              "type": "text",
+              "value": "70 %"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 21,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {
+          "type": "text",
+          "value": "어느 반 학생들의 하루 동안의 스마트폰 사용시간을 조사하여 나타낸 도수분포다각형인데 일부가 찢어져 보이지 않는다. 스마트폰 사용시간이 80분 이상인 학생이 전체의 24%일 때, 스마트폰 사용시간이 60분 미만인 학생 수는?"
+        },
+        {
+          "type": "figure",
+          "value": "도수분포다각형. 가로축은 스마트폰 사용시간으로 20, 40, 60, 80, 100, 120(분) 눈금, 세로축은 학생 수(명)로 0, 2, 4, 6, 8, 10 눈금이 있다. 계급값 10에서 0명, 30에서 3명, 70에서 6명, 90에서 4명, 110에서 2명, 130에서 0명을 지나며, 계급값 50(40분 이상 60분 미만) 부분은 종이가 찢어져 보이지 않는다."
+        }
+      ],
+      "choices": [
+        {
+          "number": 1,
+          "contents": [
+            {
+              "type": "text",
+              "value": "9명"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "contents": [
+            {
+              "type": "text",
+              "value": "10명"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "contents": [
+            {
+              "type": "text",
+              "value": "11명"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "contents": [
+            {
+              "type": "text",
+              "value": "12명"
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "contents": [
+            {
+              "type": "text",
+              "value": "13명"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 22,
+      "score": 4.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {
+          "type": "text",
+          "value": "중학교 1학년 학생 200명을 대상으로 좋아하는 야구선수를 조사하여 나타낸 상대도수 분포표이다. 김영운과 이재헌을 좋아하는 학생 수의 비가 4:3일 때, 김영운을 좋아하는 학생 수는?"
+        },
+        {
+          "type": "table",
+          "value": "",
+          "rows": [
+            [
+              "좋아하는 선수",
+              "상대도수"
+            ],
+            [
+              "원태회",
+              "0.36"
+            ],
+            [
+              "김영운",
+              ""
+            ],
+            [
+              "김지창",
+              "0.22"
+            ],
+            [
+              "이재헌",
+              ""
+            ],
+            [
+              "합계",
+              "1"
+            ]
+          ]
+        }
+      ],
+      "choices": [
+        {
+          "number": 1,
+          "contents": [
+            {
+              "type": "text",
+              "value": "12명"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "contents": [
+            {
+              "type": "text",
+              "value": "24명"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "contents": [
+            {
+              "type": "text",
+              "value": "36명"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "contents": [
+            {
+              "type": "text",
+              "value": "48명"
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "contents": [
+            {
+              "type": "text",
+              "value": "60명"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 23,
+      "score": 5.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {
+          "type": "text",
+          "value": "\\overline{\\mathrm{AB}} 위의 한 점 \\mathrm{C}를 잡아 \\overline{\\mathrm{AC}}, \\overline{\\mathrm{CB}}를 각각 한 변으로 하는 정삼각형 \\mathrm{ACD}, \\mathrm{CBE}를 만들었을 때, \\triangle \\mathrm{ACE} \\equiv \\triangle \\mathrm{DCB}임을 설명하는 과정이다. 다음 중 옳지 __않은__ 것은?"
+        },
+        {
+          "type": "figure",
+          "value": "선분 AB 가 가로로 그려져 있고 그 위의 점 C 가 A 와 B 사이에 있다. 선분 AC 를 한 변으로 하는 정삼각형 ACD 가 위쪽에 그려져 있어 D 는 왼쪽 위, 선분 CB 를 한 변으로 하는 정삼각형 CBE 가 위쪽에 그려져 있어 E 는 오른쪽 위에 있다. 점 A 와 E 를 잇는 선분, 점 D 와 B 를 잇는 선분이 그려져 서로 교차하며, 각 ACE 부분에 각 표시가 되어 있다."
+        },
+        {
+          "type": "text",
+          "value": "<상자> \\triangle \\mathrm{ACE}와 \\triangle \\mathrm{DCB}에서 • \\triangle \\mathrm{ACD}가 정삼각형이므로 \\overline{\\mathrm{AC}}=( ① ) • \\triangle \\mathrm{CBE}가 정삼각형이므로 \\overline{\\mathrm{CE}}=( ② ) • \\angle \\mathrm{ACE}=( ③ )+\\angle \\mathrm{DCE} • =60^\\circ+\\angle \\mathrm{DCE}=( ④ ) • \\triangle \\mathrm{ACE} \\equiv \\triangle \\mathrm{DCB}(( ⑤ )합동)"
+        }
+      ],
+      "choices": [
+        {
+          "number": 1,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "\\overline{\\mathrm{DC}}"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "\\overline{\\mathrm{CB}}"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "\\angle \\mathrm{CAE}"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "\\angle \\mathrm{DCB}"
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "contents": [
+            {
+              "type": "text",
+              "value": "SAS"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 24,
+      "score": 5.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {
+          "type": "text",
+          "value": "현장체험학습 두 장소 \\mathrm{A}와 \\mathrm{B}에 대한 학생 만족도를 조사하여 상대도수의 분포를 나타낸 것이다. 두 장소 \\mathrm{A}와 \\mathrm{B}에 대한 만족도를 50점 이상 60점 미만으로 평가한 학생은 각각 6명과 3명이다."
+        },
+        {
+          "type": "figure",
+          "value": "두 개의 상대도수 분포다각형이 겹쳐 그려져 있다. 가로축은 만족도 점수로 50, 60, 70, 80, 90, 100(점) 눈금(원점 부근 물결 표시), 세로축은 상대도수로 0, 0.1, 0.2, 0.3, 0.4 눈금(작은 눈금 0.02 간격)이 있다. 가는 선이 A장소, 굵은 선이 B장소이다. 계급값 45, 55, 65, 75, 85, 95, 105 에서 A장소는 0, 0.06, 0.10, 0.25, 0.34, 0.25, 0 정도이고, B장소는 0, 0.02, 0.08, 0.16, 0.42, 0.32, 0 정도로 읽힌다(그래프에서 읽은 값)."
+        },
+        {
+          "type": "text",
+          "value": "두 장소 \\mathrm{A}와 \\mathrm{B}에 대한 만족도를 90점 이상으로 평가한 학생 수의 차는?"
+        }
+      ],
+      "choices": [
+        {
+          "number": 1,
+          "contents": [
+            {
+              "type": "text",
+              "value": "22명"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "contents": [
+            {
+              "type": "text",
+              "value": "26명"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "contents": [
+            {
+              "type": "text",
+              "value": "30명"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "contents": [
+            {
+              "type": "text",
+              "value": "34명"
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "contents": [
+            {
+              "type": "text",
+              "value": "38명"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 25,
+      "score": 5.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {
+          "type": "text",
+          "value": "l \\parallel m일 때, x의 값은?"
+        },
+        {
+          "type": "figure",
+          "value": "위쪽에 직선 l, 아래쪽에 직선 m 이 평행하게 그려져 있고, 두 직선 사이를 지그재그로 꺾인 선이 지난다. 직선 l 과 꺾인 선이 만나는 곳의 위쪽 각이 2x^\\circ+20^\\circ, 그 아래 첫 번째 꺾인 점의 왼쪽 각이 x^\\circ-15^\\circ, 두 번째 꺾인 점의 오른쪽 각이 2x^\\circ-60^\\circ 로 표시되어 있으며, 직선 m 과 꺾인 선이 만나는 곳의 아래쪽 각이 x^\\circ-15^\\circ 로 표시되어 있다."
+        }
+      ],
+      "choices": [
+        {
+          "number": 1,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "60"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "65"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "70"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "75"
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "80"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 26,
+      "score": 5.0,
+      "type": "객관식",
+      "label": null,
+      "contents": [
+        {
+          "type": "text",
+          "value": "전체 학생 수의 비가 4:3인 1반과 2반에서 수학 성적이 60점 이상 70점 미만인 계급의 학생 수의 비가 5:2다. 수학 성적이 60점이상 70점 미만의 계급의 상대도수의 비를 가장 간단한 자연수의 비로 나타낸 것은?"
+        }
+      ],
+      "choices": [
+        {
+          "number": 1,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "3:2"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "3:4"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "4:3"
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "8:9"
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "contents": [
+            {
+              "type": "equation",
+              "value": "15:8"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
