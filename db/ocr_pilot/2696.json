@@ -1,0 +1,1828 @@
+{
+ "header": {
+  "title": "12024년 1학기 기말고사구암고 1학년 수학 상1. 연립부등식 \\{x+1≤35x-3≥2의 해가 α≤x≤β 일 때, α+β의 값은? [3.3점]① 1② ⁄59③ 2④ ⁄511⑤ 32. 두 점 A, B사이의 거리 중 가"
+ },
+ "questions": [
+  {
+   "number": 1,
+   "type": "객관식",
+   "score": 3.3,
+   "contents": [
+    {
+     "type": "text",
+     "value": "연립부등식"
+    },
+    {
+     "type": "equation",
+     "value": "\\{x+1≤35x-3≥2"
+    },
+    {
+     "type": "text",
+     "value": "의 해가"
+    },
+    {
+     "type": "equation",
+     "value": "α≤x≤β"
+    },
+    {
+     "type": "text",
+     "value": "일 때,"
+    },
+    {
+     "type": "equation",
+     "value": "α+β"
+    },
+    {
+     "type": "text",
+     "value": "의 값은? ["
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{9}{5}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{11}{5}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 2,
+   "type": "객관식",
+   "score": 3.3,
+   "contents": [
+    {
+     "type": "text",
+     "value": "두 점 A, B사이의 거리 중 가장 짧은 것은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "text",
+       "value": "A"
+      },
+      {
+       "type": "equation",
+       "value": "(3)"
+      },
+      {
+       "type": "text",
+       "value": ", B"
+      },
+      {
+       "type": "equation",
+       "value": "(6)"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "text",
+       "value": "A"
+      },
+      {
+       "type": "equation",
+       "value": "(-1)"
+      },
+      {
+       "type": "text",
+       "value": ", B"
+      },
+      {
+       "type": "equation",
+       "value": "(-5)"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "text",
+       "value": "A"
+      },
+      {
+       "type": "equation",
+       "value": "(0,0)"
+      },
+      {
+       "type": "text",
+       "value": ", B"
+      },
+      {
+       "type": "equation",
+       "value": "(3,4)"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "text",
+       "value": "A"
+      },
+      {
+       "type": "equation",
+       "value": "(1,3)"
+      },
+      {
+       "type": "text",
+       "value": ", B"
+      },
+      {
+       "type": "equation",
+       "value": "(-1,2)"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "text",
+       "value": "A"
+      },
+      {
+       "type": "equation",
+       "value": "(-1,2)"
+      },
+      {
+       "type": "text",
+       "value": ", B"
+      },
+      {
+       "type": "equation",
+       "value": "(-3,4)"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 3,
+   "type": "객관식",
+   "score": 3.5,
+   "contents": [
+    {
+     "type": "text",
+     "value": "점"
+    },
+    {
+     "type": "equation",
+     "value": "(4,a)"
+    },
+    {
+     "type": "text",
+     "value": "와 직선"
+    },
+    {
+     "type": "equation",
+     "value": "3x-4y+1=0"
+    },
+    {
+     "type": "text",
+     "value": "사이의 거리가"
+    },
+    {
+     "type": "equation",
+     "value": "3"
+    },
+    {
+     "type": "text",
+     "value": "일 때, 양수"
+    },
+    {
+     "type": "equation",
+     "value": "a"
+    },
+    {
+     "type": "text",
+     "value": "의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "7"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "8"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 4,
+   "type": "객관식",
+   "score": 3.7,
+   "contents": [
+    {
+     "type": "text",
+     "value": "두 점 A"
+    },
+    {
+     "type": "equation",
+     "value": "(1,2)"
+    },
+    {
+     "type": "text",
+     "value": ", B"
+    },
+    {
+     "type": "equation",
+     "value": "(3,1)"
+    },
+    {
+     "type": "text",
+     "value": "로부터 같은 거리에 있는 점 P는 직선"
+    },
+    {
+     "type": "equation",
+     "value": "y=-x+2"
+    },
+    {
+     "type": "text",
+     "value": "위의 점이다. 점 P의 좌표를"
+    },
+    {
+     "type": "equation",
+     "value": "(a,b)"
+    },
+    {
+     "type": "text",
+     "value": "라 할 때,"
+    },
+    {
+     "type": "equation",
+     "value": "a-b"
+    },
+    {
+     "type": "text",
+     "value": "의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "0"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 5,
+   "type": "객관식",
+   "score": 3.8,
+   "contents": [
+    {
+     "type": "text",
+     "value": "이차부등식"
+    },
+    {
+     "type": "equation",
+     "value": "ax^{2}-6x-a+10≤0"
+    },
+    {
+     "type": "text",
+     "value": "의 해가 존재하지 않도록 하는 정수"
+    },
+    {
+     "type": "equation",
+     "value": "a"
+    },
+    {
+     "type": "text",
+     "value": "의 합은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "7"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "8"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "35"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "36"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "45"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 6,
+   "type": "객관식",
+   "score": 3.8,
+   "contents": [
+    {
+     "type": "text",
+     "value": "직선"
+    },
+    {
+     "type": "equation",
+     "value": "x+ay+b=0"
+    },
+    {
+     "type": "text",
+     "value": "이 직선"
+    },
+    {
+     "type": "equation",
+     "value": "2x-4y+5=0"
+    },
+    {
+     "type": "text",
+     "value": "과 만나지 않고 직선"
+    },
+    {
+     "type": "equation",
+     "value": "y=-\\frac{b}{2}x"
+    },
+    {
+     "type": "text",
+     "value": "와 수직일 때, 두 상수"
+    },
+    {
+     "type": "equation",
+     "value": "a,b"
+    },
+    {
+     "type": "text",
+     "value": "에 대하여"
+    },
+    {
+     "type": "equation",
+     "value": "a+b"
+    },
+    {
+     "type": "text",
+     "value": "의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "6"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "8"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "10"
+      },
+      {
+       "type": "text",
+       "value": "<상자> 2024년 구암고 • 과목 • 수학 상 • 1학년 1학기 기말고사 • 범위 • 여러 가지 방정식 • ~ 원의 방정식"
+      },
+      {
+       "type": "text",
+       "value": "22024년 1학기 기말고사구암고 1학년 수학 상"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 7,
+   "type": "객관식",
+   "score": 4.0,
+   "contents": [
+    {
+     "type": "text",
+     "value": "점"
+    },
+    {
+     "type": "equation",
+     "value": "(1,1)"
+    },
+    {
+     "type": "text",
+     "value": "을 지나고"
+    },
+    {
+     "type": "equation",
+     "value": "x"
+    },
+    {
+     "type": "text",
+     "value": "축과"
+    },
+    {
+     "type": "equation",
+     "value": "y"
+    },
+    {
+     "type": "text",
+     "value": "축에 모두 접하는 원은 두 개 존재한다. 이 두 원의 넓이의 합은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "10π"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "12π"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "14π"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "16π"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "18π"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 8,
+   "type": "객관식",
+   "score": 4.1,
+   "contents": [
+    {
+     "type": "equation",
+     "value": "|x-2|≤3-2|x-1|"
+    },
+    {
+     "type": "text",
+     "value": "의 해는?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "x≥\\frac{1}{3}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "x≥-3"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-3<x≤\\frac{7}{3}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{1}{3}≤x≤\\frac{7}{3}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{1}{3}≤x<1"
+      },
+      {
+       "type": "text",
+       "value": "또는"
+      },
+      {
+       "type": "equation",
+       "value": "2≤x≤\\frac{7}{3}"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 9,
+   "type": "객관식",
+   "score": 4.1,
+   "contents": [
+    {
+     "type": "text",
+     "value": "사차방정식"
+    },
+    {
+     "type": "equation",
+     "value": "(x^{2}+2x)^{2}+4(x^{2}+2x)+3=0"
+    },
+    {
+     "type": "text",
+     "value": "의 두 허근을"
+    },
+    {
+     "type": "equation",
+     "value": "α,β"
+    },
+    {
+     "type": "text",
+     "value": "라 하고, 두 실근을"
+    },
+    {
+     "type": "equation",
+     "value": "γ,δ"
+    },
+    {
+     "type": "text",
+     "value": "라 할 때,"
+    },
+    {
+     "type": "equation",
+     "value": "(2α^{2}+4α-10γ)(3β^{2}+6β-10δ)"
+    },
+    {
+     "type": "text",
+     "value": "의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "16"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "49"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "304"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 10,
+   "type": "객관식",
+   "score": 4.4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "연립이차방정식"
+    },
+    {
+     "type": "equation",
+     "value": "\\{x^{2}+4xy-5y^{2}=02x_{2}+xy-45=0"
+    },
+    {
+     "type": "text",
+     "value": "의 해를"
+    },
+    {
+     "type": "equation",
+     "value": "\\{x=αx=β"
+    },
+    {
+     "type": "text",
+     "value": "와 같이 나타날 때,"
+    },
+    {
+     "type": "equation",
+     "value": "α+β"
+    },
+    {
+     "type": "text",
+     "value": "의 최댓값은? ["
+    },
+    {
+     "type": "equation",
+     "value": "4"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "0"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2√15"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{18√11}{11}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "6√5"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 11,
+   "type": "객관식",
+   "score": 4.4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "두 점 A"
+    },
+    {
+     "type": "equation",
+     "value": "(2,3)"
+    },
+    {
+     "type": "text",
+     "value": ", B"
+    },
+    {
+     "type": "equation",
+     "value": "(5,-1)"
+    },
+    {
+     "type": "text",
+     "value": "를 이은 직선 위의 점 P에 대하여 삼각형 OAB의 넓이와 삼각형 OBP의 넓이의 비가"
+    },
+    {
+     "type": "equation",
+     "value": "3:1"
+    },
+    {
+     "type": "text",
+     "value": "이다. 이때, 가능한 점 P의"
+    },
+    {
+     "type": "equation",
+     "value": "x"
+    },
+    {
+     "type": "text",
+     "value": "좌표의 합은? (단, 점 O는 원점)"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "6"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "8"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "10"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "12"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "14"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 12,
+   "type": "객관식",
+   "score": 4.4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "좌표평면 위 세 점 O"
+    },
+    {
+     "type": "equation",
+     "value": "(0,0)"
+    },
+    {
+     "type": "text",
+     "value": ", A"
+    },
+    {
+     "type": "equation",
+     "value": "(a,3)"
+    },
+    {
+     "type": "text",
+     "value": ", B"
+    },
+    {
+     "type": "equation",
+     "value": "(3,b)"
+    },
+    {
+     "type": "text",
+     "value": "와 삼각형 OAB의 무게중심 G"
+    },
+    {
+     "type": "equation",
+     "value": "(c,4)"
+    },
+    {
+     "type": "text",
+     "value": "가 있다. 점 G와 직선 OB사이의 거리가"
+    },
+    {
+     "type": "equation",
+     "value": "\\frac{√10}{2}"
+    },
+    {
+     "type": "text",
+     "value": "일 때,"
+    },
+    {
+     "type": "equation",
+     "value": "a-b+c"
+    },
+    {
+     "type": "text",
+     "value": "의 값은? (단, G는 제"
+    },
+    {
+     "type": "equation",
+     "value": "1"
+    },
+    {
+     "type": "text",
+     "value": "사분면 위의 점이다.)"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "0"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "6"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "9"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "12"
+      },
+      {
+       "type": "text",
+       "value": "32024년 1학기 기말고사구암고 1학년 수학 상"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 13,
+   "type": "객관식",
+   "score": 4.4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "세 점 O"
+    },
+    {
+     "type": "equation",
+     "value": "(0,0)"
+    },
+    {
+     "type": "text",
+     "value": ", A"
+    },
+    {
+     "type": "equation",
+     "value": "(1,4)"
+    },
+    {
+     "type": "text",
+     "value": ", B"
+    },
+    {
+     "type": "equation",
+     "value": "(6,0)"
+    },
+    {
+     "type": "text",
+     "value": "을 꼭짓점으로 하는 삼각형 OAB가 있다. 점"
+    },
+    {
+     "type": "equation",
+     "value": "(4,0)"
+    },
+    {
+     "type": "text",
+     "value": "을 지나는 직선이 삼각형 OAB의 넓이를 이등분 할 때, 이 직선의 방정식은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3x+4y+16=0"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4x+3y-16=0"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4x-3y+16=0"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "13x-12y-48=0"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "12x+13y-48=0"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 14,
+   "type": "객관식",
+   "score": 4.8,
+   "contents": [
+    {
+     "type": "equation",
+     "value": "x"
+    },
+    {
+     "type": "text",
+     "value": "에 대한 삼차방정식"
+    },
+    {
+     "type": "equation",
+     "value": "x^{3}+5x^{2}+6x-12=0"
+    },
+    {
+     "type": "text",
+     "value": "의 두 허근을"
+    },
+    {
+     "type": "equation",
+     "value": "α,β"
+    },
+    {
+     "type": "text",
+     "value": "라 하고"
+    },
+    {
+     "type": "equation",
+     "value": "x^{3}-1=0"
+    },
+    {
+     "type": "text",
+     "value": "의 한 허근을"
+    },
+    {
+     "type": "equation",
+     "value": "ω"
+    },
+    {
+     "type": "text",
+     "value": "라 할 때,"
+    },
+    {
+     "type": "equation",
+     "value": "\\{(\\frac{α+β}{6})×ω\\}^{628}"
+    },
+    {
+     "type": "text",
+     "value": "의값으로 옳지 않은 것은? ["
+    },
+    {
+     "type": "equation",
+     "value": "4"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "ω^{2}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{1}{ω}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-ω-1"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-\\frac{1}{ω+1}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-\\frac{ω}{ω}+1"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 15,
+   "type": "객관식",
+   "score": 5.0,
+   "contents": [
+    {
+     "type": "equation",
+     "value": "x"
+    },
+    {
+     "type": "text",
+     "value": "에 대한 삼차방정식"
+    },
+    {
+     "type": "equation",
+     "value": "x^{3}-2(a^{2}-a+1)x^{2}+2a(2a-5)x+12a=0"
+    },
+    {
+     "type": "text",
+     "value": "이 서로 다른세 실근"
+    },
+    {
+     "type": "equation",
+     "value": "α"
+    },
+    {
+     "type": "text",
+     "value": ","
+    },
+    {
+     "type": "equation",
+     "value": "β"
+    },
+    {
+     "type": "text",
+     "value": ","
+    },
+    {
+     "type": "equation",
+     "value": "γ"
+    },
+    {
+     "type": "text",
+     "value": "를 가질 때,"
+    },
+    {
+     "type": "equation",
+     "value": "α×γ=12"
+    },
+    {
+     "type": "text",
+     "value": "가 되도록 하는 모든 실수"
+    },
+    {
+     "type": "equation",
+     "value": "a"
+    },
+    {
+     "type": "text",
+     "value": "의 값의 합은? (단,"
+    },
+    {
+     "type": "equation",
+     "value": "0<α<γ"
+    },
+    {
+     "type": "text",
+     "value": ","
+    },
+    {
+     "type": "equation",
+     "value": "0<β<γ"
+    },
+    {
+     "type": "text",
+     "value": ")"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-\\frac{7}{2}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-2"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-\\frac{3}{2}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "0"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 16,
+   "type": "객관식",
+   "score": 5.0,
+   "contents": [
+    {
+     "type": "text",
+     "value": "세 부등식"
+    },
+    {
+     "type": "equation",
+     "value": "x(x-6)>0||x-2|-1|≤5(x-a_{2}+4)(x-4a+9)<0"
+    },
+    {
+     "type": "text",
+     "value": "을 동시에 만족시키는 실수"
+    },
+    {
+     "type": "equation",
+     "value": "x"
+    },
+    {
+     "type": "text",
+     "value": "가 존재하지 않도록 하는"
+    },
+    {
+     "type": "equation",
+     "value": "10"
+    },
+    {
+     "type": "text",
+     "value": "이하의 정수"
+    },
+    {
+     "type": "equation",
+     "value": "a"
+    },
+    {
+     "type": "text",
+     "value": "의 개수는?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "6"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "7"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "8"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "9"
+      },
+      {
+       "type": "text",
+       "value": "42024년 1학기 기말고사구암고 1학년 수학 상"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 17,
+   "type": "서술형",
+   "score": 5.0,
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서술형"
+    },
+    {
+     "type": "equation",
+     "value": "1"
+    },
+    {
+     "type": "text",
+     "value": "] 다음 방정식이 나타내는 원의 중심과 반지름의 길이를 구하시오."
+    }
+   ],
+   "sub_questions": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "(1) (x-4)^{2}+(y+2)^{2}=9"
+      }
+     ],
+     "score": 2.0
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "(2) x^{2}+6x+y^{2}-4y+3=0"
+      }
+     ],
+     "score": 2.0
+    }
+   ]
+  },
+  {
+   "number": 18,
+   "type": "서술형",
+   "score": 6.0,
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서술형"
+    },
+    {
+     "type": "equation",
+     "value": "2"
+    },
+    {
+     "type": "text",
+     "value": "] 수직선 위의 두 점 A"
+    },
+    {
+     "type": "equation",
+     "value": "(x_{1})"
+    },
+    {
+     "type": "text",
+     "value": ", B"
+    },
+    {
+     "type": "equation",
+     "value": "(x_{2})"
+    },
+    {
+     "type": "text",
+     "value": "에 대하여 선분 AB를"
+    },
+    {
+     "type": "equation",
+     "value": "m:n"
+    },
+    {
+     "type": "text",
+     "value": "으로 내분하는 점 P의 좌표를 구하시오.(단,"
+    },
+    {
+     "type": "equation",
+     "value": "m>0"
+    },
+    {
+     "type": "text",
+     "value": ","
+    },
+    {
+     "type": "equation",
+     "value": "n>0"
+    },
+    {
+     "type": "text",
+     "value": ")"
+    }
+   ]
+  },
+  {
+   "number": 19,
+   "type": "서술형",
+   "score": 6.0,
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서술형"
+    },
+    {
+     "type": "equation",
+     "value": "3"
+    },
+    {
+     "type": "text",
+     "value": "] 세 직선"
+    },
+    {
+     "type": "equation",
+     "value": "3x-y-2=0"
+    },
+    {
+     "type": "text",
+     "value": ","
+    },
+    {
+     "type": "equation",
+     "value": "x+2y-3=0"
+    },
+    {
+     "type": "text",
+     "value": ","
+    },
+    {
+     "type": "equation",
+     "value": "x-my=0"
+    },
+    {
+     "type": "text",
+     "value": "이 삼각형을 만들지 못하도록 하는 상수"
+    },
+    {
+     "type": "equation",
+     "value": "m"
+    },
+    {
+     "type": "text",
+     "value": "의 값을 모두 구하시오."
+    }
+   ]
+  },
+  {
+   "number": 20,
+   "type": "서술형",
+   "score": 8.0,
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서술형"
+    },
+    {
+     "type": "equation",
+     "value": "4"
+    },
+    {
+     "type": "text",
+     "value": "] 구안고등학교에서 봉사활동을 계획하는 선생님과 두 학생이 요양원에 가져갈 사과를 상자에 담으면서 나눈 대화의 일부이다."
+    },
+    {
+     "type": "figure",
+     "value": "",
+     "bbox": [
+      355.7,
+      88.8,
+      498.9,
+      240.1
+     ],
+     "page": 4
+    },
+    {
+     "type": "text",
+     "value": "위 대화를 만족시키는 사과의 개수의 최댓값을"
+    },
+    {
+     "type": "equation",
+     "value": "a"
+    },
+    {
+     "type": "text",
+     "value": ", 사과"
+    },
+    {
+     "type": "equation",
+     "value": "a"
+    },
+    {
+     "type": "text",
+     "value": "개를 한 상자에"
+    },
+    {
+     "type": "equation",
+     "value": "6"
+    },
+    {
+     "type": "text",
+     "value": "개씩 담을 경우 꽉 채워지지 않은 상자에 든 사과의 개수를"
+    },
+    {
+     "type": "equation",
+     "value": "b"
+    },
+    {
+     "type": "text",
+     "value": "라 할 때,"
+    },
+    {
+     "type": "equation",
+     "value": "a"
+    },
+    {
+     "type": "text",
+     "value": ","
+    },
+    {
+     "type": "equation",
+     "value": "b"
+    },
+    {
+     "type": "text",
+     "value": "의 값을 각각 구하시오. (단,"
+    },
+    {
+     "type": "equation",
+     "value": "a"
+    },
+    {
+     "type": "text",
+     "value": ","
+    },
+    {
+     "type": "equation",
+     "value": "b"
+    },
+    {
+     "type": "text",
+     "value": "는 자연수)"
+    }
+   ]
+  },
+  {
+   "number": 21,
+   "type": "서술형",
+   "score": 9.0,
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서술형"
+    },
+    {
+     "type": "equation",
+     "value": "5"
+    },
+    {
+     "type": "text",
+     "value": "] 연립부등식"
+    },
+    {
+     "type": "equation",
+     "value": "\\{x^{2}-5x-24≤0x2-2ax+a2-16<0"
+    },
+    {
+     "type": "text",
+     "value": "을 만족시키는 정수"
+    },
+    {
+     "type": "equation",
+     "value": "x"
+    },
+    {
+     "type": "text",
+     "value": "가"
+    },
+    {
+     "type": "equation",
+     "value": "3"
+    },
+    {
+     "type": "text",
+     "value": "개일 때, 실수"
+    },
+    {
+     "type": "equation",
+     "value": "a"
+    },
+    {
+     "type": "text",
+     "value": "의 값의 범위를 구하시오. [2024년 1학기 기말고사구암고 1학년 수학 상2024년 1학기 기말고사 워드:박소선t ㅇ오검:완료:구암고 1학년 수학 상"
+    }
+   ]
+  }
+ ],
+ "_source": "textlayer"
+}

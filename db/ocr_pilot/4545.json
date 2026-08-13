@@ -1,0 +1,1994 @@
+{
+ "header": {
+  "title": "2025년 1학기 중간고사화원고 1학년 공통수학1학원 로고화원고 26년 1학기 중간고사 대비 (공통수학1)11. 두 다항식 A=2x2-xy-3y2과 B=x2-4xy+y2에 대하여 A-B=x2+axy+by2일 때, 상"
+ },
+ "questions": [
+  {
+   "number": 1,
+   "type": "객관식",
+   "score": 3.0,
+   "topic": "다항식의 덧셈과 뺄셈",
+   "difficulty": "하",
+   "contents": [
+    {
+     "type": "text",
+     "value": "두 다항식"
+    },
+    {
+     "type": "equation",
+     "value": "A=2x^{2}-xy-3y^{2}"
+    },
+    {
+     "type": "text",
+     "value": "과"
+    },
+    {
+     "type": "equation",
+     "value": "B=x^{2}-4xy+y^{2}"
+    },
+    {
+     "type": "text",
+     "value": "에 대하여"
+    },
+    {
+     "type": "equation",
+     "value": "A-B=x^{2}+axy+by^{2}"
+    },
+    {
+     "type": "text",
+     "value": "일 때, 상수"
+    },
+    {
+     "type": "equation",
+     "value": "a,b"
+    },
+    {
+     "type": "text",
+     "value": "의 합"
+    },
+    {
+     "type": "equation",
+     "value": "a+b"
+    },
+    {
+     "type": "text",
+     "value": "의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-3"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-1"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 2,
+   "type": "객관식",
+   "score": 3.0,
+   "topic": "나머지정리와 인수정리",
+   "difficulty": "하",
+   "contents": [
+    {
+     "type": "text",
+     "value": "다항식"
+    },
+    {
+     "type": "equation",
+     "value": "f(x)=x^{4}-3x-6"
+    },
+    {
+     "type": "text",
+     "value": "를 일차식"
+    },
+    {
+     "type": "equation",
+     "value": "x-2"
+    },
+    {
+     "type": "text",
+     "value": "로 나누었을 때의 나머지는?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "6"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "8"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "10"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 3,
+   "type": "객관식",
+   "score": 3.2,
+   "topic": "항등식",
+   "difficulty": "하",
+   "contents": [
+    {
+     "type": "text",
+     "value": "다항식"
+    },
+    {
+     "type": "equation",
+     "value": "f(x)"
+    },
+    {
+     "type": "text",
+     "value": "를"
+    },
+    {
+     "type": "equation",
+     "value": "x+\\frac{1}{2}"
+    },
+    {
+     "type": "text",
+     "value": "로 나누었을 때의 몫은"
+    },
+    {
+     "type": "equation",
+     "value": "4x-2"
+    },
+    {
+     "type": "text",
+     "value": ", 나머지는"
+    },
+    {
+     "type": "equation",
+     "value": "6"
+    },
+    {
+     "type": "text",
+     "value": "이라고 한다."
+    },
+    {
+     "type": "equation",
+     "value": "f(x)"
+    },
+    {
+     "type": "text",
+     "value": "를"
+    },
+    {
+     "type": "equation",
+     "value": "2x+1"
+    },
+    {
+     "type": "text",
+     "value": "로 나누었을 때의 몫과 나머지를 순서대로 구한 것은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "8x-4"
+      },
+      {
+       "type": "text",
+       "value": ","
+      },
+      {
+       "type": "equation",
+       "value": "6"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "8x-4,12"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4x-2,6"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2x-1,3"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2x-1,6"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 4,
+   "type": "객관식",
+   "score": 3.4,
+   "topic": "조립제법",
+   "difficulty": "하",
+   "contents": [
+    {
+     "type": "text",
+     "value": "다항식"
+    },
+    {
+     "type": "equation",
+     "value": "f(x)=3x^{3}-2x^{2}+4x-1"
+    },
+    {
+     "type": "text",
+     "value": "을"
+    },
+    {
+     "type": "equation",
+     "value": "x+1"
+    },
+    {
+     "type": "text",
+     "value": "로 나누었을 때의 몫이"
+    },
+    {
+     "type": "equation",
+     "value": "Q(x)"
+    },
+    {
+     "type": "text",
+     "value": "일 때,"
+    },
+    {
+     "type": "equation",
+     "value": "Q(1)"
+    },
+    {
+     "type": "text",
+     "value": "의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "7"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "9"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 5,
+   "type": "객관식",
+   "score": 3.4,
+   "topic": "미정계수법",
+   "difficulty": "하 2025년 1학기 중간고사다항식의 연산 ~ 이차방정식과 이차함수화원고 1학년 공통수학1학원로고2025년 1학기 중간고사화원고 1학년 공통수학1학원 로고화원고 26년 1학기 중간고사 대비 (공통수학1)2",
+   "contents": [
+    {
+     "type": "text",
+     "value": "등식"
+    },
+    {
+     "type": "equation",
+     "value": "2x^{2}-x-8=2(x-1)^{2}+a(x-2)+b"
+    },
+    {
+     "type": "text",
+     "value": "가"
+    },
+    {
+     "type": "equation",
+     "value": "x"
+    },
+    {
+     "type": "text",
+     "value": "에 대한 항등식일 때, 상수"
+    },
+    {
+     "type": "equation",
+     "value": "a,b"
+    },
+    {
+     "type": "text",
+     "value": "에 대하여"
+    },
+    {
+     "type": "equation",
+     "value": "ab"
+    },
+    {
+     "type": "text",
+     "value": "의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-4"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-6"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-8"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-10"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-12"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 6,
+   "type": "객관식",
+   "score": 3.4,
+   "topic": "복소수의 사칙연산",
+   "difficulty": "하",
+   "contents": [
+    {
+     "type": "equation",
+     "value": "i+i^{2}+i^{3}+i^{4}+"
+    },
+    {
+     "type": "text",
+     "value": "⋯"
+    },
+    {
+     "type": "equation",
+     "value": "+i^{9}"
+    },
+    {
+     "type": "text",
+     "value": "의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-1"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-i"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "i"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1+i"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 7,
+   "type": "객관식",
+   "score": 3.4,
+   "topic": "복소수의 사칙연산",
+   "difficulty": "하",
+   "contents": [
+    {
+     "type": "equation",
+     "value": "\\frac{1-i}{1+i}"
+    },
+    {
+     "type": "text",
+     "value": "의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "i"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-i"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2i"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-2i"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-1-i"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 8,
+   "type": "객관식",
+   "score": 3.6,
+   "topic": "음수의 제곱근",
+   "difficulty": "중",
+   "contents": [
+    {
+     "type": "equation",
+     "value": "√4√-9+√-5√-5+\\frac{√8}{√-2}"
+    },
+    {
+     "type": "text",
+     "value": "를 간단히 한 것은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5+4i"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5+8i"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-5+4i"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-5+8i"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-5-4i"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 9,
+   "type": "객관식",
+   "score": 3.6,
+   "topic": "다항식의 곱셈",
+   "difficulty": "중 2025년 1학기 중간고사화원고 1학년 공통수학1학원 로고화원고 26년 1학기 중간고사 대비 (공통수학1)3",
+   "contents": [
+    {
+     "type": "equation",
+     "value": "a+2b-c=4"
+    },
+    {
+     "type": "text",
+     "value": ","
+    },
+    {
+     "type": "equation",
+     "value": "2ab-2bc-ac=5"
+    },
+    {
+     "type": "text",
+     "value": "일 때,"
+    },
+    {
+     "type": "equation",
+     "value": "a^{2}+4b^{2}+c^{2}"
+    },
+    {
+     "type": "text",
+     "value": "의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "6"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "11"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "16"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "21"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "26"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 10,
+   "type": "객관식",
+   "score": 3.6,
+   "topic": "나머지정리와 인수정리",
+   "difficulty": "중",
+   "contents": [
+    {
+     "type": "text",
+     "value": "다항식"
+    },
+    {
+     "type": "equation",
+     "value": "x^{4}+2x^{3}-6x^{2}-2x+5"
+    },
+    {
+     "type": "text",
+     "value": "의 인수가 아닌 것만을 <보기>에서 고른 것은? < 보기 >ㄱ."
+    },
+    {
+     "type": "equation",
+     "value": "x-1"
+    },
+    {
+     "type": "text",
+     "value": "ㄴ."
+    },
+    {
+     "type": "equation",
+     "value": "x+1"
+    },
+    {
+     "type": "text",
+     "value": "ㄷ."
+    },
+    {
+     "type": "equation",
+     "value": "x+5"
+    },
+    {
+     "type": "text",
+     "value": "ㄹ."
+    },
+    {
+     "type": "equation",
+     "value": "x^{2}+2x-5"
+    },
+    {
+     "type": "text",
+     "value": "ㅁ."
+    },
+    {
+     "type": "equation",
+     "value": "x^{2}-2x+5"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄱ, ㄹ"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄴ, ㄹ"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄴ, ㅁ"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄷ, ㄹ"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄷ, ㅁ"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 11,
+   "type": "객관식",
+   "score": 3.8,
+   "topic": "인수분해",
+   "difficulty": "중",
+   "contents": [
+    {
+     "type": "text",
+     "value": "다항식"
+    },
+    {
+     "type": "equation",
+     "value": "x^{2}-3xy+2y^{2}-x+3y-2"
+    },
+    {
+     "type": "text",
+     "value": "의 인수인 것은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "x-y-1"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "x+y-2"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "x-2y-1"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "x-2y+1"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "x+2y-2"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 12,
+   "type": "객관식",
+   "score": 3.8,
+   "topic": "나머지정리와 인수정리",
+   "difficulty": "중",
+   "contents": [
+    {
+     "type": "text",
+     "value": "다항식"
+    },
+    {
+     "type": "equation",
+     "value": "f(x)"
+    },
+    {
+     "type": "text",
+     "value": "를"
+    },
+    {
+     "type": "equation",
+     "value": "x+3"
+    },
+    {
+     "type": "text",
+     "value": "로 나누었을 때의 나머지는"
+    },
+    {
+     "type": "equation",
+     "value": "-2"
+    },
+    {
+     "type": "text",
+     "value": "이고,"
+    },
+    {
+     "type": "equation",
+     "value": "2x-1"
+    },
+    {
+     "type": "text",
+     "value": "로 나누었을 때의 나머지는"
+    },
+    {
+     "type": "equation",
+     "value": "\\frac{3}{2}"
+    },
+    {
+     "type": "text",
+     "value": "이다."
+    },
+    {
+     "type": "equation",
+     "value": "f(x)"
+    },
+    {
+     "type": "text",
+     "value": "를"
+    },
+    {
+     "type": "equation",
+     "value": "2x^{2}+5x-3"
+    },
+    {
+     "type": "text",
+     "value": "로 나누었을 때의 나머지는?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "x+1"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2x+4"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3x+7"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-x+2"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-2x+\\frac{5}{2}"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 13,
+   "type": "객관식",
+   "score": 3.8,
+   "topic": "곱셈공식의 변형",
+   "difficulty": "하 2025년 1학기 중간고사화원고 1학년 공통수학1학원 로고화원고 26년 1학기 중간고사 대비 (공통수학1)4",
+   "contents": [
+    {
+     "type": "equation",
+     "value": "x-y=4"
+    },
+    {
+     "type": "text",
+     "value": "이고"
+    },
+    {
+     "type": "equation",
+     "value": "x^{2}+y^{2}=14"
+    },
+    {
+     "type": "text",
+     "value": "일 때,"
+    },
+    {
+     "type": "equation",
+     "value": "x^{3}-y^{3}"
+    },
+    {
+     "type": "text",
+     "value": "의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "28"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "40"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "52"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "64"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "76"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 14,
+   "type": "객관식",
+   "score": 3.6,
+   "topic": "이차방정식의 판별식",
+   "difficulty": "하",
+   "contents": [
+    {
+     "type": "equation",
+     "value": "x"
+    },
+    {
+     "type": "text",
+     "value": "에 대한 이차방정식"
+    },
+    {
+     "type": "equation",
+     "value": "kx^{2}-2(k-3)x+k-3=0"
+    },
+    {
+     "type": "text",
+     "value": "이 실근을 갖도록 하는 정수"
+    },
+    {
+     "type": "equation",
+     "value": "k"
+    },
+    {
+     "type": "text",
+     "value": "의 최댓값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-1"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-2"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 15,
+   "type": "객관식",
+   "score": 3.6,
+   "topic": "이차방정식과 이차함수의 관계",
+   "difficulty": "하",
+   "contents": [
+    {
+     "type": "text",
+     "value": "이차함수"
+    },
+    {
+     "type": "equation",
+     "value": "y=2x^{2}+ax+b"
+    },
+    {
+     "type": "text",
+     "value": "의 그래프가"
+    },
+    {
+     "type": "equation",
+     "value": "x"
+    },
+    {
+     "type": "text",
+     "value": "축과 두 점"
+    },
+    {
+     "type": "equation",
+     "value": "(-2,0)"
+    },
+    {
+     "type": "text",
+     "value": ","
+    },
+    {
+     "type": "equation",
+     "value": "(3,0)"
+    },
+    {
+     "type": "text",
+     "value": "에서 만날 때,"
+    },
+    {
+     "type": "equation",
+     "value": "a-b"
+    },
+    {
+     "type": "text",
+     "value": "의 값은? (단,"
+    },
+    {
+     "type": "equation",
+     "value": "a,b"
+    },
+    {
+     "type": "text",
+     "value": "는 실수)"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "10"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "12"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "14"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "16"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "18"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 16,
+   "type": "객관식",
+   "score": 3.8,
+   "topic": "이차방정식과 이차함수의 관계",
+   "difficulty": "중",
+   "contents": [
+    {
+     "type": "text",
+     "value": "이차함수"
+    },
+    {
+     "type": "equation",
+     "value": "y=x^{2}+5x+a"
+    },
+    {
+     "type": "text",
+     "value": "의 그래프와 직선"
+    },
+    {
+     "type": "equation",
+     "value": "y=3x+2"
+    },
+    {
+     "type": "text",
+     "value": "의 두 교점의"
+    },
+    {
+     "type": "equation",
+     "value": "x"
+    },
+    {
+     "type": "text",
+     "value": "좌표의 차가"
+    },
+    {
+     "type": "equation",
+     "value": "4√2"
+    },
+    {
+     "type": "text",
+     "value": "일 때, 실수"
+    },
+    {
+     "type": "equation",
+     "value": "a"
+    },
+    {
+     "type": "text",
+     "value": "의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-5"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-3"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-1"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 17,
+   "type": "객관식",
+   "score": 4.0,
+   "topic": "복소수와 켤레복소수",
+   "difficulty": "중 2025년 1학기 중간고사화원고 1학년 공통수학1학원 로고화원고 26년 1학기 중간고사 대비 (공통수학1)5",
+   "contents": [
+    {
+     "type": "text",
+     "value": "실수가 아닌 복소수"
+    },
+    {
+     "type": "equation",
+     "value": "z"
+    },
+    {
+     "type": "text",
+     "value": "에 대하여"
+    },
+    {
+     "type": "equation",
+     "value": "z^{2}+6z=0"
+    },
+    {
+     "type": "text",
+     "value": "일 때,"
+    },
+    {
+     "type": "equation",
+     "value": "zz"
+    },
+    {
+     "type": "text",
+     "value": "의 값은? (단,"
+    },
+    {
+     "type": "equation",
+     "value": "z"
+    },
+    {
+     "type": "text",
+     "value": "는"
+    },
+    {
+     "type": "equation",
+     "value": "z"
+    },
+    {
+     "type": "text",
+     "value": "의 켤레복소수이다.)"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "24"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "30"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "36"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "42"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "48"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 18,
+   "type": "서술형",
+   "score": 5.0,
+   "topic": "이차방정식의 근과 계수의 관계",
+   "difficulty": "중",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서답형"
+    },
+    {
+     "type": "equation",
+     "value": "1"
+    },
+    {
+     "type": "text",
+     "value": "] 이차방정식"
+    },
+    {
+     "type": "equation",
+     "value": "x^{2}+ax+b=0"
+    },
+    {
+     "type": "text",
+     "value": "의 한 근이"
+    },
+    {
+     "type": "equation",
+     "value": "3+i"
+    },
+    {
+     "type": "text",
+     "value": "일 때, 실수"
+    },
+    {
+     "type": "equation",
+     "value": "a,b"
+    },
+    {
+     "type": "text",
+     "value": "의 값을 구하는 풀이과정과 답을 쓰시오."
+    }
+   ]
+  },
+  {
+   "number": 19,
+   "type": "서술형",
+   "score": 6.0,
+   "topic": "인수분해",
+   "difficulty": "중",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서답형"
+    },
+    {
+     "type": "equation",
+     "value": "2"
+    },
+    {
+     "type": "text",
+     "value": "] 다항식"
+    },
+    {
+     "type": "equation",
+     "value": "f(x)"
+    },
+    {
+     "type": "text",
+     "value": "를"
+    },
+    {
+     "type": "equation",
+     "value": "x^{2}-8"
+    },
+    {
+     "type": "text",
+     "value": "으로 나누었을 때의 몫이"
+    },
+    {
+     "type": "equation",
+     "value": "x^{2}-9"
+    },
+    {
+     "type": "text",
+     "value": "이고 나머지가"
+    },
+    {
+     "type": "equation",
+     "value": "-56"
+    },
+    {
+     "type": "text",
+     "value": "일 때, 다음에 답하시오."
+    }
+   ],
+   "sub_questions": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "text",
+       "value": "(1)"
+      },
+      {
+       "type": "equation",
+       "value": "f(x)"
+      },
+      {
+       "type": "text",
+       "value": "를 구하는 풀이과정과 답을 쓰시오."
+      }
+     ],
+     "score": 3.0
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "text",
+       "value": "(2)"
+      },
+      {
+       "type": "equation",
+       "value": "f(x)"
+      },
+      {
+       "type": "text",
+       "value": "를 인수분해하는 과정과 답을 쓰시오."
+      }
+     ],
+     "score": 3.0
+    }
+   ]
+  },
+  {
+   "number": 20,
+   "type": "서술형",
+   "score": 7.0,
+   "topic": "나머지정리와 인수정리",
+   "difficulty": "상",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서답형"
+    },
+    {
+     "type": "equation",
+     "value": "3"
+    },
+    {
+     "type": "text",
+     "value": "] 다항식"
+    },
+    {
+     "type": "equation",
+     "value": "f(x)"
+    },
+    {
+     "type": "text",
+     "value": "를"
+    },
+    {
+     "type": "equation",
+     "value": "x^{2}-x+1"
+    },
+    {
+     "type": "text",
+     "value": "로 나누었을 때 나머지는"
+    },
+    {
+     "type": "equation",
+     "value": "2x-5"
+    },
+    {
+     "type": "text",
+     "value": "이다."
+    },
+    {
+     "type": "equation",
+     "value": "f(x)"
+    },
+    {
+     "type": "text",
+     "value": "를"
+    },
+    {
+     "type": "equation",
+     "value": "x^{3}+1"
+    },
+    {
+     "type": "text",
+     "value": "로 나누었을 때의 나머지가"
+    },
+    {
+     "type": "equation",
+     "value": "ax^{2}+bx"
+    },
+    {
+     "type": "text",
+     "value": "일 때, 다음에 답하시오."
+    }
+   ],
+   "sub_questions": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "text",
+       "value": "상수"
+      },
+      {
+       "type": "equation",
+       "value": "a,b"
+      },
+      {
+       "type": "text",
+       "value": "의 값을 구하는 풀이 과정과 답을 쓰시오."
+      }
+     ],
+     "score": 5.0
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "text",
+       "value": "(2)"
+      },
+      {
+       "type": "equation",
+       "value": "f(x)"
+      },
+      {
+       "type": "text",
+       "value": "를"
+      },
+      {
+       "type": "equation",
+       "value": "x+1"
+      },
+      {
+       "type": "text",
+       "value": "으로 나누었을 때의 나머지를 구하는 풀이과정과 답을 쓰시오."
+      }
+     ],
+     "score": 2.0
+    }
+   ]
+  },
+  {
+   "number": 21,
+   "type": "서술형",
+   "score": 8.0,
+   "topic": "이차함수의 최대, 최소",
+   "difficulty": "중 2025년 1학기 중간고사화원고 1학년 공통수학1학원 로고화원고 26년 1학기 중간고사 대비 (공통수학1)6",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서답형"
+    },
+    {
+     "type": "equation",
+     "value": "4"
+    },
+    {
+     "type": "text",
+     "value": "]"
+    },
+    {
+     "type": "equation",
+     "value": "-1≤x≤a"
+    },
+    {
+     "type": "text",
+     "value": "일 때, 이차함수"
+    },
+    {
+     "type": "equation",
+     "value": "y=-x^{2}+6x-2"
+    },
+    {
+     "type": "text",
+     "value": "의 최댓값이"
+    },
+    {
+     "type": "equation",
+     "value": "6"
+    },
+    {
+     "type": "text",
+     "value": "이고, 최솟값이"
+    },
+    {
+     "type": "equation",
+     "value": "b"
+    },
+    {
+     "type": "text",
+     "value": "이다. 실수"
+    },
+    {
+     "type": "equation",
+     "value": "a,b"
+    },
+    {
+     "type": "text",
+     "value": "의 값을 구하는 풀이과정과 답을 쓰시오. (단,"
+    },
+    {
+     "type": "equation",
+     "value": "a>-1"
+    },
+    {
+     "type": "text",
+     "value": ")"
+    }
+   ]
+  },
+  {
+   "number": 22,
+   "type": "서술형",
+   "score": 9.0,
+   "topic": "이차방정식의 근과 계수의 관계",
+   "difficulty": "중",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서답형"
+    },
+    {
+     "type": "equation",
+     "value": "5"
+    },
+    {
+     "type": "text",
+     "value": "] 이차방정식"
+    },
+    {
+     "type": "equation",
+     "value": "x^{2}-x+2=0"
+    },
+    {
+     "type": "text",
+     "value": "의 두 근이"
+    },
+    {
+     "type": "equation",
+     "value": "α"
+    },
+    {
+     "type": "text",
+     "value": ","
+    },
+    {
+     "type": "equation",
+     "value": "β"
+    },
+    {
+     "type": "text",
+     "value": "이다."
+    },
+    {
+     "type": "equation",
+     "value": "f(x)=x^{3}-3x^{2}+3x-7"
+    },
+    {
+     "type": "text",
+     "value": "일 때,"
+    },
+    {
+     "type": "equation",
+     "value": "f(α)f(β)"
+    },
+    {
+     "type": "text",
+     "value": "의 값을 구하는 풀이 과정과 답을 적으시오."
+    }
+   ]
+  },
+  {
+   "number": 23,
+   "type": "서술형",
+   "score": 5.0,
+   "topic": "이차방정식의 근과계수의 관계",
+   "difficulty": "상",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서답형"
+    },
+    {
+     "type": "equation",
+     "value": "6"
+    },
+    {
+     "type": "text",
+     "value": "] 이차식"
+    },
+    {
+     "type": "equation",
+     "value": "f(x)"
+    },
+    {
+     "type": "text",
+     "value": "에 대하여 이차방정식"
+    },
+    {
+     "type": "equation",
+     "value": "f(2x-3)=0"
+    },
+    {
+     "type": "text",
+     "value": "의 두 근을"
+    },
+    {
+     "type": "equation",
+     "value": "α"
+    },
+    {
+     "type": "text",
+     "value": ","
+    },
+    {
+     "type": "equation",
+     "value": "β"
+    },
+    {
+     "type": "text",
+     "value": "라 할 때,"
+    },
+    {
+     "type": "equation",
+     "value": "α+β=5"
+    },
+    {
+     "type": "text",
+     "value": ","
+    },
+    {
+     "type": "equation",
+     "value": "αβ=3"
+    },
+    {
+     "type": "text",
+     "value": "을 만족시킨다. 이차방정식"
+    },
+    {
+     "type": "equation",
+     "value": "f(x)-6x+8=0"
+    },
+    {
+     "type": "text",
+     "value": "의 두 근의 합이"
+    },
+    {
+     "type": "equation",
+     "value": "1"
+    },
+    {
+     "type": "text",
+     "value": "이라고 할 때,"
+    },
+    {
+     "type": "equation",
+     "value": "f(x)"
+    },
+    {
+     "type": "text",
+     "value": "를 구하시오."
+    }
+   ]
+  }
+ ],
+ "_source": "textlayer"
+}

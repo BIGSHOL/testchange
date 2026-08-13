@@ -38,7 +38,10 @@ def resolve_src(src: str) -> str | None:
     return None
 
 
-def prep(row) -> dict | None:
+def prep(row, pdf_only: bool = False) -> dict | None:
+    """PNG 렌더는 **비전 판독용**이다. 텍스트 레이어 경로는 src.pdf 만 있으면
+    되므로 pdf_only 로 복사만 하고 끝낸다(수백 편이면 렌더 시간·디스크가 크다).
+    """
     eid, sch, gr, subj, yr, sem, rnd, src = row
     tag = f"[{sch}][{gr}][{subj}][{yr % 100}-{sem}-{rnd}]"
     out = PAGES / str(eid)
@@ -57,6 +60,10 @@ def prep(row) -> dict | None:
         return None
 
     n = doc.page_count
+    if pdf_only:
+        doc.close()
+        print(f"  PDF {tag}  {n}쪽 → db/pages/{eid}/src.pdf")
+        return {"exam_id": eid, "pages": n}
     txt = sum(len(doc[i].get_text().strip()) for i in range(min(3, n)))
     born = txt > 200
     for i in range(n):
@@ -84,6 +91,8 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--limit", type=int, default=3)
     ap.add_argument("--exam", type=int)
+    ap.add_argument("--pdf-only", action="store_true",
+                    help="PNG 렌더 없이 원본 PDF 만 확보(텍스트 레이어 경로용)")
     ap.add_argument("--level", choices=["중", "고"], help="학교급 지정(균형 배분용)")
     ap.add_argument("--grade", type=int, help="학년 지정")
     ap.add_argument("--with-ref", action="store_true",
@@ -111,7 +120,7 @@ def main():
 
     print(f"준비 대상 {len(rows)}편")
     for r in rows:
-        prep(r)
+        prep(r, a.pdf_only)
     print(f"\n페이지 디렉터리: {PAGES}")
 
 

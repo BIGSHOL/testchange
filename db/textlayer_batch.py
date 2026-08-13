@@ -72,7 +72,7 @@ def gate(d: dict, pdf: pathlib.Path) -> tuple[bool, str]:
     bad = [q["number"] for q in qs if q.get("choices") and len(q["choices"]) != 5]
     if bad:
         return False, f"선택지 5개가 아닌 문항 {bad[:4]}"
-    pr = printed_scores(pdf)
+    pr = d.get("_printed_scores") or printed_scores(pdf)
     got = [q["score"] for q in qs if q.get("score") is not None]
     got += [x["score"] for q in qs for x in (q.get("sub_questions") or [])
             if x.get("score") is not None]

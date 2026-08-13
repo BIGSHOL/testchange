@@ -1,0 +1,2314 @@
+{
+ "header": {
+  "title": "2025년 2학기 기말고사혜화여고 1학년 수학학원 로고혜화여고 25년 2학기 기말고사 대비 (수학)11. 두 실수 x,y에 대하여 다음 명제 중 역이 참인 것은?"
+ },
+ "questions": [
+  {
+   "number": 1,
+   "type": "객관식",
+   "score": 3.6,
+   "topic": "명제의 역과 대우",
+   "difficulty": "하",
+   "contents": [
+    {
+     "type": "text",
+     "value": "두 실수"
+    },
+    {
+     "type": "equation",
+     "value": "x,y"
+    },
+    {
+     "type": "text",
+     "value": "에 대하여 다음 명제 중 역이 참인 것은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "x^{2}+y^{2}=0"
+      },
+      {
+       "type": "text",
+       "value": "이면"
+      },
+      {
+       "type": "equation",
+       "value": "x=0"
+      },
+      {
+       "type": "text",
+       "value": "또는"
+      },
+      {
+       "type": "equation",
+       "value": "y=0"
+      },
+      {
+       "type": "text",
+       "value": "이다."
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "x>0"
+      },
+      {
+       "type": "text",
+       "value": "이고"
+      },
+      {
+       "type": "equation",
+       "value": "y<0"
+      },
+      {
+       "type": "text",
+       "value": "이면"
+      },
+      {
+       "type": "equation",
+       "value": "xy<0"
+      },
+      {
+       "type": "text",
+       "value": "이다."
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "|x|=|y|"
+      },
+      {
+       "type": "text",
+       "value": "이면"
+      },
+      {
+       "type": "equation",
+       "value": "x=y"
+      },
+      {
+       "type": "text",
+       "value": "이다."
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "x>0"
+      },
+      {
+       "type": "text",
+       "value": "이고"
+      },
+      {
+       "type": "equation",
+       "value": "y>0"
+      },
+      {
+       "type": "text",
+       "value": "이면"
+      },
+      {
+       "type": "equation",
+       "value": "x+y>0"
+      },
+      {
+       "type": "text",
+       "value": "이다."
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "x^{2}>y^{2}"
+      },
+      {
+       "type": "text",
+       "value": "이면"
+      },
+      {
+       "type": "equation",
+       "value": "x>y"
+      },
+      {
+       "type": "text",
+       "value": "이다."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 2,
+   "type": "객관식",
+   "score": 3.6,
+   "topic": "충분조건과 필요조건",
+   "difficulty": "하",
+   "contents": [
+    {
+     "type": "text",
+     "value": "두 실수"
+    },
+    {
+     "type": "equation",
+     "value": "a,b"
+    },
+    {
+     "type": "text",
+     "value": "에 대하여 다음 보기에서"
+    },
+    {
+     "type": "equation",
+     "value": "a=b=0"
+    },
+    {
+     "type": "text",
+     "value": "이기 위한 필요충분조건인 것만을 있는 대로 고르시오."
+    },
+    {
+     "type": "text",
+     "value": "<상자> ㄱ. ab=0 • ㄴ. a2+b2=0 • ㄷ. |a|+|b|=0 • ㄹ. |a-b|=0"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄱ, ㄴ"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄱ, ㄷ"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄱ, ㄹ"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄴ, ㄷ"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄴ, ㄹ"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 3,
+   "type": "객관식",
+   "score": 3.6,
+   "topic": "",
+   "difficulty": "",
+   "contents": [
+    {
+     "type": "text",
+     "value": "두 함수"
+    },
+    {
+     "type": "equation",
+     "value": "f,g"
+    },
+    {
+     "type": "text",
+     "value": "가"
+    },
+    {
+     "type": "equation",
+     "value": "f(x)=3x-1"
+    },
+    {
+     "type": "text",
+     "value": ","
+    },
+    {
+     "type": "equation",
+     "value": "g(x)=-2x+5"
+    },
+    {
+     "type": "text",
+     "value": "일 때,"
+    },
+    {
+     "type": "equation",
+     "value": "(f"
+    },
+    {
+     "type": "text",
+     "value": "∘"
+    },
+    {
+     "type": "equation",
+     "value": "(f"
+    },
+    {
+     "type": "text",
+     "value": "∘"
+    },
+    {
+     "type": "equation",
+     "value": "g-1)-1"
+    },
+    {
+     "type": "text",
+     "value": "∘"
+    },
+    {
+     "type": "equation",
+     "value": "f)(3)"
+    },
+    {
+     "type": "text",
+     "value": "의 값을 구하시오."
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-1"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-2"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-3"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-4"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-5"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 4,
+   "type": "객관식",
+   "score": 3.6,
+   "topic": "여러 가지 함수",
+   "difficulty": "하",
+   "contents": [
+    {
+     "type": "text",
+     "value": "두 집합"
+    },
+    {
+     "type": "equation",
+     "value": "X=\\{x|1≤x≤3\\}"
+    },
+    {
+     "type": "text",
+     "value": ","
+    },
+    {
+     "type": "equation",
+     "value": "Y=\\{y|-2≤y≤6\\}"
+    },
+    {
+     "type": "text",
+     "value": "에 대하여"
+    },
+    {
+     "type": "equation",
+     "value": "X"
+    },
+    {
+     "type": "text",
+     "value": "에서"
+    },
+    {
+     "type": "equation",
+     "value": "Y"
+    },
+    {
+     "type": "text",
+     "value": "로의 함수"
+    },
+    {
+     "type": "equation",
+     "value": "f(x)=ax+b"
+    },
+    {
+     "type": "text",
+     "value": "가 일대일대응일 때, 상수"
+    },
+    {
+     "type": "equation",
+     "value": "a,b"
+    },
+    {
+     "type": "text",
+     "value": "의 순서쌍의 개수를 구하시오. ["
+    },
+    {
+     "type": "equation",
+     "value": "3.6"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1"
+      },
+      {
+       "type": "text",
+       "value": "개"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2"
+      },
+      {
+       "type": "text",
+       "value": "개"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3"
+      },
+      {
+       "type": "text",
+       "value": "개"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4"
+      },
+      {
+       "type": "text",
+       "value": "개"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5"
+      },
+      {
+       "type": "text",
+       "value": "개"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 5,
+   "type": "객관식",
+   "score": 3.7,
+   "topic": "유리함수",
+   "difficulty": "하",
+   "contents": [
+    {
+     "type": "text",
+     "value": "유리함수"
+    },
+    {
+     "type": "equation",
+     "value": "f(x)=\\frac{ax+b}{x+1}"
+    },
+    {
+     "type": "text",
+     "value": "의 그래프는 점"
+    },
+    {
+     "type": "equation",
+     "value": "(-2,-3)"
+    },
+    {
+     "type": "text",
+     "value": "을 지나고,"
+    },
+    {
+     "type": "equation",
+     "value": "0≤x≤3"
+    },
+    {
+     "type": "text",
+     "value": "에서 이 함수의 최솟값은"
+    },
+    {
+     "type": "equation",
+     "value": "2"
+    },
+    {
+     "type": "text",
+     "value": "이다. 이때 상수"
+    },
+    {
+     "type": "equation",
+     "value": "a+b"
+    },
+    {
+     "type": "text",
+     "value": "의 값을 구하시오."
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "6"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "7"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-6"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-7"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "8"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 6,
+   "type": "객관식",
+   "score": 3.7,
+   "topic": "무리함수",
+   "difficulty": "하 2025년 2학기 기말대비집합 ~ 무리함수혜화여고 1학년 공통수학2학원로고2025년 2학기 기말고사혜화여고 1학년 수학학원 로고혜화여고 25년 2학기 기말고사 대비 (수학)2",
+   "contents": [
+    {
+     "type": "text",
+     "value": "무리함수"
+    },
+    {
+     "type": "equation",
+     "value": "f(x)=√x+3+k"
+    },
+    {
+     "type": "text",
+     "value": "의 그래프와 그 역함수"
+    },
+    {
+     "type": "equation",
+     "value": "y=f^{-1}(x)"
+    },
+    {
+     "type": "text",
+     "value": "의 그래프가 서로 다른 두 점에서 만나도록 하는 실수"
+    },
+    {
+     "type": "equation",
+     "value": "k"
+    },
+    {
+     "type": "text",
+     "value": "의 값의 범위를 구하시오."
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3<k≤\\frac{13}{4}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-\\frac{13}{4}<k≤3"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3<k≤\\frac{13}{2}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-\\frac{13}{4}<k≤5"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-\\frac{13}{4}<k≤-3"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 7,
+   "type": "객관식",
+   "score": 3.7,
+   "topic": "유리함수, 무리함수",
+   "difficulty": "하",
+   "contents": [
+    {
+     "type": "text",
+     "value": "집합"
+    },
+    {
+     "type": "equation",
+     "value": "X=\\{x|x>2\\}"
+    },
+    {
+     "type": "text",
+     "value": "에서 정의된 두 함수"
+    },
+    {
+     "type": "equation",
+     "value": "f(x)=\\frac{3x+2}{x-2},g(x)=√x-1+2"
+    },
+    {
+     "type": "text",
+     "value": "에 대하여"
+    },
+    {
+     "type": "equation",
+     "value": "(f^{-1}"
+    },
+    {
+     "type": "text",
+     "value": "∘"
+    },
+    {
+     "type": "equation",
+     "value": "g)(10)+(g^{-1}"
+    },
+    {
+     "type": "text",
+     "value": "∘"
+    },
+    {
+     "type": "equation",
+     "value": "f)(4)"
+    },
+    {
+     "type": "text",
+     "value": "의 값을 구하시오. ["
+    },
+    {
+     "type": "equation",
+     "value": "3"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "30"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "31"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "32"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "33"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "34"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 8,
+   "type": "객관식",
+   "score": 3.8,
+   "topic": "무리함수",
+   "difficulty": "중",
+   "contents": [
+    {
+     "type": "text",
+     "value": "무리함수"
+    },
+    {
+     "type": "equation",
+     "value": "f(x)=-√x-k+2"
+    },
+    {
+     "type": "text",
+     "value": "에 대하여 함수"
+    },
+    {
+     "type": "equation",
+     "value": "y=f(x)"
+    },
+    {
+     "type": "text",
+     "value": "의 그래프는 직선"
+    },
+    {
+     "type": "equation",
+     "value": "y=x-5"
+    },
+    {
+     "type": "text",
+     "value": "와 만나고, 그 역함수"
+    },
+    {
+     "type": "equation",
+     "value": "y=f^{-1}(x)"
+    },
+    {
+     "type": "text",
+     "value": "의 그래프는 직선"
+    },
+    {
+     "type": "equation",
+     "value": "y=x-5"
+    },
+    {
+     "type": "text",
+     "value": "와 만나지 않는다. 이때 실수"
+    },
+    {
+     "type": "equation",
+     "value": "k"
+    },
+    {
+     "type": "text",
+     "value": "의 값의 범위를 구하시오."
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-3≤k≤7"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-3<k≤7"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-5<k≤7"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-2<k≤7"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-3≤k≤10"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 9,
+   "type": "객관식",
+   "score": 3.8,
+   "topic": "절대부등식",
+   "difficulty": "중",
+   "contents": [
+    {
+     "type": "text",
+     "value": "두 등식"
+    },
+    {
+     "type": "equation",
+     "value": "a+b+c=7"
+    },
+    {
+     "type": "text",
+     "value": ","
+    },
+    {
+     "type": "equation",
+     "value": "a^{2}+b^{2}+c^{2}=27"
+    },
+    {
+     "type": "text",
+     "value": "을 만족시키는 세 실수"
+    },
+    {
+     "type": "equation",
+     "value": "a,b,c"
+    },
+    {
+     "type": "text",
+     "value": "에 대하여"
+    },
+    {
+     "type": "equation",
+     "value": "a"
+    },
+    {
+     "type": "text",
+     "value": "의 최댓값을"
+    },
+    {
+     "type": "equation",
+     "value": "M"
+    },
+    {
+     "type": "text",
+     "value": ", 최솟값을"
+    },
+    {
+     "type": "equation",
+     "value": "m"
+    },
+    {
+     "type": "text",
+     "value": "이라 할 때,"
+    },
+    {
+     "type": "equation",
+     "value": "3Mm"
+    },
+    {
+     "type": "text",
+     "value": "의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-5"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-3"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "7"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 10,
+   "type": "객관식",
+   "score": 3.8,
+   "topic": "여러 가지 함수",
+   "difficulty": "중",
+   "contents": [
+    {
+     "type": "text",
+     "value": "두 집합"
+    },
+    {
+     "type": "equation",
+     "value": "X=\\{1,2,3,4,5\\}"
+    },
+    {
+     "type": "text",
+     "value": ","
+    },
+    {
+     "type": "equation",
+     "value": "Y=\\{1,2,3,4,5,6\\}"
+    },
+    {
+     "type": "text",
+     "value": "에 대하여"
+    },
+    {
+     "type": "equation",
+     "value": "X"
+    },
+    {
+     "type": "text",
+     "value": "에서"
+    },
+    {
+     "type": "equation",
+     "value": "Y"
+    },
+    {
+     "type": "text",
+     "value": "로의 함수"
+    },
+    {
+     "type": "equation",
+     "value": "f"
+    },
+    {
+     "type": "text",
+     "value": "가 다음 조건을 모두 만족시킬 때, 함수"
+    },
+    {
+     "type": "equation",
+     "value": "f"
+    },
+    {
+     "type": "text",
+     "value": "의 개수는? ["
+    },
+    {
+     "type": "equation",
+     "value": "3.8"
+    },
+    {
+     "type": "text",
+     "value": "<상자> (나) f(1)+f(2)+f(3)+f(4)=f(5)+7 • (다) f(2)×f(3)의 값은 짝수이다. • f는 일대일함수이다."
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "24"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "32"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "36"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "44"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "48"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 11,
+   "type": "객관식",
+   "score": 3.9,
+   "topic": "유리함수, 무리함수",
+   "difficulty": "중",
+   "contents": [
+    {
+     "type": "text",
+     "value": "실수 전체의 집합에서 정의된 함수"
+    },
+    {
+     "type": "equation",
+     "value": "f(x)=∈∉⊂∩∩\\frac{\\frac{x}{x+2}}{√px+q+}(px+q<0)r(px+q≥0)"
+    },
+    {
+     "type": "text",
+     "value": "의 역함수가 존재할 때, 상수"
+    },
+    {
+     "type": "equation",
+     "value": "p"
+    },
+    {
+     "type": "text",
+     "value": ","
+    },
+    {
+     "type": "equation",
+     "value": "q"
+    },
+    {
+     "type": "text",
+     "value": ","
+    },
+    {
+     "type": "equation",
+     "value": "r"
+    },
+    {
+     "type": "text",
+     "value": "에 대하여"
+    },
+    {
+     "type": "equation",
+     "value": "\\frac{pr}{q}"
+    },
+    {
+     "type": "text",
+     "value": "의 값은? (단,"
+    },
+    {
+     "type": "equation",
+     "value": "q≠0"
+    },
+    {
+     "type": "text",
+     "value": ")"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{1}{3}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{1}{2}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{3}{2}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 12,
+   "type": "객관식",
+   "score": 3.9,
+   "topic": "절대부등식",
+   "difficulty": "중 2025년 2학기 기말고사혜화여고 1학년 수학학원 로고혜화여고 25년 2학기 기말고사 대비 (수학)3",
+   "contents": [
+    {
+     "type": "text",
+     "value": "두 실수"
+    },
+    {
+     "type": "equation",
+     "value": "a,b"
+    },
+    {
+     "type": "text",
+     "value": "에 대하여 다음 보기에서 절대부등식인 것만을 있는 대로 고른 것은?"
+    },
+    {
+     "type": "text",
+     "value": "<상자> ㄱ. a2+b2≥ab • ㄴ. √⁄ • ab≥⁄ • a+b • 2ab • ㄷ. |a|-|b|≤|a-b| • ㄹ. a3+b3≥ab(a+b)"
+    },
+    {
+     "type": "text",
+     "value": "<상자> < 보 기 >"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄱ, ㄴ"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄴ, ㄷ"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄱ, ㄷ"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄷ, ㄹ"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄱ, ㄷ, ㄹ"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 13,
+   "type": "객관식",
+   "score": 3.9,
+   "topic": "여러 가지 함수",
+   "difficulty": "중",
+   "contents": [
+    {
+     "type": "text",
+     "value": "집합"
+    },
+    {
+     "type": "equation",
+     "value": "X=\\{1,2,3\\}"
+    },
+    {
+     "type": "text",
+     "value": "에 대하여"
+    },
+    {
+     "type": "equation",
+     "value": "X"
+    },
+    {
+     "type": "text",
+     "value": "에서"
+    },
+    {
+     "type": "equation",
+     "value": "X"
+    },
+    {
+     "type": "text",
+     "value": "로의 두 함수"
+    },
+    {
+     "type": "equation",
+     "value": "f"
+    },
+    {
+     "type": "text",
+     "value": ","
+    },
+    {
+     "type": "equation",
+     "value": "g"
+    },
+    {
+     "type": "text",
+     "value": "가 다음 조건을 모두 만족시킨다."
+    },
+    {
+     "type": "text",
+     "value": "<상자> (가) f는 일대일함수이고, g는 항등함수이다. • (나) f(1)=g(3) • (다) f(3)×g(2)≠f(2)×g(1)"
+    },
+    {
+     "type": "equation",
+     "value": "(f"
+    },
+    {
+     "type": "text",
+     "value": "∘"
+    },
+    {
+     "type": "equation",
+     "value": "f)(2)+(f"
+    },
+    {
+     "type": "text",
+     "value": "∘"
+    },
+    {
+     "type": "equation",
+     "value": "g)^{-1}(1)"
+    },
+    {
+     "type": "text",
+     "value": "의 값은? ["
+    },
+    {
+     "type": "equation",
+     "value": "3"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "6"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "7"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 14,
+   "type": "객관식",
+   "score": 4.0,
+   "topic": "합성함수",
+   "difficulty": "중",
+   "contents": [
+    {
+     "type": "text",
+     "value": "함수"
+    },
+    {
+     "type": "equation",
+     "value": "f(x)=|x+1|-2"
+    },
+    {
+     "type": "text",
+     "value": "에 대하여"
+    },
+    {
+     "type": "equation",
+     "value": "f^{1}(x)=f(x)"
+    },
+    {
+     "type": "text",
+     "value": ","
+    },
+    {
+     "type": "equation",
+     "value": "f^{n+1}(x)=(f"
+    },
+    {
+     "type": "text",
+     "value": "∘"
+    },
+    {
+     "type": "equation",
+     "value": "f^{n})(x)(n=1,2,3,"
+    },
+    {
+     "type": "text",
+     "value": "⋯"
+    },
+    {
+     "type": "equation",
+     "value": ")"
+    },
+    {
+     "type": "text",
+     "value": "로 정의할 때,"
+    },
+    {
+     "type": "equation",
+     "value": "y=f^{n}(x)"
+    },
+    {
+     "type": "text",
+     "value": "의 그래프와"
+    },
+    {
+     "type": "equation",
+     "value": "x"
+    },
+    {
+     "type": "text",
+     "value": "축으로 둘러싸인 도형의 넓이는"
+    },
+    {
+     "type": "equation",
+     "value": "S(n)"
+    },
+    {
+     "type": "text",
+     "value": "이다. 이때"
+    },
+    {
+     "type": "equation",
+     "value": "S(4)"
+    },
+    {
+     "type": "text",
+     "value": "의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "8"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "11"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "13"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "16"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "19"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 15,
+   "type": "객관식",
+   "score": 4.0,
+   "topic": "유리함수",
+   "difficulty": "중",
+   "contents": [
+    {
+     "type": "text",
+     "value": "두 함수"
+    },
+    {
+     "type": "equation",
+     "value": "f(x)=\\frac{1}{x}+a"
+    },
+    {
+     "type": "text",
+     "value": ","
+    },
+    {
+     "type": "equation",
+     "value": "g(x)=-\\frac{1}{x-2}-a"
+    },
+    {
+     "type": "text",
+     "value": "가 있다. 정수"
+    },
+    {
+     "type": "equation",
+     "value": "a"
+    },
+    {
+     "type": "text",
+     "value": "에 대하여 두 곡선"
+    },
+    {
+     "type": "equation",
+     "value": "y=f(x)"
+    },
+    {
+     "type": "text",
+     "value": ","
+    },
+    {
+     "type": "equation",
+     "value": "y=g(x)"
+    },
+    {
+     "type": "text",
+     "value": "의 교점 중"
+    },
+    {
+     "type": "equation",
+     "value": "x"
+    },
+    {
+     "type": "text",
+     "value": "좌표가 양수인 점의 개수를"
+    },
+    {
+     "type": "equation",
+     "value": "h(a)"
+    },
+    {
+     "type": "text",
+     "value": "라 하자. 등식"
+    },
+    {
+     "type": "equation",
+     "value": "h(a)+h(a+1)+h(a+2)=4"
+    },
+    {
+     "type": "text",
+     "value": "를 만족시키는 정수"
+    },
+    {
+     "type": "equation",
+     "value": "a"
+    },
+    {
+     "type": "text",
+     "value": "의 최솟값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-2"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-1"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "0"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 16,
+   "type": "객관식",
+   "score": 4.2,
+   "topic": "유리함수",
+   "difficulty": "상",
+   "contents": [
+    {
+     "type": "text",
+     "value": "함수"
+    },
+    {
+     "type": "equation",
+     "value": "f(x)=\\frac{x+24}{3x-p}"
+    },
+    {
+     "type": "text",
+     "value": "가"
+    },
+    {
+     "type": "equation",
+     "value": "f(1)<f(6)<f(3)"
+    },
+    {
+     "type": "text",
+     "value": "를 만족시키도록 하는 자연수"
+    },
+    {
+     "type": "equation",
+     "value": "p"
+    },
+    {
+     "type": "text",
+     "value": "의 최댓값을"
+    },
+    {
+     "type": "equation",
+     "value": "M"
+    },
+    {
+     "type": "text",
+     "value": "이라 하자."
+    },
+    {
+     "type": "equation",
+     "value": "p=M"
+    },
+    {
+     "type": "text",
+     "value": "일 때의 함수"
+    },
+    {
+     "type": "equation",
+     "value": "f(x)"
+    },
+    {
+     "type": "text",
+     "value": "와 함수"
+    },
+    {
+     "type": "equation",
+     "value": "g(x)=\\frac{3x+4}{x+q}"
+    },
+    {
+     "type": "text",
+     "value": "에 대하여"
+    },
+    {
+     "type": "equation",
+     "value": "g(f(6))<g(f(3))<g(f(1))"
+    },
+    {
+     "type": "text",
+     "value": "를 만족시키는 자연수"
+    },
+    {
+     "type": "equation",
+     "value": "q"
+    },
+    {
+     "type": "text",
+     "value": "의 개수는?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "6"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "7"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "number": 17,
+   "type": "서술형",
+   "score": 4.2,
+   "topic": "집합의 연산법칙",
+   "difficulty": "중 2025년 2학기 기말고사혜화여고 1학년 수학학원 로고혜화여고 25년 2학기 기말고사 대비 (수학)4",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서술형"
+    },
+    {
+     "type": "equation",
+     "value": "1"
+    },
+    {
+     "type": "text",
+     "value": "] 전체집합"
+    },
+    {
+     "type": "equation",
+     "value": "U=\\{x|x"
+    },
+    {
+     "type": "text",
+     "value": "는"
+    },
+    {
+     "type": "equation",
+     "value": "15"
+    },
+    {
+     "type": "text",
+     "value": "이하의자연수"
+    },
+    {
+     "type": "equation",
+     "value": "\\}"
+    },
+    {
+     "type": "text",
+     "value": "의 두 부분집합"
+    },
+    {
+     "type": "equation",
+     "value": "A=\\{x|x^{2}-7x+10=0\\}"
+    },
+    {
+     "type": "text",
+     "value": ","
+    },
+    {
+     "type": "equation",
+     "value": "B=\\{x|x"
+    },
+    {
+     "type": "text",
+     "value": "는"
+    },
+    {
+     "type": "equation",
+     "value": "15"
+    },
+    {
+     "type": "text",
+     "value": "이하의소수"
+    },
+    {
+     "type": "equation",
+     "value": "\\}"
+    },
+    {
+     "type": "text",
+     "value": "에 대하여 다음 물음에 답하시오. ["
+    },
+    {
+     "type": "equation",
+     "value": "4.2"
+    },
+    {
+     "type": "text",
+     "value": "점]"
+    }
+   ],
+   "sub_questions": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "A,B"
+      },
+      {
+       "type": "text",
+       "value": "를 원소나열법으로 나타내고"
+      },
+      {
+       "type": "equation",
+       "value": "A∩(A-B)^{C}"
+      },
+      {
+       "type": "text",
+       "value": "의 모든 원소의 합을 풀이 과정과 함께 구하시오."
+      },
+      {
+       "type": "equation",
+       "value": "(2) A⊂"
+      }
+     ],
+     "score": 2.0
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "X⊂B"
+      },
+      {
+       "type": "text",
+       "value": "이고"
+      },
+      {
+       "type": "equation",
+       "value": "n(X)=4"
+      },
+      {
+       "type": "text",
+       "value": "를 만족시키는 집합"
+      },
+      {
+       "type": "equation",
+       "value": "X"
+      },
+      {
+       "type": "text",
+       "value": "에 대하여 집합"
+      },
+      {
+       "type": "equation",
+       "value": "X"
+      },
+      {
+       "type": "text",
+       "value": "에 속하는 모든 원소의 합의 최댓값을"
+      },
+      {
+       "type": "equation",
+       "value": "M"
+      },
+      {
+       "type": "text",
+       "value": ", 최솟값을"
+      },
+      {
+       "type": "equation",
+       "value": "m"
+      },
+      {
+       "type": "text",
+       "value": "이라 할 때 집합"
+      },
+      {
+       "type": "equation",
+       "value": "X"
+      },
+      {
+       "type": "text",
+       "value": "를 모두 구하고,"
+      },
+      {
+       "type": "equation",
+       "value": "M×m"
+      },
+      {
+       "type": "text",
+       "value": "의 값을 풀이 과정과 함께 구하시오."
+      }
+     ],
+     "score": 2.2
+    }
+   ]
+  },
+  {
+   "number": 18,
+   "type": "서술형",
+   "score": 11.0,
+   "topic": "유리함수",
+   "difficulty": "하",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서술형"
+    },
+    {
+     "type": "equation",
+     "value": "1"
+    },
+    {
+     "type": "text",
+     "value": "] 함수"
+    },
+    {
+     "type": "equation",
+     "value": "y=\\frac{ax+b}{x+c}"
+    },
+    {
+     "type": "text",
+     "value": "의 그래프가 점"
+    },
+    {
+     "type": "equation",
+     "value": "(0,2)"
+    },
+    {
+     "type": "text",
+     "value": "를 지나고, 점근선이 두 직선"
+    },
+    {
+     "type": "equation",
+     "value": "x=2"
+    },
+    {
+     "type": "text",
+     "value": ","
+    },
+    {
+     "type": "equation",
+     "value": "y=1"
+    },
+    {
+     "type": "text",
+     "value": "일 때, 상수"
+    },
+    {
+     "type": "equation",
+     "value": "a"
+    },
+    {
+     "type": "text",
+     "value": ","
+    },
+    {
+     "type": "equation",
+     "value": "b"
+    },
+    {
+     "type": "text",
+     "value": ","
+    },
+    {
+     "type": "equation",
+     "value": "c"
+    },
+    {
+     "type": "text",
+     "value": "에 대하여"
+    },
+    {
+     "type": "equation",
+     "value": "a+b+c"
+    },
+    {
+     "type": "text",
+     "value": "의 값을 풀이 과정과 함께 구하시오."
+    }
+   ]
+  },
+  {
+   "number": 19,
+   "type": "서술형",
+   "score": 12.0,
+   "topic": "무리함수",
+   "difficulty": "중",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서술형"
+    },
+    {
+     "type": "equation",
+     "value": "2"
+    },
+    {
+     "type": "text",
+     "value": "] 곡선"
+    },
+    {
+     "type": "equation",
+     "value": "y=√-x+16"
+    },
+    {
+     "type": "text",
+     "value": "가"
+    },
+    {
+     "type": "equation",
+     "value": "x"
+    },
+    {
+     "type": "text",
+     "value": "축과 만나는 점을 A,"
+    },
+    {
+     "type": "equation",
+     "value": "y"
+    },
+    {
+     "type": "text",
+     "value": "축과 만나는 점을 B라 하고, 점 P가 제"
+    },
+    {
+     "type": "equation",
+     "value": "1"
+    },
+    {
+     "type": "text",
+     "value": "사분면에서 곡선"
+    },
+    {
+     "type": "equation",
+     "value": "y=√-x+16"
+    },
+    {
+     "type": "text",
+     "value": "위를 움직인다. 이때, 사각형 OAPB의 넓이가 최대일 때의 점 P의 좌표와 사각형 OAPB의 넓이의 최댓값을 풀이 과정과 함께 구하시오. (단, O는 원점이다.)"
+    }
+   ]
+  },
+  {
+   "number": 20,
+   "type": "서술형",
+   "score": 12.0,
+   "topic": "집합",
+   "difficulty": "상",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서술형"
+    },
+    {
+     "type": "equation",
+     "value": "4"
+    },
+    {
+     "type": "text",
+     "value": "] 최고차항의 계수가"
+    },
+    {
+     "type": "equation",
+     "value": "2"
+    },
+    {
+     "type": "text",
+     "value": "인 이차함수"
+    },
+    {
+     "type": "equation",
+     "value": "f(x)"
+    },
+    {
+     "type": "text",
+     "value": "와 최고차항의 계수가"
+    },
+    {
+     "type": "equation",
+     "value": "1"
+    },
+    {
+     "type": "text",
+     "value": "인 이차함수"
+    },
+    {
+     "type": "equation",
+     "value": "g(x)"
+    },
+    {
+     "type": "text",
+     "value": "가 있다. 방정식"
+    },
+    {
+     "type": "equation",
+     "value": "\\{f(x)-1\\}\\{g(x)-1\\}=0"
+    },
+    {
+     "type": "text",
+     "value": "의 모든 실근의 집합을"
+    },
+    {
+     "type": "equation",
+     "value": "A"
+    },
+    {
+     "type": "text",
+     "value": "라 하고, 방정식"
+    },
+    {
+     "type": "equation",
+     "value": "f(x)=g(x)"
+    },
+    {
+     "type": "text",
+     "value": "의 모든 실근의 집합을"
+    },
+    {
+     "type": "equation",
+     "value": "B"
+    },
+    {
+     "type": "text",
+     "value": "라 하면 두 실수"
+    },
+    {
+     "type": "equation",
+     "value": "α,β"
+    },
+    {
+     "type": "text",
+     "value": "("
+    },
+    {
+     "type": "equation",
+     "value": "α<β"
+    },
+    {
+     "type": "text",
+     "value": ")에 대하여"
+    },
+    {
+     "type": "equation",
+     "value": "A=\\{α,β\\} B=\\{α,β+3\\}"
+    },
+    {
+     "type": "text",
+     "value": "이다. 상수"
+    },
+    {
+     "type": "equation",
+     "value": "k"
+    },
+    {
+     "type": "text",
+     "value": "에 대하여 방정식"
+    },
+    {
+     "type": "equation",
+     "value": "\\{f(x)-k\\}\\{g(x)-k\\}=0"
+    },
+    {
+     "type": "text",
+     "value": "의 서로 다른 실근이 개수가"
+    },
+    {
+     "type": "equation",
+     "value": "3"
+    },
+    {
+     "type": "text",
+     "value": "이고 이 세 실근의 합이"
+    },
+    {
+     "type": "equation",
+     "value": "12"
+    },
+    {
+     "type": "text",
+     "value": "일 때,"
+    },
+    {
+     "type": "equation",
+     "value": "α+β+k"
+    },
+    {
+     "type": "text",
+     "value": "의 값을 구하시오. ["
+    },
+    {
+     "type": "equation",
+     "value": "12"
+    },
+    {
+     "type": "text",
+     "value": "점]"
+    }
+   ]
+  }
+ ],
+ "_source": "textlayer"
+}

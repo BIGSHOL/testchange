@@ -47,8 +47,20 @@ def ispua(ch: str) -> bool:
     return 0xE000 <= ord(ch) <= 0xF8FF
 
 
+# 수식 폰트에서 온 중괄호는 **글자로서의 중괄호**다. 그대로 내보내면 LaTeX 구조용
+# 중괄호와 섞여 균형이 깨진다(연립방정식 `{`·집합 `{x|…}` — 감사가 154건 잡았다).
+_BRACE = {"{": r"\{", "}": r"\}"}
+
+
 def decode(s: str) -> str:
-    return "".join(_T.get(ord(c), c) if ispua(c) else c for c in s)
+    out = []
+    for c in s:
+        if ispua(c):
+            d = _T.get(ord(c), c)
+            out.append(_BRACE.get(d, d))
+        else:
+            out.append(c)          # 본문의 평범한 괄호는 건드리지 않는다
+    return "".join(out)
 
 
 # ---------------------------------------------------------------- 스팬 수집
@@ -108,6 +120,10 @@ def page_boxes(page) -> list[tuple[float, float, float, float]]:
     """
     W, H = page.rect.width, page.rect.height
     hs, vs = [], []
+    # ⚠️ 아래 짝짓기는 가로선 쌍 × 세로선 이라 O(n²)~O(n³) 이다. 벡터로 그린
+    #    격자·그래프가 있는 면은 선이 수백 개라 사실상 멈춘다(실측: 배치가 한
+    #    시험지에서 정지). 그런 면은 애초에 그림 면이니 박스 검출을 건너뛴다.
+    _LIMIT = 120
     for d in page.get_drawings():
         for it in d["items"]:
             if it[0] != "l":
@@ -117,6 +133,8 @@ def page_boxes(page) -> list[tuple[float, float, float, float]]:
                 hs.append((round((a.y + b.y) / 2, 1), min(a.x, b.x), max(a.x, b.x)))
             elif abs(a.x - b.x) < 1.2:
                 vs.append((round((a.x + b.x) / 2, 1), min(a.y, b.y), max(a.y, b.y)))
+    if len(hs) > _LIMIT or len(vs) > _LIMIT:
+        return []
     merged: dict[float, list[list[float]]] = {}
     for y, x0, x1 in hs:
         segs = merged.setdefault(y, [])
@@ -226,10 +244,20 @@ def build_equation(run: list[dict]) -> str:
             if want:
                 out.append(want + "{")
             mode = want
-        out.append(decode(s["c"]))
+        out.append(_eqchar(s["c"]))
     if mode:
         out.append("}")
     return "".join(out).strip()
+
+
+def _eqchar(c: str) -> str:
+    """수식 글자 하나 → LaTeX. 중괄호는 **글자로서의 중괄호**라 반드시 이스케이프한다.
+
+    연립방정식의 큰 `{` 나 집합 표기 `{1,2}` 가 그대로 나가면 LaTeX 중괄호와
+    섞여 균형이 깨진다(감사가 154건 잡았다). build_equation 이 만드는 구조용
+    중괄호는 문자열 리터럴로 따로 붙이므로 이 경로를 안 탄다 — 구분이 정확하다.
+    """
+    return decode(c)     # 중괄호 이스케이프는 decode 가 일괄 처리한다
 
 
 def _flush(run: list[dict], parts: list):
@@ -359,11 +387,38 @@ def answer_page_start(doc) -> int:
     n = doc.page_count
     for p in range(max(1, n // 2), n):
         t = decode(doc[p].get_text())
-        # '정답' 만 보면 '해설'·'풀이' 로만 표기한 면을 놓쳐, 해설의 배점까지
-        # 문제 배점으로 세어 버린다(실측: 인쇄 26개 vs 추출 23개).
-        if re.search(r"정\s*답|해\s*설|풀\s*이\s*과\s*정|빠른\s*정답", t):
+        # ⚠️ 낱말로 판정하면 안 된다. '풀이 과정을 쓰시오' 는 **서술형 발문**에
+        #    흔해서 거기서 자르면 뒤 문항이 통째로 사라지고(25문항 → 16문항 적재,
+        #    감사가 잡았다), 반대로 '정답' 만 찾으면 해설면을 놓친다.
+        #    구조로 본다: 빠른정답 목록은 `1. ①` 꼴이 줄줄이 이어진다.
+        if len(re.findall(r"(?m)^\s*\d{1,2}\s*[.)]\s*[①-⑩]\s*$", t)) >= 4:
+            return p
+        if len(re.findall(r"(?m)^\s*\d{1,2}\s*[.)]\s*[①-⑩]", t)) >= 8:
             return p
     return n
+
+
+def _answer_cut(sp: list[dict], flat: str, last_start: int) -> int:
+    """문항 흐름이 끝나고 **정답 목록이 시작하는 글자 위치**(없으면 끝).
+
+    쪽 단위 판정이 못 잡는 경우가 있다(정답이 마지막 문항과 같은 면에 붙는 폼).
+    정답 목록은 번호가 **1부터 다시** 시작하므로, 마지막 문항 뒤에 줄머리 `1.` 이
+    나오고 그 뒤가 원문자면 거기서 끊는다.
+    """
+    m0 = re.match(r"(\d{1,2})", flat[last_start:last_start + 3])
+    last_num = int(m0.group(1)) if m0 else 99
+    for i in range(last_start + 1, len(sp)):
+        if not sp[i].get("bol"):
+            continue
+        m = re.match(r"(\d{1,2})\s*[.)]\s", flat[i:i + 6])
+        if not m:
+            continue
+        # 번호가 **되돌아가면** 거기부터가 정답 목록이다. 낱말('정답'·'해설')로
+        # 찾으면 표기가 제각각이라 놓치고, '풀이 과정' 같은 발문에 걸려 문항을
+        # 잘라먹는다. 번호 역행은 형식과 무관한 신호다.
+        if int(m.group(1)) <= last_num:
+            return i
+    return len(sp)
 
 
 def parse_answers(doc, start: int) -> list[dict]:
@@ -440,9 +495,11 @@ def extract(pdf: pathlib.Path, with_answers: bool = False):
         n = int(m.group(1))
         if (not starts and n == 1) or (starts and n == starts[-1][0] + 1):
             starts.append((n, i))
+    # 마지막 문항이 정답 목록까지 삼키지 않게 경계를 하나 더 둔다
+    tail = _answer_cut(sp, flat, starts[-1][1]) if starts else len(flat)
     qs = []
     for i, (num, pos) in enumerate(starts):
-        end = starts[i + 1][1] if i + 1 < len(starts) else len(flat)
+        end = starts[i + 1][1] if i + 1 < len(starts) else tail
         seg = sp[pos:end]
         raw = "".join(s["c"] for s in seg)
         q: dict = {"number": num, "type": "객관식"}
@@ -494,9 +551,10 @@ def _split_subs(seg: list[dict], num: int):
     """
     flat = decode("".join(s["c"] for s in seg))
     marks: list[tuple[int, int]] = []
-    for i, s in enumerate(seg):
-        if not s.get("bol"):
-            continue
+    for i in range(len(seg)):
+        # ⚠️ 줄머리만 보면 `(1) 평균  (2) 중앙값  (3) 최빈값` 처럼 **한 줄에 나열된**
+        #    소문항을 통째로 놓친다(그러면 소문항 배점이 사라져 게이트에 걸린다).
+        #    참조 `(1)에서` 와는 **닫는 괄호 뒤 공백**으로 갈린다.
         m = _SUBMARK.match(flat[i:i + 6])
         if not m:
             continue
