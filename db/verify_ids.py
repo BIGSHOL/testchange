@@ -25,6 +25,16 @@ MANIFEST = BASE / "solve" / "manifest.json"
 _TERM = re.compile(r"(\d{2})-([12])-(중간|기말)")
 # "중간고사"·"기말고사" 가 학교명(…고)으로 잡히면 멀쩡한 편이 불일치로 뜬다
 _SCHOOL = re.compile(r"(?!중간|기말|모의)([가-힣]{2,10}(?:여고|여중|고|중))(?!사)")
+# ⚠️ 위 정규식은 **앞말이 붙어 오는 것**을 못 막는다: "…중간고사 강북고" 에서
+#    '간고사강북고' 를 통째로 문다(공백을 지운 제목에서). 그러면 멀쩡한 편이
+#    전부 'id 밀림'으로 잡혀 파이프라인이 멈춘다(실측: 재구축 검증에서 발각).
+#    학교명 앞에 오는 상투어를 먼저 걷어내고 찾는다.
+_NOISE = re.compile(r"20\d{2}\s*년?(?:도)?|\d\s*학기|중간고사|기말고사|중간|기말|대비|고사")
+
+
+def find_school(t: str) -> str | None:
+    m = _SCHOOL.search(_NOISE.sub(" ", t or ""))
+    return m.group(1) if m else None
 
 
 def _from_tokens(toks: list[str]) -> dict:
@@ -76,8 +86,8 @@ def json_meta(d: dict, eid: int | None = None, tags: dict | None = None) -> dict
         fill((tags or {}).get(eid, {}))
 
     t = (d.get("header") or {}).get("title") or ""
-    if (mm := _SCHOOL.search(t)):
-        fill({"school": mm.group(1)})
+    if (sc := find_school(t)):
+        fill({"school": sc})
     if (mm := re.search(r"([1-3])\s*학년(?!도)", t)):
         fill({"grade": int(mm.group(1))})
     if (mm := re.search(r"(20\d{2})\s*(?:학년도|년)", t)):
@@ -106,18 +116,28 @@ def norm_school(s: str | None) -> str:
     return s
 
 
+def same_school(a: str | None, b: str | None) -> bool:
+    """카탈로그가 지역 접두를 떼기도 한다(`대구동중` ↔ `동중`) — 한쪽이 다른 쪽의
+    꼬리면 같은 학교로 본다. 같은 id 의 두 근거를 비교하는 자리라 오인 위험이 낮다."""
+    x, y = norm_school(a), norm_school(b)
+    if not x or not y:
+        return True
+    return x == y or x.endswith(y) or y.endswith(x)
+
+
 def agree(meta: dict, row) -> tuple[bool, str]:
     """비교는 **JSON 이 실제로 아는 항목만**. 제목에서 못 뽑은 값은 판정 근거가 아니다."""
     if row is None:
         return False, "DB 에 해당 id 없음"
     school, grade, subject, year, semester, rnd = row
     bad = []
-    if meta.get("school") and norm_school(meta["school"]) != norm_school(school):
+    if meta.get("school") and not same_school(meta["school"], school):
         bad.append(f"학교 {meta['school']}≠{school}")
     if meta.get("grade") and row[1] and int(meta["grade"]) != int(grade):
         bad.append(f"학년 {meta['grade']}≠{grade}")
-    if meta.get("year") and year and int(meta["year"]) != int(year):
-        bad.append(f"연도 {meta['year']}≠{year}")
+    # ⚠️ 연도는 대조하지 않는다. **학원 대비 시험지는 머리말에 원본 시험 연도**
+    #    (2024년)를, 파일명에는 대비 연도(25-2)를 쓴다 — 둘 다 맞는 값이라
+    #    불일치가 아니다. 이걸 교정이라 믿고 DB 를 고쳤다가 되돌렸다.
     if meta.get("semester") and semester and int(meta["semester"]) != int(semester):
         bad.append(f"학기 {meta['semester']}≠{semester}")
     if meta.get("round") and rnd and meta["round"] != rnd:

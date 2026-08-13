@@ -17,16 +17,18 @@
    SQL Editor 에 붙여넣어 실행해 둘 것(멱등이라 여러 번 눌러도 안전).
 """
 from __future__ import annotations
-import argparse, hashlib, json, os, sqlite3, sys, io, pathlib, time
+import argparse, hashlib, json, os, re, sqlite3, sys, io, pathlib, time
 
 BASE = pathlib.Path(__file__).parent
-sys.path.insert(0, str(BASE))
+# ⚠️ append 로 붙인다 — insert(0) 이면 db/ 안 모듈이 **표준 라이브러리를
+#    가린다**(db/queue.py 가 queue 를 가려 requests 임포트가 죽었다).
+sys.path.append(str(BASE))
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8")
 import scope as _scope                                       # noqa: E402
 
 DB = BASE / "exam_index.db"
 STATE = BASE / ".supabase_push.json"
-CHUNK = 200                       # 한 요청에 올리는 행 수 — 페이로드 크기 균형
+CHUNK = 40                        # 한 요청 행 수. 문항 본문(JSONB)이 커서 크게 잡으면 연결이 끊긴다
 
 
 def creds() -> tuple[str, str]:
@@ -70,21 +72,53 @@ def plain_of(q: dict) -> str:
     return " ".join(x for x in out if x).strip()
 
 
+_CTRL = re.compile(r"[\x00-\x08\x0b\x0c\x0e-\x1f]")
+
+
+def scrub(x):
+    """제어문자 제거. ⚠️ Postgres text 는 NUL(\x00)을 거부한다 — 한 글자만
+    섞여도 그 배치 전체가 400 으로 튕긴다(실측). 어느 출처든 여기서 막는다."""
+    if isinstance(x, str):
+        return _CTRL.sub("", x)
+    if isinstance(x, list):
+        return [scrub(v) for v in x]
+    if isinstance(x, dict):
+        return {k: scrub(v) for k, v in x.items()}
+    return x
+
+
 def has_figure(q: dict) -> bool:
     return any((b.get("type") == "figure") for b in (q.get("contents") or []))
 
 
-def post(url: str, key: str, table: str, rows: list[dict], conflict: str) -> None:
+def post(url: str, key: str, table: str, rows: list[dict], conflict: str,
+         depth: int = 0) -> None:
+    """upsert 한 묶음. 끊기면 **묶음을 반으로 쪼개** 다시 보낸다.
+
+    문항 본문(JSONB)이 커서 한 요청이 수 MB 가 되면 서버가 응답 없이 연결을
+    닫는다(실측). 크기 상한을 고정값으로 정하면 시험지마다 빗나가므로,
+    실패했을 때 스스로 줄이게 둔다.
+    """
     import requests
-    r = requests.post(
-        f"{url}/rest/v1/{table}",
-        params={"on_conflict": conflict},
-        headers={"apikey": key, "Authorization": f"Bearer {key}",
-                 "Content-Type": "application/json",
-                 # merge-duplicates = upsert. 재실행해도 중복이 안 생긴다.
-                 "Prefer": "resolution=merge-duplicates,return=minimal"},
-        data=json.dumps(rows, ensure_ascii=False).encode("utf-8"),
-        timeout=120)
+    if not rows:
+        return
+    try:
+        r = requests.post(
+            f"{url}/rest/v1/{table}",
+            params={"on_conflict": conflict},
+            headers={"apikey": key, "Authorization": f"Bearer {key}",
+                     "Content-Type": "application/json",
+                     # merge-duplicates = upsert. 재실행해도 중복이 안 생긴다.
+                     "Prefer": "resolution=merge-duplicates,return=minimal"},
+            data=json.dumps(scrub(rows), ensure_ascii=False).encode("utf-8"),
+            timeout=180)
+    except Exception:
+        if len(rows) == 1 or depth > 6:
+            raise
+        mid = len(rows) // 2
+        post(url, key, table, rows[:mid], conflict, depth + 1)
+        post(url, key, table, rows[mid:], conflict, depth + 1)
+        return
     if r.status_code >= 300:
         raise RuntimeError(f"{table} 업로드 실패 {r.status_code}: {r.text[:500]}")
 

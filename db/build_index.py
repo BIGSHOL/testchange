@@ -144,7 +144,11 @@ CREATE TABLE exams(
   year INT, semester INT, round TEXT, publisher TEXT, status TEXT,
   src_path TEXT, src_ext TEXT, size INT, needs_pdf_convert INT DEFAULT 0,
   variant_count INT, ocr_status TEXT DEFAULT 'pending',
-  question_count INT DEFAULT 0, solution_status TEXT DEFAULT 'pending');
+  question_count INT DEFAULT 0, solution_status TEXT DEFAULT 'pending',
+  -- 내용 지문이 같은 편(dedup_content.py 가 채운다). 원본 id 를 가리키고
+  -- 조회·업로드에서 제외한다. ⚠️ 세션 중 ALTER 로 만들었던 컬럼 —
+  -- 스키마에 없으면 재구축 후 supabase_push 가 죽는다(실측).
+  duplicate_of INTEGER);
 CREATE TABLE exam_files(
   id INTEGER PRIMARY KEY, exam_id INT, path TEXT, ext TEXT, size INT,
   status TEXT, is_primary INT, mtime TEXT,
@@ -178,6 +182,22 @@ for k, g in sorted(groups.items(), key=lambda x: (x[0][4], x[0][0], x[0][2], x[0
             (eid, r["path"], r["ext"], sizes.get(r["path"],0), r["status"],
              1 if r["path"] == best["path"] else 0, mtimes.get(r["path"], "")))
 con.commit()
+
+# ⭐ 카탈로그 메타 교정 적용 — exams 를 직접 UPDATE 하면 **재구축 때 날아간다**.
+#    (재현 검증에서 교정 3건이 통째로 사라지는 걸 실제로 겪었다.)
+_ov = BASE / "meta_overrides.json"
+if _ov.exists():
+    import json as _json
+    _n = 0
+    for _o in _json.loads(_ov.read_text(encoding="utf-8")).get("overrides", []):
+        _set = _o.get("set") or {}
+        if not _set:
+            continue
+        cur.execute("UPDATE exams SET " + ",".join(f"{k}=?" for k in _set) +
+                    " WHERE id=?", (*_set.values(), _o["id"]))
+        _n += cur.rowcount
+    con.commit()
+    print(f"메타 교정 적용: {_n}건 (db/meta_overrides.json)")
 
 print(f"\n=== DB: {DB} ===")
 for q, label in [

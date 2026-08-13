@@ -59,3 +59,6 @@ corpus/**/*.png
 .claude/scheduled_tasks.lock
 .claude/settings.local.json
 db/.checkpoint.json
+
+# 업로드 진행 캐시 — 어느 원격에 올렸는지는 PC 마다 다르다
+/db/.supabase_push.json

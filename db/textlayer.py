@@ -17,7 +17,9 @@ from __future__ import annotations
 import argparse, json, re, sqlite3, sys, io, pathlib, statistics
 
 BASE = pathlib.Path(__file__).parent
-sys.path.insert(0, str(BASE))
+# ⚠️ append 로 붙인다 — insert(0) 이면 db/ 안 모듈이 **표준 라이브러리를
+#    가린다**(db/queue.py 가 queue 를 가려 requests 임포트가 죽었다).
+sys.path.append(str(BASE))
 # ⚠️ stdout 교체는 **직접 실행될 때만**. import 하는 쪽의 래퍼를 닫아 버려
 #    부르는 스크립트가 print 에서 죽는다(실제로 배치 실행기가 터졌다).
 if __name__ == "__main__":
@@ -600,6 +602,9 @@ def _drop_marks(seg: list[dict]) -> list[dict]:
     return [s for j, s in enumerate(seg) if j not in kill]
 
 
+_CTRL = re.compile(r"[\x00-\x08\x0b\x0c\x0e-\x1f]")
+
+
 def _clean(blocks: list[dict], num: int | None) -> list[dict]:
     out = []
     for b in blocks:
@@ -607,7 +612,8 @@ def _clean(blocks: list[dict], num: int | None) -> list[dict]:
         if b["type"] == "figure":
             out.append(b)
             continue
-        v = decode(b["value"])
+        # 그림 자리 표식(\x00) 등 제어문자가 값에 남으면 안 된다
+        v = _CTRL.sub("", decode(b["value"]))
         if b["type"] == "text":
             v = _SCORE.sub("", v)
             v = _META.sub("", v)

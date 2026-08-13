@@ -15,7 +15,9 @@ import fitz
 from PIL import Image
 
 BASE = pathlib.Path(__file__).parent
-sys.path.insert(0, str(BASE))
+# ⚠️ append 로 붙인다 — insert(0) 이면 db/ 안 모듈이 **표준 라이브러리를
+#    가린다**(db/queue.py 가 queue 를 가려 requests 임포트가 죽었다).
+sys.path.append(str(BASE))
 import scope as _scope
 DB = BASE / "exam_index.db"
 PAGES = BASE / "pages"

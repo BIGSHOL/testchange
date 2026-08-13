@@ -18,7 +18,9 @@ from __future__ import annotations
 import argparse, json, re, sqlite3, sys, io, pathlib, traceback
 
 BASE = pathlib.Path(__file__).parent
-sys.path.insert(0, str(BASE))
+# ⚠️ append 로 붙인다 — insert(0) 이면 db/ 안 모듈이 **표준 라이브러리를
+#    가린다**(db/queue.py 가 queue 를 가려 requests 임포트가 죽었다).
+sys.path.append(str(BASE))
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
 import textlayer as tl                                    # noqa: E402
 import scope as _scope                                    # noqa: E402
