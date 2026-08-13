@@ -43,6 +43,8 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--force", action="store_true")
     ap.add_argument("--no-push", action="store_true")
+    ap.add_argument("--no-upload", action="store_true",
+                    help="Supabase 업로드 생략(커밋·푸시만)")
     a = ap.parse_args()
 
     s = stats()
@@ -79,6 +81,16 @@ def main():
             print(f"  푸시 완료 → {REMOTE}")
         except Exception as ex:
             print(f"  ⚠️ 푸시 실패(커밋은 남음): {str(ex)[:200]}")
+
+    # Supabase 업로드도 체크포인트에 묶는다(사용자 지시 2026-08-13).
+    # ⚠️ 실패해도 커밋·푸시는 이미 끝났으므로 **중단하지 않는다** — 자격증명이
+    #    없는 PC 에서도 판독은 계속 굴러야 한다. 업로더는 멱등이라 다음 번에
+    #    밀린 분까지 함께 올라간다.
+    if not a.no_upload:
+        try:
+            print(sh(sys.executable, str(BASE / "supabase_push.py")))
+        except Exception as ex:
+            print(f"  ⚠️ Supabase 업로드 건너뜀: {str(ex).splitlines()[-1][:160]}")
 
     STATE.write_text(json.dumps({**s, "at": today}, ensure_ascii=False),
                      encoding="utf-8")

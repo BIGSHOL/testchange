@@ -8,7 +8,10 @@
 from __future__ import annotations
 import argparse, json, sqlite3, sys, io, pathlib
 
+import scope as _scope  # noqa: E402  (같은 폴더)
+
 BASE = pathlib.Path(__file__).parent
+sys.path.insert(0, str(BASE))
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8")
 DB = BASE / "exam_index.db"
 PAGES = BASE / "pages"
@@ -28,14 +31,16 @@ def main():
           SELECT e.id, e.school, e.grade, e.subject, e.year, e.semester, e.round,
                  e.question_count
           FROM exams e
-          WHERE e.ocr_status='done' AND e.solution_status='pending' AND e.year>=?
-          ORDER BY e.id LIMIT ?""", (a.year_min, a.limit)).fetchall()
+          WHERE e.ocr_status='done' AND e.solution_status='pending'
+            AND e.year>=? AND {SCOPE}
+          ORDER BY e.id LIMIT ?""".format(SCOPE=_scope.sql("e")), (a.year_min, a.limit)).fetchall()
     else:
         rows = con.execute("""
           SELECT e.id, e.school, e.grade, e.subject, e.year, e.semester, e.round, 0
           FROM exams e
-          WHERE e.ocr_status='pending' AND e.src_ext='.pdf' AND e.year>=?
-          ORDER BY e.year DESC, e.id LIMIT ?""", (a.year_min, a.limit * 3)).fetchall()
+          WHERE e.ocr_status='pending' AND e.src_ext='.pdf'
+            AND e.year>=? AND {SCOPE}
+          ORDER BY e.year DESC, e.id LIMIT ?""".format(SCOPE=_scope.sql("e")), (a.year_min, a.limit * 3)).fetchall()
     con.close()
 
     out = []

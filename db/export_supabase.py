@@ -49,9 +49,15 @@ create table if not exists questions (
   solution      text,
   topic         text,
   difficulty    text,
+  -- printed=원본 인쇄 정답 / computed:high|medium|low=독립 2회 풀이 교차 일치.
+  -- 신뢰도가 다르므로 섞어 쓰지 말 것(문제 출제엔 printed 우선).
+  answer_source text,
   has_figure    boolean default false,
   unique (exam_id, number)
 );
+
+-- 이미 만든 테이블에도 뒤늦게 추가된 컬럼이 붙게(재실행 안전)
+alter table questions add column if not exists answer_source text;
 
 create index if not exists ix_exams_meta
   on exams (year, level, grade, semester, round, subject);

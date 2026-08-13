@@ -15,6 +15,8 @@ import fitz
 from PIL import Image
 
 BASE = pathlib.Path(__file__).parent
+sys.path.insert(0, str(BASE))
+import scope as _scope
 DB = BASE / "exam_index.db"
 PAGES = BASE / "pages"
 MAXW = 1100          # 판독용 폭 — 파일럿에서 이 크기로 전 페이지 정확 판독 확인
@@ -98,7 +100,8 @@ def main():
                if a.with_ref else "")
         rows = con.execute(f"""
           SELECT id,school,grade,subject,year,semester,round,src_path
-          FROM exams WHERE ocr_status='pending' AND src_ext='.pdf' {ref}
+          FROM exams WHERE ocr_status='pending' AND src_ext='.pdf'
+            AND {_scope.sql()} {ref}
           ORDER BY year DESC, id LIMIT ?""", (a.limit,)).fetchall()
     con.close()
 
