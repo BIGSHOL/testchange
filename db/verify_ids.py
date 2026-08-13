@@ -94,13 +94,25 @@ def row_of(con, eid: int):
                           FROM exams WHERE id=?""", (eid,)).fetchone()
 
 
+def norm_school(s: str | None) -> str:
+    """학교명 표기 흡수 — 시험지 인쇄는 정식명, 파일명은 축약이라 그냥 비교하면 다 어긋난다.
+
+    `사직여자고등학교` ≡ `사직여고`, `매천고등학교` ≡ `매천고`.
+    """
+    s = re.sub(r"\s+", "", s or "")
+    s = re.sub(r"등학교$", "", s)            # 고등학교→고, 중등학교→중
+    s = s.replace("학교", "")
+    s = s.replace("여자고", "여고").replace("여자중", "여중")
+    return s
+
+
 def agree(meta: dict, row) -> tuple[bool, str]:
     """비교는 **JSON 이 실제로 아는 항목만**. 제목에서 못 뽑은 값은 판정 근거가 아니다."""
     if row is None:
         return False, "DB 에 해당 id 없음"
     school, grade, subject, year, semester, rnd = row
     bad = []
-    if meta.get("school") and meta["school"] != school:
+    if meta.get("school") and norm_school(meta["school"]) != norm_school(school):
         bad.append(f"학교 {meta['school']}≠{school}")
     if meta.get("grade") and row[1] and int(meta["grade"]) != int(grade):
         bad.append(f"학년 {meta['grade']}≠{grade}")
@@ -138,7 +150,7 @@ def main():
     tags = _manifest_tags()
     files = sorted((p for p in SRC.glob("*.json") if not p.name.endswith(".answers.json")),
                    key=lambda p: int(p.stem))
-    ok, bad, weak = 0, [], 0
+    ok, shifted, mislabeled, weak = 0, [], [], 0
     for p in files:
         d = json.loads(p.read_text(encoding="utf-8"))
         meta = json_meta(d, int(p.stem), tags)
@@ -148,17 +160,27 @@ def main():
         elif "판정 근거 없음" in why:
             weak += 1
             print(f"  ?    {p.stem}  {why}")
-        else:
-            bad.append((p.stem, meta, why))
+        # ⚠️ 학교가 어긋나야 id 밀림이다. 학교는 맞는데 학년·학기만 다르면
+        #    **파일명(카탈로그) 오라벨**이지 매핑 사고가 아니다 — 이 둘을 뭉뚱그리면
+        #    멀쩡한 파이프라인을 멈춰 세운다(실제로 4건에 오진했다).
+        elif "학교 " in why or "DB 에 해당 id 없음" in why:
+            shifted.append((p.stem, meta, why))
             print(f"  X    {p.stem}  {why}")
+        else:
+            mislabeled.append((p.stem, meta, why))
+            print(f"  !    {p.stem}  {why}   (인쇄 기준 — 파일명 라벨 오류로 보임)")
 
-    print(f"\n대조 {len(files)}편 — 일치 {ok}, 불일치 {len(bad)}, 판정불가 {weak}")
-    if bad and a.remap:
+    print(f"\n대조 {len(files)}편 — 일치 {ok}, id 밀림 {len(shifted)},"
+          f" 라벨 불일치 {len(mislabeled)}, 판정불가 {weak}")
+    if (shifted or mislabeled) and a.remap:
         print("\n--- 올바른 id 후보 (변경하지 않음) ---")
-        for eid, meta, _ in bad:
+        for eid, meta, _ in shifted + mislabeled:
             for c in candidates(con, meta) or [("(후보 없음)",)]:
                 print(f"  {eid} → {c}")
-    if bad:
+    if mislabeled:
+        print("\n· 라벨 불일치 = 판독물은 제 자리에 있고 **카탈로그 메타가 틀린** 것이다."
+              " 시험지에 인쇄된 값이 근거이므로 exams 행을 고치면 된다(판독 재실행 불필요).")
+    if shifted:
         print("\n⚠️ id 가 밀렸다. 판독 JSON 을 이 인덱스로 그냥 쓰면 안 된다 —"
               " 스캔 범위를 원래대로 맞추거나(권장) 후보를 보고 파일명을 옮길 것.")
         sys.exit(1)
