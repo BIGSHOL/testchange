@@ -1,0 +1,245 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 16,
+   "score": 4.8,
+   "contents": [
+    {
+     "type": "text",
+     "value": "양수 "
+    },
+    {
+     "type": "equation",
+     "value": "a"
+    },
+    {
+     "type": "text",
+     "value": "에 대하여 이차함수 "
+    },
+    {
+     "type": "equation",
+     "value": "f(x) = x^{2} - ax"
+    },
+    {
+     "type": "text",
+     "value": "의 그래프와 직선 "
+    },
+    {
+     "type": "equation",
+     "value": "g(x) = \\frac{2}{a}x"
+    },
+    {
+     "type": "text",
+     "value": "가 두 점 O, A에서 만날 때, 이차함수 "
+    },
+    {
+     "type": "equation",
+     "value": "y = f(x)"
+    },
+    {
+     "type": "text",
+     "value": "의 그래프의 꼭짓점을 B, 선분 AB의 중점을 C라 하자. 이때, 점 C에서 "
+    },
+    {
+     "type": "equation",
+     "value": "y"
+    },
+    {
+     "type": "text",
+     "value": "축에 내린 수선의 발을 H라 하면 선분 CH의 길이의 최솟값은?"
+    },
+    {
+     "type": "figure",
+     "value": "이차함수 f(x)=x^2-ax의 그래프와 직선 g(x)=(2/a)x가 원점 O와 점 A에서 만난다. 포물선의 꼭짓점 B, 선분 AB의 중점 C, 점 C에서 y축에 내린 수선의 발 H(직각 표시).",
+     "bbox": [
+      0.1,
+      0.22,
+      0.8,
+      0.78
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{\\sqrt{2}}{3}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{\\sqrt{3}}{2}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\sqrt{2}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\sqrt{3}"
+      }
+     ]
+    }
+   ],
+   "answer": "⑤",
+   "topic": "절대부등식",
+   "difficulty": "상"
+  },
+  {
+   "number": 17,
+   "score": 6,
+   "label_type": "서답형",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서답형 1]"
+    },
+    {
+     "type": "text",
+     "value": " 전체집합 "
+    },
+    {
+     "type": "equation",
+     "value": "U"
+    },
+    {
+     "type": "text",
+     "value": "의 두 부분집합 "
+    },
+    {
+     "type": "equation",
+     "value": "A"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "B"
+    },
+    {
+     "type": "text",
+     "value": "에 대하여 "
+    },
+    {
+     "type": "equation",
+     "value": "n(U) = 50"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "n(A) = 22"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "n(A - B^{C}) = 5"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "n(A^{C} \\cap B^{C}) = 7"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "n(B)"
+    },
+    {
+     "type": "text",
+     "value": "의 값을 구하고 그 과정을 서술하시오."
+    }
+   ],
+   "choices": [],
+   "sub_questions": [],
+   "answer": "$26$",
+   "solution": "step1) $A - B^{C} = A \\cap B$이므로 $n(A \\cap B) = 5$이다.\nstep2) $A^{C} \\cap B^{C} = (A \\cup B)^{C}$이므로 $n(A \\cup B) = n(U) - n((A \\cup B)^{C}) = 50 - 7 = 43$이다.\nstep3) $n(A \\cup B) = n(A) + n(B) - n(A \\cap B)$에서 $43 = 22 + n(B) - 5$이다.\nstep4) 따라서 $n(B) = 26$이다.",
+   "topic": "유한집합의 원소의 개수",
+   "difficulty": "하"
+  },
+  {
+   "number": 18,
+   "score": 6,
+   "label_type": "서답형",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서답형 2]"
+    },
+    {
+     "type": "text",
+     "value": " 함수 "
+    },
+    {
+     "type": "equation",
+     "value": "f(x) = -x + 2"
+    },
+    {
+     "type": "text",
+     "value": "에 대하여"
+    },
+    {
+     "type": "equation_block",
+     "value": "f^{1} = f,\\ \\ f^{n+1} = f \\circ f^{n}\\ \\ (n은 자연수)"
+    },
+    {
+     "type": "text",
+     "value": "으로 정의할 때, "
+    },
+    {
+     "type": "equation",
+     "value": "f^{2025}(1) + f^{2026}(2)"
+    },
+    {
+     "type": "text",
+     "value": "의 값을 구하고 그 과정을 서술하시오."
+    }
+   ],
+   "choices": [],
+   "sub_questions": [],
+   "answer": "$3$",
+   "solution": "step1) $f^{2}(x) = f(f(x)) = -(-x+2)+2 = x$이므로 $f^{2}$는 항등함수이다.\nstep2) 따라서 자연수 $k$에 대하여 $f^{2k} (x) = x$, $f^{2k+1}(x) = f(x)$이다.\nstep3) $2025$는 홀수이므로 $f^{2025}(1) = f(1) = -1+2 = 1$이다.\nstep4) $2026$은 짝수이므로 $f^{2026}(2) = 2$이다.\nstep5) 따라서 $f^{2025}(1) + f^{2026}(2) = 1 + 2 = 3$이다.",
+   "topic": "합성함수",
+   "difficulty": "중"
+  }
+ ]
+}

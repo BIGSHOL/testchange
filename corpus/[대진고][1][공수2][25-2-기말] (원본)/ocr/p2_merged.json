@@ -1,0 +1,745 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 6,
+   "score": 4.2,
+   "contents": [
+    {
+     "type": "text",
+     "value": "두 집합 "
+    },
+    {
+     "type": "equation",
+     "value": "A = \\{x \\mid x^{2} - 4x - 5 \\leq 0\\}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "B = \\{x \\mid a+3 < x \\leq b-2\\}"
+    },
+    {
+     "type": "text",
+     "value": "에 대하여 "
+    },
+    {
+     "type": "equation",
+     "value": "A \\subset B"
+    },
+    {
+     "type": "text",
+     "value": "를 만족시키는 정수 "
+    },
+    {
+     "type": "equation",
+     "value": "a"
+    },
+    {
+     "type": "text",
+     "value": "의 최댓값을 "
+    },
+    {
+     "type": "equation",
+     "value": "M"
+    },
+    {
+     "type": "text",
+     "value": ", 정수 "
+    },
+    {
+     "type": "equation",
+     "value": "b"
+    },
+    {
+     "type": "text",
+     "value": "의 최솟값을 "
+    },
+    {
+     "type": "equation",
+     "value": "m"
+    },
+    {
+     "type": "text",
+     "value": "이라 할 때, "
+    },
+    {
+     "type": "equation",
+     "value": "M+m"
+    },
+    {
+     "type": "text",
+     "value": "의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5"
+      }
+     ]
+    }
+   ],
+   "answer": "②",
+   "topic": "집합 사이의 포함관계",
+   "difficulty": "중"
+  },
+  {
+   "number": 7,
+   "score": 4.4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "전체집합 "
+    },
+    {
+     "type": "equation",
+     "value": "U"
+    },
+    {
+     "type": "text",
+     "value": "의 세 부분집합 "
+    },
+    {
+     "type": "equation",
+     "value": "A"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "B"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "C"
+    },
+    {
+     "type": "text",
+     "value": "에 대하여 옳은 것만을 <보기>에서 있는 대로 고른 것은?"
+    },
+    {
+     "type": "text",
+     "value": "<보기> ㄱ. (A \\cap B) \\cup (A \\cap B^{C}) = A • ㄴ. (A-B)-C = A-(B \\cap C) • ㄷ. \\{A \\cap (A-B)^{C}\\} \\cup \\{(A \\cup B) \\cap B\\} = B"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄱ"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄴ"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄷ"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄱ, ㄷ"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄴ, ㄷ"
+      }
+     ]
+    }
+   ],
+   "answer": "④",
+   "topic": "집합의 연산법칙",
+   "difficulty": "중"
+  },
+  {
+   "number": 8,
+   "score": 4.4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "실수 "
+    },
+    {
+     "type": "equation",
+     "value": "x"
+    },
+    {
+     "type": "text",
+     "value": "에 대하여 두 조건 "
+    },
+    {
+     "type": "equation",
+     "value": "p"
+    },
+    {
+     "type": "text",
+     "value": "와 "
+    },
+    {
+     "type": "equation",
+     "value": "q"
+    },
+    {
+     "type": "text",
+     "value": "가 "
+    },
+    {
+     "type": "equation",
+     "value": "p : |x-1| \\leq 5"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "q : x^{2} - ax - 6a^{2} \\leq 0"
+    },
+    {
+     "type": "text",
+     "value": "일 때, 명제 "
+    },
+    {
+     "type": "equation",
+     "value": "p \\to q"
+    },
+    {
+     "type": "text",
+     "value": "의 역과 대우가 모두 참일 때 양수 "
+    },
+    {
+     "type": "equation",
+     "value": "a"
+    },
+    {
+     "type": "text",
+     "value": "의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5"
+      }
+     ]
+    }
+   ],
+   "answer": "②",
+   "topic": "명제의 역과 대우",
+   "difficulty": "중"
+  },
+  {
+   "number": 9,
+   "score": 4.4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "전체집합 "
+    },
+    {
+     "type": "equation",
+     "value": "U"
+    },
+    {
+     "type": "text",
+     "value": "에서 세 조건 "
+    },
+    {
+     "type": "equation",
+     "value": "p"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "q"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "r"
+    },
+    {
+     "type": "text",
+     "value": "의 진리집합을 각각 "
+    },
+    {
+     "type": "equation",
+     "value": "P"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "Q"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "R"
+    },
+    {
+     "type": "text",
+     "value": "이라 하자. "
+    },
+    {
+     "type": "equation",
+     "value": "p"
+    },
+    {
+     "type": "text",
+     "value": "는 ~"
+    },
+    {
+     "type": "equation",
+     "value": "q"
+    },
+    {
+     "type": "text",
+     "value": "이기 위한 충분조건이고, "
+    },
+    {
+     "type": "equation",
+     "value": "q"
+    },
+    {
+     "type": "text",
+     "value": "는 ~"
+    },
+    {
+     "type": "equation",
+     "value": "r"
+    },
+    {
+     "type": "text",
+     "value": "이기 위한 필요조건일 때, 옳지 않은 것은? (단, "
+    },
+    {
+     "type": "equation",
+     "value": "P"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "Q"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "R"
+    },
+    {
+     "type": "text",
+     "value": "은 모두 공집합이 아니다.)"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "P \\subset R"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "P \\subset Q^{C}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "R \\subset P^{C}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "Q^{C} \\subset R"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "P \\subset (R \\cap Q^{C})"
+      }
+     ]
+    }
+   ],
+   "answer": "③",
+   "topic": "충분조건과 필요조건",
+   "difficulty": "중"
+  },
+  {
+   "number": 10,
+   "score": 4.6,
+   "contents": [
+    {
+     "type": "text",
+     "value": "실수 전체의 집합 "
+    },
+    {
+     "type": "equation",
+     "value": "R"
+    },
+    {
+     "type": "text",
+     "value": "에 대하여 함수 "
+    },
+    {
+     "type": "equation",
+     "value": "f : R \\to R"
+    },
+    {
+     "type": "text",
+     "value": "는"
+    },
+    {
+     "type": "equation_block",
+     "value": "f(x) = \\begin{cases} \\frac{1}{4}x + 1 & (x \\geq 0) \\\\ 2x + k & (x < 0) \\end{cases}"
+    },
+    {
+     "type": "text",
+     "value": "이다. 함수 "
+    },
+    {
+     "type": "equation",
+     "value": "f"
+    },
+    {
+     "type": "text",
+     "value": "의 역함수 "
+    },
+    {
+     "type": "equation",
+     "value": "f^{-1}"
+    },
+    {
+     "type": "text",
+     "value": "가 존재할 때, 집합 "
+    },
+    {
+     "type": "equation",
+     "value": "\\{x \\mid \\{f(x)\\}^{2} = f(x)f^{-1}(x)\\}"
+    },
+    {
+     "type": "text",
+     "value": "의 모든 원소의 곱은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-\\frac{8}{3}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-\\frac{2}{3}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{2}{3}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{4}{3}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{8}{3}"
+      }
+     ]
+    }
+   ],
+   "answer": "③",
+   "topic": "역함수",
+   "difficulty": "상"
+  },
+  {
+   "number": 11,
+   "score": 4.6,
+   "contents": [
+    {
+     "type": "text",
+     "value": "두 함수 "
+    },
+    {
+     "type": "equation",
+     "value": "f(x) = \\frac{2x-1}{x+2}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "g(x) = \\frac{1}{x} + 1"
+    },
+    {
+     "type": "text",
+     "value": "에 대하여 함수 "
+    },
+    {
+     "type": "equation",
+     "value": "h(x)"
+    },
+    {
+     "type": "text",
+     "value": "가 "
+    },
+    {
+     "type": "equation",
+     "value": "x \\neq -2"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "x \\neq 0"
+    },
+    {
+     "type": "text",
+     "value": "인 실수 "
+    },
+    {
+     "type": "equation",
+     "value": "x"
+    },
+    {
+     "type": "text",
+     "value": "에 대하여 "
+    },
+    {
+     "type": "equation",
+     "value": "(h \\circ g)(x) = f(x)"
+    },
+    {
+     "type": "text",
+     "value": "를 만족시킬 때, "
+    },
+    {
+     "type": "equation",
+     "value": "((g \\circ h^{-1})^{-1} \\circ (h^{-1} \\circ g^{-1})^{-1})(2)"
+    },
+    {
+     "type": "text",
+     "value": "의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-4"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-5"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-6"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-7"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-8"
+      }
+     ]
+    }
+   ],
+   "answer": "⑤",
+   "topic": "합성함수",
+   "difficulty": "상"
+  }
+ ]
+}

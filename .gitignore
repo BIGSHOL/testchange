@@ -62,3 +62,6 @@ db/.checkpoint.json
 
 # 업로드 진행 캐시 — 어느 원격에 올렸는지는 PC 마다 다르다
 /db/.supabase_push.json
+
+# 세션 변환 산출물(.hwp/.hwpx) — 재생성 가능하므로 추적하지 않는다(재현 자산은 ocr/JSON·fig_svgs.py).
+corpus/**/out/

@@ -1,0 +1,397 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 12,
+   "score": 4.6,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림은 이차함수 "
+    },
+    {
+     "type": "equation",
+     "value": "y = f(x)"
+    },
+    {
+     "type": "text",
+     "value": "의 그래프이다. 방정식 "
+    },
+    {
+     "type": "equation",
+     "value": "(f \\circ f)(x) = 2"
+    },
+    {
+     "type": "text",
+     "value": "의 서로 다른 모든 실근의 합은?"
+    },
+    {
+     "type": "figure",
+     "value": "이차함수 y=f(x)의 그래프. 아래로 볼록한 포물선으로 x축과 x=1, x=5에서 만나고 꼭짓점은 (3, -2). 꼭짓점까지 x=3 세로 점선과 y=-2 가로 점선.",
+     "bbox": [
+      0.2,
+      0.12,
+      0.78,
+      0.62
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "6"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "10"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "12"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "16"
+      }
+     ]
+    }
+   ],
+   "answer": "④",
+   "topic": "합성함수",
+   "difficulty": "상"
+  },
+  {
+   "number": 13,
+   "score": 4.6,
+   "contents": [
+    {
+     "type": "text",
+     "value": "함수 "
+    },
+    {
+     "type": "equation",
+     "value": "y = \\sqrt{2x+4} + 3"
+    },
+    {
+     "type": "text",
+     "value": "의 역함수의 그래프와 직선 "
+    },
+    {
+     "type": "equation",
+     "value": "y = 2x + k"
+    },
+    {
+     "type": "text",
+     "value": "가 서로 다른 두 점에서 만나도록 하는 실수 "
+    },
+    {
+     "type": "equation",
+     "value": "k"
+    },
+    {
+     "type": "text",
+     "value": "의 최댓값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-10"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-8"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-6"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-4"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-2"
+      }
+     ]
+    }
+   ],
+   "answer": "②",
+   "topic": "무리함수",
+   "difficulty": "상"
+  },
+  {
+   "number": 14,
+   "score": 4.8,
+   "contents": [
+    {
+     "type": "text",
+     "value": "함수 "
+    },
+    {
+     "type": "equation",
+     "value": "f(x) = \\sqrt{ax+b} + c"
+    },
+    {
+     "type": "text",
+     "value": "의 그래프가 아래 그림과 같다."
+    },
+    {
+     "type": "figure",
+     "value": "무리함수 y=f(x)의 그래프. 왼쪽 위에서 오른쪽 아래로 내려오는 곡선이 제1사분면의 한 점에서 끝나며, 그 끝점에서 x축·y축으로 점선을 내림.",
+     "bbox": [
+      0.18,
+      0.12,
+      0.85,
+      0.6
+     ]
+    },
+    {
+     "type": "text",
+     "value": "이때, 함수 "
+    },
+    {
+     "type": "equation",
+     "value": "g(x) = -\\sqrt{bx+a} - c"
+    },
+    {
+     "type": "text",
+     "value": "에 대하여 옳은 것만을 <보기>에서 있는 대로 고른 것은?"
+    },
+    {
+     "type": "text",
+     "value": "<보기> ㄱ. 정의역은 \\left\\{ x \\mid x \\geq -\\frac{a}{b} \\right\\}이다. • ㄴ. 치역은 \\{y \\mid y \\leq -c\\}이다. • ㄷ. 함수 g(x)의 그래프는 오직 하나의 사분면을 지난다. • ㄹ. 두 집합 A = \\left\\{ (x,\\ y) \\mid y = mx,\\ \\frac{bc}{a} < m < 0 \\right\\}, B = \\{(x,\\ y) \\mid y = g(x)\\}에 대하여 A\\cap B = \\varnothing이다."
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄱ, ㄴ, ㄷ"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄱ, ㄴ, ㄹ"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄱ, ㄷ, ㄹ"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄴ, ㄷ, ㄹ"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄱ, ㄴ, ㄷ, ㄹ"
+      }
+     ]
+    }
+   ],
+   "answer": "①",
+   "topic": "무리함수",
+   "difficulty": "상"
+  },
+  {
+   "number": 15,
+   "score": 4.8,
+   "contents": [
+    {
+     "type": "text",
+     "value": "실수 전체의 집합 "
+    },
+    {
+     "type": "equation",
+     "value": "U"
+    },
+    {
+     "type": "text",
+     "value": "의 두 부분집합 "
+    },
+    {
+     "type": "equation",
+     "value": "A"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "B"
+    },
+    {
+     "type": "text",
+     "value": "에 대하여 "
+    },
+    {
+     "type": "equation",
+     "value": "n(A) = 5"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "B = \\left\\{ \\frac{x+k}{3} \\middle| x \\in A \\right\\}"
+    },
+    {
+     "type": "text",
+     "value": "이다. 두 집합 "
+    },
+    {
+     "type": "equation",
+     "value": "A"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "B"
+    },
+    {
+     "type": "text",
+     "value": "가 다음 조건을 모두 만족시킬 때, 상수 "
+    },
+    {
+     "type": "equation",
+     "value": "k"
+    },
+    {
+     "type": "text",
+     "value": "의 값은?"
+    },
+    {
+     "type": "text",
+     "value": "<상자> ○ A\\cap B = \\{8,\\ 11\\} • ○ 집합 A의 모든 원소의 합은 39이다. • ○ 집합 A\\cup B의 모든 원소의 합은 53이다."
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "12"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "13"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "14"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "20"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "24"
+      }
+     ]
+    }
+   ],
+   "answer": "①",
+   "topic": "유한집합의 원소의 개수",
+   "difficulty": "상"
+  }
+ ]
+}
