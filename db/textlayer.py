@@ -36,7 +36,7 @@ _T = {int(k, 16): v for k, v in
 FRAC_BAR = chr(0xE06D)
 CIRCLED = "①②③④⑤⑥⑦⑧⑨⑩"
 _QNUM = re.compile(r"^\s*(\d{1,2})\.\s")
-_SCORE = re.compile(r"\[\s*(?:총\s*)?(\d+(?:\.\d+)?)\s*점[^\]]*\]")
+_SCORE = re.compile(r"\[\s*(?:[총합]\s*)?(\d+(?:\.\d+)?)\s*점[^\]]*\]")
 _META = re.compile(r"\[(소단원|중단원|난이도)\]\s*([^\[\n]*)")
 
 
