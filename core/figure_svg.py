@@ -416,6 +416,63 @@ def sqrt_label(x, y, num="2", fs=15) -> str:
             f'<text x="{x + 0.62 * fs:.1f}" y="{y:.1f}" font-size="{fs}" {FONT}>{num}</text>')
 
 
+_VAR_SPLIT_RE = _re.compile(r"[A-Za-z]+|[^A-Za-z]+")
+
+
+def auto_runs(value) -> tuple[SVGTextRun, ...]:
+    """라틴 문자(변수)는 이탤릭, 숫자·기호는 정자로 쪼갠 텍스트 런.
+
+    그림 안 라벨도 본문 수식과 같은 조판 규칙을 따라야 한다 — 변수는 기울이고
+    숫자는 세운다(2026-08-18 대진고 q16 `g(x)=2/a` 의 분모 a 가 정자로 나가
+    사용자 지적). 한글·기호는 그대로 정자로 남는다.
+    """
+    text = str(value)
+    if not text:
+        raise ValueError("auto_runs: 빈 문자열은 허용하지 않음")
+    # 쪼개고 나면 조각('&' + 'lt' + ';')이 엔티티로 안 보여 런 단위 검사를 빠져나간다
+    # → 자르기 **전** 통째로 이중 escape 를 막는다.
+    _no_preescape(text, "auto_runs")
+    return tuple(SVGTextRun(m.group(0), italic=m.group(0).isalpha())
+                 for m in _VAR_SPLIT_RE.finditer(text))
+
+
+def runs_text(x, y, value, fs=13, anc="middle") -> str:
+    """auto_runs 조판(변수 이탤릭)으로 찍는 한 줄 텍스트."""
+    _finite(x, y, fs, what="runs_text")
+    if fs <= 0:
+        raise ValueError("runs_text: 글자 크기는 양수여야 함")
+    if anc not in {"start", "middle", "end"}:
+        raise ValueError("runs_text: text-anchor는 start/middle/end만 허용")
+    body = _text_runs_markup(auto_runs(value))
+    return (f'<text x="{x:.1f}" y="{y:.1f}" font-size="{fs}" {FONT} '
+            f'text-anchor="{anc}">{body}</text>')
+
+
+def frac_label(x, y, num, den, fs=13, w=None) -> str:
+    """작은 분수 라벨(1/2 · 2/a) — 가로줄 + 위/아래 항, (x, y)는 가로줄 중앙.
+
+    분자·분모의 **변수는 이탤릭, 숫자는 정자**(auto_runs). 시험지 스크립트마다
+    분수를 복붙해 만들면 같은 조판 버그가 재발하므로 여기 하나만 쓴다.
+    """
+    _finite(x, y, fs, what="frac_label")
+    if fs <= 0:
+        raise ValueError("frac_label: 글자 크기는 양수여야 함")
+    num_s, den_s = str(num), str(den)
+    if not num_s.strip() or not den_s.strip():
+        raise ValueError("frac_label: 분자와 분모는 비울 수 없음")
+    if w is None:
+        w = fs * 0.42 * max(len(num_s), len(den_s)) + 3
+    _finite(w, what="frac_label")
+    if w <= 0:
+        raise ValueError("frac_label: 가로줄 반폭은 양수여야 함")
+    return "\n".join([
+        runs_text(x, y - 3, num_s, fs),
+        f'<line x1="{x - w:.1f}" y1="{y:.1f}" x2="{x + w:.1f}" y2="{y:.1f}" '
+        f'stroke="#000" stroke-width="1.2"/>',
+        runs_text(x, y + fs, den_s, fs),
+    ])
+
+
 def halo_text(x, y, content=None, fs=12, anc="middle", runs=None) -> str:
     """흰 halo 라벨 — **선 밀집 지역의 모든 라벨은 이걸로**(왕선중 q11 x°/y° 매몰).
 

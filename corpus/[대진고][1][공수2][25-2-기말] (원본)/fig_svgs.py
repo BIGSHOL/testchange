@@ -21,9 +21,9 @@ ROOT = Path(__file__).resolve().parents[2]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 sys.stdout.reconfigure(encoding="utf-8")
-from core.figure_svg import (FONT, curve_path, dot, line, lint_svg,  # noqa: E402
-                             point_labels, rangle_at, txt, type_scale, unverified,
-                             verify_figure)
+from core.figure_svg import (FONT, curve_path, dot, frac_label, line,  # noqa: E402
+                             lint_svg, point_labels, rangle_at, txt, type_scale,
+                             unverified, verify_figure)
 
 OUT = os.environ.get(
     "FIG_SVG_OUT",
@@ -59,17 +59,6 @@ def axes(X0, X1, Y0, Y1, ox, oy, w=1.4):
         f'<line x1="{ox:.1f}" y1="{Y0:.1f}" x2="{ox:.1f}" y2="{Y1:.1f}" '
         f'stroke="#000" stroke-width="{w}"/>',
         _arrow((ox, Y1), 0, -1),
-    ])
-
-
-def frac(x, y, num, den, fs=13, w=None):
-    """작은 분수 라벨(1/2, 2/a) — 가로선 + 위/아래 숫자."""
-    w = w or fs * 0.42 * max(len(str(num)), len(str(den))) + 3
-    return "\n".join([
-        txt(x, y - 3, str(num), fs),
-        f'<line x1="{x - w:.1f}" y1="{y:.1f}" x2="{x + w:.1f}" y2="{y:.1f}" '
-        f'stroke="#000" stroke-width="1.2"/>',
-        txt(x, y + fs, str(den), fs),
     ])
 
 
@@ -115,7 +104,7 @@ S["q4"] = f'''<svg viewBox="0 0 {VX4} {VY4}" xmlns="http://www.w3.org/2000/svg">
 {dot(X4(0), Y4(1))}
 {txt(ox4 - 10, Y4(1) + 5, "1", FS4, anc="end")}
 {txt(ox4 - 10, Y4(-2) + 22, "-2", FS4, anc="end")}
-{frac(asym_x4 + 17, Y4(0) - 24, 1, 2, FS4 - 3)}
+{frac_label(asym_x4 + 17, Y4(0) - 24, 1, 2, FS4 - 3)}
 {txt(ox4 + 5, Y4(0) + 19, "O", FS4, anc="start")}
 {txt(X4(4.6) + 6, Y4(0) - 9, "x", FS4, it=True)}
 {txt(ox4 - 11, Y4(4.35) + 4, "y", FS4, it=True)}
@@ -126,8 +115,10 @@ S["q4"] = f'''<svg viewBox="0 0 {VX4} {VY4}" xmlns="http://www.w3.org/2000/svg">
 # f(x)=k(x-1)(x-5), 꼭짓점 f(3)=-2 → k(2)(-2)=-2 → k=1/2
 K12 = 0.5
 f12 = lambda x: K12 * (x - 1) * (x - 5)
-VX12, VY12 = 285, 215
-ox12, oy12, ux12, uy12 = 62.0, 128.0, 30.0, 22.0
+# ⚠️ 축 단위는 x·y 같게(등방). 가로 단위만 크게 잡으면 포물선이 눌려 원본보다
+#    납작·넓게 보인다(2026-08-18 사용자 지적 — 이전 30:22 은 x 가 1.36배였다).
+VX12, VY12 = 252, 227
+ox12, oy12, ux12, uy12 = 52.0, 141.0, 27.0, 27.0
 X12 = lambda x: ox12 + ux12 * x
 Y12 = lambda y: oy12 - uy12 * y
 FS12 = type_scale(VX12, VY12)
@@ -137,9 +128,9 @@ _check("q12-합", abs(sum(sorted({round(r, 6) for r in (
     3 + math.sqrt(2 * (2 + 3 + 2 * math.sqrt(2))), 3 - math.sqrt(2 * (2 + 3 + 2 * math.sqrt(2))),
     3 + math.sqrt(2 * (2 + 3 - 2 * math.sqrt(2))), 3 - math.sqrt(2 * (2 + 3 - 2 * math.sqrt(2))))})) - 12) < 1e-6,
        "(f∘f)(x)=2 의 네 실근 합이 12(=정답 ④)여야 한다")
-par12 = sample(f12, -0.62, 6.62, X12, Y12, ylim=(-2.6, 4.55))
+par12 = sample(f12, -0.75, 6.75, X12, Y12, ylim=(-2.6, 4.0))
 S["q12"] = f'''<svg viewBox="0 0 {VX12} {VY12}" xmlns="http://www.w3.org/2000/svg">
-{axes(X12(-0.95), X12(6.75), Y12(-2.75), Y12(4.6), ox12, oy12)}
+{axes(X12(-0.95), X12(6.6), Y12(-2.75), Y12(4.1), ox12, oy12)}
 {curve_path(par12)}
 <line x1="{X12(3):.1f}" y1="{Y12(0):.1f}" x2="{X12(3):.1f}" y2="{Y12(-2):.1f}" stroke="#000" stroke-width="1.2" stroke-dasharray="5 4"/>
 <line x1="{X12(0):.1f}" y1="{Y12(-2):.1f}" x2="{X12(3):.1f}" y2="{Y12(-2):.1f}" stroke="#000" stroke-width="1.2" stroke-dasharray="5 4"/>
@@ -148,9 +139,9 @@ S["q12"] = f'''<svg viewBox="0 0 {VX12} {VY12}" xmlns="http://www.w3.org/2000/sv
 {txt(X12(3), Y12(0) - 9, "3", FS12)}
 {txt(ox12 - 10, Y12(-2) + 6, "-2", FS12, anc="end")}
 {txt(ox12 - 8, Y12(0) + 20, "O", FS12, anc="end")}
-{txt(X12(6.75) + 5, Y12(0) - 9, "x", FS12, it=True)}
-{txt(ox12 - 11, Y12(4.6) + 4, "y", FS12, it=True)}
-{txt(X12(6.15), Y12(3.75), "y = f(x)", FS12, it=True, anc="end")}
+{txt(X12(6.6) + 5, Y12(0) - 9, "x", FS12, it=True)}
+{txt(ox12 + 9, Y12(4.1) + 6, "y", FS12, it=True)}
+{txt(X12(5.9), Y12(3.5), "y = f(x)", FS12, it=True, anc="end")}
 </svg>'''
 
 # ── q14: 무리함수 √(ax+b)+c (a<0, b>0, c>0) ───────────────────────
@@ -187,8 +178,10 @@ PA = (ax16, g16(ax16))
 PB = (A16 / 2.0, f16(A16 / 2.0))            # 꼭짓점
 PC = ((PA[0] + PB[0]) / 2.0, (PA[1] + PB[1]) / 2.0)
 PH = (0.0, PC[1])                           # C 에서 y축에 내린 수선의 발
-VX16, VY16 = 345, 240
-ox16, oy16, ux16, uy16 = 118.0, 186.0, 58.0, 30.0
+# ⚠️ 등방 단위(ux==uy) — 이전 58:30 은 가로가 1.9배라 포물선이 눌리고 직선
+#    g 의 기울기도 실제(56°)보다 훨씬 완만하게 보였다(2026-08-18 사용자 지적).
+VX16, VY16 = 268, 292
+ox16, oy16, ux16, uy16 = 100.0, 229.0, 42.0, 42.0
 X16 = lambda x: ox16 + ux16 * x
 Y16 = lambda y: oy16 - uy16 * y
 FS16 = type_scale(VX16, VY16)
@@ -208,27 +201,27 @@ verify_figure("q16",
 par16 = sample(f16, -1.60, 3.00, X16, Y16, ylim=(-1.05, 4.05))
 lin16 = sample(g16, -0.85, 2.95, X16, Y16, ylim=(-1.15, 4.35))
 S["q16"] = f'''<svg viewBox="0 0 {VX16} {VY16}" xmlns="http://www.w3.org/2000/svg">
-{axes(X16(-1.95), X16(3.42), Y16(-1.35), Y16(4.55), ox16, oy16)}
+{axes(X16(-1.70), X16(3.30), Y16(-1.30), Y16(4.55), ox16, oy16)}
 {curve_path(par16)}
 {curve_path(lin16, w=1.6)}
 {line(P(PA), P(PB), 1.6)}
 <line x1="{P(PH)[0]:.1f}" y1="{P(PH)[1]:.1f}" x2="{P(PC)[0]:.1f}" y2="{P(PC)[1]:.1f}" stroke="#000" stroke-width="1.2" stroke-dasharray="4 3"/>
 {rangle_at(*P(PH), P(PC), (P(PH)[0], P(PH)[1] - 30), 9)}
 {dot(*P(PA), 2.6)}{dot(*P(PB), 2.6)}{dot(*P(PC), 2.6)}
-{txt(P(PC)[0] + 12, P(PC)[1] + 14, "C", FS16)}
-{point_labels([(*P(PA), "A"), (*P(PB), "B"), (*P(PH), "H"),
-               (X16(0), Y16(0), "O")],
+{txt(P(PC)[0] + 9, P(PC)[1] + 9, "C", FS16 - 4)}
+{point_labels([(*P(PA), "A"), (*P(PB), "B"), (*P(PH), "H")],
               avoid=[(P(PA), P(PB)), (P(PH), P(PC)),
-                     ((X16(-1.95), Y16(0)), (X16(3.42), Y16(0))),
-                     ((ox16, Y16(-1.35)), (ox16, Y16(4.55)))],
-              curves=[par16, lin16], fs=FS16, gap=12.0,
-              occupied=[(P(PC)[0] + 4, P(PC)[1] + 2, P(PC)[0] + 21, P(PC)[1] + 17)])}
-{txt(6, 30, "f(x) = x² - ax", FS16 - 2, it=True, anc="start")}
-{txt(232, 30, "g(x) =", FS16 - 2, it=True, anc="start")}
-{frac(232 + (FS16 - 2) * 3.5, 26, 2, "a", FS16 - 5)}
-{txt(232 + (FS16 - 2) * 4.3, 30, "x", FS16 - 2, it=True, anc="start")}
-{txt(X16(3.42) + 6, Y16(0) - 9, "x", FS16, it=True)}
-{txt(ox16 - 11, Y16(4.55) + 4, "y", FS16, it=True)}
+                     ((X16(-1.70), Y16(0)), (X16(3.30), Y16(0))),
+                     ((ox16, Y16(-1.30)), (ox16, Y16(4.55)))],
+              curves=[par16, lin16], fs=FS16 - 4, gap=9.5,
+              occupied=[(P(PC)[0] + 2, P(PC)[1] - 3, P(PC)[0] + 17, P(PC)[1] + 12)])}
+{txt(4, 26, "f(x) = x² - ax", FS16 - 4, it=True, anc="start")}
+{txt(150, 26, "g(x) =", FS16 - 4, it=True, anc="start")}
+{frac_label(150 + (FS16 - 4) * 3.3, 22, 2, "a", FS16 - 6)}
+{txt(150 + (FS16 - 4) * 4.1, 26, "x", FS16 - 4, it=True, anc="start")}
+{txt(ox16 - 16, Y16(0) + 20, "O", FS16 - 4, anc="end")}
+{txt(X16(3.30) + 6, Y16(0) - 9, "x", FS16, it=True)}
+{txt(ox16 + 9, Y16(4.55) + 6, "y", FS16, it=True)}
 </svg>'''
 
 

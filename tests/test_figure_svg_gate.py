@@ -16,8 +16,9 @@ import unittest
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from core.figure_svg import (  # noqa: E402
-    SVGTextRun, angle_mark, arc_measured, arc_tick, bisect_pt, circle_pt,
-    dim_label, eq_angle, halo_angle, halo_text, txt, unverified, verify_figure,
+    SVGTextRun, angle_mark, arc_measured, arc_tick, auto_runs, bisect_pt,
+    circle_pt, dim_label, eq_angle, frac_label, halo_angle, halo_text, txt,
+    unverified, verify_figure,
 )
 
 
@@ -176,6 +177,44 @@ class AngleAndArcMarkTest(unittest.TestCase):
 
     def test_circle_pt_matches_bisect_convention(self):
         self.assertAlmostEqual(circle_pt(0, 0, 90, 10)[1], -10.0, places=6)
+
+
+class FractionLabelTest(unittest.TestCase):
+    """그림 안 분수도 본문 수식과 같은 조판 — 변수는 이탤릭, 숫자는 정자.
+
+    2026-08-18 대진고 q16 `g(x) = 2/a` 의 분모 a 가 정자로 나갔다(사용자 지적).
+    시험지 스크립트마다 분수를 복붙하면 같은 버그가 재발하므로 엔진 헬퍼로 잠근다.
+    """
+
+    def test_variable_denominator_is_italic(self):
+        out = frac_label(100, 50, 2, "a", 12)
+        self.assertIn('<tspan font-style="italic">a</tspan>', out)
+
+    def test_numeric_parts_stay_upright(self):
+        out = frac_label(100, 50, 1, 2, 10)
+        self.assertNotIn("italic", out)
+
+    def test_mixed_expression_splits_letters_only(self):
+        runs = auto_runs("n+1")
+        self.assertEqual([(r.text, r.italic) for r in runs], [("n", True), ("+1", False)])
+
+    def test_bar_is_centred_on_the_anchor(self):
+        out = frac_label(100, 50, 2, "a", 12)
+        line = [ln for ln in out.splitlines() if "<line" in ln][0]
+        x1 = float(line.split('x1="', 1)[1].split('"', 1)[0])
+        x2 = float(line.split('x2="', 1)[1].split('"', 1)[0])
+        self.assertAlmostEqual((x1 + x2) / 2, 100.0, places=6)
+        self.assertGreater(x2 - x1, 0)
+
+    def test_empty_part_is_rejected(self):
+        with self.assertRaises(ValueError):
+            frac_label(0, 0, "", "a")
+        with self.assertRaises(ValueError):
+            frac_label(0, 0, 2, "  ")
+
+    def test_pre_escaped_text_is_rejected(self):
+        with self.assertRaises(ValueError):
+            frac_label(0, 0, "&lt;", "a")
 
 
 if __name__ == "__main__":

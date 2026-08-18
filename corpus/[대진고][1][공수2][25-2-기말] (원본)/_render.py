@@ -29,7 +29,7 @@ from core.form_registry import parse_filename, resolve_form  # noqa: E402
 from core.hwp_form_writer import write_exam_to_form          # noqa: E402
 
 # 문항번호 → (그림 키, 삽입 폭 mm). 폼 단 너비는 B4 기준 약 104mm.
-FIG_MAP = {4: ("q4", 60.0), 12: ("q12", 58.0), 14: ("q14", 60.0), 16: ("q16", 72.0)}
+FIG_MAP = {4: ("q4", 60.0), 12: ("q12", 54.0), 14: ("q14", 60.0), 16: ("q16", 60.0)}
 PNG_DIR = Path(tempfile.gettempdir()) / "exam_figure_svg" / "daejin_gs2_final"
 
 
