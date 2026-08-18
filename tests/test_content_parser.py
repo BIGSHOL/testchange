@@ -2,6 +2,7 @@
 #   python tests/test_content_parser.py
 #
 # 현재 커버: 한글↔숫자 띄어쓰기(_space_hangul_before_eq) + 서수 접두사 '제' 예외.
+import re
 import sys
 from pathlib import Path
 
@@ -1365,6 +1366,34 @@ def run():
     if "\mathrm" in _cg2v:
         fails.append(f"  HG2 확통/원소 오로만화: {_cg2v!r}")
 
+    # SO1 ``$`` 분리 뒤 **맨 세그먼트도 인라인 수식 분리에 재투입**(2026-08-18 사용자 지적).
+    #     대진고 공수2 서답형4 해설 ``삼각형 OAB의 넓이는`` 의 OAB 가 본문에선 수식 객체인데
+    #     해설에선 평문으로 남았다 — ``$`` 분기가 **백슬래시가 있는 세그먼트만** 재투입해서다
+    #     (``__밑줄__`` 분기가 수식 추출을 억제하던 월서중 #14 와 같은 계열의 구멍).
+    from core.content_parser import _parse_markdown_lines as _pml
+    _so = _pml("step2) 점 $\\mathrm{B}(27, 9)$ 도 곡선 위의 점이고, 삼각형 OAB의 넓이는 $S=1$이다.")
+    _so_blocks = [b for line in _so for b in line]
+    _so_eqs = [b.value for b in _so_blocks if b.type is not ContentType.TEXT]
+    if "\\mathrm{OAB}" not in _so_eqs:
+        fails.append(f"  SO1 해설 기하 이름 수식 객체화 실패: {_so_eqs!r}")
+    if "\\mathrm{step}2)" not in _so_eqs:
+        fails.append(f"  SO1 해설 step 라벨 회귀: {_so_eqs!r}")
+    # 본문(같은 문장)도 같은 표기여야 한다 — 해설/본문 일치가 이 수정의 목적.
+    _sob = _parse_q("점 $\\mathrm{B}(27, 9)$ 를 꼭짓점으로 하는 삼각형 OAB의 넓이는?")
+    _sobv = [b.value for b in _sob.contents if b.type is not ContentType.TEXT]
+    if "\\mathrm{OAB}" not in _sobv:
+        fails.append(f"  SO1 본문 기하 이름 수식 객체화 실패: {_sobv!r}")
+    # 원의 중심 라벨 ``중심 O`` 도 도형이라 로만(단독 '중심'은 키워드가 아니지만 뒤에 대문자).
+    _soc = _pml("step2) 중심 O에서 현에 내린 수선의 길이는 $9$이다.")
+    _socv = [b.value for b in (_soc[0] if _soc else []) if b.type is not ContentType.TEXT]
+    if "\\mathrm{O}" not in _socv:
+        fails.append(f"  SO1 중심 O 로만 실패: {_socv!r}")
+    # 비기하 문맥의 단일 대문자는 이탤릭 유지(A반·B반 — 학남고 사건 A 선례).
+    _son = _pml("step1) A반 학생 수를 $a$라 하면")
+    _sonv = [b.value for b in (_son[0] if _son else []) if b.type is not ContentType.TEXT]
+    if "\\mathrm{A}" in _sonv:
+        fails.append(f"  SO1 비기하 A 오로만화: {_sonv!r}")
+
     # KB1 소문항을 그대로 되풀이하는 박스 제거(강북고 공수2 #8, 2026-08-12).
     #     원본엔 박스가 없는데 OCR 이 (물음1)/(물음2)를 <상자> 로 인코딩 + 두 번째 박스가
     #     발문 후반부까지 삼켜, 같은 문장이 박스와 소문항에 **두 번** 인쇄되고 발문이 끊겼다.
@@ -1388,11 +1417,14 @@ def run():
         ],
     })
     _kbv = "".join((b.value or "") for b in _kb.contents)
+    # 점 이름은 수식 객체(``\mathrm{A}``)라 리터럴 비교 전에 로만 랩을 벗긴다
+    # (2026-08-18 ``$`` 분리 세그먼트 재투입으로 A 가 로만 수식이 됨).
+    _kbv_plain = re.sub(r"\\mathrm\{([^{}]*)\}", r"\1", _kbv)
     if "상자" in _kbv:
         fails.append(f"  KB1 소문항 중복 박스가 남음: {_kbv[:120]!r}")
     if "둘레의 길이에 대한" in _kbv:
         fails.append(f"  KB1 소문항 문장이 발문에 중복: {_kbv[:120]!r}")
-    if "축의 교점 중 하나를 A라고 하자" not in _kbv:
+    if "축의 교점 중 하나를 A라고 하자" not in _kbv_plain:
         fails.append(f"  KB1 박스가 삼킨 발문 후반부가 복원 안 됨: {_kbv[:160]!r}")
     if len(_kb.sub_questions) != 2:
         fails.append(f"  KB1 소문항이 사라짐: {len(_kb.sub_questions)}")

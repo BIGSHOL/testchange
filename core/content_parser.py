@@ -721,13 +721,17 @@ def _parse_content_block(block_data: dict) -> ContentBlock | None:
     # literal 누수, 2026-06-26). ``$``-분리 후 **남은 TEXT 세그먼트에 LaTeX 명령(``\``)이 있으면
     # 재투입**해 나머지 파이프라인(``\``·혼합수식 분리)을 마저 태운다(``__`` 밑줄 경로와 동일).
     # 재투입 TEXT 는 ``$`` 가 소비돼 이 분기로 되돌지 않으므로 무한재귀 없음.
+    # ⭐ 재투입 조건에서 "백슬래시가 있을 때만"을 뺐다(2026-08-18 사용자 지적) — ``$`` 없는
+    # 맨 세그먼트의 **ASCII 수식**(기하 이름 ``삼각형 OAB의``·숫자)이 통째 평문으로 남아,
+    # 같은 문장이 본문에선 수식 객체인데 해설에선 평문인 불일치가 났다(대진고 공수2 서답형4
+    # step2 ``삼각형 OAB의 넓이는``). 본문 raw 경로는 이미 혼합수식 분리를 태운다 —
+    # ``__밑줄__`` 분기가 수식 추출을 억제하던 것(월서중 #14)과 같은 계열의 구멍.
     if content_type == ContentType.TEXT and "$" in value:
         split = _split_inline_latex(value)
         if len(split) > 1:
             out: list[ContentBlock] = []
             for sb in split:
-                if (sb.type == ContentType.TEXT
-                        and "\\" in (sb.value or "")
+                if (sb.type == ContentType.TEXT and not sb.underline
                         and "$" not in (sb.value or "")):
                     sub = _parse_content_block({"type": "text", "value": sb.value})
                     if sub is None:
@@ -853,7 +857,11 @@ _NONGEO_DECOY = (
 
 # 원 이름 패턴(``원 O``·``원 O'``·``원 O에서``) — 기하 문맥 판정 보조. "원소"·"원점" 등은
 # 뒤가 한글이라 미매치, "원 O" 처럼 **대문자 라벨**이 붙을 때만 도형으로 본다.
-_CIRCLE_NAME_RE = re.compile(r"원\s*(?:\\math(?:rm|it)\{)?[A-Z]'?(?![a-zA-Z])")
+# ``중심 O`` 도 같은 원리로 도형(원의 중심)이다 — 단독 "중심"은 정규분포 '평균을 중심으로'
+# 충돌로 키워드에서 뺐지만, **뒤에 바로 대문자 라벨**이 오면 충돌하지 않는다('중심으로'·
+# '중심이'는 뒤가 한글이라 미매치). 오성중 #1 해설 ``중심 O에서 현에 내린 수선`` 의 O 가
+# 이탤릭으로 남던 것(2026-08-18).
+_CIRCLE_NAME_RE = re.compile(r"(?:원|중심)\s*(?:\\math(?:rm|it)\{)?[A-Z]'?(?![a-zA-Z])")
 
 
 def _has_geometry_context(blocks: list[ContentBlock]) -> bool:
