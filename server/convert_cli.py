@@ -36,12 +36,19 @@ try:
 except Exception:
     pass
 
+# ⭐ 도우미는 로컬 ``config.json`` 을 만들지 않는다 — 여기서 읽는 설정은 EQ_WATERMARK
+# 하나뿐이고 키·모델은 전부 서버(Vercel env)에 있다. ``utils.config`` 는 파일이 없으면
+# 기본값 27개를 써 놓아 "API 키를 넣어야 할 것처럼 보이는" 파일이 생긴다(2026-08-20).
+# ⚠️ core/utils import 전에 세울 것(utils.config 는 import 시점에 파일을 읽는다).
+os.environ.setdefault("MATHGEN_CONFIG_READONLY", "1")
+
 ENGINE_ROOT = Path(__file__).resolve().parent.parent
 if str(ENGINE_ROOT) not in sys.path:
     sys.path.insert(0, str(ENGINE_ROOT))
 
 
-def resolve_figures(envelope: dict, fig_dir: "Path | None" = None) -> int:
+def resolve_figures(envelope: dict, fig_dir: "Path | None" = None,
+                    stats: "dict | None" = None) -> int:
     """OCR JSON 의 ``figure`` 블록 → 그림자리 안내 텍스트(엔진 워커와 동일).
 
     ⭐⭐ **이 단계가 없으면 그림이 흔적도 없이 사라진다.** `content_parser` 는
@@ -64,6 +71,11 @@ def resolve_figures(envelope: dict, fig_dir: "Path | None" = None) -> int:
 
     n = 0
     drawn = 0
+    # 작도가 **어느 경로로** 성공했는지 — 사용자 로그와 진단에 그대로 실린다
+    # (사용자 2026-08-20: "로그에 도형 엔진으로 그림 그린다는 로그도 추가").
+    tally = stats if stats is not None else {}
+    for _k in ("spec", "svg", "crop", "note", "rejected"):
+        tally.setdefault(_k, 0)
 
     def _to_png(b: dict):
         """figure 블록 → PNG 경로(없으면 None). **구조화 스펙 → SVG → 원본 크롭** 순.
@@ -111,10 +123,18 @@ def resolve_figures(envelope: dict, fig_dir: "Path | None" = None) -> int:
                         out_png = fig_dir / f"fig{idx}.png"
                         out_png.write_bytes(png)
                         drawn += 1
+                        _how = "스펙 컴파일" if (spec and not err) else "SVG"
+                        tally["spec" if (spec and not err) else "svg"] += 1
+                        sys.stderr.write(
+                            f"[convert] 도형 엔진 작도 — fig{idx} ({_how}, "
+                            f"{len(png):,}B)\n")
                         return str(out_png)
+                tally["rejected"] += 1
+                _why = ((res.security_issues or []) + (res.issues or [])
+                        or ["SVG→PNG 래스터화 실패(resvg 없음/변환 실패)"])
                 sys.stderr.write(
-                    "[convert] 도형 SVG 게이트 탈락 — 원본 크롭으로 폴백 "
-                    + str((res.security_issues or []) + (res.issues or []))[:160] + "\n")
+                    "[convert] 도형 작도 실패 — 원본 크롭으로 폴백 "
+                    + str(_why)[:160] + "\n")
             except Exception as e:  # noqa: BLE001 — 그림 실패가 변환을 막지 않는다
                 sys.stderr.write(f"[convert] 도형 SVG 실패: {type(e).__name__}: {e}\n")
         crop = b.get("crop") or b.get("image")
@@ -124,6 +144,8 @@ def resolve_figures(envelope: dict, fig_dir: "Path | None" = None) -> int:
                 out_png = fig_dir / f"fig{idx}_crop.png"
                 out_png.write_bytes(base64.b64decode(raw))
                 drawn += 1
+                tally["crop"] += 1
+                sys.stderr.write(f"[convert] 그림 원본 크롭 삽입 — fig{idx}_crop\n")
                 return str(out_png)
             except Exception as e:  # noqa: BLE001
                 sys.stderr.write(f"[convert] 그림 크롭 저장 실패: {e}\n")
@@ -142,6 +164,7 @@ def resolve_figures(envelope: dict, fig_dir: "Path | None" = None) -> int:
                 else:
                     out.append({"type": "text", "value": _FIGURE_NOTE_TEXT})
                     n += 1
+                    tally["note"] += 1
             else:
                 out.append(b)
         return out
@@ -271,9 +294,17 @@ def _render_engine_envelope(payload: dict, out_path: Path) -> Path:
         # 렌더가 끝날 때까지 파일이 살아 있어야 하므로 **프로세스 종료 시** 지운다
         # (convert_cli 는 변환 1건짜리 단명 자식 프로세스다).
         atexit.register(shutil.rmtree, str(fig_dir), True)
-    n_fig = resolve_figures(envelope, fig_dir)
+    fig_stats: dict = {}
+    n_fig = resolve_figures(envelope, fig_dir, fig_stats)
     n_drawn = len(list(fig_dir.glob("*.png"))) if fig_dir else 0
     if draw_figures:
+        _drawn = fig_stats.get("spec", 0) + fig_stats.get("svg", 0)
+        sys.stderr.write(
+            f"[convert] 도형 엔진 — 작도 {_drawn}개"
+            f"(스펙 {fig_stats.get('spec', 0)} · SVG {fig_stats.get('svg', 0)})"
+            f" · 원본 크롭 {fig_stats.get('crop', 0)}개"
+            f" · 안내문구 {fig_stats.get('note', 0)}개"
+            f" · 게이트 반려 {fig_stats.get('rejected', 0)}건\n")
         sys.stderr.write(f"[convert] 그림 렌더 — 삽입 {n_drawn}개 · 안내문구 {n_fig}개\n")
     page = parse_ocr_response(envelope, page_number=1)
     document = build_document([page])
@@ -307,6 +338,7 @@ def _render_engine_envelope(payload: dict, out_path: Path) -> Path:
                     "filename": filename,
                     "header_values": bool(header_values),
                     "figure_notes": n_fig,
+                    "figures": fig_stats,
                     "answer_key_dropped": len(_dropped_key),
                 }, ensure_ascii=False),
                 encoding="utf-8")

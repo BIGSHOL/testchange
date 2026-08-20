@@ -220,7 +220,7 @@ def test_web_figures_note_only() -> None:
     from server.convert_cli import resolve_figures, wants_figures
     src = (ROOT / "server" / "convert_cli.py").read_text(encoding="utf-8")
     check("파서 전에 figure 해소(resolve_figures) 호출",
-          src.index("resolve_figures(envelope, fig_dir)") < src.index("parse_ocr_response("))
+          src.index("resolve_figures(envelope, fig_dir, fig_stats)") < src.index("parse_ocr_response("))
     check("그림 렌더는 실제 삽입 수에 연동(render_figures=bool(n_drawn))",
           "render_figures=bool(n_drawn)" in src)
     con = (ROOT / "server" / "connector.py").read_text(encoding="utf-8")
@@ -285,6 +285,29 @@ def test_web_figures_note_only() -> None:
     check("그림 ③ 작도 없음 → 원본 크롭", t == "image" and n == 0 and ok)
     t, n, _ = _one({"type": "figure", "value": "그림"})
     check("그림 ④ 아무것도 없음 → 안내문구", t == "text" and n == 1)
+
+    # ⭐⭐ 실사고 재현(대륜고 공수2, 2026-08-20): 클라이언트가 **작도가 있으면 크롭을
+    # 생략**했는데, 커넥터 게이트가 그 작도를 반려하자 폴백이 하나도 남지 않아 멀쩡한
+    # 그래프가 안내문구로 떨어졌다. 이제 크롭은 항상 함께 오고, 게이트가 반려해도
+    # 원본 그림이 들어간다 — "그림을 잃는" 경로가 없어야 한다.
+    broken_svg = ('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10">'
+                  '<script>x</script></svg>')
+    t, n, ok = _one({"type": "figure", "value": "그래프", "svg": broken_svg,
+                     "crop": "data:image/png;base64,"
+                             + base64.b64encode(tiny_png).decode()})
+    check("그림 ⑤ SVG 반려 + 크롭 동봉 → 안내문구 아님(원본 그림)",
+          t == "image" and n == 0 and ok)
+
+    # 집계는 사용자 로그·진단으로 그대로 나간다(사용자 2026-08-20 요구).
+    import tempfile as _tf2
+    _d = _P(_tf2.mkdtemp(prefix="figtally_"))
+    _env = {"questions": [{"number": 1, "contents": [
+        {"type": "figure", "value": "원", "spec": spec},
+        {"type": "figure", "value": "없음"}]}]}
+    _st: dict = {}
+    resolve_figures(_env, _d, _st)
+    check("작도/안내문구 집계가 stats 로 나온다",
+          _st.get("spec", 0) + _st.get("svg", 0) == 1 and _st.get("note") == 1, str(_st))
 
 
 def test_output_fallback() -> None:

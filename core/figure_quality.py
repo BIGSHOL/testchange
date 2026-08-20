@@ -704,9 +704,17 @@ def _looks_like_background_rect(element: ET.Element, view_width: float,
     except ValueError:
         return False
     fill = element.attrib.get("fill", "black").strip().lower()
+    # ⭐ 캔버스 전체를 덮는 rect 는 **배경**이다 — 흰색으로 칠했든, 아무것도 안 칠했든.
+    #
+    # 실사고(대륜고 공수2 웹 변환 2026-08-20): 모델이 습관적으로 넣은
+    # ``<rect width="400" height="280" fill="none"/>`` 하나가 "보이는 채움도 선도 없다"
+    # 로 걸려 **멀쩡한 무리함수 그래프가 통째 반려**됐고, 그림 자리에 안내문구가 나갔다.
+    # 전면 rect 는 특정 도형을 흉내 낼 수 없어(모든 걸 덮는다) '숨긴 내용' 위협모델과
+    # 무관하다 — 반면 **부분** 크기의 안 보이는 도형은 계속 차단해야 한다(선 없는
+    # 사각형 = 원본에 있던 테두리가 빠진 것 → 크롭 폴백이 맞다).
     return (
         x == 0 and y == 0 and width == view_width and height == view_height
-        and fill in {"white", "#fff", "#ffffff"}
+        and fill in {"white", "#fff", "#ffffff", "none", "transparent"}
     )
 
 

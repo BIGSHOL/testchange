@@ -37,6 +37,14 @@ try:
 except Exception:
     pass
 
+# ⭐ 도우미는 로컬 ``config.json`` 을 만들지 않는다 — 키·모델·QC 설정은 전부 서버
+# (Vercel env)에 있고 여기서 실제로 읽는 값은 EQ_WATERMARK 하나뿐이다. 그런데도
+# ``utils.config`` 가 파일이 없으면 기본값 27개를 써 놓아, "여기에 API 키를 넣어야
+# 할 것처럼 보이는" 파일이 도우미 폴더·배포 zip 에 생겼다(2026-08-20 사용자 지적).
+# ⚠️ **core/utils 를 import 하기 전에** 세워야 한다(utils.config 는 import 시점에
+# 파일을 읽는다). 환경변수라 커넥터가 띄우는 자식 워커까지 자동으로 따라온다.
+os.environ.setdefault("MATHGEN_CONFIG_READONLY", "1")
+
 ENGINE_ROOT = Path(__file__).resolve().parent.parent
 # ⚠️ 도우미를 다시 배포할 때마다 올린다 — `/health` 의 version 이 **사용자 PC 에서
 # 어느 빌드가 도는지 확인하는 유일한 수단**이다(exe 를 갈아끼웠는지 원격에서 알 길이

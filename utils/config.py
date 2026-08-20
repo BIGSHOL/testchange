@@ -12,6 +12,26 @@ else:
 # ─── config.json 로드 ───────────────────────────────────────
 CONFIG_PATH = PROJECT_ROOT / "config.json"
 
+# ⭐ **읽기 전용 모드** — 파일이 없어도 만들지 않고, 저장 요청도 무시한다.
+#
+# 왜: 웹 도우미(agent.exe / 커넥터)는 이 파일의 값을 **하나만** 쓴다(EQ_WATERMARK).
+# 키·모델·QC 임계값·DeepSeek 설정은 전부 **서버(Vercel env)** 에 있고 도우미는 OCR·해설을
+# 하지 않는다. 그런데도 `_load_config` 가 파일이 없으면 기본값 27개를 통째로 써 놓아,
+# 도우미 폴더에 "여기에 API 키를 넣어야 할 것처럼 보이는" config.json 이 생기고 배포
+# zip 에까지 섞였다(2026-08-20 사용자 지적). 더 나쁜 경우: 빌드 폴더에 **진짜 키가 든**
+# config.json 이 있으면 그대로 남에게 배포된다.
+#
+# GUI exe 는 반대다 — 사용자가 "프로그램 폴더의 config.json 에 키를 넣으세요" 안내를
+# 받으므로 최초 실행에서 파일이 생겨야 한다. 그래서 기본은 종전대로 두고, **도우미
+# 진입점**(agent.py·server/connector.py·server/convert_cli.py)이 환경변수로 끈다.
+# 환경변수라 커넥터가 띄우는 자식 워커 프로세스까지 자동으로 따라온다.
+_READONLY = str(os.environ.get("MATHGEN_CONFIG_READONLY", "")).strip().lower()     not in ("", "0", "false", "no")
+
+
+def config_readonly() -> bool:
+    """config.json 을 만들지도 쓰지도 않는 모드인가(웹 도우미 경로)."""
+    return _READONLY
+
 _DEFAULTS = {
     "ANTHROPIC_API_KEY": "",
     "GEMINI_API_KEY": "",
@@ -78,15 +98,18 @@ def _load_config() -> dict:
         with open(CONFIG_PATH, "r", encoding="utf-8-sig") as f:
             _config = json.load(f)
     else:
-        # 최초 실행: 기본 config.json 생성
+        # 최초 실행: 기본 config.json 생성(읽기 전용 모드면 메모리에만 둔다)
         _config = dict(_DEFAULTS)
-        save_config(_config)
+        if not _READONLY:
+            save_config(_config)
 
     return _config
 
 
 def save_config(cfg: dict | None = None):
-    """현재 설정을 config.json에 저장."""
+    """현재 설정을 config.json에 저장(읽기 전용 모드면 무동작)."""
+    if _READONLY:
+        return
     if cfg is None:
         cfg = _config
     with open(CONFIG_PATH, "w", encoding="utf-8") as f:
