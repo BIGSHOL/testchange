@@ -158,6 +158,42 @@ _UNITS = [
 # 각도 위첨자 ``^\circ``/``^{\circ}``/``^{°}`` → ``°`` (위첨자 표시자 제거). ° 글리프 자체가
 # 이미 위첨자 높이라 한 번 더 올리면 과하게 작고 높이 뜬다(실측 2026-08-07). 첨자 그룹의
 # **유일한 내용**일 때만 매칭 — 합성함수 ``f \circ g``(위첨자 아님)는 무영향.
+# ``\sim`` 은 문맥이 둘이다 — **이항**이면 닮음(∽ U+223D, 중등 기하 ``△ABC \sim △DEF``),
+# **단항**이면 명제의 부정(∼ U+223C, ``\sim p``). 하나로 못 고른다: 닮음으로 고정하면
+# 명제 단원의 ``~p`` 가 "닮음 p" 로 렌더되고(대륜고 공수2 #11·#13, 사용자 2026-08-20),
+# 부정으로 고정하면 중등 닮음 표기가 깨진다(2026-06-15 결정). 그래서 **앞 토큰**으로 가른다.
+_SIM_RE = re.compile(r"\\sim(?![a-zA-Z])")
+# 앞 토큰이 LaTeX 명령(``\rightarrow``·``\wedge`` 등 관계·논리 연산자)이면 단항이다 —
+# 문자로 끝나 보이지만 피연산자가 아니다.
+_SIM_CMD_TAIL_RE = re.compile(r"\\[a-zA-Z]+$")
+_SIM_OPERAND_TAIL = "})]\\"        # 피연산자의 끝 — 이항(닮음).
+# 끝의 역슬래시는 **과이스케이프**(``\\sim``) 잔재 — 판단 불가이므로 종전 동작(∽)을 쓴다.
+
+
+def _split_negation_sim(s: str) -> str:
+    """단항 ``\\sim``(명제의 부정)만 ``∼``(U+223C)로. 이항(닮음)은 ``\\sim`` 그대로 둔다."""
+    out, prev = [], 0
+    for m in _SIM_RE.finditer(s):
+        head = s[:m.start()].rstrip()
+        # 피연산자(``\triangle ABC``·``\overline{AB}``·``P``)가 앞에 있으면 이항=닮음.
+        # 앞이 비었거나(식의 시작), 관계·논리 **명령**(``\rightarrow``·``\wedge``)이거나,
+        # 여는 괄호·쉼표·등호면 단항=부정. 한글은 피연산자가 아니다(수식 안 한글은
+        # 파서가 떼어내므로 드물고, 남았다면 ``조건 \sim p`` 처럼 부정 쪽이다).
+        unary = (not head
+                 or _SIM_CMD_TAIL_RE.search(head) is not None
+                 or not (head[-1].isalnum() or head[-1] in _SIM_OPERAND_TAIL))
+        out.append(s[prev:m.start()])
+        prev = m.end()
+        if unary:
+            out.append("∼")
+            while prev < len(s) and s[prev] in " \t":
+                prev += 1      # 부정은 명제에 붙여 쓴다(원본 인쇄 ``~p``)
+        else:
+            out.append(m.group(0))
+    out.append(s[prev:])
+    return "".join(out)
+
+
 _DEG_SUPERSCRIPT_RE = re.compile(
     r"\^\s*(?:\{\s*(?:\\circ|\\degree|°)\s*\}|(?:\\circ|\\degree)(?![a-zA-Z])|°)"
 )
@@ -910,6 +946,10 @@ class LaTeXToHWPConverter:
         # ``\lim\limits`` → "lim lim its"(중복 lim + 잔여 'its'), ``\sum\limits`` → "SUM lim its"
         # 로 깨졌다(진명여고·학남고 수2 #1·6·12·13·15·17·21, 2026-06-23).
         s = re.sub(r"\\(?:no)?limits(?![a-zA-Z])", "", s)
+
+        # 명제의 부정 ``\sim p`` → ``∼p``(단항만). 이항 ``\sim``(닮음)은 그대로 두어
+        # SYMBOL_MAP 이 ∽ 로 바꾼다.
+        s = _split_negation_sim(s)
 
         # 각도 ``90^\circ`` → ``90°`` — **위첨자 표시자를 뗀다**. ° 글리프는 그 자체가 이미
         # 베이스라인 위 작은 동그라미라, 위첨자로 한 번 더 올리면 ``90˚`` 처럼 과하게 작고

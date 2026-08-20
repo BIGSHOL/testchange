@@ -59,8 +59,10 @@ def _adapt_problem(p: dict) -> dict:
     q: dict = {"number": _as_int(p.get("number"), 0)}
 
     score = p.get("score")
-    if isinstance(score, (int, float)):
-        q["score"] = score
+    # 문자열도 통과 — 배점은 **인쇄된 표기 그대로**(``"3.0"``·``"4"``) 실릴 수 있다
+    # (2026-08-20: 같은 사다리에서 [3.0점]과 [4점]이 갈린다. core/score_fmt 참고).
+    if isinstance(score, (int, float)) or (isinstance(score, str) and score.strip()):
+        q["score"] = score.strip() if isinstance(score, str) else score
 
     if p.get("labelType"):
         q["label_type"] = p["labelType"]

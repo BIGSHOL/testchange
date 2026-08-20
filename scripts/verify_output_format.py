@@ -201,6 +201,33 @@ def run_checks():
         "구분 못 하므로 표시 시점 정규화가 유일한 해법이고, **프롬프트 생성기까지** "
         "같은 함수를 써야 정답·해설이 안 갈린다")
 
+    # ⭐ #34 답지(정답·해설) 페이지 문항 배제 — **배선**이 빠지면 조용히 되돌아간다.
+    # (원본+답) PDF 의 답지 2쪽이 유령 문항 8개가 되어 본문에 채점기준을 찍고, 서답형 수를
+    # 부풀려 정답면 라벨 재부여까지 죽였다(대륜고 공수2, 사용자 2026-08-20).
+    _cc = _read(ROOT / "server" / "convert_cli.py")
+    _gm = _read(ROOT / "core" / "hwp_form_writer.py")
+    _wired = ("drop_answer_key_questions" in _cc
+              and _cc.index("drop_answer_key_questions(envelope") <
+              _cc.index("parse_ocr_response("))
+    _gui_wired = "drop_answer_key_pages" in _read(ROOT / "gui" / "main_window.py")
+    chk(34, "답지 페이지 문항 배제(웹=파싱 전 봉투, exe=파싱 후 문서)",
+        _wired and _gui_wired,
+        "" if (_wired and _gui_wired) else
+        f"convert_cli 배선={_wired} · gui 배선={_gui_wired}")
+
+    # ⭐ #35 배점은 **인쇄 표기 보존** — 같은 소수 사다리에서도 [3.0점](대륜고)과
+    # [4점](대진고)이 갈린다(2026-08-20 원본 실측). 문자열이면 그대로 내보내야 한다.
+    try:
+        if str(ROOT) not in sys.path:
+            sys.path.insert(0, str(ROOT))
+        from core.score_fmt import score_str as _ss
+        _keep = (_ss("3.0") == "3.0" and _ss("4") == "4"
+                 and _ss(3.0) == "3" and _ss(3.5) == "3.5")
+        chk(35, "배점 인쇄 표기 보존(문자열 그대로, 숫자는 종전)", _keep,
+            "" if _keep else "score_str 이 표기를 접는다")
+    except Exception as e:                       # noqa: BLE001
+        chk(35, "배점 인쇄 표기 보존(문자열 그대로, 숫자는 종전)", False, f"import err: {e}")
+
     mid_ok = ("mid" in L) and (r"\mid" in L)
     try:
         if str(ROOT) not in sys.path:

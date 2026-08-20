@@ -1443,6 +1443,43 @@ def run():
     if "조건" not in "".join((b.value or "") for b in _kb2.contents):
         fails.append("  KB1 진짜 조건 박스를 잘못 제거함")
 
+    # ── DR1: 해설 줄머리 ``step N)`` 분리형 정규화 (대륜고 공수2 단답형7, 2026-08-20) ──
+    # 모델이 ``step 1)`` 처럼 띄어 쓰면 인라인 분리기가 숫자를 수식으로 떼어 세 블록이
+    # 되고, `_STEP_LABEL_RE` 가 첫 블록 "step" 에서 숫자를 못 찾아 정규화가 통째로
+    # 건너뛰었다 → 한 문서에 ``rm step1)``(정상)과 날것 ``step 1 )`` 이 섞였다.
+    from core.content_parser import _parse_markdown_lines as _pml
+    for _src, _want in (("step1) 첫 줄.", r"\mathrm{step}1)"),
+                        ("step 1) 띄어진 줄.", r"\mathrm{step}1)"),
+                        ("Step 2) 대문자.", r"\mathrm{step}2)"),
+                        ("STEP 3) 전부 대문자.", r"\mathrm{step}3)")):
+        _ln = _pml(_src)[0]
+        if not (_ln and _ln[0].type == ContentType.EQUATION and _ln[0].value == _want):
+            fails.append(f"  DR1 step 라벨 정규화 실패({_src}): "
+                         f"{_ln[0].type.name}:{_ln[0].value!r}")
+    # 본문 **중간**의 'step N' 은 라벨이 아니므로 건드리지 않는다.
+    _mid = _pml("이 문장 중간에 step 2 가 있다.")[0]
+    if any((b.value or "").startswith(r"\mathrm{step}") for b in _mid):
+        fails.append("  DR1 본문 중간 step 을 라벨로 오인")
+
+    # ── DR2: \sim 문맥 분기 — 이항=닮음(∽) / 단항=명제의 부정(∼) ─────────────
+    # 닮음으로 고정하면 명제 단원 ``~p`` 가 "닮음 p" 로 렌더되고(대륜고 #11·#13, 사용자
+    # 2026-08-20), 부정으로 고정하면 중등 닮음 표기가 깨진다(2026-06-15 결정). 앞 토큰으로 가른다.
+    from core.latex_to_hwpeq import latex_to_hwpeq as _dr2
+    for _src, _want, _bad in (
+            (r"\triangle ABC \sim \triangle DEF", "∽", "∼"),
+            (r"\overline{AB} \sim \overline{CD}", "∽", "∼"),
+            (r"P \sim Q", "∽", "∼"),
+            (r"\sim p", "∼", "∽"),
+            (r"p \rightarrow \sim q", "∼", "∽"),
+            (r"r \Leftrightarrow \sim s", "∼", "∽"),
+            (r"(\sim p) \wedge q", "∼", "∽")):
+        _got = _dr2(_src, italicize_stat=False)
+        if _want not in _got or _bad in _got:
+            fails.append(f"  DR2 sim 문맥 분기 실패({_src}): {_got}")
+    # 부정은 명제에 붙여 쓴다(원본 인쇄 ``~p``).
+    if "∼ p" in _dr2(r"\sim p", italicize_stat=False):
+        fails.append("  DR2 부정 기호 뒤 공백이 남음")
+
     if fails:
         print("FAIL test_content_parser:")
         print("\n".join(fails))

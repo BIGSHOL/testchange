@@ -37,7 +37,7 @@ class CropBox:
     y0: float
     x1: float
     y1: float
-    kind: str = "problem"          # problem | figure | table | artwork
+    kind: str = "problem"          # problem | figure | table | artwork | answer
     number: int | None = None      # 문제 번호(있으면)
     qtype: str = ""                # choice | essay (디버그/후처리)
     note: str = ""                 # 하단 경계 근거(디버그)
@@ -98,15 +98,25 @@ The space where the student wrote is BELOW the printed problem's last text/figur
 
 ---
 
-🎨 **4-CLASS CROP CLASSIFICATION (class field)**:
+🎨 **5-CLASS CROP CLASSIFICATION (class field)**:
 
 거의 모든 박스는 class="problem" (한 문항 전체 — 텍스트 + 모든 내부 시각 요소 포함). 다음은 *드문* 예외:
   - **"figure"**: 페이지에 *문제와 분리된 standalone 기하 도형*. 일반적인 *문항 안의 도형* 은 problem 박스에 *포함* — 별도 figure 박스 X.
   - **"table"**: 페이지에 *문제와 분리된 standalone 표* (시간표/달력/점수표). 문항 안의 표는 problem 박스 안.
   - **"artwork"**: 페이지에 *문제와 분리된 standalone 회화/사진/실사 이미지* (vectorize 불가). 문항 안에서 작품 referencing 하면 problem 박스 안에 포함.
+  - **"answer"**: **정답·해설(답지) 페이지의 내용** — 빠른정답 표, 정답·배점 표, 채점기준, 모범답안, 풀이 과정. 아래 룰 참고.
   - **"problem"** (default, 99% case): 한 문항 전체. 안에 어떤 시각 요소가 있어도 problem 박스 안에 모두 포함.
 
 🚨 결정 룰 (의심 시 "problem"): 박스가 문항 번호 ([서술형 N], 1., 2. 등) 를 포함하면 → "problem".
+
+🚨🚨 **단 하나의 예외 — 정답·해설 페이지**: `(원본+답)` PDF 는 문제지 뒤에 **답지**가 붙어
+있다. 답지 페이지의 항목은 *번호를 갖고 있어도* 문제가 아니다 → 반드시 **class="answer"**.
+답지 페이지 판별 신호(하나라도 맞으면 그 페이지 전체가 답지):
+  - "정답", "정답 및 해설", "채점기준", "모범답안", "배점" 같은 페이지 제목/표 머리글
+  - 번호와 정답(①~⑤ 또는 값)이 나열된 표 (빠른정답 표)
+  - 문항 발문 없이 **풀이 문장만** 이어지는 항목 ("…이므로", "따라서 …이다", "step1)")
+  - 선택지(①②③④⑤)도 배점 표기 `(N점)` 도 없는 서술 문단
+답지 페이지에서는 items 를 아예 비워도(`"items": []`) 좋다 — 그게 가장 안전하다.
 
 ---
 
@@ -155,7 +165,7 @@ Rules:
 }
 ```
 - cropBox = [yMin, xMin, yMax, xMax] on the 0-1000 grid.
-- type = "choice"|"essay", class = "problem"|"figure"|"table"|"artwork", endMarkerKind = "choice"|"points"|"total".
+- type = "choice"|"essay", class = "problem"|"figure"|"table"|"artwork"|"answer", endMarkerKind = "choice"|"points"|"total".
 - note: short reason for the bottom edge (e.g., "⑤ bottom-right", "(8점) line", "last sub-part (2)").
 - List in reading order: left column top→bottom, then right column.
 """

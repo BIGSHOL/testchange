@@ -1015,6 +1015,75 @@ def run():
         "Y header 높이가 다르면 그 값")
     chk(_ebu({}) == 1100, "Y header 없으면 기본 1100")
 
+    # ── DR3: 라벨 재부여를 **본문/정답면 각각** — 한쪽 중복이 다른 쪽을 죽이면 안 된다 ──
+    # 대륜고 공수2: 본문에 OCR 라벨 잔재가 남아 전체 개수가 어긋나자 `_renumber_essay_labels`
+    # 가 **정답면 라벨 재부여까지 통째로 생략**해 폼 grow 잔재([서술형 5] 셋)가 출하됐다.
+    from core.hwp_form_writer import _renumber_essay_labels as _renum2
+
+    def _lbl_dr3(word, n):
+        return (f'<hp:t> [{word} </hp:t><hp:equation id="1" version="x">'
+                f'<hp:script>{n}</hp:script></hp:equation><hp:t>]</hp:t>')
+
+    def _note_dr3(word, n):
+        return f'<hp:endNote><hp:subList><hp:p>{_lbl_dr3(word, n)}</hp:p></hp:subList></hp:endNote>'
+
+    # 본문 3개(서답형 3개인데 하나가 **중복**되어 4개) + 정답면 3개(폼 grow 잔재 5,5,5).
+    sec_dr3 = ("<hp:sec>"
+               + _lbl_dr3("서술형", 1) + _note_dr3("서술형", 5)
+               + _lbl_dr3("서술형", 2) + _note_dr3("서술형", 5)
+               + _lbl_dr3("단답형", 3) + _lbl_dr3("서답형", 3) + _note_dr3("서술형", 5)
+               + "</hp:sec>")
+    fd_dr3, tmp_dr3 = tempfile.mkstemp(suffix=".hwpx"); os.close(fd_dr3)
+    try:
+        with zipfile.ZipFile(tmp_dr3, "w") as z:
+            z.writestr("Contents/section0.xml", sec_dr3)
+        _renum2(tmp_dr3, 3, words=["서술형", "서술형", "단답형"], nums=[1, 2, 3])
+        with zipfile.ZipFile(tmp_dr3) as z:
+            g_dr3 = z.read("Contents/section0.xml").decode("utf-8")
+        _spans = [m.span() for m in _re.finditer(r"<hp:endNote\b.*?</hp:endNote>", g_dr3, _re.S)]
+        _ans = [(m.group(1), m.group(2)) for m in _ESSAY_LABEL_NUM_RE.finditer(g_dr3)
+                if any(a <= m.start() < b for a, b in _spans)]
+        _got = [(_re.search(r"(서술형|서답형|단답형)", w).group(1), n) for w, n in _ans]
+        chk(_got == [("서술형", "1"), ("서술형", "2"), ("단답형", "3")],
+            f"DR3 본문 중복이 있어도 정답면 라벨 재부여: {_got}")
+    finally:
+        os.remove(tmp_dr3)
+
+    # ── DR4: 단답형 라벨 추출 — 정규식이 `서[답술]형` 이라 **단답형이 빠져** 있었다 ──
+    # 그래서 OCR 라벨 `[단답형 5]` 가 본문에 남아 폼 라벨과 이중 표기되고, 번호도 수식이
+    # 아닌 평문으로 찍혀 라벨 후처리가 그 문항을 못 셌다(대륜고 단답형5~7).
+    from core.hwp_form_writer import _essay_label_and_body as _elb, _ESSAY_LABEL_SPLIT_RE
+    from models.exam_document import ContentBlock as _CB, ContentType as _CT
+
+    _one = [_CB(type=_CT.TEXT, value="[단답형5] 집합 X 에 대하여")]
+    _lab, _body = _elb(_one, "서답형", 5)
+    chk(_lab == "[단답형 5]", f"DR4 한 블록 단답형 라벨 추출: {_lab}")
+    chk("단답형" not in "".join(b.value or "" for b in _body), "DR4 본문에 라벨 잔재 없음")
+
+    _split = [_CB(type=_CT.TEXT, value="[단답형 "), _CB(type=_CT.EQUATION, value="5"),
+              _CB(type=_CT.TEXT, value="]"), _CB(type=_CT.TEXT, value="집합 X…")]
+    _lab2, _body2 = _elb(_split, "서답형", 5)
+    chk(_lab2 == "[단답형 5]", f"DR4 분리형 단답형 라벨 추출: {_lab2}")
+    chk("단답형" not in "".join(b.value or "" for b in _body2), "DR4 분리형 본문 잔재 없음")
+    chk(_ESSAY_LABEL_SPLIT_RE.match("[단답형 5]") is not None,
+        "DR4 단답형 라벨 번호도 수식으로 렌더(평문 폴백 금지)")
+    chk(_ESSAY_LABEL_SPLIT_RE.match("[서술형 3]") is not None, "DR4 서술형 무회귀")
+
+    # ── DR5: 배점 표기 — **인쇄된 표기를 보존**한다(숫자로 접지 않는다) ──────
+    # 같은 소수 사다리 시험지인데 원본 인쇄가 갈린다(2026-08-20 원본 실측):
+    #   · 대륜고 공수2 #8 = [3.0점] (사다리 2.3~3.6)  · 대진고 공수2 #3 = [4점] (사다리 3.8~4.8)
+    # 숫자만 보고는 구분 불가라, 파서가 본문에서 캡처한 **문자열 그대로** 쓴다.
+    from core.score_fmt import score_str as _ss
+    for _v, _w in (("3.0", "3.0"), ("4", "4"), (" 4.2 ", "4.2")):
+        chk(_ss(_v) == _w, f"DR5 인쇄 표기 보존 {_v!r} → {_ss(_v)!r} (기대 {_w!r})")
+    for _v, _w in ((3, "3"), (3.0, "3"), (3.5, "3.5"), (12, "12")):
+        chk(_ss(_v) == _w, f"DR5 숫자 배점 종전 동작 {_v!r} → {_ss(_v)!r} (기대 {_w!r})")
+    # 파서가 본문 ``[3.0점]``/``[4점]`` 을 캡처하면 표기가 살아 있어야 한다.
+    from core.content_parser import _parse_question as _pq
+    for _txt, _w in (("무리함수의 값은? [3.0점]", "3.0"), ("치역의 합은? [4점]", "4")):
+        _q = _pq({"number": 1, "contents": [{"type": "text", "value": _txt}]})
+        chk(_ss(_q.score) == _w, f"DR5 본문 캡처 표기 {_txt!r} → {_ss(_q.score)!r} (기대 {_w})")
+
     if fails:
         print("FAIL test_render_fixes:")
         print("\n".join(fails))

@@ -147,10 +147,21 @@ def _render_engine_envelope(payload: dict, out_path: Path) -> Path:
     from core.hwp_com_writer import write_exam_to_hwp
     from core.hwp_form_writer import write_exam_to_form
 
+    from models.exam_document import drop_answer_key_questions
+
     envelope = {
         "header": payload.get("header") or "",
         "questions": payload.get("questions") or [],
     }
+    # ⭐ 답지(정답·해설) 페이지가 문항으로 들어온 것을 먼저 걷어낸다 — 유령 문항은 본문에
+    # 채점기준을 찍을 뿐 아니라 서답형 수를 부풀려 정답면 라벨 재부여를 통째로 죽인다
+    # (대륜고 공수2 사용자 보고 2026-08-20). 결정적 규칙이라 정상 시험지는 무변화.
+    n_key_before = len(envelope["questions"])
+    envelope["questions"], _dropped_key = drop_answer_key_questions(envelope["questions"])
+    if _dropped_key:
+        sys.stderr.write(
+            f"[convert] 답지 페이지로 판정해 제외한 문항 {len(_dropped_key)}개"
+            f" (봉투 {n_key_before} → {len(envelope['questions'])})\n")
     # ⭐ 파서에 넣기 **전에** figure → 안내 텍스트(엔진 워커와 같은 순서).
     n_fig = resolve_figures(envelope)
     page = parse_ocr_response(envelope, page_number=1)
@@ -185,6 +196,7 @@ def _render_engine_envelope(payload: dict, out_path: Path) -> Path:
                     "filename": filename,
                     "header_values": bool(header_values),
                     "figure_notes": n_fig,
+                    "answer_key_dropped": len(_dropped_key),
                 }, ensure_ascii=False),
                 encoding="utf-8")
         except Exception:  # noqa: BLE001 — 진단 실패가 변환을 막지 않는다

@@ -405,6 +405,38 @@ def _parse_markdown_lines(text: str) -> list[list[ContentBlock]]:
 _STEP_LABEL_RE = re.compile(r"^(step|Step|STEP)\s*(\d+)(.*)$", re.DOTALL)
 
 
+_BARE_STEP_RE = re.compile(r"^(?:\\mathrm\{\s*)?(step|Step|STEP)(?:\s*\})?$")
+
+
+def _join_split_step_head(blocks: list[ContentBlock]) -> list[ContentBlock]:
+    """``TEXT "step" + EQ "N"`` 로 쪼개진 줄머리를 한 블록 ``"stepN"`` 으로 되돌린다.
+
+    ⭐ 해설 줄이 ``step 1)`` 처럼 **띄어져** 오면(모델 습관) 인라인 분리기가 숫자를 수식
+    으로 떼어 세 블록(``TEXT "step " + EQ "1" + TEXT ") …"``)이 된다. 그러면
+    `_STEP_LABEL_RE` 가 첫 블록 ``"step"`` 에서 숫자를 못 찾아 정규화가 통째로 건너뛰고,
+    한 문서 안에 ``rm step1)``(정상)과 날것 ``step 1 )`` 이 섞인다(대륜고 공수2 단답형7,
+    사용자 2026-08-20). 여기서 먼저 합쳐 두면 아래 정규화가 그대로 걸린다.
+    """
+    if len(blocks) < 2:
+        return blocks
+    head = blocks[0]
+    m = _BARE_STEP_RE.match((head.value or "").strip())
+    if not m:
+        return blocks
+    # ``step`` 과 숫자 사이에 공백 TEXT 한 조각이 낄 수 있다(``step`` + ``" "`` + ``1``).
+    i = 1
+    if (blocks[i].type == ContentType.TEXT and not (blocks[i].value or "").strip()
+            and len(blocks) > i + 1):
+        i += 1
+    nxt = blocks[i]
+    if nxt.type != ContentType.EQUATION or not (nxt.value or "").strip().isdigit():
+        return blocks
+    merged = ContentBlock(type=ContentType.TEXT,
+                          value=m.group(1) + (nxt.value or "").strip(),
+                          bold=head.bold, underline=head.underline)
+    return [merged] + list(blocks[i + 1:])
+
+
 def _demote_step_labels(blocks: list[ContentBlock]) -> list[ContentBlock]:
     """해설 줄 선두 ``stepN)`` 라벨 → **단일 수식** ``\\mathrm{step}N)``.
 
@@ -418,6 +450,8 @@ def _demote_step_labels(blocks: list[ContentBlock]) -> list[ContentBlock]:
     b = blocks[0]                              # 줄 선두만(본문 중간 'step' 은 손대지 않음)
     if b.type not in (ContentType.TEXT, ContentType.EQUATION):
         return blocks
+    blocks = _join_split_step_head(blocks)
+    b = blocks[0]
     m = _STEP_LABEL_RE.match((b.value or "").strip())
     if not m:
         return blocks
@@ -495,8 +529,15 @@ def _parse_question(q_data: dict) -> Question:
             if bd.get("type") == "text":
                 m = re.search(r'[\[(]\s*(?:총\s*)?(\d+(?:\.\d+)?)\s*점\s*(?:,[^\])]*)?[\])]', bd.get("value", ""))
                 if m:
+                    # ⭐ 인쇄된 표기를 **문자열 그대로** 보존한다 — ``3.0`` 과 ``4`` 는
+                    # 같은 시험지 안에서도 인쇄가 다르고(대륜고 [3.0점] vs 대진고 [4점],
+                    # 2026-08-20 원본 실측), 숫자로 바꾸는 순간 복원할 수 없다.
+                    # ⭐ ``3.0`` 처럼 **소수점 뒤가 0** 인 표기만 문자열로 보존한다 —
+                    # 숫자로 접으면 ``[3.0점]``(대륜고)과 ``[4점]``(대진고)을 구분할 수
+                    # 없다(2026-08-20 원본 실측). 나머지는 종전대로 숫자(소비자 타입 유지).
                     v = float(m.group(1))
-                    question.score = int(v) if v.is_integer() else v
+                    question.score = (m.group(1) if v.is_integer() and "." in m.group(1)
+                                      else (int(v) if v.is_integer() else v))
                     break
     for i in _score_idxs:
         bd = raw_contents[i]

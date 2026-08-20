@@ -18,7 +18,6 @@ Claude Code 세션에서 **사람 대신 문항을 풀어** OCR JSON 의
 번들하지 않아 PyInstaller 빌드 크기·호환 위험이 없다.
 """
 from __future__ import annotations
-from core.score_fmt import score_str
 
 import json
 import logging
@@ -29,6 +28,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 
 import requests
 
+from core.score_fmt import score_str
 from core.topic_vocab import prompt_block as topic_prompt_block
 from utils.config import (
     DEEPSEEK_BASE_URL,

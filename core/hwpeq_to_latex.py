@@ -16,7 +16,7 @@ def _build_reverse() -> dict[str, str]:
     """SYMBOL/GREEK/FUNC/ACCENT 맵을 뒤집는다. 다대일(\\le,\\leq→LEQ)은 정식 이름 우선."""
     prefer = {
         "LEQ": r"\leq", "GEQ": r"\geq", "neq": r"\neq", "VEE": r"\vee",
-        "WEDGE": r"\wedge", "LNOT": r"\neg", "∽": r"\sim",
+        "WEDGE": r"\wedge", "LNOT": r"\neg", "∽": r"\sim", "∼": r"\sim",
         '"∅"': r"\varnothing", "TIMES": r"\times",
     }
     rev: dict[str, str] = {}

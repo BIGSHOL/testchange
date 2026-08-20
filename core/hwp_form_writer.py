@@ -715,7 +715,8 @@ def _put_total_score(ses, h, num: int) -> None:
 # #3·#5 가 ``【서답형 3】`` → 우리 ``[서답형 3]`` 와 겹쳐 중복, 2026-06-09). 캡처해 정규화.
 # 번호 뒤·닫는 괄호 앞에 유형 주석 ``(단답형)`` 이 올 수 있다(동문고 미적분 #17 =
 # "[서답형 1 (단답형)]" — 안내문대로 서답형1만 단답형, 원본 인쇄 충실). group(3)=주석.
-_ESSAY_LABEL_LEAD = re.compile(r'^\s*[\[【]\s*(서[답술]형)\s*(\d+)\s*(\([^)]*\))?\s*[\]】]\s*')
+_ESSAY_LABEL_LEAD = re.compile(
+    r'^\s*[\[【]\s*(서[답술]형|단답형)\s*(\d+)\s*(\([^)]*\))?\s*[\]】]\s*')
 # 번호 **없는** 유형 라벨(``[서술형]``·``[단답형]``·``[서답형]``) — OCR 이 번호 라벨 뒤에 유형
 # 라벨을 한 번 더 붙이는 경우(``[서답형 7][서술형]``, 도원고 수2 2026-06-13)를 본문에서 제거.
 # label_type 필드가 이미 유형을 담아 중복이라, 폼 라벨과 ``[서술형 7] [서술형]`` 이중 표기됨.
@@ -754,7 +755,7 @@ def _essay_label_and_body(contents, fallback_label, label_idx):
             return f"[{m.group(1)} {m.group(2)}]", out
         # 형태 2: 분리형 "[서답형 " + EQ숫자 + "] rest"(여는 [ 또는 【). 닫는 ] 앞에
         #   유형 주석 ``(단답형)`` 이 올 수 있다(동문고 #17 = "[서답형 1 (단답형)]" 분리 파싱).
-        head = re.match(r'^\s*[\[【]\s*(서[답술]형)\s*$', b0.value)
+        head = re.match(r'^\s*[\[【]\s*(서[답술]형|단답형)\s*$', b0.value)
         if (head and i + 2 < len(out)
                 and out[i + 1].type in _EQ_TYPES
                 and (out[i + 1].value or "").strip().isdigit()
@@ -796,7 +797,7 @@ def _essay_label_and_body(contents, fallback_label, label_idx):
     return f"[{fallback_label} {label_idx}]", out
 
 
-_ESSAY_LABEL_SPLIT_RE = re.compile(r'^(\[\s*서[답술]형\s*)(\d+)(\s*\])$')
+_ESSAY_LABEL_SPLIT_RE = re.compile(r'^(\[\s*(?:서[답술]형|단답형)\s*)(\d+)(\s*\])$')
 
 
 def _put_essay_label(ses, label: str) -> None:
@@ -2325,12 +2326,13 @@ _ESSAY_WORD_IN_LABEL_RE = re.compile(r'(?:서술형|서답형|단답형)(?=\s*</
 
 
 def _renumber_essay_labels(hwpx_path: str | Path, n_essays: int, words=None, nums=None) -> int:
-    """모든 ``[…형 N]`` 라벨 번호를 **문서순 (본문,정답) 쌍**으로 결정적 재부여(저장후 XML).
+    """모든 ``[…형 N]`` 라벨 번호를 **본문·정답면 각각 문서순**으로 결정적 재부여(저장후 XML).
 
     폼 grow 가 마지막 서술형 답지 라벨을 ``[서술형 5]``(6이어야)로 굽고, COM 비결정성으로 본문/
     정답 중 어느 쪽이 어긋나는지 렌더마다 뒤바뀌는 것을 결정적으로 고친다. 번호는 **수식 객체
-    `<hp:script>`** 안 숫자라 텍스트 길이·lineseg 불변(직후 `_com_relaunder` 가 재렌더). 라벨 수가
-    ``2×서술형수`` 가 아니면(비결정 paste 누락/이중) 건드리지 않는다(오손상 방지). Returns: 변경 수.
+    `<hp:script>`** 안 숫자라 텍스트 길이·lineseg 불변(직후 `_com_relaunder` 가 재렌더). 한쪽
+    라벨 수가 서답형 수와 다르면(비결정 paste 누락/이중, OCR 라벨 잔재) **그쪽만** 건드리지
+    않는다(오손상 방지 — 과거엔 양쪽을 통째 생략했다). Returns: 변경 수.
 
     words: 서술형별 유형 단어 리스트([서술형/단답형/…], essay 순). 주면 정답 페이지 라벨까지
     문항별 유형으로 통일(서술형·단답형 **혼합 시험지** — 능인고 수1, 2026-06-10). 폼이 구워둔
@@ -2353,25 +2355,55 @@ def _renumber_essay_labels(hwpx_path: str | Path, n_essays: int, words=None, num
         matches = list(_ESSAY_LABEL_NUM_RE.finditer(sec))
         if not matches:
             continue
-        if n_essays and len(matches) != 2 * n_essays:
-            logger.warning("서술형 라벨 수 불일치: 라벨 %d, 기대 %d(=2×%d) — 재부여 생략",
-                           len(matches), 2 * n_essays, n_essays)
+        # ⭐ **본문/정답면을 나눠 각각 독립으로** 재부여한다(2026-08-20, 대륜고 공수2).
+        # 과거엔 전체 라벨 수 하나로 판단(``!= 2×서답형수`` 면 통째 생략)했는데, 본문에
+        # OCR 라벨 잔재가 하나만 남아도(dedupe 가 인접하지 않은 중복은 못 지운다)
+        # **정답면 라벨 재부여까지 통째로 죽어** 폼 grow 잔재([서술형 5] 셋)가 그대로
+        # 출하됐다. 정답면 라벨은 문항당 정확히 1개(폼이 구워둔 것)라 본문 사정과 무관하게
+        # 고칠 수 있다 — 실제로 그쪽이 사용자가 보는 정답 블록이다.
+        note_spans = [m.span() for m in
+                      re.finditer(r"<hp:endNote\b.*?</hp:endNote>", sec, re.S)]
+
+        def _in_note(pos: int) -> bool:
+            return any(a <= pos < b for a, b in note_spans)
+
+        body = [m for m in matches if not _in_note(m.start())]
+        answer = [m for m in matches if _in_note(m.start())]
+        if not answer:
+            # 미주가 하나도 없는 문서 — 나눌 근거가 없으니 종전처럼 **문서순 쌍**으로 본다
+            # (실렌더 폼은 항상 미주를 갖는다. 합성 XML·비폼 문서용 폴백).
+            body = matches[0::2]
+            answer = matches[1::2]
+        plan: dict[int, int] = {}          # match.start() → essay index
+        for side, label in ((body, "본문"), (answer, "정답면")):
+            if not side:
+                continue
+            if n_essays and len(side) != n_essays:
+                logger.warning("서답형 %s 라벨 수 불일치: %d개, 기대 %d — 그쪽만 재부여 생략",
+                               label, len(side), n_essays)
+                continue
+            for ei, m in enumerate(side):
+                plan[m.start()] = ei
+        if not plan:
             continue
         out, prev = [], 0
-        for i, m in enumerate(matches):
+        for m in matches:
             out.append(sec[prev:m.start()])
-            ei = i // 2
+            prev = m.end()
+            ei = plan.get(m.start())
+            if ei is None:                 # 재부여 대상 아님 — 원문 그대로
+                out.append(m.group(0))
+                continue
             want = str(nums[ei]) if (nums and ei < len(nums)) else str(ei + 1)
             g1 = m.group(1)
-            if words and i // 2 < len(words) and words[i // 2]:
-                g1n, wn = _ESSAY_WORD_IN_LABEL_RE.subn(words[i // 2], g1)
+            if words and ei < len(words) and words[ei]:
+                g1n, wn = _ESSAY_WORD_IN_LABEL_RE.subn(words[ei], g1)
                 if wn and g1n != g1:
                     total += 1
                     g1 = g1n
             if m.group(2) != want:
                 total += 1
             out.append(g1 + want + m.group(3))
-            prev = m.end()
         out.append(sec[prev:])
         data[name] = "".join(out).encode("utf-8")
     if total:
@@ -2975,8 +3007,15 @@ def write_exam_to_form(
         joined = "".join(b.value or "" for b in q.contents[:6]
                          if getattr(b, "type", None) == ContentType.TEXT)
         m = _word_re.search(joined)
-        return m.group(1) if m else "서답형"
-    _words = [_essay_word(q) for q in essays]
+        return m.group(1) if m else ""      # "" = 유형 미상(라벨도 본문도 없음)
+    _words_raw = [_essay_word(q) for q in essays]
+    # ⭐ 유형 미상 문항은 **같은 시험지의 다른 서답형 유형**을 따른다 — 크롭 OCR 이 한
+    # 문항을 못 읽으면(대륜고 서술형4: "인쇄된 텍스트가 없습니다") 그 문항만 기본값
+    # "서답형" 이 되어 [서술형 1~3] 사이에 [서답형 4] 가 끼었다. 나머지가 한 유형으로
+    # 균일하면 그 단어를 쓰는 게 원본에 가깝다(혼합 시험지면 종전대로 "서답형").
+    _known = {w for w in _words_raw if w}
+    _unknown_word = next(iter(_known)) if len(_known) == 1 else "서답형"
+    _words = [w or _unknown_word for w in _words_raw]
     # essay 순 **원본 라벨 번호**(OCR 인쇄 그대로) — 통합 일련번호 강제 대신 원본 보존.
     # 유형별 독립(정화중 단답형 1~4·서술형 1~3) vs 통합(능인고 서술형 1~3·단답형 4~5)이
     # 폼마다 달라, 통합 강제가 정화중 서술형을 [서술형 5]로 굽던 것(2026-06-12).

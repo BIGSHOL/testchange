@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass, field
 from enum import Enum
+import re
 from typing import Optional
 
 
@@ -86,6 +87,150 @@ class ExamDocument:
         for page in self.pages:
             questions.extend(page.questions)
         return questions
+
+
+def _raw_block_text(blocks) -> str:
+    """raw 문항 dict 의 블록 리스트 → 평문(중첩 contents 포함). figure 는 제외."""
+    out = []
+    for b in blocks or []:
+        if not isinstance(b, dict) or b.get("type") == "figure":
+            continue
+        v = b.get("value")
+        if isinstance(v, str):
+            out.append(v)
+        elif isinstance(v, list):
+            out.append(_raw_block_text(v))
+    return "".join(out)
+
+
+def _raw_question_text(q: dict) -> str:
+    """발문 + 소문항 + 선택지 평문(빈 문항 판정용)."""
+    parts = [_raw_block_text(q.get("contents"))]
+    for sub in q.get("sub_questions") or []:
+        if isinstance(sub, dict):
+            parts.append(_raw_block_text(sub.get("contents")))
+    for ch in q.get("choices") or []:
+        if isinstance(ch, dict):
+            parts.append(_raw_block_text(ch.get("contents")))
+    return "".join(parts).strip()
+
+
+_RAW_ESSAY_LABEL_RE = re.compile(r"[\[【]\s*(?:서술형|서답형|단답형)\s*\d*\s*[\]】]")
+
+
+def drop_answer_key_questions(questions: list[dict]) -> tuple[list[dict], list[dict]]:
+    """``(원본+답)`` PDF 의 **답지 페이지**가 문항으로 들어온 것을 걷어낸다.
+
+    ⭐ 왜(대륜고 공수2 25-2-기말, 사용자 보고 2026-08-20): 문제지 뒤에 붙은 정답·해설
+    2쪽까지 크롭·OCR 대상이 되어 봉투에 **28문항**(진짜 20 + 유령 8)이 실렸다. 유령은
+    본문에 채점기준 조각을 문항으로 찍을 뿐 아니라, 서답형 수를 7→15 로 부풀려
+    `hwp_form_writer._renumber_essay_labels` 의 오손상 방지 가드(라벨 수 ≠ 2×서답형수)를
+    발동시켜 **정답면 라벨 재부여가 통째로 생략**됐다(정답 블록이 [서술형 5] 셋).
+
+    크롭 프롬프트에도 ``class="answer"`` 룰을 넣었지만 그건 모델 판단이라 비결정적이다.
+    이 함수는 **모델과 무관한 결정적 안전망**이고, 오검출로 진짜 문항을 지우지 않도록
+    아래를 **전부** 만족하는 **뒤쪽 연속 구간**만 걷어낸다(답지는 항상 문제지 뒤에 온다):
+
+      - 선택지가 없다(서답형 자리) — 객관식은 절대 대상이 아니다
+      - 배점이 없다(``score`` falsy) — 진짜 서답형은 배점이 인쇄돼 있다
+      - 문항번호가 **앞선 서답형 번호와 중복**이거나 번호가 없다 — 답지는 문제 번호를
+        되풀이한다(유형별 독립 번호 시험지도 앞쪽에서 이미 그 번호를 썼으므로 안전)
+      - 본문에 ``[서술형 N]``/``[단답형 N]`` 라벨이 없고 ``label_type`` 도 비었다 —
+        진짜 서답형은 라벨이 인쇄되거나 OCR 이 유형을 확정해 준다
+
+    마지막으로 **전체의 절반 이상**을 답지로 판정하면 그 판정을 통째로 버린다(안전 상한).
+
+    추가로 **내용이 통째 빈 문항**(발문·선택지·소문항 텍스트 0자)은 위치와 무관하게
+    걷어낸다 — 렌더하면 빈 슬롯만 남고 문항 수만 늘린다(정답표 페이지가 이 꼴로 온다).
+
+    Returns: ``(남길 문항, 걷어낸 문항)``. 원본 리스트는 건드리지 않는다.
+    """
+    if not questions:
+        return list(questions), []
+
+    kept = [q for q in questions if isinstance(q, dict)]
+    dropped: list[dict] = []
+
+    # ① 빈 문항 — 위치 무관.
+    empties = [q for q in kept if not _raw_question_text(q)]
+    if empties:
+        dropped.extend(empties)
+        kept = [q for q in kept if _raw_question_text(q)]
+
+    # ② 뒤쪽 답지 조각 연속 구간.
+    cut = _answer_key_tail_start(
+        [(bool(q.get("choices")), q.get("score"), q.get("number"),
+          _raw_block_text(q.get("contents")), q.get("label_type") or "") for q in kept])
+    if cut < len(kept):
+        dropped.extend(kept[cut:])
+        kept = kept[:cut]
+
+    return kept, dropped
+
+
+def is_answer_key_fragment(has_choices: bool, score, number, stem_text: str,
+                           earlier_essay_nums: set, label_type: str = "") -> bool:
+    """답지 조각 판정(원시 dict·Question 두 경로 공용). 판정 근거는
+    :func:`drop_answer_key_questions` 문서 참고 — 전부 만족해야 한다."""
+    if has_choices:
+        return False
+    if score:
+        return False
+    if (label_type or "").strip():
+        return False          # OCR 이 서답형 유형을 확정한 문항 — 진짜 문제다
+    if isinstance(number, int) and number > 0 and number not in earlier_essay_nums:
+        return False
+    if _RAW_ESSAY_LABEL_RE.search(stem_text or ""):
+        return False
+    return True
+
+
+# 답지 판정이 이보다 많이 지우면 판정 자체가 틀린 것으로 본다(문제지를 통째 날리는 사고 방지).
+_ANSWER_KEY_MAX_RATIO = 0.5
+
+
+def _answer_key_tail_start(rows: list[tuple]) -> int:
+    """``rows[i] = (has_choices, score, number, stem_text, label_type)`` → 답지 꼬리 시작."""
+    cut = len(rows)
+    while cut > 0:
+        i = cut - 1
+        earlier = {r[2] for r in rows[:i] if not r[0] and isinstance(r[2], int)}
+        if not is_answer_key_fragment(rows[i][0], rows[i][1], rows[i][2], rows[i][3],
+                                      earlier, rows[i][4] if len(rows[i]) > 4 else ""):
+            break
+        cut = i
+    # ⚠️ 안전 상한 — 절반 이상을 답지로 판정하면 그 판정을 믿지 않는다. 배점이 통째로
+    # 안 읽힌 시험지(스캔 불량)에서 문제지를 다 날리는 것보다, 유령 몇 개가 남는 편이 낫다.
+    if rows and (len(rows) - cut) > len(rows) * _ANSWER_KEY_MAX_RATIO:
+        return len(rows)
+    return cut
+
+
+def drop_answer_key_pages(pages: list) -> list:
+    """파싱된 :class:`ExamPage` 리스트에서 답지 조각 문항을 걷어낸다(GUI/exe 경로).
+
+    웹(`server/convert_cli`)은 파싱 **전** 원시 봉투에서 걷어내지만, GUI 는 페이지별로
+    파싱하므로 여기서 **페이지를 가로질러** 같은 규칙을 적용한다(답지는 마지막 페이지에
+    오므로 페이지 단위로는 "앞선 서답형 번호"를 볼 수 없다). Returns: 걷어낸 문항 리스트.
+    """
+    flat = [(p, q) for p in pages for q in p.questions]
+    if not flat:
+        return []
+
+    def _text(q) -> str:
+        # 파서가 figure 를 이미 드롭하므로 남은 블록의 **문자열 값**만 이으면 된다
+        # (TABLE 블록의 value 는 행 리스트라 제외).
+        return "".join(b.value for b in (q.contents or []) if isinstance(b.value, str))
+
+    cut = _answer_key_tail_start(
+        [(bool(q.choices), q.score, q.number, _text(q), getattr(q, "label_type", ""))
+         for _, q in flat])
+    dropped = [q for _, q in flat[cut:]]
+    if dropped:
+        drop_ids = {id(q) for q in dropped}
+        for p in pages:
+            p.questions = [q for q in p.questions if id(q) not in drop_ids]
+    return dropped
 
 
 def reorder_questions_by_number(questions: list[Question]) -> list[Question]:

@@ -484,6 +484,21 @@ class ConversionWorker(QObject):
             logger.warning("그림 재생성 실패: %s", e)
             return None
 
+    def _drop_answer_key(self, pages) -> None:
+        """답지(정답·해설) 페이지가 문항으로 들어온 것을 걷어내고 사용자에게 알린다.
+
+        크롭 ``class="answer"`` 는 모델 판단이라 놓칠 수 있어, 파싱 후 문서 단위로 한 번 더
+        결정적 규칙을 적용한다(models.exam_document 문서 참고)."""
+        from models.exam_document import drop_answer_key_pages
+        try:
+            dropped = drop_answer_key_pages(pages)
+        except Exception as e:  # noqa: BLE001 — 안전망이 변환을 막지 않는다
+            logger.warning("답지 문항 제외 실패: %s", e)
+            return
+        if dropped:
+            self.log.emit("info",
+                          f"정답·해설 페이지로 판정한 {len(dropped)}개 항목을 문항에서 제외했습니다.")
+
     def _resolve_figures(self, ocr_dict, source_img, page_num, bi):
         """OCR dict 내 figure 블록을 image 블록으로 해소(재생성/폴백).
 
@@ -632,6 +647,7 @@ class ConversionWorker(QObject):
 
         self.progress.emit(80, "문서 구성 중...")
         self.log.emit("step", "문서 구성 중...")
+        self._drop_answer_key(pages)
         document = build_document(pages)
         total_q = sum(len(p.questions) for p in pages)
 
@@ -951,8 +967,12 @@ class ConversionWorker(QObject):
                     self._resolve_figures(r, sub, page_num, bi)  # 문제 내 figure(bbox=sub)
                     return r
 
+                # ⭐ ``answer`` = 정답·해설(답지) 페이지 요소 — 문항으로 OCR 하지 않는다
+                # (대륜고 공수2: (원본+답) PDF 의 답지 2쪽이 유령 문항 8개가 됐다,
+                # 2026-08-20). 크롭 프롬프트가 붙이는 class 이므로 모델 판단이고,
+                # 놓쳐도 `drop_answer_key_pages` 결정적 안전망이 뒤에서 한 번 더 막는다.
                 problem_items = [(bi, box) for bi, box in enumerate(boxes)
-                                 if box.kind != "figure"]
+                                 if box.kind not in ("figure", "answer")]
                 self._ensure_fig_dir()   # 병렬 전 메인스레드에서 임시폴더 선생성(레이스 방지)
                 ocr_futures: dict = {}
                 ex = ThreadPoolExecutor(max_workers=min(_OCR_WORKERS, max(1, len(problem_items))))
@@ -968,6 +988,8 @@ class ConversionWorker(QObject):
                         self.progress.emit(
                             15 + int(crops_done / max(total_crops, 1) * 60),
                             f"OCR 처리 중... (p{seq + 1} 크롭 {bi + 1}/{len(boxes)})")
+                        if box.kind == "answer":
+                            continue        # 답지 요소 — OCR 도 렌더도 하지 않는다
                         if box.kind == "figure":
                             # standalone 도형도 체크박스 OFF면 SVG/API 호출 없이 안내문으로 대체.
                             if self.render_figures:
@@ -1104,6 +1126,9 @@ class ConversionWorker(QObject):
 
         self.progress.emit(80, "문서 구성 중...")
         self.log.emit("step", "문서 구성 중...")
+
+        # ⭐ (원본+답) PDF 의 답지 페이지가 문항으로 들어온 것을 걷어낸다(결정적 안전망).
+        self._drop_answer_key(pages)
 
         # Step 3: 문서 구성
         document = build_document(pages)
