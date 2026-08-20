@@ -214,16 +214,77 @@ def test_form_selection_from_filename() -> None:
 
 
 def test_web_figures_note_only() -> None:
-    print("I. 웹 그림 = 안내문구 고정 (그림 실삽입은 내부 개발 전용 — 사용자 2026-08-10)")
-    # 신설 그림 파이프라인(figure_crop 검출 + figure_embed 네이티브 삽입)은 미완성이라
-    # 프로덕션(웹·exe) 노출 금지. 웹 경로가 render_figures=True 로 바뀌면 여기서 잡는다.
+    print("I. 웹 그림 — 플래그가 있을 때만 그린다(기본은 안내문구)")
+    # ⭐ 2026-08-20 사용자 지시로 웹도 SVG 엔진으로 도형을 그린다. 다만 **켜야만 켜진다** —
+    # 플래그가 없으면 종전대로 안내문구(폼 경로 무회귀). 여기서 그 계약을 잠근다.
+    from server.convert_cli import resolve_figures, wants_figures
     src = (ROOT / "server" / "convert_cli.py").read_text(encoding="utf-8")
-    check("폼 렌더가 render_figures=False", "render_figures=False" in src)
-    check("웹 경로에 render_figures=True 없음", "render_figures=True" not in src)
-    check("파서 전에 figure → 안내문구(resolve_figures) 호출",
-          src.index("resolve_figures(envelope)") < src.index("parse_ocr_response("))
+    check("파서 전에 figure 해소(resolve_figures) 호출",
+          src.index("resolve_figures(envelope, fig_dir)") < src.index("parse_ocr_response("))
+    check("그림 렌더는 실제 삽입 수에 연동(render_figures=bool(n_drawn))",
+          "render_figures=bool(n_drawn)" in src)
     con = (ROOT / "server" / "connector.py").read_text(encoding="utf-8")
     check("커넥터가 render_figures 를 덮어쓰지 않음", "render_figures" not in con)
+
+    # 플래그 판정 — 기본 꺼짐.
+    check("플래그 없음 = 그림 안 그림", wants_figures({"questions": []}) is False)
+    check("renderFigures=True 인식", wants_figures({"renderFigures": True}) is True)
+    check("figures='draw' 인식", wants_figures({"figures": "draw"}) is True)
+
+    # fig_dir 없이 부르면(기본 경로) figure → 안내문구, 이미지 블록 0.
+    from core.hwp_form_writer import _FIGURE_NOTE
+    env = {"questions": [{"number": 1, "contents": [
+        {"type": "text", "value": "다음 그림에서"},
+        {"type": "figure", "value": "삼각형", "svg": "<svg/>", "crop": "AAAA"}]}]}
+    n = resolve_figures(env)
+    blocks = env["questions"][0]["contents"]
+    check("플래그 없으면 안내문구 1개", n == 1 and blocks[1]["value"] == _FIGURE_NOTE)
+    check("플래그 없으면 image 블록 0",
+          not any(b.get("type") == "image" for b in blocks))
+
+    # ── 그림 폴백 계단: 스펙 → SVG → 원본 크롭 → 안내문구 ──────────────────
+    # ⭐ 1순위가 FigureSpec 인 이유: 엔진이 컴파일하면서 **라벨을 자동 배치**한다
+    # (모델이 손으로 찍은 좌표는 라벨이 선을 밟는다 — 사용자 2026-08-20).
+    import base64
+    import tempfile as _tf
+    from pathlib import Path as _P
+
+    spec = {"version": 2,
+            "points": {"O": [100, 90],
+                       "A": {"type": "on_circle", "circle": "c", "angle": 130},
+                       "B": {"type": "on_circle", "circle": "c", "angle": 20}},
+            "circles": {"c": {"center": "O", "radius": 70}},
+            "segments": {"AB": ["A", "B"]},
+            "labels": {"O": "O", "A": "A", "B": "B"}}
+    good_svg = ('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 80" '
+                'width="100" height="80"><line x1="10" y1="70" x2="90" y2="70" '
+                'stroke="#000" stroke-width="2"/></svg>')
+    # 1x1 PNG(투명) — 크롭 폴백용.
+    tiny_png = base64.b64decode(
+        "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==")
+
+    def _one(block: dict) -> tuple:
+        """figure 블록 하나를 fig_dir 모드로 해소 → (블록 타입, 안내문구 수)."""
+        d = _P(_tf.mkdtemp(prefix="figtest_"))
+        env = {"questions": [{"number": 1, "contents": [
+            {"type": "text", "value": "그림에서"}, block]}]}
+        n = resolve_figures(env, d)
+        b = env["questions"][0]["contents"][1]
+        ok = (b.get("type") == "image" and _P(b["value"]).exists()
+              and _P(b["value"]).stat().st_size > 0)
+        return (b.get("type"), n, ok)
+
+    t, n, ok = _one({"type": "figure", "value": "원 O", "spec": spec})
+    check("그림 ① FigureSpec → image(라벨 자동배치)", t == "image" and n == 0 and ok)
+    t, n, ok = _one({"type": "figure", "value": "선분",
+                     "spec": {"version": 2, "points": {"A": [0, 0]}, "angles": {"A": {}}},
+                     "svg": good_svg})
+    check("그림 ② 스펙 검증 실패 → SVG 폴백", t == "image" and n == 0 and ok)
+    t, n, ok = _one({"type": "figure", "value": "사진",
+                     "crop": "data:image/png;base64," + base64.b64encode(tiny_png).decode()})
+    check("그림 ③ 작도 없음 → 원본 크롭", t == "image" and n == 0 and ok)
+    t, n, _ = _one({"type": "figure", "value": "그림"})
+    check("그림 ④ 아무것도 없음 → 안내문구", t == "text" and n == 1)
 
 
 def test_output_fallback() -> None:

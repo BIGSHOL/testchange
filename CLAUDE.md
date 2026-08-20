@@ -307,6 +307,54 @@ PNG 는 gitignore(재생성 가능).
 - 회귀: `tests/test_answer_key_filter.py`(신설) · `test_content_parser` DR1·DR2 ·
   `test_render_fixes` DR3·DR4·DR5 · `verify_output_format` #34·#35.
 
+## ⭐⭐ 웹 변환도 SVG 엔진으로 도형을 그린다 (2026-08-20, 사용자 지시)
+
+종전에는 웹·exe 모두 그림 자리에 안내문구만 넣었다(2026-08-10 결정). 사용자 지시로
+**웹은 도형을 실제로 그려 넣는다**. 파이프라인:
+
+```
+그림 크롭 ─(웹 /api/figure-svg: Gemini + SVG_RULES)→ <figure-spec> JSON | <svg>
+  → 커넥터(사용자 PC): compile_figure_spec → assess_svg(보안·품질) → resvg PNG
+  → 폼 writer 가 **자리표시 그림**으로 삽입(레이아웃 실측) + 토큰
+  → 모든 후처리·relaunder·최종 .hwp 굽기 뒤 `replace_placeholder_figures` 가 교체
+```
+
+### ⭐ 왜 이 순서인가 — 실측으로 확정한 세 가지 (probe 2026-08-20)
+1. **`_com_relaunder`(보안경고 제거 재저장)는 XML 로 주입한 그림을 통째 드롭**한다
+   (pic 3 → 0). 그래서 종전 `_embed_figures`(저장후 binItem 주입) 경로는 relaunder 를
+   건너뛰어야 했고, 그 대가가 **변조 보안경고**였다.
+2. 반대로 **COM `InsertPicture` 로 넣은 그림은 relaunder 를 살아남는다** — 다만 폼의
+   기존 binItem(머리말 배너)을 가리켜 **그림 자리에 배너가 뜬다**(2026-06-05 알려진 버그).
+3. 그래서 **자리표시로 넣어 두고(레이아웃은 그 크기로 실측) 맨 마지막에 갈아끼운다**.
+   HWP 가 마지막 저장자라 **보안경고가 없고**, BinData 에 우리 PNG 가 정상 임베드된다
+   (실측: `image2.png`·`image3.png` 각각 다른 binItem).
+
+### 라벨 배치는 **FigureSpec v2** 가 답이다
+모델이 좌표를 손으로 찍은 raw SVG 는 라벨이 선을 밟거나 서로 겹친다. `figure_scene.
+compile_figure_spec` 으로 컴파일하면 엔진이 **점 이름·각 라벨을 자동 배치**한다(선·곡선·
+기존 라벨과의 충돌을 계산). 그래서 폴백 계단은 **스펙 → raw SVG → 원본 크롭 → 안내문구**
+순이고, 판정·컴파일은 엔진 `figure_generator._compile_structured_candidate` 를 **그대로
+재사용**한다(사본을 만들면 exe 경로와 갈라진다).
+⚠️ FigureSpec 이름은 한 네임스페이스다 — 각은 `angA`, 치수는 `dimAB` 처럼 접두사를 붙여야
+`duplicate geometry name` 이 안 난다(SVG_RULES 에 명시).
+
+### 크기 — "거대하게 렌더링되지 않고 문항과 자연스럽게 흡수"(사용자)
+`_fit_image_width` 가 폭(`FORM_FIG_MAX_W`=260px≈69mm)에 더해 **높이 상한**
+(`FORM_FIG_MAX_H`=235px≈62mm, 선택지 그림은 90px)까지 비율 유지로 줄인다. 폭만 맞추면
+세로로 긴 그래프·입체가 단 하나를 통째로 먹어 문항이 뒤로 밀린다.
+
+### 계약·게이트
+- 웹 payload `renderFigures: true` 일 때만 그린다(`convert_cli.wants_figures`).
+  플래그가 없으면 **종전대로 전부 안내문구** — 폼 경로 무회귀.
+- 클라이언트는 figure 블록 하나에 `{value(서술), spec, svg, desc, crop}` 을 싣는다.
+  **안내문구 텍스트 블록은 더 이상 클라이언트가 넣지 않는다**(그림과 문구가 둘 다
+  인쇄된다) — 커넥터가 실패분만 안내문구로 되돌린다.
+- 회귀: `test_connector_contract` I(플래그 기본 꺼짐 + 폴백 계단 4단계).
+- ⚠️ **배포된 HWP 도우미(agent.exe)에는 이 코드가 없다** — 낡은 도우미는 플래그를
+  무시하고 안내문구를 낸다(안전). 그림을 보려면 **도우미 재빌드·재배포**가 필요하다.
+- ⚠️ 비용: 그림 1개당 Gemini 호출이 1회 늘어난다(서술 + 작도 병행). 캐시(`api_cache`
+  kind='figure-svg')가 재변환을 막아 준다.
+
 ## 작업 마무리 워크플로우 (필수)
 
 코드를 변경한 뒤에는 **항상 아래 순서로 마무리**한다:
@@ -2582,7 +2630,10 @@ HWP Quit 실패(고아 프로세스 가능)
 - ⚠️ **억제책이지 보호가 아니다** — 수식 편집기를 열면 보이고 지울 수 있다.
 - 회귀: `tests/test_eq_watermark.py`(A~D, 안전/위험/OFF/멱등/문구 정규화).
 
-## 그림 실삽입은 내부 개발 전용 — 웹/exe 프로덕션은 안내문구 (2026-08-10, 사용자 지시)
+## 그림 실삽입은 내부 개발 전용 — 웹/exe 프로덕션은 안내문구 (2026-08-10)
+
+> ⚠️ **2026-08-20 갱신: 웹은 이제 도형을 실제로 그린다**(아래 '웹 변환도 SVG
+> 엔진으로 도형을 그린다' 절). exe(GUI)는 종전대로 안내문구.
 
 - 신설 그림 파이프라인(`figure_crop` 결정적 검출 + `figure_embed` 네이티브 삽입, 커밋
   7432685~bfd7431)은 **미완성 — 프로덕션 호출자 없음**(개발 하네스 전용). 사용자 지시:

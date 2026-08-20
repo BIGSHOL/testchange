@@ -72,6 +72,59 @@ def _find(h, text: str) -> bool:
     return True
 
 
+def replace_placeholder_figures(doc_path: str | Path,
+                                token_to_png: dict[str, str]) -> int:
+    """토큰 **뒤의 자리표시 그림**을 진짜 그림으로 바꾼다(폼 경로). 교체 수 반환.
+
+    ⭐ 왜 이 모양인가(실측 2026-08-20):
+      · 폼 경로는 쓰기 단계에서 COM ``InsertPicture`` 로 그림을 넣는다 — 그래야
+        **레이아웃(단 배치·빈줄)이 그림 높이를 실측**한다. 그런데 HWP 는 폼의 기존
+        binItem(머리말 배너)을 재사용해 **그림 자리에 배너가 뜬다**(2026-06-05).
+      · 그걸 저장후 XML 로 고치면(``_embed_figures``) 보안경고 제거 재저장
+        (``_com_relaunder``)이 **그림을 통째 드롭**한다(probe: pic 3→0).
+      · 반대로 XML 을 안 건드리면 그림은 relaunder 를 **살아남는다**(배너를 가리킨
+        채로). 그래서 **맨 마지막에** 토큰을 앵커 삼아 그 그림만 진짜 그림으로
+        갈아끼운다 — 크기·위치는 자리표시가 잡아 둔 그대로이고, HWP 가 마지막
+        저장자라 변조 보안경고도 없다(실측: BinData 에 우리 PNG 가 정상 임베드).
+
+    ⚠️ **모든 XML 후처리·relaunder·최종 .hwp 굽기가 끝난 뒤** 호출한다.
+    """
+    doc_path = Path(doc_path).resolve()      # ⚠️ HWP Open 은 상대경로를 조용히 실패
+    if not token_to_png or not doc_path.exists():
+        return 0
+    fmt = "HWP" if doc_path.suffix.lower() == ".hwp" else "HWPX"
+    h = _hwp()
+    n = 0
+    try:
+        if not h.Open(str(doc_path), fmt, "forceopen:true"):
+            raise RuntimeError(f"HWP Open 실패: {doc_path}")
+        for token, png in token_to_png.items():
+            png = str(Path(png).resolve())
+            if not _find(h, token):
+                logger.warning("그림 토큰을 문서에서 찾지 못함: %s", token)
+                continue
+            h.HAction.Run("Delete")          # 선택된 토큰 제거 → 캐럿이 그 자리
+            if not os.path.exists(png):
+                logger.warning("그림 파일 없음 — 자리표시 유지: %s", png)
+                continue
+            # 토큰 **바로 뒤**의 자리표시 그림(글자처럼 취급 = 한 글자)을 선택 후 교체.
+            h.Run("MoveSelRight")
+            h.HAction.Run("Delete")
+            try:
+                h.InsertPicture(png, True, 2, 0, 0, 0, 0, 0)
+            except Exception:  # noqa: BLE001 (구버전 시그니처 폴백)
+                h.InsertPicture(png, True, 2)
+            n += 1
+        h.SaveAs(str(doc_path), fmt, "")
+    finally:
+        try:
+            h.Quit()
+        except Exception:  # noqa: BLE001
+            pass
+        time.sleep(0.3)                       # Quit 은 비동기 — 파일 핸들 해제 대기
+    return n
+
+
 def embed_figures_by_token(doc_path: str | Path,
                            token_to_png: dict[str, str],
                            width_mm: float | None = None) -> int:

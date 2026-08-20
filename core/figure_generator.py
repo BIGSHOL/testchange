@@ -94,7 +94,10 @@ the block for unsupported charts, curves, solids, or photos. Use this compact sc
 "side":"auto","offset":16,"inset":3}},
 "labels":{"A":"A","P":"P"}}
 All referenced points must be defined, intersections must lie inside both finite
-segments, names are globally unique, and unknown fields are rejected. A curved dashed
+segments, names are globally unique, and unknown fields are rejected.
+⚠️ Names live in ONE namespace: an angle or dimension key must NOT reuse a point name
+("A") or a segment name ("AB"). Prefix them — angles ``angA``/``angDPC``, dimensions
+``dimAB`` — or compilation fails with "duplicate geometry name". A curved dashed
 length guide must use `dimensions`, never a hand-positioned path: side `auto` lets the
 engine choose left/right and increase curvature until it clears lines and A/B/C labels.
 Include `dimensions` only when the source visibly contains a length guide or value;

@@ -23,6 +23,9 @@ import sys
 import os
 import json
 import argparse
+import atexit
+import shutil
+import tempfile
 import time
 import traceback
 from pathlib import Path
@@ -38,7 +41,7 @@ if str(ENGINE_ROOT) not in sys.path:
     sys.path.insert(0, str(ENGINE_ROOT))
 
 
-def resolve_figures(envelope: dict) -> int:
+def resolve_figures(envelope: dict, fig_dir: "Path | None" = None) -> int:
     """OCR JSON 의 ``figure`` 블록 → 그림자리 안내 텍스트(엔진 워커와 동일).
 
     ⭐⭐ **이 단계가 없으면 그림이 흔적도 없이 사라진다.** `content_parser` 는
@@ -60,6 +63,68 @@ def resolve_figures(envelope: dict) -> int:
     from core.hwp_form_writer import _FIGURE_NOTE as _FIGURE_NOTE_TEXT
 
     n = 0
+    drawn = 0
+
+    def _to_png(b: dict):
+        """figure 블록 → PNG 경로(없으면 None). **구조화 스펙 → SVG → 원본 크롭** 순.
+
+        ⭐ 1순위는 `figure-spec`(FigureSpec v2) 이다 — 엔진(`core.figure_scene`)이
+        컴파일하면서 **라벨을 자동 배치**한다(선·곡선·다른 라벨과의 충돌을 계산해 피함).
+        모델이 손으로 좌표를 찍은 SVG 는 라벨이 선을 밟거나 서로 겹친다(사용자
+        2026-08-20). 판정·컴파일은 엔진의 `_compile_structured_candidate` 를 **그대로
+        재사용**한다 — 사본을 만들면 exe 경로와 갈라진다.
+
+        ⭐ 그 결과(모델 생성물)는 **신뢰할 수 없으므로** 반드시 정제·검증을 거친다
+        (`core.figure_quality.assess_svg` = 허용목록 기반 보안 경계 + 구조/픽셀 게이트).
+        게이트를 못 넘으면 원본 크롭으로 폴백하고, 그것도 없으면 안내문구로 돌아간다
+        (엔진 `figure_generator.render_figure` 와 같은 폴백 순서).
+        """
+        nonlocal drawn
+        if fig_dir is None:
+            return None
+        import base64
+
+        idx = drawn
+        svg = b.get("svg")
+        spec = b.get("spec")
+        if (isinstance(svg, str) and svg.strip()) or spec:
+            try:
+                from core.figure_generator import (_compile_structured_candidate,
+                                                   _svg_to_png_bytes)
+                from core.figure_quality import assess_svg
+                cand = {"svg": svg if isinstance(svg, str) else ""}
+                if spec:
+                    cand["figure_spec"] = spec
+                    if isinstance(b.get("desc"), str):
+                        cand["desc"] = b["desc"]
+                svg2, err = _compile_structured_candidate(cand)
+                if err:
+                    sys.stderr.write(f"[convert] 도형 스펙 검증 실패 — SVG 로 폴백: {err}\n")
+                    svg2 = svg if isinstance(svg, str) else ""
+                res = assess_svg(svg2 or "", run_pixel_lint=True)
+                if res.accepted and res.sanitized_svg:
+                    png = _svg_to_png_bytes(res.sanitized_svg, width=_FIG_PNG_W)
+                    if png:
+                        out_png = fig_dir / f"fig{idx}.png"
+                        out_png.write_bytes(png)
+                        drawn += 1
+                        return str(out_png)
+                sys.stderr.write(
+                    "[convert] 도형 SVG 게이트 탈락 — 원본 크롭으로 폴백 "
+                    + str((res.security_issues or []) + (res.issues or []))[:160] + "\n")
+            except Exception as e:  # noqa: BLE001 — 그림 실패가 변환을 막지 않는다
+                sys.stderr.write(f"[convert] 도형 SVG 실패: {type(e).__name__}: {e}\n")
+        crop = b.get("crop") or b.get("image")
+        if isinstance(crop, str) and crop.strip():
+            try:
+                raw = crop.split(",", 1)[-1] if crop.startswith("data:") else crop
+                out_png = fig_dir / f"fig{idx}_crop.png"
+                out_png.write_bytes(base64.b64decode(raw))
+                drawn += 1
+                return str(out_png)
+            except Exception as e:  # noqa: BLE001
+                sys.stderr.write(f"[convert] 그림 크롭 저장 실패: {e}\n")
+        return None
 
     def _contents(blocks):
         nonlocal n
@@ -68,8 +133,12 @@ def resolve_figures(envelope: dict) -> int:
         out = []
         for b in blocks:
             if isinstance(b, dict) and b.get("type") == "figure":
-                out.append({"type": "text", "value": _FIGURE_NOTE_TEXT})
-                n += 1
+                png = _to_png(b)
+                if png:
+                    out.append({"type": "image", "value": png})
+                else:
+                    out.append({"type": "text", "value": _FIGURE_NOTE_TEXT})
+                    n += 1
             else:
                 out.append(b)
         return out
@@ -98,6 +167,24 @@ def is_engine_envelope(payload) -> bool:
     조용히 어긋난다.
     """
     return isinstance(payload, dict) and isinstance(payload.get("questions"), list)
+
+
+# 그림 PNG 폭(px) — 96dpi 기준 ≈ 127mm. 폼 writer 가 단 너비·높이에 맞춰 다시 줄이므로
+# (`_fit_image_width`) 여기서는 축소 손실이 없게 넉넉히 뽑는다.
+_FIG_PNG_W = 480
+
+
+def wants_figures(payload) -> bool:
+    """그림을 **실제로 그려 넣을지** — 웹이 payload 로 지정한다(기본 꺼짐).
+
+    ⭐ 플래그가 없으면 **기존 동작 그대로**(그림 자리 = 안내문구). 켜야만 켜진다 —
+    폼 경로에 회귀를 만들지 않는다(사용자 2026-08-20 지시로 웹에서 켠다).
+    """
+    if not isinstance(payload, dict):
+        return False
+    if payload.get("renderFigures") or payload.get("render_figures"):
+        return True
+    return str(payload.get("figures") or "").strip().lower() in ("draw", "svg", "on")
 
 
 # '폼 없이 2단' 을 뜻하는 layout 값들(웹이 보내는 표기 흔들림 흡수).
@@ -162,8 +249,21 @@ def _render_engine_envelope(payload: dict, out_path: Path) -> Path:
         sys.stderr.write(
             f"[convert] 답지 페이지로 판정해 제외한 문항 {len(_dropped_key)}개"
             f" (봉투 {n_key_before} → {len(envelope['questions'])})\n")
-    # ⭐ 파서에 넣기 **전에** figure → 안내 텍스트(엔진 워커와 같은 순서).
-    n_fig = resolve_figures(envelope)
+    # ⭐ 파서에 넣기 **전에** figure 해소(엔진 워커와 같은 순서).
+    #   · 그림 렌더 모드(웹이 `renderFigures` 지정): SVG(정제·검증) 또는 원본 크롭 → PNG
+    #     → ``image`` 블록. 실패분만 안내문구로 남는다.
+    #   · 기본: 종전대로 전부 안내문구(바이트 동일 경로).
+    draw_figures = wants_figures(payload)
+    fig_dir = None
+    if draw_figures:
+        fig_dir = Path(tempfile.mkdtemp(prefix="convfig_"))
+        # 렌더가 끝날 때까지 파일이 살아 있어야 하므로 **프로세스 종료 시** 지운다
+        # (convert_cli 는 변환 1건짜리 단명 자식 프로세스다).
+        atexit.register(shutil.rmtree, str(fig_dir), True)
+    n_fig = resolve_figures(envelope, fig_dir)
+    n_drawn = len(list(fig_dir.glob("*.png"))) if fig_dir else 0
+    if draw_figures:
+        sys.stderr.write(f"[convert] 그림 렌더 — 삽입 {n_drawn}개 · 안내문구 {n_fig}개\n")
     page = parse_ocr_response(envelope, page_number=1)
     document = build_document([page])
 
@@ -214,12 +314,13 @@ def _render_engine_envelope(payload: dict, out_path: Path) -> Path:
         for _try in range(2):
             hwp_before = hwp_pids()
             try:
-                # ⭐ 웹은 그림 실삽입 금지 — 항상 안내문구(사용자 2026-08-10). 그림
-                # 파이프라인(figure_crop/figure_embed)이 미완성이라 내부 개발 전용이다.
-                # 켜려면 합의 갱신이 먼저다(test_connector_contract G 가 잠금).
+                # ⭐ 그림은 웹이 `renderFigures` 를 켰을 때만 실제로 그린다(2026-08-20
+                # 사용자 지시). 켜져 있으면 위에서 SVG/크롭을 PNG 로 만들어 image 블록에
+                # 실어 뒀고, writer 가 자리표시로 넣은 뒤 최종 단계에서 진짜 그림으로
+                # 갈아끼운다(figure_embed.replace_placeholder_figures — 보안경고 없음).
                 made = write_exam_to_form(document, form_path, out_path,
                                           header_values=header_values,
-                                          render_figures=False)
+                                          render_figures=bool(n_drawn))
                 _diag(form_name)
                 return Path(made) if made else out_path
             except Exception as e:  # noqa: BLE001 — 폼 실패는 기본 서식으로 폴백(GUI 동일)

@@ -56,6 +56,11 @@ _MINGAP = 1
 FORM_FIG_MAX_W = 260
 # 선택지 슬롯 그림 최대 폭(px) — 한 줄에 마커+그림이 들어가야 하므로 발문 그림보다 작게.
 FORM_CHOICE_FIG_W = 110
+# 그림 최대 **높이**(px, 96dpi 기준 ≈ 62mm). 폭만 맞추면 세로로 긴 그림(그래프·입체)이
+# 단 하나를 통째로 잡아먹어 문항이 뒤로 밀린다 — 사용자 요구: "그림이 거대하게 렌더링되지
+# 않고 문항과 자연스럽게 흡수되도록"(2026-08-20). 세로가 넘치면 비율 유지로 더 줄인다.
+FORM_FIG_MAX_H = 235
+FORM_CHOICE_FIG_H = 90
 # 크롭 원본(스캔 렌더) 해상도 — 그림을 **원본 인쇄 크기**로 넣을 때의 px→mm 환산 기준.
 # HWP InsertPicture 는 96dpi 로 픽셀을 mm 로 읽으므로, 200dpi 로 뜬 크롭은 96/200 배가
 # 실제 인쇄 크기다. 이걸 안 하면 스캔 해상도가 높을수록 그림만 커진다(사용자 2026-08-10).
@@ -80,7 +85,8 @@ def _natural_width(px: int, src_dpi: int = FIG_SRC_DPI) -> int:
 
 
 def _fit_image_width(path: str, max_w: int = FORM_FIG_MAX_W,
-                     src_dpi: int | None = None) -> str:
+                     src_dpi: int | None = None,
+                     max_h: int = FORM_FIG_MAX_H) -> str:
     """그림을 흰 배경으로 평탄화하고, max_w(px)보다 넓으면 비율 유지 축소한 임시 PNG.
 
     - 투명 배경(resvg SVG 출력 등) → RGB 변환 시 검정으로 합성되어 그림이 안 보이므로
@@ -99,6 +105,10 @@ def _fit_image_width(path: str, max_w: int = FORM_FIG_MAX_W,
         lim = max_w if src_dpi is None else min(max_w, _natural_width(w, src_dpi))
         if w > lim:
             im = im.resize((lim, max(1, int(h * lim / w))), _Image.LANCZOS)
+        # 세로 상한 — 폭만 맞추면 길쭉한 그림이 단을 통째로 먹는다(문항 흐름 파괴).
+        w2, h2 = im.size
+        if max_h and h2 > max_h:
+            im = im.resize((max(1, int(w2 * max_h / h2)), max_h), _Image.LANCZOS)
         out = os.path.join(tempfile.gettempdir(), f"formfig_{os.path.basename(path)}")
         if not out.lower().endswith(".png"):
             out += ".png"
@@ -300,7 +310,8 @@ def _put_block(ses, b, in_choice: bool = False) -> None:
             # 선택지 그림(①~⑤ 가 전부 그래프인 문항)은 **폼 마커 옆 인라인·작게**.
             # 발문 그림처럼 break+center 로 넣으면 한 선택지가 한 블록을 통째로 차지해
             # 문항이 여러 쪽에 흩어진다(대륜중 #6 실측 2026-08-10).
-            _place_figure(ses, ses.hwp, b.value, max_w=FORM_CHOICE_FIG_W)
+            _place_figure(ses, ses.hwp, b.value, max_w=FORM_CHOICE_FIG_W,
+                          max_h=FORM_CHOICE_FIG_H)
         else:
             # 그림 자동삽입 보류 — 가운데·독립줄에 '직접 캡처해 붙여넣으세요' 안내(사용자 2026-06-05).
             ses.break_para()
@@ -311,7 +322,10 @@ def _put_block(ses, b, in_choice: bool = False) -> None:
 
 
 def _fig_token(idx: int) -> str:
-    """그림 위치 마킹 토큰(추후 그림 자동삽입 숙제용 — 현재 미사용)."""
+    """그림 자리 토큰 — 최종 단계에서 자리표시 그림을 진짜 그림으로 바꿀 때의 앵커.
+
+    ⚠️ HWP Find 로 찾을 수 있어야 하므로 **일반 문서에 안 나올 한글 문자열**을 쓴다
+    (``⟦F0⟧`` 같은 특수기호는 Find 가 못 찾는다 — figure_embed 주석 참고)."""
     return f"그림삽입자리{idx}끝표식"
 
 
@@ -330,7 +344,8 @@ _META_TOKEN_SO = "소단원자리표식QZX"
 _META_TOKEN_NA = "난이도자리표식QZX"
 
 
-def _place_figure(ses, h, path: str, max_w: int = FORM_FIG_MAX_W) -> bool:
+def _place_figure(ses, h, path: str, max_w: int = FORM_FIG_MAX_W,
+                  max_h: int = FORM_FIG_MAX_H) -> bool:
     """그림(IMAGE) 자리 처리 — 모드 분기(`ses._render_figures`).
 
     - **렌더 모드**(True): 그림을 실제로 삽입(자리표시 pic + 토큰 → 저장후 `_embed_figures` 가
@@ -340,12 +355,18 @@ def _place_figure(ses, h, path: str, max_w: int = FORM_FIG_MAX_W) -> bool:
       보존 — 사용자 결정 2026-06-05. 자세히: 메모리 `form-figure-pending`.)
     """
     if getattr(ses, "_render_figures", False):
-        return _place_figure_embed(ses, h, path, max_w)
+        return _place_figure_embed(ses, h, path, max_w, max_h)
     return _place_figure_note(ses, h, path)
 
 
-def _place_figure_embed(ses, h, path: str, max_w: int = FORM_FIG_MAX_W) -> bool:
-    """렌더 모드: 그림 자리표시 pic(배너참조) + 토큰 삽입, 경로 등록(저장후 _embed_figures 교정)."""
+def _place_figure_embed(ses, h, path: str, max_w: int = FORM_FIG_MAX_W,
+                        max_h: int = FORM_FIG_MAX_H) -> bool:
+    """렌더 모드: **자리표시 그림**(배너참조) + 토큰 삽입, 경로 등록.
+
+    자리표시를 COM 으로 넣어야 레이아웃이 그림 높이를 실측한다. 배너가 아닌 진짜 그림은
+    모든 후처리·relaunder·최종 .hwp 굽기가 끝난 뒤 `figure_embed.replace_placeholder_figures`
+    가 토큰을 앵커 삼아 갈아끼운다(그래야 보안경고 없이 그림이 살아남는다 — 그 함수 주석).
+    """
     if not path or not os.path.exists(path):
         return False
     paths = getattr(ses, "_fig_paths", None)
@@ -357,7 +378,7 @@ def _place_figure_embed(ses, h, path: str, max_w: int = FORM_FIG_MAX_W) -> bool:
     # 정하는데, `_embed_figures` 가 **원본** 바이트를 넣으면 원본 해상도가 틀보다 커
     # 그림이 확대·클리핑된다(대륜중 #1 격자 그래프가 좌상단 1/4 만 보임 — 실측
     # 2026-08-10). 그래서 등록도 `fitted` 로 한다.
-    fitted = _fit_image_width(path, max_w, getattr(ses, "_fig_src_dpi", None))
+    fitted = _fit_image_width(path, max_w, getattr(ses, "_fig_src_dpi", None), max_h)
     idx = len(paths)
     paths.append(fitted)
     try:
@@ -3131,16 +3152,12 @@ def write_exam_to_form(
     # 짝수 보정은 그 뒤 후처리(보기 5×5 폼·메타란 주입)가 본문 높이를 키우면 어긋난다
     # (경구중·새본리중·월암중 정답 짝수쪽, 2026-06-12). relaunder **후** 측정해야 최종
     # 페이지네이션 기준이고, 교정(XML 수정) 시 relaunder 재실행으로 보안경고를 다시 없앤다.
-    if render_figures and fig_paths:
-        try:
-            _embed_figures(output_path, fig_paths)
-        except Exception as e:  # noqa: BLE001
-            logger.warning("폼 후처리 실패(_embed_figures): %s", e)
-        try:
-            _fix_answer_parity(output_path)   # 그림 경로는 경고가 어차피 있어 재저장 불필요
-        except Exception as e:  # noqa: BLE001
-            logger.warning("폼 후처리 실패(_fix_answer_parity): %s", e)
-    else:
+    # ⚠️ **그림 렌더 모드도 이 경로를 그대로 탄다**(2026-08-20 변경). 과거엔 저장후 XML 로
+    # binItem 을 주입하고(`_embed_figures`) relaunder 를 건너뛰어 보안경고를 감수했는데,
+    # 실측 결과 relaunder 는 **XML 주입 그림만** 드롭하고 COM 이 넣은 자리표시 그림은
+    # 살려 둔다. 그래서 정상 후처리를 다 태운 뒤 마지막에 자리표시를 진짜 그림으로
+    # 갈아끼운다(`figure_embed.replace_placeholder_figures`) — 경고 없이 그림이 남는다.
+    if True:
         _re_ok, _ans_page = _com_relaunder(output_path, measure_answer=True)
         if not _re_ok:
             logger.warning("폼 후처리 실패(_com_relaunder): 보안경고 제거 재저장 실패")
@@ -3181,6 +3198,19 @@ def write_exam_to_form(
                 _com_relaunder(output_path)                # 정규화 + 재저장(경고 제거)
         except Exception as e:  # noqa: BLE001
             logger.warning("폼 후처리 실패(메타 토큰/라벨 잔존 해소): %s", e)
+    def _finish_figures(path: Path) -> Path:
+        """마지막 단계 — 자리표시 그림을 진짜 그림으로(그림 렌더 모드에서만)."""
+        if not (render_figures and fig_paths):
+            return path
+        try:
+            from core.figure_embed import replace_placeholder_figures
+            n = replace_placeholder_figures(
+                path, {_fig_token(i): p for i, p in enumerate(fig_paths)})
+            logger.info("그림 교체 %d/%d", n, len(fig_paths))
+        except Exception as e:  # noqa: BLE001 — 그림 실패가 변환을 막지 않는다
+            logger.warning("폼 후처리 실패(그림 교체): %s", e)
+        return path
+
     # 3단계: 최종 .hwp 굽기 — 폼 바탕쪽(2단 가운데 구분선)이 .hwpx 에선 적용되지 않는다.
     if final_hwp is not None:
         if save_as_hwp(output_path, final_hwp):
@@ -3188,12 +3218,12 @@ def write_exam_to_form(
                 output_path.unlink()          # 작업용 hwpx 정리
             except Exception:                 # noqa: BLE001
                 pass
-            return final_hwp
+            return _finish_figures(final_hwp)
         logger.warning("최종 .hwp 저장 실패 — 작업용 .hwpx 를 그대로 사용합니다: %s", output_path)
         fallback = final_hwp.with_suffix(".hwpx")
         try:
             _replace_retry(output_path, fallback)
-            return fallback
+            return _finish_figures(fallback)
         except Exception:                     # noqa: BLE001
-            return output_path
-    return output_path
+            return _finish_figures(output_path)
+    return _finish_figures(output_path)
