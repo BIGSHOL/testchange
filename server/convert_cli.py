@@ -101,7 +101,10 @@ def resolve_figures(envelope: dict, fig_dir: "Path | None" = None) -> int:
                 if err:
                     sys.stderr.write(f"[convert] 도형 스펙 검증 실패 — SVG 로 폴백: {err}\n")
                     svg2 = svg if isinstance(svg, str) else ""
-                res = assess_svg(svg2 or "", run_pixel_lint=True)
+                # ⚠️ 픽셀 린트(라벨 겹침·잘림 검사)는 **numpy 가 있을 때만** 돌린다 —
+                # 배포 도우미(agent.exe)는 경량화를 위해 numpy 를 뺀다. 보안 경계인
+                # `sanitize_svg`(허용목록)와 구조 검증은 표준 라이브러리라 항상 돈다.
+                res = assess_svg(svg2 or "", run_pixel_lint=_HAS_NUMPY)
                 if res.accepted and res.sanitized_svg:
                     png = _svg_to_png_bytes(res.sanitized_svg, width=_FIG_PNG_W)
                     if png:
@@ -168,6 +171,14 @@ def is_engine_envelope(payload) -> bool:
     """
     return isinstance(payload, dict) and isinstance(payload.get("questions"), list)
 
+
+# 픽셀 린트(라벨 겹침 검사)는 numpy 를 쓴다 — 배포 도우미는 경량화를 위해 빼므로
+# 있을 때만 돈다(보안 경계인 sanitize_svg 는 표준 라이브러리라 항상 동작).
+try:
+    import numpy as _np       # noqa: F401
+    _HAS_NUMPY = True
+except Exception:             # noqa: BLE001
+    _HAS_NUMPY = False
 
 # 그림 PNG 폭(px) — 96dpi 기준 ≈ 127mm. 폼 writer 가 단 너비·높이에 맞춰 다시 줄이므로
 # (`_fit_image_width`) 여기서는 축소 손실이 없게 넉넉히 뽑는다.

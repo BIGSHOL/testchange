@@ -46,6 +46,8 @@ a = Analysis(
         'pythoncom', 'pywintypes', 'win32api',
         # 시스템 트레이.
         'pystray', 'pystray._win32', 'PIL', 'PIL.Image', 'PIL.ImageDraw',
+        # 그림 렌더 — SVG → PNG 래스터화(core.figure_generator._svg_to_png_bytes).
+        'resvg_py',
     ],
     hookspath=[],
     hooksconfig={},
@@ -53,7 +55,9 @@ a = Analysis(
     excludes=[
         # 변환 경로 무관 — 전부 GUI/OCR/figure/AI 의존. 번들 경량화(+빌드 속도).
         'PySide6', 'shiboken6', 'matplotlib', 'fitz', 'pymupdf',
-        'numpy', 'scipy', 'pandas', 'resvg_py',
+        # ⚠️ resvg_py 는 **뺄 수 없다** — 웹 그림 렌더(renderFigures)가 SVG 를 PNG 로
+        # 래스터화한다(2026-08-20). 빼면 그림이 조용히 안내문구로 떨어진다.
+        'numpy', 'scipy', 'pandas',
         'google', 'google.genai', 'google.auth', 'anthropic', 'httpx',
         'tkinter', '_tkinter', 'unittest', 'pytest', 'IPython',
     ],

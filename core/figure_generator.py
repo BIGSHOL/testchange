@@ -16,7 +16,10 @@ import re
 
 from PIL import Image
 
-from core.pdf_handler import image_to_base64
+# ⚠️ `core.pdf_handler` 는 **fitz(PyMuPDF)** 를 끌어온다 — 배포 HWP 도우미
+# (agent.spec)는 fitz 를 빼므로 최상단에서 import 하면 그림 경로가 통째로
+# ModuleNotFoundError 로 죽는다(2026-08-20 빌드 실측). 비전 호출에서만 쓰므로
+# `_vision_to_svg` 안에서 지연 import 한다.
 from utils.config import get_api_key, CLAUDE_MODEL
 
 logger = logging.getLogger(__name__)
@@ -205,6 +208,7 @@ def _vision_to_svg(image: Image.Image, hint: str, api_key: str | None,
     try:
         # 병렬 그림 재생성(_resolve_figures) 버스트의 429/5xx 를 SDK 백오프로 흡수.
         client = anthropic.Anthropic(api_key=api_key or get_api_key(), max_retries=2)
+        from core.pdf_handler import image_to_base64
         b64 = image_to_base64(image, format="PNG")
         user_text = "이 크롭 그림을 위 규칙대로 재현하세요."
         if hint:
