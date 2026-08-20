@@ -2636,31 +2636,40 @@ _ESSAY_LABEL_WORD_RE = re.compile(r'\[\s*(서술형|서답형)(\s*\d*\s*)\]')
 
 
 def _normalize_essay_label_type(doc: "ExamDocument") -> None:
-    """문서의 서술형/서답형 라벨이 **혼재하면 '서답형'으로 통일**(결정적 후처리).
+    """서답형/서술형 라벨을 **항상 '서술형'으로 통일**(결정적 후처리).
 
-    OCR 이 같은 시험지의 일부 문항 라벨을 ``서답형``↔``서술형`` 으로 다르게 읽는다(같은 시험지는
-    한 용어로 일관됨 — 사용자 2026-06-09: "전부 서답형인데 일부가 서술형으로 치환"). 혼재는
-    OCR 오인이므로 **교육과정 공식 구성형 용어인 '서답형'** 으로 통일한다(사용자 결정). 라벨이
-    한 종류로 일관되면(정상) 건드리지 않는다 — 진짜 '서술형' 시험지를 보존. 프롬프트 강화(라벨
-    원문 그대로 읽기)와 병행하나, 이 결정적 통일이 캐시·오인에도 견고하다.
+    ⭐ 사용자 2026-08-20: "모든 서답형, 서술형 -> 서술형 통일". 종전에는 *혼재할 때만*
+    ``서답형`` 으로 모았는데(2026-06-09 결정), 그러면 ① 같은 시험지 안에서도 OCR 이 한
+    문항만 다르게 읽으면 ``[서술형 1~3]`` 사이에 ``[서답형 4]`` 가 끼고 ② 시험지마다
+    용어가 갈려 출력이 들쭉날쭉했다. 이제 **한 방향으로 항상** 모은다.
+
+    ⚠️ ``단답형`` 은 건드리지 않는다 — 서술형과 **다른 유형**이고 원본도 그렇게 인쇄한다
+    (능인고 수1·정화중처럼 두 유형이 함께 있는 시험지가 실제로 있다).
     """
-    found = set()
+    target = "서술형"
+
+    def _fix(blocks) -> None:
+        for b in blocks or []:
+            if b.type == ContentType.TEXT and b.value and "서답형" in b.value:
+                # ⚠️ 라벨은 인라인 수식 분리로 **쪼개져 들어오는 일이 흔하다**
+                # (TEXT``[서답형 `` + EQ``4`` + TEXT``] …`` — 번호가 수식 객체라서).
+                # 그래서 ``[서답형 N]`` 패턴만 보면 쪼개진 쪽을 통째로 놓친다. 단어 자체를
+                # 바꾼다 — 이 낱말은 시험지에서 라벨·안내문("서답형 문항은 …")으로만 쓰여
+                # 둘 다 서술형으로 모으는 게 사용자 요구다.
+                b.value = b.value.replace("서답형", target)
+
     for pg in doc.pages:
         for q in pg.questions:
-            for b in q.contents:
-                if b.type == ContentType.TEXT and b.value:
-                    found.update(m.group(1) for m in _ESSAY_LABEL_WORD_RE.finditer(b.value))
-    if len(found) < 2:
-        return                                   # 일관(또는 라벨 없음) → 유지
-    target = "서답형"
-    for pg in doc.pages:
-        for q in pg.questions:
-            for b in q.contents:
-                if b.type == ContentType.TEXT and b.value:
-                    b.value = _ESSAY_LABEL_WORD_RE.sub(
-                        lambda m: f"[{target}{m.group(2)}]", b.value)
+            _fix(q.contents)
+            for ch in q.choices or []:
+                _fix(getattr(ch, "contents", None))
+            for sq in getattr(q, "sub_questions", None) or []:
+                _fix(getattr(sq, "contents", None))
             if getattr(q, "label_type", None) in ("서술형", "서답형"):
                 q.label_type = target
+            for sq in getattr(q, "sub_questions", None) or []:
+                if getattr(sq, "label_type", None) in ("서술형", "서답형"):
+                    sq.label_type = target
 
 
 def build_document(
@@ -2673,7 +2682,7 @@ def build_document(
     doc = ExamDocument(title=title, subject=subject, grade=grade)
     doc.pages = pages
 
-    # 서술형/서답형 라벨 혼재(OCR 오인) → 서답형 통일(결정적).
+    # 서답형/서술형 라벨 → **서술형** 통일(결정적, 사용자 2026-08-20).
     _normalize_essay_label_type(doc)
 
     # 헤더에서 제목/과목 자동 추출 시도

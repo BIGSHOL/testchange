@@ -930,8 +930,10 @@ def run():
     # ── W3: 번호 라벨 뒤 유형 라벨 중복 제거(_essay_label_and_body, 도원고 수2) ──
     # OCR 이 ``[서답형 7][서술형]`` 처럼 번호+유형 라벨을 둘 다 주면 폼 라벨과 ``[서술형 7] [서술형]``
     # 이중 표기. 번호 라벨 추출 후 따라오는 유형 라벨(번호 없음)도 본문에서 제거.
+    # ⭐ 2026-08-20(사용자): 출력 라벨 단어는 **서술형으로 통일**한다(서답형→서술형).
+    # 이 테스트의 관심사는 '유형 라벨 중복 제거' 이므로 단어만 새 규약에 맞춘다.
     lbl, body = _essay_label_and_body([_tb("[서답형 7][서술형] 그림과 같이")], "서술형", 7)
-    chk(lbl == "[서답형 7]" and (body[0].value or "").startswith("그림과"),
+    chk(lbl == "[서술형 7]" and (body[0].value or "").startswith("그림과"),
         f"W3 유형 라벨 제거(형태1): {lbl!r} / {body[0].value!r}")
     lbl2, body2 = _essay_label_and_body([_tb("[서답형 5][단답형] 함수")], "단답형", 5)
     chk("[단답형]" not in (body2[0].value or ""), f"W3 단답형 유형 라벨 제거: {body2[0].value!r}")
@@ -945,16 +947,16 @@ def run():
     # 라벨은 ``[서답형 1]`` 로 추출하고 주석은 본문 선두 ``(단답형)`` 로 보존(중복 제거, 원본 충실).
     lblA, bodyA = _essay_label_and_body([_tb("[서답형 1 (단답형)] 매개변수")], "서답형", 1)  # 형태1
     _fullA = "".join((b.value or "") for b in bodyA)
-    chk(lblA == "[서답형 1]" and _fullA.startswith("(단답형) 매개변수") and "[서답형" not in _fullA,
+    chk(lblA == "[서술형 1]" and _fullA.startswith("(단답형) 매개변수") and "[서답형" not in _fullA,
         f"W4 주석 보존+중복 제거(형태1): {lblA!r} / {_fullA[:24]!r}")
     splitA = [_tb("[서답형 "), _eq("1"), _tb(" (단답형)] 매개변수")]                         # 형태2(분리형)
     lblB, bodyB = _essay_label_and_body(splitA, "서답형", 1)
     _fullB = "".join((b.value or "") for b in bodyB)
-    chk(lblB == "[서답형 1]" and _fullB.startswith("(단답형) 매개변수") and "[서답형" not in _fullB,
+    chk(lblB == "[서술형 1]" and _fullB.startswith("(단답형) 매개변수") and "[서답형" not in _fullB,
         f"W4 주석 보존+중복 제거(형태2): {lblB!r} / {_fullB[:24]!r}")
     spC = [_tb("[서답형 "), _eq("2"), _tb("] 자연수")]                                       # 무회귀(주석 없음)
     lblC, bodyC = _essay_label_and_body(spC, "서답형", 2)
-    chk(lblC == "[서답형 2]" and (bodyC[0].value or "").startswith("자연수"),
+    chk(lblC == "[서술형 2]" and (bodyC[0].value or "").startswith("자연수"),
         f"W4 주석 없는 분리형 무회귀: {lblC!r} / {bodyC[0].value!r}")
 
     # ── X(정답면 기입, 2026-07-24): 정답 run·메타란 값·서술형 해설 XML 주입 ──
@@ -1090,13 +1092,14 @@ def run():
         return 1
     test_score_str_web_exe_parity()
     test_no_trailing_gap_before_answer_page()
+    test_essay_word_unified_to_seosulhyeong()
     print("OK test_render_fixes (cell/value-box/caption/shading/essay-label/overline/relabel/"
           "bigstar/boxed/labelless/solo/mixed-label/rm-space/cond-header/form-underline/"
           "sqrt-space/choice-glyph/tail-note/underline-solid/stemleaf-13/choice-geo/cond-circle/"
           "repeat-dot/paren-score/phantom-box/box-bullet/post-box/box-ascii-eq/submark-ref/"
           "answer-header-neutralize/essay-type-label/annot-label/lim-below-subscript/"
           "ksy-ineq-coord-rmbleed/answer-meta-solution/setbuilder-braces/answer-eq-baseunit/"
-          "no-trailing-gap)")
+          "no-trailing-gap/essay-word-unify)")
     return 0
 
 
@@ -1137,6 +1140,60 @@ def test_no_trailing_gap_before_answer_page() -> None:
         "마지막 소문항까지 전파되지 않음(소문항 있는 마지막 문항에서 빈 줄이 남는다)"
     assert "elif trailing_gap:" in src, "소문항 분기가 trailing_gap 을 안 본다"
     print("  OK   마지막 문항 뒤 빈 줄 없음(정답면 빈 페이지 방지)")
+
+
+def test_essay_word_unified_to_seosulhyeong() -> None:
+    """서답형 → **서술형** 통일 (사용자 2026-08-20: "모든 서답형, 서술형 -> 서술형 통일").
+
+    ⭐ 라벨은 **여러 경로**로 출력에 들어간다: ① OCR 본문 텍스트 ② `label_type` 필드
+    ③ 폼이 미리 구워 둔 정답면 라벨 ④ grow 슬롯 복사본. 한 군데만 놓쳐도
+    ``[서술형 1~3]`` 사이에 ``[서답형 4]`` 가 끼어 출하된다(대륜고 공수2 실사고).
+    ⚠️ ``단답형`` 은 **다른 유형**이라 절대 건드리면 안 된다(능인고 수1·정화중처럼
+    서술형과 단답형이 함께 있는 시험지가 실제로 있다).
+    """
+    from core.content_parser import parse_ocr_response, build_document
+    from core.hwp_form_writer import _essay_label_and_body, _norm_essay_word
+
+    # 단어 정규화
+    assert _norm_essay_word("서답형") == "서술형"
+    assert _norm_essay_word("서술형") == "서술형"
+    assert _norm_essay_word("") == "서술형", "유형 미상은 서술형 폴백"
+    assert _norm_essay_word("단답형") == "단답형", "단답형은 보존(다른 유형)"
+
+    # 파서: 본문 텍스트 + label_type 둘 다
+    env = {"header": "", "questions": [
+        {"number": 17, "score": 13, "label_type": "서답형",
+         "contents": [{"type": "text", "value": "[서답형 4] 정의역이"}]},
+        {"number": 18, "score": 4, "label_type": "단답형",
+         "contents": [{"type": "text", "value": "[단답형 5] 집합"}]},
+    ]}
+    doc = build_document([parse_ocr_response(env, page_number=1)])
+    qs = doc.pages[0].questions
+    assert qs[0].label_type == "서술형", qs[0].label_type
+    assert qs[1].label_type == "단답형", "단답형 보존"
+    joined = "".join((b.value or "") for q in qs for b in q.contents)
+    assert "서답형" not in joined, joined[:80]
+    assert "단답형" in joined, "단답형 라벨이 사라졌다"
+
+    # 라벨 조립 — 분리형(번호가 수식)·비괄호형도 통일된다
+    for blocks, want in (
+            ([_tb("[서답형 4] 정의역이")], "[서술형 4]"),
+            ([_tb("[서답형 "), _eq("2"), _tb("] 자연수")], "[서술형 2]"),
+            ([_tb("서답형 6. 다음을")], "[서술형 6]"),
+            ([_tb("[단답형 5] 집합")], "[단답형 5]"),
+    ):
+        lbl, _ = _essay_label_and_body(blocks, "서술형", 1)
+        assert lbl == want, f"{blocks[0].value!r} → {lbl!r} (기대 {want})"
+
+    # 저장후 XML 안전망(폼 native 라벨까지) — 정규식만 계약으로 확인
+    src = (Path(__file__).resolve().parent.parent / "core" / "hwp_form_writer.py").read_text(
+        encoding="utf-8")
+    assert "_force_essay_word" in src, "XML 안전망 함수가 없다"
+    assert src.count("_force_essay_word(output_path)") >= 2,         "안전망이 relaunder 루프에서도 돌아야 한다(비결정 run 쪼갬 대비)"
+    from core.hwp_form_writer import _ESSAY_WORD_FORCE_RE
+    assert _ESSAY_WORD_FORCE_RE.sub(r"\g<1>서술형", "<t>[서답형 4]</t>") == "<t>[서술형 4]</t>"
+    assert _ESSAY_WORD_FORCE_RE.sub(r"\g<1>서술형", "<t>[단답형 5]</t>") == "<t>[단답형 5]</t>",         "단답형을 건드리면 안 된다"
+    print("  OK   서답형 → 서술형 통일(본문·label_type·라벨조립·XML 안전망)")
 
 
 if __name__ == "__main__":

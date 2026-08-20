@@ -744,6 +744,15 @@ _ESSAY_LABEL_LEAD = re.compile(
 _ESSAY_TYPE_LABEL = re.compile(r'^\s*[\[【]\s*(?:서[답술]형|단답형)\s*[\]】]\s*')
 
 
+# ⭐ 서답형 → **서술형** 통일(사용자 2026-08-20: "모든 서답형, 서술형 -> 서술형 통일").
+# 원본이 어느 쪽으로 인쇄했든 출력 라벨은 서술형 하나로 모은다 — 종전에는 시험지마다,
+# 심지어 한 시험지 안에서도(OCR 이 문항별로 다르게 읽어) 용어가 갈렸다.
+# ⚠️ ``단답형`` 은 **다른 유형**이라 그대로 둔다(원본도 그렇게 인쇄한다).
+def _norm_essay_word(word: str) -> str:
+    w = (word or "").strip()
+    return "서술형" if w in ("", "서답형", "서술형") else w
+
+
 def _essay_label_and_body(contents, fallback_label, label_idx):
     """contents 선두의 ``[서술형/서답형 N]`` 라벨을 추출해 (라벨문자열, 라벨제거 contents) 반환.
 
@@ -773,7 +782,7 @@ def _essay_label_and_body(contents, fallback_label, label_idx):
             anno = m.group(3) or ""             # 닫는 괄호 안 주석 ``(단답형)`` 은 본문으로 보존(동문고 #17)
             nb.value = (anno + " " + rest.lstrip()) if anno else rest
             out[i] = nb
-            return f"[{m.group(1)} {m.group(2)}]", out
+            return f"[{_norm_essay_word(m.group(1))} {m.group(2)}]", out
         # 형태 2: 분리형 "[서답형 " + EQ숫자 + "] rest"(여는 [ 또는 【). 닫는 ] 앞에
         #   유형 주석 ``(단답형)`` 이 올 수 있다(동문고 #17 = "[서답형 1 (단답형)]" 분리 파싱).
         head = re.match(r'^\s*[\[【]\s*(서[답술]형|단답형)\s*$', b0.value)
@@ -792,7 +801,7 @@ def _essay_label_and_body(contents, fallback_label, label_idx):
             nb2 = copy.copy(out[i + 2])
             nb2.value = rest
             tail = ([nb2] if rest.strip() else []) + out[i + 3:]
-            return f"[{head.group(1)} {num}]", out[:i] + tail
+            return f"[{_norm_essay_word(head.group(1))} {num}]", out[:i] + tail
         # 형태 3: **비괄호** "서술형 N. rest" — OCR 이 괄호 없이 줄 때(강동중 등). 파싱 후
         #   TEXT"서술형 " + EQ"N" + TEXT". rest" 로 쪼개진다. 폼 라벨([서답형 N])과 중복되어
         #   "[서답형 4] 서술형 4." 가 되던 문제(사용자 2026-06-10). 떼고 그 단어로 라벨 통일.
@@ -807,15 +816,15 @@ def _essay_label_and_body(contents, fallback_label, label_idx):
             nb3 = copy.copy(out[i + 2])
             nb3.value = rest
             tail = ([nb3] if rest.strip() else []) + out[i + 3:]
-            return f"[{head3.group(1)} {num}]", out[:i] + tail
+            return f"[{_norm_essay_word(head3.group(1))} {num}]", out[:i] + tail
         # 형태 4: 비괄호 한 블록 "서술형 N. rest"(숫자가 수식 분리 안 된 경우).
         m4 = re.match(r'^\s*(서답형|서술형|단답형)\s*(\d+)\s*[.．]\s*', b0.value)
         if m4:
             nb = copy.copy(b0)
             nb.value = b0.value[m4.end():]
             out[i] = nb
-            return f"[{m4.group(1)} {m4.group(2)}]", out
-    return f"[{fallback_label} {label_idx}]", out
+            return f"[{_norm_essay_word(m4.group(1))} {m4.group(2)}]", out
+    return f"[{_norm_essay_word(fallback_label)} {label_idx}]", out
 
 
 _ESSAY_LABEL_SPLIT_RE = re.compile(r'^(\[\s*(?:서[답술]형|단답형)\s*)(\d+)(\s*\])$')
@@ -846,7 +855,8 @@ def _fill_essay_at(ses, h, pos, q: Question, label_idx: int, next_pos=None) -> N
     슬롯으로 점프해 인접 미주를 삭제하는 버그가 있었음).
     """
     # contents 선두 라벨을 한 번만 쓰고 본문에서 제거(중복 라벨 → dedupe lineseg 손상 차단).
-    disp_label, contents = _essay_label_and_body(q.contents, q.label_type or "서답형", label_idx)
+    disp_label, contents = _essay_label_and_body(
+        q.contents, _norm_essay_word(q.label_type), label_idx)
     h.SetPos(pos[0], pos[1], pos[2])
     h.Run("MoveRight")                       # 번호(미주) 다음
     # 슬롯 템플릿: 번호줄 [서술형] + 빈줄 + 둘째 [서술형] 까지 선택 삭제([중단원] 전까지).
@@ -2304,6 +2314,36 @@ def _label_words_in_xml(hwpx_path: str | Path) -> set:
     return set(_LABEL_WORD_XML_RE.findall(full))
 
 
+_ESSAY_WORD_FORCE_RE = re.compile(r'(\[\s*)서답형')
+
+
+def _force_essay_word(hwpx_path: str | Path) -> int:
+    """저장된 XML 에 남은 ``[서답형`` 을 ``[서술형`` 으로(안전망, 사용자 2026-08-20).
+
+    ⭐ 왜 안전망이 필요한가: 라벨은 **여러 경로**로 XML 에 들어간다 — 우리가 쓴 본문 라벨,
+    폼이 미리 구워 둔 정답면 라벨, grow 슬롯 복사본. 데이터 단계에서만 통일하면 그중
+    하나만 놓쳐도 ``[서술형 1~3]`` 사이에 ``[서답형 4]`` 가 끼는 식으로 새어 나온다
+    (대륜고 공수2 실사고). ``_sync_essay_label_word`` 는 **균일 시험지에서만** 돌아
+    서술형+단답형 혼합 시험지를 못 덮으므로, 서답형 한 단어만 바꾸는 이 패스를 항상 돈다.
+    ⚠️ ``단답형`` 은 건드리지 않는다(다른 유형).
+    """
+    hwpx_path = Path(hwpx_path)
+    with zipfile.ZipFile(hwpx_path) as z:
+        infos = z.infolist()
+        data = {i.filename: z.read(i.filename) for i in infos}
+    total = 0
+    for name in list(data):
+        if not re.search(r"section\d+\.xml$", name):
+            continue
+        sec2, n = _ESSAY_WORD_FORCE_RE.subn(r"\g<1>서술형", data[name].decode("utf-8"))
+        if n:
+            data[name] = sec2.encode("utf-8")
+            total += n
+    if total:
+        _repackage_hwpx(hwpx_path, infos, data)
+    return total
+
+
 def _sync_essay_label_word(hwpx_path: str | Path, target: str) -> int:
     """모든 ``[서술형/서답형/단답형 N]`` 라벨의 **유형 단어**를 ``target`` 으로 통일(저장후 XML).
 
@@ -3024,24 +3064,25 @@ def write_exam_to_form(
     def _essay_word(q):
         w = getattr(q, "label_type", "") or ""
         if w:
-            return w
+            return _norm_essay_word(w)
         joined = "".join(b.value or "" for b in q.contents[:6]
                          if getattr(b, "type", None) == ContentType.TEXT)
         m = _word_re.search(joined)
-        return m.group(1) if m else ""      # "" = 유형 미상(라벨도 본문도 없음)
+        # 서답형/서술형은 한 단어로 모은다(_norm_essay_word). "" = 유형 미상.
+        return _norm_essay_word(m.group(1)) if m else ""
     _words_raw = [_essay_word(q) for q in essays]
     # ⭐ 유형 미상 문항은 **같은 시험지의 다른 서답형 유형**을 따른다 — 크롭 OCR 이 한
     # 문항을 못 읽으면(대륜고 서술형4: "인쇄된 텍스트가 없습니다") 그 문항만 기본값
     # "서답형" 이 되어 [서술형 1~3] 사이에 [서답형 4] 가 끼었다. 나머지가 한 유형으로
     # 균일하면 그 단어를 쓰는 게 원본에 가깝다(혼합 시험지면 종전대로 "서답형").
     _known = {w for w in _words_raw if w}
-    _unknown_word = next(iter(_known)) if len(_known) == 1 else "서답형"
+    _unknown_word = next(iter(_known)) if len(_known) == 1 else "서술형"
     _words = [w or _unknown_word for w in _words_raw]
     # essay 순 **원본 라벨 번호**(OCR 인쇄 그대로) — 통합 일련번호 강제 대신 원본 보존.
     # 유형별 독립(정화중 단답형 1~4·서술형 1~3) vs 통합(능인고 서술형 1~3·단답형 4~5)이
     # 폼마다 달라, 통합 강제가 정화중 서술형을 [서술형 5]로 굽던 것(2026-06-12).
     def _essay_num(q, idx):
-        lbl, _ = _essay_label_and_body(q.contents, q.label_type or "서답형", idx + 1)
+        lbl, _ = _essay_label_and_body(q.contents, _norm_essay_word(q.label_type), idx + 1)
         m = re.match(r'^\[\s*\S+?\s*(\d+)\s*\]$', lbl)
         return int(m.group(1)) if m else idx + 1
     _nums = [_essay_num(q, i) for i, q in enumerate(essays)]
@@ -3057,6 +3098,10 @@ def write_exam_to_form(
         _renumber_essay_labels(output_path, len(essays), words=_words, nums=_nums)
     except Exception as e:  # noqa: BLE001
         logger.warning("폼 후처리 실패(_renumber_essay_labels): %s", e)
+    try:                                   # 서답형 잔재 → 서술형(폼 native 라벨 포함)
+        _force_essay_word(output_path)
+    except Exception as e:  # noqa: BLE001
+        logger.warning("폼 후처리 실패(_force_essay_word): %s", e)
     # 1.55단계: 정답 페이지(미주 목록) 기입 — 완료본 규약 ``1. ④``(194차 달서고). 본문 미주
     # 순서 = 채움 순서(객관식 → 서술형)라 그대로 1:1 매핑. 값이 없으면 no-op(기존 동작).
     try:
@@ -3195,6 +3240,7 @@ def write_exam_to_form(
                 if _need_lbl:
                     _sync_essay_label_word(output_path, _words[0])
                     _renumber_essay_labels(output_path, len(essays), words=_words, nums=_nums)
+                _force_essay_word(output_path)
                 _com_relaunder(output_path)                # 정규화 + 재저장(경고 제거)
         except Exception as e:  # noqa: BLE001
             logger.warning("폼 후처리 실패(메타 토큰/라벨 잔존 해소): %s", e)
