@@ -98,6 +98,8 @@ the block for unsupported charts, curves, solids, or photos. Use this compact sc
 "labels":{"A":"A","P":"P"}}
 All referenced points must be defined, intersections must lie inside both finite
 segments, names are globally unique, and unknown fields are rejected.
+An angle's two rays must run along segments you actually declare — define a
+`segments` entry for each ray, or the angle is rejected.
 ⚠️ Names live in ONE namespace: an angle or dimension key must NOT reuse a point name
 ("A") or a segment name ("AB"). Prefix them — angles ``angA``/``angDPC``, dimensions
 ``dimAB`` — or compilation fails with "duplicate geometry name". A curved dashed
@@ -105,6 +107,27 @@ length guide must use `dimensions`, never a hand-positioned path: side `auto` le
 engine choose left/right and increase curvature until it clears lines and A/B/C labels.
 Include `dimensions` only when the source visibly contains a length guide or value;
 otherwise omit it rather than inventing a measurement.
+
+MARKS (합동·평행·직각) — use the object form of a segment/angle whenever the source
+draws those marks:
+"segments":{"AB":["A","B"],"AC":{"points":["A","C"],"ticks":2},
+"l1":{"points":["P","Q"],"parallel":1}},
+"angles":{"angC":{"vertex":"C","points":["A","D"],"arcs":2},
+"angT":{"vertex":"T","points":["O","P"],"right":true}}
+ticks 1-3 = equal-length hatch marks, parallel 1-2 = » chevrons, arcs 1-3 = concentric
+angle arcs. `right:true` draws the small square instead of an arc (never both) and is
+CHECKED — the two rays must really be perpendicular, so use it only where the source
+marks a right angle.
+
+SHADED REGIONS (색칠한 부분) — `arcs` strokes arc pieces, `regions` fills a closed
+chain, and a circle with "draw":false is a construction-only guide (not drawn):
+"circles":{"c":{"center":"O","radius":60,"draw":false}},
+"arcs":{"arcAB":{"circle":"c","from":"A","to":"B","dir":"ccw"}},
+"regions":{"shade":{"boundary":[{"seg":["O","A"]},
+{"arc":{"circle":"c","from":"A","to":"B","dir":"ccw"}},{"seg":["B","O"]}],
+"fill":"#f2d5c8"}}
+Every boundary piece must start where the previous one ended (matched by point name)
+and the chain must close; fills must be LIGHT pastels so the black ink stays readable.
 Prefer omitting canvas so the engine auto-fits without clipping. XML-escape label text.
 
 vectorizable=true for ANY line-art math figure — number lines, coordinate planes,

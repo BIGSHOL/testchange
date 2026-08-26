@@ -355,6 +355,37 @@ compile_figure_spec` 으로 컴파일하면 엔진이 **점 이름·각 라벨�
 - ⚠️ 비용: 그림 1개당 Gemini 호출이 1회 늘어난다(서술 + 작도 병행). 캐시(`api_cache`
   kind='figure-svg')가 재변환을 막아 준다.
 
+### ⭐⭐ 도형 엔진의 두 번째 집 — `todays-math/vendor/figure-engine` 에서 되가져온다 (2026-08-26)
+
+`core/figure_scene.py`·`figure_svg.py`·`figure_quality.py`·`figure_solid.py` **네 파일**은
+2026-08-24 에 `todays-math` 가 `vendor/figure-engine/core/` 로 그대로 베껴 갔고(그쪽은
+출제 지면에 도형을 직접 그린다), **그 뒤 개선은 전부 거기서 났다**. 그래서 이 저장소가
+낡는다 — 실제로 6일 만에 `figure_scene.py` 가 1,893 → 2,756 줄이 됐다.
+
+- **동기화 방향은 todays-math → 여기**(그쪽이 도형을 훨씬 많이 굽는다). 네 파일은
+  todays-math 쪽 base 와 **줄바꿈만 빼면 동일**했으므로 통째 복사가 곧 갱신이다.
+  ⚠️ 단 `figure_quality.py` 의 `<g transform>` 허용은 **가져오지 않는다** — 그건
+  todays-math 의 에셋 합성(`figure_assets.py`) 전용이고, 우리 파이프라인은 transform 을
+  내보내지 않으므로 SVG 보안 표면만 넓어진다.
+- **이번에 가져온 것**(엔진 커밋 `bd76b980`→`29ba5544`):
+  ① **치수(dimensions) 배치 순서** — `resolve()` 가 점 이름(자유도 40)을 치수(자유도 12)
+     보다 먼저 놓아 치수 자리를 먹어치웠다. 「자유도 적은 것부터」로 뒤집었다.
+     **이게 "웹 도형이 이상하다" 의 본체다** — 컴파일이 거부되면 커넥터가 raw SVG →
+     원본 크롭으로 내려가 손이 찍은 라벨이 그대로 나간다.
+  ② 각 호·직각기호가 라벨 배치에 **보이지 않는 잉크**였던 것(`_angle_mark_polylines`).
+  ③ 마크 문법 4종 — `segments.ticks`(1~3)·`segments.parallel`(1~2)·`angles.arcs`(1~3)·
+     `angles.right`(직각기호, **수직 검산 겸함**).
+  ④ 색칠 축 — `arcs`(호 조각)·`regions`(닫힌 경계 채색, 연한 색만)·`circles.draw:false`.
+- **실측(회귀 0)**: todays-math 기준선 스펙 28종 컴파일 **19 → 28**, 치수 배터리 60종
+  **46 → 52**(나빠진 것 0), corpus 정적 SVG 45종 반려 0, 커넥터 사슬(compile→`assess_svg`
+  →resvg PNG) 28/28.
+- ⚠️ **엔진만 올리면 절반이다** — 새 축(`ticks`/`regions`/…)은 `SVG_RULES` 가 알려 줘야
+  모델이 쓴다. 그래서 프롬프트도 같이 고치고 웹에 `sync-prompts` 로 내린다. 그리고
+  **엔진은 사용자 PC 의 도우미(agent.exe) 안에 있다** — 도우미를 다시 굽지 않으면
+  Vercel 배포만으로는 아무것도 안 바뀐다(오히려 낡은 도우미는 새 축을 거부한다).
+  `server/connector.py` VERSION 과 웹 `MIN_CONNECTOR_VERSION` 을 함께 1.2.2 로 올려
+  업데이트 배너가 뜨게 했다.
+
 ### ⭐ 서답형/서술형 라벨 = **서술형으로 통일** (2026-08-20, 사용자 지시)
 
 사용자: "모든 서답형, 서술형 -> 서술형 통일". 종전(2026-06-09)에는 **혼재할 때만**

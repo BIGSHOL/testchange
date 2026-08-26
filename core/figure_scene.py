@@ -31,6 +31,32 @@ _SAFE_PAINT_NAMES = {
     "orange", "purple", "brown", "pink", "navy", "teal", "maroon",
     "silver", "lime", "aqua", "fuchsia",
 }
+# 영역(region) 채색은 **연한 색만** — 본문 잉크(선·라벨·치수)가 채색 위에서도
+# 또렷해야 한다.  RPM 실측 지면색은 0.85~0.90 (#f2d5c8 살구 0.855 · #f5e6b8 노랑
+# 0.90 · #d5e8f0 하늘 0.88).  0.78 은 그 무리 아래·중간톤 위의 빈 틈이다.
+REGION_MIN_LUMINANCE = 0.78
+# 호 하나를 충돌 검사용 폴리라인으로 다듬는 표본 수.  33이면 360° 호에서도
+# 이웃 표본 간 11.25° — 반지름 100 기준 시위 오차 0.5px 미만이다.
+_ARC_SAMPLE_COUNT = 33
+
+# ── 같음(tick)·평행(»)·직각 마크 상수 ──────────────────────────────────────
+# RPM 2-2 합동 단원 지면(p12~18) 벡터 실측(2026-08-23, 좌표·수치는 베끼지 않고
+# **비율만** 본다): 본선 0.80pt · 보조선 0.50pt · 마크(틱/각 호/직각기호) 0.30pt.
+# 마크는 각 호와 **같은 굵기**다 — 그래서 여기서도 style.mark_width 를 그대로 쓴다.
+# tick 전장 4.25pt ≈ 직각기호 한 변(4.0~4.7pt) ≈ 각 호 반지름(8~11pt)의 절반.
+# 우리 지면 척도(변 ~150px · angle_radius 15px)로 옮기면 tick 전장 8px 이 같은 비율.
+_TICK_HALF = 4.0            # tick 절반 길이 — 전장 8px
+_MARK_GAP = 3.0             # 이중·삼중 tick 사이 / 이중 호 반지름 차 (계획 지침 3px)
+_CHEVRON_ARM = 6.5          # 평행 » 한 획 길이 (RPM 화살촉 5.4×3.4pt 비율에 맞춤)
+_CHEVRON_HALF_ANGLE_DEG = 30.0
+_CHEVRON_GAP = 4.0          # 이중 » 사이 간격
+_RIGHT_ANGLE_SCALE = 0.55   # 직각기호 한 변 = 호 반지름 × 0.55 (실측 0.45~0.55)
+# 치수 값 글자의 하한. 지면 등급 240px · viewBox 220 안팎에서 10 단위는 약 11px 이라
+# 본문(12.5px) 아래다 — 그래서 «더 줄이지 말고 던진다» 는 뜻의 바닥이다.
+_DIMENSION_MIN_FONT = 10.0
+_BOTH_MARKS_SHIFT = 6.0     # 한 선분에 tick·» 둘 다면 중점에서 서로 반대로 비킨다
+# 직각 마크는 검산을 겸한다 — 두 변이 90°±0.5° 밖이면 그림이 거짓말이므로 던진다.
+_RIGHT_ANGLE_COS_TOL = math.cos(math.radians(89.5))
 
 
 class GeometryValidationError(ValueError):
@@ -127,26 +153,94 @@ class Canvas:
 
 @dataclass(frozen=True, slots=True)
 class Circle:
-    """A named circle whose center is a named point."""
+    """A named circle whose center is a named point.
+
+    ``draw=False`` keeps the circle as pure construction geometry: points can
+    still be placed on it and arcs/regions can still reference it, but no full
+    circumference is inked, it contributes nothing to bounds, and labels or
+    dimension curves may cross it freely.  Sector and shaded-region figures
+    need this — the printed page shows only arc pieces, never the full circle.
+    """
 
     name: str
     center: str
     radius: float
+    draw: bool = True
+
+
+@dataclass(frozen=True, slots=True)
+class ArcStroke:
+    """A stroked circular arc from one named point to another along a circle.
+
+    ``direction`` is the mathematical sense (``ccw`` = counter-clockwise as
+    seen on screen, matching :meth:`FigureScene.point_on_circle` angles).
+    """
+
+    name: str
+    circle: str
+    p1: str
+    p2: str
+    direction: str = "ccw"
+    dash: str | None = None
+
+
+@dataclass(frozen=True, slots=True)
+class RegionPiece:
+    """One boundary piece of a filled region: a segment or a circular arc.
+
+    ``start``/``end`` are named points.  Arc pieces additionally reference a
+    named circle and a traversal ``direction`` (same convention as
+    :class:`ArcStroke`).
+    """
+
+    kind: str                    # "seg" | "arc"
+    start: str
+    end: str
+    circle: str | None = None
+    direction: str = "ccw"
+
+
+@dataclass(frozen=True, slots=True)
+class Region:
+    """A closed filled region bounded by an ordered chain of pieces.
+
+    The chain must close piece-to-piece **by point name** — piece *i* must end
+    exactly where piece *i+1* starts and the last piece must end at the first
+    piece's start.  A broken chain is an error, never silently filled.
+    """
+
+    name: str
+    boundary: tuple[RegionPiece, ...]
+    fill: str
 
 
 @dataclass(frozen=True, slots=True)
 class Segment:
-    """A named finite segment between two named points."""
+    """A named finite segment between two named points.
+
+    ``ticks`` (0~3) draws equal-length tick marks perpendicular to the segment
+    at its midpoint; ``parallel`` (0~2) draws » chevrons pointing from ``p1``
+    toward ``p2``.  Both may appear on one segment (they shift apart along the
+    segment so neither overlaps the other).
+    """
 
     name: str
     p1: str
     p2: str
     dashed: str | None = None
+    ticks: int = 0
+    parallel: int = 0
 
 
 @dataclass(frozen=True, slots=True)
 class AngleMark:
-    """A small-angle arc and optional text label."""
+    """A small-angle arc and optional text label.
+
+    ``arcs=2`` draws a second concentric arc just inside the first (각의
+    이등분선의 «같은 각» 표시).  ``right=True`` replaces the arc with the small
+    square right-angle mark and doubles as a check: the two rays must actually
+    be perpendicular (90°±0.5°) or the scene refuses to render.
+    """
 
     name: str
     vertex: str
@@ -155,6 +249,8 @@ class AngleMark:
     radius: float | None = None
     label: str | None = None
     label_distance: float | None = None
+    arcs: int = 1
+    right: bool = False
 
 
 @dataclass(frozen=True, slots=True)
@@ -191,6 +287,9 @@ class DimensionLayout:
     label_box: Box
     path_samples: tuple[Point, ...]
     font_size: float
+    # 값이 곡선 위 **어디에** 앉았나(0~1). 점선의 틈을 그 자리에 낸다 —
+    # 종전에는 틈이 늘 한가운데라, 값을 옆으로 옮기면 틈과 값이 갈라졌다.
+    label_t: float = 0.5
 
 
 @dataclass(frozen=True, slots=True)
@@ -251,6 +350,17 @@ def _name(value: Any, what: str = "name") -> str:
     return value.strip()
 
 
+def _mark_count(value: Any, maximum: int, what: str) -> int:
+    """Validate a 0..maximum mark-repeat count.  Booleans are refused —
+    ``ticks: true`` from model output must fail loudly, not count as 1."""
+
+    if isinstance(value, bool) or not isinstance(value, int):
+        raise GeometryValidationError(f"{what} must be an integer (0~{maximum})")
+    if not 0 <= value <= maximum:
+        raise GeometryValidationError(f"{what} must be between 0 and {maximum}")
+    return value
+
+
 def _safe_paint(value: Any, what: str) -> str:
     if not isinstance(value, str) or not value.strip():
         raise GeometryValidationError(f"{what} must be a non-empty safe color")
@@ -260,6 +370,50 @@ def _safe_paint(value: Any, what: str) -> str:
         raise GeometryValidationError(
             f"{what} must be a named or hexadecimal color without references")
     return color
+
+
+def _region_fill_color(value: Any, what: str) -> str:
+    """Validate a region fill: opaque hex (or ``white``) and **light**.
+
+    Fills sit underneath every stroke and label, so a dark fill would bury
+    the black exam ink.  Named dark colors and alpha channels are rejected
+    outright — luminance under alpha compositing depends on what is behind,
+    which this validator cannot know.
+    """
+
+    color = _safe_paint(value, what)
+    lowered = color.lower()
+    if lowered == "white":
+        return color
+    match = re.fullmatch(r"#([0-9a-f]{3}|[0-9a-f]{6})", lowered)
+    if not match:
+        raise GeometryValidationError(
+            f"{what} must be 'white' or an opaque hex color (#rgb/#rrggbb)")
+    digits = match.group(1)
+    if len(digits) == 3:
+        digits = "".join(ch * 2 for ch in digits)
+    red, green, blue = (int(digits[i:i + 2], 16) for i in (0, 2, 4))
+    luminance = (0.2126 * red + 0.7152 * green + 0.0722 * blue) / 255.0
+    if luminance < REGION_MIN_LUMINANCE:
+        raise GeometryValidationError(
+            f"{what} must be a light color: relative luminance "
+            f"{luminance:.3f} < {REGION_MIN_LUMINANCE}")
+    return color
+
+
+def _validate_dash(value: Any, what: str) -> None:
+    """Reject dash arrays without at least one positive finite length."""
+
+    try:
+        dash_values = [float(part) for part in str(value).replace(",", " ").split()]
+    except ValueError as exc:
+        raise GeometryValidationError(f"{what} must be a numeric list") from exc
+    if (not dash_values or any(not math.isfinite(item) or item < 0
+                               for item in dash_values)
+            or not any(item > 0 for item in dash_values)):
+        raise GeometryValidationError(
+            f"{what} must contain non-negative lengths and at least one "
+            "positive length")
 
 
 def _fmt(value: float) -> str:
@@ -382,6 +536,49 @@ def _quadratic_samples(name: str, start: Point, control: Point, end: Point,
     return tuple(samples)
 
 
+def _arc_point_samples(name: str, center: Point, radius: float, start_deg: float,
+                       signed_sweep_deg: float,
+                       count: int = _ARC_SAMPLE_COUNT) -> tuple[Point, ...]:
+    """Sample an arc as a deterministic polyline for collision and QA checks.
+
+    Angles are mathematical degrees with the engine's SVG y-down correction
+    (``y = cy - r*sin``), identical to ``core.figure_svg.circle_pt``.
+    """
+
+    samples: list[Point] = []
+    for index in range(count):
+        t = index / (count - 1)
+        theta = math.radians(start_deg + signed_sweep_deg * t)
+        samples.append(Point(f"{name}@{index}",
+                             center.x + radius * math.cos(theta),
+                             center.y - radius * math.sin(theta)))
+    return tuple(samples)
+
+
+def _arc_bbox(center: Point, radius: float, start_deg: float,
+              signed_sweep_deg: float) -> Box:
+    """Exact bounding box of an arc: endpoints plus covered axis extrema."""
+
+    def covered(angle_deg: float) -> bool:
+        if signed_sweep_deg >= 0:
+            return (angle_deg - start_deg) % 360.0 <= signed_sweep_deg
+        return (start_deg - angle_deg) % 360.0 <= -signed_sweep_deg
+
+    xs: list[float] = []
+    ys: list[float] = []
+    for angle in (start_deg, start_deg + signed_sweep_deg):
+        theta = math.radians(angle)
+        xs.append(center.x + radius * math.cos(theta))
+        ys.append(center.y - radius * math.sin(theta))
+    # Math angle 0/180 are x extrema; 90/270 are **screen** y extrema (y-down).
+    for quadrant in (0.0, 90.0, 180.0, 270.0):
+        if covered(quadrant):
+            theta = math.radians(quadrant)
+            xs.append(center.x + radius * math.cos(theta))
+            ys.append(center.y - radius * math.sin(theta))
+    return (min(xs), min(ys), max(xs), max(ys))
+
+
 def _lerp_point(name: str, first: Point, second: Point, t: float) -> Point:
     return Point(name, first.x + (second.x - first.x) * t,
                  first.y + (second.y - first.y) * t)
@@ -409,7 +606,10 @@ def _dimension_gapped_path(layout: DimensionLayout, tx: float, ty: float) -> str
     box_height = layout.label_box[3] - layout.label_box[1]
     half_projection = (abs(ux) * box_width + abs(uy) * box_height) / 2.0
     delta = min(0.42, max(0.04, half_projection / visible_length + 0.015))
-    left_t, right_t = 0.5 - delta, 0.5 + delta
+    # 틈은 **값이 앉은 자리**에 낸다 — 한가운데로 박아 두면 값을 옆으로 옮겼을 때
+    # 틈과 값이 갈라져, 값 밑에는 점선이 그대로 지나가고 엉뚱한 데가 비어 있다.
+    centre = min(1.0 - delta, max(delta, layout.label_t))
+    left_t, right_t = centre - delta, centre + delta
 
     left_01 = _lerp_point("left:01", layout.start, layout.control, left_t)
     left_12 = _lerp_point("left:12", layout.control, layout.end, left_t)
@@ -481,6 +681,8 @@ class FigureScene:
     points: dict[str, Point] = field(default_factory=dict, init=False)
     circles: dict[str, Circle] = field(default_factory=dict, init=False)
     segments: dict[str, Segment] = field(default_factory=dict, init=False)
+    arcs: dict[str, ArcStroke] = field(default_factory=dict, init=False)
+    regions: dict[str, Region] = field(default_factory=dict, init=False)
     angles: dict[str, AngleMark] = field(default_factory=dict, init=False)
     dimensions: dict[str, DimensionMark] = field(default_factory=dict, init=False)
     labels: dict[str, PointLabel] = field(default_factory=dict, init=False)
@@ -515,6 +717,8 @@ class FigureScene:
         scene.points.update(self.points)
         scene.circles.update(self.circles)
         scene.segments.update(self.segments)
+        scene.arcs.update(self.arcs)
+        scene.regions.update(self.regions)
         scene.angles.update(self.angles)
         scene.dimensions.update(self.dimensions)
         scene.labels.update(self.labels)
@@ -525,7 +729,8 @@ class FigureScene:
 
         for existing_kind, collection in (
                 ("point", self.points), ("circle", self.circles),
-                ("segment", self.segments), ("angle", self.angles),
+                ("segment", self.segments), ("arc", self.arcs),
+                ("region", self.regions), ("angle", self.angles),
                 ("dimension", self.dimensions)):
             if name in collection:
                 raise GeometryValidationError(
@@ -540,13 +745,17 @@ class FigureScene:
         return self
 
     def add_circle(self, name: str, center: str | Point | Sequence[Number],
-                   radius: Number) -> "FigureScene":
+                   radius: Number, *, draw: bool = True) -> "FigureScene":
         """Add a circle.
 
         ``center`` normally names a point.  A :class:`Point` or ``(x, y)`` is
         accepted for compatibility with v1 tuple-based helper code; an internal
-        named center point is created when necessary.
+        named center point is created when necessary.  ``draw=False`` keeps the
+        circle as construction geometry only (see :class:`Circle`).
         """
+
+        if not isinstance(draw, bool):
+            raise GeometryValidationError(f"circle {name!r} draw must be boolean")
 
         name = _name(name, "circle name")
         self._ensure_global_new(name, "circle")
@@ -568,7 +777,7 @@ class FigureScene:
             self.add_point(center_name, center[0], center[1])
         else:
             raise GeometryValidationError("circle center must be a point ref or (x, y)")
-        self.circles[name] = Circle(name, center_name, float(radius))
+        self.circles[name] = Circle(name, center_name, float(radius), draw)
         return self
 
     def point_on_circle(self, name: str, circle: str, angle: Number) -> "FigureScene":
@@ -590,12 +799,15 @@ class FigureScene:
         return self
 
     def add_segment(self, name: str, p1: str, p2: str | None = None,
-                    *, dashed: str | None = None) -> "FigureScene":
+                    *, dashed: str | None = None, ticks: int = 0,
+                    parallel: int = 0) -> "FigureScene":
         """Add a named segment.
 
         Both ``add_segment('AC', 'A', 'C')`` and the compact
         ``add_segment('A', 'C')`` form are supported.  The compact form assigns
-        the deterministic name ``A--C``.
+        the deterministic name ``A--C``.  ``ticks`` (0~3) draws equal-length
+        marks at the midpoint; ``parallel`` (0~2) draws » chevrons pointing
+        from ``p1`` toward ``p2``.
         """
 
         if p2 is None:
@@ -605,8 +817,144 @@ class FigureScene:
             segment_name = _name(name, "segment name")
             endpoint1, endpoint2 = _name(p1, "segment endpoint"), _name(p2, "segment endpoint")
         self._ensure_global_new(segment_name, "segment")
-        self.segments[segment_name] = Segment(segment_name, endpoint1, endpoint2, dashed)
+        self.segments[segment_name] = Segment(
+            segment_name, endpoint1, endpoint2, dashed,
+            _mark_count(ticks, 3, f"segment {segment_name!r} ticks"),
+            _mark_count(parallel, 2, f"segment {segment_name!r} parallel"))
         return self
+
+    def add_arc(self, name: str, circle: str, p1: str, p2: str,
+                *, direction: str = "ccw", dash: str | None = None) -> "FigureScene":
+        """Add a stroked arc along ``circle`` from point ``p1`` to ``p2``.
+
+        ``direction`` is ``ccw`` (mathematical, counter-clockwise on screen)
+        or ``cw``.  Both endpoints must lie exactly on the circle — use
+        ``on_circle`` points; hand-rounded coordinates are rejected.
+        """
+
+        arc_name = _name(name, "arc name")
+        self._ensure_global_new(arc_name, "arc")
+        self.arcs[arc_name] = ArcStroke(
+            arc_name, _name(circle, "arc circle ref"),
+            _name(p1, "arc endpoint"), _name(p2, "arc endpoint"),
+            str(direction).strip().lower(),
+            None if dash is None else str(dash))
+        return self
+
+    def add_region(self, name: str, boundary: Sequence[RegionPiece],
+                   fill: str) -> "FigureScene":
+        """Add a filled region bounded by a closed chain of pieces.
+
+        ``boundary`` is an ordered sequence of :class:`RegionPiece`.  The chain
+        must connect end-to-start by point name and close back onto the first
+        piece; ``fill`` must be a light opaque color (see
+        :data:`REGION_MIN_LUMINANCE`).  All structural checks run again in
+        :meth:`validate` so cached values are never trusted.
+        """
+
+        region_name = _name(name, "region name")
+        self._ensure_global_new(region_name, "region")
+        pieces = tuple(boundary)
+        if not pieces or any(not isinstance(piece, RegionPiece) for piece in pieces):
+            raise GeometryValidationError(
+                f"region {region_name!r} boundary must be RegionPiece items")
+        color = _region_fill_color(fill, f"region {region_name!r} fill")
+        self.regions[region_name] = Region(region_name, pieces, color)
+        return self
+
+    def _arc_geometry(self, circle_name: str, start_name: str, end_name: str,
+                      direction: str, what: str) -> tuple[Point, float, float, float]:
+        """Resolve one arc to ``(center, radius, start_deg, signed_sweep_deg)``.
+
+        Raises when an endpoint is off the circle or the sweep is degenerate.
+        Positive sweep is counter-clockwise on screen (math angles, y-down
+        corrected) and maps to SVG sweep-flag 0.
+        """
+
+        circle_obj = self.circles[circle_name]
+        center = self.points[circle_obj.center]
+        start, end = self.points[start_name], self.points[end_name]
+        tolerance = max(1.0e-12, abs(circle_obj.radius) * 1.0e-7)
+        for role, point in (("start", start), ("end", end)):
+            residual = abs(math.hypot(point.x - center.x, point.y - center.y)
+                           - circle_obj.radius)
+            if residual > tolerance:
+                raise GeometryValidationError(
+                    f"{what} {role} point {point.name!r} is not on circle "
+                    f"{circle_name!r} (residual {residual:.6g}); "
+                    "construct it with on_circle")
+        start_deg = math.degrees(math.atan2(-(start.y - center.y),
+                                            start.x - center.x))
+        end_deg = math.degrees(math.atan2(-(end.y - center.y),
+                                          end.x - center.x))
+        if direction == "ccw":
+            sweep = (end_deg - start_deg) % 360.0
+        elif direction == "cw":
+            sweep = (start_deg - end_deg) % 360.0
+        else:
+            raise GeometryValidationError(
+                f"{what} direction must be 'ccw' or 'cw', got {direction!r}")
+        if sweep <= 1.0e-6 or sweep >= 360.0 - 1.0e-6:
+            raise GeometryValidationError(
+                f"{what} sweep is degenerate ({sweep:.6g}°): endpoints must be "
+                "two distinct positions on the circle")
+        return center, circle_obj.radius, start_deg, (
+            sweep if direction == "ccw" else -sweep)
+
+    def _segment_mark_lines(
+            self, segment: Segment) -> list[tuple[tuple[float, float], tuple[float, float]]]:
+        """Stroke endpoints for one segment's tick/» marks, scene coordinates.
+
+        렌더와 경계 계산이 **같은 좌표**를 쓴다 — 두 벌이 되면 한쪽만 고쳐져도
+        아무도 모른다.  마크가 선분 밖으로 비어져 나가면(짧은 선분) 던진다.
+        """
+
+        if not segment.ticks and not segment.parallel:
+            return []
+        a, b = self.points[segment.p1], self.points[segment.p2]
+        length = math.hypot(b.x - a.x, b.y - a.y)
+        ux, uy = (b.x - a.x) / length, (b.y - a.y) / length
+        nx, ny = -uy, ux
+        mid_x, mid_y = (a.x + b.x) / 2.0, (a.y + b.y) / 2.0
+        both = bool(segment.ticks) and bool(segment.parallel)
+        lines: list[tuple[tuple[float, float], tuple[float, float]]] = []
+
+        if segment.ticks:
+            shift = -_BOTH_MARKS_SHIFT if both else 0.0
+            for index in range(segment.ticks):
+                offset = shift + (index - (segment.ticks - 1) / 2.0) * _MARK_GAP
+                cx_, cy_ = mid_x + offset * ux, mid_y + offset * uy
+                lines.append(((cx_ - _TICK_HALF * nx, cy_ - _TICK_HALF * ny),
+                              (cx_ + _TICK_HALF * nx, cy_ + _TICK_HALF * ny)))
+
+        if segment.parallel:
+            half = math.radians(_CHEVRON_HALF_ANGLE_DEG)
+            depth = _CHEVRON_ARM * math.cos(half)
+            wing = _CHEVRON_ARM * math.sin(half)
+            shift = _BOTH_MARKS_SHIFT if both else 0.0
+            for index in range(segment.parallel):
+                tip_off = (shift + depth / 2.0
+                           + (index - (segment.parallel - 1) / 2.0) * _CHEVRON_GAP)
+                tip_x, tip_y = mid_x + tip_off * ux, mid_y + tip_off * uy
+                back_x, back_y = tip_x - depth * ux, tip_y - depth * uy
+                lines.append(((back_x + wing * nx, back_y + wing * ny),
+                              (tip_x, tip_y)))
+                lines.append(((tip_x, tip_y),
+                              (back_x - wing * nx, back_y - wing * ny)))
+
+        reach = max(
+            abs((x - mid_x) * ux + (y - mid_y) * uy)
+            for line in lines for x, y in line)
+        if reach + 2.0 > length / 2.0:
+            raise GeometryValidationError(
+                f"segment {segment.name!r} is too short ({length:.4g}px) for its "
+                "tick/parallel marks — marks may not spill past the endpoints")
+        return lines
+
+    def _arc_stroke_samples(self, arc: ArcStroke) -> tuple[Point, ...]:
+        center, radius, start_deg, signed = self._arc_geometry(
+            arc.circle, arc.p1, arc.p2, arc.direction, f"arc {arc.name!r}")
+        return _arc_point_samples(arc.name, center, radius, start_deg, signed)
 
     def intersection(self, name: str, segment1: str, segment2: str) -> "FigureScene":
         """Construct the intersection of two named finite segments."""
@@ -645,17 +993,32 @@ class FigureScene:
 
     def add_angle(self, name: str, vertex: str, p1: str, p2: str,
                   *, radius: Number | None = None, label: str | None = None,
-                  label_distance: Number | None = None) -> "FigureScene":
-        """Add a small-angle arc between rays ``vertex->p1`` and ``vertex->p2``."""
+                  label_distance: Number | None = None, arcs: int = 1,
+                  right: bool = False) -> "FigureScene":
+        """Add a small-angle arc between rays ``vertex->p1`` and ``vertex->p2``.
+
+        ``arcs=2`` draws a double arc; ``right=True`` draws the square
+        right-angle mark instead of an arc (and requires the rays to actually
+        be perpendicular).  The two options exclude each other.
+        """
 
         name = _name(name, "angle name")
         self._ensure_global_new(name, "angle")
         if label is not None and not isinstance(label, str):
             raise GeometryValidationError("angle label must be text or None")
+        if not isinstance(right, bool):
+            raise GeometryValidationError(f"angle {name!r} right must be boolean")
+        arcs_value = _mark_count(arcs, 2, f"angle {name!r} arcs")
+        if arcs_value == 0:
+            raise GeometryValidationError(f"angle {name!r} arcs must be 1 or 2")
+        if right and arcs_value != 1:
+            raise GeometryValidationError(
+                f"angle {name!r}: right=True replaces the arc; arcs must stay 1")
         self.angles[name] = AngleMark(
             name, _name(vertex, "angle vertex"), _name(p1, "angle ray ref"),
             _name(p2, "angle ray ref"), None if radius is None else float(radius),
-            label, None if label_distance is None else float(label_distance))
+            label, None if label_distance is None else float(label_distance),
+            arcs_value, right)
         return self
 
     def add_dimension(self, name: str, p1: str, p2: str, label: str,
@@ -717,7 +1080,8 @@ class FigureScene:
 
         owner_by_name: dict[str, str] = {}
         for kind, collection in (("point", self.points), ("circle", self.circles),
-                                 ("segment", self.segments), ("angle", self.angles),
+                                 ("segment", self.segments), ("arc", self.arcs),
+                                 ("region", self.regions), ("angle", self.angles),
                                  ("dimension", self.dimensions)):
             for geometry_name in collection:
                 if geometry_name in owner_by_name:
@@ -816,6 +1180,69 @@ class FigureScene:
                     raise GeometryValidationError(
                         f"segment {segment.name!r} dash must contain non-negative lengths "
                         "and at least one positive length")
+            # 값이 add_segment 를 거치지 않고 들어와도 같은 규칙이 다시 돈다.
+            _mark_count(segment.ticks, 3, f"segment {segment.name!r} ticks")
+            _mark_count(segment.parallel, 2, f"segment {segment.name!r} parallel")
+            # 마크가 선분 길이를 넘치면 여기서 던진다 (렌더와 같은 좌표 계산).
+            self._segment_mark_lines(segment)
+
+        for circle_obj in self.circles.values():
+            if not isinstance(circle_obj.draw, bool):
+                raise GeometryValidationError(
+                    f"circle {circle_obj.name!r} draw must be boolean")
+
+        for arc in self.arcs.values():
+            if arc.circle not in self.circles:
+                raise GeometryValidationError(
+                    f"arc {arc.name!r} has unknown circle ref {arc.circle!r}")
+            for ref in (arc.p1, arc.p2):
+                if ref not in self.points:
+                    raise GeometryValidationError(
+                        f"arc {arc.name!r} has unknown point ref {ref!r}")
+            if arc.p1 == arc.p2:
+                raise GeometryValidationError(
+                    f"arc {arc.name!r} endpoints must be two different points")
+            if arc.dash is not None:
+                _validate_dash(arc.dash, f"arc {arc.name!r} dash")
+            # Raises on off-circle endpoints, bad direction, degenerate sweep.
+            self._arc_geometry(arc.circle, arc.p1, arc.p2, arc.direction,
+                               f"arc {arc.name!r}")
+
+        for region in self.regions.values():
+            _region_fill_color(region.fill, f"region {region.name!r} fill")
+            if len(region.boundary) < 2:
+                raise GeometryValidationError(
+                    f"region {region.name!r} boundary needs at least two pieces")
+            for index, piece in enumerate(region.boundary):
+                what = f"region {region.name!r} boundary[{index}]"
+                if piece.kind not in {"seg", "arc"}:
+                    raise GeometryValidationError(
+                        f"{what} has unknown piece kind {piece.kind!r}")
+                for ref in (piece.start, piece.end):
+                    if ref not in self.points:
+                        raise GeometryValidationError(
+                            f"{what} has unknown point ref {ref!r}")
+                if piece.start == piece.end:
+                    raise GeometryValidationError(
+                        f"{what} endpoints must be two different points")
+                if piece.kind == "seg":
+                    a, b = self.points[piece.start], self.points[piece.end]
+                    if math.hypot(a.x - b.x, a.y - b.y) <= _EPS:
+                        raise GeometryValidationError(f"{what} has zero length")
+                else:
+                    if piece.circle is None or piece.circle not in self.circles:
+                        raise GeometryValidationError(
+                            f"{what} has unknown circle ref {piece.circle!r}")
+                    self._arc_geometry(piece.circle, piece.start, piece.end,
+                                       piece.direction, what)
+            # 닫힘 검사 — 조각 끝점이 이어지지 않으면 던진다(조용히 채우기 금지).
+            for index, piece in enumerate(region.boundary):
+                following = region.boundary[(index + 1) % len(region.boundary)]
+                if piece.end != following.start:
+                    raise GeometryValidationError(
+                        f"region {region.name!r} boundary does not connect: "
+                        f"piece {index} ends at {piece.end!r} but the next "
+                        f"piece starts at {following.start!r}")
 
         for point in self.points.values():
             if point.kind == "on_circle":
@@ -891,6 +1318,30 @@ class FigureScene:
                     angle.label_distance, f"angle {angle.name!r}.label_distance") <= 0:
                 raise GeometryValidationError(
                     f"angle {angle.name!r} label_distance must be positive")
+            if _mark_count(angle.arcs, 2, f"angle {angle.name!r} arcs") == 0:
+                raise GeometryValidationError(f"angle {angle.name!r} arcs must be 1 or 2")
+            if angle.arcs == 2 and radius <= _MARK_GAP:
+                raise GeometryValidationError(
+                    f"angle {angle.name!r} radius {radius:.4g} leaves no room "
+                    "for the inner arc")
+            if not isinstance(angle.right, bool):
+                raise GeometryValidationError(f"angle {angle.name!r} right must be boolean")
+            if angle.right:
+                if angle.arcs != 1:
+                    raise GeometryValidationError(
+                        f"angle {angle.name!r}: right=True replaces the arc; arcs must stay 1")
+                # 직각 마크는 검산을 겸한다 — 90°±0.5° 밖이면 그림이 거짓말이다.
+                cos_value = abs(v1[0] * v2[0] + v1[1] * v2[1]) / (l1 * l2)
+                if cos_value > _RIGHT_ANGLE_COS_TOL:
+                    actual = math.degrees(math.acos(
+                        max(-1.0, min(1.0, (v1[0] * v2[0] + v1[1] * v2[1]) / (l1 * l2)))))
+                    raise GeometryValidationError(
+                        f"angle {angle.name!r} is marked right but measures "
+                        f"{actual:.2f}° — fix the geometry, not the mark")
+                if radius * _RIGHT_ANGLE_SCALE > min(l1, l2):
+                    raise GeometryValidationError(
+                        f"angle {angle.name!r} right-angle square does not fit "
+                        "inside its rays")
 
         for dimension in self.dimensions.values():
             for ref in (dimension.p1, dimension.p2):
@@ -944,7 +1395,61 @@ class FigureScene:
                 raise GeometryValidationError(
                     f"label {label.point!r} font_size must be positive")
 
-    def _angle_label_layout(self, angle: AngleMark) -> tuple[tuple[float, float], Box] | None:
+    def _angle_mark_polylines(self, angle: AngleMark) -> list[tuple[Point, ...]]:
+        """각 표시(호 또는 직각 사각형)의 **잉크**를 폴리라인으로 돌려준다.
+
+        렌더·경계·충돌이 **한 좌표**를 쓰게 하려는 것이다(`_segment_mark_lines` 와
+        같은 무늬).  이것이 없던 동안 각 표시는 라벨 배치에 **보이지 않는 잉크**였고,
+        그래서 직각기호 위에 `H` 가 그대로 앉았다(원장님 지적 2026-08-25,
+        `J30503-A06-002`·`A07-002`).
+        """
+        vertex, p1, p2 = (self.points[angle.vertex], self.points[angle.p1],
+                          self.points[angle.p2])
+        radius = self.style.angle_radius if angle.radius is None else angle.radius
+        if angle.right:
+            length1 = math.hypot(p1.x - vertex.x, p1.y - vertex.y)
+            length2 = math.hypot(p2.x - vertex.x, p2.y - vertex.y)
+            if length1 <= _EPS or length2 <= _EPS:
+                return []
+            side = radius * _RIGHT_ANGLE_SCALE
+            u1x, u1y = (p1.x - vertex.x) / length1, (p1.y - vertex.y) / length1
+            u2x, u2y = (p2.x - vertex.x) / length2, (p2.y - vertex.y) / length2
+            return [(
+                Point(f"{angle.name}@0", vertex.x + side * u1x, vertex.y + side * u1y),
+                Point(f"{angle.name}@1", vertex.x + side * (u1x + u2x),
+                      vertex.y + side * (u1y + u2y)),
+                Point(f"{angle.name}@2", vertex.x + side * u2x, vertex.y + side * u2y),
+            )]
+        a0 = math.atan2(p1.y - vertex.y, p1.x - vertex.x)
+        a1 = math.atan2(p2.y - vertex.y, p2.x - vertex.x)
+        delta = (a1 - a0 + math.pi) % (2.0 * math.pi) - math.pi
+        out: list[tuple[Point, ...]] = []
+        for arc_index in range(angle.arcs):
+            r = radius - arc_index * _MARK_GAP
+            if r <= 0:
+                continue
+            out.append(tuple(
+                Point(f"{angle.name}@{arc_index}:{i}",
+                      vertex.x + r * math.cos(a0 + delta * i / 16.0),
+                      vertex.y + r * math.sin(a0 + delta * i / 16.0))
+                for i in range(17)))
+        return out
+
+    def _angle_label_layout(
+            self, angle: AngleMark,
+            occupied: Sequence[Box] = ()) -> tuple[tuple[float, float], Box] | None:
+        """각 라벨 자리 — 이등분선 위에서 **비켜설 수 있는 만큼** 비켜선다.
+
+        ⚠️ 종전에는 `angle_label_distance`(25) 한 값에 **무조건** 놓았다.  그 거리는
+        직각쯤에서만 맞는다 — 반각 φ 에서 이등분선 위 점과 두 변 사이 거리는
+        `d·sin φ` 라, $30^\\circ$ 각에서는 `25·sin 15° = 6.5` 로 글자 반높이(6.5)와
+        **같아진다.**  그래서 `45°`·`30°` 가 변 위에 앉고 흰 halo 가 실선을 지웠다
+        (원장님 지적 2026-08-25 「텍스트가 선을 침범한다」).
+
+        문턱을 옮기지 않는다 — **각이 좁으면 그만큼 멀리 놓는다**.  그리고 그 거리도
+        어림이 아니라 `_candidate_cost` 로 **실제 잉크와 견주어** 고른다.  못 비키면
+        던지지 않고 가장 덜 나쁜 자리를 쓴다(각 라벨은 늘 그려져야 한다).
+        """
         if not angle.label:
             return None
         vertex, p1, p2 = (self.points[angle.vertex], self.points[angle.p1],
@@ -953,12 +1458,53 @@ class FigureScene:
         a1 = math.atan2(p2.y - vertex.y, p2.x - vertex.x)
         delta = (a1 - a0 + math.pi) % (2.0 * math.pi) - math.pi
         mid = a0 + delta / 2.0
-        distance = (self.style.angle_label_distance if angle.label_distance is None
-                    else angle.label_distance)
         fs = self.style.angle_font_size
-        x = vertex.x + distance * math.cos(mid)
-        y = vertex.y + distance * math.sin(mid) + 0.32 * fs
-        return (x, y), _text_box(x, y, angle.label, fs)
+        base = self.style.angle_label_distance
+        if angle.label_distance is not None:
+            # 부르는 쪽이 못 박았으면 그대로 둔다 — 스펙이 이긴다.
+            distances = [angle.label_distance]
+        else:
+            # 좁은 각일수록 멀리 나가야 두 변 사이에 들어간다 — 필요한 거리는 대략
+            # «글자 반폭 / sin(반각)» 이라 $30^\circ$ 에서 벌써 25 의 두 배가 넘는다
+            # (실측: 반각 15°·「30°」 상자에서 58 이 필요했다).
+            #
+            # 🔴 **그런데 무작정 밀면 안 된다.** 각 값은 «제 꼭짓점의 값»으로 읽혀야 하는데,
+            #    옆 꼭짓점 쪽으로 넘어가는 순간 **그 각의 값으로 읽힌다** — 그림이
+            #    거짓말을 한다. 실측: 원주각 그림(`J30604-A12-001`)에서 `44°`·`40°` 가
+            #    각각 A·C 를 떠나 가운데 교점 T 옆에 나란히 서 버렸다.
+            #
+            #    그래서 사다리를 **「가장 가까운 다른 이름 붙은 점까지의 절반」**에서 끊는다.
+            #    문턱을 지어낸 것이 아니라 «어느 꼭짓점 것인가»가 갈리는 자리다.
+            #    그 안에서 못 비키면 **가장 덜 나쁜 자리**를 쓴다(각 라벨은 늘 그려진다).
+            named = {name for name in self.labels}
+            named.update(angle_obj.vertex for angle_obj in self.angles.values())
+            gaps = [
+                math.hypot(self.points[name].x - vertex.x,
+                           self.points[name].y - vertex.y)
+                for name in sorted(named)
+                if name != angle.vertex and name in self.points
+            ]
+            reach = min(gaps) / 2.0 if gaps else float("inf")
+            step = max(3.5, 0.45 * fs)
+            distances = [base + index * step for index in range(10)]
+            distances = [d for d in distances if d <= reach] or [base]
+        # ⚠️ 견주는 상자는 **halo 까지** 넓힌 것이다. 흰 halo 는 잉크를 더하지 않지만
+        #    **밑의 실선을 지운다** — 글자 상자만 보면 「안 겹친다」인데 지면에서는
+        #    선이 끊긴다(lint_svg 규칙 7). 경계(viewBox)에는 안 넓힌 상자를 쓴다.
+        pad = self.style.halo_width / 2.0 + 0.5
+        best: tuple[tuple[int, float], tuple[float, float], Box] | None = None
+        for rank, distance in enumerate(distances):
+            x = vertex.x + distance * math.cos(mid)
+            y = vertex.y + distance * math.sin(mid) + 0.32 * fs
+            box = _text_box(x, y, angle.label, fs)
+            cost = self._candidate_cost("", _expand_box(box, pad), occupied, rank, 0,
+                                        own_angle=angle.name)
+            if best is None or cost < best[0]:
+                best = (cost, (x, y), box)
+            if cost[0] == 0:
+                break
+        assert best is not None
+        return best[1], best[2]
 
     def _label_vectors(self, label: PointLabel) -> list[tuple[float, float]]:
         point = self.points[label.point]
@@ -1019,7 +1565,9 @@ class FigureScene:
         return candidates
 
     def _candidate_cost(self, point_name: str, box: Box, occupied: Iterable[Box],
-                        rank: int, distance_rank: int = 0) -> tuple[int, float]:
+                        rank: int, distance_rank: int = 0,
+                        curves: Sequence[Sequence[Point]] = (),
+                        own_angle: str | None = None) -> tuple[int, float]:
         hard = 0
         cost = rank * 0.25 + distance_rank * 0.4
         for other in occupied:
@@ -1036,10 +1584,37 @@ class FigureScene:
             if _segment_intersects_box(self.points[segment.p1], self.points[segment.p2], box):
                 hard += 1
                 cost += 20.0
+        for arc_name in sorted(self.arcs):
+            if _polyline_intersects_box(
+                    self._arc_stroke_samples(self.arcs[arc_name]), box):
+                hard += 1
+                cost += 20.0
+        # 각 표시(호·직각 사각형)도 잉크다. 여기 없던 동안 라벨은 그것을 **못 봤고**
+        # 직각기호 위에 `H` 가 그대로 앉았다 (원장님 지적 2026-08-25).
+        #
+        # ⚠️ **자기 각의 표시는 뺀다.** 각 라벨은 그 호의 «설명»이라 호 바로 바깥에
+        #    앉는 것이 정상이다. 안 빼면 라벨이 제 호를 피하려고 꼭짓점에서 멀어지고,
+        #    그러면 어느 각의 값인지 알 수 없게 된다 (실측: `x` 가 25 → 62.8 로 밀렸다).
+        for angle_name in sorted(self.angles):
+            if angle_name == own_angle:
+                continue
+            for polyline in self._angle_mark_polylines(self.angles[angle_name]):
+                if _polyline_intersects_box(polyline, box):
+                    hard += 1
+                    cost += 20.0
+        # 치수 점선도 잉크다 — 치수를 먼저 놓고 점 이름을 나중에 놓기 때문에
+        # (자유도가 적은 것부터) 점 이름이 그 곡선을 피할 수 있어야 한다.
+        for samples in curves:
+            if _polyline_intersects_box(samples, box):
+                hard += 1
+                cost += 20.0
         cx, cy = (box[0] + box[2]) / 2.0, (box[1] + box[3]) / 2.0
         half_diag = math.hypot(box[2] - box[0], box[3] - box[1]) / 2.0
         for circle_name in sorted(self.circles):
             circle_obj = self.circles[circle_name]
+            if not circle_obj.draw:
+                # Construction circles leave no ink — nothing to collide with.
+                continue
             center = self.points[circle_obj.center]
             if abs(math.hypot(cx - center.x, cy - center.y) - circle_obj.radius) < half_diag + 0.75:
                 hard += 1
@@ -1069,166 +1644,230 @@ class FigureScene:
             available = max(1.0, length - 2.0 * dimension.inset)
             font_size = min(
                 self.style.dimension_font_size,
-                max(10.0, 0.82 * available / width_units),
+                max(_DIMENSION_MIN_FONT, 0.82 * available / width_units),
             )
+            # 도형 **안**을 지나는 짧은 변(수선 등)은 옆으로 난 통로가 좁아, 값이
+            # 커서 안 들어가는 일이 있다. 그때는 곡선을 도형에서 멀리 밀어내는
+            # 것보다 값을 **조금 줄이는** 편이 낫다 — 다만 아래 하한 밑으로는 안
+            # 줄인다(지면에서 본문보다 작아지면 그건 결함이다, 09 §4-25).
+            fonts = [font_size]
+            smaller = max(_DIMENSION_MIN_FONT, 0.85 * font_size)
+            if smaller < font_size - 0.05:
+                fonts.append(smaller)
         else:
             font_size = dimension.font_size
+            fonts = [font_size]
         base_offset = (self.style.dimension_offset if dimension.offset is None
                        else dimension.offset)
+        # 벌어짐 사다리는 **기본 글꼴**로 한 번만 만든다 — 글꼴 후보마다 다르게
+        # 만들면 `offset_rank` 가 후보끼리 다른 것을 가리켜 비교가 안 된다.
         offset_step = max(4.0, 0.55 * font_size)
         offsets = [base_offset + index * offset_step for index in range(6)]
         sides = ([dimension.side] if dimension.side != "auto"
                  else ["left", "right"])
 
         candidates: list[tuple[tuple[int, int, int, int, int, int,
-                                          float, float, int, int],
+                                          float, float, int, int, int, int],
                                DimensionLayout]] = []
-        for offset_rank, offset in enumerate(offsets):
-            for side_rank, side in enumerate(sides):
-                sign = 1.0 if side == "left" else -1.0
-                control = Point(
-                    f"{dimension.name}:control",
-                    midpoint_x + nx * sign * 2.0 * offset,
-                    midpoint_y + ny * sign * 2.0 * offset,
-                )
-                samples = _quadratic_samples(dimension.name, start, control, end)
-                apex = samples[len(samples) // 2]
-                label_position = (apex.x, apex.y + 0.32 * font_size)
-                label_box = _expand_box(
-                    _text_box(*label_position, dimension.label, font_size),
-                    self.style.dimension_halo_width / 2.0 + 0.5,
-                )
-                projected_label_width = (
-                    abs(ux) * (label_box[2] - label_box[0])
-                    + abs(uy) * (label_box[3] - label_box[1])
-                )
-                visible_chord = math.hypot(end.x - start.x, end.y - start.y)
-                if projected_label_width > 0.72 * visible_chord:
-                    # A long value on a short side cannot leave meaningful
-                    # curve fragments around an inline gap.  Move it just
-                    # beyond the apex and keep the complete dashed curve.
-                    for factor in (0.75, 1.0, 1.3, 1.65, 2.0,
-                                   2.5, 3.1, 3.8, 4.6):
-                        shift = factor * font_size + self.style.dimension_halo_width / 2.0
-                        moved = (
-                            apex.x + nx * sign * shift,
-                            apex.y + ny * sign * shift + 0.32 * font_size,
-                        )
-                        moved_box = _expand_box(
-                            _text_box(*moved, dimension.label, font_size),
+        for font_rank, font_size in enumerate(fonts):
+            for offset_rank, offset in enumerate(offsets):
+                for side_rank, side in enumerate(sides):
+                    sign = 1.0 if side == "left" else -1.0
+                    control = Point(
+                        f"{dimension.name}:control",
+                        midpoint_x + nx * sign * 2.0 * offset,
+                        midpoint_y + ny * sign * 2.0 * offset,
+                    )
+                    samples = _quadratic_samples(dimension.name, start, control, end)
+
+                    def anchor_at(t: float) -> tuple[tuple[float, float], Box]:
+                        index = min(len(samples) - 1,
+                                    max(0, round(t * (len(samples) - 1))))
+                        on_curve = samples[index]
+                        position = (on_curve.x, on_curve.y + 0.32 * font_size)
+                        return position, _expand_box(
+                            _text_box(*position, dimension.label, font_size),
                             self.style.dimension_halo_width / 2.0 + 0.5,
                         )
-                        label_position, label_box = moved, moved_box
-                        if not _polyline_intersects_box(samples, moved_box):
-                            break
-                layout = DimensionLayout(
-                    dimension.name, side, start, control, end,
-                    label_position, label_box, samples, font_size,
-                )
 
-                curve_box = _expand_box(_merge_bounds(
-                    (sample.x, sample.y, sample.x, sample.y) for sample in samples
-                ), self.style.dimension_width / 2.0 + 0.75)
-                clipped = 0
-                if self.canvas is not None:
-                    for box in (curve_box, label_box):
-                        if (box[0] < 0 or box[1] < 0
-                                or box[2] > self.canvas.width
-                                or box[3] > self.canvas.height):
-                            clipped += 1
-
-                text_collisions = sum(
-                    1 for box in occupied
-                    if (_boxes_overlap(label_box, box, gap=1.0)
-                        or _polyline_intersects_box(samples, _expand_box(box, 1.0)))
-                )
-                point_collisions = 0
-                for point_name, point in self.points.items():
-                    if point_name in {dimension.p1, dimension.p2}:
-                        continue
-                    if not self.style.show_points:
-                        # Unmarked construction points (notably a circle's
-                        # center O) have no visible ink.  Their labels are
-                        # already represented by `occupied`, and rendered
-                        # segments/circles are checked separately below.
-                        continue
-                    if (_point_in_box(point.x, point.y, label_box, 1.0)
-                            or min(_distance_xy_to_segment(
-                                point.x, point.y, a, b)
-                                   for a, b in zip(samples, samples[1:])) < 2.25):
-                        point_collisions += 1
-
-                geometry_crossings = 0
-                near_geometry = 0
-                endpoint_pair = {dimension.p1, dimension.p2}
-                for segment in self.segments.values():
-                    if {segment.p1, segment.p2} == endpoint_pair:
-                        # A one-sided quadratic meets its measured chord only
-                        # at the deliberately inset start/end points.  The
-                        # value label itself still needs genuine clearance.
-                        a, b = self.points[segment.p1], self.points[segment.p2]
-                        label_clearance = _expand_box(
-                            label_box,
-                            self.style.segment_width / 2.0 + 0.5,
+                    apex = samples[len(samples) // 2]
+                    label_position, label_box = anchor_at(0.5)
+                    projected_label_width = (
+                        abs(ux) * (label_box[2] - label_box[0])
+                        + abs(uy) * (label_box[3] - label_box[1])
+                    )
+                    visible_chord = math.hypot(end.x - start.x, end.y - start.y)
+                    if projected_label_width > 0.72 * visible_chord:
+                        # A long value on a short side cannot leave meaningful
+                        # curve fragments around an inline gap.  Move it just
+                        # beyond the apex and keep the complete dashed curve.
+                        for factor in (0.75, 1.0, 1.3, 1.65, 2.0,
+                                       2.5, 3.1, 3.8, 4.6):
+                            shift = factor * font_size + self.style.dimension_halo_width / 2.0
+                            moved = (
+                                apex.x + nx * sign * shift,
+                                apex.y + ny * sign * shift + 0.32 * font_size,
+                            )
+                            moved_box = _expand_box(
+                                _text_box(*moved, dimension.label, font_size),
+                                self.style.dimension_halo_width / 2.0 + 0.5,
+                            )
+                            label_position, label_box = moved, moved_box
+                            if not _polyline_intersects_box(samples, moved_box):
+                                break
+                        anchors = [(0.5, label_position, label_box)]
+                    else:
+                        # 🔴 **값은 제 곡선 위 아무 데나 앉을 수 있다.** 가운데가 첫째지만,
+                        #    좁은 자리(도형 «안»을 지나는 수선 등)에서는 가운데가 두 변
+                        #    사이에 안 들어간다 — 그때 옆으로 미끄러지면 들어간다.
+                        #    종전에는 가운데 하나뿐이라 그런 치수를 **통째로 던졌고**,
+                        #    부르는 쪽은 치수를 포기하고 날 `<text>` 를 얹었다.
+                        #    틈은 `label_t` 를 따라가므로 값 밑에 정확히 난다.
+                        anchors = [(0.5, label_position, label_box)]
+                        for slide in (0.35, 0.65, 0.25, 0.75):
+                            anchors.append((slide, *anchor_at(slide)))
+                    for anchor_rank, (label_t, label_position, label_box) in enumerate(anchors):
+                        layout = DimensionLayout(
+                            dimension.name, side, start, control, end,
+                            label_position, label_box, samples, font_size, label_t,
                         )
-                        if _segment_intersects_box(a, b, label_clearance):
-                            geometry_crossings += 1
-                        continue
-                    a, b = self.points[segment.p1], self.points[segment.p2]
-                    if (_polyline_intersects_segment(samples, a, b)
-                            or _segment_intersects_box(a, b, label_box)):
-                        geometry_crossings += 1
-                    else:
-                        clearance = min(
-                            _distance_xy_to_segment(sample.x, sample.y, a, b)
-                            for sample in samples)
-                        if clearance < 3.0:
-                            near_geometry += 1
 
-                circle_crossings = 0
-                for circle_obj in self.circles.values():
-                    center = self.points[circle_obj.center]
-                    if _box_intersects_circle(label_box, center, circle_obj.radius, 0.75):
-                        circle_crossings += 1
-                    else:
-                        residuals = [
-                            math.hypot(sample.x - center.x, sample.y - center.y)
-                            - circle_obj.radius for sample in samples
-                        ]
-                        # A chord dimension begins inside the circle near both
-                        # endpoints.  Only a real inside/outside transition is
-                        # a circumference crossing; mere endpoint proximity is
-                        # expected and must not reject the clean inner arc.
-                        if min(residuals) < -0.75 and max(residuals) > 0.75:
-                            circle_crossings += 1
+                        curve_box = _expand_box(_merge_bounds(
+                            (sample.x, sample.y, sample.x, sample.y) for sample in samples
+                        ), self.style.dimension_width / 2.0 + 0.75)
+                        clipped = 0
+                        if self.canvas is not None:
+                            for box in (curve_box, label_box):
+                                if (box[0] < 0 or box[1] < 0
+                                        or box[2] > self.canvas.width
+                                        or box[3] > self.canvas.height):
+                                    clipped += 1
 
-                earlier_collisions = 0
-                for other in earlier:
-                    if (_boxes_overlap(label_box, other.label_box, gap=1.0)
-                            or _polyline_intersects_box(samples,
-                                                        _expand_box(other.label_box, 1.0))
-                            or _polyline_intersects_box(other.path_samples,
-                                                        _expand_box(label_box, 1.0))
-                            or _polylines_intersect(samples, other.path_samples)):
-                        earlier_collisions += 1
+                        text_collisions = sum(
+                            1 for box in occupied
+                            if (_boxes_overlap(label_box, box, gap=1.0)
+                                or _polyline_intersects_box(samples, _expand_box(box, 1.0)))
+                        )
+                        point_collisions = 0
+                        for point_name, point in self.points.items():
+                            if point_name in {dimension.p1, dimension.p2}:
+                                continue
+                            if not self.style.show_points:
+                                # Unmarked construction points (notably a circle's
+                                # center O) have no visible ink.  Their labels are
+                                # already represented by `occupied`, and rendered
+                                # segments/circles are checked separately below.
+                                continue
+                            if (_point_in_box(point.x, point.y, label_box, 1.0)
+                                    or min(_distance_xy_to_segment(
+                                        point.x, point.y, a, b)
+                                           for a, b in zip(samples, samples[1:])) < 2.25):
+                                point_collisions += 1
 
-                side_crowding = 0
-                for point_name, point in self.points.items():
-                    if point_name in {dimension.p1, dimension.p2}:
-                        continue
-                    along = (point.x - first.x) * ux + (point.y - first.y) * uy
-                    normal = ((point.x - first.x) * nx
-                              + (point.y - first.y) * ny) * sign
-                    if -0.15 * length <= along <= 1.15 * length and normal > 2.0:
-                        side_crowding += 1
+                        geometry_crossings = 0
+                        near_geometry = 0
+                        endpoint_pair = {dimension.p1, dimension.p2}
+                        for segment in self.segments.values():
+                            a, b = self.points[segment.p1], self.points[segment.p2]
+                            chord_scale = math.hypot(b.x - a.x, b.y - a.y)
+                            chord_tolerance = max(1.0e-9, chord_scale * 1.0e-7)
+                            own_chord = {segment.p1, segment.p2} == endpoint_pair or (
+                                # 긴 변의 **일부**를 재는 치수(반지름 4 cm 가 지름 선분
+                                # 위에 있는 부채꼴 고리 등): 두 끝점이 같은 선분 위에
+                                # 있으면 곡선은 그 선분과 끝점에서만 닿는다 — 교차가
+                                # 아니라 자기 현이다.  이 배치는 종전에는 모든 오프셋
+                                # 후보가 «교차»로 죽어 아예 그릴 수 없었다.
+                                _distance_point_line(first, a, b) <= chord_tolerance
+                                and _distance_point_line(second, a, b) <= chord_tolerance
+                                and _point_within_segment(first, a, b, chord_tolerance)
+                                and _point_within_segment(second, a, b, chord_tolerance)
+                            )
+                            if own_chord:
+                                # A one-sided quadratic meets its measured chord only
+                                # at the deliberately inset start/end points.  The
+                                # value label itself still needs genuine clearance.
+                                label_clearance = _expand_box(
+                                    label_box,
+                                    self.style.segment_width / 2.0 + 0.5,
+                                )
+                                if _segment_intersects_box(a, b, label_clearance):
+                                    geometry_crossings += 1
+                                continue
+                            if (_polyline_intersects_segment(samples, a, b)
+                                    or _segment_intersects_box(a, b, label_box)):
+                                geometry_crossings += 1
+                            else:
+                                clearance = min(
+                                    _distance_xy_to_segment(sample.x, sample.y, a, b)
+                                    for sample in samples)
+                                if clearance < 3.0:
+                                    near_geometry += 1
 
-                score = (
-                    clipped, text_collisions, point_collisions,
-                    geometry_crossings, circle_crossings, earlier_collisions,
-                    float(side_crowding), float(near_geometry),
-                    offset_rank, side_rank,
-                )
-                candidates.append((score, layout))
+                        for arc_name in sorted(self.arcs):
+                            arc_samples = self._arc_stroke_samples(self.arcs[arc_name])
+                            if (_polylines_intersect(samples, arc_samples)
+                                    or _polyline_intersects_box(arc_samples,
+                                                                _expand_box(label_box, 1.0))):
+                                geometry_crossings += 1
+                            else:
+                                clearance = min(
+                                    _distance_xy_to_segment(sample.x, sample.y, a, b)
+                                    for sample in samples
+                                    for a, b in zip(arc_samples, arc_samples[1:]))
+                                if clearance < 3.0:
+                                    near_geometry += 1
+
+                        circle_crossings = 0
+                        for circle_obj in self.circles.values():
+                            if not circle_obj.draw:
+                                # No ink on construction circles; dimension curves may
+                                # cross their circumference freely.
+                                continue
+                            center = self.points[circle_obj.center]
+                            if _box_intersects_circle(label_box, center, circle_obj.radius, 0.75):
+                                circle_crossings += 1
+                            else:
+                                residuals = [
+                                    math.hypot(sample.x - center.x, sample.y - center.y)
+                                    - circle_obj.radius for sample in samples
+                                ]
+                                # A chord dimension begins inside the circle near both
+                                # endpoints.  Only a real inside/outside transition is
+                                # a circumference crossing; mere endpoint proximity is
+                                # expected and must not reject the clean inner arc.
+                                if min(residuals) < -0.75 and max(residuals) > 0.75:
+                                    circle_crossings += 1
+
+                        earlier_collisions = 0
+                        for other in earlier:
+                            if (_boxes_overlap(label_box, other.label_box, gap=1.0)
+                                    or _polyline_intersects_box(samples,
+                                                                _expand_box(other.label_box, 1.0))
+                                    or _polyline_intersects_box(other.path_samples,
+                                                                _expand_box(label_box, 1.0))
+                                    or _polylines_intersect(samples, other.path_samples)):
+                                earlier_collisions += 1
+
+                        side_crowding = 0
+                        for point_name, point in self.points.items():
+                            if point_name in {dimension.p1, dimension.p2}:
+                                continue
+                            along = (point.x - first.x) * ux + (point.y - first.y) * uy
+                            normal = ((point.x - first.x) * nx
+                                      + (point.y - first.y) * ny) * sign
+                            if -0.15 * length <= along <= 1.15 * length and normal > 2.0:
+                                side_crowding += 1
+
+                        score = (
+                            clipped, text_collisions, point_collisions,
+                            geometry_crossings, circle_crossings, earlier_collisions,
+                            float(side_crowding), float(near_geometry),
+                            # 곡선을 변에 **가깝게** 두는 것이 먼저고, 그다음이
+                            # 「값은 가운데」다 — 값을 옮겨서 될 일을 오프셋으로 풀면
+                            # 치수선이 도형에서 멀어져 무엇을 잰 것인지 흐려진다.
+                            font_rank, offset_rank, anchor_rank, side_rank,
+                        )
+                        candidates.append((score, layout))
 
         score, layout = min(candidates, key=lambda item: item[0])
         if any(score[:6]):
@@ -1245,16 +1884,41 @@ class FigureScene:
         label_boxes: dict[str, Box] = {}
         occupied: list[Box] = []
 
-        # Angle labels are fixed by the angle bisector and reserve their space
-        # before automatic point labels are evaluated.
+        # 🔴 **자리를 잡는 순서는 «자유도가 적은 것부터»다.**
+        #
+        #   각 라벨(이등분선 위 — 방향이 하나) → 치수(제 현을 붙들어야 한다,
+        #   쪽 2 × 벌어짐 6) → 점 이름(8방향 × 5거리 = 40).
+        #
+        # 종전에는 점 이름이 **둘째**였다. 점 이름은 늘 「그 꼭짓점 바로 바깥」을
+        # 집는데, 그 자리가 곧 치수 곡선이 지나갈 자리다. 그래서 삼각형에 치수를
+        # 둘 달면 `dimension … has no collision-free layout` 으로 **거의 늘 던졌고**,
+        # 그 때문에 `m3Trig.ts` 는 치수를 통째로 포기하고 날 `<text>` 를 얹고 있었다
+        # (그 파일의 `build()` 주석이 실측 19/60 실패를 적어 두었다).
+        # 원장님 지적 2026-08-25 「길이를 표현하는 치수선이 렌더링 안 된다」의 뿌리다.
+        #
+        # 자유도가 큰 쪽을 나중에 놓으면 둘 다 자리를 얻는다.
         for angle_name in sorted(self.angles):
             angle = self.angles[angle_name]
-            laid_out = self._angle_label_layout(angle)
+            laid_out = self._angle_label_layout(angle, occupied)
             if laid_out:
                 pos, box = laid_out
                 key = f"angle:{angle.name}"
                 label_positions[key], label_boxes[key] = pos, box
                 occupied.append(box)
+
+        dimension_layouts: dict[str, DimensionLayout] = {}
+        for dimension_name in sorted(self.dimensions):
+            dimension = self.dimensions[dimension_name]
+            layout = self._dimension_layout(
+                dimension, occupied, list(dimension_layouts.values()))
+            dimension_layouts[dimension.name] = layout
+            key = f"dimension:{dimension.name}"
+            label_positions[key] = layout.label_position
+            label_boxes[key] = layout.label_box
+            occupied.append(layout.label_box)
+
+        dimension_curves = [layout.path_samples
+                            for layout in dimension_layouts.values()]
 
         for point_name in sorted(self.labels):
             label = self.labels[point_name]
@@ -1266,7 +1930,8 @@ class FigureScene:
                 x, y = point.x + dx, point.y + dy + 0.32 * fs
                 box = _text_box(x, y, label.text, fs)
                 candidates = [((x, y), box,
-                               self._candidate_cost(label.point, box, occupied, 0, 0))]
+                               self._candidate_cost(label.point, box, occupied, 0, 0,
+                                                    dimension_curves))]
             else:
                 candidates = []
                 for rank, (ux, uy) in enumerate(self._label_vectors(label)):
@@ -1281,7 +1946,8 @@ class FigureScene:
                         candidates.append((
                             (x, y), box,
                             self._candidate_cost(
-                                label.point, box, occupied, rank, distance_rank)))
+                                label.point, box, occupied, rank, distance_rank,
+                                dimension_curves)))
             pos, box, cost = min(candidates, key=lambda item: item[2])
             if cost[0]:
                 raise GeometryValidationError(
@@ -1289,21 +1955,13 @@ class FigureScene:
             label_positions[label.point], label_boxes[label.point] = pos, box
             occupied.append(box)
 
-        dimension_layouts: dict[str, DimensionLayout] = {}
-        for dimension_name in sorted(self.dimensions):
-            dimension = self.dimensions[dimension_name]
-            layout = self._dimension_layout(
-                dimension, occupied, list(dimension_layouts.values()))
-            dimension_layouts[dimension.name] = layout
-            key = f"dimension:{dimension.name}"
-            label_positions[key] = layout.label_position
-            label_boxes[key] = layout.label_box
-            occupied.append(layout.label_box)
-
         bounds: list[Box] = []
         stroke_pad = max(self.style.circle_width, self.style.segment_width,
                          self.style.mark_width) / 2.0
         for circle_obj in self.circles.values():
+            if not circle_obj.draw:
+                # No ink — a construction circle must not inflate the canvas.
+                continue
             center = self.points[circle_obj.center]
             r = circle_obj.radius + stroke_pad
             bounds.append((center.x - r, center.y - r, center.x + r, center.y + r))
@@ -1312,6 +1970,27 @@ class FigureScene:
             a, b = self.points[segment.p1], self.points[segment.p2]
             bounds.append((min(a.x, b.x) - stroke_pad, min(a.y, b.y) - stroke_pad,
                            max(a.x, b.x) + stroke_pad, max(a.y, b.y) + stroke_pad))
+            # tick/» 마크는 선분 밖(수직 방향)으로도 잉크가 나간다 — 렌더와
+            # 같은 좌표를 경계에 넣는다.
+            for (x1, y1), (x2, y2) in self._segment_mark_lines(segment):
+                bounds.append((min(x1, x2) - stroke_pad, min(y1, y2) - stroke_pad,
+                               max(x1, x2) + stroke_pad, max(y1, y2) + stroke_pad))
+        for arc_name in sorted(self.arcs):
+            arc = self.arcs[arc_name]
+            center, radius, start_deg, signed = self._arc_geometry(
+                arc.circle, arc.p1, arc.p2, arc.direction, f"arc {arc.name!r}")
+            bounds.append(_expand_box(
+                _arc_bbox(center, radius, start_deg, signed), stroke_pad))
+        for region_name in sorted(self.regions):
+            # A fill is visible ink even where no stroke follows the boundary —
+            # the bulge of an arc piece must stay inside the canvas.
+            for index, piece in enumerate(self.regions[region_name].boundary):
+                if piece.kind != "arc":
+                    continue
+                center, radius, start_deg, signed = self._arc_geometry(
+                    piece.circle, piece.start, piece.end, piece.direction,
+                    f"region {region_name!r} boundary[{index}]")
+                bounds.append(_arc_bbox(center, radius, start_deg, signed))
         for layout in dimension_layouts.values():
             dimension_pad = self.style.dimension_width / 2.0 + 0.75
             bounds.append(_expand_box(_merge_bounds(
@@ -1355,12 +2034,49 @@ class FigureScene:
         resolved = self.resolve()
         _, _, width, height = resolved.view_box
         style = self.style
+        fills: list[str] = []
         main: list[str] = []
         marks: list[str] = []
         labels: list[str] = []
         tx, ty = resolved.translation
 
+        def arc_fragment(circle_name: str, start_name: str, end_name: str,
+                         direction: str, what: str) -> str:
+            """SVG ``A`` command for one validated arc, ending exactly on the
+            named end point so chained region pieces stay byte-continuous."""
+
+            _, radius, _, signed = self._arc_geometry(
+                circle_name, start_name, end_name, direction, what)
+            end = self.points[end_name]
+            large = 1 if abs(signed) > 180.0 else 0
+            sweep_flag = 0 if signed > 0 else 1
+            return (f'A {_fmt(radius)} {_fmt(radius)} 0 {large} {sweep_flag} '
+                    f'{_fmt(end.x + tx)} {_fmt(end.y + ty)}')
+
+        # 영역 채색은 모든 잉크(선·호·마크·라벨)보다 **아래**에 깔린다 —
+        # 채색이 라벨·치수를 가리면 안 된다.  순서는 스펙에 적힌 순서다
+        # (흰 채움으로 앞 영역을 도려내는 지면이 있다).
+        for region in self.regions.values():
+            first = region.boundary[0]
+            start_point = self.points[first.start]
+            parts = [f'M {_fmt(start_point.x + tx)} {_fmt(start_point.y + ty)}']
+            for index, piece in enumerate(region.boundary):
+                end_point = self.points[piece.end]
+                if piece.kind == "seg":
+                    parts.append(
+                        f'L {_fmt(end_point.x + tx)} {_fmt(end_point.y + ty)}')
+                else:
+                    parts.append(arc_fragment(
+                        piece.circle, piece.start, piece.end, piece.direction,
+                        f"region {region.name!r} boundary[{index}]"))
+            parts.append("Z")
+            fills.append(
+                f'<path d="{" ".join(parts)}" '
+                f'fill="{escape(region.fill, quote=True)}" stroke="none"/>')
+
         for circle_obj in self.circles.values():
+            if not circle_obj.draw:
+                continue
             center = self.points[circle_obj.center]
             main.append(
                 f'<circle cx="{_fmt(center.x + tx)}" cy="{_fmt(center.y + ty)}" '
@@ -1376,19 +2092,59 @@ class FigureScene:
                 f'x2="{_fmt(b.x + tx)}" y2="{_fmt(b.y + ty)}" '
                 f'stroke="{escape(style.stroke, quote=True)}" '
                 f'stroke-width="{_fmt(style.segment_width)}"{dash}/>' )
+        for arc_name in sorted(self.arcs):
+            arc = self.arcs[arc_name]
+            start_point = self.points[arc.p1]
+            dash = (f' stroke-dasharray="{escape(arc.dash, quote=True)}"'
+                    if arc.dash else "")
+            main.append(
+                f'<path d="M {_fmt(start_point.x + tx)} {_fmt(start_point.y + ty)} '
+                f'{arc_fragment(arc.circle, arc.p1, arc.p2, arc.direction, f"arc {arc.name!r}")}" '
+                f'fill="none" stroke="{escape(style.stroke, quote=True)}" '
+                f'stroke-width="{_fmt(style.segment_width)}"{dash}/>')
 
+        for segment_name in sorted(self.segments):
+            segment = self.segments[segment_name]
+            for (x1, y1), (x2, y2) in self._segment_mark_lines(segment):
+                marks.append(
+                    f'<line x1="{_fmt(x1 + tx)}" y1="{_fmt(y1 + ty)}" '
+                    f'x2="{_fmt(x2 + tx)}" y2="{_fmt(y2 + ty)}" '
+                    f'stroke="{escape(style.stroke, quote=True)}" '
+                    f'stroke-width="{_fmt(style.mark_width)}" '
+                    f'stroke-linecap="round"/>')
         for angle_name in sorted(self.angles):
             angle = self.angles[angle_name]
             vertex, p1, p2 = (self.points[angle.vertex], self.points[angle.p1],
                               self.points[angle.p2])
             radius = style.angle_radius if angle.radius is None else angle.radius
-            path_data = angle_arc(
-                vertex.x + tx, vertex.y + ty,
-                (p1.x + tx, p1.y + ty), (p2.x + tx, p2.y + ty), radius)
-            marks.append(
-                f'<path d="{path_data}" fill="none" '
-                f'stroke="{escape(style.stroke, quote=True)}" '
-                f'stroke-width="{_fmt(style.mark_width)}"/>')
+            if angle.right:
+                # 직각기호 — 호 대신, 두 변 방향으로 놓인 작은 사각형의 두 변.
+                # ⚠️ 좌표는 `_angle_mark_polylines` 가 정한다 — 충돌 판정과 **같은 값**을
+                #    써야 한다(`_segment_mark_lines` 와 같은 무늬). 두 벌이 되면
+                #    「비켰다」고 판정한 자리에 다른 것이 그려진다.
+                square = self._angle_mark_polylines(angle)
+                if not square:
+                    continue
+                corner_a, corner_b, corner_c = square[0]
+                marks.append(
+                    f'<path d="M {_fmt(corner_a.x + tx)} '
+                    f'{_fmt(corner_a.y + ty)} '
+                    f'L {_fmt(corner_b.x + tx)} '
+                    f'{_fmt(corner_b.y + ty)} '
+                    f'L {_fmt(corner_c.x + tx)} '
+                    f'{_fmt(corner_c.y + ty)}" fill="none" '
+                    f'stroke="{escape(style.stroke, quote=True)}" '
+                    f'stroke-width="{_fmt(style.mark_width)}"/>')
+                continue
+            for arc_index in range(angle.arcs):
+                path_data = angle_arc(
+                    vertex.x + tx, vertex.y + ty,
+                    (p1.x + tx, p1.y + ty), (p2.x + tx, p2.y + ty),
+                    radius - arc_index * _MARK_GAP)
+                marks.append(
+                    f'<path d="{path_data}" fill="none" '
+                    f'stroke="{escape(style.stroke, quote=True)}" '
+                    f'stroke-width="{_fmt(style.mark_width)}"/>')
         for dimension_name in sorted(self.dimensions):
             dimension = self.dimensions[dimension_name]
             layout = resolved.dimension_layouts[dimension.name]
@@ -1448,12 +2204,16 @@ class FigureScene:
 
         background = (f'\n  <rect width="{_fmt(width)}" height="{_fmt(height)}" fill="#ffffff"/>'
                       if self.background == "white" else "")
+        # 영역이 없으면 그룹도 없다 — 기존 지면의 SVG 가 한 바이트도 안 변한다.
+        fills_group = (f'  <g>\n    ' + "\n    ".join(fills) + '\n  </g>\n'
+                       if fills else "")
         main_body = "\n    ".join(main)
         marks_body = "\n    ".join(marks)
         labels_body = "\n    ".join(labels)
         svg = (
             f'<svg xmlns="http://www.w3.org/2000/svg" '
             f'viewBox="0 0 {_fmt(width)} {_fmt(height)}">{background}\n'
+            f'{fills_group}'
             f'  <g>\n    {main_body}\n  </g>\n'
             f'  <g>\n    {marks_body}\n  </g>\n'
             f'  <g>\n    {labels_body}\n  </g>\n'
@@ -1595,11 +2355,43 @@ def compile_figure_spec(spec: Mapping[str, Any] | FigureSpec) -> FigureScene:
           "segments": {"AC": ["A", "C"], "BD": ["B", "D"]},
           "angles": {"x": {"vertex": "P", "points": ["D", "C"],
                               "label": "x°"}},
+
+    Mark grammar (합동·평행·직각 표기)::
+
+        "segments": {
+          "AB": ["A", "B"],                              // 기존 배열형 그대로
+          "AC": {"points": ["A", "C"], "ticks": 2},      // 같음 표시 1~3
+          "l1": {"points": ["P", "Q"], "parallel": 1}    // 평행 » 1~2 (p1→p2 방향)
+        },
+        "angles": {
+          "a": {"vertex": "C", "points": ["A", "D"], "arcs": 2},   // 이중 호
+          "r": {"vertex": "T", "points": ["O", "P"], "right": true} // 직각기호
+        }
+
+    ``right: true`` replaces the arc with the small square (호와 함께 못 쓴다)
+    and doubles as a check — the rays must actually be perpendicular.
           "dimensions": {"AC_len": {"points": ["A", "C"],
                                        "label": "12 cm", "side": "auto"}},
           "labels": {"A": "A", "B": "B"}
         }
 
+    Shaded-region figures add ``arcs`` (stroked arc pieces), ``regions``
+    (light fills bounded by a closed seg/arc chain), and construction circles
+    with ``draw: false``::
+
+        {
+          "circles": {"c": {"center": "O", "radius": 60, "draw": false}},
+          "arcs": {"arcAB": {"circle": "c", "from": "A", "to": "B",
+                             "dir": "ccw"}},
+          "regions": {"shade": {"boundary": [
+              {"seg": ["O", "A"]},
+              {"arc": {"circle": "c", "from": "A", "to": "B", "dir": "ccw"}},
+              {"seg": ["B", "O"]}],
+            "fill": "#f2d5c8"}}
+        }
+
+    Region boundaries must connect end-to-start by point name and close; a
+    broken chain raises.  Fills must be light (:data:`REGION_MIN_LUMINANCE`).
     Unknown fields and references are errors; no placeholder geometry is made.
     """
 
@@ -1608,8 +2400,8 @@ def compile_figure_spec(spec: Mapping[str, Any] | FigureSpec) -> FigureScene:
     if not isinstance(spec, Mapping):
         raise FigureSpecError("FigureSpec must be a mapping")
     allowed_top = {"version", "theme", "canvas", "background", "style",
-                   "points", "circles", "segments", "angles", "dimensions",
-                   "labels"}
+                   "points", "circles", "segments", "arcs", "regions",
+                   "angles", "dimensions", "labels"}
     _strict_keys(spec, allowed_top, "FigureSpec")
     if "version" not in spec:
         raise FigureSpecError("FigureSpec requires version: 2")
@@ -1646,6 +2438,8 @@ def compile_figure_spec(spec: Mapping[str, Any] | FigureSpec) -> FigureScene:
     point_records = _named_records(spec.get("points"), "points")
     circle_records = _named_records(spec.get("circles"), "circles")
     segment_records = _named_records(spec.get("segments"), "segments")
+    arc_records = _named_records(spec.get("arcs"), "arcs")
+    region_records = _named_records(spec.get("regions"), "regions")
     angle_records = _named_records(spec.get("angles"), "angles")
     dimension_records = _named_records(spec.get("dimensions"), "dimensions")
 
@@ -1678,11 +2472,15 @@ def compile_figure_spec(spec: Mapping[str, Any] | FigureSpec) -> FigureScene:
         for name, item in circle_records:
             if not isinstance(item, Mapping):
                 raise FigureSpecError(f"circles.{name} must be an object")
-            _strict_keys(item, {"center", "radius"}, f"circles.{name}")
+            _strict_keys(item, {"center", "radius", "draw"}, f"circles.{name}")
             if "center" not in item or "radius" not in item:
                 raise FigureSpecError(f"circles.{name} requires center and radius")
+            draw = item.get("draw", True)
+            if not isinstance(draw, bool):
+                raise FigureSpecError(f"circles.{name}.draw must be boolean")
             scene.add_circle(name, str(item["center"]),
-                             _spec_number(item["radius"], f"circles.{name}.radius"))
+                             _spec_number(item["radius"], f"circles.{name}.radius"),
+                             draw=draw)
 
         for name, item, kind in constructed_points:
             if kind == "on_circle":
@@ -1705,8 +2503,8 @@ def compile_figure_spec(spec: Mapping[str, Any] | FigureSpec) -> FigureScene:
                 continue
             if not isinstance(item, Mapping):
                 raise FigureSpecError(f"segments.{name} must be an object or [p1, p2]")
-            _strict_keys(item, {"points", "p1", "p2", "dash", "dashed"},
-                         f"segments.{name}")
+            _strict_keys(item, {"points", "p1", "p2", "dash", "dashed",
+                                "ticks", "parallel"}, f"segments.{name}")
             if "points" in item:
                 if "p1" in item or "p2" in item:
                     raise FigureSpecError(f"segments.{name}: use points or p1/p2, not both")
@@ -1716,7 +2514,9 @@ def compile_figure_spec(spec: Mapping[str, Any] | FigureSpec) -> FigureScene:
                     raise FigureSpecError(f"segments.{name} requires p1 and p2")
                 p1, p2 = str(item["p1"]), str(item["p2"])
             dash = item.get("dash", item.get("dashed"))
-            scene.add_segment(name, p1, p2, dashed=None if dash is None else str(dash))
+            scene.add_segment(name, p1, p2, dashed=None if dash is None else str(dash),
+                              ticks=item.get("ticks", 0),
+                              parallel=item.get("parallel", 0))
 
         for name, item, kind in constructed_points:
             if kind == "intersection":
@@ -1738,7 +2538,7 @@ def compile_figure_spec(spec: Mapping[str, Any] | FigureSpec) -> FigureScene:
             if not isinstance(item, Mapping):
                 raise FigureSpecError(f"angles.{name} must be an object")
             _strict_keys(item, {"vertex", "points", "p1", "p2", "radius", "label",
-                                "label_distance"}, f"angles.{name}")
+                                "label_distance", "arcs", "right"}, f"angles.{name}")
             if "vertex" not in item:
                 raise FigureSpecError(f"angles.{name} requires vertex")
             if "points" in item:
@@ -1749,13 +2549,21 @@ def compile_figure_spec(spec: Mapping[str, Any] | FigureSpec) -> FigureScene:
                 if "p1" not in item or "p2" not in item:
                     raise FigureSpecError(f"angles.{name} requires two ray points")
                 p1, p2 = str(item["p1"]), str(item["p2"])
+            right_value = item.get("right", False)
+            if not isinstance(right_value, bool):
+                raise FigureSpecError(f"angles.{name}.right must be boolean")
+            if right_value and "arcs" in item:
+                raise FigureSpecError(
+                    f"angles.{name}: right:true replaces the arc — do not give arcs")
             scene.add_angle(
                 name, str(item["vertex"]), p1, p2,
                 radius=None if item.get("radius") is None else _spec_number(
                     item["radius"], f"angles.{name}.radius"),
                 label=item.get("label"),
                 label_distance=None if item.get("label_distance") is None else _spec_number(
-                    item["label_distance"], f"angles.{name}.label_distance"))
+                    item["label_distance"], f"angles.{name}.label_distance"),
+                arcs=item.get("arcs", 1),
+                right=right_value)
 
         for name, item in dimension_records:
             if not isinstance(item, Mapping):
@@ -1789,6 +2597,60 @@ def compile_figure_spec(spec: Mapping[str, Any] | FigureSpec) -> FigureScene:
                                     f"dimensions.{name}.inset"),
                 font_size=None if item.get("font_size") is None else _spec_number(
                     item["font_size"], f"dimensions.{name}.font_size"))
+
+        for name, item in arc_records:
+            if not isinstance(item, Mapping):
+                raise FigureSpecError(f"arcs.{name} must be an object")
+            _strict_keys(item, {"circle", "from", "to", "dir", "dash"},
+                         f"arcs.{name}")
+            for required in ("circle", "from", "to"):
+                if required not in item:
+                    raise FigureSpecError(
+                        f"arcs.{name} requires circle, from, and to")
+            scene.add_arc(
+                name, str(item["circle"]), str(item["from"]), str(item["to"]),
+                direction=str(item.get("dir", "ccw")),
+                dash=None if item.get("dash") is None else str(item["dash"]))
+
+        for name, item in region_records:
+            if not isinstance(item, Mapping):
+                raise FigureSpecError(f"regions.{name} must be an object")
+            _strict_keys(item, {"boundary", "fill"}, f"regions.{name}")
+            if "boundary" not in item or "fill" not in item:
+                raise FigureSpecError(f"regions.{name} requires boundary and fill")
+            boundary_value = item["boundary"]
+            if (not isinstance(boundary_value, Sequence)
+                    or isinstance(boundary_value, (str, bytes))):
+                raise FigureSpecError(f"regions.{name}.boundary must be a list")
+            pieces: list[RegionPiece] = []
+            for index, piece_value in enumerate(boundary_value):
+                piece_path = f"regions.{name}.boundary[{index}]"
+                if not isinstance(piece_value, Mapping):
+                    raise FigureSpecError(f"{piece_path} must be an object")
+                keys = set(piece_value)
+                if keys == {"seg"}:
+                    p1, p2 = _pair(piece_value["seg"], f"{piece_path}.seg")
+                    pieces.append(RegionPiece("seg", p1, p2))
+                elif keys == {"arc"}:
+                    arc_value = piece_value["arc"]
+                    if not isinstance(arc_value, Mapping):
+                        raise FigureSpecError(f"{piece_path}.arc must be an object")
+                    _strict_keys(arc_value, {"circle", "from", "to", "dir"},
+                                 f"{piece_path}.arc")
+                    for required in ("circle", "from", "to"):
+                        if required not in arc_value:
+                            raise FigureSpecError(
+                                f"{piece_path}.arc requires circle, from, and to")
+                    pieces.append(RegionPiece(
+                        "arc", str(arc_value["from"]), str(arc_value["to"]),
+                        str(arc_value["circle"]),
+                        str(arc_value.get("dir", "ccw")).strip().lower()))
+                else:
+                    raise FigureSpecError(
+                        f"{piece_path} must have exactly one of 'seg' or 'arc'")
+            if not isinstance(item["fill"], str):
+                raise FigureSpecError(f"regions.{name}.fill must be text")
+            scene.add_region(name, pieces, item["fill"])
 
         labels_value = spec.get("labels")
         if labels_value is not None:
@@ -1885,9 +2747,10 @@ def intersecting_chords_template(*, width: Number = 187, height: Number = 171,
 
 
 __all__ = [
-    "AngleMark", "Canvas", "Circle", "DimensionLayout", "DimensionMark",
-    "FigureScene", "FigureSpec",
+    "AngleMark", "ArcStroke", "Canvas", "Circle", "DimensionLayout",
+    "DimensionMark", "FigureScene", "FigureSpec",
     "FigureSpecError", "GeometryValidationError", "Point", "PointLabel",
+    "Region", "RegionPiece", "REGION_MIN_LUMINANCE",
     "ResolvedScene", "Segment", "StyleProfile", "compile_figure_spec",
     "intersecting_chords_template", "render_figure_spec",
 ]
