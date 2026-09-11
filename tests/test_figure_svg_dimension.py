@@ -29,6 +29,7 @@ if str(ROOT) not in sys.path:
 
 from core.figure_quality import assess_svg  # noqa: E402
 from core.figure_svg import (  # noqa: E402
+    DIM_SW,
     SVGTextRun,
     dim_label,
     halo_text,
@@ -56,11 +57,13 @@ class DimensionCurveGeometryTest(unittest.TestCase):
         fragment = meas(10, 20, 110, 20, off=12)
         path = ET.fromstring(fragment)
 
-        # 치수 점선 규격은 6 4 / 1.4px — 인쇄 가독성 때문에 상향했다(2026-08-13,
-        # 사용자 "시험지에 비해 선·글자가 너무 작다"). 각 표시 호(angle_mark)의
-        # 4 3 과는 별개 규격이다.
+        # 치수 점선 규격은 6 4 / `DIM_SW`. 이력: 2026-08-13 인쇄 가독성 때문에 1.4 로
+        # 상향(사용자 "시험지에 비해 선·글자가 너무 작다") → 2026-08-28 todays-math 에서
+        # RPM 정본 비(치수 = 도형선의 0.375~0.625배)로 0.6 확정, 2026-09-11 재동기화로
+        # 여기도 따른다(도형선·라벨은 오히려 커졌다). 각 표시 호(angle_mark)의 4 3 과는
+        # 별개 규격이다.
         self.assertEqual(path.attrib["stroke-dasharray"], "6 4")
-        self.assertEqual(path.attrib["stroke-width"], "1.4")
+        self.assertEqual(path.attrib["stroke-width"], str(DIM_SW))
         numbers = [float(token) for token in path.attrib["d"].split()[1::3]]
         # 2026-08-13: 인셋 기본 0 — 양끝이 **잰 두 점(x=10, x=110)에 정확히** 닿는다.
         # 예전 3px 인셋(13→107)은 긴 구간에선 안 보이지만 짧은 구간에서 19% 를

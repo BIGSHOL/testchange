@@ -680,8 +680,12 @@ class StrictFigureSpecTest(unittest.TestCase):
         texts = root.findall(".//{*}text")
 
         self.assertNotIn("<script", svg.lower())
-        self.assertIn('&lt;script onclick="steal()"&gt;', svg)
-        self.assertEqual([element.text for element in texts], [payload])
+        # 2026-09-11 엔진 재동기화(todays-math label_markup): 라벨이 tspan 조각으로 조판되고
+        # 이항 연산자 양옆에 가는 빈칸(U+2009)이 들어간다. 원문 문자열이 SVG 에 한 덩어리로
+        # 남지는 않지만 **글자로만** 실린다 — 가는 빈칸을 걷어낸 내용이 원문과 같아야 한다.
+        self.assertIn("&lt;", svg)
+        self.assertEqual(len(texts), 1)
+        self.assertEqual("".join(texts[0].itertext()).replace(" ", ""), payload)
         self.assertEqual(root.findall(".//{*}script"), [])
         self.assertFalse(any(
             attribute.lower().startswith("on")
