@@ -16,11 +16,12 @@ project_root = Path(SPECPATH)
 # ── 빌드 게이트 — PyInstaller 는 datas 경로가 없어도 **경고만 내고 성공**해서, 기능이
 # 조용히 빠진 도우미가 나간다(build.spec 과 같은 원칙). ⚠️ spec 의 SystemExit 은 exit
 # code 0 으로 끝나므로(2026-08-07 실측) 빌드 후 산출물 검증을 반드시 병행할 것.
-_forms = sorted((project_root / 'forms').glob('*.hwp'))
-if len(_forms) < 7:
-    raise SystemExit(f"[agent.spec] forms/*.hwp {len(_forms)}개 — 대수회 폼 7종 필요")
-# '폼 없이 2단'(웹 layout=plain2) 바탕 템플릿 — 빠지면 그 모드가 조용히 빈 문서로 떨어져
-# 머리말·단 구분선이 사라진다(변환은 성공해 보이므로 자동 게이트가 필요).
+# ⭐⭐ 도우미 zip 은 **공개 URL로 배포**된다(웹 다운로드 버튼 → Supabase downloads 버킷).
+# 그래서 **대수회 폼을 번들하지 않는다**(사용자 2026-08-12 "외부로 유출시키고 싶지 않다").
+# 폼이 필요한 사람은 `<exe폴더>/forms/` 에 직접 넣는다 — `core/form_registry._base_dirs()`
+# 의 2순위 탐색지라 코드 변경 없이 그대로 잡힌다(1순위 _MEIPASS/forms 는 비어 있게 됨).
+# ⚠️ 여기에 `(project_root / 'forms', 'forms')` 를 다시 넣으면 폼이 공개 zip 에 실린다.
+#    scripts/make_helper_zip.py 가 그 경우 zip 생성을 거부한다(이중 방어).
 _plain = sorted((project_root / 'forms' / 'plain2col').glob('*.hwp'))
 if not _plain:
     raise SystemExit("[agent.spec] forms/plain2col/*.hwp 없음 — "
@@ -36,9 +37,10 @@ a = Analysis(
         # 한글 '파일 접근 허용' 팝업 억제 DLL — core/hwp_com.py 가 _MEIPASS/resources 에서
         # 찾아 레지스트리 등록 후 RegisterModule 로 바인딩(무인 변환 필수).
         (str(project_root / 'resources'), 'resources'),
-        # ⭐ 대수회 폼 7종 — form_registry 1순위 탐색지가 _MEIPASS/forms 다. 이게 빠지면
-        # 배포 도우미가 **전부 기본 서식**으로 떨어진다(파일명이 규칙에 맞아도 폼 없음).
-        (str(project_root / 'forms'), 'forms'),
+        # ⭐ 2단 바탕 템플릿만 싣는다. **대수회 폼은 일부러 뺐다**(공개 zip 유출 차단,
+        # 사용자 2026-08-12) — 필요한 사람은 `<exe폴더>/forms/` 에 직접 둔다
+        # (`form_registry._base_dirs()` 2순위, 코드 변경 없이 잡힘).
+        (str(project_root / 'forms' / 'plain2col'), 'forms/plain2col'),
     ],
     hiddenimports=[
         # HWP COM 자동화(core/hwp_com.py) — pywin32 동적 디스패치라 정적 추적 안 됨.

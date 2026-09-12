@@ -556,8 +556,14 @@ class HwpSession:
         h = self.hwp
         try:
             # InsertPicture(파일, Embedded, sizeoption, reverse, watermark, effect, width, height)
-            # Embedded=True: 문서에 포함. sizeoption=2(=이미지 원래 크기).
-            h.InsertPicture(path, True, 2, 0, 0, 0, 0, 0)
+            # Embedded=True: 문서에 포함. sizeoption=1 uses the explicit width/height in mm.
+            # High-resolution browser crops must not become page-sized at 96 dpi.
+            # Explicit millimetres preserve all pixels while fitting a two-column exam.
+            from PIL import Image
+            with Image.open(path) as image:
+                width, height = image.size
+            factor = min(76 / max(1, width), 80 / max(1, height))
+            h.InsertPicture(path, True, 1, 0, 0, 0, width * factor, height * factor)
         except Exception:
             try:
                 h.InsertPicture(path, True, 2)

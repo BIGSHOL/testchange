@@ -66,10 +66,11 @@ def _gate_bundle() -> None:
     for rel in REQUIRED:
         if not (DIST / rel).exists():
             _fail(f"번들 누락: {rel}")
-    forms = sorted((DIST / "_internal" / "forms").glob("*.hwp"))
-    if len(forms) < 7:
-        _fail(f"대수회 폼 {len(forms)}종 — 7종 필요(웹 도우미는 폼을 싣는다)")
-    print(f"  번들 OK — 폼 {len(forms)}종 · plain2col · resources · resvg_py")
+    forms = [p for p in DIST.rglob('*') if p.suffix.lower() in ('.hwp', '.hwpx')
+             and 'plain2col' not in p.parts]
+    if forms:
+        _fail('공개 도우미에 비공개 폼을 포함할 수 없습니다.')
+    print('  번들 OK — 비공개 폼 없음 · plain2col · resources · resvg_py')
 
     bad = [p for p in DIST.rglob("*")
            if p.is_file() and (p.name in FORBIDDEN_NAMES
@@ -87,6 +88,8 @@ def _gate_zip(z: Path) -> None:
     """zip 안까지 다시 본다 — 손으로 만든 zip 이 게이트를 우회하지 못하게."""
     with zipfile.ZipFile(z) as zf:
         names = zf.namelist()
+        if any(n.lower().endswith(('.hwp', '.hwpx')) and '/plain2col/' not in n for n in names):
+            _fail('zip에 비공개 폼이 포함되어 있습니다.')
         bad = [n for n in names
                if Path(n).name in FORBIDDEN_NAMES
                or Path(n).name.startswith(FORBIDDEN_PREFIX)]

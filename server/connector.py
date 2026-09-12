@@ -55,7 +55,7 @@ ENGINE_ROOT = Path(__file__).resolve().parent.parent
 # 여기만 올리면 낡은 도우미를 쓰는 사용자에게 **영영 알림이 안 간다** — 고쳐 놓고도
 # 사람이 일일이 "새로 받으세요" 라고 말해야 했던 게 2026-08-10 사고의 실제 경로다.
 # 회귀: 웹 `npm run gate:connver`(웹 요구 ≤ 여기 VERSION 을 대조).
-VERSION = "1.2.3"   # 2026-09-11: 도형 엔진 재동기화(라벨 조판·바깥 배치) + 스펙 자동 정리
+VERSION = "1.3.0"   # MathGen v2 exports preserve edited figures.
 # ⭐ 360초 — 실측 렌더가 2~4분(오성중·왕선중 2026-08-09)이라 180초는 3분 넘는
 # 시험지를 **구조적으로 100% 실패**시키고(살해 후 같은 payload 재시도 → 또 180초
 # 소모 → 500) 총 6분+CPU 를 낭비했다. env 로 조정 가능.
@@ -467,7 +467,7 @@ class Handler(BaseHTTPRequestHandler):
             # 한글 버전 힌트(진단용) — COM 크래시가 버전 의존인지 가르는 유일한 단서.
             "hwp_version": _detect_hwp_version(),
             "token": bool(REQUIRE_TOKEN),
-            "capabilities": ["convert-json"],
+            "capabilities": ["convert-json", "v2-figures"],
         }, self._origin())
 
     def do_POST(self):

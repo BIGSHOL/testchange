@@ -142,7 +142,14 @@ def resolve_figures(envelope: dict, fig_dir: "Path | None" = None,
             try:
                 raw = crop.split(",", 1)[-1] if crop.startswith("data:") else crop
                 out_png = fig_dir / f"fig{idx}_crop.png"
-                out_png.write_bytes(base64.b64decode(raw))
+                from io import BytesIO
+                from PIL import Image
+                decoded = base64.b64decode(raw, validate=True)
+                with Image.open(BytesIO(decoded)) as image:
+                    if image.width * image.height > 16_000_000:
+                        raise ValueError("도형 이미지 크기가 너무 큽니다.")
+                    image.load()
+                    image.save(out_png, format="PNG")
                 drawn += 1
                 tally["crop"] += 1
                 sys.stderr.write(f"[convert] 그림 원본 크롭 삽입 — fig{idx}_crop\n")
@@ -516,6 +523,14 @@ def main() -> int:
     from core.template_headers import resolve_form_path
 
     envelope, meta, style = adapt_payload(payload)
+    # Same figure resolution as the original testchange envelope, before the parser drops figures.
+    fig_dir = None
+    if wants_figures(payload):
+        fig_dir = Path(tempfile.mkdtemp(prefix="mathgenfig_"))
+        atexit.register(shutil.rmtree, str(fig_dir), True)
+    n_missing = resolve_figures(envelope, fig_dir)
+    if wants_figures(payload) and n_missing:
+        raise ValueError(f"{n_missing}개 도형을 삽입하지 못했습니다. 원본 이미지와 도우미 버전을 확인해 주세요.")
     page = parse_ocr_response(envelope, page_number=1)
     document = build_document(
         [page],
