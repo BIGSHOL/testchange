@@ -321,14 +321,43 @@ def _caption_run_back(blocks: list[ContentBlock], i: int) -> int:
             break
         if p.type == ContentType.TEXT and (
                 _is_figure_note(p) or _COND_HEADER_RE.search(p.value or "")
-                or _CAPTION_SENTENCE_RE.search(p.value or "")):
+                or _CAPTION_SENTENCE_RE.search(p.value or "")
+                # 질문 마커는 **위치 무관**으로 발문 경계다 — `_is_table_caption` 은 이미
+                # 그렇게 보는데(대진고 확통 #14) 이 역탐색만 종결형($앵커)에 의존해,
+                # 발문이 "…값은? (단, a<b)" 처럼 질문 뒤 괄호 단서로 끝나면 멈추지 못하고
+                # 발문 전체를 run 에 넣었다 → 판정 False → **캡션을 아예 못 찾는다**
+                # (왕선중3 #13 "50m 달리기 기록 (단위: 초)" 가 발문에 인라인되고 배점이
+                # 캡션 뒤로 밀림, 2026-08-13).
+                or _CAPTION_QUESTION_RE.search(p.value or "")):
             break
         if getattr(p, "box_member", False):
             break
         j -= 1
+    j = _stem_paren_end(blocks, j, i)
     if j < i and _is_table_caption("".join((b.value or "") for b in blocks[j:i])):
         return j
     return i
+
+
+def _stem_paren_end(blocks: list[ContentBlock], j: int, i: int) -> int:
+    """발문이 **열린 괄호 단서**로 끝나면(``…값은? (단, `` + EQ``a<b`` + ``)``) 그 닫는
+    괄호까지는 발문이다 — 캡션 run 시작을 그 **뒤**로 민다.
+
+    안 밀면 ``)`` 가 캡션에 딸려가 발문이 ``(단, a<b`` 로 끝나고 캡션은 ``)50m …`` 이 된다.
+    괄호가 run 안에서 닫히지 않으면 보수적으로 원래 시작을 유지한다.
+    """
+    if j <= 0 or j >= i:
+        return j
+    def _bal(s: str) -> int:
+        return (s.count("(") + s.count("（")) - (s.count(")") + s.count("）"))
+    depth = _bal(blocks[j - 1].value or "")
+    if depth <= 0:
+        return j
+    k = j
+    while depth > 0 and k < i:
+        depth += _bal(blocks[k].value or "")
+        k += 1
+    return k if depth <= 0 else j
 
 
 def _tail_start(blocks: list[ContentBlock]) -> int | None:
@@ -606,7 +635,14 @@ class HwpComWriter:
             if block.value:
                 self.s.break_para()
                 self.s.align_center()
-                self.s.insert_picture(block.value)
+                # 폼 경로는 그림을 **토큰+자리표시**로 넣어야 최종 교체가 된다. 공유 경로
+                # (`_write_tail_seq`·박스)로 흘러온 그림도 같은 방식이 되게 훅을 쓴다 —
+                # 없으면 원래 크기로 박혀 지면을 넘었다(대구일중3 #10: 표 뒤 그림 240mm, 2026-09-30).
+                hook = getattr(self, "image_hook", None)
+                if hook:
+                    hook(block.value)
+                else:
+                    self.s.insert_picture(block.value)
                 self.s.break_para()
                 self.s.align_left()
 

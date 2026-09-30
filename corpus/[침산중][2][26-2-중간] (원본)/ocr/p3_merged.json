@@ -1,0 +1,511 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 12,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "점 O는 "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle ABC"
+    },
+    {
+     "type": "text",
+     "value": "의 외심이고, 점 I는 "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle PQR"
+    },
+    {
+     "type": "text",
+     "value": "의 내심이다. 이때, "
+    },
+    {
+     "type": "equation",
+     "value": "x-y+z"
+    },
+    {
+     "type": "text",
+     "value": "의 값은?"
+    },
+    {
+     "type": "figure",
+     "value": "왼쪽: 삼각형 ABC, 외심 O에서 AB·BC·CA에 내린 수선의 발 D·E·F(직각 표시). AD 11cm·DB x cm·BE 12cm 점선 치수. 오른쪽: 삼각형 PQR, 내심 I에서 PQ·QR·RP에 내린 수선의 발 L·M·N(직각 표시). QL 8cm·LI 4cm·IM z cm·QM y cm·MR 6cm.",
+     "bbox": [
+      0.07,
+      0.11,
+      0.47,
+      0.24
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "7"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "8"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "9"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "23"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "24"
+      }
+     ]
+    }
+   ],
+   "answer": "①"
+  },
+  {
+   "number": 13,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "점 I는 "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle ABC"
+    },
+    {
+     "type": "text",
+     "value": "의 내심이고 세 점 D, E, F는 각각 내접원과 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AB}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{BC}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{CA}"
+    },
+    {
+     "type": "text",
+     "value": "의 접점이다. "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{BD}=x\\mathrm{cm}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{CF}=y\\mathrm{cm}"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "xy"
+    },
+    {
+     "type": "text",
+     "value": "의 값은?"
+    },
+    {
+     "type": "figure",
+     "value": "삼각형 ABC와 내접원(중심 I), 접점 D(AB)·E(BC)·F(CA). AB 6cm·CA 11cm·BC 10cm 점선 치수.",
+     "bbox": [
+      0.16,
+      0.41,
+      0.46,
+      0.52
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{25}{2}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "16"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{75}{4}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "21"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "25"
+      }
+     ]
+    }
+   ],
+   "answer": "③"
+  },
+  {
+   "number": 14,
+   "score": 5,
+   "contents": [
+    {
+     "type": "text",
+     "value": "점 O는 "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle ABC"
+    },
+    {
+     "type": "text",
+     "value": "의 외심이고 "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle B=52^{\\circ}"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle DAC"
+    },
+    {
+     "type": "text",
+     "value": "의 크기는?"
+    },
+    {
+     "type": "figure",
+     "value": "삼각형 ABC, 외심 O. A에서 O를 지나 BC 위의 점 D까지 선분 AD. B에 52° 호, A에 ∠DAC 호.",
+     "bbox": [
+      0.2,
+      0.72,
+      0.43,
+      0.81
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "30^{\\circ}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "32^{\\circ}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "34^{\\circ}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "36^{\\circ}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "38^{\\circ}"
+      }
+     ]
+    }
+   ],
+   "answer": "⑤"
+  },
+  {
+   "number": 15,
+   "score": 5,
+   "contents": [
+    {
+     "type": "text",
+     "value": "점 I는 "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle ABC"
+    },
+    {
+     "type": "text",
+     "value": "의 내심이고 "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle AIC=111^{\\circ}"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle ADI"
+    },
+    {
+     "type": "text",
+     "value": "와 "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle CEI"
+    },
+    {
+     "type": "text",
+     "value": "의 크기의 합은?"
+    },
+    {
+     "type": "figure",
+     "value": "삼각형 ABC, 내심 I. C에서 AB 위의 점 D로, A에서 BC 위의 점 E로 각의 이등분선. I에 111°(∠AIC) 호, D에 ∠ADI 호, E에 ∠CEI 호.",
+     "bbox": [
+      0.55,
+      0.1,
+      0.9,
+      0.26
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "133^{\\circ}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "136^{\\circ}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "143^{\\circ}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "146^{\\circ}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "153^{\\circ}"
+      }
+     ]
+    }
+   ],
+   "answer": "⑤"
+  },
+  {
+   "number": 16,
+   "score": 5,
+   "contents": [
+    {
+     "type": "text",
+     "value": "네 일차방정식 "
+    },
+    {
+     "type": "equation",
+     "value": "4x-3y-24=0"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "2y+8=0"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "x=0"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "y=-2"
+    },
+    {
+     "type": "text",
+     "value": "의 그래프로 둘러싸인 부분을 "
+    },
+    {
+     "type": "equation",
+     "value": "x"
+    },
+    {
+     "type": "text",
+     "value": "축을 축으로 한 바퀴 회전시킬 때 생기는 입체도형의 부피는?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "40\\pi"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "42\\pi"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "44\\pi"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "46\\pi"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "48\\pi"
+      }
+     ]
+    }
+   ],
+   "answer": "③"
+  }
+ ]
+}

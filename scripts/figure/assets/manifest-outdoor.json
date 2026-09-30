@@ -1,0 +1,16 @@
+{
+  "assets": [
+    {"slug": "train-side", "label": "기차", "file": "train-side.svg", "viewBox": [180, 72], "tags": ["탈것", "거리", "속력", "터널"]},
+    {"slug": "tunnel", "label": "터널", "file": "tunnel.svg", "viewBox": [140, 90], "tags": ["야외", "거리", "속력", "터널"]},
+    {"slug": "bridge", "label": "다리", "file": "bridge.svg", "viewBox": [160, 76], "tags": ["야외", "거리", "속력", "다리"]},
+    {"slug": "streetlamp", "label": "가로등", "file": "streetlamp.svg", "viewBox": [48, 125], "tags": ["야외", "높이", "그림자"]},
+    {"slug": "building", "label": "건물", "file": "building.svg", "viewBox": [88, 120], "tags": ["야외", "높이", "비교"]},
+    {"slug": "flagpole", "label": "깃대", "file": "flagpole.svg", "viewBox": [70, 130], "tags": ["야외", "높이"]},
+    {"slug": "mountain", "label": "산", "file": "mountain.svg", "viewBox": [160, 92], "tags": ["야외", "등산", "거리", "속력"]},
+    {"slug": "person-standing", "label": "서 있는 사람", "file": "person-standing.svg", "viewBox": [48, 100], "tags": ["사람", "높이", "속력"]},
+    {"slug": "person-walking", "label": "걷는 사람", "file": "person-walking.svg", "viewBox": [68, 100], "tags": ["사람", "걷기", "거리", "속력"]},
+    {"slug": "bicycle", "label": "자전거", "file": "bicycle.svg", "viewBox": [120, 75], "tags": ["탈것", "거리", "속력"]},
+    {"slug": "car-side", "label": "자동차", "file": "car-side.svg", "viewBox": [140, 72], "tags": ["탈것", "거리", "속력"]},
+    {"slug": "boat", "label": "배", "file": "boat.svg", "viewBox": [140, 78], "tags": ["탈것", "강", "유속", "속력"]}
+  ]
+}

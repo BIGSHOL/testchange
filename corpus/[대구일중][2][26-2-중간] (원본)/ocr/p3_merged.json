@@ -1,0 +1,471 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 1,
+   "score": 3,
+   "contents": [
+    {
+     "type": "equation",
+     "value": "\\triangle ABC"
+    },
+    {
+     "type": "text",
+     "value": "에서 "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle x"
+    },
+    {
+     "type": "text",
+     "value": "의 크기는?"
+    },
+    {
+     "type": "figure",
+     "value": "이등변삼각형 ABC(A 위, B 좌하, C 우하), AB·AC 에 같음 표시(//), 꼭지각 A 70°, 변 BC 를 C 너머로 연장, C 의 외각 x°(각 표시).",
+     "bbox": [
+      0.3,
+      0.2,
+      0.75,
+      0.68
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "115^{\\circ}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "120^{\\circ}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "125^{\\circ}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "130^{\\circ}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "135^{\\circ}"
+      }
+     ]
+    }
+   ],
+   "answer": "③"
+  },
+  {
+   "number": 2,
+   "score": 3,
+   "contents": [
+    {
+     "type": "text",
+     "value": "두 직각삼각형 ABC와 DEF가 서로 합동이 되기 위한 조건만을 <보기>에서 있는대로 고른 것은?"
+    },
+    {
+     "type": "figure",
+     "value": "두 직각삼각형 ABC(∠B=90°, A 위, B 좌하, C 우하)와 DEF(∠E=90°, D 위, E 좌하, F 우하), 같은 모양·크기로 나란히, 직각 표시.",
+     "bbox": [
+      0.6,
+      0.0,
+      1.0,
+      0.27
+     ]
+    },
+    {
+     "type": "text",
+     "value": "<보기> ㄱ. \\overline{AC}=\\overline{DF}, \\overline{BC}=\\overline{EF} • ㄴ. \\overline{AB}=\\overline{DE}, \\overline{BC}=\\overline{DF} • ㄷ. \\overline{AC}=\\overline{DF}, \\angle C=\\angle F • ㄹ. \\overline{AB}=\\overline{DE}, \\angle A=\\angle D • ㅁ. \\angle A=\\angle D, \\angle C=\\angle F"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄱ, ㄷ"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄷ, ㄹ"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄱ, ㄴ, ㅁ"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄱ, ㄷ, ㄹ"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄴ, ㄹ, ㅁ"
+      }
+     ]
+    }
+   ],
+   "answer": "④"
+  },
+  {
+   "number": 3,
+   "score": 3,
+   "contents": [
+    {
+     "type": "text",
+     "value": "점 I가 "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle ABC"
+    },
+    {
+     "type": "text",
+     "value": "의 내심일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle x"
+    },
+    {
+     "type": "text",
+     "value": "의 크기는?"
+    },
+    {
+     "type": "figure",
+     "value": "삼각형 ABC(A 위, B 좌하, C 우하)와 내심 I, 선분 AI·BI·CI. ∠BAI=35°, ∠IBC=25°, ∠ICB=x°.",
+     "bbox": [
+      0.2,
+      0.1,
+      0.72,
+      0.68
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "25^{\\circ}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "30^{\\circ}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "35^{\\circ}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "40^{\\circ}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "45^{\\circ}"
+      }
+     ]
+    }
+   ],
+   "answer": "②"
+  },
+  {
+   "number": 4,
+   "score": 3,
+   "contents": [
+    {
+     "type": "text",
+     "value": "점 O가 "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle ABC"
+    },
+    {
+     "type": "text",
+     "value": "의 외심일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle x"
+    },
+    {
+     "type": "text",
+     "value": "의 크기는?"
+    },
+    {
+     "type": "figure",
+     "value": "삼각형 ABC(A 위, B 좌하, C 우하)와 외심 O(삼각형 안), 선분 OA·OC. ∠AOC=110°, ∠ABC=x°.",
+     "bbox": [
+      0.25,
+      0.15,
+      0.78,
+      0.72
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "35^{\\circ}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "40^{\\circ}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "45^{\\circ}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "50^{\\circ}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "55^{\\circ}"
+      }
+     ]
+    }
+   ],
+   "answer": "⑤"
+  },
+  {
+   "number": 5,
+   "score": 3,
+   "contents": [
+    {
+     "type": "equation",
+     "value": "\\square ABCD"
+    },
+    {
+     "type": "text",
+     "value": "가 평행사변형이 "
+    },
+    {
+     "type": "text",
+     "value": "__아닌__"
+    },
+    {
+     "type": "text",
+     "value": " 것은? (단, 점 O는 두 대각선의 교점이다.)"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\overline{AD}\\parallel \\overline{BC}, \\angle B=50^{\\circ}, \\angle C=130^{\\circ}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\overline{AB}=\\overline{CD}=4\\mathrm{cm}, \\overline{AD}=\\overline{BC}=6\\mathrm{cm}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\angle A=100^{\\circ}, \\angle B=80^{\\circ}, \\angle C=100^{\\circ}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\overline{OA}=\\overline{OC}=5\\mathrm{cm}, \\overline{OB}=\\overline{OD}=7\\mathrm{cm}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\overline{AB}=\\overline{CD}=13\\mathrm{cm}, \\angle A=80^{\\circ}, \\angle B=100^{\\circ}"
+      }
+     ]
+    }
+   ],
+   "answer": "⑤"
+  },
+  {
+   "number": 6,
+   "score": 3,
+   "contents": [
+    {
+     "type": "text",
+     "value": "마름모 ABCD에서 "
+    },
+    {
+     "type": "equation",
+     "value": "x+y"
+    },
+    {
+     "type": "text",
+     "value": "의 값은?"
+    },
+    {
+     "type": "figure",
+     "value": "마름모 ABCD(A 위, B 왼쪽, C 아래, D 오른쪽), 대각선 AC·BD 의 교점 O. ∠OAD=55°, ∠ABO=y°(음영), OD 위 점선 치수 8 cm, BO 아래 점선 치수 x cm.",
+     "bbox": [
+      0.2,
+      0.15,
+      0.8,
+      0.7
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "38"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "43"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "52"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "68"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "76"
+      }
+     ]
+    }
+   ],
+   "answer": "②"
+  }
+ ]
+}

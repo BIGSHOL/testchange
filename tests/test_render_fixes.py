@@ -143,6 +143,19 @@ def run():
     # 발문 단서로 끝나고 표가 와도 발문은 stem(table 만 tail)
     stem_only = [_tb("a-b의 값은? (단, a>0, b>0)"), _table()]
     chk(_ts2(stem_only) == 1, "발문+단서는 stem, 표만 tail")
+    # E4(2026-08-13, 왕선중3 #13): 발문이 **질문 뒤 괄호 단서**로 끝나고 그 단서가
+    # TEXT+EQ+TEXT 로 쪼개진 뒤 캡션 → 박스가 오는 구조. 역탐색이 질문 마커에서 멈추지
+    # 못해 발문 전체를 run 에 넣고 판정 False → 캡션을 아예 못 찾아 발문에 인라인되고
+    # 배점이 캡션 뒤로 밀렸다. 닫는 괄호까지는 발문(stem)으로 남겨야 한다.
+    split_clue = [_tb("의 값은? (단, "), _eq("a < b"), _tb(")"),
+                  _tb("50m 달리기 기록 (단위: 초)"), _tb("<상자> 10, 13, 9")]
+    chk(_ts2(split_clue) == 3, "쪼개진 괄호 단서 뒤 캡션 run 이 tail 시작(박스 머리 앞)")
+    split_clue_tbl = [_tb("의 값은? (단, "), _eq("a < b"), _tb(")"),
+                      _tb("50m 달리기 기록 (단위: 초)"), _table()]
+    chk(_ts2(split_clue_tbl) == 3, "표 분기도 동일(캡션만 tail, 닫는 괄호는 stem)")
+    # 괄호가 run 안에서 안 닫히면 보수적으로 캡션 미인정(발문 훼손 금지)
+    chk(W._stem_paren_end([_tb("(단, "), _eq("a"), _tb("나이 (단위:세)")], 1, 3) == 1,
+        "괄호 미종결이면 시작 유지")
 
     # ── D: z-표 음영 시그니처 (헤더에 LEQ Z LEQ 있을 때만 row0) ──
     ztable = ('<hp:tbl rowCnt="4" colCnt="2"><hp:equation>P(0 LEQ Z LEQ z)</hp:equation>'
@@ -381,6 +394,12 @@ def run():
     chk(latex_to_hwpeq("2m") == "2m", "O9 무회귀: 모평균 2m 이탤릭")
     chk(latex_to_hwpeq(r"\overline{AL}", italicize_stat=False) == "bar {rm {AL}}",
         "O9 무회귀: 선분 AL(O8)")
+    # 복합 단위 km/h 의 분모 h 를 번짐 피해 변수로 오인해 it {h} 로 기울이던 것
+    # (경북사대부고 미적분 #19, 2026-09-18). 대문자 라벨 뒤 나눗셈 변수는 계속 차단.
+    chk(latex_to_hwpeq(r"x\mathrm{km/h}") == "x rm`km/h", "O9 km/h 분모 h 정자")
+    chk("it" not in latex_to_hwpeq(r"3\mathrm{m/s}"), "O9 m/s 분모 s 정자")
+    chk(" it " in latex_to_hwpeq(r"\mathrm{A}/x", italicize_stat=False),
+        "O9 무회귀: rm 라벨 뒤 /x 는 이탤릭 복원")
 
     # ── O6: 집합 조건제시법 — \left\{…\right\} 자동크기 + \middle| (사용자 2026-07-31) ──
     # ① ``\mid``→``|`` 매핑이 ``\middle`` 을 접두 매칭해 ``|dle|`` 로 새던 것(현풍고 서답형4).
@@ -1090,6 +1109,7 @@ def run():
         return 1
     test_score_str_web_exe_parity()
     test_no_trailing_gap_before_answer_page()
+    test_s26_figure_layout_and_answers()
     print("OK test_render_fixes (cell/value-box/caption/shading/essay-label/overline/relabel/"
           "bigstar/boxed/labelless/solo/mixed-label/rm-space/cond-header/form-underline/"
           "sqrt-space/choice-glyph/tail-note/underline-solid/stemleaf-13/choice-geo/cond-circle/"
@@ -1137,6 +1157,56 @@ def test_no_trailing_gap_before_answer_page() -> None:
         "마지막 소문항까지 전파되지 않음(소문항 있는 마지막 문항에서 빈 줄이 남는다)"
     assert "elif trailing_gap:" in src, "소문항 분기가 trailing_gap 을 안 본다"
     print("  OK   마지막 문항 뒤 빈 줄 없음(정답면 빈 페이지 방지)")
+
+
+def test_s26_figure_layout_and_answers() -> None:
+    """26-2-중간 세션 변환(2026-09-30)에서 잡은 폼 경로 결함 5종을 잠근다(COM 없이)."""
+    import os
+    import tempfile
+    from PIL import Image
+    import core.hwp_form_writer as hfw
+    from core.latex_to_hwpeq import latex_to_hwpeq
+    from models.exam_document import ContentBlock, ContentType, Question
+
+    # ① 근호·분수 뒤 단위도 얇은 공백(백틱)
+    assert latex_to_hwpeq(r"8\sqrt{3}\mathrm{cm}^{2}", italicize_stat=False) == "8 sqrt {3} rm`cm^{2}"
+    assert latex_to_hwpeq(r"\frac{1}{2}\mathrm{cm}", italicize_stat=False).endswith(" rm`cm")
+
+    # ② mm 지정 그림의 줄 수 = 지정 높이 기준(고해상도 PNG 픽셀 과대추정 금지)
+    tmp = os.path.join(tempfile.gettempdir(), "_s26_test_fig.png")
+    Image.new("RGB", (1600, 1200), "white").save(tmp)
+    big = hfw._image_lines(tmp)
+    hfw.FIG_SIZE_MM[os.path.abspath(tmp)] = (40.0, 30.0)
+    try:
+        small = hfw._image_lines(tmp)
+    finally:
+        hfw.FIG_SIZE_MM.pop(os.path.abspath(tmp), None)
+    assert small == int(30.0 / 25.4 * 96 / hfw._IMG_LINE_PX) + 1, small
+    assert small < big, (small, big)
+
+    # ③ 소문항에만 답이 있으면 정답면에 (1)…(2)… 로 모은다(부모 답이 있으면 부모 우선)
+    tb = lambda v: ContentBlock(type=ContentType.TEXT, value=v)
+    s1 = Question(number=1, contents=[]); s1.answer = [[tb("A")]]; s1.solution = [[tb("s1")]]
+    s2 = Question(number=2, contents=[]); s2.answer = [[tb("B")]]; s2.solution = [[tb("s2")]]
+    q = Question(number=20, contents=[]); q.sub_questions = [s1, s2]
+    assert [[b.value for b in ln] for ln in hfw._merged_answer(q)] == [["(1) ", "A"], ["(2) ", "B"]]
+    assert [[b.value for b in ln] for ln in hfw._merged_solution(q)] == [["(1)"], ["s1"], ["(2)"], ["s2"]]
+    q.answer = [[tb("P")]]
+    assert [[b.value for b in ln] for ln in hfw._merged_answer(q)] == [["P"]]
+    q.solution = [[tb("PS")]]   # 부모 해설이 있으면 소문항 해설을 덧붙이지 않는다(중복 인쇄 방지)
+    assert [[b.value for b in ln] for ln in hfw._merged_solution(q)] == [["PS"]]
+
+    root = Path(__file__).resolve().parent.parent
+    src = (root / "core" / "hwp_form_writer.py").read_text(encoding="utf-8")
+    # ④ 단독(solo) 판정은 그림 줄을 뺀 추정 + 실측 구간에 그림 나머지 줄 보정
+    assert "h - _img_lines.get(i, 0) >= _SOLO_MC_LINES" in src
+    assert "heights[j - 1] += extra" in src
+    # ⑤ 공유 경로 그림도 토큰 방식(image_hook) + 최종 교체가 mm 크기를 쓴다
+    assert "w.image_hook = lambda path: _place_figure(ses, h, path)" in src
+    assert "sizes_mm=sizes" in src
+    emb = (root / "core" / "figure_embed.py").read_text(encoding="utf-8")
+    assert "h.InsertPicture(png, True, 1, 0, 0, 0, float(size[0]), float(size[1]))" in emb
+    print("  OK   26-2 세션 변환 폼 결함 5종(단위 간격·그림 줄수·소문항 정답·단독판정·그림 크기)")
 
 
 if __name__ == "__main__":

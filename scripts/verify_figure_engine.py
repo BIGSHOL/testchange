@@ -43,8 +43,10 @@ FIGURE_TESTS = (
     "tests/test_figure_solid.py",
     "tests/test_figure_svg_tangency.py",
 )
-# 왕선중 2번은 원본에 인쇄 그림이 없다(2026-08-13 원본 확인) — 41 이 정상
-EXPECTED_CORPUS_FIGURES = 41
+# 왕선중 2·4번은 원본에 인쇄 그림이 없다(2026-08-13 원본 확대 확인 — 4번 사각형은
+# 학생 연필 낙서였다) — 40 이 정상
+# 2026-09-30: 대진고 공수2(4) + 26-2-중간 7부(123) 추가 → 11개 파일 167개
+EXPECTED_CORPUS_FIGURES = 167
 
 
 def _compile_modules() -> None:
@@ -75,9 +77,9 @@ def _load_corpus_figures(path: Path, index: int) -> dict[str, str]:
 
 def _verify_corpus(*, quick: bool) -> None:
     corpus_files = sorted((ROOT / "corpus").rglob("fig_svgs.py"))
-    if len(corpus_files) != 3:
+    if len(corpus_files) != 11:
         raise RuntimeError(
-            f"legacy corpus file count changed: expected 3, got {len(corpus_files)}"
+            f"legacy corpus file count changed: expected 11, got {len(corpus_files)}"
         )
 
     total = 0

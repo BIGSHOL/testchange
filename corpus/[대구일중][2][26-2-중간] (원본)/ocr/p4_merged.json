@@ -1,0 +1,637 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 7,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "점 O는 "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle ABC"
+    },
+    {
+     "type": "text",
+     "value": "의 외심이다. "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AD}=6\\mathrm{cm}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{OD}=4\\mathrm{cm}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle ABC=50\\mathrm{cm}^{2}"
+    },
+    {
+     "type": "text",
+     "value": "일 때, 사각형 OECF의 넓이는?"
+    },
+    {
+     "type": "figure",
+     "value": "삼각형 ABC(A 위, B 좌하, C 우하)와 외심 O. O에서 AB·BC·CA 에 내린 수선의 발 D·E·F(직각 표시). 선분 OA·OB·OC(가는 선). 사각형 OECF 음영. A~D 점선 6cm, D~O 점선 4cm.",
+     "bbox": [
+      0.25,
+      0.2,
+      0.75,
+      0.75
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "13\\mathrm{cm}^{2}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "14\\mathrm{cm}^{2}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "15\\mathrm{cm}^{2}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "16\\mathrm{cm}^{2}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "17\\mathrm{cm}^{2}"
+      }
+     ]
+    }
+   ],
+   "answer": "①"
+  },
+  {
+   "number": 8,
+   "score": 4,
+   "contents": [
+    {
+     "type": "equation",
+     "value": "\\triangle ABC"
+    },
+    {
+     "type": "text",
+     "value": "에서 점 C는 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AD}"
+    },
+    {
+     "type": "text",
+     "value": " 위에 있고, "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AB}=\\overline{BC}=\\overline{CD}"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle x"
+    },
+    {
+     "type": "text",
+     "value": "의 크기는?"
+    },
+    {
+     "type": "figure",
+     "value": "A, C, D 가 한 직선(위쪽 수평) 위에 있고 B 는 아래. AB=BC=CD(같음 표시), 선분 DB 를 B 너머로 연장, B 의 외각(연장선과 BA 사이) 132°, ∠ADB=x.",
+     "bbox": [
+      0.25,
+      0.25,
+      0.68,
+      0.62
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "41^{\\circ}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "42^{\\circ}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "43^{\\circ}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "44^{\\circ}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "45^{\\circ}"
+      }
+     ]
+    }
+   ],
+   "answer": "④"
+  },
+  {
+   "number": 9,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "점 I는 "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle ABC"
+    },
+    {
+     "type": "text",
+     "value": "의 내심이고, "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{DE}\\parallel \\overline{BC}"
+    },
+    {
+     "type": "text",
+     "value": "이다. "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle ADI=70^{\\circ}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle ECI=21^{\\circ}"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle DIB+\\angle AEI"
+    },
+    {
+     "type": "text",
+     "value": "의 크기는?"
+    },
+    {
+     "type": "figure",
+     "value": "삼각형 ABC(A 위, B 좌하, C 우하), 내심 I 를 지나 BC 에 평행한 선분 DE(D 는 AB 위, E 는 AC 위), 선분 BI·CI. ∠ADI=70°, ∠ECI=21°(지시선), ∠AEI 각 표시.",
+     "bbox": [
+      0.2,
+      0.2,
+      0.75,
+      0.68
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "77^{\\circ}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "78^{\\circ}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "79^{\\circ}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "80^{\\circ}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "81^{\\circ}"
+      }
+     ]
+    }
+   ],
+   "answer": "①"
+  },
+  {
+   "number": 10,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림과 같은 평행사변형 ABCD에 대한 설명으로 옳지 "
+    },
+    {
+     "type": "text",
+     "value": "__않은__"
+    },
+    {
+     "type": "text",
+     "value": " 것은?"
+    },
+    {
+     "type": "figure",
+     "value": "평행사변형 ABCD(A 좌상, D 우상, B 좌하, C 우하), 두 대각선 AC·BD 의 교점 O.",
+     "bbox": [
+      0.2,
+      0.18,
+      0.65,
+      0.5
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\overline{AC}\\perp\\overline{BD}"
+      },
+      {
+       "type": "text",
+       "value": " 이면 사각형 ABCD는 마름모이다."
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\overline{AC}=\\overline{BC}"
+      },
+      {
+       "type": "text",
+       "value": " 이면 사각형 ABCD는 마름모이다."
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\overline{AC}=\\overline{BD}"
+      },
+      {
+       "type": "text",
+       "value": " 이면 사각형 ABCD는 직사각형이다."
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\angle ABO=\\angle ADO"
+      },
+      {
+       "type": "text",
+       "value": " 이면 사각형 ABCD는 마름모이다."
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\angle DAB=\\angle ADC"
+      },
+      {
+       "type": "text",
+       "value": " 이면 사각형 ABCD는 직사각형이다."
+      }
+     ]
+    }
+   ],
+   "answer": "②"
+  },
+  {
+   "number": 11,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "다음은 '평행사변형의 두 대각선은 서로 다른 것을 이등분한다.'를 설명하는 과정이다. 두 대각선의 교점을 O라고 할 때, (가)~(마)에 들어갈 내용이 바르게 나열된 것은?"
+    },
+    {
+     "type": "figure",
+     "value": "평행사변형 ABCD(A 좌상, D 우상, B 좌하, C 우하), 대각선 AC·BD 의 교점 O. ∠BAO 와 ∠DCO(엇각), ∠ABO 와 ∠CDO 에 각 표시.",
+     "bbox": [
+      0.3,
+      0.18,
+      0.7,
+      0.34
+     ]
+    },
+    {
+     "type": "text",
+     "value": "<상자> \\triangle AOB와 \\triangle COD에서 • \\overline{AB}\\parallel \\overline{DC}이므로 • \\angle ABO=\\boxed{가} (엇각) ⋯⋯ ① • \\angle BAO=\\boxed{나} (엇각) ⋯⋯ ② • 또, 평행사변형의 성질에 의해 • \\overline{AB}=\\boxed{다} ⋯⋯ ③ • ①, ②, ③에서 \\triangle AOB\\equiv\\boxed{라} (\\boxed{마} 합동) • 이므로 \\overline{OA}=\\overline{OC}, \\overline{OB}=\\overline{OD}"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "text",
+       "value": "(가) "
+      },
+      {
+       "type": "equation",
+       "value": "\\angle CBO"
+      },
+      {
+       "type": "text",
+       "value": ", (나) "
+      },
+      {
+       "type": "equation",
+       "value": "\\angle DOC"
+      },
+      {
+       "type": "text",
+       "value": ", (다) "
+      },
+      {
+       "type": "equation",
+       "value": "\\overline{CD}"
+      },
+      {
+       "type": "text",
+       "value": ", (라) "
+      },
+      {
+       "type": "equation",
+       "value": "\\triangle COD"
+      },
+      {
+       "type": "text",
+       "value": ", (마) ASA"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "text",
+       "value": "(가) "
+      },
+      {
+       "type": "equation",
+       "value": "\\angle CBO"
+      },
+      {
+       "type": "text",
+       "value": ", (나) "
+      },
+      {
+       "type": "equation",
+       "value": "\\angle DOC"
+      },
+      {
+       "type": "text",
+       "value": ", (다) "
+      },
+      {
+       "type": "equation",
+       "value": "\\overline{BC}"
+      },
+      {
+       "type": "text",
+       "value": ", (라) "
+      },
+      {
+       "type": "equation",
+       "value": "\\triangle BOC"
+      },
+      {
+       "type": "text",
+       "value": ", (마) SAS"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "text",
+       "value": "(가) "
+      },
+      {
+       "type": "equation",
+       "value": "\\angle CDO"
+      },
+      {
+       "type": "text",
+       "value": ", (나) "
+      },
+      {
+       "type": "equation",
+       "value": "\\angle DCO"
+      },
+      {
+       "type": "text",
+       "value": ", (다) "
+      },
+      {
+       "type": "equation",
+       "value": "\\overline{CD}"
+      },
+      {
+       "type": "text",
+       "value": ", (라) "
+      },
+      {
+       "type": "equation",
+       "value": "\\triangle COD"
+      },
+      {
+       "type": "text",
+       "value": ", (마) ASA"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "text",
+       "value": "(가) "
+      },
+      {
+       "type": "equation",
+       "value": "\\angle CDO"
+      },
+      {
+       "type": "text",
+       "value": ", (나) "
+      },
+      {
+       "type": "equation",
+       "value": "\\angle DCO"
+      },
+      {
+       "type": "text",
+       "value": ", (다) "
+      },
+      {
+       "type": "equation",
+       "value": "\\overline{CD}"
+      },
+      {
+       "type": "text",
+       "value": ", (라) "
+      },
+      {
+       "type": "equation",
+       "value": "\\triangle COD"
+      },
+      {
+       "type": "text",
+       "value": ", (마) SAS"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "text",
+       "value": "(가) "
+      },
+      {
+       "type": "equation",
+       "value": "\\angle COD"
+      },
+      {
+       "type": "text",
+       "value": ", (나) "
+      },
+      {
+       "type": "equation",
+       "value": "\\angle DAO"
+      },
+      {
+       "type": "text",
+       "value": ", (다) "
+      },
+      {
+       "type": "equation",
+       "value": "\\overline{BC}"
+      },
+      {
+       "type": "text",
+       "value": ", (라) "
+      },
+      {
+       "type": "equation",
+       "value": "\\triangle BOC"
+      },
+      {
+       "type": "text",
+       "value": ", (마) ASA"
+      }
+     ]
+    }
+   ],
+   "answer": "③"
+  }
+ ]
+}

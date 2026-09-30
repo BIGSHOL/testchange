@@ -1,0 +1,882 @@
+{
+  "graph-1": {
+    "version": "graph-1",
+    "coordinates": "Mathematical x right, y UP. Explicit xRange/yRange, each [min,max]. No eval/code.",
+    "fields": {
+      "xRange": "required [min,max]",
+      "yRange": "required [min,max]",
+      "width": "optional 240..640 default 520",
+      "height": "optional 200..640 default 460",
+      "axes": "optional boolean default true; arrows + x,y labels only, NO automatic ticks or O label",
+      "curves": "list of {coefficients:[a,b,c,...],domain:[xmin,xmax]} for polynomial a*x^n+b*x^(n-1)+...; OR {type:\"inverse\",k:number,domain:[xmin,xmax]}; optional dashed:boolean",
+      "segments": "list of {from:[x,y],to:[x,y],dashed?:boolean,arrow?:boolean}; finite visible segments only",
+      "polygons": "list of {points:[[x,y],...],fill?:\"#eeeeee\",dashed?:boolean}; optional shading",
+      "circles": "list of {center:[x,y],radius:number,dashed?:boolean}; a geometric circle in DATA units (stretches to an ellipse when x/y scales differ) — never use it for printed dots; use points",
+      "points": "list of {at:[x,y],radius?:pixels 1..6 default 3,open?:boolean}; small printed dots at graph points (vertices, endpoints, intersections) in fixed screen pixels, filled black or open (white inside)",
+      "labels": "list of {at:[x,y],text:string,dx?:pixels,dy?:pixels,size?:pixels,anchor?:\"start\"|\"middle\"|\"end\"}; only printed labels; math can use $...$ LaTeX and is typeset as vector glyphs. Korean text cannot be typeset: write a label containing Korean as plain text without $ (e.g. \"x(초)\")",
+      "axisBreaks": "list of {at:[x,y],axis?:\"x\"|\"y\",size?:pixels 10..24 default 14}; the printed wavy ∿ axis-break mark (물결선) ON an axis line where the axis skips values (e.g. between O and the first tick of a scatter plot whose data start far from 0). at = centre of the mark placed ON that axis line (same y as the x-axis line, same x as the y-axis line); axis = which axis it cuts, default \"x\"; size = its length along the axis in fixed screen pixels. The engine draws a smooth wave and blanks the axis line under it — never imitate it with short segments or curves"
+    },
+    "example": {
+      "version": "graph-1",
+      "xRange": [
+        -4,
+        4
+      ],
+      "yRange": [
+        -2,
+        11
+      ],
+      "curves": [
+        {
+          "coefficients": [
+            -1,
+            0,
+            9
+          ],
+          "domain": [
+            -3.4,
+            3.4
+          ]
+        }
+      ],
+      "segments": [
+        {
+          "from": [
+            -2,
+            5
+          ],
+          "to": [
+            2,
+            5
+          ]
+        }
+      ],
+      "labels": [
+        {
+          "at": [
+            0,
+            9
+          ],
+          "text": "9",
+          "dx": -16,
+          "dy": -3
+        },
+        {
+          "at": [
+            -3,
+            0
+          ],
+          "text": "−3",
+          "dy": 22
+        },
+        {
+          "at": [
+            3,
+            0
+          ],
+          "text": "3",
+          "dy": 22
+        },
+        {
+          "at": [
+            0,
+            0
+          ],
+          "text": "O",
+          "dx": -16,
+          "dy": 22
+        },
+        {
+          "at": [
+            1.5,
+            9
+          ],
+          "text": "y = 9 − x²",
+          "dx": 22,
+          "dy": -8
+        }
+      ]
+    }
+  },
+  "curveGraph_contract": "curves quadratic uses {type:\"quadratic\",a,p,q,label?} for y=a(x-p)^2+q, NEVER b/c; inverse uses {type:\"inverse\",k,label?}. lines uses slope/yIntercept/label and cannot be horizontal; marks is [[x,y],...] integers on graph. For annotated curves, horizontal segments, inscribed shapes or custom labels use graph-1 instead.",
+  "v2": "Compile a strict declarative v2 FigureSpec mapping.\n\nSupported construction objects are deliberately small and deterministic::\n\n    {\n      \"version\": 2,\n      \"theme\": \"exam-thin\",\n      \"points\": {\n        \"O\": {\"type\": \"raw\", \"x\": 94, \"y\": 78},\n        \"A\": {\"type\": \"on_circle\", \"circle\": \"omega\", \"angle\": 130},\n        \"P\": {\"type\": \"intersection\", \"segments\": [\"AC\", \"BD\"]}\n      },\n      \"circles\": {\"omega\": {\"center\": \"O\", \"radius\": 68}},\n      \"segments\": {\"AC\": [\"A\", \"C\"], \"BD\": [\"B\", \"D\"]},\n      \"angles\": {\"x\": {\"vertex\": \"P\", \"points\": [\"D\", \"C\"],\n                          \"label\": \"x°\"}},\n\nMark grammar (합동·평행·직각 표기)::\n\n    \"segments\": {\n      \"AB\": [\"A\", \"B\"],                              // 기존 배열형 그대로\n      \"AC\": {\"points\": [\"A\", \"C\"], \"ticks\": 2},      // 같음 표시 1~3\n      \"l1\": {\"points\": [\"P\", \"Q\"], \"parallel\": 1}    // 평행 » 1~2 (p1→p2 방향)\n    },\n    \"angles\": {\n      \"a\": {\"vertex\": \"C\", \"points\": [\"A\", \"D\"], \"arcs\": 2},   // 이중 호\n      \"r\": {\"vertex\": \"T\", \"points\": [\"O\", \"P\"], \"right\": true} // 직각기호\n    }\n\n``right: true`` replaces the arc with the small square (호와 함께 못 쓴다)\nand doubles as a check — the rays must actually be perpendicular.\n      \"dimensions\": {\"AC_len\": {\"points\": [\"A\", \"C\"],\n                                   \"label\": \"12 cm\", \"side\": \"auto\"}},\n      \"labels\": {\"A\": \"A\", \"B\": \"B\"}\n    }\n\nShaded-region figures add ``arcs`` (stroked arc pieces), ``regions``\n(light fills bounded by a closed seg/arc chain), and construction circles\nwith ``draw: false``::\n\n    {\n      \"circles\": {\"c\": {\"center\": \"O\", \"radius\": 60, \"draw\": false}},\n      \"arcs\": {\"arcAB\": {\"circle\": \"c\", \"from\": \"A\", \"to\": \"B\",\n                         \"dir\": \"ccw\"}},\n      \"regions\": {\"shade\": {\"boundary\": [\n          {\"seg\": [\"O\", \"A\"]},\n          {\"arc\": {\"circle\": \"c\", \"from\": \"A\", \"to\": \"B\", \"dir\": \"ccw\"}},\n          {\"seg\": [\"B\", \"O\"]}],\n        \"fill\": \"#f2d5c8\"}}\n    }\n\nRegion boundaries must connect end-to-start by point name and close; a\nbroken chain raises.  Fills must be light (:data:`REGION_MIN_LUMINANCE`).\nUnknown fields and references are errors; no placeholder geometry is made.",
+  "v2_fields": {
+    "FigureSpec": [
+      "angles",
+      "arcs",
+      "background",
+      "canvas",
+      "circles",
+      "dimensions",
+      "label_metrics",
+      "labels",
+      "points",
+      "regions",
+      "segments",
+      "style",
+      "theme",
+      "version"
+    ],
+    "angles": [
+      "arcs",
+      "label",
+      "label_distance",
+      "p1",
+      "p2",
+      "points",
+      "radius",
+      "right",
+      "vertex"
+    ],
+    "arcs": [
+      "circle",
+      "dash",
+      "dir",
+      "from",
+      "to"
+    ],
+    "canvas": [
+      "background",
+      "height",
+      "width"
+    ],
+    "circles": [
+      "center",
+      "draw",
+      "radius"
+    ],
+    "dimensions": [
+      "curvature",
+      "font_size",
+      "inset",
+      "label",
+      "offset",
+      "p1",
+      "p2",
+      "points",
+      "side"
+    ],
+    "labels": [
+      "dx",
+      "dy",
+      "font_size",
+      "italic",
+      "point",
+      "position",
+      "text"
+    ],
+    "points:intersection": [
+      "kind",
+      "segment1",
+      "segment2",
+      "segments",
+      "type"
+    ],
+    "points:on_circle": [
+      "angle",
+      "angle_deg",
+      "circle",
+      "kind",
+      "type"
+    ],
+    "points:raw": [
+      "kind",
+      "type",
+      "x",
+      "y"
+    ],
+    "regions": [
+      "boundary",
+      "fill"
+    ],
+    "regions.boundary.arc": [
+      "circle",
+      "dir",
+      "from",
+      "to"
+    ],
+    "segments": [
+      "dash",
+      "dashed",
+      "p1",
+      "p2",
+      "parallel",
+      "points",
+      "ticks"
+    ],
+    "style": [
+      "angle_font_size",
+      "angle_label_distance",
+      "angle_radius",
+      "circle_width",
+      "dimension_dash",
+      "dimension_font_size",
+      "dimension_halo_width",
+      "dimension_offset",
+      "dimension_width",
+      "font_family",
+      "font_family_italic",
+      "font_size",
+      "halo_color",
+      "halo_width",
+      "label_offset",
+      "mark_width",
+      "padding",
+      "point_radius",
+      "segment_width",
+      "show_points",
+      "stroke",
+      "text_color"
+    ]
+  },
+  "v2_fields_note": "v2_fields lists EVERY field the v2 engine accepts for each object, read from the validator itself. A field not listed is rejected. A field listed IS supported even when the v2 prose above omits it. dimensions.curvature bends the dashed measurement bow. labels.dx/dy offset a label from its point and labels.position picks its side (\"auto\" by default, or a compass side such as \"NW\"). arcs use \"dash\", never \"dashed\"; segments accept either. points:raw is {x,y} or [x,y]; points:on_circle and points:intersection are constructed from other objects. Leave style unset unless the original clearly differs.",
+  "v2_example": {
+    "version": 2,
+    "points": {
+      "A": [
+        50,
+        30
+      ],
+      "B": [
+        50,
+        210
+      ],
+      "C": [
+        290,
+        210
+      ],
+      "value3": [
+        30,
+        120
+      ]
+    },
+    "segments": {
+      "AB": [
+        "A",
+        "B"
+      ],
+      "BC": [
+        "B",
+        "C"
+      ],
+      "CA": [
+        "C",
+        "A"
+      ]
+    },
+    "angles": {
+      "rightB": {
+        "vertex": "B",
+        "points": [
+          "A",
+          "C"
+        ],
+        "right": true
+      }
+    },
+    "labels": {
+      "A": "A",
+      "B": "B",
+      "C": "C",
+      "value3": {
+        "text": "3",
+        "dx": 0,
+        "dy": 0
+      }
+    }
+  },
+  "elementary": {
+    "numberCards": {
+      "required": [
+        "cards"
+      ],
+      "optional": [],
+      "help": ""
+    },
+    "circleParts": {
+      "required": [],
+      "optional": [
+        "center",
+        "diameter",
+        "radius",
+        "show"
+      ],
+      "help": "원과 그 부분 — 중심 · 반지름 · 지름. 초3 2-3.\n\n## 🔴 **용어를 적지 않는다** — 2-3-1 이 그 용어를 묻는다\n\n발문 셋이 「원의 중심과 원 위의 한 점을 이은 선분을 **무엇이라고 하는지**」다.\n그림에 「반지름」이라 적으면 **그것이 곧 답**이다(D-66 ⑺). 그래서 용어 라벨은\n**아예 안 그린다** — 옵션으로도 두지 않는다. 「끄면 되지」로 두면 켠 채 나간다.\n\n## 🔴 **주어진 값만 적는다** — 묻는 값은 부르는 쪽이 안 넘긴다\n\n2-3-2 는 「지름 10 인 원의 **반지름**은?」이고 2-3-3 은 「컴퍼스를 8 벌려 그렸다,\n**지름**은?」이다. 둘 다 적으면 답이 지면에 있다. 엔진은 **받은 것만** 그리고,\n무엇을 넘길지는 갈래가 정한다 — 다만 **둘 다 값을 주면 던진다**(그 조합은\n「구하라」 문항이 될 수 없다).\n\n그린 것이 값을 배반하지 않게 **지름 = 반지름 × 2 를 좌표에서** 지킨다."
+    },
+    "tiling": {
+      "required": [
+        "piece",
+        "target"
+      ],
+      "optional": [
+        "labels",
+        "pieceSide",
+        "targetSide"
+      ],
+      "help": "조각과 목표 도형을 **나란히** 놓는다 — 초4 2-6-4 「모양 만들기와 채우기」.\n\n## 🔴 채운 모습을 그리지 않는다 — 그러면 **답이 샌다**\n\n발문 셋이 전부 「조각이 **몇 개** 필요한가」다(씨앗 200 전수). 조각을 다 그리면\n**세면 답이 나온다**(D-66 ⑺) — ③ 에서 `perpendicular` 을 지운 것과 같은 자리다.\n\n그래서 **조각 하나와 목표 하나만** 나란히 놓고, **크기 비**를 발문의 값대로 그린다.\n「한 변 5 조각으로 한 변 10 을 채우려면」이면 1:2 로 그려지고, 학생은 그 비에서\n넓이비 4 를 구한다. **그림은 견줄 것을 주지 답을 주지 않는다.**\n\n⚠️ 「정육각형을 정삼각형 몇 개로」는 크기가 아니라 **배치**라 이 그림이 답을 못\n   준다 — 해롭지도 않다(조각과 목표가 무엇인지는 보여 준다). 배치를 보여 주는\n   그림은 곧 답이므로 만들지 않는다."
+    },
+    "lineRelation": {
+      "required": [
+        "relation"
+      ],
+      "optional": [
+        "distance",
+        "labels",
+        "marks",
+        "perpCount"
+      ],
+      "help": "두 직선의 관계 — **수직**·**평행**(+ 평행선 사이 거리). 초4 2-4-1·2·3.\n\n## 왜 `parallel` 뿐인가 (2026-08-24)\n\n처음에 `perpendicular`·`bothPerpendicular` 도 만들었다가 **지웠다.** 초4 2-4-1·2 의\n발문을 다시 보니 **묻는 것이 곧 그림이 보여 주는 것**이었다:\n\n| 발문 | 답 | 그림이 그리면 |\n|---|---|---|\n| 「수선은 몇 도를 이루며 만나는가」 | 90° | 직각 기호가 **답을 말한다** |\n| 「두 직선이 직각일 때 서로 무엇인가」 | 수직 | 〃 |\n| 「한 직선에 수직인 두 직선은 어떤 관계인가」 | 평행 | 평행하게 그리면 **답을 말한다** |\n\nD-66 ⑺ 의 그 자리다. 게다가 그 두 갈래는 **스펙 값을 하나도 안 받아**(좌표가 전부\n상수) 씨앗이 달라도 그림이 한 픽셀도 안 바뀐다(R9-b). 그리고 g4 가 2-4-1·2 를\n**글로 된 사다리**(꺾인 횟수의 홀짝)로 세우기로 해 **부를 갈래도 없다.**\n\n→ 값을 싣고 답을 안 보이는 쓰임이 생기면 그때 되살린다. 「직사각형에서 한 변에\n  수직인 변은 몇 개」류는 **도형 위**라 `markedShape`(②) 쪽이지 여기가 아니다.\n\n🔴 **「표시가 있다」가 아니라 「정말 그러한가」가 불변식이다.** 수직은 두 방향 벡터의\n내적이 0, 평행은 외적이 0 — 시험이 그린 좌표에서 그것을 잰다. 표시는 그 사실을\n**보여 주는** 것이지 그것을 대신하지 않는다.\n\n⚠️ 엔진 A(FigureSpec v2)로 그리면 **직각이 호**가 된다(09 §2.1 주). 초등 교과서의\n   직각은 **작은 정사각형**이라 여기서 `_right_mark` 로 그린다."
+    },
+    "markedShape": {
+      "required": [
+        "shape"
+      ],
+      "optional": [
+        "angles",
+        "diagonals",
+        "equal",
+        "right",
+        "sides"
+      ],
+      "help": "도형 **하나** 위에 각도·변 길이·등변 tick·직각 기호를 얹는다.\n\n`namedShapes`(고르기)와 나누는 축은 「**도형이 몇 개인가**」가 아니라\n「**무엇을 지키는 불변식인가**」다. 고르기는 도형 쌍이 윤곽으로 갈려야 하고\n(`SHAPE_MIN_DISTANCE`, 09 §4-19), 성질 문항은 도형이 하나라 잴 쌍이 없다.\n한 kind 에 두 규칙이 살면 가드 절반이 늘 헛돈다.\n\n모양은 `_shape_points` 하나에서 온다 — 목록을 두 벌로 만들지 않는다.\n치수는 전부 `_length_mark`(=`measured()`) 다 (09 §4-16)."
+    },
+    "placeValue": {
+      "required": [
+        "hundreds",
+        "ones",
+        "tens"
+      ],
+      "optional": [],
+      "help": ""
+    },
+    "base10": {
+      "required": [
+        "rows"
+      ],
+      "optional": [
+        "equation"
+      ],
+      "help": ""
+    },
+    "opBox": {
+      "required": [
+        "input",
+        "op"
+      ],
+      "optional": [
+        "output"
+      ],
+      "help": ""
+    },
+    "sumBox": {
+      "required": [
+        "left",
+        "right"
+      ],
+      "optional": [],
+      "help": ""
+    },
+    "opTree": {
+      "required": [
+        "ops",
+        "start"
+      ],
+      "optional": [],
+      "help": ""
+    },
+    "boxChain": {
+      "required": [
+        "start",
+        "steps"
+      ],
+      "optional": [],
+      "help": ""
+    },
+    "columnOp": {
+      "required": [
+        "bottom",
+        "op",
+        "top"
+      ],
+      "optional": [
+        "highlight",
+        "result"
+      ],
+      "help": ""
+    },
+    "numberLine": {
+      "required": [
+        "max"
+      ],
+      "optional": [
+        "barTo",
+        "blanks",
+        "hops",
+        "min",
+        "step",
+        "tick"
+      ],
+      "help": ""
+    },
+    "clocks": {
+      "required": [
+        "items"
+      ],
+      "optional": [],
+      "help": ""
+    },
+    "table": {
+      "required": [
+        "headers",
+        "rows"
+      ],
+      "optional": [
+        "align"
+      ],
+      "help": ""
+    },
+    "tape": {
+      "required": [
+        "label",
+        "length"
+      ],
+      "optional": [
+        "segments",
+        "unit"
+      ],
+      "help": ""
+    },
+    "dotGrid": {
+      "required": [
+        "cols",
+        "rows"
+      ],
+      "optional": [],
+      "help": ""
+    },
+    "boxedList": {
+      "required": [
+        "items"
+      ],
+      "optional": [
+        "marks"
+      ],
+      "help": ""
+    },
+    "pills": {
+      "required": [
+        "items"
+      ],
+      "optional": [],
+      "help": ""
+    },
+    "geoLine": {
+      "required": [],
+      "optional": [],
+      "help": ""
+    },
+    "anglePick": {
+      "required": [],
+      "optional": [],
+      "help": "원본 50쪽 03: L · 만나지 않는 두 선 · 각 · 곡선."
+    },
+    "timeAdd": {
+      "required": [
+        "add",
+        "start"
+      ],
+      "optional": [],
+      "help": ""
+    },
+    "pointGrid": {
+      "required": [
+        "cols",
+        "dots",
+        "rows"
+      ],
+      "optional": [
+        "lines",
+        "square"
+      ],
+      "help": ""
+    },
+    "divideTriangle": {
+      "required": [
+        "n"
+      ],
+      "optional": [],
+      "help": ""
+    },
+    "fracPie": {
+      "required": [
+        "filled",
+        "n"
+      ],
+      "optional": [
+        "fill",
+        "start"
+      ],
+      "help": ""
+    },
+    "triRow": {
+      "required": [
+        "filled",
+        "n"
+      ],
+      "optional": [
+        "fill"
+      ],
+      "help": ""
+    },
+    "trapFour": {
+      "required": [
+        "filled"
+      ],
+      "optional": [
+        "fill"
+      ],
+      "help": "이등변사다리꼴 = 합동인 직각삼각형 넷.\n\n두 대각선으로 나누면 위·아래 삼각형 넓이가 달라 분수에 못 쓴다.\n원본(큐브 3-1 145쪽): 아랫변 3칸·윗변 1칸, 칸 한 변이 높이.\n0 왼쪽 · 1 가운데 위 · 2 가운데 아래 · 3 오른쪽."
+    },
+    "namedShapes": {
+      "required": [
+        "items"
+      ],
+      "optional": [],
+      "help": "도형 여러 개. 라벨은 항상 각 도형 아래 같은 높이.\n\nFigureSpec `labels` 는 점 옆에 붙어 y 가 제각각이다 — 쓰지 않는다 (09 §4-7)."
+    },
+    "fracBars": {
+      "required": [
+        "cols",
+        "filled",
+        "rows"
+      ],
+      "optional": [
+        "fill"
+      ],
+      "help": ""
+    },
+    "groupDots": {
+      "required": [
+        "each",
+        "groups"
+      ],
+      "optional": [],
+      "help": "똑같이 나누기 — 묶음 수 × 묶음당 개수. viewBox 240 고정."
+    },
+    "barChart": {
+      "required": [
+        "values"
+      ],
+      "optional": [
+        "orient",
+        "title",
+        "xLabel",
+        "yLabel",
+        "yMax",
+        "yStep"
+      ],
+      "help": ""
+    },
+    "chartPair": {
+      "required": [
+        "charts"
+      ],
+      "optional": [],
+      "help": "그래프 둘을 **옆으로 나란히** (D-70 계열, 원장님 확정 2026-08-23).\n\n두 그래프에서 같은 항목의 값을 읽어 곱하는 유형(「멜론이 팔린 수 × 멜론 한 개의 값」)\n에 쓴다. **안쪽 스펙은 단독으로 쓸 때와 완전히 같은 모양**이고, 여기서는 배치만 한다.\n\n## 규칙을 두 벌로 만들지 않는다\n\n안쪽은 `render_elementary` 로 **같은 검증·같은 렌더 함수**를 탄다. 좌표만 옮겨 붙이므로\n(`transform` 은 `sanitize_svg` 가 막는다) 축 규칙·겹침 가드가 그대로 적용된다.\n안쪽이 던지면 **그대로 올려 보낸다** — 삼키면 그 그래프만 조용히 빠진다.\n\n## 눈금 글자가 본문보다 작아지면 안 된다\n\n짝은 폭이 두 배라 화면에서 축소된다. 그 축소율이 눈금 글자를 본문(12.5px) 아래로\n끌어내리면 **던진다.** 실측으로 짝은 405단위 · 12.56px 이라 여유가 0.06px 뿐이고,\n그 값을 정하는 것이 `TICK_MIN_GAP` 이다 — 상수가 움직이면 이 가드가 빨개진다."
+    },
+    "lineChart": {
+      "required": [
+        "values"
+      ],
+      "optional": [
+        "title",
+        "yLabel",
+        "yMax",
+        "yStep"
+      ],
+      "help": ""
+    },
+    "pictograph": {
+      "required": [
+        "items",
+        "unit"
+      ],
+      "optional": [],
+      "help": ""
+    },
+    "stripChart": {
+      "required": [
+        "segments"
+      ],
+      "optional": [],
+      "help": ""
+    },
+    "pieChart": {
+      "required": [
+        "slices"
+      ],
+      "optional": [],
+      "help": ""
+    },
+    "protractor": {
+      "required": [
+        "deg"
+      ],
+      "optional": [],
+      "help": ""
+    },
+    "rotateFlip": {
+      "required": [
+        "cells",
+        "op"
+      ],
+      "optional": [
+        "n"
+      ],
+      "help": ""
+    },
+    "symmetry": {
+      "required": [
+        "axis"
+      ],
+      "optional": [
+        "cells",
+        "motif",
+        "n"
+      ],
+      "help": ""
+    },
+    "stackCubes": {
+      "required": [
+        "voxels"
+      ],
+      "optional": [
+        "views"
+      ],
+      "help": ""
+    },
+    "cuboid": {
+      "required": [
+        "d",
+        "h",
+        "w"
+      ],
+      "optional": [],
+      "help": ""
+    },
+    "prism": {
+      "required": [
+        "h",
+        "sides"
+      ],
+      "optional": [
+        "net"
+      ],
+      "help": ""
+    },
+    "pyramid": {
+      "required": [
+        "h",
+        "sides"
+      ],
+      "optional": [],
+      "help": ""
+    },
+    "cylinder": {
+      "required": [
+        "h",
+        "r"
+      ],
+      "optional": [],
+      "help": ""
+    },
+    "cone": {
+      "required": [
+        "h",
+        "r"
+      ],
+      "optional": [],
+      "help": ""
+    },
+    "sphere": {
+      "required": [
+        "r"
+      ],
+      "optional": [],
+      "help": ""
+    },
+    "netCuboid": {
+      "required": [
+        "d",
+        "h",
+        "w"
+      ],
+      "optional": [],
+      "help": ""
+    },
+    "netCylinder": {
+      "required": [
+        "h",
+        "r"
+      ],
+      "optional": [
+        "layout",
+        "pi"
+      ],
+      "help": ""
+    },
+    "areaPoly": {
+      "required": [
+        "base",
+        "height",
+        "shape"
+      ],
+      "optional": [
+        "d2",
+        "top"
+      ],
+      "help": ""
+    },
+    "hollowSolid": {
+      "required": [
+        "inner",
+        "outer"
+      ],
+      "optional": [],
+      "help": ""
+    },
+    "cutCuboid": {
+      "required": [
+        "cut",
+        "d",
+        "h",
+        "w"
+      ],
+      "optional": [],
+      "help": ""
+    },
+    "revolvePlan": {
+      "required": [
+        "pieces"
+      ],
+      "optional": [
+        "gap"
+      ],
+      "help": ""
+    },
+    "linearGraph": {
+      "required": [
+        "lines",
+        "xRange",
+        "yRange"
+      ],
+      "optional": [
+        "grid",
+        "marks"
+      ],
+      "help": ""
+    },
+    "curveGraph": {
+      "required": [
+        "curves",
+        "xRange",
+        "yRange"
+      ],
+      "optional": [
+        "grid",
+        "lines",
+        "marks"
+      ],
+      "help": ""
+    },
+    "netCone": {
+      "required": [
+        "l",
+        "r"
+      ],
+      "optional": [
+        "labels"
+      ],
+      "help": ""
+    },
+    "histogram": {
+      "required": [
+        "classes",
+        "values"
+      ],
+      "optional": [
+        "hidden",
+        "label",
+        "series2",
+        "title",
+        "total",
+        "xLabel",
+        "yLabel",
+        "yMax",
+        "yStep"
+      ],
+      "help": ""
+    },
+    "freqPolygon": {
+      "required": [
+        "classes",
+        "values"
+      ],
+      "optional": [
+        "bars",
+        "label",
+        "series2",
+        "title",
+        "total",
+        "xLabel",
+        "yLabel",
+        "yMax",
+        "yStep"
+      ],
+      "help": ""
+    },
+    "boxPlot": {
+      "required": [
+        "axisMax",
+        "axisMin",
+        "axisStep",
+        "values"
+      ],
+      "optional": [
+        "label",
+        "series2",
+        "xLabel"
+      ],
+      "help": ""
+    },
+    "scatterPlot": {
+      "required": [
+        "points",
+        "xMax",
+        "xMin",
+        "xStep",
+        "yMax",
+        "yMin",
+        "yStep"
+      ],
+      "optional": [
+        "title",
+        "xLabel",
+        "yLabel"
+      ],
+      "help": ""
+    },
+    "assetScene": {
+      "required": [
+        "items"
+      ],
+      "optional": [
+        "canvas",
+        "dims",
+        "labels",
+        "segments"
+      ],
+      "help": ""
+    }
+  }
+}

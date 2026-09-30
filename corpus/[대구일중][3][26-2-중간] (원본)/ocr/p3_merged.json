@@ -1,0 +1,669 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 13,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림과 같이 "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle \\mathrm{ABC}"
+    },
+    {
+     "type": "text",
+     "value": "에서 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{\\mathrm{AB}}=5\\mathrm{cm}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{\\mathrm{AC}}=8\\mathrm{cm}"
+    },
+    {
+     "type": "text",
+     "value": "이다. "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle \\mathrm{ABC}"
+    },
+    {
+     "type": "text",
+     "value": "의 넓이가 "
+    },
+    {
+     "type": "equation",
+     "value": "8\\sqrt{3}\\mathrm{cm}^{2}"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\cos A"
+    },
+    {
+     "type": "text",
+     "value": "의 값은? (단, "
+    },
+    {
+     "type": "equation",
+     "value": "0^{\\circ}<\\angle \\mathrm{A}<90^{\\circ}"
+    },
+    {
+     "type": "text",
+     "value": ")"
+    },
+    {
+     "type": "figure",
+     "value": "색칠한 삼각형 ABC(A 위, B 왼쪽 아래, C 오른쪽 아래). AB=5cm, AC=8cm 점선 치수.",
+     "bbox": [
+      0.23,
+      0.135,
+      0.39,
+      0.21
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{\\sqrt{13}}{10}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{\\sqrt{13}}{6}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{\\sqrt{13}}{5}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{2\\sqrt{5}}{7}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{2\\sqrt{5}}{5}"
+      }
+     ]
+    }
+   ],
+   "answer": "③"
+  },
+  {
+   "number": 14,
+   "score": 5,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림과 같이 정사면체의 꼭짓점 A에서 밑면에 내린 수선의 발 H는 "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle \\mathrm{BCD}"
+    },
+    {
+     "type": "text",
+     "value": "의 무게중심이다. "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle \\mathrm{ADH}=x^{\\circ}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{\\mathrm{DH}}=\\sqrt{3}"
+    },
+    {
+     "type": "text",
+     "value": "라 할 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\sin x^{\\circ}"
+    },
+    {
+     "type": "text",
+     "value": "의 값은?"
+    },
+    {
+     "type": "figure",
+     "value": "정사면체 ABCD(A 꼭대기, B 왼쪽, C 앞 아래, D 오른쪽). BD 점선(가려진 모서리), BC 중점 M, 선분 MD 위 무게중심 H, 수선 AH(H 직각 표시), 삼각형 AHD 색칠, ∠ADH=x°.",
+     "bbox": [
+      0.21,
+      0.415,
+      0.38,
+      0.525
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{\\sqrt{3}}{8}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{\\sqrt{3}}{6}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{\\sqrt{6}}{6}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{\\sqrt{3}}{3}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{\\sqrt{6}}{3}"
+      }
+     ]
+    }
+   ],
+   "answer": "⑤"
+  },
+  {
+   "number": 15,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림과 같이 "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle \\mathrm{D}=90^{\\circ}"
+    },
+    {
+     "type": "text",
+     "value": "인 직각삼각형 ABD에서 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{\\mathrm{AD}}=2"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{\\mathrm{AC}}=\\overline{\\mathrm{BC}}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle \\mathrm{ACD}=45^{\\circ}"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\tan 22.5^{\\circ}"
+    },
+    {
+     "type": "text",
+     "value": "의 값은?"
+    },
+    {
+     "type": "figure",
+     "value": "직각삼각형 ABD(∠D=90°, A 위 오른쪽). 밑변 BD 위 점 C, 선분 AC. BC·CA 같음 표시(‖), ∠ACD=45°.",
+     "bbox": [
+      0.19,
+      0.725,
+      0.39,
+      0.805
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3-\\sqrt{5}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2-\\sqrt{3}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2-\\sqrt{2}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\sqrt{2}-1"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\sqrt{5}-1"
+      }
+     ]
+    }
+   ],
+   "answer": "④"
+  },
+  {
+   "number": 16,
+   "score": 5,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림과 같이 "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle \\mathrm{B}=90^{\\circ}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle \\mathrm{C}=45^{\\circ}"
+    },
+    {
+     "type": "text",
+     "value": "인 직각삼각형 ABC에서 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{\\mathrm{BC}}"
+    },
+    {
+     "type": "text",
+     "value": " 위의 점 D에서 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{\\mathrm{AC}}"
+    },
+    {
+     "type": "text",
+     "value": "에 내린 수선의 발을 E라 하자. "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{\\mathrm{AC}}=6"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle \\mathrm{ADB}=60^{\\circ}"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{\\mathrm{DE}}"
+    },
+    {
+     "type": "text",
+     "value": "의 길이는?"
+    },
+    {
+     "type": "figure",
+     "value": "직각이등변삼각형 ABC(∠B=90°, A 위, C 오른쪽). BC 위 점 D, 선분 AD, D에서 AC에 내린 수선 DE(E 직각 표시). ∠ADB=60°, C 각 표시, AC=6 점선 치수.",
+     "bbox": [
+      0.665,
+      0.135,
+      0.805,
+      0.23
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\sqrt{3}-\\sqrt{2}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\sqrt{3}-1"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3-\\sqrt{3}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3-\\sqrt{2}"
+      }
+     ]
+    }
+   ],
+   "answer": "④"
+  },
+  {
+   "number": 17,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림과 같이 연못의 양 끝점을 각각 A, B라 하고 연못 바깥의 한 지점을 C라 할 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{\\mathrm{AC}}=20\\mathrm{m}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle \\mathrm{A}=75^{\\circ}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle \\mathrm{C}=60^{\\circ}"
+    },
+    {
+     "type": "text",
+     "value": "이다. 이때 두 지점 A, B 사이의 거리는? (단, 단위는 m이다.)"
+    },
+    {
+     "type": "figure",
+     "value": "연못 양 끝 A(왼쪽)·B(오른쪽), 연못 아래 지점 C. 삼각형 ABC, AC=20 m 점선 치수, ∠C=60°.",
+     "bbox": [
+      0.65,
+      0.43,
+      0.85,
+      0.54
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "10\\sqrt{6}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "10\\sqrt{7}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "20\\sqrt{2}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "20\\sqrt{3}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "40"
+      }
+     ]
+    }
+   ],
+   "answer": "①"
+  },
+  {
+   "number": 18,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림과 같이 평행사변형 ABCD에서 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{\\mathrm{AD}}=7\\sqrt{2}\\mathrm{cm}"
+    },
+    {
+     "type": "text",
+     "value": "이고, "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{\\mathrm{AB}}=6\\mathrm{cm}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle \\mathrm{A}=135^{\\circ}"
+    },
+    {
+     "type": "text",
+     "value": "이다. 점 E가 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{\\mathrm{BC}}"
+    },
+    {
+     "type": "text",
+     "value": "의 중점일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle \\mathrm{BED}"
+    },
+    {
+     "type": "text",
+     "value": "의 넓이는? (단, 단위는 "
+    },
+    {
+     "type": "equation",
+     "value": "\\mathrm{m}^{2}"
+    },
+    {
+     "type": "text",
+     "value": "이다.)"
+    },
+    {
+     "type": "figure",
+     "value": "평행사변형 ABCD(A 왼쪽 위, D 오른쪽 위, B 왼쪽 아래, C 오른쪽 아래). BC 중점 E(같음 표시), 선분 BD·ED, 삼각형 BED 색칠. ∠A=135°, AB=6cm·AD=7√2 cm 점선 치수.",
+     "bbox": [
+      0.66,
+      0.725,
+      0.87,
+      0.8
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{21\\sqrt{2}}{4}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{21}{2}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{21\\sqrt{2}}{2}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{21\\sqrt{6}}{2}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "21"
+      }
+     ]
+    }
+   ],
+   "answer": "②"
+  }
+ ]
+}

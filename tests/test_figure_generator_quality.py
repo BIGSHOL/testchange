@@ -137,8 +137,10 @@ class SvgQualityGateTest(unittest.TestCase):
                 '<svg viewBox="0 0 10 10"><circle cx="5" cy="5" r="4" '
                 'fill="url(https://evil.example/a.svg#paint)"/></svg>'
             ),
+            # 2026-09-30 todays-math 엔진 이식: `<g transform>` 은 translate/scale/rotate 의
+            # **숫자 인자만** 허용한다(에셋 합성용). 그 밖의 값은 여전히 거부.
             "transform": (
-                '<svg viewBox="0 0 10 10"><g transform="translate(1 1)">'
+                '<svg viewBox="0 0 10 10"><g transform="url(#x) translate(1 1)">'
                 '<line x1="0" y1="0" x2="8" y2="8" stroke="#000"/>'
                 '</g></svg>'
             ),

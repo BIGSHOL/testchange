@@ -1,0 +1,389 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 11,
+   "score": 3,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림과 같이 중심이 같고 반지름의 길이가 서로 다른 두 원은 "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle ABC"
+    },
+    {
+     "type": "text",
+     "value": "의 내접원과 외접원이다. 세 점 D, E, F는 그 접점이다. 내접원의 반지름의 길이가 "
+    },
+    {
+     "type": "equation",
+     "value": "2"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle ABC"
+    },
+    {
+     "type": "text",
+     "value": "의 넓이와 외접원의 넓이의 합은?"
+    },
+    {
+     "type": "figure",
+     "value": "정삼각형 ABC와 중심 O가 같은 내접원·외접원. 접점 D(AB), E(BC), F(AC).",
+     "bbox": [
+      0.17,
+      0.18,
+      0.36,
+      0.3
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4\\sqrt{3} + 8\\pi"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "8\\sqrt{3} + 8\\pi"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "8\\sqrt{3} + 16\\pi"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "12\\sqrt{3} + 8\\pi"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "12\\sqrt{3} + 16\\pi"
+      }
+     ]
+    }
+   ],
+   "answer": "⑤"
+  },
+  {
+   "number": 12,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림과 같이 중심이 같은 두 반원에서 큰 반원의 현 BC가 작은 반원에 접하고 점 E는 접점이다. 두 반원의 반지름의 길이가 각각 "
+    },
+    {
+     "type": "equation",
+     "value": "5 \\mathrm{cm}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "3 \\mathrm{cm}"
+    },
+    {
+     "type": "text",
+     "value": "이고, "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{CH} \\perp \\overline{AB}"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{CH}"
+    },
+    {
+     "type": "text",
+     "value": "의 길이는?"
+    },
+    {
+     "type": "figure",
+     "value": "중심 O가 같은 반지름 5, 3인 두 반원(지름 AB 위). 큰 반원의 현 BC가 작은 반원에 점 E에서 접함. OE=3cm, O~B 점선 치수 5cm. C에서 AB에 내린 수선의 발 H(직각 표시).",
+     "bbox": [
+      0.19,
+      0.56,
+      0.42,
+      0.68
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{18}{5} \\mathrm{cm}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4 \\mathrm{cm}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{21}{5} \\mathrm{cm}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{24}{5} \\mathrm{cm}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5 \\mathrm{cm}"
+      }
+     ]
+    }
+   ],
+   "answer": "④"
+  },
+  {
+   "number": 13,
+   "score": 3,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림과 같이 "
+    },
+    {
+     "type": "equation",
+     "value": "\\square ABCD"
+    },
+    {
+     "type": "text",
+     "value": "가 원 O에 외접하고, "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AD} : \\overline{BC} = 2 : 3"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AD}"
+    },
+    {
+     "type": "text",
+     "value": "의 길이는?"
+    },
+    {
+     "type": "figure",
+     "value": "원 O에 외접하는 사각형 ABCD(AD 위, BC 아래). AB 왼쪽 점선 치수 13 cm, CD 오른쪽 12 cm.",
+     "bbox": [
+      0.59,
+      0.145,
+      0.8,
+      0.25
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "10 \\mathrm{cm}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "12 \\mathrm{cm}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "14 \\mathrm{cm}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "16 \\mathrm{cm}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "18 \\mathrm{cm}"
+      }
+     ]
+    }
+   ],
+   "answer": "①"
+  },
+  {
+   "number": 14,
+   "score": 3,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림과 같이 원 O는 직사각형 ABCD의 세 변과 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AE}"
+    },
+    {
+     "type": "text",
+     "value": "에 접하고 네 점 F, G, H, I는 그 접점이다. "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AB} = 8 \\mathrm{cm}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AD} = 12 \\mathrm{cm}"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{EI}"
+    },
+    {
+     "type": "text",
+     "value": "의 길이는?"
+    },
+    {
+     "type": "figure",
+     "value": "직사각형 ABCD(A 왼쪽 위). 원 O가 AD(G), DC(F), BC(I), 선분 AE(H)에 접함. E는 BC 위의 점. AD 위 점선 치수 12cm, AB 왼쪽 8cm.",
+     "bbox": [
+      0.56,
+      0.535,
+      0.82,
+      0.66
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1 \\mathrm{cm}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1.5 \\mathrm{cm}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2 \\mathrm{cm}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2.5 \\mathrm{cm}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3 \\mathrm{cm}"
+      }
+     ]
+    }
+   ],
+   "answer": "③"
+  }
+ ]
+}

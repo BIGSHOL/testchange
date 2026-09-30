@@ -1,0 +1,104 @@
+{
+  "source_pdf": "C:\\Users\\user\\Downloads\\새 폴더\\26년 2학기 중간 성광중2.pdf",
+  "status": "ocr_done",
+  "note": "세션 self-OCR(구독 비전, API 0원). 스캔 학생 사본(손풀이·채점 표시 무시, 인쇄면만 판독). p1=표지/안내 제외.",
+  "questions": {
+    "선택형": 18,
+    "서술형": 4,
+    "total": 22
+  },
+  "score_total": 100,
+  "figures": [
+    {
+      "key": "q10",
+      "width_mm": 55
+    },
+    {
+      "key": "q11",
+      "width_mm": 55
+    },
+    {
+      "key": "q12",
+      "width_mm": 50
+    },
+    {
+      "key": "q13",
+      "width_mm": 60
+    },
+    {
+      "key": "q14",
+      "width_mm": 55
+    },
+    {
+      "key": "q15",
+      "width_mm": 42
+    },
+    {
+      "key": "q16",
+      "width_mm": 64
+    },
+    {
+      "key": "q17",
+      "width_mm": 64
+    },
+    {
+      "key": "q18",
+      "width_mm": 64
+    },
+    {
+      "key": "q2",
+      "width_mm": 37
+    },
+    {
+      "key": "q3",
+      "width_mm": 45
+    },
+    {
+      "key": "q4",
+      "width_mm": 64
+    },
+    {
+      "key": "q5",
+      "width_mm": 45
+    },
+    {
+      "key": "q6",
+      "width_mm": 55
+    },
+    {
+      "key": "q7",
+      "width_mm": 50
+    },
+    {
+      "key": "q8",
+      "width_mm": 45
+    },
+    {
+      "key": "q9",
+      "width_mm": 60
+    },
+    {
+      "key": "s1",
+      "width_mm": 64
+    },
+    {
+      "key": "s2",
+      "width_mm": 48
+    },
+    {
+      "key": "s3",
+      "width_mm": 60
+    },
+    {
+      "key": "s4",
+      "width_mm": 60
+    }
+  ],
+  "fig_svgs": "fig_svgs.py (FigureSpec v2 + figure_svg 덧그림, verify_figure 전 그림)",
+  "uncertain": [
+    "q3: 인쇄 조건 AB=16cm·CD=5cm 는 ∠C=90°·BD 이등분선과 동시 만족 불가(CD 최대≈4.8). 원문 그대로 전사, 그림은 가장 가까운 비율로 작도. 정답(넓이 1/2·16·5=40, ②)은 조건 그대로 성립.",
+    "q12: 원본 그림은 E·C 가 BC 위, F 가 DC 연장선 위 — 작도는 조건(AB=13, AD=16, B→CD 중점 M)에서 유도해 원본보다 약간 기울기 다름.",
+    "q17: 원본 입체 짙은 음영은 lint(라벨-선 겹침) 때문에 옅은 회색으로 대체.",
+    "q18: 등대 모양은 원본을 본뜬 근사 작도(치수 8m·12m 비율만 정확)."
+  ]
+}

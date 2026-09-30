@@ -1,0 +1,649 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 7,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림과 같이 "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle ABC"
+    },
+    {
+     "type": "text",
+     "value": "의 외심 "
+    },
+    {
+     "type": "equation",
+     "value": "O"
+    },
+    {
+     "type": "text",
+     "value": "에서 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AC}"
+    },
+    {
+     "type": "text",
+     "value": "에 내린 수선의 발을 "
+    },
+    {
+     "type": "equation",
+     "value": "D"
+    },
+    {
+     "type": "text",
+     "value": "라고 하자. "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle AOC"
+    },
+    {
+     "type": "text",
+     "value": "의 둘레의 길이가 "
+    },
+    {
+     "type": "equation",
+     "value": "30\\mathrm{cm}"
+    },
+    {
+     "type": "text",
+     "value": "일 때, 외접원의 넓이는?"
+    },
+    {
+     "type": "figure",
+     "value": "외심 O 에서 AC 에 내린 수선의 발 D(직각 표시), OA·OC·OD, AD=6 cm 점선 치수",
+     "bbox": [
+      0.3,
+      0.25,
+      0.73,
+      0.66
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{225}{4}\\pi\\mathrm{cm}^{2}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "64\\pi\\mathrm{cm}^{2}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{289}{4}\\pi\\mathrm{cm}^{2}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "81\\pi\\mathrm{cm}^{2}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "100\\pi\\mathrm{cm}^{2}"
+      }
+     ]
+    }
+   ],
+   "answer": "④"
+  },
+  {
+   "number": 8,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림에서 점 "
+    },
+    {
+     "type": "equation",
+     "value": "I"
+    },
+    {
+     "type": "text",
+     "value": "가 "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle ABC"
+    },
+    {
+     "type": "text",
+     "value": "의 내심일 때, 다음 중 옳은 것은?"
+    },
+    {
+     "type": "figure",
+     "value": "내심 I, I 에서 AB·BC·CA 에 내린 수선의 발 D·E·F(직각 표시), AI·BI·CI, ∠A 양쪽 × 표시, ∠B 양쪽 • 표시",
+     "bbox": [
+      0.3,
+      0.17,
+      0.74,
+      0.56
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\overline{AD}=\\overline{BD}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\overline{BD}=\\overline{BE}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\overline{IA}=\\overline{IB}=\\overline{IC}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\angle IBE=\\angle ICE"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\triangle IAF\\equiv\\triangle ICF"
+      }
+     ]
+    }
+   ],
+   "answer": "②"
+  },
+  {
+   "number": 9,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림에서 점 "
+    },
+    {
+     "type": "equation",
+     "value": "I"
+    },
+    {
+     "type": "text",
+     "value": "가 "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle ABC"
+    },
+    {
+     "type": "text",
+     "value": "의 내심이고 "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle IBC=30^{\\circ}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle ICB=25^{\\circ}"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle x"
+    },
+    {
+     "type": "text",
+     "value": "의 크기는?"
+    },
+    {
+     "type": "figure",
+     "value": "내심 I 와 IB·IC, ∠IBC=30°, ∠ICB=25°, ∠A=x",
+     "bbox": [
+      0.3,
+      0.25,
+      0.72,
+      0.78
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "70^{\\circ}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "75^{\\circ}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "80^{\\circ}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "85^{\\circ}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "90^{\\circ}"
+      }
+     ]
+    }
+   ],
+   "answer": "①"
+  },
+  {
+   "number": 10,
+   "score": 5,
+   "contents": [
+    {
+     "type": "equation",
+     "value": "\\angle A>90^{\\circ}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AB}=\\overline{AC}"
+    },
+    {
+     "type": "text",
+     "value": "인 이등변삼각형 "
+    },
+    {
+     "type": "equation",
+     "value": "ABC"
+    },
+    {
+     "type": "text",
+     "value": "의 내심을 "
+    },
+    {
+     "type": "equation",
+     "value": "I"
+    },
+    {
+     "type": "text",
+     "value": ", 외심을 "
+    },
+    {
+     "type": "equation",
+     "value": "O"
+    },
+    {
+     "type": "text",
+     "value": "라 하자. "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle IBO=30^{\\circ}"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle A"
+    },
+    {
+     "type": "text",
+     "value": "의 크기는?"
+    },
+    {
+     "type": "figure",
+     "value": "둔각 이등변삼각형 ABC, 내심 I 와 BI, 외심 O(변 BC 아래) 와 BO, ∠ABI=∠IBC(• 표시), ∠IBO=30°",
+     "bbox": [
+      0.2,
+      0.22,
+      0.78,
+      0.79
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "100^{\\circ}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "104^{\\circ}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "106^{\\circ}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "110^{\\circ}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "120^{\\circ}"
+      }
+     ]
+    }
+   ],
+   "answer": "①"
+  },
+  {
+   "number": 11,
+   "score": 3,
+   "contents": [
+    {
+     "type": "text",
+     "value": "평행사변형 "
+    },
+    {
+     "type": "equation",
+     "value": "ABCD"
+    },
+    {
+     "type": "text",
+     "value": "에서 "
+    },
+    {
+     "type": "equation",
+     "value": "x+y"
+    },
+    {
+     "type": "text",
+     "value": "의 값은?"
+    },
+    {
+     "type": "figure",
+     "value": "평행사변형 ABCD, AD=7 cm, BC=(4x-5) cm 점선 치수, ∠A=y°, ∠D=100°",
+     "bbox": [
+      0.33,
+      0.24,
+      0.68,
+      0.74
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "81"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "82"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "83"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "84"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "85"
+      }
+     ]
+    }
+   ],
+   "answer": "③"
+  },
+  {
+   "number": 12,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "평행사변형 "
+    },
+    {
+     "type": "equation",
+     "value": "ABCD"
+    },
+    {
+     "type": "text",
+     "value": "에서 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AE}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{DF}"
+    },
+    {
+     "type": "text",
+     "value": "는 각각 "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle A"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle D"
+    },
+    {
+     "type": "text",
+     "value": "의 이등분선이고 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AB}=15\\mathrm{cm}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AD}=20\\mathrm{cm}"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{FE}"
+    },
+    {
+     "type": "text",
+     "value": "의 길이는?"
+    },
+    {
+     "type": "figure",
+     "value": "평행사변형 ABCD, ∠A·∠D 의 이등분선 AE·DF 가 BC 와 E·F 에서 만나고 G 에서 교차, AB=15 cm, AD=20 cm 점선 치수, 같은 각 표시",
+     "bbox": [
+      0.36,
+      0.33,
+      0.68,
+      0.8
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "8\\mathrm{cm}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "9\\mathrm{cm}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "10\\mathrm{cm}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "11\\mathrm{cm}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "12\\mathrm{cm}"
+      }
+     ]
+    }
+   ],
+   "answer": "③"
+  }
+ ]
+}

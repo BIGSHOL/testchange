@@ -1,0 +1,369 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 17,
+   "score": 10,
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서술형 1] 그림과 같이 두 직선 "
+    },
+    {
+     "type": "equation",
+     "value": "2x+y-8=0"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "x-y+2=0"
+    },
+    {
+     "type": "text",
+     "value": "과 "
+    },
+    {
+     "type": "equation",
+     "value": "x"
+    },
+    {
+     "type": "text",
+     "value": "축으로 둘러싸인 도형의 넓이를 <조건>에 맞게 구하시오."
+    },
+    {
+     "type": "figure",
+     "value": "좌표평면. 직선 x-y+2=0(오른쪽 위로)과 2x+y-8=0(오른쪽 아래로), x축으로 둘러싸인 삼각형 음영. 원점 O, 직선 식 라벨.",
+     "bbox": [
+      0.15,
+      0.2,
+      0.42,
+      0.33
+     ]
+    },
+    {
+     "type": "text",
+     "value": "<조건> • 두 직선의 교점의 좌표를 구할 것 • "
+    },
+    {
+     "type": "equation",
+     "value": "x"
+    },
+    {
+     "type": "text",
+     "value": "축과 만나는 점의 좌표를 각각 구할 것 • 도형의 넓이를 구하는 식을 서술할 것"
+    }
+   ],
+   "label_type": "서술형",
+   "answer": "$12$",
+   "solution": "step1) $2x+y-8=0$에서 $y=-2x+8$이고, $x-y+2=0$에서 $y=x+2$이다.\nstep2) $-2x+8=x+2$에서 $x=2$, $y=4$이다.\nstep3) 따라서 두 직선의 교점의 좌표는 $(2,\\ 4)$이다.\nstep4) $y=0$일 때 $2x-8=0$에서 $x=4$이므로 $(4,\\ 0)$이다.\nstep5) $y=0$일 때 $x+2=0$에서 $x=-2$이므로 $(-2,\\ 0)$이다.\nstep6) 밑변의 길이는 $4-(-2)=6$, 높이는 $4$이다.\nstep7) 넓이는 $\\frac{1}{2}\\times 6\\times 4=12$이다."
+  },
+  {
+   "number": 18,
+   "score": 8,
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서술형 2] 그림과 같은 "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle A=36^{\\circ}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AB}=\\overline{AC}"
+    },
+    {
+     "type": "text",
+     "value": "인 "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle ABC"
+    },
+    {
+     "type": "text",
+     "value": "에서 "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle B"
+    },
+    {
+     "type": "text",
+     "value": "의 이등분선과 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AC}"
+    },
+    {
+     "type": "text",
+     "value": "의 교점을 D라고 하자. "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AB}=8\\mathrm{cm}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{BC}=5\\mathrm{cm}"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{DC}"
+    },
+    {
+     "type": "text",
+     "value": "의 길이를 <조건>에 맞게 구하시오."
+    },
+    {
+     "type": "figure",
+     "value": "이등변삼각형 ABC(A 위, 꼭지각 36° 호). ∠B의 이등분선 BD(D는 AC 위), B에 등각 점 두 개. AB 8cm·BC 5cm 점선 치수.",
+     "bbox": [
+      0.18,
+      0.62,
+      0.45,
+      0.8
+     ]
+    },
+    {
+     "type": "text",
+     "value": "<조건> • "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle ABD"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle BCD"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle BDC"
+    },
+    {
+     "type": "text",
+     "value": "의 크기를 구할 것 • "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle ABD"
+    },
+    {
+     "type": "text",
+     "value": "와 "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle BCD"
+    },
+    {
+     "type": "text",
+     "value": "가 무슨 삼각형인지 서술할 것 • 문제해결에 사용한 도형의 정의 또는 성질을 서술할 것"
+    }
+   ],
+   "label_type": "서술형",
+   "answer": "$3\\,\\mathrm{cm}$",
+   "solution": "step1) $\\overline{AB}=\\overline{AC}$이므로 $\\angle ABC=\\angle C=\\frac{180^{\\circ}-36^{\\circ}}{2}=72^{\\circ}$이다.\nstep2) $\\overline{BD}$는 $\\angle B$의 이등분선이므로 $\\angle ABD=\\angle DBC=36^{\\circ}$이다.\nstep3) $\\angle BCD=72^{\\circ}$이다.\nstep4) $\\triangle BCD$에서 $\\angle BDC=180^{\\circ}-36^{\\circ}-72^{\\circ}=72^{\\circ}$이다.\nstep5) $\\angle A=\\angle ABD=36^{\\circ}$이므로 $\\triangle ABD$는 이등변삼각형이다.\nstep6) 따라서 $\\overline{AD}=\\overline{BD}$이다.\nstep7) $\\angle BDC=\\angle BCD=72^{\\circ}$이므로 $\\triangle BCD$도 이등변삼각형이다.\nstep8) 따라서 $\\overline{BD}=\\overline{BC}=5\\,\\mathrm{cm}$이다.\nstep9) 두 밑각의 크기가 같은 삼각형은 이등변삼각형이다(성질).\nstep10) $\\overline{AD}=\\overline{BD}=5\\,\\mathrm{cm}$이다.\nstep11) $\\overline{DC}=\\overline{AC}-\\overline{AD}=8-5=3\\,(\\mathrm{cm})$이다."
+  },
+  {
+   "number": 19,
+   "score": 8,
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서술형 3] 그림과 같이 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AB}=\\overline{AC}"
+    },
+    {
+     "type": "text",
+     "value": "인 직각삼각형 ABC에서 꼭짓점 A를 지나는 직선 "
+    },
+    {
+     "type": "equation",
+     "value": "l"
+    },
+    {
+     "type": "text",
+     "value": "을 긋고, 두 꼭짓점 B, C에서 직선 "
+    },
+    {
+     "type": "equation",
+     "value": "l"
+    },
+    {
+     "type": "text",
+     "value": "에 내린 수선의 발을 각각 D, E라고 하자. "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{BD}=20\\mathrm{cm}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{CE}=9\\mathrm{cm}"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{DE}"
+    },
+    {
+     "type": "text",
+     "value": "의 길이를 <조건>에 맞게 구하시오."
+    },
+    {
+     "type": "figure",
+     "value": "직각이등변삼각형 ABC(A 직각, AC 세로·AB 가로, 같음 표시). A를 지나는 직선 l, B·C에서 l에 내린 수선의 발 D·E(직각 표시). CE 9cm·BD 20cm 점선 치수.",
+     "bbox": [
+      0.62,
+      0.17,
+      0.8,
+      0.27
+     ]
+    },
+    {
+     "type": "text",
+     "value": "<조건> • 합동인 두 삼각형을 찾아 기호로 나타내고, 합동인 이유 3가지와 합동조건을 서술할 것 • 근거를 들어 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{DE}"
+    },
+    {
+     "type": "text",
+     "value": "의 길이를 구할 것"
+    }
+   ],
+   "label_type": "서술형",
+   "answer": "$11\\,\\mathrm{cm}$",
+   "solution": "step1) $\\triangle ABD$와 $\\triangle CAE$에서\nstep2) $\\overline{AB}=\\overline{CA}$이다. (빗변)\nstep3) $\\angle ADB=\\angle CEA=90^{\\circ}$이다.\nstep4) $\\angle BAD+\\angle CAE=90^{\\circ}$이고,\nstep5) $\\angle ACE+\\angle CAE=90^{\\circ}$이므로 $\\angle BAD=\\angle ACE$이다.\nstep6) 따라서 $\\triangle ABD\\equiv\\triangle CAE$ (RHA 합동)이다.\nstep7) $\\overline{AD}=\\overline{CE}=9\\,\\mathrm{cm}$이다.\nstep8) $\\overline{AE}=\\overline{BD}=20\\,\\mathrm{cm}$이다.\nstep9) $\\overline{DE}=\\overline{AE}-\\overline{AD}=20-9=11\\,(\\mathrm{cm})$이다."
+  },
+  {
+   "number": 20,
+   "score": 9,
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서술형 4] "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle A=90^{\\circ}"
+    },
+    {
+     "type": "text",
+     "value": "인 직각삼각형 ABC에서 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AB}=15"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{BC}=17"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AC}=8"
+    },
+    {
+     "type": "text",
+     "value": "이다. 직각삼각형 ABC의 외접원의 반지름의 길이를 "
+    },
+    {
+     "type": "equation",
+     "value": "R"
+    },
+    {
+     "type": "text",
+     "value": ", 내접원의 반지름의 길이를 "
+    },
+    {
+     "type": "equation",
+     "value": "r"
+    },
+    {
+     "type": "text",
+     "value": "이라 할 때, 외접원의 넓이와 내접원의 넓이의 차를 <조건>에 맞게 구하시오."
+    },
+    {
+     "type": "figure",
+     "value": "직각삼각형 ABC(A 직각 위, BC 가로 밑변). AB 15·AC 8·BC 17 점선 치수.",
+     "bbox": [
+      0.57,
+      0.58,
+      0.8,
+      0.66
+     ]
+    },
+    {
+     "type": "text",
+     "value": "<조건> • 근거를 제시하여 "
+    },
+    {
+     "type": "equation",
+     "value": "R"
+    },
+    {
+     "type": "text",
+     "value": "과 외접원의 넓이를 구할 것 • 근거를 제시하여 "
+    },
+    {
+     "type": "equation",
+     "value": "r"
+    },
+    {
+     "type": "text",
+     "value": "과 내접원의 넓이를 구할 것 • 외접원의 넓이와 내접원의 넓이의 차를 구하는 식과 답을 구할 것"
+    }
+   ],
+   "label_type": "서술형",
+   "answer": "$\\frac{253}{4}\\pi$",
+   "solution": "step1) 직각삼각형의 외심은 빗변의 중점이다.\nstep2) 따라서 $R=\\frac{1}{2}\\overline{BC}=\\frac{17}{2}$이다.\nstep3) 외접원의 넓이는 $\\pi\\times\\left(\\frac{17}{2}\\right)^{2}=\\frac{289}{4}\\pi$이다.\nstep4) $\\triangle ABC$의 넓이는 $\\frac{1}{2}\\times 15\\times 8=60$이다.\nstep5) 내심을 I라 하면 $\\triangle ABC=\\frac{1}{2}r(15+17+8)=20r$이다.\nstep6) $20r=60$에서 $r=3$이다.\nstep7) 내접원의 넓이는 $\\pi\\times 3^{2}=9\\pi$이다.\nstep8) 넓이의 차는 $\\frac{289}{4}\\pi-9\\pi=\\frac{289}{4}\\pi-\\frac{36}{4}\\pi$이다.\nstep9) 따라서 구하는 값은 $\\frac{253}{4}\\pi$이다."
+  }
+ ]
+}

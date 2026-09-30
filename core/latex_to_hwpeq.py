@@ -34,7 +34,7 @@ _SENT_DLB = "\x03"  # LEFT 구분자 {
 # 맨 ``\{…\}`` 승격 판정 — 내용에 이 2단 구조가 있으면 고정 리터럴 중괄호가 내용을
 # 못 감싼다(조건제시법 분수 실측). \left\{ 의 ``\{`` 를 오인하지 않게 앞말을 본다.
 _TALL_INNER_RE = re.compile(
-    r"\\(?:d?frac|sqrt|sum|prod|int|binom|over(?:line)?\b)|\batop\b")
+    r"\\(?:[cdt]?frac|sqrt|sum|prod|int|binom|over(?:line)?\b)|\batop\b")
 
 
 def _upgrade_tall_set_braces(s: str) -> str:
@@ -275,15 +275,17 @@ def _romanize_units(s: str) -> str:
 # 중괄호 형태 ``rm {g}`` 도 같이 받는다 — 단일 소문자 ``\mathrm{}`` 는 `_mathrm_repl` 이
 # 중괄호로 감싸므로(`_stop_roman_bleed` 오작동 차단, 2026-08-11) 백틱 보정을 놓치면 bare
 # ``20g``(→``20 rm`g``)와 간격이 달라진다. 중괄호는 벗기고 백틱 형태로 통일.
+# 앞이 닫는 괄호(``sqrt {3}``·``over {2}``·``)``)여도 단위다 — ``8\sqrt{3}\mathrm{cm}`` 가
+# ``8 sqrt {3}rm cm`` 로 붙어 나가던 것(대구일중3 26-2, 2026-09-30).
 _RM_UNIT_RE = re.compile(
-    r"([A-Za-z0-9])\s+rm\s+\{?("
+    r"([A-Za-z0-9]\s+|[})]\s*)rm\s+\{?("
     + "|".join(re.escape(u) for u in _NUM_TAIL_UNITS) + r")\}?(?![A-Za-z0-9])"
 )
 
 
 def _backtick_rm_units(s: str) -> str:
     """``<글자/숫자> rm <단위>`` → ``<글자/숫자> rm`<단위>`` (단위 앞 백틱 얇은공백)."""
-    return _RM_UNIT_RE.sub(lambda m: m.group(1) + " rm`" + m.group(2), s)
+    return _RM_UNIT_RE.sub(lambda m: m.group(1).rstrip() + " rm`" + m.group(2), s)
 
 
 def _space_value_commas(s: str) -> str:
@@ -777,9 +779,12 @@ class LaTeXToHWPConverter:
     # 그래서 ``TRIANGLE rm {ANC} = p TIMES …`` 의 변수 ``p`` 가 정자로 나갔다(왕선중 #9,
     # 사용자 2026-07-27 "it{p} 같은 느낌으로"). 라벨 뒤의 **단일 소문자 변수**만 ``it {p}`` 로
     # 감싸 이탤릭을 되살린다 — HWP 키워드(bar·angle·sqrt·lim …)는 모두 2자 이상이라 무영향.
+    # ⚠️ ``소문자/`` 바로 뒤 글자는 제외 — 복합 단위 ``km/h``·``m/s`` 의 분모 단위다
+    # (경북사대부고 미적분 #19 ``x rm`km/h`` 의 h 가 ``it {h}`` 로 기울던 것, 2026-09-18).
+    # ``rm A/x`` 처럼 대문자 라벨 뒤 나눗셈 변수는 종전대로 이탤릭 복원.
     _ROMAN_BLEED_SCAN = re.compile(
         r"(?P<style>(?<![A-Za-z])(?:rm|it)(?![A-Za-z]))"
-        r"|(?P<var>(?<![A-Za-z0-9_`{])[a-z](?![A-Za-z0-9_]))")
+        r"|(?P<var>(?<![A-Za-z0-9_`{])(?<![a-z]/)[a-z](?![A-Za-z0-9_]))")
 
     def _stop_roman_bleed(self, script: str) -> str:
         """``rm`` 이후 단일 소문자 변수를 ``it {x}`` 로 감싸 정자 번짐을 끊는다."""
@@ -798,9 +803,9 @@ class LaTeXToHWPConverter:
 
     def _build_patterns(self):
         """정규식 패턴 사전 컴파일."""
-        # \frac{a}{b}, \dfrac{a}{b}, \tfrac{a}{b}
+        # \frac{a}{b}, \dfrac{a}{b}, \tfrac{a}{b}, \cfrac{a}{b} — cfrac 을 빼면 «모르는 명령 지우기»에 걸려 {a}{b} 가 된다
         self._frac_pattern = re.compile(
-            r"\\[dt]?frac\s*" + self._brace_group("num") + r"\s*" + self._brace_group("den")
+            r"\\[cdt]?frac\s*" + self._brace_group("num") + r"\s*" + self._brace_group("den")
         )
         # \sqrt[n]{x} 또는 \sqrt{x}
         self._sqrt_n_pattern = re.compile(
@@ -1152,7 +1157,9 @@ class LaTeXToHWPConverter:
         def _mathrm_repl(m: "re.Match") -> str:
             lead = " " if (m.start() > 0 and m.string[m.start() - 1].isalnum()) else ""
             txt = m.group("txt")
-            if re.fullmatch(r"[a-z]", txt):
+            # 단일 소문자(``m``·``g``) 또는 한 글자 분자 복합 단위(``m/s``)는 중괄호로 감싸
+            # 번짐 차단기(_stop_roman_bleed)가 rm 자신의 피연산자를 기울이지 않게 한다.
+            if re.fullmatch(r"[a-z]", txt) or re.match(r"[a-z]/[A-Za-z]", txt):
                 txt = "{" + txt + "}"
             base = lead + "rm " + txt
             tail = m.string[m.end():]
@@ -1256,10 +1263,13 @@ class LaTeXToHWPConverter:
             # 안 그러면 `PLEFT` 가 되어 로만화·렌더가 깨진다(사용자 2026-06-08).
             if l_str and r_str:
                 return f" LEFT {l_str} {inner} RIGHT {r_str}"
+            # 한쪽만 있는 울타리(``\left\{ … \right.``)도 **짝을 맞춘다** — 빈 쪽은 ``.``(HWP 의 빈
+            # 구분자, ``LEFT . a RIGHT |``). 닫힘 없는 ``LEFT {`` 는 식의 나머지를 전부 울타리 안으로
+            # 읽게 만든다(todays-math vendor 이식, 그록 적대적 리뷰 2026-09-21).
             elif l_str:
-                return f" LEFT {l_str} {inner}"
+                return f" LEFT {l_str} {inner} RIGHT ."
             elif r_str:
-                return f"{inner} RIGHT {r_str}"
+                return f" LEFT . {inner} RIGHT {r_str}"
             return inner
 
         # 최내곽부터 고정점까지 반복 — 중첩 \left…\right 쌍을 안쪽→바깥쪽 순서로 정확 매칭.

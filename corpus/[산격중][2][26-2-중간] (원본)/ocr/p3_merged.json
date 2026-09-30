@@ -1,0 +1,369 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 18,
+   "score": 8,
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서답형 1] 그림은 "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle C=90^{\\circ}"
+    },
+    {
+     "type": "text",
+     "value": "인 "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle ABC"
+    },
+    {
+     "type": "text",
+     "value": "이다. 물음에 답하시오."
+    },
+    {
+     "type": "figure",
+     "value": "∠C=90° 인 직각삼각형 ABC(직각 표시), AB=10 cm, AC=8 cm, BC=6 cm 점선 치수",
+     "bbox": [
+      0.33,
+      0.16,
+      0.7,
+      0.53
+     ]
+    }
+   ],
+   "choices": [],
+   "label_type": "서답형",
+   "sub_questions": [
+    {
+     "number": 1,
+     "score": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\triangle ABC"
+      },
+      {
+       "type": "text",
+       "value": "의 내접원의 반지름을 구하고 이를 이용하여 내접원의 넓이를 구하는 과정을 서술하시오."
+      }
+     ],
+     "choices": [],
+     "answer": "반지름 $2\\,\\mathrm{cm}$, 넓이 $4\\pi\\,\\mathrm{cm}^{2}$",
+     "solution": "step1) 내접원의 반지름을 $r\\,\\mathrm{cm}$라 하자.\nstep2) $\\triangle ABC$의 넓이는 $\\frac{1}{2}\\times 6\\times 8=24$이다.\nstep3) 내심에서 세 변까지의 거리가 모두 $r$이므로\nstep4) $\\triangle ABC=\\frac{1}{2}r(10+6+8)=12r$이다.\nstep5) $12r=24$이므로 $r=2$이다.\nstep6) 따라서 내접원의 넓이는 $\\pi\\times 2^{2}=4\\pi\\,(\\mathrm{cm}^{2})$이다."
+    },
+    {
+     "number": 2,
+     "score": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\triangle ABC"
+      },
+      {
+       "type": "text",
+       "value": "의 외심의 위치와 외접원의 넓이를 구하고 그 과정을 서술하시오."
+      }
+     ],
+     "choices": [],
+     "answer": "외심은 $\\overline{AB}$의 중점, 넓이 $25\\pi\\,\\mathrm{cm}^{2}$",
+     "solution": "step1) 직각삼각형의 외심은 빗변의 중점이다.\nstep2) $\\angle C=90^{\\circ}$이므로 외심은 빗변 $\\overline{AB}$의 중점이다.\nstep3) 외접원의 반지름은 $\\frac{1}{2}\\overline{AB}=\\frac{1}{2}\\times 10=5$이다.\nstep4) 따라서 외접원의 넓이는 $\\pi\\times 5^{2}=25\\pi\\,(\\mathrm{cm}^{2})$이다."
+    }
+   ],
+   "answer": "(1) 반지름 $2\\,\\mathrm{cm}$, 넓이 $4\\pi\\,\\mathrm{cm}^{2}$  (2) 외심은 $\\overline{AB}$의 중점, 넓이 $25\\pi\\,\\mathrm{cm}^{2}$",
+   "solution": "step1) (1) 내접원의 반지름을 $r\\,\\mathrm{cm}$라 하자.\nstep2) $\\triangle ABC$의 넓이는 $\\frac{1}{2}\\times 6\\times 8=24$이다.\nstep3) 내심에서 세 변까지의 거리가 모두 $r$이므로\nstep4) $\\triangle ABC=\\frac{1}{2}r(10+6+8)=12r$이다.\nstep5) $12r=24$이므로 $r=2$이다.\nstep6) 따라서 내접원의 넓이는 $\\pi\\times 2^{2}=4\\pi\\,(\\mathrm{cm}^{2})$이다.\nstep7) (2) 직각삼각형의 외심은 빗변의 중점이다.\nstep8) $\\angle C=90^{\\circ}$이므로 외심은 빗변 $\\overline{AB}$의 중점이다.\nstep9) 외접원의 반지름은 $\\frac{1}{2}\\overline{AB}=\\frac{1}{2}\\times 10=5$이다.\nstep10) 따라서 외접원의 넓이는 $\\pi\\times 5^{2}=25\\pi\\,(\\mathrm{cm}^{2})$이다."
+  },
+  {
+   "number": 19,
+   "score": 8,
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서답형 2] 평행사변형 "
+    },
+    {
+     "type": "equation",
+     "value": "ABCD"
+    },
+    {
+     "type": "text",
+     "value": "에서 두 대각선의 길이가 같을 때, 물음에 답하시오."
+    },
+    {
+     "type": "figure",
+     "value": "직사각형 모양의 평행사변형 ABCD 와 두 대각선 AC·BD",
+     "bbox": [
+      0.24,
+      0.2,
+      0.57,
+      0.51
+     ]
+    }
+   ],
+   "choices": [],
+   "label_type": "서답형",
+   "sub_questions": [
+    {
+     "number": 1,
+     "score": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\triangle ABC"
+      },
+      {
+       "type": "text",
+       "value": "와 "
+      },
+      {
+       "type": "equation",
+       "value": "\\triangle DCB"
+      },
+      {
+       "type": "text",
+       "value": "가 합동임을 설명하시오."
+      }
+     ],
+     "choices": [],
+     "answer": "$\\triangle ABC\\equiv\\triangle DCB$ (SSS 합동)",
+     "solution": "step1) 평행사변형의 대변의 길이는 같으므로 $\\overline{AB}=\\overline{DC}$이다.\nstep2) 두 대각선의 길이가 같으므로 $\\overline{AC}=\\overline{DB}$이다.\nstep3) $\\overline{BC}$는 공통인 변이다.\nstep4) 세 쌍의 대응변의 길이가 각각 같으므로\nstep5) $\\triangle ABC\\equiv\\triangle DCB$ (SSS 합동)이다."
+    },
+    {
+     "number": 2,
+     "score": 4,
+     "contents": [
+      {
+       "type": "text",
+       "value": "(1)을 이용하여 "
+      },
+      {
+       "type": "equation",
+       "value": "\\square ABCD"
+      },
+      {
+       "type": "text",
+       "value": "가 직사각형임을 설명하시오."
+      }
+     ],
+     "choices": [],
+     "answer": "$\\square ABCD$의 네 내각이 모두 $90^{\\circ}$이므로 직사각형이다.",
+     "solution": "step1) (1)에서 $\\triangle ABC\\equiv\\triangle DCB$이므로\nstep2) $\\angle ABC=\\angle DCB$이다.\nstep3) 평행사변형에서 이웃한 두 내각의 합은 $180^{\\circ}$이므로\nstep4) $\\angle ABC+\\angle DCB=180^{\\circ}$이다.\nstep5) 따라서 $\\angle ABC=\\angle DCB=90^{\\circ}$이다.\nstep6) 평행사변형의 대각의 크기는 같으므로\nstep7) $\\angle A=\\angle C=90^{\\circ}$, $\\angle D=\\angle B=90^{\\circ}$이다.\nstep8) 네 내각의 크기가 모두 같으므로 $\\square ABCD$는 직사각형이다."
+    }
+   ],
+   "answer": "(1) $\\triangle ABC\\equiv\\triangle DCB$ (SSS 합동)  (2) $\\square ABCD$의 네 내각이 모두 $90^{\\circ}$이므로 직사각형이다.",
+   "solution": "step1) (1) 평행사변형의 대변의 길이는 같으므로 $\\overline{AB}=\\overline{DC}$이다.\nstep2) 두 대각선의 길이가 같으므로 $\\overline{AC}=\\overline{DB}$이다.\nstep3) $\\overline{BC}$는 공통인 변이다.\nstep4) 세 쌍의 대응변의 길이가 각각 같으므로\nstep5) $\\triangle ABC\\equiv\\triangle DCB$ (SSS 합동)이다.\nstep6) (2) (1)에서 $\\triangle ABC\\equiv\\triangle DCB$이므로\nstep7) $\\angle ABC=\\angle DCB$이다.\nstep8) 평행사변형에서 이웃한 두 내각의 합은 $180^{\\circ}$이므로\nstep9) $\\angle ABC+\\angle DCB=180^{\\circ}$이다.\nstep10) 따라서 $\\angle ABC=\\angle DCB=90^{\\circ}$이다.\nstep11) 평행사변형의 대각의 크기는 같으므로\nstep12) $\\angle A=\\angle C=90^{\\circ}$, $\\angle D=\\angle B=90^{\\circ}$이다.\nstep13) 네 내각의 크기가 모두 같으므로 $\\square ABCD$는 직사각형이다."
+  },
+  {
+   "number": 20,
+   "score": 10,
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서답형 3] 그림에서 "
+    },
+    {
+     "type": "equation",
+     "value": "\\square ABCD"
+    },
+    {
+     "type": "text",
+     "value": "가 평행사변형인 이유를 각각 쓰고, 평행사변형의 뜻을 서술하시오. (단, 점 "
+    },
+    {
+     "type": "equation",
+     "value": "O"
+    },
+    {
+     "type": "text",
+     "value": "는 두 대각선의 교점이다.)"
+    },
+    {
+     "type": "figure",
+     "value": "평행사변형 네 개: (1) AD=BC=9 cm, AB=DC=7 cm (2) ∠B=∠D=50°, ∠C=130° (3) AD∥BC(화살표), AD=BC=4 cm (4) 대각선 교점 O, OA=3 cm, OC=3 cm, OB=4 cm, OD=2 cm",
+     "bbox": [
+      0.01,
+      0.2,
+      0.99,
+      0.68
+     ]
+    }
+   ],
+   "choices": [],
+   "label_type": "서답형",
+   "sub_questions": [
+    {
+     "number": 1,
+     "score": 2,
+     "contents": [
+      {
+       "type": "text",
+       "value": ":"
+      }
+     ],
+     "choices": [],
+     "answer": "두 쌍의 대변의 길이가 각각 같다.",
+     "solution": "step1) $\\overline{AD}=\\overline{BC}=9\\,\\mathrm{cm}$이다.\nstep2) $\\overline{AB}=\\overline{DC}=7\\,\\mathrm{cm}$이다.\nstep3) 두 쌍의 대변의 길이가 각각 같으므로 평행사변형이다."
+    },
+    {
+     "number": 2,
+     "score": 2,
+     "contents": [
+      {
+       "type": "text",
+       "value": ":"
+      }
+     ],
+     "choices": [],
+     "answer": "두 쌍의 대각의 크기가 각각 같다.",
+     "solution": "step1) $\\angle A=360^{\\circ}-(50^{\\circ}+130^{\\circ}+50^{\\circ})=130^{\\circ}$이다.\nstep2) $\\angle A=\\angle C=130^{\\circ}$, $\\angle B=\\angle D=50^{\\circ}$이다.\nstep3) 두 쌍의 대각의 크기가 각각 같으므로 평행사변형이다."
+    },
+    {
+     "number": 3,
+     "score": 2,
+     "contents": [
+      {
+       "type": "text",
+       "value": ":"
+      }
+     ],
+     "choices": [],
+     "answer": "한 쌍의 대변이 평행하고 그 길이가 같다.",
+     "solution": "step1) $\\overline{AD}\\,/\\!/\\,\\overline{BC}$이다.\nstep2) $\\overline{AD}=\\overline{BC}=4\\,\\mathrm{cm}$이다.\nstep3) 한 쌍의 대변이 평행하고 그 길이가 같으므로 평행사변형이다."
+    },
+    {
+     "number": 4,
+     "score": 2,
+     "contents": [
+      {
+       "type": "text",
+       "value": ":"
+      }
+     ],
+     "choices": [],
+     "answer": "두 대각선이 서로 다른 것을 이등분한다.",
+     "solution": "step1) 두 대각선의 교점 $O$에 대하여 $\\overline{OA}=\\overline{OC}=3\\,\\mathrm{cm}$이다.\nstep2) 같은 방법으로 $\\overline{OB}=\\overline{OD}$이다.\nstep3) 두 대각선이 서로 다른 것을 이등분하므로 평행사변형이다."
+    },
+    {
+     "number": 5,
+     "score": 2,
+     "contents": [
+      {
+       "type": "text",
+       "value": "평행사변형의 뜻:"
+      }
+     ],
+     "choices": [],
+     "answer": "두 쌍의 대변이 각각 평행한 사각형",
+     "solution": "step1) 평행사변형은 두 쌍의 대변이 각각 평행한 사각형이다.\nstep2) 즉, $\\overline{AB}\\,/\\!/\\,\\overline{DC}$, $\\overline{AD}\\,/\\!/\\,\\overline{BC}$이다."
+    }
+   ],
+   "answer": "(1) 두 쌍의 대변의 길이가 각각 같다.  (2) 두 쌍의 대각의 크기가 각각 같다.  (3) 한 쌍의 대변이 평행하고 그 길이가 같다.  (4) 두 대각선이 서로 다른 것을 이등분한다.  (5) 두 쌍의 대변이 각각 평행한 사각형",
+   "solution": "step1) (1) $\\overline{AD}=\\overline{BC}=9\\,\\mathrm{cm}$이다.\nstep2) $\\overline{AB}=\\overline{DC}=7\\,\\mathrm{cm}$이다.\nstep3) 두 쌍의 대변의 길이가 각각 같으므로 평행사변형이다.\nstep4) (2) $\\angle A=360^{\\circ}-(50^{\\circ}+130^{\\circ}+50^{\\circ})=130^{\\circ}$이다.\nstep5) $\\angle A=\\angle C=130^{\\circ}$, $\\angle B=\\angle D=50^{\\circ}$이다.\nstep6) 두 쌍의 대각의 크기가 각각 같으므로 평행사변형이다.\nstep7) (3) $\\overline{AD}\\,/\\!/\\,\\overline{BC}$이다.\nstep8) $\\overline{AD}=\\overline{BC}=4\\,\\mathrm{cm}$이다.\nstep9) 한 쌍의 대변이 평행하고 그 길이가 같으므로 평행사변형이다.\nstep10) (4) 두 대각선의 교점 $O$에 대하여 $\\overline{OA}=\\overline{OC}=3\\,\\mathrm{cm}$이다.\nstep11) 같은 방법으로 $\\overline{OB}=\\overline{OD}$이다.\nstep12) 두 대각선이 서로 다른 것을 이등분하므로 평행사변형이다.\nstep13) (5) 평행사변형은 두 쌍의 대변이 각각 평행한 사각형이다.\nstep14) 즉, $\\overline{AB}\\,/\\!/\\,\\overline{DC}$, $\\overline{AD}\\,/\\!/\\,\\overline{BC}$이다."
+  },
+  {
+   "number": 21,
+   "score": 9,
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서답형 4] 정사각형 "
+    },
+    {
+     "type": "equation",
+     "value": "ABCD"
+    },
+    {
+     "type": "text",
+     "value": "에서 두 대각선의 교점이 "
+    },
+    {
+     "type": "equation",
+     "value": "O"
+    },
+    {
+     "type": "text",
+     "value": "이고, "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{OA}=2\\mathrm{cm}"
+    },
+    {
+     "type": "text",
+     "value": "일 때, 물음에 답하시오."
+    },
+    {
+     "type": "figure",
+     "value": "정사각형 ABCD 와 두 대각선, 교점 O, OA=2 cm 점선 치수",
+     "bbox": [
+      0.35,
+      0.13,
+      0.68,
+      0.38
+     ]
+    }
+   ],
+   "choices": [],
+   "label_type": "서답형",
+   "sub_questions": [
+    {
+     "number": 1,
+     "score": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\overline{BD}"
+      },
+      {
+       "type": "text",
+       "value": "의 길이를 구하고 이때 사용된 정사각형의 성질을 설명하시오."
+      }
+     ],
+     "choices": [],
+     "answer": "$\\overline{BD}=4\\,\\mathrm{cm}$",
+     "solution": "step1) 정사각형의 두 대각선은 길이가 같다.\nstep2) 또 두 대각선은 서로 다른 것을 이등분한다.\nstep3) $\\overline{AC}=2\\overline{OA}=2\\times 2=4\\,(\\mathrm{cm})$이다.\nstep4) 따라서 $\\overline{BD}=\\overline{AC}=4\\,\\mathrm{cm}$이다."
+    },
+    {
+     "number": 2,
+     "score": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\angle BAO"
+      },
+      {
+       "type": "text",
+       "value": "의 크기를 구하고 그 이유를 설명하시오."
+      }
+     ],
+     "choices": [],
+     "answer": "$\\angle BAO=45^{\\circ}$",
+     "solution": "step1) 정사각형의 두 대각선은 서로 다른 것을 수직이등분한다.\nstep2) $\\overline{OA}=\\overline{OB}$이고 $\\angle AOB=90^{\\circ}$이다.\nstep3) $\\triangle OAB$는 직각이등변삼각형이다.\nstep4) 따라서 $\\angle BAO=\\frac{1}{2}\\times 90^{\\circ}=45^{\\circ}$이다."
+    },
+    {
+     "number": 3,
+     "score": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\square ABCD"
+      },
+      {
+       "type": "text",
+       "value": "의 넓이를 구하시오."
+      }
+     ],
+     "choices": [],
+     "answer": "$8\\,\\mathrm{cm}^{2}$",
+     "solution": "step1) 두 대각선이 서로 수직이므로\nstep2) 넓이는 $\\frac{1}{2}\\times\\overline{AC}\\times\\overline{BD}$이다.\nstep3) $\\frac{1}{2}\\times 4\\times 4=8\\,(\\mathrm{cm}^{2})$이다."
+    }
+   ],
+   "answer": "(1) $\\overline{BD}=4\\,\\mathrm{cm}$  (2) $\\angle BAO=45^{\\circ}$  (3) $8\\,\\mathrm{cm}^{2}$",
+   "solution": "step1) (1) 정사각형의 두 대각선은 길이가 같다.\nstep2) 또 두 대각선은 서로 다른 것을 이등분한다.\nstep3) $\\overline{AC}=2\\overline{OA}=2\\times 2=4\\,(\\mathrm{cm})$이다.\nstep4) 따라서 $\\overline{BD}=\\overline{AC}=4\\,\\mathrm{cm}$이다.\nstep5) (2) 정사각형의 두 대각선은 서로 다른 것을 수직이등분한다.\nstep6) $\\overline{OA}=\\overline{OB}$이고 $\\angle AOB=90^{\\circ}$이다.\nstep7) $\\triangle OAB$는 직각이등변삼각형이다.\nstep8) 따라서 $\\angle BAO=\\frac{1}{2}\\times 90^{\\circ}=45^{\\circ}$이다.\nstep9) (3) 두 대각선이 서로 수직이므로\nstep10) 넓이는 $\\frac{1}{2}\\times\\overline{AC}\\times\\overline{BD}$이다.\nstep11) $\\frac{1}{2}\\times 4\\times 4=8\\,(\\mathrm{cm}^{2})$이다."
+  }
+ ]
+}

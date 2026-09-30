@@ -1,0 +1,521 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 1,
+   "score": 2,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림과 같이 반지름의 길이가 "
+    },
+    {
+     "type": "equation",
+     "value": "4"
+    },
+    {
+     "type": "text",
+     "value": "인 원 O에 내접하는 직각삼각형 ABC에서 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{BC} = 6"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\tan A"
+    },
+    {
+     "type": "text",
+     "value": "의 값은?"
+    },
+    {
+     "type": "figure",
+     "value": "원 O에 내접하는 직각삼각형 ABC(∠C=90°). 지름 AB(중심 O 지남), BC=6(아래 점선 치수), B~O 점선 치수 4.",
+     "bbox": [
+      0.2,
+      0.225,
+      0.37,
+      0.33
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{3\\sqrt{7}}{7}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{\\sqrt{7}}{4}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{2}{3}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{\\sqrt{7}}{3}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{\\sqrt{13}}{3}"
+      }
+     ]
+    }
+   ],
+   "answer": "①"
+  },
+  {
+   "number": 2,
+   "score": 3,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림과 같이 좌표평면 위의 원점 O를 중심으로 하고 반지름의 길이가 "
+    },
+    {
+     "type": "equation",
+     "value": "1"
+    },
+    {
+     "type": "text",
+     "value": "인 사분원에서 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{BD}"
+    },
+    {
+     "type": "text",
+     "value": "의 길이를 삼각비의 표를 이용하여 구하면?"
+    },
+    {
+     "type": "figure",
+     "value": "좌표평면 제1사분면의 반지름 1인 사분원. 원 위의 점 A(y좌표 0.4848, y축까지 점선), A에서 x축에 내린 수선의 발 B, D(1,0), 직선 OA의 연장이 x=1과 만나는 점 C, CD⊥x축. B·D에 직각 표시.",
+     "bbox": [
+      0.2,
+      0.495,
+      0.4,
+      0.63
+     ]
+    },
+    {
+     "type": "table",
+     "value": "",
+     "rows": [
+      [
+       "각도",
+       "사인(sin)",
+       "코사인(cos)",
+       "탄젠트(tan)"
+      ],
+      [
+       "28°",
+       "0.4695",
+       "0.8829",
+       "0.5317"
+      ],
+      [
+       "29°",
+       "0.4848",
+       "0.8746",
+       "0.5543"
+      ],
+      [
+       "30°",
+       "0.5000",
+       "0.8660",
+       "0.5774"
+      ]
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "0.1255"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "0.1254"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "0.1253"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "0.1252"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "0.1251"
+      }
+     ]
+    }
+   ],
+   "answer": "②"
+  },
+  {
+   "number": 3,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "[보기]에서 옳은 것만을 있는 대로 고른 것은?"
+    },
+    {
+     "type": "text",
+     "value": "<보기> ㄱ. "
+    },
+    {
+     "type": "equation",
+     "value": "(1-\\cos 45\\degree - \\sin 30\\degree)(1+\\sin 45\\degree - \\cos 60\\degree)"
+    },
+    {
+     "type": "text",
+     "value": "의 값은 "
+    },
+    {
+     "type": "equation",
+     "value": "-\\frac{1}{4}"
+    },
+    {
+     "type": "text",
+     "value": "이다. • ㄴ. "
+    },
+    {
+     "type": "equation",
+     "value": "\\sin^{2}30\\degree + \\cos^{2}30\\degree + \\sin^{2}45\\degree + \\cos^{2}45\\degree + \\sin^{2}60\\degree + \\cos^{2}60\\degree"
+    },
+    {
+     "type": "text",
+     "value": "의 값은 "
+    },
+    {
+     "type": "equation",
+     "value": "3"
+    },
+    {
+     "type": "text",
+     "value": "이다. • ㄷ. "
+    },
+    {
+     "type": "equation",
+     "value": "2\\sin^{2}x + \\sin x - 1 = 0"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\tan x"
+    },
+    {
+     "type": "text",
+     "value": "의 값은 "
+    },
+    {
+     "type": "equation",
+     "value": "\\frac{\\sqrt{3}}{3}"
+    },
+    {
+     "type": "text",
+     "value": "이다. (단, "
+    },
+    {
+     "type": "equation",
+     "value": "0\\degree \\leq x \\leq 90\\degree"
+    },
+    {
+     "type": "text",
+     "value": ")"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄴ"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄱ, ㄴ"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄱ, ㄷ"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄴ, ㄷ"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄱ, ㄴ, ㄷ"
+      }
+     ]
+    }
+   ],
+   "answer": "⑤"
+  },
+  {
+   "number": 4,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림과 같이 "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle C = 90\\degree"
+    },
+    {
+     "type": "text",
+     "value": "인 직각삼각형 ABC에서 "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle B = 30\\degree"
+    },
+    {
+     "type": "text",
+     "value": "이고 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{BC} = 4\\sqrt{3} \\mathrm{cm}"
+    },
+    {
+     "type": "text",
+     "value": "일 때, 내접원 I의 반지름의 길이는?"
+    },
+    {
+     "type": "figure",
+     "value": "∠C=90°, ∠B=30°인 직각삼각형 ABC(B 왼쪽 아래, C 오른쪽 아래, A 오른쪽 위)와 내접원 I. BC 아래 점선 치수 4√3 cm, B에 30°, C에 직각 표시.",
+     "bbox": [
+      0.58,
+      0.395,
+      0.83,
+      0.515
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\sqrt{3}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\sqrt{3}-1"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2\\sqrt{3}-2"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2\\sqrt{3}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2\\sqrt{3}-3"
+      }
+     ]
+    }
+   ],
+   "answer": "③"
+  },
+  {
+   "number": 5,
+   "score": 5,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림과 같은 직각삼각형 ABC에서 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AB} = \\overline{BD} = \\overline{DC}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AD} = \\sqrt{2}"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\cos x"
+    },
+    {
+     "type": "text",
+     "value": "의 값은?"
+    },
+    {
+     "type": "figure",
+     "value": "∠B=90°인 직각삼각형 ABC(A 왼쪽 아래, B 오른쪽 아래, C 위). D는 BC 위의 점, AB=BD=DC(같음 표시), AD 점선 √2, ∠DAC=x.",
+     "bbox": [
+      0.64,
+      0.625,
+      0.8,
+      0.8
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{3\\sqrt{5}}{5}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{3\\sqrt{5}}{10}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{3\\sqrt{10}}{5}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{3\\sqrt{10}}{10}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{4\\sqrt{15}}{5}"
+      }
+     ]
+    }
+   ],
+   "answer": "④"
+  }
+ ]
+}

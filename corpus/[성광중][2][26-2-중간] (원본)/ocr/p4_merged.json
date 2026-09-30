@@ -1,0 +1,609 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 11,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림과 같이 평행사변형 "
+    },
+    {
+     "type": "equation",
+     "value": "ABCD"
+    },
+    {
+     "type": "text",
+     "value": "의 대각선 "
+    },
+    {
+     "type": "equation",
+     "value": "AC"
+    },
+    {
+     "type": "text",
+     "value": " 위에 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AP}=\\overline{CQ}"
+    },
+    {
+     "type": "text",
+     "value": "인 두 점 "
+    },
+    {
+     "type": "equation",
+     "value": "P, Q"
+    },
+    {
+     "type": "text",
+     "value": "를 잡을 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle PQD=75^\\circ"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle DPQ:\\angle BPQ=2:3"
+    },
+    {
+     "type": "text",
+     "value": "이다. 이 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle PBQ"
+    },
+    {
+     "type": "text",
+     "value": "의 크기는?"
+    },
+    {
+     "type": "figure",
+     "value": "평행사변형 ABCD(A 좌상, D 우상, B 좌하, C 우하)의 대각선 AC 위 두 점 P(A 쪽), Q(C 쪽). 선분 BP, PD, BQ, QD. AP·CQ에 같음 표시, Q에 ∠PQD=75°, B의 ∠PBQ 음영.",
+     "bbox": [
+      0.19,
+      0.175,
+      0.395,
+      0.27
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "50^\\circ"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "52^\\circ"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "55^\\circ"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "58^\\circ"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "60^\\circ"
+      }
+     ]
+    }
+   ],
+   "answer": "③"
+  },
+  {
+   "number": 12,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림과 같이 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AB}=13\\mathrm{cm}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AD}=16\\mathrm{cm}"
+    },
+    {
+     "type": "text",
+     "value": "인 평행사변형 "
+    },
+    {
+     "type": "equation",
+     "value": "ABCD"
+    },
+    {
+     "type": "text",
+     "value": "를 꼭짓점 "
+    },
+    {
+     "type": "equation",
+     "value": "B"
+    },
+    {
+     "type": "text",
+     "value": "가 변 "
+    },
+    {
+     "type": "equation",
+     "value": "CD"
+    },
+    {
+     "type": "text",
+     "value": "의 중점 "
+    },
+    {
+     "type": "equation",
+     "value": "M"
+    },
+    {
+     "type": "text",
+     "value": "과 겹치도록 접었다. 접는선 "
+    },
+    {
+     "type": "equation",
+     "value": "AE"
+    },
+    {
+     "type": "text",
+     "value": "와 변 "
+    },
+    {
+     "type": "equation",
+     "value": "DC"
+    },
+    {
+     "type": "text",
+     "value": "의 연장선의 교점을 "
+    },
+    {
+     "type": "equation",
+     "value": "F"
+    },
+    {
+     "type": "text",
+     "value": "라 할 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{CF}"
+    },
+    {
+     "type": "text",
+     "value": "의 길이는?"
+    },
+    {
+     "type": "figure",
+     "value": "평행사변형 ABCD를 AE를 접는 선으로 접어 B가 CD의 중점 M에 온 그림. AB·BE는 점선(접히기 전), AE 연장선과 DC 연장선의 교점 F. 점선 치수 AD 16cm, AB 13cm. 접힌 부분 음영.",
+     "bbox": [
+      0.21,
+      0.445,
+      0.4,
+      0.56
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5\\mathrm{cm}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5.5\\mathrm{cm}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "6\\mathrm{cm}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "6.5\\mathrm{cm}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "7\\mathrm{cm}"
+      }
+     ]
+    }
+   ],
+   "answer": "④"
+  },
+  {
+   "number": 13,
+   "score": 5,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림과 같은 "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle ABC"
+    },
+    {
+     "type": "text",
+     "value": "의 각 변을 한 변으로 하는 "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle DBA"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle EBC"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle FAC"
+    },
+    {
+     "type": "text",
+     "value": "가 모두 정삼각형이다. "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle BAC=100^\\circ"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle EDA"
+    },
+    {
+     "type": "text",
+     "value": "의 크기는?"
+    },
+    {
+     "type": "figure",
+     "value": "삼각형 ABC(A 가운데, B 좌하, C 우하)와 정삼각형 DBA(D 왼쪽), EBC(E 위), FAC(F 오른쪽 위). 선분 DE, EF, DA, AF, EB, EC.",
+     "bbox": [
+      0.18,
+      0.725,
+      0.4,
+      0.84
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "30^\\circ"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "33^\\circ"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "35^\\circ"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "37^\\circ"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "40^\\circ"
+      }
+     ]
+    }
+   ],
+   "answer": "⑤"
+  },
+  {
+   "number": 14,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림과 같이 마름모 "
+    },
+    {
+     "type": "equation",
+     "value": "ABCD"
+    },
+    {
+     "type": "text",
+     "value": "의 한 꼭짓점 "
+    },
+    {
+     "type": "equation",
+     "value": "A"
+    },
+    {
+     "type": "text",
+     "value": "에서 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{BC}"
+    },
+    {
+     "type": "text",
+     "value": "에 내린 수선의 발을 "
+    },
+    {
+     "type": "equation",
+     "value": "F"
+    },
+    {
+     "type": "text",
+     "value": "이라 하자. "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle ADB=33^\\circ"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle x+\\angle y"
+    },
+    {
+     "type": "text",
+     "value": "의 값은?"
+    },
+    {
+     "type": "figure",
+     "value": "마름모 ABCD(A 위, B 좌, C 아래, D 우)와 대각선 AC·BD의 교점 O(직각 표시). A에서 BC에 내린 수선의 발 F(직각 표시), AF와 BD의 교점 E. D에 33°, E에 ∠y(∠AED), C에 ∠x(∠ACB).",
+     "bbox": [
+      0.59,
+      0.17,
+      0.83,
+      0.29
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "90^\\circ"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "97^\\circ"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "100^\\circ"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "106^\\circ"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "114^\\circ"
+      }
+     ]
+    }
+   ],
+   "answer": "⑤"
+  },
+  {
+   "number": 15,
+   "score": 3,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림과 같은 정사각형 "
+    },
+    {
+     "type": "equation",
+     "value": "ABCD"
+    },
+    {
+     "type": "text",
+     "value": "에서 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AD}=\\overline{AE}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle ADE=80^\\circ"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle ABE"
+    },
+    {
+     "type": "text",
+     "value": "의 크기는?"
+    },
+    {
+     "type": "figure",
+     "value": "정사각형 ABCD(A 좌상, D 우상, B 좌하, C 우하) 위쪽의 점 E. 선분 AE, DE, BE. AE·AD에 같음 표시, D에 ∠ADE=80°, B의 ∠ABE 음영.",
+     "bbox": [
+      0.63,
+      0.505,
+      0.815,
+      0.65
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "30^\\circ"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "32^\\circ"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "35^\\circ"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "42^\\circ"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "45^\\circ"
+      }
+     ]
+    }
+   ],
+   "answer": "③"
+  }
+ ]
+}

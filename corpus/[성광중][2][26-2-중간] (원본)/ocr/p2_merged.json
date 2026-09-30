@@ -1,0 +1,543 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 1,
+   "score": 2,
+   "contents": [
+    {
+     "type": "text",
+     "value": "다음 중 "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle ABC"
+    },
+    {
+     "type": "text",
+     "value": "가 항상 이등변삼각형이 되는 경우가 "
+    },
+    {
+     "type": "text",
+     "value": "__아닌__"
+    },
+    {
+     "type": "text",
+     "value": " 것은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\angle A=15^\\circ"
+      },
+      {
+       "type": "text",
+       "value": ", "
+      },
+      {
+       "type": "equation",
+       "value": "\\angle C=15^\\circ"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\overline{AB}=6\\mathrm{cm}"
+      },
+      {
+       "type": "text",
+       "value": ", "
+      },
+      {
+       "type": "equation",
+       "value": "\\overline{AC}=6\\mathrm{cm}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\overline{AB}=8\\mathrm{cm}"
+      },
+      {
+       "type": "text",
+       "value": ", "
+      },
+      {
+       "type": "equation",
+       "value": "\\angle A=45^\\circ"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\angle A=50^\\circ"
+      },
+      {
+       "type": "text",
+       "value": ", "
+      },
+      {
+       "type": "equation",
+       "value": "\\angle C=80^\\circ"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\overline{AB}=6\\mathrm{cm}"
+      },
+      {
+       "type": "text",
+       "value": ", "
+      },
+      {
+       "type": "equation",
+       "value": "\\overline{AC}=5\\mathrm{cm}"
+      },
+      {
+       "type": "text",
+       "value": ", "
+      },
+      {
+       "type": "equation",
+       "value": "\\overline{BC}=5\\mathrm{cm}"
+      }
+     ]
+    }
+   ],
+   "answer": "③"
+  },
+  {
+   "number": 2,
+   "score": 3,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림과 같은 "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle ABC"
+    },
+    {
+     "type": "text",
+     "value": "에서 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AB}=\\overline{AC}"
+    },
+    {
+     "type": "text",
+     "value": "이고, "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AD}"
+    },
+    {
+     "type": "text",
+     "value": "는 "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle A"
+    },
+    {
+     "type": "text",
+     "value": "의 이등분선일 때, 다음 중 옳지 "
+    },
+    {
+     "type": "text",
+     "value": "__않은__"
+    },
+    {
+     "type": "text",
+     "value": " 것은?"
+    },
+    {
+     "type": "figure",
+     "value": "이등변삼각형 ABC(A 위, B 좌하, C 우하). A에서 밑변 BC 위의 점 D로 선분 AD(수직, D는 BC 중점). AB·AC에 같음 표시(두 줄), A의 두 각에 점(•) 표시.",
+     "bbox": [
+      0.21,
+      0.43,
+      0.38,
+      0.54
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\overline{AD}\\perp\\overline{BC}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\overline{BD}=\\overline{CD}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\overline{AD}=\\overline{BC}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\angle B=\\angle C"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\angle ADC=90^\\circ"
+      }
+     ]
+    }
+   ],
+   "answer": "③"
+  },
+  {
+   "number": 3,
+   "score": 3,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림과 같은 "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle ABC"
+    },
+    {
+     "type": "text",
+     "value": "에서 "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle ABD=\\angle CBD"
+    },
+    {
+     "type": "text",
+     "value": "이고, "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AB}=16\\mathrm{cm}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{CD}=5\\mathrm{cm}"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle ABD"
+    },
+    {
+     "type": "text",
+     "value": "의 넓이는?"
+    },
+    {
+     "type": "figure",
+     "value": "∠C=90°인 직각삼각형 ABC(A 위, B 좌하, C 우하, C에 직각 표시). 변 AC 위의 점 D와 B를 이은 선분 BD(∠B의 이등분선, B의 두 각에 점 표시). AB 위쪽 점선 치수 16cm, DC 오른쪽 점선 치수 5cm.",
+     "bbox": [
+      0.2,
+      0.71,
+      0.4,
+      0.82
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "38\\mathrm{cm}^{2}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "40\\mathrm{cm}^{2}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "42\\mathrm{cm}^{2}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "44\\mathrm{cm}^{2}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "46\\mathrm{cm}^{2}"
+      }
+     ]
+    }
+   ],
+   "answer": "②"
+  },
+  {
+   "number": 4,
+   "score": 3,
+   "contents": [
+    {
+     "type": "text",
+     "value": "폭이 일정한 종이 테이프를 그림과 같이 접었다. "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle DAB=77^\\circ"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle ACB"
+    },
+    {
+     "type": "text",
+     "value": "의 크기는?"
+    },
+    {
+     "type": "figure",
+     "value": "폭이 일정한 종이 테이프를 선분 AB를 접는 선으로 접은 그림. 위 변 위의 A, 그 오른쪽(점선) D, 아래 변 위의 C·B. 접힌 부분은 AB에서 왼쪽 아래로 내려감(AC 연장선과 B를 지나는 평행선). 오른쪽 원래 부분은 점선. ∠DAB=77° 표시.",
+     "bbox": [
+      0.565,
+      0.16,
+      0.835,
+      0.265
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "20^\\circ"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "22^\\circ"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "24^\\circ"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "26^\\circ"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "28^\\circ"
+      }
+     ]
+    }
+   ],
+   "answer": "④"
+  },
+  {
+   "number": 5,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림과 같이 "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle B=\\angle C"
+    },
+    {
+     "type": "text",
+     "value": "인 이등변삼각형 "
+    },
+    {
+     "type": "equation",
+     "value": "ABC"
+    },
+    {
+     "type": "text",
+     "value": "에 정삼각형 "
+    },
+    {
+     "type": "equation",
+     "value": "DEF"
+    },
+    {
+     "type": "text",
+     "value": "가 내접해 있다. "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle AFE=63^\\circ"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle CED=41^\\circ"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle BDF"
+    },
+    {
+     "type": "text",
+     "value": "의 크기는?"
+    },
+    {
+     "type": "figure",
+     "value": "이등변삼각형 ABC(A 위, B 좌하, C 우하)에 정삼각형 DEF 내접(F는 AB 위, E는 AC 위, D는 BC 위). F에 ∠AFE=63°, E에 ∠CED=41° 표시.",
+     "bbox": [
+      0.615,
+      0.515,
+      0.81,
+      0.655
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "48^\\circ"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "49^\\circ"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "50^\\circ"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "51^\\circ"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "52^\\circ"
+      }
+     ]
+    }
+   ],
+   "answer": "⑤"
+  }
+ ]
+}

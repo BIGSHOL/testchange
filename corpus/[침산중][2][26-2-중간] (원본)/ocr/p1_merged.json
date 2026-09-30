@@ -1,0 +1,467 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 1,
+   "score": 3,
+   "contents": [
+    {
+     "type": "text",
+     "value": "점 "
+    },
+    {
+     "type": "equation",
+     "value": "(4,\\ -7)"
+    },
+    {
+     "type": "text",
+     "value": "을 지나고, "
+    },
+    {
+     "type": "equation",
+     "value": "y"
+    },
+    {
+     "type": "text",
+     "value": "축과 평행한 직선의 방정식은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "x=4"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "x=-3"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "x=-7"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "y=-7"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "y=4x-7"
+      }
+     ]
+    }
+   ],
+   "answer": "①"
+  },
+  {
+   "number": 2,
+   "score": 3,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림과 같이 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AB}=\\overline{AC}"
+    },
+    {
+     "type": "text",
+     "value": "인 "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle ABC"
+    },
+    {
+     "type": "text",
+     "value": "에서 "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle A"
+    },
+    {
+     "type": "text",
+     "value": "의 이등분선과 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{BC}"
+    },
+    {
+     "type": "text",
+     "value": "의 교점을 D라고 하자. "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle BAD=38^{\\circ}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{DB}=5\\mathrm{cm}"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "x+y"
+    },
+    {
+     "type": "text",
+     "value": "의 값은?"
+    },
+    {
+     "type": "figure",
+     "value": "이등변삼각형 ABC(꼭짓점 A 위, 밑변 BC). A에서 BC 위의 점 D까지 선분 AD. ∠BAD=38° 호 표시, ∠C 에 y° 호 표시. AB·AC 에 같음 표시(두 줄). BD 5cm·DC x cm 점선 치수.",
+     "bbox": [
+      0.1,
+      0.59,
+      0.45,
+      0.76
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "43"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "47"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "53"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "57"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "63"
+      }
+     ]
+    }
+   ],
+   "answer": "④"
+  },
+  {
+   "number": 3,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "일차방정식 "
+    },
+    {
+     "type": "equation",
+     "value": "3x+y-2=0"
+    },
+    {
+     "type": "text",
+     "value": "의 그래프의 기울기를 "
+    },
+    {
+     "type": "equation",
+     "value": "a"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "y"
+    },
+    {
+     "type": "text",
+     "value": "절편을 "
+    },
+    {
+     "type": "equation",
+     "value": "b"
+    },
+    {
+     "type": "text",
+     "value": "라고 할 때, "
+    },
+    {
+     "type": "equation",
+     "value": "ab"
+    },
+    {
+     "type": "text",
+     "value": "의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-6"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-3"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "6"
+      }
+     ]
+    }
+   ],
+   "answer": "①"
+  },
+  {
+   "number": 4,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "일차방정식 "
+    },
+    {
+     "type": "equation",
+     "value": "ax+by+c=0"
+    },
+    {
+     "type": "text",
+     "value": "의 그래프가 제2사분면을 지나지 "
+    },
+    {
+     "type": "text",
+     "value": "__않는__"
+    },
+    {
+     "type": "text",
+     "value": " 경우는?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "a>0,\\ b>0,\\ c>0"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "a>0,\\ b<0,\\ c>0"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "a>0,\\ b<0,\\ c<0"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "a<0,\\ b>0,\\ c<0"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "a<0,\\ b<0,\\ c<0"
+      }
+     ]
+    }
+   ],
+   "answer": "③"
+  },
+  {
+   "number": 5,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "연립방정식 "
+    },
+    {
+     "type": "equation",
+     "value": "\\begin{cases} x-ay=-1 \\\\ 2x+y=b \\end{cases}"
+    },
+    {
+     "type": "text",
+     "value": "의 해를 구하기 위해 두 일차방정식의 그래프를 각각 그린 것이다. 이때, 상수 "
+    },
+    {
+     "type": "equation",
+     "value": "a,\\ b"
+    },
+    {
+     "type": "text",
+     "value": "에 대하여 "
+    },
+    {
+     "type": "equation",
+     "value": "a-b"
+    },
+    {
+     "type": "text",
+     "value": "의 값은?"
+    },
+    {
+     "type": "figure",
+     "value": "좌표평면. 두 직선이 점 (-3, 1)에서 만남(점선으로 x축 -3, y축 1 표시). 가파른 직선(기울기 -2)과 완만한 직선(기울기 -1/2). 원점 O.",
+     "bbox": [
+      0.6,
+      0.64,
+      0.83,
+      0.75
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-7"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-5"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-3"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5"
+      }
+     ]
+    }
+   ],
+   "answer": "④"
+  }
+ ]
+}

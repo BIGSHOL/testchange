@@ -1,0 +1,449 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 16,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림과 같은 평행사변형 "
+    },
+    {
+     "type": "equation",
+     "value": "ABCD"
+    },
+    {
+     "type": "text",
+     "value": "의 네 내각의 이등분선의 교점을 각각 "
+    },
+    {
+     "type": "equation",
+     "value": "E, F, G, H"
+    },
+    {
+     "type": "text",
+     "value": "라 하고, "
+    },
+    {
+     "type": "equation",
+     "value": "\\square EFGH"
+    },
+    {
+     "type": "text",
+     "value": "의 두 대각선의 교점을 "
+    },
+    {
+     "type": "equation",
+     "value": "O"
+    },
+    {
+     "type": "text",
+     "value": "라 하자. "
+    },
+    {
+     "type": "equation",
+     "value": "\\square EFGH"
+    },
+    {
+     "type": "text",
+     "value": "에 대한 설명 중 옳지 "
+    },
+    {
+     "type": "text",
+     "value": "__않은__"
+    },
+    {
+     "type": "text",
+     "value": " 것은?"
+    },
+    {
+     "type": "figure",
+     "value": "평행사변형 ABCD(A 좌상, D 우상, B 좌하, C 우하)의 네 내각의 이등분선이 만드는 사각형 EFGH(E 왼쪽, F 아래, G 오른쪽, H 위)와 대각선 EG·HF의 교점 O. 각 꼭짓점의 이등분된 두 각에 ×, ∘, △, • 표시.",
+     "bbox": [
+      0.17,
+      0.18,
+      0.435,
+      0.285
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\overline{EG}\\perp\\overline{HF}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\overline{EH}//\\overline{FG}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\overline{EF}=\\overline{HG}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\overline{OE}=\\overline{OH}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\angle HEF=\\angle EFG"
+      }
+     ]
+    }
+   ],
+   "answer": "①"
+  },
+  {
+   "number": 17,
+   "score": 3,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림과 같이 두 삼각기둥이 서로 닮은 도형이고 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AB}"
+    },
+    {
+     "type": "text",
+     "value": "와 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{GH}"
+    },
+    {
+     "type": "text",
+     "value": "가 서로 대응하는 모서리일 때, 다음 중 옳지 "
+    },
+    {
+     "type": "text",
+     "value": "__않은__"
+    },
+    {
+     "type": "text",
+     "value": " 것은?"
+    },
+    {
+     "type": "figure",
+     "value": "닮은 두 삼각기둥. 작은 것: 윗면 ABC, 아랫면 DEF, AC 4cm, AD 6cm, DE 4cm, EF x cm. 큰 것: 윗면 GHI, 아랫면 JKL, GI z cm, GJ y cm, JK 6cm, KL 3cm. 숨은 모서리 DF·JL 점선.",
+     "bbox": [
+      0.12,
+      0.52,
+      0.455,
+      0.65
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "x+y+z=19"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\triangle ABC\\sim\\triangle GHI"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "text",
+       "value": "닮음비는 "
+      },
+      {
+       "type": "equation",
+       "value": "2:3"
+      },
+      {
+       "type": "text",
+       "value": "이다."
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\overline{GJ}"
+      },
+      {
+       "type": "text",
+       "value": "에 대응하는 모서리는 "
+      },
+      {
+       "type": "equation",
+       "value": "\\overline{AD}"
+      },
+      {
+       "type": "text",
+       "value": "이다."
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "text",
+       "value": "꼭짓점 "
+      },
+      {
+       "type": "equation",
+       "value": "F"
+      },
+      {
+       "type": "text",
+       "value": "에 대응하는 점은 점 "
+      },
+      {
+       "type": "equation",
+       "value": "L"
+      },
+      {
+       "type": "text",
+       "value": "이다."
+      }
+     ]
+    }
+   ],
+   "answer": "①"
+  },
+  {
+   "number": 18,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림과 같이 크기가 다르고 모양이 똑같은 등대가 있다. 높이가 "
+    },
+    {
+     "type": "equation",
+     "value": "8\\mathrm{m}"
+    },
+    {
+     "type": "text",
+     "value": "인 등대 "
+    },
+    {
+     "type": "equation",
+     "value": "1"
+    },
+    {
+     "type": "text",
+     "value": "개를 색칠하는데 페인트 "
+    },
+    {
+     "type": "equation",
+     "value": "12"
+    },
+    {
+     "type": "text",
+     "value": "통이 필요하다고 할 때, 높이가 "
+    },
+    {
+     "type": "equation",
+     "value": "12\\mathrm{m}"
+    },
+    {
+     "type": "text",
+     "value": "인 등대를 색칠하려면 몇 통의 페인트가 필요한가?"
+    },
+    {
+     "type": "figure",
+     "value": "모양이 같은 두 등대(작은 것 높이 8m, 큰 것 높이 12m, 높이 치수 화살표). 등대에서 빛이 나감.",
+     "bbox": [
+      0.56,
+      0.19,
+      0.89,
+      0.295
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "18"
+      },
+      {
+       "type": "text",
+       "value": "통"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "27"
+      },
+      {
+       "type": "text",
+       "value": "통"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "32"
+      },
+      {
+       "type": "text",
+       "value": "통"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "36"
+      },
+      {
+       "type": "text",
+       "value": "통"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "40"
+      },
+      {
+       "type": "text",
+       "value": "통"
+      }
+     ]
+    }
+   ],
+   "answer": "②"
+  },
+  {
+   "number": 19,
+   "score": 7,
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서술형 1] 그림과 같이 "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle A=90^\\circ"
+    },
+    {
+     "type": "text",
+     "value": "인 "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle ABC"
+    },
+    {
+     "type": "text",
+     "value": "의 세 변의 길이가 각각 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AB}=15\\mathrm{cm}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{BC}=17\\mathrm{cm}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{CA}=8\\mathrm{cm}"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle ABC"
+    },
+    {
+     "type": "text",
+     "value": "의 내접원 "
+    },
+    {
+     "type": "equation",
+     "value": "I"
+    },
+    {
+     "type": "text",
+     "value": "의 반지름의 길이를 구하시오."
+    },
+    {
+     "type": "figure",
+     "value": "∠A=90°인 직각삼각형 ABC(A 위, B 좌, C 우, A에 직각 표시)와 내접원(중심 I). 점선 치수 AB 15cm, CA 8cm, BC 17cm.",
+     "bbox": [
+      0.56,
+      0.535,
+      0.885,
+      0.66
+     ]
+    }
+   ],
+   "choices": [],
+   "label_type": "서술형",
+   "answer": "$3\\,\\mathrm{cm}$",
+   "solution": "step1) $\\triangle ABC$의 넓이는 $\\frac{1}{2}\\times 15\\times 8=60$ $(\\mathrm{cm}^2)$이다.\nstep2) 반지름을 $r$라 하면 $\\triangle ABC=\\frac{1}{2}r(15+17+8)=20r$이다.\nstep3) $20r=60$이므로 $r=3$이다.\nstep4) 따라서 내접원 $I$의 반지름의 길이는 $3\\,\\mathrm{cm}$이다."
+  }
+ ]
+}

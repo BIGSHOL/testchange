@@ -680,8 +680,11 @@ class StrictFigureSpecTest(unittest.TestCase):
         texts = root.findall(".//{*}text")
 
         self.assertNotIn("<script", svg.lower())
-        self.assertIn('&lt;script onclick="steal()"&gt;', svg)
-        self.assertEqual([element.text for element in texts], [payload])
+        self.assertIn("&lt;", svg)
+        # 라벨은 label_markup 이 tspan 으로 조판한다(연산자 둘레 가는 빈칸 U+2009) —
+        # 글자를 이어 붙이고 가는 빈칸을 빼면 원문 그대로여야 한다.
+        self.assertEqual(["".join(element.itertext()).replace("\u2009", "")
+                          for element in texts], [payload])
         self.assertEqual(root.findall(".//{*}script"), [])
         self.assertFalse(any(
             attribute.lower().startswith("on")

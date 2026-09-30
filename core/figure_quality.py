@@ -16,6 +16,7 @@ from dataclasses import dataclass
 import math
 import re
 import unicodedata
+from html import unescape
 import xml.etree.ElementTree as ET
 
 __all__ = [
@@ -133,14 +134,78 @@ _PRESENTATION_ATTRS = frozenset({
     "word-spacing",
 })
 _COMMON_ATTRS = _PRESENTATION_ATTRS
-_TEXT_ATTRS = frozenset({"x", "y", "dx", "dy", "rotate", "xml:space"})
+# "data-mj" — 라벨의 **원문**을 실어 나른다. TS 가 그 자리를 MathJax 조각으로
+# 바꿔 끼우려면, 조판된 tspan 이 아니라 원문이 필요하다(2026-08-28, 원장님 확정).
+# 값은 글자일 뿐 실행되지 않는다. 다만 "무해하다"에 기대지 않고 아래 값 검사에서
+# 꺾쇠·따옴표·앰퍼샌드를 **막는다** — 허용 목록을 넓힐 때 값 검사를 같이 넓히지
+# 않으면, 그 순간 지면에 마크업을 심는 통로가 열린다.
+# `data-px`·`data-py` 는 **이 이름표의 임자 꼭짓점**이다(그림 좌표). 판정기가
+# 임자를 추측하지 않게 엔진이 직접 적는다 — `figure_scene` 의 점 라벨 주석 참조.
+_TEXT_ATTRS = frozenset({"x", "y", "dx", "dy", "rotate", "xml:space", "data-mj",
+                         "data-px", "data-py"})
+_MJ_MAX_LEN = 200
+_MJ_UNSAFE = "<>&" + chr(34) + chr(39)
+# `<g transform>` — 에셋 합성(figure_assets.py)이 조각을 배치하는 유일한 길이라
+# 허용하되, 값은 아래 `_TRANSFORM_RE` 형태(translate/scale/rotate 의 수 인자만)로
+# 좁힌다. url()·표현식이 들어갈 자리가 없어 보안 표면이 늘지 않는다 (2026-08-23).
+_TRANSFORM_RE = re.compile(
+    r"^\s*(?:(?:translate|scale|rotate)\(\s*-?\d+(?:\.\d+)?"
+    r"(?:[\s,]+-?\d+(?:\.\d+)?){0,2}\s*\)\s*)+$"
+)
+def mj_attr(text: str) -> str:
+    """`data-mj="…"` 한 조각. **못 실을 글이면 빈 문자열**을 낸다.
+
+    이 속성은 TS 가 MathJax 로 조판할 **원문**을 실어 나른다. 아래 값 검사가
+    꺾쇠·따옴표·앰퍼샌드를 막으므로, 그런 글자가 든 라벨에 이 속성을 붙이면
+    **그림 전체가 안전 검사에서 죽는다** — 조판을 얻으려다 지면을 잃는다.
+    그래서 「실을 수 있는가」의 규칙을 **한 곳**에 두고 붙이는 쪽이 여기를 부른다
+    (검사하는 쪽과 붙이는 쪽이 같은 자를 쓴다 — 두 벌이면 한쪽만 고쳐진다).
+    """
+    if not text or len(text) > _MJ_MAX_LEN:
+        return ""
+    if any(char in text for char in _MJ_UNSAFE):
+        return ""
+    return f' data-mj="{text}"'
+
+
+# 안쪽에 태그가 **하나도 없는** `<text>` — 글자를 그대로 되읽을 수 있는 것만 상대한다.
+_PLAIN_TEXT_RE = re.compile(r"<text\b([^>]*)>([^<]*)</text>")
+
+
+def add_mj_marks(svg: str) -> str:
+    """`data-mj` 가 없는 `<text>` 에 **원문을 붙여** 준다 — 조판의 그물.
+
+    라벨을 내는 자리는 한 곳이 아니다. 실측으로 `elementary.py`·`elem_advanced.py`·
+    `figure_svg.py`·`figure_assets.py` 에 흩어져 있고, **새 자리가 계속 생긴다.**
+    그때마다 손으로 표식을 달게 하면 **손 목록은 샌다** — 2026-08-28 에 실제로 네 자리를
+    고치고 아홉 자리를 놓쳤고, 그 그림들은 조판 없이 나가고 있었다.
+
+    그래서 **정제 직전에 한 번** 훑어 못 붙은 것을 붙인다. 새 emitter 가 생겨도 걸린다.
+
+    ⚠️ 안쪽에 `<tspan>` 이 있으면 **건드리지 않는다.** 그 조판은 가는 빈칸(U+2009) 같은
+       것을 끼워 넣으므로 글자를 이어 붙여도 **원문이 아니다** — 원문인 척 실으면 조판이
+       틀린 글을 그린다. 그런 자리는 라벨을 아는 쪽(`figure_scene`)이 제 손으로 붙인다.
+    """
+
+    def mark(match):
+        attrs, inner = match.group(1), match.group(2)
+        if 'data-mj=' in attrs:
+            return match.group(0)
+        piece = mj_attr(unescape(inner).strip())
+        if not piece:
+            return match.group(0)
+        return f'<text{attrs}{piece}>{inner}</text>'
+
+    return _PLAIN_TEXT_RE.sub(mark, svg)
+
+
 _TAG_ATTRS = {
     "svg": frozenset({"viewBox", "preserveAspectRatio"}),
-    "g": _COMMON_ATTRS,
+    "g": _COMMON_ATTRS | {"transform"},
     "circle": _COMMON_ATTRS | {"cx", "cy", "r"},
     "ellipse": _COMMON_ATTRS | {"cx", "cy", "rx", "ry"},
     "line": _COMMON_ATTRS | {"x1", "y1", "x2", "y2"},
-    "path": _COMMON_ATTRS | {"d"},
+    "path": _COMMON_ATTRS | {"d", "data-region"},
     "polygon": _COMMON_ATTRS | {"points"},
     "polyline": _COMMON_ATTRS | {"points"},
     "rect": _COMMON_ATTRS | {"x", "y", "width", "height", "rx", "ry"},
@@ -449,6 +514,9 @@ def _validate_attr(tag: str, name: str, value: str) -> None:
     if name == "id":
         if not _ID_RE.match(value.strip()):
             raise SvgSecurityError("invalid id")
+    elif name == "transform":
+        if not _TRANSFORM_RE.match(value):
+            raise SvgSecurityError("invalid transform (translate/scale/rotate with numeric args only)")
     elif name == "gradientUnits":
         if value.strip() not in {"objectBoundingBox", "userSpaceOnUse"}:
             raise SvgSecurityError("invalid gradientUnits")
@@ -514,6 +582,21 @@ def _validate_attr(tag: str, name: str, value: str) -> None:
     elif name == "xml:space":
         if value not in {"default", "preserve"}:
             raise SvgSecurityError("xml:space must be default or preserve")
+    elif name == "data-region":
+        # 채색 영역의 **이름**. 「몇 칸이 실제로 깔렸나」를 세는 자리가 이 값을
+        # 열쇠로 쓴다 — `stroke="none"` 처럼 다른 것도 쓰는 낱말로 세면 라벨이
+        # 늘어난 날 그 수가 조용히 늘어난다(2026-08-28 에 실제로 그랬다).
+        if len(value) > 120:
+            raise SvgSecurityError("data-region is too long")
+        if any(char in value for char in "<>&\"'"):
+            raise SvgSecurityError("data-region must not contain markup characters")
+    elif name == "data-mj":
+        # 라벨 원문. 마크업을 만들 수 있는 글자는 막는다 — 이 값은 그대로 SVG 에
+        # 실려 나가고, TS 가 읽어서 조판한다.
+        if len(value) > _MJ_MAX_LEN:
+            raise SvgSecurityError("data-mj is too long")
+        if any(char in value for char in _MJ_UNSAFE):
+            raise SvgSecurityError("data-mj must not contain markup characters")
     elif name in {"x", "y", "dx", "dy", "rotate"} and tag in {"text", "tspan"}:
         _number_list(value, label=name, min_count=1)
     elif name in {"r", "rx", "ry", "width", "height"}:
@@ -608,6 +691,10 @@ def sanitize_svg(svg: str) -> str:
     ``height`` are intentionally discarded so consumers size it from the
     mandatory ``viewBox``.
     """
+
+    # 조판 표식을 **먼저** 붙인다 — 여기가 모든 SVG 가 지나는 한 자리다.
+    # 붙인 값은 곧바로 아래 허용 목록·값 검사를 지나므로 스스로 검산된다.
+    svg = add_mj_marks(svg)
 
     root = _parse(svg)
     _check_limits_and_shape(root)

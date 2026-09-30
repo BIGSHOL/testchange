@@ -344,6 +344,12 @@ _META_TOKEN_SO = "소단원자리표식QZX"
 _META_TOKEN_NA = "난이도자리표식QZX"
 
 
+# 그림 경로 → 삽입 크기 (폭, 높이) mm. 비어 있으면 종전(픽셀 원래 크기). 세션 변환 하네스처럼
+# 고해상도 PNG 를 mm 로 넣는 호출자가 채운다 — 최종 교체(`replace_placeholder_figures`)도 같은
+# mm 를 쓰게 해 자리표시로 실측한 레이아웃이 유지된다.
+FIG_SIZE_MM: dict[str, tuple[float, float]] = {}
+
+
 def _place_figure(ses, h, path: str, max_w: int = FORM_FIG_MAX_W,
                   max_h: int = FORM_FIG_MAX_H) -> bool:
     """그림(IMAGE) 자리 처리 — 모드 분기(`ses._render_figures`).
@@ -467,6 +473,7 @@ def _put_tail(ses, h, blocks) -> None:
     binItem 누락을 후처리 임베드로 교정)을 쓴다 — 나머지는 기본 경로 코드 그대로.
     """
     w = HwpComWriter(ses)
+    w.image_hook = lambda path: _place_figure(ses, h, path)   # 공유 경로 그림도 토큰 방식
     core, post = _split_tail_post(blocks)          # 박스 뒤 발문 연속(#18·#20) 분리
     cs = _condition_start(core)                    # 표/조건 머리 시작(없으면 전부 pre)
     pre = core if cs is None else core[:cs]
@@ -1303,7 +1310,35 @@ def _replace_retry(src, dst, attempts: int = 20, wait: float = 0.5) -> None:
             time.sleep(wait)
 
 
+# ① 위치 측정 재시도 횟수. HWP COM 은 이 측정 세션에서 **비결정적으로 죽는다**(실측
+# 2026-08-13: 4회 렌더 중 2회 — `HParameterSet` AttributeError / RPC 서버 사용 불가).
+# 종전엔 그 예외가 `write_exam_to_form` 밖으로 전파돼 **몇 분짜리 변환이 통째로 실패**했다.
+# 측정 실패 자체는 이미 폴백(내용기반 추정 배치)이 있으므로, 죽으면 새 세션으로 다시 재보고
+# 그래도 안 되면 폴백으로 넘긴다(변환은 반드시 끝난다).
+_MEASURE_ATTEMPTS = 3
+
+
 def _measure_first_choice_lines(hwpx, n: int) -> list[tuple[int, int, int]]:
+    """`_measure_first_choice_lines_once` 재시도 래퍼 — COM 크래시로 변환을 죽이지 않는다."""
+    import time as _time
+
+    best: list[tuple[int, int, int]] = []
+    for attempt in range(1, _MEASURE_ATTEMPTS + 1):
+        try:
+            pos = _measure_first_choice_lines_once(hwpx, n)
+        except Exception as e:  # noqa: BLE001 (COM 크래시 전 범위 — 폴백이 있다)
+            logger.warning("① 위치 측정 COM 실패(%d/%d): %s", attempt, _MEASURE_ATTEMPTS, e)
+            pos = []
+        if len(pos) >= n:
+            return pos
+        if len(pos) > len(best):
+            best = pos
+        if attempt < _MEASURE_ATTEMPTS:
+            _time.sleep(1.0)          # 죽은 Hwp.exe 핸들 정리 대기 후 새 세션
+    return best
+
+
+def _measure_first_choice_lines_once(hwpx, n: int) -> list[tuple[int, int, int]]:
     """COM 으로 열어 각 슬롯의 ① 위치(page, col, line)를 측정(읽기전용)."""
     import pythoncom
 
@@ -1582,11 +1617,17 @@ def _estimate_essay_heights(essays) -> dict:
         h += (rows + 1) if tables else 0        # 표(행 + 헤더 테두리)
         h += len(q.sub_questions or [])         # 소문항 마커/배점 1줄씩
         h += 2                                  # [소단원][난이도] 메타란(저장후 주입, 2026-06-09)
+        # 그림(IMAGE) 높이 — 객관식 추정기와 같은 이유(2026-08-13 왕선중3)로 서술형도 센다.
+        # 안 세면 그림 있는 서술형 둘을 한 단에 넣어 넘치고, 발문만 남은 채 그림·<조건>이
+        # 다음 단/쪽으로 쪼개졌다(대구일중2 #19·성광중2 #21·침산중2 #19, 2026-09-30).
+        blocks = list(q.contents) + [b for s in (q.sub_questions or []) for b in (s.contents or [])]
+        h += sum(_image_lines(b.value) for b in blocks
+                 if b.type == ContentType.IMAGE and b.value)
         heights[idx] = max(3, h)
     return heights
 
 
-def _estimate_mc_heights(mc) -> dict:
+def _estimate_mc_heights(mc, src_dpi: int | None = None) -> dict:
     """객관식 슬롯 높이(줄)를 **내용 기반 결정적 추정**(COM 측정 실패 시 폴백용).
 
     평소엔 `_measure_first_choice_lines` 실측을 쓰지만, COM 측정이 실패(보안팝업·gen_py·
@@ -1611,8 +1652,43 @@ def _estimate_mc_heights(mc) -> dict:
         ch_max = max((sum(len(b.value or "") for b in (c.contents or []))
                       for c in (q.choices or [])), default=0)
         h += 5 if ch_max > 12 else 3
+        # ⭐ 그림(IMAGE) 높이 — 종전엔 아예 안 셌다. 프로덕션은 그림을 안 넣어(render_figures
+        # =False, 자리에 안내문구 1줄) 잠복해 있다가, 도형을 실제로 삽입하니 문항이 단을
+        # 넘쳐 **발문만 앞 단에 남고 그림·선택지가 다음 단으로 쪼개졌다**(왕선중3 q9,
+        # 2026-08-13). ①→① 실측(`_extract_heights`)은 단 첫 문항의 발문·그림을 span 에
+        # 안 담으므로 그림 문항은 추정으로 보정해야 한다.
+        h += sum(_image_lines(b.value, src_dpi) for b in q.contents
+                 if b.type == ContentType.IMAGE and b.value)
         heights[idx] = max(3, h)
     return heights
+
+
+# 본문 한 줄 높이(96dpi 픽셀 근사) — 11pt × 줄간격 ≈ 22px. 그림 픽셀높이 → 줄수 환산용.
+_IMG_LINE_PX = 22.0
+
+
+def _image_lines(path: str, src_dpi: int | None = None) -> int:
+    """삽입될 그림이 차지하는 **줄 수**(보수적 과대추정 — 단 넘침 방지)."""
+    try:
+        from PIL import Image as _Image
+        with _Image.open(path) as im:
+            w, h = im.size
+    except Exception:  # noqa: BLE001 (읽기 실패 시 중간값)
+        return 8
+    if w <= 0 or h <= 0:
+        return 8
+    # mm 로 크기를 지정한 그림은 그 높이가 곧 지면 높이다(96dpi 픽셀 환산). 픽셀 기준으로
+    # 재면 고해상도 작도 PNG 를 260px 폭까지 키워 잡아 과대추정 → 문항마다 단을 통째로
+    # 차지해 쪽당 1~2문항만 남았다(침산중3 2026-09-30).
+    size = FIG_SIZE_MM.get(os.path.abspath(path))
+    if size:
+        return max(2, int(size[1] / 25.4 * 96 / _IMG_LINE_PX) + 1)
+    lim = FORM_FIG_MAX_W if src_dpi is None else min(FORM_FIG_MAX_W,
+                                                     _natural_width(w, src_dpi))
+    if w > lim:
+        h = h * lim / w
+    h = min(h, FORM_FIG_MAX_H)             # 삽입(_fit_image_width)과 같은 높이 상한
+    return max(2, int(h / _IMG_LINE_PX) + 1)
 
 
 # 거대 문항(예: 수학적 귀납법 증명 박스 #12)은 한 단에 **혼자** 둔다(사용자 2026-06-10).
@@ -1622,7 +1698,7 @@ _SOLO_MC_LINES = 18
 
 
 def _adaptive_columns(heights: dict, n: int, per_col_max: int, rebalance_tail: bool = True,
-                      solo: set | None = None):
+                      solo: set | None = None, head_extra: dict | None = None):
     """측정 높이로 **스마트 단배치**: 한 단(CAP 줄) 안에서 문항 수를 가변(최대 per_col_max).
 
     rebalance_tail: 마지막 단이 1문항이면 직전 단에서 끌어와 균형(객관식용). 서술형은 끄면
@@ -1636,12 +1712,15 @@ def _adaptive_columns(heights: dict, n: int, per_col_max: int, rebalance_tail: b
     Returns: (colbreak:set[새 단 시작 인덱스], blanks:dict[i→후행 빈줄], cols:list[list[i]]).
     """
     solo = solo or set()
+    # head_extra[i] = i 가 **단 첫 문항일 때만** 추가로 드는 줄 수(그림 높이).
+    # ①→① 실측이 자기 발문·그림을 안 담는 구조적 누락을 단 시작에서만 메운다.
+    head_extra = head_extra or {}
     fb = CAP // per_col_max
     cols: list[list[int]] = []
     cur: list[int] = []
     cur_h = 0
     for i in range(n):
-        h = heights.get(i, fb)
+        base = heights.get(i, fb)
         # 거대 문항은 단독 단 — 현재 단을 닫고 자기만의 단에 두고, 다음 문항은 새 단에서.
         if i in solo:
             if cur:
@@ -1649,10 +1728,12 @@ def _adaptive_columns(heights: dict, n: int, per_col_max: int, rebalance_tail: b
                 cur, cur_h = [], 0
             cols.append([i])
             continue
+        h = base + (head_extra.get(i, 0) if not cur else 0)
         prospective = cur_h + (_GAP if cur else 0) + h
         if cur and (prospective > CAP or len(cur) >= per_col_max):
             cols.append(cur)
             cur, cur_h = [], 0
+            h = base + head_extra.get(i, 0)      # 새 단의 첫 문항 → 자기 그림 비용 포함
         cur.append(i)
         cur_h += (_GAP if len(cur) > 1 else 0) + h
     if cur:
@@ -1662,7 +1743,8 @@ def _adaptive_columns(heights: dict, n: int, per_col_max: int, rebalance_tail: b
     # 직전 단의 끝 문항을 끌어와 (…,2,2) 로 균형(외로운 끝 단의 큰 과여백 완화). 직전 단이
     # 2개 이상이고, 옮겨도 마지막 단이 CAP 안에 들 때만(행정렬·단넘침 안전).
     def _col_h(col):
-        return sum(heights.get(i, fb) for i in col) + _GAP * max(0, len(col) - 1)
+        return (sum(heights.get(i, fb) for i in col) + _GAP * max(0, len(col) - 1)
+                + (head_extra.get(col[0], 0) if col else 0))
     if (rebalance_tail and len(cols) >= 2 and len(cols[-1]) == 1 and len(cols[-2]) >= 2
             and cols[-1][0] not in solo and cols[-2][-1] not in solo
             and _col_h([cols[-2][-1]] + cols[-1]) <= CAP):
@@ -1671,7 +1753,8 @@ def _adaptive_columns(heights: dict, n: int, per_col_max: int, rebalance_tail: b
     colbreak = {c[0] for c in cols[1:]}     # 첫 단 제외, 각 단 첫 문항 앞에서 단나누기
     blanks: dict = {}
     for c in cols:
-        content = sum(heights.get(i, fb) for i in c)
+        # 단 첫 문항의 그림 비용도 내용에 포함해야 빈줄 예산이 단을 안 넘긴다.
+        content = sum(heights.get(i, fb) for i in c) + head_extra.get(c[0], 0)
         nonlast = c[:-1]
         budget = max(0, CAP - content)      # 빈줄로 쓸 수 있는 여유 줄 수
         if nonlast:
@@ -1699,7 +1782,7 @@ def _adaptive_columns(heights: dict, n: int, per_col_max: int, rebalance_tail: b
 
 
 def _layout_form(filled_hwpx, out_hwpx, per_col: int, n_mc: int, n_es: int,
-                 essays=None, mc=None) -> None:
+                 essays=None, mc=None, fig_src_dpi: int | None = None) -> None:
     """채운 hwpx → 혼합 레이아웃. 객관식·서술형 **둘 다 측정 기반 빽빽배치**.
 
     학생 답란 공간은 보존하지 않는다(노트 풀이 전제 — 메모리 form-layout-no-answer-space).
@@ -1725,8 +1808,15 @@ def _layout_form(filled_hwpx, out_hwpx, per_col: int, n_mc: int, n_es: int,
 
     # 거대 문항(수학적 귀납법 증명 박스 #12 등) = 내용기반 추정 줄수가 큰 객관식 → 단독 단.
     # COM 실측은 박스 높이를 과소추정(#12 측정 15 vs 실제 ~24)하므로 **추정으로 solo 판정**.
-    mc_est = _estimate_mc_heights(mc) if (n_mc and mc) else {}
-    solo_mc = {i for i, h in mc_est.items() if h >= _SOLO_MC_LINES}
+    mc_est = _estimate_mc_heights(mc, fig_src_dpi) if (n_mc and mc) else {}
+    # ⚠️ 단독 판정은 **그림 줄을 뺀** 추정으로 — 이 규칙은 COM 이 거대 **박스**를 과소측정하는
+    # 걸 막으려는 것이고, 그림 높이는 실측(①→①)·head_extra 가 이미 반영한다. 그림까지 세면
+    # 도형 문항이 전부 단을 혼자 차지해 쪽마다 1~2문항만 남는다(성광중3 26-2: 18문항 중
+    # 8개가 단독 → 14개 단, 2026-09-30).
+    _img_lines = {i: sum(_image_lines(b.value, fig_src_dpi) for b in q.contents
+                         if b.type == ContentType.IMAGE and b.value)
+                  for i, q in enumerate(mc or [])}
+    solo_mc = {i for i, h in mc_est.items() if h - _img_lines.get(i, 0) >= _SOLO_MC_LINES}
     if solo_mc:
         logger.info("폼 거대문항 단독 단: %s", sorted(i + 1 for i in solo_mc))
 
@@ -1737,9 +1827,29 @@ def _layout_form(filled_hwpx, out_hwpx, per_col: int, n_mc: int, n_es: int,
     if n_mc:
         if len(pos) >= n_mc:
             heights = _extract_heights(pos, n_mc, per_col)
+            # ⭐ 그림은 KeyIndicator 줄 번호로 **1줄**로 잡힌다(한 줄에 든 큰 인라인 그림).
+            # heights[j-1] 은 ①(j-1)→①(j) 구간 = j 의 발문·그림을 담으므로, 같은 단에서
+            # 측정된 구간이면 그 그림의 나머지 줄을 더한다. 안 그러면 도형 문항이 몰린 단이
+            # 실제로는 넘쳐 선택지가 다음 단으로 쪼개지고 뒤 단이 비었다(성광중3 26-2, 2026-09-30).
+            for j in range(1, n_mc):
+                extra = _img_lines.get(j, 0) - 1
+                if extra > 0 and j - 1 in heights and pos[j - 1][:2] == pos[j][:2]:
+                    heights[j - 1] += extra
             for i in solo_mc:                 # 거대문항은 실측 과소추정 → 추정으로 보정
                 heights[i] = max(heights.get(i, 0), mc_est.get(i, 0))
-            obj_colbreak, mc_blanks, cols = _adaptive_columns(heights, n_mc, per_col, solo=solo_mc)
+            # ⭐ 그림 보정 — ①→① span(`_extract_heights`)은 ① **뒤**만 재므로 그 문항 자신의
+            # 발문·그림이 안 담긴다. 단 중간 문항은 앞 문항의 span 에 실려 상쇄되지만, **단
+            # 첫 문항의 그림**은 어느 span 에도 안 들어가 그 단이 통째로 그림 높이만큼
+            # 넘친다(왕선중3 q9·q12 가 발문만 앞 단에 남고 그림·선택지가 다음 단으로 쪼개짐,
+            # 2026-08-13). 단 시작 문항에만 그림 높이를 더해 예산에서 뺀다.
+            # (문항별 높이를 통째로 추정으로 바꾸면 2문항/단으로 과교정된다 — 실측 확인.)
+            head_extra = {i: sum(_image_lines(b.value, fig_src_dpi) for b in q.contents
+                                 if b.type == ContentType.IMAGE and b.value)
+                          for i, q in enumerate(mc or [])}
+            head_extra = {i: v for i, v in head_extra.items() if v}
+            obj_colbreak, mc_blanks, cols = _adaptive_columns(heights, n_mc, per_col,
+                                                              solo=solo_mc,
+                                                              head_extra=head_extra)
             colbreak = set(obj_colbreak)
             blanks.update(mc_blanks)
             mc_cols = cols
@@ -2439,6 +2549,40 @@ def _xml_text(s: str) -> str:
     return "".join(_XML_ESC.get(ch, ch) for ch in s)
 
 
+def _sub_label(k: int) -> ContentBlock:
+    return ContentBlock(type=ContentType.TEXT, value=f"({k}) ")
+
+
+def _merged_answer(q) -> list:
+    """정답면 한 문항의 정답 줄들. 소문항에만 답이 있으면 ``(1) … (2) …`` 로 모은다.
+
+    종전엔 최상위 ``q.answer`` 만 읽어 소문항형 서술형(대구일중3 26-2 서답형2)의 정답면이
+    비었다(2026-09-30). 부모에 답이 있으면 종전 그대로 부모 것을 쓴다.
+    """
+    if q.answer:
+        return list(q.answer)
+    lines = []
+    for k, sq in enumerate(q.sub_questions or [], 1):
+        ans = [b for line in (sq.answer or []) for b in line]
+        if ans:
+            lines.append([_sub_label(k)] + ans)
+    return lines
+
+
+def _merged_solution(q) -> list:
+    """해설 줄들. 부모 해설이 있으면 그것만(정답과 같은 정책), 없으면 소문항 해설을
+    ``(k)`` 머리 줄 뒤에 모은다. 둘 다 이어 붙이면 부모 해설이 이미 (1)(2) 를 다루는
+    흔한 경우에 정답면에 해설이 두 번 인쇄된다(산격중2 26-2 #19~21, 2026-09-30)."""
+    if q.solution:
+        return list(q.solution)
+    lines = []
+    for k, sq in enumerate(q.sub_questions or [], 1):
+        if sq.solution:
+            lines.append([ContentBlock(type=ContentType.TEXT, value=f"({k})")])
+            lines.extend(sq.solution)
+    return lines
+
+
 def _inject_answer_runs(hwpx_path: str | Path,
                         answers: list[list[ContentBlock]]) -> int:
     """정답 페이지(미주 목록)의 번호 뒤에 **정답**을 run 으로 기입한다.
@@ -2993,7 +3137,8 @@ def write_exam_to_form(
                                            figure_src_dpi=figure_src_dpi)
         # 혼합 레이아웃(객관식 행정렬 + 서술형 빽빽배치 2개/단, 답란 미보존).
         # mc 도 넘겨 COM 측정 실패 시 내용기반 추정으로 폴백(과여백 회피).
-        _layout_form(filled, output_path, per_col, n_mc, n_es, essays=essays, mc=mc)
+        _layout_form(filled, output_path, per_col, n_mc, n_es, essays=essays, mc=mc,
+                     fig_src_dpi=figure_src_dpi)
     finally:
         try:
             os.remove(filled)
@@ -3060,7 +3205,7 @@ def write_exam_to_form(
     # 1.55단계: 정답 페이지(미주 목록) 기입 — 완료본 규약 ``1. ④``(194차 달서고). 본문 미주
     # 순서 = 채움 순서(객관식 → 서술형)라 그대로 1:1 매핑. 값이 없으면 no-op(기존 동작).
     try:
-        _answers = [list(q.answer or []) for q in (mc + essays)]
+        _answers = [_merged_answer(q) for q in (mc + essays)]
         n_ans = _inject_answer_runs(output_path, _answers)
         if n_ans:
             logger.info("정답 기입 %d개", n_ans)
@@ -3070,7 +3215,7 @@ def write_exam_to_form(
     try:
         # ⭐ 객관식은 **정답만**(완료본 규약 194차: ``1. ④`` 원문자만 — 해설 없음.
         # 사용자 재확인 2026-08-09). 해설 데이터는 보존하되 렌더에서 뺀다.
-        _sols = [[] if q.choices else list(q.solution or [])
+        _sols = [[] if q.choices else _merged_solution(q)
                  for q in (mc + essays)]
         n_sol = _inject_solutions(output_path, _sols)
         if n_sol:
@@ -3204,8 +3349,10 @@ def write_exam_to_form(
             return path
         try:
             from core.figure_embed import replace_placeholder_figures
+            sizes = {_fig_token(i): FIG_SIZE_MM[os.path.abspath(p)]
+                     for i, p in enumerate(fig_paths) if os.path.abspath(p) in FIG_SIZE_MM}
             n = replace_placeholder_figures(
-                path, {_fig_token(i): p for i, p in enumerate(fig_paths)})
+                path, {_fig_token(i): p for i, p in enumerate(fig_paths)}, sizes_mm=sizes)
             logger.info("그림 교체 %d/%d", n, len(fig_paths))
         except Exception as e:  # noqa: BLE001 — 그림 실패가 변환을 막지 않는다
             logger.warning("폼 후처리 실패(그림 교체): %s", e)

@@ -1,0 +1,635 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 6,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "두 직선 "
+    },
+    {
+     "type": "equation",
+     "value": "4x-3y-2=0"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "ax+6y+b=0"
+    },
+    {
+     "type": "text",
+     "value": "가 두 개 이상의 점에서 만날 때, 일차함수 "
+    },
+    {
+     "type": "equation",
+     "value": "y=bx+a"
+    },
+    {
+     "type": "text",
+     "value": "의 그래프의 "
+    },
+    {
+     "type": "equation",
+     "value": "x"
+    },
+    {
+     "type": "text",
+     "value": "절편을 구하면? (단, "
+    },
+    {
+     "type": "equation",
+     "value": "a,\\ b"
+    },
+    {
+     "type": "text",
+     "value": "는 상수)"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-2"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-\\frac{1}{2}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{1}{2}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4"
+      }
+     ]
+    }
+   ],
+   "answer": "④"
+  },
+  {
+   "number": 7,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림과 같이 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AB}=\\overline{AC}"
+    },
+    {
+     "type": "text",
+     "value": "인 이등변삼각형 ABC에서 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{DE}"
+    },
+    {
+     "type": "text",
+     "value": "를 접는 선으로 하여 점 A가 점 C와 만나도록 접었다. "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle DCB:\\angle DCE=1:2"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle BDC"
+    },
+    {
+     "type": "text",
+     "value": "의 크기는?"
+    },
+    {
+     "type": "figure",
+     "value": "이등변삼각형 ABC를 DE(D는 AB 위, E는 AC 위)를 접는 선으로 접어 A가 C에 오게 함. 접히기 전 부분 AD·AE는 점선, 접힌 삼각형 DEC는 회색 음영, 접는 방향 곡선 화살표.",
+     "bbox": [
+      0.3,
+      0.35,
+      0.5,
+      0.45
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "55^{\\circ}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "67.5^{\\circ}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "75^{\\circ}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "90^{\\circ}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "92.5^{\\circ}"
+      }
+     ]
+    }
+   ],
+   "answer": "④"
+  },
+  {
+   "number": 8,
+   "score": 4,
+   "contents": [
+    {
+     "type": "equation",
+     "value": "\\angle O"
+    },
+    {
+     "type": "text",
+     "value": "의 이등분선 위의 한 점 P에서 두 반직선 OA와 OB에 내린 수선의 발이 각각 A, B이다. "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{OA}=8\\mathrm{cm}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{PB}=6\\mathrm{cm}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle APO=48^{\\circ}"
+    },
+    {
+     "type": "text",
+     "value": "일 때, <보기>에서 옳은 것만을 있는 대로 고른 것은?"
+    },
+    {
+     "type": "figure",
+     "value": "각 O의 두 반직선 OA(위)·OB(수평), 이등분선 OP. A·B에 직각 표시, O에 등각 점 표시 두 개, P에 48° 호. OA 8cm·PB 6cm 점선 치수.",
+     "bbox": [
+      0.3,
+      0.64,
+      0.5,
+      0.76
+     ]
+    },
+    {
+     "type": "text",
+     "value": "<보기> ㄱ. "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle POB=52^{\\circ}"
+    },
+    {
+     "type": "text",
+     "value": " • ㄴ. "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle OPA=18\\mathrm{cm}^{2}"
+    },
+    {
+     "type": "text",
+     "value": " • ㄷ. "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle APB=96^{\\circ}"
+    },
+    {
+     "type": "text",
+     "value": " • ㄹ. "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{OB}=8\\mathrm{cm}"
+    },
+    {
+     "type": "text",
+     "value": " • ㅁ. "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle OPA\\equiv\\triangle OPB"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄱ, ㄷ"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄴ, ㅁ"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄱ, ㄴ, ㄷ"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄴ, ㄹ, ㅁ"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄷ, ㄹ, ㅁ"
+      }
+     ]
+    }
+   ],
+   "answer": "⑤"
+  },
+  {
+   "number": 9,
+   "score": 4,
+   "contents": [
+    {
+     "type": "equation",
+     "value": "\\angle C=\\angle D=90^{\\circ}"
+    },
+    {
+     "type": "text",
+     "value": "이고, "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{CA}=\\overline{DB}"
+    },
+    {
+     "type": "text",
+     "value": "인 두 직각삼각형 ABC와 ABD의 빗변 AB가 겹치도록 놓았다. "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle DAB=37^{\\circ}"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle DBC"
+    },
+    {
+     "type": "text",
+     "value": "의 크기는?"
+    },
+    {
+     "type": "figure",
+     "value": "공통 빗변 AB(수평) 위로 직각삼각형 ABC(C 직각, 왼쪽 위)와 ABD(D 직각, 오른쪽 위). AD와 BC의 교점 E. AC·DB 같음 표시(두 줄), A에 37° 호.",
+     "bbox": [
+      0.61,
+      0.13,
+      0.81,
+      0.21
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "13^{\\circ}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "16^{\\circ}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "18^{\\circ}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "20^{\\circ}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "26^{\\circ}"
+      }
+     ]
+    }
+   ],
+   "answer": "②"
+  },
+  {
+   "number": 10,
+   "score": 4,
+   "contents": [
+    {
+     "type": "equation",
+     "value": "\\angle B=90^{\\circ}"
+    },
+    {
+     "type": "text",
+     "value": "인 직각삼각형 ABC에서 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AB}=\\overline{AD}"
+    },
+    {
+     "type": "text",
+     "value": "이고, "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AC}\\perp\\overline{ED}"
+    },
+    {
+     "type": "text",
+     "value": "이다. "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AB}=5\\mathrm{cm}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{BC}=12\\mathrm{cm}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{CA}=13\\mathrm{cm}"
+    },
+    {
+     "type": "text",
+     "value": "일 때, 삼각형 DEC의 둘레의 길이는?"
+    },
+    {
+     "type": "figure",
+     "value": "직각삼각형 ABC(B 직각, AB 세로, BC 가로). D는 AC 위(D 직각), E는 BC 위, 선분 AE·DE. AB 5cm·BC 12cm·CA 13cm 점선 치수.",
+     "bbox": [
+      0.58,
+      0.43,
+      0.75,
+      0.53
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "18\\mathrm{cm}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "20\\mathrm{cm}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "22\\mathrm{cm}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "24\\mathrm{cm}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "25\\mathrm{cm}"
+      }
+     ]
+    }
+   ],
+   "answer": "②"
+  },
+  {
+   "number": 11,
+   "score": 4,
+   "contents": [
+    {
+     "type": "equation",
+     "value": "\\angle B=90^{\\circ}"
+    },
+    {
+     "type": "text",
+     "value": "이고, "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AM}=\\overline{CM}"
+    },
+    {
+     "type": "text",
+     "value": "인 삼각형 ABC에 대한 설명 중 옳지 "
+    },
+    {
+     "type": "text",
+     "value": "__않은__"
+    },
+    {
+     "type": "text",
+     "value": " 것은?"
+    },
+    {
+     "type": "figure",
+     "value": "직각삼각형 ABC(B 직각), 빗변 AC의 중점 M, 선분 BM. AM·CM 같음 표시(두 줄).",
+     "bbox": [
+      0.62,
+      0.72,
+      0.8,
+      0.8
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\angle MAB=\\angle MBA"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\angle AMB=2\\angle MCB"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "text",
+       "value": "삼각형 ABM은 정삼각형이다."
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "text",
+       "value": "삼각형 MBC는 이등변삼각형이다."
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "text",
+       "value": "점 M은 세 점 A, B, C를 지나는 원의 중심이다."
+      }
+     ]
+    }
+   ],
+   "answer": "③"
+  }
+ ]
+}

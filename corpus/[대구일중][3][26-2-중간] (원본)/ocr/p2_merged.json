@@ -1,0 +1,605 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 7,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림과 같이 "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle \\mathrm{C}=90^{\\circ}"
+    },
+    {
+     "type": "text",
+     "value": "인 직각삼각형 ABC에서 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{\\mathrm{BC}}=4"
+    },
+    {
+     "type": "text",
+     "value": "이다. "
+    },
+    {
+     "type": "equation",
+     "value": "\\tan B=\\frac{\\sqrt{5}}{2}"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{\\mathrm{AB}}"
+    },
+    {
+     "type": "text",
+     "value": "의 길이는?"
+    },
+    {
+     "type": "figure",
+     "value": "직각삼각형 ABC(∠C=90°, C 오른쪽 아래, A 위). 밑변 BC=4(점선 치수).",
+     "bbox": [
+      0.22,
+      0.17,
+      0.34,
+      0.24
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "6"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "7"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "8"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "9"
+      }
+     ]
+    }
+   ],
+   "answer": "②"
+  },
+  {
+   "number": 8,
+   "score": 3,
+   "contents": [
+    {
+     "type": "text",
+     "value": "다음 식의 값은?"
+    },
+    {
+     "type": "text",
+     "value": "<상자>"
+    },
+    {
+     "type": "equation",
+     "value": "(\\cos 0^{\\circ}-\\cos 60^{\\circ}-\\tan 60^{\\circ})(\\sin 90^{\\circ}-\\sin 30^{\\circ}+\\tan 60^{\\circ})"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-\\frac{11}{4}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-\\frac{9}{4}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{9}{4}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{11}{4}"
+      }
+     ]
+    }
+   ],
+   "answer": "①"
+  },
+  {
+   "number": 9,
+   "score": 3,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림과 같이 반지름의 길이가 "
+    },
+    {
+     "type": "equation",
+     "value": "1"
+    },
+    {
+     "type": "text",
+     "value": "인 사분원에서 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{\\mathrm{AB}}"
+    },
+    {
+     "type": "text",
+     "value": "의 길이와 같은 삼각비의 값만을 <보기>에서 있는 대로 고른 것은?"
+    },
+    {
+     "type": "figure",
+     "value": "반지름 1인 사분원 OED(O 왼쪽 아래, E 위, D 오른쪽). 호 위 점 A, A에서 OD에 내린 수선의 발 B, 직선 OA 연장과 D에서의 수직선의 교점 C. ∠AOB=x°, ∠OAB=y°, ∠OCD=z°. O·B·D 직각 표시, OE=1 점선 치수.",
+     "bbox": [
+      0.22,
+      0.625,
+      0.355,
+      0.71
+     ]
+    },
+    {
+     "type": "text",
+     "value": "<보기> ㄱ. \\sin x^{\\circ} • ㄴ. \\cos x^{\\circ} • ㄷ. \\tan x^{\\circ} • ㄹ. \\sin y^{\\circ} • ㅁ. \\cos y^{\\circ} • ㅂ. \\cos z^{\\circ}"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄱ, ㅁ"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄴ, ㄹ"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄷ, ㅁ"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄱ, ㅁ, ㅂ"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄴ, ㄹ, ㅂ"
+      }
+     ]
+    }
+   ],
+   "answer": "④"
+  },
+  {
+   "number": 10,
+   "score": 3,
+   "contents": [
+    {
+     "type": "text",
+     "value": "[10~12] 삼각비의 표를 이용하여 물음에 답하시오."
+    },
+    {
+     "type": "table",
+     "value": "",
+     "rows": [
+      [
+       "각",
+       "사인(sin)",
+       "코사인(cos)",
+       "탄젠트(tan)"
+      ],
+      [
+       "33^{\\circ}",
+       "0.54",
+       "0.84",
+       "0.65"
+      ],
+      [
+       "34^{\\circ}",
+       "0.56",
+       "0.83",
+       "0.67"
+      ],
+      [
+       "54^{\\circ}",
+       "0.81",
+       "0.59",
+       "1.38"
+      ],
+      [
+       "55^{\\circ}",
+       "0.82",
+       "0.57",
+       "1.43"
+      ],
+      [
+       "56^{\\circ}",
+       "0.83",
+       "0.56",
+       "1.48"
+      ]
+     ]
+    },
+    {
+     "type": "text",
+     "value": "그림과 같이 반지름의 길이가 "
+    },
+    {
+     "type": "equation",
+     "value": "1"
+    },
+    {
+     "type": "text",
+     "value": "인 사분원에서 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{\\mathrm{AD}}=0.44"
+    },
+    {
+     "type": "text",
+     "value": "이다. "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle \\mathrm{BOA}=x^{\\circ}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{\\mathrm{AC}}=y"
+    },
+    {
+     "type": "text",
+     "value": "라 할 때, "
+    },
+    {
+     "type": "equation",
+     "value": "x+y"
+    },
+    {
+     "type": "text",
+     "value": "의 값은?"
+    },
+    {
+     "type": "figure",
+     "value": "반지름 1인 사분원(O 왼쪽 아래, A 오른쪽). 호 위 점 B, B에서 OA에 내린 수선의 발 D, 직선 OB 연장과 A에서의 수직선의 교점 C. ∠BOA=x, D·A 직각 표시, AC=y·DA=0.44 점선 치수.",
+     "bbox": [
+      0.64,
+      0.29,
+      0.78,
+      0.4
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4.07"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "6.93"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "34.67"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "55.38"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "57.48"
+      }
+     ]
+    }
+   ],
+   "answer": "⑤"
+  },
+  {
+   "number": 11,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림과 같이 "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle \\mathrm{C}=90^{\\circ}"
+    },
+    {
+     "type": "text",
+     "value": "인 직각삼각형 ABC에서 "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle \\mathrm{A}=55^{\\circ}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{\\mathrm{AB}}=10"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{\\mathrm{BC}}"
+    },
+    {
+     "type": "text",
+     "value": "의 길이는?"
+    },
+    {
+     "type": "figure",
+     "value": "직각삼각형 ABC(∠C=90°, C 위). ∠A=55, 빗변 AB=10(점선 치수), BC=x(점선 치수).",
+     "bbox": [
+      0.64,
+      0.52,
+      0.79,
+      0.585
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5.7"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "6.7"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "8.2"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "13.8"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "14.3"
+      }
+     ]
+    }
+   ],
+   "answer": "③"
+  },
+  {
+   "number": 12,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림과 같이 지점 C에서 두 등대 A, B를 바라본 각의 크기는 "
+    },
+    {
+     "type": "equation",
+     "value": "33^{\\circ}"
+    },
+    {
+     "type": "text",
+     "value": "이고, 등대 B에서 등대 A와 지점 C를 바라본 각의 크기는 "
+    },
+    {
+     "type": "equation",
+     "value": "90^{\\circ}"
+    },
+    {
+     "type": "text",
+     "value": "이다. 등대 B와 지점 C사이의 거리가 "
+    },
+    {
+     "type": "equation",
+     "value": "200\\mathrm{m}"
+    },
+    {
+     "type": "text",
+     "value": "일 때, 두 등대 A, B사이의 거리는? (단, 단위는 m이다.)"
+    },
+    {
+     "type": "figure",
+     "value": "바다 위 두 등대 A, B와 방파제 끝 지점 C. 삼각형 ABC(∠B=90°), ∠C=33°, BC=200 m(점선 치수).",
+     "bbox": [
+      0.625,
+      0.74,
+      0.8,
+      0.81
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "100"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "108"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "112"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "130"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "168"
+      }
+     ]
+    }
+   ],
+   "answer": "④"
+  }
+ ]
+}

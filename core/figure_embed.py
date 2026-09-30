@@ -73,7 +73,8 @@ def _find(h, text: str) -> bool:
 
 
 def replace_placeholder_figures(doc_path: str | Path,
-                                token_to_png: dict[str, str]) -> int:
+                                token_to_png: dict[str, str],
+                                sizes_mm: dict[str, tuple[float, float]] | None = None) -> int:
     """토큰 **뒤의 자리표시 그림**을 진짜 그림으로 바꾼다(폼 경로). 교체 수 반환.
 
     ⭐ 왜 이 모양인가(실측 2026-08-20):
@@ -88,8 +89,14 @@ def replace_placeholder_figures(doc_path: str | Path,
         저장자라 변조 보안경고도 없다(실측: BinData 에 우리 PNG 가 정상 임베드).
 
     ⚠️ **모든 XML 후처리·relaunder·최종 .hwp 굽기가 끝난 뒤** 호출한다.
+
+    ``sizes_mm``: 토큰별 (폭, 높이) mm. 주면 그 크기로 넣는다(sizeoption 1). 없으면 원래
+    크기(sizeoption 2 = 픽셀/96dpi). ⚠️ 고해상도 PNG(작도 4배 등)를 원래 크기로 넣으면
+    지면보다 커진다 — 자리표시를 mm 로 잡은 호출자는 **같은 mm 를 여기에도** 넘겨야
+    교체 후에도 레이아웃이 실측한 크기가 유지된다(2026-09-30 침산중3 실측: 13개 전부 A4 폭 초과).
     """
     doc_path = Path(doc_path).resolve()      # ⚠️ HWP Open 은 상대경로를 조용히 실패
+    sizes_mm = sizes_mm or {}
     if not token_to_png or not doc_path.exists():
         return 0
     fmt = "HWP" if doc_path.suffix.lower() == ".hwp" else "HWPX"
@@ -110,8 +117,12 @@ def replace_placeholder_figures(doc_path: str | Path,
             # 토큰 **바로 뒤**의 자리표시 그림(글자처럼 취급 = 한 글자)을 선택 후 교체.
             h.Run("MoveSelRight")
             h.HAction.Run("Delete")
+            size = sizes_mm.get(token)
             try:
-                h.InsertPicture(png, True, 2, 0, 0, 0, 0, 0)
+                if size:
+                    h.InsertPicture(png, True, 1, 0, 0, 0, float(size[0]), float(size[1]))
+                else:
+                    h.InsertPicture(png, True, 2, 0, 0, 0, 0, 0)
             except Exception:  # noqa: BLE001 (구버전 시그니처 폴백)
                 h.InsertPicture(png, True, 2)
             n += 1

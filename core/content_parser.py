@@ -313,7 +313,7 @@ _SOL_CMD_RE = re.compile(r"\\[a-zA-Z]+|[{}^_]")
 # 개행 후에도 25.5%가 한계 초과, 최대 +33%). 아래 집합만 0, 나머지 명령은 1글리프로 센다.
 _SOL_ZERO_CMDS = frozenset("""
 left right mathrm mathit mathbf text textrm rm it bf displaystyle limits nolimits
-frac dfrac tfrac begin end array cases matrix pmatrix bmatrix vmatrix
+frac dfrac tfrac cfrac begin end array cases matrix pmatrix bmatrix vmatrix
 big Big bigg Bigg bigl bigr Bigl Bigr biggl biggr quad qquad hspace
 overline underline bar vec hat tilde widehat widetilde boxed mbox
 """.split())
@@ -1669,8 +1669,13 @@ def _split_inline_latex(text: str) -> list[ContentBlock]:
     return blocks if blocks else [ContentBlock(type=ContentType.TEXT, value=text)]
 
 
-# __밑줄__ 마크업 감지 패턴
-_UNDERLINE_RE = re.compile(r"__(.+?)__")
+# __밑줄__ 마크업 감지 패턴. ⚠️ **정확히 두 개**의 밑줄만 마크업이다 — 서술형 빈칸
+# (``① ______``·``______④______``, 왕선중3 서답형1 증명 빈칸)은 밑줄 3개 이상의 런이고,
+# 이걸 마크업으로 보면 ``______`` 이 ``__``+강조+``__`` 로 먹혀 **빈칸이 밑줄 2칸으로
+# 쪼그라든다**(2026-08-13 실측). 앞뒤 lookaround 로 런 안의 부분매칭을 막는다.
+_UNDERLINE_RE = re.compile(r"(?<!_)__(?!_)(.+?)(?<!_)__(?!_)")
+# 마크업 후보 ``__``(런의 일부가 아닌 것) — 교차블록 연결기가 빈칸을 삼키지 않게 쓴다.
+_UL_MARK_RE = re.compile(r"(?<!_)__(?!_)")
 # 한글 포함 여부 — __강조__ 가 한글이면 밑줄(옳지 않은), 라틴/수식이면 OCR 오인 → 수식 복원.
 _HANGUL_RE = re.compile(r"[가-힣]")
 
@@ -1768,7 +1773,7 @@ _LATEX_CMD_RE = re.compile(
     r'|\\[{}]'                           # 집합 기호 \{ \} (집합·명제 set-builder) — 빠지면 \{ 가
                                          # 평문 ₩{ 로 새고 set 식이 ``Y`` ``=\{`` ``y`` 로 쪼개짐
                                          # (강북고 수하 #14 ``Y=\{y|1\le y\le 8\}``, 2026-06-14)
-    r'|\\(?:sqrt|d?frac|tfrac|sum|prod|int|oint|lim|'   # text 로 새 "P₩!" 되는 것 방지(#12)
+    r'|\\(?:sqrt|[cd]?frac|tfrac|sum|prod|int|oint|lim|'   # text 로 새 "P₩!" 되는 것 방지(#12)
     r'times|div|pm|mp|cdot|cdots|ldots|quad|qquad|'
     r'left|right|leq|geq|neq|infty|'
     r'alpha|beta|gamma|delta|epsilon|zeta|eta|theta|iota|kappa|'
@@ -1886,17 +1891,18 @@ def _link_cross_block_underline(blocks: list[ContentBlock]) -> list[ContentBlock
     ``__x__`` 또는 underline 속성)엔 교차블록 ``__`` 0건 = 무영향. 이 단계 도달 시 TEXT 의 ``__``
     는 항상 **짝 없는** 것(짝 ``__x__`` 는 `_parse_content_block` 이 이미 처리)."""
     oi = next((k for k, b in enumerate(blocks)
-               if b.type == ContentType.TEXT and "__" in (b.value or "")), None)
+               if b.type == ContentType.TEXT and _UL_MARK_RE.search(b.value or "")), None)
     if oi is None:
         return blocks
     ci = next((k for k in range(oi + 1, len(blocks))
-               if blocks[k].type == ContentType.TEXT and "__" in (blocks[k].value or "")), None)
+               if blocks[k].type == ContentType.TEXT
+               and _UL_MARK_RE.search(blocks[k].value or "")), None)
     if ci is None:
         return blocks   # 닫는 ``__`` 없음(불완전 OCR) — 건드리지 않음
 
     out: list[ContentBlock] = list(blocks[:oi])
     ov = blocks[oi].value or ""
-    p = ov.find("__")
+    p = _UL_MARK_RE.search(ov).start()
     pre, post = ov[:p], ov[p + 2:]
     if pre:
         out.append(ContentBlock(type=ContentType.TEXT, value=pre))
@@ -1909,7 +1915,7 @@ def _link_cross_block_underline(blocks: list[ContentBlock]) -> list[ContentBlock
         else:
             out.append(b)
     cv = blocks[ci].value or ""
-    q = cv.find("__")
+    q = _UL_MARK_RE.search(cv).start()
     cpre, cpost = cv[:q], cv[q + 2:]
     if cpre:
         out.append(ContentBlock(type=ContentType.TEXT, value=cpre, underline=True))

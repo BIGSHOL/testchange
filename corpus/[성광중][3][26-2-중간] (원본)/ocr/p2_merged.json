@@ -1,0 +1,525 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 6,
+   "score": 3,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림과 같은 "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle ABC"
+    },
+    {
+     "type": "text",
+     "value": "에서 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AB} = 8"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle A = 54\\degree"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle B = 81\\degree"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AC}"
+    },
+    {
+     "type": "text",
+     "value": "의 길이는? (단, "
+    },
+    {
+     "type": "equation",
+     "value": "\\sin 54\\degree = 0.8"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\cos 54\\degree = 0.6"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\tan 54\\degree = 1.4"
+    },
+    {
+     "type": "text",
+     "value": "로 계산한다.)"
+    },
+    {
+     "type": "figure",
+     "value": "삼각형 ABC(A 위, B 왼쪽 아래, C 오른쪽 아래). AB 왼쪽 점선 치수 8, ∠A=54°.",
+     "bbox": [
+      0.17,
+      0.18,
+      0.37,
+      0.29
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "8.4"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "9.6"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "11.2"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "12.8"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "16"
+      }
+     ]
+    }
+   ],
+   "answer": "③"
+  },
+  {
+   "number": 7,
+   "score": 4,
+   "contents": [
+    {
+     "type": "equation",
+     "value": "\\triangle ABC"
+    },
+    {
+     "type": "text",
+     "value": "에서 "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle B = 45\\degree"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle ACH = 60\\degree"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{BC} = 10 \\mathrm{cm}"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AH}"
+    },
+    {
+     "type": "text",
+     "value": "의 길이는?"
+    },
+    {
+     "type": "figure",
+     "value": "B, C, H가 한 직선 위(왼→오), A에서 BC의 연장선에 내린 수선의 발 H(직각 표시). ∠B=45°, ∠ACH=60°, BC 아래 10 cm.",
+     "bbox": [
+      0.17,
+      0.41,
+      0.36,
+      0.52
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3+\\sqrt{3} \\mathrm{cm}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5(3+\\sqrt{3}) \\mathrm{cm}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "10(3+\\sqrt{3}) \\mathrm{cm}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "15(3+\\sqrt{3}) \\mathrm{cm}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "20(3+\\sqrt{3}) \\mathrm{cm}"
+      }
+     ]
+    }
+   ],
+   "answer": "②"
+  },
+  {
+   "number": 8,
+   "score": 3,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림과 같이 반지름의 길이가 "
+    },
+    {
+     "type": "equation",
+     "value": "4"
+    },
+    {
+     "type": "text",
+     "value": "인 반원에서 색칠한 부분의 넓이는?"
+    },
+    {
+     "type": "figure",
+     "value": "지름 AB, 중심 O, 반지름 4인 반원. 원 위의 점 C, 현 AC와 반지름 OC. ∠CAB=30°, A~O 점선 치수 4. 반원에서 삼각형 AOC를 뺀 부분 색칠.",
+     "bbox": [
+      0.16,
+      0.69,
+      0.38,
+      0.79
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "8\\pi - 4\\sqrt{3}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "18\\pi - 9\\sqrt{3}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "18\\pi + 9\\sqrt{3}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "36\\pi - 18\\sqrt{3}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "36\\pi + 18\\sqrt{3}"
+      }
+     ]
+    }
+   ],
+   "answer": "①"
+  },
+  {
+   "number": 9,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림과 같은 "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle ABC"
+    },
+    {
+     "type": "text",
+     "value": "에서 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AB} = 6\\sqrt{3} \\mathrm{cm}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AC} = 6 \\mathrm{cm}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{BC} = 12 \\mathrm{cm}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle B = \\angle ACD = 30\\degree"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle BCD"
+    },
+    {
+     "type": "text",
+     "value": "의 넓이는?"
+    },
+    {
+     "type": "figure",
+     "value": "삼각형 ABC(B 왼쪽, C 오른쪽, A 위). D는 AB 위의 점, 선분 CD. 삼각형 DBC 색칠. ∠B=30°, ∠ACD=30°, AB 위 점선 치수 6√3 cm, AC 6 cm, BC 12 cm.",
+     "bbox": [
+      0.56,
+      0.155,
+      0.84,
+      0.27
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{16\\sqrt{3}}{3} \\mathrm{cm}^{2}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "8\\sqrt{3} \\mathrm{cm}^{2}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "10\\sqrt{3} \\mathrm{cm}^{2}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "12\\sqrt{3} \\mathrm{cm}^{2}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{46\\sqrt{3}}{3} \\mathrm{cm}^{2}"
+      }
+     ]
+    }
+   ],
+   "answer": "④"
+  },
+  {
+   "number": 10,
+   "score": 2,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림과 같이 원 O의 두 현 AB와 CD가 수직으로 만난다. "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AM} = 8 \\mathrm{cm}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{MB} = 4 \\mathrm{cm}"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{CD}"
+    },
+    {
+     "type": "text",
+     "value": "의 길이는?"
+    },
+    {
+     "type": "figure",
+     "value": "원 O. 지름 AB(가로), 현 CD(세로)가 점 M에서 수직으로 만남. A~M 점선 치수 8 cm, M~B 4 cm.",
+     "bbox": [
+      0.59,
+      0.555,
+      0.78,
+      0.68
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4 \\mathrm{cm}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4\\sqrt{2} \\mathrm{cm}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "8 \\mathrm{cm}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "8\\sqrt{2} \\mathrm{cm}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4\\sqrt{10} \\mathrm{cm}"
+      }
+     ]
+    }
+   ],
+   "answer": "④"
+  }
+ ]
+}

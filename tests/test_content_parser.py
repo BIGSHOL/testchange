@@ -1479,6 +1479,31 @@ def run():
     # 부정은 명제에 붙여 쓴다(원본 인쇄 ``~p``).
     if "∼ p" in _dr2(r"\sim p", italicize_stat=False):
         fails.append("  DR2 부정 기호 뒤 공백이 남음")
+    # ── WS1(2026-08-13, 왕선중3 서답형1): 증명 빈칸 ``______`` 은 밑줄 마크업이 아니다.
+    # ``__(.+?)__`` 가 런 안에서 부분매칭해 ``______`` 이 ``__``+강조+``__`` 로 먹히면서
+    # 빈칸이 밑줄 2칸으로 쪼그라들었다. 밑줄 3개 이상 런은 빈칸으로 보존하고, 정확히
+    # 2개인 마크업(``__않은__``)·수식 복원(``__xy__``)은 그대로여야 한다.
+    _ws = _pq({"number": 19, "score": 5, "contents": [
+        {"type": "text", "value": "다음 풀이를 완성하시오."},
+        {"type": "text", "value": "<상자> (풀이) • ① ______ • ______④______ ( ___⑤___ 합동)"},
+    ]})
+    _wtxt = "".join((b.value or "") for b in _ws.contents)
+    if "① ______" not in _wtxt or "______④______" not in _wtxt:
+        fails.append(f"  WS1 빈칸 런 보존 실패: {_wtxt!r}")
+    if any(getattr(b, "underline", False) for b in _ws.contents):
+        fails.append("  WS1 빈칸을 밑줄 강조로 오인")
+    _ws2 = _pq({"number": 1, "score": 3, "contents": [
+        {"type": "text", "value": "옳지 __않은__ 것은?"}]})
+    if not any(b.type == ContentType.TEXT and getattr(b, "underline", False)
+               and b.value == "않은"
+               for b in _ws2.contents):
+        fails.append(f"  WS1 정상 __강조__ 회귀: "
+                     f"{[(b.value, getattr(b, 'underline', False)) for b in _ws2.contents]!r}")
+    _ws3 = _pq({"number": 1, "score": 3, "contents": [
+        {"type": "text", "value": "__xy__ 의 값은?"}]})
+    if not any(b.type == ContentType.EQUATION and b.value == "xy" for b in _ws3.contents):
+        fails.append(f"  WS1 __xy__ 수식 복원 회귀: "
+                     f"{[(b.type.name, b.value) for b in _ws3.contents]!r}")
 
     if fails:
         print("FAIL test_content_parser:")

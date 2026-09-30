@@ -358,7 +358,7 @@ def _measure_latex_size(latex: str) -> tuple[int, int] | None:
             return w
 
         # 분수 포함 여부 확인
-        frac_match = re.search(r"\\(?:d?frac)\s*\{", latex)
+        frac_match = re.search(r"\\(?:[cdt]?frac)\s*\{", latex)
         if frac_match:
             # prefix: \frac 앞의 내용
             prefix = latex[: frac_match.start()].strip()
@@ -406,6 +406,46 @@ def _measure_latex_size(latex: str) -> tuple[int, int] | None:
         return (w, h)
     except Exception:
         return None
+
+
+_MATRIX_RE = re.compile(r"(?:[A-Za-z]*MATRIX|matrix|\{array\})\s*\{", re.I)
+
+
+def _matrix_segments(script: str):
+    """스크립트 안의 **모든** 행렬을 (start, end, 행수, 열별 셀목록) 으로.
+
+    HWP 행렬은 `PMATRIX {a & b # c & d}` 꼴로 `#` 가 행, `&` 가 열 구분이다
+    (`BMATRIX`·`DMATRIX`·소문자 `matrix` 동일). ⚠️ 한 수식에 행렬이 둘 이상인
+    경우(`PMATRIX{…} = PMATRIX{…}`)가 흔해서 첫 개만 보면 폭이 크게 틀린다.
+    """
+    out, pos = [], 0
+    while True:
+        m = _MATRIX_RE.search(script, pos)
+        if not m:
+            return out
+        i = m.end() - 1                   # 여는 '{'
+        depth, j = 0, i
+        while j < len(script):
+            if script[j] == "{":
+                depth += 1
+            elif script[j] == "}":
+                depth -= 1
+                if depth == 0:
+                    break
+            j += 1
+        body = script[i + 1:j]
+        rows = body.split("#")
+        cells = [[c.strip() for c in r.split("&")] for r in rows]
+        ncol = max((len(c) for c in cells), default=1)
+        columns = [[r[k] for r in cells if k < len(r)] for k in range(ncol)]
+        out.append((m.start(), min(j + 1, len(script)), len(rows), columns))
+        pos = j + 1
+
+
+def _matrix_shape(script: str):
+    """첫 행렬의 (행수, 열별 셀목록) — 없으면 None. (2단 판정용)"""
+    segs = _matrix_segments(script)
+    return (segs[0][2], segs[0][3]) if segs else None
 
 
 def _estimate_equation_size(hwp_eq_script: str) -> tuple[int, int]:
@@ -469,12 +509,74 @@ def _estimate_equation_size(hwp_eq_script: str) -> tuple[int, int]:
         has_fraction
         or has_sqrt
         or re.search(r"\b(SUM|INT|OINT|PROD|COPROD|UNION|INTER|BIGUNION|BIGINTER)\b", hwp_eq_script) is not None
-        or re.search(r"\bmatrix\b|\{array\}", hwp_eq_script) is not None
+        # ⚠️ 대문자 행렬 키워드(PMATRIX/BMATRIX/DMATRIX…)를 놓치면 3행 행렬이 1단
+        # (1200)으로 잡혀 **69% 과소추정** → 뒤 텍스트가 수식 위로 겹친다(2026-08-13
+        # 실측, 강북고 공수1 행렬 단원). `\bmatrix\b` 는 'PMATRIX' 앞에 단어경계가
+        # 없어 매칭되지 않았다. 행 수는 `_matrix_shape` 가 따로 센다.
+        or _matrix_shape(hwp_eq_script) is not None
         or ("pile" in hwp_eq_script.lower())
     )
     height = 2400 if two_line else 1200
 
     return (width, height)
+
+
+# ── COM 실측 기준 보정 (한글 없는 경로 전용) ────────────────────────────────
+# ⚠️ 왜 별도 함수인가: 위 `_estimate_equation_size` 는 **골든셋 84개**(수기 워드본
+# `data/골든셋기준_조암중…`)로 튜닝됐는데, 그 문서의 수식 상자는 사람이 수식편집기로
+# 만든 것이라 **헐겁다**. 같은 스크립트·같은 baseUnit 인데 COM 이 만드는 상자보다
+# 1.5~2.0배 넓다(2026-08-13 실측: `a` 800 vs 477, `b` 800 vs 409, `x` 826 vs 545).
+# 그 편향을 학습한 탓에 짧은 수식일수록 과대추정이 심하고(1글자 +98%, 2~3글자 +57%),
+# 합의 #6(숫자·문자 전부 수식 객체화) 때문에 실제 문서는 **짧은 수식이 79%** 라
+# 한글 없이 만든 파일은 수식마다 여백이 벌어져 보인다.
+#
+# ⚠️ 그렇다고 `_HWPEQ_GLOBAL_*` 를 줄이면 **배포 COM 경로가 깨진다** —
+# `hwp_form_writer._eq_size`(정답면 해설 수식)가 같은 함수를 쓰는데, 거기서는
+# 과소추정이 곧 '뒤 텍스트가 수식 위로 겹침'이다. 그래서 전역 상수는 그대로 두고
+# **XML 생성기 호출부에서만** COM 기준으로 환산한다.
+#
+# 계수는 `scripts/hwpx_parity/harness.py score` 가 COM 산출물(정답지)로 적합한다.
+_COM_W_SCALE = 0.9687
+_COM_W_BIAS = -463.0
+# 높이는 HWP 가 값을 양자화한다(baseUnit 1000 환산). 추정기의 1200/2400 이진 분류를
+# COM 실측값으로 갈아끼운다 — 1단 1023(=baseUnit×1.023), 2단 2345.
+_COM_H_TABLE = {1200: 1023, 2400: 2345}
+
+# 행렬 전용 모델 — 일반 수식 공식은 셀을 **한 줄로 죽 이어** 재서 3×3 행렬을 5배
+# 과대추정한다. 실제 폭은 *열별 최대폭의 합*이고, 괄호는 행수에 비례해 넓어진다.
+# (2026-08-13, 행렬 22개 실측: 중앙 5.3% · p90 11.5%. 0.78 은 일반 수식 배율과 동일.)
+_COM_MATRIX_SCALE = 0.78
+_COM_MATRIX_BRACKET = 400      # 행렬 1개당 nrow × 이 값
+_COM_MATRIX_ROW_H = 1098       # 행당 높이(baseUnit 1000 환산)
+
+
+def _com_calibrated_size(hwp_eq_script: str) -> tuple[int, int]:
+    """`_estimate_equation_size` 를 **COM 이 만드는 상자 크기**로 환산.
+
+    HWP 는 파일을 열 때 줄·페이지 배치는 되계산하지만 **수식 상자 크기는 그대로
+    쓴다**(2026-08-13 실측: lineseg 를 전부 지워도 렌더 픽셀차 0%, 반대로 수식
+    `<hp:sz>` 를 망가뜨리면 3.66% 어긋남). 그래서 한글 없는 경로에서는 이 값이
+    곧 조판 품질이다.
+    """
+    segs = _matrix_segments(hwp_eq_script)
+    if segs:
+        colmax = 0.0
+        nrow = 0
+        rest = hwp_eq_script
+        for _st, _en, nr, columns in segs:
+            colmax += sum(max((_measure_hwpeq_width(c) for c in col), default=0.0)
+                          for col in columns)
+            nrow = max(nrow, nr)
+        for st, en, _nr, _c in reversed(segs):     # 행렬 밖 텍스트(`=` 등)
+            rest = rest[:st] + rest[en:]
+        if rest.strip():
+            colmax += _measure_hwpeq_width(rest)
+        w = _COM_MATRIX_SCALE * colmax + _COM_MATRIX_BRACKET * nrow * len(segs)
+        return int(max(w, 300)), int(_COM_MATRIX_ROW_H * nrow)
+
+    w, h = _estimate_equation_size(hwp_eq_script)
+    w = int(max(_COM_W_SCALE * w + _COM_W_BIAS, 300))
+    return w, _COM_H_TABLE.get(h, h)
 
 
 def _visual_char_count(text: str) -> float:
@@ -1155,7 +1257,9 @@ class HWPXWriter:
         self._eq_counter += 1
 
         if size is None:
-            size = _estimate_equation_size(hwp_eq_script)
+            # COM 기준 보정 — 전역 상수(골든셋 튜닝)는 배포 COM 경로가 쓰므로 손대지
+            # 않고, 한글 없는 이 경로에서만 실측 기준으로 환산한다(위 주석 참고).
+            size = _com_calibrated_size(hwp_eq_script)
 
         run = etree.SubElement(p_elem, _qn("hp", "run"))
         run.set("charPrIDRef", "0")

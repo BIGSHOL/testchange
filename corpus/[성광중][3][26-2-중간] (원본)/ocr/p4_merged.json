@@ -1,0 +1,373 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 15,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림과 같이 두 직선 PB, PD는 외접하는 두 원 O, O'의 접선이고, 네 점 A, B, C, D는 그 접점이다. "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AB} = 16 \\mathrm{cm}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{PC} = 16 \\mathrm{cm}"
+    },
+    {
+     "type": "text",
+     "value": "일 때, 작은 원 O의 넓이는?"
+    },
+    {
+     "type": "figure",
+     "value": "점 P에서 그은 두 직선 PB, PD가 외접하는 두 원(작은 원 O 색칠, 큰 원 O')에 접함. 접점 A, C(작은 원), B, D(큰 원). AB 왼쪽 16cm, PC 오른쪽 16cm.",
+     "bbox": [
+      0.2,
+      0.14,
+      0.4,
+      0.31
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "16\\pi \\mathrm{cm}^{2}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "32\\pi \\mathrm{cm}^{2}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "48\\pi \\mathrm{cm}^{2}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "60\\pi \\mathrm{cm}^{2}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "64\\pi \\mathrm{cm}^{2}"
+      }
+     ]
+    }
+   ],
+   "answer": "②"
+  },
+  {
+   "number": 16,
+   "score": 5,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림과 같이 두 점 P, Q는 점 A에서 원 O에 그은 두 접선의 접점이고, 점 D는 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AO}"
+    },
+    {
+     "type": "text",
+     "value": "가 원 O와 만나는 점이다. 원 위의 점 D를 지나는 접선이 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AP}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AQ}"
+    },
+    {
+     "type": "text",
+     "value": "와 만나는 점을 각각 B, C라 하자. "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AC} = 15 \\mathrm{cm}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{CQ} = 9 \\mathrm{cm}"
+    },
+    {
+     "type": "text",
+     "value": " 일 때, 원 O의 반지름의 길이는?"
+    },
+    {
+     "type": "figure",
+     "value": "원 O와 원 밖의 점 A. A에서 그은 접선의 접점 P(위), Q(아래, OQ⊥AQ 직각 표시). AO와 원의 교점 D, D에서의 접선이 AP, AQ와 B, C에서 만남. AC 15 cm, CQ 9 cm 점선 치수.",
+     "bbox": [
+      0.15,
+      0.575,
+      0.4,
+      0.69
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "10 \\mathrm{cm}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "12 \\mathrm{cm}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "14 \\mathrm{cm}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "16 \\mathrm{cm}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "18 \\mathrm{cm}"
+      }
+     ]
+    }
+   ],
+   "answer": "⑤"
+  },
+  {
+   "number": 17,
+   "score": 5,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림과 같이 정사각형 안에 반지름의 길이가 "
+    },
+    {
+     "type": "equation",
+     "value": "2 \\mathrm{cm}"
+    },
+    {
+     "type": "text",
+     "value": "인 원 5개가 꼭 맞게 들어가도록 하는 정사각형의 한 변의 길이는?"
+    },
+    {
+     "type": "figure",
+     "value": "정사각형 안에 반지름 2cm인 원 5개(네 귀퉁이 원은 두 변에 접하고 가운데 원에 접함), 원 모두 색칠.",
+     "bbox": [
+      0.61,
+      0.12,
+      0.79,
+      0.25
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "(4\\sqrt{2}-4) \\mathrm{cm}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "(4\\sqrt{2}+4) \\mathrm{cm}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "(6-4\\sqrt{2}) \\mathrm{cm}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "(6\\sqrt{3}-6) \\mathrm{cm}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "(6\\sqrt{2}+6) \\mathrm{cm}"
+      }
+     ]
+    }
+   ],
+   "answer": "②"
+  },
+  {
+   "number": 18,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림과 같이 반지름의 길이가 "
+    },
+    {
+     "type": "equation",
+     "value": "4\\sqrt{3} \\mathrm{cm}"
+    },
+    {
+     "type": "text",
+     "value": "인 원 O의 원주 위의 점 P는 원의 중심 O에 겹쳐지도록 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AB}"
+    },
+    {
+     "type": "text",
+     "value": "를 접는 선으로 하여 접었다. "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{PQ} = \\overline{MQ}"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle APQ"
+    },
+    {
+     "type": "text",
+     "value": "의 넓이는?"
+    },
+    {
+     "type": "figure",
+     "value": "원 O에서 현 AB를 접는 선으로 원주 위의 점 P가 중심 O에 겹치도록 접은 그림(접힌 호는 O를 지나고 원래 호는 점선). O, M(AB의 중점), Q, P가 세로로 한 직선 위, 삼각형 APQ 색칠.",
+     "bbox": [
+      0.61,
+      0.54,
+      0.82,
+      0.69
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3\\sqrt{3} \\mathrm{cm}^{2}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4\\sqrt{3} \\mathrm{cm}^{2}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5\\sqrt{3} \\mathrm{cm}^{2}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "6\\sqrt{3} \\mathrm{cm}^{2}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "7\\sqrt{3} \\mathrm{cm}^{2}"
+      }
+     ]
+    }
+   ],
+   "answer": "①"
+  }
+ ]
+}

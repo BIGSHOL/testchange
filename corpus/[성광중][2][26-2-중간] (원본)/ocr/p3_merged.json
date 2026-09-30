@@ -1,0 +1,633 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 6,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림과 같이 "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle B=90^\\circ"
+    },
+    {
+     "type": "text",
+     "value": "인 직각삼각형 "
+    },
+    {
+     "type": "equation",
+     "value": "ABC"
+    },
+    {
+     "type": "text",
+     "value": "의 빗변 "
+    },
+    {
+     "type": "equation",
+     "value": "AC"
+    },
+    {
+     "type": "text",
+     "value": "의 중점을 "
+    },
+    {
+     "type": "equation",
+     "value": "O"
+    },
+    {
+     "type": "text",
+     "value": "라 하자. "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle AOB=52^\\circ"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle ACB"
+    },
+    {
+     "type": "text",
+     "value": "의 크기는?"
+    },
+    {
+     "type": "figure",
+     "value": "∠B=90°인 직각삼각형 ABC(A 위, B 좌하, C 우). 빗변 AC의 중점 O와 B를 이은 선분 BO. AO·OC에 같음 표시, O에 ∠AOB=52°, C의 각은 음영.",
+     "bbox": [
+      0.205,
+      0.175,
+      0.4,
+      0.255
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "26^\\circ"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "28^\\circ"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "30^\\circ"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "32^\\circ"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "34^\\circ"
+      }
+     ]
+    }
+   ],
+   "answer": "①"
+  },
+  {
+   "number": 7,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림과 같이 "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle ABC"
+    },
+    {
+     "type": "text",
+     "value": "와 그 내접원이 점 "
+    },
+    {
+     "type": "equation",
+     "value": "D, E, F"
+    },
+    {
+     "type": "text",
+     "value": "에서 각각 접하고 있으며 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AB}=7\\mathrm{cm}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{BC}=10\\mathrm{cm}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{CA}=9\\mathrm{cm}"
+    },
+    {
+     "type": "text",
+     "value": "이다. "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AD}=a\\mathrm{cm}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{CE}=b\\mathrm{cm}"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "2ab"
+    },
+    {
+     "type": "text",
+     "value": "의 값은? (단, "
+    },
+    {
+     "type": "equation",
+     "value": "a, b"
+    },
+    {
+     "type": "text",
+     "value": "는 상수)"
+    },
+    {
+     "type": "figure",
+     "value": "삼각형 ABC와 내접원(접점 D는 AB 위, E는 BC 위, F는 CA 위). 점선 치수 AB 7cm, CA 9cm, BC 10cm.",
+     "bbox": [
+      0.175,
+      0.425,
+      0.415,
+      0.545
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "34"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "36"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "38"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "40"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "42"
+      }
+     ]
+    }
+   ],
+   "answer": "②"
+  },
+  {
+   "number": 8,
+   "score": 5,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림에서 점 "
+    },
+    {
+     "type": "equation",
+     "value": "I"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "O"
+    },
+    {
+     "type": "text",
+     "value": "는 각각 "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle ABC"
+    },
+    {
+     "type": "text",
+     "value": "의 내심과 외심이다. "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle BIC=110^\\circ"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle ACB=62^\\circ"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle IAO"
+    },
+    {
+     "type": "text",
+     "value": "의 크기는?"
+    },
+    {
+     "type": "figure",
+     "value": "삼각형 ABC(A 위, B 좌하, C 우하)와 내심 I, 외심 O. 선분 AI, AO, BI, BO, CI, CO. I에 ∠BIC=110°, C에 ∠ACB=62°(화살표 라벨).",
+     "bbox": [
+      0.205,
+      0.685,
+      0.385,
+      0.83
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "8^\\circ"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "9^\\circ"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "10^\\circ"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "11^\\circ"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "12^\\circ"
+      }
+     ]
+    }
+   ],
+   "answer": "①"
+  },
+  {
+   "number": 9,
+   "score": 3,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림과 같은 평행사변형 "
+    },
+    {
+     "type": "equation",
+     "value": "ABCD"
+    },
+    {
+     "type": "text",
+     "value": "에서 점 "
+    },
+    {
+     "type": "equation",
+     "value": "O"
+    },
+    {
+     "type": "text",
+     "value": "는 두 대각선의 교점이고, "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{BC}=8\\mathrm{cm}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{BD}=14\\mathrm{cm}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle BCD=120^\\circ"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle ADC=z^\\circ"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "x+y+z"
+    },
+    {
+     "type": "text",
+     "value": "의 값은?"
+    },
+    {
+     "type": "figure",
+     "value": "평행사변형 ABCD(A 좌상, D 우상, B 좌하, C 우하)와 대각선 AC·BD의 교점 O. 점선 치수 AD (x+2)cm, BO (2y-5)cm(화살표), BD 14cm, BC 8cm. C에 120°, D에 z°(음영).",
+     "bbox": [
+      0.58,
+      0.17,
+      0.85,
+      0.28
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "42"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "60"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "66"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "72"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "75"
+      }
+     ]
+    }
+   ],
+   "answer": "④"
+  },
+  {
+   "number": 10,
+   "score": 3,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림과 같은 "
+    },
+    {
+     "type": "equation",
+     "value": "\\square ABCD"
+    },
+    {
+     "type": "text",
+     "value": "에서 두 대각선의 교점을 "
+    },
+    {
+     "type": "equation",
+     "value": "O"
+    },
+    {
+     "type": "text",
+     "value": "라 할 때, 사각형 "
+    },
+    {
+     "type": "equation",
+     "value": "ABCD"
+    },
+    {
+     "type": "text",
+     "value": "가 평행사변형이 되기 위한 조건이 "
+    },
+    {
+     "type": "text",
+     "value": "__아닌__"
+    },
+    {
+     "type": "text",
+     "value": " 것은?"
+    },
+    {
+     "type": "figure",
+     "value": "사각형 ABCD(A 좌상, D 우상, B 좌하, C 우하)와 두 대각선 AC·BD의 교점 O.",
+     "bbox": [
+      0.62,
+      0.515,
+      0.83,
+      0.59
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\triangle AOD\\equiv\\triangle COB"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\overline{OA}=\\overline{OD}"
+      },
+      {
+       "type": "text",
+       "value": ", "
+      },
+      {
+       "type": "equation",
+       "value": "\\overline{OB}=\\overline{OC}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\overline{AB}//\\overline{DC}"
+      },
+      {
+       "type": "text",
+       "value": ", "
+      },
+      {
+       "type": "equation",
+       "value": "\\overline{AB}=\\overline{DC}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\overline{AB}=\\overline{DC}"
+      },
+      {
+       "type": "text",
+       "value": ", "
+      },
+      {
+       "type": "equation",
+       "value": "\\overline{AD}=\\overline{BC}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\angle A=\\angle C"
+      },
+      {
+       "type": "text",
+       "value": ", "
+      },
+      {
+       "type": "equation",
+       "value": "\\angle B=\\angle D"
+      }
+     ]
+    }
+   ],
+   "answer": "②"
+  }
+ ]
+}

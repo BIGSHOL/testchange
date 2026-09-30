@@ -1,0 +1,747 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 13,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "다음 중 옳지 "
+    },
+    {
+     "type": "text",
+     "value": "__않은__"
+    },
+    {
+     "type": "text",
+     "value": " 것은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "text",
+       "value": "마름모는 평행사변형이다."
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "text",
+       "value": "두 대각선의 길이가 같은 마름모는 정사각형이다."
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "text",
+       "value": "두 대각선의 길이가 같은 사다리꼴은 직사각형이다."
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "text",
+       "value": "두 대각선이 서로 수직인 직사각형은 정사각형이다."
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "text",
+       "value": "한 내각의 크기가 "
+      },
+      {
+       "type": "equation",
+       "value": "90^{\\circ}"
+      },
+      {
+       "type": "text",
+       "value": "인 평행사변형은 직사각형이다."
+      }
+     ]
+    }
+   ],
+   "answer": "③"
+  },
+  {
+   "number": 14,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "평행사변형 "
+    },
+    {
+     "type": "equation",
+     "value": "ABCD"
+    },
+    {
+     "type": "text",
+     "value": "에 다음 조건을 추가할 때, 나머지와 "
+    },
+    {
+     "type": "text",
+     "value": "__다른__"
+    },
+    {
+     "type": "text",
+     "value": " 사각형이 되는 것은? (단, 점 "
+    },
+    {
+     "type": "equation",
+     "value": "O"
+    },
+    {
+     "type": "text",
+     "value": "는 두 대각선의 교점이다.)"
+    },
+    {
+     "type": "figure",
+     "value": "평행사변형 ABCD 와 두 대각선 AC·BD, 교점 O",
+     "bbox": [
+      0.3,
+      0.26,
+      0.66,
+      0.56
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\overline{AC}=\\overline{BD}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\overline{AB}\\perp\\overline{AD}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\angle DCB=90^{\\circ}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\angle BAC=\\angle BDC"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\angle ABD=\\angle DBC"
+      }
+     ]
+    }
+   ],
+   "answer": "⑤"
+  },
+  {
+   "number": 15,
+   "score": 3,
+   "contents": [
+    {
+     "type": "text",
+     "value": "마름모 "
+    },
+    {
+     "type": "equation",
+     "value": "ABCD"
+    },
+    {
+     "type": "text",
+     "value": "에서 "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle x+\\angle y"
+    },
+    {
+     "type": "text",
+     "value": "의 값은? (단, 점 "
+    },
+    {
+     "type": "equation",
+     "value": "O"
+    },
+    {
+     "type": "text",
+     "value": "는 두 대각선의 교점이다.)"
+    },
+    {
+     "type": "figure",
+     "value": "마름모 ABCD 와 두 대각선(교점 O), ∠ABO=35°, ∠AOB=x, ∠ADO=y",
+     "bbox": [
+      0.32,
+      0.25,
+      0.68,
+      0.75
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "115^{\\circ}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "120^{\\circ}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "125^{\\circ}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "130^{\\circ}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "135^{\\circ}"
+      }
+     ]
+    }
+   ],
+   "answer": "③"
+  },
+  {
+   "number": 16,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "직사각형 "
+    },
+    {
+     "type": "equation",
+     "value": "ABCD"
+    },
+    {
+     "type": "text",
+     "value": "에서 대각선 "
+    },
+    {
+     "type": "equation",
+     "value": "AC"
+    },
+    {
+     "type": "text",
+     "value": "의 중점을 "
+    },
+    {
+     "type": "equation",
+     "value": "O"
+    },
+    {
+     "type": "text",
+     "value": "라고 하고, 대각선 "
+    },
+    {
+     "type": "equation",
+     "value": "AC"
+    },
+    {
+     "type": "text",
+     "value": "의 수직이등분선과 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AD}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{BC}"
+    },
+    {
+     "type": "text",
+     "value": "의 교점을 각각 "
+    },
+    {
+     "type": "equation",
+     "value": "E"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "F"
+    },
+    {
+     "type": "text",
+     "value": "라고 하자. "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{ED}=6\\mathrm{cm}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{BC}=14\\mathrm{cm}"
+    },
+    {
+     "type": "text",
+     "value": "일 때, 사각형 "
+    },
+    {
+     "type": "equation",
+     "value": "AFCE"
+    },
+    {
+     "type": "text",
+     "value": "의 둘레의 길이는?"
+    },
+    {
+     "type": "figure",
+     "value": "직사각형 ABCD, 대각선 AC 의 중점 O, 수직이등분선 EF(직각 표시), AO=OC(같음 표시), AF·CE, ED=6 cm, BC=14 cm 점선 치수",
+     "bbox": [
+      0.2,
+      0.35,
+      0.78,
+      0.82
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "28\\mathrm{cm}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "29\\mathrm{cm}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "30\\mathrm{cm}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "31\\mathrm{cm}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "32\\mathrm{cm}"
+      }
+     ]
+    }
+   ],
+   "answer": "⑤"
+  },
+  {
+   "number": 17,
+   "score": 5,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림에서 "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle ABD"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle BCE"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle ACF"
+    },
+    {
+     "type": "text",
+     "value": "는 "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle ABC"
+    },
+    {
+     "type": "text",
+     "value": "의 세 변을 각각 한 변으로 하는 정삼각형이다. 다음은 "
+    },
+    {
+     "type": "equation",
+     "value": "\\square EDAF"
+    },
+    {
+     "type": "text",
+     "value": "가 평행사변형임을 증명하는 과정이다."
+    },
+    {
+     "type": "figure",
+     "value": "△ABC 의 세 변 위에 정삼각형 ABD·BCE·ACF(E 는 A 와 같은 쪽), 사각형 EDAF 와 선분 BE·EC·DA·AF",
+     "bbox": [
+      0.58,
+      0.16,
+      0.96,
+      0.37
+     ]
+    },
+    {
+     "type": "text",
+     "value": "<상자>"
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle ABC"
+    },
+    {
+     "type": "text",
+     "value": "와 "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle DBE"
+    },
+    {
+     "type": "text",
+     "value": "에서 • "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AB}=\\overline{DB}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{BC}=\\overline{BE}"
+    },
+    {
+     "type": "text",
+     "value": ", • "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle ABC=60^{\\circ}-\\boxed{가}=\\angle DBE"
+    },
+    {
+     "type": "text",
+     "value": " • 이므로 "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle ABC\\equiv\\triangle DBE"
+    },
+    {
+     "type": "text",
+     "value": " • 따라서 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AC}=\\overline{DE}"
+    },
+    {
+     "type": "text",
+     "value": " • 이때 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AC}=\\overline{AF}"
+    },
+    {
+     "type": "text",
+     "value": "이므로 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{DE}=\\overline{AF}"
+    },
+    {
+     "type": "text",
+     "value": " ……① • 마찬가지 방법으로 "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle ABC\\equiv\\boxed{나}"
+    },
+    {
+     "type": "text",
+     "value": " • 따라서 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AB}=\\overline{FE}"
+    },
+    {
+     "type": "text",
+     "value": " • 이때 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AB}=\\overline{AD}"
+    },
+    {
+     "type": "text",
+     "value": "이므로 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AD}=\\boxed{다}"
+    },
+    {
+     "type": "text",
+     "value": " ……② • ①, ②에 의해 "
+    },
+    {
+     "type": "equation",
+     "value": "\\square EDAF"
+    },
+    {
+     "type": "text",
+     "value": "는 평행사변형이 된다."
+    },
+    {
+     "type": "text",
+     "value": "위의 (가), (나), (다)에 들어갈 것을 바르게 짝지은 것은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "text",
+       "value": "(가) "
+      },
+      {
+       "type": "equation",
+       "value": "\\angle ABE"
+      },
+      {
+       "type": "text",
+       "value": ", (나) "
+      },
+      {
+       "type": "equation",
+       "value": "\\triangle FEC"
+      },
+      {
+       "type": "text",
+       "value": ", (다) "
+      },
+      {
+       "type": "equation",
+       "value": "\\overline{FE}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "text",
+       "value": "(가) "
+      },
+      {
+       "type": "equation",
+       "value": "\\angle ABE"
+      },
+      {
+       "type": "text",
+       "value": ", (나) "
+      },
+      {
+       "type": "equation",
+       "value": "\\triangle ACF"
+      },
+      {
+       "type": "text",
+       "value": ", (다) "
+      },
+      {
+       "type": "equation",
+       "value": "\\overline{BD}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "text",
+       "value": "(가) "
+      },
+      {
+       "type": "equation",
+       "value": "\\angle ABE"
+      },
+      {
+       "type": "text",
+       "value": ", (나) "
+      },
+      {
+       "type": "equation",
+       "value": "\\triangle FEC"
+      },
+      {
+       "type": "text",
+       "value": ", (다) "
+      },
+      {
+       "type": "equation",
+       "value": "\\overline{BD}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "text",
+       "value": "(가) "
+      },
+      {
+       "type": "equation",
+       "value": "\\angle ADE"
+      },
+      {
+       "type": "text",
+       "value": ", (나) "
+      },
+      {
+       "type": "equation",
+       "value": "\\triangle ACF"
+      },
+      {
+       "type": "text",
+       "value": ", (다) "
+      },
+      {
+       "type": "equation",
+       "value": "\\overline{FE}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "text",
+       "value": "(가) "
+      },
+      {
+       "type": "equation",
+       "value": "\\angle ADE"
+      },
+      {
+       "type": "text",
+       "value": ", (나) "
+      },
+      {
+       "type": "equation",
+       "value": "\\triangle FEC"
+      },
+      {
+       "type": "text",
+       "value": ", (다) "
+      },
+      {
+       "type": "equation",
+       "value": "\\overline{FE}"
+      }
+     ]
+    }
+   ],
+   "answer": "①"
+  }
+ ]
+}

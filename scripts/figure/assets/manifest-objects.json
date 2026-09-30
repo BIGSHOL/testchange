@@ -1,0 +1,102 @@
+{
+  "assets": [
+    {
+      "slug": "water-tank",
+      "label": "수조",
+      "file": "water-tank.svg",
+      "viewBox": [120, 100],
+      "tags": ["사물", "부피", "물높이"]
+    },
+    {
+      "slug": "cup-cylinder",
+      "label": "원기둥 컵",
+      "file": "cup-cylinder.svg",
+      "viewBox": [80, 100],
+      "tags": ["사물", "들이", "원기둥"]
+    },
+    {
+      "slug": "cup-cone",
+      "label": "원뿔 컵",
+      "file": "cup-cone.svg",
+      "viewBox": [80, 100],
+      "tags": ["사물", "들이", "원뿔"]
+    },
+    {
+      "slug": "can",
+      "label": "음료 캔",
+      "file": "can.svg",
+      "viewBox": [80, 100],
+      "tags": ["사물", "원기둥", "끈묶기"]
+    },
+    {
+      "slug": "cake-roll",
+      "label": "롤케이크",
+      "file": "cake-roll.svg",
+      "viewBox": [120, 80],
+      "tags": ["음식", "부피", "원기둥"]
+    },
+    {
+      "slug": "pizza",
+      "label": "피자",
+      "file": "pizza.svg",
+      "viewBox": [100, 100],
+      "tags": ["음식", "원", "부채꼴"]
+    },
+    {
+      "slug": "ice-cream-cone",
+      "label": "아이스크림콘",
+      "file": "ice-cream-cone.svg",
+      "viewBox": [90, 120],
+      "tags": ["음식", "원뿔", "반구"]
+    },
+    {
+      "slug": "baduk-black",
+      "label": "검은 바둑돌",
+      "file": "baduk-black.svg",
+      "viewBox": [80, 50],
+      "tags": ["사물", "바둑돌", "규칙찾기"]
+    },
+    {
+      "slug": "baduk-white",
+      "label": "흰 바둑돌",
+      "file": "baduk-white.svg",
+      "viewBox": [80, 50],
+      "tags": ["사물", "바둑돌", "규칙찾기"]
+    },
+    {
+      "slug": "matchstick",
+      "label": "성냥개비",
+      "file": "matchstick.svg",
+      "viewBox": [80, 110],
+      "tags": ["사물", "성냥개비", "규칙찾기"]
+    },
+    {
+      "slug": "picture-frame",
+      "label": "액자",
+      "file": "picture-frame.svg",
+      "viewBox": [110, 90],
+      "tags": ["사물", "액자", "규칙찾기", "자석"]
+    },
+    {
+      "slug": "balance-scale",
+      "label": "양팔저울",
+      "file": "balance-scale.svg",
+      "viewBox": [140, 110],
+      "tags": ["사물", "저울", "등식"]
+    },
+    {
+      "slug": "thermometer",
+      "label": "온도계",
+      "file": "thermometer.svg",
+      "viewBox": [80, 110],
+      "tags": ["사물", "온도", "정수", "영하"]
+    },
+    {
+      "slug": "dice",
+      "label": "주사위",
+      "file": "dice.svg",
+      "viewBox": [100, 100],
+      "tags": ["사물", "주사위", "확률", "경우의수"]
+    }
+  ]
+}

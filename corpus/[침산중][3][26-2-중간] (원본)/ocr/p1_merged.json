@@ -1,0 +1,417 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 1,
+   "score": 3,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림의 직각삼각형 ABC에서 "
+    },
+    {
+     "type": "equation",
+     "value": "\\cos \\mathrm{C}=\\frac{4}{5}"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{\\mathrm{AC}}"
+    },
+    {
+     "type": "text",
+     "value": "의 길이는?"
+    },
+    {
+     "type": "figure",
+     "value": "직각삼각형 ABC(∠B=90°, B 좌하·C 우하·A 위). 변 BC 아래 점선 치수 28 cm. B 직각 표시.",
+     "bbox": [
+      0.163,
+      0.333,
+      0.333,
+      0.438
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "31\\mathrm{cm}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "32\\mathrm{cm}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "33\\mathrm{cm}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "34\\mathrm{cm}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "35\\mathrm{cm}"
+      }
+     ]
+    }
+   ],
+   "answer": "⑤"
+  },
+  {
+   "number": 2,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "계산한 값이 가장 작은 것은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\sin 30^{\\circ}-\\cos 30^{\\circ}\\times \\tan 60^{\\circ}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\tan 45^{\\circ}\\div \\sin 90^{\\circ}-\\cos 60^{\\circ}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2\\sin 45^{\\circ}\\times \\tan 60^{\\circ}\\div \\cos 0^{\\circ}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{\\sin 60^{\\circ}}{\\cos 30^{\\circ}}-\\frac{\\tan 45^{\\circ}}{\\sin 30^{\\circ}}+\\sin 90"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\cos 0^{\\circ}\\div \\tan 30^{\\circ}-\\tan 60^{\\circ}\\times \\cos 60^{\\circ}"
+      }
+     ]
+    }
+   ],
+   "answer": "①"
+  },
+  {
+   "number": 3,
+   "score": 3,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림과 같이 반지름의 길이가 "
+    },
+    {
+     "type": "equation",
+     "value": "1"
+    },
+    {
+     "type": "text",
+     "value": "인 부채꼴에서 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{\\mathrm{CD}}\\perp \\overline{\\mathrm{AB}}"
+    },
+    {
+     "type": "text",
+     "value": "일 때, 다음 중 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{\\mathrm{DB}}"
+    },
+    {
+     "type": "text",
+     "value": "의 길이를 나타내는 것은?"
+    },
+    {
+     "type": "figure",
+     "value": "중심 A, 반지름 1인 부채꼴 ABC(∠CAB=38°). C에서 AB에 내린 수선의 발 D(직각 표시). AC 위 점선 치수 1.",
+     "bbox": [
+      0.623,
+      0.192,
+      0.786,
+      0.275
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1-\\sin 38^{\\circ}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1-\\cos 38^{\\circ}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1-\\tan 38^{\\circ}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1-\\cos 52^{\\circ}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1-\\tan 52^{\\circ}"
+      }
+     ]
+    }
+   ],
+   "answer": "②"
+  },
+  {
+   "number": 4,
+   "score": 5,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림의 직각삼각형 ABC에서 변 BC 위의 한 점 D에서 변 AC에 내린 수선의 발을 "
+    },
+    {
+     "type": "equation",
+     "value": "\\mathrm{E}"
+    },
+    {
+     "type": "text",
+     "value": "라고 하자. "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{\\mathrm{DC}}=9"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{\\mathrm{CE}}=6"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle \\mathrm{BAE}=x^{\\circ}"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\tan x^{\\circ}"
+    },
+    {
+     "type": "text",
+     "value": "의 값은?"
+    },
+    {
+     "type": "figure",
+     "value": "직각삼각형 ABC(∠B=90°, A 위·B 좌하·C 우하). BC 위 점 D, D에서 AC에 내린 수선의 발 E(직각 표시). ∠A 에 x 표시(음영). 점선 치수 DC=9, EC=6.",
+     "bbox": [
+      0.609,
+      0.45,
+      0.75,
+      0.56
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{\\sqrt{5}}{2}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{\\sqrt{5}}{3}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{\\sqrt{5}}{5}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{2\\sqrt{5}}{5}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{3\\sqrt{5}}{5}"
+      }
+     ]
+    }
+   ],
+   "answer": "④"
+  },
+  {
+   "number": 5,
+   "score": 5,
+   "contents": [
+    {
+     "type": "equation",
+     "value": "0^{\\circ}<x<45^{\\circ}"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\sqrt{(2\\sin 30^{\\circ}-\\tan x)^{2}}+\\sqrt{(\\tan x-\\tan 45^{\\circ})^{2}}"
+    },
+    {
+     "type": "text",
+     "value": "을 간단히 하면?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-2\\tan x+2"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2\\tan x"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-2\\tan x"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "0"
+      }
+     ]
+    }
+   ],
+   "answer": "①"
+  }
+ ]
+}

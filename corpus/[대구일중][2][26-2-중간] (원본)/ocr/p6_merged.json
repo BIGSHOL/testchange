@@ -1,0 +1,304 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 17,
+   "score": 7,
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서답형 1] 직각삼각형 ABC에서 외접원의 넓이와 내접원의 넓이의 차를 구하시오."
+    },
+    {
+     "type": "figure",
+     "value": "직각삼각형 ABC(∠C=90°, 직각 표시)와 외접원·내접원. AB 점선 10cm, AC 점선 6cm, BC 점선 8cm.",
+     "bbox": [
+      0.2,
+      0.25,
+      0.7,
+      0.88
+     ]
+    }
+   ],
+   "label_type": "서답형",
+   "answer": "$21\\pi\\,\\mathrm{cm}^2$",
+   "solution": "step1) $\\angle C=90^\\circ$이므로 빗변 $\\overline{AB}$가 외접원의 지름이다.\nstep2) 외접원의 반지름은 $5\\,\\mathrm{cm}$, 넓이는 $25\\pi\\,\\mathrm{cm}^2$이다.\nstep3) 내접원의 반지름을 $r$라 하면 $\\triangle ABC$의 넓이에서\nstep4) $\\frac{1}{2}\\times 8\\times 6=\\frac{1}{2}r(10+8+6)$, $24=12r$이다.\nstep5) $r=2$이므로 내접원의 넓이는 $4\\pi\\,\\mathrm{cm}^2$이다.\nstep6) 넓이의 차는 $25\\pi-4\\pi=21\\pi\\,(\\mathrm{cm}^2)$이다."
+  },
+  {
+   "number": 18,
+   "score": 8,
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서답형 2] 넓이가 "
+    },
+    {
+     "type": "equation",
+     "value": "80\\mathrm{cm}^{2}"
+    },
+    {
+     "type": "text",
+     "value": "인 정사각형 ABCD에서 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AB}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AD}"
+    },
+    {
+     "type": "text",
+     "value": " 위에 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AE}=\\overline{DF}"
+    },
+    {
+     "type": "text",
+     "value": "가 되는 점 E, F가 있다. "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AE}:\\overline{AF}=3:5"
+    },
+    {
+     "type": "text",
+     "value": " 일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle AEO"
+    },
+    {
+     "type": "text",
+     "value": "의 넓이를 구하시오. (단, 점 O는 정사각형 ABCD의 교점이다.)"
+    },
+    {
+     "type": "figure",
+     "value": "정사각형 ABCD(A 좌상, D 우상, B 좌하, C 우하), 두 대각선 교점 O. E 는 AB 위, F 는 AD 위, 선분 OE·OF. AE·FD 에 같음 표시. 삼각형 AEO 음영.",
+     "bbox": [
+      0.25,
+      0.4,
+      0.72,
+      0.9
+     ]
+    }
+   ],
+   "label_type": "서답형",
+   "answer": "$\\frac{15}{2}\\,\\mathrm{cm}^2$",
+   "solution": "step1) 정사각형의 한 변의 길이를 $a$라 하면 $a^2=80$이다.\nstep2) $\\overline{AE}=\\overline{DF}$이므로 $\\overline{AE}+\\overline{AF}=\\overline{DF}+\\overline{AF}=a$이다.\nstep3) $\\overline{AE}:\\overline{AF}=3:5$이므로 $\\overline{AE}=\\frac{3}{8}a$이다.\nstep4) 점 $\\mathrm{O}$에서 $\\overline{AB}$까지의 거리는 $\\frac{1}{2}a$이다.\nstep5) $\\triangle AEO=\\frac{1}{2}\\times\\frac{3}{8}a\\times\\frac{1}{2}a=\\frac{3}{32}a^2$\nstep6) $\\frac{3}{32}\\times 80=\\frac{15}{2}$이므로 넓이는 $\\frac{15}{2}\\,\\mathrm{cm}^2$이다."
+  },
+  {
+   "number": 19,
+   "score": 8,
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서답형 3] 평행사변형 ABCD에서 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AE}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{CF}"
+    },
+    {
+     "type": "text",
+     "value": "는 각각 "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle A"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle C"
+    },
+    {
+     "type": "text",
+     "value": "의 이등분선이다. "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle ABC=60^{\\circ}"
+    },
+    {
+     "type": "text",
+     "value": "이고, "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AB}=10\\mathrm{cm}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AD}=15\\mathrm{cm}"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\square AECF"
+    },
+    {
+     "type": "text",
+     "value": "의 둘레의 길이를 구하시오."
+    },
+    {
+     "type": "figure",
+     "value": "평행사변형 ABCD(A 좌상, D 우상, B 좌하, C 우하), ∠B=60°. E 는 BC 위, F 는 AD 위, 선분 AE·CF(∠A 의 두 부분에 점 표시, ∠C 의 두 부분에 × 표시). A~D 점선 15 cm, B~A 점선 10 cm.",
+     "bbox": [
+      0.2,
+      0.42,
+      0.72,
+      0.92
+     ]
+    }
+   ],
+   "label_type": "서답형",
+   "answer": "$30\\,\\mathrm{cm}$",
+   "solution": "step1) $\\overline{AD}\\parallel\\overline{BC}$이므로 $\\angle DAE=\\angle AEB$(엇각)이다.\nstep2) $\\angle BAE=\\angle DAE$이므로 $\\angle BAE=\\angle AEB$이다.\nstep3) 따라서 $\\overline{BE}=\\overline{AB}=10\\,\\mathrm{cm}$이다.\nstep4) $\\angle B=60^\\circ$이므로 $\\triangle ABE$는 정삼각형이고 $\\overline{AE}=10\\,\\mathrm{cm}$이다.\nstep5) $\\overline{EC}=15-10=5\\,(\\mathrm{cm})$이다.\nstep6) 같은 방법으로 $\\overline{CF}=10\\,\\mathrm{cm}$, $\\overline{AF}=5\\,\\mathrm{cm}$이다.\nstep7) 둘레의 길이는 $10+5+10+5=30\\,(\\mathrm{cm})$이다."
+  },
+  {
+   "number": 20,
+   "score": 8,
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서답형 4] "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle ABC"
+    },
+    {
+     "type": "text",
+     "value": "는 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AB}=\\overline{AC}"
+    },
+    {
+     "type": "text",
+     "value": "인 이등변삼각형이다. 점 O는 "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle ABC"
+    },
+    {
+     "type": "text",
+     "value": "의 외심이고, 점 I는 "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle ABC"
+    },
+    {
+     "type": "text",
+     "value": "의 내심일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle ICO"
+    },
+    {
+     "type": "text",
+     "value": "의 크기를 구하시오."
+    },
+    {
+     "type": "figure",
+     "value": "이등변삼각형 ABC(A 위, B 좌하, C 우하), ∠A=72°. 내심 I, 외심 O(I 아래), 선분 BI·CI·BO·CO, ∠ICO 각 표시.",
+     "bbox": [
+      0.18,
+      0.3,
+      0.75,
+      0.85
+     ]
+    }
+   ],
+   "label_type": "서답형",
+   "answer": "$9^\\circ$",
+   "solution": "step1) $\\angle B=\\angle C=\\frac{1}{2}(180^\\circ-72^\\circ)=54^\\circ$이다.\nstep2) 점 $\\mathrm{I}$는 내심이므로 $\\angle ICB=\\frac{1}{2}\\times 54^\\circ=27^\\circ$이다.\nstep3) 점 $\\mathrm{O}$는 외심이므로 $\\angle BOC=2\\angle A=144^\\circ$이다.\nstep4) $\\overline{OB}=\\overline{OC}$이므로 $\\angle OCB=\\frac{1}{2}(180^\\circ-144^\\circ)=18^\\circ$이다.\nstep5) $\\angle ICO=27^\\circ-18^\\circ=9^\\circ$이다."
+  },
+  {
+   "number": 21,
+   "score": 9,
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서답형 5] "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AB}=\\overline{AC}"
+    },
+    {
+     "type": "text",
+     "value": "인 직각삼각형 ABC에서 꼭짓점 A를 지나는 직선 "
+    },
+    {
+     "type": "equation",
+     "value": "l"
+    },
+    {
+     "type": "text",
+     "value": "을 그었다. 두 꼭짓점 B, C에서 직선 "
+    },
+    {
+     "type": "equation",
+     "value": "l"
+    },
+    {
+     "type": "text",
+     "value": "에 내린 수선의 발을 각각 D, E라고 할 때, 합동인 두 삼각형을 찾아 합동인 이유를 설명하고 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{DE}"
+    },
+    {
+     "type": "text",
+     "value": "의 길이를 구하시오."
+    },
+    {
+     "type": "figure",
+     "value": "직각이등변삼각형 ABC(∠A=90°, A 위, B 좌하, C 우하, AB=AC 같음 표시), A 를 지나는 직선 l(좌상→우하), l 과 BC 의 교점 F. B·C 에서 l 에 내린 수선의 발 D·E(직각 표시). BD 점선 7cm, CE 점선 3cm.",
+     "bbox": [
+      0.18,
+      0.4,
+      0.75,
+      0.98
+     ]
+    }
+   ],
+   "label_type": "서답형",
+   "answer": "$4\\,\\mathrm{cm}$",
+   "solution": "step1) $\\triangle ABD$와 $\\triangle CAE$에서 $\\angle ADB=\\angle CEA=90^\\circ$이다.\nstep2) $\\overline{AB}=\\overline{CA}$이다.\nstep3) $\\angle BAD=90^\\circ-\\angle CAE=\\angle ACE$이다.\nstep4) 따라서 $\\triangle ABD\\equiv\\triangle CAE$ (RHA 합동)이다.\nstep5) $\\overline{AD}=\\overline{CE}=3\\,\\mathrm{cm}$, $\\overline{AE}=\\overline{BD}=7\\,\\mathrm{cm}$이다.\nstep6) $\\overline{DE}=\\overline{AE}-\\overline{AD}=7-3=4\\,(\\mathrm{cm})$이다."
+  }
+ ]
+}

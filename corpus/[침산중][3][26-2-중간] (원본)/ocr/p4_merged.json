@@ -1,0 +1,215 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 17,
+   "score": 7,
+   "label_type": "서술형",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서술형 1] 이차함수의 그래프가 그림과 같을 때, 이 이차함수의 식 "
+    },
+    {
+     "type": "equation",
+     "value": "y=ax^{2}+bx+c"
+    },
+    {
+     "type": "text",
+     "value": "을 구하시오. (단, "
+    },
+    {
+     "type": "equation",
+     "value": "a"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "b"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "c"
+    },
+    {
+     "type": "text",
+     "value": "는 수)"
+    },
+    {
+     "type": "figure",
+     "value": "위로 볼록한 포물선. 꼭짓점 (2, 6)(점선으로 y축 6·x축 2 표시), x축과 x=5 에서 만남.",
+     "bbox": [
+      0.212,
+      0.305,
+      0.372,
+      0.423
+     ]
+    }
+   ],
+   "answer": "$y=-\\frac{2}{3}x^{2}+\\frac{8}{3}x+\\frac{10}{3}$",
+   "solution": "step1) 꼭짓점의 좌표가 $(2, 6)$이므로 $y=a(x-2)^{2}+6$이다.\nstep2) 그래프가 점 $(5, 0)$을 지나므로 $9a+6=0$이다.\nstep3) 따라서 $a=-\\frac{2}{3}$이다.\nstep4) $y=-\\frac{2}{3}(x-2)^{2}+6$을 전개한다.\nstep5) $y=-\\frac{2}{3}x^{2}+\\frac{8}{3}x+\\frac{10}{3}$이다."
+  },
+  {
+   "number": 18,
+   "score": 7,
+   "label_type": "서술형",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서술형 2] 이차함수 "
+    },
+    {
+     "type": "equation",
+     "value": "y=ax^{2}-2ax+b"
+    },
+    {
+     "type": "text",
+     "value": "의 그래프가 점 "
+    },
+    {
+     "type": "equation",
+     "value": "(-1, 12)"
+    },
+    {
+     "type": "text",
+     "value": "을 지나고, 이 그래프의 꼭짓점이 일차함수 "
+    },
+    {
+     "type": "equation",
+     "value": "y=-2x+8"
+    },
+    {
+     "type": "text",
+     "value": "의 그래프 위의 점일 때, 두 수 "
+    },
+    {
+     "type": "equation",
+     "value": "a"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "b"
+    },
+    {
+     "type": "text",
+     "value": "의 값을 각각 구하시오."
+    }
+   ],
+   "answer": "$a=\\frac{3}{2}, b=\\frac{15}{2}$",
+   "solution": "step1) $y=a(x-1)^{2}-a+b$이므로 꼭짓점은 $(1, b-a)$이다.\nstep2) 꼭짓점이 $y=-2x+8$ 위에 있으므로 $b-a=6$이다.\nstep3) 점 $(-1, 12)$를 지나므로 $a+2a+b=12$, 즉 $3a+b=12$이다.\nstep4) 두 식을 빼면 $4a=6$이므로 $a=\\frac{3}{2}$이다.\nstep5) $b=a+6=\\frac{15}{2}$이다."
+  },
+  {
+   "number": 19,
+   "score": 8,
+   "label_type": "서술형",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서술형 3] 다음 그림과 같은 직각삼각형 ABC와 DBC에서 "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle \\mathrm{ACB}=45^{\\circ}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle \\mathrm{BDC}=60^{\\circ}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{\\mathrm{CD}}=10"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle \\mathrm{EBC}"
+    },
+    {
+     "type": "text",
+     "value": "의 넓이를 "
+    },
+    {
+     "type": "text",
+     "value": "__삼각비를 이용__"
+    },
+    {
+     "type": "text",
+     "value": "하여 구하시오."
+    },
+    {
+     "type": "figure",
+     "value": "직각삼각형 ABC(∠A=90°, ∠ACB=45°)와 DBC(∠C=90°, ∠BDC=60°, CD=10). AC와 BD의 교점 E, 삼각형 EBC 색칠.",
+     "bbox": [
+      0.594,
+      0.14,
+      0.849,
+      0.245
+     ]
+    }
+   ],
+   "answer": "$75\\sqrt{3}-75$",
+   "solution": "step1) $\\triangle DBC$에서 $\\overline{BC}=10\\tan 60^{\\circ}=10\\sqrt{3}$이다.\nstep2) $\\angle DBC=30^{\\circ}$이다.\nstep3) 점 $E$에서 $\\overline{BC}$에 내린 수선의 발을 $H$, $\\overline{EH}=h$라 하자.\nstep4) $\\triangle EBH$에서 $\\overline{BH}=\\frac{h}{\\tan 30^{\\circ}}=\\sqrt{3}h$이다.\nstep5) $\\triangle EHC$에서 $\\angle ECH=45^{\\circ}$이므로 $\\overline{HC}=h$이다.\nstep6) $\\sqrt{3}h+h=10\\sqrt{3}$이므로 $h=\\frac{10\\sqrt{3}}{\\sqrt{3}+1}$이다.\nstep7) 분모를 유리화하면 $h=15-5\\sqrt{3}$이다.\nstep8) $\\triangle EBC=\\frac{1}{2}\\times 10\\sqrt{3}\\times (15-5\\sqrt{3})$\nstep9) 따라서 넓이는 $75\\sqrt{3}-75$이다."
+  },
+  {
+   "number": 20,
+   "score": 8,
+   "label_type": "서술형",
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서술형 4] 영수는 자전거를 타고 직선도로를 따라가다가 물웅덩이를 피하기 위해 다음 그림과 같이 길을 돌아갔다. 이때, 영수가 원래 직선 경로로 가는 것보다 몇 "
+    },
+    {
+     "type": "equation",
+     "value": "\\mathrm{m}"
+    },
+    {
+     "type": "text",
+     "value": " 더 갔는지 "
+    },
+    {
+     "type": "text",
+     "value": "__삼각비를 이용__"
+    },
+    {
+     "type": "text",
+     "value": "하여 구하시오."
+    },
+    {
+     "type": "figure",
+     "value": "직선도로 A→C(점선, 중간 물웅덩이). A에서 30° 방향으로 B까지 100 m, B에서 C로 꺾음(AB 연장선과 BC 사이 75°). 왼쪽에 자전거 탄 영수.",
+     "bbox": [
+      0.552,
+      0.518,
+      0.885,
+      0.608
+     ]
+    }
+   ],
+   "answer": "$50+50\\sqrt{2}-50\\sqrt{3}\\,\\mathrm{m}$",
+   "solution": "step1) $\\angle ABC=180^{\\circ}-75^{\\circ}=105^{\\circ}$이다.\nstep2) $\\angle C=180^{\\circ}-30^{\\circ}-105^{\\circ}=45^{\\circ}$이다.\nstep3) 점 $B$에서 $\\overline{AC}$에 내린 수선의 발을 $H$라 하자.\nstep4) $\\overline{BH}=100\\sin 30^{\\circ}=50$이다.\nstep5) $\\overline{AH}=100\\cos 30^{\\circ}=50\\sqrt{3}$이다.\nstep6) $\\angle C=45^{\\circ}$이므로 $\\overline{HC}=\\overline{BH}=50$이다.\nstep7) $\\overline{BC}=\\frac{50}{\\sin 45^{\\circ}}=50\\sqrt{2}$이다.\nstep8) 돌아간 길은 $100+50\\sqrt{2}$, 원래 길은 $50\\sqrt{3}+50$이다.\nstep9) 따라서 $50+50\\sqrt{2}-50\\sqrt{3}\\,\\mathrm{m}$ 더 갔다."
+  }
+ ]
+}

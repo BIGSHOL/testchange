@@ -1,0 +1,607 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 1,
+   "score": 3,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림과 같은 포물선을 그래프로 갖는 이차함수의 식은?"
+    },
+    {
+     "type": "figure",
+     "value": "위로 볼록한 포물선. 꼭짓점 (-1, 0)이 x축 위(눈금 -1), y절편 -3(눈금 -3), 원점 O, x축·y축 화살표.",
+     "bbox": [
+      0.3,
+      0.12,
+      0.46,
+      0.23
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "y=-x^{2}-3"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "y=-3(x-1)^{2}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "y=-3(x+1)^{2}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "y=-(x-1)^{2}-3"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "y=-(x+1)^{2}-3"
+      }
+     ]
+    }
+   ],
+   "answer": "③"
+  },
+  {
+   "number": 2,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "이차함수 "
+    },
+    {
+     "type": "equation",
+     "value": "y=2(x-1)^{2}-5"
+    },
+    {
+     "type": "text",
+     "value": "의 그래프를 "
+    },
+    {
+     "type": "equation",
+     "value": "x"
+    },
+    {
+     "type": "text",
+     "value": "축의 방향으로 "
+    },
+    {
+     "type": "equation",
+     "value": "n"
+    },
+    {
+     "type": "text",
+     "value": "만큼, "
+    },
+    {
+     "type": "equation",
+     "value": "y"
+    },
+    {
+     "type": "text",
+     "value": "축의 방향으로 "
+    },
+    {
+     "type": "equation",
+     "value": "m"
+    },
+    {
+     "type": "text",
+     "value": "만큼 평행이동하였더니 이차함수 그래프의 꼭짓점의 좌표가 "
+    },
+    {
+     "type": "equation",
+     "value": "(3, 2)"
+    },
+    {
+     "type": "text",
+     "value": "가 될 때, "
+    },
+    {
+     "type": "equation",
+     "value": "n+m"
+    },
+    {
+     "type": "text",
+     "value": "의 값은? (단, "
+    },
+    {
+     "type": "equation",
+     "value": "n"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "m"
+    },
+    {
+     "type": "text",
+     "value": "는 상수)"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "6"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "7"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "8"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "9"
+      }
+     ]
+    }
+   ],
+   "answer": "⑤"
+  },
+  {
+   "number": 3,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "이차함수 "
+    },
+    {
+     "type": "equation",
+     "value": "y=ax^{2}+q"
+    },
+    {
+     "type": "text",
+     "value": "의 그래프를 "
+    },
+    {
+     "type": "equation",
+     "value": "y"
+    },
+    {
+     "type": "text",
+     "value": "축 방향으로 "
+    },
+    {
+     "type": "equation",
+     "value": "3"
+    },
+    {
+     "type": "text",
+     "value": "만큼 평행이동하였더니 점 "
+    },
+    {
+     "type": "equation",
+     "value": "(0, -1)"
+    },
+    {
+     "type": "text",
+     "value": "을 지나고 "
+    },
+    {
+     "type": "equation",
+     "value": "x"
+    },
+    {
+     "type": "text",
+     "value": "축과 두 점 A, B에서 만난다. "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{\\mathrm{AB}}=4"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "4a-q"
+    },
+    {
+     "type": "text",
+     "value": "의 값은? (단, "
+    },
+    {
+     "type": "equation",
+     "value": "a"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "p"
+    },
+    {
+     "type": "text",
+     "value": "는 상수)"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "6"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "7"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "8"
+      }
+     ]
+    }
+   ],
+   "answer": "②"
+  },
+  {
+   "number": 4,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "이차함수 "
+    },
+    {
+     "type": "equation",
+     "value": "y=2x^{2}-4x+a-1"
+    },
+    {
+     "type": "text",
+     "value": "의 그래프가 "
+    },
+    {
+     "type": "equation",
+     "value": "x"
+    },
+    {
+     "type": "text",
+     "value": "축과 한 점에서 만날 때, 상수 "
+    },
+    {
+     "type": "equation",
+     "value": "a"
+    },
+    {
+     "type": "text",
+     "value": "의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "6"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "7"
+      }
+     ]
+    }
+   ],
+   "answer": "①"
+  },
+  {
+   "number": 5,
+   "score": 5,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림과 같이 이차함수 "
+    },
+    {
+     "type": "equation",
+     "value": "y=\\frac{1}{2}x^{2}+2x-\\frac{5}{2}"
+    },
+    {
+     "type": "text",
+     "value": "의 그래프가 "
+    },
+    {
+     "type": "equation",
+     "value": "x"
+    },
+    {
+     "type": "text",
+     "value": "축과 만나는 한 점을 A, 꼭짓점을 B, "
+    },
+    {
+     "type": "equation",
+     "value": "y"
+    },
+    {
+     "type": "text",
+     "value": "축과 만나는 점을 C라고 할 때, 사각형 OABC의 넓이는?"
+    },
+    {
+     "type": "figure",
+     "value": "아래로 볼록한 포물선 y=½x²+2x-5/2. x축과의 왼쪽 교점 A(-5,0), 꼭짓점 B(-2,-9/2), y절편 C(0,-5/2). 사각형 OABC 색칠, 선분 AB·BC.",
+     "bbox": [
+      0.64,
+      0.33,
+      0.85,
+      0.45
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{39}{4}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{41}{4}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{55}{4}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{41}{2}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{55}{2}"
+      }
+     ]
+    }
+   ],
+   "answer": "③"
+  },
+  {
+   "number": 6,
+   "score": 3,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림과 같이 "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle \\mathrm{B}=90^{\\circ}"
+    },
+    {
+     "type": "text",
+     "value": "인 직각삼각형 ABC에서 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{\\mathrm{AB}}=2"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{\\mathrm{BC}}=1"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\sin A"
+    },
+    {
+     "type": "text",
+     "value": "의 값은?"
+    },
+    {
+     "type": "figure",
+     "value": "직각삼각형 ABC(∠B=90°, B 오른쪽 아래). 밑변 AB=2(점선 치수), 세로 BC=1(점선 치수), 꼭짓점 A 각 표시.",
+     "bbox": [
+      0.67,
+      0.69,
+      0.85,
+      0.765
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{\\sqrt{5}}{5}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{\\sqrt{3}}{3}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{1}{2}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{2\\sqrt{3}}{5}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{2\\sqrt{5}}{5}"
+      }
+     ]
+    }
+   ],
+   "answer": "①"
+  }
+ ]
+}

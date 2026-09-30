@@ -1,0 +1,109 @@
+{
+  "source_pdf": "C:\\Users\\user\\Downloads\\새 폴더\\26년 2학기 중간 대구일중3.pdf",
+  "status": "ocr_done",
+  "note": "세션 self-OCR(구독 비전, API 0원)",
+  "school": "대구일중",
+  "grade": 3,
+  "exam": "26-2-중간",
+  "questions": {
+    "선택형": 18,
+    "서답형": 4,
+    "total": 22
+  },
+  "score_total": 100,
+  "figures": {
+    "q1": {
+      "question": 1,
+      "width_mm": 37
+    },
+    "q5": {
+      "question": 5,
+      "width_mm": 50
+    },
+    "q6": {
+      "question": 6,
+      "width_mm": 55
+    },
+    "q7": {
+      "question": 7,
+      "width_mm": 37
+    },
+    "q9": {
+      "question": 9,
+      "width_mm": 50
+    },
+    "q10": {
+      "question": 10,
+      "width_mm": 45
+    },
+    "q11": {
+      "question": 11,
+      "width_mm": 55
+    },
+    "q12": {
+      "question": 12,
+      "width_mm": 50
+    },
+    "q13": {
+      "question": 13,
+      "width_mm": 45
+    },
+    "q14": {
+      "question": 14,
+      "width_mm": 55
+    },
+    "q15": {
+      "question": 15,
+      "width_mm": 64
+    },
+    "q16": {
+      "question": 16,
+      "width_mm": 45
+    },
+    "q17": {
+      "question": 17,
+      "width_mm": 55
+    },
+    "q18": {
+      "question": 18,
+      "width_mm": 64
+    },
+    "s1": {
+      "question": 19,
+      "width_mm": 60
+    },
+    "s3": {
+      "question": 21,
+      "width_mm": 55
+    },
+    "s4": {
+      "question": 22,
+      "width_mm": 55
+    }
+  },
+  "figure_notes": "fig_svgs.py = todays-math 엔진(FigureSpec v2 / graph-1) 작도, verify_figure 17건. q12(등대 삽화)·q17(연못 삽화)은 기하 도식으로 대체(연못은 타원 윤곽). q14 정사면체는 사투영(AH⊥HD 화면 직각 유지). q9 x=42°, q10 x=56°(cos56=0.56) 대표값.",
+  "uncertain": [
+    "q3 발문 '(단, a, p는 상수)' — 인쇄 원문(q 오타로 보이나 원문 충실).",
+    "q18 발문 우측이 스캔에서 잘림('7√2 cr…', '중점일 r') — '7√2cm이고', '중점일 때,'로 복원. '(단, 단위는 m²이다.)'는 인쇄 원문(cm² 오타 추정).",
+    "q9 그림의 y° 라벨이 필기와 겹쳐 인쇄 여부 불확실 — 보기(ㄹ·ㅁ)가 y를 참조하므로 ∠OAB=y°로 작도.",
+    "q14 점 M 부근 작은 표시(직각 여부 불명확) — 생략. q17 A의 '75'는 필기라 생략(발문에 ∠A=75°).",
+    "s3 D의 '150°' 라벨은 원본에서 흰 패치 위 필기처럼 보임 — 발문 ∠D=150°와 일치하므로 표기.",
+    "q10 [10~12] 공통 지문·삼각비 표를 q10 contents 앞에 둠(대진고 수하 [11~12] 선례)."
+  ],
+  "checksum": "선택형 정답 유일성 확인: 1③ 2⑤ 3② 4① 5③ 6① 7② 8① 9④ 10⑤ 11③ 12④ 13③ 14⑤ 15④ 16④ 17① 18②",
+  "figure_review_2026-09-30": {
+    "방식": "todays-math 편집기 루프(원본|재구성 나란히 _work/review_<key>.png) + 치수선 전부 바깥(geo() 가 무게중심 반대쪽 side 자동 지정)",
+    "수정": [
+      "q7: 라벨 없는 AC 를 원본 비율(AC/BC≈0.64)로",
+      "q13: ∠A 를 원본 시각값 62°로(AB=5·AC=8 라벨 유지)",
+      "q14: HD 가 원본처럼 오른쪽 위로 기울게 투영 변경, H 직각표시 직접 작도, x° 라벨 거리 조정",
+      "q1: 곡선 양끝 같은 높이"
+    ],
+    "잔여": [
+      "q12·q17 삽화(등대·연못)는 기하 도식",
+      "q17: ∠C=60° 라벨 유지 위해 실제 기하(원본은 비례 아님)",
+      "q14: 원본 음영이 면 ACD 쪽까지인지 불명확 — △AHD 음영"
+    ],
+    "dimscan": "최종 0건(side 명시 후). 치수선 11개 전부 바깥 — 육안 확인."
+  }
+}

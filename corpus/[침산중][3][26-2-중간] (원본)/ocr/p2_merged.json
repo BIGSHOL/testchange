@@ -1,0 +1,561 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 6,
+   "score": 4,
+   "contents": [
+    {
+     "type": "equation",
+     "value": "\\angle \\mathrm{C}=90^{\\circ}"
+    },
+    {
+     "type": "text",
+     "value": "인 직각삼각형 ABC의 꼭짓점 C에서 빗변 AB에 내린 수선의 발을 D라고 할 때, 다음 중 그 값이 "
+    },
+    {
+     "type": "text",
+     "value": "__다른__"
+    },
+    {
+     "type": "text",
+     "value": " 하나는?"
+    },
+    {
+     "type": "figure",
+     "value": "직각삼각형 ABC(∠C=90°, A 좌하·C 우하·B 위). C에서 AB에 내린 수선의 발 D. D·C 직각 표시.",
+     "bbox": [
+      0.212,
+      0.125,
+      0.389,
+      0.205
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{\\overline{\\mathrm{CD}}}{\\overline{\\mathrm{AD}}}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{\\overline{\\mathrm{BC}}}{\\overline{\\mathrm{AC}}}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{\\overline{\\mathrm{BD}}}{\\overline{\\mathrm{CD}}}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{\\overline{\\mathrm{CD}}}{\\overline{\\mathrm{BC}}}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\tan \\mathrm{A}"
+      }
+     ]
+    }
+   ],
+   "answer": "④"
+  },
+  {
+   "number": 7,
+   "score": 5,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림에서 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{\\mathrm{AC}}\\parallel \\overline{\\mathrm{DE}}"
+    },
+    {
+     "type": "text",
+     "value": "이고, "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{\\mathrm{AB}}=6\\mathrm{cm}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{\\mathrm{BC}}=8\\mathrm{cm}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{\\mathrm{CE}}=4\\mathrm{cm}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle \\mathrm{B}=60^{\\circ}"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\square \\mathrm{ABCD}"
+    },
+    {
+     "type": "text",
+     "value": "의 넓이는?"
+    },
+    {
+     "type": "figure",
+     "value": "사각형 ABCD(음영)와 BC 연장선 위 점 E. AC∥DE(화살표 표시), 선분 AE. AB=6 cm·BC=8 cm 점선 치수, CE 4 cm, ∠B=60°.",
+     "bbox": [
+      0.205,
+      0.425,
+      0.403,
+      0.513
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "15\\sqrt{2}\\mathrm{cm}^{2}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "16\\sqrt{3}\\mathrm{cm}^{2}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "17\\sqrt{2}\\mathrm{cm}^{2}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "18\\sqrt{3}\\mathrm{cm}^{2}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "19\\sqrt{2}\\mathrm{cm}^{2}"
+      }
+     ]
+    }
+   ],
+   "answer": "④"
+  },
+  {
+   "number": 8,
+   "score": 4,
+   "contents": [
+    {
+     "type": "equation",
+     "value": "0^{\\circ}\\leq x\\leq 90^{\\circ}"
+    },
+    {
+     "type": "text",
+     "value": "일 때, 다음 <보기> 중 옳은 것만을 있는 대로 고른 것은?"
+    },
+    {
+     "type": "text",
+     "value": "<보기> ㄱ. $\\sin x$의 값은 $0$에서 $1$까지 증가한다. • ㄴ. $\\cos x$의 값은 $1$에서 $0$까지 감소한다. • ㄷ. $\\tan x$의 값은 $0$에서 $1$까지 증가한다. • ㄹ. $\\sin 90^{\\circ}>\\cos 90^{\\circ}$"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄱ, ㄴ, ㄷ"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄱ, ㄴ, ㄹ"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄴ, ㄷ, ㄹ"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄱ, ㄷ, ㄹ"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄱ, ㄴ, ㄷ, ㄹ"
+      }
+     ]
+    }
+   ],
+   "answer": "②"
+  },
+  {
+   "number": 9,
+   "score": 5,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림과 같이 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{\\mathrm{AD}}\\parallel \\overline{\\mathrm{BC}}"
+    },
+    {
+     "type": "text",
+     "value": "인 등변사다리꼴 ABCD에서 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{\\mathrm{AB}}=5"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{\\mathrm{BC}}=8"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{\\mathrm{AD}}=4"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\tan \\mathrm{C}"
+    },
+    {
+     "type": "text",
+     "value": "의 값은?"
+    },
+    {
+     "type": "figure",
+     "value": "등변사다리꼴 ABCD(AD 위·BC 아래). AD 위 점선 치수 4, BC 아래 점선 치수 8, AB 옆 점선 호.",
+     "bbox": [
+      0.637,
+      0.118,
+      0.789,
+      0.2
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{\\sqrt{21}}{2}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{\\sqrt{21}}{3}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{\\sqrt{21}}{4}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{\\sqrt{21}}{5}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{\\sqrt{21}}{6}"
+      }
+     ]
+    }
+   ],
+   "answer": "①"
+  },
+  {
+   "number": 10,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림 "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle \\mathrm{ABC}"
+    },
+    {
+     "type": "text",
+     "value": "에서 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{\\mathrm{AH}}\\perp \\overline{\\mathrm{BC}}"
+    },
+    {
+     "type": "text",
+     "value": "이고 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{\\mathrm{BH}}=6"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{\\mathrm{CH}}=3"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\frac{\\tan \\mathrm{C}}{\\tan \\mathrm{B}}"
+    },
+    {
+     "type": "text",
+     "value": "의 값을 구하면?"
+    },
+    {
+     "type": "figure",
+     "value": "삼각형 ABC, A에서 BC에 내린 수선의 발 H(직각 표시). 점선 치수 BH=6, HC=3.",
+     "bbox": [
+      0.623,
+      0.445,
+      0.768,
+      0.533
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "0"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4"
+      }
+     ]
+    }
+   ],
+   "answer": "③"
+  },
+  {
+   "number": 11,
+   "score": 5,
+   "contents": [
+    {
+     "type": "equation",
+     "value": "a=\\sin 30^{\\circ}+\\cos 30^{\\circ}"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "x"
+    },
+    {
+     "type": "text",
+     "value": "에 관한 일차방정식 "
+    },
+    {
+     "type": "equation",
+     "value": "2ax-1=0"
+    },
+    {
+     "type": "text",
+     "value": "의 해는?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{\\sqrt{3}}{2}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{\\sqrt{3}+1}{2}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{\\sqrt{3}-1}{2}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{3\\sqrt{3}}{2}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{1}{2}"
+      }
+     ]
+    }
+   ],
+   "answer": "③"
+  }
+ ]
+}
