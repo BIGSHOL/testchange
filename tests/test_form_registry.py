@@ -138,6 +138,48 @@ def run():
     chk(with_forms([], lambda: match_form("고2", "대수")) is None, "폼 0종 → None(2단 서식)")
     chk(isinstance(pf(N + "(기하) (남색) (개정).hwp"), FormInfo), "FormInfo 반환")
 
+    # ── 구·신 폼이 섞인 폴더 = **새 세대 우선** (Codex 리뷰 2026-10-06) ──────────────
+    # 구 폼을 안 지우고 새 폼만 넣는 게 흔한 설치 실수다. 파일명 정렬로는 `[25년…` 이 앞이라
+    # 25년 폼이 이겼다. 세대 = 대괄호 머리의 (연도, 월, 일).
+    chk(pf(N + "(중2용) (연두) (개정).hwp").gen == (26, 10, 5), "세대 판독(26년 10.05)")
+    chk(pf(O + "(중2용) (연두).hwp").gen == (25, 1, 9), "세대 판독(25년 01.09)")
+    chk(pf("아무이름.hwp").gen == (0, 0, 0), "세대 미상 = (0,0,0)")
+    mixed = old7 + new9
+    for grade, subj, want in [("중2", "", "26년"), ("고1", "", "26년"),
+                              # 표시명이 달라 둘 다 목록에 남는 쌍(고2 수1 ↔ 고2 대수)도 새 폼.
+                              ("고2", "대수", "(고2 대수)"), ("고2", "미적분1", "(고2 미적분1)"),
+                              # 과목 전용 폼이 있으면 구 통합 선택과목 폼보다 먼저.
+                              ("고2", "확률과통계", "(확통)"), ("고3", "기하", "(기하)")]:
+        got = with_forms(mixed, lambda: match_form(grade, subj)) or ""
+        chk(want in got, f"구·신 혼재 match_form({grade},{subj!r}) → {Path(got).name!r}")
+    # list_forms 의 표시명 중복 제거도 새 세대를 남긴다(실제 폴더로 확인).
+    import tempfile
+    with tempfile.TemporaryDirectory() as td:
+        for nm in (O + "(중2용) (연두).hwp", N + "(중2용) (연두) (개정).hwp",
+                   O + "(고2 선택과목용) (남색).hwp"):
+            (Path(td) / nm).write_bytes(b"")
+        saved = form_registry._base_dirs
+        form_registry._base_dirs = lambda: [Path(td)]
+        try:
+            got = form_registry.list_forms()
+        finally:
+            form_registry._base_dirs = saved
+    j2 = [f for f in got if f.display == "중2 (연두)"]
+    chk(len(j2) == 1 and "26년" in j2[0].path, f"list_forms 중복 = 새 세대: {[f.path for f in j2]}")
+    chk(any(f.subject == "선택과목" for f in got), "겹치지 않는 구 폼은 그대로 남는다")
+    # 같은 세대가 두 폴더에 있으면 먼저 찾은 폴더(번들 > exe 옆 > 개발) 것 — 종전 규칙.
+    with tempfile.TemporaryDirectory() as t1, tempfile.TemporaryDirectory() as t2:
+        for td in (t1, t2):
+            (Path(td) / (N + "(중2용) (연두) (개정).hwp")).write_bytes(b"")
+        saved = form_registry._base_dirs
+        form_registry._base_dirs = lambda: [Path(t1), Path(t2)]
+        try:
+            got = form_registry.list_forms()
+        finally:
+            form_registry._base_dirs = saved
+        chk(len(got) == 1 and Path(got[0].path).parent == Path(t1),
+            "같은 세대 = 먼저 찾은 폴더")
+
     if fails:
         print("FAIL:")
         for f in fails:

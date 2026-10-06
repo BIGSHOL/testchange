@@ -1046,12 +1046,15 @@ def _is_long_choices(q: Question) -> bool:
 # ── 1단계: COM 채움 ───────────────────────────────────────
 def _fill_form(mc: list[Question], essays: list[Question], form_path, out_path,
                render_figures: bool = False,
-               figure_src_dpi: int | None = None) -> tuple[int, int, list]:
+               figure_src_dpi: int | None = None,
+               style_out: dict | None = None) -> tuple[int, int, list]:
     """폼을 열어 슬롯 수 조절 + 객관식/서술형 채움 → out_path 저장.
 
     폼은 앞쪽 객관식 슬롯(①②③④⑤ 사전배치) + 뒤쪽 서술형 슬롯([서술형]). 잉여 객관식
     슬롯만 삭제하면 미주 자동번호로 **서술형 번호가 객관식 다음으로 이어진다**.
     render_figures: True 면 그림 실제 삽입(저장후 _embed_figures), False 면 안내 박스.
+    style_out: 넘기면 폼에서 읽은 양식을 채워 준다 — ``sub_glyph``(소문항 마커가 ⑴ 글리프인가)·
+    ``sub_indent``(소문항 문단 내어쓰기). 저장후 단계(정답면 머리)가 본문과 같은 양식을 쓰게.
 
     Returns: (채운 객관식 수, 채운 서술형 수, 그림 경로 리스트(토큰 인덱스순)).
     """
@@ -1065,6 +1068,9 @@ def _fill_form(mc: list[Question], essays: list[Question], form_path, out_path,
         _merge_sections(h)        # 2구역 → 단일 구역(레이아웃·짝수쪽이 전 영역에 적용되도록)
         # 폼의 소문항 마커 양식(개정 폼 = ⑴ 글리프 + 내어쓰기) — 슬롯을 지우기 **전에** 읽는다.
         ses._sub_glyph, ses._sub_indent = _form_sub_style(h)
+        if style_out is not None:
+            style_out["sub_glyph"] = bool(ses._sub_glyph)
+            style_out["sub_indent"] = int(ses._sub_indent or 0)
 
         def cur_line():
             try:
@@ -2126,6 +2132,46 @@ def _neutralize_answer_header_redefine(hwpx_path: str | Path) -> int:
 _RANGE_PH_RE = re.compile(
     r"(<hp:t[^>]*>)\s*(?:시작\s*범위)?\s*~\s*(?:끝\s*범위)?\s*(</hp:t>)")
 
+# 폼이 '사람이 채울 칸'을 두는 영역 — 머리말·꼬리말, 그리고 첫 쪽 배너(글상자).
+# 문항 본문은 이 안에 들어가지 않는다(우리 박스는 표, 그림 자리는 평문/그림).
+_HEADER_REGION_TAG_RE = re.compile(r"<(/?)hp:(?:header|footer|drawText)\b[^>]*?(/?)>")
+
+
+def _header_regions(sec: str) -> list[tuple[int, int]]:
+    """머리말·꼬리말·글상자의 **가장 바깥** 구간 목록(문서 순, 겹침 없음).
+
+    글상자는 중첩된다(배너 = 사각형 글상자 > 묶음 개체 > 칸별 글상자) → 깊이를 세어 바깥
+    것만 낸다. 자리표시 치환(`_fill_form_header`·`_fill_exam_range`)을 이 안으로 가둔다.
+    """
+    spans, depth, start = [], 0, 0
+    for m in _HEADER_REGION_TAG_RE.finditer(sec):
+        if m.group(2):                       # 자기닫힘 — 구간 아님
+            continue
+        if not m.group(1):
+            if depth == 0:
+                start = m.start()
+            depth += 1
+        elif depth:
+            depth -= 1
+            if depth == 0:
+                spans.append((start, m.end()))
+    return spans
+
+
+def _sub_in_header_regions(sec: str, pats) -> tuple[str, int]:
+    """``pats``((정규식, 치환) 목록)를 머리말·꼬리말·글상자 구간 안에서만 적용."""
+    out, prev, total = [], 0, 0
+    for a, b in _header_regions(sec):
+        chunk = sec[a:b]
+        for rx, repl in pats:
+            chunk, k = rx.subn(repl, chunk)
+            total += k
+        out.append(sec[prev:a])
+        out.append(chunk)
+        prev = b
+    out.append(sec[prev:])
+    return "".join(out), total
+
 
 def _fill_exam_range(hwpx_path: str | Path, range_text: str) -> int:
     """폼 머리 배너 아래 시험범위 부제(자리표시 단독 텍스트)를 실제 범위로 치환.
@@ -2150,7 +2196,9 @@ def _fill_exam_range(hwpx_path: str | Path, range_text: str) -> int:
         if not re.search(r"section\d+\.xml$", fn):
             continue
         s = data[fn].decode("utf-8")
-        m = _RANGE_PH_RE.search(s)
+        # 배너(글상자)·머리말 안에서만 찾는다 — 본문 표 셀의 평문 `` ~ `` 는 자리표시가 아니다.
+        m = next((hit for a, b in _header_regions(s)
+                  for hit in [_RANGE_PH_RE.search(s, a, b)] if hit), None)
         if not m:
             continue
         s = s[:m.start()] + m.group(1) + _xml_text(range_text) + m.group(2) + s[m.end():]
@@ -2278,11 +2326,10 @@ def _fill_form_header(hwpx_path: str | Path, values: dict) -> int:
     for fn in list(contents):
         if not (fn.endswith(".xml") and "section" in fn.lower()):
             continue
-        text = contents[fn].decode("utf-8")
-        n = 0
-        for rx, repl in pats:
-            text, k = rx.subn(repl, text)
-            n += k
+        # ⚠️ 치환은 **머리말·꼬리말·글상자(배너) 안에서만** — 구역 전체에 걸면 문항 본문이
+        # 변조된다("고1학년 수학 성적의 평균" → "침산중 2학년 수학성적의 평균", 표 셀의
+        # 평문 `` ~ `` → 시험범위). Codex 리뷰 2026-10-06.
+        text, n = _sub_in_header_regions(contents[fn].decode("utf-8"), pats)
         if n:
             contents[fn] = text.encode("utf-8")
             cnt += n
@@ -2705,8 +2752,33 @@ def _sub_label(k: int) -> ContentBlock:
     return ContentBlock(type=ContentType.TEXT, value=f"({k}) ")
 
 
-def _merged_answer(q) -> list:
-    """정답면 한 문항의 정답 줄들. 소문항에만 답이 있으면 ``(1) … (2) …`` 로 모은다.
+def _sub_head(k: int, glyph: bool, rest: list | None = None) -> list:
+    """정답면에 **우리가 붙이는** 소문항 머리 + 그 뒤 블록들.
+
+    본문 소문항 마커와 같은 양식을 쓴다(`_sub_marker`) — 폼이 ``⑴`` 양식이면 정답면 머리도
+    ``⑴`` **수식 객체**다. 본문은 ⑴ 인데 정답면만 (1) 이면 한 문서 안에서 표기가 갈린다
+    (Claude·Codex 합의 2026-10-06). 25년 폼(``glyph=False``)은 종전 그대로 평문 ``(k) ``.
+    ⚠️ 원문에 인쇄된 교차참조("(1)을 이용하여")·모델이 쓴 해설 속 ``(1)`` 은 건드리지 않는다
+    — 생성한 머리만 맞춘다.
+    """
+    rest = list(rest or [])
+    if not glyph:
+        return ([_sub_label(k)] + rest) if rest else [
+            ContentBlock(type=ContentType.TEXT, value=f"({k})")]
+    head = ContentBlock(type=ContentType.EQUATION, value=_sub_marker(k, True))
+    # 머리 뒤 한 칸 — 공백뿐인 TEXT 블록은 `_line_runs` 가 버리므로 다음 평문 앞에 싣는다
+    # (다음이 수식이면 수식 객체 여백이 간격을 만든다).
+    if rest and rest[0].type == ContentType.TEXT:
+        import copy
+        first = copy.copy(rest[0])
+        first.value = " " + (first.value or "").lstrip()
+        rest[0] = first
+    return [head] + rest
+
+
+def _merged_answer(q, glyph: bool = False) -> list:
+    """정답면 한 문항의 정답 줄들. 소문항에만 답이 있으면 ``(1) … (2) …`` 로 모은다
+    (``glyph`` = 폼이 ``⑴`` 양식 → 머리도 ``⑴``, `_sub_head`).
 
     종전엔 최상위 ``q.answer`` 만 읽어 소문항형 서술형(대구일중3 26-2 서답형2)의 정답면이
     비었다(2026-09-30). 부모에 답이 있으면 종전 그대로 부모 것을 쓴다.
@@ -2717,11 +2789,11 @@ def _merged_answer(q) -> list:
     for k, sq in enumerate(q.sub_questions or [], 1):
         ans = [b for line in (sq.answer or []) for b in line]
         if ans:
-            lines.append([_sub_label(k)] + ans)
+            lines.append(_sub_head(k, glyph, ans))
     return lines
 
 
-def _merged_solution(q) -> list:
+def _merged_solution(q, glyph: bool = False) -> list:
     """해설 줄들. 부모 해설이 있으면 그것만(정답과 같은 정책), 없으면 소문항 해설을
     ``(k)`` 머리 줄 뒤에 모은다. 둘 다 이어 붙이면 부모 해설이 이미 (1)(2) 를 다루는
     흔한 경우에 정답면에 해설이 두 번 인쇄된다(산격중2 26-2 #19~21, 2026-09-30)."""
@@ -2730,7 +2802,7 @@ def _merged_solution(q) -> list:
     lines = []
     for k, sq in enumerate(q.sub_questions or [], 1):
         if sq.solution:
-            lines.append([ContentBlock(type=ContentType.TEXT, value=f"({k})")])
+            lines.append(_sub_head(k, glyph))
             lines.extend(sq.solution)
     return lines
 
@@ -2794,18 +2866,28 @@ def _inject_answer_runs(hwpx_path: str | Path,
 # 못 읽었을 때의 폴백(25년 폼).
 _ANSWER_CHARPR = "21"
 _EQ_BASE_UNIT_DEFAULT = 1100   # 폼 본문 글자 11pt = 수식 baseUnit 1100
-# 미주 내용 첫 단락: [자동번호 run] 다음 run 이 내용 글자모양이다(객관식 " ", 서술형 " [서술형 ").
+# 미주 내용 첫 단락: [자동번호 run] **바로 다음 형제 run** 이 내용 글자모양이다(객관식 " ",
+# 서술형 " [서술형 "). ⚠️ 자동번호 run 의 닫는 태그까지만 건너뛴다(`(?!</hp:run>)`) — 느슨한
+# `.*?` 는 번호 뒤에 run 이 없는 미주에서 **다음 단락의 둘째 run** 까지 건너가 엉뚱한 ID 를 집는다.
 _NOTE_TEXT_CHARPR_RE = re.compile(
-    r'<hp:autoNum\b.*?</hp:run>\s*<hp:run charPrIDRef="(\d+)"', re.S)
+    r'<hp:autoNum\b(?:(?!</hp:run>).)*?</hp:run>\s*<hp:run charPrIDRef="(\d+)"', re.S)
+# 둘째 근거 — 선택지 줄 머리 "① " run. 폼 본문 글자모양(미주 내용과 같은 것)이다.
+_CHOICE_CHARPR_RE = re.compile(r'<hp:run charPrIDRef="(\d+)">\s*<hp:t>\s*①')
 
 
 def _answer_charpr(section_xml: str) -> str:
-    """정답면 미주 **내용**(번호 뒤 텍스트)의 charPr ID — 미주들의 최빈값. 못 찾으면 폴백."""
+    """정답면 미주 **내용**(번호 뒤 텍스트)의 charPr ID — 미주들의 최빈값.
+
+    미주에 내용 run 이 하나도 없으면(번호만 든 미주) 선택지 줄 머리(①)의 글자모양으로
+    복구하고, 그것도 없으면 25년 폼 상수로 폴백한다."""
     ids = []
     for m in re.finditer(r"<hp:endNote\b.*?</hp:endNote>", section_xml, re.S):
         hit = _NOTE_TEXT_CHARPR_RE.search(m.group(0))
         if hit:
             ids.append(hit.group(1))
+    if not ids:
+        body = re.sub(r"<hp:endNote\b.*?</hp:endNote>", "", section_xml, flags=re.S)
+        ids = _CHOICE_CHARPR_RE.findall(body)
     return max(set(ids), key=ids.count) if ids else _ANSWER_CHARPR
 # 정답면 한 단의 폭(HWPUNIT). 폼 B4 2단 실측 — 미주 단락 lineseg `horzsize` 가 전부
 # 이 값이다(2026-08-10). `_answer_col_width` 가 문서에서 직접 읽고, 못 읽으면 이 값.
@@ -3132,6 +3214,8 @@ def _inject_question_meta(hwpx_path: str | Path,
 # 빈 단락(자기닫힘 run 뿐) — 중첩 없는 본문 빈 줄. `_inject_essay_meta` 가 토큰 앞 빈 줄 정리에 쓴다.
 _EMPTY_PARA = (r"<hp:p\b[^>]*>(?:\s*<hp:run\b[^>]*/>)+\s*"
                r"(?:<hp:linesegarray>(?:(?!</hp:p>).)*?</hp:linesegarray>\s*)?</hp:p>")
+# run 여는 태그 ~ 토큰 사이 — run 닫힘·새 run·새 단락을 넘지 않는다(= 토큰이 든 가장 안쪽 run).
+_TOK_GAP = r"(?:(?!</hp:run>|<hp:run\b|<hp:p\b).)*?"
 
 
 def _inject_essay_meta(hwpx_path: str | Path) -> int:
@@ -3184,21 +3268,25 @@ def _inject_essay_meta(hwpx_path: str | Path) -> int:
             # 25년 폼은 둘 다 같은 모양이라 안 보였지만, 26년 개정 폼은 소문항 줄이 내어쓰기
             # 문단이라 `[중단원]` 줄에 내어쓰기가 묻었다(학산중 중2 실측 2026-10-06). 같은
             # 결과(빈 줄 제거 = 검수된 레이아웃 유지)를 **명시적으로** 만들고 토큰 단락은 보존한다.
+            # ⚠️ 토큰이 든 **가장 안쪽** run/단락만 잡는다(`_TOK_GAP`) — 토큰이 표 셀·미주의
+            # 첫 단락에 있으면 느슨한 패턴은 그 표/미주를 품은 **바깥** run·단락에서 매치를
+            # 시작해 여는 태그를 삼키고 XML 을 깬다(Codex 리뷰 2026-10-06).
             sec = re.sub(
                 r"(?:" + _EMPTY_PARA + r"\s*)+(?=<hp:p\b[^>]*>\s*<hp:run\b[^>]*(?<!/)>"
-                r"(?:(?!</hp:run>).)*?" + re.escape(tok) + r")", "", sec, flags=re.S)
+                + _TOK_GAP + re.escape(tok) + r")", "", sec, flags=re.S)
             if run is None:
                 # 폼에 이 메타 템플릿이 없음 → 토큰 단락을 통째 제거(평문 노출 방지). 단락 단위
                 # 제거라 태그 균형 유지(토큰은 중첩 없는 자기-단락). linesegs 는 _com_relaunder 가 재계산.
                 para_re = re.compile(
-                    r"<hp:p\b(?:(?!</hp:p>).)*?" + re.escape(tok) + r"(?:(?!</hp:p>).)*?</hp:p>", re.S)
+                    r"<hp:p\b[^>]*>(?:(?!</hp:p>|<hp:p\b).)*?" + re.escape(tok)
+                    + r"(?:(?!</hp:p>).)*?</hp:p>", re.S)
                 sec, n = para_re.subn("", sec)
                 total += n
                 continue
             # 토큰 텍스트를 품은 run 통째를 메타란 run 으로 교체(run 1개 ↔ run 1개, 균형 보장).
             # 여는 태그는 ``(?<!/)>`` — 자기닫힘 run 에서 시작하면 단락 경계를 넘는다(위 주석).
             tok_run_re = re.compile(
-                r"<hp:run\b[^>]*(?<!/)>(?:(?!</hp:run>).)*?" + re.escape(tok)
+                r"<hp:run\b[^>]*(?<!/)>" + _TOK_GAP + re.escape(tok)
                 + r"(?:(?!</hp:run>).)*?</hp:run>", re.S)
             sec, n = tok_run_re.subn(lambda m: run, sec)
             total += n
@@ -3311,6 +3399,10 @@ def write_exam_to_form(
     """
     if _win32 is None:
         raise RuntimeError("win32com을 사용할 수 없습니다 (HWP COM 미지원 환경).")
+    # 폼 파일이 없으면 HWP `Open` 이 **조용히 실패**해 빈 문서에 채우려다 레이아웃 단계에서
+    # 뜻 모를 IndexError 로 죽는다(실측 2026-10-06). 여기서 분명한 말로 멈춘다.
+    if not Path(form_path).is_file():
+        raise FileNotFoundError(f"폼 파일이 없습니다: {form_path}")
     output_path = Path(output_path)
     # ⭐ 최종 .hwp 요청이면 후처리는 **작업용 .hwpx** 로 하고 마지막에만 .hwp 로 굽는다
     # (XML 후처리는 hwpx 압축포맷에서만 가능). .hwp 로 저장해야 폼 바탕쪽 2단 가운데
@@ -3331,9 +3423,11 @@ def write_exam_to_form(
     fd, filled = tempfile.mkstemp(suffix=".hwpx", dir=str(output_path.parent))
     os.close(fd)
     try:
+        _form_style: dict = {}
         n_mc, n_es, fig_paths = _fill_form(mc, essays, form_path, filled,
                                            render_figures=render_figures,
-                                           figure_src_dpi=figure_src_dpi)
+                                           figure_src_dpi=figure_src_dpi,
+                                           style_out=_form_style)
         # 혼합 레이아웃(객관식 행정렬 + 서술형 빽빽배치 2개/단, 답란 미보존).
         # mc 도 넘겨 COM 측정 실패 시 내용기반 추정으로 폴백(과여백 회피).
         _layout_form(filled, output_path, per_col, n_mc, n_es, essays=essays, mc=mc,
@@ -3409,7 +3503,9 @@ def write_exam_to_form(
     # 1.55단계: 정답 페이지(미주 목록) 기입 — 완료본 규약 ``1. ④``(194차 달서고). 본문 미주
     # 순서 = 채움 순서(객관식 → 서술형)라 그대로 1:1 매핑. 값이 없으면 no-op(기존 동작).
     try:
-        _answers = [_merged_answer(q) for q in (mc + essays)]
+        # 소문항 머리는 본문 마커와 같은 양식(개정 폼 ⑴ / 25년 폼 (1)) — `_sub_head`.
+        _glyph = bool(_form_style.get("sub_glyph"))
+        _answers = [_merged_answer(q, _glyph) for q in (mc + essays)]
         n_ans = _inject_answer_runs(output_path, _answers)
         if n_ans:
             logger.info("정답 기입 %d개", n_ans)
@@ -3419,7 +3515,7 @@ def write_exam_to_form(
     try:
         # ⭐ 객관식은 **정답만**(완료본 규약 194차: ``1. ④`` 원문자만 — 해설 없음.
         # 사용자 재확인 2026-08-09). 해설 데이터는 보존하되 렌더에서 뺀다.
-        _sols = [[] if q.choices else _merged_solution(q)
+        _sols = [[] if q.choices else _merged_solution(q, bool(_form_style.get("sub_glyph")))
                  for q in (mc + essays)]
         n_sol = _inject_solutions(output_path, _sols)
         if n_sol:

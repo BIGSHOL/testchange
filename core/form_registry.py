@@ -33,6 +33,9 @@ _PAREN_RE = re.compile(r"\(([^()]*)\)")
 _FORM_TAG_RE = re.compile(r"^\s*(?:(중|고)\s*([1-3]))?\s*(.*?)\s*$")
 # 색상이 아닌 꼬리 표식(색상 판정에서 제외) — "(개정)".
 _NON_COLOR_MARKS = {"개정"}
+# 폼 세대 — 대괄호 머리 "[26년 폼지 최종(10.05)]" 의 (연도, 월, 일). 같은 자리를 두고 구·신 폼이
+# 겹치면 **새 것**을 쓴다(구 폼을 안 지우고 새 폼만 넣은 폴더에서 25년 폼이 이기던 것 방지).
+_FORM_GEN_RE = re.compile(r"\[\s*(\d{2})\s*년[^\]]*?\(\s*(\d{1,2})\s*\.\s*(\d{1,2})\s*\)\s*\]")
 # 입력 파일명 패턴 "[조암중][2]…" → 학교 + 학년숫자
 _INPUT_HEAD_RE = re.compile(r"^\s*\[([^\]]*)\]\s*\[\s*([1-3])\s*\]")
 # 본문/제목에 직접 박힌 학년 "중2"·"고1"
@@ -52,6 +55,7 @@ class FormInfo:
     display: str        # 드롭다운 표시명
     subject: str = ""   # 표준 과목키 — "대수"·"미적분1"·"미적분2"·"기하"·"확률과통계",
     #                     구 통합 폼은 "선택과목", 학년 전용 폼(중N·고1)은 ""
+    gen: tuple = (0, 0, 0)   # 폼 세대(연도, 월, 일) — 클수록 새 폼. 못 읽으면 (0, 0, 0)
 
 
 def _base_dirs() -> list[Path]:
@@ -89,23 +93,29 @@ def _parse_form(path: Path) -> FormInfo:
         subtag = subject = ""                               # 규칙 밖 이름 — 자동 매칭 제외
     label = (grade + (f" {subtag}" if subtag else "")).strip()
     display = (label or path.stem) + (f" ({color})" if color else "")
-    return FormInfo(str(path), grade, subtag, color, display.strip(), subject)
+    g = _FORM_GEN_RE.search(path.name)
+    gen = tuple(int(x) for x in g.groups()) if g else (0, 0, 0)
+    return FormInfo(str(path), grade, subtag, color, display.strip(), subject, gen)
 
 
 def list_forms() -> list[FormInfo]:
-    """등록된 폼 목록(학년 순). 같은 표시명은 한 번만."""
-    seen: set[str] = set()
-    forms: list[FormInfo] = []
-    for d in _base_dirs():
+    """등록된 폼 목록(학년 순). 같은 표시명은 한 번만 — **새 세대 우선**, 같은 세대면 먼저
+    찾은 폴더(번들 > exe 옆 > 개발) 것.
+
+    구 폼을 지우지 않고 새 폼만 넣은 폴더에선 "중2 (연두)" 가 둘이다. 파일명 정렬로는
+    `[25년…` 이 `[26년…` 보다 앞이라 25년 폼이 이겼다(Codex 리뷰 2026-10-06).
+    """
+    best: dict[str, tuple] = {}          # 표시명 → (세대, -폴더순번, FormInfo)
+    for di, d in enumerate(_base_dirs()):
         if not d.is_dir():
             continue
         for p in sorted(d.glob("*.hwp")):
             fi = _parse_form(p)
             key = fi.display or fi.path
-            if key in seen:
-                continue
-            seen.add(key)
-            forms.append(fi)
+            cand = (fi.gen, -di, fi)
+            if key not in best or cand[:2] > best[key][:2]:
+                best[key] = cand
+    forms = [c[2] for c in best.values()]
     forms.sort(key=lambda f: (
         _GRADE_ORDER.get(f.grade, _ELECTIVE_ORDER if f.subject else 99), f.subtag, f.color))
     return forms
@@ -163,8 +173,11 @@ def match_form(grade: str, subject: str = "") -> str | None:
     forms = list_forms()
     level = grade[0]
 
-    def _rank(f: FormInfo) -> int:
-        return 0 if f.grade == grade else (1 if not f.grade else 2)
+    def _rank(f: FormInfo) -> tuple:
+        # 학년 적합도 먼저, 같으면 **새 세대**(구·신 폼이 섞인 폴더 — 표시명이 달라 둘 다
+        # 목록에 남는 "고2 수1" ↔ "고2 대수" 같은 쌍에서 새 폼을 고른다).
+        fit = 0 if f.grade == grade else (1 if not f.grade else 2)
+        return (fit, tuple(-x for x in f.gen))
 
     def _pick(subj: str) -> str | None:
         # 학년 토큰 없는 과목 폼(기하·미적분2·확통)은 **고등** 폼이다 — 중등으로 새지 않게.
@@ -181,7 +194,7 @@ def match_form(grade: str, subject: str = "") -> str | None:
     cands = [f for f in forms if f.grade == grade and not f.subject]
     if not cands:
         cands = [f for f in forms if f.grade == grade]
-    return cands[0].path if cands else None
+    return min(cands, key=_rank).path if cands else None
 
 
 def match_by_grade(grade: str, subtag: str = "") -> str | None:
