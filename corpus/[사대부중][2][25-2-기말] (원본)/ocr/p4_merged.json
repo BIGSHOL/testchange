@@ -1,0 +1,164 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 19,
+   "score": 6,
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서답형 4] 그림과 같이 삼각뿔의 높이가 삼등분이 되도록 밑면에 평행한 두 평면으로 자를 때 생기는 세 입체도형을 차례로 (가), (나), (다)라고 하자. 입체도형 (다)의 부피가 38일 때, 입체도형 (가)의 부피를 구하는 과정과 답을 쓰시오."
+    },
+    {
+     "type": "figure",
+     "value": "삼각뿔(꼭짓점 위, 밑면의 세 꼭짓점 좌·우·앞)을 밑면에 평행한 두 평면으로 자른 모습. 뒤쪽 모서리는 점선. 위에서부터 (가), (나), (다) — 오른쪽 이름에서 각 부분으로 화살표.",
+     "bbox": [
+      0.2,
+      0.38,
+      0.78,
+      0.94
+     ]
+    }
+   ],
+   "label_type": "서답형",
+   "answer": "$2$",
+   "solution": "step1) (가), (가)와 (나)를 합친 것, 처음 삼각뿔은 서로 닮은 삼각뿔이다.\nstep2) 세 삼각뿔의 닮음비는 높이의 비와 같으므로 $1:2:3$이다.\nstep3) 세 삼각뿔의 부피의 비는 $1^3:2^3:3^3=1:8:27$이다.\nstep4) (가), (나), (다)의 부피의 비는 $1:(8-1):(27-8)=1:7:19$이다.\nstep5) (가)의 부피를 $V$라 하면 $V:38=1:19$이다.\nstep6) $19V=38$이므로 $V=2$이다."
+  },
+  {
+   "number": 20,
+   "score": 6,
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서답형 5] 그림에서 "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle ABC"
+    },
+    {
+     "type": "text",
+     "value": "와 닮은 삼각형을 찾아 기호 "
+    },
+    {
+     "type": "equation",
+     "value": "∽"
+    },
+    {
+     "type": "text",
+     "value": "를 써서 나타내고, 삼각형의 닮음 이유와 조건을 서술하시오."
+    }
+   ],
+   "label_type": "서답형",
+   "sub_questions": [
+    {
+     "number": 1,
+     "score": 3,
+     "contents": [
+      {
+       "type": "figure",
+       "value": "삼각형 ABC(B 좌하, C 우하, A 위)와 그 오른쪽 위의 점 D, 선분 AD·DC. 점선 치수 AB=12, BC=16, AC=8, AD=4, DC=6.",
+       "bbox": [
+        0.13,
+        0.1,
+        0.75,
+        0.37
+       ]
+      }
+     ],
+     "answer": "$\\triangle ABC\\sim\\triangle DCA$ (SSS 닮음)",
+     "solution": "step1) $\\overline{AB}:\\overline{DC}=12:6=2:1$이다.\nstep2) $\\overline{BC}:\\overline{CA}=16:8=2:1$이다.\nstep3) $\\overline{CA}:\\overline{AD}=8:4=2:1$이다.\nstep4) 세 쌍의 대응변의 길이의 비가 같으므로\nstep5) $\\triangle ABC\\sim\\triangle DCA$ (SSS 닮음)이다."
+    },
+    {
+     "number": 2,
+     "score": 3,
+     "contents": [
+      {
+       "type": "figure",
+       "value": "삼각형 ABC(A 위, B 좌하, C 우하), AB 위의 점 D, BC 위의 점 E, 선분 DE. 점선 치수 AD=2, DB=6, BC=12. ∠BDE 와 ∠C 에 같은 각 표시(•).",
+       "bbox": [
+        0.12,
+        0.67,
+        0.84,
+        1.0
+       ]
+      }
+     ],
+     "answer": "$\\triangle ABC\\sim\\triangle EBD$ (AA 닮음)",
+     "solution": "step1) $\\angle B$는 공통인 각이다.\nstep2) $\\angle ACB=\\angle EDB$이다.\nstep3) 두 쌍의 대응각의 크기가 각각 같으므로\nstep4) $\\triangle ABC\\sim\\triangle EBD$ (AA 닮음)이다."
+    }
+   ]
+  },
+  {
+   "number": 21,
+   "score": 8,
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서답형 6] 그림에서 점 "
+    },
+    {
+     "type": "equation",
+     "value": "G"
+    },
+    {
+     "type": "text",
+     "value": "와 "
+    },
+    {
+     "type": "equation",
+     "value": "G'"
+    },
+    {
+     "type": "text",
+     "value": "는 각각 "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle ABC"
+    },
+    {
+     "type": "text",
+     "value": "와 "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle ACD"
+    },
+    {
+     "type": "text",
+     "value": "의 무게중심이다. "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{BD}=10"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{GG'}"
+    },
+    {
+     "type": "text",
+     "value": "의 길이를 구하는 과정과 답을 쓰시오."
+    },
+    {
+     "type": "figure",
+     "value": "삼각형 ABD(A 위, B 좌하, D 우하), BD 위의 점 C, BC 의 중점 E, CD 의 중점 F, 선분 AE·AC·AF. AE 위의 G(dot), AF 위의 G′(dot), 선분 GG′. BD 에 점선 치수 10.",
+     "bbox": [
+      0.22,
+      0.32,
+      0.68,
+      1.0
+     ]
+    }
+   ],
+   "label_type": "서답형",
+   "answer": "$\\frac{10}{3}$",
+   "solution": "step1) 점 $\\mathrm{G}$가 $\\triangle ABC$의 무게중심이므로 $\\overline{BE}=\\overline{EC}$, $\\overline{AG}:\\overline{GE}=2:1$이다.\nstep2) 점 $\\mathrm{G}'$이 $\\triangle ACD$의 무게중심이므로 $\\overline{CF}=\\overline{FD}$, $\\overline{AG'}:\\overline{G'F}=2:1$이다.\nstep3) $\\overline{EF}=\\overline{EC}+\\overline{CF}=\\frac{1}{2}(\\overline{BC}+\\overline{CD})$이다.\nstep4) $\\overline{BC}+\\overline{CD}=\\overline{BD}=10$이므로 $\\overline{EF}=5$이다.\nstep5) $\\triangle AGG'$과 $\\triangle AEF$에서 $\\angle A$는 공통이다.\nstep6) $\\overline{AG}:\\overline{AE}=\\overline{AG'}:\\overline{AF}=2:3$이다.\nstep7) 따라서 $\\triangle AGG'\\sim\\triangle AEF$ (SAS 닮음)이다.\nstep8) $\\overline{GG'}:\\overline{EF}=2:3$이므로 $\\overline{GG'}=\\frac{2}{3}\\times 5=\\frac{10}{3}$이다."
+  }
+ ]
+}

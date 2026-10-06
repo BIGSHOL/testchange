@@ -1,0 +1,580 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 13,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림에서 "
+    },
+    {
+     "type": "equation",
+     "value": "l\\parallel m\\parallel n"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "5x+7y"
+    },
+    {
+     "type": "text",
+     "value": "의 값은?"
+    },
+    {
+     "type": "figure",
+     "value": "평행한 세 수평선 l, m, n(오른쪽에 이름)과 세 직선. 왼쪽 직선(좌하→우상): l~m 사이 7, m~n 사이 5. 가운데 직선(좌상→우하): l~m 사이 x, m~n 사이 6. 오른쪽 직선(좌상→우하): l~m 사이 9, m~n 사이 y. 모두 점선 치수.",
+     "bbox": [
+      0.17,
+      0.14,
+      0.86,
+      0.78
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "87"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "88"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "89"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "90"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "91"
+      }
+     ]
+    }
+   ],
+   "answer": "①"
+  },
+  {
+   "number": 14,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림과 같이 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AD}\\parallel\\overline{BC}"
+    },
+    {
+     "type": "text",
+     "value": "인 사다리꼴 "
+    },
+    {
+     "type": "equation",
+     "value": "ABCD"
+    },
+    {
+     "type": "text",
+     "value": "에서 점 "
+    },
+    {
+     "type": "equation",
+     "value": "M"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "N"
+    },
+    {
+     "type": "text",
+     "value": "은 각각 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AB}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{DC}"
+    },
+    {
+     "type": "text",
+     "value": "의 중점이다. "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{BD}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AC}"
+    },
+    {
+     "type": "text",
+     "value": "와 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{MN}"
+    },
+    {
+     "type": "text",
+     "value": "의 교점을 각각 "
+    },
+    {
+     "type": "equation",
+     "value": "P"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "Q"
+    },
+    {
+     "type": "text",
+     "value": "라고 할 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{PQ}"
+    },
+    {
+     "type": "text",
+     "value": "의 길이는?"
+    },
+    {
+     "type": "figure",
+     "value": "사다리꼴 ABCD(A 좌상, D 우상, B 좌하, C 우하), AD=6·BC=10 점선 치수. AB 의 중점 M, DC 의 중점 N, 선분 MN, 대각선 AC·BD. BD∩MN=P, AC∩MN=Q. AM=MB(두 줄 눈금), DN=NC(한 줄 눈금).",
+     "bbox": [
+      0.27,
+      0.27,
+      0.74,
+      0.7
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{4}{3}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{5}{3}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{7}{3}"
+      }
+     ]
+    }
+   ],
+   "answer": "④"
+  },
+  {
+   "number": 15,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림의 "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle ABC"
+    },
+    {
+     "type": "text",
+     "value": "에서 점 "
+    },
+    {
+     "type": "equation",
+     "value": "E"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "F"
+    },
+    {
+     "type": "text",
+     "value": "는 각각 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AB}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AC}"
+    },
+    {
+     "type": "text",
+     "value": "의 중점이고, 점 "
+    },
+    {
+     "type": "equation",
+     "value": "G"
+    },
+    {
+     "type": "text",
+     "value": "는 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{CE}"
+    },
+    {
+     "type": "text",
+     "value": "와 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{BF}"
+    },
+    {
+     "type": "text",
+     "value": "의 교점이다. "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle EBC"
+    },
+    {
+     "type": "text",
+     "value": "의 넓이가 16일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\square AEGF"
+    },
+    {
+     "type": "text",
+     "value": "의 넓이는?"
+    },
+    {
+     "type": "figure",
+     "value": "삼각형 ABC(A 위, B 좌하, C 우하). AB 의 중점 E(AE=EB 두 줄 눈금), AC 의 중점 F(AF=FC 한 줄 눈금), 선분 CE·BF 의 교점 G.",
+     "bbox": [
+      0.22,
+      0.27,
+      0.75,
+      0.74
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{32}{3}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "11"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{34}{3}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{35}{3}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "12"
+      }
+     ]
+    }
+   ],
+   "answer": "①"
+  },
+  {
+   "number": 16,
+   "score": 6,
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서답형 1] 서로 다른 두 개의 주사위를 동시에 던져서 나오는 눈의 수를 각각 "
+    },
+    {
+     "type": "equation",
+     "value": "a"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "b"
+    },
+    {
+     "type": "text",
+     "value": "라고 할 때, 연립방정식 "
+    },
+    {
+     "type": "equation",
+     "value": "\\begin{cases} 2x+ay=4 \\\\ x+y=2b \\end{cases}"
+    },
+    {
+     "type": "text",
+     "value": "의 해가 없을 확률을 구하는 과정과 답을 쓰시오."
+    }
+   ],
+   "label_type": "서답형",
+   "answer": "$\\frac{5}{36}$",
+   "solution": "step1) 모든 경우의 수는 $6\\times 6=36$이다.\nstep2) $x+y=2b$의 양변에 $2$를 곱하면 $2x+2y=4b$이다.\nstep3) 해가 없으려면 $x$, $y$의 계수는 각각 같고 상수항은 달라야 한다.\nstep4) 따라서 $a=2$이고 $4b\\neq 4$, 즉 $b\\neq 1$이다.\nstep5) $b$의 값은 $2$, $3$, $4$, $5$, $6$이므로 경우의 수는 $5$이다.\nstep6) 따라서 구하는 확률은 $\\frac{5}{36}$이다."
+  },
+  {
+   "number": 17,
+   "score": 7,
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서답형 2] 그림에서 점 "
+    },
+    {
+     "type": "equation",
+     "value": "I"
+    },
+    {
+     "type": "text",
+     "value": "는 정삼각형 "
+    },
+    {
+     "type": "equation",
+     "value": "ABC"
+    },
+    {
+     "type": "text",
+     "value": "의 내심이다. "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AB}\\parallel\\overline{ID}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AC}\\parallel\\overline{IE}"
+    },
+    {
+     "type": "text",
+     "value": "이고 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AC}=12"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{DE}"
+    },
+    {
+     "type": "text",
+     "value": "의 길이를 구하는 과정과 답을 쓰시오."
+    },
+    {
+     "type": "figure",
+     "value": "정삼각형 ABC(A 위, B 좌하, C 우하), 내심 I(dot). BC 위의 점 D, E 와 선분 ID(AB 에 평행, 화살표 1개)·IE(AC 에 평행, 화살표 2개). AC 에 점선 치수 12.",
+     "bbox": [
+      0.27,
+      0.36,
+      0.68,
+      0.98
+     ]
+    }
+   ],
+   "label_type": "서답형",
+   "answer": "$4$",
+   "solution": "step1) 점 $\\mathrm{I}$가 내심이므로 $\\angle ABI=\\angle IBD$이다.\nstep2) $\\overline{AB}\\parallel\\overline{ID}$이므로 $\\angle ABI=\\angle BID$(엇각)이다.\nstep3) $\\angle IBD=\\angle BID$이므로 $\\overline{BD}=\\overline{ID}$이다.\nstep4) 같은 방법으로 $\\overline{EC}=\\overline{IE}$이다.\nstep5) $\\angle IDE=\\angle ABC=60^\\circ$, $\\angle IED=\\angle ACB=60^\\circ$(동위각)이다.\nstep6) 따라서 $\\triangle IDE$는 정삼각형이고 $\\overline{ID}=\\overline{DE}=\\overline{IE}$이다.\nstep7) $\\overline{BD}=\\overline{DE}=\\overline{EC}$이고 $\\overline{BC}=\\overline{AC}=12$이다.\nstep8) 따라서 $\\overline{DE}=\\frac{1}{3}\\times 12=4$이다."
+  },
+  {
+   "number": 18,
+   "score": 7,
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서답형 3] 그림에서 점 "
+    },
+    {
+     "type": "equation",
+     "value": "O"
+    },
+    {
+     "type": "text",
+     "value": "와 점 "
+    },
+    {
+     "type": "equation",
+     "value": "I"
+    },
+    {
+     "type": "text",
+     "value": "가 각각 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AB}=\\overline{AC}"
+    },
+    {
+     "type": "text",
+     "value": "인 이등변삼각형 "
+    },
+    {
+     "type": "equation",
+     "value": "ABC"
+    },
+    {
+     "type": "text",
+     "value": "의 외심과 내심이다. "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle BAC=40^{\\circ}"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle IBO"
+    },
+    {
+     "type": "text",
+     "value": "의 크기를 구하는 과정과 답을 쓰시오."
+    },
+    {
+     "type": "figure",
+     "value": "이등변삼각형 ABC(A 위, B 좌하, C 우하), ∠A=40°(호), AB·AC 두 줄 눈금. 외심 O(dot, 위)·내심 I(dot, 아래), 선분 OB·OC·IB·IC.",
+     "bbox": [
+      0.3,
+      0.33,
+      0.61,
+      0.93
+     ]
+    }
+   ],
+   "label_type": "서답형",
+   "answer": "$15^\\circ$",
+   "solution": "step1) $\\overline{AB}=\\overline{AC}$이므로 $\\angle ABC=\\frac{1}{2}\\times(180^\\circ-40^\\circ)=70^\\circ$이다.\nstep2) 점 $\\mathrm{I}$가 내심이므로 $\\angle IBC=\\frac{1}{2}\\times 70^\\circ=35^\\circ$이다.\nstep3) 점 $\\mathrm{O}$가 외심이므로 $\\angle BOC=2\\angle BAC=80^\\circ$이다.\nstep4) $\\overline{OB}=\\overline{OC}$이므로 $\\angle OBC=\\frac{1}{2}\\times(180^\\circ-80^\\circ)=50^\\circ$이다.\nstep5) 따라서 $\\angle IBO=\\angle OBC-\\angle IBC=50^\\circ-35^\\circ=15^\\circ$이다."
+  }
+ ]
+}
