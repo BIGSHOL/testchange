@@ -5,7 +5,7 @@
 엔진이 받는 envelope({"header","questions":[...]})로 매핑한다.
 - camelCase → snake_case (subQuestions→sub_questions, labelType→label_type)
 - 빈 contents → text 폴백
-- figure 제외 (웹 BlockType union엔 없지만 이중 안전; 파서도 figure를 None 드롭)
+- figure 인라인 자산 보존 → convert_cli에서 PNG로 해소한 뒤 파서에 전달
 
 웹 타입(src/types/ocrBlocks.ts):
   ContentBlock { type: "text"|"equation"|"equation_block"|"table", value: str, rows: str[][] }
@@ -30,8 +30,12 @@ def _clean_contents(blocks) -> list[dict]:
         if not isinstance(b, dict):
             continue
         t = b.get("type")
+        if t == 'figure':
+            # Keep only inline assets. Browser-supplied filesystem paths are never accepted.
+            out.append({k: b[k] for k in ('type', 'crop', 'svg', 'spec', 'desc') if k in b})
+            continue
         if t not in _ALLOWED_BLOCK_TYPES:
-            continue  # figure/image 등 제외
+            continue  # raw image filesystem paths and unknown blocks are not accepted
         value = b.get("value", "")
         rows = b.get("rows", [])
         # table에서 셀이 value(list)로 온 경우 rows로 강등 (파서도 강등하지만 선방어)

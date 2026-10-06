@@ -15,6 +15,14 @@ windowed(콘솔 없음) 빌드라 sys.stdout/stderr 가 None 일 수 있어, 시
 import sys
 import os
 
+# ⭐ 도우미는 로컬 ``config.json`` 을 만들지 않는다 — 키·모델·QC 설정은 전부 서버
+# (Vercel env)에 있고 여기서 실제로 읽는 값은 EQ_WATERMARK 하나뿐이다. 그런데도
+# ``utils.config`` 가 파일이 없으면 기본값 27개를 써 놓아, "여기에 API 키를 넣어야
+# 할 것처럼 보이는" 파일이 도우미 폴더·배포 zip 에 생겼다(2026-08-20 사용자 지적).
+# ⚠️ **core/utils 를 import 하기 전에** 세워야 한다(utils.config 는 import 시점에
+# 파일을 읽는다). 환경변수라 커넥터가 띄우는 자식 워커까지 자동으로 따라온다.
+os.environ.setdefault("MATHGEN_CONFIG_READONLY", "1")
+
 AUTOSTART_NAME = "MathGenHWP"
 AUTOSTART_KEY = r"Software\Microsoft\Windows\CurrentVersion\Run"
 # 트레이 "웹앱 열기" 가 여는 주소. 배포 도메인이 정해지면 env 로 바꿀 수 있게 둔다 —

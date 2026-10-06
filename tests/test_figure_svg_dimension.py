@@ -57,9 +57,11 @@ class DimensionCurveGeometryTest(unittest.TestCase):
         fragment = meas(10, 20, 110, 20, off=12)
         path = ET.fromstring(fragment)
 
-        # 치수 점선 규격은 6 4 / 1.4px — 인쇄 가독성 때문에 상향했다(2026-08-13,
-        # 사용자 "시험지에 비해 선·글자가 너무 작다"). 각 표시 호(angle_mark)의
-        # 4 3 과는 별개 규격이다.
+        # 치수 점선 규격은 6 4 / `DIM_SW`. 이력: 2026-08-13 인쇄 가독성 때문에 1.4 로
+        # 상향(사용자 "시험지에 비해 선·글자가 너무 작다") → 2026-08-28 todays-math 에서
+        # RPM 정본 비(치수 = 도형선의 0.375~0.625배)로 0.6 확정, 2026-09-11 재동기화로
+        # 여기도 따른다(도형선·라벨은 오히려 커졌다). 각 표시 호(angle_mark)의 4 3 과는
+        # 별개 규격이다.
         self.assertEqual(path.attrib["stroke-dasharray"], "6 4")
         # 2026-09-30 todays-math 엔진 이식: RPM 인쇄 실측 비(치수 0.3~0.5pt ÷ 도형 0.8pt)로
         # 치수 파선을 도형선보다 얇게 — DIM_SW(0.6).

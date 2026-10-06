@@ -37,6 +37,14 @@ try:
 except Exception:
     pass
 
+# ⭐ 도우미는 로컬 ``config.json`` 을 만들지 않는다 — 키·모델·QC 설정은 전부 서버
+# (Vercel env)에 있고 여기서 실제로 읽는 값은 EQ_WATERMARK 하나뿐이다. 그런데도
+# ``utils.config`` 가 파일이 없으면 기본값 27개를 써 놓아, "여기에 API 키를 넣어야
+# 할 것처럼 보이는" 파일이 도우미 폴더·배포 zip 에 생겼다(2026-08-20 사용자 지적).
+# ⚠️ **core/utils 를 import 하기 전에** 세워야 한다(utils.config 는 import 시점에
+# 파일을 읽는다). 환경변수라 커넥터가 띄우는 자식 워커까지 자동으로 따라온다.
+os.environ.setdefault("MATHGEN_CONFIG_READONLY", "1")
+
 ENGINE_ROOT = Path(__file__).resolve().parent.parent
 # ⚠️ 도우미를 다시 배포할 때마다 올린다 — `/health` 의 version 이 **사용자 PC 에서
 # 어느 빌드가 도는지 확인하는 유일한 수단**이다(exe 를 갈아끼웠는지 원격에서 알 길이
@@ -47,7 +55,7 @@ ENGINE_ROOT = Path(__file__).resolve().parent.parent
 # 여기만 올리면 낡은 도우미를 쓰는 사용자에게 **영영 알림이 안 간다** — 고쳐 놓고도
 # 사람이 일일이 "새로 받으세요" 라고 말해야 했던 게 2026-08-10 사고의 실제 경로다.
 # 회귀: 웹 `npm run gate:connver`(웹 요구 ≤ 여기 VERSION 을 대조).
-VERSION = "1.2.0"   # 2026-08-20: 웹 그림 렌더(renderFigures — SVG 엔진 도형 삽입)
+VERSION = "1.3.0"   # MathGen v2 exports preserve edited figures.
 # ⭐ 360초 — 실측 렌더가 2~4분(오성중·왕선중 2026-08-09)이라 180초는 3분 넘는
 # 시험지를 **구조적으로 100% 실패**시키고(살해 후 같은 payload 재시도 → 또 180초
 # 소모 → 500) 총 6분+CPU 를 낭비했다. env 로 조정 가능.
@@ -459,7 +467,7 @@ class Handler(BaseHTTPRequestHandler):
             # 한글 버전 힌트(진단용) — COM 크래시가 버전 의존인지 가르는 유일한 단서.
             "hwp_version": _detect_hwp_version(),
             "token": bool(REQUIRE_TOKEN),
-            "capabilities": ["convert-json"],
+            "capabilities": ["convert-json", "v2-figures"],
         }, self._origin())
 
     def do_POST(self):
