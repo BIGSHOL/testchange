@@ -1,10 +1,17 @@
 # -*- coding: utf-8 -*-
 """대수회 폼지(.hwp) 등록·해석.
 
-학년별 색상 폼 7종(구조 동일, 색만 다름)을 번들/폴더에서 찾아 목록화하고,
+학년·과목별 색상 폼(구조 동일, 색·머리말 과목만 다름)을 번들/폴더에서 찾아 목록화하고,
 입력 파일명/문서 학년으로 맞는 폼을 자동 선택한다. 폼 채움은
 ``core/hwp_form_writer.write_exam_to_form`` 이 수행하며, 이 모듈은 "어떤 폼을
 쓸지"만 결정한다.
+
+폼 세대(파일명 규칙이 다르다 — 둘 다 읽는다):
+  * **26년 개정 9종**(2026-10-06 교체): ``(중1용)``·``(중2용)``·``(중3용)``·``(고1용)``·
+    ``(고2 대수)``·``(고2 미적분1)``·``(기하)``·``(미적분2)``·``(확통)`` + ``(색) (개정)``.
+    선택과목 3종은 **과목별 폼**이고 학년 토큰이 없다(고2·고3 공용).
+  * 25년 7종(구): ``(고2 수1용)``·``(고2 수2용)``·``(고2 선택과목용)`` … — 선택과목은 통합 1종.
+    `<exe폴더>/forms/` 에 구 폼을 그대로 둔 사용자를 위해 계속 인식한다.
 
 폼 위치(우선순위, 중복 파일명은 먼저 찾은 것):
   1) 번들 ``_MEIPASS/forms/`` (PyInstaller 동결 exe)
@@ -18,25 +25,33 @@ import sys
 from dataclasses import dataclass
 from pathlib import Path
 
-# 폼 파일명 안의 학년 토큰: "(중2용)", "(고1용)", "(고2 수1용)", "(고2 선택과목용)" …
-_FORM_GRADE_RE = re.compile(r"\((중|고)\s*([1-3])\s*([^)]*?)\s*용\)")
-# 색상: .hwp 직전의 한글 괄호 "(연두)", "(빨강)" …
-_FORM_COLOR_RE = re.compile(r"\(([가-힣]+)\)\s*$")
+# 폼 파일명의 괄호 토큰. ⚠️ 대괄호 머리 ``[26년 폼지 최종(10.05)]`` 안에도 괄호가 있어
+# 대괄호 구간을 먼저 걷어낸 뒤 센다(안 그러면 날짜 ``(10.05)`` 가 첫 토큰으로 잡힌다).
+_BRACKET_PART_RE = re.compile(r"\[[^\]]*\]")
+_PAREN_RE = re.compile(r"\(([^()]*)\)")
+# 폼 종류 토큰: "중2용" / "고1용" / "고2 수1용" / "고2 대수" / "기하" …
+_FORM_TAG_RE = re.compile(r"^\s*(?:(중|고)\s*([1-3]))?\s*(.*?)\s*$")
+# 색상이 아닌 꼬리 표식(색상 판정에서 제외) — "(개정)".
+_NON_COLOR_MARKS = {"개정"}
 # 입력 파일명 패턴 "[조암중][2]…" → 학교 + 학년숫자
 _INPUT_HEAD_RE = re.compile(r"^\s*\[([^\]]*)\]\s*\[\s*([1-3])\s*\]")
 # 본문/제목에 직접 박힌 학년 "중2"·"고1"
 _GRADE_LITERAL_RE = re.compile(r"(중|고)\s*([1-3])")
 
 _GRADE_ORDER = {"중1": 0, "중2": 1, "중3": 2, "고1": 3, "고2": 4, "고3": 5}
+# 학년 토큰이 없는 과목 폼(기하·미적분2·확통)의 정렬 자리 — 고2 폼 뒤.
+_ELECTIVE_ORDER = 4.5
 
 
 @dataclass
 class FormInfo:
     path: str
-    grade: str          # "중2", "고2" …
-    subtag: str         # "수1", "수2", "선택과목" 또는 ""
+    grade: str          # "중2", "고2" … 학년 없는 과목 폼(기하 등)은 ""
+    subtag: str         # 파일명에 적힌 과목 토큰 그대로 — "수1"·"대수"·"확통"·"선택과목" 또는 ""
     color: str          # "연두" …
     display: str        # 드롭다운 표시명
+    subject: str = ""   # 표준 과목키 — "대수"·"미적분1"·"미적분2"·"기하"·"확률과통계",
+    #                     구 통합 폼은 "선택과목", 학년 전용 폼(중N·고1)은 ""
 
 
 def _base_dirs() -> list[Path]:
@@ -52,18 +67,29 @@ def _base_dirs() -> list[Path]:
 
 
 def _parse_form(path: Path) -> FormInfo:
-    name = path.name
+    """폼 파일명 → FormInfo. 규칙에 안 맞으면 grade·subject 가 빈 채로(자동 매칭 제외)."""
+    toks = [t.strip() for t in _PAREN_RE.findall(_BRACKET_PART_RE.sub("", path.stem))]
     grade, subtag, color = "", "", ""
-    m = _FORM_GRADE_RE.search(name)
-    if m:
-        grade = m.group(1) + m.group(2)            # "고" + "2"
-        subtag = re.sub(r"\s+", "", m.group(3) or "")  # "수1"/"수2"/"선택과목"/""
-    c = _FORM_COLOR_RE.search(path.stem)
-    if c:
-        color = c.group(1)
-    label = grade + (f" {subtag}" if subtag else "")
+    if toks:
+        m = _FORM_TAG_RE.match(toks[0])
+        if m and m.group(1):
+            grade = m.group(1) + m.group(2)                 # "고" + "2"
+        rest = (m.group(3) if m else toks[0]) or ""
+        # 꼬리 "용"(중2용·수1용·선택과목용) 은 과목이 아니다.
+        subtag = re.sub(r"\s+", "", re.sub(r"용$", "", rest.strip()))
+        for t in toks[1:]:
+            if t not in _NON_COLOR_MARKS and re.fullmatch(r"[가-힣]+", t):
+                color = t
+                break
+    # 표준 과목키 — 구 폼의 "수1"·"수2" 도 같은 키로 모인다(_SUBJECT_ALIASES).
+    subject = _SUBJECT_ALIASES.get(subtag, subtag)
+    if subject in _HS1_SUBJECTS:
+        subject = ""                                        # 고1 과목 = 학년 전용 폼
+    if not grade and subject not in _FORM_SUBJECTS:
+        subtag = subject = ""                               # 규칙 밖 이름 — 자동 매칭 제외
+    label = (grade + (f" {subtag}" if subtag else "")).strip()
     display = (label or path.stem) + (f" ({color})" if color else "")
-    return FormInfo(str(path), grade, subtag, color, display.strip())
+    return FormInfo(str(path), grade, subtag, color, display.strip(), subject)
 
 
 def list_forms() -> list[FormInfo]:
@@ -80,7 +106,8 @@ def list_forms() -> list[FormInfo]:
                 continue
             seen.add(key)
             forms.append(fi)
-    forms.sort(key=lambda f: (_GRADE_ORDER.get(f.grade, 99), f.subtag, f.color))
+    forms.sort(key=lambda f: (
+        _GRADE_ORDER.get(f.grade, _ELECTIVE_ORDER if f.subject else 99), f.subtag, f.color))
     return forms
 
 
@@ -118,26 +145,48 @@ def detect_grade(text: str) -> str:
     return ""
 
 
-def match_by_grade(grade: str, subtag: str = "") -> str | None:
-    """학년(+선택과목 태그)에 맞는 폼 경로. 없으면 None.
+def match_form(grade: str, subject: str = "") -> str | None:
+    """학년 + **표준 과목키**에 맞는 폼 경로. 없으면 None.
 
-    고2는 3종(수1/수2/선택과목)이라 학년만으론 모호 → subtag 우선, 없으면 첫 폼.
+    과목 폼은 학년을 덮어써 쓸 수 있다 — 폼 구조(객관식/서술형/정답)는 학년 무관이고 학년
+    라벨은 header_values 가 채운다. 그래서 고3 확통·미적분·기하도 과목 폼으로 간다(고3 전용
+    폼이 없어 매칭 실패로 변환 불가였던 것, 2026-06-14).
+
+    우선순위:
+      1) 그 과목 전용 폼 — 같은 학년 > 학년 없는 폼(기하·미적분2·확통) > 같은 학교급 다른 학년
+      2) (구 25년 폼) 미적분2·기하·확통 = 통합 ``선택과목`` 폼
+      3) 학년 전용 폼(중N·고1) — 과목이 없거나 과목 폼을 못 찾았을 때
+      4) 그 학년의 아무 폼(고2인데 과목 미상 — 종전 '첫 폼' 동작)
     """
     if not grade:
         return None
-    cands = [f for f in list_forms() if f.grade == grade]
-    if not cands and grade == "고3" and subtag == "선택과목":
-        # 고3 선택과목(확통·미적분·기하)은 고2 선택과목 폼을 공유한다 — 폼 구조(객관식/서술형/
-        # 정답)는 학년 무관, 학년 라벨은 header_values 로 덮어쓴다. 고3 전용 폼이 없을 때 폴백
-        # (안 하면 고3 확통·미적분이 폼 매칭 실패로 변환 불가, 2026-06-14).
-        cands = [f for f in list_forms() if f.grade == "고2" and f.subtag == "선택과목"]
+    forms = list_forms()
+    level = grade[0]
+
+    def _rank(f: FormInfo) -> int:
+        return 0 if f.grade == grade else (1 if not f.grade else 2)
+
+    def _pick(subj: str) -> str | None:
+        # 학년 토큰 없는 과목 폼(기하·미적분2·확통)은 **고등** 폼이다 — 중등으로 새지 않게.
+        cands = [f for f in forms
+                 if f.subject == subj and (f.grade[0] if f.grade else "고") == level]
+        return min(cands, key=_rank).path if cands else None
+
+    if subject:
+        hit = _pick(subject)
+        if not hit and subject in _ELECTIVE_SUBJECTS:
+            hit = _pick("선택과목")
+        if hit:
+            return hit
+    cands = [f for f in forms if f.grade == grade and not f.subject]
     if not cands:
-        return None
-    if subtag:
-        for f in cands:
-            if f.subtag == subtag:
-                return f.path
-    return cands[0].path
+        cands = [f for f in forms if f.grade == grade]
+    return cands[0].path if cands else None
+
+
+def match_by_grade(grade: str, subtag: str = "") -> str | None:
+    """(구 API) 학년 + 폼 태그("수1"·"수2"·"선택과목")로 폼 경로. `match_form` 위임."""
+    return match_form(grade, _SUBJECT_ALIASES.get(subtag, subtag))
 
 
 def resolve_auto(input_path: str) -> str | None:
@@ -151,7 +200,7 @@ def resolve_auto(input_path: str) -> str | None:
 # `scripts/make_plain2col_form.py`(본문 비우기 + 개요번호 해제 + 머리말 토큰화).
 #
 # ⚠️ **`forms/` 바로 밑이 아니라 하위 폴더**에 둔다 — `list_forms()` 는 `*.hwp` 를
-# 비재귀로 훑으므로, 여기 두면 GUI 폼 드롭다운(대수회 7종)에 섞이지 않는다.
+# 비재귀로 훑으므로, 여기 두면 대수회 폼 목록(자동 매칭 대상)에 섞이지 않는다.
 _PLAIN_SUBDIR = "plain2col"
 
 
@@ -172,9 +221,10 @@ def plain_form_path() -> str | None:
 _BRACKET_RE = re.compile(r"\[([^\]]*)\]")
 _TERM_RE = re.compile(r"(\d{2,4})\s*[-_.]\s*([12])\s*[-_.]\s*(중간|기말)")
 
-# 고등 과목 정규화: 15개정 ↔ 22개정 혼재. 표준키로 통일 후 폼 subtag 로 매핑.
-#   수1=대수 → 수1폼 / 수2=미적분1 → 수2폼 / 미적분(미적분2)·기하·확통 → 선택과목폼
-#   고1(공수1·공수2·수상·수하) → 고1폼(subtag 없음)
+# 고등 과목 정규화: 15개정 ↔ 22개정 혼재. 표준키로 통일 후 그 키로 폼을 고른다.
+#   수1=대수 → 대수 폼 / 수2=미적분1 → 미적분1 폼 /
+#   미적분(미적분2)·기하·확통 → 과목별 폼(26년 개정) 또는 통합 선택과목 폼(25년 구)
+#   고1(공수1·공수2·수상·수하) → 고1폼(과목 없음)
 _SUBJECT_ALIASES = {
     # 고1
     "공수1": "공통수학1", "공통수학1": "공통수학1", "수상": "공통수학1",
@@ -191,23 +241,29 @@ _SUBJECT_ALIASES = {
     "기하": "기하",
     "확통": "확률과통계", "확률과통계": "확률과통계",
 }
-# 표준 과목 → 폼 subtag(고2). 고1 과목은 학년으로 고1폼 직행.
+# 표준 과목 → (구) 폼 subtag. 25년 폼 3분류 그대로 — `parse_filename()["form_subtag"]` 의
+# 값이라 소비자 호환을 위해 유지한다. 폼 선택 자체는 `form_subject`(표준 과목키)로 한다.
 _SUBJECT_TO_SUBTAG = {
     "대수": "수1", "미적분1": "수2",
     "미적분2": "선택과목", "기하": "선택과목", "확률과통계": "선택과목",
 }
 _HS1_SUBJECTS = {"공통수학1", "공통수학2"}
+# 과목별 폼이 따로 있는 선택과목(26년 개정). 구 폼에선 통합 `선택과목` 폼 하나로 받는다.
+_ELECTIVE_SUBJECTS = {"미적분2", "기하", "확률과통계"}
+# 폼 파일명에서 인정하는 과목키(학년 토큰 없는 폼의 유효성 판정).
+_FORM_SUBJECTS = {"대수", "미적분1", "선택과목"} | _ELECTIVE_SUBJECTS
 
 
 def parse_filename(input_path: str) -> dict:
     """입력 파일명을 규칙대로 파싱. 채움/폼선택에 필요한 값과 유효성 반환.
 
     반환: {valid, 학교, 학년("중2"/"고2"), 년도("2025"), 학기("1"), 구분("중간"),
-           과목(표시명, 중등="수학"), form_subtag, raw_subject}
+           과목(표시명, 중등="수학"), form_subject(표준 과목키 — 폼 선택용),
+           form_subtag(구 3분류 "수1"/"수2"/"선택과목"), raw_subject}
     """
     name = Path(input_path).stem
     out = {"valid": False, "학교": "", "학년": "", "년도": "", "학기": "",
-           "구분": "", "과목": "", "form_subtag": "", "raw_subject": ""}
+           "구분": "", "과목": "", "form_subject": "", "form_subtag": "", "raw_subject": ""}
     toks = _BRACKET_RE.findall(name)
     if len(toks) < 3:
         return out
@@ -241,6 +297,7 @@ def parse_filename(input_path: str) -> dict:
             if std in _HS1_SUBJECTS:
                 out["form_subtag"] = ""          # 고1폼
             else:
+                out["form_subject"] = std
                 out["form_subtag"] = _SUBJECT_TO_SUBTAG.get(std, "선택과목")
             break
     out["valid"] = bool(out["과목"] and out["년도"])
@@ -252,4 +309,4 @@ def resolve_form(input_path: str) -> str | None:
     info = parse_filename(input_path)
     if not info["valid"]:
         return None
-    return match_by_grade(info["학년"], info["form_subtag"])
+    return match_form(info["학년"], info["form_subject"])

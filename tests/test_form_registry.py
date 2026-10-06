@@ -10,7 +10,9 @@ REPO = Path(__file__).resolve().parents[1]
 if str(REPO) not in sys.path:
     sys.path.insert(0, str(REPO))
 
-from core.form_registry import _school_level, detect_grade, parse_filename
+from core import form_registry
+from core.form_registry import (FormInfo, _parse_form, _school_level, detect_grade,
+                                match_form, parse_filename)
 
 
 def run():
@@ -49,6 +51,92 @@ def run():
     mj2 = parse_filename("[OO고][2][미적2][25-2-기말].pdf")
     chk(mj2["valid"] and mj2["form_subtag"] == "선택과목",
         f"parse_filename [미적2] → 선택과목: subtag={mj2['form_subtag']!r}")
+
+    # ── 26년 개정 폼(2026-10-06 교체) — 파일명 규칙이 바뀌었다 ──────────────────
+    # 과목 폼은 '용' 이 없고("(고2 대수)"), 선택과목 3종은 학년 토큰도 없다("(기하)").
+    # 색상은 맨 끝이 아니라 "(개정)" 앞 — 맨 끝 괄호를 색으로 읽으면 전부 '개정'이 된다.
+    def pf(name):
+        return _parse_form(Path(name))
+
+    N = "[대수회][26년 폼지 최종(10.05)] "
+    for name, grade, subject, color in [
+        ("(중1용) (남색) (개정).hwp", "중1", "", "남색"),
+        ("(중3용) (빨강) (개정).hwp", "중3", "", "빨강"),
+        ("(고1용) (파란) (개정).hwp", "고1", "", "파란"),
+        ("(고2 대수) (초록) (개정).hwp", "고2", "대수", "초록"),
+        ("(고2 미적분1) (보라) (개정).hwp", "고2", "미적분1", "보라"),
+        ("(기하) (남색) (개정).hwp", "", "기하", "남색"),
+        ("(미적분2) (남색) (개정).hwp", "", "미적분2", "남색"),
+        ("(확통) (남색) (개정).hwp", "", "확률과통계", "남색"),
+    ]:
+        f = pf(N + name)
+        chk((f.grade, f.subject, f.color) == (grade, subject, color),
+            f"개정 폼 {name}: {(f.grade, f.subject, f.color)!r} ≠ {(grade, subject, color)!r}")
+    # 대괄호 머리의 날짜 "(10.05)" 를 폼 종류 토큰으로 읽지 않는다.
+    chk(pf(N + "(중2용) (연두) (개정).hwp").display == "중2 (연두)", "표시명 = '중2 (연두)'")
+    # 25년 폼(구) 파일명도 계속 읽는다 — <exe폴더>/forms 에 구 폼을 둔 설치.
+    O = "[대수회][25년 폼지 최종(01.09)] "
+    for name, grade, subject, color in [
+        ("(고2 수1용) (초록).hwp", "고2", "대수", "초록"),
+        ("(고2 수2용) (보라).hwp", "고2", "미적분1", "보라"),
+        ("(고2 선택과목용) (남색).hwp", "고2", "선택과목", "남색"),
+        ("(중2용) (연두).hwp", "중2", "", "연두"),
+    ]:
+        f = pf(O + name)
+        chk((f.grade, f.subject, f.color) == (grade, subject, color),
+            f"구 폼 {name}: {(f.grade, f.subject, f.color)!r}")
+    # 규칙 밖 이름은 자동 매칭 대상이 아니다(학년·과목 모두 빈 값).
+    odd = pf("아무이름.hwp")
+    chk(odd.grade == "" and odd.subject == "", "규칙 밖 폼 이름 → 매칭 제외")
+
+    # 과목 표준키(폼 선택용). 구 3분류(form_subtag)는 소비자 호환으로 유지.
+    for fn, subj in [("[A고][2][수1][25-1-기말].pdf", "대수"),
+                     ("[A고][2][대수][26-1-중간].pdf", "대수"),
+                     ("[A고][2][수2][25-1-중간].pdf", "미적분1"),
+                     ("[A고][2][미적분][25-2-중간].pdf", "미적분2"),
+                     ("[A고][3][확통][25-1-기말].pdf", "확률과통계"),
+                     ("[A고][2][기하][25-2-중간].pdf", "기하"),
+                     ("[A고][1][공수2][25-2-기말].pdf", ""),
+                     ("[A중][2][25-1-기말].pdf", "")]:
+        got = parse_filename(fn)["form_subject"]
+        chk(got == subj, f"form_subject {fn} → {got!r} (기대 {subj!r})")
+
+    # 폼 고르기 — 실제 forms/ 폴더와 무관하게 목록을 갈아끼워 규칙만 검증한다.
+    def with_forms(names, fn):
+        saved = form_registry.list_forms
+        form_registry.list_forms = lambda: [_parse_form(Path(n)) for n in names]
+        try:
+            return fn()
+        finally:
+            form_registry.list_forms = saved
+
+    new9 = [N + s for s in ("(중1용) (남색) (개정).hwp", "(중2용) (연두) (개정).hwp",
+                            "(중3용) (빨강) (개정).hwp", "(고1용) (파란) (개정).hwp",
+                            "(고2 대수) (초록) (개정).hwp", "(고2 미적분1) (보라) (개정).hwp",
+                            "(기하) (남색) (개정).hwp", "(미적분2) (남색) (개정).hwp",
+                            "(확통) (남색) (개정).hwp")]
+    for grade, subj, want in [("중2", "", "(중2용)"), ("고1", "", "(고1용)"),
+                              ("고2", "대수", "(고2 대수)"), ("고2", "미적분1", "(고2 미적분1)"),
+                              ("고2", "기하", "(기하)"), ("고2", "확률과통계", "(확통)"),
+                              # 고3 선택과목 — 학년 없는 과목 폼이 받는다(전용 폼 없음).
+                              ("고3", "확률과통계", "(확통)"), ("고3", "미적분2", "(미적분2)"),
+                              # 고3 인데 대수 — 같은 학교급의 과목 폼(학년은 머리말이 덮어쓴다).
+                              ("고3", "대수", "(고2 대수)")]:
+        got = with_forms(new9, lambda: match_form(grade, subj)) or ""
+        chk(want in got, f"개정 9종 match_form({grade},{subj!r}) → {Path(got).name!r}")
+    chk(with_forms(new9, lambda: match_form("중3", "기하")) is not None
+        and "(중3용)" in with_forms(new9, lambda: match_form("중3", "기하")),
+        "중등은 과목 폼으로 새지 않는다(학교급 다름 → 학년 폼)")
+    old7 = [O + s for s in ("(고2 수1용) (초록).hwp", "(고2 수2용) (보라).hwp",
+                            "(고2 선택과목용) (남색).hwp", "(고1용) (파란).hwp",
+                            "(중1용) (남색).hwp", "(중2용) (연두).hwp", "(중3용) (빨강).hwp")]
+    for grade, subj, want in [("고2", "대수", "수1용"), ("고2", "미적분1", "수2용"),
+                              ("고2", "기하", "선택과목용"), ("고3", "확률과통계", "선택과목용"),
+                              ("고1", "", "고1용"), ("중1", "", "중1용")]:
+        got = with_forms(old7, lambda: match_form(grade, subj)) or ""
+        chk(want in got, f"구 7종 match_form({grade},{subj!r}) → {Path(got).name!r}")
+    chk(with_forms([], lambda: match_form("고2", "대수")) is None, "폼 0종 → None(2단 서식)")
+    chk(isinstance(pf(N + "(기하) (남색) (개정).hwp"), FormInfo), "FormInfo 반환")
 
     if fails:
         print("FAIL:")

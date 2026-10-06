@@ -15,7 +15,12 @@
   - 빈줄 템플릿은 secPr 단락 금지·fabricate 금지. ``is_empty`` 는 **모든 태그 제거 후** 판정.
   - 고아 Hwp.exe 정리, 잠긴 출력 파일은 ``os.replace`` 무효 → 새 파일명 사용.
 
-현재 범위(MVP): 객관식(보기 있는 문항)만. 서술형/표 셀 수식은 후속.
+폼 세대(둘 다 지원 — 구조 차이는 **문서에서 읽어** 흡수한다. 상수로 박지 말 것):
+  * 25년 7종: 객관식 17 + 서술형 8 슬롯, 2구역, 서술형 슬롯 = 라벨·단원·난이도 3줄,
+    정답 구역에 머리말/꼬리말 재정의, 본문 charPr 21.
+  * **26년 개정 9종**(2026-10-06 교체): 객관식 21 + 서술형 10 슬롯, 단일 구역, 서술형 슬롯에
+    ``⑴ ⑵ ⑶`` 소문항 줄(수식 + 내어쓰기 문단)이 미리 깔림, 정답 구역 재정의 없음, 본문
+    charPr 20(한 칸 당겨짐), 머리말 자리표시가 ``OO고``·``O학기``·``OO고사``·``시작 범위 ~ 끝 범위``.
 """
 from __future__ import annotations
 
@@ -68,11 +73,21 @@ FIG_SRC_DPI = 200
 
 # 머리말/꼬리말 '과목' 자리 매칭 — 수학뿐 아니라 미적분·기하·확률과 통계 등 모든 과목(비캡처).
 # 폼마다 placeholder 과목이 달라(선택과목 폼은 "미적분") 수학만 매칭하면 치환 실패(사용자 2026-06-08).
-_SUBJ_PAT = r'(?:수학\s*[12]?|수\s*[12]|대수|미적분\s*[12]?|기하|확률과\s*통계|확통|통계)'
+# 26년 개정 고1 폼은 자리표시가 "공통수학O"(O = 채울 자리) — '공통' 접두와 꼬리 O 까지 한 덩어리로
+# 잡아야 "공통" 이 치환 뒤에 남지 않는다. ⚠️ `수학` 대안보다 **앞**에 둔다(먼저 매칭).
+_SUBJ_PAT = (r'(?:공통\s*수학\s*[12O]?|수학\s*[12]?|수\s*[12]|대수|미적분\s*[12]?|기하'
+             r'|확률과\s*통계|확통|통계)')
+# 폼 자리표시 글자 — 26년 개정 폼은 채울 자리를 라틴 대문자 O 로 표시한다("OO고"·"O학기"·
+# "OO고사"). 25년 폼은 그 자리가 그냥 비어 있었다("고 1학년"·" 학기 고사") → 둘 다 받는다.
+_PH = r'(?:O{1,2}\s*)?'
 # 파일명 약칭 → 머리말 표기 정식명.
 _SUBJ_DISPLAY = {
     "확통": "확률과 통계", "확률과통계": "확률과 통계",
-    "미적분1": "미적분", "미적분2": "미적분",
+    # 22개정 과목은 번호까지가 과목명이다(폼 자리표시도 "미적분1"·"미적분2"). 과거엔 통합
+    # 선택과목 폼의 자리표시가 "미적분" 하나라 번호를 떼었으나, 26년 개정 폼부터 과목별 폼이다.
+    "미적1": "미적분1", "미적분I": "미적분1", "미적분Ⅰ": "미적분1",
+    "미적2": "미적분2", "미적분II": "미적분2", "미적분Ⅱ": "미적분2",
+    "공수1": "공통수학1", "공수2": "공통수학2",
     # 수1/수2 는 '수학1'/'수학2' 가 정식 표기 — '수학' 강등이 수1·수2 머리말 과목을
     # 전부 '수학'으로 깎던 숨은 결함(수2 보라폼 첫 실전에서 발각, 2026-06-12).
     "수1": "수학1", "수2": "수학2", "수학1": "수학1", "수학2": "수학2",
@@ -624,7 +639,7 @@ def _put_score(ses, h, score: int, essay: bool = False) -> bool:
 
 
 # 소문항 앞머리 번호 마커((1)/1)/1./①…) — 우리가 마커를 별도로 붙이므로 OCR 중복분 제거.
-_SUBMARK_RE = re.compile(r'^\s*(?:[\(（]\s*\d+\s*[\)）]|\d+\s*[.)]|[①-⑩])\s*')
+_SUBMARK_RE = re.compile(r'^\s*(?:[\(（]\s*\d+\s*[\)）]|\d+\s*[.)]|[①-⑩]|[⑴-⒇])\s*')
 _EQ_TYPES = (ContentType.EQUATION, ContentType.EQUATION_BLOCK)
 _LEAD_CLOSE_RE = re.compile(r'^\s*[\)）.]\s*')   # 분리된 마커의 닫힘부 ") "/". "
 
@@ -843,37 +858,104 @@ def _put_essay_label(ses, label: str) -> None:
         ses.text(f" {label} ")
 
 
-def _fill_essay_at(ses, h, pos, q: Question, label_idx: int, next_pos=None) -> None:
-    """서술형 슬롯 채움: 번호줄 ``[라벨 M] 문제`` + 소문항((k) 수식 마커) + 배점.
+def _form_sub_style(hwp) -> tuple[bool, int]:
+    """폼이 서술형 슬롯에 깔아 둔 **소문항 마커 양식** — (괄호숫자 글리프 여부, 내어쓰기).
+
+    26년 개정 폼은 서술형 슬롯마다 ``⑴ ⑵ ⑶`` 소문항 줄을 **수식 객체**로 미리 깔아 둔다
+    (그 단락은 내어쓰기 문단모양 — 둘째 줄이 마커 뒤에 맞는다). 우리는 슬롯 템플릿을 지우고
+    다시 쓰므로, 지우기 전에 양식을 읽어 두었다가 소문항을 **같은 글리프·같은 내어쓰기**로
+    쓴다. 25년 폼(그런 줄이 없다)은 (False, 0) → 종전대로 ``(1)`` 수식 마커, 내어쓰기 없음.
+
+    읽기만 한다(캐럿은 옮기지만 내용 불변). 실패하면 종전 양식으로 폴백.
+    """
+    try:
+        ctrl = hwp.HeadCtrl
+        while ctrl is not None:
+            if ctrl.CtrlID == "eqed":
+                ap = ctrl.GetAnchorPos(0)
+                if (ap.Item("List") == 0
+                        and str(ctrl.Properties.Item("String") or "").strip() == "⑴"):
+                    hwp.SetPos(0, ap.Item("Para"), 0)
+                    return True, int(hwp.ParaShape.Item("Indentation") or 0)
+            ctrl = ctrl.Next
+    except Exception as e:  # noqa: BLE001 — 양식 판독 실패가 변환을 막지 않는다
+        logger.warning("폼 소문항 양식 판독 실패 — (1) 마커로 진행: %s", e)
+    return False, 0
+
+
+def _sub_marker(k: int, glyph: bool) -> str:
+    """소문항 마커 수식 스크립트 — 폼이 ``⑴`` 양식이면 그 글리프(⑴~⒇), 아니면 ``(k)``."""
+    if glyph and 1 <= k <= 20:
+        return chr(0x2474 + k - 1)
+    return f"({k})"
+
+
+def _set_para_indent(hwp, indent: int) -> None:
+    """캐럿 문단의 첫 줄 들여/내어쓰기만 바꾼다(음수 = 내어쓰기). 다른 문단모양은 그대로.
+
+    ``GetDefault("ParagraphShape")`` 는 **현재 문단** 값을 돌려준다(실측 2026-10-06: 줄간격
+    160·정렬 그대로) → Indentation 만 덮어써 실행하면 폼의 소문항 문단모양(paraPr)과 같은
+    것이 재사용된다(새 paraPr 를 만들지 않는다)."""
+    ps = hwp.HParameterSet.HParaShape
+    hwp.HAction.GetDefault("ParagraphShape", ps.HSet)
+    ps.Indentation = indent
+    hwp.HAction.Execute("ParagraphShape", ps.HSet)
+
+
+def _fill_essay_at(ses, h, pos, q: Question, label_idx: int, next_pos=None,
+                   slot_end=None) -> None:
+    """서술형 슬롯 채움: 번호줄 ``[라벨 M] 문제`` + 소문항(수식 마커) + 배점.
 
     label_idx 는 서술형 일련번호(서답형 1, 2, …; 전체 문항번호와 별개).
     번호줄의 ``[서술형 ]`` 플레이스홀더는 삭제 후 다시 쓴다.
     next_pos: 다음 슬롯(서술형/정답) 앵커 위치. 플레이스홀더 삭제가 **단 경계를 넘어**
     다음 슬롯 미주까지 먹지 않도록 클램프한다(서술형은 1/단이라 MoveSelDown 이 다음 단의
     슬롯으로 점프해 인접 미주를 삭제하는 버그가 있었음).
+    slot_end: 이 슬롯 ``[난이도]`` 줄 안의 위치(찾기 결과). 있으면 **번호 뒤 ~ 그 단락 끝**을
+    한 번에 지운다 — 슬롯 템플릿 줄 수가 폼 세대마다 달라서다(25년 폼 = 라벨+단원+난이도
+    3줄 / 26년 개정 폼 = 라벨+⑴⑵⑶+단원+난이도 6줄). 줄 수를 세는 종전 방식은 개정 폼에서
+    ⑶·단원·난이도 줄을 남겨 **잔재 "⑶" + 메타란 이중**이 된다.
     """
     # contents 선두 라벨을 한 번만 쓰고 본문에서 제거(중복 라벨 → dedupe lineseg 손상 차단).
     disp_label, contents = _essay_label_and_body(q.contents, q.label_type or "서답형", label_idx)
     h.SetPos(pos[0], pos[1], pos[2])
     h.Run("MoveRight")                       # 번호(미주) 다음
-    # 슬롯 템플릿: 번호줄 [서술형] + 빈줄 + 둘째 [서술형] 까지 선택 삭제([중단원] 전까지).
+    # 슬롯 템플릿을 통째 지운다: 번호줄 [서술형 N] ~ [난이도] 줄 끝.
     # (이 삭제는 폼 [소단원][난이도] 메타란을 함께 먹지만, 발문/박스/post발문 렌더는 이 구조에
     #  의존한다 — 보수적 삭제 시 #18·#20 박스+post발문이 깨졌음. 메타란은 채움 **후** 토큰을
     #  찍고 저장후 XML(`_inject_essay_meta`)이 살아있는 MC 메타란 단락을 복제해 재주입한다.)
-    h.Run("MoveSelParaEnd")                   # 번호 단락 끝(첫 [서술형])
-    for _ in range(2):
-        h.Run("MoveSelDown")
-        cur = h.GetPos()
-        if next_pos is not None and cur[1] >= next_pos[1]:   # 다음 슬롯 침범
-            h.Run("MoveSelUp")                # 한 줄 되돌림
-            break
-    h.Run("MoveSelParaEnd")                   # 둘째 [서술형] 단락 끝
-    end = h.GetPos()
-    if next_pos is not None and end[1] >= next_pos[1]:        # 그래도 넘으면 번호줄만
-        h.SetPos(pos[0], pos[1], pos[2])
-        h.Run("MoveRight")
-        h.Run("MoveSelParaEnd")
-    h.HAction.Run("Delete")
+    sp = h.GetPos()
+    deleted = False
+    if (slot_end is not None and slot_end[1] > pos[1]
+            and (next_pos is None or slot_end[1] < next_pos[1])):
+        h.SetPos(slot_end[0], slot_end[1], slot_end[2])
+        h.Run("MoveParaEnd")                  # [난이도] 단락 끝
+        ep = h.GetPos()
+        if ep[1] == slot_end[1]:              # 같은 단락 안에서 멈췄을 때만(안전 확인)
+            h.SetPos(sp[0], sp[1], sp[2])
+            h.SelectText(sp[1], sp[2], ep[1], ep[2])
+            h.HAction.Run("Delete")
+            h.Run("Cancel")
+            deleted = True
+    if not deleted:
+        # 폴백(찾기 실패) — 종전 줄 수 방식: 번호줄 + 아래 2줄(25년 폼 슬롯 구조).
+        h.SetPos(sp[0], sp[1], sp[2])
+        h.Run("MoveSelParaEnd")               # 번호 단락 끝(첫 [서술형])
+        for _ in range(2):
+            h.Run("MoveSelDown")
+            cur = h.GetPos()
+            if next_pos is not None and cur[1] >= next_pos[1]:   # 다음 슬롯 침범
+                h.Run("MoveSelUp")            # 한 줄 되돌림
+                break
+        h.Run("MoveSelParaEnd")               # 둘째 [서술형] 단락 끝
+        end = h.GetPos()
+        if next_pos is not None and end[1] >= next_pos[1]:        # 그래도 넘으면 번호줄만
+            h.SetPos(pos[0], pos[1], pos[2])
+            h.Run("MoveRight")
+            h.Run("MoveSelParaEnd")
+        h.HAction.Run("Delete")
+    sub_glyph = bool(getattr(ses, "_sub_glyph", False))
+    sub_indent = int(getattr(ses, "_sub_indent", 0) or 0)
     _set_plain(h)
     _put_essay_label(ses, disp_label)
     # 발문 → 배점(발문 끝) → 조건/그림/블록수식. 소문항 있으면 본문 배점은 소문항에 위임.
@@ -905,8 +987,11 @@ def _fill_essay_at(ses, h, pos, q: Question, label_idx: int, next_pos=None) -> N
         for k, sub in enumerate(q.sub_questions):
             ses.break_para()
             h.Run("ParagraphShapeAlignLeft")  # 직전 배점이 우측정렬됐어도 새 줄은 좌측
+            if sub_indent:
+                _set_para_indent(h, sub_indent)   # 폼 소문항 줄의 내어쓰기(둘째 줄 = 마커 뒤)
             _set_plain(h)
-            ses.equation(f"({k + 1})")        # 소문항 마커 (1)(2)… 는 수식으로
+            # 소문항 마커는 수식으로 — 폼 양식 그대로(개정 폼 ⑴⑵…, 25년 폼 (1)(2)…).
+            ses.equation(_sub_marker(k + 1, sub_glyph))
             ses.text(" ")
             # OCR 이 남긴 앞머리 번호 마커 제거(우리 마커와 중복 방지) — 결정적·길이무관.
             # 소문항 배점: 인라인 우선, 줄 넘칠 때만 줄바꿈 우측정렬(_put_score, 기본 경로 동일).
@@ -923,12 +1008,16 @@ def _fill_essay_at(ses, h, pos, q: Question, label_idx: int, next_pos=None) -> N
     for tok in (_META_TOKEN_SO, _META_TOKEN_NA):
         ses.break_para()
         h.Run("ParagraphShapeAlignLeft")
+        if sub_indent and q.sub_questions:
+            _set_para_indent(h, 0)            # 소문항 내어쓰기를 메타란까지 끌고 오지 않는다
         _set_plain(h)
         ses.text(tok)
     # [난이도] 뒤 줄바꿈 — 안 하면 다음 슬롯(번호줄 [서술형 N]+미주)에 [난이도] 가 prepend 돼
     # "[난이도] 21. [서답형 5] …" 처럼 한 줄에 붙는다(#3, 2026-06-09). 빈 단락은 layout 이 정리.
     ses.break_para()
     h.Run("ParagraphShapeAlignLeft")
+    if sub_indent and q.sub_questions:
+        _set_para_indent(h, 0)
     _set_plain(h)
 
 
@@ -964,6 +1053,8 @@ def _fill_form(mc: list[Question], essays: list[Question], form_path, out_path,
         ses.open(form_path)
         ses.set_char_size(ses.base_pt)
         _merge_sections(h)        # 2구역 → 단일 구역(레이아웃·짝수쪽이 전 영역에 적용되도록)
+        # 폼의 소문항 마커 양식(개정 폼 = ⑴ 글리프 + 내어쓰기) — 슬롯을 지우기 **전에** 읽는다.
+        ses._sub_glyph, ses._sub_indent = _form_sub_style(h)
 
         def cur_line():
             try:
@@ -1086,11 +1177,20 @@ def _fill_form(mc: list[Question], essays: list[Question], form_path, out_path,
         # (3) 위치 재수집 후 아래→위로 채움(서술형이 아래 → 먼저, 그 다음 객관식).
         qpts = _en_anchors(h)
         cpts = {m: _find_all(h, m, n_mc) for m in CIRCLES}
+        # 슬롯마다 [난이도] 줄이 하나씩 — 서술형 슬롯 템플릿의 **끝**을 이걸로 잡는다(줄 수가
+        # 폼 세대마다 달라 세지 않는다). 아래→위로 채우므로 위쪽 슬롯의 위치는 끝까지 유효하다.
+        # 개수가 슬롯 수와 안 맞으면(폼에 메타란이 없거나 찾기 실패) None → 종전 줄 수 방식.
+        nan_pts = _find_all(h, "[난이도]", len(qpts) + 2)
+        if len(nan_pts) != len(qpts):
+            logger.warning("[난이도] 줄 %d개 ≠ 슬롯 %d개 — 서술형 슬롯 삭제를 줄 수 방식으로",
+                           len(nan_pts), len(qpts))
+            nan_pts = []
         for i in range(n_es - 1, -1, -1):
             p = qpts[n_mc + i]
             later = [a for a in _en_anchors(h) if a > p]      # 다음 슬롯(삭제 경계)
             nxt = min(later) if later else _answer_block_pos(h)
-            _fill_essay_at(ses, h, p, essays[i], i + 1, nxt)
+            _fill_essay_at(ses, h, p, essays[i], i + 1, nxt,
+                           slot_end=(nan_pts[n_mc + i] if nan_pts else None))
         for i in range(n_mc - 1, -1, -1):
             q = mc[i]
             chs = {c.number: c for c in q.choices}
@@ -2011,11 +2111,18 @@ def _neutralize_answer_header_redefine(hwpx_path: str | Path) -> int:
     return changed_total
 
 
-def _fill_exam_range(hwpx_path: str | Path, range_text: str) -> int:
-    """폼 머리 배너 아래 시험범위 부제(" ~ " 단독 텍스트)를 실제 범위로 치환.
+# 시험범위 자리표시 런 — 25년 폼은 틸드만(`` ~ ``), 26년 개정 폼은 ``시작 범위 ~ 끝 범위``.
+# 런 **전체가** 자리표시일 때만 매칭한다(본문 "1~5"·수식 HWP 공백 `~` 오치환 방지).
+_RANGE_PH_RE = re.compile(
+    r"(<hp:t[^>]*>)\s*(?:시작\s*범위)?\s*~\s*(?:끝\s*범위)?\s*(</hp:t>)")
 
-    폼 원문의 그 줄은 ``<hp:t> ~ </hp:t>`` 하나뿐이다(오성중 렌더 실측). 정확히
-    ``공백~공백`` 인 텍스트 노드만 바꿔 다른 ``~``(수식 HWP 공백 등)는 건드리지 않는다.
+
+def _fill_exam_range(hwpx_path: str | Path, range_text: str) -> int:
+    """폼 머리 배너 아래 시험범위 부제(자리표시 단독 텍스트)를 실제 범위로 치환.
+
+    폼 원문의 그 줄은 ``<hp:t> ~ </hp:t>``(25년 폼, 오성중 렌더 실측) 또는
+    ``<hp:t>시작 범위 ~ 끝 범위</hp:t>``(26년 개정 폼) 하나뿐이다. 런 전체가 자리표시인
+    텍스트 노드만 바꿔 다른 ``~``(수식 HWP 공백 등)는 건드리지 않는다.
 
     ⭐ 긴 범위는 **폰트 단계 축소**(사용자 2026-08-09 "스마트 처리") — 배너 폭을 넘으면
     줄바꿈돼 뒷부분이 안 보였다(함지고 "선분의 내분점과 외분점 ~ 점과 직선 사이의 거리").
@@ -2033,7 +2140,7 @@ def _fill_exam_range(hwpx_path: str | Path, range_text: str) -> int:
         if not re.search(r"section\d+\.xml$", fn):
             continue
         s = data[fn].decode("utf-8")
-        m = re.search(r"(<hp:t[^>]*>)\s*~\s*(</hp:t>)", s)
+        m = _RANGE_PH_RE.search(s)
         if not m:
             continue
         s = s[:m.start()] + m.group(1) + _xml_text(range_text) + m.group(2) + s[m.end():]
@@ -2134,20 +2241,25 @@ def _fill_form_header(hwpx_path: str | Path, values: dict) -> int:
         # 과목은 수학뿐 아니라 미적분·기하·확률과 통계 등 **모든 선택과목**을 매칭(_SUBJ_PAT).
         # ``(?:중|고)?`` — 보라폼(고2 수2)은 꼬리말 원문이 접두 없이 ``" 25년  학기  고사
         # 대비 (수학2)"`` 라 필수 접두가 미매치로 통째 잔존했다(수2 3종, 2026-06-12).
-        (re.compile(r'(?:중|고)?\s*\d{2,4}\s*년\s*학기\s*고사\s*대비\s*\(\s*' + _SUBJ_PAT + r'\s*\)(\s*\(\s*정답\s*\))?'),
+        # ⭐ 26년 개정 폼의 자리표시(`_PH` = "OO"·"O")까지 한 덩어리로 먹는다 — 안 먹으면
+        # "OO침산중 2학년 수학" 처럼 O 가 치환 뒤에 남는다. 꼬리말은 폼마다 연도 표기가
+        # 제각각이라("27년"·"25년"·**"27"** — 대수 폼은 '년' 누락) '년' 을 선택으로 둔다.
+        (re.compile(_PH + r'(?:중|고)?\s*\d{2,4}\s*년?\s*' + _PH + r'학기\s*' + _PH
+                    + r'고사\s*대비\s*\(\s*' + _SUBJ_PAT + r'\s*\)(\s*\(\s*정답\s*\))?'),
          lambda mm: footer + (mm.group(1) or "")),
-        (re.compile(r'(?:중|고)\s*[1-3]\s*학년\s*' + _SUBJ_PAT), lambda mm: center),
-        (re.compile(r'\d{2,4}\s*년\s*학기\s*고사(?!\s*대비)'), lambda mm: exam),
+        (re.compile(_PH + r'(?:중|고)\s*[1-3]\s*학년\s*' + _SUBJ_PAT), lambda mm: center),
+        (re.compile(r'\d{2,4}\s*년\s*' + _PH + r'학기\s*' + _PH + r'고사(?!\s*대비)'),
+         lambda mm: exam),
     ]
-    # 시험 범위(제목 아래 텍스트상자 " ~ " 자리, 사용자 2026-07-27): "시작단원 ~ 끝단원".
-    # 폼 머리말 drawText 안에 **틸드만 든 런**(`<hp:t> ~ </hp:t>`)이 자리표시자로 박혀 있다.
+    # 시험 범위(제목 아래 텍스트상자 자리, 사용자 2026-07-27): "시작단원 ~ 끝단원".
+    # 폼 머리말 drawText 안에 **자리표시 런**(25년 폼 `<hp:t> ~ </hp:t>` / 26년 개정 폼
+    # `<hp:t>시작 범위 ~ 끝 범위</hp:t>`)이 박혀 있다(`_RANGE_PH_RE`).
     # 값이 없으면 건드리지 않는다(폼 원본 유지). 본문의 물결(범위표기 "1~5")은 런 전체가
-    # 틸드뿐인 경우가 아니므로 미매치 — 자리표시자만 정확히 교체된다.
+    # 자리표시뿐인 경우가 아니므로 미매치 — 자리표시자만 정확히 교체된다.
     scope = (values.get("범위") or "").strip()
     if scope:
         _esc = (scope.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;"))
-        pats.append((re.compile(r'<hp:t>\s*~\s*</hp:t>'),
-                     lambda mm, _s=_esc: f'<hp:t>{_s}</hp:t>'))
+        pats.append((_RANGE_PH_RE, lambda mm, _s=_esc: f'{mm.group(1)}{_s}{mm.group(2)}'))
     hwpx_path = Path(hwpx_path)
     with zipfile.ZipFile(hwpx_path) as z:
         infos = z.infolist()
@@ -2602,7 +2714,6 @@ def _inject_answer_runs(hwpx_path: str | Path,
         infos = z.infolist()
         data = {i.filename: z.read(i.filename) for i in infos}
     total = 0
-    base_unit = _eq_base_unit(data)
     for fn in list(data):
         if not re.search(r"section\d+\.xml$", fn):
             continue
@@ -2611,6 +2722,8 @@ def _inject_answer_runs(hwpx_path: str | Path,
         if len(spans) != len(answers):
             logger.warning("정답 기입 생략 — 미주 %d개 ≠ 문항 %d개", len(spans), len(answers))
             continue
+        charpr = _answer_charpr(s)
+        base_unit = _eq_base_unit(data, charpr)
         out, prev = [], 0
         for (a, b), ans in zip(spans, answers):
             frag = s[a:b]
@@ -2619,7 +2732,8 @@ def _inject_answer_runs(hwpx_path: str | Path,
             # 사라졌다**(오성중 #7 `…풀이가` 에서 잘림 — 저장 XML 자체에 없었다,
             # 2026-08-10 실측 + 적대검증 독립 확인). 정답은 한 줄에 이어 붙인다
             # (기본 경로 `_write_answer_inline` 도 줄을 " " 로 join 한다 — 경로 동일).
-            runs = _answer_runs(ans, base_unit, _answer_col_width(s)) if ans else ""
+            runs = (_answer_runs(ans, base_unit, _answer_col_width(s), charpr)
+                    if ans else "")
             if runs:
                 lm = re.search(r"<hp:linesegarray>", frag)
                 if lm:
@@ -2633,8 +2747,26 @@ def _inject_answer_runs(hwpx_path: str | Path,
     return total
 
 
-_ANSWER_CHARPR = "21"      # 정답면 미주 내용의 글자모양 ID(정답·해설 run 이 쓰는 것)
+# 정답면 미주 내용의 글자모양 ID(정답·해설 run 이 쓰는 것) — **폼 세대마다 다르다**.
+# 25년 폼은 21(본문 11pt)·22(미주 번호 12pt 볼드)였는데 26년 개정 폼은 한 칸씩 당겨져
+# 20·21 이다(header.xml 실측 2026-10-06). 상수로 박아 두면 개정 폼의 정답·해설이 통째로
+# **12pt 볼드**(미주 번호 글자모양)로 나간다 → 문서에서 읽는다(`_answer_charpr`). 아래 값은
+# 못 읽었을 때의 폴백(25년 폼).
+_ANSWER_CHARPR = "21"
 _EQ_BASE_UNIT_DEFAULT = 1100   # 폼 본문 글자 11pt = 수식 baseUnit 1100
+# 미주 내용 첫 단락: [자동번호 run] 다음 run 이 내용 글자모양이다(객관식 " ", 서술형 " [서술형 ").
+_NOTE_TEXT_CHARPR_RE = re.compile(
+    r'<hp:autoNum\b.*?</hp:run>\s*<hp:run charPrIDRef="(\d+)"', re.S)
+
+
+def _answer_charpr(section_xml: str) -> str:
+    """정답면 미주 **내용**(번호 뒤 텍스트)의 charPr ID — 미주들의 최빈값. 못 찾으면 폴백."""
+    ids = []
+    for m in re.finditer(r"<hp:endNote\b.*?</hp:endNote>", section_xml, re.S):
+        hit = _NOTE_TEXT_CHARPR_RE.search(m.group(0))
+        if hit:
+            ids.append(hit.group(1))
+    return max(set(ids), key=ids.count) if ids else _ANSWER_CHARPR
 # 정답면 한 단의 폭(HWPUNIT). 폼 B4 2단 실측 — 미주 단락 lineseg `horzsize` 가 전부
 # 이 값이다(2026-08-10). `_answer_col_width` 가 문서에서 직접 읽고, 못 읽으면 이 값.
 _ANSWER_COL_WIDTH_DEFAULT = 29620
@@ -2648,16 +2780,17 @@ def _answer_col_width(section_xml: str) -> int:
     return max(set(vals), key=vals.count)
 
 
-def _eq_base_unit(data: dict[str, bytes]) -> int:
+def _eq_base_unit(data: dict[str, bytes], charpr: str | None = None) -> int:
     """정답·해설 수식의 ``baseUnit``(=수식 글자 크기, HWPUNIT).
 
     수식 객체는 charPr 이 아니라 **자신의 baseUnit** 으로 글자 크기가 정해진다. 과거엔
     1000(10pt)으로 박아 둬 정답면 해설 수식만 본문(COM 이 만드는 수식은 baseUnit=1100)보다
     작게 나갔다(사용자 보고 2026-07-31 "해설에서 수식 폰트가 10"). 같은 단락의 텍스트 런이
-    쓰는 charPr(=_ANSWER_CHARPR) 높이를 읽어 맞춘다."""
+    쓰는 charPr(``charpr`` = `_answer_charpr`) 높이를 읽어 맞춘다."""
     try:
         hdr = data.get("Contents/header.xml", b"").decode("utf-8")
-        m = re.search(r'<hh:charPr id="' + _ANSWER_CHARPR + r'"[^>]*height="(\d+)"', hdr)
+        m = re.search(r'<hh:charPr id="' + (charpr or _ANSWER_CHARPR)
+                      + r'"[^>]*height="(\d+)"', hdr)
         if m:
             return int(m.group(1))
     except Exception:  # noqa: BLE001
@@ -2665,11 +2798,13 @@ def _eq_base_unit(data: dict[str, bytes]) -> int:
     return _EQ_BASE_UNIT_DEFAULT
 
 
-def _eq_xml(script: str, base_unit: int = _EQ_BASE_UNIT_DEFAULT) -> str:
+def _eq_xml(script: str, base_unit: int = _EQ_BASE_UNIT_DEFAULT,
+            charpr: str | None = None) -> str:
     """인라인 수식 run XML(정답면 정답·해설용). hwpx_writer 의 검증된 속성 세트와 동일
     (골든 84개 기준: baseLine=85·treatAsChar=1·outMargin 170·font HYhwpEQ).
 
-    ``base_unit`` = 수식 글자 크기(HWPUNIT). 본문 COM 수식과 같아야 한다(_eq_base_unit)."""
+    ``base_unit`` = 수식 글자 크기(HWPUNIT). 본문 COM 수식과 같아야 한다(_eq_base_unit).
+    ``charpr`` = 이 run 의 글자모양 ID(폼 세대별로 다름 — `_answer_charpr`)."""
     # ⚠️ 폭 추정은 **표식을 붙이기 전** 스크립트로 한다 — 표식은 렌더에 안 보이므로
     # 추정에 넣으면 상자만 넓어져 레이아웃이 틀어진다.
     try:
@@ -2696,7 +2831,7 @@ def _eq_xml(script: str, base_unit: int = _EQ_BASE_UNIT_DEFAULT) -> str:
     except Exception:  # noqa: BLE001 — 표식 실패가 렌더를 막지 않는다
         pass
     return (
-        f'<hp:run charPrIDRef="{_ANSWER_CHARPR}"><hp:equation id="0" zOrder="0"'
+        f'<hp:run charPrIDRef="{charpr or _ANSWER_CHARPR}"><hp:equation id="0" zOrder="0"'
         ' numberingType="EQUATION"'
         ' textWrap="TOP_AND_BOTTOM" textFlow="BOTH_SIDES" lock="0" dropcapstyle="None"'
         ' version="Equation Version 60" baseLine="85" textColor="#000000"'
@@ -2774,7 +2909,8 @@ def _split_latex_at_top_eq(latex: str) -> list[str]:
     return parts
 
 
-def _wide_eq_runs(latex: str, base_unit: int, col_width: int) -> str:
+def _wide_eq_runs(latex: str, base_unit: int, col_width: int,
+                  charpr: str | None = None) -> str:
     """수식 하나 → run XML. **칼럼보다 넓으면 여러 수식 run 으로 나눈다.**
 
     ⭐ 수식 객체는 내부에서 줄바꿈이 안 되는 원자라, 칼럼보다 넓은 전개식 하나가 단
@@ -2788,59 +2924,65 @@ def _wide_eq_runs(latex: str, base_unit: int, col_width: int) -> str:
     """
     script = latex_to_hwpeq(latex, italicize_stat=False)
     if col_width <= 0:
-        return _eq_xml(script, base_unit)
+        return _eq_xml(script, base_unit, charpr)
     try:
         from core.hwpx_writer import _estimate_equation_size
         est = _estimate_equation_size(script)[0] * base_unit / 1000
     except Exception:  # noqa: BLE001
-        return _eq_xml(script, base_unit)
+        return _eq_xml(script, base_unit, charpr)
     if est < col_width * 0.9:
-        return _eq_xml(script, base_unit)
+        return _eq_xml(script, base_unit, charpr)
     parts = _split_latex_at_top_eq(latex)
     if parts:
         return "".join(
-            _eq_xml(latex_to_hwpeq(p, italicize_stat=False), base_unit) for p in parts)
+            _eq_xml(latex_to_hwpeq(p, italicize_stat=False), base_unit, charpr)
+            for p in parts)
     try:                                   # 쪼갤 수 없으면 행으로 접는다(폴백)
         from core.latex_to_hwpeq import fold_long_equation
-        return _eq_xml(fold_long_equation(script), base_unit)
+        return _eq_xml(fold_long_equation(script), base_unit, charpr)
     except Exception:  # noqa: BLE001
-        return _eq_xml(script, base_unit)
+        return _eq_xml(script, base_unit, charpr)
 
 
 def _line_runs(line: list[ContentBlock],
                base_unit: int = _EQ_BASE_UNIT_DEFAULT,
-               col_width: int = 0) -> str:
+               col_width: int = 0,
+               charpr: str | None = None) -> str:
     """정답/해설 한 줄(블록 런) → run XML 문자열. TEXT=글자, EQUATION=수식 객체(합의 #6).
 
-    ``col_width`` > 0 이면 그보다 넓은 전개식을 ``#``/``&`` 로 접는다(단 침범 방지)."""
+    ``col_width`` > 0 이면 그보다 넓은 전개식을 ``#``/``&`` 로 접는다(단 침범 방지).
+    ``charpr`` = run 글자모양 ID(폼 세대별 — `_answer_charpr`). None 이면 25년 폼 값."""
+    cp = charpr or _ANSWER_CHARPR
     out = []
     for b in line:
         val = (b.value or "")
         if not val.strip():
             continue
         if b.type == ContentType.EQUATION:
-            out.append(_wide_eq_runs(val, base_unit, col_width))
+            out.append(_wide_eq_runs(val, base_unit, col_width, cp))
         else:
-            out.append(f'<hp:run charPrIDRef="{_ANSWER_CHARPR}">'
+            out.append(f'<hp:run charPrIDRef="{cp}">'
                        f'<hp:t>{_xml_text(val)}</hp:t></hp:run>')
     return "".join(out)
 
 
 def _answer_runs(ans: list[list[ContentBlock]],
                  base_unit: int = _EQ_BASE_UNIT_DEFAULT,
-                 col_width: int = 0) -> str:
+                 col_width: int = 0,
+                 charpr: str | None = None) -> str:
     """정답(여러 줄일 수 있음) → 한 줄로 이어붙인 run XML.
 
     파서는 정답도 해설과 같은 `_parse_markdown_lines` 로 처리해 긴 정답이 자동개행으로
     2줄이 될 수 있다. 정답면의 정답은 문항 번호와 **같은 줄**에 놓이므로 여기서 다시
     한 줄로 합친다(줄 사이 공백 1칸). HWP 가 텍스트 run 경계에서 알아서 줄을 바꾼다."""
+    cp = charpr or _ANSWER_CHARPR
     parts = []
     for i, line in enumerate(ans):
-        runs = _line_runs(line, base_unit, col_width)
+        runs = _line_runs(line, base_unit, col_width, cp)
         if not runs:
             continue
         if parts:
-            parts.append(f'<hp:run charPrIDRef="{_ANSWER_CHARPR}"><hp:t> </hp:t></hp:run>')
+            parts.append(f'<hp:run charPrIDRef="{cp}"><hp:t> </hp:t></hp:run>')
         parts.append(runs)
     return "".join(parts)
 
@@ -2863,7 +3005,6 @@ def _inject_solutions(hwpx_path: str | Path,
         infos = z.infolist()
         data = {i.filename: z.read(i.filename) for i in infos}
     total = 0
-    base_unit = _eq_base_unit(data)
     for fn in list(data):
         if not re.search(r"section\d+\.xml$", fn):
             continue
@@ -2872,6 +3013,8 @@ def _inject_solutions(hwpx_path: str | Path,
         if len(spans) != len(solutions):
             logger.warning("해설 기입 생략 — 미주 %d개 ≠ 문항 %d개", len(spans), len(solutions))
             continue
+        charpr = _answer_charpr(s)
+        base_unit = _eq_base_unit(data, charpr)
         col_w = _answer_col_width(s)      # 칼럼보다 넓은 전개식 접기 기준
         out, prev = [], 0
         for (a, b), sol in zip(spans, solutions):
@@ -2884,7 +3027,7 @@ def _inject_solutions(hwpx_path: str | Path,
                     lm = re.search(r"<hp:linesegarray>.*?</hp:linesegarray>", base, re.S)
                     lineseg = lm.group(0) if lm else ""
                     added = [open_tag + runs + lineseg + "</hp:p>"
-                             for runs in (_line_runs(line, base_unit, col_w)
+                             for runs in (_line_runs(line, base_unit, col_w, charpr)
                                           for line in sol)
                              if runs]
                     if added:
@@ -2946,6 +3089,11 @@ def _inject_question_meta(hwpx_path: str | Path,
     return total
 
 
+# 빈 단락(자기닫힘 run 뿐) — 중첩 없는 본문 빈 줄. `_inject_essay_meta` 가 토큰 앞 빈 줄 정리에 쓴다.
+_EMPTY_PARA = (r"<hp:p\b[^>]*>(?:\s*<hp:run\b[^>]*/>)+\s*"
+               r"(?:<hp:linesegarray>(?:(?!</hp:p>).)*?</hp:linesegarray>\s*)?</hp:p>")
+
+
 def _inject_essay_meta(hwpx_path: str | Path) -> int:
     """서술형 끝 메타란 토큰 run 을 **살아있는 폼 [소단원]/[난이도] run** 으로 1:1 교체.
 
@@ -2989,6 +3137,16 @@ def _inject_essay_meta(hwpx_path: str | Path) -> int:
         run_na = _first_run(next((p for p in paras
                                   if "난이도" in _ptext(p) and _META_TOKEN_NA not in p), None))
         for tok, run in ((_META_TOKEN_SO, run_so), (_META_TOKEN_NA, run_na)):
+            # 토큰 단락 **바로 앞의 빈 단락**(마지막 소문항 답란 잔여 줄)은 버린다 — 흰 글자
+            # 메타란 2줄이 그 자리를 대신한다. ⚠️ 과거엔 아래 run 교체 정규식이 빈 단락의
+            # 자기닫힘 ``<hp:run …/>`` 에서 매치를 시작해 **단락 경계를 넘어** 토큰까지 삼키는
+            # 바람에 우연히 이렇게 됐고, 합쳐진 단락이 **빈 단락의 문단모양**을 물려받았다.
+            # 25년 폼은 둘 다 같은 모양이라 안 보였지만, 26년 개정 폼은 소문항 줄이 내어쓰기
+            # 문단이라 `[중단원]` 줄에 내어쓰기가 묻었다(학산중 중2 실측 2026-10-06). 같은
+            # 결과(빈 줄 제거 = 검수된 레이아웃 유지)를 **명시적으로** 만들고 토큰 단락은 보존한다.
+            sec = re.sub(
+                r"(?:" + _EMPTY_PARA + r"\s*)+(?=<hp:p\b[^>]*>\s*<hp:run\b[^>]*(?<!/)>"
+                r"(?:(?!</hp:run>).)*?" + re.escape(tok) + r")", "", sec, flags=re.S)
             if run is None:
                 # 폼에 이 메타 템플릿이 없음 → 토큰 단락을 통째 제거(평문 노출 방지). 단락 단위
                 # 제거라 태그 균형 유지(토큰은 중첩 없는 자기-단락). linesegs 는 _com_relaunder 가 재계산.
@@ -2998,9 +3156,10 @@ def _inject_essay_meta(hwpx_path: str | Path) -> int:
                 total += n
                 continue
             # 토큰 텍스트를 품은 run 통째를 메타란 run 으로 교체(run 1개 ↔ run 1개, 균형 보장).
+            # 여는 태그는 ``(?<!/)>`` — 자기닫힘 run 에서 시작하면 단락 경계를 넘는다(위 주석).
             tok_run_re = re.compile(
-                r"<hp:run\b[^>]*>(?:(?!</hp:run>).)*?" + re.escape(tok) + r"(?:(?!</hp:run>).)*?</hp:run>",
-                re.S)
+                r"<hp:run\b[^>]*(?<!/)>(?:(?!</hp:run>).)*?" + re.escape(tok)
+                + r"(?:(?!</hp:run>).)*?</hp:run>", re.S)
             sec, n = tok_run_re.subn(lambda m: run, sec)
             total += n
         data[name] = sec.encode("utf-8")

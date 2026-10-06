@@ -200,7 +200,10 @@ def test_form_selection_from_filename() -> None:
     info = parse_filename("[경원고][2][기하][25-2-중간][신사고].pdf")
     check("고2 기하 파싱", info.get("valid") and info.get("학년") == "고2", str(info))
     form = resolve_form("[경원고][2][기하][25-2-중간][신사고].pdf")
-    check("고2 선택과목 폼 매칭", bool(form) and "고2 선택과목" in str(form), str(form))
+    # 26년 개정 폼은 선택과목이 과목별 폼이다 — "(기하)". 25년 폼만 둔 설치(구 통합
+    # "(고2 선택과목용)")도 같은 파일명에서 그 폼으로 떨어진다(form_registry.match_form).
+    check("고2 기하 → 기하 폼(구 폼이면 선택과목 폼)",
+          bool(form) and ("(기하)" in str(form) or "고2 선택과목" in str(form)), str(form))
 
     mid = parse_filename("[강동중][1][25-1-기말] (원본).pdf")
     check("중1 파싱(과목 자동 '수학')",
