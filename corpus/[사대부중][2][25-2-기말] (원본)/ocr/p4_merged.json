@@ -22,7 +22,9 @@
    ],
    "label_type": "서답형",
    "answer": "$2$",
-   "solution": "step1) (가), (가)와 (나)를 합친 것, 처음 삼각뿔은 서로 닮은 삼각뿔이다.\nstep2) 세 삼각뿔의 닮음비는 높이의 비와 같으므로 $1:2:3$이다.\nstep3) 세 삼각뿔의 부피의 비는 $1^3:2^3:3^3=1:8:27$이다.\nstep4) (가), (나), (다)의 부피의 비는 $1:(8-1):(27-8)=1:7:19$이다.\nstep5) (가)의 부피를 $V$라 하면 $V:38=1:19$이다.\nstep6) $19V=38$이므로 $V=2$이다."
+   "solution": "step1) (가), (가)와 (나)를 합친 것, 처음 삼각뿔은 서로 닮은 삼각뿔이다.\nstep2) 세 삼각뿔의 닮음비는 높이의 비와 같으므로 $1:2:3$이다.\nstep3) 세 삼각뿔의 부피의 비는 $1^3:2^3:3^3=1:8:27$이다.\nstep4) (가), (나), (다)의 부피의 비는 $1:(8-1):(27-8)=1:7:19$이다.\nstep5) (가)의 부피를 $V$라 하면 $V:38=1:19$이다.\nstep6) $19V=38$이므로 $V=2$이다.",
+   "topic": "도형의 닮음",
+   "difficulty": "중"
   },
   {
    "number": 20,
@@ -87,7 +89,9 @@
      "answer": "$\\triangle ABC\\sim\\triangle EBD$ (AA 닮음)",
      "solution": "step1) $\\angle B$는 공통인 각이다.\nstep2) $\\angle ACB=\\angle EDB$이다.\nstep3) 두 쌍의 대응각의 크기가 각각 같으므로\nstep4) $\\triangle ABC\\sim\\triangle EBD$ (AA 닮음)이다."
     }
-   ]
+   ],
+   "topic": "도형의 닮음",
+   "difficulty": "중"
   },
   {
    "number": 21,
@@ -158,7 +162,9 @@
    ],
    "label_type": "서답형",
    "answer": "$\\frac{10}{3}$",
-   "solution": "step1) 점 $\\mathrm{G}$가 $\\triangle ABC$의 무게중심이므로 $\\overline{BE}=\\overline{EC}$, $\\overline{AG}:\\overline{GE}=2:1$이다.\nstep2) 점 $\\mathrm{G}'$이 $\\triangle ACD$의 무게중심이므로 $\\overline{CF}=\\overline{FD}$, $\\overline{AG'}:\\overline{G'F}=2:1$이다.\nstep3) $\\overline{EF}=\\overline{EC}+\\overline{CF}=\\frac{1}{2}(\\overline{BC}+\\overline{CD})$이다.\nstep4) $\\overline{BC}+\\overline{CD}=\\overline{BD}=10$이므로 $\\overline{EF}=5$이다.\nstep5) $\\triangle AGG'$과 $\\triangle AEF$에서 $\\angle A$는 공통이다.\nstep6) $\\overline{AG}:\\overline{AE}=\\overline{AG'}:\\overline{AF}=2:3$이다.\nstep7) 따라서 $\\triangle AGG'\\sim\\triangle AEF$ (SAS 닮음)이다.\nstep8) $\\overline{GG'}:\\overline{EF}=2:3$이므로 $\\overline{GG'}=\\frac{2}{3}\\times 5=\\frac{10}{3}$이다."
+   "solution": "step1) 점 $\\mathrm{G}$가 $\\triangle ABC$의 무게중심이므로 $\\overline{BE}=\\overline{EC}$, $\\overline{AG}:\\overline{GE}=2:1$이다.\nstep2) 점 $\\mathrm{G}'$이 $\\triangle ACD$의 무게중심이므로 $\\overline{CF}=\\overline{FD}$, $\\overline{AG'}:\\overline{G'F}=2:1$이다.\nstep3) $\\overline{EF}=\\overline{EC}+\\overline{CF}=\\frac{1}{2}(\\overline{BC}+\\overline{CD})$이다.\nstep4) $\\overline{BC}+\\overline{CD}=\\overline{BD}=10$이므로 $\\overline{EF}=5$이다.\nstep5) $\\triangle AGG'$과 $\\triangle AEF$에서 $\\angle A$는 공통이다.\nstep6) $\\overline{AG}:\\overline{AE}=\\overline{AG'}:\\overline{AF}=2:3$이다.\nstep7) 따라서 $\\triangle AGG'\\sim\\triangle AEF$ (SAS 닮음)이다.\nstep8) $\\overline{GG'}:\\overline{EF}=2:3$이므로 $\\overline{GG'}=\\frac{2}{3}\\times 5=\\frac{10}{3}$이다.",
+   "topic": "삼각형의 무게 중심",
+   "difficulty": "상"
   }
  ]
 }

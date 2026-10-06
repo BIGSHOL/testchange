@@ -3525,9 +3525,13 @@ def write_exam_to_form(
     # 1.58단계: 시험범위 부제(폼의 " ~ " 줄) — 문항 메타(중단원/소단원)의 처음~끝으로
     # 채운다(원본 시험지에 범위 인쇄가 없어도 완료본 관행대로 표기. 사용자 2026-08-09
     # "상단 시험범위가 없음"). 메타가 없으면 폼 원문(" ~ ") 유지.
+    # ⚠️ 호출자가 범위를 명시했으면(`header_values["범위"]` ← scope.txt) 그 값이 이긴다 — 여기서
+    # 자리표시를 먼저 갈아 버리면 뒤의 `_fill_form_header` 가 넣을 자리가 없다. 문항 순서가
+    # 교육과정 순서와 다른 시험지(확률 → 도형)는 처음~끝이 "확률 ~ 삼각형의 무게 중심" 처럼
+    # 거꾸로 찍힌다(사대부중2 25-2 기말, 2026-10-06).
     try:
         _topics = [t for t in ((q.topic or "").strip() for q in (mc + essays)) if t]
-        if _topics:
+        if _topics and not ((header_values or {}).get("범위") or "").strip():
             _rng = _topics[0] if _topics[0] == _topics[-1] else f"{_topics[0]} ~ {_topics[-1]}"
             _fill_exam_range(output_path, _rng)
     except Exception as e:  # noqa: BLE001

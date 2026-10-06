@@ -6,6 +6,7 @@
 """
 import json
 import math
+import sys
 from fractions import Fraction as Fr
 from itertools import permutations, product
 from pathlib import Path
@@ -116,10 +117,27 @@ SUB = {
     },
 }
 
+# ── 메타란: [중단원](중등 분류표 ① 레벨 — data/topic_vocab.json 어휘 그대로) · [난이도](상/중/하 초안) ──
+IO, SIM, PAR, CEN, CNT, PRB = ("삼각형의 내심과 외심", "도형의 닮음", "평행선과 선분의 길이의 비",
+                               "삼각형의 무게 중심", "경우의 수", "확률")
+META = {1: (PRB, "하"), 2: (CNT, "중"), 3: (PRB, "하"), 4: (PRB, "중"), 5: (PRB, "상"),
+        6: (IO, "상"), 7: (IO, "중"), 8: (IO, "하"), 9: (IO, "중"),
+        10: (SIM, "하"), 11: (SIM, "중"), 12: (SIM, "상"),
+        13: (PAR, "중"), 14: (PAR, "중"), 15: (CEN, "중"),
+        16: (PRB, "상"), 17: (IO, "중"), 18: (IO, "중"),
+        19: (SIM, "중"),      # 닮은 도형의 부피의 비 — 분류표에 전용 중단원이 없어 '도형의 닮음'
+        20: (SIM, "중"), 21: (CEN, "상")}
+sys.path.insert(0, str(Path(__file__).resolve().parents[3]))
+from core.topic_vocab import vocabulary  # noqa: E402
+_vocab = set(vocabulary("중2", "수학"))
+assert all(t in _vocab for t, _ in META.values()), [t for t, _ in META.values() if t not in _vocab]
+assert len(META) == 21 and all(dv in ("상", "중", "하") for _, dv in META.values())
+
 for f in sorted(OCR.glob("p*_merged.json")):
     d = json.loads(f.read_text(encoding="utf-8"))
     for q in d["questions"]:
         n = q["number"]
+        q["topic"], q["difficulty"] = META[n]
         if q.get("choices"):
             q["answer"] = MC[n]
             q.pop("solution", None)          # 객관식은 답만(사용자 지시)
