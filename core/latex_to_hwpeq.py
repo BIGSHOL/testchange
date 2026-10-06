@@ -166,8 +166,10 @@ _SIM_RE = re.compile(r"\\sim(?![a-zA-Z])")
 # 앞 토큰이 LaTeX 명령(``\rightarrow``·``\wedge`` 등 관계·논리 연산자)이면 단항이다 —
 # 문자로 끝나 보이지만 피연산자가 아니다.
 _SIM_CMD_TAIL_RE = re.compile(r"\\[a-zA-Z]+$")
-_SIM_OPERAND_TAIL = "})]\\"        # 피연산자의 끝 — 이항(닮음).
+_SIM_OPERAND_TAIL = "})]\\'′"      # 피연산자의 끝 — 이항(닮음).
 # 끝의 역슬래시는 **과이스케이프**(``\\sim``) 잔재 — 판단 불가이므로 종전 동작(∽)을 쓴다.
+# 프라임(``'``)도 피연산자의 끝이다 — ``\triangle AGG' \sim \triangle AEF``·``\triangle A'B'C' \sim …``
+# 가 부정(∼)으로 떨어져 닮음 기호가 틸드로 인쇄됐다(사대부중2 25-2 서답형6 해설, 2026-10-06).
 
 
 def _split_negation_sim(s: str) -> str:

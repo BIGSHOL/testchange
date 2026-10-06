@@ -1469,6 +1469,9 @@ def run():
             (r"\triangle ABC \sim \triangle DEF", "∽", "∼"),
             (r"\overline{AB} \sim \overline{CD}", "∽", "∼"),
             (r"P \sim Q", "∽", "∼"),
+            # 프라임으로 끝나는 이름도 피연산자다(사대부중2 25-2 서답형6 해설)
+            (r"\triangle AGG'\sim\triangle AEF", "∽", "∼"),
+            (r"\triangle A'B'C' \sim \triangle ABC", "∽", "∼"),
             (r"\sim p", "∼", "∽"),
             (r"p \rightarrow \sim q", "∼", "∽"),
             (r"r \Leftrightarrow \sim s", "∼", "∽"),
