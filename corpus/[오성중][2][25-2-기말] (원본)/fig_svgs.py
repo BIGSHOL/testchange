@@ -229,6 +229,8 @@ render("q1", {"A": A, "B": B, "C": C, "D": D, "E": E, "F": F, "G": G, "H": H, "I
         "dHI": dim("H", "I", "9")})
 
 # ── q2: <보기> 여섯 그림 — BC∥DE 인가 ───────────────────────────────────────────
+# 상자 틀과 '<보기>' 제목은 그리지 않는다 — 문서 쪽에 진짜 보기 표를 만들고 그 **안에** 이 그림을
+# 넣는다(사용자 2026-10-12). ㄱ~ㅂ 표시는 2열×3행 배치를 지키려고 그림 안에 둔다.
 W2, H2 = 580, 584
 _pts2, _segs2, _labels2, _over2 = {}, {}, {}, []
 
@@ -312,16 +314,7 @@ _panel(6, {"A": A, "B": B, "C": C, "D": D, "E": E},
        [("B", "A"), ("A", "D"), ("E", "A"), ("A", "C"), ("B", "C"), ("E", "D")])
 _g6 = (A, B, C, D, E)
 _labels2["A6"] = {"text": "A", "position": "W"}
-_pts2["Z1"], _pts2["Z2"] = P(0, 0), P(W2, H2)
-
-
-def _q2_frame(sh):
-    x0, y0 = sh((6, 16))
-    x1, y1 = sh((W2 - 6, H2 - 6))
-    mid = (x0 + x1) / 2
-    return (f'<path d="M {mid - 62:.1f} {y0:.1f} L {x0:.1f} {y0:.1f} L {x0:.1f} {y1:.1f} L {x1:.1f} {y1:.1f} '
-            f'L {x1:.1f} {y0:.1f} L {mid + 62:.1f} {y0:.1f}" fill="none" stroke="#111111" stroke-width="1.2"/>'
-            + txt(mid, y0 + 5.5, "< 보 기 >", 15))
+_pts2["Z1"], _pts2["Z2"] = P(14, 34), P(W2 - 8, H2 - 6)
 
 
 def _q2_over(sh):
@@ -358,7 +351,7 @@ def _q2_over(sh):
     return "".join(out)
 
 
-render("q2", _pts2, _segs2, labels=_labels2, pre=_q2_frame, post=_q2_over)
+render("q2", _pts2, _segs2, labels=_labels2, post=_q2_over)
 
 # ── q3: 한 변이 4 인 정사각형, M=BC 중점, ∠AMN=90° → CN=1 ─────────────────────
 _f = frame(40, 180, 40.0)
@@ -452,6 +445,8 @@ for _r in (2, 4, 5):
     _p6 += [curve_path(_ellipse(_lv[_r], _rx, _ry, 180, 360), w=1.9),
             curve_path(_ellipse(_lv[_r], _rx, _ry, 0, 180), w=1.0, dash="5 4"),
             rangle(_lv[_r][0], _lv[_r][1], -1, 0, 0, -1, 7)]
+# 반지름 선분(축 → 원 둘레 왼쪽 끝) — 원본은 반지름 4·5 인 두 원 안에 실선으로 그었다.
+_p6 += [line(_rim[4], _lv[4], w=1.1), line(_rim[5], _lv[5], w=1.1)]
 _p6 += [adim(_rim[4], _lv[4], -15, "4", gap=2.5), adim(_rim[5], _lv[5], -15, "5", gap=2.5),
         ltext(_cx + 13, _lv[2][1] - 16, "A"), ltext(_cx + 30, (_lv[2][1] + _lv[4][1]) / 2 + 6, "B"),
         ltext(_cx + 42, (_lv[4][1] + _lv[5][1]) / 2 + 6, "C")]
@@ -637,7 +632,7 @@ render("s1", {"A": A, "B": B, "C": C, "D": D, "Zz": P((B[0] + C[0]) / 2, B[1] + 
        {"angB": ang("B", "A", "D"), "angA": ang("A", "D", "C")},
        {"dAC": dim("A", "C", "20")},
        labels={"A": "A", "B": "B", "C": "C", "D": {"text": "D", "position": "S"}},
-       # ∠C 안쪽의 굵은 점은 학생 필기(공통각 표시)로 보고 뺐다 — 인쇄 점(q12)보다 훨씬 크고 번졌다.
+       # ∠C 안쪽의 굵은 점은 넣지 않는다(사용자 확정 2026-10-12 — "점 표기 하지 말 것").
        post=lambda sh: adim(sh(B), sh(C), 28, "25"))
 
 # ── s2: ∠ACB=90°, AB=17·BC=8 → AC=15. CD=25·DA=20 → ∠CAD=90° → AD∥BC ────────────
