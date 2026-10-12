@@ -867,7 +867,7 @@ class HwpComWriter:
                 started = True
                 emitted = True
 
-        for block in blocks:
+        for bi, block in enumerate(blocks):
             if block.type == ContentType.TEXT:
                 emit_text(block.value or "")
             elif block.type in (ContentType.EQUATION, ContentType.EQUATION_BLOCK):
@@ -880,9 +880,19 @@ class HwpComWriter:
                 if emitted:
                     self.s.break_para()   # 보인 내용 뒤에서만 줄바꿈(선두 빈 줄 방지)
                 self.s.align_center()
-                self.s.insert_picture(block.value)
-                self.s.break_para()
-                self.s.align_left()
+                # 박스 **안** 그림도 `_write_block` 과 같은 훅을 탄다 — 폼 경로는 토큰+자리표시로
+                # 넣어야 최종 교체(`replace_placeholder_figures`)가 된다. 훅 없이 박으면 폼의
+                # 머리말 배너 binItem 을 가리킨 채 남는다(<보기> 표 안 그림, 오성중 #2 2026-10-12).
+                hook = getattr(self, "image_hook", None)
+                if hook:
+                    hook(block.value)
+                else:
+                    self.s.insert_picture(block.value)
+                # 뒤에 내용이 이어질 때만 줄을 바꾼다 — 그림이 박스의 마지막이면 줄바꿈이
+                # 셀 끝에 빈 단락(박스 아래 빈 줄)을 남긴다.
+                if any((b.value or "").strip() for b in blocks[bi + 1:]):
+                    self.s.break_para()
+                    self.s.align_left()
                 started = True
                 emitted = True
 

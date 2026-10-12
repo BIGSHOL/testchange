@@ -1113,13 +1113,14 @@ def run():
     test_no_trailing_gap_before_answer_page()
     test_essay_word_unified_to_seosulhyeong()
     test_s26_figure_layout_and_answers()
+    test_box_image_goes_through_hook()
     print("OK test_render_fixes (cell/value-box/caption/shading/essay-label/overline/relabel/"
           "bigstar/boxed/labelless/solo/mixed-label/rm-space/cond-header/form-underline/"
           "sqrt-space/choice-glyph/tail-note/underline-solid/stemleaf-13/choice-geo/cond-circle/"
           "repeat-dot/paren-score/phantom-box/box-bullet/post-box/box-ascii-eq/submark-ref/"
           "answer-header-neutralize/essay-type-label/annot-label/lim-below-subscript/"
           "ksy-ineq-coord-rmbleed/answer-meta-solution/setbuilder-braces/answer-eq-baseunit/"
-          "no-trailing-gap/essay-word-unify)")
+          "no-trailing-gap/essay-word-unify/box-image-hook)")
     return 0
 
 
@@ -1264,6 +1265,58 @@ def test_s26_figure_layout_and_answers() -> None:
     emb = (root / "core" / "figure_embed.py").read_text(encoding="utf-8")
     assert "h.InsertPicture(png, True, 1, 0, 0, 0, float(size[0]), float(size[1]))" in emb
     print("  OK   26-2 세션 변환 폼 결함 5종(단위 간격·그림 줄수·소문항 정답·단독판정·그림 크기)")
+
+
+def test_box_image_goes_through_hook() -> None:
+    """<보기> 표 **안** 그림 — 오성중 중2 #2 (2026-10-12, 사용자 "보기 표 안에 그림을 넣어야 함").
+
+    박스 안 그림도 `_write_block` 처럼 ``image_hook`` 을 타야 한다. 폼 경로는 그림을 토큰 +
+    자리표시로 넣고 맨 끝에 진짜 그림으로 갈아끼우는데, 훅 없이 COM 으로 박으면 폼의 머리말
+    배너 binItem 을 가리킨 채 남는다. 그리고 그림이 박스의 마지막이면 줄을 바꾸지 않는다
+    (셀 끝 빈 단락 = 박스 아래 빈 줄).
+    """
+    from models.exam_document import ContentBlock, ContentType
+
+    class _Rec:
+        def __init__(self):
+            self.log = []
+
+        def text(self, t):
+            self.log.append(("T", t))
+
+        def break_para(self):
+            self.log.append(("BR",))
+
+        def insert_picture(self, path):
+            self.log.append(("RAWPIC", path))
+
+        def __getattr__(self, name):
+            return lambda *a, **k: None
+
+    tb = lambda v: ContentBlock(type=ContentType.TEXT, value=v)        # noqa: E731
+    img = lambda v: ContentBlock(type=ContentType.IMAGE, value=v)      # noqa: E731
+
+    w = W.HwpComWriter.__new__(W.HwpComWriter)
+    w.s = _Rec()
+    w.image_hook = lambda path: w.s.log.append(("HOOK", path))
+    w._write_box_content([tb("<보기>"), img("a.png")])
+    log = w.s.log
+    assert ("HOOK", "a.png") in log and not any(e[0] == "RAWPIC" for e in log), log
+    assert log[-1] == ("HOOK", "a.png"), f"그림이 마지막이면 뒤에 줄바꿈이 없어야 한다: {log}"
+    assert log[0] == ("T", "<보기> "), log
+
+    # 그림 뒤에 내용이 이어지면 줄을 바꾼다(다음 항목이 그림 줄에 붙지 않게)
+    w.s = _Rec()
+    w._write_box_content([tb("<보기>"), img("a.png"), tb("ㄴ. 다음 항목")])
+    log = w.s.log
+    assert log[log.index(("HOOK", "a.png")) + 1] == ("BR",), log
+
+    # 훅이 없는 기본 경로는 종전대로 직접 삽입
+    w2 = W.HwpComWriter.__new__(W.HwpComWriter)
+    w2.s = _Rec()
+    w2._write_box_content([tb("<보기>"), img("a.png")])
+    assert ("RAWPIC", "a.png") in w2.s.log, w2.s.log
+    print("  OK   <보기> 표 안 그림은 image_hook 경유 + 마지막 그림 뒤 빈 단락 없음")
 
 
 if __name__ == "__main__":
