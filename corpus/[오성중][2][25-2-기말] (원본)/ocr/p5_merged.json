@@ -1,0 +1,302 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 17,
+   "score": 7,
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서술형 1] 그림의 "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle ABC"
+    },
+    {
+     "type": "text",
+     "value": "에서 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{BC}"
+    },
+    {
+     "type": "text",
+     "value": " 위의 점 "
+    },
+    {
+     "type": "equation",
+     "value": "D"
+    },
+    {
+     "type": "text",
+     "value": "에 대하여 "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle ABC=\\angle DAC"
+    },
+    {
+     "type": "text",
+     "value": "이다. 이때 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{BD}"
+    },
+    {
+     "type": "text",
+     "value": "의 길이를 구하시오."
+    },
+    {
+     "type": "figure",
+     "value": "△ABC(A 위, B 좌하, C 우하), BC 위의 점 D, 선분 AD. ∠ABC 와 ∠DAC 에 같은 각 표시(호), ∠C 에 • 표시. 점선 치수 AC=20, BC=25.",
+     "bbox": [
+      0.26,
+      0.24,
+      0.78,
+      0.98
+     ]
+    }
+   ],
+   "label_type": "서술형",
+   "topic": "도형의 닮음",
+   "difficulty": "중",
+   "answer": "$9$",
+   "solution": "step1) $\\triangle ABC$와 $\\triangle DAC$에서 $\\angle C$는 공통이다.\nstep2) $\\angle ABC=\\angle DAC$이므로 $\\triangle ABC\\sim\\triangle DAC$ (AA 닮음)이다.\nstep3) $\\overline{AC}:\\overline{DC}=\\overline{BC}:\\overline{AC}$이므로 $20:\\overline{DC}=25:20$이다.\nstep4) $25\\times\\overline{DC}=400$이므로 $\\overline{DC}=16$이다.\nstep5) 따라서 $\\overline{BD}=\\overline{BC}-\\overline{DC}=25-16=9$이다."
+  },
+  {
+   "number": 18,
+   "score": 7,
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서술형 2] 그림과 같이 "
+    },
+    {
+     "type": "equation",
+     "value": "\\square ABCD"
+    },
+    {
+     "type": "text",
+     "value": "에서 "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle ACB=90^{\\circ}"
+    },
+    {
+     "type": "text",
+     "value": "이고, "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AB}=17"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{BC}=8"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{CD}=25"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{DA}=20"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AC}"
+    },
+    {
+     "type": "text",
+     "value": "의 길이를 구하고, "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AD}\\parallel\\overline{BC}"
+    },
+    {
+     "type": "text",
+     "value": "인 까닭을 설명하시오."
+    },
+    {
+     "type": "figure",
+     "value": "사각형 ABCD(A 위, D 우상, B 좌하, C 는 B 오른쪽·A 아래), 대각선 AC, ∠ACB 직각 표시. 점선 치수 AB=17, BC=8, CD=25, DA=20.",
+     "bbox": [
+      0.26,
+      0.36,
+      0.74,
+      0.9
+     ]
+    }
+   ],
+   "label_type": "서술형",
+   "topic": "피타고라스 정리",
+   "difficulty": "중",
+   "answer": "$\\overline{AC}=15$, $\\angle ACB=\\angle CAD=90^\\circ$(엇각)이므로 평행하다.",
+   "solution": "step1) $\\triangle ABC$는 $\\angle ACB=90^\\circ$인 직각삼각형이다.\nstep2) $\\overline{AC}^2=17^2-8^2=225$이고 $\\overline{AC}>0$이므로 $\\overline{AC}=15$이다.\nstep3) $\\triangle ACD$에서 $\\overline{AC}^2+\\overline{DA}^2=15^2+20^2=625$이다.\nstep4) $\\overline{CD}^2=25^2=625$이므로 $\\overline{AC}^2+\\overline{DA}^2=\\overline{CD}^2$이다.\nstep5) 따라서 $\\triangle ACD$는 $\\angle CAD=90^\\circ$인 직각삼각형이다.\nstep6) $\\angle ACB=\\angle CAD=90^\\circ$로 엇각의 크기가 같다.\nstep7) 따라서 $\\overline{AD}\\parallel\\overline{BC}$이다."
+  },
+  {
+   "number": 19,
+   "score": 5,
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서술형 3] 그림과 같은 "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle ABC"
+    },
+    {
+     "type": "text",
+     "value": "에서 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{BC}\\parallel\\overline{DE}"
+    },
+    {
+     "type": "text",
+     "value": "이고, "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AD}=5"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{DB}=4"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AE}=6"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{BC}=15"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{DE}=x"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{EC}=y"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "xy"
+    },
+    {
+     "type": "text",
+     "value": "의 값을 구하시오."
+    },
+    {
+     "type": "figure",
+     "value": "△ABC(A 위, B 좌하, C 우하), AB 위의 D, AC 위의 E, 선분 DE(DE·BC 평행 화살표). 점선 치수 AD=5, DB=4, AE=6, EC=y, DE=x, BC=15.",
+     "bbox": [
+      0.18,
+      0.4,
+      0.8,
+      0.99
+     ]
+    }
+   ],
+   "label_type": "서술형",
+   "topic": "평행선과 선분의 길이의 비",
+   "difficulty": "하",
+   "answer": "$40$",
+   "solution": "step1) $\\overline{BC}\\parallel\\overline{DE}$이므로 $\\overline{AD}:\\overline{AB}=\\overline{DE}:\\overline{BC}$이다.\nstep2) $5:9=x:15$이므로 $9x=75$, $x=\\frac{25}{3}$이다.\nstep3) $\\overline{AD}:\\overline{DB}=\\overline{AE}:\\overline{EC}$이므로 $5:4=6:y$이다.\nstep4) $5y=24$이므로 $y=\\frac{24}{5}$이다.\nstep5) 따라서 $xy=\\frac{25}{3}\\times\\frac{24}{5}=40$이다."
+  },
+  {
+   "number": 20,
+   "score": 7,
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서술형 4] 주머니에 딸기 맛 사탕과 포도 맛 사탕이 들어 있다. 이 주머니에서 한 개의 사탕을 꺼낼 때, 딸기 맛 사탕일 확률은 "
+    },
+    {
+     "type": "equation",
+     "value": "\\frac{5}{8}"
+    },
+    {
+     "type": "text",
+     "value": "이고, 처음 주머니에 딸기 맛 사탕을 하나 더 넣은 다음 한 개의 사탕을 꺼낼 때, 그것이 딸기 맛 사탕일 확률은 "
+    },
+    {
+     "type": "equation",
+     "value": "\\frac{11}{17}"
+    },
+    {
+     "type": "text",
+     "value": "이다. 이때 처음 주머니에 들어있던 딸기 맛 사탕의 개수를 구하시오."
+    }
+   ],
+   "label_type": "서술형",
+   "topic": "확률",
+   "difficulty": "중",
+   "answer": "$10$",
+   "solution": "step1) 처음 전체 사탕의 개수를 $8k$, 딸기 맛 사탕의 개수를 $5k$라 하자.\nstep2) 딸기 맛 사탕을 하나 더 넣으면 전체는 $8k+1$, 딸기 맛은 $5k+1$이다.\nstep3) $\\frac{5k+1}{8k+1}=\\frac{11}{17}$이므로 $17(5k+1)=11(8k+1)$이다.\nstep4) $85k+17=88k+11$이므로 $3k=6$, $k=2$이다.\nstep5) 따라서 처음 딸기 맛 사탕의 개수는 $5\\times 2=10$이다."
+  },
+  {
+   "number": 21,
+   "score": 9,
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서술형 5] 노란 구슬 2개와 흰 구슬 12개가 주머니에 있다. 세 명의 학생이 구슬을 차례대로 하나씩 꺼낼 때, 세 번째 학생이 노란 구슬을 꺼낼 확률을 구하시오. (단, 뽑은 구슬은 다시 주머니에 넣지 않는다.)"
+    }
+   ],
+   "label_type": "서술형",
+   "topic": "확률",
+   "difficulty": "상",
+   "answer": "$\\frac{1}{7}$",
+   "solution": "step1) 세 번째 학생이 노란 구슬을 꺼내는 경우는 세 가지이다.\nstep2) (흰, 흰, 노란)일 확률은 $\\frac{12}{14}\\times\\frac{11}{13}\\times\\frac{2}{12}=\\frac{11}{91}$이다.\nstep3) (흰, 노란, 노란)일 확률은 $\\frac{12}{14}\\times\\frac{2}{13}\\times\\frac{1}{12}=\\frac{1}{91}$이다.\nstep4) (노란, 흰, 노란)일 확률은 $\\frac{2}{14}\\times\\frac{12}{13}\\times\\frac{1}{12}=\\frac{1}{91}$이다.\nstep5) 따라서 구하는 확률은 $\\frac{11}{91}+\\frac{1}{91}+\\frac{1}{91}=\\frac{13}{91}=\\frac{1}{7}$이다."
+  }
+ ]
+}

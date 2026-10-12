@@ -1,0 +1,945 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 5,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림과 같이 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AB}\\parallel\\overline{FC}\\parallel\\overline{ED}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{FB}\\parallel\\overline{EC}"
+    },
+    {
+     "type": "text",
+     "value": "이고, 점 "
+    },
+    {
+     "type": "equation",
+     "value": "F"
+    },
+    {
+     "type": "text",
+     "value": "와 "
+    },
+    {
+     "type": "equation",
+     "value": "C"
+    },
+    {
+     "type": "text",
+     "value": "는 각각 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AE}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{BD}"
+    },
+    {
+     "type": "text",
+     "value": " 위의 점이다. "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AB}=5"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{ED}=20"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{FC}"
+    },
+    {
+     "type": "text",
+     "value": "의 길이는?"
+    },
+    {
+     "type": "figure",
+     "value": "A(왼쪽)–F–E(위) 가 한 직선, B(좌하)–C–D(우하) 가 한 직선. 선분 AB·FC·ED(평행 화살표 1개), FB·EC(평행 화살표 2개). 점선 치수 AB=5, ED=20.",
+     "bbox": [
+      0.22,
+      0.18,
+      0.8,
+      0.64
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "7"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "8"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "9"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "10"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "11"
+      }
+     ]
+    }
+   ],
+   "topic": "도형의 닮음",
+   "difficulty": "중",
+   "answer": "④"
+  },
+  {
+   "number": 6,
+   "score": 5,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림과 같이 밑면의 반지름의 길이가 5인 원뿔을 밑면에 평행한 평면으로 잘라 원뿔 "
+    },
+    {
+     "type": "equation",
+     "value": "A"
+    },
+    {
+     "type": "text",
+     "value": ", 원뿔대 "
+    },
+    {
+     "type": "equation",
+     "value": "B"
+    },
+    {
+     "type": "text",
+     "value": ", 원뿔대 "
+    },
+    {
+     "type": "equation",
+     "value": "C"
+    },
+    {
+     "type": "text",
+     "value": "를 만들었다. 원뿔대 "
+    },
+    {
+     "type": "equation",
+     "value": "B"
+    },
+    {
+     "type": "text",
+     "value": "와 원뿔대 "
+    },
+    {
+     "type": "equation",
+     "value": "C"
+    },
+    {
+     "type": "text",
+     "value": "의 높이의 비가 "
+    },
+    {
+     "type": "equation",
+     "value": "2:1"
+    },
+    {
+     "type": "text",
+     "value": "이고, 원뿔대 "
+    },
+    {
+     "type": "equation",
+     "value": "B"
+    },
+    {
+     "type": "text",
+     "value": "의 밑면의 반지름의 길이가 4일 때, 원뿔대 "
+    },
+    {
+     "type": "equation",
+     "value": "B"
+    },
+    {
+     "type": "text",
+     "value": "와 원뿔대 "
+    },
+    {
+     "type": "equation",
+     "value": "C"
+    },
+    {
+     "type": "text",
+     "value": "의 부피의 비는?"
+    },
+    {
+     "type": "figure",
+     "value": "원뿔을 밑면에 평행한 두 평면으로 자른 모습. 위에서부터 원뿔 A, 원뿔대 B, 원뿔대 C. 축(높이) 실선, 각 단면과 축이 만나는 곳에 직각 표시. 가운데 단면 반지름 점선 치수 4, 밑면 반지름 점선 치수 5.",
+     "bbox": [
+      0.32,
+      0.29,
+      0.7,
+      0.71
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "16:25"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "56:53"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "56:61"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "64:61"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "64:125"
+      }
+     ]
+    }
+   ],
+   "topic": "도형의 닮음",
+   "difficulty": "상",
+   "answer": "③"
+  },
+  {
+   "number": 7,
+   "score": 5,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림과 같이 "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle ABC"
+    },
+    {
+     "type": "text",
+     "value": "의 세 변의 중점을 각각 "
+    },
+    {
+     "type": "equation",
+     "value": "D"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "E"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "F"
+    },
+    {
+     "type": "text",
+     "value": "라 하고, "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{DF}"
+    },
+    {
+     "type": "text",
+     "value": "의 연장선 위에 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{DF}=2\\overline{FP}"
+    },
+    {
+     "type": "text",
+     "value": "가 되도록 점 "
+    },
+    {
+     "type": "equation",
+     "value": "P"
+    },
+    {
+     "type": "text",
+     "value": "를 잡는다. "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle ABC"
+    },
+    {
+     "type": "text",
+     "value": "의 넓이가 "
+    },
+    {
+     "type": "equation",
+     "value": "12\\mathrm{cm}^{2}"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle AEP"
+    },
+    {
+     "type": "text",
+     "value": "의 넓이는?"
+    },
+    {
+     "type": "figure",
+     "value": "△ABC(A 위, B 좌하, C 우하), AB·BC·CA 의 중점 D·E·F(같은 길이 눈금 1·2·3줄). DF 의 연장선 위의 점 P. 선분 DP·AE·AP·EP.",
+     "bbox": [
+      0.24,
+      0.22,
+      0.78,
+      0.64
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3\\mathrm{cm}^{2}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4\\mathrm{cm}^{2}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5\\mathrm{cm}^{2}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "6\\mathrm{cm}^{2}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "7\\mathrm{cm}^{2}"
+      }
+     ]
+    }
+   ],
+   "topic": "평행선과 선분의 길이의 비",
+   "difficulty": "상",
+   "answer": "④"
+  },
+  {
+   "number": 8,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림과 같이 "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle ABC"
+    },
+    {
+     "type": "text",
+     "value": "의 두 변 "
+    },
+    {
+     "type": "equation",
+     "value": "AC"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "BC"
+    },
+    {
+     "type": "text",
+     "value": " 위의 점 "
+    },
+    {
+     "type": "equation",
+     "value": "D"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "E"
+    },
+    {
+     "type": "text",
+     "value": "에 대하여 "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle BAE=\\angle AED=\\angle DCE"
+    },
+    {
+     "type": "text",
+     "value": "이고, "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AB}=6"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AE}=5"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AC}=10"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{DE}"
+    },
+    {
+     "type": "text",
+     "value": "의 길이는?"
+    },
+    {
+     "type": "figure",
+     "value": "△ABC(A 위, B 좌하, C 우하), BC 위의 점 E, AC 위의 점 D, 선분 AE·DE. ∠BAE·∠AED·∠DCE 에 같은 각 표시. 점선 치수 AB=6, AE=5, AC=10.",
+     "bbox": [
+      0.18,
+      0.24,
+      0.8,
+      0.62
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4.1"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4.2"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4.3"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4.4"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4.5"
+      }
+     ]
+    }
+   ],
+   "topic": "도형의 닮음",
+   "difficulty": "중",
+   "answer": "⑤"
+  },
+  {
+   "number": 9,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림과 같이 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AD}\\parallel\\overline{BC}"
+    },
+    {
+     "type": "text",
+     "value": "인 사다리꼴 "
+    },
+    {
+     "type": "equation",
+     "value": "ABCD"
+    },
+    {
+     "type": "text",
+     "value": "에서 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AB}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{DC}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{BC}"
+    },
+    {
+     "type": "text",
+     "value": "의 중점이 각각 "
+    },
+    {
+     "type": "equation",
+     "value": "M"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "N"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "H"
+    },
+    {
+     "type": "text",
+     "value": "이고, "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle ABC"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle DBC"
+    },
+    {
+     "type": "text",
+     "value": "의 무게중심이 각각 "
+    },
+    {
+     "type": "equation",
+     "value": "G"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "G'"
+    },
+    {
+     "type": "text",
+     "value": "이다. "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{BC}=12"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{MN}=9"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{GG'}"
+    },
+    {
+     "type": "text",
+     "value": "의 길이는?"
+    },
+    {
+     "type": "figure",
+     "value": "사다리꼴 ABCD(A 좌상, D 우상, B 좌하, C 우하), AD∥BC 화살표. AB·DC·BC 의 중점 M·N·H(눈금). 선분 MN, 대각선 AC·DB, 선분 AH·DH, AH 위의 G, DH 위의 G′, 선분 GG′. 점선 치수 MN=9, BC=12.",
+     "bbox": [
+      0.26,
+      0.2,
+      0.72,
+      0.72
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5"
+      }
+     ]
+    }
+   ],
+   "topic": "삼각형의 무게 중심",
+   "difficulty": "중",
+   "answer": "②"
+  },
+  {
+   "number": 10,
+   "score": 5,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림의 평행사변형 "
+    },
+    {
+     "type": "equation",
+     "value": "ABCD"
+    },
+    {
+     "type": "text",
+     "value": "의 넓이가 330이고, 점 "
+    },
+    {
+     "type": "equation",
+     "value": "P"
+    },
+    {
+     "type": "text",
+     "value": "는 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{BC}"
+    },
+    {
+     "type": "text",
+     "value": "의 중점이다. "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{DC}"
+    },
+    {
+     "type": "text",
+     "value": " 위의 점 "
+    },
+    {
+     "type": "equation",
+     "value": "Q"
+    },
+    {
+     "type": "text",
+     "value": "에 대하여 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{BQ}"
+    },
+    {
+     "type": "text",
+     "value": "와 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AP}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{PD}"
+    },
+    {
+     "type": "text",
+     "value": "의 교점을 각각 "
+    },
+    {
+     "type": "equation",
+     "value": "E"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "F"
+    },
+    {
+     "type": "text",
+     "value": "라 하자. "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{DQ}:\\overline{QC}=1:3"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle EPF"
+    },
+    {
+     "type": "text",
+     "value": "의 넓이는?"
+    },
+    {
+     "type": "figure",
+     "value": "평행사변형 ABCD(A 좌상, D 우상, B 좌하, C 우하), BC 의 중점 P(BP=PC 눈금), DC 위의 점 Q. 선분 AP·BQ·PD, BQ∩AP=E, BQ∩PD=F.",
+     "bbox": [
+      0.24,
+      0.24,
+      0.78,
+      0.66
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "27"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "49.5"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "72"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "82.5"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "99"
+      }
+     ]
+    }
+   ],
+   "topic": "도형의 닮음",
+   "difficulty": "상",
+   "answer": "①"
+  }
+ ]
+}

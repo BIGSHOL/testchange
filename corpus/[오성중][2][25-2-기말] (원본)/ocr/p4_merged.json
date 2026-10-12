@@ -1,0 +1,535 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 11,
+   "score": 3,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림은 직각삼각형 "
+    },
+    {
+     "type": "equation",
+     "value": "ABC"
+    },
+    {
+     "type": "text",
+     "value": "의 각 변을 한 변으로 하는 세 개의 정칠각형을 그려 그 넓이를 나타낸 것이다. 이때 "
+    },
+    {
+     "type": "equation",
+     "value": "x"
+    },
+    {
+     "type": "text",
+     "value": "의 값은?"
+    },
+    {
+     "type": "figure",
+     "value": "∠C=90°(직각 표시)인 직각삼각형 ABC 의 세 변 위에 바깥쪽으로 그린 정칠각형 세 개. AC 위 4 cm², AB 위 16 cm², BC 위 x cm².",
+     "bbox": [
+      0.24,
+      0.16,
+      0.76,
+      0.65
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "10"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "12"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "14"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "18"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "20"
+      }
+     ]
+    }
+   ],
+   "topic": "피타고라스 정리",
+   "difficulty": "하",
+   "answer": "②"
+  },
+  {
+   "number": 12,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림과 같이 직각삼각형 "
+    },
+    {
+     "type": "equation",
+     "value": "ABC"
+    },
+    {
+     "type": "text",
+     "value": "에서 "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle A"
+    },
+    {
+     "type": "text",
+     "value": "의 이등분선이 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{BC}"
+    },
+    {
+     "type": "text",
+     "value": "와 만나는 점을 "
+    },
+    {
+     "type": "equation",
+     "value": "D"
+    },
+    {
+     "type": "text",
+     "value": "라 하고, 점 "
+    },
+    {
+     "type": "equation",
+     "value": "D"
+    },
+    {
+     "type": "text",
+     "value": "에서 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AB}"
+    },
+    {
+     "type": "text",
+     "value": "에 내린 수선의 발을 "
+    },
+    {
+     "type": "equation",
+     "value": "E"
+    },
+    {
+     "type": "text",
+     "value": "라 하자. 이때 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AD}^{2}"
+    },
+    {
+     "type": "text",
+     "value": "의 값은?"
+    },
+    {
+     "type": "figure",
+     "value": "∠C=90°(직각 표시)인 직각삼각형 ABC(B 좌하, C 우하, A 우상). ∠A 의 이등분선 AD(같은 각 표시 •), D 에서 AB 에 내린 수선의 발 E(직각 표시). 점선 치수 BC=16, AC=12.",
+     "bbox": [
+      0.26,
+      0.24,
+      0.76,
+      0.66
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "100"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "108"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "120"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "150"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "180"
+      }
+     ]
+    }
+   ],
+   "topic": "피타고라스 정리",
+   "difficulty": "중",
+   "answer": "⑤"
+  },
+  {
+   "number": 13,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "1부터 100까지의 자연수가 각각 하나씩 적힌 100장의 카드가 있다. 이 중에서 한 장의 카드를 뽑아서 나온 수를 110 또는 170으로 나눌 때, 유한소수가 되는 경우의 수는?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "11"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "12"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "13"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "14"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "15"
+      }
+     ]
+    }
+   ],
+   "topic": "경우의 수",
+   "difficulty": "중",
+   "answer": "④"
+  },
+  {
+   "number": 14,
+   "score": 4,
+   "contents": [
+    {
+     "type": "equation",
+     "value": "A"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "B"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "C"
+    },
+    {
+     "type": "text",
+     "value": " 세 명이 가위바위보를 한 번 할 때, "
+    },
+    {
+     "type": "equation",
+     "value": "A"
+    },
+    {
+     "type": "text",
+     "value": "가 가위로 두 명을 모두 이길 확률은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{1}{27}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{1}{18}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{1}{9}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{1}{6}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{1}{3}"
+      }
+     ]
+    }
+   ],
+   "topic": "확률",
+   "difficulty": "중",
+   "answer": "①"
+  },
+  {
+   "number": 15,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림과 같이 8등분된 원판을 한 번 돌려서 멈춘 후 바늘이 가리키는 수를 읽을 때, 소수가 나오지 "
+    },
+    {
+     "type": "text",
+     "value": "__않을__"
+    },
+    {
+     "type": "text",
+     "value": " 확률은?"
+    },
+    {
+     "type": "figure",
+     "value": "8등분된 원판. 위에서 시계 방향으로 1, 3, 5, 7, 9, 11, 13, 15(3·7·11·15 칸은 옅은 음영). 중심에서 3 쪽을 가리키는 바늘.",
+     "bbox": [
+      0.28,
+      0.13,
+      0.68,
+      0.5
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{1}{5}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{1}{4}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{3}{8}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{1}{2}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{5}{8}"
+      }
+     ]
+    }
+   ],
+   "topic": "확률",
+   "difficulty": "하",
+   "answer": "③"
+  },
+  {
+   "number": 16,
+   "score": 5,
+   "contents": [
+    {
+     "type": "text",
+     "value": "길이가 5, 6, 8, 10, 15, 17인 막대가 하나씩 있다. 이 중에서 세 개의 막대를 선택할 때, 세 막대로 삼각형이 만들어질 확률을 "
+    },
+    {
+     "type": "equation",
+     "value": "a"
+    },
+    {
+     "type": "text",
+     "value": ", 세 막대로 직각삼각형이 만들어질 확률을 "
+    },
+    {
+     "type": "equation",
+     "value": "b"
+    },
+    {
+     "type": "text",
+     "value": "라 할 때, "
+    },
+    {
+     "type": "equation",
+     "value": "a+b"
+    },
+    {
+     "type": "text",
+     "value": "의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{1}{10}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{11}{120}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{11}{20}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{6}{10}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{13}{20}"
+      }
+     ]
+    }
+   ],
+   "topic": "확률",
+   "difficulty": "상",
+   "answer": "⑤"
+  }
+ ]
+}

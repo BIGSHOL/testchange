@@ -1,0 +1,385 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 1,
+   "score": 3,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림에서 "
+    },
+    {
+     "type": "equation",
+     "value": "\\square ABCD \\sim \\square AEFG \\sim \\square HIJA"
+    },
+    {
+     "type": "text",
+     "value": "이고, "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AD}=4"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{DH}=8"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{HG}=8"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{HI}=9"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{BE}"
+    },
+    {
+     "type": "text",
+     "value": "의 길이는?"
+    },
+    {
+     "type": "figure",
+     "value": "닮은 세 사각형. 작은 □ABCD(A 위, B·C 왼쪽, D 는 AG 위), 큰 □AEFG(E 왼쪽, F 좌하, G 우하 — B 는 AE 위, D·H 는 AG 위), □HIJA(H 는 AG 위, I 오른쪽, J 우상). 점선 치수 AD=4, DH=8, HG=8, HI=9.",
+     "bbox": [
+      0.2,
+      0.19,
+      0.8,
+      0.62
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "9"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "10"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "12"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "15"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "16"
+      }
+     ]
+    }
+   ],
+   "topic": "도형의 닮음",
+   "difficulty": "하",
+   "answer": "③"
+  },
+  {
+   "number": 2,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "<보기>에서 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{BC}\\parallel\\overline{DE}"
+    },
+    {
+     "type": "text",
+     "value": "인 것만을 있는 대로 고른 것은?"
+    },
+    {
+     "type": "figure",
+     "value": "<보기> 상자 안 그림 여섯 개(2열×3행). ㄱ. △ABC, D 는 AB 위·E 는 AC 위, 선분 DE. AD=12 cm, AB=16 cm, AE=9 cm, AC=12 cm. ㄴ. 두 선분 DB·EC 가 A 에서 만남(D 좌상, E 좌하, C 우상, B 우하), 선분 DE·CB. DE=2 cm, EA=3 cm, AC=6 cm, CB=4 cm. ㄷ. 두 선분 EC·DB 가 A 에서 만남(E 좌상, D 우상, B 좌하, C 우하), 선분 ED·BC. ED=4 cm, EA=3 cm, AC=5 cm, BC=6 cm. ㄹ. △ABC, D 는 AB 위·E 는 AC 위, 선분 DE. AD=4 cm, DB=3 cm, AE=5 cm, EC=4 cm. ㅁ. △ADE, B 는 AD 위·C 는 AE 위, 선분 BC. AB=9 cm, BD=3 cm, AC=6 cm, CE=2 cm. ㅂ. 두 선분 BD·EC 가 A 에서 만남(B 좌상, E 우상, D 우하, C 아래), 선분 BC·ED. BD=20 cm, EA=6 cm, AD=8 cm, EC=15 cm.",
+     "bbox": [
+      0.03,
+      0.06,
+      1.0,
+      0.77
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄱ, ㅁ, ㅂ"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄴ, ㄷ, ㄹ"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄱ, ㄴ, ㅁ, ㅂ"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄱ, ㄹ, ㅁ, ㅂ"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄴ, ㄷ, ㄹ, ㅂ"
+      }
+     ]
+    }
+   ],
+   "topic": "평행선과 선분의 길이의 비",
+   "difficulty": "중",
+   "answer": "①"
+  },
+  {
+   "number": 3,
+   "score": 3,
+   "contents": [
+    {
+     "type": "text",
+     "value": "그림 "
+    },
+    {
+     "type": "equation",
+     "value": "\\square ABCD"
+    },
+    {
+     "type": "text",
+     "value": "는 한 변의 길이가 4인 정사각형이다. 점 "
+    },
+    {
+     "type": "equation",
+     "value": "M"
+    },
+    {
+     "type": "text",
+     "value": "은 "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{BC}"
+    },
+    {
+     "type": "text",
+     "value": "의 중점이고, "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle AMN=90^{\\circ}"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\triangle DMN"
+    },
+    {
+     "type": "text",
+     "value": "의 넓이는?"
+    },
+    {
+     "type": "figure",
+     "value": "정사각형 ABCD(A 좌상, D 우상, B 좌하, C 우하), BC 의 중점 M(BM=MC 눈금), DC 위의 점 N. 선분 AM·DM·MN, ∠AMN 직각 표시. AB 에 점선 치수 4.",
+     "bbox": [
+      0.24,
+      0.16,
+      0.74,
+      0.66
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "6"
+      }
+     ]
+    }
+   ],
+   "topic": "도형의 닮음",
+   "difficulty": "하",
+   "answer": "②"
+  },
+  {
+   "number": 4,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "모양이 같고 크기만 서로 다른 응원 깃발을 만들려고 한다. <보기>에서 옳은 것만을 있는 대로 고른 것은?"
+    },
+    {
+     "type": "figure",
+     "value": "깃발 세 개(삼각형 + 깃대). 큰 깃발 △ABC: AC=75cm, BC=75cm, 깃대는 AB. 중간 깃발 △DEF: ∠D=70°, ∠F=40°, DF=50cm, 깃대는 DE. 작은 깃발 △GHI: GI=25cm, ∠I=40°, 깃대는 GH.",
+     "bbox": [
+      0.03,
+      0.14,
+      1.0,
+      0.45
+     ]
+    },
+    {
+     "type": "text",
+     "value": "<보기> ㄱ. 작은 깃발을 만들려면 \\overline{HI}의 길이를 25\\mathrm{cm}로 해야 한다. • ㄴ. 작은 깃발에서 \\overline{GH}의 길이는 25\\mathrm{cm}이다. • ㄷ. 작은 깃발을 만들려면 \\angle G의 크기를 40^{\\circ}로 해야 한다. • ㄹ. 큰 깃발을 만들려면 \\angle C의 크기를 40^{\\circ}로 해야 한다. • ㅁ. 큰 깃발에서 \\angle A의 크기는 40^{\\circ}이다."
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄱ, ㄴ"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄱ, ㄹ"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄷ, ㅁ"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄴ, ㄷ, ㅁ"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "text",
+       "value": "ㄱ, ㄷ, ㄹ, ㅁ"
+      }
+     ]
+    }
+   ],
+   "topic": "도형의 닮음",
+   "difficulty": "중",
+   "answer": "②"
+  }
+ ]
+}
