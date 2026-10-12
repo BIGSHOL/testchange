@@ -26,11 +26,13 @@ def main(argv):
     os.makedirs(os.path.dirname(prefix) or ".", exist_ok=True)
     pdf = prefix + ".pdf"
 
-    # 고아 Hwp.exe 정리(비결정적 hang 방지, CLAUDE.md COM 교훈)
+    # 고아 Hwp.exe 정리(비결정적 hang 방지, CLAUDE.md COM 교훈).
+    # ⚠️ **자동화로 뜬 인스턴스만** 죽인다 — 종전 `taskkill /IM Hwp.exe` 는 사용자가 열어 둔
+    # 한글까지 강제 종료해 미저장 문서를 날렸다(2026-10-12 발견).
     try:
-        import subprocess
-        subprocess.run(["taskkill", "/F", "/IM", "Hwp.exe"],
-                       capture_output=True)
+        sys.path.insert(0, str(REPO))
+        from core.hwp_com import automation_hwp_pids, reap_hwp
+        reap_hwp(automation_hwp_pids())
     except Exception:
         pass
 

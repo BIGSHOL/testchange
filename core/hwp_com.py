@@ -146,6 +146,27 @@ def hwp_pids() -> set:
     return pids
 
 
+def automation_hwp_pids() -> set:
+    """COM 자동화로 뜬 Hwp.exe(명령줄에 ``-Automation``/``-Embedding``)의 PID 집합.
+
+    스크립트가 **시작 전에 고아 인스턴스를 치울 때** 쓴다(`reap_hwp(automation_hwp_pids())`).
+    사용자가 문서를 열어 둔 한글은 명령줄이 ``Hwp.exe "문서경로"`` 뿐이라 여기에 안 잡힌다
+    (실측 2026-10-12: COM 인스턴스 = ``hwp.exe -Automation -Embedding``, 별도 프로세스).
+    ``taskkill /IM Hwp.exe``·``Stop-Process Hwp`` 처럼 이름으로 전부 죽이면 **사용자의 미저장
+    문서가 날아간다** — 렌더 스크립트가 그렇게 하고 있었다. 조회 실패면 빈 집합(아무것도 안 죽임).
+    """
+    import subprocess
+    cmd = ("Get-CimInstance Win32_Process -Filter \"Name='Hwp.exe'\" | "
+           "Where-Object { $_.CommandLine -match '\\s-(Automation|Embedding)\\b' } | "
+           "ForEach-Object { $_.ProcessId }")
+    try:
+        out = subprocess.run(["powershell", "-NoProfile", "-Command", cmd],
+                             capture_output=True, timeout=30).stdout.decode("ascii", "ignore")
+    except Exception:   # noqa: BLE001
+        return set()
+    return {int(tok) for tok in out.split() if tok.isdigit()}
+
+
 def reap_hwp(pids) -> int:
     """지정 PID 의 Hwp.exe 를 강제 종료하고 **실제로 종료된** 개수를 반환한다.
 

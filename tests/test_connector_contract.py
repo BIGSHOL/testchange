@@ -376,6 +376,21 @@ def test_process_reaping() -> None:
     check("커넥터가 엔진 구현을 재사용(사본 금지)",
           "from core.hwp_com import hwp_pids as _core_pids" in conn_src)
 
+    # 스크립트의 '시작 전 고아 정리'는 자동화로 뜬 인스턴스만 — 사용자가 문서를 열어 둔 한글
+    # (명령줄이 문서 경로뿐)을 이름으로 통째 죽이면 미저장 문서가 날아간다(2026-10-12).
+    from core.hwp_com import automation_hwp_pids
+    auto = automation_hwp_pids()
+    check("automation_hwp_pids 는 실행 중인 한글의 부분집합", isinstance(auto, set) and auto <= hwp_pids(),
+          str(auto))
+    check("명령줄의 -Automation/-Embedding 으로 가른다",
+          "-(Automation|Embedding)" in core_src.replace("\\\\", "\\"))
+    for rel in ("scripts/render_to_png.py",):
+        src = (ROOT / rel).read_text(encoding="utf-8")
+        code = "\n".join(ln for ln in src.splitlines() if not ln.lstrip().startswith("#"))
+        check(f"{rel}: 이름으로 전부 죽이지 않는다",
+              '"/IM"' not in code and "Stop-Process" not in code, rel)
+        check(f"{rel}: 자동화 인스턴스만 정리", "reap_hwp(automation_hwp_pids())" in code, rel)
+
 
 def test_plain_two_column() -> None:
     """L. '폼 없이 2단'(웹 layout 플래그) — 켜야만 켜지고, 켜면 폼을 안 탄다."""
