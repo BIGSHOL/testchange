@@ -122,6 +122,23 @@ long_text = "step3) " + "가나다라마바사아자차카타파하 " * 8
 check("긴 텍스트 줄은 여러 줄로", len(_wrap_solution_line(long_text)) >= 2)
 check("짧은 수식 줄은 무변경",
       _wrap_solution_line("step2) $a = b$ 이다.") == ["step2) $a = b$ 이다."])
+# 개행된 줄에서 수식과 붙어 있던 조사가 떨어지면 안 된다("A에서" → "A 에서", 제일고 2026-10-19)
+glued = (r"step1) 꼭짓점 $\mathrm{A}$에서 평면 $\mathrm{BCDE}$에 내린 수선의 발은 정사각형 "
+         r"$\mathrm{BCDE}$의 두 대각선의 교점 $\mathrm{O}$이다. 그리고 $(x, y)$를 지나는 직선을 생각한다.")
+wrapped = _wrap_solution_line(glued)
+check("긴 수식 섞인 줄은 여러 줄로", len(wrapped) >= 2, str(wrapped))
+check("개행해도 원문 띄어쓰기 그대로(공백 추가·삭제 없음)", " ".join(wrapped) == glued, " | ".join(wrapped))
+check("수식 안 공백에서는 안 끊음", all(w.count("$") % 2 == 0 for w in wrapped), str(wrapped))
+
+print("\nE. 정답면 라벨 뒤 공백(26년 폼 6번째 서술형 칸은 ']' 로 끝난다)")
+from core.hwp_form_writer import _label_gap  # noqa: E402
+_tight = ('<hp:run charPrIDRef="20"><hp:t> [서술형 </hp:t></hp:run>'
+          '<hp:run charPrIDRef="20"><hp:t>]</hp:t></hp:run>')
+_loose = _tight.replace("<hp:t>]</hp:t>", "<hp:t>] </hp:t>")
+check("']' 로 끝나면 공백 run 추가",
+      _label_gap(_tight, "20") == '<hp:run charPrIDRef="20"><hp:t> </hp:t></hp:run>')
+check("'] ' 면 그대로", _label_gap(_loose, "20") == "")
+check("객관식(라벨 없음)은 그대로", _label_gap('<hp:run charPrIDRef="20"><hp:t> </hp:t></hp:run>', "20") == "")
 
 print("\n" + ("전부 통과" if not FAILED else f"{len(FAILED)}건 FAIL"))
 sys.exit(1 if FAILED else 0)

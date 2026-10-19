@@ -2807,6 +2807,18 @@ def _merged_solution(q, glyph: bool = False) -> list:
     return lines
 
 
+_LABEL_END_RE = re.compile(r"\]</hp:t>\s*</hp:run>\s*$")
+
+
+def _label_gap(head: str, charpr: str | None) -> str:
+    """정답 run 앞에 둘 공백 run — 미주 내용이 폼 라벨 ``[서술형 N]`` 의 ``]`` 로 **공백 없이**
+    끝날 때만. 26년 개정 폼은 정답면 6번째 서술형 칸의 라벨 뒤 공백이 빠져 있어 정답이
+    ``[서술형 6]−4`` 처럼 붙었다(중2·기하 폼 실측 2026-10-19 — 1~5번째 칸은 ``] ``)."""
+    if not _LABEL_END_RE.search(head):
+        return ""
+    return f'<hp:run charPrIDRef="{charpr or _ANSWER_CHARPR}"><hp:t> </hp:t></hp:run>'
+
+
 def _inject_answer_runs(hwpx_path: str | Path,
                         answers: list[list[ContentBlock]]) -> int:
     """정답 페이지(미주 목록)의 번호 뒤에 **정답**을 run 으로 기입한다.
@@ -2849,7 +2861,7 @@ def _inject_answer_runs(hwpx_path: str | Path,
             if runs:
                 lm = re.search(r"<hp:linesegarray>", frag)
                 if lm:
-                    frag = frag[:lm.start()] + runs + frag[lm.start():]
+                    frag = frag[:lm.start()] + _label_gap(frag[:lm.start()], charpr) + runs + frag[lm.start():]
                     total += 1
             out.append(s[prev:a]); out.append(frag); prev = b
         out.append(s[prev:])

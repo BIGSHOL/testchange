@@ -351,18 +351,18 @@ def _wrap_solution_line(line: str) -> list[str]:
     """
     if _sol_seg_width(line) <= _SOL_WRAP_WIDTH:
         return [line]
-    # 토큰화: 수식 원자는 통째, 나머지는 공백으로. (공백은 조인 시 복원)
-    tokens: list[str] = []
-    pos = 0
-    for m in _SOL_MATH_ATOM_RE.finditer(line):
-        tokens += line[pos:m.start()].split(" ")
-        # 직전 토큰이 비면(수식 앞이 공백) 그대로 두어 경계를 보존한다.
-        if tokens and tokens[-1] == "":
-            tokens.pop()
-        tokens.append(m.group())
-        pos = m.end()
-    tokens += line[pos:].split(" ")
-    tokens = [t for t in tokens if t != ""]
+    # 토큰화: 수식 원자를 가려 둔 채 **원문의 공백에서만** 나눈다. ⚠️ 수식을 따로 떼어
+    # 토큰으로 만들면 다시 이을 때 수식과 붙어 있던 조사 사이에 공백이 생긴다
+    # ("$\mathrm{A}$에서" → "A 에서" — 제일고 기하 세션 변환 2026-10-19, 개행된 줄 전부).
+    atoms: list[str] = []
+
+    def _stash(m: re.Match) -> str:
+        atoms.append(m.group())
+        return f"\x00{len(atoms) - 1}\x00"
+
+    masked = _SOL_MATH_ATOM_RE.sub(_stash, line)
+    tokens = [re.sub(r"\x00(\d+)\x00", lambda m: atoms[int(m.group(1))], w)
+              for w in masked.split(" ") if w != ""]
 
     lines: list[str] = []
     cur: list[str] = []
