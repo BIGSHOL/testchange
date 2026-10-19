@@ -1,0 +1,454 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 12,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "점 "
+    },
+    {
+     "type": "equation",
+     "value": "P(3, -2, 4)"
+    },
+    {
+     "type": "text",
+     "value": "에 대하여 점 "
+    },
+    {
+     "type": "equation",
+     "value": "P"
+    },
+    {
+     "type": "text",
+     "value": "를 "
+    },
+    {
+     "type": "equation",
+     "value": "x"
+    },
+    {
+     "type": "text",
+     "value": "축에 내린 수선의 발의 좌표는?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "(0, 0, 4)"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "(0, -2, 4)"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "(0, -2, 0)"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "(3, 0, 0)"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "(3, 0, 4)"
+      }
+     ]
+    }
+   ],
+   "topic": "공간에서의 점의 좌표",
+   "difficulty": "하",
+   "answer": "④"
+  },
+  {
+   "number": 13,
+   "score": 5,
+   "contents": [
+    {
+     "type": "text",
+     "value": "네 점 "
+    },
+    {
+     "type": "equation",
+     "value": "A, B, C, D"
+    },
+    {
+     "type": "text",
+     "value": "를 꼭짓점으로 하는 평행사변형 "
+    },
+    {
+     "type": "equation",
+     "value": "ABCD"
+    },
+    {
+     "type": "text",
+     "value": "에서 "
+    },
+    {
+     "type": "equation",
+     "value": "B(4, 1, -2)"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "C(-4, 1, 2)"
+    },
+    {
+     "type": "text",
+     "value": "이고, 두 대각선의 교점의 좌표가 "
+    },
+    {
+     "type": "equation",
+     "value": "(-1, 2, 1)"
+    },
+    {
+     "type": "text",
+     "value": "일 때, 점 "
+    },
+    {
+     "type": "equation",
+     "value": "A"
+    },
+    {
+     "type": "text",
+     "value": "의 좌표는?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "(2, 3, 0)"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "(3, 2, 0)"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "(3, 3, 2)"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "(-2, -4, 0)"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "(-2, -4, 2)"
+      }
+     ]
+    }
+   ],
+   "topic": "선분의 내분점과 외분점",
+   "difficulty": "중",
+   "answer": "①"
+  },
+  {
+   "number": 14,
+   "score": 5,
+   "contents": [
+    {
+     "type": "text",
+     "value": "구 "
+    },
+    {
+     "type": "equation",
+     "value": "(x-1)^{2}+(y-4)^{2}+(z-2\\sqrt{2})^{2}=9"
+    },
+    {
+     "type": "text",
+     "value": " 위의 한 점 "
+    },
+    {
+     "type": "equation",
+     "value": "P(a, b, c)"
+    },
+    {
+     "type": "text",
+     "value": "에 대하여 "
+    },
+    {
+     "type": "equation",
+     "value": "a^{2}+b^{2}+c^{2}"
+    },
+    {
+     "type": "text",
+     "value": "의 최솟값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5"
+      }
+     ]
+    }
+   ],
+   "topic": "구의 방정식",
+   "difficulty": "상",
+   "answer": "④"
+  },
+  {
+   "number": 15,
+   "score": 6,
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서술형 1] "
+    },
+    {
+     "type": "equation",
+     "value": "\\vec{p}=3\\vec{a}+\\vec{b}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\vec{q}=4\\vec{a}-2\\vec{b}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\vec{r}=k\\vec{a}+7\\vec{b}"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\vec{p}-\\vec{q}"
+    },
+    {
+     "type": "text",
+     "value": "와 "
+    },
+    {
+     "type": "equation",
+     "value": "\\vec{q}-\\vec{r}"
+    },
+    {
+     "type": "text",
+     "value": "가 서로 평행하도록 실수 "
+    },
+    {
+     "type": "equation",
+     "value": "k"
+    },
+    {
+     "type": "text",
+     "value": "의 값을 구하고 그 과정을 서술하시오.(단, 두 벡터 "
+    },
+    {
+     "type": "equation",
+     "value": "\\vec{a}"
+    },
+    {
+     "type": "text",
+     "value": "와 "
+    },
+    {
+     "type": "equation",
+     "value": "\\vec{b}"
+    },
+    {
+     "type": "text",
+     "value": "는 영벡터가 아니고 서로 평행하지 않다.)"
+    }
+   ],
+   "label_type": "서술형",
+   "topic": "벡터의 실수배",
+   "difficulty": "중",
+   "answer": "$1$",
+   "solution": "step1) $\\vec{p}-\\vec{q}=(3\\vec{a}+\\vec{b})-(4\\vec{a}-2\\vec{b})=-\\vec{a}+3\\vec{b}$이다.\nstep2) $\\vec{q}-\\vec{r}=(4\\vec{a}-2\\vec{b})-(k\\vec{a}+7\\vec{b})=(4-k)\\vec{a}-9\\vec{b}$이다.\nstep3) 두 벡터가 서로 평행하므로 $\\vec{q}-\\vec{r}=t(\\vec{p}-\\vec{q})$인 $0$이 아닌 실수 $t$가 있다.\nstep4) $(4-k)\\vec{a}-9\\vec{b}=-t\\vec{a}+3t\\vec{b}$이다.\n$\\vec{a}$, $\\vec{b}$는 영벡터가 아니고 서로 평행하지 않으므로 $4-k=-t$, $-9=3t$이다.\nstep5) $t=-3$이므로 $4-k=3$, 즉 $k=1$이다."
+  },
+  {
+   "number": 16,
+   "score": 6,
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서술형 2] "
+    },
+    {
+     "type": "equation",
+     "value": "|\\vec{a}|=1"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "|\\vec{b}|=2"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "|\\vec{a}+\\vec{b}|=3"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "|\\vec{a}-2\\vec{b}|"
+    },
+    {
+     "type": "text",
+     "value": "의 값을 구하고 그 과정을 서술하시오."
+    }
+   ],
+   "label_type": "서술형",
+   "topic": "평면벡터의 내적",
+   "difficulty": "중",
+   "answer": "$3$",
+   "solution": "step1) $|\\vec{a}+\\vec{b}|^{2}=|\\vec{a}|^{2}+2\\vec{a}\\cdot\\vec{b}+|\\vec{b}|^{2}$이므로 $9=1+2\\vec{a}\\cdot\\vec{b}+4$이다.\nstep2) 따라서 $\\vec{a}\\cdot\\vec{b}=2$이다.\nstep3) $|\\vec{a}-2\\vec{b}|^{2}=|\\vec{a}|^{2}-4\\vec{a}\\cdot\\vec{b}+4|\\vec{b}|^{2}=1-8+16=9$이다.\nstep4) $|\\vec{a}-2\\vec{b}|\\geq0$이므로 $|\\vec{a}-2\\vec{b}|=3$이다."
+  },
+  {
+   "number": 17,
+   "score": 7,
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서술형 3] 두 점 "
+    },
+    {
+     "type": "equation",
+     "value": "A(1, 2)"
+    },
+    {
+     "type": "text",
+     "value": "와 "
+    },
+    {
+     "type": "equation",
+     "value": "B(-1, 0)"
+    },
+    {
+     "type": "text",
+     "value": "에 대하여 "
+    },
+    {
+     "type": "equation",
+     "value": "\\left|\\overrightarrow{PA}+\\overrightarrow{PB}\\right|=4"
+    },
+    {
+     "type": "text",
+     "value": "를 만족시키는 점 "
+    },
+    {
+     "type": "equation",
+     "value": "P"
+    },
+    {
+     "type": "text",
+     "value": "가 그리는 도형의 방정식을 구하고 그 과정을 서술하시오."
+    }
+   ],
+   "label_type": "서술형",
+   "topic": "원의 방정식",
+   "difficulty": "중",
+   "answer": "$x^{2}+(y-1)^{2}=4$",
+   "solution": "step1) 점 $\\mathrm{P}$의 좌표를 $(x, y)$라 하면 $\\overrightarrow{PA}=(1-x, 2-y)$, $\\overrightarrow{PB}=(-1-x, -y)$이다.\nstep2) $\\overrightarrow{PA}+\\overrightarrow{PB}=(-2x, 2-2y)$이다.\nstep3) $\\left|\\overrightarrow{PA}+\\overrightarrow{PB}\\right|=4$이므로 $(-2x)^{2}+(2-2y)^{2}=16$이다.\nstep4) 양변을 $4$로 나누면 $x^{2}+(y-1)^{2}=4$이다.\nstep5) 따라서 점 $\\mathrm{P}$가 그리는 도형은\n중심이 $(0, 1)$이고 반지름의 길이가 $2$인 원이다."
+  }
+ ]
+}

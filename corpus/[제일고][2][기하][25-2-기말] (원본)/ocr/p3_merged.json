@@ -1,0 +1,489 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 7,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "두 벡터 "
+    },
+    {
+     "type": "equation",
+     "value": "\\vec{a}=(3, 1)"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\vec{b}=(k, 6)"
+    },
+    {
+     "type": "text",
+     "value": "가 서로 수직이 되도록 하는 실수 "
+    },
+    {
+     "type": "equation",
+     "value": "k"
+    },
+    {
+     "type": "text",
+     "value": "의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-2"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-1"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3"
+      }
+     ]
+    }
+   ],
+   "topic": "평면벡터의 내적과 수직,평행",
+   "difficulty": "하",
+   "answer": "①"
+  },
+  {
+   "number": 8,
+   "score": 5,
+   "contents": [
+    {
+     "type": "text",
+     "value": "점 "
+    },
+    {
+     "type": "equation",
+     "value": "(2, 3)"
+    },
+    {
+     "type": "text",
+     "value": "을 지나고 벡터 "
+    },
+    {
+     "type": "equation",
+     "value": "\\vec{n}=(3, 1)"
+    },
+    {
+     "type": "text",
+     "value": "에 수직인 직선의 방정식은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "x-y+1=0"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "x+2y-3=0"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2x+y-3=0"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3x-2y+3=0"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3x+y-9=0"
+      }
+     ]
+    }
+   ],
+   "topic": "직선의 방정식",
+   "difficulty": "중",
+   "answer": "⑤"
+  },
+  {
+   "number": 9,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "아래 직육면체에서 평면 "
+    },
+    {
+     "type": "equation",
+     "value": "ABCD"
+    },
+    {
+     "type": "text",
+     "value": "와 만나는 평면이 아닌 것은?"
+    },
+    {
+     "type": "figure",
+     "value": "직육면체 ABCD-EFGH. 윗면 ABCD(A 앞 왼쪽, B 앞 오른쪽, C 뒤 오른쪽, D 뒤 왼쪽), 아랫면 EFGH(E·F·G·H 가 각각 A·B·C·D 아래). 숨은 모서리 DH·HE·HG 점선. 앞면 ABFE 옅은 음영, 오른쪽 면 BCGF 진한 음영.",
+     "bbox": [
+      0.3,
+      0.22,
+      0.72,
+      0.7
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "text",
+       "value": "평면 "
+      },
+      {
+       "type": "equation",
+       "value": "ABFE"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "text",
+       "value": "평면 "
+      },
+      {
+       "type": "equation",
+       "value": "BCGF"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "text",
+       "value": "평면 "
+      },
+      {
+       "type": "equation",
+       "value": "CDHG"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "text",
+       "value": "평면 "
+      },
+      {
+       "type": "equation",
+       "value": "DAEH"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "text",
+       "value": "평면 "
+      },
+      {
+       "type": "equation",
+       "value": "EFGH"
+      }
+     ]
+    }
+   ],
+   "topic": "직선과 평면의 위치관계",
+   "difficulty": "하",
+   "answer": "⑤"
+  },
+  {
+   "number": 10,
+   "score": 5,
+   "contents": [
+    {
+     "type": "text",
+     "value": "아래 그림과 같이 어느 직선 도로에서 건물로 들어가는 진입로가 있다. 도로와 진입로는 서로 수직이고, 진입로의 길이는 "
+    },
+    {
+     "type": "equation",
+     "value": "40\\mathrm{m}"
+    },
+    {
+     "type": "text",
+     "value": "이며 건물은 지면과 수직을 이룬다. 직선 도로의 옆에 위치해 있는 민준이네 집의 위치를 "
+    },
+    {
+     "type": "equation",
+     "value": "A"
+    },
+    {
+     "type": "text",
+     "value": ", 진입로의 입구를 "
+    },
+    {
+     "type": "equation",
+     "value": "B"
+    },
+    {
+     "type": "text",
+     "value": ", 건물의 꼭대기를 "
+    },
+    {
+     "type": "equation",
+     "value": "C"
+    },
+    {
+     "type": "text",
+     "value": "라 할 때, "
+    },
+    {
+     "type": "equation",
+     "value": "\\overline{AB}=30\\mathrm{m}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\angle CAB=60^{\\circ}"
+    },
+    {
+     "type": "text",
+     "value": "이다. 이때 이 건물의 높이는?"
+    },
+    {
+     "type": "figure",
+     "value": "왼쪽 위에서 오른쪽 아래로 뻗은 직선 도로(회색 두 줄 띠). 도로 옆 집(A), 도로 위 진입로 입구 B, 오른쪽에 세워진 고층 건물(꼭대기 C, 밑 모서리 = 건물의 발). 굵은 선분 AC·AB·B–건물의 발, 가는 선분 A–건물의 발, 옅은 점선 BC. B 에 직각 표시(∠ABD), 건물의 발에 직각 표시(∠ADC 쪽). ∠CAB 에 60°, AB 아래 점선 치수 30 m, B–건물의 발 점선 치수 40 m.",
+     "bbox": [
+      0.1,
+      0.35,
+      0.8,
+      0.98
+     ]
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "30"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "10\\sqrt{10}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "10\\sqrt{11}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "20\\sqrt{3}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "10\\sqrt{13}"
+      }
+     ]
+    }
+   ],
+   "topic": "삼수선의 정리",
+   "difficulty": "상",
+   "answer": "③"
+  },
+  {
+   "number": 11,
+   "score": 5,
+   "contents": [
+    {
+     "type": "text",
+     "value": "두 평면 "
+    },
+    {
+     "type": "equation",
+     "value": "\\alpha"
+    },
+    {
+     "type": "text",
+     "value": "와 "
+    },
+    {
+     "type": "equation",
+     "value": "\\beta"
+    },
+    {
+     "type": "text",
+     "value": "가 이루는 각의 크기가 "
+    },
+    {
+     "type": "equation",
+     "value": "60^{\\circ}"
+    },
+    {
+     "type": "text",
+     "value": "이고, 평면 "
+    },
+    {
+     "type": "equation",
+     "value": "\\alpha"
+    },
+    {
+     "type": "text",
+     "value": " 위에 한 변의 길이가 "
+    },
+    {
+     "type": "equation",
+     "value": "2"
+    },
+    {
+     "type": "text",
+     "value": "인 정사각형이 있다. 이 정사각형의 평면 "
+    },
+    {
+     "type": "equation",
+     "value": "\\beta"
+    },
+    {
+     "type": "text",
+     "value": " 위로의 정사영의 넓이를 구하면?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5"
+      }
+     ]
+    }
+   ],
+   "topic": "정사영",
+   "difficulty": "중",
+   "answer": "②"
+  }
+ ]
+}
