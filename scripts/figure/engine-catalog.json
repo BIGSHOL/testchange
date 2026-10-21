@@ -14,6 +14,7 @@
       "circles": "list of {center:[x,y],radius:number,dashed?:boolean}; a geometric circle in DATA units (stretches to an ellipse when x/y scales differ) — never use it for printed dots; use points",
       "points": "list of {at:[x,y],radius?:pixels 1..6 default 3,open?:boolean}; small printed dots at graph points (vertices, endpoints, intersections) in fixed screen pixels, filled black or open (white inside)",
       "labels": "list of {at:[x,y],text:string,dx?:pixels,dy?:pixels,size?:pixels,anchor?:\"start\"|\"middle\"|\"end\"}; only printed labels; math can use $...$ LaTeX and is typeset as vector glyphs. Korean text cannot be typeset: write a label containing Korean as plain text without $ (e.g. \"x(초)\")",
+      "grid": "optional {step?:number|[dx,dy] default 1,from?:[x,y] default [xMin,yMin],to?:[x,y] default [xMax,yMax],color?:\"#rrggbb\" default \"#aaaaaa\",dashed?:boolean}; a printed square grid (모눈, graph paper) drawn BEHIND everything as a background layer. Lines at from+k*step up to to; (to-from)/step must be whole numbers, at most 60 cells each way. Grid cells are always square on screen: the engine sizes the canvas (width/height) itself so that (pixels per x-unit)*dx equals (pixels per y-unit)*dy. Use it whenever the figure is drawn on 모눈종이 (vectors, shapes or points on graph paper) instead of drawing grid lines as segments, and count the printed cells exactly. For a figure that is only a grid with things on it, set axes:false and make xRange/yRange equal to from/to so the engine padding leaves a white margin around the grid; vectors are segments with arrow:true and their names are labels such as $\\vec{a}$",
       "axisBreaks": "list of {at:[x,y],axis?:\"x\"|\"y\",size?:pixels 10..24 default 14}; the printed wavy ∿ axis-break mark (물결선) ON an axis line where the axis skips values (e.g. between O and the first tick of a scatter plot whose data start far from 0). at = centre of the mark placed ON that axis line (same y as the x-axis line, same x as the y-axis line); axis = which axis it cuts, default \"x\"; size = its length along the axis in fixed screen pixels. The engine draws a smooth wave and blanks the axis line under it — never imitate it with short segments or curves"
     },
     "example": {
@@ -96,6 +97,63 @@
           "dy": -8
         }
       ]
+    },
+    "gridExample": {
+      "version": "graph-1",
+      "xRange": [
+        0,
+        8
+      ],
+      "yRange": [
+        0,
+        5
+      ],
+      "axes": false,
+      "grid": {
+        "step": 1
+      },
+      "segments": [
+        {
+          "from": [
+            1,
+            1
+          ],
+          "to": [
+            4,
+            4
+          ],
+          "arrow": true
+        },
+        {
+          "from": [
+            5,
+            4
+          ],
+          "to": [
+            7,
+            1
+          ],
+          "arrow": true
+        }
+      ],
+      "labels": [
+        {
+          "at": [
+            2.5,
+            2.5
+          ],
+          "text": "$\\vec{a}$",
+          "dx": -14
+        },
+        {
+          "at": [
+            6,
+            2.5
+          ],
+          "text": "$\\vec{b}$",
+          "dx": 14
+        }
+      ]
     }
   },
   "curveGraph_contract": "curves quadratic uses {type:\"quadratic\",a,p,q,label?} for y=a(x-p)^2+q, NEVER b/c; inverse uses {type:\"inverse\",k,label?}. lines uses slope/yIntercept/label and cannot be horizontal; marks is [[x,y],...] integers on graph. For annotated curves, horizontal segments, inscribed shapes or custom labels use graph-1 instead.",
@@ -123,6 +181,7 @@
       "label_distance",
       "p1",
       "p2",
+      "perspective",
       "points",
       "radius",
       "right",

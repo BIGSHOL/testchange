@@ -29,61 +29,66 @@ from engine_path import VENDOR_ENGINE_PATH, engine_root  # noqa: E402
 MAX_SPEC_BYTES = 64 * 1024
 
 
-def fail(message: str) -> None:
-    sys.stdout.write(json.dumps({"error": message}, ensure_ascii=False))
-    sys.exit(0)
-
-
-def main() -> None:
-    # Windows 기본 코드페이지에서 한글 라벨이 깨진다 — 양쪽 다 UTF-8 로 못 박는다.
-    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8")
-    raw = io.TextIOWrapper(sys.stdin.buffer, encoding="utf-8").read()
-
+def render_json(raw: str) -> dict:
+    """스펙 JSON 문자열 → {"svg": …} 또는 {"error": …}. 표준입출력 진입점(main)과 Vercel 함수(api/render.py)가
+    같이 부른다 — 두 벌이면 개발 서버와 배포가 다른 오류 문구를 낸다."""
     if len(raw.encode("utf-8")) > MAX_SPEC_BYTES:
-        fail("도형 스펙이 너무 큽니다")
-
+        return {"error": "도형 스펙이 너무 큽니다"}
     try:
         spec = json.loads(raw)
     except Exception:
-        fail("도형 스펙이 올바른 JSON 이 아닙니다")
-        return
+        return {"error": "도형 스펙이 올바른 JSON 이 아닙니다"}
 
     engine = engine_root()
     if not engine:
-        fail(f"도형 엔진을 찾을 수 없습니다: {VENDOR_ENGINE_PATH}")
-    sys.path.insert(0, engine)
-    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+        return {"error": f"도형 엔진을 찾을 수 없습니다: {VENDOR_ENGINE_PATH}"}
+    for entry in (engine, os.path.dirname(os.path.abspath(__file__))):
+        if entry not in sys.path:
+            sys.path.insert(0, entry)
 
     try:
         from core.figure_quality import sanitize_svg
         from core.figure_scene import render_figure_spec
         from elementary import render_elementary
     except Exception as exc:  # 엔진 자체를 못 불러온 경우 — 설정 문제다.
-        fail(f"도형 엔진을 불러오지 못했습니다: {type(exc).__name__}")
-        return
+        return {"error": f"도형 엔진을 불러오지 못했습니다: {type(exc).__name__}"}
 
     try:
+        # 실물 그림 조각(assets) — 엔진은 모르는 필드라 떼어 그린 뒤 맨 뒤 층에 얹는다(scene_assets.py).
+        # 없으면 종전과 똑같은 길로 그린다.
+        from scene_assets import render_graph_with_assets, render_v2_with_assets, split_assets
+        spec, assets = split_assets(spec)
         if isinstance(spec, dict) and spec.get("version") == "graph-1":
             from graph_scene import render_graph
             svg = render_graph(spec)
+            if assets is not None:
+                svg = render_graph_with_assets(spec, svg, assets)
         elif isinstance(spec, dict) and spec.get("version") == "elem-1":
+            if assets is not None:
+                raise ValueError("assets 는 version 2·graph-1 에서만 씁니다(elem-1 은 kind:assetScene)")
             svg = render_elementary(spec)
+        elif assets is not None:
+            svg = render_v2_with_assets(spec, assets)
         else:
             svg = render_figure_spec(spec)
     except Exception as exc:
         # FigureSpecError/GeometryValidationError 는 **스펙이 틀렸다**는 뜻이라
         # 사유를 그대로 보여 주는 편이 낫다(원장님이 보고 판단한다). 길이는 자른다.
-        fail(f"도형을 그리지 못했습니다: {str(exc)[:200]}")
-        return
+        return {"error": f"도형을 그리지 못했습니다: {str(exc)[:200]}"}
 
     try:
         # 엔진이 낸 것이라도 정제기를 통과시킨다 — 지면과 화면에 그대로 들어가는 마크업이다.
         svg = sanitize_svg(svg)
     except Exception as exc:
-        fail(f"도형이 안전 검사를 통과하지 못했습니다: {type(exc).__name__}")
-        return
+        return {"error": f"도형이 안전 검사를 통과하지 못했습니다: {type(exc).__name__}"}
+    return {"svg": svg}
 
-    sys.stdout.write(json.dumps({"svg": svg}, ensure_ascii=False))
+
+def main() -> None:
+    # Windows 기본 코드페이지에서 한글 라벨이 깨진다 — 양쪽 다 UTF-8 로 못 박는다.
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8")
+    raw = io.TextIOWrapper(sys.stdin.buffer, encoding="utf-8").read()
+    sys.stdout.write(json.dumps(render_json(raw), ensure_ascii=False))
 
 
 if __name__ == "__main__":

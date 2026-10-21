@@ -343,6 +343,10 @@ class AngleMark:
     이등분선의 «같은 각» 표시).  ``right=True`` replaces the arc with the small
     square right-angle mark and doubles as a check: the two rays must actually
     be perpendicular (90°±0.5°) or the scene refuses to render.
+    ``perspective=True`` (math-figure-editor 2026-10-21) is for a right angle drawn in a
+    perspective/oblique 3D picture: the printed mark is slanted (a parallelogram along the
+    two rays) because the rays are not perpendicular on paper, so the 90° check is skipped.
+    It is valid only together with ``right=True``.
     """
 
     name: str
@@ -354,6 +358,7 @@ class AngleMark:
     label_distance: float | None = None
     arcs: int = 1
     right: bool = False
+    perspective: bool = False
 
 
 @dataclass(frozen=True, slots=True)
@@ -1297,7 +1302,7 @@ class FigureScene:
     def add_angle(self, name: str, vertex: str, p1: str, p2: str,
                   *, radius: Number | None = None, label: str | None = None,
                   label_distance: Number | None = None, arcs: int = 1,
-                  right: bool = False) -> "FigureScene":
+                  right: bool = False, perspective: bool = False) -> "FigureScene":
         """Add a small-angle arc between rays ``vertex->p1`` and ``vertex->p2``.
 
         ``arcs=2`` draws a double arc; ``right=True`` draws the square
@@ -1311,6 +1316,10 @@ class FigureScene:
             raise GeometryValidationError("angle label must be text or None")
         if not isinstance(right, bool):
             raise GeometryValidationError(f"angle {name!r} right must be boolean")
+        if not isinstance(perspective, bool):
+            raise GeometryValidationError(f"angle {name!r} perspective must be boolean")
+        if perspective and not right:
+            raise GeometryValidationError(f"angle {name!r}: perspective needs right=True")
         arcs_value = _mark_count(arcs, 2, f"angle {name!r} arcs")
         if arcs_value == 0:
             raise GeometryValidationError(f"angle {name!r} arcs must be 1 or 2")
@@ -1321,7 +1330,7 @@ class FigureScene:
             name, _name(vertex, "angle vertex"), _name(p1, "angle ray ref"),
             _name(p2, "angle ray ref"), None if radius is None else float(radius),
             label, None if label_distance is None else float(label_distance),
-            arcs_value, right)
+            arcs_value, right, perspective)
         return self
 
     def add_dimension(self, name: str, p1: str, p2: str, label: str,
@@ -1634,13 +1643,15 @@ class FigureScene:
                     raise GeometryValidationError(
                         f"angle {angle.name!r}: right=True replaces the arc; arcs must stay 1")
                 # 직각 마크는 검산을 겸한다 — 90°±0.5° 밖이면 그림이 거짓말이다.
+                # 원근(입체) 그림의 직각은 종이 위에서 비스듬히 인쇄된다 — perspective 면 검산하지 않는다.
                 cos_value = abs(v1[0] * v2[0] + v1[1] * v2[1]) / (l1 * l2)
-                if cos_value > _RIGHT_ANGLE_COS_TOL:
+                if cos_value > _RIGHT_ANGLE_COS_TOL and not angle.perspective:
                     actual = math.degrees(math.acos(
                         max(-1.0, min(1.0, (v1[0] * v2[0] + v1[1] * v2[1]) / (l1 * l2)))))
                     raise GeometryValidationError(
                         f"angle {angle.name!r} is marked right but measures "
-                        f"{actual:.2f}° — fix the geometry, not the mark")
+                        f"{actual:.2f}° — fix the geometry, not the mark "
+                        "(only in a perspective/3D drawing whose printed mark is slanted, add perspective:true)")
                 # 🔴 직각기호 크기가 **고정**이라 짧은 변에서 그림을 통째로 던졌다
                 #    (2026-09-02). `radius(22.0) × 0.55 = 12.10px` 를 짧은 변과 견주는데,
                 #    「수선의 발 H 와 가까운 꼭짓점」 사이 토막은 실측 8.5~10.2px 라
@@ -3255,7 +3266,7 @@ def compile_figure_spec(spec: Mapping[str, Any] | FigureSpec) -> FigureScene:
             if not isinstance(item, Mapping):
                 raise FigureSpecError(f"angles.{name} must be an object")
             _strict_keys(item, {"vertex", "points", "p1", "p2", "radius", "label",
-                                "label_distance", "arcs", "right"}, f"angles.{name}")
+                                "label_distance", "arcs", "right", "perspective"}, f"angles.{name}")
             if "vertex" not in item:
                 raise FigureSpecError(f"angles.{name} requires vertex")
             if "points" in item:
@@ -3269,6 +3280,9 @@ def compile_figure_spec(spec: Mapping[str, Any] | FigureSpec) -> FigureScene:
             right_value = item.get("right", False)
             if not isinstance(right_value, bool):
                 raise FigureSpecError(f"angles.{name}.right must be boolean")
+            perspective_value = item.get("perspective", False)
+            if not isinstance(perspective_value, bool):
+                raise FigureSpecError(f"angles.{name}.perspective must be boolean")
             if right_value and "arcs" in item:
                 raise FigureSpecError(
                     f"angles.{name}: right:true replaces the arc — do not give arcs")
@@ -3280,7 +3294,7 @@ def compile_figure_spec(spec: Mapping[str, Any] | FigureSpec) -> FigureScene:
                 label_distance=None if item.get("label_distance") is None else _spec_number(
                     item["label_distance"], f"angles.{name}.label_distance"),
                 arcs=item.get("arcs", 1),
-                right=right_value)
+                right=right_value, perspective=perspective_value)
 
         for name, item in dimension_records:
             if not isinstance(item, Mapping):

@@ -1,0 +1,28 @@
+{
+  "_note": "FigureSpec(v2·graph-1)의 assets 로 쓸 수 있는 조각 — 도형으로는 그릴 수 없는 실물만(사용자 2026-10-21 «SVG 로 구현 가능한 그림(직육면체·공 같은 것)은 도형으로, 정말 그림이 필요한 것만»). 컵·캔·주사위·그릇·관람차·피자처럼 수학 도형(원기둥·직육면체·구·원·부채꼴)으로 그릴 수 있는 것은 빠진다 — 그것들은 elem-1 assetScene(초등 실물 장면)에서만. 명세 지시문(src/lib/figure/assetCatalog.ts)과 엔진(scripts/figure/scene_assets.py)이 이 파일 하나를 같이 읽는다.",
+  "picture": [
+    "house",
+    "building",
+    "lighthouse",
+    "tower",
+    "utility-pole",
+    "streetlamp",
+    "flagpole",
+    "tree",
+    "mountain",
+    "tunnel",
+    "bridge",
+    "person-standing",
+    "person-walking",
+    "bicycle",
+    "car-side",
+    "train-side",
+    "boat",
+    "airplane",
+    "hot-air-balloon",
+    "kite",
+    "sun",
+    "ladder",
+    "slide"
+  ]
+}

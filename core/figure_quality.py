@@ -152,6 +152,7 @@ _TRANSFORM_RE = re.compile(
     r"^\s*(?:(?:translate|scale|rotate)\(\s*-?\d+(?:\.\d+)?"
     r"(?:[\s,]+-?\d+(?:\.\d+)?){0,2}\s*\)\s*)+$"
 )
+_DATA_GRID_RE = re.compile(r"^\s*-?\d+(?:\.\d+)?\s+-?\d+(?:\.\d+)?\s+\d+(?:\.\d+)?\s+\d+(?:\.\d+)?\s+\d{1,3}\s+\d{1,3}\s*$")
 def mj_attr(text: str) -> str:
     """`data-mj="…"` 한 조각. **못 실을 글이면 빈 문자열**을 낸다.
 
@@ -204,7 +205,10 @@ _TAG_ATTRS = {
     # `<g transform>` 허용 — 값은 `_TRANSFORM_RE`(translate/scale/rotate 의 수 인자만)로 좁힌다.
     # 이력: 2026-08-26·09-11 엔 "에셋 합성 경로가 우리 파이프라인에 없다"는 이유로 닫아 뒀고,
     # 2026-09-30 엔진 이식 때 그 경로(scripts/figure/figure_assets.py)가 들어오면서 열었다.
-    "g": _COMMON_ATTRS | {"transform"},
+    # math-figure-editor: `data-grid` — 모눈 배경 층(scripts/figure/graph_scene.py `grid_svg`)의 칸 정보.
+    # todays-math 상류에는 없는 한 줄(2026-10-21). 값은 수 여섯 개만 받는다(아래 `_validate_attr`).
+    # math-figure-editor: `data-asset` — 실물 그림 조각 층(scripts/figure/scene_assets.py)의 에셋 이름(kebab-case 만).
+    "g": _COMMON_ATTRS | {"transform", "data-grid", "data-asset"},
     "circle": _COMMON_ATTRS | {"cx", "cy", "r"},
     "ellipse": _COMMON_ATTRS | {"cx", "cy", "rx", "ry"},
     "line": _COMMON_ATTRS | {"x1", "y1", "x2", "y2"},
@@ -517,6 +521,12 @@ def _validate_attr(tag: str, name: str, value: str) -> None:
     if name == "id":
         if not _ID_RE.match(value.strip()):
             raise SvgSecurityError("invalid id")
+    elif name == "data-grid":
+        if not _DATA_GRID_RE.match(value):
+            raise SvgSecurityError("invalid data-grid (six numbers)")
+    elif name == "data-asset":
+        if not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", value):
+            raise SvgSecurityError("invalid data-asset (kebab-case slug)")
     elif name == "transform":
         if not _TRANSFORM_RE.match(value):
             raise SvgSecurityError("invalid transform (translate/scale/rotate with numeric args only)")

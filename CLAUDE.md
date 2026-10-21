@@ -643,6 +643,21 @@ compile_figure_spec` 으로 컴파일하면 엔진이 **점 이름·각 라벨�
 - ⚠️ `scripts/verify_figure_engine.py` 는 "legacy corpus file count expected 11, got 14" 로 멈춘다 —
   9-30 이후 그림 시험지가 늘어난 탓(이번 수정 무관), 기대값 갱신 필요.
 
+### ⭐ math-figure-editor 엔진 업그레이드 반영 (2026-10-21, 사용자 «한치의 오차도 없이 그대로»)
+
+도형 편집기(`D:\math-figure-editor`, GitHub `BIGSHOL/math-figure-editor` — 이 저장소와 **별개 앱**)에서 고친 엔진을
+그대로 옮겼다. 방법은 **3방향 병합**(todays-math `3aa03a021` 기준판 → 앱 판의 변경만 이쪽 파일 위에) — 이쪽 고유 변경은 유지.
+- `core/figure_scene.py`: 직각 표시 **`perspective: true`**(원근·입체 그림의 비스듬한 직각 — 90° 검산 생략, 평면은 종전 검산).
+  거부 문구 끝에 perspective 안내 한 줄.
+- `core/label_markup.py`: `escape` 를 같은 결과의 함수로(불러오기 150ms 단축) · **한 글자 단위 정자**(`30 m`·`5 g`·`mL` — `2m` 은 그대로).
+- `core/figure_quality.py`: `g` 에 `data-grid`(수 여섯)·`data-asset`(slug) 허용 — `<g transform>` 허용 이력 주석은 그대로.
+- `scripts/figure/graph_scene.py`: graph-1 **`grid`**(모눈 배경 한 층, 칸은 정사각형) — 이쪽 graph_scene 은 상류보다 오래된 판이라
+  상류의 지수·로그 곡선(`nativeExamples`)은 넣지 않았다. `engine-catalog.json` 은 `build_catalog.py` 로 다시 만듦(모눈 항목만 늘어남).
+- `scripts/figure/render_spec.py`(앱 판과 동일 — `render_json` 분리) · **`scene_assets.py`(새)** · **`assets/` 39종**(흑백 통일, `anchors.json`·
+  `picture-assets.json`) — FigureSpec v2·graph-1 의 `assets` 로 실물 그림 조각을 도형 뒤에 얹는다(도형으로 그릴 수 있는 물체는 거부).
+- 검증: 도형 시험 11종 통과, 기존 카탈로그 예시 출력 바이트 동일, 새 기능 명세 6종(모눈·에셋·원근 직각·단위·거부 두 가지)이
+  **앱 엔진과 바이트 동일**. ⚠️ 배포된 도우미(agent.exe)에는 아직 없다 — 도우미를 다시 구워야 사용자 PC 에 반영된다.
+
 ### ⭐ 서답형/서술형 라벨 = **서술형으로 통일** (2026-08-20, 사용자 지시)
 
 사용자: "모든 서답형, 서술형 -> 서술형 통일". 종전(2026-06-09)에는 **혼재할 때만**
