@@ -232,6 +232,8 @@ def render_v2_with_assets(spec: Mapping[str, Any], items: Any) -> str:
     limit = MAX_SIDE - 2 * FRAME_PAD - LABEL_ROOM
 
     def fits(boxes: list[Placed]) -> bool:
+        if not boxes and not xs:
+            return True  # 점 없이 한 점 조각만 있는 장면 — 따져 볼 고정 도형이 없다
         lo_x = min([p.box[0] for p in boxes] + xs) - FRAME_PAD
         lo_y = min([p.box[1] for p in boxes] + ys) - FRAME_PAD
         hi_x = max([p.box[2] for p in boxes] + xs) + FRAME_PAD
