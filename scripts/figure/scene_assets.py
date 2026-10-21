@@ -72,6 +72,16 @@ def asset_anchor(slug: str, kind: str, vb_w: float, vb_h: float) -> Point:
     return {"base": (vb_w / 2, vb_h), "top": (vb_w / 2, 0.0), "center": (vb_w / 2, vb_h / 2)}[kind]
 
 
+def edge_anchor(slug: str, kind: str, vb_w: float, vb_h: float) -> Point:
+    """from·to 가 쓰는 기준점. 건물처럼 잰 선(높이 CD)이 그림의 **모서리**인 조각은 anchors.json 의 edgeBase·edgeTop
+    (원본 삼수선 그림은 CD 가 건물 앞 모서리이고 건물이 그 옆에 선다 — 가운데 축에 세우면 건물이 선을 가로지른다).
+    없으면 base·top(탑·등대·사람·나무는 가운데 축이 그 선이다)."""
+    value = (_anchors().get(slug) or {}).get({"base": "edgeBase", "top": "edgeTop"}[kind])
+    if isinstance(value, list) and len(value) == 2 and all(isinstance(v, (int, float)) for v in value):
+        return float(value[0]), float(value[1])
+    return asset_anchor(slug, kind, vb_w, vb_h)
+
+
 def _pair(value: Any, what: str) -> Point:
     if (not isinstance(value, (list, tuple)) or len(value) != 2
             or not all(isinstance(v, (int, float)) and not isinstance(v, bool) and math.isfinite(v) for v in value)):
@@ -132,7 +142,7 @@ def plan_assets(items: Any, point: Callable[[Any], Point], length: Callable[[flo
         if "from" in item or "to" in item:
             if "from" not in item or "to" not in item or "at" in item or "width" in item:
                 raise ValueError("assets: from·to 는 둘 다 적고 at·width 와 섞지 않습니다")
-            base, top = asset_anchor(slug, "base", vb_w, vb_h), asset_anchor(slug, "top", vb_w, vb_h)
+            base, top = edge_anchor(slug, "base", vb_w, vb_h), edge_anchor(slug, "top", vb_w, vb_h)
             ax, ay = fx * (top[0] - base[0]), top[1] - base[1]
             p0, p1 = point(item["from"]), point(item["to"])
             bx, by = p1[0] - p0[0], p1[1] - p0[1]
@@ -220,16 +230,25 @@ def render_v2_with_assets(spec: Mapping[str, Any], items: Any) -> str:
     xs = [float(p.x) for p in scene.points.values()]
     ys = [float(p.y) for p in scene.points.values()]
     limit = MAX_SIDE - 2 * FRAME_PAD - LABEL_ROOM
+
+    def fits(boxes: list[Placed]) -> bool:
+        lo_x = min([p.box[0] for p in boxes] + xs) - FRAME_PAD
+        lo_y = min([p.box[1] for p in boxes] + ys) - FRAME_PAD
+        hi_x = max([p.box[2] for p in boxes] + xs) + FRAME_PAD
+        hi_y = max([p.box[3] for p in boxes] + ys) + FRAME_PAD
+        return max(hi_x - lo_x, hi_y - lo_y) <= limit
+
     shrink = 1.0
-    for _ in range(12):
-        placed = plan_assets(items, point, lambda u: u, shrink)
-        lo_x = min([p.box[0] for p in placed] + xs) - FRAME_PAD
-        lo_y = min([p.box[1] for p in placed] + ys) - FRAME_PAD
-        hi_x = max([p.box[2] for p in placed] + xs) + FRAME_PAD
-        hi_y = max([p.box[3] for p in placed] + ys) + FRAME_PAD
-        if max(hi_x - lo_x, hi_y - lo_y) <= limit:
-            break
-        shrink *= 0.85
+    placed = plan_assets(items, point, lambda u: u, shrink)
+    # 한 점에 놓은 조각은 **줄여서 맞출 수 있을 때만** 줄인다 — 도형·두 점 조각만으로 이미 넘치면 줄여도 소용없이
+    # 조각만 쪼그라든다(제일고 2026-10-21: 집이 원래의 14%). 그때는 그대로 두고 틀 거절로 명세 전체를 줄이게 한다.
+    fixed = [p for p, item in zip(placed, items) if "from" in item]
+    if fits(fixed):
+        for _ in range(11):
+            if fits(placed):
+                break
+            shrink *= 0.85
+            placed = plan_assets(items, point, lambda u: u, shrink)
     scene.add_point(BOUND_POINTS[0], min(p.box[0] for p in placed) - FRAME_PAD, min(p.box[1] for p in placed) - FRAME_PAD)
     scene.add_point(BOUND_POINTS[1], max(p.box[2] for p in placed) + FRAME_PAD, max(p.box[3] for p in placed) + FRAME_PAD)
     resolved = scene.resolve()

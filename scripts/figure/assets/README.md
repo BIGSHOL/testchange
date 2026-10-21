@@ -10,7 +10,7 @@
 
 # 실물 에셋 목록
 
-`assetScene` kind(figure_assets.py) 가 합성에 쓰는 자작 SVG 39종.
+`assetScene` kind(figure_assets.py) 가 합성에 쓰는 자작 SVG 41종.
 규격·검증은 `figure_assets.py` 가 강제한다 (허용 태그만 · text/id/href/url 금지).
 
 목록은 manifest와 일치하도록 유지한다(아래 표는 manifest-*.json·anchors.json·picture-assets.json 에서 만든다).
@@ -20,52 +20,58 @@
   컵·캔·주사위·그릇·관람차처럼 원기둥·직육면체·구·원으로 그릴 수 있는 것(—)은 초등 실물 장면 `elem-1 assetScene` 에서만.
 - **기준점** — `anchors.json`(viewBox 좌표, 잉크로 잰 값). base = 땅에 닿는 바닥 가운데, top = 높이 문제의 꼭대기,
   center = 잉크 상자 가운데. `{"asset":…,"from":D,"to":C}` 는 base 를 D 에, top 을 C 에 맞춘다.
+  단 `edgeBase`·`edgeTop` 이 있는 조각(건물)은 from·to 가 그것을 쓴다 — 높이 CD 가 건물 **앞 모서리**라 건물이 그 선의
+  오른쪽에 서고(`flip:true` 면 왼쪽), 가운데 축에 세워 선을 가로지르지 않는다(2026-10-21 제일고 삼수선 그림).
 
 | 미리보기 | slug | 이름 | viewBox | 명세 assets | 기준점 | tags |
 |---|---|---|---|---|---|---|
-| <img src="airplane.svg" width="90"> | `airplane` | 비행기 | 160×60 | ○ | top·center | 탈것 거리 속력 올려본각 |
-| <img src="baduk-black.svg" width="90"> | `baduk-black` | 검은 바둑돌 | 61.4×34.7 | — | base·top·center | 사물 바둑돌 규칙찾기 |
-| <img src="baduk-white.svg" width="90"> | `baduk-white` | 흰 바둑돌 | 61.4×38.4 | — | base·top·center | 사물 바둑돌 규칙찾기 |
-| <img src="balance-scale.svg" width="90"> | `balance-scale` | 양팔저울 | 140×110 | — | base·top·center | 사물 저울 등식 |
-| <img src="bicycle.svg" width="90"> | `bicycle` | 자전거 | 110.4×61.2 | ○ | base·top·center | 탈것 거리 속력 |
-| <img src="boat.svg" width="90"> | `boat` | 배 | 127.4×54.9 | ○ | top·center | 탈것 강 유속 속력 |
-| <img src="bowl.svg" width="90"> | `bowl` | 반구 그릇 | 100×62 | — | base·top·center | 사물 부피 반구 |
-| <img src="bridge.svg" width="90"> | `bridge` | 다리 | 155.4×58.4 | ○ | base·top·center | 야외 거리 속력 다리 |
-| <img src="building.svg" width="90"> | `building` | 건물 | 79.4×109.4 | ○ | base·top·center | 야외 높이 비교 |
-| <img src="cake-roll.svg" width="90"> | `cake-roll` | 롤케이크 | 103.4×57.4 | — | base·top·center | 음식 부피 원기둥 |
-| <img src="can.svg" width="90"> | `can` | 음료 캔 | 47.4×82.2 | — | base·top·center | 사물 원기둥 끈묶기 |
-| <img src="car-side.svg" width="90"> | `car-side` | 자동차 | 134×56.4 | ○ | base·top·center | 탈것 거리 속력 |
-| <img src="cup-cone.svg" width="90"> | `cup-cone` | 원뿔 컵 | 57.4×81.4 | — | base·top·center | 사물 들이 원뿔 |
-| <img src="cup-cylinder.svg" width="90"> | `cup-cylinder` | 원기둥 컵 | 57.4×79.4 | — | base·top·center | 사물 들이 원기둥 |
-| <img src="dice.svg" width="90"> | `dice` | 주사위 | 71.4×77.4 | — | base·top·center | 사물 주사위 확률 경우의수 |
-| <img src="ferris-wheel.svg" width="90"> | `ferris-wheel` | 관람차 | 140×150 | — | base·top·center | 야외 높이 회전 삼각함수 |
-| <img src="flagpole.svg" width="90"> | `flagpole` | 깃대 | 61.4×124.4 | ○ | base·top·center | 야외 높이 |
-| <img src="hot-air-balloon.svg" width="90"> | `hot-air-balloon` | 열기구 | 90×130 | ○ | top·center | 야외 높이 올려본각 |
-| <img src="house.svg" width="90"> | `house` | 집 | 100×100 | ○ | base·top·center | 야외 높이 그림자 |
-| <img src="ice-cream-cone.svg" width="90"> | `ice-cream-cone` | 아이스크림콘 | 56.2×97.4 | — | top·center | 음식 원뿔 반구 |
-| <img src="kite.svg" width="90"> | `kite` | 연 | 80×110 | ○ | top·center | 야외 올려본각 삼각함수 |
-| <img src="ladder.svg" width="90"> | `ladder` | 사다리 | 44×120 | ○ | base·top·center | 사물 높이 피타고라스 |
-| <img src="lighthouse.svg" width="90"> | `lighthouse` | 등대 | 64×140 | ○ | base·top·center | 야외 높이 올려본각 삼각함수 |
-| <img src="matchstick.svg" width="90"> | `matchstick` | 성냥개비 | 80×110 | — | base·top·center | 사물 성냥개비 규칙찾기 |
-| <img src="mountain.svg" width="90"> | `mountain` | 산 | 145.4×71.4 | ○ | base·top·center | 야외 등산 거리 속력 |
-| <img src="person-standing.svg" width="90"> | `person-standing` | 서 있는 사람 | 37×92.4 | ○ | base·top·center | 사람 높이 속력 |
-| <img src="person-walking.svg" width="90"> | `person-walking` | 걷는 사람 | 57.4×92.5 | ○ | base·top·center | 사람 걷기 거리 속력 |
-| <img src="picture-frame.svg" width="90"> | `picture-frame` | 액자 | 110×90 | — | base·top·center | 사물 액자 규칙찾기 자석 |
-| <img src="pizza.svg" width="90"> | `pizza` | 피자 | 100×100 | — | top·center | 음식 원 부채꼴 |
-| <img src="slide.svg" width="90"> | `slide` | 미끄럼틀 | 140×100 | ○ | base·top·center | 야외 높이 피타고라스 |
-| <img src="streetlamp.svg" width="90"> | `streetlamp` | 가로등 | 29.4×109.4 | ○ | base·top·center | 야외 높이 그림자 |
-| <img src="sun.svg" width="90"> | `sun` | 해 | 80×80 | ○ | top·center | 야외 그림자 각도 |
-| <img src="thermometer.svg" width="90"> | `thermometer` | 온도계 | 80×110 | — | top·center | 사물 온도 정수 영하 |
-| <img src="tower.svg" width="90"> | `tower` | 탑 | 70×150 | ○ | base·top·center | 야외 높이 삼각함수 |
-| <img src="train-side.svg" width="90"> | `train-side` | 기차 | 157.4×50.4 | ○ | base·top·center | 탈것 거리 속력 터널 |
-| <img src="tree.svg" width="90"> | `tree` | 나무 | 60×90 | ○ | base·top·center | 야외 높이 |
-| <img src="tunnel.svg" width="90"> | `tunnel` | 터널 | 125.4×70.8 | ○ | base·top·center | 야외 거리 속력 터널 |
-| <img src="utility-pole.svg" width="90"> | `utility-pole` | 전봇대 | 70×140 | ○ | base·top·center | 야외 높이 그림자 |
-| <img src="water-tank.svg" width="90"> | `water-tank` | 수조 | 97.4×77.4 | — | base·top·center | 사물 부피 물높이 |
+| <img src="tree.svg" width="90"> | `tree` | 나무 | 112.5×140 | ○ | base·top·center | 야외 높이 |
+| <img src="water-tank.svg" width="90"> | `water-tank` | 수조 | 140×73.8 | — | base·top·center | 사물 부피 물높이 입체 |
+| <img src="cup-cylinder.svg" width="90"> | `cup-cylinder` | 원기둥 컵 | 110.8×140 | — | base·top·center | 사물 들이 원기둥 입체 |
+| <img src="cup-cone.svg" width="90"> | `cup-cone` | 원뿔 컵 | 105.3×140 | — | base·top·center | 사물 들이 원뿔 입체 |
+| <img src="can.svg" width="90"> | `can` | 음료 캔 | 73.1×140 | — | base·top·center | 사물 원기둥 끈묶기 입체 |
+| <img src="cake-roll.svg" width="90"> | `cake-roll` | 롤케이크 | 140×116.4 | — | base·top·center | 음식 부피 원기둥 입체 |
+| <img src="pizza.svg" width="90"> | `pizza` | 피자 | 139.7×140 | — | top·center | 음식 원 부채꼴 |
+| <img src="ice-cream-cone.svg" width="90"> | `ice-cream-cone` | 아이스크림콘 | 68.9×140 | — | top·center | 음식 원뿔 반구 입체 |
+| <img src="baduk-black.svg" width="90"> | `baduk-black` | 검은 바둑돌 | 140×67 | — | base·top·center | 사물 바둑돌 규칙찾기 입체 |
+| <img src="baduk-white.svg" width="90"> | `baduk-white` | 흰 바둑돌 | 140×70.5 | — | base·top·center | 사물 바둑돌 규칙찾기 입체 |
+| <img src="matchstick.svg" width="90"> | `matchstick` | 성냥개비 | 140×13.6 | — | base·top·center | 사물 성냥개비 규칙찾기 |
+| <img src="picture-frame.svg" width="90"> | `picture-frame` | 액자 | 140×98.5 | — | base·top·center | 사물 액자 규칙찾기 자석 |
+| <img src="balance-scale.svg" width="90"> | `balance-scale` | 양팔저울 | 140×63.9 | — | base·top·center | 사물 저울 등식 |
+| <img src="thermometer.svg" width="90"> | `thermometer` | 온도계 | 21.5×140 | — | top·center | 사물 온도 정수 영하 |
+| <img src="dice.svg" width="90"> | `dice` | 주사위 | 140×134.5 | — | base·top·center | 사물 주사위 확률 경우의수 입체 |
+| <img src="train-side.svg" width="90"> | `train-side` | 기차 | 140×20.5 | ○ | base·top·center | 탈것 거리 속력 터널 |
+| <img src="tunnel.svg" width="90"> | `tunnel` | 터널 | 140×81.7 | ○ | base·top·center | 야외 거리 속력 터널 |
+| <img src="bridge.svg" width="90"> | `bridge` | 다리 | 140×36 | ○ | base·top·center | 야외 거리 속력 다리 |
+| <img src="streetlamp.svg" width="90"> | `streetlamp` | 가로등 | 27.8×140 | ○ | base·top·center | 야외 높이 그림자 |
+| <img src="building.svg" width="90"> | `building` | 건물 | 40.1×140 | ○ | base·top·center·edgeBase·edgeTop | 야외 높이 비교 |
+| <img src="flagpole.svg" width="90"> | `flagpole` | 깃대 | 42.7×140 | ○ | base·top·center | 야외 높이 |
+| <img src="mountain.svg" width="90"> | `mountain` | 산 | 140×63.3 | ○ | base·top·center | 야외 등산 거리 속력 |
+| <img src="person-standing.svg" width="90"> | `person-standing` | 서 있는 사람 | 40.9×140 | ○ | base·top·center | 사람 높이 속력 |
+| <img src="person-walking.svg" width="90"> | `person-walking` | 걷는 사람 | 71.9×140 | ○ | base·top·center | 사람 걷기 거리 속력 |
+| <img src="bicycle.svg" width="90"> | `bicycle` | 자전거 | 140×73.7 | ○ | base·top·center | 탈것 거리 속력 |
+| <img src="car-side.svg" width="90"> | `car-side` | 자동차 | 140×65.3 | ○ | base·top·center | 탈것 거리 속력 |
+| <img src="boat.svg" width="90"> | `boat` | 배 | 140×29.6 | ○ | top·center | 탈것 강 유속 속력 |
+| <img src="house.svg" width="90"> | `house` | 집 | 140×124.8 | ○ | base·top·center | 야외 높이 그림자 |
+| <img src="lighthouse.svg" width="90"> | `lighthouse` | 등대 | 44.8×140 | ○ | base·top·center | 야외 높이 올려본각 삼각함수 |
+| <img src="airplane.svg" width="90"> | `airplane` | 비행기 | 140×38 | ○ | top·center | 탈것 거리 속력 올려본각 |
+| <img src="tower.svg" width="90"> | `tower` | 탑 | 62.8×140 | ○ | base·top·center | 야외 높이 삼각함수 |
+| <img src="ladder.svg" width="90"> | `ladder` | 사다리 | 39.5×140 | ○ | base·top·center | 사물 높이 피타고라스 |
+| <img src="utility-pole.svg" width="90"> | `utility-pole` | 전봇대 | 96.8×140 | ○ | base·top·center | 야외 높이 그림자 |
+| <img src="hot-air-balloon.svg" width="90"> | `hot-air-balloon` | 열기구 | 96.9×140 | ○ | top·center | 야외 높이 올려본각 |
+| <img src="kite.svg" width="90"> | `kite` | 연 | 74.2×140 | ○ | top·center | 야외 올려본각 삼각함수 |
+| <img src="sun.svg" width="90"> | `sun` | 해 | 140×138.1 | ○ | top·center | 야외 그림자 각도 |
+| <img src="slide.svg" width="90"> | `slide` | 미끄럼틀 | 140×82.1 | ○ | base·top·center | 야외 높이 피타고라스 |
+| <img src="ferris-wheel.svg" width="90"> | `ferris-wheel` | 관람차 | 133.7×140 | — | base·top·center | 야외 높이 회전 삼각함수 |
+| <img src="bowl.svg" width="90"> | `bowl` | 반구 그릇 | 140×80.7 | — | base·top·center | 사물 부피 반구 입체 |
+| <img src="building-3d.svg" width="90"> | `building-3d` | 건물(입체) | 53.9×140 | ○ | base·top·center·edgeBase·edgeTop | 야외 높이 입체 |
+| <img src="house-3d.svg" width="90"> | `house-3d` | 집(입체) | 140×106.2 | ○ | base·top·center | 야외 높이 입체 |
 
 ## 기준점 (`anchors.json`)
 
-39종 모두 `top`과 `center`를 제공한다. `base`는 바닥에 놓이거나 서는 물체만 제공하며, 비행기·열기구·연·해·배·아이스크림콘·온도계·위에서 본 피자에는 생략한다.
+`building-3d`의 앞 왼쪽 세로 모서리: `edgeBase`(0.7, 149.7)·`edgeTop`(0.7, 20.7).
+
+41종 모두 `top`과 `center`를 제공한다. 건물(`building`)은 `edgeBase`(3.7, 108.7)·`edgeTop`(3.7, 3.7) — 몸체 왼쪽 변의 아래·위 — 을 더 둔다. `base`는 바닥에 놓이거나 서는 물체만 제공하며, 비행기·열기구·연·해·배·아이스크림콘·온도계·위에서 본 피자에는 생략한다.
 
 좌표는 viewBox 단위이며 선 굵기를 포함한 실제 잉크 끝을 기준으로 한다. `center`는 보조선까지 포함한 전체 잉크 상자의 가운데이며, 브라우저에서 10배로 렌더링하여 0.1 단위로 측정했다. `base`는 바닥선·물결을 제외한 물체의 접지 부분 가운데다. 떨어진 두 발·바퀴·기둥은 접지 범위를 합친 가운데를 쓴다. `top`은 높이 문제에 쓰는 꼭대기다(산은 깃발이 아닌 산봉우리, 가로등은 등 머리 위쪽). 사다리는 가운데 위 (22, 0)을 쓴다.
 
