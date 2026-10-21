@@ -3,7 +3,7 @@
 
 세션/자동 변환에서 그림을 **정의값 기하**(각도·비율 실계산)로 작도할 때 쓴다.
 tkz-euclide(LaTeX) 관행을 파이썬-SVG 로 옮긴 것 — 의존성 0, 렌더는
-`core.figure_generator._svg_to_png_bytes`(resvg). 규격(전부 사용자 확정 2026-08-11):
+이 모듈의 `svg_to_png_bytes`(resvg). 규격(전부 사용자 확정 2026-08-11):
 
 1. **각 호(arc)** 는 두 변의 실제 방향각 사이에만 — 눈대중 각도로 그리면 변 밖으로
    삐져나온다(운암중 q9 120°). 방향각 감소면 sweep 자동 반전(q2 45° 뒤집힘).
@@ -1162,13 +1162,17 @@ def verify_figure(name, lengths=(), arcs=(), angles=(), tangents=(), on_line=(),
         len(items) + len(angles) + len(tangents) + len(on_line) + len(on_circle))
 
 
-def unverified(svgs: dict) -> list[str]:
+def unverified(svgs: dict, scope: str | None = None) -> list[str]:
     """수치 라벨이 있는데 verify_figure 를 안 부른 그림 — 검산 누락 적발용.
 
     게이트를 만들어도 **부르지 않으면 없는 것과 같다**. 빌드 하네스가 이걸로
     누락을 막는다.
+
+    scope: 검산을 부른 시험지 스크립트의 경로. 없으면 이 함수를 부른 쪽.
+    공용 빌더(`core.figure_exam.build_figures`)처럼 **스크립트 대신 불러 주는**
+    곳은 스크립트 경로를 넘겨야 한다(안 넘기면 전부 '검산 누락'으로 보인다).
     """
-    scope = _caller_scope()
+    scope = scope if scope is not None else _caller_scope()
     missing = []
     for key, svg in svgs.items():
         if (scope, str(key)) in _VERIFIED:
@@ -1189,14 +1193,37 @@ _TEXT_RE = _re.compile(r"<text\b[^>]*>.*?</text>", _re.S)
 _PAD = 24.0
 
 
+def svg_to_png_bytes(svg: str, width: int) -> bytes | None:
+    """SVG 문자열 → PNG bytes(resvg_py). 실패하면 None.
+
+    엔진 안에 둔 이유: 종전엔 `core.figure_generator._svg_to_png_bytes` 를 빌려 썼는데,
+    그 모듈은 API 키 설정(`utils.config`)까지 끌고 와서 **엔진 네 파일만 옮겨 간 곳**
+    (todays-math `vendor/figure-engine`)에서는 `lint_svg` 가 `No module named
+    'core.figure_generator'` 로 아예 돌지 않았다(2026-10-21 실측). 래스터화는 이
+    한 자리에 두고 `figure_generator` 는 로그만 덧붙여 위임한다.
+
+    resvg 는 주석 안 ``--`` 를 거부하므로 주석을 지운다. 일부 빌드는 list[int] 를 돌려준다.
+    """
+    try:
+        import resvg_py
+    except Exception:  # noqa: BLE001 — 없으면 호출자가 None 으로 판단
+        return None
+    svg = _re.sub(r"<!--.*?-->", "", svg, flags=_re.S)
+    try:
+        png = resvg_py.svg_to_bytes(svg_string=svg, width=width)
+    except Exception:  # noqa: BLE001
+        return None
+    if isinstance(png, list):
+        png = bytes(png)
+    return png or None
+
+
 def _ink(svg_str, w_px):
     """resvg 렌더 → 잉크 마스크(불투명 & 비백색). halo 흰 stroke 는 잉크가 아니다."""
     import numpy as np
     from PIL import Image
 
-    from core.figure_generator import _svg_to_png_bytes
-
-    png = _svg_to_png_bytes(svg_str, width=w_px)
+    png = svg_to_png_bytes(svg_str, width=w_px)
     if png is None:
         raise RuntimeError("resvg 렌더 실패 — lint_svg 는 픽셀 검수라 resvg 필수")
     # Keep uint8.  The previous int64 conversion multiplied peak memory by 8

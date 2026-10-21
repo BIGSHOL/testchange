@@ -1,0 +1,2 @@
+# todays-math 에 넘기는 패치는 체크아웃해도 LF 로 둔다 — CRLF 로 바뀌면 git apply 가 어긋난다.
+docs/export/todays-math/patches/*.patch text eol=lf

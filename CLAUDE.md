@@ -617,6 +617,32 @@ compile_figure_spec` 으로 컴파일하면 엔진이 **점 이름·각 라벨�
     교점 붙이기 · 전사 정규화).
 - 커넥터 VERSION·웹 `MIN_CONNECTOR_VERSION` 1.2.3.
 
+### ⭐ 이번엔 우리 → todays-math: 전달 묶음 + 엔진 단독 이식성 (2026-10-21, 사용자 지시)
+
+사용자 "도형엔진을 todays-math 에 넣어 줘 … 우리 시험지 한글화 할 때 하는 모든 걸 거기에 넣어 줘. 알아서
+필터링해서 받아쓸 수 있게". 비교해 보니 엔진 파일은 거의 같았고(`figure_svg`·`figure_solid`·`label_markup`
+동일, **`figure_scene` 은 todays-math 가 앞섬** — `clear_angle_labels` 2커밋, 아직 안 가져옴), 넘길 것은
+**작도법**과 우리 쪽에만 있는 수정분이었다. 묶음 = **`docs/export/todays-math/`**(README · 엔진 동기화 ·
+기출 도형 작도법 · 노하우 카탈로그 · `patches/` · `drop-in/` · `examples/`). 오르카 todays-math 세션에 전달.
+- ⭐⭐ **todays-math 벤더에서 `lint_svg` 가 아예 안 돌았다** — `_ink` 가 래스터화를
+  `figure_generator._svg_to_png_bytes` 에서 빌려 썼고, 그 모듈은 Claude·`utils.config` 까지 끌고 와 벤더에
+  없다(`No module named 'core.figure_generator'`). → **`figure_svg.svg_to_png_bytes`** 를 엔진 안에 두고
+  `figure_generator` 는 위임 + 로그만. 래스터 결과 바이트 동일.
+- **`core/figure_exam.py`(신설)** — 세션 `fig_svgs.py` 마다 복사돼 있던 헬퍼(`ltext`/`rtext`/`adim`/`oblique`/
+  `fit`/`box_parts`/스펙 `render`…)와 빌드 루프(검산 누락 차단 → lint → PNG)·폭 규칙(×0.17mm, 상한 68)을
+  모았다. 제일고·오성중 스크립트와 헬퍼 36건·PNG 5장 **바이트 동일**. **새 시험지 그림은 이걸 import** 한다
+  (`FigureSet` 이 만든 스크립트 경로를 기억해 `unverified(svgs, scope=)` 와 맞춘다 — 공용 빌더가 스크립트
+  대신 확인하면 scope 가 빌더 모듈로 잡혀 전부 '검산 누락'으로 보이기 때문).
+- **`core/figure_spec_repair.py`(신설)** — FigureSpec 자동 정리·의미 목록 대조를 `figure_generator` 에서
+  글자 그대로 옮김(표준 라이브러리 + `figure_scene` 만). `figure_generator` 는 같은 밑줄 이름을 재수출 —
+  커넥터·테스트 무변경. 새 진입점 `compile_with_repair(spec) → (scene, svg, repairs)`.
+- 패치 02 = `vendor/hwpx/latex_to_hwpeq.py` 가 뒤져 있던 4건(닫는 괄호 뒤 단위·복합 단위·프라임 뒤 닮음).
+  corpus 고유 수식 9,870개에서 패치본 == 우리 출력.
+- 회귀: `tests/test_figure_exam.py` — **엔진 파일만 임시 폴더로 복사해 격리 실행**(todays-math 벤더 재현),
+  최상단 import 에 numpy·PIL·utils·figure_generator 금지.
+- ⚠️ `scripts/verify_figure_engine.py` 는 "legacy corpus file count expected 11, got 14" 로 멈춘다 —
+  9-30 이후 그림 시험지가 늘어난 탓(이번 수정 무관), 기대값 갱신 필요.
+
 ### ⭐ 서답형/서술형 라벨 = **서술형으로 통일** (2026-08-20, 사용자 지시)
 
 사용자: "모든 서답형, 서술형 -> 서술형 통일". 종전(2026-06-09)에는 **혼재할 때만**

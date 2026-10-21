@@ -1,0 +1,61 @@
+diff --git a/vendor/hwpx/latex_to_hwpeq.py b/vendor/hwpx/latex_to_hwpeq.py
+index 8d09d4f..fdc54e4 100644
+--- a/vendor/hwpx/latex_to_hwpeq.py
++++ b/vendor/hwpx/latex_to_hwpeq.py
+@@ -166,8 +166,10 @@ _SIM_RE = re.compile(r"\\sim(?![a-zA-Z])")
+ # 앞 토큰이 LaTeX 명령(``\rightarrow``·``\wedge`` 등 관계·논리 연산자)이면 단항이다 —
+ # 문자로 끝나 보이지만 피연산자가 아니다.
+ _SIM_CMD_TAIL_RE = re.compile(r"\\[a-zA-Z]+$")
+-_SIM_OPERAND_TAIL = "})]\\"        # 피연산자의 끝 — 이항(닮음).
++_SIM_OPERAND_TAIL = "})]\\'′"      # 피연산자의 끝 — 이항(닮음).
+ # 끝의 역슬래시는 **과이스케이프**(``\\sim``) 잔재 — 판단 불가이므로 종전 동작(∽)을 쓴다.
++# 프라임(``'``)도 피연산자의 끝이다 — ``\triangle AGG' \sim \triangle AEF``·``\triangle A'B'C' \sim …``
++# 가 부정(∼)으로 떨어져 닮음 기호가 틸드로 인쇄됐다(사대부중2 25-2 서답형6 해설, 2026-10-06).
+ 
+ 
+ def _split_negation_sim(s: str) -> str:
+@@ -275,15 +277,17 @@ def _romanize_units(s: str) -> str:
+ # 중괄호 형태 ``rm {g}`` 도 같이 받는다 — 단일 소문자 ``\mathrm{}`` 는 `_mathrm_repl` 이
+ # 중괄호로 감싸므로(`_stop_roman_bleed` 오작동 차단, 2026-08-11) 백틱 보정을 놓치면 bare
+ # ``20g``(→``20 rm`g``)와 간격이 달라진다. 중괄호는 벗기고 백틱 형태로 통일.
++# 앞이 닫는 괄호(``sqrt {3}``·``over {2}``·``)``)여도 단위다 — ``8\sqrt{3}\mathrm{cm}`` 가
++# ``8 sqrt {3}rm cm`` 로 붙어 나가던 것(대구일중3 26-2, 2026-09-30).
+ _RM_UNIT_RE = re.compile(
+-    r"([A-Za-z0-9])\s+rm\s+\{?("
++    r"([A-Za-z0-9]\s+|[})]\s*)rm\s+\{?("
+     + "|".join(re.escape(u) for u in _NUM_TAIL_UNITS) + r")\}?(?![A-Za-z0-9])"
+ )
+ 
+ 
+ def _backtick_rm_units(s: str) -> str:
+     """``<글자/숫자> rm <단위>`` → ``<글자/숫자> rm`<단위>`` (단위 앞 백틱 얇은공백)."""
+-    return _RM_UNIT_RE.sub(lambda m: m.group(1) + " rm`" + m.group(2), s)
++    return _RM_UNIT_RE.sub(lambda m: m.group(1).rstrip() + " rm`" + m.group(2), s)
+ 
+ 
+ def _space_value_commas(s: str) -> str:
+@@ -777,9 +781,12 @@ class LaTeXToHWPConverter:
+     # 그래서 ``TRIANGLE rm {ANC} = p TIMES …`` 의 변수 ``p`` 가 정자로 나갔다(왕선중 #9,
+     # 사용자 2026-07-27 "it{p} 같은 느낌으로"). 라벨 뒤의 **단일 소문자 변수**만 ``it {p}`` 로
+     # 감싸 이탤릭을 되살린다 — HWP 키워드(bar·angle·sqrt·lim …)는 모두 2자 이상이라 무영향.
++    # ⚠️ ``소문자/`` 바로 뒤 글자는 제외 — 복합 단위 ``km/h``·``m/s`` 의 분모 단위다
++    # (경북사대부고 미적분 #19 ``x rm`km/h`` 의 h 가 ``it {h}`` 로 기울던 것, 2026-09-18).
++    # ``rm A/x`` 처럼 대문자 라벨 뒤 나눗셈 변수는 종전대로 이탤릭 복원.
+     _ROMAN_BLEED_SCAN = re.compile(
+         r"(?P<style>(?<![A-Za-z])(?:rm|it)(?![A-Za-z]))"
+-        r"|(?P<var>(?<![A-Za-z0-9_`{])[a-z](?![A-Za-z0-9_]))")
++        r"|(?P<var>(?<![A-Za-z0-9_`{])(?<![a-z]/)[a-z](?![A-Za-z0-9_]))")
+ 
+     def _stop_roman_bleed(self, script: str) -> str:
+         """``rm`` 이후 단일 소문자 변수를 ``it {x}`` 로 감싸 정자 번짐을 끊는다."""
+@@ -1152,7 +1159,9 @@ class LaTeXToHWPConverter:
+         def _mathrm_repl(m: "re.Match") -> str:
+             lead = " " if (m.start() > 0 and m.string[m.start() - 1].isalnum()) else ""
+             txt = m.group("txt")
+-            if re.fullmatch(r"[a-z]", txt):
++            # 단일 소문자(``m``·``g``) 또는 한 글자 분자 복합 단위(``m/s``)는 중괄호로 감싸
++            # 번짐 차단기(_stop_roman_bleed)가 rm 자신의 피연산자를 기울이지 않게 한다.
++            if re.fullmatch(r"[a-z]", txt) or re.match(r"[a-z]/[A-Za-z]", txt):
+                 txt = "{" + txt + "}"
+             base = lead + "rm " + txt
+             tail = m.string[m.end():]
