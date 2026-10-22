@@ -211,13 +211,15 @@ def render_graph(spec):
         out.append(_grid_svg(grid, screen))
     def line(a,b,obj=None,sw=1.7):
         obj=obj or {}; x1,y1=screen(a);x2,y2=screen(b)
-        out.append(engine_line((x1,y1),(x2,y2),w=sw,dash='6 4' if obj.get('dashed') else None))
+        shaft = engine_line((x1,y1),(x2,y2),w=sw,dash='6 4' if obj.get('dashed') else None)
         if obj.get('arrow'):
             length=math.hypot(x2-x1,y2-y1)
             if length>0:
                 ux=(x2-x1)/length;uy=(y2-y1)/length
                 points=f'{x2:.3f},{y2:.3f} {x2-8*ux+3*uy:.3f},{y2-8*uy-3*ux:.3f} {x2-8*ux-3*uy:.3f},{y2-8*uy+3*ux:.3f}'
-                out.append(f'<polygon points="{points}" fill="#111"/>')
+                out.append(f'<g data-arrow="end">{shaft}<polygon points="{points}" fill="#111"/></g>')
+                return
+        out.append(shaft)
     if spec.get('axes',True):
         if ylo<=0<=yhi: line([xlo,0],[xhi,0],{'arrow':True},1.4)
         if xlo<=0<=xhi: line([0,ylo],[0,yhi],{'arrow':True},1.4)

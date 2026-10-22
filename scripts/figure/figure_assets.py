@@ -142,6 +142,7 @@ def _dim_arrow(x1: float, y1: float, x2: float, y2: float, label: str) -> str:
     px, py = -uy, ux
     a = 4.5
     parts = [
+        '<g data-arrow="both">',
         f'<line x1="{_n(x1)}" y1="{_n(y1)}" x2="{_n(x2)}" y2="{_n(y2)}" stroke="{INK}" stroke-width="1.1"/>'
     ]
     for (bx, by), s in (((x1, y1), 1), ((x2, y2), -1)):
@@ -153,6 +154,7 @@ def _dim_arrow(x1: float, y1: float, x2: float, y2: float, label: str) -> str:
         parts.append(
             f'<polygon points="{_n(tipx)},{_n(tipy)} {_n(b1x)},{_n(b1y)} {_n(b2x)},{_n(b2y)}" fill="{INK}"/>'
         )
+    parts.append('</g>')
     mx, my = (x1 + x2) / 2, (y1 + y2) / 2
     if label:
         parts.append(

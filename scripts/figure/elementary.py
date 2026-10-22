@@ -602,29 +602,32 @@ def _text_bboxes(body: str) -> list[tuple[float, float, float, float, str]]:
 
 def _arrow_down(x: float, y0: float, y1: float) -> str:
     return (
+        '<g data-arrow="end">'
         f'<line x1="{_n(x)}" y1="{_n(y0)}" x2="{_n(x)}" y2="{_n(y1 - 4)}" '
         f'stroke="{INK}" stroke-width="1.2"/>'
         f'<polygon points="{_n(x - 3.5)},{_n(y1 - 6)} {_n(x + 3.5)},{_n(y1 - 6)} '
-        f'{_n(x)},{_n(y1)}" fill="{INK}"/>'
+        f'{_n(x)},{_n(y1)}" fill="{INK}"/></g>'
     )
 
 
 def _arrow_up(x: float, y_from: float, y_to: float) -> str:
     """아래 상자(y_from)에서 위 상자(y_to)로. 꼭짓점 y 가 더 작다."""
     return (
+        '<g data-arrow="end">'
         f'<line x1="{_n(x)}" y1="{_n(y_from)}" x2="{_n(x)}" y2="{_n(y_to + 4)}" '
         f'stroke="{INK}" stroke-width="1.2"/>'
         f'<polygon points="{_n(x - 3.5)},{_n(y_to + 6)} {_n(x + 3.5)},{_n(y_to + 6)} '
-        f'{_n(x)},{_n(y_to)}" fill="{INK}"/>'
+        f'{_n(x)},{_n(y_to)}" fill="{INK}"/></g>'
     )
 
 
 def _arrow_right(x0: float, x1: float, y: float) -> str:
     return (
+        '<g data-arrow="end">'
         f'<line x1="{_n(x0)}" y1="{_n(y)}" x2="{_n(x1 - 4)}" y2="{_n(y)}" '
         f'stroke="{INK}" stroke-width="1.2"/>'
         f'<polygon points="{_n(x1 - 6)},{_n(y - 3.5)} {_n(x1 - 6)},{_n(y + 3.5)} '
-        f'{_n(x1)},{_n(y)}" fill="{INK}"/>'
+        f'{_n(x1)},{_n(y)}" fill="{INK}"/></g>'
     )
 
 

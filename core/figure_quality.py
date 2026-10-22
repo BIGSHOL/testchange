@@ -208,7 +208,7 @@ _TAG_ATTRS = {
     # math-figure-editor: `data-grid` — 모눈 배경 층(scripts/figure/graph_scene.py `grid_svg`)의 칸 정보.
     # todays-math 상류에는 없는 한 줄(2026-10-21). 값은 수 여섯 개만 받는다(아래 `_validate_attr`).
     # math-figure-editor: `data-asset` — 실물 그림 조각 층(scripts/figure/scene_assets.py)의 에셋 이름(kebab-case 만).
-    "g": _COMMON_ATTRS | {"transform", "data-grid", "data-asset"},
+    "g": _COMMON_ATTRS | {"transform", "data-grid", "data-asset", "data-arrow"},
     "circle": _COMMON_ATTRS | {"cx", "cy", "r"},
     "ellipse": _COMMON_ATTRS | {"cx", "cy", "rx", "ry"},
     "line": _COMMON_ATTRS | {"x1", "y1", "x2", "y2"},
@@ -524,6 +524,9 @@ def _validate_attr(tag: str, name: str, value: str) -> None:
     elif name == "data-grid":
         if not _DATA_GRID_RE.match(value):
             raise SvgSecurityError("invalid data-grid (six numbers)")
+    elif name == "data-arrow":
+        if value not in {"end", "both"}:
+            raise SvgSecurityError("invalid data-arrow")
     elif name == "data-asset":
         if not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", value):
             raise SvgSecurityError("invalid data-asset (kebab-case slug)")
