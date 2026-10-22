@@ -22,5 +22,7 @@
 - 픽셀 기준은 `19a4bde`에서 만든 `tests/fixtures/editor_arrow_baselines.json`이다. git이 없는 환경에서도 같은 기준으로 검사한다.
 - 전체 corpus 검사에는 기존 문제가 있다. 검사 스크립트는 11개 파일/167개 그림을 기대하지만 현재 추적 corpus는 14개 파일/204개 그림이다. 별도 실제 구조·픽셀 검사 결과 183개 통과, 21개는 기존 겹침/halo/숨은 rect/텍스트 수 제한에 걸렸다. 이번 변경은 이 corpus나 픽셀 검수 규칙을 수정하지 않았다.
 - 왕선중 corpus와 OCR 등 기존 dirty 및 작업 파일을 보존했고 이 커밋에는 포함하지 않는다.
+- `python -m PyInstaller build.spec --noconfirm` 빌드 완료. `배포용/시험지한글화.exe`와 `_internal`에 반영했고, 배포본 EXE는 빌드 결과와 해시가 같다. `배포용/config.json` 해시를 전후 비교해 보존을 확인했다.
+- 배포본 `--selftest`는 `SELFTEST OK (v0.1.27)`로 핵심 import·단원 어휘·폼 번들을 확인했다. 별도의 Gemini 실제 호출은 선불 잔액 부족 402로 실패했다. 이는 기존 계정/잔액 상태이며 도형 메타데이터 변경으로 해결된 것으로 보고하지 않는다.
 
 새 표시의 보안·출력 회귀는 통과했지만, 기존 corpus 전체 품질 게이트를 통과했다고 보고하지 않는다. 상세 웹 검수·공용 UI 적용 안내는 정본 저장소의 `docs/reviews/2026-10-22-webapp.md`와 `docs/export/todays-math/UPDATE-2026-10-22.md`에 있다.
