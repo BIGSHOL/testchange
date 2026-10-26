@@ -1,0 +1,489 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 7,
+   "score": 3.7,
+   "contents": [
+    {
+     "type": "text",
+     "value": "다음 중 대소 관계가 옳지 않은 것은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "+\\frac{9}{8}>+\\frac{4}{3}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-3.5<0"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "0<+\\frac{1}{7}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-4.6<-3.7"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "|+3.1|<|-5.6|"
+      }
+     ]
+    }
+   ],
+   "topic": "정수와 유리수",
+   "difficulty": "하",
+   "answer": "①"
+  },
+  {
+   "number": 8,
+   "score": 3.7,
+   "contents": [
+    {
+     "type": "text",
+     "value": "다음 중 계산 결과가 가장 __작은__ 것은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "(+2)+\\left(-\\frac{2}{3}\\right)+\\left(-\\frac{7}{5}\\right)-(-1)"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "(-2)+\\left(+\\frac{3}{2}\\right)-\\left(-\\frac{4}{5}\\right)+(-1)"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "(+3.7)+(-1.5)-(-2.2)-(-2.3)"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "(+3.7)-(+1.5)+(-2.2)+(+2.3)"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "(-3)+\\left(-\\frac{11}{3}\\right)+(+3.7)-(-2.3)"
+      }
+     ]
+    }
+   ],
+   "topic": "정수와 유리수의 계산",
+   "difficulty": "중",
+   "answer": "②"
+  },
+  {
+   "number": 9,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "유리수 "
+    },
+    {
+     "type": "equation",
+     "value": "-5"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "-\\frac{9}{2}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "0"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\frac{5}{3}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "3"
+    },
+    {
+     "type": "text",
+     "value": " 중에서 서로 다른 세 수를 선택하여 다음 식의 "
+    },
+    {
+     "type": "equation",
+     "value": "\\square"
+    },
+    {
+     "type": "text",
+     "value": "안에 한 번씩 넣어 계산하였을 때, 나올 수 있는 값 중에서 가장 큰 수는?"
+    },
+    {
+     "type": "text",
+     "value": "<상자>"
+    },
+    {
+     "type": "equation",
+     "value": "\\square\\times\\square-\\square"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "10"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "22.5"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "25"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "27.5"
+      }
+     ]
+    }
+   ],
+   "topic": "정수와 유리수의 계산",
+   "difficulty": "상",
+   "answer": "③"
+  },
+  {
+   "number": 10,
+   "score": 3.3,
+   "contents": [
+    {
+     "type": "text",
+     "value": "다음 계산 과정 ㉠, ㉡에서 이용한 곱셈의 계산 법칙으로 바르게 짝지어진 것은?"
+    },
+    {
+     "type": "text",
+     "value": "<상자>"
+    },
+    {
+     "type": "equation",
+     "value": "\\left(-\\frac{7}{4}\\right)\\times(-5)\\div\\left(+\\frac{7}{12}\\right)"
+    },
+    {
+     "type": "text",
+     "value": " • "
+    },
+    {
+     "type": "equation",
+     "value": "=\\left(-\\frac{7}{4}\\right)\\times(-5)\\times\\left(+\\frac{12}{7}\\right)"
+    },
+    {
+     "type": "text",
+     "value": " • "
+    },
+    {
+     "type": "equation",
+     "value": "=(-5)\\times\\left(-\\frac{7}{4}\\right)\\times\\left(+\\frac{12}{7}\\right)"
+    },
+    {
+     "type": "text",
+     "value": " ⋯⋯ ㉠ • "
+    },
+    {
+     "type": "equation",
+     "value": "=(-5)\\times\\left\\{\\left(-\\frac{7}{4}\\right)\\times\\left(+\\frac{12}{7}\\right)\\right\\}"
+    },
+    {
+     "type": "text",
+     "value": " ⋯⋯ ㉡ • "
+    },
+    {
+     "type": "equation",
+     "value": "=(-5)\\times(-3)"
+    },
+    {
+     "type": "text",
+     "value": " • "
+    },
+    {
+     "type": "equation",
+     "value": "=+15"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "text",
+       "value": "㉠ 곱셈의 교환법칙, ㉡ 곱셈의 결합법칙"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "text",
+       "value": "㉠ 곱셈의 교환법칙, ㉡ 분배법칙"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "text",
+       "value": "㉠ 곱셈의 결합법칙, ㉡ 곱셈의 교환법칙"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "text",
+       "value": "㉠ 곱셈의 결합법칙, ㉡ 분배법칙"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "text",
+       "value": "㉠ 분배법칙, ㉡ 곱셈의 결합법칙"
+      }
+     ]
+    }
+   ],
+   "topic": "정수와 유리수의 계산",
+   "difficulty": "중",
+   "answer": "①"
+  },
+  {
+   "number": 11,
+   "score": 3.8,
+   "contents": [
+    {
+     "type": "text",
+     "value": "다음 <보기> 중, 옳은 것의 개수는?"
+    },
+    {
+     "type": "text",
+     "value": "<보기> ㄱ. "
+    },
+    {
+     "type": "equation",
+     "value": "-1"
+    },
+    {
+     "type": "text",
+     "value": "의 역수는 "
+    },
+    {
+     "type": "equation",
+     "value": "-1"
+    },
+    {
+     "type": "text",
+     "value": "이다. • ㄴ. 모든 수는 역수가 존재한다. • ㄷ. 어떤 수에 "
+    },
+    {
+     "type": "equation",
+     "value": "0"
+    },
+    {
+     "type": "text",
+     "value": "을 곱하면 항상 "
+    },
+    {
+     "type": "equation",
+     "value": "0"
+    },
+    {
+     "type": "text",
+     "value": "이다. • ㄹ. "
+    },
+    {
+     "type": "equation",
+     "value": "0"
+    },
+    {
+     "type": "text",
+     "value": "을 "
+    },
+    {
+     "type": "equation",
+     "value": "0"
+    },
+    {
+     "type": "text",
+     "value": "이 아닌 수로 나눌 수는 없다. • ㅁ. 부호가 같은 두 수의 곱은 두 수의 절댓값의 곱에 공통인 부호를 붙인 것과 같다. • ㅂ. 부호가 다른 두 수의 나눗셈의 몫은 두 수의 절댓값의 나눗셈의 몫에 음의 부호 "
+    },
+    {
+     "type": "equation",
+     "value": "-"
+    },
+    {
+     "type": "text",
+     "value": "를 붙인 것과 같다."
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2"
+      },
+      {
+       "type": "text",
+       "value": "개"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3"
+      },
+      {
+       "type": "text",
+       "value": "개"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4"
+      },
+      {
+       "type": "text",
+       "value": "개"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5"
+      },
+      {
+       "type": "text",
+       "value": "개"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "6"
+      },
+      {
+       "type": "text",
+       "value": "개"
+      }
+     ]
+    }
+   ],
+   "topic": "정수와 유리수의 계산",
+   "difficulty": "중",
+   "answer": "②"
+  }
+ ]
+}

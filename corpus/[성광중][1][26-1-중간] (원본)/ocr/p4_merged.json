@@ -1,0 +1,394 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 17,
+   "score": 4.1,
+   "contents": [
+    {
+     "type": "text",
+     "value": "다항식 "
+    },
+    {
+     "type": "equation",
+     "value": "-\\frac{8+5x^{2}}{7}+\\frac{x}{2}"
+    },
+    {
+     "type": "text",
+     "value": "의 차수를 "
+    },
+    {
+     "type": "equation",
+     "value": "a"
+    },
+    {
+     "type": "text",
+     "value": ", 항의 개수를 "
+    },
+    {
+     "type": "equation",
+     "value": "b"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "x^{2}"
+    },
+    {
+     "type": "text",
+     "value": "의 계수를 "
+    },
+    {
+     "type": "equation",
+     "value": "c"
+    },
+    {
+     "type": "text",
+     "value": ", 상수항을 "
+    },
+    {
+     "type": "equation",
+     "value": "d"
+    },
+    {
+     "type": "text",
+     "value": "라 할 때, "
+    },
+    {
+     "type": "equation",
+     "value": "a-b+c\\div d"
+    },
+    {
+     "type": "text",
+     "value": "의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-\\frac{43}{8}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-\\frac{13}{8}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-\\frac{23}{16}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-\\frac{5}{8}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-\\frac{3}{8}"
+      }
+     ]
+    }
+   ],
+   "topic": "일차식과 그 계산",
+   "difficulty": "상",
+   "answer": "⑤"
+  },
+  {
+   "number": 18,
+   "score": 3.6,
+   "contents": [
+    {
+     "type": "text",
+     "value": "다항식 "
+    },
+    {
+     "type": "equation",
+     "value": "2(x-4)-\\left\\{7x-\\left(\\frac{x+2}{2}-\\frac{5x+4}{4}\\right)\\right\\}"
+    },
+    {
+     "type": "text",
+     "value": "을 간단히 하면 "
+    },
+    {
+     "type": "equation",
+     "value": "x"
+    },
+    {
+     "type": "text",
+     "value": "의 계수는 "
+    },
+    {
+     "type": "equation",
+     "value": "a"
+    },
+    {
+     "type": "text",
+     "value": ", 상수항은 "
+    },
+    {
+     "type": "equation",
+     "value": "b"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "ab"
+    },
+    {
+     "type": "text",
+     "value": "의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-\\frac{31}{2}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "23"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "34"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{69}{2}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "46"
+      }
+     ]
+    }
+   ],
+   "topic": "일차식과 그 계산",
+   "difficulty": "상",
+   "answer": "⑤"
+  },
+  {
+   "number": 19,
+   "score": 10,
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서술형 1] "
+    },
+    {
+     "type": "equation",
+     "value": "6"
+    },
+    {
+     "type": "text",
+     "value": "년, "
+    },
+    {
+     "type": "equation",
+     "value": "14"
+    },
+    {
+     "type": "text",
+     "value": "년 동안 땅속에서 지내는 두 종의 매미가 "
+    },
+    {
+     "type": "equation",
+     "value": "2026"
+    },
+    {
+     "type": "text",
+     "value": "년에 동시에 나타났다면 이 두 종의 매미가 "
+    },
+    {
+     "type": "equation",
+     "value": "2027"
+    },
+    {
+     "type": "text",
+     "value": "년 이후 "
+    },
+    {
+     "type": "equation",
+     "value": "3"
+    },
+    {
+     "type": "text",
+     "value": "번째로 동시에 나타나는 연도를 구하시오."
+    }
+   ],
+   "label_type": "서술형",
+   "topic": "최대공약수와 최소공배수",
+   "difficulty": "중",
+   "answer": "$2152$년",
+   "solution": "step1) $6=2\\times 3$, $14=2\\times 7$이다.\nstep2) 최소공배수는 $2\\times 3\\times 7=42$이다.\nstep3) 두 종의 매미는 $42$년마다 동시에 나타난다.\nstep4) $2026$년 다음은 $2068$년, $2110$년, $2152$년이다.\nstep5) 따라서 $2027$년 이후 $3$번째는 $2152$년이다."
+  },
+  {
+   "number": 20,
+   "score": 10,
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서술형 2] "
+    },
+    {
+     "type": "equation",
+     "value": "-\\frac{5}{6}"
+    },
+    {
+     "type": "text",
+     "value": "보다 "
+    },
+    {
+     "type": "equation",
+     "value": "\\frac{1}{2}"
+    },
+    {
+     "type": "text",
+     "value": "만큼 큰 수를 "
+    },
+    {
+     "type": "equation",
+     "value": "a"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "\\frac{2}{3}"
+    },
+    {
+     "type": "text",
+     "value": "보다 "
+    },
+    {
+     "type": "equation",
+     "value": "-3"
+    },
+    {
+     "type": "text",
+     "value": "만큼 작은 수를 "
+    },
+    {
+     "type": "equation",
+     "value": "b"
+    },
+    {
+     "type": "text",
+     "value": "라고 할 때, 기약분수 "
+    },
+    {
+     "type": "equation",
+     "value": "a"
+    },
+    {
+     "type": "text",
+     "value": "와 "
+    },
+    {
+     "type": "equation",
+     "value": "b"
+    },
+    {
+     "type": "text",
+     "value": "의 값과 "
+    },
+    {
+     "type": "equation",
+     "value": "a\\div b"
+    },
+    {
+     "type": "text",
+     "value": "의 값을 구하시오."
+    }
+   ],
+   "label_type": "서술형",
+   "topic": "정수와 유리수의 계산",
+   "difficulty": "하",
+   "answer": "$a=-\\frac{1}{3}$, $b=\\frac{11}{3}$, $a\\div b=-\\frac{1}{11}$",
+   "solution": "step1) $a=-\\frac{5}{6}+\\frac{1}{2}=-\\frac{5}{6}+\\frac{3}{6}=-\\frac{1}{3}$이다.\nstep2) $b=\\frac{2}{3}-(-3)=\\frac{2}{3}+\\frac{9}{3}=\\frac{11}{3}$이다.\nstep3) $a\\div b=\\left(-\\frac{1}{3}\\right)\\times\\frac{3}{11}=-\\frac{1}{11}$이다."
+  },
+  {
+   "number": 21,
+   "score": 15,
+   "contents": [
+    {
+     "type": "text",
+     "value": "[서술형 3] 어떤 식에 "
+    },
+    {
+     "type": "equation",
+     "value": "-2x-3"
+    },
+    {
+     "type": "text",
+     "value": "을 더해야 할 것을 잘못하여 빼었더니 "
+    },
+    {
+     "type": "equation",
+     "value": "5x-4"
+    },
+    {
+     "type": "text",
+     "value": "가 되었다. 어떤 식과 바르게 계산한 식을 모두 구하시오."
+    }
+   ],
+   "label_type": "서술형",
+   "topic": "일차식과 그 계산",
+   "difficulty": "중",
+   "answer": "$3x-7$, $x-10$",
+   "solution": "step1) 어떤 식을 $A$라 하면 $A-(-2x-3)=5x-4$이다.\nstep2) $A=5x-4+(-2x-3)=3x-7$이다.\nstep3) 따라서 어떤 식은 $3x-7$이다.\nstep4) 바르게 계산하면 $(3x-7)+(-2x-3)$이다.\nstep5) 따라서 바르게 계산한 식은 $x-10$이다."
+  }
+ ]
+}

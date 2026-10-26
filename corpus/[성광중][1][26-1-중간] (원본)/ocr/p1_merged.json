@@ -1,0 +1,597 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 1,
+   "score": 3.2,
+   "contents": [
+    {
+     "type": "text",
+     "value": "다음 중 자연수 "
+    },
+    {
+     "type": "equation",
+     "value": "675"
+    },
+    {
+     "type": "text",
+     "value": "에 대한 설명으로 옳은 것은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "675"
+      },
+      {
+       "type": "text",
+       "value": "는 소수이다."
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "675"
+      },
+      {
+       "type": "text",
+       "value": "의 소인수는 "
+      },
+      {
+       "type": "equation",
+       "value": "3"
+      },
+      {
+       "type": "text",
+       "value": ", "
+      },
+      {
+       "type": "equation",
+       "value": "5"
+      },
+      {
+       "type": "text",
+       "value": ", "
+      },
+      {
+       "type": "equation",
+       "value": "7"
+      },
+      {
+       "type": "text",
+       "value": "이다."
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "675"
+      },
+      {
+       "type": "text",
+       "value": "의 약수의 개수는 "
+      },
+      {
+       "type": "equation",
+       "value": "10"
+      },
+      {
+       "type": "text",
+       "value": "개 이다."
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "675"
+      },
+      {
+       "type": "text",
+       "value": "를 소인수분해 하면 "
+      },
+      {
+       "type": "equation",
+       "value": "3^{2}\\times 5^{3}"
+      },
+      {
+       "type": "text",
+       "value": "이다."
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{675}{n}"
+      },
+      {
+       "type": "text",
+       "value": "가 자연수가 되게 하는 자연수 "
+      },
+      {
+       "type": "equation",
+       "value": "n"
+      },
+      {
+       "type": "text",
+       "value": "의 개수는 "
+      },
+      {
+       "type": "equation",
+       "value": "12"
+      },
+      {
+       "type": "text",
+       "value": "개 이다."
+      }
+     ]
+    }
+   ],
+   "topic": "소인수분해",
+   "difficulty": "하",
+   "answer": "⑤"
+  },
+  {
+   "number": 2,
+   "score": 3.5,
+   "contents": [
+    {
+     "type": "equation",
+     "value": "17640"
+    },
+    {
+     "type": "text",
+     "value": "을 소인수분해하면 "
+    },
+    {
+     "type": "equation",
+     "value": "2^{a}\\times 3^{b}\\times 5^{c}\\times 7^{d}"
+    },
+    {
+     "type": "text",
+     "value": " 일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "a-b+c\\times d"
+    },
+    {
+     "type": "text",
+     "value": "의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-2"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "0"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4"
+      }
+     ]
+    }
+   ],
+   "topic": "소인수분해",
+   "difficulty": "중",
+   "answer": "④"
+  },
+  {
+   "number": 3,
+   "score": 3.2,
+   "contents": [
+    {
+     "type": "text",
+     "value": "다음 중 두 수가 서로소인 것은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3"
+      },
+      {
+       "type": "text",
+       "value": ", "
+      },
+      {
+       "type": "equation",
+       "value": "12"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "27"
+      },
+      {
+       "type": "text",
+       "value": ", "
+      },
+      {
+       "type": "equation",
+       "value": "135"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "363"
+      },
+      {
+       "type": "text",
+       "value": ", "
+      },
+      {
+       "type": "equation",
+       "value": "636"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2\\times 5^{3}\\times 7"
+      },
+      {
+       "type": "text",
+       "value": ", "
+      },
+      {
+       "type": "equation",
+       "value": "429"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2\\times 3"
+      },
+      {
+       "type": "text",
+       "value": ", "
+      },
+      {
+       "type": "equation",
+       "value": "3\\times 5^{2}\\times 7"
+      }
+     ]
+    }
+   ],
+   "topic": "최대공약수와 최소공배수",
+   "difficulty": "하",
+   "answer": "④"
+  },
+  {
+   "number": 4,
+   "score": 3.5,
+   "contents": [
+    {
+     "type": "text",
+     "value": "두 수 "
+    },
+    {
+     "type": "equation",
+     "value": "A"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "B"
+    },
+    {
+     "type": "text",
+     "value": "의 최소공배수가 "
+    },
+    {
+     "type": "equation",
+     "value": "120"
+    },
+    {
+     "type": "text",
+     "value": "일 때, 다음 중 "
+    },
+    {
+     "type": "equation",
+     "value": "A"
+    },
+    {
+     "type": "text",
+     "value": "의 값이 될 수 없는 것은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "1"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "12"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "40"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "50"
+      }
+     ]
+    }
+   ],
+   "topic": "최대공약수와 최소공배수",
+   "difficulty": "중",
+   "answer": "⑤"
+  },
+  {
+   "number": 5,
+   "score": 4,
+   "contents": [
+    {
+     "type": "text",
+     "value": "세 분수 "
+    },
+    {
+     "type": "equation",
+     "value": "8\\frac{1}{3}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "11\\frac{1}{4}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "3\\frac{8}{9}"
+    },
+    {
+     "type": "text",
+     "value": "의 어느 것에 곱하여도 그 결과가 자연수가 되는 가장 작은 기약분수를 "
+    },
+    {
+     "type": "equation",
+     "value": "\\frac{B}{A}"
+    },
+    {
+     "type": "text",
+     "value": "라 할 때, "
+    },
+    {
+     "type": "equation",
+     "value": "B-A"
+    },
+    {
+     "type": "text",
+     "value": "의 값은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "31"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "32"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "36"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "39"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "41"
+      }
+     ]
+    }
+   ],
+   "topic": "최대공약수와 최소공배수",
+   "difficulty": "상",
+   "answer": "①"
+  },
+  {
+   "number": 6,
+   "score": 3.2,
+   "contents": [
+    {
+     "type": "text",
+     "value": "다음 문장의 밑줄 친 부분을 양의 부호 "
+    },
+    {
+     "type": "equation",
+     "value": "+"
+    },
+    {
+     "type": "text",
+     "value": " 또는 음의 부호 "
+    },
+    {
+     "type": "equation",
+     "value": "-"
+    },
+    {
+     "type": "text",
+     "value": "를 사용하여 나타낼 때, 부호가 나머지 넷과 __다른__ 하나는?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "text",
+       "value": "기온이 __5℃ 증가__하였다."
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "text",
+       "value": "체중이 __1.5kg 증가__하였다."
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "text",
+       "value": "수업 시간 __5분 전__에 도착하였다."
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "text",
+       "value": "판매 가격이 __3000원 인상__되었다."
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "text",
+       "value": "야구 경기에서 __2점을 득점__ 하였다."
+      }
+     ]
+    }
+   ],
+   "topic": "정수와 유리수",
+   "difficulty": "하",
+   "answer": "③"
+  }
+ ]
+}

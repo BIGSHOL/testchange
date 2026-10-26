@@ -1,0 +1,517 @@
+{
+ "header": "",
+ "questions": [
+  {
+   "number": 12,
+   "score": 3.8,
+   "contents": [
+    {
+     "type": "text",
+     "value": "두 수 "
+    },
+    {
+     "type": "equation",
+     "value": "a"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "b"
+    },
+    {
+     "type": "text",
+     "value": "가 "
+    },
+    {
+     "type": "equation",
+     "value": "a=\\left\\{1-\\left(-\\frac{2}{3}\\right)^{2}\\div\\left(-\\frac{8}{3}\\right)\\right\\}\\div\\left(-\\frac{1}{3}\\right)"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "b=-\\frac{5}{6}-\\left\\{-1+\\frac{3}{4}\\times\\left(\\frac{1}{3}\\right)^{2}\\div\\left(-\\frac{1}{2}\\right)^{3}\\right\\}"
+    },
+    {
+     "type": "text",
+     "value": "일 때, "
+    },
+    {
+     "type": "equation",
+     "value": "a<x<b"
+    },
+    {
+     "type": "text",
+     "value": "를 만족시키는 정수 "
+    },
+    {
+     "type": "equation",
+     "value": "x"
+    },
+    {
+     "type": "text",
+     "value": "의 개수는?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "2"
+      },
+      {
+       "type": "text",
+       "value": "개"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3"
+      },
+      {
+       "type": "text",
+       "value": "개"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4"
+      },
+      {
+       "type": "text",
+       "value": "개"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5"
+      },
+      {
+       "type": "text",
+       "value": "개"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "6"
+      },
+      {
+       "type": "text",
+       "value": "개"
+      }
+     ]
+    }
+   ],
+   "topic": "정수와 유리수의 계산",
+   "difficulty": "상",
+   "answer": "③"
+  },
+  {
+   "number": 13,
+   "score": 4.2,
+   "contents": [
+    {
+     "type": "text",
+     "value": "남학생이 "
+    },
+    {
+     "type": "equation",
+     "value": "a"
+    },
+    {
+     "type": "text",
+     "value": "명, 여학생이 "
+    },
+    {
+     "type": "equation",
+     "value": "150"
+    },
+    {
+     "type": "text",
+     "value": "명인 어떤 중학교에서 수학시험 결과 남학생의 평균 점수는 "
+    },
+    {
+     "type": "equation",
+     "value": "72"
+    },
+    {
+     "type": "text",
+     "value": "점, 여학생의 평균점수는 "
+    },
+    {
+     "type": "equation",
+     "value": "b"
+    },
+    {
+     "type": "text",
+     "value": "점이었다. 이 학교 전체 학생의 평균 점수를 문자를 사용한 식으로 나타내면?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{b+72}{a}"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{b+72}{a+150}"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{a+72}{b+150}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{72a+150b}{a+150}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{150a+72b}{a+150}"
+      }
+     ]
+    }
+   ],
+   "topic": "문자의 사용",
+   "difficulty": "중",
+   "answer": "④"
+  },
+  {
+   "number": 14,
+   "score": 3.3,
+   "contents": [
+    {
+     "type": "equation",
+     "value": "a=-\\frac{1}{2}"
+    },
+    {
+     "type": "text",
+     "value": ", "
+    },
+    {
+     "type": "equation",
+     "value": "b=-4"
+    },
+    {
+     "type": "text",
+     "value": "일 때, 다음 중 식의 값이 가장 큰 것은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "b-a"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "a^{2}b"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-\\frac{a}{b}"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\frac{a^{2}}{b}"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-\\frac{b}{a}"
+      }
+     ]
+    }
+   ],
+   "topic": "문자의 사용",
+   "difficulty": "중",
+   "answer": "④"
+  },
+  {
+   "number": 15,
+   "score": 3.6,
+   "contents": [
+    {
+     "type": "text",
+     "value": "다음 중 곱셈 기호 "
+    },
+    {
+     "type": "equation",
+     "value": "\\times"
+    },
+    {
+     "type": "text",
+     "value": "와 나눗셈 기호 "
+    },
+    {
+     "type": "equation",
+     "value": "\\div"
+    },
+    {
+     "type": "text",
+     "value": "를 생략하여 나타낸 것으로 옳은 것의 개수는?"
+    },
+    {
+     "type": "text",
+     "value": "<보기> ㄱ. "
+    },
+    {
+     "type": "equation",
+     "value": "\\frac{1}{a}\\div b\\times c=\\frac{1}{abc}"
+    },
+    {
+     "type": "text",
+     "value": " • ㄴ. "
+    },
+    {
+     "type": "equation",
+     "value": "x\\div(y\\div z)=\\frac{xz}{y}"
+    },
+    {
+     "type": "text",
+     "value": " • ㄷ. "
+    },
+    {
+     "type": "equation",
+     "value": "0.1\\times x\\times x=0.x^{2}"
+    },
+    {
+     "type": "text",
+     "value": " • ㄹ. "
+    },
+    {
+     "type": "equation",
+     "value": "2\\times b\\div(a\\div 4)=\\frac{2b}{4a}"
+    },
+    {
+     "type": "text",
+     "value": " • ㅁ. "
+    },
+    {
+     "type": "equation",
+     "value": "(a-b)\\times 3=3(a-b)"
+    },
+    {
+     "type": "text",
+     "value": " • ㅂ. "
+    },
+    {
+     "type": "equation",
+     "value": "x\\times 2-2\\div y=2x-\\frac{2}{y}"
+    },
+    {
+     "type": "text",
+     "value": " • ㅅ. "
+    },
+    {
+     "type": "equation",
+     "value": "(x-2y)\\times(-3)=x-2y-3"
+    },
+    {
+     "type": "text",
+     "value": " • ㅇ. "
+    },
+    {
+     "type": "equation",
+     "value": "b\\times(-7)\\times a\\times c=-7abc"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "3"
+      },
+      {
+       "type": "text",
+       "value": "개"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "4"
+      },
+      {
+       "type": "text",
+       "value": "개"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "5"
+      },
+      {
+       "type": "text",
+       "value": "개"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "6"
+      },
+      {
+       "type": "text",
+       "value": "개"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "7"
+      },
+      {
+       "type": "text",
+       "value": "개"
+      }
+     ]
+    }
+   ],
+   "topic": "문자의 사용",
+   "difficulty": "중",
+   "answer": "②"
+  },
+  {
+   "number": 16,
+   "score": 3.3,
+   "contents": [
+    {
+     "type": "text",
+     "value": "다음 중, 계산 결과가 옳은 것은?"
+    }
+   ],
+   "choices": [
+    {
+     "number": 1,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-2(-x-1)=2x-1"
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "-\\frac{1}{3}(9x-6)=-3x-2"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\left(x+\\frac{1}{2}\\right)\\div\\left(-\\frac{1}{6}\\right)=-6x-3"
+      }
+     ]
+    },
+    {
+     "number": 4,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "(-9x-3)\\div\\left(-\\frac{3}{4}\\right)=-12x+4"
+      }
+     ]
+    },
+    {
+     "number": 5,
+     "contents": [
+      {
+       "type": "equation",
+       "value": "\\left(\\frac{16}{3}-8y\\right)\\div\\left(-\\frac{3}{2}\\right)=-8+12y"
+      }
+     ]
+    }
+   ],
+   "topic": "일차식과 그 계산",
+   "difficulty": "중",
+   "answer": "③"
+  }
+ ]
+}
