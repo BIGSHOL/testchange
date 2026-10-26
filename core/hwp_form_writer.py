@@ -2023,6 +2023,107 @@ def _layout_form(filled_hwpx, out_hwpx, per_col: int, n_mc: int, n_es: int,
     # 단 물리 넘침 자가치유(빈 단 방지).
     if mc_cols and n_mc:
         _repair_column_overflow(filled_hwpx, out_hwpx, blanks, colbreak, n_mc, mc_cols)
+    return _page_end_slots(colbreak, n)
+
+
+def _page_end_slots(colbreak, n: int) -> set:
+    """단 나누기 계획 → **문제지 쪽마다 마지막 문항**의 슬롯 번호(0-기준) 집합.
+
+    폼은 쪽마다 2단이고 단 나누기(`colbreak`, 그 슬롯부터 새 단)로만 배치하므로 단 k 는
+    k//2 쪽이다. 대수회 작업 규정 표준 #19 "정답지는 한 페이지에 들어간 문제 번호마다 한 줄씩
+    띄우기" 를 정답면에 반영할 때 쓴다(사용자 2026-10-26).
+    """
+    import bisect
+    starts = sorted({0} | {c for c in colbreak if 0 < c < n})
+    page = [(bisect.bisect_right(starts, i) - 1) // 2 for i in range(n)]
+    return {i for i in range(n) if i == n - 1 or page[i + 1] != page[i]}
+
+
+def _regroup_answer_gaps(hwpx_path: str | Path, gap_after: set, n_mc: int) -> int:
+    """정답면(미주) 빈 줄을 표준대로 — 객관식은 **문제지 쪽마다 마지막 문항 뒤**, 서술형은 **문항마다**.
+
+    대수회 작업 규정 표준 #19(사용자 2026-10-26). 종전엔 폼에 구워진 고정 간격(5·9·13·17번 뒤)
+    그대로였다. 미주 끝의 빈 단락을 빼거나 붙인다 — 붙일 때는 문서에 이미 있는 빈 단락을
+    **복제**한다(단락 날조 금지, [[hwpx-lineseg-relaunder-trap]]). 줄 위치는 뒤의 relaunder 가
+    다시 계산한다. Returns: 바꾼 미주 수.
+    """
+    hwpx_path = Path(hwpx_path)
+    with zipfile.ZipFile(hwpx_path) as z:
+        infos = z.infolist()
+        data = {i.filename: z.read(i.filename) for i in infos}
+    names = sorted(n for n in data if re.search(r"section\d+\.xml$", n))
+
+    def _top_paras(sub: str) -> list:
+        """subList 안 최상위 ``<hp:p>`` 의 (시작, 끝) 목록."""
+        out, depth, start = [], 0, 0
+        for m in re.finditer(r"<hp:p\b|</hp:p>", sub):
+            if m.group(0) == "</hp:p>":
+                depth -= 1
+                if depth == 0:
+                    out.append((start, m.end()))
+            else:
+                if depth == 0:
+                    start = m.start()
+                depth += 1
+        return out
+
+    def _is_empty(p: str) -> bool:
+        if re.search(r"<hp:(?:equation|tbl|pic|container|ctrl|endNote)\b", p):
+            return False
+        return not re.sub(r"<[^>]+>", "", p).strip()
+
+    # 1차: 복제용 빈 단락 템플릿(어느 미주든 끝에 붙은 빈 단락)
+    template = None
+    for name in names:
+        sec = data[name].decode("utf-8")
+        for m in re.finditer(r"<hp:endNote\b.*?</hp:endNote>", sec, re.S):
+            sm = re.search(r"(<hp:subList\b[^>]*>)(.*)(</hp:subList>)", m.group(0), re.S)
+            if not sm:
+                continue
+            body = sm.group(2)
+            paras = _top_paras(body)
+            if template is None and len(paras) > 1 and _is_empty(body[slice(*paras[-1])]):
+                template = body[slice(*paras[-1])]
+    changed = 0
+    idx = 0
+    for name in names:
+        sec = data[name].decode("utf-8")
+        out, last = [], 0
+        for m in re.finditer(r"<hp:endNote\b.*?</hp:endNote>", sec, re.S):
+            sm = re.search(r"(<hp:subList\b[^>]*>)(.*)(</hp:subList>)", m.group(0), re.S)
+            if not sm:
+                continue
+            i = idx
+            idx += 1
+            body = sm.group(2)
+            paras = _top_paras(body)
+            # 마지막 내용 단락 뒤의 빈 단락들(최소 1개 내용 단락은 남긴다)
+            k = len(paras)
+            while k > 1 and _is_empty(body[slice(*paras[k - 1])]):
+                k -= 1
+            want = 1 if (i >= n_mc or i in gap_after) else 0
+            have = len(paras) - k
+            if have == want or (want and template is None and have == 0):
+                continue
+            keep = body[:paras[k - 1][1]]
+            tail_rest = body[paras[-1][1]:]
+            if want:
+                first_blank = (body[slice(*paras[k])] if have else template)
+                new_body = keep + first_blank + tail_rest
+            else:
+                new_body = keep + tail_rest
+            en = m.group(0)
+            en_new = en[:sm.start(2)] + new_body + en[sm.end(2):]
+            out.append(sec[last:m.start()])
+            out.append(en_new)
+            last = m.end()
+            changed += 1
+        if out:
+            out.append(sec[last:])
+            data[name] = "".join(out).encode("utf-8")
+    if changed:
+        _repackage_hwpx(hwpx_path, infos, data)
+    return changed
 
 
 def _first_para_end(sec: str) -> int:
@@ -3445,8 +3546,8 @@ def write_exam_to_form(
                                            style_out=_form_style)
         # 혼합 레이아웃(객관식 행정렬 + 서술형 빽빽배치 2개/단, 답란 미보존).
         # mc 도 넘겨 COM 측정 실패 시 내용기반 추정으로 폴백(과여백 회피).
-        _layout_form(filled, output_path, per_col, n_mc, n_es, essays=essays, mc=mc,
-                     fig_src_dpi=figure_src_dpi)
+        _page_ends = _layout_form(filled, output_path, per_col, n_mc, n_es, essays=essays,
+                                  mc=mc, fig_src_dpi=figure_src_dpi) or set()
     finally:
         try:
             os.remove(filled)
@@ -3537,6 +3638,15 @@ def write_exam_to_form(
             logger.info("해설 기입 %d줄", n_sol)
     except Exception as e:  # noqa: BLE001
         logger.warning("폼 후처리 실패(_inject_solutions): %s", e)
+    # 1.565단계: 정답면 빈 줄 — 객관식은 문제지 쪽마다 마지막 문항 뒤, 서술형은 문항마다
+    # (대수회 작업 규정 표준 #19, 사용자 2026-10-26). 폼에 구워진 고정 간격을 대신한다.
+    try:
+        n_gap = _regroup_answer_gaps(output_path, _page_ends, n_mc)
+        if n_gap:
+            logger.info("정답면 빈 줄 재배치 %d곳 (쪽 끝 문항 %s)", n_gap,
+                        sorted(i + 1 for i in _page_ends if i < n_mc))
+    except Exception as e:  # noqa: BLE001
+        logger.warning("폼 후처리 실패(_regroup_answer_gaps): %s", e)
     # 1.58단계: 시험범위 부제(폼의 " ~ " 줄) — 문항 메타(중단원/소단원)의 처음~끝으로
     # 채운다(원본 시험지에 범위 인쇄가 없어도 완료본 관행대로 표기. 사용자 2026-08-09
     # "상단 시험범위가 없음"). 메타가 없으면 폼 원문(" ~ ") 유지.

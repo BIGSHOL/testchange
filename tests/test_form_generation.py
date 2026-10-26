@@ -24,8 +24,8 @@ if str(REPO) not in sys.path:
 from core.hwp_form_writer import (  # noqa: E402
     _META_TOKEN_NA, _META_TOKEN_SO, _RANGE_PH_RE, _answer_charpr, _fill_exam_range,
     _fill_form_header, _header_regions, _inject_answer_runs, _inject_essay_meta,
-    _inject_solutions, _merged_answer, _merged_solution, _strip_leading_submarker,
-    _sub_marker)
+    _inject_solutions, _merged_answer, _merged_solution, _page_end_slots, _regroup_answer_gaps,
+    _strip_leading_submarker, _sub_marker)
 from models.exam_document import ContentBlock, ContentType, Question  # noqa: E402
 
 FAILS: list[str] = []
@@ -364,9 +364,38 @@ def test_sub_marker():
     chk(blk.value == "넓이 4", "E 원본 블록 불변")
 
 
+def test_answer_page_gaps():
+    """정답면 빈 줄 = 객관식은 문제지 쪽마다 마지막 문항 뒤, 서술형은 문항마다(대수회 작업 규정 표준 #19)."""
+    # 단 나누기 계획 → 쪽 끝 슬롯. 2단: 단 k 는 k//2 쪽.
+    chk(_page_end_slots({3, 6, 9, 12, 15, 18, 20}, 21) == {5, 11, 17, 20},
+        f"F 쪽 끝 슬롯(3문항/단): {sorted(_page_end_slots({3, 6, 9, 12, 15, 18, 20}, 21))}")
+    chk(_page_end_slots(set(), 4) == {3}, "F 단 나누기 없음 = 마지막만")
+
+    def note(text, blank):
+        body = f'<hp:p id="0"><hp:run><hp:t>{text}</hp:t></hp:run>{LS}</hp:p>'
+        if blank:
+            body += f'<hp:p id="0"><hp:run/>{LS}</hp:p>'
+        return f'<hp:endNote number="1"><hp:subList id="0">{body}</hp:subList></hp:endNote>'
+
+    # 폼에 구워진 간격(2번 뒤)을 쪽 끝(1번 뒤)·서술형(4번)으로 옮긴다. 3번 객관식은 빈 줄 없음.
+    sec = "<hs:sec>" + "".join(note(t, b) for t, b in
+                               (("①", False), ("②", True), ("③", False), ("[서술형 1] 5", False))) + "</hs:sec>"
+    fp = _hwpx(sec)
+    try:
+        n = _regroup_answer_gaps(fp, {0}, n_mc=3)
+        got = _sec_of(fp)
+    finally:
+        os.remove(fp)
+    import re as _re
+    ens = _re.findall(r"<hp:endNote\b.*?</hp:endNote>", got, _re.S)
+    blanks = [len(_re.findall(r"<hp:p\b", e)) - 1 for e in ens]
+    chk(n == 3 and blanks == [1, 0, 0, 1], f"F 빈 줄 재배치: n={n} {blanks}")
+    chk(got.count("<hp:p ") == 6 and got.count("</hp:p>") == 6, f"F 태그 균형: {got}")
+
+
 def run():
     for t in (test_answer_charpr, test_header_placeholders, test_range_placeholder,
-              test_essay_meta_paragraph_boundary, test_sub_marker):
+              test_essay_meta_paragraph_boundary, test_sub_marker, test_answer_page_gaps):
         t()
     if FAILS:
         print("FAIL:")
@@ -374,7 +403,7 @@ def run():
             print(" -", f)
         return 1
     print("OK test_form_generation (answer-charpr / header-placeholder+region / range / "
-          "meta-para-boundary+nested / sub-marker+answer-head)")
+          "meta-para-boundary+nested / sub-marker+answer-head / answer-page-gaps)")
     return 0
 
 
