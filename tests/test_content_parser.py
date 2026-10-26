@@ -122,12 +122,16 @@ def _check_box_polish(fails):
     b3 = _split_latex_commands(r"= - \frac{1}{2} 에서")
     if not any(x.type == CT.EQUATION and (x.value or "").startswith("= -") for x in b3):
         fails.append(f"  R2 연산자 pull: {[(x.type.name, x.value) for x in b3]!r}")
-    # R5/R6: 각(angle) 단일 대문자 로만 — \cos A, A=45°
+    # R5/R6: 각 표기(대수회 작업 규정 표준 #49·#50, 사용자 2026-10-26) — ∠A 만 로만,
+    #     삼각함수의 각 \cos A·기호 없는 A=45° 는 이탤릭(OCR 이 감싼 \mathrm 도 벗긴다).
     ang = _romanize_angle_letters([ContentBlock(type=CT.EQUATION, value=r"\frac{b}{\cos A}"),
-                                   ContentBlock(type=CT.EQUATION, value=r"A=45^\circ")])
-    av = "".join(x.value or "" for x in ang)
-    if r"\cos \mathrm{A}" not in av or r"\mathrm{A}=45" not in av:
-        fails.append(f"  R5/R6 각 로만: {av!r}")
+                                   ContentBlock(type=CT.EQUATION, value=r"A=45^\circ"),
+                                   ContentBlock(type=CT.EQUATION, value=r"\tan\mathrm{B}+\mathrm{C}=30°"),
+                                   ContentBlock(type=CT.EQUATION, value=r"\angle A=60^\circ")])
+    av = [x.value for x in ang]
+    if av[:3] != [r"\frac{b}{\cos A}", r"A=45^\circ", r"\tan B+C=30°"] \
+            or r"\angle \mathrm{A}=60" not in av[3]:
+        fails.append(f"  R5/R6 각 표기: {av!r}")
     # R7: 점화식 + (n=1,2,3⋯) ~ 공백 병합
     mg = _merge_paren_range([ContentBlock(type=CT.EQUATION, value="a_{n+1}=a_n+4"),
                              ContentBlock(type=CT.TEXT, value=" "),
@@ -1355,12 +1359,17 @@ def run():
     if "\mathrm{P}" in _hg2v:
         fails.append(f"  HG1 확통 P(2) 오로만화: {_hg2v!r}")
 
-    # HG2 원 이름 ``원 O`` — 단독 "원"은 기하 키워드가 아니지만 뒤에 대문자 라벨이 오면 도형
-    #     (왕선중 #1 렌더에서 같은 시험지 #2 와 정자/이탤릭 혼재, 사용자 "도형이면 로만").
+    # HG2 원 이름 ``원 O`` — 단독 "원"은 기하 키워드가 아니지만 뒤에 대문자 라벨이 오면 도형.
+    #     ⭐ 2026-10-26 대수회 작업 규정 표준 #30 "도형 이름 이탤릭(원 C)" 으로 바뀌었다(종전 로만).
+    #     점(중심 O)은 #28 그대로 로만. 나열 "두 원 O, O'" 의 둘째도 이탤릭.
     _cg = _parse_q("그림과 같은 원 $O$에서 $x$의 값은?")
-    _cgv = "".join((b.value or "") for b in _cg.contents)
-    if "\mathrm{O}" not in _cgv:
-        fails.append(f"  HG2 원 이름 로만 실패: {_cgv!r}")
+    _cgv = [b.value for b in _cg.contents if b.type == ContentType.EQUATION]
+    if _cgv[:1] != ["O"]:
+        fails.append(f"  HG2 원 이름 이탤릭 실패: {_cgv!r}")
+    _cg3 = _parse_q("두 원 $O$, $O'$의 중심 $O$와 점 $A$에 대하여 각 $A$의 크기는?")
+    _cg3v = [b.value for b in _cg3.contents if b.type == ContentType.EQUATION]
+    if _cg3v != ["O", "O'", r"\mathrm{O}", r"\mathrm{A}", "A"]:
+        fails.append(f"  HG2 도형 이름·점·각 구분 실패: {_cg3v!r}")
     _cg2 = _parse_q("집합의 원소 $X$에 대하여 $E(X)$의 값은?")
     _cg2v = "".join((b.value or "") for b in _cg2.contents)
     if "\mathrm" in _cg2v:

@@ -428,12 +428,34 @@ def run():
     chk(latex_to_hwpeq(r"\sin\theta\cos\theta \gt 0") == "sin theta cos theta > 0", "KSY 이슈2 gt")
     # 이슈3: 좌표 쉼표 강제공백 — \mathrm{P}(25,3)(공백 없는 좌표) → 쉼표 뒤 ~ (#11).
     ksy_coord = latex_to_hwpeq(r"\mathrm{P}(25,3)", italicize_stat=False)
-    chk(ksy_coord == "rm P(25,~3)", f"KSY 이슈3 좌표쉼표: {ksy_coord!r}")
+    # 2026-10-26: ``rm P(`` 뒤는 ``it`` 로 이탤릭 복귀(표준 #38 ``rm P(it A cap B)``) — 좌표 쉼표는 그대로.
+    chk(ksy_coord == "rm P it (25,~3)", f"KSY 이슈3 좌표쉼표: {ksy_coord!r}")
     # 무회귀: 이미 ,~ 있는 좌표는 이중틸드 금지, \quad 구분자(,~~~)도 보존, 첨자 쉼표 보존.
     chk(latex_to_hwpeq(r"(b,~-2)", italicize_stat=False) == "(b,~-2)", "KSY 이슈3 무회귀: 기존 ,~ 보존")
     ksy_quad = latex_to_hwpeq(r"A=1, \quad B=2", italicize_stat=False)
     chk(",~~~" in ksy_quad, f"KSY 이슈3 무회귀: quad: {ksy_quad!r}")
     chk(latex_to_hwpeq(r"a_{1,2}", italicize_stat=False) == "a_{1,2}", "KSY 이슈3 무회귀: 첨자 쉼표 보존")
+
+    # ── STD(대수회 작업 규정 표준 26.03.12, 사용자 2026-10-26 "표준에 전부 맞출 것") ──
+    # #38·#44 확률 P·평균 E·분산 V 정자 + 괄호 안 사건·확률변수 이탤릭. 다항식 P(x) 는 이탤릭 그대로.
+    for src, want in ((r"P(A\cap B)", "rm P it (A SMALLINTER B)"),
+                      (r"\mathrm{E}(X)=27", "rm E it (X)=27"),
+                      (r"V(3X+1)", "rm V it (3X+1)"),
+                      (r"\frac{P(A\cap B)}{P(B)}", "{rm P it (A SMALLINTER B)} over {rm P it (B)}"),
+                      (r"P(x)=x^2+1", "P(x)=x^{2}+1"),
+                      (r"{}_{5}\mathrm{P}_{2}", "{}_{5}rm P_{2}")):
+        got = latex_to_hwpeq(src, italicize_stat=False)
+        chk(got == want, f"STD 확률 연산자 {src!r}: {got!r}")
+    chk(latex_to_hwpeq(r"P(X=x)") == "rm P it (X=x)", "STD 확률 연산자: 표 셀 경로도 정자")
+    # #49 삼각함수의 각 = 이탤릭 + 1/4칸, #47 섭씨 1/4칸(각도 60° 는 그대로), #29 내적 ⦁, #16 집합 쉼표.
+    chk(latex_to_hwpeq(r"\sin A+\cos B") == "sin`A+ cos`B", "STD tan`A")
+    chk(latex_to_hwpeq(r"\sin x") == "sin x", "STD 소문자 인자 무변경")
+    chk(latex_to_hwpeq(r"15^\circ\mathrm{C}") == "15`°rm C", "STD 섭씨 1/4칸")
+    chk(latex_to_hwpeq(r"\angle A=60^\circ").endswith("=60°"), "STD 각도 무변경")
+    chk(latex_to_hwpeq(r"\vec{a}\cdot\vec{b}=3") == "VEC {a} ⦁ VEC {b}=3", "STD 내적 ⦁")
+    chk(" ⦁ " in latex_to_hwpeq(r"(\vec{a}+\vec{b})\cdot(\vec{a}-\vec{b})"), "STD 내적 ⦁(괄호)")
+    chk(latex_to_hwpeq(r"2\cdot 3") == "2 CDOT 3", "STD 곱셈점 무변경")
+    chk(latex_to_hwpeq(r"A=\{1,2,3\}") == 'A="{"1,~2,~3"}"', "STD 집합 원소 쉼표")
     # 이슈4: \mathrm{} 뒤 소문자 변수 로만 번짐 — it 삽입(rm pH it = - log x, x 이탤릭).
     ksy_ph = latex_to_hwpeq(r"\mathrm{pH} = -\log x", italicize_stat=False)
     chk(ksy_ph == "rm pH it = - log x", f"KSY 이슈4 pH rm 번짐: {ksy_ph!r}")

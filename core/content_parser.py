@@ -956,29 +956,40 @@ def _italicize_stat_operators(blocks: list[ContentBlock],
     return out
 
 
-# 각(angle)은 도형 → 로만체(사용자 2026-06-10: "각도 도형이다"). 큰 수식 속 단일 대문자
-# 각도 ``_romanize_point_names``(통째 대문자 블록만)가 못 잡으므로, 각 신호가 명확한 위치의
-# 단일 대문자를 부분 로만화한다. 신호: ① 삼각함수 인자(\cos A) ② 각도(A=45°/A=45^\circ)
-# ③ \angle A. (소문자 변 a,b,c 는 이탤릭 유지 — 변은 도형 아닌 길이.)
-_TRIG_ANGLE_RE = re.compile(r"(\\(?:cos|sin|tan|cot|sec|csc)\s+)([A-Z])(?![A-Za-z])")
-_DEG_ANGLE_RE = re.compile(
-    r"(?<![A-Za-z\\{])([A-Z])(\s*=\s*\d+(?:\.\d+)?\s*(?:\^\s*\{?\s*\\circ|°))")
+# 각(angle) 표기 — 대수회 작업 규정 표준(26.03.12, 사용자 2026-10-26 "표준에 전부 맞출 것"):
+#   · ``∠A``(\angle) 는 **로만**(#25·#26·#50 ``angle rm A``)
+#   · 삼각함수의 각 ``tan A`` 와 "각 A" 처럼 기호 없이 쓴 각은 **이탤릭**(#49·#50)
+# 종전(2026-06-10 "각도 도형이다")에는 삼각함수 인자·``A=45°`` 의 A 도 로만화했다 — 표준에
+# 맞춰 \angle 만 로만화하고, OCR 이 감싼 ``\cos\mathrm{A}``·``\mathrm{A}=45°`` 는 벗긴다.
+_TRIG_ANGLE_MATHRM_RE = re.compile(r"(\\(?:cos|sin|tan|cot|sec|csc)\s*)\\mathrm\s*\{\s*([A-Z])\s*\}")
+_DEG_ANGLE_MATHRM_RE = re.compile(
+    r"(?<!\\angle)(?<!\\angle )\\mathrm\s*\{\s*([A-Z])\s*\}(\s*=\s*\d+(?:\.\d+)?\s*(?:\^\s*\{?\s*\\circ|°))")
 _ANGLE_CMD_RE = re.compile(r"(\\angle\s+)([A-Z])(?![A-Za-z])")
 
 
 def _romanize_angle_letters(blocks: list[ContentBlock]) -> list[ContentBlock]:
-    """각(angle) 단일 대문자를 ``\\mathrm`` 로 로만체화 — 삼각함수 인자·각도(°)·``\\angle``."""
+    """``\\angle A`` 의 A 만 로만, 삼각함수 인자·``A=45°`` 의 각은 이탤릭(표준 #49·#50)."""
     out: list[ContentBlock] = []
     for b in blocks:
         if b.type in (ContentType.EQUATION, ContentType.EQUATION_BLOCK) and b.value:
-            v = _TRIG_ANGLE_RE.sub(lambda m: m.group(1) + "\\mathrm{" + m.group(2) + "}", b.value)
-            v = _DEG_ANGLE_RE.sub(lambda m: "\\mathrm{" + m.group(1) + "}" + m.group(2), v)
+            # 공백 보장 — ``\tan\mathrm{B}`` 를 그냥 벗기면 ``\tanB`` 로 명령이 깨진다.
+            v = _TRIG_ANGLE_MATHRM_RE.sub(lambda m: m.group(1).rstrip() + " " + m.group(2), b.value)
+            v = _DEG_ANGLE_MATHRM_RE.sub(r"\1\2", v)
             v = _ANGLE_CMD_RE.sub(lambda m: m.group(1) + "\\mathrm{" + m.group(2) + "}", v)
             if v != b.value:
                 out.append(ContentBlock(type=b.type, value=v))
                 continue
         out.append(b)
     return out
+
+
+# 도형 이름(원 C·곡선 C·구 S)과 기호 없는 각("각 A")은 이탤릭(대수회 작업 규정 표준 #30·#50,
+# 사용자 2026-10-26). 그 자리 = 앞 텍스트가 도형 명사로 끝남. 한 글자(+프라임·첨자)만 —
+# 여러 글자 라벨(선분 AB·삼각형 ABC)은 종전대로 로만(#27·#48).
+_FIGURE_NOUN_TAIL_RE = re.compile(
+    r"(?:^|[\s(,·])(?:원|반원|곡선|포물선|타원|쌍곡선|구|평면|도형|각)\s*$")
+_FIGURE_NAME_EQ_RE = re.compile(
+    r"^(?:\\mathrm\s*\{\s*([A-Z]'?(?:_\{?[0-9a-z]+\}?)?)\s*\}|([A-Z]'?(?:_\{?[0-9a-z]+\}?)?))$")
 
 
 # 행렬 문맥의 대문자 연속런(행렬곱 AB·AC·BA) — \mathit{} 이탤릭 명시 보호용.
@@ -1019,9 +1030,23 @@ def _romanize_point_names(blocks: list[ContentBlock],
         return blocks
     has_geo = force_geo or _has_geometry_context(blocks)
     out: list[ContentBlock] = []
+    fig_ctx = False          # 바로 앞이 도형 이름 자리("원 ", "두 원 O, " 의 ", ")인가
     for b in blocks:
+        if b.type == ContentType.TEXT:
+            t = b.value or ""
+            fig_ctx = bool(_FIGURE_NOUN_TAIL_RE.search(t)) or (
+                fig_ctx and bool(re.fullmatch(r"\s*(?:,|와|과|및)\s*", t)))
         if b.type == ContentType.EQUATION:
             v = (b.value or "").strip()
+            # 도형 이름·기호 없는 각("원 C"·"곡선 C"·"각 A")의 한 글자는 **이탤릭**(표준 #30·#50).
+            # OCR 이 \mathrm 으로 감쌌어도 벗긴다. 점("점 A"·"중심 O")은 아래에서 종전대로 로만.
+            mf = _FIGURE_NAME_EQ_RE.match(v)
+            if mf and fig_ctx:
+                plain = mf.group(1) or mf.group(2)
+                out.append(ContentBlock(type=ContentType.EQUATION, value=plain)
+                           if plain != v else b)
+                continue        # fig_ctx 유지 — 뒤 ", O'" 도 같은 나열
+            fig_ctx = False
             if v and "\\math" not in v and _BARE_UPPER_EQ_RE.match(v):
                 m = _UPPER_LETTERS_RE.match(v)
                 n_letters = len(m.group(0)) if m else 0
