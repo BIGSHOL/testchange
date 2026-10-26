@@ -5,9 +5,13 @@
 그 어휘 안에서 골랐다. 배포 exe 도 **같은 어휘를 보게** 하려고 PDF 를 JSON 으로 구워
 번들한다(`scripts/build_topic_vocab.py` → `data/topic_vocab.json`, 사용자 2026-08-07).
 
-레벨 규약(CLAUDE.md 2026-07-24):
-  · **고등 = 소단원**(분류표 ``ⅰ)`` 레벨, 215개/7과목) — 폼 라벨 ``[소단원]``
-  · **중등 = 중단원**(분류표 ``①`` 레벨, 51개/3학년)  — 폼 라벨 ``[중단원]``
+레벨 규약(CLAUDE.md 2026-07-24, 사용자 2026-10-26 "실제 표에 따라서"):
+  · **고등 = 소단원**(분류표 ``ⅰ)`` 레벨 — 표가 ``1. → ① → ⅰ)`` 세 단계) — 폼 라벨 ``[소단원]``
+  · **중등 = 중단원**(분류표 ``①`` 레벨 — 표가 ``1. → ①`` 두 단계)       — 폼 라벨 ``[중단원]``
+
+표는 두 벌이다. 현행 = 대수회 ``큰분류ver.261020``(고등 22개정 7과목 207개, 중등 중1·중2
+22개정 + 중3 15개정 64개), 15개정 = 옛 표(고등 수학1·수학2·확률과 통계·미적분·기하 145개,
+중등 51개). ``vocabulary(..., year=)`` 가 시험 연도·학년으로 고른다(연도를 모르면 현행).
 
 ⚠️ 분류표는 **정식 명칭**이고 학교/작성자별 축약 표기가 따로 있다(경원고 기하는
 ``타원의 방정식`` 대신 ``타원``). 분류표 어휘를 **후보로 제시**하되 강제하지 않는 이유다.
@@ -48,14 +52,20 @@ def _norm(s: str) -> str:
     return re.sub(r"\s+", "", str(s or "")).lower()
 
 
-# 파일명/폼에서 오는 과목 표기 → 분류표 과목 키(정규화 비교로 못 잡는 것만)
-_SUBJ_ALIAS = {
-    "공통수학1": "공통 수학1", "공수1": "공통 수학1", "수학상": "공통 수학1", "수상": "공통 수학1",
-    "공통수학2": "공통수학2", "공수2": "공통수학2", "수학하": "공통수학2", "수하": "공통수학2",
-    "대수": "수학1", "수1": "수학1",
-    "미적분i": "수학2", "수2": "수학2",
-    "확통": "확률과 통계", "확률과통계": "확률과 통계",
-    "미적분ii": "미적분", "미적": "미적분",
+# 파일명/폼에서 오는 과목 표기 → (현행 22개정 표 키, 15개정 표 키). 한쪽 표에만 있는 과목은 None.
+# 현행 표 = 대수회 큰분류ver.261020(2026-10-20), 15개정 표 = 고등 ver.250604 의 선택과목.
+_SUBJ_KEYS = {
+    "공통수학1": ("공통 수학1", None), "공수1": ("공통 수학1", None),
+    "수학상": ("공통 수학1", None), "수상": ("공통 수학1", None),
+    "공통수학2": ("공통수학2", None), "공수2": ("공통수학2", None),
+    "수학하": ("공통수학2", None), "수하": ("공통수학2", None),
+    "대수": ("대수", None), "수학1": (None, "수학1"), "수1": (None, "수학1"),
+    "미적분1": ("미적분1", None), "미적분i": ("미적분1", None), "미적분ⅰ": ("미적분1", None),
+    "수학2": (None, "수학2"), "수2": (None, "수학2"),
+    "미적분2": ("미적분2", None), "미적분ii": ("미적분2", None), "미적분ⅱ": ("미적분2", None),
+    "미적분": (None, "미적분"), "미적": (None, "미적분"),
+    "확률과통계": ("확률과 통계", "확률과 통계"), "확통": ("확률과 통계", "확률과 통계"),
+    "기하": ("기하", "기하"),
 }
 
 
@@ -64,40 +74,70 @@ def level_for(grade: str) -> str:
     return _LEVEL_MID if "중" in str(grade or "") else _LEVEL_HIGH
 
 
-def vocabulary(grade: str, subject: str) -> list[str]:
-    """학년·과목에 해당하는 표준 단원명 목록(없으면 빈 리스트).
+def _year(year) -> int | None:
+    m = re.search(r"\d{2,4}", str(year or ""))
+    if not m:
+        return None
+    y = int(m.group(0))
+    return y + 2000 if y < 100 else y
 
-    고등은 과목별 소단원, 중등은 학년별 중단원. 과목을 못 찾으면 **그 학교급 전체**를
+
+def is_legacy_curriculum(grade: str, year) -> bool:
+    """22개정 이전(15개정) 교육과정 시험인가 — 연도·학년을 알 때만 판정한다.
+
+    22개정 적용: 중1·고1 2025년, 중2·고2 2026년, 중3·고3 2027년부터.
+    연도나 학년을 모르면 현행 표(False)를 쓴다.
+    """
+    y = _year(year)
+    m = re.search(r"([123])", str(grade or ""))
+    if y is None or not m:
+        return False
+    return y < 2024 + int(m.group(1))
+
+
+def vocabulary(grade: str, subject: str, year=None) -> list[str]:
+    """학년·과목(·연도)에 해당하는 표준 단원명 목록(없으면 빈 리스트).
+
+    고등은 과목별 소단원, 중등은 학년별 중단원. ``year`` 가 22개정 이전 시험이면
+    15개정 표(``*_15개정``)를 먼저 본다. 과목을 못 찾으면 **그 학교급 전체**를
     합쳐 반환한다(없는 것보다 낫다 — 모델이 후보 중에서 고르게).
     """
     data = _load()
     if not data:
         return []
     g = str(grade or "")
+    legacy = is_legacy_curriculum(g, year)
     if "중" in g:
+        tables = [data.get("중등_15개정", {}), data.get("중등", {})]
+        if not legacy:
+            tables.reverse()
         m = re.search(r"([123])", g)
         if m:
-            key = f"중등수학 {m.group(1)}"
-            if key in data.get("중등", {}):
-                return list(data["중등"][key])
+            for tb in tables:
+                if f"중등수학 {m.group(1)}" in tb:
+                    return list(tb[f"중등수학 {m.group(1)}"])
         return [t for v in data.get("중등", {}).values() for t in v]
 
-    highs = data.get("고등", {})
+    cur, old = data.get("고등", {}), data.get("고등_15개정", {})
     sub_n = _norm(subject)
-    alias = _SUBJ_ALIAS.get(sub_n)
-    for key in highs:
-        if _norm(key) == sub_n or (alias and _norm(key) == _norm(alias)):
-            return list(highs[key])
-    # 부분 일치(예: "확률과통계 " 변형)
-    for key in highs:
-        if sub_n and (sub_n in _norm(key) or _norm(key) in sub_n):
-            return list(highs[key])
-    return [t for v in highs.values() for t in v]
+    cur_key, old_key = _SUBJ_KEYS.get(sub_n, (None, None))
+    picks = [(old, old_key), (cur, cur_key)] if legacy else [(cur, cur_key), (old, old_key)]
+    for tb, key in picks:
+        if key and key in tb:
+            return list(tb[key])
+    for tb in ((old, cur) if legacy else (cur, old)):
+        for key in tb:                     # 표 키와 같은 이름(공백 차이만)
+            if _norm(key) == sub_n:
+                return list(tb[key])
+        for key in tb:                     # 부분 일치(예: "확률과통계 " 변형)
+            if sub_n and (sub_n in _norm(key) or _norm(key) in sub_n):
+                return list(tb[key])
+    return [t for v in cur.values() for t in v]
 
 
-def prompt_block(grade: str, subject: str, max_items: int = 260) -> str:
+def prompt_block(grade: str, subject: str, max_items: int = 260, year=None) -> str:
     """프롬프트에 넣을 어휘 안내문(없으면 빈 문자열)."""
-    items = vocabulary(grade, subject)
+    items = vocabulary(grade, subject, year)
     if not items:
         return ""
     lvl = level_for(grade)

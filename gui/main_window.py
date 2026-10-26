@@ -316,6 +316,7 @@ class ConversionWorker(QObject):
         hv = self.header_values or {}
         grade = str(hv.get("학년") or hv.get("grade") or "").strip()
         subject = str(hv.get("과목") or hv.get("subject") or "").strip()
+        year = str(hv.get("년도") or hv.get("year") or "").strip() or None
         # 과금이라 시작 시 문항 수와 **예상 비용**을 알린다(실측 문항당 대략 3~6원).
         todo = [q for q in qs if not (q.get("answer") or "").strip()]
         self.log.emit(
@@ -327,7 +328,7 @@ class ConversionWorker(QObject):
             self.log.emit("info", f"  정답·해설 {done}/{total} (#{number})")
 
         try:
-            st = _gen(qs, grade=grade, subject=subject,
+            st = _gen(qs, grade=grade, subject=subject, year=year,
                       progress=_prog, cancel=lambda: self._cancelled)
         except Exception as e:  # noqa: BLE001
             # 키 없음·네트워크 등 — 변환 자체는 계속(정답·해설만 빔).

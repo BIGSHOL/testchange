@@ -470,7 +470,7 @@ def _normalize_topic(raw) -> str:
 
 
 def generate_for_question(q: dict, *, api_key: str, model: str, grade: str = "",
-                          subject: str = "", timeout: int = 180) -> dict:
+                          subject: str = "", timeout: int = 180, year=None) -> dict:
     """문항 하나의 정답·해설·단원·난이도를 생성해 **dict 로 반환**(q 는 안 건드림)."""
     is_choice = bool(q.get("choices"))
     kind = "객관식" if is_choice else "서답형"
@@ -489,7 +489,8 @@ def generate_for_question(q: dict, *, api_key: str, model: str, grade: str = "",
     )
     # 분류표 표준 어휘를 프롬프트에 실어 준다 — 세션이 분류표 PDF 를 보고 고르던 것과 같은
     # 입력을 모델에 주는 것(사용자 2026-08-07: "완벽하게 똑같은 동작"). 어휘가 없으면 빈 문자열.
-    sys_prompt = _SYSTEM_PROMPT + topic_prompt_block(grade, subject)
+    # 연도는 15개정/22개정 표를 가른다(2025년 중2 = 15개정 등 — core.topic_vocab).
+    sys_prompt = _SYSTEM_PROMPT + topic_prompt_block(grade, subject, year=year)
     msgs = [{"role": "system", "content": sys_prompt},
             {"role": "user", "content": user}]
     # ⚠️ 빈 정답은 **재시도**한다 — 배치 실행에서 문항 하나가 비결정적으로 비는 일이 관찰됐고
@@ -524,7 +525,7 @@ def generate_for_question(q: dict, *, api_key: str, model: str, grade: str = "",
     }
 
 
-def generate_solutions(questions: list[dict], *, grade: str = "", subject: str = "",
+def generate_solutions(questions: list[dict], *, grade: str = "", subject: str = "", year=None,
                        api_key: str | None = None, model: str | None = None,
                        progress=None, cancel=None) -> dict:
     """문항 리스트에 정답·해설·메타를 **제자리로 채운다**.
@@ -534,6 +535,7 @@ def generate_solutions(questions: list[dict], *, grade: str = "", subject: str =
             ``answer``/``solution``/``topic``/``difficulty`` 를 써 넣는다.
             ⚠️ **이미 값이 있으면 건너뛴다**(세션에서 손으로 넣은 값·재시도 보호).
         grade/subject: 프롬프트 문맥("중2"·"확률과 통계" 등). 없으면 생략.
+        year: 시험 연도(단원 분류표 15개정/22개정 선택). 없으면 현행 표.
         progress: ``progress(done, total, number)`` 콜백(GUI 진행률).
         cancel: ``cancel()`` 이 True 면 남은 작업 중단(GUI 취소 버튼).
 
@@ -560,7 +562,7 @@ def generate_solutions(questions: list[dict], *, grade: str = "", subject: str =
         if cancel and cancel():
             return None
         return q, generate_for_question(
-            q, api_key=key, model=model, grade=grade, subject=subject,
+            q, api_key=key, model=model, grade=grade, subject=subject, year=year,
             timeout=DEEPSEEK_TIMEOUT)
 
     failed_numbers: list = []

@@ -129,7 +129,7 @@ META = {1: (PRB, "하"), 2: (CNT, "중"), 3: (PRB, "하"), 4: (PRB, "중"), 5: (
         20: (SIM, "중"), 21: (CEN, "상")}
 sys.path.insert(0, str(Path(__file__).resolve().parents[3]))
 from core.topic_vocab import vocabulary  # noqa: E402
-_vocab = set(vocabulary("중2", "수학"))
+_vocab = set(vocabulary("중2", "수학", 2025))
 assert all(t in _vocab for t, _ in META.values()), [t for t, _ in META.values() if t not in _vocab]
 assert len(META) == 21 and all(dv in ("상", "중", "하") for _, dv in META.values())
 

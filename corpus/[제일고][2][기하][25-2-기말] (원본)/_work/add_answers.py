@@ -192,7 +192,7 @@ META = {1: ("벡터의 뜻", "하"), 2: ("벡터의 덧셈과 뺄셈", "중"), 3
         18: ("삼수선의 정리", "상"), 19: ("정사영", "상"), 20: ("선분의 내분점과 외분점", "중")}
 sys.path.insert(0, str(Path(__file__).resolve().parents[3]))
 from core.topic_vocab import vocabulary  # noqa: E402
-_vocab = set(vocabulary("고2", "기하"))
+_vocab = set(vocabulary("고2", "기하", 2025))
 assert all(t in _vocab for t, _ in META.values()), [t for t, _ in META.values() if t not in _vocab]
 assert len(META) == 20 and all(dv in ("상", "중", "하") for _, dv in META.values())
 
