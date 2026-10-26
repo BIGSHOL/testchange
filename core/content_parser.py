@@ -2674,21 +2674,28 @@ def _normalize_essay_label_type(doc: "ExamDocument") -> None:
     문항만 다르게 읽으면 ``[서술형 1~3]`` 사이에 ``[서답형 4]`` 가 끼고 ② 시험지마다
     용어가 갈려 출력이 들쭉날쭉했다. 이제 **한 방향으로 항상** 모은다.
 
-    ⚠️ ``단답형`` 은 건드리지 않는다 — 서술형과 **다른 유형**이고 원본도 그렇게 인쇄한다
-    (능인고 수1·정화중처럼 두 유형이 함께 있는 시험지가 실제로 있다).
+    ⭐ 2026-10-26 **단답형도 서술형으로**(대수회 작업 규정 표준 #7 "단답형, 서답형도 서술형으로
+    표기", 사용자 "표준에 전부 맞출 것"). 종전(2026-08-20)에는 단답형을 다른 유형으로 남겼다.
+    유형별로 번호를 따로 매긴 시험지(정화중 단답형 1~4·서술형 1~3)는 합치면 번호가 겹치므로,
+    **겹칠 때만** 문항 순서대로 1부터 다시 매긴다(통합 번호 시험지 능인고 1~5 는 그대로).
     """
     target = "서술형"
 
     def _fix(blocks) -> None:
         for b in blocks or []:
-            if b.type == ContentType.TEXT and b.value and "서답형" in b.value:
+            if b.type == ContentType.TEXT and b.value and ("서답형" in b.value or "단답형" in b.value):
                 # ⚠️ 라벨은 인라인 수식 분리로 **쪼개져 들어오는 일이 흔하다**
                 # (TEXT``[서답형 `` + EQ``4`` + TEXT``] …`` — 번호가 수식 객체라서).
                 # 그래서 ``[서답형 N]`` 패턴만 보면 쪼개진 쪽을 통째로 놓친다. 단어 자체를
                 # 바꾼다 — 이 낱말은 시험지에서 라벨·안내문("서답형 문항은 …")으로만 쓰여
                 # 둘 다 서술형으로 모으는 게 사용자 요구다.
-                b.value = b.value.replace("서답형", target)
+                v = b.value.replace("서답형", target).replace("단답형", target)
+                # 라벨 안 유형 주석 ``[서답형 1 (단답형)]``(동문고 #17)은 합치면 ``(서술형)`` 중복.
+                # 닫는 괄호 바로 앞의 주석만 — 라벨이 TEXT·EQ 로 쪼개져 ``(단답형)]`` 만 오는 경우 포함.
+                v = re.sub(r"\s*\(\s*서술형\s*\)\s*(?=[\]】])", "", v)
+                b.value = v
 
+    essays = []
     for pg in doc.pages:
         for q in pg.questions:
             _fix(q.contents)
@@ -2696,11 +2703,45 @@ def _normalize_essay_label_type(doc: "ExamDocument") -> None:
                 _fix(getattr(ch, "contents", None))
             for sq in getattr(q, "sub_questions", None) or []:
                 _fix(getattr(sq, "contents", None))
-            if getattr(q, "label_type", None) in ("서술형", "서답형"):
+            if getattr(q, "label_type", None) in ("서술형", "서답형", "단답형"):
                 q.label_type = target
             for sq in getattr(q, "sub_questions", None) or []:
-                if getattr(sq, "label_type", None) in ("서술형", "서답형"):
+                if getattr(sq, "label_type", None) in ("서술형", "서답형", "단답형"):
                     sq.label_type = target
+            if not q.choices:
+                essays.append(q)
+
+    # 번호가 겹치면(유형별 독립 번호를 합친 결과) 문항 순서대로 1부터 다시 매긴다.
+    slots = [_essay_label_number_slot(q.contents) for q in essays]
+    nums = [s[0] for s in slots if s]
+    if len(nums) == len(essays) and len(set(nums)) != len(nums):
+        for i, (_, setter) in enumerate(slots, 1):
+            setter(i)
+
+
+def _essay_label_number_slot(contents):
+    """contents 선두의 ``[서술형 N]`` 라벨 번호와 그 번호를 바꾸는 함수. 없으면 None.
+
+    라벨은 한 TEXT(``[서술형 3] …``)이거나 TEXT``[서술형 `` + EQ``3`` + TEXT``] …`` 로 쪼개져 있다.
+    """
+    blocks = [b for b in (contents or [])[:4]]
+    for i, b in enumerate(blocks):
+        if b.type != ContentType.TEXT or not b.value:
+            continue
+        m = re.match(r"^(\s*[\[【]\s*서술형\s*)(\d+)(\s*[\]】])", b.value)
+        if m:
+            def _set(n, b=b, m=m):
+                b.value = m.group(1) + str(n) + m.group(3) + b.value[m.end():]
+            return int(m.group(2)), _set
+        if re.match(r"^\s*[\[【]\s*서술형\s*$", b.value) and i + 2 < len(blocks):
+            eq, close = blocks[i + 1], blocks[i + 2]
+            if (eq.type == ContentType.EQUATION and re.fullmatch(r"\s*\d+\s*", eq.value or "")
+                    and close.type == ContentType.TEXT and re.match(r"^\s*[\]】]", close.value or "")):
+                def _set(n, eq=eq):
+                    eq.value = str(n)
+                return int(eq.value), _set
+        break
+    return None
 
 
 def build_document(

@@ -149,7 +149,7 @@ def test_header_placeholders():
                  + _banner("2025년 O학기 OO고사", "OO중 2학년 수학"), mid)
     chk(got.count("<hp:t>2026년 2학기 중간고사</hp:t>") == 2, f"B 시험명(머리말+배너): {got}")
     chk(got.count("<hp:t>침산중 2학년 수학</hp:t>") == 2, f"B 가운데(자리표시 OO 까지): {got}")
-    chk("<hp:t>침산중 26학년 2학기 중간고사 대비 (수학)</hp:t>" in got, f"B 꼬리말: {got}")
+    chk("<hp:t>침산중2 26년 2학기 중간고사 대비 (수학)</hp:t>" in got, f"B 꼬리말(표준 #55 중등 학교+학년 YY년): {got}")
     chk("OO" not in got and "O학기" not in got, f"B 자리표시 O 잔존 0: {got}")
     chk("여기에 학원 로고 또는 이름" in got, "B 학원 로고 칸은 사람이 채운다(보존)")
 
@@ -175,14 +175,14 @@ def test_header_placeholders():
     n, got = run(_banner("OO고 2학년 공통수학O") + _foot("OO고 25년 O학기 OO고사 대비 (공통수학O)"),
                  hi1)
     chk("<hp:t>대진고 1학년 공통수학2</hp:t>" in got, f"B 고1 가운데: {got}")
-    chk("<hp:t>대진고 25학년 2학기 기말고사 대비 (공통수학2)</hp:t>" in got, f"B 고1 꼬리말: {got}")
+    chk("<hp:t>대진고 25년 2학기 기말고사 대비 (공통수학2)</hp:t>" in got, f"B 고1 꼬리말: {got}")
     chk("공통공통" not in got and "수학O" not in got, f"B '공통'·O 잔존 0: {got}")
 
     # 대수 폼 꼬리말은 '년' 이 빠져 있다("27 O학기") — 그래도 통째 치환.
     alg = {"학교": "강동고", "학년": "고2", "과목": "수1", "년도": "2025", "학기": "1",
            "구분": "기말"}
     n, got = run(_foot("OO고 27 O학기 OO고사 대비 (대수)") + _head("OO고 2학년 대수"), alg)
-    chk("<hp:t>강동고 25학년 1학기 기말고사 대비 (수학1)</hp:t>" in got, f"B '년' 없는 꼬리말: {got}")
+    chk("<hp:t>강동고 25년 1학기 기말고사 대비 (수학1)</hp:t>" in got, f"B '년' 없는 꼬리말: {got}")
     chk("<hp:t>강동고 2학년 수학1</hp:t>" in got, f"B 대수 폼 가운데: {got}")
 
     # 확통 폼(학년 토큰 없는 과목 폼)을 고3 이 쓴다 — 학년은 값이 덮어쓴다.

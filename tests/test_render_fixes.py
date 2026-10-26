@@ -1100,13 +1100,14 @@ def run():
 
     _one = [_CB(type=_CT.TEXT, value="[단답형5] 집합 X 에 대하여")]
     _lab, _body = _elb(_one, "서답형", 5)
-    chk(_lab == "[단답형 5]", f"DR4 한 블록 단답형 라벨 추출: {_lab}")
+    # 2026-10-26: 단답형도 [서술형 N] (대수회 작업 규정 표준 #7) — 추출·잔재 제거는 그대로.
+    chk(_lab == "[서술형 5]", f"DR4 한 블록 단답형 라벨 추출: {_lab}")
     chk("단답형" not in "".join(b.value or "" for b in _body), "DR4 본문에 라벨 잔재 없음")
 
     _split = [_CB(type=_CT.TEXT, value="[단답형 "), _CB(type=_CT.EQUATION, value="5"),
               _CB(type=_CT.TEXT, value="]"), _CB(type=_CT.TEXT, value="집합 X…")]
     _lab2, _body2 = _elb(_split, "서답형", 5)
-    chk(_lab2 == "[단답형 5]", f"DR4 분리형 단답형 라벨 추출: {_lab2}")
+    chk(_lab2 == "[서술형 5]", f"DR4 분리형 단답형 라벨 추출: {_lab2}")
     chk("단답형" not in "".join(b.value or "" for b in _body2), "DR4 분리형 본문 잔재 없음")
     chk(_ESSAY_LABEL_SPLIT_RE.match("[단답형 5]") is not None,
         "DR4 단답형 라벨 번호도 수식으로 렌더(평문 폴백 금지)")
@@ -1201,7 +1202,7 @@ def test_essay_word_unified_to_seosulhyeong() -> None:
     assert _norm_essay_word("서답형") == "서술형"
     assert _norm_essay_word("서술형") == "서술형"
     assert _norm_essay_word("") == "서술형", "유형 미상은 서술형 폴백"
-    assert _norm_essay_word("단답형") == "단답형", "단답형은 보존(다른 유형)"
+    assert _norm_essay_word("단답형") == "서술형", "단답형도 서술형(표준 #7, 2026-10-26)"
 
     # 파서: 본문 텍스트 + label_type 둘 다
     env = {"header": "", "questions": [
@@ -1213,17 +1214,17 @@ def test_essay_word_unified_to_seosulhyeong() -> None:
     doc = build_document([parse_ocr_response(env, page_number=1)])
     qs = doc.pages[0].questions
     assert qs[0].label_type == "서술형", qs[0].label_type
-    assert qs[1].label_type == "단답형", "단답형 보존"
+    assert qs[1].label_type == "서술형", "단답형도 서술형(표준 #7)"
     joined = "".join((b.value or "") for q in qs for b in q.contents)
     assert "서답형" not in joined, joined[:80]
-    assert "단답형" in joined, "단답형 라벨이 사라졌다"
+    assert "단답형" not in joined, joined[:80]
 
     # 라벨 조립 — 분리형(번호가 수식)·비괄호형도 통일된다
     for blocks, want in (
             ([_tb("[서답형 4] 정의역이")], "[서술형 4]"),
             ([_tb("[서답형 "), _eq("2"), _tb("] 자연수")], "[서술형 2]"),
             ([_tb("서답형 6. 다음을")], "[서술형 6]"),
-            ([_tb("[단답형 5] 집합")], "[단답형 5]"),
+            ([_tb("[단답형 5] 집합")], "[서술형 5]"),
     ):
         lbl, _ = _essay_label_and_body(blocks, "서술형", 1)
         assert lbl == want, f"{blocks[0].value!r} → {lbl!r} (기대 {want})"
@@ -1235,8 +1236,20 @@ def test_essay_word_unified_to_seosulhyeong() -> None:
     assert src.count("_force_essay_word(output_path)") >= 2,         "안전망이 relaunder 루프에서도 돌아야 한다(비결정 run 쪼갬 대비)"
     from core.hwp_form_writer import _ESSAY_WORD_FORCE_RE
     assert _ESSAY_WORD_FORCE_RE.sub(r"\g<1>서술형", "<t>[서답형 4]</t>") == "<t>[서술형 4]</t>"
-    assert _ESSAY_WORD_FORCE_RE.sub(r"\g<1>서술형", "<t>[단답형 5]</t>") == "<t>[단답형 5]</t>",         "단답형을 건드리면 안 된다"
-    print("  OK   서답형 → 서술형 통일(본문·label_type·라벨조립·XML 안전망)")
+    assert _ESSAY_WORD_FORCE_RE.sub(r"\g<1>서술형", "<t>[단답형 5]</t>") == "<t>[서술형 5]</t>",         "단답형도 서술형(표준 #7)"
+    # 유형별 독립 번호(정화중 단답형 1~2·서술형 1)를 합치면 겹친다 → 문항 순서대로 1부터.
+    #   통합 번호(능인고 서술형 1~2·단답형 3)는 그대로.
+    for labels, want in (([("단답형", 1), ("단답형", 2), ("서술형", 1)], [1, 2, 3]),
+                         ([("서술형", 1), ("서술형", 2), ("단답형", 3)], [1, 2, 3]),
+                         ([("서술형", 2), ("서술형", 3)], [2, 3])):
+        qs_ = [{"number": 16 + i, "score": 5, "label_type": w,
+                "contents": [{"type": "text", "value": f"[{w} "}, {"type": "equation", "value": str(n)},
+                             {"type": "text", "value": "] 다음을 구하시오."}]}
+               for i, (w, n) in enumerate(labels)]
+        d_ = build_document([parse_ocr_response({"header": "", "questions": qs_}, page_number=1)])
+        got_ = [_essay_label_and_body(q.contents, "서술형", 1)[0] for q in d_.pages[0].questions]
+        assert got_ == [f"[서술형 {n}]" for n in want], (labels, got_)
+    print("  OK   서답형·단답형 → 서술형 통일(본문·label_type·라벨조립·XML 안전망·번호 겹침 재부여)")
 
 
 def test_s26_figure_layout_and_answers() -> None:

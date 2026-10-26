@@ -769,10 +769,10 @@ _ESSAY_TYPE_LABEL = re.compile(r'^\s*[\[【]\s*(?:서[답술]형|단답형)\s*[\
 # ⭐ 서답형 → **서술형** 통일(사용자 2026-08-20: "모든 서답형, 서술형 -> 서술형 통일").
 # 원본이 어느 쪽으로 인쇄했든 출력 라벨은 서술형 하나로 모은다 — 종전에는 시험지마다,
 # 심지어 한 시험지 안에서도(OCR 이 문항별로 다르게 읽어) 용어가 갈렸다.
-# ⚠️ ``단답형`` 은 **다른 유형**이라 그대로 둔다(원본도 그렇게 인쇄한다).
+# ⭐ 2026-10-26 단답형도 서술형(대수회 작업 규정 표준 #7 "단답형, 서답형도 서술형으로 표기").
 def _norm_essay_word(word: str) -> str:
     w = (word or "").strip()
-    return "서술형" if w in ("", "서답형", "서술형") else w
+    return "서술형" if w in ("", "서답형", "서술형", "단답형") else w
 
 
 def _essay_label_and_body(contents, fallback_label, label_idx):
@@ -2289,9 +2289,12 @@ def _fill_form_header(hwpx_path: str | Path, values: dict) -> int:
     # 머리말 가운데: "{학교} {N}학년 {과목}"  (예 "침산중 2학년 수학", "영진고 2학년 수학1")
     who = (f"{school} {gnum}학년" if school and gnum else (f"{gnum}학년" if gnum else g))
     center = f"{who} {subj}".strip()
-    # 꼬리말(우하단): "{학교} {YY}학년 {학기}학기 {구분}고사 대비 ({과목})"
-    #   (예 "침산중 25학년 1학기 중간고사 대비 (수학)", "칠성고 25학년 1학기 기말고사 대비 (미적분)")
-    prep = ((f"{school} " if school else "") + (f"{yr2}학년 " if yr2 else "")
+    # 꼬리말(우하단) — 대수회 작업 규정 표준 #55(사용자 2026-10-26 "표준에 전부 맞출 것"):
+    #   중등 "{학교}{N} {YY}년 {학기}학기 {구분}고사 대비 (수학)"  (예 "경신중1 26년 1학기 중간고사 대비 (수학)")
+    #   고등 "{학교} {YY}년 {학기}학기 {구분}고사 대비 ({과목})"   (예 "혜화여고 26년 1학기 중간고사 대비 (대수)")
+    # 26년 개정 폼 원문도 "OO중 27년 O학기 OO고사 대비 (수학)" 다. 종전(2026-06-04)은 "{학교} {YY}학년 …".
+    who_f = school + (gnum if g.startswith("중") and school else "")
+    prep = ((f"{who_f} " if who_f else "") + (f"{yr2}년 " if yr2 else "")
             + f"{term}학기 {kind}고사").replace("  ", " ").strip()
     footer = f"{prep} 대비 ({subj})"
     pats = [
@@ -2583,7 +2586,7 @@ def _label_words_in_xml(hwpx_path: str | Path) -> set:
     return set(_LABEL_WORD_XML_RE.findall(full))
 
 
-_ESSAY_WORD_FORCE_RE = re.compile(r'(\[\s*)서답형')
+_ESSAY_WORD_FORCE_RE = re.compile(r'(\[\s*)(?:서답형|단답형)')
 
 
 def _force_essay_word(hwpx_path: str | Path) -> int:
@@ -2593,8 +2596,8 @@ def _force_essay_word(hwpx_path: str | Path) -> int:
     폼이 미리 구워 둔 정답면 라벨, grow 슬롯 복사본. 데이터 단계에서만 통일하면 그중
     하나만 놓쳐도 ``[서술형 1~3]`` 사이에 ``[서답형 4]`` 가 끼는 식으로 새어 나온다
     (대륜고 공수2 실사고). ``_sync_essay_label_word`` 는 **균일 시험지에서만** 돌아
-    서술형+단답형 혼합 시험지를 못 덮으므로, 서답형 한 단어만 바꾸는 이 패스를 항상 돈다.
-    ⚠️ ``단답형`` 은 건드리지 않는다(다른 유형).
+    서술형+단답형 혼합 시험지를 못 덮으므로, 이 패스를 항상 돈다. 2026-10-26 부터 ``단답형``
+    도 서술형으로 모은다(대수회 작업 규정 표준 #7).
     """
     hwpx_path = Path(hwpx_path)
     with zipfile.ZipFile(hwpx_path) as z:
