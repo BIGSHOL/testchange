@@ -3565,7 +3565,7 @@ def write_exam_to_form(
         _inject_bogi_form(output_path)
     except Exception as e:  # noqa: BLE001
         logger.warning("폼 후처리 실패(_inject_bogi_form): %s", e)
-    # 1.8단계: 확률분포표 1열·표준정규분포표 최상단 행 #D9D9D9 음영(수기본 통일, 기본 경로와 동일).
+    # 1.8단계: 확률분포표 첫 행+첫 열·표준정규분포표 최상단 행 음영(대수회 기준표, 기본 경로와 동일).
     try:
         from core.hwp_com_writer import _inject_table_shading
         _inject_table_shading(output_path)

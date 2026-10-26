@@ -2858,7 +2858,7 @@ def write_exam_to_hwp(
         _inject_bogi_form(output_path, columns=columns, margins=margins)
     except Exception as e:  # noqa: BLE001
         logger.warning("HWPX 후처리 실패(_inject_bogi_form): %s", e)
-    # 확률분포표 1열·표준정규분포표 최상단 행에 #D9D9D9 음영(수기본 통일).
+    # 확률분포표 첫 행+첫 열·표준정규분포표 최상단 행 음영(대수회 기준표, 2026-10-26).
     try:
         _inject_table_shading(output_path)
     except Exception as e:  # noqa: BLE001
@@ -3273,8 +3273,11 @@ def _inject_bogi_form(hwpx_path: str | Path, columns: int = 1,
     return total
 
 
-# 수기본(레퍼런스) 표 음영 borderFill — 전체 SOLID 0.12mm 테두리 + #D9D9D9 회색 채움.
-# 레퍼런스 [학남고]…(워드).hwpx 의 borderFill id=16 구조 그대로(faceColor 추출 확인).
+# 표 음영 borderFill — 전체 SOLID 0.12mm 테두리 + 채움색 _SHADE_COLOR.
+# 구조는 레퍼런스 [학남고]…(워드).hwpx 의 borderFill id=16 그대로. 채움색은 대수회 기준표(2024)
+# 확률분포표·표준정규분포표의 #C0CDEF(연한 파랑) — 사용자 2026-10-26 "표준에 전부 맞출 것"
+# (종전 #D9D9D9 회색은 학남고 수기본에서 따온 값).
+_SHADE_COLOR = "#C0CDEF"
 _SHADE_BORDERFILL_DEF = {
     16: '<hh:borderFill id="{{BF16}}" threeD="0" shadow="0" centerLine="NONE" '
         'breakCellSeparateLine="0"><hh:slash type="NONE" Crooked="0" isCounter="0"/>'
@@ -3284,7 +3287,7 @@ _SHADE_BORDERFILL_DEF = {
         '<hh:topBorder type="SOLID" width="0.12 mm" color="#000000"/>'
         '<hh:bottomBorder type="SOLID" width="0.12 mm" color="#000000"/>'
         '<hh:diagonal type="SOLID" width="0.1 mm" color="#000000"/>'
-        '<hc:fillBrush><hc:winBrush faceColor="#D9D9D9" hatchColor="#000000" alpha="0"/>'
+        '<hc:fillBrush><hc:winBrush faceColor="#C0CDEF" hatchColor="#000000" alpha="0"/>'
         '</hc:fillBrush></hh:borderFill>',
 }
 
@@ -3292,9 +3295,10 @@ _SHADE_BORDERFILL_DEF = {
 def _shade_target_mode(tbl_xml: str) -> str | None:
     """데이터 표(확률분포표·표준정규분포표)의 라벨 셀 음영 대상을 판정.
 
-    수기본 통일(사용자 2026-06-08):
+    대수회 기준표(2024) 기준(사용자 2026-10-26, 종전 2026-06-08 수기본 통일):
       - 표준정규분포표(z|P 세로형, colCnt==2) → **최상단 행**(rowAddr=0) 음영.
-      - 확률분포표(X|값 가로형, rowCnt==2·colCnt>=3) → **첫 열**(colAddr=0) 음영.
+      - 확률분포표(X|값 가로형, rowCnt==2·colCnt>=3) → **첫 행 + 첫 열**(X 행 전체 + P(X=x) 칸).
+        종전엔 첫 열만.
     그 외(보기 5×5·1×1 박스·1행 레이아웃·답안표 등)는 None(미적용). 수식 데이터 표만 대상.
     """
     rm = re.search(r'<hp:tbl\b[^>]*\browCnt="(\d+)"', tbl_xml)
@@ -3315,7 +3319,7 @@ def _shade_target_mode(tbl_xml: str) -> str | None:
     # 와 같은 결함 계열).
     is_dist = bool(re.search(r"P\s*\(\s*[A-Z]", tbl_xml))
     if nrow == 2 and ncol >= 3 and is_dist:
-        return "col0"                     # 확률분포표
+        return "row0col0"                 # 확률분포표(첫 행 + 첫 열)
     return None
 
 
@@ -3335,7 +3339,8 @@ def _shade_cells(tbl_xml: str, shade_id: int, mode: str) -> str:
         target = False
         if addr:
             col, row = int(addr.group(1)), int(addr.group(2))
-            target = (mode == "row0" and row == 0) or (mode == "col0" and col == 0)
+            target = ((mode in ("row0", "row0col0") and row == 0)
+                      or (mode in ("col0", "row0col0") and col == 0))
         if target:
             cell = re.sub(r'(<hp:tc\b[^>]*\bborderFillIDRef=")\d+(")',
                           lambda m: m.group(1) + str(shade_id) + m.group(2),
@@ -3347,7 +3352,7 @@ def _shade_cells(tbl_xml: str, shade_id: int, mode: str) -> str:
 
 
 def _inject_table_shading(hwpx_path: str | Path) -> int:
-    """저장된 .hwpx 의 확률분포표·표준정규분포표 라벨 셀에 #D9D9D9 음영을 입힌다.
+    """저장된 .hwpx 의 확률분포표·표준정규분포표 라벨 셀에 음영(_SHADE_COLOR)을 입힌다.
 
     수기본과 통일(사용자 2026-06-08). 음영 borderFill 1종을 header.xml 에 1회 append 한 뒤,
     `_shade_target_mode` 가 가리키는 셀의 borderFillIDRef 만 교체(위치기반). 멱등(이미 음영 id면
@@ -3384,12 +3389,12 @@ def _inject_table_shading(hwpx_path: str | Path) -> int:
             if mode is None:
                 continue
             if shade_id is None:
-                # 멱등화: 이미 주입된 #D9D9D9 음영 borderFill 이 있으면 그 id 재사용 —
+                # 멱등화: 이미 주입된 음영 borderFill 이 있으면 그 id 재사용 —
                 # 재실행마다 새 id 를 append 하면 중복 정의가 누적되고 셀 참조가 매번
                 # 바뀌어 "이미 음영이면 무변경" 보장이 깨졌다(감사 2026-06-10).
                 m_old = re.search(
                     r'<hh:borderFill\b[^>]*\bid="(\d+)"(?:(?!</hh:borderFill>).)*?'
-                    r'faceColor="#D9D9D9"', header, re.S)
+                    r'faceColor="' + _SHADE_COLOR + '"', header, re.S)
                 if m_old:
                     shade_id = int(m_old.group(1))
                 else:
