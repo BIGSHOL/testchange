@@ -564,6 +564,8 @@ def _parse_question(q_data: dict) -> Question:
         choice = _parse_choice(choice_data, parent_geo=q_geo)
         if choice:
             question.choices.append(choice)
+    # 열 머리 선택지(``① ㉠ …, ㉡ …``·``① (가) 1, (나) 2``) → 머리 목록 + 값 사이 탭(기준표 12번).
+    question.choice_cols = _detect_choice_columns(question.choices)
 
     # 소문항 — OCR 이 ``subquestions``(언더스코어 누락 오타, 2026-06-15 대륜중2)로 줄 수도
     # 있어 두 키 모두 수용한다(없으면 소문항 통째 드롭됨).
@@ -576,6 +578,73 @@ def _parse_question(q_data: dict) -> Question:
     question.solution = _parse_markdown_lines(q_data.get("solution") or "")
 
     return question
+
+
+# 열 머리 선택지의 머리 글자 — 한글 괄호 (가)(나)… 와 원문자 ㉠㉡….
+_CHOICE_COL_LABEL_RE = re.compile(r"\(\s*[가-하]\s*\)|[㉠-㉻]")
+
+
+def _detect_choice_columns(choices: list) -> list[str]:
+    """선택지가 모두 같은 열 머리로 나뉘어 있으면(``(가) 1, (나) 2, (다) 3``) 머리 목록을 돌려주고
+    각 선택지 내용을 **값 사이 TEXT "\\t"** 꼴로 바꾼다. 아니면 [] (선택지 무변경).
+
+    대수회 기준표(2024) 12번 "빈칸 채우는 문제" — 열 머리 (가)(나)(다)를 한 줄로 두고 선택지 값을
+    그 아래 열로 맞춘다(사용자 2026-10-26 "표준에 전부 맞출 것"). 종전엔 ``(가) 1, (나) 2`` 한 줄.
+    판정은 보수적으로: 선택지 2개 이상 **전부** 같은 머리 순서(2개 이상)이고 값이 모두 있을 때만.
+    """
+    if len(choices) < 2:
+        return []
+    parsed = []
+    for ch in choices:
+        segs: list = []                 # [(머리, [블록…])]
+        for b in ch.contents:
+            if b.type == ContentType.TEXT:
+                pos = 0
+                for m in _CHOICE_COL_LABEL_RE.finditer(b.value or ""):
+                    before = (b.value or "")[pos:m.start()]
+                    if before.strip(" ,·\t"):
+                        if not segs:
+                            return []
+                        segs[-1][1].append(ContentBlock(type=ContentType.TEXT, value=before))
+                    segs.append((re.sub(r"\s+", "", m.group(0)), []))
+                    pos = m.end()
+                rest = (b.value or "")[pos:]
+                if rest.strip(" ,·\t"):
+                    if not segs:
+                        return []
+                    segs[-1][1].append(ContentBlock(type=ContentType.TEXT, value=rest))
+            else:
+                if not segs:
+                    return []
+                segs[-1][1].append(b)
+        if len(segs) < 2:
+            return []
+        cleaned = []
+        for label, blocks in segs:
+            bl = [ContentBlock(type=x.type, value=x.value, bold=x.bold, underline=x.underline)
+                  for x in blocks]
+            if bl and bl[0].type == ContentType.TEXT:
+                bl[0].value = bl[0].value.lstrip(" ,·\t:：")
+            if bl and bl[-1].type == ContentType.TEXT:
+                bl[-1].value = bl[-1].value.rstrip(" ,·\t")
+            elif bl and bl[-1].type == ContentType.EQUATION:   # 쉼표가 수식에 붙어 온 경우(칠성고 #15)
+                bl[-1].value = re.sub(r"(?:\s|\\,|,)+$", "", bl[-1].value or "")
+            bl = [x for x in bl if not (x.type == ContentType.TEXT and not (x.value or "").strip())]
+            if not bl:
+                return []
+            cleaned.append((label, bl))
+        parsed.append(cleaned)
+    labels = [lab for lab, _ in parsed[0]]
+    if any([lab for lab, _ in p] != labels for p in parsed):
+        return []
+    for ch, segs in zip(choices, parsed):
+        out: list = []
+        for j, (_, bl) in enumerate(segs):
+            if j:
+                out.append(ContentBlock(type=ContentType.TEXT, value="\t"))
+            out.extend(bl)
+        ch.contents = out
+    return labels
 
 
 def _parse_choice(choice_data: dict, parent_geo: bool = False) -> Choice | None:
@@ -1906,6 +1975,43 @@ def _merge_empty_group_subscript(blocks: list[ContentBlock]) -> list[ContentBloc
     return out
 
 
+# 수식 바로 앞 평문에 남은 함수호출·점좌표(``f(x)``·``g(x) ``·``f(2)-f(1)``·``P(a,b)``).
+_LEAD_CALL = r"[A-Za-z](?:_\{?\w+\}?)?'*(?:\^\{?-?\d\}?)?\([^()가-힣ㄱ-ㆎ]*\)"
+_LEAD_CALL_RE = re.compile(r"(?:(?<=[\s,])|^)((?:" + _LEAD_CALL + r"\s*[-+]\s*)*" + _LEAD_CALL + r")\s*$")
+_EQ_OP_LEAD_RE = re.compile(r"\s*(?:=|<|>|\+|-|\\(?:le|ge|ne|leq|geq|neq|lt|gt|times|cdot)(?![A-Za-z]))")
+
+
+def _merge_lead_call_into_eq(blocks: list[ContentBlock]) -> list[ContentBlock]:
+    """TEXT 끝 함수호출 ``f(x)`` 뒤에 **연산자로 시작하는** 수식이 오면 그 호출을 수식 안으로 옮긴다.
+
+    ``f(x)=\\frac{1}{x(x+2)}`` 는 분리기가 ``\\frac`` 부터 수식으로 잡고 ``=`` 까지만 끌어와
+    ``f(x)`` 가 평문(정자)으로 떨어졌다 — 식별자 흡수가 괄호에서 멈춘다(강동고 수하 #8·#15,
+    진명여고 수2 #5·#8·#21 ``f(x) = \\begin{cases}``, 매호중 #12 ``f(2)-f(1)+…`` 등 corpus 8곳,
+    2026-10-26). 합의 #6(모든 숫자·문자 수식화). 호출 앞은 공백·쉼표·문장 시작일 때만(한글에
+    붙은 낱말은 건드리지 않는다).
+    """
+    eq_types = (ContentType.EQUATION, ContentType.EQUATION_BLOCK)
+    out: list[ContentBlock] = []
+    i = 0
+    while i < len(blocks):
+        b = blocks[i]
+        nxt = blocks[i + 1] if i + 1 < len(blocks) else None
+        m = (_LEAD_CALL_RE.search(b.value or "")
+             if b.type == ContentType.TEXT and not b.underline and nxt is not None
+             and nxt.type in eq_types and _EQ_OP_LEAD_RE.match(nxt.value or "") else None)
+        if m:
+            nxt.value = m.group(1) + (nxt.value or "")
+            b.value = (b.value or "")[:m.start(1)]
+            if b.value:
+                out.append(b)
+            out.append(nxt)
+            i += 2
+            continue
+        out.append(b)
+        i += 1
+    return out
+
+
 def _link_cross_block_underline(blocks: list[ContentBlock]) -> list[ContentBlock]:
     """OCR(특히 Gemini)이 ``__…__`` 밑줄 강조 구절을 **수식 경계로 쪼개** 여는 ``__`` 와 닫는
     ``__`` 가 서로 다른 TEXT 블록에 흩어지면, 단일 블록 단위 ``_split_underline_markup`` 이
@@ -1994,6 +2100,7 @@ def _finalize_contents(blocks: list[ContentBlock]) -> list[ContentBlock]:
     blocks = _split_comma_equations(blocks)         # 쉼표 구분 독립 수식 분리
     blocks = _merge_operator_split_equations(blocks)  # eq·연산자·eq 병합
     blocks = _merge_text_eq_fragments(blocks)       # text(꼬리부등식)·eq·text(머리부등식) 병합
+    blocks = _merge_lead_call_into_eq(blocks)       # 평문에 남은 f(x) + "=…"(EQ) → 한 수식
     blocks = _merge_empty_group_subscript(blocks)   # {}(TEXT)+_2…(EQ) → 좌측첨자 빈그룹 복원
     blocks = _merge_degree_temp_units(blocks)       # 온도 단위 °C/°F (EQ+TEXT"°"+EQ"C") 한 수식 병합
     blocks = _merge_paren_range(blocks)             # 점화식 뒤 범위 (n=1,2,3⋯) 를 ~공백으로 병합

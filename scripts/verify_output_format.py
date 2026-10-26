@@ -74,13 +74,19 @@ def run_checks():
         "def _set_endnote_suffix" in W and "_set_endnote_suffix(output_path)" in W)
     chk(3, "미주 12pt 볼드",
         "set_char_shape(self.note_pt, bold=True)" in C and "note_pt: int = 12" in C)
-    chk(4, "객관식 배점 인라인", "self._write_score(question.score)" in W)
+    # 객관식·서술형 공통 "인라인 우선, 넘치면 줄바꿈 우측정렬"(표준 #8 — 2026-10-26 기본 경로
+    # 객관식도 폼 `_put_score` 와 같게). 객관식은 폴백 뒤 좌측 복귀를 안 한다(`if essay:`).
     body5 = _func_body(W, "_write_score_inline_or_right")
+    chk(4, "객관식 배점 인라인-우선·넘치면 우측정렬",
+        "self._write_score_inline_or_right(question.score, essay=is_essay)" in W
+        and "if essay:" in body5)
+    # 넘친 배점은 런을 **지우지 않고** 그 앞에서 줄을 나눠 우측정렬 새 줄로 보낸다
+    # (`_break_run_right` — 지우고 다시 쓰면 기본 경로에서 글꼴이 바뀌었다, 2026-10-26).
+    _brr = _func_body(W, "_break_run_right")
     chk(5, "서술형 배점 인라인-우선·넘치면 우측정렬",
-        "self._write_score_inline_or_right(question.score)" in W
-        and bool(re.search(
-            r"KeyIndicator\(\)\[5\].*?align_right\(\).*?leading_space=False",
-            body5, re.S)))
+        "self._write_score_inline_or_right(question.score, essay=is_essay)" in W
+        and bool(re.search(r"KeyIndicator\(\)\[5\].*?_break_run_right\(", body5, re.S))
+        and "BreakPara" in _brr and "align_right()" in _brr)
     # 2단 본문(웹 내보내기)에서 박스를 칼럼 폭에 맞추느라 ``line_width=self._box_width()``
     # 인자가 붙었다(2026-06-24 머지). 합의(1×1 테두리 표 박스)는 그대로라 호출 형태만 완화.
     chk(6, "보기 1×1 테두리 박스", "table_begin(1, 1" in W)
@@ -110,7 +116,7 @@ def run_checks():
         "def _split_trailing_score" in W
         and "self._write_total_score_inline_or_right(total_num)" in W
         and bool(re.search(
-            r"KeyIndicator\(\)\[5\].*?align_right\(\)",
+            r"KeyIndicator\(\)\[5\].*?(?:align_right\(\)|_break_run_right\()",
             _func_body(W, "_write_total_score_inline_or_right"), re.S)))
     chk(20, "발문뒤 영역 공통 렌더(_write_tail)",
         "def _write_tail" in W and "def _tail_start" in W
@@ -154,8 +160,9 @@ def run_checks():
         and _msp not in _func_body(W, "_write_total_score_inline_or_right")
         and _msp not in _func_body(F, "_put_score")
         and _msp not in _func_body(F, "_put_total_score")
+        and _msp not in _func_body(W, "_break_run_right")
         and "SelectText(sp[1], sp[2], ep[1], ep[2])" in F
-        and "SelectText(sp[1], sp[2], ep[1], ep[2])" in W,
+        and "_break_run_right(sp, ep" in _func_body(W, "_write_total_score_inline_or_right"),
         "배점 우측정렬 폴백은 삽입분(sp→ep)만 SelectText 로 삭제 — MoveSelParaEnd 는 "
         "마지막 서술형에서 폼 정답 블록 앵커까지 삼킴(강동중 #20, 2026-06-10)")
 
@@ -227,6 +234,16 @@ def run_checks():
             "" if _keep else "score_str 이 표기를 접는다")
     except Exception as e:                       # noqa: BLE001
         chk(35, "배점 인쇄 표기 보존(문자열 그대로, 숫자는 종전)", False, f"import err: {e}")
+
+    # ⭐ #36 발문 끝 단서 ``(단, …)`` — 줄을 넘기면 줄바꿈 후 우측정렬(대수회 작업 규정 표준 #8,
+    # 2026-10-26). 기본·폼 두 경로 × (발문 끝·상자 뒤 발문 끝) + 폼 소문항 부모 발문.
+    body36 = _func_body(W, "_write_dan_inline_or_right")
+    _dan_ok = ("def _split_trailing_dan" in W
+               and W.count("_split_trailing_dan(") >= 3                 # 정의 + 발문 + 상자 뒤 발문
+               and _gm.count("_split_trailing_dan(") >= 3               # 발문 + 소문항 부모 + 상자 뒤 발문
+               and "_break_run_right(" in body36
+               and "MoveSelParaEnd" not in body36)
+    chk(36, "단서 (단, …) 줄넘침 시 줄바꿈 우측정렬(기본·폼)", _dan_ok)
 
     mid_ok = ("mid" in L) and (r"\mid" in L)
     try:

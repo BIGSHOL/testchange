@@ -21,12 +21,13 @@ REPO = Path(__file__).resolve().parents[1]
 if str(REPO) not in sys.path:
     sys.path.insert(0, str(REPO))
 
+from core.content_parser import _detect_choice_columns  # noqa: E402
 from core.hwp_form_writer import (  # noqa: E402
-    _META_TOKEN_NA, _META_TOKEN_SO, _RANGE_PH_RE, _answer_charpr, _fill_exam_range,
-    _fill_form_header, _header_regions, _inject_answer_runs, _inject_essay_meta,
+    _META_TOKEN_NA, _META_TOKEN_SO, _RANGE_PH_RE, _answer_charpr, _apply_choice_column_tabs,
+    _fill_exam_range, _fill_form_header, _header_regions, _inject_answer_runs, _inject_essay_meta,
     _inject_solutions, _merged_answer, _merged_solution, _page_end_slots, _regroup_answer_gaps,
-    _strip_leading_submarker, _sub_marker)
-from models.exam_document import ContentBlock, ContentType, Question  # noqa: E402
+    _strip_choice_col_token, _strip_leading_submarker, _sub_marker)
+from models.exam_document import Choice, ContentBlock, ContentType, Question  # noqa: E402
 
 FAILS: list[str] = []
 
@@ -393,9 +394,76 @@ def test_answer_page_gaps():
     chk(got.count("<hp:p ") == 6 and got.count("</hp:p>") == 6, f"F 태그 균형: {got}")
 
 
+def test_choice_columns():
+    """열 머리 선택지(대수회 기준표 12번) — 감지 + 열 가운데 탭 문단 모양 주입."""
+    def ch(n, *blocks):
+        return Choice(number=n, contents=list(blocks))
+
+    # G1 감지: 모든 선택지가 같은 머리 순서 → 머리 목록, 값 사이 TEXT "\t"
+    cs = [ch(1, _tb("㉠ 곱셈의 교환법칙, ㉡ 곱셈의 결합법칙")),
+          ch(2, _tb("㉠ 분배법칙, ㉡ 곱셈의 교환법칙"))]
+    chk(_detect_choice_columns(cs) == ["㉠", "㉡"], "G1 ㉠㉡ 머리 감지")
+    chk([b.value for b in cs[0].contents] == ["곱셈의 교환법칙", "\t", "곱셈의 결합법칙"],
+        f"G1 값 사이 탭: {[b.value for b in cs[0].contents]}")
+    # G2 수식 값 — 수식 끝에 붙어 온 쉼표 제거(칠성고 #15)
+    cs = [ch(1, _tb("(가) "), _eq("3,"), _tb(" (나) "), _eq("5")),
+          ch(2, _tb("(가) "), _eq("4,"), _tb(" (나) "), _eq("6"))]
+    chk(_detect_choice_columns(cs) == ["(가)", "(나)"], "G2 (가)(나) 머리 감지")
+    chk([b.value for b in cs[0].contents] == ["3", "\t", "5"],
+        f"G2 수식 쉼표 제거: {[b.value for b in cs[0].contents]}")
+    # G3 음성 — 머리 없는 선택지가 섞이거나, 순서가 다르거나, 머리가 하나뿐이면 무변경
+    for desc, cs in (("머리 없음 섞임", [ch(1, _tb("㉠ 1, ㉡ 2")), ch(2, _tb("3"))]),
+                     ("순서 다름", [ch(1, _tb("㉠ 1, ㉡ 2")), ch(2, _tb("㉡ 3, ㉠ 4"))]),
+                     ("머리 하나", [ch(1, _tb("㉠ 1")), ch(2, _tb("㉠ 2"))])):
+        before = [[b.value for b in c.contents] for c in cs]
+        chk(_detect_choice_columns(cs) == [] and [[b.value for b in c.contents] for c in cs] == before,
+            f"G3 {desc}: 감지 안 하고 그대로")
+
+    # G4 탭 주입 — 머리 줄 + ①~⑤ 줄 6개가 새 문단 모양(CENTER 탭)을 쓰고, 뒤 줄은 그대로
+    tab = '<hp:tab width="100" leader="0" type="1"/>'
+
+    def para(inner, pp="3"):
+        return f'<hp:p id="0" paraPrIDRef="{pp}"><hp:run charPrIDRef="0"><hp:t>{inner}</hp:t></hp:run>{LS}</hp:p>'
+    rows = [para(f"⟦CC⟧{tab}㉠{tab}㉡")]
+    rows += [para(f"{c}{tab}값{i}{tab}값{i} {tab}" if c in "①③" else f"{c}{tab}값{i}{tab}값{i}")
+             for i, c in enumerate("①②③④⑤")]
+    rows.append(para(" [중단원] 정수"))
+    header = ('<hh:head><hh:tabProperties itemCnt="1"><hh:tabPr id="0" autoTabLeft="0" autoTabRight="0"/>'
+              '</hh:tabProperties><hh:paraProperties itemCnt="1"><hh:paraPr id="3" tabPrIDRef="0">'
+              '<hh:align horizontal="LEFT"/></hh:paraPr></hh:paraProperties></hh:head>')
+    fp = _hwpx("<hs:sec>" + "".join(rows) + "</hs:sec>", header)
+    try:
+        n = _apply_choice_column_tabs(fp)
+        with zipfile.ZipFile(fp) as z:
+            sec = z.read("Contents/section0.xml").decode("utf-8")
+            hdr = z.read("Contents/header.xml").decode("utf-8")
+        n_strip = _strip_choice_col_token(fp)
+        sec2 = _sec_of(fp)
+    finally:
+        os.remove(fp)
+    refs = re.findall(r'paraPrIDRef="(\d+)"', sec)
+    chk(n == 1 and refs == ["4"] * 6 + ["3"], f"G4 문단 모양 교체: n={n} refs={refs}")
+    pos = [int(p) for p in re.findall(r'<hh:tabItem pos="(\d+)" type="CENTER"', hdr)]
+    # tabItem pos 는 HWPUNIT×2 — 홀수면 한글이 그 탭 설정을 통째로 버린다(2026-10-26 실측)
+    chk(len(pos) == 2 and all(p % 2 == 0 for p in pos) and pos == sorted(pos),
+        f"G4 CENTER 탭 2개·짝수·오름차순: {pos}")
+    chk('<hh:paraPr id="4" tabPrIDRef="1">' in hdr and 'itemCnt="2"' in hdr, "G4 문단·탭 모양 복제 + 개수 갱신")
+    chk(sec.count("⟦CC⟧") == 6, f"G4 ①~⑤ 줄에도 표지(한글 재배치용): {sec.count('⟦CC⟧')}")
+    chk(f"값0 {tab}</hp:t>" not in sec and "값0</hp:t>" in sec and "값2</hp:t>" in sec,
+        "G4 ①·③ 줄 끝 폼 2열 탭·공백 제거")
+    chk(sec.count(tab) == 2 * 6, f"G4 열 구분 탭은 보존: {sec.count(tab)}")
+    # 글자를 바꾼 문단(①~⑤ 줄)은 줄 정보를 지운다 — 두 줄 문단의 textpos 가 어긋나면 한글이
+    # 그 지점에서 읽기를 멈추고 나머지 문서를 버린다(대구일중 #11, 미주 22→12).
+    chk(sec.count("<hp:linesegarray>") == 2, f"G4 ①~⑤ 줄 lineseg 제거(머리 줄·뒤 문단 보존): "
+        f"{sec.count('<hp:linesegarray>')}")
+    chk(n_strip == 6 and "⟦CC⟧" not in sec2, "G4 표지 정리(안전망)")
+    chk(sec2.count("<hp:linesegarray>") == 1, "G4 안전망이 표지를 지운 머리 줄도 lineseg 제거")
+
+
 def run():
     for t in (test_answer_charpr, test_header_placeholders, test_range_placeholder,
-              test_essay_meta_paragraph_boundary, test_sub_marker, test_answer_page_gaps):
+              test_essay_meta_paragraph_boundary, test_sub_marker, test_answer_page_gaps,
+              test_choice_columns):
         t()
     if FAILS:
         print("FAIL:")
@@ -403,7 +471,7 @@ def run():
             print(" -", f)
         return 1
     print("OK test_form_generation (answer-charpr / header-placeholder+region / range / "
-          "meta-para-boundary+nested / sub-marker+answer-head / answer-page-gaps)")
+          "meta-para-boundary+nested / sub-marker+answer-head / answer-page-gaps / choice-columns)")
     return 0
 
 

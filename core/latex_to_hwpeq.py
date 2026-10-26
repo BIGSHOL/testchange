@@ -38,7 +38,8 @@ _TALL_INNER_RE = re.compile(
 
 
 def _upgrade_tall_set_braces(s: str) -> str:
-    """키 큰 내용을 품은 맨 ``\\{…\\}`` 를 ``\\left\\{…\\right\\}`` 로 승격."""
+    """짝이 맞는 맨 ``\\{…\\}`` 를 ``\\left\\{…\\right\\}`` 로 승격(표준 #36 — 2026-10-26 부터 전부,
+    그 전엔 키 큰 내용만)."""
     i = 0
     while True:
         j = s.find(r"\{", i)
@@ -62,7 +63,9 @@ def _upgrade_tall_set_braces(s: str) -> str:
         if depth:                      # 짝 없음 — 그대로 두고 종료
             return s
         inner = s[j + 2:k - 2]
-        if _TALL_INNER_RE.search(inner):
+        # 대수회 작업 규정 표준 #36 ``A=left{1,~2,~3 right}`` — 집합·수열 중괄호는 **전부** 자동크기
+        # (2026-10-26). 종전엔 키 큰 내용(_TALL_INNER_RE)일 때만 올리고 ``\{7,13\}`` 은 고정 리터럴.
+        if inner.strip():
             s = s[:j] + r"\left\{" + inner + r"\right\}" + s[k:]
             i = j + 7                  # \left\{ 뒤부터 재개
         else:
@@ -324,6 +327,47 @@ def _mark_prob_operators(s: str) -> str:
         if re.search(r"[A-Z]", inner):
             out.append(s[last:m.start()])
             out.append(r"\mathrm{" + m.group(1) + "}")
+            last = m.end()
+    out.append(s[last:])
+    return "".join(out)
+
+
+# 여집합은 대문자 C(표준 #37 ``(A-B ^{C} ) CUP X=X``). 원본·OCR 은 ``A^c`` 소문자도 섞여 온다
+# (corpus ^C 76 · ^c 48). 집합 뒤 — 대문자(프라임 허용)거나 **대문자만** 든 괄호 — 의 ``^c`` 만
+# 바꾼다. 숫자 지수 ``5^c``·식 ``(x+1)^c`` 는 그대로.
+_COMPLEMENT_RE = re.compile(r"\^\s*(?:\{\s*c\s*\}|c(?![A-Za-z]))")
+
+
+def _upper_complement(s: str) -> str:
+    """집합 뒤의 여집합 첨자 ``^c``·``^{c}`` → ``^{C}``."""
+    if "^" not in s or "c" not in s:
+        return s
+    out: list[str] = []
+    last = 0
+    for m in _COMPLEMENT_RE.finditer(s):
+        j = m.start()
+        while j > 0 and s[j - 1] == " ":
+            j -= 1
+        while j > 0 and s[j - 1] == "'":             # A'^c
+            j -= 1
+        prev = s[j - 1] if j else ""
+        ok = "A" <= prev <= "Z" and not (j >= 2 and s[j - 2].isalpha())   # 단독 대문자(Ac·AB 제외)
+        if prev in ")}":
+            pair, depth, k = {")": "(", "}": "{"}[prev], 0, j - 1
+            while k >= 0:
+                if s[k] == prev:
+                    depth += 1
+                elif s[k] == pair:
+                    depth -= 1
+                    if depth == 0:
+                        break
+                k -= 1
+            inner = s[k + 1:j - 1] if k >= 0 else ""
+            inner = re.sub(r"\\[A-Za-z]+", "", _COMPLEMENT_RE.sub("", inner))   # (A∩B^c)^c
+            ok = bool(re.search(r"[A-Z]", inner)) and not re.search(r"[a-z0-9]", inner)
+        if ok:
+            out.append(s[last:m.start()])
+            out.append("^{C}")
             last = m.end()
     out.append(s[last:])
     return "".join(out)
@@ -1082,6 +1126,8 @@ class LaTeXToHWPConverter:
             s = _STAT_ITALIC_RE.sub(r"\1", s)
         # 확률 P·평균 E·분산 V 는 정자(표준 #38·#44) — 괄호 안 대문자(사건·확률변수)일 때만.
         s = _mark_prob_operators(s)
+        # 여집합 첨자는 대문자 C(표준 #37) — 집합 뒤의 ``^c`` 만.
+        s = _upper_complement(s)
 
         # 순환소수 정규화: 소수점 뒤 \dot{} 연쇄를 \overline{...}로 합침.
         # (HWP는 dot 키워드의 over-dot를 렌더하지 못함 — bar(overline)만 정상. 실측 확정.)
@@ -1222,6 +1268,13 @@ class LaTeXToHWPConverter:
             # "APMATRIX" 로 붙어 literal + 다글자 대문자 오로만화(rm {APMATRIX})로
             # 깨졌다(상원고 공수1 서답형4, 2026-06-12).
             lead = " " if m.start() > 0 and m.string[m.start() - 1].isalnum() else ""
+            if env == "pmatrix":
+                # 대수회 작업 규정 표준 #54 ``LEFT ( ``2~~3``#``4~~5 RIGHT )`` — 괄호 안 1/4칸×2
+                # 여백 + 열 사이 두 칸. PMATRIX 는 괄호에 붙고 열 간격이 좁아 3×3 이 "207135 82"
+                # 처럼 붙어 읽혔다(2026-10-26 렌더 비교). 열 맞춤은 MATRIX 에 맡긴다(표준 예처럼
+                # 칸을 손으로 세지 않아도 음수·식 항목까지 가지런하다).
+                content = re.sub(r"\s*&\s*", " ~~& ", content)
+                return lead + "LEFT ( `` MATRIX {" + content + "} `` RIGHT )"
             return lead + hwp_env + " {" + content + "}"
 
         s = self._env_pattern.sub(_env_repl, s)

@@ -47,8 +47,8 @@ SKILL=사람이 읽는 스펙·수동 실행 절차). 수동 전체 검증: `pyt
 | 1 | 문항번호 = 미주 자동번호 | `_write_question` 에서 `self.s.endnote()` 호출 |
 | 2 | 미주 번호 형식 "1." (suffix `.`) | `_set_endnote_suffix` 정의 + `write_exam_to_hwp` 에서 호출 |
 | 3 | 미주 번호 12pt 볼드 | `endnote()` 가 `set_char_shape(self.note_pt, bold=True)`; `note_pt` 기본 12 |
-| 4 | 객관식 배점 = 발문 끝 인라인 | `_write_question` 의 `else: self._write_score(question.score)` |
-| 5 | 서술형 배점 = 줄바꿈 + 우측정렬 | `if is_essay:` 블록에서 `align_right()` 후 `_write_score(..., leading_space=False)` |
+| 4 | 객관식 배점 = 발문 끝 인라인 우선, **넘치면 줄바꿈 우측정렬**(표준 #8, 2026-10-26 — 폼 `_put_score` 와 같게) | `_write_question` 이 `self._write_score_inline_or_right(question.score, essay=is_essay)` + 그 함수의 `if essay:`(객관식은 폴백 뒤 좌측 복귀 없음) |
+| 5 | 서술형 배점 = 인라인 우선, 넘치면 줄바꿈 + 우측정렬 | `_write_score_inline_or_right` 안 `KeyIndicator()[5]` 비교 → `align_right()` → `_write_score(..., leading_space=False)` |
 | 6 | 보기/조건 = 1×1 테두리 표 박스 | `_write_condition_box` 의 `table_begin(1, 1)` |
 | 7 | 박스 ↔ 선택지 빈 줄 없음 | `ended_box = self._write_tail(tail)` + `if question.choices and not ended_box:` (박스로 끝나면 추가 줄바꿈 없음) |
 | 8 | 선택지 2열 ②④ 정렬 | `_write_choice(choice, as_equation=(cols == 2))` + `_write_choice` 의 `as_equation` 분기 |
@@ -67,7 +67,9 @@ SKILL=사람이 읽는 스펙·수동 실행 절차). 수동 전체 검증: `pyt
 | 29 | 표 캡션(표 제목) = 줄바꿈 후 **우측정렬** (배점과 같은 줄 금지, 2026-06-10) | `_caption_spans` 정의 + `_write_caption_run` 에 `align_right()` + `_write_condition_box` 표-혼합 경로가 `_write_tail_seq` 사용 + 폼 `_put_tail` 의 `w._write_caption_run(pre[cap_j:])` |
 | 30 | 배점 우측정렬 폴백 = **삽입분(sp→ep)만** 선택-삭제 | 4개 폴백(`_write_score_inline_or_right`·`_write_total_score_inline_or_right`·폼 `_put_score`·`_put_total_score`)에 `h.Run("MoveSelParaEnd")` **없음** + `SelectText(sp[1], sp[2], ep[1], ep[2])`. MoveSelParaEnd 는 마지막 서술형에서 표 탈출로 본문이 폼 **정답 단락 안**에 타이핑될 때 정답 블록 앵커까지 삼켜 정답 페이지가 증발했다(강동중 #20, 2026-06-10) |
 
-(#21~#28 은 OCR/변환기 방어 하네스 — `scripts/verify_output_format.py` 참조.)
+| 36 | 발문 끝 단서 `(단, …)` = 인라인 우선, **단서가 줄을 넘기면 줄바꿈 후 우측정렬**(대수회 작업 규정 표준 #8, 2026-10-26). 단서 혼자서도 한 줄을 넘으면 되돌려 인라인 | `_split_trailing_dan` 정의 + 기본(`_write_question` 발문·`_write_tail` 상자 뒤 발문)·폼(`_put_qbody`·`_fill_essay_at` 소문항 부모·`_put_tail`) 호출 + `_write_dan_inline_or_right` 의 `align_right()`·`SelectText`(MoveSelParaEnd 금지) |
+
+(#21~#28·#31~#35 는 OCR/변환기·저장 방어 하네스 — `scripts/verify_output_format.py` 참조.)
 
 **참고(2026-06-05):** 위 합의는 **폼 경로(`core/hwp_form_writer.py`)에도 동일 적용**된다(사용자
 '항상 동일' 요구). 폼은 발문뒤 렌더를 `HwpComWriter(ses)._write_tail`/`_write_condition_box` 로
@@ -96,8 +98,10 @@ grep -n "is_essay" core/hwp_com_writer.py
 grep -n "align_right()" core/hwp_com_writer.py
 ```
 
-**PASS:** `if is_essay:` 분기 안에 `break_para()`→`align_right()`→`_write_score(..., leading_space=False)`→`break_para()`→`align_left()` 가 있고, `else:` 분기는 인라인 `self._write_score(question.score)`.
-**FAIL:** 서술형 분기에 `align_right` 가 없으면 배점이 왼쪽에 붙는다(회귀).
+**PASS:** 배점이 `self._write_score_inline_or_right(question.score, essay=is_essay)` 로 나가고(객관식·서술형 공통),
+그 함수가 인라인 입력 전후 `KeyIndicator()[5]` 를 비교해 넘치면 삽입분만 지우고 `BreakPara`→`align_right()`→
+`_write_score(..., leading_space=False)` 하며, `if essay:` 일 때만 `break_para()`→`align_left()` 로 복귀한다.
+**FAIL:** 우측정렬 폴백이 없으면 넘친 배점이 다음 줄 왼쪽에 혼자 떨어진다(회귀).
 
 ### Step 3: 보기/조건 박스 합의 (#6·#7)
 

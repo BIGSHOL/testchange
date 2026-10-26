@@ -171,6 +171,62 @@ def run():
     xy = ('<hp:tbl rowCnt="2" colCnt="8"><hp:equation>x</hp:equation>'
           '<hp:equation>m</hp:equation><hp:equation>-2n</hp:equation></hp:tbl>')
     chk(_shade_target_mode(xy) is None, "정비례 x/y표(P 없음)→음영 없음")
+    # 확률 P 정자(표준 #38) 뒤 표 셀 스크립트 = ``rm P it (X=x)`` — 그래도 확률분포표로 본다.
+    prob_rm = ('<hp:tbl rowCnt="2" colCnt="4"><hp:equation>rm P it (X=x)</hp:equation>'
+               '<hp:equation>1</hp:equation></hp:tbl>')
+    chk(_shade_target_mode(prob_rm) == "row0col0", "확률분포표(rm P it (X=x))→음영")
+
+    # ── D2: 표 선 굵기(표준 #53·#45·#46) — 우리 표(0.12 실선 일색)만 바꾼다 ──
+    import os as _os
+    import re
+    import tempfile as _tf
+    import zipfile as _zf
+    from core.hwp_com_writer import _apply_table_border_widths
+
+    def _bf(i, kind):
+        sides = "".join(f'<hh:{s}Border type="{kind[0]}" width="{kind[1]}" color="#000000"/>'
+                        for s in ("left", "right", "top", "bottom"))
+        return f'<hh:borderFill id="{i}" threeD="0">{sides}</hh:borderFill>'
+
+    def _tc(c, r, bf, inner=""):
+        return (f'<hp:tc borderFillIDRef="{bf}"><hp:subList><hp:p>{inner}</hp:p></hp:subList>'
+                f'<hp:cellAddr colAddr="{c}" rowAddr="{r}"/><hp:cellSpan colSpan="1" rowSpan="1"/></hp:tc>')
+
+    def _tbl(R, C, bf, eq=""):
+        cells = "".join(f"<hp:tr>{''.join(_tc(c, r, bf, eq if (r, c) == (0, 0) else '') for c in range(C))}</hp:tr>"
+                        for r in range(R))
+        return f'<hp:tbl rowCnt="{R}" colCnt="{C}">{cells}</hp:tbl>'
+
+    hdr = ('<hh:head><hh:borderFills itemCnt="2">' + _bf(1, ("SOLID", "0.12 mm"))
+           + _bf(2, ("NONE", "0.3 mm")) + '</hh:borderFills></hh:head>')
+    sec = ("<hs:sec>" + _tbl(1, 1, 1) + _tbl(2, 3, 1, "<hp:equation>rm P it (X=x)</hp:equation>")
+           + _tbl(5, 5, 2) + "</hs:sec>")
+    fd, fp = _tf.mkstemp(suffix=".hwpx")
+    _os.close(fd)
+    with _zf.ZipFile(fp, "w") as z:
+        z.writestr("Contents/header.xml", hdr)
+        z.writestr("Contents/section0.xml", sec)
+    try:
+        n_tb = _apply_table_border_widths(fp)
+        with _zf.ZipFile(fp) as z:
+            h2 = z.read("Contents/header.xml").decode("utf-8")
+            s2 = z.read("Contents/section0.xml").decode("utf-8")
+    finally:
+        _os.remove(fp)
+    bfs2 = {m.group(1): dict(re.findall(r'<hh:(\w+)Border type="(\w+)" width="[^"]*"', m.group(0))) |
+            {k + "_w": w for k, w in re.findall(r'<hh:(\w+)Border type="\w+" width="([^"]*)"', m.group(0))}
+            for m in re.finditer(r'<hh:borderFill id="(\d+)".*?</hh:borderFill>', h2, re.S)}
+    tbls = re.findall(r"<hp:tbl\b.*?</hp:tbl>", s2, re.S)
+    refs = [re.findall(r'borderFillIDRef="(\d+)"', t) for t in tbls]
+    box = bfs2[refs[0][0]]
+    chk(n_tb == 2 and all(box[s + "_w"] == "0.3 mm" for s in ("left", "right", "top", "bottom")),
+        f"D2 1×1 상자 0.3mm: n={n_tb} {box}")
+    first, last = bfs2[refs[1][0]], bfs2[refs[1][-1]]       # (0,0) 과 (1,2)
+    chk(first["left"] == "NONE" and first["top_w"] == "0.3 mm" and first["bottom_w"] == "0.12 mm"
+        and first["right"] == "SOLID", f"D2 확률분포표 왼쪽 위 칸(옆 없음·위 0.3): {first}")
+    chk(last["right"] == "NONE" and last["bottom_w"] == "0.3 mm" and last["top_w"] == "0.12 mm",
+        f"D2 확률분포표 오른쪽 아래 칸(옆 없음·아래 0.3): {last}")
+    chk(set(refs[2]) == {"2"}, "D2 폼·기준표 표(0.12 실선 일색 아님)는 그대로")
 
     # ── G: 박스↔표 혼합 분기(C1 무한재귀 회귀) ──
     hdr = _tb("<보기> ㄱ. ")
@@ -414,8 +470,9 @@ def run():
         "O6 \\,\\middle\\, 정상")
     chk(latex_to_hwpeq(r"3\left[x+4\left\{x-1\right\}\right]")
         == "3 LEFT [ x+4 LEFT { x-1 RIGHT } RIGHT ]", "O6 중첩 대괄호-중괄호")
-    # 무회귀: \left/\right 없는 리터럴 중괄호는 종전대로 따옴표 리터럴(고정 크기).
-    chk(latex_to_hwpeq(r"\{7, 13\}") == '"{"7,~13"}"', "O6 무회귀: bare \\{ \\} 리터럴")
+    # 짝 맞는 맨 \{ \} 도 자동크기(표준 #36, 2026-10-26 — 종전엔 고정 리터럴). 짝 없으면 리터럴.
+    chk(latex_to_hwpeq(r"\{7, 13\}") == "LEFT { 7,~13 RIGHT }", "O6 맨 \\{ \\} 자동크기(표준 #36)")
+    chk(latex_to_hwpeq(r"x=\{3") == 'x="{"3', "O6 짝 없는 \\{ 는 리터럴")
     # 무회귀: 절댓값·괄호 구분자는 그대로. 짝 없는 \middle 은 구분자만 남김.
     chk(latex_to_hwpeq(r"\left| \frac{a}{b} \right|") == "LEFT | {a} over {b} RIGHT |",
         "O6 무회귀: 절댓값")
@@ -455,7 +512,33 @@ def run():
     chk(latex_to_hwpeq(r"\vec{a}\cdot\vec{b}=3") == "VEC {a} ⦁ VEC {b}=3", "STD 내적 ⦁")
     chk(" ⦁ " in latex_to_hwpeq(r"(\vec{a}+\vec{b})\cdot(\vec{a}-\vec{b})"), "STD 내적 ⦁(괄호)")
     chk(latex_to_hwpeq(r"2\cdot 3") == "2 CDOT 3", "STD 곱셈점 무변경")
-    chk(latex_to_hwpeq(r"A=\{1,2,3\}") == 'A="{"1,~2,~3"}"', "STD 집합 원소 쉼표")
+    chk(latex_to_hwpeq(r"A=\{1,2,3\}") == "A= LEFT { 1,~2,~3 RIGHT }", "STD 집합 원소 쉼표·자동크기(#16·#36)")
+    # #37 여집합 대문자 C — 집합(대문자·대문자만 든 괄호) 뒤의 ^c 만. 숫자·식 지수는 그대로.
+    for src, want in ((r"(A-B^{c})\cup X=X", "(A-B^{C}) SMALLUNION X=X"),
+                      (r"n(A^c)", "n(A^{C})"),
+                      (r"(A\cap B^c)^c", "(A SMALLINTER B^{C})^{C}"),
+                      (r"3^{b}\times 5^c", "3^{b} TIMES 5^{c}"),
+                      (r"(x+1)^c", "(x+1)^{c}")):
+        got = latex_to_hwpeq(src)
+        chk(got == want, f"STD 여집합 {src!r}: {got!r}")
+    # #8 단서 (단, …) — 발문 끝에서만, 괄호가 맞게 닫힐 때만 뗀다(줄넘침 시 우측정렬 대상)
+    from core.hwp_com_writer import _split_trailing_dan
+    _d = lambda bl: [[b.value for b in part] for part in _split_trailing_dan(bl)]  # noqa: E731
+    chk(_d([_tb("값은? (단, "), _eq("a>0"), _tb(")")]) == [["값은? "], ["(단, ", "a>0", ")"]],
+        "STD 단서 분리(수식 포함)")
+    chk(_d([_tb("(단, "), _eq("a"), _tb("는 상수) 의 값은?")])[1] == [], "STD 단서가 끝이 아니면 안 뗌")
+    chk(_d([_tb("(단, a>0)")])[1] == [], "STD 단서만 있는 발문은 안 뗌")
+    chk(_d([_tb("값은? (단, "), ContentBlock(type=CT.IMAGE, value="x.png"), _tb(")")])[1] == [],
+        "STD 단서 안에 그림이 끼면 안 뗌")
+    # 합의 #6 — 평문에 남은 함수호출 f(x) + "=…" 수식 → 한 수식(강동고 수하 #8 등)
+    from core.content_parser import parse_ocr_response as _por
+    _pg = _por({"questions": [{"number": 8, "contents": [
+        {"type": "text", "value": "f(x)=\\frac{1}{x(x+2)}일 때, 값은?"}]}]}, 1)
+    _v = [(b.type.name, b.value) for b in _pg.questions[0].contents]
+    chk(_v[0] == ("EQUATION", "f(x)=\\frac{1}{x(x+2)}"), f"STD f(x) 수식 병합: {_v[:2]}")
+    _pg = _por({"questions": [{"number": 1, "contents": [
+        {"type": "text", "value": "넓이가 S(x)인 도형"}]}]}, 1)
+    chk(all(b.value != "S(x)인 도형" for b in _pg.questions[0].contents), "STD 수식 없는 문장 무영향")
     # 기준표 4번 ``<증명>`` 상자 — <보기>·<조건> 과 같은 라벨 상자(5×5 라벨 표).
     from core.hwp_com_writer import _COND_HEADER_RE as _CHR, _BOGI_LABEL_TEXT_RE as _BLR
     from core.content_parser import _RAW_BOX_MARK_RE as _RBM
@@ -714,8 +797,11 @@ def run():
     # ``A\begin{pmatrix}1\\2\end{pmatrix}`` 가 "APMATRIX" 로 붙으면 literal + 다글자
     # 대문자 오로만화(rm {APMATRIX}). sqrt(Q)·LEFT(PLEFT) 와 같은 키워드 공백 계열.
     qm = _l2h(r"A\begin{pmatrix} 1 \\ 2 \end{pmatrix}=\begin{pmatrix} k \\ 1 \end{pmatrix}")
-    chk("APMATRIX" not in qm and "A PMATRIX" in qm, f"Q2 행렬 키워드 앞 공백: {qm}")
-    chk("=PMATRIX" in qm or "= PMATRIX" in qm, f"Q2 비영숫자 앞은 공백 불요: {qm}")
+    chk("ALEFT" not in qm and "A LEFT (" in qm, f"Q2 행렬 키워드 앞 공백: {qm}")
+    chk("=LEFT (" in qm or "= LEFT (" in qm, f"Q2 비영숫자 앞은 공백 불요: {qm}")
+    # 표준 #54 행렬 = ``LEFT ( `` MATRIX {a ~~& b # …} `` RIGHT )``(괄호 안 여백 + 열 사이 두 칸)
+    chk(_l2h(r"\begin{pmatrix} 2 & 3 \\ 4 & 5 \end{pmatrix}")
+        == "LEFT ( `` MATRIX {2 ~~& 3 # 4 ~~& 5} `` RIGHT )", "STD 행렬 표준 표기")
 
     # ── R5: 선택지 2열 판정 = 시각 글리프 근사 — 중앙중 #1·#2·#3 (2026-06-11) ──
     # LaTeX 원문 길이는 근호·분수 명령어가 부풀어 짧은 보기(√30×√6=□√5)를 1열로 강등.

@@ -522,6 +522,46 @@ def _split_trailing_score(blocks: list[ContentBlock]):
     return blocks, None
 
 
+# 발문 끝 단서 ``(단, …)`` — 대수회 작업 규정 표준 #8(사용자 2026-10-26 "표준에 전부 맞출 것"):
+# "(단,~ 을 포함한 식 또는 문장)이 단독으로 그 줄을 넘어갈 때에는 엔터로 내려 오른쪽 정렬".
+_DAN_RE = re.compile(r"\(\s*단\s*[,，]")
+
+
+def _split_trailing_dan(blocks: list[ContentBlock]):
+    """발문(또는 상자 뒤 발문) 끝의 ``(단, …)`` 단서를 떼어 낸다 → (앞 블록, 단서 블록).
+
+    단서는 마지막 ``(단,`` 부터 끝까지가 **괄호가 맞게 닫히고 ``)`` 로 끝날 때만**(뒤에 다른
+    문장이 이어지면 단서가 아니라 발문 중간). 단서 안에는 글·수식만(그림·표·블록수식이 끼면 안 뗀다).
+    없으면 (blocks, []). 앞 블록이 비면 떼지 않는다(단서만 있는 발문).
+    """
+    import dataclasses
+    k = m = None
+    for i in range(len(blocks) - 1, -1, -1):
+        b = blocks[i]
+        if b.type == ContentType.TEXT and b.value and _DAN_RE.search(b.value):
+            k, m = i, list(_DAN_RE.finditer(b.value))[-1]
+            break
+        if b.type not in (ContentType.TEXT, ContentType.EQUATION):
+            return blocks, []
+    if k is None:
+        return blocks, []
+    b = blocks[k]
+    dan = [dataclasses.replace(b, value=b.value[m.start():])] + list(blocks[k + 1:])
+    flat = "".join((x.value or "") if x.type == ContentType.TEXT else "§" for x in dan).rstrip()
+    depth = 0
+    for ch in flat:
+        depth += (ch == "(") - (ch == ")")
+        if depth < 0:
+            return blocks, []
+    if depth or not flat.endswith(")"):
+        return blocks, []
+    before = b.value[:m.start()]
+    main = list(blocks[:k]) + ([dataclasses.replace(b, value=before)] if before else [])
+    if not any(x.type != ContentType.TEXT or (x.value or "").strip() for x in main):
+        return blocks, []
+    return main, dan
+
+
 _TEX_CMD_RE = re.compile(r"\\[a-zA-Z]+")
 
 
@@ -980,6 +1020,7 @@ class HwpComWriter:
             self._write_condition_box(post)
             ended_box = True
         else:
+            post, dan = _split_trailing_dan(post)  # 끝 단서 (단, …) 는 줄넘침 시 우측정렬(표준 #8)
             for bi, b in enumerate(post):         # 박스 뒤 발문 연속 — 박스 밖, 새 줄에 이어서
                 if ended_box:
                     self.s.break_para()
@@ -989,11 +1030,20 @@ class HwpComWriter:
                     # post 발문은 일반 본문 — 박스/폼 템플릿의 볼드 상속 차단(#20, 2026-06-09).
                     self.s.set_char_shape(pt=self.s.base_pt, bold=False)
                 self._write_block(b)
+            if dan:
+                self._write_dan_inline_or_right(dan)
         return ended_box
 
     # ── 문제 ──────────────────────────────────────────────
     def _write_question(self, question: Question, top_level: bool = True,
-                        trailing_gap: bool = True) -> None:
+                        trailing_gap: bool = True, sub_index: int = 0) -> None:
+        if not top_level:
+            # 소문항 — OCR 이 본문 앞에 남긴 (1)·1.·⑴ 마커를 뗀다(우리 마커와 중복 방지, 폼 경로와
+            # 같은 함수). 원본 객체는 건드리지 않는다(같은 문서를 다시 렌더할 수 있다).
+            import dataclasses
+            from core.hwp_form_writer import _strip_leading_submarker
+            question = dataclasses.replace(question,
+                                           contents=_strip_leading_submarker(question.contents))
         is_essay = not question.choices
         has_subs = bool(question.sub_questions)
         # 소문항이 **개별 배점**을 가질 때만 부모 배점이 '총점'("[총 N점]", 강동중). 배점 없는
@@ -1037,7 +1087,10 @@ class HwpComWriter:
                 self.s.text(f"{question.number}. ")
                 self.s.set_char_shape(self.s.base_pt, bold=False)
             else:
-                self.s.text(f"{question.number}. ")
+                # 소문항 마커 = 문자표 괄호숫자 ⑴⑵…(대수회 작업 규정 표준 #11, 2026-10-26). 종전엔
+                # "1. " 을 찍고 OCR 의 "(1)" 이 그대로 남아 "1. (1) …" 이중 번호였다.
+                k = sub_index or (question.number if isinstance(question.number, int) else 0)
+                self.s.text((chr(0x2474 + k - 1) if 1 <= k <= 20 else f"({k})") + " ")
 
         # 발문 / 뒤 영역(조건·표·그림·블록수식) 경계(A2/A3). 배점은 '발문 끝'(경계 앞)에 둔다.
         tail_start = _tail_start(question.contents)
@@ -1062,6 +1115,8 @@ class HwpComWriter:
         defer_score = (show_score and bool(tail_post)
                        and not _post_is_box(tail_post) and _post_has_stem(tail_post))
 
+        # 발문 끝 단서 ``(단, …)`` 는 따로 — 줄을 넘기면 줄바꿈 후 우측정렬(표준 #8).
+        stem, dan = _split_trailing_dan(stem)
         # 발문 — 첫 블록은 인라인(번호와 같은 줄), 발문 선두 수식 줄바꿈 방지(A7).
         # 발문 중간 독립 블록수식(EQUATION_BLOCK) 뒤 발문 연속은 좌측 새 줄로 복귀(#19).
         prev_t = None
@@ -1079,13 +1134,12 @@ class HwpComWriter:
         if prev_t == ContentType.EQUATION_BLOCK:   # 발문이 블록수식으로 끝남 → 배점 전 좌측복귀
             self.s.break_para()
             self.s.align_left()
-        # 배점 — 객관식은 발문 끝 인라인. 서술형은 발문 끝 인라인 시도 후 줄 넘치면 우측정렬
-        # (사용자 2026-06-09: 공간 충분하면 인라인, 없을 때만 줄바꿈 우측정렬).
+        if dan:
+            self._write_dan_inline_or_right(dan)
+        # 배점 — 발문 끝 인라인 시도 후 줄 넘치면 줄바꿈 우측정렬(서술형·객관식 공통 — 폼 경로
+        # `_put_score` 와 동일. 사용자 2026-06-09 + 표준 #8).
         if show_score and not defer_score:
-            if is_essay:
-                self._write_score_inline_or_right(question.score)
-            else:
-                self._write_score(question.score)
+            self._write_score_inline_or_right(question.score, essay=is_essay)
         elif has_subs and total_num:
             # 소문항 부모 총점 "[총 N점]": 발문 끝 인라인 우선, 줄 넘치면 우측정렬(N 은 수식).
             self._write_total_score_inline_or_right(total_num)
@@ -1095,10 +1149,7 @@ class HwpComWriter:
             # 박스 뒤 발문 연속이 있던 문항: 미뤘던 배점을 여기서 — 서술형은 인라인 시도 후
             # 넘치면 우측정렬, 객관식은 발문(post) 끝 인라인(합의 #2).
             if defer_score:
-                if is_essay:
-                    self._write_score_inline_or_right(question.score)
-                else:
-                    self._write_score(question.score)
+                self._write_score_inline_or_right(question.score, essay=is_essay)
                 ended_box = False
             # 박스(표) 뒤 트레일링 단락이 이미 새 줄 → 선택지 사이 빈 줄 없음(사용자 2026-06-04).
             # 박스로 안 끝났으면(그림/블록수식) 선택지 전에 좌측 새 줄 확보.
@@ -1107,6 +1158,7 @@ class HwpComWriter:
                 self.s.align_left()
         else:
             self.s.break_para()
+            self.s.align_left()     # 단서·배점이 우측정렬 줄로 갔어도 다음 줄(선택지·소문항)은 좌측
 
         # 보기 — 길이에 따라 1~5단 배치(짧으면 여러 단을 한 줄에, 길면 한 줄당 하나)
         if question.choices:
@@ -1127,7 +1179,8 @@ class HwpComWriter:
         _subs = question.sub_questions
         for _si, sub in enumerate(_subs):
             self._write_question(sub, top_level=False,
-                                 trailing_gap=(trailing_gap or _si < len(_subs) - 1))
+                                 trailing_gap=(trailing_gap or _si < len(_subs) - 1),
+                                 sub_index=_si + 1)
 
         # 서술형 '풀이)' 답안 공간은 넣지 않는다(사용자 요구 2026-06-02): 배점에서 끝낸다.
 
@@ -1159,9 +1212,66 @@ class HwpComWriter:
         self.s.equation(score_str(score))
         self.s.text("점]")
 
-    def _write_score_inline_or_right(self, score: int) -> None:
-        """서술형 배점 — **발문 끝 인라인 우선, 줄 넘치면 줄바꿈 후 우측정렬**(폼 경로
+    def _write_dan_inline_or_right(self, dan: list[ContentBlock], write=None) -> bool:
+        """발문 끝 단서 ``(단, …)`` — 인라인 우선, **단서가 줄을 넘기면 줄바꿈 후 우측정렬**
+        (대수회 작업 규정 표준 #8, 사용자 2026-10-26). 배점과 같은 판정(``KeyIndicator()[5]``).
+
+        단서만으로도 한 줄을 넘는 긴 단서는 옮겨도 소용없으니 원래대로 인라인으로 되돌린다.
+        ``write``: 블록 쓰기 함수(기본 `_write_block`, 폼 경로는 `_put_block`).
+        Returns: 우측정렬 줄로 옮겼으면 True(현재 문단이 우측정렬 — 배점은 그 뒤에 붙는다).
+        """
+        h = self.s.hwp
+        write = write or self._write_block
+
+        def line():
+            try:
+                return h.KeyIndicator()[5]
+            except Exception:
+                return -1
+
+        sp, la = h.GetPos(), line()
+        for b in dan:
+            write(b)
+        ep, lb = h.GetPos(), line()
+        if not (la >= 0 and lb > la):
+            return False
+        end = self._break_run_right(sp, ep, lead_space=False)
+        h.SetPos(end[0], end[1], 0)
+        l2 = line()
+        h.SetPos(end[0], end[1], end[2])
+        if l2 >= 0 and line() > l2:          # 단서 혼자서도 한 줄을 넘는다 — 되돌린다
+            h.SetPos(end[0], end[1], 0)
+            h.Run("DeleteBack")               # 나눈 줄을 되붙인다(앞 문단 모양 = 좌측 그대로)
+            h.SetPos(ep[0], ep[1], ep[2])
+            return False
+        return True
+
+    def _break_run_right(self, sp, ep, lead_space: bool):
+        """방금 쓴 런(sp→ep, 같은 문단)을 그 앞에서 줄을 나눠 **우측정렬 새 줄**로 보낸다.
+
+        지우고 다시 쓰지 않는다 — 기본 경로에서 지운 자리에 새로 쓴 글이 문단 기본 글꼴(고딕)로
+        바뀌었다(2026-10-26 강동고 수하 #4·#7 실측). 런을 그대로 옮기므로 글자모양·수식이
+        보존되고, 지우는 범위도 없다(강동중 #20 정답 앵커 삼킴과 무관 — `MoveSelParaEnd` 금지 유지).
+        ``lead_space``: 런 머리 공백(" [") 한 글자를 지운다. Returns: 옮긴 런 끝 위치.
+        """
+        h = self.s.hwp
+        h.SetPos(sp[0], sp[1], sp[2])
+        h.Run("BreakPara")
+        self.s.align_right()
+        n = ep[2] - sp[2]
+        if lead_space:
+            h.Run("Delete")
+            n -= 1
+        end = (sp[0], sp[1] + 1, max(n, 0))
+        h.SetPos(end[0], end[1], end[2])
+        return end
+
+    def _write_score_inline_or_right(self, score: int, essay: bool = True) -> None:
+        """배점 — **발문 끝 인라인 우선, 줄 넘치면 줄바꿈 후 우측정렬**(폼 경로
         `_put_score` 와 동일, 사용자 2026-06-09: 공간 충분하면 인라인, 없을 때만 우측정렬).
+        객관식도 같다(표준 #8 "배점만 줄이 바뀌면 엔터로 내려 오른쪽 정렬" — 폼 경로는 이미
+        객관식도 이 방식, 2026-10-26 기본 경로도 맞춤). 객관식은 폴백 뒤 좌측 복귀를 하지
+        않는다(선택지 앞 줄바꿈이 뒤따르며 좌측으로 돌린다).
 
         줄 넘침은 인라인 입력 전후 ``KeyIndicator()[5]``(줄) 비교로 결정적으로 판정한다.
         """
@@ -1176,20 +1286,16 @@ class HwpComWriter:
         sp = h.GetPos()
         la = line()
         self._write_score(score, leading_space=True)
-        ep = h.GetPos()         # 삽입 끝(정확한 span 삭제용)
+        ep = h.GetPos()         # 삽입 끝
         lb = line()
         if la >= 0 and lb > la:
-            # 인라인이 줄을 넘김 = 공간 부족 → 지우고 줄바꿈 후 우측정렬.
-            # ⚠️ 삽입분(sp→ep)만 선택-삭제 — MoveSelParaEnd 는 캐럿 뒤 같은 단락의
-            # 다른 내용까지 삼킨다(폼 정답 단락 침범 시 정답 페이지 증발, 2026-06-10).
-            h.SetPos(sp[0], sp[1], sp[2])
-            h.SelectText(sp[1], sp[2], ep[1], ep[2])
-            h.HAction.Run("Delete")
-            h.Run("BreakPara")
-            self.s.align_right()
-            self._write_score(score, leading_space=False)
-            self.s.break_para()
-            self.s.align_left()
+            # 인라인이 줄을 넘김 = 공간 부족 → 배점 런을 줄바꿈해 우측정렬 새 줄로 보낸다
+            # (``_break_run_right`` — 지우고 다시 쓰면 글꼴이 바뀌었다; leading_space=False 효과는
+            # 런 머리 공백 한 글자 삭제로). ⚠️ MoveSelParaEnd 금지(강동중 정답 페이지 증발, 2026-06-10).
+            self._break_run_right(sp, ep, lead_space=True)
+            if essay:
+                self.s.break_para()
+                self.s.align_left()
 
     def _write_total_score_inline_or_right(self, num: int) -> None:
         """소문항 부모 총점 "[총 N점]" — 발문 끝 인라인 우선, 줄 넘치면 줄바꿈 후 우측정렬
@@ -1210,16 +1316,11 @@ class HwpComWriter:
         sp = h.GetPos()
         la = line()
         put_inline(leading_space=True)
-        ep = h.GetPos()         # 삽입 끝(정확한 span 삭제용)
+        ep = h.GetPos()         # 삽입 끝
         lb = line()
         if la >= 0 and lb > la:
-            # ⚠️ 삽입분(sp→ep)만 선택-삭제(위 _write_score_inline_or_right 와 동일 함정).
-            h.SetPos(sp[0], sp[1], sp[2])
-            h.SelectText(sp[1], sp[2], ep[1], ep[2])
-            h.HAction.Run("Delete")
-            h.Run("BreakPara")
-            self.s.align_right()
-            put_inline(leading_space=False)
+            # 총점 런을 줄바꿈해 우측정렬 새 줄로(위 배점과 같은 `_break_run_right` — 글꼴 보존).
+            self._break_run_right(sp, ep, lead_space=True)
             self.s.break_para()
             self.s.align_left()
 
@@ -2864,6 +2965,11 @@ def write_exam_to_hwp(
         _inject_table_shading(output_path)
     except Exception as e:  # noqa: BLE001
         logger.warning("HWPX 후처리 실패(_inject_table_shading): %s", e)
+    # 표 선 굵기 — 상자·일반 표 0.3mm, 확률분포표·표준정규분포표는 기준표 양식(표준 #53·#45·#46).
+    try:
+        _apply_table_border_widths(output_path)
+    except Exception as e:  # noqa: BLE001
+        logger.warning("HWPX 후처리 실패(_apply_table_border_widths): %s", e)
     # 줄기-잎 표 열너비 줄기:잎=1:3 강제(TableCreate 가 균등 재배분하는 것 보정).
     try:
         _fix_stemleaf_colwidth(output_path)
@@ -3318,7 +3424,9 @@ def _shade_target_mode(tbl_xml: str) -> str | None:
     # 확률분포표는 **확률 표기 P(X…) 가 있는** 표만. 2행×다열 모양만으로 음영하면 정비례
     # x/y 표까지 1열 음영되는 오탐(월서중 #21 — 완료본 무음영, 2026-06-11. z-표 LEQ 시그니처
     # 와 같은 결함 계열).
-    is_dist = bool(re.search(r"P\s*\(\s*[A-Z]", tbl_xml))
+    # ⚠️ 확률 P 를 정자로 쓰면서(표준 #38, 2026-10-26) 스크립트가 ``rm P it (X=x)`` 가 됐다 —
+    # ``P(`` 사이에 ``it``·``LEFT`` 가 끼어도 잡는다.
+    is_dist = bool(re.search(r"P\s*(?:it\s*)?(?:LEFT\s*)?\(\s*(?:it\s*)?[A-Z]", tbl_xml))
     if nrow == 2 and ncol >= 3 and is_dist:
         return "row0col0"                 # 확률분포표(첫 행 + 첫 열)
     return None
@@ -3418,6 +3526,145 @@ def _inject_table_shading(hwpx_path: str | Path) -> int:
     contents[header_fn] = header.encode("utf-8")
     _rewrite_zip(hwpx_path, infos, contents)
     return total
+
+
+# 대수회 기준표(2024)·작업 규정 표준(26.03.12) 표 선 굵기(사용자 2026-10-26 "표준에 전부 맞출 것"):
+#   - 상자(1×1)와 기준표에 없는 표(#53 "기준표에 있는 표 외 표작업을 할 경우 선의 굵기는 0.3") → 0.3mm
+#   - 확률분포표·표준정규분포표(#45·#46 "주어진 양식 사용") → 기준표 양식: 위·아래 바깥 0.3mm,
+#     양옆 바깥 없음, 안쪽 0.12mm
+# ⚠️ 2026-08 완료본(오성중 중3)은 데이터 표를 0.12mm 로 그렸다 — 표준 문구를 따랐다. 되돌리려면
+#    `_TABLE_LINE` 하나만 바꾸면 된다.
+_TABLE_LINE = "0.3 mm"
+_TABLE_INNER = "0.12 mm"
+_BORDER_SIDES = ("left", "right", "top", "bottom")
+
+
+def _apply_table_border_widths(hwpx_path: str | Path) -> int:
+    """우리가 만든 표(모든 셀이 COM 기본 0.12mm 실선)의 선 굵기를 기준표·표준에 맞춘다.
+
+    폼·기준표에서 온 표(보기 5×5·머리말 배너 등)는 셀 테두리가 0.12 실선 일색이 아니라 건드리지
+    않는다. 음영(`_inject_table_shading`)·보기 폼 치환 **뒤**에 부른다. 표 안의 표도 처리한다.
+    Returns: 바꾼 표 수.
+    """
+    import zipfile
+    hwpx_path = Path(hwpx_path)
+    with zipfile.ZipFile(hwpx_path) as z:
+        infos = z.infolist()
+        contents = {i.filename: z.read(i.filename) for i in infos}
+    header_fn = next((f for f in contents if f.endswith("header.xml")), None)
+    if header_fn is None:
+        return 0
+    st = {"header": contents[header_fn].decode("utf-8"), "n": 0}
+    bfs = {m.group(1): m.group(0) for m in
+           re.finditer(r'<hh:borderFill\b[^>]*\bid="(\d+)".*?</hh:borderFill>', st["header"], re.S)}
+    cache: dict = {}
+
+    def sides_of(bf_xml: str) -> dict:
+        return {s: (t, w) for s, t, w in re.findall(
+            r'<hh:(left|right|top|bottom)Border\b[^>]*\btype="(\w+)"[^>]*\bwidth="([^"]+)"', bf_xml)}
+
+    def plain_grid(ref: str) -> bool:
+        sd = sides_of(bfs.get(ref, ""))
+        return len(sd) == 4 and all(v == ("SOLID", _TABLE_INNER) for v in sd.values())
+
+    def bf_with(ref: str, want: dict) -> str:
+        key = (ref, tuple(sorted(want.items())))
+        if key in cache:
+            return cache[key]
+        new = bfs[ref]
+        for side, (t, w) in want.items():
+            new = re.sub(r'(<hh:%sBorder\b[^>]*\btype=")[^"]*(")' % side,
+                         lambda m: m.group(1) + t + m.group(2), new, count=1)
+            new = re.sub(r'(<hh:%sBorder\b[^>]*\bwidth=")[^"]*(")' % side,
+                         lambda m: m.group(1) + w + m.group(2), new, count=1)
+        id_map, st["header"] = _append_borderfills(
+            st["header"], {0: re.sub(r'(<hh:borderFill\b[^>]*\bid=")\d+(")', r"\g<1>{{BF0}}\2", new, count=1)},
+            [0])
+        nid = str(id_map[0])
+        bfs[nid] = re.sub(r'(<hh:borderFill\b[^>]*\bid=")\d+(")', lambda m: m.group(1) + nid + m.group(2),
+                          new, count=1)
+        cache[key] = nid
+        return nid
+
+    def cells_of(tbl: str) -> list:
+        out, p = [], 0
+        while True:
+            i = tbl.find("<hp:tc", p)
+            if i < 0:
+                return out
+            cell, end = _tbl_balanced(tbl, i, "hp:tc")
+            if end < 0:
+                return out
+            out.append((i, end, cell))
+            p = end
+
+    def fix_tables(s: str) -> str:
+        out, last, p = [], 0, 0
+        while True:
+            m = re.search(r"<hp:tbl\b", s[p:])
+            if not m:
+                break
+            ts = p + m.start()
+            tbl, te = _tbl_balanced(s, ts, "hp:tbl")
+            if te < 0:
+                break
+            out.append(s[last:ts])
+            out.append(fix_tbl(tbl))
+            last = p = te
+        out.append(s[last:])
+        return "".join(out)
+
+    def fix_tbl(tbl: str) -> str:
+        cells = cells_of(tbl)
+        refs = [re.search(r'<hp:tc\b[^>]*\bborderFillIDRef="(\d+)"', c).group(1)
+                if re.search(r'<hp:tc\b[^>]*\bborderFillIDRef="(\d+)"', c) else None for _, _, c in cells]
+        ours = bool(cells) and all(r is not None and plain_grid(r) for r in refs)
+        rm = re.search(r'<hp:tbl\b[^>]*\browCnt="(\d+)"', tbl)
+        cm = re.search(r'<hp:tbl\b[^>]*\bcolCnt="(\d+)"', tbl)
+        nrow, ncol = (int(rm.group(1)), int(cm.group(1))) if rm and cm else (1, 1)
+        form = _shade_target_mode(tbl) if ours else None
+        out, p = [], 0
+        for (i, end, cell), ref in zip(cells, refs):
+            out.append(tbl[p:i])
+            tag_end = cell.find(">") + 1
+            head, body = cell[:tag_end], fix_tables(cell[tag_end:])   # 표 안의 표
+            if ours:
+                own = body[body.rfind("</hp:subList>"):]       # 셀 주소는 내용 뒤(안쪽 표 것 말고)
+                a = re.search(r'<hp:cellAddr colAddr="(\d+)" rowAddr="(\d+)"', own)
+                sp = re.search(r'<hp:cellSpan colSpan="(\d+)" rowSpan="(\d+)"', own)
+                c, r = (int(a.group(1)), int(a.group(2))) if a else (0, 0)
+                cs, rs = (int(sp.group(1)), int(sp.group(2))) if sp else (1, 1)
+                if form:   # 확률분포표·표준정규분포표 — 기준표 양식
+                    want = {
+                        "left": ("NONE", _TABLE_INNER) if c == 0 else ("SOLID", _TABLE_INNER),
+                        "right": ("NONE", _TABLE_INNER) if c + cs >= ncol else ("SOLID", _TABLE_INNER),
+                        "top": ("SOLID", _TABLE_LINE if r == 0 else _TABLE_INNER),
+                        "bottom": ("SOLID", _TABLE_LINE if r + rs >= nrow else _TABLE_INNER),
+                    }
+                else:
+                    want = {s: ("SOLID", _TABLE_LINE) for s in _BORDER_SIDES}
+                nid = bf_with(ref, want)
+                head = re.sub(r'(\bborderFillIDRef=")\d+(")', lambda m: m.group(1) + nid + m.group(2),
+                              head, count=1)
+            out.append(head + body)
+            p = end
+        out.append(tbl[p:])
+        if ours:
+            st["n"] += 1
+        return "".join(out)
+
+    for fn in list(contents):
+        if not re.search(r"section\d+\.xml$", fn):
+            continue
+        s = contents[fn].decode("utf-8")
+        new = fix_tables(s)
+        if new != s:
+            contents[fn] = new.encode("utf-8")
+    if not st["n"]:
+        return 0
+    contents[header_fn] = st["header"].encode("utf-8")
+    _rewrite_zip(hwpx_path, infos, contents)
+    return st["n"]
 
 
 def _append_borderfills(header: str, defs: dict, keys: list) -> tuple[dict, str]:

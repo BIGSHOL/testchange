@@ -62,6 +62,10 @@ class Question:
     # forward-split 으로 equation 블록 분리). 빈 리스트면 그 문항은 정답페이지에서 생략.
     answer: list[list[ContentBlock]] = field(default_factory=list)
     solution: list[list[ContentBlock]] = field(default_factory=list)
+    # 열 머리가 있는 선택지(``① (가) 1, (나) 2, (다) 3`` 꼴)의 머리 목록(["(가)","(나)","(다)"]).
+    # 있으면 선택지 내용은 값 사이를 TEXT ``"\t"`` 로 나눈 꼴이고, 렌더러가 머리 줄 + 열 맞춤
+    # 탭으로 표처럼 낸다(대수회 기준표 12번, 사용자 2026-10-26). 빈 리스트면 종전 선택지.
+    choice_cols: list[str] = field(default_factory=list)
 
 
 @dataclass

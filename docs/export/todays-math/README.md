@@ -23,6 +23,7 @@
 | 기출 도형 작도법 | — | `02-기출-도형-작도법.md` |
 | 한글화 노하우 전체(OCR·조판·정답·게이트·운영) | — | `03-한글화-노하우-전체.md` |
 | ⭐ 단원 분류표 새 판(큰분류ver.261020, 2026-10-26 추가) | 같은 모듈 없음 — 단원명은 문서·스킬에 손으로 | `04-단원분류표-261020.md` + `drop-in/topic-vocab/`(JSON·조회 모듈·생성 스크립트·테스트). 대수회 작업 규정 표준과 다른 9곳 목록 포함 |
+| ⭐ 대수회 작업 규정 표준(26.03.12)·기준표 맞춤(2026-10-26 추가) | 확률 P·여집합·행렬·집합 중괄호 등이 표준과 다름 | `05-작업규정표준-맞춤.md` + 패치 03(수식 변환기, 02 위에). 04 의 "다른 9곳"은 이걸로 해소. 조판 규칙(배점·단서 우측정렬·`⑴`·표 선 굵기)과 HWPX 함정 3개 |
 
 표시: ★ 바로 쓸 것 · ◆ 맞춰 보고 쓸 것 · ○ 참고(우리 사정에 묶인 것) · ✕ 해당 없음(한글 COM 등)
 
@@ -32,6 +33,7 @@
 # todays-math 루트에서 — 둘 다 2026-10-21 실저장소에서 git apply --check 통과
 git apply "D:/시험지 한글화/docs/export/todays-math/patches/01-figure-engine.patch"
 git apply "D:/시험지 한글화/docs/export/todays-math/patches/02-latex-to-hwpeq.patch"
+git apply "D:/시험지 한글화/docs/export/todays-math/patches/03-latex-to-hwpeq-std.patch"   # 02 다음(2026-10-26)
 # 또는 drop-in/ 아래 파일을 같은 경로로 복사(파일이 그새 바뀌었으면 패치 쪽이 안전)
 ```
 
@@ -57,6 +59,7 @@ README.md                      ← 이 문서
 02-기출-도형-작도법.md           ← 세션 변환에서 그림을 그리는 법 전부(★)
 03-한글화-노하우-전체.md         ← 파이프라인 단계별 노하우 카탈로그(적용성 표시)
 04-단원분류표-261020.md         ← 단원 분류표 새 판·레벨 규칙·엔진 변경·작업 규정 표준 대조(2026-10-26)
+05-작업규정표준-맞춤.md          ← 표준 55항목·기준표에 맞춘 엔진 변경 + HWPX 함정(2026-10-26, 패치 03)
 drop-in/topic-vocab/            ← topic_vocab.json·topic_vocab.py·build_topic_vocab.py·test_topic_vocab.py
 patches/01-figure-engine.patch  ← vendor/figure-engine/core: figure_svg·figure_quality 수정 + 새 2파일
 patches/02-latex-to-hwpeq.patch ← vendor/hwpx/latex_to_hwpeq.py

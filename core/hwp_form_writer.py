@@ -42,8 +42,8 @@ from .hwp_com_writer import (HwpComWriter, _BOX_BREAK_RE, _BULLET_RE,
                              _caption_run_back, _caption_spans, _choice_complexity,
                              _COND_HEADER_RE, _condition_start, _has_box_markup,
                              _is_circled_item_start, _post_has_stem, _post_is_box,
-                             _split_tail_post, _split_trailing_score, _tail_start,
-                             score_str)
+                             _split_tail_post, _split_trailing_dan, _split_trailing_score,
+                             _tail_start, score_str)
 from .latex_to_hwpeq import latex_to_hwpeq
 from models.exam_document import (ContentBlock, ContentType, ExamDocument,
                                    Question, reorder_questions_by_number)
@@ -52,6 +52,10 @@ from models.exam_document import (ContentBlock, ContentType, ExamDocument,
 PER_COL = 3          # 한 단에 들어갈 문항 수(최대) — 페이지당 2단 = 6문항
 CAP = 46             # 한 단의 줄 용량(채움 목표; 실측 ~42 + 헤더 오프셋 여유)
 LONG_CHOICE_LEN = 15 # 짝 보기(①②③④) 최대 길이 ≥ 이 값이면 1열 배치
+# 열 머리 선택지 머리 줄 표지 — 저장 뒤 `_apply_choice_column_tabs` 가 찾아 지운다.
+_CHOICE_COL_TOKEN = "⟦CC⟧"
+# 머리 줄이 들어갈 ① 줄 자리 표시 — 채움 중 발문을 다 쓴 뒤 머리 줄로 바뀐다(남지 않는다).
+_CHOICE_HEAD_MARK = "⟦CH⟧"
 CHARS_PER_LINE = 18  # 줄 수 추정용(현재 미사용 — 측정값 우선)
 CIRCLES = ["①", "②", "③", "④", "⑤"]
 ESSAY_SUB_BLANKS = 3   # 서술형 소문항마다 답안 공간(빈 줄 수)
@@ -521,9 +525,20 @@ def _put_tail(ses, h, blocks) -> None:
         # (기본 경로와 동일). 핵심 박스 뒤 단락시작이라 빈 줄 없이 이어 붙는다.
         w._write_condition_box(post)
     else:
+        post, dan = _split_trailing_dan(post)      # 끝 단서 (단, …) — 줄넘침 시 우측정렬(표준 #8)
         for bi, b in enumerate(post):              # 박스 뒤 발문 연속 — 박스 밖, 새 줄에 이어서
             if box:
+                # 표 탈출(`SetPos(para+1)`) 캐럿이 **내용 있는 다음 문단** 머리(슬롯에 빈 줄이
+                # 없으면 ① 선택지 줄)에 떨어지면, 거기서 줄을 나눠도 캐럿은 그 내용 앞에 남아
+                # 발문 연속이 ① 줄에 붙었다("…짝지은 것은? [5점]① (가) …", 산격중 #17,
+                # 2026-10-26). 그 경우 새로 생긴 위 빈 문단으로 올라가 쓴다.
+                p0 = h.GetPos()
+                h.Run("MoveParaEnd")
+                landed_on_text = h.GetPos()[2] > p0[2]
+                h.SetPos(p0[0], p0[1], p0[2])
                 ses.break_para()
+                if landed_on_text:
+                    h.Run("MoveLeft")
                 ses.align_left()
                 box = []
             if bi == 0:
@@ -536,6 +551,14 @@ def _put_tail(ses, h, blocks) -> None:
                 _place_figure(ses, h, b.value)
             else:
                 w._write_block(b)
+        if dan:
+            w._write_dan_inline_or_right(dan)
+
+
+def _put_dan(ses, h, dan) -> bool:
+    """발문 끝 단서 ``(단, …)`` — 인라인 우선, 줄을 넘기면 줄바꿈 후 우측정렬(표준 #8).
+    기본 경로와 같은 코드(`HwpComWriter._write_dan_inline_or_right`)에 폼의 블록 쓰기만 넘긴다."""
+    return HwpComWriter(ses)._write_dan_inline_or_right(dan, write=lambda b: _put_block(ses, b))
 
 
 def _put_qbody(ses, h, contents, score, essay: bool = False) -> None:
@@ -549,6 +572,7 @@ def _put_qbody(ses, h, contents, score, essay: bool = False) -> None:
     ts = _tail_start(contents)
     head = contents if ts is None else contents[:ts]
     tail = [] if ts is None else contents[ts:]
+    head, dan = _split_trailing_dan(head)      # 끝 단서 (단, …) — 줄넘침 시 우측정렬(표준 #8)
     # 발문 중간 독립 블록수식(EQUATION_BLOCK)은 가운데 별도줄, 그 **뒤 발문 연속은 좌측 새
     # 줄**로 복귀해야 한다(중앙고 #19 "…다음과 같다. [블록수식] 이때 …"). _put_block 이
     # 블록수식을 break+center 하므로, 직후 비-블록수식 블록 전에 좌측복귀를 끼운다(기본 경로
@@ -568,6 +592,8 @@ def _put_qbody(ses, h, contents, score, essay: bool = False) -> None:
     if prev_t == ContentType.EQUATION_BLOCK:   # 발문이 블록수식으로 끝남 → 배점 전 좌측복귀
         ses.break_para()
         ses.align_left()
+    if dan:
+        _put_dan(ses, h, dan)
     # 박스 뒤 발문 연속(#18·#20)이 있으면 배점은 그 뒤로 미룬다(기본 경로와 동일).
     # 객관식도 — 원본 인쇄는 의문문(post) 끝 "…것은? [4점]"(장산중 #5, 2026-06-11).
     # 단 post 가 또 다른 박스(<조건> 등, #16)거나 그림/그림노트뿐(경일중 #19)이면
@@ -713,7 +739,11 @@ def _strip_leading_submarker(contents):
             and _SUBMARK_RE.fullmatch((c[0].value or "").strip())
             and not _is_ref_not_submarker((c[0].value or "").strip(),
                                           (txt(c[1]) if len(c) >= 2 else "") or "")):
-        return c[1:]
+        rest = c[1:]
+        nxt = txt(rest[0]) if rest else None
+        if nxt is not None and nxt[:1].isspace():      # 마커 뒤 공백 — 우리 마커 뒤 공백과 겹친다
+            rest = ([_blk(ContentType.TEXT, nxt.lstrip())] if nxt.strip() else []) + rest[1:]
+        return rest
 
     return contents
 
@@ -985,8 +1015,11 @@ def _fill_essay_at(ses, h, pos, q: Question, label_idx: int, next_pos=None,
         # 배점 없는 단순 항목((1)(2)(3) 조건 나열, 상인고 #21)이면 부모 배점은 그 문제
         # 전체 배점이므로 평문 "[N점]"(완료본 일치). 기본 경로(_write_question)와 동일.
         subs_have_scores = any(getattr(s, "score", 0) for s in q.sub_questions)
+        head, dan = _split_trailing_dan(head)  # 끝 단서 (단, …) — 줄넘침 시 우측정렬(표준 #8)
         for b in head:
             _put_block(ses, b)
+        if dan:
+            _put_dan(ses, h, dan)
         if total:
             if subs_have_scores:
                 _put_total_score(ses, h, total)
@@ -1038,7 +1071,12 @@ def _choice_len(choice) -> int:
 
 
 def _is_long_choices(q: Question) -> bool:
-    """2열로 짝짓는 ①②③④ 중 하나라도 길면 1열 배치(⑤는 3행에 홀로)."""
+    """2열로 짝짓는 ①②③④ 중 하나라도 길면 1열 배치(⑤는 3행에 홀로).
+
+    열 머리 선택지(``choice_cols``)는 항상 1열 — 줄마다 열을 맞춘다(대수회 기준표 12번).
+    """
+    if getattr(q, "choice_cols", None):
+        return True
     paired = sorted(q.choices, key=lambda c: c.number)[:4]
     return any(_choice_len(c) >= LONG_CHOICE_LEN for c in paired)
 
@@ -1078,12 +1116,40 @@ def _fill_form(mc: list[Question], essays: list[Question], form_path, out_path,
             except Exception:
                 return -1
 
-        def put_choice_at(pos, choice):
+        def put_choice_at(pos, choice, cols=None):
             h.SetPos(pos[0], pos[1], pos[2])
             _set_plain(h)
-            ses.text(" ")
+            ses.text("\t" if cols else " ")
             for b in choice.contents:
+                if cols and b.type == ContentType.TEXT and b.value == "\t":
+                    ses.text("\t")             # 열 사이(값 사이) 탭
+                    continue
                 _put_block(ses, b, in_choice=True)
+            if cols and choice.number == 1:
+                # 머리 줄 자리만 표시한다 — 머리 줄은 발문을 다 쓴 **뒤** `put_choice_head` 가
+                # 넣는다. 먼저 넣으면 발문 쓰기(상자 표 탈출 `SetPos(para+1)`·배점 줄넘침 폴백)의
+                # 캐럿이 그 새 문단에 떨어져, 상자 뒤 발문이 머리 줄에 붙고(산격중 #17) 뒤 문항이
+                # 통째로 사라졌다(대구일중 #11 — 12번 이후 증발, 2026-10-26).
+                h.Run("MoveParaBegin")
+                ses.text(_CHOICE_HEAD_MARK)
+
+        def put_choice_head(cols):
+            """① 줄 자리 표시를 머리 줄 "⟦CC⟧\\t(가)\\t(나)…" 로 바꿔 ① 줄 **위**에 둔다.
+            저장 뒤 `_apply_choice_column_tabs` 가 이 줄과 ①~⑤ 줄에 열 가운데 탭 문단 모양을 붙인다."""
+            pts = _find_all(h, _CHOICE_HEAD_MARK, 4)
+            if len(pts) != 1:
+                logger.warning("열 머리 자리 표시 %d개(1개여야 함) — 머리 줄 생략", len(pts))
+                for p in reversed(pts):
+                    h.SetPos(p[0], p[1], p[2])
+                    for _ in range(len(_CHOICE_HEAD_MARK)):
+                        h.Run("DeleteBack")
+                return
+            h.SetPos(pts[0][0], pts[0][1], pts[0][2])
+            for _ in range(len(_CHOICE_HEAD_MARK)):
+                h.Run("DeleteBack")
+            _set_plain(h)
+            ses.text(_CHOICE_COL_TOKEN + "\t" + "\t".join(cols))
+            h.Run("BreakPara")
 
         def put_question_at(pos, q):
             h.SetPos(pos[0], pos[1], pos[2])
@@ -1210,11 +1276,15 @@ def _fill_form(mc: list[Question], essays: list[Question], form_path, out_path,
         for i in range(n_mc - 1, -1, -1):
             q = mc[i]
             chs = {c.number: c for c in q.choices}
+            head = False
             for mi, m in enumerate(reversed(CIRCLES)):
                 num = 5 - mi
                 if num in chs and i < len(cpts[m]):
-                    put_choice_at(cpts[m][i], chs[num])
+                    put_choice_at(cpts[m][i], chs[num], cols=(q.choice_cols or None))
+                    head = head or (num == 1 and bool(q.choice_cols))
             put_question_at(qpts[i], q)
+            if head:
+                put_choice_head(q.choice_cols)
 
         ses.save_hwpx(out_path)
         fig_paths = list(getattr(ses, "_fig_paths", []))
@@ -1676,7 +1746,12 @@ def _repair_column_overflow(filled_hwpx, out_hwpx, blanks: dict, colbreak: set,
     단씩 밀려 **중간에 빈 단**이 생긴다(도원중 중1 #13~15 단, 2026-06-11). 서술형 단은
     ① 앵커가 없어 검증 대상에서 제외(객관식 단만 — 서술형은 객관식 뒤라 연쇄로 복구됨).
     """
-    for floor in (_MINGAP, 0):
+    # 단마다 따로 줄인다(빈줄 _MINGAP → 0). 종전엔 시도 2회를 문서 전체가 나눠 써서, 한 단을
+    # 두 번 줄이고 나면 그 뒤에 넘친 다른 단을 못 고쳤다(성광중 중1 #15 `<보기>` 가 단을 넘어
+    # 갈라짐, 2026-10-26). 넘친 단이 없어질 때까지 다시 재되, 단마다 두 단계까지만.
+    floors = (_MINGAP, 0)
+    step: dict = {}                                    # 단 → 다음에 쓸 floors 인덱스
+    for _ in range(len(floors) * len(cols) + 1):
         pos = _measure_first_choice_lines(out_hwpx, n_mc)
         if len(pos) < n_mc:
             logger.warning("[폼] 단 시작 검증 측정 실패(%d/%d) — 넘침 보정 생략",
@@ -1694,10 +1769,13 @@ def _repair_column_overflow(filled_hwpx, out_hwpx, blanks: dict, colbreak: set,
         if bad is None or bad < 0:
             return
         shrunk = False
-        for i in cols[bad][:-1]:
-            if blanks.get(i, 0) > floor:
-                blanks[i] = floor
-                shrunk = True
+        while not shrunk and step.get(bad, 0) < len(floors):
+            floor = floors[step.get(bad, 0)]
+            step[bad] = step.get(bad, 0) + 1
+            for i in cols[bad][:-1]:
+                if blanks.get(i, 0) > floor:
+                    blanks[i] = floor
+                    shrunk = True
         if not shrunk:
             logger.warning("[폼] 단%d 물리 넘침 감지 — 줄일 빈줄이 없어 보정 한계", bad)
             return
@@ -2024,6 +2102,192 @@ def _layout_form(filled_hwpx, out_hwpx, per_col: int, n_mc: int, n_es: int,
     if mc_cols and n_mc:
         _repair_column_overflow(filled_hwpx, out_hwpx, blanks, colbreak, n_mc, mc_cols)
     return _page_end_slots(colbreak, n)
+
+
+def _drop_linesegs(p: str) -> str:
+    """문단의 줄 배치 정보(``<hp:linesegarray>``)를 지운다 — 한글이 열 때 다시 잰다.
+
+    ⚠️ XML 에서 문단의 **글자 수를 바꾸면** 반드시 함께 지울 것. 두 줄 이상으로 접힌 문단은
+    줄마다 시작 글자 위치(``textpos``)를 들고 있어, 앞에 글자를 넣으면 그 위치가 수식 같은
+    컨트롤 한가운데를 가리키게 되고 한글은 **그 지점에서 읽기를 멈추고 나머지 문서를 통째로
+    버린다**(대구일중 #11: ①~⑤ 줄 앞에 표지 4글자 → 미주 22→12, 2026-10-26 실측). 줄 정보가
+    없는 문단은 한글이 받아들여 새로 잰다(실측). 한 줄짜리 문단은 textpos 가 0 뿐이라 안 드러났다.
+    """
+    return re.sub(r"<hp:linesegarray>.*?</hp:linesegarray>", "", p, flags=re.S)
+
+
+def _strip_choice_col_token(hwpx_path: str | Path) -> int:
+    """남은 열 머리 표지(⟦CC⟧)를 XML 에서 지운다(한글 재계산 단계가 실패했을 때의 안전망)."""
+    hwpx_path = Path(hwpx_path)
+    with zipfile.ZipFile(hwpx_path) as z:
+        infos = z.infolist()
+        data = {i.filename: z.read(i.filename) for i in infos}
+    n = 0
+
+    def _fix(m):
+        p = m.group(0)
+        if _CHOICE_COL_TOKEN not in p and _CHOICE_HEAD_MARK not in p:
+            return p
+        return _drop_linesegs(p.replace(_CHOICE_COL_TOKEN, "").replace(_CHOICE_HEAD_MARK, ""))
+
+    for name in [k for k in data if re.search(r"section\d+\.xml$", k)]:
+        sec = data[name].decode("utf-8")
+        k = sec.count(_CHOICE_COL_TOKEN) + sec.count(_CHOICE_HEAD_MARK)
+        if k:
+            n += k
+            # 가장 안쪽 문단 단위로 — 표지를 지운 문단은 줄 정보도 지운다(`_drop_linesegs`).
+            sec = re.sub(r"<hp:p\b(?:(?!<hp:p\b).)*?</hp:p>", _fix, sec, flags=re.S)
+            data[name] = sec.encode("utf-8")
+    if n:
+        _repackage_hwpx(hwpx_path, infos, data)
+    return n
+
+
+def _relayout_choice_columns(hwpx_path: str | Path) -> int:
+    """열 머리 선택지 줄을 한글 안에서 **건드려** 탭 폭을 다시 계산시킨다(그리고 표지를 지운다).
+
+    ⚠️ 한글은 문서를 열고 저장해도 ``<hp:tab width>`` 를 재계산하지 않는다 — 문단 모양의 탭
+    설정을 XML 로 바꿔도 **글자만 있는 문단**은 옛 폭 그대로 그려진다(실측 2026-10-26: 열고
+    저장해도 13900·752 그대로, width 를 지우면 0 으로 저장). 수식이 든 문단만 열 때 다시 잰다
+    (2열 선택지 탭 주입이 수식 객체로 버틴 이유 — 2026-06-02). 그래서 머리 줄과 ①~⑤ 줄마다
+    넣어 둔 표지를 한글 안에서 지워(편집) 그 문단들을 다시 배치하게 한다.
+    Returns: 지운 표지 수.
+    """
+    hwpx_path = Path(hwpx_path).resolve()
+    fd, tmp = tempfile.mkstemp(suffix=".hwpx", dir=str(hwpx_path.parent))
+    os.close(fd)
+    n = 0
+    try:
+        with HwpSession(visible=CONVERSION_VISIBLE) as ses:
+            h = ses.hwp
+            ses.open(hwpx_path)
+            pts = _find_all(h, _CHOICE_COL_TOKEN, 256)
+            for p in reversed(pts):               # 아래 → 위(앞 위치가 안 밀리게)
+                h.SetPos(p[0], p[1], p[2])
+                for _ in range(len(_CHOICE_COL_TOKEN)):
+                    h.Run("DeleteBack")           # 표지 삭제 = 그 줄 재배치
+                n += 1
+            ses.save_hwpx(tmp)
+        _replace_retry(tmp, hwpx_path)
+        return n
+    except Exception:
+        try:
+            os.remove(tmp)
+        except Exception:
+            pass
+        raise
+
+
+def _apply_choice_column_tabs(hwpx_path: str | Path, strip_token: bool = False) -> int:
+    """열 머리 선택지 — 머리 줄(토큰)과 아래 ①~⑤ 줄에 **열 가운데 탭** 문단 모양을 붙인다.
+
+    대수회 기준표(2024) 12번(사용자 2026-10-26): 머리 (가)(나)(다)를 한 줄로 두고 값을 그
+    아래 열로 맞춘다. 채움 단계가 줄을 ``⟦CC⟧\\t(가)\\t(나)`` / ``①\\t값\\t값`` 으로 써 두었다.
+    여기서 그 줄들이 쓰는 문단 모양을 **복제**해 탭 설정만 열 가운데 탭(CENTER)으로 바꾼 새
+    문단 모양을 붙인다 — 2열 선택지용 전역 탭(`_inject_choice_tabstop`, 자기닫음 tabPr 만 대상)과
+    섞이지 않는다. Returns: 처리한 머리 줄 수.
+    """
+    from core.hwp_com_writer import _section_col_width
+    hwpx_path = Path(hwpx_path)
+    with zipfile.ZipFile(hwpx_path) as z:
+        infos = z.infolist()
+        data = {i.filename: z.read(i.filename) for i in infos}
+    hdr_name = next((n for n in data if n.endswith("header.xml")), None)
+    if hdr_name is None:
+        return 0
+    hdr = data[hdr_name].decode("utf-8")
+    made: dict = {}                 # (원 paraPr id, 열 수, 칼럼 폭) → 새 paraPr id
+    total = 0
+
+    def _next_id(tag: str) -> int:
+        ids = [int(x) for x in re.findall(r"<hh:%s\b[^>]*\bid=\"(\d+)\"" % tag, hdr)]
+        return max(ids) + 1 if ids else 0
+
+    def _new_parapr(src_id: str, k: int, col_w: int) -> str:
+        nonlocal hdr
+        key = (src_id, k, col_w)
+        if key in made:
+            return made[key]
+        src = re.search(r'<hh:paraPr id="%s"[ >].*?</hh:paraPr>' % src_id, hdr, re.S)
+        if not src:
+            return src_id
+        start, end = 1800, max(col_w - 900, 1800 + 1000 * k)     # "① " 뒤 ~ 칼럼 오른쪽 여백
+        step = (end - start) / k
+        # ⚠️ tabItem pos 는 HWPUNIT 의 **2배** 값이다(실측: 폼의 2열 탭 30000 = 칼럼 가운데
+        # ≈15000 HWPUNIT, 이 값을 HWPUNIT 로 넣었더니 열이 절반 위치에 섰다 2026-10-26).
+        # 그래서 **홀수는 무효** — 한글이 열 때 그 탭 설정을 통째로 버린다(17061 실측).
+        items = "".join(f'<hh:tabItem pos="{2 * int(start + (j + 0.5) * step)}" type="CENTER" '
+                        'leader="NONE"/>' for j in range(k))
+        tid = _next_id("tabPr")
+        hdr = re.sub(r"(<hh:tabProperties\b[^>]*itemCnt=\")(\d+)(\"[^>]*>)",
+                     lambda m: m.group(1) + str(int(m.group(2)) + 1) + m.group(3), hdr, count=1)
+        hdr = hdr.replace("</hh:tabProperties>",
+                          f'<hh:tabPr id="{tid}" autoTabLeft="0" autoTabRight="0">{items}</hh:tabPr>'
+                          "</hh:tabProperties>", 1)
+        pid = _next_id("paraPr")
+        clone = re.sub(r'^<hh:paraPr id="\d+"', f'<hh:paraPr id="{pid}"', src.group(0))
+        clone = re.sub(r'tabPrIDRef="\d+"', f'tabPrIDRef="{tid}"', clone, count=1)
+        hdr = re.sub(r"(<hh:paraProperties\b[^>]*itemCnt=\")(\d+)(\"[^>]*>)",
+                     lambda m: m.group(1) + str(int(m.group(2)) + 1) + m.group(3), hdr, count=1)
+        hdr = hdr.replace("</hh:paraProperties>", clone + "</hh:paraProperties>", 1)
+        made[key] = str(pid)
+        return made[key]
+
+    for name in [n for n in data if re.search(r"section\d+\.xml$", n)]:
+        sec = data[name].decode("utf-8")
+        if _CHOICE_COL_TOKEN not in sec:
+            continue
+        col_w = _section_col_width(sec) or 25800
+        paras = [(m.start(), m.end()) for m in _PARA.finditer(sec)]
+        out, last = [], 0
+        i = 0
+        while i < len(paras):
+            s0, e0 = paras[i]
+            p = sec[s0:e0]
+            if _CHOICE_COL_TOKEN not in p:
+                i += 1
+                continue
+            k = len(re.findall(r"<hp:tab\b", p))
+            src_id = re.search(r'paraPrIDRef="(\d+)"', p).group(1)
+            new_id = _new_parapr(src_id, max(k, 1), col_w)
+            group = [i]
+            j = i + 1
+            while j < len(paras) and len(group) < 6:
+                vis = _visible_text(sec[slice(*paras[j])]).lstrip()
+                if vis[:1] in "①②③④⑤" and vis[:1]:
+                    group.append(j)
+                    j += 1
+                else:
+                    break
+            for g in group:
+                gs, ge = paras[g]
+                seg = sec[gs:ge]
+                seg = re.sub(r'paraPrIDRef="\d+"', f'paraPrIDRef="{new_id}"', seg, count=1)
+                shaped = seg
+                # 줄 끝 탭·공백 — 폼의 2열 자리 탭(①·③ 뒤)이 남아 마지막 열 뒤에 빈 탭이 붙는다.
+                # 탭은 `<hp:t>` **안**에 있어 `_strip_trailing_choice_tab` 이 못 잡는다.
+                # (뒤에 수식·그림이 오면 그 탭은 열 구분이므로 손대지 않는다.)
+                seg = re.sub(r"(?:\s|<hp:tab\b[^>]*/>)+(</hp:t>)"
+                             r"(?!.*(?:</hp:t>|<hp:equation\b|<hp:pic\b))", r"\1", seg,
+                             count=1, flags=re.S)
+                if g == i and strip_token:
+                    seg = seg.replace(_CHOICE_COL_TOKEN, "")
+                elif g != i and not strip_token:
+                    # ①~⑤ 줄에도 표지 — 한글 재배치 단계가 표지를 지우며 그 줄을 건드린다.
+                    seg = seg.replace("<hp:t>", "<hp:t>" + _CHOICE_COL_TOKEN, 1)
+                if seg != shaped:
+                    seg = _drop_linesegs(seg)
+                out.append(sec[last:gs])
+                out.append(seg)
+                last = ge
+            total += 1
+            i = j
+        out.append(sec[last:])
+        data[name] = "".join(out).encode("utf-8")
+    if total:
+        data[hdr_name] = hdr.encode("utf-8")
+        _repackage_hwpx(hwpx_path, infos, data)
+    return total
 
 
 def _page_end_slots(colbreak, n: int) -> set:
@@ -3544,6 +3808,21 @@ def write_exam_to_form(
                                            render_figures=render_figures,
                                            figure_src_dpi=figure_src_dpi,
                                            style_out=_form_style)
+        # 열 머리 선택지(기준표 12번) — 머리 줄·①~⑤ 줄에 열 가운데 탭 문단 모양 + 한글 재배치.
+        # ⚠️ **단 배치 측정 전**에 한다: 기본 탭 상태의 값 줄은 길게 접혀 그 단이 넘친 것으로
+        # 재어지고, 단 넘침 복구(2회)가 거기에 다 쓰여 정작 넘친 다른 단을 못 고쳤다(성광중
+        # #10 이 든 단3 오인 → #15 `<보기>` 가 단을 넘어 갈라짐, 2026-10-26).
+        try:
+            _n_cc = _apply_choice_column_tabs(filled)
+            if _n_cc:
+                logger.info("열 머리 선택지 %d문항", _n_cc)
+                try:
+                    _relayout_choice_columns(filled)
+                except Exception as e:  # noqa: BLE001
+                    logger.warning("열 머리 선택지 재배치 실패(표지만 지움): %s", e)
+            _strip_choice_col_token(filled)
+        except Exception as e:  # noqa: BLE001
+            logger.warning("폼 후처리 실패(_apply_choice_column_tabs): %s", e)
         # 혼합 레이아웃(객관식 행정렬 + 서술형 빽빽배치 2개/단, 답란 미보존).
         # mc 도 넘겨 COM 측정 실패 시 내용기반 추정으로 폴백(과여백 회피).
         _page_ends = _layout_form(filled, output_path, per_col, n_mc, n_es, essays=essays,
@@ -3681,6 +3960,13 @@ def write_exam_to_form(
         _inject_table_shading(output_path)
     except Exception as e:  # noqa: BLE001
         logger.warning("폼 후처리 실패(_inject_table_shading): %s", e)
+    # 1.82단계: 표 선 굵기 — 상자·일반 표 0.3mm, 확률분포표·표준정규분포표는 기준표 양식
+    # (대수회 작업 규정 표준 #53·#45·#46, 기본 경로와 동일).
+    try:
+        from core.hwp_com_writer import _apply_table_border_widths
+        _apply_table_border_widths(output_path)
+    except Exception as e:  # noqa: BLE001
+        logger.warning("폼 후처리 실패(_apply_table_border_widths): %s", e)
     # 1.85단계: 강조 밑줄 실선 검정 강제(폼 기본 밑줄=회색 점선 상속 보정, 기본 경로와
     # 동일). _com_relaunder **전**에 해 재저장 때 HWP 가 실선 검정으로 굳히게 한다.
     try:
@@ -3702,6 +3988,12 @@ def write_exam_to_form(
         _strip_trailing_choice_tab(output_path)
     except Exception as e:  # noqa: BLE001
         logger.warning("폼 후처리 실패(_fix_stemleaf_colwidth): %s", e)
+    # 1.85단계: 열 머리 선택지 표지 안전망 — 탭 적용·재배치는 채움 직후(단 배치 측정 전)에
+    # 끝났다. 남은 표지가 있으면(재배치 실패) 지운다.
+    try:
+        _strip_choice_col_token(output_path)
+    except Exception as e:  # noqa: BLE001
+        logger.warning("폼 후처리 실패(_strip_choice_col_token): %s", e)
     # 1.9단계: 서술형 끝 메타란 토큰 → [소단원][난이도] 주입(살아있는 MC 메타란 복제, 폼
     # 디자인 동일). _com_relaunder **전**에 해 HWP 가 재저장 때 linesegs 재계산하게 한다.
     try:
