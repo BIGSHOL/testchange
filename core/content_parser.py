@@ -62,7 +62,7 @@ def parse_ocr_response(ocr_result: dict, page_number: int) -> ExamPage:
 
 
 # 박스 머리 마커(들머리 ``<상자>``/``<조건>``/``<보기>``/``[조건]``/``[보기]``) 제거용.
-_BOX_MARK_LEAD_RE = re.compile(r"^\s*(?:<\s*(?:상자|조건|보기)\s*>|\[\s*(?:조건|보기)\s*\])\s*")
+_BOX_MARK_LEAD_RE = re.compile(r"^\s*(?:<\s*(?:상자|조건|보기|증명)\s*>|\[\s*(?:조건|보기)\s*\])\s*")
 _MIN_DUP_BOX_KO = 8   # 중복 박스 판정 최소 한글 글자수(짧은 우연 일치 방지)
 
 
@@ -193,7 +193,7 @@ def _drop_subquestion_duplicate_boxes(raw: list[dict], q_data: dict) -> list[dic
 _EMBED_ITEM_LOOKAHEAD = r"(?=\s*(?:[•·▪◦○〇ㅇ]|[ㄱ-ㅎ]\s*\.|[（(]\s*[가-힣]\s*[)）]))"
 _EMBED_BOX_MARK_RE = re.compile(
     r"<\s*상자\s*>" + _EMBED_ITEM_LOOKAHEAD
-    + r"|(?:<\s*(?:조건|보기)\s*>|\[\s*(?:조건|보기)\s*\])(?![가-힣])" + _EMBED_ITEM_LOOKAHEAD)
+    + r"|(?:<\s*(?:조건|보기|증명)\s*>|\[\s*(?:조건|보기)\s*\])(?![가-힣])" + _EMBED_ITEM_LOOKAHEAD)
 
 
 def _split_embedded_box_markers(raw: list[dict]) -> list[dict]:
@@ -1843,7 +1843,7 @@ _SCORE_TEXT_RE = re.compile(r'\s*[\[(]\s*(?:총\s*)?\d+(?:\.\d+)?\s*점\s*(?:,[^
 # 진짜 보기 항목이 평문으로 풀렸다(월암중 #11·상원중 #16, 2026-06-11). ``<상자>`` 는 항상 박스.
 _RAW_BOX_MARK_RE = re.compile(
     r"^\s*(?:<\s*상자\s*>"
-    r"|(?:<\s*(?:조건|보기)\s*>|\[\s*(?:조건|보기)\s*\])(?![가-힣])(?!\s+(?:중에서|에서|중)(?=[\s,.?]|$)))")
+    r"|(?:<\s*(?:조건|보기|증명)\s*>|\[\s*(?:조건|보기)\s*\])(?![가-힣])(?!\s+(?:중에서|에서|중)(?=[\s,.?]|$)))")
 # 항목 라벨 단독(ㄱ./ㄴ./…, (가)/(나)/…, 1)/2)/…) — 박스 머리 뒤가 이것뿐이면 자기완결 아님.
 _BARE_ITEM_LABEL_RE = re.compile(
     r"^(?:[ㄱ-ㅎ]\s*\.?|[（(]\s*[가-힣]\s*[)）]|\d+\s*[.)])\s*$")

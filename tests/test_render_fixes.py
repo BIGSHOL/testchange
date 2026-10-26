@@ -456,6 +456,11 @@ def run():
     chk(" ⦁ " in latex_to_hwpeq(r"(\vec{a}+\vec{b})\cdot(\vec{a}-\vec{b})"), "STD 내적 ⦁(괄호)")
     chk(latex_to_hwpeq(r"2\cdot 3") == "2 CDOT 3", "STD 곱셈점 무변경")
     chk(latex_to_hwpeq(r"A=\{1,2,3\}") == 'A="{"1,~2,~3"}"', "STD 집합 원소 쉼표")
+    # 기준표 4번 ``<증명>`` 상자 — <보기>·<조건> 과 같은 라벨 상자(5×5 라벨 표).
+    from core.hwp_com_writer import _COND_HEADER_RE as _CHR, _BOGI_LABEL_TEXT_RE as _BLR
+    from core.content_parser import _RAW_BOX_MARK_RE as _RBM
+    chk(bool(_CHR.match("<증명> 삼각형 ABC 에서")) and bool(_BLR.match("<증명>"))
+        and bool(_RBM.match("<증명> 삼각형")), "STD <증명> 상자 머리 인식")
     # 이슈4: \mathrm{} 뒤 소문자 변수 로만 번짐 — it 삽입(rm pH it = - log x, x 이탤릭).
     ksy_ph = latex_to_hwpeq(r"\mathrm{pH} = -\log x", italicize_stat=False)
     chk(ksy_ph == "rm pH it = - log x", f"KSY 이슈4 pH rm 번짐: {ksy_ph!r}")
