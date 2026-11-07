@@ -2621,6 +2621,17 @@ def _fill_exam_range(hwpx_path: str | Path, range_text: str) -> int:
 
 
 # ── 진입점 ────────────────────────────────────────────────
+def _prep_year2(yr: str) -> str:
+    """꼬리말 '… 대비' 의 연도(두 자리) = 시험 연도 + 1. "2025"·"25" → "26", 모르면 ""."""
+    digits = re.sub(r"\D", "", yr or "")
+    if not digits:
+        return ""
+    y = int(digits)
+    if y < 100:
+        y += 2000
+    return f"{(y + 1) % 100:02d}"
+
+
 def _fill_form_header(hwpx_path: str | Path, values: dict) -> int:
     """출력 .hwpx 의 폼 머리말/꼬리말 텍스트를 학년·과목·시기 값으로 치환(결정적 XML).
 
@@ -2646,7 +2657,7 @@ def _fill_form_header(hwpx_path: str | Path, values: dict) -> int:
     if not (g and subj):
         return 0
     yr = (values.get("년도") or "").strip()
-    yr2 = yr[-2:] if yr else ""          # "2025" → "25" (꼬리말 학년도)
+    yr2 = _prep_year2(yr)                # "2025" → "26" (꼬리말 = 대비하는 해)
     term = (values.get("학기") or "").strip()
     kind = (values.get("구분") or "").strip()
     # 시험명(머리말 좌측): "2025년 1학기 중간고사"
@@ -2654,12 +2665,16 @@ def _fill_form_header(hwpx_path: str | Path, values: dict) -> int:
     # 머리말 가운데: "{학교} {N}학년 {과목}"  (예 "침산중 2학년 수학", "영진고 2학년 수학1")
     who = (f"{school} {gnum}학년" if school and gnum else (f"{gnum}학년" if gnum else g))
     center = f"{who} {subj}".strip()
-    # 꼬리말(우하단) — 대수회 작업 규정 표준 #55(사용자 2026-10-26 "표준에 전부 맞출 것"):
-    #   중등 "{학교}{N} {YY}년 {학기}학기 {구분}고사 대비 (수학)"  (예 "경신중1 26년 1학기 중간고사 대비 (수학)")
-    #   고등 "{학교} {YY}년 {학기}학기 {구분}고사 대비 ({과목})"   (예 "혜화여고 26년 1학기 중간고사 대비 (대수)")
-    # 26년 개정 폼 원문도 "OO중 27년 O학기 OO고사 대비 (수학)" 다. 종전(2026-06-04)은 "{학교} {YY}학년 …".
-    who_f = school + (gnum if g.startswith("중") and school else "")
-    prep = ((f"{who_f} " if who_f else "") + (f"{yr2}년 " if yr2 else "")
+    # 꼬리말(우하단) = "{학교} {YY}년 {학기}학기 {구분}고사 대비 ({과목})" — 중등·고등 같다
+    #   (예 "성지중 27년 1학기 중간고사 대비 (수학)", "혜화여고 27년 1학기 중간고사 대비 (대수)").
+    # ⭐ **학년은 넣지 않는다**(사용자 2026-11-07 "꼬릿말에서 학년은 빼는게 맞아"). 표준 #55 문구
+    #   "학교(중등은 +학년)"·예시 "경신중1 …" 를 따라 2026-10-26 부터 "성광중1 …" 로 찍었으나 폐기.
+    #   26년 개정 폼 원문 "OO중 27년 …" 과 사람 작업본(성지중 중1 워드본)도 학년이 없다.
+    # ⭐ YY = **시험 연도 + 1**(사용자 2026-11-07 "25년 시험지면 26년, 26년 시험지면 27년 — 시험
+    # 대비이기 때문"). 그 해 기출로 이듬해 같은 시험을 대비하는 자료라서다. 26년 개정 폼 원문
+    # "OO중 27년 …" 도 26년 시험지용이다. 종전엔 시험 연도를 그대로 써 한 해 이르게 찍혔다.
+    # 종전(2026-06-04)은 "{학교} {YY}학년 …".
+    prep = ((f"{school} " if school else "") + (f"{yr2}년 " if yr2 else "")
             + f"{term}학기 {kind}고사").replace("  ", " ").strip()
     footer = f"{prep} 대비 ({subj})"
     pats = [
