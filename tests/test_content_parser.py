@@ -1157,14 +1157,38 @@ def _check_negation_emphasis(fails):
             fails.append(f"  NE 부정어 강조 실패: {text!r} → {segs!r}")
         if any(s[1] or s[2] for s in segs if s[0] != neg):  # 부정어 외엔 강조 없음
             fails.append(f"  NE 비부정어 오강조: {text!r} → {segs!r}")
-    # 긍정/비선택은 무강조
-    for text in ("옳은 것은?", "변하지 않은 점을 찾으시오", "괜찮은 것은?"):
+    # 긍정/비선택은 무강조 — 단서 "…이웃하지 않는 것으로 한다" 는 선택 대상이 아니다(포산고 공수1 서술형 4)
+    for text in ("옳은 것은?", "변하지 않은 점을 찾으시오", "괜찮은 것은?",
+                 "(단, 빈 의자가 있는 경우는 이웃하지 않는 것으로 한다.)"):
         if any(b or u for _, b, u in emph(text)):
             fails.append(f"  NE 오강조(무강조여야): {text!r} → {emph(text)!r}")
     # 이미 밑줄(__옳지 않은__)이면 볼드만 추가(원본 강조 보존)
     segs = emph("옳지 않은", underline=True)
     if not (len(segs) == 1 and segs[0][1] and segs[0][2]):
         fails.append(f"  NE 기존 밑줄 볼드추가 실패: {segs!r}")
+
+
+def _check_quantity_names(fails):
+    """QN(포산고 공수1 서술형 3, 2026-11-10) — '넓이를 S_1' 처럼 양에 붙인 한 글자 이름은 도형 문맥이어도
+    이탤릭(점 이름 로만화 대상 아님). 같은 문항의 점·꼭짓점은 종전대로 로만."""
+    from core.content_parser import parse_ocr_response as _p
+
+    def eqs(contents):
+        pg = _p({"header": "", "questions": [{"number": 1, "score": 7, "contents": contents}]}, page_number=1)
+        return [b.value for b in pg.questions[0].contents if b.type.name == "EQUATION"]
+
+    T = lambda v: {"type": "text", "value": v}      # noqa: E731
+    E = lambda v: {"type": "equation", "value": v}  # noqa: E731
+    got = eqs([T("사각형 "), E("ABCD"), T("의 넓이를 "), E("S_{1}"), T("이라 할 때, 점 "), E("P"),
+               T("에 대하여 "), E("S_{1}"), T("의 값은?")])
+    if got != [r"\mathrm{ABCD}", "S_{1}", r"\mathrm{P}", "S_{1}"]:
+        fails.append(f"  QN 넓이 이름 이탤릭/점 로만 실패: {got!r}")
+    got = eqs([T("삼각형 ABC의 넓이를 "), E("S"), T("라 할 때 "), E("S"), T("의 값은?")])
+    if any(v == r"\mathrm{S}" for v in got):
+        fails.append(f"  QN 넓이 S 로만화: {got!r}")
+    got = eqs([T("원 위의 교점의 x좌표로 이루어진 집합을 "), E("X"), T("라 할 때, 점 "), E("A"), T("는?")])
+    if "X" not in got or r"\mathrm{X}" in got or r"\mathrm{A}" not in got:
+        fails.append(f"  QN 집합 이름 이탤릭/점 로만 실패: {got!r}")
 
 
 def _check_adversarial_high(fails, _l2h):
@@ -1310,6 +1334,7 @@ def run():
     _check_ksy_box_nobullet(fails)
     _check_suha_fixes(fails)
     _check_negation_emphasis(fails)
+    _check_quantity_names(fails)
     _check_unam_fixes(fails)
     # KSY 이슈1(경상여고 대수 26-1): 페이지 뒤섞임 → 검출 번호로 재정렬(객관식·서술형 각 그룹).
     from models.exam_document import (Question, Choice, ContentBlock, ContentType,

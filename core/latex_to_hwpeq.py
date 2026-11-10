@@ -1207,6 +1207,10 @@ class LaTeXToHWPConverter:
         result = _TEMP_UNIT_RE.sub(lambda m: m.group(1) + "`°rm " + m.group(2), result)
         result = _TRIG_ANGLE_SPACE_RE.sub(r"\1`\2", result)
         result = _vector_dot_product(result)
+        # 팩토리얼 뒤 등호: HWP 수식은 붙은 ``!=`` 를 ≠ 로 읽는다 — ``4!=24`` 가 ``4≠24`` 로
+        # 인쇄됐다(포산고 공수1 서술형 4 해설, 2026-11-10). ≠ 는 ``\neq``→``neq`` 경로로만 나오므로
+        # 남은 ``!=`` 는 전부 팩토리얼이다 — 띄워서 끊는다.
+        result = re.sub(r"!(?==)", "! ", result)
 
         # 후처리: 다중 공백 정리
         result = re.sub(r"  +", " ", result).strip()

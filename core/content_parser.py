@@ -1066,6 +1066,34 @@ _FIGURE_NAME_EQ_RE = re.compile(
 _MATRIX_UPPER_RUN_RE = re.compile(r"(?<![A-Za-z\\])[A-Z]{2,4}(?![A-Za-z])")
 
 
+# '넓이를 S_1'·'부피를 V'·'합을 T_n' — 양(量)에 붙인 한 글자 이름. 점 이름("점 A")과 달리
+# 변수라 이탤릭이다. 기하 문맥 한 글자 로만화가 이것까지 정자로 만들었다(포산고 공수1
+# 서술형 3 "사각형 ABCD의 넓이를 S_1" — 같은 문항의 S_1+S_2+S_3 은 이탤릭이라 한 문항 안에서 갈렸다).
+# 집합 이름("…로 이루어진 집합을 X")도 변수라 이탤릭(표준 — 집합 A·B 는 이탤릭). corpus 전수 전후
+# 대조: 바뀐 문항 24개 = 넓이·합 S/S_n/S_1 · 집합 X/Y · 아래 '것으로' 오탐 3건, 전부 이탤릭 복원 방향.
+_QUANTITY_TAIL_RE = re.compile(
+    r"(?:넓이|겉넓이|부피|둘레의 길이|둘레|길이의 합|집합|합|거리)\s*[를을는은가이]\s*$")
+
+
+def _name_key(v: str) -> str:
+    """수식 블록 값의 이름 비교 키 — 첨자 중괄호 차이(S_{1}·S_1)를 지운다."""
+    return re.sub(r"[{}\s]", "", v or "")
+
+
+def _quantity_names(blocks: list[ContentBlock]) -> set[str]:
+    """양의 이름으로 정의된 한 글자 대문자(첨자 포함) — 문항 안 어디에 다시 나와도 이탤릭."""
+    names: set[str] = set()
+    for i, b in enumerate(blocks[1:], 1):
+        prev = blocks[i - 1]
+        if (b.type == ContentType.EQUATION and prev.type == ContentType.TEXT
+                and _QUANTITY_TAIL_RE.search(prev.value or "")):
+            v = (b.value or "").strip()
+            m = _UPPER_LETTERS_RE.match(v)
+            if v and "\\math" not in v and _BARE_UPPER_EQ_RE.match(v) and m and len(m.group(0)) == 1:
+                names.add(_name_key(v))
+    return names
+
+
 def _romanize_point_names(blocks: list[ContentBlock],
                           force_geo: bool = False) -> list[ContentBlock]:
     """기하 점/선/면 이름(통째 대문자 수식 블록)을 \\mathrm 으로 감싸 로만체로 강제.
@@ -1098,6 +1126,7 @@ def _romanize_point_names(blocks: list[ContentBlock],
                     lambda m: "\\mathit{" + m.group(0) + "}", b.value)
         return blocks
     has_geo = force_geo or _has_geometry_context(blocks)
+    qty_names = _quantity_names(blocks) if has_geo else set()
     out: list[ContentBlock] = []
     fig_ctx = False          # 바로 앞이 도형 이름 자리("원 ", "두 원 O, " 의 ", ")인가
     for b in blocks:
@@ -1120,7 +1149,9 @@ def _romanize_point_names(blocks: list[ContentBlock],
                 m = _UPPER_LETTERS_RE.match(v)
                 n_letters = len(m.group(0)) if m else 0
                 # 2글자 이상은 라벨로 보고 항상 로만, 1글자는 기하 문맥에서만 로만.
-                if n_letters >= 2 or (n_letters == 1 and has_geo):
+                # 단 '넓이를 S_1' 처럼 양(量)에 붙인 이름은 점이 아니라 변수 — 이탤릭 유지.
+                if n_letters >= 2 or (n_letters == 1 and has_geo
+                                      and _name_key(v) not in qty_names):
                     out.append(ContentBlock(type=ContentType.EQUATION,
                                             value=f"\\mathrm{{{v}}}"))
                     continue
@@ -1777,7 +1808,9 @@ _HANGUL_RE = re.compile(r"[가-힣]")
 # 놓치지 않게 볼드+밑줄로 강조한다(사용자 2026-06-16). 부정어 뒤에 선택 대상 '것'이 와야
 # 매칭(선택문 한정 — "변하지 않은 점" 같은 일반 서술은 제외). 원본이 이미 __밑줄__로 강조한
 # 경우엔 그 밑줄 run 에 볼드만 더한다(_NEG_WORD_RE).
-_NEG_SELECT_RE = re.compile(r'(않은|않는|아닌|틀린)(?=\s*것)')
+# '것으로'(단서 "…이웃하지 않는 것으로 한다")는 선택 대상이 아니다 — corpus 의 '것은/것을' 밖 용례
+# 3건이 전부 이 오탐이었다(포산고 공수1 서술형 4 외 2편, 2026-11-10).
+_NEG_SELECT_RE = re.compile(r'(않은|않는|아닌|틀린)(?=\s*것(?!으로))')
 _NEG_WORD_RE = re.compile(r'않은|않는|아닌|틀린')
 
 

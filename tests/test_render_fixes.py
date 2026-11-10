@@ -457,6 +457,12 @@ def run():
     chk(" it " in latex_to_hwpeq(r"\mathrm{A}/x", italicize_stat=False),
         "O9 무회귀: rm 라벨 뒤 /x 는 이탤릭 복원")
 
+    # ── FACT: 팩토리얼 뒤 등호 — HWP 는 붙은 ``!=`` 를 ≠ 로 읽는다(포산고 공수1 서술형 4 해설 ``4!=24``) ──
+    chk("!=" not in latex_to_hwpeq("4!=24"), "FACT 4!=24 가 ≠ 로 안 읽히게 끊음")
+    chk("!=" not in latex_to_hwpeq(r"3!\times 2!=12"), "FACT 곱 뒤 팩토리얼 등호")
+    chk(latex_to_hwpeq(r"x\neq 1") == "x neq 1", "FACT 무회귀: \\neq 는 neq")
+    chk(latex_to_hwpeq("n!") == "n!", "FACT 무회귀: 팩토리얼 단독")
+
     # ── O6: 집합 조건제시법 — \left\{…\right\} 자동크기 + \middle| (사용자 2026-07-31) ──
     # ① ``\mid``→``|`` 매핑이 ``\middle`` 을 접두 매칭해 ``|dle|`` 로 새던 것(현풍고 서답형4).
     # ② 중괄호 구분자는 **맨 ``{``**(``LEFT {``)여야 분수 높이만큼 늘어난다. 따옴표 리터럴
